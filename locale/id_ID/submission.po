@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2020-02-11 07:42+0000\n"
+"PO-Revision-Date: 2020-02-12 06:38+0000\n"
 "Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/id/>\n"
@@ -800,10 +800,10 @@ msgid "log.review.reviewReinstated"
 msgstr "Ronde {$round} review oleh {$reviewerName} untuk naskah {$submissionId} telah dimulai ulang."
 
 msgid "submission.reviewForm"
-msgstr "Form Review"
+msgstr "Borang Review"
 
 msgid "submission.reviewFormResponse"
-msgstr "Respon Form Review"
+msgstr "Respon Borang Review"
 
 msgid "submission.mySubmissions"
 msgstr "Artikel Saya"
@@ -914,3 +914,1199 @@ msgstr "File terlampir"
 
 msgid "submission.changeFile"
 msgstr "Ganti File"
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"Editor produksi harus ditugaskan sebelum proses editorial dimulai. Silakan "
+"tambahkan editor produksi menggunakan daftar Partisipan ."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"Editor produksi harus ditugaskan sebelum proses produksi dapat dimulai. "
+"Tambahkanlah editor produksi menggunakan daftar Partisipan."
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"File proof halaman harus diberi tanda disetujui agar Tersedia. Ingin "
+"menyetujuinya?"
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"Peserta yang Anda pilih telah ditugaskan untuk melakukan blind review. Jika "
+"ditugaskan sebagai partisipan, mereka bisa mengakses identitas penulis. Anda "
+"disarankan untuk tidak menugaskan partisipan ini kecuali Anda dapat "
+"memastikan integritas dari proses peer review secara mandiri."
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Abstrak terlalu panjang. Jumlah katanya maksimal {$limit} atau kurang. "
+"Sekarang jumlahnya {$count} kata."
+
+msgid "publication.version.details"
+msgstr "PRincian publikasi naskah versi {$version}"
+
+msgid "publication.version.confirm"
+msgstr "Yakin ingin membuat versi baru?"
+
+msgid "publication.version.all"
+msgstr "Semua Versi"
+
+msgid "publication.unschedule.confirm"
+msgstr "Yakin tidak ingin menjadwalkan naskah ini untuk diterbitkan?"
+
+msgid "publication.unschedule"
+msgstr "Tidak dijadwalkan"
+
+msgid "publication.unpublish.confirm"
+msgstr "Yakin tidak ingin menerbitkan naskah ini?"
+
+msgid "publication.unpublish"
+msgstr "Tidak diterbitkan"
+
+msgid "publication.titleAbstract.success"
+msgstr "Judul dan abstrak telah diperbaharui."
+
+msgid "publication.titleAbstract"
+msgstr "Judul & Abstrak"
+
+msgid "publication.status.unscheduled"
+msgstr "Tidak dijadwalkan"
+
+msgid "publication.status.unpublished"
+msgstr "Tidak Diterbitkan"
+
+msgid "publication.status.scheduled"
+msgstr "Dijadwalkan"
+
+msgid "publication.status.published"
+msgstr "Diterbitkan"
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"Naskah harus melewati tahap Copyediting atau Produksi sebelum dapat "
+"diterbitkan."
+
+msgid "publication.required.declined"
+msgstr "Naskah yang ditolak tidak bisa diterbitkan."
+
+msgid "publication.publish.success"
+msgstr "Status publikasi telah berhasil diubah."
+
+msgid "publication.publish.requirements"
+msgstr "Persyaratan berikut harus dipenuhi sebelum naskah diterbitkan."
+
+msgid "publication.publish"
+msgstr "Terbitkan"
+
+msgid "publication.publicationLicense.success"
+msgstr "HInformasi hak cipta dan lisensi telah diperbaharui."
+
+msgid "publication.publicationLicense"
+msgstr "Perijinan & Keterbukaan"
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Identifier telah diperbaharui."
+
+msgid "publication.metadata.success"
+msgstr "Metadata telah diperbaharui."
+
+msgid "publication.invalidSubmission"
+msgstr "Naskah publikasi ini tidak dapat ditemukan."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Sebuah versi dihapus dari publikasi."
+
+msgid "publication.event.versionScheduled"
+msgstr "Versi baru telah dijadwalkan untuk terbit."
+
+msgid "publication.event.versionPublished"
+msgstr "Versi baru telah diterbitkan."
+
+msgid "publication.event.versionCreated"
+msgstr "Versi baru telah dibuat."
+
+msgid "publication.event.unpublished"
+msgstr "Naskah tidak diterbitkan."
+
+msgid "publication.event.scheduled"
+msgstr "Naskah telah dijadwalkan untuk terbit."
+
+msgid "publication.event.published"
+msgstr "Naskah telah diterbitkan."
+
+msgid "publication.editDisabled"
+msgstr "Versi ini telah diterbitkan dan tidak dapat disunting."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Taggal harus dalam format  YYYY-MM-DD, contoh 2019-01-01."
+
+msgid "publication.datePublished"
+msgstr "Tanggal DIterbitkan"
+
+msgid "publication.createVersion"
+msgstr "Buat Versi Baru"
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"Tahunhak cipta akan ditetapkan secara otomatis berdasarkan tanggal publikasi."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"Tahunhak cipta akan ditetapkan secara otomatis jika naskah ini diterbitkan "
+"pada satu nomor terbitan."
+
+msgid "publication.contributors"
+msgstr "Kontributor"
+
+msgid "publication.citations.success"
+msgstr "Referensi telah diperbaharui."
+
+msgid "submission.publication"
+msgstr "Publikasi"
+
+msgid "catalog.category.subcategories"
+msgstr "Subkategori"
+
+msgid "catalog.category.noItems"
+msgstr "Belum ada yang diterbitkan dalam kategori ini."
+
+msgid "submission.currentCoverImage"
+msgstr "Gambar Saati Ini"
+
+msgid "submission.submit.placement.categories"
+msgstr "Kategori"
+
+msgid "category.coverImage"
+msgstr "Gambar Sampul"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Tanggal terbit (baru ke lama)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Danggal terbit (lama ke baru)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Judul (Z-A)"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Judul (A-Z)"
+
+msgid "grid.category.categories"
+msgstr "Kategori"
+
+msgid "submission.list.assignEditor"
+msgstr "Tugaskan Edit"
+
+msgid "submission.list.currentStage"
+msgstr "Sedang berada pada tahap {$stage}."
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Penyerahan naskah harus dirampungkan sebeum direview oleh editor."
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Anda telah diberi peran editorial untuk naskah ini. Anda ingin mengakses <a "
+"href=\"{$urlEditorialWorkflow}\">Alur Kerja Editorial</a>?"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Anda telah diberi peran ganda untuk naskah ini. Ingin mengkases <a href=\""
+"{$urlAuthorWorkflow}\">Alur Kerja Penulis</a>  atau <a href=\""
+"{$urlEditorialWorkflow}\">Alur Kerja Editorial</a>?"
+
+msgid "submission.list.discussions"
+msgstr "Buka diskusi"
+
+msgid "submission.list.filesPrepared"
+msgstr "File telah disiapkan"
+
+msgid "submission.list.galleysCreated"
+msgstr "Gale produksi telah dibuat"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "File hasil copyedit telah diserahkan"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Revisi telah diserahkan"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Penugasan review telah selesai"
+
+msgid "submission.list.viewSubmission"
+msgstr "Lihat Naskah Masuk"
+
+msgid "submission.list.confirmDelete"
+msgstr "Hapus naskah?"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Review Dibatalkan"
+
+msgid "submission.list.reviewComplete"
+msgstr "Review Diserahkan"
+
+msgid "submission.list.reviewDue"
+msgstr "Natas Waktu Mereview"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Penugasan Review"
+
+msgid "submission.list.responseDue"
+msgstr "Batas Waktu Menaggapi"
+
+msgid "submission.list.empty"
+msgstr "Tidak ada naskah."
+
+msgid "submission.list.infoCenter"
+msgstr "Log dan Catatan Aktivitas"
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"Anda harus menugaskan minimal satu partisipan untuk naskah ini sebelum "
+"memulai diskusi."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Anda dimasukkan ke diskusi berjudul \"{$queryTitle}\" berkenaan dengan "
+"naskah \"{$submissionTitle}\"."
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"Terdapat aktivitas baru dalam diskusi berjudul \"{$queryTitle}\" berkenaan "
+"dengan naskah \"{$submissionTitle}\"."
+
+msgid "submission.query.new"
+msgstr "{$creatorName} memulai diskusi: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} menjawab {$noteTitle}: {$noteContents}"
+
+msgid "grid.action.openNoteForm"
+msgstr "Tambah balasan baru untuk diskusi"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Jika keluar dari diskusi ini, kamu tidak akan lagi mendapat peberitahuan "
+"pesan baru. Yakin ingin keluar dari diskusi ini?"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+msgid "submission.query.leaveQuery"
+msgstr "Keluar dari Diskusi"
+
+msgid "submission.query.addNote"
+msgstr "Tamvah Pesan"
+
+msgid "submission.query.closed"
+msgstr "Ditutup"
+
+msgid "submission.query.lastReply"
+msgstr "Jawaban Lalu"
+
+msgid "submission.query.from"
+msgstr "Dari"
+
+msgid "submission.query.replies"
+msgstr "Jawaban"
+
+msgid "submission.query.messages"
+msgstr "Pesan"
+
+msgid "submission.query.subject"
+msgstr "Subjek"
+
+msgid "submission.queries.production"
+msgstr "Diskusi Produksi"
+
+msgid "submission.queries.editorial"
+msgstr "Diskusi Copyediting"
+
+msgid "submission.queries.review"
+msgstr "Diskusi Review"
+
+msgid "submission.queries.submission"
+msgstr "Diskusi Prareview"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Artikel ini berlisensi<a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Attribution-ShareAlike 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Artikel ini berlisensi<a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
+"3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Artikel ini berlisensi<a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"Attribution-NoDerivatives 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Artikel ini berlisensi<a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons "
+"Attribution-NonCommercial-ShareAlike 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>TArtikel ini berlisensi<a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Attribution-NonCommercial 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>TArtikel ini berlisensi<a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons "
+"Attribution-NonCommercial-NoDerivatives 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4."
+"0/88x31.png\" /></a><p>Artikel ini berlisensi<a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons "
+"Attribution-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/"
+"88x31.png\" /></a><p>Artikel ini berlisensi  <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution "
+"4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4."
+"0/88x31.png\" /></a><p>Artikel ini berlisensi <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons "
+"Attribution-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>Artikel ini berlisensi<a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons "
+"Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4."
+"0/88x31.png\" /></a><p>Artikel ini berlisensi <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons "
+"Attribution-NonCommercial 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>Artikel ini berlisensi <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons "
+"Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.licenseURL"
+msgstr "URL Lisensi"
+
+msgid "submission.licenseURLValid"
+msgstr "Tambahkan URL luar yang valid  (cantumkn http://)."
+
+msgid "submission.copyrightStatement"
+msgstr "Hak Cipta (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.copyrightYear"
+msgstr "Tahun Hak Cipta"
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Hak cipta akan ditentukan secara otomatis pada {$copyright} ketika naskah "
+"ini diterbitkan."
+
+msgid "submission.copyrightHolder"
+msgstr "Pemegang Hak Cipta"
+
+msgid "submission.copyright"
+msgstr "Hak Cipta"
+
+msgid "submission.license.description"
+msgstr ""
+"Lisensi akan ditetapkan otomatis pada <a href='{$licenseUrl}' "
+"target='_blank'>{$licenseName}</a> ketika naskah ini diterbitkan."
+
+msgid "submission.license"
+msgstr "Lisensi"
+
+msgid "submission.attachPermissions"
+msgstr "Lampitkan perijinan berikut pada naskah:"
+
+msgid "submission.permissions"
+msgstr "Perijinan"
+
+msgid "grid.action.editMetadata"
+msgstr "Sunting Metadata"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Buat elemen baru borang review"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Proses produksi dimulai."
+
+msgid "grid.action.itemWorkflow"
+msgstr "Buka alur kerja naskah"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Kontributor atau agen pendukung"
+
+msgid "submission.supplementary.publisher"
+msgstr "Penerbit"
+
+msgid "submission.supplementary.subject"
+msgstr "Subjek"
+
+msgid "submission.supplementary.creator"
+msgstr "Pembuat (atau pemilik) file"
+
+msgid "submission.supplementary"
+msgstr "Koten Pelengkap"
+
+msgid "submission.art"
+msgstr "Karya Seni"
+
+msgid "submission.document"
+msgstr "Dokumen"
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Proses review ini telah selesai dan mitra bestari telah diberi penghargaan "
+"atas kontribusinya."
+
+msgid "submission.review.status.complete"
+msgstr "Proses review telah rampung."
+
+msgid "submission.review.status.received"
+msgstr "Mitra Bestari telah menyerahkan hasil reviewnya."
+
+msgid "submission.review.status.accepted"
+msgstr "Review ini telah diterima."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Mitra Bestari melewatkan batas waktu mereview."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Mitra Bestari melewatkan batas waktu menanggapi."
+
+msgid "submission.review.status.declined"
+msgstr "Mitra Bestari menolak permintaan review."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Menunggu tanggapan dari mitra bestari."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} telah merampungkan review untuk tahap {$round} review untuk "
+"naskah {$submissionId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Editor {$userName} telah mengonfirmasi review untuk tahap {$round} review "
+"untuk naskah {$submissionId}."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} menandai ronde {$round} review untuk naskah {$submissionId} "
+"sebagai tidak dipertimbangkan."
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Unggah File Revisi"
+
+msgid "submission.productionReady"
+msgstr "Buku Tersedia"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Pilih file review untuk dibagikan kepada penulis"
+
+msgid "grid.reviewAttachments.title"
+msgstr "Lampiran Reviewer"
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Harus ditugaskan seorang editor sebelum memulai review. Tambahkanlan seorang "
+"editor menggunakan daftar Partisipan."
+
+msgid "notification.uploadedResponse"
+msgstr "Tanggapan diunggah."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Naskah ditolak."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Kirim ulang untuk direview."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Perlu direvisi."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Proses review eksternal dimulai."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Naskah diterima."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Keputusan terbaru editor."
+
+msgid "notification.type.indexRequest"
+msgstr "Anda diminta membuat indeks untuk \"{$title}\"."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Anda telah diminta mereview layout untuk \"{$title}\"."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Anda telah diminta menelaah copyedit dari \"{$title}\"."
+
+msgid "notification.type.editorAssign"
+msgstr "Anda telah menugaskan seorang editor untuk naskah \"{$title}\"."
+
+msgid "submission.documents"
+msgstr "Dokumen Naskah Masuk"
+
+msgid "submission.stageNotInitiated"
+msgstr "Tahapan belum dimulai."
+
+msgid "submission.description"
+msgstr "Deskripsi"
+
+msgid "submission.overview"
+msgstr "Pratinjau Naskah"
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+"\"{$name}\" ({$username}) telah menyetujui proof untuk \"{$formatName}.\""
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) telah keluar pada signoff untuk \"{$file}.\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$name}\" ({$username}) telah menyelesaikan pemeriksaan dan mengunggah \""
+"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$name}\" ({$username}) dihapus sebagai auditor untuk file \"{$file}.\""
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$name}\" ({$username}) ditambahkan sebagai penulis untuk file \"{$file}.\""
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "File \"{$title}\" dengan revisi terakhir dihapus oleh {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"Revisi file \"{$originalFileName}\" dihapus untuk naskah {$submissionId} "
+"oleh {$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"Revisi file \"{$originalFileName}\" diunggah untuk naskah {$submissionId} "
+"oleh {$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"File \"{$originalFileName}\" dihapus untuk naskah masuk {$submissionId} oleh "
+"{$username}."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"File \"{$originalFileName}\" diunggah untuk naskah masuk {$submissionId} "
+"oleh {$username}."
+
+msgid "editor.submission.addAuditorError"
+msgstr "Terjadi kesalahan saat mencoba menugaskan auditor. Silakan diulangi."
+
+msgid "submission.finalDraft"
+msgstr "File Draf"
+
+msgid "submission.submit.currentFile"
+msgstr "File Sekarang"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "File Review"
+
+msgid "submission.actionNeeded"
+msgstr "Perlu tindakan"
+
+msgid "submission.noActionRequired"
+msgstr "Tidak perlu tindakan"
+
+msgid "submission.currentStage"
+msgstr "Tahap Terkini"
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "Sebelumnya: Pemberitahuan Penulis"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr "Pilih file yang ingin diteruskan ke tahap {$stageName}."
+
+msgid "editor.submission.decision.nextButton"
+msgstr "Berikutnya: Pilih File untuk {$stageName}"
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Rekomendasi Tercatat"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Rekomendasi dan keputusan editorial untuk naskah ini."
+
+msgid "editor.submission.recommendation"
+msgstr "Rekomendasi"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Rekomendasi: {$recommendations}"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Rekomendasi: {$recommendation}"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Ubah Rekomendasi"
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Buat Rekomendasi"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+"Tugaskan seorang editor untuk mengaktifkan keputusan editoria pada tahap ini."
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Proof file ini tidak akan tersedia lagi bagi publik untuk diunduh atau "
+"dibeli. Apakah Anda ingin menolaknya?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Setujui Proof"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Apakah Anda yakin membolehkan penulis naskah ini dapat mengedit metadata "
+"naskahnya pada tahap itu?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Anda yakin ingin menolak penulis naskah ini untuk dapat mengedit metadata "
+"naskahnya pada tahap itu?"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Kirim ke Review Interna"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Terima dan Lewati Review"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Kirim Ke Bagian Produksi"
+
+msgid "editor.submission.decision.decline"
+msgstr "Tolak Naskah"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Kirim ulang untuk direview"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Ajukan Revisi"
+
+msgid "editor.submission.decision.accept"
+msgstr "Terima Naskah"
+
+msgid "editor.submission.decision"
+msgstr "Keputusan"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Ijinkan Penyuntingan Metadata"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Tolak Penyuntingan Metadata"
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Anda harus memilih pengguna untuk grup pengguna tertentu."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Harus memilih grup pengguna."
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "Anda akan menghapus partisipan dari <strong>semua</strong> tahapan."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Hapus Partisipan"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Pengguna ditugaskan pada tahap alur kerja oleh grup pengguna. Siapa pun yang "
+"ditugaskan secara otomatis akan ditugaskan pada tahap lain di mana grup "
+"penggunanya ditugaskan. Hal ini berkebalikan dengan editor, penuli dan "
+"penerjemah."
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Edit Penugasan"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Tugaskan Partisipan"
+
+msgid "editor.submission.participant"
+msgstr "Partisipan"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Tidak Ada Yang Ditugaskan"
+
+msgid "editor.submission.stageParticipants"
+msgstr "Partisipan"
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Semua rekomendasi sudah masuk dan membutuhkan pengambilan keputusan."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Rekomendasi bari dari editorial telah dikirim."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Menunggu rekomendasi dari editor."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Batas waktu review habis."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Semua mitra bestari telah menanggapi dan keputusan perlu diambil."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Review baru telah telah dikirim."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Menunggu tanggapan dari mitra bestari."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Menunggu penugasan mitra bestari."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Naskah ditolak."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Naskah diterima."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Kirim ke review eksternal."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Naskah sudah dikirim ulang untuk review tahap berikutnya."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Naskah harus dikirim ulang untuk review tahap berikutnya."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Revisi telah dikirim."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Permintaan revisi telah diajukan."
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Belum ada file untuk Anda revisi saat ini."
+
+msgid "submission.upload.proof"
+msgstr "Unggah File Siap Terbit"
+
+msgid "submission.upload.productionReady"
+msgstr "Unggah File Siap Tayang"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"Setelah menelaah file yang ditugaskan, rekam komentar pada file di bawah "
+"ini, dan/atau unggah salinan file yang ada catatan (atau file lain)."
+
+msgid "submission.upload.uploadFiles"
+msgstr "Unggah File"
+
+msgid "submission.upload.fairCopy"
+msgstr "Unggah Fair Copy"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Unggah File Hasil Copyedit"
+
+msgid "submission.upload.finalDraft"
+msgstr "Unggah File"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Kategori Dokumen Naskah Masuk"
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Unggah Library File"
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"Jika mengirim Edited Volume, unggahlah semua bab volume tersendiri, dalam "
+"peran Anda sebagai penyunting volume."
+
+msgid "submission.upload.userGroup"
+msgstr "Unggah file ini dengan peran saya sebagai..."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Ini buka revisi dari file yang ada"
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "Jika ingin mengunggah file revisi, tentukan filenya."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Pilihlah file yang ingin direvisi."
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"Nama file yang diunggah sama dengan nama file yang diunggah sebelumnya, \""
+"{$revisedFileName}.\" Apakah ini ingin mengganti file \"{$revisedFileName}\""
+"? Jika iya, pilihlah file di bawah ini. Jika tidak, pilihlah \"Ini buka "
+"revisi file yang ada\" sebelum melanjutkan."
+
+msgid "submission.upload.possibleRevision"
+msgstr "Publikasi Ganda atau Revisi Terdetekdi"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Grup pengguna tidak ada atau tidak valid!"
+
+msgid "submission.upload.noGenre"
+msgstr "Komponen tidak ada atau tidak valid!"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Wajib memberi nama untuk file ini"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Konfirmasi"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Periksa Rincian Data"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Unggah File Naskah"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Unggah File"
+
+msgid "submission.status.scheduled"
+msgstr "Dijadwalkan"
+
+msgid "submission.status.published"
+msgstr "Diterbitkan"
+
+msgid "submission.status.declined"
+msgstr "Ditolak"
+
+msgid "submission.status.unassigned"
+msgstr "Belum Diproses"
+
+msgid "submission.status.submission"
+msgstr "Menunggu Keputusan Editor"
+
+msgid "submission.status.review"
+msgstr "Dalam Tahap Review"
+
+msgid "submission.status.production"
+msgstr "Dalam Tahap Proofreading"
+
+msgid "submission.status.editorial"
+msgstr "Dalah Tahap Copyediting"
+
+msgid "workflow.stage"
+msgstr "Tahap"
+
+msgid "workflow.stage.any"
+msgstr "Tahap Apa Saja"
+
+msgid "workflow.review.internalReview"
+msgstr "Review Internal"
+
+msgid "submission.form.replaceExisting"
+msgstr "Ganti File Sebeumnya?"
+
+msgid "submission.form.name"
+msgstr "Beri nama file (misalnya, Naskah; Tabel 1)"
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Masukkan referensi."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Masukkan hak cipta."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Masukkan sumber."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Tambahkan Tipe."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Tambahkan informasi cakupan."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Tambahkan kata kunci."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Masukkan bidang ilmu."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Tambahkan subjek."
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Pilih bahasa."
+
+msgid "submission.submit.addAuthor"
+msgstr "Tambah Kontributor"
+
+msgid "submission.submit.contributorRole"
+msgstr "Peran kontributor"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Narahubung utama untuk korespondensi editorial."
+
+msgid "submission.createRemote"
+msgstr "Buat Alamat Luar"
+
+msgid "submission.type.tip"
+msgstr ""
+"Jenis naskah biasanya salah satu dari 'gambar', 'teks', atau jenis "
+"multimedia lainnya termasuk 'software' atau 'interactive'.  Silakan pilih "
+"jenis yang dengan naskah Anda. Contoh bisa dilihat pada <a target=\"_blank\" "
+"href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#"
+"type\">http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type</a>"
+
+msgid "submission.upload.query"
+msgstr "Unggah File Diskusi"
+
+msgid "submission.upload.dependent"
+msgstr "Unggah File Dependen"
+
+msgid "submission.manageDependentFiles"
+msgstr "Kelolla File Dependen"
+
+msgid "submission.submit.dependentFiles"
+msgstr "File Dependen"
+
+msgid "submission.submit.submissionFiles"
+msgstr "File Naskah"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Menerima naskah dalama beberapa bahasa. Pilih bahasa utama naskah pada "
+"daftar di atas."
+
+msgid "submission.submit.submissionLocale"
+msgstr "Bahasa Naskah"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Tambahkan informasi tambahan pada naskah Anda. Tekan \"enter' per istilah."
+
+msgid "submission.submit.metadataForm"
+msgstr "Perbaikan Tambahan"
+
+msgid "submission.submit.newFile"
+msgstr "Tambah File Lain"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Sertakan kontributor ini dalam daftar pencarian?"
+
+msgid "submission.submit.fileAdded"
+msgstr "File Ditambahkan"
+
+msgid "submission.submit.fileInformation"
+msgstr "Informasi File"
+
+msgid "submission.submit.selectFile"
+msgstr "Pilih File"
+
+msgid "submission.submit.finishSubmission"
+msgstr "Selesaikan Kirim Naskah"
+
+msgid "submission.submissionTitle"
+msgstr "Judul Naskah:"
+
+msgid "submission.submission"
+msgstr "Naskah"
+
+msgid "submission.source.tip"
+msgstr ""
+"Apakah naskah ini diambil dari sumber lain? Jika iya, Anda bisa menambahkan "
+"URL atau deskripsi sumbernya."
+
+msgid "submission.source"
+msgstr "Sumber"
+
+msgid "submissions.inactive"
+msgstr "Tidak aktif selama {$days} hari"
+
+msgid "submission.rights.tip"
+msgstr ""
+"Jika mau, Anda bisa menambahkan uraian singkat tentang akses hak cipta yang "
+"melekat pada naskah ini."
+
+msgid "submission.rights"
+msgstr "Hak Cipta"
+
+msgid "submission.reviewed"
+msgstr "Direview"
+
+msgid "submission.production"
+msgstr "Produksi"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Cantumkan alamat URL luar yang valid (include http://)."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "URL Luar"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Beri tahukan"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Tampilkan kegiatan dari versi terdahulu"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "publication.wordCount"
+msgstr "Jumlah Kata: {$count}/{$limit}"
+
+msgid "submission.informationCenter.history"
+msgstr "Riwayat"
+
+msgid "submission.informationCenter.notes"
+msgstr "Catatan"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Metadata"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Informasi Naskah"
+
+msgid "submission.publisherId"
+msgstr "Identifier URL Publik"
+
+msgid "submission.identifiers"
+msgstr "Identifier"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Naskah ini versi lama yang diterbitkan pada {$datePublished}. Baca <a href=\""
+"{$urlRecentVersion}\">versi terbaru</a>."
+
+msgid "submission.versions"
+msgstr "Versi"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Diperbaharui pada {$dateUpdated}"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Unduh Sitasi"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Format Sitasi Lainnya"
+
+msgid "submission.howToCite"
+msgstr "Cara Mengutip"
+
+msgid "submission.files.downloadAll"
+msgstr "Unduh Semua File"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Penulis tidak diijinkan mengubah metadata jika proses naskah ada pada tahap "
+"{stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Penulis diijinkan mengubah metadata jika proses naskah ada pada tahap "
+"{stage}."
+
+msgid "submission.event.viewEmail"
+msgstr "Buka Email"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Email telah dikirim:"
+
+msgid "submission.event.fileRevised"
+msgstr "Revisi \"{$name}\" (file ID {$fileId}-{$fileRevision}) telah diunggah."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Pengiriman Naskah Awal Selesai."
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) dihapus dari {$userGroupName}."
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$name} ({$username}) ditugaskan pada naskah ini sebagai {$userGroupName}."
+
+msgid "submission.editorial"
+msgstr "Copyediting"
+
+msgid "submission.coverage"
+msgstr "Cakupan Informasi"
+
+msgid "submission.queryNoteFiles"
+msgstr "File Diskusi"
+
+msgid "submission.copyediting"
+msgstr "Copyediting"
+
+msgid "submission.copyedited"
+msgstr "Copyedit"
+
+msgid "submission.contributors"
+msgstr "Daftar Kontributor"
+
+msgid "submission.comments.addReviews"
+msgstr "Tambahkan hasil review ke surel"
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Ekstrak dan Simpan Referensi"
+
+msgid "submission.parsedCitations.description"
+msgstr "Rujukan berikut telah diekstrak dan akan ditautkan ke metadata naskah."
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations"
+msgstr "Rujukan Hasil Ekstrak"
+
+msgid "submission.citations.description"
+msgstr ""
+"Ketik setiap rujukan pada baris baru sehingga bisa diekstrak dan dicatat "
+"secara terpisah."

@@ -911,3 +911,6 @@ msgstr "Unggah File"
 
 msgid "submission.attachedFile"
 msgstr "File terlampir"
+
+msgid "submission.changeFile"
+msgstr "Ganti File"

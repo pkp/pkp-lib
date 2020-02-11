@@ -54,8 +54,6 @@ class PKPLicenseForm extends FormComponent {
 
 		$this->addField(new FieldRadioInput('copyrightHolderType', [
 				'label' => __('submission.copyrightHolder'),
-				'helpTopic' => 'settings',
-				'helpSection' => 'copyright-v-license',
 				'type' => 'radio',
 				'options' => [
 					['value' => 'author', 'label' => __('user.role.author')],
@@ -73,8 +71,6 @@ class PKPLicenseForm extends FormComponent {
 			]))
 			->addField(new FieldRadioInput('licenseUrl', [
 				'label' => __('manager.distribution.license'),
-				'helpTopic' => 'settings',
-				'helpSection' => 'copyright-v-license',
 				'type' => 'radio',
 				'options' => $licenseUrlOptions,
 				'value' => $context->getData('licenseUrl'),

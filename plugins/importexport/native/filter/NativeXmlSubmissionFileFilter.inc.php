@@ -286,7 +286,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 					if (!filesize($temporaryFilename)) {
 						$errorFlag = true;
 					}
-				} elseif (substr($filesrc, 1, 1) === '/') {
+				} elseif (substr($filesrc, 0, 1) === '/') {
 					// local file (absolute path)
 					if (!copy($filesrc, $temporaryFilename)) {
 						$errorFlag = true;

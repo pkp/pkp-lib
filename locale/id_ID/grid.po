@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
 "PO-Revision-Date: 2020-02-12 08:50+0000\n"
-"Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "id/>\n"
 "Language: id_ID\n"
@@ -722,3 +722,18 @@ msgstr "Kirim surel sambutan kepada pengguna."
 
 msgid "grid.user.notifyUser"
 msgstr "Beri Tahu Pengguna"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Dengan level izin ditentapkan pada"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Tampilkan peran yang diberi tugas"
+
+msgid "grid.userGroup.allStages"
+msgstr "Semua Tahapan Alur Kerja"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Batalkan tahapan"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Buat tahapan penugasan"

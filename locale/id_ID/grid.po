@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
 "PO-Revision-Date: 2020-02-12 06:38+0000\n"
-"Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "id/>\n"
 "Language: id_ID\n"
@@ -253,3 +253,72 @@ msgstr "Butir ini di-host dari jarak jauh."
 
 msgid "grid.noAuditors"
 msgstr "Tidak Ada Auditor"
+
+msgid "grid.action.orderItems"
+msgstr "Aktifkan cara pengurutan"
+
+msgid "grid.action.importexport"
+msgstr "Impor atau ekspor konten atau data situs"
+
+msgid "grid.action.settings"
+msgstr "Pengaturan"
+
+msgid "grid.action.sendToProduction"
+msgstr "Kirim naskah ke tahap produksi"
+
+msgid "grid.action.externalReview"
+msgstr "Kirim naskah ini ke review eksternal"
+
+msgid "grid.action.internalReview"
+msgstr "Kirim naskah ini ke review internal"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Pilih tipe..."
+
+msgid "grid.action.accept"
+msgstr "Terima naskah ini"
+
+msgid "grid.action.requestRevisions"
+msgstr "Minta revisi naskah ini"
+
+msgid "grid.action.selectFiles"
+msgstr "Pilih file untuk dikelola"
+
+msgid "grid.action.editFile"
+msgstr "Edit file"
+
+msgid "grid.action.addFile"
+msgstr "Tambahkan file"
+
+msgid "grid.action.addReviewer"
+msgstr "Tambahkan mitra bestari"
+
+msgid "grid.action.email"
+msgstr "Kirim surel"
+
+msgid "grid.action.readReview"
+msgstr "Baca review ini"
+
+msgid "grid.action.downloadAll"
+msgstr "Unduh semua file sebagai arsip"
+
+msgid "grid.action.moveItem"
+msgstr "Pindahkan Item"
+
+msgid "grid.action.wizard"
+msgstr "Pintasan Pengaturan"
+
+msgid "grid.action.collapseAll"
+msgstr "Sembunyikan semua"
+
+msgid "grid.action.collapse"
+msgstr "Sembunyikan"
+
+msgid "grid.action.extendAll"
+msgstr "Tampilkan semua"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Batalkan pengurutan"
+
+msgid "grid.action.order"
+msgstr "Urutkan"

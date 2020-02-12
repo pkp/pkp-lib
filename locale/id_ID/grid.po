@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2020-02-12 08:04+0000\n"
+"PO-Revision-Date: 2020-02-12 08:23+0000\n"
 "Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "id/>\n"
@@ -583,3 +583,24 @@ msgstr "Alasan untuk mengaktifkan pengguna"
 
 msgid "grid.user.disableReason"
 msgstr "Alasan untuk menonaktifkan pengguna"
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Mengharuskan pengguna untuk mengubah kata sandi saat mereka masuk."
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Membuat kata sandi acak untuk pengguna ini."
+
+msgid "grid.user.generatePassword"
+msgstr "Membuat Kata Sandi"
+
+msgid "grid.user.mustProvideName"
+msgstr "Sediakan setidaknya nama belakang untuk pengguna."
+
+msgid "grid.user.authSource"
+msgstr "Sumber otentikasi"
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"Anda tidak memiliki izin untuk mengelola pengguna ini. Untuk mengelola "
+"pengguna, Anda harus menjadi administrator situs, atau mengelola semua "
+"konteks di mana pengguna ini terdaftar."

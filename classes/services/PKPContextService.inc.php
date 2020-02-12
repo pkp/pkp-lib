@@ -216,27 +216,18 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			]
 		);
 
-		// Check required fields if we're adding a context
-		if ($action === VALIDATE_ACTION_ADD) {
-			\ValidatorFactory::required(
-				$validator,
-				$schemaService->getRequiredProps(SCHEMA_CONTEXT),
-				$schemaService->getMultilingualProps(SCHEMA_CONTEXT),
-				$primaryLocale
-			);
-		}
-
-		// Check for input from disallowed locales
-		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_CONTEXT), $allowedLocales);
-
-		// Don't allow an empty value for the primary locale of the name field
-		\ValidatorFactory::requirePrimaryLocale(
+		// Check required fields
+		\ValidatorFactory::required(
 			$validator,
-			['name'],
-			$props,
+			$action,
+			$schemaService->getRequiredProps(SCHEMA_CONTEXT),
+			$schemaService->getMultilingualProps(SCHEMA_CONTEXT),
 			$allowedLocales,
 			$primaryLocale
 		);
+
+		// Check for input from disallowed locales
+		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_CONTEXT), $allowedLocales);
 
 		// Ensure that a urlPath, if provided, does not already exist
 		$validator->after(function($validator) use ($action, $props) {

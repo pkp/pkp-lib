@@ -275,7 +275,10 @@
 		"title": {
 			"type": "string",
 			"multilingual": true,
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"type": {
 			"type": "string",

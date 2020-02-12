@@ -91,20 +91,21 @@ class PKPSiteService implements EntityPropertyInterface {
 			]
 		);
 
+		// Check required fields
+		\ValidatorFactory::required(
+			$validator,
+			VALIDATE_ACTION_EDIT,
+			$schemaService->getRequiredProps(SCHEMA_PUBLICATION),
+			$schemaService->getMultilingualProps(SCHEMA_PUBLICATION),
+			$allowedLocales,
+			$primaryLocale
+		);
+
 		// Check for input from disallowed locales
 		\ValidatorFactory::allowedLocales(
 			$validator,
 			$schemaService->getMultilingualProps(SCHEMA_SITE),
 			$allowedLocales
-		);
-
-		// Don't allow an empty value for the primary locale for some fields
-		\ValidatorFactory::requirePrimaryLocale(
-			$validator,
-			['title', 'contactName', 'contactEmail'],
-			$props,
-			$allowedLocales,
-			$primaryLocale
 		);
 
 		// If a new file has been uploaded, check that the temporary file exists and

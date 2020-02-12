@@ -141,7 +141,6 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$requiresPublicationWriteAccess = [
-			'addPublication',
 			'editPublication',
 		];
 		if (in_array($routeName, $requiresPublicationWriteAccess)) {
@@ -150,6 +149,7 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$requiresProductionStageAccess = [
+			'addPublication',
 			'versionPublication',
 			'publishPublication',
 			'unpublishPublication',
@@ -314,7 +314,7 @@ class PKPSubmissionHandler extends APIHandler {
 		$params['contextId'] = $request->getContext()->getId();
 
 		$primaryLocale = $request->getContext()->getPrimaryLocale();
-		$allowedLocales = $request->getContext()->getSupportedLocales();
+		$allowedLocales = $request->getContext()->getData('supportedSubmissionLocales');
 
 		$errors = Services::get('submission')->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
@@ -366,7 +366,7 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$primaryLocale = $request->getContext()->getPrimaryLocale();
-		$allowedLocales = $request->getContext()->getSupportedLocales();
+		$allowedLocales = $request->getContext()->getData('supportedSubmissionLocales');
 
 		$errors = Services::get('submission')->validate(VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
 
@@ -438,7 +438,6 @@ class PKPSubmissionHandler extends APIHandler {
 
 		$usersIterator = $userService->getMany(array(
 			'contextId' => $context->getId(),
-			'count' => 100, // high upper-limit
 			'assignedToSubmission' => $submission->getId(),
 			'assignedToSubmissionStage' => $stageId,
 		));
@@ -474,8 +473,7 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$args = [
-			'submissionIds' => $submission->getId(),
-			'count' => 1000
+			'submissionIds' => $submission->getId()
 		];
 
 		$userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray();
@@ -557,7 +555,12 @@ class PKPSubmissionHandler extends APIHandler {
 			$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 		}
 		$primaryLocale = $submissionContext->getPrimaryLocale();
-		$allowedLocales = $submissionContext->getSupportedLocales();
+		$allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
+
+		// A publication may have a different primary locale
+		if (!empty($params['locale']) && in_array($params['locale'], $allowedLocales)) {
+			$primaryLocale = $params['locale'];
+		}
 
 		$errors = Services::get('publication')->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
@@ -659,8 +662,8 @@ class PKPSubmissionHandler extends APIHandler {
 		if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
 			$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 		}
-		$primaryLocale = $submissionContext->getPrimaryLocale();
-		$allowedLocales = $submissionContext->getSupportedLocales();
+		$primaryLocale = $publication->getData('locale');
+		$allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
 
 		$errors = Services::get('publication')->validate(VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
 
@@ -716,8 +719,8 @@ class PKPSubmissionHandler extends APIHandler {
 		if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
 			$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 		}
-		$primaryLocale = $submissionContext->getPrimaryLocale();
-		$allowedLocales = $submissionContext->getSupportedLocales();
+		$primaryLocale = $submission->getData('locale');
+		$allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
 
 		$errors = Services::get('publication')->validatePublish($publication, $submission, $allowedLocales, $primaryLocale);
 

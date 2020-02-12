@@ -209,19 +209,22 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 			$schemaService->getValidationRules(SCHEMA_EMAIL_TEMPLATE, $allowedLocales)
 		);
 
-		if ($action === VALIDATE_ACTION_ADD) {
-			\AppLocale::requireComponents(
-				LOCALE_COMPONENT_PKP_MANAGER,
-				LOCALE_COMPONENT_APP_MANAGER
-			);
+		\AppLocale::requireComponents(
+			LOCALE_COMPONENT_PKP_MANAGER,
+			LOCALE_COMPONENT_APP_MANAGER
+		);
 
-			// Check required fields
-			\ValidatorFactory::required(
-				$validator,
-				$schemaService->getRequiredProps(SCHEMA_EMAIL_TEMPLATE),
-				$schemaService->getMultilingualProps(SCHEMA_EMAIL_TEMPLATE),
-				$primaryLocale
-			);
+		// Check required fields
+		\ValidatorFactory::required(
+			$validator,
+			$action,
+			$schemaService->getRequiredProps(SCHEMA_EMAIL_TEMPLATE),
+			$schemaService->getMultilingualProps(SCHEMA_EMAIL_TEMPLATE),
+			$allowedLocales,
+			$primaryLocale
+		);
+
+		if ($action === VALIDATE_ACTION_ADD) {
 
 			// Require a context id
 			$validator->after(function($validator) use ($props) {

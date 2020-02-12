@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2020-02-11 07:23+0000\n"
-"Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
+"PO-Revision-Date: 2020-02-12 06:38+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/id/>\n"
 "Language: id_ID\n"
@@ -368,3 +368,134 @@ msgstr "Pustaka"
 
 msgid "editor.activityLog"
 msgstr "Log Kegiatan"
+
+msgid "reviewer.list.empty"
+msgstr "Tidak ada mitra bestari"
+
+msgid "reviewer.list.biography"
+msgstr "Biografi"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Minat Mereview pada Disiplin Ilmu"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Buka"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Mitra bestari ini dikunci karena telah diberi peran yang memungkinkannya "
+"untuk melihat identitas penulis. Blind peer review tidak terjamin. Apakah "
+"Anda ingin membuka akses mitra bestari ini?"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Mitra bestari ini telah ditugaskan mereview naskah ini."
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Tidak pernah ditugaskan"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Rerata jumalh hari menyelesaikan review"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Hari sejak penugasan review terakhir"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Kemarin"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} hari yang lalu"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Nilai mitra bestari: {$rating}"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Permintaan review dibatalkan"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Permintaan review ditolak"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Review rampung"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Review aktif yang sedang ditugaskan"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} aktif"
+
+msgid "reviewer.list.filterRating"
+msgstr "Nilai minimal"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} dari {$total} mitra bestari"
+
+msgid "reviewer.list.count"
+msgstr "{$count} mitra bestari"
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Pola {$pattern} tidak diperbolehkan untuk identifier publik."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Identifier publik '{$publicIdentifier}' tidak boleh berisi angka."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Cabut kembali pengesahan proof ini untuk menandai bahwa proofreading belum "
+"selesai dan file belum siap diterbitkan."
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Sahkan proof ini untuk menandai bahwa proofreading telah selesai dan file "
+"siap diterbitkan."
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Cabut Kembali Persetujuan Proof"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Sahkan Proof"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Mitra Bestari yang Dipilih"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "File dapat dilampirkan dalam diskusi ini dari daftar di bawan ini."
+
+msgid "grid.action.editQuery"
+msgstr "Sunting Diskusi"
+
+msgid "submission.queries.attachedFiles"
+msgstr "File Terlampir"
+
+msgid "submission.queries.messageRequired"
+msgstr "Pesan diskusi perlu ditambahkan."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Subjek diskusi perlu ditambahkan."
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Anda belum memilih file untu ditelaah oleh mitra bestari."
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Tidak Ada File Yang Dipilih"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Peringatan: Mengubah borang review akan mempengaruhi jawaban yang telah "
+"diserahkan oleh mitra bestari?"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Pilih Borang Review"
+
+msgid "editor.article.reviewForms"
+msgstr "Borang Review"
+
+msgid "editor.submission.createNewRound"
+msgstr "Buat Tahapan Review Baru"
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Anda akan membuat ronde review baru untuk naskah ini. File yang belum "
+"digunakan pada review lain ditampilkan di bawah ini."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Jangan buat diskusi tentang review."

@@ -76,6 +76,7 @@
 		<attribute name="application" use="required">
 			<simpleType>
 				<restriction base="string">
+					<enumeration value="ops" />
 					<enumeration value="ojs2" />
 					<enumeration value="ocs2" />
 					<enumeration value="omp" />

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2020-02-06 08:35+0000\n"
+"PO-Revision-Date: 2020-02-13 12:28+0000\n"
 "Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "sv/>\n"
@@ -415,3 +415,9 @@ msgstr "Beslutet är registrerat"
 
 msgid "editor.activityLog"
 msgstr "Aktivitets logg"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Redaktören har avslutat granskningsförfrågan."
+
+msgid "editor.review.requestCancelled"
+msgstr "Förfrågan är avslutad"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2020-02-11 07:23+0000\n"
+"PO-Revision-Date: 2020-02-12 08:50+0000\n"
 "Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/id/>\n"
@@ -141,7 +141,7 @@ msgid "manager.emails.createEmail"
 msgstr "Buat Email"
 
 msgid "manager.emails.disable"
-msgstr "Tidak Aktif"
+msgstr "Nonaktifkan"
 
 msgid "manager.emails.editEmail"
 msgstr "Sunting Surel"
@@ -267,7 +267,7 @@ msgid "manager.people.createUserSendNotify"
 msgstr "Kirim email selamat datang kepada pengguna yang berisi nama pengguna dan kata sandi mereka."
 
 msgid "manager.people.disable"
-msgstr "Tidak Aktif"
+msgstr "Nonaktifkan"
 
 msgid "manager.people.doNotEnroll"
 msgstr "Dengan tidak ada peran"
@@ -327,13 +327,13 @@ msgid "manager.people.mergeUsers.confirm"
 msgstr "Apakah Anda yakin ingin menggabungkan{$oldAccountCount} akun yang terpilih ke akun dengan nama pengguna \"{$newUsername}\"? Akun {$oldAccountCount} terpilih tidak akan ada setelahnya. Tindakan ini tidak bisa dilakukan sebaliknya."
 
 msgid "manager.people.mergeUsers"
-msgstr "Gabungkan pengguna"
+msgstr "Gabungkan Pengguna"
 
 msgid "manager.people.mustChooseRole"
 msgstr "Pilih peran di atas halaman sebelum mengklik \"Daftarkan Pengguna\"."
 
 msgid "manager.people.mustProvideName"
-msgstr "Sediakan minimal satu nama terakhir untuk pengguna."
+msgstr "Sediakan setidaknya nama belakang untuk pengguna."
 
 msgid "manager.people.noMatchingUsers"
 msgstr "Tidak ada pengguna yang cocok."
@@ -366,16 +366,16 @@ msgid "manager.people.userCreatedSuccessfully"
 msgstr "Pengguna telah dibuat dengan sukses."
 
 msgid "manager.people.userMustChangePassword"
-msgstr "Pengguna perlu mengganti kata sandi mereka lain waktu saat mereka login."
+msgstr "Mengharuskan pengguna untuk mengubah kata sandi saat mereka masuk."
 
 msgid "manager.plugins.action"
-msgstr "Aksi:"
+msgstr "Tindakan:"
 
 msgid "manager.plugins.disable"
-msgstr "TIdak Aktif"
+msgstr "Nonaktifkan"
 
 msgid "manager.plugins.enable"
-msgstr "Aktif"
+msgstr "Aktifkan"
 
 msgid "manager.plugins.pluginManagement"
 msgstr "Manajemen Plugin"

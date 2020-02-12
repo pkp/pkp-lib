@@ -47,9 +47,9 @@
 				<b>{$currentUserName}</b> ({$currentUserGroup})
 			{/fbvFormSection}
 
-			{if $isChangeRecommentOnlyAllowed}
+			{if $isChangeRecommendOnlyAllowed}
 				{fbvFormSection title="stageParticipants.options" list="true" class="recommendOnlyWrapperNoJavascript"}
-					{fbvElement type="checkbox" name="recommendOnly" id="recommendOnly" label="stageParticipants.recommendOnly" checked=$currentAssignmentRecommentOnly}			
+					{fbvElement type="checkbox" name="recommendOnly" id="recommendOnly" label="stageParticipants.recommendOnly" checked=$currentAssignmentRecommendOnly}
 				{/fbvFormSection}
 			{/if}
 
@@ -59,7 +59,7 @@
 				{/fbvFormSection}
 			{/if}
 
-			{if !$isChangePermitMetadataAllowed && !$isChangeRecommentOnlyAllowed}
+			{if !$isChangePermitMetadataAllowed && !$isChangeRecommendOnlyAllowed}
 				{translate key="stageParticipants.noOptionsToHandle"}
 			{/if}
 		{else}

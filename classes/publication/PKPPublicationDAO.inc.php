@@ -220,18 +220,17 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	/**
 	 * @copydoc PKPPubIdPluginDAO::changePubId()
 	 */
-	public function changePubId($pubObjectId, $pubIdType, $pubId) {
-		$this->update(
-			'UPDATE publication_settings ps
-				SET ps.setting_value = ?
-				WHERE ps.publication_id = ?
-				AND ps.setting_name= ?',
-			[
-				$pubId,
-				$pubObjectId,
-				'pubid::' . $pubIdType,
-			]
+	function changePubId($pubObjectId, $pubIdType, $pubId) {
+		$idFields = array(
+			'publication_id', 'locale', 'setting_name'
 		);
+		$updateArray = array(
+			'publication_id' => (int) $pubObjectId,
+			'locale' => '',
+			'setting_name' => 'pub-id::'.$pubIdType,
+			'setting_value' => (string)$pubId
+		);
+		$this->replace('publication_settings', $updateArray, $idFields);
 		$this->flushCache();
 	}
 

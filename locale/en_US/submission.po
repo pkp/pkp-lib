@@ -678,7 +678,13 @@ msgid "submission.identifiers"
 msgstr "Identifiers"
 
 msgid "submission.publisherId"
-msgstr "Public URL identifier"
+msgstr "Publisher ID"
+
+msgid "submission.publisherId.description"
+msgstr "The publisher ID may be used to record the ID from an external database. For example, items exported for deposit to PubMed may include the publisher ID. This should not be used for DOIs."
+
+msgid "submission.publisherId.enable"
+msgstr "Enable for {$objects}"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Submission Info"
@@ -1826,6 +1832,9 @@ msgstr "Subcategories"
 msgid "submission.publication"
 msgstr "Publication"
 
+msgid "submission.publications"
+msgstr "Publications"
+
 msgid "publication.citations.success"
 msgstr "The references have been updated."
 
@@ -1930,6 +1939,18 @@ msgstr "Unschedule"
 
 msgid "publication.unschedule.confirm"
 msgstr "Are you sure you don't want this scheduled for publication?"
+
+msgid "publication.urlPath"
+msgstr "URL Path"
+
+msgid "publication.urlPath.description"
+msgstr "An optional path to use in the URL instead of the ID."
+
+msgid "publication.urlPath.duplicate"
+msgstr "The URL path has already been used and can not be used again."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "The URL path can not be a number."
 
 msgid "publication.version.all"
 msgstr "All Versions"

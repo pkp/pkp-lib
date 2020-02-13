@@ -773,13 +773,6 @@ class FormBuilderVocabulary {
 
 		$returner = '';
 
-		$form = $this->getForm();
-		if (isset($form) && isset($form->errorFields[$params['name']])) {
-			$smarty->assign('FBV_error', true);
-		} else {
-			$smarty->assign('FBV_error', false);
-		}
-
 		$smarty->assign(array('FBV_suppressId' => null, 'FBV_label' => null, 'FBV_required' => false, 'FBV_uniqId' => null, 'FBV_multilingual' => false, 'FBV_required' => false));
 		foreach ($params as $key => $value) {
 			switch ($key) {
@@ -792,6 +785,16 @@ class FormBuilderVocabulary {
 					$smarty->assign('FBV_' . $key, $value);
 					break;
 			}
+		}
+
+		$form = $this->getForm();
+		if (isset($form) && isset($form->errorFields[$params['name']])) {
+			$smarty->assign('FBV_error', true);
+			$errors = $form->getErrorsArray();
+			$smarty->assign('FBV_subLabelTranslate', false);
+			$smarty->assign('FBV_label', $errors[$params['name']]);
+		} else {
+			$smarty->assign('FBV_error', false);
 		}
 
 		$returner = $smarty->fetch('form/subLabel.tpl');

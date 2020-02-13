@@ -288,6 +288,14 @@
 				"nullable"
 			]
 		},
+		"urlPath": {
+			"type": "string",
+			"description": "An optional path to use in the URL instead of the ID.",
+			"validation": [
+				"nullable",
+				"regex:/^[-_a-z0-9]*$/"
+			]
+		},
 		"urlPublished": {
 			"type": "string",
 			"description": "The public URL for this publication or where it will be available if it has not yet been published.",

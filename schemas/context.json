@@ -221,6 +221,15 @@
 				"nullable"
 			]
 		},
+		"enablePublisherId": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"validation": [
+					"in:publication,galley,issue,issueGalley"
+				]
+			}
+		},
 		"envelopeSender": {
 			"type": "string",
 			"validation": [
@@ -439,13 +448,6 @@
 					"type": "string"
 				}
 			}
-		},
-		"urlPath": {
-			"type": "string",
-			"validation": [
-				"regex:/^[a-z0-9]+([\\-_][a-z0-9]+)*$/"
-			],
-			"apiSummary": true
 		},
 		"paymentsEnabled": {
 			"type": "boolean",
@@ -698,6 +700,13 @@
 		"url": {
 			"type": "string",
 			"readOnly": true,
+			"apiSummary": true
+		},
+		"urlPath": {
+			"type": "string",
+			"validation": [
+				"regex:/^[a-z0-9]+([\\-_][a-z0-9]+)*$/"
+			],
 			"apiSummary": true
 		}
 	}

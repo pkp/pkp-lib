@@ -45,15 +45,13 @@ abstract class PKPSubmission extends DataObject {
 	}
 
 	/**
-	 * Return the "best" article ID -- If a public article ID is set,
+	 * Return the "best" article ID -- If a urlPath is set,
 	 * use it; otherwise use the internal article Id.
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
 	function getBestId() {
-		$publicArticleId = $this->getStoredPubId('publisher-id');
-		if (!empty($publicArticleId)) return $publicArticleId;
-		return $this->getId();
+		return $this->getCurrentPublication()->getData('urlPath') ?? $this->getId();
 	}
 
 	/**

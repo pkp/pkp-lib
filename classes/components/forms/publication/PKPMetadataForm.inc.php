@@ -131,5 +131,13 @@ class PKPMetadataForm extends FormComponent {
 				'value' => $publication->getData('type'),
 			]));
 		}
+
+		if (in_array('publication', $submissionContext->getData('enablePublisherId'))) {
+			$this->addField(new FieldText('pub-id::publisher-id', [
+				'label' => __('submission.publisherId'),
+				'tooltip' => __('submission.publisherId.description'),
+				'value' => $publication->getData('pub-id::publisher-id'),
+			]));
+		}
 	}
 }

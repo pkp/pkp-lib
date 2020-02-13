@@ -212,7 +212,7 @@ class ManagementHandler extends Handler {
 		}, $supportedFormLocales);
 
 		$authorGuidelinesForm = new \PKP\components\forms\context\PKPAuthorGuidelinesForm($contextApiUrl, $locales, $context);
-		$metadataSettingsForm = new \PKP\components\forms\context\PKPMetadataSettingsForm($contextApiUrl, $context);
+		$metadataSettingsForm = new \APP\components\forms\context\MetadataSettingsForm($contextApiUrl, $context);
 		$emailSetupForm = new \PKP\components\forms\context\PKPEmailSetupForm($contextApiUrl, $locales, $context);
 		$reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
 		$reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($contextApiUrl, $locales, $context);

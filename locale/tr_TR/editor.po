@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
+"PO-Revision-Date: 2020-02-13 15:45+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
+"tr/>\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:50:07+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.review.rateReviewer"
 msgstr "Hakem Puanlama"
@@ -406,3 +409,60 @@ msgstr "Bu hakeme, yazarın kimliğini görmesine izin veren bir rol verilmiş o
 
 msgid "reviewer.list.declinedReviews"
 msgstr "Değerlendirme istekleri reddedildi"
+
+msgid "reviewer.list.empty"
+msgstr "Hiç hakem bulunmuyor"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Değerlendirme talebi iptal edildi"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Hakem yeniden atanırken bir hata oluştu.  Lütfen tekrar deneyin."
+
+msgid "editor.review.reviewerThanked"
+msgstr "Hakeme Teşekkür Edildi"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Editör, bu değerlendirme talebini iptal etti."
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Hakem, bu değerlendirme talebini reddetti."
+
+msgid "editor.review.requestCancelled"
+msgstr "Talep İptal Edildi"
+
+msgid "editor.review.requestDeclined"
+msgstr "Talep Reddedildi"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Hakemi Yeniden Ata"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Hakemi İptal Et"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Kararı değiştir"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Gönderi değerlendirme için kabul edildi."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Basıma gönderildi."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Yeni bir değerlendirme turu için gönderildi."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Gönderi yayınlandı."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Gönderi kabul edildi."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Gönderi reddedildi."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Karar kaydedildi"
+
+msgid "editor.activityLog"
+msgstr "Etkinlik Günlüğü"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-02-04 23:10+0000\n"
+"PO-Revision-Date: 2020-02-10 18:31+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/da/>"
 "\n"
@@ -129,7 +129,7 @@ msgid "grid.action.order"
 msgstr "Rækkefølge"
 
 msgid "grid.action.cancelOrdering"
-msgstr "Annullér"
+msgstr "Annullér bestilling"
 
 msgid "grid.action.extendAll"
 msgstr "Forlæng alle"
@@ -192,10 +192,10 @@ msgid "grid.action.importexport"
 msgstr "Importér eller eksportér indhold eller websitedata"
 
 msgid "grid.action.orderItems"
-msgstr "Aktiver bestillingsform"
+msgstr "Aktivér bestillingsform"
 
 msgid "grid.action.editSubmissionChecklist"
-msgstr "Rediger dette tjeklistepunkt"
+msgstr "Redigér dette tjeklistepunkt"
 
 msgid "grid.action.deleteSubmissionChecklist"
 msgstr "Slet dette tjeklistepunkt"
@@ -207,7 +207,7 @@ msgid "grid.action.addPreparedEmail"
 msgstr "Tilføj en ny e-mail-skabelon"
 
 msgid "grid.action.editPreparedEmail"
-msgstr "Rediger denne e-mail-skabelon"
+msgstr "Redigér denne e-mail-skabelon"
 
 msgid "grid.action.disableEmail"
 msgstr "Deaktivér denne e-mail-skabelon"
@@ -282,7 +282,7 @@ msgid "grid.action.unassignUser"
 msgstr "Afmeld bruger"
 
 msgid "grid.action.history"
-msgstr "Se oversigt"
+msgstr "Se historik"
 
 msgid "grid.task.status.completed"
 msgstr "Denne opgave er færdiggjort"
@@ -336,7 +336,7 @@ msgid "grid.action.addContributor"
 msgstr "Tilføj bidragyder"
 
 msgid "grid.action.editContributor"
-msgstr "Rediger bidragyder"
+msgstr "Redigér bidragyder"
 
 msgid "grid.action.deleteContributor"
 msgstr "Slet bidragyder"

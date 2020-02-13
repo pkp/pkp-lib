@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
+"PO-Revision-Date: 2020-02-13 12:28+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
+"es/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:22-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.review.notInitiated"
 msgstr "El proceso de revisión todavía no se ha iniciado."
@@ -338,8 +341,6 @@ msgstr "Evalúe la calidad de la revisión proporcionada. Esta evaluación no se
 msgid "editor.review.reviewerRating.none"
 msgstr "Sin evaluar"
 
-msgid ""
-msgstr ""
 
 msgid "editor.submissionReview.recordRecommendation"
 msgstr "Registrar recomendación editorial"
@@ -348,7 +349,7 @@ msgid "editor.submissionReview.recordRecommendation.notifyEditors"
 msgstr "Notificar a los editores/as"
 
 msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr "No enviar correo electrónico a los editores/as"
+msgstr "No enviar correo electrónico a los editores/as."
 
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
 msgstr "Crear una discusión de revisión acerca de esta recomendación."
@@ -409,3 +410,61 @@ msgstr "Intereses de revisión"
 
 msgid "reviewer.list.biography"
 msgstr "Biografía"
+
+msgid "reviewer.list.empty"
+msgstr "No se encontraron revisores/as"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Solicitudes de revisión canceladas"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Sucedió un error al restablecer el revisor/a. Por favor, vuelva a intentarlo."
+
+msgid "editor.review.reviewerThanked"
+msgstr "Agradecimientos al revisor/a"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "El editor/a canceló esta solicitud de revisión."
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "El revisor/a declinó la solicitud de revisión."
+
+msgid "editor.review.requestCancelled"
+msgstr "Solicitud cancelada"
+
+msgid "editor.review.requestDeclined"
+msgstr "Solicitud rechazada"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Restablecer el revisor/a"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Cancelar el revisor/a"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Cambiar la decisión"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Envío aceptado para revisión."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Enviar a producción."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Enviar para una nueva ronda de revisiones."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Envío publicado."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Envío aceptado."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Envío rechazado."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Decisión registrada"
+
+msgid "editor.activityLog"
+msgstr "Registro de actividad"

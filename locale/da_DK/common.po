@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-02-06 08:35+0000\n"
+"PO-Revision-Date: 2020-02-10 18:31+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "da/>\n"
@@ -198,7 +198,7 @@ msgid "common.done"
 msgstr "Udført"
 
 msgid "common.download"
-msgstr "Hent"
+msgstr "Download"
 
 msgid "common.edit"
 msgstr "Redigér"
@@ -378,7 +378,7 @@ msgid "common.second"
 msgstr "Sekund(er)"
 
 msgid "common.selectAll"
-msgstr "Marker alt"
+msgstr "Markér alt"
 
 msgid "common.selectNone"
 msgstr "Markér intet"
@@ -426,7 +426,7 @@ msgid "common.up"
 msgstr "Op"
 
 msgid "common.url"
-msgstr "URL-adresse"
+msgstr "URL"
 
 msgid "common.user"
 msgstr "Bruger"
@@ -558,7 +558,7 @@ msgid "form.resubmit"
 msgstr "Send igen"
 
 msgid "form.saveToUpload"
-msgstr "Brug Gem for at overføre filen."
+msgstr "Brug 'Gem' for at overføre filen."
 
 msgid "form.send"
 msgstr "Send"
@@ -624,7 +624,7 @@ msgid "navigation.about"
 msgstr "Om"
 
 msgid "navigation.browse"
-msgstr "Gennemse"
+msgstr "Browse"
 
 msgid "navigation.browseByTitle"
 msgstr "Efter titel"
@@ -642,7 +642,7 @@ msgid "navigation.items"
 msgstr "{$from} - {$to} af {$total} elementer"
 
 msgid "navigation.login"
-msgstr "Log på"
+msgstr "Login"
 
 msgid "navigation.nextPage"
 msgstr "&gt;&gt;"
@@ -693,7 +693,7 @@ msgid "search.discipline"
 msgstr "Fagområde(r)"
 
 msgid "search.fullText"
-msgstr "Fuld tekst"
+msgstr "Fuldtekst"
 
 msgid "search.indexTerms"
 msgstr "Indekstermer"
@@ -735,15 +735,15 @@ msgid "common.ccLicense"
 msgstr ""
 "\n"
 "\t\t<br /><br />\n"
-"  <a target=\"_new\" rel=\"license\" href=\"https://creativecommons.org/"
+"  <a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
 "licenses/by/3.0/\">\n"
 "   <img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
 "//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "  </a>\n"
 "  <br/>\n"
 "  Brug af dette værk skal ske i overensstemmelse med copyrightlicensen <a "
-"rel=\"license\" target=\"_new\" href=\"https://creativecommons.org/licenses/"
-"by/3.0/\">Creative Commons Attribution 3.0  License</a>.\n"
+"rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">Creative Commons Attribution 3.0  License</a>.\n"
 "\t"
 
 msgid "common.ccLicense.rt"
@@ -778,7 +778,7 @@ msgid "common.false"
 msgstr "Falsk"
 
 msgid "common.manage"
-msgstr "Administrer"
+msgstr "Administrér"
 
 msgid "common.noComments"
 msgstr "Ingen kommentarer"
@@ -796,13 +796,13 @@ msgid "common.re"
 msgstr "Sv:"
 
 msgid "common.refresh"
-msgstr "Opdater"
+msgstr "Opdatér"
 
 msgid "common.true"
 msgstr "Sandt"
 
 msgid "common.uploadFailed"
-msgstr "Filen kunne ikke uploades. Forsøg igen, eller kontakt administrator, hvis problemet ikke forsvinder."
+msgstr "Filen kunne ikke uploades eller revideres."
 
 msgid "common.loading"
 msgstr "Indlæser"
@@ -817,7 +817,7 @@ msgid "navigation.dashboard"
 msgstr "Betjeningspanel"
 
 msgid "notification.allow"
-msgstr "Tillad, at meddelelser af disse typer vises i min meddelelses-feed."
+msgstr "Aktivér denne type meddelelser."
 
 msgid "notification.confirmError"
 msgstr "Der opstod en fejl i forbindelse med bekræftelsen af dit abonnement."
@@ -838,7 +838,12 @@ msgid "notification.settings"
 msgstr "Indstillinger for meddelelser"
 
 msgid "notification.settingsDescription"
-msgstr "Vælg de systemhændelser, som du ønsker at modtage meddelelser om. Hvis du fjerner markeringen fra et element, vil meddelelser vedrørende denne type hændelse ikke blive vist i din meddelelses-feed."
+msgstr ""
+"Vælg de hændelser, du vil have besked om. Fjernelse af markering vil "
+"forhindre, at meddelelser om denne begivenhed vises i systemet ligesom der "
+"ikke vil blive sendt en e-mail til dig. Markerede begivenheder vises i "
+"systemet, og du har en ekstra mulighed for at modtage eller ikke modtage de "
+"samme meddelelser via e-mail."
 
 msgid "notification.reminderError"
 msgstr "Der opstod en fejl i forbindelse med afsendelsen af din adgangskode. Kontrollér, at du har indtastet din e-mail-adresse korrekt."
@@ -916,7 +921,7 @@ msgid "email.subjectRequired"
 msgstr "Udfyld venligst e-mailens emnefelt."
 
 msgid "email.bodyRequired"
-msgstr "Indskriv venligst tekst i e-mailens tekstfelt."
+msgstr "Indskriv tekst i e-mailens tekstfelt."
 
 msgid "form.confirmSubmit"
 msgstr "Er du sikker på, at du vil sende denne formular?"
@@ -966,7 +971,7 @@ msgid "navigation.system"
 msgstr "System"
 
 msgid "navigation.userManagement"
-msgstr "Brugerstyring"
+msgstr "Brugeradministration"
 
 msgid "common.readMore"
 msgstr "Læs mere"
@@ -1020,7 +1025,7 @@ msgid "notification.type.queryActivity"
 msgstr "Diskussionsaktivitet."
 
 msgid "notification.type.queryAdded"
-msgstr "Diskussion tilføjet."
+msgstr "Drøftelse tilføjet."
 
 msgid "grid.action.markNew"
 msgstr "Markér ny"
@@ -1119,7 +1124,7 @@ msgid "editor.submissionReview.uploadAttachment"
 msgstr "Upload fil"
 
 msgid "notification.type.awaitingCopyedits"
-msgstr "Afventer redigeret menuskript."
+msgstr "Afventer redigeret manuskript."
 
 msgid "common.confirmDelete"
 msgstr ""
@@ -1148,7 +1153,7 @@ msgid "informationCenter.pastHistory"
 msgstr "Tidligere revisioner"
 
 msgid "informationCenter.history.noItems"
-msgstr "Ingen event registreret."
+msgstr "Ingen begivenheder er registreret."
 
 msgid "informationCenter.history.messageSent"
 msgstr "Meddelelse sendt til brugere."
@@ -1175,7 +1180,9 @@ msgid "help.next"
 msgstr "Næste"
 
 msgid "notification.type.assignCopyeditors"
-msgstr "Tilføj en manuskriptredaktør ved at klikke på linket 'Tildel' i feltet Deltagere."
+msgstr ""
+"Tilføj en manuskriptredaktør ved at klikke på linket 'Tildel' i feltet "
+"'Deltagere'."
 
 msgid "review.blindPeerReview"
 msgstr ""
@@ -1293,7 +1300,7 @@ msgid "common.fileUploaderError"
 msgstr "Filoverførslen er i gang. Hvis det ikke synes at være tilfældet, kan det skyldes at kørselstiden ikke understøttes af denne browser. Kontakt administrator for hjælp."
 
 msgid "common.notes.tooltip"
-msgstr "Noter (gul: har nye noter; blå: har set noter; grå: ingen noter)"
+msgstr "Noter (gul: har nye noter; blå: har gennemsete noter; grå: ingen noter)"
 
 msgid "common.pageNumber"
 msgstr "Side {$pageNumber}"
@@ -1323,7 +1330,7 @@ msgid "common.searchQuery"
 msgstr "Søgeforespørgsel"
 
 msgid "common.sendEmail"
-msgstr "Sendt e-mail"
+msgstr "Send e-mail"
 
 msgid "common.subjects"
 msgstr "Emner"
@@ -1356,7 +1363,9 @@ msgid "form.fileRequired"
 msgstr "En fil skal uploades."
 
 msgid "stageParticipants.notify.warning"
-msgstr "Sørg for at du har udfyldt feltet til beskeder og valgt mindst én modtager."
+msgstr ""
+"Sørg for at du har udfyldt feltet til beskeder og valgt mindst én modtager "
+"udover dig selv."
 
 msgid "navigation.breadcrumbLabel"
 msgstr "Du er her:"
@@ -1389,7 +1398,7 @@ msgid "notification.addedAnnouncement"
 msgstr "Meddelelse tilføjet."
 
 msgid "notification.editedAnnouncement"
-msgstr "Meddelese redigeret."
+msgstr "Meddelelse redigeret."
 
 msgid "notification.removedAnnouncement"
 msgstr "Meddelelse fjernet."
@@ -1476,13 +1485,15 @@ msgid "user.authorization.invalidSubmission"
 msgstr "Ugyldig indsendelse."
 
 msgid "user.authorization.invalidRepresentation"
-msgstr "Ugyldig oplysning."
+msgstr "Ugyldig repræsentation."
 
 msgid "user.authorization.authorRoleMissing"
 msgstr "Du har på nuværende tidspunkt ikke tilstrækkelig bemyndigelse til at se indsendelsen. Redigér din profil og sørg for, at du har fået tildelt de passende roller under \"Registrér som\"."
 
 msgid "user.authorization.submissionAuthor"
-msgstr "Den aktuelle bruger er ikke forfatter til den rekvirerede indsendelse. Kontrollér at du er logget ind med den korrekte brugerkonto."
+msgstr ""
+"Den aktuelle bruger er ikke forfatter til den rekvirerede indsendelse. "
+"Kontrollér, at du er logget ind med den korrekte brugerkonto."
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1506,7 +1517,9 @@ msgid "stageParticipants.options"
 msgstr "Tildelingsrettigheder"
 
 msgid "stageParticipants.recommendOnly"
-msgstr "Denne aktør har kun tilladelse til anbefale en redaktionel beslutning . Det vil kræve en autoriseret redaktør for at registrere beslutninger."
+msgstr ""
+"Denne deltager har kun tilladelse til anbefale en redaktionel beslutning . "
+"Det vil kræve en autoriseret redaktør for at registrere beslutninger."
 
 msgid "navigation.skip.main"
 msgstr "Spring til hovedindhold"
@@ -1551,7 +1564,7 @@ msgid "common.filterAdd"
 msgstr "Tilføj filter: {$filterTitle}"
 
 msgid "common.filterRemove"
-msgstr "Fjer filter: {$filterTitle}"
+msgstr "Fjern filter: {$filterTitle}"
 
 msgid "common.lessThan"
 msgstr "{$value} eller mindre"
@@ -1572,7 +1585,7 @@ msgid "common.pagination.label"
 msgstr "Browse ekstra sider"
 
 msgid "common.clearSearch"
-msgstr "Ryd søgetermen"
+msgstr "Fjern søgetermen"
 
 msgid "common.publicAccess"
 msgstr "Offentlig adgang"
@@ -1587,10 +1600,10 @@ msgid "notification.email"
 msgstr "Send mig ikke en e-mail i forbindelse med denne type meddelelser."
 
 msgid "list.viewMore"
-msgstr "Vis flere detaljer om {$name}"
+msgstr "Vis flere oplysninger om {$name}"
 
 msgid "list.viewLess"
-msgstr "Skjul flere detaljer om {$name}"
+msgstr "Skjul flere oplysninger om {$name}"
 
 msgid "notification.type.reviewAssignmentUpdated"
 msgstr "Bedømmelsestildeling opdateret."
@@ -1780,7 +1793,7 @@ msgid "validator.before"
 msgstr "Denne dato skal være inden {$date}."
 
 msgid "validator.array"
-msgstr "Dette er ikke en gyldig matrix."
+msgstr "Dette er ikke en gyldig array."
 
 msgid "validator.alpha_num"
 msgstr "Dette må kun indeholde bogstaver og tal."
@@ -1813,7 +1826,7 @@ msgid "user.authorization.invalidPublication"
 msgstr "Ugyldig publikation."
 
 msgid "notification.editStageParticipant"
-msgstr "Trinets opgave er blevet ændret."
+msgstr "Trinnets opgave er blevet ændret."
 
 msgid "notification.reinstatedReviewer"
 msgstr "Bedømmer genindsættes."
@@ -1910,7 +1923,7 @@ msgid "form.dropzone.dictFallbackText"
 msgstr "Brug reserve-formularen nedenfor til at uploade dine filer."
 
 msgid "form.dropzone.dictFallbackMessage"
-msgstr "Din browser understøtter ikke upload af drag'n'drop-filer."
+msgstr "Din browser understøtter ikke upload af træk-og-slip-filer."
 
 msgid "form.dropzone.dictDefaultMessage"
 msgstr "Slip filer her for at uploade"

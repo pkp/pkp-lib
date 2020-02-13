@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2020-02-04 14:32+0000\n"
+"PO-Revision-Date: 2020-02-10 15:35+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/da/"
 ">\n"
@@ -71,19 +71,19 @@ msgid "admin.languages.installedLocales"
 msgstr "Installerede sprog"
 
 msgid "admin.languages.installLanguages"
-msgstr "Administrer sprog"
+msgstr "Administrér sprog"
 
 msgid "admin.languages.installLocales"
 msgstr "Installér"
 
 msgid "admin.languages.installNewLocales"
-msgstr "Installer nye sprog"
+msgstr "Installér nye sprog"
 
 msgid "admin.languages.languageSettings"
 msgstr "Sprogindstillinger"
 
 msgid "admin.languages.noLocalesAvailable"
-msgstr "Der findes ingen yderligere sprog, som skal installeres."
+msgstr "Der findes ingen ekstra sprog, som kan installeres."
 
 msgid "admin.languages.reload"
 msgstr "Genindlæs sprog"
@@ -98,7 +98,7 @@ msgid "admin.server.apacheVersion"
 msgstr "Apache-version"
 
 msgid "admin.server.dbDriver"
-msgstr "Databasedriver"
+msgstr "Database-driver"
 
 msgid "admin.server.dbVersion"
 msgstr "Version af databaseserver"
@@ -161,13 +161,13 @@ msgid "admin.version.checkForUpdates"
 msgstr "Søg efter opdateringer"
 
 msgid "admin.version.downloadPackage"
-msgstr "Hent"
+msgstr "Download"
 
 msgid "admin.version.downloadPatch"
-msgstr "Hent programrettelse"
+msgstr "Download programrettelse"
 
 msgid "admin.versionHistory"
-msgstr "Versionsoversigt"
+msgstr "Versionshistorik"
 
 msgid "admin.version.latest"
 msgstr "Nyeste version"
@@ -238,7 +238,7 @@ msgid "admin.error.executingUtil"
 msgstr "Fejl: Kan ikke eksekvere \"{$utilPath}\".  Tjek {$utilVar} indstillinger i config.inc.php."
 
 msgid "admin.languages.noLocalesToDownload"
-msgstr "Ingen landestandarder er tilgængelige for download."
+msgstr "Ingen sprog er tilgængelige for download."
 
 msgid "admin.scheduledTask"
 msgstr "Planlagt opgave"
@@ -250,7 +250,7 @@ msgid "admin.scheduledTask.stopTime"
 msgstr "Planlagt opgave afsluttet."
 
 msgid "admin.scheduledTask.noLog"
-msgstr "Planlagt opgave genererede ingen log-data."
+msgstr "Opgave genererede ingen log-data."
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Er du sikker på, at du vil slette alle de genererede log-data fra planlagte opgaver?"
@@ -268,7 +268,9 @@ msgid "admin.systemInfo.settingValue"
 msgstr "Indsættelse af værdi"
 
 msgid "admin.contexts.confirmDelete"
-msgstr "Er du sikker på, at du vil slette {$contextName} og alt indhold permanent?"
+msgstr ""
+"Er du sikker på, at du vil slette {$contextName} og tilhørende indhold "
+"permanent?"
 
 msgid "admin.languages.download"
 msgstr "Download sprog"
@@ -281,11 +283,11 @@ msgstr "Kan ikke åbne sprogbeskrivelse fra PKPs websted."
 
 msgid "admin.languages.download.cannotModifyRegistry"
 msgstr ""
-"Kan ikke tilføje det nye sprog til den sprog-registreringsfil, typisk \""
+"Kan ikke tilføje det nye sprog til sprog-registreringsfilen, typisk \""
 "registry/locales.xml\"."
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Ryd 'Scheduled Task Execution Logs'"
+msgstr "Ryd planlagte opgavers eksekverings-logfiler"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
@@ -340,9 +342,9 @@ msgstr "Succes: {$filePath} til {$destinationPath}"
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
-"Er du sikker på at du vil ændre det primære sprog? Brugernes navne, der "
+"Er du sikker på, at du vil ændre det primære sprog? Brugernes navne, der "
 "kræves under sitets primære sprog vil, hvor de mangler, blive kopieret fra "
 "det eksisterende primære sprog."
 
 msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Publicer indsendelser, der er planlagt til offentliggørelse"
+msgstr "Publicér indsendelser, der er planlagt til offentliggørelse"

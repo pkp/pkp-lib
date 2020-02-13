@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2020-02-08 03:24+0000\n"
+"PO-Revision-Date: 2020-02-12 06:38+0000\n"
 "Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "de/>\n"
@@ -1433,13 +1433,26 @@ msgstr "Meine Warteschlange"
 
 msgid "review.blindPeerReview"
 msgstr ""
-"\n"
-"\t\t<p>Um die Integrität des Blind Peer Review sicherzustellen, sollte bei Einreichungen gewährleistet werden, dass die Identitäten von Autor/innen und Gutachter/innen voreinander zu verbergen. Autor/innen, Redakteur/innen und Gutachter/innen (die Dokumente im Rahmen ihrer Begutachtung hochladen) sollten die Einhaltung der folgenden Schritte in Bezug auf den jeweiligen Text und die Dateieigenschaften erledigt worden sind:</p>\n"
-"\t\t\t<ul><li>Die Autor/innen des Dokuments haben ihre Namen aus dem Text entfernt und haben \"Autor/in\" und das Jahr in Zitaten und Fußnoten verwendet an Stelle von Autor/innennamen, Artikeltitel etc.</li>\n"
-"\t\t\t<li>In Microsoft-Word-Dokumenten sollten die Informationen, die Autor/innen identifizieren könnten, aus den Dokumenteigenschaften der Datei (im Menü \"Datei\" in Word) entfernt werden. Dazu klicken Sie, beginnend mit dem Punkt \"Datei\" im Hauptmenü der Microsoft-Anwendungen: Datei &gt; Speichern unter &gt; Einstellungen (oder Optionen bei einem Mac) &gt; Sicherheit &gt; Persönliche Informationen aus den Dateieigenschaften beim Speichern entfernen &gt; Speichern.</li>\n"
-"\t\t\t<li>In PDF-Dateien sollten die Autor/innennamen aus den Dokumenteigenschaften, die unter \"Datei\" im Hauptmenü von Adobe Acrobat gefunden werden können, entfernt werden.</li>\n"
+"<p>Um die Integrität des Blind Peer Review sicherzustellen, sollte bei "
+"Einreichungen gewährleistet werden, dass die Identitäten von Autor/innen und "
+"Gutachter/innen voreinander zu verbergen. Autor/innen, Redakteur/innen und "
+"Gutachter/innen (die Dokumente im Rahmen ihrer Begutachtung hochladen) "
+"sollten die Einhaltung der folgenden Schritte in Bezug auf den jeweiligen "
+"Text und die Dateieigenschaften erledigt worden sind:</p>\n"
+"<ul><li>Die Autor/innen des Dokuments haben ihre Namen aus dem Text entfernt "
+"und haben \"Autor/in\" und das Jahr in Zitaten und Fußnoten verwendet an "
+"Stelle von Autor/innennamen, Artikeltitel etc.</li>\n"
+"<li>In Microsoft-Word-Dokumenten sollten die Informationen, die Autor/innen "
+"identifizieren könnten, aus den Dokumenteigenschaften der Datei (im Menü \""
+"Datei\" in Word) entfernt werden. Dazu klicken Sie, beginnend mit dem Punkt "
+"\"Datei\" im Hauptmenü der Microsoft-Anwendungen: Datei &gt; Speichern unter "
+"&gt; Einstellungen (oder Optionen bei einem Mac) &gt; Sicherheit &gt; "
+"Persönliche Informationen aus den Dateieigenschaften beim Speichern "
+"entfernen &gt; Speichern.</li>\n"
+"\t\t\t<li>In PDF-Dateien sollten die Autor/innennamen aus den "
+"Dokumenteigenschaften, die unter \"Datei\" im Hauptmenü von Adobe Acrobat "
+"gefunden werden können, entfernt werden.</li>\n"
 "\t\t</ul>\n"
-"\t"
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Zeitplan der Begutachtung"
@@ -1676,9 +1689,7 @@ msgid "validator.alpha_num"
 msgstr "Dies darf nur Buchstaben und Zahlen enthalten."
 
 msgid "validator.alpha_dash"
-msgstr ""
-"Dies darf nur Buchstaben, Zahlen, Striche und Unterstriche enthalten. "
-"enthalten."
+msgstr "Dies darf nur Buchstaben, Zahlen, Striche und Unterstriche enthalten."
 
 msgid "validator.alpha"
 msgstr "Dies darf nur Buchstaben enthalten."
@@ -1730,7 +1741,6 @@ msgstr "Rechte"
 msgid "form.multilingualProgress"
 msgstr "{$count}/{$total} Sprachen vollständig"
 
-#, fuzzy
 msgid "form.multilingualLabel"
 msgstr "{$label} in {$localeName}"
 
@@ -1757,3 +1767,176 @@ msgid "form.errors"
 msgstr ""
 "Das Formular wurde nicht gespeichert, da {$count} Fehler aufgetreten sind. "
 "Bitte korrigieren Sie diese(n) Fehler und versuchen Sie es erneut."
+
+msgid "validator.url"
+msgstr "Dies ist keine gültige URL."
+
+msgid "validator.unique"
+msgstr "{$attribute} ist bereits vergeben."
+
+msgid "validator.timezone"
+msgstr "Dies ist keine gültige Zeitzone."
+
+msgid "validator.string"
+msgstr "Dies ist keine gültige Zeichenkette."
+
+msgid "validator.size.array"
+msgstr "Dies muss {$min} Elemente enthalten."
+
+msgid "validator.size.string"
+msgstr "Dies muss {$size} Zeichen enthalten."
+
+msgid "validator.size.file"
+msgstr "Dies müssen  {$size} Kilobyte sein."
+
+msgid "validator.size.numeric"
+msgstr "Dies muss {$size} groß sein."
+
+msgid "validator.same"
+msgstr "{$attribute} und {$other} müssen übereinstimmen."
+
+msgid "validator.required_without_all"
+msgstr "Dies ist ein Pflichtfeld, wenn keine {$values} vorhanden sind."
+
+msgid "validator.required_without"
+msgstr "Dies ist ein Pflichtfeld, wenn {$values} nicht vorhanden ist."
+
+msgid "validator.required_with_all"
+msgstr "Dies ist ein Pflichtfeld, wenn {$values} vorhanden ist."
+
+msgid "validator.required_with"
+msgstr "Dies ist ein Pflichtfeld, wenn {$values} vorhanden ist."
+
+msgid "validator.required_unless"
+msgstr ""
+"Dies ist ein Pflichtfeld, außer wenn {$other} in {$values} enthalten ist."
+
+msgid "validator.required_if"
+msgstr "Dies ist ein Pflichtfeld, wenn {$other} {$value} ist."
+
+msgid "validator.required"
+msgstr "Dies ist ein Pflichtfeld."
+
+msgid "validator.regex"
+msgstr "Dies ist nicht korrekt formatiert."
+
+msgid "validator.present"
+msgstr "Das Feld {$attribute} muss vorhanden sein."
+
+msgid "validator.orcid"
+msgstr "Dies ist keine gültige ORCID."
+
+msgid "validator.numeric"
+msgstr "Dies ist keine gültige Zahl."
+
+msgid "validator.not_in"
+msgstr "Das gewählte {$attribute} ist ungültig."
+
+msgid "validator.min.array"
+msgstr "Dies muss mindestens {$min} Elemente enthalten."
+
+msgid "validator.min.string"
+msgstr "Dies muss mindestens {$min} Zeichen lang sein."
+
+msgid "validator.min.file"
+msgstr "Dies müssen mindestens {$min} Kilobyte sein."
+
+msgid "validator.min.numeric"
+msgstr "Dies müssen mindestens {$min} sein."
+
+msgid "validator.mimes"
+msgstr "Dies muss eine Datei des Typs {$values} sein."
+
+msgid "validator.max.array"
+msgstr "Dies darf nicht mehr als  {$max} Elemente enthalten."
+
+msgid "validator.max.string"
+msgstr "Dies darf nicht mehr als  {$max} Zeichen lang sein."
+
+msgid "validator.max.file"
+msgstr "Dies darf nicht größer als  {$max} Kilobyte sein."
+
+msgid "validator.max.numeric"
+msgstr "Dies darf nicht größer als  {$max} sein."
+
+msgid "validator.localeKey"
+msgstr ""
+"Sprachen müssen über den Code für Regionaleinstellungen angegeben werden. "
+"Beispiele: en_US, fr_CA, sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Dies ist ein mehrsprachiges Feld. Werte müssen für jede unterstützte Sprache "
+"getrennt eingegeben werden."
+
+msgid "validator.locale"
+msgstr "Dies Sprache wird nicht akzeptiert."
+
+msgid "validator.json"
+msgstr "Dies ist keine gültige JSON Zeichenkette."
+
+msgid "validator.issn"
+msgstr "Dies ist keine gültige ISSN."
+
+msgid "validator.ip"
+msgstr "Dies ist keine gültige IP-Adresse."
+
+msgid "validator.integer"
+msgstr "Dies ist keine gültige Ganzzahl."
+
+msgid "validator.in"
+msgstr "Das gewählte {$attribute} ist ungültig."
+
+msgid "validator.image"
+msgstr "Dies muss ein Bild sein."
+
+msgid "validator.filled"
+msgstr "Dies ist ein Pflichtfeld."
+
+msgid "validator.exists"
+msgstr "Das gewählte {$attribute} ist ungültig."
+
+msgid "validator.email"
+msgstr "Dies ist keine gültige E-Mail-Adresse."
+
+msgid "validator.digits_between"
+msgstr "Dies muss zwischen {$min} und {$max} Zeichen lang sein."
+
+msgid "validator.digits"
+msgstr "Dies muss {$digits} Zeichen lang sein."
+
+msgid "validator.different"
+msgstr "{$attribute} und {$other} müssen verschieden sein."
+
+msgid "validator.date_format"
+msgstr "Dies stimmt nicht mit dem Format  {$format} überein."
+
+msgid "validator.date"
+msgstr "Dies ist kein gültiges Datum."
+
+msgid "validator.currency"
+msgstr "Dies ist keine gültige Währung."
+
+msgid "validator.confirmed"
+msgstr "Die Bestätigung dieses Feldes stimmt nicht mit dem Wert überein."
+
+msgid "validator.boolean"
+msgstr "Dieses Feld muss wahr oder falsch sein."
+
+msgid "validator.between.array"
+msgstr "Dies muss {$min} bis {$max} Elemente haben."
+
+msgid "validator.between.string"
+msgstr "Dies muss zwischen {$min} und {$max} Zeichen lang sein."
+
+msgid "validator.between.file"
+msgstr "Dies muss zwischen {$min} und {$max} kilobytes groß sein."
+
+msgid "validator.between.numeric"
+msgstr "Dies muss zwischen {$min} und {$max} liegen."
+
+msgid "validator.before"
+msgstr "Dieses Datum muss vor dem {$date} liegen."
+
+msgid "validator.array"
+msgstr "Dies ist kein gültiger Bereich."

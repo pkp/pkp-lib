@@ -1606,7 +1606,7 @@ msgid "submission.copyrightHolder.other"
 msgstr "Пользовательская формулировка Предупреждения об авторском праве"
 
 msgid "submission.copyrightOther"
-msgstr "Предупреждение об авторском правел"
+msgstr "Предупреждение об авторском праве"
 
 msgid "submission.copyrightOther.description"
 msgstr "Проставить авторское право на опубликованных материалах с указанием следующей формулировки."

@@ -137,6 +137,7 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 		if (!firstFile) cy.get('a[id^="component-grid-"][id*="-add"]').click();
 		cy.wait(2000); // Avoid occasional failure due to form init taking time
 		cy.get('div.pkp_modal_panel').then($modalDiv => {
+			cy.wait(3000);
 			// PPS has a "create galley" modal that needs attention first
 			if ($modalDiv.find('div.header:contains("Create New Galley")').length) {
 				cy.get('div.pkp_modal_panel input[id^="label-"]').type('PDF', {delay: 0});
@@ -151,6 +152,7 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 			);
 		});
 		cy.get('button').contains('Continue').click();
+		cy.wait(2000);
 		for (const field in file.metadata) {
 			cy.get('input[id^="' + Cypress.$.escapeSelector(field) + '"]:visible,textarea[id^="' + Cypress.$.escapeSelector(field) + '"]').type(file.metadata[field], {delay: 0});
 			cy.get('a:contains("2. Review Details")').click(); // Close potential multilingual pop-over

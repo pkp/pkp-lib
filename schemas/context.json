@@ -221,15 +221,6 @@
 				"nullable"
 			]
 		},
-		"enablePublisherId": {
-			"type": "array",
-			"items": {
-				"type": "string",
-				"validation": [
-					"in:publication,galley,issue,issueGalley"
-				]
-			}
-		},
 		"envelopeSender": {
 			"type": "string",
 			"validation": [

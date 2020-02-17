@@ -67,15 +67,11 @@ class PKPPublicIdentifiersForm extends Form {
 	 */
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
-		$enablePublisherId = $request->getContext()->getData('enablePublisherId');
 		$templateMgr->assign(array(
 			'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true, $this->getContextId()),
 			'pubObject' => $this->getPubObject(),
 			'stageId' => $this->getStageId(),
 			'formParams' => $this->getFormParams(),
-			'enablePublisherId' => (is_a($this->getPubObject(), 'ArticleGalley') && in_array('galley', $enablePublisherId)) ||
-					(is_a($this->getPubObject(), 'Issue') && in_array('issue', $enablePublisherId)) ||
-					(is_a($this->getPubObject(), 'IssueGalley') && in_array('issueGalley', $enablePublisherId)),
 		));
 		if (is_a($this->getPubObject(), 'Representation') || is_a($this->getPubObject(), 'Chapter')) {
 			$publicationId = $this->getPubObject()->getData('publicationId');

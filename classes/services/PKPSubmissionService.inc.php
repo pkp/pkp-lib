@@ -47,15 +47,13 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 */
 	public function getByUrlPath($urlPath, $contextId) {
 		$qb = new \PKP\Services\QueryBuilders\PKPPublicationQueryBuilder();
-		$submissionId = $qb->getQueryByUrlPath($urlPath, $contextId)
-			->first()
-			->submission_id;
+		$firstResult = $qb->getQueryByUrlPath($urlPath, $contextId)->first();
 
-		if (!$submissionId) {
+		if (!$firstResult) {
 			return null;
 		}
 
-		return $this->get($submissionId);
+		return $this->get($firstResult->submission_id);
 	}
 
 	/**

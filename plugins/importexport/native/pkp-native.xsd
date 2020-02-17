@@ -340,6 +340,7 @@
 			<sequence>
 				<element name="citation" type="string" minOccurs="0" maxOccurs="unbounded" />
 			</sequence>
+			<attribute name="locale" type="string" />
 		</complexType>
 	</element>
 </schema>

@@ -143,6 +143,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			$controlledVocabulariesDao = $submissionKeywordDao = DAORegistry::getDAO($controlledVocabulariesMappings[$n->tagName][0]);
 			$insertFunction = $controlledVocabulariesMappings[$n->tagName][1];
 			list($locale, $value) = $this->parseLocalizedContent($n);
+
 			if (empty($locale)) $locale = $submission->getLocale();
 			$controlledVocabulary = array();
 			for ($nc = $n->firstChild; $nc !== null; $nc=$nc->nextSibling) {
@@ -153,13 +154,17 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			$controlledVocabulariesValues = array();
 			$controlledVocabulariesValues[$locale] = $controlledVocabulary;
 			$controlledVocabulariesDao->$insertFunction($controlledVocabulariesValues, $submission->getId(), false);
-		} else switch ($n->tagName) {
+		} else{
+			switch ($n->tagName) {
 			// Otherwise, delegate to specific parsing code
 			case 'id':
 				$this->parseIdentifier($n, $submission);
 				break;
 			case 'authors':
 				$this->parseAuthors($n, $submission);
+				break;
+			case 'citations':
+				$this->parseCitations($n, $submission);
 				break;
 			case 'submission_file':
 				$this->parseSubmissionFile($n, $submission);
@@ -173,6 +178,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			default:
 				$deployment = $this->getDeployment();
 				$deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));
+			}
 		}
 	}
 
@@ -248,6 +254,19 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$submissionFileDoc = new DOMDocument();
 		$submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
 		return $importFilter->execute($submissionFileDoc);
+	}
+
+	/**
+	 * Parse a submission file and add it to the submission.
+	 * @param $n DOMElement
+	 * @param $submission Submission
+	 */
+	function parseCitations($n, $submission) {
+		$submissionId = $submission->getId();
+		$citationsString = $n->textContent;
+		$citationDao = DAORegistry::getDAO('CitationDAO');
+		$importCitations = 'importCitations';
+		$citationDao->$importCitations($submissionId, $citationsString);
 	}
 
 	//

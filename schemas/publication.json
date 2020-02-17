@@ -133,6 +133,7 @@
 			"type": "string",
 			"description": "The combined prefix, title and subtitle.",
 			"multilingual": true,
+			"readOnly": true,
 			"apiSummary": true
 		},
 		"id": {

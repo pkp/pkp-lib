@@ -158,7 +158,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	public function getNotificationUrl($request, $notification) {
 		$application = Application::get();
 		$context = $application->getContextDAO()->getById($notification->getContextId());
-		return $application->getDispatcher()->url($this->_request, ROUTE_PAGE, $context->getPath(), 'stats', 'editorialReport');
+		return $application->getDispatcher()->url($this->_request, ROUTE_PAGE, $context->getPath(), 'stats', 'editorial');
 	}
 
 	/**

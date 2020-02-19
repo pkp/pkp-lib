@@ -288,6 +288,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 			$exportFilter = array_shift($nativeExportFilters);
 			$exportFilter->setDeployment($this->getDeployment());
 
+			$exportFilter->setOpts($this->opts);
 			$submissionFileDoc = $exportFilter->execute($submissionFile);
 			$fileId = $submissionFileDoc->documentElement->getAttribute('id');
 			if (!isset($submissionFileNodesByFileId[$fileId])) {

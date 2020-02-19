@@ -36,7 +36,6 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		return 'lib.pkp.plugins.importexport.native.filter.SubmissionFileNativeXmlFilter';
 	}
 
-
 	//
 	// Implement template methods from Filter
 	//
@@ -121,12 +120,31 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		}
 
 		$submissionFileNode->appendChild($revisionNode);
-
 		// Embed the file contents
-		$embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($submissionFile->getFilePath())));
-		$embedNode->setAttribute('encoding', 'base64');
-		$revisionNode->appendChild($embedNode);
 
+		if (array_key_exists('no-embed', $this->opts)) {
+			$hrefNode = $doc->createElementNS($deployment->getNamespace(), 'href');
+			if (array_key_exists('use-file-urls', $this->opts)) {
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+				$stageId = $submissionFileDao->getWorkflowStageId($submissionFile);
+				$app = Application::getApplication();
+				$dispatcher = $app->getDispatcher();
+				$params = ["fileId" => $submissionFile->getFileId(),
+						   "revision" => $submissionFile->getRevision(),
+						   "submissionId" => $submissionFile->getSubmissionId(),
+						   "stageId" => $stageId];
+				$url = $dispatcher->url($app->getRequest(), ROUTE_COMPONENT, $context->getPath(), "api.file.FileApiHandler", "downloadFile", null, $params);
+				$hrefNode->setAttribute('src', $url);
+			} else {
+				$hrefNode->setAttribute('src', $submissionFile->getFilePath());
+			}
+			$hrefNode->setAttribute('mime_type', $submissionFile->getFileType());
+			$revisionNode->appendChild($hrefNode);
+		} else {
+			$embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($submissionFile->getFilePath())));
+			$embedNode->setAttribute('encoding', 'base64');
+			$revisionNode->appendChild($embedNode);
+		}
 		return $submissionFileNode;
 	}
 

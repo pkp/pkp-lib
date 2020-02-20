@@ -440,13 +440,6 @@
 				}
 			}
 		},
-		"urlPath": {
-			"type": "string",
-			"validation": [
-				"regex:/^[a-z0-9]+([\\-_][a-z0-9]+)*$/"
-			],
-			"apiSummary": true
-		},
 		"paymentsEnabled": {
 			"type": "boolean",
 			"validation": [
@@ -698,6 +691,13 @@
 		"url": {
 			"type": "string",
 			"readOnly": true,
+			"apiSummary": true
+		},
+		"urlPath": {
+			"type": "string",
+			"validation": [
+				"regex:/^[a-z0-9]+([\\-_][a-z0-9]+)*$/"
+			],
 			"apiSummary": true
 		}
 	}

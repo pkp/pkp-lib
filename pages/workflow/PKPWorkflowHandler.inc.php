@@ -245,7 +245,6 @@ abstract class PKPWorkflowHandler extends Handler {
 		$citationsForm = new PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
 		$publicationLicenseForm = new PKP\components\forms\publication\PKPPublicationLicenseForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $authorUserGroups);
 		$titleAbstractForm = new PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
-		$identifiersForm = new PKP\components\forms\publication\PKPPublicationIdentifiersForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
 
 		// Import constants
 		import('classes.submission.Submission');
@@ -257,7 +256,6 @@ abstract class PKPWorkflowHandler extends Handler {
 			'STATUS_DECLINED',
 			'STATUS_SCHEDULED',
 			'FORM_CITATIONS',
-			'FORM_PUBLICATION_IDENTIFIERS',
 			'FORM_PUBLICATION_LICENSE',
 			'FORM_PUBLISH',
 			'FORM_TITLE_ABSTRACT',
@@ -322,7 +320,6 @@ abstract class PKPWorkflowHandler extends Handler {
 				FORM_CITATIONS => $citationsForm->getConfig(),
 				FORM_PUBLICATION_LICENSE => $publicationLicenseForm->getConfig(),
 				FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
-				FORM_PUBLICATION_IDENTIFIERS => $identifiersForm->getConfig(),
 			],
 			'contributorsGridUrl' => $contributorsGridUrl,
 			'csrfToken' => $request->getSession()->getCSRFToken(),
@@ -330,7 +327,6 @@ abstract class PKPWorkflowHandler extends Handler {
 			'editorialHistoryUrl' => $editorialHistoryUrl,
 			'publicationFormIds' => [
 				FORM_CITATIONS,
-				FORM_PUBLICATION_IDENTIFIERS,
 				FORM_PUBLICATION_LICENSE,
 				FORM_PUBLISH,
 				FORM_TITLE_ABSTRACT,
@@ -373,12 +369,28 @@ abstract class PKPWorkflowHandler extends Handler {
 				break;
 			}
 		}
-		if ($metadataEnabled) {
+		if ($metadataEnabled || in_array('publication', $submissionContext->getData('enablePublisherId'))) {
 			$vocabSuggestionUrlBase =$request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
 			$metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
 			$templateMgr->setConstants(['FORM_METADATA']);
 			$workflowData['components'][FORM_METADATA] = $metadataForm->getConfig();
 			$workflowData['publicationFormIds'][] = FORM_METADATA;
+		}
+
+		// Add the identifieres form if one or more identifier is enabled
+		$identifiersEnabled = false;
+		$pubIdPlugins = PluginRegistry::getPlugins('pubIds');
+		foreach ($pubIdPlugins as $pubIdPlugin) {
+			if ($pubIdPlugin->isObjectTypeEnabled('Publication', $request->getContext()->getId())) {
+				$identifiersEnabled = true;
+				break;
+			}
+		}
+		if ($identifiersEnabled) {
+			$identifiersForm = new PKP\components\forms\publication\PKPPublicationIdentifiersForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
+			$templateMgr->setConstants(['FORM_PUBLICATION_IDENTIFIERS']);
+			$workflowData['components'][FORM_PUBLICATION_IDENTIFIERS] = $identifiersForm->getConfig();
+			$workflowData['publicationFormIds'][] = FORM_PUBLICATION_IDENTIFIERS;
 		}
 
 		$templateMgr->assign([
@@ -387,6 +399,7 @@ abstract class PKPWorkflowHandler extends Handler {
 			'canEditPublication' => $canEditPublication,
 			'canAccessProduction' => $canAccessProduction,
 			'canPublish' => $canPublish,
+			'identifiersEnabled' => $identifiersEnabled,
 			'metadataEnabled' => $metadataEnabled,
 			'requestedStageId' => $requestedStageId,
 			'submission' => $submission,

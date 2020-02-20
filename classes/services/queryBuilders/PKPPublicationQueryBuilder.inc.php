@@ -22,9 +22,6 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder implements EntityQuery
 	/** @var array get publications for one or more contexts */
 	protected $contextIds = [];
 
-	/** @var array get publications with one of these publisherIds */
-	protected $publisherIds = [];
-
 	/** @var array get publications for one or more submissions */
 	protected $submissionIds = [];
 
@@ -42,17 +39,6 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder implements EntityQuery
 	 */
 	public function filterByContextIds($contextIds) {
 		$this->contextIds = is_array($contextIds) ? $contextIds : [$contextIds];
-		return $this;
-	}
-
-	/**
-	 * Set publisherIds filter
-	 *
-	 * @param array|int $publisherIds
-	 * @return \PKP\Services\QueryBuilders\PKPPublicationQueryBuilder
-	 */
-	public function filterByPublisherIds($publisherIds) {
-		$this->publisherIds = is_array($publisherIds) ? $publisherIds : [$publisherIds];
 		return $this;
 	}
 
@@ -125,14 +111,6 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder implements EntityQuery
 				->whereIn('s.context_id', $this->contextIds);
 		}
 
-		if (!empty($this->publisherIds)) {
-			$q->leftJoin('publication_settings as ps', 'p.publication_id', '=', 'ps.publication_id')
-				->where(function($q) {
-					$q->where('ps.setting_name', 'pub-id::publisher-id');
-					$q->whereIn('ps.setting_value', $this->publisherIds);
-				});
-		}
-
 		if (!empty($this->submissionIds)) {
 			$q->whereIn('p.submission_id', $this->submissionIds);
 		}
@@ -163,5 +141,45 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder implements EntityQuery
 			->select([
 				Capsule::raw('MIN(p.date_published), MAX(p.date_published)')
 			]);
+	}
+
+	/**
+	 * Get a query builder to retrieve publications by their urlPath
+	 *
+	 * @param string $urlPath
+	 * @param int $contextId
+	 * @return Illuminate\Database\Query\Builder
+	 */
+	public function getQueryByUrlPath($urlPath, $contextId) {
+		return Capsule::table('publications as p')
+			->leftJoin('submissions as s', 's.submission_id', '=', 'p.submission_id')
+			->where('s.context_id', '=', $contextId)
+			->where('p.url_path', '=', $urlPath);
+	}
+
+	/**
+	 * Is the urlPath a duplicate?
+	 *
+	 * Checks if the urlPath is used in any publication other than the
+	 * submission passed.
+	 *
+	 * A urlPath may be duplicated across more than one publication of the
+	 * same submission. But two publications in two different submissions
+	 * can not share the same urlPath.
+	 *
+	 * This is only applied within a single context.
+	 *
+	 * @param string $urlPath
+	 * @param int $submissionId
+	 * @param int $contextId
+	 * @return boolean
+	 */
+	public function isDuplicateUrlPath($urlPath, $submissionId, $contextId) {
+		return (bool) Capsule::table('publications as p')
+			->leftJoin('submissions as s', 's.submission_id', '=', 'p.submission_id')
+			->where('url_path', '=' , $urlPath)
+			->where('p.submission_id', '!=', $submissionId)
+			->where('s.context_id', '=', $contextId)
+			->count();
 	}
 }

@@ -20,6 +20,7 @@ use \DBResultRange;
 use \Application;
 use \DAOResultFactory;
 use \DAORegistry;
+use \Illuminate\Database\Capsule\Manager as Capsule;
 use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
@@ -35,6 +36,24 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 */
 	public function get($submissionId) {
 		return Application::getSubmissionDAO()->getById($submissionId);
+	}
+
+	/**
+	 * Get a submission by the urlPath of its publications
+	 *
+	 * @param string $urlPath
+	 * @param int $contextId
+	 * @return Submission|null
+	 */
+	public function getByUrlPath($urlPath, $contextId) {
+		$qb = new \PKP\Services\QueryBuilders\PKPPublicationQueryBuilder();
+		$firstResult = $qb->getQueryByUrlPath($urlPath, $contextId)->first();
+
+		if (!$firstResult) {
+			return null;
+		}
+
+		return $this->get($firstResult->submission_id);
 	}
 
 	/**

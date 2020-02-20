@@ -16,6 +16,8 @@
 <div id="editFileMetadataTabs">
 	<ul>
 		<li><a href="{url router=$smarty.const.ROUTE_COMPONENT op="editMetadataTab" fileId=$submissionFile->getFileId() revision=$submissionFile->getRevision() submissionId=$submissionFile->getSubmissionId() stageId=$stageId}">{translate key="grid.action.editMetadata"}</a></li>
-		<li><a href="{url router=$smarty.const.ROUTE_COMPONENT op="identifiers" fileId=$submissionFile->getFileId() revision=$submissionFile->getRevision() submissionId=$submissionFile->getSubmissionId() stageId=$stageId}">{translate key="submission.identifiers"}</a></li>
+		{if $showIdentifierTab}
+			<li><a href="{url router=$smarty.const.ROUTE_COMPONENT op="identifiers" fileId=$submissionFile->getFileId() revision=$submissionFile->getRevision() submissionId=$submissionFile->getSubmissionId() stageId=$stageId}">{translate key="submission.identifiers"}</a></li>
+		{/if}
 	</ul>
 </div>

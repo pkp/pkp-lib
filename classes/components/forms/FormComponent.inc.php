@@ -240,8 +240,8 @@ class FormComponent {
 	 */
 	public function getConfig() {
 
-		if (empty($this->id) || empty($this->method) || empty($this->action) || empty($this->successMessage) || empty($this->fields)) {
-			fatalError('FormComponent::getConfig() was called but one or more required property is missing: id, method, action, successMessage, fields.');
+		if (empty($this->id) || empty($this->method) || empty($this->action) || empty($this->successMessage)) {
+			fatalError('FormComponent::getConfig() was called but one or more required property is missing: id, method, action, successMessage.');
 		}
 
 		\HookRegistry::call('Form::config::before', $this);

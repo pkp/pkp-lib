@@ -133,6 +133,7 @@
 			"type": "string",
 			"description": "The combined prefix, title and subtitle.",
 			"multilingual": true,
+			"readOnly": true,
 			"apiSummary": true
 		},
 		"id": {
@@ -286,6 +287,14 @@
 			"multilingual": true,
 			"validation": [
 				"nullable"
+			]
+		},
+		"urlPath": {
+			"type": "string",
+			"description": "An optional path to use in the URL instead of the ID.",
+			"validation": [
+				"nullable",
+				"regex:/^[-_a-z0-9]*$/"
 			]
 		},
 		"urlPublished": {

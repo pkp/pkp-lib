@@ -57,7 +57,6 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 *
 	 * @param array $args {
 	 *		@option int|array submissionIds
-	 *		@option string publisherIds
 	 * 		@option int count
 	 * 		@option int offset
 	 * }
@@ -66,8 +65,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	public function getMany($args = []) {
 		$range = null;
 		if (isset($args['count'])) {
-			import('lib.pkp.classes.db.DBResultRange');
-			$range = new \DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
+			$range = new DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
 		}
 		// Pagination is handled by the DAO, so don't pass count and offset
 		// arguments to the QueryBuilder.
@@ -99,7 +97,6 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 
 		$defaultArgs = [
 			'contextIds' => [],
-			'publisherIds' => [],
 			'submissionIds' => [],
 		];
 
@@ -108,7 +105,6 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$publicationQB = new PKPPublicationQueryBuilder();
 		$publicationQB
 			->filterByContextIds($args['contextIds'])
-			->filterByPublisherIds($args['publisherIds'])
 			->filterBySubmissionIds($args['submissionIds']);
 
 		if (isset($args['count'])) {
@@ -285,6 +281,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			[
 				'locale.regex' => __('validator.localeKey'),
 				'datePublished.date_format' => __('publication.datePublished.errorFormat'),
+				'urlPath.regex' => __('validator.alpha_dash'),
 			]
 		);
 
@@ -302,14 +299,50 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_PUBLICATION), $allowedLocales);
 
 		// The submissionId must match an existing submission
-		$validator->after(function($validator) use ($props) {
-			if (isset($props['submissionId']) && !$validator->errors()->get('submissionId')) {
-				$submission = Services::get('submission')->get($props['submissionId']);
-				if (!$submission) {
-					$validator->errors()->add('submissionId', __('publication.invalidSubmission'));
+		if (isset($props['submissionId'])) {
+			$validator->after(function($validator) use ($props) {
+				if (!$validator->errors()->get('submissionId')) {
+					$submission = Services::get('submission')->get($props['submissionId']);
+					if (!$submission) {
+						$validator->errors()->add('submissionId', __('publication.invalidSubmission'));
+					}
 				}
-			}
-		});
+			});
+		}
+
+		// The urlPath must not be used in a publication attached to
+		// any submission other than this publication's submission
+		if (!empty($props['urlPath'])) {
+			$validator->after(function($validator) use ($action, $props) {
+				if (!$validator->errors()->get('urlPath')) {
+
+					if (ctype_digit($props['urlPath'])) {
+						$validator->errors()->add('urlPath', __('publication.urlPath.numberInvalid'));
+						return;
+					}
+
+					// If there is no submissionId the validator will throw it back anyway
+					if ($action === VALIDATE_ACTION_ADD && !empty($props['submissionId'])) {
+						$submission = Services::get('submission')->get($props['submissionId']);
+					} elseif ($action === VALIDATE_ACTION_EDIT) {
+						$publication = Services::get('publication')->get($props['id']);
+						$submission = Services::get('submission')->get($publication->getData('submissionId'));
+					}
+
+					// If there's no submission we can't validate but the validator should
+					// fail anyway, so we can return without setting a separate validation
+					// error.
+					if (!$submission) {
+						return;
+					}
+
+					$qb = new PKPPublicationQueryBuilder();
+					if ($qb->isDuplicateUrlPath($props['urlPath'], $submission->getId(), $submission->getData('contextId'))) {
+						$validator->errors()->add('urlPath', __('publication.urlPath.duplicate'));
+					}
+				}
+			});
+		}
 
 		// If a new file has been uploaded, check that the temporary file exists and
 		// the current user owns it

@@ -13,7 +13,6 @@
  */
 namespace PKP\components\forms\publication;
 use \PKP\components\forms\FormComponent;
-use \PKP\components\forms\FieldText;
 
 define('FORM_PUBLICATION_IDENTIFIERS', 'publicationIdentifiers');
 
@@ -44,10 +43,5 @@ class PKPPublicationIdentifiersForm extends FormComponent {
 		$this->locales = $locales;
 		$this->publication = $publication;
 		$this->submissionContext = $submissionContext;
-
-		$this->addField(new FieldText('pub-id::publisher-id', [
-			'label' => __('submission.publisherId'),
-			'value' => $publication->getData('pub-id::publisher-id'),
-		]));
 	}
 }

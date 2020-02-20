@@ -38,9 +38,11 @@
 		if (this.remoteRepresentation_) {
 			$('#remotelyHostedContent').prop('checked', true);
 			$('#remote').show(20);
+			$('#urlPathSection').hide();
 		} else {
 			$('#remotelyHostedContent').prop('checked', false);
-			$('#remote').hide(20);
+			$('#remote').hide();
+			$('#urlPathSection').show(20);
 		}
 
 		$('#remotelyHostedContent').change(this.callbackWrapper(this.toggleRemote_));
@@ -67,10 +69,13 @@
 		if ($('#remotelyHostedContent').prop('checked')) {
 			// show the remote URL input field
 			$('#remote').show(20);
+			$('#urlPathSection').hide();
+			$('input[id^="urlPath"]').val('');
 		} else {
 			// hide and clear the remote URL input field
 			$('#remote').hide(20);
 			$('input[id^="urlRemote"]').val('');
+			$('#urlPathSection').show(20);
 		}
 		return true;
 	};

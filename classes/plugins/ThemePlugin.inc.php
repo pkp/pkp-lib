@@ -64,7 +64,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 *
 	 * @var $_optionValues null|array;
 	 */
-	private $_optionValues = null;
+	protected $_optionValues = null;
 
 	/**
 	 * @copydoc Plugin::register

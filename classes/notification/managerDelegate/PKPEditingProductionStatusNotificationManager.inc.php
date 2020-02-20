@@ -79,7 +79,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 
 		assert($assocType == ASSOC_TYPE_SUBMISSION);
 		$submissionId = $assocId;
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionId);
 
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */

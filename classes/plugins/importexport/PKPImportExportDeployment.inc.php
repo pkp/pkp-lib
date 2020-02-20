@@ -208,7 +208,7 @@ class PKPImportExportDeployment {
 			case ASSOC_TYPE_SUBMISSION:
 				$processedSubmisssionsIds = $this->getProcessedObjectsIds(ASSOC_TYPE_SUBMISSION);
 				if (!empty($processedSubmisssionsIds)) {
-					$submissionDao = Application::getSubmissionDAO();
+					$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 					foreach ($processedSubmisssionsIds as $submissionId) {
 						if ($submissionId) {
 							$submissionDao->deleteById($submissionId);

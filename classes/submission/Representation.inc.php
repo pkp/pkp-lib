@@ -130,7 +130,7 @@ class Representation extends DataObject {
 	 */
 	function getContextId() {
 		$publication = Services::get('publication')->get($this->getData('publicationId'));
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($publication->getData('submissionId'));
 		return $submission->getContextId();
 	}

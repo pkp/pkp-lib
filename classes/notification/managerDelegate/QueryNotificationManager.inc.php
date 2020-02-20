@@ -79,7 +79,7 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 	 * @return Submission
 	 */
 	protected function getQuerySubmission($query) {
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		switch ($query->getAssocType()) {
 			case ASSOC_TYPE_SUBMISSION:
 				return $submissionDao->getById($query->getAssocId());

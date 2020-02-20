@@ -67,7 +67,7 @@ class ReviewerGridRow extends GridRow {
 			);
 
 			// read or upload a review
-			$submissionDao = Application::getSubmissionDAO();
+			$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 			$submission = $submissionDao->getById($submissionId);
 			if (!$reviewAssignment->getCancelled()) $this->addAction(
 				new LinkAction(

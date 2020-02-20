@@ -61,7 +61,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $template = null, $display = false) {
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($this->_submissionId);
 
 		// All stages can choose the default template
@@ -131,7 +131,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	 * @copydoc Form::execute()
 	 */
 	function execute(...$functionParams) {
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($this->_submissionId);
 		if ($this->getData('message')) {
 			$request = Application::get()->getRequest();

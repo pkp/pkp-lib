@@ -322,7 +322,8 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(400)->withJson($errors);
 		}
 
-		$submission = Application::get()->getSubmissionDAO()->newDataObject();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
+		$submission = $submissionDao->newDataObject();
 		$submission->_data = $params;
 		$submission = Services::get('submission')->add($submission, $request);
 

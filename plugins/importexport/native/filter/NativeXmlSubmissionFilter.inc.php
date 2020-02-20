@@ -67,7 +67,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$context = $deployment->getContext();
 
 		// Create and insert the submission (ID needed for other entities)
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->newDataObject();
 		$submission->setContextId($context->getId());
 		$submission->stampLastActivity();
@@ -100,7 +100,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	 * @return Submission
 	 */
 	function populateObject($submission, $node) {
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		if ($dateSubmitted = $node->getAttribute('date_submitted')) {
 			$submission->setDateSubmitted(Core::getCurrentDate(strtotime($dateSubmitted)));
 		} else {

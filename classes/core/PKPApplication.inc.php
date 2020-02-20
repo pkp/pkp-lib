@@ -80,6 +80,7 @@ interface iPKPApplicationInfoProvider {
 
 	/**
 	 * Get the submission DAO.
+	 * @deprecated Just use DAORegistry::getDAO('SubmissionDAO') directly.
 	 */
 	public static function getSubmissionDAO();
 

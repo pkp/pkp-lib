@@ -90,7 +90,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 		$message = parent::getNotificationMessage($request, $notification);
 		$type = $notification->getType();
 		assert(isset($type));
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 
 		switch ($type) {
 			case NOTIFICATION_TYPE_SUCCESS:

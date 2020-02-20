@@ -53,7 +53,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 	 */
 	function updateNotification($request, $userIds, $assocType, $assocId) {
 		$submissionId = $assocId;
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionId);
 
 		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */

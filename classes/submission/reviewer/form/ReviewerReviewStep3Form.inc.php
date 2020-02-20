@@ -193,7 +193,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		}
 
 		// Send notification
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
 
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */

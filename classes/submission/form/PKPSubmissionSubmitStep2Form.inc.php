@@ -33,7 +33,7 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm {
 		parent::execute(...$functionArgs);
 
 		// Update submission
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $this->submission;
 
 		if ($submission->getSubmissionProgress() <= $this->step) {

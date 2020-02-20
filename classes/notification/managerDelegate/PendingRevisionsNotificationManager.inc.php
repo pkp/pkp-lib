@@ -37,7 +37,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 	 * @copydoc PKPNotificationOperationManager::getNotificationUrl()
 	 */
 	public function getNotificationUrl($request, $notification) {
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($notification->getAssocId());
 
 		$stageData = $this->_getStageDataByType();
@@ -66,7 +66,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 		$stageId = $stageData['id'];
 		$submissionId = $notification->getAssocId();
 
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionId);
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);

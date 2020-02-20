@@ -488,7 +488,7 @@ class SubmissionFile extends PKPFile {
 	 */
 	function getFilePath() {
 		// Get the context ID
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($this->getSubmissionId());
 		if (!$submission) return null;
 		$contextId = $submission->getContextId();

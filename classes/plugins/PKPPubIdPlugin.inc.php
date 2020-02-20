@@ -282,7 +282,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	 */
 	function getDAOs() {
 		return  array(
-			'Submission' => Application::getSubmissionDAO(),
+			'Submission' => DAORegistry::getDAO('SubmissionDAO'),
 			'Representation' => Application::getRepresentationDAO(),
 			'SubmissionFile' => DAORegistry::getDAO('SubmissionFileDAO'),
 		);

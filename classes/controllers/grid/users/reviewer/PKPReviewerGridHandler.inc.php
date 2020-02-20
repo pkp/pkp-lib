@@ -588,7 +588,7 @@ class PKPReviewerGridHandler extends GridHandler {
 			import('classes.log.SubmissionEventLogEntry');
 
 			$submissionId = $reviewAssignment->getSubmissionId();
-			$submissionDao = Application::getSubmissionDAO();
+			$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 			$submission = $submissionDao->getById($submissionId);
 
 			SubmissionLog::logEvent(

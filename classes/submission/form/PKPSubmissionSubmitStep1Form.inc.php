@@ -299,7 +299,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	function execute(...$functionArgs) {
 		parent::execute(...$functionArgs);
 
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */

@@ -30,7 +30,7 @@ class SubmissionNotificationManager extends NotificationManagerDelegate {
 	 */
 	public function getNotificationMessage($request, $notification) {
 		assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($notification->getAssocId()); /* @var $submission Submission */
 
 		switch ($notification->getType()) {

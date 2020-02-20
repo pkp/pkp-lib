@@ -164,7 +164,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @copydoc DataObject::getDAO()
 	 */
 	function getDAO() {
-		return Application::get()->getSubmissionDAO();
+		return DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 	}
 
 	//

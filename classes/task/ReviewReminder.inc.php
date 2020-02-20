@@ -128,7 +128,7 @@ class ReviewReminder extends ScheduledTask {
 		$context = null;
 
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$contextDao = Application::getContextDAO();
 
 		$incompleteAssignments = $reviewAssignmentDao->getIncompleteReviewAssignments();

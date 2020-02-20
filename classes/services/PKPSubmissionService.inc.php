@@ -35,7 +35,8 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
 	 */
 	public function get($submissionId) {
-		return Application::getSubmissionDAO()->getById($submissionId);
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
+		return $submissionDao->getById($submissionId);
 	}
 
 	/**
@@ -98,7 +99,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		if (isset($args['count'])) unset($args['count']);
 		if (isset($args['offset'])) unset($args['offset']);
 		$submissionListQO = $this->getQueryBuilder($args)->getQuery();
-		$submissionDao = Application::get()->getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$result = $submissionDao->retrieveRange($submissionListQO->toSql(), $submissionListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $submissionDao, '_fromRow');
 
@@ -738,7 +739,8 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		if (!$submission->getData('dateSubmitted') && !$submission->getData('submissionProgress')) {
 			$submission->setData('dateSubmitted', Core::getCurrentDate());
 		}
-		$submissionId = Application::get()->getSubmissionDAO()->insertObject($submission);
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
+		$submissionId = $submissionDao->insertObject($submission);
 		$submission = $this->get($submissionId);
 
 		\HookRegistry::call('Submission::add', [$submission, $request]);
@@ -750,7 +752,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::edit()
 	 */
 	public function edit($submission, $params, $request) {
-		$submissionDao = Application::get()->getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 
 		$newSubmission = $submissionDao->newDataObject();
 		$newSubmission->_data = array_merge($submission->_data, $params);
@@ -771,7 +773,8 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	public function delete($submission) {
 		\HookRegistry::call('Submission::delete::before', [$submission]);
 
-		Application::get()->getSubmissionDAO()->deleteObject($submission);
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
+		$submissionDao->deleteObject($submission);
 
 		$authorsIterator = Services::get('author')->getMany(['publicationIds' => $submission->getId()]);
 		foreach ($authorsIterator as $author) {

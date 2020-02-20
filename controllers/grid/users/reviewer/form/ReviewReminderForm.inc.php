@@ -60,7 +60,7 @@ class ReviewReminderForm extends Form {
 		$reviewerId = $reviewAssignment->getReviewerId();
 		$reviewer = $userDao->getById($reviewerId);
 
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
@@ -131,7 +131,7 @@ class ReviewReminderForm extends Form {
 	 */
 	function execute(...$functionArgs) {
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$request = Application::get()->getRequest();
 
 		$reviewAssignment = $this->getReviewAssignment();

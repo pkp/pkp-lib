@@ -93,7 +93,7 @@ class NotificationsGridCellProvider extends GridCellProvider {
 				$queuedPayment = DAORegistry::getDAO('QueuedPaymentDAO')->getById($notification->getAssocId());
 				if ($queuedPayment) switch ($queuedPayment->getType()) {
 					case PAYMENT_TYPE_PUBLICATION:
-						$submissionDao = Application::getSubmissionDAO();
+						$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 						return $submissionDao->getById($queuedPayment->getAssocId())->getLocalizedTitle();
 				}
 				assert(false);
@@ -150,7 +150,7 @@ class NotificationsGridCellProvider extends GridCellProvider {
 			$submissionId = $submissionFile->getSubmissionId();
 		}
 		assert(is_numeric($submissionId));
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionId);
 		assert(is_a($submission, 'Submission'));
 

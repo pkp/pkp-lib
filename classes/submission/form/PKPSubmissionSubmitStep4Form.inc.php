@@ -31,7 +31,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 	 * @return int the submission ID
 	 */
 	function execute(...$functionArgs) {
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$request = Application::get()->getRequest();
 
 		// Set other submission data.

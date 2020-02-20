@@ -389,7 +389,7 @@ class SubmissionFileDAODelegate extends DAO {
 	function deleteAllPubIds($contextId, $pubIdType) {
 		$settingName = 'pub-id::'.$pubIdType;
 
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submissions = $submissionDao->getByContextId($contextId);
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		while ($submission = $submissions->next()) {

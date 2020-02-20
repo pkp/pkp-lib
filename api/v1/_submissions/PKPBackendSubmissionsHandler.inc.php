@@ -178,7 +178,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 		$request = $this->getRequest();
 		$context = $request->getContext();
 		$submissionId = (int) $args['submissionId'];
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionId);
 
 		if (!$submission) {

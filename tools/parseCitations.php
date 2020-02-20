@@ -47,7 +47,7 @@ class CitationsParsingTool extends CommandLineTool {
 	 * Parse citations
 	 */
 	function execute() {
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$citationDao = DAORegistry::getDAO('CitationDAO');
 		$contextDao = Application::getContextDAO();
 

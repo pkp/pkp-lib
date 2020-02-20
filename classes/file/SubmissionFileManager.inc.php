@@ -308,7 +308,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		$submissionFile->setSubmissionId($this->getSubmissionId());
 
 		// Instantiate submission locale for the file
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionFile->getSubmissionId());
 		$submissionFile->setSubmissionLocale($submission->getLocale());
 

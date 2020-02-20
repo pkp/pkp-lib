@@ -44,7 +44,7 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy {
 		if ($submissionId === false) return AUTHORIZATION_DENY;
 
 		// Validate the submission id.
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionId);
 		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
 

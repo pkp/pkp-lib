@@ -377,7 +377,7 @@ class PKPToolsHandler extends ManagementHandler {
 				if (!$context) break;
 				return $context->getLocalizedName();
 			case ASSOC_TYPE_SUBMISSION:
-				$submissionDao = Application::getSubmissionDAO(); /* @var $submissionDao SubmissionDAO */
+				$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 				$submission = $submissionDao->getById($assocId, null, true);
 				if (!$submission) break;
 				return $submission->getLocalizedTitle();
@@ -431,7 +431,7 @@ class PKPToolsHandler extends ManagementHandler {
 			return;
 		}
 
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submissionDao->resetPermissions($context->getId());
 
 		$user = $request->getUser();

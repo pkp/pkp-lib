@@ -44,7 +44,7 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm {
 		$reviewAssignment = $this->getReviewAssignment();
 
 		// Reinstate the review assignment.
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 

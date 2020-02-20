@@ -73,7 +73,7 @@ class EditorAction {
 			$editDecisionDao->updateEditorDecision($submission->getId(), $editorDecision, $stageId, $reviewRound);
 
 			// Set a new submission status if necessary
-			$submissionDao = Application::getSubmissionDAO();
+			$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 			if ($decision == SUBMISSION_EDITOR_DECISION_DECLINE || $decision == SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE) {
 				$submission->setStatus(STATUS_DECLINED);
 				$submissionDao->updateObject($submission);
@@ -219,7 +219,7 @@ class EditorAction {
 	function incrementWorkflowStage($submission, $newStage, $request) {
 		// Change the submission's workflow stage.
 		$submission->setStageId($newStage);
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submissionDao->updateObject($submission);
 	}
 }

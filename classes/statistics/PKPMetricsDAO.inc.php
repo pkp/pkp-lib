@@ -384,7 +384,7 @@ class PKPMetricsDAO extends DAO {
 				// Don't break but go on to retrieve the submission.
 			case ASSOC_TYPE_SUBMISSION:
 				if (!$isFile && !$isRepresentation) $submissionId = $assocId;
-				$submissionDao = Application::getSubmissionDAO(); /* @var $submissionDao SubmissionDAO */
+				$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 				$submission = $submissionDao->getById($submissionId);
 				if ($submission) {
 					$contextId = $submission->getContextId();

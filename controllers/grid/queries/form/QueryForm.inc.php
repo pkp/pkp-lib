@@ -401,7 +401,8 @@ class QueryForm extends Form {
 		if ($query->getAssocType() === ASSOC_TYPE_SUBMISSION) {
 			$submission = Services::get('submission')->get($query->getAssocId());
 			$submission->stampLastActivity();
-			Application::getSubmissionDAO()->updateObject($submission);
+			$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
+			$submissionDao->updateObject($submission);
 		}
 
 		parent::execute(...$functionArgs);

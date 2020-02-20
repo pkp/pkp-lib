@@ -88,7 +88,7 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider {
 
 		$router = $request->getRouter();
 		$action = false;
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
 
 		// Only attach actions to the actions column. The actions and status

@@ -27,7 +27,7 @@ class SubmissionInfoCenterLinkAction extends LinkAction {
 	function __construct($request, $submissionId, $linkKey = 'informationCenter.editorialHistory') {
 		// Instantiate the information center modal.
 
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionId);
 
 		$primaryAuthor = $submission->getPrimaryAuthor();

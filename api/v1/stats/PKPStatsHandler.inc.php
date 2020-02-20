@@ -175,7 +175,7 @@ class PKPStatsHandler extends APIHandler {
 			$currentPageSubmissionsRecords = array_slice($submissionsRecords, isset($params['offset']) ? $params['offset'] : 0, $params['count']);
 			foreach ($currentPageSubmissionsRecords as $submissionsRecord) {
 				$publishedSubmissionDao = \Application::getPublishedSubmissionDAO();
-				$submission = $publishedSubmissionDao->getByArticleId($submissionsRecord['submission_id'], $context->getId());
+				$submission = $publishedSubmissionDao->getBySubmissionId($submissionsRecord['submission_id'], $context->getId());
 				if ($submission) {
 					$items[] = $statsService->getSummaryProperties($submission, $propertyArgs);
 				}

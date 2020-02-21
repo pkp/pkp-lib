@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2020-02-08 03:24+0000\n"
-"Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
+"PO-Revision-Date: 2020-02-21 15:36+0000\n"
+"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv/>\n"
 "Language: sv_SE\n"
@@ -429,7 +429,7 @@ msgid "manager.plugins.action"
 msgstr "Åtgärd:"
 
 msgid "manager.plugins.disable"
-msgstr "Inaktivera "
+msgstr "Inaktivera"
 
 msgid "manager.plugins.enable"
 msgstr "Aktivera"
@@ -1503,7 +1503,7 @@ msgid "manager.reviewFormElements.description"
 msgstr "Beskrivning"
 
 msgid "manager.distribution.customHeaders"
-msgstr ""
+msgstr "Anpassade taggar"
 
 msgid "manager.distribution.license"
 msgstr "Licens"
@@ -1595,7 +1595,7 @@ msgid "grid.category.description"
 msgstr "Beskrivning"
 
 msgid "grid.category.path"
-msgstr ""
+msgstr "Sökväg"
 
 msgid "grid.category.pathAlphaNumeric"
 msgstr "Kategorins sökväg kan bara innehålla bara bokstäver och nummer."
@@ -1620,3 +1620,370 @@ msgstr ""
 
 msgid "manager.setup.metadata.coverage.enable"
 msgstr "Gör det möjligt att lägga in metadata om täckning"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Avslagsprocent efter granskning"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Redaktionell avslagsprocent"
+
+msgid "stats.name.declineRate"
+msgstr "Avslagsprocent"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Accepteringsprocent"
+
+msgid "stats.name.daysToReject"
+msgstr "Dagar till avslag"
+
+msgid "stats.name.daysToAccept"
+msgstr "Dagar till accepterande"
+
+msgid "stats.name.daysToDecision"
+msgstr "Dagar till det första redaktionella beslutet"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Refuserade bidrag"
+
+msgid "stats.submissionsActive"
+msgstr "Aktiva bidrag"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Sök efter titel, författare och ID"
+
+msgid "stats.fileViews"
+msgstr "Filvisningar"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Antal dagar det tar för de flesta bidragen att få ett första redaktionellt "
+"beslut, som avslag eller skickat för granskning. <br><br> Figurerna visat "
+"att 80 % av inskickade bidrag får ett beslut inom det angivna antalet dagar. "
+"<br><br> Statistiken försöker visa när majoriteten av inskickade bidrag till "
+"din tidskrift kan förvänta sig ett beslut."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Procent för det valda datumintervallet baserat på antal bidrag som har "
+"skickats in under tidsintervallet och har mottaget ett slutgiltigt "
+"beslut.<br><br> Till exempel, antag att tio bidrag har skickats in under "
+"tidsintervallet. Fyra accepterades, fyra fick avslag och två väntar på "
+"slutgiltigt beslut. <br><br> Andel bidrag som har accepterats blir 50 % (4 "
+"av 8 bidrag) eftersom två av bidragen väntar på beslut. "
+
+msgid "stats.dateRange.untilDate"
+msgstr "Till {$date}"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Startdatumet kan inte vara tidigare än {$date}."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Slutdatumet kan inte vara senare än {$date}."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Startdatumet måste vara före slutdatumet."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Formatet för datum är inte giltigt. Skriv varje datum i formatet YYYY-MM-DD."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Skriv in datum i formatet YYYY-MM-DD. Till exempel, om du ska skriva 15 "
+"januari, 2019, skriv 2019-01-15."
+
+msgid "stats.dateRange.customRange"
+msgstr "Anpassa intervall"
+
+msgid "stats.dateRange.change"
+msgstr "Ändra datumintervallet"
+
+msgid "stats.dateRange.apply"
+msgstr "Använd"
+
+msgid "stats.dateRange.allDates"
+msgstr "Alla datum"
+
+msgid "stats.dateRange"
+msgstr "Datumintervall"
+
+msgid "grid.category.categoryDetails"
+msgstr "Information om kategorin"
+
+msgid "grid.category.nameRequired"
+msgstr "Lägg till ett namn för kategorin."
+
+msgid "grid.category.removeText"
+msgstr "Vill du ta bort den här kategorin?"
+
+msgid "grid.category.parentCategory"
+msgstr "Föräldrakategori"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Användarnamn \"{$username}\" och e-postadress \"{$email}\" stämmer inte "
+"överens med en och samma användare."
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Författaren {$authorName} har inget förnamn inlagt på bidragets språk, "
+"{$localeName}. Bidraget kan inte importeras utan den informationen."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Kräv att författaren registrerar bidragets referenser innan det accepteras. "
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Be författaren ange referenser vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Kräv inte referenser av författarna vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Gör det möjligt att ange referensmetadata"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Skriv referenserna i ett separat fält. Det underlättar för "
+"korsciteringstjänster som Crossref."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Kräv att författaren anger någon forskningsfinansiär innan bidraget "
+"accepteras."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Be författaren att ange någon forskningsfinansiär vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Kräv inte att författaren ska ange forskningsfinansiärer vid inskickandet av "
+"bidrag."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Gör det möjligt att ange metadata för forskningsfinansiärer"
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr "Kräv att författaren anger discipliner innan bidraget accepteras."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Be författaren att ange discipliner vid inskickande av bidrag."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr ""
+"Kräv inte att författaren ska ange discipliner vid inskickande av bidrag."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Gör det möjligt att ange metadata för discipliner"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Discipliner är typer av studier eller kunskapsområden som beskrivs av "
+"universitetens fakulteter och lärda sällskap."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr ""
+"Kräv inte metadata om materialtyper av författaren vid inskickande av bidrag."
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Karaktären eller genren som beskriver det huvudsakliga innehållet i "
+"bidraget. Vanligtvis \"Text\", men kan också vara \"Dataset\", \"Bild\" "
+"eller någon av <a target=\"_blank\" href=\"http://dublincore.org/documents/"
+"dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core types</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Kräv att författaren anger ämnen innan bidraget accepteras."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Be författaren att ange ämnen vid inskickande av bidrag."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Kräv inte ämnen av författare under inskickandet av bidrag."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Gör det möjligt att lägga in ämnesmetadata."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Ämnen kommer att bli nyckelord, nyckelfraser eller klassifikationskoder som "
+"beskriver innehållet i bidraget."
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Källan kan vara ett ID, som t ex DOI, av ett annat arbete eller resurs som "
+"bidraget är hämtad."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Kräv att författaren anger tidigare upphovsrättsvillkor innan bidraget "
+"accepteras."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Be författaren att ange tidigare upphovsrättsvillkor vid inskickandet av "
+"bidrag."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+"Kräv inte att författaren ska ange upphovsrättsvillkor vid inskickandet av "
+"bidrag."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Gör det möjligt att ange upphovsrättsmetadata"
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Kräv att författaren lägger in bidragets språk innan bidraget accepteras."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Be författaren att ange bidragets språk vid inskickandet. "
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Kräv inte att författaren ska ange språk vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Gör det möjligt att lägga in språkmetadata"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Språk anger arbetets primära språk, genom att använda språkkod (\"en\") med "
+"en frivillig landkod (\"en_US\")."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr "Kräv att författaren föreslår nyckelord innan bidraget accepteras."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Be författaren att föreslå nyckelord vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Kräv inte nyckelord från författaren vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Gör det möjligt att lägga in nyckelordsmetadata"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Nyckelord är vanligtsvis en till tre ords fraser som beskriver bidragets "
+"ämne."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Begär att författare föreslår täckningsmetadata innan bidraget accepteras."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Be författaren att föreslå täckningsmetadata vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Kräv inte täckningsmetadata från författare vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Täckning beskriver arbetets rumsliga plats (namn på en plats eller "
+"geografiska koordinater), "
+
+msgid "manager.setup.metadata.success"
+msgstr "Bidragets metadata har uppdaterats."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Tillåt redigering av bidragets metadata."
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Lägg till anpassade HTML taggar,  kallas även metataggar, som du vill ska "
+"läggas in i sidhuvudet på varje sida. Rådfråga en tekniker innan taggarna "
+"läggs här. "
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr "Lägg in licensvillkor som du vill visa vid det publiceratde verket."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Benämning av licens"
+
+msgid "manager.distribution.license.other"
+msgstr "Annan licens URL"
+
+msgid "manager.distribution.license.success"
+msgstr "Licensdetaljerna har uppdaterats."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Det tema som du valde är inte installerat eller aktiverat."
+
+msgid "manager.setup.theme.success"
+msgstr "Temat har uppdaterats. <a href=\"{$url}\" target=\"_blank\">Visa nu</a>"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr ""
+"Visa länken <button type=\"button\">Garanterar anonym granskning</button> "
+"under uppladdning"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Default granskningsläge"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Granskningspåminnelse"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Påminnelse"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Defaultvärde för sista datum för kompletteringar"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Default svarsdatum"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Filen som du laddade upp kan inte hittas. Försök att ladda upp igen."
+
+msgid "manager.setup.checklist"
+msgstr "Checklista"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Riktlinjerna för författare har uppdaterats."
+
+msgid "manager.setup.appearance.success"
+msgstr "Inställningarna för utseendet har uppdaterats."
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Ämne: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Skickats till"
+
+msgid "manager.emails.sentFrom"
+msgstr "Skickats från"
+
+msgid "manager.emails.resetAll"
+msgstr "Återställ alla"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Nyckeln du angav används redan."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Du måste ange ett ID när en e-postmall läggs till."
+
+msgid "manager.emails.emailKey.description"
+msgstr "E-postnyckeln kan bara innehålla bokstäver, nummer eller understreck."
+
+msgid "manager.emails.editEmail.success"
+msgstr "E-postmallen har ändrats."
+
+msgid "manager.emails.customTemplate"
+msgstr "Specialmall"
+
+msgid "manager.emails.addEmail.success"
+msgstr "E-postmallen är tillagd."
+
+msgid "manager.emails.addEmail"
+msgstr "Lägg till mall"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Granskningspåminnelsens detaljer har uppdaterats."
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Bidraget är refuserat efter granskning"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Bidraget är refuserat av redaktionen"

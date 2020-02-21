@@ -1197,4 +1197,13 @@ abstract class PKPSubmission extends DataObject {
 		$publication = $this->getCurrentPublication();
 		return $publication && $publication->isCCLicense();
 	}
+
+	/**
+         * Get views of the submission.
+         * @return int
+         */
+        function getViews() {
+                $application = Application::getApplication();
+                return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION, $this->getId());
+        }
 }

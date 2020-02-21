@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2020-02-13 15:45+0000\n"
+"PO-Revision-Date: 2020-02-21 15:36+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "es/>\n"
@@ -180,7 +180,19 @@ msgid "common.captchaField"
 msgstr "Validación"
 
 msgid "common.ccLicense"
-msgstr "<br /><br /> <a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"> <img alt=\"Licencia de Creative Commons\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/> </a> <br/> Este trabajo se distribuye bajo una <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Licencia de reconocimiento 3.0 de Creative Commons</a>."
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tEsta obra está bajo una licencia <a rel=\"license\" target=\"_blank\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0</a>.\n"
+"\t"
 
 msgid "common.ccLicense.rt"
 msgstr ""
@@ -495,7 +507,7 @@ msgid "common.prefix"
 msgstr "Prefijo"
 
 msgid "common.prefixAndTitle.tip"
-msgstr "Si el título del libro comienza con \"Un/a\" o \"El/La/Los/Las\" (o algo similar que no debiera considerarse en el orden alfabético) sitúa esta palabra en Prefijo."
+msgstr "Ejemplos: A, El/La"
 
 msgid "common.preview"
 msgstr "Previsualizar"
@@ -669,7 +681,7 @@ msgid "debug.executionTime"
 msgstr "Página generada en"
 
 msgid "debug.memoryUsage"
-msgstr "Uso de memoria:"
+msgstr "Uso de memoria"
 
 msgid "debug.notes.localeListLoad"
 msgstr "Lista de configuraciones regionales \"{$localeList}\" cargada desde XML"
@@ -966,7 +978,7 @@ msgid "navigation.login"
 msgstr "Entrar"
 
 msgid "navigation.nextPage"
-msgstr ">>"
+msgstr "&gt;&gt;"
 
 msgid "navigation.nextStep"
 msgstr "Siguiente paso"
@@ -1026,7 +1038,7 @@ msgid "notification.updatedReviewFiles"
 msgstr "Revise los archivos actualizados."
 
 msgid "notification.allow"
-msgstr "Permitir que este tipo de notificaciones aparezcan en mi área de notificaciones"
+msgstr "Habilitar este tipo de notificaciones."
 
 msgid "notification.addedAnnouncementType"
 msgstr "Tipo de aviso añadido."
@@ -1518,7 +1530,6 @@ msgstr "Enviar correo electrónico de notificación a todos los usuarios/as regi
 msgid "notification.type.reviewAssignmentUpdated"
 msgstr "Asignación de revisión actualizada."
 
-
 msgid "notification.editedNavigationMenuItem"
 msgstr "El elemento del menú de navegación ha sido actualizado con éxito"
 
@@ -1765,3 +1776,154 @@ msgstr ""
 "Describa esta imagen para visitantes del sitio con un navegador de solo "
 "texto o con dispositivos de asistencia. Por ejemplo: \"Nuestro editor dando "
 "una charla en la conferencia PKP\"."
+
+msgid "validator.url"
+msgstr "Esta URL no es válida."
+
+msgid "validator.unique"
+msgstr "{$attribute} ya está en uso."
+
+msgid "validator.timezone"
+msgstr "Esta zona horaria no es válida."
+
+msgid "validator.string"
+msgstr "Esta cadena no es válida."
+
+msgid "validator.size.array"
+msgstr "Esto debe contener {$size} elementos."
+
+msgid "validator.size.string"
+msgstr "Esto debe tener {$size} caracteres."
+
+msgid "validator.size.file"
+msgstr "Esto debe tener {$size} kilobytes."
+
+msgid "validator.size.numeric"
+msgstr "Esto debe ser de {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} y {$other} deben coincidir."
+
+msgid "validator.required_without_all"
+msgstr "Este campo es obligatorio cuando ninguno de {$values} estén presentes."
+
+msgid "validator.required_without"
+msgstr "Este campo es obligatorio cuando {$values} no esté presente."
+
+msgid "validator.required_with_all"
+msgstr "Este campo es obligatorio cuando {$values} esté presente."
+
+msgid "validator.required_with"
+msgstr "Este campo es obligatorio cuando {$values} esté presente."
+
+msgid "validator.required_unless"
+msgstr "Este campo es obligatorio a menos que {$other} esté en {$values}."
+
+msgid "validator.required_if"
+msgstr "Este campo es obligatorio cuando {$other} es {$value}."
+
+msgid "validator.required"
+msgstr "Este campo es obligatorio."
+
+msgid "validator.regex"
+msgstr "Esto no está formateado correctamente."
+
+msgid "validator.present"
+msgstr "El campo {$attribute} debe estar presente."
+
+msgid "validator.orcid"
+msgstr "Este ORCID no es válido."
+
+msgid "validator.numeric"
+msgstr "Este número no es válido."
+
+msgid "validator.not_in"
+msgstr "El {$attribute} seleccionado no es válido."
+
+msgid "validator.min.array"
+msgstr "Esto debe tener por lo menos {$min} elementos."
+
+msgid "validator.min.string"
+msgstr "Esto debe tener por lo menos {$min} caracteres."
+
+msgid "validator.min.file"
+msgstr "Esto debe tener por lo menos {$min} kilobytes."
+
+msgid "validator.min.numeric"
+msgstr "Esto debe tener por lo menos {$min}."
+
+msgid "validator.mimes"
+msgstr "Este archivo debe ser del tipo {$values}."
+
+msgid "validator.max.array"
+msgstr "Esto no debe tener más de {$max} elementos."
+
+msgid "validator.max.string"
+msgstr "Esto no puede tener más de {$max} caracteres."
+
+msgid "validator.max.file"
+msgstr "Esto no puede ser mayor de {$max} kilobytes."
+
+msgid "validator.max.numeric"
+msgstr "Esto no puede ser mayor que {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Los idiomas deben especificarse a través de la configuración regional. Por "
+"ejemplo: en_US, fr_CA, sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Este campo es multilingüe. Deben proporcionarse valores por separado para "
+"cada idioma compatible."
+
+msgid "validator.locale"
+msgstr "Este idioma no está aceptado."
+
+msgid "validator.json"
+msgstr "Esta cadena JSON no es válida."
+
+msgid "validator.issn"
+msgstr "Este ISSN no es válido."
+
+msgid "validator.ip"
+msgstr "Esta dirección IP no es válida."
+
+msgid "validator.integer"
+msgstr "Este no es un número entero válido."
+
+msgid "validator.in"
+msgstr "El {$attribute} seleccionado no es válido."
+
+msgid "validator.image"
+msgstr "Esto debe ser una imagen."
+
+msgid "validator.filled"
+msgstr "Este campo es obligatorio."
+
+msgid "validator.exists"
+msgstr "El {$attribute} seleccionado no es válido."
+
+msgid "validator.email"
+msgstr "Esta dirección de correo electrónico no es válida."
+
+msgid "validator.digits_between"
+msgstr "Esto debe tener entre {$min} y {$max} dígitos."
+
+msgid "validator.digits"
+msgstr "Esto debe tener {$digits} dígitos."
+
+msgid "validator.different"
+msgstr "{$attribute} y {$other} deben ser diferentes."
+
+msgid "validator.date_format"
+msgstr "Esto no corresponde al formato {$format}."
+
+msgid "validator.date"
+msgstr "Esta no es una fecha válida."
+
+msgid "validator.currency"
+msgstr "Esta no es una moneda válida."
+
+msgid "validator.confirmed"
+msgstr "La confirmación para este campo no coincide."

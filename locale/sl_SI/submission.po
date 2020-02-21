@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2020-02-18 19:36+0000\n"
+"PO-Revision-Date: 2020-02-21 18:06+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl/>\n"
@@ -652,7 +652,7 @@ msgid "submission.identifiers"
 msgstr "Identifikatorji"
 
 msgid "submission.publisherId"
-msgstr "Javni URL identifikator"
+msgstr "ID izdajatelja"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Podatki o prispevku"
@@ -2022,3 +2022,27 @@ msgstr "Izjava o avtorskih pravicah"
 
 msgid "submission.copyrightHolder.other"
 msgstr "Poljubna izjava o avtorskih pravicah"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "URL pot ne more biti številka."
+
+msgid "publication.urlPath.duplicate"
+msgstr "Ta URL pot je že uporabljena in ne more biti ponovno."
+
+msgid "publication.urlPath.description"
+msgstr "Neobvezna pot, ki se uporablja v URL namesto IDja."
+
+msgid "publication.urlPath"
+msgstr "URL pot"
+
+msgid "submission.publications"
+msgstr "Objave"
+
+msgid "submission.publisherId.enable"
+msgstr "Omogoči za {$objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"ID založnika se lahko uporabi za shranjevanje v zunanje baze. Npr. izvoz za "
+"deponiranje v PubMed lahko vključuje ID založnika. Ta ID se ne uporablja za "
+"DOI."

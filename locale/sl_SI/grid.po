@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2020-01-18 18:35+0000\n"
+"PO-Revision-Date: 2020-02-21 18:06+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "sl/>\n"
@@ -598,7 +598,7 @@ msgid "grid.artworkFile.caption"
 msgstr "Napis"
 
 msgid "grid.artworkFile.credit"
-msgstr "Credit"
+msgstr "Zasluga"
 
 msgid "grid.artworkFile.copyrightOwner"
 msgstr "Lastnik avtorskih pravic"
@@ -668,3 +668,9 @@ msgstr "Odstrani"
 
 msgid "grid.action.users"
 msgstr "Poglej/izberi uporabnike"
+
+msgid "grid.action.newVersion"
+msgstr "Ustvari novo verzijo"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Odstrani to uporabniško skupino"

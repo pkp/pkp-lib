@@ -28,12 +28,19 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 		if ($this->getEnabled($mainContextId)) {
 			// Enable storage of additional fields.
 			foreach($this->getDAOs() as $publicObjectType => $dao) {
-				HookRegistry::register(strtolower_codesafe(get_class($dao)).'::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));
-				if (strtolower_codesafe(get_class($dao)) == 'submissionfiledao') {
-					// if it is a file, consider all file delegates
-					$fileDAOdelegates = $this->getFileDAODelegates();
-					foreach ($fileDAOdelegates as $fileDAOdelegate) {
-						HookRegistry::register(strtolower_codesafe($fileDAOdelegate).'::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));
+				// Augment the object with the additional properties required by the pub ID plugin.
+				if ($dao instanceof SchemaDAO) {
+					// Schema-backed DAOs need the schema extended.
+					HookRegistry::register('Schema::get::' . $dao->schemaName, array($this, 'addToSchema'));
+				} else {
+					// For non-schema-backed DAOs, DAOName::getAdditionalFieldNames can be used.
+					HookRegistry::register(strtolower_codesafe(get_class($dao)).'::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));
+					if (strtolower_codesafe(get_class($dao)) == 'submissionfiledao') {
+						// if it is a file, consider all file delegates
+						$fileDAOdelegates = $this->getFileDAODelegates();
+						foreach ($fileDAOdelegates as $fileDAOdelegate) {
+							HookRegistry::register(strtolower_codesafe($fileDAOdelegate).'::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));
+						}
 					}
 				}
 			}
@@ -282,6 +289,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	 */
 	function getDAOs() {
 		return  array(
+			'Publication' => DAORegistry::getDAO('PublicationDAO'),
 			'Submission' => DAORegistry::getDAO('SubmissionDAO'),
 			'Representation' => Application::getRepresentationDAO(),
 			'SubmissionFile' => DAORegistry::getDAO('SubmissionFileDAO'),
@@ -319,20 +327,37 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	}
 
 	/**
-	 * Add the suffix element and the public identifier
-	 * to the object.
+	 * Add properties for this type of public identifier to the entity's list for
+	 * storage in the database.
+	 * This is used for SchemaDAO-backed entities only.
+	 * @see PKPPubIdPlugin::getAdditionalFieldNames()
+	 * @param $hookName string `Schema::get::publication`
+	 * @param $params array
+	 */
+	public function addToSchema($hookName, $params) {
+		$schema =& $params[0];
+		foreach (array_merge($this->getFormFieldNames(), $this->getDAOFieldNames()) as $fieldName) {
+			$schema->properties->{$fieldName} = (object) [
+				'type' => 'string',
+				'apiSummary' => true,
+				'validation' => ['nullable'],
+			];
+		}
+		return false;
+	}
+
+	/**
+	 * Add properties for this type of public identifier to the entity's list for
+	 * storage in the database.
+	 * This is used for non-SchemaDAO-backed entities only.
+	 * @see PKPPubIdPlugin::addToSchema()
 	 * @param $hookName string
 	 * @param $params array
 	 */
 	function getAdditionalFieldNames($hookName, $params) {
 		$fields =& $params[1];
-		$formFieldNames = $this->getFormFieldNames();
-		foreach ($formFieldNames as $formFieldName) {
-			$fields[] = $formFieldName;
-		}
-		$daoFieldNames = $this->getDAOFieldNames();
-		foreach ($daoFieldNames as $daoFieldName) {
-			$fields[] = $daoFieldName;
+		foreach (array_merge($this->getFormFieldNames(), $this->getDAOFieldNames()) as $fieldName) {
+			$fields[] = $fieldName;
 		}
 		return false;
 	}

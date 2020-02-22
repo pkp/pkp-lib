@@ -72,7 +72,7 @@ class PKPSchemaService {
 			$schema = $this->merge($schema, $appSchema);
 		}
 
-		\HookRegistry::call('Schema::get::' . $schemaName, $schema);
+		\HookRegistry::call('Schema::get::' . $schemaName, array(&$schema));
 
 		$this->_schemas[$schemaName] = $schema;
 

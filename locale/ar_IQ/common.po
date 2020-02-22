@@ -462,6 +462,9 @@ msgstr "اللغة"
 msgid "common.languages"
 msgstr "اللغات"
 
+msgid "common.lastActivity"
+msgstr "آخر نشاط مسجل بتأريخ {$date}."
+
 msgid "common.less"
 msgstr "أقل"
 
@@ -576,6 +579,9 @@ msgstr "غير ذلك"
 msgid "common.overdue"
 msgstr "متأخر"
 
+msgid "common.override"
+msgstr "تجاوز"
+
 msgid "common.pagination"
 msgstr "{$start}-{$end} من {$total}"
 
@@ -660,6 +666,9 @@ msgstr "رابط خارجي"
 msgid "common.remove"
 msgstr "إزالة"
 
+msgid "common.removeItem"
+msgstr "إزالة {$item}"
+
 msgid "common.removeSelection"
 msgstr "إزالة الاختيار"
 
@@ -705,6 +714,9 @@ msgstr "ثانية/ثوان"
 msgid "common.selectAll"
 msgstr "إختر الكل"
 
+msgid "common.selectedPrefix"
+msgstr "مختارة:"
+
 msgid "common.selectNone"
 msgstr "لا تختر شيئاً"
 
@@ -728,6 +740,9 @@ msgstr "الموضوع"
 
 msgid "common.subjects"
 msgstr "الموضوعات"
+
+msgid "common.submenu"
+msgstr "القائمة الفرعية"
 
 msgid "common.subtitle"
 msgstr "العنوان الفرعي"
@@ -1550,13 +1565,29 @@ msgstr "مساراتي"
 
 msgid "review.blindPeerReview"
 msgstr ""
-"\n"
-"\t\t<p>لضمان تكامل التحكيم المناظر السري بالنسبة إلى طلبات النشر لهذه الدار، يجب بذل كل جهد من شأنه حجب هويات المؤلفين والمحكمين بعضهم عن البعض الآخر. هذه المهمة يضطلع بها المؤلفون، المحررون والمحكمون (الذين يرفعون الملفات كجزء من مهام التحكيم) عبر تدقيق فيما إذا تم العمل بالخطوات الآتية المتعلقة بالنصوص وخصائص الملفات:</p>\n"
-"\t\t\t<ul><li>قام المؤلفون بحذف أسمائهم من النص مستبدلين إياها بكلمة \"مؤلف\"، وكذلك الحال مع المراجع والهوامش السفلية.</li>\n"
-"\t\t\t<li>عبر استعمال مستندات Microsoft Office، تنبغي إزالة هويات المؤلفين أيضاً من خصائص الملفات (أنظر باب ملف في برنامج Word)، عبر النقر على ما يأتي بدءً بباب (ملف) ثم: حفظ باسم ثم أدوات (أو خيارات في نظام Mac) ثم الأمان ثم إزالة البيانات الشخصية من خصائص الملف عند الحفظ، ثم الحفظ.</li>\n"
-"\t\t\t<li>بالنسبة إلى ملفات PDF، تنبغي أيضاً إزالة أسماء المؤلفين من خصائص الملف المتوضعة ضمن باب (ملف) في القائمة الرئيسية لبرنامج Adobe Acrobat.</li>\n"
-"\t\t</ul>\n"
-"\t"
+"<p>لضمان تكامل التحكيم المناظر السري بالنسبة إلى طلبات النشر لهذه الدار، يجب بذل كل جهد من شأنه حجب هويات المؤلفين والمحكمين بعضهم عن البعض الآخر. هذه المهمة يضطلع بها المؤلفون، المحررون والمحكمون (الذين يرفعون الملفات كجزء من مهام التحكيم) عبر تدقيق فيما إذا تم العمل بالخطوات الآتية المتعلقة بالنصوص وخصائص الملفات:</p>\n"
+"<ul><li>قام المؤلفون بحذف أسمائهم من النص مستبدلين إياها بكلمة \"مؤلف\"، وكذلك الحال مع المراجع والهوامش السفلية.</li>\n"
+"<li>تنبغي إزالة هويات المؤلفين أيضاً من خصائص الملفات عبر اتباع الخطوات الآتية:\n"
+"<ul><li>الذهاب إلى Microsoft Word في نظام التشغيل Windows:\n"
+"<ul><li>الذهاب إلى (ملف)</li>\n"
+"<li>إختيار (معلومات المستند)</li>\n"
+"<li>النقر على (التحقق من المشاكل)</li>\n"
+"<li>النقر على (فحص المستند)</li>\n"
+"<li>في مربع حوار فاحص المستند، ينبغي التأشير على الخانات المحاذية لأنواع المحتوى المخفي المطلوب فحصه.</li>\n"
+"<li>النقر على (إزالة الكل)</li>\n"
+"<li>النقر على (إغلاق)</li>\n"
+"<li>حفظ المستند</li></ul>\n"
+"<li>الذهاب إلى Microsoft Word في نظام التشغيل MacOS:\n"
+"<ul><li>الذهاب إلى (الأدوات)</li>\n"
+"<li>النقر على (أمان المستند)</li>\n"
+"<li>إختيار إزالة البيانات الشخصية من خصائص الملف عند الحفظ</li>\n"
+"<li>النقر على الموافقة ثم حفظ المستند</li></ul></li>\n"
+"<li>ملفات PDF:\n"
+"<ul><li>الذهاب إلى (ملف)</li>\n"
+"<li>إختيار الخصائص</li>\n"
+"<li>إزالة الأسماء من حقل المؤلفين</li>\n"
+"<li>النقر على الموافقة</li>\n"
+"<li>حفظ المستند</li></ul></li></ul>\n"
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "جدول التحكيم"
@@ -1633,6 +1664,9 @@ msgstr "الملف أُخذ به."
 msgid "user.authorization.submissionFile"
 msgstr "المستخدم الحالي ليس مخولاً بالوصول إلى هذا الملف."
 
+msgid "user.authorization.invalidPublication"
+msgstr "نشر خاطئ."
+
 msgid "user.authorization.invalidSubmission"
 msgstr "طلب نشر خاطئ."
 
@@ -1659,6 +1693,12 @@ msgstr "التدقيقات قيد الانتظار."
 
 msgid "notification.type.roundStatusTitle"
 msgstr "حالة الجولة {$round}"
+
+msgid "notification.type.editorialReport"
+msgstr "ملخص التقرير الإحصائي."
+
+msgid "notification.type.editorialReport.contents"
+msgstr "هذا تذكير لك للتحقق من حالة مجلتك عبر تقرير هيئة التحرير."
 
 msgid "semicolon"
 msgstr "{$label}:"

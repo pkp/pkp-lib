@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2020-02-21 15:36+0000\n"
+"PO-Revision-Date: 2020-02-24 16:54+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sv/>\n"
@@ -651,7 +651,7 @@ msgid "submission.identifiers"
 msgstr "Identifikatorer"
 
 msgid "submission.publisherId"
-msgstr "Publik URL"
+msgstr "Utgivar-ID"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Information om bidraget"
@@ -1780,7 +1780,7 @@ msgstr ""
 "Commons Erkännande 3.0 Internationell licens</a>.</p>"
 
 msgid "publication.status.unscheduled"
-msgstr ""
+msgstr "Inte planerad"
 
 msgid "publication.titleAbstract"
 msgstr "Titel & Abstract"
@@ -1828,3 +1828,158 @@ msgstr "Författarna kan inte redigera metadatan när bidraget är i steg {stage
 
 msgid "author.publicationNotFound"
 msgstr "Författarens publikation kan inte hittas."
+
+msgid "publication.event.scheduled"
+msgstr "Bidraget ska publiceras."
+
+msgid "submission.publications"
+msgstr "Publikationer"
+
+msgid "submission.copyrightOther"
+msgstr "Upphovsrättsdeklaration"
+
+msgid "submission.publisherId.enable"
+msgstr "Använd för {$objects}"
+
+msgid "publication.wordCount"
+msgstr "Antal ord:{$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Abstractet är för långt.  Det får inte vara mer än {$limit}. Nu är det "
+"{$count} ord. "
+
+msgid "publication.version.details"
+msgstr "Publiceringsdetaljer för version {$version}"
+
+msgid "publication.titleAbstract.success"
+msgstr "Titeln och abstract har uppdaterats."
+
+msgid "publication.status.unpublished"
+msgstr "Inte publicerad"
+
+msgid "publication.status.scheduled"
+msgstr "Planerad"
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"Bidraget måste vara i Manusredigerings- eller Produktionssteget innan det "
+"kan publiceras."
+
+msgid "publication.required.declined"
+msgstr "Ett avslaget bidrag kan inte publiceras."
+
+msgid "publication.publish.requirements"
+msgstr "Följande krav måste uppfyllas innan den kan publiceras."
+
+msgid "publication.publicationLicense.success"
+msgstr "Upphovsrätts- och licensinformation har uppdaterats."
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Identifikatorerna har uppdaterats."
+
+msgid "publication.invalidSubmission"
+msgstr "Bidraget för publikationen kan inte hittas."
+
+msgid "publication.event.versionUnpublished"
+msgstr "En version har tagits bort från publikationen."
+
+msgid "publication.event.versionScheduled"
+msgstr "En ny version ska publiceras."
+
+msgid "publication.event.versionPublished"
+msgstr "En ny version har publicerats."
+
+msgid "publication.event.versionCreated"
+msgstr "En ny version har skapats."
+
+msgid "publication.event.unpublished"
+msgstr "Bidraget är avpublicerat."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Datumet måste skrivas i formatet YYYY-MM-DD, som t ex 2019-01-01."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr "Copyright året genereras automatiskt när detta publiceras i ett nummer."
+
+msgid "submission.list.reviewAssignment"
+msgstr "Granskningsuppdrag"
+
+msgid "submission.list.empty"
+msgstr "Inget bidrag hittas."
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Om du lämnar diskussionen kommer du inte längre få meddelande om nya inlägg. "
+"Vill du lämna diskussionen?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Lämna diskussionen"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Det här verket är licensierad under en <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative "
+"Commons Erkännande-DelaLika 3.0 Internationell licens</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
+"Creative Commons Erkännande-IckeKommersiell-DelaLika 3.0 Internationell "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Detta verk är licensierat under en  <a rel=\"license\""
+" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Erkännande-IckeKommersiell 3.0 Internationell licens</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
+"Creative Commons Erkännande-IckeKommersiell-IngaBearbetningar 3.0 "
+"Internationell licens</a>.</p>"
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Upphovsrätt tilldelas automatiskt till {$copyright} när den är publicerad."
+
+msgid "submission.license.description"
+msgstr ""
+"Licensen <a href='{$licenseUrl}' target='_blank'>{$licenseName}</a> läggs "
+"till automatiskt när den är publicerad."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} har granskat bidraget {$submissionId}, granskningsomgång "
+"{$round} ."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Redaktören {$userName} har bekräftat granskning av bidraget {$submissionId} "
+"för granskningsomgång {$round}."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} har markerat att granskningsomgång {$round} för bidraget "
+"{$submissionId} inte är aktuellt."
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Vill du att författarna till bidraget ska kunna redigera bidragets metadata "
+"i det här steget?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Vill du att författarna till bidraget inte ska kunna redigera bidragets "
+"metadata i det här steget?"

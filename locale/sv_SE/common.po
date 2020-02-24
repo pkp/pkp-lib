@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2020-02-21 15:36+0000\n"
+"PO-Revision-Date: 2020-02-24 16:54+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "sv/>\n"
@@ -1558,3 +1558,163 @@ msgstr "Visa mer detaljer om {$name}"
 
 msgid "list.viewLess"
 msgstr "Göm visade detaljer om {$name}"
+
+msgid "validator.locale"
+msgstr "Detta språk accepteras ej."
+
+msgid "validator.json"
+msgstr "Detta är inte en giltig JSON-sträng."
+
+msgid "validator.issn"
+msgstr "Detta är inte ett giltigt ISSN-nummer."
+
+msgid "validator.ip"
+msgstr "Detta är inte en giltig IP-adress."
+
+msgid "validator.in"
+msgstr "Det valda {$attribute} är ogiltigt."
+
+msgid "validator.image"
+msgstr "Det måste finnas en bild."
+
+msgid "validator.filled"
+msgstr "Detta fält är obligatoriskt."
+
+msgid "validator.exists"
+msgstr "Det valda {$attribute} är ogiltigt."
+
+msgid "validator.email"
+msgstr "Detta är inte en giltig e-postadress."
+
+msgid "validator.digits_between"
+msgstr "Detta ska vara mellan {$min} och {$max} siffror."
+
+msgid "validator.digits"
+msgstr "Detta ska vara {$digits} siffror långt."
+
+msgid "validator.different"
+msgstr "{$attribute} och {$other} måste skilja sig åt."
+
+msgid "validator.date_format"
+msgstr "Detta matchar inte formatet {$format}."
+
+msgid "validator.date"
+msgstr "Detta är inte ett giltigt datum."
+
+msgid "validator.currency"
+msgstr "Detta är inte en giltig  valuta."
+
+msgid "validator.confirmed"
+msgstr "Bekräftelsen för detta fält matchar inte."
+
+msgid "validator.boolean"
+msgstr "Detta fält måste vara sant eller falskt."
+
+msgid "validator.between.array"
+msgstr "Detta ska vara mellan {$min} och {$max} objekt."
+
+msgid "validator.between.string"
+msgstr "Detta ska vara mellan {$min} och {$max} tecken."
+
+msgid "validator.between.file"
+msgstr "Detta ska vara mellan {$min} och {$max} kilobyte."
+
+msgid "validator.between.numeric"
+msgstr "Detta ska vara mellan {$min} och {$max}."
+
+msgid "validator.alpha_dash"
+msgstr "Får bara innehålla bokstäver, siffror, bindestreck och understreck."
+
+msgid "validator.after"
+msgstr "Datumet måste vara efter {$date}."
+
+msgid "validator.active_url"
+msgstr "Detta är inte en giltig URL."
+
+msgid "notification.type.editorialReport"
+msgstr "Sammanfattning av statistikrapporten."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Ogiltig publikation."
+
+msgid "notification.editStageParticipant"
+msgstr "Stegets uppdrag har ändrats."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Granskare återinsatt."
+
+msgid "notification.cancelledReviewer"
+msgstr "Granskare avbruten."
+
+msgid "navigation.skip.announcements"
+msgstr "Gå till meddelanden"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Deltagare"
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Behörigheter"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} på {$localeName}"
+
+msgid "form.errorUnknown"
+msgstr ""
+"Ett oväntat fel inträffade. Du kan ha loggats ut ur systemet. Ladda om "
+"webbsidan och försök igen."
+
+msgid "form.errors"
+msgstr ""
+"Formuläret kunde inte sparas eftersom {$count} fel hittades. Korrigera dessa "
+"fel och försök igen."
+
+msgid "form.errorMany"
+msgstr "Korrigera {$count} fel."
+
+msgid "form.errorOne"
+msgstr "Korrigera ett fel."
+
+msgid "form.errorGoTo"
+msgstr "Gå till nästa fel"
+
+msgid "form.errorA11y"
+msgstr "Gå till {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Är du säker på att du vill avbryta uppladdningen?"
+
+msgid "common.upload.restore"
+msgstr "Återställ original"
+
+msgid "common.toWithValue"
+msgstr "Till: {$value}"
+
+msgid "common.submenu"
+msgstr "Undermeny"
+
+msgid "common.selectedPrefix"
+msgstr "Vald:"
+
+msgid "common.removeItem"
+msgstr "Radera {$item}"
+
+msgid "common.pagination.previous"
+msgstr "Förra sidan"
+
+msgid "common.pagination.next"
+msgstr "Nästa sida"
+
+msgid "common.pagination.goToPage"
+msgstr "Gå till {$page}"
+
+msgid "common.override"
+msgstr "Förbigå"
+
+msgid "common.lastActivity"
+msgstr "Senaste aktivitet {$date}."
+
+msgid "common.fromWithValue"
+msgstr "Från: {$value}"
+
+msgid "common.dateDecided"
+msgstr "Datum bestämt"

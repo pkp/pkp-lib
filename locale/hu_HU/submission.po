@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2020-02-21 15:36+0000\n"
+"PO-Revision-Date: 2020-02-24 16:54+0000\n"
 "Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hu/>\n"
@@ -862,7 +862,7 @@ msgid "submission.identifiers"
 msgstr "Azonosítók"
 
 msgid "submission.publisherId"
-msgstr "Nyilvános URL azonosító"
+msgstr "Kiadó azonosító"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Beküldési információ"
@@ -2166,3 +2166,136 @@ msgstr "A szerző cikke nem található."
 msgid "author.editPublishedDisabled"
 msgstr ""
 "A cikk szerzőit nem lehet szerkeszteni, mert az már publikálásra került."
+
+msgid "submission.publisherId.description"
+msgstr ""
+"A kiadó ID arra is használható, hogy ide mentsünk egy külső adatbázisból "
+"származó ID-t. DOI-hoz ne használjuk."
+
+msgid "publication.wordCount"
+msgstr "Szavak száma: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Az absztrakt túl hosszú.  {$limit} vagy kevesebb szóból kell állnia. "
+"Jelenleg {$count} szó hosszú."
+
+msgid "publication.version.details"
+msgstr "A publikáció részletei ennél a verziónál: {$version}"
+
+msgid "publication.version.confirm"
+msgstr "Biztosan új verziót szeretne létrehozni?"
+
+msgid "publication.version.all"
+msgstr "Minden verzió"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Az URL útvonal nem tartalmazhat számot."
+
+msgid "publication.urlPath.duplicate"
+msgstr "Ez az URL útvonal már használatban van."
+
+msgid "publication.urlPath.description"
+msgstr "Az ID helyett opcionális útvonal használata az URL-ben."
+
+msgid "publication.urlPath"
+msgstr "URL útvonal"
+
+msgid "publication.unschedule.confirm"
+msgstr "Biztosan nem szeretné publikálásra ütemezni?"
+
+msgid "publication.unschedule"
+msgstr "Ütemezés visszavonása"
+
+msgid "publication.unpublish.confirm"
+msgstr "Biztosan nem szeretné publikálni?"
+
+msgid "publication.unpublish"
+msgstr "Publikálásból visszavonva"
+
+msgid "publication.titleAbstract.success"
+msgstr "A cím és absztrakt frissítése megtörtént."
+
+msgid "publication.titleAbstract"
+msgstr "Cím & Absztrakt"
+
+msgid "publication.status.unscheduled"
+msgstr "Ütemezésből visszavonva"
+
+msgid "publication.status.unpublished"
+msgstr "Publikálásból visszavonva"
+
+msgid "publication.status.scheduled"
+msgstr "Publikálásra ütemezve"
+
+msgid "publication.status.published"
+msgstr "Publikált"
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"A cikknek a technikai szerkesztés vagy előállítás fázisában kell lennie, "
+"hogy publikálható legyen."
+
+msgid "publication.required.declined"
+msgstr "Elutasított beküldés nem publikálható."
+
+msgid "publication.publish.success"
+msgstr "A publikálási állapot sikeresen módosítva."
+
+msgid "publication.publish.requirements"
+msgstr "Az alábbi feltételeknek kell teljesülnie, mielőtt publikálhatóvá válik."
+
+msgid "publication.publish"
+msgstr "Publikál"
+
+msgid "publication.publicationLicense.success"
+msgstr "A copyright és licenc információk frissítésre kerültek."
+
+msgid "publication.publicationLicense"
+msgstr "Engedélyek & Közzététel"
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Az azonosítók frissítésre kerültek."
+
+msgid "publication.metadata.success"
+msgstr "A metaadat frissítésre került."
+
+msgid "publication.invalidSubmission"
+msgstr "Ennek a publikációnak a beküldése nem található."
+
+msgid "publication.event.versionUnpublished"
+msgstr "A publikálásból egy verzió el lett távolítva."
+
+msgid "publication.event.versionScheduled"
+msgstr "Új verzió volt publikálásra ütemezve."
+
+msgid "publication.event.versionPublished"
+msgstr "Új verzió került publikálásra."
+
+msgid "publication.event.versionCreated"
+msgstr "Új verzió lett létrehozva."
+
+msgid "publication.event.unpublished"
+msgstr "A cikk publikálását visszavonták."
+
+msgid "publication.event.scheduled"
+msgstr "A cikk publikálásra volt ütemezve."
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"A copyright  év automatikusan beállításra kerül a publikáció dátuma szerint."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"Számban történő pulikáláskor a copyright  év automatikusan beállításra kerül."
+
+msgid "submission.publications"
+msgstr "Publikációk"
+
+msgid "submission.license.description"
+msgstr ""
+"A licenc automatikusan beállításra kerül a(z) <a href='{$licenseUrl}' "
+"target='_blank'>{$licenseName}</a> számára, amikor publikálásra kerül."
+
+msgid "submission.publisherId.enable"
+msgstr "Engedélyezés a(z) {$objects} számára"

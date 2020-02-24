@@ -72,7 +72,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 		foreach ($categories as $category) {
 			$title = $category->getLocalizedTitle();
 			if ($category->getParentId()) {
-				$title = $categories[$category->getParentId()] . ' > ' . $title;
+				$title = $categories[$category->getParentId()]->getLocalizedTitle() . ' > ' . $title;
 			}
 			$items[] = [
 				'id' => (int) $category->getId(),

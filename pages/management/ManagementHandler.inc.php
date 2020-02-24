@@ -177,6 +177,10 @@ class ManagementHandler extends Handler {
 			],
 		];
 
+		$templateMgr->setConstants([
+			'FORM_ANNOUNCEMENT_SETTINGS',
+		]);
+
 		$templateMgr->assign('settingsData', $settingsData);
 
 		$templateMgr->display('management/website.tpl');

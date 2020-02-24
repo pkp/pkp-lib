@@ -19,7 +19,7 @@ class NativeExportFilter extends NativeImportExportFilter {
 
 	/** @var boolean If set to true no validation (e.g. XML validation) will be done */
 	var $_noValidation = null;
-
+	var $opts = null;
 
 	/**
 	 * Constructor
@@ -106,6 +106,14 @@ class NativeExportFilter extends NativeImportExportFilter {
 		$deployment = $this->getDeployment();
 		$parentNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $name, htmlspecialchars($value, ENT_COMPAT, 'UTF-8')));
 		return $node;
+	}
+
+	/**
+	 * Set xml filtering opts
+	 * @param $opts array
+	 */
+	function setOpts($opts) {
+		$this->opts = $opts;
 	}
 }
 

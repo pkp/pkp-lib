@@ -68,16 +68,11 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 
 		$items = [];
 		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
-		$result = $categoryDao->getByContextId($context->getId())->toArray();
-		foreach ($result as $category) {
+		$categories = $categoryDao->getByContextId($context->getId())->toAssociativeArray();
+		foreach ($categories as $category) {
 			$title = $category->getLocalizedTitle();
 			if ($category->getParentId()) {
-				$parentCategories = $result;
-				foreach ($parentCategories as $parentCategory) {
-					if ($parentCategory->getId() === $category->getParentId()) {
-						$title = $parentCategory->getLocalizedTitle() . ' > ' . $title;
-					}
-				}
+				$title = $categories[$category->getParentId()] . ' > ' . $title;
 			}
 			$items[] = [
 				'id' => (int) $category->getId(),

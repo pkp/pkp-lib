@@ -11,8 +11,35 @@ msgstr ""
 "PO-Revision-Date: 2019-11-19T10:49:38+00:00\n"
 "Language: \n"
 
+msgid "editor.activityLog"
+msgstr "سجل وقوعات النشاط"
+
 msgid "editor.submissionLibrary"
 msgstr "مكتبة المؤلَّف"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "المناقشة سُجلت"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "طلب التقديم رُفض."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "طلب التقديم قُبِل."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "طلب التقديم نُشِر."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "أُرسل إلى جولة تحكيم جديدة."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "أُرسل إلى الإنتاج."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "طلب التقديم قُبِل للتحكيم."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "تغيير القرار"
 
 msgid "editor.review.notInitiated"
 msgstr "عملية التحكيم لم يباشر بها بعد."
@@ -202,6 +229,9 @@ msgstr "التحكيم مؤكد"
 
 msgid "editor.review.reviewSubmitted"
 msgstr "التحكيم مسلَّم"
+
+msgid "editor.review.reviewerThanked"
+msgstr "المحكم مشكور"
 
 msgid "editor.review.reviewerComments"
 msgstr "تعليقات المحكم"

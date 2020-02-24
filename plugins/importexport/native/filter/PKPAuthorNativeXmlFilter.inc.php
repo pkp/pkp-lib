@@ -23,6 +23,8 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 	function __construct($filterGroup) {
 		$this->setDisplayName('Native XML author export');
 		parent::__construct($filterGroup);
+
+		$this->getNoValidation(true);
 	}
 
 
@@ -79,6 +81,7 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 
 		// Create the author node
 		$authorNode = $doc->createElementNS($deployment->getNamespace(), 'author');
+
 		if ($author->getPrimaryContact()) $authorNode->setAttribute('primary_contact', 'true');
 		if ($author->getIncludeInBrowse()) $authorNode->setAttribute('include_in_browse', 'true');
 
@@ -86,6 +89,9 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 		$userGroup = $userGroupDao->getById($author->getUserGroupId());
 		assert(isset($userGroup));
 		$authorNode->setAttribute('user_group_ref', $userGroup->getName($context->getPrimaryLocale()));
+		$authorNode->setAttribute('seq', $author->getSequence());
+
+		$authorNode->setAttribute('id', $author->getId());
 
 		// Add metadata
 		$this->createLocalizedNodes($doc, $authorNode, 'givenname', $author->getGivenName(null));

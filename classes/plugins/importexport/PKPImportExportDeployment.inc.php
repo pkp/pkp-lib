@@ -27,6 +27,9 @@ class PKPImportExportDeployment {
 	/** @var Submission The current import/export submission */
 	var $_submission;
 
+	/** @var PKPPublication The current import/export publication */
+	var $_publication;
+
 	/** @var array The processed import objects IDs */
 	var $_processedObjectsIds = array();
 
@@ -51,6 +54,7 @@ class PKPImportExportDeployment {
 		$this->setContext($context);
 		$this->setUser($user);
 		$this->setSubmission(null);
+		$this->setPublication(null);
 		$this->setFileDBIds(array());
 		$this->_processedObjectsIds = array();
 	}
@@ -132,6 +136,23 @@ class PKPImportExportDeployment {
 	 */
 	function getSubmission() {
 		return $this->_submission;
+	}
+
+	/**
+	 * Set the import/export publication.
+	 * @param $publication PKPPublication
+	 */
+	function setPublication($publication) {
+		$this->_publication = $publication;
+		if ($publication) $this->addProcessedObjectId(ASSOC_TYPE_PUBLICATION, $publication->getId());
+	}
+
+	/**
+	 * Get the import/export publication.
+	 * @return PKPPublication
+	 */
+	function getPublication() {
+		return $this->_publication;
 	}
 
 	/**

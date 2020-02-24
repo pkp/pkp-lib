@@ -44,13 +44,13 @@ class NativeXmlRepresentationFilter extends NativeImportFilter {
 	function handleElement($node) {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
-		$submission = $deployment->getSubmission();
-		assert(is_a($submission, 'Submission'));
+		$publication = $deployment->getPublication();
+		assert(is_a($publication, 'PKPPublication'));
 
 		// Create the data object
 		$representationDao  = Application::getRepresentationDAO();
 		$representation = $representationDao->newDataObject();
-		$representation->setSubmissionId($submission->getId());
+		$representation->setData('publicationId', $publication->getId());
 
 		// Handle metadata in subelements.  Look for the 'name' and 'seq' elements.
 		// All other elements are handled by subclasses.
@@ -58,7 +58,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter {
 			case 'id': $this->parseIdentifier($n, $representation); break;
 			case 'name':
 				$locale = $n->getAttribute('locale');
-				if (empty($locale)) $locale = $submission->getLocale();
+				if (empty($locale)) $locale = $publication->getData('locale');
 				$representation->setName($n->textContent, $locale);
 				break;
 			case 'seq': $representation->setSequence($n->textContent); break;

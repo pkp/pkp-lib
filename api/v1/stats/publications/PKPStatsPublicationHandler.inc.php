@@ -156,15 +156,18 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			}
 		}
 
-		// Get a list of top publications by total abstract views
+		// Get a list of top publications by total abstract and file views
 		$statsService = \Services::get('stats');
 		$totals = $statsService->getOrderedObjects(STATISTICS_DIMENSION_SUBMISSION_ID, $allowedParams['orderDirection'], array_merge($allowedParams, [
-			'assocTypes' => ASSOC_TYPE_SUBMISSION,
+			'assocTypes' => [ASSOC_TYPE_SUBMISSION, ASSOC_TYPE_SUBMISSION_FILE]
 		]));
 
 		// Get the stats for each publication
 		$items = [];
 		foreach ($totals as $total) {
+			if (empty($total['id'])) {
+				continue;
+			}
 
 			$galleyRecords = $statsService->getRecords(array_merge($allowedParams, [
 				'assocTypes' => ASSOC_TYPE_SUBMISSION_FILE,
@@ -176,6 +179,13 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			$pdfViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordPdf']), [$statsService, 'sumMetric'], 0);
 			$htmlViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordHtml']), [$statsService, 'sumMetric'], 0);
 			$otherViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordOther']), [$statsService, 'sumMetric'], 0);
+
+			// Get the abstract records
+			$abstractRecords = $statsService->getRecords(array_merge($allowedParams, [
+				'assocTypes' => ASSOC_TYPE_SUBMISSION,
+				'submissionIds' => [$total['id']],
+			]));
+			$abstractViews = array_reduce($abstractRecords, [$statsService, 'sumMetric'], 0);
 
 			// Get the publication
 			$submission = \Services::get('submission')->get($total['id']);
@@ -210,7 +220,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			}
 
 			$items[] = [
-				'abstractViews' => $total['total'],
+				'abstractViews' => $abstractViews,
 				'galleyViews' => $galleyViews,
 				'pdfViews' => $pdfViews,
 				'htmlViews' => $htmlViews,

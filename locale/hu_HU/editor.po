@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
+"PO-Revision-Date: 2020-02-24 16:54+0000\n"
+"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"editor/hu/>\n"
+"Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2020-02-13T21:06:38+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.submissionLibrary"
 msgstr "Beküldési könyvtár"
@@ -30,10 +33,10 @@ msgid "editor.submission.fileAuditor.form.messageRequired"
 msgstr "Meg kell adnia egy személyes üzenetet."
 
 msgid "editor.submission.fileAuditor.skipEmail"
-msgstr "Ne küldje el az emailt az ellenőrnek."
+msgstr "Ne küldje el az emailt az ellenőrnek"
 
 msgid "editor.submission.fileAuditor.form.userRequired"
-msgstr "A hozzárendeléshez felhasználót kell választania"
+msgstr "A hozzárendeléshez felhasználót kell választania."
 
 msgid "editor.submission.uploadSelectFiles"
 msgstr "Feltöltés/Fájlok kiválasztása"
@@ -114,7 +117,7 @@ msgid "editor.review.NotifyAuthorDecline"
 msgstr "A szerző értesítése, hogy a beküldött anyagát a szerkesztőség nem fogadta el."
 
 msgid "editor.review.NotifyAuthorRevisions"
-msgstr "Átdolgozás kérése a szerzőtől"
+msgstr "Átdolgozás kérése a szerzőtől."
 
 msgid "editor.review.NotifyAuthorResubmit"
 msgstr "Átdolgozás kérése a szerzőtől, amely része lesz egy jövőbeni szakmai lektorálásnak."
@@ -135,7 +138,7 @@ msgid "editor.review.reminder"
 msgstr "Lektorálási emlékeztető"
 
 msgid "editor.review.thankReviewer"
-msgstr "Köszönet a szakmai lektornak."
+msgstr "Köszönet a szakmai lektornak"
 
 msgid "editor.review.reminderError"
 msgstr "Hiba a lektori emlékeztető küldésekor"
@@ -351,7 +354,7 @@ msgid "editor.submissionReview.recordRecommendation.notifyEditors"
 msgstr "Szerkesztők értesítése"
 
 msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr "Ne küldjön a szerkesztőknek e-mailt"
+msgstr "Ne küldjön a szerkesztőknek e-mailt."
 
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
 msgstr "Lektorálási vita létrehozása erről az ajánlásról."
@@ -390,7 +393,9 @@ msgid "editor.review.rateReviewer"
 msgstr "Lektor értékelése"
 
 msgid "editor.review.rateReviewer.description"
-msgstr "Értékeld a lekorálás minőségét. A lektor nem szerez tudomást az értékelés eredményéről. "
+msgstr ""
+"Értékeld a lekorálás minőségét. A lektor nem szerez tudomást az értékelés "
+"eredményéről."
 
 msgid "editor.review.reviewerRating.none"
 msgstr "Nincs értékelés"
@@ -399,7 +404,7 @@ msgid "editor.review.requestDeclined"
 msgstr "Kérés elutasítva"
 
 msgid "editor.review.requestDeclined.tooltip"
-msgstr "A lektor elutasította a lektorálási kérést. "
+msgstr "A lektor elutasította a lektorálási kérést."
 
 msgid "reviewer.list.activeReviews"
 msgstr "{$count} aktív"
@@ -420,7 +425,7 @@ msgid "reviewer.list.neverAssigned"
 msgstr "Még nem került kijelölésre"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr "Ez a lektor már felkérésre került, hogy lektorálja ezt a beküldést. "
+msgstr "Ez a lektor már felkérésre került, hogy lektorálja ezt a beküldést."
 
 msgid "reviewer.list.reviewInterests"
 msgstr "Reviewing Interests (hu)"
@@ -433,3 +438,55 @@ msgstr "Anonim lektor"
 
 msgid "editor.review.reviewerThanked"
 msgstr "Lektori köszönet"
+
+msgid "reviewer.list.empty"
+msgstr "Nem találtunk szakmai lektort"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Szakmai lektorálási kérés megszakítva"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Publikálásra ütemezés"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Hiba történt a szakmai lektor újra kiosztásakor. Kérjük, próbálja meg ismét."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "A Szerkesztő megszakította a lektorálási kérést."
+
+msgid "editor.review.requestCancelled"
+msgstr "Kérés megszakítva"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Szakmai lektor lektorálásának újrakezdeményezése"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Szakmai lektor lektorálásának megszakítása"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Döntés módosítása"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Cikk elfogadva szakmai lektorálásra."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Előállításra küldve."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Új szakmai lektorálási körre küldve."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Cikk publikálva."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Cikk elfogadva."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Cikk elutasítva."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Döntés rögzítve"
+
+msgid "editor.activityLog"
+msgstr "Tevékenység log"

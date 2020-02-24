@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
+"PO-Revision-Date: 2020-02-24 16:54+0000\n"
+"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"common/hu/>\n"
+"Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2020-02-13T21:06:38+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -904,7 +907,7 @@ msgid "form.dataHasChanged"
 msgstr "Az űrlapon az adatok megváltoztak. Mentés nélkül akarja folytatni?"
 
 msgid "form.errorsOccurred"
-msgstr "Hiba történt az űrlap feldolgozása közben."
+msgstr "Hiba történt az űrlap feldolgozása közben"
 
 msgid "form.formLanguage.description"
 msgstr "Ahhoz, hogy más nyelven is megadhasson információt, először válasszon nyelvet."
@@ -934,7 +937,7 @@ msgid "form.required"
 msgstr "(* Kötelező)"
 
 msgid "form.resubmit"
-msgstr "Resubmit"
+msgstr "Újrabeküld"
 
 msgid "form.saveToUpload"
 msgstr "Használja a Mentést a fájl feltöltéséhez."
@@ -943,7 +946,7 @@ msgid "form.send"
 msgstr "Küldés"
 
 msgid "form.submit"
-msgstr "Beállít"
+msgstr "Beküld"
 
 msgid "form.invalidImage"
 msgstr "Érvénytelen képet töltött fel. Az elfogadott formátumok .png, .gif, vagy .jpg."
@@ -1651,3 +1654,280 @@ msgstr "Utolsó tevékenység rögzítve: {$date}"
 
 msgid "notification.type.editorialReport"
 msgstr "Statisztikai riport összesítője. "
+
+msgid "validator.orcid"
+msgstr "Nem érvényes ORCID."
+
+msgid "validator.numeric"
+msgstr "Nem érvényes szám."
+
+msgid "validator.not_in"
+msgstr "A kiválasztott {$attribute} nem érvényes."
+
+msgid "validator.min.array"
+msgstr "Legalább {$min} tételt kell tartalmaznia."
+
+msgid "validator.min.string"
+msgstr "Legalább {$min} karakternek kell lennie."
+
+msgid "validator.min.file"
+msgstr "Legalább {$min} kilobyte-nak kell lennie."
+
+msgid "validator.min.numeric"
+msgstr "A minimum érték: {$min}."
+
+msgid "validator.mimes"
+msgstr "Az alábbi típusú filenak kell lennie: {$values}."
+
+msgid "validator.max.array"
+msgstr "Nem tartalmazhat többet, mint {$max} tétel."
+
+msgid "validator.max.string"
+msgstr "Nem lehet több mint {$max} karakter."
+
+msgid "validator.max.file"
+msgstr "Nem lehet nagyobb mint {$max} kilobyte."
+
+msgid "validator.max.numeric"
+msgstr "Nem lehet nagyobb mint {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"A \"locale code\" megadásával kell meghatározni a nyelveket. Például: en_US, "
+"fr_CA, sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Ez több nyelvű mező. Elkülönített értékeket kell megadni minden támogatott "
+"nyelvhez."
+
+msgid "validator.locale"
+msgstr "Nem támogatott nyelv."
+
+msgid "validator.json"
+msgstr "Nem érvényes JSON string."
+
+msgid "validator.issn"
+msgstr "Nem érvényes ISSN."
+
+msgid "validator.ip"
+msgstr "Nem érvényes IP cím."
+
+msgid "validator.integer"
+msgstr "Nem érvényes egész szám."
+
+msgid "validator.in"
+msgstr "A kiválasztott {$attribute} nem érvényes."
+
+msgid "validator.image"
+msgstr "Képnek kell lennie."
+
+msgid "validator.filled"
+msgstr "Kötelezően töltendő mező."
+
+msgid "validator.exists"
+msgstr "A kiválasztott {$attribute} nem érvényes."
+
+msgid "validator.email"
+msgstr "Nem valós email cím."
+
+msgid "validator.digits_between"
+msgstr "{$min} és {$max} számjegyek között kell lenie."
+
+msgid "validator.digits"
+msgstr "{$digits} számjegy hosszúságúnak kell lenie."
+
+msgid "validator.different"
+msgstr "A{$attribute} és {$other}-nak/nek eltérőnek kell lennie."
+
+msgid "validator.date_format"
+msgstr "Nem egyezik a {$format} formátummal."
+
+msgid "validator.date"
+msgstr "Nem megfelelő dátum."
+
+msgid "validator.currency"
+msgstr "Nem megfelelő pénznem."
+
+msgid "validator.confirmed"
+msgstr "Nem egyező megerősítő mező tartalom."
+
+msgid "validator.boolean"
+msgstr "A mező értékének igaznak vagy hamisnak kell lenie."
+
+msgid "validator.between.array"
+msgstr "{$min} és {$max} tétel között kell lenie."
+
+msgid "validator.between.string"
+msgstr "{$min} és {$max} karakter között kell lennie."
+
+msgid "validator.between.file"
+msgstr "{$min} és {$max} kilobyte között kell lennie."
+
+msgid "validator.between.numeric"
+msgstr "{$min} és {$max} között kell lennie."
+
+msgid "validator.before"
+msgstr "{$date} előtti dátumnak kell lennie."
+
+msgid "validator.array"
+msgstr "Nem érvényes tömb."
+
+msgid "validator.alpha_num"
+msgstr "Csak betűket és számokat tartlamazhat."
+
+msgid "validator.alpha_dash"
+msgstr "Betűket, számokat, kötőjelet és alávonást tartalmazhat."
+
+msgid "validator.alpha"
+msgstr "Csak betűket tartalmazhat."
+
+msgid "validator.after"
+msgstr "{$date} utáni dátumnak kell lennie."
+
+msgid "validator.active_url"
+msgstr "Nem megfelelő URL."
+
+msgid "validator.accepted"
+msgstr "Kérjük, fogadja el ..."
+
+msgid "notification.type.editorialReport.contents"
+msgstr "Kérjük, tekintse át folyóirata állapotát a szerkesztői riportban."
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Ez a résztvevő nem változtatható meg"
+
+msgid "validator.url"
+msgstr "Nem érvényes URL."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Hibás publikáció."
+
+msgid "navigation.skip.announcements"
+msgstr "Ugrás a bejelentésekhez"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Résztvevő"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Ez a személy szerkesztheti a cikk részleteit."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Engedélyek"
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Túl nagy fileméret ({{filesize}}mb). A {{maxFilesize}}mb-nál nagyobb "
+"fileokat nem lehet feltölteni."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Kérjük, használja alább a 'fallback form'-ot fileok feltöltéséhez."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"A szerver a {{statusCode}}  kóddal válaszolt. Kérjük, vegy fel a kapcsolatot "
+"a rendszergazdával."
+
+msgid "common.override"
+msgstr "Felülír"
+
+msgid "common.orderDown"
+msgstr "{$itemTitle} pozíciójának csökkentése"
+
+msgid "common.orderUp"
+msgstr "{$itemTitle} pozíciójának növelése"
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"A feltöltött file nem található. Kérjük, próbálja meg ismét a feltöltést."
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} nyelv kész"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} a {$localeName}-ban/ben"
+
+msgid "form.requireId"
+msgstr "Érvényes ID-t kell megadni."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Be kell fejelznie a mezőt {$language} nyelven."
+
+msgid "form.missingRequired"
+msgstr "Kötelezően töltendő mező."
+
+msgid "form.errorUnknown"
+msgstr ""
+"Váratlan hiba történt. Lehet, hogy kilett léptetve a rendszerből.  Kérjük, "
+"frissítse az oldalt és próbája meg ismét."
+
+msgid "form.errors"
+msgstr ""
+"A form nem lett elmentve, mert {$count} hibát tartalmazott. Kérjük, javítsa "
+"ezeket és utána próbálja újra."
+
+msgid "form.errorMany"
+msgstr "{$count} hiba javítása szükséges."
+
+msgid "form.errorOne"
+msgstr "Képrjük, javítsa a hibát."
+
+msgid "form.errorGoTo"
+msgstr "Lépjen a következő hibára"
+
+msgid "form.errorA11y"
+msgstr "Ugrás az alábbi helyre: {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Több file nem tölthető fel."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "File eltávolítása"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Biztosan meg szeretné szakítani a  feltöltést?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Feltöltés megszakítva"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Feltöltés megszakítása"
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Ez a filetípus nem tölthető fel."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "A böngésző nem támogatja a drag'n'drop filefeltöltést."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Húzza ide a feltöltendő fileokat"
+
+msgid "form.disallowedProp"
+msgstr "Nem engedélyezett jellemző."
+
+msgid "form.disallowedLocales"
+msgstr "Az alábbi nyelvek engedélyezettek: {$languages}."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Kiválasztott kép megtekintése."
+
+msgid "common.upload.restore"
+msgstr "Eredeti visszaállítása"
+
+msgid "common.toWithValue"
+msgstr "ig: {$value}"
+
+msgid "common.submenu"
+msgstr "Almenü"
+
+msgid "common.selectedPrefix"
+msgstr "Kiválasztott:"
+
+msgid "common.removeItem"
+msgstr "{$item} eltávolítása"
+
+msgid "common.noItemsFound"
+msgstr "Nem találtunk tételt."
+
+msgid "common.fromWithValue"
+msgstr "Tól/től: {$value}"

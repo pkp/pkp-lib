@@ -27,7 +27,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 		if (!parent::register($category, $path, $mainContextId)) return false;
 		if ($this->getEnabled($mainContextId)) {
 			// Enable storage of additional fields.
-			foreach($this->getDAOs() as $publicObjectType => $dao) {
+			foreach($this->getDAOs() as $dao) {
 				// Augment the object with the additional properties required by the pub ID plugin.
 				if ($dao instanceof SchemaDAO) {
 					// Schema-backed DAOs need the schema extended.
@@ -289,10 +289,10 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	 */
 	function getDAOs() {
 		return  array(
-			'Publication' => DAORegistry::getDAO('PublicationDAO'),
-			'Submission' => DAORegistry::getDAO('SubmissionDAO'),
-			'Representation' => Application::getRepresentationDAO(),
-			'SubmissionFile' => DAORegistry::getDAO('SubmissionFileDAO'),
+			DAORegistry::getDAO('PublicationDAO'),
+			DAORegistry::getDAO('SubmissionDAO'),
+			Application::getRepresentationDAO(),
+			DAORegistry::getDAO('SubmissionFileDAO'),
 		);
 	}
 

@@ -208,16 +208,6 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 						);
 					}
 					break;
-				case 'urlPublished':
-					$values[$prop] = $dispatcher->url(
-						$request,
-						ROUTE_PAGE,
-						$submissionContext->getData('urlPath'),
-						'article',
-						'view',
-						[$submission->getBestId(), 'version', $publication->getId()]
-					);
-					break;
 				default:
 					$values[$prop] = $publication->getData($prop);
 					break;

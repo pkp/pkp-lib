@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2020-02-24 16:54+0000\n"
+"PO-Revision-Date: 2020-02-26 09:36+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "sv/>\n"
@@ -1718,3 +1718,75 @@ msgstr "Från: {$value}"
 
 msgid "common.dateDecided"
 msgstr "Datum bestämt"
+
+msgid "validator.url"
+msgstr "Detta är inte en giltig URL."
+
+msgid "validator.unique"
+msgstr "Detta {$attribute} är redan taget."
+
+msgid "validator.timezone"
+msgstr "Detta är inte en giltig tidszon."
+
+msgid "validator.size.array"
+msgstr "Måste innehålla {$size} objekt."
+
+msgid "validator.size.string"
+msgstr "Måste vara {$size} tecken."
+
+msgid "validator.size.file"
+msgstr "Måste vara {$size} kilobyte."
+
+msgid "validator.size.numeric"
+msgstr "Måste vara {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} och {$other} måste matcha."
+
+msgid "validator.required_without"
+msgstr "Detta fält är obligatoriskt när {$values} inte förekommer."
+
+msgid "validator.required_with_all"
+msgstr "Detta fält är obligatoriskt när {$values} förekommer."
+
+msgid "validator.required_with"
+msgstr "Detta fält är obligatoriskt när {$values} förekommer."
+
+msgid "validator.required_unless"
+msgstr "Detta fält är obligatoriskt om inte {$other} är i {$values}."
+
+msgid "validator.required_if"
+msgstr "Detta fält är obligatoriskt när {$other} är {$value}."
+
+msgid "validator.required"
+msgstr "Detta fält är obligatoriskt."
+
+msgid "validator.numeric"
+msgstr "Detta är inte ett giltigt nummer."
+
+msgid "validator.not_in"
+msgstr "Det valda {$attribute} är ogitligt."
+
+msgid "validator.min.array"
+msgstr "Måste vara minst {$min} objekt."
+
+msgid "validator.min.string"
+msgstr "Måste vara minst {$min} tecken."
+
+msgid "validator.min.file"
+msgstr "Måste vara minst {$min} kilobyte."
+
+msgid "validator.min.numeric"
+msgstr "Måste vara minst {$min}."
+
+msgid "validator.mimes"
+msgstr "Måste var en fil av typen {$values}."
+
+msgid "validator.max.array"
+msgstr "Får inte vara mer än {$max} objekt."
+
+msgid "validator.max.string"
+msgstr "Får inte vara mer än {$max} tecken."
+
+msgid "validator.max.file"
+msgstr "Får inte vara mer än {$max} kilobyte."

@@ -90,10 +90,12 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$submissionNode = $doc->createElementNS($deployment->getNamespace(), $deployment->getSubmissionNodeName());
 
 		$submissionNode->setAttribute('date_submitted', strftime('%Y-%m-%d', strtotime($submission->getData('dateSubmitted'))));
-		$submissionNode->setAttribute('stage_id', $submission->getData('stageId'));
 		$submissionNode->setAttribute('status', $submission->getData('status'));
 		$submissionNode->setAttribute('submission_progress', $submission->getData('submissionProgress'));
 		$submissionNode->setAttribute('current_publication_id', $submission->getData('currentPublicationId'));
+
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var $workflowStageDao WorkflowStageDAO */
+		$submissionNode->setAttribute('stage', WorkflowStageDAO::getPathFromId($submission->getData('stageId')));
 
 		// FIXME: language attribute (from old DTD). Necessary? Data migration needed?
 

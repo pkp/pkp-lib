@@ -161,9 +161,6 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 			case 'licenseUrl':
 				$publication->setData('licenseUrl', $n->textContent);
 				break;
-			case 'issueId':
-				$publication->setData('issueId', $n->textContent);
-				break;
 			default:
 				$deployment = $this->getDeployment();
 				$deployment->addWarning(ASSOC_TYPE_PUBLICATION, $publication->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));

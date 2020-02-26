@@ -327,7 +327,7 @@ abstract class Context extends DataObject {
 	 */
 	function updateSetting($name, $value, $type = null, $isLocalized = false) {
 		$settingsDao = Application::getContextSettingsDAO();
-		return $settingsDao->updateSetting($this->getId(), $name, $value, $type, $isLocalized);
+		return $settingsDao->updateSetting($this->getId(), $name, $value, $isLocalized);
 	}
 
 	/**

@@ -181,7 +181,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 			}
 		}
 
-		$context->updateSetting('submissionChecklist', $submissionChecklistAll, 'object', true);
+		$context->updateSetting('submissionChecklist', $submissionChecklistAll, true);
 		return DAO::getDataChangedEvent($rowId);
 	}
 
@@ -222,7 +222,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 			}
 		}
 
-		$context->updateSetting('submissionChecklist', $orderedChecklistItems, 'object', true);
+		$context->updateSetting('submissionChecklist', $orderedChecklistItems, true);
 	}
 }
 

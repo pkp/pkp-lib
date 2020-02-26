@@ -24,13 +24,13 @@ class SettingsDAO extends DAO {
 		$settings = array();
 
 		$result = $this->retrieve(
-			'SELECT setting_name, setting_value, setting_type, locale FROM ' . $this->_getTableName() . ' WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
+			'SELECT setting_name, setting_value, locale FROM ' . $this->_getTableName() . ' WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
 			(int) $id
 		);
 
 		while (!$result->EOF) {
 			$row = $result->getRowAssoc(false);
-			$value = $this->convertFromDB($row['setting_value'], $row['setting_type']);
+			$value = $this->convertFromDB($row['setting_value'], null);
 			if ($row['locale'] == '') $settings[$row['setting_name']] = $value;
 			else $settings[$row['setting_name']][$row['locale']] = $value;
 			$result->MoveNext();
@@ -149,7 +149,6 @@ class SettingsDAO extends DAO {
 			$valueNode = $setting->getChildByName('value');
 
 			if (isset($nameNode) && isset($valueNode)) {
-				$type = $setting->getAttribute('type');
 				$isLocaleField = $setting->getAttribute('locale');
 				$name = $nameNode->getValue();
 
@@ -165,7 +164,6 @@ class SettingsDAO extends DAO {
 					$id,
 					$name,
 					$isLocaleField?array(AppLocale::getLocale() => $value):$value,
-					$type,
 					$isLocaleField
 				);
 			}
@@ -184,10 +182,9 @@ class SettingsDAO extends DAO {
 	 * @param $id int
 	 * @param $name string
 	 * @param $value mixed
-	 * @param $type string data type of the setting. If omitted, type will be guessed
 	 * @param $isLocalized boolean
 	 */
-	function updateSetting($id, $name, $value, $type = null, $isLocalized = false) {
+	function updateSetting($id, $name, $value, $isLocalized = false) {
 		$keyFields = array('setting_name', 'locale', $this->_getPrimaryKeyColumn());
 		if (!$isLocalized) {
 			$value = $this->convertToDB($value, $type);
@@ -196,7 +193,6 @@ class SettingsDAO extends DAO {
 					$this->_getPrimaryKeyColumn() => $id,
 					'setting_name' => $name,
 					'setting_value' => $value,
-					'setting_type' => $type,
 					'locale' => ''
 				),
 				$keyFields
@@ -205,12 +201,11 @@ class SettingsDAO extends DAO {
 			if (is_array($value)) foreach ($value as $locale => $localeValue) {
 				$this->update('DELETE FROM ' . $this->_getTableName() . ' WHERE ' . $this->_getPrimaryKeyColumn() . ' = ? AND setting_name = ? AND locale = ?', array($id, $name, $locale));
 				if (empty($localeValue)) continue;
-				$type = null;
 				$this->update('INSERT INTO ' . $this->_getTableName() . '
-					(' . $this->_getPrimaryKeyColumn() . ', setting_name, setting_value, setting_type, locale)
+					(' . $this->_getPrimaryKeyColumn() . ', setting_name, setting_value, locale)
 					VALUES (?, ?, ?, ?, ?)',
 					array(
-						$id, $name, $this->convertToDB($localeValue, $type), $type, $locale
+						$id, $name, $this->convertToDB($localeValue, null), $locale
 					)
 				);
 			}

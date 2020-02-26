@@ -87,6 +87,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 		$publication->setData('accessStatus', $node->getAttribute('access_status'));
 		$publication->setData('status', $node->getAttribute('status'));
 		$publication->setData('primaryContactId', $node->getAttribute('primary_contact_id'));
+		$publication->setData('urlPath', $node->getAttribute('url_path'));
 
 		$publication = Services::get('publication')->add($publication, Application::get()->getRequest());
 		$deployment->setPublication($publication);
@@ -147,6 +148,9 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 			$controlledVocabulariesValues[$locale] = $controlledVocabulary;
 
 			$controlledVocabulariesDao->$insertFunction($controlledVocabulariesValues, $publication->getId(), false);
+
+			$publicationNew = Services::get('publication')->get($publication->getId());
+			$publication->setData($n->tagName, $publicationNew->getData($n->tagName));
 		} else switch ($n->tagName) {
 			// Otherwise, delegate to specific parsing code
 			case 'id':
@@ -192,7 +196,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 				break;
 			case 'public':
 				if ($advice == 'update') {
-					$publication->setData('pub-id::publisherId', $element->textContent);
+					$publication->setData('pub-id::publisher-id', $element->textContent);
 				}
 				break;
 			default:

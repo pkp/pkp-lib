@@ -30,7 +30,7 @@ class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkf
 			return $result;
 		}
 
-		if (!in_array(ROLE_ID_REVIEWER, $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES))) {
+		if (!in_array(ROLE_ID_REVIEWER, (array) $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES))) {
 			return $result;
 		}
 

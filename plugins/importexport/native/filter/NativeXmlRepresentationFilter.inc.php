@@ -37,19 +37,21 @@ class NativeXmlRepresentationFilter extends NativeImportFilter {
 
 
 	/**
-	 * Handle a submission element
+	 * Handle a Representation element
 	 * @param $node DOMElement
-	 * @return array Array of Representation objects
+	 * @return Representation 
 	 */
 	function handleElement($node) {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
+
 		$publication = $deployment->getPublication();
 		assert(is_a($publication, 'PKPPublication'));
 
 		// Create the data object
 		$representationDao  = Application::getRepresentationDAO();
-		$representation = $representationDao->newDataObject();
+		$representation = $representationDao->newDataObject(); /** @var $representation Representation */
+
 		$representation->setData('publicationId', $publication->getId());
 
 		// Handle metadata in subelements.  Look for the 'name' and 'seq' elements.

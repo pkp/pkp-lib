@@ -10,7 +10,7 @@
  * @class NativeXmlPKPPublicationFilter
  * @ingroup plugins_importexport_native
  *
- * @brief Base class that converts a Native XML document to a set of submissions
+ * @brief Base class that converts a Native XML document to a set of publications
  */
 
 import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
@@ -46,7 +46,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 	 */
 	function getPluralElementName() {
 		$deployment = $this->getDeployment();
-		return $deployment->getSubmissionsNodeName();
+		return $deployment->getPublicationsNodeName();
 	}
 
 	/**
@@ -55,7 +55,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 	 */
 	function getSingularElementName() {
 		$deployment = $this->getDeployment();
-		return $deployment->getSubmissionNodeName();
+		return $deployment->getPublicationNodeName();
 	}
 
 	/**
@@ -77,7 +77,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 		$publication->stampModified();
 		$publication = $this->populateObject($publication, $node);
 
-		$publicationocale = $node->getAttribute('locale');
+		$publicationLocale = $node->getAttribute('locale');
 		if (empty($publicationLocale)) 
 			$publicationLocale = $context->getPrimaryLocale();
 
@@ -103,7 +103,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 	}
 
 	/**
-	 * Populate the submission object from the node
+	 * Populate the entity object from the node
 	 * @param $publication PKPPublication
 	 * @param $node DOMElement
 	 * @return PKPPublication
@@ -118,7 +118,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 	}
 
 	/**
-	 * Handle an element whose parent is the submission element.
+	 * Handle an element whose parent is the publication element.
 	 * @param $n DOMElement
 	 * @param $publication PKPPublication
 	 */
@@ -174,7 +174,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 	// Element parsing
 	//
 	/**
-	 * Parse an identifier node and set up the submission object accordingly
+	 * Parse an identifier node and set up the publication object accordingly
 	 * @param $element DOMElement
 	 * @param $publication PKPPublication
 	 */
@@ -226,7 +226,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 	 * @param $publication Publication
 	 */
 	function parseAuthor($n, $publication) {
-		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+		$filterDao = DAORegistry::getDAO('FilterDAO'); /** @var $filterDao FilterDAO */
 		$importFilters = $filterDao->getObjectsByGroup('native-xml=>author');
 		assert(count($importFilters)==1); // Assert only a single unserialization filter
 		$importFilter = array_shift($importFilters);
@@ -235,21 +235,6 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 		$authorDoc->appendChild($authorDoc->importNode($n, true));
 		return $importFilter->execute($authorDoc);
 	}
-
-	// /**
-	//  * Parse a submission file and add it to the submission.
-	//  * @param $n DOMElement
-	//  * @param $submission Submission
-	//  */
-	// function parseSubmissionFile($n, $submission) {
-	// 	$importFilter = $this->getImportFilter($n->tagName);
-	// 	assert(isset($importFilter)); // There should be a filter
-
-	// 	$importFilter->setDeployment($this->getDeployment());
-	// 	$submissionFileDoc = new DOMDocument();
-	// 	$submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
-	// 	return $importFilter->execute($submissionFileDoc);
-	// }
 
 	//
 	// Helper functions

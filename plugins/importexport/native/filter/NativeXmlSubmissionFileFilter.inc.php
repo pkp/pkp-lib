@@ -75,6 +75,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				$this->handleChildElement($n, $stageId, $fileId, $submissionFiles);
 			}
 		}
+		
 		return $submissionFiles;
 	}
 

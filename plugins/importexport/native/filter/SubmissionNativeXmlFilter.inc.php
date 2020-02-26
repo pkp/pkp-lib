@@ -94,37 +94,12 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$submissionNode->setAttribute('status', $submission->getData('status'));
 		$submissionNode->setAttribute('submission_progress', $submission->getData('submissionProgress'));
 		$submissionNode->setAttribute('current_publication_id', $submission->getData('currentPublicationId'));
-		// $submissionNode->setAttribute('submission_locale', $submission->getData('currentPublicationId'));
-		
-		/*
-		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); 
-		$submissionNode->setAttribute('stage', WorkflowStageDAO::getPathFromId($submission->getStageId()));
 
-		$submissionNode->setAttribute('status', $submission->getStatus());
-		$submissionNode->setAttribute('submission_progress', $submission->getSubmissionProgress());
-
-		$submissionNode->setAttribute('current_publication_id', $submission->getCurrentPublication()->getId());
-		*/
-
-		/*
-		$submissionNode->setAttribute('locale', $submission->getLocale());
-		$submissionLanguage = $submission->getLanguage();
-		if ($submissionLanguage) {
-			$submissionNode->setAttribute('language', $submissionLanguage);
-		}
-		
-		if ($datePublished = $submission->getDatePublished()) {
-			$submissionNode->setAttribute('date_published', strftime('%Y-%m-%d', strtotime($datePublished)));
-		}
-		*/
 		// FIXME: language attribute (from old DTD). Necessary? Data migration needed?
 
 		$this->addIdentifiers($doc, $submissionNode, $submission);
 		$this->addFiles($doc, $submissionNode, $submission);
 		$this->addPublications($doc, $submissionNode, $submission);
-		$this->addMetadata($doc, $submissionNode, $submission);
-		// $this->addAuthors($doc, $submissionNode, $submission);
-		// $this->addRepresentations($doc, $submissionNode, $submission);
 
 		return $submissionNode;
 	}
@@ -143,75 +118,11 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$node->setAttribute('type', 'internal');
 		$node->setAttribute('advice', 'ignore');
 
-		// // Add public ID
-		// if ($pubId = $submission->getStoredPubId('publisher-id')) {
-		// 	$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
-		// 	$node->setAttribute('type', 'public');
-		// 	$node->setAttribute('advice', 'update');
-		// }
-
 		// Add pub IDs by plugin
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
 		foreach ($pubIdPlugins as $pubIdPlugin) {
 			$this->addPubIdentifier($doc, $submissionNode, $submission, $pubIdPlugin);
 		}
-	}
-
-	// /**
-	//  * Add a single pub ID element for a given plugin to the document.
-	//  * @param $doc DOMDocument
-	//  * @param $submissionNode DOMElement
-	//  * @param $submission Submission
-	//  * @param $pubIdPlugin PubIdPlugin
-	//  * @return DOMElement|null
-	//  */
-	// function addPubIdentifier($doc, $submissionNode, $submission, $pubIdPlugin) {
-	// 	$pubId = $submission->getStoredPubId($pubIdPlugin->getPubIdType());
-	// 	if ($pubId) {
-	// 		$deployment = $this->getDeployment();
-	// 		$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
-	// 		$node->setAttribute('type', $pubIdPlugin->getPubIdType());
-	// 		$node->setAttribute('advice', 'update');
-	// 		return $node;
-	// 	}
-	// 	return null;
-	// }
-
-	/**
-	 * Add the submission metadata for a submission to its DOM element.
-	 * @param $doc DOMDocument
-	 * @param $submissionNode DOMElement
-	 * @param $submission Submission
-	 */
-	function addMetadata($doc, $submissionNode, $submission) {
-		$deployment = $this->getDeployment();
-		// $this->createLocalizedNodes($doc, $submissionNode, 'title', $submission->getTitle(null, false));
-		// $this->createLocalizedNodes($doc, $submissionNode, 'prefix', $submission->getPrefix(null));
-		// $this->createLocalizedNodes($doc, $submissionNode, 'subtitle', $submission->getSubtitle(null));
-		// $this->createLocalizedNodes($doc, $submissionNode, 'abstract', $submission->getAbstract(null));
-		// $this->createLocalizedNodes($doc, $submissionNode, 'coverage', $submission->getCoverage(null));
-		// $this->createLocalizedNodes($doc, $submissionNode, 'type', $submission->getType(null));
-		// $this->createLocalizedNodes($doc, $submissionNode, 'source', $submission->getSource(null));
-		// $this->createLocalizedNodes($doc, $submissionNode, 'rights', $submission->getRights(null));
-		// if ($submission->getLicenseUrl()) {
-		// 	$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'licenseUrl', htmlspecialchars($submission->getLicenseUrl())));
-		// }
-		// $this->createLocalizedNodes($doc, $submissionNode, 'copyrightHolder', $submission->getCopyrightHolder(null));
-		// if ($submission->getCopyrightYear()) {
-		// 	$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'copyrightYear', intval($submission->getCopyrightYear())));
-		// }
-
-		// // add controlled vocabularies
-		// // get the supported locale keys
-		// $supportedLocales = array_keys(AppLocale::getSupportedFormLocales());
-		// $controlledVocabulariesMapping = $this->_getControlledVocabulariesMappings();
-		// foreach ($controlledVocabulariesMapping as $controlledVocabulariesNodeName => $mappings) {
-		// 	$dao = DAORegistry::getDAO($mappings[0]);
-		// 	$getFunction = $mappings[1];
-		// 	$controlledVocabularyNodeName = $mappings[2];
-		// 	$controlledVocabulary = $dao->$getFunction($submission->getId(), $supportedLocales);
-		// 	$this->addControlledVocabulary($doc, $submissionNode, $controlledVocabulariesNodeName, $controlledVocabularyNodeName, $controlledVocabulary);
-		// }
 	}
 
 	/**
@@ -236,49 +147,6 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 			}
 		}
 	}
-
-	// /**
-	//  * Add the author metadata for a submission to its DOM element.
-	//  * @param $doc DOMDocument
-	//  * @param $submissionNode DOMElement
-	//  * @param $submission Submission
-	//  */
-	// function addAuthors($doc, $submissionNode, $submission) {
-	// 	$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
-	// 	$nativeExportFilters = $filterDao->getObjectsByGroup('author=>native-xml');
-	// 	assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
-	// 	$exportFilter = array_shift($nativeExportFilters);
-	// 	$exportFilter->setDeployment($this->getDeployment());
-
-	// 	$authors = $submission->getAuthors();
-	// 	$authorsDoc = $exportFilter->execute($authors);
-	// 	if ($authorsDoc->documentElement instanceof DOMElement) {
-	// 		$clone = $doc->importNode($authorsDoc->documentElement, true);
-	// 		$submissionNode->appendChild($clone);
-	// 	}
-	// }
-
-	// /**
-	//  * Add the representations of a submission to its DOM element.
-	//  * @param $doc DOMDocument
-	//  * @param $submissionNode DOMElement
-	//  * @param $submission Submission
-	//  */
-	// function addRepresentations($doc, $submissionNode, $submission) {
-	// 	$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
-	// 	$nativeExportFilters = $filterDao->getObjectsByGroup($this->getRepresentationExportFilterGroupName());
-	// 	assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
-	// 	$exportFilter = array_shift($nativeExportFilters);
-	// 	$exportFilter->setDeployment($this->getDeployment());
-
-	// 	$representationDao = Application::getRepresentationDAO();
-	// 	$representations = $representationDao->getByPublicationId($submission->getCurrentPublication()->getId());
-	// 	while ($representation = $representations->next()) {
-	// 		$representationDoc = $exportFilter->execute($representation);
-	// 		$clone = $doc->importNode($representationDoc->documentElement, true);
-	// 		$submissionNode->appendChild($clone);
-	// 	}
-	// }
 
 	/**
 	 * Add the submission files to its DOM element.
@@ -358,13 +226,6 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	//
 	// Abstract methods for subclasses to implement
 	//
-	/**
-	 * Get the representation export filter group name
-	 * @return string
-	 */
-	function getRepresentationExportFilterGroupName() {
-		assert(false); // Must be overridden by subclasses
-	}
 
 	/**
 	 * Sets a flag to always include the <submissions> node, even if there
@@ -383,19 +244,6 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	function getIncludeSubmissionsNode() {
 		return $this->_includeSubmissionsNode;
 	}
-
-	// /**
-	//  * Get controlled vocabularies parent node name to DAO, get function and item node name mapping.
-	//  * @return array
-	//  */
-	// function _getControlledVocabulariesMappings() {
-	// 	return array(
-	// 			'keywords' => array('SubmissionKeywordDAO', 'getKeywords', 'keyword'),
-	// 			'agencies' => array('SubmissionAgencyDAO', 'getAgencies', 'agency'),
-	// 			'disciplines' => array('SubmissionDisciplineDAO', 'getDisciplines', 'discipline'),
-	// 			'subjects' => array('SubmissionSubjectDAO', 'getSubjects', 'subject'),
-	// 	);
-	// }
 }
 
 

@@ -10,7 +10,7 @@
  * @class PKPPublicationNativeXmlFilter
  * @ingroup plugins_importexport_native
  *
- * @brief Base class that converts a representation to a Native XML document
+ * @brief Base class that converts a PKPPublication to a Native XML document
  */
 
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
@@ -42,7 +42,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	//
 	/**
 	 * @see Filter::process()
-	 * @param $entity Publication
+	 * @param $entity PKPPublication
 	 * @return DOMDocument
 	 */
 	function &process(&$entity) {
@@ -65,7 +65,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	/**
 	 * Create and return an entity node.
 	 * @param $doc DOMDocument
-	 * @param $entity Publication
+	 * @param $entity PKPPublication
 	 * @return DOMElement
 	 */
 	function createEntityNode($doc, $entity) {
@@ -101,59 +101,11 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 		return $entityNode;
 	}
 
-	// /**
-	//  * Create and add identifier nodes to a representation node.
-	//  * @param $doc DOMDocument
-	//  * @param $representationNode DOMElement
-	//  * @param $representation Representation
-	//  */
-	// function addIdentifiers($doc, $representationNode, $representation) {
-	// 	$deployment = $this->getDeployment();
-
-	// 	// Add internal ID
-	// 	$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $representation->getId()));
-	// 	$node->setAttribute('type', 'internal');
-	// 	$node->setAttribute('advice', 'ignore');
-
-	// 	// Add public ID
-	// 	if ($pubId = $representation->getStoredPubId('publisher-id')) {
-	// 		$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
-	// 		$node->setAttribute('type', 'public');
-	// 		$node->setAttribute('advice', 'update');
-	// 	}
-
-	// 	// Add pub IDs by plugin
-	// 	$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
-	// 	foreach ($pubIdPlugins as $pubIdPlugin) {
-	// 		$this->addPubIdentifier($doc, $representationNode, $representation, $pubIdPlugin);
-	// 	}
-	// }
-
-	// /**
-	//  * Add a single pub ID element for a given plugin to the representation.
-	//  * @param $doc DOMDocument
-	//  * @param $representationNode DOMElement
-	//  * @param $representation Representation
-	//  * @param $pubIdPlugin PubIdPlugin
-	//  * @return DOMElement|null
-	//  */
-	// function addPubIdentifier($doc, $representationNode, $representation, $pubIdPlugin) {
-	// 	$pubId = $representation->getStoredPubId($pubIdPlugin->getPubIdType());
-	// 	if ($pubId) {
-	// 		$deployment = $this->getDeployment();
-	// 		$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
-	// 		$node->setAttribute('type', $pubIdPlugin->getPubIdType());
-	// 		$node->setAttribute('advice', 'update');
-	// 		return $node;
-	// 	}
-	// 	return null;
-	// }
-
 	/**
 	 * Create and add identifier nodes to a submission node.
 	 * @param $doc DOMDocument
 	 * @param $entityNode DOMElement
-	 * @param $entity Publication
+	 * @param $entity PKPPublication
 	 */
 	function addIdentifiers($doc, $entityNode, $entity) {
 		$deployment = $this->getDeployment();
@@ -180,8 +132,8 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	/**
 	 * Add a single pub ID element for a given plugin to the document.
 	 * @param $doc DOMDocument
-	 * @param $submissionNode DOMElement
-	 * @param $submission Submission
+	 * @param $entityNode DOMElement
+	 * @param $entity PKPPublication
 	 * @param $pubIdPlugin PubIdPlugin
 	 * @return DOMElement|null
 	 */
@@ -201,7 +153,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	 * Add the publication metadata for a publication to its DOM element.
 	 * @param $doc DOMDocument
 	 * @param $entityNode DOMElement
-	 * @param $entity Publication
+	 * @param $entity PKPPublication
 	 */
 	function addMetadata($doc, $entityNode, $entity) {
 		$deployment = $this->getDeployment();
@@ -242,9 +194,9 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	}
 
 	/**
-	 * Add submission controlled vocabulary to its DOM element.
+	 * Add publication's controlled vocabulary to its DOM element.
 	 * @param $doc DOMDocument
-	 * @param $submissionNode DOMElement
+	 * @param $entityNode DOMElement
 	 * @param $controlledVocabulariesNodeName string Parent node name
 	 * @param $controlledVocabularyNodeName string Item node name
 	 * @param $controlledVocabulary array Associative array (locale => array of items)
@@ -269,10 +221,10 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	 * Add the author metadata for a submission to its DOM element.
 	 * @param $doc DOMDocument
 	 * @param $entityNode DOMElement
-	 * @param $entity Publication
+	 * @param $entity PKPPublication
 	 */
 	function addAuthors($doc, $entityNode, $entity) {
-		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+		$filterDao = DAORegistry::getDAO('FilterDAO'); /** @var $filterDao FilterDAO */
 		$nativeExportFilters = $filterDao->getObjectsByGroup('author=>native-xml');
 		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
 		$exportFilter = array_shift($nativeExportFilters);
@@ -287,13 +239,13 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	}
 
 	/**
-	 * Add the representations of a submission to its DOM element.
+	 * Add the representations of a publication to its DOM element.
 	 * @param $doc DOMDocument
 	 * @param $entityNode DOMElement
 	 * @param $entity Publication
 	 */
 	function addRepresentations($doc, $entityNode, $entity) {
-		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+		$filterDao = DAORegistry::getDAO('FilterDAO'); /** @var $filterDao FilterDAO */
 		$nativeExportFilters = $filterDao->getObjectsByGroup($this->getRepresentationExportFilterGroupName());
 		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
 		$exportFilter = array_shift($nativeExportFilters);

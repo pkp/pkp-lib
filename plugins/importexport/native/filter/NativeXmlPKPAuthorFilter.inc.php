@@ -56,19 +56,21 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 
 
 	/**
-	 * Handle a submission element
+	 * Handle an author element
 	 * @param $node DOMElement
-	 * @return array Array of PKPAuthor objects
+	 * @return PKPAuthor
 	 */
 	function handleElement($node) {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
+
 		$publication = $deployment->getPublication();
 		assert(is_a($publication, 'PKPPublication'));
 
 		// Create the data object
-		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
-		$author = $authorDao->newDataObject();
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var $authorDao AuthorDAO */
+		$author = $authorDao->newDataObject(); /** @var $author PKPAuthor */
+
 		$author->setData('publicationId', $publication->getId());
 		if ($node->getAttribute('primary_contact')) $author->setPrimaryContact(true);
 		if ($node->getAttribute('include_in_browse')) $author->setIncludeInBrowse(true);
@@ -76,7 +78,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 
 		// Identify the user group by name
 		$userGroupName = $node->getAttribute('user_group_ref');
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getByContextId($context->getId());
 		while ($userGroup = $userGroups->next()) {
 			if (in_array($userGroupName, $userGroup->getName(null))) {

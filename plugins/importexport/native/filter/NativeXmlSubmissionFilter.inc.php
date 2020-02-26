@@ -74,8 +74,9 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$submission->stampLastActivity();
 		$submission->setData('status', $node->getAttribute('status'));
 		$submission->setData('submissionProgress', 0);
-		//import('lib.pkp.classes.workflow.WorkflowStageDAO');
-		$submission->setData('stageId', $node->getAttribute('stage_id')); //WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
+
+		import('lib.pkp.classes.workflow.WorkflowStageDAO');
+		$submission->setData('stageId', WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
 		$submission->setData('currentPublicationId', $node->getAttribute('current_publication_id'));
 
 		// Handle any additional attributes etc.
@@ -109,8 +110,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			$submission->setData('dateSubmitted', Core::getCurrentDate());
 		}
 
-		// $submissionDao->updateObject($submission);
-
 		return $submission;
 	}
 
@@ -124,9 +123,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			case 'id':
 				$this->parseIdentifier($n, $submission);
 				break;
-			// case 'authors':
-			// 	$this->parseAuthors($n, $submission);
-			// 	break;
 			case 'submission_file':
 				$this->parseSubmissionFile($n, $submission);
 				break;
@@ -160,48 +156,8 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 				// "update" advice not supported yet.
 				assert(!$advice || $advice == 'ignore');
 				break;
-			// case 'public':
-			// 	if ($advice == 'update') {
-			// 		$submission->setStoredPubId('publisher-id', $element->textContent);
-			// 	}
-			// 	break;
-			// default:
-			// 	if ($advice == 'update') {
-			// 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
-			// 		$submission->setStoredPubId($element->getAttribute('type'), $element->textContent);
-			// 	}
 		}
 	}
-
-	// /**
-	//  * Parse an authors element
-	//  * @param $node DOMElement
-	//  * @param $submission Submission
-	//  */
-	// function parseAuthors($node, $submission) {
-	// 	for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
-	// 		if (is_a($n, 'DOMElement')) {
-	// 			assert($n->tagName == 'author');
-	// 			$this->parseAuthor($n, $submission);
-	// 		}
-	// 	}
-	// }
-
-	// /**
-	//  * Parse an author and add it to the submission.
-	//  * @param $n DOMElement
-	//  * @param $submission Submission
-	//  */
-	// function parseAuthor($n, $submission) {
-	// 	$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
-	// 	$importFilters = $filterDao->getObjectsByGroup('native-xml=>author');
-	// 	assert(count($importFilters)==1); // Assert only a single unserialization filter
-	// 	$importFilter = array_shift($importFilters);
-	// 	$importFilter->setDeployment($this->getDeployment());
-	// 	$authorDoc = new DOMDocument();
-	// 	$authorDoc->appendChild($authorDoc->importNode($n, true));
-	// 	return $importFilter->execute($authorDoc);
-	// }
 
 	/**
 	 * Parse a submission file and add it to the submission.
@@ -236,44 +192,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	//
 	// Helper functions
 	//
-	// /**
-	//  * Get node name to setter function mapping for localized data.
-	//  * @return array
-	//  */
-	// function _getLocalizedSubmissionSetterMappings() {
-	// 	return array(
-	// 		'title' => 'setTitle',
-	// 		'prefix' => 'setPrefix',
-	// 		'subtitle' => 'setSubtitle',
-	// 		'abstract' => 'setAbstract',
-	// 		'coverage' => 'setCoverage',
-	// 		'type' => 'setType',
-	// 		'source' => 'setSource',
-	// 		'rights' => 'setRights',
-	// 		'copyrightHolder' => 'setCopyrightHolder',
-	// 	);
-	// }
-
-	// /**
-	//  * Get node name to DAO and insert function mapping.
-	//  * @return array
-	//  */
-	// function _getControlledVocabulariesMappings() {
-	// 	return array(
-	// 		'keywords' => array('SubmissionKeywordDAO', 'insertKeywords'),
-	// 		'agencies' => array('SubmissionAgencyDAO', 'insertAgencies'),
-	// 		'disciplines' => array('SubmissionDisciplineDAO', 'insertDisciplines'),
-	// 		'subjects' => array('SubmissionSubjectDAO', 'insertSubjects'),
-	// 	);
-	// }
-
-	// /**
-	//  * Get the representation export filter group name
-	//  * @return string
-	//  */
-	// function getRepresentationExportFilterGroupName() {
-	// 	assert(false); // Subclasses must override
-	// }
 
 	/**
 	 * Get the import filter for a given element.

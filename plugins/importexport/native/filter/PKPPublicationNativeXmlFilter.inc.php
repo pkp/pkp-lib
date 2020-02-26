@@ -37,14 +37,6 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 		return 'lib.pkp.plugins.importexport.native.filter.PKPPublicationNativeXmlFilter';
 	}
 
-	/**
-	 * Get the representation export filter group name
-	 * @return string
-	 */
-	function getRepresentationExportFilterGroupName() {
-		return 'article-galley=>native-xml';
-	}
-
 	//
 	// Implement template methods from Filter
 	//
@@ -89,6 +81,9 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 		$entityNode->setAttribute('version', $entity->getData('version'));
 		$entityNode->setAttribute('status', $entity->getData('status'));
 		$entityNode->setAttribute('primary_contact_id', $entity->getData('primaryContactId'));
+
+		$isPublished = $entity->getData('status') === STATUS_PUBLISHED;
+		$isPublished ? $entityNode->setAttribute('seq', (int) $entity->getData('seq')) : $entityNode->setAttribute('seq', '0');
 		
 		$entityLanguages = $entity->getData('languages');
 		if ($entityLanguages) {

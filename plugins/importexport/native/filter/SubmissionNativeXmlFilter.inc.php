@@ -94,7 +94,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$submissionNode->setAttribute('status', $submission->getData('status'));
 		$submissionNode->setAttribute('submission_progress', $submission->getData('submissionProgress'));
 		$submissionNode->setAttribute('current_publication_id', $submission->getData('currentPublicationId'));
-		$submissionNode->setAttribute('submission_locale', $submission->getData('currentPublicationId'));
+		// $submissionNode->setAttribute('submission_locale', $submission->getData('currentPublicationId'));
 		
 		/*
 		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); 

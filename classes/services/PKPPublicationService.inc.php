@@ -200,9 +200,10 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 					if ($currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
 						$values[$prop] = [];
 					} else {
+						$galleyArgs = array_merge($args, ['publication' => $publication]);
 						$values[$prop] = array_map(
-							function($galley) use ($request, $args) {
-								return Services::get('galley')->getSummaryProperties($galley, $args);
+							function($galley) use ($request, $galleyArgs) {
+								return Services::get('galley')->getSummaryProperties($galley, $galleyArgs);
 							},
 							$publication->getData('galleys')
 						);

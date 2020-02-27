@@ -344,7 +344,6 @@ abstract class PKPWorkflowHandler extends Handler {
 				'cancel' => __('common.cancel'),
 				'ok' => __('common.ok'),
 				'no' => __('common.no'),
-				'preview' => __('common.preview'),
 				'publicationTabsLabel' => __('publication.version.details'),
 				'publish' => __('publication.publish'),
 				'schedulePublication' => __('editor.submission.schedulePublication'),

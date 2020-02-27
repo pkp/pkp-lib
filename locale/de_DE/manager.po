@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2020-02-12 06:38+0000\n"
+"PO-Revision-Date: 2020-02-28 11:36+0000\n"
 "Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de/>\n"
@@ -1811,3 +1811,70 @@ msgstr "Richtlinien für Gutachter"
 
 msgid "manager.publication.emailSetup.success"
 msgstr "Die E-Mail-Einstellungen wurden aktualisiert."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Vor Annahme der Einreichung Angaben zur Disziplin vom Autor/von der Autorin "
+"verlangen."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr ""
+"Während der Einreichung eine Angabe zur Disziplin vom Autor  von der Autorin "
+"erfragen."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr ""
+"Während der Einreichung keine Angabe zur Disziplin vom Autor  von der "
+"Autorin verlangen."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Disziplin-Metadaten aktivieren"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Disziplinen sind Arten von Studien oder Fachgebiete, wie sie von "
+"Universitätsfakultäten oder Fachgesellschaften beschrieben werden."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Vor Annahme der Einreichung Angaben zum Typ vom Autor / von der Autorin "
+"verlangen."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Während der Einreichung den Autoren / die Autorin nach dem Typ fragen."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr ""
+"Während der Einreichung den Autoren / die Autorin nicht nach dem Typ fragen."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Typ-Metadaten aktivieren"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Art oder Genre vom Hauptteil der Einreichung. Der Typ ist normalerweise \""
+"Text\", kann aber auch \"\"Datensatz\", \"Bild\" oder jedem anderen der <a "
+"target=\"_blank\" href=\"http://dublincore.org/documents/"
+"dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core Typen</a> "
+"entsprechen."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Während der Einreichung Angaben zum Thema vom Autor/von Autorin verlangen."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr ""
+"Während der Einreichung den Autoren/die Autorin bitten Angaben zum Thema zu "
+"machen."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr ""
+"Während der Einreichung keine Angaben zu Themen von Autor/Autorin verlangen."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Themen-Metadaten aktivieren"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Themen sind Stichworte, Stichwortketten oder Klassifizierungscodes, die das "
+"Fachgebiet einer Einreichung beschreiben."

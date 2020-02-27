@@ -120,11 +120,11 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$node->setAttribute('type', 'internal');
 		$node->setAttribute('advice', 'ignore');
 
-		// Add pub IDs by plugin
-		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
-		foreach ($pubIdPlugins as $pubIdPlugin) {
-			$this->addPubIdentifier($doc, $submissionNode, $submission, $pubIdPlugin);
-		}
+		// // Add pub IDs by plugin
+		// $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
+		// foreach ($pubIdPlugins as $pubIdPlugin) {
+		// 	$this->addPubIdentifier($doc, $submissionNode, $submission, $pubIdPlugin);
+		// }
 	}
 
 	/**

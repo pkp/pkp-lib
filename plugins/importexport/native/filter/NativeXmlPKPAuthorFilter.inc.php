@@ -127,7 +127,11 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 			$deployment->addError(ASSOC_TYPE_SUBMISSION, $publication->getId(), __('plugins.importexport.common.error.missingGivenName', array('authorName' => $author->getLocalizedGivenName(), 'localeName' => $allLocales[$submission->getLocale()])));
 		}
 
-		$authorDao->insertObject($author);
+		$authorId = $authorDao->insertObject($author);
+		$author->setId($authorId);
+
+		$importAuthorId = $node->getAttribute('id');
+		$deployment->setAuthorDBId($importAuthorId, $authorId);
 
 		if ($node->getAttribute('id') == $publication->getData('primaryContactId')) {
 			$publication->setData('primaryContactId', $author->getId());

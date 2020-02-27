@@ -66,7 +66,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
 
-		$submission = $this->getDeployment()->getSubmission();
+		$submission = $deployment->getSubmission();
 
 		/** @var $publicationDao PublicationDAO */
 		$publicationDao = DAORegistry::getDAO('PublicationDAO');

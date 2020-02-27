@@ -42,6 +42,9 @@ class PKPImportExportDeployment {
 	/** @var array Connection between the file and revision IDs from the XML import file and the DB file IDs */
 	var $_fileDBIds;
 
+	/** @var array Connection between the author id from the XML import file and the DB file IDs */
+	var $_authorDBIds;
+
 	/** @var string Base path for the import source */
 	var $_baseImportPath = '';
 
@@ -304,6 +307,44 @@ class PKPImportExportDeployment {
 	 */
 	function setFileDBId($fileId, $revisionId, $DBId) {
 		return $this->_fileDBIds[$fileId][$revisionId]= $DBId;
+	}
+
+	/**
+	 * Set the array of the inserted author DB Ids.
+	 * @param $authorDBIds array
+	 */
+	function setAuthorDBIds($authorDBIds) {
+		return $this->_authorDBIds = $authorDBIds;
+	}
+
+	/**
+	 * Get the array of the inserted author DB Ids.
+	 * @return array
+	 */
+	function getAuthorDBIds() {
+		return $this->_authorDBIds;
+	}
+
+	/**
+	 * Get the author DB Id.
+	 * @param $authorId integer
+	 * @return integer?
+	 */
+	function getAuthorDBId($authorId) {
+		if (array_key_exists($authorId, $this->_authorDBIds)) {
+			return $this->_authorDBIds[$authorId];
+		}
+
+		return null;
+	}
+
+	/**
+	 * Set the author DB Id.
+	 * @param $authorId integer
+	 * @param $DBId integer
+	 */
+	function setAuthorDBId($authorId, $DBId) {
+		return $this->_authorDBIds[$authorId] = $DBId;
 	}
 
 	/**

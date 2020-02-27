@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2020-02-13 12:28+0000\n"
+"PO-Revision-Date: 2020-02-28 11:36+0000\n"
 "Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/de/>\n"
@@ -658,7 +658,7 @@ msgid "submission.identifiers"
 msgstr "Identifier"
 
 msgid "submission.publisherId"
-msgstr "Öffentliche URL"
+msgstr "Verlags-URL"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Informationen zur Einreichung"
@@ -2034,3 +2034,29 @@ msgstr "Angabe zum Copyright"
 
 msgid "submission.copyrightHolder.other"
 msgstr "Benutzerdefinierte Angabe zu Copyright"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Der URL Pfad darf keine Zahl sein."
+
+msgid "publication.urlPath.duplicate"
+msgstr ""
+"Der URL Pfad wurde bereits verwendet und kann nicht erneut verwendet werden."
+
+msgid "publication.urlPath.description"
+msgstr "Ein optionaler Pfad für die Benutzung in der URL anstatt der ID."
+
+msgid "publication.urlPath"
+msgstr "URL Pfad"
+
+msgid "submission.publications"
+msgstr "Veröffentlichungen"
+
+msgid "submission.publisherId.enable"
+msgstr "Aktivieren für {$objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"Die Verlags-ID kann dazu benutzt werden, eine ID von einer externen "
+"Datenbank aufzunehmen. Beispielsweise können Objekte, die für die "
+"Deponierung bei PubMed exportiert wurden, die Verlags-ID beinhalten. Dies "
+"sollte nicht für DOIs benutzt werden."

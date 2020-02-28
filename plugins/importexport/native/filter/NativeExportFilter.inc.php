@@ -19,7 +19,7 @@ class NativeExportFilter extends NativeImportExportFilter {
 
 	/** @var boolean If set to true no validation (e.g. XML validation) will be done */
 	var $_noValidation = null;
-	var $opts = null;
+	var $opts = array();
 
 	/**
 	 * Constructor

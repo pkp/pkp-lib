@@ -161,6 +161,10 @@ class EmailTemplateDAO extends SchemaDAO {
 		return $returner;
 	}
 
+	/**
+	 * Get the main email template path and filename.
+	 * @return string
+	 */
 	function getMainEmailTemplatesFilename() {
 		return 'registry/emailTemplates.xml';
 	}

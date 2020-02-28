@@ -104,14 +104,6 @@ echo -n " - lib/pkp ... "
 composer.phar --working-dir=lib/pkp install --no-dev
 echo "Done"
 
-echo -n " - plugins/paymethod/paypal ... "
-composer.phar --working-dir=plugins/paymethod/paypal install --no-dev
-echo "Done"
-
-echo -n " - plugins/generic/citationStyleLanguage ... "
-composer.phar --working-dir=plugins/generic/citationStyleLanguage install --no-dev
-echo "Done"
-
 echo -n "Installing node dependencies... "
 npm install
 echo "Done"

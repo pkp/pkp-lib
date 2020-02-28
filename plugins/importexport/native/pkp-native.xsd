@@ -106,6 +106,7 @@
 					<attribute name="filetype" type="normalizedString" use="required" />
 				</complexType>
 			</element>
+			<element name="salesType" minOccurs="0" maxOccurs="1" />
 		</sequence>
 		<attribute name="id" type="normalizedString" />
 		<attribute name="stage">
@@ -210,6 +211,7 @@
 			</choice>
 		</sequence>
 		<attribute name="locale" type="string" use="optional" />
+		<attribute name="url_path" type="string" use="optional" />
 	</complexType>
 
 	<complexType name="submission">

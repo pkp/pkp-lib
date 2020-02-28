@@ -189,6 +189,8 @@
 				<attribute name="primary_contact" type="boolean" default="false" />
 				<attribute name="user_group_ref" type="pkp:user_group_ref" use="required" />
 				<attribute name="include_in_browse" type="boolean" default="true" />
+				<attribute name="seq" type="int" use="required" />
+				<attribute name="id" type="int" use="required" />
 			</extension>
 		</complexContent>
 	</complexType>
@@ -207,9 +209,24 @@
 				<element name="remote" type="pkp:remote" minOccurs="0" maxOccurs="1" />
 			</choice>
 		</sequence>
+		<attribute name="locale" type="string" use="optional" />
 	</complexType>
 
 	<complexType name="submission">
+		<sequence>
+			<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded" />
+
+			<!-- Metadata -->
+			<element ref="pkp:submission_file" minOccurs="0" maxOccurs="unbounded" />
+			<element ref="pkp:publication" minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="status" type="string" use="optional" />
+		<attribute name="current_publication_id" type="int" use="optional" />
+		<attribute name="date_submitted" type="date" use="optional" />
+		<attribute name="submission_progress" type="int" use="optional" />
+	</complexType>
+
+	<complexType name="pkppublication">
 		<sequence>
 			<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded" />
 
@@ -230,13 +247,16 @@
 			<element ref="pkp:disciplines" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:subjects" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:authors" minOccurs="1" maxOccurs="1" />
-			<element ref="pkp:submission_file" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:representation" minOccurs="0" maxOccurs="unbounded" />
 		</sequence>
 		<attribute name="locale" type="string" use="optional" />
 		<attribute name="language" type="string" use="optional" />
 		<attribute name="date_submitted" type="date" use="optional" />
 		<attribute name="date_published" type="date" use="optional" />
+		<attribute name="version" type="int" use="optional" />
+		<attribute name="status" type="int" use="optional" />
+		<attribute name="primary_contact_id" type="int" use="optional" />
+		<attribute name="url_path" type="string" use="optional" />
 	</complexType>
 
 	<!-- ************
@@ -301,6 +321,8 @@
 	  -->
 	<!-- Permit "submission" as a root element -->
 	<element name="submission" type="pkp:submission" abstract="true" />
+
+	<element name="pkppublication" type="pkp:pkppublication" />
 
 	<!-- Controlled vocabularies -->
 	<element name="keywords">

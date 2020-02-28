@@ -75,7 +75,10 @@ class RepresentationNativeXmlFilter extends NativeExportFilter {
 		// Create the representation node
 		$representationNode = $doc->createElementNS($deployment->getNamespace(), $deployment->getRepresentationNodeName());
 
+		$representationNode->setAttribute('locale', $representation->getData('locale'));
+
 		$this->addIdentifiers($doc, $representationNode, $representation);
+
 		// Add metadata
 		$this->createLocalizedNodes($doc, $representationNode, 'name', $representation->getName(null));
 		$sequenceNode = $doc->createElementNS($deployment->getNamespace(), 'seq');

@@ -27,6 +27,9 @@ class PKPImportExportDeployment {
 	/** @var Submission The current import/export submission */
 	var $_submission;
 
+	/** @var PKPPublication The current import/export publication */
+	var $_publication;
+
 	/** @var array The processed import objects IDs */
 	var $_processedObjectsIds = array();
 
@@ -38,6 +41,9 @@ class PKPImportExportDeployment {
 
 	/** @var array Connection between the file and revision IDs from the XML import file and the DB file IDs */
 	var $_fileDBIds;
+
+	/** @var array Connection between the author id from the XML import file and the DB file IDs */
+	var $_authorDBIds;
 
 	/** @var string Base path for the import source */
 	var $_baseImportPath = '';
@@ -51,6 +57,7 @@ class PKPImportExportDeployment {
 		$this->setContext($context);
 		$this->setUser($user);
 		$this->setSubmission(null);
+		$this->setPublication(null);
 		$this->setFileDBIds(array());
 		$this->_processedObjectsIds = array();
 	}
@@ -132,6 +139,23 @@ class PKPImportExportDeployment {
 	 */
 	function getSubmission() {
 		return $this->_submission;
+	}
+
+	/**
+	 * Set the import/export publication.
+	 * @param $publication PKPPublication
+	 */
+	function setPublication($publication) {
+		$this->_publication = $publication;
+		if ($publication) $this->addProcessedObjectId(ASSOC_TYPE_PUBLICATION, $publication->getId());
+	}
+
+	/**
+	 * Get the import/export publication.
+	 * @return PKPPublication
+	 */
+	function getPublication() {
+		return $this->_publication;
 	}
 
 	/**
@@ -283,6 +307,44 @@ class PKPImportExportDeployment {
 	 */
 	function setFileDBId($fileId, $revisionId, $DBId) {
 		return $this->_fileDBIds[$fileId][$revisionId]= $DBId;
+	}
+
+	/**
+	 * Set the array of the inserted author DB Ids.
+	 * @param $authorDBIds array
+	 */
+	function setAuthorDBIds($authorDBIds) {
+		return $this->_authorDBIds = $authorDBIds;
+	}
+
+	/**
+	 * Get the array of the inserted author DB Ids.
+	 * @return array
+	 */
+	function getAuthorDBIds() {
+		return $this->_authorDBIds;
+	}
+
+	/**
+	 * Get the author DB Id.
+	 * @param $authorId integer
+	 * @return integer?
+	 */
+	function getAuthorDBId($authorId) {
+		if (array_key_exists($authorId, $this->_authorDBIds)) {
+			return $this->_authorDBIds[$authorId];
+		}
+
+		return null;
+	}
+
+	/**
+	 * Set the author DB Id.
+	 * @param $authorId integer
+	 * @param $DBId integer
+	 */
+	function setAuthorDBId($authorId, $DBId) {
+		return $this->_authorDBIds[$authorId] = $DBId;
 	}
 
 	/**

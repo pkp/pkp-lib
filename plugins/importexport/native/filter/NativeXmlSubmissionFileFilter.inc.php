@@ -75,6 +75,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				$this->handleChildElement($n, $stageId, $fileId, $submissionFiles);
 			}
 		}
+		
 		return $submissionFiles;
 	}
 
@@ -270,6 +271,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				$locale = $node->getAttribute('locale');
 				if (empty($locale)) $locale = $context->getPrimaryLocale();
 				$submissionFile->setName($node->textContent, $locale);
+				$submissionFile->setSubmissionLocale($locale);
 				break;
 			case 'href':
 				$submissionFile->setFileType($node->getAttribute('mime_type'));

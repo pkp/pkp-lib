@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2020-02-24 16:54+0000\n"
+"PO-Revision-Date: 2020-02-28 11:36+0000\n"
 "Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/hu/>\n"
@@ -153,10 +153,10 @@ msgid "common.and"
 msgstr "és"
 
 msgid "common.applyAction"
-msgstr "Művelet jóváhagyása"
+msgstr "Művelet alkalmazása"
 
 msgid "common.assign"
-msgstr "Hozzárendelés"
+msgstr "Hozzárendel"
 
 msgid "common.assigned"
 msgstr "Hozzárendelt"
@@ -604,10 +604,10 @@ msgid "common.reminded.date"
 msgstr "Emlékeztető: {$dateReminded}"
 
 msgid "common.remote"
-msgstr "Remote"
+msgstr "Távoli"
 
 msgid "common.remoteURL"
-msgstr "RemoteURL"
+msgstr "TávoliURL"
 
 msgid "common.remove"
 msgstr "Eltávolítás"
@@ -766,7 +766,7 @@ msgid "common.yes"
 msgstr "Igen"
 
 msgid "common.loading"
-msgstr "Töltés ..."
+msgstr "Töltődik"
 
 msgid "common.plugins"
 msgstr "Pluginok"
@@ -994,7 +994,7 @@ msgid "icon.info.alt"
 msgstr "Info"
 
 msgid "icon.letter.alt"
-msgstr "Letter"
+msgstr "Levél"
 
 msgid "icon.mail.alt"
 msgstr "Mail"
@@ -1015,7 +1015,7 @@ msgid "informationCenter.addNote"
 msgstr "Megjegyzés hozzáadása"
 
 msgid "informationCenter.noNotes"
-msgstr "Nincs megjeleníthető megjegyzés"
+msgstr "Nincs megjeleníthető megjegyzés."
 
 msgid "informationCenter.currentNotes"
 msgstr "Az aktuális szakmai lektorálás megjegyzései"
@@ -1473,13 +1473,13 @@ msgid "notification.removedReviewer"
 msgstr "Szakmai lektor eltávolítása."
 
 msgid "notification.addedStageParticipant"
-msgstr "Felhasználó hozzáadva ennek a szakasznak a résztvevőjeként"
+msgstr "Felhasználó hozzáadva, mint résztvevő ebben a szakaszban."
 
 msgid "notification.type.newAnnouncement"
 msgstr "Új értesítés."
 
 msgid "notification.type.reviewAssignment"
-msgstr "Szakmai lektorálás folyamatban."
+msgstr "Szakmai lektorálás függőben."
 
 msgid "notification.type.auditorRequest"
 msgstr "Ellenőrzés kérése a \"{$file}\" fájlhoz"
@@ -1557,10 +1557,10 @@ msgid "notification.sendNotificationConfirmation"
 msgstr "Küldjön értesítő e-mailt minden regisztrált felhasználónak"
 
 msgid "notification.addedNavigationMenu"
-msgstr "Navigációs menü sikeresen hozzá lett adva."
+msgstr "Navigációs menü sikeresen hozzáadva"
 
 msgid "notification.editedNavigationMenu"
-msgstr "A navigációs menü sikeresen frissítve lett."
+msgstr "A navigációs menü sikeresen frissítve"
 
 msgid "notification.removedNavigationMenu"
 msgstr "A navigációs menü sikeresen törölve"
@@ -1569,10 +1569,10 @@ msgid "semicolon"
 msgstr "{$label}:"
 
 msgid "notification.addedNavigationMenuItem"
-msgstr "Navigációs menüelem sikeresen hozzáadva."
+msgstr "Navigációs menüelem sikeresen hozzáadva"
 
 msgid "notification.editedNavigationMenuItem"
-msgstr "Navigációs menü sikeresen frissítve lett."
+msgstr "Navigációs menü sikeresen frissítve lett"
 
 msgid "notification.removedNavigationMenuItem"
 msgstr "Navigációs menüelem sikeresen törölve"
@@ -1599,16 +1599,16 @@ msgid "common.publicAccess"
 msgstr "Nyilvános elérés"
 
 msgid "common.semicolonListSeparator"
-msgstr ";"
+msgstr "; "
 
 msgid "stageParticipants.notify.startDiscussion"
-msgstr "Értekezés kezdeményezése "
+msgstr "Értekezés kezdeményezése"
 
 msgid "stageParticipants.notify.startDiscussion.description"
-msgstr "Értekezés kezdeményezése {$userFullName} bevonásával. "
+msgstr "Értekezés kezdeményezése {$userFullName} bevonásával."
 
 msgid "notification.type.reviewAssignmentUpdated"
-msgstr "Lektorálási feladatkiosztás frissítésre került."
+msgstr "A lektorálási feladatkiosztás frissítésre került."
 
 msgid "common.lessThan"
 msgstr "{$value} vagy kevesebb"
@@ -1635,16 +1635,18 @@ msgid "common.clearSearch"
 msgstr "Keresőkifejezés törlése"
 
 msgid "email.compose.error"
-msgstr "Sikertelen email üzenet küldés. Próbálja meg később, vagy forduljon a rendszergazdához. "
+msgstr ""
+"Sikertelen email üzenet küldés. Próbálja meg később, vagy forduljon a "
+"rendszergazdához."
 
 msgid "list.viewMore"
-msgstr "Mutasson több részletet {$name}-ról/ről."
+msgstr "Mutasson több részletet {$name}-ról/ről"
 
 msgid "list.viewLess"
 msgstr "Mutasson kevesebb részletet {$name}-ról/ről."
 
 msgid "common.dateDecided"
-msgstr "A dátum meghatározásra került "
+msgstr "A dátum meghatározásra került"
 
 msgid "common.average"
 msgstr "Átlagos"
@@ -1931,3 +1933,63 @@ msgstr "Nem találtunk tételt."
 
 msgid "common.fromWithValue"
 msgstr "Tól/től: {$value}"
+
+msgid "notification.cancelledReviewer"
+msgstr "Szakmai lektor lektorálása megszakítva."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Szakmai lektor ismételten felkérve."
+
+msgid "notification.editStageParticipant"
+msgstr "A szakasz hozzárendelés megváltozott."
+
+msgid "validator.unique"
+msgstr "A(z) {$attribute} már használatban van."
+
+msgid "validator.timezone"
+msgstr "Nem érvényes időzóna."
+
+msgid "validator.string"
+msgstr "Nem érvényes karakterlánc."
+
+msgid "validator.size.array"
+msgstr "Tartalmaznia kell {$size} elemet."
+
+msgid "validator.size.string"
+msgstr "{$size} karakternek kell lennie."
+
+msgid "validator.size.file"
+msgstr "{$size} kilobyte-nak kell lennie."
+
+msgid "validator.size.numeric"
+msgstr "Ekkorának kell lennie: {$size}"
+
+msgid "validator.same"
+msgstr "A {$attribute} és {$other}-nak/nek egyezni kell."
+
+msgid "validator.required_without_all"
+msgstr "Ez a mező szükséges, amikor egyik sincs jelen innen: {$values}"
+
+msgid "validator.required_without"
+msgstr "Ez a mező szükséges, amikor {$values} nincs jelen van."
+
+msgid "validator.required_with_all"
+msgstr "Ez a mező szükséges, amikor {$values} jelen van."
+
+msgid "validator.required_with"
+msgstr "Ez a mező szükséges, amikor {$values} jelen van."
+
+msgid "validator.required_unless"
+msgstr "Ez a mező szükséges, hacsak nem {$other} beleesik {$values}-be/be."
+
+msgid "validator.required_if"
+msgstr "Szükséges mező, amikor a {$other} = {$value}-val/vel."
+
+msgid "validator.required"
+msgstr "Szükséges mező."
+
+msgid "validator.regex"
+msgstr "Nem helyesen formázott."
+
+msgid "validator.present"
+msgstr "A {$attribute} mező szükséges."

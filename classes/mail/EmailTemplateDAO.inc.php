@@ -246,18 +246,25 @@ class EmailTemplateDAO extends SchemaDAO {
 					$this->update(array_shift($sql));
 				}
 
-				$sql[] = 'INSERT INTO email_templates_default_data
-					(email_key, locale, subject, body, description)
-					VALUES
-					(' .
-					$dataSource->qstr($attrs['key']) . ', ' .
-					$dataSource->qstr($locale) . ', ' .
-					$dataSource->qstr(__($subject, [], $locale)) . ', ' .
-					$dataSource->qstr(__($body, [], $locale)) . ', ' .
-					$dataSource->qstr(__($description, [], $locale)) .
-					")";
-				if (!$returnSql) {
-					$this->update(array_shift($sql));
+				$keyNotFoundHandler = function($key) {
+					return null;
+				};
+				$translatedSubject = __($subject, [], $locale, $keyNotFoundHandler);
+				$translatedBody = __($body, [], $locale, $keyNotFoundHandler);
+				if ($translatedSubject !== null && $translatedBody !==  null) {
+					$sql[] = 'INSERT INTO email_templates_default_data
+						(email_key, locale, subject, body, description)
+						VALUES
+						(' .
+						$dataSource->qstr($attrs['key']) . ', ' .
+						$dataSource->qstr($locale) . ', ' .
+						$dataSource->qstr($translatedSubject) . ', ' .
+						$dataSource->qstr($translatedBody) . ', ' .
+						$dataSource->qstr(__($description, [], $locale)) .
+						")";
+					if (!$returnSql) {
+						$this->update(array_shift($sql));
+					}
 				}
 			}
 		}

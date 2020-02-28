@@ -88,15 +88,25 @@ class PKPLocale {
 	}
 
 	/**
+	 * Add octothorpes to a key name for presentation of the key as missing.
+	 * @param @key string
+	 * @return string
+	 */
+	public static function addOctothorpes($key) {
+		return '##' . htmlentities($key) . '##';
+	}
+
+	/**
 	 * Translate a string using the selected locale.
 	 * Substitution works by replacing tokens like "{$foo}" with the value
 	 * of the parameter named "foo" (if supplied).
 	 * @param $key string
 	 * @param $params array named substitution parameters
 	 * @param $locale string the locale to use
+	 * @param $missingKeyHandler function Callback to be invoked when a key cannot be found.
 	 * @return string
 	 */
-	static function translate($key, $params = array(), $locale = null) {
+	static function translate($key, $params = array(), $locale = null, $missingKeyHandler = array(__CLASS__, 'addOctothorpes')) {
 		if (!isset($locale)) $locale = AppLocale::getLocale();
 		if (($key = trim($key)) == '') return '';
 
@@ -113,7 +123,7 @@ class PKPLocale {
 
 		if (!HookRegistry::call('PKPLocale::translate', array(&$key, &$params, &$locale, &$localeFiles, &$value))) {
 			// Add some octothorpes to missing keys to make them more obvious
-			return '##' . htmlentities($key) . '##';
+			return $missingKeyHandler($key);
 		} else {
 			return $value;
 		}
@@ -760,6 +770,6 @@ class PKPLocale {
  * @param $locale string the locale to use
  * @return string
  */
-function __($key, $params = array(), $locale = null) {
-	return AppLocale::translate($key, $params, $locale);
+function __($key, $params = array(), $locale = null, $missingKeyHandler = array('PKPLocale', 'addOctothorpes')) {
+	return AppLocale::translate($key, $params, $locale, $missingKeyHandler);
 }

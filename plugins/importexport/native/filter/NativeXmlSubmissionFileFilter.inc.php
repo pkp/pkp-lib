@@ -148,7 +148,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFile = $submissionFileDao->newDataObjectByGenreId($genreId);
 		$submissionFile->setSubmissionId($submission->getId());
-		// $submissionFile->setSubmissionLocale($submission->getLocale());
+		$submissionFile->setSubmissionLocale($submission->getLocale());
 		$submissionFile->setGenreId($genreId);
 		$submissionFile->setFileStage($stageId);
 		$submissionFile->setDateUploaded(Core::getCurrentDate());

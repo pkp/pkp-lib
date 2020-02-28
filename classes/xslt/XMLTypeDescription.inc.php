@@ -130,8 +130,12 @@ class XMLTypeDescription extends TypeDescription {
 				break;
 
 			case XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA:
-				return true;
-				if (!$xmlDom->schemaValidate($this->_validationSource)) return false;
+				libxml_use_internal_errors(true);
+				if (!$xmlDom->schemaValidate($this->_validationSource)) {
+					$errors = libxml_get_errors();
+					return false;
+				}
+				
 				break;
 
 			case XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG:

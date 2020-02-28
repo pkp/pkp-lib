@@ -27,8 +27,6 @@ class NativeExportFilter extends NativeImportExportFilter {
 	 */
 	function __construct($filterGroup) {
 		parent::__construct($filterGroup);
-
-		$this->setNoValidation(true);
 	}
 
 	/**

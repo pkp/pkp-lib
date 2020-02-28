@@ -26,8 +26,6 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	function __construct($filterGroup) {
 		$this->setDisplayName('Native XML submission export');
 		parent::__construct($filterGroup);
-
-		$this->setNoValidation(true);
 	}
 
 

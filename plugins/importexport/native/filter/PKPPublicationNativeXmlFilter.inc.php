@@ -23,8 +23,6 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	function __construct($filterGroup) {
 		$this->setDisplayName('Native XML Publication export');
 		parent::__construct($filterGroup);
-
-		$this->setNoValidation(true);
 	}
 
 	//
@@ -175,10 +173,6 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 		
 		if ($entity->getData('copyrightYear')) {
 			$entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'copyrightYear', intval($entity->getData('copyrightYear'))));
-		}
-
-		if ($entity->getData('issueId')) {
-			$entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'issueId', intval($entity->getData('issueId'))));
 		}
 
 		// add controlled vocabularies

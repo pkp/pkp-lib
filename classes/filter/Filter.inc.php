@@ -347,8 +347,7 @@ class Filter extends DataObject {
 
 		// Validate output
 		$outputType =& $this->getOutputType();
-		// $validOutput = $outputType->isCompatible($output);
-		$validOutput = true;
+		$validOutput = $outputType->isCompatible($output);
 
 		return $validInput && $validOutput;
 	}

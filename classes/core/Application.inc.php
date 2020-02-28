@@ -73,7 +73,7 @@ class Application extends PKPApplication {
 	 * @return string
 	 */
 	public function getVersionDescriptorUrl() {
-		return('http://pkp.sfu.ca/ojs/xml/ojs-version.xml');
+		return('http://pkp.sfu.ca/ops/xml/ops-version.xml');
 	}
 
 	/**

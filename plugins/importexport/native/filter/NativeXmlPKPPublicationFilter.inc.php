@@ -45,8 +45,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 	 * @return string
 	 */
 	function getPluralElementName() {
-		$deployment = $this->getDeployment();
-		return $deployment->getPublicationsNodeName();
+		return 'publications';
 	}
 
 	/**
@@ -54,8 +53,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 	 * @return string
 	 */
 	function getSingularElementName() {
-		$deployment = $this->getDeployment();
-		return $deployment->getPublicationNodeName();
+		return 'publication';
 	}
 
 	/**

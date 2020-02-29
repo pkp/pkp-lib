@@ -32,6 +32,9 @@
 		<field name="publication_id" type="I8">
 			<NOTNULL/>
 		</field>
+		<field name="submission_id" type="I8">
+			<!-- DEPRECATED Held over for 3.2 upgrade -->
+		</field>
 		<field name="seq" type="F">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
@@ -60,6 +63,9 @@
 			<NOTNULL />
 		</field>
 		<field name="setting_value" type="X"/>
+		<field name="setting_type" type="C2" size="6">
+			<!-- DEPRECATED: Held over for OJS pre-3.2 upgrade -->
+		</field>
 		<descr>Language dependent author metadata.</descr>
 		<index name="author_settings_author_id">
 			<col>author_id</col>

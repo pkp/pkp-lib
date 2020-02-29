@@ -268,7 +268,7 @@ class PluginHelper {
 	}
 
 	/**
-	 * Cut and paste plugin from temporary files to it's actual place.
+	 * Cut and paste plugin from temporary files to its actual place.
 	 * @param $path string Path of temporary files
 	 * @param $pluginDest string Path of application-specific part (mandatory)
 	 * @param $pluginLibDest string path of library part (if any)

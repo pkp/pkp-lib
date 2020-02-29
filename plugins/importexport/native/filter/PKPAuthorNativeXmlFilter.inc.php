@@ -23,8 +23,6 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 	function __construct($filterGroup) {
 		$this->setDisplayName('Native XML author export');
 		parent::__construct($filterGroup);
-
-		$this->getNoValidation(true);
 	}
 
 

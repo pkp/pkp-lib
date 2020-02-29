@@ -169,7 +169,10 @@ class DBDataXMLParser {
 						if (!$table || !$index) {
 							throw new Exception('dropindex called without table or index');
 						}
-						$this->sql[] = $dbdict->DropIndexSQL($index, $table);
+						$indexes = array_map('strtoupper', array_keys($this->dbconn->MetaIndexes($table)));
+						if (in_array(strtoupper($index), $indexes)) {
+							$this->sql[] = $dbdict->DropIndexSQL($index, $table);
+						}
 						break;
 					case 'query':
 						$driver = $child->getAttribute('driver');

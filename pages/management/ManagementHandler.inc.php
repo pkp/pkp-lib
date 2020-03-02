@@ -89,7 +89,7 @@ class ManagementHandler extends Handler {
 		$dispatcher = $request->getDispatcher();
 
 		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
-		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile/');
+		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
 		$supportedFormLocales = $context->getSupportedFormLocales();
 		$localeNames = AppLocale::getAllLocales();
@@ -145,7 +145,7 @@ class ManagementHandler extends Handler {
 		$themeApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/theme');
 		$temporaryFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'temporaryFiles');
 		$contextUrl = $router->url($request, $context->getPath());
-		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile/');
+		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
 		import('classes.file.PublicFileManager');
 		$publicFileManager = new PublicFileManager();

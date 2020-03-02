@@ -157,6 +157,9 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 			case 'authors':
 				$this->parseAuthors($n, $publication);
 				break;
+			case 'citations':
+				$this->parseCitations($n, $publication);
+				break;
 			case 'copyrightYear':
 				$publication->setData('copyrightYear', $n->textContent);
 				break;
@@ -233,6 +236,23 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 		$authorDoc = new DOMDocument();
 		$authorDoc->appendChild($authorDoc->importNode($n, true));
 		return $importFilter->execute($authorDoc);
+	}
+
+	/**
+	 * Parse a publication citation and add it to the publication.
+	 * @param $n DOMElement
+	 * @param $publication PKPPublication
+	 */
+	function parseCitations($node, $publication) {
+		$publicationId = $publication->getId();
+
+		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
+			if (is_a($n, 'DOMElement')) {
+				$citationsString = $n->textContent;
+				$citationDao = DAORegistry::getDAO('CitationDAO'); /** @var $citationDao CitationDAO */
+				$citationDao->importCitations($publicationId, $citationsString);
+			}
+		}
 	}
 
 	//

@@ -250,6 +250,7 @@
 			<element ref="pkp:subjects" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:authors" minOccurs="1" maxOccurs="1" />
 			<element ref="pkp:representation" minOccurs="0" maxOccurs="unbounded" />
+			<element ref="pkp:citations" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 		<attribute name="locale" type="string" use="optional" />
 		<attribute name="language" type="string" use="optional" />
@@ -359,5 +360,12 @@
 			<attribute name="locale" type="string" />
 		</complexType>
 	</element>
-
+	<element name="citations">
+		<complexType>
+			<sequence>
+				<element name="citation" type="string" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+			<attribute name="locale" type="string" />
+		</complexType>
+	</element>
 </schema>

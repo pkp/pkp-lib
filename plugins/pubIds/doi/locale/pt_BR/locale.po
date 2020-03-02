@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-25 07:54+0000\n"
-"Last-Translator: Lilian Nassi Calo <calolilian@gmail.com>\n"
+"PO-Revision-Date: 2020-03-03 18:36+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "pubids-doi/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -200,3 +200,9 @@ msgstr ""
 
 msgid "plugins.pubIds.doi.displayName"
 msgstr "DOI"
+
+msgid "plugins.pubIds.doi.manager.settings.explainpublicationDoiAutoAssign"
+msgstr "Atribuir DOI automaticamente para os seguintes objetos quando criados:"
+
+msgid "plugins.pubIds.doi.manager.settings.publicationDoiAutoAssign"
+msgstr "Designação automática"

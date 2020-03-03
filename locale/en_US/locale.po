@@ -413,3 +413,7 @@ msgstr "Order of preprints"
 
 msgid "catalog.sortBy.categoryDescription"
 msgstr "Choose how to order preprints in this category."
+
+msgid "preprint.subject"
+msgstr "Keywords"
+

@@ -23,5 +23,12 @@ describe('Data suite tests', function() {
 			title,
 			'abstract': 'The antimicrobial, heavy metal resistance patterns and plasmid profiles of Coliforms (Enterobacteriacea) isolated from nosocomial infections and healthy human faeces were compared. Fifteen of the 25 isolates from nosocomial infections were identified as Escherichia coli, and remaining as Kelebsiella pneumoniae. Seventy two percent of the strains isolated from nosocomial infections possess multiple resistance to antibiotics compared to 45% of strains from healthy human faeces. The difference between minimal inhibitory concentration (MIC) values of strains from clinical cases and from faeces for four heavy metals (Hg, Cu, Pb, Cd) was not significant. However most strains isolated from hospital were more tolerant to heavy metal than those from healthy persons. There was no consistent relationship between plasmid profile group and antimicrobial resistance pattern, although a conjugative plasmid (>56.4 kb) encoding resistance to heavy metals and antibiotics was recovered from eight of the strains isolated from nosocomial infections. The results indicate multidrug-resistance coliforms as a potential cause of nosocomial infection in this region.',
 		});
+
+		cy.logout();
+		cy.findSubmissionAsEditor('dbarnes', null, title);
+		cy.get('ul.pkp_workflow_decisions button:contains("Schedule For Publication")').click();
+		cy.get('div.pkpPublication button:contains("Schedule For Publication"):visible').click();
+		cy.get('div:contains("All publication requirements have been met. Are you sure you want to publish this?")');
+		cy.get('button:contains("Publish")').click();
 	});
 });

@@ -23,5 +23,12 @@ describe('Data suite tests', function() {
 			title,
 			'abstract': 'Robert Fogelin claims that interlocutors must share a framework of background beliefs and commitments in order to fruitfully pursue argument. I refute Fogelin’s claim by investigating more thoroughly the shared background required for productive argument. I find that this background consists not in any common beliefs regarding the topic at hand, but rather in certain shared pro-cedural commitments and competencies. I suggest that Fogelin and his supporters mistakenly view shared beliefs as part of the required background for productive argument because these procedural com-mitments become more difficult to uphold when people’s beliefs diverge widely regarding the topic at hand.',
 		});
+
+		cy.logout();
+		cy.findSubmissionAsEditor('dbarnes', null, title);
+		cy.get('ul.pkp_workflow_decisions button:contains("Schedule For Publication")').click();
+		cy.get('div.pkpPublication button:contains("Schedule For Publication"):visible').click();
+		cy.get('div:contains("All publication requirements have been met. Are you sure you want to publish this?")');
+		cy.get('button:contains("Publish")').click();
 	});
 });

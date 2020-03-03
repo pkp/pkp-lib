@@ -83,12 +83,6 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 	}
 
 	/**
-	 * Instantiate a new data object.
-	 * @return Submission
-	 */
-	abstract function newDataObject();
-
-	/**
 	 * @copydoc SchemaDAO::_fromRow()
 	 */
 	function _fromRow($row) {

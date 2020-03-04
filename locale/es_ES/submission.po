@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-27 19:02+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2020-03-03 18:36+0000\n"
+"Last-Translator: Darío Hereñú <magallania@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/submission/"
 "es/>\n"
 "Language: es_ES\n"
@@ -100,7 +100,7 @@ msgid "submission.galleyFiles"
 msgstr "Archivos de galerada"
 
 msgid "submission.submit.noContext"
-msgstr "No se pudo encontrar la revista de este envío."
+msgstr "No se pudo encontrar el servidor de este envío."
 
 msgid "submission.abstract.wordCount.description"
 msgstr "El resumen debe ser {$wordCount} palabras o menos."

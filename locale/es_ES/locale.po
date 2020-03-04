@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-27 19:02+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2020-03-03 18:36+0000\n"
+"Last-Translator: Darío Hereñú <magallania@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/locale/es/>"
 "\n"
 "Language: es_ES\n"
@@ -168,7 +168,7 @@ msgid "search.authorIndex"
 msgstr "Examinar el índice de autor"
 
 msgid "search.searchFor"
-msgstr "Buscar preprints para"
+msgstr "Buscar preimpresos para"
 
 msgid "index.latestPreprints"
 msgstr "Últimos preprints"
@@ -326,13 +326,13 @@ msgid "context.current"
 msgstr "Servidor actual:"
 
 msgid "publication.galley.downloads"
-msgstr "Descargados {$downloads}"
+msgstr "Descargas: {$downloads}"
 
 msgid "submission.dates"
 msgstr "Enviados {$submitted} - Publicados {$published}"
 
 msgid "submission.numberOfVersions"
-msgstr "Hay {$numberOfVersions} versiones de este preprint"
+msgstr "Versiones: {$numberOfVersions}"
 
 msgid "submission.layout.galleyPublicIdentificationExists"
 msgstr "La identificación pública de la galerada ya existe."

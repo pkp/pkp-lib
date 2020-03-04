@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-17 14:36+0000\n"
-"Last-Translator: ernesto spinak <spinaker@montevideo.com.uy>\n"
+"PO-Revision-Date: 2020-03-03 18:36+0000\n"
+"Last-Translator: Darío Hereñú <magallania@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/default/es/>"
 "\n"
 "Language: es_ES\n"
@@ -144,3 +144,6 @@ msgstr "PRE"
 
 msgid "section.default.title"
 msgstr "Preprints"
+
+msgid "section.default.policy"
+msgstr " "

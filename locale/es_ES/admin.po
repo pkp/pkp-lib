@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-16 01:35+0000\n"
-"Last-Translator: ernesto spinak <spinaker@montevideo.com.uy>\n"
+"PO-Revision-Date: 2020-03-06 10:36+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/admin/es/>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
@@ -11,7 +11,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "admin.languages.download"
-msgstr "Descargar configuración local"
+msgstr "Descargar configuración regional"
 
 msgid "admin.locale.maybeIncomplete"
 msgstr "Las configuraciones regionales marcadas pueden estar incompletas."

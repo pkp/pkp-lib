@@ -166,6 +166,8 @@ class PKPAuthorQueryBuilder extends BaseQueryBuilder implements EntityQueryBuild
 				});
 		}
 
+		$q->orderBy('a.seq', 'ASC');
+
 		// Add app-specific query statements
 		\HookRegistry::call('Author::getMany::queryObject', array(&$q, $this));
 

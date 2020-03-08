@@ -98,12 +98,14 @@ class CitationDAO extends DAO {
 
 		// Instantiate and persist citations
 		if (is_array($citationStrings)) foreach($citationStrings as $seq => $citationString) {
-			$citation = new Citation($citationString);
-			// Set the submission
-			$citation->setSubmissionId($submissionId);
-			// Set the counter
-			$citation->setSequence($seq+1);
-			$this->insertObject($citation);
+			if (!empty(trim($citationString))) {
+				$citation = new Citation($citationString);
+				// Set the submission
+				$citation->setSubmissionId($submissionId);
+				// Set the counter
+				$citation->setSequence($seq+1);
+				$this->insertObject($citation);
+			}
 		}
 	}
 

@@ -123,6 +123,9 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder implements EntityQuery
 			$q->offset($this->offset);
 		}
 
+		// Order by version number
+		$q->orderBy('p.version', 'asc');
+
 		// Add app-specific query statements
 		\HookRegistry::call('Publication::getMany::queryObject', array(&$q, $this));
 

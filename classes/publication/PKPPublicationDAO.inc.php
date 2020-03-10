@@ -291,6 +291,7 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 				);
 				break;
 			default: fatalError("Unknown database type!");
+		}
 		$this->flushCache();
 	}
 }

@@ -537,4 +537,12 @@
 	<message key="list.viewMore">Apresentar mais detalhes sobre {$name}</message>
 	<message key="list.viewLess">Esconder detalhes de {$name}</message>
 	<message key="notification.type.reviewAssignmentUpdated">Atribuição de revisão atualizada.</message>
+	<message key="common.average">Média</message>
+	<message key="common.dateDecided">Data da decisão</message>
+	<message key="common.lastActivity">Última atividade registada em {$date}</message>
+	<message key="common.pagination.goToPage">Ir para {$page}</message>
+	<message key="common.pagination.next">Próxima página</message>
+	<message key="common.pagination.previous">Página anterior</message>
+	<message key="email.compose.error">Ocorreu um problema ao enviar a mensagem de e-mail. Por favor tente mais tarde, ou contacte o seu administrador do sistema.</message>
+	<message key="notification.type.editorialReport">Sumário de estatísticas</message>
 </locale>

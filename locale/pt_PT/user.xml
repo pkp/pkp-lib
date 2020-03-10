@@ -152,4 +152,10 @@
 	<message key="user.register.form.privacyConsent"><![CDATA[Sim, concordo que os meus dados sejam recolhidos e armazenados de acordo com os <a href="{$privacyUrl}" target="_blank"> termos de privacidade</a>.]]></message>
 	<message key="user.register.form.emailConsent">Sim, quero ser notificado de novas publicações e outros anúncios.</message>
 	<message key="user.privacyLink"><![CDATA[Os seus dados estão armazenados de acordo com os nossos  <a href="{$privacyUrl}" target="_blank">termos de privacidade</a>.]]></message>
+	<message key="user.givenName">Nome Próprio</message>
+	<message key="user.familyName">Apelido</message>
+	<message key="user.preferredPublicName">Nome Público Preferencial</message>
+	<message key="user.preferredPublicName.description">Como prefere ser tratado? Pode introduzir aqui títulos, nomes e sufixos. </message>
+	<message key="user.profile.form.givenNameRequired">Um nome próprio é obrigatório.</message>
+	<message key="user.profile.form.givenNameRequired.locale">Adicionou um apelido para uma língua que não inclui o seu nome próprio. Por favor introduza o nome próprio nessa língua.</message>
 </locale>

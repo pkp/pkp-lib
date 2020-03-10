@@ -576,4 +576,20 @@
 	<message key="submission.submit.contactConsentDescription">Sim, quero ser contactado sobre esta submissão.</message>
 	<message key="submission.submit.userGroupDescriptionManagers">Submeta em algum dos seguintes papeis se desejar ser capaz de editar e publicar esta submissão você mesmo: {$managerGroups}</message>
 	<message key="log.review.reviewUnconsidered">{$editorName} marcou a ronda de revisão {$round} para a submissão {$submissionId} como não considerada.</message>
+	<message key="metadata.property.displayName.abstract">Resumo</message>
+	<message key="submission.parsedCitations.DOI">DOI</message>
+	<message key="submissions.inactive">Inativo por {$days} dias</message>
+	<message key="log.review.reviewConfirmed">O editor {$userName} confirmou uma revisão para a ronda {$round} para a proposta {$submissionId}.</message>
+	<message key="log.review.reviewReady">{$reviewerName} completou a revisão para a ronda {$round} da proposta {$submissionId}.</message>
+	<message key="submission.list.assignEditor">Atribuir Editor</message>
+	<message key="grid.category.categories">Categorias</message>
+	<message key="catalog.sortBy.titleAsc">Título (A-Z)</message>
+	<message key="catalog.sortBy.titleDesc">Título (Z-A)</message>
+	<message key="catalog.sortBy.datePublishedAsc">Data de publicação (mais antigo primeiro)</message>
+	<message key="catalog.sortBy.datePublishedDesc">Data de publicação (mais recente primeiro)</message>
+	<message key="category.coverImage">Imagem de Capa</message>
+	<message key="submission.submit.placement.categories">Categorias</message>
+	<message key="submission.currentCoverImage">Imagem Atual</message>
+	<message key="catalog.category.noItems">Nada foi publicado nesta categoria.</message>
+	<message key="catalog.category.subcategories">Subcategorias</message>
 </locale>

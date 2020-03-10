@@ -143,4 +143,7 @@
 	<message key="reviewer.list.reviewInterests">Interesses para Revisão</message>
 	<message key="reviewer.list.biography">Bibliografia</message>
 	<message key="reviewer.list.declinedReviews">Pedidos de revisão recusados</message>
+	<message key="editor.review.requestDeclined">Pedido recusado</message>
+	<message key="editor.review.requestDeclined.tooltip">O revisor recusou este pedido de revisão.</message>
+	<message key="editor.review.reviewerThanked">Agradecimento Enviado</message>
 </locale>

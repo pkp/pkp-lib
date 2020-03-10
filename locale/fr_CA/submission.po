@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-03-04 09:36+0000\n"
+"PO-Revision-Date: 2020-03-10 19:08+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
 "helene.vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -2051,3 +2051,40 @@ msgstr ""
 
 msgid "submission.query.leaveQuery"
 msgstr "Quitter la discussion"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Le chemin d'accès URL ne peut être un nombre."
+
+msgid "publication.urlPath.duplicate"
+msgstr ""
+"Le chemin d'accès URL a déjà été utilisé et ne peut être utilisé à nouveau."
+
+msgid "publication.urlPath.description"
+msgstr "Un chemin d'accès optionnel utilisant l'URL au lieu de l'identifiant."
+
+msgid "publication.urlPath"
+msgstr "Chemin d'accès URL"
+
+msgid "submission.publications"
+msgstr "Publications"
+
+msgid "submission.copyrightOther.description"
+msgstr ""
+"Attribuer à la partie suivante les droits d'auteur pour les soumissions "
+"publiées."
+
+msgid "submission.copyrightOther"
+msgstr "Déclaration de droits d'auteur"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Déclaration de droits d'auteur personnalisée"
+
+msgid "submission.publisherId.enable"
+msgstr "Activé-e pour {$objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"L'identifiant de l'éditeur peut être utilisé pour enregistrer l'identifiant "
+"à partir d'une base de données externe. Par exemple, les éléments exportés "
+"pour dépôt dans PubMed peuvent inclure l'identifiant de l'éditeur. Ceci ne "
+"doit cependant pas être utilisé pour les DOI."

@@ -254,17 +254,43 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
 	 */
 	public function deleteAllPubIds($contextId, $pubIdType) {
-		$this->update(
-			'DELETE ps FROM publication_settings ps
-				LEFT JOIN publications p ON p.publication_id = ps.publication_id
-				LEFT JOIN submissions s ON s.submission_id = p.submission_id
-				WHERE ps.setting_name = ?
-				AND s.context_id = ?',
-			[
-				'pub-id::' . $pubIdType,
-				$contextId,
-			]
-		);
+		switch ($this->getDriver()) {
+			case 'mysql':
+			case 'mysqli':
+				$this->update(
+					'DELETE ps FROM publication_settings ps
+						LEFT JOIN publications p ON p.publication_id = ps.publication_id
+						LEFT JOIN submissions s ON s.submission_id = p.submission_id
+						WHERE ps.setting_name = ?
+						AND s.context_id = ?',
+					[
+						'pub-id::' . $pubIdType,
+						$contextId,
+					]
+				);
+				break;
+			case 'postgres':
+			case 'postgres64':
+			case 'postgres7':
+			case 'postgres8':
+			case 'postgres9':
+				$this->update(
+					'DELETE FROM publication_settings
+					USING publication_settings ps
+						LEFT JOIN publications p ON p.publication_id = ps.publication_id
+						LEFT JOIN submissions s ON s.submission_id = p.submission_id
+					WHERE	ps.setting_name = ?
+						AND s.context_id = ?
+						AND ps.publication_id = publication_settings.publication_id
+						AND ps.locale = publication_settings.locale
+						AND ps.setting_name = publication_settings.setting_name',
+					[
+						'pub-id::' . $pubIdType,
+						$contextId,
+					]
+				);
+				break;
+			default: fatalError("Unknown database type!");
 		$this->flushCache();
 	}
 }

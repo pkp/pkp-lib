@@ -159,6 +159,122 @@ class PKPStatsEditorialService {
 	}
 
 	/**
+	 * Get the yearly averages of key editorial stats
+	 *
+	 * Averages are calculated over full years. If no dateStart and
+	 * dateEnd are passed, it will determine the first and last
+	 * full years during which the activity occurred. This means that
+	 * if the first submission was received in October 2017 and the
+	 * last submission was received in the current calendar year, only
+	 * submissions from 2018 up until the end of the previous calendar
+	 * year will be used to calculate the average.
+	 *
+	 * This method does not yet support getting averages for date ranges.
+	 *
+	 * @see https://github.com/pkp/pkp-lib/issues/4844#issuecomment-554011922
+	 * @param array $args See self::getQueryBuilder(). No date range supported
+	 * @return array
+	 */
+	public function getAverages($args = []) {
+		import('classes.workflow.EditorDecisionActionsManager');
+		import('lib.pkp.classes.submission.PKPSubmission');
+
+		unset($args['dateStart']);
+		unset($args['dateEnd']);
+
+		// Submissions received
+		$received = -1;
+		$receivedDates = $this->getQueryBuilder($args)->getSubmissionsReceivedDates();
+		if (empty($receivedDates[0])) {
+			$received = 0;
+		} else {
+			$yearStart = ((int) substr($receivedDates[0], 0, 4)) + 1;
+			$yearEnd = (int) substr($receivedDates[1], 0, 4);
+			if ($yearEnd >= date('Y')) {
+				$yearEnd--;
+			}
+			$years = ($yearEnd - $yearStart) + 1;
+			if ($years) {
+				$argsReceived = array_merge(
+					$args,
+					[
+						'dateStart' => sprintf('%s-01-01', $yearStart),
+						'dateEnd' => sprintf('%s-12-31', $yearEnd),
+					]
+				);
+				$received = round($this->countSubmissionsReceived($argsReceived) / $years);
+			}
+		}
+
+		// Editorial decisions (accepted and declined)
+		$decisionsList = [
+			'submissionsAccepted' => [SUBMISSION_EDITOR_DECISION_ACCEPT],
+			'submissionsDeclined' => [SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, SUBMISSION_EDITOR_DECISION_DECLINE],
+			'submissionsDeclinedDeskReject' => [SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE],
+			'submissionsDeclinedPostReview' => [SUBMISSION_EDITOR_DECISION_DECLINE],
+		];
+		$yearlyDecisions = [];
+		foreach ($decisionsList as $key => $decisions) {
+			$yearly = -1;
+			$dates = $this->getQueryBuilder($args)->getDecisionsDates($decisions);
+			if (empty($dates[0])) {
+				$yearly = 0;
+			} else {
+				$yearStart = ((int) substr($dates[0], 0, 4)) + 1;
+				$yearEnd = (int) substr($dates[1], 0, 4);
+				if ($yearEnd >= date('Y')) {
+					$yearEnd--;
+				}
+				if ($years) {
+					$argsYearly = array_merge(
+						$args,
+						[
+							'dateStart' => sprintf('%s-01-01', $yearStart),
+							'dateEnd' => sprintf('%s-12-31', $yearEnd),
+						]
+					);
+					$yearly = round($this->countByDecisions($decisions, $argsYearly) / $years);
+				}
+			}
+			$yearlyDecisions[$key] = $yearly;
+		}
+
+		// Submissions published
+		$published = -1;
+		$publishedDates = $this->getQueryBuilder($args)->getPublishedDates();
+		if (empty($publishedDates[0])) {
+			$published = 0;
+		} else {
+			$yearStart = ((int) substr($publishedDates[0], 0, 4)) + 1;
+			$yearEnd = (int) substr($publishedDates[1], 0, 4);
+			if ($yearEnd >= date('Y')) {
+				$yearEnd--;
+			}
+			$years = ($yearEnd - $yearStart) + 1;
+			if ($years) {
+				$argsPublished = array_merge(
+					$args,
+					[
+						'dateStart' => sprintf('%s-01-01', $yearStart),
+						'dateEnd' => sprintf('%s-12-31', $yearEnd),
+					]
+				);
+				$published = round($this->countSubmissionsPublished($argsPublished) / $years);
+			}
+		}
+
+		$averages = array_merge(
+			['submissionsReceived' => $received],
+			$yearlyDecisions,
+			['submissionsPublished' => $published]
+		);
+
+		\HookRegistry::call('EditorialStats::averages', [&$averages, $args]);
+
+		return $averages;
+	}
+
+	/**
 	 * Get a count of the number of submissions that have been received
 	 *
 	 * Any date restrictions will be applied to the submission date, so it

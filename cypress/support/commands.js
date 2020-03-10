@@ -168,6 +168,13 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 		cy.get('a.pkpModalCloseButton').click();
 	}
 
+	// Save the ID to the data object
+	cy.location('search')
+		.then(search => {
+			// this.submission.id = parseInt(search.split('=')[1], 10);
+			data.id = parseInt(search.split('=')[1], 10);
+		});
+
 	cy.get('button').contains('Save and continue').click();
 
 	// === Submission Step 3 ===

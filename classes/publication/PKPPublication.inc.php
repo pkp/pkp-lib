@@ -122,7 +122,7 @@ class PKPPublication extends DataObject {
 	/**
 	 * Combine author names and roles into a string
 	 *
-	 * Eg - Daniel Barnes, Carlo Corino (Author); John Mwandenga (Translator)
+	 * Eg - Daniel Barnes, Carlo Corino (Author); Alan Mwandenga (Translator)
 	 *
 	 * @param array $userGroups List of UserGroup objects
 	 * @return string

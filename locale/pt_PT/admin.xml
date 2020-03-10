@@ -123,4 +123,5 @@ Uso (processando todos os ficheiros dentro de uma pasta): {$scriptName} caminho/
 	<message key="admin.error.executingUtil">Erro: não foi possível executar "{$utilPath}".  Verifique {$utilVar} as configurações em config.inc.php.</message>
 	<message key="admin.languages.noLocalesToDownload">Não estão disponíveis idiomas para download.</message>
 	<message key="admin.contexts.confirmDelete">Confirma que pretende apagar {$contextName} e todo o seu conteúdo?</message>
+	<message key="admin.languages.confirmSitePrimaryLocaleChange">Confirma que pretende alterar a língua principal? Os nomes dos utilizadores em falta, que são necessários na língua principal, serão copiados da língua primária atual.</message>
 </locale>

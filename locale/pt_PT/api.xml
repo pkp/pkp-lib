@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/pt_PT/locale.xml
+  *
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2003-2019 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="pt_PT" full_name="Português (Portugal)">
+	<message key="api.400.paramNotSupported">O parâmetro {$param} não é suportado.</message>
+	<message key="api.403.unauthorized">Não está autorizado a aceder a este recurso.</message>
+	<message key="api.404.resourceNotFound">O recurso solicitado não foi encontrado.</message>
+	<message key="api.404.endpointNotFound">O URL solicitado não foi reconhecido.</message>
+	<message key="api.submissions.403.csrfTokenFailure">O seu pedido foi recusado. A sua autenticação poderá ter expirado. Recarregue a página, e experimente de novo.</message>
+	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">Só pode ver contribuições não publicadas para as quais tenha sido atribuído.</message>
+	<message key="api.submissions.403.deleteSubmissionOutOfContext">Não pode apagar uma contribuição que não está atribuída a este contexto.</message>
+	<message key="api.submissions.403.unauthorizedDeleteSubmission">Não tem permissões para apagar esta contribuição.</message>
+	<message key="api.submissions.404.resourceNotFound">O recurso solicitado não foi encontrado.</message>
+	<message key="api.submissions.400.missingRequired">O seu pedido não pôde ser satisfeito porque está em falta informação necessária.</message>
+	<message key="api.submissions.400.invalidIssueIdentifiers">O volume, número ou ano solicitado não é válido. </message>
+	<message key="api.submissions.unknownError">Ocorreu um erro não previsto. Por favor recarregue a página e tente de novo.</message>
+	<message key="api.stats.400.wrongDateFormat">O seu pedido não é válido. A data deverá estar no formado AAAA-MM-DD.</message>
+	<message key="api.stats.400.wrongDateRange">O seu pedido não é válido. A data de início não pode ser posterior à data de término.</message>
+	<message key="api.stats.400.wrongTimeSegmentDaily">O seu pedido não é válido. O segmento de tempo 'diário' não pode ser usado juntamente com um intervalo temporal (data de início e data de fim) nos últimos 90 dias.</message>
+</locale>

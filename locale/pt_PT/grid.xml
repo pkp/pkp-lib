@@ -250,4 +250,5 @@
 	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Nenhum Item no Menu de Navegação</message>
 	<message key="grid.navigationMenus.navigationMenu.noneExist">Nenhum Menu de Navegação</message>
 	<message key="grid.navigationMenus.navigationMenu.selectType">Selecione um tipo...</message>
+	<message key="grid.action.users">Ver/Selecionar utilizadores</message>
 </locale>

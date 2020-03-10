@@ -825,7 +825,7 @@ class Installer {
 
 		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		$result = $pluginSettingsDao->retrieve(
-			"SELECT plugin_name, context_id, setting_value FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames) . ') AND setting_name='context';"
+			'SELECT plugin_name, context_id, setting_value FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames) . ') AND setting_name=\'context\';'
 		);
 
 		$sidebarSettings = [];
@@ -860,7 +860,7 @@ class Installer {
 			}
 		}
 
-		$pluginSettingsDao->update('DELETE FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames ) . ') AND (setting_name="context" OR setting_name="seq");');
+		$pluginSettingsDao->update('DELETE FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames ) . ') AND (setting_name=\'context\' OR setting_name=\'seq\');');
 
 		return true;
 	}
@@ -928,12 +928,12 @@ class Installer {
 
 				if ($value !== METADATA_DISABLE) {
 					$contextDao->update('
-						INSERT INTO ' . $contextDao->settingsTableName . ' SET
-							' . $contextDao->primaryKeyColumn . ' = ?,
-							locale = ?,
-							setting_name = ?,
-							setting_value = ?
-						',
+						INSERT INTO ' . $contextDao->settingsTableName . ' (
+							' . $contextDao->primaryKeyColumn . ',
+							locale,
+							setting_name,
+							setting_value
+						) VALUES (?, ?, ?, ?)',
 						[
 							$contextId,
 							'',

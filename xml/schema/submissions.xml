@@ -30,7 +30,7 @@
 			<DEFAULT VALUE="1"/>
 		</field>
 		<field name="publication_id" type="I8">
-			<NOTNULL/>
+			<!-- NOTNULL Constraint commented to allow upgrade to 3.2 -->
 		</field>
 		<field name="submission_id" type="I8">
 			<!-- DEPRECATED Held over for 3.2 upgrade -->

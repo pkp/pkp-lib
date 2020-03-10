@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-12 08:50+0000\n"
-"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"PO-Revision-Date: 2020-03-05 12:26+0000\n"
+"Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "generic-acron/id/>\n"
 "Language: id\n"
@@ -15,7 +15,7 @@ msgid "plugins.generic.acron.tasksReloaded"
 msgstr "Tugas Terjadwal dimuat ulang."
 
 msgid "plugins.generic.acron.reload"
-msgstr "Muat Ualng Tugas Terjadwal"
+msgstr "Muat Ulang Tugas Terjadwal"
 
 msgid "plugins.generic.acron.reloadedCronTab"
 msgstr "Tab Cron berhasil dimuat ulang."

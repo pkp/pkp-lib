@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2019-12-13 22:04+0000\n"
-"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"PO-Revision-Date: 2020-03-04 09:36+0000\n"
+"Last-Translator: Sergei Yukhimets <y_s_n@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ru/>\n"
 "Language: ru_RU\n"
@@ -682,7 +682,7 @@ msgid "submission.identifiers"
 msgstr "Идентификаторы"
 
 msgid "submission.publisherId"
-msgstr "URL открытого идентификатора"
+msgstr "ID Издателя"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Информация о материале"
@@ -1949,3 +1949,27 @@ msgstr "Аннотация слишком длинная. Она должна б
 
 msgid "publication.wordCount"
 msgstr "Число слов: {$count}/{$limit}"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Путь URL не может быть числом."
+
+msgid "publication.urlPath.duplicate"
+msgstr "Путь URL уже используется и не может использоваться снова."
+
+msgid "publication.urlPath.description"
+msgstr "Необязательный путь для использования в URL вместо ID."
+
+msgid "publication.urlPath"
+msgstr "Путь URL"
+
+msgid "submission.publications"
+msgstr "Публикации"
+
+msgid "submission.publisherId.enable"
+msgstr "Доступно для {$objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"ID Издателя может использоваться для записи ID из внешней базы данных. "
+"Например, объекты экспортированные в PubMed могут включать ID Издателя. Это "
+"не следует использовать для DOI."

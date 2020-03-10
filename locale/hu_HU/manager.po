@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2020-02-28 11:36+0000\n"
+"PO-Revision-Date: 2020-03-10 14:45+0000\n"
 "Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hu/>\n"
@@ -1904,7 +1904,6 @@ msgstr "Összes szerep"
 msgid "manager.statistics.editorial.submissionsDeclined.deskReject"
 msgstr "Elutasított beküldés (Lektorálást megelőzően)"
 
-
 msgid "manager.statistics.editorial.deskRejectRejectionRate"
 msgstr "Lektorálást megelőző elutasítási arány"
 
@@ -2238,3 +2237,135 @@ msgstr "Szakmai lektorálási útmutató"
 
 msgid "manager.publication.emailSetup.success"
 msgstr "Az e-mail beállítások frissültek."
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Napok száma,  melyen belül a legtöbb beküldéssel kapcsolatban megszületik az "
+"elsődleges szerkesztői döntés, mint a szakmai lektorálásra küldés vagy az "
+"elutasítás még ezt megelőzően.<br><br>Ezek a számadatok azt mutatják, hogy a "
+"benyújtott beadások 80% -áról döntés születik a megadott napokon "
+"belül.<br><br>Ez a statisztika megbecsüli, mikorra esedékes a döntés a "
+"szerzők többsége számára."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"A kiválasztott dátumtartomány százaléka azokra a beadásokra kerül "
+"kiszámításra, amelyeket ezen az időszakon belül nyújtottak be és amelyekkel "
+"kapocsolatban a végleges döntés  megszületett.<br><br>Vegyük például az "
+"esetet, amikor tíz beküldés érkezett ebben az időszakban. Ebből négyet "
+"elfogadtak, négyet elutasítottak, és kettő még a végleges döntésre "
+"vár.<br><br>Az elfogadási arány 50% (8 beküldés közül 4), mivel a két olyan "
+"beküldést, melyekkel kapcsolatban még nem született végleges düntés, nem "
+"számolják."
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Nem törölheti a képviselőt, mert a cikk egy vagy több publikáció "
+"formátumának piaci metaadatához van rendelve."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"A beküldés elfogadásának feltétele, hogy a szerző típus adatot adjon meg."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Beküldéskor kérjen típus adatot a szerzőtől."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Beküldéskor ne kérjen típus adatot a szerzőtől."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Típus metaadat engedélyezése"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"A beküldés hivatkozásait gyűjtse össze egy külön mezőben. Erre szükség lehet "
+"az idézetkövetési szolgáltatások, például a Crossrefnek történő "
+"megfeleléshez."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Hivatkozás metaadatok engedélyezése"
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"A beküldés elfogadásának feltétele, hogy a szerző támogató ügynökség adatot "
+"adjon meg."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr "Beküldéskor kérjen támogató ügynökség adatot a szerzőtől."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Beküldéskor ne kérjen támogató ügynökség adatot a szerzőtől."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "A támogató ügynökségek metaadatainak engedélyezése"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"A támogató ügynökségek megjelölhetik a kutatás finanszírozásának forrását "
+"vagy más, a kutatást elősegítő intézményi támogatást."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"A beküldés elfogadásának feltétele, hogy a szerző tudományterület adatot "
+"adjon meg."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Beküldéskor kérjen tudományterület adatot a szerzőtől."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Beküldéskor ne kérjen tudományterület adatot a szerzőtől."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Tudományterület metaadatok engedélyezése"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"A tudományterületek olyan típusú tanulmányok vagy tudáságak, amelyeket az "
+"egyetemi karok és a tanult társadalmak írnak le."
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"A beküldés fő tartalmának jellege vagy műfaja. A típus általában \"Szöveg\", "
+"de lehet \"Adatkészlet\", \"Kép\" vagy bármilyen <a target=\"_blank\" href=\""
+"http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-"
+"vocabulary\">Dublin Core típus</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"A beküldés elfogadásának feltétele, hogy a szerző szakterület adatot adjon "
+"meg."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Beküldéskor kérjen szakterület adatot a szerzőtől."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Beküldéskor ne kérjen szakterület adatot a szerzőtől."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Szakterület metaadat engedélyezése"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"A tárgyak olyan kulcsszavak, kulcsmondatok vagy osztályozási kódok lesznek, "
+"amelyek leírják a beküldés témáját."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"A beküldés elfogadásának feltétele, hogy a szerző közzétegye a korábbi "
+"hozzáférési jogokat."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"A benyújtás kapcsán fennálló jogok, amelyek magukban foglalhatják a szellemi "
+"tulajdonjogokat (IPR), a szerzői jogokat és a különféle tulajdonjogokat."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Kérje a szerzőt, hogy a benyújtás során tegye közzé minden korábbi "
+"hozzáférési jogát."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Ne kérje a jogok nyilvánosságra hozatalát benyújtás során a szerzőtől."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Jogi metaadatok engedélyezése"

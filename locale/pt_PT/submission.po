@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2020-02-20 01:17+0000\n"
-"Last-Translator: Carla Marques <carla.marques@sdum.uminho.pt>\n"
+"PO-Revision-Date: 2020-03-02 12:34+0000\n"
+"Last-Translator: José Carvalho <josekarvalho@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -931,7 +931,7 @@ msgid "submission.identifiers"
 msgstr "Identificadores"
 
 msgid "submission.publisherId"
-msgstr "Identificador de URL público"
+msgstr "Identificador da Editora"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Info Submissão"
@@ -2046,3 +2046,27 @@ msgstr "Declaração de direitos de autor"
 
 msgid "submission.copyrightHolder.other"
 msgstr "Declaração de direitos de autor personalizada"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "O caminho URL não pode ser um número."
+
+msgid "publication.urlPath.duplicate"
+msgstr "O caminho URL já foi usado e não pode ser usado de novo."
+
+msgid "publication.urlPath.description"
+msgstr "Um caminho opcional para usar no URL em vez do ID."
+
+msgid "publication.urlPath"
+msgstr "Caminho URL"
+
+msgid "submission.publications"
+msgstr "Publicações"
+
+msgid "submission.publisherId.enable"
+msgstr "Ativar para {$objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"O ID da editora pode ser usado como identificador para bases de dados "
+"externas. Por exemplo, itens exportados para a PubMed podem incluir o "
+"identificador da editora. Estes não devem ser usados nos DOIs."

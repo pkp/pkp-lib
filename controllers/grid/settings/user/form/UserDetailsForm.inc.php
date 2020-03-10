@@ -52,7 +52,9 @@ class UserDetailsForm extends UserForm {
 
 			if (!Config::getVar('security', 'implicit_auth')) {
 				$this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
-				$this->addCheck(new FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
+				$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', function($password) use ($form, $site) {
+					return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
+				}, array(), false, array('length' => $site->getMinPasswordLength())));
 				$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function($password) use ($form) {
 					return $password == $form->getData('password2');
 				}));
@@ -61,7 +63,9 @@ class UserDetailsForm extends UserForm {
 			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$this->user = $userDao->getById($userId);
 
-			$this->addCheck(new FormValidatorLength($this, 'password', 'optional', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
+			$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', function($password) use ($form, $site) {
+				return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
+			}, array(), false, array('length' => $site->getMinPasswordLength())));
 			$this->addCheck(new FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordsDoNotMatch', function($password) use ($form) {
 				return $password == $form->getData('password2');
 			}));

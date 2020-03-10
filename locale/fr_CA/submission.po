@@ -1769,6 +1769,7 @@ msgstr "Rien n'a encore été publié dans cette catégorie."
 msgid "catalog.category.subcategories"
 msgstr "Sous-categories"
 
+#, fuzzy
 msgid "submission.license.cc.by3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
@@ -1777,6 +1778,7 @@ msgstr ""
 "https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
 "3.0 non transposé</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
@@ -1785,6 +1787,7 @@ msgstr ""
 "\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
 "Attribution - Partage dans les Mêmes Conditions 3.0 non transposé</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nd3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
@@ -1793,6 +1796,7 @@ msgstr ""
 "\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
 "Attribution - Pas de Modification 3.0 non transposé</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-sa3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
@@ -1802,6 +1806,7 @@ msgstr ""
 "Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans "
 "les Mêmes Conditions 3.0 non transposé</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
@@ -1810,6 +1815,7 @@ msgstr ""
 "\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
 "Attribution - Pas d’Utilisation Commerciale 3.0 non transposé</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-nd3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"

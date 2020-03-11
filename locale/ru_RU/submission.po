@@ -682,7 +682,13 @@ msgid "submission.identifiers"
 msgstr "Идентификаторы"
 
 msgid "submission.publisherId"
-msgstr "ID Издателя"
+msgstr "ID издателя"
+
+msgid "submission.publisherId.description"
+msgstr "ID издателя может использоваться для записи ID из внешней базы данных. Например, экспортированные для депонирования в PubMed объекты могут включать ID издателя. Его не следует использовать для DOI."
+
+msgid "submission.publisherId.enable"
+msgstr "Включить для {$objects}"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Информация о материале"
@@ -1830,6 +1836,9 @@ msgstr "Подкатегории"
 msgid "submission.publication"
 msgstr "Публикация"
 
+msgid "submission.publications"
+msgstr "Публикации"
+
 msgid "publication.citations.success"
 msgstr "Ссылки были обновлены."
 
@@ -1935,6 +1944,18 @@ msgstr "Снять с плана"
 msgid "publication.unschedule.confirm"
 msgstr "Вы уверены, что не хотите запланировать этот материал к публикации?"
 
+msgid "publication.urlPath"
+msgstr "Путь URL"
+
+msgid "publication.urlPath.description"
+msgstr "Необязательный путь для использования в URL вместо ID."
+
+msgid "publication.urlPath.duplicate"
+msgstr "Путь URL уже используется и не может быть использован снова."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Путь URL не может быть числом."
+
 msgid "publication.version.all"
 msgstr "Все версии"
 
@@ -1949,27 +1970,3 @@ msgstr "Аннотация слишком длинная. Она должна б
 
 msgid "publication.wordCount"
 msgstr "Число слов: {$count}/{$limit}"
-
-msgid "publication.urlPath.numberInvalid"
-msgstr "Путь URL не может быть числом."
-
-msgid "publication.urlPath.duplicate"
-msgstr "Путь URL уже используется и не может использоваться снова."
-
-msgid "publication.urlPath.description"
-msgstr "Необязательный путь для использования в URL вместо ID."
-
-msgid "publication.urlPath"
-msgstr "Путь URL"
-
-msgid "submission.publications"
-msgstr "Публикации"
-
-msgid "submission.publisherId.enable"
-msgstr "Доступно для {$objects}"
-
-msgid "submission.publisherId.description"
-msgstr ""
-"ID Издателя может использоваться для записи ID из внешней базы данных. "
-"Например, объекты экспортированные в PubMed могут включать ID Издателя. Это "
-"не следует использовать для DOI."

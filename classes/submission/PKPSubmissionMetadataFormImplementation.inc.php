@@ -65,16 +65,16 @@ class PKPSubmissionMetadataFormImplementation {
 		foreach ($metadataFields as $field) {
 			$requiredLocaleKey = 'submission.submit.form.'.$field.'Required';
 			if ($context->getData($field) === METADATA_REQUIRE) {
-				switch(1) {
+				switch($field) {
 					case in_array($field, $this->getLocaleFieldNames()):
 						$this->_parentForm->addCheck(new FormValidatorLocale($this->_parentForm, $field, 'required', $requiredLocaleKey, $submission->getCurrentPublication()->getData('locale')));
 						break;
 					case in_array($field, $this->getTagitFieldNames()):
 						$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $field, 'required', $requiredLocaleKey, create_function('$field,$form,$name', '$data = (array) $form->getData(\'keywords\'); return array_key_exists($name, $data);'), array($this->_parentForm, $submission->getCurrentPublication()->getData('locale').'-'.$field)));
 						break;
-					case 'citationsRaw':
+					case 'citations':
 						$form = $this->_parentForm;
-						$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $key, 'required', $requiredLocaleKey, function($key) use ($form) {
+						$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, 'citationsRaw', 'required', $requiredLocaleKey, function($key) use ($form) {
 							return !empty($form->getData('citationsRaw'));
 						}));
 						break;

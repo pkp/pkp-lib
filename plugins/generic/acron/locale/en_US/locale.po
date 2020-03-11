@@ -18,9 +18,7 @@ msgid "plugins.generic.acron.name"
 msgstr "Acron Plugin"
 
 msgid "plugins.generic.acron.description"
-msgstr ""
-"This plugin attempts to reduce the dependence of the application on periodic "
-"scheduling tools such as 'cron.'"
+msgstr "This plugin attempts to reduce the dependence of the application on periodic scheduling tools such as 'cron.'"
 
 msgid "plugins.generic.acron.enabled"
 msgstr "The Acron Plugin has been enabled."

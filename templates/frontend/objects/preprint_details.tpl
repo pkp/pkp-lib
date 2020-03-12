@@ -239,7 +239,7 @@
 								<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html} {call_hook name="Templates::Preprint::Details::Reference" citation=$parsedCitation}</p>
 							{/foreach}
 						{else}
-							{$publication->getData('citationsRaw')|nl2br}
+							{$publication->getData('citationsRaw')|escape|nl2br}
 						{/if}
 					</div>
 				</section>

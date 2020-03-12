@@ -156,9 +156,11 @@ class PreprintHandler extends Handler {
 		));
 		$this->setupTemplate($request);
 
+		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
 		$templateMgr->assign([
 			'ccLicenseBadge' => Application::get()->getCCLicenseBadge($publication->getData('licenseUrl')),
-			'section' => DAORegistry::getDAO('SectionDAO')->getById($publication->getData('sectionId')),
+			'publication' => $publication,
+			'section' => $sectionDao->getById($publication->getData('sectionId')),
 		]);
 
 		if ($this->galley && !$this->userCanViewGalley($request, $preprint->getId(), $this->galley->getId())) {
@@ -200,7 +202,8 @@ class PreprintHandler extends Handler {
 
 		// Citations
 		if ($publication->getData('citationsRaw')) {
-			$parsedCitations = DAORegistry::getDAO('CitationDAO')->getByPublicationId($publication->getId());
+			$citationDao = DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
+			$parsedCitations = $citationDao->getByPublicationId($publication->getId());
 			$templateMgr->assign([
 				'parsedCitations' => $parsedCitations->toArray(),
 			]);

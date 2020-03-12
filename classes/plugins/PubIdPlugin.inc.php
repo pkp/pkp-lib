@@ -195,7 +195,6 @@ abstract class PubIdPlugin extends PKPPubIdPlugin {
 	 */
 	function versionPubId($pubObject) {
 		$pubObjectType = $this->getPubObjectType($pubObject);
-
 		$submission = Services::get('submission')->get($pubObject->getData('submissionId'));
 		$publication = Services::get('publication')->get($pubObject->getId());
 		$contextId = $submission->getData('contextId');

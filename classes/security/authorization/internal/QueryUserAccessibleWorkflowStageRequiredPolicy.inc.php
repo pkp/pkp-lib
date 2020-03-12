@@ -35,7 +35,8 @@ class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkf
 		}
 
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$reviewAssignments = DAORegistry::getDAO('ReviewAssignmentDAO')->getBySubmissionId($submission->getId());
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+		$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
 		foreach ($reviewAssignments as $reviewAssignment) {
 			if ($reviewAssignment->getReviewerId() === $this->_request->getUser()->getId()) {
 				$accessibleWorkflowStages = (array) $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);

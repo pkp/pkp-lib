@@ -35,7 +35,8 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
 	 */
 	public function get($publicationId) {
-		return DAORegistry::getDAO('PublicationDAO')->getById($publicationId);
+		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
+		return $publicationDao->getById($publicationId);
 	}
 
 	/**
@@ -186,11 +187,12 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 					}
 					break;
 				case 'citations':
+					$citationDao = DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
 					$values[$prop] = array_map(
 						function($citation) {
 							return $citation->getCitationWithLinks();
 						},
-						DAORegistry::getDAO('CitationDAO')->getByPublicationId($publication->getId())->toArray()
+						$citationDao->getByPublicationId($publication->getId())->toArray()
 					);
 					break;
 				case 'fullTitle':
@@ -250,7 +252,8 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 */
 	public function getDateBoundaries($args) {
 		$publicationQO = $this->getQueryBuilder($args)->getDateBoundaries();
-		$result = DAORegistry::getDAO('PublicationDAO')->retrieve($publicationQO->toSql(), $publicationQO->getBindings());
+		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
+		$result = $publicationDao->retrieve($publicationQO->toSql(), $publicationQO->getBindings());
 		if (!empty($result->fields)) {
 			return [$result->fields[0], $result->fields[1]];
 		}
@@ -400,13 +403,15 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 */
 	public function add($publication, $request) {
 		$publication->stampModified();
-		$publicationId = DAORegistry::getDAO('PublicationDAO')->insertObject($publication);
+		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
+		$publicationId = $publicationDao->insertObject($publication);
 		$publication = $this->get($publicationId);
 		$submission = Services::get('submission')->get($publication->getData('submissionId'));
 
 		// Parse the citations
 		if ($publication->getData('citationsRaw')) {
-			DAORegistry::getDAO('CitationDAO')->importCitations($publication->getId(), $publication->getData('citationsRaw'));
+			$citationDao = DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
+			$citationDao-importCitations($publication->getId(), $publication->getData('citationsRaw'));
 		}
 
 		// Move uploaded files into place and update the settings
@@ -471,7 +476,8 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		}
 
 		if (!empty($newPublication->getData('citationsRaw'))) {
-			DAORegistry::getDAO('CitationDAO')->importCitations($newPublication->getId(), $newPublication->getData('citationsRaw'));
+			$citationDao = DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
+			$citationDao->importCitations($newPublication->getId(), $newPublication->getData('citationsRaw'));
 		}
 
 		$newPublication = $this->get($newPublication->getId());
@@ -510,18 +516,20 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			}
 		}
 
-		$newPublication = DAORegistry::getDAO('PublicationDAO')->newDataObject();
+		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
+		$newPublication = $publicationDao->newDataObject();
 		$newPublication->_data = array_merge($publication->_data, $params);
 		$newPublication->stampModified();
 
 		HookRegistry::call('Publication::edit', [$newPublication, $publication, $params, $request]);
 
-		DAORegistry::getDAO('PublicationDAO')->updateObject($newPublication);
+		$publicationDao->updateObject($newPublication);
 		$newPublication = $this->get($newPublication->getId());
 
 		// Parse the citations
 		if (array_key_exists('citationsRaw', $params)) {
-			DAORegistry::getDAO('CitationDAO')->importCitations($newPublication->getId(), $newPublication->getData('citationsRaw'));
+			$citationDao = DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
+			$citationDao->importCitations($newPublication->getId(), $newPublication->getData('citationsRaw'));
 		}
 
 		// Log an event when publication data is updated
@@ -570,7 +578,8 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 
 		HookRegistry::call('Publication::publish::before', [$newPublication, $publication]);
 
-		DAORegistry::getDAO('PublicationDAO')->updateObject($newPublication);
+		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
+		$publicationDao->updateObject($newPublication);
 
 		$newPublication = $this->get($newPublication->getId());
 		$submission = Services::get('submission')->get($newPublication->getData('submissionId'));
@@ -617,7 +626,8 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 
 		HookRegistry::call('Publication::unpublish::before', [$newPublication, $publication]);
 
-		DAORegistry::getDAO('PublicationDAO')->updateObject($newPublication);
+		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
+		$publicationDao->updateObject($newPublication);
 		$newPublication = $this->get($newPublication->getId());
 		$submission = Services::get('submission')->get($newPublication->getData('submissionId'));
 
@@ -655,7 +665,8 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	public function delete($publication) {
 		HookRegistry::call('Publication::delete::before', [$publication]);
 
-		DAORegistry::getDAO('PublicationDAO')->deleteObject($publication);
+		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
+		$publicationDao->deleteObject($publication);
 
 		// Update a submission's status based on the status of its remaining publications
 		$submission = Services::get('submission')->get($publication->getData('submissionId'));

@@ -66,11 +66,12 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 		$publication->setData('supportingAgencies', $submissionAgencyDao->getAgencies($publication->getId()));
 
 		// Get categories
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 		$publication->setData('categoryIds', array_map(
 			function($category) {
 				return (int) $category->getId();
 			},
-			DAORegistry::getDAO('CategoryDAO')->getByPublicationId($publication->getId())->toArray()
+			$categoryDao->getByPublicationId($publication->getId())->toArray()
 		));
 
 		return $publication;
@@ -93,19 +94,24 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 			foreach ($controlledVocabProps as $prop => $value) {
 				switch ($prop) {
 					case 'keywords':
-						DAORegistry::getDAO('SubmissionKeywordDAO')->insertKeywords($value, $publication->getId());
+						$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $submissionKeywordDao SubmissionKeywordDAO */
+						$submissionKeywordDao->insertKeywords($value, $publication->getId());
 						break;
 					case 'subjects':
-						DAORegistry::getDAO('SubmissionSubjectDAO')->insertSubjects($value, $publication->getId());
+						$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /* @var $submissionSubjectDao SubmissionSubjectDAO */
+						$submissionSubjectDao->insertSubjects($value, $publication->getId());
 						break;
 					case 'disciplines':
-						DAORegistry::getDAO('SubmissionDisciplineDAO')->insertDisciplines($value, $publication->getId());
+						$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /* @var $submissionDisciplineDao SubmissionDisciplineDAO */
+						$submissionDisciplineDao->insertDisciplines($value, $publication->getId());
 						break;
 					case 'languages':
-						DAORegistry::getDAO('SubmissionLanguageDAO')->insertLanguages($value, $publication->getId());
+						$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /* @var $submissionLanguageDao SubmissionLanguageDAO */
+						$submissionLanguageDao->insertLanguages($value, $publication->getId());
 						break;
 					case 'supportingAgencies':
-						DAORegistry::getDAO('SubmissionAgencyDAO')->insertAgencies($value, $publication->getId());
+						$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /* @var $submissionAgencyDao SubmissionAgencyDAO */
+						$submissionAgencyDao->insertAgencies($value, $publication->getId());
 						break;
 				}
 			}
@@ -113,8 +119,9 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 
 		// Set categories
 		if (!empty($publication->getData('categoryIds'))) {
+			$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 			foreach ($publication->getData('categoryIds') as $categoryId) {
-				DAORegistry::getDAO('CategoryDAO')->insertPublicationAssignment($categoryId, $publication->getId());
+				$categoryDao->insertPublicationAssignment($categoryId, $publication->getId());
 			}
 		}
 
@@ -138,29 +145,35 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 			foreach ($controlledVocabProps as $prop => $value) {
 				switch ($prop) {
 					case 'keywords':
-						DAORegistry::getDAO('SubmissionKeywordDAO')->insertKeywords($value, $publication->getId());
+						$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $submissionKeywordDao SubmissionKeywordDAO */
+						$submissionKeywordDao->insertKeywords($value, $publication->getId());
 						break;
 					case 'subjects':
-						DAORegistry::getDAO('SubmissionSubjectDAO')->insertSubjects($value, $publication->getId());
+						$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /* @var $submissionSubjectDao SubmissionSubjectDAO */
+						$submissionSubjectDao->insertSubjects($value, $publication->getId());
 						break;
 					case 'disciplines':
-						DAORegistry::getDAO('SubmissionDisciplineDAO')->insertDisciplines($value, $publication->getId());
+						$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /* @var $submissionDisciplineDao SubmissionDisciplineDAO */
+						$submissionDisciplineDao->insertDisciplines($value, $publication->getId());
 						break;
 					case 'languages':
-						DAORegistry::getDAO('SubmissionLanguageDAO')->insertLanguages($value, $publication->getId());
+						$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /* @var $submissionLanguageDao SubmissionLanguageDAO */
+						$submissionLanguageDao->insertLanguages($value, $publication->getId());
 						break;
 					case 'supportingAgencies':
-						DAORegistry::getDAO('SubmissionAgencyDAO')->insertAgencies($value, $publication->getId());
+						$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /* @var $submissionAgencyDao SubmissionAgencyDAO */
+						$submissionAgencyDao->insertAgencies($value, $publication->getId());
 						break;
 				}
 			}
 		}
 
 		// Set categories
-		DAORegistry::getDAO('CategoryDAO')->deletePublicationAssignments($publication->getId());
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
+		$categoryDao->deletePublicationAssignments($publication->getId());
 		if (!empty($publication->getData('categoryIds'))) {
 			foreach ($publication->getData('categoryIds') as $categoryId) {
-				DAORegistry::getDAO('CategoryDAO')->insertPublicationAssignment($categoryId, $publication->getId());
+				$categoryDao->insertPublicationAssignment($categoryId, $publication->getId());
 			}
 		}
 	}
@@ -179,17 +192,24 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 
 		// Delete the controlled vocabulary
 		// Insert an empty array will clear existing entries
-		DAORegistry::getDAO('SubmissionKeywordDAO')->insertKeywords([], $publicationId);
-		DAORegistry::getDAO('SubmissionSubjectDAO')->insertSubjects([], $publicationId);
-		DAORegistry::getDAO('SubmissionDisciplineDAO')->insertDisciplines([], $publicationId);
-		DAORegistry::getDAO('SubmissionLanguageDAO')->insertLanguages([], $publicationId);
-		DAORegistry::getDAO('SubmissionAgencyDAO')->insertAgencies([], $publicationId);
+		$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $submissionKeywordDao SubmissionKeywordDAO */
+		$submissionKeywordDao->insertKeywords([], $publicationId);
+		$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /* @var $submissionSubjectDao SubmissionSubjectDAO */
+		$submissionSubjectDao->insertSubjects([], $publicationId);
+		$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /* @var $submissionDisciplineDao SubmissionDisciplineDAO */
+		$submissionDisciplineDao->insertDisciplines([], $publicationId);
+		$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /* @var $submissionLanguageDao SubmissionLanguageDAO */
+		$submissionLanguageDao->insertLanguages([], $publicationId);
+		$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /* @var $submissionAgencyDao SubmissionAgencyDAO */
+		$submissionAgencyDao->insertAgencies([], $publicationId);
 
 		// Delete categories
-		DAORegistry::getDAO('CategoryDAO')->deletePublicationAssignments($publicationId);
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
+		$categoryDao->deletePublicationAssignments($publicationId);
 
 		// Delete citations
-		DAORegistry::getDAO('CitationDAO')->deleteByPublicationId($publicationId);
+		$citationDao = DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
+		$citationDao->deleteByPublicationId($publicationId);
 	}
 
 	/**

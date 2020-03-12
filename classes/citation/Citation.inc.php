@@ -26,7 +26,7 @@ class Citation extends DataObject {
 	 */
 	function __construct($rawCitation = null) {
 		parent::__construct();
-		$this->setRawCitation($rawCitation); // this will set state to CITATION_RAW
+		$this->setRawCitation($rawCitation);
 	}
 
 	//

@@ -314,7 +314,8 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 */
 	public function delete($emailTemplate) {
 		HookRegistry::call('EmailTemplate::delete::before', array($emailTemplate));
-		DAORegistry::getDAO('EmailTemplateDAO')->deleteObject($emailTemplate);
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		$emailTemplateDao->deleteObject($emailTemplate);
 		HookRegistry::call('EmailTemplate::delete', array($emailTemplate));
 	}
 

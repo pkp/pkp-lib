@@ -60,9 +60,9 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 
 		// Categories list
 		$assignedCategories = [];
-		$result = DAORegistry::getDAO('CategoryDAO')->getByPublicationId($this->submission->getCurrentPublication()->getId());
-		while (!$result->eof()) {
-			$assignedCategory = $result->next();
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
+		$categories = $categoryDao->getByPublicationId($this->submission->getCurrentPublication()->getId());
+		while ($category = $categories->next()) {
 			$assignedCategories[] = $assignedCategory->getId();
 		}
 

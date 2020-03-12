@@ -90,7 +90,8 @@ class NotificationsGridCellProvider extends GridCellProvider {
 			case ASSOC_TYPE_QUEUED_PAYMENT:
 				$contextDao = Application::getContextDAO();
 				$paymentManager = Application::getPaymentManager($contextDao->getById($notification->getContextId()));
-				$queuedPayment = DAORegistry::getDAO('QueuedPaymentDAO')->getById($notification->getAssocId());
+				$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO'); /* @var $queuedPaymentDao QueuedPaymentDAO */
+				$queuedPayment = $queuedPaymentDao->getById($notification->getAssocId());
 				if ($queuedPayment) switch ($queuedPayment->getType()) {
 					case PAYMENT_TYPE_PUBLICATION:
 						$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
@@ -100,7 +101,8 @@ class NotificationsGridCellProvider extends GridCellProvider {
 				return '—';
 			case ASSOC_TYPE_ANNOUNCEMENT:
 				$announcementId = $notification->getAssocId();
-				$announcement = DAORegistry::getDAO('AnnouncementDAO')->getById($announcementId);
+				$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
+				$announcement = $announcementDao->getById($announcementId);
 				if ($announcement) return $announcement->getLocalizedTitle();
 				return null;
 			case ASSOC_TYPE_SUBMISSION:

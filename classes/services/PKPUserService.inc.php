@@ -29,7 +29,8 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
 	 */
 	public function get($userId) {
-		return DAORegistry::getDAO('UserDAO')->getById($userId);
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+		return $userDao->getById($userId);
 	}
 
 	/**

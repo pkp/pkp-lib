@@ -30,7 +30,8 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
 	 */
 	public function get($authorId) {
-		return DAORegistry::getDAO('AuthorDAO')->getById($authorId);
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+		return $authorDao->getById($authorId);
 	}
 
 	/**
@@ -206,7 +207,8 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::add()
 	 */
 	public function add($author, $request) {
-		$authorId = DAORegistry::getDAO('AuthorDAO')->insertObject($author);
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+		$authorId = $authorDao->insertObject($author);
 		$author = $this->get($authorId);
 
 		\HookRegistry::call('Author::add', array($author, $request));
@@ -236,7 +238,8 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 	 */
 	public function delete($author) {
 		\HookRegistry::call('Author::delete::before', [$author]);
-		DAORegistry::getDAO('AuthorDAO')->deleteObject($author);
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+		$authorDao->deleteObject($author);
 		\HookRegistry::call('Author::delete', [$author]);
 	}
 }

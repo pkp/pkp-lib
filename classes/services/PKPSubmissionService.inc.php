@@ -556,8 +556,10 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		$dispatcher = $request->getDispatcher();
 
 		// Check if the user is an author of this submission
-		$authorUserGroupIds = DAORegistry::getDAO('UserGroupDAO')->getUserGroupIdsByRoleId(ROLE_ID_AUTHOR);
-		$stageAssignmentsFactory = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+		$authorUserGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_AUTHOR);
+		$stageAssignmentsFactory = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
 
 		$authorDashboard = false;
 		while ($stageAssignment = $stageAssignmentsFactory->next()) {
@@ -596,7 +598,8 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		}
 
 		// Send reviewers to review wizard
-		$reviewAssignment = DAORegistry::getDAO('ReviewAssignmentDAO')->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+		$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
 		if ($reviewAssignment) {
 			return $dispatcher->url(
 				$request,
@@ -792,7 +795,8 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @return boolean
 	 */
 	public function canEditPublication($submissionId, $userId) {
-		$stageAssignments = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndUserIdAndStageId($submissionId, $userId, null);
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+		$stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submissionId, $userId, null);
 		// Check for permission from stage assignments
 		while ($stageAssignment = $stageAssignments->next()) {
 			if ($stageAssignment->getCanChangeMetadata()) {

@@ -116,8 +116,9 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 
 		// Delete publications
 		$publicationsIterator = Services::get('publication')->getMany(['submissionIds' => $submissionId]);
+		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
 		foreach ($publicationsIterator as $publication) {
-			DAORegistry::getDAO('PublicationDAO')->deleteObject($publication);
+			$publicationDao->deleteObject($publication);
 		}
 
 		// Delete submission files.

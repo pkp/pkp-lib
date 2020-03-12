@@ -973,11 +973,13 @@ class Installer {
 		import('lib.pkp.classes.notification.PKPNotification'); // NOTIFICATION_TYPE_EDITORIAL_REPORT
 		$roleIds = [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR];
 
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
 		for ($contexts = Application::get()->getContextDAO()->getAll(true); $context = $contexts->next(); ) {
 			foreach ($roleIds as $roleId) {
-				for ($userGroups = DAORegistry::getDAO('UserGroupDAO')->getByRoleId($context->getId(), $roleId); $userGroup = $userGroups->next(); ) {
-					for ($users = DAORegistry::getDAO('UserGroupDAO')->getUsersById($userGroup->getId(), $context->getId()); $user = $users->next(); ) {
-						DAORegistry::getDAO('NotificationSubscriptionSettingsDAO')->update(
+				for ($userGroups = $userGroupDao->getByRoleId($context->getId(), $roleId); $userGroup = $userGroups->next(); ) {
+					for ($users = $userGroupDao->getUsersById($userGroup->getId(), $context->getId()); $user = $users->next(); ) {
+						$notificationSubscriptionSettingsDao->update(
 							'INSERT INTO notification_subscription_settings
 								(setting_name, setting_value, user_id, context, setting_type)
 								VALUES

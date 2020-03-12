@@ -69,7 +69,8 @@ class UserForm extends Form {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$items = [];
-		$userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($contextId);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userGroups = $userGroupDao->getByContextId($contextId);
 		while ($userGroup = $userGroups->next()) {
 			$items[] = array(
 				'id' => (int) $userGroup->getId(),

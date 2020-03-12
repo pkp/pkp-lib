@@ -45,7 +45,8 @@ class ViewSubmissionMetadataHandler extends handler {
 		$publication = $submission->getCurrentPublication();
 
 		if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) { /* SUBMISSION_REVIEW_METHOD_BLIND or _OPEN */
-			$userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId())->toArray();
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+			$userGroups = $userGroupDao->getByContextId($context->getId())->toArray();
 			$templateMgr->assign('authors', $publication->getAuthorString($userGroups));
 		}
 

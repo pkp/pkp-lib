@@ -375,7 +375,8 @@ abstract class PKPSubmission extends DataObject {
 			return $author->getData('userGroupId');
 		}, $this->getAuthors());
 		$userGroups = array_map(function($userGroupId) {
-			return DAORegistry::getDAO('UserGroupDAO')->getbyId($userGroupId);
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+			return $userGroupDao->getbyId($userGroupId);
 		}, array_unique($userGroupIds));
 
 		return $publication->getAuthorString($userGroups);

@@ -63,14 +63,16 @@ class StageRolePolicy extends AuthorizationPolicy {
 			if ($this->_allowRecommendOnly) {
 				return AUTHORIZATION_PERMIT;
 			}
-			$result = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndUserIdAndStageId(
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+			$result = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId(
 				$this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION)->getId(),
 				Application::get()->getRequest()->getUser()->getId(),
 				$this->_stageId
 			);
 			while (!$result->eof()) {
 				$stageAssignment = $result->next();
-				$userGroup = DAORegistry::getDAO('UserGroupDAO')->getById($stageAssignment->getUserGroupId());
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+				$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 				if (in_array($userGroup->getRoleId(), $this->_roleIds) && !$stageAssignment->getRecommendOnly()) {
 					return AUTHORIZATION_PERMIT;
 				}
@@ -84,7 +86,8 @@ class StageRolePolicy extends AuthorizationPolicy {
 			}
 			// Managers may have a stage assignment but no $userAccessibleStages, so they will
 			// not be caught by the earlier code that checks stage assignments.
-			$result = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndUserIdAndStageId(
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+			$result = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId(
 				$this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION)->getId(),
 				Application::get()->getRequest()->getUser()->getId(),
 				$this->_stageId
@@ -94,7 +97,8 @@ class StageRolePolicy extends AuthorizationPolicy {
 			}
 			while (!$result->eof()) {
 				$stageAssignment = $result->next();
-				$userGroup = DAORegistry::getDAO('UserGroupDAO')->getById($stageAssignment->getUserGroupId());
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+				$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 				if ($userGroup->getRoleId() == ROLE_ID_MANAGER && !$stageAssignment->getRecommendOnly()) {
 					return AUTHORIZATION_PERMIT;
 				}

@@ -228,10 +228,11 @@ class PKPSubmissionMetadataFormImplementation {
 		$submissionSubjectDao->insertSubjects($subjects, $submission->getCurrentPublication()->getId());
 
 		// Save the submission categories
-		DAORegistry::getDAO('CategoryDAO')->deletePublicationAssignments($publication->getId());
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
+		$categoryDao->deletePublicationAssignments($publication->getId());
 		if ($categories = $this->_parentForm->getData('categories')) {
 			foreach ((array) $categories as $categoryId) {
-				DAORegistry::getDAO('CategoryDAO')->insertPublicationAssignment($categoryId, $publication->getId());
+				$categoryDao->insertPublicationAssignment($categoryId, $publication->getId());
 			}
 		}
 

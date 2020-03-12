@@ -118,7 +118,8 @@ abstract class PKPWorkflowHandler extends Handler {
 		$workflowRoles = Application::getWorkflowTypeRoles();
 		$editorialWorkflowRoles = $workflowRoles[WORKFLOW_TYPE_EDITORIAL];
 
-		$result = DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'));
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$result = $userGroupDao->getByContextId($submission->getData('contextId'));
 		$authorUserGroups = [];
 		$workflowUserGroups = [];
 		while (!$result->eof()) {
@@ -154,7 +155,8 @@ abstract class PKPWorkflowHandler extends Handler {
 			$canAccessProduction = (bool) array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
 			$canAccessPublication = true;
 
-			$result = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndUserIdAndStageId(
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+			$result = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId(
 				$submission->getId(),
 				$request->getUser()->getId(),
 				WORKFLOW_STAGE_ID_PRODUCTION

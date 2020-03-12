@@ -135,7 +135,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		}
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$contextUserGroups = userGroupDao->getByRoleId($submission->getData('contextId'), ROLE_ID_AUTHOR)->toArray();
+		$contextUserGroups = $userGroupDao->getByRoleId($submission->getData('contextId'), ROLE_ID_AUTHOR)->toArray();
 		$workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
 
 		$stageNotifications = array();

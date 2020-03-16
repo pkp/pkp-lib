@@ -86,7 +86,7 @@ class PKPMetadataForm extends FormComponent {
 			]));
 		}
 
-		if ($submissionContext->getData('supportingAgencies')) {
+		if ($submissionContext->getData('agencies')) {
 			$this->addField(new FieldControlledVocab('supportingAgencies', [
 				'label' => __('submission.supportingAgencies'),
 				'tooltip' => __('manager.setup.metadata.agencies.description'),

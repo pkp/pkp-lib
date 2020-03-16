@@ -143,12 +143,13 @@ class SubmissionService extends \PKP\Services\PKPSubmissionService {
 	 * @return array submissions keyed to a section with some section details
 	 */
 	public function getInSections($contextId) {
-
-		$submissions = iterator_to_array($this->getMany(['contextId' => $contextId]));
-		usort($submissions, function($a, $b) {
-			return $a->getCurrentPublication()->getData('seq') <= $b->getCurrentPublication()->getData('seq');
-		});
-
+		import('lib.pkp.classes.core.PKPApplication'); // STATUS_...
+		$submissions = iterator_to_array($this->getMany([
+			'contextId' => $contextId,
+			'status' => [STATUS_PUBLISHED, STATUS_SCHEDULED],
+			'orderBy' => 'seq',
+			'orderDirection' => 'ASC',
+		]));
 		$bySections = [];
 		foreach ($submissions as $submission) {
 			$sectionId = $submission->getCurrentPublication()->getData('sectionId');

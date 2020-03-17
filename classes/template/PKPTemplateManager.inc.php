@@ -1736,7 +1736,7 @@ class PKPTemplateManager extends Smarty {
 					if (!$genre->getDependent() && method_exists($file, 'getChapterId')) {
 						if ($params['value'] === 'any' && $file->getChapterId()) {
 							$matching_files[] = $file;
-						} elseif($file->getChapterId() === $params['value']) {
+						} elseif($file->getChapterId() == $params['value']) {
 							$matching_files[] = $file;
 						} elseif ($params['value'] == 0 && !$file->getChapterId()) {
 							$matching_files[] = $file;

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2020-02-28 11:36+0000\n"
+"PO-Revision-Date: 2020-03-18 12:36+0000\n"
 "Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de/>\n"
@@ -1878,3 +1878,208 @@ msgid "manager.setup.metadata.subjects.description"
 msgstr ""
 "Themen sind Stichworte, Stichwortketten oder Klassifizierungscodes, die das "
 "Fachgebiet einer Einreichung beschreiben."
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Quote der Ablehnungen nach Peer Review"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Quote direkter Ablehnungen (desk rejection)"
+
+msgid "stats.name.daysToReject"
+msgstr "Tage bis zur Ablehnung"
+
+msgid "stats.name.daysToAccept"
+msgstr "Tage bis zur Annahme"
+
+msgid "stats.name.daysToDecision"
+msgstr "Tage bis zur ersten redaktionellen Entscheidung"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Veröffentlichte Einreichungen"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Abgelehnte Einreichungen (nach Peer Review)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Abgelehnte Einreichungen (direkt ohne Peer Review, desk rejection)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Abgelehnte Einreichungen"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Angenommene Einreichungen"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Erhaltene Einreichungen"
+
+msgid "stats.userStatistics"
+msgstr "Nutzerstatistiken"
+
+msgid "stats.trends"
+msgstr "Tendenzen"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Gesamt innerhalb des Datumsbereichs"
+
+msgid "stats.total"
+msgstr "Gesamt"
+
+msgid "stats.submissionsActive"
+msgstr "Aktive Einreichungen"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Suche nach Titel, Autor/in und ID"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Monatlich"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.fileViews"
+msgstr "Dateiansichten"
+
+msgid "stats.editorialActivity"
+msgstr "Redaktionelle Aktivität"
+
+msgid "stats.descriptionForStat"
+msgstr "Beschreibung für {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Die Anzahl der Tage, bis eine erste redaktionelle Entscheidung für eine "
+"Einreichung getroffen wird, wie zum Beispiel direkte Ablehnung oder "
+"Versenden zum Review.<br><br> Diese Zahlen zeigen, dass für 80% aller "
+"Einreichungen eine Entscheidung innerhalb der angegebenen Anzahl von Tagen "
+"getroffen wird.<br><br> Diese Statistik versucht anzugeben, wann die "
+"Mehrheit der Autoren dieser Zeitschrift eine Entscheidung erwarten können."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Der Anteil für den gewählten Datumsbereich wird berechnet auf Grundlage der "
+"Einreichungen, die innerhalb dieses Datumsbereichs eingereicht wurden und "
+"für die eine endgültige Entscheidung getroffen wurde.<br><br> Gingen zum "
+"Beispiel zehn Einreichungen innerhalb des Datumsbereichs ein, von denen vier "
+"angenommen wurden, vier abgelehnt wurden und zwei noch unentschieden sind, "
+"so liegt die Annahmerate bei 50% (vier von acht Einreichungen), denn über "
+"zwei Einreichungen wurde noch nicht abschließend entschieden."
+
+msgid "stats.dateRange.untilDate"
+msgstr "Bis {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Bis"
+
+msgid "stats.dateRange.thisYear"
+msgstr "aktuelles Jahr"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Seit {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Letztes Jahr"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Letzte 2 Jahre"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Letzte 90 Tage"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Letzte 30 Tage"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Letzte 12 Monate"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Das Startdatum sollte nicht vor dem {$date} liegen."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Das Enddatum sollte nicht nach dem {$date} liegen."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Das Startdatum muss vor dem Enddatum liegen."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Das Datumsformat ist ungültig. Geben Sie jedes Datum im Format YYYY-MM-DD an."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Geben Sie das Datum im Format YYYY-MM-DD ein. Zum Beispiel geben Sie für das "
+"Datum 15. Januar 2019 folgendes ein: 2019-01-15."
+
+msgid "stats.dateRange.from"
+msgstr "Von"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Eines der eingegebenen Daten existiert nicht."
+
+msgid "stats.dateRange.customRange"
+msgstr "benutzerdefinierter Bereich"
+
+msgid "stats.dateRange.change"
+msgstr "Datumsbereich ändern"
+
+msgid "stats.dateRange.apply"
+msgstr "Anwenden"
+
+msgid "stats.dateRange.allDates"
+msgstr "Alle Daten"
+
+msgid "stats.dateRange"
+msgstr "Datumsbereich"
+
+msgid "stats.daily"
+msgstr "Täglich"
+
+msgid "stats.allUsers"
+msgstr "Alle Nutzer/innen"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Vor Annahme der Einreichung die Angaben von Referenzen von Autor/in "
+"verlangen."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr ""
+"Während der Einreichung die Angabe von Referenzen von Autor/in erfragen."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Während der Einreichung keine Referenzen von Autor/in erfragen."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Metadaten zu Referenzen aktivieren"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Die Referenzen einer Einreichung in einem separaten Feld sammeln. Dies "
+"könnte erforderlich sein, um Erfordernissen von Services zu "
+"Zitationszählungen wie Crossref zu entsprechen."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Von dem Autor/der Autorin während des Einreichprozesses die Angabe von "
+"unterstützenden Institutionen verlangen."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Den Autor/die Autorin während des Einreichprozesses nach unterstützenden "
+"Institutionen fragen."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Den Autor/die Autorin während des Einreichprozesses nicht nach "
+"unterstützenden Institutionen fragen."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Metadaten für unterstützende Institutionen aktivieren"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Unterstützende Institutionen können hier die Quelle der "
+"Forschungsfinanzierung oder andere Arten von Unterstützung für die Forschung "
+"angeben."

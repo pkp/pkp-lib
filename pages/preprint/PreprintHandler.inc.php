@@ -104,6 +104,10 @@ class PreprintHandler extends Handler {
 			$galleyId = $subPath;
 		}
 
+		if ($this->publication->getData('status') !== STATUS_PUBLISHED) {
+			$request->getDispatcher()->handle404();
+		}
+
 		if ($galleyId && in_array($request->getRequestedOp(), ['view', 'download'])) {
 			$galleys = (array) $this->publication->getData('galleys');
 			foreach ($galleys as $galley) {
@@ -324,12 +328,12 @@ class PreprintHandler extends Handler {
 				$submissionFile = $this->galley->getFile();
 				if ($submissionFile) {
 					$this->fileId = $submissionFile->getFileId();
-					// The file manager expects the real preprint id.  Extract it from the submission file.
-				} else { // no proof files assigned to this galley!
-					header('HTTP/1.0 403 Forbidden');
-					echo '403 Forbidden<br>';
-					return;
+					// The file manager expects the real article id.  Extract it from the submission file.
 				}
+			}
+
+			if (!$this->fileId || $this->fileId != $this->galley->getFileId()) {
+				$request->getDispatcher()->handle404();
 			}
 
 			if (!HookRegistry::call('PreprintHandler::download', array($this->preprint, &$this->galley, &$this->fileId))) {

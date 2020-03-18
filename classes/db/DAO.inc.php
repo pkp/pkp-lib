@@ -700,6 +700,6 @@ class DAO {
 	}
 
 	function handleError($dataSource, $sql) {
-		fatalError('DB Error: ' . $dataSource->errorMsg() . ' Query: ' . $sql);
+		throw new Exception('DB Error: ' . $dataSource->errorMsg() . ' Query: ' . $sql);
 	}
 }

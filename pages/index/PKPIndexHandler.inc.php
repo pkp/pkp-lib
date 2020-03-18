@@ -27,7 +27,7 @@ class PKPIndexHandler extends Handler {
 		$numAnnouncementsHomepage = $context->getData('numAnnouncementsHomepage');
 		if ($enableAnnouncements && $numAnnouncementsHomepage) {
 			$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
-			$announcements =& $announcementDao->getNumAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $numAnnouncementsHomepage);
+			$announcements = $announcementDao->getNumAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $numAnnouncementsHomepage);
 			$templateMgr->assign(array(
 				'announcements' => $announcements->toArray(),
 				'numAnnouncementsHomepage' => $numAnnouncementsHomepage,

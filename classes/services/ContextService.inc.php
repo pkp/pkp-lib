@@ -80,7 +80,7 @@ class ContextService extends \PKP\Services\PKPContextService {
 
 		// Move an uploaded journal thumbnail and set the updated data
 		if (!empty($params['serverThumbnail'])) {
-			$supportedLocales = $newContext->getSupportedLocales();
+			$supportedLocales = $newContext->getSupportedFormLocales();
 			foreach ($supportedLocales as $localeKey) {
 				if (!array_key_exists($localeKey, $params['serverThumbnail'])) {
 					continue;

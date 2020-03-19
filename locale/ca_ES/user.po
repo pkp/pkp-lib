@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
+"PO-Revision-Date: 2020-03-13 09:36+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ca/"
+">\n"
+"Language: ca_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:40+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "user.accountInformation"
 msgstr "Informació del compte"
@@ -198,7 +201,9 @@ msgid "user.profile.form.publishedNotifications"
 msgstr "Notificacions per correu electrònic de la publicació d’un número nou"
 
 msgid "user.profile.form.urlInvalid"
-msgstr "L'URL especificat no és vàlid. Comproveu l'enllaç URL i torneu-ho a intentar. (Consell: proveu d'afegir «http://» al principi de l'URL)."
+msgstr ""
+"L'URL especificat no és vàlid. Comproveu l'enllaç URL i torneu-ho a provar. "
+"(Consell: proveu d'afegir \"http://\" al principi de l'URL.)"
 
 msgid "user.profile.form.usergroupRequired"
 msgstr "Cal que introduïu un grup d'usuaris/àries."
@@ -225,7 +230,7 @@ msgid "user.profile.repeatNewPassword"
 msgstr "Repetiu la contrasenya nova"
 
 msgid "user.login.registerNewAccount"
-msgstr "Encara no sou usuari? Registreu-vos a través d'aquest lloc."
+msgstr "Registrar-se"
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Per motius de seguretat, aquest sistema envia un missatge de restabliment de contrasenya als usuaris registrats, en lloc de tornar-ho a intentar amb la contrasenya actual.<br /><br />Introduïu la vostra adreça electrònica al camp següent per restablir la vostra contrasenya. S'enviarà un missatge de confirmació a la vostra adreça electrònica."
@@ -315,7 +320,9 @@ msgid "user.sendPassword"
 msgstr "Confirmació"
 
 msgid "user.sendPassword.description"
-msgstr "Envia’m una confirmació per correu electrònic amb el nom d’usuari i la contrasenya."
+msgstr ""
+"Envieu-me un correu electrònic de confirmació amb el meu nom d’usuari/ària i "
+"la contrasenya"
 
 msgid "user.signature"
 msgstr "Signatura"
@@ -375,7 +382,7 @@ msgid "user.register.form.passwordLengthRestriction"
 msgstr "La contrasenya ha de tenir almenys {$length} caràcters."
 
 msgid "user.orcid"
-msgstr "ORCID iD"
+msgstr "Identificador ORCID"
 
 msgid "user.profile.identity"
 msgstr "Identitat"
@@ -394,3 +401,78 @@ msgstr "S'ha registrat correctament. Faci <a href=\"{$profileUrl}\">clic aquí</
 
 msgid "user.orcid.orcidInvalid"
 msgstr "L'identificador ORCID especificat no es vàlid. Inclogui el URI complet (p. ex.: \"https://orcid.org/0000-0002-1825-0097\"), si us plau."
+
+msgid "user.privacyLink"
+msgstr ""
+"Les vostres dades s'emmagatzemen d'acord amb la nostra <a href=\""
+"{$privacyUrl}\" target=\"_blank\">declaració de privacitat</a>."
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Abans de generar una clau API, l'administrador/a del lloc ha d'establir una "
+"clau secreta en l'arxiu de configuració (\"api_key_secret\")."
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Generar una clau API nova invalidarà qualsevol clau existent d'aquest usuari/"
+"ària."
+
+msgid "user.apiKey.generate"
+msgstr "Generar una clau API nova"
+
+msgid "user.apiKeyEnabled"
+msgstr ""
+"Habilitar l'accés a aquest compte a aplicacions externes amb la clau API"
+
+msgid "user.apiKey"
+msgstr "Clau API"
+
+msgid "user.register.form.emailConsent"
+msgstr "Sí, vull que em notifiquin les publicacions noves i els avisos."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Sí, estic d'acord que les meves dades es recopilin i emmagatzemin segons la <"
+"a href=\"{$privacyUrl}\" target=\"_blank\">declaració de privacitat</a>."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Heu d'acceptar els termes de la declaració de privacitat."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Heu afegit un cognom per a un idioma en què falta el nom. Afegiu el nom per "
+"a aquest idioma."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "El nom es obligatori."
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Com preferiu que se us adrecin? Aquí podeu afegir encapçalaments, segons "
+"noms i sufixos si ho desitgeu."
+
+msgid "user.preferredPublicName"
+msgstr "Nom públic preferit"
+
+msgid "user.familyName"
+msgstr "Cognoms"
+
+msgid "user.gossip.description"
+msgstr ""
+"Registreu les notes sobre aquest revisor/a que us agradaria que fossin "
+"visibles per a altres administradors/ores, gestors/es i tots els editors/es. "
+"Les notes seran visibles en futures assignacions de revisió."
+
+msgid "user.givenName"
+msgstr "Nom"
+
+msgid "user.authorization.submissionQuery"
+msgstr "No teniu permís per accedir a aquesta discussió."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "No teniu permís per accedir a aquesta assignació de revisió."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"El rol que teniu assignat per a aquesta tramesa no us permet accedir a "
+"aquesta operació."

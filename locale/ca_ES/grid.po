@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
+"PO-Revision-Date: 2020-03-13 09:36+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/ca/"
+">\n"
+"Language: ca_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:39+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "grid.noItems"
 msgstr "No hi ha cap element"
@@ -249,7 +252,7 @@ msgid "grid.action.viewReviewGuidelines"
 msgstr "Vegeu la política de revisió"
 
 msgid "grid.action.viewCompetingInterestGuidelines"
-msgstr "Vegeu les directrius de les polítiques de conflicte d'interessos."
+msgstr "Veure les directrius de les polítiques sobre conflicte d'interessos"
 
 msgid "grid.action.thankReviewer"
 msgstr "Envia un missatge d'agraïment a aquest revisor/ora"
@@ -480,7 +483,7 @@ msgid "grid.user.generatePasswordDescription"
 msgstr "Genera una contrasenya aleatòria per a aquest usuari/ària."
 
 msgid "grid.user.notifyUser"
-msgstr "Notifica-ho a l'usuari/ària."
+msgstr "Notificar-ho a l'usuari/ària"
 
 msgid "grid.user.notifyUserDescription"
 msgstr "Envia un correu de benvinguda a l'usuari/ària."
@@ -495,10 +498,10 @@ msgid "grid.user.mustChangePasswordDescriptionOld"
 msgstr "Demana a l’usuari/usuària que canviï la contrasenya quan torni a iniciar la sessió."
 
 msgid "grid.user.moreDetails"
-msgstr "Mostra més detalls de l'usuari/ària."
+msgstr "Més detalls de l'usuari/ària"
 
 msgid "grid.user.lessDetails"
-msgstr "Mostra menys detalls de l'usuari/ària."
+msgstr "Menys detalls de l'usuari/ària"
 
 msgid "grid.user.userDetails"
 msgstr "Detalls de l'usuari/ària"
@@ -510,7 +513,7 @@ msgid "grid.user.userNoRoles"
 msgstr "Aquest usuari/ària no té cap rol."
 
 msgid "grid.user.step1"
-msgstr "Pas 1: Completa els detalls de l'usuari/ària."
+msgstr "Pas 1: Completar els detalls de l'usuari/ària"
 
 msgid "grid.user.step2"
 msgstr "Pas 2: Afegeix rols d'usuari/ària a {$userFullName}"
@@ -525,7 +528,7 @@ msgid "grid.user.selectUser"
 msgstr "Escull un usuari/ària"
 
 msgid "grid.user.pleaseSelectUser"
-msgstr "Si us plau, escull un un usuari/ària."
+msgstr "Seleccionar un usuari/ària"
 
 msgid "grid.user.confirmLogInAs"
 msgstr "Voleu iniciar sessió amb aquest usuari/ària? Totes les accions que realitzeu s'atribuïran a aquest usuari/ària."
@@ -682,3 +685,30 @@ msgstr "Opcions de resposta"
 
 msgid "grid.submission.active.selectOrphaned"
 msgstr "Incloure trameses incompletes no enviades per un autor/a."
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Triar un tipus..."
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "No hi ha menús de navegació"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "No hi ha elements del menú de navegació"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Afegir element"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Afegir menú"
+
+msgid "grid.action.newVersion"
+msgstr "Crear una versió nova"
+
+msgid "grid.action.users"
+msgstr "Veure/Seleccionar usuaris/àries"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Eliminar aquest grup d'usuaris/àries"
+
+msgid "grid.action.uninstall"
+msgstr "Desinstal·lar"

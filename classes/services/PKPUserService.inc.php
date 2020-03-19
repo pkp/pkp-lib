@@ -380,7 +380,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 					break;
 			}
 
-			$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_USER, $values, $context->getSupportedLocales());
+			$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_USER, $values, $context->getSupportedFormLocales());
 
 			\HookRegistry::call('User::getProperties::values', array(&$values, $user, $props, $args));
 

@@ -80,7 +80,7 @@ class PublishHandler extends Handler {
 			$submissionContext = Services::get('context')->get($this->submission->getData('contextId'));
 		}
 		$primaryLocale = $submissionContext->getPrimaryLocale();
-		$allowedLocales = $submissionContext->getSupportedLocales();
+		$allowedLocales = $submissionContext->getSupportedSubmissionLocales();
 		$errors = Services::get('publication')->validatePublish($this->publication, $this->submission, $allowedLocales, $primaryLocale);
 
 		$publicationApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getPath(), 'submissions/' . $this->submission->getId() . '/publications/' . $this->publication->getId() . '/publish');

@@ -84,7 +84,7 @@ class PKPBackendPaymentsSettingsHandler extends APIHandler {
 			$errors = $contextService->validate(
 				VALIDATE_ACTION_EDIT,
 				['currency' => $params['currency']],
-				$context->getSupportedLocales(),
+				$context->getSupportedFormLocales(),
 				$context->getPrimaryLocale()
 			);
 			if (!empty($errors)) {

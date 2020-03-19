@@ -148,7 +148,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 					$values[$prop] = null;
 					if (!empty($slimRequest)) {
 						$route = $slimRequest->getAttribute('route');
-						$arguments = $route->getArguments();
 						$values[$prop] = $dispatcher->url(
 							$args['request'],
 							ROUTE_API,
@@ -163,7 +162,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			}
 		}
 
-		$supportedLocales = empty($args['supportedLocales']) ? $context->getSupportedLocales() : $args['supportedLocales'];
+		$supportedLocales = empty($args['supportedLocales']) ? $context->getSupportedFormLocales() : $args['supportedLocales'];
 		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_CONTEXT, $values, $supportedLocales);
 
 		\HookRegistry::call('Context::getProperties', array(&$values, $context, $props, $args));
@@ -348,7 +347,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		$context = $this->get($context->getId());
 
 		// Move uploaded files into place and update the settings
-		$supportedLocales = $context->getSupportedLocales();
+		$supportedLocales = $context->getSupportedFormLocales();
 		$fileUploadProps = ['favicon', 'homepageImage', 'pageHeaderLogoImage'];
 		$params = [];
 		foreach ($fileUploadProps as $fileUploadProp) {
@@ -403,7 +402,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
 		// Move uploaded files into place and update the params
 		$userId = $request->getUser() ? $request->getUser()->getId() : null;
-		$supportedLocales = $context->getSupportedLocales();
+		$supportedLocales = $context->getSupportedFormLocales();
 		$fileUploadParams = ['favicon', 'homepageImage', 'pageHeaderLogoImage'];
 		foreach ($fileUploadParams as $fileUploadParam) {
 			if (!array_key_exists($fileUploadParam, $params)) {

@@ -345,7 +345,7 @@ class PKPContextHandler extends APIHandler {
 
 		$site = $request->getSite();
 		$primaryLocale = $context->getPrimaryLocale();
-		$allowedLocales = $context->getSupportedLocales();
+		$allowedLocales = $context->getSupportedFormLocales();
 
 		$errors = $contextService->validate(VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
 
@@ -407,7 +407,7 @@ class PKPContextHandler extends APIHandler {
 			$errors = $contextService->validate(
 				VALIDATE_ACTION_EDIT,
 				['themePluginPath' => $themePluginPath],
-				$context->getSupportedLocales(),
+				$context->getSupportedFormLocales(),
 				$context->getPrimaryLocale()
 			);
 			if (!empty($errors)) {

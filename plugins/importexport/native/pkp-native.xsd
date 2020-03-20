@@ -220,7 +220,7 @@
 
 			<!-- Metadata -->
 			<element ref="pkp:submission_file" minOccurs="0" maxOccurs="unbounded" />
-			<element ref="pkp:publication" minOccurs="1" maxOccurs="unbounded" />
+			<element ref="pkp:pkppublication" minOccurs="1" maxOccurs="unbounded" />
 		</sequence>
 		<attribute name="status" type="string" use="optional" />
 		<attribute name="current_publication_id" type="int" use="optional" />

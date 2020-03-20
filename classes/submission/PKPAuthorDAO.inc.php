@@ -154,9 +154,13 @@ abstract class PKPAuthorDAO extends SchemaDAO {
 	 * @param $submissionId int
 	 */
 	function deleteBySubmissionId($submissionId) {
-		$authors = $this->getBySubmissionId($submissionId, false, false);
-		foreach ($authors as $author) {
-			$this->deleteObject($author);
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO');
+		$submission = $submissionDao->getById($submissionId);
+		if ($submission) foreach ($submission->getData('publications') as $publication) {
+			$authors = $this->getByPublicationId($publication->getId());
+			foreach ($authors as $author) {
+				$this->deleteObject($author);
+			}
 		}
 	}
 }

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2020-02-28 11:36+0000\n"
+"PO-Revision-Date: 2020-03-20 18:52+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "es/>\n"
@@ -477,10 +477,10 @@ msgid "common.order"
 msgstr "Orden"
 
 msgid "common.orderUp"
-msgstr "Incrementar posición de {$itemTitle}"
+msgstr "Subir la posición de {$itemTitle}"
 
 msgid "common.orderDown"
-msgstr "Decrementar posición de {$itemTitle}"
+msgstr "Bajar la posición de {$itemTitle}"
 
 msgid "common.originalFileName"
 msgstr "Nombre del archivo original"
@@ -507,7 +507,7 @@ msgid "common.prefix"
 msgstr "Prefijo"
 
 msgid "common.prefixAndTitle.tip"
-msgstr "Ejemplos: A, El/La"
+msgstr "Ejemplos: un/una, el/la"
 
 msgid "common.preview"
 msgstr "Previsualizar"
@@ -552,7 +552,7 @@ msgid "common.replaceFile"
 msgstr "Reemplazar archivo"
 
 msgid "common.requiredField"
-msgstr "* Campos obligatorios"
+msgstr "* Campo obligatorio"
 
 msgid "common.required"
 msgstr "Obligatorio"
@@ -1547,7 +1547,9 @@ msgid "stageParticipants.options"
 msgstr "Asignación de privilegios"
 
 msgid "stageParticipants.recommendOnly"
-msgstr "Este participante solo puede recomendar una decisión editorial, necesita que un editor/a autorizado le permita registrar decisiones editoriales."
+msgstr ""
+"Este participante solo puede recomendar una decisión editorial, por tanto "
+"necesitará que un editor/a autorizado registre las decisiones editoriales."
 
 msgid "notification.reviewerThankedEmail"
 msgstr "El correo electrónico de agradecimiento se ha enviado al revisor/a."
@@ -1583,7 +1585,7 @@ msgid "list.viewLess"
 msgstr "Ocultar los detalles sobre {$name}"
 
 msgid "common.pagination.label"
-msgstr "Examinar las páginas adicionales"
+msgstr "Ver las páginas adicionales"
 
 msgid "validator.boolean"
 msgstr "Este campo debe ser verdadero o falso."
@@ -1592,7 +1594,7 @@ msgid "validator.between.array"
 msgstr "Debe tener entre {$min} y {$max} elementos."
 
 msgid "validator.between.string"
-msgstr "Debe estar entre  {$min} y {$max} caracteres."
+msgstr "Debe estar entre {$min} y {$max} caracteres."
 
 msgid "validator.between.file"
 msgstr "Debe estar entre {$min} y {$max} kilobytes."
@@ -1708,7 +1710,7 @@ msgid "form.dropzone.dictRemoveFile"
 msgstr "Eliminar archivo"
 
 msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr "¿Está seguro de que desea cancelar esta carga?"
+msgstr "¿Seguro de que desea cancelar esta carga?"
 
 msgid "form.dropzone.dictUploadCanceled"
 msgstr "Carga cancelada"
@@ -1718,8 +1720,8 @@ msgstr "Cancelar carga"
 
 msgid "form.dropzone.dictResponseError"
 msgstr ""
-"El servidor respondió con el código {{statusCode}}. Por favor, contacte con "
-"el administrador/a de sistemas si el problema persiste."
+"El servidor respondió con el código {{statusCode}}. Contacte con el "
+"administrador/a de sistemas si el problema persiste."
 
 msgid "form.dropzone.dictInvalidFileType"
 msgstr "Los archivos de este tipo no pueden cargarse."
@@ -1749,8 +1751,8 @@ msgstr "Solo están permitidos los siguientes idiomas: {$languages}."
 
 msgid "email.compose.error"
 msgstr ""
-"Hubo un problema al enviar el mensaje de correo electrónico. Por favor, "
-"inténtelo más tarde o contacte con su administrador/a de sistemas."
+"Hubo un problema al enviar el mensaje de correo electrónico. Inténtelo más "
+"tarde o contacte con su administrador/a de sistemas."
 
 msgid "common.upload.thumbnailPreview"
 msgstr "Previsualización de la imagen seleccionada actualmente."
@@ -1784,8 +1786,7 @@ msgstr "Anular"
 
 msgid "common.noTemporaryFile"
 msgstr ""
-"El archivo que ha cargado no se pudo encontrar. Por favor, intente cargarlo "
-"de nuevo."
+"El archivo que ha cargado no se pudo encontrar. Intente cargarlo de nuevo."
 
 msgid "common.noItemsFound"
 msgstr "Ningún elemento encontrado."
@@ -1902,7 +1903,7 @@ msgstr ""
 
 msgid "validator.localeExpected"
 msgstr ""
-"Este campo es multilingüe. Deben proporcionarse valores por separado para "
+"Este campo es multilingüe. Deben proporcionarse valores independientes para "
 "cada idioma compatible."
 
 msgid "validator.locale"

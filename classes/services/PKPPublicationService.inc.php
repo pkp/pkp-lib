@@ -217,7 +217,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			}
 		}
 
-		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_PUBLICATION, $values, $submissionContext->getSupportedLocales());
+		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_PUBLICATION, $values, $submissionContext->getSupportedSubmissionLocales());
 
 		HookRegistry::call('Publication::getProperties', [&$values, $publication, $props, $args]);
 
@@ -423,7 +423,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 				$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 			}
 
-			$supportedLocales = $submissionContext->getSupportedLocales();
+			$supportedLocales = $submissionContext->getSupportedSubmissionLocales();
 			foreach ($supportedLocales as $localeKey) {
 				if (!array_key_exists($localeKey, $publication->getData('coverImage'))) {
 					continue;
@@ -507,7 +507,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 				$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 			}
 
-			$supportedLocales = $submissionContext->getSupportedLocales();
+			$supportedLocales = $submissionContext->getSupportedSubmissionLocales();
 			foreach ($supportedLocales as $localeKey) {
 				if (!array_key_exists($localeKey, $params['coverImage'])) {
 					continue;

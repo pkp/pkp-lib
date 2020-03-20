@@ -129,7 +129,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 			}
 		}
 
-		$locales = $request->getContext()->getSupportedLocales();
+		$locales = $request->getContext()->getSupportedFormLocales();
 		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_AUTHOR, $values, $locales);
 
 		\HookRegistry::call('Author::getProperties::values', array(&$values, $author, $props, $args));

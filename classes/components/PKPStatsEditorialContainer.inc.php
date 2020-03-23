@@ -22,6 +22,9 @@ class PKPStatsEditorialContainer extends PKPStatsComponent {
 	/** @var array A key/value array of active submissions by stage */
 	public $activeByStage = [];
 
+	/** @var string The URL to get the averages from the API */
+	public $averagesApiUrl = [];
+
 	/** @var array List of stats that should be converted to percentages */
 	public $percentageStats = [];
 
@@ -45,12 +48,14 @@ class PKPStatsEditorialContainer extends PKPStatsComponent {
 			$config,
 			[
 				'activeByStage' => $this->activeByStage,
+				'averagesApiUrl' => $this->averagesApiUrl,
 				'percentageStats' => $this->percentageStats,
 				'tableRows' => $this->tableRows,
 				'i18n' => array_merge(
 					$config['i18n'],
 					[
 						'descriptionForStat' => __('stats.descriptionForStat'),
+						'countWithYearlyAverage' => __('stats.countWithYearlyAverage'),
 					],
 					$this->i18n
 				),

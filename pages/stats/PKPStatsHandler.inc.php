@@ -69,6 +69,7 @@ class PKPStatsHandler extends Handler {
 		];
 
 		$totals = Services::get('editorialStats')->getOverview($args);
+		$averages = Services::get('editorialStats')->getAverages($args);
 		$dateRangeTotals = Services::get('editorialStats')->getOverview(
 			array_merge(
 				$args,
@@ -117,6 +118,12 @@ class PKPStatsHandler extends Handler {
 			if ($description) {
 				$row['description'] = $description;
 			}
+			if (array_key_exists($stat['key'], $averages) && !empty($averages[$stat['key']])) {
+				$row['total'] = __('stats.countWithYearlyAverage', [
+					'count' => $stat['value'],
+					'average' => $averages[$stat['key']],
+				]);
+			}
 			$tableRows[] = $row;
 		}
 
@@ -134,6 +141,7 @@ class PKPStatsHandler extends Handler {
 			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/editorial'),
 			[
 				'activeByStage' => $activeByStage,
+				'averagesApiUrl' => $dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/editorial/averages'),
 				'dateStart' => $dateStart,
 				'dateEnd' => $dateEnd,
 				'dateRangeOptions' => [

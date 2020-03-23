@@ -2058,32 +2058,36 @@ msgstr ""
 msgid "submission.query.leaveQuery"
 msgstr "Kilépés a konzultációból"
 
+#, fuzzy
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
 "0/88x31.png\" /></a><p>Ez a mű a <a rel=\"license\" href=\""
 "https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
-"Attribution-ShareAlike 3.0 International License</a> szerint került "
+"Attribution-ShareAlike 3.0 Unported License</a> szerint került "
 "licencelésre.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
 "88x31.png\" /></a><p>Ez a mű a <a rel=\"license\" href=\""
 "https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
-"3.0 International License</a> szerint került licencelésre.</p>"
+"3.0 Unported License</a> szerint került licencelésre.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nd3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
 "0/88x31.png\" /></a><p>Ez a mű a <a rel=\"license\" href=\""
 "https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
-"Attribution-NoDerivatives 3.0 International License</a> szerint került "
+"Attribution-NoDerivatives 3.0 Unported License</a> szerint került "
 "licencelésre.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-sa3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
@@ -2093,15 +2097,17 @@ msgstr ""
 "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International "
 "License</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
 "0/88x31.png\" /></a><p>Ez a mű a <a rel=\"license\" href=\""
 "https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
-"Attribution-NonCommercial 3.0 International License</a> szerint került "
+"Attribution-NonCommercial 3.0 Unported License</a> szerint került "
 "licencelésre.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-nd3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"

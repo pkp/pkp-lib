@@ -1694,6 +1694,7 @@ msgstr "För närvarande i {$stage}-steget."
 msgid "submission.list.assignEditor"
 msgstr "Tilldela redaktör"
 
+#, fuzzy
 msgid "submission.license.cc.by-nd3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
@@ -1771,6 +1772,7 @@ msgstr "Titel (A-Z)"
 msgid "grid.category.categories"
 msgstr "Kategorier"
 
+#, fuzzy
 msgid "submission.license.cc.by3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
@@ -1916,6 +1918,7 @@ msgstr ""
 msgid "submission.query.leaveQuery"
 msgstr "Lämna diskussionen"
 
+#, fuzzy
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
@@ -1924,6 +1927,7 @@ msgstr ""
 "license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative "
 "Commons Erkännande-DelaLika 3.0 Internationell licens</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-sa3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
@@ -1933,6 +1937,7 @@ msgstr ""
 "Creative Commons Erkännande-IckeKommersiell-DelaLika 3.0 Internationell "
 "License</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
@@ -1941,6 +1946,7 @@ msgstr ""
 " href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
 "Erkännande-IckeKommersiell 3.0 Internationell licens</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-nd3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"

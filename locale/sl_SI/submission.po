@@ -1882,6 +1882,7 @@ msgstr ""
 msgid "submission.query.leaveQuery"
 msgstr "Zapusti diskusijo"
 
+#, fuzzy
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
@@ -1890,6 +1891,7 @@ msgstr ""
 "https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
 "Attribution-ShareAlike 3.0 mednarodna licenca</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
@@ -1898,6 +1900,7 @@ msgstr ""
 "https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
 "3.0 International licenca</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nd3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
@@ -1906,6 +1909,7 @@ msgstr ""
 "https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
 "Attribution-NoDerivatives 3.0 mednarodna licenca</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-sa3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
@@ -1915,6 +1919,7 @@ msgstr ""
 "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 mednarodna "
 "licenca</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
@@ -1923,6 +1928,7 @@ msgstr ""
 "https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
 "Attribution-NonCommercial 3.0 mednarodna licenca</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-nd3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"

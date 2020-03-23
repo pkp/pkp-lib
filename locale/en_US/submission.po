@@ -392,6 +392,9 @@ msgstr "{$name}, {$affiliation}"
 msgid "submission.shortAuthor"
 msgstr "{$author} et al."
 
+msgid "submission.representationOfTitle"
+msgstr "{$representation} of {$title}"
+
 msgid "submission.mySubmissions"
 msgstr "My Authored"
 

@@ -13,7 +13,7 @@
 #
 #
 
-GITREP=git://github.com/ajnyga/ojs.git
+GITREP=git://github.com/pkp/ops.git
 
 if [ -z "$1" ]; then
 	echo "Usage: $0 <version> [<tag>-<branch>]";

@@ -1264,7 +1264,7 @@ msgid "plugins.importexport.common.validationErrors"
 msgstr "Erros de validação:"
 
 msgid "manager.userSearch.searchByName"
-msgstr "Buscar Esuário por Nome"
+msgstr "Buscar Usuário por Nome"
 
 msgid "manager.setup.layout.sidebar"
 msgstr "Barra Lateral"

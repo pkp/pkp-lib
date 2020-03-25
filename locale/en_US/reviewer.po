@@ -50,6 +50,12 @@ msgstr "Continue to Step #3"
 msgid "reviewer.submission.submitReview"
 msgstr "Submit Review"
 
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Save for Later"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Save for Later"
+
 msgid "reviewer.submission.reviewerGuidelines"
 msgstr "Reviewer Guidelines"
 

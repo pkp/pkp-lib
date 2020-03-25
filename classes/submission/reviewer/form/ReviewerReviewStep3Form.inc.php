@@ -207,6 +207,9 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		// Mark the review assignment as modified.
 		$reviewAssignment->stampModified();
 
+		// save the recommendation to the review assignment
+		$reviewAssignment->setRecommendation((int) $this->getData('recommendation'));
+
 		// Persist the updated review assignment.
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignmentDao->updateObject($reviewAssignment);

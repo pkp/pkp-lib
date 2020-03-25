@@ -92,7 +92,7 @@ class PKPReviewerHandler extends Handler {
 	function saveStep($args, $request) {
 		$step = (int)$request->getUserVar('step');
 		if ($step<1 || $step>3) fatalError('Invalid step!');
-		$saveForLater = (int)$request->getUserVar('saveForLater');
+		$saveFormButton = (bool)$request->getUserVar('saveFormButton');
 
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
 		if ($reviewAssignment->getDateCompleted()) fatalError('Review already completed!');
@@ -108,11 +108,11 @@ class PKPReviewerHandler extends Handler {
 		$reviewerForm->readInputData();
 
 		// Save the available form data, but do not submit
-		if ($saveForLater){
+		if ($saveFormButton) {
 			$reviewerForm->saveForLater();
 			$notificationMgr = new NotificationManager();
 			$user = $request->getUser();
-			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('reviewer.formSavedForLater')));
+			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('common.changesSaved')));
 			return DAO::getDataChangedEvent();			
 		}
 		// Submit the form data and move forward

@@ -34,6 +34,10 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 			return true;
 		}));
 
+		$this->addCheck(new FormValidatorCustom($this, 'recommendation', 'required', 'reviewer.submission.reviewFormResponse.form.recommendationRequired', function($recommendation) {
+			return isset($recommendation);
+		}));
+
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 		
@@ -107,11 +111,6 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 			$templateMgr->assign('viewGuidelinesAction', $viewReviewGuidelinesAction);
 		}
 
-		$router = $request->getRouter();
-		import('lib.pkp.classes.linkAction.request.AjaxAction');
-		$saveForLaterLinkAction = new LinkAction('saveForLater', new AjaxAction($router->url($request, null, 'reviewer', 'saveForm', $reviewAssignment->getSubmissionId(), array('showSaveForLaterNotification' => true))), __('reviewer.saveForLater'), null);
-		$templateMgr->assign('saveForLaterLinkAction', $saveForLaterLinkAction);
-
 		return parent::fetch($request, $template, $display);
 	}
 
@@ -121,8 +120,6 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	function execute(...$functionParams) {
 		$reviewAssignment = $this->getReviewAssignment();
 		$notificationMgr = new NotificationManager();
-		error_log("execute");
-		error_log(print_r($this->_data, true));
 
 		// Save the answers to the review form
 		$this->saveReviewForm($reviewAssignment);
@@ -152,23 +149,21 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		}
 
 		// Set review to next step.
-		#$this->updateReviewStepAndSaveSubmission($this->getReviewerSubmission());
+		$this->updateReviewStepAndSaveSubmission($this->getReviewerSubmission());
 
 		// Mark the review assignment as completed.
 		#$reviewAssignment->setDateCompleted(Core::getCurrentDate());
 		$reviewAssignment->stampModified();
 
 		// assign the recommendation to the review assignment, if there was one.
-		#$reviewAssignment->setRecommendation((int) $this->getData('recommendation'));
-
-		/*
+		$reviewAssignment->setRecommendation((int) $this->getData('recommendation'));
 
 		// Persist the updated review assignment.
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO 
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignmentDao->updateObject($reviewAssignment);
 
 		// Remove the task
-		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO 
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notificationDao->deleteByAssoc(
 			ASSOC_TYPE_REVIEW_ASSIGNMENT,
 			$reviewAssignment->getId(),
@@ -180,8 +175,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		import('lib.pkp.classes.log.SubmissionLog');
 		import('classes.log.SubmissionEventLogEntry');
 
-
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO 
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
 		$request = Application::get()->getRequest();
 		SubmissionLog::logEvent(
@@ -197,8 +191,6 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 			)
 		);
 
-		*/
-
 		parent::execute(...$functionParams);
 	}
 
@@ -208,8 +200,6 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	function saveForLater() {
 		$reviewAssignment = $this->getReviewAssignment();
 		$notificationMgr = new NotificationManager();
-		error_log("saveForLater");
-		error_log(print_r($this->_data, true));
 
 		// Save the answers to the review form
 		$this->saveReviewForm($reviewAssignment);
@@ -229,7 +219,6 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	 * @param $reviewAssignment ReviewAssignment
 	 */
 	function saveReviewForm($reviewAssignment) {
-		error_log("saveReviewForm");
 		if ($reviewAssignment->getReviewFormId()) {
 			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /* @var $reviewFormResponseDao ReviewFormResponseDAO */
 			$reviewFormResponses = $this->getData('reviewFormResponses');
@@ -269,7 +258,6 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		} else {			
 			// No review form configured. Use the default form.
 			if (strlen($comments = $this->getData('comments'))>0) {
-				error_log("BINGO!");
 				// Create a comment with the review.
 				$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
 				$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), true);

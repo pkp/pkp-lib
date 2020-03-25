@@ -59,9 +59,6 @@
 	
 	{fbvFormSection}
 		{fbvElement type="submit" id="saveForLater" name="saveForLater" value="1" label="common.save"}
-		<span id="saveForLaterLinkAction" class="pkp_linkActions">
-			{include file="linkAction/linkAction.tpl" action=$saveForLaterLinkAction}
-		</span>
 	{/fbvFormSection}
 
 	{capture assign="cancelUrl"}{url page="reviewer" op="submission" path=$submission->getId() step=2 escape=false}{/capture}

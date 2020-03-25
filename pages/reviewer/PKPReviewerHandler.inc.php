@@ -84,38 +84,6 @@ class PKPReviewerHandler extends Handler {
 	}
 
 	/**
-	 * Save the review form.
-	 * @param $args array first parameter showSaveForLaterNotification
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function saveForm($args, $request) {
-		$showSaveForLaterNotification = (bool)$request->getUserVar('showSaveForLaterNotification');
-		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
-		if ($reviewAssignment->getDateCompleted()) fatalError('Review already completed!');
-
-		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /* @var $reviewerSubmissionDao ReviewerSubmissionDAO */
-		$reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
-		assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
-
-		$formClass = "ReviewerReviewStep3Form";
-		import("lib.pkp.classes.submission.reviewer.form.$formClass");
-
-		$reviewerForm = new $formClass($request, $reviewerSubmission, $reviewAssignment);
-		$reviewerForm->readInputData();
-
-		// Save the available form data, but do not submit
-		$reviewerForm->saveForLater();
-
-		if ($showSaveForLaterNotification){
-			$notificationMgr = new NotificationManager();
-			$user = $request->getUser();
-			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('reviewer.formSavedForLater')));
-		}
-		return DAO::getDataChangedEvent();	
-	}
-
-	/**
 	 * Save a review step.
 	 * @param $args array first parameter is the step being saved
 	 * @param $request PKPRequest
@@ -123,8 +91,6 @@ class PKPReviewerHandler extends Handler {
 	 */
 	function saveStep($args, $request) {
 		$step = (int)$request->getUserVar('step');
-		$showSaveForLaterNotification = (bool)$request->getUserVar('showSaveForLaterNotification');
-
 		if ($step<1 || $step>3) fatalError('Invalid step!');
 		$saveForLater = (int)$request->getUserVar('saveForLater');
 
@@ -146,14 +112,15 @@ class PKPReviewerHandler extends Handler {
 			$reviewerForm->saveForLater();
 			$notificationMgr = new NotificationManager();
 			$user = $request->getUser();
-			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('common.changesSaved')));
+			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('reviewer.formSavedForLater')));
 			return DAO::getDataChangedEvent();			
 		}
+		// Submit the form data and move forward
 		else {
 			if ($reviewerForm->validate()) {
 				$reviewerForm->execute();
 				$json = new JSONMessage(true);
-				#$json->setEvent('setStep', $step+1);
+				$json->setEvent('setStep', $step+1);
 				return $json;
 			} else {
 				$this->setupTemplate($request);

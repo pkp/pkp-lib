@@ -36,8 +36,8 @@ class DBDataXMLParser {
 	 * If the connection is not set, the default system database connection will be used.
 	 * @param $dbconn ADOConnection the database connection
 	 */
-	function setDBConn(&$dbconn) {
-		$this->dbconn =& $dbconn;
+	function setDBConn($dbconn) {
+		$this->dbconn = $dbconn;
 	}
 
 	/**

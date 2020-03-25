@@ -59,12 +59,6 @@ class DBDataXMLParser {
 				// Match table element
 				foreach ($type->getChildren() as $row) {
 					switch ($row->getName()) {
-						case 'field_default':
-							// Match a default field element
-							list($fieldName, $value) = $this->_getFieldData($row);
-							$fieldDefaultValues[$fieldName] = $value;
-							break;
-
 						case 'row':
 							// Match a row element
 							$fieldValues = array();

@@ -36,6 +36,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
+		
 	}
 
 	/**
@@ -105,6 +106,12 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		if ($viewReviewGuidelinesAction->getGuidelines()) {
 			$templateMgr->assign('viewGuidelinesAction', $viewReviewGuidelinesAction);
 		}
+
+		$router = $request->getRouter();
+		import('lib.pkp.classes.linkAction.request.AjaxAction');
+		$saveForLaterLinkAction = new LinkAction('saveForLater', new AjaxAction($router->url($request, null, 'reviewer', 'saveForm', $reviewAssignment->getSubmissionId(), array('showSaveForLaterNotification' => true))), __('reviewer.saveForLater'), null);
+		$templateMgr->assign('saveForLaterLinkAction', $saveForLaterLinkAction);
+
 		return parent::fetch($request, $template, $display);
 	}
 
@@ -114,6 +121,115 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	function execute(...$functionParams) {
 		$reviewAssignment = $this->getReviewAssignment();
 		$notificationMgr = new NotificationManager();
+		error_log("execute");
+		error_log(print_r($this->_data, true));
+
+		// Save the answers to the review form
+		$this->saveReviewForm($reviewAssignment);
+
+		// Send notification
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
+		$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
+
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId());
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$receivedList = array(); // Avoid sending twice to the same user.
+
+		while ($stageAssignment = $stageAssignments->next()) {
+			$userId = $stageAssignment->getUserId();
+			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $submission->getContextId());
+
+			// Never send reviewer comment notification to users other than mangers and editors.
+			if (!in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR)) || in_array($userId, $receivedList)) continue;
+
+			$notificationMgr->createNotification(
+				Application::get()->getRequest(), $userId, NOTIFICATION_TYPE_REVIEWER_COMMENT,
+				$submission->getContextId(), ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment->getId()
+			);
+
+			$receivedList[] = $userId;
+		}
+
+		// Set review to next step.
+		#$this->updateReviewStepAndSaveSubmission($this->getReviewerSubmission());
+
+		// Mark the review assignment as completed.
+		#$reviewAssignment->setDateCompleted(Core::getCurrentDate());
+		$reviewAssignment->stampModified();
+
+		// assign the recommendation to the review assignment, if there was one.
+		#$reviewAssignment->setRecommendation((int) $this->getData('recommendation'));
+
+		/*
+
+		// Persist the updated review assignment.
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO 
+		$reviewAssignmentDao->updateObject($reviewAssignment);
+
+		// Remove the task
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO 
+		$notificationDao->deleteByAssoc(
+			ASSOC_TYPE_REVIEW_ASSIGNMENT,
+			$reviewAssignment->getId(),
+			$reviewAssignment->getReviewerId(),
+			NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
+		);
+
+		// Add log
+		import('lib.pkp.classes.log.SubmissionLog');
+		import('classes.log.SubmissionEventLogEntry');
+
+
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO 
+		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
+		$request = Application::get()->getRequest();
+		SubmissionLog::logEvent(
+			$request,
+			$submission,
+			SUBMISSION_LOG_REVIEW_READY,
+			'log.review.reviewReady',
+			array(
+				'reviewAssignmentId' => $reviewAssignment->getId(),
+				'reviewerName' => $reviewer->getFullName(),
+				'submissionId' => $reviewAssignment->getSubmissionId(),
+				'round' => $reviewAssignment->getRound()
+			)
+		);
+
+		*/
+
+		parent::execute(...$functionParams);
+	}
+
+	/**
+	 * Save the given answers for later
+	 */
+	function saveForLater() {
+		$reviewAssignment = $this->getReviewAssignment();
+		$notificationMgr = new NotificationManager();
+		error_log("saveForLater");
+		error_log(print_r($this->_data, true));
+
+		// Save the answers to the review form
+		$this->saveReviewForm($reviewAssignment);
+
+		// Mark the review assignment as modified.
+		$reviewAssignment->stampModified();
+
+		// Persist the updated review assignment.
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+		$reviewAssignmentDao->updateObject($reviewAssignment);
+		
+		return true;
+	}
+
+	/**
+	 * Save the given answers to the review form 
+	 * @param $reviewAssignment ReviewAssignment
+	 */
+	function saveReviewForm($reviewAssignment) {
+		error_log("saveReviewForm");
 		if ($reviewAssignment->getReviewFormId()) {
 			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /* @var $reviewFormResponseDao ReviewFormResponseDAO */
 			$reviewFormResponses = $this->getData('reviewFormResponses');
@@ -150,12 +266,19 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 					$reviewFormResponseDao->insertObject($reviewFormResponse);
 				}
 			}
-		} else {
+		} else {			
 			// No review form configured. Use the default form.
 			if (strlen($comments = $this->getData('comments'))>0) {
+				error_log("BINGO!");
 				// Create a comment with the review.
 				$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
-				$comment = $submissionCommentDao->newDataObject();
+				$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), true);
+				$comment = $submissionComments->next();
+
+				if (!isset($comment)) {
+					$comment = $submissionCommentDao->newDataObject();
+				}
+
 				$comment->setCommentType(COMMENT_TYPE_PEER_REVIEW);
 				$comment->setRoleId(ROLE_ID_REVIEWER);
 				$comment->setAssocId($reviewAssignment->getId());
@@ -166,15 +289,26 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 				$comment->setViewable(true);
 				$comment->setDatePosted(Core::getCurrentDate());
 
-				// Persist the comment.
-				$submissionCommentDao->insertObject($comment);
+				// Save or update
+				if ($comment->getId() != null) {
+					$submissionCommentDao->updateObject($comment);
+				} else {
+					$submissionCommentDao->insertObject($comment);
+				}
+
 			}
 			unset($comment);
 
 			if (strlen($commentsPrivate = $this->getData('commentsPrivate'))>0) {
 				// Create a comment with the review.
 				$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
-				$comment = $submissionCommentDao->newDataObject();
+				$submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), false);
+				$comment = $submissionCommentsPrivate->next();
+
+				if (!isset($comment)) {
+					$comment = $submissionCommentDao->newDataObject();
+				}
+
 				$comment->setCommentType(COMMENT_TYPE_PEER_REVIEW);
 				$comment->setRoleId(ROLE_ID_REVIEWER);
 				$comment->setAssocId($reviewAssignment->getId());
@@ -185,82 +319,16 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 				$comment->setViewable(false);
 				$comment->setDatePosted(Core::getCurrentDate());
 
-				// Persist the comment.
-				$submissionCommentDao->insertObject($comment);
+				// Save or update
+				if ($comment->getId() != null) {
+					$submissionCommentDao->updateObject($comment);
+				} else {
+					$submissionCommentDao->insertObject($comment);
+				}
+
 			}
 			unset($comment);
-
 		}
-
-		// Send notification
-		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
-
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId());
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$receivedList = array(); // Avoid sending twice to the same user.
-
-		while ($stageAssignment = $stageAssignments->next()) {
-			$userId = $stageAssignment->getUserId();
-			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $submission->getContextId());
-
-			// Never send reviewer comment notification to users other than mangers and editors.
-			if (!in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR)) || in_array($userId, $receivedList)) continue;
-
-			$notificationMgr->createNotification(
-				Application::get()->getRequest(), $userId, NOTIFICATION_TYPE_REVIEWER_COMMENT,
-				$submission->getContextId(), ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment->getId()
-			);
-
-			$receivedList[] = $userId;
-		}
-
-		// Set review to next step.
-		$this->updateReviewStepAndSaveSubmission($this->getReviewerSubmission());
-
-		// Mark the review assignment as completed.
-		$reviewAssignment->setDateCompleted(Core::getCurrentDate());
-		$reviewAssignment->stampModified();
-
-		// assign the recommendation to the review assignment, if there was one.
-		$reviewAssignment->setRecommendation((int) $this->getData('recommendation'));
-
-		// Persist the updated review assignment.
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-		$reviewAssignmentDao->updateObject($reviewAssignment);
-
-		// Remove the task
-		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-		$notificationDao->deleteByAssoc(
-			ASSOC_TYPE_REVIEW_ASSIGNMENT,
-			$reviewAssignment->getId(),
-			$reviewAssignment->getReviewerId(),
-			NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
-		);
-
-		// Add log
-		import('lib.pkp.classes.log.SubmissionLog');
-		import('classes.log.SubmissionEventLogEntry');
-
-
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
-		$request = Application::get()->getRequest();
-		SubmissionLog::logEvent(
-			$request,
-			$submission,
-			SUBMISSION_LOG_REVIEW_READY,
-			'log.review.reviewReady',
-			array(
-				'reviewAssignmentId' => $reviewAssignment->getId(),
-				'reviewerName' => $reviewer->getFullName(),
-				'submissionId' => $reviewAssignment->getSubmissionId(),
-				'round' => $reviewAssignment->getRound()
-			)
-		);
-
-		parent::execute(...$functionParams);
 	}
 }
 

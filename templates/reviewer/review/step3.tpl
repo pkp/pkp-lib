@@ -37,10 +37,10 @@
 		{if $reviewForm}
 			{include file="reviewer/review/reviewFormResponse.tpl"}
 		{else}
-			{fbvFormSection}
+			{fbvFormSection label="submission.comments.canShareWithAuthor"}
 				{fbvElement type="textarea" id="comments" name="comments" value=$comments readonly=$reviewIsClosed label="submission.comments.canShareWithAuthor" rich=true}
 			{/fbvFormSection}
-			{fbvFormSection}
+			{fbvFormSection label="submission.comments.cannotShareWithAuthor"}
 				{fbvElement type="textarea" id="commentsPrivate" name="commentsPrivate" value=$commentsPrivate readonly=$reviewIsClosed label="submission.comments.cannotShareWithAuthor" rich=true}
 			{/fbvFormSection}
 		{/if}
@@ -56,6 +56,13 @@
 	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}	
 
 	{$additionalFormFields}	
+	
+	{fbvFormSection}
+		{fbvElement type="submit" id="saveForLater" name="saveForLater" value="1" label="common.save"}
+		<span id="saveForLaterLinkAction" class="pkp_linkActions">
+			{include file="linkAction/linkAction.tpl" action=$saveForLaterLinkAction}
+		</span>
+	{/fbvFormSection}
 
 	{capture assign="cancelUrl"}{url page="reviewer" op="submission" path=$submission->getId() step=2 escape=false}{/capture}
 	{fbvFormButtons submitText="reviewer.submission.submitReview" confirmSubmit="reviewer.confirmSubmit" cancelText="navigation.goBack" cancelUrl=$cancelUrl cancelUrlTarget="_self" submitDisabled=$reviewIsClosed}

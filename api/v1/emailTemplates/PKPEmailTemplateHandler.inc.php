@@ -131,7 +131,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 			$items[] = Services::get('emailTemplate')->getSummaryProperties($emailTemplate, [
 				'slimRequest' => $slimRequest,
 				'request' => $request,
-				'supportedLocales' => $request->getContext()->getData('supportedLocales'),
+				'supportedLocales' => $request->getContext()->getData('supportedFormLocales'),
 			]);
 		}
 
@@ -164,7 +164,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$data = Services::get('emailTemplate')->getFullProperties($emailTemplate, [
 			'slimRequest' => $slimRequest,
 			'request' => $request,
-			'supportedLocales' => $request->getContext()->getData('supportedLocales'),
+			'supportedLocales' => $request->getContext()->getData('supportedFormLocales'),
 		]);
 
 		return $response->withJson($data, 200);
@@ -190,7 +190,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 		}
 
 		$primaryLocale = $requestContext->getData('primaryLocale');
-		$allowedLocales = $requestContext->getData('supportedLocales');
+		$allowedLocales = $requestContext->getData('supportedFormLocales');
 		$errors = Services::get('emailTemplate')->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
 		if (!empty($errors)) {
@@ -204,7 +204,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$data = Services::get('emailTemplate')->getFullProperties($emailTemplate, [
 			'slimRequest' => $slimRequest,
 			'request' => $request,
-			'supportedLocales' => $requestContext->getData('supportedLocales'),
+			'supportedLocales' => $requestContext->getData('supportedFormLocales'),
 		]);
 
 		return $response->withJson($data, 200);
@@ -246,7 +246,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$errors = Services::get('emailTemplate')->validate(
 			VALIDATE_ACTION_EDIT,
 			$params,
-			$requestContext->getData('supportedLocales'),
+			$requestContext->getData('supportedFormLocales'),
 			$requestContext->getData('primaryLocale')
 		);
 
@@ -259,7 +259,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$data = Services::get('emailTemplate')->getFullProperties($emailTemplate, [
 			'slimRequest' => $slimRequest,
 			'request' => $request,
-			'supportedLocales' => $requestContext->getData('supportedLocales'),
+			'supportedLocales' => $requestContext->getData('supportedFormLocales'),
 		]);
 
 		return $response->withJson($data, 200);
@@ -288,7 +288,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$emailTemplateProps = Services::get('emailTemplate')->getFullProperties($emailTemplate, [
 			'slimRequest' => $slimRequest,
 			'request' => $request,
-			'supportedLocales' => $requestContext->getData('supportedLocales'),
+			'supportedLocales' => $requestContext->getData('supportedFormLocales'),
 		]);
 
 		Services::get('emailTemplate')->delete($emailTemplate);

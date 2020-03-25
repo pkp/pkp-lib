@@ -12,9 +12,6 @@
   -->
 <data>
 	<table name="mytable">
-		<field_default name="default_col">MY_DEFAULT</field_default>
-		<field_default name="notnullable_default_col" null="0" />
-		<field_default name="nullable_default_col" null="1" />
 		<row>
 			<field name="notnullable_col" null="0" />
 			<field name="nullable_col" null="1" />

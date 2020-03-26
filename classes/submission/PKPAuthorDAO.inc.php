@@ -89,32 +89,6 @@ abstract class PKPAuthorDAO extends SchemaDAO {
 	}
 
 	/**
-	 * Retrieve the primary author for a submission.
-	 * @param $submissionId int Submission ID.
-	 * @return Author
-	 */
-	function getPrimaryContact($submissionId) {
-		$params = array((int) $submissionId);
-
-		$result = $this->retrieve(
-			'SELECT a.*, ug.show_title, s.locale
-			FROM authors a
-				JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
-				JOIN submissions s ON (s.submission_id = a.submission_id)
-			WHERE a.submission_id = ?'
-			. ' AND a.primary_contact = 1',
-			$params
-		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
-	}
-
-	/**
 	 * Update author names when publication locale changes.
 	 * @param $publicationId int
 	 * @param $oldLocale string

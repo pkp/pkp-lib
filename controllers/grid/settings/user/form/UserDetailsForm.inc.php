@@ -63,7 +63,7 @@ class UserDetailsForm extends UserForm {
 			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$this->user = $userDao->getById($userId);
 
-			$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', function($password) use ($form, $site) {
+			$this->addCheck(new FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordLengthRestriction', function($password) use ($form, $site) {
 				return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
 			}, array(), false, array('length' => $site->getMinPasswordLength())));
 			$this->addCheck(new FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordsDoNotMatch', function($password) use ($form) {

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2020-02-13 12:28+0000\n"
+"PO-Revision-Date: 2020-03-27 12:37+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "es/>\n"
@@ -93,10 +93,11 @@ msgid "editor.review.uploadRevision"
 msgstr "Subir revisión"
 
 msgid "editor.review.NotifyAuthorRevisions"
-msgstr "Notificar al autor/a de la necesidad de revisiones."
+msgstr ""
+"Las revisiones no estarán sujetas a una nueva ronda de revisión por pares."
 
 msgid "editor.review.NotifyAuthorResubmit"
-msgstr "Notificar al autor/a de la necesidad de revisiones que se someterán a otra ronda de revisión por pares."
+msgstr "Las revisiones estarán sujetas a una nueva ronda de revisión por pares."
 
 msgid "editor.review.dateAccepted"
 msgstr "Fecha de aprobación de la revisión"
@@ -339,8 +340,7 @@ msgid "editor.review.rateReviewer.description"
 msgstr "Evalúe la calidad de la revisión proporcionada. Esta evaluación no se compartirá con el revisor/a."
 
 msgid "editor.review.reviewerRating.none"
-msgstr "Sin evaluar"
-
+msgstr "Sin evaluaciones"
 
 msgid "editor.submissionReview.recordRecommendation"
 msgstr "Registrar recomendación editorial"
@@ -449,10 +449,10 @@ msgid "editor.submission.workflowDecision.submission.underReview"
 msgstr "Envío aceptado para revisión."
 
 msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Enviar a producción."
+msgstr "Enviado a producción."
 
 msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Enviar para una nueva ronda de revisiones."
+msgstr "Enviado a una nueva ronda de revisiones."
 
 msgid "editor.submission.workflowDecision.submission.published"
 msgstr "Envío publicado."

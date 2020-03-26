@@ -96,12 +96,12 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="6"/>
 		</field>
-		<field name="installed_locales" type="C2" size="255">
+		<field name="installed_locales" type="C2" size="1024">
 			<NOTNULL/>
 			<DEFAULT VALUE="en_US"/>
 			<descr>Locales for which support has been installed.</descr>
 		</field>
-		<field name="supported_locales" type="C2" size="255">
+		<field name="supported_locales" type="C2" size="1024">
 			<descr>Locales supported by the site (for hosted journals/conferences/...).</descr>
 		</field>
 		<field name="original_style_file_name" type="C2" size="255"/>

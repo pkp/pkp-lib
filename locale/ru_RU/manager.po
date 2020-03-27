@@ -1808,6 +1808,9 @@ msgstr "Информация о категории"
 msgid "stats.allUsers"
 msgstr "Все пользователи"
 
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/год)"
+
 msgid "stats.daily"
 msgstr "Ежедневно"
 

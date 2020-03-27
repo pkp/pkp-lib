@@ -65,10 +65,12 @@
 
 		var $formElement = this.getHtmlElement(),
 				$recommendationElement = $formElement.find('[id^="recommendation"]');
-		if (submitButton.id.includes("submitFormButton-")) {
-			$recommendationElement.attr('required', '1');
-		} else {
-			$recommendationElement.removeAttr('required');
+		if ($recommendationElement.length){
+			if (submitButton.id.includes("submitFormButton-")) {
+				$recommendationElement.attr('required', '1');
+			} else {
+				$recommendationElement.removeAttr('required');
+			}
 		}
 		return true;
 	};

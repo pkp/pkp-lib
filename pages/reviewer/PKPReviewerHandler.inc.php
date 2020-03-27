@@ -69,10 +69,7 @@ class PKPReviewerHandler extends Handler {
 		if ($step < 1 || $step > 4) fatalError('Invalid step!');
 
 		if ($step < 4) {
-			$formClass = "ReviewerReviewStep{$step}Form";
-			import("lib.pkp.classes.submission.reviewer.form.$formClass");
-
-			$reviewerForm = new $formClass($request, $reviewerSubmission, $reviewAssignment);
+			$reviewerForm = $this->getReviewForm($step, $request, $reviewerSubmission, $reviewAssignment);
 			$reviewerForm->initData();
 			return new JSONMessage(true, $reviewerForm->fetch($request));
 		} else {
@@ -101,10 +98,7 @@ class PKPReviewerHandler extends Handler {
 		$reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
 		assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
 
-		$formClass = "ReviewerReviewStep{$step}Form";
-		import("lib.pkp.classes.submission.reviewer.form.$formClass");
-
-		$reviewerForm = new $formClass($request, $reviewerSubmission, $reviewAssignment);
+		$reviewerForm = $this->getReviewForm($step, $request, $reviewerSubmission, $reviewAssignment);
 		$reviewerForm->readInputData();
 
 		// Save the available form data, but do not submit
@@ -192,6 +186,26 @@ class PKPReviewerHandler extends Handler {
 		);
 	}
 
+	/**
+	 * Get a review form for the current step.
+	 * @param $step int current step
+	 * @param $request PKPRequest
+	 * @param $reviewerSubmission ReviewerSubmission
+	 * @param $reviewAssignment ReviewAssignment
+	 */
+	public function getReviewForm($step, $request, $reviewerSubmission, $reviewAssignment) {
+	    switch ($step) {
+	        case 1:
+	        	import("lib.pkp.classes.submission.reviewer.form.PKPReviewerReviewStep1Form"); 
+	        	return new PKPReviewerReviewStep1Form($request, $reviewerSubmission, $reviewAssignment);
+	        case 2: 
+	        	import("lib.pkp.classes.submission.reviewer.form.PKPReviewerReviewStep2Form");
+	        	return new PKPReviewerReviewStep2Form($request, $reviewerSubmission, $reviewAssignment);
+	        case 3: 
+	        	import("lib.pkp.classes.submission.reviewer.form.PKPReviewerReviewStep3Form");
+	        	return new PKPReviewerReviewStep3Form($request, $reviewerSubmission, $reviewAssignment);
+	    }
+	}
 
 	//
 	// Private helper methods

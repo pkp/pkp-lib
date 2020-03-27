@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/submission/reviewer/form/ReviewerReviewStep1Form.inc.php
+ * @file classes/submission/reviewer/form/PKPReviewerReviewStep1Form.inc.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ReviewerReviewStep1Form
+ * @class PKPReviewerReviewStep1Form
  * @ingroup submission_reviewer_form
  *
  * @brief Form for Step 1 of a review.
@@ -15,7 +15,7 @@
 
 import('lib.pkp.classes.submission.reviewer.form.ReviewerReviewForm');
 
-class ReviewerReviewStep1Form extends ReviewerReviewForm {
+class PKPReviewerReviewStep1Form extends ReviewerReviewForm {
 	/**
 	 * Constructor.
 	 * @param $request PKPRequest

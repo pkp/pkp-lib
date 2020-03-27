@@ -1479,7 +1479,7 @@ msgid "notification.type.editorDecisionResubmit"
 msgstr "Resubmit for review."
 
 msgid "notification.type.editorDecisionNewRound"
-msgstr "New review round."
+msgstr "A new round of reviews was initiated."
 
 msgid "notification.type.editorDecisionDecline"
 msgstr "Submission declined."

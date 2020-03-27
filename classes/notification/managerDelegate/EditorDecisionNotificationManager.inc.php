@@ -40,6 +40,8 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 				return __('notification.type.editorDecisionPendingRevisions');
 			case NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT:
 				return __('notification.type.editorDecisionResubmit');
+			case NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND:
+				return __('notification.type.editorDecisionNewRound');
 			case NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE:
 				return __('notification.type.editorDecisionDecline');
 			case NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION:
@@ -116,6 +118,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 			case NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW:
 			case NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS:
 			case NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT:
+			case NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND:
 			case NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE:
 			case NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION:
 				$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
@@ -141,6 +144,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 			NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW,
 			NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS,
 			NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT,
+			NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND,
 			NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE,
 			NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION
 		);

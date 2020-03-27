@@ -1331,6 +1331,9 @@ msgstr "Request Revisions"
 msgid "editor.submission.decision.resubmit"
 msgstr "Resubmit for Review"
 
+msgid "editor.submission.decision.newRound"
+msgstr "New review round"
+
 msgid "editor.submission.decision.decline"
 msgstr "Decline Submission"
 
@@ -1474,6 +1477,9 @@ msgstr "Revision required."
 
 msgid "notification.type.editorDecisionResubmit"
 msgstr "Resubmit for review."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "New review round."
 
 msgid "notification.type.editorDecisionDecline"
 msgstr "Submission declined."

@@ -34,10 +34,6 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm {
 			return true;
 		}));
 
-		$this->addCheck(new FormValidatorCustom($this, 'recommendation', 'required', 'reviewer.submission.reviewFormResponse.form.recommendationRequired', function($recommendation) {
-			return isset($recommendation);
-		}));
-
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 		

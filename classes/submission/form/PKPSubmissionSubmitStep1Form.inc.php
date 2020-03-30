@@ -247,7 +247,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 				$queryDao->resequence(ASSOC_TYPE_SUBMISSION, $submissionId);
 				$queryId = $query->getId();
 
-				$userIds = array_keys([$userId => null] + $subEditorsDAO->getBySectionId($this->submission->getSectionId(), $this->submission->getContextId()));
+				$userIds = array_keys([$userId => null] + $subEditorsDAO->getBySubmissionGroupId($this->submission->getSectionId(), ASSOC_TYPE_SECTION, $this->submission->getContextId()));
 				foreach (array_unique($userIds) as $id) {
 					$queryDao->insertParticipant($queryId, $id);
 				}

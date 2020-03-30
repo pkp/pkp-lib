@@ -139,7 +139,7 @@ class SubEditorsDAO extends DAO {
 	 */
 	function editorExists($contextId, $assocId, $userId, $assocType) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*) FROM section_editors WHERE context_id = ? AND section_id = ? AND user_id = ? AND assoc_id = ?',
+			'SELECT COUNT(*) FROM subeditor_submission_group WHERE context_id = ? AND section_id = ? AND user_id = ? AND assoc_id = ?',
 			array((int) $contextId, (int) $assocId, (int) $userId, (int) $assocType)
 		);
 		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;

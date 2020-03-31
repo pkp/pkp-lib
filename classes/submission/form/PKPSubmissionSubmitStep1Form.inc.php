@@ -158,7 +158,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		if (isset($this->submission)) {
 			$categories = $categoryDao->getByPublicationId($this->submission->getCurrentPublication()->getId());
 			while ($category = $categories->next()) {
-				$assignedCategories[] = $assignedCategory->getId();
+				$assignedCategories[] = $category->getId();
 			}
 		}
 

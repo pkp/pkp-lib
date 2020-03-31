@@ -136,12 +136,13 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	}
 
 	/**
-	 * Copies an existing ArticleFile and renames it.
+	 * Copies an existing SubmissionFile and renames it.
 	 * @param $sourceFileId int
 	 * @param $sourceRevision int
 	 * @param $fileStage int
 	 * @param $destFileId int (optional)
 	 * @param $viewable boolean (optional)
+	 * @return array? array(file_id, revision) on success; null on failure
 	 */
 	function copyFileToFileStage($sourceFileId, $sourceRevision, $newFileStage, $destFileId = null, $viewable = false) {
 		if (HookRegistry::call('SubmissionFileManager::copyFileToFileStage', array(&$sourceFileId, &$sourceRevision, &$newFileStage, &$destFileId, &$result))) return $result;
@@ -181,7 +182,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		// Now insert the row into the DB and get the inserted file id.
 		$insertedFile = $submissionFileDao->insertObject($destFile, $sourcePath);
 
-		return array($insertedFile->getFileId(), $insertedFile->getRevision());
+		return $insertedFile ? array($insertedFile->getFileId(), $insertedFile->getRevision()) : null;
 	}
 
 	//

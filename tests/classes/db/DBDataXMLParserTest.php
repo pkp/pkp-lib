@@ -51,8 +51,8 @@ class DBDataXMLParserTest extends DatabaseTestCase {
 		$dataXMLParser->setDBConn(DBConnection::getConn());
 		$sql = $dataXMLParser->parseData(dirname(__FILE__) . '/data-table.xml');
 		$this->assertEquals(array(
-			'INSERT INTO mytable (default_col, notnullable_default_col, nullable_default_col, notnullable_col, nullable_col, normal_col) VALUES (\'MY_DEFAULT\', \'\', NULL, \'\', NULL, \'MY_VALUE_1\')',
-			'INSERT INTO mytable (default_col, notnullable_default_col, nullable_default_col, notnullable_col, nullable_col, normal_col) VALUES (\'DEFAULT_OVERRIDDEN\', \'\', NULL, \'\', NULL, \'MY_VALUE_2\')'
+			'INSERT INTO mytable (notnullable_col, nullable_col, normal_col) VALUES (\'\', NULL, \'MY_VALUE_1\')',
+			'INSERT INTO mytable (notnullable_col, nullable_col, normal_col, default_col) VALUES (\'\', NULL, \'MY_VALUE_2\', \'DEFAULT_OVERRIDDEN\')'
 		), $sql);
 	}
 

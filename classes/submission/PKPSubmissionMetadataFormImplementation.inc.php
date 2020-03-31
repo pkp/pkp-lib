@@ -227,10 +227,10 @@ class PKPSubmissionMetadataFormImplementation {
 		$submissionLanguageDao->insertLanguages($languages, $submission->getCurrentPublication()->getId());
 		$submissionSubjectDao->insertSubjects($subjects, $submission->getCurrentPublication()->getId());
 
-		// Save the submission categories
+		// Save the submission categories if available
+		if ($categories = $this->_parentForm->getData('categories')) {
 		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 		$categoryDao->deletePublicationAssignments($publication->getId());
-		if ($categories = $this->_parentForm->getData('categories')) {
 			foreach ((array) $categories as $categoryId) {
 				$categoryDao->insertPublicationAssignment($categoryId, $publication->getId());
 			}

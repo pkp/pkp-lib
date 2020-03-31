@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/submission/reviewer/form/ReviewerReviewStep3Form.inc.php
+ * @file classes/submission/reviewer/form/PKPReviewerReviewStep3Form.inc.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ReviewerReviewStep3Form
+ * @class PKPReviewerReviewStep3Form
  * @ingroup submission_reviewer_form
  *
  * @brief Form for Step 3 of a review.
@@ -15,7 +15,7 @@
 
 import('lib.pkp.classes.submission.reviewer.form.ReviewerReviewForm');
 
-class ReviewerReviewStep3Form extends ReviewerReviewForm {
+class PKPReviewerReviewStep3Form extends ReviewerReviewForm {
 	/**
 	 * Constructor.
 	 * @param $reviewerSubmission ReviewerSubmission
@@ -36,6 +36,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
+		
 	}
 
 	/**
@@ -105,6 +106,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		if ($viewReviewGuidelinesAction->getGuidelines()) {
 			$templateMgr->assign('viewGuidelinesAction', $viewReviewGuidelinesAction);
 		}
+
 		return parent::fetch($request, $template, $display);
 	}
 
@@ -114,83 +116,9 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	function execute(...$functionParams) {
 		$reviewAssignment = $this->getReviewAssignment();
 		$notificationMgr = new NotificationManager();
-		if ($reviewAssignment->getReviewFormId()) {
-			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /* @var $reviewFormResponseDao ReviewFormResponseDAO */
-			$reviewFormResponses = $this->getData('reviewFormResponses');
-			if (is_array($reviewFormResponses)) foreach ($reviewFormResponses as $reviewFormElementId => $reviewFormResponseValue) {
-				$reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewAssignment->getId(), $reviewFormElementId);
-				if (!isset($reviewFormResponse)) {
-					$reviewFormResponse = new ReviewFormResponse();
-				}
-				$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
-				$reviewFormElement = $reviewFormElementDao->getById($reviewFormElementId);
-				$elementType = $reviewFormElement->getElementType();
-				switch ($elementType) {
-					case REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD:
-					case REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD:
-					case REVIEW_FORM_ELEMENT_TYPE_TEXTAREA:
-						$reviewFormResponse->setResponseType('string');
-						$reviewFormResponse->setValue($reviewFormResponseValue);
-						break;
-					case REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS:
-					case REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX:
-						$reviewFormResponse->setResponseType('int');
-						$reviewFormResponse->setValue($reviewFormResponseValue);
-						break;
-					case REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES:
-						$reviewFormResponse->setResponseType('object');
-						$reviewFormResponse->setValue($reviewFormResponseValue);
-						break;
-				}
-				if ($reviewFormResponse->getReviewFormElementId() != null && $reviewFormResponse->getReviewId() != null) {
-					$reviewFormResponseDao->updateObject($reviewFormResponse);
-				} else {
-					$reviewFormResponse->setReviewFormElementId($reviewFormElementId);
-					$reviewFormResponse->setReviewId($reviewAssignment->getId());
-					$reviewFormResponseDao->insertObject($reviewFormResponse);
-				}
-			}
-		} else {
-			// No review form configured. Use the default form.
-			if (strlen($comments = $this->getData('comments'))>0) {
-				// Create a comment with the review.
-				$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
-				$comment = $submissionCommentDao->newDataObject();
-				$comment->setCommentType(COMMENT_TYPE_PEER_REVIEW);
-				$comment->setRoleId(ROLE_ID_REVIEWER);
-				$comment->setAssocId($reviewAssignment->getId());
-				$comment->setSubmissionId($reviewAssignment->getSubmissionId());
-				$comment->setAuthorId($reviewAssignment->getReviewerId());
-				$comment->setComments($comments);
-				$comment->setCommentTitle('');
-				$comment->setViewable(true);
-				$comment->setDatePosted(Core::getCurrentDate());
 
-				// Persist the comment.
-				$submissionCommentDao->insertObject($comment);
-			}
-			unset($comment);
-
-			if (strlen($commentsPrivate = $this->getData('commentsPrivate'))>0) {
-				// Create a comment with the review.
-				$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
-				$comment = $submissionCommentDao->newDataObject();
-				$comment->setCommentType(COMMENT_TYPE_PEER_REVIEW);
-				$comment->setRoleId(ROLE_ID_REVIEWER);
-				$comment->setAssocId($reviewAssignment->getId());
-				$comment->setSubmissionId($reviewAssignment->getSubmissionId());
-				$comment->setAuthorId($reviewAssignment->getReviewerId());
-				$comment->setComments($commentsPrivate);
-				$comment->setCommentTitle('');
-				$comment->setViewable(false);
-				$comment->setDatePosted(Core::getCurrentDate());
-
-				// Persist the comment.
-				$submissionCommentDao->insertObject($comment);
-			}
-			unset($comment);
-
-		}
+		// Save the answers to the review form
+		$this->saveReviewForm($reviewAssignment);
 
 		// Send notification
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
@@ -243,7 +171,6 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		import('lib.pkp.classes.log.SubmissionLog');
 		import('classes.log.SubmissionEventLogEntry');
 
-
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
 		$request = Application::get()->getRequest();
@@ -261,6 +188,134 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		);
 
 		parent::execute(...$functionParams);
+	}
+
+	/**
+	 * Save the given answers for later
+	 */
+	function saveForLater() {
+		$reviewAssignment = $this->getReviewAssignment();
+		$notificationMgr = new NotificationManager();
+
+		// Save the answers to the review form
+		$this->saveReviewForm($reviewAssignment);
+
+		// Mark the review assignment as modified.
+		$reviewAssignment->stampModified();
+
+		// save the recommendation to the review assignment
+		$reviewAssignment->setRecommendation((int) $this->getData('recommendation'));
+
+		// Persist the updated review assignment.
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+		$reviewAssignmentDao->updateObject($reviewAssignment);
+		
+		return true;
+	}
+
+	/**
+	 * Save the given answers to the review form 
+	 * @param $reviewAssignment ReviewAssignment
+	 */
+	function saveReviewForm($reviewAssignment) {
+		if ($reviewAssignment->getReviewFormId()) {
+			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /* @var $reviewFormResponseDao ReviewFormResponseDAO */
+			$reviewFormResponses = $this->getData('reviewFormResponses');
+			if (is_array($reviewFormResponses)) foreach ($reviewFormResponses as $reviewFormElementId => $reviewFormResponseValue) {
+				$reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewAssignment->getId(), $reviewFormElementId);
+				if (!isset($reviewFormResponse)) {
+					$reviewFormResponse = new ReviewFormResponse();
+				}
+				$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
+				$reviewFormElement = $reviewFormElementDao->getById($reviewFormElementId);
+				$elementType = $reviewFormElement->getElementType();
+				switch ($elementType) {
+					case REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD:
+					case REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD:
+					case REVIEW_FORM_ELEMENT_TYPE_TEXTAREA:
+						$reviewFormResponse->setResponseType('string');
+						$reviewFormResponse->setValue($reviewFormResponseValue);
+						break;
+					case REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS:
+					case REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX:
+						$reviewFormResponse->setResponseType('int');
+						$reviewFormResponse->setValue($reviewFormResponseValue);
+						break;
+					case REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES:
+						$reviewFormResponse->setResponseType('object');
+						$reviewFormResponse->setValue($reviewFormResponseValue);
+						break;
+				}
+				if ($reviewFormResponse->getReviewFormElementId() != null && $reviewFormResponse->getReviewId() != null) {
+					$reviewFormResponseDao->updateObject($reviewFormResponse);
+				} else {
+					$reviewFormResponse->setReviewFormElementId($reviewFormElementId);
+					$reviewFormResponse->setReviewId($reviewAssignment->getId());
+					$reviewFormResponseDao->insertObject($reviewFormResponse);
+				}
+			}
+		} else {			
+			// No review form configured. Use the default form.
+			if (strlen($comments = $this->getData('comments'))>0) {
+				// Create a comment with the review.
+				$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
+				$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), true);
+				$comment = $submissionComments->next();
+
+				if (!isset($comment)) {
+					$comment = $submissionCommentDao->newDataObject();
+				}
+
+				$comment->setCommentType(COMMENT_TYPE_PEER_REVIEW);
+				$comment->setRoleId(ROLE_ID_REVIEWER);
+				$comment->setAssocId($reviewAssignment->getId());
+				$comment->setSubmissionId($reviewAssignment->getSubmissionId());
+				$comment->setAuthorId($reviewAssignment->getReviewerId());
+				$comment->setComments($comments);
+				$comment->setCommentTitle('');
+				$comment->setViewable(true);
+				$comment->setDatePosted(Core::getCurrentDate());
+
+				// Save or update
+				if ($comment->getId() != null) {
+					$submissionCommentDao->updateObject($comment);
+				} else {
+					$submissionCommentDao->insertObject($comment);
+				}
+
+			}
+			unset($comment);
+
+			if (strlen($commentsPrivate = $this->getData('commentsPrivate'))>0) {
+				// Create a comment with the review.
+				$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
+				$submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), false);
+				$comment = $submissionCommentsPrivate->next();
+
+				if (!isset($comment)) {
+					$comment = $submissionCommentDao->newDataObject();
+				}
+
+				$comment->setCommentType(COMMENT_TYPE_PEER_REVIEW);
+				$comment->setRoleId(ROLE_ID_REVIEWER);
+				$comment->setAssocId($reviewAssignment->getId());
+				$comment->setSubmissionId($reviewAssignment->getSubmissionId());
+				$comment->setAuthorId($reviewAssignment->getReviewerId());
+				$comment->setComments($commentsPrivate);
+				$comment->setCommentTitle('');
+				$comment->setViewable(false);
+				$comment->setDatePosted(Core::getCurrentDate());
+
+				// Save or update
+				if ($comment->getId() != null) {
+					$submissionCommentDao->updateObject($comment);
+				} else {
+					$submissionCommentDao->insertObject($comment);
+				}
+
+			}
+			unset($comment);
+		}
 	}
 }
 

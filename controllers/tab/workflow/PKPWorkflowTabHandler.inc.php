@@ -106,7 +106,7 @@ abstract class PKPWorkflowTabHandler extends Handler {
 								'modals.editorDecision.EditorDecisionHandler',
 								'newReviewRound', null, array(
 									'submissionId' => $submission->getId(),
-									'decision' => SUBMISSION_EDITOR_DECISION_RESUBMIT,
+									'decision' => SUBMISSION_EDITOR_DECISION_NEW_ROUND,
 									'stageId' => $selectedStageId,
 									'reviewRoundId' => $lastReviewRoundId
 								)

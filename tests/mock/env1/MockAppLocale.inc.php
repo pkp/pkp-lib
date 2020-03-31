@@ -72,7 +72,7 @@ class AppLocale extends PKPLocale {
 	 * @param $locale string the locale to use
 	 * @return string
 	 */
-	static function translate($key, $params = array(), $locale = null) {
+	static function translate($key, $params = array(), $locale = null, $missingKeyHandler = array()) {
 		if (isset(self::$translations[$key])) {
 			return self::$translations[$key];
 		}

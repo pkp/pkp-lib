@@ -33,6 +33,7 @@
 import('lib.pkp.classes.db.DAO');
 import('lib.pkp.classes.submission.Genre'); // GENRE_CATEGORY_... constants
 import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
+import('lib.pkp.classes.submission.SubmissionFile');
 
 class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	/**

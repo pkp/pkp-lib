@@ -1338,6 +1338,9 @@ msgstr "Запросить новые версии"
 msgid "editor.submission.decision.resubmit"
 msgstr "Отправить повторно на рецензию"
 
+msgid "editor.submission.decision.newRound"
+msgstr "Новый раунд рецензирования"
+
 msgid "editor.submission.decision.decline"
 msgstr "Отклонить материал"
 
@@ -1480,7 +1483,10 @@ msgid "notification.type.editorDecisionPendingRevisions"
 msgstr "Требуется новая версия материала."
 
 msgid "notification.type.editorDecisionResubmit"
-msgstr "Повторно отправить а рецензирование."
+msgstr "Повторно отправить на рецензирование."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Начат новый раунд рецензирования."
 
 msgid "notification.type.editorDecisionDecline"
 msgstr "Материал отклонен."

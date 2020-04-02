@@ -283,39 +283,6 @@ class PreprintHandler extends Handler {
 	}
 
 	/**
-	 * Download a supplementary file.
-	 * For deprecated OJS 2.x URLs; see https://github.com/pkp/pkp-lib/issues/1541
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function downloadSuppFile($args, $request) {
-		$preprintId = isset($args[0]) ? $args[0] : 0;
-		$preprint = Services::get('submission')->get($preprintId);
-		if (!$preprint) {
-			$dispatcher = $request->getDispatcher();
-			$dispatcher->handle404();
-		}
-		$suppId = isset($args[1]) ? $args[1] : 0;
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-		$submissionFiles = $submissionFileDao->getBySubmissionId($preprintId);
-		foreach ($submissionFiles as $submissionFile) {
-			if ($submissionFile->getData('old-supp-id') == $suppId) {
-				$preprintGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
-				$preprintGalleys = $preprintGalleyDao->getByPublicationId($preprint->getCurrentPublication()->getId());
-				while ($preprintGalley = $preprintGalleys->next()) {
-					$galleyFile = $preprintGalley->getFile();
-					if ($galleyFile && $galleyFile->getFileId() == $submissionFile->getFileId()) {
-						header('HTTP/1.1 301 Moved Permanently');
-						$request->redirect(null, null, 'download', array($preprintId, $preprintGalley->getId(), $submissionFile->getFileId()));
-					}
-				}
-			}
-		}
-		$dispatcher = $request->getDispatcher();
-		$dispatcher->handle404();
-	}
-
-	/**
 	 * Download an preprint file
 	 * @param array $args
 	 * @param PKPRequest $request

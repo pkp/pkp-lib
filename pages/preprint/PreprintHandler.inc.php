@@ -299,7 +299,17 @@ class PreprintHandler extends Handler {
 				}
 			}
 
-			if (!$this->fileId || $this->fileId != $this->galley->getFileId()) {
+			// If no file ID could be determined, treat it as a 404.
+			if (!$this->fileId) $request->getDispatcher()->handle404();
+
+			// If the file ID is not the galley's file ID, ensure it is a dependent file, or else 404.
+			if ($this->fileId != $this->galley->getFileId()) {
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+				$dependentFileIds = array_map(
+					function($f) {return $f->getFileId();},
+					$submissionFileDao->getLatestRevisionsByAssocId(ASSOC_TYPE_SUBMISSION_FILE, $this->galley->getFileId(), $this->preprint->getId(), SUBMISSION_FILE_DEPENDENT)
+				);
+				if (!in_array($this->fileId, $dependentFileIds))
 				$request->getDispatcher()->handle404();
 			}
 

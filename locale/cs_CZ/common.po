@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
+"PO-Revision-Date: 2020-04-04 02:09+0000\n"
+"Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/common/cs/"
+">\n"
+"Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:40+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "about.aboutSite"
 msgstr "Podrobnosti o těchto stránkách"
@@ -1536,3 +1539,165 @@ msgstr "Smazat hledaný výraz"
 
 msgid "common.publicAccess"
 msgstr "Veřejný přístup"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Účastník"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Povolit této osobě upravovat podrobnosti vydání."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Oprávnění"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} jazyků dokončeno"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} v {$localeName}"
+
+msgid "form.requireId"
+msgstr "Musíte zadat platné ID."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Toto pole musíte vyplnit v {$language}."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Formulář nelze odeslat. Možná jste byli odhlášeni. Znovu načtěte stránku a "
+"zkuste to znovu."
+
+msgid "form.missingRequired"
+msgstr "Toto pole je povinné."
+
+msgid "form.errorUnknown"
+msgstr ""
+"Vyskytla se neočekávaná chyba. Možná jste byli odhlášeni. Znovu načtěte "
+"stránku a zkuste to znovu."
+
+msgid "form.errors"
+msgstr ""
+"Formulář nebyl uložen, protože došlo k {$count} chybám. Opravte tyto chyby a "
+"zkuste to znovu."
+
+msgid "form.errorMany"
+msgstr "Prosím opravte {$count} chyby."
+
+msgid "form.errorOne"
+msgstr "Prosím opravte jednu chybu."
+
+msgid "form.errorGoTo"
+msgstr "Přejít na další chybu"
+
+msgid "form.errorA11y"
+msgstr "Přejít na {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Nemůžete nahrát žádné další soubory."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Odebrat soubor"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Opravdu chcete toto nahrávání zrušit?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Nahrávání bylo zrušeno"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Zrušit nahrávání"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Server odpověděl kódem {{statusCode}}. Pokud problém přetrvává, kontaktujte "
+"správce systému."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Soubory tohoto typu nelze nahrát."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Soubor je příliš velký ({{filesize}}mb). Nelze nahrát soubory větší než "
+"{{maxFilesize}}mb."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "K nahrání souborů použijte záložní formulář níže."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Váš prohlížeč nepodporuje nahrávání souborů pomocí přetažení."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Pro nahrání souborů je přetáhněte sem"
+
+msgid "form.disallowedProp"
+msgstr "Tato vlastnost není povolena."
+
+msgid "form.disallowedLocales"
+msgstr "Jsou povoleny pouze následující jazyky: {$languages}."
+
+msgid "email.compose.error"
+msgstr ""
+"Při odesílání e-mailové zprávy došlo k potížím. Zkuste to prosím znovu "
+"později nebo se obraťte na správce systému."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Náhled aktuálně vybraného obrázku."
+
+msgid "common.upload.restore"
+msgstr "Obnovit originál"
+
+msgid "common.toWithValue"
+msgstr "Do: {$value}"
+
+msgid "common.submenu"
+msgstr "Podnabídka"
+
+msgid "common.selectedPrefix"
+msgstr "Vybraný:"
+
+msgid "common.removeItem"
+msgstr "Odebrat {$item}"
+
+msgid "common.pagination.previous"
+msgstr "Předchozí strana"
+
+msgid "common.pagination.next"
+msgstr "Další strana"
+
+msgid "common.pagination.goToPage"
+msgstr "Jít na {$page}"
+
+msgid "common.override"
+msgstr "Přepsat"
+
+msgid "common.orderDown"
+msgstr "Snížit pozici o {$ itemTitle}"
+
+msgid "common.orderUp"
+msgstr "Zvýšit pozici o {$itemTitle}"
+
+msgid "common.noTemporaryFile"
+msgstr "Soubor, který jste nahráli, nebyl nalezen. Zkuste ho znovu nahrát."
+
+msgid "common.noItemsFound"
+msgstr "Žádné položky nenalezeny."
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.lastActivity"
+msgstr "Poslední aktivita zaznamenaná dne {$date}."
+
+msgid "common.fromWithValue"
+msgstr "Od: {$value}"
+
+msgid "common.dateDecided"
+msgstr "Datum rozhodnutí"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Popište tento obrázek návštěvníkům, kteří si zobrazují web v textovém "
+"prohlížeči nebo pomocí asistenčních zařízení. Příklad: „Náš redaktor hovoří "
+"na konferenci PKP.“"

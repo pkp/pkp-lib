@@ -73,6 +73,14 @@ class CategoryForm extends Form {
 	}
 
 	/**
+	 * Set the category ID for this section.
+	 * @param $categoryId int
+	 */
+	function setCategoryId($categoryId) {
+		$this->_categoryId = $categoryId;
+	}
+
+	/**
 	 * Get the context id.
 	 * @return int contextId
 	 */
@@ -219,12 +227,15 @@ class CategoryForm extends Form {
 
 		// Update or insert the category object
 		if ($categoryId == null) {
-			$category->setId($categoryDao->insertObject($category));
+			$this->setCategoryId($categoryDao->insertObject($category));
 		} else {
 			$category->setSequence(REALLY_BIG_NUMBER);
 			$categoryDao->updateObject($category);
 			$categoryDao->resequenceCategories($this->getContextId());
 		}
+
+		// Update category editors
+		$this->_saveSubEditors($this->getContextId());
 
 		// Handle the image upload if there was one.
 		if ($temporaryFileId = $this->getData('temporaryFileId')) {
@@ -299,9 +310,6 @@ class CategoryForm extends Form {
 			$temporaryFileManager->deleteById($temporaryFileId, $this->_userId);
 		}
 
-		// Update category editors
-		$this->_saveSubEditors($this->getContextId());
-
 		// Update category object to store image information.
 		$categoryDao->updateObject($category);
 		parent::execute(...$functionArgs);
@@ -371,17 +379,16 @@ class CategoryForm extends Form {
 	 */
 	public function _saveSubEditors($contextId) {
 		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /* @var $subEditorsDao SubEditorsDAO */
-		$subEditorsDao->deleteBySubmissionGroupId($this->getCategoryId(), ASSOC_TYPE_CATEGORY, $contextId);
+		$subEditorsDao->deleteBySubmissionGroupId($this->_categoryId, ASSOC_TYPE_CATEGORY, $contextId);
 		$subEditors = $this->getData('subEditors');
 		if (!empty($subEditors)) {
 			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 			foreach ($subEditors as $subEditor) {
 				if ($roleDao->userHasRole($contextId, $subEditor, ROLE_ID_SUB_EDITOR)) {
-					$subEditorsDao->insertEditor($contextId, $this->getCategoryId(), $subEditor, ASSOC_TYPE_CATEGORY);
+					$subEditorsDao->insertEditor($contextId, $this->_categoryId, $subEditor, ASSOC_TYPE_CATEGORY);
 				}
 			}
 		}
 	}
 }
-
 

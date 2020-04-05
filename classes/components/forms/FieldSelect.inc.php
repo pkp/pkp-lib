@@ -19,12 +19,16 @@ class FieldSelect extends Field {
 	/** @var array The options which can be selected */
 	public $options = [];
 
+	/** @var boolean Is this field disabled? */
+	public $isDisabled = false;
+
 	/**
 	 * @copydoc Field::getConfig()
 	 */
 	public function getConfig() {
 		$config = parent::getConfig();
 		$config['options'] = $this->options;
+		$config['isDisabled'] = $this->isDisabled;
 
 		return $config;
 	}

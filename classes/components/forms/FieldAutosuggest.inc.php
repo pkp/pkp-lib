@@ -26,6 +26,9 @@ class FieldAutosuggest extends Field {
 	/** @var string A URL to retrieve suggestions. */
 	public $suggestionsUrl;
 
+	/** @var boolean Is this field read-only? */
+	public $isReadOnly = false;
+
 	/**
 	 * @copydoc Field::getConfig()
 	 */
@@ -36,6 +39,7 @@ class FieldAutosuggest extends Field {
 		$config['deselectLabel'] = __('common.removeItem');
 		$config['noneLabel'] = __('common.none');
 		$config['selectedLabel'] = __('common.selectedPrefix');
+		$config['isReadOnly'] = $this->isReadOnly;
 
 		return $config;
 	}

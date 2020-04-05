@@ -31,6 +31,9 @@ class FieldText extends Field {
 	/** @var string A prefix to display before the input value */
 	public $prefix = '';
 
+	/** @var boolean Is this field read-only? */
+	public $isReadOnly = false;
+
 	/**
 	 * @copydoc Field::getConfig()
 	 */
@@ -41,6 +44,7 @@ class FieldText extends Field {
 		$config['optIntoEditLabel'] = $this->optIntoEditLabel;
 		$config['size'] = $this->size;
 		$config['prefix'] = $this->prefix;
+		$config['isReadOnly'] = $this->isReadOnly;
 
 		return $config;
 	}

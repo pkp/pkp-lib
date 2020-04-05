@@ -19,6 +19,9 @@ class FieldTextarea extends Field {
 	/** @var string Optional. A preset size option. */
 	public $size;
 
+	/** @var boolean Is this field read-only? */
+	public $isReadOnly = false;
+
 	/**
 	 * @copydoc Field::getConfig()
 	 */
@@ -26,6 +29,10 @@ class FieldTextarea extends Field {
 		$config = parent::getConfig();
 		if (isset($this->size)) {
 			$config['size'] = $this->size;
+		}
+
+		if (isset($this->isReadOnly)) {
+			$config['isReadOnly'] = $this->isReadOnly;
 		}
 
 		return $config;

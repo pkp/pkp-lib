@@ -5,7 +5,8 @@
 	"required": [
 		"locale",
 		"submissionId",
-		"title"
+		"title",
+		"version"
 	],
 	"properties": {
 		"_href": {
@@ -132,6 +133,7 @@
 			"type": "string",
 			"description": "The combined prefix, title and subtitle.",
 			"multilingual": true,
+			"readOnly": true,
 			"apiSummary": true
 		},
 		"id": {
@@ -169,7 +171,11 @@
 		},
 		"licenseUrl": {
 			"type": "string",
-			"description": "A URL to a webpage describing the license terms for this publication."
+			"description": "A URL to a webpage describing the license terms for this publication.",
+			"validation": [
+				"nullable",
+				"url"
+			]
 		},
 		"locale": {
 			"type": "string",
@@ -205,6 +211,13 @@
 			"type": "string",
 			"description": "Optional metadata that describes any rights held over the submission.",
 			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"seq": {
+			"type": "integer",
+			"default": 0,
 			"validation": [
 				"nullable"
 			]
@@ -263,7 +276,10 @@
 		"title": {
 			"type": "string",
 			"multilingual": true,
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"type": {
 			"type": "string",
@@ -273,11 +289,27 @@
 				"nullable"
 			]
 		},
+		"urlPath": {
+			"type": "string",
+			"description": "An optional path to use in the URL instead of the ID.",
+			"validation": [
+				"nullable",
+				"regex:/^[-_a-z0-9]*$/"
+			]
+		},
 		"urlPublished": {
 			"type": "string",
 			"description": "The public URL for this publication or where it will be available if it has not yet been published.",
 			"apiSummary": true,
 			"readOnly": true
+		},
+		"version": {
+			"type": "integer",
+			"description": "The version number of this publication. Version numbers should increment by one so that the third publication of a submission will have the version number `3`. Version numbers should typically be set automatically and editorial staff should not be encouraged to modify them.",
+			"apiSummary": true,
+			"validation": [
+				"min:1"
+			]
 		}
 	}
 }

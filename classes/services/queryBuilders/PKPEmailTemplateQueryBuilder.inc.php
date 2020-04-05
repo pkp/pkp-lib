@@ -2,9 +2,9 @@
 /**
  * @file classes/services/QueryBuilders/PKPEmailTemplateQueryBuilder.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEmailTemplateQueryBuilder
  * @ingroup query_builders
@@ -15,8 +15,9 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
+class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var integer journal or press ID */
 	protected $contextId = null;
@@ -70,7 +71,7 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 	 *
 	 * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
 	 */
-	public function filterByisCustom($isCustom) {
+	public function filterByIsCustom($isCustom) {
 		$this->isCustom = $isCustom;
 		return $this;
 	}
@@ -124,12 +125,53 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Set query limit
+	 *
+	 * @param int $count
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+	 */
+	public function limitTo($count) {
+		$this->limit = $count;
+		return $this;
+	}
+
+	/**
+	 * Set how many results to skip
+	 *
+	 * @param int $offset
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+	 */
+	public function offsetBy($offset) {
+		$this->offset = $offset;
+		return $this;
+	}
+
+	/**
+	 * Do not use this method.
+	 */
+	public function getIds() {
+		throw new \Exception('PKPEmailTemplateQueryBuilder::getIds() is not supported. Email templates should be referenced by key instead of id.');
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+	 */
+	public function getCount() {
+		$compiledQuery = $this->getCompiledQuery();
+		return Capsule::table(Capsule::raw('(' . $compiledQuery[0] . ') as email_template_count'))
+			->setBindings($compiledQuery[1])
+			->count();
+	}
+
+	/**
 	 * Do not use this method.
 	 *
 	 * @see self::getCompiledQuery()
 	 */
-	public function get() {
-		throw new Exception('PKPEmailTemplateQueryBuilder::get() is not supported. Use PKPEmailTemplateQueryBuilder::getCompiledQuery() instead.');
+	public function getQuery() {
+		throw new \Exception('PKPEmailTemplateQueryBuilder::getQuery() is not supported. Use PKPEmailTemplateQueryBuilder::getCompiledQuery() instead.');
 	}
 
 	/**
@@ -174,18 +216,6 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 			$defaultQueryObject->toSql(),
 			$defaultQueryObject->getBindings(),
 		];
-	}
-
-	/**
-	 * Retrieve count of matches from query builder
-	 *
-	 * @return integer
-	 */
-	public function getCount() {
-		$compiledQuery = $this->getCompiledQuery();
-		return Capsule::table(Capsule::raw('(' . $compiledQuery[0] . ') as email_template_count'))
-			->setBindings($compiledQuery[1])
-			->count();
 	}
 
 	/**

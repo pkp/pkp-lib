@@ -2,9 +2,9 @@
 /**
  * @file classes/validation/ValidatorFactory.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidatorFactory
  * @ingroup validation
@@ -115,14 +115,9 @@ class ValidatorFactory {
 
 		// Add custom validation rule for currency
 		$validation->extend('currency', function($attribute, $value, $parameters, $validator) {
-			$currencyDao = \DAORegistry::getDAO('CurrencyDAO');
-			$allowedCurrencies = array_map(
-				function ($currency) {
-					return $currency->getCodeAlpha();
-				},
-				$currencyDao->getCurrencies()
-			);
-			return in_array($value, $allowedCurrencies);
+			$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+			$currency = $isoCodes->getCurrencies()->getByLetterCode($value);
+			return isset($currency);
 		});
 
 		$validator = $validation->make($props, $rules, ValidatorFactory::getMessages($messages));
@@ -245,21 +240,58 @@ class ValidatorFactory {
 	 * A wrapper method that calls $validator->after to check if required props
 	 * are present
 	 *
+	 * When adding an object, required props must be present in the list of
+	 * props being passed for validation. When editing an object, required
+	 * props may be absent if they are not being edited. But if a required
+	 * prop is present it can not be empty.
+	 *
+	 * Required props that are also multilingual will only be required in the
+	 * primary locale.
+	 *
 	 * @param $validator Illuminate\Validation\Validator
+	 * @param $action string One of VALIDATE_ACTION_* constants
 	 * @param $requiredProps array List of prop names
 	 * @param $multilingualProps array List of prop names
+	 * @param $allowedLocales array List of locale codes
 	 * @param $primaryLocale string Primary locale code
 	 */
-	static public function required($validator, $requiredProps, $multilingualProps, $primaryLocale) {
-		$validator->after(function($validator) use ($requiredProps, $multilingualProps, $primaryLocale) {
+	static public function required($validator, $action, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale) {
+		$validator->after(function($validator) use ($action, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale) {
+
+			$allLocales = AppLocale::getAllLocales();
+			$primaryLocaleName = $primaryLocale;
+			foreach ($allLocales as $locale => $name) {
+				if ($locale === $primaryLocale) {
+					$primaryLocaleName = $name;
+				}
+			}
+
 			$props = $validator->getData();
+
 			foreach ($requiredProps as $requiredProp) {
-				if (empty($props[$requiredProp])) {
-					$errorKey = $requiredProp;
-					if (in_array($requiredProp, $multilingualProps)) {
-						$errorKey .= '.' . $primaryLocale;
+
+				// Required multilingual props should only be
+				// required in the primary locale
+				if (in_array($requiredProp, $multilingualProps)) {
+					if ($action === VALIDATE_ACTION_ADD) {
+						if (empty($props[$requiredProp]) || empty($props[$requiredProp][$primaryLocale])) {
+							$validator->errors()->add($requiredProp . '.' . $primaryLocale, __('form.missingRequired'));
+						}
+					} else {
+						if (isset($props[$requiredProp]) && array_key_exists($primaryLocale, $props[$requiredProp]) && empty($props[$requiredProp][$primaryLocale])) {
+							if (count($allowedLocales) === 1) {
+								$validator->errors()->add($requiredProp, __('form.missingRequired'));
+							} else {
+								$validator->errors()->add($requiredProp . '.' . $primaryLocale, __('form.requirePrimaryLocale', array('language' => $primaryLocaleName)));
+							}
+						}
 					}
-					$validator->errors()->add($errorKey, __('form.missingRequired'));
+
+				} else {
+					if (($action === VALIDATE_ACTION_ADD && empty($props[$requiredProp])) ||
+							($action === VALIDATE_ACTION_EDIT && array_key_exists($requiredProp, $props) && empty($props[$requiredProp]))) {
+						$validator->errors()->add($requiredProp, __('form.missingRequired'));
+					}
 				}
 			}
 		});
@@ -288,42 +320,6 @@ class ValidatorFactory {
 					if (!in_array($localeKey, $allowedLocales)) {
 						$validator->errors()->add($propName . '.' . $localeKey, __('validator.locale'));
 						break;
-					}
-				}
-			}
-		});
-	}
-
-	/**
-	 * A wrapper method that calls $validator->after to check for props where a
-	 * value for the primary locale can not be empty when the prop is passed
-	 *
-	 * This is not the same as a required field, which should use the `required`
-	 * property in the JSON schema. This only checks that the primary locale
-	 * value is not empty when a primary locale value has been provided.
-	 *
-	 * @param $validator Illuminate\Validation\Validator
-	 * @param $requiredProps array List of prop names that should be validated
-	 *  against this method.
-	 * @param $props array Key/value list of props
-	 * @param $allowedLocales array List of locale codes
-	 * @param $primaryLocale string Locale code (en_US) for the primary locale
-	 */
-	static public function requirePrimaryLocale($validator, $requiredProps, $props, $allowedLocales, $primaryLocale) {
-		$validator->after(function($validator) use ($requiredProps, $props, $allowedLocales, $primaryLocale) {
-			foreach ($requiredProps as $propName) {
-				if (isset($props[$propName]) && array_key_exists($primaryLocale, $props[$propName]) && empty($props[$propName][$primaryLocale])) {
-					if (count($allowedLocales) === 1) {
-						$validator->errors()->add($propName, __('form.missingRequired'));
-					} else {
-						$allLocales = AppLocale::getAllLocales();
-						$primaryLocaleName = $primaryLocale;
-						foreach ($allLocales as $locale => $name) {
-							if ($locale === $primaryLocale) {
-								$primaryLocaleName = $name;
-							}
-						}
-						$validator->errors()->add($propName . '.' . $primaryLocale, __('form.requirePrimaryLocale', array('language' => $primaryLocaleName)));
 					}
 				}
 			}
@@ -363,7 +359,10 @@ class ValidatorFactory {
 						}
 					}
 				} else {
-					if (!$temporaryFileManager->getFile($props[$uploadProp], $userId)) {
+					if (!isset($props[$uploadProp]['temporaryFileId'])) {
+						continue;
+					}
+					if (!$temporaryFileManager->getFile($props[$uploadProp]['temporaryFileId'], $userId)) {
 						$validator->errors()->add($uploadProp, __('common.noTemporaryFile'));
 					}
 				}

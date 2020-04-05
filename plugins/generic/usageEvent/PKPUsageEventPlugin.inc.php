@@ -3,9 +3,9 @@
 /**
  * @file plugins/generic/usageEvent/PKPUsageEventPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUsageEventPlugin
  * @ingroup plugins_generic_usageEvent
@@ -154,7 +154,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 			return null;
 		}
 
-		$application = Application::getApplication();
+		$application = Application::get();
 		$request = $application->getRequest();
 		$router = $request->getRouter(); /* @var $router PageRouter */
 		$templateMgr = $args[0]; /* @var $templateMgr TemplateManager */

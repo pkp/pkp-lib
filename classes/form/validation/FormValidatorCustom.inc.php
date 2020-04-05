@@ -3,9 +3,9 @@
 /**
  * @file classes/form/validation/FormValidatorCustom.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorCustom
  * @ingroup form_validation
@@ -26,6 +26,9 @@ class FormValidatorCustom extends FormValidator {
 	/** @var boolean If true, field is considered valid if user function returns false instead of true */
 	var $_complementReturn;
 
+	/** @var array If present, additional arguments to pass to the getMessage translation function
+	var $_messageArgs;
+
 	/**
 	 * Constructor.
 	 * The user function is passed the form data as its first argument and $additionalArguments, if set, as the remaining arguments. This function must return a boolean value.
@@ -36,12 +39,26 @@ class FormValidatorCustom extends FormValidator {
 	 * @param $userFunction callable function the user function to use for validation
 	 * @param $additionalArguments array optional, a list of additional arguments to pass to $userFunction
 	 * @param $complementReturn boolean optional, complement the value returned by $userFunction
+	 * @param $messageArgs array optional, arguments to pass to getMessage()
 	 */
-	function __construct(&$form, $field, $type, $message, $userFunction, $additionalArguments = array(), $complementReturn = false) {
+	function __construct(&$form, $field, $type, $message, $userFunction, $additionalArguments = array(), $complementReturn = false, $messageArgs = array()) {
 		parent::__construct($form, $field, $type, $message);
 		$this->_userFunction = $userFunction;
 		$this->_additionalArguments = $additionalArguments;
 		$this->_complementReturn = $complementReturn;
+		$this->_messageArgs = $messageArgs;
+	}
+
+
+	//
+	// Setters and Getters
+	//
+	/**
+	 * @see FormValidator::getMessage()
+	 * @return string
+	 */
+	function getMessage() {
+		return __($this->_message, $this->_messageArgs);
 	}
 
 

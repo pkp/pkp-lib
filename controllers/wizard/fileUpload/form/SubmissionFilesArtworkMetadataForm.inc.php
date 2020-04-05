@@ -6,9 +6,9 @@
 /**
  * @file controllers/wizard/fileUpload/form/SubmissionFilesArtworkMetadataForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFilesArtworkMetadataForm
  * @ingroup controllers_wizard_fileUpload_form
@@ -48,7 +48,7 @@ class SubmissionFilesArtworkMetadataForm extends SubmissionFilesMetadataForm {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		//
 		// FIXME: Should caption, credit, or any other fields be
 		// localized?
@@ -66,7 +66,7 @@ class SubmissionFilesArtworkMetadataForm extends SubmissionFilesMetadataForm {
 		$submissionFile->setPermissionTerms($this->getData('artworkPermissionTerms'));
 
 		// Persist the submission file.
-		parent::execute();
+		parent::execute(...$functionArgs);
 	}
 }
 

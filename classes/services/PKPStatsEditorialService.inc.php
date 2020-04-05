@@ -3,9 +3,9 @@
 /**
  * @file classes/services/PKPStatsEditorialService.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsEditorialService
  * @ingroup services
@@ -21,7 +21,7 @@ class PKPStatsEditorialService {
 	/**
 	 * Get overview of key editorial stats
 	 *
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return array
 	 */
 	public function getOverview($args = []) {
@@ -159,16 +159,132 @@ class PKPStatsEditorialService {
 	}
 
 	/**
+	 * Get the yearly averages of key editorial stats
+	 *
+	 * Averages are calculated over full years. If no dateStart and
+	 * dateEnd are passed, it will determine the first and last
+	 * full years during which the activity occurred. This means that
+	 * if the first submission was received in October 2017 and the
+	 * last submission was received in the current calendar year, only
+	 * submissions from 2018 up until the end of the previous calendar
+	 * year will be used to calculate the average.
+	 *
+	 * This method does not yet support getting averages for date ranges.
+	 *
+	 * @see https://github.com/pkp/pkp-lib/issues/4844#issuecomment-554011922
+	 * @param array $args See self::getQueryBuilder(). No date range supported
+	 * @return array
+	 */
+	public function getAverages($args = []) {
+		import('classes.workflow.EditorDecisionActionsManager');
+		import('lib.pkp.classes.submission.PKPSubmission');
+
+		unset($args['dateStart']);
+		unset($args['dateEnd']);
+
+		// Submissions received
+		$received = -1;
+		$receivedDates = $this->getQueryBuilder($args)->getSubmissionsReceivedDates();
+		if (empty($receivedDates[0])) {
+			$received = 0;
+		} else {
+			$yearStart = ((int) substr($receivedDates[0], 0, 4)) + 1;
+			$yearEnd = (int) substr($receivedDates[1], 0, 4);
+			if ($yearEnd >= date('Y')) {
+				$yearEnd--;
+			}
+			$years = ($yearEnd - $yearStart) + 1;
+			if ($years) {
+				$argsReceived = array_merge(
+					$args,
+					[
+						'dateStart' => sprintf('%s-01-01', $yearStart),
+						'dateEnd' => sprintf('%s-12-31', $yearEnd),
+					]
+				);
+				$received = round($this->countSubmissionsReceived($argsReceived) / $years);
+			}
+		}
+
+		// Editorial decisions (accepted and declined)
+		$decisionsList = [
+			'submissionsAccepted' => [SUBMISSION_EDITOR_DECISION_ACCEPT],
+			'submissionsDeclined' => [SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, SUBMISSION_EDITOR_DECISION_DECLINE],
+			'submissionsDeclinedDeskReject' => [SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE],
+			'submissionsDeclinedPostReview' => [SUBMISSION_EDITOR_DECISION_DECLINE],
+		];
+		$yearlyDecisions = [];
+		foreach ($decisionsList as $key => $decisions) {
+			$yearly = -1;
+			$dates = $this->getQueryBuilder($args)->getDecisionsDates($decisions);
+			if (empty($dates[0])) {
+				$yearly = 0;
+			} else {
+				$yearStart = ((int) substr($dates[0], 0, 4)) + 1;
+				$yearEnd = (int) substr($dates[1], 0, 4);
+				if ($yearEnd >= date('Y')) {
+					$yearEnd--;
+				}
+				if ($years) {
+					$argsYearly = array_merge(
+						$args,
+						[
+							'dateStart' => sprintf('%s-01-01', $yearStart),
+							'dateEnd' => sprintf('%s-12-31', $yearEnd),
+						]
+					);
+					$yearly = round($this->countByDecisions($decisions, $argsYearly) / $years);
+				}
+			}
+			$yearlyDecisions[$key] = $yearly;
+		}
+
+		// Submissions published
+		$published = -1;
+		$publishedDates = $this->getQueryBuilder($args)->getPublishedDates();
+		if (empty($publishedDates[0])) {
+			$published = 0;
+		} else {
+			$yearStart = ((int) substr($publishedDates[0], 0, 4)) + 1;
+			$yearEnd = (int) substr($publishedDates[1], 0, 4);
+			if ($yearEnd >= date('Y')) {
+				$yearEnd--;
+			}
+			$years = ($yearEnd - $yearStart) + 1;
+			if ($years) {
+				$argsPublished = array_merge(
+					$args,
+					[
+						'dateStart' => sprintf('%s-01-01', $yearStart),
+						'dateEnd' => sprintf('%s-12-31', $yearEnd),
+					]
+				);
+				$published = round($this->countSubmissionsPublished($argsPublished) / $years);
+			}
+		}
+
+		$averages = array_merge(
+			['submissionsReceived' => $received],
+			$yearlyDecisions,
+			['submissionsPublished' => $published]
+		);
+
+		\HookRegistry::call('EditorialStats::averages', [&$averages, $args]);
+
+		return $averages;
+	}
+
+	/**
 	 * Get a count of the number of submissions that have been received
 	 *
 	 * Any date restrictions will be applied to the submission date, so it
 	 * will only count submissions completed within the date range.
 	 *
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return int
 	 */
 	public function countSubmissionsReceived($args = []) {
-		return $this->_getQueryBuilder($args)->countSubmissionsReceived();
+		return $this->getQueryBuilder($args)->countSubmissionsReceived();
 	}
 
 
@@ -178,11 +294,11 @@ class PKPStatsEditorialService {
 	 * Any date restrictions will be applied to the initial publication date,
 	 * so it will only count submissions published within the date range.
 	 *
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return int
 	 */
 	public function countSubmissionsPublished($args = []) {
-		return $this->_getQueryBuilder($args)->countPublished();
+		return $this->getQueryBuilder($args)->countPublished();
 	}
 
 	/**
@@ -192,11 +308,11 @@ class PKPStatsEditorialService {
 	 * count decisions that occurred within the date range.
 	 *
 	 * @param int|array $decisions One or more SUBMISSION_EDITOR_DECISION_*
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return int
 	 */
 	public function countByDecisions($decisions, $args = []) {
-		return $this->_getQueryBuilder($args)->countByDecisions((array) $decisions);
+		return $this->getQueryBuilder($args)->countByDecisions((array) $decisions);
 	}
 
 	/**
@@ -207,11 +323,11 @@ class PKPStatsEditorialService {
 	 * one of the decisions.
 	 *
 	 * @param int|array $decisions One or more SUBMISSION_EDITOR_DECISION_*
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return int
 	 */
 	public function countByDecisionsForSubmittedDate($decisions, $args = []) {
-		return $this->_getQueryBuilder($args)->countByDecisions((array) $decisions, true);
+		return $this->getQueryBuilder($args)->countByDecisions((array) $decisions, true);
 	}
 
 	/**
@@ -221,11 +337,11 @@ class PKPStatsEditorialService {
 	 * all submissions with the passed statuses.
 	 *
 	 * @param int|array $statuses One or more STATUS_*
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return int
 	 */
 	public function countByStatus($statuses, $args = []) {
-		return $this->_getQueryBuilder($args)->countByStatus((array) $statuses);
+		return $this->getQueryBuilder($args)->countByStatus((array) $statuses);
 	}
 
 	/**
@@ -235,11 +351,11 @@ class PKPStatsEditorialService {
 	 * all submissions with the passed statuses.
 	 *
 	 * @param int|array $stages One or more WORKFLOW_STAGE_ID_*
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return int
 	 */
 	public function countActiveByStages($stages, $args = []) {
-		return $this->_getQueryBuilder($args)->countActiveByStages((array) $stages);
+		return $this->getQueryBuilder($args)->countActiveByStages((array) $stages);
 	}
 
 	/**
@@ -251,11 +367,11 @@ class PKPStatsEditorialService {
 	 * the selected date range.
 	 *
 	 * @param int|array $decisions One or more SUBMISSION_EDITOR_DECISION_*
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return array
 	 */
 	public function getDaysToDecisions($decisions, $args = []) {
-		return $this->_getQueryBuilder($args)->getDaysToDecisions((array) $decisions);
+		return $this->getQueryBuilder($args)->getDaysToDecisions((array) $decisions);
 	}
 
 	/**
@@ -266,11 +382,11 @@ class PKPStatsEditorialService {
 	 * the selected date range.
 	 *
 	 * @param int|array $decisions One or more SUBMISSION_EDITOR_DECISION_*
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return int
 	 */
 	public function getAverageDaysToDecisions($decisions, $args = []) {
-		return ceil($this->_getQueryBuilder($args)->getAverageDaysToDecisions((array) $decisions));
+		return ceil($this->getQueryBuilder($args)->getAverageDaysToDecisions((array) $decisions));
 	}
 
 	/**
@@ -306,7 +422,7 @@ class PKPStatsEditorialService {
 	 * ]
 	 * @return \APP\Services\QueryBuilders\StatsEditorialQueryBuilder
 	 */
-	protected function _getQueryBuilder($args = []) {
+	protected function getQueryBuilder($args = []) {
 		$qb = new \APP\Services\QueryBuilders\StatsEditorialQueryBuilder();
 
 		if (!empty($args['dateStart'])) {

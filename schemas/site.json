@@ -1,6 +1,11 @@
 {
 	"title": "Site",
 	"description": "The overall site hosting one or more contexts (journals/presses).",
+	"required": [
+		"title",
+		"contactName",
+		"contactEmail"
+	],
 	"properties": {
 		"about": {
 			"type": "string",
@@ -107,11 +112,25 @@
 			}
 		},
 		"styleSheet": {
-			"type": "string",
-			"writeOnly": true,
+			"type": "object",
 			"validation": [
 				"nullable"
-			]
+			],
+			"properties": {
+				"temporaryFileId": {
+					"type": "integer",
+					"writeOnly": true
+				},
+				"name": {
+					"type": "string"
+				},
+				"uploadName": {
+					"type": "string"
+				},
+				"dateUploaded": {
+					"type": "string"
+				}
+			}
 		},
 		"supportedLocales": {
 			"type": "array",

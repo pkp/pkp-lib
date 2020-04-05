@@ -3,9 +3,9 @@
 /**
  * @file lib/pkp/controllers/grid/users/stageParticipant/form/PKPStageParticipantNotifyForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStageParticipantNotifyForm
  * @ingroup controllers_grid_users_stageParticipant_form
@@ -61,7 +61,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $template = null, $display = false) {
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($this->_submissionId);
 
 		// All stages can choose the default template
@@ -69,12 +69,12 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 
 		// Determine if the current user can use any custom templates defined.
 		$user = $request->getUser();
-		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getContextId());
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getData('contextId'));
 		foreach ($userRoles as $userRole) {
 			if (in_array($userRole->getId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
 				$emailTemplatesIterator = Services::get('emailTemplate')->getMany([
-					'contextId' => $submission->getContextId(),
+					'contextId' => $submission->getData('contextId'),
 					'isCustom' => true,
 				]);
 				$customTemplateKeys = [];
@@ -131,7 +131,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	 * @copydoc Form::execute()
 	 */
 	function execute(...$functionParams) {
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($this->_submissionId);
 		if ($this->getData('message')) {
 			$request = Application::get()->getRequest();
@@ -157,7 +157,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 
 		$dispatcher = $request->getDispatcher();
 
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getById($userId);
 		if (isset($user)) {
 			$email->addRecipient($user->getEmail(), $user->getFullName());
@@ -203,7 +203,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			}
 
 			// Create a query
-			$queryDao = DAORegistry::getDAO('QueryDAO');
+			$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 			$query = $queryDao->newDataObject();
 			$query->setAssocType(ASSOC_TYPE_SUBMISSION);
 			$query->setAssocId($submission->getId());
@@ -219,7 +219,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			}
 
 			// Create a head note
-			$noteDao = DAORegistry::getDAO('NoteDAO');
+			$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 			$headNote = $noteDao->newDataObject();
 			$headNote->setUserId($request->getUser()->getId());
 			$headNote->setAssocType(ASSOC_TYPE_QUERY);

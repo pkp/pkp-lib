@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/reviewer/form/CreateReviewerForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CreateReviewerForm
  * @ingroup controllers_grid_users_reviewer_form
@@ -81,10 +81,10 @@ class CreateReviewerForm extends ReviewerForm {
 	}
 
 	/**
-	 * Save review assignment
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
-		$userDao = DAORegistry::getDAO('UserDAO');
+	function execute(...$functionArgs) {
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->newDataObject();
 
 		$user->setGivenName($this->getData('givenName'), null);
@@ -92,7 +92,7 @@ class CreateReviewerForm extends ReviewerForm {
 		$user->setEmail($this->getData('email'));
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized
 
-		$authDao = DAORegistry::getDAO('AuthSourceDAO');
+		$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
 		$auth = $authDao->getDefaultPlugin();
 		$user->setAuthId($auth?$auth->getAuthId():0);
 		$user->setInlineHelp(1); // default new reviewers to having inline help visible
@@ -145,7 +145,7 @@ class CreateReviewerForm extends ReviewerForm {
 			}
 		}
 
-		return parent::execute();
+		return parent::execute(...$functionArgs);
 	}
 }
 

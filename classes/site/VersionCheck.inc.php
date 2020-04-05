@@ -3,9 +3,9 @@
 /**
  * @file classes/site/VersionCheck.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class VersionCheck
  * @ingroup site
@@ -26,7 +26,7 @@ class VersionCheck {
 	 * @return array
 	 */
 	static function getLatestVersion() {
-		$application = Application::getApplication();
+		$application = Application::get();
 		$includeId = Config::getVar('general', 'installed') &&
 			!defined('RUNNING_UPGRADE') &&
 			Config::getVar('general', 'enable_beacon', true);
@@ -50,7 +50,7 @@ class VersionCheck {
 	 * @return Version
 	 */
 	static function getCurrentDBVersion() {
-		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		return $versionDao->getCurrentVersion();
 	}
 

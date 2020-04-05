@@ -2,9 +2,9 @@
 /**
  * @file controllers/grid/users/reviewer/form/ReviewerNotifyActionForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerNotifyActionForm
  * @ingroup controllers_grid_users_reviewer_form
@@ -66,7 +66,7 @@ abstract class ReviewerNotifyActionForm extends Form {
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 		$template = new SubmissionMailTemplate($submission, $this->getEmailKey());
 		if ($template) {
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$reviewer = $userDao->getById($reviewerId);
 			$user = $request->getUser();
 
@@ -81,10 +81,10 @@ abstract class ReviewerNotifyActionForm extends Form {
 	}
 
 	/**
-	 * Performs a task on the review assignment and notifies the reviewer via email.
+	 * @copydoc Form::execute()
 	 * @return bool whether or not the review assignment was modified successfully
 	 */
-	public function execute() {
+	public function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$submission = $this->getSubmission();
 		$reviewAssignment = $this->getReviewAssignment();
@@ -94,7 +94,7 @@ abstract class ReviewerNotifyActionForm extends Form {
 		$mail = new SubmissionMailTemplate($submission, $this->getEmailKey(), null, null, false);
 
 		if ($mail->isEnabled() && !$this->getData('skipEmail')) {
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$reviewerId = (int) $this->getData('reviewerId');
 			$reviewer = $userDao->getById($reviewerId);
 			$mail->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
@@ -106,7 +106,7 @@ abstract class ReviewerNotifyActionForm extends Form {
 				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
 			}
 		}
-
+		parent::execute(...$functionArgs);
 		return true;
 	}
 

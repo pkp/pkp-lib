@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
+"PO-Revision-Date: 2020-02-28 11:36+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
+"es/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:23-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "manager.website.information"
 msgstr "Información"
@@ -207,7 +210,9 @@ msgid "manager.emails.enable.message"
 msgstr "Está a punto de activar este correo electrónico.  ¿Desea confirmar esta operación?"
 
 msgid "manager.emails.form.emailKeyRequired"
-msgstr "El fichero no pudo ser subido. Por favor intente nuevamente o contacte al administrador si el problema persiste"
+msgstr ""
+"Para el correo electrónico se necesita una contraseña única que no contenga "
+"espacios o caracteres especiales."
 
 msgid "manager.emails.form.bodyRequired"
 msgstr "Es necesario el cuerpo del correo-e."
@@ -578,7 +583,7 @@ msgid "manager.setup.authorGuidelines"
 msgstr "Directrices para autores"
 
 msgid "manager.setup.competingInterests"
-msgstr "Conflicto de intereses."
+msgstr "Conflicto de intereses"
 
 msgid "manager.setup.competingInterestsDescription"
 msgstr "Se pedirá a los revisores/as que cumplan con la política de divulgación de conflictos de intereses que especifique a continuación."
@@ -587,7 +592,7 @@ msgid "manager.setup.groupType"
 msgstr "Agrupación de tipos de archivo"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Tiempo permitido para revisar las respuestas (semanas)"
+msgstr "Número de semanas para aceptar o rechazar la petición de revisión."
 
 msgid "manager.setup.reviewOptions.numWeeksPerReview"
 msgstr "Tiempo permitido para finalizar las respuestas (semanas)"
@@ -602,13 +607,13 @@ msgid "manager.setup.reviewOptions.remindForSubmit"
 msgstr "Envíe un recordatorio si el revisor/a no entrega una recomendación (días):"
 
 msgid "manager.setup.sponsors.note"
-msgstr "Puede añadir una nota para describir su política y su relación con el patrocinador, esta aparecerá junto con la lista del patrocinador en su página Acerca de."
+msgstr "Relación con los patrocinadores y descripción de políticas"
 
 msgid "manager.setup.styleSheetDescription"
 msgstr "Puede subir un hoja de estilo en cascada (CSS) adicional para cambiar la apariencia."
 
 msgid "manager.setup.errorDeletingItem"
-msgstr "Ha sucedido un error al borrar este ítem"
+msgstr "Ocurrió un error al eliminar este elemento."
 
 msgid "manager.setup.homeHeaderImageInvalid"
 msgstr "Formato de la imagen del logotipo de cabecera de la página inicial inválido o error de subida. Formatos aceptados: .gif, .jpg y .png."
@@ -686,7 +691,9 @@ msgid "plugins.categories.paymethod"
 msgstr "Módulos de Pago"
 
 msgid "plugins.categories.reports.description"
-msgstr "Los módulos de Informes son usados para implementar varios tipos de reportes y extractos de datos para los Administradores de Conferencias"
+msgstr ""
+"Los módulos de informes son usados para implementar varios tipos de informes "
+"y extractos de datos."
 
 msgid "plugins.categories.reports"
 msgstr "Módulos de Informes"
@@ -701,7 +708,7 @@ msgid "plugins.categories.oaiMetadataFormats"
 msgstr "Módulos de Formato de Metadatos de OAI"
 
 msgid "plugins.categories.oaiMetadataFormats.description"
-msgstr "Estos módulos de formato expresan metadatos en comunicaciones OAI"
+msgstr "Estos módulos de formato expresan metadatos en comunicaciones OAI."
 
 msgid "plugins.categories.pubIds"
 msgstr "Módulos de Identificador Público"
@@ -755,10 +762,12 @@ msgid "manager.plugins.wrongName"
 msgstr "El archivo version.xml del módulo que ha cargado contiene un nombre que no se ajusta al nombre del módulo actualizado."
 
 msgid "manager.plugins.pleaseInstall"
-msgstr "El módulo no existe. Instale el módulo."
+msgstr "El módulo no existe. Instale el módulo"
 
 msgid "manager.plugins.pleaseUpgrade"
-msgstr "El módulo ya existe, pero es una versión superior a la ya instalada. Actualice el módulo."
+msgstr ""
+"El módulo ya existe pero es una versión más reciente a la instalada. "
+"Actualice el módulo"
 
 msgid "manager.plugins.settings"
 msgstr "Ajustes"
@@ -974,7 +983,7 @@ msgid "manager.setup.authorGuidelines.description"
 msgstr "Las directrices recomendadas incluyen estándares bibliográficos y de formateo junto con ejemplos de formatos de citas comunes para ser usados en los envíos."
 
 msgid "manager.setup.favicon"
-msgstr "Formato de icono de web inválido. Los formatos aceptados son .ico, .png y .gif."
+msgstr "Favicon"
 
 msgid "manager.setup.homepageImage"
 msgstr "Imagen de inicio"
@@ -1025,7 +1034,9 @@ msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Fechas límites de revisión por defecto"
 
 msgid "manager.setup.reviewOptions.showBlindReviewLink"
-msgstr "Muestra un enlace para \"garantizar una revisión ciega\" durante la subida"
+msgstr ""
+"Mostrar un enlace a <button type=\"button\">mostrar una revisión "
+"ciega</button> durante la carga"
 
 msgid "manager.setup.sponsors.description"
 msgstr "Ejemplos: asociaciones escolares, departamentos universitarios, cooperativas, etc. Los patrocinadores se muestran públicamente."
@@ -1394,7 +1405,9 @@ msgid "manager.navigationMenus.about.conditionalWarning"
 msgstr "Este enlace solo se mostrará si ha completado la sección Acerca de esta revista bajo Ajustes > Revista."
 
 msgid "manager.navigationMenus.editorialTeam.description"
-msgstr "Enlace a una página mostrándo el contenido de la cabecera en Ajustes > Revista"
+msgstr ""
+"Enlace a una página que muestra el contenido de la cabecera en Ajustes > "
+"Revista."
 
 msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
 msgstr "Este enlace solo se mostrará si ha completado la sección equipo editorial en Ajustes > Revista."
@@ -1475,7 +1488,9 @@ msgid "manager.setup.genres.key.alphaNumeric"
 msgstr "La contraseña solo puede contener caracteres alfanuméricos, guiones y guiones bajos, y debe empezar y acabar con un carácter alfanumérico."
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
-msgstr "La revisión \"{$revisionId}\" para el archivo enviado \"{$fileId}\" crearía un registro duplicado."
+msgstr ""
+"La revisión \"{$revisionId}\" para el archivo enviado \"{$fileId}\" crearía "
+"un registro duplicado"
 
 msgid "manager.navigationMenus.form.menuAssigned"
 msgstr "Ya se ha asignado un menú de navegación para esta área."
@@ -1484,7 +1499,9 @@ msgid "manager.navigationMenus.form.typeMissing"
 msgstr "Seleccione un tipo de menú de navegación."
 
 msgid "manager.navigationMenus.subscriptions.conditionalWarning"
-msgstr "Este enlace solo se mostrará si la opción de pagos está activa en Ajustes > Distribución > Pagos"
+msgstr ""
+"Este enlace solo se mostrará si la opción de pagos está activa en Ajustes > "
+"Distribución > Pagos."
 
 msgid "manager.navigationMenus.search.description"
 msgstr "Enlazar con la página de búsqueda."
@@ -1635,3 +1652,469 @@ msgstr "Buscar por título, autor y ID"
 
 msgid "stats.total"
 msgstr "Total"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Tasa de rechazo después de revisión"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Tasa de rechazo antes de revisión"
+
+msgid "stats.name.declineRate"
+msgstr "Tasa de rechazo"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Tasa de aceptación"
+
+msgid "stats.name.daysToReject"
+msgstr "Días hasta el rechazo"
+
+msgid "stats.name.daysToAccept"
+msgstr "Días hasta la aceptación"
+
+msgid "stats.name.daysToDecision"
+msgstr "Días hasta la primera decisión editorial"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Envíos publicados"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Envíos rechazados (después de revisión)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Envíos rechazados (antes de revisión)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Envíos rechazados"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Envíos aceptados"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Envíos recibidos"
+
+msgid "stats.userStatistics"
+msgstr "Estadísticas de usuario/a"
+
+msgid "stats.trends"
+msgstr "Tendencias"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Total dentro del rango de fechas"
+
+msgid "stats.submissionsActive"
+msgstr "Envíos activos"
+
+msgid "stats.editorialActivity"
+msgstr "Actividad editorial"
+
+msgid "stats.descriptionForStat"
+msgstr "Descripción para {$stat}"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Año actual"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Último año"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Últimos dos años"
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Introduzca cada fecha en formato AAAA-MM-DD. Por ejemplo, para indicar la "
+"fecha 15 de enero de 2019 introduzca 2019-01-15."
+
+msgid "stats.allUsers"
+msgstr "Todos los usuarios/as"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Exigir al autor/a que proporcione las referencias antes de aceptar su envío."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Solicitar al autor/a que proporcione las referencias durante el envío."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "No solicitar las referencias al autor/a durante el envío."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Habilitar los metadatos de referencias"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Recopilar la referencias del envío en un campo aparte. Esto puede ser "
+"necesario para ajustarse a servicios de rastreo de citas como Crossref."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Exigir al autor/a que declare las agencias de financiación antes de aceptar "
+"su envío."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Solicitar al autor/a que declare las agencias de financiación durante el "
+"envío."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "No solicitar las agencias de financiación al autor/a durante el envío."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Habilitar los metadatos de agencias de financiación"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Las agencias de financiación pueden indicar la fuente de los fondos de "
+"investigación o cualquier otro soporte institucional que haya facilitado la "
+"investigación."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Exigir al autor/a que proporcione disciplinas antes de aceptar su envío."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Solicitar al autor/a que proporcione disciplinas durante el envío."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "No solicitar disciplinas al autor/a durante el envío."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Habilitar los metadatos de disciplina"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Las disciplinas son tipos de estudios o ramas de conocimiento tal como son "
+"descritas por facultades universitarias o por sociedades académicas."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Exigir al autor/a que proporcione la tipología antes de aceptar su envío."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Solicitar al autor/a que proporcione la tipología durante el envío."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "No solicitar la tipología al autor/a durante el envío."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Habilitar metadatos de tipología"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"La naturaleza o género del contenido principal del envío. La tipología "
+"normalmente es \"Texto\",  pero también podría ser \"Conjunto de datos\", \""
+"Imagen\" o cualquiera de las <a target=\"_blank\" href=\"http://dublincore."
+"org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">"
+"tipologías Dublin Core</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Exigir al autor/a que proporcione materias antes de aceptar su envío."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Solicitar al autor/a que proporcione materias durante el envío."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "No solicitar materias al autor/a durante el envío."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Habilitar los metadatos de materia"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Las materias serán palabras clave, frases clave o códigos de clasificación "
+"que describan el tema del envío."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Exigir al autor/a que proporcione una fuente URL antes de aceptar su envío."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Solicitar al autor/a que proporcione una fuente URL durante el envío."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "No solicitar una fuente URL al autor/a durante el envío."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Habilitar los metadatos de fuente"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"La fuente puede ser un ID, como por ejemplo DOI, u otro trabajo o recurso de "
+"los cuales derive el envío."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Exigir al autor/a que declare cualquier derecho de acceso previo antes de "
+"aceptar su envío."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Solicitar al autor/a que declare cualquier derecho de acceso previo durante "
+"el envío."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "No solicitar una declaración de derechos al autor/a durante el envío."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Habilitar los metadatos de derechos"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Cualquier derecho sobre el envío, que puede incluir derechos de propiedad "
+"intelectual (DPI), derechos de autor y diversos derechos de propiedad."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Exigir al autor/a que introduzca los idiomas de envío antes de aceptar su "
+"envío."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Solicitar al autor/a que indique los idiomas de envío durante el envío."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "No solicitar los idiomas del envío al autor/a durante el envío."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Habilitar los metadatos de idioma"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"El idioma indica que el idioma principal de la obra utiliza un código de "
+"idioma (\"en\") con un código de país opcional (\"en_US\")."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Exigir al autor/a que proponga palabras clave antes de aceptar su envío."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Solicitar al autor/a que proponga palabras clave durante el envío."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "No solicitar palabras clave al autor/a durante el envío."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Habilitar los metadatos de palabras clave"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Las palabras clave normalmente son expresiones de una a tres palabras que se "
+"usan para indicar los temas principales del envío."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Exigir al autor/a que proponga metadatos de cobertura antes de aceptar su "
+"envío."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Solicitar al autor/a que proponga metadatos de cobertura durante el envío."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "No solicitar metadatos de cobertura al autor/a durante el envío."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Habilitar los metadatos de cobertura"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"La cobertura normalmente indica localización espacial de trabajo (el nombre "
+"de un sitio o unas coordenadas geográficas), periodo temporal (una etiqueta "
+"de periodo, una fecha o un rango de fechas) o jurisdicción (como por ejemplo "
+"una entidad administrativa)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Cobertura"
+
+msgid "manager.setup.metadata.success"
+msgstr "Los metadatos de envío han sido actualizados correctamente."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Permitir la edición de metadatos de envío."
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Añadir las etiquetas HTML personalizadas, también conocidas como "
+"metaetiquetas, que desee insertar en la cabecera de cada página. Consulte a "
+"un asesor técnico antes de añadir las etiquetas."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Etiquetas personalizadas"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Introduzca los términos de licencia pública que desee mostrar junto a las "
+"obras publicadas."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Términos de la licencia"
+
+msgid "manager.distribution.license.other"
+msgstr "URL de otra licencia"
+
+msgid "manager.distribution.license.success"
+msgstr "Los detalles de licencia han sido actualizados. "
+
+msgid "manager.distribution.license"
+msgstr "Licencia"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Usuarios/as registrados"
+
+msgid "manager.setup.userAccess.success"
+msgstr ""
+"Los detalles de acceso de usuario/a para este medio han sido actualizados."
+
+msgid "manager.setup.theme.notFound"
+msgstr "El tema seleccionado no está instalado o habilitado."
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Los temas nuevos deben instalarse desde la pestaña de módulos de la parte "
+"superior de esta página."
+
+msgid "manager.setup.theme"
+msgstr "Tema"
+
+msgid "manager.setup.theme.success"
+msgstr ""
+"El tema ha sido actualizado. <a href=\"{$url}\" target=\"_blank\">Visualizar "
+"ahora</a>"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Modo de revisión por defecto"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Enviar un correo electrónico de recordatorio si el revisor/a no ha enviado "
+"una recomendación varios días después de la fecha de vencimiento de la "
+"revisión."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Recordatorio de revisor/a"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Enviar un correo electrónico de recordatorio si el revisor/a no ha "
+"contestado a una petición de revisión varios días después de la fecha de "
+"vencimiento de la respuesta."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Recordatorio de respuesta"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Fecha límite de finalización por defecto"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Fecha límite de respuesta por defecto"
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Introduzca cualquier imagen, texto o código HTML que desee que aparezca al "
+"pie de su sitio web."
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "El archivo que cargó no pudo encontrarse. Vuelva a intentar cargarlo."
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"El bloque {$name} no pudo encontrarse. Asegúrese de que el módulo está "
+"instalado y habilitado."
+
+msgid "manager.setup.homepageImage.description"
+msgstr ""
+"Cargue una imagen para mostrar de forma destacada en la página de inicio."
+
+msgid "manager.setup.checklist"
+msgstr "Lista de comprobación"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Las directrices para autores/as han sido actualizadas correctamente."
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Exigir que los autores/as acepten el siguiente aviso de derechos de autor "
+"como parte del proceso de envío."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Aviso de derechos de autor"
+
+msgid "manager.setup.contact.success"
+msgstr "Los detalles de contacto para este medio han sido actualizados."
+
+msgid "manager.setup.appearance.success"
+msgstr "Los ajustes de apariencia han sido actualizados."
+
+msgid "manager.setup.advanced"
+msgstr "Avanzado"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Nada de lo que aquí introduzca se mostrará en la página de inicio."
+
+msgid "manager.representative.inUse"
+msgstr ""
+"No puede eliminar a este representante porque está asignado a los metadatos "
+"de mercado para uno o más formatos de publicación de este envío."
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Asunto: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Enviado a"
+
+msgid "manager.emails.sentFrom"
+msgstr "Enviado desde"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "La contraseña proporcionada ya está en uso."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"Debe proporcionar un ID de contexto cuando añada una plantilla de correo "
+"electrónico."
+
+msgid "manager.emails.emailKey.description"
+msgstr ""
+"La contraseña del correo electrónico solo puede contener letras, números y "
+"guiones bajos."
+
+msgid "manager.emails.editEmail.success"
+msgstr "La plantilla de correo electrónico ha sido modificada."
+
+msgid "manager.emails.customTemplate"
+msgstr "Plantilla personalizada"
+
+msgid "manager.emails.addEmail.success"
+msgstr "La plantilla de correo electrónico fue añadida."
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Los detalles del recordatorio para revisores/as han sido actualizados."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Los ajustes de revisión han sido actualizados."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "La guía para revisores/as ha sido actualizada."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Guía para revisores/as"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "Los ajustes de correo electrónico han sido actualizados."
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"El número de días que la mayoría de envíos tardan en recibir  la primera "
+"decisión editorial, como rechazarlo inmediatamente o enviarlo a "
+"revisión.<br><br>Estos datos indican que el 80% de envíos alcanzan una "
+"decisión dentro del número de días proporcionado.<br><br>Esta estadística "
+"intenta describir el plazo en que la mayoría de autores/as que hacen un "
+"envío a su revista recibirán una decisión."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"El porcentaje para el rango de fechas seleccionado se calcula para envíos "
+"que fueron enviados durante este rango de fechas y que han recibido una "
+"decisión final.<br><br>Por ejemplo, pongamos por caso que se hicieron diez "
+"envíos durante este rango de fechas. Cuatro fueron aceptados, cuatro "
+"rechazados y dos aún esperan una decisión final.<br><br>La tasa de "
+"aceptación será del 50% (4 de 8 envíos) porque los dos envíos que no han "
+"alcanzado una decisión final no son contabilizados."

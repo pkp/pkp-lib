@@ -3,9 +3,9 @@
 /**
  * @file classes/note/Note.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Note
  * @ingroup note
@@ -37,7 +37,7 @@ class Note extends DataObject {
 	 * @return User
 	 */
 	function getUser() {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		return $userDao->getById($this->getUserId(), true);
 	}
 
@@ -143,7 +143,7 @@ class Note extends DataObject {
 	 * @return int RECORD_VIEW_RESULT_...
 	 */
 	function markViewed($userId) {
-		$viewsDao = DAORegistry::getDAO('ViewsDAO');
+		$viewsDao = DAORegistry::getDAO('ViewsDAO'); /* @var $viewsDao ViewsDAO */
 		return $viewsDao->recordView(ASSOC_TYPE_NOTE, $this->getId(), $userId);
 	}
 }

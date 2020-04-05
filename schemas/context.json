@@ -115,6 +115,7 @@
 		},
 		"copyrightHolderOther": {
 			"type": "string",
+			"multilingual": true,
 			"validation": [
 				"nullable"
 			]
@@ -304,7 +305,7 @@
 		},
 		"keywords": {
 			"type": "string",
-			"default": "enable",
+			"default": "request",
 			"description": "Enable keywords metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
 			"validation": [
 				"nullable",
@@ -439,13 +440,6 @@
 				}
 			}
 		},
-		"urlPath": {
-			"type": "string",
-			"validation": [
-				"regex:/^[a-z0-9]+([\\-_][a-z0-9]+)*$/"
-			],
-			"apiSummary": true
-		},
 		"paymentsEnabled": {
 			"type": "boolean",
 			"validation": [
@@ -554,10 +548,25 @@
 			]
 		},
 		"styleSheet": {
-			"type": "string",
+			"type": "object",
 			"validation": [
 				"nullable"
-			]
+			],
+			"properties": {
+				"temporaryFileId": {
+					"type": "integer",
+					"writeOnly": true
+				},
+				"name": {
+					"type": "string"
+				},
+				"uploadName": {
+					"type": "string"
+				},
+				"dateUploaded": {
+					"type": "string"
+				}
+			}
 		},
 		"subjects": {
 			"type": "string",
@@ -682,6 +691,13 @@
 		"url": {
 			"type": "string",
 			"readOnly": true,
+			"apiSummary": true
+		},
+		"urlPath": {
+			"type": "string",
+			"validation": [
+				"regex:/^[a-z0-9]+([\\-_][a-z0-9]+)*$/"
+			],
 			"apiSummary": true
 		}
 	}

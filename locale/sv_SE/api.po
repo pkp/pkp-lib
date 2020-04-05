@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
+"PO-Revision-Date: 2020-02-26 09:36+0000\n"
+"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
+"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/sv/>"
+"\n"
+"Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:50:05+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr "Din förfrågan nekades. Detta kan bero på att din inloggning förfallit. Prova att ladda om sidan och försöka igen."
@@ -34,3 +37,27 @@ msgstr "Din förfrågan kunde inte fullföljas eftersom ID:t för bidragssteget 
 
 msgid "api.submissions.unknownError"
 msgstr "Ett oväntat fel uppstod. Ladda om sidan och försök igen."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Du kan inte ändra status direkt genom APIet. Använd istället /publish och /"
+"unpublish endpoints."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+"Du kan inte redigera denna publikation eftersom den redan är publicerad."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Publikationen du vill avpublicera är inte publicerad."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "E-postmeddelandemallen hittades ej."
+
+msgid "api.404.endpointNotFound"
+msgstr "URL:en kunde inte hittas."
+
+msgid "api.403.unauthorized"
+msgstr "Du har inte tillgång till den efterfrågade resursen."
+
+msgid "api.400.paramNotSupported"
+msgstr "{$param}-parametern stöds ej."

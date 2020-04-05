@@ -3,9 +3,9 @@
 /**
  * @file classes/services/PKPStatsService.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsService
  * @ingroup services
@@ -15,10 +15,7 @@
 
 namespace PKP\Services;
 
-use PKP\Services\Traits\EntityReadTrait;
-
 class PKPStatsService {
-	use EntityReadTrait;
 
 	/**
 	 * Get all statistics records that match the passed arguments
@@ -42,7 +39,7 @@ class PKPStatsService {
 
 		$defaultArgs = [
 			'dateStart' => STATISTICS_EARLIEST_DATE,
-			'dateEnd' => date('Ymd', strtotime('yesterday')),
+			'dateEnd' => date('Y-m-d', strtotime('yesterday')),
 
 			// Require a context to be specified to prevent unwanted data leakage
 			// if someone forgets to specify the context.
@@ -50,7 +47,7 @@ class PKPStatsService {
 		];
 
 		$args = array_merge($defaultArgs, $args);
-		$statsQB = $this->_getQueryBuilder($args);
+		$statsQB = $this->getQueryBuilder($args);
 
 		\HookRegistry::call('Stats::getRecords::queryBuilder', array($statsQB, $args));
 
@@ -97,7 +94,7 @@ class PKPStatsService {
 
 		$defaultArgs = [
 			'dateStart' => STATISTICS_EARLIEST_DATE,
-			'dateEnd' => date('Ymd', strtotime('yesterday')),
+			'dateEnd' => date('Y-m-d', strtotime('yesterday')),
 
 			// Require a context to be specified to prevent unwanted data leakage
 			// if someone forgets to specify the context. If you really want to
@@ -106,7 +103,7 @@ class PKPStatsService {
 		];
 
 		$args = array_merge($defaultArgs, $args);
-		$timelineQB = $this->_getQueryBuilder($args);
+		$timelineQB = $this->getQueryBuilder($args);
 
 		\HookRegistry::call('Stats::getTimeline::queryBuilder', array($timelineQB, $args));
 
@@ -165,7 +162,7 @@ class PKPStatsService {
 
 		$defaultArgs = [
 			'dateStart' => STATISTICS_EARLIEST_DATE,
-			'dateEnd' => date('Ymd', strtotime('yesterday')),
+			'dateEnd' => date('Y-m-d', strtotime('yesterday')),
 
 			// Require a context to be specified to prevent unwanted data leakage
 			// if someone forgets to specify the context. If you really want to
@@ -174,7 +171,7 @@ class PKPStatsService {
 		];
 
 		$args = array_merge($defaultArgs, $args);
-		$orderedQB = $this->_getQueryBuilder($args);
+		$orderedQB = $this->getQueryBuilder($args);
 
 		\HookRegistry::call('Stats::getOrderedObjects::queryBuilder', array($orderedQB, $args));
 
@@ -182,8 +179,14 @@ class PKPStatsService {
 			->getSum([$groupBy])
 			->orderBy('metric', $orderDirection === STATISTICS_ORDER_ASC ? 'asc' : 'desc');
 
+		$range = null;
+		if (isset($args['count'])) {
+			import('lib.pkp.classes.db.DBResultRange');
+			$range = new \DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
+		}
+
 		$result = \DAORegistry::getDAO('MetricsDAO')
-			->retrieveRange($orderedQO->toSql(), $orderedQO->getBindings(), $this->getRangeByArgs($args));
+			->retrieveRange($orderedQO->toSql(), $orderedQO->getBindings(), $range);
 
 		$objects = [];
 		while (!$result->EOF) {
@@ -296,7 +299,7 @@ class PKPStatsService {
 	 * @param array $args See self::getRecords()
 	 * @return \PKP\Services\QueryBuilders\PKPStatsQueryBuilder
 	 */
-	protected function _getQueryBuilder($args = []) {
+	protected function getQueryBuilder($args = []) {
 		$statsQB = new \PKP\Services\QueryBuilders\PKPStatsQueryBuilder();
 		$statsQB
 			->filterByContexts($args['contextIds'])

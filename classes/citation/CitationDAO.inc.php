@@ -3,9 +3,9 @@
 /**
  * @file classes/citation/CitationDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CitationDAO
  * @ingroup citation
@@ -98,12 +98,14 @@ class CitationDAO extends DAO {
 
 		// Instantiate and persist citations
 		if (is_array($citationStrings)) foreach($citationStrings as $seq => $citationString) {
-			$citation = new Citation($citationString);
-			// Set the publication
-			$citation->setData('publicationId', $publicationId);
-			// Set the counter
-			$citation->setSequence($seq+1);
-			$this->insertObject($citation);
+			if (!empty(trim($citationString))) {
+				$citation = new Citation($citationString);
+				// Set the publication
+				$citation->setData('publicationId', $publicationId);
+				// Set the counter
+				$citation->setSequence($seq+1);
+				$this->insertObject($citation);
+			}
 		}
 	}
 

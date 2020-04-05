@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/plugins/form/UploadPluginForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UploadPluginForm
  * @ingroup controllers_grid_plugins_form
@@ -71,7 +71,7 @@ class UploadPluginForm extends Form {
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 		$temporaryFileId = $this->getData('temporaryFileId');
-		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
+		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
 		$temporaryFile = $temporaryFileDao->getTemporaryFile($temporaryFileId, $user->getId());
 
 		$pluginHelper = new PluginHelper();

@@ -2,9 +2,9 @@
 /**
  * @file controllers/modals/submission/ViewSubmissionMetadataHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ViewSubmissionMetadataHandler
  * @ingroup controllers_modals_viewSubmissionMetadataHandler
@@ -45,7 +45,8 @@ class ViewSubmissionMetadataHandler extends handler {
 		$publication = $submission->getCurrentPublication();
 
 		if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) { /* SUBMISSION_REVIEW_METHOD_BLIND or _OPEN */
-			$userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId())->toArray();
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+			$userGroups = $userGroupDao->getByContextId($context->getId())->toArray();
 			$templateMgr->assign('authors', $publication->getAuthorString($userGroups));
 		}
 

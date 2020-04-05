@@ -2,9 +2,9 @@
 /**
  * @file classes/notification/managerDelegate/EditorialReportNotificationManager.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorialReportNotificationManager
  * @ingroup managerDelegate
@@ -50,7 +50,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 		$dateStart = $dateStart;
 		$dateEnd = $dateEnd;
 
-		$dispatcher = $this->_request->getDispatcher();
+		$dispatcher = Application::get()->getDispatcher();
 
 		$this->_editorialTrends = Services::get('editorialStats')->getOverview([
 			'contextIds' => [$this->_context->getId()],
@@ -156,8 +156,9 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	 * @copydoc PKPNotificationOperationManager::getNotificationUrl()
 	 */
 	public function getNotificationUrl($request, $notification) {
-		$context = Application::get()->getContextDAO()->getById($notification->getContextId());
-		return $request->getDispatcher()->url($this->_request, ROUTE_PAGE, $context->getPath(), 'stats', 'editorialReport');
+		$application = Application::get();
+		$context = $application->getContextDAO()->getById($notification->getContextId());
+		return $application->getDispatcher()->url($this->_request, ROUTE_PAGE, $context->getPath(), 'stats', 'editorial');
 	}
 
 	/**

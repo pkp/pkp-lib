@@ -6,9 +6,9 @@
 /**
  * @file classes/plugins/importexport/PKPImportExportDeployment.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPImportExportDeployment
  * @ingroup plugins_importexport
@@ -27,6 +27,9 @@ class PKPImportExportDeployment {
 	/** @var Submission The current import/export submission */
 	var $_submission;
 
+	/** @var PKPPublication The current import/export publication */
+	var $_publication;
+
 	/** @var array The processed import objects IDs */
 	var $_processedObjectsIds = array();
 
@@ -38,6 +41,9 @@ class PKPImportExportDeployment {
 
 	/** @var array Connection between the file and revision IDs from the XML import file and the DB file IDs */
 	var $_fileDBIds;
+
+	/** @var array Connection between the author id from the XML import file and the DB file IDs */
+	var $_authorDBIds;
 
 	/** @var string Base path for the import source */
 	var $_baseImportPath = '';
@@ -51,6 +57,7 @@ class PKPImportExportDeployment {
 		$this->setContext($context);
 		$this->setUser($user);
 		$this->setSubmission(null);
+		$this->setPublication(null);
 		$this->setFileDBIds(array());
 		$this->_processedObjectsIds = array();
 	}
@@ -135,6 +142,23 @@ class PKPImportExportDeployment {
 	}
 
 	/**
+	 * Set the import/export publication.
+	 * @param $publication PKPPublication
+	 */
+	function setPublication($publication) {
+		$this->_publication = $publication;
+		if ($publication) $this->addProcessedObjectId(ASSOC_TYPE_PUBLICATION, $publication->getId());
+	}
+
+	/**
+	 * Get the import/export publication.
+	 * @return PKPPublication
+	 */
+	function getPublication() {
+		return $this->_publication;
+	}
+
+	/**
 	 * Add the processed object ID.
 	 * @param $assocType integer ASSOC_TYPE_...
 	 * @param $assocId integer
@@ -208,7 +232,7 @@ class PKPImportExportDeployment {
 			case ASSOC_TYPE_SUBMISSION:
 				$processedSubmisssionsIds = $this->getProcessedObjectsIds(ASSOC_TYPE_SUBMISSION);
 				if (!empty($processedSubmisssionsIds)) {
-					$submissionDao = Application::getSubmissionDAO();
+					$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 					foreach ($processedSubmisssionsIds as $submissionId) {
 						if ($submissionId) {
 							$submissionDao->deleteById($submissionId);
@@ -283,6 +307,44 @@ class PKPImportExportDeployment {
 	 */
 	function setFileDBId($fileId, $revisionId, $DBId) {
 		return $this->_fileDBIds[$fileId][$revisionId]= $DBId;
+	}
+
+	/**
+	 * Set the array of the inserted author DB Ids.
+	 * @param $authorDBIds array
+	 */
+	function setAuthorDBIds($authorDBIds) {
+		return $this->_authorDBIds = $authorDBIds;
+	}
+
+	/**
+	 * Get the array of the inserted author DB Ids.
+	 * @return array
+	 */
+	function getAuthorDBIds() {
+		return $this->_authorDBIds;
+	}
+
+	/**
+	 * Get the author DB Id.
+	 * @param $authorId integer
+	 * @return integer?
+	 */
+	function getAuthorDBId($authorId) {
+		if (array_key_exists($authorId, $this->_authorDBIds)) {
+			return $this->_authorDBIds[$authorId];
+		}
+
+		return null;
+	}
+
+	/**
+	 * Set the author DB Id.
+	 * @param $authorId integer
+	 * @param $DBId integer
+	 */
+	function setAuthorDBId($authorId, $DBId) {
+		return $this->_authorDBIds[$authorId] = $DBId;
 	}
 
 	/**

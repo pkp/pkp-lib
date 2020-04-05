@@ -3,9 +3,9 @@
 /**
  * @file classes/user/form/RolesForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPProfileForm
  * @ingroup user_form
@@ -34,8 +34,8 @@ class RolesForm extends BaseProfileForm {
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /* @var $userGroupAssignmentDao UserGroupAssignmentDAO */
 		$userGroupAssignments = $userGroupAssignmentDao->getByUserId($request->getUser()->getId());
 		$userGroupIds = array();
 		while ($assignment = $userGroupAssignments->next()) {
@@ -81,9 +81,9 @@ class RolesForm extends BaseProfileForm {
 	}
 
 	/**
-	 * Save roles settings.
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
@@ -97,7 +97,7 @@ class RolesForm extends BaseProfileForm {
 		$interestManager = new InterestManager();
 		$interestManager->setInterestsForUser($user, $this->getData('interests'));
 
-		parent::execute();
+		parent::execute(...$functionArgs);
 	}
 }
 

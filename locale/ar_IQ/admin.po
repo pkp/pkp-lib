@@ -143,6 +143,9 @@ msgstr "هل أنت متأكد من رغبتك في حذف بيانات توثي
 msgid "admin.scheduledTask.clearLogs"
 msgstr "إزالة بيانات توثيق المهام المجدولة"
 
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "نشر طلبات التقديم المجدولة للنشر"
+
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "تذكير التحكيم"
 
@@ -285,7 +288,6 @@ msgstr "محمِّل الملفات"
 
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr ""
-"\n"
 "\t\tإنسخ ملفات سجل التوثيق السابقة للملقم apache مع قيامك بتصفية الإدخالات المتعلقة بهذا التنصيب،\n"
 "\t\tوضعها في حافظة الملفات الحالية ضمن موضع الإضافة UsageStatsPlugin. هذا يجب أن يقوم به مستخدم يمكل صلاحيات كافية تسمح له بقراءة هذا النوع من الملفات.\n"
 "\n"

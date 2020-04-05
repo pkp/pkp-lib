@@ -23,6 +23,63 @@ msgstr "تعذر العثور على المورد المطلوب."
 msgid "api.404.endpointNotFound"
 msgstr "تعذر التعرف على الرابط المطلوب."
 
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "تعذر العثور على قالب المراسلة الذي طلبته."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "المقالة التي تريد نشرها سبق وأن نُشرت بالفعل."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "المقالة التي تريد إلغاء نشرها لم يتم نشرها بعد."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "يتعذر عليك تعديل هذا المنشور بعد نشره."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr "يتعذر عليك تعديل الحالة مباشرة عبر وجهة برمجة التطبيق. بدلاً من ذلك، استعمل مفاتيح الوصول /publish و /unpublish."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "ينبغي القيام بإلغاء النشر قبل أن يتسنى لك الحذف."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "يمكنك رفع أنواع الملفات الآتية حصراً: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "الصورة التي رفعتها غير صحيحة."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr "الملف الذي رفعته ليس بنفس الامتداد. قد يحدث ذلك عند تغيير صيغة الملف إلى صيغة أخرى غير مدعومة، على سبيل المثال: تغيير photo.png إلى photo.jpg."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "رفع الملفات غير متاح لك."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr "لا تتوفر لك المساحة الكافية في مجلد المستخدم. الملف الذي تحاول رفعه بحجم {$fileUploadSize}kb ولديك {$dirSizeLeft}kb متبقية فقط."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr "مجلد الملفات العام غير موجود أو يتعذر حفظ الملفات فيه. لطفاً، تواصل مع المشرف على الموقع لحل هذه المشكلة."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "تعديل هذا المنشور غير متاح لك."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "التاريخ لا بد أن يكون بالتنسيق YYYY-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "تاريخ البدء لا يمكن له أن يكون بعد تاريخ الانتهاء."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "تاريخ البدء لا يمكن له أن يكون قبل 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "تاريخ الانتهاء لا يمكن له أن يكون بعد البارحة."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr "طلبك غير صحيح. فترة مقياس الزمن لا بد أن تكون إما `day` أو `month`."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "طلبك غير صحيح. طريقة الترتيب لا بد لها أن تكون إما `desc` أو `asc`."
+
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr "طلبك مرفوض. قد يكون سبب ذلك أنه انتهت صلاحية دخولك إلى الموقع. حاول تنشيط الصفحة ثم عاود الكرة."
 
@@ -47,27 +104,6 @@ msgstr "ما تطلبه من رقم المجلد، العدد، أو السنة�
 msgid "api.submissions.unknownError"
 msgstr "حدث خطأ غير متوقع. لطفاً، أعد تحميل الصفحة ثم حاول مرة أخرى."
 
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "تعذر العثور على قالب المراسلة الذي تطلبه."
-
-msgid "api.stats.400.wrongDateFormat"
-msgstr "التاريخ لا بد أن يكون بالتنسيق YYYY-MM-DD."
-
-msgid "api.stats.400.wrongDateRange"
-msgstr "تاريخ البدء لا يمكن له أن يكون بعد تاريخ الانتهاء."
-
-msgid "api.stats.400.earlyDateRange"
-msgstr "تاريخ البدء لا يمكن له أن يكون قبل 2001-01-01."
-
-msgid "api.stats.400.lateDateRange"
-msgstr "تاريخ الانتهاء لا يمكن له أن يكون بعد البارحة."
-
-msgid "api.stats.400.wrongTimelineInterval"
-msgstr "طلبك غير صحيح. فترة مقياس الزمن لا بد أن تكون إما `day` أو `month`."
-
-msgid "api.stats.400.invalidOrderDirection"
-msgstr "طلبك غير صحيح. طريقة الترتيب لا بد لها أن تكون إما `desc` أو `asc`."
-
 msgid "api.temporaryFiles.400.noUpload"
 msgstr "تعذر العثور على أي ملف لرفعه مع الطلب."
 
@@ -82,3 +118,9 @@ msgstr "تعذر رفع الملف بسبب خطأ في إعدادات المل�
 
 msgid "api.themes.404.themeUnavailable"
 msgstr "إن النمط {$themePluginPath} غير ممَكَّن أو قد يكون غير منصب."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "إن اللغة {$locale} غير مدعومة."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "الأبجدية {$vocab} غير مدعومة."

@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/files/query/QueryNoteFilesGridDataProvider.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNoteFilesGridDataProvider
  * @ingroup controllers_grid_files_query
@@ -63,7 +63,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 		$submission = $this->getSubmission();
 		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
 
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$note = $noteDao->getById($this->_noteId);
 		if ($note->getAssocType() != ASSOC_TYPE_QUERY || $note->getAssocId() != $query->getId()) {
 			fatalError('Invalid note ID specified!');

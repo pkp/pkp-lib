@@ -497,6 +497,9 @@ msgstr "أدوات القراءة"
 msgid "manager.userSearch.searchByName"
 msgstr "البحث عن المستخدمين بالاسم"
 
+msgid "manager.representative.inUse"
+msgstr "يتعذر عليك حذف هذه الممثلية لأنها معينة إلى البيانات الوصفية المتداولة في واحد أو أكثر من صيغ النشر لهذا المؤلَّف."
+
 msgid "manager.reviewerSearch.change"
 msgstr "تغيير"
 
@@ -706,6 +709,9 @@ msgstr "تسجيل الوقائع والمراجعة"
 msgid "manager.setup.logo"
 msgstr "الصورة المصغرة"
 
+msgid "manager.setup.noTemporaryFile"
+msgstr "تعذر العثور على الملف الذي رفعته. لطفاً، حاول رفعه مرة أخرى."
+
 msgid "manager.setup.notifications"
 msgstr "إشعار بتقديم المؤلف للطلب"
 
@@ -819,6 +825,9 @@ msgstr "{$count} ({$percentage}%)"
 
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} جديد)"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "المستخدمون المسجَّلون"
 
 msgid "manager.users"
 msgstr "مستخدمون"
@@ -1792,6 +1801,9 @@ msgstr "لطفاً، أدخل اسم الفئة."
 msgid "grid.category.categoryDetails"
 msgstr "تفاصيل الفئة"
 
+msgid "stats.allUsers"
+msgstr "كل المستخدمين"
+
 msgid "stats.daily"
 msgstr "يومياً"
 
@@ -1840,14 +1852,39 @@ msgstr "آخر 30 يوم"
 msgid "stats.dateRange.last90Days"
 msgstr "آخر 90 يوم"
 
+msgid "stats.dateRange.lastTwoYears"
+msgstr "آخر سنتين"
+
+msgid "stats.dateRange.lastYear"
+msgstr "آخر سنة"
+
 msgid "stats.dateRange.sinceDate"
 msgstr "منذ {$date}"
+
+msgid "stats.dateRange.thisYear"
+msgstr "السنة الحالية"
 
 msgid "stats.dateRange.to"
 msgstr "إلى"
 
 msgid "stats.dateRange.untilDate"
 msgstr "حتى {$date}"
+
+msgid "stats.description.acceptRejectRate"
+msgstr "النسبة المئوية لمدى التأريخ المختار تُحتسب لطلبات التقديم التي بدأت خلاله وحصلت على قرار نهائي ضمنه أيضاً.<br><br>"
+"على سبيل المثال، لنفترض أن عشرة طلبات تقديم قد وردت خلال تلك الفترة. أربعة منها قُبلت، أربعة أخرى رُفِضت، وطلبين إثنين لا زالا بانتظار القرار النهائي.<br><br>"
+"نسبة القبول ستكون 50% (4 من أصل 8 طلبات تقديم) لأن الطلبين اللذين لم يحصلا على القرار النهائي لا يُحتسبان."
+
+msgid "stats.description.daysToDecision"
+msgstr "عدد الأيام التي تستغرقها أغلب طلبات التقديم لتلقي أول قرارات هيئة التحرير، كرفض المؤلَّف أو الإرسال إلى التحكيم.<br><br>"
+"هذه الأرقام تشير إلى أن ما نسبته 80% من طلبات التقديم يُتخذ بشأنها القرار ضمن عدد الأيام المبين.<br><br>"
+"هذه الإحصائية تحاول إبلاغ المؤلفين المتقدمين بأعمالهم إلى مجلتك بالفترة المتوقعة ليحصلوا فيها على آراء هيئة التحرير."
+
+msgid "stats.descriptionForStat"
+msgstr "وصف {$stat}"
+
+msgid "stats.editorialActivity"
+msgstr "نشاط هيئة التحرير"
 
 msgid "stats.fileViews"
 msgstr "معاينات الملف"
@@ -1864,5 +1901,56 @@ msgstr "PDF"
 msgid "stats.searchSubmissionDescription"
 msgstr "البحث حسب العنوان، المؤلف، أو الرمز التعريفي"
 
+msgid "stats.submissionsActive"
+msgstr "طلبات التقديم النشطة"
+
 msgid "stats.total"
 msgstr "الإجمالي"
+
+msgid "stats.totalWithinDateRange"
+msgstr "الإجمالي ضمن الفترة المحددة"
+
+msgid "stats.trends"
+msgstr "المشاغل"
+
+msgid "stats.userStatistics"
+msgstr "إحصائيات المستخدم"
+
+msgid "stats.name.submissionsReceived"
+msgstr "طلبات التقديم المتلقاة"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "طلبات التقديم المقبولة"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "طلبات التقديم المرفوضة"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "طلبات التقديم المرفوضة (بلا تحكيم)"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "طلبات التقديم المرفوضة (بعد التحكيم)"
+
+msgid "stats.name.submissionsPublished"
+msgstr "طلبات التقديم المنشورة"
+
+msgid "stats.name.daysToDecision"
+msgstr "أيام للحصول على أول قرار تحرير"
+
+msgid "stats.name.daysToAccept"
+msgstr "أيام للقبول"
+
+msgid "stats.name.daysToReject"
+msgstr "أيام للرفض"
+
+msgid "stats.name.acceptanceRate"
+msgstr "معدل القبول"
+
+msgid "stats.name.declineRate"
+msgstr "معدل الرفض"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "معدل الرفض المباشر"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "معدل الرفض بعد التحكيم"

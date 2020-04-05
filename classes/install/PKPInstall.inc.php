@@ -9,9 +9,9 @@
 /**
  * @file classes/install/PKPInstall.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Install
  * @ingroup install
@@ -256,7 +256,7 @@ class PKPInstall extends Installer {
 
 		// Create an admin user group
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT);
-		$userGroupDao = DAORegistry::getDao('UserGroupDAO', $this->dbconn);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO', $this->dbconn);
 		$adminUserGroup = $userGroupDao->newDataObject();
 		$adminUserGroup->setRoleId(ROLE_ID_SITE_ADMIN);
 		$adminUserGroup->setContextId(CONTEXT_ID_NONE);
@@ -289,11 +289,11 @@ class PKPInstall extends Installer {
 		}
 
 		// Install email template list and data for each locale
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename());
 		foreach ($this->installedLocales as $locale) {
-			$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale));
+			AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
 		}
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), $this->installedLocales);
 
 		// Install default site settings
 		$schemaService = Services::get('schema');

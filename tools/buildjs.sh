@@ -2,9 +2,9 @@
 
 # @file tools/buildjs.sh
 #
-# Copyright (c) 2014-2019 Simon Fraser University
-# Copyright (c) 2010-2019 John Willinsky
-# Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+# Copyright (c) 2014-2020 Simon Fraser University
+# Copyright (c) 2010-2020 John Willinsky
+# Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
 #
 # Script to check and minimize JavaScript for distribution.
 #
@@ -67,8 +67,8 @@ shift $((OPTIND-1))
 ### Start Processing ###
 echo >&2
 echo "Starting PKP JavaScript builder." >&2
-echo "Copyright (c) 2014-2019 Simon Fraser University" >&2
-echo "Copyright (c) 2010-2019 John Willinsky" >&2
+echo "Copyright (c) 2014-2020 Simon Fraser University" >&2
+echo "Copyright (c) 2010-2020 John Willinsky" >&2
 
 
 ### Checking Requirements ###
@@ -189,7 +189,7 @@ LINT_FILES=`echo "$LINT_FILES" | sed "s%^%$WORKDIR/%" | tr '\n' ' ' | sed -$EXTE
 echo >> "$WORKDIR/.compile-warnings.out"
 echo "Compile (Check)..." >> "$WORKDIR/.compile-warnings.out"
 echo "Compile (Check)..." >&2
-java -jar "$TOOL_PATH/compiler.jar" --language_in=ECMASCRIPT5 --jscomp_warning visibility --warning_level VERBOSE \
+java -jar "$TOOL_PATH/compiler.jar" --language_in=ECMASCRIPT5 --jscomp_warning visibility --warning_level DEFAULT \
 	$CLOSURE_EXTERNS $LINT_FILES --js_output_file /dev/null 2>&1 \
 	| sed "s/^/${TAB}/" >>"$WORKDIR/.compile-warnings.out"
 
@@ -219,7 +219,7 @@ echo "$COMPILE_FILES" | sed 's/^/.../' >&2
 COMPILE_FILES=`echo "$COMPILE_FILES" | tr '\n' ' ' | sed -$EXTENDED_REGEX_FLAG 's/ $//;s/(^| )/ --js /g'`
 
 # Run Closure - second pass to minify
-java -jar "$TOOL_PATH/compiler.jar" --language_in=ECMASCRIPT5 --jscomp_off checkTypes --warning_level VERBOSE $COMPILE_FILES \
+java -jar "$TOOL_PATH/compiler.jar" --language_in=ECMASCRIPT5 --jscomp_off checkTypes --warning_level DEFAULT $COMPILE_FILES \
 	$CLOSURE_EXTERNS --js_output_file "$JS_OUTPUT" 2>&1
 echo >&2
 

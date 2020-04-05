@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/reviewAssignment/ReviewAssignment.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewAssignment
  * @ingroup submission
@@ -530,10 +530,10 @@ class ReviewAssignment extends DataObject {
 	 * @return bool
 	 */
 	function isRead() {
-		$submissionDao = Application::getSubmissionDAO();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
-		$viewsDao = DAORegistry::getDAO('ViewsDAO');
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /* @var $userStageAssignmentDao UserStageAssignmentDAO */
+		$viewsDao = DAORegistry::getDAO('ViewsDAO'); /* @var $viewsDao ViewsDAO */
 
 		$submission = $submissionDao->getById($this->getSubmissionId());
 

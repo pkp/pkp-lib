@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/SubmissionFileDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileDAO
  * @ingroup submission
@@ -33,6 +33,7 @@
 import('lib.pkp.classes.db.DAO');
 import('lib.pkp.classes.submission.Genre'); // GENRE_CATEGORY_... constants
 import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
+import('lib.pkp.classes.submission.SubmissionFile');
 
 class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	/**
@@ -645,11 +646,13 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 		// Build the basic query that joins the class tables.
 		// The DISTINCT is required to de-dupe the review_round_files join in
 		// SubmissionFileDAO.
+		// The COALESCE(p.locale, s.locale) is required for the upgrade to 3.2;
+		// it can be removed when submission.locale is removed. (pkp/pkp-lib#5634)
 		return 'SELECT DISTINCT
 				sf.file_id AS submission_file_id, sf.revision AS submission_revision,
 				af.file_id AS artwork_file_id, af.revision AS artwork_revision,
 				suf.file_id AS supplementary_file_id, suf.revision AS supplementary_revision,
-				p.locale AS submission_locale,
+				COALESCE(p.locale, s.locale) AS submission_locale,
 				sf.*, af.*, suf.*
 			FROM	submission_files sf
 				LEFT JOIN submission_artwork_files af ON sf.file_id = af.file_id AND sf.revision = af.revision
@@ -759,7 +762,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			case SUBMISSION_FILE_REVIEW_FILE:
 			case SUBMISSION_FILE_REVIEW_ATTACHMENT:
 			case SUBMISSION_FILE_REVIEW_REVISION:
-				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 				$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
 				return $reviewRound->getStageId();
 			case SUBMISSION_FILE_FINAL:
@@ -770,9 +773,9 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			case SUBMISSION_FILE_DEPENDENT:
 				return WORKFLOW_STAGE_ID_PRODUCTION;
 			case SUBMISSION_FILE_QUERY:
-				$noteDao = DAORegistry::getDAO('NoteDAO');
+				$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 				$note = $noteDao->getById($submissionFile->getAssocId());
-				$queryDao = DAORegistry::getDAO('QueryDAO');
+				$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 				$query = $queryDao->getById($note->getAssocId());
 				return $query?$query->getStageId():null;
 		}

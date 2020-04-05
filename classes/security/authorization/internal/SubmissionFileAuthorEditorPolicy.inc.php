@@ -2,9 +2,9 @@
 /**
  * @file classes/security/authorization/internal/SubmissionFileAuthorEditorPolicy.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileAuthorEditorPolicy
  * @ingroup security_authorization_internal
@@ -35,7 +35,7 @@ class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy {
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 		foreach ($userRoles as $stageRoles) {
 			if (in_array(ROLE_ID_AUTHOR, $stageRoles)) {
-				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 				$reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getAssocId());
 				if ($reviewAssignment && $reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN){
 					return AUTHORIZATION_DENY;

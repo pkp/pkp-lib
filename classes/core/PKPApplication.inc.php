@@ -3,9 +3,9 @@
 /**
  * @file classes/core/PKPApplication.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPApplication
  * @ingroup core
@@ -80,6 +80,7 @@ interface iPKPApplicationInfoProvider {
 
 	/**
 	 * Get the submission DAO.
+	 * @deprecated Just use DAORegistry::getDAO('SubmissionDAO') directly.
 	 */
 	public static function getSubmissionDAO();
 
@@ -92,6 +93,11 @@ interface iPKPApplicationInfoProvider {
 	 * Get a SubmissionSearchIndex instance.
 	 */
 	public static function getSubmissionSearchIndex();
+
+	/**
+	 * Get a SubmissionSearchDAO instance.
+	 */
+	public static function getSubmissionSearchDAO();
 
 	/**
 	 * Returns the name of the context column in plugin_settings.
@@ -386,8 +392,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'ControlledVocabDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabDAO',
 			'ControlledVocabEntryDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO',
 			'ControlledVocabEntrySettingsDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabEntrySettingsDAO',
-			'CountryDAO' => 'lib.pkp.classes.i18n.CountryDAO',
-			'CurrencyDAO' => 'lib.pkp.classes.currency.CurrencyDAO',
+			'CountryDAO' => 'lib.pkp.classes.i18n.CountryDAO', // DEPRECATED
+			'CurrencyDAO' => 'lib.pkp.classes.currency.CurrencyDAO', // DEPRECATED
 			'DataObjectTombstoneDAO' => 'lib.pkp.classes.tombstone.DataObjectTombstoneDAO',
 			'DataObjectTombstoneSettingsDAO' => 'lib.pkp.classes.tombstone.DataObjectTombstoneSettingsDAO',
 			'EditDecisionDAO' => 'lib.pkp.classes.submission.EditDecisionDAO',
@@ -397,7 +403,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'GenreDAO' => 'lib.pkp.classes.submission.GenreDAO',
 			'InterestDAO' => 'lib.pkp.classes.user.InterestDAO',
 			'InterestEntryDAO' => 'lib.pkp.classes.user.InterestEntryDAO',
-			'LanguageDAO' => 'lib.pkp.classes.language.LanguageDAO',
+			'LanguageDAO' => 'lib.pkp.classes.language.LanguageDAO', // DEPRECATED
 			'LibraryFileDAO' => 'lib.pkp.classes.context.LibraryFileDAO',
 			'NavigationMenuDAO' => 'lib.pkp.classes.navigationMenu.NavigationMenuDAO',
 			'NavigationMenuItemDAO' => 'lib.pkp.classes.navigationMenu.NavigationMenuItemDAO',

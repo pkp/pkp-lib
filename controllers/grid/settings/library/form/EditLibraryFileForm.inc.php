@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/settings/library/form/EditLibraryFileForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditLibraryFileForm
  * @ingroup controllers_grid_file_form
@@ -30,7 +30,7 @@ class EditLibraryFileForm extends LibraryFileForm {
 	 */
 	function __construct($contextId, $fileId) {
 		parent::__construct('controllers/grid/settings/library/form/editFileForm.tpl', $contextId);
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
 		$this->libraryFile = $libraryFileDao->getById($fileId);
 
 		if (!$this->libraryFile || $this->libraryFile->getContextId() != $this->contextId) {
@@ -50,14 +50,15 @@ class EditLibraryFileForm extends LibraryFileForm {
 	}
 
 	/**
-	 * Save name for library file
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$this->libraryFile->setName($this->getData('libraryFileName'), null); // Localized
 		$this->libraryFile->setType($this->getData('fileType'));
 		$this->libraryFile->setPublicAccess($this->getData('publicAccess'));
 
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
 		$libraryFileDao->updateObject($this->libraryFile);
+		parent::execute(...$functionArgs);
 	}
 }

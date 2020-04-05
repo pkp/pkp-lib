@@ -3,9 +3,9 @@
 /**
  * @file controllers/informationCenter/InformationCenterHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class InformationCenterHandler
  * @ingroup controllers_informationCenter
@@ -101,7 +101,7 @@ abstract class InformationCenterHandler extends Handler {
 		$this->setupTemplate($request);
 
 		$noteId = (int) $request->getUserVar('noteId');
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$note = $noteDao->getById($noteId);
 
 		if (!$request->checkCSRF() || !$note || $note->getAssocType() != $this->_getAssocType() || $note->getAssocId() != $this->_getAssocId()) fatalError('Invalid note!');
@@ -128,7 +128,7 @@ abstract class InformationCenterHandler extends Handler {
 		$this->setupTemplate($request);
 
 		$templateMgr = TemplateManager::getManager($request);
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$templateMgr->assign('notes', $noteDao->getByAssoc($this->_getAssocType(), $this->_getAssocId()));
 
 		$user = $request->getUser();

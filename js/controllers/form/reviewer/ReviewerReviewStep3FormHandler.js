@@ -4,9 +4,9 @@
 /**
  * @file js/controllers/form/reviewer/ReviewerReviewStep3FormHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerReviewStep3FormHandler
  * @ingroup js_controllers_form_reviewer
@@ -38,6 +38,8 @@
 		// of the comments field.
 		$formElement.find('[id^=\'submitFormButton-\']').click(this.callbackWrapper(
 				this.updateCommentsRequired_));
+		$formElement.find('[type^=\'submit\']').click(this.callbackWrapper(
+				this.updateRecommendationRequired_));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.reviewer.ReviewerReviewStep3FormHandler,
@@ -48,6 +50,31 @@
 	//
 	// Private methods.
 	//
+	/**
+	 * Internal callback called before form validation to ensure the
+	 * proper "required" state of the Recommendation field
+	 *
+	 * @param {HTMLElement} submitButton The submit button.
+	 * @param {Event} event The event that triggered the
+	 *  submit button.
+	 * @return {boolean} true.
+	 * @private
+	 */
+	$.pkp.controllers.form.reviewer.ReviewerReviewStep3FormHandler.
+			prototype.updateRecommendationRequired_ = function(submitButton, event) {
+
+		var $formElement = this.getHtmlElement(),
+				$recommendationElement = $formElement.find('[id^="recommendation"]');
+		if ($recommendationElement.length){
+			if (submitButton.id.includes("submitFormButton-")) {
+				$recommendationElement.attr('required', '1');
+			} else {
+				$recommendationElement.removeAttr('required');
+			}
+		}
+		return true;
+	};
+
 	/**
 	 * Internal callback called before form validation to ensure the
 	 * proper "required" state of the comments field, depending on grid
@@ -77,5 +104,4 @@
 		}
 		return true;
 	};
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

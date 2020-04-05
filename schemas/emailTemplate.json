@@ -81,7 +81,10 @@
 			"type": "string",
 			"description": "The subject of the email to be used in the email's subject header.",
 			"multilingual": true,
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"toRoleId": {
 			"type": "integer",

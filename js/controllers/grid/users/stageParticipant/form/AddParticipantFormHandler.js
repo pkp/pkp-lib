@@ -4,9 +4,9 @@
 /**
  * @file js/controllers/grid/users/stageParticipant/form/AddParticipantFormHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AddParticipantFormHandler
  * @ingroup js_controllers_grid_users_stageParticipant_form
@@ -35,7 +35,7 @@
 
 		$('input[name=\'userId\']').click(function() {
 			var filterUserIdVal =
-					/** @type {string} */ $('input[name=\'userId\']:checked').val();
+					/** @type {string} */ ($('input[name=\'userId\']:checked').val());
 			$('input[name=\'userIdSelected\']').val(filterUserIdVal).trigger('change');
 		});
 
@@ -60,11 +60,10 @@
 
 		var $form = this.getHtmlElement(),
 				$filterUserGroupId = $form.find('select[name^=\'filterUserGroupId\']'),
-				filterUserGroupIdVal = /** @type {string} */ $filterUserGroupId.val();
+				filterUserGroupIdVal = /** @type {string} */ ($filterUserGroupId.val());
 
 		$('input[name=\'userGroupId\']').val(filterUserGroupIdVal).trigger('change');
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

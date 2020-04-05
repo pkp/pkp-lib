@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-02-12 08:50+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"default/id/>\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "default.groups.name.proofreader"
+msgstr "Proofreader"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Copyeditor"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ProdE"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML StyleSheet"
+
+msgid "default.genres.image"
+msgstr "Gambar"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedia"
+
+msgid "default.genres.other"
+msgstr "Lainnya"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Baca"
+
+msgid "default.groups.plural.reader"
+msgstr "Para Pembaca"
+
+msgid "default.groups.name.reader"
+msgstr "Pembaca"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Trans"
+
+msgid "default.groups.plural.translator"
+msgstr "Para Penerjemah"
+
+msgid "default.groups.name.translator"
+msgstr "Penerjemah"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.plural.author"
+msgstr "Para Penulis"
+
+msgid "default.groups.name.author"
+msgstr "Penulis"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "LE"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Para Editor Tata Letak"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Editor Tata Letak"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.plural.indexer"
+msgstr "Pengindeks"
+
+msgid "default.groups.name.indexer"
+msgstr "Pengindeks"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FC"
+
+msgid "default.groups.plural.funding"
+msgstr "Para koordinator pendanaan"
+
+msgid "default.groups.name.funding"
+msgstr "Koordinator pendanaan"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MS"
+
+msgid "default.groups.plural.marketing"
+msgstr "Para koordinator penjualan dan pemasaran"
+
+msgid "default.groups.name.marketing"
+msgstr "Koordinator penjualan dan pemasaran"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Para Peninjau Internal"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Peninjau Internal"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Desain"
+
+msgid "default.groups.plural.designer"
+msgstr "Para Desainer"
+
+msgid "default.groups.name.designer"
+msgstr "Desainer"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "PR"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Para proofreader"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Para Copyeditor"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Para editor produksi"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Editor produksi"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Admin Situs"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Admin Situs"

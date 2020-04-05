@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/publication/PKPMetadataForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPMetadataForm
  * @ingroup classes_controllers_form
@@ -86,7 +86,7 @@ class PKPMetadataForm extends FormComponent {
 			]));
 		}
 
-		if ($submissionContext->getData('supportingAgencies')) {
+		if ($submissionContext->getData('agencies')) {
 			$this->addField(new FieldControlledVocab('supportingAgencies', [
 				'label' => __('submission.supportingAgencies'),
 				'tooltip' => __('manager.setup.metadata.agencies.description'),
@@ -129,6 +129,14 @@ class PKPMetadataForm extends FormComponent {
 				'tooltip' => __('manager.setup.metadata.type.description'),
 				'isMultilingual' => true,
 				'value' => $publication->getData('type'),
+			]));
+		}
+
+		if (in_array('publication', (array) $submissionContext->getData('enablePublisherId'))) {
+			$this->addField(new FieldText('pub-id::publisher-id', [
+				'label' => __('submission.publisherId'),
+				'tooltip' => __('submission.publisherId.description'),
+				'value' => $publication->getData('pub-id::publisher-id'),
 			]));
 		}
 	}

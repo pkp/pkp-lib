@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
+"PO-Revision-Date: 2020-02-13T21:06:38+00:00\n"
+"Language: \n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Oldal adminisztrátor"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Oldal adminisztrátorok"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Megjelenés szerkesztő"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Megjelenés szerkesztők"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "Megjszerk."
+
+msgid "default.groups.name.copyeditor"
+msgstr "Technikai szerkesztő"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Technikai szerkesztők"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "TechSz"
+
+msgid "default.groups.name.proofreader"
+msgstr "Korrektúrázó"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Korrektúrázók"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "KO"
+
+msgid "default.groups.name.designer"
+msgstr "Tervező"
+
+msgid "default.groups.plural.designer"
+msgstr "Tervezők"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Tervezés"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Belső lektor"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Belső lektorok"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "BB"
+
+msgid "default.groups.name.marketing"
+msgstr "Marketing és értékesítési koordinátor"
+
+msgid "default.groups.plural.marketing"
+msgstr "Marketing és értékesítési koordinátorok"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MÉ"
+
+msgid "default.groups.name.funding"
+msgstr "Finanszírozási koordinátor"
+
+msgid "default.groups.plural.funding"
+msgstr "Finanszírozási koordinátorok"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FK"
+
+msgid "default.groups.name.indexer"
+msgstr "Indexelő"
+
+msgid "default.groups.plural.indexer"
+msgstr "Indexelők"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Tördelő szerkesztő"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Tördelő szerkesztők"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "TSZ"
+
+msgid "default.groups.name.author"
+msgstr "Szerző"
+
+msgid "default.groups.plural.author"
+msgstr "Szerzők"
+
+msgid "default.groups.abbrev.author"
+msgstr "SZE"
+
+msgid "default.groups.name.translator"
+msgstr "Fordító"
+
+msgid "default.groups.plural.translator"
+msgstr "Fordítók"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Ford"
+
+msgid "default.groups.name.reader"
+msgstr "Olvasó"
+
+msgid "default.groups.plural.reader"
+msgstr "Olvasók"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Olv"
+
+msgid "default.genres.other"
+msgstr "Egyéb"
+
+msgid "default.genres.multimedia"
+msgstr "Multimédia"
+
+msgid "default.genres.image"
+msgstr "Kép"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML Stíluslap"

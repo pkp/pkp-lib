@@ -3,9 +3,9 @@
 /**
  * @file classes/scheduledTask/ScheduledTaskHelper.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ScheduledTaskHelper
  * @ingroup scheduledTask
@@ -88,14 +88,14 @@ class ScheduledTaskHelper {
 		// Check day of week
 		$dayOfWeek = $frequency->getAttribute('dayofweek');
 		if (isset($dayOfWeek)) {
-			$isValid = self::_isInRange($dayOfWeek, (int)date('w'), $lastRunTime, 'day', strtotime('-1 week'));
+			$isValid = self::_isInRange($dayOfWeek, (int)date('w'), $lastRunTime, 'day', strtotime('-1 week'), strtotime('-1 day'));
 		}
 
 		if ($isValid) {
 			// Check month
 			$month = $frequency->getAttribute('month');
 			if (isset($month)) {
-				$isValid = self::_isInRange($month, (int)date('n'), $lastRunTime, 'month', strtotime('-1 year'));
+				$isValid = self::_isInRange($month, (int)date('n'), $lastRunTime, 'month', strtotime('-1 year'), strtotime('-1 month'));
 			}
 		}
 
@@ -103,7 +103,7 @@ class ScheduledTaskHelper {
 			// Check day
 			$day = $frequency->getAttribute('day');
 			if (isset($day)) {
-				$isValid = self::_isInRange($day, (int)date('j'), $lastRunTime, 'day', strtotime('-1 month'));
+				$isValid = self::_isInRange($day, (int)date('j'), $lastRunTime, 'day', strtotime('-1 month'), strtotime('-1 day'));
 			}
 		}
 
@@ -111,7 +111,7 @@ class ScheduledTaskHelper {
 			// Check hour
 			$hour = $frequency->getAttribute('hour');
 			if (isset($hour)) {
-				$isValid = self::_isInRange($hour, (int)date('G'), $lastRunTime, 'hour', strtotime('-1 day'));
+				$isValid = self::_isInRange($hour, (int)date('G'), $lastRunTime, 'hour', strtotime('-1 day'), strtotime('-1 hour'));
 			}
 		}
 
@@ -119,7 +119,7 @@ class ScheduledTaskHelper {
 			// Check minute
 			$minute = $frequency->getAttribute('minute');
 			if (isset($minute)) {
-				$isValid = self::_isInRange($minute, (int)date('i'), $lastRunTime, 'min', strtotime('-1 hour'));
+				$isValid = self::_isInRange($minute, (int)date('i'), $lastRunTime, 'min', strtotime('-1 hour'), strtotime('-1 minute'));
 			}
 		}
 
@@ -224,15 +224,21 @@ class ScheduledTaskHelper {
 	 * @param $currentValue int value to check if its in the range
 	 * @param $lastTimestamp int the last time the task was executed
 	 * @param $timeCompareStr string value to use in strtotime("-X $timeCompareStr")
-	 * @param $cutoffTimestamp int value will be considered valid if older than this
+	 * @param $passTimestamp int If the last run is older than this timestamp, consider executing.
+	 * @param $blockTimestamp int If the last run is newer than this timestamp, do not execute.
 	 * @return boolean
 	 */
-	private static function _isInRange($rangeStr, $currentValue, $lastTimestamp, $timeCompareStr, $cutoffTimestamp) {
+	private static function _isInRange($rangeStr, $currentValue, $lastTimestamp, $timeCompareStr, $passTimestamp, $blockTimestamp) {
 		$isValid = false;
 		$rangeArray = explode(',', $rangeStr);
 
-		if ($cutoffTimestamp > $lastTimestamp) {
-			// Execute immediately if the cutoff time period has past since the task was last run
+		// If the last task run is newer than the block timestamp, do not execute the task again yet.
+		if ($lastTimestamp > $blockTimestamp) {
+			return false;
+		}
+
+		// If the last task run is older than the pass timestamp, consider running the task.
+		if ($passTimestamp > $lastTimestamp) {
 			$isValid = true;
 		}
 

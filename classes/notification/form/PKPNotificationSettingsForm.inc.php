@@ -6,9 +6,9 @@
 /**
  * @file classes/notification/form/NotificationSettingsForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationSettingsForm
  * @ingroup notification_form
@@ -49,7 +49,7 @@ class PKPNotificationSettingsForm extends Form {
 	 * @return array
 	 */
 	protected function getNotificationSettingsMap() {
-		return array(
+		$result = array(
 			NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => array('settingName' => 'notificationSubmissionSubmitted',
 				'emailSettingName' => 'emailNotificationSubmissionSubmitted',
 				'settingKey' => 'notification.type.submissionSubmitted'),
@@ -75,6 +75,10 @@ class PKPNotificationSettingsForm extends Form {
 				'emailSettingName' => 'emailNotificationEditorialReport',
 				'settingKey' => 'notification.type.editorialReport')
 		);
+
+		HookRegistry::call(strtolower_codesafe(get_class($this) . '::getNotificationSettingsMap'), array($this, &$result));
+
+		return $result;
 	}
 
 	/**
@@ -83,7 +87,7 @@ class PKPNotificationSettingsForm extends Form {
 	 * @return array
 	 */
 	public function getNotificationSettingCategories() {
-		return array(
+		$result = array(
 			// Changing the `categoryKey` for public notification types will disrupt
 			// the email notification opt-in/out feature during user registration
 			// @see RegistrationForm::execute()
@@ -112,6 +116,10 @@ class PKPNotificationSettingsForm extends Form {
 				)
 			),
 		);
+
+		HookRegistry::call(strtolower_codesafe(get_class($this) . '::getNotificationSettingCategories'), array($this, &$result));
+
+		return $result;
 	}
 
 	/**
@@ -121,7 +129,7 @@ class PKPNotificationSettingsForm extends Form {
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$userId = $request->getUser()->getId();
-		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'blockedNotifications' => $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_notification', $userId, $contextId),
@@ -153,7 +161,7 @@ class PKPNotificationSettingsForm extends Form {
 			if($this->getData($notificationSetting['emailSettingName'])) $emailSettings[] = $settingId;
 		}
 
-		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
 		$notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings('blocked_notification', $blockedNotifications, $userId, $contextId);
 		$notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings('blocked_emailed_notification', $emailSettings, $userId, $contextId);
 

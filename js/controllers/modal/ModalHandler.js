@@ -5,9 +5,9 @@
 /**
  * @file js/controllers/modal/ModalHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ModalHandler
  * @ingroup js_controllers_modal
@@ -127,7 +127,7 @@
 
 		// Check for basic configuration requirements.
 		return typeof options === 'object' &&
-				(/** @type {{ buttons: Object }} */ options).buttons === undefined;
+				(/** @type {{ buttons: Object }} */ (options)).buttons === undefined;
 	};
 
 
@@ -264,7 +264,7 @@
 					id = vueInstances[i];
 					if (typeof pkp.registry._instances[id] !== 'undefined') {
 						instance = /** @type {{ $destroy: Function }} */
-								pkp.registry._instances[id];
+								(pkp.registry._instances[id]);
 						instance.$destroy();
 					}
 				}
@@ -350,5 +350,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

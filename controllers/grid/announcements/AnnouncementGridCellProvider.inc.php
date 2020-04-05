@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/announcements/AnnouncementGridCellProvider.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementGridCellProvider
  * @ingroup controllers_grid_announcements
@@ -62,7 +62,7 @@ class AnnouncementGridCellProvider extends GridCellProvider {
 			case 'type':
 				$typeId = $announcement->getTypeId();
 				if ($typeId) {
-					$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+					$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 					$announcementType = $announcementTypeDao->getById($typeId);
 					return array('label' => $announcementType->getLocalizedTypeName());
 				} else {

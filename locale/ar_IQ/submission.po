@@ -11,6 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2019-11-19T10:49:39+00:00\n"
 "Language: \n"
 
+msgid "author.editPublishedDisabled"
+msgstr "مؤلفوا هذه المقالة لا يمكن تعديلهم لأنها سبق وأن تم نشرها."
+
+msgid "author.publicationNotFound"
+msgstr "تعذر العثور على عمل هذا المؤلف."
+
 msgid "author.submit.submissionCitations"
 msgstr "إدرج قائمة منسقة من المراجع للأعمال المقتبس منها ضمن هذا المؤلَّف. لطفاً، إفصل بين المراجع بسطر فارغ."
 
@@ -656,6 +662,18 @@ msgstr "تنزيل الاقتباسات"
 msgid "submission.initiated"
 msgstr "بوشر به"
 
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — تم تحديثه في {$dateUpdated}"
+
+msgid "submission.versions"
+msgstr "النسخ"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.outdatedVersion"
+msgstr "هذه نسخة قديمة منشورة في {$datePublished}. إقرأ <a href=\"{$urlRecentVersion}\">النسخة الأحدث</a>."
+
 msgid "submission.identifiers"
 msgstr "المعرفات"
 
@@ -905,6 +923,9 @@ msgstr "رفض"
 msgid "submissions.incomplete"
 msgstr "غير مكتمل"
 
+msgid "submissions.inactive"
+msgstr "غير فعالة لمدة {$days} يوم/أيام"
+
 msgid "submissions.noSubmissions"
 msgstr "لا طلبات نشر"
 
@@ -1126,6 +1147,9 @@ msgstr "مرفوض"
 
 msgid "submission.status.published"
 msgstr "منشور"
+
+msgid "submission.status.scheduled"
+msgstr "مجدول"
 
 msgid "submission.submit.uploadStep"
 msgstr "1. رفع الملف"
@@ -1478,6 +1502,12 @@ msgstr "{$editorName} قد أشر على الجولة {$round} لطلب النش
 msgid "log.review.reviewReinstated"
 msgstr "جولة التحكيم {$round} من قبل {$reviewerName} للمؤلَّف {$submissionId} قد أعيد الشروع بها."
 
+msgid "log.review.reviewConfirmed"
+msgstr "المحرر {$userName} قد أكد إجراء الجولة {$round} لتحكيم طلب التقديم {$submissionId}."
+
+msgid "log.review.reviewReady"
+msgstr "{$reviewerName} قد أكمل الجولة {$round} من تحكيم طلب التقديم {$submissionId}."
+
 msgid "submission.review.status.awaitingResponse"
 msgstr "بانتظار استجابة المحكم."
 
@@ -1556,11 +1586,26 @@ msgstr "إرفق الصلاحيات الآتية بالمؤلَّف:"
 msgid "submission.license"
 msgstr "الرخصة"
 
+msgid "submission.license.description"
+msgstr "الرخصة سيتم ضبطها تلقائياً لتكون <a href='{$licenseUrl}' target='_blank'>{$licenseName}</a> عند النشر."
+
 msgid "submission.copyright"
 msgstr "الحقوق الفكرية"
 
 msgid "submission.copyrightHolder"
 msgstr "مالك الحقوق الفكرية"
+
+msgid "submission.copyrightHolder.description"
+msgstr "الحقوق الفكرية سيتم تعيينها تلقائياً إلى {$copyright} عند النشر."
+
+msgid "submission.copyrightHolder.other"
+msgstr "بيان الحقوق الفكرية المخصص"
+
+msgid "submission.copyrightOther"
+msgstr "بيان الحقوق الفكرية"
+
+msgid "submission.copyrightOther.description"
+msgstr "أعط الحقوق الفكرية لطلبات التقديم المنشورة إلى الجهة الآتية."
 
 msgid "submission.copyrightYear"
 msgstr "سنة الحقوق الفكرية"
@@ -1610,23 +1655,29 @@ msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by/4
 msgid "submission.license.cc.by-sa4.footer"
 msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-nd3.footer"
-msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International License</a>.</p>"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported License</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc3.footer"
-msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons Attribution-NonCommercial 3.0 International License</a>.</p>"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons Attribution-NonCommercial 3.0 Unported License</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-sa3.footer"
-msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International License</a>.</p>"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nd3.footer"
-msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons Attribution-NoDerivatives 3.0 International License</a>.</p>"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by3.footer"
-msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 International License</a>.</p>"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 Unported License</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-sa3.footer"
-msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Attribution-ShareAlike 3.0 International License</a>.</p>"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>"
 
 msgid "submission.queries.submission"
 msgstr "مناقشات ما قبل التحكيم"
@@ -1696,6 +1747,9 @@ msgstr "لا طلبات تقديم هنا."
 
 msgid "submission.list.responseDue"
 msgstr "موعد الإجابة"
+
+msgid "submission.list.reviewAssignment"
+msgstr "تعيينات التحكيم"
 
 msgid "submission.list.reviewDue"
 msgstr "استيجاب التحكيم"
@@ -1775,17 +1829,125 @@ msgstr "لم يتم نشر أي شيء من هذه الفئة بعد."
 msgid "catalog.category.subcategories"
 msgstr "الفئات الفرعية"
 
-msgid "submission.production.version"
-msgstr "النسخة {$submissionVersion}"
+msgid "submission.publication"
+msgstr "المنشور"
 
-msgid "submission.production.newVersion"
-msgstr "نسخة جديدة"
+msgid "publication.citations.success"
+msgstr "تم تحديث المراجع."
 
-msgid "submission.production.editMetadata"
-msgstr "البيانات الوصفية لهذه النسخة"
+msgid "publication.contributors"
+msgstr "المساهمون"
 
-msgid "submission.production.editMetadata.info"
-msgstr "هذه هي البيانات الوصفية للنسخة {$version}."
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr "سنة الحقوق الفكرية سيتم ضبطها تلقائياً عند النشر في أحد الأعداد."
 
-msgid "submission.production.editMetadata.previous"
-msgstr "النسخ السابقة يمكن معاينتها في التبويب المعني عند مرحلة الإنتاج."
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr "سنة الحقوق الفكرية سيتم ضبطها تلقائياً استناداً إلى تأريخ النشر."
+
+msgid "publication.createVersion"
+msgstr "إنشاء نسخة جديدة"
+
+msgid "publication.datePublished"
+msgstr "تأريخ النشر"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "التأريخ لا بد أن يكون بتنسيق YYYY-MM-DD، مثلاً 2020-01-01."
+
+msgid "publication.editDisabled"
+msgstr "هذه النسخة سبق وأن نُشرت ولا يمكن تعديلها."
+
+msgid "publication.event.published"
+msgstr "طلب التقديم نُشر."
+
+msgid "publication.event.scheduled"
+msgstr "طلب التقديم تمت جدولته للنشر."
+
+msgid "publication.event.unpublished"
+msgstr "طلب التقديم لم يُنشر."
+
+msgid "publication.event.versionCreated"
+msgstr "نسخة جديدة قد تم إنشاؤها."
+
+msgid "publication.event.versionPublished"
+msgstr "نسخة جديدة قد تم نشرها."
+
+msgid "publication.event.versionScheduled"
+msgstr "نسخة جديدة قد تمت جدولتها للنشر."
+
+msgid "publication.event.versionUnpublished"
+msgstr "إحدى النسخ قد تمت إزالتها عن النشر."
+
+msgid "publication.invalidSubmission"
+msgstr "تعذر العثور على طلب التقديم المتعلق بهذا المنشور."
+
+msgid "publication.metadata.success"
+msgstr "البيانات الوصفية تم تحديثها."
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "المعرفات تم تحديثها."
+
+msgid "publication.publicationLicense"
+msgstr "الصلاحيات والإفصاح"
+
+msgid "publication.publicationLicense.success"
+msgstr "معلومات الحقوق الفكرية والرخصة قد تم تحديثها."
+
+msgid "publication.publish"
+msgstr "النشر"
+
+msgid "publication.publish.requirements"
+msgstr "لا بد من تلبية المتطلبات الآتية قبل الشروع بالنشر."
+
+msgid "publication.publish.success"
+msgstr "حالة المنشور تغيرت بنجاح."
+
+msgid "publication.required.declined"
+msgstr "طلب التقديم المرفوض لا يمكن له أن يُنشر."
+
+msgid "publication.required.reviewStage"
+msgstr "طلب التقديم لا بد أن يكون في مرحلة التدقيق أو الانتاج قبل أن يتسنى نشره."
+
+msgid "publication.status.published"
+msgstr "منشور"
+
+msgid "publication.status.scheduled"
+msgstr "مجدول"
+
+msgid "publication.status.unpublished"
+msgstr "غير منشور"
+
+msgid "publication.status.unscheduled"
+msgstr "غير مجدول"
+
+msgid "publication.titleAbstract"
+msgstr "العنوان والملخص"
+
+msgid "publication.titleAbstract.success"
+msgstr "العنوان والملخص قد تم تعديلهما."
+
+msgid "publication.unpublish"
+msgstr "لا تنشر"
+
+msgid "publication.unpublish.confirm"
+msgstr "هل أنت متأكد من رغبتك في عدم النشر؟"
+
+msgid "publication.unschedule"
+msgstr "لا تجدول"
+
+msgid "publication.unschedule.confirm"
+msgstr "هل أنت متأكد من رغبتك في عدم جدولته للنشر؟"
+
+msgid "publication.version.all"
+msgstr "كل النسخ"
+
+msgid "publication.version.confirm"
+msgstr "هل أنت متأكد من رغبتك في إنشاء نسخة جديدة؟"
+
+msgid "publication.version.details"
+msgstr "تفاصيل النشر للنسخة {$version}"
+
+msgid "publication.wordCountLong"
+msgstr "الملخص طويل للغاية. لا بد أن يقتصر على {$limit} كلمة أو أقل. طوله الحالي {$count} كلمة."
+
+msgid "publication.wordCount"
+msgstr "عدد الكلمات: {$count}/{$limit}"

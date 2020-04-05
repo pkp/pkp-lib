@@ -2,9 +2,9 @@
 /**
  * @file classes/services/PKPUserService.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUserService
  * @ingroup services
@@ -21,21 +21,35 @@ use \DAORegistry;
 use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
-use \PKP\Services\traits\EntityReadTrait;
 use \APP\Services\QueryBuilders\UserQueryBuilder;
 
 class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
-	use EntityReadTrait;
 
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
 	 */
 	public function get($userId) {
-		return DAORegistry::getDAO('UserDAO')->getById($userId);
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+		return $userDao->getById($userId);
 	}
 
 	/**
-	 * Get a collection of users limited, filtered and sorted by $args
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getCount()
+	 */
+	public function getCount($args = []) {
+		return $this->getQueryBuilder($args)->getCount();
+	}
+
+	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getIds()
+	 */
+	public function getIds($args = []) {
+		return $this->getQueryBuilder($args)->getIds();
+	}
+
+	/**
+	 * Get a collection of User objects limited, filtered
+	 * and sorted by $args
 	 *
 	 * @param array $args
 	 *		@option int contextId If not supplied, CONTEXT_ID_NONE will be used and
@@ -54,11 +68,18 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * 		@option int offset
 	 * @return Iterator
 	 */
-	public function getMany($args = array()) {
-		$userListQB = $this->_getQueryBuilder($args);
-		$userListQO = $userListQB->get();
-		$range = $this->getRangeByArgs($args);
-		$userDao = DAORegistry::getDAO('UserDAO');
+	public function getMany($args = []) {
+		$range = null;
+		if (isset($args['count'])) {
+			import('lib.pkp.classes.db.DBResultRange');
+			$range = new \DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
+		}
+		// Pagination is handled by the DAO, so don't pass count and offset
+		// arguments to the QueryBuilder.
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		$userListQO = $this->getQueryBuilder($args)->getQuery();
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithData');
 
@@ -68,25 +89,18 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
 	 */
-	public function getMax($args = array()) {
-		$userListQB = $this->_getQueryBuilder($args);
-		$countQO = $userListQB->countOnly()->get();
-		$countRange = new DBResultRange($args['count']??null, 1);
-		$userDao = DAORegistry::getDAO('UserDAO');
-		$countResult = $userDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $userDao, '_returnUserFromRowWithData');
-
-		return (int) $countQueryResults->getCount();
+	public function getMax($args = []) {
+		// Don't accept args to limit the results
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		return $this->getQueryBuilder($args)->getCount();
 	}
 
 	/**
-	 * Build the user query object for getMany requests
-	 *
-	 * @see self::getMany()
-	 * @return object Query object
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
+	 * @return UserQueryBuilder
 	 */
-	private function _getQueryBuilder($args = array()) {
-
+	public function getQueryBuilder($args = []) {
 		$defaultArgs = array(
 			'contextId' => CONTEXT_ID_NONE,
 			'orderBy' => 'id',
@@ -117,21 +131,38 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			->filterByStatus($args['status'])
 			->searchPhrase($args['searchPhrase']);
 
+		if (isset($args['count'])) {
+			$userListQB->limitTo($args['count']);
+		}
+
+		if (isset($args['offset'])) {
+			$userListQB->offsetBy($args['count']);
+		}
+
 		\HookRegistry::call('User::getMany::queryBuilder', array($userListQB, $args));
 
 		return $userListQB;
 	}
 
 	/**
-	 * Get reviewers
+	 * Get a collection of User objects with reviewer stats
+	 * limited, filtered and sorted by $args
 	 *
-	 * @see self::getMeny()
+	 * @see self::getMany()
+	 * @return \Iterator
 	 */
-	public function getReviewers($args = array()) {
-		$userListQB = $this->_getReviewersQueryBuilder($args);
-		$userListQO = $userListQB->get();
-		$range = $this->getRangeByArgs($args);
-		$userDao = DAORegistry::getDAO('UserDAO');
+	public function getReviewers($args = []) {
+		$range = null;
+		if (isset($args['count'])) {
+			import('lib.pkp.classes.db.DBResultRange');
+			$range = new \DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
+		}
+		// Pagination is handled by the DAO, so don't pass count and offset
+		// arguments to the QueryBuilder.
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		$userListQO = $this->getReviewersQueryBuilder($args)->getQuery();
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithReviewerStats');
 
@@ -142,24 +173,22 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * Get max count of reviewers matching a query request
 	 *
 	 * @see self::getMax()
+	 * @return int
 	 */
-	public function getReviewersMax($args = array()) {
-		$userListQB = $this->_getReviewersQueryBuilder($args);
-		$countQO = $userListQB->countOnly()->get();
-		$countRange = new DBResultRange($args['count'], 1);
-		$userDao = DAORegistry::getDAO('UserDAO');
-		$countResult = $userDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $userDao, '_returnUserFromRowWithReviewerStats');
-
-		return (int) $countQueryResults->getCount();
+	public function getReviewersMax($args = []) {
+		// Don't accept args to limit the results
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		return $this->getReviewersQueryBuilder($args)->getCount();
 	}
 
 	/**
 	 * Build the reviewers query object for getReviewers requests
 	 *
-	 * @see self::_getQueryBuilder()
+	 * @see self::getQueryBuilder()
+	 * @return UserQueryBuilder
 	 */
-	private function _getReviewersQueryBuilder($args = array()) {
+	public function getReviewersQueryBuilder($args = []) {
 
 		$defaultArgs = array(
 			'contextId' => CONTEXT_ID_NONE,
@@ -174,7 +203,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		$args = array_merge($defaultArgs, $args);
 		$args['roleIds'] = [ROLE_ID_REVIEWER];
 
-		$reviewerListQB = $this->_getQueryBuilder($args);
+		$reviewerListQB = $this->getQueryBuilder($args);
 		$reviewerListQB
 			->getReviewerData(true)
 			->filterByReviewStage($args['reviewStage'])
@@ -312,7 +341,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 					$values[$prop] = null;
 					if ($context) {
 						import('lib.pkp.classes.security.UserGroupDAO');
-						$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+						$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 						$userGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
 						$values[$prop] = array();
 						while ($userGroup = $userGroups->next()) {
@@ -333,11 +362,11 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 					$values[$prop] = [];
 					if ($context) {
 						import('lib.pkp.classes.user.InterestDAO');
-						$interestDao = DAORegistry::getDAO('InterestDAO');
+						$interestDao = DAORegistry::getDAO('InterestDAO'); /* @var $interestDao InterestDAO */
 						$interestEntryIds = $interestDao->getUserInterestIds($user->getId());
 						if (!empty($interestEntryIds)) {
 							import('lib.pkp.classes.user.InterestEntryDAO');
-							$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO');
+							$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /* @var $interestEntryDao InterestEntryDAO */
 							$results = $interestEntryDao->getByIds($interestEntryIds);
 							$values[$prop] = array();
 							while ($interest = $results->next()) {
@@ -351,7 +380,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 					break;
 			}
 
-			$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_USER, $values, $context->getSupportedLocales());
+			$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_USER, $values, $context->getSupportedFormLocales());
 
 			\HookRegistry::call('User::getProperties::values', array(&$values, $user, $props, $args));
 
@@ -419,7 +448,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @return boolean
 	 */
 	public function userHasRole($userId, $roleIds, $contextId) {
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		return $roleDao->userHasRole($contextId, $userId, $roleIds);
 	}
 
@@ -501,7 +530,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
 		// If unassigned, only managers and admins have access
 		if ($stageAssignmentsResult->wasEmpty()) {
-			$roleDao = DAORegistry::getDAO('RoleDAO');
+			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 			$userRoles = $roleDao->getByUserId($userId, $contextId);
 			foreach ($userRoles as $userRole) {
 				if (in_array($userRole->getId(), array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER))) {
@@ -511,7 +540,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			$accessibleStageRoles = array_unique($accessibleStageRoles);
 		// Assigned users have access based on their assignment
 		} else {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 			while ($stageAssignment = $stageAssignmentsResult->next()) {
 				$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $contextId);
 				$accessibleStageRoles[] = $userGroup->getRoleId();
@@ -528,11 +557,8 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @param array $args See self::getMany()
 	 */
 	public function count($args = []) {
-		$qb = $this->_getQueryBuilder($args);
-		return $qb
-			->get() // Calls PKPUserQueryBuilder::get() to get the query object
-			->get() // Calls Laravel's get method to execute the query
-			->count();
+		$qb = $this->getQueryBuilder($args);
+		return $qb->getQuery()->get()->count();
 	}
 
 	/**

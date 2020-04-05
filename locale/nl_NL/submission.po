@@ -1586,21 +1586,27 @@ msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/de
 msgid "submission.license.cc.by-sa4.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.nl\">Naamsvermelding-GelijkDelen 4.0 Internationaal</a> licentie.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-nd3.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/deed.nl\">Naamsvermelding-NietCommercieel-GeenAfgeleideWerken 3.0 Internationaal</a> licentie.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc3.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/deed.nl\">Naamsvermelding-NietCommercieel 3.0 Internationaal</a> licentie.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-sa3.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een  <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/deed.nl\">Naamsvermelding-NietCommercieel-GelijkDelen 3.0 Internationaal</a> licentie.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nd3.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een  <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/deed.nl\">Naamsvermelding-GeenAfgeleideWerken 3.0 Internationaal</a> licentie.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by3.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/deed.nl\">Naamsvermelding 3.0 Internationaal</a> licentie.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-sa3.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.nl\">Naamsvermelding-GelijkDelen 3.0 Internationaal</a> licentie.</p>"
 

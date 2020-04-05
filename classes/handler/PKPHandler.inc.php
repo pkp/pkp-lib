@@ -3,9 +3,9 @@
 /**
  * @file classes/handler/PKPHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @package core
  * @class PKPHandler
@@ -511,7 +511,7 @@ class PKPHandler {
 	 * @return mixed Either Context or null
 	 */
 	function getFirstUserContext($user, $contexts) {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$context = null;
 		foreach($contexts as $workingContext) {
 			$userIsEnrolled = $userGroupDao->userInAnyGroup($user->getId(), $workingContext->getId());

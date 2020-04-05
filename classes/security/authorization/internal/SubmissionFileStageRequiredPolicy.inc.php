@@ -2,9 +2,9 @@
 /**
  * @file classes/security/authorization/internal/SubmissionFileStageRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileStageRequiredPolicy
  * @ingroup security_authorization_internal
@@ -57,7 +57,7 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy {
 			// Make sure the file is visible. Unless file is included in an open review.
 			if (!$submissionFile->getViewable()){
 				if ($submissionFile->getAssocType() === ASSOC_TYPE_REVIEW_ASSIGNMENT){
-					$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+					$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 					$reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getAssocId());
 					if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN){
 						return AUTHORIZATION_DENY;

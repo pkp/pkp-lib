@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:58+00:00\n"
+"POT-Creation-Date: 2020-01-30T17:13:39+00:00\n"
+"PO-Revision-Date: 2020-01-30T17:13:39+00:00\n"
 "Language: \n"
 
 msgid "author.submit.submissionCitations"
@@ -485,6 +485,9 @@ msgstr "Notatki"
 msgid "submission.history.viewLog"
 msgstr "Zobacz dziennik"
 
+msgid "submission.indexing"
+msgstr "Indeksowanie"
+
 msgid "submission.initiated"
 msgstr "Rozpoczęty"
 
@@ -809,9 +812,6 @@ msgstr "Opis pliku"
 msgid "submission.form.replaceExisting"
 msgstr "Zamiana istniejącego pliku?"
 
-msgid "author.submit.userGroupRequired"
-msgstr "Twoje konto użytkownika nie posiada aktualnie przydzielonej roli autora, która umożliwia przesyłanie zgłoszeń. Sprawdź zakładkę moje konto - jeżeli administrator strony nie postanowił inaczej, będziesz mógł(ogła) samodzielnie dokonać odpowiednich zmian w swoim profilu."
-
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nowe recenzje zostały przesłane i są rozpatrywane przez redaktora."
 
@@ -906,7 +906,7 @@ msgid "submission.event.fileRevised"
 msgstr "Wersja \"{$name}\" (ID {$fileId}-{$fileRevision}) została przesłana."
 
 msgid "submission.event.participantAdded"
-msgstr "{$name} został przypisany do zgłoszenia jako {$userGroupName}."
+msgstr "{$name} ({$username}) został przypisany do zgłoszenia jako {$userGroupName}."
 
 msgid "submission.event.subjectPrefix"
 msgstr "E-mail został wysłany:"
@@ -1130,9 +1130,6 @@ msgstr "Brak plików do recenzji."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Prośba o wprowadzenie poprawek."
 
-msgid "editor.submission.roundStatus.resubmitted"
-msgstr "Zgłoszenie zostało przesłane ponownie w celu wykonania recenzji."
-
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Wyślij do recenzji zewnętrznej."
 
@@ -1319,12 +1316,6 @@ msgstr "Prześlij poprawiony plik"
 msgid "log.review.reviewerAssigned"
 msgstr "{$reviewerName} został przypisany do recenzji zgłoszenia {$submissionId} w rundzie {$round}."
 
-msgid "log.review.reviewCleared"
-msgstr "{$reviewerName} usunął(ęła) recenzję tekstu {$submissionId} w {$round} rundzie."
-
-msgid "log.review.reviewReinstated"
-msgstr "{$reviewerName} ponownie rozpoczął(ęła) recenzję tekstu {$submissionId} w {$round} rundzie."
-
 msgid "submission.document"
 msgstr "Dokument"
 
@@ -1490,6 +1481,12 @@ msgstr "Musisz przydzielić przynajmniej jednego uczestnika do przesłanego teks
 msgid "submission.list.infoCenter"
 msgstr "Logi aktywności oraz notatki"
 
+msgid "submission.list.count"
+msgstr "{$count} przesłanych tekstów"
+
+msgid "submission.list.itemsOfTotal"
+msgstr "{$count} z {$total} przesłanych tekstów"
+
 msgid "submission.list.responseDue"
 msgstr "Odpowiedź do"
 
@@ -1498,12 +1495,6 @@ msgstr "Recenzja do"
 
 msgid "submission.list.confirmDelete"
 msgstr "Usunąć przesłany tekst?"
-
-msgid "submission.list.filter"
-msgstr "Filtry"
-
-msgid "submission.list.filterRemove"
-msgstr "Usuń filtr: {$filterTitle}"
 
 msgid "submission.event.participantRemoved"
 msgstr "\"{$name}\" ({$username}) jest usunięty z {$userGroupName}."
@@ -1601,9 +1592,6 @@ msgstr "W dół: {$itemTitle}"
 msgid "submission.list.viewSubmission"
 msgstr "Wyświetl zgłoszenie"
 
-msgid "submission.list.clearSearch"
-msgstr "Wyczyść wyszukiwaną frazę"
-
 msgid "submission.list.reviewsCompleted"
 msgstr "Zakończone recenzje"
 
@@ -1624,3 +1612,123 @@ msgstr "Otwarte dyskusje"
 
 msgid "submission.list.incompleteSubmissionNotice"
 msgstr "Zgłoszenie musi być kompletne zanim redaktor będzie mógł je przejrzeć."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Zgłoś jako"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Wybierz rolę, która najlepiej opisuje twój udział w zgłoszeniu."
+
+msgid "submission.submit.contactConsent"
+msgstr "Autor korespondencyjny"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Wyrażam zgodę na kontakt w sprawie tego zgłoszenia."
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr "Zgłoś korzystając z jednej z poniższych ról. Jeżeli chcesz mieć możliwość samodzielnego edytowania i publikowania tego tekstu wybierz: {$managerGroups}"
+
+msgid "submission.citations.description"
+msgstr "Wpisz każdy opis bibliograficzny w nowej linii, aby można było go wyodrębnić."
+
+msgid "submission.parsedCitations"
+msgstr "Wyodrębnione opisy bibliograficzne"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations.description"
+msgstr "Następujące opisy bibliograficzne zostały wyodrębnione i zostaną podlinkowane do metadanych zgłoszenia."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Wyodrębnij i zapisz opisy bibliograficzne"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Włącz języki."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Włącz hasła przedmiotowe."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Włącz dyscypliny."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Włącz słowa kluczowe."
+
+msgid "submission.submit.form.agenciesRequired"
+msgstr "Włącz instytucję wspierającą."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Włącz informacje o zasięgu."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Włącz typy."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Włącz źródło."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Włącz prawa."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Włącz opisy bibliograficzne."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Tekst musi zostać ponownie przesłany do kolejnej rundy recenzji."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Tekst został ponownie przesłany do kolejnej rudny recenzji."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr "Użytkownik został przypisany do przeprowadzenia ślepej recenzji. Jeśli przypiszesz go, będzie posiadać dostęp do danych autora. Polecamy, aby nie przypisywać tego uczestnika, chyba, że jesteś w stanie zapewnić rzetelny proces recenzji."
+
+msgid "log.review.reviewUnconsidered"
+msgstr "{$editorName} został oznaczony(a) w {$round} rundzie recenzji do tekstu {$submissionId} oznaczonego jako nierozpoznany."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.list.reviewComplete"
+msgstr "Recenzja przesłana"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr "Posiadasz wiele ról dla tego zgłoszenia. Czy chciałbyś(chciałabyś) posiadać dostęp do <a href=\"{$urlAuthorWorkflow}\">Panelu roboczego autora</a>  lub do <a href=\"{$urlEditorialWorkflow}\">Panelu roboczego redaktora</a>?"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr "Przypisano Cię jako redaktora do tego tekstu. Czy chciałbyś(chciałabyś) posiadać dostęp do <a href=\"{$urlEditorialWorkflow}\">Panelu roboczego redakcji</a>?"
+
+msgid "submission.list.currentStage"
+msgstr "Obecnie na etapie {$stage}."
+
+msgid "submission.list.assignEditor"
+msgstr "Przypisany redaktor"
+
+msgid "grid.category.categories"
+msgstr "Kategorie"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Tytuł (A-Z)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Tytuł (Z-A)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Data publikacji (od najstarszej)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Data publikacji (od najwcześniejszej)"
+
+msgid "category.coverImage"
+msgstr "Obraz okładki"
+
+msgid "submission.submit.placement.categories"
+msgstr "Kategorie"
+
+msgid "submission.currentCoverImage"
+msgstr "Obecny obraz"
+
+msgid "catalog.category.noItems"
+msgstr "Nic nie zostało dotychczas opublikowane w tej kategorii."
+
+msgid "catalog.category.subcategories"
+msgstr "Subkategorie"

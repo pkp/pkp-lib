@@ -392,6 +392,9 @@ msgstr "{$name}, {$affiliation}"
 msgid "submission.shortAuthor"
 msgstr "{$author} et al."
 
+msgid "submission.representationOfTitle"
+msgstr "{$representation} of {$title}"
+
 msgid "submission.mySubmissions"
 msgstr "My Authored"
 
@@ -669,7 +672,7 @@ msgid "submission.versions"
 msgstr "Versions"
 
 msgid "submission.versionIdentity"
-msgstr "{$datePublished} ({$versionId})"
+msgstr "{$datePublished} ({$version})"
 
 msgid "submission.outdatedVersion"
 msgstr "This is an outdated version published on {$datePublished}. Read the <a href=\"{$urlRecentVersion}\">most recent version</a>."
@@ -678,7 +681,13 @@ msgid "submission.identifiers"
 msgstr "Identifiers"
 
 msgid "submission.publisherId"
-msgstr "Public URL identifier"
+msgstr "Publisher ID"
+
+msgid "submission.publisherId.description"
+msgstr "The publisher ID may be used to record the ID from an external database. For example, items exported for deposit to PubMed may include the publisher ID. This should not be used for DOIs."
+
+msgid "submission.publisherId.enable"
+msgstr "Enable for {$objects}"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Submission Info"
@@ -1325,6 +1334,9 @@ msgstr "Request Revisions"
 msgid "editor.submission.decision.resubmit"
 msgstr "Resubmit for Review"
 
+msgid "editor.submission.decision.newRound"
+msgstr "New review round"
+
 msgid "editor.submission.decision.decline"
 msgstr "Decline Submission"
 
@@ -1469,6 +1481,9 @@ msgstr "Revision required."
 msgid "notification.type.editorDecisionResubmit"
 msgstr "Resubmit for review."
 
+msgid "notification.type.editorDecisionNewRound"
+msgstr "A new round of reviews was initiated."
+
 msgid "notification.type.editorDecisionDecline"
 msgstr "Submission declined."
 
@@ -1586,11 +1601,26 @@ msgstr "Attach the following permissions to the submission:"
 msgid "submission.license"
 msgstr "License"
 
+msgid "submission.license.description"
+msgstr "The license will be set automatically to <a href='{$licenseUrl}' target='_blank'>{$licenseName}</a> when this is published."
+
 msgid "submission.copyright"
 msgstr "Copyright"
 
 msgid "submission.copyrightHolder"
 msgstr "Copyright Holder"
+
+msgid "submission.copyrightHolder.description"
+msgstr "Copyright will be assigned automatically to {$copyright} when this is published."
+
+msgid "submission.copyrightHolder.other"
+msgstr "Custom copyright statement"
+
+msgid "submission.copyrightOther"
+msgstr "Copyright statement"
+
+msgid "submission.copyrightOther.description"
+msgstr "Assign copyright for published submissions to the following party."
 
 msgid "submission.copyrightYear"
 msgstr "Copyright Year"
@@ -1641,22 +1671,22 @@ msgid "submission.license.cc.by-sa4.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>"
 
 msgid "submission.license.cc.by-nc-nd3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International License</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported License</a>.</p>"
 
 msgid "submission.license.cc.by-nc3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons Attribution-NonCommercial 3.0 International License</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons Attribution-NonCommercial 3.0 Unported License</a>.</p>"
 
 msgid "submission.license.cc.by-nc-sa3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International License</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>"
 
 msgid "submission.license.cc.by-nd3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons Attribution-NoDerivatives 3.0 International License</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
 
 msgid "submission.license.cc.by3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 International License</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 Unported License</a>.</p>"
 
 msgid "submission.license.cc.by-sa3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Attribution-ShareAlike 3.0 International License</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>"
 
 msgid "submission.queries.submission"
 msgstr "Pre-Review Discussions"
@@ -1811,6 +1841,9 @@ msgstr "Subcategories"
 msgid "submission.publication"
 msgstr "Publication"
 
+msgid "submission.publications"
+msgstr "Publications"
+
 msgid "publication.citations.success"
 msgstr "The references have been updated."
 
@@ -1819,6 +1852,9 @@ msgstr "Contributors"
 
 msgid "publication.copyrightYearBasis.issueDescription"
 msgstr "The copyright year will be set automatically when this is published in an issue."
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr "The copyright year will be set automatically based on the publication date."
 
 msgid "publication.createVersion"
 msgstr "Create New Version"
@@ -1913,8 +1949,23 @@ msgstr "Unschedule"
 msgid "publication.unschedule.confirm"
 msgstr "Are you sure you don't want this scheduled for publication?"
 
+msgid "publication.urlPath"
+msgstr "URL Path"
+
+msgid "publication.urlPath.description"
+msgstr "An optional path to use in the URL instead of the ID."
+
+msgid "publication.urlPath.duplicate"
+msgstr "The URL path has already been used and can not be used again."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "The URL path can not be a number."
+
 msgid "publication.version.all"
 msgstr "All Versions"
+
+msgid "publication.version.confirm"
+msgstr "Are you sure you want to create a new version?"
 
 msgid "publication.version.details"
 msgstr "Publication details for version {$version}"

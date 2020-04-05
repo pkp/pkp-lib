@@ -3,9 +3,9 @@
 /**
  * @file classes/file/SubmissionFileManager.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileManager
  * @ingroup file
@@ -127,7 +127,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		$session = $sessionManager->getUserSession();
 		$user = $session->getUser();
 		if (is_a($user, 'User')) {
-			$viewsDao = DAORegistry::getDAO('ViewsDAO');
+			$viewsDao = DAORegistry::getDAO('ViewsDAO'); /* @var $viewsDao ViewsDAO */
 			$viewsDao->recordView(
 			ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileIdAndRevision(),
 			$user->getId()
@@ -136,12 +136,13 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	}
 
 	/**
-	 * Copies an existing ArticleFile and renames it.
+	 * Copies an existing SubmissionFile and renames it.
 	 * @param $sourceFileId int
 	 * @param $sourceRevision int
 	 * @param $fileStage int
 	 * @param $destFileId int (optional)
 	 * @param $viewable boolean (optional)
+	 * @return array? array(file_id, revision) on success; null on failure
 	 */
 	function copyFileToFileStage($sourceFileId, $sourceRevision, $newFileStage, $destFileId = null, $viewable = false) {
 		if (HookRegistry::call('SubmissionFileManager::copyFileToFileStage', array(&$sourceFileId, &$sourceRevision, &$newFileStage, &$destFileId, &$result))) return $result;
@@ -181,7 +182,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		// Now insert the row into the DB and get the inserted file id.
 		$insertedFile = $submissionFileDao->insertObject($destFile, $sourcePath);
 
-		return array($insertedFile->getFileId(), $insertedFile->getRevision());
+		return $insertedFile ? array($insertedFile->getFileId(), $insertedFile->getRevision()) : null;
 	}
 
 	//
@@ -265,7 +266,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		$submissionFile->setUploaderUserId($copyUserId);
 
 		// Save the submission file to the database.
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		return $submissionFileDao->insertObject($submissionFile, $filePath, false);
 	}
 
@@ -308,7 +309,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		$submissionFile->setSubmissionId($this->getSubmissionId());
 
 		// Instantiate submission locale for the file
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionFile->getSubmissionId());
 		$submissionFile->setSubmissionLocale($submission->getLocale());
 

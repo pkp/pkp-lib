@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
+"PO-Revision-Date: 2020-02-06 08:35+0000\n"
+"Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
+"Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"id/>\n"
+"Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:52+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "user.affiliation"
 msgstr "Afiliasi"
@@ -219,7 +222,7 @@ msgid "user.register.passwordLengthRestriction"
 msgstr "Kata sandi minimal {$length} karakter."
 
 msgid "user.register.registerAs"
-msgstr "Daftar sebagai"
+msgstr "Mendaftar di {$contextName} sebagai..."
 
 msgid "user.register"
 msgstr "Daftar"
@@ -234,7 +237,7 @@ msgid "user.role.readers"
 msgstr "Pembaca"
 
 msgid "user.role.reviewer"
-msgstr "Reviewer"
+msgstr "Peninjau"
 
 msgid "user.role.reviewers"
 msgstr "Reviewer"
@@ -252,16 +255,17 @@ msgid "user.sendPassword"
 msgstr "Konfirmasi"
 
 msgid "user.sendPassword.description"
-msgstr "Kirimi saya email konfirmasi termasuk nama pengguna dan kata sandi saya"
+msgstr ""
+"Kirimkan saya surel konfirmasi termasuk nama pengguna dan kata sandi saya"
 
 msgid "user.signature"
-msgstr "Signature"
+msgstr "Tanda Tangan"
 
 msgid "user.title"
-msgstr "Gelar"
+msgstr "Judul"
 
 msgid "user.url"
-msgstr "URL"
+msgstr "URL Beranda"
 
 msgid "user.userHome"
 msgstr "Beranda Pengguna"
@@ -270,7 +274,217 @@ msgid "user.username"
 msgstr "Nama Pengguna"
 
 msgid "user.workingLanguages"
-msgstr "Bahasa"
+msgstr "Bahasa Kerja"
 
 msgid "user.register.completeForm"
 msgstr "Isi form di bawah ini untuk mendaftar ke jurnal ini."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Anda telah menambahkan nama belakang untuk bahasa yang nama depannya kosong. "
+"Isikanlah nama depan untuk bahasa ini."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Nama depan wajib diisi."
+
+msgid "user.profile.form.countryRequired"
+msgstr "Negara perlukan dipilih."
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Saapan yang Anda lebih suka? Salam, nama tengah, dan sufiks dapat "
+"ditambahkan di sini jika Anda mau."
+
+msgid "user.preferredPublicName"
+msgstr "Nama Publik Pilihan"
+
+msgid "user.hello"
+msgstr "Halo, "
+
+msgid "user.logOutAs"
+msgstr "Logout sebagai"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Biarkan Selalu Logged in"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Pendaftaran menunggu verifikasi"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Lanjutkan Pencarian"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Kirim Naskah Baru"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Lihat Naskah Masuk"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Terima kasih telah mendaftar! Apa yang ingin Anda lakukan selanjutnya?"
+
+msgid "user.login.registrationComplete"
+msgstr "Registrasi selesai"
+
+msgid "user.familyName"
+msgstr "Nama Belakang"
+
+msgid "user.group"
+msgstr "Grup Pengguna"
+
+msgid "user.gossip.description"
+msgstr ""
+"Rekam jejak tentang reviewer ini yang mungkin Anda ingin tampilkan kepada "
+"administrator, manajer, dan semua editor lainnya. Catatan akan terlihat "
+"untuk penugasan review berikutnya."
+
+msgid "user.givenName"
+msgstr "Nama Depan"
+
+msgid "user.authorization.submissionQuery"
+msgstr "Anda tidak berhak mengakses pembahasan ini."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Anda tidak berhak mengakses tugas review ini."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Plugin yang dibutuhkan belum ditentukan."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Tahap alur kerja belum ditetapkan."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Saat ini, Anda tidak memiliki akses pada tahap alur kerja tersebut."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Pengguna dengan peran Manager (misal, Editor Produksi) harus ditugaskan "
+"sebelum dapat melanjutkan proses."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Anda telah ditugasi pada naskah ini dengan peran yang diizinkan mengakses "
+"tindakan ini."
+
+msgid "user.accountInformation"
+msgstr "Informasi Akun"
+
+msgid "user.apiKeyEnabled"
+msgstr "Aktifkan aplikasi eksternal dengan kunci API untuk mengakses akun ini"
+
+msgid "user.apiKey"
+msgstr "Kunci API"
+
+msgid "user.profile.public"
+msgstr "Publik"
+
+msgid "user.profile.contact"
+msgstr "Narahubung"
+
+msgid "user.profile.identity"
+msgstr "Identitas"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"ORCID iD yang Anda cantumkan tidak valid. Harap sertakan URI lengkap (mis. \""
+"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.orcid"
+msgstr "iD ORCID"
+
+msgid "user.role.proofreaders"
+msgstr "Para Proofreader"
+
+msgid "user.role.proofreader"
+msgstr "Proofreader"
+
+msgid "user.role.copyeditors"
+msgstr "Para Copyeditor"
+
+msgid "user.role.copyeditor"
+msgstr "Copyeditor"
+
+msgid "user.role.editors"
+msgstr "Penyunting"
+
+msgid "user.role.editor"
+msgstr "Editor"
+
+msgid "user.role.authors"
+msgstr "Penulis"
+
+msgid "user.role.author_s"
+msgstr "Penulis"
+
+msgid "user.role.author"
+msgstr "Penulis"
+
+msgid "user.role.assistant"
+msgstr "Bantuan"
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Anda telah berhasil mendaftar. <a href=\"{$profileUrl}\">Klik di sini</a> "
+"untuk melengkapi profil Anda."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Password minimal berjumlah {$length} karakter."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Pilih minimal satu peran."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Nama pengguna hanya boleh diisi huruf kecil, garis bawah, dan garis sambung, "
+"serta harus dimulai dan diakhiri dengan karakter alfanumerik."
+
+msgid "user.register.form.emailConsent"
+msgstr "Ya, saya ingin diberi tahu bila ada terbitan dan pengumuman baru."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Ya, saya setuju data saya diambil dan disimpan berdasarkan <a href=\""
+"{$privacyUrl}\" target=\"_blank\">pernyataan privasi</a>."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Masukkan alamat email Anda di bawah ini dan email akan dikirim disertai "
+"petunjuk bagaimana mereset password Anda."
+
+msgid "user.login.registerNewAccount"
+msgstr "Daftar"
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Anda harus menyetujui syarat penyataan privasi."
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Diperlukan grup pengguna."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Password baru sama dengan password lama Anda."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Alamat surat diperlukan."
+
+msgid "user.privacyLink"
+msgstr ""
+"Data Anda disimpan menurut <a href=\"{$privacyUrl}\" target=\"_blank\">"
+"pernyataan privasi kami</a>."
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Sebelum membuat kunci API, administrator situs Anda harus menetapkan frasa "
+"rahasia di file konfigurasi (\"api_key_secret\")."
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Membuat kunci API baru akan membatalkan kunci yang sudah ada untuk pengguna "
+"ini."
+
+msgid "user.apiKey.generate"
+msgstr "Membuat kunci API baru"
+
+msgid "user.role.layoutEditors"
+msgstr "Para Editor Tata Letak"
+
+msgid "user.role.layoutEditor"
+msgstr "Editor Tata Letak"

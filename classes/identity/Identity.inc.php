@@ -8,9 +8,9 @@
 /**
  * @file classes/identity/Identity.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Identity
  * @ingroup identity
@@ -245,15 +245,14 @@ class Identity extends DataObject {
 
 	/**
 	 * Get localized country
-	 * @return string
+	 * @return string?
 	 */
 	function getCountryLocalized() {
-		$countryDao = DAORegistry::getDAO('CountryDAO');
-		$country = $this->getCountry();
-		if ($country) {
-			return $countryDao->getCountry($country);
-		}
-		return null;
+		$countryCode = $this->getCountry();
+		if (!$countryCode) return null;
+		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+		$country = $isoCodes->getCountries()->getByAlpha2($countryCode);
+		return $country?$country->getLocalName():null;
 	}
 
 	/**

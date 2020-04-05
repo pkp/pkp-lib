@@ -3,9 +3,9 @@
 /**
  * @file classes/user/InterestDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class InterestDAO
  * @ingroup user
@@ -83,7 +83,7 @@ class InterestDAO extends ControlledVocabDAO {
 	 */
 	function getAllInterests($filter = null) {
 		$controlledVocab = $this->build();
-		$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO');
+		$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /* @var $interestEntryDao InterestEntryDAO */
 		$iterator = $interestEntryDao->getByControlledVocabId($controlledVocab->getId(), null, $filter);
 
 		// Sort by name.

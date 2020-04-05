@@ -3,9 +3,9 @@
 /**
  * @file tests/mock/env1/MockAppLocale.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AppLocale
  * @ingroup tests_mock_env1
@@ -72,7 +72,7 @@ class AppLocale extends PKPLocale {
 	 * @param $locale string the locale to use
 	 * @return string
 	 */
-	static function translate($key, $params = array(), $locale = null) {
+	static function translate($key, $params = array(), $locale = null, $missingKeyHandler = array()) {
 		if (isset(self::$translations[$key])) {
 			return self::$translations[$key];
 		}

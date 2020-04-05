@@ -8,9 +8,9 @@
 /**
  * @file classes/form/FormBuilderVocabulary.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Fbv
  * @ingroup core
@@ -213,6 +213,8 @@ class FormBuilderVocabulary {
 			'FBV_cancelUrl' => isset($params['cancelUrl']) ? $params['cancelUrl'] : null,
 			'FBV_cancelUrlTarget' => isset($params['cancelUrlTarget']) ? $params['cancelUrlTarget'] : '',
 			'FBV_translate' => isset($params['translate']) ? $params['translate'] : true,
+			'FBV_saveText' => isset($params['saveText']) ? $params['saveText'] : null,
+			'FBV_saveValue' => isset($params['saveValue']) ? (boolean)$params['saveValue'] : null,
 		));
 		return $smarty->fetch('form/formButtons.tpl');
 	}
@@ -773,13 +775,6 @@ class FormBuilderVocabulary {
 
 		$returner = '';
 
-		$form = $this->getForm();
-		if (isset($form) && isset($form->errorFields[$params['name']])) {
-			$smarty->assign('FBV_error', true);
-		} else {
-			$smarty->assign('FBV_error', false);
-		}
-
 		$smarty->assign(array('FBV_suppressId' => null, 'FBV_label' => null, 'FBV_required' => false, 'FBV_uniqId' => null, 'FBV_multilingual' => false, 'FBV_required' => false));
 		foreach ($params as $key => $value) {
 			switch ($key) {
@@ -792,6 +787,16 @@ class FormBuilderVocabulary {
 					$smarty->assign('FBV_' . $key, $value);
 					break;
 			}
+		}
+
+		$form = $this->getForm();
+		if (isset($form) && isset($form->errorFields[$params['name']])) {
+			$smarty->assign('FBV_error', true);
+			$errors = $form->getErrorsArray();
+			$smarty->assign('FBV_subLabelTranslate', false);
+			$smarty->assign('FBV_label', $errors[$params['name']]);
+		} else {
+			$smarty->assign('FBV_error', false);
 		}
 
 		$returner = $smarty->fetch('form/subLabel.tpl');

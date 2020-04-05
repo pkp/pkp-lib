@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/announcements/form/AnnouncementForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementForm
  * @ingroup controllers_grid_announcements
@@ -50,7 +50,7 @@ class AnnouncementForm extends Form {
 
 		// If provided, announcement type is valid
 		$this->addCheck(new FormValidatorCustom($this, 'typeId', 'optional', 'manager.announcements.form.typeIdValid', function($typeId) use ($contextId) {
-			$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+			$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 			if ((int)$typeId === 0) return true;
 			else {
 				return $announcementTypeDao->announcementTypeExistsByTypeId($typeId, Application::getContextAssocType(), $contextId);
@@ -89,7 +89,7 @@ class AnnouncementForm extends Form {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
 		return $announcementDao->getLocaleFieldNames();
 	}
 
@@ -101,11 +101,11 @@ class AnnouncementForm extends Form {
 		$templateMgr->assign('readOnly', $this->isReadOnly());
 		$templateMgr->assign('selectedTypeId', $this->getData('typeId'));
 
-		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
 		$announcement = $announcementDao->getById($this->announcementId);
 		$templateMgr->assign('announcement', $announcement);
 
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 		$announcementTypeFactory = $announcementTypeDao->getByAssoc(Application::getContextAssocType(), $this->getContextId());
 
 		$announcementTypeOptions = array();
@@ -124,7 +124,7 @@ class AnnouncementForm extends Form {
 	 * Initialize form data from current announcement.
 	 */
 	function initData() {
-		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
 		$announcement = $announcementDao->getById($this->announcementId);
 
 		if ($announcement) {
@@ -150,10 +150,10 @@ class AnnouncementForm extends Form {
 	}
 
 	/**
-	 * Save announcement.
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
-		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+	function execute(...$functionArgs) {
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
 
 		$announcement = $announcementDao->getById($this->announcementId);
 		if (!$announcement) {
@@ -189,7 +189,7 @@ class AnnouncementForm extends Form {
 		if ($this->getData('sendAnnouncementNotification')){
 			import('classes.notification.NotificationManager');
 			$notificationManager = new NotificationManager();
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 			$notificationUsers = array();
 			$allUsers = $userGroupDao->getUsersByContextId($contextId);
 			while ($user = $allUsers->next()) {
@@ -202,6 +202,7 @@ class AnnouncementForm extends Form {
 				);
 			}
 		}
+		parent::execute(...$functionArgs);
 		return $announcement->getId();
 	}
 }

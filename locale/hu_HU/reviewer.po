@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
+"PO-Revision-Date: 2020-02-13T21:06:38+00:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Kérés"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Útmutatók"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Letöltés & Szakmai lektorálás"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Teljesítés"
+
+msgid "reviewer.step1.request"
+msgstr "Szakmai lektorálás kérése"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "A megadott cikk egyik szakmai lektorának Önt választottuk. A benyújtott kézirat részletei alább találhatók a lektorálási határidőkkel együtt. E lap alján választhat a feladat elfogadása vagy visszautasítása között. Előre is köszönjük szíves közreműködését a kézirat értékelésében."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "A beküldött cikk összes részletének megtekintése"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Szakmai lektor fájljai"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Szakmai lektorálásra való felkérés visszautasítása"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Az alábbi mezőben indokolhatja a szerkesztőnek, hogy miért utasítja vissza a szakmai lektornak való felkérést."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Szakmai lektorálás elfogadása, tovább a #2 lépéshez"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Folytatás a #3 lépésnél"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Szakmai lektorálás beküldése"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Szakmai lektorálás irányelvei"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "A kiadó összeférhetetlenségi irányelvet tett közzé a szakmai lektoroknak. Kérjük, vessen egy pillantást erre az irányelvre."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Nincs összeférhetetlenségem"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Felmerülhet az összeférhetetlenség (részletezze alább)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Összeférhetetlenség"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Szakmai lektorálás irányelvei"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Ez a kiadó még semmilyen szakmai lektorálási irányelvet nem állított be."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Kattintson az alábbi fájlnevekre, hogy letölthesse a beküldött cikkhez kapcsolódó fájlokat."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Az alábbi űrlapon adja meg (vagy másolja be) a szakértői véleményét ehhez a beküldött cikkhez."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Fájlok feltöltése, amivel kapcsolatban konzultálni szeretne a szerkesztővel és/vagy a szerzővel, beleértve az eredeti lektorált fájl(ok) lektorált verzióját."
+
+msgid "reviewer.complete"
+msgstr "Szakmai lektorálás beküldve"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Biztosan beküldi ezt a szakmai lektorálást?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Köszönjük, hogy szakmailag lektorálta a fenti tanulmányt. A lektorálás feltöltése sikeres volt. Köszönjük, hogy munkájával hozzájárult ahhoz, hogy a folyóratban magas szakmai elvárásoknak megfelelő tanulmányok jelenhessenek meg. Amennyiben további segítségre lesz szükségünk keresni fogjuk Önt."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Határidőről"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "A szerkesztő kérése, hogy vagy fogadja el, vagy utasítva vissza a szakmai lektorálásra való felkérést a válaszhatáridő lejárta előtt és készítse el a szakmai lektorálást a lektorálási határidőig."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Szerzőnek és szerkesztőnek"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Csak a szerkesztőnek"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Az aktuális felhasználó nincs hozzárendelve szakmai lektorként a kért dokumentumhoz."

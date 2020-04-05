@@ -2,9 +2,9 @@
 /**
  * @file classes/security/authorization/internal/QueryAssignedToUserAccessPolicy.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryAssignedToUserAccessPolicy
  * @ingroup security_authorization_internal
@@ -44,7 +44,7 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy {
 		if (!is_a($user, 'User')) return AUTHORIZATION_DENY;
 
 		// Determine if the query is assigned to the user.
-		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		if ($queryDao->getParticipantIds($query->getId(), $user->getId())) return AUTHORIZATION_PERMIT;
 
 		// Managers are allowed to access discussions they are not participants in

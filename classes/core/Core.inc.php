@@ -8,9 +8,9 @@
 /**
  * @file classes/core/Core.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Core
  * @ingroup core
@@ -133,7 +133,7 @@ class Core {
 	 */
 	static function getContextPaths($urlInfo, $isPathInfo, $contextList = null, $contextDepth = null, $userVars = array()) {
 		$contextPaths = array();
-		$application = Application::getApplication();
+		$application = Application::get();
 
 		if (!$contextList) {
 			$contextList = $application->getContextList();
@@ -449,7 +449,7 @@ class Core {
 			$isArrayComponent = true;
 		}
 		if ($isPathInfo) {
-			$application = Application::getApplication();
+			$application = Application::get();
 			$contextDepth = $application->getContextDepth();
 
 			$vars = explode('/', trim($urlInfo, '/'));

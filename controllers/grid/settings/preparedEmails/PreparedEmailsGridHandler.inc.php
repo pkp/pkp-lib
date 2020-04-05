@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/settings/preparedEmails/PreparedEmailsGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PreparedEmailsGridHandler
  * @ingroup controllers_grid_settings_preparedEmails
@@ -70,12 +70,11 @@ class PreparedEmailsGridHandler extends GridHandler {
 	 */
 	function editPreparedEmail($args, $request) {
 		import('classes.core.Services');
-		$emailTemplateService = Services::get('emailTemplate');
 		$context = $request->getContext();
 		$emailKey = $request->getUserVar('emailKey');
 
 		if ($emailKey) {
-			$emailTemplate = $emailTemplateService->getByKey($context->getId(), $emailKey);
+			$emailTemplate = Services::get('emailTemplate')->getByKey($context->getId(), $emailKey);
 
 			$apiUrl = $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'emailTemplates/' . $emailTemplate->getData('key'));
 		} else {

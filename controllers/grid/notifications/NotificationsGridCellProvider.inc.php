@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/notifications/NotificationsGridCellProvider.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NotificationsGridCellProvider
  * @ingroup controllers_grid_notifications
@@ -90,17 +90,19 @@ class NotificationsGridCellProvider extends GridCellProvider {
 			case ASSOC_TYPE_QUEUED_PAYMENT:
 				$contextDao = Application::getContextDAO();
 				$paymentManager = Application::getPaymentManager($contextDao->getById($notification->getContextId()));
-				$queuedPayment = DAORegistry::getDAO('QueuedPaymentDAO')->getById($notification->getAssocId());
+				$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO'); /* @var $queuedPaymentDao QueuedPaymentDAO */
+				$queuedPayment = $queuedPaymentDao->getById($notification->getAssocId());
 				if ($queuedPayment) switch ($queuedPayment->getType()) {
 					case PAYMENT_TYPE_PUBLICATION:
-						$submissionDao = Application::getSubmissionDAO();
+						$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 						return $submissionDao->getById($queuedPayment->getAssocId())->getLocalizedTitle();
 				}
 				assert(false);
 				return '—';
 			case ASSOC_TYPE_ANNOUNCEMENT:
 				$announcementId = $notification->getAssocId();
-				$announcement = DAORegistry::getDAO('AnnouncementDAO')->getById($announcementId);
+				$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
+				$announcement = $announcementDao->getById($announcementId);
 				if ($announcement) return $announcement->getLocalizedTitle();
 				return null;
 			case ASSOC_TYPE_SUBMISSION:
@@ -116,13 +118,13 @@ class NotificationsGridCellProvider extends GridCellProvider {
 				$submissionId = $reviewAssignment->getSubmissionId();
 				break;
 			case ASSOC_TYPE_REVIEW_ROUND:
-				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 				$reviewRound = $reviewRoundDao->getById($notification->getAssocId());
 				assert(is_a($reviewRound, 'ReviewRound'));
 				$submissionId = $reviewRound->getSubmissionId();
 				break;
 			case ASSOC_TYPE_QUERY:
-				$queryDao = DAORegistry::getDAO('QueryDAO');
+				$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 				$query = $queryDao->getById($notification->getAssocId());
 				assert(is_a($query, 'Query'));
 				switch ($query->getAssocType()) {
@@ -150,7 +152,7 @@ class NotificationsGridCellProvider extends GridCellProvider {
 			$submissionId = $submissionFile->getSubmissionId();
 		}
 		assert(is_numeric($submissionId));
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionId);
 		assert(is_a($submission, 'Submission'));
 

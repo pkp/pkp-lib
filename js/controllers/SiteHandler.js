@@ -4,9 +4,9 @@
 /**
  * @file js/controllers/SiteHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SiteHandler
  * @ingroup js_controllers
@@ -163,7 +163,7 @@
 						'superscript subscript | link unlink code fullscreen | ' +
 						'image | pkpTags',
 				statusbar: false,
-				content_css: contentCSS,
+				content_css: contentCSS
 			};
 
 			// Support image uploads
@@ -172,9 +172,12 @@
 				tinymceParamDefaults.paste_data_images = true;
 				tinymceParamDefaults.relative_urls = false;
 				tinymceParamDefaults.remove_script_host = false;
-				// See: https://www.tiny.cloud/docs/general-configuration-guide/upload-images/#rollingyourimagehandler
-				tinymceParamDefaults.images_upload_handler = function(blobInfo, success, failure) {
-					const data = new FormData();
+				// https://www.tiny.cloud/docs/general-configuration-guide/upload-images/
+				tinymceParamDefaults.images_upload_handler = function(
+						blobInfo, success, failure) {
+
+					/*global FormData: false */
+					var data = new FormData();
 					data.append('file', blobInfo.blob(), blobInfo.filename());
 					$.ajax({
 						method: 'POST',
@@ -185,14 +188,14 @@
 						headers: {
 							'X-Csrf-Token': $.pkp.currentUser.csrfToken
 						},
-						success(r) {
+						success: function(r) {
 							success(r.url);
 						},
-						error(r) {
+						error: function(r) {
 							failure(r.responseJSON.errorMessage);
 						}
 					});
-				}
+				};
 			}
 
 			// Allow default params to be overridden
@@ -748,10 +751,9 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.unregisterScrollingObserver_ =
 			function(siteHandler, siteHandlerElement, event, observerFunction) {
-		var castObserverFunction = /** @type {function()} */ observerFunction;
+		var castObserverFunction = /** @type {function()} */ (observerFunction);
 		$(document).unbind('scroll', castObserverFunction);
 		return false;
 	};
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

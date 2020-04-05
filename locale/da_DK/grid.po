@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
+"PO-Revision-Date: 2020-02-10 18:31+0000\n"
+"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/da/>"
+"\n"
+"Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:42+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "grid.noItems"
 msgstr "Intet element"
@@ -117,7 +120,7 @@ msgid "grid.action.deleteAuthor"
 msgstr "Slet forfatter"
 
 msgid "grid.action.addAuditor"
-msgstr "Tilføj en revisor"
+msgstr "Tilføj en auditør"
 
 msgid "grid.action.upgrade"
 msgstr "Opgradér"
@@ -126,7 +129,7 @@ msgid "grid.action.order"
 msgstr "Rækkefølge"
 
 msgid "grid.action.cancelOrdering"
-msgstr "Annullér"
+msgstr "Annullér bestilling"
 
 msgid "grid.action.extendAll"
 msgstr "Forlæng alle"
@@ -141,7 +144,7 @@ msgid "grid.action.wizard"
 msgstr "Indstillingsguide"
 
 msgid "grid.action.editMedia"
-msgstr "Rediger medie"
+msgstr "Redigér medie"
 
 msgid "grid.action.moveItem"
 msgstr "Flyt element"
@@ -171,7 +174,7 @@ msgid "grid.action.requestRevisions"
 msgstr "Anmod om revidering af dette manuskript"
 
 msgid "grid.action.accept"
-msgstr "Accepter dette manuskript"
+msgstr "Acceptér dette manuskript"
 
 msgid "grid.action.internalReview"
 msgstr "Send dette manuskript til intern bedømmelse"
@@ -186,13 +189,13 @@ msgid "grid.action.settings"
 msgstr "Indstillinger"
 
 msgid "grid.action.importexport"
-msgstr "Importer eller eksporter indhold eller websitedata"
+msgstr "Importér eller eksportér indhold eller websitedata"
 
 msgid "grid.action.orderItems"
-msgstr "Aktiver bestillingsform"
+msgstr "Aktivér bestillingsform"
 
 msgid "grid.action.editSubmissionChecklist"
-msgstr "Rediger dette tjeklistepunkt"
+msgstr "Redigér dette tjeklistepunkt"
 
 msgid "grid.action.deleteSubmissionChecklist"
 msgstr "Slet dette tjeklistepunkt"
@@ -204,10 +207,10 @@ msgid "grid.action.addPreparedEmail"
 msgstr "Tilføj en ny e-mail-skabelon"
 
 msgid "grid.action.editPreparedEmail"
-msgstr "Rediger denne e-mail-skabelon"
+msgstr "Redigér denne e-mail-skabelon"
 
 msgid "grid.action.disableEmail"
-msgstr "Deaktiver denne e-mail-skabelon"
+msgstr "Deaktivér denne e-mail-skabelon"
 
 msgid "grid.action.resetEmail"
 msgstr "Genindstil denne e-mail-skabelon til standardindstilling"
@@ -228,10 +231,10 @@ msgid "grid.action.addUserGroup"
 msgstr "Tilføj en ny brugergruppe"
 
 msgid "grid.action.editUserGroup"
-msgstr "Rediger denne brugergruppe"
+msgstr "Redigér denne brugergruppe"
 
 msgid "grid.action.disable"
-msgstr "Deaktiver"
+msgstr "Deaktivér"
 
 msgid "grid.action.details"
 msgstr "Se dette punkt"
@@ -279,7 +282,7 @@ msgid "grid.action.unassignUser"
 msgstr "Afmeld bruger"
 
 msgid "grid.action.history"
-msgstr "Se oversigt"
+msgstr "Se historik"
 
 msgid "grid.task.status.completed"
 msgstr "Denne opgave er færdiggjort"
@@ -297,10 +300,10 @@ msgid "grid.task.status.reviewReady"
 msgstr "Denne bedømmelse er klar. Klik notat-ikonet til venstre for at læse den."
 
 msgid "grid.columns.auditor"
-msgstr "Revisor"
+msgstr "Auditør"
 
 msgid "grid.columns.locale"
-msgstr "Landestandard"
+msgstr "Sprog"
 
 msgid "grid.action.addSponsor"
 msgstr "Tilføj sponsor"
@@ -309,13 +312,13 @@ msgid "grid.action.deleteSponsor"
 msgstr "Slet sponsor"
 
 msgid "grid.action.editSponsor"
-msgstr "Rediger sponsor"
+msgstr "Redigér sponsor"
 
 msgid "grid.action.addSeries"
 msgstr "Tilføj serie"
 
 msgid "grid.action.editSeries"
-msgstr "Rediger serie"
+msgstr "Redigér serie"
 
 msgid "grid.action.deleteSeries"
 msgstr "Slet serie"
@@ -324,7 +327,7 @@ msgid "grid.action.addCategory"
 msgstr "Tilføj kategori"
 
 msgid "grid.action.editCategory"
-msgstr "Rediger kategori"
+msgstr "Redigér kategori"
 
 msgid "grid.action.deleteCategory"
 msgstr "Slet kategori"
@@ -333,7 +336,7 @@ msgid "grid.action.addContributor"
 msgstr "Tilføj bidragyder"
 
 msgid "grid.action.editContributor"
-msgstr "Rediger bidragyder"
+msgstr "Redigér bidragyder"
 
 msgid "grid.action.deleteContributor"
 msgstr "Slet bidragyder"
@@ -366,16 +369,16 @@ msgid "grid.user.enroll"
 msgstr "Tilmeld bruger"
 
 msgid "grid.user.edit"
-msgstr "Rediger bruger"
+msgstr "Redigér bruger"
 
 msgid "grid.user.email"
 msgstr "E-mail"
 
 msgid "grid.user.enable"
-msgstr "Aktiver"
+msgstr "Aktivér"
 
 msgid "grid.user.disable"
-msgstr "Deaktiver"
+msgstr "Deaktivér"
 
 msgid "grid.user.disableReason"
 msgstr "Grund til deaktivering af bruger"
@@ -390,43 +393,46 @@ msgid "grid.user.errorEmail"
 msgstr "Der blev fundet en fejl under fremsendelse af denne e-mail. Tjek venligst din mailserver-konfiguration og/eller kontakt din systemadministrator."
 
 msgid "grid.user.cannotAdminister"
-msgstr "Du har ikke tilladelse til at redigere denne bruger"
+msgstr ""
+"Du har ikke tilladelse til at administrere denne bruger. For at administrere "
+"en bruger skal du enten være webstedsadministrator eller være administrator "
+"på alle de steder, som denne bruger er tilmeldt."
 
 msgid "grid.user.authSource"
 msgstr "Godkendelseskilde"
 
 msgid "grid.user.mustProvideName"
-msgstr "Tilføj som minimum først brugerens efternavn"
+msgstr "Tilføj som minimum først brugerens efternavn."
 
 msgid "grid.user.generatePassword"
 msgstr "Opret adgangskode"
 
 msgid "grid.user.generatePasswordDescription"
-msgstr "Opret en tilfældig adgangskode til denne bruger"
+msgstr "Opret en tilfældig adgangskode til denne bruger."
 
 msgid "grid.user.notifyUser"
 msgstr "Meddel bruger"
 
 msgid "grid.user.notifyUserDescription"
-msgstr "Send brugeren en velkomst-e-mail"
+msgstr "Send brugeren en velkomst-e-mail."
 
 msgid "grid.user.mustChangePassword"
 msgstr "Skift adgangskode"
 
 msgid "grid.user.mustChangePasswordDescription"
-msgstr "Bruger skal ændre adgangskode ved næste login"
+msgstr "Bruger skal ændre adgangskode ved næste login."
 
 msgid "grid.user.mustChangePasswordDescriptionOld"
 msgstr "Bed brugeren om at ændre sin adgangskode, næste gang vedkommende logger på."
 
 msgid "grid.user.moreDetails"
-msgstr "Flere brugerdetaljer"
+msgstr "Flere brugeroplysninger"
 
 msgid "grid.user.lessDetails"
-msgstr "Færre brugerdetaljer"
+msgstr "Færre brugeroplysninger"
 
 msgid "grid.user.userDetails"
-msgstr "Brugerdetaljer"
+msgstr "Brugeroplysninger"
 
 msgid "grid.user.userRoles"
 msgstr "Brugerroller"
@@ -435,7 +441,7 @@ msgid "grid.user.userNoRoles"
 msgstr "Denne bruger har ikke fået tildelt nogen rolle."
 
 msgid "grid.user.step1"
-msgstr "Trin #1: Udfyld brugerdetaljer"
+msgstr "Trin #1: Udfyld brugeroplysninger"
 
 msgid "grid.user.step2"
 msgstr "Trin #2: Tilføj brugeroller til {$userFullName}"
@@ -459,7 +465,7 @@ msgid "grid.plugin.allCategories"
 msgstr "Alle kategorier"
 
 msgid "grid.plugin.disable"
-msgstr "Er du sikker på, at du vil deaktivere dette plug-in?"
+msgstr "Er du sikker på, at du vil deaktivere denne plugin?"
 
 msgid "grid.submission.itemTitle"
 msgstr "Forfatter; Titel"
@@ -492,7 +498,7 @@ msgid "grid.user.mergeUsers.mergeUser"
 msgstr "Flet bruger"
 
 msgid "grid.noAuditors"
-msgstr "Ingen auditorer"
+msgstr "Ingen auditører"
 
 msgid "grid.remotelyHostedItem"
 msgstr "Dette nummer er eksternt hosted."
@@ -561,7 +567,7 @@ msgid "grid.action.activate"
 msgstr "Aktivér"
 
 msgid "grid.action.deactivate"
-msgstr "De aktivér"
+msgstr "Deaktivér"
 
 msgid "grid.action.copy"
 msgstr "Kopiér"
@@ -588,7 +594,7 @@ msgid "grid.user.mergeUsers.allUsers"
 msgstr "Alle registrerede brugere"
 
 msgid "grid.action.fileUnconsider"
-msgstr "Korrekturtilretninger gennemført. Du kan ignorer denne opgave."
+msgstr "Korrekturtilretninger gennemført. Du kan ignorer denne opgave"
 
 msgid "grid.artworkFile.caption"
 msgstr "Billedtekst"
@@ -627,7 +633,9 @@ msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "Rollen  {$userGroupName} er en standardindstilling og den kan ikke fjernes."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "Kan ikke fjerne {$userGroupName} rolle. Nuværende {$usersCount} bruge(e) er tilskrevet den."
+msgstr ""
+"Kan ikke fjerne {$userGroupName} rolle. Nuværende {$usersCount} bruger(e) er "
+"tilknyttet den."
 
 msgid "grid.userGroup.removed"
 msgstr "{$userGroupName} rolle er fjernet."
@@ -642,7 +650,8 @@ msgid "grid.user.mergeUsers.confirm"
 msgstr "Er du sikker på, at du vil flette denne konto med brugernavnet \"{$oldUsername}\" ind under kontoen med brugernavnet \"{$newUsername}\"? Kontoen med brugernavnet \"{$oldUsername}\" ophører herefter. Handlingen kan ikke fortrydes."
 
 msgid "grid.submission.active.selectOrphaned"
-msgstr "Indkluder ukomplette indsendelser, der ikke er indsendt af en forfatter."
+msgstr ""
+"Indkludér ukomplette indsendelser, der ikke er indsendt af en forfatter."
 
 msgid "grid.action.addNavigationMenu"
 msgstr "Tilføj menu"
@@ -657,10 +666,16 @@ msgid "grid.navigationMenus.navigationMenu.noneExist"
 msgstr "Ingen navigationsmenuer"
 
 msgid "grid.action.uninstall"
-msgstr "Afinstaller"
+msgstr "Afinstallér"
 
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Vælg en type..."
 
 msgid "grid.action.users"
 msgstr "Se/Vælg brugere"
+
+msgid "grid.action.newVersion"
+msgstr "Opret en ny udgave"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Fjern denne brugergruppe"

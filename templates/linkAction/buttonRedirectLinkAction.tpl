@@ -1,9 +1,9 @@
 {**
  * buttonRedirectLinkAction.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Attach a link action to a button that opens a confirmation dialog and
  * only clicks the button when the user confirms the dialog.

@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/notifications/NotificationsGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NotificationsGridHandler
  * @ingroup controllers_grid_notifications
@@ -165,7 +165,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function markNew($args, $request) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$user = $request->getUser();
 
 		$selectedElements = (array) $request->getUserVar('selectedElements');
@@ -184,7 +184,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function markRead($args, $request) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$user = $request->getUser();
 
 		$selectedElements = (array) $request->getUserVar('selectedElements');
@@ -212,7 +212,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteNotifications($args, $request) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$user = $request->getUser();
 
 		$selectedElements = (array) $request->getUserVar('selectedElements');
@@ -231,7 +231,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function getUnreadNotificationsCount($args, $request) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$user = $request->getUser();
 		return new JSONMessage(true, $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK));
 	}

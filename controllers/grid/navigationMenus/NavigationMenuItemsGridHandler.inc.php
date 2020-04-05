@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/navigationMenus/NavigationMenuItemsGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuItemsGridHandler
  * @ingroup controllers_grid_navigationMenus
@@ -57,7 +57,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 
 		$navigationMenuItemId = $request->getUserVar('navigationMenuItemId');
 		if ($navigationMenuItemId) {
-			$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+			$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 			$navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId);
 			if (!$navigationMenuItem ||  $navigationMenuItem->getContextId() != $contextId) {
 				return false;
@@ -124,7 +124,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 			$contextId = $context->getId();
 		}
 
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 		return $navigationMenuItemDao->getByContextId($contextId);
 	}
 
@@ -243,7 +243,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 			$contextId = $context->getId();
 		}
 
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 		$navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId, $contextId);
 		if ($navigationMenuItem) {
 			$navigationMenuItemDao->deleteObject($navigationMenuItem);

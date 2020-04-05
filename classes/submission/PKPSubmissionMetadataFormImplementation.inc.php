@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/PKPSubmissionMetadataFormImplementation.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionMetadataFormImplementation
  * @ingroup submission
@@ -65,16 +65,16 @@ class PKPSubmissionMetadataFormImplementation {
 		foreach ($metadataFields as $field) {
 			$requiredLocaleKey = 'submission.submit.form.'.$field.'Required';
 			if ($context->getData($field) === METADATA_REQUIRE) {
-				switch(1) {
+				switch($field) {
 					case in_array($field, $this->getLocaleFieldNames()):
 						$this->_parentForm->addCheck(new FormValidatorLocale($this->_parentForm, $field, 'required', $requiredLocaleKey, $submission->getCurrentPublication()->getData('locale')));
 						break;
 					case in_array($field, $this->getTagitFieldNames()):
 						$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $field, 'required', $requiredLocaleKey, create_function('$field,$form,$name', '$data = (array) $form->getData(\'keywords\'); return array_key_exists($name, $data);'), array($this->_parentForm, $submission->getCurrentPublication()->getData('locale').'-'.$field)));
 						break;
-					case 'citationsRaw':
+					case 'citations':
 						$form = $this->_parentForm;
-						$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $key, 'required', $requiredLocaleKey, function($key) use ($form) {
+						$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, 'citationsRaw', 'required', $requiredLocaleKey, function($key) use ($form) {
 							return !empty($form->getData('citationsRaw'));
 						}));
 						break;
@@ -113,11 +113,11 @@ class PKPSubmissionMetadataFormImplementation {
 			$locales = array_keys($this->_parentForm->supportedLocales);
 
 			// load the persisted metadata controlled vocabularies
-			$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-			$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
-			$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO');
-			$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
-			$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
+			$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $submissionKeywordDao SubmissionKeywordDAO */
+			$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /* @var $submissionSubjectDao SubmissionSubjectDAO */
+			$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /* @var $submissionDisciplineDao SubmissionDisciplineDAO */
+			$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /* @var $submissionAgencyDao SubmissionAgencyDAO */
+			$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /* @var $submissionLanguageDao SubmissionLanguageDAO */
 
 			$this->_parentForm->setData('subjects', $submissionSubjectDao->getSubjects($publication->getId(), $locales));
 			$this->_parentForm->setData('keywords', $submissionKeywordDao->getKeywords($publication->getId(), $locales));
@@ -161,7 +161,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 */
 	function execute($submission, $request) {
 		$publication = $submission->getCurrentPublication();
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
 		$context = $request->getContext();
 
 		// Get params to update
@@ -196,11 +196,11 @@ class PKPSubmissionMetadataFormImplementation {
 		$locales = array_keys($this->_parentForm->supportedLocales);
 
 		// persist the metadata/keyword fields.
-		$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-		$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
-		$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO');
-		$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
-		$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
+		$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $submissionKeywordDao SubmissionKeywordDAO */
+		$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /* @var $submissionSubjectDao SubmissionSubjectDAO */
+		$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /* @var $submissionDisciplineDao SubmissionDisciplineDAO */
+		$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /* @var $submissionAgencyDao SubmissionAgencyDAO */
+		$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /* @var $submissionLanguageDao SubmissionLanguageDAO */
 
 		$keywords = array();
 		$agencies = array();
@@ -228,10 +228,11 @@ class PKPSubmissionMetadataFormImplementation {
 		$submissionSubjectDao->insertSubjects($subjects, $submission->getCurrentPublication()->getId());
 
 		// Save the submission categories
-		DAORegistry::getDAO('CategoryDAO')->deletePublicationAssignments($publication->getId());
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
+		$categoryDao->deletePublicationAssignments($publication->getId());
 		if ($categories = $this->_parentForm->getData('categories')) {
 			foreach ((array) $categories as $categoryId) {
-				DAORegistry::getDAO('CategoryDAO')->insertPublicationAssignment($categoryId, $publication->getId());
+				$categoryDao->insertPublicationAssignment($categoryId, $publication->getId());
 			}
 		}
 

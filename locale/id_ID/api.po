@@ -1,0 +1,148 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-02-12 08:50+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"id/>\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Kosa kata {$vocab} belum didukung."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Bahasa {$locale} belum didukung."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Tema aktif, {$themePluginPath}, tidak diaktifkan dan mungkin belum terinstal."
+
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"File tidak dapat diunggah karena konfigurasi server terjadi error. Hubungi "
+"pihak admin sistem."
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "File lebih besar dari {$maxSize} tidak bisa diunggah."
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "Satu file atau lebih tidak dapat diunggah."
+
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "Tidak ada file yang akan diunggah ditemukan sesuai permintaan."
+
+msgid "api.submissions.unknownError"
+msgstr "Terjadi kesalahan. Muat ulang halaman dan coba lagi."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Volume, nomor atau tahun yang diminta tidak valid."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Permintaan Anda tidak dapat dipenuhi kerena tidak memberikan informasi yang "
+"dibutuhkan."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Titik akhir ini tidak tersedia dari konteks. Harusnya dapat diakses melalui "
+"site-wide namespace."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Anda tidak berwenang menghapus naskah ini."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"Anda tidak dapat menghapus naskah yang tidak ditujukan pada konteks ini."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Hanya boleh membuka naskah yang belum terbit yang telah ditugaskan kepada "
+"Anda."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Permintaan ditolak. Kemungkinan karena masa login sudah habis. Coba reload "
+"halaman dan coba lagi."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Permintaan tidak valid. orderDirection harus `desc` atau `asc`."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Permintaan tidak valid. timelineInterval harus dalam `hari` atau `bulan`."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Tanggal akhir tidak boleh setelah kemarin."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Tanggal mulai tidak boleh sebelum 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Tanggal mulai tidak boleh melebihi tanggal akhir."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "FOrmat tanggal harus mengikuti YYYY-MM-DD."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Anda tidak diperbolehkan menynting publikasi ini."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Direktori file publik tidak ditemukan atau file tidak dapat disimpan. "
+"Silakan hubungi administrator untuk mengatasinya."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Anda tidak memiliki cukup ruang pada direktori pengguna. File yang diunggah "
+"{$fileUploadSize}kb dan yang tersisa {$dirSizeLeft}kb."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Anda tidak diperbolehkan mengunggah file."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"File yang diunggah tidak sesuai dengan ekstensi file. Hal ini dikarenakan "
+"bila sebuah file telah di-rename menjadi tipe file yang tidak didukung, "
+"misalnya mengubah photo.png menjadi photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Gambar yang diunggah tidak valid."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Anda hanya bisa mengunggah tipe file berikut: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Anda harus membatalkan publikasi ini sebelum bisa menghapusnya."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Anda tidak bisa mengubah status melalui API secara langsung. Gunakan titik "
+"akhir /publish dan /unpublish."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Anda tidak boleh menyunting terbitan ini karena sudah terbit."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Publikasi yang ingin Anda batalkan belum dipublikasi."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Terbitan yang ingin Anda publikasi telah diterbitkan."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Template surel yang Anda minta tidak ditemukan."
+
+msgid "api.404.endpointNotFound"
+msgstr "URL yang diminta tidak dikenali."
+
+msgid "api.404.resourceNotFound"
+msgstr "Sumber yang diminta tidak ditemukan."
+
+msgid "api.403.unauthorized"
+msgstr "Anda tidak berwenang mengakses sumber yang Anda diminta."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parameter {$param} tidak didukung."

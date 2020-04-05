@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/eventLog/EventLogGridCellProvider.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EventLogGridCellProvider
  * @ingroup controllers_grid_publicationEntry
@@ -55,7 +55,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider {
 
 					// Anonymize reviewer details where necessary
 					if ($this->_isCurrentUserAssignedAuthor) {
-						$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+						$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 
 						// Maybe anonymize reviewer log entries
 						$reviewerLogTypes = array(
@@ -82,7 +82,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider {
 						if (isset($params['fileStage']) && $params['fileStage'] === SUBMISSION_FILE_REVIEW_ATTACHMENT) {
 							assert(isset($params['fileId']) && isset($params['submissionId']));
 							$blindAuthor = true;
-							$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+							$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 							$submissionFile = $submissionFileDao->getLatestRevision($params['fileId']);
 							if ($submissionFile && $submissionFile->getAssocType() === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
 								$reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getAssocId());

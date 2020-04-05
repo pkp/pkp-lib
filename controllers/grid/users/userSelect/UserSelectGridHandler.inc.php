@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/userSelect/UserSelectGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserSelectGridHandler
  * @ingroup controllers_grid_users_userSelect
@@ -61,7 +61,7 @@ class UserSelectGridHandler extends GridHandler {
 		);
 
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getUserGroupsByStage(
 			$request->getContext()->getId(),
 			$stageId

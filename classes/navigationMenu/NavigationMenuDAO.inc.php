@@ -3,9 +3,9 @@
 /**
  * @file classes/navigationMenu/NavigationMenuDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuDAO
  * @ingroup navigationMenu
@@ -215,7 +215,7 @@ class NavigationMenuDAO extends DAO {
 
 		$this->update('DELETE FROM navigation_menus WHERE navigation_menu_id = ?', (int) $navigationMenuId);
 
-		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
+		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO'); /* @var $navigationMenuItemAssignmentDao NavigationMenuItemAssignmentDAO */
 		$navigationMenuItemAssignmentDao->deleteByMenuId($navigationMenuId);
 	}
 
@@ -249,14 +249,9 @@ class NavigationMenuDAO extends DAO {
 		$xmlParser = new XMLParser();
 		$tree = $xmlParser->parse($filename);
 
-		if ($contextId != CONTEXT_ID_NONE) {
-			$contextDao = Application::getContextDAO();
-			$context = $contextDao->getById($contextId);
-			$supportedLocales = $context->getSupportedLocales();
-		} else {
-			$siteDao = DAORegistry::getDAO('SiteDAO');
+		if ($contextId == CONTEXT_ID_NONE) {
+			$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 			$site = $siteDao->getSite();
-			$supportedLocales = $site->getSupportedLocales();
 		}
 
 		if (!$tree) return false;
@@ -300,13 +295,13 @@ class NavigationMenuDAO extends DAO {
 
 				$seq = 0;
 				foreach ($navigationMenuNode->getChildren() as $navigationMenuItemFirstLevelNode) {
-					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 					$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuItemFirstLevelNode, $navigationMenu->getId(), null, $seq, true);
 
 					$seq++;
 				}
 			} elseif ($navigationMenuNode->name == 'navigationMenuItem') {
-				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 				$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuNode, null, null, 0, true);
 			}
 		}

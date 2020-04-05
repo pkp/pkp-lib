@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/form/PKPSubmissionSubmitStep1Form.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionSubmitStep1Form
  * @ingroup submission_form
@@ -61,7 +61,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 
 		// Ensure that the user is in the specified userGroupId or trying to enroll an allowed role
 		$userGroupId = (int) $this->getData('userGroupId');
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$user = $request->getUser();
@@ -96,8 +96,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$templateMgr->assign('copyrightNoticeAgree', true);
 		}
 
-		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /* @var $userGroupAssignmentDao UserGroupAssignmentDAO */
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroupNames = array();
 
 		// List existing user roles
@@ -218,7 +218,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$publication->setData('locale', $this->getData('locale'));
 		$publication->setData('language', PKPString::substr($this->getData('locale'), 0, 2));
 		if ($oldLocale && $oldLocale != $this->getData('locale')) {
-			$authorDao = DAORegistry::getDAO('AuthorDAO');
+			$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
 			$authorDao->changePublicationLocale($publication->getId(), $oldLocale, $this->getData('locale'));
 		}
 	}
@@ -231,8 +231,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 * @param $query Query optional
 	 */
 	function setCommentsToEditor($submissionId, $commentsToEditor, $userId, $query = null) {
-		$queryDao = DAORegistry::getDAO('QueryDAO');
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 
 		if (!isset($query)){
 			if ($commentsToEditor) {
@@ -286,7 +286,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function getCommentsToEditor($submissionId) {
 		$query = null;
-		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		$queries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
 		if ($queries) $query = $queries->next();
 		return $query;
@@ -299,10 +299,10 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	function execute(...$functionArgs) {
 		parent::execute(...$functionArgs);
 
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		// Enroll user if needed
 		$userGroupId = (int) $this->getData('userGroupId');
@@ -347,11 +347,12 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$publication = new Publication();
 			$this->setPublicationData($publication, $this->submission);
 			$publication->setData('status', STATUS_QUEUED);
+			$publication->setData('version', 1);
 			$publication = Services::get('publication')->add($publication, $request);
 			$this->submission = Services::get('submission')->edit($this->submission, ['currentPublicationId' => $publication->getId()], $request);
 
 			// Set user to initial author
-			$authorDao = DAORegistry::getDAO('AuthorDAO');
+			$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
 			$author = $authorDao->newDataObject();
 			// if no user names exist for this submission locale,
 			// copy the names in default site primary locale for this locale as well
@@ -382,7 +383,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$publication = Services::get('publication')->edit($publication, ['primaryContactId' => $authorId], $request);
 
 			// Assign the user author to the stage
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 			$stageAssignmentDao->build($this->submissionId, $userGroupId, $user->getId());
 
 			// Add comments to editor

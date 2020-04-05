@@ -2,9 +2,9 @@
 /**
  * @file classes/services/PKPContextService.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPContextService
  * @ingroup services
@@ -23,13 +23,11 @@ use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
-use \PKP\Services\traits\EntityReadTrait;
 use \APP\Services\QueryBuilders\ContextQueryBuilder;
 
 import('lib.pkp.classes.db.DBResultRange');
 
 abstract class PKPContextService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
-	use EntityReadTrait;
 
 	/**
 	 * @var array List of file directories to create on installation. Use %d to
@@ -51,7 +49,22 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	}
 
 	/**
-	 * Get contexts
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getCount()
+	 */
+	public function getCount($args = []) {
+		return $this->getQueryBuilder($args)->getCount();
+	}
+
+	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getIds()
+	 */
+	public function getIds($args = []) {
+		return $this->getQueryBuilder($args)->getIds();
+	}
+
+	/**
+	 * Get a collection of Context objects limited, filtered
+	 * and sorted by $args
 	 *
 	 * @param array $args {
 	 * 		@option bool isEnabled
@@ -62,9 +75,16 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	 * @return Iterator
 	 */
 	public function getMany($args = array()) {
-		$contextListQB = $this->_getQueryBuilder($args);
-		$contextListQO = $contextListQB->get();
-		$range = $this->getRangeByArgs($args);
+		$range = null;
+		if (isset($args['count'])) {
+			import('lib.pkp.classes.db.DBResultRange');
+			$range = new \DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
+		}
+		// Pagination is handled by the DAO, so don't pass count and offset
+		// arguments to the QueryBuilder.
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		$contextListQO = $this->getQueryBuilder($args)->getQuery();
 		$contextDao = Application::getContextDAO();
 		$result = $contextDao->retrieveRange($contextListQO->toSql(), $contextListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $contextDao, '_fromRow');
@@ -76,23 +96,17 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
 	 */
 	public function getMax($args = array()) {
-		$contextListQB = $this->_getQueryBuilder($args);
-		$countQO = $contextListQB->countOnly()->get();
-		$countRange = new DBResultRange($args['count'], 1);
-		$contextDao = Application::getContextDAO();
-		$countResult = $contextDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $contextDao, '_fromRow');
-
-		return (int) $countQueryResults->getCount();
+		// Don't accept args to limit the results
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		return $this->getQueryBuilder($args)->getCount();
 	}
 
 	/**
-	 * Build the query object for getting contexts
-	 *
-	 * @see self::getMany()
-	 * @return object Query object
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
+	 * @return ContextQueryBuilder
 	 */
-	private function _getQueryBuilder($args = array()) {
+	public function getQueryBuilder($args = array()) {
 
 		$defaultArgs = array(
 			'isEnabled' => null,
@@ -117,7 +131,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	public function getProperties($context, $props, $args = null) {
 		$slimRequest = $args['slimRequest'];
 		$request = $args['request'];
-		$router = $request->getRouter();
 		$dispatcher = $request->getDispatcher();
 
 		$values = array();
@@ -135,7 +148,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 					$values[$prop] = null;
 					if (!empty($slimRequest)) {
 						$route = $slimRequest->getAttribute('route');
-						$arguments = $route->getArguments();
 						$values[$prop] = $dispatcher->url(
 							$args['request'],
 							ROUTE_API,
@@ -150,7 +162,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			}
 		}
 
-		$supportedLocales = empty($args['supportedLocales']) ? $context->getSupportedLocales() : $args['supportedLocales'];
+		$supportedLocales = empty($args['supportedLocales']) ? $context->getSupportedFormLocales() : $args['supportedLocales'];
 		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_CONTEXT, $values, $supportedLocales);
 
 		\HookRegistry::call('Context::getProperties', array(&$values, $context, $props, $args));
@@ -203,27 +215,18 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			]
 		);
 
-		// Check required fields if we're adding a context
-		if ($action === VALIDATE_ACTION_ADD) {
-			\ValidatorFactory::required(
-				$validator,
-				$schemaService->getRequiredProps(SCHEMA_CONTEXT),
-				$schemaService->getMultilingualProps(SCHEMA_CONTEXT),
-				$primaryLocale
-			);
-		}
-
-		// Check for input from disallowed locales
-		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_CONTEXT), $allowedLocales);
-
-		// Don't allow an empty value for the primary locale of the name field
-		\ValidatorFactory::requirePrimaryLocale(
+		// Check required fields
+		\ValidatorFactory::required(
 			$validator,
-			['name'],
-			$props,
+			$action,
+			$schemaService->getRequiredProps(SCHEMA_CONTEXT),
+			$schemaService->getMultilingualProps(SCHEMA_CONTEXT),
 			$allowedLocales,
 			$primaryLocale
 		);
+
+		// Check for input from disallowed locales
+		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_CONTEXT), $allowedLocales);
 
 		// Ensure that a urlPath, if provided, does not already exist
 		$validator->after(function($validator) use ($action, $props) {
@@ -344,7 +347,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		$context = $this->get($context->getId());
 
 		// Move uploaded files into place and update the settings
-		$supportedLocales = $context->getSupportedLocales();
+		$supportedLocales = $context->getSupportedFormLocales();
 		$fileUploadProps = ['favicon', 'homepageImage', 'pageHeaderLogoImage'];
 		$params = [];
 		foreach ($fileUploadProps as $fileUploadProp) {
@@ -399,7 +402,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
 		// Move uploaded files into place and update the params
 		$userId = $request->getUser() ? $request->getUser()->getId() : null;
-		$supportedLocales = $context->getSupportedLocales();
+		$supportedLocales = $context->getSupportedFormLocales();
 		$fileUploadParams = ['favicon', 'homepageImage', 'pageHeaderLogoImage'];
 		foreach ($fileUploadParams as $fileUploadParam) {
 			if (!array_key_exists($fileUploadParam, $params)) {
@@ -600,20 +603,12 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			return null;
 		}
 
-		// Get uploaded file to move
-		if ($isImage) {
-			if (empty($value['temporaryFileId'])) {
-				return $value; // nothing to upload
-			}
-			$temporaryFileId = (int) $value['temporaryFileId'];
-		} else {
-			if (!ctype_digit($value)) {
-				return $value; // nothing to upload
-			}
-			$temporaryFileId = (int) $value;
+		// Check if there is something to upload
+		if (empty($value['temporaryFileId'])) {
+			return $value;
 		}
 
-		$temporaryFile = $temporaryFileManager->getFile($temporaryFileId, $userId);
+		$temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $userId);
 		$fileName = $this->moveTemporaryFile($context, $temporaryFile, $settingName, $userId, $localeKey);
 
 		if ($fileName) {
@@ -635,7 +630,11 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 					'altText' => $altText,
 				];
 			} else {
-				return $fileName;
+				return [
+					'name' => $temporaryFile->getOriginalFileName(),
+					'uploadName' => $fileName,
+					'dateUploaded' => \Core::getCurrentDate(),
+				];
 			}
 		}
 

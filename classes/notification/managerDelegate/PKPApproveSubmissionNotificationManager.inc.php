@@ -3,9 +3,9 @@
 /**
  * @file classes/notification/managerDelegate/PKPApproveSubmissionNotificationManager.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPApproveSubmissionNotificationManager
  * @ingroup managerDelegate
@@ -53,10 +53,10 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 	 */
 	function updateNotification($request, $userIds, $assocType, $assocId) {
 		$submissionId = $assocId;
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionId);
 
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 
 		$notificationTypes = array(
 			NOTIFICATION_TYPE_APPROVE_SUBMISSION => false,

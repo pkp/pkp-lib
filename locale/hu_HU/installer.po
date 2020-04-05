@@ -1,0 +1,203 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
+"PO-Revision-Date: 2020-02-21 15:36+0000\n"
+"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/hu/>\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "installer.additionalLocales"
+msgstr "További nyelvek"
+
+msgid "installer.administratorAccount"
+msgstr "Adminisztrátori Fiók"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Ez a felhasználói fiók lesz az oldal adminisztrátoráé, teljes hozzáféréssel a rendszerhez. További felhasználói fiókok a telepítés után hozhatók létre ."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NEM</span>"
+
+msgid "installer.checkYes"
+msgstr "Igen"
+
+msgid "installer.clientCharset"
+msgstr "Kliens karakterbeállítás"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "A karakterkódolás a böngészőből való adatküldésehez és fogadáshoz."
+
+msgid "installer.configFileError"
+msgstr "A konfigurációs fájl <tt>config.inc.php</tt> nem létezik vagy nem olvasható."
+
+msgid "installer.connectionCharset"
+msgstr "Kapcsolati karakterbeállítás"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "A konfigurációs fájl tartalma"
+
+msgid "installer.createDatabase"
+msgstr "Új adatbázis létrehozása"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "Ennek a beállításnak a használatához az adatbázisrendszernek támogatnia kell a távoli adatbázislétrehozást és az ön felhasználói fiókjának rendelkeznie kell a megfelelő jogosultságokkal új adatbázisok létrehozásához. Ha a telepítés megszakad ennek a beállításnak a használatakor, akkor hozza létre kézzel az adatbázist a szerverén és futassa újra a telepítőt ennek a beállításnak a kikapcsolásával."
+
+msgid "installer.databaseCharset"
+msgstr "Adatbázis karakterkódolása"
+
+msgid "installer.databaseDriver"
+msgstr "Adatbázis illesztőprogram"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>A zárójelben felsorolt ​​adatbázis illesztőprogramok nem feltétlenül töltődnek be a szükséges PHP-bővítményekkel, és a telepítés valószínűleg sikertelen lesz, ha kiválasztja. </strong> <br /> A fenti felsorolásban szereplő, nem támogatott adatbázis-illesztőprogramok kizárólag tudományos célokra vannak felsorolva, és valószínűleg nem fognak működni."
+
+msgid "installer.databaseHost"
+msgstr "Kiszolgáló"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Hagyja üresen  a hostnevet ha domain socket-et használatával szeretne csatlakozni a TCP/IP protokoll helyett. Ez nem szükséges a MySQL-lel, amely automatikusan \"socket\" -et használ, ha a \"localhost\" be van írva, de más adatbázis-kiszolgálókkal, például a PostgreSQL-lel szükséges."
+
+msgid "installer.databaseName"
+msgstr "Adatbázisnév"
+
+msgid "installer.databasePassword"
+msgstr "Jelszó"
+
+msgid "installer.databaseSettings"
+msgstr "Adatbázis beállítások"
+
+msgid "installer.databaseUsername"
+msgstr "Felhasználónév"
+
+msgid "installer.filesDir"
+msgstr "Feltöltési alkönyvtár"
+
+msgid "installer.fileSettings"
+msgstr "Fájlbeállítások"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Egy kliens karakterkódolás kiválasztása szükséges."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Egy adatbázis karakterkódolás kiválasztása szükséges."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Adatbázisnév megadása kötelező."
+
+msgid "installer.form.emailRequired"
+msgstr "Egy érvényes e-mail cím megadása az adminisztrátori fiók számára kötelező."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Egy feltöltött fájlok tárolására szolgáló könyvtár megadása kötelező."
+
+msgid "installer.form.localeRequired"
+msgstr "Nyelvi beállítás kiválasztása kötelező."
+
+msgid "installer.form.passwordRequired"
+msgstr "Az adminisztrátori fiókhoz tartozó jelszó megadása kötelező."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Az adminisztrátori jelszavak nem egyeznek."
+
+msgid "installer.form.separateMultiple"
+msgstr "A különböző értékeket vesszővel válassza el"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Az adminisztrátor felhasználóneve csak alfanumerikus karaktereket, alulhúzásokat, kötöjeleket tartalmazhat, de csak alfanumerikus karakterekekkel kezdődhet és végződhet."
+
+msgid "installer.form.usernameRequired"
+msgstr "Egy felhasználónév megadása az adminisztrátori fiók számára kötelező."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>FIGYELMEZTETÉS: A PHP jelenlegi verziója nem felel meg a telepítés minimális követelményeinek. Javasoljuk, hogy frissítsen egy újabb PHP kiadásra.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Hiba történt a telepítés során"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL utasítások a telepítéshez"
+
+msgid "installer.installFileError"
+msgstr "A telepítési fájl <tt>dbscripts/xml/install.xml</tt> nem létezik vagy nem olvasható."
+
+msgid "installer.installFilesDirError"
+msgstr "Az alkönyvtár, amelyet a fájlfeltöltéshez megadott vagy nem létezik vagy nem írható."
+
+msgid "installer.installParseDBFileError"
+msgstr "Hiba történt az adatbázis telepítési fájljában <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Hiba történt az e-mail sablonfájl elemzése során <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Hiba történt a szűrők konfigurációs fájljában <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Frissítés nem támogatott. Lásd a docs/UPGRADE-UNSUPPORTED fájlt a részletekért."
+
+msgid "installer.locale"
+msgstr "Nyelvi fájlok"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "A jelölt nyelvi fájlok befejezetlenek lehetnek."
+
+msgid "installer.localeSettings"
+msgstr "Nyelvi beállítások"
+
+msgid "installer.oaiSettings"
+msgstr "OAI beállítások"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Egyedi azonosítót használunk az erről az oldalról származó metaadat rekordok azonosításához <a href=\"http://www.openarchives.org/\" target=\"_blank\"> Open Archives Initiative</a> protokoll által történő metaadat aratáshoz."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Repozitórium azonosító"
+
+msgid "installer.publicFilesDirError"
+msgstr "A nyilvános fájlok könyvtára nem létezik, vagy nem írható."
+
+msgid "installer.releaseNotes"
+msgstr "Kiadási megjegyzések"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Telepítés előtti lépések"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. A következő fájlokat és könyvtárakat (és azok tartalmát) írhatóvá "
+"kell tenni:</p>\n"
+"<ul>\n"
+"<li><tt> config.inc.php</tt> írható (opcionális): {$writable_config}</li>\n"
+"<li><tt>public/</tt> írható: {$writable_public}</li>\n"
+"<li><tt>cache/</tt> írható: {$writable_cache}</li>\n"
+"<li><tt>cache/t_cache/</tt> írható: {$writable_templates_cache} </li>\n"
+"<li><tt>cache/t_compile/</tt> írható: {$writable_templates_compile}</li>\n"
+"<li><tt> cache/_db</tt> írható: {$writable_db_cache} </li>\n"
+"</ul>\n"
+"\n"
+"<p> 2. A feltöltött fájlok tárolására szolgáló könyvtárat létre kell hozni "
+"és írhatóvá kell tenni (lásd alább: \"Fájlbeállítások\"). </ p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>A PHP telepítésének nincs engedélyezve az XSL modul. Vagy engedélyezze, vagy konfigurálja az xslt_command paramétert a config.inc.php fájlban.</p>"
+
+msgid "installer.beacon"
+msgstr "Jeladó"
+
+msgid "installer.beacon.enable"
+msgstr ""
+"Egyedi oldal azonosítót és OAI base URL-t biztosít a PKP részére, kizárólag "
+"statisztikai és biztonsági figyelmeztetés céljából."
+
+msgid "installer.unsupportedPhpError"
+msgstr "Nem támogatott szerver oldali PHP verzió. Ellenőrizze a telepítési követelményeket  a docs/README könyvtárban."

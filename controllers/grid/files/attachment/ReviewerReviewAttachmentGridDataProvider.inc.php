@@ -2,9 +2,9 @@
 /**
  * @file controllers/grid/files/attachment/ReviewerReviewAttachmentGridDataProvider.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerReviewAttachmentGridDataProvider
  * @ingroup controllers_grid_files_attachment
@@ -97,7 +97,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
 		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
 		$submission = $this->getSubmission();
 
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignment = $reviewAssignmentDao->getById($this->_getReviewId());
 
 		return new AddFileLinkAction(

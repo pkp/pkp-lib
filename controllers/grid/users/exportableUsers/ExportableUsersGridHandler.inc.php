@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/exportableUsers/ExportableUsersGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ExportableUsersGridHandler
  * @ingroup controllers_grid_users_exportableUsers
@@ -176,7 +176,7 @@ class ExportableUsersGridHandler extends GridHandler {
 		$context = $request->getContext();
 
 		// Get all users for this context that match search criteria.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
 		return $users = $userGroupDao->getUsersById(
@@ -194,7 +194,7 @@ class ExportableUsersGridHandler extends GridHandler {
 	 */
 	function renderFilter($request, $filterData = array()) {
 		$context = $request->getContext();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getByContextId($context->getId());
 		$userGroupOptions = array('' => __('grid.user.allRoles'));
 		while ($userGroup = $userGroups->next()) {

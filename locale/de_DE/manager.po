@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
+"PO-Revision-Date: 2020-03-18 12:36+0000\n"
+"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
+"de/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:24-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "manager.website.information"
 msgstr "Information"
@@ -66,13 +69,14 @@ msgid "manager.announcements.form.description"
 msgstr "Beschreibung"
 
 msgid "manager.announcements.form.descriptionInstructions"
-msgstr "Vollständiger Text der Mitteilung"
+msgstr "Vollständiger Text der Mitteilung."
 
 msgid "manager.announcements.form.descriptionRequired"
 msgstr "Eine Beschreibung der Mitteilung ist erforderlich."
 
 msgid "manager.announcements.form.descriptionShortInstructions"
-msgstr "Eine kurze Beschreibung, die zusammen mit dem Mitteilungstitel erscheint"
+msgstr ""
+"Eine kurze Beschreibung, die zusammen mit dem Mitteilungstitel erscheint."
 
 msgid "manager.announcements.form.descriptionShortRequired"
 msgstr "Eine kurze Beschreibung der Mitteilung ist erforderlich."
@@ -93,10 +97,10 @@ msgid "manager.announcements.form.typeId"
 msgstr "Typ"
 
 msgid "manager.announcements.form.typeIdValid"
-msgstr "Bitte einen gültigen Mitteilungstyp wählen"
+msgstr "Bitte einen gültigen Mitteilungstyp wählen."
 
 msgid "manager.announcements.noneCreated"
-msgstr "Keine Mitteilungen erstellt"
+msgstr "Es wurden keine Mitteilungen erstellt."
 
 msgid "manager.announcements.title"
 msgstr "Titel"
@@ -108,7 +112,9 @@ msgid "manager.announcementTypes"
 msgstr "Mitteilungsarten"
 
 msgid "manager.announcementTypes.confirmDelete"
-msgstr "Warnung! Sind Sie sicher, dass Sie diesen Mitteilungstyp entfernen wollen? Alle Mitteilungen dieses Typs werden dadurch ebenfalls gelöscht. "
+msgstr ""
+"Warnung! Sind Sie sicher, dass Sie diesen Mitteilungstyp entfernen wollen? "
+"Alle Mitteilungen dieses Typs werden dadurch ebenfalls gelöscht."
 
 msgid "manager.announcementTypes.create"
 msgstr "Neuen Mitteilungstyp erstellen"
@@ -222,7 +228,7 @@ msgid "manager.emails.reset.message"
 msgstr "Wenn Sie diese Vorlage zurücksetzen, werden alle Daten dieser Vorlage auf ihre Standardwerte zurückgesetzt, alle Veränderungen gehen verloren. Möchten Sie diese Aktion bestätigen?"
 
 msgid "manager.emails.resetToDefault"
-msgstr "Auf Standard zurücksetzen "
+msgstr "Auf Standard zurücksetzen"
 
 msgid "manager.filesBrowser"
 msgstr "Dateinavigator"
@@ -246,7 +252,7 @@ msgid "manager.files.uploadedFiles"
 msgstr "Hochgeladene Dateien"
 
 msgid "manager.files.uploadFile"
-msgstr "Datei hochladen "
+msgstr "Datei hochladen"
 
 msgid "manager.groups.confirmDelete"
 msgstr "Sind Sie sicher, dass Sie diese Position entfernen wollen?"
@@ -345,7 +351,9 @@ msgid "manager.people.emailUsers.selectLocale"
 msgstr "Eine Regionaleinstellung auswählen"
 
 msgid "manager.people.emailUsers.selectUsers"
-msgstr "Wählen Sie die Benutzer/innen, denen Sie eine E-Mail senden wollen, dadurch aus, dass Sie die Kästchen neben ihren Namen anklicken."
+msgstr ""
+"Wählen Sie die Benutzer/innen, denen Sie eine E-Mail senden wollen, aus, "
+"indem Sie die Kästchen neben ihren Namen anklicken."
 
 msgid "manager.people.enable"
 msgstr "Aktivieren"
@@ -635,7 +643,7 @@ msgid "manager.setup.theme.description"
 msgstr "Wählen Sie ein Grafikthema aus den verfügbaren Thema-Plugins aus."
 
 msgid "manager.setup.layout.sidebar"
-msgstr "Sidebar"
+msgstr "Seitenleiste"
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Protokollieren und prüfen"
@@ -695,16 +703,20 @@ msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr "Die Standards können für jedes Gutachten im Rahmen des redaktionellen Prozesses angepasst werden."
 
 msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr "Eine Erinnerung schicken, wenn ein/e Gutachter/in auf die Anfrage nicht innerhalb der genannten Zeit geantwortet hat (Tage):"
+msgstr ""
+"Eine Erinnerung schicken, wenn ein/e Gutachter/in auf die Anfrage nicht "
+"innerhalb der genannten Zeit geantwortet hat."
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr "Eine Erinnerung schicken, wenn ein/e Gutachter/in nicht innerhalb der genannten Zeit eine Empfehlung eingereicht hat (Tage):"
+msgstr ""
+"Eine Erinnerung schicken, wenn ein/e Gutachter/in nicht innerhalb der "
+"genannten Zeit eine Empfehlung eingereicht hat."
 
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Standard-Fristen für Begutachtung"
 
 msgid "manager.setup.sponsors.note"
-msgstr "Sie können einen Hinweis hinzufügen, wie Ihr Verhältnis zu Ihren Sponsoren ist; dieser Hinweis wird in der Sponsorenliste auf Ihrer \"Über uns\"-Seite erscheinen."
+msgstr "Hinweise zu Sponsoren"
 
 msgid "manager.setup.sponsors.description"
 msgstr "Beispiele: Fachgesellschaften, Fachbereiche, Konsortien etc. Spnsoren werden öffentlich angezeigt."
@@ -782,7 +794,8 @@ msgid "plugins.categories.oaiMetadataFormats"
 msgstr "Plugin für OAI-Metadaten-Format"
 
 msgid "plugins.categories.oaiMetadataFormats.description"
-msgstr "Diese Format-Plugins beziehen sich auf Metadaten für die OAI-Kommunikation"
+msgstr ""
+"Diese Format-Plugins beziehen sich auf Metadaten für die OAI-Kommunikation."
 
 msgid "plugins.categories.pubIds"
 msgstr "Plugins für öffentliche Kennungen"
@@ -791,7 +804,11 @@ msgid "plugins.categories.pubIds.description"
 msgstr "Diese Plugins liefern Unterstützung für öffentliche Kennungen (public identifiers)."
 
 msgid "manager.plugins.copyError"
-msgstr "Das Plugin wurde nicht erfolgreich kopiert"
+msgstr ""
+"Das Plugin wurde nicht erfolgreich kopiert. Dies könnte ein "
+"Berechtigungsproblem sein. Stellen Sie sicher, dass der Webserver in das "
+"Plugin-Verzeichnis (einschließlich der Unterverzeichnisse) schreiben darf "
+"und vergessen Sie nicht, diese später wieder zu sichern."
 
 msgid "manager.plugins.delete"
 msgstr "Plugin löschen"
@@ -1406,7 +1423,9 @@ msgid "manager.navigationMenus.remoteUrl.description"
 msgstr "Link zu einer beliebigen URL einer anderen Website, z.B. https://pkp.sfu.ca."
 
 msgid "manager.navigationMenus.about.description"
-msgstr "Link zur Seite, welche den Inhalt von Über uns aus den Einstellungen > Zeitschrift anzeigt."
+msgstr ""
+"Link zur Seite, welche den Inhalt von Über uns aus den Einstellungen > "
+"Zeitschrift anzeigt"
 
 msgid "manager.navigationMenus.about.conditionalWarning"
 msgstr "Dieser Link wird nur angezeigt, falls Sie den Abschnitt Über uns in den Einstellungen > Zeitschrift ausgefüllt haben."
@@ -1518,3 +1537,549 @@ msgstr "Bitte geben Sie einen Kategoriennamen an."
 
 msgid "grid.category.categoryDetails"
 msgstr "Kategoriendetails"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Annahmequote"
+
+msgid "stats.name.declineRate"
+msgstr "Ablehnquote"
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Vom/n Autor/in eine Quellen-URL verlangen, bevor der Beitrag angenommen wird."
+
+msgid "manager.setup.metadata.source.request"
+msgstr ""
+"Den Autor/dieAutorin während des Einreichprozesses um eine Quellen-URL "
+"bitten."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr ""
+"Während des Einreichprozesses keine Quellen-URL von der/dem Autor/in "
+"verlangen."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Metadaten für Quellen aktivieren"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Die Quelle kann eine ID wie z.B. eine DOI eines anderen Werkes sein, welches "
+"Grundlage der vorliegenden Einreichung war."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Während des Enreichprozesses Angaben zu bestehenden Rechten vom Autor / der "
+"Autorin verlangen, bevor die Einreichung angenommen wird."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Den Autor/ die Autorin während des Enreichprozesses um Angaben zu "
+"bestehenden Rechten bitten."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+"Während des Einreichprozesses keine Angaben zu Rechten von der/dem Autor/in "
+"verlangen."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Metadaten für Rechte aktivieren"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Alle Rechte an diesem Beitrag einschließlich Schutz- und Urheberrechten "
+"sowie Eigentumsrechten."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Vom/n Autor/in Angaben zur Sprache verlangen, bevor der Beitrag angenommen "
+"wird."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Die Sprache der Einreichung während des Einreichprozesse von den Autoren/"
+"innen abfragen."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+"Die Sprache der Einreichung nicht von den Autoren/innen abfragen während des "
+"Einreichprozesses."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Metadaten für Sprache aktivieren"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Sprache weist die Hauptsprache der Arbeit aus, indem ein Sprachcode (\"en\") "
+"mit einem optionalen Ländercode (\"en_US\") verwendet wird."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Vom/n Autor/in Vorschläge zu Stichworten verlangen, bevor der Beitrag "
+"angenommen wird."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr ""
+"Den Autor/dieAutorin während des Einreichprozesses um Vorschläge zu "
+"Stichworten bitten."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr ""
+"Während des Einreichprozesses keine Stichworte von der/dem Autor/in "
+"verlangen."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Metadaten zu Stichworten aktivieren"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Stichworte sind typischerweise ein bis drei Worte lange Phrasen, die auf das "
+"Fachgebiet der Einreichung hinweisen."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Während des Enreichprozesses Vorschläge zu Metadaten zur Abdeckung vom Autor "
+"verlangen."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Den Autor während des Enreichprozesses um Vorschläge zu Metadaten zur "
+"Abdeckung bitten."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Während des Einreichprozesses keine Metadaten zur Abdeckung vom Autor "
+"anfordern."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Metadaten für Abdeckung anschalten"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Abdeckung gibt typischerweise Hinweise auf die räumliche Position (ein "
+"Ortsname oder Koordinaten), einen Zeitraum (z.B. eine Periode oder ein Datum)"
+" oder eine Zuständigkeit (z.B. eine administrative Einrichtung)."
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Fügen Sie benutzerdefinierte HTML Tags, auch Meta Tags genannt, hinzu, die "
+"im Kopf jeder Seite eingefügt werden sollen. Fragen Sie einen technischen "
+"Ratgeber, bevor Sie hier Tags hinzufügen."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Bereich"
+
+msgid "manager.setup.metadata.success"
+msgstr "Die Metadaten der Einreichung wurden erfolgreich aktualisiert."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Änderung der Metadaten dieser Einreichung erlauben."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Benutzerdefinierte Tags"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Geben Sie die öffentlichen Lizenzbestimmungen ein, die neben "
+"veröffentlichten Arbeiten angezeigt werden sollen."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Lizenzbestimmungen"
+
+msgid "manager.distribution.license.other"
+msgstr "Andere Lizenz-URL"
+
+msgid "manager.distribution.license.success"
+msgstr "Die Lizenzdetails wurden aktualisiert. "
+
+msgid "manager.distribution.license"
+msgstr "Lizenz"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Registrierte Nutzer/innen"
+
+msgid "manager.setup.userAccess.success"
+msgstr "Die Nutzerzugriffsdaten für diesen Verlag wurden aktualisiert."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Das ausgewählte Theme ist nicht installiert oder nicht aktiviert."
+
+msgid "manager.setup.theme.success"
+msgstr ""
+"Das Theme wurde aktualisiert. <a href=\"{$url}\" target=\"_blank\">Jetzt "
+"ansehen</a>"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr ""
+"Einen Link zum <button type=\"button\">Blinde Begutachtung "
+"sicherstellen</button> -Knopf während des Hochladens zur Verfügung stellen"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Standard-Reviewmodus"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Erinnerung an Begutachtung"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Erinnerung an Antwort"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Standardfrist für Fertigstellung"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Standardfrist für Antwort"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr ""
+"Die Datei, die hochgeladen wurde, konnte nicht gefunden werden. Bitte "
+"versuchen Sie erneut sie hochzuladen."
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Der {$name} Block konnte nicht gefunden werden. Bitte stellen Sie sicher, "
+"dass das Plugin installiert und aktiviert ist."
+
+msgid "manager.setup.checklist"
+msgstr "Checkliste"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Die Autorenrichtlinien wurden erfolgreich aktualisiert."
+
+msgid "manager.setup.contact.success"
+msgstr "Die Kontaktdaten für diesen Verlag wurden aktualisiert."
+
+msgid "manager.setup.appearance.success"
+msgstr "Die Einstellungen unter 'Aussehen' wurden aktualisiert."
+
+msgid "manager.setup.advanced"
+msgstr "Fortgeschritten"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Sie können diesen Vertreter nicht löschen. Er ist  den market Metadaten "
+"eines oder mehrerer Puklikationsformate zugeordnet."
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Betreff: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Gesendet an"
+
+msgid "manager.emails.sentFrom"
+msgstr "Gesendet von"
+
+msgid "manager.emails.resetAll"
+msgstr "Alles zurücksetzen"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Der Schlüssel, den Sie angeben, ist bereits in Benutzung."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"Es muss eine Context ID zur Verfügung gestellt werden, wenn eine E-Mail-"
+"Vorlage hinzugefügt wird."
+
+msgid "manager.emails.emailTemplates"
+msgstr "E-Mail-Vorlagen"
+
+msgid "manager.emails.emailKey.description"
+msgstr ""
+"Der E-Mail-Schlüssel darf nur Buchstaben, Zahlen und Unterstriche enthalten."
+
+msgid "manager.emails.editEmail.success"
+msgstr "Die E-Mail-Vorlage wurde geändert."
+
+msgid "manager.emails.customTemplate"
+msgstr "benutzerdefinierte Vorlage"
+
+msgid "manager.emails.addEmail.success"
+msgstr "Die E-Mail-Vorlage wurde hinzugefügt."
+
+msgid "manager.emails.addEmail"
+msgstr "Vorlage hinzufügen"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Die Details der Begutachtungserinnerungen wurden aktualisiert."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Die Begutachtungseinstellungen wurden aktualisiert."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Die Richtlinien für Gutachter wurden aktualisiert."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Richtlinien für Gutachter"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "Die E-Mail-Einstellungen wurden aktualisiert."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Vor Annahme der Einreichung Angaben zur Disziplin vom Autor/von der Autorin "
+"verlangen."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr ""
+"Während der Einreichung eine Angabe zur Disziplin vom Autor  von der Autorin "
+"erfragen."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr ""
+"Während der Einreichung keine Angabe zur Disziplin vom Autor  von der "
+"Autorin verlangen."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Disziplin-Metadaten aktivieren"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Disziplinen sind Arten von Studien oder Fachgebiete, wie sie von "
+"Universitätsfakultäten oder Fachgesellschaften beschrieben werden."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Vor Annahme der Einreichung Angaben zum Typ vom Autor / von der Autorin "
+"verlangen."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Während der Einreichung den Autoren / die Autorin nach dem Typ fragen."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr ""
+"Während der Einreichung den Autoren / die Autorin nicht nach dem Typ fragen."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Typ-Metadaten aktivieren"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Art oder Genre vom Hauptteil der Einreichung. Der Typ ist normalerweise \""
+"Text\", kann aber auch \"\"Datensatz\", \"Bild\" oder jedem anderen der <a "
+"target=\"_blank\" href=\"http://dublincore.org/documents/"
+"dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core Typen</a> "
+"entsprechen."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Während der Einreichung Angaben zum Thema vom Autor/von Autorin verlangen."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr ""
+"Während der Einreichung den Autoren/die Autorin bitten Angaben zum Thema zu "
+"machen."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr ""
+"Während der Einreichung keine Angaben zu Themen von Autor/Autorin verlangen."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Themen-Metadaten aktivieren"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Themen sind Stichworte, Stichwortketten oder Klassifizierungscodes, die das "
+"Fachgebiet einer Einreichung beschreiben."
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Quote der Ablehnungen nach Peer Review"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Quote direkter Ablehnungen (desk rejection)"
+
+msgid "stats.name.daysToReject"
+msgstr "Tage bis zur Ablehnung"
+
+msgid "stats.name.daysToAccept"
+msgstr "Tage bis zur Annahme"
+
+msgid "stats.name.daysToDecision"
+msgstr "Tage bis zur ersten redaktionellen Entscheidung"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Veröffentlichte Einreichungen"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Abgelehnte Einreichungen (nach Peer Review)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Abgelehnte Einreichungen (direkt ohne Peer Review, desk rejection)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Abgelehnte Einreichungen"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Angenommene Einreichungen"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Erhaltene Einreichungen"
+
+msgid "stats.userStatistics"
+msgstr "Nutzerstatistiken"
+
+msgid "stats.trends"
+msgstr "Tendenzen"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Gesamt innerhalb des Datumsbereichs"
+
+msgid "stats.total"
+msgstr "Gesamt"
+
+msgid "stats.submissionsActive"
+msgstr "Aktive Einreichungen"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Suche nach Titel, Autor/in und ID"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Monatlich"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.fileViews"
+msgstr "Dateiansichten"
+
+msgid "stats.editorialActivity"
+msgstr "Redaktionelle Aktivität"
+
+msgid "stats.descriptionForStat"
+msgstr "Beschreibung für {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Die Anzahl der Tage, bis eine erste redaktionelle Entscheidung für eine "
+"Einreichung getroffen wird, wie zum Beispiel direkte Ablehnung oder "
+"Versenden zum Review.<br><br> Diese Zahlen zeigen, dass für 80% aller "
+"Einreichungen eine Entscheidung innerhalb der angegebenen Anzahl von Tagen "
+"getroffen wird.<br><br> Diese Statistik versucht anzugeben, wann die "
+"Mehrheit der Autoren dieser Zeitschrift eine Entscheidung erwarten können."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Der Anteil für den gewählten Datumsbereich wird berechnet auf Grundlage der "
+"Einreichungen, die innerhalb dieses Datumsbereichs eingereicht wurden und "
+"für die eine endgültige Entscheidung getroffen wurde.<br><br> Gingen zum "
+"Beispiel zehn Einreichungen innerhalb des Datumsbereichs ein, von denen vier "
+"angenommen wurden, vier abgelehnt wurden und zwei noch unentschieden sind, "
+"so liegt die Annahmerate bei 50% (vier von acht Einreichungen), denn über "
+"zwei Einreichungen wurde noch nicht abschließend entschieden."
+
+msgid "stats.dateRange.untilDate"
+msgstr "Bis {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Bis"
+
+msgid "stats.dateRange.thisYear"
+msgstr "aktuelles Jahr"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Seit {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Letztes Jahr"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Letzte 2 Jahre"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Letzte 90 Tage"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Letzte 30 Tage"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Letzte 12 Monate"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Das Startdatum sollte nicht vor dem {$date} liegen."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Das Enddatum sollte nicht nach dem {$date} liegen."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Das Startdatum muss vor dem Enddatum liegen."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Das Datumsformat ist ungültig. Geben Sie jedes Datum im Format YYYY-MM-DD an."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Geben Sie das Datum im Format YYYY-MM-DD ein. Zum Beispiel geben Sie für das "
+"Datum 15. Januar 2019 folgendes ein: 2019-01-15."
+
+msgid "stats.dateRange.from"
+msgstr "Von"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Eines der eingegebenen Daten existiert nicht."
+
+msgid "stats.dateRange.customRange"
+msgstr "benutzerdefinierter Bereich"
+
+msgid "stats.dateRange.change"
+msgstr "Datumsbereich ändern"
+
+msgid "stats.dateRange.apply"
+msgstr "Anwenden"
+
+msgid "stats.dateRange.allDates"
+msgstr "Alle Daten"
+
+msgid "stats.dateRange"
+msgstr "Datumsbereich"
+
+msgid "stats.daily"
+msgstr "Täglich"
+
+msgid "stats.allUsers"
+msgstr "Alle Nutzer/innen"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Vor Annahme der Einreichung die Angaben von Referenzen von Autor/in "
+"verlangen."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr ""
+"Während der Einreichung die Angabe von Referenzen von Autor/in erfragen."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Während der Einreichung keine Referenzen von Autor/in erfragen."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Metadaten zu Referenzen aktivieren"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Die Referenzen einer Einreichung in einem separaten Feld sammeln. Dies "
+"könnte erforderlich sein, um Erfordernissen von Services zu "
+"Zitationszählungen wie Crossref zu entsprechen."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Von dem Autor/der Autorin während des Einreichprozesses die Angabe von "
+"unterstützenden Institutionen verlangen."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Den Autor/die Autorin während des Einreichprozesses nach unterstützenden "
+"Institutionen fragen."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Den Autor/die Autorin während des Einreichprozesses nicht nach "
+"unterstützenden Institutionen fragen."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Metadaten für unterstützende Institutionen aktivieren"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Unterstützende Institutionen können hier die Quelle der "
+"Forschungsfinanzierung oder andere Arten von Unterstützung für die Forschung "
+"angeben."

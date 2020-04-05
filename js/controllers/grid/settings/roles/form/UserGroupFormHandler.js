@@ -4,9 +4,9 @@
 /**
  * @file js/controllers/grid/settings/roles/form/UserGroupFormHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserGroupFormHandler
  * @ingroup js_controllers_grid_settings_roles_form
@@ -139,7 +139,7 @@
 	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler.prototype.
 			changeRoleId = function(dropdown) {
 
-		var dropDownValue = $(dropdown).val(); /** @type {string} */
+		var dropDownValue = /** @type {string} */ ($(dropdown).val());
 
 		this.updatePermitSelfRegistration((dropDownValue));
 		this.updatePermitMetadataEdit(/** @type {string} */ (dropDownValue), true);
@@ -275,5 +275,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

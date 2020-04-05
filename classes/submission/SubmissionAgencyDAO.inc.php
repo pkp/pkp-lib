@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/SubmissionAgencyDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionAgencyDAO
  * @ingroup submission
@@ -47,7 +47,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 		$result = [];
 
 		$agencies = $this->build($publicationId);
-		$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO');
+		$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /* @var $submissionAgencyEntryDao SubmissionAgencyEntryDAO */
 		$submissionAgencies = $submissionAgencyEntryDao->getByControlledVocabId($agencies->getId());
 		while ($agencyEntry = $submissionAgencies->next()) {
 			$agency = $agencyEntry->getAgency();
@@ -92,8 +92,8 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	 * @return int
 	 */
 	function insertAgencies($agencies, $publicationId, $deleteFirst = true) {
-		$agencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
-		$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO');
+		$agencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /* @var $agencyDao SubmissionAgencyDAO */
+		$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /* @var $submissionAgencyEntryDao SubmissionAgencyEntryDAO */
 		$currentAgencies = $this->build($publicationId);
 
 		if ($deleteFirst) {

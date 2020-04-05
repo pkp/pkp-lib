@@ -3,9 +3,9 @@
 /**
  * @file classes/context/Context.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Context
  * @ingroup core
@@ -335,7 +335,7 @@ abstract class Context extends DataObject {
 	 * @return int
 	 */
 	function getViews() {
-		$application = Application::getApplication();
+		$application = Application::get();
 		return $application->getPrimaryMetricByAssoc(Application::getContextAssocType(), $this->getId());
 	}
 
@@ -388,7 +388,7 @@ abstract class Context extends DataObject {
 				$defaultMetricType = $availableMetrics[0];
 			} else {
 				// Use the site-wide default metric.
-				$application = Application::getApplication();
+				$application = Application::get();
 				$defaultMetricType = $application->getDefaultMetricType();
 			}
 		} else {
@@ -416,7 +416,7 @@ abstract class Context extends DataObject {
 	function getMetrics($metricType = null, $columns = array(), $filter = array(), $orderBy = array(), $range = null) {
 		// Add a context filter and run the report.
 		$filter[STATISTICS_DIMENSION_CONTEXT_ID] = $this->getId();
-		$application = Application::getApplication();
+		$application = Application::get();
 		return $application->getMetrics($metricType, $columns, $filter, $orderBy, $range);
 	}
 }

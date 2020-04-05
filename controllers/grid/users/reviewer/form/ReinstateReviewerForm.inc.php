@@ -2,9 +2,9 @@
 /**
  * @file controllers/grid/users/reviewer/form/ReinstateReviewerForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReinstateReviewerForm
  * @ingroup controllers_grid_users_reviewer_form
@@ -33,20 +33,20 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm {
 	}
 
 	/**
-	 * Deletes the review assignment and notifies the reviewer via email
+	 * @copydoc Form::execute()
 	 * @return bool whether or not the review assignment was deleted successfully
 	 */
-	public function execute() {
-		if (!parent::execute()) return false;
+	public function execute(...$functionArgs) {
+		if (!parent::execute(...$functionArgs)) return false;
 
 		$request = Application::get()->getRequest();
 		$submission = $this->getSubmission();
 		$reviewAssignment = $this->getReviewAssignment();
 
 		// Reinstate the review assignment.
-		$submissionDao = Application::getSubmissionDAO();
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 
 		if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId() && !HookRegistry::call('EditorAction::reinstateReview', array(&$submission, $reviewAssignment))) {
 			$reviewer = $userDao->getById($reviewAssignment->getReviewerId());

@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/files/review/ReviewerReviewFilesGridDataProvider.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerReviewFilesGridDataProvider
  * @ingroup controllers_grid_files_review
@@ -60,7 +60,7 @@ class ReviewerReviewFilesGridDataProvider extends ReviewGridDataProvider {
 	 */
 	function loadData($filter = array()) {
 		$submissionFileData = parent::loadData();
-		$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO');
+		$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /* @var $reviewFilesDao ReviewFilesDAO */
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 		foreach ($submissionFileData as $fileId => $fileData) {
 			if (!$reviewFilesDao->check($reviewAssignment->getId(), $fileId)) {

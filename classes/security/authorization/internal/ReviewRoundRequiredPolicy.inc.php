@@ -2,9 +2,9 @@
 /**
  * @file classes/security/authorization/internal/ReviewRoundRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewRoundRequiredPolicy
  * @ingroup security_authorization_internal
@@ -39,7 +39,7 @@ class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy {
 		if ($reviewRoundId === false) return AUTHORIZATION_DENY;
 
 		// Validate the review round id.
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$reviewRound = $reviewRoundDao->getById($reviewRoundId);
 		if (!is_a($reviewRound, 'ReviewRound')) return AUTHORIZATION_DENY;
 

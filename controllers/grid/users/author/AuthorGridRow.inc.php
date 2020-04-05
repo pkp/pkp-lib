@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/author/AuthorGridRow.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AuthorGridRow
  * @ingroup controllers_grid_users_author
@@ -88,8 +88,8 @@ class AuthorGridRow extends GridRow {
 					)
 				);
 
-				$authorDao = DAORegistry::getDAO('AuthorDAO');
-				$userDao = DAORegistry::getDAO('UserDAO');
+				$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+				$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 				$author = $authorDao->getById($rowId);
 
 				if ($author && !$userDao->userExistsByEmail($author->getEmail())) {

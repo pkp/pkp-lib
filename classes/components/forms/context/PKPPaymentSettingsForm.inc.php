@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/context/PKPPaymentSettingsForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPaymentSettingsForm
  * @ingroup classes_controllers_form
@@ -37,17 +37,24 @@ class PKPPaymentSettingsForm extends FormComponent {
 		$this->successMessage = __('manager.payment.success');
 		$this->locales = $locales;
 
-		$currencyDao = \DAORegistry::getDAO('CurrencyDAO');
 		$currencies = [];
-		foreach ($currencyDao->getCurrencies() as $currency) {
+		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+		foreach ($isoCodes->getCurrencies() as $currency) {
 			$currencies[] = [
-				'value' => $currency->getCodeAlpha(),
-				'label' => $currency->getName(),
+				'value' => $currency->getLetterCode(),
+				'label' => $currency->getLocalName(),
 			];
 		}
 
 		// Ensure payment method plugins can hook in
-		\PluginRegistry::loadCategory('paymethod', true);
+		$paymentPlugins = \PluginRegistry::loadCategory('paymethod', true);
+		$pluginList = array();
+		foreach ($paymentPlugins as $plugin) {
+			$pluginList[] = [
+				'value' => $plugin->getName(),
+				'label' => $plugin->getDisplayName(),
+			];
+		}
 
 		$this->addGroup([
 				'id' => 'setup',
@@ -66,6 +73,13 @@ class PKPPaymentSettingsForm extends FormComponent {
 				'options' => $currencies,
 				'showWhen' => 'paymentsEnabled',
 				'value' => $context->getData('currency'),
+				'groupId' => 'setup',
+			]))
+			->addField(new FieldSelect('paymentPluginName', [
+				'label' => __('plugins.categories.paymethod'),
+				'options' => $pluginList,
+				'showWhen' => 'paymentsEnabled',
+				'value' => $context->getData('paymentPluginName'),
 				'groupId' => 'setup',
 			]));
 	}

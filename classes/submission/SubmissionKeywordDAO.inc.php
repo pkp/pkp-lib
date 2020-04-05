@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/SubmissionKeywordDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionKeywordDAO
  * @ingroup submission
@@ -48,7 +48,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 		$result = [];
 
 		$keywords = $this->build($publicationId);
-		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /* @var $submissionKeywordEntryDao SubmissionKeywordEntryDAO */
 		$submissionKeywords = $submissionKeywordEntryDao->getByControlledVocabId($keywords->getId());
 		while ($keywordEntry = $submissionKeywords->next()) {
 			$keyword = $keywordEntry->getKeyword();
@@ -93,8 +93,8 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	 * @return int
 	 */
 	function insertKeywords($keywords, $publicationId, $deleteFirst = true) {
-		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $keywordDao SubmissionKeywordDAO */
+		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /* @var $submissionKeywordEntryDao SubmissionKeywordEntryDAO */
 
 		if ($deleteFirst) {
 			$currentKeywords = $this->deleteByPublicationId($publicationId);
@@ -127,8 +127,8 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	 * @return int|array Controlled Vocab
 	 */
 	public function deleteByPublicationId($publicationId) {
-		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $keywordDao SubmissionKeywordDAO */
+		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /* @var $submissionKeywordEntryDao SubmissionKeywordEntryDAO */
 		$currentKeywords = $this->build($publicationId);
 
 		$existingEntries = $keywordDao->enumerate($currentKeywords->getId(), CONTROLLED_VOCAB_SUBMISSION_KEYWORD);

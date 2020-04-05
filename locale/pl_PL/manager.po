@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:57+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:57+00:00\n"
+"POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
+"PO-Revision-Date: 2020-01-30T17:13:28+00:00\n"
 "Language: \n"
 
 msgid "manager.announcements"
@@ -155,6 +155,9 @@ msgstr "E-mail o podanym kluczu już istnieje."
 msgid "manager.emails.emailTemplate"
 msgstr "Szablon wiadomości e-mail"
 
+msgid "manager.emails.emailTemplates"
+msgstr "Szablony wiadomości e-mail"
+
 msgid "manager.emails.enabled"
 msgstr "Włącz ten szablon"
 
@@ -172,6 +175,9 @@ msgstr "Tytuł wiadomości jest wymagany."
 
 msgid "manager.emails"
 msgstr "Przygotowane wiadomości e-mail"
+
+msgid "manager.emails.resetAll"
+msgstr "Powrót do ustawień domyślnych dla wszystkich szablonów wiadomości e-mail"
 
 msgid "manager.emails.reset"
 msgstr "Ustawienia domyślne"
@@ -407,11 +413,17 @@ msgstr "Role"
 msgid "manager.setup.errorDeletingItem"
 msgstr "Wystąpił błąd podczas usuwania tego pliku."
 
+msgid "manager.setup.homeHeaderImageInvalid"
+msgstr "Niepoprawny plik obrazu dla logo. Akceptowane formaty to GIF, JPG lub PNG."
+
 msgid "manager.setup.homepageImageInvalid"
 msgstr "Niepoprawny plik dla obrazu strony głównej. Akceptowane formaty to GIF, JPG lub PNG."
 
 msgid "manager.setup.homeTitleImageInvalid"
 msgstr "Niepoprawny plik dla obrazu tytułu nagłówka. Akceptowane formaty to GIF, JPG lub PNG."
+
+msgid "manager.setup.layout.unselected"
+msgstr "Niezaznaczone"
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Logowanie i audyt"
@@ -476,6 +488,9 @@ msgstr "Wtyczki motywów"
 msgid "manager.announcements.datePublish"
 msgstr "Opublikowany"
 
+msgid "manager.emails.addEmail"
+msgstr "Dodaj szablon wiadomości e-mail"
+
 msgid "manager.emails.data"
 msgstr "Dane szablonu"
 
@@ -499,6 +514,12 @@ msgstr "Wyszukaj po imieniu"
 
 msgid "manager.reviewerSearch.form.instructions"
 msgstr "Użyj formularza, aby określić maksymalną liczbę wartości dla wyszukiwanych terminów. Formularz sugeruje uśrednione wartości dla pól."
+
+msgid "manager.reviewerSearch.form.interests.instructions"
+msgstr "Podaj zainteresowania recenzenta, oddzielone przecinkami..."
+
+msgid "manager.setup.layout.blockManagement"
+msgstr "Zarządzanie paskiem bocznym"
 
 msgid "manager.statistics.city"
 msgstr "Miasto"
@@ -677,13 +698,13 @@ msgstr "Instytucja finansująca"
 msgid "manager.setup.additionalContent"
 msgstr "Dodatkowa zawartość"
 
-msgid "manager.setup.additionalContent.description"
+msgid "manager.setup.additionalContentDescription"
 msgstr "Treść tego pola zostanie wyświetlona na stronie głównej."
 
-msgid "manager.setup.copyrightNotice"
+msgid "manager.setup.authorCopyrightNotice"
 msgstr "Informacja o prawach autorskich"
 
-msgid "manager.setup.copyrightNotice.description"
+msgid "manager.setup.authorCopyrightNoticeAgree"
 msgstr "Wymagaj od autorów, aby akceptowali informację o prawach autorskich jako element procesu zgłoszenia tekstu."
 
 msgid "manager.setup.authorGuidelines"
@@ -695,8 +716,11 @@ msgstr "Wytyczne powinny zawierać opis standardów formatowania bibliografii or
 msgid "manager.setup.competingInterests"
 msgstr "Konflikt interesów"
 
+msgid "manager.setup.competingInterestsDescription"
+msgstr "Recenzenci zostaną poproszeni o potwierdzenie, że nie występuje konflikt interesów."
+
 msgid "manager.setup.favicon"
-msgstr "Favicon"
+msgstr "Nieprawidłowy format favicony. Akceptowane formaty to ICO, PNG oraz GIF."
 
 msgid "manager.setup.groupType"
 msgstr "Grupowanie plików"
@@ -704,16 +728,16 @@ msgstr "Grupowanie plików"
 msgid "manager.setup.homepageImage"
 msgstr "Obraz dla strony głównej"
 
-msgid "manager.setup.homepageImage.description"
+msgid "manager.setup.homepageImageDescription"
 msgstr "Prześlij obraz wyświetlany na stronie głównej."
 
 msgid "manager.setup.information.descriptionTitle"
 msgstr "Opisy"
 
-msgid "manager.setup.theme"
+msgid "manager.setup.layout.theme"
 msgstr "Motyw"
 
-msgid "manager.setup.theme.description"
+msgid "manager.setup.layout.themeDescription"
 msgstr "Nowe motywy mogą zostać zainstalowane w zakładce Wtyczki dostępnej w nagłówku tej strony."
 
 msgid "manager.setup.layout.sidebar"
@@ -770,14 +794,20 @@ msgstr "Nigdy nie przypominaj"
 msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr "Domyślne ustawienia mogą zostać zmodyfikowane dla każdej recenzji w trakcie procesu redakcji."
 
-msgid "manager.setup.reviewOptions.reminders.response.description"
+msgid "manager.setup.reviewOptions.remindForInvite"
 msgstr "Wyślij przypomnienie, jeśli recenzent nie odpowiedział na prośbę o wykonanie recenzji przez liczbę dni:"
 
-msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgid "manager.setup.reviewOptions.remindForSubmit"
 msgstr "Wyślij przypomnienie, jeśli recenzent nie przesłał rekomendacji przekraczając termin o liczbę dni:"
 
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Domyślne ustawienia czasu na wykonanie recenzji"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr "Wyświetl link do \"Zapewnienie ślepej recenzji\" podczas przesyłania"
+
+msgid "manager.setup.sortableByComponent"
+msgstr "Sortowanie wg elementów"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Instytucje finansujące oraz zasady"
@@ -995,6 +1025,9 @@ msgstr "Ustawienia językowe zapisane."
 msgid "notification.editedUser"
 msgstr "Edycja zakończona sukcesem."
 
+msgid "manager.distribution.indexing"
+msgstr "Indeksowanie"
+
 msgid "manager.paymentMethod"
 msgstr "Płatności"
 
@@ -1009,6 +1042,9 @@ msgstr "Metoda płatności"
 
 msgid "manager.paymentMethod.currency"
 msgstr "Waluta"
+
+msgid "manager.paymentMethod.currency.description"
+msgstr "Płatności realizowane przez stronę będą realizowane w wybranej walucie."
 
 msgid "settings.roles.roleOptions"
 msgstr "Ustawienia roli"
@@ -1253,6 +1289,9 @@ msgstr "Możliwe do wyświetlenia (dla autorów)"
 msgid "grid.action.createReviewForm"
 msgstr "Utwórz nowy formularz recenzji"
 
+msgid "manager.setup.reviewerCompetingInterestsRequired.description"
+msgstr "Oświadczenie o braku konfliktu interesów"
+
 msgid "manager.setup.competingInterests.required"
 msgstr "Podczas recenzji poproś o oświadczenie o braku konfliktu interesów."
 
@@ -1329,7 +1368,7 @@ msgid "manager.navigationMenus.form.viewInstructions"
 msgstr "<p>Strona będzie dostępna pod adresem: <blockquote>{$pagesPath}</blockquote>, gdzie %PATH% to ścieżka podana powyżej. <strong>Uwaga:</strong> Ścieżka musi być unikatowa - nie mogą istnieć dwie strony posiadające identyczną ścieżkę. Wykorzystanie ścieżek wbudowanych w system może spowodować, że stracisz dostęp do ważnych funkcji systemu."
 
 msgid "manager.navigationMenus.form.content"
-msgstr "Kontekst"
+msgstr "Treść"
 
 msgid "manager.navigationMenus.form.pathRegEx"
 msgstr "Ścieżka musi być złożona ze znaków alfanumerycznych, '.', '/', '-', oraz '_'."
@@ -1447,3 +1486,183 @@ msgstr "Link do strony z danymi do kontaktu."
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
 msgstr "Link będzie wyświetlany w przypadku wypełnienia danych do kontaktu na stronie Ustawienia > Kontakt."
+
+msgid "manager.setup.searchEngineIndexing.sitemap"
+msgstr "Mapa strony"
+
+msgid "manager.setup.searchEngineIndexing.sitemapDescription"
+msgstr "Mapa strony w formacie XML jest dostępna dla wyszukiwarek internetowych pod adresem <a href=\"{$path}\" target=\"_blank\">{$path}</a>"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr "<p>Ten plik z biblioteką może być dostępny do pobrania, jeżeli ustawiono \"Public Access\": <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Wybierz pliki biblioteki do załączenia"
+
+msgid "manager.setup.genres.key"
+msgstr "Klucz"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Dodatkowy krótki identyfikator dla tego rodzaju."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Klucz już istnieje."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr "Klucz może składać się tylko ze znaków alfanumerycznych, podkreślenia i łącznika oraz musi zaczynać się i kończyć na znaku alfanumerycznym."
+
+msgid "manager.reviewFormElements.description"
+msgstr "Opis"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr "Auto {$authorName} nie posiada nazwy dla języka tekstu {$localeName}. Tekst nie może zostać zaimportowany bez tej informacji."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Importuj/Eksportuj błędy:"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr "Zaimportowany użytkownik \"{$username}\" nie ma hasła. Sprawdź importowany plik XML. Użytkownik nie został zaimportowany."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr "Hasło użytkownika \"{$username}\" nie mogło zostać zaimportowane w tej postaci. Nowe hasło zostanie przesłane do użytkownika e-mailem. Użytkownik został zaimportowany."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr "Importowany użytkownik \"{$username}\" posiada hasło, które nie jest poprawne. Użytkownik nie został zaimportowany."
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Menu nawigacyjne zostało przypisane do tego obszaru."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Wybierz typ menu nawigacyjnego."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr "Link zostanie wyświetlony tylko, gdy płatności są włączone (Ustawienia > Dystrybucja > Płatności)."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr "Link zostanie wyświetlony tylko, gdy użytkownik jest zalogowany, płatności są włączone (Ustawienia > Dystrybucja > Płatności) oraz wymagana jest subskrypcja (Ustawienia > Dystrybucja > Dostęp)."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Link do wyszukiwanej strony."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Link do strony zawierającej politykę prywatności."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr "Link zostanie wyświetlony tylko, gdy podana jest polityka prywatności (Ustawienia > Obieg > Zgłoszenia)."
+
+msgid "grid.category.add"
+msgstr "Dodaj kategorię"
+
+msgid "grid.category.edit"
+msgstr "Edytuj kategorię"
+
+msgid "grid.category.name"
+msgstr "Nazwa"
+
+msgid "grid.category.path"
+msgstr "Ścieżka"
+
+msgid "grid.category.urlWillBe"
+msgstr "URL kategorii: {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Ścieżka kategorii może zawierać tylko litery i cyfry."
+
+msgid "grid.category.pathExists"
+msgstr "Ścieżka kategorii już istnieje. Wpisz unikalną ścieżkę."
+
+msgid "grid.category.description"
+msgstr "Opis"
+
+msgid "grid.category.parentCategory"
+msgstr "Kategoria nadrzędna"
+
+msgid "grid.category.removeText"
+msgstr "Czy na pewno usunąć tę kategorię?"
+
+msgid "grid.category.nameRequired"
+msgstr "Wpisz nazwę kategorii."
+
+msgid "grid.category.categoryDetails"
+msgstr "Informacje o kategorii"
+
+msgid "stats.articlesOfTotal"
+msgstr "{$count} z {$total} artykułów"
+
+msgid "stats.daily"
+msgstr "Dziennie"
+
+msgid "stats.dateRange"
+msgstr "Zakres dat"
+
+msgid "stats.dateRange.allDates"
+msgstr "Wszystkie daty"
+
+msgid "stats.dateRange.apply"
+msgstr "Zastosuj"
+
+msgid "stats.dateRange.change"
+msgstr "Zmień zakres dat"
+
+msgid "stats.dateRange.customRange"
+msgstr "Domyślny zakres"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Jedna z wpisanych dat nie istnieje."
+
+msgid "stats.dateRange.from"
+msgstr "Od"
+
+msgid "stats.dateRange.instruction"
+msgstr "Wpisz każdą datę w formacie YYYY-MM-DD. Na przykład, jeżeli chce podać datę 15 stycznia 2019 r., wpisz 2019-01-15."
+
+msgid "stats.dateRange.invalidDate"
+msgstr "Format daty nie jest poprawny. Wpisz datę w formacie YYYY-MM-DD."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Data początkowa musi być przed datą końcową."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Data końcowa nie może być późniejsza niż {$date}."
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Data początkowa nie może być wcześniejsza niż {$date}."
+
+msgid "stats.dateRange.last12Months"
+msgstr "Ostatnie 12 miesięcy"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Ostatnie 30 dni"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Ostatnie 90 dni"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Od {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Do"
+
+msgid "stats.dateRange.untilDate"
+msgstr "Do {$date}"
+
+msgid "stats.fileViews"
+msgstr "Widok plików"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "Miesięcznie"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Wyszukaj wg tytułu, autora i ID"
+
+msgid "stats.total"
+msgstr "Łącznie"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr "Nazwa użytkownika \"{$username}\" i e-mail \"{$email}\" nie pasują do jednego i tego samego użytkownika."

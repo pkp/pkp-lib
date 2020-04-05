@@ -3,9 +3,9 @@
 /**
  * @file classes/file/TemporaryFileManager.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPTemporaryFileManager
  * @ingroup file
@@ -39,7 +39,7 @@ class TemporaryFileManager extends PrivateFileManager {
 	 * @return TemporaryFile
 	 */
 	function getFile($fileId, $userId) {
-		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
+		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
 		return $temporaryFileDao->getTemporaryFile($fileId, $userId);
 	}
 
@@ -52,7 +52,7 @@ class TemporaryFileManager extends PrivateFileManager {
 
 		parent::deleteByPath($this->getBasePath() . $temporaryFile->getServerFileName());
 
-		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
+		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
 		$temporaryFileDao->deleteTemporaryFileById($fileId, $userId);
 	}
 
@@ -91,7 +91,7 @@ class TemporaryFileManager extends PrivateFileManager {
 		if (!$newFileName) return false;
 
 		if ($this->uploadFile($fileName, $this->getBasePath() . $newFileName)) {
-			$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
+			$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
 			$temporaryFile = $temporaryFileDao->newDataObject();
 
 			$temporaryFile->setUserId($userId);
@@ -130,7 +130,7 @@ class TemporaryFileManager extends PrivateFileManager {
 		if (!$newFileName) return false;
 
 		if (copy($submissionFile->getFilePath(), $this->filesDir . $newFileName)) {
-			$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
+			$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
 			$temporaryFile = $temporaryFileDao->newDataObject();
 
 			$temporaryFile->setUserId($userId);
@@ -155,7 +155,7 @@ class TemporaryFileManager extends PrivateFileManager {
 	 */
 	function _performPeriodicCleanup() {
 		if (time() % 100 == 0) {
-			$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
+			$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
 			$expiredFiles = $temporaryFileDao->getExpiredFiles();
 			foreach ($expiredFiles as $expiredFile) {
 				$this->deleteById($expiredFile->getId(), $expiredFile->getUserId());

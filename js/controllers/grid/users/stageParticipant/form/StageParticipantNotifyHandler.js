@@ -4,9 +4,9 @@
 /**
  * @file js/controllers/grid/users/stageParticipant/form/StageParticipantNotifyHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class StageParticipantNotifyHandler
  * @ingroup js_controllers_grid_users_stageParticipant_form
@@ -228,7 +228,7 @@
 				$checkboxDiv = $form.find('.recommendOnlyWrapper'),
 				i,
 				found = false,
-				filterUserGroupIdVal = /** @type {string} */ $filterUserGroupId.val();
+				filterUserGroupIdVal = /** @type {string} */ ($filterUserGroupId.val());
 
 		// If user group changes, hide the recommendOnly option
 		if ($(sourceElement).prop('name') == 'userGroupId') {
@@ -308,7 +308,7 @@
 				$checkboxDiv = $form.find('.submissionEditMetadataPermit'),
 				i,
 				found = false,
-				filterUserGroupIdVal = /** @type {string} */ $filterUserGroupId.val();
+				filterUserGroupIdVal = /** @type {string} */ ($filterUserGroupId.val());
 
 		// If user group changes, hide the canChangeMetadata option
 		if ($(sourceElement).prop('name') == 'userGroupId') {
@@ -371,5 +371,4 @@
 				'handleResponse', formElement, jsonData));
 	};
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

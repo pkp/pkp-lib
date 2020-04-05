@@ -4,9 +4,9 @@
 <!--
   * xml/schema/common.xml
   *
-  * Copyright (c) 2014-2019 Simon Fraser University
-  * Copyright (c) 2000-2019 John Willinsky
-  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  * Copyright (c) 2014-2020 Simon Fraser University
+  * Copyright (c) 2000-2020 John Willinsky
+  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
   *
   * Common elements of the PKP database schema in XML.
   -->
@@ -96,12 +96,12 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="6"/>
 		</field>
-		<field name="installed_locales" type="C2" size="255">
+		<field name="installed_locales" type="C2" size="1024">
 			<NOTNULL/>
 			<DEFAULT VALUE="en_US"/>
 			<descr>Locales for which support has been installed.</descr>
 		</field>
-		<field name="supported_locales" type="C2" size="255">
+		<field name="supported_locales" type="C2" size="1024">
 			<descr>Locales supported by the site (for hosted journals/conferences/...).</descr>
 		</field>
 		<field name="original_style_file_name" type="C2" size="255"/>

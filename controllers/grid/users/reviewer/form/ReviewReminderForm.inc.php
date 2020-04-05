@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/reviewer/form/ReviewReminderForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewReminderForm
  * @ingroup controllers_grid_users_reviewer_form
@@ -52,7 +52,7 @@ class ReviewReminderForm extends Form {
 	 */
 	function initData() {
 		$request = Application::get()->getRequest();
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $request->getUser();
 		$context = $request->getContext();
 
@@ -60,7 +60,7 @@ class ReviewReminderForm extends Form {
 		$reviewerId = $reviewAssignment->getReviewerId();
 		$reviewer = $userDao->getById($reviewerId);
 
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
@@ -127,11 +127,11 @@ class ReviewReminderForm extends Form {
 	}
 
 	/**
-	 * Save review assignment
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
-		$userDao = DAORegistry::getDAO('UserDAO');
-		$submissionDao = Application::getSubmissionDAO();
+	function execute(...$functionArgs) {
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$request = Application::get()->getRequest();
 
 		$reviewAssignment = $this->getReviewAssignment();
@@ -174,8 +174,10 @@ class ReviewReminderForm extends Form {
 		// update the ReviewAssignment with the reminded and modified dates
 		$reviewAssignment->setDateReminded(Core::getCurrentDate());
 		$reviewAssignment->stampModified();
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignmentDao->updateObject($reviewAssignment);
+
+		parent::execute(...$functionArgs);
 	}
 
 	/**

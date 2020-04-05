@@ -9,9 +9,9 @@
 /**
  * @file classes/plugins/Plugin.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Plugin
  * @ingroup plugins
@@ -101,10 +101,10 @@ abstract class Plugin {
 		}
 		if ($this->getInstallEmailTemplatesFile()) {
 			HookRegistry::register ('Installer::postInstall', array($this, 'installEmailTemplates'));
+			HookRegistry::register ('PKPLocale::installLocale', array($this, 'installLocale'));
 		}
 		if ($this->getInstallEmailTemplateDataFile()) {
 			HookRegistry::register ('Installer::postInstall', array($this, 'installEmailTemplateData'));
-			HookRegistry::register ('PKPLocale::installLocale', array($this, 'installLocale'));
 		}
 		if ($this->getInstallDataFile()) {
 			HookRegistry::register ('Installer::postInstall', array($this, 'installData'));
@@ -265,6 +265,8 @@ abstract class Plugin {
 	/**
 	 * Get the filename of the email template data for this plugin.
 	 * Subclasses using email templates should override this.
+	 * @deprecated Starting with OJS/OMP 3.2, localized content should be
+	 *  specified via getInstallEmailTemplatesFile(). (pkp/pkp-lib#5461)
 	 *
 	 * @return string
 	 */
@@ -461,7 +463,7 @@ abstract class Plugin {
 			$name,
 		);
 
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		return call_user_func_array(array(&$pluginSettingsDao, 'getSetting'), $arguments);
 	}
 
@@ -484,7 +486,7 @@ abstract class Plugin {
 			$type,
 		);
 
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		call_user_func_array(array(&$pluginSettingsDao, 'updateSetting'), $arguments);
 	}
 
@@ -568,7 +570,7 @@ abstract class Plugin {
 	 */
 	function installSiteSettings($hookName, $args) {
 		// All contexts are set to zero for site-wide plug-in settings
-		$application = Application::getApplication();
+		$application = Application::get();
 		$contextDepth = $application->getContextDepth();
 		if ($contextDepth >0) {
 			$arguments = array_fill(0, $contextDepth, 0);
@@ -577,7 +579,7 @@ abstract class Plugin {
 		}
 		$arguments[] = $this->getName();
 		$arguments[] = $this->getInstallSitePluginSettingsFile();
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		call_user_func_array(array(&$pluginSettingsDao, 'installSettings'), $arguments);
 
 		return false;
@@ -591,7 +593,7 @@ abstract class Plugin {
 	 */
 	function installControlledVocabs($hookName, $args) {
 		// All contexts are set to zero for site-wide plug-in settings
-		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
+		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO'); /* @var $controlledVocabDao ControlledVocabDAO */
 		foreach ($this->getInstallControlledVocabFiles() as $file) {
 			$controlledVocabDao->installXML($file);
 		}
@@ -607,7 +609,7 @@ abstract class Plugin {
 	 */
 	function installContextSpecificSettings($hookName, $args) {
 		$context = $args[0];
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		$pluginSettingsDao->installSettings($context->getId(), $this->getName(), $this->getContextSpecificPluginSettingsFile());
 		return false;
 	}
@@ -623,8 +625,16 @@ abstract class Plugin {
 		$installer =& $args[0]; /* @var $installer Installer */
 		$result =& $args[1];
 
+		// Load email template data as required from the locale files.
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-		$sql = $emailTemplateDao->installEmailTemplates($this->getInstallEmailTemplatesFile(), true, null, true);
+		$emailTemplateLocales = [];
+		foreach ($installer->installedLocales as $locale) {
+			$emailFile = $this->getPluginPath() . "/locale/$locale/emails.po";
+			if (!file_exists($emailFile)) continue;
+			AppLocale::registerLocaleFile($locale, $emailFile);
+			$emailTemplateLocales[] = $locale;
+		}
+		$sql = $emailTemplateDao->installEmailTemplates($this->getInstallEmailTemplatesFile(), $emailTemplateLocales, true, null, true);
 
 		if ($sql === false) {
 			// The template file seems to be invalid.
@@ -643,6 +653,7 @@ abstract class Plugin {
 
 	/**
 	 * Callback used to install email template data.
+	 * @deprecated Email template data should be installed via installEmailTemplates (pkp/pkp-lib#5461)
 	 *
 	 * @param $hookName string
 	 * @param $args array
@@ -652,11 +663,11 @@ abstract class Plugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		foreach ($installer->installedLocales as $locale) {
 			$filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
 			if (!file_exists($filename)) continue;
-			$sql = $emailTemplateDao->installEmailTemplateData($filename, true);
+			$sql = $emailTemplateDao->installEmailTemplateData($filename, $locale, true);
 			if ($sql) {
 				$result = $installer->executeSQL($sql);
 			} else {
@@ -677,8 +688,17 @@ abstract class Plugin {
 	function installLocale($hookName, $args) {
 		$locale =& $args[0];
 		$filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-		$emailTemplateDao->installEmailTemplateData($filename);
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+
+		// Since pkp/pkp-lib#5461, there are two ways to specify localized email data in plugins.
+		// Install locale data specified in the old form. (Deprecated!)
+		if ($this->getInstallEmailTemplateDataFile()) $emailTemplateDao->installEmailTemplateData($filename, $locale);
+
+		// Install locale data specified in the new form.
+		if (file_exists($emailFile = $this->getPluginPath() . "/locale/$locale/emails.po")) {
+			AppLocale::registerLocaleFile($locale, $emailFile);
+			$emailTemplateDao->installEmailTemplateLocaleData($this->getInstallEmailTemplatesFile(), [$locale]);
+		}
 		return false;
 	}
 
@@ -761,7 +781,7 @@ abstract class Plugin {
 	 * @return Version
 	 */
 	function getCurrentVersion() {
-		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$pluginPath = $this->getPluginPath();
 		$product = basename($pluginPath);
 		$category = basename(dirname($pluginPath));

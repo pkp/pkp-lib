@@ -3,9 +3,9 @@
 /**
  * @file controllers/modals/editorDecision/form/EditorDecisionForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionForm
  * @ingroup controllers_modals_editorDecision_form
@@ -152,7 +152,7 @@ class EditorDecisionForm extends Form {
 		$reviewRound = $reviewRoundDao->build($submission->getId(), $stageId, $newRound, $status);
 
 		// Check for a notification already in place for the current review round.
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notificationFactory = $notificationDao->getByAssoc(
 			ASSOC_TYPE_REVIEW_ROUND,
 			$reviewRound->getId(),

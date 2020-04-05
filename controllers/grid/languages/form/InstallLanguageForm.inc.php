@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/languages/form/InstallLanguageForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class InstallLanguageForm
  * @ingroup controllers_grid_languages_form
@@ -91,10 +91,12 @@ class InstallLanguageForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$site = $request->getSite();
 		$localesToInstall = $this->getData('localesToInstall');
+
+		parent::execute(...$functionArgs);
 
 		if (isset($localesToInstall) && is_array($localesToInstall)) {
 			$installedLocales = $site->getInstalledLocales();
@@ -111,7 +113,7 @@ class InstallLanguageForm extends Form {
 
 			$site->setInstalledLocales($installedLocales);
 			$site->setSupportedLocales($supportedLocales);
-			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 			$siteDao->updateObject($site);
 		}
 	}

@@ -2,9 +2,9 @@
 /**
  * @file components/listPanels/PKPSubmissionsListPanel.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionsListPanel
  * @ingroup classes_components_list
@@ -140,6 +140,10 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 		import('lib.pkp.classes.services.PKPSubmissionService'); // STAGE_STATUS_SUBMISSION_UNASSIGNED
 		$templateMgr = \TemplateManager::getManager($request);
 		$templateMgr->setConstants([
+			'STATUS_QUEUED',
+			'STATUS_PUBLISHED',
+			'STATUS_DECLINED',
+			'STATUS_SCHEDULED',
 			'WORKFLOW_STAGE_ID_SUBMISSION',
 			'WORKFLOW_STAGE_ID_INTERNAL_REVIEW',
 			'WORKFLOW_STAGE_ID_EXTERNAL_REVIEW',
@@ -176,11 +180,10 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 	 * @return array
 	 */
 	public function getItems($request) {
-		$submissionService = \Services::get('submission');
-		$submissionsIterator = $submissionService->getMany($this->_getItemsParams());
+		$submissionsIterator = \Services::get('submission')->getMany($this->_getItemsParams());
 		$items = [];
 		foreach ($submissionsIterator as $submission) {
-			$items[] = $submissionService->getBackendListProperties($submission, ['request' => $request]);
+			$items[] = \Services::get('submission')->getBackendListProperties($submission, ['request' => $request]);
 		}
 
 		return $items;

@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/settings/user/form/UserDetailsForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserDetailsForm
  * @ingroup controllers_grid_settings_user_form
@@ -52,16 +52,20 @@ class UserDetailsForm extends UserForm {
 
 			if (!Config::getVar('security', 'implicit_auth')) {
 				$this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
-				$this->addCheck(new FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
+				$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', function($password) use ($form, $site) {
+					return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
+				}, array(), false, array('length' => $site->getMinPasswordLength())));
 				$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function($password) use ($form) {
 					return $password == $form->getData('password2');
 				}));
 			}
 		} else {
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$this->user = $userDao->getById($userId);
 
-			$this->addCheck(new FormValidatorLength($this, 'password', 'optional', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
+			$this->addCheck(new FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordLengthRestriction', function($password) use ($form, $site) {
+				return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
+			}, array(), false, array('length' => $site->getMinPasswordLength())));
 			$this->addCheck(new FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordsDoNotMatch', function($password) use ($form) {
 				return $password == $form->getData('password2');
 			}));
@@ -154,6 +158,11 @@ class UserDetailsForm extends UserForm {
 	 */
 	function display($request = null, $template = null) {
 		$site = $request->getSite();
+		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+		$countries = array();
+		foreach ($isoCodes->getCountries() as $country) {
+			$countries[$country->getAlpha2()] = $country->getLocalName();
+		}
 		$templateMgr = TemplateManager::getManager($request);
 
 		$templateMgr->assign(array(
@@ -161,18 +170,15 @@ class UserDetailsForm extends UserForm {
 			'source' => $request->getUserVar('source'),
 			'userId' => $this->userId,
 			'sitePrimaryLocale' => $site->getPrimaryLocale(),
+			'availableLocales' => $site->getSupportedLocaleNames(),
+			'countries' => $countries,
 		));
 
 		if (isset($this->user)) {
 			$templateMgr->assign('username', $this->user->getUsername());
 		}
 
-		$templateMgr->assign('availableLocales', $site->getSupportedLocaleNames());
-
-		$countryDao = DAORegistry::getDAO('CountryDAO');
-		$templateMgr->assign('countries', $countryDao->getCountries());
-
-		$authDao = DAORegistry::getDAO('AuthSourceDAO');
+		$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
 		$authSources = $authDao->getSources();
 		$authSourceOptions = array();
 		foreach ($authSources->toArray() as $auth) {
@@ -229,7 +235,7 @@ class UserDetailsForm extends UserForm {
 	 * Get all locale field names
 	 */
 	function getLocaleFieldNames() {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		return $userDao->getLocaleFieldNames();
 	}
 
@@ -237,7 +243,7 @@ class UserDetailsForm extends UserForm {
 	 * Create or update a user.
 	 */
 	function execute(...$functionParams) {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
@@ -279,7 +285,7 @@ class UserDetailsForm extends UserForm {
 		$this->user->setLocales($locales);
 
 		if ($this->user->getAuthId()) {
-			$authDao = DAORegistry::getDAO('AuthSourceDAO');
+			$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
 			$auth =& $authDao->getPlugin($this->user->getAuthId());
 		}
 

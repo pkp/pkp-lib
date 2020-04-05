@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/SubmissionSubjectDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionSubjectDAO
  * @ingroup submission
@@ -48,7 +48,7 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 		$result = [];
 
 		$subjects = $this->build($publicationId);
-		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO');
+		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /* @var $submissionSubjectEntryDao SubmissionSubjectEntryDAO */
 		$submissionSubjects = $submissionSubjectEntryDao->getByControlledVocabId($subjects->getId());
 		while ($subjectEntry = $submissionSubjects->next()) {
 			$subject = $subjectEntry->getSubject();
@@ -93,8 +93,8 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	 * @return int
 	 */
 	function insertSubjects($subjects, $publicationId, $deleteFirst = true) {
-		$subjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
-		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO');
+		$subjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /* @var $subjectDao SubmissionSubjectDAO */
+		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /* @var $submissionSubjectEntryDao SubmissionSubjectEntryDAO */
 		$currentSubjects = $this->build($publicationId);
 
 		if ($deleteFirst) {

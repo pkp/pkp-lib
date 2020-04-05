@@ -3,9 +3,9 @@
 /**
  * @file classes/task/PublishSubmissions.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PublishSubmissions
  * @ingroup tasks
@@ -30,12 +30,12 @@ class PublishSubmissions extends ScheduledTask {
 	public function executeActions() {
 		import('classes.submission.Submission'); // import constants
 
-		$contextsIterator = Services::get('context')->getMany([
+		$contextIds = Services::get('context')->getIds([
 			'isEnabled' => true,
 		]);
-		foreach ($contextsIterator as $context) {
+		foreach ($contextIds as $contextId) {
 			$submissionsIterator = Services::get('submission')->getMany([
-				'contextId' => $context->getID(),
+				'contextId' => $contextId,
 				'status' => STATUS_SCHEDULED,
 			]);
 			foreach ($submissionsIterator as $submission) {

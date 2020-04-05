@@ -1,9 +1,9 @@
 {**
  * templates/frontend/pages/userLogin.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * User login form.
  *
@@ -46,7 +46,7 @@
 							{translate key="common.required"}
 						</span>
 					</span>
-					<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
+					<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required aria-required="true">
 				</label>
 			</div>
 			<div class="password">
@@ -58,7 +58,7 @@
 							{translate key="common.required"}
 						</span>
 					</span>
-					<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required>
+					<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required aria-required="true">
 					<a href="{url page="login" op="lostPassword"}">
 						{translate key="user.login.forgotPassword"}
 					</a>

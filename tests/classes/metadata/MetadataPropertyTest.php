@@ -3,9 +3,9 @@
 /**
  * @file tests/classes/metadata/MetadataPropertyTest.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MetadataPropertyTest
  * @ingroup tests_classes_metadata
@@ -156,11 +156,11 @@ class MetadataPropertyTest extends PKPTestCase {
 	public function testValidateControlledVocabulary() {
 		// Build a test vocabulary. (Assoc type and id are 0 to
 		// simulate a site-wide vocabulary).
-		$controlledVocabDao = DAORegistry::getDao('ControlledVocabDAO');
+		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
 		$testControlledVocab = $controlledVocabDao->_build('test-controlled-vocab', 0, 0);
 
 		// Make a vocabulary entry
-		$controlledVocabEntryDao = DAORegistry::getDao('ControlledVocabEntryDAO');
+		$controlledVocabEntryDao = DAORegistry::getDAO('ControlledVocabEntryDAO');
 		$testControlledVocabEntry = $controlledVocabEntryDao->newDataObject();
 		$testControlledVocabEntry->setName('testEntry', 'en_US');
 		$testControlledVocabEntry->setControlledVocabId($testControlledVocab->getId());

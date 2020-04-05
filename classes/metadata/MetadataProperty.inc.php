@@ -3,9 +3,9 @@
 /**
  * @file classes/metadata/MetadataProperty.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MetadataProperty
  * @ingroup metadata
@@ -349,7 +349,7 @@ class MetadataProperty {
 
 							if (is_string($value)) {
 								// Try to translate the string value into a controlled vocab entry
-								$controlledVocabEntryDao = DAORegistry::getDao('ControlledVocabEntryDAO'); /* @var $controlledVocabEntryDao ControlledVocabEntryDAO */
+								$controlledVocabEntryDao = DAORegistry::getDAO('ControlledVocabEntryDAO'); /* @var $controlledVocabEntryDao ControlledVocabEntryDAO */
 								if (!is_null($controlledVocabEntryDao->getBySetting($value, $symbolic, $assocType, $assocId, 'name', $locale))) {
 									// The string was successfully translated so mark it as "valid".
 									return array(METADATA_PROPERTY_TYPE_VOCABULARY => $allowedTypeParam);

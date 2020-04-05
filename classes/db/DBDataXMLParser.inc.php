@@ -3,9 +3,9 @@
 /**
  * @file classes/db/DBDataXMLParser.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DBDataXMLParser
  * @ingroup db
@@ -36,8 +36,8 @@ class DBDataXMLParser {
 	 * If the connection is not set, the default system database connection will be used.
 	 * @param $dbconn ADOConnection the database connection
 	 */
-	function setDBConn(&$dbconn) {
-		$this->dbconn =& $dbconn;
+	function setDBConn($dbconn) {
+		$this->dbconn = $dbconn;
 	}
 
 	/**
@@ -59,12 +59,6 @@ class DBDataXMLParser {
 				// Match table element
 				foreach ($type->getChildren() as $row) {
 					switch ($row->getName()) {
-						case 'field_default':
-							// Match a default field element
-							list($fieldName, $value) = $this->_getFieldData($row);
-							$fieldDefaultValues[$fieldName] = $value;
-							break;
-
 						case 'row':
 							// Match a row element
 							$fieldValues = array();
@@ -119,7 +113,7 @@ class DBDataXMLParser {
 							// This is to guarantee idempotence of upgrade scripts.
 							$run = false;
 							if (in_array($table, $allTables)) {
-								$columns =& $this->dbconn->MetaColumns($table, true);
+								$columns = $this->dbconn->MetaColumns($table, true);
 								if (!isset($columns[strtoupper($to)])) {
 									// Only run if the column has not yet been
 									// renamed.
@@ -158,6 +152,20 @@ class DBDataXMLParser {
 							if (!in_array($to, $allTables)) {
 								$this->sql[] = $dbdict->RenameTableSQL($table, $to);
 							}
+						}
+						break;
+					case 'dropindex':
+						if (!isset($dbdict)) {
+							$dbdict = @NewDataDictionary($this->dbconn);
+						}
+						$table = $child->getAttribute('table');
+						$index = $child->getAttribute('index');
+						if (!$table || !$index) {
+							throw new Exception('dropindex called without table or index');
+						}
+						$indexes = array_map('strtoupper', array_keys($this->dbconn->MetaIndexes($table)));
+						if (in_array(strtoupper($index), $indexes)) {
+							$this->sql[] = $dbdict->DropIndexSQL($index, $table);
 						}
 						break;
 					case 'query':

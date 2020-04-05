@@ -3,9 +3,9 @@
 /**
  * @file classes/notification/Notification.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Notification
  * @ingroup notification
@@ -54,6 +54,7 @@ define('NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT',		0x100000E);
 define('NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW',	0x100000F);
 define('NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS',	0x1000010);
 define('NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT',		0x1000011);
+define('NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND',		0x1000030);
 define('NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE',		0x1000012);
 define('NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION',	0x1000013);
 define('NOTIFICATION_TYPE_REVIEW_ROUND_STATUS',			0x1000014);

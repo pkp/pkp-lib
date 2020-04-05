@@ -3,9 +3,9 @@
 /**
  * @file classes/context/SubEditorsDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubEditorsDAO
  * @ingroup context
@@ -59,7 +59,7 @@ class SubEditorsDAO extends DAO {
 	 * @return array matching Users
 	 */
 	function getBySectionId($sectionId, $contextId) {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$params = array((int) $contextId, (int) $sectionId);
 		$params = array_merge($userDao->getFetchParameters(), $params);
 		$result = $this->retrieve(

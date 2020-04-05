@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
+"PO-Revision-Date: 2020-02-10 15:35+0000\n"
+"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
+"da/>\n"
+"Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:42+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.submissionReview.doubleBlind"
 msgstr "Double-blind"
@@ -21,10 +24,10 @@ msgid "editor.submissionReview.open"
 msgstr "Åben"
 
 msgid "editor.submissionLibrary"
-msgstr "Indsendelsesbibliotek"
+msgstr "Bibliotek"
 
 msgid "editor.submission.findAndSelectUser"
-msgstr "Vælg en bruger"
+msgstr "Find en bruger"
 
 msgid "editor.review.notInitiated"
 msgstr "Bedømmelsesprocessen er endnu ikke påbegyndt."
@@ -42,7 +45,7 @@ msgid "editor.submission.production.productionReadyFiles"
 msgstr "Produktionsklare filer"
 
 msgid "editor.submission.externalReviewDescription"
-msgstr "Vælg filer nedenfor og send dem videre til bedømmelsestrinnet"
+msgstr "Vælg filer nedenfor og send dem videre til bedømmelsestrinnet."
 
 msgid "editor.submission.newRound"
 msgstr "Ny bedømmelsesrunde"
@@ -54,7 +57,8 @@ msgid "editor.submission.revisions"
 msgstr "Revisioner"
 
 msgid "editor.review.NotifyAuthorRevisions"
-msgstr "Anmod om revision fra forfatteren."
+msgstr ""
+"Revisioner vil ikke blive genstand for en ny runde af fagfællebedømmelser."
 
 msgid "editor.submissionReview.skipEmail"
 msgstr "Spring e-mail over"
@@ -63,7 +67,7 @@ msgid "editor.submissionReview.recordDecision"
 msgstr "Registrér beslutning"
 
 msgid "editor.review.NotifyAuthorResubmit"
-msgstr "Anmod forfatteren om at sende manuskripttilretninger, der efterfølgende vil undergå yderligere bedømmelse."
+msgstr "Revisioner vil blive genstand for en ny runde fagfællebedømmelser."
 
 msgid "editor.submission.findAndSelectReviewer"
 msgstr "Find en bedømmer"
@@ -84,7 +88,7 @@ msgid "editor.review.personalMessageToReviewer"
 msgstr "E-mail, der skal sendes til bedømmeren"
 
 msgid "editor.review.skipEmail"
-msgstr "Spring e-mail over"
+msgstr "Send ikke e-mail til bedømmer."
 
 msgid "editor.review.importantDates"
 msgstr "Vigtige datoer"
@@ -96,7 +100,7 @@ msgid "editor.submissionReview.restrictFiles"
 msgstr "Filer, der skal bedømmes"
 
 msgid "editor.submissionReview.reviewType"
-msgstr "Form for bedømmelse (review)"
+msgstr "Form for bedømmelse"
 
 msgid "editor.review.enrollReviewer"
 msgstr "Tilføj en allerede registreret bruger som bedømmer"
@@ -120,13 +124,16 @@ msgid "editor.submission.fileList.includeAllStages"
 msgstr "Vis filer fra alle tilgængelige redaktionelle trin."
 
 msgid "editor.submission.newRoundDescription"
-msgstr "Her starter du en ny bedømmelsesrunde. Filer, der ikke er blevet brugt i tidligere bedømmelsesrunder er anført nedenfor."
+msgstr ""
+"Du er ved at oprette en ny bedømmelsesrunde i forbindelse med denne "
+"indsendelse. Filer, der ikke er blevet brugt i tidligere bedømmelsesrunder "
+"er anført nedenfor."
 
 msgid "editor.submission.createNewRound"
-msgstr "Start en ny bedømmelsesrunde"
+msgstr "Påbegynd en ny bedømmelsesrunde"
 
 msgid "editor.submission.selectedReviewer"
-msgstr "Udvalgte bedømmer"
+msgstr "Udvalgt bedømmer"
 
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
 msgstr "Filer fra nedenstående liste kan vedhæftes og indgå i denne drøftelse."
@@ -138,10 +145,10 @@ msgid "editor.submission.fileAuditor.form.fileRequired"
 msgstr "Vælg mindst én fil, der skal tildeles brugeren."
 
 msgid "editor.submission.fileAuditor.form.messageRequired"
-msgstr "Personlig besked skal inkluderes."
+msgstr "Du skal inkludere en personlig besked."
 
 msgid "editor.submission.fileAuditor.skipEmail"
-msgstr "Send ikke e-mail til auditor"
+msgstr "Send ikke e-mail til auditør"
 
 msgid "editor.submission.fileAuditor.form.userRequired"
 msgstr "For at tildele skal der vælges en bruger."
@@ -165,7 +172,7 @@ msgid "editor.review.dateAccepted"
 msgstr "Dato for accept af bedømmelse"
 
 msgid "editor.review.noReviews"
-msgstr "Ingen peer reviews at importere"
+msgstr "Ingen fagfællebedømmelser at importere"
 
 msgid "editor.review.reminder"
 msgstr "Påmindelse til bedømmer"
@@ -255,7 +262,7 @@ msgid "editor.submission.editorial.disapproveCopyeditDescription"
 msgstr "En afvisning af den manuskriptredigerede fil vil forhindre den i at blive sendt til produktionstrinnet. Ønsker du at afvise denne fil?"
 
 msgid "editor.submission.addAuditor"
-msgstr "Tilføj auditor"
+msgstr "Tilføj auditør"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
 msgstr "Enhver fil, der allerede er blevet uploadet til et af indsendelsestrinnene kan tilføjes manuskriptredigeringslisten ved nedenfor at markere afkrydsningsfeltet ud for 'Inkludér' og klikke 'Søg': Alle tilgængelige filer vil stå opført og kan tilvælges. Ekstra filer, der ikke allerede er uplodet til et af trinnene, kan tilføjes listen ved at klikke på linket 'Upload fil'."
@@ -264,7 +271,7 @@ msgid "editor.review"
 msgstr "Bedømmelse"
 
 msgid "editor.review.reviewDetails"
-msgstr "Bedømmelsesdetaljer"
+msgstr "Bedømmelsesoplysninger"
 
 msgid "editor.review.noReviewFilesUploaded"
 msgstr "Ingen filer er uploadet"
@@ -312,16 +319,16 @@ msgid "editor.submission.proofreading.confirmRemoveCompletion"
 msgstr "Tilbagekald denne godkendelse af korrekturen for at markere, at korrekturlæsningen ikke længere er afsluttet og at filen ikke er klar til publicering."
 
 msgid "editor.submissionReview.sendEmail"
-msgstr "Send en  besked via e-mail til forfatteren: {$authorName}"
+msgstr "Send en  besked via e-mail til forfatter(e): {$authorName}"
 
 msgid "editor.submissionReview.sendEmail.editors"
-msgstr "Send en  besked via e-mail til redaktøren: {$editorNames}"
+msgstr "Send en  besked via e-mail til redaktør(er): {$editorNames}"
 
 msgid "editor.review.newReviewRound"
 msgstr "Forlang en ny bedømmelsesrunde"
 
 msgid "editor.review.reviewsAdded"
-msgstr "Bedømmelser er tilføjet mailbesked"
+msgstr "Bedømmelser er tilføjet mailbesked."
 
 msgid "editor.submissionReview.recordRecommendation"
 msgstr "Registrér redaktionel anbefaling"
@@ -333,10 +340,12 @@ msgid "editor.submissionReview.recordRecommendation.skipEmail"
 msgstr "Send ikke en e-mail til redaktørerne."
 
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr "Opret i forbindelse med denne anbefaling en debat (drøftelse) under bedømmelsen."
+msgstr ""
+"Opret i forbindelse med denne anbefaling en drøftelse under "
+"bedømmelsestrinnet."
 
 msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
-msgstr "Opret ikke en debat (drøftelse) under bedømmelsen."
+msgstr "Opret ikke en drøftelse under bedømmelsestrinnet."
 
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "Public identifier '{$publicIdentifier}' må ikke være et nummer."
@@ -348,7 +357,9 @@ msgid "editor.review.anonymousReviewer"
 msgstr "Anonym bedømmer"
 
 msgid "editor.review.rateReviewer.description"
-msgstr "Vurder kvaliteten af den indleverede bedømmelse. Denne vurdering vil ikke blive delt med bedømmeren."
+msgstr ""
+"Vurdér kvaliteten af den indleverede bedømmelse. Denne vurdering vil ikke "
+"blive delt med bedømmeren."
 
 msgid "editor.review.reviewerRating.none"
 msgstr "Ingen vurdering"
@@ -387,7 +398,7 @@ msgid "reviewer.list.averageCompletion"
 msgstr "Det gennemsnitlige antal dage for færdiggørelse af bedømmelse"
 
 msgid "reviewer.list.neverAssigned"
-msgstr "Aldrig tildelt"
+msgstr "Aldrig tilvalgt"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Denne bedømmer er allerede blevet tildelt denne indsendelse til bedømmelse."
@@ -412,3 +423,54 @@ msgstr "Anmodning afvist"
 
 msgid "editor.review.requestDeclined.tooltip"
 msgstr "Bedømmeren afviste denne anmodning om bedømmelse."
+
+msgid "reviewer.list.empty"
+msgstr "Der blev ikke fundet nogen bedømmere"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Bedømmelsesanmodningen annulleret"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Der opstod en fejl ved genindsættelsen af bedømmeren. Prøv igen."
+
+msgid "editor.review.reviewerThanked"
+msgstr "Bedømmer takket"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Redaktøren annullerede denne bedømmelsesanmodning."
+
+msgid "editor.review.requestCancelled"
+msgstr "Anmodning annulleret"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Genindsæt bedømmer"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Annullér bedømmer"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Skift beslutning"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Indsendelse accepteret og sendt til bedømmelse."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Sendt til produktion."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Sendt til en ny runde af bedømmelser."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Indsendelse publiceret."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Indsendelse accepteret."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Indsendelse afvist."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Beslutning registreret"
+
+msgid "editor.activityLog"
+msgstr "Aktivitetslog"

@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/SubmissionDisciplineDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionDisciplineDAO
  * @ingroup submission
@@ -48,7 +48,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 		$result = [];
 
 		$disciplines = $this->build($publicationId);
-		$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO');
+		$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /* @var $submissionDisciplineEntryDao SubmissionDisciplineEntryDAO */
 		$submissionDisciplines = $submissionDisciplineEntryDao->getByControlledVocabId($disciplines->getId());
 		while ($disciplineEntry = $submissionDisciplines->next()) {
 			$discipline = $disciplineEntry->getDiscipline();
@@ -93,8 +93,8 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 	 * @return int
 	 */
 	function insertDisciplines($disciplines, $publicationId, $deleteFirst = true) {
-		$disciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO');
-		$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO');
+		$disciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /* @var $disciplineDao SubmissionDisciplineDAO */
+		$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /* @var $submissionDisciplineEntryDao SubmissionDisciplineEntryDAO */
 		$currentDisciplines = $this->build($publicationId);
 
 		if ($deleteFirst) {

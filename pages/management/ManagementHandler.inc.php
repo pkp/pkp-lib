@@ -3,9 +3,9 @@
 /**
  * @file pages/management/ManagementHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManagementHandler
  * @ingroup pages_management
@@ -89,7 +89,7 @@ class ManagementHandler extends Handler {
 		$dispatcher = $request->getDispatcher();
 
 		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
-		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile/');
+		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
 		$supportedFormLocales = $context->getSupportedFormLocales();
 		$localeNames = AppLocale::getAllLocales();
@@ -119,7 +119,7 @@ class ManagementHandler extends Handler {
 				$templateMgr->assign('currentVersion', $currentVersion->getVersionString());
 
 				// Get contact information for site administrator
-				$roleDao = DAORegistry::getDAO('RoleDAO');
+				$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 				$siteAdmins = $roleDao->getUsersByRoleId(ROLE_ID_SITE_ADMIN);
 				$templateMgr->assign('siteAdmin', $siteAdmins->next());
 			}
@@ -145,7 +145,7 @@ class ManagementHandler extends Handler {
 		$themeApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/theme');
 		$temporaryFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'temporaryFiles');
 		$contextUrl = $router->url($request, $context->getPath());
-		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile/');
+		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
 		import('classes.file.PublicFileManager');
 		$publicFileManager = new PublicFileManager();
@@ -176,6 +176,10 @@ class ManagementHandler extends Handler {
 				FORM_THEME => $themeForm->getConfig(),
 			],
 		];
+
+		$templateMgr->setConstants([
+			'FORM_ANNOUNCEMENT_SETTINGS',
+		]);
 
 		$templateMgr->assign('settingsData', $settingsData);
 
@@ -212,7 +216,7 @@ class ManagementHandler extends Handler {
 		}, $supportedFormLocales);
 
 		$authorGuidelinesForm = new \PKP\components\forms\context\PKPAuthorGuidelinesForm($contextApiUrl, $locales, $context);
-		$metadataSettingsForm = new \PKP\components\forms\context\PKPMetadataSettingsForm($contextApiUrl, $context);
+		$metadataSettingsForm = new \APP\components\forms\context\MetadataSettingsForm($contextApiUrl, $context);
 		$emailSetupForm = new \PKP\components\forms\context\PKPEmailSetupForm($contextApiUrl, $locales, $context);
 		$reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
 		$reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($contextApiUrl, $locales, $context);
@@ -267,6 +271,12 @@ class ManagementHandler extends Handler {
 
 		$licenseForm = new \APP\components\forms\context\LicenseForm($apiUrl, $locales, $context);
 		$searchIndexingForm = new \PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
+
+		// Expose the FORM_PAYMENT_SETTINGS constant for the payment settings form reload
+		import('lib.pkp.classes.components.forms.context.PKPPaymentSettingsForm'); // Constant
+		$templateMgr->setConstants([
+			'FORM_PAYMENT_SETTINGS',
+		]);
 		$paymentSettingsForm = new \PKP\components\forms\context\PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
 
 		$settingsData = [

@@ -2,9 +2,9 @@
 /**
  * @file classes/services/QueryBuilders/PKPAuthorQueryBuilder.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorQueryBuilder
  * @ingroup query_builders
@@ -15,8 +15,9 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-class PKPAuthorQueryBuilder extends BaseQueryBuilder {
+class PKPAuthorQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var array get authors for one or more contexts */
 	protected $contextIds = [];
@@ -30,8 +31,11 @@ class PKPAuthorQueryBuilder extends BaseQueryBuilder {
 	/** @var array get authors for one or more publications */
 	protected $publicationIds = [];
 
-	/** @var bool whether to return only a count of results */
-	protected $countOnly = null;
+	/** @var string get authors with a specified country code */
+	protected $country = '';
+
+	/** @var string get authors with a specified affiliation */
+	protected $affiliation = '';
 
 	/**
 	 * Filter by one or more contexts
@@ -58,6 +62,28 @@ class PKPAuthorQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Filter by the specified country code
+	 *
+	 * @param $country string Country code (2-letter)
+	 * @return \PKP\Services\QueryBuilders\PKPAuthorQueryBuilder
+	 * */
+	public function filterByCountry($country) {
+		$this->country = $country;
+		return $this;
+	}
+
+	/**
+	 * Filter by the specified affiliation code
+	 *
+	 * @param $country string Affiliation
+	 * @return \PKP\Services\QueryBuilders\PKPAuthorQueryBuilder
+	 * */
+	public function filterByAffiliation($affiliation) {
+		$this->affiliation = $affiliation;
+		return $this;
+	}
+
+	/**
 	 * Set publicationIds filter
 	 *
 	 * @param array|int $publicationIds
@@ -69,22 +95,31 @@ class PKPAuthorQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
-	 * Whether to return only a count of results
-	 *
-	 * @param $enable bool
-	 * @return \PKP\Services\QueryBuilders\PKPAuthorQueryBuilder
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
 	 */
-	public function countOnly($enable = true) {
-		$this->countOnly = $enable;
-		return $this;
+	public function getCount() {
+		return $this
+			->getQuery()
+			->select('a.author_id')
+			->get()
+			->count();
 	}
 
 	/**
-	 * Execute query builder
-	 *
-	 * @return object Query object
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
 	 */
-	public function get() {
+	public function getIds() {
+		return $this
+			->getQuery()
+			->select('a.author_id')
+			->pluck('a.author_id')
+			->toArray();
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
+	 */
+	public function getQuery() {
 		$this->columns = ['*'];
 		$q = Capsule::table('authors as a');
 
@@ -113,14 +148,30 @@ class PKPAuthorQueryBuilder extends BaseQueryBuilder {
 			$q->whereIn('a.publication_id', $this->publicationIds);
 		}
 
+		if (!empty($this->country)) {
+			$country = $this->country;
+			$q->join('author_settings as cs', 'a.author_id', '=', 'cs.author_id')
+				->where(function($q) use ($country) {
+					$q->where('cs.setting_name', '=', 'country');
+					$q->where('cs.setting_value', '=', $country);
+				});
+		}
+
+		if (!empty($this->affiliation)) {
+			$affiliation = $this->affiliation;
+			$q->join('author_settings as afs', 'a.author_id', '=', 'afs.author_id')
+				->where(function($q) use ($affiliation) {
+					$q->where('afs.setting_name', '=', 'affiliation');
+					$q->where('afs.setting_value', '=', $affiliation);
+				});
+		}
+
+		$q->orderBy('a.seq', 'ASC');
+
 		// Add app-specific query statements
 		\HookRegistry::call('Author::getMany::queryObject', array(&$q, $this));
 
-		if (!empty($this->countOnly)) {
-			$q->select(Capsule::raw('count(*) as author_count'));
-		} else {
-			$q->select($this->columns);
-		}
+		$q->select($this->columns);
 
 		return $q;
 	}

@@ -3,9 +3,9 @@
 /**
  * @file classes/publication/PKPPublication.inc.php
  *
- * Copyright (c) 2016-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2016-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPublication
  * @ingroup publication
@@ -122,7 +122,7 @@ class PKPPublication extends DataObject {
 	/**
 	 * Combine author names and roles into a string
 	 *
-	 * Eg - Daniel Barnes, Carlo Corino (Author); John Mwandenga (Translator)
+	 * Eg - Daniel Barnes, Carlo Corino (Author); Alan Mwandenga (Translator)
 	 *
 	 * @param array $userGroups List of UserGroup objects
 	 * @return string

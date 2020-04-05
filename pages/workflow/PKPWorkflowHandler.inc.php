@@ -3,9 +3,9 @@
 /**
  * @file pages/workflow/PKPWorkflowHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class WorkflowHandler
  * @ingroup pages_reviewer
@@ -118,7 +118,8 @@ abstract class PKPWorkflowHandler extends Handler {
 		$workflowRoles = Application::getWorkflowTypeRoles();
 		$editorialWorkflowRoles = $workflowRoles[WORKFLOW_TYPE_EDITORIAL];
 
-		$result = DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'));
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$result = $userGroupDao->getByContextId($submission->getData('contextId'));
 		$authorUserGroups = [];
 		$workflowUserGroups = [];
 		while (!$result->eof()) {
@@ -137,42 +138,60 @@ abstract class PKPWorkflowHandler extends Handler {
 		// they are not assigned in any role and have a manager role in the
 		// context.
 		$currentStageId = $submission->getStageId();
-		$canEditPublication = false; // Access to title, abstract, metadata, etc
+		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+		$canAccessPublication = false; // View title, metadata, etc.
+		$canEditPublication = Services::get('submission')->canEditPublication($submission->getId(), $request->getUser()->getId());
 		$canAccessProduction = false; // Access to galleys and issue entry
 		$canPublish = false; // Ability to publish, unpublish and create versions
+		$canAccessEditorialHistory = false; // Access to activity log
 		// unassigned managers
 		if (!$accessibleWorkflowStages && array_intersect($this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES), [ROLE_ID_MANAGER])) {
-			$canEditPublication = true;
 			$canAccessProduction = true;
 			$canPublish = true;
+			$canAccessPublication = true;
+			$canAccessEditorialHistory = true;
 
 		} elseif (!empty($accessibleWorkflowStages[$currentStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$currentStageId])) {
-			$canEditPublication = true;
 			$canAccessProduction = (bool) array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
+			$canAccessPublication = true;
 
-			// "Recommend only" stage assignments can not publish
-			$result = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndUserIdAndStageId(
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+			$result = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId(
 				$submission->getId(),
 				$request->getUser()->getId(),
 				WORKFLOW_STAGE_ID_PRODUCTION
 			);
-			while (!$result->eof()) {
-				$stageAssignment = $result->next();
-				foreach ($workflowUserGroups as $workflowUserGroup) {
-					if ($stageAssignment->getUserGroupId() == $workflowUserGroup->getId() &&
-							!$stageAssignment->getRecommendOnly()) {
-						$canPublish = true;
-						break;
+
+			// If they have no stage assignments, check the role they have been granted
+			// for the production workflow stage. An unassigned admin or manager may
+			// have been granted access and should be allowed to publish.
+			if ($result->wasEmpty() && is_array($accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION])) {
+				$canPublish = (bool) array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER], $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
+
+			// Otherwise, check stage assignments
+			// "Recommend only" stage assignments can not publish
+			} else {
+				while (!$result->eof()) {
+					$stageAssignment = $result->next();
+					foreach ($workflowUserGroups as $workflowUserGroup) {
+						if ($stageAssignment->getUserGroupId() == $workflowUserGroup->getId() &&
+								!$stageAssignment->getRecommendOnly()) {
+							$canPublish = true;
+							break;
+						}
 					}
 				}
 			}
 		}
+		if (!empty($accessibleWorkflowStages[$currentStageId]) && array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $accessibleWorkflowStages[$currentStageId])) {
+			$canAccessEditorialHistory = true;
+		}
 
-		$supportedFormLocales = $submissionContext->getSupportedFormLocales();
+		$supportedSubmissionLocales = $submissionContext->getSupportedSubmissionLocales();
 		$localeNames = AppLocale::getAllLocales();
 		$locales = array_map(function($localeKey) use ($localeNames) {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-		}, $supportedFormLocales);
+		}, $supportedSubmissionLocales);
 
 		$latestPublication = $submission->getLatestPublication();
 
@@ -226,9 +245,8 @@ abstract class PKPWorkflowHandler extends Handler {
 		);
 
 		$citationsForm = new PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
-		$publicationLicenseForm = new PKP\components\forms\publication\PKPPublicationLicenseForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
+		$publicationLicenseForm = new PKP\components\forms\publication\PKPPublicationLicenseForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $authorUserGroups);
 		$titleAbstractForm = new PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
-		$identifiersForm = new PKP\components\forms\publication\PKPPublicationIdentifiersForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
 
 		// Import constants
 		import('classes.submission.Submission');
@@ -240,7 +258,6 @@ abstract class PKPWorkflowHandler extends Handler {
 			'STATUS_DECLINED',
 			'STATUS_SCHEDULED',
 			'FORM_CITATIONS',
-			'FORM_PUBLICATION_IDENTIFIERS',
 			'FORM_PUBLICATION_LICENSE',
 			'FORM_PUBLISH',
 			'FORM_TITLE_ABSTRACT',
@@ -265,7 +282,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		foreach ($submission->getData('publications') as $publication) {
 			$publicationList[] = Services::get('publication')->getProperties(
 				$publication,
-				['id', 'datePublished', 'status'],
+				['id', 'datePublished', 'status', 'version'],
 				[
 					'context' => $submissionContext,
 					'submission' => $submission,
@@ -299,12 +316,12 @@ abstract class PKPWorkflowHandler extends Handler {
 		}
 
 		$workflowData = [
+			'canAccessPublication' => $canAccessPublication,
 			'canEditPublication' => $canEditPublication,
 			'components' => [
 				FORM_CITATIONS => $citationsForm->getConfig(),
 				FORM_PUBLICATION_LICENSE => $publicationLicenseForm->getConfig(),
 				FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
-				FORM_PUBLICATION_IDENTIFIERS => $identifiersForm->getConfig(),
 			],
 			'contributorsGridUrl' => $contributorsGridUrl,
 			'csrfToken' => $request->getSession()->getCSRFToken(),
@@ -312,7 +329,6 @@ abstract class PKPWorkflowHandler extends Handler {
 			'editorialHistoryUrl' => $editorialHistoryUrl,
 			'publicationFormIds' => [
 				FORM_CITATIONS,
-				FORM_PUBLICATION_IDENTIFIERS,
 				FORM_PUBLICATION_LICENSE,
 				FORM_PUBLISH,
 				FORM_TITLE_ABSTRACT,
@@ -329,7 +345,7 @@ abstract class PKPWorkflowHandler extends Handler {
 				'activityLog' => __('submission.list.infoCenter'),
 				'cancel' => __('common.cancel'),
 				'ok' => __('common.ok'),
-				'preview' => __('common.preview'),
+				'no' => __('common.no'),
 				'publicationTabsLabel' => __('publication.version.details'),
 				'publish' => __('publication.publish'),
 				'schedulePublication' => __('editor.submission.schedulePublication'),
@@ -340,11 +356,13 @@ abstract class PKPWorkflowHandler extends Handler {
 				'unscheduleConfirm' => __('publication.unschedule.confirm'),
 				'view' => __('common.view'),
 				'version' => __('semicolon', ['label' => __('admin.version')]),
+				'versionConfirm' => __('publication.version.confirm'),
+				'yes' => __('common.yes'),
 			],
 		];
 
 		// Add the metadata form if one or more metadata fields are enabled
-		$metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'supportingAgencies', 'type'];
+		$metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'agencies', 'type'];
 		$metadataEnabled = false;
 		foreach ($metadataFields as $metadataField) {
 			if ($submissionContext->getData($metadataField)) {
@@ -352,7 +370,7 @@ abstract class PKPWorkflowHandler extends Handler {
 				break;
 			}
 		}
-		if ($metadataEnabled) {
+		if ($metadataEnabled || in_array('publication', $submissionContext->getData('enablePublisherId'))) {
 			$vocabSuggestionUrlBase =$request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
 			$metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
 			$templateMgr->setConstants(['FORM_METADATA']);
@@ -360,10 +378,29 @@ abstract class PKPWorkflowHandler extends Handler {
 			$workflowData['publicationFormIds'][] = FORM_METADATA;
 		}
 
+		// Add the identifieres form if one or more identifier is enabled
+		$identifiersEnabled = false;
+		$pubIdPlugins = PluginRegistry::getPlugins('pubIds');
+		foreach ($pubIdPlugins as $pubIdPlugin) {
+			if ($pubIdPlugin->isObjectTypeEnabled('Publication', $request->getContext()->getId())) {
+				$identifiersEnabled = true;
+				break;
+			}
+		}
+		if ($identifiersEnabled) {
+			$identifiersForm = new PKP\components\forms\publication\PKPPublicationIdentifiersForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
+			$templateMgr->setConstants(['FORM_PUBLICATION_IDENTIFIERS']);
+			$workflowData['components'][FORM_PUBLICATION_IDENTIFIERS] = $identifiersForm->getConfig();
+			$workflowData['publicationFormIds'][] = FORM_PUBLICATION_IDENTIFIERS;
+		}
+
 		$templateMgr->assign([
+			'canAccessEditorialHistory' => $canAccessEditorialHistory,
+			'canAccessPublication' => $canAccessPublication,
 			'canEditPublication' => $canEditPublication,
 			'canAccessProduction' => $canAccessProduction,
 			'canPublish' => $canPublish,
+			'identifiersEnabled' => $identifiersEnabled,
 			'metadataEnabled' => $metadataEnabled,
 			'requestedStageId' => $requestedStageId,
 			'submission' => $submission,
@@ -451,7 +488,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		// cannot be recorded.
 		if ($reviewRoundId) {
 			$actionArgs['reviewRoundId'] = $reviewRoundId;
-			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 			$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 			$reviewRound = $reviewRoundDao->getById($reviewRoundId);
 		} else {
@@ -459,7 +496,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		}
 
 		// If there is an editor assigned, retrieve stage decisions.
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $stageId);
 		$dispatcher = $request->getDispatcher();
 		$user = $request->getUser();
@@ -481,7 +518,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		// see if the user is manager, and
 		// if the group is recommendOnly
 		if (!$recommendOnly && !$makeDecision) {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 			$userGroups = $userGroupDao->getByUserId($user->getId(), $request->getContext()->getId());
 			while ($userGroup = $userGroups->next()) {
 				if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER))) {
@@ -500,7 +537,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		$lastRecommendation = $allRecommendations = null;
 		if (!empty($editorsStageAssignments) && (!$reviewRoundId || ($lastReviewRound && $reviewRoundId == $lastReviewRound->getId()))) {
 			import('classes.workflow.EditorDecisionActionsManager');
-			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 			$recommendationOptions = (new EditorDecisionActionsManager())->getRecommendationOptions($stageId);
 			// If this is a review stage and the user has "recommend only role"
 			if (($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
@@ -585,7 +622,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		}
 
 		import('lib.pkp.classes.workflow.WorkflowStageDAO');
-		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /* @var $workflowStageDao WorkflowStageDAO */
 		$hasSubmissionPassedThisStage = $submission->getStageId() > $stageId;
 		$lastDecision = null;
 		switch( $submission->getStatus() ) {
@@ -713,7 +750,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 */
 	protected function notificationOptionsByStage($user, $stageId, $contextId) {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 
 		$editorAssignmentNotificationType = $this->getEditorAssignmentNotificationTypeByStageId($stageId);
 

@@ -8,9 +8,9 @@
 /**
  * @file classes/mail/Mail.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Mail
  * @ingroup mail
@@ -331,12 +331,12 @@ class Mail extends DataObject {
 	* @param $name string optional
 	*/
 	function addReplyTo($email, $name = '') {
-                if (($replyTos = $this->getData('replyTo')) == null) {
-                        $replyTos = array();
-                }
-                array_push($replyTos, array('name' => $name, 'email' => $email));
+		if (($replyTos = $this->getData('replyTo')) == null) {
+			$replyTos = array();
+		}
+		array_push($replyTos, array('name' => $name, 'email' => $email));
 
-                $this->setData('replyTo', $replyTo);
+		$this->setData('replyTo', $replyTo);
 	}
 
 

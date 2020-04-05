@@ -3,9 +3,9 @@
 /**
  * @file classes/user/UserSettingsDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserSettingsDAO
  * @ingroup user
@@ -120,7 +120,7 @@ class UserSettingsDAO extends DAO {
 	 * @return DAOResultFactory matching Users
 	 */
 	function getUsersByAssocSetting($name, $value, $type = null, $assocType = null, $assocId = null) {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 
 		$value = $this->convertToDB($value, $type);
 		$result = $this->retrieve(

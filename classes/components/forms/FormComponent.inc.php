@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/FormComponent.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormComponent
  * @ingroup classes_controllers_form
@@ -240,8 +240,8 @@ class FormComponent {
 	 */
 	public function getConfig() {
 
-		if (empty($this->id) || empty($this->method) || empty($this->action) || empty($this->successMessage) || empty($this->fields)) {
-			fatalError('FormComponent::getConfig() was called but one or more required property is missing: id, method, action, successMessage, fields.');
+		if (empty($this->id) || empty($this->method) || empty($this->action) || empty($this->successMessage)) {
+			fatalError('FormComponent::getConfig() was called but one or more required property is missing: id, method, action, successMessage.');
 		}
 
 		\HookRegistry::call('Form::config::before', $this);
@@ -279,7 +279,7 @@ class FormComponent {
 			'successMessage' => $this->successMessage,
 			'required' => __('common.required'),
 			'missingRequired' => __('validator.required'),
-			'help' => __('common.help'),
+			'help' => __('help.help'),
 			'multilingualLabel' => __('form.multilingualLabel'),
 			'multilingualProgress' => __('form.multilingualProgress'),
 		], $this->i18n);

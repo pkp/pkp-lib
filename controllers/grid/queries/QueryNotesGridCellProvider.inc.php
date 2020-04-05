@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/queries/QueryNotesGridCellProvider.inc.php
  *
- * Copyright (c) 2016-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2016-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNotesGridCellProvider
  * @ingroup controllers_grid_queries
@@ -59,7 +59,7 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 		switch ($column->getId()) {
 			case 'contents':
 				$element = $row->getData();
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 				import('lib.pkp.classes.submission.SubmissionFile');
 				$submissionFiles = $submissionFileDao->getLatestRevisionsByAssocId(
 					ASSOC_TYPE_NOTE, $element->getId(),

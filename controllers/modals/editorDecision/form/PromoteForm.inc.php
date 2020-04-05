@@ -3,9 +3,9 @@
 /**
  * @file controllers/modals/editorDecision/form/PromoteForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PromoteForm
  * @ingroup controllers_modals_editorDecision_form
@@ -182,7 +182,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 
 				// Notify any authors that this needs payment.
 				$notificationMgr = new NotificationManager();
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 				$stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null);
 				$userIds = array();
 				while ($stageAssignment = $stageAssignments->next()) {

@@ -1,0 +1,2371 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
+"PO-Revision-Date: 2020-03-10 14:45+0000\n"
+"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/hu/>\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "manager.website.information"
+msgstr "Információ"
+
+msgid "manager.website.appearance"
+msgstr "Megjelenés"
+
+msgid "manager.website.imageFileRequired"
+msgstr "Kötelező egy képfájl. Kérjük, győződjön meg arról, hogy kiválasztott és feltöltött egy fájlt."
+
+msgid "manager.announcements"
+msgstr "Értesítések"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Biztos benne, hogy törölni akarja ezt az értesítést?"
+
+msgid "manager.announcements.create"
+msgstr "Új értesítés létrehozása"
+
+msgid "manager.announcements.createTitle"
+msgstr "Létrehozás"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Lejárat"
+
+msgid "manager.announcements.datePublish"
+msgstr "Publikált"
+
+msgid "manager.announcements.edit"
+msgstr "Értesítés szerkesztése"
+
+msgid "manager.announcements.editTitle"
+msgstr "Szerkesztés"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Kérem, válasszon egy évet és/vagy egy hónapot a lejárati nap mellé."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Lejárati dátum"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "Az értesítés eddig a dátumig lesz látható az olvasóknak. Hagyja üresen, hogy az értesítést végtelen ideig látható legyen."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Kérem, válasszon egy évet és/vagy egy napot a lejárati hónap mellé."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Kérem, egy érvényes végdátumot adjon meg az értesítésnek."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Kérem, válasszon egy hónapot és/vagy napot a lejárati év mellé."
+
+msgid "manager.announcements.form.description"
+msgstr "Leírás"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Az értesítés teljes szövege."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Az értesítéshez leírás kötelező."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Egy rövid leírás fog megjelenni a értesítés címével."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Egy rövid értesítés leírás kötelező."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Rövid leírás"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Mentés és másik készítése"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Egy értesítéscím kötelező."
+
+msgid "manager.announcements.form.title"
+msgstr "Cím"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Típus"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Kérem, válasszon egy érvényes értesítés típust."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Nincsenek értesítések."
+
+msgid "manager.announcements.title"
+msgstr "Cím"
+
+msgid "manager.announcements.type"
+msgstr "Típus"
+
+msgid "manager.announcementTypes"
+msgstr "Értesítés típusok"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Figyelem! Minden értesítés törlődni fog a értesítés típus törlésével. Biztos benne, hogy folytatja és törli ezt az értesítéstípust?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Értesítéstípus készítése"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Készítés"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Értesítéstípus szerkesztése"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Szerkesztés"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Mentés és másik készítése"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Ezzel a névvel már van egy értesítéstípus."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Név"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Egy értesítéstípus név megadása kötelező."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Nincs létrehozott értesítéstípus."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Értesítéstípus"
+
+msgid "manager.publication.submissionStage"
+msgstr "Beküldés"
+
+msgid "manager.publication.reviewStage"
+msgstr "Szakmai lektorálás"
+
+msgid "manager.publication.editorialStage"
+msgstr "Szerkesztés"
+
+msgid "manager.publication.productionStage"
+msgstr "Megjelentetés"
+
+msgid "manager.publication.emails"
+msgstr "Emailek"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Biztos benne, hogy törölni akarja ezt az email sablont?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Biztos benne, hogy visszaállítja ezt az email sablont az eredeti állapotra?"
+
+msgid "manager.emails.addEmail"
+msgstr "Email sablon hozzáadása"
+
+msgid "manager.emails.createEmail"
+msgstr "Email készítése"
+
+msgid "manager.emails.data"
+msgstr "Sablon szöveg adat"
+
+msgid "manager.emails.details"
+msgstr "Sablon részletek"
+
+msgid "manager.emails.disable"
+msgstr "Kikapcsol"
+
+msgid "manager.emails.disable.message"
+msgstr "Ennek az email sablonnak a letiltására készül. Ha a rendszerben használják ezt a sablont, akkor többé nem fogják elérni és használni azt. Megerősíti ezt a műveletet?"
+
+msgid "manager.emails.editEmail"
+msgstr "Email szerkesztése"
+
+msgid "manager.emails.editTestExample"
+msgstr "Email teszt eset szerkesztése"
+
+msgid "manager.emails.emailKey"
+msgstr "Email kulcs"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "Egy email a megadott kulccsal már létezik. Az email kulcsoknak egyedinek kell lennie."
+
+msgid "manager.emails.emailTemplate"
+msgstr "Email Sablon"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Email Sablonok"
+
+msgid "manager.emails.enabled"
+msgstr "Ennek a sablonnak az engedélyezése"
+
+msgid "manager.emails.enable"
+msgstr "Engedélyezés"
+
+msgid "manager.emails.enable.message"
+msgstr "Ennek az emailnek az engedélyezésére készül. Megerősíti ezt a műveletet?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "Szükséges egy egyedi email azonosító, amely nem tartalmaz szóközöket, speciális karaktereket."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Szöveg megadása szükséges az emailhez."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Tárgy megadása szükséges az emailhez."
+
+msgid "manager.emails"
+msgstr "Előkészített emailek"
+
+msgid "manager.emails.resetAll"
+msgstr "Minden sablon visszaállítása"
+
+msgid "manager.emails.resetAll.message"
+msgstr "Ha minden sablont visszaállít, akkor az azokon végzett valamennyi módosítás el fog veszni Megerősíti ezt a műveletet?"
+
+msgid "manager.emails.reset"
+msgstr "Visszaállítás"
+
+msgid "manager.emails.reset.message"
+msgstr "Ha visszaállítja ez a sablont, akkor az adatok az eredeti állapotba állnak vissza és elveszti az összes módosítást. Megerősíti ezt a műveletet?"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Az eredeti állapot visszaállítása"
+
+msgid "manager.filesBrowser"
+msgstr "Fájlok böngészése"
+
+msgid "manager.files.confirmDelete"
+msgstr "Ennek a fájlnak vagy könyvtárnak a törlése? Megjegyzendő, hogy a könyvtárnak üresnek kell lennie a törlés előtt."
+
+msgid "manager.files.createDir"
+msgstr "Könyvtár létrehozása"
+
+msgid "manager.files.emptyDir"
+msgstr "Ebben a könyvtárban nincsenek fájlok."
+
+msgid "manager.files.indexOfDir"
+msgstr "{$dir} indexe"
+
+msgid "manager.files.parentDir"
+msgstr "Főkönyvtár"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Feltöltött fájlok"
+
+msgid "manager.files.uploadFile"
+msgstr "Fájl feltöltés"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Biztos benne, hogy törölni akarja ezt a csoportot?"
+
+msgid "manager.groups.createTitle"
+msgstr "Cím létrehozása"
+
+msgid "manager.groups.editTitle"
+msgstr "Cím szerkesztése"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Szükséges egy csoportcím."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Tag hozzáadása"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Biztos benne, hogy törölni akarja ezt a csoporttagságot?"
+
+msgid "manager.groups.membership"
+msgstr "Tagság"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Ennek a csoportnak nincsenek tagjai."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Nincsenek felhasználók."
+
+msgid "manager.groups.title"
+msgstr "Cím"
+
+msgid "manager.importExport"
+msgstr "Adat Import/Export"
+
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "manager.language.submissions"
+msgstr "Beküldések"
+
+msgid "manager.language.forms"
+msgstr "Űrlapok"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Alapértelmezettek újratöltése"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "Ez a rendszer lehetővé teszi, hogy bizonyos fontos információkat néhány további nyelven is elérhetővé tegyen. A lehetőség használatához engedélyezzen további nyelveket az alábbi listából."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Minden nyelv támogatásának kiválasztása, valamennyi oldalon egy legördülő menü segítségével. A menü csak akkor lesz látható, ha egynél több nyelv van kiválasztva."
+
+msgid "manager.masthead.title"
+msgstr "Impresszum"
+
+msgid "manager.payment.timestamp"
+msgstr "Időbélyeg"
+
+msgid "manager.people.authSource"
+msgstr "Hitelesítési forrás"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Elveszi a szerepkört a felhasználótól?"
+
+msgid "manager.people.createUser"
+msgstr "Új felhasználó létrehozása"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Véletlen jelszó generálása."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Üdvözlő üzenet küldése a felhasználónak, amely tartalmazza a felhasználónevét és a jelszavát."
+
+msgid "manager.people.disable"
+msgstr "Kikapcsol"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Szerepkör nélkül"
+
+msgid "manager.people.editProfile"
+msgstr "Profil szerkesztése"
+
+msgid "manager.people.editUser"
+msgstr "Felhasználó szerkesztése"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Email a kiválasztott felhasználónak"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Email a következő szerepkörrel rendelkező felhasználóknak"
+
+msgid "manager.people.emailUsers"
+msgstr "Email a felhasználóknak"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Nyelv választása"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "Jelölje azokat a felhasználókat, akiknek emailt szeretne küldeni"
+
+msgid "manager.people.enable"
+msgstr "Engedélyezés"
+
+msgid "manager.people.enroll"
+msgstr "Felhasználó felvétele"
+
+msgid "manager.people.enrollment"
+msgstr "Beiratkoztatás"
+
+msgid "manager.people.enrollSelected"
+msgstr "A kiválasztott felhasználók beiratkoztatása"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Szerepkör szinkronizálás"
+
+msgid "manager.people.enrollSync"
+msgstr "Beiratkozás szinkronizálás"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Felhasználók akikhez valaha hozzárendeltek vagy elvettek szerepkört."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Felhasználó beiratkoztatása mint"
+
+msgid "manager.people.invalidUser"
+msgstr "Elnézést, de a kért felhasználó nem létezik."
+
+msgid "manager.people.mergeUser"
+msgstr "Felhasználó összevonása"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Biztos benne, hogy össze akarja vonni a kiválasztott {$oldAccountCount} fiókokat a következő felhasználónév alatt \"{$newUsername}\"? A kiválasztott {$oldAccountCount} fiókok utána nem lesznek elérhetőek. Ez a művelet nem visszavonható."
+
+msgid "manager.people.mergeUsers"
+msgstr "Felhasználók összevonása"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Kérem, válasszon egy szerepkört az oldal tetejéről mielőtt kiválasztja a \"Felhasználó beiratkoztatása\" lehetőséget."
+
+msgid "manager.people.mustProvideName"
+msgstr "Kérem, először legalább egy vezetéknevet adjon meg a felhasználóhoz."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Nincs megfelelő felhasználó."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Nincs beiratkozott felhasználó."
+
+msgid "manager.people"
+msgstr "Felhasználók"
+
+msgid "manager.people.remove"
+msgstr "Eltávolítás"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Mentés és másik készítése"
+
+msgid "manager.people.signInAs"
+msgstr "Belépés mint"
+
+msgid "manager.people.signInAsUser"
+msgstr "Belépés mint felhasználó"
+
+msgid "manager.people.syncUsers"
+msgstr "Felhasználói beiratkozás szinkronizálása"
+
+msgid "manager.people.unenroll"
+msgstr "Kiiratás"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Felhasználó sikeresen létrehozva."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Jelszómódosítás előírása a felhasználó következő bejelentkezésekor."
+
+msgid "manager.plugins.action"
+msgstr "Akció:"
+
+msgid "manager.plugins.disable"
+msgstr "Kikapcsol"
+
+msgid "manager.plugins.enable"
+msgstr "Engedélyezés"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Plugin kezelés"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Ez a bővítmény a teljes oldalon használatos. Csak az oldal adminisztrátora tud beállításokat végezni ezen a bővítményen."
+
+msgid "manager.plugins"
+msgstr "Rendszer bővítmények"
+
+msgid "manager.readingTools"
+msgstr "Olvasói eszközök"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Felhasználó keresése név alapján"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Módosít"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Szakmai lektorok keresése név alapján"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Keresés név alapján"
+
+msgid "manager.reviewerSearch.doneAmount"
+msgstr "Lektori vélemény kész: {$current}"
+
+msgid "manager.reviewerSearch.doneAmountToggle"
+msgstr "A befejezett lektori vélemények szűrésének engedélyezése/tiltása."
+
+msgid "manager.reviewerSearch.avgAmount"
+msgstr "Átlag napok száma a befejezésig: {$current}"
+
+msgid "manager.reviewerSearch.avgAmountToggle"
+msgstr "A kész lektorálásig hátralévő napok száma szűrésének engedélyezése/tiltása."
+
+msgid "manager.reviewerSearch.lastAmount"
+msgstr "Az utolsó lektori vélemény óta eltelt napok száma: {$current}"
+
+msgid "manager.reviewerSearch.lastAmountToggle"
+msgstr "Az utolsó lektori vélemény óta eltelt napok száma szűrésének engedélyezése/tiltása."
+
+msgid "manager.reviewerSearch.activeAmount"
+msgstr "Aktív szakmai lektorálások: {$current}"
+
+msgid "manager.reviewerSearch.activeAmountToggle"
+msgstr "Aktív szakmai lektorálások szűrésének engedélyezése/tiltása."
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Szakmai lektor érdeklődési körei"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr "Használja az alábbi űrlapot a keresett kifejezések maximumának beállítására.  Az űrlap átlagos adatokkal előre feltöltött."
+
+msgid "manager.reviewerSearch.form.interests.instructions"
+msgstr "Szakmai lektor érdeklődési körei (kezdje el gépelni a kifejezések megtalálásához)"
+
+msgid "manager.reviewerSearch.form.previousReviewRounds"
+msgstr "Szakmai lektorok a cikk előző lektorálási köreiből"
+
+msgid "manager.roles"
+msgstr "Szerepkörök"
+
+msgid "manager.statistics"
+msgstr "Statisztikák &amp; Jelentések"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tAz ön {$contextObjectName} úgy van konfigurálva, hogy egynél több rekordot eredményez ez a használati statisztika. A használati statisztikákat különféle összefüggésben is meg lehet jeleníteni.\n"
+"\t\tVannak olyan esetek, amikor a szimpla használati statisztika a jó választás, pl. egy rendszerezett listát megjeleníteni a leggyakrabban használt cikkekről vagy a keresési eredményeket rangsorolni. Kérjük, válasszon alapértelmezettként egyet a bekonfigurált statisztikák közül.\n"
+"\t"
+
+msgid "manager.statistics.city"
+msgstr "Város"
+
+msgid "manager.statistics.region"
+msgstr "Régió"
+
+msgid "manager.statistics.reports"
+msgstr "Jelentés generáló"
+
+msgid "manager.statistics.reports.description"
+msgstr "A rendszer olyan jelentéseket készít, amelyekkel nyomonkövethető az oldal használat és a beküldések egy bizonyos megadott időintervallumban. A jelentések CSV formátumban készülnek, amelyek táblázatkezelőben tekinthetők meg."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Összesített statisztika:"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr "A dőlt betűs és a csillaggal jelzett tételeknél választható, hogy a jelenlegi módszerrel számolja össze a statisztikát a rendszer (mérés típus). Attól függően kap adatot, hogy milyen a statisztikai bővítmény beállítása."
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Alapértelmezett jelentés sablonok"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Egyedi jelentés készítése"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Bővített beállítások"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Bővített beállítások elrejtése"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Oszlopok"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr "Oszlopok definiálása, amik a jelentésben szerepelni fognak. Az itt kiválasztott oszlopoknál nem csak azt kell megadni, hogy mely adatok kerüljenek bele, hanem a statisztika összesítési szintjét is. Például ha kiválasztja az ID, Típus és Hónap oszlopot, akkor a jelentés minden nézetet összegezni fog adattípusra és hónapra vonatkozóan és soronként jeleníti meg a kapott eredményeket. Ha napot választ hónap helyett, akkor naponta külön sorba kerülnek az eredmények."
+
+msgid "manager.statistics.reports.filters"
+msgstr "Szűrők"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Az objektum nem található az adatbázisban"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Objektum típus"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "Objektum azonosító"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr "Egy vagy több objektum azonosító definiálása, vesszővel elválasztva(pl. 1,2,3,4,5)."
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Tegnap"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Aktuális hónap"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Rendezés"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Irány"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Növekvő"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Csökkenő"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Haszhnálja az YYYYMM formátumot."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Használja az YYYYMMDD formátumot."
+
+msgid "manager.statistics.reports.cities.label"
+msgstr "Egy vagy több városnév, vesszővel elválasztva (pl. Város neve 1,Város neve 2)"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Legalább egy oszlopot ki kell választania a jelentés elkészítéséhez."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "Jelentés URL"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr "A következő URL az aktuális űrlapbeállítások alapján a jelentés elkészítéséhez használható. Csak másolja ki és nyissa meg egy böngészőben. Eltárolhatja az egyedi jelentés készítő URL címeit a könyvjelzői között."
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "Szövegkörnyezet alapján"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Objektum típus és/vagy objektum azonosító alapján"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Válassza ki a jelentés tartományát"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Vagy válasszon tartományt az alábbiak szerint:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "földrajzi elhelyezkedés alapján"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Országhoz, régióhoz és/vagy városhoz közeli eredmények."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Szponzor"
+
+msgid "manager.setup.additionalContent"
+msgstr "Hozzáadott tartalom"
+
+msgid "manager.setup.additionalContentDescription"
+msgstr "Bármi, amit itt megad megjelenik a weboldalán."
+
+msgid "manager.setup.authorCopyrightNotice"
+msgstr "Szerzői jogi megjegyzések"
+
+msgid "manager.setup.authorCopyrightNoticeAgree"
+msgstr "A szerzőknek el kell fogadniuk a szerzői jogi megjegyzéseket a cikk beküldés során."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Szerzői útmutatók"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr "Javasolt útmutatók bibliográfiai és formázási szabványok mellett példákat tartalmaz a cikkekben használatos közös idézési formátumokra."
+
+msgid "manager.setup.citations"
+msgstr "Idézetek"
+
+msgid "manager.setup.citationAssistant"
+msgstr "Idézettség jelölő asszisztens"
+
+msgid "manager.setup.citationFilterParser"
+msgstr "Hivatkozás kihúzása"
+
+msgid "manager.setup.citationFilterParserDescription"
+msgstr ""
+"<p>A hivatkozások adatbázisokban történő megtalálásához és ellenőrzéséhez először program által olvasható metaadatokra kell bontani a szerző által adott hivatkozás tételeket: cím, kiadó, kiadási dátum, stb. A csatlakozó külső webes szolgáltatások segítik ezt a folyamatot. Egyik, másik ilyen külső adatbázist egyszerűen a \"Tétel hozzáadása\" lehetőséggel lehet csatlakoztatni. Vannak olyan adatbázisok, amelyek elérésénél beállításokat kell végezni, ebben az esetben a rendszer kérni fogja a beállítások elvégzését.</p>\r\n"
+"\t\t<p>Szerkesztheti vagy törölheti a már meglévő külső kapcsolatokat, ha rákattint a mellettük lévő szerkesztési ikonra.</p>"
+
+msgid "manager.setup.citationFilterLookup"
+msgstr "Hivatkozás ellenőrzés"
+
+msgid "manager.setup.citationFilterLookupDescription"
+msgstr ""
+"<p>A külső hivatkozás adatbázisok eléréséhez engedélyeznie kell és be kell állítania azokat. Ezek segítenek megtalálni a hibákat a szerzők hivatkozásaiban vagy további információkat kérnek (pl. DOI vagy PubMed azonosítókat) az elektronikus publikáláshoz vagy tároláshoz.</p>\r\n"
+"\t\t<p>Ez a rendszer néhány külső adatbázishoz biztosít hozzáférést, amelyekben hivatkozásokat kereshet. Néhány adatbázis ezek közül regisztrációt vagy további beállításokat kér. Az adatbázisokkal kapcsolatos további információkért, a regisztráció menetéért kérem, nézze meg az adatbázisok nyilvánosan elérhető weboldalait. Egy vagy több adatbázist a \"Tétel hozzáadása\" gombra kattintva adhat hozzá a rendszerhez.</p>\r\n"
+"\t\t<p>zerkesztheti vagy törölheti a már meglévő külső kapcsolatokat, ha rákattint a mellettük lévő szerkesztési ikonra.</p>\r\n"
+"\t\t<p><strong>Megjegyzés:</strong> Annak érdekében, hogy a hivatkozás ellenőrzési művelet optimális időt vegyen igénybe, ahhoz egy ésszerű értéket kell beállítania a <tt>citation_checking_max_processes</tt> résznél. Lásd az általános beállítási részt a <tt>config.inc.php</tt> oldalon a további információért.</p>"
+
+msgid "manager.setup.citationOutput"
+msgstr "Idézettség kimenet"
+
+msgid "manager.setup.citationOutputStyleDescription"
+msgstr "Válasszon egy hivatkozási stílust, amilyen formában a hivatkozások megjelenjenek a beküldött publikációiban. A Hivatkozás jelölő asszisztens segítségével összehasonlíthatja a szerző által megadott hivatkozást a generált XMl formátumú hivatkozással, így könnyen láthatóvá válnak a hibák:"
+
+msgid "manager.setup.competingInterests"
+msgstr "Összeférhetetlenség"
+
+msgid "manager.setup.competingInterestsDescription"
+msgstr "A szakmai lektorok megkérik, hogy az alább részletezett összeférhetetlenségi irányelveknek feleljenek meg. "
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Hiba történt a tétel törlésekor."
+
+msgid "manager.setup.favicon"
+msgstr "Favikon"
+
+msgid "manager.setup.filter.grid.errorDeletingFilter"
+msgstr "Hiba történt, amikor megpróbálta eltávolítani ezt a szűrőt. Kérjük, jelentse ezt a hibát."
+
+msgid "manager.setup.filter.grid.filterDisplayName"
+msgstr "Külső csatlakozó adatbázis"
+
+msgid "manager.setup.filter.grid.filterSettings"
+msgstr "Regisztrációs információ és a csatlakozó adatbázis beállításai"
+
+msgid "manager.setup.filter.grid.filterTemplateRequired"
+msgstr "Kérjük, válasszon egy átalakítás típust a legördülő menüből."
+
+msgid "manager.setup.filter.grid.confirmDelete"
+msgstr "Valóban törölni akarja ezt a {$filterName} szűrőt?"
+
+msgid "manager.setup.filter.lookup.grid.descriptionConfirm"
+msgstr "Hozzá szeretne adni egy kiválasztott adatbázist {$filterDisplayName}. Kérjük, a megerősítéshez kattintson az \"OK\" gombra."
+
+msgid "manager.setup.filter.lookup.grid.descriptionTemplate"
+msgstr "Kérem, válasszon egy keresési adatbázist."
+
+msgid "manager.setup.filter.lookup.grid.description.iSBNdb"
+msgstr ""
+"<p>Ez a szűrő kapcsolódik az <a href=\"http://isbndb.com/\" target=\"_blank\">ISBNdb.com</a> könyv és ISBN adatbázishoz.</p>\n"
+"\t<p>Egy ISBNdb API kulcs kötelező. A generált kulcsokkal kapcsolatos információért látogasson el az <a href=\"http://isbndb.com/api/v1/docs/keys\" target=\"_blank\">online dokumentációhoz</a>.</p>"
+
+msgid "manager.setup.filter.lookup.grid.description.crossRef"
+msgstr ""
+"<p>Ez a kapcsolat a CrossRef idézettség adatbázisból használja a CrossRef <a href=\"http://www.crossref.org/02publishers/openurl_info.html\" target=\"_blank\">OpenURL lekérdező interfész</a> szolgáltatást.</p>\n"
+"\t<p>Ennek a keresőnek a használatához szükséges egy CrossRef rendszer fiók, vagy regisztrálni kell egy érvényes email címmel a <a href=\"http://www.crossref.org/requestaccount/\" target=\"_blank\">itt</a>.</p>"
+
+msgid "manager.setup.filter.lookup.grid.description.pubMed"
+msgstr ""
+"<p>Ez a kapcsolat a PubMed <a href=\"http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi\" target=\"_blank\">Entrez</a> cross-database keresőmotort használja.</p>\n"
+"\t<p>Egy regisztrációs email nem feltétlenül kötelező, de szükséges lehet, ha kapcsolódási hiba jelentkezik. Lásd a <a href=\"http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen\" target=\"_blank\">Felhasználói útmutató és követelmények</a> résznél az Entrez dokumentációban a további információkat.</p>"
+
+msgid "manager.setup.filter.lookup.grid.description.worldCat"
+msgstr ""
+"<p>Ez a kapcsolat az OCLC szolgáltatásokat tartalmazza <a href=\"http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp\" target=\"_blank\">xISBN</a> és a <a href=\"http://www.worldcat.org/\" target=\"_blank\">Worldcat</a> (választható).</p>\r\n"
+"\t<p>Ha van Worldcat <a href=\"http://oclc.org/developer/develop/web-services.html\" target=\"_blank\">API kulcs</a> hozzáférése és csatlakozni tud a Worldcat adatbázisához a kulcs segítségével.</p>"
+
+msgid "manager.setup.filter.lookup.grid.loadMessage"
+msgstr "Kérem, várjon, amíg az idézettség adatbázis beállítások betöltődnek..."
+
+msgid "manager.setup.filter.lookup.grid.title"
+msgstr "Idézettség adatbázis kapcsolatok"
+
+msgid "manager.setup.filter.noMoreTemplates"
+msgstr "Az összes rendelkezésre álló átalakítást már hozzáadta. Kérem, kattintson a \"Mégsem\" gombra, hogy visszalépjen a beállítás oldalra."
+
+msgid "manager.setup.filter.parser.grid.descriptionConfirm"
+msgstr "Hozzá szeretné adni a {$filterDisplayName} parszolót. Kérem, kattintson az \"OK\" gombra a jóváhagyáshoz."
+
+msgid "manager.setup.filter.parser.grid.descriptionTemplate"
+msgstr "Kérem, válasszon egy idézettség parszolót."
+
+msgid "manager.setup.filter.parser.grid.description.freeCite"
+msgstr "<p>Ez a külső kereső adatbázis a <a href=\"http://freecite.library.brown.edu/\" target=\"_blank\">FreeCite</a> webszolgáltatáshoz kapcsolódik.</p>"
+
+msgid "manager.setup.filter.parser.grid.description.paraCite"
+msgstr ""
+"<p>Ez a külső csatoló a <a href=\"http://paracite.eprints.org/developers/\" target=\"_blank\">ParaTools</a> Perl modulokat használva <a href=\"http://paracite.eprints.org\" target=\"_blank\">ParaCite</a> idézettség parszoló szolgáltatást nyújt. Annak érdekében, hogy ez működjön telepíteni kell a Perl-t a <a href=\"http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/\" target=\"_blank\">Biblio::Citation::Parser</a> and <a href=\"http://search.cpan.org/~sburke/Text-Unidecode-0.04/\" target=\"_blank\">Text::Unidecode</a> CPAN modulokkal. Meg kell adni a <tt>perl</tt> beállításokat a konfigurációs fájlban. Ez az irányelv megtalálható <tt>config.inc.php</tt> oldal External Commands/Külső parancsok részénél.</p>\n"
+"\t<p>Azt is kiválaszthatja, hogy melyik ParaTools parszoló modult használja. Választhat az általános, <a href=\"http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm\" target=\"_blank\">Jiao</a>, és <a href=\"http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm\" target=\"_blank\">Citebase</a> parszoló modulok közül.</p>"
+
+msgid "manager.setup.filter.parser.grid.description.parsCit"
+msgstr "<p>Ez a külső csatoló a <a href=\"http://aye.comp.nus.edu.sg/parsCit/\" target=\"_blank\">ParsCit</a> webszolgáltatást használja.</p>"
+
+msgid "manager.setup.filter.parser.grid.description.regEx"
+msgstr "A RegEx kicsomagoló az általános hivatkozás parszoló szolgáltatást használja."
+
+msgid "manager.setup.filter.parser.grid.loadMessage"
+msgstr "Kérem, várjon, amíg a hivatkozás parszoló konfigurációs beállítás betöltődik..."
+
+msgid "manager.setup.filter.parser.grid.title"
+msgstr "Hivatkozás kicsomagoló szolgáltatások"
+
+msgid "manager.setup.filter.pleaseSelect"
+msgstr "Kérem, válasszon..."
+
+msgid "manager.setup.groupType"
+msgstr "Fájl típus csoportosítás"
+
+msgid "manager.setup.homeHeaderImageInvalid"
+msgstr "Érvénytelen honlap fejléc logó képformátum vagy a feltöltés sikertelen. Az elfogadott formátumok .gif, .jpg, vagy .png."
+
+msgid "manager.setup.homepageImage"
+msgstr "Honlap kép"
+
+msgid "manager.setup.homepageImageDescription"
+msgstr "Egy kép feltöltése, ami megjelenik a honlap főoldalán."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr ""
+"Érvénytelen főoldal képformátum, vagy a feltöltés sikertelen. Elfogadott "
+"formátumok .gif, .jpg, vagy .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr ""
+"Érvénytelen főoldal fejléc cím képformátum vagy a feltöltés sikertelen. "
+"Elfogadott formátumok .gif, .jpg, vagy .png."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Leírások"
+
+msgid "manager.setup.layout.theme"
+msgstr "Sablon"
+
+msgid "manager.setup.layout.themeDescription"
+msgstr "Új sablon telepíthető a Bővítmény fülön, ennek az oldalnak a tetején."
+
+msgid "manager.setup.layout.blockManagement"
+msgstr "Oldalsáv beállítása"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Oldalsáv"
+
+msgid "manager.setup.layout.unselected"
+msgstr "Nem kiválasztott"
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Naplózás és ellenőrzés"
+
+msgid "manager.setup.logo"
+msgstr "Logó"
+
+msgid "manager.setup.metaCitationsDescription"
+msgstr "Jelölje a következő négyzetet a hivatkozások és irodalom szerkesztésének engedélyezéséhez. Ez lehetővé teszi a szerzőknek, hogy formázatlan hivatkozásokat adjanak hozzá a beküldendő cikkeikhez. A szerkesztők hozzáférnek a hivatkozás jelölő asszisztenshez, amely ellenőrzi és pontosítja a nyers hivatkozásokat külső adatbázisok segítségével, mint pl. a WorldCat, ISBNdb, PubMed és mások. Az elfogadott hivatkozásokat be lehet tenni a végleges megjelenésre szánt cikkbe."
+
+msgid "manager.setup.notifications"
+msgstr "Értesítés szerzői beküldésről"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Másolat küldése erre az email címre"
+
+msgid "manager.setup.notifications.description"
+msgstr "A szerzőknek automatikusan ment egy email a cikk befogadásáról. Másolatot küldhet ebből a levélből a következőknek:"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Nyílt hozzáférés politika"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr "Ha azonnali szabad hozzáférést kínál a publikált tartalmakhoz, akkor itt megadhatja a nyílt hozzáférés politikáját."
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Érvénytelen oldal fejléc logó képformátumm vagy a feltöltés sikertelen. Elfogadott formátumok .gif, .jpg, vagy .png."
+
+msgid "manager.setup.pageFooter"
+msgstr "Oldal lábléc"
+
+msgid "manager.setup.pageFooterDescription"
+msgstr "Adjon meg képet, szöveget vagy HTML kódot, amit szeretne megjelentetni az oldal láblécében."
+
+msgid "manager.setup.peerReview.description"
+msgstr "Felvázolja az olvasók és szerzők számára a lektorálási politikát. Ez a leírás gyakran azt is megadja, hogy általában hány lektor bírál el egy cikket, milyen kritériumok alapján kérnek fel egy szakértőt a lektori munkára, az elvárt időt, ami alatt el kell készítenie a szakértői véleményét, és a fő irányelveket, ami alapján kiválasztják a szakmai lektorokat."
+
+msgid "manager.setup.principalContact"
+msgstr "Fő kapcsolattartó"
+
+msgid "manager.setup.principalContactDescription"
+msgstr "Adja meg a kapcsolattartók adatait, jellemzően a főszerkesztőét, vezetőszerkesztőét vagy az adminisztratív dolgozókét, amik megjelennek a publikusan elérhető honlapon."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Adatvédelmi nyilatkozat"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr "Ez a nyilatkozat megjelenik a szerzői beküldés folyamán, valamint nyilvánosan elérhető az Információk oldalon."
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Szakmai lektori felkérés elfogadásának határideje (hét)."
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Engedélyezett hetek száma a lektorálás befejezéséig"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Soha ne figyelmeztessen"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr "A szerkesztési folyamat során a lektorálás alapértelmezett értékei módosíthatók."
+
+msgid "manager.setup.reviewOptions.remindForInvite"
+msgstr "Ha a lektor nem fogadja el a lektori felkérést határidőre, ennyi idő múlva (nap) küldjön emlékeztetőt a rendszer: "
+
+msgid "manager.setup.reviewOptions.remindForSubmit"
+msgstr "Ha a lektor nem végzi el a lektorálást határidőre, ennyi idő múlva (nap) küldjön emlékeztetőt a rendszer: "
+
+msgid "manager.setup.reviewOptions.reviewTime"
+msgstr "Alapértelmezett lektorálási határidők"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr ""
+"Ez a link <button type=\"button\">biztosítja a vak lektorálást</button> a "
+"feltöltés során"
+
+msgid "manager.setup.sortableByComponent"
+msgstr "Összetevők alapján csoportosított"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Támogatói kapcsolat és irányelvek leírása"
+
+msgid "manager.setup.sponsors.description"
+msgstr "Példák: tudományos szervezetek, egyetemi tanszékek, együttműködők, stb. A szponzorok nyilvánosan megjelennek."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr "Tapasztalt webfejlesztők feltölthetnek CSS fájlt, hogy testreszabják a weboldal megjelenését."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Technikai kapcsolattartó elérhetősége"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr "Kapcsolattartó személy, aki segíti a szerkesztőket, szerzőket és szakmai lektorokat, ha az anyagok beküldése, szerkesztése, lektorálása vagy közzététele során problémájuk lenne."
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Oldal hozzáférési beállítások"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} új)"
+
+msgid "manager.users"
+msgstr "Felhasználók"
+
+msgid "plugins.categories.metadata"
+msgstr "Metaadat bővítmények"
+
+msgid "plugins.categories.metadata.description"
+msgstr "A Metaadat bővítmények további metaadat szabványokat tesznek elérhetővé."
+
+msgid "plugins.categories.auth"
+msgstr "Bővítmény engedélyezése"
+
+msgid "plugins.categories.blocks"
+msgstr "Bővítmény tiltása"
+
+msgid "plugins.categories.blocks.description"
+msgstr "A blokk bővítmények variálható UI komponenseket tartalmaznak, ilyenek a változtatható oldalsáv eszközök."
+
+msgid "plugins.categories.citationFormats"
+msgstr "Hivatkozás formátum bővítmény"
+
+msgid "plugins.categories.citationLookup"
+msgstr "Hivatkozás adatbázis kapcsoló bővítmény"
+
+msgid "plugins.categories.citationLookup.description"
+msgstr "Hivatkozás adatbázis kapcsoló bővítmény kapcsolódik külső hivatkozás adatbázisokhoz, hogy ellenőrizhetőek legyenek a cikkek hivatkozásai, pl. a szerkesztés alatt."
+
+msgid "plugins.categories.citationOutput"
+msgstr "Hivatkozás kimenet bővítmény"
+
+msgid "plugins.categories.citationOutput.description"
+msgstr "A hivatkozás kimenet bővítmények megvalósítják a hivatkozási szabványokat. Ez felülírja a hivatkozás formátum bővítményt."
+
+msgid "plugins.categories.citationParser"
+msgstr "Hivatkozás kibontó bővítmény"
+
+msgid "plugins.categories.citationParser.description"
+msgstr "A hivatkozás kibontó bővítmények mező szintű adatot készítenek a formázatlan hivatkozásokból. (pl. szerző, cím, stb.)."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Átjáró bővítmények élő adatkapcsolatot biztosítanak külső rendszerekkel."
+
+msgid "plugins.categories.gateways"
+msgstr "Átjáró bővítmények"
+
+msgid "plugins.categories.generic"
+msgstr "Általános bővítmények"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Import/Export bővítmények oda-vissza adattovábbítást végeznek a saját és más, külső rendszerek között."
+
+msgid "plugins.categories.importexport"
+msgstr "Import/Export bővítmények"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "A fizetési módok bővítmény támogatja a különféle fizetési módokat az internetes vásárlásnál."
+
+msgid "plugins.categories.paymethod"
+msgstr "Fizetési mód bővítmények"
+
+msgid "plugins.categories.reports.description"
+msgstr "Jelentés bővítmények különféle formátumú adat exportot és jelentést készítenek."
+
+msgid "plugins.categories.reports"
+msgstr "Jelentés bővítmények"
+
+msgid "plugins.categories.themes.description"
+msgstr "Sablon bővítmények segítségével megváltoztathatja a rendszer kinézetét."
+
+msgid "plugins.categories.themes"
+msgstr "Sablon bővítmények"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "OAI Metaadat formátum bővítmény"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Ezek a formátum bővítmények jelenítik meg a metaadatokat az OAI kommunikációkban."
+
+msgid "plugins.categories.pubIds"
+msgstr "Nyilvános azonosító bővítmények"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Ezek a bővítmények támogatják a nyilvános azonosítókat."
+
+msgid "manager.plugins.copyError"
+msgstr "A bővítményt nem sikerült másolni. Ez jogosultsági problémák miatt is lehet. Kérjük, győzödjön meg arról, hogy a szerveren írható a plugins könyvtár (és az alkönyvtárai) majd később ne felejtse újra levédeni ezeket a könyvtárakat."
+
+msgid "manager.plugins.delete"
+msgstr "Bővítmény törlése"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Biztosan telepíteni akarja ezt a bővítményt?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Biztosan frissíteni akarja ezt a bővítményt?"
+
+msgid "grid.action.installPlugin"
+msgstr "A bővítmény telepítése vagy frissítése"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Biztos benne, hogy törölni akarja ezt a bővítményt a rendszerből?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "A törlésre kattintva törli a bővítményt a szerver fájlrendszeréből."
+
+msgid "manager.plugins.deleteError"
+msgstr "A bővítményt \"{$pluginName}\" nem lehet törölni a fájlrendszerből. Ez jogosultsági problémák miatt is lehet. Kérjük, győzödjön meg arról, hogy a szerveren írható a plugins könyvtár (és az alkönyvtárai) majd később ne felejtse újra levédeni ezeket a könyvtárakat."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "A bövítmény \"{$pluginName}\" sikeresen törölve"
+
+msgid "manager.plugins.description"
+msgstr "Ezen az oldalon a menedzser átnézheti és szükség esetén beállíthatja a telepített bővítményeket. A bővítmények funckiójuk szerint vannak kategóriákba rendezve. A kategóriák alább listázottak és mindegyik kategóriában az aktuális bővítmények beállíthatók."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "A bővítmény \"{$pluginName}\" nem található"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Kérjük, először válasszon egy fájlt"
+
+msgid "manager.plugins.upload"
+msgstr "Új bővítmény feltöltése"
+
+msgid "manager.plugins.uploadDescription"
+msgstr "Ez az űrlap lehetővé teszi, hogy feltöltsön és telepítsen egy új bővítményt. Kérjük, győződjön meg arról, hogy a bővítmény .tar.gz formátumban tömörített fájl."
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Kérjük, ellenőrizze, hogy kiváasztotta-e a fájlt."
+
+msgid "manager.plugins.installed"
+msgstr "Telepített bővítmények"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Bővítmények listája"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Áttekintés"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Telepítés"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "A legutolsó kompatibilis kiadás"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Hivatalos"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Lektoráltak"
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Partner"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Fenntartó"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "Verzió: {$version} ekkor kiadva: {$date}"
+
+msgid "manager.plugins.pluginGallery.date"
+msgstr "Kiadási dátum: {$date}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Honlap"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Összegzés"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Státusz"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "A bővítmény még nem telepített."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Jelenleg nincs kompatibilis verziója ennek a bővítménynek."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "A bővítmény már telepített, és frissebb változatú, mint ami a bővítmény listában található."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "A bővítmény már telepített, de frissíthető egy újabb verzióval."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "A bővítmény már telepített és a verziója aktuális."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Újabb, mint az elérhető verzió"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Frissíthető"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Aktuális"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Nem elérhető"
+
+msgid "manager.plugins.installFailed"
+msgstr "A telepítés sikertelen {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Sikeresen telepített verzió {$versionNumber}"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "A feltöltött bővítmény archívum nem tartalmaz olyan mappát, ami megegyezne a bővítmény nevével."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "A feltöltött bővítmény nem egyezik a frissített bővítmény kategóriájával."
+
+msgid "manager.plugins.wrongName"
+msgstr "A feltöltött bővítmények version.xml fájlja tartalmaz egy olyan bővítmény nevet, ami nem egyezik a frissített bővítménnyel."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "A bővítmény nem található. Kérjük, telepítse"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"A bővítmény már létezik, de frissebb, mint a telepített verzió. Kérjük, "
+"frissítsen"
+
+msgid "manager.plugins.settings"
+msgstr "Beállítások"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr "A tar parancs nem található. Kérjük, megfelelően konfigurálja a \"config.inc.php\"."
+
+msgid "manager.plugins.upgrade"
+msgstr "Bővítmény frissítése"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr "Ezzel az űrlappal frissítheti a bővítményt. Kérjük, győződjön meg róla, hogy a bővítmény az alábbi formátumokban tömörített .tar.gz fájl."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "A frissítés nem sikerült. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Sikeresen frissült a {$versionString} verzióra"
+
+msgid "manager.plugins.uploadError"
+msgstr "Hiba a fájlfeltöltésnél"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Bővítmény fájl kiválasztása"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml a bővítmény könyvtárában érvénytelen adatot tartalmaz."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml nem található a bővítmény könyvtárban"
+
+msgid "notification.localeEnabled"
+msgstr "Nyelv elérhető."
+
+msgid "notification.localeDisabled"
+msgstr "Nyelv letiltva."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} elsődleges nyelvként definiálva."
+
+msgid "notification.localeInstalled"
+msgstr "Az összes kiválasztott nyelv telepítve és aktiválva."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} nyelv törölve."
+
+msgid "notification.localeReloaded"
+msgstr "{$locale} nyelv újratöltve."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Nyelvi beállítások elmentve."
+
+msgid "notification.editedUser"
+msgstr "Felhasználó szerkesztve."
+
+msgid "manager.distribution.indexing"
+msgstr "Indexelés"
+
+msgid "manager.paymentMethod"
+msgstr "Fizetések"
+
+msgid "manager.paymentMethod.title"
+msgstr "Fizetési módok"
+
+msgid "manager.paymentMethod.none"
+msgstr "Nincs fizetési mód kiválasztva"
+
+msgid "manager.paymentMethod.method"
+msgstr "Fizetési mód"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Pénznem"
+
+msgid "manager.paymentMethod.currency.description"
+msgstr "A kifizetések közvetlenül a weboldalon keresztül zajlanak a kiválasztott hivatalos pénznemmel."
+
+msgid "settings.roles.roleOptions"
+msgstr "Szerepkör beállítások"
+
+msgid "settings.roles.showTitles"
+msgstr "Mutassa a szerepkört a közreműködői listában"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Engedélyezze a felhasználó saját regisztrációját"
+
+msgid "settings.roles.roleName"
+msgstr "Szerepkör neve"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Rövidítés"
+
+msgid "settings.roles.assignedStages"
+msgstr "Kijelölt szakaszok"
+
+msgid "settings.roles.stages"
+msgstr "Szakaszok"
+
+msgid "settings.roles.roleDetails"
+msgstr "Szerepkör részletek"
+
+msgid "settings.roles.from"
+msgstr "Hozzáférési szint"
+
+msgid "settings.roles.removeText"
+msgstr "Eltávolítani készül a szerepkört ebből a környezetből. Ez a parancs törölni fogja az összes kapcsolódó beállítást és a szerepkörhöz rendelt felhasználókat. Folytatja?"
+
+msgid "settings.roles.nameRequired"
+msgstr "Meg kell adnia egy szerepkör nevet."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Meg kell adnia egy szerepkör rövidítést."
+
+msgid "settings.roles.uniqueName"
+msgstr "Meg kell adnia egy egyedi szerepkör nevet."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Meg kell adnia egy egyedi szerepkör rövidítést."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Meg kell adnia a szerepkör hozzáférési szintet."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Meg kell határoznia a szakasz hozzárendelést."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "Kötelező egy könyvtár fájl. Kérjük, győződjön meg arról, hogy kiválasztott egy fájlt és feltöltötte."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Egy nevet kell megadnia ehhez a könyvtár fájlhoz."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Egy fájltípust kell megadnia ehhez a könyvtár fájlhoz."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Szerződések"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Marketing"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Engedélyek"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Jelentések"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Egyéb"
+
+msgid "grid.action.addGenre"
+msgstr "Komponens hozzáadása"
+
+msgid "grid.action.editGenre"
+msgstr "Ennek a komponensnek a szerkesztése"
+
+msgid "grid.action.deleteGenre"
+msgstr "Ennek a komponensnek a törlése"
+
+msgid "grid.action.restoreGenres"
+msgstr "Komponensek visszaállítása az alapértelmezett beállításokra"
+
+msgid "manager.setup.genres.sortable"
+msgstr "Allow files of this type to be sorted by chapter"
+
+msgid "manager.setup.genres.dependent"
+msgstr "Ehhez a típushoz tartozó fájlokat ne független anyagnak jelölje (tipikusan ne kerüljön megjelenítésre a publikált anyaggal)"
+
+msgid "manager.setup.genres.supplementary"
+msgstr "Ehhez a típushoz tartozó fájlokat kiegészítő anyagnak jelölje (tipikusan nem az elsődleges, fő tartalom)"
+
+msgid "manager.settings.wizard"
+msgstr "Beállítás varázsló"
+
+msgid "manager.users.roleRequired"
+msgstr "Legalább egy szerepet hozzá kell rendelnie a felhasználóhoz."
+
+msgid "manager.website"
+msgstr "Weboldal"
+
+msgid "manager.website.title"
+msgstr "Weboldal beállítások"
+
+msgid "manager.workflow"
+msgstr "Munkafolyamat"
+
+msgid "manager.workflow.title"
+msgstr "Munkafolyamat beállítások"
+
+msgid "manager.distribution"
+msgstr "Megosztás"
+
+msgid "manager.distribution.title"
+msgstr "Megosztási beállítások"
+
+msgid "manager.reviewForms"
+msgstr "Lektorálási űrlapok"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr "Biztosan aktiválni akarja ezt a lektorálási űrlapot? Ha egyszer kitöltik a lektorálási űrlapot, akkor már nem lehet inaktiválni azt."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr "Biztos benne, hogy inaktiválni akarja ezt a lektorálási űrlapot? Nem lesz többet elérhető az új lektori vélemények beküldésénél."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Biztosan létrehoz egy másolatot erről a lektorálási űrlapról?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Befejezett"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Biztosan törölni akarja ezt a lektorálási űrlapot?"
+
+msgid "manager.reviewForms.create"
+msgstr "Lektorálási űrlap létrehozása"
+
+msgid "manager.reviewForms.description"
+msgstr "Leírás és instrukciók"
+
+msgid "manager.reviewForms.edit"
+msgstr "Lektorálási űrlap"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "A cím kötelező a lektorálási űrlaphoz."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Szakmai lektorálás alatt"
+
+msgid "manager.reviewForms.list.description"
+msgstr "Az itt elkészült lektorálási űrlapokat kapják meg a szakmai lektorok az alapértelmezett űrlapok helyett, amelyek két szövegdobozt tartalmaznak, egyet a szerzőnek és a szerkesztőnek, a másikat a szerkesztőnek. A lektorálási űrlapokat ki lehet jelölni egy speciális szerkesztési szakaszhoz is, és a szerkesztők kiválaszthatják, hogy melyik űrlapot használják a lektoráláshoz. Minden esetben a szerkesztők beállíthatják, hogy a lektori vélemányeket megosztják-e a szerzőkkel."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Nem szabad / Szabad lektorálási űrlap"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Nem készült lektorálási űrlap."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Nincs használatban lektorálási űrlap."
+
+msgid "manager.reviewForms.preview"
+msgstr "Űrlap előnézete"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Lektorálási űrlap adatok"
+
+msgid "manager.reviewForms.title"
+msgstr "Cím"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Az űrlapelemek típusának megváltoztatása..."
+
+msgid "manager.reviewFormElements"
+msgstr "Űrlapelemek"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Választási lehetőség hozzáadása"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Jelölő négyzetek (egyet vagy többet választhat)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Válasszon tétel típust"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Erősítse meg a létrehozott űrlap tétel törlését..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Másolat ide:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Új tétel létrehozása"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Legördülő menü"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Űrlap tétel szerkesztése"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Tétel típus"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Egy tétel típust meg kell adni az űrlap tételhez."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Egy kérdést meg kell adni az űrlap tételhez."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Nem készült űrlaptétel."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Választás"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Tétel"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Rádiógombok (egyet tud választani)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "A lektori vélemény befejezéséhez szükséges ez az elem"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Üzenetben elküldés a szerzőnek"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Egyszerű szöveges mező"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Többsoros szöveges mező"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Egysoros szöveges mező"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Látható (szerzőknek)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Új lektorálási űrlap készítése"
+
+msgid "manager.setup.reviewerCompetingInterestsRequired.description"
+msgstr "Lektori összeférhetetlenségi nyilatkozat"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Kérjen összeférhetetlenségi nyilatkozatot a szakmai lektorálás során."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL a weboldal licensz leírásához, ha van ilyen."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Beküldési űrlap"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Ellenőrzési hibák:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Hibák történtek:"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Ismeretlen tétel {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Ismeretlen műfaj {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Ismeretlen kódolás {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Ismeretlen felhasználói csoport {$param}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Ismeretlen feltöltő {$param}"
+
+msgid "manager.navigationMenus"
+msgstr "Navigációs menü"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Egy létező felhasználónak belépve kell lennie."
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "Ezt a plugint a Public Knowledge Project csapata szerkeszti és felügyeli."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "Ezt a plugint a Public Knowledge Project csapata átnézte és jóváhagyta."
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Ezt a plugint az egyik fejlesztő partnerünk biztosította."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Link a jelenlegi számhoz."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Link a folyóiratarchívumhoz."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Ez a link csak akkor jelenik meg, ha a látogató nincs bejelentkezve."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Ez a link csak akkor jelenik meg, ha a látogató be van jelentkezve."
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Ideiglenes fájl {$dest} nem hozható létre ebből {$source}"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr "A megadott fájlméret\"{$expected}\" és a jelenlegi fájlméret \"{$actual}\" nem egyezik"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Figyelmeztetések:"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "A tartalom nem eszerint lett kódolva: {$param}"
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Egy link, amely kijelentkezteti a felhasználót."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Ez a link csak adminisztratív felhasználóknál jelenik meg."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Link a teljes webhely adminisztrátori eszközeihez."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Link ahhoz az oldalhoz, amely az Ön közleményeit jeleníti meg."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Link a felhasználói profil oldalhoz."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Link a szerkesztőségi kezelőpulthoz."
+
+msgid "settings.roles.recommendOnly"
+msgstr "Ez a szerep csak ahhoz elegendő, hogy ajánljon egy lektori döntést, a végső döntés rögzítése egy arra jogosult szerkesztőt igényel."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Link a felhasználó bejelentkezési oldalhoz."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Link a felhasználói regisztrációs oldalhoz."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr "Ez a link csak akkor jelenik meg, ha engedélyezte a hirdetményeket a Beállítások >Webhely menüpontban."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Távoli URL"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr "Ez a link csak akkor jelenik meg, ha kitöltötte a Folyóirat rovat mezőt a Beállítások > Folyóirat menüpontban."
+
+msgid "manager.navigationMenuItems"
+msgstr "Navigációs menüelemek"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Felhasználói oldal"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "Készítsen egy felhasználói oldalt a webhelyén és linkelje be azt a navigácós menüből."
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Aktív téma navigációs területek"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Válasszon ki navigációs területet"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Hozzárendelt menüelemek"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Nem hozzárendelt menüelemek"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Az átdolgozása \"{$revisionId}\" benyújtott fájl \"{$fileId}\" "
+"rekordduplumokat hozhat létre"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "A benyújtott fájlt nem lehet importálni"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Cím"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Útvonal"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Tartalom"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr "Az elérési út csak alfanumerikus karaktereket, valamint '.', '/', '-', és '_ karaktereket tartalmazhat'."
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "URL megadása szükséges"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Válassza a navigációs menü típust, vagy az egyénit saját létrehozásához"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Ez az oldal elérhető lesz: <blockquote>{$pagesPath}</blockquote> ... ahol "
+"a %PATH% a fent megadott elérési út. <strong> Megjegyzés:</strong> Nem lehet "
+"két oldalnak ugyanaz az útvonala. A rendszer alapértelmezett útvonalainak "
+"esetleges megadása funkció elérési problémákat generál.</p>"
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Ez az útvonal már létezik egy másik navigációs menüelemhez."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Ez a cím már létezik egy másik navigációs menühöz."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "A cím megadása kötelező"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "Tudjon meg több arról, hogy ez a menüelem mikor látszik és mikor nem."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr "Ez a link csak akkor látszik, amikor kitöltötte a Szerkesztőség tagjai mezőt a Beállítások > Folyóirat -nál."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr "Amikor egy menüelem egy almenüt nyit ki az nem minden eszközön követhető. Például, ha Önnek van egy \"Rólunk\" menüje, amely kinyit egy almenüt \"Kapcsolat\"  és \"Szerkesztőbizottság\" almenükkel, akkor az \"Rólunk\" nem lesz elérhető az összes eszközön. Az alapmenüben ez kezelhető úgy, hogy létrehoz egy második menüelemet \"A folyóiratról\" elnevezéssel, amely megjelenik az almenüben."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Navigációs menü típus"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Link egy távoli URL-hez egy másik webhelyen, mint például http://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr "Link egy oldalhoz, amely megjeleníti a \"A folyóiratról\" tartalmát a Beállítások > Folyóirat menüben"
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Hivatkozás egy oldalra, amely megmutatja a fejléc tartalmát (Beállítások> "
+"Folyóirat)."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Link ahhoz az oldalhoz, amely megjeleníti a Beküldési javaslatokat."
+
+msgid "manager.setup.searchEngineIndexing.sitemap"
+msgstr "Oldaltérkép"
+
+msgid "manager.setup.searchEngineIndexing.sitemapDescription"
+msgstr "Az XML oldaltérkép elérhető a keresőmotorok számára a(z) <a href=\"{$path}\" target=\"_blank\">{$path}</a> linken"
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Link egy olyan oldalra, amely megjeleníti a kapcsolattartási adatokat."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr "Ez a link csak akkor jelenik meg, ha kitöltötte az elérhetőségeket a Beállítások> Kapcsolat pontban."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Válasszon navigációs menütípust."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr "Ez a link csak akkor jelenik meg, ha a befizetések engedélyezve vannak a Beállítások > Megosztás > Fizetések alatt."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Link a keresőoldalra."
+
+msgid "stats.monthly"
+msgstr "Havi bontásban"
+
+msgid "stats.daily"
+msgstr "Napi bontásban"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Cím, szerző vagy azonosító szerinti keresés"
+
+msgid "stats.articlesOfTotal"
+msgstr "{$count} a(z) {$total} cikkből"
+
+msgid "stats.total"
+msgstr "Összesen"
+
+msgid "stats.fileViews"
+msgstr "File szerint"
+
+msgid "stats.dateRange.customRange"
+msgstr "Egyéni időszak megadása"
+
+msgid "stats.dateRange.apply"
+msgstr "Kiválaszt"
+
+msgid "stats.dateRange.allDates"
+msgstr "Teljes időszak"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Elmúlt 12 hónap"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Elmúlt 30 nap"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Elmúlt 90 nap"
+
+msgid "grid.category.add"
+msgstr "Kategória hozzáadása"
+
+msgid "grid.category.categoryDetails"
+msgstr "Kategória részletei"
+
+msgid "grid.category.name"
+msgstr "Név"
+
+msgid "grid.category.parentCategory"
+msgstr "Szülő kategória"
+
+msgid "grid.category.path"
+msgstr "Elérési útvonal"
+
+msgid "grid.category.description"
+msgstr "Leírás"
+
+msgid "manager.setup.genres.key"
+msgstr "Műfaj azonosító"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Opcionálisan megadható rövid azonosító ehhez a műfajhoz."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Már létező azonosító."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Az azonosító csak alfanumerikus karaktereket, alsóvonást és kötőjelet "
+"tartalmazhat. Alfanumerikus karakterrel kell kezdődnie és végződnie."
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr "<p>Ha a ’Nyilvános elérés’ opciót bekapcsoljuk, az állomány letölthetővé válik a az alábbi linken: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Csatolható megjelentetési dokumentumok kiválasztása"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Leírás"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"A beküldésben megadott nyelven ({$localeName}) nincs keresztneve megadva a "
+"szerzőnek ({$authorName}). Enélkül nem lehet importálni a beküldést."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Import/Export hibák:"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr "Az importált felhasználónak \"{$username}\" nincs jelszava. Ellenőrizze az import XML formátumát. A felhasználó nem került importálásra."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Az importált felhasználó \"{$username}\" jelszavát ilyen formában nem lehet "
+"beemelni. A felhasznló email címére új jelszó került kiküldésre. A "
+"felhasználó importálása sikeres."
+
+msgid "grid.category.removeText"
+msgstr "Biztos, hogy el szeretné távolítani ezt a kategóriát?"
+
+msgid "grid.category.nameRequired"
+msgstr "Adja meg a kategória elnevezését."
+
+msgid "stats.dateRange"
+msgstr "Időszak"
+
+msgid "stats.dateRange.change"
+msgstr "Módosítsa az időszakot"
+
+msgid "stats.dateRange.to"
+msgstr "ig"
+
+msgid "stats.dateRange.untilDate"
+msgstr "{$date}-ig"
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Az importált felhasználó \"{$username}\" jelszava nem érvényes, gyenge. A "
+"felhasználó nem került importálásra."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"A felhasználó felhasználóneve \"{$username}\" és email címe \"{$email}\" nem "
+"egyezik a létező felhasználóval."
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Ide már hozzá lett rendelve navigációs menü."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr "Ez a link csak akkor jelenik meg, ha a látogató bejelentkezett. A fizetési beállítások megtehetők az alábbi helyen: Settings > Distribution > Payments and subscriptions are required under Settings > Distribution > Access."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Hivatkozás az adatvédelmi nyilatkozat oldalára."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr "Ez a hivatkozás csak akkor jelenik meg, ha megadta az adatvédelmi nyilatkozatot az alábbi helyen: Settings > Workflow > Submissions."
+
+msgid "grid.category.edit"
+msgstr "Ketegória szerkesztése"
+
+msgid "grid.category.urlWillBe"
+msgstr "A kategória URL címe az alábbi: {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "A kategória útvonala csak betűket és számokat tartalmazhat."
+
+msgid "grid.category.pathExists"
+msgstr "Létező kategória útvonal. Kérjük, adjon meg mást."
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "A megadott dátumok egyike nem létezik."
+
+msgid "stats.dateRange.from"
+msgstr "Től/től"
+
+msgid "stats.dateRange.instruction"
+msgstr "Minden dátumot ÉÉÉÉ-HH-NN formában adjon meg. Ha például 2019 szeptember 25. a dátum, akkor a helyes formátum: 2019-09-25. "
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Nem érvényes dátum formátum. Minden dátumot ÉÉÉÉ-HH-NN formában adjon meg."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "A kezdeti dátum nem lehet később, mint a végződő."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "A kezdés dátuma ne legyen későbbi mint {$date}."
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "A kezdés dátuma ne legyen korábbi mint {$date}."
+
+msgid "stats.dateRange.sinceDate"
+msgstr "{$date} óta"
+
+msgid "stats.activeSubmissions"
+msgstr "Folyamatban lévő beküldések"
+
+msgid "manager.statistics.editorial"
+msgstr "Szerkesztői"
+
+msgid "manager.statistics.totalWithinDateRange"
+msgstr "Kiválasztott időszakon belül "
+
+msgid "manager.statistics.editorial.editorialActivity"
+msgstr "Szerkesztői tevékenység"
+
+msgid "manager.statistics.editorial.trends"
+msgstr "Trendek"
+
+msgid "manager.statistics.editorial.submissionsActive"
+msgstr "Beküldés folyamatban"
+
+msgid "manager.statistics.editorial.submissionsReceived"
+msgstr "Beérkezett beküldések"
+
+msgid "manager.statistics.editorial.submissionsAccepted"
+msgstr "Elfogadott beküldések"
+
+msgid "manager.statistics.editorial.submissionsDeclined"
+msgstr "Elutasított beküldések"
+
+msgid "manager.statistics.editorial.submissionsDeclined.postReview"
+msgstr "Elutasított beküldések (Lektorálást követően)"
+
+msgid "manager.statistics.editorial.submissionsDeclined.other"
+msgstr "Elutasított beküldések (Egyéb okból)"
+
+msgid "manager.statistics.editorial.submissionsPublished"
+msgstr "Publikált beküldések"
+
+msgid "manager.statistics.editorial.averageDaysToDecide"
+msgstr "Első szerkesztői döntésig eltelt napok átlagos száma"
+
+msgid "manager.statistics.editorial.acceptanceRate"
+msgstr "Elfogadási arány"
+
+msgid "manager.statistics.editorial.rejectionRate"
+msgstr "Elutasítási arány"
+
+msgid "manager.statistics.editorial.postReviewRejectionRate"
+msgstr "Lektorálás során történő elutasítási arány"
+
+msgid "manager.statistics.editorial.otherRejectionRate"
+msgstr "Egyéb elutasítási arány"
+
+msgid "manager.statistics.editorial.registeredUsers"
+msgstr "Regisztrált felhasználók"
+
+msgid "manager.statistics.users.newUserSignups"
+msgstr "Új szerepvállalók és olvasók"
+
+msgid "manager.statistics.users.allRoles"
+msgstr "Összes szerep"
+
+msgid "manager.statistics.editorial.submissionsDeclined.deskReject"
+msgstr "Elutasított beküldés (Lektorálást megelőzően)"
+
+msgid "manager.statistics.editorial.deskRejectRejectionRate"
+msgstr "Lektorálást megelőző elutasítási arány"
+
+msgid "manager.statistics.editorial.averageDaysToAccept"
+msgstr "Elfogadásig eltelt napok átlagos száma"
+
+msgid "manager.statistics.editorial.averageDaysToReject"
+msgstr "Elutasításig eltelt napok átlagos száma"
+
+msgid "manager.statistics.editorial.externalReview"
+msgstr "Külső lektorálás"
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"A beküldés elfogadásának feltétele, hogy a szerző lefedettségi metaadatokat "
+"adjon meg."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr "Beküldéskor kérjen lefedettségi metaadatokat a szerzőtől."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Beküldéskor ne kérjen lefedettségi metaadatokat a szerzőtől."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Lefedettségi metaadatok engedélyezése"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"A lefedettség általában jelzi a mű elkészítésének helyszínét (helynév vagy "
+"földrajzi koordináták), időszakot (egy időszak címkéjét, dátumát vagy "
+"dátumtartományát) vagy joghatóságát (például egy megnevezett adminisztratív "
+"egységet)."
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"A forrás lehet egy másik műnek az azonosítója, például DOI, amiből a "
+"beküldés származtatható."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"A kulcsszavak általában egy-három szavas kifejezések, melyeket a beküldés fő "
+"témáinak jelölésére használnak."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"A beküldés elfogadásának feltétele, hogy a szerző kulcsszavakat adjon meg."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Beküldéskor kérjen kulcsszavakat a szerzőtől."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Beküldéskor ne kérjen kulcsszavakat a szerzőtől."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Kulcsszó metaadat engedélyezése"
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"A beküldés elfogadásának feltétele, hogy a szerző forrás URL-t adjon meg."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Beküldéskor kérjen forrás URL-t a szerzőtől."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Beküldéskor ne kérjen forrás URL-t a szerzőtől."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Forrás metaadat endedélyezése"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Beküldéskor ne kérjen hivatkozásokat a szerzőtől."
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"A nyelv az anyag elsődleges nyelvét jelzik egy nyelvi kóddal (\"en\") és az "
+"opcionális országkóddal (\"en_US\")."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"A beküldés elfogadásának feltétele, hogy a szerző megadja a beküldési "
+"nyelveket."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Beküldéskor kérjen hivatkozásokat a szerzőtől."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr "Az elfogadás feltétele, hogy a szerzők hivatkozásokat is megadjanak."
+
+msgid "stats.allUsers"
+msgstr "Összes felhasználó"
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"A dátumot YYYY-MM-DD formátumban írja be. Például, ha 2019. január 15-re "
+"szeretné a dátumot megadni, így írja be: 2019-01-15."
+
+msgid "stats.dateRange.thisYear"
+msgstr "Év visszamenőleg"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Előző év"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Útóbbi két év"
+
+msgid "stats.descriptionForStat"
+msgstr "Leírás a {$stat} számára"
+
+msgid "stats.editorialActivity"
+msgstr "Szerkesztői tevékenység"
+
+msgid "stats.submissionsActive"
+msgstr "Beküldés folyamatban"
+
+msgid "stats.userStatistics"
+msgstr "Használati statisztikák"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Lektorálás során történő elutasítási arány"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Lektorálást megelőző elutasítási arány"
+
+msgid "stats.name.declineRate"
+msgstr "Elutasítási arány"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Elfogadási arány"
+
+msgid "stats.name.daysToReject"
+msgstr "Elutasításig eltelt napok átlagos száma"
+
+msgid "stats.name.daysToAccept"
+msgstr "Elfogadásig eltelt napok átlagos száma"
+
+msgid "stats.name.daysToDecision"
+msgstr "Első szerkesztői döntésig eltelt napok átlagos száma"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Publikált beküldések"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Elfogadott beküldések"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Beérkezett beküldések"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Kiválasztott időszakon belül"
+
+msgid "stats.trends"
+msgstr "Trendek"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Elutasított beküldések"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Elutasított beküldések (Lektorálást követően)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Elutasított beküldés (Lektorálást megelőzően)"
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "A benyújtás során kérje a szerzőtől a benyújtás nyelveinek megadását."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+"A benyújtás során ne kérje a szerzőtől a benyújtás nyelveinek megadását."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Nyelvi metaadatok engedélyezése"
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Lefedettség"
+
+msgid "manager.setup.metadata.success"
+msgstr "A beküldés metaadatai sikeresen frissültek."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "A beküldés metaadatainak szerkesztési engedélyezése."
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"HTML-címkék hozzáadása, más néven metacímkék, amelyeket be szeretne "
+"illeszteni minden oldal fejlécébe. Mielőtt címkéket adna hozzá, forduljon "
+"műszaki tanácsadóhoz."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Egyéni címkék"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Adja meg azokat a nyilvános licencfeltételeket, amelyeket meg szeretne "
+"jeleníteni a közzétett tartalmakkal."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Licenc feltételek"
+
+msgid "manager.distribution.license.other"
+msgstr "Egyéb licenc URL"
+
+msgid "manager.distribution.license.success"
+msgstr "Az licenc kezelésének részleteit frissítettük. "
+
+msgid "manager.distribution.license"
+msgstr "Licenc"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Regisztrált felhasználók"
+
+msgid "manager.setup.userAccess.success"
+msgstr "A folyóirat felhasználói hozzáférési adatai frissültek."
+
+msgid "manager.setup.theme.notFound"
+msgstr "A kiválasztott téma nincs telepítve vagy engedélyezve."
+
+msgid "manager.setup.theme.description"
+msgstr "Új témák telepíthetők az oldal tetején található Plugins fül alól."
+
+msgid "manager.setup.theme"
+msgstr "Téma"
+
+msgid "manager.setup.theme.success"
+msgstr "A téma frissült. <a href=\"{$url}\" target=\"_blank\">Megtekintése</a>"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Alapértelmezett lektorálási mód"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Ha a lektor nem végzi el a lektorálást határidőre, ennyi idő múlva (nap) "
+"küldjön emlékeztetőt a rendszer."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Lektorálási emlékeztető"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Ha a lektor nem fogadja el a lektori felkérést határidőre, ennyi idő múlva "
+"(nap) küldjön emlékeztetőt a rendszer."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Válaszadási emlékeztető"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Alapértelmezett teljesítési határidő"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Alapértelmezett válaszadási határidő"
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Adjon meg olyan képet, szöveget vagy HTML-kódot, amelyet meg kíván "
+"jelentetni az webhely alján."
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "A feltöltött fájl nem található. Próbálja meg újra feltölteni."
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"A(z) {$name} blokk nem található. Kérjük, ellenőrizze, hogy a plugin "
+"telepítve és engedélyezve van-e."
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Töltsön fel egy képet, ami jól láthatóan megjelenik a főoldalon."
+
+msgid "manager.setup.checklist"
+msgstr "Ellenőrző lista"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "A szerzői irányelveket sikeresen frissítettük."
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"A szerzőknek a benyújtási folyamat részeként el kell fogadniuk a következő "
+"szerzői jogi közlemény részleteit."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Szerzői jogi közlemény"
+
+msgid "manager.setup.contact.success"
+msgstr "A kiadó elérhetőségei frissültek."
+
+msgid "manager.setup.appearance.success"
+msgstr "A megjelenési beállításokat frissítettük."
+
+msgid "manager.setup.advanced"
+msgstr "Haladó beállítások"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Bármi, amit itt megad, megjelenik a főoldalán."
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Tárgy: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Címzett"
+
+msgid "manager.emails.sentFrom"
+msgstr "Küldő"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "A megadott kulcs már használatban van."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "E-mail sablon hozzáadásakor meg kell adnia egy ' context ID'-t."
+
+msgid "manager.emails.emailKey.description"
+msgstr "Az e-mail kulcs csak betűket, számokat és aláhúzást tartalmazhat."
+
+msgid "manager.emails.editEmail.success"
+msgstr "Az e-mail sablon módosult."
+
+msgid "manager.emails.customTemplate"
+msgstr "Egyéni sablon"
+
+msgid "manager.emails.addEmail.success"
+msgstr "Az e-mail sablon hozzáadva."
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "A szakmai lektorálási emlékeztető részletei frissítve."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "A szakmai lektorálási beállítások frissítve."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Szakmai lektorálási útmutató frissítve."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Szakmai lektorálási útmutató"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "Az e-mail beállítások frissültek."
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Napok száma,  melyen belül a legtöbb beküldéssel kapcsolatban megszületik az "
+"elsődleges szerkesztői döntés, mint a szakmai lektorálásra küldés vagy az "
+"elutasítás még ezt megelőzően.<br><br>Ezek a számadatok azt mutatják, hogy a "
+"benyújtott beadások 80% -áról döntés születik a megadott napokon "
+"belül.<br><br>Ez a statisztika megbecsüli, mikorra esedékes a döntés a "
+"szerzők többsége számára."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"A kiválasztott dátumtartomány százaléka azokra a beadásokra kerül "
+"kiszámításra, amelyeket ezen az időszakon belül nyújtottak be és amelyekkel "
+"kapocsolatban a végleges döntés  megszületett.<br><br>Vegyük például az "
+"esetet, amikor tíz beküldés érkezett ebben az időszakban. Ebből négyet "
+"elfogadtak, négyet elutasítottak, és kettő még a végleges döntésre "
+"vár.<br><br>Az elfogadási arány 50% (8 beküldés közül 4), mivel a két olyan "
+"beküldést, melyekkel kapcsolatban még nem született végleges düntés, nem "
+"számolják."
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Nem törölheti a képviselőt, mert a cikk egy vagy több publikáció "
+"formátumának piaci metaadatához van rendelve."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"A beküldés elfogadásának feltétele, hogy a szerző típus adatot adjon meg."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Beküldéskor kérjen típus adatot a szerzőtől."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Beküldéskor ne kérjen típus adatot a szerzőtől."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Típus metaadat engedélyezése"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"A beküldés hivatkozásait gyűjtse össze egy külön mezőben. Erre szükség lehet "
+"az idézetkövetési szolgáltatások, például a Crossrefnek történő "
+"megfeleléshez."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Hivatkozás metaadatok engedélyezése"
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"A beküldés elfogadásának feltétele, hogy a szerző támogató ügynökség adatot "
+"adjon meg."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr "Beküldéskor kérjen támogató ügynökség adatot a szerzőtől."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Beküldéskor ne kérjen támogató ügynökség adatot a szerzőtől."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "A támogató ügynökségek metaadatainak engedélyezése"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"A támogató ügynökségek megjelölhetik a kutatás finanszírozásának forrását "
+"vagy más, a kutatást elősegítő intézményi támogatást."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"A beküldés elfogadásának feltétele, hogy a szerző tudományterület adatot "
+"adjon meg."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Beküldéskor kérjen tudományterület adatot a szerzőtől."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Beküldéskor ne kérjen tudományterület adatot a szerzőtől."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Tudományterület metaadatok engedélyezése"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"A tudományterületek olyan típusú tanulmányok vagy tudáságak, amelyeket az "
+"egyetemi karok és a tanult társadalmak írnak le."
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"A beküldés fő tartalmának jellege vagy műfaja. A típus általában \"Szöveg\", "
+"de lehet \"Adatkészlet\", \"Kép\" vagy bármilyen <a target=\"_blank\" href=\""
+"http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-"
+"vocabulary\">Dublin Core típus</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"A beküldés elfogadásának feltétele, hogy a szerző szakterület adatot adjon "
+"meg."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Beküldéskor kérjen szakterület adatot a szerzőtől."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Beküldéskor ne kérjen szakterület adatot a szerzőtől."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Szakterület metaadat engedélyezése"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"A tárgyak olyan kulcsszavak, kulcsmondatok vagy osztályozási kódok lesznek, "
+"amelyek leírják a beküldés témáját."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"A beküldés elfogadásának feltétele, hogy a szerző közzétegye a korábbi "
+"hozzáférési jogokat."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"A benyújtás kapcsán fennálló jogok, amelyek magukban foglalhatják a szellemi "
+"tulajdonjogokat (IPR), a szerzői jogokat és a különféle tulajdonjogokat."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Kérje a szerzőt, hogy a benyújtás során tegye közzé minden korábbi "
+"hozzáférési jogát."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Ne kérje a jogok nyilvánosságra hozatalát benyújtás során a szerzőtől."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Jogi metaadatok engedélyezése"

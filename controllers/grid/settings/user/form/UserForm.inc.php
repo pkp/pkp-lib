@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/settings/user/form/UserForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserForm
  * @ingroup controllers_grid_settings_user_form
@@ -41,7 +41,7 @@ class UserForm extends Form {
 	 */
 	public function initData() {
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getByUserId($this->userId);
 		$userGroupIds = array();
 		while ($userGroup = $userGroups->next()) {
@@ -69,7 +69,8 @@ class UserForm extends Form {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$items = [];
-		$userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($contextId);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userGroups = $userGroupDao->getByContextId($contextId);
 		while ($userGroup = $userGroups->next()) {
 			$items[] = array(
 				'id' => (int) $userGroup->getId(),
@@ -106,10 +107,10 @@ class UserForm extends Form {
 	function execute(...$functionArgs) {
 		if (isset($this->userId)) {
 			import('lib.pkp.classes.security.UserGroupAssignmentDAO');
-			$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
+			$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /* @var $userGroupAssignmentDao UserGroupAssignmentDAO */
 			$userGroupAssignmentDao->deleteAssignmentsByContextId(Application::get()->getRequest()->getContext()->getId(), $this->userId);
 			if ($this->getData('userGroupIds')) {
-				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 				foreach ($this->getData('userGroupIds') as $userGroupId) {
 					$userGroupDao->assignUserToGroup($this->userId, $userGroupId);
 				}

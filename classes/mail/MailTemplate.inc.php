@@ -3,9 +3,9 @@
 /**
  * @file classes/mail/MailTemplate.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MailTemplate
  * @ingroup mail
@@ -139,7 +139,7 @@ class MailTemplate extends Mail {
 	 * @param $params array Associative array of variables to supply to the email template
 	 */
 	function assignParams($params = array()) {
-		$application = Application::getApplication();
+		$application = Application::get();
 		$request = $application->getRequest();
 		$site = $request->getSite();
 

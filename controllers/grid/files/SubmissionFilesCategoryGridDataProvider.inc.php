@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/files/SubmissionFilesCategoryGridDataProvider.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFilesCategoryDataProvider
  * @ingroup controllers_grid_files_review
@@ -96,7 +96,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 		// For review stages, get the revisions of the review round that user is currently accessing.
 		if ($stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
 			if (is_null($reviewRound) || $reviewRound->getStageId() != $stageId) {
-				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 				$reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 			}
 			$stageSubmissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound($reviewRound, $fileStage);
@@ -113,10 +113,10 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 				} elseif ($submissionFile->getFileStage() == SUBMISSION_FILE_QUERY) {
 					// Determine the stage from the query.
 					if ($submissionFile->getAssocType()!=ASSOC_TYPE_NOTE) break;
-					$noteDao = DAORegistry::getDAO('NoteDAO');
+					$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 					$note = $noteDao->getById($submissionFile->getAssocId());
 					assert($note && $note->getAssocType()==ASSOC_TYPE_QUERY);
-					$queryDao = DAORegistry::getDAO('QueryDAO');
+					$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 					$query = $queryDao->getById($note->getAssocId());
 					if ($query && $query->getStageId() == $stageId) $stageSubmissionFiles[$key] = $submissionFile;
 				}

@@ -3,9 +3,9 @@
 /**
  * @file pages/stats/PKPStatsHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsHandler
  * @ingroup pages_stats
@@ -69,6 +69,7 @@ class PKPStatsHandler extends Handler {
 		];
 
 		$totals = Services::get('editorialStats')->getOverview($args);
+		$averages = Services::get('editorialStats')->getAverages($args);
 		$dateRangeTotals = Services::get('editorialStats')->getOverview(
 			array_merge(
 				$args,
@@ -117,6 +118,12 @@ class PKPStatsHandler extends Handler {
 			if ($description) {
 				$row['description'] = $description;
 			}
+			if (array_key_exists($stat['key'], $averages) && !empty($averages[$stat['key']])) {
+				$row['total'] = __('stats.countWithYearlyAverage', [
+					'count' => $stat['value'],
+					'average' => $averages[$stat['key']],
+				]);
+			}
 			$tableRows[] = $row;
 		}
 
@@ -134,6 +141,7 @@ class PKPStatsHandler extends Handler {
 			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/editorial'),
 			[
 				'activeByStage' => $activeByStage,
+				'averagesApiUrl' => $dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/editorial/averages'),
 				'dateStart' => $dateStart,
 				'dateEnd' => $dateEnd,
 				'dateRangeOptions' => [

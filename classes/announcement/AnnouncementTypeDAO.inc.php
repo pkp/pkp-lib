@@ -3,9 +3,9 @@
 /**
  * @file classes/announcement/AnnouncementTypeDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementTypeDAO
  * @ingroup announcement
@@ -237,7 +237,7 @@ class AnnouncementTypeDAO extends DAO {
 		$this->update('DELETE FROM announcement_type_settings WHERE type_id = ?', (int) $typeId);
 		$this->update('DELETE FROM announcement_types WHERE type_id = ?', (int) $typeId);
 
-		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
 		$announcementDao->deleteByTypeId($typeId);
 	}
 

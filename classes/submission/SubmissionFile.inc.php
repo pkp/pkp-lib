@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/SubmissionFile.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFile
  * @ingroup submission
@@ -488,7 +488,7 @@ class SubmissionFile extends PKPFile {
 	 */
 	function getFilePath() {
 		// Get the context ID
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($this->getSubmissionId());
 		if (!$submission) return null;
 		$contextId = $submission->getContextId();
@@ -541,7 +541,7 @@ class SubmissionFile extends PKPFile {
 		// Generate a human readable time stamp.
 		$timestamp = date('Ymd', strtotime($this->getDateUploaded()));
 
-		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$genre = $genreDao->getById($this->getGenreId());
 
 		// Make the file name unique across all files and file revisions.
@@ -582,7 +582,7 @@ class SubmissionFile extends PKPFile {
 	* @return int
 	*/
 	function getViews() {
-		$application = Application::getApplication();
+		$application = Application::get();
 		return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $this->getFileId());
 	}
 
@@ -616,7 +616,7 @@ class SubmissionFile extends PKPFile {
 	 * @return string
 	 */
 	function _generateName($anonymous = false) {
-		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$genre = $genreDao->getById($this->getGenreId());
 		$userDAO = DAORegistry::getDAO('UserDAO');
 		$user = $userDAO->getById($this->getUploaderUserId());

@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/PKPAuthorDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorDAO
  * @ingroup submission
@@ -89,32 +89,6 @@ abstract class PKPAuthorDAO extends SchemaDAO {
 	}
 
 	/**
-	 * Retrieve the primary author for a submission.
-	 * @param $submissionId int Submission ID.
-	 * @return Author
-	 */
-	function getPrimaryContact($submissionId) {
-		$params = array((int) $submissionId);
-
-		$result = $this->retrieve(
-			'SELECT a.*, ug.show_title, s.locale
-			FROM authors a
-				JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
-				JOIN submissions s ON (s.submission_id = a.submission_id)
-			WHERE a.submission_id = ?'
-			. ' AND a.primary_contact = 1',
-			$params
-		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
-	}
-
-	/**
 	 * Update author names when publication locale changes.
 	 * @param $publicationId int
 	 * @param $oldLocale string
@@ -154,9 +128,13 @@ abstract class PKPAuthorDAO extends SchemaDAO {
 	 * @param $submissionId int
 	 */
 	function deleteBySubmissionId($submissionId) {
-		$authors = $this->getBySubmissionId($submissionId, false, false);
-		foreach ($authors as $author) {
-			$this->deleteObject($author);
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO');
+		$submission = $submissionDao->getById($submissionId);
+		if ($submission) foreach ($submission->getData('publications') as $publication) {
+			$authors = $this->getByPublicationId($publication->getId());
+			foreach ($authors as $author) {
+				$this->deleteObject($author);
+			}
 		}
 	}
 }

@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/context/PKPReviewSetupForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPReviewSetupForm
  * @ingroup classes_controllers_form
@@ -44,8 +44,6 @@ class PKPReviewSetupForm extends FormComponent {
 
 		$this->addField(new FieldOptions('defaultReviewMode', [
 				'label' => __('manager.setup.reviewOptions.reviewMode'),
-				'helpTopic' => 'settings',
-				'helpSection' => 'workflow-review-mode',
 				'type' => 'radio',
 				'value' => $context->getData('defaultReviewMode'),
 				'options' => [
@@ -56,8 +54,6 @@ class PKPReviewSetupForm extends FormComponent {
 			]))
 			->addField(new FieldOptions('restrictReviewerFileAccess', [
 				'label' => __('manager.setup.reviewOptions.restrictReviewerFileAccess'),
-				'helpTopic' => 'settings',
-				'helpSection' => 'workflow-review-file-access',
 				'type' => 'checkbox',
 				'value' => $context->getData('restrictReviewerFileAccess'),
 				'options' => [

@@ -3,9 +3,9 @@
 /**
  * @file classes/task/StatisticsReport.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class StatisticsReport
  * @ingroup tasks
@@ -49,7 +49,7 @@ class StatisticsReport extends ScheduledTask {
 		);
 
 		$contextDao = Application::get()->getContextDAO();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		$sentMessages = 0;
 		for ($contexts = $contextDao->getAll(true); $context = $contexts->next(); ) {

@@ -3,9 +3,9 @@
 /**
  * @file classes/install/Installer.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Installer
  * @ingroup install
@@ -142,7 +142,7 @@ class Installer {
 
 		if (!isset($this->currentVersion)) {
 			// Retrieve the currently installed version
-			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 			$this->currentVersion = $versionDao->getCurrentVersion();
 		}
 
@@ -277,7 +277,7 @@ class Installer {
 	 */
 	function updateVersion() {
 		if ($this->newVersion->compare($this->currentVersion) > 0) {
-			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 			if (!$versionDao->insertVersion($this->newVersion)) {
 				return false;
 			}
@@ -614,11 +614,9 @@ class Installer {
 	 * 		'locales' => 'en_US,fr_CA,...'
 	 */
 	function installEmailTemplate($installer, $attr) {
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), false, $attr['key']);
-		foreach (explode(',', $attr['locales']) as $locale) {
-			$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale), false, $attr['key']);
-		}
+		$locales = explode(',', $attr['locales']);
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), $locales, false, $attr['key']);
 		return true;
 	}
 
@@ -668,7 +666,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function columnExists($tableName, $columnName) {
-		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 		$dataSource = $siteDao->getDataSource();
 		$dict = NewDataDictionary($dataSource);
 
@@ -692,7 +690,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function tableExists($tableName) {
-		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 		$dataSource = $siteDao->getDataSource();
 		$dict = NewDataDictionary($dataSource);
 
@@ -707,7 +705,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function addPluginVersions() {
-		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		import('lib.pkp.classes.site.VersionCheck');
 		$fileManager = new FileManager();
 		$categories = PluginRegistry::getCategories();
@@ -758,7 +756,7 @@ class Installer {
 	 */
 	function installDefaultNavigationMenus() {
 		$contextDao = Application::getContextDAO();
-		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $navigationMenuDao NavigationMenuDAO */
 
 		$contexts = $contextDao->getAll();
 		while ($context = $contexts->next()) {
@@ -785,7 +783,7 @@ class Installer {
 	 * Migrate site locale settings to a serialized array in the database
 	 */
 	function migrateSiteLocales() {
-		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 
 		$result = $siteDao->retrieve('SELECT installed_locales, supported_locales FROM site');
 
@@ -812,7 +810,7 @@ class Installer {
 	 */
 	function migrateSidebarBlocks() {
 
-		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 		$site = $siteDao->getSite();
 
 		$plugins = PluginRegistry::loadCategory('blocks');
@@ -825,9 +823,9 @@ class Installer {
 			return "'" . preg_replace("/[^A-Za-z0-9]/", '', $name) . "'";
 		}, array_keys($plugins));
 
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		$result = $pluginSettingsDao->retrieve(
-			"SELECT plugin_name, context_id, setting_value FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames) . ') AND setting_name='context';"
+			'SELECT plugin_name, context_id, setting_value FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames) . ') AND setting_name=\'context\';'
 		);
 
 		$sidebarSettings = [];
@@ -855,14 +853,14 @@ class Installer {
 				$context->setData('sidebar', $contextSetting);
 				$contextDao->updateObject($context);
 			} else {
-				$siteDao = DAORegistry::getDAO('SiteDAO');
+				$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 				$site = $siteDao->getSite();
 				$site->setData('sidebar', $contextSetting);
 				$siteDao->updateObject($site);
 			}
 		}
 
-		$pluginSettingsDao->update('DELETE FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames ) . ') AND (setting_name="context" OR setting_name="seq");');
+		$pluginSettingsDao->update('DELETE FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames ) . ') AND (setting_name=\'context\' OR setting_name=\'seq\');');
 
 		return true;
 	}
@@ -930,12 +928,12 @@ class Installer {
 
 				if ($value !== METADATA_DISABLE) {
 					$contextDao->update('
-						INSERT INTO ' . $contextDao->settingsTableName . ' SET
-							' . $contextDao->primaryKeyColumn . ' = ?,
-							locale = ?,
-							setting_name = ?,
-							setting_value = ?
-						',
+						INSERT INTO ' . $contextDao->settingsTableName . ' (
+							' . $contextDao->primaryKeyColumn . ',
+							locale,
+							setting_name,
+							setting_value
+						) VALUES (?, ?, ?, ?)',
 						[
 							$contextId,
 							'',
@@ -975,11 +973,13 @@ class Installer {
 		import('lib.pkp.classes.notification.PKPNotification'); // NOTIFICATION_TYPE_EDITORIAL_REPORT
 		$roleIds = [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR];
 
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
 		for ($contexts = Application::get()->getContextDAO()->getAll(true); $context = $contexts->next(); ) {
 			foreach ($roleIds as $roleId) {
-				for ($userGroups = DAORegistry::getDAO('UserGroupDAO')->getByRoleId($context->getId(), $roleId); $userGroup = $userGroups->next(); ) {
-					for ($users = DAORegistry::getDAO('UserGroupDAO')->getUsersById($userGroup->getId(), $context->getId()); $user = $users->next(); ) {
-						DAORegistry::getDAO('NotificationSubscriptionSettingsDAO')->update(
+				for ($userGroups = $userGroupDao->getByRoleId($context->getId(), $roleId); $userGroup = $userGroups->next(); ) {
+					for ($users = $userGroupDao->getUsersById($userGroup->getId(), $context->getId()); $user = $users->next(); ) {
+						$notificationSubscriptionSettingsDao->update(
 							'INSERT INTO notification_subscription_settings
 								(setting_name, setting_value, user_id, context, setting_type)
 								VALUES
@@ -997,6 +997,39 @@ class Installer {
 			}
 		}
 
+		return true;
+	}
+
+	/**
+	 * Fix library files, which were mistakenly named server-side using source filenames.
+	 * See https://github.com/pkp/pkp-lib/issues/5471
+	 * @return boolean
+	 */
+	public function fixLibraryFiles() {
+		import('classes.file.LibraryFileManager');
+		// Fetch all library files (no method currently in LibraryFileDAO for this)
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
+		$result = $libraryFileDao->retrieve('SELECT * FROM library_files');
+		$libraryFiles = new DAOResultFactory($result, $libraryFileDao, '_fromRow', array('id'));
+		$wrongFiles = array();
+		while ($libraryFile = $libraryFiles->next()) {
+			$libraryFileManager = new LibraryFileManager($libraryFile->getContextId());
+			$wrongFilePath = $libraryFileManager->getBasePath() .  $libraryFile->getOriginalFileName();
+			$rightFilePath = $libraryFile->getFilePath();
+
+			if (isset($wrongFiles[$wrongFilePath])) {
+				error_log('A potential collision was found between library files ' . $libraryFile->getId() . ' and ' . $wrongFiles[$wrongFilePath]->getId() . '. Please review the database entries and ensure that the associated files are correct.');
+			} else {
+				$wrongFiles[$wrongFilePath] = $libraryFile;
+			}
+
+			// For all files for which the "wrong" filename exists and the "right" filename doesn't,
+			// copy the "wrong" file over to the "right" one. This will leave the "wrong" file in
+			// place, and won't disambiguate cases for which files were clobbered.
+			if (file_exists($wrongFilePath) && !file_exists($rightFilePath)) {
+				$libraryFileManager->copyFile($wrongFilePath, $rightFilePath);
+			}
+		}
 		return true;
 	}
 }

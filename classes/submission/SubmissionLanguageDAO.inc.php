@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/SubmissionLanguageDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionLanguageDAO
  * @ingroup submission
@@ -48,7 +48,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 		$result = [];
 
 		$languages = $this->build($publicationId);
-		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO');
+		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO'); /* @var $submissionLanguageEntryDao SubmissionLanguageEntryDAO */
 		$submissionLanguages = $submissionLanguageEntryDao->getByControlledVocabId($languages->getId());
 		while ($languageEntry = $submissionLanguages->next()) {
 			$language = $languageEntry->getLanguage();
@@ -93,8 +93,8 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 * @return int
 	 */
 	function insertLanguages($languages, $publicationId, $deleteFirst = true) {
-		$languageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
-		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO');
+		$languageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /* @var $languageDao SubmissionLanguageDAO */
+		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO'); /* @var $submissionLanguageEntryDao SubmissionLanguageEntryDAO */
 		$currentLanguages = $this->build($publicationId);
 
 		if ($deleteFirst) {

@@ -10,9 +10,9 @@
 /**
  * @file classes/submission/PKPSubmission.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmission
  * @ingroup submission
@@ -45,15 +45,15 @@ abstract class PKPSubmission extends DataObject {
 	}
 
 	/**
-	 * Return the "best" article ID -- If a public article ID is set,
+	 * Return the "best" article ID -- If a urlPath is set,
 	 * use it; otherwise use the internal article Id.
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
 	function getBestId() {
-		$publicArticleId = $this->getStoredPubId('publisher-id');
-		if (!empty($publicArticleId)) return $publicArticleId;
-		return $this->getId();
+		return $this->getCurrentPublication()->getData('urlPath')
+			? $this->getCurrentPublication()->getData('urlPath')
+			: $this->getId();
 	}
 
 	/**
@@ -164,7 +164,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @copydoc DataObject::getDAO()
 	 */
 	function getDAO() {
-		return Application::get()->getSubmissionDAO();
+		return DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 	}
 
 	//
@@ -330,7 +330,7 @@ abstract class PKPSubmission extends DataObject {
 		if (!$publication) {
 			return '';
 		}
-		return $publication->getData('licenseURL');
+		return $publication->getData('licenseUrl');
 	}
 
 	/**
@@ -341,7 +341,7 @@ abstract class PKPSubmission extends DataObject {
 	function setLicenseURL($licenseURL) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
-			$publication->setData('licenseURL', $licenseURL);
+			$publication->setData('licenseUrl', $licenseURL);
 		}
 	}
 
@@ -375,7 +375,8 @@ abstract class PKPSubmission extends DataObject {
 			return $author->getData('userGroupId');
 		}, $this->getAuthors());
 		$userGroups = array_map(function($userGroupId) {
-			return DAORegistry::getDAO('UserGroupDAO')->getbyId($userGroupId);
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+			return $userGroupDao->getbyId($userGroupId);
 		}, array_unique($userGroupIds));
 
 		return $publication->getAuthorString($userGroups);
@@ -422,7 +423,7 @@ abstract class PKPSubmission extends DataObject {
 			return [];
 		}
 		$authors = $publication->getData('authors');
-		if (empty(!$authors)) {
+		if (empty($authors)) {
 			return [];
 		}
 		if ($onlyIncludeInBrowse) {
@@ -1197,4 +1198,13 @@ abstract class PKPSubmission extends DataObject {
 		$publication = $this->getCurrentPublication();
 		return $publication && $publication->isCCLicense();
 	}
+
+	/**
+         * Get views of the submission.
+         * @return int
+         */
+        function getViews() {
+                $application = Application::getApplication();
+                return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION, $this->getId());
+        }
 }

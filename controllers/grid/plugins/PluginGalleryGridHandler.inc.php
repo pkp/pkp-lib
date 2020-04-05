@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/settings/pluginGallery/PluginGalleryGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginGalleryGridHandler
  * @ingroup controllers_grid_settings_pluginGallery
@@ -120,9 +120,9 @@ class PluginGalleryGridHandler extends GridHandler {
 	 */
 	protected function loadData($request, $filter) {
 		// Get all plugins.
-		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
+		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO'); /* @var $pluginGalleryDao PluginGalleryDAO */
 		return $pluginGalleryDao->getNewestCompatible(
-			Application::getApplication(),
+			Application::get(),
 			$request->getUserVar('category'),
 			$request->getUserVar('pluginText')
 		);
@@ -303,8 +303,8 @@ class PluginGalleryGridHandler extends GridHandler {
 	 */
 	function _getSpecifiedPlugin($request) {
 		// Get all plugins.
-		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
-		$plugins = $pluginGalleryDao->getNewestCompatible(Application::getApplication());
+		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO'); /* @var $pluginGalleryDao PluginGalleryDAO */
+		$plugins = $pluginGalleryDao->getNewestCompatible(Application::get());
 
 		// Get specified plugin. Indexes into $plugins are 0-based
 		// but row IDs are 1-based; compensate.

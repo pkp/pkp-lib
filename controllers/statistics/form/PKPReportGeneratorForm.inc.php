@@ -3,9 +3,9 @@
 /**
  * @file controllers/statistics/form/PKPReportGeneratorForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPReportGeneratorForm
  * @ingroup controllers_statistics_form
@@ -219,10 +219,10 @@ abstract class PKPReportGeneratorForm extends Form {
 	}
 
 	/**
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
-		parent::execute();
+	function execute(...$functionArgs) {
+		parent::execute(...$functionArgs);
 		$request = Application::get()->getRequest();
 		$router = $request->getRouter(); /* @var $router PageRouter */
 		$context = $router->getContext($request);

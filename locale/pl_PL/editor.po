@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:57+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:57+00:00\n"
+"POT-Creation-Date: 2020-01-30T17:13:02+00:00\n"
+"PO-Revision-Date: 2020-01-30T17:13:02+00:00\n"
 "Language: \n"
 
 msgid "editor.submissionLibrary"
@@ -87,7 +87,7 @@ msgid "editor.submissionReview.blind"
 msgstr "Ślepa"
 
 msgid "editor.submissionReview.doubleBlind"
-msgstr "Podwójna ślepa"
+msgstr "Podwójnie ślepa"
 
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Pliki do zrecenzowania"
@@ -172,9 +172,6 @@ msgstr "Recenzja przesłana"
 
 msgid "editor.review.reviewerComments"
 msgstr "Komentarze recenzenta"
-
-msgid "editor.review.days"
-msgstr "Średni czas wykonania recenzji (dni)"
 
 msgid "editor.review.mustSelect"
 msgstr "Musisz wybrać recenzenta"
@@ -269,9 +266,6 @@ msgstr "Formularze recenzji"
 msgid "editor.article.selectReviewForm"
 msgstr "Wybierz formularz recenzji"
 
-msgid "editor.article.clearReviewForm"
-msgstr "Wyczyść formularz recenzji"
-
 msgid "editor.article.confirmChangeReviewForm"
 msgstr "Uwaga: Wprowadzenie zmian w formularzu recenzji będzie miało wpływ na odpowiedzi, które recenzenci już złożyli korzystając z tego formularza. Czy na pewno chcesz kontynuować?"
 
@@ -317,9 +311,6 @@ msgstr "Publiczny identyfikator '{$publicIdentifier}' nie może być liczbą."
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Publiczny identyfikator nie może posiadać wzoru {$pattern}."
 
-msgid "editor.submission.schedulePublication"
-msgstr "Zaplanuj do publikacji"
-
 msgid "editor.submissionReview.sendEmail"
 msgstr "Wyślij e-mail z powiadomieniem do autora(ów): {$authorName}"
 
@@ -346,3 +337,75 @@ msgstr "Utwórz dyskusję poświęconą tej rekomendacji."
 
 msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
 msgstr "Nie twórz dyskusji poświęconej tej rekomendacji."
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Anonimowy recenzent"
+
+msgid "editor.review.requestDeclined"
+msgstr "Zapytanie odrzucone"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Recenzent odrzucił zapytanie o wykonanie recenzji."
+
+msgid "editor.review.rateReviewer"
+msgstr "Ocena recenzenta"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "Oceń jakość dostarczonej recenzji. Ocena recenzenta nie jest widoczna dla recenzenta."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Brak oceny"
+
+msgid "reviewer.list.count"
+msgstr "{$count} recenzenci"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} z {$total} recenzentów"
+
+msgid "reviewer.list.filterRating"
+msgstr "Oceniono przynajmniej na"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} aktywny"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Aktywni recenzenci obecnie przypisani"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Ukończone recenzje"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Odrzucone zapytania o wykonania recenzji"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Ocena recenzenta: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} dni przed"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Wczoraj"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Dni odkąd przypisano do wykonania recenzji"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Średnia liczba dni wykonania recenzji"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Nigdy nie przypisany"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Recenzent został już przypisany do zrecenzowania tego tekstu."
+
+msgid "reviewer.list.warnOnAssign"
+msgstr "Recenzent jest zablokowany ponieważ został przypisany z rolą, która pozwala na identyfikację danych autora. Niemożliwe jest zapewnienie ślepej recenzji. Czy mimo to chcesz odblokować możliwość wykonania recenzji przez tego użytkownika?"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Odblokuj"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Zainteresowania"
+
+msgid "reviewer.list.biography"
+msgstr "Biografia"

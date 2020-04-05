@@ -2,9 +2,9 @@
 /**
  * @file api/v1/contexts/PKPContextHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPContextHandler
  * @ingroup api_v1_context
@@ -98,7 +98,6 @@ class PKPContextHandler extends APIHandler {
 	 */
 	public function getMany($slimRequest, $response, $args) {
 		$request = $this->getRequest();
-		$contextService = Services::get('context');
 
 		$defaultParams = array(
 			'count' => 20,
@@ -143,19 +142,19 @@ class PKPContextHandler extends APIHandler {
 		}
 
 		$items = array();
-		$contextsIterator = $contextService->getMany($allowedParams);
+		$contextsIterator = Services::get('context')->getMany($allowedParams);
 		if (count($contextsIterator)) {
 			$propertyArgs = array(
 				'request' => $request,
 				'slimRequest' => $slimRequest,
 			);
 			foreach ($contextsIterator as $context) {
-				$items[] = $contextService->getSummaryProperties($context, $propertyArgs);
+				$items[] = Services::get('context')->getSummaryProperties($context, $propertyArgs);
 			}
 		}
 
 		$data = array(
-			'itemsMax' => $contextService->getMax($allowedParams),
+			'itemsMax' => Services::get('context')->getMax($allowedParams),
 			'items' => $items,
 		);
 
@@ -346,7 +345,7 @@ class PKPContextHandler extends APIHandler {
 
 		$site = $request->getSite();
 		$primaryLocale = $context->getPrimaryLocale();
-		$allowedLocales = $context->getSupportedLocales();
+		$allowedLocales = $context->getSupportedFormLocales();
 
 		$errors = $contextService->validate(VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
 
@@ -408,7 +407,7 @@ class PKPContextHandler extends APIHandler {
 			$errors = $contextService->validate(
 				VALIDATE_ACTION_EDIT,
 				['themePluginPath' => $themePluginPath],
-				$context->getSupportedLocales(),
+				$context->getSupportedFormLocales(),
 				$context->getPrimaryLocale()
 			);
 			if (!empty($errors)) {

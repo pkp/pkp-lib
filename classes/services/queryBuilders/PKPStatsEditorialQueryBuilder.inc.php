@@ -3,9 +3,9 @@
 /**
  * @file classes/services/QueryBuilders/PKPStatsEditorialQueryBuilder.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsEditorialQueryBuilder
  * @ingroup query_builders
@@ -160,6 +160,7 @@ abstract class PKPStatsEditorialQueryBuilder extends BaseQueryBuilder {
 	 * Get the count of submissions by one or more status
 	 *
 	 * @param int|array $status One or more of STATUS_*
+	 * @return int
 	 */
 	public function countByStatus($status) {
 		return $this->_getObject()
@@ -171,6 +172,7 @@ abstract class PKPStatsEditorialQueryBuilder extends BaseQueryBuilder {
 	 * Get the count of active submissions by one or more stages
 	 *
 	 * @param array $stages One or more of WORKFLOW_STAGE_ID_*
+	 * @return int
 	 */
 	public function countActiveByStages($stages) {
 		import('lib.pkp.classes.submission.PKPSubmission');
@@ -183,10 +185,10 @@ abstract class PKPStatsEditorialQueryBuilder extends BaseQueryBuilder {
 
 	/**
 	 * Get the count of published submissions
+	 *
+	 * @return int
 	 */
 	public function countPublished() {
-		import('lib.pkp.classes.submission.PKPSubmission');
-
 		$q = $this->_getObject()
 			->where('s.status', '=', STATUS_PUBLISHED);
 
@@ -248,6 +250,70 @@ abstract class PKPStatsEditorialQueryBuilder extends BaseQueryBuilder {
 		$dateDiff = $this->_dateDiff('ed.date_decided', 's.date_submitted');
 		$q->select(Capsule::raw('AVG(' . $dateDiff . ') as average'));
 		return $q->get()->first()->average;
+	}
+
+	/**
+	 * Get the first and last date of submissions received
+	 *
+	 * @return array [min, max]
+	 */
+	public function getSubmissionsReceivedDates() {
+		$q = $this->_getObject();
+		return [$q->min('s.date_submitted'), $q->max('s.date_submitted')];
+	}
+
+	/**
+	 * Get the first and last date of submissions published
+	 *
+	 * @return array [min, max]
+	 */
+	public function getPublishedDates() {
+		import('lib.pkp.classes.submission.PKPSubmission');
+
+		$q = $this->_getObject()
+			->where('s.status', '=', STATUS_PUBLISHED)
+			// Only match against the publication date of a
+			// submission's first published publication so
+			// that updated versions are excluded.
+			->leftJoin('publications as p', function($q) {
+				$q->where('p.publication_id', function($q) {
+					$q->from('publications as p2')
+						->where('p2.submission_id', '=', Capsule::raw('s.submission_id'))
+						->where('p2.status', '=', STATUS_PUBLISHED)
+						->orderBy('p2.date_published', 'ASC')
+						->limit(1)
+						->select('p2.publication_id');
+				});
+			});
+
+		return [$q->min('p.date_published'), $q->max('p.date_published')];
+	}
+
+	/**
+	 * Get the first and last date that an editorial decision was made
+	 *
+	 * @param array $decisions One or more SUBMISSION_EDITOR_DECISION_*
+	 * @return array [min, max]
+	 */
+	public function getDecisionsDates($decisions) {
+		import('lib.pkp.classes.submission.PKPSubmission');
+		$q = $this->_getObject();
+		$q->leftJoin('edit_decisions as ed', 's.submission_id', '=', 'ed.submission_id')
+			->whereIn('ed.decision', $decisions);
+
+		// Ensure that the decisions being counted have not been
+		// reversed. For example, a submission may have been accepted
+		// and then later declined. We check the current status to
+		// exclude submissions where the status doesn't match the
+		// decisions we are looking for.
+		$declineDecisions = [SUBMISSION_EDITOR_DECISION_DECLINE, SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE];
+		if (count(array_intersect($declineDecisions, $decisions))) {
+			$q->where('s.status', '=', STATUS_DECLINED);
+		} else {
+			$q->where('s.status', '!=', STATUS_DECLINED);
+		}
+
+		return [$q->min('ed.date_decided'), $q->max('ed.date_decided')];
 	}
 
 	/**

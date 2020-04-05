@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/announcements/form/AnnouncementTypeForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementTypeForm
  * @ingroup controllers_grid_announcements_form
@@ -47,7 +47,7 @@ class AnnouncementTypeForm extends Form {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 		return $announcementTypeDao->getLocaleFieldNames();
 	}
 
@@ -65,7 +65,7 @@ class AnnouncementTypeForm extends Form {
 	 */
 	function initData() {
 		if (isset($this->typeId)) {
-			$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+			$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 			$announcementType = $announcementTypeDao->getById($this->typeId);
 
 			if ($announcementType != null) {
@@ -88,10 +88,10 @@ class AnnouncementTypeForm extends Form {
 	}
 
 	/**
-	 * Save announcement type.
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+	function execute(...$functionArgs) {
+		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 
 		if (isset($this->typeId)) {
 			$announcementType = $announcementTypeDao->getById($this->typeId);
@@ -111,6 +111,7 @@ class AnnouncementTypeForm extends Form {
 		} else {
 			$announcementTypeDao->insertObject($announcementType);
 		}
+		parent::execute(...$functionArgs);
 	}
 }
 

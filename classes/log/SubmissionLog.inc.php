@@ -8,9 +8,9 @@
 /**
  * @file classes/log/SubmissionLog.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionLog
  * @ingroup log
@@ -33,7 +33,7 @@ class SubmissionLog {
 	 */
 	static function logEvent($request, $submission, $eventType, $messageKey, $params = array()) {
 		// Create a new entry object
-		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO');
+		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO'); /* @var $submissionEventLogDao SubmissionEventLogDAO */
 		$entry = $submissionEventLogDao->newDataObject();
 
 		// Set implicit parts of the log entry
@@ -63,7 +63,8 @@ class SubmissionLog {
 
 		// Stamp the submission status modification date.
 		$submission->stampLastActivity();
-		Application::getSubmissionDAO()->updateObject($submission);
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
+		$submissionDao->updateObject($submission);
 
 		return $entry;
 	}

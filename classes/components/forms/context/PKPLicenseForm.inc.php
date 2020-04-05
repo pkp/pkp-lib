@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/context/PKPLicenseForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPLicenseForm
  * @ingroup classes_controllers_form
@@ -15,6 +15,7 @@ namespace PKP\components\forms\context;
 use \PKP\components\forms\FormComponent;
 use \PKP\components\forms\FieldRadioInput;
 use \PKP\components\forms\FieldRichTextarea;
+use \PKP\components\forms\FieldText;
 
 define('FORM_LICENSE', 'license');
 
@@ -51,27 +52,25 @@ class PKPLicenseForm extends FormComponent {
 			'isInput' => true,
 		];
 
-		$copyrightHolder = $context->getData('copyrightHolderType');
-		if (!empty($copyrightHolder) && !in_array($copyrightHolder, ['author', 'context'])) {
-			$copyrightHolder = $context->getData('copyrightHolderOther');
-		}
-
-		$this->addField(new FieldRadioInput('copyrightHolder', [
+		$this->addField(new FieldRadioInput('copyrightHolderType', [
 				'label' => __('submission.copyrightHolder'),
-				'helpTopic' => 'settings',
-				'helpSection' => 'copyright-v-license',
 				'type' => 'radio',
 				'options' => [
 					['value' => 'author', 'label' => __('user.role.author')],
 					['value' => 'context', 'label' => __('context.context')],
-					['value' => 'other', 'isInput' => true],
+					['value' => 'other', 'label' => __('submission.copyrightHolder.other')],
 				],
-				'value' => $copyrightHolder,
+				'value' => $context->getData('copyrightHolderType'),
+			]))
+			->addField(new FieldText('copyrightHolderOther', [
+				'label' => __('submission.copyrightOther'),
+				'description' => __('submission.copyrightOther.description'),
+				'isMultilingual' => true,
+				'showWhen' => ['copyrightHolderType', 'other'],
+				'value' => $context->getData('copyrightHolderOther'),
 			]))
 			->addField(new FieldRadioInput('licenseUrl', [
 				'label' => __('manager.distribution.license'),
-				'helpTopic' => 'settings',
-				'helpSection' => 'copyright-v-license',
 				'type' => 'radio',
 				'options' => $licenseUrlOptions,
 				'value' => $context->getData('licenseUrl'),

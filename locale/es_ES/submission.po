@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
+"PO-Revision-Date: 2020-02-28 11:36+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/es/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:23-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "author.submit.submissionCitations"
 msgstr "Proporcionar una lista de referencias formateada para trabajos citados en esta propuesta. Por favor, separa referencias individuales con una línea en blanco."
@@ -216,7 +219,7 @@ msgid "metadata.property.displayName.isbn"
 msgstr "ISBN"
 
 msgid "metadata.property.validationMessage.isbn"
-msgstr "Por favor, introduce un ISBN válido (9 o 13 dígitos)"
+msgstr "Introduzca un ISBN válido (9 o 13 dígitos)."
 
 msgid "metadata.property.displayName.issn"
 msgstr "Imprimir ISSN"
@@ -813,7 +816,7 @@ msgid "submissions.queued"
 msgstr "En cola"
 
 msgid "submissions.queuedUnassigned"
-msgstr "Esperando asignación"
+msgstr "No hay ningún editor/a asignado a este envío."
 
 msgid "submissions.ruling"
 msgstr "Normativa"
@@ -999,16 +1002,21 @@ msgid "submission.submit.fileNameRequired"
 msgstr "Debe introducir un nombre para este archivo"
 
 msgid "submission.upload.noGenre"
-msgstr "Falta el género o no es válido."
+msgstr "Falta el componente o este no es válido."
 
 msgid "submission.upload.invalidUserGroup"
-msgstr "Falta el grupo de usuarios/as o no es válido."
+msgstr "Falta el grupo de usuarios/as o este  no es válido."
 
 msgid "submission.upload.possibleRevision"
 msgstr "Se detectó una posible revisión o copia"
 
 msgid "submission.upload.possibleRevisionDescription"
-msgstr "<p>El nombre del archivo subido se parece al nombre del archivo \"{$revisedFileName}\" subido anteriormente. Si quiere reemplazar el archivo anterior con el que acaba de subir, seleccione el archivo que quiere reemplazar del menú desplegable. Si el archivo subido no debe reemplazar un archivo anterior, seleccione \"Seleccionar archivo (para preservar el historial)\" del menú desplegable.</p>"
+msgstr ""
+"El nombre del archivo cargado se parece al nombre de un archivo cargado "
+"anteriormente: \"{$revisedFileName}\". ¿Pretende reemplazar \""
+"{$revisedFileName}\"? Si es así, seleccione el archivo que aparece debajo. "
+"En caso contrario, seleccione \"Este no es una revisión de un archivo "
+"existente\" antes de continuar."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Seleccione el archivo que quiere revisar."
@@ -1368,22 +1376,54 @@ msgid "submission.license.cc.by-sa4"
 msgstr "CC CC Reconocimiento-SinObrasDerivadas 4.0"
 
 msgid "submission.license.cc.by-nc-nd4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><br />Esta obra está bajo licencia internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Reconocimiento-NoComercial-SinObrasDerivadas 4.0</a>."
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>Esta obra está bajo licencia <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">"
+"Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International "
+"License</a>.</p>"
 
 msgid "submission.license.cc.by-nc4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><br />Esta obra está bajo licencia internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Reconocimiento-NoComercial 4.0</a>."
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4."
+"0/88x31.png\" /></a><p>Esta obra está bajo licencia <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons "
+"Attribution-NonCommercial 4.0 International License</a>.</p>"
 
 msgid "submission.license.cc.by-nc-sa4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><br />Esta obra está bajo licencia internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0</a>."
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>Está obra está bajo licencia <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">"
+"Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International "
+"License</a>.</p>"
 
 msgid "submission.license.cc.by-nd4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><br />Esta obra está bajo licencia internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons Reconocimiento-SinObrasDerivadas 4.0</a>."
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4."
+"0/88x31.png\" /></a><p>Esta obra está bajo licencia <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons "
+"Attribution-NoDerivatives 4.0 International License</a>.</p>"
 
 msgid "submission.license.cc.by4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><br />Esta obra está bajo licencia internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Reconocimiento 4.0</a>."
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/"
+"88x31.png\" /></a><p>Esta obra está bajo licencia <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution "
+"4.0 International License</a>.</p>"
 
 msgid "submission.license.cc.by-sa4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><br />Esta obra está bajo licencia internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Reconocimiento-CompartirIgual 4.0</a>."
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4."
+"0/88x31.png\" /></a><p>Esta obra está bajo licencia <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons "
+"Attribution-ShareAlike 4.0 International License</a>.</p>"
 
 msgid "submission.queries.submission"
 msgstr "Discusiones prerrevisión"
@@ -1449,7 +1489,7 @@ msgid "submission.identifiers"
 msgstr "Identificadores"
 
 msgid "submission.publisherId"
-msgstr "Identificador público de la URL"
+msgstr "ID de la editorial"
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Se han enviado nuevas revisiones y están siendo consideradas por el editor/a."
@@ -1620,7 +1660,7 @@ msgid "editor.submission.makeRecommendation"
 msgstr "Hacer una recomendación"
 
 msgid "editor.submission.changeRecommendation"
-msgstr "Modificar la recomendación."
+msgstr "Modificar la recomendación"
 
 msgid "editor.submission.recommendation.display"
 msgstr "Recomendación: {$recommendation}"
@@ -1635,7 +1675,7 @@ msgid "editor.submission.recommendation.description"
 msgstr "Recomendar una decisión editorial para este envío."
 
 msgid "editor.submission.recordedRecommendations"
-msgstr "Recomendaciones registradas."
+msgstr "Recomendaciones registradas"
 
 msgid "editor.submission.decision.nextButton"
 msgstr "Siguiente: seleccione archivos para {$stageName}"
@@ -1650,7 +1690,7 @@ msgid "notification.type.editorAssign"
 msgstr "Ha sido asignado como editor del envío \"{$title}\"."
 
 msgid "grid.reviewAttachments.send.title"
-msgstr "Seleccione los archivos de revisión para compartir con el autor/a."
+msgstr "Seleccione los archivos de revisión para compartir con el autor/a"
 
 msgid "submission.review.status.awaitingResponse"
 msgstr "Esperando la respuesta del revisor/a."
@@ -1774,3 +1814,334 @@ msgstr "Subcategorías"
 
 msgid "submission.parsedCitations.DOI"
 msgstr "DOI"
+
+msgid "publication.wordCount"
+msgstr "Contador de palabras: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"El resumen es demasiado largo. Debería tener {$limit} palabras o menos. "
+"Actualmente tiene {$count} palabras."
+
+msgid "publication.version.details"
+msgstr "Detalles de publicación para la versión {$version}"
+
+msgid "publication.version.confirm"
+msgstr "¿Está seguro de que quiere crear una versión nueva?"
+
+msgid "publication.version.all"
+msgstr "Todas las versiones"
+
+msgid "publication.unschedule.confirm"
+msgstr "¿Está seguro de que no quiere que esto se programe para su publicación?"
+
+msgid "publication.unschedule"
+msgstr "Desprogramar"
+
+msgid "publication.unpublish.confirm"
+msgstr "¿Está seguro de que no quiere que esto sea publicado?"
+
+msgid "publication.unpublish"
+msgstr "Retirar de publicación"
+
+msgid "publication.titleAbstract.success"
+msgstr "El título y el resumen han sido actualizados."
+
+msgid "publication.titleAbstract"
+msgstr "Título y resumen"
+
+msgid "publication.status.unscheduled"
+msgstr "Desprogramado"
+
+msgid "publication.status.unpublished"
+msgstr "Retirado de publicación"
+
+msgid "publication.status.scheduled"
+msgstr "Programado"
+
+msgid "publication.status.published"
+msgstr "Publicado"
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"El envío debe estar en las fases de corrección o de producción antes de "
+"poder ser publicado."
+
+msgid "publication.required.declined"
+msgstr "Un envío rechazado no puede ser publicado."
+
+msgid "publication.publish.success"
+msgstr "El estado de la publicación ha sido cambiado correctamente."
+
+msgid "publication.publish.requirements"
+msgstr ""
+"Se deben cumplir los siguientes requisitos antes de que esto pueda ser "
+"publicado."
+
+msgid "publication.publish"
+msgstr "Publicar"
+
+msgid "publication.publicationLicense.success"
+msgstr "La información de licencia y de derechos de autor ha sido actualizada."
+
+msgid "publication.publicationLicense"
+msgstr "Permisos y divulgación"
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Los identificadores han sido actualizados."
+
+msgid "publication.metadata.success"
+msgstr "Los metadatos han sido actualizados."
+
+msgid "publication.invalidSubmission"
+msgstr "No se pudo encontrar el envío para esta publicación."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Se eliminó una versión de publicación."
+
+msgid "publication.event.versionScheduled"
+msgstr "Se programó una versión nueva para su publicación."
+
+msgid "publication.event.versionPublished"
+msgstr "Se publicó una versión nueva."
+
+msgid "publication.event.versionCreated"
+msgstr "Se creó una versión nueva."
+
+msgid "publication.event.unpublished"
+msgstr "El envío fue retirado de publicación."
+
+msgid "publication.event.scheduled"
+msgstr "El envío se programó para su publicación."
+
+msgid "publication.event.published"
+msgstr "El envío fue publicado."
+
+msgid "publication.editDisabled"
+msgstr "Esta versión ya ha sido publicada y no puede editarse."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "La fecha debe estar en formato AAAA-MM-DD, por ejemplo 2019-01-01."
+
+msgid "publication.datePublished"
+msgstr "Fecha de publicación"
+
+msgid "publication.createVersion"
+msgstr "Crear una versión nueva"
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"El año de los derechos de autor se ajustará automáticamente en función de la "
+"fecha de publicación."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"El año de los derechos de autor se ajustará automáticamente cuando se "
+"publique en un número."
+
+msgid "publication.contributors"
+msgstr "Colaboradores/as"
+
+msgid "publication.citations.success"
+msgstr "Las referencias han sido actualizadas."
+
+msgid "submission.publication"
+msgstr "Publicación"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Revisión cancelada"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Asignación de revisión"
+
+msgid "submission.list.empty"
+msgstr "No se encontraron envíos."
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Si abandona la discusión ya no se le notificarán los mensajes nuevos. ¿"
+"Confirma que quiere abandonar la discusión?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Abandonar la discusión"
+
+#, fuzzy
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Esta obra está bajo licencia <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Attribution-ShareAlike 3.0 Unported License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Esta obra está bajo licencia <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
+"3.0 Unported License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Esta obra está bajo licencia <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Esta obra está bajo licencia <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
+"Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International "
+"License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Esta obra está bajo licencia <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Attribution-NonCommercial 3.0 Unported License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Esta obra está bajo licencia <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
+"Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International "
+"License</a>.</p>"
+
+msgid "submission.copyrightOther.description"
+msgstr ""
+"Asignar derechos de autor para los envíos publicados en la parte siguiente."
+
+msgid "submission.copyrightOther"
+msgstr "Declaración de derechos de autor"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Declaración de derechos de autor personalizada"
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Los derechos de autor se asignarán automáticamente a {$copyright} cuando se "
+"publique."
+
+msgid "submission.license.description"
+msgstr ""
+"La licencia se ajustará automáticamente a <a href='{$licenseUrl}' "
+"target='_blank'>{$licenseName}</a> cuando se publique."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} ha completado la revisión para la ronda  {$round} de "
+"revisión del envío {$submissionId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"El editor/a {$userName} ha confirmado una revisión para la ronda de revisión "
+"{$round} del envío {$submissionId}."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"La ronda de revisión {$round} de {$reviewerName} para el envío "
+"{$submissionId} ha sido reiniciada."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"La ronda de revisión {$round} de {$reviewerName} para el envío "
+"{$submissionId} ha sido retirada."
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"¿Está seguro de que desea que los autores/as de este envío puedan editar los "
+"metadatos del envío en esta fase?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"¿Está seguro de que desea que los autores/as de este envío no puedan editar "
+"los metadatos del envío en esta fase?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Habilitar la edición de metadatos"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Deshabilitar la edición de metadatos"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Editar asignación"
+
+msgid "submission.status.scheduled"
+msgstr "Programado"
+
+msgid "submissions.inactive"
+msgstr "Inactivo durante {$days} días"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Esta es un versión antigua publicada el {$datePublished}. Consulte la <a "
+"href=\"{$urlRecentVersion}\">versión más reciente</a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Versiones"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Actualizado el {$dateUpdated}"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Los autores/as ya no pueden editar los metadatos cuando el envío está en la "
+"fase de {stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Los autores/as ya no pueden editar los metadatos cuando el envío está en la "
+"fase de {stage}."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Resumen"
+
+msgid "author.publicationNotFound"
+msgstr "No se pudo encontrar la publicación de este autor/a."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"No se pueden editar los autores/as de esta publicación porque ya ha sido "
+"publicada."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "La ruta URL no puede ser un número."
+
+msgid "publication.urlPath"
+msgstr "Ruta URL"
+
+msgid "submission.publications"
+msgstr "Publicaciones"
+
+msgid "submission.publisherId.enable"
+msgstr "Habilitar para {$objects}"
+
+msgid "publication.urlPath.duplicate"
+msgstr "La ruta URL ya ha sido utilizada y no puede volver a usarse."
+
+msgid "publication.urlPath.description"
+msgstr "Una ruta opcional para utilizar en la URL en lugar de la ID."
+
+msgid "submission.publisherId.description"
+msgstr ""
+"La ID de la editorial puede utilizarse para registrar la ID desde una base "
+"de datos externa. Por ejemplo, los elementos que se exportan para "
+"depositarlos en PubMed puede incluir la ID de la editorial. Sin embargo, "
+"esto no debería utilizarse para los DOI."

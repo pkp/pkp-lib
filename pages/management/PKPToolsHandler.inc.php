@@ -3,9 +3,9 @@
 /**
  * @file pages/management/PKPToolsHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPToolsHandler
  * @ingroup pages_management
@@ -118,7 +118,7 @@ class PKPToolsHandler extends ManagementHandler {
 
 		$templateMgr = TemplateManager::getManager($request);
 
-		$application = Application::getApplication();
+		$application = Application::get();
 		$templateMgr->assign('appSettings', $this->hasAppStatsSettings());
 		$templateMgr->assign('contextObjectName', __($application->getNameKey()));
 
@@ -377,7 +377,7 @@ class PKPToolsHandler extends ManagementHandler {
 				if (!$context) break;
 				return $context->getLocalizedName();
 			case ASSOC_TYPE_SUBMISSION:
-				$submissionDao = Application::getSubmissionDAO(); /* @var $submissionDao SubmissionDAO */
+				$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 				$submission = $submissionDao->getById($assocId, null, true);
 				if (!$submission) break;
 				return $submission->getLocalizedTitle();
@@ -431,7 +431,7 @@ class PKPToolsHandler extends ManagementHandler {
 			return;
 		}
 
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submissionDao->resetPermissions($context->getId());
 
 		$user = $request->getUser();

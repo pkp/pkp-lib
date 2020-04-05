@@ -3,9 +3,9 @@
 /**
  * @file classes/core/APIRouter.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class APIRouter
  * @ingroup core
@@ -144,8 +144,8 @@ class APIRouter extends PKPRouter {
 		http_response_code('403');
 		header('Content-Type: application/json');
 		echo json_encode([
-			'error' => 'api.403.unauthorized',
-			'errorMessage' => __('api.403.unauthorized'),
+			'error' => $authorizationMessage,
+			'errorMessage' => __($authorizationMessage),
 		]);
 		exit;
 	}

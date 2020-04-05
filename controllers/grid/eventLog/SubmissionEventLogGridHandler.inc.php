@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/eventLog/SubmissionEventLogGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionEventLogGridHandler
  * @ingroup controllers_grid_eventLog
@@ -177,8 +177,8 @@ class SubmissionEventLogGridHandler extends GridHandler {
 	 * @copydoc GridHandler::loadData
 	 */
 	protected function loadData($request, $filter = null) {
-		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO');
-		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO'); /* @var $submissionEventLogDao SubmissionEventLogDAO */
+		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 
 		$submission = $this->getSubmission();
 
@@ -207,7 +207,7 @@ class SubmissionEventLogGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function viewEmail($args, $request) {
-		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 		$emailLogEntry = $submissionEmailLogDao->getById((int) $args['emailLogEntryId']);
 		return new JSONMessage(true, $this->_formatEmail($emailLogEntry));
 	}

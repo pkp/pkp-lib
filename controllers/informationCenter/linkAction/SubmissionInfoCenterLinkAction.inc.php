@@ -3,9 +3,9 @@
 /**
  * @file controllers/informationCenter/linkAction/SubmissionInfoCenterLinkAction.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionInfoCenterLinkAction
  * @ingroup controllers_informationCenter
@@ -27,7 +27,7 @@ class SubmissionInfoCenterLinkAction extends LinkAction {
 	function __construct($request, $submissionId, $linkKey = 'informationCenter.editorialHistory') {
 		// Instantiate the information center modal.
 
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionId);
 
 		$primaryAuthor = $submission->getPrimaryAuthor();

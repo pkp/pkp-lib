@@ -3,9 +3,9 @@
 /**
  * @file plugins/importexport/native/filter/NativeXmlSubmissionFileFilter.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlSubmissionFileFilter
  * @ingroup plugins_importexport_native
@@ -75,6 +75,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				$this->handleChildElement($n, $stageId, $fileId, $submissionFiles);
 			}
 		}
+		
 		return $submissionFiles;
 	}
 
@@ -127,7 +128,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		if ($genreName) {
 			// Build a cached list of genres by context ID by name
 			if (!isset($genresByContextId[$context->getId()])) {
-				$genreDao = DAORegistry::getDAO('GenreDAO');
+				$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 				$genres = $genreDao->getByContextId($context->getId());
 				while ($genre = $genres->next()) {
 					foreach ($genre->getName(null) as $locale => $name) {
@@ -144,7 +145,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			}
 		}
 
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFile = $submissionFileDao->newDataObjectByGenreId($genreId);
 		$submissionFile->setSubmissionId($submission->getId());
 		$submissionFile->setSubmissionLocale($submission->getLocale());
@@ -177,7 +178,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			$user = $deployment->getUser();
 		} else {
 			// Determine the user based on the username
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$user = $userDao->getByUsername($uploaderUsername);
 		}
 		if ($user) {
@@ -270,6 +271,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				$locale = $node->getAttribute('locale');
 				if (empty($locale)) $locale = $context->getPrimaryLocale();
 				$submissionFile->setName($node->textContent, $locale);
+				$submissionFile->setSubmissionLocale($locale);
 				break;
 			case 'href':
 				$submissionFile->setFileType($node->getAttribute('mime_type'));
@@ -286,7 +288,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 					if (!filesize($temporaryFilename)) {
 						$errorFlag = true;
 					}
-				} elseif (substr($filesrc, 1, 1) === '/') {
+				} elseif (substr($filesrc, 0, 1) === '/') {
 					// local file (absolute path)
 					if (!copy($filesrc, $temporaryFilename)) {
 						$errorFlag = true;

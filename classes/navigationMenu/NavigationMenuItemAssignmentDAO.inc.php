@@ -3,9 +3,9 @@
 /**
  * @file classes/navigationMenu/NavigationMenuItemAssignmentDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuItemAssignment
  * @ingroup navigationMenuItem
@@ -206,7 +206,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 		);
 
 		// Add default title (of the navigationMenuItem)
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 		$navigationMenuItem = $navigationMenuItemDao->getById($assignment->getMenuItemId());
 
 		$assignment->setTitle($navigationMenuItem->getTitle(null), null);

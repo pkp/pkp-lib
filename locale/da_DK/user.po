@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
+"PO-Revision-Date: 2020-02-10 15:35+0000\n"
+"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/da/>"
+"\n"
+"Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:43+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "user.affiliation"
 msgstr "Tilhørsforhold"
@@ -18,22 +21,22 @@ msgid "user.affiliations"
 msgstr "Tilhørsforhold"
 
 msgid "user.biography"
-msgstr "Biografierklæring"
+msgstr "Biografierklæring (f.eks. afdeling og  stillingbetegnelse)"
 
 msgid "user.changeMyPassword"
-msgstr "Rediger min adgangskode"
+msgstr "Redigér min adgangskode"
 
 msgid "user.changePassword"
 msgstr "Skift adgangskode"
 
 msgid "user.dateLastLogin"
-msgstr "Seneste logon"
+msgstr "Seneste login"
 
 msgid "user.dateRegistered"
 msgstr "Registreringsdato"
 
 msgid "user.editMyProfile"
-msgstr "Rediger min profil"
+msgstr "Redigér min profil"
 
 msgid "user.email"
 msgstr "E-mail"
@@ -51,10 +54,12 @@ msgid "user.login.accountNotValidated"
 msgstr "Vi har sendt en bekræftelses-e-mail til dig på {$email}. For at aktivere din nye konto skal du følge de angivne instruktioner i e-mailen. Hvis du ikke kan se nogen e-mail, bedes du tjekke din spam-mappe."
 
 msgid "user.login.activate"
-msgstr "Aktiver konto"
+msgstr "Aktivér konto"
 
 msgid "user.login.activated"
-msgstr "Tak, fordi du har aktiveret din konto. Du kan nu logge på ved hjælp af de legitimationsoplysninger, du angav, da du oprettede kontoen."
+msgstr ""
+"Tak, fordi du har aktiveret din konto. Du kan nu logge på ved hjælp af de "
+"brugeroplysninger, du angav, da du oprettede kontoen."
 
 msgid "user.login.changePasswordInstructions"
 msgstr "Du skal vælge en ny adgangskode, inden du kan logge på dette websted.<br /><br />Angiv dit brugernavn samt din aktuelle og din nye adgangskode nedenfor for at ændre adgangskoden til din konto."
@@ -66,7 +71,7 @@ msgid "user.login.loginError"
 msgstr "Ugyldigt brugernavn eller ugyldig adgangskode. Forsøg igen."
 
 msgid "user.login"
-msgstr "Log på"
+msgstr "Login"
 
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Der er sendt en bekræftelse til din e-mail-adresse. Følg instruktionerne i e-mailen for at nulstille din adgangskode."
@@ -87,7 +92,7 @@ msgid "user.login.resetPassword"
 msgstr "Nulstil adgangskode"
 
 msgid "user.logOut"
-msgstr "Log af"
+msgstr "Log ud"
 
 msgid "user.mailingAddress"
 msgstr "Postadresse"
@@ -111,7 +116,7 @@ msgid "user.profile.changePasswordInstructions"
 msgstr "Angiv din aktuelle og din nye adgangskode nedenfor for at ændre adgangskoden til din konto."
 
 msgid "user.profile.editProfile"
-msgstr "Rediger profil"
+msgstr "Redigér profil"
 
 msgid "user.profile.form.emailRequired"
 msgstr "En gyldig e-mail-adresse er påkrævet."
@@ -132,10 +137,12 @@ msgid "user.profile.form.profileImage"
 msgstr "Profilbillede"
 
 msgid "user.profile.form.publishedNotifications"
-msgstr "E-mail-beskeder om publicering af ny udgave"
+msgstr "E-mail-beskeder om publicering af nyt nummer"
 
 msgid "user.profile.form.urlInvalid"
-msgstr "Den angivne URL-adresse er ikke gyldig. Kontroller URL-adressen, og forsøg igen. (Tip: Sæt http:// foran URL-adressen)."
+msgstr ""
+"Den angivne URL-adresse er ikke gyldig. Kontroller URL-adressen, og forsøg "
+"igen. (Tip: Sæt http:// foran URL-adressen.)"
 
 msgid "user.profile.form.usernameRequired"
 msgstr "Et brugernavn er påkrævet."
@@ -168,10 +175,10 @@ msgid "user.register.form.usernameExists"
 msgstr "Det valgte brugernavn benyttes allerede af en anden bruger."
 
 msgid "user.register.registerAs"
-msgstr "Registrer i {$contextName} som..."
+msgstr "Registrér i {$contextName} som..."
 
 msgid "user.register"
-msgstr "Registrer"
+msgstr "Registrér"
 
 msgid "user.register.usernameRestriction"
 msgstr "Brugernavnet må kun indeholde små bogstaver, tal og bindestreger/understregningstegn."
@@ -210,7 +217,7 @@ msgid "user.title"
 msgstr "Titel"
 
 msgid "user.url"
-msgstr "URL-adresse"
+msgstr "Hjemmeside-URL"
 
 msgid "user.userHome"
 msgstr "Brugerstartside"
@@ -228,10 +235,12 @@ msgid "user.authorization.accessDenied"
 msgstr "Adgang nægtet."
 
 msgid "user.authorization.processAuthenticationTokenRequired"
-msgstr "Procesgodkendelse mangler eller er ugyldig"
+msgstr "Procesgodkendelse mangler eller er ugyldig."
 
 msgid "user.authorization.contextRequired"
-msgstr "Du kan ikke vælge den handling uden en kontekst (presse, tidsskrift, konference osv.)"
+msgstr ""
+"Du kan ikke vælge den handling uden en kontekst (forlag, tidsskrift, "
+"konference osv.)."
 
 msgid "user.authorization.loginRequired"
 msgstr "Kræver login."
@@ -252,7 +261,10 @@ msgid "user.gossip"
 msgstr "Private bemærkninger"
 
 msgid "user.profile.form.profileImageInvalid"
-msgstr "Profilbilledets format er ugyldigt, eller også er billedet for stort. De accepterede formater er .jpg og .png, og billedet må ikke overskride 150 x 150 pixels."
+msgstr ""
+"Profilbilledets format er ugyldigt, eller også er billedet for stort. De "
+"accepterede formater er .gif, .jpg og .png, og billedet må ikke overskride "
+"150 x 150 pixels."
 
 msgid "user.profile.form.affiliationRequired"
 msgstr "Kræver et tilhørsforhold."
@@ -264,19 +276,21 @@ msgid "user.accountInformation"
 msgstr "Kontoinformation"
 
 msgid "user.authorization.managerRequired"
-msgstr "En bruger med rollen som pressechef (f.eks. presse- eller produktionsredaktør) skal indskrives, før du kan gå videre."
+msgstr ""
+"En bruger med en redaktør-rolle (dvs. produktionsredaktør) skal tilknyttes "
+"dette trin, før du kan gå videre."
 
 msgid "user.interests.description"
-msgstr "(Adskil interesser ved at trykke på Enter- eller komma-tasten)"
+msgstr "(Adskil interesser ved at trykke på enter- eller komma-tasten)"
 
 msgid "user.group"
 msgstr "Brugergruppe"
 
 msgid "user.hello"
-msgstr "Hej"
+msgstr "Hej "
 
 msgid "user.profile.form.countryRequired"
-msgstr "Et land er påkrævet"
+msgstr "Et land er påkrævet."
 
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "En e-mailadresse er påkrævet."
@@ -330,7 +344,7 @@ msgid "user.authorization.workflowStageRequired"
 msgstr "Der blev ikke angivet et workflow-trin."
 
 msgid "user.authorization.pluginRequired"
-msgstr "Der mangler at blive anvist en plug-in."
+msgstr "Der mangler at blive anvist en plugin."
 
 msgid "user.login.registrationComplete"
 msgstr "Registrering fuldført"
@@ -396,16 +410,21 @@ msgid "user.apiKeyEnabled"
 msgstr "Aktivér eksterne applikationer med API-nøglen for at få adgang til denne konto"
 
 msgid "user.apiKey.generate"
-msgstr "Generer ny API-nøgle"
+msgstr "Generér ny API-nøgle"
 
 msgid "user.apiKey.generateWarning"
 msgstr "Generering af en ny API-nøgle vil ugyldiggøre enhver eksisterende nøgle til denne bruger."
 
 msgid "user.apiKey.secretRequired"
-msgstr "Før du genererer en API-nøgle, skal din webstedsadministrator angive en skjult i config-filen (\"api_key_secret\")."
+msgstr ""
+"Før du genererer en API-nøgle, skal din webstedsadministrator angive en "
+"hemmelig i config-filen (\"api_key_secret\")."
 
 msgid "user.gossip.description"
-msgstr "Bemærkninger, der indskrives her vil kun være synlige for administratorer, tidsskriftschefer og redaktører."
+msgstr ""
+"Registrer optegnelser om denne bedømmer, som du gerne vil synliggøre for "
+"andre administratorer og redaktører. Optegnelserne vil være synlige i "
+"forbindelse med fremtidige valg af bedømmere."
 
 msgid "user.authorization.assignedStageRoleBasedAccessDenied"
 msgstr "Du er ikke blevet tildelt denne indsendelse med en rolle, der giver dig adgang til denne handling."
@@ -444,4 +463,6 @@ msgid "user.preferredPublicName"
 msgstr "Foretrukket offentligt navn"
 
 msgid "user.preferredPublicName.description"
-msgstr "Hvordan foretrækker du at blive adresseret? Indledende hilsen, mellemnavne og suffikser kan tilføjes her, hvis du ønsker det."
+msgstr ""
+"Hvordan foretrækker du at blive tiltalt? Indledende hilsen, mellemnavne og "
+"suffikser kan tilføjes her, hvis du ønsker det."

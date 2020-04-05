@@ -3,9 +3,9 @@
 /**
  * @file api/v1/stats/PKPStatsHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsPublicationHandler
  * @ingroup api_v1_stats
@@ -156,15 +156,18 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			}
 		}
 
-		// Get a list of top publications by total abstract views
+		// Get a list of top publications by total abstract and file views
 		$statsService = \Services::get('stats');
 		$totals = $statsService->getOrderedObjects(STATISTICS_DIMENSION_SUBMISSION_ID, $allowedParams['orderDirection'], array_merge($allowedParams, [
-			'assocTypes' => ASSOC_TYPE_SUBMISSION,
+			'assocTypes' => [ASSOC_TYPE_SUBMISSION, ASSOC_TYPE_SUBMISSION_FILE]
 		]));
 
 		// Get the stats for each publication
 		$items = [];
 		foreach ($totals as $total) {
+			if (empty($total['id'])) {
+				continue;
+			}
 
 			$galleyRecords = $statsService->getRecords(array_merge($allowedParams, [
 				'assocTypes' => ASSOC_TYPE_SUBMISSION_FILE,
@@ -177,9 +180,15 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			$htmlViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordHtml']), [$statsService, 'sumMetric'], 0);
 			$otherViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordOther']), [$statsService, 'sumMetric'], 0);
 
+			// Get the abstract records
+			$abstractRecords = $statsService->getRecords(array_merge($allowedParams, [
+				'assocTypes' => ASSOC_TYPE_SUBMISSION,
+				'submissionIds' => [$total['id']],
+			]));
+			$abstractViews = array_reduce($abstractRecords, [$statsService, 'sumMetric'], 0);
+
 			// Get the publication
-			$submissionService = \Services::get('submission');
-			$submission = $submissionService->get($total['id']);
+			$submission = \Services::get('submission')->get($total['id']);
 			$getPropertiesArgs = [
 				'request' => $request,
 				'slimRequest' => $slimRequest,
@@ -187,7 +196,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			// Stats may still exist for deleted publications
 			$submissionProps = ['id' => $total['id']];
 			if ($submission) {
-				$submissionProps = $submissionService->getProperties(
+				$submissionProps = \Services::get('submission')->getProperties(
 					$submission,
 					[
 						'_href',
@@ -211,7 +220,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			}
 
 			$items[] = [
-				'abstractViews' => $total['total'],
+				'abstractViews' => $abstractViews,
 				'galleyViews' => $galleyViews,
 				'pdfViews' => $pdfViews,
 				'htmlViews' => $htmlViews,
@@ -416,13 +425,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		$htmlViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordHtml']), [$statsService, 'sumMetric'], 0);
 		$otherViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordOther']), [$statsService, 'sumMetric'], 0);
 
-		$publicationProps = Services::get('submission')->getProperties(
+		$submissionProps = Services::get('submission')->getProperties(
 			$submission,
 			[
 				'_href',
 				'id',
-				'fullTitle',
-				'shortAuthorString',
 				'urlWorkflow',
 				'urlPublished',
 			],
@@ -431,6 +438,20 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 				'slimRequest' => $slimRequest,
 			]
 		);
+		$submissionProps = array_merge(
+			$submissionProps,
+			Services::get('publication')->getProperties(
+				$submission->getCurrentPublication(),
+				[
+					'authorsStringShort',
+					'fullTitle',
+				],
+				[
+					'request' => $request,
+					'slimRequest' => $slimRequest,
+				]
+			)
+		);
 
 		return $response->withJson([
 			'abstractViews' => $abstractViews,
@@ -438,7 +459,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			'pdfViews' => $pdfViews,
 			'htmlViews' => $htmlViews,
 			'otherViews' => $otherViews,
-			'publication' => $publicationProps,
+			'publication' => $submissionProps,
 		], 200);
 	}
 
@@ -594,6 +615,12 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			}
 		}
 
+		// Get the earliest date of publication if no start date set
+		if (in_array('dateStart', $allowedParams) && !isset($returnParams['dateStart'])) {
+			$dateRange = Services::get('publication')->getDateBoundaries(['contextIds' => $this->getRequest()->getContext()->getId()]);
+			$returnParams['dateStart'] = $dateRange[0];
+		}
+
 		return $returnParams;
 	}
 
@@ -609,16 +636,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 	 * @return array submission ids
 	 */
 	protected function _processSearchPhrase($searchPhrase, $submissionIds = []) {
-		$submissionsIterator = \Services::get('submission')->getMany([
+		$searchPhraseSubmissionIds = \Services::get('submission')->getIds([
 			'contextId' => \Application::get()->getRequest()->getContext()->getId(),
 			'searchPhrase' => $searchPhrase,
 			'status' => STATUS_PUBLISHED,
 		]);
-
-		$searchPhraseSubmissionIds = [];
-		foreach ($submissionsIterator as $submission) {
-			$searchPhraseSubmissionIds[] = $submission->getId();
-		}
 
 		if (!empty($submissionIds)) {
 			$submissionIds = array_intersect($submissionIds, $searchPhraseSubmissionIds);

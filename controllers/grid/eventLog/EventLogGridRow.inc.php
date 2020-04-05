@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/eventLog/EventLogGridRow.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EventLogGridRow
  * @ingroup controllers_grid_eventLog
@@ -53,7 +53,7 @@ class EventLogGridRow extends GridRow {
 		assert($logEntry != null && (is_a($logEntry, 'EventLogEntry') || is_a($logEntry, 'EmailLogEntry')));
 
 		if (is_a($logEntry, 'EventLogEntry')) {
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			$params = $logEntry->getParams();
 
 			switch ($logEntry->getEventType()) {
@@ -64,7 +64,7 @@ class EventLogGridRow extends GridRow {
 						$blindAuthor = false;
 						$maybeBlindAuthor = $this->_isCurrentUserAssignedAuthor && $submissionFile->getFileStage() === SUBMISSION_FILE_REVIEW_ATTACHMENT;
 						if ($maybeBlindAuthor && $submissionFile->getAssocType() === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
-							$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+							$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 							$reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getAssocId());
 							if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND))) {
 								$blindAuthor = true;

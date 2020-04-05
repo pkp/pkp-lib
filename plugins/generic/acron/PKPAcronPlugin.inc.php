@@ -3,9 +3,9 @@
 /**
  * @file plugins/generic/acron/PKPAcronPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAcronPlugin
  * @ingroup plugins_generic_acron
@@ -223,7 +223,7 @@ class PKPAcronPlugin extends GenericPlugin {
 		// http://www.php.net/manual/en/function.register-shutdown-function.php#92657
 		chdir($this->_workingDir);
 
-		$taskDao =& DAORegistry::getDao('ScheduledTaskDAO');
+		$taskDao = DAORegistry::getDAO('ScheduledTaskDAO');
 		foreach($this->_tasksToRun as $task) {
 			// Strip off the package name(s) to get the base class name
 			$className = $task['className'];
@@ -331,7 +331,7 @@ class PKPAcronPlugin extends GenericPlugin {
 		$isEnabled = $this->getSetting(0, 'enabled');
 
 		if($isEnabled) {
-			$taskDao =& DAORegistry::getDao('ScheduledTaskDAO');
+			$taskDao = DAORegistry::getDAO('ScheduledTaskDAO');
 
 			// Grab the scheduled scheduled tree
 			$scheduledTasks = $this->getSetting(0, 'crontab');

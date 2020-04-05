@@ -2,9 +2,9 @@
 /**
  * @file components/PKPStatsEditorialContainer.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsEditorialContainer
  * @ingroup classes_controllers_stats
@@ -21,6 +21,9 @@ import('classes.statistics.StatisticsHelper');
 class PKPStatsEditorialContainer extends PKPStatsComponent {
 	/** @var array A key/value array of active submissions by stage */
 	public $activeByStage = [];
+
+	/** @var string The URL to get the averages from the API */
+	public $averagesApiUrl = [];
 
 	/** @var array List of stats that should be converted to percentages */
 	public $percentageStats = [];
@@ -45,14 +48,16 @@ class PKPStatsEditorialContainer extends PKPStatsComponent {
 			$config,
 			[
 				'activeByStage' => $this->activeByStage,
+				'averagesApiUrl' => $this->averagesApiUrl,
 				'percentageStats' => $this->percentageStats,
 				'tableRows' => $this->tableRows,
 				'i18n' => array_merge(
 					$config['i18n'],
 					[
 						'descriptionForStat' => __('stats.descriptionForStat'),
+						'countWithYearlyAverage' => __('stats.countWithYearlyAverage'),
 					],
-					$this->i18n,
+					$this->i18n
 				),
 			]
 		);

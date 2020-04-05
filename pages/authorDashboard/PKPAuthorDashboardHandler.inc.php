@@ -3,9 +3,9 @@
 /**
  * @file pages/authorDashboard/PKPAuthorDashboardHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorDashboardHandler
  * @ingroup pages_authorDashboard
@@ -73,7 +73,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 	 * @return JSONMessage JSON object
 	 */
 	function readSubmissionEmail($args, $request) {
-		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 		$user = $request->getUser();
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$submissionEmailId = $request->getUserVar('submissionEmailId');
@@ -134,7 +134,8 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			$submissionContext = Services::get('context')->get($submission->getContextId());
 		}
 
-		$contextUserGroups = DAORegistry::getDAO('UserGroupDAO')->getByRoleId($submission->getData('contextId'), ROLE_ID_AUTHOR)->toArray();
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$contextUserGroups = $userGroupDao->getByRoleId($submission->getData('contextId'), ROLE_ID_AUTHOR)->toArray();
 		$workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
 
 		$stageNotifications = array();
@@ -150,9 +151,11 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		$uploadFileUrl = '';
 		if (in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
 			$fileStage = $this->_fileStageFromWorkflowStage($submission->getData('stageId'));
-			$lastReviewRound = DAORegistry::getDAO('ReviewRoundDAO')->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
+			$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
 			if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
-				$editorDecisions = DAORegistry::getDAO('EditDecisionDAO')->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getRound());
+				$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
+				$editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getRound());
 				$lastDecision = array_last($editorDecisions)['decision'];
 				$revisionDecisions = [SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, SUBMISSION_EDITOR_DECISION_RESUBMIT];
 				if (!empty($editorDecisions) && in_array($lastDecision, $revisionDecisions)) {
@@ -317,7 +320,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		];
 
 		// Add the metadata form if one or more metadata fields are enabled
-		$metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'supportingAgencies', 'type'];
+		$metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'agencies', 'type'];
 		$metadataEnabled = false;
 		foreach ($metadataFields as $metadataField) {
 			if ($submissionContext->getData($metadataField)) {

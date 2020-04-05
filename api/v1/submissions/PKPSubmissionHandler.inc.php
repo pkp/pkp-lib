@@ -3,9 +3,9 @@
 /**
  * @file api/v1/submissions/PKPSubmissionHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionHandler
  * @ingroup api_v1_submission
@@ -141,7 +141,6 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$requiresPublicationWriteAccess = [
-			'addPublication',
 			'editPublication',
 		];
 		if (in_array($routeName, $requiresPublicationWriteAccess)) {
@@ -150,6 +149,7 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$requiresProductionStageAccess = [
+			'addPublication',
 			'versionPublication',
 			'publishPublication',
 			'unpublishPublication',
@@ -174,7 +174,6 @@ class PKPSubmissionHandler extends APIHandler {
 		$request = Application::get()->getRequest();
 		$currentUser = $request->getUser();
 		$context = $request->getContext();
-		$submissionService = Services::get('submission');
 
 		if (!$context) {
 			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
@@ -253,20 +252,21 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$items = [];
-		$submissionsIterator = $submissionService->getMany($params);
+		$submissionsIterator = Services::get('submission')->getMany($params);
 		if (count($submissionsIterator)) {
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 			$propertyArgs = [
 				'request' => $request,
 				'slimRequest' => $slimRequest,
-				'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId())->toArray()
+				'userGroups' => $userGroupDao->getByContextId($context->getId())->toArray()
 			];
 			foreach ($submissionsIterator as $submission) {
-				$items[] = $submissionService->getSummaryProperties($submission, $propertyArgs);
+				$items[] = Services::get('submission')->getSummaryProperties($submission, $propertyArgs);
 			}
 		}
 
 		$data = [
-			'itemsMax' => $submissionService->getMax($params),
+			'itemsMax' => Services::get('submission')->getMax($params),
 			'items' => $items,
 		];
 
@@ -285,11 +285,12 @@ class PKPSubmissionHandler extends APIHandler {
 
 		$request = Application::get()->getRequest();
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		$data = Services::get('submission')->getFullProperties($submission, array(
 			'request' => $request,
 			'slimRequest' 	=> $slimRequest,
-			'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray(),
+			'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
 		));
 
 		return $response->withJson($data, 200);
@@ -315,7 +316,7 @@ class PKPSubmissionHandler extends APIHandler {
 		$params['contextId'] = $request->getContext()->getId();
 
 		$primaryLocale = $request->getContext()->getPrimaryLocale();
-		$allowedLocales = $request->getContext()->getSupportedLocales();
+		$allowedLocales = $request->getContext()->getData('supportedSubmissionLocales');
 
 		$errors = Services::get('submission')->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
@@ -323,14 +324,16 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(400)->withJson($errors);
 		}
 
-		$submission = Application::get()->getSubmissionDAO()->newDataObject();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
+		$submission = $submissionDao->newDataObject();
 		$submission->_data = $params;
 		$submission = Services::get('submission')->add($submission, $request);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		$data = Services::get('submission')->getFullProperties($submission, [
 			'request' => $request,
 			'slimRequest' 	=> $slimRequest,
-			'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray(),
+			'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
 		]);
 
 		return $response->withJson($data, 200);
@@ -367,7 +370,7 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$primaryLocale = $request->getContext()->getPrimaryLocale();
-		$allowedLocales = $request->getContext()->getSupportedLocales();
+		$allowedLocales = $request->getContext()->getData('supportedSubmissionLocales');
 
 		$errors = Services::get('submission')->validate(VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
 
@@ -376,11 +379,12 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$submission = Services::get('submission')->edit($submission, $params, $request);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		$data = Services::get('submission')->getFullProperties($submission, [
 			'request' => $request,
 			'slimRequest' 	=> $slimRequest,
-			'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray(),
+			'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
 		]);
 
 		return $response->withJson($data, 200);
@@ -402,10 +406,11 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
 		}
 
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$submissionProps = Services::get('submission')->getFullProperties($submission, [
 			'request' => $request,
 			'slimRequest' 	=> $slimRequest,
-			'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray(),
+			'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
 		]);
 
 		Services::get('submission')->delete($submission);
@@ -439,7 +444,6 @@ class PKPSubmissionHandler extends APIHandler {
 
 		$usersIterator = $userService->getMany(array(
 			'contextId' => $context->getId(),
-			'count' => 100, // high upper-limit
 			'assignedToSubmission' => $submission->getId(),
 			'assignedToSubmissionStage' => $stageId,
 		));
@@ -475,11 +479,11 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$args = [
-			'submissionIds' => $submission->getId(),
-			'count' => 1000
+			'submissionIds' => $submission->getId()
 		];
 
-		$userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray();
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
 		$items = [];
 		$publicationsIterator = Services::get('publication')->getMany($args);
@@ -524,11 +528,12 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
 		}
 
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$data = Services::get('publication')->getFullProperties(
 			$publication,
 			[
 				'request' => $request,
-				'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray(),
+				'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
 			]
 		);
 
@@ -558,7 +563,12 @@ class PKPSubmissionHandler extends APIHandler {
 			$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 		}
 		$primaryLocale = $submissionContext->getPrimaryLocale();
-		$allowedLocales = $submissionContext->getSupportedLocales();
+		$allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
+
+		// A publication may have a different primary locale
+		if (!empty($params['locale']) && in_array($params['locale'], $allowedLocales)) {
+			$primaryLocale = $params['locale'];
+		}
 
 		$errors = Services::get('publication')->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
@@ -566,14 +576,16 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(400)->withJson($errors);
 		}
 
-		$publication = DAORegistry::getDAO('PublicationDAO')->newDataObject();
+		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$publication = $publicationDao->newDataObject();
 		$publication->_data = $params;
 		$publication = Services::get('publication')->add($publication, $request);
 		$publicationProps = Services::get('publication')->getFullProperties(
 			$publication,
 			[
 				'request' => $request,
-				'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray(),
+				'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
 			]
 		);
 
@@ -602,12 +614,13 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$publication = Services::get('publication')->version($publication, $request);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		$publicationProps = Services::get('publication')->getFullProperties(
 			$publication,
 			[
 				'request' => $request,
-				'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray(),
+				'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
 			]
 		);
 
@@ -660,8 +673,8 @@ class PKPSubmissionHandler extends APIHandler {
 		if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
 			$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 		}
-		$primaryLocale = $submissionContext->getPrimaryLocale();
-		$allowedLocales = $submissionContext->getSupportedLocales();
+		$primaryLocale = $publication->getData('locale');
+		$allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
 
 		$errors = Services::get('publication')->validate(VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
 
@@ -670,12 +683,13 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$publication = Services::get('publication')->edit($publication, $params, $request);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		$publicationProps = Services::get('publication')->getFullProperties(
 			$publication,
 			[
 				'request' => $request,
-				'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray(),
+				'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
 			]
 		);
 
@@ -717,8 +731,8 @@ class PKPSubmissionHandler extends APIHandler {
 		if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
 			$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 		}
-		$primaryLocale = $submissionContext->getPrimaryLocale();
-		$allowedLocales = $submissionContext->getSupportedLocales();
+		$primaryLocale = $submission->getData('locale');
+		$allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
 
 		$errors = Services::get('publication')->validatePublish($publication, $submission, $allowedLocales, $primaryLocale);
 
@@ -727,12 +741,13 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$publication = Services::get('publication')->publish($publication);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		$publicationProps = Services::get('publication')->getFullProperties(
 			$publication,
 			[
 				'request' => $request,
-				'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray(),
+				'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
 			]
 		);
 
@@ -765,12 +780,13 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$publication = Services::get('publication')->unpublish($publication);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		$publicationProps = Services::get('publication')->getFullProperties(
 			$publication,
 			[
 				'request' => $request,
-				'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray(),
+				'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
 			]
 		);
 
@@ -805,11 +821,12 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.publication.403.cantDeletePublished');
 		}
 
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$publicationProps = Services::get('publication')->getFullProperties(
 			$publication,
 			[
 				'request' => $request,
-				'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray(),
+				'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
 			]
 		);
 

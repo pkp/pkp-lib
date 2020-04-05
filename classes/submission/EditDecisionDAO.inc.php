@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/EditDecisionDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditDecisionDAO
  * @ingroup submission
@@ -128,7 +128,7 @@ class EditDecisionDAO extends DAO {
 		$revisionDecisions = array(SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, SUBMISSION_EDITOR_DECISION_RESUBMIT);
 		if (!in_array($revisionDecision, $revisionDecisions)) return null;
 
-		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 		$editorDecisions = $editDecisionDao->getEditorDecisions($submissionId);
 		$workingDecisions = array_reverse($editorDecisions);
 		$pendingRevisionDecision = null;
@@ -168,10 +168,10 @@ class EditDecisionDAO extends DAO {
 		$round = $decision['round'];
 		$sentRevisions = false;
 
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$reviewRound = $reviewRoundDao->getReviewRound($submissionId, $stageId, $round);
 
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		import('lib.pkp.classes.submission.SubmissionFile'); // Bring the file constants.
 		$submissionFiles =  $submissionFileDao->getRevisionsByReviewRound($reviewRound, SUBMISSION_FILE_REVIEW_REVISION);
 

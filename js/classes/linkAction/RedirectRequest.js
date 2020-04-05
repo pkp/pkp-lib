@@ -1,9 +1,9 @@
 /**
  * @file js/classes/linkAction/RedirectRequest.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RedirectRequest
  * @ingroup js_classes_linkAction
@@ -46,9 +46,8 @@
 		window.open(options.url, options.name,
 				/** @type {{specs: string}} */ (options).specs);
 
-		return /** @type {boolean} */ this.parent('activate', element, event);
+		return /** @type {boolean} */ (this.parent('activate', element, event));
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

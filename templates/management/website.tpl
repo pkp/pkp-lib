@@ -1,9 +1,9 @@
 {**
  * templates/management/website.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * The website settings page.
  *}
@@ -14,7 +14,7 @@
 	<tabs>
 		<tab id="appearance" label="{translate key="manager.website.appearance"}">
 			{help file="settings/website-settings" class="pkp_help_tab"}
-			<tabs is-side-tabs="true">
+			<tabs :is-side-tabs="true">
 				<tab id="theme" label="{translate key="manager.setup.theme"}">
 					<theme-form
 						v-bind="components.{$smarty.const.FORM_THEME}"
@@ -38,7 +38,7 @@
 		</tab>
 		<tab id="setup" label="{translate key="navigation.setup"}">
 			{help file="settings/website-settings" section="setup" class="pkp_help_tab"}
-			<tabs is-side-tabs="true">
+			<tabs :is-side-tabs="true">
 				<tab id="information" label="{translate key="manager.website.information"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_INFORMATION}"

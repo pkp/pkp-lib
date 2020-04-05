@@ -3,9 +3,9 @@
 /**
  * @file api/v1/stats/PKPStatsEditorialHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsEditorialHandler
  * @ingroup api_v1_stats
@@ -29,6 +29,11 @@ abstract class PKPStatsEditorialHandler extends APIHandler {
 				[
 					'pattern' => $this->getEndpointPattern(),
 					'handler' => [$this, 'get'],
+					'roles' => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER],
+				],
+				[
+					'pattern' => $this->getEndpointPattern() . '/averages',
+					'handler' => [$this, 'getAverages'],
 					'roles' => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER],
 				],
 			],
@@ -102,5 +107,44 @@ abstract class PKPStatsEditorialHandler extends APIHandler {
 		}
 
 		return $response->withJson(Services::get('editorialStats')->getOverview($params));
+	}
+
+	/**
+	 * Get yearly averages of editorial stats
+	 *
+	 * Returns information on average submissions received, accepted
+	 * and declined per year.
+	 *
+	 * @param $slimRequest Request Slim request object
+	 * @param $response object Response
+	 * @param $args array
+	 * @return object Response
+	 */
+	public function getAverages($slimRequest, $response, $args) {
+		$request = $this->getRequest();
+
+		if (!$request->getContext()) {
+			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+		}
+
+		$params = [];
+		foreach ($slimRequest->getQueryParams() as $param => $value) {
+			switch ($param) {
+				case $this->sectionIdsQueryParam:
+					if (is_string($value) && strpos($value, ',') > -1) {
+						$value = explode(',', $value);
+					} elseif (!is_array($value)) {
+						$value = [$value];
+					}
+					$params[$param] = array_map('intval', $value);
+					break;
+			}
+		}
+
+		\HookRegistry::call('API::stats::editorial::averages::params', array(&$params, $slimRequest));
+
+		$params['contextIds'] = [$request->getContext()->getId()];
+
+		return $response->withJson(Services::get('editorialStats')->getAverages($params));
 	}
 }

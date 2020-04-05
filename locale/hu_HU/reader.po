@@ -1,0 +1,501 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
+"PO-Revision-Date: 2020-02-21 15:36+0000\n"
+"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reader/hu/>\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "comments.anonymous"
+msgstr "Név nélküli felhasználó"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Hozzászólás szövege"
+
+msgid "comments.titleRequired"
+msgstr "Hozzászólás cím kötelező."
+
+msgid "comments.confirmDeleteChildren"
+msgstr "A hozzászólás törlése törli a válaszokat is. Biztosan ezt szeretné tenni?"
+
+msgid "comments.delete"
+msgstr "Ennek a megjegyzésnek a törlése"
+
+msgid "comments.email"
+msgstr "Küldő email címe"
+
+msgid "comments.emailReply"
+msgstr "Email válasz"
+
+msgid "comments.enterComment"
+msgstr "Megjegyzés megadása"
+
+msgid "comments.inResponseTo"
+msgstr "Válaszban erre <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Küldő neve"
+
+msgid "comments.noComments"
+msgstr "Nincsenek olvasói hozzászólások."
+
+msgid "comments.nReplies"
+msgstr "({$num} Válasz)"
+
+msgid "comments.oneReply"
+msgstr "(1 Válasz)"
+
+msgid "comments.postAnonymously"
+msgstr "A hozzászólás név nélküli elküldése"
+
+msgid "comments.postReply"
+msgstr "Válasz küldése"
+
+msgid "comments.readerComments"
+msgstr "Olvasói megjegyzések"
+
+msgid "comments.readMore"
+msgstr "Tovább"
+
+msgid "comments.replies"
+msgstr "Válaszok"
+
+msgid "comments.title"
+msgstr "Cím"
+
+msgid "comments.viewAllComments"
+msgstr "Összes megjegyzés megtekintése"
+
+msgid "reader.fullText"
+msgstr "Teljes szöveg:"
+
+msgid "rt.addComment"
+msgstr "Megjegyzés hozzáadása"
+
+msgid "rt.admin.configuration"
+msgstr "Konfiguráció"
+
+msgid "rt.admin.contexts.confirmDelete"
+msgstr "Biztos benne, hogy ebben az összefüggésben az összes kapcsolódó keresést törölni akarja?"
+
+msgid "rt.admin.contexts.createContext"
+msgstr "Szövegkörnyezet készítése"
+
+msgid "rt.admin.contexts.edit.editContext"
+msgstr "Szövegkörnyezet szerkesztése"
+
+msgid "rt.admin.contexts.metadata"
+msgstr "Metaadat"
+
+msgid "rt.admin.contexts.options.authorTerms"
+msgstr "Használja a szerzői neveket, mint alapértelmezett keresési kifejezéseket, hogy a felhasználók megtalálhassák a tétel szerzőjének további munkáit (pl. \"Egyéb munkák\" szövegösszefüggéssel)"
+
+msgid "rt.admin.contexts.options.citedBy"
+msgstr "Használja a szerzői neveket, mint alapértelmezett keresési kifejezéseket és írja le a kontextust, mint egy keresést a cikk idézettségeihez."
+
+msgid "rt.admin.contexts.options.defineTerms"
+msgstr "Használja az olvasó által kiemelt szót, mint alapértelmezett keresőkifejezést vagy hagyja üresen, ha semmi sincs kiválasztva ehhez a tételhez (pl. \"A kifejezések definíciója\" kontextus). \"A kifejezések definíciója\" lehetőséget a <a href=\"{$settingsUrl}\">RST Beállítások</a> részben kell engedélyeznie, dupla kattintással a szóra fog megnyílni ez a kontextus."
+
+msgid "rt.admin.contexts.options.geoTerms"
+msgstr "Használjon földrajzi indexelési adatot alapértelmezett keresési kifejezéseknek."
+
+msgid "rt.admin.contexts.options"
+msgstr "Lehetőségek"
+
+msgid "rt.admin.management"
+msgstr "Menedzselés"
+
+msgid "rt.admin.sharing"
+msgstr "Megosztás"
+
+msgid "rt.admin.sharing.enabled"
+msgstr "A megosztás engedélyezett"
+
+msgid "rt.admin.sharing.description"
+msgstr "Annak érdekében, hogy olvasói megoszthassák a tartalmat, jelentkezzen be a <a href=\"http://www.addthis.com\"> addthis.com </a> webhelyre, és másolja be/illessze be a megosztó gombkódot."
+
+msgid "rt.admin.sharing.basic"
+msgstr "Alap beállítások"
+
+msgid "rt.admin.sharing.userNameLabel"
+msgstr "AddThis.com felhasználói név"
+
+msgid "rt.admin.sharing.buttonStyleLabel"
+msgstr "Gomb stílus"
+
+msgid "rt.admin.sharing.dropDownMenuLabel"
+msgstr "Használja a legördülő menüt"
+
+msgid "rt.admin.sharing.advanced"
+msgstr "Bővebb beállítások (nem kötelező)"
+
+msgid "rt.admin.sharing.customizationLink"
+msgstr "Lásd az <a href=\"http://support.addthis.com/customer/portal/articles/381236-custom-buttons\">AddThis.com testreszabási dokumentációt</a> for reference."
+
+msgid "rt.admin.sharing.brandLabel"
+msgstr "Brand"
+
+msgid "rt.admin.sharing.dropDownLabel"
+msgstr "Legördülő  beállítási lehetőségek<br /> (comma separated list)"
+
+msgid "rt.admin.sharing.languageLabel"
+msgstr "Nyelv"
+
+msgid "rt.admin.sharing.logolabel"
+msgstr "Logo"
+
+msgid "rt.admin.sharing.logoBackgroundLabel"
+msgstr "Logo háttér"
+
+msgid "rt.admin.sharing.logoColorLabel"
+msgstr "Logo szín"
+
+msgid "rt.admin.readingToolsEnabled"
+msgstr "Olvasói eszközök"
+
+msgid "rt.admin.searches.confirmDelete"
+msgstr "Biztos benne, hogy törölni akarja ezt a keresést?"
+
+msgid "rt.admin.searches.createSearch"
+msgstr "Keresés készítése"
+
+msgid "rt.admin.searches.edit.editSearch"
+msgstr "Keresés szerkesztése"
+
+msgid "rt.admin.selectedVersion"
+msgstr "Kapcsolódó tételek"
+
+msgid "rt.admin.settings.abstract"
+msgstr "Absztrakt (bemutatja a tétel absztraktját)."
+
+msgid "rt.admin.settings.viewReviewPolicy"
+msgstr "A szakmai lektorálás irányelveinek megtekintése"
+
+msgid "rt.admin.settings.authorBio"
+msgstr "A szerzőről (a szerző által megadott életrajzi adatokat mutatja meg)."
+
+msgid "rt.admin.settings.captureCite"
+msgstr "Hogyan idézzem (megmutatja a tétel bibliográfiai részleteit)."
+
+msgid "rt.admin.settings.defineTerms"
+msgstr "Kifejezések keresése (engedélyezi az olvasóknak, hogy a tétel bármelyik szavára rákattintva szótárba küldhesse azt)."
+
+msgid "rt.admin.settings.disableRelatedItems"
+msgstr "Kapcsolódó tételek letiltása"
+
+msgid "rt.admin.settings.emailAuthor"
+msgstr "Email a szerzőnek (a cikk szerzőjének emailt küldhet egy sablon szöveggel)."
+
+msgid "rt.admin.settings.emailOthers"
+msgstr "Kolléga értesítése (a tétel linkjével emailt küldhet egy sablon szöveggel)."
+
+msgid "rt.admin.settings.findingReferences"
+msgstr "Hivatkozások keresése"
+
+msgid "rt.admin.settings.printerFriendly"
+msgstr "Nyomtatott verzió (megmutatja a tétel nyomtató-barát változatát)."
+
+msgid "rt.admin.settings.supplementaryFiles"
+msgstr "Kiegészítő fájlok (megmutatja azokat a csatolt fájlokat, amiket a szerző töltött fel a beküldött anyagához)."
+
+msgid "rt.admin.settings.viewMetadata"
+msgstr "Metaadat indexelés (kijelzi az egyes tételek szerzők és a rendszer által nyújtott indexelt metaadatait)."
+
+msgid "rt.admin.status"
+msgstr "Státusz"
+
+msgid "rt.admin.configureSharing"
+msgstr "AddThis beállítása"
+
+msgid "rt.admin.validateUrls.complete"
+msgstr "Ellenőrzés kész"
+
+msgid "rt.admin.validateUrls.ok"
+msgstr "OK"
+
+msgid "rt.admin.validateUrls.urlIsInvalid"
+msgstr "{$url} nem érvényes."
+
+msgid "rt.admin.validateUrls"
+msgstr "Az olvasói eszközök URL címeinek ellenőrzése"
+
+msgid "rt.admin.validateUrls.validate"
+msgstr "Ellenőrzés"
+
+msgid "rt.admin.versions.confirmDelete"
+msgstr "Biztos benne, hogy törölni szeretné ezt a verziót és az összes kapcsolódó kifejezést és kereséseket?"
+
+msgid "rt.admin.versions.confirmRestore"
+msgstr "Biztos benne, hogy vissza szeretné állítani az összes verziót az alapértelmezettre, ami nem visszafordítható folyamat? Ha igen, ki kell választani egy aktív verziót a beállítások oldalon."
+
+msgid "rt.admin.versions.createVersion"
+msgstr "Verzió létrehozás"
+
+msgid "rt.admin.versions.edit.editVersion"
+msgstr "Verziószerkesztés"
+
+msgid "rt.admin.versions.export"
+msgstr "Export"
+
+msgid "rt.admin.versions.importVersion"
+msgstr "Import Version"
+
+msgid "rt.admin.versions.metadata"
+msgstr "Metadata"
+
+msgid "rt.admin.versions.restoreVersions"
+msgstr "A verziók visszaállítása alapértelmezettre"
+
+msgid "rt.authorBio"
+msgstr "A szerzőről"
+
+msgid "rt.captureCite.format"
+msgstr "Idézettségi formátum"
+
+msgid "rt.captureCite"
+msgstr "Hogyan idézze a tételt"
+
+msgid "rt.captureCite.online"
+msgstr "Online"
+
+msgid "rt.captureCite.web"
+msgstr "Web"
+
+msgid "rt.colleague"
+msgstr "Munkatárs értesítése"
+
+msgid "rt.context.abbrev"
+msgstr "Rövidítés"
+
+msgid "rt.context.and"
+msgstr "ÉS"
+
+msgid "rt.context.citesContextDescription"
+msgstr "Amennyiben a cikk indexelt a Google Scholar-ban, hozzácsatolható egy \"Idézi X\" link, amely egy listát ad azokról a művekről, amelyek idézik. Ahogyan a Google Scholar is kiad egy listát ahol a szerző és a cím idézetként szerepel. Az online forrásokhoz való hozzáféréshez, ami a kutatási könyvtárában érhető el, el kell mennie a Scholar beállításokba a Google Scholar-ban és aktiválni a Library linkeket az intézménye számára."
+
+msgid "rt.context"
+msgstr "Szövegkörnyezet"
+
+msgid "rt.context.defineTermsDescription"
+msgstr "Ha a tétel egy HTML fájl (nem pedig egy PDF), a szövegben bármelyik szóra duplán kattintva megjelenik a Word-to-Define panel. Egyébként a szavak begépelhetők vagy beilleszthetők a dobozba. További információkért a forrás keresésekről kattintson a ABOUT részre. Ezek a források azért lettek kiválasztva, mert relevánsak és részben vagy egészben nyitott (ingyenes) hozzáférésűek."
+
+msgid "rt.context.description"
+msgstr "Leírás"
+
+msgid "rt.context.order"
+msgstr "Sorrendezés"
+
+msgid "rt.contexts"
+msgstr "Szövegkörnyezetek"
+
+msgid "rt.context.searchDescription"
+msgstr "A kereső kifejezéseket a szerző(k) választották ki. Ezeket az olvasók felülírhatják vagy törölhetik, két vagy három rövid, pontos szóval vagy kifejezéssel lehet a legjobb Boolean (AND) keresést lefolytatni. További információkért a forrás keresésekről kattintson a ABOUT részre. Ezek a források azért lettek kiválasztva, mert relevánsak és részben vagy egészben nyitott (ingyenes) hozzáférésűek."
+
+msgid "rt.context.searchTerms"
+msgstr "Kifejezések keresése"
+
+msgid "rt.context.termToDefine"
+msgstr "Szó meghatározáshoz"
+
+msgid "rt.context.title"
+msgstr "Cím"
+
+msgid "rt.emailAuthor"
+msgstr "Email a szerzőnek"
+
+msgid "rt.email.needLogin"
+msgstr "* Szükséges a <a target=\"_parent\" href=\"{$loginUrl}\">regisztráció</a>"
+
+msgid "rt.email.sent"
+msgstr "Az üzenete elküldve."
+
+msgid "rt.findingReferences"
+msgstr "Hivatkozások keresése"
+
+msgid "rt.findingReferences.googleScholar"
+msgstr "Google Scholar"
+
+msgid "rt.findingReferences.windowsLiveAcademic"
+msgstr "Windows Live Academic"
+
+msgid "rt.lookUp"
+msgstr "Kifejezések keresése"
+
+msgid "rt.metadata.dublinCore.contributor"
+msgstr "Munkatárs"
+
+msgid "rt.metadata.dublinCore.coverage"
+msgstr "Lefedettség"
+
+msgid "rt.metadata.dublinCore.date"
+msgstr "Dátum"
+
+msgid "rt.metadata.dublinCore.description"
+msgstr "Leírás"
+
+msgid "rt.metadata.dublinCore"
+msgstr "Dublin Core"
+
+msgid "rt.metadata.dublinCore.format"
+msgstr "Formátum"
+
+msgid "rt.metadata.dublinCore.identifier"
+msgstr "Azonosító"
+
+msgid "rt.metadata.dublinCore.language"
+msgstr "Nyelv"
+
+msgid "rt.metadata.dublinCore.publisher"
+msgstr "Kiadó"
+
+msgid "rt.metadata.dublinCore.relation"
+msgstr "Kapcsolat"
+
+msgid "rt.metadata.dublinCore.rights"
+msgstr "Jogok"
+
+msgid "rt.metadata.dublinCore.source"
+msgstr "Forrás"
+
+msgid "rt.metadata.dublinCore.subject"
+msgstr "Tárgy"
+
+msgid "rt.metadata.dublinCore.title"
+msgstr "Cím"
+
+msgid "rt.metadata.dublinCore.type"
+msgstr "Típus"
+
+msgid "rt.metadata.forThisDocument"
+msgstr "Ennek a dokumentumnak a metaadata"
+
+msgid "rt.metadata.pkp.abstract"
+msgstr "Absztrakt"
+
+msgid "rt.metadata.pkp.copyright"
+msgstr "Szerzői jogok és engedélyek"
+
+msgid "rt.metadata.pkp.coverage"
+msgstr "Földrajzi elhelyezkedés, korszak, kutatási minta (nem, életkor, stb.)"
+
+msgid "rt.metadata.pkp.date"
+msgstr "(YYYY-MM-DD)"
+
+msgid "rt.metadata.pkp.discipline"
+msgstr "Tudományterület(ek)"
+
+msgid "rt.metadata.pkp.format"
+msgstr "Fájlformátum"
+
+msgid "rt.metadata.pkp.genre"
+msgstr "Status & genre"
+
+msgid "rt.metadata.pkpItem"
+msgstr "PKP Metaadat tételek"
+
+msgid "rt.metadata.pkp.language"
+msgstr "English=en"
+
+msgid "rt.metadata.pkp.publisher"
+msgstr "Szervező ügynökség, helyszín"
+
+msgid "rt.metadata.pkp.source"
+msgstr "Cím; köt., szám. (év)"
+
+msgid "rt.metadata.pkp.sponsors"
+msgstr "Szponzor(ok)"
+
+msgid "rt.metadata.pkp.subject"
+msgstr "Kulcsszavak"
+
+msgid "rt.metadata.pkp.suppFiles"
+msgstr "Kieg. fájlok"
+
+msgid "rt.metadata.pkp.title"
+msgstr "A dokumentum címe"
+
+msgid "rt.metadata.pkp.type"
+msgstr "Típus"
+
+msgid "rt.metadata.pkp.uri"
+msgstr "Egyezményes forrás azonosító"
+
+msgid "rt.printVersion"
+msgstr "Nyomtatott verzió"
+
+msgid "rt.readingTools"
+msgstr "Olvasási eszközök"
+
+msgid "rt.relatedItems"
+msgstr "Kapcsolódó tételek"
+
+msgid "rt.reviewPolicy"
+msgstr "Szakmai lektorálás irányelvei"
+
+msgid "rt.search.description"
+msgstr "Leírás"
+
+msgid "rt.searches"
+msgstr "Keresések"
+
+msgid "rt.search.order"
+msgstr "Rendezés"
+
+msgid "rt.search"
+msgstr "Keresés"
+
+msgid "rt.search.searchPost"
+msgstr "Adatok küldése"
+
+msgid "rt.search.searchUrl"
+msgstr "Keresési URL"
+
+msgid "rt.search.suggest"
+msgstr "Forrás javaslat"
+
+msgid "rt.search.title"
+msgstr "Cím"
+
+msgid "rt.search.url"
+msgstr "URL"
+
+msgid "rt.suppFiles.download"
+msgstr "Letöltés"
+
+msgid "rt.suppFiles"
+msgstr "Kiegészítő fájlok"
+
+msgid "rt.suppFiles.viewMetadata"
+msgstr "Metaadat indexelés"
+
+msgid "rt.version.description"
+msgstr "Leírás"
+
+msgid "rt.version.key"
+msgstr "Kulcs"
+
+msgid "rt.version.locale"
+msgstr "Helyszín"
+
+msgid "rt.versions"
+msgstr "Kapcsolódó tétel beállítások"
+
+msgid "rt.version.title"
+msgstr "Cím"
+
+msgid "rt.version"
+msgstr "Verzió"
+
+msgid "rt.viewMetadata"
+msgstr "Metaadat indexelés"

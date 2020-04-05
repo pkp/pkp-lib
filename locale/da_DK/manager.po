@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
+"PO-Revision-Date: 2020-02-10 15:35+0000\n"
+"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
+"da/>\n"
+"Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:42+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "manager.announcements"
 msgstr "Meddelelser"
@@ -27,10 +30,10 @@ msgid "manager.announcements.dateExpire"
 msgstr "Udløb"
 
 msgid "manager.announcements.edit"
-msgstr "Rediger meddelelse"
+msgstr "Redigér meddelelse"
 
 msgid "manager.announcements.editTitle"
-msgstr "Rediger"
+msgstr "Redigér"
 
 msgid "manager.announcements.form.dateExpireDayIncompleteDate"
 msgstr "Vælg også et år og/eller en måned ud over udløbsdagen."
@@ -105,10 +108,10 @@ msgid "manager.announcementTypes.createTitle"
 msgstr "Opret"
 
 msgid "manager.announcementTypes.edit"
-msgstr "Rediger meddelelsestype"
+msgstr "Redigér meddelelsestype"
 
 msgid "manager.announcementTypes.editTitle"
-msgstr "Rediger"
+msgstr "Redigér"
 
 msgid "manager.announcementTypes.form.saveAndCreateAnother"
 msgstr "Gem og opret en ny"
@@ -138,13 +141,13 @@ msgid "manager.emails.createEmail"
 msgstr "Opret e-mail"
 
 msgid "manager.emails.disable"
-msgstr "Deaktiver"
+msgstr "Deaktivér"
 
 msgid "manager.emails.editEmail"
-msgstr "Rediger e-mail"
+msgstr "Redigér e-mail"
 
 msgid "manager.emails.editTestExample"
-msgstr "Rediger eksempel på e-mail-test"
+msgstr "Redigér eksempel på e-mail-test"
 
 msgid "manager.emails.emailKey"
 msgstr "E-mail-nøgle"
@@ -156,10 +159,10 @@ msgid "manager.emails.emailTemplate"
 msgstr "E-mail-skabelon"
 
 msgid "manager.emails.enabled"
-msgstr "Aktiver denne e-mail-skabelon"
+msgstr "Aktivér denne e-mail-skabelon"
 
 msgid "manager.emails.enable"
-msgstr "Aktiver"
+msgstr "Aktivér"
 
 msgid "manager.emails.form.bodyRequired"
 msgstr "En brødtekst er påkrævet for denne e-mail."
@@ -207,7 +210,7 @@ msgid "manager.groups.createTitle"
 msgstr "Opret titel"
 
 msgid "manager.groups.editTitle"
-msgstr "Rediger titel"
+msgstr "Redigér titel"
 
 msgid "manager.groups.form.groupTitleRequired"
 msgstr "En gruppetitel er påkrævet."
@@ -231,13 +234,19 @@ msgid "manager.groups.title"
 msgstr "Titel"
 
 msgid "manager.importExport"
-msgstr "Importer/eksporter data"
+msgstr "Importér/eksportér data"
 
 msgid "manager.languages.alternateLocaleInstructions"
-msgstr "Du kan vælge, at det skal være tilladt at angive bestemte vigtige oplysninger på flere forskellige sprog. Hvis du vil benytte denne funktion, skal du markere alternative landestandarder og vælge blandt de indstillinger, der er angivet nedenfor."
+msgstr ""
+"Du kan vælge, at det skal være tilladt at angive bestemte vigtige "
+"oplysninger på flere forskellige sprog. Hvis du vil benytte denne funktion, "
+"skal du markere alternative sprog og vælge blandt de indstillinger, der er "
+"angivet nedenfor."
 
 msgid "manager.languages.supportedLocalesInstructions"
-msgstr "Vælg de landestandarder, webstedet skal understøtte, via en sprogvalgsmenu på hver side. Menuen vises kun, hvis der vælges mere end én landestandard."
+msgstr ""
+"Vælg de sprog, webstedet skal understøtte, via en sprogvalgsmenu på hver "
+"side. Menuen vises kun, hvis der vælges mere end ét sprog."
 
 msgid "manager.payment.timestamp"
 msgstr "Tidsstempel"
@@ -258,16 +267,16 @@ msgid "manager.people.createUserSendNotify"
 msgstr "Send brugeren en velkomst-e-mail med brugernavn og adgangskode."
 
 msgid "manager.people.disable"
-msgstr "Deaktiver"
+msgstr "Deaktivér"
 
 msgid "manager.people.doNotEnroll"
 msgstr "Uden rolle"
 
 msgid "manager.people.editProfile"
-msgstr "Rediger profil"
+msgstr "Redigér profil"
 
 msgid "manager.people.editUser"
-msgstr "Rediger bruger"
+msgstr "Redigér bruger"
 
 msgid "manager.people.emailUsers.emailSelectedUsers"
 msgstr "Send e-mail til valgte brugere"
@@ -279,13 +288,13 @@ msgid "manager.people.emailUsers"
 msgstr "Send e-mail til brugere"
 
 msgid "manager.people.emailUsers.selectLocale"
-msgstr "Vælg en landestandard"
+msgstr "Vælg et sprog"
 
 msgid "manager.people.emailUsers.selectUsers"
 msgstr "Vælg de brugere, du vil sende en e-mail til, ved at markere afkrydsningsfelterne ud for deres navne"
 
 msgid "manager.people.enable"
-msgstr "Aktiver"
+msgstr "Aktivér"
 
 msgid "manager.people.enroll"
 msgstr "Tilmeld bruger"
@@ -351,7 +360,7 @@ msgid "manager.people.syncUsers"
 msgstr "Synkroniser brugertilmelding"
 
 msgid "manager.people.unenroll"
-msgstr "Annuller tilmelding"
+msgstr "Annullér tilmelding"
 
 msgid "manager.people.userCreatedSuccessfully"
 msgstr "Brugeren er blevet oprettet."
@@ -363,19 +372,21 @@ msgid "manager.plugins.action"
 msgstr "Handling:"
 
 msgid "manager.plugins.disable"
-msgstr "Deaktiver"
+msgstr "Deaktivér"
 
 msgid "manager.plugins.enable"
-msgstr "Aktiver"
+msgstr "Aktivér"
 
 msgid "manager.plugins.pluginManagement"
-msgstr "Administration af plug-ins"
+msgstr "Administration af plugins"
 
 msgid "manager.plugins.sitePlugin"
-msgstr "Dette er en plug-in for hele webstedet. Denne plug-in må kun administreres af webstedsadministratoren."
+msgstr ""
+"Dette er en plugin for hele webstedet. Denne plug-in må kun administreres af "
+"webstedsadministratoren."
 
 msgid "manager.plugins"
-msgstr "System-plug-ins"
+msgstr "System-plugins"
 
 msgid "manager.readingTools"
 msgstr "Læseværktøjer"
@@ -384,19 +395,25 @@ msgid "manager.roles"
 msgstr "Roller"
 
 msgid "manager.setup.homepageImageInvalid"
-msgstr "Ugyldigt billedformat til hjemmeside. De accepterede formater er .jpg eller .png."
+msgstr ""
+"Ugyldigt billedformat til hjemmeside. De accepterede formater er .gif, .jpg "
+"eller .png."
 
 msgid "manager.setup.homeTitleImageInvalid"
-msgstr "Ugyldigt billedformat til titlen i sidehovedet på hjemmeside. De accepterede formater er .jpg eller .png."
+msgstr ""
+"Ugyldigt billedformat til titlen i sidehovedet på hjemmeside. De accepterede "
+"formater er .gif, .jpg eller .png."
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Logføring og kontrol"
 
 msgid "manager.setup.pageHeaderLogoImageInvalid"
-msgstr "Ugyldigt billedformat til logoet i sidehovedet på side. De accepterede formater er .jpg eller .png."
+msgstr ""
+"Ugyldigt billedformat til logoet i sidehovedet på side. De accepterede "
+"formater er .gif, .jpg eller .png."
 
 msgid "manager.statistics"
-msgstr "Statistikker og rapporter"
+msgstr "Statistikker &amp; rapporter"
 
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} ({$percentage}%)"
@@ -408,49 +425,57 @@ msgid "manager.users"
 msgstr "Brugere"
 
 msgid "plugins.categories.auth"
-msgstr "Plug-ins til autorisationer"
+msgstr "Plugins til autorisationer"
 
 msgid "plugins.categories.blocks"
-msgstr "Plug-ins til blokke"
+msgstr "Plugins til blokke"
 
 msgid "plugins.categories.blocks.description"
-msgstr "Plug-ins til blokke er tilslutningsbare brugergrænsefladekomponenter, f.eks. de forskellige margentekstværktøjer."
+msgstr ""
+"Plugins til blokke er tilslutningsbare brugergrænsefladekomponenter, f.eks. "
+"de forskellige margentekstværktøjer."
 
 msgid "plugins.categories.gateways.description"
-msgstr "Plug-ins til gateways leverer live-data til eksterne systemer."
+msgstr "Plugins til gateways leverer live-data til eksterne systemer."
 
 msgid "plugins.categories.gateways"
-msgstr "Plug-ins til gateways"
+msgstr "Plugins til gateways"
 
 msgid "plugins.categories.generic"
-msgstr "Generiske plug-ins"
+msgstr "Generiske plugins"
 
 msgid "plugins.categories.importexport.description"
-msgstr "Plug-ins til import/eksport kan bruges til at overføre indhold til og fra andre systemer."
+msgstr ""
+"Plugins til import/eksport kan bruges til at overføre indhold til og fra "
+"andre systemer."
 
 msgid "plugins.categories.importexport"
-msgstr "Plug-ins til import/eksport"
+msgstr "Plugins til import/eksport"
 
 msgid "plugins.categories.paymethod.description"
-msgstr "Plug-ins til betalingsmåder implementerer understøttelse af forskellige måder til håndtering af onlinebetalinger."
+msgstr ""
+"Plugins til betalingsmåder implementerer understøttelse af forskellige måder "
+"til håndtering af onlinebetalinger."
 
 msgid "plugins.categories.paymethod"
-msgstr "Plug-ins til betalinger"
+msgstr "Plugins til betalinger"
 
 msgid "plugins.categories.reports.description"
 msgstr "Rapport-plugins bruges til at implementere forskellige typer af rapporter og dataudtræk."
 
 msgid "plugins.categories.reports"
-msgstr "Rapport plugins"
+msgstr "Rapport-plugins"
 
 msgid "plugins.categories.themes.description"
-msgstr "Plug-ins til temaer kan bruges til at ændre systemets udseende."
+msgstr "Plugins til temaer kan bruges til at ændre systemets udseende."
 
 msgid "plugins.categories.themes"
-msgstr "Plug-ins til temaer"
+msgstr "Plugins til temaer"
 
 msgid "manager.emails.form.emailKeyRequired"
-msgstr "Denne e-mail kræver en unik e-mail-nøgle."
+msgstr ""
+"En unik e-mail-nøgle, der ikke indeholder mellemrum eller specialtegn, er "
+"påkrævet i forbindelse med e-mailen."
 
 msgid "manager.reviewerSearch.searchByName"
 msgstr "Søg efter bedømmer ud fra navn"
@@ -465,10 +490,10 @@ msgid "manager.announcements.datePublish"
 msgstr "Udgivet"
 
 msgid "manager.emails.data"
-msgstr "Skabelondata"
+msgstr "Skabelon-meddelelsesdata"
 
 msgid "manager.emails.details"
-msgstr "Skabelondetaljer"
+msgstr "Skabelonoplysninger"
 
 msgid "manager.emails.disable.message"
 msgstr "Du er i gang med at deaktivere denne e-mailskabelon. Andre processtyringssystemer, der evt. anvender denne skabelon vil ikke længere kunne benytte den. Vil du bekræfte denne handling?"
@@ -489,13 +514,13 @@ msgid "manager.reviewerSearch.form.instructions"
 msgstr "Brug nedenstående felt til at angive det maksimale antal ord, du ønsker at søge efter. Feltet er forudindstillet til at beregne et gennemsnit for formularens felter."
 
 msgid "plugins.categories.metadata"
-msgstr "Metadata plug-ins"
+msgstr "Metadata plugins"
 
 msgid "plugins.categories.metadata.description"
-msgstr "Metadata plug-ins implementerer ekstra metadata-standarder."
+msgstr "Metadata plugins implementerer ekstra metadata-standarder."
 
 msgid "plugins.categories.oaiMetadataFormats"
-msgstr "OAI Metadata Format Plug-ins"
+msgstr "OAI Metadata Format Plugins"
 
 msgid "plugins.categories.oaiMetadataFormats.description"
 msgstr "Disse format-plugins udtrykker metadata i OAI-kommunikationer."
@@ -519,19 +544,27 @@ msgid "manager.reviewForms.edit"
 msgstr "Bedømmelsesformular"
 
 msgid "manager.reviewForms.form.titleRequired"
-msgstr "En titel er påkrævet til bedømmelsesformular"
+msgstr "En titel er påkrævet i forbindelse med bedømmelsesformularen."
 
 msgid "manager.reviewForms.inReview"
 msgstr "Under bedømmelse"
 
 msgid "manager.reviewForms.list.description"
-msgstr "Peer review formularer, som er oprettet her, bliver præsenteret for bedømmere med henblik på udfyldning, i stedet for standardformularen, som består af to tomme tekstfelter, det første \"til forfatter og redaktør\", den andet \"til redaktør\". Bedømmelsesformularer kan designes til det enkelte tidsskrift, og redaktører har mulighed for at vælge hvilken formular, der skal bruges i de respektive bedømmelser.  Redaktører vil i alle tilfælde have mulighed for at inkludere de respektive bedømmelser i korrespondence med forfatteren."
+msgstr ""
+"Fagfællebedømmelsesformularer, som er oprettet her, bliver præsenteret for "
+"bedømmere med henblik på udfyldning, i stedet for standardformularen, som "
+"består af to tomme tekstfelter, det første \"til forfatter og redaktør\", "
+"den andet \"til redaktør\". Bedømmelsesformularer kan designes til det "
+"enkelte tidsskrift, og redaktører har mulighed for at vælge hvilken "
+"formular, der skal bruges i de respektive bedømmelser.  Redaktører vil i "
+"alle tilfælde have mulighed for at inkludere de respektive bedømmelser i "
+"korrespondence med forfatteren."
 
 msgid "manager.reviewForms.noneChosen"
 msgstr "Ingen / Valgfri bedømmelsesformular"
 
 msgid "manager.reviewForms.noneCreated"
-msgstr "Ingen bedømmelsesformular er blevet oprettet"
+msgstr "Ingen bedømmelsesformular er blevet oprettet."
 
 msgid "manager.reviewForms.preview"
 msgstr "Vis formular"
@@ -555,7 +588,10 @@ msgid "manager.setup.principalContact"
 msgstr "Primær kontaktperson"
 
 msgid "manager.setup.principalContactDescription"
-msgstr "Denne stilling, der kan betragtes som en primær redaktionel stilling, ledende redaktionel stilling eller administrativ stilling, er anført på tidsskriftets hjemmeside sammen med kontaktpersonen for teknisk support."
+msgstr ""
+"Indtast kontaktoplysninger, typisk for en hovedredaktion, administrerende "
+"redaktion eller administrativt personale, som kan vises på dit offentligt "
+"tilgængelige websted."
 
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr "En kontaktperson, som kan assistere redaktører, forfattere og bedømmere, der måtte have brug for hjælp i forbindelse med indsendelse af, og redigering, bedømmelse og publicering af manuskript."
@@ -576,13 +612,15 @@ msgid "manager.setup.pageFooter"
 msgstr "Sidefod"
 
 msgid "manager.setup.theme"
-msgstr "Layout-tema"
+msgstr "Tema"
 
 msgid "manager.setup.theme.description"
-msgstr "Nye layout-temaer kan installeres via linket 'Plug-ins' øverst på siden"
+msgstr "Nye temaer kan installeres via linket 'Plugins' øverst på siden."
 
 msgid "manager.setup.pageFooter.description"
-msgstr "Indsæt de billeder, den tekst eller HTML-kode, som ønskes placeret nederst på websitet"
+msgstr ""
+"Indsæt de billeder, den tekst eller HTML-kode, som ønskes placeret nederst "
+"på websitet."
 
 msgid "manager.setup.styleSheetDescription"
 msgstr "For yderligere at tilpasse websitets layout efter egne ønsker, kan erfarne webudviklere uploade en CSS-fil."
@@ -630,7 +668,10 @@ msgid "manager.setup.authorGuidelines"
 msgstr "Retningslinjer for forfattere"
 
 msgid "manager.setup.authorGuidelines.description"
-msgstr "Oplys forfattere om de bibliografiske standarder og formateringsstandarder, der benyttes for artikler fremsendt til tidsskriftet (f.eks. APA 6th - American Psychological Association 6th Edition). Det er ofte nyttigt at angive eksempler på de almindelige citatformater for tidsskrifter og bøger, der anvendes i manuskripter."
+msgstr ""
+"Anbefalede retningslinjer inkluderer bibliografiske standarder og "
+"formateringsstandarder sammen med eksempler på almindelige "
+"citationsformater, der skal bruges i indsendelser."
 
 msgid "manager.setup.notifications"
 msgstr "Besked om forfattermanuskript"
@@ -648,10 +689,12 @@ msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr "Kan ændres under den redaktionelle proces."
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Antal uger inden en accept eller et afslag skal foreligge"
+msgstr "Antal uger inden en accept eller et afslag skal foreligge."
 
 msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr "Send en påmindelse, hvis bedømmeren ikke har svaret på anmodningen inden for følgende tid (dage) efter forfaldsdato:"
+msgstr ""
+"Send en påmindelse, hvis bedømmeren ikke har svaret på anmodningen inden for "
+"følgende tid (dage) efter forfaldsdato."
 
 msgid "manager.setup.reviewOptions.neverSendReminder"
 msgstr "Send aldrig rykker"
@@ -663,7 +706,9 @@ msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Bedømmelsestidsfrister"
 
 msgid "manager.setup.competingInterests.required"
-msgstr "Anmod om en erklæring om konkurrerende interesser under bedømmelsesprocessen."
+msgstr ""
+"Anmod om en erklæring om konkurrerende interesser under "
+"fagfællebedømmelsesprocessen."
 
 msgid "settings.libraryFiles.category.marketing"
 msgstr "Marketing"
@@ -693,10 +738,12 @@ msgid "manager.paymentMethod.none"
 msgstr "Ingen betalingsmåde valgt"
 
 msgid "manager.setup.copyrightNotice"
-msgstr "Oplysninger om ophavsret"
+msgstr "Oplysninger om copyright"
 
 msgid "manager.setup.copyrightNotice.description"
-msgstr "Kræv, at forfattere accepterer \"Oplysninger om ophavsret\" som en del af indsendelsesprocessen."
+msgstr ""
+"Kræv, at forfattere accepterer \"Oplysninger om copyright\" som en del af "
+"indsendelsesprocessen."
 
 msgid "manager.setup.licenseURLDescription"
 msgstr "Indsæt URL fra licenswebside, hvis den er tilgængelig."
@@ -717,7 +764,9 @@ msgid "manager.statistics.reports.generateReport"
 msgstr "Generér brugerdefineret rapport"
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr "Send en påmindelse, hvis bedømmeren ikke har sendt en indstilling inden for følgende tid (dage) efter forfaldsdato:"
+msgstr ""
+"Send en påmindelse, hvis bedømmeren ikke har sendt en indstilling inden for "
+"følgende tid (dage) efter forfaldsdato."
 
 msgid "manager.userSearch.searchByName"
 msgstr "Søg bruger via navn"
@@ -729,22 +778,22 @@ msgid "manager.setup.information.descriptionTitle"
 msgstr "Beskrivelser"
 
 msgid "manager.plugins.installed"
-msgstr "Installerede plug-ins"
+msgstr "Installerede plugins"
 
 msgid "manager.plugins.pluginGallery"
-msgstr "Plug-in-samling"
+msgstr "Plugin-samling"
 
 msgid "manager.plugins.upload"
-msgstr "Upload en ny plug-in"
+msgstr "Upload en ny plugin"
 
 msgid "plugins.categories.pubIds"
-msgstr "Public Identifier Plug-ins"
+msgstr "Public Identifier Plugins"
 
 msgid "notification.localeSettingsSaved"
-msgstr "Lokaliseringstilretninger gemt"
+msgstr "Sprogindstillinger gemt."
 
 msgid "manager.plugins.uploadPluginDir"
-msgstr "Vælg plug-in-fil"
+msgstr "Vælg plugin-fil"
 
 msgid "settings.roles.showTitles"
 msgstr "Vis rollenavn i medarbejderliste"
@@ -762,7 +811,7 @@ msgid "settings.roles.roleOptions"
 msgstr "Rolleoptioner"
 
 msgid "notification.editedUser"
-msgstr "Brugerprofil redigeret"
+msgstr "Brugerprofil redigeret."
 
 msgid "manager.settings.wizard"
 msgstr "Indstillingsguide"
@@ -801,7 +850,13 @@ msgid "manager.setup.openAccessPolicy.description"
 msgstr "Hvis tidskriftet vil give læsere øjeblikkelig gratis adgang til alt publiceret indhold, kan du indsætte en beskrivelse af jeres Open Access politik."
 
 msgid "manager.setup.peerReview.description"
-msgstr "Skitser tidsskriftets politik og processer i forbindelse med peer review for læsere og forfattere, herunder antallet af bedømmere, der normalt benyttes ved bedømmelse af et manuskript, de kriterier, efter hvilke bedømmerne bliver bedt om at bedømme manuskripter, det normale tidsforbrug i forbindelse med en bedømmelse samt principperne for rekruttering af bedømmere."
+msgstr ""
+"Skitsér tidsskriftets politik og processer i forbindelse med "
+"fagfællebedømmelse for læsere og forfattere, herunder antallet af bedømmere, "
+"der normalt benyttes ved bedømmelse af et manuskript, de kriterier, efter "
+"hvilke bedømmerne bliver bedt om at bedømme manuskripter, det normale "
+"tidsforbrug i forbindelse med en bedømmelse samt principperne for "
+"rekruttering af bedømmere."
 
 msgid "manager.setup.privacyStatement"
 msgstr "Erklæring om beskyttelse af personlige oplysninger"
@@ -813,49 +868,51 @@ msgid "manager.setup.sponsors.note"
 msgstr "Beskrivelse af sponsorpolitik"
 
 msgid "manager.setup.sponsors.description"
-msgstr "Eksempler: Videnskabelige organisationer, universitetsafdelinger, andelsforetagender osv. Navnene på sponsorerne vises på hjemmesiden."
+msgstr ""
+"Eksempler: Videnskabelige organisationer, universitetsinstitutter, "
+"andelsforetagender osv. Navnene på sponsorerne vises på hjemmesiden."
 
 msgid "manager.plugins.delete"
-msgstr "Slet plug-in"
+msgstr "Slet plugin"
 
 msgid "manager.plugins.installConfirm"
-msgstr "Er du sikker på, at du vil installere denne plug-in?"
+msgstr "Er du sikker på, at du vil installere denne plugin?"
 
 msgid "manager.plugins.upgradeConfirm"
-msgstr "Er du sikker på, at du vil opgradere denne plug-in?"
+msgstr "Er du sikker på, at du vil opgradere denne plugin?"
 
 msgid "grid.action.installPlugin"
-msgstr "Installér eller opgradér denne plug-in"
+msgstr "Installér eller opgradér denne plugin"
 
 msgid "manager.plugins.deleteConfirm"
-msgstr "Er du sikker på, at du vil slette denne plug-in fra systemet?"
+msgstr "Er du sikker på, at du vil slette denne plugin fra systemet?"
 
 msgid "manager.plugins.deleteDescription"
-msgstr "Ved at klikke 'Slet', sletter du denne plug-in fra serverens filsystem."
+msgstr "Ved at klikke 'Slet', sletter du denne plugin fra serverens filsystem."
 
 msgid "manager.plugins.doesNotExist"
-msgstr "Plug-in \"{$pluginName}\" findes ikke"
+msgstr "Plugin \"{$pluginName}\" findes ikke"
 
 msgid "manager.plugins.fileSelectError"
 msgstr "Vælg først en fil"
 
 msgid "notification.localeEnabled"
-msgstr "Landestandard aktiveret."
+msgstr "Sprog aktiveret."
 
 msgid "notification.localeDisabled"
-msgstr "Landestandard deaktiveret."
+msgstr "Sprog deaktiveret."
 
 msgid "notification.primaryLocaleDefined"
-msgstr "{$locale} sat til primær landestandard."
+msgstr "{$locale} sat til primært sprog."
 
 msgid "notification.localeInstalled"
-msgstr "Alle valgte landestandarder installeret og aktiveret."
+msgstr "Alle valgte sprog installeret og aktiveret."
 
 msgid "notification.localeUninstalled"
-msgstr "{$locale} landestandard afinstalleret."
+msgstr "{$locale} sprog afinstalleret."
 
 msgid "notification.localeReloaded"
-msgstr "{$locale} landestandard genindlæst."
+msgstr "{$locale} sprog genindlæst."
 
 msgid "manager.paymentMethod.title"
 msgstr "Betalingsmetode"
@@ -912,7 +969,9 @@ msgid "manager.reviewForms.confirmActivate"
 msgstr "Er du sikker på, at du vil aktivere denne bedømmelsesformular? Når den er tilknyttet en bedømmelse, kan den ikke længere deaktiveres."
 
 msgid "manager.reviewForms.confirmDeactivate"
-msgstr "Er du sikker på, at vil deaktivere denne bedømmelsesformular? Efterfølgende vil den ikke længere kunne knyttes til nye bedømmelser."
+msgstr ""
+"Er du sikker på, at du vil deaktivere denne bedømmelsesformular? "
+"Efterfølgende vil den ikke længere kunne knyttes til nye bedømmelser."
 
 msgid "manager.reviewForms.confirmCopy"
 msgstr "Er du sikker på, at du vil oprette en kopi af denne bedømmelsesformular?"
@@ -963,7 +1022,7 @@ msgid "manager.reviewFormElements.form.elementTypeRequired"
 msgstr "En elementtype er påkrævet i denne formular."
 
 msgid "manager.reviewFormElements.form.questionRequired"
-msgstr "Et spørgsmål er påkrævet i denne formular"
+msgstr "Et spørgsmål er påkrævet i forbindelse med denne formular."
 
 msgid "manager.reviewFormElements.noneCreated"
 msgstr "Der er ikke blevet oprettet nogen formularelementer."
@@ -1006,8 +1065,14 @@ msgstr "En registreret bruger skal indskrives."
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"Din {$contextObjectName} er konfigureret til at registrere flere bruger-parametre. Brugerstatistikker vises i flere sammenhænge.\n"
-"\t\tDer er tilfælde, hvor en enkelt brugsstatistik skal anvendes, f.eks. når en ordnet liste over mest viste indsendelser fremvises eller når et søgeresultat rangeres. Vælg en af følgende parametre som standard."
+"\n"
+"\t\tDin {$contextObjectName} er konfigureret til at registrere flere bruger-"
+"parametre. Brugerstatistik vises i flere sammenhænge.\n"
+"  Der er tilfælde, hvor en enkelt brugsstatistik skal anvendes, f.eks. når "
+"en ordnet liste over mest viste indsendelser fremvises eller når et "
+"søgeresultat rangeres. \n"
+"  Vælg en af følgende parametre som standard.\n"
+"\t"
 
 msgid "manager.statistics.city"
 msgstr "By"
@@ -1019,7 +1084,11 @@ msgid "manager.statistics.reports.aggregationColumns"
 msgstr "Samlet statistik af:"
 
 msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Elementer i kursiv og markeret med * repræsenterer data, der ikke er obligatorisk i forhold til den nuværende måde at optælle statistikker i systemet på. Du kan have adgang til disse data eller ej, afhængigt af din statistik-plug-in-konfiguration."
+msgstr ""
+"Elementer i kursiv og markeret med * repræsenterer data, der ikke er "
+"obligatorisk i forhold til den nuværende måde at optælle statistikker i "
+"systemet på. Du kan have adgang til disse data eller ej, afhængigt af din "
+"statistik-plugin-konfiguration."
 
 msgid "manager.statistics.reports.defaultReportTemplates"
 msgstr "Standard rapportskabeloner"
@@ -1085,7 +1154,11 @@ msgid "manager.statistics.reports.reportUrl"
 msgstr "Rapport-URL"
 
 msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Følgende url kan bruges til at generere rapporten med de nuværende formularindstillinger. Du skal bare kopiere den og åbne den i din browser. Du kan også gemme den som din brugerdefinerede rapport-url -enerator i dine bogmærkesamling."
+msgstr ""
+"Følgende url kan bruges til at generere rapporten med de nuværende "
+"formularindstillinger. Du skal bare kopiere den og åbne den i din browser. "
+"Du kan også gemme den som din brugerdefinerede rapport-url-generator i dine "
+"bogmærkesamling."
 
 msgid "manager.statistics.reports.filters.byContext"
 msgstr "Efter sammenhæng"
@@ -1109,22 +1182,34 @@ msgid "manager.setup.layout.sidebar"
 msgstr "Side-menu"
 
 msgid "plugins.categories.pubIds.description"
-msgstr "Disse plug-ins implementerer understøttelse  af Public Identifier."
+msgstr "Disse plugins implementerer understøttelse  af public identifier."
 
 msgid "manager.plugins.copyError"
-msgstr "Plug-in blev ikke kopieret korrekt. Dette kan skyldes manglende rettigheder. Sørg for, at webserveren kan skrive til plug-in-mappen (herunder undermapper), men glem ikke at sikre den igen senere."
+msgstr ""
+"Plugin blev ikke kopieret korrekt. Dette kan skyldes manglende rettigheder. "
+"Sørg for, at webserveren kan skrive til plug-in-mappen (herunder undermapper)"
+", men glem ikke at sikre den igen senere."
 
 msgid "manager.plugins.deleteError"
-msgstr "Plug-in'en \"{$pluginName}\" kunne ikke slettes fra filsystemet. Dette kan skyldes manglende rettigheder. Sørg for, at webserveren kan skrive til plug-in-mappen (herunder undermapper), men glem ikke at sikre den igen senere."
+msgstr ""
+"Pluginen \"{$pluginName}\" kunne ikke slettes fra filsystemet. Dette kan "
+"skyldes manglende rettigheder. Sørg for, at webserveren kan skrive til "
+"plugin-mappen (herunder undermapper), men glem ikke at sikre den igen senere."
 
 msgid "manager.plugins.deleteSuccess"
-msgstr "Plug-in'en \"{$pluginName}\" blev slettet"
+msgstr "Pluginen \"{$pluginName}\" blev slettet"
 
 msgid "manager.plugins.description"
-msgstr "Denne side gør det muligt for tidsskriftschefen at gennemgå og om muligt konfigurere de plug-ins, der aktuelt er installeret. Plug-ins er opdelt i kategorier i henhold til deres funktion. Kategorien er angivet nedenfor, og inden for hver kategori, dens nuværende samling plug-ins."
+msgstr ""
+"Denne side gør det muligt for tidsskriftschefen at gennemgå og om muligt "
+"konfigurere de plugins, der aktuelt er installeret. Plugins er opdelt i "
+"kategorier i henhold til deres funktion. Kategorien er angivet nedenfor, og "
+"inden for hver kategori, dens nuværende samling plugins."
 
 msgid "manager.plugins.uploadDescription"
-msgstr "Denne formular giver dig mulighed for at uploade og installere et nyt plug-in. Sørg for, at plugin'en komprimeres som en .tar.gz-fil."
+msgstr ""
+"Denne formular giver dig mulighed for at uploade og installere et nyt "
+"plugin. Sørg for, at pluginen komprimeres som en .tar.gz-fil."
 
 msgid "manager.plugins.uploadFailed"
 msgstr "Sørg for, at en fil blev valgt til upload."
@@ -1142,19 +1227,22 @@ msgid "manager.plugins.pluginGallery.certifications.official"
 msgstr "Officiel"
 
 msgid "manager.plugins.pluginGallery.certifications.official.description"
-msgstr "Denne plug-in er udviklet og vedligeholdes af Public Knowledge Project teamet."
+msgstr ""
+"Denne plugin er udviklet og vedligeholdes af Public Knowledge Project teamet."
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Bedømt"
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
-msgstr "Denne plug-in er blevet gennemgået og godkendt af Public Knowledge Project teamet."
+msgstr ""
+"Denne plugin er blevet gennemgået og godkendt af Public Knowledge Project "
+"teamet."
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Partner"
 
 msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr "Denne plug-in leveres af en af vores udviklingspartnere."
+msgstr "Denne plugin leveres af en af vores udviklingspartnere."
 
 msgid "manager.plugins.pluginGallery.maintainer"
 msgstr "Vedligeholder"
@@ -1178,10 +1266,10 @@ msgid "manager.plugins.pluginGallery.status"
 msgstr "Status"
 
 msgid "manager.plugins.noInstalledVersion"
-msgstr "Denne plug-in er endnu ikke blevet installeret."
+msgstr "Denne plugin er endnu ikke blevet installeret."
 
 msgid "manager.plugins.noCompatibleVersion"
-msgstr "Der findes i øjeblikket ingen kompatibel version af denne plug-in."
+msgstr "Der findes i øjeblikket ingen kompatibel version af denne plugin."
 
 msgid "manager.plugins.installedVersionNewer"
 msgstr "Plugin er allerede installeret, og er nyere end den tilgængelige version i galleriet."
@@ -1211,19 +1299,26 @@ msgid "manager.plugins.installSuccessful"
 msgstr "Vellykket installeret version {$versionNumber}"
 
 msgid "manager.plugins.invalidPluginArchive"
-msgstr "Den uploadede plug-in-arkiv indeholder ikke en mappe, der svarer til plug-in-navnet."
+msgstr ""
+"Det uploadede plugin-arkiv indeholder ikke en mappe, der svarer til plugin-"
+"navnet."
 
 msgid "manager.plugins.wrongCategory"
-msgstr "Den uploadede plug-in passer ikke til kategorien for den opgraderede plug-in."
+msgstr ""
+"Den uploadede plugin passer ikke til kategorien for den opgraderede plugin."
 
 msgid "manager.plugins.wrongName"
-msgstr "Version.xml i den uploadede plug-in indeholder et plug-in-navn, der ikke passer til navnet på den opgraderede plug-in."
+msgstr ""
+"Version.xml i den uploadede plugin indeholder et plugin-navn, der ikke "
+"passer til navnet på den opgraderede plugin."
 
 msgid "manager.plugins.pleaseInstall"
-msgstr "Plug-in findes ikke. Installér"
+msgstr "Plugin findes ikke. Installér"
 
 msgid "manager.plugins.pleaseUpgrade"
-msgstr "Plug-in findes allerede, men denne er nyere end den installerede version. Opgrader"
+msgstr ""
+"Plugin findes allerede, men denne er nyere end den installerede version. "
+"Opgrader"
 
 msgid "manager.plugins.settings"
 msgstr "Indstillinger"
@@ -1232,10 +1327,12 @@ msgid "manager.plugins.tarCommandNotFound"
 msgstr "Tar-kommandoen er ikke tilgængelig. Konfigurer \"config.inc.php\"."
 
 msgid "manager.plugins.upgrade"
-msgstr "Opgradér plug-in"
+msgstr "Opgradér plugin"
 
 msgid "manager.plugins.upgradeDescription"
-msgstr "Denne formular giver dig mulighed for at opgradere en plug-in. Sørg for, at plugin'en komprimeres som en .tar.gz-fil."
+msgstr ""
+"Denne formular giver dig mulighed for at opgradere en plugin. Sørg for, at "
+"pluginen komprimeres som en .tar.gz-fil."
 
 msgid "manager.plugins.upgradeFailed"
 msgstr "Opgradering mislykkedes. {$errorString}"
@@ -1247,10 +1344,10 @@ msgid "manager.plugins.uploadError"
 msgstr "Fejl ved upload af fil"
 
 msgid "manager.plugins.versionFileInvalid"
-msgstr "version.xml i plug-in-mappen indeholder ugyldige data."
+msgstr "version.xml i plugin-mappen indeholder ugyldige data."
 
 msgid "manager.plugins.versionFileNotFound"
-msgstr "version.xml ikke fundet i plug-in-mappe"
+msgstr "version.xml ikke fundet i plugin-mappe"
 
 msgid "settings.roles.recommendOnly"
 msgstr "Denne rolle kan kun anbefale en bedømmelse. Det vil kræve en autoriseret redaktør at registrere en endelig bedømmelse."
@@ -1292,7 +1389,7 @@ msgid "manager.navigationMenus.form.path"
 msgstr "Sti"
 
 msgid "manager.navigationMenus"
-msgstr "Navigationsmenuer"
+msgstr "Navigation"
 
 msgid "manager.navigationMenus.form.viewInstructions"
 msgstr "<p>Denne side vil være tilgængelig på: <blockquote>{$pagesPath}</blockquote>...hvor %PATH% er stien, der indskrives ovenfor. <strong>Bemærk:</strong> To sider kan ikke have samme sti. Hvis man anvender stier, der allerede er en del af systemet kan man miste adgang til vigtige funktioner.</p>"
@@ -1322,7 +1419,7 @@ msgid "manager.navigationMenus.unassignedMenuItems"
 msgstr "Annulerede menuelementer"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
-msgstr "Aktivt navigationsområde"
+msgstr "Aktive tema-navigationsområder"
 
 msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
 msgstr "Vælg et navigationsområde"
@@ -1361,13 +1458,19 @@ msgid "manager.navigationMenus.about.description"
 msgstr "Link til side, der viser indholdet i feltet Om tidsskriftet under Indstillinger > Tidsskrift"
 
 msgid "manager.navigationMenus.about.conditionalWarning"
-msgstr "Dette link vil kun blive vist, hvis du har udfyldt feltet Om tidsskriftet under Indstillinger > Tidsskrift."
+msgstr ""
+"Dette link vil kun blive vist, hvis du har udfyldt feltet 'Om tidsskriftet' "
+"under Indstillinger > Tidsskrift."
 
 msgid "manager.navigationMenus.editorialTeam.description"
-msgstr "Link til en side, der viser indholdet i feltet Kolofon under Indstillinger > Tidsskrift"
+msgstr ""
+"Link til en side, der viser indholdet i feltet 'Kolofon' under Indstillinger "
+"> Tidsskrift."
 
 msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr "Dette link vil kun blive vist, hvis du har udfyldt feltet Redaktionsgruppe under Indstillinger > Tidsskrift"
+msgstr ""
+"Dette link vil kun blive vist, hvis du har udfyldt feltet 'Redaktionsgruppe' "
+"under Indstillinger > Tidsskrift."
 
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Link til siden, der viser indsendelsesanvisninger."
@@ -1391,7 +1494,7 @@ msgid "manager.navigationMenus.register.description"
 msgstr "Link til brugerregistreringssiden."
 
 msgid "manager.navigationMenus.dashboard.description"
-msgstr "Link til det redaktionelle dashboard."
+msgstr "Link til det redaktionelle betjeningspanel."
 
 msgid "manager.navigationMenus.profile.description"
 msgstr "Link til brugerprofilside."
@@ -1415,7 +1518,9 @@ msgid "manager.navigationMenus.contact.description"
 msgstr "Link til side, der indeholder oplysninger om kontaktperson."
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
-msgstr "Dette link vil kun blive vist, hvis du har udfyldt informationsfelterne på siden Kontaktperson under Indstillinger > Tidsskrift > Kontaktperson"
+msgstr ""
+"Dette link vil kun blive vist, hvis du har udfyldt informationsfelterne på "
+"siden 'Kontaktperson' under Indstillinger > Tidsskrift > Kontaktperson."
 
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr "<p>Denne biblioteksfil kan være tilgængelig til download, hvis \"Offentlig adgang\" er aktiveret, på: <blockquote>{$downloadUrl}</blockquote></p>"
@@ -1452,14 +1557,21 @@ msgstr "Link til søgeside."
 
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
-"Denne erklæring vises under brugerregistrering, manuskriptindsendelse og på den offentligt tilgængelige privacy-sider om beskyttelse af personlige oplysninger.\n"
-"I nogle retskredse er du forpligtet til at oplyse, hvordan du håndterer brugerdata i din datapolitik."
+"Denne erklæring vises under brugerregistrering, manuskriptindsendelse og på "
+"den offentligt tilgængelige sider om beskyttelse af personlige oplysninger.\n"
+"I nogle retskredse er du forpligtet til at oplyse, hvordan du håndterer "
+"brugerdata i din datapolitik."
 
 msgid "manager.navigationMenus.privacyStatement.description"
-msgstr "Link til den side, der viser din erklæring om beskyttelse af personlige oplysninger"
+msgstr ""
+"Link til den side, der viser din erklæring om beskyttelse af personlige "
+"oplysninger."
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
-msgstr "Dette link vil kun blive vist, hvis du har indsat en erklæring om beskyttelse af personlige oplysninger under Indstillinger > Workflow > Indsendelser"
+msgstr ""
+"Dette link vil kun blive vist, hvis du har indsat en erklæring om "
+"beskyttelse af personlige oplysninger under Indstillinger > Workflow > "
+"Indsendelser."
 
 msgid "manager.reviewFormElements.description"
 msgstr "Beskrivelse"
@@ -1468,10 +1580,10 @@ msgid "plugins.importexport.common.error.missingGivenName"
 msgstr "Forfatteren {$authorName} har ikke et angivet fornavn på indsendelsens sprog, {$localeName}. Indsendelsen kan ikke importeres uden disse oplysninger."
 
 msgid "grid.category.add"
-msgstr "Tilføj Kategori"
+msgstr "Tilføj kategori"
 
 msgid "grid.category.edit"
-msgstr "Redigér Kategori"
+msgstr "Redigér kategori"
 
 msgid "grid.category.name"
 msgstr "Navn"
@@ -1501,7 +1613,7 @@ msgid "grid.category.nameRequired"
 msgstr "Indtast et kategorinavn."
 
 msgid "grid.category.categoryDetails"
-msgstr "Kategoridetaljer"
+msgstr "Kategorioplysninger"
 
 msgid "stats.articlesOfTotal"
 msgstr "{$count} af {$total} artikler"
@@ -1582,7 +1694,7 @@ msgid "stats.total"
 msgstr "Total"
 
 msgid "plugins.importexport.user.importExportErrors"
-msgstr "Import/Eksport-fejl"
+msgstr "Import/Eksport-fejl:"
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
 msgstr "Den importerede bruger \"{$username}\" har ingen adgangskode. Kontroller dit import XML-format. Brugeren er ikke blevet importeret."
@@ -1595,3 +1707,450 @@ msgstr "Den importerede bruger \"{$username}\" har en almindelig adgangskode, de
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr "Brugernavnet \"{$username}\" og e-mailen \"{$email}\" stemmer ikke overens med en og samme eksisterende bruger."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Det valgte tema er ikke blevet installeret eller aktiveret."
+
+msgid "manager.setup.theme.success"
+msgstr ""
+"Temaet er blevet opdateret. <a href=\"{$url}\" target=\"_blank\">Se nu</a>"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr ""
+"Vis et link til <button type=\"button\">Sikring af en blind review</button> "
+"under upload"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Standard bedømmelsesindstilling"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Bedømmelses-påmindelse"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Svarpåmindelse"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Standardfrist for afsluttet færdiggørelse"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Standard svarfrist"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Filen, du uploadede, blev ikke fundet. Prøv at uploade den igen."
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"{$name}-blokken blev ikke fundet. Sørg for, at pluginen er installeret og "
+"aktiveret."
+
+msgid "manager.setup.checklist"
+msgstr "Tjekliste"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Forfattervejledningerne er blevet opdateret."
+
+msgid "manager.setup.contact.success"
+msgstr "Dette forlags kontaktoplysninger er blevet opdateret."
+
+msgid "manager.setup.appearance.success"
+msgstr "Indstillingerne for udseende er blevet opdateret."
+
+msgid "manager.setup.advanced"
+msgstr "Udvidet"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Du kan ikke slette denne repræsentant, da vedkommende er tilknyttet "
+"markedsmetadata til et eller flere publikationsformater i forbindelse med "
+"denne indsendelse."
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Emne: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Sendt til"
+
+msgid "manager.emails.sentFrom"
+msgstr "Sendt fra"
+
+msgid "manager.emails.resetAll"
+msgstr "Nulstil alt"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Den angivne nøgle er allerede i brug."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Du skal angive et kontekst-id, når du tilføjer en e-mail-skabelon."
+
+msgid "manager.emails.emailTemplates"
+msgstr "E-mail-skabelon"
+
+msgid "manager.emails.emailKey.description"
+msgstr "E-mail-nøglen kan kun indeholde bogstaver, tal og understregninger."
+
+msgid "manager.emails.editEmail.success"
+msgstr "E-mail-skabelonen blev ændret."
+
+msgid "manager.emails.customTemplate"
+msgstr "Brugerdefineret skabelon"
+
+msgid "manager.emails.addEmail.success"
+msgstr "E-mail-skabelonen blev tilføjet."
+
+msgid "manager.emails.addEmail"
+msgstr "Tilføj skabelon"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Detaljer under rykkerindstillinger til bedømmerne er blevet opdateret."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Bedømmerindstillingerne er blevet opdateret."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Vejledning til bedømmere er blevet opdateret."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Vejledning til bedømmere"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "E-mail-indstillingerne er blevet opdateret."
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Afvisningsprocent efter bedømmelse/review"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Afvisningsprocent inden bedømmelse/review"
+
+msgid "stats.name.declineRate"
+msgstr "Afvisningsprocent"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Accepteringsprocent"
+
+msgid "stats.name.daysToReject"
+msgstr "Dage inden afvisning"
+
+msgid "stats.name.daysToAccept"
+msgstr "Dage inden accept"
+
+msgid "stats.name.daysToDecision"
+msgstr "Dage inden første redaktionelle afgørelse"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Publicerede indsendelser"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Afviste indsendelser (efter bedømmelse/review)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Afviste indsendelser (inden bedømmelse/review)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Afviste indsendelser"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Accepterede indsendelser"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Modtagne indsendelser"
+
+msgid "stats.userStatistics"
+msgstr "Brugerstatistik"
+
+msgid "stats.trends"
+msgstr "Tendens"
+
+msgid "stats.totalWithinDateRange"
+msgstr "I alt inden for datointervallet"
+
+msgid "stats.submissionsActive"
+msgstr "Aktive indsendelser"
+
+msgid "stats.editorialActivity"
+msgstr "Redaktionel aktivitet"
+
+msgid "stats.descriptionForStat"
+msgstr "Beskrivelse af {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Antallet af dage, det tager for de fleste indsendelser at modtage den første "
+"redaktionelle afgørelse, f.eks. at manuskriptet er blevet afvist inden bedø"
+"mmelse/review eller at manuskriptet er blevet videresendt til "
+"bedømmelse.<br><br>Disse tal viser, at 80% af indsendelserne når frem til en "
+"afgørelse inden for det givne antal dage.< br><br>Denne statistik forsøger "
+"at beskrive, hvornår flertallet af forfattere, der indsender manuskripter "
+"til dit tidsskrift, kan forvente en afgørelse."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Procentdelen for det valgte datointerval beregnes for indsendelser, der blev "
+"indsendt i denne periode og som har modtaget en endelig afgørelse.<br><br>"
+"Overvej f.eks. det tilfælde, hvor der blev foretaget ti indsendelser i "
+"perioden. Fire blev accepteret, fire blev afvist, og to venter stadig på en "
+"endelig afgørelse.<br><br>Accepteringsgraden vil være 50% (4 af 8 indlæg), "
+"da de to indlæg, som endnu afventer en endelig afgørelse, ikke tæller med."
+
+msgid "stats.dateRange.thisYear"
+msgstr "År til dato"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Sidste år"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Sidste to år"
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Indtast hver enkelt dato i formatet ÅÅÅÅ-MM-DD. Hvis du f.eks. vil angive "
+"datoen 15. januar 2019, skal du indtaste 2019-01-15."
+
+msgid "stats.allUsers"
+msgstr "Alle brugere"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Anmod forfatteren om at angive referencer, før vedkommende accepterer "
+"indsendelse."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Bed forfatteren om at angive referencer under indsendelse."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Anmod forfatteren om at angive discipliner, inden vedkommende accepterer "
+"indsendelse."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Anmod ikke om referencer fra forfatteren under indsendelse."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Aktivér referencemetadata"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Saml indsendelsens referencer i et separat felt. Dette kan være nødvendigt "
+"for at overholde krav fra citationsovervågningstjenester som Crossref."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Anmod forfatteren om at angive eventuelle støtteorganisationer, før "
+"vedkommende accepterer indsendelse."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Bed forfatteren om at angive eventuelle støtteorganisationer under "
+"indsendelse."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Anmod ikke om angivelse af støtteorganisationer fra forfatteren under "
+"indsendelse."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Aktivér metadata i forbindelse med støtteorganisationer"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Støtteorganisationer kan angive kilden til forskningsmidler eller anden "
+"institutionel støtte, der fremmer forskningen."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Bed forfatteren om at angive discipliner under indsendelsen."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Anmod ikke om discipliner fra forfatteren under indsendelse."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Aktivér metadata i forbindelse med discipliner"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Med discipliner menes studier eller vidensområder som beskrevet af "
+"universitetsfakulteter og videnskabelige samfund."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Anmod forfatteren om at angive typen, inden vedkommende accepterer "
+"indsendelse."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Bed forfatteren om at angive typen under indsendelse."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Anmod ikke om typen fra forfatteren under indsendelse."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Aktivér metadata i forbindelse med typer"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Karakteren eller genren i forbindelse med indsendelsens hovedindhold. Typen "
+"er normalt \"Tekst\", men kan også være \"Datasæt\", \"Billede\" eller et "
+"hvilket som helst af følgende<a target=\"_blank\" href=\"http://dublincore."
+"org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin "
+"Core typer</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Anmod forfatteren om at angive emner, inden vedkommende accepterer "
+"indsendelse."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Bed forfatteren om at angive emner under indsendelse."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Anmod ikke om emner fra forfatteren under indsendelse."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Aktivér emne-metadata"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Emner er nøgleord, nøglefraser eller klassifikationskoder, der beskriver et "
+"emne i forbindelse med indsendelsen."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Anmod forfatteren om at angive en kilde-URL, før vedkommende accepterer "
+"indsendelse."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Bed forfatteren om at angive en kilde-URL under indsendelse."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Anmod ikke om en kilde-URL fra forfatteren under indsendelse."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Aktivér metadata i forbindelse med kilde"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Kilden kan være et ID, såsom en DOI, på et andet værk eller materiale, som "
+"indsendelsen knytter sig til."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Anmod forfatteren om at offentliggøre forudgående adgangsrettigheder, før "
+"vedkommende accepterer indsendelse."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Bed forfatteren om at offentliggøre forudgående adgangsrettigheder under "
+"indsendelse."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Bed forfatteren om at foreslå nøgleord i forbindelse med indsendelse."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Anmod forfatteren om at foreslå metadata i forbindelse med dækningsområde, "
+"før vedkommende accepterer indsendelsen."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Anmod ikke om rettighedsoplysninger fra forfatteren under indsendelse."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Aktivér metadata i forbindelse med rettigheder"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Eventuelle rettigheder over indsendelsen, som kan omfatte intellektuel "
+"ejendomsret ( Intellectual Property Rights - IPR), copyright og diverse "
+"ejendomsrettigheder."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Anmod forfatteren om at indtaste indsendelsens sprog, før vedkommende "
+"accepterer indsendelse."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Bed forfatteren om at angive indsendelsens sprog under indsendelse."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Anmod ikke om indsendelsens sprog fra forfatteren under indsendelse."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Aktivér sprogmetadata"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Sprog angiver værkets primære sprog ved hjælp af en sprogkode (\"en\") med "
+"en valgfri landekode (\"en_US\")."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Anmod forfatteren om at foreslå nøgleord, før vedkommende accepterer "
+"indsendelse."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Anmod ikke om nøgleord fra forfatteren i forbindelse med indsendelse."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Aktivér metadata i forbindelse med nøgleord"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Nøgleord er typisk formuleringer bestående af et til tre ord, der bruges til "
+"at angive de vigtigste emner i forbindelse med indsendelse."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Bed forfatteren om at foreslå metadata i forbindelse med dækningsområde "
+"under indsendelse."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Anmod ikke om metadata i tilknytning til dækningsområde fra forfatteren "
+"under indsendelse."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Aktivér metadata i tilknytning til dækningsområde"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Dækningsområde vil typisk angive et værks rumlige placering (et stednavn "
+"eller geografiske koordinater), tidsmæssig periode (en periodebetegnelse, "
+"dato eller datointerval) eller myndighed (såsom en navngivet administrativ "
+"enhed)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Dækningsområde"
+
+msgid "manager.setup.metadata.success"
+msgstr "Indsendelsesmetadata er blevet opdateret."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Tillad redigering af metadata til indsendelse."
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Tilføj brugerdefinerede HTML-tags, også kendt som meta-tags, som du gerne "
+"vil have indsat i <HEAD>-sektionen på hver side. Kontakt en teknisk "
+"rådgiver, før du tilføjer tags her."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Brugerdefinerede tags"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Angiv offentlige licensvilkår, du gerne vil have vist sammen med publicerede "
+"værker."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Licensvilkår"
+
+msgid "manager.distribution.license.other"
+msgstr "Anden licens-URL"
+
+msgid "manager.distribution.license.success"
+msgstr "Licensoplysningerne er blevet opdateret. "
+
+msgid "manager.distribution.license"
+msgstr "Licens"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Registrerede brugere"
+
+msgid "manager.setup.userAccess.success"
+msgstr "Oplysninger om brugeradgang til dette forlag er blevet opdateret."

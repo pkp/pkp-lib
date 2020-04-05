@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2019-12-13 22:04+0000\n"
-"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"PO-Revision-Date: 2020-03-04 09:36+0000\n"
+"Last-Translator: Sergei Yukhimets <y_s_n@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ru/>\n"
 "Language: ru_RU\n"
@@ -396,6 +396,9 @@ msgstr "{$name}, {$affiliation}"
 msgid "submission.shortAuthor"
 msgstr "{$author} и др."
 
+msgid "submission.representationOfTitle"
+msgstr "{$representation} (представление «{$title}»)"
+
 msgid "submission.mySubmissions"
 msgstr "С моим авторством"
 
@@ -673,7 +676,7 @@ msgid "submission.versions"
 msgstr "Версии"
 
 msgid "submission.versionIdentity"
-msgstr "{$datePublished} ({$versionId})"
+msgstr "{$datePublished} ({$version})"
 
 msgid "submission.outdatedVersion"
 msgstr "Это устаревшая версия, которая была опубликована {$datePublished}. Прочтите <a href=\"{$urlRecentVersion}\">самую последнюю версию</a>."
@@ -682,7 +685,13 @@ msgid "submission.identifiers"
 msgstr "Идентификаторы"
 
 msgid "submission.publisherId"
-msgstr "URL открытого идентификатора"
+msgstr "ID издателя"
+
+msgid "submission.publisherId.description"
+msgstr "ID издателя может использоваться для записи ID из внешней базы данных. Например, экспортированные для депонирования в PubMed объекты могут включать ID издателя. Его не следует использовать для DOI."
+
+msgid "submission.publisherId.enable"
+msgstr "Включить для {$objects}"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Информация о материале"
@@ -1329,6 +1338,9 @@ msgstr "Запросить новые версии"
 msgid "editor.submission.decision.resubmit"
 msgstr "Отправить повторно на рецензию"
 
+msgid "editor.submission.decision.newRound"
+msgstr "Новый раунд рецензирования"
+
 msgid "editor.submission.decision.decline"
 msgstr "Отклонить материал"
 
@@ -1471,7 +1483,10 @@ msgid "notification.type.editorDecisionPendingRevisions"
 msgstr "Требуется новая версия материала."
 
 msgid "notification.type.editorDecisionResubmit"
-msgstr "Повторно отправить а рецензирование."
+msgstr "Повторно отправить на рецензирование."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Начат новый раунд рецензирования."
 
 msgid "notification.type.editorDecisionDecline"
 msgstr "Материал отклонен."
@@ -1590,11 +1605,26 @@ msgstr "Добавить следующие права к материалу:"
 msgid "submission.license"
 msgstr "Лицензия"
 
+msgid "submission.license.description"
+msgstr "Автоматически при публикации будет назначена лицензия <a href='{$licenseUrl}' target='_blank'>{$licenseName}</a>."
+
 msgid "submission.copyright"
 msgstr "Авторское право"
 
 msgid "submission.copyrightHolder"
 msgstr "Владелец авторского права"
+
+msgid "submission.copyrightHolder.description"
+msgstr "Автоматически при публикации будет проставлено авторское право {$copyright}."
+
+msgid "submission.copyrightHolder.other"
+msgstr "Пользовательская формулировка Предупреждения об авторском праве"
+
+msgid "submission.copyrightOther"
+msgstr "Предупреждение об авторском праве"
+
+msgid "submission.copyrightOther.description"
+msgstr "Проставить авторское право на опубликованных материалах с указанием следующей формулировки."
 
 msgid "submission.copyrightYear"
 msgstr "Год авторского права"
@@ -1644,23 +1674,29 @@ msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"
 msgid "submission.license.cc.by-sa4.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 4.0 Всемирная</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-nd3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">лицензии Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 3.0 Всемирная</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">лицензии Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 3.0 Непортированная</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">лицензии Creative Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 3.0 Всемирная</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">лицензии Creative Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 3.0 Непортированная</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-sa3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">лицензии Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 3.0 Всемирная</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">лицензии Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 3.0 Непортированная</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nd3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">лицензии Creative Commons «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 3.0 Всемирная</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">лицензии Creative Commons «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 3.0 Непортированная</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">лицензии Creative Commons «Attribution» («Атрибуция») 3.0 Всемирная</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">лицензии Creative Commons «Attribution» («Атрибуция») 3.0 Непортированная</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-sa3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 3.0 Всемирная</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 3.0 Непортированная</a>.</p>"
 
 msgid "submission.queries.submission"
 msgstr "Обсуждения до рецензирования"
@@ -1815,6 +1851,9 @@ msgstr "Подкатегории"
 msgid "submission.publication"
 msgstr "Публикация"
 
+msgid "submission.publications"
+msgstr "Публикации"
+
 msgid "publication.citations.success"
 msgstr "Ссылки были обновлены."
 
@@ -1822,7 +1861,10 @@ msgid "publication.contributors"
 msgstr "Авторы"
 
 msgid "publication.copyrightYearBasis.issueDescription"
-msgstr "Дата копирайта будет задана автоматически, когда выпуск будет опубликован."
+msgstr "Год копирайта будет задан автоматически при публикации выпуска."
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr "Год копирайта будет проставлен автоматически, исходя из даты публикации."
 
 msgid "publication.createVersion"
 msgstr "Создать новую версию"
@@ -1917,8 +1959,23 @@ msgstr "Снять с плана"
 msgid "publication.unschedule.confirm"
 msgstr "Вы уверены, что не хотите запланировать этот материал к публикации?"
 
+msgid "publication.urlPath"
+msgstr "Путь URL"
+
+msgid "publication.urlPath.description"
+msgstr "Необязательный путь для использования в URL вместо ID."
+
+msgid "publication.urlPath.duplicate"
+msgstr "Путь URL уже используется и не может быть использован снова."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Путь URL не может быть числом."
+
 msgid "publication.version.all"
 msgstr "Все версии"
+
+msgid "publication.version.confirm"
+msgstr "Вы уверены, что хотите создать новую версию?"
 
 msgid "publication.version.details"
 msgstr "Информация о публикации для версии {$version}"

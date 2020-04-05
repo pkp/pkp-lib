@@ -3,9 +3,9 @@
 /**
  * @file classes/query/QueryDAO.inc.php
  *
- * Copyright (c) 2016-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2016-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryDAO
  * @ingroup query
@@ -251,11 +251,11 @@ class QueryDAO extends DAO {
 			$this->update('DELETE FROM query_participants WHERE query_id = ?', (int) $queryId);
 
 			// Remove associated notes
-			$noteDao = DAORegistry::getDAO('NoteDAO');
+			$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 			$noteDao->deleteByAssoc(ASSOC_TYPE_QUERY, $queryId);
 
 			// Remove associated notifications
-			$notificationDao = DAORegistry::getDAO('NotificationDAO');
+			$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 			$notifications = $notificationDao->getByAssoc(ASSOC_TYPE_QUERY, $queryId);
 			while ($notification = $notifications->next()) {
 				$notificationDao->deleteObject($notification);

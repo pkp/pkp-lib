@@ -1,0 +1,143 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-02-13 15:45+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/tr/>"
+"\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "{$vocab} kelime bilgisi desteklenmiyor."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "{$locale} dili desteklenmiyor."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr "Aktif tema {$themePluginPath}, etkin değil veya yüklenmemiş olabilir."
+
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"Sunucu yapılandırma hatası nedeniyle dosya yüklenemedi. Lütfen sistem "
+"yöneticisine başvurun."
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "{$MaxSize}  boyutundan daha büyük dosyalar yüklenemez."
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "Bir veya daha fazla dosya yüklenemedi."
+
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "Sorguyla yüklenecek bir dosya bulunamadı."
+
+msgid "api.submissions.unknownError"
+msgstr ""
+"Beklenmeyen bir hata oluştu. Lütfen sayfayı yenileyin ve tekrar deneyin."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Sorgulanan cilt, sayı veya yıl geçerli değil."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "Gerekli bilgiler eksik olduğu için talebiniz gerçekleştirilemedi."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Bu sorgu bir yayında kullanılamaz. Buna site-geneli sorgu olarak "
+"erişilmelidir."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Bu gönderiyi silme izniniz yok."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Bu yayına atanmamış bir gönderiyi silemezsiniz."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Yalnızca size atanmış olan yayınlanmamış gönderileri görüntüleyebilirsiniz."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Sorgu reddedildi. Bu, girişinizin süresinin dolmuş olmasından dolayı "
+"olabilir. Sayfayı yenileyin ve tekrar deneyin."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Sorgu geçersiz. orderDirection must be `desc` veya `asc` olmalıdır."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr "Sorgu geçersiz.  timelineInterval `day` veya `month` olmalıdır."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Bitiş tarihi dünden daha sonraki bir tarih olamaz."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Başlangıç tarihi 2001-01-01 tarihinden daha eski bir tarih olamaz."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Başlangıç tarihi bitiş tarihinden daha sonraki bir tarih olamaz."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Tarih YYYY-MM-DD formatında olmalıdır."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Bu yayını düzenleme izniniz yok."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Ortak dosyalar klasörü (public) bulunamadı veya dosyalar bu klasöre "
+"kaydedilemiyor. Bu sorunu çözmek için lütfen sistem yöneticinize başvurun."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Kullanıcı dizininde yeterli alan yok. Yüklediğiniz dosya {$fileUploadSize}kb "
+"ancak {$ dirSizeLeft}kb boş alana sahipsiniz."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Dosya yüklemenize izin verilmiyor."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Yüklediğiniz dosya, dosya uzantısıyla eşleşmiyor. Bu durum, bir dosyayı "
+"uyumsuz bir tür olarak yeniden adlandırmakla, örneğin photo.png'yi photo.jpg "
+"olarak değiştirmekle oluşabilir."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Yüklediğiniz resim geçerli değil."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Yalnızca şu dosya türlerini yükleyebilirsiniz: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Yayını silmeden önce yayımdan kaldırmanız gerekmektedir."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Durumu doğrudan API aracılığıyla değiştiremezsiniz. Bunun yerine /publish ve "
+"/unpublish sorgularını kullanın."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Bu yayın yayımlanmış olduğu için düzenleme yapamazsınız."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Yayından kaldırmak istediğiniz yayın yayımlanmamış."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Yayımlamak istediğiniz yayın zaten yayımlanmış."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Sorgulanan e-posta şablonu bulunamadı."
+
+msgid "api.404.endpointNotFound"
+msgstr "Sorgulanan URL tanınmadı."
+
+msgid "api.404.resourceNotFound"
+msgstr "Sorgulanan kaynak bulunamadı."
+
+msgid "api.403.unauthorized"
+msgstr "Sorgulanan kaynağa erişim için yetkilendirilmediniz."
+
+msgid "api.400.paramNotSupported"
+msgstr "{$param} parametresi desteklenmiyor."

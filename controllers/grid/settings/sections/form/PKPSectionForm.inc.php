@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/settings/sections/form/PKPSectionForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSectionForm
  * @ingroup controllers_grid_settings_section_form
@@ -81,15 +81,11 @@ class PKPSectionForm extends Form {
 	 */
 	public function _getAssignedSubEditorIds($sectionId, $contextId) {
 		import('classes.core.Services');
-		$subEditorsIterator = Services::get('user')->getMany(array(
+		return Services::get('user')->getIds(array(
 			'contextId' => $contextId,
 			'roleIds' => ROLE_ID_SUB_EDITOR,
 			'assignedToSection' => $sectionId,
 		));
-
-		return array_map(function($subEditor) {
-			return (int) $subEditor->getId();
-		}, iterator_to_array($subEditorsIterator));
 	}
 
 	/**
@@ -107,8 +103,7 @@ class PKPSectionForm extends Form {
 		];
 
 		import('classes.core.Services');
-		$userService = Services::get('user');
-		$usersIterator = $userService->getMany($params);
+		$usersIterator = Services::get('user')->getMany($params);
 		$items = [];
 		foreach ($usersIterator as $user) {
 			$items[] = [
@@ -124,7 +119,7 @@ class PKPSectionForm extends Form {
 				'canSelect' => true,
 				'getParams' => $params,
 				'items' => $items,
-				'itemsmax' => $userService->getMax($params),
+				'itemsmax' => Services::get('user')->getMax($params),
 				'selected' => $this->getData('subEditors')
 						? $this->getData('subEditors')
 						: [],
@@ -139,11 +134,11 @@ class PKPSectionForm extends Form {
 	 * @param $contextId int
 	 */
 	public function _saveSubEditors($contextId) {
-		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
+		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /* @var $subEditorsDao SubEditorsDAO */
 		$subEditorsDao->deleteBySectionId($this->getSectionId(), $contextId);
 		$subEditors = $this->getData('subEditors');
 		if (!empty($subEditors)) {
-			$roleDao = DAORegistry::getDAO('RoleDAO');
+			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 			foreach ($subEditors as $subEditor) {
 				if ($roleDao->userHasRole($contextId, $subEditor, ROLE_ID_SUB_EDITOR)) {
 					$subEditorsDao->insertEditor($contextId, $this->getSectionId(), $subEditor);

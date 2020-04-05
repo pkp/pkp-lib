@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
+"PO-Revision-Date: 2020-02-10 18:31+0000\n"
+"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"da/>\n"
+"Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:42+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "about.aboutSite"
 msgstr "Om webstedet"
@@ -39,7 +42,7 @@ msgid "about.policies"
 msgstr "Politikker"
 
 msgid "about.siteMap"
-msgstr "Webstedkort"
+msgstr "Sitemap"
 
 msgid "announcement.announcements"
 msgstr "Meddelelser"
@@ -66,10 +69,10 @@ msgid "common.preview"
 msgstr "Vis"
 
 msgid "common.activate"
-msgstr "Aktiver"
+msgstr "Aktivér"
 
 msgid "common.deactivate"
-msgstr "Deaktiver"
+msgstr "Deaktivér"
 
 msgid "common.action"
 msgstr "Handling"
@@ -195,10 +198,10 @@ msgid "common.done"
 msgstr "Udført"
 
 msgid "common.download"
-msgstr "Hent"
+msgstr "Download"
 
 msgid "common.edit"
-msgstr "Rediger"
+msgstr "Redigér"
 
 msgid "common.enabled"
 msgstr "Aktiveret"
@@ -216,7 +219,7 @@ msgid "common.event"
 msgstr "Hændelse"
 
 msgid "common.export"
-msgstr "Eksporter"
+msgstr "Eksportér"
 
 msgid "common.file"
 msgstr "Fil"
@@ -249,7 +252,7 @@ msgid "common.id"
 msgstr "Id"
 
 msgid "common.import"
-msgstr "Importer"
+msgstr "Importér"
 
 msgid "common.initiate"
 msgstr "Start"
@@ -273,13 +276,13 @@ msgid "common.minute"
 msgstr "Minut(ter)"
 
 msgid "common.modify"
-msgstr "Rediger"
+msgstr "Redigér"
 
 msgid "common.month"
 msgstr "Måned"
 
 msgid "common.noneAssigned"
-msgstr "Ingen er tildelt"
+msgstr "Ingen er tilknyttet"
 
 msgid "common.none"
 msgstr "Ingen"
@@ -291,7 +294,7 @@ msgid "common.notApplicable"
 msgstr "Ikke anvendelig"
 
 msgid "common.notApplicableShort"
-msgstr "I/A"
+msgstr "N/A"
 
 msgid "common.notAvailable"
 msgstr "Ikke tilgængelig"
@@ -330,7 +333,7 @@ msgid "common.other"
 msgstr "Andet"
 
 msgid "common.plugin"
-msgstr "Plug-in"
+msgstr "Plugin"
 
 msgid "common.publisher"
 msgstr "Forlægger"
@@ -375,13 +378,13 @@ msgid "common.second"
 msgstr "Sekund(er)"
 
 msgid "common.selectAll"
-msgstr "Marker alt"
+msgstr "Markér alt"
 
 msgid "common.selectNone"
-msgstr "Marker intet"
+msgstr "Markér intet"
 
 msgid "common.select"
-msgstr "Marker"
+msgstr "Markér"
 
 msgid "common.size"
 msgstr "Størrelse"
@@ -423,7 +426,7 @@ msgid "common.up"
 msgstr "Op"
 
 msgid "common.url"
-msgstr "URL-adresse"
+msgstr "URL"
 
 msgid "common.user"
 msgstr "Bruger"
@@ -450,13 +453,13 @@ msgid "debug.executionTime"
 msgstr "Side genereret i"
 
 msgid "debug.notes.localeListLoad"
-msgstr "Landestandardlisten \"{$localeList}\" er indlæst fra XML"
+msgstr "Sproglisten \"{$localeList}\" er indlæst fra XML"
 
 msgid "debug.notes.localeLoad"
-msgstr "Landestandardfilen \"{$localeFile}\" er indlæst fra XML"
+msgstr "Sprogfil \"{$localeFile}\" er indlæst fra XML"
 
 msgid "debug.notes.missingLocaleKey"
-msgstr "Landestandardnøglen \"{$key}\" mangler."
+msgstr "Sprognøglen \"{$key}\" mangler."
 
 msgid "debug.notes"
 msgstr "Noter:"
@@ -555,7 +558,7 @@ msgid "form.resubmit"
 msgstr "Send igen"
 
 msgid "form.saveToUpload"
-msgstr "Brug Gem for at overføre filen."
+msgstr "Brug 'Gem' for at overføre filen."
 
 msgid "form.send"
 msgstr "Send"
@@ -582,7 +585,7 @@ msgid "icon.delete.alt"
 msgstr "Slet"
 
 msgid "icon.edit.alt"
-msgstr "Rediger"
+msgstr "Redigér"
 
 msgid "icon.folder.alt"
 msgstr "Mappe"
@@ -612,16 +615,16 @@ msgid "icon.view.alt"
 msgstr "Vis"
 
 msgid "locale.primary"
-msgstr "Primær landestandard"
+msgstr "Primært sprog"
 
 msgid "locale.supported"
-msgstr "Understøttede landestandarder"
+msgstr "Understøttede sprog"
 
 msgid "navigation.about"
 msgstr "Om"
 
 msgid "navigation.browse"
-msgstr "Gennemse"
+msgstr "Browse"
 
 msgid "navigation.browseByTitle"
 msgstr "Efter titel"
@@ -639,7 +642,7 @@ msgid "navigation.items"
 msgstr "{$from} - {$to} af {$total} elementer"
 
 msgid "navigation.login"
-msgstr "Log på"
+msgstr "Login"
 
 msgid "navigation.nextPage"
 msgstr "&gt;&gt;"
@@ -678,19 +681,19 @@ msgid "search.coverage"
 msgstr "Dækning"
 
 msgid "search.date"
-msgstr "Dato"
+msgstr "Publiceringsdato"
 
 msgid "search.dateFrom"
-msgstr "Fra"
+msgstr "Publiceret efter"
 
 msgid "search.dateTo"
-msgstr "Indtil"
+msgstr "Publiceret før"
 
 msgid "search.discipline"
 msgstr "Fagområde(r)"
 
 msgid "search.fullText"
-msgstr "Fuld tekst"
+msgstr "Fuldtekst"
 
 msgid "search.indexTerms"
 msgstr "Indekstermer"
@@ -730,39 +733,52 @@ msgstr "Type (metode/fremgangsmåde)"
 
 msgid "common.ccLicense"
 msgstr ""
-"<br /><br />\n"
-"\t\t<a target=\"_new\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
-"\t\t</a>\n"
-"\t\t<br/>\n"
-"\t\tBrug af dette værk skal ske i overensstemmelse med copyrightlicensen <a rel=\"license\" target=\"_new\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  License</a>."
+"\n"
+"\t\t<br /><br />\n"
+"  <a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"   <img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"  </a>\n"
+"  <br/>\n"
+"  Brug af dette værk skal ske i overensstemmelse med copyrightlicensen <a "
+"rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">Creative Commons Attribution 3.0  License</a>.\n"
+"\t"
 
 msgid "common.ccLicense.rt"
 msgstr ""
-"<div class=\"rtBlock\">\n"
-"\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_new\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
-"\t\t<br />\n"
-"\t\tBrug af dette værk skal ske i overensstemmelse med copyrightlicensen<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_new\">Creative Commons Attribution 3.0 License</a>.\n"
-"\t</div>"
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"  <br />\n"
+"  <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\">\n"
+"<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"  <br />\n"
+"  Brug af dette værk skal ske i overensstemmelse med copyrightlicensen<a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\""
+"_blank\">Creative Commons Attribution 3.0 License</a>.\n"
+" </div>\n"
+"\t"
 
 msgid "common.disable"
-msgstr "Deaktiver"
+msgstr "Deaktivér"
 
 msgid "common.enable"
-msgstr "Aktiver"
+msgstr "Aktivér"
 
 msgid "common.fullscreen"
 msgstr "Fuldskærm"
 
 msgid "common.fullscreenOff"
-msgstr "Deaktiver fuldskærm"
+msgstr "Deaktivér fuldskærm"
 
 msgid "common.false"
 msgstr "Falsk"
 
 msgid "common.manage"
-msgstr "Administrer"
+msgstr "Administrér"
 
 msgid "common.noComments"
 msgstr "Ingen kommentarer"
@@ -780,16 +796,16 @@ msgid "common.re"
 msgstr "Sv:"
 
 msgid "common.refresh"
-msgstr "Opdater"
+msgstr "Opdatér"
 
 msgid "common.true"
 msgstr "Sandt"
 
 msgid "common.uploadFailed"
-msgstr "Filen kunne ikke uploades. Forsøg igen, eller kontakt administrator, hvis problemet ikke forsvinder."
+msgstr "Filen kunne ikke uploades eller revideres."
 
 msgid "common.loading"
-msgstr "Indlæser …"
+msgstr "Indlæser"
 
 msgid "debug.memoryUsage"
 msgstr "Brug af hukommelse"
@@ -798,10 +814,10 @@ msgid "form.startsWith"
 msgstr "begynder med"
 
 msgid "navigation.dashboard"
-msgstr "Dashboard"
+msgstr "Betjeningspanel"
 
 msgid "notification.allow"
-msgstr "Tillad, at meddelelser af disse typer vises i min meddelelses-feed"
+msgstr "Aktivér denne type meddelelser."
 
 msgid "notification.confirmError"
 msgstr "Der opstod en fejl i forbindelse med bekræftelsen af dit abonnement."
@@ -822,7 +838,12 @@ msgid "notification.settings"
 msgstr "Indstillinger for meddelelser"
 
 msgid "notification.settingsDescription"
-msgstr "Vælg de systemhændelser, som du ønsker at modtage meddelelser om. Hvis du fjerner markeringen fra et element, vil meddelelser vedrørende denne type hændelse ikke blive vist i din meddelelses-feed."
+msgstr ""
+"Vælg de hændelser, du vil have besked om. Fjernelse af markering vil "
+"forhindre, at meddelelser om denne begivenhed vises i systemet ligesom der "
+"ikke vil blive sendt en e-mail til dig. Markerede begivenheder vises i "
+"systemet, og du har en ekstra mulighed for at modtage eller ikke modtage de "
+"samme meddelelser via e-mail."
 
 msgid "notification.reminderError"
 msgstr "Der opstod en fejl i forbindelse med afsendelsen af din adgangskode. Kontrollér, at du har indtastet din e-mail-adresse korrekt."
@@ -894,13 +915,13 @@ msgid "common.unread"
 msgstr "Ulæst"
 
 msgid "common.plugins"
-msgstr "Plug-ins"
+msgstr "Plugins"
 
 msgid "email.subjectRequired"
-msgstr "Udfyld venligst e-mailens emnefelt"
+msgstr "Udfyld venligst e-mailens emnefelt."
 
 msgid "email.bodyRequired"
-msgstr "Indskriv venligst tekst i e-mailens tekstfelt"
+msgstr "Indskriv tekst i e-mailens tekstfelt."
 
 msgid "form.confirmSubmit"
 msgstr "Er du sikker på, at du vil sende denne formular?"
@@ -909,13 +930,15 @@ msgid "form.confirmSubmit.title"
 msgstr "Bekræft"
 
 msgid "form.emailRequired"
-msgstr "En e-mail-adresse er påkrævet"
+msgstr "En e-mail-adresse er påkrævet."
 
 msgid "form.dataHasChanged"
 msgstr "Dataene i denne formular er ændret. Fortsæt alligevel?"
 
 msgid "form.invalidImage"
-msgstr "Et ugyldigt billede blev uploadet. De accepterede formater er .png, .gif eller .jpg"
+msgstr ""
+"Et ugyldigt billede blev uploadet. De accepterede formater er .png, .gif "
+"eller .jpg."
 
 msgid "navigation.access"
 msgstr "Brugere &amp; roller"
@@ -948,7 +971,7 @@ msgid "navigation.system"
 msgstr "System"
 
 msgid "navigation.userManagement"
-msgstr "Brugerstyring"
+msgstr "Brugeradministration"
 
 msgid "common.readMore"
 msgstr "Læs mere"
@@ -1002,7 +1025,7 @@ msgid "notification.type.queryActivity"
 msgstr "Diskussionsaktivitet."
 
 msgid "notification.type.queryAdded"
-msgstr "Diskussion tilføjet."
+msgstr "Drøftelse tilføjet."
 
 msgid "grid.action.markNew"
 msgstr "Markér ny"
@@ -1047,7 +1070,7 @@ msgid "common.designation"
 msgstr "Betegnelse"
 
 msgid "notification.type.reviewAssignment"
-msgstr "Under bedømmelse"
+msgstr "Under bedømmelse."
 
 msgid "informationCenter.editorialHistory"
 msgstr "Redaktionel historik"
@@ -1068,7 +1091,7 @@ msgid "notification.type.roundStatusTitle"
 msgstr "Status for runde {$round}"
 
 msgid "notification.addedStageParticipant"
-msgstr "Bruger tilføjet som deltager"
+msgstr "Bruger tilføjet som deltager."
 
 msgid "search.advancedSearchMore"
 msgstr "Flere søgemuligheder"
@@ -1101,10 +1124,12 @@ msgid "editor.submissionReview.uploadAttachment"
 msgstr "Upload fil"
 
 msgid "notification.type.awaitingCopyedits"
-msgstr "Afventer redigeret menuskript"
+msgstr "Afventer redigeret manuskript."
 
 msgid "common.confirmDelete"
-msgstr "Er du sikker på, at du vil slette dette element. Denne handlig kan ikke fortrydes."
+msgstr ""
+"Er du sikker på, at du vil slette dette element. Denne handling kan ikke "
+"fortrydes."
 
 msgid "informationCenter.informationCenter"
 msgstr "Informationscenter"
@@ -1113,10 +1138,10 @@ msgid "informationCenter.pastNotes"
 msgstr "Tidligere revisionsnoter"
 
 msgid "notification.addedNote"
-msgstr "Note sendt"
+msgstr "Note sendt."
 
 msgid "informationCenter.history.notePosted"
-msgstr "Ny note afsendt"
+msgstr "Ny note afsendt."
 
 msgid "informationCenter.deleteConfirm"
 msgstr "Er du sikker på, at du vil slette denne note?"
@@ -1128,7 +1153,7 @@ msgid "informationCenter.pastHistory"
 msgstr "Tidligere revisioner"
 
 msgid "informationCenter.history.noItems"
-msgstr "Ingen event registreret."
+msgstr "Ingen begivenheder er registreret."
 
 msgid "informationCenter.history.messageSent"
 msgstr "Meddelelse sendt til brugere."
@@ -1155,21 +1180,52 @@ msgid "help.next"
 msgstr "Næste"
 
 msgid "notification.type.assignCopyeditors"
-msgstr "Tilføj en manuskriptredaktør ved at klikke på linket 'Tildel' i feltet Deltagere."
+msgstr ""
+"Tilføj en manuskriptredaktør ved at klikke på linket 'Tildel' i feltet "
+"'Deltagere'."
 
 msgid "review.blindPeerReview"
 msgstr ""
-"<p>Med henblik på at sikre integriteten i forbindelse med blind peer review af manuskripter til dette tidsskrift skal der gøres alt for at forhindre, at forfatternes og bedømmernes identiteter afsløres for hinanden. Dette indebærer, at forfatterne, redaktørerne og bedømmerne (der overfører dokumenter som en del af deres bedømmelse) kontrollerer, at følgende trin er udført med hensyn til teksten og filegenskaberne:</p>\n"
-"\t\t\t<ul><li>Dokumentets forfattere har slettet deres navne i teksten, og \"Forfatter\" og år benyttes i referencerne og fodnoterne i stedet for forfatternes navne, artiklens titel osv.</li>\n"
-"\t\t\t<li>I forbindelse med Microsoft Office-dokumenter skal forfatteridentifikationen også fjernes fra filens egenskaber. Se under Filer i topmenuen i Word > Gem som > Funktioner (eller Indstillinger i forbindelse med en Mac) > Sikkerhed > Fjern personlige oplysninger fra filens egenskaber, når den gemmes > Gem</li>\n"
-"\t\t\t<li>I forbindelse med PDF'er skal forfatternes navne også fjernes under Dokumentegenskaber, der findes under Filer i hovedmenuen i Adobe Acrobat.</li>\n"
-"\t\t</ul>"
+"<p>Med henblik på at sikre integriteten i forbindelse med blind peer review "
+"af manuskripter til dette tidsskrift skal der gøres alt for at forhindre, at "
+"forfatternes og bedømmernes identiteter afsløres for hinanden. Dette "
+"indebærer, at forfatterne, redaktørerne og bedømmerne (der overfører "
+"dokumenter som en del af deres bedømmelse) kontrollerer, at følgende trin er "
+"udført med hensyn til teksten og filegenskaberne:</p>\n"
+"<ul><li>Dokumentets forfattere har slettet deres navne i teksten, og \""
+"Forfatter\" og år benyttes i referencerne og fodnoterne i stedet for "
+"forfatternes navne, artiklens titel osv..</li>\n"
+"<li>Forfatterne af dokumentet har fjernet personlige oplysninger fra "
+"filegenskaberne ved at tage følgende trin:\n"
+"<ul><li>Microsoft Word til Windows:\n"
+"<ul><li>Gå til fil</li>\n"
+"<li>Vælg Oplysninger</li>\n"
+"<li>Klik på Kontrollér, om der er problemer</li>\n"
+"<li>Klik på Undersøg dokument</li>\n"
+"<li>I dialogboksen Dokumentinspektion skal du markere afkrydsningsfelterne "
+"for at vælge den type skjult indhold, du vil inspicere.</li>\n"
+"<li>Undersøg</li>\n"
+"<li>Klik på Fjern alle</li>\n"
+"<li>Klik på Luk</li>\n"
+"<li>Gem dokumentet</li></ul>\n"
+"<li>Microsoft Word til MacOS:\n"
+"<ul><li>Gå til Funktioner</li>\n"
+"<li>Klik på Beskyt dokument</li>\n"
+"<li>Vælg Slet personlige oplysninger fra filen, når den gemmes</li>\n"
+"<li>Klik på OK, og gem filen</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Gå til fil</li>\n"
+"<li>Vælg Egenskaber</li>\n"
+"<li>Fjern ethvert navn i forfatterfeltet</li>\n"
+"<li>Klik på OK</li>\n"
+"<li>Gem dokumentet</li></ul></li>\n"
+"</ul>\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
 
 msgid "common.currentStyleSheet"
-msgstr "Gældende style-sheet"
+msgstr "Gældende stylesheet"
 
 msgid "about.description"
 msgstr "Beskrivelse"
@@ -1238,13 +1294,13 @@ msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
 
 msgid "common.dimensionsPixels"
-msgstr "{$width}&times;{$height} pixels"
+msgstr "{$width}&gange;{$height} pixels"
 
 msgid "common.fileUploaderError"
 msgstr "Filoverførslen er i gang. Hvis det ikke synes at være tilfældet, kan det skyldes at kørselstiden ikke understøttes af denne browser. Kontakt administrator for hjælp."
 
 msgid "common.notes.tooltip"
-msgstr "Noter (gul: har nye noter; blå: har set noter; grå: ingen noter)"
+msgstr "Noter (gul: har nye noter; blå: har gennemsete noter; grå: ingen noter)"
 
 msgid "common.pageNumber"
 msgstr "Side {$pageNumber}"
@@ -1274,7 +1330,7 @@ msgid "common.searchQuery"
 msgstr "Søgeforespørgsel"
 
 msgid "common.sendEmail"
-msgstr "Sendt e-mail"
+msgstr "Send e-mail"
 
 msgid "common.subjects"
 msgstr "Emner"
@@ -1307,7 +1363,9 @@ msgid "form.fileRequired"
 msgstr "En fil skal uploades."
 
 msgid "stageParticipants.notify.warning"
-msgstr "Sørg for at du har udfyldt feltet til beskeder og valgt mindst én modtager."
+msgstr ""
+"Sørg for at du har udfyldt feltet til beskeder og valgt mindst én modtager "
+"udover dig selv."
 
 msgid "navigation.breadcrumbLabel"
 msgstr "Du er her:"
@@ -1340,7 +1398,7 @@ msgid "notification.addedAnnouncement"
 msgstr "Meddelelse tilføjet."
 
 msgid "notification.editedAnnouncement"
-msgstr "Meddelese redigeret."
+msgstr "Meddelelse redigeret."
 
 msgid "notification.removedAnnouncement"
 msgstr "Meddelelse fjernet."
@@ -1388,7 +1446,7 @@ msgid "search.deleteFilter"
 msgstr "Slet"
 
 msgid "search.indexTermsLong"
-msgstr "Alle indeksterms-felter"
+msgstr "Alle indeksterm-felter"
 
 msgid "search.SearchFor"
 msgstr "Søg efter"
@@ -1427,13 +1485,15 @@ msgid "user.authorization.invalidSubmission"
 msgstr "Ugyldig indsendelse."
 
 msgid "user.authorization.invalidRepresentation"
-msgstr "Ugyldig oplysning."
+msgstr "Ugyldig repræsentation."
 
 msgid "user.authorization.authorRoleMissing"
 msgstr "Du har på nuværende tidspunkt ikke tilstrækkelig bemyndigelse til at se indsendelsen. Redigér din profil og sørg for, at du har fået tildelt de passende roller under \"Registrér som\"."
 
 msgid "user.authorization.submissionAuthor"
-msgstr "Den aktuelle bruger er ikke forfatter til den rekvirerede indsendelse. Kontrollér at du er logget ind med den korrekte brugerkonto."
+msgstr ""
+"Den aktuelle bruger er ikke forfatter til den rekvirerede indsendelse. "
+"Kontrollér, at du er logget ind med den korrekte brugerkonto."
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1457,7 +1517,9 @@ msgid "stageParticipants.options"
 msgstr "Tildelingsrettigheder"
 
 msgid "stageParticipants.recommendOnly"
-msgstr "Denne aktør har kun tilladelse til anbefale en redaktionel beslutning . Det vil kræve en autoriseret redaktør for at registrere beslutninger."
+msgstr ""
+"Denne deltager har kun tilladelse til anbefale en redaktionel beslutning . "
+"Det vil kræve en autoriseret redaktør for at registrere beslutninger."
 
 msgid "navigation.skip.main"
 msgstr "Spring til hovedindhold"
@@ -1502,7 +1564,7 @@ msgid "common.filterAdd"
 msgstr "Tilføj filter: {$filterTitle}"
 
 msgid "common.filterRemove"
-msgstr "Fjer filter: {$filterTitle}"
+msgstr "Fjern filter: {$filterTitle}"
 
 msgid "common.lessThan"
 msgstr "{$value} eller mindre"
@@ -1523,7 +1585,7 @@ msgid "common.pagination.label"
 msgstr "Browse ekstra sider"
 
 msgid "common.clearSearch"
-msgstr "Ryd søgetermen"
+msgstr "Fjern søgetermen"
 
 msgid "common.publicAccess"
 msgstr "Offentlig adgang"
@@ -1538,13 +1600,13 @@ msgid "notification.email"
 msgstr "Send mig ikke en e-mail i forbindelse med denne type meddelelser."
 
 msgid "list.viewMore"
-msgstr "Vis flere detaljer om {$name}"
+msgstr "Vis flere oplysninger om {$name}"
 
 msgid "list.viewLess"
-msgstr "Skjul flere detaljer om {$name}"
+msgstr "Skjul flere oplysninger om {$name}"
 
 msgid "notification.type.reviewAssignmentUpdated"
-msgstr "Bedømmelsestildeling opdateret"
+msgstr "Bedømmelsestildeling opdateret."
 
 msgid "common.dateDecided"
 msgstr "Dato besluttet"
@@ -1560,3 +1622,353 @@ msgstr "Gå til {$page}"
 
 msgid "common.pagination.next"
 msgstr "Næste side"
+
+msgid "validator.url"
+msgstr "Dette er ikke en gyldig URL."
+
+msgid "validator.unique"
+msgstr "Denne {$attribute} er allerede taget."
+
+msgid "validator.timezone"
+msgstr "Dette er ikke en gyldig tidszone."
+
+msgid "validator.string"
+msgstr "Dette er ikke en gyldig streng."
+
+msgid "validator.size.array"
+msgstr "Dette skal indeholde {$size} elementer."
+
+msgid "validator.size.string"
+msgstr "Dette skal være {$size} tegn."
+
+msgid "validator.size.file"
+msgstr "Dette skal være {$size} kilobytes."
+
+msgid "validator.size.numeric"
+msgstr "Dette skal være {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} og {$other} skal matche."
+
+msgid "validator.required_without_all"
+msgstr "Dette felt er påkrævet når ingen af {$values} foreligger."
+
+msgid "validator.required_with_all"
+msgstr "Dette felt er gældende når {$values} foreligger."
+
+msgid "validator.required_without"
+msgstr "Dette felt er påkrævet når {$values} ikke foreligger."
+
+msgid "validator.required_with"
+msgstr "Dette felt er påkrævet når {$values} foreligger."
+
+msgid "validator.required_unless"
+msgstr "Dette felt er påkrævet medmindre {$other} er i {$values}."
+
+msgid "validator.required_if"
+msgstr "Dette felt er påkrævet når {$other} er {$value}."
+
+msgid "validator.required"
+msgstr "Dette felt er påkrævet."
+
+msgid "validator.regex"
+msgstr "Dette er ikke formateret korrekt."
+
+msgid "validator.present"
+msgstr "Feltet {$attribute} skal foreligge."
+
+msgid "validator.orcid"
+msgstr "Dette er ikke en gyldig ORCID."
+
+msgid "validator.numeric"
+msgstr "Dette er ikke et gyldigt nummer."
+
+msgid "validator.not_in"
+msgstr "Den valgte {$attribute} er ugyldig."
+
+msgid "validator.min.array"
+msgstr "Dette skal være mindst {$min} elementer."
+
+msgid "validator.min.string"
+msgstr "Dette skal være mindst {$min} tegn."
+
+msgid "validator.min.file"
+msgstr "Dette skal være mindst {$min} kilobytes."
+
+msgid "validator.min.numeric"
+msgstr "Dette skal være mindst {$min}."
+
+msgid "validator.mimes"
+msgstr "Dette skal være en fil af typen {$values}."
+
+msgid "validator.max.array"
+msgstr "Dette må ikke være større end {$max} elementer."
+
+msgid "validator.max.string"
+msgstr "Dette må ikke være større end {$max} tegn."
+
+msgid "validator.max.file"
+msgstr "Dette må ikke være større end {$max} kilobytes."
+
+msgid "validator.max.numeric"
+msgstr "Dette må ikke være større end {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Sprog skal specificeres vha. landekoden. Eksempler: en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Dette felt er flersproget. Der skal angives separate værdier for hvert "
+"understøttet sprog."
+
+msgid "validator.locale"
+msgstr "Dette sprog accepteres ikke."
+
+msgid "validator.json"
+msgstr "Dette er ikke en gyldig JSON-streng."
+
+msgid "validator.issn"
+msgstr "Dette er ikke et gyldigt ISSN."
+
+msgid "validator.ip"
+msgstr "Dette er ikke en gyldig IP-adresse."
+
+msgid "validator.integer"
+msgstr "Dette er ikke et gyldigt heltal."
+
+msgid "validator.in"
+msgstr "Det valgte {$attribute} er ugyldigt."
+
+msgid "validator.image"
+msgstr "Dette skal være et billede."
+
+msgid "validator.filled"
+msgstr "Dette felt er påkrævet."
+
+msgid "validator.exists"
+msgstr "Det valgte {$attribute} er ugyldigt."
+
+msgid "validator.email"
+msgstr "Dette er ikke en gyldig e-mail-adresse."
+
+msgid "validator.digits_between"
+msgstr "Dette skal være mellem {$min} og {$max} cifre."
+
+msgid "validator.digits"
+msgstr "Dette skal være {$digits} cifre langt."
+
+msgid "validator.different"
+msgstr "$attribute} og {$other} skal være forskellige."
+
+msgid "validator.date_format"
+msgstr "Dette matcher ikke formatet {$format}."
+
+msgid "validator.date"
+msgstr "Dette er ikke en gyldig dato."
+
+msgid "validator.currency"
+msgstr "Dette er ikke en gyldig valuta."
+
+msgid "validator.confirmed"
+msgstr "Bekræftelsen for dette felt matcher ikke."
+
+msgid "validator.boolean"
+msgstr "Dette felt skal være sandt eller falsk."
+
+msgid "validator.between.array"
+msgstr "Dette skal være mellem {$min} og {$max} elementer."
+
+msgid "validator.between.string"
+msgstr "Dette skal være mellem {$min} og {$max} tegn."
+
+msgid "validator.between.file"
+msgstr "Dette skal være mellem {$min} og {$max} kilobytes."
+
+msgid "validator.between.numeric"
+msgstr "Dette skal være mellem {$min} og {$max}."
+
+msgid "validator.before"
+msgstr "Denne dato skal være inden {$date}."
+
+msgid "validator.array"
+msgstr "Dette er ikke en gyldig array."
+
+msgid "validator.alpha_num"
+msgstr "Dette må kun indeholde bogstaver og tal."
+
+msgid "validator.alpha_dash"
+msgstr ""
+"Dette må kun indeholde bogstaver, tal, bindestreger og understregninger."
+
+msgid "validator.alpha"
+msgstr "Dette kan kun indeholde bogstaver."
+
+msgid "validator.after"
+msgstr "Denne dato skal være efter {$date}."
+
+msgid "validator.active_url"
+msgstr "Dette er ikke en gyldig URL."
+
+msgid "validator.accepted"
+msgstr "Acceptér dette element.."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Dette er en venlig påmindelse til dig om at kontrollere dit tidsskrifts "
+"tilstand via den redaktionelle rapport."
+
+msgid "notification.type.editorialReport"
+msgstr "Sammendrag af statistikrapport."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Ugyldig publikation."
+
+msgid "notification.editStageParticipant"
+msgstr "Trinnets opgave er blevet ændret."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Bedømmer genindsættes."
+
+msgid "notification.cancelledReviewer"
+msgstr "Bedømmer annulleret."
+
+msgid "navigation.skip.announcements"
+msgstr "Spring til meddelelser"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Der kan ikke foretages ændringer af denne deltager"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Deltager"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Tillad denne person at redigere publikationsoplysningerne."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Tilladelser"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} sprog afsluttet"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} på {$localeName}"
+
+msgid "form.requireId"
+msgstr "Du skal angive et gyldigt ID."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Du skal udfylde dette felt på {$language}."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Formularen kunne ikke indsendes. Du er muligvis blevet logget ud. Genindlæs "
+"siden , og prøv igen."
+
+msgid "form.missingRequired"
+msgstr "Dette felt er påkrævet."
+
+msgid "form.errorUnknown"
+msgstr ""
+"Der opstod en uventet fejl. Du er muligvis blevet logget ud. Genindlæs "
+"siden, og prøv igen."
+
+msgid "form.errors"
+msgstr ""
+"Formularen blev ikke gemt, fordi der er fundet {$count} fejl. Ret disse "
+"fejl, og prøv igen."
+
+msgid "form.errorMany"
+msgstr "Ret {$count} fejl."
+
+msgid "form.errorOne"
+msgstr "Ret en fejl."
+
+msgid "form.errorGoTo"
+msgstr "Gå til næste fejl"
+
+msgid "form.errorA11y"
+msgstr "Gå til {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Du kan ikke uploade flere filer."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Fjern fil"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Er du sikker på, at du vil annullere dette upload?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Upload annulleret"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Annullér upload"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Server svarede med {{statusCode}}-kode. Kontakt systemadministratoren, hvis "
+"dette varer ved."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Filer af denne type kan ikke uploades."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Filen er for stor ({{filesize}}mb). Filer større end {{maxFilesize}}mb kan "
+"ikke uploades."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Brug reserve-formularen nedenfor til at uploade dine filer."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Din browser understøtter ikke upload af træk-og-slip-filer."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Slip filer her for at uploade"
+
+msgid "form.disallowedProp"
+msgstr "Denne egenskab er ikke tilladt."
+
+msgid "form.disallowedLocales"
+msgstr "Kun følgende sprog er tilladt: {$languages}."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Se det aktuelt valgte billede på forhånd."
+
+msgid "common.upload.restore"
+msgstr "Gendan original"
+
+msgid "common.toWithValue"
+msgstr "Til: {$value}"
+
+msgid "common.submenu"
+msgstr "Undermenu"
+
+msgid "common.selectedPrefix"
+msgstr "Valgte:"
+
+msgid "common.removeItem"
+msgstr "Fjern {$item}"
+
+msgid "common.noTemporaryFile"
+msgstr "Filen, du uploadede, blev ikke fundet. Prøv at uploade den igen."
+
+msgid "common.noItemsFound"
+msgstr "Der blev ikke fundet nogen elementer."
+
+msgid "common.lastActivity"
+msgstr "Sidste aktivitet registreret d. {$date}."
+
+msgid "common.fromWithValue"
+msgstr "Fra: {$value}"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Beskriv dette billede for besøgende, der ser webstedet i en browser, der kun "
+"er tekstbaseret eller er med hjælpemidler. Eksempel: \"Vores redaktør taler "
+"på PKP-konferencen.\""
+
+msgid "common.override"
+msgstr "Underkend"

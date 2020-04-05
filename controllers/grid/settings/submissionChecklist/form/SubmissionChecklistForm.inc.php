@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/settings/submissionChecklist/form/SubmissionChecklistForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionChecklistForm
  * @ingroup controllers_grid_settings_submissionChecklist_form
@@ -86,9 +86,9 @@ class SubmissionChecklistForm extends Form {
 	}
 
 	/**
-	 * Save checklist entry.
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
@@ -114,6 +114,7 @@ class SubmissionChecklistForm extends Form {
 		}
 
 		$context->updateSetting('submissionChecklist', $submissionChecklistAll, 'object', true);
+		parent::execute(...$functionArgs);
 		return true;
 	}
 }

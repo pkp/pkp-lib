@@ -3,9 +3,9 @@
 /**
  * @file classes/security/authorization/internal/ApiAuthorizationMiddleware.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ApiAuthorizationMiddleware
  * @ingroup security_authorization
@@ -38,7 +38,9 @@ class ApiAuthorizationMiddleware {
 		$this->_handler->setSlimRequest($slimRequest);
 		$request = $this->_handler->getRequest();
 		$args = array($slimRequest);
-		if ($this->_handler->authorize($request, $args, $this->_handler->getRoleAssignments())) {
+		if (!$slimRequest->getAttribute('route')) {
+			return $request->getRouter()->handleAuthorizationFailure($request, 'api.404.endpointNotFound');
+		} elseif ($this->_handler->authorize($request, $args, $this->_handler->getRoleAssignments())) {
 			$this->_handler->validate($request, $args);
 			$this->_handler->initialize($request, $args);
 			return true;

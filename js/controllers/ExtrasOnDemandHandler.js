@@ -1,9 +1,9 @@
 /**
  * @file js/controllers/ExtrasOnDemandHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ExtrasOnDemandHandler
  * @ingroup js_controllers
@@ -53,7 +53,7 @@
 		if ($widgetWrapper.hasClass('active')) {
 			// Identify if there is a scrollable parent.
 			$scrollable = $widgetWrapper.closest('.scrollable');
-			if ($scrollable.size() > 0) {
+			if ($scrollable.length > 0) {
 				// Scroll the parent so that all extra content in
 				// extras container is visible.
 				this.scrollToMakeVisible_($widgetWrapper, $scrollable);
@@ -115,5 +115,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

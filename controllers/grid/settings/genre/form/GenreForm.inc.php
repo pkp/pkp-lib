@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/settings/genre/form/GenreForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GenreForm
  * @ingroup controllers_grid_settings_genre_form
@@ -50,7 +50,7 @@ class GenreForm extends Form {
 		$form = $this;
 		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'manager.setup.form.genre.nameRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'key', 'optional', 'manager.setup.genres.key.exists', function($key) use ($context, $form) {
-			$genreDao = DAORegistry::getDAO('GenreDAO');
+			$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 			return $key == '' || !$genreDao->keyExists($key, $context->getId(), $form->getGenreId());
 		}));
 		$this->addCheck(new FormValidatorRegExp($this, 'key', 'optional', 'manager.setup.genres.key.alphaNumeric', '/^[a-z0-9]+([\-_][a-z0-9]+)*$/i'));
@@ -66,7 +66,7 @@ class GenreForm extends Form {
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
-		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 
 		if($this->getGenreId()) {
 			$genre = $genreDao->getById($this->getGenreId(), $context->getId());
@@ -117,10 +117,11 @@ class GenreForm extends Form {
 	}
 
 	/**
-	 * Save email template.
+	 * @copydoc Form::execute()
+	 * @return boolean
 	 */
-	function execute() {
-		$genreDao = DAORegistry::getDAO('GenreDAO');
+	function execute(...$functionArgs) {
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
@@ -146,7 +147,7 @@ class GenreForm extends Form {
 		} else {
 			$genreDao->updateObject($genre);
 		}
-
+		parent::execute(...$functionArgs);
 		return true;
 	}
 }

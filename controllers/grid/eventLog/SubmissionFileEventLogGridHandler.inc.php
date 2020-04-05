@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/eventLog/SubmissionFileEventLogGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileEventLogGridHandler
  * @ingroup controllers_grid_eventLog
@@ -90,7 +90,7 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 	 */
 	protected function loadData($request, $filter = null) {
 		$submissionFile = $this->getSubmissionFile();
-		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO');
+		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /* @var $submissionFileEventLogDao SubmissionFileEventLogDAO */
 		$eventLogEntries = $submissionFileEventLogDao->getByFileId(
 			$submissionFile->getFileId()
 		);
@@ -98,7 +98,7 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 
 		if ($filter['allEvents']) {
 			// Also include events from past versions
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			while (true) {
 				$submissionFile = $submissionFileDao->getRevision($submissionFile->getSourceFileId(), $submissionFile->getSourceRevision());
 				if (!$submissionFile) break;

@@ -1,9 +1,9 @@
 {**
  * templates/frontend/components/registrationForm.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the basic registration form fields
  *
@@ -29,7 +29,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="givenName" id="givenName" value="{$givenName|escape}" maxlength="255" required>
+				<input type="text" name="givenName" id="givenName" value="{$givenName|escape}" maxlength="255" required aria-required="true">
 			</label>
 		</div>
 		<div class="family_name">
@@ -49,7 +49,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required>
+				<input type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required aria-required="true">
 			</label>
 		</div>
 		<div class="country">
@@ -61,7 +61,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<select name="country" id="country" required>
+				<select name="country" id="country" required aria-required="true">
 					<option></option>
 					{html_options options=$countries selected=$country}
 				</select>
@@ -84,7 +84,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="email" id="email" value="{$email|escape}" maxlength="90" required>
+				<input type="text" name="email" id="email" value="{$email|escape}" maxlength="90" required aria-required="true">
 			</label>
 		</div>
 		<div class="username">
@@ -96,7 +96,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
+				<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required aria-required="true">
 			</label>
 		</div>
 		<div class="password">
@@ -108,7 +108,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="password" name="password" id="password" password="true" maxlength="32" required>
+				<input type="password" name="password" id="password" password="true" maxlength="32" required aria-required="true">
 			</label>
 		</div>
 		<div class="password">
@@ -120,7 +120,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="password" name="password2" id="password2" password="true" maxlength="32" required>
+				<input type="password" name="password2" id="password2" password="true" maxlength="32" required aria-required="true">
 			</label>
 		</div>
 	</div>

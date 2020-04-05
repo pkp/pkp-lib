@@ -50,6 +50,9 @@ msgstr "Перейти к шагу №3"
 msgid "reviewer.submission.submitReview"
 msgstr "Отправить рецензию"
 
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Отложить на потом"
+
 msgid "reviewer.submission.reviewerGuidelines"
 msgstr "Руководство для рецензентов"
 

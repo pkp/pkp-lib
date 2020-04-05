@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/settings/user/UserGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserGridHandler
  * @ingroup controllers_grid_settings_user
@@ -163,7 +163,7 @@ class UserGridHandler extends GridHandler {
 		$context = $request->getContext();
 
 		// Get all users for this context that match search criteria.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
 		return $userGroupDao->getUsersById(
@@ -181,7 +181,7 @@ class UserGridHandler extends GridHandler {
 	 */
 	function renderFilter($request, $filterData = array()) {
 		$context = $request->getContext();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getByContextId($context->getId());
 		$userGroupOptions = array('' => __('grid.user.allRoles'));
 		while ($userGroup = $userGroups->next()) {
@@ -454,7 +454,7 @@ class UserGridHandler extends GridHandler {
 		}
 
 		// Remove user from all user group assignments for this context.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		// Check if this user has any user group assignments for this context.
 		if (!$userGroupDao->userInAnyGroup($userId, $context->getId())) {
@@ -478,7 +478,7 @@ class UserGridHandler extends GridHandler {
 		// Identify the user Id.
 		$userId = $request->getUserVar('rowId');
 
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		if (
 			!$roleDao->userHasRole(CONTEXT_SITE, $user->getId(), ROLE_ID_SITE_ADMIN) && !(
 				$context &&
@@ -510,7 +510,7 @@ class UserGridHandler extends GridHandler {
 		// Identify the user Id.
 		$userId = $request->getUserVar('userId');
 
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		if (
 			!$roleDao->userHasRole(CONTEXT_SITE, $user->getId(), ROLE_ID_SITE_ADMIN) && !(
 				$context &&

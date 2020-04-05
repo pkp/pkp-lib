@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
+"PO-Revision-Date: 2020-02-21 15:36+0000\n"
+"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
+"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
+"sv/>\n"
+"Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:50:05+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.submissionLibrary"
 msgstr "Bidragsbibliotek"
@@ -54,7 +57,7 @@ msgid "editor.submission.findAndSelectReviewer"
 msgstr "Sök och välj granskare"
 
 msgid "editor.submission.findAndSelectUser"
-msgstr "Sök och välj användare "
+msgstr "Sök och välj användare"
 
 msgid "editor.submission.fileList.includeAllStages"
 msgstr "Visa filer från alla tillgängliga steg i arbetsflödet."
@@ -195,7 +198,7 @@ msgid "editor.review.rateReviewer.description"
 msgstr "Betygsätt kvaliteten på den inkomna granskningen. Betyget kommer inte att vara synligt för granskaren."
 
 msgid "editor.review.reviewerRating.none"
-msgstr "Inget betyg."
+msgstr "Inget betyg"
 
 msgid "editor.review.mustSelect"
 msgstr "Du måste välja en granskare"
@@ -207,7 +210,7 @@ msgid "editor.review.errorDeletingReviewer"
 msgstr "Ett fel uppstod när granskaren skulle tas bort. Försök igen."
 
 msgid "editor.review.userGroupSelect"
-msgstr "Lägg till den här användaren i den här gransknings-användargruppen."
+msgstr "Lägg till den här användaren i den här gransknings-användargruppen"
 
 msgid "editor.review.unconsiderReviewText"
 msgstr "Vill du markera den här granskningen som bortsedd ifrån? Granskningshistoriken kommer att bevaras."
@@ -309,7 +312,7 @@ msgid "editor.article.confirmChangeReviewForm"
 msgstr "Varning: Genom att ändra granskningsformuläret påverkas alla svar granskare redan matat in med hjälp av det här formuläret. Vill du verkligen fortsätta?"
 
 msgid "editor.submission.noReviewerFilesSelected"
-msgstr "Inga filer valda."
+msgstr "Inga filer valda"
 
 msgid "editor.submission.noReviewerFilesSelected.details"
 msgstr "Du har inte valt några filer som granskaren ska granska."
@@ -403,3 +406,63 @@ msgstr "Granskningsintressen"
 
 msgid "reviewer.list.biography"
 msgstr "Biografi"
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Skickat till produktion."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Beslutet är registrerat"
+
+msgid "editor.activityLog"
+msgstr "Aktivitets logg"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Redaktören har avbrutit granskningsförfrågan."
+
+msgid "editor.review.requestCancelled"
+msgstr "Förfrågan är avbruten"
+
+msgid "reviewer.list.empty"
+msgstr "Inga granskare hittades"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Granskningsförfrågan är avbruten"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Granskningsförfrågan har avslagits"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Ett fel uppstod när granskaren skulle läggas till. Försök igen."
+
+msgid "editor.review.reviewerThanked"
+msgstr "Granskarna har tackats"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Granskaren har tackat nej till granskningsförfrågan. "
+
+msgid "editor.review.requestDeclined"
+msgstr "Förfrågan avslås"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Återinsätt granskare"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Avboka granskare"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Ändra beslut"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Bidraget är accepterat för granskning."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Skickas till en ny granskningsrunda."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Bidraget är publicerat."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Bidrag accepterat."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Bidrag refuserat."

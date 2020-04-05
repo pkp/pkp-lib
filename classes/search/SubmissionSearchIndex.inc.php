@@ -3,9 +3,9 @@
 /**
  * @file classes/search/SubmissionSearchIndex.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionSearchIndex
  * @ingroup search
@@ -99,5 +99,11 @@ abstract class SubmissionSearchIndex {
 	 * @param $submission Submission
 	 */
 	abstract public function submissionMetadataChanged($submission);
+
+	/**
+	 * Remove indexed file contents for a submission
+	 * @param $submission Submission
+	 */
+	abstract function clearSubmissionFiles($submission);
 }
 

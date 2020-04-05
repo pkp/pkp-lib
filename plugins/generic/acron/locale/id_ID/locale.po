@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-03-05 12:26+0000\n"
+"Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
+"Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"generic-acron/id_ID/>\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Tugas Terjadwal dimuat ulang."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Muat Ulang Tugas Terjadwal"
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Tab Cron berhasil dimuat ulang."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Plugin Acron telah dinonaktifkan."
+
+msgid "plugins.generic.acron.enabled"
+msgstr "Plugin Acron telah diaktifkan."
+
+msgid "plugins.generic.acron.description"
+msgstr ""
+"Plugin ini membantu mengurangi ketergantungan aplikasi pada perangkat "
+"pengaturan periodik seperti 'cron.'"
+
+msgid "plugins.generic.acron.name"
+msgstr "Plugin Acron"

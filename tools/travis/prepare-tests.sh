@@ -2,9 +2,9 @@
 
 # @file tools/travis/prepare-tests.sh
 #
-# Copyright (c) 2014-2019 Simon Fraser University
-# Copyright (c) 2010-2019 John Willinsky
-# Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+# Copyright (c) 2014-2020 Simon Fraser University
+# Copyright (c) 2010-2020 John Willinsky
+# Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
 #
 # Script to prepare the environment for the test suite.
 #
@@ -12,8 +12,6 @@
 set -xe
 
 # Set some environment variables.
-export DUMMY_PDF=~/dummy.pdf # This is used for PDF uploads. It's generated below.
-export DUMMY_ZIP=~/dummy.zip # This is used for ZIP uploads. It's generated below.
 export BASEURL="http://localhost" # This is the URL to the OJS installation directory.
 export DBHOST=localhost # Database hostname
 export DBNAME=ojs-ci # Database name
@@ -21,14 +19,9 @@ export DBUSERNAME=ojs-ci # Database username
 export DBPASSWORD=ojs-ci # Database password
 export FILESDIR=files # Files directory (relative to OJS installation -- do not do this in production!)
 export DATABASEDUMP=~/database.sql.gz # Path and filename where a database dump can be created/accessed
-export BROWSER_BINARY=/usr/bin/chromium-browser # For Chromedriver to find the browser
 
 # Install required software
-sudo apt-get install -q -y a2ps libbiblio-citation-parser-perl libhtml-parser-perl chromium-chromedriver chromium-browser ghostscript
-
-# Generate sample files to use for testing.
-echo "This is a test" | a2ps -o - | ps2pdf - ${DUMMY_PDF} # Generate a dummy PDF file
-zip ${DUMMY_ZIP} ${DUMMY_PDF} # Generate a dummy ZIP archive using the PDF
+sudo apt-get install -q -y libbiblio-citation-parser-perl libhtml-parser-perl
 
 # Create the database and grant permissions.
 if [[ "$TEST" == "pgsql" ]]; then
@@ -63,5 +56,14 @@ sed -i -e "s/enable_cdn = On/enable_cdn = Off/" config.inc.php
 
 # Make the files directory (this will be files_dir in config.inc.php after installation).
 mkdir --parents ${FILESDIR}
+
+# Cypress requires a CYPRESS_ prefix on environment variables
+export CYPRESS_baseUrl=${BASEURL}
+export CYPRESS_DBTYPE=${DBTYPE}
+export CYPRESS_DBUSERNAME=${DBUSERNAME}
+export CYPRESS_DBNAME=${DBNAME}
+export CYPRESS_DBPASSWORD=${DBPASSWORD}
+export CYPRESS_DBHOST=${DBHOST}
+export CYPRESS_FILESDIR=${FILESDIR}
 
 set +e

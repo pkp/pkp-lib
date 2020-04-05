@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/author/AuthorGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AuthorGridHandler
  * @ingroup controllers_grid_users_author
@@ -206,9 +206,10 @@ class AuthorGridHandler extends GridHandler {
 	 */
 	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
 		if (!$this->canAdminister($request->getUser())) return;
-		$author = DAORegistry::getDAO('AuthorDAO')->getById($rowId);
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+		$author = $authorDao->getById($rowId);
 		$author->setSequence($newSequence);
-		DAORegistry::getDAO('AuthorDAO')->updateObject($author);
+		$authorDao->updateObject($author);
 	}
 
 	/**
@@ -267,7 +268,8 @@ class AuthorGridHandler extends GridHandler {
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter = null) {
-		return DAORegistry::getDAO('AuthorDAO')->getByPublicationId($this->getPublication()->getId(), true, false);
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+		return $authorDao->getByPublicationId($this->getPublication()->getId(), true, false);
 	}
 
 	//
@@ -296,7 +298,8 @@ class AuthorGridHandler extends GridHandler {
 		// Identify the author to be updated
 		$authorId = (int) $request->getUserVar('authorId');
 
-		$author = DAORegistry::getDAO('AuthorDAO')->getById($authorId);
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+		$author = $authorDao->getById($authorId);
 
 		// Form handling
 		import('controllers.grid.users.author.form.AuthorForm');
@@ -376,7 +379,7 @@ class AuthorGridHandler extends GridHandler {
 
 		$authorId = (int) $request->getUserVar('authorId');
 
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
 		$authorDao->deleteById($authorId);
 		$json = DAO::getDataChangedEvent($authorId);
 		$json->setGlobalEvent('authorsUpdated');
@@ -393,8 +396,8 @@ class AuthorGridHandler extends GridHandler {
 		// Identify the author Id.
 		$authorId = (int) $request->getUserVar('authorId');
 
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$author = $authorDao->getById($authorId);
 
 		if ($author !== null && $userDao->userExistsByEmail($author->getEmail())) {

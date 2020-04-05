@@ -3,9 +3,9 @@
 /**
  * @file controllers/tab/pubIds/form/PKPPublicIdentifiersForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPublicIdentifiersForm
  * @ingroup controllers_tab_pubIds_form
@@ -182,8 +182,8 @@ class PKPPublicIdentifiersForm extends Form {
 	 * Store objects with pub ids.
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
-		parent::execute();
+	function execute(...$functionArgs) {
+		parent::execute(...$functionArgs);
 
 		$pubObject = $this->getPubObject();
 		$pubObject->setStoredPubId('publisher-id', $this->getData('publisherId'));
@@ -195,7 +195,7 @@ class PKPPublicIdentifiersForm extends Form {
 			$representationDao = Application::getRepresentationDAO();
 			$representationDao->updateObject($pubObject);
 		} elseif (is_a($pubObject, 'SubmissionFile')) {
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			$submissionFileDao->updateObject($pubObject);
 		}
 	}

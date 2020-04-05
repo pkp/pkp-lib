@@ -3,9 +3,9 @@
 /**
  * @file classes/scheduledTask/ScheduledTask.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ScheduledTask
  * @ingroup scheduledTask
@@ -124,6 +124,7 @@ abstract class ScheduledTask {
 	//
 	/**
 	 * Implement this method to execute the task actions.
+	 * @return boolean true iff success
 	 */
 	abstract protected function executeActions();
 
@@ -135,9 +136,6 @@ abstract class ScheduledTask {
 	 * Make sure the execution process follow the required steps.
 	 * This is not the method one should extend to implement the
 	 * task actions, for this see ScheduledTask::executeActions().
-	 * @param boolean $notifyAdmin optional Whether or not the task
-	 * will notify the site administrator about errors, warnings or
-	 * completed process.
 	 * @return boolean Whether or not the task was succesfully
 	 * executed.
 	 */

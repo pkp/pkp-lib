@@ -3,9 +3,9 @@
 /**
  * @file classes/user/form/LoginChangePasswordForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LoginChangePasswordForm
  * @ingroup user_form
@@ -55,15 +55,16 @@ class LoginChangePasswordForm extends Form {
 	}
 
 	/**
-	 * Save new password.
+	 * @copydoc Form::execute()
 	 * @return boolean success
 	 */
-	function execute() {
-		$userDao = DAORegistry::getDAO('UserDAO');
+	function execute(...$functionArgs) {
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getByUsername($this->getData('username'), false);
+		parent::execute(...$functionArgs);
 		if ($user != null) {
 			if ($user->getAuthId()) {
-				$authDao = DAORegistry::getDAO('AuthSourceDAO');
+				$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
 				$auth = $authDao->getPlugin($user->getAuthId());
 			}
 

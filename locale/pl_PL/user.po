@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:58+00:00\n"
+"POT-Creation-Date: 2020-01-30T17:13:49+00:00\n"
+"PO-Revision-Date: 2020-01-30T17:13:49+00:00\n"
 "Language: \n"
 
 msgid "user.affiliation"
@@ -65,32 +65,14 @@ msgstr "Edytuj mój profil"
 msgid "user.email"
 msgstr "E-mail"
 
-msgid "user.feminine"
-msgstr "K"
-
-msgid "user.firstName"
-msgstr "Pierwsze imię"
-
-msgid "user.gender"
-msgstr "Płeć"
-
-msgid "user.initialsExample"
-msgstr "Anna Maria Kowalska = AMK"
-
-msgid "user.initials"
-msgstr "Inicjały"
-
 msgid "user.interests"
-msgstr "Przegląd zainteresowań"
+msgstr "Zainteresowania"
 
 msgid "user.interests.description"
 msgstr "(Oddziel zainteresowania stosując ENTER lub przecinek)"
 
 msgid "user.gossip"
 msgstr "Prywatne notatki"
-
-msgid "user.lastName"
-msgstr "Nazwisko"
 
 msgid "user.profile.form.profileImageInvalid"
 msgstr "Nieprawidłowy format lub za duży rozmiar zdjęcia. Akceptowane formaty to: GIF, JPG lub PNG. Maksymalna wielkość zdjęcia to:  150x150 pikseli."
@@ -149,20 +131,11 @@ msgstr "Wyloguj się"
 msgid "user.mailingAddress"
 msgstr "Adres"
 
-msgid "user.masculine"
-msgstr "M"
-
-msgid "user.middleName"
-msgstr "Drugie imię"
-
 msgid "user.myAccount"
 msgstr "Moje konto"
 
 msgid "user.name"
-msgstr "Nazwa użytkownika (np. jankowalski)"
-
-msgid "user.other"
-msgstr "Inne"
+msgstr "Imię (Nazwa)"
 
 msgid "user.password"
 msgstr "Hasło (dozwolone małe litery i cyfry)"
@@ -184,12 +157,6 @@ msgstr "Podanie adresu e-mail jest wymagane."
 
 msgid "user.profile.form.affiliationRequired"
 msgstr "Podanie afiliacji jest wymagane."
-
-msgid "user.profile.form.firstNameRequired"
-msgstr "Podanie pierwszego imienia jest wymagane."
-
-msgid "user.profile.form.lastNameRequired"
-msgstr "Podanie nazwiska jest wymagane."
 
 msgid "user.profile.form.newPasswordRequired"
 msgstr "Musisz podać swoje nowe hasło."
@@ -278,9 +245,6 @@ msgstr "Administratorzy strony"
 msgid "user.roles"
 msgstr "Role"
 
-msgid "user.salutation"
-msgstr "Tytuł / stopień naukowy"
-
 msgid "user.sendPassword"
 msgstr "Potwierdzenie"
 
@@ -325,9 +289,6 @@ msgstr "Twoje nowe hasło jest identyczne jak stare hasło."
 
 msgid "user.profile.form.usergroupRequired"
 msgstr "Podanie grupy użytkownika jest wymagane."
-
-msgid "user.suffix"
-msgstr "Sufiks"
 
 msgid "user.authorization.managerRequired"
 msgstr "Użytkownik pełniący rolę redaktora musi być przydzielony do tego etapu, aby kontynuować."
@@ -442,3 +403,45 @@ msgstr "Przed wygenerowaniem klucza API, administrator strony musi ustalić kluc
 
 msgid "user.role.assistant"
 msgstr "Asystent"
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Nie przypisano Cię do tekstu z rolą, która pozwala na dostęp do tej operacji."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Nie posiadasz uprawnień dostępu do tego zadania recenzji."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Nie posiadasz uprawnień dostępu do tej dyskusji."
+
+msgid "user.givenName"
+msgstr "Pierwsze imię"
+
+msgid "user.gossip.description"
+msgstr "Zapisz informacji o tym recenzencie, które chciałbyś(chciałabyś) udostępnić innym administratorom, menadżerom i redaktorom. Informacje będą dostępne w przyszłości przy zadaniach wykonania recenzji."
+
+msgid "user.familyName"
+msgstr "Nazwisko"
+
+msgid "user.preferredPublicName"
+msgstr "Preferowana (publiczna) nazwa"
+
+msgid "user.preferredPublicName.description"
+msgstr "Jak chcesz być nazywany? Jeżeli chcesz możesz dodać tutaj: zwrot, drugie imię lub sufiks."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Podanie imienia/nazwiska jest wymagane."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Brakuje nazwiska rodowego dla języka. Dodaj nazwisko dla tego języka."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Musisz zaakceptować politykę prywatności."
+
+msgid "user.register.form.privacyConsent"
+msgstr "Wyrażam zgodę na gromadzenie i przechowywanie moich danych zgodnie z <a href=\"{$privacyUrl}\" target=\"_blank\">polityką prywatności</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Tak, chciałbym(chciałabym) otrzymywać powiadomienia o nowych publikacjach i ogłoszeniach."
+
+msgid "user.privacyLink"
+msgstr "Twoje dane są gromadzone zgodnie z naszą <a href=\"{$privacyUrl}\" target=\"_blank\">polityką prywatności</a>."

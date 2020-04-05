@@ -3,13 +3,14 @@
 /**
  * @file classes/currency/CurrencyDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CurrencyDAO
  * @ingroup currency
  * @see Currency
+ * @deprecated Use \Sokil\IsoCodes directly.
  *
  * @brief Operations for retrieving and modifying Currency objects.
  *
@@ -18,107 +19,49 @@
 import('lib.pkp.classes.currency.Currency');
 
 class CurrencyDAO extends DAO {
-
-	function _getCache() {
-		$locale = AppLocale::getLocale();
-		$cache =& Registry::get('currencyCache', true, null);
-		if ($cache === null) {
-			$cacheManager = CacheManager::getManager();
-			$cache = $cacheManager->getFileCache(
-				'currencies', $locale,
-				array($this, '_cacheMiss')
-			);
-			$cacheTime = $cache->getCacheTime();
-			if ($cacheTime !== null && $cacheTime < filemtime($this->getCurrencyFilename($locale))) {
-				$cache->flush();
-			}
-		}
-
-		return $cache;
-	}
-
-	function _cacheMiss($cache, $id) {
-		$allCurrencies =& Registry::get('allCurrencies', true, null);
-		if ($allCurrencies === null) {
-			// Add a locale load to the debug notes.
-			$notes =& Registry::get('system.debug.notes');
-			$filename = $this->getCurrencyFilename(AppLocale::getLocale());
-			$notes[] = array('debug.notes.currencyListLoad', array('filename' => $filename));
-
-			// Reload locale registry file
-			$xmlDao = new XMLDAO();
-			$data = $xmlDao->parseStruct($filename, array('currency'));
-
-			// Build array with ($charKey => array(stuff))
-			if (isset($data['currency'])) {
-				foreach ($data['currency'] as $currencyData) {
-					$allCurrencies[$currencyData['attributes']['code_alpha']] = array(
-						$currencyData['attributes']['name'],
-						$currencyData['attributes']['code_numeric']
-					);
-				}
-			}
-			asort($allCurrencies);
-			$cache->setEntireCache($allCurrencies);
-		}
-		return null;
-	}
-
 	/**
-	 * Get the filename of the currency database
-	 * @param $locale string
-	 * @return string
+	 * Constructor.
 	 */
-	function getCurrencyFilename($locale) {
-		return "lib/pkp/locale/$locale/currencies.xml";
+	public function __construct() {
+		// Parent constructor intentionally not called
 	}
 
 	/**
 	 * Retrieve a currency by alpha currency ID.
-	 * @param $currencyId int
+	 * @deprecated Use \Sokil\IsoCodes directly.
+	 * @param $codeAlpha string
 	 * @return Currency
 	 */
-	function getCurrencyByAlphaCode($codeAlpha) {
-		$cache = $this->_getCache();
-		return $this->_returnCurrencyFromRow($codeAlpha, $cache->get($codeAlpha));
+	public function getCurrencyByAlphaCode($codeAlpha) {
+		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+		$currency = $isoCodes->getCurrencies()->getByLetterCode($codeAlpha);
+		return $this->_fromIsoCodeFactoryObject($currency);
 	}
 
 	/**
 	 * Retrieve an array of all currencies.
+	 * @deprecated Use \Sokil\IsoCodes directly.
 	 * @return array of Currencies
 	 */
-	function getCurrencies() {
-		$cache = $this->_getCache();
-		$returner = array();
-		foreach ($cache->getContents() as $codeAlpha => $entry) {
-			$returner[] = $this->_returnCurrencyFromRow($codeAlpha, $entry);
-		}
-		return $returner;
+	public function getCurrencies() {
+		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+		return array_map(function($currency) {
+			return $this->_fromIsoCodeFactoryObject($currency);
+		}, iterator_to_array($isoCodes->getCurrencies()));
 	}
 
 	/**
-	 * Instantiate and return a new data object.
+	 * Create and populate a DataObject-based Currency from the \Sokil\IsoCodes equivalent.
+	 * @deprecated
+	 * @param $currency Object
 	 * @return Currency
 	 */
-	function newDataObject() {
-		return new Currency();
-	}
-
-	/**
-	 * Internal function to return a Currency object from a row.
-	 * @param $row array
-	 * @return Currency
-	 */
-	function &_returnCurrencyFromRow($codeAlpha, &$entry) {
-		$currency = $this->newDataObject();
-		$currency->setCodeAlpha($codeAlpha);
-		$currency->setName($entry[0]);
-		$currency->setCodeNumeric($entry[1]);
-
-		HookRegistry::call('CurrencyDAO::_returnCurrencyFromRow', array(&$currency, &$codeAlpha, &$entry));
-
-		return $currency;
+	protected function _fromIsoCodeFactoryObject($currency) {
+		$currencyDataObject = new Currency();
+		$currencyDataObject->setCodeAlpha($currency->getLetterCode());
+		$currencyDataObject->setName($currency->getLocalName());
+		$currencyDataObject->setCodeNumeric($currency->getNumericCode());
+		return $currencyDataObject;
 	}
 }
-
 

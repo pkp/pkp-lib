@@ -8,9 +8,9 @@
 /**
  * @file classes/i18n/PKPLocale.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPLocale
  * @ingroup i18n
@@ -88,15 +88,25 @@ class PKPLocale {
 	}
 
 	/**
+	 * Add octothorpes to a key name for presentation of the key as missing.
+	 * @param @key string
+	 * @return string
+	 */
+	public static function addOctothorpes($key) {
+		return '##' . htmlentities($key) . '##';
+	}
+
+	/**
 	 * Translate a string using the selected locale.
 	 * Substitution works by replacing tokens like "{$foo}" with the value
 	 * of the parameter named "foo" (if supplied).
 	 * @param $key string
 	 * @param $params array named substitution parameters
 	 * @param $locale string the locale to use
+	 * @param $missingKeyHandler function Callback to be invoked when a key cannot be found.
 	 * @return string
 	 */
-	static function translate($key, $params = array(), $locale = null) {
+	static function translate($key, $params = array(), $locale = null, $missingKeyHandler = array(__CLASS__, 'addOctothorpes')) {
 		if (!isset($locale)) $locale = AppLocale::getLocale();
 		if (($key = trim($key)) == '') return '';
 
@@ -113,7 +123,7 @@ class PKPLocale {
 
 		if (!HookRegistry::call('PKPLocale::translate', array(&$key, &$params, &$locale, &$localeFiles, &$value))) {
 			// Add some octothorpes to missing keys to make them more obvious
-			return '##' . htmlentities($key) . '##';
+			return $missingKeyHandler($key);
 		} else {
 			return $value;
 		}
@@ -128,14 +138,7 @@ class PKPLocale {
 
 		// Use defaults if locale info unspecified.
 		$locale = AppLocale::getLocale();
-
-		$sysLocale = $locale . '.' . LOCALE_ENCODING;
-		if (!@setlocale(LC_ALL, $sysLocale, $locale)) {
-			// For PHP < 4.3.0
-			if(setlocale(LC_ALL, $sysLocale) != $sysLocale) {
-				setlocale(LC_ALL, $locale);
-			}
-		}
+		setlocale(LC_ALL, $locale . '.' . LOCALE_ENCODING, $locale);
 
 		AppLocale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.po");
 
@@ -406,8 +409,9 @@ class PKPLocale {
 		// Install default locale-specific data
 		import('lib.pkp.classes.db.DBDataXMLParser');
 
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-		$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale));
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
+		$emailTemplateDao->installEmailTemplateLocaleData($emailTemplateDao->getMainEmailTemplatesFilename(), array($locale));
 
 		// Load all plugins so they can add locale data if needed
 		$categories = PluginRegistry::getCategories();
@@ -423,7 +427,7 @@ class PKPLocale {
 	 */
 	static function uninstallLocale($locale) {
 		// Delete locale-specific data
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$emailTemplateDao->deleteEmailTemplatesByLocale($locale);
 		$emailTemplateDao->deleteDefaultEmailTemplatesByLocale($locale);
 	}
@@ -767,6 +771,6 @@ class PKPLocale {
  * @param $locale string the locale to use
  * @return string
  */
-function __($key, $params = array(), $locale = null) {
-	return AppLocale::translate($key, $params, $locale);
+function __($key, $params = array(), $locale = null, $missingKeyHandler = array('PKPLocale', 'addOctothorpes')) {
+	return AppLocale::translate($key, $params, $locale, $missingKeyHandler);
 }

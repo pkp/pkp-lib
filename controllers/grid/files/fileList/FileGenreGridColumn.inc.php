@@ -2,9 +2,9 @@
 /**
  * @file controllers/grid/files/fileList/FileGenreGridColumn.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileGenreGridColumn
  * @ingroup controllers_grid_files_fileList
@@ -43,7 +43,7 @@ class FileGenreGridColumn extends GridColumn {
 		assert(is_a($submissionFile, 'SubmissionFile'));
 
 		// Retrieve the genre label for the submission file.
-		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$genre = $genreDao->getById($submissionFile->getGenreId());
 
 		// If no label exists (e.g. for review attachments)

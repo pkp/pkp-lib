@@ -824,18 +824,6 @@ msgstr "افزونه‌های بلوکی"
 msgid "plugins.categories.blocks.description"
 msgstr "افزونه‌های بلوکی اجزای گرافیکی قابل اتصال به سیستم هستند مانند ابزارهای مختلف موجود در نوار کناری"
 
-msgid "plugins.categories.citationLookup"
-msgstr "افزونه ارتباط با پایگاه داده‌های ارجاع"
-
-msgid "plugins.categories.citationLookup.description"
-msgstr "افزونه‌های ارتباط با پایگاه داده‌های ارجاع به پایگاه داده‌های ارجاعات متصل می‌شوند تا در زمان ویراستاری به جستجوی ارجاعات بپردازند."
-
-msgid "plugins.categories.citationParser"
-msgstr "افزونه برون دهی ارجاعات"
-
-msgid "plugins.categories.citationParser.description"
-msgstr "افزونه‌های برون دهی ارجاعات داده‌های موجود در ارجاعات را به صورت دسته‌بندی شده در فیلدهای مختلف (مانند عنوان، نویسنده و ...) برون دهی می‌کنند."
-
 msgid "plugins.categories.gateways.description"
 msgstr "افزونه‌های دروازه داده‌های مؤثر را بر سیستم‌های خارجی فراهم می‌کند"
 

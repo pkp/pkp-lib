@@ -3,9 +3,9 @@
 /**
  * @file plugins/importexport/native/filter/SubmissionFileNativeXmlFilter.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileNativeXmlFilter
  * @ingroup plugins_importexport_native
@@ -35,7 +35,6 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 	function getClassName() {
 		return 'lib.pkp.plugins.importexport.native.filter.SubmissionFileNativeXmlFilter';
 	}
-
 
 	//
 	// Implement template methods from Filter
@@ -86,7 +85,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 			$revisionNode->setAttribute('source', $sourceFileId . '-' . $submissionFile->getSourceRevision());
 		}
 
-		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$genre = $genreDao->getById($submissionFile->getGenreId());
 		if ($genre) {
 			$revisionNode->setAttribute('genre', $genre->getName($context->getPrimaryLocale()));
@@ -102,7 +101,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$revisionNode->setAttribute('filesize', $submissionFile->getFileSize());
 		$revisionNode->setAttribute('filetype', $submissionFile->getFileType());
 
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$uploaderUser = $userDao->getById($submissionFile->getUploaderUserId());
 		assert(isset($uploaderUser));
 		$revisionNode->setAttribute('uploader', $uploaderUser->getUsername());
@@ -114,19 +113,38 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		if ($submissionFile->getFileStage() == SUBMISSION_FILE_DEPENDENT && $submissionFile->getAssocType() == ASSOC_TYPE_SUBMISSION_FILE) {
 			$fileRefNode = $doc->createElementNS($deployment->getNamespace(), 'submission_file_ref');
 			$fileRefNode->setAttribute('id', $submissionFile->getAssocId());
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			$latestRevision = $submissionFileDao->getLatestRevisionNumber($submissionFile->getAssocId());
 			$fileRefNode->setAttribute('revision', $latestRevision);
 			$revisionNode->appendChild($fileRefNode);
 		}
 
 		$submissionFileNode->appendChild($revisionNode);
-
 		// Embed the file contents
-		$embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($submissionFile->getFilePath())));
-		$embedNode->setAttribute('encoding', 'base64');
-		$revisionNode->appendChild($embedNode);
 
+		if (array_key_exists('no-embed', $this->opts)) {
+			$hrefNode = $doc->createElementNS($deployment->getNamespace(), 'href');
+			if (array_key_exists('use-file-urls', $this->opts)) {
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+				$stageId = $submissionFileDao->getWorkflowStageId($submissionFile);
+				$app = Application::getApplication();
+				$dispatcher = $app->getDispatcher();
+				$params = ["fileId" => $submissionFile->getFileId(),
+						   "revision" => $submissionFile->getRevision(),
+						   "submissionId" => $submissionFile->getSubmissionId(),
+						   "stageId" => $stageId];
+				$url = $dispatcher->url($app->getRequest(), ROUTE_COMPONENT, $context->getPath(), "api.file.FileApiHandler", "downloadFile", null, $params);
+				$hrefNode->setAttribute('src', $url);
+			} else {
+				$hrefNode->setAttribute('src', $submissionFile->getFilePath());
+			}
+			$hrefNode->setAttribute('mime_type', $submissionFile->getFileType());
+			$revisionNode->appendChild($hrefNode);
+		} else {
+			$embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($submissionFile->getFilePath())));
+			$embedNode->setAttribute('encoding', 'base64');
+			$revisionNode->appendChild($embedNode);
+		}
 		return $submissionFileNode;
 	}
 

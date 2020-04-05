@@ -3,9 +3,9 @@
 /**
  * @file classes/plugins/PluginHelper.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginHelper
  * @ingroup classes_plugins
@@ -127,7 +127,7 @@ class PluginHelper {
 			$installFile = $pluginDest . '/' . PLUGIN_INSTALL_FILE;
 			if(!is_file($installFile)) $installFile = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/xml/defaultPluginInstall.xml';
 			assert(is_file($installFile));
-			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 			$site = $siteDao->getSite();
 			$params = $this->_getConnectionParams();
 			$params['locale'] = $site->getPrimaryLocale();
@@ -163,7 +163,7 @@ class PluginHelper {
 	 * @return boolean
 	 */
 	function _checkIfNewer($productType, $productName, $newVersion) {
-		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$installedPlugin = $versionDao->getCurrentVersion($productType, $productName, true);
 		if ($installedPlugin && $installedPlugin->compare($newVersion) > 0) return true;
 		return false;
@@ -212,7 +212,7 @@ class PluginHelper {
 			return null;
 		}
 
-		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct(), true);
 		if(!$installedPlugin) {
 			$errorMsg = __('manager.plugins.pleaseInstall');
@@ -247,7 +247,7 @@ class PluginHelper {
 
 			$upgradeFile = $pluginDest . '/' . PLUGIN_UPGRADE_FILE;
 			if($fileManager->fileExists($upgradeFile)) {
-				$siteDao = DAORegistry::getDAO('SiteDAO');
+				$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 				$site = $siteDao->getSite();
 				$params = $this->_getConnectionParams();
 				$params['locale'] = $site->getPrimaryLocale();
@@ -268,7 +268,7 @@ class PluginHelper {
 	}
 
 	/**
-	 * Cut and paste plugin from temporary files to it's actual place.
+	 * Cut and paste plugin from temporary files to its actual place.
 	 * @param $path string Path of temporary files
 	 * @param $pluginDest string Path of application-specific part (mandatory)
 	 * @param $pluginLibDest string path of library part (if any)

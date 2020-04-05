@@ -139,6 +139,14 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			$userListQB->offsetBy($args['count']);
 		}
 
+		if (isset($args['assignedToSection'])) {
+			$userListQB->assignedToSection($args['assignedToSection']);
+		}
+
+		if (isset($args['assignedToCategory'])) {
+			$userListQB->assignedToCategory($args['assignedToCategory']);
+		}
+
 		\HookRegistry::call('User::getMany::queryBuilder', array($userListQB, $args));
 
 		return $userListQB;

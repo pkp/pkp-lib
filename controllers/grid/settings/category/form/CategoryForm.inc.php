@@ -324,7 +324,6 @@ class CategoryForm extends Form {
 	 * @return array
 	 */
 	public function _getAssignedSubEditorIds($categoryId, $contextId) {
-		import('classes.core.Services');
 		return Services::get('user')->getIds(array(
 			'contextId' => $contextId,
 			'roleIds' => ROLE_ID_SUB_EDITOR,

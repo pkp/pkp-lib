@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-04 02:09+0000\n"
+"PO-Revision-Date: 2020-04-07 02:39+0000\n"
 "Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
 "Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ku/>\n"
@@ -31,3 +31,9 @@ msgstr "بەهای ڕێکخستن"
 
 msgid "admin.systemInfo.settingName"
 msgstr "ناوی ڕێکخستن"
+
+msgid "admin.clearTemplateCache"
+msgstr "قاڵبە لابەلاکان بسڕەوە"
+
+msgid "admin.clearDataCache"
+msgstr "داتا لابەلاکان بسڕەوە"

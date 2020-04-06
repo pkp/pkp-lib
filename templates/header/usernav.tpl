@@ -32,11 +32,11 @@
 
 		<a href="{if $multipleContexts}#{else}{url router=$smarty.const.ROUTE_PAGE page="submissions"}{/if}" class="pkp_current_context">
 			{if $displayPageHeaderTitle && is_string($displayPageHeaderTitle)}
-				{$displayPageHeaderTitle}
+				{$displayPageHeaderTitle|escape}
 			{elseif $currentContextName}
-				{$currentContextName}
+				{$currentContextName|escape}
 			{else}
-				{$applicationName}
+				{$applicationName|escape}
 			{/if}
 		</a>
 
@@ -49,7 +49,7 @@
 					{if $currentContextName == $name}{continue}{/if}
 					<li>
 						<a href="{$url}">
-							{$name}
+							{$name|escape}
 						</a>
 					</li>
 				{/foreach}

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-07 02:39+0000\n"
-"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
+"PO-Revision-Date: 2020-04-08 10:00+0000\n"
+"Last-Translator: avin a hama <avinasoshama@gmail.com>\n"
 "Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"ku/>\n"
+"ku_IQ/>\n"
 "Language: ku\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,3 +37,58 @@ msgstr "قاڵبە لابەلاکان بسڕەوە"
 
 msgid "admin.clearDataCache"
 msgstr "داتا لابەلاکان بسڕەوە"
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"ئەمە زمانی سەرەکی پێگەکەیە)وێب سایەتەکە) یە  \n"
+"یا :ئەم زمانە زمانی سەرەکی پێگەکەیە، ناتوانی لەکاری بخەیت لەکاتێکدا زمانێکی "
+"ترت بە زمانی سەرەکی هەڵنەبژاردووە."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "ناتوانی زمانیكی تر( زمانێکی نوێ) بۆ لیستی زمانەکان زیاد بکەیت"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "ناتوانی وەسفکردنی زمان لە وێب سایتەکەدا بکەیتەوە"
+
+msgid "admin.languages.downloadLocales"
+msgstr "دابەزاندنی زمانەکان"
+
+msgid "admin.languages.download"
+msgstr "دابەزاندنی زمان"
+
+msgid "admin.expireSessions"
+msgstr "کۆتایی هێنان بە کارپێکردنی بەکارهێنەران"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "پیشاندانی رێکخستنی نوێ"
+
+msgid "admin.dateInstalled"
+msgstr "رێکەوتی دامەزراندن"
+
+msgid "admin.currentVersion"
+msgstr "وێنەی بەردەست"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"ئایا دڵنیای کەدەتەوێ \n"
+"contextname\n"
+"؟و هەموو ئەوانەی پەیوەستن پێوەی، بەتەواوی بسڕیتەوە"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "ناوەرۆکی فایلی زانیارییەکان"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"؟ ئایا تۆ دڵنیای کە دەتەوێت کۆتایی بەکارپێکردنی هەموو بەکارهێنەران بهێنیت \n"
+" لەکاتێکدا هەموو بەکارهێنەران  پێویستیانە جارێکی تر \n"
+"بچنەوە ناو پێگەکە (تەنانەت تۆش"
+
+msgid "admin.confirmClearTemplateCache"
+msgstr ""
+"ئایا دڵنیاییت کە دەتەوێ زانیارییەشاراوەکانت بەشێوەیەکی کۆکراوەیی بسڕیتەوە"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"فایلی زانیارییەکانی تایبەت بەخۆت بەسەرکەوتوویی نوێ کرایەوە، تکایە ئەگەر "
+"پێگەکەت بەشێوەیەکی دروست کارانەبوو، دەتوانی زانیارییەکان بەدەستکارییەوە \n"
+"  راستبکەیەوە بەشیوەیەکی راستەوخۆ لەسەر فایلەکە"

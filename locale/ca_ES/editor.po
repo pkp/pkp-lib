@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
+"PO-Revision-Date: 2020-03-27 12:37+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
+"ca/>\n"
+"Language: ca_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:39+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.submissionLibrary.description"
 msgstr "Carregueu documents que pertanyin a la revisió i publicació d'aquesta tramesa. Les plantilles per a molts d'aquests documents les podeu trobar fent clic a <em>Veure la biblioteca de documents</em>."
@@ -117,10 +120,11 @@ msgid "editor.review.NotifyAuthorDecline"
 msgstr "Notifica l'autor/a de la decisió de rebutjar la tramesa:"
 
 msgid "editor.review.NotifyAuthorRevisions"
-msgstr "Notifica l'autor/a la necessitat de fer revisions:"
+msgstr ""
+"Les revisions no estaran subjectes a una nova ronda d'avaluació d'experts."
 
 msgid "editor.review.NotifyAuthorResubmit"
-msgstr "Notifica l'autor/a la necessitat de fer revisions amb necessitat d'una altra revisió més exhaustiva:"
+msgstr "Les revisions estaran subjectes a una nova ronda d'avaluació d'experts."
 
 msgid "editor.review.NotifyAuthorExternal"
 msgstr "Notifica l'autor/a la decisió de dirigir una revisió externa:"
@@ -147,7 +151,7 @@ msgid "editor.review.thankReviewerError"
 msgstr "Hi ha hagut un error en enviar un agraïment al revisor/a"
 
 msgid "editor.review.skipEmail"
-msgstr "No envieu un correu electrònic al revisor/a"
+msgstr "No enviar el correu electrònic al revisor/a."
 
 msgid "editor.review.sendReminder"
 msgstr "Envia un recordatori"
@@ -379,3 +383,155 @@ msgstr "L'identificador públic '{$publicIdentifier}' no pot ser un número."
 
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "El patró {$pattern} no està permès per a l'identificador públic."
+
+msgid "reviewer.list.empty"
+msgstr "No s'ha trobat cap revisor/a"
+
+msgid "reviewer.list.biography"
+msgstr "Biografia"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Interessos de revisió"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Desbloquejar"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Aquest revisor/a està bloquejat perquè té un altre rol que li permet veure "
+"la identitat de l'autor/a. Per tant, l'avaluació d'experts amb cegament no "
+"està garantida. Voleu desbloquejar-lo igualment?"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Aquest revisor/a ja ha estat assignat per revisar aquesta tramesa."
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Mai assignat"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Mitjana de dies per completar una revisió"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Dies des de la darrera revisió assignada"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Ahir"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "Fa {$days} dies"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Qualificació del revisor/a: {$rating}"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Sol·licituds de revisió cancel·lades"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Sol·licituds de revisió rebutjades"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Revisions completades"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Revisions actives actualment assignades"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} actius"
+
+msgid "reviewer.list.filterRating"
+msgstr "Avaluat com a mínim"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} de {$total} revisors/es"
+
+msgid "reviewer.list.count"
+msgstr "{$count} revisors/es"
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "No crear una discussió de revisió."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Crear una discussió de revisió sobre aquesta recomanació."
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "No enviar cap correu electrònic als editors/es."
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Notificar-ho als editors/es"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Enregistrar recomanació editorial"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Planificar per a publicació"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "S'ha produït un error en restablir el revisor/a. Torneu-ho a provar."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Sense avaluacions"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Avalueu la qualitat de la revisió. Aquesta avaluació no es compartirà amb el "
+"revisor/a."
+
+msgid "editor.review.reviewerThanked"
+msgstr "Agraïments al revisor/a"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "L'editor ha cancel·lat aquesta sol·licitud de revisió."
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "El revisor/a ha rebutjat aquesta sol·licitud de revisió."
+
+msgid "editor.review.requestCancelled"
+msgstr "Sol·licitud cancel·lada"
+
+msgid "editor.review.requestDeclined"
+msgstr "Sol·licitud rebutjada"
+
+msgid "editor.review.newReviewRound"
+msgstr "Necessita una nova ronda de revisió"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Revisor/a anònim"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Enviar un correu electrònic de notificació a l'editor/a: {$editorNames}"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Enviar un correu electrònic de notificació a l'autor/a: {$authorName}"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Restablir el revisor/a"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Cancel·lar el revisor/a"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Canviar la decisió"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Tramesa acceptada per revisió."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Enviat a producció."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Enviat a una nova ronda de revisions."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Tramesa publicada."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Tramesa acceptada."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Tramesa rebutjada."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Decisió enregistrada"
+
+msgid "editor.activityLog"
+msgstr "Registre d'activitat"

@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
+"PO-Revision-Date: 2020-04-04 02:09+0000\n"
+"Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/cs/"
+">\n"
+"Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:40+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.submissionLibrary"
 msgstr "Knihovna příspěvku"
@@ -30,7 +33,7 @@ msgid "editor.submission.fileAuditor.form.messageRequired"
 msgstr "Musíte zahrnout osobní zprávu."
 
 msgid "editor.submission.fileAuditor.skipEmail"
-msgstr "Neposílat email auditorovi."
+msgstr "Neposílat email auditorovi"
 
 msgid "editor.submission.fileAuditor.form.userRequired"
 msgstr "Musíte vybrat uživatele, kterého chcete přiřadit."
@@ -45,7 +48,12 @@ msgid "editor.submission.revisions"
 msgstr "Recenze"
 
 msgid "editor.submission.review.reviewersDescription"
-msgstr "Pomocí <em> + Přidat recenzenta </ em> můžete pozvat čtenáře, aby si prohlédli soubory příspěvku. Ikona poznámkového bloku označuje, že byla odevzdána recenze, která byla po konzultaci zaškrtnuta <em> Potvrzeno </ em>. Když jsou recenze po termínu, objeví se červená ikona obálky, která tuto skutečnost připomíná recenzentům."
+msgstr ""
+"Pomocí <em>+Přidat recenzenta</em> můžete pozvat čtenáře, aby si prohlédli "
+"soubory příspěvku. Ikona poznámkového bloku označuje, že byla odevzdána "
+"recenze, která byla po konzultaci zaškrtnuta <em>Potvrzeno</em>. Když jsou "
+"recenze po termínu, objeví se červená ikona obálky, která tuto skutečnost "
+"připomíná recenzentům."
 
 msgid "editor.submission.addReviewer"
 msgstr "Přidat recenzenta"
@@ -132,7 +140,7 @@ msgid "editor.review.thankReviewerError"
 msgstr "Chyba při odesílání poděkování recenzentovi"
 
 msgid "editor.review.skipEmail"
-msgstr "Neposílat email recenzentovi"
+msgstr "Neposílat email recenzentovi."
 
 msgid "editor.review.sendReminder"
 msgstr "Odeslat připomenutí"
@@ -279,7 +287,7 @@ msgid "editor.submission.noReviewerFilesSelected.details"
 msgstr "Nevybrali jste žádné soubory pro recenzenta k recenzi."
 
 msgid "submission.queries.subjectRequired"
-msgstr "Je třeba vyplnit předmět diskuse"
+msgstr "Je třeba vyplnit předmět diskuse."
 
 msgid "submission.queries.messageRequired"
 msgstr "Je třeba vyplnit obsah diskusní zprávy."
@@ -333,7 +341,7 @@ msgid "editor.submissionReview.recordRecommendation.notifyEditors"
 msgstr "Upozornit redaktory"
 
 msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr "Neposílat email redaktorům"
+msgstr "Neposílat email redaktorům."
 
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
 msgstr "Vytvořit diskusi recenzentů o tomto doporučení."
@@ -406,3 +414,60 @@ msgstr "Zájmy recenzenta"
 
 msgid "reviewer.list.biography"
 msgstr "Biografie"
+
+msgid "reviewer.list.empty"
+msgstr "Nebyli nalezeni žádní recenzenti"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Žádosti o recenzi byly zrušeny"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Při obnovování recenzenta došlo k chybě. Prosím zkuste to znovu."
+
+msgid "editor.review.reviewerThanked"
+msgstr "Recenzent poděkoval"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Editor žádost o kontrolu zrušil."
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Recenzent tuto žádost o kontrolu odmítl."
+
+msgid "editor.review.requestCancelled"
+msgstr "Žádost byla zrušena"
+
+msgid "editor.review.requestDeclined"
+msgstr "Žádost zamítnuta"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Znovu přiřadit recenzenta"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Zrušit recenzenta"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Změnit rozhodnutí"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Příspěvek byl přijat k přehodnocení."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Odesláno do produkce."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Odesláno do nového recenzního kola."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Příspěvek byl zveřejněn."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Příspěvek byl přijat."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Příspěvek byl odmítnut."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Rozhodnutí bylo zaznamenáno"
+
+msgid "editor.activityLog"
+msgstr "Protokol činnosti"

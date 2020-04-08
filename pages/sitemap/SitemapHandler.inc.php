@@ -30,6 +30,14 @@ class SitemapHandler extends PKPSitemapHandler {
 		// Search
 		$root->appendChild($this->_createUrlTree($doc, $request->url($journal->getPath(), 'search')));
 
+		// Preprints
+		$submissionIds = Services::get('submission')->getIds([
+			'contextId' => $journal->getId(),
+		]);
+		foreach ($submissionIds as $submissionId) {
+			$root->appendChild($this->_createUrlTree($doc, $request->url($journal->getPath(), 'preprint', 'view', array($submissionId))));
+		}
+
 		$doc->appendChild($root);
 
 		// Enable plugins to change the sitemap

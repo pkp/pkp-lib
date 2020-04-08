@@ -27,7 +27,7 @@ msgid "default.genres.article"
 msgstr "Preprint Text"
 
 msgid "default.contextSettings.checklist.notPreviouslyPublished"
-msgstr "The submission has not been previously published, nor is it before another server for consideration (or an explanation has been provided in Comments to the Editor)."
+msgstr "The submission has not been previously published, nor is it before another server for consideration (or an explanation has been provided in Comments to the Moderator)."
 
 msgid "default.contextSettings.checklist.fileFormat"
 msgstr "The submission file is in OpenOffice, Microsoft Word, or RTF document file format."
@@ -57,31 +57,22 @@ msgid "default.contextSettings.openAccessPolicy"
 msgstr "This server provides immediate open access to its content on the principle that making research freely available to the public supports a greater global exchange of knowledge."
 
 msgid "default.groups.name.manager"
-msgstr "Server manager"
+msgstr "Preprint Server manager"
 
 msgid "default.groups.plural.manager"
-msgstr "Server managers"
+msgstr "Preprint Server managers"
 
 msgid "default.groups.abbrev.manager"
-msgstr "JM"
-
-msgid "default.groups.name.editor"
-msgstr "Server editor"
-
-msgid "default.groups.plural.editor"
-msgstr "Server editors"
-
-msgid "default.groups.abbrev.editor"
-msgstr "JE"
+msgstr "PSM"
 
 msgid "default.groups.name.sectionEditor"
-msgstr "Series editor"
+msgstr "Moderator"
 
 msgid "default.groups.plural.sectionEditor"
-msgstr "Series editors"
+msgstr "Moderators"
 
 msgid "default.groups.abbrev.sectionEditor"
-msgstr "SecE"
+msgstr "MOD"
 
 msgid "default.genres.researchInstrument"
 msgstr "Research Instrument"

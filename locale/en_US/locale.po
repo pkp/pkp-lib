@@ -33,31 +33,31 @@ msgid "common.queue.long.active"
 msgstr "Active"
 
 msgid "section.section"
-msgstr "Series"
+msgstr "Section"
 
 msgid "section.sections"
-msgstr "Series"
+msgstr "Section"
 
 msgid "section.title"
-msgstr "Series title"
+msgstr "Section title"
 
 msgid "section.abbreviation"
 msgstr "Abbreviation"
 
 msgid "section.policy"
-msgstr "Series Policy"
+msgstr "Section Policy"
 
 msgid "submission.layout.galleyPublicIdentificationExists"
 msgstr "Public galley identification already exists."
 
 msgid "section.description"
-msgstr "Series archive Description"
+msgstr "Section archive Description"
 
 msgid "section.pathDescription"
-msgstr "Series URL Path. Use hyphens (-) instead of spaces. Example: cultural-history."
+msgstr "Section URL Path. Use hyphens (-) instead of spaces."
 
 msgid "section.emptySection"
-msgstr "Nothing has been published in this series yet."
+msgstr "Nothing has been published in this section yet."
 
 msgid "common.publication"
 msgstr "Preprint"
@@ -108,13 +108,13 @@ msgid "user.register.noContextReviewerInterests"
 msgstr "If you requested to be a reviewer, please enter your subject interests."
 
 msgid "user.role.manager"
-msgstr "Server Manager"
+msgstr "Manager"
 
 msgid "user.role.subEditor"
-msgstr "Series Editor"
+msgstr "Moderator"
 
 msgid "user.role.subEditors"
-msgstr "Series Editors"
+msgstr "Moderators"
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Preprint submitted"
@@ -203,7 +203,7 @@ msgid "about.aboutContext"
 msgstr "About the Server"
 
 msgid "about.editorialTeam"
-msgstr "Editorial Team"
+msgstr "Preprint Server Team"
 
 msgid "about.submissions"
 msgstr "Submissions"
@@ -221,7 +221,7 @@ msgid "about.onlineSubmissions.submissionActions"
 msgstr "{$newSubmission} or {$viewSubmissions}."
 
 msgid "about.onlineSubmissions.submitToSection"
-msgstr "Make a new submission to the <a href=\"{$url}\">{$name}</a> series."
+msgstr "Make a new submission to the <a href=\"{$url}\">{$name}</a> section."
 
 msgid "about.onlineSubmissions.newSubmission"
 msgstr "Make a new submission"
@@ -248,7 +248,7 @@ msgid "about.aboutThisPublishingSystem"
 msgstr "More information about the publishing system, Platform and Workflow by OPS/PKP."
 
 msgid "about.aboutThisPublishingSystem.altText"
-msgstr "OPS Editorial and Publishing Process"
+msgstr "OPS Screening and Posting Process"
 
 msgid "about.aboutOJSJournal"
 msgstr "This server uses Open Preprint Systems {$ojsVersion}, which is open source server management and publishing software developed, supported, and freely distributed by the <a href=\"http://pkp.sfu.ca/\">Public Knowledge Project</a> under the GNU General Public License."
@@ -355,10 +355,10 @@ msgid "site.upgradeAvailable.manager"
 msgstr "There is a new version of OPS available! You are currently using OPS {$currentVersion}. The most recent version is OPS {$latestVersion}. Please contact your Site Administrator ({$siteAdminName}, <a href=\"mailto:{$siteAdminEmail}\">{$siteAdminEmail}</a>) to notify them of this new release. More information can be found <a href=\"http://pkp.sfu.ca/ops_download\" target=\"_new\">here</a>."
 
 msgid "log.editor.decision"
-msgstr "An editor decision ({$decision}) for preprint {$submissionId} was recorded by {$editorName}."
+msgstr "A moderator decision ({$decision}) for preprint {$submissionId} was recorded by {$editorName}."
 
 msgid "log.editor.recommendation"
-msgstr "An editor recommendation ({$decision}) for preprint {$submissionId} was recorded by {$editorName}."
+msgstr "A moderator recommendation ({$decision}) for preprint {$submissionId} was recorded by {$editorName}."
 
 msgid "notification.type.submissionSubmitted"
 msgstr "A new preprint , "{$title}," has been submitted."
@@ -376,7 +376,7 @@ msgid "notification.type.public"
 msgstr "Public Announcements"
 
 msgid "notification.type.editorAssignmentTask"
-msgstr "A new preprint has been submitted to which an editor needs to be assigned."
+msgstr "A new preprint has been submitted to which a moderator needs to be assigned."
 
 msgid "notification.type.assignProductionUser"
 msgstr "Assign a user to create galleys using the Assign link in the Participants list."

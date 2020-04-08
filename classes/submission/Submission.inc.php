@@ -68,18 +68,12 @@ class Submission extends PKPSubmission {
 				// Default copyright year to current year
 				$fieldValue = date('Y');
 
-				// Override based on context settings
+				// Use preprint publish date of current publication
 				if (!$publication) {
 					$publication = $this->getCurrentPublication();
 				}
 				if ($publication) {
-					switch($context->getData('copyrightYearBasis')) {
-						case 'submission':
-							// override to the submission's year if published as you go
-							$fieldValue = date('Y', strtotime($publication->getData('datePublished')));
-							break;
-						default: assert(false);
-					}
+					$fieldValue = date('Y', strtotime($publication->getData('datePublished')));
 				}
 				break;
 			default: assert(false);

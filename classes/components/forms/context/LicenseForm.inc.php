@@ -13,29 +13,5 @@
  */
 namespace APP\components\forms\context;
 use \PKP\components\forms\context\PKPLicenseForm;
-use \PKP\components\forms\FieldOptions;
 
-class LicenseForm extends PKPLicenseForm {
-	/** @copydoc FormComponent::$id */
-	public $id = FORM_LICENSE;
-
-	/** @copydoc FormComponent::$method */
-	public $method = 'PUT';
-
-	/**
-	 * @copydoc PKPLicenseForm::__construct()
-	 */
-	public function __construct($action, $locales, $context) {
-		parent::__construct($action, $locales, $context);
-
-		$this->addField(new FieldOptions('copyrightYearBasis', [
-				'label' => __('submission.copyrightYear'),
-				'description' => __('manager.distribution.copyrightYearBasis.description'),
-				'type' => 'radio',
-				'options' => [
-					['value' => 'submission', 'label' => __('manager.distribution.copyrightYearBasis.submission')],
-				],
-				'value' => $context->getData('copyrightYearBasis'),
-			]), [FIELD_POSITION_AFTER, 'licenseUrl']);
-	}
-}
+class LicenseForm extends PKPLicenseForm { }

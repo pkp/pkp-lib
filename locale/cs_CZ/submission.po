@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
+"PO-Revision-Date: 2020-04-08 19:37+0000\n"
+"Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/cs/>\n"
+"Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:41+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "submission.agencies"
 msgstr "Agentury"
@@ -519,7 +522,7 @@ msgid "submissions.queued"
 msgstr "Ve frontě"
 
 msgid "submissions.queuedUnassigned"
-msgstr "Čeká na přidělení"
+msgstr "K tomuto příspěvku nebyl přiřazen žádný editor."
 
 msgid "submissions.ruling"
 msgstr "Rozhodnuto"
@@ -576,7 +579,7 @@ msgid "submission.views"
 msgstr "Zobrazení"
 
 msgid "submission.uploadSuccessful"
-msgstr "Váš soubor byl nahrán"
+msgstr "Váš soubor byl nahrán."
 
 msgid "submission.loadMessage"
 msgstr "Prosím čekejte, Váš soubor je nahráván na server."
@@ -1020,7 +1023,7 @@ msgid "submission.identifiers"
 msgstr "Identifikátory"
 
 msgid "submission.publisherId"
-msgstr "Veřejný identifikátor URL"
+msgstr "ID vydavatele"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Informace o příspěvku"
@@ -1095,7 +1098,7 @@ msgid "submission.upload.invalidUserGroup"
 msgstr "Chybějící nebo neplatná uživatelská skupina!"
 
 msgid "submission.upload.possibleRevision"
-msgstr "Byla detekována možná duplicita nebo revize."
+msgstr "Byla detekována možná duplicita nebo revize"
 
 msgid "submission.upload.possibleRevisionDescription"
 msgstr "Název nahraného souboru se podobá názvu dříve nahraného souboru\"{$revisedFileName}.\"  Je tento soubor určen k nahrazení \"{$revisedFileName}\"? Pokud ano, vyberte níže uvedený soubor. V opačném případě vyberte \"Nejedná se o revizi stávajícího souboru\", než budete pokračovat."
@@ -1188,7 +1191,7 @@ msgid "editor.submission.removeStageParticipant"
 msgstr "Odebrat uživatele"
 
 msgid "editor.submission.removeStageParticipant.description"
-msgstr "Chystáte se tohoto účastníka odstranit z <strong> všech </ strong> etap. Pokud má uživatel také nevyřízené úkoly auditora, budou také odstraněny."
+msgstr "Chystáte se tohoto účastníka odstranit z <strong> všech </strong> etap."
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
 msgstr "Musíte vybrat uživatelskou skupinu."
@@ -1323,7 +1326,7 @@ msgid "notification.type.editorAssignment"
 msgstr "Před zahájením recenze musí být přiřazen editor. Přidejte editora pomocí odkazu Účastníci výše."
 
 msgid "grid.reviewAttachments.title"
-msgstr "Přílohy pro recenzenta."
+msgstr "Přílohy pro recenzenta"
 
 msgid "submission.productionReady"
 msgstr "Kniha je dostupná"
@@ -1690,3 +1693,347 @@ msgstr "K tomuto příspěvku vám bylo přiřazeno několik rolí. Chcete pokra
 
 msgid "submission.list.reviewerWorkflowLink"
 msgstr "Byla vám přiřazena editorská role pro tento příspěvek. Chcete pokračovat v rámci <a href=\"{$urlEditorialWorkflow}\">editorské role</a>?"
+
+msgid "publication.wordCount"
+msgstr "Počet slov: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Abstrakt je příliš dlouhý. Může být dlouhý maximálně {$limit} slov nebo "
+"méně. V současné době je {$count} slov dlouhý."
+
+msgid "publication.version.details"
+msgstr "Podrobnosti publikace pro verzi {$version}"
+
+msgid "publication.version.confirm"
+msgstr "Opravdu chcete vytvořit novou verzi?"
+
+msgid "publication.version.all"
+msgstr "Všechny verze"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Cesta URL nemůže být číslo."
+
+msgid "publication.urlPath.duplicate"
+msgstr "Cesta URL již byla použita a nelze ji znovu použít."
+
+msgid "publication.urlPath.description"
+msgstr "Volitelná cesta k použití v adrese URL namísto ID."
+
+msgid "publication.urlPath"
+msgstr "Cesta URL"
+
+msgid "publication.unschedule.confirm"
+msgstr "Opravdu si nepřejete, aby to bylo naplánováno na zveřejnění?"
+
+msgid "publication.unschedule"
+msgstr "Neplánovaný"
+
+msgid "publication.unpublish.confirm"
+msgstr "Opravdu nechcete, aby to bylo zveřejněno?"
+
+msgid "publication.unpublish"
+msgstr "Nepublikovat"
+
+msgid "publication.titleAbstract.success"
+msgstr "Název a abstrakt byly aktualizovány."
+
+msgid "publication.titleAbstract"
+msgstr "Název a abstrakt"
+
+msgid "publication.status.unscheduled"
+msgstr "Neplánovaný"
+
+msgid "publication.status.unpublished"
+msgstr "Nepublikovaný"
+
+msgid "publication.status.scheduled"
+msgstr "Naplánováno"
+
+msgid "publication.status.published"
+msgstr "Publikováno"
+
+msgid "publication.required.reviewStage"
+msgstr "Před zveřejněním musí být ve fázi editace nebo produkce."
+
+msgid "publication.required.declined"
+msgstr "Odmítnutý příspěvek nelze zveřejnit."
+
+msgid "publication.publish.success"
+msgstr "Stav publikace byl úspěšně změněn."
+
+msgid "publication.publish.requirements"
+msgstr "Před zveřejněním musí být splněny následující požadavky."
+
+msgid "publication.publish"
+msgstr "Publikovat"
+
+msgid "publication.publicationLicense.success"
+msgstr "Informace o autorských právech a licencích byly aktualizovány."
+
+msgid "publication.publicationLicense"
+msgstr "Oprávnění a zveřejnění"
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Identifikátory byly aktualizovány."
+
+msgid "publication.metadata.success"
+msgstr "Metadata byla aktualizována."
+
+msgid "publication.invalidSubmission"
+msgstr "Příspěvek pro tuto publikace nebyl nalezen."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Verze byla odstraněna z publikace."
+
+msgid "publication.event.versionScheduled"
+msgstr "Vydání nové verze bylo naplánováno."
+
+msgid "publication.event.versionPublished"
+msgstr "Byla vydána nová verze."
+
+msgid "publication.event.versionCreated"
+msgstr "Byla vytvořena nová verze."
+
+msgid "publication.event.unpublished"
+msgstr "Příspěvek nebyl zveřejněn."
+
+msgid "publication.event.scheduled"
+msgstr "Příspěvek byl naplánován ke zveřejnění."
+
+msgid "publication.event.published"
+msgstr "Příspěvek byl zveřejněn."
+
+msgid "publication.editDisabled"
+msgstr "Tato verze byla publikována a nelze ji upravovat."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Datum musí být ve formátu RRRR-MM-DD, například 2019-01-01."
+
+msgid "publication.datePublished"
+msgstr "Datum publikace"
+
+msgid "publication.createVersion"
+msgstr "Vytvořit novou verzi"
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"Rok autorských práv bude nastaven automaticky na základě data zveřejnění."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"Rok vydání autorských práv bude nastaven automaticky, jakmile bude toto "
+"číslo zveřejněno."
+
+msgid "publication.contributors"
+msgstr "Přispěvatelé"
+
+msgid "publication.citations.success"
+msgstr "Reference byly aktualizovány."
+
+msgid "submission.publications"
+msgstr "Vydání"
+
+msgid "submission.publication"
+msgstr "Vydání"
+
+msgid "catalog.category.subcategories"
+msgstr "Podkategorie"
+
+msgid "catalog.category.noItems"
+msgstr "V této kategorii zatím nebylo nic publikováno."
+
+msgid "submission.currentCoverImage"
+msgstr "Aktuální obrázek"
+
+msgid "submission.submit.placement.categories"
+msgstr "Kategorie"
+
+msgid "category.coverImage"
+msgstr "Titulní obrázek"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Datum zveřejnění (nejnovější první)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Datum vydání (nejstarší první)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Název (Z-A)"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Název (A-Z)"
+
+msgid "grid.category.categories"
+msgstr "Kategorie"
+
+msgid "submission.list.assignEditor"
+msgstr "Přiřadit editora"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Recenze byla zrušena"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Přiřazení recenze"
+
+msgid "submission.list.empty"
+msgstr "Nebyly nalezeny žádné příspěvky."
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Pokud tuto diskusi opustíte, nebudete již dostávat nové zprávy. Chtěli "
+"diskusi opustit?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Opustit diskusi"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"> "
+"<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"3.0/88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a rel=\""
+"licence\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"> "
+"Mezinárodní licence Creative Commons Attribution-ShareAlike 3.0 </a>. </p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"> <"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"> Atribuce "
+"Creative Commons 3.0 Mezinárodní licence </a>. </p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"> "
+"<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"3.0/88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a rel=\""
+"licence\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">"
+"Mezinárodní licence Creative Commons Attribution NoDerivatives 3.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"> <img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a "
+"rel=\"licence\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
+"Creative Commons Attribution-NonCom Commercial-ShareAlike 3.0 International "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"> "
+"<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"3.0/88x31.png\"/></a> <p>Tato práce podléhá licenci na základě <a rel=\" "
+"licence\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"> Creative "
+"Commons Attribution-NonCom Commercial 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"> <img alt = \"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a "
+"rel=\" licence\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
+"Creative Commons Attribution-NonCom Commercial-NoDerivatives 3.0 "
+"International License</a>. </p>"
+
+msgid "submission.copyrightOther.description"
+msgstr "Přiřaďte autorská práva k publikovaným příspěvkům následující straně."
+
+msgid "submission.copyrightOther"
+msgstr "Prohlášení o autorských právech"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Vlastní prohlášení o autorských právech"
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Po jeho zveřejnění bude autorské právo automaticky přiděleno {$copyright}."
+
+msgid "submission.license.description"
+msgstr ""
+"Jakmile bude tato licence zveřejněna, bude automaticky nastavena na <a "
+"href='{$licenseUrl}' target='_blank'> {$licenseName} </a>."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} dokončil recenzi pro {$round}. recenzní kolo příspěvku "
+"{$submitId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Editor {$userName} potvrdil recenzi pro {$round}. recenzní kolo příspěvku "
+"{$submitId}."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} označil kolo {$round} hodnocení k příspěvku {$submitId} za "
+"nezohledněné."
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Opravdu chcete, aby autoři tohoto příspěvku mohli v této fázi upravit "
+"metadata příspěvku?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Opravdu chcete, aby autoři tohoto příspěvku nemohli v této fázi upravit "
+"metadata příspěvku?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Povolit úpravu metadat"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Zakázat úpravy metadat"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Upravit přiřazení"
+
+msgid "submission.status.scheduled"
+msgstr "Naplánováno"
+
+msgid "submissions.inactive"
+msgstr "Neaktivní po dobu {$days} dnů"
+
+msgid "submission.publisherId.enable"
+msgstr "Povolit pro {$ objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"ID vydavatele lze použít k záznamu ID z externí databáze. Například položky "
+"exportované k uložení do PubMed mohou zahrnovat ID vydavatele. To by se "
+"nemělo používat pro DOI."
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Toto je zastaralá verze zveřejněná dne {$datePublished}. Přečtěte si <a href="
+"\"{$urlRecentVersion}\"> nejnovější verzi </a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Verze"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} - Aktualizováno dne {$dateUpdated}"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Autoři nyní nemohou editovat metadata, když jsou odeslány ve fázi {stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Autoři mají nyní možnost editovat metadata při odesílání ve fázi {stage}."
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Abstrakt"
+
+msgid "author.publicationNotFound"
+msgstr "Publikace tohoto autora nebyla nalezena."
+
+msgid "author.editPublishedDisabled"
+msgstr "Autory této publikace nelze upravovat, protože již byla publikována."

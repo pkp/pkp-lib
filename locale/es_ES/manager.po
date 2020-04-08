@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2020-02-28 11:36+0000\n"
+"PO-Revision-Date: 2020-04-04 02:09+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "es/>\n"
@@ -165,7 +165,7 @@ msgid "manager.emails.confirmReset"
 msgstr "¿Seguro que quiere restaurar esta plantilla de correo-e a sus valores por defecto?"
 
 msgid "manager.emails.addEmail"
-msgstr "Añadir plantilla de correo electrónico"
+msgstr "Añadir plantilla"
 
 msgid "manager.emails.createEmail"
 msgstr "Crear correo-e"
@@ -592,7 +592,7 @@ msgid "manager.setup.groupType"
 msgstr "Agrupación de tipos de archivo"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Número de semanas para aceptar o rechazar la petición de revisión."
+msgstr "Número de semanas para aceptar o rechazar una petición de revisión."
 
 msgid "manager.setup.reviewOptions.numWeeksPerReview"
 msgstr "Tiempo permitido para finalizar las respuestas (semanas)"
@@ -741,10 +741,13 @@ msgid "manager.plugins.fileSelectError"
 msgstr "Seleccione un archivo primero"
 
 msgid "manager.plugins.installedVersionNewer"
-msgstr "Este módulo ya existe y es una versión posterior a la que está disponible en la galería."
+msgstr ""
+"Módulo ya instalado y es una versión más reciente que la que está disponible "
+"en la galería."
 
 msgid "manager.plugins.installedVersionOlder"
-msgstr "Este módulo ya existe, pero puede ser actualizado a una nueva versión."
+msgstr ""
+"Módulo ya instalado, pero puede actualizarlo a una versión más reciente."
 
 msgid "manager.plugins.installFailed"
 msgstr "Error de instalación {$errorString}"
@@ -851,7 +854,7 @@ msgid "settings.roles.showTitles"
 msgstr "Mostrar un título de rol en la lista de contribuyentes"
 
 msgid "settings.roles.permitSelfRegistration"
-msgstr "Permitir el autorregistro de usuarios"
+msgstr "Permitir el autorregistro de usuarios/as"
 
 msgid "settings.roles.roleName"
 msgstr "Nombre de rol"
@@ -1022,7 +1025,10 @@ msgid "manager.setup.principalContact"
 msgstr "Contacto principal"
 
 msgid "manager.setup.principalContactDescription"
-msgstr "Introduzca los detalles de contacto usuales para el editor principal, el director editorial o el personal administrativo, los cuales se mostrarán en la parte accesible al público general de su sitio web."
+msgstr ""
+"Introduzca los detalles de contacto habituales para la dirección editorial, "
+"para la dirección administrativa o para el personal administrativo, los "
+"cuales se mostrarán en la parte accesible al público general de su sitio web."
 
 msgid "manager.setup.privacyStatement"
 msgstr "Declaración de privacidad"
@@ -1039,7 +1045,9 @@ msgstr ""
 "ciega</button> durante la carga"
 
 msgid "manager.setup.sponsors.description"
-msgstr "Ejemplos: asociaciones escolares, departamentos universitarios, cooperativas, etc. Los patrocinadores se muestran públicamente."
+msgstr ""
+"Ejemplos: asociaciones académicas, departamentos universitarios, "
+"cooperativas, etc. Los patrocinadores se muestran públicamente."
 
 msgid "manager.setup.technicalSupportContact"
 msgstr "Contacto del soporte técnico"
@@ -1048,10 +1056,10 @@ msgid "manager.setup.technicalSupportContactDescription"
 msgstr "Una persona de contacto que puede dar soporte a editores, autores y revisores con problemas al enviar, editar, revisar o publicar un material."
 
 msgid "manager.plugins.installConfirm"
-msgstr "¿Esta seguro de que desea instalar este módulo?"
+msgstr "¿Seguro que desea instalar este módulo?"
 
 msgid "manager.plugins.upgradeConfirm"
-msgstr "¿Está seguro de que desea actualizar este módulo?"
+msgstr "¿Seguro que desea actualizar este módulo?"
 
 msgid "grid.action.installPlugin"
 msgstr "Instala o actualiza este módulo"
@@ -1078,13 +1086,13 @@ msgid "manager.plugins.pluginGallery"
 msgstr "Galería de módulos"
 
 msgid "manager.plugins.pluginGallery.overview"
-msgstr "Resumen"
+msgstr "Vista general"
 
 msgid "manager.plugins.pluginGallery.installation"
 msgstr "Instalación"
 
 msgid "manager.plugins.pluginGallery.latestCompatible"
-msgstr "Último lanzamiento compatible"
+msgstr "Última versión compatible"
 
 msgid "manager.plugins.pluginGallery.certifications.official"
 msgstr "Oficial"
@@ -1099,7 +1107,7 @@ msgid "manager.plugins.pluginGallery.maintainer"
 msgstr "Mantenedor/a"
 
 msgid "manager.plugins.pluginGallery.version"
-msgstr "Versión: {$version} publicada el {$date}"
+msgstr "v{$version} publicada el {$date}"
 
 msgid "manager.plugins.pluginGallery.homepage"
 msgstr "Página de inicio"
@@ -1120,7 +1128,7 @@ msgid "manager.plugins.installedVersionNewest"
 msgstr "Módulo instalado y actualizado."
 
 msgid "manager.plugins.installedVersionNewer.short"
-msgstr "Más actual que la versión disponible"
+msgstr "Más reciente que la versión disponible"
 
 msgid "manager.plugins.installedVersionOlder.short"
 msgstr "Puede ser actualizado"
@@ -1132,28 +1140,34 @@ msgid "manager.plugins.noCompatibleVersion.short"
 msgstr "No disponible"
 
 msgid "manager.setup.genres.supplementary"
-msgstr "Marca los ficheros de este tipo como ficheros complementarios (p. ej.: contenido de envío no primario)"
+msgstr ""
+"Marcar los ficheros de este tipo como ficheros complementarios (p. ej.: "
+"contenido de envío no primario)"
 
 msgid "manager.reviewForms"
 msgstr "Formularios de revisión"
 
 msgid "manager.reviewForms.confirmActivate"
-msgstr "¿Esta seguro de que desea activar este formulario de revisión? Una vez asignado a una revisión ya no podrá desactivarlo."
+msgstr ""
+"¿Seguro que desea activar este formulario de revisión? Una vez asignado a "
+"una revisión ya no podrá desactivarlo."
 
 msgid "manager.reviewForms.confirmDeactivate"
-msgstr "¿Esta seguro de que desea desactivar este formulario de revisión? En este caso no estará disponible para nuevas asignaciones de revisión."
+msgstr ""
+"¿Seguro que desea desactivar este formulario de revisión? En este caso no "
+"estará disponible para nuevas asignaciones de revisión."
 
 msgid "manager.reviewForms.confirmCopy"
-msgstr "¿Esta seguro de que desea crear una copia de este formulario de revisión?"
+msgstr "¿Seguro que desea crear una copia de este formulario de revisión?"
 
 msgid "manager.reviewForms.completed"
 msgstr "Completado"
 
 msgid "manager.reviewForms.confirmDelete"
-msgstr "¿Esta seguro de que desea eliminar este formulario de revisión?"
+msgstr "¿Seguro que desea eliminar este formulario de revisión?"
 
 msgid "manager.reviewForms.create"
-msgstr "Crea un formulario de revisión"
+msgstr "Crear un formulario de revisión"
 
 msgid "manager.reviewForms.description"
 msgstr "Descripción e instrucciones"
@@ -1162,7 +1176,7 @@ msgid "manager.reviewForms.edit"
 msgstr "Formulario de revisión"
 
 msgid "manager.reviewForms.form.titleRequired"
-msgstr "Es necesario introducir un título para este formulario de revisión."
+msgstr "El formulario de revisión necesita un título."
 
 msgid "manager.reviewForms.inReview"
 msgstr "En revisión"
@@ -1174,7 +1188,7 @@ msgid "manager.reviewForms.noneUsed"
 msgstr "No se ha usado ningún formulario de revisión."
 
 msgid "manager.reviewForms.preview"
-msgstr "Previsualización de formulario"
+msgstr "Previsualizar el formulario"
 
 msgid "manager.reviewForms.reviewFormData"
 msgstr "Datos del formulario de revisión"
@@ -1186,7 +1200,7 @@ msgid "manager.reviewFormElement.changeType"
 msgstr "Cambiando el tipo de elemento del formulario..."
 
 msgid "manager.reviewFormElements"
-msgstr "Ítems de formulario"
+msgstr "Elementos del formulario"
 
 msgid "manager.reviewFormElements.addResponseItem"
 msgstr "Añade la selección"
@@ -1195,22 +1209,22 @@ msgid "manager.reviewFormElements.checkboxes"
 msgstr "Casillas de selección (puede elegir una o varias)"
 
 msgid "manager.reviewFormElements.chooseType"
-msgstr "Elige el tipo de elemento"
+msgstr "Elija el tipo de elemento"
 
 msgid "manager.reviewFormElements.confirmDelete"
-msgstr "Confirma la eliminación de un elemento del formulario publicado..."
+msgstr "Confirme la eliminación de un elemento del formulario publicado..."
 
 msgid "manager.reviewFormElements.copyTo"
 msgstr "Copia a:"
 
 msgid "manager.reviewFormElements.create"
-msgstr "Crea un nuevo elemento"
+msgstr "Crear un elemento nuevo"
 
 msgid "manager.reviewFormElements.dropdownbox"
 msgstr "Menú desplegable"
 
 msgid "manager.reviewFormElements.edit"
-msgstr "Edita un elemento del formulario"
+msgstr "Editar elemento del formulario"
 
 msgid "manager.reviewFormElements.elementType"
 msgstr "Tipo de elemento"
@@ -1237,7 +1251,7 @@ msgid "manager.reviewFormElements.required"
 msgstr "Es necesario que los revisores completen el elemento"
 
 msgid "manager.reviewFormElements.included"
-msgstr "Incluido en el mensaje al autor"
+msgstr "Incluido en el mensaje al autor/a"
 
 msgid "manager.reviewFormElements.smalltextfield"
 msgstr "Caja de texto de una sola palabra"
@@ -1252,13 +1266,15 @@ msgid "manager.reviewFormElements.viewable"
 msgstr "Visible (para autores)"
 
 msgid "grid.action.createReviewForm"
-msgstr "Crea un nuevo formulario de revisión"
+msgstr "Crear un nuevo formulario de revisión"
 
 msgid "manager.setup.reviewerCompetingInterestsRequired.description"
 msgstr "Declaración de conflictos de interés de los revisores"
 
 msgid "manager.setup.competingInterests.required"
-msgstr "Solicita una declaración de conflictos de interés durante una revisión por pares."
+msgstr ""
+"Solicitar una declaración de conflictos de interés durante la revisión por "
+"pares."
 
 msgid "manager.setup.licenseURLDescription"
 msgstr "URL a la página web que describa la licencia, si está disponible."
@@ -1267,10 +1283,18 @@ msgid "manager.setup.metadata.submission"
 msgstr "Formulario de envío"
 
 msgid "manager.reviewForms.list.description"
-msgstr "Los formularios de revisión por pares creados aquí se presentarán a los revisores para completarlos en vez del formulario por defecto, que consiste en dos cajas de texto abierto, la primera para \"autor y editor\" y la segunda para el \"editor\". Los formularios de revisión se pueden asignar a una sección editorial específica y los editores tendrán la opción de elegir qué formulario utilizarán para cada una. En todos los casos los editores tendrán la opción de incluir las revisiones en la correspondencia con el autor."
+msgstr ""
+"Los formularios de revisión por pares creados aquí se presentarán a los "
+"revisores/as para completarlos en vez del formulario por defecto, que "
+"consiste en dos cajas de texto abierto, la primera para \"autor/a y editor/"
+"a\" y la segunda para el \"editor/a\". Los formularios de revisión se pueden "
+"asignar a una sección editorial específica y los editores/as tendrán la "
+"opción de elegir qué formulario utilizarán para cada una. En todos los casos "
+"los editores/as tendrán la opción de incluir las revisiones en la "
+"correspondencia con el autor/a."
 
 msgid "manager.reviewForms.noneChosen"
-msgstr "Formulario de revisión libre"
+msgstr "Ninguno / Revisión de formulario libre"
 
 msgid "manager.statistics.reports.optionalColumns.description"
 msgstr "Los ítems en cursiva y señalados con un asterisco (*) son datos opcionales para el actual método de cálculo de estadísticas en el sistema (tipo métrico). Puede tener estos datos o no, según su configuración del módulo de estadísticas."
@@ -1294,16 +1318,16 @@ msgid "plugins.importexport.common.validationErrors"
 msgstr "Errores de validación:"
 
 msgid "plugins.importexport.common.errorsOccured"
-msgstr "Se produjeron errores:"
+msgstr "Errores encontrados:"
 
 msgid "plugins.importexport.common.error.unknownElement"
-msgstr "Elemento {$param} desconocido"
+msgstr "Elemento desconocido {$param}"
 
 msgid "plugins.importexport.common.error.unknownGenre"
-msgstr "Género {$param} desconocido"
+msgstr "Género desconocido {$param}"
 
 msgid "plugins.importexport.common.error.unknownEncoding"
-msgstr "Codificación {$param} desconocida"
+msgstr "Codificación desconocida {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr "Grupo de usuario {$param} desconocido"
@@ -1324,46 +1348,53 @@ msgid "plugins.importexport.common.error.filesizeMismatch"
 msgstr "El tamaño de archivo proporcionado \"{$expected}\" y el tamaño real \"{$actual}\" no coinciden"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
-msgstr "El archivo de envío no puede ser importado"
+msgstr "El archivo de envío no ha podido ser importado"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Título"
 
 msgid "manager.navigationMenus.form.path"
-msgstr "Camino"
+msgstr "Ruta"
 
 msgid "manager.navigationMenus"
 msgstr "Menús de navegación"
 
 msgid "manager.navigationMenus.form.viewInstructions"
-msgstr "<p>Esta página será accesible en: <blockquote>{$pagesPath}</blockquote>...donde %PATH% es el camino que ha introducido antes. <strong>Nota:</strong> Dos páginas no pueden tener el mismo camino. Emplear caminos del sistema puede hacer que se pierda el acceso a funciones importantes.</p>"
+msgstr ""
+"<p>Esta página será accesible en <blockquote>{$pagesPath}</blockquote>... "
+"donde %PATH% es la ruta que ha introducido antes. <strong>Nota:</strong> Dos "
+"páginas diferentes no pueden tener la misma ruta. Emplear rutas construidas "
+"dentro del sistema puede provocar que pierda el acceso a funciones "
+"importantes.</p>"
 
 msgid "manager.navigationMenus.form.content"
 msgstr "Contenido"
 
 msgid "manager.navigationMenus.form.pathRegEx"
-msgstr "El campo camino debe contener únicamente caracteres alfanuméricos, así como '.', '/', '-', y '_'."
+msgstr ""
+"El campo de la ruta debe contener únicamente caracteres alfanuméricos, así "
+"como '.', '/', '-', y '_'."
 
 msgid "manager.navigationMenus.form.duplicatePath"
-msgstr "Este camino ya existe para otro ítem de menú de navegación."
+msgstr "Esta ruta ya existe para otro elemento del menú de navegación."
 
 msgid "manager.navigationMenus.form.duplicateTitles"
 msgstr "Este título ya existe en otro menú de navegación."
 
 msgid "manager.navigationMenus.form.titleRequired"
-msgstr "Es necesario un título"
+msgstr "El título es obligatorio"
 
 msgid "manager.navigationMenuItems"
-msgstr "Ítems del menú de navegación"
+msgstr "Elementos del menú de navegación"
 
 msgid "manager.navigationMenus.assignedMenuItems"
-msgstr "Ítems asignados al menú"
+msgstr "Elementos del menú asignados"
 
 msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr "Ítems no asignados al menú"
+msgstr "Elementos del menú no asignados"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
-msgstr "Áreas de navegación del tema activo"
+msgstr "Áreas de navegación del tema activas"
 
 msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
 msgstr "Escoja una área de navegación"
@@ -1375,10 +1406,17 @@ msgid "manager.navigationMenus.form.customUrlError"
 msgstr "Debe proporcionar una URL"
 
 msgid "manager.navigationMenus.form.conditionalDisplay"
-msgstr "Aprenda más sobre cuándo de mostrará y esconderá este ítem de menú."
+msgstr ""
+"Más información sobre cuándo se mostrará u ocultará este elemento del menú."
 
 msgid "manager.navigationMenus.form.submenuWarning"
-msgstr "Cuando un ítem abre un submenú, ese enlace podría no funcionar en todos los dispositivos. Por ejemplo, si tiene un ítem \"Acerca de\" que abre un submenú \"Contacto\" y \"Equipo editorial\", el enlace \"Acerca de\" puede no ser accesible en todos los dispositivos. En el menú por defecto, se corrige este problema creando un segundo ítem de menú \"Acerca de la revista\", que aparece en el submenú."
+msgstr ""
+"Cuando un elemento abre un submenú, ese enlace podría no funcionar en todos "
+"los dispositivos. Por ejemplo, si tiene un elemento \"Acerca de\" que abre "
+"un submenú \"Contacto\" y \"Equipo editorial\", el enlace \"Acerca de\" "
+"puede no ser accesible en todos los dispositivos. En el menú por defecto, se "
+"corrige este problema creando un segundo ítem de menú \"Acerca de la "
+"revista\", que aparece en el submenú."
 
 msgid "manager.navigationMenus.form.navigationMenuItemType"
 msgstr "Tipo de menú de navegación"
@@ -1399,48 +1437,52 @@ msgid "manager.navigationMenus.remoteUrl.description"
 msgstr "Enlace a cualquier URL en otro sitio web, como por ejemplo https://pkp.sfu.ca."
 
 msgid "manager.navigationMenus.about.description"
-msgstr "Enlace a una página mostrando el contenido de Acerca de la revista en Ajustes > Revista"
+msgstr ""
+"Enlace a una página que muestre el contenido de \"Acerca de la revista\" en "
+"Ajustes > Revista"
 
 msgid "manager.navigationMenus.about.conditionalWarning"
 msgstr "Este enlace solo se mostrará si ha completado la sección Acerca de esta revista bajo Ajustes > Revista."
 
 msgid "manager.navigationMenus.editorialTeam.description"
 msgstr ""
-"Enlace a una página que muestra el contenido de la cabecera en Ajustes > "
+"Enlace a una página que muestre el contenido de la cabecera en Ajustes > "
 "Revista."
 
 msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
 msgstr "Este enlace solo se mostrará si ha completado la sección equipo editorial en Ajustes > Revista."
 
 msgid "manager.navigationMenus.submissions.description"
-msgstr "Enlace a las Instrucciones de envío."
+msgstr "Enlace a la página que muestra las instrucciones de envío."
 
 msgid "manager.navigationMenus.current.description"
-msgstr "Enlace al Número actual."
+msgstr "Enlace al número actual."
 
 msgid "manager.navigationMenus.archives.description"
-msgstr "Enlace al Archivo de números anteriores."
+msgstr "Enlace al archivo de números anteriores."
 
 msgid "manager.navigationMenus.announcements.description"
-msgstr "Enlace a la página de Avisos."
+msgstr "Enlace a la página de avisos."
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
-msgstr "Este enlace solo se mostrará si ha activado los avisos en Ajustes > Sitio Web."
+msgstr ""
+"Este enlace solo se mostrará si ha activado los avisos en Ajustes > Sitio "
+"web."
 
 msgid "manager.navigationMenus.login.description"
-msgstr "Enlace a la Página de acceso."
+msgstr "Enlace a la página de inicio de sesión."
 
 msgid "manager.navigationMenus.register.description"
-msgstr "Enlace a la Página de registro."
+msgstr "Enlace a la página de registro de usuario/a."
 
 msgid "manager.navigationMenus.dashboard.description"
-msgstr "Enlace al Panel editorial."
+msgstr "Enlace al panel editorial."
 
 msgid "manager.navigationMenus.profile.description"
-msgstr "Enlace a la página del perfil del usuario."
+msgstr "Enlace a la página de perfil de usuario/a."
 
 msgid "manager.navigationMenus.administration.description"
-msgstr "Enlace a las Herramientas de administración de todo el sitio."
+msgstr "Enlace a las herramientas de administración globales del sitio."
 
 msgid "manager.navigationMenus.administration.conditionalWarning"
 msgstr "Este enlace solo se mostrará a usuarios/as administradores/as."
@@ -1470,7 +1512,9 @@ msgid "manager.setup.searchEngineIndexing.sitemapDescription"
 msgstr "Está disponible un mapa del sitio en XML para enviarlo a los motores de búsqueda en <a href=\"{$path}\" target=\"_blank\">{$path}</a>"
 
 msgid "settings.roles.recommendOnly"
-msgstr "Este rol solo puede recomendar una decisión de revisión, necesita que un editor autorizado registre una decisión final."
+msgstr ""
+"Este rol solo puede recomendar una decisión de revisión y necesita que un "
+"editor autorizado registre una decisión final."
 
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr "<p>Este archivo de biblioteca podrá descargarse si se ha activado el \"acceso público\" en <blockquote>{$downloadUrl}</blockquote></p>"
@@ -1489,8 +1533,8 @@ msgstr "La contraseña solo puede contener caracteres alfanuméricos, guiones y 
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
 msgstr ""
-"La revisión \"{$revisionId}\" para el archivo enviado \"{$fileId}\" crearía "
-"un registro duplicado"
+"La revisión \"{$revisionId}\" para el archivo \"{$fileId}\" crearía un "
+"registro duplicado"
 
 msgid "manager.navigationMenus.form.menuAssigned"
 msgstr "Ya se ha asignado un menú de navegación para esta área."
@@ -1504,7 +1548,7 @@ msgstr ""
 "Distribución > Pagos."
 
 msgid "manager.navigationMenus.search.description"
-msgstr "Enlazar con la página de búsqueda."
+msgstr "Enlace a la página de búsqueda."
 
 msgid "manager.setup.genres.key.description"
 msgstr "Un identificador simbólico corto para este género."
@@ -1513,7 +1557,7 @@ msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
 msgstr "Este enlace solo se mostrará si el visitante ha iniciado la sesión, la opción de pagos está activa en Ajustes > Distribución > Pagos  y se requieren suscripciones  en Ajustes > Distribución > Acceso."
 
 msgid "manager.navigationMenus.privacyStatement.description"
-msgstr "Enlazar con la página que muestra la declaración de privacidad."
+msgstr "Enlace a la página que muestra la declaración de privacidad."
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr "Este enlace solo se mostrará si se ha introducido una declaración de privacidad en Ajustes > Flujo de trabajo > Envíos."
@@ -1531,7 +1575,7 @@ msgid "grid.category.path"
 msgstr "Ruta"
 
 msgid "grid.category.urlWillBe"
-msgstr "La URL de la categoría, será: {$sampleUrl}"
+msgstr "La URL de la categoría será: {$sampleUrl}"
 
 msgid "grid.category.pathAlphaNumeric"
 msgstr "La ruta de la categoría debe consistir sólo en letras y números."
@@ -1543,10 +1587,10 @@ msgid "grid.category.description"
 msgstr "Descripción"
 
 msgid "grid.category.parentCategory"
-msgstr "Categoría padre"
+msgstr "Categoría madre"
 
 msgid "grid.category.removeText"
-msgstr "¿Está seguro que desea eliminar esta categoría?"
+msgstr "¿Seguro que desea eliminar esta categoría?"
 
 msgid "grid.category.nameRequired"
 msgstr "Por favor, introduzca un nombre de categoría."
@@ -1558,31 +1602,42 @@ msgid "manager.reviewFormElements.description"
 msgstr "Descripción"
 
 msgid "plugins.importexport.common.error.missingGivenName"
-msgstr "El autor {$authorName} no posee un nombre en el idioma del envío, {$localeName}. El envío no puede ser importado sin esta información."
+msgstr ""
+"El autor/a {$authorName} no tiene el nombre en el idioma {$localeName} del "
+"envío. El envío no puede ser importado sin esta información."
 
 msgid "plugins.importexport.user.importExportErrors"
-msgstr "Errores de Importación/Exportación:"
+msgstr "Errores de importación/exportación:"
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
-msgstr "El usuario importado \"{$username}\" no posee una contraseña. Verifique su formato XML de importación. El usuario no fue importado."
+msgstr ""
+"El usuario/a importado \"{$username}\" no tiene contraseña. Verifique el "
+"formato de importación XML. El usuario no se ha importado."
 
 msgid "plugins.importexport.user.error.passwordHasBeenChanged"
-msgstr "La clave del usuario importado \"{$username}\" no pudo ser importada . Una nueva clave fue enviada al e-mail del usuario. El usuario ha sido importado."
+msgstr ""
+"La contraseña del usuario/a importado \"{$username}\" no pudo ser importada "
+"tal cual. Una nueva clave fue enviada al correo electrónico del usuario/a. "
+"El usuario/a ha sido importado."
 
 msgid "plugins.importexport.user.error.plainPasswordNotValid"
-msgstr "El usuario importado \"{$username}\" posee una clave en texto plano que no es válida. El usuario no fue importado."
+msgstr ""
+"El usuario/a importado \"{$username}\" posee una clave en texto plano que no "
+"es válida. El usuario/a no fue importado."
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
-msgstr "El usuario \"{$username}\" y el e-mail \"{$email}\" no coinciden con el mismo usuario ya existente."
+msgstr ""
+"El usuario/a \"{$username}\" y el correo electrónico \"{$email}\" no "
+"coinciden con el mismo usuario/a ya existente."
 
 msgid "stats.articlesOfTotal"
 msgstr "{$count} de {$total} artículos"
 
 msgid "stats.daily"
-msgstr "Diaramente"
+msgstr "Diariamente"
 
 msgid "stats.dateRange"
-msgstr "Rango de Fechas"
+msgstr "Rango de fechas"
 
 msgid "stats.dateRange.allDates"
 msgstr "Todas las fechas"
@@ -1597,7 +1652,7 @@ msgid "stats.dateRange.customRange"
 msgstr "Rango personalizado"
 
 msgid "stats.dateRange.dateDoesNotExist"
-msgstr "Una de las fechas ingresadas no existe."
+msgstr "Una de las fechas introducidas no existe."
 
 msgid "stats.dateRange.from"
 msgstr "Desde"
@@ -1606,7 +1661,9 @@ msgid "stats.dateRange.instruction"
 msgstr "Ingrese una fecha en formato YYYY-MM-DD . Por ejemplo, si quiere ingresar la fecha para el 15 de enero de 2019, ingrese 2019-01-15."
 
 msgid "stats.dateRange.invalidDate"
-msgstr "El formato de la fecha no es válido. Ingrese cada fecha en el formato YYYY-MM-DD."
+msgstr ""
+"El formato de la fecha no es válido. Introduzca las fechas en el formato "
+"AAAA-MM-DD."
 
 msgid "stats.dateRange.invalidDateRange"
 msgstr "La fecha de inicio debe ser previa a la fecha de finalización."
@@ -1630,13 +1687,13 @@ msgid "stats.dateRange.sinceDate"
 msgstr "Desde {$date}"
 
 msgid "stats.dateRange.to"
-msgstr "al"
+msgstr "Hasta"
 
 msgid "stats.dateRange.untilDate"
 msgstr "Hasta {$date}"
 
 msgid "stats.fileViews"
-msgstr "Vistas de archivos"
+msgstr "Visualizaciones de archivo"
 
 msgid "stats.html"
 msgstr "HTML"
@@ -1742,7 +1799,7 @@ msgstr "Habilitar los metadatos de referencias"
 
 msgid "manager.setup.metadata.citations.description"
 msgstr ""
-"Recopilar la referencias del envío en un campo aparte. Esto puede ser "
+"Recopilar las referencias del envío en un campo aparte. Esto puede ser "
 "necesario para ajustarse a servicios de rastreo de citas como Crossref."
 
 msgid "manager.setup.metadata.agencies.require"
@@ -1778,7 +1835,7 @@ msgid "manager.setup.metadata.disciplines.noRequest"
 msgstr "No solicitar disciplinas al autor/a durante el envío."
 
 msgid "manager.setup.metadata.disciplines.enable"
-msgstr "Habilitar los metadatos de disciplina"
+msgstr "Habilitar metadatos de disciplinas"
 
 msgid "manager.setup.metadata.disciplines.description"
 msgstr ""
@@ -2038,7 +2095,7 @@ msgid "manager.setup.copyrightNotice"
 msgstr "Aviso de derechos de autor"
 
 msgid "manager.setup.contact.success"
-msgstr "Los detalles de contacto para este medio han sido actualizados."
+msgstr "Los detalles de contacto para esta publicación han sido actualizados."
 
 msgid "manager.setup.appearance.success"
 msgstr "Los ajustes de apariencia han sido actualizados."
@@ -2047,7 +2104,7 @@ msgid "manager.setup.advanced"
 msgstr "Avanzado"
 
 msgid "manager.setup.additionalContent.description"
-msgstr "Nada de lo que aquí introduzca se mostrará en la página de inicio."
+msgstr "Todo lo que aquí introduzca se mostrará en la página de inicio."
 
 msgid "manager.representative.inUse"
 msgstr ""

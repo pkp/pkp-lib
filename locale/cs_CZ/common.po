@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
+"PO-Revision-Date: 2020-04-08 19:37+0000\n"
+"Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/common/cs/"
+">\n"
+"Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:40+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "about.aboutSite"
 msgstr "Podrobnosti o těchto stránkách"
@@ -118,21 +121,33 @@ msgstr "Ověření"
 
 msgid "common.ccLicense"
 msgstr ""
-"<br /><br />\n"
-"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons Licence\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons Licence\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br/>\n"
-"\t\tTato práce je licencována pod <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  Licencí</a>."
+"\t\tTato práce je licencována pod <a rel=\"license\" target=\"_blank\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0  Licencí</a>.\n"
+"\t"
 
 msgid "common.ccLicense.rt"
 msgstr ""
-"<div class=\"rtBlock\">\n"
+"\n"
+"\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons Licence\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons Licence\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tTato práce je licencována pod <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 Licencí</a>.\n"
-"\t</div>"
+"\t\tTato práce je licencována pod <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative "
+"Commons Attribution 3.0 Licencí</a>.\n"
+"\t</div>\n"
+"\t"
 
 msgid "common.changesSaved"
 msgstr "Vaše změny byly uloženy."
@@ -474,7 +489,7 @@ msgid "debug.executionTime"
 msgstr "Stránka generována v"
 
 msgid "debug.memoryUsage"
-msgstr "Využití paměti:"
+msgstr "Využití paměti"
 
 msgid "debug.notes.localeListLoad"
 msgstr "Nahraný seznam lokalizací \"{$localeList}\" z XML"
@@ -771,7 +786,7 @@ msgid "search.noResults"
 msgstr "Žádné výsledky"
 
 msgid "search.operator.and"
-msgstr "and"
+msgstr "a"
 
 msgid "search.operator.not"
 msgstr "not"
@@ -1314,19 +1329,19 @@ msgid "notification.savedSubmissionMetadata"
 msgstr "Metadata příspěvku odeslána."
 
 msgid "search.advancedFilters"
-msgstr "Pokročilé filtry."
+msgstr "Pokročilé filtry"
 
 msgid "search.advancedSearchMore"
-msgstr "Více možností vyhledávání."
+msgstr "Více možností vyhledávání"
 
 msgid "search.advancedSearchLess"
-msgstr "Skrýt rozšířené možnosti vyhledávání."
+msgstr "Skrýt rozšířené možnosti vyhledávání"
 
 msgid "search.searchAgain"
-msgstr "Hledat znovu."
+msgstr "Hledat znovu"
 
 msgid "search.cli.rebuildIndex.clearingIndex"
-msgstr "Smazání indexu."
+msgstr "Smazání indexu"
 
 msgid "search.cli.rebuildIndex.done"
 msgstr "hotovo"
@@ -1422,7 +1437,7 @@ msgid "user.authorization.submissionAuthor"
 msgstr "Současný uživatel není autorem požadovaného podání. Ověřte, zda jste přihlášeni správným uživatelským účtem."
 
 msgid "notification.type.queryActivity"
-msgstr "Průběh diskuse"
+msgstr "Průběh diskuse."
 
 msgid "notification.type.queryAdded"
 msgstr "Přidána diskuse."
@@ -1438,11 +1453,40 @@ msgstr "Status fáze {$round}"
 
 msgid "review.blindPeerReview"
 msgstr ""
-"<p>Pro zajištění integrity anonymního recenzního procesu při podání příspěvku do našeho časopisu, je třeba vynaložit veškeré úsilí, aby se předešlo tomu, že se autoři a recenzenti mohli navzájem identifikovat. To zahrnuje autory, redaktory a recenzenty (kteří nahrávají dokumenty jako součást jejich kontroly) a kontrolují, jestli byly provedeny následující kroky týkající se textu a vlastností souboru: </p>\n"
-"<ul> <li>Autoři dokumentu musí z textu odstranit na všech místech jména autorů a nahradit je výrazem \"Autor\" včetně odkazů a poznámek pod čarou </ li>\n"
-"<li>U dokumentů Microsoft Office je také třeba odstranit identifikace autora z vlastností souboru (viz pod Soubor v aplikaci Word) klepnutím na  \"Soubor\" v hlavní nabídce aplikace Microsoft: Soubor & gt; Uložit jako & gt; Nástroje (nebo možnosti s Mac) & gt; Bezpečnost & gt; Odstranit osobní údaje z vlastností souborů uložte & gt; Uložit. </ Li>\n"
-"<Li> V případě souborů PDF by měly být názvy autorů také odstraněny z vlastností dokumentu, které naleznete v hlavním menu Soubor v aplikaci Adobe Acrobat. </ Li>\n"
-"</ Ul>"
+"<p>Pro zajištění integrity anonymního recenzního procesu při podání "
+"příspěvku do našeho časopisu, je třeba vynaložit veškeré úsilí, aby se "
+"předešlo tomu, že se autoři a recenzenti mohli navzájem identifikovat. To "
+"zahrnuje autory, redaktory a recenzenty (kteří nahrávají dokumenty jako "
+"součást jejich kontroly) a kontrolují, jestli byly provedeny následující "
+"kroky týkající se textu a vlastností souboru: </p>\n"
+"<ul> \n"
+"<li> Autoři dokumentu odstranili svá jména z textu, v odkazech a poznámkách "
+"pod čarou se místo názvu autora, názvu článku atd. použil rok „Autor“ a rok. "
+"</li>\n"
+"<li> Autoři dokumentu odstranili osobní informace z vlastností souboru "
+"provedením následujících kroků:\n"
+"<ul> <li> Microsoft Word pro Windows:\n"
+"<ul> <li> Přejít do souboru </li>\n"
+"<li> Vyberte informace </li>\n"
+"<li> Klikněte na Zkontrolovat problémy </li>\n"
+"<li> Klikněte na Inspect Document </li>\n"
+"<li> V dialogovém okně Inspektor dokumentů zaškrtněte políčka a vyberte typ "
+"skrytého obsahu, který chcete zkontrolovat. </li>\n"
+"<li> Klikněte na Odebrat vše </li>\n"
+"<li> Klikněte na Zavřít </li>\n"
+"<li> Uložte dokument </li> </ul>\n"
+"<li> Microsoft Word pro MacOS:\n"
+"<ul> <li> Přejít na Nástroje </li>\n"
+"<li> Klikněte na Chránit dokument </li>\n"
+"<li> Vyberte možnost Odebrat osobní informace pro tento soubor při uložení "
+"</li>\n"
+"<li> Klikněte na OK a uložte soubor </li> </ul> </li>\n"
+"<li> PDF:\n"
+"<ul> <li> Přejít do souboru </li>\n"
+"<li> Vyberte Vlastnosti </li>\n"
+"<li> Odstraňte z pole autora jakékoli jméno </li>\n"
+"<li> Klepněte na tlačítko OK </li>\n"
+"<li> Uložte dokument </li> </ul> </li> </ul>\n"
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1536,3 +1580,381 @@ msgstr "Smazat hledaný výraz"
 
 msgid "common.publicAccess"
 msgstr "Veřejný přístup"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Účastník"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Povolit této osobě upravovat podrobnosti vydání."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Oprávnění"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} jazyků dokončeno"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} v {$localeName}"
+
+msgid "form.requireId"
+msgstr "Musíte zadat platné ID."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Toto pole musíte vyplnit v {$language}."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Formulář nelze odeslat. Možná jste byli odhlášeni. Znovu načtěte stránku a "
+"zkuste to znovu."
+
+msgid "form.missingRequired"
+msgstr "Toto pole je povinné."
+
+msgid "form.errorUnknown"
+msgstr ""
+"Vyskytla se neočekávaná chyba. Možná jste byli odhlášeni. Znovu načtěte "
+"stránku a zkuste to znovu."
+
+msgid "form.errors"
+msgstr ""
+"Formulář nebyl uložen, protože došlo k {$count} chybám. Opravte tyto chyby a "
+"zkuste to znovu."
+
+msgid "form.errorMany"
+msgstr "Prosím opravte {$count} chyby."
+
+msgid "form.errorOne"
+msgstr "Prosím opravte jednu chybu."
+
+msgid "form.errorGoTo"
+msgstr "Přejít na další chybu"
+
+msgid "form.errorA11y"
+msgstr "Přejít na {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Nemůžete nahrát žádné další soubory."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Odebrat soubor"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Opravdu chcete toto nahrávání zrušit?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Nahrávání bylo zrušeno"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Zrušit nahrávání"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Server odpověděl kódem {{statusCode}}. Pokud problém přetrvává, kontaktujte "
+"správce systému."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Soubory tohoto typu nelze nahrát."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Soubor je příliš velký ({{filesize}}mb). Nelze nahrát soubory větší než "
+"{{maxFilesize}}mb."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "K nahrání souborů použijte záložní formulář níže."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Váš prohlížeč nepodporuje nahrávání souborů pomocí přetažení."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Pro nahrání souborů je přetáhněte sem"
+
+msgid "form.disallowedProp"
+msgstr "Tato vlastnost není povolena."
+
+msgid "form.disallowedLocales"
+msgstr "Jsou povoleny pouze následující jazyky: {$languages}."
+
+msgid "email.compose.error"
+msgstr ""
+"Při odesílání e-mailové zprávy došlo k potížím. Zkuste to prosím znovu "
+"později nebo se obraťte na správce systému."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Náhled aktuálně vybraného obrázku."
+
+msgid "common.upload.restore"
+msgstr "Obnovit originál"
+
+msgid "common.toWithValue"
+msgstr "Do: {$value}"
+
+msgid "common.submenu"
+msgstr "Podnabídka"
+
+msgid "common.selectedPrefix"
+msgstr "Vybraný:"
+
+msgid "common.removeItem"
+msgstr "Odebrat {$item}"
+
+msgid "common.pagination.previous"
+msgstr "Předchozí strana"
+
+msgid "common.pagination.next"
+msgstr "Další strana"
+
+msgid "common.pagination.goToPage"
+msgstr "Jít na {$page}"
+
+msgid "common.override"
+msgstr "Přepsat"
+
+msgid "common.orderDown"
+msgstr "Snížit pozici o {$ itemTitle}"
+
+msgid "common.orderUp"
+msgstr "Zvýšit pozici o {$itemTitle}"
+
+msgid "common.noTemporaryFile"
+msgstr "Soubor, který jste nahráli, nebyl nalezen. Zkuste ho znovu nahrát."
+
+msgid "common.noItemsFound"
+msgstr "Žádné položky nenalezeny."
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.lastActivity"
+msgstr "Poslední aktivita zaznamenaná dne {$date}."
+
+msgid "common.fromWithValue"
+msgstr "Od: {$value}"
+
+msgid "common.dateDecided"
+msgstr "Datum rozhodnutí"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Popište tento obrázek návštěvníkům, kteří si zobrazují web v textovém "
+"prohlížeči nebo pomocí asistenčních zařízení. Příklad: „Náš redaktor hovoří "
+"na konferenci PKP.“"
+
+msgid "validator.url"
+msgstr "Toto není platná URL adresa."
+
+msgid "validator.unique"
+msgstr "{$attribute} již byl přijatý."
+
+msgid "validator.timezone"
+msgstr "Toto není platné časové pásmo."
+
+msgid "validator.string"
+msgstr "Toto není platný řetězec."
+
+msgid "validator.size.array"
+msgstr "Musí obsahovat {$size} položky."
+
+msgid "validator.size.string"
+msgstr "Musí to být znaky {$size}."
+
+msgid "validator.size.file"
+msgstr "Musí to být {$size} kilobajtů."
+
+msgid "validator.size.numeric"
+msgstr "Musí to být {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} a {$other} se musí shodovat."
+
+msgid "validator.required_without_all"
+msgstr "Toto pole je povinné, pokud není přítomna žádná z {$values}."
+
+msgid "validator.required_without"
+msgstr "Toto pole je povinné, pokud není k dispozici {$value}."
+
+msgid "validator.required_with_all"
+msgstr "Toto pole je povinné, pokud je k dispozici {$hodnoty}."
+
+msgid "validator.required_with"
+msgstr "Toto pole je povinné, pokud je k dispozici {$hodnoty}."
+
+msgid "validator.required_unless"
+msgstr "Toto pole je povinné, pokud {$other} není v {$values}."
+
+msgid "validator.required_if"
+msgstr "Pokud {$other} je {$value}, tak je toto pole povinné."
+
+msgid "validator.required"
+msgstr "Toto pole je povinné."
+
+msgid "validator.regex"
+msgstr "Toto není správně naformátováno."
+
+msgid "validator.present"
+msgstr "Musí být k dispozici položka {$attribute}."
+
+msgid "validator.orcid"
+msgstr "Toto není platný ORCID."
+
+msgid "validator.numeric"
+msgstr "Toto není platné číslo."
+
+msgid "validator.not_in"
+msgstr "Vybraný {$attribute} je neplatný."
+
+msgid "validator.min.array"
+msgstr "Musí obsahovat alespoň {$min} položek."
+
+msgid "validator.min.string"
+msgstr "Musí to být nejméně {$min} znaků."
+
+msgid "validator.min.file"
+msgstr "Musí to být nejméně {$min} kilobajtů."
+
+msgid "validator.min.numeric"
+msgstr "Musí to být alespoň {$min}."
+
+msgid "validator.mimes"
+msgstr "Musí to být soubor typu {$values}."
+
+msgid "validator.max.array"
+msgstr "Nemusí obsahovat více než {$max} položek."
+
+msgid "validator.max.string"
+msgstr "Toto nesmí být větší než {$max} znaků."
+
+msgid "validator.max.file"
+msgstr "Toto nesmí být větší než {$max} kilobajtů."
+
+msgid "validator.max.numeric"
+msgstr "Tohle nesmí být větší než {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Jazyky musí být zadány pomocí místního kódu. Příklady: en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Toto pole je vícejazyčné. Pro každý podporovaný jazyk musí být poskytnuty "
+"samostatné hodnoty."
+
+msgid "validator.locale"
+msgstr "Tento jazyk není akceptován."
+
+msgid "validator.json"
+msgstr "Toto není platný JSON řetězec."
+
+msgid "validator.issn"
+msgstr "Toto není platný ISSN kód."
+
+msgid "validator.ip"
+msgstr "Toto není platná IP adresa."
+
+msgid "validator.integer"
+msgstr "Toto není platné celé číslo."
+
+msgid "validator.in"
+msgstr "Vybraný {$attribute} je neplatný."
+
+msgid "validator.image"
+msgstr "Musí to být obrázek."
+
+msgid "validator.filled"
+msgstr "Toto pole je povinné."
+
+msgid "validator.exists"
+msgstr "Vybraný {$attribute} je neplatný."
+
+msgid "validator.email"
+msgstr "Toto není platná e-mailová adresa."
+
+msgid "validator.digits"
+msgstr "Musí to být dlouhé {$digits} číslic."
+
+msgid "validator.digits_between"
+msgstr "Musí to být mezi {$min} a {$max} číslic."
+
+msgid "validator.different"
+msgstr "{$attribute} a {$other} se musí lišit."
+
+msgid "validator.date_format"
+msgstr "To neodpovídá formátu {$format}."
+
+msgid "validator.date"
+msgstr "Toto není platné datum."
+
+msgid "validator.currency"
+msgstr "Toto není platná měna."
+
+msgid "validator.confirmed"
+msgstr "Potvrzení pro toto pole se neshoduje."
+
+msgid "validator.boolean"
+msgstr "Toto pole musí být platné nebo neplatné."
+
+msgid "validator.between.array"
+msgstr "Musí obsahovat mezi {$min} a {$max} položek."
+
+msgid "validator.between.string"
+msgstr "Musí to být mezi {$min} a {$max} znaků."
+
+msgid "validator.between.file"
+msgstr "Musí to být mezi {$min} a {$max} kilobajtů."
+
+msgid "validator.between.numeric"
+msgstr "Musí to být mezi {$min} a {$max}."
+
+msgid "validator.before"
+msgstr "Toto datum musí být před {$date}."
+
+msgid "validator.array"
+msgstr "Toto není platné pole."
+
+msgid "validator.alpha_num"
+msgstr "Může obsahovat pouze písmena a čísla."
+
+msgid "validator.alpha_dash"
+msgstr "Může obsahovat pouze písmena, čísla, pomlčky a podtržítka."
+
+msgid "validator.alpha"
+msgstr "To může obsahovat pouze písmena."
+
+msgid "validator.after"
+msgstr "Toto datum musí být po {$date}."
+
+msgid "validator.active_url"
+msgstr "Toto není platná URL adresa."
+
+msgid "validator.accepted"
+msgstr "Přijměte tuto položku.."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Toto je laskavé připomenutí, abyste si prostřednictvím redakční zprávy mohli "
+"zkontrolovat stav svého časopisu."
+
+msgid "notification.type.editorialReport"
+msgstr "Shrnutí statistické zprávy."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Neplatné zveřejnění."
+
+msgid "notification.editStageParticipant"
+msgstr "Přiřazení fáze bylo změněno."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Recenzent obnoven."
+
+msgid "notification.cancelledReviewer"
+msgstr "Recenzent zrušen."
+
+msgid "navigation.skip.announcements"
+msgstr "Přeskočit na oznámení"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "U tohoto účastníka nelze provádět žádné změny"

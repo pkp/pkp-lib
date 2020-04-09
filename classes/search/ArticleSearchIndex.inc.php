@@ -60,14 +60,6 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 	}
 
 	/**
-	 * @copydoc SubmissionSearchIndex::submissionMetadataChanged()
-	 */
-	public function articleMetadataChanged($article) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated call to articleMetadataChanged. Use submissionMetadataChanged instead.');
-		$this->submissionMetadataChanged($article);
-	}
-
-	/**
 	 * Delete keywords from the search index.
 	 * @param $articleId int
 	 * @param $type int optional

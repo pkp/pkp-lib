@@ -129,4 +129,4 @@ msgid "publication.relation.vorDoi"
 msgstr "DOI of the published article"
 
 msgid "publication.publish.confirmation"
-msgstr "All preprint requirements have been met. Are you sure you want to post this?"
+msgstr "All requirements have been met. Are you sure you want to publish this?"

@@ -44,7 +44,7 @@ msgstr "This server is not accepting submissions at this time."
 msgid "author.submit.journalSection"
 msgstr "Server Section"
 
-msgid "author.submit.journalSection"
+msgid "author.submit.journalSectionDescription"
 msgstr "Preprints must be submitted to one of the server's sections."
 
 msgid "submission.submit.coverNote"

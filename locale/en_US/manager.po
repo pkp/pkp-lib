@@ -125,7 +125,6 @@ msgstr "The contact details for this server have been updated."
 msgid "manager.setup.disableUserRegistration"
 msgstr "The Server Manager will register all user accounts."
 
-
 msgid "manager.setup.emailBounceAddress"
 msgstr "Bounce Address"
 

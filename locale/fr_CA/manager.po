@@ -28,6 +28,7 @@ msgstr "Listes"
 msgid "manager.setup.lists.success"
 msgstr "Les paramètres de listes pour ce serveur ont été mis à jour."
 
+#, fuzzy
 msgid "manager.setup.keyInfo.description"
 msgstr ""
 "Fournir une brève description de votre serveur et présenter les rédacteurs-"
@@ -51,6 +52,7 @@ msgstr "Vignette du serveur"
 msgid "manager.setup.contextInitials"
 msgstr "Initiales du serveur"
 
+#, fuzzy
 msgid "manager.setup.contextAbout.description"
 msgstr ""
 "Inclure tout renseignement sur votre serveur qui serait d'intérêt pour les "
@@ -98,6 +100,7 @@ msgstr ""
 msgid "manager.setup.information"
 msgstr "Information"
 
+#, fuzzy
 msgid "manager.setup.identity"
 msgstr "Identité du serveur"
 
@@ -171,6 +174,7 @@ msgstr "Annonces"
 msgid "manager.setup.useStyleSheet"
 msgstr "Feuille de styles de la série"
 
+#, fuzzy
 msgid "manager.setup.editorialTeam"
 msgstr "Équipe éditoriale"
 
@@ -180,6 +184,7 @@ msgstr "Bloc générique"
 msgid "manager.setup"
 msgstr "Paramètres du serveur"
 
+#, fuzzy
 msgid "manager.sections.wordCountInstructions"
 msgstr ""
 "Limiter le nombre de mots du résumé pour cette série (0 pour aucune limite)"
@@ -190,18 +195,22 @@ msgstr "Décompte de mots"
 msgid "manager.sections.submissionIndexing"
 msgstr "Ne sera pas inclus dans l'indexation du serveur"
 
+#, fuzzy
 msgid "manager.sections.policy"
 msgstr "Politique de la série"
 
 msgid "manager.sections.identifyTypeExamples"
 msgstr "(Par exemple etc.)"
 
+#, fuzzy
 msgid "manager.sections.identifyType"
 msgstr "Identifier les prépublications publiées dans cette série en tant que"
 
+#, fuzzy
 msgid "manager.setup.form.section.pathRequired"
 msgstr "Un chemin d'accès URL est requis pour cette série"
 
+#, fuzzy
 msgid "manager.section.noSectionEditors"
 msgstr ""
 "Aucun-e rédacteur-trice de série n'a encore été désigné-e. Ajouter ce rôle à "
@@ -219,22 +228,27 @@ msgstr "Mode de publication"
 msgid "manager.distribution.copyrightYearBasis.submission"
 msgstr "Utiliser la date de publication de la prépublication"
 
+#, fuzzy
 msgid "manager.sections.form.abbrevRequired"
 msgstr "Un titre abrégé est obligatoire pour la série"
 
+#, fuzzy
 msgid "manager.sections.editorRestriction"
 msgstr ""
 "Les prépublications ne peuvent être soumises que par les rédacteurs-trices "
 "et les rédacteurs-trices de séries."
 
+#, fuzzy
 msgid "manager.sections.create"
 msgstr "Créer une série"
 
+#, fuzzy
 msgid "manager.sections.alertDelete"
 msgstr ""
 "Pour pouvoir supprimer cette série, vous devez d'abord déplacer les "
 "prépublications qui y sont publiées dans d'autres séries."
 
+#, fuzzy
 msgid "manager.sections.confirmDelete"
 msgstr ""
 "Êtes-vous certain-e de vouloir supprimer cette série de façon permanente ?"

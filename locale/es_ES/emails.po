@@ -22,6 +22,7 @@ msgstr ""
 msgid "emails.submissionAck.subject"
 msgstr "Acuse de recibo"
 
+#, fuzzy
 msgid "emails.publishNotify.description"
 msgstr ""
 "Este correo electrónico se envía a los lectores registrados a través del "

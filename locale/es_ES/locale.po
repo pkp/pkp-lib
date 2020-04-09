@@ -92,6 +92,7 @@ msgstr ""
 "http://pkp.sfu.ca/\">Public Knowledge Projec </a> bajo la Licencia Pública "
 "General de GNU."
 
+#, fuzzy
 msgid "about.aboutThisPublishingSystem.altText"
 msgstr "Proceso editorial y de publicación de OPS"
 
@@ -122,6 +123,7 @@ msgstr "vea sus envíos pendientes"
 msgid "about.onlineSubmissions.newSubmission"
 msgstr "Hacer un nuevo envío"
 
+#, fuzzy
 msgid "about.onlineSubmissions.submitToSection"
 msgstr "Realice un nuevo envío a la serie <a href=\"{$url}\">{$name}</a>."
 
@@ -140,6 +142,7 @@ msgstr "Iniciar sesión"
 msgid "about.submissions"
 msgstr "Envíos"
 
+#, fuzzy
 msgid "about.editorialTeam"
 msgstr "Equipo editorial"
 
@@ -230,12 +233,15 @@ msgstr "Ordenar resultados por"
 msgid "submission.event.submissionSubmitted"
 msgstr "Preprint enviado"
 
+#, fuzzy
 msgid "user.role.subEditors"
 msgstr "Editores de series"
 
+#, fuzzy
 msgid "user.role.subEditor"
 msgstr "Editor de series"
 
+#, fuzzy
 msgid "user.role.manager"
 msgstr "Administrador de servidores"
 
@@ -278,29 +284,36 @@ msgstr "Preprints"
 msgid "common.publication"
 msgstr "Preprint"
 
+#, fuzzy
 msgid "section.emptySection"
 msgstr "Todavía no se ha publicado nada en esta serie."
 
+#, fuzzy
 msgid "section.pathDescription"
 msgstr ""
 "Ruta URL de la serie. Use guiones (-) en lugar de espacios. Ejemplo: "
 "historia-cultural."
 
+#, fuzzy
 msgid "section.description"
 msgstr "Descripción del Archivo de la Serie"
 
+#, fuzzy
 msgid "section.policy"
 msgstr "Política de serie"
 
 msgid "section.abbreviation"
 msgstr "Abreviatura"
 
+#, fuzzy
 msgid "section.title"
 msgstr "Título de la serie"
 
+#, fuzzy
 msgid "section.sections"
 msgstr "Serie"
 
+#, fuzzy
 msgid "section.section"
 msgstr "Serie"
 

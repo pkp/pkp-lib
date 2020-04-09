@@ -20,6 +20,7 @@ msgstr ""
 "Le fichier de la soumission est dans un des formats de fichier suivants : "
 "OpenOffice, Microsoft Word, RTF ou WordPerfect."
 
+#, fuzzy
 msgid "default.contextSettings.checklist.notPreviouslyPublished"
 msgstr ""
 "La soumission n'a pas déjà été publiée et n'est pas considérée actuellement "

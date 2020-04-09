@@ -139,6 +139,7 @@ msgstr ""
 msgid "emails.submissionAckNotUser.description"
 msgstr "Ce courriel, lorsque activé, est envoyé automatiquement aux autres auteur-e-s qui ne sont pas des utilisateurs-trices de OPS signalés-es comme effectuant la soumission."
 
+#, fuzzy
 msgid "emails.publishNotify.description"
 msgstr ""
 "Ce courriel est envoyé à tous et toutes les lecteurs-trices inscrits-es, via "

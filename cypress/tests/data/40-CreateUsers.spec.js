@@ -23,35 +23,35 @@ describe('Data suite tests', function() {
 				'country': 'Mexico',
 				'affiliation': 'Universidad Nacional Autónoma de México',
 				'mustChangePassword': true,
-				'roles': ['Server manager']
+				'roles': ['Preprint Server manager']
 			}, {
 				'username': 'dbarnes',
 				'givenName': 'Daniel',
 				'familyName': 'Barnes',
 				'country': 'Australia',
 				'affiliation': 'University of Melbourne',
-				'roles': ['Server editor']
+				'roles': ['Preprint Server manager']
 			}, {
 				'username': 'dbuskins',
 				'givenName': 'David',
 				'familyName': 'Buskins',
 				'country': 'United States',
 				'affiliation': 'University of Chicago',
-				'roles': ['Series editor']
+				'roles': ['Moderator']
 			}, {
 				'username': 'sberardo',
 				'givenName': 'Stephanie',
 				'familyName': 'Berardo',
 				'country': 'Canada',
 				'affiliation': 'University of Toronto',
-				'roles': ['Series editor']
+				'roles': ['Moderator']
 			}, {
 				'username': 'minoue',
 				'givenName': 'Minoti',
 				'familyName': 'Inoue',
 				'country': 'Japan',
 				'affiliation': 'Kyoto University',
-				'roles': ['Series editor']
+				'roles': ['Moderator']
 			}
 		];
 		users.forEach(user => {

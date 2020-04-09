@@ -72,7 +72,7 @@ msgid "submission.submit.form.abstractRequired"
 msgstr "Please enter your preprint's abstract."
 
 msgid "submission.submit.form.wordCountAlert"
-msgstr "Your abstract is too long. Please shorten it to below the word limit indicated for this series."
+msgstr "Your abstract is too long. Please shorten it to below the word limit indicated for this section."
 
 msgid "submission.submit.form.contributorRoleRequired"
 msgstr "Please select the contributor's role."
@@ -81,7 +81,7 @@ msgid "submission.metadataDescription"
 msgstr "These specifications are based on the Dublin Core metadata set, an international standard used to describe server content."
 
 msgid "submission.sectionOptions"
-msgstr "Series Options"
+msgstr "Section Options"
 
 msgid "catalog.browseTitles"
 msgstr "{$numTitles} Items"
@@ -129,4 +129,4 @@ msgid "publication.relation.vorDoi"
 msgstr "DOI of the published article"
 
 msgid "publication.publish.confirmation"
-msgstr "All publication requirements have been met. Are you sure you want to publish this?"
+msgstr "All requirements have been met. Are you sure you want to publish this?"

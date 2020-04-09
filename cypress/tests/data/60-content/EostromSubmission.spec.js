@@ -42,7 +42,7 @@ describe('Data suite tests', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, title);
 		cy.get('ul.pkp_workflow_decisions button:contains("Schedule For Publication")').click();
 		cy.get('div.pkpPublication button:contains("Schedule For Publication"):visible').click();
-		cy.get('div:contains("All publication requirements have been met. Are you sure you want to publish this?")');
+		cy.get('div:contains("All requirements have been met. Are you sure you want to publish this?")');
 		cy.get('button:contains("Publish")').click();
 	});
 });

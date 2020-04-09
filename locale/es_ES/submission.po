@@ -14,6 +14,7 @@ msgstr ""
 msgid "catalog.browseTitles"
 msgstr "{$numTitles} Items"
 
+#, fuzzy
 msgid "publication.publish.confirmation"
 msgstr ""
 "Se han cumplido todos los requisitos de publicación. ¿Está seguro de que "
@@ -48,6 +49,7 @@ msgstr ""
 msgid "catalog.category.heading"
 msgstr "Todos los artículos"
 
+#, fuzzy
 msgid "submission.sectionOptions"
 msgstr "Opciones de serie"
 
@@ -59,6 +61,7 @@ msgstr ""
 msgid "submission.submit.form.contributorRoleRequired"
 msgstr "Seleccione el rol del colaborador."
 
+#, fuzzy
 msgid "submission.submit.form.wordCountAlert"
 msgstr ""
 "Su resumen es demasiado largo. Acorte por debajo del límite de palabras "

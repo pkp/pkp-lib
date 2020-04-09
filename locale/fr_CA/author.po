@@ -35,6 +35,7 @@ msgstr ""
 "publication ont été remplies et vous pouvez passer à la révision et la "
 "publication de votre prépublication</b>."
 
+#, fuzzy
 msgid "author.submit.publishRequirements"
 msgstr ""
 "Le serveur a été informé de votre soumission et vous avez reçu une "
@@ -43,6 +44,7 @@ msgstr ""
 "ou vous contactera. Vous pouvez également publier par vous-même une fois les "
 "conditions suivantes remplies :"
 
+#, fuzzy
 msgid "author.submit.authorCanNotPublish"
 msgstr ""
 "Sur ce serveur les auteurs-es ne peuvent pas publier par eux-mêmes et elles-"
@@ -60,17 +62,21 @@ msgstr ""
 "standards/iso639-2/php/code_list.php\" target=\"_blank\">Codes "
 "supplémentaires</a>."
 
+#, fuzzy
 msgid "author.submit.form.sectionRequired"
 msgstr ""
 "Veuillez sélectionner une série du serveur appropriée pour cette soumission."
 
+#, fuzzy
 msgid "submission.submit.coverNote"
 msgstr "Commentaires pour le,la rédacteur-trice"
 
+#, fuzzy
 msgid "author.submit.journalSectionDescription"
 msgstr ""
 "Les prépublications doivent être soumises à l'une des séries du serveur."
 
+#, fuzzy
 msgid "author.submit.journalSection"
 msgstr "Séries du serveur"
 

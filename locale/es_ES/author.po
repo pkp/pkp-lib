@@ -21,6 +21,7 @@ msgstr ""
 "todos los requisitos para la publicación y puede proceder a revisar y "
 "publicar su preprint</b>."
 
+#, fuzzy
 msgid "author.submit.publishRequirements"
 msgstr ""
 "El servidor ha sido notificado de su envío y se le ha enviado una "
@@ -29,6 +30,7 @@ msgstr ""
 "usted. También puede publicar usted mismo una vez que se cumplan los "
 "siguientes requisitos:"
 
+#, fuzzy
 msgid "author.submit.authorCanNotPublish"
 msgstr ""
 "Los autores en este servidor no pueden publicar por sí mismos. El servidor "
@@ -44,15 +46,19 @@ msgstr ""
 "Inglés=en; Francés=fr; Español=es. <a href=\"http://www.loc.gov/standards/"
 "iso639-2/php/code_list.php\" target=\"_blank\">Códigos adicionales</a>."
 
+#, fuzzy
 msgid "author.submit.form.sectionRequired"
 msgstr "Seleccione una serie de servidores adecuada para este envío."
 
+#, fuzzy
 msgid "submission.submit.coverNote"
 msgstr "Comentarios para el Editor"
 
+#, fuzzy
 msgid "author.submit.journalSectionDescription"
 msgstr "Los preprints deben enviarse a una de las series del servidor."
 
+#, fuzzy
 msgid "author.submit.journalSection"
 msgstr "Serie del servidor"
 

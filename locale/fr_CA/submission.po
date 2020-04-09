@@ -47,6 +47,7 @@ msgstr "Tous les titres"
 msgid "catalog.browseTitles"
 msgstr "{$numTitles} titres"
 
+#, fuzzy
 msgid "submission.sectionOptions"
 msgstr "Options de la série"
 
@@ -58,6 +59,7 @@ msgstr ""
 msgid "submission.submit.form.contributorRoleRequired"
 msgstr "Sélectionner le rôle du,de la contributeur-trice."
 
+#, fuzzy
 msgid "submission.submit.form.wordCountAlert"
 msgstr ""
 "Votre résumé est trop long. Veuillez le raccourcir selon la limite indiquée "

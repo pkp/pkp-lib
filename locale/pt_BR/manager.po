@@ -145,6 +145,7 @@ msgstr "Listas"
 msgid "manager.setup.lists.success"
 msgstr "A configuração da lista para este servidor foi atualizada."
 
+#, fuzzy
 msgid "manager.setup.keyInfo.description"
 msgstr ""
 "Forneça uma breve descrição de seu servidor e identifique os editores, "
@@ -167,6 +168,7 @@ msgstr "Miniatura do servidor"
 msgid "manager.setup.contextInitials"
 msgstr "Iniciais do servidor"
 
+#, fuzzy
 msgid "manager.setup.contextAbout.description"
 msgstr ""
 "Inclua qualquer informação sobre seu servidor que possa ser de interesse "
@@ -214,6 +216,7 @@ msgstr ""
 msgid "manager.setup.information"
 msgstr "Informação"
 
+#, fuzzy
 msgid "manager.setup.identity"
 msgstr "Identidade do servidor"
 
@@ -286,6 +289,7 @@ msgstr "Anúncios"
 msgid "manager.setup.useStyleSheet"
 msgstr "Página de estilo do servidor"
 
+#, fuzzy
 msgid "manager.setup.editorialTeam"
 msgstr "Equipe Editorial"
 
@@ -295,6 +299,7 @@ msgstr "Corpo Editorial"
 msgid "manager.setup"
 msgstr "Configuração do servidor"
 
+#, fuzzy
 msgid "manager.sections.wordCountInstructions"
 msgstr ""
 "Limite de contagem de palavras do resumo para esta série (0 para sem limite)"
@@ -305,36 +310,45 @@ msgstr "Contagem de palavras"
 msgid "manager.sections.submissionIndexing"
 msgstr "Não será incluída a indexação do servidor"
 
+#, fuzzy
 msgid "manager.sections.policy"
 msgstr "Política de série"
 
 msgid "manager.sections.identifyTypeExamples"
 msgstr "(Por exemplo, etc.)"
 
+#, fuzzy
 msgid "manager.sections.identifyType"
 msgstr "Identifique os artigos publicados nesta série como um"
 
+#, fuzzy
 msgid "manager.setup.form.section.pathRequired"
 msgstr "Uma rota de URL para a série é requerida"
 
+#, fuzzy
 msgid "manager.sections.form.abbrevRequired"
 msgstr "Um título abreviado para a série é requerido"
 
+#, fuzzy
 msgid "manager.sections.editorRestriction"
 msgstr ""
 "Os artigos podem apenas ser submetidos por Editores e Editores de Série."
 
+#, fuzzy
 msgid "manager.sections.create"
 msgstr "Criar série"
 
+#, fuzzy
 msgid "manager.sections.alertDelete"
 msgstr ""
 "Antes de eliminar esta série, você deve mover os preprints publicados nesta "
 "série para outra série."
 
+#, fuzzy
 msgid "manager.sections.confirmDelete"
 msgstr "Está seguro de que deseja eliminar está serie de forma permanente?"
 
+#, fuzzy
 msgid "manager.section.noSectionEditors"
 msgstr ""
 "Não há editores de série. Adicione esta função ao menos a um usuário através "

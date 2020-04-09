@@ -54,34 +54,34 @@ msgid "manager.sections.abstractsNotRequired"
 msgstr "Do not require abstracts"
 
 msgid "manager.section.noSectionEditors"
-msgstr "There are no series editors yet.  Add this role to at least one user via Management > Settings > Users &amp; Roles first."
+msgstr "There are no Moderators yet. Add this role to at least one user via Management > Settings > Users &amp; Roles first."
 
 msgid "manager.sections.confirmDelete"
-msgstr "Are you sure you want to permanently delete this series?"
+msgstr "Are you sure you want to permanently delete this section?"
 
 msgid "manager.sections.alertDelete"
-msgstr "Before this series can be deleted, you must move preprints published within it into other series."
+msgstr "Before this section can be deleted, you must move preprints published within it into other section."
 
 msgid "manager.sections.create"
-msgstr "Create Series"
+msgstr "Create Section"
 
 msgid "manager.sections.editorRestriction"
-msgstr "Items can only be submitted by Editors and Series Editors."
+msgstr "Items can only be submitted by Managers and Moderators."
 
 msgid "manager.sections.form.abbrevRequired"
-msgstr "An abbreviated title is required for the series"
+msgstr "An abbreviated title is required for the section"
 
 msgid "manager.setup.form.section.pathRequired"
-msgstr "An URL path is required for the series"
+msgstr "An URL path is required for the section"
 
 msgid "manager.sections.identifyType"
-msgstr "Identify items published in this series as a(n)"
+msgstr "Identify items published in this section as a(n)"
 
 msgid "manager.sections.identifyTypeExamples"
 msgstr "(For example etc.)"
 
 msgid "manager.sections.policy"
-msgstr "Series Policy"
+msgstr "Section Policy"
 
 msgid "manager.sections.submissionIndexing"
 msgstr "Will not be included in the indexing of the server"
@@ -90,7 +90,7 @@ msgid "manager.sections.wordCount"
 msgstr "Word Count"
 
 msgid "manager.sections.wordCountInstructions"
-msgstr "Limit abstract word counts for this series (0 for no limit)"
+msgstr "Limit abstract word counts for this section (0 for no limit)"
 
 msgid "manager.setup"
 msgstr "Server Settings"
@@ -99,7 +99,7 @@ msgid "manager.setup.masthead"
 msgstr "Masthead"
 
 msgid "manager.setup.editorialTeam"
-msgstr "Editorial Team"
+msgstr "Preprint Server Team"
 
 msgid "manager.setup.useStyleSheet"
 msgstr "Server style sheet"
@@ -124,7 +124,6 @@ msgstr "The contact details for this server have been updated."
 
 msgid "manager.setup.disableUserRegistration"
 msgstr "The Server Manager will register all user accounts."
-
 
 msgid "manager.setup.emailBounceAddress"
 msgstr "Bounce Address"
@@ -157,7 +156,7 @@ msgid "manager.setup.enableUserRegistration"
 msgstr "Visitors can register a user account with the server."
 
 msgid "manager.setup.identity"
-msgstr "Server Identity"
+msgstr "Preprint Server Identity"
 
 msgid "manager.setup.information"
 msgstr "Information"
@@ -193,7 +192,7 @@ msgid "manager.setup.contextAbout"
 msgstr "About the Server"
 
 msgid "manager.setup.contextAbout.description"
-msgstr "Include any information about your server which may be of interest to readers or authors. This could include your open access policy, the focus and scope of the server, copyright notice, sponsorship disclosure, history of the server and a privacy statement."
+msgstr "Include any information about your server which may be of interest to readers or authors. This could include your open access policy, the focus and scope of the server, policies on moderation and screening, copyright notice, sponsorship disclosure, history of the server and a privacy statement."
 
 msgid "manager.setup.contextInitials"
 msgstr "Server initials"
@@ -211,7 +210,7 @@ msgid "manager.setup.keyInfo"
 msgstr "Key Information"
 
 msgid "manager.setup.keyInfo.description"
-msgstr "Provide a short description of your server and identify editors, managing directors and other members of your editorial team."
+msgstr "Provide a description of your server and identify preprint manager(s) and other members of the preprint server team."
 
 msgid "manager.setup.lists.success"
 msgstr "The list settings for this server have been updated."
@@ -328,7 +327,7 @@ msgid "grid.category.path"
 msgstr "Path"
 
 msgid "manager.publication.library"
-msgstr "Publisher Library"
+msgstr "Preprint Server Library"
 
 msgid "manager.setup.resetPermissions"
 msgstr "Reset Preprint Permissions"

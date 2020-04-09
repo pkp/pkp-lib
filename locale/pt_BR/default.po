@@ -39,12 +39,15 @@ msgstr "Material de Pesquisa"
 msgid "default.genres.researchInstrument"
 msgstr "Instrumento de Pesquisa"
 
+#, fuzzy
 msgid "default.groups.abbrev.sectionEditor"
 msgstr "SecE"
 
+#, fuzzy
 msgid "default.groups.plural.sectionEditor"
 msgstr "Editores de serie"
 
+#, fuzzy
 msgid "default.groups.name.sectionEditor"
 msgstr "Editor de serie"
 
@@ -60,9 +63,11 @@ msgstr "Editor de servidores"
 msgid "default.groups.abbrev.manager"
 msgstr "JM"
 
+#, fuzzy
 msgid "default.groups.plural.manager"
 msgstr "Administradores de servidores"
 
+#, fuzzy
 msgid "default.groups.name.manager"
 msgstr "Administrador de servidores"
 
@@ -127,6 +132,7 @@ msgstr ""
 "O arquivo da submissão está em formato de arquivo de documento OpenOffice, "
 "Microsoft Word ou RTF."
 
+#, fuzzy
 msgid "default.contextSettings.checklist.notPreviouslyPublished"
 msgstr ""
 "A submissão não foi publicado anteriormente, nem está em sendo considerada "

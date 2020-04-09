@@ -22,6 +22,7 @@ msgstr ""
 msgid "emails.submissionAck.subject"
 msgstr "Confirmação de Submissão"
 
+#, fuzzy
 msgid "emails.publishNotify.description"
 msgstr ""
 "Este e-mail é enviado aos leitores registrados através do link \"Notificar "

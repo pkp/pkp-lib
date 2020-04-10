@@ -31,7 +31,9 @@ class SitemapHandler extends PKPSitemapHandler {
 		$root->appendChild($this->_createUrlTree($doc, $request->url($journal->getPath(), 'search')));
 
 		// Preprints
+		import('classes.submission.Submission'); // Import status constants
 		$submissionIds = Services::get('submission')->getIds([
+			'status' => STATUS_PUBLISHED,
 			'contextId' => $journal->getId(),
 		]);
 		foreach ($submissionIds as $submissionId) {

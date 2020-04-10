@@ -176,20 +176,6 @@ msgstr ""
 msgid "emails.editorDecisionAccept.description"
 msgstr "This email from the Manager or Moderator to an Author notifies them of a final \"accept submission\" decision regarding their submission."
 
-msgid "emails.editorDecisionDecline.subject"
-msgstr "Moderator Decision"
-
-msgid "emails.editorDecisionDecline.body"
-msgstr ""
-"{$authorName}:<br />\n"
-"<br />\n"
-"We have reached a decision regarding your submission to {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
-"<br />\n"
-"Our decision is to: Decline Submission"
-
-msgid "emails.editorDecisionDecline.description"
-msgstr "This email from the Manager or Moderator to an Author notifies them of a final \"decline\" decision regarding their submission."
-
 msgid "emails.editorRecommendation.subject"
 msgstr "Moderator Recommendation"
 

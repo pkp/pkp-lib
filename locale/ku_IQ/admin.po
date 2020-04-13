@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2020-04-14 22:37+0000\n"
-"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
+"Last-Translator: Kameran MohamadJalal Majeed "
+"<kameran.jalal@koyauniversity.org>\n"
 "Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ku_IQ/>\n"
 "Language: ku_IQ\n"
@@ -104,3 +105,80 @@ msgstr ""
 "ناوەرۆکی نوێکردنەوەکانت لە خوارەوە پیشان دراوە. بۆ جێبەجێکردنی گۆڕانەکان تۆ "
 "دەبێت ئەم لینکە بکەیتەوە <tt>config.inc.php</tt>  و گۆڕانکاری لەو ناوەرۆکانە "
 "بکەیت کە پێویستە."
+
+msgid "admin.settings.contactEmail"
+msgstr "ئیمه‌یلی ناونیشانی په‌یوه‌ندیكردنی بنچینه‌یی"
+
+msgid "admin.settings.about"
+msgstr "ده‌رباره‌ی پێگه‌"
+
+msgid "admin.settings"
+msgstr "رێكخستنه‌كان"
+
+msgid "admin.server.platform"
+msgstr "سه‌كۆی سیسته‌می به‌كارخستن"
+
+msgid "admin.server.phpVersion"
+msgstr "ژماره‌ی وه‌شانی PHP"
+
+msgid "admin.serverInformation"
+msgstr "زانیارییه‌كانی سێرڤه‌ر"
+
+msgid "admin.server.dbDriver"
+msgstr "به‌كارخه‌ری بنكه‌ی زانیارییه‌كان"
+
+msgid "admin.server.apacheVersion"
+msgstr "ژماره‌ی وه‌شانی Apache"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "به‌بیرهێنانه‌وه‌ی به‌كۆۆتاهاتنی به‌شداریكردن"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "به‌بیرهێنانه‌وه‌ی پێداچونه‌وه‌"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "لابردنی زانیارییه‌كانی به‌به‌ڵگه‌كردنی ئه‌ركه‌ خشته‌كراوه‌كان"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"ئایا تۆ دڵنیایت كه‌ ده‌ته‌وێ هه‌موو زانیارییه‌كانی به‌به‌ڵگه‌كردنی ئه‌ركه‌ "
+"نه‌خشه‌بۆكراوه‌كان  بسڕیته‌وه‌؟"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "تۆمارێكی كار بۆ ئه‌ركه‌كه‌ پێشكه‌ش نه‌كرا."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "ئه‌ركه‌كه‌ وه‌ستا."
+
+msgid "admin.scheduledTask.startTime"
+msgstr "ئه‌ركه‌كه‌ ده‌ستی پێكرد."
+
+msgid "admin.scheduledTask"
+msgstr "ئه‌ركێكی خشته‌ بۆكراو"
+
+msgid "admin.phpInfo"
+msgstr "زانیاریی PHP  زێتر"
+
+msgid "admin.languages.uninstall"
+msgstr "هه‌ڵوه‌شاندنه‌وه‌ی دانانی زمان"
+
+msgid "admin.languages.reload"
+msgstr "دووباره‌ باركردنه‌وه‌ زمان"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "زمانی زێتر نییه‌ بۆ دانان"
+
+msgid "admin.languages.languageSettings"
+msgstr "رێكخستنه‌كانی زمان"
+
+msgid "admin.languages.installNewLocales"
+msgstr "داناننی زمانی تر"
+
+msgid "admin.languages.installLocale"
+msgstr "دامه‌زراندنی زمان"
+
+msgid "admin.languages.availableLocales"
+msgstr "زمانه‌ فه‌راهه‌مكراوه‌كان"
+
+msgid "admin.languages.installLanguages"
+msgstr "به‌ڕێوه‌بردنی زمانه‌كان"

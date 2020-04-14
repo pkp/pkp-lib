@@ -281,6 +281,37 @@ function strtolower_codesafe($str) {
 }
 
 /**
+ * Perform a code-safe strtoupper, i.e. one that doesn't behave differently
+ * based on different locales. (tr_TR, I'm looking at you.)
+ * @param $str string Input string
+ * @return string
+ */
+function strtoupper_codesafe($str) {
+	return strtr($str, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+}
+
+/**
+ * Perform a code-safe lcfirst, i.e. one that doesn't behave differently
+ * based on different locales. (tr_TR, I'm looking at you.)
+ * @param $str string Input string
+ * @return string
+ */
+function lcfirst_codesafe($str) {
+	return strtolower_codesafe(substr($str, 0, 1)) . substr($str, 1);
+}
+
+/**
+ * Perform a code-safe ucfirst, i.e. one that doesn't behave differently
+ * based on different locales. (tr_TR, I'm looking at you.)
+ * @param $str string Input string
+ * @return string
+ */
+function ucfirst_codesafe($str) {
+	return strtoupper_codesafe(substr($str, 0, 1)) . substr($str, 1);
+}
+
+/**
+/**
  * Convert a Windows path to a cygwin path.
  * @param string $path Windows path
  * @return string Cygwin path.

@@ -436,12 +436,11 @@ class PKPString {
 		assert($type == CAMEL_CASE_HEAD_UP || $type == CAMEL_CASE_HEAD_DOWN);
 
 		// Transform "handler-class" to "HandlerClass" and "my-op" to "MyOp"
-		$string = str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
+		$string = implode(array_map('ucfirst_codesafe', explode('-', $string)));
 
 		// Transform "MyOp" to "myOp"
 		if ($type == CAMEL_CASE_HEAD_DOWN) {
-			// lcfirst() is PHP>5.3, so use workaround
-			$string = strtolower(substr($string, 0, 1)).substr($string, 1);
+			$string = strtolower_codesafe(substr($string, 0, 1)).substr($string, 1);
 		}
 
 		return $string;
@@ -457,13 +456,13 @@ class PKPString {
 		assert(!empty($string));
 
 		// Transform "myOp" to "MyOp"
-		$string = ucfirst($string);
+		$string = ucfirst_codesafe($string);
 
 		// Insert hyphens between words and return the string in lowercase
 		$words = array();
 		self::regexp_match_all('/[A-Z][a-z0-9]*/', $string, $words);
 		assert(isset($words[0]) && !empty($words[0]) && strlen(implode('', $words[0])) == strlen($string));
-		return strtolower(implode('-', $words[0]));
+		return strtolower_codesafe(implode('-', $words[0]));
 	}
 
 	/**

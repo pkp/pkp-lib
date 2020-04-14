@@ -319,7 +319,9 @@ function customAutoload($rootPath, $prefix, $class) {
 
 	$className = Core::cleanFileVar(array_pop($parts));
 	$parts = array_map(function($part) {
-		return lcfirst(Core::cleanFileVar($part));
+		$part = Core::cleanFileVar($part);
+		if (strlen($part)>1) $part[0] = strtolower_codesafe($part[0]); // pkp/pkp-lib#5731
+		return $part;
 	}, $parts);
 
 	$subParts = join('/', $parts);

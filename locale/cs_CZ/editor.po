@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2020-04-10 09:37+0000\n"
+"PO-Revision-Date: 2020-04-14 22:37+0000\n"
 "Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/cs/"
 ">\n"
@@ -227,7 +227,7 @@ msgid "editor.submission.proof.reminder"
 msgstr "Připomínka korektury"
 
 msgid "editor.submission.schedulePublication"
-msgstr "Plán publikace"
+msgstr "Naplánovat k publikování"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
 msgstr "Soubor po redakční úpravě musí být potvrzen před odesláním do produkční fáze. Chcete tento soubor potvrdit?"
@@ -425,7 +425,7 @@ msgid "editor.review.errorReinstatingReviewer"
 msgstr "Při obnovování recenzenta došlo k chybě. Prosím zkuste to znovu."
 
 msgid "editor.review.reviewerThanked"
-msgstr "Recenzent poděkoval"
+msgstr "Recenzentovi odesláno poděkování"
 
 msgid "editor.review.requestCancelled.tooltip"
 msgstr "Editor žádost o kontrolu zrušil."
@@ -449,7 +449,7 @@ msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Změnit rozhodnutí"
 
 msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "Příspěvek byl přijat k přehodnocení."
+msgstr "Příspěvek byl přijat k recenzi."
 
 msgid "editor.submission.workflowDecision.submission.production"
 msgstr "Odesláno do produkce."
@@ -458,10 +458,10 @@ msgid "editor.submission.workflowDecision.submission.reviewRound"
 msgstr "Odesláno do nového recenzního kola."
 
 msgid "editor.submission.workflowDecision.submission.published"
-msgstr "Příspěvek byl zveřejněn."
+msgstr "Příspěvek byl publikován."
 
 msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Příspěvek byl přijat."
+msgstr "Příspěvek byl přijat k publikaci."
 
 msgid "editor.submission.workflowDecision.submission.declined"
 msgstr "Příspěvek byl odmítnut."

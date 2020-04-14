@@ -45,7 +45,7 @@
 	{/fbvFormArea}
 {/if}
 
-{if $languagesEnabled || $subjectsEnabled || $keywordsEnabled || $citationsEnabled || $disciplinesEnabled}
+{if $languagesEnabled || $subjectsEnabled || $agenciesEnabled || $keywordsEnabled || $citationsEnabled || $disciplinesEnabled}
 	{fbvFormArea id="tagitFields" title="submission.submit.metadataForm"}
 		{if $languagesEnabled}
 			{$languagesField}
@@ -63,6 +63,11 @@
 		{if $keywordsEnabled}
 			{fbvFormSection label="common.keywords" required=$keywordsRequired}
 				{fbvElement type="keyword" id="keywords" multilingual=true current=$keywords disabled=$readOnly required=$keywordsRequired}
+			{/fbvFormSection}
+		{/if}
+		{if $agenciesEnabled}
+			{fbvFormSection label="submission.supportingAgencies" required=$agenciesRequired}
+				{fbvElement type="keyword" id="agencies" multilingual=true current=$agencies disabled=$readOnly required=$agenciesRequired}
 			{/fbvFormSection}
 		{/if}
 		{if $citationsEnabled}

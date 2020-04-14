@@ -366,6 +366,10 @@
 			<col>assoc_type</col>
 			<col>assoc_id</col>
 		</index>
+		<index name="notifications_user_id_level">
+			<col>user_id</col>
+			<col>level</col>
+		</index>
 	</table>
 
 	<!--

@@ -120,7 +120,7 @@ class PKPAnnouncementHandler extends APIHandler {
 		$request = Application::get()->getRequest();
 
 		$params = [
-			'count' => 20,
+			'count' => 30,
 			'offset' => 0,
 		];
 
@@ -142,6 +142,8 @@ class PKPAnnouncementHandler extends APIHandler {
 				case 'offset':
 					$params[$param] = (int) $val;
 					break;
+				case 'searchPhrase':
+					$params[$param] = $val;
 			}
 		}
 
@@ -188,7 +190,7 @@ class PKPAnnouncementHandler extends APIHandler {
 		$params['assocId'] = $request->getContext()->getId();
 
 		$primaryLocale = $request->getContext()->getPrimaryLocale();
-		$allowedLocales = $request->getContext()->getSupportedLocales();
+		$allowedLocales = $request->getContext()->getSupportedFormLocales();
 		$errors = Services::get('announcement')->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
 		if (!empty($errors)) {
@@ -237,7 +239,7 @@ class PKPAnnouncementHandler extends APIHandler {
 
 		$context = $request->getContext();
 		$primaryLocale = $context->getPrimaryLocale();
-		$allowedLocales = $context->getSupportedLocales();
+		$allowedLocales = $context->getSupportedFormLocales();
 
 		$errors = Services::get('announcement')->validate(VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
 		if (!empty($errors)) {

@@ -11,12 +11,17 @@
 // Vue lib and custom mixins
 import Vue from 'vue';
 import GlobalMixins from '@/mixins/global.js';
+import VModal from 'vue-js-modal';
 import VTooltip from 'v-tooltip';
 import VueScrollTo from 'vue-scrollto';
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
 
+Vue.use(VModal, {
+	dynamic: true,
+	injectModalsContainer: true
+});
 Vue.use(VTooltip, {defaultTrigger: 'click'});
 Vue.use(VueScrollTo);
 Vue.mixin(GlobalMixins);
@@ -26,24 +31,6 @@ export default {
 	registry: VueRegistry,
 	eventBus: new Vue(),
 	const: {},
-	/**
-	 * Helper function to determine if the current user has a role
-	 *
-	 * @param int|array roles The role ID to look for (pkp.const.ROLE_ID...)
-	 * @return bool
-	 */
-	userHasRole: function(roles) {
-		if (!Array.isArray(roles)) {
-			roles = [roles];
-		}
-
-		var hasRole = false;
-		roles.forEach(role => {
-			if ($.pkp.currentUser.accessRoles.indexOf(role) > -1) {
-				hasRole = true;
-			}
-		});
-
-		return hasRole;
-	}
+	localeKeys: {},
+	currentUser: null
 };

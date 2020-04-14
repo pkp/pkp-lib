@@ -224,9 +224,10 @@ class ManagementHandler extends Handler {
 		$emailTemplatesListPanel = new \APP\components\listPanels\EmailTemplatesListPanel(
 			'emailTemplates',
 			__('manager.emails.emailTemplates'),
+			$locales,
 			[
 				'apiUrl' => $emailTemplatesApiUrl,
-				'count' => 100,
+				'count' => 200,
 				'items' => [],
 				'itemsMax' => 0,
 				'lazyLoad' => true,
@@ -298,33 +299,46 @@ class ManagementHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
-		$announcementsListPanel = new \PKP\components\listPanels\ListPanel(
+		$apiUrl = $request->getDispatcher()->url($request, ROUTE_API, $request->getContext()->getPath(), 'announcements');
+
+		$supportedFormLocales = $request->getContext()->getSupportedFormLocales();
+		$localeNames = AppLocale::getAllLocales();
+		$locales = array_map(function($localeKey) use ($localeNames) {
+			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+		}, $supportedFormLocales);
+
+		$announcementForm = new \PKP\components\forms\announcement\PKPAnnouncementForm($apiUrl, $locales, $request->getContext());
+
+		$getParams = [
+			'contextIds' => $request->getContext()->getId(),
+			'count' => 30,
+		];
+		$announcementsIterator = Services::get('announcement')->getMany($getParams);
+		$itemsMax = Services::get('announcement')->getMax($getParams);
+		$items = [];
+		foreach ($announcementsIterator as $announcement) {
+			$items[] = Services::get('announcement')->getSummaryProperties($announcement, [
+				'request' => $request,
+				'announcementContext' => $request->getContext(),
+			]);
+		}
+
+		$announcementsListPanel = new \PKP\components\listPanels\PKPAnnouncementsListPanel(
 			'announcements',
-			__('announcement.announcements'),
+			__('manager.setup.announcements'),
 			[
-				'itemsMax' => 2,
-				'items' => [
-					[
-						'id' => 1,
-						'title' => 'This is my example',
-						'datePosted' => '2019-01-12',
-						'url' => 'https://google.com',
-					],
-					[
-						'id' => 2,
-						'title' => 'This is my other example',
-						'datePosted' => '2018-01-12',
-						'url' => 'https://google.com',
-					],
-				],
-				'filters' => [],
+				'apiUrl' => $apiUrl,
+				'form' => $announcementForm,
+				'getParams' => $getParams,
+				'items' => $items,
+				'itemsMax' => $itemsMax,
 			]
 		);
 
 		$settingsData = [
 			'components' => [
-				'announcements' => $announcementsListPanel->getConfig(),
-			]
+				$announcementsListPanel->id => $announcementsListPanel->getConfig(),
+			],
 		];
 
 		$templateMgr->assign('settingsData', $settingsData);

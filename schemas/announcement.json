@@ -40,12 +40,18 @@
 		"description": {
 			"type": "string",
 			"multilingual": true,
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"descriptionShort": {
 			"type": "string",
 			"multilingual": true,
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"id": {
 			"type": "integer",
@@ -54,11 +60,17 @@
 		"title": {
 			"type": "string",
 			"multilingual": true,
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"typeId": {
 			"type": "integer",
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		}
 	}
 }

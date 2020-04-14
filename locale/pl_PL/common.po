@@ -461,6 +461,9 @@ msgstr "Typ"
 msgid "common.uninitiated"
 msgstr "Niewprowadzone"
 
+msgid "common.unknownError"
+msgstr "Wystąpił nieznany błąd. Przeładuj stronę i spróbuj ponownie."
+
 msgid "common.untitled"
 msgstr "Bez nazwy"
 
@@ -835,9 +838,6 @@ msgstr "Słowa kluczowe"
 
 msgid "search.matchAll"
 msgstr "Wszystkie kategorie"
-
-msgid "search.noKeywordError"
-msgstr "Musisz podać przynajmniej jedno słowo kluczowe."
 
 msgid "search.noResults"
 msgstr "Brak wyników"

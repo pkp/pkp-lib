@@ -686,6 +686,9 @@ msgstr "Osa"
 msgid "common.uninitiated"
 msgstr "Ei aloitettu"
 
+msgid "common.unknownError"
+msgstr "Tapahtui virhe. Ole hyvä yritä uudelleen."
+
 msgid "common.unread"
 msgstr "Lukematon"
 
@@ -1286,9 +1289,6 @@ msgstr "Kaikki asiasanakentät"
 msgid "search.matchAll"
 msgstr "Yhdistä kaikki kategoriat"
 
-msgid "search.noKeywordError"
-msgstr "Anna vähintään yksi haun avainsana."
-
 msgid "search.noResults"
 msgstr "Ei tuloksia"
 
@@ -1820,14 +1820,6 @@ msgstr "Tämä kenttä pitää täyttää kielellä {$language}."
 msgid "form.csrfInvalid"
 msgstr ""
 "Lomaketta ei voitu lähettää. Sinut on mahdollisesti kirjattu ulos. Virkistä "
-"nykyinen sivu ja yritä uudelleen."
-
-msgid "form.missingRequired"
-msgstr "Tämä kenttä on pakollinen."
-
-msgid "form.errorUnknown"
-msgstr ""
-"Tapahtui odottamaton virhe. Sinut on mahdollisesti kirjattu ulos. Virkistä "
 "nykyinen sivu ja yritä uudelleen."
 
 msgid "form.errors"

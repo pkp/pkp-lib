@@ -176,6 +176,7 @@
 		if (this.options.canClose) {
 			$modal.append(
 					'<a href="#" class="close pkpModalCloseButton">' +
+					'<span :aria-hidden="true">×</span>' +
 					'<span class="pkp_screen_reader">' +
 					(/** @type {{ closeButtonText: string }} */ (this.options))
 					.closeButtonText + '</span></a>');

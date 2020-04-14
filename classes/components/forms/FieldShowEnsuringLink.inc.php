@@ -27,6 +27,7 @@ class FieldShowEnsuringLink extends FieldOptions {
 	public function getConfig() {
 		$config = parent::getConfig();
 		$config['message'] = __('review.blindPeerReview');
+		$config['modalTitle'] = __('review.blindPeerReview.title');
 
 		return $config;
 	}

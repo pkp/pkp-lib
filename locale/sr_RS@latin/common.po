@@ -797,9 +797,6 @@ msgstr "Indeks pojmova"
 msgid "search.matchAll"
 msgstr "Upari sve kategorije"
 
-msgid "search.noKeywordError"
-msgstr "Morate uneti najmanje jednu ključnu reč za pretraživanje."
-
 msgid "search.noResults"
 msgstr "Nema rezultata"
 

@@ -21,6 +21,9 @@ class PKPAnnouncementQueryBuilder extends BaseQueryBuilder {
 	/** @var array get announcements for one or more contexts */
 	protected $contextIds = [];
 
+	/** @var string get announcements matching one or more words in this phrase */
+	protected $searchPhrase = '';
+
 	/** @var array get announcements with one of these typeIds */
 	protected $typeIds = [];
 
@@ -46,6 +49,18 @@ class PKPAnnouncementQueryBuilder extends BaseQueryBuilder {
 	 */
 	public function filterByTypeIds($typeIds) {
 		$this->typeIds = is_array($typeIds) ? $typeIds : [$typeIds];
+		return $this;
+	}
+
+	/**
+	 * Set query search phrase
+	 *
+	 * @param string $phrase
+	 *
+	 * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
+	 */
+	public function searchPhrase($phrase) {
+		$this->searchPhrase = $phrase;
 		return $this;
 	}
 
@@ -76,6 +91,33 @@ class PKPAnnouncementQueryBuilder extends BaseQueryBuilder {
 		if (!empty($this->typeIds)) {
 			$q->whereIn('a.type_id', $this->typeIds);
 		}
+
+		// search phrase
+		if (!empty($this->searchPhrase)) {
+			$words = explode(' ', $this->searchPhrase);
+			if (count($words)) {
+				$q->leftJoin('announcement_settings as as','a.announcement_id','=','as.announcement_id');
+				foreach ($words as $word) {
+					$word = strtolower(addcslashes($word, '%_'));
+					$q->where(function($q) use ($word)  {
+						$q->where(function($q) use ($word) {
+							$q->where('as.setting_name', 'title');
+							$q->where(Capsule::raw('lower(as.setting_value)'), 'LIKE', "%{$word}%");
+						})
+						->orWhere(function($q) use ($word) {
+							$q->where('as.setting_name', 'descriptionShort');
+							$q->where(Capsule::raw('lower(as.setting_value)'), 'LIKE', "%{$word}%");
+						})
+						->orWhere(function($q) use ($word) {
+							$q->where('as.setting_name', 'description');
+							$q->where(Capsule::raw('lower(as.setting_value)'), 'LIKE', "%{$word}%");
+						});
+					});
+				}
+			}
+		}
+
+		$q->orderBy('a.date_posted', 'desc');
 
 		// Add app-specific query statements
 		\HookRegistry::call('Announcement::getMany::queryObject', array(&$q, $this));

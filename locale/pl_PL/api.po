@@ -32,9 +32,6 @@ msgstr "Zapytanie nie mogło zostać spełnione, ponieważ brakuje wymaganych in
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Zapytanie o wolumen, numer lub rok jest niepoprawne."
 
-msgid "api.submissions.unknownError"
-msgstr "Wystąpił nieznany błąd. Przeładuj stronę i spróbuj ponownie."
-
 msgid "api.400.paramNotSupported"
 msgstr "Parametr {$param} nie jest wspierany."
 

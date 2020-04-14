@@ -23,12 +23,10 @@ use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
 use PKP\Services\QueryBuilders\PKPAnnouncementQueryBuilder;
-use \PKP\Services\traits\EntityReadTrait;
 
 import('lib.pkp.classes.db.DBResultRange');
 
 class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
-	use EntityReadTrait;
 
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
@@ -38,12 +36,30 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 	}
 
 	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getCount()
+	 */
+	public function getCount($args = []) {}
+
+	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getIds()
+	 */
+	public function getIds($args = []) {}
+
+	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMany()
 	 */
 	public function getMany($args = null) {
-		$announcementQB = $this->_getQueryBuilder($args);
+		$range = null;
+		if (isset($args['count'])) {
+			import('lib.pkp.classes.db.DBResultRange');
+			$range = new \DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
+		}
+		// Pagination is handled by the DAO, so don't pass count and offset
+		// arguments to the QueryBuilder.
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		$announcementQB = $this->getQueryBuilder($args);
 		$announcementQO = $announcementQB->get();
-		$range = $this->getRangeByArgs($args);
 		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
 		$result = $announcementDao->retrieveRange($announcementQO->toSql(), $announcementQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $announcementDao, '_fromRow');
@@ -56,25 +72,18 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
 	 */
 	public function getMax($args = null) {
-		$announcementQB = $this->_getQueryBuilder($args);
-		$countQO = $announcementQB->countOnly()->get();
-		$countRange = new DBResultRange($args['count'], 1);
-		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
-		$countResult = $announcementDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-
-		return (int) $countResult->Fields('count');
+		// Don't accept args to limit the results
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		$announcementQB = $this->getQueryBuilder($args);
+		return (int) $announcementQB->get()->count();
 	}
 
-	/**
-	 * Compile the filter params for the query builder
-	 *
-	 * @param array $args
-	 * @return object query object
-	 */
-	private function _getQueryBuilder($args = []) {
+	public function getQueryBuilder($args = []) {
 
 		$defaultArgs = [
 			'contextIds' => null,
+			'searchPhrase' => '',
 			'typeIds' => null,
 		];
 
@@ -83,6 +92,9 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 		$announcementQB = new PKPAnnouncementQueryBuilder();
 		if (!empty($args['contextIds'])) {
 			$announcementQB->filterByContextIds($args['contextIds']);
+		}
+		if (!empty($args['searchPhrase'])) {
+			$announcementQB->searchPhrase($args['searchPhrase']);
 		}
 		if (!empty($args['typeIds'])) {
 			$announcementQB->filterByTypeIds($args['typeIds']);
@@ -118,6 +130,8 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 					break;
 			}
 		}
+
+		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_ANNOUNCEMENT, $values, $announcementContext->getSupportedFormLocales());
 
 		\HookRegistry::call('Announcement::getProperties', [&$values, $announcement, $props, $args]);
 
@@ -164,26 +178,17 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 		);
 
 		// Check required fields if we're adding a context
-		if ($action === VALIDATE_ACTION_ADD) {
-			\ValidatorFactory::required(
-				$validator,
-				$schemaService->getRequiredProps(SCHEMA_ANNOUNCEMENT),
-				$schemaService->getMultilingualProps(SCHEMA_ANNOUNCEMENT),
-				$primaryLocale
-			);
-		}
-
-		// Check for input from disallowed locales
-		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_ANNOUNCEMENT), $allowedLocales);
-
-		// Don't allow an empty value for the primary locale of the title field
-		\ValidatorFactory::requirePrimaryLocale(
+		\ValidatorFactory::required(
 			$validator,
-			['title'],
-			$props,
+			$action,
+			$schemaService->getRequiredProps(SCHEMA_ANNOUNCEMENT),
+			$schemaService->getMultilingualProps(SCHEMA_ANNOUNCEMENT),
 			$allowedLocales,
 			$primaryLocale
 		);
+
+		// Check for input from disallowed locales
+		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_ANNOUNCEMENT), $allowedLocales);
 
 		if ($validator->fails()) {
 			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_ANNOUNCEMENT), $allowedLocales);

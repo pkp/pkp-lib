@@ -186,7 +186,7 @@
 						processData: false,
 						contentType: false,
 						headers: {
-							'X-Csrf-Token': $.pkp.currentUser.csrfToken
+							'X-Csrf-Token': pkp.currentUser.csrfToken
 						},
 						success: function(r) {
 							success(r.url);
@@ -612,7 +612,7 @@
 			}
 		}
 		if (unsavedElementCount > 0) {
-			return $.pkp.locale.form_dataHasChanged;
+			return pkp.localeKeys['form.dataHasChanged'];
 		}
 		return undefined;
 	};

@@ -704,9 +704,6 @@ msgstr "Termos Indexados"
 msgid "search.matchAll"
 msgstr "Encontrar em todas as categorias"
 
-msgid "search.noKeywordError"
-msgstr "Indique pelo menos um termo para pesquisa."
-
 msgid "search.noResults"
 msgstr "Nenhum resultado encontrado"
 
@@ -1802,14 +1799,6 @@ msgid "form.csrfInvalid"
 msgstr ""
 "O formulário não foi submetido. Pode ter saído do sistema. Recarregue a "
 "página e tente novamente."
-
-msgid "form.missingRequired"
-msgstr "Este campo é obrigatório."
-
-msgid "form.errorUnknown"
-msgstr ""
-"Ocorreu um erro inesperado. Pode ter saído do sistema. Recarregue a página e "
-"tente novamente."
 
 msgid "form.errors"
 msgstr ""

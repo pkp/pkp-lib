@@ -87,16 +87,10 @@ class PKPSelectReviewerListPanel extends ListPanel {
 			],
 		];
 		$config['i18n'] = array_merge($config['i18n'], array(
-			'search' => __('common.search'),
-			'clearSearch' => __('common.clearSearch'),
 			'empty' => __('reviewer.list.empty'),
 			'itemsOfTotal' => __('reviewer.list.itemsOfTotal'),
 			'itemCount' => __('reviewer.list.count'),
 			'loadMore' => __('grid.action.moreItems'),
-			'loading' => __('common.loading'),
-			'filter' => __('common.filter'),
-			'filterAdd' => __('common.filterAdd'),
-			'filterRemove' => __('common.filterRemove'),
 			'filterRating' => __('reviewer.list.filterRating'),
 			'activeReviews' => __('reviewer.list.activeReviews'),
 			'activeReviewsDescription' => __('reviewer.list.activeReviewsDescription'),
@@ -118,11 +112,6 @@ class PKPSelectReviewerListPanel extends ListPanel {
 			'listSeparator' => __('common.commaListSeparator'),
 			'viewMore' => __('list.viewMore'),
 			'viewLess' => __('list.viewLess'),
-			'paginationLabel' => __('common.pagination.label'),
-			'goToLabel' => __('common.pagination.goToPage'),
-			'pageLabel' => __('common.pageNumber'),
-			'nextPageLabel' => __('common.pagination.next'),
-			'previousPageLabel' => __('common.pagination.previous'),
 		));
 
 		return $config;

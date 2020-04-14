@@ -31,6 +31,47 @@
 				</div>
 			</div>
 		</div>
+		<pkp-header>
+			<h1 id="editorialActivityTabelLabel">
+				{translate key="stats.trends"}
+				<span v-if="isLoading" class="pkpSpinner" aria-hidden="true"></span>
+			</h1>
+			<template slot="actions">
+				<date-range
+					slot="thead-dateRange"
+					unique-id="editorial-stats-date-range"
+					:date-start="dateStart"
+					:date-end="dateEnd"
+					:date-end-max="dateEndMax"
+					:options="dateRangeOptions"
+					dateRangeLabel="{translate key="stats.dateRange"}"
+					dateFormatInstructionsLabel="{translate key="stats.dateRange.instructions"}"
+					changeDateRangeLabel="{translate key="stats.dateRange.change"}"
+					sinceDateLabel="{translate key="stats.dateRange.sinceDate"}"
+					untilDateLabel="{translate key="stats.dateRange.untilDate"}"
+					allDatesLabel="{translate key="stats.dateRange.allDates"}"
+					customRangeLabel="{translate key="stats.dateRange.customRange"}"
+					fromDateLabel="{translate key="stats.dateRange.from"}"
+					toDateLabel="{translate key="stats.dateRange.to"}"
+					applyLabel="{translate key="stats.dateRange.apply"}"
+					invalidDateLabel="{translate key="stats.dateRange.invalidDate"}"
+					dateDoesNotExistLabel="{translate key="stats.dateRange.dateDoesNotExist"}"
+					invalidDateRangeLabel="{translate key="stats.dateRange.invalidDateRange"}"
+					invalidEndDateMaxLabel="{translate key="stats.dateRange.invalidEndDateMax"}"
+					invalidStartDateMinLabel="{translate key="stats.dateRange.invalidStartDateMin"}"
+					@set-range="setDateRange"
+					@updated:current-range="setCurrentDateRange"
+				></date-range>
+				<pkp-button
+					v-if="filters.length"
+					:is-active="isSidebarVisible"
+					@click="toggleSidebar"
+				>
+					<icon icon="filter" :inline="true" />
+					{translate key="common.filter"}
+				</pkp-button>
+			</template>
+		</pkp-header>
 		<div class="pkpStats__container -pkpClearfix">
 			<!-- Filters in the sidebar -->
 			<div
@@ -39,20 +80,13 @@
 				class="pkpStats__sidebar"
 				:class="sidebarClasses"
 			>
-				<pkp-header
-					class="pkpStats__sidebarHeader"
-					:tabindex="isSidebarVisible ? 0 : -1"
-				>
-					<icon icon="filter" :inline="true"></icon>
-					{{ i18n.filter }}
-				</pkp-header>
 				<div
 					v-for="(filterSet, index) in filters"
 					:key="index"
 					class="pkpStats__filterSet"
 				>
 					<pkp-header v-if="filterSet.heading">
-						{{ filterSet.heading }}
+						<h2>{{ filterSet.heading }}</h2>
 					</pkp-header>
 					<pkp-filter
 						v-for="filter in filterSet.filters"
@@ -67,32 +101,6 @@
 			</div>
 			<div class="pkpStats__content">
 				<div class="pkpStats__table" role="region" aria-live="polite">
-				<div class="pkpStats__tableHeader">
-					<h2 class="pkpStats__tableTitle" id="editorialActivityTabelLabel">
-						{translate key="stats.trends"}
-						<span v-if="isLoading" class="pkpSpinner" aria-hidden="true"></span>
-					</h2>
-					<div class="pkpStats__tableActions">
-						<date-range
-							slot="thead-dateRange"
-							unique-id="editorial-stats-date-range"
-							:date-start="dateStart"
-							:date-end="dateEnd"
-							:date-end-max="dateEndMax"
-							:options="dateRangeOptions"
-							:i18n="i18n"
-							@set-range="setDateRange"
-							@updated:current-range="setCurrentDateRange"
-						></date-range>
-						<pkp-button
-							v-if="filters.length"
-							:label="i18n.filter"
-							icon="filter"
-							:is-active="isSidebarVisible"
-							@click="toggleSidebar"
-						></pkp-button>
-					</div>
-				</div>
 					<pkp-table
 						class="pkpTable--editorialStats"
 						labelled-by="editorialActivityTabelLabel"

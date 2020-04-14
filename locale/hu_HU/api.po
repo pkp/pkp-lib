@@ -35,9 +35,6 @@ msgstr "A kérése nem teljesíthető, mert hiányzik a szükséges információ
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "A kért évfolyam, szám vagy év nem érvényes."
 
-msgid "api.submissions.unknownError"
-msgstr "Váratlan hiba történt. Töltse be újra az oldalt, majd próbálja újra."
-
 msgid "api.stats.400.wrongDateFormat"
 msgstr "Nem megfelelő kérés. A dátumnak az alábbi formátumban kell szerepelni:  ÉÉÉÉ-HH-NN"
 

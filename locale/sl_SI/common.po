@@ -712,6 +712,9 @@ msgstr "Komponenta"
 msgid "common.uninitiated"
 msgstr "Nezačet"
 
+msgid "common.unknownError"
+msgstr "Prišlo je do nepričakovane napake. Ponovno naložite spletno stran in poskusite ponovno."
+
 msgid "common.unread"
 msgstr "Neprebrano"
 
@@ -1342,9 +1345,6 @@ msgstr "Vsa iskalna polja"
 msgid "search.matchAll"
 msgstr "Zajemi vse kategorije"
 
-msgid "search.noKeywordError"
-msgstr "Vpisati morate vsaj eno ključno besedo za iskanje."
-
 msgid "search.noResults"
 msgstr "Ni zadetkov"
 
@@ -1814,14 +1814,6 @@ msgid "form.csrfInvalid"
 msgstr ""
 "Obrazen ni bil poslal. Morda ste bili odjavljeni. Prosimo ponovno naložite "
 "stran in poskusite ponovno."
-
-msgid "form.missingRequired"
-msgstr "Polje je obvezno."
-
-msgid "form.errorUnknown"
-msgstr ""
-"Nepričakovana napaka. Lahko ste bili odjavljeni iz sistema. Prosimo ponovno "
-"naložite stran in poskusite ponovno."
 
 msgid "form.errors"
 msgstr ""

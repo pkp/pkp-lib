@@ -32,9 +32,6 @@ msgstr "Το αίτημά σας δε μπορεί να πραγματοποιη
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Ο ζητούμενος τόμος, αριθμός τεύχους ή το έτος δεν είναι έγκυρα."
 
-msgid "api.submissions.unknownError"
-msgstr "Μη αναμενόμενο σφάλμα. Επαναφορτώστε τη σελίδα και προσπαθήστε ξανά."
-
 msgid "api.stats.400.wrongDateFormat"
 msgstr "Μη έγκυρο αίτημα. Η ημερομηνία πρέπει να έχει τη μορφή EEEE-MM-HH"
 

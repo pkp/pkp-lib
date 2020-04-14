@@ -35,9 +35,6 @@ msgstr "La tua richiesta non può essere completata perchè mancano le informazi
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Il richiesto volume, numero o anno non è valido."
 
-msgid "api.submissions.unknownError"
-msgstr "E' avvenuto un errore inatteso. Per favore ricarica la pagina e prova di nuovo."
-
 msgid "api.vocabs.400.vocabNotSupported"
 msgstr "Il vocabolario {$vocab}  non è supportato."
 

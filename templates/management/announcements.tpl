@@ -13,8 +13,6 @@
 <div id="settings-announcements-{$uuid}">
 	<tabs>
 		<tab id="announcements" label="{translate key="manager.setup.announcements"}">
-	    {capture assign=announcementGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.announcements.ManageAnnouncementGridHandler" op="fetchGrid" escape=false}{/capture}
-	    {load_url_in_div id="announcementGridContainer" url=$announcementGridUrl}
 			<announcements-list-panel
 				v-bind="components.announcements"
 				@set="set"

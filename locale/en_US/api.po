@@ -104,9 +104,6 @@ msgstr "Your request could not be fulfilled because it is missing required infor
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "The requested volume, number or year is not valid."
 
-msgid "api.submissions.unknownError"
-msgstr "An unexpected error has occurred. Please reload the page and try again."
-
 msgid "api.temporaryFiles.400.noUpload"
 msgstr "No file to be uploaded could be found with the request."
 

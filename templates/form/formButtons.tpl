@@ -18,6 +18,9 @@
 
 {fbvFormSection class="formButtons form_buttons"}
 
+	{* Loading indicator *}
+	<span class="pkp_spinner"></span>
+
 	{* Submit button *}
 	{assign var=submitButtonId value="submitFormButton"|concat:"-"|uniqid}
 
@@ -29,9 +32,6 @@
 	{/if}
 
 	{fbvElement type="submit" class="submitFormButton" id=$submitButtonId label=$FBV_submitText translate=$FBV_translate disabled=$FBV_submitDisabled}
-
-	{* Loading indicator *}
-	<span class="pkp_spinner"></span>
 
 	{* Cancel button (if any) *}
 	{if !$FBV_hideCancel}

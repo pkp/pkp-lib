@@ -407,6 +407,9 @@ msgstr "Tipo"
 msgid "common.uninitiated"
 msgstr "Non iniziato"
 
+msgid "common.unknownError"
+msgstr "E' avvenuto un errore inatteso. Per favore ricarica la pagina e prova di nuovo."
+
 msgid "common.untitled"
 msgstr "Senza titolo"
 
@@ -697,9 +700,6 @@ msgstr "Termini di indicizzazione"
 
 msgid "search.matchAll"
 msgstr "Abbina tutte le categorie"
-
-msgid "search.noKeywordError"
-msgstr "Devi inserire almeno un termine di ricerca."
 
 msgid "search.noResults"
 msgstr "Nessun risultato"
@@ -1828,14 +1828,6 @@ msgstr "Fornire un ID valido."
 
 msgid "form.requirePrimaryLocale"
 msgstr "Completare questo campo in {$language}."
-
-msgid "form.missingRequired"
-msgstr "Questo campo è obbligatorio."
-
-msgid "form.errorUnknown"
-msgstr ""
-"Si è verificato un errore imprevisto. Potresti essere stato sloggato. "
-"Ricaricare la pagina e riprovare."
 
 msgid "form.errors"
 msgstr ""

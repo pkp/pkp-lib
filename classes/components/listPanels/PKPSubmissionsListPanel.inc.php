@@ -124,15 +124,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			'viewMore' => __('list.viewMore'),
 			'viewLess' => __('list.viewLess'),
 			'lastActivity' => __('common.lastActivity'),
-			'paginationLabel' => __('common.pagination.label'),
-			'goToLabel' => __('common.pagination.goToPage'),
-			'pageLabel' => __('common.pageNumber'),
-			'nextPageLabel' => __('common.pagination.next'),
-			'previousPageLabel' => __('common.pagination.previous'),
 		]);
-
-		// Attach a CSRF token for post requests
-		$config['csrfToken'] = $request->getSession()->getCSRFToken();
 
 		// Provide required constants
 		import('lib.pkp.classes.submission.reviewRound.ReviewRound');

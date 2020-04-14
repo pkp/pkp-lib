@@ -55,6 +55,9 @@ class PKPTemplateManager extends Smarty {
 	/** @var array Key/value list of constants to expose in the JS interface */
 	private $_constants = array();
 
+	/** @var array Key/value list of locale keys to expose in the JS interface */
+	private $_localeKeys = array();
+
 	/** @var string Type of cacheability (Cache-Control). */
 	private $_cacheability;
 
@@ -210,6 +213,51 @@ class PKPTemplateManager extends Smarty {
 					'contexts' => 'backend',
 				)
 			);
+
+			// Common locale keys available in the browser for every page
+			$this->setLocaleKeys([
+				'common.cancel',
+				'common.clearSearch',
+				'common.close',
+				'common.confirm',
+				'common.delete',
+				'common.edit',
+				'common.error',
+				'common.filter',
+				'common.filterAdd',
+				'common.filterRemove',
+				'common.loading',
+				'common.no',
+				'common.noItemsFound',
+				'common.ok',
+				'common.orderUp',
+				'common.orderDown',
+				'common.pageNumber',
+				'common.pagination.goToPage',
+				'common.pagination.label',
+				'common.pagination.next',
+				'common.pagination.previous',
+				'common.remove',
+				'common.required',
+				'common.save',
+				'common.saving',
+				'common.search',
+				'common.unknownError',
+				'common.view',
+				'common.viewLess',
+				'common.viewMore',
+				'common.yes',
+				'form.dataHasChanged',
+				'form.errorA11y',
+				'form.errorGoTo',
+				'form.errorMany',
+				'form.errorOne',
+				'form.errors',
+				'form.multilingualLabel',
+				'form.multilingualProgress',
+				'help.help',
+				'validator.required'
+			]);
 
 			// Register the pkp-lib JS library
 			$this->registerJSLibraryData();
@@ -637,6 +685,19 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
+	 * Set locale keys to be exposed in JavaScript at pkp.localeKeys.<key>
+	 *
+	 * @param array $keys Array of locale keys
+	 */
+	function setLocaleKeys($keys) {
+		foreach ($keys as $key) {
+			if (!array_key_exists($key, $this->_localeKeys)) {
+				$this->_localeKeys[$key] = __($key);
+			}
+		}
+	}
+
+	/**
 	 * Register all files required by the core JavaScript library
 	 */
 	function registerJSLibrary() {
@@ -753,45 +814,8 @@ class PKPTemplateManager extends Smarty {
 		// Load exposed constants
 		$output .= '$.pkp.cons = ' . json_encode($this->_constants) . ';';
 
-		// Load locale keys
-		$localeKeys = $application->getJSLocaleKeys();
-		if (!empty($localeKeys)) {
-
-			// Replace periods in the key name with underscores for better-
-			// formatted JS keys
-			$jsLocaleKeys = array();
-			foreach($localeKeys as $key) {
-				$jsLocaleKeys[str_replace('.', '_', $key)] = __($key);
-			}
-
-			$output .= '$.pkp.locale = ' . json_encode($jsLocaleKeys) . ';';
-		}
-
 		// Allow plugins to load data within their own namespace
 		$output .= '$.pkp.plugins = {};';
-
-		// Load current user data
-		if (!Config::getVar('general', 'installed')) {
-			$output .= '$.pkp.currentUser = null;';
-		} else {
-			$user = $this->_request->getUser();
-			if ($user) {
-				import('lib.pkp.classes.security.RoleDAO');
-				import('lib.pkp.classes.security.UserGroupDAO');
-				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-				$userGroups = $userGroupDao->getByUserId($this->_request->getUser()->getId())->toArray();
-				$currentUserAccessRoles = array();
-				foreach ($userGroups as $userGroup) {
-					$currentUserAccessRoles[] = (int) $userGroup->getRoleId();
-				}
-				$userOutput = array(
-					'id' => (int) $user->getId(),
-					'accessRoles' => $currentUserAccessRoles,
-					'csrfToken' => $this->_request->getSession()->getCSRFToken()
-				);
-				$output .= '$.pkp.currentUser = ' . json_encode($userOutput) . ';';
-			}
-		}
 
 		$this->addJavaScript(
 			'pkpLibData',
@@ -870,8 +894,34 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function display($template = null, $cache_id = null, $compile_id = null, $parent = null) {
 
-		// Output global constants used in new component library
-		$output = 'pkp.const = ' . json_encode($this->_constants) . ';';
+		// Output global constants and locale keys used in new component library
+		$output = '';
+		if (!empty($this->_constants)) {
+			$output .= 'pkp.const = ' . json_encode($this->_constants) . ';';
+		}
+		if (!empty($this->_localeKeys)) {
+			$output .= 'pkp.localeKeys = ' . json_encode($this->_localeKeys) . ';';
+		}
+
+		// Load current user data
+		if (Config::getVar('general', 'installed')) {
+			$user = $this->_request->getUser();
+			if ($user) {
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+				$userGroupsResult = $userGroupDao->getByUserId($user->getId());
+				$userRoles = [];
+				while ($userGroup = $userGroupsResult->next()) {
+					$userRoles[] = (int) $userGroup->getRoleId();
+				}
+				$currentUser = [
+					'csrfToken' => $this->_request->getSession()->getCSRFToken(),
+					'id' => (int) $user->getId(),
+					'roles' => array_unique($userRoles),
+				];
+				$output .= 'pkp.currentUser = ' . json_encode($currentUser) . ';';
+			}
+		}
+
 		$this->addJavaScript(
 			'pkpAppData',
 			$output,

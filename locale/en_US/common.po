@@ -771,6 +771,9 @@ msgstr "Component"
 msgid "common.uninitiated"
 msgstr "Uninitiated"
 
+msgid "common.unknownError"
+msgstr "An unexpected error has occurred. Please reload the page and try again."
+
 msgid "common.unread"
 msgstr "Unread"
 
@@ -1032,9 +1035,6 @@ msgstr "Please correct {$count} errors."
 msgid "form.errors"
 msgstr "The form was not saved because {$count} error(s) were encountered. Please correct these errors and try again."
 
-msgid "form.errorUnknown"
-msgstr "An unexpected error occurred. You may have been logged out. Please reload the page and try again."
-
 msgid "form.errorsOccurred"
 msgstr "Errors occurred processing this form"
 
@@ -1049,9 +1049,6 @@ msgstr "contains"
 
 msgid "form.is"
 msgstr "is"
-
-msgid "form.missingRequired"
-msgstr "This field is required."
 
 msgid "form.startsWith"
 msgstr "starts with"
@@ -1378,10 +1375,10 @@ msgid "notification.removedAnnouncementType"
 msgstr "Announcement type removed."
 
 msgid "notification.addedAnnouncement"
-msgstr "Announcement added."
+msgstr "The announcement was added successfully."
 
 msgid "notification.editedAnnouncement"
-msgstr "Announcement edited."
+msgstr "The announcement was edited successfully."
 
 msgid "notification.removedAnnouncement"
 msgstr "Announcement removed."
@@ -1441,7 +1438,7 @@ msgid "notification.savedSubmissionMetadata"
 msgstr "Submission metadata saved."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Send notification email to all registered users"
+msgstr "Send an email about this to all registered users."
 
 msgid "search.author"
 msgstr "By Author"
@@ -1503,9 +1500,6 @@ msgstr "All index term fields"
 msgid "search.matchAll"
 msgstr "Match all categories"
 
-msgid "search.noKeywordError"
-msgstr "You must enter at least one search keyword."
-
 msgid "search.noResults"
 msgstr "No Results"
 
@@ -1562,6 +1556,9 @@ msgstr "Tasks"
 
 msgid "dashboard.myQueue"
 msgstr "My Queue"
+
+msgid "review.blindPeerReview.title"
+msgstr "Ensure a Blind Review"
 
 msgid "review.blindPeerReview"
 msgstr ""

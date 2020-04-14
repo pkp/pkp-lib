@@ -741,6 +741,9 @@ msgstr "Στοιχείο"
 msgid "common.uninitiated"
 msgstr "Μη αρχικοποιημένο"
 
+msgid "common.unknownError"
+msgstr "Μη αναμενόμενο σφάλμα. Επαναφορτώστε τη σελίδα και προσπαθήστε ξανά."
+
 msgid "common.unread"
 msgstr "Μη αναγνωσμένο"
 
@@ -1388,9 +1391,6 @@ msgstr "Όλα τα πεδία ευρετηρίασης"
 
 msgid "search.matchAll"
 msgstr "Εύρεση αποτελεσμάτων που περιέχουν όλους τους όρους."
-
-msgid "search.noKeywordError"
-msgstr "Θα πρέπει να εισάγετε τουλάχιστον έναν όρο αναζήτησης."
 
 msgid "search.noResults"
 msgstr "Κανένα αποτέλεσμα"

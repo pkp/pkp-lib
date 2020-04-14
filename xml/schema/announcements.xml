@@ -112,9 +112,6 @@
 			<NOTNULL />
 		</field>
 		<field name="setting_value" type="X"/>
-		<field name="setting_type" type="C2" size="6">
-			<NOTNULL/>
-		</field>
 		<descr>Locale-specific announcement data</descr>
 		<index name="announcement_settings_announcement_id">
 			<col>announcement_id</col>

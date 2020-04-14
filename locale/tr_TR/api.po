@@ -34,10 +34,6 @@ msgstr "Bir veya daha fazla dosya yüklenemedi."
 msgid "api.temporaryFiles.400.noUpload"
 msgstr "Sorguyla yüklenecek bir dosya bulunamadı."
 
-msgid "api.submissions.unknownError"
-msgstr ""
-"Beklenmeyen bir hata oluştu. Lütfen sayfayı yenileyin ve tekrar deneyin."
-
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Sorgulanan cilt, sayı veya yıl geçerli değil."
 

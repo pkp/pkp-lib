@@ -797,9 +797,6 @@ msgstr "Индекс појмова"
 msgid "search.matchAll"
 msgstr "Упари све категорије"
 
-msgid "search.noKeywordError"
-msgstr "Морате унети најмање једну кључну реч за претраживање."
-
 msgid "search.noResults"
 msgstr "Нема резултата"
 

@@ -181,7 +181,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		$localeNames = AppLocale::getAllLocales();
 		$locales = array_map(function($localeKey) use ($localeNames) {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-		}, $supportedFormLocales);		
+		}, $supportedFormLocales);
 
 		$latestPublication = $submission->getLatestPublication();
 
@@ -287,12 +287,13 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		}
 
 		$workflowData = [
+			'canEditPublication' => $canEditPublication,
 			'components' => [
 				FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
 				FORM_CITATIONS => $citationsForm->getConfig(),
 			],
 			'contributorsGridUrl' => $contributorsGridUrl,
-			'csrfToken' => $request->getSession()->getCSRFToken(),
+			'currentPublication' => $currentPublicationProps,
 			'publicationFormIds' => [
 				FORM_TITLE_ABSTRACT,
 				FORM_CITATIONS,
@@ -300,22 +301,16 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			'representationsGridUrl' => $this->_getRepresentationsGridUrl($request, $submission),
 			'submission' => $submissionProps,
 			'publicationList' => $publicationList,
-			'currentPublication' => $currentPublicationProps,
 			'workingPublication' => $workingPublicationProps,
 			'submissionApiUrl' => $submissionApiUrl,
+			'submissionLibraryLabel' => __('grid.libraryFiles.submission.title'),
 			'submissionLibraryUrl' => $submissionLibraryUrl,
 			'supportsReferences' => !!$submissionContext->getData('citations'),
+			'statusLabel' => __('semicolon', ['label' => __('common.status')]),
+			'uploadFileModalLabel' => __('editor.submissionReview.uploadFile'),
 			'uploadFileUrl' => $uploadFileUrl,
-			'canEditPublication' => $canEditPublication,
+			'versionLabel' => __('semicolon', ['label' => __('admin.version')]),
 			'i18n' => [
-				'publicationTabsLabel' => __('publication.version.details'),
-				'status' => __('semicolon', ['label' => __('common.status')]),
-				'submissionLibrary' => __('grid.libraryFiles.submission.title'),
-				'uploadFile' => __('common.upload.addFile'),
-				'uploadFileModal' => __('editor.submissionReview.uploadFile'),
-				'view' => __('common.view'),
-				'version' => __('semicolon', ['label' => __('admin.version')]),
-				'save' => __('common.save'),
 			],
 		];
 

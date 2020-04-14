@@ -66,6 +66,7 @@ class PKPStatsPublicationContainer extends PKPStatsComponent {
 				'timelineInterval' => $this->timelineInterval,
 				'timelineType' => $this->timelineType,
 				'items' => $this->items,
+				'itemsOfTotalLabel' => __('stats.publications.countOfTotal'),
 				'itemsMax' => $this->itemsMax,
 				'count' => $this->count,
 				'offset' => 0,
@@ -73,24 +74,7 @@ class PKPStatsPublicationContainer extends PKPStatsComponent {
 				'orderBy' => $this->orderBy,
 				'orderDirection' => $this->orderDirection,
 				'isLoadingTimeline' => false,
-				'i18n' => array_merge(
-					$config['i18n'],
-					[
-						'itemsOfTotal' => __('stats.publications.countOfTotal'),
-						'paginationLabel' => __('common.pagination.label'),
-						'goToLabel' => __('common.pagination.goToPage'),
-						'pageLabel' => __('common.pageNumber'),
-						'nextPageLabel' => __('common.pagination.next'),
-						'previousPageLabel' => __('common.pagination.previous'),
-						'search' => __('stats.searchSubmissionDescription'),
-						'clearSearch' => __('common.clearSearch'),
-						'daily' => __('stats.daily'),
-						'monthly' => __('stats.monthly'),
-						'abstracts' => __('stats.publications.abstracts'),
-						'files' => __('submission.files'),
-					],
-					$this->i18n
-				),
+				'i18n' => $this->i18n,
 			]
 		);
 

@@ -35,9 +35,6 @@ msgstr "Seu pedido não pode ser atendido pois informação requerida está falt
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "O volume requisitado, número ou ano não é válido."
 
-msgid "api.submissions.unknownError"
-msgstr "Ocorreu um erro não esperado. Por favor recarregue a página e tente novamente. Se o erro persistir contacte o suporte técnico."
-
 msgid "api.stats.400.wrongTimelineInterval"
 msgstr ""
 "Sua solicitação não é válida. O intervalo de tempo deve ser 'dia' ou ' mês'."

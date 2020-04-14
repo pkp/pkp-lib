@@ -299,7 +299,6 @@
 	// Loading indicator
 	.pkp_spinner {
 		opacity: 0;
-		float: right;
 		margin-right: 0.5em;
 		.transition(opacity 0.3s ease-in-out);
 
@@ -326,12 +325,13 @@
 
 // Row of buttons
 .form_buttons {
+	text-align: right;
 
 	a {
 		&:extend(.pkp_button_link all);
 
 		&.cancelButton {
-			&:extend(.pkp_button_link_offset all);
+			&:extend(.pkp_button_offset all);
 		}
 	}
 }

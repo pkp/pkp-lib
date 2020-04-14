@@ -16,6 +16,12 @@ class FieldPubId extends Field {
 	/** @copydoc Field::$component */
 	public $component = 'field-pub-id';
 
+	/** @var string A localized label for the button to assign the pubid */
+	public $assignIdLabel;
+
+	/** @var string A localized label for the button to clear the pubid */
+	public $clearIdLabel;
+
 	/** @var string The journal/press initials to use when generating a pub id */
 	public $contextInitials;
 
@@ -27,6 +33,9 @@ class FieldPubId extends Field {
 
 	/** @var string The issue volume to use when generating a pub id */
 	public $issueVolume;
+
+	/** @var string A localized message when the pub id can not be generated due to missing information */
+	public $missingPartsLabel;
 
 	/** @var string The page numbers use when generating a pub id */
 	public $pages;
@@ -57,6 +66,9 @@ class FieldPubId extends Field {
 	 */
 	public function getConfig() {
 		$config = parent::getConfig();
+		$config['assignIdLabel'] = $this->assignIdLabel;
+		$config['clearIdLabel'] = $this->clearIdLabel;
+		$config['missingPartsLabel'] = $this->missingPartsLabel;
 		if (isset($this->contextInitials)) {
 			$config['contextInitials'] = $this->contextInitials;
 		}

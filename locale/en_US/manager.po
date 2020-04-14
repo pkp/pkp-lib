@@ -24,7 +24,7 @@ msgid "manager.announcements"
 msgstr "Announcements"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Are you sure you want to permanently delete this announcement?"
+msgstr "Are you sure you want to permanently delete the announcement {$title}?"
 
 msgid "manager.announcements.create"
 msgstr "Create New Announcement"
@@ -37,6 +37,9 @@ msgstr "Expiry"
 
 msgid "manager.announcements.datePublish"
 msgstr "Published"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Delete Announcement"
 
 msgid "manager.announcements.edit"
 msgstr "Edit Announcement"
@@ -63,7 +66,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Please select a month and/or day in addition to the expiry date year."
 
 msgid "manager.announcements.form.description"
-msgstr "Description"
+msgstr "Announcement"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "The full text of the announcement."
@@ -191,6 +194,9 @@ msgstr "Custom Template"
 msgid "manager.emails.data"
 msgstr "Template Message Data"
 
+msgid "manager.emails.deleted"
+msgstr "Email template was successfully deleted."
+
 msgid "manager.emails.details"
 msgstr "Template Details"
 
@@ -257,8 +263,14 @@ msgstr "Reset All"
 msgid "manager.emails.resetAll.message"
 msgstr "If you reset all templates, all modifications to the email templates will be lost.  Do you want to confirm this operation?"
 
+msgid "manager.emails.resetAll.complete"
+msgstr "The default email templates have been restored."
+
 msgid "manager.emails.reset"
 msgstr "Reset"
+
+msgid "manager.emails.resetComplete"
+msgstr "Email template was successfully reset."
 
 msgid "manager.emails.reset.message"
 msgstr "If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?"

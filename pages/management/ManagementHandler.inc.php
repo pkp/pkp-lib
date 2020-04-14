@@ -224,9 +224,10 @@ class ManagementHandler extends Handler {
 		$emailTemplatesListPanel = new \APP\components\listPanels\EmailTemplatesListPanel(
 			'emailTemplates',
 			__('manager.emails.emailTemplates'),
+			$locales,
 			[
 				'apiUrl' => $emailTemplatesApiUrl,
-				'count' => 100,
+				'count' => 200,
 				'items' => [],
 				'itemsMax' => 0,
 				'lazyLoad' => true,
@@ -297,6 +298,50 @@ class ManagementHandler extends Handler {
 	function announcements($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
+
+		$apiUrl = $request->getDispatcher()->url($request, ROUTE_API, $request->getContext()->getPath(), 'announcements');
+
+		$supportedFormLocales = $request->getContext()->getSupportedFormLocales();
+		$localeNames = AppLocale::getAllLocales();
+		$locales = array_map(function($localeKey) use ($localeNames) {
+			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+		}, $supportedFormLocales);
+
+		$announcementForm = new \PKP\components\forms\announcement\PKPAnnouncementForm($apiUrl, $locales, $request->getContext());
+
+		$getParams = [
+			'contextIds' => $request->getContext()->getId(),
+			'count' => 30,
+		];
+		$announcementsIterator = Services::get('announcement')->getMany($getParams);
+		$itemsMax = Services::get('announcement')->getMax($getParams);
+		$items = [];
+		foreach ($announcementsIterator as $announcement) {
+			$items[] = Services::get('announcement')->getSummaryProperties($announcement, [
+				'request' => $request,
+				'announcementContext' => $request->getContext(),
+			]);
+		}
+
+		$announcementsListPanel = new \PKP\components\listPanels\PKPAnnouncementsListPanel(
+			'announcements',
+			__('manager.setup.announcements'),
+			[
+				'apiUrl' => $apiUrl,
+				'form' => $announcementForm,
+				'getParams' => $getParams,
+				'items' => $items,
+				'itemsMax' => $itemsMax,
+			]
+		);
+
+		$settingsData = [
+			'components' => [
+				$announcementsListPanel->id => $announcementsListPanel->getConfig(),
+			],
+		];
+
+		$templateMgr->assign('settingsData', $settingsData);
 
 		$templateMgr->display('management/announcements.tpl');
 	}

@@ -413,6 +413,9 @@ msgstr "Type"
 msgid "common.uninitiated"
 msgstr "Ikke startet"
 
+msgid "common.unknownError"
+msgstr "En uventet fejl opstod. Genindlæs siden og prøv igen."
+
 msgid "common.untitled"
 msgstr "Ikke-navngivet"
 
@@ -700,9 +703,6 @@ msgstr "Indekstermer"
 
 msgid "search.matchAll"
 msgstr "Find alle kategorier"
-
-msgid "search.noKeywordError"
-msgstr "Du skal angive mindst ét søgeord."
 
 msgid "search.noResults"
 msgstr "Ingen resultater"
@@ -1865,14 +1865,6 @@ msgid "form.csrfInvalid"
 msgstr ""
 "Formularen kunne ikke indsendes. Du er muligvis blevet logget ud. Genindlæs "
 "siden , og prøv igen."
-
-msgid "form.missingRequired"
-msgstr "Dette felt er påkrævet."
-
-msgid "form.errorUnknown"
-msgstr ""
-"Der opstod en uventet fejl. Du er muligvis blevet logget ud. Genindlæs "
-"siden, og prøv igen."
 
 msgid "form.errors"
 msgstr ""

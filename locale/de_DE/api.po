@@ -35,9 +35,6 @@ msgstr "Ihre Anforderung konnte nicht ausgeführt werden, da notwendige Informat
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Band, Nummer oder Jahr ist nicht nicht gültig."
 
-msgid "api.submissions.unknownError"
-msgstr "Es ist ein unerwarteter Fehler aufgetreten. Bitte laden Sie die Seite neu und versuchen Sie es noch einmal."
-
 msgid "api.publication.403.cantEditPublished"
 msgstr ""
 "Sie können diesen Beitrag nicht ändern, denn er wurde bereits veröffentlicht."

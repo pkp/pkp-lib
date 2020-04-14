@@ -23,11 +23,6 @@ class PKPSelectSubmissionsListPanel extends ListPanel {
 		$config['i18n'] = array_merge($config['i18n'], [
 			'listSeparator' => __('common.commaListSeparator'),
 			'viewSubmission' => __('submission.list.viewSubmission'),
-			'paginationLabel' => __('common.pagination.label'),
-			'goToLabel' => __('common.pagination.goToPage'),
-			'pageLabel' => __('common.pageNumber'),
-			'nextPageLabel' => __('common.pagination.next'),
-			'previousPageLabel' => __('common.pagination.previous'),
 		]);
 		return $config;
 	}

@@ -736,6 +736,9 @@ msgstr "Component"
 msgid "common.uninitiated"
 msgstr "Ej påbörjad"
 
+msgid "common.unknownError"
+msgstr "Ett oväntat fel uppstod. Ladda om sidan och försök igen."
+
 msgid "common.unread"
 msgstr "Oläst"
 
@@ -1369,9 +1372,6 @@ msgstr "Alla fält för ämnesord"
 msgid "search.matchAll"
 msgstr "Matcha i alla kategorier"
 
-msgid "search.noKeywordError"
-msgstr "Du måste ange minst ett sökord."
-
 msgid "search.noResults"
 msgstr "Inga träffar"
 
@@ -1657,11 +1657,6 @@ msgstr "Behörigheter"
 
 msgid "form.multilingualLabel"
 msgstr "{$label} på {$localeName}"
-
-msgid "form.errorUnknown"
-msgstr ""
-"Ett oväntat fel inträffade. Du kan ha loggats ut ur systemet. Ladda om "
-"webbsidan och försök igen."
 
 msgid "form.errors"
 msgstr ""

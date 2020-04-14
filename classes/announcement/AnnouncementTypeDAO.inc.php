@@ -134,7 +134,7 @@ class AnnouncementTypeDAO extends DAO {
 			'SELECT ats.type_id
 				FROM announcement_type_settings AS ats
 				LEFT JOIN announcement_types at ON ats.type_id = at.type_id
-				WHERE ats.setting_name = "name"
+				WHERE ats.setting_name = \'name\'
 				AND ats.setting_value = ?
 				AND at.assoc_type = ?
 				AND at.assoc_id = ?',

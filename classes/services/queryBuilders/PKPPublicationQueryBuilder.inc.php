@@ -101,8 +101,9 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder implements EntityQuery
 
 	/**
 	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
+	 * @param $applyOrder boolean True iff an order by version (ascending) should be applied
 	 */
-	public function getQuery() {
+	public function getQuery($applyOrder = true) {
 		$this->columns = ['*'];
 		$q = Capsule::table('publications as p');
 
@@ -123,8 +124,10 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder implements EntityQuery
 			$q->offset($this->offset);
 		}
 
-		// Order by version number
-		$q->orderBy('p.version', 'asc');
+		if ($applyOrder) {
+			// Order by version number
+			$q->orderBy('p.version', 'asc');
+		}
 
 		// Add app-specific query statements
 		\HookRegistry::call('Publication::getMany::queryObject', array(&$q, $this));
@@ -140,7 +143,7 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder implements EntityQuery
 	 * @return object Query object
 	 */
 	public function getDateBoundaries() {
-		return $this->getQuery()
+		return $this->getQuery(false)
 			->select([
 				Capsule::raw('MIN(p.date_published), MAX(p.date_published)')
 			]);

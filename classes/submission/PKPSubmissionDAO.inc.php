@@ -383,7 +383,7 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 				. (($pubIdSettingName != null && $pubIdSettingValue != null && $pubIdSettingValue != EXPORT_STATUS_NOT_DEPOSITED)?' AND pss.setting_value = ?':'')
 				. (($pubIdSettingName != null && is_null($pubIdSettingValue))?' AND (pss.setting_value IS NULL OR pss.setting_value = \'\')':'')
 			. ' GROUP BY s.submission_id
-			ORDER BY p.date_published DESC, s.submission_id DESC',
+			ORDER BY MAX(p.date_published) DESC, s.submission_id DESC',
 			$params,
 			$rangeInfo
 		);

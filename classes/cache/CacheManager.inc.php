@@ -17,7 +17,6 @@
 import('lib.pkp.classes.cache.FileCache');
 
 define('CACHE_TYPE_FILE', 1);
-define('CACHE_TYPE_OBJECT', 2);
 
 class CacheManager {
 	/**
@@ -46,14 +45,9 @@ class CacheManager {
 		);
 	}
 
-	function getObjectCache($context, $cacheId, $fallback) {
-		return $this->getCache($context, $cacheId, $fallback, CACHE_TYPE_OBJECT);
-	}
-
 	function getCacheImplementation($type) {
 		switch ($type) {
 			case CACHE_TYPE_FILE: return 'file';
-			case CACHE_TYPE_OBJECT: return Config::getVar('cache', 'object_cache');
 			default: return null;
 		}
 	}
@@ -68,26 +62,6 @@ class CacheManager {
 	 */
 	function getCache($context, $cacheId, $fallback, $type = CACHE_TYPE_FILE) {
 		switch ($this->getCacheImplementation($type)) {
-			case 'xcache':
-				import('lib.pkp.classes.cache.XCacheCache');
-				$cache = new XCacheCache(
-					$context, $cacheId, $fallback
-				);
-				break;
-			case 'apc':
-				import('lib.pkp.classes.cache.APCCache');
-				$cache = new APCCache(
-					$context, $cacheId, $fallback
-				);
-				break;
-			case 'memcache':
-				import('lib.pkp.classes.cache.MemcacheCache');
-				$cache = new MemcacheCache(
-					$context, $cacheId, $fallback,
-					Config::getVar('cache','memcache_hostname'),
-					Config::getVar('cache','memcache_port')
-				);
-				break;
 			case '': // Provide a default if not specified
 			case 'file':
 				$cache = $this->getFileCache($context, $cacheId, $fallback);
@@ -122,12 +96,6 @@ class CacheManager {
 	function flush($context = null, $type = CACHE_TYPE_FILE) {
 		$cacheImplementation = $this->getCacheImplementation($type);
 		switch ($cacheImplementation) {
-			case 'xcache':
-			case 'apc':
-			case 'memcache':
-				$junkCache = $this->getCache($context, null, null);
-				$junkCache->flush();
-				break;
 			case 'file':
 				$filePath = $this->getFileCachePath();
 				$files = glob($filePath . DIRECTORY_SEPARATOR . 'fc-' . (isset($context)?$context . '-':'') . '*.php');
@@ -144,5 +112,4 @@ class CacheManager {
 		}
 	}
 }
-
 

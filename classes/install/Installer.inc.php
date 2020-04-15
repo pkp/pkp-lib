@@ -618,7 +618,6 @@ class Installer {
 	function clearDataCache() {
 		$cacheManager = CacheManager::getManager();
 		$cacheManager->flush(null, CACHE_TYPE_FILE);
-		$cacheManager->flush(null, CACHE_TYPE_OBJECT);
 		return true;
 	}
 

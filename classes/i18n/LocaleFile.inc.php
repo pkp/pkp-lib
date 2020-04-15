@@ -13,11 +13,7 @@
  * @brief Abstraction of a locale file
  */
 
-
 class LocaleFile {
-	/** @var object Cache of this locale file */
-	var $cache;
-
 	/** @var string The identifier for this locale file */
 	var $locale;
 
@@ -32,37 +28,6 @@ class LocaleFile {
 	function __construct($locale, $filename) {
 		$this->locale = $locale;
 		$this->filename = $filename;
-	}
-
-	/**
-	 * Get the cache object for this locale file.
-	 */
-	function _getCache($locale) {
-		if (!isset($this->cache)) {
-			$cacheManager = CacheManager::getManager();
-			$this->cache = $cacheManager->getFileCache(
-				'locale', md5($this->filename),
-				array($this, '_cacheMiss')
-			);
-
-			// Check to see if the cache is outdated.
-			// Only some kinds of caches track cache dates;
-			// if there's no date available (ie cachedate is
-			// null), we have to assume it's up to date.
-			$cacheTime = $this->cache->getCacheTime();
-			if ($cacheTime === null || $cacheTime < filemtime($this->filename)) {
-				// This cache is out of date; flush it.
-				$this->cache->setEntireCache(LocaleFile::load($this->filename));
-			}
-		}
-		return $this->cache;
-	}
-
-	/**
-	 * Register a cache miss.
-	 */
-	function _cacheMiss($cache, $id) {
-		return null; // It's not in this locale file.
 	}
 
 	/**
@@ -82,34 +47,30 @@ class LocaleFile {
 	 * @return string
 	 */
 	function translate($key, $params = array(), $locale = null) {
-		if ($this->isValid()) {
-			$key = trim($key);
-			if (empty($key)) {
-				return '';
-			}
+		if (!$this->isValid()) return null;
+		$key = trim($key);
+		if ($key === '') return '';
 
-			$cache = $this->_getCache($this->locale);
-			$message = $cache->get($key);
-			if (!isset($message)) {
-				// Try to force loading the plugin locales.
-				$message = $this->_cacheMiss($cache, $key);
-			}
-
-			if (isset($message)) {
-				if (!empty($params)) {
-					// Substitute custom parameters
-					foreach ($params as $key => $value) {
-						$message = str_replace("{\$$key}", $value, $message);
-					}
-				}
-
-				// if client encoding is set to iso-8859-1, transcode string from utf8 since we store all XML files in utf8
-				if (LOCALE_ENCODING == "iso-8859-1") $message = utf8_decode($message);
-
-				return $message;
-			}
+		$pool = new Stash\Pool(new Stash\Driver\FileSystem(array('path' => Core::getFileCachePath() . '/stash')));
+		$item = $pool->getItem('locale-' . md5($this->getFilename()));
+		if ($item->isMiss() || filemtime($this->filename) >= $item->getCreation()->getTimestamp()) {
+			$item->set(LocaleFile::load($this->filename));
+			$pool->save($item);
 		}
-		return null;
+		$messages = $item->get();
+
+		if (!isset($messages[$key])) return null;
+		$message = $messages[$key];
+
+		// Substitute custom parameters
+		foreach ($params as $key => $value) {
+			$message = str_replace("{\$$key}", $value, $message);
+		}
+
+		// if client encoding is set to iso-8859-1, transcode string from utf8 since we store all XML files in utf8
+		if (LOCALE_ENCODING == "iso-8859-1") $message = utf8_decode($message);
+
+		return $message;
 	}
 
 	/**

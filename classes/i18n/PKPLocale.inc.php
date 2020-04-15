@@ -79,7 +79,7 @@ class PKPLocale {
 	 * @param $locale string Locale identifier (optional)
 	 */
 	static function &getLocaleFiles($locale = null) {
-		$localeFiles =& Registry::get('localeFiles', true, array());
+		$localeFiles =& Registry::get('localeFiles', true, array()); // Reference required
 		if ($locale !== null) {
 			if (!isset($localeFiles[$locale])) $localeFiles[$locale] = array();
 			return $localeFiles[$locale];
@@ -110,7 +110,7 @@ class PKPLocale {
 		if (!isset($locale)) $locale = AppLocale::getLocale();
 		if (($key = trim($key)) == '') return '';
 
-		$localeFiles =& AppLocale::getLocaleFiles($locale);
+		$localeFiles = AppLocale::getLocaleFiles($locale);
 		$value = '';
 		for ($i = count($localeFiles) - 1 ; $i >= 0 ; $i --) {
 			$value = $localeFiles[$i]->translate($key, $params);
@@ -118,7 +118,7 @@ class PKPLocale {
 		}
 
 		// Add a missing key to the debug notes.
-		$notes =& Registry::get('system.debug.notes');
+		$notes =& Registry::get('system.debug.notes'); // Reference required
 		$notes[] = array('debug.notes.missingLocaleKey', array('key' => $key));
 
 		if (!HookRegistry::call('PKPLocale::translate', array(&$key, &$params, &$locale, &$localeFiles, &$value))) {
@@ -165,7 +165,7 @@ class PKPLocale {
 			$offset = sprintf('%+d:%02d', $hrs*$sgn, $mins);
 
 			$conn = DBConnection::getInstance();
-			$dbconn =& $conn->getDBConn();
+			$dbconn = $conn->getDBConn();
 			switch($conn->getDriver()) {
 				case 'mysql':
 				case 'mysqli':
@@ -214,7 +214,7 @@ class PKPLocale {
 	 * @return array
 	 */
 	static function getFilenameComponentMap($locale) {
-		$filenameComponentMap =& Registry::get('localeFilenameComponentMap', true, array());
+		$filenameComponentMap =& Registry::get('localeFilenameComponentMap', true, array()); // Reference required
 		if (!isset($filenameComponentMap[$locale])) {
 			$filenameComponentMap[$locale] = AppLocale::makeComponentMap($locale);
 		}
@@ -249,7 +249,7 @@ class PKPLocale {
 		}
 
 		// Go through and make sure each component is loaded if valid.
-		$loadedComponents =& Registry::get('loadedLocaleComponents', true, array());
+		$loadedComponents =& Registry::get('loadedLocaleComponents', true, array()); // Reference required
 		$filenameComponentMap = AppLocale::getFilenameComponentMap($locale);
 		for ($i=0; $i<$paramCount; $i++) {
 			$component = $params[$i];
@@ -276,7 +276,7 @@ class PKPLocale {
 	 * 	or the bottom (false). Allows overriding.
 	 */
 	static function registerLocaleFile ($locale, $filename, $addToTop = false) {
-		$localeFiles =& AppLocale::getLocaleFiles($locale);
+		$localeFiles =& AppLocale::getLocaleFiles($locale); // Reference required
 		$localeFile = new LocaleFile($locale, $filename);
 
 		if (!HookRegistry::call('PKPLocale::registerLocaleFile::isValidLocaleFile', array(&$localeFile))) {
@@ -299,7 +299,7 @@ class PKPLocale {
 	 * @return string or null if none configured.
 	 */
 	static function getLocaleStyleSheet($locale) {
-		$contents =& AppLocale::_getAllLocalesCacheContent();
+		$contents = AppLocale::_getAllLocalesCacheContent();
 		if (isset($contents[$locale]['stylesheet'])) {
 			return $contents[$locale]['stylesheet'];
 		}
@@ -318,7 +318,7 @@ class PKPLocale {
 	 * @return string
 	 */
 	static function getLocaleDirection($locale) {
-		$contents =& AppLocale::_getAllLocalesCacheContent();
+		$contents = AppLocale::_getAllLocalesCacheContent();
 		if (isset($contents[$locale]['direction'])) {
 			return $contents[$locale]['direction'];
 		}
@@ -331,7 +331,7 @@ class PKPLocale {
 	 * @return boolean
 	 */
 	static function isLocaleComplete($locale) {
-		$contents =& AppLocale::_getAllLocalesCacheContent();
+		$contents = AppLocale::_getAllLocalesCacheContent();
 		if (!isset($contents[$locale])) return false;
 		if (isset($contents[$locale]['complete']) && $contents[$locale]['complete'] == 'false') {
 			return false;
@@ -345,7 +345,7 @@ class PKPLocale {
 	 * @return boolean
 	 */
 	static function isLocaleWithFamilyFirst($locale) {
-		$contents =& AppLocale::_getAllLocalesCacheContent();
+		$contents = AppLocale::_getAllLocalesCacheContent();
 		if (isset($contents[$locale]) && isset($contents[$locale]['familyFirst']) && $contents[$locale]['familyFirst'] == 'true') {
 			return true;
 		}
@@ -390,7 +390,7 @@ class PKPLocale {
 	 * @return array
 	 */
 	static function &getAllLocales() {
-		$rawContents =& AppLocale::_getAllLocalesCacheContent();
+		$rawContents = AppLocale::_getAllLocalesCacheContent();
 		$allLocales = array();
 
 		foreach ($rawContents as $locale => $contents) {
@@ -468,7 +468,7 @@ class PKPLocale {
 	 */
 	static function get3LetterFrom2LetterIsoLanguage($iso2Letter) {
 		assert(strlen($iso2Letter) == 2);
-		$locales =& AppLocale::_getAllLocalesCacheContent();
+		$locales = AppLocale::_getAllLocalesCacheContent();
 		foreach($locales as $locale => $localeData) {
 			if (substr($locale, 0, 2) == $iso2Letter) {
 				assert(isset($localeData['iso639-2b']));
@@ -487,7 +487,7 @@ class PKPLocale {
 	 */
 	static function get2LetterFrom3LetterIsoLanguage($iso3Letter) {
 		assert(strlen($iso3Letter) == 3);
-		$locales =& AppLocale::_getAllLocalesCacheContent();
+		$locales = AppLocale::_getAllLocalesCacheContent();
 		foreach($locales as $locale => $localeData) {
 			assert(isset($localeData['iso639-2b']));
 			if ($localeData['iso639-2b'] == $iso3Letter) {
@@ -528,7 +528,7 @@ class PKPLocale {
 		$primaryLocale = AppLocale::getPrimaryLocale();
 
 		$localeCandidates = array();
-		$locales =& AppLocale::_getAllLocalesCacheContent();
+		$locales = AppLocale::_getAllLocalesCacheContent();
 		foreach($locales as $locale => $localeData) {
 			assert(isset($localeData['iso639-2b']));
 			if ($localeData['iso639-2b'] == $iso3Letter) {
@@ -568,7 +568,7 @@ class PKPLocale {
 	 */
 	static function getIso3FromIso1($iso1) {
 		assert(strlen($iso1) == 2);
-		$locales =& AppLocale::_getAllLocalesCacheContent();
+		$locales = AppLocale::_getAllLocalesCacheContent();
 		foreach($locales as $locale => $localeData) {
 			if (substr($locale, 0, 2) == $iso1) {
 				assert(isset($localeData['iso639-3']));
@@ -586,7 +586,7 @@ class PKPLocale {
 	 */
 	static function getIso1FromIso3($iso3) {
 		assert(strlen($iso3) == 3);
-		$locales =& AppLocale::_getAllLocalesCacheContent();
+		$locales = AppLocale::_getAllLocalesCacheContent();
 		foreach($locales as $locale => $localeData) {
 			assert(isset($localeData['iso639-3']));
 			if ($localeData['iso639-3'] == $iso3) {
@@ -638,7 +638,7 @@ class PKPLocale {
 		$primaryLocale = AppLocale::getPrimaryLocale();
 
 		$localeCandidates = array();
-		$locales =& AppLocale::_getAllLocalesCacheContent();
+		$locales = AppLocale::_getAllLocalesCacheContent();
 		foreach($locales as $locale => $localeData) {
 			assert(isset($localeData['iso639-3']));
 			if ($localeData['iso639-3'] == $iso3) {
@@ -677,55 +677,16 @@ class PKPLocale {
 	 * Retrieves locale data from the locales cache.
 	 * @return array
 	 */
-	static function &_getAllLocalesCacheContent() {
-		static $contents = false;
-		if ($contents === false) {
-			$allLocalesCache =& AppLocale::_getAllLocalesCache();
-			$contents = $allLocalesCache->getContents();
-		}
-		return $contents;
-	}
-
-	/**
-	 * Get the cache object for the current list of all locales.
-	 * @return FileCache
-	 */
-	static function &_getAllLocalesCache() {
-		$cache =& Registry::get('allLocalesCache', true, null);
-		if ($cache === null) {
-			$cacheManager = CacheManager::getManager();
-			$cache = $cacheManager->getFileCache(
-				'locale', 'list',
-				array('AppLocale', '_allLocalesCacheMiss')
-			);
-
-			// Check to see if the data is outdated
-			$cacheTime = $cache->getCacheTime();
-			if ($cacheTime !== null && $cacheTime < filemtime(LOCALE_REGISTRY_FILE)) {
-				$cache->flush();
-			}
-		}
-		return $cache;
-	}
-
-	/**
-	 * Create a cache file with locale data.
-	 * @param $cache CacheManager
-	 * @param $id the cache id (not used here, required by the cache manager)
-	 */
-	static function _allLocalesCacheMiss($cache, $id) {
-		$allLocales =& Registry::get('allLocales', true, null);
-		if ($allLocales === null) {
-			// Add a locale load to the debug notes.
-			$notes =& Registry::get('system.debug.notes');
-			$notes[] = array('debug.notes.localeListLoad', array('localeList' => LOCALE_REGISTRY_FILE));
-
-			// Reload locale registry file
+	static function _getAllLocalesCacheContent() {
+		$pool = new Stash\Pool(new Stash\Driver\FileSystem(array('path' => Core::getFileCachePath() . '/stash')));
+		$item = $pool->getItem('allLocales');
+		if ($item->isMiss() || filemtime(LOCALE_REGISTRY_FILE) >= $item->getCreation()->getTimestamp()) {
 			$allLocales = AppLocale::loadLocaleList(LOCALE_REGISTRY_FILE);
 			asort($allLocales);
-			$cache->setEntireCache($allLocales);
+			$item->set($allLocales);
+			$pool->save($item);
 		}
-		return null;
+		return $item->get();
 	}
 }
 

@@ -616,8 +616,8 @@ class Installer {
 	 * @return boolean
 	 */
 	function clearDataCache() {
-		$cacheManager = CacheManager::getManager();
-		$cacheManager->flush(null, CACHE_TYPE_FILE);
+		$driver = new Stash\Driver\FileSystem(array('path' => Core::getFileCachePath() . '/stash'));
+		$driver->clear();
 		return true;
 	}
 

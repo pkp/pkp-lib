@@ -15,30 +15,15 @@
  */
 
 class PluginSettingsDAO extends DAO {
-
 	/**
-	 * Get the cache for plugin settings.
-	 * @param $contextId int Context ID
-	 * @param $pluginName string Plugin symbolic name
-	 * @return Cache
+	 * Get the cache pool item for the specified context ID and plugin name.
+	 * @param $contextId int
+	 * @param $pluginName string
+	 * @return [Stash\Pool,Stash\Item]
 	 */
-	function _getCache($contextId, $pluginName) {
-		static $settingCache;
-
-		if (!isset($settingCache)) {
-			$settingCache = array();
-		}
-		if (!isset($settingCache[$contextId])) {
-			$settingCache[$contextId] = array();
-		}
-		if (!isset($settingCache[$contextId][$pluginName])) {
-			$cacheManager = CacheManager::getManager();
-			$settingCache[$contextId][$pluginName] = $cacheManager->getCache(
-				'pluginSettings-' . $contextId, $pluginName,
-				array($this, '_cacheMiss')
-			);
-		}
-		return $settingCache[$contextId][$pluginName];
+	protected function _getPoolItem($contextId, $pluginName) {
+		$pool = new Stash\Pool(new Stash\Driver\FileSystem(array('path' => Core::getFileCachePath() . '/stash')));
+		return [$pool, $pool->getItem('pluginSettings-' . $contextId . '-' . $pluginName)];
 	}
 
 	/**
@@ -53,8 +38,14 @@ class PluginSettingsDAO extends DAO {
 		$pluginName = strtolower_codesafe($pluginName);
 
 		// Retrieve the setting.
-		$cache = $this->_getCache($contextId, $pluginName);
-		return $cache->get($name);
+		list($pool, $item) = $this->_getPoolItem($contextId, $pluginName);
+		if ($item->isMiss()) {
+			$settings = $this->getPluginSettings($contextId, $pluginName);
+			$item->set($settings);
+			$pool->save($item);
+		}
+		$settings = $item->get();
+		return $settings[$name] ?? null;
 	}
 
 	/**
@@ -75,25 +66,7 @@ class PluginSettingsDAO extends DAO {
 	}
 
 	/**
-	 * Callback for a cache miss.
-	 * @param $cache Cache object
-	 * @param $id string Identifier to look up in cache
-	 * @return mixed
-	 */
-	function _cacheMiss($cache, $id) {
-		$contextParts = explode('-', $cache->getContext());
-		$contextId = array_pop($contextParts);
-		$settings = $this->getPluginSettings($contextId, $cache->getCacheId());
-		if (!isset($settings[$id])) {
-			// Make sure that even null values are cached
-			$cache->setCache($id, null);
-			return null;
-		}
-		return $settings[$id];
-	}
-
-	/**
-	 * Retrieve and cache all settings for a plugin.
+	 * Retrieve all settings for a plugin (uncached).
 	 * @param $contextId int Context ID
 	 * @param $pluginName string Plugin symbolic name
 	 * @return array
@@ -115,9 +88,6 @@ class PluginSettingsDAO extends DAO {
 		}
 		$result->Close();
 
-		$cache = $this->_getCache($contextId, $pluginName);
-		$cache->setEntireCache($pluginSettings);
-
 		return $pluginSettings;
 	}
 
@@ -133,13 +103,8 @@ class PluginSettingsDAO extends DAO {
 	function updateSetting($contextId, $pluginName, $name, $value, $type = null) {
 		// Normalize the plug-in name to lower case.
 		$pluginName = strtolower_codesafe($pluginName);
-
-		$cache = $this->_getCache($contextId, $pluginName);
-		$cache->setCache($name, $value);
-
 		$value = $this->convertToDB($value, $type);
-
-		return $this->replace(
+		$returner = $this->replace(
 			'plugin_settings',
 			array(
 				'context_id' => (int) $contextId,
@@ -150,6 +115,12 @@ class PluginSettingsDAO extends DAO {
 			),
 			array('context_id', 'plugin_name', 'setting_name')
 		);
+
+		// Clear the cache.
+		list($pool, $item) = $this->_getPoolItem($contextId, $pluginName);
+		$item->clear();
+
+		return $returner;
 	}
 
 	/**
@@ -162,13 +133,14 @@ class PluginSettingsDAO extends DAO {
 		// Normalize the plug-in name to lower case.
 		$pluginName = strtolower_codesafe($pluginName);
 
-		$cache = $this->_getCache($contextId, $pluginName);
-		$cache->setCache($name, null);
-
-		return $this->update(
+		$this->update(
 			'DELETE FROM plugin_settings WHERE plugin_name = ? AND setting_name = ? AND context_id = ?',
 			array($pluginName, $name, (int) $contextId)
 		);
+
+		// Clear the cache.
+		list($pool, $item) = $this->_getPoolItem($contextId, $pluginName);
+		$item->clear();
 	}
 
 	/**
@@ -180,13 +152,14 @@ class PluginSettingsDAO extends DAO {
 		// Normalize the plug-in name to lower case.
 		$pluginName = strtolower_codesafe($pluginName);
 
-		$cache = $this->_getCache($contextId, $pluginName);
-		$cache->flush();
-
-		return $this->update(
+		$this->update(
 			'DELETE FROM plugin_settings WHERE context_id = ? AND plugin_name = ?',
 			array((int) $contextId, $pluginName)
 		);
+
+		// Clear the cache.
+		list($pool, $item) = $this->_getPoolItem($contextId, $pluginName);
+		$item->clear();
 	}
 
 	/**

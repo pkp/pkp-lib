@@ -43,6 +43,14 @@ class Core {
 	}
 
 	/**
+	 * Get the path in which file caches will be stored.
+	 * @return string The full path to the file cache directory
+	 */
+	static function getFileCachePath() {
+		return Core::getBaseDir() . DIRECTORY_SEPARATOR . 'cache';
+	}
+
+	/**
 	 * Sanitize a value to be used in a file path.
 	 * Removes any characters except alphanumeric characters, underscores, and dashes.
 	 * @param $var string
@@ -98,17 +106,31 @@ class Core {
 	 * @return boolean
 	 */
 	static function isUserAgentBot($userAgent, $botRegexpsFile = COUNTER_USER_AGENTS_FILE) {
-		static $botRegexps;
-		Registry::set('currentUserAgentsFile', $botRegexpsFile);
-
-		if (!isset($botRegexps[$botRegexpsFile])) {
-			$botFileCacheId = md5($botRegexpsFile);
-			$cacheManager = CacheManager::getManager();
-			$cache = $cacheManager->getCache('core', $botFileCacheId, array('Core', '_botFileListCacheMiss'), CACHE_TYPE_FILE);
-			$botRegexps[$botRegexpsFile] = $cache->getContents();
+		$pool = new Stash\Pool(new Stash\Driver\FileSystem(array('path' => Core::getFileCachePath() . '/stash')));
+		$item = $pool->getItem('bots-' . md5($botRegexpsFile));
+		if ($item->isMiss() || filemtime($botRegexpsFile) >= $item->getCreation()->getTimestamp()) {
+			$filteredBotRegexps = array_filter(file($botRegexpsFile),
+				function ($regexp) {
+					$regexp = trim($regexp);
+					return !empty($regexp) && $regexp[0] != '#';
+				}
+			);
+			$botRegexps = array_map(function ($regexp) {
+					$delimiter = '/';
+					$regexp = trim($regexp);
+					if(strpos($regexp, $delimiter) !== 0) {
+						// Make sure delimiters are in place.
+						$regexp = $delimiter . $regexp . $delimiter;
+					}
+					return $regexp;
+				},
+				$filteredBotRegexps
+			);
+			$item->set($botRegexps);
+			$pool->save($item);
 		}
 
-		foreach ($botRegexps[$botRegexpsFile] as $regexp) {
+		foreach ($item->get() as $regexp) {
 			// make the search case insensitive
 			$regexp .= 'i';
 			if (PKPString::regexp_match($regexp, $userAgent)) {
@@ -378,34 +400,6 @@ class Core {
 		}
 
 		return false;
-	}
-
-	/**
-	 * Bot list file cache miss fallback.
-	 * @param $cache FileCache
-	 * @return array:
-	 */
-	static function _botFileListCacheMiss($cache) {
-		$id = $cache->getCacheId();
-		$filteredBotRegexps = array_filter(file(Registry::get('currentUserAgentsFile')),
-			function ($regexp) {
-				$regexp = trim($regexp);
-				return !empty($regexp) && $regexp[0] != '#';
-			}
-		);
-		$botRegexps = array_map(function ($regexp) {
-				$delimiter = '/';
-				$regexp = trim($regexp);
-				if(strpos($regexp, $delimiter) !== 0) {
-					// Make sure delimiters are in place.
-					$regexp = $delimiter . $regexp . $delimiter;
-				}
-				return $regexp;
-			},
-			$filteredBotRegexps
-		);
-		$cache->setEntireCache($botRegexps);
-		return $botRegexps;
 	}
 
 	/**

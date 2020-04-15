@@ -314,42 +314,26 @@ class NavigationMenuDAO extends DAO {
 	 * @param int $id
 	 */
 	function unCache($id){
-		$cache = $this->getCache($id);
-		if ($cache) $cache->flush();
+		$item = $this->_getCache($id);
+		$item->clear();
 	}
 
 	/**
 	 * Get the settings cache for a given ID
 	 * @param $id
-	 * @return array|null (Null indicates caching disabled)
+	 * @return Stash\Item
 	 */
-	function getCache($id) {
-		static $navigationMenuCache;
-		if (!isset($navigationMenuCache)) {
-			$navigationMenuCache = array();
+	protected function _getCache($id) {
+		$pool = new Stash\Pool(new Stash\Driver\FileSystem(array('path' => Core::getFileCachePath() . '/stash')));
+		$item = $pool->getItem('navigationMenu' . md5($id));
+		if ($item->isMiss()) {
+			$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+			$navigationMenu = $navigationMenuDao->getById($id);
+			import('classes.core.Services');
+			Services::get('navigationMenu')->getMenuTree($navigationMenu);
+			$item->set($navigationMenu);
+			$pool->save($item);
 		}
-		if (!isset($navigationMenuCache[$id])) {
-			$cacheManager = \CacheManager::getManager();
-			$navigationMenuCache[$id] = $cacheManager->getCache(
-				'navigationMenu', $id,
-				array($this, '_cacheMiss')
-			);
-		}
-		return $navigationMenuCache[$id];
-	}
-
-	/**
-	 * Callback for a cache miss.
-	 * @param $cache Cache
-	 * @param $id string
-	 * @return mixed
-	 */
-	function _cacheMiss($cache, $id) {
-		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
-		$navigationMenu = $navigationMenuDao->GetById($cache->getCacheId());
-		import('classes.core.Services');
-		Services::get('navigationMenu')->getMenuTree($navigationMenu);
-
-		return $navigationMenu;
+		return $item;
 	}
 }

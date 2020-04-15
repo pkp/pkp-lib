@@ -311,22 +311,6 @@ function ucfirst_codesafe($str) {
 }
 
 /**
-/**
- * Convert a Windows path to a cygwin path.
- * @param string $path Windows path
- * @return string Cygwin path.
- */
-function cygwinConversion($path) {
-	$path = str_replace('\\', '/', $path);
-	$matches = null;
-	PKPString::regexp_match_get('/^([A-Z]):/i', $path, $matches);
-	if (isset($matches[1]) && strlen($matches[1]) === 1) {
-		$path = PKPString::regexp_replace('/^[A-Z]:/i', '/cygdrive/' . strtolower($matches[1]), $path);
-	}
-	return $path;
-}
-
-/**
  * Helper function to define custom autoloader 
  * @param string $rootPath
  * @param string $prefix

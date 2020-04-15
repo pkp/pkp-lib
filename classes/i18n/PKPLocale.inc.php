@@ -147,8 +147,11 @@ class PKPLocale {
 		// Starting from PHP 5.3.0 PHP will throw an E_WARNING if the default
 		// time zone is not set and date/time functions are used
 		// http://pl.php.net/manual/en/function.date-default-timezone-set.php
-		$timeZone = self::getTimeZone();
-		date_default_timezone_set($timeZone);
+		date_default_timezone_set(
+			Config::getVar('general', 'time_zone') // Load the time zone from the configuration file
+			?: ini_get('date.timezone') // Fall back to the time zone set in php.ini
+			?: 'UTC' // Fall back on UTC
+		);
 
 		if (Config::getVar('general', 'installed')) {
 			// Set the time zone for DB
@@ -723,34 +726,6 @@ class PKPLocale {
 			$cache->setEntireCache($allLocales);
 		}
 		return null;
-	}
-
-	/**
-	 * Get the sites time zone.
-	 * @return string Time zone
-	 */
-	static function getTimeZone() {
-		$timeZone = null;
-
-		// Load the time zone from the configuration file
-		if ($timeZoneConfig = Config::getVar('general', 'time_zone')) {
-			$timeZoneDAO = DAORegistry::getDAO('TimeZoneDAO');
-			$timeZoneList = $timeZoneDAO->getTimeZones();
-			foreach ($timeZoneList as $timeZoneKey => $timeZoneName) {
-				if (in_array($timeZoneConfig, array($timeZoneKey, $timeZoneName))) {
-					$timeZone = $timeZoneKey;
-					break;
-				}
-			}
-		}
-
-		// Fall back to the time zone set in php.ini
-		if (empty($timeZone)) $timeZone = ini_get('date.timezone');
-
-		// Fall back to UTC
-		if (empty($timeZone)) $timeZone = 'UTC';
-
-		return $timeZone;
 	}
 }
 

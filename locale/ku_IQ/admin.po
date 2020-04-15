@@ -1,8 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-14 22:37+0000\n"
-"Last-Translator: Kameran MohamadJalal Majeed "
-"<kameran.jalal@koyauniversity.org>\n"
+"PO-Revision-Date: 2020-04-16 16:37+0000\n"
+"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
 "Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ku_IQ/>\n"
 "Language: ku_IQ\n"
@@ -182,3 +181,28 @@ msgstr "زمانه‌ فه‌راهه‌مكراوه‌كان"
 
 msgid "admin.languages.installLanguages"
 msgstr "به‌ڕێوه‌بردنی زمانه‌كان"
+
+msgid "admin.settings.contactName"
+msgstr "ناوی کەسی پەیوەندیداری سەرەکی"
+
+msgid "admin.server.dbVersion"
+msgstr "وه‌شانی سێرڤه‌ری بنكه‌ی زانیارییه‌كان"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "بڵاوکردنەوەی توێژینەوە دانراوەکان بۆ بڵاوکردنەوە"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"جێگیرکردنی بەرنامەی {$softwareName} بە تۆماتیکی جێبەجێ کرا و تەواو بو، ئێستا "
+"تۆ دەتوانیت فایلەکە لێرە داببەزێنیت:  {$url}"
+
+msgid "admin.languages.installLocales"
+msgstr "دانان/دامه‌زراندن"
+
+msgid "admin.languages.installedLocales"
+msgstr "شوێنەکانی دابەزین"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"ئایا تۆ دڵنیایت لە دابەزاندنەوەی ئەم زمانە؟ ئەمە هەمو تایبەتمەندییەکانی زمان "
+"دەسڕێتەوە بۆ نمونە قاڵبە تایبەتییەکانی ئیمەیڵ."

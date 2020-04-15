@@ -831,12 +831,6 @@ msgstr "Η σελίδα δημιουργήθηκε σε"
 msgid "debug.memoryUsage"
 msgstr "Χρησιμοποιούμενη μνήμη:"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Η λίστα ρυθμίσεων γλώσσας \"{$localeList}\" φορτώθηκε από XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Το αρχείο γλώσσας \"{$localeFile}\" φορτώθηκε από XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Απουσία κλειδιού τοπικών ρυθμίσεων \"{$key}\""
 

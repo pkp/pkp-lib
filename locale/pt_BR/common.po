@@ -762,12 +762,6 @@ msgstr "Página gerada em"
 msgid "debug.memoryUsage"
 msgstr "Uso de memória"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Lista de traduções \"{$localeList}\" carregada do XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Documento de Tradução \"{$localeFile}\" carregado do XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Faltando chave de tradução \"{$key}\"."
 

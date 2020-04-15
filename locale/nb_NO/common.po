@@ -455,12 +455,6 @@ msgstr "Side generert i"
 msgid "debug.memoryUsage"
 msgstr "Minneforbruk:"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Lastet lokalinnstillingsliste \"{$localeList}\" fra XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Lastet lokalinnstillingsfil \"{$localeFile}\" fra XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Mangler lokalinnstillingsnøkkel \"{$key}\"."
 

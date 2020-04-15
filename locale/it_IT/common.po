@@ -452,12 +452,6 @@ msgstr "Pagina generata in"
 msgid "debug.memoryUsage"
 msgstr "Utilizzo della memoria"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Caricata lista \"{$localeList}\" da XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Caricato file di localizzazione \"{$localeFile}\" da XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Chiave di localizzazione mancante \"{$key}\"."
 

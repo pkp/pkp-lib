@@ -877,12 +877,6 @@ msgstr "Страница создана за"
 msgid "debug.memoryUsage"
 msgstr "Использование памяти"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Загружен список языков «{$localeList}» из XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Загружен файл языка «{$localeFile}» из XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "В языковом файле отсутствует ключ «{$key}»."
 

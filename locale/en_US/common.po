@@ -873,12 +873,6 @@ msgstr "Page generated in"
 msgid "debug.memoryUsage"
 msgstr "Memory Usage"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Loaded locale list \"{$localeList}\" from XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Loaded locale file \"{$localeFile}\" from XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Missing locale key \"{$key}\"."
 

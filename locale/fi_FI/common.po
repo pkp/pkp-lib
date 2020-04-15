@@ -764,12 +764,6 @@ msgstr "Sivu luotu ajassa"
 msgid "debug.memoryUsage"
 msgstr "Muistin käyttö"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Kielialuelista \"{$localeList}\" ladattu XML-tiedostosta"
-
-msgid "debug.notes.localeLoad"
-msgstr "Kielialuetiedosto \"{$localeFile}\" ladattu XML-tiedostosta"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Puuttuva kielialueen avain \"{$key}\"."
 

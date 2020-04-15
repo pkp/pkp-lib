@@ -491,12 +491,6 @@ msgstr "Stránka generována v"
 msgid "debug.memoryUsage"
 msgstr "Využití paměti"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Nahraný seznam lokalizací \"{$localeList}\" z XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Nahraný soubor lokalizace \"{$localeFile}\" z XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Chybějící klíč lokalizace \"{$key}\"."
 

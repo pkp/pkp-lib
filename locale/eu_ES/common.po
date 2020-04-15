@@ -455,12 +455,6 @@ msgstr "Page generated in"
 msgid "debug.memoryUsage"
 msgstr "Memoria-erabilera:"
 
-msgid "debug.notes.localeListLoad"
-msgstr "{$localeList} locale-zerrenda XMLtik kargatu da"
-
-msgid "debug.notes.localeLoad"
-msgstr "{$localeFile} locale-fitxategia XMLtik kargatu da"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "{$key} locale-gakoa falta da"
 

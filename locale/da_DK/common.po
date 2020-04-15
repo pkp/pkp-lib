@@ -455,12 +455,6 @@ msgstr "Antal databaseforespørgsler"
 msgid "debug.executionTime"
 msgstr "Side genereret i"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Sproglisten \"{$localeList}\" er indlæst fra XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Sprogfil \"{$localeFile}\" er indlæst fra XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Sprognøglen \"{$key}\" mangler."
 

@@ -701,12 +701,6 @@ msgstr "Pàgina generada en"
 msgid "debug.memoryUsage"
 msgstr "Ús de la memòria"
 
-msgid "debug.notes.localeListLoad"
-msgstr "S'ha carregat la llista de configuracions regionals «{$localeList}» des d'XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "S'ha carregat el fitxer de configuració regional «{$localeFile}» des d'XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Falta la clau de configuració regional «{$key}» ."
 

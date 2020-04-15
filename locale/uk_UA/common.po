@@ -838,12 +838,6 @@ msgstr "Сторінка створена за"
 msgid "debug.memoryUsage"
 msgstr "Використання пам'яті"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Завантажений список локалізацій \"{$localeList}\" з XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Завантажений файл локалізації \"{$localeFile}\" з XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Відсутній ключ локалізації \"{$key}\"."
 

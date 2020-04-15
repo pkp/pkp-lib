@@ -789,12 +789,6 @@ msgstr "Az oldal legenerálva"
 msgid "debug.memoryUsage"
 msgstr "Memória használat"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Betöltött nyelvi lista \"{$localeList}\" XML-ből"
-
-msgid "debug.notes.localeLoad"
-msgstr "Betöltött nyelvi fájl \"{$localeFile}\" XML-ből"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Hiányzó nyelvi kulcs \"{$key}\"."
 

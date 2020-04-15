@@ -686,12 +686,6 @@ msgstr "Página generada en"
 msgid "debug.memoryUsage"
 msgstr "Uso de memoria"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Lista de configuraciones regionales \"{$localeList}\" cargada desde XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Archivo de configuraciones regionales \"{$localeFile}\" cargado desde XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Falta la clave de configuraciones regionales \"{$key}\"."
 

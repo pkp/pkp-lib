@@ -868,12 +868,6 @@ msgstr "تم توليد الصفحة في"
 msgid "debug.memoryUsage"
 msgstr "استعمال الذاكرة"
 
-msgid "debug.notes.localeListLoad"
-msgstr "قائمة اللغة المحملة \"{$localeList}\" من ملف XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "ملف اللغة المحملة \"{$localeFile}\" من ملف"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "مفتاح اللغة \"{$key}\" مفقود."
 

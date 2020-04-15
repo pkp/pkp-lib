@@ -509,12 +509,6 @@ msgstr "Page créée en"
 msgid "debug.memoryUsage"
 msgstr "Utilisation de la mémoire"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Liste de langue \"{$localeList}\" chargée à partir du XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Fichier de langue \"{$localeFile}\" chargé à partir du XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Clé de langue manquante \"{$key}\"."
 

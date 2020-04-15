@@ -817,12 +817,6 @@ msgstr "Sidan genererad på"
 msgid "debug.memoryUsage"
 msgstr "Minnesanvändning"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Hämtade språk/region-lista \"{$localeList}\" från XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Laddade språk/region-filen \"{$localeFile}\" från XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Saknar språk/region-koden \"{$key}\"."
 

@@ -1,7 +1,54 @@
 OJS 3.2.0 Beta Release Notes
-CVS tag: ojs-3_2_0-0
+GIT tag: 3_2_0-1
 
-Release date: February 28, 2020
-===============================
+Release date: April 14, 2020
+============================
+
+Bug Fixes (-1 build)
+--------------------
+	#5675: Resolve various import/export issues
+	#5663: Can't upload cover image in Quick Submit with v3.2 Bug
+	#5710: Escape journal title field on display
+	#5701: Upgrade error using PostgreSQL in createLicenseTerms
+	#5636: Handler adjustments for new versions
+	#5572: ORCID Profile Plugin prevents article publication
+	#5689: Make failures in provideSupplementaryFilesForReview more friendly
+	#5657: MEDRA export plugin: Wrong link in XML tag <DOIWebsiteLink> for issues
+	#5643: Error in journal settings form when locale active in Form but not UI Bug
+	#5682: DOAJ XML exports fail to validate
+	#5681: CrossRef exports are empty after upgrade
+	#4474: Review method fallback should be double blind instead of blind
+	#5666: Edit User, the password may not blank ??
+	#5671: Installing all locales leads to an error message
+	#5674: Fatal error in user import/export plugin
+	#5573: OAI ListRecords causes PHP Fatal Error Bug
+	#5438: Submission sequence no longer appears to be supported Critical Issue
+	#5659: Save button disabled after unpublishing a version Bug
+	#5661: In some cases discussions grid not loading for reviewers, 3.2 master Critical Issue
+	#5646: Call to undefined method AuthorDAO::getBySubmissionId()
+	#5600: pkp-native.xml uses publication element instead of pkppublication
+	#5643: Error in settings form when locale active in Form but not UI
+	#5536: Plugins/themes to package and release before 3.2
+	#5636: Handler adjustments for new versions
+	#5635: Manager's Table of Contents grid does not list unpublished submissions
+	#5634: Resolve OJS 2.x to 3.2 upgrade issues
+	#5605: Top right link to profile is invisible (text in white, over a white background)
+	#5632: [OMP] Chapter PDF will not display
+	#5628: Supporting Agencies field does not display in submission metadata form
+	#5626: Upgrade error: Duplicate entry 'xxx-yyy' for key 'citations_publication_seq'
+	#5621: Article report plugin references missing function
+	#5623: Raw citations should be escaped on the front-end
+	#5597: Native import/export plugin adds a blank citation when importing submissions with citations
+	#5602: JournalManager/Author metadata edit error: "Please enter the references."
+	#5589: PostgreSQL can not recognize update SQL queries
+	#5612: Generate site minimum-length password
+	#5267: Automatic password generation doesn't respect site minimum password length
+	#5591: Author lists are not sorted by sequence
+	#5584: Enable/disable journal setting not available in 3.2.0
+	#5571: Cannot Display Sidebar in 3.2.0.0
+	#5582: PHP error "Can’t inherit abstract function SchemaDAO::newDataObject()"
+	#5576: Can't upload image in user profile bio
+	#4195: references native import
+	#5575: Can't download supplementary galleys when publication has urlPath
 
 This is the initial (beta) release of Open Preprint Systems.

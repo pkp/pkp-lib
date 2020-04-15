@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2020-04-08 19:37+0000\n"
+"PO-Revision-Date: 2020-04-14 22:37+0000\n"
 "Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -903,7 +903,7 @@ msgid "submission.submit.fileAdded"
 msgstr "Přehled přidaných souborů"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Přidat tohoto přispěvatele do seznamu k prohlížení?"
+msgstr "Přidat tohoto autora do seznamu k prohlížení?"
 
 msgid "submission.submit.newFile"
 msgstr "Přidat další soubor"
@@ -954,10 +954,10 @@ msgid "submission.submit.selectPrincipalContact"
 msgstr "Hlavní kontakt pro komunikaci s redakcí."
 
 msgid "submission.submit.contributorRole"
-msgstr "Role přispěvatele"
+msgstr "Role autora"
 
 msgid "submission.submit.addAuthor"
-msgstr "Přidat přispěvatele"
+msgstr "Přidat autora"
 
 msgid "submission.form.name"
 msgstr "Jméno souboru (napr. Rukopis, Tabulka 1)"
@@ -975,7 +975,7 @@ msgid "submission.comments.addReviews"
 msgstr "Přidat do emailu recenze"
 
 msgid "submission.contributors"
-msgstr "Seznam přispěvatelů"
+msgstr "Seznam autorů"
 
 msgid "submission.copyedited"
 msgstr "Probíhá redakční zpracování"
@@ -1074,7 +1074,7 @@ msgid "submission.status.declined"
 msgstr "Odmítnuto"
 
 msgid "submission.status.published"
-msgstr "Publíkováno"
+msgstr "Publikováno"
 
 msgid "submission.submit.uploadStep"
 msgstr "1. Nahrát soubor"
@@ -1353,7 +1353,7 @@ msgid "submission.supplementary.publisher"
 msgstr "Vydavatel"
 
 msgid "submission.supplementary.sponsor"
-msgstr "Přispěvatele či sponzorská agentura"
+msgstr "Autorská či sponzorská agentura"
 
 msgid "grid.action.itemWorkflow"
 msgstr "Jít na workflow tohoto příspěvku"
@@ -1826,7 +1826,7 @@ msgstr ""
 "číslo zveřejněno."
 
 msgid "publication.contributors"
-msgstr "Přispěvatelé"
+msgstr "Autoři"
 
 msgid "publication.citations.success"
 msgstr "Reference byly aktualizovány."
@@ -1996,7 +1996,7 @@ msgid "submissions.inactive"
 msgstr "Neaktivní po dobu {$days} dnů"
 
 msgid "submission.publisherId.enable"
-msgstr "Povolit pro {$ objects}"
+msgstr "Povolit pro {$objects}"
 
 msgid "submission.publisherId.description"
 msgstr ""

@@ -325,7 +325,7 @@ class NavigationMenuDAO extends DAO {
 	 */
 	protected function _getCache($id) {
 		$pool = new Stash\Pool(Core::getStashDriver());
-		$item = $pool->getItem('navigationMenu' . md5($id));
+		$item = $pool->getItem('navigationMenu-' . $id);
 		if ($item->isMiss()) {
 			$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
 			$navigationMenu = $navigationMenuDao->getById($id);

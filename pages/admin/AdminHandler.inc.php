@@ -133,7 +133,7 @@ class AdminHandler extends Handler {
 		$router = $request->getRouter();
 		$dispatcher = $request->getDispatcher();
 
-		if (!isset($args[0]) || !ctype_digit($args[0])) {
+		if (!isset($args[0]) || !ctype_digit((string) $args[0])) {
 			$request->getDispatcher()->handle404();
 		}
 

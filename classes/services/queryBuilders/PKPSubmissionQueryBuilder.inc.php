@@ -408,7 +408,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder implements Ent
 						if ($isAssignedOnly) {
 							$q->whereNull('ra.reviewer_id');
 						}
-						if (ctype_digit($word)) {
+						if (ctype_digit((string) $word)) {
 							$q->orWhere('s.submission_id', '=', $word);
 						}
 					});

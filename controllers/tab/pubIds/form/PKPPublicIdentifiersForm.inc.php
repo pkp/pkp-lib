@@ -159,7 +159,7 @@ class PKPPublicIdentifiersForm extends Form {
 		}
 		$contextDao = Application::getContextDAO();
 		if ($publisherId) {
-			if (ctype_digit($publisherId)) {
+			if (ctype_digit((string) $publisherId)) {
 				$this->addError('publisherId', __('editor.publicIdentificationNumericNotAllowed', array('publicIdentifier' => $publisherId)));
 				$this->addErrorField('$publisherId');
 			} elseif (count(explode('/', $publisherId)) > 1) {

@@ -43,21 +43,6 @@ class SubmissionsListPanel extends PKPSubmissionsListPanel {
 		return array(
 			array(
 				'param' => 'stageIds',
-				'value' => WORKFLOW_STAGE_ID_SUBMISSION,
-				'title' => __('manager.publication.submissionStage'),
-			),
-			array(
-				'param' => 'stageIds',
-				'value' => WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
-				'title' => __('manager.publication.reviewStage'),
-			),
-			array(
-				'param' => 'stageIds',
-				'value' => WORKFLOW_STAGE_ID_EDITING,
-				'title' => __('submission.copyediting'),
-			),
-			array(
-				'param' => 'stageIds',
 				'value' => WORKFLOW_STAGE_ID_PRODUCTION,
 				'title' => __('manager.publication.productionStage'),
 			),

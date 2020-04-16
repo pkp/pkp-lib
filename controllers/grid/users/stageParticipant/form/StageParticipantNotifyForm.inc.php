@@ -31,10 +31,7 @@ class StageParticipantNotifyForm extends PKPStageParticipantNotifyForm {
 	 */
 	protected function _getStageTemplates() {
 		return array(
-			WORKFLOW_STAGE_ID_SUBMISSION => array('EDITOR_ASSIGN'),
-			WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => array('EDITOR_ASSIGN'),
-			WORKFLOW_STAGE_ID_EDITING => array('COPYEDIT_REQUEST'),
-			WORKFLOW_STAGE_ID_PRODUCTION => array('LAYOUT_REQUEST', 'LAYOUT_COMPLETE', 'INDEX_REQUEST', 'INDEX_COMPLETE', 'EDITOR_ASSIGN')
+			WORKFLOW_STAGE_ID_PRODUCTION => array('EDITOR_ASSIGN')
 		);
 	}
 

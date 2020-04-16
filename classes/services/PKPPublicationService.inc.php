@@ -310,7 +310,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			$validator->after(function($validator) use ($action, $props) {
 				if (!$validator->errors()->get('urlPath')) {
 
-					if (ctype_digit($props['urlPath'])) {
+					if (ctype_digit((string) $props['urlPath'])) {
 						$validator->errors()->add('urlPath', __('publication.urlPath.numberInvalid'));
 						return;
 					}

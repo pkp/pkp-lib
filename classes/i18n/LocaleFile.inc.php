@@ -63,7 +63,7 @@ class LocaleFile {
 		$message = $messages[$key];
 
 		// Substitute custom parameters
-		foreach ($params as $key => $value) {
+		if (is_array($params)) foreach ($params as $key => $value) {
 			$message = str_replace("{\$$key}", $value, $message);
 		}
 

@@ -67,7 +67,7 @@ class PreprintHandler extends Handler {
 		// Get the submission that matches the requested urlPath
 		$submission = Services::get('submission')->getByUrlPath($urlPath, $request->getContext()->getId());
 
-		if (!$submission && ctype_digit($urlPath)) {
+		if (!$submission && ctype_digit((string) $urlPath)) {
 			$submission = Services::get('submission')->get($urlPath);
 		}
 

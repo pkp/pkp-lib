@@ -46,13 +46,13 @@ class SeriesHandler extends Handler {
 	 */
 	function view($args, $request) {
 		$sectionPath = isset($args[0]) ? $args[0] : null;
-		$page = isset($args[1]) && ctype_digit($args[1]) ? (int) $args[1] : 1;
+		$page = isset($args[1]) && ctype_digit((string) $args[1]) ? (int) $args[1] : 1;
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		// The page $arg can only contain an integer that's not 1. The first page
 		// URL does not include page $arg
-		if (isset($args[1]) && (!ctype_digit($args[1]) || $args[1] == 1)) {
+		if (isset($args[1]) && (!ctype_digit((string) $args[1]) || $args[1] == 1)) {
 			$request->getDispatcher()->handle404();
 			exit;
 		}

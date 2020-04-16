@@ -51,7 +51,7 @@ class LocaleFile {
 		$key = trim($key);
 		if ($key === '') return '';
 
-		$pool = new Stash\Pool(new Stash\Driver\FileSystem(array('path' => Core::getFileCachePath() . '/stash')));
+		$pool = new Stash\Pool(Core::getStashDriver());
 		$item = $pool->getItem('locale-' . md5($this->getFilename()));
 		if ($item->isMiss() || filemtime($this->filename) >= $item->getCreation()->getTimestamp()) {
 			$item->set(LocaleFile::load($this->filename));

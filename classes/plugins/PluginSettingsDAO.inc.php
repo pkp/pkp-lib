@@ -22,7 +22,7 @@ class PluginSettingsDAO extends DAO {
 	 * @return [Stash\Pool,Stash\Item]
 	 */
 	protected function _getPoolItem($contextId, $pluginName) {
-		$pool = new Stash\Pool(new Stash\Driver\FileSystem(array('path' => Core::getFileCachePath() . '/stash')));
+		$pool = new Stash\Pool(Core::getStashDriver());
 		return [$pool, $pool->getItem('pluginSettings-' . $contextId . '-' . $pluginName)];
 	}
 

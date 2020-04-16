@@ -51,6 +51,16 @@ class Core {
 	}
 
 	/**
+	 * Get a stash pool instance to use for file-based caching.
+	 * @return Stash\Driver\FileSystem A stash pool instance.
+	 */
+	static function getStashDriver() {
+		return new Stash\Driver\FileSystem(array(
+			'path' => Core::getFileCachePath() . DIRECTORY_SEPARATOR . 'stash',
+		));
+	}
+
+	/**
 	 * Sanitize a value to be used in a file path.
 	 * Removes any characters except alphanumeric characters, underscores, and dashes.
 	 * @param $var string
@@ -106,7 +116,7 @@ class Core {
 	 * @return boolean
 	 */
 	static function isUserAgentBot($userAgent, $botRegexpsFile = COUNTER_USER_AGENTS_FILE) {
-		$pool = new Stash\Pool(new Stash\Driver\FileSystem(array('path' => Core::getFileCachePath() . '/stash')));
+		$pool = new Stash\Pool(Core::getStashDriver());
 		$item = $pool->getItem('bots-' . md5($botRegexpsFile));
 		if ($item->isMiss() || filemtime($botRegexpsFile) >= $item->getCreation()->getTimestamp()) {
 			$filteredBotRegexps = array_filter(file($botRegexpsFile),

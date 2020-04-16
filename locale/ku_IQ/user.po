@@ -1,2 +1,109 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2020-04-16 16:37+0000\n"
+"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
+"Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"ku_IQ/>\n"
+"Language: ku_IQ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.gossip"
+msgstr "تێبینییەکانی سەرنوسەر"
+
+msgid "user.interests.description"
+msgstr "(پسپۆڕییەکان بە داگرتنی ئینتەر یان فاریزە لەیەکتر جیا بکەوە)"
+
+msgid "user.interests"
+msgstr "پسپۆڕی بۆ هەڵسەنگاندن"
+
+msgid "user.givenName"
+msgstr "ناوی یەکەم"
+
+msgid "user.email"
+msgstr "ئیمەیڵ"
+
+msgid "user.editMyProfile"
+msgstr "گۆڕانکاری لە هەژماری کەسی"
+
+msgid "user.dateRegistered"
+msgstr "ڕێککەوتی تۆمارکردن"
+
+msgid "user.dateLastLogin"
+msgstr "دواهەمین داخلبون"
+
+msgid "user.changePassword"
+msgstr "گۆڕینی وشەی نهێنی"
+
+msgid "user.changeMyPassword"
+msgstr "وشەی نهێنییەکەم بگۆڕە"
+
+msgid "user.biography"
+msgstr "کورتەیەکی ژیانت (بۆ نمونە بەشەکەت و ناسناوی زانستیت و ئەرکەکەت)"
+
+msgid "user.authorization.submissionQuery"
+msgstr "تۆ ناتوانیت بەشداری لەم گفتوگۆیەدا بکەیت."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "تۆ ناتوانیت ئەم هەڵسەنگاندنە بکەیت چونکە ئەرکدار نەکراویت."
+
+msgid "user.authorization.pluginRequired"
+msgstr "گرێدان دایاری نەکراوە هەرچەندە داوا کراوە."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "ڕێڕەوی کار دیاری نەکراوە."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "لە ئێستادا تۆ دەستپێڕاگەیشتنی ئەم قۆناغەت بۆ ئەم ڕێڕەوی کارە نییە."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"هەژماری خاوەنی ڕۆڵی بەڕێوەبەر (بۆ نمونە سەرنوسەری بەرهەمهێنان) دەبێت بۆ ئەم "
+"قۆناغە ئەرکدار بکرێت پێش ئەوەی تۆ زیاتر بچیتە پێش."
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"تۆ دەبێت گروپێک بەکارهێنەری دروست دیاری بکەیت بۆ دەستپێڕاگەیشتن بەم کردارە."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"تۆ بۆ ئەم توێژینەوەیە بەم ڕۆڵە ئەرکدار نەکراویت، بۆیە ناتوانیت ئەم کردارە "
+"بکەیت."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "بەم ڕۆڵە، تۆ ناتوانیت ئەم کردارە ئەنجام بدەیت."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "تۆ ناتوانیت ئەم پەڕەیە بکەیتەوە. چونکە پەڕەکە سنوردار کراوە."
+
+msgid "user.authorization.privateOperation"
+msgstr "ئەوەی کە تۆ دەتەوێت دەستت پێی بگات شتێکی کەسییە یان بونی نییە."
+
+msgid "user.authorization.loginRequired"
+msgstr "دەبێت داخلی هەژمارەکەت ببیت."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"تۆ ناتوانیت ئەم کردارە لە دەرەوەی ژینگەی گونجاو بکەیت (ڕاگەیاندن، گۆڤار، "
+"کۆنفرانس...هتد)."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "پرۆسەی دڵنیابونەوە نەکراوە یان سەرکەوتو نەبووە."
+
+msgid "user.authorization.accessDenied"
+msgstr "دەستپێڕاگەیشتن ئاستەنگ کرا."
+
+msgid "user.affiliations"
+msgstr "میلاکەکان"
+
+msgid "user.affiliation.description"
+msgstr "(دەزگاکەت، بۆ نمونە ''زانکۆی کۆیە'')"
+
+msgid "user.affiliation"
+msgstr "میلاک"
+
+msgid "user.accountInformation"
+msgstr "زانیاریی هەژمارەکە"

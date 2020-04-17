@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-14 22:37+0000\n"
+"PO-Revision-Date: 2020-04-17 21:11+0000\n"
 "Last-Translator: Kameran MohamadJalal Majeed "
 "<kameran.jalal@koyauniversity.org>\n"
 "Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
@@ -182,3 +182,106 @@ msgstr "زمانه‌ فه‌راهه‌مكراوه‌كان"
 
 msgid "admin.languages.installLanguages"
 msgstr "به‌ڕێوه‌بردنی زمانه‌كان"
+
+msgid "admin.settings.contactName"
+msgstr "ناوی کەسی پەیوەندیداری سەرەکی"
+
+msgid "admin.server.dbVersion"
+msgstr "وه‌شانی سێرڤه‌ری بنكه‌ی زانیارییه‌كان"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "بڵاوکردنەوەی توێژینەوە دانراوەکان بۆ بڵاوکردنەوە"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"جێگیرکردنی بەرنامەی {$softwareName} بە تۆماتیکی جێبەجێ کرا و تەواو بو، ئێستا "
+"تۆ دەتوانیت فایلەکە لێرە داببەزێنیت:  {$url}"
+
+msgid "admin.languages.installLocales"
+msgstr "دانان/دامه‌زراندن"
+
+msgid "admin.languages.installedLocales"
+msgstr "شوێنەکانی دابەزین"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"ئایا تۆ دڵنیایت لە دابەزاندنەوەی ئەم زمانە؟ ئەمە هەمو تایبەتمەندییەکانی زمان "
+"دەسڕێتەوە بۆ نمونە قاڵبە تایبەتییەکانی ئیمەیڵ."
+
+msgid "admin.settings.siteLanguage"
+msgstr "زمانی پێگه‌"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "كوررتترین تێپه‌ڕ وشه‌"
+
+msgid "admin.settings.introduction"
+msgstr "پێشه‌كی"
+
+msgid "admin.version.updateAvailable"
+msgstr "وه‌شانی نوێكراوه‌ به‌رده‌سته‌"
+
+msgid "admin.versionRevision"
+msgstr "پێداچونه‌وه‌"
+
+msgid "admin.version.moreInfo"
+msgstr "زانیاری زێتر"
+
+msgid "admin.versionMinor"
+msgstr "لاوه‌كی"
+
+msgid "admin.versionMajor"
+msgstr "سه‌ره‌كی"
+
+msgid "admin.version.latest"
+msgstr "وه‌شانی كۆتایی"
+
+msgid "admin.versionHistory"
+msgstr "رێككه‌وتی وه‌شان"
+
+msgid "admin.version.downloadPatch"
+msgstr "پاكێجی دابه‌زاندنی"
+
+msgid "admin.version.downloadPackage"
+msgstr "دابه‌زاندن"
+
+msgid "admin.version.checkForUpdates"
+msgstr "گه‌ڕان به‌ دوای نوێكردنه‌وه‌كان دا"
+
+msgid "admin.versionBuild"
+msgstr "بنیاتنان"
+
+msgid "admin.systemInformation"
+msgstr "زانیارییه‌كانی سیسته‌م"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"دۆسییه‌ی رێكخستنه‌كان <tt>config.inc.php</tt> بوونى نییه‌، يان "
+"ناخوێندرێته‌وه‌، یان راست نییه‌."
+
+msgid "admin.siteSetup"
+msgstr "دامه‌زراندنی پێگه‌"
+
+msgid "admin.siteSettings"
+msgstr "رێكخستنه‌كانی پێگه‌"
+
+msgid "admin.siteManagement"
+msgstr "به‌ڕێوه‌بردنی پێگه‌"
+
+msgid "admin.siteAdmin"
+msgstr "به‌ڕێوه‌بردنی پێگه‌"
+
+msgid "admin.settings.siteTheme"
+msgstr "جۆری پێگه‌"
+
+msgid "admin.settings.siteTitle"
+msgstr "ناونیشانی پێگه‌"
+
+msgid "admin.settings.siteLogo"
+msgstr "لۆگۆی پێگه‌"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "دۆسیه‌ی جۆره‌كانی پێگه‌"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr ""
+"داڕشته‌ی دۆسه‌ی جۆره‌كانی پێگه‌كه‌ ناڕاسته‌. دارشته‌ی په‌سه‌ند ئه‌مه‌یه‌.css."

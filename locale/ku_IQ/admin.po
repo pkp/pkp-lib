@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-16 16:37+0000\n"
-"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
+"PO-Revision-Date: 2020-04-17 18:59+0000\n"
+"Last-Translator: Kameran MohamadJalal Majeed "
+"<kameran.jalal@koyauniversity.org>\n"
 "Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ku_IQ/>\n"
 "Language: ku_IQ\n"
@@ -206,3 +207,12 @@ msgid "admin.languages.confirmReload"
 msgstr ""
 "ئایا تۆ دڵنیایت لە دابەزاندنەوەی ئەم زمانە؟ ئەمە هەمو تایبەتمەندییەکانی زمان "
 "دەسڕێتەوە بۆ نمونە قاڵبە تایبەتییەکانی ئیمەیڵ."
+
+msgid "admin.settings.siteLanguage"
+msgstr "زمانی پێگه‌"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "كوررتترین تێپه‌ڕ وشه‌"
+
+msgid "admin.settings.introduction"
+msgstr "پێشه‌كی"

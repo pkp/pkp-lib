@@ -446,19 +446,28 @@ class ArticleGalleyGridHandler extends GridHandler {
 	 * @return boolean
 	 */
 	public function canEdit() {
-		
-		/*
-		return Services::get('user')->canUserAccessStage(
-			WORKFLOW_STAGE_ID_PRODUCTION,
-			WORKFLOW_TYPE_EDITORIAL,
-			$this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES),
-			$this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES)
-		);
-		*/
+		$request = Application::get()->getRequest();
+		$user = $request->getUser();
+		$publication = $this->getPublication();
+		$submission = $this->getSubmission();
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 
-		# FIXME: this check needs revision because it will not work upon initial submission
-		return true;
+		if ($publication->getData('status') === STATUS_PUBLISHED) {
+			return false;
+		}
 
+		if (in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
+			return true;
+		}
+
+		if ($submission->getDateSubmitted() == null) return true;
+
+		if (Services::get('submission')->canEditPublication($submission->getId(), $user->getId())) {
+			return true;
+		}
+
+		// Default: Read-only.
+		return false;
 	}
 }
 

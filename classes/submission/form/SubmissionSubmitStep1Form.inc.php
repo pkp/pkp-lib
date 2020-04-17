@@ -104,6 +104,33 @@ class SubmissionSubmitStep1Form extends PKPSubmissionSubmitStep1Form {
 	}
 
 	/**
+	 * Save changes to submission.
+	 * @return int the submission ID
+	 */
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
+		$request = Application::get()->getRequest();
+		$context = $request->getContext();
+		$submission = $this->submission;
+		$this->submissionId = $this->submission->getId();
+
+		// OPS: Move the submission to production stage 
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
+		$submission->setStageId(WORKFLOW_STAGE_ID_PRODUCTION);
+		$submissionDao->updateObject($submission);
+
+		// OPS: Move comments for moderators discussion to production stage
+		$query = $this->getCommentsToEditor($this->submissionId);
+		if (isset($query)){
+			$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
+			$query->setStageId(WORKFLOW_STAGE_ID_PRODUCTION);
+			$queryDao->updateObject($query);
+		}
+
+		return $this->submissionId;
+	}
+
+	/**
 	 * Set the publication data from the form.
 	 * @param Publication $publication
 	 * @param Submission $submission

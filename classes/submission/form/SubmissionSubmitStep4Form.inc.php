@@ -38,13 +38,6 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form {
 		$context = $request->getContext();
 		$submission = $this->submission;
 
-		// OPS: Move the submission to production stage 
-		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$submission->setStageId(WORKFLOW_STAGE_ID_PRODUCTION);
-		$submissionDao->updateObject($submission);
-
-		// TODO: OPS: Move all discussions to production stage
-
 		// Send author notification email
 		import('classes.mail.ArticleMailTemplate');
 

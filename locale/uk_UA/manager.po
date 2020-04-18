@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2020-03-22 13:37+0000\n"
-"Last-Translator: Vasyl Ostrovskyi <vasyusya@gmail.com>\n"
+"PO-Revision-Date: 2020-04-18 18:17+0000\n"
+"Last-Translator: Fylypovych Georgii <red.ukr@gmail.com>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/uk/>\n"
 "Language: uk_UA\n"
@@ -445,13 +445,15 @@ msgid "manager.plugins.enable"
 msgstr "Дозволити"
 
 msgid "manager.plugins.pluginManagement"
-msgstr "Керування модулями"
+msgstr "Керування плагінами"
 
 msgid "manager.plugins.sitePlugin"
-msgstr "Це загальносистемний модуль. Лише адміністратор сайту може керувати цим модулем."
+msgstr ""
+"Це загальносистемний плагін. Лише адміністратор сайту може керувати цим "
+"плагіном."
 
 msgid "manager.plugins"
-msgstr "Модулі системи"
+msgstr "Системні плагіни"
 
 msgid "manager.readingTools"
 msgstr "Інструментарій для читання"
@@ -504,7 +506,11 @@ msgid "manager.statistics.reports.aggregationColumns"
 msgstr "Зібрати статистику за:"
 
 msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Елементи виділені курсивом і позначені * представляють дані, необов'язкові для поточного способу підрахунку статистики в системі (тип метрики). Ви можете отримати ці дані чи ні, залежно від налаштувань вашого модуля статистики."
+msgstr ""
+"Елементи виділені курсивом і позначені * представляють дані, необов'язкові "
+"для поточного способу підрахунку статистики в системі (тип метрики). Ви "
+"можете отримати ці дані чи ні, залежно від налаштувань вашого плагіна "
+"статистики."
 
 msgid "manager.statistics.reports.defaultReportTemplates"
 msgstr "Усталені шаблони звітів"
@@ -624,7 +630,7 @@ msgid "manager.setup.errorDeletingItem"
 msgstr "Під час видалення цього об'єкту виникла помилка."
 
 msgid "manager.setup.favicon"
-msgstr "Неправильний формат favicon. Прийнятними форматами є .ico, .png та .gif."
+msgstr "Favicon"
 
 msgid "manager.setup.groupType"
 msgstr "Групування типів файлів"
@@ -705,7 +711,7 @@ msgid "manager.setup.privacyStatement"
 msgstr "Заява про конфіденційність"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Тижнів на згоду або відмову на запит про рецензію"
+msgstr "Тижнів на згоду або відмову на запит про рецензування."
 
 msgid "manager.setup.reviewOptions.numWeeksPerReview"
 msgstr "Тижнів на рецензування"
@@ -723,7 +729,9 @@ msgid "manager.setup.reviewOptions.remindForSubmit"
 msgstr "Надсилати нагадування, якщо рецензент не подав рекомендацію протягом наступного часу (днів) після закінчення терміну розгляду:"
 
 msgid "manager.setup.reviewOptions.showBlindReviewLink"
-msgstr "Додати посилання \"Забезпечення сліпого рецензування\" під час завантаження"
+msgstr ""
+"Додати посилання на <button type=\"button\">Забезпечення сліпого "
+"рецензування</button> під час завантаження"
 
 msgid "manager.setup.searchEngineIndexing.sitemap"
 msgstr "Мапа сайту"
@@ -759,115 +767,139 @@ msgid "manager.users"
 msgstr "Користувачі"
 
 msgid "plugins.categories.metadata"
-msgstr "Модулі метаданих"
+msgstr "Плагіни метаданих"
 
 msgid "plugins.categories.metadata.description"
-msgstr "Модулі метаданих дозволяють використання додаткових стандартів метаданих."
+msgstr ""
+"Плагіни метаданих дозволяють використання додаткових стандартів метаданих."
 
 msgid "plugins.categories.auth"
-msgstr "Модулі авторизації"
+msgstr "Плагіни авторизації"
 
 msgid "plugins.categories.blocks"
-msgstr "Модулі блоків"
+msgstr "Плагіни блоків"
 
 msgid "plugins.categories.blocks.description"
-msgstr "Модулі блоків — це модульні інтерфейсні компоненти, наприклад, різноманітні інструменти бічних панелей і т.і."
+msgstr ""
+"Плагіни блоків — це модульні інтерфейсні компоненти, наприклад, різноманітні "
+"інструменти бічних панелей."
 
 msgid "plugins.categories.gateways.description"
-msgstr "Модулі шлюзів забезпечують онлайновий зв'язок із зовнішніми системами."
+msgstr "Плагіни шлюзів надають дані в режимі реального часу зовнішнім системам."
 
 msgid "plugins.categories.gateways"
-msgstr "Модулі шлюзів"
+msgstr "Плагіни шлюзів"
 
 msgid "plugins.categories.generic"
-msgstr "Загальні модулі"
+msgstr "Загальні Плагіни"
 
 msgid "plugins.categories.importexport.description"
-msgstr "Модулі імпорту/експорту можуть використовуватись для міграції змісту з інших систем та у інші системи."
+msgstr ""
+"Плагіни імпорту/експорту можуть використовуватись для переносу змісту з "
+"одних систем до інших."
 
 msgid "plugins.categories.importexport"
-msgstr "Модулі імпорту/експорту"
+msgstr "Плагіни імпорту/експорту"
 
 msgid "plugins.categories.paymethod.description"
-msgstr "Модулі платіжних компонентів забезпечують підтримку різноманітних способів здійснення онлайнових платежів."
+msgstr ""
+"Плагіни платіжних систем забезпечують підтримку різноманітних способів "
+"здійснення онлайнових платежів."
 
 msgid "plugins.categories.paymethod"
-msgstr "Модулі платіжних компонентів"
+msgstr "Плагіни платіжних компонентів"
 
 msgid "plugins.categories.reports.description"
-msgstr "Модулі звітів використовуються для формування різних типів звітів та масивів статистичних даних."
+msgstr ""
+"Плагіни звітів використовуються для формування різних типів звітів та "
+"масивів статистичних даних."
 
 msgid "plugins.categories.reports"
-msgstr "Модулі звітів"
+msgstr "Плагіни звітів"
 
 msgid "plugins.categories.themes.description"
-msgstr "Модулі тем можуть використовуватись для зміни зовнішнього вигляду системи."
+msgstr ""
+"Плагіни тем можуть використовуватись для зміни зовнішнього вигляду системи."
 
 msgid "plugins.categories.themes"
-msgstr "Модулі тем"
+msgstr "Плагіни тем"
 
 msgid "plugins.categories.oaiMetadataFormats"
-msgstr "Модулі форматів метаданих OAI"
+msgstr "Плагіни форматів метаданих OAI"
 
 msgid "plugins.categories.oaiMetadataFormats.description"
-msgstr "Ці модулі дозволяють генерувати метадані для OAI-комунікації."
+msgstr "Ці плагіни дозволяють генерувати метадані для OAI-комунікації."
 
 msgid "plugins.categories.pubIds"
-msgstr "Модулі відкритих ідентифікаторів"
+msgstr "Плагіни публічних ідентифікаторів"
 
 msgid "plugins.categories.pubIds.description"
-msgstr "Ці модулі реалізують підтримку відкртого ідентифікатора."
+msgstr "Ці плагіни реалізують підтримку публічного ідентифікатора."
 
 msgid "manager.plugins.copyError"
-msgstr "Плагін не був скопійований. Мможливо виникла проблема з правами доступу. Будь ласка, переконайтесь, що веб-сервер може записувати в каталог \"plugins\" (включаючи підкаталоги), але не забудьте пізніше захистити його, змінивши права доступу."
+msgstr ""
+"Плагін не був скопійований. Можливо виникла проблема з правами доступу. Будь "
+"ласка, переконайтесь, що веб-сервер може записувати в каталог \"plugins\" ("
+"включаючи підкаталоги), але не забудьте пізніше захистити його, змінивши "
+"права доступу."
 
 msgid "manager.plugins.delete"
-msgstr "Видалити модуль"
+msgstr "Видалити плагін"
 
 msgid "manager.plugins.installConfirm"
-msgstr "Ви впевнені, що хочете встановити цей модуль?"
+msgstr "Ви впевнені, що хочете встановити цей плагін?"
 
 msgid "manager.plugins.upgradeConfirm"
-msgstr "Ви впевнені, що хочете оновити цей модуль?"
+msgstr "Ви впевнені, що хочете оновити цей плагін?"
 
 msgid "grid.action.installPlugin"
-msgstr "Встановити або оновити цей модуль"
+msgstr "Встановити або оновити цей плагін"
 
 msgid "manager.plugins.deleteConfirm"
-msgstr "Ви впевнені, що хочете видалити цей модуль із системи?"
+msgstr "Ви впевнені, що хочете видалити цей плагін із системи?"
 
 msgid "manager.plugins.deleteDescription"
-msgstr "Натиснувши «Видалити», ви видалите модуль із файлової системи сервера."
+msgstr "Натиснувши «Видалити», ви видалите плагін із файлової системи сервера."
 
 msgid "manager.plugins.deleteError"
-msgstr "Модуль \"{$pluginName}\" не можна видалити з файлової системи. Можливо виникла проблема з правами доступу. Будь ласка, переконайтесь, що веб-сервер може записувати в каталог \"plugins\" плагінів (включаючи підкаталоги), але не забудьте пізніше захистити його, змінивши права."
+msgstr ""
+"Плагін \"{$pluginName}\" не можна видалити з файлової системи. Можливо "
+"виникла проблема з правами доступу. Будь ласка, переконайтесь, що веб-сервер "
+"може записувати в каталог плагінів (plugins),  (включаючи підкаталоги), але "
+"не забудьте пізніше захистити його, змінивши права."
 
 msgid "manager.plugins.deleteSuccess"
-msgstr "Модуль \"{$pluginName}\" успішно видалено"
+msgstr "Плагін \"{$pluginName}\" успішно видалено"
 
 msgid "manager.plugins.description"
-msgstr "Ця сторінка дозволяє Менеджеру переглянути та можливо налаштувати модулі, які зараз встановлені. Модулі поділяються на категорії відповідно до їх функцій. Категорії наведено нижче, а в кожній категорії - існуючий набір плагінів."
+msgstr ""
+"Ця сторінка дозволяє Менеджеру переглянути та можливо налаштувати плагіни, "
+"які зараз встановлені. Плагіни поділяються на категорії відповідно до їх "
+"функцій. Категорії наведено нижче, а в кожній категорії - існуючий набір "
+"плагінів."
 
 msgid "manager.plugins.doesNotExist"
-msgstr "Модуля \"{$pluginName}\" не існує"
+msgstr "Плагін \"{$pluginName}\" не існує"
 
 msgid "manager.plugins.fileSelectError"
 msgstr "Будь ласка, спочатку оберіть файл"
 
 msgid "manager.plugins.upload"
-msgstr "Завантажити новий модуль"
+msgstr "Завантажити новий плагін"
 
 msgid "manager.plugins.uploadDescription"
-msgstr "Ця форма дозволяє завантажити та встановити новий модуль. Будь ласка, переконайтесь, що модуль заархівовано в файлі у форматі .tar.gz."
+msgstr ""
+"Ця форма дозволяє завантажити та встановити новий плагін. Будь ласка, "
+"переконайтесь, що плагін заархівовано у форматі .tar.gz."
 
 msgid "manager.plugins.uploadFailed"
 msgstr "Будь ласка, переконайтеся, що обрано файл для завантаження."
 
 msgid "manager.plugins.installed"
-msgstr "Встановлені модулі"
+msgstr "Встановлені плагіни"
 
 msgid "manager.plugins.pluginGallery"
-msgstr "Галерея модулів"
+msgstr "Галерея Плагінів"
 
 msgid "manager.plugins.pluginGallery.overview"
 msgstr "Огляд"
@@ -882,19 +914,23 @@ msgid "manager.plugins.pluginGallery.certifications.official"
 msgstr "Офіційний"
 
 msgid "manager.plugins.pluginGallery.certifications.official.description"
-msgstr "Цей модуль розроблений та підтримується командою проекту Public Knowledge Project."
+msgstr ""
+"Цей плагін розроблений та підтримується командою проекту Public Knowledge "
+"Project."
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Рецензований"
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
-msgstr "Цей модуль був переглянутий та затверджений командою проекту Public Knowledge Project."
+msgstr ""
+"Цей плагін був переглянутий та затверджений командою проекту Public "
+"Knowledge Project."
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Партнерський"
 
 msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr "Цей модуль надано одним з наших партнерів з розробки."
+msgstr "Цей плагін надано одним з наших партнерів з розробки."
 
 msgid "manager.plugins.pluginGallery.maintainer"
 msgstr "Розробник"
@@ -912,19 +948,19 @@ msgid "manager.plugins.pluginGallery.status"
 msgstr "Статус"
 
 msgid "manager.plugins.noInstalledVersion"
-msgstr "Модуль ще не встановлений."
+msgstr "Плагін ще не встановлений."
 
 msgid "manager.plugins.noCompatibleVersion"
-msgstr "Наразі не існує сумісної версії цього модуля."
+msgstr "Наразі не існує сумісної версії цього плагіна."
 
 msgid "manager.plugins.installedVersionNewer"
-msgstr "Модуль уже встановлений, і є новішою версією, ніж наявна в галереї."
+msgstr "Плагін уже встановлений, і є новішою версією, ніж наявна в галереї."
 
 msgid "manager.plugins.installedVersionOlder"
-msgstr "Модуль уже встановлений, але може бути оновлений до новішої версії."
+msgstr "Плагін уже встановлений, але може бути оновлений до новішої версії."
 
 msgid "manager.plugins.installedVersionNewest"
-msgstr "Модуль уже встановлений та не потребує оновлення."
+msgstr "Плагін уже встановлений та не потребує оновлення."
 
 msgid "manager.plugins.installedVersionNewer.short"
 msgstr "Новіший ніж наявна версія"
@@ -945,19 +981,25 @@ msgid "manager.plugins.installSuccessful"
 msgstr "Успішно встановлена версія {$versionNumber}"
 
 msgid "manager.plugins.invalidPluginArchive"
-msgstr "Завантажений архів модуля не містить каталога, який відповідає назві модуля."
+msgstr ""
+"Завантажений архів плагіна не містить каталога, який відповідає назві "
+"плагіна."
 
 msgid "manager.plugins.wrongCategory"
-msgstr "Завантажений модуль не відповідає категорії оновлюваного модуля."
+msgstr "Завантажений плагін не відповідає категорії оновлюваного плагіна."
 
 msgid "manager.plugins.pleaseInstall"
-msgstr "Модуль не існує. Будь ласка, встановіть його"
+msgstr "Плагін не існує. Будь ласка, встановіть його"
 
 msgid "manager.plugins.wrongName"
-msgstr "version.xml у завантаженому модулі містить назву модуля, яка не відповідає назві оновлюваного модуля."
+msgstr ""
+"version.xml у завантаженому плагіні містить назву плагіна, яка не відповідає "
+"назві оновлюваного плагіна."
 
 msgid "manager.plugins.pleaseUpgrade"
-msgstr "Модуль уже існує, але є новішим, ніж встановлена версія. Будь ласка, скористайтеся оновленням"
+msgstr ""
+"Плагін уже існує, але є новішим, ніж встановлена версія. Будь ласка, "
+"скористайтеся оновленням"
 
 msgid "manager.plugins.settings"
 msgstr "Налаштування"
@@ -966,10 +1008,12 @@ msgid "manager.plugins.tarCommandNotFound"
 msgstr "Команда tar не доступна. Будь ласка, правильно налаштуйте її в \"config.inc.php\"."
 
 msgid "manager.plugins.upgrade"
-msgstr "Оновити модуль"
+msgstr "Оновити плагін"
 
 msgid "manager.plugins.upgradeDescription"
-msgstr "Ця форма дозволяє оновити модуль. Будь ласка, переконайтесь, що модуль заархівовано в файлі у форматі .tar.gz."
+msgstr ""
+"Ця форма дозволяє оновити плагін. Будь ласка, переконайтесь, що плагін "
+"заархівовано у форматі .tar.gz."
 
 msgid "manager.plugins.upgradeFailed"
 msgstr "Не вдалося оновити. {$errorString}"
@@ -981,13 +1025,13 @@ msgid "manager.plugins.uploadError"
 msgstr "Помилка завантаження файлу"
 
 msgid "manager.plugins.uploadPluginDir"
-msgstr "Оберіть файл модуля"
+msgstr "Оберіть файл плагіна"
 
 msgid "manager.plugins.versionFileInvalid"
-msgstr "version.xml у каталозі модулів містить неправильні дані."
+msgstr "version.xml у каталозі плагінів містить неправильні дані."
 
 msgid "manager.plugins.versionFileNotFound"
-msgstr "version.xml не знайдено в каталозі модулів"
+msgstr "version.xml не знайдено в каталозі плагінів"
 
 msgid "notification.localeEnabled"
 msgstr "Мова увімкнена."
@@ -1128,7 +1172,9 @@ msgid "grid.action.restoreGenres"
 msgstr "Відновити компоненти з усталеними налаштуваннями"
 
 msgid "manager.setup.genres.dependent"
-msgstr "Позначити файли цього типу як залежні файли (наприклад, як такі, що не відображатимуться з опублікованим вмістом)."
+msgstr ""
+"Позначити файли цього типу як залежні файли (наприклад, як такі, що не "
+"будуть відображатися з опублікованим вмістом)"
 
 msgid "manager.setup.genres.supplementary"
 msgstr "Позначити файли цього типу як додаткові файли (наприклад, як такі, що не стосуються основного вмісту подання)"
@@ -1239,7 +1285,7 @@ msgid "manager.reviewFormElements.chooseType"
 msgstr "Оберіть тип елемента"
 
 msgid "manager.reviewFormElements.confirmDelete"
-msgstr "Ви впевнені, що хочете видалити елемент опублікованої форми рецензування?"
+msgstr "Підтвердіть видалення елементу опублікованної форми..."
 
 msgid "manager.reviewFormElements.copyTo"
 msgstr "Копіювати до:"
@@ -1461,7 +1507,7 @@ msgid "manager.navigationMenus.profile.description"
 msgstr "Посилання на сторінку профілю користувача."
 
 msgid "manager.navigationMenus.administration.description"
-msgstr "Посилання на інструменти адміністрування всього сайту"
+msgstr "Посилання на інструменти адміністрування всього сайту."
 
 msgid "manager.navigationMenus.administration.conditionalWarning"
 msgstr "Це посилання відображатиметься тільки для користувачів з повноваженнями адміністратора."
@@ -1713,13 +1759,15 @@ msgid "manager.setup.theme"
 msgstr "Теми"
 
 msgid "manager.setup.theme.description"
-msgstr "Нові теми можуть бути встановлені на вкладці \"Модулі\" у верхній частині цієї сторінки."
+msgstr ""
+"Нові теми можуть бути встановлені на вкладці \"Плагіни\" у верхній частині "
+"цієї сторінки."
 
 msgid "manager.setup.theme.notFound"
 msgstr "Тема, яку ви обрали, не інстальована або не увімкнена."
 
 msgid "manager.setup.userAccess.success"
-msgstr "The user access details for this press have been updated."
+msgstr "Інформацію про доступ користувачів для цього видання було оновлено."
 
 msgid "manager.distribution.license"
 msgstr "Ліцензія"
@@ -1854,7 +1902,9 @@ msgid "manager.setup.metadata.type.require"
 msgstr "Вимагати від авторів зазначати тип перед прийняттям подання."
 
 msgid "manager.setup.metadata.disciplines.description"
-msgstr "Disciplines are types of study or branches of knowledge as described by university faculties and learned societies."
+msgstr ""
+"Дисципліни, - предмети чи галузі знання у тому вигляді як їх описує "
+"університетська наука і наукові спільноти."
 
 msgid "manager.setup.metadata.disciplines.enable"
 msgstr "Включити дисципліни у метадані"

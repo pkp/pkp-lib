@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2020-04-18 18:17+0000\n"
+"PO-Revision-Date: 2020-04-21 15:38+0000\n"
 "Last-Translator: Fylypovych Georgii <red.ukr@gmail.com>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/uk/>\n"
@@ -1802,3 +1802,276 @@ msgstr "Це метадані версії {$version}."
 
 msgid "submission.production.editMetadata.previous"
 msgstr "Попередні версії доступні через відповідну вкладку на стадії верстки."
+
+msgid "publication.wordCount"
+msgstr "Кількість слів: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Анотація занадто довга. Довжина має бути не більше {$limit} слів, або менше. "
+"Наразі вона складається з {$count} слів."
+
+msgid "publication.version.details"
+msgstr "Деталі публікації для версії {$version}"
+
+msgid "publication.version.confirm"
+msgstr "Ви впевнені, що хочете створити нову версію?"
+
+msgid "publication.version.all"
+msgstr "Всі версії"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "URL не може бути числом."
+
+msgid "publication.urlPath.duplicate"
+msgstr "URL вже використовується і не може бути використаний повторно."
+
+msgid "publication.urlPath.description"
+msgstr "Додатковий шлях для використання URL замість ID."
+
+msgid "publication.urlPath"
+msgstr "URL шлях"
+
+msgid "publication.unschedule.confirm"
+msgstr "Ви впевнені, що не хочете запланувати цей матеріал до публікації?"
+
+msgid "publication.unschedule"
+msgstr "Зняти з плану"
+
+msgid "publication.unpublish.confirm"
+msgstr "Ви впевнені що не хочете публікувати цей матеріал?"
+
+msgid "publication.unpublish"
+msgstr "Зняти з публікації"
+
+msgid "publication.titleAbstract.success"
+msgstr "Назва і анотація були оновлені."
+
+msgid "publication.titleAbstract"
+msgstr "Назва і Анотація"
+
+msgid "publication.status.unscheduled"
+msgstr "Знято з плану"
+
+msgid "publication.status.unpublished"
+msgstr "Знято з публікації"
+
+msgid "publication.status.scheduled"
+msgstr "Заплановано"
+
+msgid "publication.status.published"
+msgstr "Опубліковано"
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"До того як Опублікувати подання, воно має бути на стадії \"Літературне "
+"редагування\" або \"Виробництво\"."
+
+msgid "publication.required.declined"
+msgstr "Матеріал якому відмовлено, неможливо опублікувати."
+
+msgid "publication.publish.success"
+msgstr "Статус публікації успішно змінено."
+
+msgid "publication.publish.requirements"
+msgstr "Наступні вимоги мають бути виконані перед публікацією."
+
+msgid "publication.publish"
+msgstr "Опублікувати"
+
+msgid "publication.publicationLicense.success"
+msgstr "Інформацію про ліцензію і авторське право оновлено."
+
+msgid "publication.publicationLicense"
+msgstr "Дозволи і Розкриття інформації"
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Ідентифікатори оновлено."
+
+msgid "publication.metadata.success"
+msgstr "Метадані оновлено."
+
+msgid "publication.invalidSubmission"
+msgstr "Подання для цієї публікації неможливо знайти."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Версія була прибрана з публікації."
+
+msgid "publication.event.versionScheduled"
+msgstr "Нова версія запланована до публікації."
+
+msgid "publication.event.versionPublished"
+msgstr "Нова версія опублікована."
+
+msgid "publication.event.versionCreated"
+msgstr "Нова версія створена."
+
+msgid "publication.event.unpublished"
+msgstr "Подання було знято з публікації."
+
+msgid "publication.event.scheduled"
+msgstr "Подання заплановане до публікації."
+
+msgid "publication.event.published"
+msgstr "Подання було опубліковано."
+
+msgid "publication.editDisabled"
+msgstr "Ця версія була опублікована і не може бути змінена."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Дата має бути у форматі РРРР-ММ-ДД, наприклад, 2019-01-01."
+
+msgid "publication.datePublished"
+msgstr "Дата Публікації"
+
+msgid "publication.createVersion"
+msgstr "Створити нову версію"
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"Рік авторського права буде виставлено автоматично, базуючись на даті "
+"публікації."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"Рік авторського права буде виставлено автоматично після публікації випуску."
+
+msgid "publication.contributors"
+msgstr "Дописувачі"
+
+msgid "publication.citations.success"
+msgstr "Посилання були оновлені."
+
+msgid "submission.publications"
+msgstr "Публікації"
+
+msgid "submission.publication"
+msgstr "Публікація"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Призначення рецензування"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Ліцензії Creative Commons\" src=\"//i.creativecommons.org/l/by-sa/"
+"3.0/88x31.png\" /></a><p>Ця робота ліцензована<a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-sa/3.0/\">Із Зазначенням Авторства – "
+"Поширення На Тих Самих Умовах 3.0 Міжнародна</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Ліцензії Creative Commons\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Ця робота ліцензована<a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Із Зазначенням Авторства 3.0 "
+"Міжнародна</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Ліцензії Creative Commons\" src=\"//i.creativecommons.org/l/by-nd/"
+"3.0/88x31.png\" /></a><p>Ця робота ліцензована<a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nd/3.0/\">Із Зазначенням Авторства – "
+"Без Похідних 3.0 Міжнародна</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Ліцензії Creative Commons\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Ця робота ліцензована<a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Із Зазначенням "
+"Авторства – Некомерційна – Поширення На Тих Самих Умовах 3.0 "
+"Міжнародна</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Ліцензії Creative Commons\" src=\"//i.creativecommons.org/l/by-nc/"
+"3.0/88x31.png\" /></a><p>Ця робота ліцензована<a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nc/3.0/\">Із Зазначенням Авторства – "
+"Некомерційна 3.0 Міжнародна</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Ліцензії Creative Commons\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Ця робота ліцензована<a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Із Зазначенням "
+"Авторства – Некомерційна – Без Похідних 3.0 Міжнародна</a>.</p>"
+
+#, fuzzy
+msgid "submission.copyrightOther.description"
+msgstr "Призначити авторські права на опубліковані матеріали наступній стороні."
+
+msgid "submission.copyrightOther"
+msgstr "Попередження про авторські права"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Користувацьке формулювання \"Попередження про авторські права\""
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Авторське право автоматично призначиться на {$copyright} після публікування "
+"матеріалу."
+
+msgid "submission.license.description"
+msgstr ""
+"Ліцензія призначиться автоматично <a href='{$licenseUrl}' "
+"target='_blank'>{$licenseName}</a> коли матеріал буде опубліковано."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"Рецензент {$reviewerName} завершив рецензію для раунду {$round} рецензування "
+"для подання {$submissionId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Редактор {$userName} підтвердив рецензію для раунду {$round} рецензування "
+"для подання {$submissionId}."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"Раунд {$round} рецензований {$reviewerName} для подання {$submissionId} ."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"Раунд {$round} рецензований {$reviewerName} для подання {$submissionId} "
+"очищений."
+
+msgid "submission.status.scheduled"
+msgstr "Запланований"
+
+msgid "submissions.inactive"
+msgstr "Не активні протягом {$days} днів"
+
+msgid "submission.publisherId.enable"
+msgstr "Активувати для {$objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"ID видавця може використовуватися для запису ID із зовнішньої бази даних. "
+"Наприклад, експортовані для депонування матеріали до PubMed можуть включати "
+"в себе ID видавця. Його не варто використовувати для DOI."
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Це застарівша версія, яка була опублікована {$datePublished}. Прочитайте <a "
+"href=\"{$urlRecentVersion}\">найбільш нову версію</a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Версії"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Оновлено {$dateUpdated}"
+
+msgid "author.publicationNotFound"
+msgstr "Публікацію автора не можливо знайти."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Авторів цієї публікації не можливо відредагувати, оскільки вона вже "
+"опублікована."

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-17 21:11+0000\n"
+"PO-Revision-Date: 2020-04-21 15:38+0000\n"
 "Last-Translator: Kameran MohamadJalal Majeed "
 "<kameran.jalal@koyauniversity.org>\n"
 "Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
@@ -184,7 +184,7 @@ msgid "admin.languages.installLanguages"
 msgstr "به‌ڕێوه‌بردنی زمانه‌كان"
 
 msgid "admin.settings.contactName"
-msgstr "ناوی کەسی پەیوەندیداری سەرەکی"
+msgstr "ناوی کەسی پەیوەندیكردنی سەرەکی"
 
 msgid "admin.server.dbVersion"
 msgstr "وه‌شانی سێرڤه‌ری بنكه‌ی زانیارییه‌كان"
@@ -285,3 +285,23 @@ msgstr "دۆسیه‌ی جۆره‌كانی پێگه‌"
 msgid "admin.settings.siteStyleSheetInvalid"
 msgstr ""
 "داڕشته‌ی دۆسه‌ی جۆره‌كانی پێگه‌كه‌ ناڕاسته‌. دارشته‌ی په‌سه‌ند ئه‌مه‌یه‌.css."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "هه‌ڵگری دۆسیه‌كان"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "دۆسیه‌ی {$filename} چاره‌سه‌ر كراو پارێزراوه‌."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"ناتوانرێـت دۆسیه‌ی {$filename} له‌ {$currentFilePath} بگوێزرێته‌وه‌ بۆ "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "فۆڵده‌ری دۆسییه‌كان {$path}ڕێڕه‌وێكی دروست نیه‌ یان ناخوێندرێته‌وه‌."
+
+msgid "admin.version"
+msgstr "وه‌شان"
+
+msgid "admin.version.upToDate"
+msgstr "سیسته‌مه‌كه‌ت نوێترین وه‌شانه‌"

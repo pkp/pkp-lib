@@ -169,18 +169,18 @@ class ReviewerForm extends Form {
 
 		// Get the response/review due dates or else set defaults
 		if (isset($reviewAssignment) && $reviewAssignment->getDueDate() != null) {
-			$reviewDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime($reviewAssignment->getDueDate()));
+			$reviewDueDate = strtotime($reviewAssignment->getDueDate());
 		} else {
 			$numWeeks = (int) $context->getData('numWeeksPerReview');
 			if ($numWeeks<=0) $numWeeks=4;
-			$reviewDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime('+' . $numWeeks . ' week'));
+			$reviewDueDate = strtotime('+' . $numWeeks . ' week');
 		}
 		if (isset($reviewAssignment) && $reviewAssignment->getResponseDueDate() != null) {
-			$responseDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime($reviewAssignment->getResponseDueDate()));
+			$responseDueDate = strtotime($reviewAssignment->getResponseDueDate());
 		} else {
 			$numWeeks = (int) $context->getData('numWeeksPerResponse');
 			if ($numWeeks<=0) $numWeeks=3;
-			$responseDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime('+' . $numWeeks . ' week'));
+			$responseDueDate = strtotime('+' . $numWeeks . ' week');
 		}
 
 		// Get the currently selected reviewer selection type to show the correct tab if we're re-displaying the form

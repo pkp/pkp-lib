@@ -1314,6 +1314,9 @@ msgstr "Setup"
 msgid "navigation.sitemap"
 msgstr "Site Map"
 
+msgid "navigation.skip.description"
+msgstr "Jump to content links"
+
 msgid "navigation.skip.announcements"
 msgstr "Skip to announcements"
 

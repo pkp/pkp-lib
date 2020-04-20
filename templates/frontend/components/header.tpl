@@ -28,6 +28,9 @@
 
 		{* Header *}
 		<header class="pkp_structure_head" id="headerNavigationContainer" role="banner">
+			{* Skip to content nav links *}
+			{include file="frontend/components/skipLinks.tpl"}
+
 			<div class="pkp_head_wrapper">
 
 				<div class="pkp_site_name_wrapper">
@@ -62,9 +65,6 @@
 						<h1 class="pkp_screen_reader">{$displayPageHeaderTitle|escape}</h1>
 					{/if}
 				</div>
-
-				{* Primary site navigation *}
-				{include file="frontend/components/skipLinks.tpl"}
 
 				{capture assign="primaryMenu"}
 					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}

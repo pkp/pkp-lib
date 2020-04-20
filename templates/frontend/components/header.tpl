@@ -28,9 +28,9 @@
 
 		{* Header *}
 		<header class="pkp_structure_head" id="headerNavigationContainer" role="banner">
-			{* Primary site navigation *}
+			{* Skip to content nav links *}
 			{include file="frontend/components/skipLinks.tpl"}
-			
+
 			<div class="pkp_head_wrapper">
 
 				<div class="pkp_site_name_wrapper">

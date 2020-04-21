@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2020-04-18 18:17+0000\n"
+"PO-Revision-Date: 2020-04-21 15:38+0000\n"
 "Last-Translator: Fylypovych Georgii <red.ukr@gmail.com>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/uk/>\n"
@@ -1982,3 +1982,83 @@ msgstr "Застереження щодо авторських прав"
 
 msgid "manager.setup.additionalContent.description"
 msgstr "Все, що тут введено, з'явиться на головній сторінці."
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Частка відмов після рецензування"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Відсоток відмов (одразу)"
+
+msgid "stats.name.declineRate"
+msgstr "Відсоток відмов"
+
+#, fuzzy
+msgid "stats.name.acceptanceRate"
+msgstr "Відсоток Прийняття"
+
+msgid "stats.name.daysToReject"
+msgstr "Днів до відмови"
+
+msgid "stats.name.daysToAccept"
+msgstr "Днів до прийняття"
+
+msgid "stats.name.daysToDecision"
+msgstr "Днів до першого рішення редакції"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Опубліковано Подань"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Відхилено Подань (після рецензування)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Відхилено Подань (одразу)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Відхилено Подань"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Прийнято Подань"
+
+msgid "stats.name.submissionsReceived"
+msgstr "отримано Подань"
+
+msgid "stats.userStatistics"
+msgstr "Статистика по користувачам"
+
+msgid "stats.trends"
+msgstr "Тренди"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Усього за період часу"
+
+msgid "stats.submissionsActive"
+msgstr "Активних Подань"
+
+msgid "stats.editorialActivity"
+msgstr "Активність редакції"
+
+msgid "stats.descriptionForStat"
+msgstr "Опис для {$stat}"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Рік до дати"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Останній рік"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Останні 2 роки"
+
+msgid "stats.allUsers"
+msgstr "Всі користувачі"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Вимагати, щоб автор надав бібліографічні посилання до прийняття подання."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Дозволити редагування метаданих подання."
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Зареєстровані Користувачі"

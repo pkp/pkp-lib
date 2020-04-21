@@ -240,7 +240,7 @@ class QueryForm extends Form {
 
 				// if current user is blind reviewer, filter out authors
 				foreach ($reviewAssignments as $reviewAssignment) {
-					if ($reviewAssignment->getReviewerId() === $user->getId()){
+					if ($reviewAssignment->getReviewerId() == $user->getId() ){
 						if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN){
 							$authorAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($query->getAssocId(), ROLE_ID_AUTHOR);
 							while ($assignment = $authorAssignments->next()) {
@@ -285,13 +285,13 @@ class QueryForm extends Form {
 					$userAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId())->toArray();
 					foreach ($userAssignments as $userAssignment) {
 						foreach ($allUserGroups as $userGroup) {
-							if ((int) $userGroup->getId() === (int) $userAssignment->getUserGroupId()) {
+							if ($userGroup->getId() == $userAssignment->getUserGroupId()) {
 								$userRoles[] = $userGroup->getLocalizedName();
 							}
 						}
 					}
 					foreach ($reviewAssignments as $assignment) {
-						if ($assignment->getReviewerId() === $user->getId()) {
+						if ($assignment->getReviewerId() == $user->getId()) {
 							$userRoles[] =  __('user.role.reviewer') . " (" . __($assignment->getReviewMethodKey()) . ")";
 						}
 					}
@@ -399,7 +399,7 @@ class QueryForm extends Form {
 		}
 
 		// Stamp the submission status modification date.
-		if ($query->getAssocType() === ASSOC_TYPE_SUBMISSION) {
+		if ($query->getAssocType() == ASSOC_TYPE_SUBMISSION) {
 			$submission = Services::get('submission')->get($query->getAssocId());
 			$submission->stampLastActivity();
 			$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */

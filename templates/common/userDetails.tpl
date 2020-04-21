@@ -49,7 +49,7 @@
 
 	{if !$disableEmailSection}
 		{fbvFormSection title="about.contact"}
-			{fbvElement type="text" label="user.email" id="email" required="true" value=$email maxlength="90" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="email" label="user.email" id="email" required="true" value=$email maxlength="90" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 	{/if}
 

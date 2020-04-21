@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-21 15:38+0000\n"
-"Last-Translator: Haval Abdulkarim <haval.abdulkarim@gmail.com>\n"
+"PO-Revision-Date: 2020-04-22 20:38+0000\n"
+"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
 "Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ku_IQ/>\n"
 "Language: ku_IQ\n"
@@ -1467,3 +1467,97 @@ msgstr "بارکردنی فایلی ئامادە بۆ بڵاوکردنەوە"
 
 msgid "submission.upload.productionReady"
 msgstr "بارکردنی فایلی ئامادەی بەرهەمهێنان"
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "دواهەمین بڕیاری سەرنوسەر."
+
+msgid "notification.type.indexRequest"
+msgstr "تۆ داوات لێ کراوە کە پێنوێن بۆ \"{$title}\" دروست بکەیت."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "تۆ داوات لێ کراوە کە وردبینی بۆ نەخشەسازی \"{$title}\" بکەیت."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "تۆ داوات لێ کراوە کە وردبینی بۆ \"{$title}\" بکەیت."
+
+msgid "notification.type.editorAssign"
+msgstr "تۆ وەک سەرنوسەری \"{$title}\" دەستنیشان کرایت."
+
+msgid "submission.event.proofsApproved"
+msgstr "\"{$name}\" ({$username}) بەڵگەکانی فایلی \"{$formatName}\" پەسەند کرد"
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) لە فایلی \"{$file}\" چووە دەرەوە"
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$name}\" ({$username}) وردبینی تەواو کرد و ئەم فایلەی بار کردەوە \""
+"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$name}\" ({$username}) وەک وردبینی ژمێریاری لا برا بۆ فایلی \"{$file}.\""
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$name}\" ({$username}) وەک وردبینی ژمێریاری زیاد کرا بۆ فایلی \"{$file}.\""
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr ""
+"فایلی \"{$title}\" کە دواهەمین چاککراوی هەبو، سڕایەوە لە لایەن {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"فایلی چاککراوی \"{$originalFileName}\" سڕایەوە بۆ پێشکەشکردن {$submissionId} "
+"لە لایەن {$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"فایلی چاککراوی \"{$originalFileName}\" بار کرا بۆ پێشکەشکردن {$submissionId} "
+"لە لایەن {$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"فایلی \"{$originalFileName}\" سڕایەوە لە پێشکەشکردنی {$submissionId} لە "
+"لایەن {$username}."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"فایلی \"{$originalFileName}\" بار کرا بۆ پێشکەشکردنی {$submissionId} لە "
+"لایەن{$username}."
+
+msgid "editor.submission.addAuditorError"
+msgstr ""
+"هەڵەیەک لە ئەرکدارکردنی وردبینی ژمێریاریدا هەیە. تکایە دوبارە هەوڵ بدەوە."
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "سەرنوسەرێک دیاری بکە بۆ چالاککردنی بڕیاری سەرنوسەری لەم قۆناغەدا."
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"ئەم فایلی بەڵگەیە هیچی دیکە بۆ گشتی و دابەزاندن و داواکردن بەردەست نابێت. "
+"ئایا دەتەوێت قبوڵکردنەکە بکشێنیتەوە؟"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"پەڕەی فایلی بەڵگەنامەکان دەبێت وردبینی بۆ بکرێت و قبوڵ بکرێت و چالاک بکرێت، "
+"ئایا دەتەوێت قبوڵی بکەیت؟"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"ئایا تۆ دڵنیایت لە ڕێگەپێدانی توێژەران بۆ گۆڕینی زانیارییە ناسێنەرەکانیان "
+"لەم قۆناغەدا؟"
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"ئەو بەشداربووەی کە تۆ دیاریت کردووە بۆ هەڵسەنگاندنی نهێنی ئەرکدار کراوە. "
+"ئەگەر تۆ وەک بەشداربو ئەرکداری بکەیت، ئەوا دەتوانێت زانیارییەکانی توێژەر "
+"ببینێت. هەر بۆیە وا باشترە کە ئەم کەسانە وەک بەشداربو ئەرکدار نەکرێت هەتا تۆ "
+"دڵنیا نەبیت لە پرۆسەی نهێنیی هەڵسەنگاندن."
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"بەکارهێنەران بۆ قۆناغەکانی ڕێڕەوی کار ئەرکدار کراون لە لایەن گروپی "
+"بەکارهێنەرانەوە. هەر بەکارهێنەرێک بۆ ئەم قۆناغە ئەرکدار کرابێت، تۆماتیکی بۆ "
+"قۆناغەکانی دیکەی هەمان گروپ ئەرکدار دەکرێت. ئەمە بە گشتی تایبەتە بە "
+"سەرنوسەران، نوسەر و توێژەران و وەرگێڕان."

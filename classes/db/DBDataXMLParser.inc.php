@@ -169,8 +169,10 @@ class DBDataXMLParser {
 						}
 						break;
 					case 'query':
+						// If a "driver" attribute is specified, multiple drivers can be
+						// specified with a comma separator.
 						$driver = $child->getAttribute('driver');
-						if (empty($driver) || $this->dbconn->databaseType === $driver) {
+						if (empty($driver) || in_array($this->dbconn->databaseType, array_map('trim', explode(',', $driver)))) {
 							$this->sql[] = $child->getValue();
 						}
 						break;

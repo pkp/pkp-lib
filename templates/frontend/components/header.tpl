@@ -37,6 +37,9 @@
 					<button class="pkp_site_nav_toggle">
 						<span>Open Menu</span>
 					</button>
+					{if !$requestedPage || $requestedPage === 'index'}
+						<h1 class="pkp_screen_reader">{$displayPageHeaderTitle|escape}</h1>
+					{/if}
 					<div class="pkp_site_name">
 					{capture assign="homeUrl"}
 						{if $currentContext && $multipleContexts}
@@ -61,9 +64,6 @@
 						</a>
 					{/if}
 					</div>
-					{if !$requestedPage || $requestedPage === 'index'}
-						<h1 class="pkp_screen_reader">{$displayPageHeaderTitle|escape}</h1>
-					{/if}
 				</div>
 
 				{capture assign="primaryMenu"}

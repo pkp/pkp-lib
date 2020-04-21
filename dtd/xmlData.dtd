@@ -23,6 +23,7 @@
 <!-- Raw SQL -->
 <!ELEMENT sql (query|drop|rename)*>
 <!ELEMENT query (#PCDATA)>
+	<!-- The "driver" attribute can specify several drivers using comma separators. -->
 	<!ATTLIST query
 		driver CDATA #IMPLIED>
 

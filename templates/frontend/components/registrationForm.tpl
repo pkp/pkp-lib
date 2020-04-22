@@ -84,7 +84,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="email" id="email" value="{$email|escape}" maxlength="90" required aria-required="true">
+				<input type="email" name="email" id="email" value="{$email|escape}" maxlength="90" required aria-required="true">
 			</label>
 		</div>
 		<div class="username">

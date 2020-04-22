@@ -31,7 +31,7 @@
 				<label>
 					<span class="label">
 						{translate key="user.login.registeredEmail"}
-						<span class="required">*</span>
+						<span class="required" aria-hidden="true">*</span>
 						<span class="pkp_screen_reader">
 							{translate key="common.required"}
 						</span>

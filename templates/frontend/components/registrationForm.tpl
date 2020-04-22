@@ -24,7 +24,7 @@
 			<label>
 				<span class="label">
 					{translate key="user.givenName"}
-					<span class="required">*</span>
+					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>
@@ -44,7 +44,7 @@
 			<label>
 				<span class="label">
 					{translate key="user.affiliation"}
-					<span class="required">*</span>
+					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>
@@ -56,7 +56,7 @@
 			<label>
 				<span class="label">
 					{translate key="common.country"}
-					<span class="required">*</span>
+					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>
@@ -79,7 +79,7 @@
 			<label>
 				<span class="label">
 					{translate key="user.email"}
-					<span class="required">*</span>
+					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>
@@ -91,7 +91,7 @@
 			<label>
 				<span class="label">
 					{translate key="user.username"}
-					<span class="required">*</span>
+					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>
@@ -103,7 +103,7 @@
 			<label>
 				<span class="label">
 					{translate key="user.password"}
-					<span class="required">*</span>
+					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>
@@ -115,7 +115,7 @@
 			<label>
 				<span class="label">
 					{translate key="user.repeatPassword"}
-					<span class="required">*</span>
+					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>

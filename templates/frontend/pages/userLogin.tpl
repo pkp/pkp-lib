@@ -41,7 +41,7 @@
 				<label>
 					<span class="label">
 						{translate key="user.username"}
-						<span class="required">*</span>
+						<span class="required" aria-hidden="true">*</span>
 						<span class="pkp_screen_reader">
 							{translate key="common.required"}
 						</span>
@@ -53,7 +53,7 @@
 				<label>
 					<span class="label">
 						{translate key="user.password"}
-						<span class="required">*</span>
+						<span class="required" aria-hidden="true">*</span>
 						<span class="pkp_screen_reader">
 							{translate key="common.required"}
 						</span>

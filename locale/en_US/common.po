@@ -1182,6 +1182,9 @@ msgstr "Posted new note."
 msgid "informationCenter.history.messageSent"
 msgstr "Notification sent to users."
 
+msgid "issue.title"
+msgstr "View {$title}"
+
 msgid "stageParticipants.history.messageSent"
 msgstr "Notification sent to users."
 

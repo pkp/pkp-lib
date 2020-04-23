@@ -163,6 +163,7 @@ class UserDetailsForm extends UserForm {
 		foreach ($isoCodes->getCountries() as $country) {
 			$countries[$country->getAlpha2()] = $country->getLocalName();
 		}
+		asort($countries);
 		$templateMgr = TemplateManager::getManager($request);
 
 		$templateMgr->assign(array(

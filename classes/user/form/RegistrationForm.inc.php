@@ -103,6 +103,7 @@ class RegistrationForm extends Form {
 		foreach ($isoCodes->getCountries() as $country) {
 			$countries[$country->getAlpha2()] = $country->getLocalName();
 		}
+		asort($countries);
 		$templateMgr->assign('countries', $countries);
 
 		import('lib.pkp.classes.user.form.UserFormHelper');

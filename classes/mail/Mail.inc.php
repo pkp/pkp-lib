@@ -488,16 +488,16 @@ class Mail extends DataObject {
 				$mailer->SMTPDebug = 3;
 				$mailer->Debugoutput = 'error_log';
 			}
-            if (Config::getVar('email', 'smtp_suppress_cert_check')) {
-                // disabling the SMTP certificate check.
-                $mailer->SMTPOptions = array(
-                    'ssl' => array(
-                        'verify_peer' => false,
-                        'verify_peer_name' => false,
-                        'allow_self_signed' => true
-                    )
-                );
-            }
+			if (Config::getVar('email', 'smtp_suppress_cert_check')) {
+				// disabling the SMTP certificate check.
+				$mailer->SMTPOptions = array(
+					'ssl' => array(
+						'verify_peer' => false,
+						'verify_peer_name' => false,
+						'allow_self_signed' => true
+					)
+				);
+			}
 		}
 		$mailer->CharSet = Config::getVar('i18n', 'client_charset');
 		if (($t = $this->getContentType()) != null) $mailer->ContentType = $t;

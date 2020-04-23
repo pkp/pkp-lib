@@ -293,7 +293,7 @@ class FormComponent {
 			'pages' => $this->pages,
 			'primaryLocale' => \AppLocale::getPrimaryLocale(),
 			'visibleLocales' => [\AppLocale::getLocale()],
-			'supportedFormLocales' => $this->locales,
+			'supportedFormLocales' => array_values($this->locales), // See #5690
 			'errors' => new \stdClass(),
 			'csrfToken' => $csrfToken,
 			'i18n' => $this->i18n,

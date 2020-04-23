@@ -265,6 +265,9 @@ class FormBuilderVocabulary {
 				$content = $this->_smartyFBVCheckboxGroup($params, $smarty);
 				unset($params['label']);
 				break;
+			case 'email':
+				$content = $this->_smartyFBVTextInput($params, $smarty);
+				break;
 			case 'file':
 				$content = $this->_smartyFBVFileInput($params, $smarty);
 				break;

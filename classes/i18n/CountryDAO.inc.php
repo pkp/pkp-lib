@@ -36,6 +36,7 @@ class CountryDAO extends DAO {
 		foreach ($isoCodes->getCountries() as $country) {
 			$countries[$country->getAlpha2()] = $country->getLocalName();
 		}
+		asort($countries);
 		return $countries;
 	}
 

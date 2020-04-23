@@ -98,6 +98,7 @@ class PKPVocabHandler extends APIHandler {
 					if (!$language->getAlpha2() || $language->getType() != 'L' || $language->getScope() != 'I') continue;
 					$languageNames[] = $language->getLocalName();
 				}
+				asort($languageNames);
 				return $response->withJson($languageNames, 200);
 			case CONTROLLED_VOCAB_SUBMISSION_AGENCY:
 				$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /* @var $submissionAgencyEntryDao SubmissionAgencyEntryDAO */

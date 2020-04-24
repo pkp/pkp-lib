@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2020-04-22 20:38+0000\n"
+"PO-Revision-Date: 2020-04-25 17:38+0000\n"
 "Last-Translator: Sönmez Çelik <snmzclk@gmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr/>\n"
@@ -1493,3 +1493,12 @@ msgstr "Gizlilik beyanınızı görüntüleyen sayfaya bağlantı verin."
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr "Bu bağlantı sadece Ayarlar > İş Akışı > Gönderiler altında bir gizlilik bildirimi girdiyseniz görüntülenir."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Hakem rehberi güncellendi."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Hakem Rehberi"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "E-posta ayarları güncellendi."

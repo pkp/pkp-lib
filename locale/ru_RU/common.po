@@ -1318,6 +1318,9 @@ msgstr "Установка"
 msgid "navigation.sitemap"
 msgstr "Карта сайта"
 
+msgid "navigation.skip.description"
+msgstr "Переходы к ссылкам на контент"
+
 msgid "navigation.skip.announcements"
 msgstr "Перейти к объявлениям"
 

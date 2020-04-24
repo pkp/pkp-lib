@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-21 15:38+0000\n"
-"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
+"PO-Revision-Date: 2020-04-25 17:38+0000\n"
+"Last-Translator: Hawkar Aziz Mustafa <hawkar.musstafa@gmail.com>\n"
 "Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ku_IQ/>\n"
 "Language: ku_IQ\n"
@@ -357,3 +357,164 @@ msgstr "دەرکەوتن"
 
 msgid "manager.website.information"
 msgstr "زانیاری"
+
+msgid "manager.statistics.reports"
+msgstr "ڕاپۆرت دروستکەر"
+
+msgid "manager.statistics.region"
+msgstr "هەرێم"
+
+msgid "manager.statistics.city"
+msgstr "شار"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "هەڵسەنگاندنی ئارەزووبوون"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "بگەڕێ بە ناو"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "لە هەڵسەنگێنەران بگەڕێ بە ناو"
+
+msgid "manager.reviewerSearch.change"
+msgstr "گۆڕانکاری"
+
+msgid "manager.userSearch.searchByName"
+msgstr "لە بەکارهێنەرەکان بگەڕێ بە ناو"
+
+msgid "manager.readingTools"
+msgstr "ئامرازەکانی خوێندنەوە"
+
+msgid "manager.plugins"
+msgstr "سیستەمی گرێدانی تەواو کاری"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "گرێدانی بەڕێوەبردن"
+
+msgid "manager.plugins.enable"
+msgstr "چالاک"
+
+msgid "manager.plugins.disable"
+msgstr "ناچالاک"
+
+msgid "manager.people.userMustChangePassword"
+msgstr ""
+"بەکارهێنەر داوای لێدەکرێت کە ژمارەی نهێنی بگۆڕێت و  وە بۆ جاری داهاتو بچێتە "
+"ناوەوە"
+
+msgid "manager.plugins.action"
+msgstr "کردار"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "بەکارهێنەر بەسەرکەوتووی دروست کرا"
+
+msgid "manager.people.unenroll"
+msgstr "سڕینەوە تۆمارکردن"
+
+msgid "manager.people.signInAsUser"
+msgstr "بچۆ ناوی وەک بەکارهێنەر"
+
+msgid "manager.people.signInAs"
+msgstr "تۆماری بکە وەک"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "هەمباری بکە و یەکێکی تردروست بکە"
+
+msgid "manager.people.noneEnrolled"
+msgstr "هیچ  بەکارهێنەرێک  تۆمارنەکراوە"
+
+msgid "manager.people.remove"
+msgstr "سڕینەوە"
+
+msgid "manager.people"
+msgstr "خەڵک"
+
+msgid "manager.people.mergeUsers"
+msgstr "بەکارهێنەرەکان تێکەڵ بکە"
+
+msgid "manager.people.mergeUser"
+msgstr "بەکارهێنەر تێکەڵ بکە"
+
+msgid "manager.people.invalidUser"
+msgstr "ببور، داواکاری بەکارهێنەر بوونی نیە"
+
+msgid "manager.people.enrollUserAs"
+msgstr "تۆماری بەکارهێنەر بکە وەک"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr ""
+"بەکارهێنەر دەتوانرێت ڕابسپێردرێت بۆ یان لاببردرێت لە ڕۆڵێک لە هەرکاتێک بێت"
+
+msgid "manager.people.enrollSync"
+msgstr "تۆمارکردنی لەهەمان کاتدا"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "ڕۆڵی لە هەمان کات"
+
+msgid "manager.people.enrollSelected"
+msgstr "تۆماری بەکارهێنەرانی هەڵبژێردراو بکە"
+
+msgid "manager.people.enrollment"
+msgstr "خۆ تۆمارکردن"
+
+msgid "manager.people.enroll"
+msgstr "بەکارهێنەرە تۆمار بکە"
+
+msgid "manager.people.enable"
+msgstr "چالاکی بکە"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"ئەو بەکارهێنەرانە هەڵبژێرە کە ئارەزوو دەکەیت ئیمێڵیان بۆ بکەی ی بە "
+"دیاریکردنی ئەو  چوار گۆشەی تەنیشت ناوەکانیان"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "شوێنێک هەڵبژێرە"
+
+msgid "manager.people.emailUsers"
+msgstr "ئیمێڵ بکە بۆ بەکارهێنەرەکان"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "ئیمێڵی بەکارهێنەرەکان تۆماربکە وەک"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "هەڵبژاردنی ئێمێڵی بەکارهێنەرەکان"
+
+msgid "manager.people.editUser"
+msgstr "ڕێکخستنی بەکارهێنەر"
+
+msgid "manager.people.editProfile"
+msgstr "ڕێکخستنی کورتە ژیان نامە"
+
+msgid "manager.people.doNotEnroll"
+msgstr "بە بێ ڕۆڵ"
+
+msgid "manager.people.disable"
+msgstr "ناچالاکی بکە"
+
+msgid "manager.people.createUserSendNotify"
+msgstr ""
+"ئیمێڵێکی بەخێرهاتن بنێرە بۆ بەکارهێنەرەکە کە ناوی بەکارهێنەرە و ژمارەی نهێنی "
+"تێدابێت."
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "ژمارەی نهێنی بە هەڕەمەکی دروست بکە"
+
+msgid "manager.people.existingUserRequired"
+msgstr "بەکارهێنەری  کەهەژماری هەیە دەبێت بچێتە ناوەوە."
+
+msgid "manager.people.createUser"
+msgstr "بەکارهێنەرێکی نوێ دروست بکە"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "لەکارخستنی ئەو بەکارهێنەرە"
+
+msgid "manager.people.authSource"
+msgstr "سەرچاوەی ڕاستاندن"
+
+msgid "manager.payment.timestamp"
+msgstr "کاتی تۆمارکراو"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr ""
+"ناوەڕک: بەڕێوەبەر.زمان.دووبارە پڕکردنەوەی  ڕێکخستنەکان بەشێوەیەکی ئاسایی"

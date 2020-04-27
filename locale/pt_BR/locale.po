@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-25 07:54+0000\n"
-"Last-Translator: Lilian Nassi Calo <calolilian@gmail.com>\n"
+"PO-Revision-Date: 2020-04-23 12:38+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "locale/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -77,7 +77,9 @@ msgid "about.aboutThisPublishingSystem.altText"
 msgstr "Editorial e Processo de Publicação OPS"
 
 msgid "about.aboutThisPublishingSystem"
-msgstr "Sobre este Sistema de Publicação"
+msgstr ""
+"Mais informações sobre o sistema de publicação, plataforma e fluxo por OPS/"
+"PKP."
 
 msgid "about.privacyStatement"
 msgstr "Declaração de Privacidade"
@@ -259,7 +261,7 @@ msgid "article.details"
 msgstr "Detalhes"
 
 msgid "publication.version"
-msgstr "Versão"
+msgstr "Versão {$version}"
 
 msgid "common.publications"
 msgstr "Preprints"
@@ -345,3 +347,6 @@ msgstr "Downloads {$downloads}"
 
 msgid "submission.numberOfVersions"
 msgstr "Existem {$numberOfVersions} versões deste preprint"
+
+msgid "submission.layout.galleyPublicIdentificationExists"
+msgstr "A identificação da composição final pública já existe."

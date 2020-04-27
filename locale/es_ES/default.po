@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-03-03 18:36+0000\n"
-"Last-Translator: Darío Hereñú <magallania@gmail.com>\n"
+"PO-Revision-Date: 2020-04-19 16:37+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/default/es/>"
 "\n"
 "Language: es_ES\n"
@@ -68,7 +68,7 @@ msgid "default.groups.name.editor"
 msgstr "Editor de servidores"
 
 msgid "default.groups.abbrev.manager"
-msgstr "JM"
+msgstr "PSM"
 
 #, fuzzy
 msgid "default.groups.plural.manager"

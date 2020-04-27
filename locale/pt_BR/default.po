@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-25 07:54+0000\n"
+"PO-Revision-Date: 2020-04-23 12:38+0000\n"
 "Last-Translator: Lilian Nassi Calo <calolilian@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "default/pt_BR/>\n"
@@ -61,7 +61,7 @@ msgid "default.groups.name.editor"
 msgstr "Editor de servidores"
 
 msgid "default.groups.abbrev.manager"
-msgstr "JM"
+msgstr "PSM"
 
 #, fuzzy
 msgid "default.groups.plural.manager"
@@ -132,10 +132,9 @@ msgstr ""
 "O arquivo da submissão está em formato de arquivo de documento OpenOffice, "
 "Microsoft Word ou RTF."
 
-#, fuzzy
 msgid "default.contextSettings.checklist.notPreviouslyPublished"
 msgstr ""
-"A submissão não foi publicado anteriormente, nem está em sendo considerada "
+"A submissão não foi publicada anteriormente, nem está em sendo considerada "
 "em outro servidor (ou uma explicação foi fornecida em Comentários ao Editor)."
 
 msgid "default.genres.article"

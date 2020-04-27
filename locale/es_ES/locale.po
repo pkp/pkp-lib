@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-03-03 18:36+0000\n"
-"Last-Translator: Darío Hereñú <magallania@gmail.com>\n"
+"PO-Revision-Date: 2020-04-19 16:37+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/locale/es/>"
 "\n"
 "Language: es_ES\n"
@@ -56,7 +56,7 @@ msgid "search.results.orderBy.popularityAll"
 msgstr "Popularidad (de todos los tiempos)"
 
 msgid "installer.upgradeInstructions"
-msgstr "<h4>OPS Version {$version}</h4>"
+msgstr "<h4>OPS Versión {$version}</h4>"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
@@ -97,7 +97,9 @@ msgid "about.aboutThisPublishingSystem.altText"
 msgstr "Proceso editorial y de publicación de OPS"
 
 msgid "about.aboutThisPublishingSystem"
-msgstr "Sobre este sistema de publicación"
+msgstr ""
+"Más información sobre el sistema de publicación, la plataforma y el flujo de "
+"trabajo de OPS/PKP."
 
 msgid "about.privacyStatement"
 msgstr "Declaracion de privacidad"
@@ -128,7 +130,7 @@ msgid "about.onlineSubmissions.submitToSection"
 msgstr "Realice un nuevo envío a la serie <a href=\"{$url}\">{$name}</a>."
 
 msgid "about.onlineSubmissions.submissionActions"
-msgstr "{$nueva presentación} de {$ver presentaciones}."
+msgstr "{$newSubmission} o {$viewSubmissions}."
 
 msgid "about.onlineSubmissions.registrationRequired"
 msgstr "{$login} o {$register} para realizar un envío."
@@ -276,7 +278,7 @@ msgid "article.details"
 msgstr "Detalles"
 
 msgid "publication.version"
-msgstr "Version {$version}"
+msgstr "Versión {$version}"
 
 msgid "common.publications"
 msgstr "Preprints"

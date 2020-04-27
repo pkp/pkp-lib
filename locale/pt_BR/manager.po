@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-25 07:54+0000\n"
+"PO-Revision-Date: 2020-04-23 12:38+0000\n"
 "Last-Translator: Lilian Nassi Calo <calolilian@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/pt_BR/>\n"
@@ -209,7 +209,7 @@ msgstr "Para os autores"
 
 msgid "manager.setup.information.description"
 msgstr ""
-"Braves descrições do servidor para bibliotecários e futuros autores e "
+"Breves descrições do servidor para bibliotecários e futuros autores e "
 "leitores. Estas estarão disponíveis na barra lateral do site quando o bloco "
 "de informação for adicionado."
 

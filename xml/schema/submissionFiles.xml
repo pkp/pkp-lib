@@ -57,6 +57,11 @@
 		<index name="submission_files_submission_id">
 			<col>submission_id</col>
 		</index>
+		<index name="submission_files_stage_assoc"><!-- pkp/pkp-lib#5804 -->
+			<col>file_stage</col>
+			<col>assoc_type</col>
+			<col>assoc_id</col>
+		</index>
 	</table>
 
 	<!--

@@ -23,11 +23,12 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	/**
 	 * Build/fetch and return a controlled vocabulary for languages.
 	 * @param $publicationId int
+	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
 	 * @return ControlledVocab
 	 */
-	function build($publicationId) {
+	function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION) {
 		// may return an array of ControlledVocabs
-		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, ASSOC_TYPE_PUBLICATION, $publicationId);
+		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, $assocType, $publicationId);
 	}
 
 	/**
@@ -42,12 +43,13 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 * Get Languages for a submission.
 	 * @param $publicationId int
 	 * @param $locales array
+	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
 	 * @return array
 	 */
-	function getLanguages($publicationId, $locales = []) {
+	function getLanguages($publicationId, $locales = [], $assocType = ASSOC_TYPE_PUBLICATION) {
 		$result = [];
 
-		$languages = $this->build($publicationId);
+		$languages = $this->build($publicationId, $assocType);
 		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO'); /* @var $submissionLanguageEntryDao SubmissionLanguageEntryDAO */
 		$submissionLanguages = $submissionLanguageEntryDao->getByControlledVocabId($languages->getId());
 		while ($languageEntry = $submissionLanguages->next()) {

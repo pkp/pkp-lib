@@ -325,6 +325,7 @@ class RegistrationForm extends Form {
 			$contextPath = $context ? $context->getPath() : null;
 			$mail->assignParams(array(
 				'userFullName' => $user->getFullName(),
+				'contextName' => $context ? $context->getLocalizedName() : $site->getLocalizedTitle(),
 				'activateUrl' => $request->url($contextPath, 'user', 'activateUser', array($this->getData('username'), $accessKey))
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());

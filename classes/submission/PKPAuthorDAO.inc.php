@@ -50,6 +50,24 @@ abstract class PKPAuthorDAO extends SchemaDAO {
 	}
 
 	/**
+	 * @copydoc SchemaDAO::getById()
+	 * Overrides the parent implementation to add the submission_locale column
+	 */
+	public function getById($objectId) {
+		$result = $this->retrieve(
+			'SELECT a.*, p.locale AS submission_locale FROM authors a JOIN publications p ON (a.publication_id = p.publication_id) WHERE author_id = ?',
+			(int) $objectId
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Retrieve all authors for a publication.
 	 * @param $publicationId int Publication ID.
 	 * @param $sortByAuthorId bool Use author Ids as indexes in the array
@@ -62,7 +80,7 @@ abstract class PKPAuthorDAO extends SchemaDAO {
 		if ($useIncludeInBrowse) $params[] = 1;
 
 		$result = $this->retrieve(
-			'SELECT DISTINCT a.*, ug.show_title, p.locale
+			'SELECT DISTINCT a.*, ug.show_title, p.locale AS submission_locale
 			FROM authors a
 				JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
 				JOIN publications p ON (p.publication_id = a.publication_id)
@@ -114,6 +132,15 @@ abstract class PKPAuthorDAO extends SchemaDAO {
 		}
 	}
 
+
+	/**
+	 * @copydoc SchemaDAO::_fromRow()
+	 */
+	public function _fromRow($primaryRow) {
+		$author = parent::_fromRow($primaryRow);
+		$author->setSubmissionLocale($primaryRow['submission_locale']);
+		return $author;
+	}
 
 	/**
 	 * Get the ID of the last inserted author.

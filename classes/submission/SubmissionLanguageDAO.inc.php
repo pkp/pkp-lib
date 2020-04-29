@@ -43,13 +43,12 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 * Get Languages for a submission.
 	 * @param $publicationId int
 	 * @param $locales array
-	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
 	 * @return array
 	 */
-	function getLanguages($publicationId, $locales = [], $assocType = ASSOC_TYPE_PUBLICATION) {
+	function getLanguages($publicationId, $locales = []) {
 		$result = [];
 
-		$languages = $this->build($publicationId, $assocType);
+		$languages = $this->build($publicationId);
 		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO'); /* @var $submissionLanguageEntryDao SubmissionLanguageEntryDAO */
 		$submissionLanguages = $submissionLanguageEntryDao->getByControlledVocabId($languages->getId());
 		while ($languageEntry = $submissionLanguages->next()) {
@@ -92,12 +91,13 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 * @param $languages array
 	 * @param $publicationId int
 	 * @param $deleteFirst boolean
+	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
 	 * @return int
 	 */
-	function insertLanguages($languages, $publicationId, $deleteFirst = true) {
+	function insertLanguages($languages, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION) {
 		$languageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /* @var $languageDao SubmissionLanguageDAO */
 		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO'); /* @var $submissionLanguageEntryDao SubmissionLanguageEntryDAO */
-		$currentLanguages = $this->build($publicationId);
+		$currentLanguages = $this->build($publicationId, $assocType);
 
 		if ($deleteFirst) {
 			$existingEntries = $languageDao->enumerate($currentLanguages->getId(), CONTROLLED_VOCAB_SUBMISSION_LANGUAGE);
@@ -115,7 +115,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 					$i = 1;
 					foreach ($list as $language) {
 						$languageEntry = $submissionLanguageEntryDao->newDataObject();
-						$languageEntry->setControlledVocabId($currentLanguages->getID());
+						$languageEntry->setControlledVocabId($currentLanguages->getId());
 						$languageEntry->setLanguage(urldecode($language), $locale);
 						$languageEntry->setSequence($i);
 						$i++;

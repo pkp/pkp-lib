@@ -284,6 +284,10 @@ class FormBuilderVocabulary {
 				$content = $this->_smartyFBVRadioButton($params, $smarty);
 				unset($params['label']);
 				break;
+			case 'search':
+			case 'text':
+				$content = $this->_smartyFBVTextInput($params, $smarty);
+				break;
 			case 'select':
 				$content = $this->_smartyFBVSelect($params, $smarty);
 				break;
@@ -386,6 +390,7 @@ class FormBuilderVocabulary {
 		$smarty->assign(array(
 			'FBV_isPassword' => isset($params['password']) ? true : false,
 			'FBV_isTypeURL' => $params['type'] === 'url' ? true : false,
+			'FBV_isTypeSearch' => $params['type'] === 'search' ? true : false,
 			'FBV_disabled' => false,
 			'FBV_readonly' => false,
 			'FBV_multilingual' => false,

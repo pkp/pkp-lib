@@ -847,7 +847,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		// There should always be at least one publication for a submission. If
 		// not, an error has occurred in the code and will cause problems.
 		if (empty($publications)) {
-			throw new Exception('Tried to update the status of submission ' . $submission->getId() . ' and no publications were found.');
+			throw new \Exception('Tried to update the status of submission ' . $submission->getId() . ' and no publications were found.');
 		}
 
 		// Get the new current publication after status changes or deletions

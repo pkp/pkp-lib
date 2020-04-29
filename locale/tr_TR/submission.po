@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2020-04-28 19:28+0000\n"
-"Last-Translator: Sönmez Çelik <snmzclk@gmail.com>\n"
+"PO-Revision-Date: 2020-04-30 19:38+0000\n"
+"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/tr/>\n"
 "Language: tr_TR\n"
@@ -204,7 +204,7 @@ msgid "metadata.property.validationMessage.issn"
 msgstr "Lütfen geçerli bir basılı ISBN numarası giriniz."
 
 msgid "metadata.property.displayName.eissn"
-msgstr "eISSN"
+msgstr "e-ISSN"
 
 msgid "metadata.property.validationMessage.eissn"
 msgstr "Lütfen eçerli bir eISSN numarası giriniz."
@@ -1377,22 +1377,22 @@ msgid "submission.licenseURL"
 msgstr "Lisans URL"
 
 msgid "submission.license.cc.by-nc-nd4"
-msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+msgstr "CC Atıf-GayriTicari-Türetilemez 4.0"
 
 msgid "submission.license.cc.by-nc4"
-msgstr "CC Attribution-NonCommercial 4.0"
+msgstr "CC Atıf-GayriTicari 4.0"
 
 msgid "submission.license.cc.by-nc-sa4"
-msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+msgstr "CC Atıf-GayriTicari-AynıLisanslaPaylaş 4.0"
 
 msgid "submission.license.cc.by-nd4"
-msgstr "CC Attribution-NoDerivatives 4.0"
+msgstr "CC Atıf-Türetilemez 4.0"
 
 msgid "submission.license.cc.by4"
 msgstr "CC Attribution 4.0"
 
 msgid "submission.license.cc.by-sa4"
-msgstr "CC Attribution-ShareAlike 4.0"
+msgstr "CC Atıf-AynıLisanslaPaylaş 4.0"
 
 msgid "submission.license.cc.by-nc-nd4.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Bu çalışma <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a> ile lisanslanmıştır.</p>"
@@ -1604,7 +1604,7 @@ msgid "submission.query.addNote"
 msgstr "Mesaj Ekle"
 
 msgid "grid.action.openNoteForm"
-msgstr "Tartışmaya yeni bir cevap ekleyin."
+msgstr "Tartışmaya yeni bir cevap ekleyin"
 
 msgid "submission.query.activity"
 msgstr "{$responderName}, {$noteTitle} adlı cevabı: {$noteContents}"
@@ -2014,7 +2014,6 @@ msgstr ""
 "Bu, {$datePublished} tarihinde yayınlanan eski bir sürüm.  <a href=\""
 "{$urlRecentVersion}\">Güncel gürüm</a>e buradan erişebilirsiniz."
 
-#, fuzzy
 msgid "submission.versionIdentity"
 msgstr "{$datePublished} ({$version})"
 

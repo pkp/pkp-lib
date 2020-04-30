@@ -133,8 +133,7 @@ abstract class SchemaDAO extends DAO {
 	 */
 	public function updateObject($object) {
 		// Update the cache.
-		$pool = $this->_getCachePool();
-		$pool->deleteItem($this->_getCacheId($objectId));
+		$this->clearCache($object->getId());
 
 		$schemaService = Services::get('schema');
 		$schema = $schemaService->get($this->schemaName);
@@ -215,8 +214,7 @@ abstract class SchemaDAO extends DAO {
 	 */
 	public function deleteById($objectId) {
 		// Update the cache.
-		$pool = $this->_getCachePool();
-		$pool->deleteItem($this->_getCacheId($objectId));
+		$this->clearCache($objectId);
 
 		// Remove the item rom the database.
 		$this->update(
@@ -310,6 +308,15 @@ abstract class SchemaDAO extends DAO {
 		}
 
 		return $primaryDbProps;
+	}
+
+	/**
+	 * Clear an item from the object cache by ID.
+	 * @param $objectId int
+	 */
+	public function clearCache($objectId) {
+		$pool = $this->_getCachePool();
+		$pool->deleteItem($this->_getCacheId($objectId));
 	}
 
 	/**

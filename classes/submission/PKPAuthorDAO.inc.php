@@ -163,4 +163,31 @@ abstract class PKPAuthorDAO extends SchemaDAO {
 			}
 		}
 	}
+
+	/**
+	 * @copydoc SchemaDAO::insertObject
+	 */
+	public function insertObject($object) {
+		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
+		$publicationDao->clearCache($object->getData('publicationId'));
+		return parent::insertObject($object);
+	}
+
+	/**
+	 * @copydoc SchemaDAO::updateObject
+	 */
+	public function updateObject($object) {
+		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
+		$publicationDao->clearCache($object->getData('publicationId'));
+		return parent::updateObject($object);
+	}
+
+	/**
+	 * @copydoc SchemaDAO::deleteObject
+	 */
+	public function deleteObject($object) {
+		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
+		$publicationDao->clearCache($object->getData('publicationId'));
+		return parent::deleteObject($object);
+	}
 }

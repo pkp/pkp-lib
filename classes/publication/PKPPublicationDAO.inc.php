@@ -82,6 +82,9 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * @copydoc SchemaDAO::insertObject()
 	 */
 	public function insertObject($publication) {
+		// Invalidate cached submission to force reload
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
+		$submissionDao->clearCache($publication->getData('submissionId'));
 
 		// Remove the controlled vocabulary from the publication to save it separately
 		$controlledVocabKeyedArray = array_flip($this->controlledVocabProps);
@@ -133,7 +136,6 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * @copydoc SchemaDAO::updateObject()
 	 */
 	public function updateObject($publication)	{
-
 		// Remove the controlled vocabulary from the publication to save it separately
 		$controlledVocabKeyedArray = array_flip($this->controlledVocabProps);
 		$controlledVocabProps = array_intersect_key($publication->_data, $controlledVocabKeyedArray);
@@ -177,6 +179,15 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 				$categoryDao->insertPublicationAssignment($categoryId, $publication->getId());
 			}
 		}
+	}
+
+	/**
+	 * @copydoc SchemaDAO::deleteObject
+	 */
+	public function deleteObject($object) {
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
+		$submissionDao->clearCache($object->getData('submissionId'));
+		return parent::deleteObject($object);
 	}
 
 	/**

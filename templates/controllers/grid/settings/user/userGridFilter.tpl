@@ -33,7 +33,7 @@
 	{/if}
 	{fbvFormArea id="userSearchFormArea"}
 		{fbvFormSection title="common.search" for="search"}
-			{fbvElement type="text" name="search" id="search" value=$filterSelectionData.search size=$fbvStyles.size.LARGE inline="true"}
+			{fbvElement type="search" name="search" id="search" value=$filterSelectionData.search size=$fbvStyles.size.LARGE inline="true"}
 			{fbvElement type="select" name="userGroup" id="userGroup" from=$filterData.userGroupOptions selected=$filterSelectionData.userGroup size=$fbvStyles.size.SMALL translate=false inline="true"}
 		{/fbvFormSection}
 

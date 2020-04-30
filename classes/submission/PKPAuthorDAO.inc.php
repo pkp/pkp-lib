@@ -35,7 +35,6 @@ abstract class PKPAuthorDAO extends SchemaDAO {
 		'id' => 'author_id',
 		'email' => 'email',
 		'includeInBrowse' => 'include_in_browse',
-		'lastModified' => 'last_modified',
 		'publicationId' => 'publication_id',
 		'seq' => 'seq',
 		'userGroupId' => 'user_group_id',

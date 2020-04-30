@@ -97,7 +97,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 	function insertDisciplines($disciplines, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION) {
 		$disciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /* @var $disciplineDao SubmissionDisciplineDAO */
 		$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /* @var $submissionDisciplineEntryDao SubmissionDisciplineEntryDAO */
-		$currentDisciplines = $this->build($publicationId, $publication);
+		$currentDisciplines = $this->build($publicationId, $assocType);
 
 		if ($deleteFirst) {
 			$existingEntries = $disciplineDao->enumerate($currentDisciplines->getId(), CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE);

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-23 12:38+0000\n"
+"PO-Revision-Date: 2020-04-29 09:38+0000\n"
 "Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "locale/pt_BR/>\n"
@@ -135,7 +135,7 @@ msgid "about.contact"
 msgstr "Contato"
 
 msgid "archive.archivesPageNumber"
-msgstr "Arquivos - Página{$pageNumber}"
+msgstr "Arquivos - Página {$pageNumber}"
 
 msgid "archive.archives"
 msgstr "Arquivos"

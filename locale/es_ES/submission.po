@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-03-03 18:36+0000\n"
-"Last-Translator: Darío Hereñú <magallania@gmail.com>\n"
-"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/submission/"
-"es/>\n"
+"PO-Revision-Date: 2020-04-29 09:38+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/submissions/"
+"es_ES/>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "catalog.browseTitles"
-msgstr "{$numTitles} Items"
+msgstr "{$numTitles} elementos"
 
 #, fuzzy
 msgid "publication.publish.confirmation"

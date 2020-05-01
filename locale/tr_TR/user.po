@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
+"PO-Revision-Date: 2020-04-28 21:26+0000\n"
+"Last-Translator: Sönmez Çelik <snmzclk@gmail.com>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/tr/"
+">\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:50:08+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "user.affiliation"
 msgstr "Kurum"
@@ -231,7 +234,7 @@ msgid "user.register.form.usernameExists"
 msgstr "Seçmiş olduğunuz kullanıcı adı halihazırda başka biri  tarafından kullanılmaktadır."
 
 msgid "user.register.registerAs"
-msgstr "{$contextName} şeklinde kaydol"
+msgstr "{$contextName} şeklinde kaydol..."
 
 msgid "user.register"
 msgstr "Kayıt"
@@ -267,7 +270,7 @@ msgid "user.sendPassword"
 msgstr "Doğrulama"
 
 msgid "user.sendPassword.description"
-msgstr "Kullanıcı adı ve şifremi içeren bir doğrulama e-postası gönder."
+msgstr "Kullanıcı adı ve şifremi içeren bir doğrulama e-postası gönder"
 
 msgid "user.signature"
 msgstr "İmza (kurum ve iletişim bilgisi)"
@@ -294,16 +297,16 @@ msgid "user.group"
 msgstr "Üye Grubu"
 
 msgid "user.hello"
-msgstr "Merhaba,"
+msgstr "Merhaba, "
 
 msgid "user.profile.form.countryRequired"
 msgstr "Bir ülke gerekli."
 
 msgid "user.profile.form.mailingAddressRequired"
-msgstr "Bir e-posta adresi gerekli"
+msgstr "Bir e-posta adresi gerekli."
 
 msgid "user.profile.form.usergroupRequired"
-msgstr "Bir üye grubu gerekli"
+msgstr "Bir üye grubu gerekli."
 
 msgid "user.suffix"
 msgstr "Son Ek"
@@ -381,7 +384,7 @@ msgid "user.login.rememberUsernameAndPassword"
 msgstr "Oturumumu açık tut"
 
 msgid "user.logOutAs"
-msgstr "Gibi çıkış:"
+msgstr "Çıkış"
 
 msgid "user.register.registrationCompleted"
 msgstr "Başarıyla kaydoldunuz. Profilinizi tamamlamak için <a href=\"{$profileUrl}\">buraya tıklayın</a>."
@@ -423,10 +426,11 @@ msgid "user.apiKey"
 msgstr "API Anahtarı"
 
 msgid "user.apiKeyEnabled"
-msgstr "Bu hesaba erişmek için API anahtarıyla harici uygulamaları etkinleştirin."
+msgstr ""
+"Bu hesaba erişmek için API anahtarıyla harici uygulamaları etkinleştirin"
 
 msgid "user.apiKey.generate"
-msgstr "Yeni bir API oluştur."
+msgstr "Yeni bir API oluştur"
 
 msgid "user.apiKey.generateWarning"
 msgstr "Yeni bir API anahtarı oluşturmak, bu kullanıcı için mevcut olan herhangi bir anahtarı geçersiz kılar."
@@ -454,3 +458,25 @@ msgstr "Evet, yeni yayınlardan ve duyurulardan haberdar olmak istiyorum."
 
 msgid "user.privacyLink"
 msgstr "Şahsi bilgileriniz <a href=\"{$privacyUrl}\" target=\"_blank\">gizlilik bildirimimize</a> uygun olarak saklanır."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Belirtilen adın eksik olduğu bir dil için bir soyadı eklediniz. Lütfen bu "
+"dil için belirli bir ad ekleyin."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Belirli bir ad gerekli."
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Nasıl belirtmeyi tercih edersiniz? İsterseniz buraya selamlar, ikinci adlar "
+"ve son ekler eklenebilir."
+
+msgid "user.preferredPublicName"
+msgstr "Tercih Edilen Genel Ad"
+
+msgid "user.familyName"
+msgstr "Soyad"
+
+msgid "user.givenName"
+msgstr "İsim"

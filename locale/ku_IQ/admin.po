@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-24 02:38+0000\n"
-"Last-Translator: Hawkar Aziz Mustafa <hawkar.musstafa@gmail.com>\n"
+"PO-Revision-Date: 2020-05-04 19:38+0000\n"
+"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
 "Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ku_IQ/>\n"
 "Language: ku_IQ\n"
@@ -330,3 +330,21 @@ msgstr "{$tmpDir}هەڵە: ناتوانیت فۆڵدەری کاتی درستت �
 
 msgid "admin.fileLoader.wrongBasePathLocation"
 msgstr "پێویستە لە ناو فایلی گشتی ئاراستە کراوبێت {$path}  ڕێگای سەرەکی"
+
+msgid "admin.error.executingUtil"
+msgstr ""
+"هەڵە: ببورە لە جێبەجێکردنی \"{$utilPath}\".  ئەم ڕێکخستنانە {$utilVar} "
+"وردبینی بکە لە فایلی.php."
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "جێبەجێکردنی بەرنامەی\"{$utilPath}\" ئەم کێشەیەی هەیە: {$output}"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tسیستەمەکەی تۆ لە پێوەرێک زیاتر لەخۆ دەگرێت. ئامارەکانی بەکارهێنەر بە "
+"چەند شێوەیەک پیشان دەدرێن.\n"
+"\t\tلە هەندێک کەیسدا تەنیا یەک ئامار دەبێت بەکار بهێندرێت، بۆ نمونە "
+"ڕیزبەندیکردنی لیستی پێشکەشکراوە زۆر بەکارهێندراوەکان یان\n"
+"\t\tئەنجامی گەڕانەکان. تکایە یەکێک لەم پێوەرانە بکە پێوەری سەرەکی.\n"
+"\t"

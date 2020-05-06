@@ -120,9 +120,7 @@ class PKPSectionForm extends Form {
 				'getParams' => $params,
 				'items' => $items,
 				'itemsmax' => Services::get('user')->getMax($params),
-				'selected' => $this->getData('subEditors')
-						? $this->getData('subEditors')
-						: [],
+				'selected' => (array) $this->getData('subEditors'),
 				'selectorName' => 'subEditors[]',
 			]
 		);

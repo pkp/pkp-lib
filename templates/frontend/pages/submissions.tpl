@@ -44,7 +44,7 @@
 			<ul>
 				{foreach from=$submissionChecklist item=checklistItem}
 					<li>
-						{$checklistItem.content|nl2br}
+						<span class="fa fa-check" aria-hidden="true"></span>{$checklistItem.content|nl2br}
 					</li>
 				{/foreach}
 			</ul>

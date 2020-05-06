@@ -493,8 +493,15 @@ class PKPEditorDecisionHandler extends Handler {
 				$redirectUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', $redirectOp, array($submission->getId()));
 				return $request->redirectUrlJson($redirectUrl);
 			} else {
-				// Needed to update review round status notifications.
-				return DAO::getDataChangedEvent();
+				if (in_array($decision, [SUBMISSION_EDITOR_DECISION_DECLINE, SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE])) {
+					$dispatcher = $this->getDispatcher();
+					$redirectUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'access', array($submission->getId()));
+					return $request->redirectUrlJson($redirectUrl);
+
+				} else {
+					// Needed to update review round status notifications.
+					return DAO::getDataChangedEvent();
+				}
 			}
 		} else {
 			return new JSONMessage(false);

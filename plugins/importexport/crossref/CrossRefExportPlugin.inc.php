@@ -115,14 +115,10 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 		}
 		// else check the failure message with Crossref, using the API
 		$context = $request->getContext();
-		$curlCh = curl_init();
-		if ($httpProxyHost = Config::getVar('proxy', 'http_host')) {
-			curl_setopt($curlCh, CURLOPT_PROXY, $httpProxyHost);
-			curl_setopt($curlCh, CURLOPT_PROXYPORT, Config::getVar('proxy', 'http_port', '80'));
-			if ($username = Config::getVar('proxy', 'username')) {
-				curl_setopt($curlCh, CURLOPT_PROXYUSERPWD, $username . ':' . Config::getVar('proxy', 'password'));
-			}
-		}
+
+		import('lib.pkp.classes.helpers.PKPCurlHelper');
+		$curlCh = PKPCurlHelper::getCurlObject();
+
 		curl_setopt($curlCh, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($curlCh, CURLOPT_POST, true);
 		curl_setopt($curlCh, CURLOPT_HEADER, 0);
@@ -136,7 +132,6 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 		$batchId = $request->getUserVar('batchId');
 		$data = array('doi_batch_id' => $batchId, 'type' => 'result', 'usr' => $username, 'pwd' => $password);
 		curl_setopt($curlCh, CURLOPT_POSTFIELDS, $data);
-		curl_setopt($curlCh, CURLOPT_SSL_VERIFYPEER, false);
 		$response = curl_exec($curlCh);
 
 		if ($response === false) {
@@ -347,14 +342,9 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 	function depositXML($objects, $context, $filename) {
 		$status = null;
 
-		$curlCh = curl_init();
-		if ($httpProxyHost = Config::getVar('proxy', 'http_host')) {
-			curl_setopt($curlCh, CURLOPT_PROXY, $httpProxyHost);
-			curl_setopt($curlCh, CURLOPT_PROXYPORT, Config::getVar('proxy', 'http_port', '80'));
-			if ($username = Config::getVar('proxy', 'username')) {
-				curl_setopt($curlCh, CURLOPT_PROXYUSERPWD, $username . ':' . Config::getVar('proxy', 'password'));
-			}
-		}
+		import('lib.pkp.classes.helpers.PKPCurlHelper');
+		$curlCh = PKPCurlHelper::getCurlObject();
+
 		curl_setopt($curlCh, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($curlCh, CURLOPT_POST, true);
 		curl_setopt($curlCh, CURLOPT_HEADER, 0);
@@ -374,7 +364,6 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 		}
 		$data = array('operation' => 'doMDUpload', 'usr' => $username, 'pwd' => $password, 'mdFile' => $cfile);
 		curl_setopt($curlCh, CURLOPT_POSTFIELDS, $data);
-		curl_setopt($curlCh, CURLOPT_SSL_VERIFYPEER, false);
 		$response = curl_exec($curlCh);
 
 		$msg = null;

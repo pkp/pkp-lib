@@ -28,6 +28,8 @@
 import('lib.pkp.classes.install.Installer');
 import('classes.core.Services');
 
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 class PKPInstall extends Installer {
 
 	/**
@@ -68,13 +70,13 @@ class PKPInstall extends Installer {
 
 		// Connect to database
 		$conn = new DBConnection(
-			$this->getParam('databaseDriver'),
+			$driver = $this->getParam('databaseDriver'),
 			$this->getParam('databaseHost'),
 			$this->getParam('databaseUsername'),
 			$this->getParam('databasePassword'),
 			$this->getParam('createDatabase') ? null : $this->getParam('databaseName'),
 			false,
-			$this->getParam('connectionCharset') == '' ? false : $this->getParam('connectionCharset')
+			$connectionCharset = $this->getParam('connectionCharset') == '' ? false : $this->getParam('connectionCharset')
 		);
 
 		$this->dbconn =& $conn->getDBConn();
@@ -83,6 +85,26 @@ class PKPInstall extends Installer {
 			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
 			return false;
 		}
+
+		// Map valid config options to Illuminate database drivers
+		$driver = strtolower($driver);
+		if (substr($driver, 0, 8) === 'postgres') {
+			$driver = 'pgsql';
+		} else {
+			$driver = 'mysql';
+		}
+
+		$capsule = new Capsule;
+		$capsule->addConnection([
+			'driver'    => $driver,
+			'host'      => $this->getParam('databaseHost'),
+			'database'  => $this->getParam('databaseName'),
+			'username'  => $this->getParam('databaseUsername'),
+			'password'  => $this->getParam('databasePassword'),
+			'charset'   => $connectionCharset == 'latin1'?'latin1':'utf8',
+			'collation' => 'utf8_general_ci',
+		]);
+		$capsule->setAsGlobal();
 
 		DBConnection::getInstance($conn);
 

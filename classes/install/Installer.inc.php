@@ -359,19 +359,31 @@ class Installer {
 	function executeAction($action) {
 		switch ($action['type']) {
 			case 'schema':
-				$fileName = $action['file'];
-				$this->log(sprintf('schema: %s', $action['file']));
+				// Schema information can be specified in two ways:
+				if (isset($action['file'])) {
+					// 1) ADODB's XMLSchema toolset...
+					$fileName = $action['file'];
+					$this->log(sprintf('schema: %s', $action['file']));
 
-				$schemaXMLParser = new adoSchema($this->dbconn);
-				$dict = $schemaXMLParser->dict;
-				$sql = $schemaXMLParser->parseSchema($fileName);
-				$schemaXMLParser->destroy();
+					$schemaXMLParser = new adoSchema($this->dbconn);
+					$dict = $schemaXMLParser->dict;
+					$sql = $schemaXMLParser->parseSchema($fileName);
+					$schemaXMLParser->destroy();
 
-				if ($sql) {
-					return $this->executeSQL($sql);
+					if ($sql) {
+						return $this->executeSQL($sql);
+					} else {
+						$this->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $fileName, __('installer.installParseDBFileError')));
+						return false;
+					}
 				} else {
-					$this->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $fileName, __('installer.installParseDBFileError')));
-					return false;
+					// 2) Laravel's schema toolset
+					assert(isset($action['attr']['class']));
+					$fullClassName = $action['attr']['class'];
+					import($fullClassName);
+					$shortClassName = substr($fullClassName, strrpos($fullClassName, '.')+1);
+					$migration = new $shortClassName();
+					$migration->up();
 				}
 				break;
 			case 'data':

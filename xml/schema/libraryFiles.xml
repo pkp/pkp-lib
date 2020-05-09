@@ -54,7 +54,7 @@
 		</field>
 		<descr>Library files for a context</descr>
 		<index name="library_files_context_id">
-			<col>press_id</col>
+			<col>context_id</col>
 		</index>
 		<index name="library_files_submission_id">
 			<col>submission_id</col>

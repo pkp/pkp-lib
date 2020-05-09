@@ -67,7 +67,6 @@
 		</index>
 		<index name="event_log_settings_pkey">
 			<col>log_id</col>
-			<col>locale</col>
 			<col>setting_name</col>
 			<UNIQUE/>
 		</index>

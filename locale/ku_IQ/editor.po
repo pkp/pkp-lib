@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-22 20:38+0000\n"
-"Last-Translator: Ibrahim Abulrahman Ahmed <ibrahim.iskawayee@yahoo.com>\n"
+"PO-Revision-Date: 2020-05-04 19:38+0000\n"
+"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
 "Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ku_IQ/>\n"
 "Language: ku_IQ\n"
@@ -71,3 +71,168 @@ msgstr "کتێبخانە"
 
 msgid "editor.activityLog"
 msgstr "تۆماری چالاکی"
+
+msgid "editor.review.rateReviewer"
+msgstr "هەڵسەنگاندنی هەڵسەنگێنەر"
+
+msgid "editor.review.reviewerComments"
+msgstr "تێچێنەکانی هەڵسەنگێنەر"
+
+msgid "editor.review.reviewerThanked"
+msgstr "هەڵسەنگێنەر سوپاس کرا"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "هەڵسەنگاندن پێشکەش کرا"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "هەڵسەنگاندن دڵنیا کرایەوە"
+
+msgid "editor.review.reviewCompleted"
+msgstr "هەڵسەنگاندن کۆتایی هات"
+
+msgid "editor.review.reviewDueDate"
+msgstr "ڕێککەوتی کۆتاییی هەڵسەنگاندن"
+
+msgid "editor.review.reviewDue"
+msgstr "ڕێککەوتی کۆتاییی هەڵسەنگاندن: {$date}"
+
+msgid "editor.review.revertDecision"
+msgstr "پاشگەزبونەوە لە بڕیار"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "سەرنوسەر داوای ئەم هەڵسەنگاندنەی هەڵ وەشاندنەوە."
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "هەڵسەنگێنەر داوای ئەم هەڵسەنگاندنەی ڕەت کردەوە."
+
+msgid "editor.review.requestCancelled"
+msgstr "داواکردنەکە هەڵوەشێندرایەوە"
+
+msgid "editor.review.requestDeclined"
+msgstr "داواکردنەکە ڕەت کرایەوە"
+
+msgid "editor.review.requestAccepted"
+msgstr "داواکردنەکە قبوڵ کرا"
+
+msgid "editor.review.requestSent"
+msgstr "داواکردن نێردرا"
+
+msgid "editor.review.responseDue"
+msgstr "ڕێککەوتی وەڵامدانەوە: {$date}"
+
+msgid "editor.review.readNewReview"
+msgstr "خوێندنەوەی هەڵسەنگاندنی نوێ"
+
+msgid "editor.review.readReview"
+msgstr "خوێندنەوەی هەڵسەنگاندن"
+
+msgid "editor.review.sendReminder"
+msgstr "بیرخەرەوە بنێرە"
+
+msgid "editor.review.skipEmail"
+msgstr "ئیمەیڵ بۆ هەڵسەنگێنەر مەنێرە."
+
+msgid "editor.review.thankReviewerError"
+msgstr "هەڵە لە ناردنی سوپاسکردنی هەڵسەنگێنەر"
+
+msgid "editor.review.reminderError"
+msgstr "هەڵە لە ناردنی بیرخەرەوەی هەڵسەنگێنەر"
+
+msgid "editor.review.thankReviewer"
+msgstr "سوپاسکردنی هەڵسەنگێنەر"
+
+msgid "editor.review.reminder"
+msgstr "بیرخەرەوەی هەڵسەنگاندن"
+
+msgid "editor.review.noReviews"
+msgstr "هیچ هەڵسەنگاندنێکی نهێنی بۆ بارکردن نییە"
+
+msgid "editor.review.reviewsAdded"
+msgstr "هەڵسەنگاندنەکان بۆ بۆکسی نامە زیاد کران."
+
+msgid "editor.review.dateAccepted"
+msgstr "ڕێککەوتی قبوڵکردنی هەڵسەنگاندن"
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "پێداچونەوەکان بۆ هەڵسەنگاندنەوە دەنێردرێنەوە."
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "پێداچونەوەکان ناچنەوە خولێکی نوێی هەڵسەنگاندن."
+
+msgid "editor.review.newReviewRound"
+msgstr "داواکردنی خولێکی نوێی هەڵسەنگاندن"
+
+msgid "editor.review.uploadRevision"
+msgstr "بارکردنی فایلی چاککراو"
+
+msgid "editor.review.importantDates"
+msgstr "ڕێککەوتە گرنگەکان"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "ئەو ئیمەیڵەی کە بۆ هەڵسەنگێنەر دەنێردرێت"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "هەڵسەنگێنەری نەناسراو"
+
+msgid "editor.submissionReview.editReview"
+msgstr "گۆڕینی هەڵسەنگاندن"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "داخستنی دیاریکردنی فایل"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "فایلەکان بۆ هەڵسەنگاندن"
+
+msgid "editor.submissionReview.doubleBlind"
+msgstr "هەڵسەنگاندنی نهێنی"
+
+msgid "editor.submissionReview.blind"
+msgstr "نهێنی"
+
+msgid "editor.submissionReview.open"
+msgstr "کراوە"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "ئیمەیڵی ئاگادارکردنەوە مەنێرە"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "ئیمەیڵی ئاگادارکردنەوە بۆ سەرنوسەر/ سەرنوسەران : {$editorNames} بنێرە"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "ئیمەیڵی ئاگادارکردنەوە بۆ توێژەر/ توێژەران: : {$authorName} بنێرە"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "جۆری هەڵسەنگاندن"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "دوبارە دیاریکردنەوەی هەڵسەنگێنەر"
+
+msgid "editor.review.cancelReviewer"
+msgstr "لەم هەڵسەنگێنەرە پاشگەز ببەوە"
+
+msgid "editor.review.unassignReviewer"
+msgstr "ئەم هەڵسەنگێنەرە ببەخشە"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "ڕۆڵێک بە بەکارهێنەرێکی تۆمارکراو ببەخشە"
+
+msgid "editor.review.createReviewer"
+msgstr "هەڵسەنگێنەرێکی نوێ تۆمار بکە"
+
+msgid "editor.submission.backToSearch"
+msgstr "بگەڕێوە بۆ گەڕان"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "فایلەکانی هەڵسەنگاندنی ئێستا بۆ خولی {$round}"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "فایلەکانی ڕێڕەوی کارەکان پیشان بدە."
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "بەکارهێنەرێک دیاری بکە"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "هەڵسەنگێنەرێک دیاری بکە"
+
+msgid "editor.submission.addReviewer"
+msgstr "زیادکردنی هەڵسەنگێنەر"

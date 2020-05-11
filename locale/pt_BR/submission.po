@@ -1333,7 +1333,7 @@ msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Por favor selecione o arquivo que gostaria de revisar."
 
 msgid "submission.upload.selectOptionalFileToRevise"
-msgstr "Se você estiver carregando uma avaliação de um arquivo existente, por favor, indique que arquivo."
+msgstr "Se você estiver carregando uma revisão de um arquivo existente, por favor, indique qual arquivo."
 
 msgid "submission.upload.uploadNewFile"
 msgstr "Selecionar arquivo (preservar o histórico)"

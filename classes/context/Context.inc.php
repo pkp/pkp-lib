@@ -148,7 +148,7 @@ abstract class Context extends DataObject {
 	 * @return float
 	 */
 	function getSequence() {
-		return $this->getData('sequence');
+		return $this->getData('seq');
 	}
 
 	/**
@@ -156,7 +156,7 @@ abstract class Context extends DataObject {
 	 * @param $sequence float
 	 */
 	function setSequence($sequence) {
-		$this->setData('sequence', $sequence);
+		$this->setData('seq', $sequence);
 	}
 
 	/**

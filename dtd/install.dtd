@@ -38,12 +38,13 @@
 <!ELEMENT schema EMPTY>
 	<!ATTLIST schema
 		file CDATA #IMPLIED>
-	<!ATTLIST schema
-		class CDATA #IMPLIED>
 <!ELEMENT data EMPTY>
 	<!ATTLIST data
 		file CDATA #REQUIRED
 		condition CDATA #IMPLIED>
+<!ELEMENT migration EMPTY>
+	<!ATTLIST migration
+		class CDATA #REQUIRED>
 <!ELEMENT code EMPTY>
 	<!ATTLIST code
 		message CDATA #IMPLIED

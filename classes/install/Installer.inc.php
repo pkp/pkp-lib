@@ -84,6 +84,8 @@ class Installer {
 	/** @var Logger logging object */
 	var $logger;
 
+	/** @var array List of migrations executed already */
+	var $migrations = [];
 
 	/**
 	 * Constructor.
@@ -304,6 +306,7 @@ class Installer {
 				case 'schema':
 				case 'data':
 				case 'code':
+				case 'migration':
 				case 'note':
 					$this->addInstallAction($node);
 					break;
@@ -359,31 +362,19 @@ class Installer {
 	function executeAction($action) {
 		switch ($action['type']) {
 			case 'schema':
-				// Schema information can be specified in two ways:
-				if (isset($action['file'])) {
-					// 1) ADODB's XMLSchema toolset...
-					$fileName = $action['file'];
-					$this->log(sprintf('schema: %s', $action['file']));
+				$fileName = $action['file'];
+				$this->log(sprintf('schema: %s', $action['file']));
 
-					$schemaXMLParser = new adoSchema($this->dbconn);
-					$dict = $schemaXMLParser->dict;
-					$sql = $schemaXMLParser->parseSchema($fileName);
-					$schemaXMLParser->destroy();
+				$schemaXMLParser = new adoSchema($this->dbconn);
+				$dict = $schemaXMLParser->dict;
+				$sql = $schemaXMLParser->parseSchema($fileName);
+				$schemaXMLParser->destroy();
 
-					if ($sql) {
-						return $this->executeSQL($sql);
-					} else {
-						$this->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $fileName, __('installer.installParseDBFileError')));
-						return false;
-					}
+				if ($sql) {
+					return $this->executeSQL($sql);
 				} else {
-					// 2) Laravel's schema toolset
-					assert(isset($action['attr']['class']));
-					$fullClassName = $action['attr']['class'];
-					import($fullClassName);
-					$shortClassName = substr($fullClassName, strrpos($fullClassName, '.')+1);
-					$migration = new $shortClassName();
-					$migration->up();
+					$this->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $fileName, __('installer.installParseDBFileError')));
+					return false;
 				}
 				break;
 			case 'data':
@@ -407,6 +398,26 @@ class Installer {
 					return $this->executeSQL($sql);
 				}
 				break;
+			case 'migration':
+				assert(isset($action['attr']['class']));
+				$fullClassName = $action['attr']['class'];
+				import($fullClassName);
+				$shortClassName = substr($fullClassName, strrpos($fullClassName, '.')+1);
+				$migration = new $shortClassName();
+				try {
+					$migration->up();
+					$this->migrations[] = $migration;
+				} catch (Exception $e) {
+					// Log an error message
+					$this->setError(INSTALLER_ERROR_DB, $e->getMessage());
+
+					// Back out already-executed migrations.
+					while ($previousMigration = array_pop($this->migrations)) {
+						$previousMigration->down();
+					}
+					return false;
+				}
+				return true;
 			case 'code':
 				$condition = isset($action['attr']['condition'])?$action['attr']['condition']:null;
 				$includeAction = true;

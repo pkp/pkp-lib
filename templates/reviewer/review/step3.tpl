@@ -32,19 +32,24 @@
 			</div>
 		{/fbvFormSection}
 	{/if}
+	
+	{if $reviewForm}
+		{fbvFormSection}
+			<h3>{$reviewForm->getLocalizedTitle()|escape}</h3>
+			<p>{$reviewForm->getLocalizedDescription()}</p>
 
-	{fbvFormSection label="submission.review" description="reviewer.submission.reviewDescription"}
-		{if $reviewForm}
 			{include file="reviewer/review/reviewFormResponse.tpl"}
-		{else}
+		{/fbvFormSection}	
+	{else}
+		{fbvFormSection label="submission.review" description="reviewer.submission.reviewDescription"}
 			{fbvFormSection label="submission.comments.canShareWithAuthor"}
 				{fbvElement type="textarea" id="comments" name="comments" value=$comments readonly=$reviewIsClosed rich=true}
 			{/fbvFormSection}
 			{fbvFormSection label="submission.comments.cannotShareWithAuthor"}
 				{fbvElement type="textarea" id="commentsPrivate" name="commentsPrivate" value=$commentsPrivate readonly=$reviewIsClosed rich=true}
 			{/fbvFormSection}
-		{/if}
-	{/fbvFormSection}
+		{/fbvFormSection}
+	{/if}
 
 	{fbvFormSection label="common.upload" description="reviewer.submission.uploadDescription"}
 		{capture assign="reviewAttachmentsGridUrl"}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.attachment.ReviewerReviewAttachmentsGridHandler" op="fetchGrid" assocType=$smarty.const.ASSOC_TYPE_REVIEW_ASSIGNMENT assocId=$submission->getReviewId() submissionId=$submission->getId() stageId=$submission->getStageId() reviewIsClosed=$reviewIsClosed escape=false}{/capture}

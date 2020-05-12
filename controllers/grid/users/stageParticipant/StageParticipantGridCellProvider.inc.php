@@ -33,7 +33,8 @@ class StageParticipantGridCellProvider extends DataObjectGridCellProvider {
 				$stageAssignment = $row->getData();
 				$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 				$user = $userDao->getById($stageAssignment->getUserId());
-				return array('label' => $user->getFullName());
+				assert($user);
+				return array('label' => $user?$user->getFullName():'');
 			default:
 				assert(false);
 		}

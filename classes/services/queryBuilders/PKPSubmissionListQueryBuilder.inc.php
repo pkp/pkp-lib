@@ -84,7 +84,9 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 			$this->orderColumn = 's.last_modified';
 		} elseif ($column === 'title') {
 			$this->orderColumn = Capsule::raw('COALESCE(submission_tl.setting_value, submission_tpl.setting_value)');
-		} else {
+		} elseif($column === 'datePublished'){
+			$this->orderColumn = 'ps.date_published';
+		}else {
 			$this->orderColumn = 's.date_submitted';
 		}
 		$this->orderDirection = $direction;

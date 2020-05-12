@@ -248,6 +248,10 @@
 			<col>assoc_id</col>
 			<UNIQUE />
 		</index>
+		<index name="user_settings_locale_setting_name_index">
+			<col>setting_name</col>
+			<col>locale</col>
+		</index>
 	</table>
 
 	<!--

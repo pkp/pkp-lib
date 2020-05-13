@@ -101,9 +101,6 @@ msgstr "تعذر تنفيذ طلبك لأنه يفتقر إلى معلومات �
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "ما تطلبه من رقم المجلد، العدد، أو السنة، غير صحيح."
 
-msgid "api.submissions.unknownError"
-msgstr "حدث خطأ غير متوقع. لطفاً، أعد تحميل الصفحة ثم حاول مرة أخرى."
-
 msgid "api.temporaryFiles.400.noUpload"
 msgstr "تعذر العثور على أي ملف لرفعه مع الطلب."
 

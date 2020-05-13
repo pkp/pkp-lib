@@ -18,6 +18,9 @@ import('pages.user.UserHandler');
 
 class ProfileHandler extends UserHandler {
 
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
+
 	//
 	// Implement template methods from PKPHandler
 	//
@@ -67,6 +70,9 @@ class ProfileHandler extends UserHandler {
 		$this->setupTemplate($request);
 
 		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign([
+			'pageTitle' => __('user.profile'),
+		]);
 		$templateMgr->display('user/profile.tpl');
 	}
 }

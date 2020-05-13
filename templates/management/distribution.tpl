@@ -7,10 +7,13 @@
  *
  * The distribution settings page.
  *}
-{include file="common/header.tpl" pageTitle="manager.distribution.title"}
+{extends file="layouts/backend.tpl"}
 
-{assign var="uuid" value=""|uniqid|escape}
-<div id="settings-context-{$uuid}">
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="manager.distribution.title"}
+	</h1>
+
 	<tabs>
 		<tab id="license" label="{translate key="submission.license"}">
 			{help file="settings/distribution-settings" class="pkp_help_tab"}
@@ -35,9 +38,4 @@
 		</tab>
 		{call_hook name="Template::Settings::distribution"}
 	</tabs>
-</div>
-<script type="text/javascript">
-	pkp.registry.init('settings-context-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
-</script>
-
-{include file="common/footer.tpl"}
+{/block}

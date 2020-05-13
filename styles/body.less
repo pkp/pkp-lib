@@ -1,0 +1,58 @@
+/**
+ * @file styles/structure/body.less
+ *
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @ingroup pkp_structure_page
+ *
+ * @brief Classes for the page structural elements
+ */
+
+html {
+	height: 100%;
+}
+
+body {
+	position: relative;
+	height: auto;
+	min-height: 100%;
+	background: @bg;
+	font-family: @font;
+	font-size: @font-base;
+	line-height: @double;
+	color: @text;
+	color: @text-rgba;
+}
+
+a {
+	color: @primary;
+
+	&:hover,
+	&:focus {
+		color: @primary-lift;
+	}
+
+	&[disabled] {
+		color: @text-light-rgba;
+		cursor: not-allowed;
+	}
+}
+
+// Don't let images exceed containers by default
+img {
+	max-width: 100%;
+	width: auto;
+	height: auto;
+}
+
+.pkp_page_title {
+	background: @bg;
+	padding: @base @double;
+
+	h1 {
+		margin: 0;
+		font-size: @font-base;
+	}
+}

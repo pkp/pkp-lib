@@ -580,6 +580,8 @@ class PKPNavigationMenuService {
 			\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
 			if ($localisedTitle = $nmi->getLocalizedTitle()) {
 				$nmi->setTitle($localisedTitle, \AppLocale::getLocale());
+			} elseif ($nmi->getTitleLocaleKey() === '{$loggedInUsername}') {
+				$nmi->setTitle($nmi->getTitleLocaleKey(), \AppLocale::getLocale());
 			} else {
 				$nmi->setTitle(__($nmi->getTitleLocaleKey()), \AppLocale::getLocale());
 			}

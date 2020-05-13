@@ -24,9 +24,6 @@
 	 * @param {jQueryObject} $widgetWrapper An HTML element that this handle will
 	 * be attached to.
 	 * @param {{
-	 *   toggleHelpUrl: string,
-	 *   toggleHelpOffText: string,
-	 *   toggleHelpOnText: string,
 	 *   fetchNotificationUrl: string,
 	 *   requestOptions: Object
 	 *   }} options Handler options.
@@ -57,9 +54,6 @@
 		if (options.hasSystemNotifications) {
 			this.trigger('notifyUser');
 		}
-
-		// Respond to `notify` events triggered on the global event bus
-		this.bindGlobal('notify', this.handleNotifyEvent);
 
 		// bind event handlers for form status change events.
 		this.bind('formChanged', this.callbackWrapper(
@@ -186,7 +180,7 @@
 						processData: false,
 						contentType: false,
 						headers: {
-							'X-Csrf-Token': $.pkp.currentUser.csrfToken
+							'X-Csrf-Token': pkp.currentUser.csrfToken
 						},
 						success: function(r) {
 							success(r.url);
@@ -612,7 +606,7 @@
 			}
 		}
 		if (unsavedElementCount > 0) {
-			return $.pkp.locale.form_dataHasChanged;
+			return pkp.localeKeys['form.dataHasChanged'];
 		}
 		return undefined;
 	};
@@ -655,7 +649,7 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.showNotification_ =
 			function(jsonData) {
-		var workingJsonData, notificationsData, levelId, notificationId, pnotify;
+		var workingJsonData, notificationsData, levelId, notificationId;
 
 		workingJsonData = this.handleJson(jsonData);
 		if (workingJsonData !== false) {
@@ -663,23 +657,19 @@
 				notificationsData = workingJsonData.content.general;
 				for (levelId in notificationsData) {
 					for (notificationId in notificationsData[levelId]) {
-						pnotify = new PNotify(notificationsData[levelId][notificationId]);
+						var addclass = notificationsData[levelId][notificationId].addclass;
+						var type = 'notice';
+						if (addclass == 'notifySuccess') {
+							type = 'success';
+						} else if (addclass == 'notifyWarning' || addclass == 'notifyError' ||
+								addclass == 'notifyFormError' || addclass == 'notifyForbidden') {
+							type = 'warning';
+						}
+						pkp.eventBus.$emit('notify', notificationsData[levelId][notificationId].text, type);
 					}
 				}
 			}
 		}
-	};
-
-
-	/**
-	 * Display a floating notification message
-	 *
-	 * @param {Object} caller The object which triggered the event
-	 * @param {Object} settings The PNotify settings
-	 */
-	$.pkp.controllers.SiteHandler.prototype.handleNotifyEvent =
-			function(caller, settings) {
-		var pnotify = new PNotify(settings);
 	};
 
 

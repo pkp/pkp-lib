@@ -155,17 +155,8 @@ msgstr "Productie"
 msgid "manager.publication.emails"
 msgstr "E-mails"
 
-msgid "manager.publication.emailSetup.success"
-msgstr "De instellingen voor e-mail zijn bijgewerkt."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Reviewer richtlijnen"
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "Reviewer richtlijnen zijn bijgewerkt."
-
-msgid "manager.publication.reviewSetup.success"
-msgstr "De review instellingen zijn bijgewerkt."
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "De instellingen voor review herinneringen zijn bijgewerkt."
@@ -604,12 +595,6 @@ msgstr "Deze inhoud zal op de homepage worden verschijnen."
 msgid "manager.setup.advanced"
 msgstr "Geavanceerd"
 
-msgid "manager.setup.appearance.success"
-msgstr "De weergave-instellingen zijn bijgewerkt."
-
-msgid "manager.setup.contact.success"
-msgstr "De contactgegevens voor de uitgeverij zijn bijgewerkt."
-
 msgid "manager.setup.copyrightNotice"
 msgstr "Copyright verklaring"
 
@@ -621,9 +606,6 @@ msgstr "Richtlijnen voor auteurs"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr "Aanbevolen richtlijnen omvatten bibliografische en opmaakrichtlijnen voor inzendingen, naast voorbeelden van citatieformaten."
-
-msgid "manager.setup.authorGuidelines.success"
-msgstr "De auteursrichtlijnen zijn met succes bijgewerkt."
 
 msgid "manager.setup.checklist"
 msgstr "Controlelijst"
@@ -757,9 +739,6 @@ msgstr "Contactgegevens technische ondersteuning"
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr "Een contactpersoon die redacteurs, auteurs en reviewers kan assisteren met mogelijke problemen bij het inzenden, redigeren, reviewen of publiceren van teksten."
 
-msgid "manager.setup.theme.success"
-msgstr "De stijl is bijgewerkt. <a href=\"{$url}\" target=\"_blank\">Bekijk nu</a>"
-
 msgid "manager.setup.theme"
 msgstr "Stijl"
 
@@ -768,9 +747,6 @@ msgstr "Nieuwe stijlen kunnen worden geïnstalleerd op het plugins tabblad boven
 
 msgid "manager.setup.theme.notFound"
 msgstr "De stijl die u heeft geselecteerd is niet geïnstalleerd of ingeschakeld."
-
-msgid "manager.setup.userAccess.success"
-msgstr "De instellingen voor gebruikerstoegang voor deze uitgeverij zijn bijgewerkt."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Toegangsopties"
@@ -1041,9 +1017,6 @@ msgstr "Gebruiker is bewerkt."
 
 msgid "manager.distribution.license"
 msgstr "Licentie"
-
-msgid "manager.distribution.license.success"
-msgstr "De licentiegegevens zijn bijgewerkt."
 
 msgid "manager.distribution.license.other"
 msgstr "Andere licentie-URL"
@@ -1347,9 +1320,6 @@ msgstr "URL van een webpagina die de licentie beschrijft, indien beschikbaar."
 
 msgid "manager.setup.metadata.submission"
 msgstr "Inzendingsformulier"
-
-msgid "manager.setup.metadata.success"
-msgstr "De metadata voor de inzending zijn met succes bijgewerkt."
 
 msgid "manager.setup.metadata.coverage"
 msgstr "Dekking "

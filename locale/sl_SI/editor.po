@@ -357,12 +357,6 @@ msgstr "Vzorec {$pattern} ni dovoljen kot javni identifikator."
 msgid "editor.submission.schedulePublication"
 msgstr "Dodeli v številko"
 
-msgid "reviewer.list.count"
-msgstr "{$count} recenzentov"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} od {$total} recenzentov"
-
 msgid "reviewer.list.filterRating"
 msgstr "Ocenjen najmanj"
 

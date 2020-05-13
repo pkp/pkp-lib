@@ -369,17 +369,15 @@
 
 		if (jsonData.status === true) {
 			// Trigger events passed from the server
-			_.each((/** @type {{ events: Object }} */ (jsonData)).events,
-					function(event) {
-						/** @type {{isGlobalEvent: boolean}} */
-						var eventData = _.has(event, 'data') ? event.data : null;
-						if (!_.isNull(eventData) && eventData.isGlobalEvent) {
-							eventData.handler = this;
-							pkp.eventBus.$emit(event.name, eventData);
-						} else {
-							this.trigger(event.name, eventData);
-						}
-					}, this);
+			for (var key in jsonData.events) {
+				var eventData = jsonData.events[key].hasOwnProperty('data') ? jsonData.events[key].data : null;
+				if (eventData !== null && eventData.isGlobalEvent) {
+					eventData.handler = this;
+					pkp.eventBus.$emit(jsonData.events[key].name, eventData);
+				} else {
+					this.trigger(jsonData.events[key].name, eventData);
+				}
+			}
 			return jsonData;
 		} else {
 			// If we got an error message then display it.
@@ -520,10 +518,13 @@
 	$.pkp.classes.Handler.prototype.unbindGlobal = function(eventName, callback) {
 		var wrapper = this.callbackWrapper(callback);
 		if (typeof this.globalEventListeners_[eventName] !== 'undefined') {
-			this.globalEventListeners = _.reject(this.globalEventListeners,
-					function(cb) {
-						return cb === wrapper;
-					});
+			var globalEventListeners = [];
+			this.globalEventListeners.forEach(function(callback) {
+				if (callback !== wrapper) {
+					globalEventListeners.push(callback);
+				}
+			});
+			this.globalEventListeners = globalEventListeners;
 		}
 		pkp.eventBus.$off(eventName, wrapper);
 	};
@@ -534,11 +535,11 @@
 	 */
 	$.pkp.classes.Handler.prototype.unbindGlobalAll = function() {
 		if (typeof this.globalEventListeners_ !== 'undefined') {
-			_.each(this.globalEventListeners_, function(callbacks, eventName) {
-				_.each(callbacks, function(callback) {
-					pkp.eventBus.$off(eventName, callback);
-				});
-			});
+			for (var event in this.globalEventListeners_) {
+				for (var callback in this.globalEventListeners_[event]) {
+					pkp.eventBus.$off(event, this.globalEventListeners_[event][callback]);
+				}
+			}
 		}
 		this.globalEventListeners = null;
 		this.unbindGlobalChildren();
@@ -549,7 +550,7 @@
 	 * Unbind all global event listeners on child handlers
 	 */
 	$.pkp.classes.Handler.prototype.unbindGlobalChildren = function() {
-		_.each(this.handlerChildren_, function(childHandler) {
+		this.handlerChildren_.forEach(function(childHandler) {
 			// Handler in legacy JS framework
 			if (typeof childHandler.unbindGlobalAll !== 'undefined') {
 				childHandler.unbindGlobalAll();

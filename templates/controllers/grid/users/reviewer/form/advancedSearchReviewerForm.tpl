@@ -32,7 +32,6 @@
 
 		{** This button will get the reviewer selected in the grid and insert their ID into the form below **}
 		{fbvFormSection class="form_buttons"}
-			{fbvElement type="button" id="selectReviewerButton" label="editor.submission.selectReviewer"}
 			{foreach from=$reviewerActions item=action}
 				{if $action->getId() == 'advancedSearch'}
 					{continue}

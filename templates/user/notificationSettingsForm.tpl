@@ -24,7 +24,7 @@
 
 <form class="pkp_form" id="notificationSettingsForm" method="post" action="{url op="saveNotificationSettings"}" enctype="multipart/form-data">
 	<p>{translate key="notification.settingsDescription"}</p>
-	
+
 	{* Help Link *}
 	{help file="user-profile" class="pkp_help_tab"}
 
@@ -56,14 +56,13 @@
 				{/fbvFormSection}
 			{/foreach}
 		{/foreach}
-		<br />
+
+		<p>
+			{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+			{translate key="user.privacyLink" privacyUrl=$privacyUrl}
+		</p>
+
+		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 		{fbvFormButtons hideCancel=true submitText="common.save"}
 	{/fbvFormArea}
-
-	<p>
-		{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
-		{translate key="user.privacyLink" privacyUrl=$privacyUrl}
-	</p>
-
-	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>

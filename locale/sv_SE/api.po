@@ -35,9 +35,6 @@ msgstr "Din förfrågan kunde inte fullföljas eftersom det saknar nödvändig i
 msgid "api.submissions.400.stageNotValid"
 msgstr "Din förfrågan kunde inte fullföljas eftersom ID:t för bidragssteget är ogiltigt."
 
-msgid "api.submissions.unknownError"
-msgstr "Ett oväntat fel uppstod. Ladda om sidan och försök igen."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Du kan inte ändra status direkt genom APIet. Använd istället /publish och /"

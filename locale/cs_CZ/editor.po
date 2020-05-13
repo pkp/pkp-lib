@@ -361,12 +361,6 @@ msgstr "Ohodnoťe kvalitu recenze. Ohodnocení nebude sdíleno s recenzentem."
 msgid "editor.review.reviewerRating.none"
 msgstr "Bez hodnocení"
 
-msgid "reviewer.list.count"
-msgstr "{$count} recenzentů"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} z {$total} recenzetů"
-
 msgid "reviewer.list.filterRating"
 msgstr "Hodnocení je nejméně"
 

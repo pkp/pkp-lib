@@ -45,9 +45,6 @@ class FieldRichTextarea extends Field {
 	 */
 	public function __construct($name, $args = []) {
 		parent::__construct($name, $args);
-		$this->i18n = array_merge([
-			'wordCount' => __('publication.wordCount'),
-		], $this->i18n);
 	}
 
 	/**
@@ -72,6 +69,7 @@ class FieldRichTextarea extends Field {
 		}
 		if ($this->wordLimit) {
 			$config['wordLimit'] = $this->wordLimit;
+			$config['wordCountLabel'] = __('publication.wordCount');
 		}
 
 		return $config;

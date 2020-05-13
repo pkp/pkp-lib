@@ -38,7 +38,6 @@ class PKPSiteAppearanceForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $site, $baseUrl, $temporaryFileApiUrl) {
 		$this->action = $action;
-		$this->successMessage = __('admin.settings.appearance.success');
 		$this->locales = $locales;
 
 		$sidebarOptions = [];

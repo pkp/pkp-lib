@@ -34,7 +34,6 @@ class PKPContactForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;
-		$this->successMessage = __('manager.setup.contact.success');
 		$this->locales = $locales;
 
 		$this->addGroup([

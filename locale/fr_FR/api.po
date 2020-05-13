@@ -29,9 +29,6 @@ msgstr "La ressource demandée n'existe pas"
 msgid "api.submissions.400.missingRequired"
 msgstr "La requête n'a pu être terminée par manque d'information"
 
-msgid "api.submissions.unknownError"
-msgstr "Une erreur imprévue est survenu. Merci de recharger la page."
-
 msgid "api.submissions.400.stageNotValid"
 msgstr "La requête n'a pu être finalisée car le submission stage ID est invalide."
 

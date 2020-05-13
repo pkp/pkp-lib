@@ -25,8 +25,8 @@ class FieldText extends Field {
 	/** @var string The label of the button added by self::$optIntoEdit */
 	public $optIntoEditLabel = '';
 
-	/** @var string Accepts: `small`, `regular` or `large` */
-	public $size = 'regular';
+	/** @var string Accepts: `small`, `normal` or `large` */
+	public $size = 'normal';
 
 	/** @var string A prefix to display before the input value */
 	public $prefix = '';

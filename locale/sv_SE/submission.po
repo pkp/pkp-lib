@@ -1712,14 +1712,8 @@ msgstr "Alla versioner"
 msgid "publication.status.published"
 msgstr "Publicerad"
 
-msgid "publication.publish.success"
-msgstr "Publikationsstatus har ändrats."
-
 msgid "publication.publish"
 msgstr "Publicera"
-
-msgid "publication.metadata.success"
-msgstr "Metadatan har uppdaterats."
 
 msgid "publication.event.published"
 msgstr "Bidraget är publicerat."
@@ -1735,9 +1729,6 @@ msgstr "Skapa en ny version"
 
 msgid "publication.contributors"
 msgstr "Medarbetare"
-
-msgid "publication.citations.success"
-msgstr "Referenserna har uppdaterats."
 
 msgid "submission.publication"
 msgstr "Publikation"
@@ -1851,9 +1842,6 @@ msgstr ""
 msgid "publication.version.details"
 msgstr "Publiceringsdetaljer för version {$version}"
 
-msgid "publication.titleAbstract.success"
-msgstr "Titeln och abstract har uppdaterats."
-
 msgid "publication.status.unpublished"
 msgstr "Inte publicerad"
 
@@ -1870,12 +1858,6 @@ msgstr "Ett avslaget bidrag kan inte publiceras."
 
 msgid "publication.publish.requirements"
 msgstr "Följande krav måste uppfyllas innan den kan publiceras."
-
-msgid "publication.publicationLicense.success"
-msgstr "Upphovsrätts- och licensinformation har uppdaterats."
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "Identifikatorerna har uppdaterats."
 
 msgid "publication.invalidSubmission"
 msgstr "Bidraget för publikationen kan inte hittas."

@@ -1484,17 +1484,8 @@ msgstr "Länk till sidan som visar er integritetspolicy."
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr "Den här länken visas enbart om det finns en integritetspolicy inmatad under Inställningar > Arbetsflöde > Bidrag."
 
-msgid "manager.publication.reviewSetup.success"
-msgstr "Inställningarna för granskning har uppdaterats."
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "Guide för granskare har uppdaterats."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Guide för granskare"
-
-msgid "manager.publication.emailSetup.success"
-msgstr "E-postinställningarna har uppdaterats."
 
 msgid "manager.setup.metadata.coverage"
 msgstr "Täckning"
@@ -1884,9 +1875,6 @@ msgstr ""
 "datumintervall), eller jurisdiktion (såsom ett land eller administrativ "
 "enhet)."
 
-msgid "manager.setup.metadata.success"
-msgstr "Bidragets metadata har uppdaterats."
-
 msgid "settings.roles.permitMetadataEdit"
 msgstr "Tillåt redigering av bidragets metadata."
 
@@ -1905,14 +1893,8 @@ msgstr "Licensvillkor"
 msgid "manager.distribution.license.other"
 msgstr "Annan licens-URL"
 
-msgid "manager.distribution.license.success"
-msgstr "Licensdetaljerna har uppdaterats. "
-
 msgid "manager.setup.theme.notFound"
 msgstr "Det tema som du valde är inte installerat eller aktiverat."
-
-msgid "manager.setup.theme.success"
-msgstr "Temat har uppdaterats. <a href=\"{$url}\" target=\"_blank\">Visa nu</a>"
 
 msgid "manager.setup.reviewOptions.showBlindReviewLink"
 msgstr ""
@@ -1940,12 +1922,6 @@ msgstr "Filen som du laddade upp kan inte hittas. Försök att ladda upp igen."
 msgid "manager.setup.checklist"
 msgstr "Checklista"
 
-msgid "manager.setup.authorGuidelines.success"
-msgstr "Riktlinjerna för författare har uppdaterats."
-
-msgid "manager.setup.appearance.success"
-msgstr "Inställningarna för utseendet har uppdaterats."
-
 msgid "manager.emails.subjectWithValue"
 msgstr "Ämne: {$subject}"
 
@@ -1967,14 +1943,8 @@ msgstr "Du måste ange ett ID när en e-postmall läggs till."
 msgid "manager.emails.emailKey.description"
 msgstr "E-postnyckeln kan bara innehålla bokstäver, nummer eller understreck."
 
-msgid "manager.emails.editEmail.success"
-msgstr "E-postmallen har ändrats."
-
 msgid "manager.emails.customTemplate"
 msgstr "Specialmall"
-
-msgid "manager.emails.addEmail.success"
-msgstr "E-postmallen är tillagd."
 
 msgid "manager.emails.addEmail"
 msgstr "Lägg till mall"

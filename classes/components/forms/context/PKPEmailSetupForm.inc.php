@@ -35,7 +35,6 @@ class PKPEmailSetupForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;
-		$this->successMessage = __('manager.publication.emailSetup.success');
 		$this->locales = $locales;
 
 		$canEnvelopeSender = \Config::getVar('email', 'allow_envelope_sender');

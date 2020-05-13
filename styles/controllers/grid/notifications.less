@@ -19,6 +19,7 @@
 
 	a {
 		font-weight: @normal;
+		text-decoration: none;
 	}
 
 	// Leave the header for screen readers but don't show it
@@ -33,21 +34,14 @@
 		border-top: none;
 	}
 
-	// @todo hack on top of a hack. Overrides the padding-left: 32px attached to
-	// .pkp_page_dashboard .pkp_controllers_grid tbody:not(.empty) td:first-child
 	.gridRow td:first-child {
-		padding-left: 0;
 		line-height: @double;
-		min-width: 26px;
 	}
 
 	.gridRow td:nth-child(2) {
-		padding-left: 16px;
+		transform: translateX(@base); // prevent column from overlapping clickable area of checkbox
+		padding-left: 0;
 		padding-right: 0;
-	}
-
-	.pkp_controllers_grid {
-		margin-bottom: 0;
 	}
 
 	.footer {
@@ -57,25 +51,12 @@
 
 	// Override <ul> styles attached to navigation menu
 	.actions.btm {
-		position: relative;
-		top: auto;
-		left: auto;
-		background: transparent;
-		width: auto;
-		padding-left: @double;
-		margin-top: @base;
 		float: none;
-		width: 100%;
-		border-top: @grid-border;
-		padding-top: 0;
+		padding-left: 38px; // aligns with text of each task
+		text-align: left;
 
 		a {
-			padding-bottom: 4px;
 			font-weight: @bold;
-
-			&:first-child {
-				padding-left: 0;
-			}
 		}
 
 		.pkp_linkaction_deleteNotifications {
@@ -99,15 +80,13 @@
 		.details {
 			position: relative;
 			display: block;
+			margin-right: 1.5rem;
 			font-size: @font-tiny;
 			line-height: 24px;
 			color: @text;
 		}
 
 		.acronym {
-			position: absolute;
-			top: 0;
-			right: 0;
 			background: @lift;
 			padding: 0 0.5em;
 			border: @bg-border;

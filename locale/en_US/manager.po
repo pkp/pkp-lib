@@ -24,7 +24,7 @@ msgid "manager.announcements"
 msgstr "Announcements"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Are you sure you want to permanently delete this announcement?"
+msgstr "Are you sure you want to permanently delete the announcement {$title}?"
 
 msgid "manager.announcements.create"
 msgstr "Create New Announcement"
@@ -37,6 +37,9 @@ msgstr "Expiry"
 
 msgid "manager.announcements.datePublish"
 msgstr "Published"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Delete Announcement"
 
 msgid "manager.announcements.edit"
 msgstr "Edit Announcement"
@@ -63,7 +66,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Please select a month and/or day in addition to the expiry date year."
 
 msgid "manager.announcements.form.description"
-msgstr "Description"
+msgstr "Announcement"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "The full text of the announcement."
@@ -155,17 +158,8 @@ msgstr "Production"
 msgid "manager.publication.emails"
 msgstr "Emails"
 
-msgid "manager.publication.emailSetup.success"
-msgstr "The email settings have been updated."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Reviewer Guidance"
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "Reviewer guidance has been updated."
-
-msgid "manager.publication.reviewSetup.success"
-msgstr "The review settings have been updated."
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "The review reminder details have been updated."
@@ -178,9 +172,6 @@ msgstr "Are you sure you want to reset this email template to its default values
 
 msgid "manager.emails.addEmail"
 msgstr "Add Template"
-
-msgid "manager.emails.addEmail.success"
-msgstr "The email template was added."
 
 msgid "manager.emails.createEmail"
 msgstr "Create Email"
@@ -202,9 +193,6 @@ msgstr "You are about to disable this email template.  If there were system proc
 
 msgid "manager.emails.editEmail"
 msgstr "Edit Email"
-
-msgid "manager.emails.editEmail.success"
-msgstr "The email template was modified."
 
 msgid "manager.emails.editTestExample"
 msgstr "Edit Email Test Example"
@@ -257,8 +245,14 @@ msgstr "Reset All"
 msgid "manager.emails.resetAll.message"
 msgstr "If you reset all templates, all modifications to the email templates will be lost.  Do you want to confirm this operation?"
 
+msgid "manager.emails.resetAll.complete"
+msgstr "The default email templates have been restored."
+
 msgid "manager.emails.reset"
 msgstr "Reset"
+
+msgid "manager.emails.resetComplete"
+msgstr "Email template was successfully reset."
 
 msgid "manager.emails.reset.message"
 msgstr "If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?"
@@ -455,6 +449,9 @@ msgstr "Remove"
 msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Save and Create Another"
 
+msgid "manager.people.signedInAs"
+msgstr "You are currently logged in as {$username}"
+
 msgid "manager.people.signInAs"
 msgstr "Log In As"
 
@@ -646,12 +643,6 @@ msgstr "Anything entered here will appear on your homepage."
 msgid "manager.setup.advanced"
 msgstr "Advanced"
 
-msgid "manager.setup.appearance.success"
-msgstr "The appearance settings have been updated."
-
-msgid "manager.setup.contact.success"
-msgstr "The contact details for this press have been updated."
-
 msgid "manager.setup.copyrightNotice"
 msgstr "Copyright Notice"
 
@@ -663,9 +654,6 @@ msgstr "Author Guidelines"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr "Recommended guidelines include bibliographic and formatting standards alongside examples of common citation formats to be used in submissions."
-
-msgid "manager.setup.authorGuidelines.success"
-msgstr "The author guidelines have been successfully updated."
 
 msgid "manager.setup.checklist"
 msgstr "Checklist"
@@ -802,9 +790,6 @@ msgstr "Technical Support Contact"
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr "A contact person who can assist editors, authors and reviewers with any problems they have submitting, editing, reviewing or publishing material."
 
-msgid "manager.setup.theme.success"
-msgstr "The theme has been updated. <a href=\"{$url}\" target=\"_blank\">View Now</a>"
-
 msgid "manager.setup.theme"
 msgstr "Theme"
 
@@ -813,9 +798,6 @@ msgstr "New themes may be installed from the Plugins tab at the top of this page
 
 msgid "manager.setup.theme.notFound"
 msgstr "The theme you selected is not installed or enabled."
-
-msgid "manager.setup.userAccess.success"
-msgstr "The user access details for this press have been updated."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Site Access Options"
@@ -1089,9 +1071,6 @@ msgstr "User edited."
 
 msgid "manager.distribution.license"
 msgstr "License"
-
-msgid "manager.distribution.license.success"
-msgstr "The licensing details have been updated. "
 
 msgid "manager.distribution.license.other"
 msgstr "Other license URL"
@@ -1398,9 +1377,6 @@ msgstr "URL to a webpage describing the license, if available."
 
 msgid "manager.setup.metadata.submission"
 msgstr "Submission Form"
-
-msgid "manager.setup.metadata.success"
-msgstr "The submission metadata has been updated successfully."
 
 msgid "manager.setup.metadata.coverage"
 msgstr "Coverage"

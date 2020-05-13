@@ -36,7 +36,6 @@ class PKPMetadataForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $publication, $submissionContext, $suggestionUrlBase) {
 		$this->action = $action;
-		$this->successMessage = __('publication.metadata.success');
 		$this->locales = $locales;
 
 		// Load constants
@@ -51,8 +50,9 @@ class PKPMetadataForm extends FormComponent {
 				'label' => __('common.keywords'),
 				'tooltip' => __('manager.setup.metadata.keywords.description'),
 				'isMultilingual' => true,
-				'suggestionsUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $suggestionUrlBase),
-				'value' => $publication->getData('keywords'),
+				'apiUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $suggestionUrlBase),
+				'locales' => $this->locales,
+				'selected' => (array) $publication->getData('keywords'),
 			]));
 		}
 
@@ -61,8 +61,9 @@ class PKPMetadataForm extends FormComponent {
 				'label' => __('common.subjects'),
 				'tooltip' => __('manager.setup.metadata.subjects.description'),
 				'isMultilingual' => true,
-				'suggestionsUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $suggestionUrlBase),
-				'value' => $publication->getData('subjects'),
+				'apiUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $suggestionUrlBase),
+				'locales' => $this->locales,
+				'selected' => (array) $publication->getData('subjects'),
 			]));
 		}
 
@@ -71,8 +72,9 @@ class PKPMetadataForm extends FormComponent {
 				'label' => __('search.discipline'),
 				'tooltip' => __('manager.setup.metadata.disciplines.description'),
 				'isMultilingual' => true,
-				'suggestionsUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $suggestionUrlBase),
-				'value' => $publication->getData('disciplines'),
+				'apiUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $suggestionUrlBase),
+				'locales' => $this->locales,
+				'selected' => (array) $publication->getData('disciplines'),
 			]));
 		}
 
@@ -81,8 +83,9 @@ class PKPMetadataForm extends FormComponent {
 				'label' => __('common.languages'),
 				'tooltip' => __('manager.setup.metadata.languages.description'),
 				'isMultilingual' => true,
-				'suggestionsUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, $suggestionUrlBase),
-				'value' => $publication->getData('languages'),
+				'apiUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, $suggestionUrlBase),
+				'locales' => $this->locales,
+				'selected' => (array) $publication->getData('languages'),
 			]));
 		}
 
@@ -91,8 +94,9 @@ class PKPMetadataForm extends FormComponent {
 				'label' => __('submission.supportingAgencies'),
 				'tooltip' => __('manager.setup.metadata.agencies.description'),
 				'isMultilingual' => true,
-				'suggestionsUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_AGENCY, $suggestionUrlBase),
-				'value' => $publication->getData('supportingAgencies'),
+				'apiUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_AGENCY, $suggestionUrlBase),
+				'locales' => $this->locales,
+				'selected' => (array) $publication->getData('supportingAgencies'),
 			]));
 		}
 

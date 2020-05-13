@@ -13,112 +13,11 @@ body[dir="rtl"] {
 	direction: rtl;
 	unicode-bidi: embed;
 
-	// Site structure
-	.pkp_structure_head {
-		left: auto;
-		right: 0;
-	}
-
-	.pkp_nav_context,
-	.pkp_nav_tasks {
-		float: right;
-	}
-
-	.pkp_nav_user {
-		float: left;
-	}
-
-	.pkp_structure_page {
-		margin-left: 0;
-		margin-right: 192px;
-	}
-
-	.pkp_structure_footer {
-		text-align: left;
-	}
-
-	// Global navigation elements
-	.pkp_nav_list {
-
-		ul {
-			left: auto;
-			right: -9999px;
-		}
-
-		a:hover,
-		a:focus,
-		[aria-expanded="true"] > a {
-
-			> ul {
-				left: auto;
-				right: 100%;
-			}
-		}
-
-		[aria-expanded="true"] > ul {
-			left: auto;
-			right: 100%;
-		}
-	}
-
-	.pkp_nav_context {
-
-		.pkp_current_context {
-			padding-right: @base;
-			padding-left: @double;
-		}
-
-		[aria-haspopup] .pkp_current_context:after {
-			right: auto;
-			left: @base;
-		}
-
-		.pkp_contexts {
-			left: 0;
-			right: -(192px * 2) - @double;
-		}
-
-		> [aria-expanded="true"] {
-
-			.pkp_contexts {
-				right: 0;
-			}
-		}
-	}
-
-	.pkp_nav_user {
-
-		> [aria-expanded="true"] > ul,
-		> [aria-expanded="true"] > ul {
-			right: auto;
-			left: 0;
-		}
-
-		.panel {
-			display: none;
-			position: absolute;
-			top: 0;
-			left: auto;
-			right: 100%;
-		}
-	}
-
-	// Tasks
-	.pkp_tasks .panel {
-		left: auto;
-		right: 0;
-	}
-
-	#notificationsGrid thead {
-		left: auto;
-		right: -9999px;
-	}
-
 	// Help panel
 	.pkp_help_tab,
 	.pkp_help_modal {
 		right: auto;
-		left: @double;
+		left: 48px;
 	}
 
 	.pkp_form {
@@ -227,11 +126,6 @@ body[dir="rtl"] {
 		padding-left: @base;
 	}
 
-	.ui-pnotify {
-		right: auto;
-		left: 4px;
-	}
-
 	// Grids
 	.pkp_controllers_grid {
 
@@ -261,6 +155,10 @@ body[dir="rtl"] {
 			left: auto;
 			right: 0;
 		}
+	}
 
+	// Submission workflow
+	.pkp_workflow_decisions {
+		padding-right: 0;
 	}
 }

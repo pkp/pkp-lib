@@ -7,11 +7,13 @@
  *
  * @brief The users, roles and site access settings page.
  *}
-{include file="common/header.tpl" pageTitle="navigation.access"}
+{extends file="layouts/backend.tpl"}
 
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="navigation.access"}
+	</h1>
 
-{assign var="uuid" value=""|uniqid|escape}
-<div id="settings-access-{$uuid}">
 	<tabs>
 		<tab id="users" label="{translate key="manager.users"}">
 			{include file="management/accessUsers.tpl"}
@@ -30,9 +32,4 @@
 		</tab>
 		{call_hook name="Template::Settings::access"}
 	</tabs>
-</div>
-<script type="text/javascript">
-	pkp.registry.init('settings-access-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
-</script>
-
-{include file="common/footer.tpl"}
+{/block}

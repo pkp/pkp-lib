@@ -38,13 +38,11 @@ class PKPThemeForm extends FormComponent {
 	 *
 	 * @param $action string URL to submit the form to
 	 * @param $locales array Supported locales
-	 * @param $publicUrl string The URL to view the public site or context.
 	 * @param $context Context|null Journal/Press to change settings for, or null
 	 *  to change settings for the Site
 	 */
-	public function __construct($action, $locales, $publicUrl, $context = null) {
+	public function __construct($action, $locales, $context = null) {
 		$this->action = $action;
-		$this->successMessage = __('manager.setup.theme.success', ['url' => $publicUrl]);
 		$this->locales = $locales;
 
 		if (!empty($context)) {

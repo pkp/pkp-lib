@@ -218,9 +218,6 @@ msgstr "Bu hakem grubunda mevcut bir hakem yetkilendirin"
 msgid "editor.submission.createNewRound"
 msgstr "Yeni bir değerlendirme turu oluştur"
 
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$total} hakemden {$count} adet"
-
 msgid "reviewer.list.neverAssigned"
 msgstr "Atanma yapılmadı"
 
@@ -376,9 +373,6 @@ msgstr "Ortak tanımlayıcı için {$pattern} modeline izin verilmez."
 
 msgid "editor.submission.schedulePublication"
 msgstr "Yayın İçin Planla"
-
-msgid "reviewer.list.count"
-msgstr "{$count} hakem"
 
 msgid "reviewer.list.filterRating"
 msgstr "En az reyting"

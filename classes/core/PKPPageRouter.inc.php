@@ -113,6 +113,21 @@ class PKPPageRouter extends PKPRouter {
 		return $this->_getRequestedUrlParts(array('Core', 'getArgs'), $request);
 	}
 
+	/**
+	 * Get the anchor (#anchor) requested in the URL
+	 *
+	 * @para $request PKPRequest the request to be routed
+	 * @return string
+	 */
+	function getRequestedAnchor($request) {
+		$url = $request->getRequestUrl();
+		$parts = explode('#', $url);
+		if (count($parts) < 2) {
+			return '';
+		}
+		return $parts[1];
+	}
+
 
 	//
 	// Implement template methods from PKPRouter

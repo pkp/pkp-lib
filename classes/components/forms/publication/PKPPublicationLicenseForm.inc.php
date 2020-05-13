@@ -37,7 +37,6 @@ class PKPPublicationLicenseForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $publication, $context, $userGroups) {
 		$this->action = $action;
-		$this->successMessage = __('publication.publicationLicense.success');
 		$this->locales = $locales;
 
 		// Get the copyright that will be set on publication based on context settings

@@ -34,7 +34,6 @@ class PKPUserAccessForm extends FormComponent {
 	 */
 	public function __construct($action, $context) {
 		$this->action = $action;
-		$this->successMessage = __('manager.setup.userAccess.success');
 
 		$this->addField(new FieldOptions('restrictSiteAccess', [
 				'label' => __('manager.setup.siteAccess.view'),

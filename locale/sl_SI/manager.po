@@ -1932,9 +1932,6 @@ msgstr ""
 msgid "manager.setup.metadata.coverage"
 msgstr "Pokritost"
 
-msgid "manager.setup.metadata.success"
-msgstr "Metapodatki prispevka so bili posodobljeni."
-
 msgid "settings.roles.permitMetadataEdit"
 msgstr "Dovolite spreminjanje metapodatkov prispevka."
 
@@ -1957,24 +1954,14 @@ msgstr "Licenčni pogoji"
 msgid "manager.distribution.license.other"
 msgstr "URL druge licence"
 
-msgid "manager.distribution.license.success"
-msgstr "Podrobnosti licence so bile posodobljene. "
-
 msgid "manager.distribution.license"
 msgstr "Licenca"
 
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Registrirani uporabniki"
 
-msgid "manager.setup.userAccess.success"
-msgstr "Podrobnosti za dostop uporabnikov so bile posodobljene."
-
 msgid "manager.setup.theme.notFound"
 msgstr "Izbrana tema ni nameščena ali omogočena."
-
-msgid "manager.setup.theme.success"
-msgstr ""
-"Tema je bila posodobljena. <a href=\"{$url}\" target=\"_blank\">Poglej</a>"
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Privzeti način recenzije"
@@ -2012,15 +1999,6 @@ msgstr ""
 msgid "manager.setup.checklist"
 msgstr "Kontrolni seznam"
 
-msgid "manager.setup.authorGuidelines.success"
-msgstr "Navodila za avtorje so bila posodobljena."
-
-msgid "manager.setup.contact.success"
-msgstr "Kontaktni podatki so bili posodobljeni."
-
-msgid "manager.setup.appearance.success"
-msgstr "Nastavitve izgleda so posodobljene."
-
 msgid "manager.setup.advanced"
 msgstr "Napredno"
 
@@ -2053,14 +2031,8 @@ msgstr "Email predloge"
 msgid "manager.emails.emailKey.description"
 msgstr "Ključ emaila lahko vsebuje le črke, številke in podčrtaje."
 
-msgid "manager.emails.editEmail.success"
-msgstr "Email predloga je bila posodobljena."
-
 msgid "manager.emails.customTemplate"
 msgstr "Predloga po meri"
-
-msgid "manager.emails.addEmail.success"
-msgstr "Email predloga je bila dodana."
 
 msgid "manager.emails.addEmail"
 msgstr "Dodaj predlogo"
@@ -2068,14 +2040,5 @@ msgstr "Dodaj predlogo"
 msgid "manager.publication.reviewReminders.success"
 msgstr "Podrobnosti za recenzijski opomnik so bile posodobljene."
 
-msgid "manager.publication.reviewSetup.success"
-msgstr "Nastavitve za recenzijo so bile posodobljene."
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "Navodila za recenzente so bila posodobljena."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Navodila za recenzente"
-
-msgid "manager.publication.emailSetup.success"
-msgstr "Email nastavitve so bile posodobljene."

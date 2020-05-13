@@ -33,7 +33,6 @@ class PKPAuthorGuidelinesForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;
-		$this->successMessage = __('manager.setup.authorGuidelines.success');
 		$this->locales = $locales;
 
 		$this->addField(new FieldRichTextarea('authorGuidelines', [

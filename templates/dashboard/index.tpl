@@ -7,10 +7,13 @@
  *
  * Dashboard index.
  *}
-{include file="common/header.tpl" pageTitle="navigation.submissions"}
+{extends file="layouts/backend.tpl"}
 
-{assign var="uuid" value=""|uniqid|escape}
-<div id="dashboard-{$uuid}">
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="navigation.submissions"}
+	</h1>
+
 	<tabs>
 		<tab id="myQueue" label="{translate key="dashboard.myQueue"}" :badge="components.{$smarty.const.SUBMISSIONS_LIST_MY_QUEUE}.itemsMax">
 			{help file="submissions" class="pkp_help_tab"}
@@ -43,9 +46,4 @@
 			/>
 		</tab>
 	</tabs>
-</div>
-<script type="text/javascript">
-	pkp.registry.init('dashboard-{$uuid}', 'Container', {$containerData|json_encode});
-</script>
-
-{include file="common/footer.tpl"}
+{/block}

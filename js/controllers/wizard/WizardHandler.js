@@ -539,7 +539,7 @@
 			handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
 			if (prompt) {
 				if (handler.formChangesTracked) {
-					if (!confirm($.pkp.locale.form_dataHasChanged)) {
+					if (!confirm(pkp.localeKeys['form.dataHasChanged'])) {
 						return true; // the user has clicked cancel, they wish to stay.
 					} else {
 						handler.unregisterForm();

@@ -731,9 +731,6 @@ msgstr "Emneord"
 msgid "search.matchAll"
 msgstr "Treff i alle kategorier"
 
-msgid "search.noKeywordError"
-msgstr "Du må skrive inn minst ett søkeord."
-
 msgid "search.noResults"
 msgstr "Ingen resultat"
 

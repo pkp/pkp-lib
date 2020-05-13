@@ -17,7 +17,7 @@
 	<h1>
 		{translate key=$pageTitle}
 	</h1>
-	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="setup" sectionTitleKey="manager.website.information"}
+	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="setup/information" sectionTitleKey="manager.website.information"}
 
 	<div class="description">
 		{$content}

@@ -353,12 +353,6 @@ msgstr "Arvioi vertaisarvioinnin laatu (ei näy arvioijalle)."
 msgid "editor.review.reviewerRating.none"
 msgstr "Ei arviota"
 
-msgid "reviewer.list.count"
-msgstr "{$count} arvioijaa"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} / {$total} arvioijaa"
-
 msgid "reviewer.list.filterRating"
 msgstr "Arvio vähintään"
 

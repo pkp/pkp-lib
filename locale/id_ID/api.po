@@ -35,9 +35,6 @@ msgstr "Satu file atau lebih tidak dapat diunggah."
 msgid "api.temporaryFiles.400.noUpload"
 msgstr "Tidak ada file yang akan diunggah ditemukan sesuai permintaan."
 
-msgid "api.submissions.unknownError"
-msgstr "Terjadi kesalahan. Muat ulang halaman dan coba lagi."
-
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Volume, nomor atau tahun yang diminta tidak valid."
 

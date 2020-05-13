@@ -12,9 +12,38 @@
  * @brief A ListPanel component for viewing and editing email templates
  */
 namespace PKP\components\listPanels;
-use PKP\components\listPanels;
+use PKP\components\forms\emailTemplate\PKPEmailTemplateForm;
 
 class PKPEmailTemplatesListPanel extends ListPanel {
+
+	/** @var string URL to the API endpoint where items can be retrieved */
+	public $apiUrl = '';
+
+	/** @param array Form for adding or editing an email template */
+	public $form = [];
+
+	/** @var array Query parameters to pass if this list executes GET requests  */
+	public $getParams = [];
+
+	/** @var boolean Whether or not this component should be lazy-loaded */
+	public $lazyLoad = [];
+
+	/** @var int Max number of items available to display in this list panel  */
+	public $itemsMax = [];
+
+	/**
+	 * Initialize the form with config parameters
+	 *
+	 * @param $id string
+	 * @param $title string
+	 * @param $supportedLocales array
+	 * @param $args array Configuration params
+	 */
+	function __construct($id, $title, $supportedLocales, $args = []) {
+		parent::__construct($id, $title, $args);
+		$this->form = new PKPEmailTemplateForm('POST', $supportedLocales);
+	}
+
 	/**
 	 * @copydoc ListPanel::getConfig()
 	 */
@@ -25,50 +54,10 @@ class PKPEmailTemplatesListPanel extends ListPanel {
 
 		$config = parent::getConfig();
 
-		$config['addItemUrl'] = \Application::get()->getRequest()->getDispatcher()->url(
-			\Application::get()->getRequest(),
-			ROUTE_COMPONENT,
-			null,
-			'grid.settings.preparedEmails.PreparedEmailsGridHandler',
-			'addPreparedEmail',
-			null
-		);
-
-		$config['editItemUrl'] = \Application::get()->getRequest()->getDispatcher()->url(
-			\Application::get()->getRequest(),
-			ROUTE_COMPONENT,
-			null,
-			'grid.settings.preparedEmails.PreparedEmailsGridHandler',
-			'editPreparedEmail',
-			null,
-			['emailKey' => '__key__']
-		);
-
-		$config['i18n'] = array_merge($config['i18n'], [
-			'add' => __('manager.emails.addEmail'),
-			'cancel' => __('common.cancel'),
-			'delete' => __('common.delete'),
-			'deleteConfirm' => __('manager.emails.confirmDelete'),
-			'disable' => __('common.disable'),
-			'disabled' => __('common.disabled'),
-			'edit' => __('common.edit'),
-			'editTemplate' => __('manager.emails.editEmail'),
-			'enable' => __('common.enable'),
-			'from' => __('common.fromWithValue'),
-			'goToLabel' => __('common.pagination.goToPage'),
-			'nextPageLabel' => __('common.pagination.next'),
-			'ok' => __('common.ok'),
-			'pageLabel' => __('common.pageNumber'),
-			'paginationLabel' => __('common.pagination.label'),
-			'previousPageLabel' => __('common.pagination.previous'),
-			'reset' => __('manager.emails.reset'),
-			'resetConfirm' => __('manager.emails.confirmReset'),
-			'resetAll' => __('manager.emails.resetAll'),
-			'resetAllConfirm' => __('manager.emails.resetAll.message'),
-			'subjectLabel' => __('manager.emails.subjectWithValue'),
-			'to' => __('common.toWithValue'),
-		]);
-
+		$config['apiUrl'] = $this->apiUrl;
+		$config['form'] = $this->form->getConfig();
+		$config['itemsMax'] = $this->itemsMax;
+		$config['lazyLoad'] = $this->lazyLoad;
 		$config['roles'] = [
 			ROLE_ID_MANAGER => __('user.role.editor'),
 			ROLE_ID_SITE_ADMIN => __('user.role.siteAdmin'),
@@ -79,9 +68,6 @@ class PKPEmailTemplatesListPanel extends ListPanel {
 			ROLE_ID_READER => __('user.role.reader'),
 			ROLE_ID_SUBSCRIPTION_MANAGER => __('default.groups.name.subscriptionManager'),
 		];
-
-		$config['csrfToken'] = \Application::get()->getRequest()->getSession()->getCSRFToken();
-
 		$config['filters'] = [
 			[
 				'filters' => [
@@ -158,6 +144,28 @@ class PKPEmailTemplatesListPanel extends ListPanel {
 				],
 			],
 		];
+
+		$config['addLabel'] = __('manager.emails.addEmail');
+		$config['delete'] = __('common.delete');
+		$config['deleteConfirmMessage'] = __('manager.emails.confirmDelete');
+		$config['descriptionLabel'] = __('common.description');
+		$config['disableLabel'] = __('common.disable');
+		$config['disabledLabel'] = __('common.disabled');
+		$config['editTemplateLabel'] = __('manager.emails.editEmail');
+		$config['enableLabel'] = __('common.enable');
+		$config['fromLabel'] = __('common.fromWithValue');
+		$config['resetAllLabel'] = __('manager.emails.resetAll');
+		$config['resetAllCompleteLabel'] = __('manager.emails.resetAll.complete');
+		$config['resetAllConfirmLabel'] = __('manager.emails.resetAll.message');
+		$config['resetCompleteLabel'] = __('manager.emails.resetComplete');
+		$config['resetConfirmLabel'] = __('manager.emails.confirmReset');
+		$config['resetLabel'] = __('manager.emails.reset');
+		$config['subjectLabel'] = __('manager.emails.subjectWithValue');
+		$config['toLabel'] = __('common.toWithValue');
+
+		if (!empty($this->getParams)) {
+			$config['getParams'] = $this->getParams;
+		}
 
 		return $config;
 	}

@@ -992,9 +992,6 @@ msgstr "Verbeter {$count} fouten."
 msgid "form.errors"
 msgstr "Het formulier is niet opgeslagen omdat er {$count} fout(en) zijn opgetreden. Verbeter deze fouten en probeer het opnieuw."
 
-msgid "form.errorUnknown"
-msgstr "Er is een onbekende fout opgetreden. Het is mogelijk dat u bent afgemeld. Herlaad de pagina en probeer het opnieuw."
-
 msgid "form.errorsOccurred"
 msgstr "Er zijn fouten opgetreden bij het verwerken van dit formulier"
 
@@ -1009,9 +1006,6 @@ msgstr "bevat"
 
 msgid "form.is"
 msgstr "is"
-
-msgid "form.missingRequired"
-msgstr "Dit veld is verplicht."
 
 msgid "form.startsWith"
 msgstr "begint met"
@@ -1322,12 +1316,6 @@ msgstr "Nieuwsbericht-type bijgewerkt."
 msgid "notification.removedAnnouncementType"
 msgstr "Nieuwsbericht-type verwijderd."
 
-msgid "notification.addedAnnouncement"
-msgstr "Nieuwsbericht toegevoegd."
-
-msgid "notification.editedAnnouncement"
-msgstr "Nieuwsbericht bijgewerkt."
-
 msgid "notification.removedAnnouncement"
 msgstr "Nieuwsbericht verwijderd."
 
@@ -1447,9 +1435,6 @@ msgstr "Alle indextermen"
 
 msgid "search.matchAll"
 msgstr "Vergelijk alle categorieën"
-
-msgid "search.noKeywordError"
-msgstr "U moet minstens één zoekwoord opgeven."
 
 msgid "search.noResults"
 msgstr "Geen resultaten"

@@ -1,12 +1,12 @@
 <?php
 /**
- * @file components/PKPStatsPublicationContainer.inc.php
+ * @file components/PKPStatsPublicationPage.inc.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2000-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPStatsPublicationContainer
+ * @class PKPStatsPublicationPage
  * @ingroup classes_controllers_stats
  *
  * @brief A class to prepare the data object for the publication statistics
@@ -18,7 +18,7 @@ use PKP\components\PKPStatsComponent;
 
 import('classes.statistics.StatisticsHelper');
 
-class PKPStatsPublicationContainer extends PKPStatsComponent {
+class PKPStatsPublicationPage extends PKPStatsComponent {
 	/** @var array A timeline of stats (eg - monthly) for a graph */
 	public $timeline = [];
 
@@ -46,9 +46,6 @@ class PKPStatsPublicationContainer extends PKPStatsComponent {
 	/** @var string A search phrase to filter the list of items */
 	public $searchPhrase = '';
 
-	/** @var array Localized strings to pass to the component */
-	public $i18n = [];
-
 	/**
 	 * Retrieve the configuration data to be used when initializing this
 	 * handler on the frontend
@@ -66,6 +63,7 @@ class PKPStatsPublicationContainer extends PKPStatsComponent {
 				'timelineInterval' => $this->timelineInterval,
 				'timelineType' => $this->timelineType,
 				'items' => $this->items,
+				'itemsOfTotalLabel' => __('stats.publications.countOfTotal'),
 				'itemsMax' => $this->itemsMax,
 				'count' => $this->count,
 				'offset' => 0,
@@ -73,24 +71,6 @@ class PKPStatsPublicationContainer extends PKPStatsComponent {
 				'orderBy' => $this->orderBy,
 				'orderDirection' => $this->orderDirection,
 				'isLoadingTimeline' => false,
-				'i18n' => array_merge(
-					$config['i18n'],
-					[
-						'itemsOfTotal' => __('stats.publications.countOfTotal'),
-						'paginationLabel' => __('common.pagination.label'),
-						'goToLabel' => __('common.pagination.goToPage'),
-						'pageLabel' => __('common.pageNumber'),
-						'nextPageLabel' => __('common.pagination.next'),
-						'previousPageLabel' => __('common.pagination.previous'),
-						'search' => __('stats.searchSubmissionDescription'),
-						'clearSearch' => __('common.clearSearch'),
-						'daily' => __('stats.daily'),
-						'monthly' => __('stats.monthly'),
-						'abstracts' => __('stats.publications.abstracts'),
-						'files' => __('submission.files'),
-					],
-					$this->i18n
-				),
 			]
 		);
 

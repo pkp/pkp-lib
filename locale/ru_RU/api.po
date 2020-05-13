@@ -84,9 +84,6 @@ msgstr "Ваш запрос не может быть выполнен, так к
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Неправильно указан запрашиваемый том, номер или год."
 
-msgid "api.submissions.unknownError"
-msgstr "Произошла неожиданная ошибка. Пожалуйста, перезагрузите страницу и попробуйте снова."
-
 msgid "api.temporaryFiles.400.noUpload"
 msgstr "Не найдены файлы для загрузки на сервер, указанные в запросе."
 

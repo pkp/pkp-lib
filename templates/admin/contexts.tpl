@@ -7,11 +7,17 @@
  *
  * Display list of contexts in administration.
  *}
-{include file="common/header.tpl" pageTitle="context.contexts"}
+{extends file="layouts/backend.tpl"}
 
-<div class="pkp_page_content pkp_page_admin">
+{block name="page"}
+
+	{if $newVersionAvailable}
+		<notification>
+			{translate key="site.upgradeAvailable.admin" currentVersion=$currentVersion->getVersionString(false) latestVersion=$latestVersion}
+		</notification>
+	{/if}
+
 	{capture assign=contextsUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.admin.context.ContextGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="contextGridContainer" url=$contextsUrl}
-</div>
 
-{include file="common/footer.tpl"}
+{/block}

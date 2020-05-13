@@ -1769,9 +1769,6 @@ msgstr "Ste prepričani, da želite umakniti to objavo?"
 msgid "publication.unpublish"
 msgstr "Umakni objavo"
 
-msgid "publication.titleAbstract.success"
-msgstr "Naslov in izvleček sta bila posodobljena."
-
 msgid "publication.titleAbstract"
 msgstr "Naslov in izvleček"
 
@@ -1795,26 +1792,14 @@ msgstr ""
 msgid "publication.required.declined"
 msgstr "Zavrnjen prispevek ne more biti objavljen."
 
-msgid "publication.publish.success"
-msgstr "Status objave je bil uspešno spremenjen."
-
 msgid "publication.publish.requirements"
 msgstr "Spodnje zahteve morajo biti izpolnjene pred objavo."
 
 msgid "publication.publish"
 msgstr "Objavi"
 
-msgid "publication.publicationLicense.success"
-msgstr "Avtorske pravice in informacije o licenci so bile posodobljene."
-
 msgid "publication.publicationLicense"
 msgstr "Dovoljenja in razkritja"
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "Identifikatorji so bili posodobljeni."
-
-msgid "publication.metadata.success"
-msgstr "Metapodatki so bili posodobljeni."
 
 msgid "publication.invalidSubmission"
 msgstr "Prispevka za objavo ni bilo mogoče najti."
@@ -1858,9 +1843,6 @@ msgstr ""
 
 msgid "publication.contributors"
 msgstr "Sodelujoči"
-
-msgid "publication.citations.success"
-msgstr "Reference so bile posodobljene."
 
 msgid "submission.publication"
 msgstr "Objava"

@@ -183,7 +183,7 @@ msgid "user.logOut"
 msgstr "Logout"
 
 msgid "user.logOutAs"
-msgstr "Logout as"
+msgstr "Logout as {$username}"
 
 msgid "user.hello"
 msgstr "Hello, "

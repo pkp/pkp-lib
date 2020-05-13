@@ -34,7 +34,6 @@ class PKPSiteConfigForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $site) {
 		$this->action = $action;
-		$this->successMessage = __('admin.settings.config.success');
 		$this->locales = $locales;
 
 		$contextsIterator = \Services::get('context')->getMany(['isEnabled' => true]);

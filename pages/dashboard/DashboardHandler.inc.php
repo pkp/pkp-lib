@@ -20,6 +20,10 @@ define('SUBMISSIONS_LIST_MY_QUEUE', 'myQueue');
 define('SUBMISSIONS_LIST_UNASSIGNED', 'unassigned');
 
 class DashboardHandler extends Handler {
+
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
+
 	/**
 	 * Constructor
 	 */
@@ -128,7 +132,10 @@ class DashboardHandler extends Handler {
 		);
 		$lists[$archivedListPanel->id] = $archivedListPanel->getConfig();
 
-		$templateMgr->assign('containerData', ['components' => $lists]);
+		$templateMgr->setState(['components' => $lists]);
+		$templateMgr->assign([
+			'pageTitle' => __('navigation.submissions'),
+		]);
 
 		return $templateMgr->display('dashboard/index.tpl');
 	}

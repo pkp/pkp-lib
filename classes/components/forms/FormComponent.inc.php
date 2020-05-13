@@ -28,9 +28,6 @@ class FormComponent {
 	/** @var string Where the form should be submitted. */
 	public $action = '';
 
-	/** @var string The message to display when this form is successfully submitted */
-	public $successMessage = '';
-
 	/** @var array Key/value list of languages this form should support. Key = locale code. Value = locale name */
 	public $locales = [];
 
@@ -46,9 +43,6 @@ class FormComponent {
 	/** @var array List of error messages */
 	public $errors = [];
 
-	/** @var array List of translation strings required by this form */
-	public $i18n = [];
-
 	/**
 	 * Initialize the form with config parameters
 	 *
@@ -56,15 +50,12 @@ class FormComponent {
 	 * @param $method string
 	 * @param $action string
 	 * @param $locales array
-	 * @param $i18n array Optional.
 	 */
-	public function __construct($id, $method, $action, $successMessage, $locales, $i18n = []) {
+	public function __construct($id, $method, $action, $locales) {
 		$this->id = $id;
 		$this->action = $action;
 		$this->method = $method;
-		$this->successMessage = $successMessage;
 		$this->locales = $locales;
-		$this->i18n = $i18n;
 	}
 
 	/**
@@ -240,8 +231,8 @@ class FormComponent {
 	 */
 	public function getConfig() {
 
-		if (empty($this->id) || empty($this->method) || empty($this->action) || empty($this->successMessage)) {
-			fatalError('FormComponent::getConfig() was called but one or more required property is missing: id, method, action, successMessage.');
+		if (empty($this->id) || empty($this->method) || empty($this->action)) {
+			throw new Exception('FormComponent::getConfig() was called but one or more required property is missing: id, method, action.');
 		}
 
 		\HookRegistry::call('Form::config::before', $this);
@@ -265,25 +256,6 @@ class FormComponent {
 
 		$fieldsConfig = array_map([$this, 'getFieldConfig'], $this->fields);
 
-		$session = \Application::get()->getRequest()->getSession();
-		$csrfToken = $session ? $session->getCSRFToken() : '';
-
-		$this->i18n = array_merge([
-			'saving' => __('common.saving'),
-			'errors' => __('form.errors'),
-			'errorOne' => __('form.errorOne'),
-			'errorMany' => __('form.errorMany'),
-			'errorGoTo' => __('form.errorGoTo'),
-			'errorA11y' => __('form.errorA11y'),
-			'errorUnknown' => __('form.errorUnknown'),
-			'successMessage' => $this->successMessage,
-			'required' => __('common.required'),
-			'missingRequired' => __('validator.required'),
-			'help' => __('help.help'),
-			'multilingualLabel' => __('form.multilingualLabel'),
-			'multilingualProgress' => __('form.multilingualProgress'),
-		], $this->i18n);
-
 		$config = array(
 			'id' => $this->id,
 			'method' => $this->method,
@@ -294,9 +266,7 @@ class FormComponent {
 			'primaryLocale' => \AppLocale::getPrimaryLocale(),
 			'visibleLocales' => [\AppLocale::getLocale()],
 			'supportedFormLocales' => $this->locales,
-			'errors' => new \stdClass(),
-			'csrfToken' => $csrfToken,
-			'i18n' => $this->i18n,
+			'errors' => (object) [],
 		);
 
 		\HookRegistry::call('Form::config::after', array(&$config, $this));
@@ -312,11 +282,6 @@ class FormComponent {
 	 */
 	public function getFieldConfig($field) {
 		$config = $field->getConfig();
-
-		// Pass all field translations up to the form
-		if (!empty($field->i18n)) {
-			$this->i18n = array_merge($this->i18n, $field->i18n);
-		}
 
 		// Add a value property if the field does not include one
 		if (!array_key_exists('value', $config)) {

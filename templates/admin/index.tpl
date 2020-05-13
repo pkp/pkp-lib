@@ -8,37 +8,34 @@
  * Site administration index.
  *
  *}
-{strip}
-{assign var="pageTitle" value="admin.siteAdmin"}
-{include file="common/header.tpl"}
-{/strip}
+{extends file="layouts/backend.tpl"}
 
-{* @todo This warning notification needs to be styled *}
-{if $newVersionAvailable}
-<div class="warningMessage">{translate key="site.upgradeAvailable.admin" currentVersion=$currentVersion latestVersion=$latestVersion}</div>
-{/if}
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="navigation.admin"}
+	</h1>
 
-<div class="pkp_page_content pkp_page_admin">
-	<h3>{translate key="admin.siteManagement"}</h3>
+	{if $newVersionAvailable}
+		<notification>
+			{translate key="site.upgradeAvailable.admin" currentVersion=$currentVersion->getVersionString(false) latestVersion=$latestVersion}
+		</notification>
+	{/if}
 
-	<ul>
-		<li><a href="{url op="contexts"}">{translate key="admin.hostedContexts"}</a></li>
-		{call_hook name="Templates::Admin::Index::SiteManagement"}
-		{if $multipleContexts}
+	<div class="app__contentPanel">
+		<h2>{translate key="admin.siteManagement"}</h2>
+		<ul>
+			<li><a href="{url op="contexts"}">{translate key="admin.hostedContexts"}</a></li>
+			{call_hook name="Templates::Admin::Index::SiteManagement"}
 			<li><a href="{url op="settings"}">{translate key="admin.siteSettings"}</a></li>
-		{/if}
-	</ul>
-
-	<h3>{translate key="admin.adminFunctions"}</h3>
-
-	<ul>
-		<li><a href="{url op="systemInfo"}">{translate key="admin.systemInformation"}</a></li>
-		<li><a href="{url op="expireSessions"}" onclick="return confirm({translate|json_encode|escape key="admin.confirmExpireSessions"})">{translate key="admin.expireSessions"}</a></li>
-		<li><a href="{url op="clearDataCache"}">{translate key="admin.clearDataCache"}</a></li>
-		<li><a href="{url op="clearTemplateCache"}" onclick="return confirm({translate|json_encode|escape key="admin.confirmClearTemplateCache"})">{translate key="admin.clearTemplateCache"}</a></li>
-		<li><a href="{url op="clearScheduledTaskLogFiles"}" onclick="return confirm({translate|json_encode|escape key="admin.scheduledTask.confirmClearLogs"})">{translate key="admin.scheduledTask.clearLogs"}</a></li>
-		{call_hook name="Templates::Admin::Index::AdminFunctions"}
-	</ul>
-
-</div><!-- .pkp_page_content -->
-{include file="common/footer.tpl"}
+		</ul>
+		<h2>{translate key="admin.adminFunctions"}</h2>
+		<ul>
+			<li><a href="{url op="systemInfo"}">{translate key="admin.systemInformation"}</a></li>
+			<li><a href="{url op="expireSessions"}" onclick="return confirm({translate|json_encode|escape key="admin.confirmExpireSessions"})">{translate key="admin.expireSessions"}</a></li>
+			<li><a href="{url op="clearDataCache"}">{translate key="admin.clearDataCache"}</a></li>
+			<li><a href="{url op="clearTemplateCache"}" onclick="return confirm({translate|json_encode|escape key="admin.confirmClearTemplateCache"})">{translate key="admin.clearTemplateCache"}</a></li>
+			<li><a href="{url op="clearScheduledTaskLogFiles"}" onclick="return confirm({translate|json_encode|escape key="admin.scheduledTask.confirmClearLogs"})">{translate key="admin.scheduledTask.clearLogs"}</a></li>
+			{call_hook name="Templates::Admin::Index::AdminFunctions"}
+		</ul>
+	</div>
+{/block}

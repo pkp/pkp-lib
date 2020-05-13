@@ -294,7 +294,7 @@ Cypress.Commands.add('assignReviewer', name => {
 	cy.get('a[id^="component-grid-users-reviewer-reviewergrid-addReviewer-button-"]').click();
 	cy.waitJQuery();
 	cy.get('fieldset.pkpListPanel--selectReviewer input.pkpSearch__input', {timeout: 20000}).type(name, {delay: 0});
-	cy.get('div.pkpListPanelItem--reviewer__fullName:contains(' + Cypress.$.escapeSelector(name) + ')').click();
+	cy.get('div.listPanel__item--reviewer__fullName:contains(' + Cypress.$.escapeSelector(name) + ')').click();
 	cy.get('button[id="selectReviewerButton"]').click();
 	cy.waitJQuery();
 	cy.flushNotifications();
@@ -363,8 +363,8 @@ Cypress.Commands.add('createUser', user => {
 
 Cypress.Commands.add('flushNotifications', function() {
 	cy.window().then(win => {
-		if (typeof PNotify !== 'undefined') {
-			PNotify.removeAll();
+		if (typeof pkp !== 'undefined' && typeof pkp.eventBus !== 'undefined') {
+			pkp.eventBus.$emit('clear-all-notify');
 		}
 	});
 });

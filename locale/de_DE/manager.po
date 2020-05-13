@@ -1668,9 +1668,6 @@ msgstr ""
 msgid "manager.setup.metadata.coverage"
 msgstr "Bereich"
 
-msgid "manager.setup.metadata.success"
-msgstr "Die Metadaten der Einreichung wurden erfolgreich aktualisiert."
-
 msgid "settings.roles.permitMetadataEdit"
 msgstr "Änderung der Metadaten dieser Einreichung erlauben."
 
@@ -1688,25 +1685,14 @@ msgstr "Lizenzbestimmungen"
 msgid "manager.distribution.license.other"
 msgstr "Andere Lizenz-URL"
 
-msgid "manager.distribution.license.success"
-msgstr "Die Lizenzdetails wurden aktualisiert. "
-
 msgid "manager.distribution.license"
 msgstr "Lizenz"
 
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Registrierte Nutzer/innen"
 
-msgid "manager.setup.userAccess.success"
-msgstr "Die Nutzerzugriffsdaten für diesen Verlag wurden aktualisiert."
-
 msgid "manager.setup.theme.notFound"
 msgstr "Das ausgewählte Theme ist nicht installiert oder nicht aktiviert."
-
-msgid "manager.setup.theme.success"
-msgstr ""
-"Das Theme wurde aktualisiert. <a href=\"{$url}\" target=\"_blank\">Jetzt "
-"ansehen</a>"
 
 msgid "manager.setup.reviewOptions.showBlindReviewLink"
 msgstr ""
@@ -1740,15 +1726,6 @@ msgstr ""
 
 msgid "manager.setup.checklist"
 msgstr "Checkliste"
-
-msgid "manager.setup.authorGuidelines.success"
-msgstr "Die Autorenrichtlinien wurden erfolgreich aktualisiert."
-
-msgid "manager.setup.contact.success"
-msgstr "Die Kontaktdaten für diesen Verlag wurden aktualisiert."
-
-msgid "manager.setup.appearance.success"
-msgstr "Die Einstellungen unter 'Aussehen' wurden aktualisiert."
 
 msgid "manager.setup.advanced"
 msgstr "Fortgeschritten"
@@ -1785,14 +1762,8 @@ msgid "manager.emails.emailKey.description"
 msgstr ""
 "Der E-Mail-Schlüssel darf nur Buchstaben, Zahlen und Unterstriche enthalten."
 
-msgid "manager.emails.editEmail.success"
-msgstr "Die E-Mail-Vorlage wurde geändert."
-
 msgid "manager.emails.customTemplate"
 msgstr "benutzerdefinierte Vorlage"
-
-msgid "manager.emails.addEmail.success"
-msgstr "Die E-Mail-Vorlage wurde hinzugefügt."
 
 msgid "manager.emails.addEmail"
 msgstr "Vorlage hinzufügen"
@@ -1800,17 +1771,8 @@ msgstr "Vorlage hinzufügen"
 msgid "manager.publication.reviewReminders.success"
 msgstr "Die Details der Begutachtungserinnerungen wurden aktualisiert."
 
-msgid "manager.publication.reviewSetup.success"
-msgstr "Die Begutachtungseinstellungen wurden aktualisiert."
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "Die Richtlinien für Gutachter wurden aktualisiert."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Richtlinien für Gutachter"
-
-msgid "manager.publication.emailSetup.success"
-msgstr "Die E-Mail-Einstellungen wurden aktualisiert."
 
 msgid "manager.setup.metadata.disciplines.require"
 msgstr ""

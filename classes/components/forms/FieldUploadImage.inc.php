@@ -19,16 +19,20 @@ class FieldUploadImage extends FieldUpload {
 	/** @var string Base url for displaying the image */
 	public $baseUrl = '';
 
+	/** @var string Label for the alt text field */
+	public $altTextLabel = '';
+
+	/** @var string Description for the alt text field */
+	public $altTextDescription = '';
+
+	/** @var string Description for the image thumbnail */
+	public $thumbnailDescription = '';
+
 	/**
 	 * @copydoc Field::__construct()
 	 */
 	public function __construct($name, $args = []) {
 		parent::__construct($name, $args);
-		$this->i18n = array_merge([
-			'thumbnailDescription' => __('common.upload.thumbnailPreview'),
-			'altTextLabel' => __('common.altText'),
-			'altTextDescription' => __('common.altTextInstructions'),
-		], $this->i18n);
 	}
 
 	/**
@@ -40,6 +44,10 @@ class FieldUploadImage extends FieldUpload {
 		}
 		$config = parent::getConfig();
 		$config['baseUrl'] = $this->baseUrl;
+
+		$config['thumbnailDescription'] = __('common.upload.thumbnailPreview');
+		$config['altTextLabel'] = __('common.altText');
+		$config['altTextDescription'] = __('common.altTextInstructions');
 
 		return $config;
 	}

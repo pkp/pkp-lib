@@ -1832,9 +1832,6 @@ msgstr "الفئات الفرعية"
 msgid "submission.publication"
 msgstr "المنشور"
 
-msgid "publication.citations.success"
-msgstr "تم تحديث المراجع."
-
 msgid "publication.contributors"
 msgstr "المساهمون"
 
@@ -1880,26 +1877,14 @@ msgstr "إحدى النسخ قد تمت إزالتها عن النشر."
 msgid "publication.invalidSubmission"
 msgstr "تعذر العثور على طلب التقديم المتعلق بهذا المنشور."
 
-msgid "publication.metadata.success"
-msgstr "البيانات الوصفية تم تحديثها."
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "المعرفات تم تحديثها."
-
 msgid "publication.publicationLicense"
 msgstr "الصلاحيات والإفصاح"
-
-msgid "publication.publicationLicense.success"
-msgstr "معلومات الحقوق الفكرية والرخصة قد تم تحديثها."
 
 msgid "publication.publish"
 msgstr "النشر"
 
 msgid "publication.publish.requirements"
 msgstr "لا بد من تلبية المتطلبات الآتية قبل الشروع بالنشر."
-
-msgid "publication.publish.success"
-msgstr "حالة المنشور تغيرت بنجاح."
 
 msgid "publication.required.declined"
 msgstr "طلب التقديم المرفوض لا يمكن له أن يُنشر."
@@ -1921,9 +1906,6 @@ msgstr "غير مجدول"
 
 msgid "publication.titleAbstract"
 msgstr "العنوان والملخص"
-
-msgid "publication.titleAbstract.success"
-msgstr "العنوان والملخص قد تم تعديلهما."
 
 msgid "publication.unpublish"
 msgstr "لا تنشر"

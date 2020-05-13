@@ -771,6 +771,9 @@ msgstr "المكون"
 msgid "common.uninitiated"
 msgstr "غير مستهل"
 
+msgid "common.unknownError"
+msgstr "حدث خطأ غير متوقع. لطفاً، أعد تحميل الصفحة ثم حاول مرة أخرى."
+
 msgid "common.unread"
 msgstr "غير مقروء"
 
@@ -1032,9 +1035,6 @@ msgstr "لطفاً، صحح {$count} خطأ/أخطاء."
 msgid "form.errors"
 msgstr "تعذر حفظ النموذج لوجود {$count} خطأ/أخطاء. لطفاً، أجر التصحيحات اللازمة ثم حاول مجدداً."
 
-msgid "form.errorUnknown"
-msgstr "حدث خطأ غير متوقع. ربما سجلت خروجك من الموقع. لطفاً، قم بتنشيط الصفحة ثم حاول مجدداً."
-
 msgid "form.errorsOccurred"
 msgstr "حدثت أخطاء عند معالجة هذا النموذج"
 
@@ -1049,9 +1049,6 @@ msgstr "يتضمن"
 
 msgid "form.is"
 msgstr "هو"
-
-msgid "form.missingRequired"
-msgstr "هذا الحقل مطلوب حتماً."
 
 msgid "form.startsWith"
 msgstr "يبدأ بـ"
@@ -1377,12 +1374,6 @@ msgstr "نوعية الإعلان عُدلت."
 msgid "notification.removedAnnouncementType"
 msgstr "نوعية الإعلان أُزيلت."
 
-msgid "notification.addedAnnouncement"
-msgstr "الإعلان أُضيف."
-
-msgid "notification.editedAnnouncement"
-msgstr "الإعلان عُدِّل."
-
 msgid "notification.removedAnnouncement"
 msgstr "الإعلان أُزيل removed."
 
@@ -1502,9 +1493,6 @@ msgstr "كل حقول عبارة الفهرسة"
 
 msgid "search.matchAll"
 msgstr "مطابقة كل الفئات"
-
-msgid "search.noKeywordError"
-msgstr "عليك أن تذكر كلمة مفتاحية واحدة على الأقل."
 
 msgid "search.noResults"
 msgstr "لا نتائج"

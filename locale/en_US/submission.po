@@ -1749,13 +1749,13 @@ msgid "submission.list.empty"
 msgstr "No submissions found."
 
 msgid "submission.list.responseDue"
-msgstr "Response Due"
+msgstr "Response Due: {$date}"
 
 msgid "submission.list.reviewAssignment"
 msgstr "Review Assignment"
 
 msgid "submission.list.reviewDue"
-msgstr "Review Due"
+msgstr "Review Due: {$date}"
 
 msgid "submission.list.reviewComplete"
 msgstr "Review Submitted"
@@ -1838,9 +1838,6 @@ msgstr "Publication"
 msgid "submission.publications"
 msgstr "Publications"
 
-msgid "publication.citations.success"
-msgstr "The references have been updated."
-
 msgid "publication.contributors"
 msgstr "Contributors"
 
@@ -1886,26 +1883,14 @@ msgstr "A version was removed from publication."
 msgid "publication.invalidSubmission"
 msgstr "The submission for this publication could not be found."
 
-msgid "publication.metadata.success"
-msgstr "The metadata have been updated."
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "The identifiers have been updated."
-
 msgid "publication.publicationLicense"
 msgstr "Permissions & Disclosure"
-
-msgid "publication.publicationLicense.success"
-msgstr "The copyright and license information have been updated."
 
 msgid "publication.publish"
 msgstr "Publish"
 
 msgid "publication.publish.requirements"
 msgstr "The following requirements must be met before this can be published."
-
-msgid "publication.publish.success"
-msgstr "The publication status has been successfully changed."
 
 msgid "publication.required.declined"
 msgstr "A declined submission can not be published."
@@ -1927,9 +1912,6 @@ msgstr "Unscheduled"
 
 msgid "publication.titleAbstract"
 msgstr "Title & Abstract"
-
-msgid "publication.titleAbstract.success"
-msgstr "The title and abstract have been updated."
 
 msgid "publication.unpublish"
 msgstr "Unpublish"

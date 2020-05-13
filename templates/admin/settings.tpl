@@ -7,10 +7,19 @@
  *
  * Administration settings page.
  *}
-{include file="common/header.tpl" pageTitle="admin.settings"}
+{extends file="layouts/backend.tpl"}
 
-{assign var="uuid" value=""|uniqid|escape}
-<div id="settings-admin-{$uuid}">
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="admin.siteSettings"}
+	</h1>
+
+	{if $newVersionAvailable}
+		<notification>
+			{translate key="site.upgradeAvailable.admin" currentVersion=$currentVersion->getVersionString(false) latestVersion=$latestVersion}
+		</notification>
+	{/if}
+
 	<tabs>
 		<tab id="setup" label="{translate key="admin.siteSetup"}">
 			<tabs :is-side-tabs="true">
@@ -62,9 +71,4 @@
 		</tab>
 		{call_hook name="Template::Settings::admin"}
 	</tabs>
-</div>
-<script type="text/javascript">
-	pkp.registry.init('settings-admin-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
-</script>
-
-{include file="common/footer.tpl"}
+{/block}

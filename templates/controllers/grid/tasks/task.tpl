@@ -26,8 +26,10 @@
 				{$context->getLocalizedAcronym()|escape}
 			</span>
 		{/if}
-		<span class="submission">
-			{$notificationObjectTitle|escape}
-		</span>
+		{if $notificationObjectTitle && $notificationObjectTitle !== '—'}
+			<span class="submission">
+				{$notificationObjectTitle|escape}
+			</span>
+		{/if}
 	</div>
 </div>

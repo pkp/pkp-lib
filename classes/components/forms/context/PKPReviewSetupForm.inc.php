@@ -36,7 +36,6 @@ class PKPReviewSetupForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;
-		$this->successMessage = __('manager.publication.reviewSetup.success');
 		$this->locales = $locales;
 
 		// Load SUBMISSION_REVIEW_METHOD_... constants

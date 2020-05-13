@@ -1781,9 +1781,6 @@ msgstr "Er du sikker på, at du ikke ønsker, at dette skal publiceres?"
 msgid "publication.unpublish"
 msgstr "Træk tilbage"
 
-msgid "publication.titleAbstract.success"
-msgstr "Titlen og resuméet er blevet opdateret."
-
 msgid "publication.titleAbstract"
 msgstr "Titel & Resumé"
 
@@ -1807,26 +1804,14 @@ msgstr ""
 msgid "publication.required.declined"
 msgstr "En afvist indsendelse kan ikke offentliggøres."
 
-msgid "publication.publish.success"
-msgstr "Publikationsstatus er blevet ændret."
-
 msgid "publication.publish.requirements"
 msgstr "Følgende krav skal være opfyldt, før dette kan offentliggøres."
 
 msgid "publication.publish"
 msgstr "Publicér"
 
-msgid "publication.publicationLicense.success"
-msgstr "Oplysninger om copyright og licens er blevet opdateret."
-
 msgid "publication.publicationLicense"
 msgstr "Tilladelser & offentliggørelse"
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "Identifikatorerne er blevet opdateret."
-
-msgid "publication.metadata.success"
-msgstr "Metadata er blevet opdateret."
 
 msgid "publication.invalidSubmission"
 msgstr "Indsendelsen til denne publikation kunne ikke findes."
@@ -1870,9 +1855,6 @@ msgstr ""
 
 msgid "publication.contributors"
 msgstr "Bidragydere"
-
-msgid "publication.citations.success"
-msgstr "Referencerne er blevet opdateret."
 
 msgid "submission.publication"
 msgstr "Publikation"

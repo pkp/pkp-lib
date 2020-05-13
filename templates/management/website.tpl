@@ -7,10 +7,13 @@
  *
  * The website settings page.
  *}
-{include file="common/header.tpl" pageTitle="manager.website.title"}
+{extends file="layouts/backend.tpl"}
 
-{assign var="uuid" value=""|uniqid|escape}
-<div id="settings-context-{$uuid}">
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="manager.website.title"}
+	</h1>
+
 	<tabs>
 		<tab id="appearance" label="{translate key="manager.website.appearance"}">
 			{help file="settings/website-settings" class="pkp_help_tab"}
@@ -92,9 +95,4 @@
 		</tab>
 		{call_hook name="Template::Settings::website"}
 	</tabs>
-</div>
-<script type="text/javascript">
-	pkp.registry.init('settings-context-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
-</script>
-
-{include file="common/footer.tpl"}
+{/block}

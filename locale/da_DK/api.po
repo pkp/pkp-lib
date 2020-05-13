@@ -35,9 +35,6 @@ msgstr "Din anmodning kunne ikke imødekommes, da de nødvendige oplysninger man
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Den ønskede årgang, nummer eller år er ikke gyldigt."
 
-msgid "api.submissions.unknownError"
-msgstr "En uventet fejl opstod. Genindlæs siden og prøv igen."
-
 msgid "api.400.paramNotSupported"
 msgstr "Parameteren {$param} understøttes ikke."
 

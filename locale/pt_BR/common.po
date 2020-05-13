@@ -684,6 +684,9 @@ msgstr "Tipo"
 msgid "common.uninitiated"
 msgstr "Não iniciado"
 
+msgid "common.unknownError"
+msgstr "Ocorreu um erro não esperado. Por favor recarregue a página e tente novamente. Se o erro persistir contacte o suporte técnico."
+
 msgid "common.unread"
 msgstr "Não lido"
 
@@ -1170,12 +1173,6 @@ msgstr "Tipo de anúncio editado."
 msgid "notification.removedAnnouncementType"
 msgstr "Tipo de anúncio removido."
 
-msgid "notification.addedAnnouncement"
-msgstr "Anúncio adicionado."
-
-msgid "notification.editedAnnouncement"
-msgstr "Anúncio editado."
-
 msgid "notification.removedAnnouncement"
 msgstr "Anúncio removido."
 
@@ -1289,9 +1286,6 @@ msgstr "Todos os campos de índices"
 
 msgid "search.matchAll"
 msgstr "Encontrar em todas as categorias"
-
-msgid "search.noKeywordError"
-msgstr "Informe pelo menos um termo para pesquisa."
 
 msgid "search.noResults"
 msgstr "Nenhum resultado encontrado"
@@ -1876,14 +1870,6 @@ msgid "form.csrfInvalid"
 msgstr ""
 "O formulário não pôde ser submetido. Você pode ter saído do sistema. Por "
 "favor recarregue a página e tente novamente."
-
-msgid "form.missingRequired"
-msgstr "Este campo é obrigatório."
-
-msgid "form.errorUnknown"
-msgstr ""
-"Um erro inesperado ocorreu. Você pode ter saído do sistema. Por favor "
-"recarregue a página e tente novamente."
 
 msgid "form.errors"
 msgstr ""

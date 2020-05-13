@@ -32,9 +32,6 @@ msgstr "Vaša zahteva ni mogla biti izvršena zaradi pomanjkanja zahtevnih infor
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Zahtevan zvezek, številka ali leto je neveljaveno."
 
-msgid "api.submissions.unknownError"
-msgstr "Prišlo je do nepričakovane napake. Ponovno naložite spletno stran in poskusite ponovno."
-
 msgid "api.stats.400.wrongDateFormat"
 msgstr "Zahteva je neveljavna. Datum mora biti v formatu YYYY-MM-DD."
 

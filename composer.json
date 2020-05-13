@@ -9,7 +9,6 @@
 		"ezyang/htmlpurifier": "4.*",
 		"moxiecode/plupload": "2.*",
 		"tinymce/tinymce": "4.*",
-		"alex198710/pnotify": "dev-master",
 		"michelf/php-markdown": "1.*",
 		"slim/slim": "3.*",
 		"pimple/pimple": "3.*",

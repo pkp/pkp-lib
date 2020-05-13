@@ -338,12 +338,6 @@ msgstr "Agendar para Publicação"
 msgid "editor.review.reviewsAdded"
 msgstr "Avaliações incluídas no corpo da mensagem."
 
-msgid "reviewer.list.count"
-msgstr "{$count} avaliadores"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} de {$total} avaliadores"
-
 msgid "reviewer.list.filterRating"
 msgstr "Classificação mínima"
 

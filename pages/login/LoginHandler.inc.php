@@ -273,9 +273,13 @@ class LoginHandler extends Handler {
 	 */
 	function changePassword($args, $request) {
 		$this->setupTemplate($request);
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->setupBackendPage();
+		$templateMgr->assign([
+			'pageTitle' => __('user.changePassword'),
+		]);
 
 		import('lib.pkp.classes.user.form.LoginChangePasswordForm');
-
 		$passwordForm = new LoginChangePasswordForm($request->getSite());
 		$passwordForm->initData();
 		if (isset($args[0])) {

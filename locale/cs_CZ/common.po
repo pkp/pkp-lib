@@ -764,9 +764,6 @@ msgstr "Výrazy indexu"
 msgid "search.matchAll"
 msgstr "Zahrnout všechny kategorie"
 
-msgid "search.noKeywordError"
-msgstr "Musíte vložit alespoň jedno slovo pro vyhledávání."
-
 msgid "search.noResults"
 msgstr "Žádné výsledky"
 
@@ -1279,12 +1276,6 @@ msgstr "Upraven typ oznámení."
 
 msgid "notification.removedAnnouncementType"
 msgstr "Odebrán typ oznámení."
-
-msgid "notification.addedAnnouncement"
-msgstr "Přidáno oznámení."
-
-msgid "notification.editedAnnouncement"
-msgstr "Upraveno oznámení."
 
 msgid "notification.removedAnnouncement"
 msgstr "Odebráno oznámení."

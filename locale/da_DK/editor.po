@@ -364,12 +364,6 @@ msgstr ""
 msgid "editor.review.reviewerRating.none"
 msgstr "Ingen vurdering"
 
-msgid "reviewer.list.count"
-msgstr "{$count} bedømmere"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} af {$total} bedømmere"
-
 msgid "reviewer.list.filterRating"
 msgstr "Vurderet mindst"
 

@@ -176,6 +176,7 @@
 		if (this.options.canClose) {
 			$modal.append(
 					'<a href="#" class="close pkpModalCloseButton">' +
+					'<span :aria-hidden="true">×</span>' +
 					'<span class="pkp_screen_reader">' +
 					(/** @type {{ closeButtonText: string }} */ (this.options))
 					.closeButtonText + '</span></a>');
@@ -345,7 +346,10 @@
 			function(source, formId) {
 		if (this.options.closeOnFormSuccessId &&
 				this.options.closeOnFormSuccessId === formId) {
-			this.modalClose();
+			var self = this;
+			setTimeout(function() {
+				self.modalClose();
+			}, 1500);
 		}
 	};
 

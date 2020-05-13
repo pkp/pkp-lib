@@ -775,6 +775,9 @@ msgstr "Компонент"
 msgid "common.uninitiated"
 msgstr "Не начат"
 
+msgid "common.unknownError"
+msgstr "Произошла неожиданная ошибка. Пожалуйста, перезагрузите страницу и попробуйте снова."
+
 msgid "common.unread"
 msgstr "Не прочитан"
 
@@ -1036,9 +1039,6 @@ msgstr "Пожалуйста, исправьте ошибки: {$count}."
 msgid "form.errors"
 msgstr "Форма не была сохранена, так как были обнаружены ошибки ({$count}). Пожалуйста, исправьте эти ошибки и попробуйте снова."
 
-msgid "form.errorUnknown"
-msgstr "Произошла неожиданная ошибка. Возможно, вы вышли из системы. Пожалуйста, перезагрузите страницу и попробуйте снова."
-
 msgid "form.errorsOccurred"
 msgstr "При обработке этой формы произошли ошибки"
 
@@ -1053,9 +1053,6 @@ msgstr "содержит"
 
 msgid "form.is"
 msgstr "равно"
-
-msgid "form.missingRequired"
-msgstr "Это поле обязательно."
 
 msgid "form.startsWith"
 msgstr "начинается с"
@@ -1381,12 +1378,6 @@ msgstr "Тип объявлений отредактирован."
 msgid "notification.removedAnnouncementType"
 msgstr "Тип объявлений удален."
 
-msgid "notification.addedAnnouncement"
-msgstr "Объявление добавлено."
-
-msgid "notification.editedAnnouncement"
-msgstr "Объявление отредактировано."
-
 msgid "notification.removedAnnouncement"
 msgstr "Объявление удалено."
 
@@ -1506,9 +1497,6 @@ msgstr "Все поля терминов для индексирования"
 
 msgid "search.matchAll"
 msgstr "Совпадение по всем категориям"
-
-msgid "search.noKeywordError"
-msgstr "Вы должны ввести хотя бы одно ключевое слово для поиска."
 
 msgid "search.noResults"
 msgstr "Нет результатов"

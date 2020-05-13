@@ -27,11 +27,6 @@
  */
 function ajaxAction(actOnId, callingElement, url, data, eventName, form) {}
 
-/**
- * @constructor
- */
-function PNotify(param1) {}
-
 
 /**
  * @param {string} jsonStr The string to parse.

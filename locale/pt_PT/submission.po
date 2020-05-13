@@ -1811,9 +1811,6 @@ msgstr "Tem a certeza que não pretende que seja publicado?"
 msgid "publication.unpublish"
 msgstr "Despublicar"
 
-msgid "publication.titleAbstract.success"
-msgstr "O título e resumo foram atualizados."
-
 msgid "publication.titleAbstract"
 msgstr "Título e Resumo"
 
@@ -1837,26 +1834,14 @@ msgstr ""
 msgid "publication.required.declined"
 msgstr "Uma submissão rejeitada não pode ser publicada."
 
-msgid "publication.publish.success"
-msgstr "O estado de publicação foi alterado com sucesso."
-
 msgid "publication.publish.requirements"
 msgstr "Os seguintes requisitos devem ser cumpridos antes de ser publicado."
 
 msgid "publication.publish"
 msgstr "Publicar"
 
-msgid "publication.publicationLicense.success"
-msgstr "As informações de direitos de autor e licenças foram atualizadas."
-
 msgid "publication.publicationLicense"
 msgstr "Permissões e Divulgação"
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "Os identificadores foram atualizados."
-
-msgid "publication.metadata.success"
-msgstr "Os metadados foram atualizados."
 
 msgid "publication.invalidSubmission"
 msgstr "A submissão desta publicação não foi encontrada."
@@ -1906,9 +1891,6 @@ msgstr ""
 
 msgid "publication.contributors"
 msgstr "Contribuidores"
-
-msgid "publication.citations.success"
-msgstr "As referências foram atualizadas."
 
 msgid "submission.publication"
 msgstr "Publicação"

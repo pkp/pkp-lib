@@ -706,9 +706,6 @@ msgstr ""
 msgid "manager.setup.metadata.coverage"
 msgstr "Cakupan"
 
-msgid "manager.setup.metadata.success"
-msgstr "Metadata pengiriman naskah telah berhasil diperbarui."
-
 msgid "manager.setup.metadata.submission"
 msgstr "Borang Pengajuan Naskah"
 
@@ -1125,9 +1122,6 @@ msgstr "Syarat Lisensi"
 msgid "manager.distribution.license.other"
 msgstr "URL lisensi lainnya"
 
-msgid "manager.distribution.license.success"
-msgstr "Rincian lisensi telah diperbaharui. "
-
 msgid "manager.distribution.license"
 msgstr "Lisensi"
 
@@ -1372,9 +1366,6 @@ msgstr "Pengguna Terdaftar"
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Pilihan Akses Situs"
 
-msgid "manager.setup.userAccess.success"
-msgstr "Rincian akses pengguna jurnal telah diperbaharui."
-
 msgid "manager.setup.theme.notFound"
 msgstr "Tema yang dipilih belum terinstal atau tidak aktif."
 
@@ -1383,11 +1374,6 @@ msgstr "Tema baru dapat diintal melalui tab Plugin di bagian atas halaman ini."
 
 msgid "manager.setup.theme"
 msgstr "Tema"
-
-msgid "manager.setup.theme.success"
-msgstr ""
-"Tema telah diperbaharui. <a href=\"{$url}\" target=\"_blank\">Lihat "
-"Sekarang</a>"
 
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr ""
@@ -1541,9 +1527,6 @@ msgstr "Kepentingan Persaingan"
 msgid "manager.setup.checklist"
 msgstr "Daftar Cek"
 
-msgid "manager.setup.authorGuidelines.success"
-msgstr "Pedoman penulis telah berhasil diperbaharui."
-
 msgid "manager.setup.authorGuidelines.description"
 msgstr ""
 "Pedoman rekomendasi termasuk standard bibliografi dan format disertai dengan "
@@ -1559,12 +1542,6 @@ msgstr ""
 
 msgid "manager.setup.copyrightNotice"
 msgstr "Pemberitahuan Hak Cipta"
-
-msgid "manager.setup.contact.success"
-msgstr "Rincian narahubung telah diperbaharui."
-
-msgid "manager.setup.appearance.success"
-msgstr "Pengaturan tampilan telah diperbaharui."
 
 msgid "manager.setup.advanced"
 msgstr "Tingkat Lanjut"
@@ -1787,9 +1764,6 @@ msgstr ""
 msgid "manager.emails.emailKey.description"
 msgstr "Key surel hanya boleh mengandung huruf, angka dan garis bawah."
 
-msgid "manager.emails.editEmail.success"
-msgstr "Template surel telah diubah."
-
 msgid "manager.emails.disable.message"
 msgstr ""
 "Anda akan menonaktifkan template surel. Jika template sedang digunakan oleh "
@@ -1804,9 +1778,6 @@ msgstr "Data Pesan Template"
 
 msgid "manager.emails.customTemplate"
 msgstr "Template Baru"
-
-msgid "manager.emails.addEmail.success"
-msgstr "Template surel telah ditambahkan."
 
 msgid "manager.emails.addEmail"
 msgstr "Tambahkan Template"
@@ -1915,17 +1886,8 @@ msgstr "Tautan ke halaman yang menampilkan pengumuman."
 msgid "manager.navigationMenus.archives.description"
 msgstr "Tautan ke arsip terbitan."
 
-msgid "manager.publication.reviewSetup.success"
-msgstr "Pengaturan review talah diperbaharui."
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "Pedoman review telah diperbaharui."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Petunjuk Review"
-
-msgid "manager.publication.emailSetup.success"
-msgstr "Pengaturan surel telah diperbaharui."
 
 msgid "manager.publication.emails"
 msgstr "Surel"

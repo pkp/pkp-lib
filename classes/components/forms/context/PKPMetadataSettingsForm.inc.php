@@ -33,7 +33,6 @@ class PKPMetadataSettingsForm extends FormComponent {
 	 */
 	public function __construct($action, $context) {
 		$this->action = $action;
-		$this->successMessage = __('manager.setup.metadata.success');
 
 		$this->addField(new FieldMetadataSetting('coverage', [
 				'label' => __('manager.setup.metadata.coverage'),

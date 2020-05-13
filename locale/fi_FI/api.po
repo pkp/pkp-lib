@@ -29,8 +29,5 @@ msgstr "Pyydettyä resurssia ei löytynyt."
 msgid "api.submissions.400.missingRequired"
 msgstr "Pyyntöäsi ei voitu suorittaa, koska siitä puuttuu pakollisia tietoja."
 
-msgid "api.submissions.unknownError"
-msgstr "Tapahtui virhe. Ole hyvä yritä uudelleen."
-
 msgid "api.submissions.400.stageNotValid"
 msgstr "Pyyntöäsi ei voitu suorittaa, koska annettu työvaiheen tunniste on virheellinen."

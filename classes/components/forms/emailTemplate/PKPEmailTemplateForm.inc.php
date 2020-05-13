@@ -33,7 +33,6 @@ class PKPEmailTemplateForm extends FormComponent {
 	public function __construct($action, $locales, $emailTemplate = null) {
 		$this->action = $action;
 		$this->method = is_null($emailTemplate) ? 'POST' : 'PUT';
-		$this->successMessage = is_null($emailTemplate) ? __('manager.emails.addEmail.success') : __('manager.emails.editEmail.success');
 		$this->locales = $locales;
 
 		if (is_null($emailTemplate)) {

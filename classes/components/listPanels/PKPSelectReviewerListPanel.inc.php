@@ -13,12 +13,26 @@
  */
 
 namespace PKP\components\listPanels;
-use PKP\components\listPanels;
 
 class PKPSelectReviewerListPanel extends ListPanel {
 
+	/** @var string URL to the API endpoint where items can be retrieved */
+	public $apiUrl = '';
+
+	/** @var integer Number of items to show at one time */
+	public $count = 30;
+
 	/** @var array List of user IDs already assigned as a reviewer to this submission */
 	public $currentlyAssigned = [];
+
+	/** @var array Query parameters to pass if this list executes GET requests  */
+	public $getParams = [];
+
+	/** @var integer Count of total items available for list */
+	public $itemsMax = 0;
+
+	/** @var string Name of the input field*/
+	public $selectorName = '';
 
 	/** @var array List of user IDs which may not be suitable for blind review because of existing access to author details */
 	public $warnOnAssignment = [];
@@ -37,93 +51,78 @@ class PKPSelectReviewerListPanel extends ListPanel {
 	 */
 	public function getConfig() {
 		$config = parent::getConfig();
-		$config['selectorType'] = 'radio';
-		$config['selected'] = 0;
+		$config['apiUrl'] = $this->apiUrl;
+		$config['count'] = $this->count;
 		$config['currentlyAssigned'] = $this->currentlyAssigned;
+		$config['selectorName'] = $this->selectorName;
 		$config['warnOnAssignment'] = $this->warnOnAssignment;
 		$config['filters'] = [
 			[
-				'filters' => [
-					[
-						'param' => 'reviewerRating',
-						'title' => __('reviewer.list.filterRating'),
-						'value' => 3,
-						'min' => 1,
-						'max' => 5,
-						'useStars' => true,
-						'starLabel' => __('reviewer.list.reviewerRating'),
-					],
-					[
-						'param' => 'reviewsCompleted',
-						'title' => __('reviewer.list.completedReviews'),
-						'value' => 10,
-						'min' => 0,
-						'max' => 20,
-						// The slider component expects variables in the format {var}
-						'formatter' => str_replace('$', '', __('common.moreThan')),
-					],
-					[
-						'param' => 'daysSinceLastAssignment',
-						'title' => __('reviewer.list.daysSinceLastAssignmentDescription'),
-						'value' => [0, 365],
-						'min' => 0,
-						'max' => 365,
-					],
-					[
-						'param' => 'reviewsActive',
-						'title' => __('reviewer.list.activeReviewsDescription'),
-						'value' => [0, 20],
-						'min' => 0,
-						'max' => 20,
-					],
-					[
-						'param' => 'averageCompletion',
-						'title' => __('reviewer.list.averageCompletion'),
-						'value' => 75,
-						'min' => 0,
-						'max' => 75,
-					],
-				],
+				'param' => 'reviewerRating',
+				'title' => __('reviewer.list.filterRating'),
+				'value' => 3,
+				'min' => 1,
+				'max' => 5,
+				'useStars' => true,
+				'starLabel' => __('reviewer.list.reviewerRating'),
+			],
+			[
+				'param' => 'reviewsCompleted',
+				'title' => __('reviewer.list.completedReviews'),
+				'value' => 10,
+				'min' => 0,
+				'max' => 20,
+				// The slider component expects variables in the format {var}
+				'formatter' => str_replace('$', '', __('common.moreThan')),
+			],
+			[
+				'param' => 'daysSinceLastAssignment',
+				'title' => __('reviewer.list.daysSinceLastAssignmentDescription'),
+				'value' => [0, 365],
+				'min' => 0,
+				'max' => 365,
+			],
+			[
+				'param' => 'reviewsActive',
+				'title' => __('reviewer.list.activeReviewsDescription'),
+				'value' => [0, 20],
+				'min' => 0,
+				'max' => 20,
+			],
+			[
+				'param' => 'averageCompletion',
+				'title' => __('reviewer.list.averageCompletion'),
+				'value' => 75,
+				'min' => 0,
+				'max' => 75,
 			],
 		];
-		$config['i18n'] = array_merge($config['i18n'], array(
-			'search' => __('common.search'),
-			'clearSearch' => __('common.clearSearch'),
-			'empty' => __('reviewer.list.empty'),
-			'itemsOfTotal' => __('reviewer.list.itemsOfTotal'),
-			'itemCount' => __('reviewer.list.count'),
-			'loadMore' => __('grid.action.moreItems'),
-			'loading' => __('common.loading'),
-			'filter' => __('common.filter'),
-			'filterAdd' => __('common.filterAdd'),
-			'filterRemove' => __('common.filterRemove'),
-			'filterRating' => __('reviewer.list.filterRating'),
-			'activeReviews' => __('reviewer.list.activeReviews'),
-			'activeReviewsDescription' => __('reviewer.list.activeReviewsDescription'),
-			'completedReviews' => __('reviewer.list.completedReviews'),
-			'declinedReviews' => __('reviewer.list.declinedReviews'),
-			'cancelledReviews' => __('reviewer.list.cancelledReviews'),
-			'reviewerRating' => __('reviewer.list.reviewerRating'),
-			'daySinceLastAssignment' => __('reviewer.list.daySinceLastAssignment'),
-			'daysSinceLastAssignment' => __('reviewer.list.daysSinceLastAssignment'),
-			'daysSinceLastAssignmentDescription' => __('reviewer.list.daysSinceLastAssignmentDescription'),
-			'averageCompletion' => __('reviewer.list.averageCompletion'),
-			'neverAssigned' => __('reviewer.list.neverAssigned'),
-			'currentlyAssigned' => __('reviewer.list.currentlyAssigned'),
-			'warnOnAssign' => __('reviewer.list.warnOnAssign'),
-			'warnOnAssignUnlock' => __('reviewer.list.warnOnAssignUnlock'),
-			'reviewInterests' => __('reviewer.list.reviewInterests'),
-			'gossip' => __('user.gossip'),
-			'biography' => __('reviewer.list.biography'),
-			'listSeparator' => __('common.commaListSeparator'),
-			'viewMore' => __('list.viewMore'),
-			'viewLess' => __('list.viewLess'),
-			'paginationLabel' => __('common.pagination.label'),
-			'goToLabel' => __('common.pagination.goToPage'),
-			'pageLabel' => __('common.pageNumber'),
-			'nextPageLabel' => __('common.pagination.next'),
-			'previousPageLabel' => __('common.pagination.previous'),
-		));
+
+		if (!empty($this->getParams)) {
+			$config['getParams'] = $this->getParams;
+		}
+
+		$config['itemsMax'] = $this->itemsMax;
+
+		$config['activeReviewsCountLabel'] = __('reviewer.list.activeReviews');
+		$config['activeReviewsLabel'] = __('reviewer.list.activeReviewsDescription');
+		$config['averageCompletionLabel'] = __('reviewer.list.averageCompletion');
+		$config['biographyLabel'] = __('reviewer.list.biography');
+		$config['cancelledReviewsLabel'] = __('reviewer.list.cancelledReviews');
+		$config['completedReviewsLabel'] = __('reviewer.list.completedReviews');
+		$config['currentlyAssignedLabel'] = __('reviewer.list.currentlyAssigned');
+		$config['daySinceLastAssignmentLabel'] = __('reviewer.list.daySinceLastAssignment');
+		$config['daysSinceLastAssignmentLabel'] = __('reviewer.list.daysSinceLastAssignment');
+		$config['daysSinceLastAssignmentDescriptionLabel'] = __('reviewer.list.daysSinceLastAssignmentDescription');
+		$config['declinedReviewsLabel'] = __('reviewer.list.declinedReviews');
+		$config['emptyLabel'] = __('reviewer.list.empty');
+		$config['gossipLabel'] = __('user.gossip');
+		$config['neverAssignedLabel'] = __('reviewer.list.neverAssigned');
+		$config['reviewerRatingLabel'] = __('reviewer.list.reviewerRating');
+		$config['reviewInterestsLabel'] = __('reviewer.list.reviewInterests');
+		$config['selectReviewerLabel'] = __('editor.submission.selectReviewer');
+		$config['warnOnAssignmentLabel'] = __('reviewer.list.warnOnAssign');
+		$config['warnOnAssignmentUnlockLabel'] = __('reviewer.list.warnOnAssignUnlock');
 
 		return $config;
 	}
@@ -164,8 +163,8 @@ class PKPSelectReviewerListPanel extends ListPanel {
 	protected function _getItemsParams() {
 		return array_merge(
 			[
-				'count' => $this->count,
 				'offset' => 0,
+				'count' => $this->count,
 			],
 			$this->getParams
 		);

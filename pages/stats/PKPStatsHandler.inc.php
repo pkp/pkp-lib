@@ -17,6 +17,10 @@ import('classes.handler.Handler');
 import('classes.statistics.StatisticsHelper');
 
 class PKPStatsHandler extends Handler {
+
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
+
 	/**
 	 * Constructor.
 	 */
@@ -137,7 +141,7 @@ class PKPStatsHandler extends Handler {
 			];
 		}
 
-		$statsComponent = new \PKP\components\PKPStatsEditorialContainer(
+		$statsComponent = new \PKP\components\PKPStatsEditorialPage(
 			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/editorial'),
 			[
 				'activeByStage' => $activeByStage,
@@ -188,7 +192,15 @@ class PKPStatsHandler extends Handler {
 			]
 		);
 
-		$templateMgr->assign('statsComponent', $statsComponent);
+		$templateMgr->setLocaleKeys([
+			'stats.descriptionForStat',
+			'stats.countWithYearlyAverage',
+		]);
+		$templateMgr->setState($statsComponent->getConfig());
+		$templateMgr->assign([
+			'pageComponent' => 'StatsEditorialPage',
+			'pageTitle' => __('stats.editorialActivity'),
+		]);
 
 		$templateMgr->display('stats/editorial.tpl');
 	}
@@ -225,7 +237,7 @@ class PKPStatsHandler extends Handler {
       'dateEnd' => $dateEnd,
 		]);
 
-		$statsComponent = new \PKP\components\PKPStatsPublicationContainer(
+		$statsComponent = new \PKP\components\PKPStatsPublicationPage(
 			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/publications'),
 			[
 				'timeline' => $timeline,
@@ -299,7 +311,12 @@ class PKPStatsHandler extends Handler {
 			]
 		);
 
-		$templateMgr->assign('statsComponent', $statsComponent);
+		$templateMgr->setState($statsComponent->getConfig());
+		$templateMgr->assign([
+			'pageComponent' => 'StatsPublicationsPage',
+			'pageTitle' => __('stats.publicationStats'),
+			'pageWidth' => PAGE_WIDTH_WIDE,
+		]);
 
 		$templateMgr->display('stats/publications.tpl');
 	}
@@ -320,7 +337,10 @@ class PKPStatsHandler extends Handler {
 
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
-		$templateMgr->assign('userStats', Services::get('user')->getRolesOverview(['contextId' => $context->getId()]));
+		$templateMgr->assign([
+			'pageTitle' => __('stats.userStatistics'),
+			'userStats' => Services::get('user')->getRolesOverview(['contextId' => $context->getId()]),
+		]);
 		$templateMgr->display('stats/users.tpl');
 	}
 

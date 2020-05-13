@@ -357,12 +357,6 @@ msgstr "Crear una discusión de revisión acerca de esta recomendación."
 msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
 msgstr "No crear una discusión de revisión."
 
-msgid "reviewer.list.count"
-msgstr "{$count} revisores/as"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} de {$total} revisores/as"
-
 msgid "reviewer.list.filterRating"
 msgstr "Evaluado como mínimo"
 

@@ -489,6 +489,9 @@ msgstr "Tipe"
 msgid "common.uninitiated"
 msgstr "Belum dimulai"
 
+msgid "common.unknownError"
+msgstr "Terjadi kesalahan. Muat ulang halaman dan coba lagi."
+
 msgid "common.untitled"
 msgstr "Tidak berjudul"
 
@@ -849,9 +852,6 @@ msgstr "Indeks peristilahan"
 msgid "search.matchAll"
 msgstr "Cocok dengan semua kategori"
 
-msgid "search.noKeywordError"
-msgstr "Anda harus masukkan setidaknya satu kata kunci pencarian."
-
 msgid "search.noResults"
 msgstr "Tidak ada hasil"
 
@@ -920,12 +920,6 @@ msgstr "Penulis telah ditambahkan."
 
 msgid "notification.removedAnnouncement"
 msgstr "Pengumuman telah dihapus."
-
-msgid "notification.editedAnnouncement"
-msgstr "Pengumuman telah diubah."
-
-msgid "notification.addedAnnouncement"
-msgstr "Pengumuman telah ditambahkan."
 
 msgid "notification.removedAnnouncementType"
 msgstr "Jenis pengumuman telah dihapus."
@@ -1140,14 +1134,6 @@ msgstr "File wajib diisi untuk dikirim."
 msgid "form.csrfInvalid"
 msgstr ""
 "Formulir tidak dapat dikirimkan. Anda mungkin sudah logged out. Harap muat "
-"ulang halaman dan coba lagi."
-
-msgid "form.missingRequired"
-msgstr "Kolom ini wajib diisi."
-
-msgid "form.errorUnknown"
-msgstr ""
-"Terjadi kesalahan tak terduga. Anda mungkin sudah logged out. Harap muat "
 "ulang halaman dan coba lagi."
 
 msgid "form.errors"

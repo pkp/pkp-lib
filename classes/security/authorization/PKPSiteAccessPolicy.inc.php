@@ -39,7 +39,7 @@ class PKPSiteAccessPolicy extends PolicySet {
 			import('lib.pkp.classes.security.authorization.PKPPublicAccessPolicy');
 			$siteRolePolicy->addPolicy(new PKPPublicAccessPolicy($request, $operations));
 		} else {
-			fatalError('Invalid role assignments!');
+			throw new Exception('Invalid role assignments!');
 		}
 		$this->addPolicy($siteRolePolicy);
 	}

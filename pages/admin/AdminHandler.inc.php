@@ -16,6 +16,10 @@
 import('classes.handler.Handler');
 
 class AdminHandler extends Handler {
+
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
+
 	/**
 	 * Constructor
 	 */
@@ -23,8 +27,20 @@ class AdminHandler extends Handler {
 		parent::__construct();
 
 		$this->addRoleAssignment(
-			array(ROLE_ID_SITE_ADMIN),
-			array('index', 'contexts', 'settings', 'wizard')
+			[ROLE_ID_SITE_ADMIN],
+			[
+				'index',
+				'contexts',
+				'settings',
+				'wizard',
+				'systemInfo',
+				'phpinfo',
+				'expireSessions',
+				'clearTemplateCache',
+				'clearDataCache',
+				'downloadScheduledTaskLogFile',
+				'clearScheduledTaskLogFiles',
+			]
 		);
 	}
 
@@ -36,23 +52,58 @@ class AdminHandler extends Handler {
 		$this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
 		$returner = parent::authorize($request, $args, $roleAssignments);
 
-		// Make sure user is in a context. Otherwise, redirect.
-		$context = $request->getContext();
-		$router = $request->getRouter();
-		$requestedOp = $router->getRequestedOp($request);
-
-		if ($requestedOp == 'settings') {
-			$contextDao = Application::getContextDAO();
-			$contextFactory = $contextDao->getAll();
-			if ($contextFactory->getCount() == 1) {
-				// Don't let users access site settings in a single context installation.
-				// In that case, those settings are available under management or are not
-				// relevant (like site appearance).
-				return false;
-			}
+		// Admin shouldn't access this page from a specific context
+		if ($request->getContext()) {
+			return false;
 		}
 
 		return $returner;
+	}
+
+	/**
+	 * @copydoc PKPHandler::initialize()
+	 */
+	function initialize($request) {
+		AppLocale::requireComponents(
+			LOCALE_COMPONENT_PKP_ADMIN,
+			LOCALE_COMPONENT_APP_MANAGER,
+			LOCALE_COMPONENT_APP_ADMIN,
+			LOCALE_COMPONENT_APP_COMMON,
+			LOCALE_COMPONENT_PKP_USER,
+			LOCALE_COMPONENT_PKP_MANAGER
+		);
+		$templateMgr = TemplateManager::getManager($request);
+
+		$templateMgr->assign([
+			'pageComponent' => 'AdminPage',
+		]);
+
+		if ($request->getRequestedOp() !== 'index') {
+			$router = $request->getRouter();
+			$templateMgr->assign([
+				'breadcrumbs' => [
+					[
+						'id' => 'admin',
+						'url' => $router->url($request, 'index', 'admin'),
+						'name' => __('navigation.admin'),
+					]
+				]
+			]);
+		}
+
+		if (Config::getVar('general', 'show_upgrade_warning')) {
+			import('lib.pkp.classes.site.VersionCheck');
+			if ($latestVersion = VersionCheck::checkIfNewVersionExists()) {
+				$currentVersion = VersionCheck::getCurrentDBVersion();
+				$templateMgr->assign([
+					'currentVersion' => $currentVersion,
+					'newVersionAvailable' => true,
+					'latestVersion' => $latestVersion,
+				]);
+			}
+		}
+
+		return parent::initialize($request);
 	}
 
 	/**
@@ -63,6 +114,9 @@ class AdminHandler extends Handler {
 	function index($args, $request) {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign([
+			'pageTitle' => __('admin.siteAdmin'),
+		]);
 		$templateMgr->display('admin/index.tpl');
 	}
 
@@ -74,6 +128,15 @@ class AdminHandler extends Handler {
 	function contexts($args, $request) {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
+		$breadcrumbs = $templateMgr->get_template_vars('breadcrumbs');
+		$breadcrumbs[] = [
+			'id' => 'contexts',
+			'name' => __('admin.hostedContexts'),
+		];
+		$templateMgr->assign([
+			'breadcrumbs' => $breadcrumbs,
+			'pageTitle' => __('admin.hostedContexts'),
+		]);
 		$templateMgr->display('admin/contexts.tpl');
 	}
 
@@ -84,14 +147,12 @@ class AdminHandler extends Handler {
 	 */
 	function settings($args, $request) {
 		$this->setupTemplate($request);
-		$templateMgr = TemplateManager::getManager($request);
 		$site = $request->getSite();
 		$dispatcher = $request->getDispatcher();
 
 		$apiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'site');
 		$themeApiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'site/theme');
 		$temporaryFileApiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'temporaryFiles');
-		$siteUrl = $request->getBaseUrl();
 
 		import('classes.file.PublicFileManager');
 		$publicFileManager = new PublicFileManager();
@@ -106,18 +167,28 @@ class AdminHandler extends Handler {
 		$siteAppearanceForm = new \PKP\components\forms\site\PKPSiteAppearanceForm($apiUrl, $locales, $site, $baseUrl, $temporaryFileApiUrl);
 		$siteConfigForm = new \PKP\components\forms\site\PKPSiteConfigForm($apiUrl, $locales, $site);
 		$siteInformationForm = new \PKP\components\forms\site\PKPSiteInformationForm($apiUrl, $locales, $site);
-		$themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $siteUrl);
+		$themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales);
 
-		$settingsData = [
+		$templateMgr = TemplateManager::getManager($request);
+
+		$templateMgr->setState([
 			'components' => [
 				FORM_SITE_APPEARANCE => $siteAppearanceForm->getConfig(),
 				FORM_SITE_CONFIG => $siteConfigForm->getConfig(),
 				FORM_SITE_INFO => $siteInformationForm->getConfig(),
 				FORM_THEME => $themeForm->getConfig(),
 			],
-		];
+		]);
 
-		$templateMgr->assign('settingsData', $settingsData);
+		$breadcrumbs = $templateMgr->get_template_vars('breadcrumbs');
+		$breadcrumbs[] = [
+			'id' => 'settings',
+			'name' => __('admin.siteSettings'),
+		];
+		$templateMgr->assign([
+			'breadcrumbs' => $breadcrumbs,
+			'pageTitle' => __('admin.siteSettings'),
+		]);
 
 		$templateMgr->display('admin/settings.tpl');
 	}
@@ -147,7 +218,6 @@ class AdminHandler extends Handler {
 
 		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
 		$themeApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/theme');
-		$contextUrl = $router->url($request, $context->getPath());
 		$sitemapUrl = $router->url($request, $context->getPath(), 'sitemap');
 
 		$supportedFormLocales = $context->getSupportedFormLocales();
@@ -156,33 +226,156 @@ class AdminHandler extends Handler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $supportedFormLocales);
 
-		$contextForm = new APP\components\forms\context\ContextForm($apiUrl, __('admin.contexts.form.edit.success'), $locales, $request->getBaseUrl(), $context);
-		$themeForm = new PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $contextUrl, $context);
+		$contextForm = new APP\components\forms\context\ContextForm($apiUrl, $locales, $request->getBaseUrl(), $context);
+		$themeForm = new PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $context);
 		$indexingForm = new PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
 
-		$settingsData = [
+		$templateMgr = TemplateManager::getManager($request);
+
+		$templateMgr->setState([
 			'components' => [
 				FORM_CONTEXT => $contextForm->getConfig(),
 				FORM_SEARCH_INDEXING => $indexingForm->getConfig(),
 				FORM_THEME => $themeForm->getConfig(),
 			],
+		]);
+
+		$breadcrumbs = $templateMgr->get_template_vars('breadcrumbs');
+		$breadcrumbs[] = [
+			'id' => 'contexts',
+			'name' => __('admin.hostedContexts'),
+			'url' => $router->url($request, 'index', 'admin', 'contexts'),
+		];
+		$breadcrumbs[] = [
+			'id' => 'wizard',
+			'name' => __('manager.settings.wizard'),
 		];
 
-		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign([
-			'settingsData' => $settingsData,
+			'breadcrumbs' => $breadcrumbs,
 			'editContext' => $context,
+			'pageTitle' => __('manager.settings.wizard'),
 		]);
 
 		$templateMgr->display('admin/contextSettings.tpl');
 	}
 
 	/**
-	 * Initialize the handler.
+	 * Show system information summary.
+	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function initialize($request) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_APP_ADMIN, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_MANAGER);
-		return parent::initialize($request);
+	function systemInfo($args, $request) {
+		$this->setupTemplate($request, true);
+
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
+		$currentVersion = $versionDao->getCurrentVersion();
+
+		if ($request->getUserVar('versionCheck')) {
+			$latestVersionInfo = VersionCheck::getLatestVersion();
+			$latestVersionInfo['patch'] = VersionCheck::getPatch($latestVersionInfo);
+		}
+
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
+		$versionHistory = $versionDao->getVersionHistory();
+
+		$dbconn = DBConnection::getConn();
+		$dbServerInfo = $dbconn->ServerInfo();
+		$serverInfo = [
+			'admin.server.platform' => PHP_OS,
+			'admin.server.phpVersion' => phpversion(),
+			'admin.server.apacheVersion' => $_SERVER['SERVER_SOFTWARE'],
+			'admin.server.dbDriver' => Config::getVar('database', 'driver'),
+			'admin.server.dbVersion' => (empty($dbServerInfo['description']) ? $dbServerInfo['version'] : $dbServerInfo['description'])
+		];
+
+		$templateMgr = TemplateManager::getManager($request);
+
+		$breadcrumbs = $templateMgr->get_template_vars('breadcrumbs');
+		$breadcrumbs[] = [
+			'id' => 'wizard',
+			'name' => __('admin.systemInformation'),
+		];
+
+		$templateMgr->assign([
+			'breadcrumbs' => $breadcrumbs,
+			'currentVersion' => $currentVersion,
+			'latestVersionInfo' => $latestVersionInfo,
+			'pageTitle' => __('admin.systemInformation'),
+			'versionHistory' => $versionHistory,
+			'serverInfo' => $serverInfo,
+			'configData' => Config::getData(),
+		]);
+
+		$templateMgr->display('admin/systemInfo.tpl');
+	}
+
+	/**
+	 * Show full PHP configuration information.
+	 */
+	function phpinfo() {
+		phpinfo();
+	}
+
+	/**
+	 * Expire all user sessions (will log out all users currently logged in).
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function expireSessions($args, $request) {
+		$sessionDao = DAORegistry::getDAO('SessionDAO'); /* @var $sessionDao SessionDAO */
+		$sessionDao->deleteAllSessions();
+		$request->redirect(null, 'admin');
+	}
+
+	/**
+	 * Clear compiled templates.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function clearTemplateCache($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->clearTemplateCache();
+		$templateMgr->clearCssCache();
+		$request->redirect(null, 'admin');
+	}
+
+	/**
+	 * Clear the data cache.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function clearDataCache($args, $request) {
+		// Clear the CacheManager's caches
+		$cacheManager = CacheManager::getManager();
+		$cacheManager->flush();
+
+		// Clear ADODB's cache
+		$userDao = DAORegistry::getDAO('UserDAO'); // As good as any
+		$userDao->flushCache();
+
+		$request->redirect(null, 'admin');
+	}
+
+	/**
+	 * Download scheduled task execution log file.
+	 */
+	function downloadScheduledTaskLogFile() {
+		$request = Application::get()->getRequest();
+
+		$file = basename($request->getUserVar('file'));
+		import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
+		ScheduledTaskHelper::downloadExecutionLog($file);
+	}
+
+	/**
+	 * Clear scheduled tasks execution logs.
+	 */
+	function clearScheduledTaskLogFiles() {
+		import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
+		ScheduledTaskHelper::clearExecutionLogs();
+
+		$request = Application::get()->getRequest();
+		$request->redirect(null, 'admin');
 	}
 }

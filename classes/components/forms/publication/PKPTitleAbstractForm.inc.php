@@ -34,7 +34,6 @@ class PKPTitleAbstractForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $publication) {
 		$this->action = $action;
-		$this->successMessage = __('publication.titleAbstract.success');
 		$this->locales = $locales;
 
 		$this->addField(new FieldText('prefix', [

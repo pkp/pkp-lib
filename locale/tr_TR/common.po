@@ -456,6 +456,10 @@ msgstr "Tür"
 msgid "common.uninitiated"
 msgstr "Başlatılmamış"
 
+msgid "common.unknownError"
+msgstr ""
+"Beklenmeyen bir hata oluştu. Lütfen sayfayı yenileyin ve tekrar deneyin."
+
 msgid "common.untitled"
 msgstr "Başlıksız"
 
@@ -788,9 +792,6 @@ msgstr "İndeks terimleri"
 
 msgid "search.matchAll"
 msgstr "Tüm kategorileri eşle"
-
-msgid "search.noKeywordError"
-msgstr "En az bir adet anahtar kelime girmelisiniz."
 
 msgid "search.noResults"
 msgstr "Sonuç bulunamadı"
@@ -1406,12 +1407,6 @@ msgstr "Duyuru türü düzeltildi."
 
 msgid "notification.removedAnnouncementType"
 msgstr "Duyuru türü kaldırıldı."
-
-msgid "notification.addedAnnouncement"
-msgstr "Duyuru eklendi."
-
-msgid "notification.editedAnnouncement"
-msgstr "Duyuru düzenlendi."
 
 msgid "notification.removedAnnouncement"
 msgstr "Duyuru kaldırıldı."

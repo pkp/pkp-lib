@@ -18,5 +18,5 @@
 	/>
 </div>
 <script type="text/javascript">
-	pkp.registry.init('editContext', 'SettingsContainer', {$containerData|json_encode});
+	pkp.registry.init('editContext', 'AddContextContainer', {$containerData|json_encode});
 </script>

@@ -50,9 +50,6 @@ abstract class Field {
 	/** @var mixed A default for this field when no value is specified. */
 	public $default;
 
-	/** @var array Key/value translations required for this field. Array will be merged with all i18n keys in the form. */
-	public $i18n = [];
-
 	/**
 	 * Only show this field when the field named here is not empty. Match an exact
 	 * value by passing an array:

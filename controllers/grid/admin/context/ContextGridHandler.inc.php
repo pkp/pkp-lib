@@ -64,6 +64,8 @@ class ContextGridHandler extends GridHandler {
 			LOCALE_COMPONENT_APP_ADMIN
 		);
 
+		$this->setTitle('context.contexts');
+
 		// Grid actions.
 		$router = $request->getRouter();
 
@@ -204,11 +206,9 @@ class ContextGridHandler extends GridHandler {
 		$dispatcher = $request->getDispatcher();
 		if ($context) {
 			$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
-			$successMessage = __('admin.contexts.form.edit.success');
 			$supportedLocales = $context->getSupportedFormLocales();
 		} else {
 			$apiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'contexts');
-			$successMessage = __('admin.contexts.form.create.success');
 			$supportedLocales = $request->getSite()->getSupportedLocales();
 		}
 
@@ -217,7 +217,7 @@ class ContextGridHandler extends GridHandler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $supportedLocales);
 
-		$contextForm = new \APP\components\forms\context\ContextForm($apiUrl, $successMessage, $locales, $request->getBaseUrl(), $context);
+		$contextForm = new \APP\components\forms\context\ContextForm($apiUrl, $locales, $request->getBaseUrl(), $context);
 		$contextFormConfig = $contextForm->getConfig();
 
 		// Pass the URL to the context settings wizard so that the AddContextForm

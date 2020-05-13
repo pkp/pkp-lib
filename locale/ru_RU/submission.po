@@ -1845,9 +1845,6 @@ msgstr "Публикация"
 msgid "submission.publications"
 msgstr "Публикации"
 
-msgid "publication.citations.success"
-msgstr "Ссылки были обновлены."
-
 msgid "publication.contributors"
 msgstr "Авторы"
 
@@ -1893,26 +1890,14 @@ msgstr "Версия была убрана с публикации."
 msgid "publication.invalidSubmission"
 msgstr "Материал для этой публикации не удаётся найти."
 
-msgid "publication.metadata.success"
-msgstr "Метаданные были обновлены."
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "Идентификаторы были обновлены."
-
 msgid "publication.publicationLicense"
 msgstr "Разрешения и соглашения"
-
-msgid "publication.publicationLicense.success"
-msgstr "Информация о лицензии и авторском праве была обновлена."
 
 msgid "publication.publish"
 msgstr "Опубликовать"
 
 msgid "publication.publish.requirements"
 msgstr "Перед публикацией необходимо выполнить следующие требования."
-
-msgid "publication.publish.success"
-msgstr "Статус публикации был успешно изменён."
 
 msgid "publication.required.declined"
 msgstr "Отклонённый материал нельзя опубликовать."
@@ -1934,9 +1919,6 @@ msgstr "Снято с плана"
 
 msgid "publication.titleAbstract"
 msgstr "Название и аннотация"
-
-msgid "publication.titleAbstract.success"
-msgstr "Название и аннотация были обновлены."
 
 msgid "publication.unpublish"
 msgstr "Снять с публикации"

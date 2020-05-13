@@ -7,33 +7,5 @@
  *
  * User-specific tasks panel.
  *}
-
-{**
-* Unread notifications count is set here on header load, but
-* can also be updated dynamically via the javascript event
-* called updateUnreadNotificationsCount.
-*}
-<script type="text/javascript">
-	// Initialise JS handler.
-	$(function() {ldelim}
-		$('#userTasks').pkpHandler(
-			'$.pkp.pages.header.TasksHandler',
-			{ldelim}
-				requestedPage: {$requestedPage|json_encode},
-				fetchUnreadNotificationsCountUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="getUnreadNotificationsCount" escape=false}
-			{rdelim}
-		);
-	{rdelim});
-</script>
-<div id="userTasks">
-	<a href="#" id="notificationsToggle">
-		{translate key="common.tasks"}
-		<span id="unreadNotificationCount" class="task-count{if $unreadNotificationCount} hasTasks{/if}">
-			{$unreadNotificationCount}
-		</span>
-	</a>
-	<div id="notificationsPopover" class="panel">
-		{capture assign=notificationsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.TaskNotificationsGridHandler" op="fetchGrid" escape=false}{/capture}
-		{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
-	</div>
-</div>
+{capture assign=notificationsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.TaskNotificationsGridHandler" op="fetchGrid" escape=false}{/capture}
+{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}

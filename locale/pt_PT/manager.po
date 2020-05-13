@@ -1481,19 +1481,8 @@ msgstr ""
 "Esta ligação só irá ser apresentada se tiver introduzido uma declaração de "
 "privacidade, em Configurações > Fluxo de Trabalho > Submissões."
 
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "As orientações para o revisor foram atualizadas."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Orientações para o Revisor"
-
-msgid "manager.publication.emailSetup.success"
-msgstr "As configurações de e-mail foram atualizadas."
-
-msgid "manager.setup.theme.success"
-msgstr ""
-"O tema foi atualizado. <a href=\"{$url}\" target=\"_blank\">Visualizar "
-"Agora</a>"
 
 msgid "manager.setup.reviewOptions.showBlindReviewLink"
 msgstr ""
@@ -1700,9 +1689,6 @@ msgstr ""
 msgid "manager.setup.metadata.coverage"
 msgstr "Cobertura"
 
-msgid "manager.setup.metadata.success"
-msgstr "Os metadados da submissão foram atualizados com sucesso."
-
 msgid "manager.reviewFormElements.description"
 msgstr "Descrição"
 
@@ -1729,17 +1715,11 @@ msgstr "Termos da Licença"
 msgid "manager.distribution.license.other"
 msgstr "URL de outra licença"
 
-msgid "manager.distribution.license.success"
-msgstr "Os detalhes de licença foram atualizados. "
-
 msgid "manager.distribution.license"
 msgstr "Licença"
 
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Utilizadores registados"
-
-msgid "manager.setup.userAccess.success"
-msgstr "Os detalhes de acesso do utilizador foram atualizados."
 
 msgid "manager.setup.theme.notFound"
 msgstr "O tema que selecionou não se encontra instalado ou ativado."
@@ -1763,15 +1743,6 @@ msgstr ""
 
 msgid "manager.setup.checklist"
 msgstr "Lista de verificação"
-
-msgid "manager.setup.authorGuidelines.success"
-msgstr "As instruções aos autores foram atualizadas com sucesso."
-
-msgid "manager.setup.contact.success"
-msgstr "Os detalhes de contacto desta editora foram atualizados."
-
-msgid "manager.setup.appearance.success"
-msgstr "As configurações da aparência foram atualizadas."
 
 msgid "manager.setup.advanced"
 msgstr "Avançado"
@@ -1805,23 +1776,14 @@ msgstr "Modelos de e-mail"
 msgid "manager.emails.emailKey.description"
 msgstr "A senha de e-mail só pode conter letras, números e underscores."
 
-msgid "manager.emails.editEmail.success"
-msgstr "O modelo de e-mail foi modificado."
-
 msgid "manager.emails.customTemplate"
 msgstr "Modelo personalizado"
-
-msgid "manager.emails.addEmail.success"
-msgstr "O modelo de e-mail foi adicionado."
 
 msgid "manager.emails.addEmail"
 msgstr "Adicionar modelo"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Os detalhes dos lembretes aos revisores foram atualizados."
-
-msgid "manager.publication.reviewSetup.success"
-msgstr "As configurações de revisão foram atualizadas."
 
 msgid "stats.name.declinedReviewRate"
 msgstr "Taxa de Rejeição após Revisão"

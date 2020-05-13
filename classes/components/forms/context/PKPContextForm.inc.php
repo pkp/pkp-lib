@@ -29,14 +29,12 @@ class PKPContextForm extends FormComponent {
 	 * Constructor
 	 *
 	 * @param $action string URL to submit the form to
-	 * @param $successMessage string Message to display when form submitted successfully
 	 * @param $locales array Supported locales
 	 * @param $baseUrl string Base URL for the site
 	 * @param $context Context Journal or Press to change settings for
 	 */
-	public function __construct($action, $successMessage, $locales, $baseUrl, $context) {
+	public function __construct($action, $locales, $baseUrl, $context) {
 		$this->action = $action;
-		$this->successMessage = $successMessage;
 		$this->locales = $locales;
 		$this->method = $context ? 'PUT' : 'POST';
 

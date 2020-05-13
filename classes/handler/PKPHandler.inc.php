@@ -49,6 +49,9 @@ class PKPHandler {
 	/** @var boolean Whether role assignments have been checked. */
 	var $_roleAssignmentsChecked = false;
 
+	/** @var boolean Whether this is a handler for a page in the backend editorial UI */
+	var $_isBackendPage = false;
+
 	/**
 	 * Constructor
 	 */
@@ -457,6 +460,11 @@ class PKPHandler {
 
 		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 		if ($accessibleWorkflowStages) $templateMgr->assign('accessibleWorkflowStages', $accessibleWorkflowStages);
+
+		// Set up template requirements for the backend editorial UI
+		if ($this->_isBackendPage) {
+			$templateMgr->setupBackendPage();
+		}
 	}
 
 	/**
@@ -474,20 +482,6 @@ class PKPHandler {
 			$request->getRequestedOp() . ',' .
 			serialize($contextData)
 		);
-	}
-
-	/**
-	 * Get the iterator of working contexts.
-	 * @param $request PKPRequest
-	 * @return ItemIterator
-	 */
-	function getWorkingContexts($request) {
-		// For installation process
-		if (defined('SESSION_DISABLE_INIT')) return null;
-
-		$user = $request->getUser();
-		$contextDao = Application::getContextDAO();
-		return $contextDao->getAvailable($user?$user->getId():null);
 	}
 
 	/**

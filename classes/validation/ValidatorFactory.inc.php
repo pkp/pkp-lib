@@ -275,12 +275,12 @@ class ValidatorFactory {
 				if (in_array($requiredProp, $multilingualProps)) {
 					if ($action === VALIDATE_ACTION_ADD) {
 						if (empty($props[$requiredProp]) || empty($props[$requiredProp][$primaryLocale])) {
-							$validator->errors()->add($requiredProp . '.' . $primaryLocale, __('form.missingRequired'));
+							$validator->errors()->add($requiredProp . '.' . $primaryLocale, __('validator.required'));
 						}
 					} else {
 						if (isset($props[$requiredProp]) && array_key_exists($primaryLocale, $props[$requiredProp]) && empty($props[$requiredProp][$primaryLocale])) {
 							if (count($allowedLocales) === 1) {
-								$validator->errors()->add($requiredProp, __('form.missingRequired'));
+								$validator->errors()->add($requiredProp, __('validator.required'));
 							} else {
 								$validator->errors()->add($requiredProp . '.' . $primaryLocale, __('form.requirePrimaryLocale', array('language' => $primaryLocaleName)));
 							}
@@ -290,7 +290,7 @@ class ValidatorFactory {
 				} else {
 					if (($action === VALIDATE_ACTION_ADD && empty($props[$requiredProp])) ||
 							($action === VALIDATE_ACTION_EDIT && array_key_exists($requiredProp, $props) && empty($props[$requiredProp]))) {
-						$validator->errors()->add($requiredProp, __('form.missingRequired'));
+						$validator->errors()->add($requiredProp, __('validator.required'));
 					}
 				}
 			}

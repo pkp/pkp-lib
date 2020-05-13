@@ -359,12 +359,6 @@ msgstr "Το δημόσιο αναγνωριστικό '{$publicIdentifier}' δ�
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Το πρότυπο {$pattern} δεν επιτρέπεται για το δημόσιο αναγνωριστικό."
 
-msgid "reviewer.list.count"
-msgstr "{$count} Αξιολογητές"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} από {$total} Αξιολογητές"
-
 msgid "reviewer.list.filterRating"
 msgstr "Έχει βαθμολογηθεί τουλάχιστον"
 

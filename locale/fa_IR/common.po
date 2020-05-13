@@ -689,6 +689,9 @@ msgstr "اجزاء"
 msgid "common.uninitiated"
 msgstr "آغاز نشده است"
 
+msgid "common.unknownError"
+msgstr "خطای غیرمنتظره‌ای رخ داده است. لطفاً صفحه را از اول بارگذاری کرده و دوباره تلاش کنید"
+
 msgid "common.unread"
 msgstr "خوانده نشده"
 
@@ -1184,12 +1187,6 @@ msgstr "نوع اطلاعیه ویرایش شد"
 msgid "notification.removedAnnouncementType"
 msgstr "نوع اطلاعیه حذف شد"
 
-msgid "notification.addedAnnouncement"
-msgstr "اطلاعیه افزوده شد"
-
-msgid "notification.editedAnnouncement"
-msgstr "اطلاعیه ویرایش شد"
-
 msgid "notification.removedAnnouncement"
 msgstr "اطلاعیه حذف شد"
 
@@ -1306,9 +1303,6 @@ msgstr "تمامی فیلدهای نمایه"
 
 msgid "search.matchAll"
 msgstr "مطابق بودن با همه بخش ها"
-
-msgid "search.noKeywordError"
-msgstr "باید حداقل یک کلید واژه جستجو وارد کنید"
 
 msgid "search.noResults"
 msgstr "بی نتیجه"

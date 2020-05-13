@@ -455,6 +455,9 @@ msgstr "Type"
 msgid "common.uninitiated"
 msgstr "Non engagé"
 
+msgid "common.unknownError"
+msgstr "Une erreur imprévue est survenu. Merci de recharger la page."
+
 msgid "common.untitled"
 msgstr "Sans titre"
 
@@ -787,9 +790,6 @@ msgstr "Termes d'indexation"
 
 msgid "search.matchAll"
 msgstr "Dans toutes les catégories"
-
-msgid "search.noKeywordError"
-msgstr "Vous devez entrer au moins un mot-clé de recherche."
 
 msgid "search.noResults"
 msgstr "Aucun résultat"
@@ -1393,12 +1393,6 @@ msgstr "Type d'annoncé modifié."
 
 msgid "notification.removedAnnouncementType"
 msgstr "Type d'annonce supprimé."
-
-msgid "notification.addedAnnouncement"
-msgstr "Annonce ajoutée."
-
-msgid "notification.editedAnnouncement"
-msgstr "Annonce modifiée."
 
 msgid "notification.removedAnnouncement"
 msgstr "Annonce supprimée."

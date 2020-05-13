@@ -35,72 +35,20 @@
 
 		$container.find('.button').button();
 
-		$('#selectReviewerButton').click(
-				this.callbackWrapper(this.selectReviewer));
+		pkp.eventBus.$on('selected:reviewer', function(reviewer) {
+			$('#reviewerId').val(reviewer.id);
+			$('[id^="selectedReviewerName"]').html(reviewer.fullName);
+			$('#searchGridAndButton').hide();
+			$('#regularReviewerForm').show();
+		});
 
 		$('#regularReviewerForm').hide();
 
 		this.bind('refreshForm', this.handleRefresh_);
-		this.bindGlobal('reviewersSelected', this.updateReviewerSelection);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler,
 			$.pkp.classes.Handler);
-
-
-	//
-	// Public properties
-	//
-	/**
-	 * Currently selected reviewer
-	 * @type {Object}
-	 */
-	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler.
-			prototype.selectedReviewer = null;
-
-
-	//
-	// Public methods
-	//
-	/**
-	 * Callback that is triggered when a reviewer option is selected (but not
-	 * confirmed by pressing the button)
-	 * @param {Object} sourceComponent Vue component that fired the event
-	 * @param {Array} selectedReviewers
-	 */
-	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler.prototype.
-			updateReviewerSelection = function(sourceComponent, selectedReviewers) {
-		var id = '',
-				name = '';
-
-		if (!selectedReviewers.length) {
-			this.selectedReviewer = null;
-			id = name = '';
-		} else {
-			// Only supports a single reviewer select at a time fo rnow
-			this.selectedReviewer = selectedReviewers[0];
-			id = this.selectedReviewer.id;
-			name = this.selectedReviewer.fullName;
-		}
-
-		$('#reviewerId', this.getHtmlElement()).val(id);
-		$('[id^="selectedReviewerName"]', this.getHtmlElement()).html(name);
-	};
-
-
-	/**
-	 * Callback that is triggered when the button to select a reviewer is clicked
-	 *
-	 * @param {HTMLElement} button The button element clicked.
-	 */
-	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler.prototype.
-			selectReviewer = function(button) {
-
-		if (this.selectedReviewer) {
-			$('#searchGridAndButton').hide();
-			$('#regularReviewerForm').show();
-		}
-	};
 
 
 	//

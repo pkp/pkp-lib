@@ -140,7 +140,7 @@
 		this.$currentTab_.find('.hasDatepicker').datepicker('hide');
 
 		if (unsavedForm) {
-			if (!confirm($.pkp.locale.form_dataHasChanged)) {
+			if (!confirm(pkp.localeKeys['form.dataHasChanged'])) {
 				return false;
 			} else {
 				this.trigger('unregisterAllForms');
@@ -314,7 +314,7 @@
 						.attr('href', jsonContent.url),
 				$closeSpanElement = $('<a/>')
 						.addClass('close')
-						.text($.pkp.locale.common_close)
+						.text(pkp.localeKeys['common.close'])
 						.attr('href', '#'),
 				$liElement = $('<li/>')
 						.append($anchorElement)
@@ -332,7 +332,7 @@
 				var handler = $.pkp.classes.Handler.getHandler($(this));
 				if (handler.formChangesTracked) {
 					// Confirm before proceeding
-					if (!confirm($.pkp.locale.form_dataHasChanged)) {
+					if (!confirm(pkp.localeKeys['form.dataHasChanged'])) {
 						unsavedForm = true;
 						return false;
 					}

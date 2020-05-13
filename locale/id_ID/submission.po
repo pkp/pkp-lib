@@ -963,9 +963,6 @@ msgstr "Yakin tidak ingin menerbitkan naskah ini?"
 msgid "publication.unpublish"
 msgstr "Tidak diterbitkan"
 
-msgid "publication.titleAbstract.success"
-msgstr "Judul dan abstrak telah diperbaharui."
-
 msgid "publication.titleAbstract"
 msgstr "Judul & Abstrak"
 
@@ -989,26 +986,14 @@ msgstr ""
 msgid "publication.required.declined"
 msgstr "Naskah yang ditolak tidak bisa diterbitkan."
 
-msgid "publication.publish.success"
-msgstr "Status publikasi telah berhasil diubah."
-
 msgid "publication.publish.requirements"
 msgstr "Persyaratan berikut harus dipenuhi sebelum naskah diterbitkan."
 
 msgid "publication.publish"
 msgstr "Terbitkan"
 
-msgid "publication.publicationLicense.success"
-msgstr "HInformasi hak cipta dan lisensi telah diperbaharui."
-
 msgid "publication.publicationLicense"
 msgstr "Perijinan & Keterbukaan"
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "Identifier telah diperbaharui."
-
-msgid "publication.metadata.success"
-msgstr "Metadata telah diperbaharui."
 
 msgid "publication.invalidSubmission"
 msgstr "Naskah publikasi ini tidak dapat ditemukan."
@@ -1057,9 +1042,6 @@ msgstr ""
 
 msgid "publication.contributors"
 msgstr "Kontributor"
-
-msgid "publication.citations.success"
-msgstr "Referensi telah diperbaharui."
 
 msgid "submission.publication"
 msgstr "Publikasi"

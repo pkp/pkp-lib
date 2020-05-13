@@ -704,9 +704,6 @@ msgstr "Termos Indexados"
 msgid "search.matchAll"
 msgstr "Encontrar em todas as categorias"
 
-msgid "search.noKeywordError"
-msgstr "Indique pelo menos um termo para pesquisa."
-
 msgid "search.noResults"
 msgstr "Nenhum resultado encontrado"
 
@@ -1273,12 +1270,6 @@ msgstr "Tipo de anúncio editado."
 msgid "notification.removedAnnouncementType"
 msgstr "Tipo de anúncio removido."
 
-msgid "notification.addedAnnouncement"
-msgstr "Anúncio adicionado."
-
-msgid "notification.editedAnnouncement"
-msgstr "Anúncio editado."
-
 msgid "notification.removedAnnouncement"
 msgstr "Anúncio removido."
 
@@ -1802,14 +1793,6 @@ msgid "form.csrfInvalid"
 msgstr ""
 "O formulário não foi submetido. Pode ter saído do sistema. Recarregue a "
 "página e tente novamente."
-
-msgid "form.missingRequired"
-msgstr "Este campo é obrigatório."
-
-msgid "form.errorUnknown"
-msgstr ""
-"Ocorreu um erro inesperado. Pode ter saído do sistema. Recarregue a página e "
-"tente novamente."
 
 msgid "form.errors"
 msgstr ""

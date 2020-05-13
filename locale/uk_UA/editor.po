@@ -354,12 +354,6 @@ msgstr "Шаблон {$pattern} заборонено для відкритого
 msgid "editor.submission.schedulePublication"
 msgstr "Запланувати для публікації"
 
-msgid "reviewer.list.count"
-msgstr "{$count} рецензентів"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} з {$total} рецензентів"
-
 msgid "reviewer.list.filterRating"
 msgstr "Найнижчі оцінки"
 

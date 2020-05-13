@@ -34,10 +34,10 @@
 		{fbvElement id=apiKey type="text" label="user.apiKey" readonly="true" value=$apiKey size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
 
-	{fbvFormButtons hideCancel=true submitText="common.save"}
-
 	<p>
 		{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
 		{translate key="user.privacyLink" privacyUrl=$privacyUrl}
 	</p>
+
+	{fbvFormButtons hideCancel=true submitText="common.save"}
 </form>

@@ -97,7 +97,7 @@ class DAOResultFactory extends ItemIterator {
 
 	/**
 	 * Return the object representing the next row.
-	 * @return object|null
+	 * @return object?
 	 */
 	function next() {
 		if ($this->records == null) return $this->records;
@@ -117,7 +117,7 @@ class DAOResultFactory extends ItemIterator {
 
 	/**
 	 * Return the next row, with key.
-	 * @return array|null ($key, $value)
+	 * @return array? ($key, $value)
 	 */
 	function nextWithKey($idField = null) {
 		$result = $this->next();

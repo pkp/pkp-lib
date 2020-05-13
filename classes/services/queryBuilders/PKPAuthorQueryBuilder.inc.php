@@ -17,7 +17,7 @@ namespace PKP\Services\QueryBuilders;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-class PKPAuthorQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilderInterface {
+class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var array get authors for one or more contexts */
 	protected $contextIds = [];

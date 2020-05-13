@@ -17,7 +17,7 @@ namespace PKP\Services\QueryBuilders;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-abstract class PKPContextQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilderInterface {
+abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var string The database name for this context: `journals` or `presses` */
 	protected $db;

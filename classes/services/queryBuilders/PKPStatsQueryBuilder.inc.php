@@ -16,10 +16,9 @@
 
 namespace PKP\Services\QueryBuilders;
 
-use PKP\Services\QueryBuilders\BaseQueryBuilder;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-class PKPStatsQueryBuilder extends BaseQueryBuilder {
+class PKPStatsQueryBuilder {
 
 	/** @var array Include records for these objects. Requires $assocType to be specified. */
 	protected $assocIds = [];

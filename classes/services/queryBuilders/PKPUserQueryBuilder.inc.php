@@ -17,7 +17,7 @@ namespace PKP\Services\QueryBuilders;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-class PKPUserQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilderInterface {
+class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var int Context ID */
 	protected $contextId = null;

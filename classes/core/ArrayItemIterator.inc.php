@@ -166,27 +166,6 @@ class ArrayItemIterator extends ItemIterator {
 	}
 
 	/**
-	 * Determine whether or not the iterator is within bounds.
-	 * @return boolean
-	 */
-	function isInBounds() {
-		return ($this->getPageCount() >= $this->page);
-	}
-
-	/**
-	 * Get the range info representing the last page of results.
-	 * @return object DBResultRange
-	 */
-	function &getLastPageRangeInfo() {
-		import('lib.pkp.classes.db.DBResultRange');
-		$returner = new DBResultRange(
-			$this->itemsPerPage,
-			$this->getPageCount()
-		);
-		return $returner;
-	}
-
-	/**
 	 * A version of array_slice that takes keys into account.
 	 * Thanks to pies at sputnik dot pl.
 	 * This is made redundant by PHP 5.0.2's updated

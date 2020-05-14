@@ -14,14 +14,12 @@
 {else}
 	{assign var=citationsEnabled value=false}
 {/if}
-{if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled ||
-		$languagesEnabled || $subjectsEnabled || $keywordsEnabled || $citationsEnabled || $disciplinesEnabled}
-	{fbvFormSection title="submission.metadata"}
-		<p class="description">{translate key="submission.metadataDescription"}</p>
-	{/fbvFormSection}
-{/if}
+
 {if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled}
-	{fbvFormArea id="additionalDublinCore"}
+	{fbvFormArea id="additionalDublinCore" title="submission.metadata"}
+		{fbvFormSection description="submission.metadataDescription"}
+			
+		{/fbvFormSection}
 		{if $coverageEnabled}
 			{fbvFormSection title="submission.coverage" for="coverage" required=$coverageRequired}
 				{fbvElement type="text" multilingual=true name="coverage" id="coverage" value=$coverage maxlength="255" readonly=$readOnly required=false required=$coverageRequired}
@@ -51,22 +49,22 @@
 			{$languagesField}
 		{/if}
 		{if $subjectsEnabled}
-			{fbvFormSection label="common.subjects" required=$subjectsRequired}
+			{fbvFormSection description="submission.submit.metadataForm.tip" label="common.subjects" required=$subjectsRequired}
 				{fbvElement type="keyword" id="subjects" multilingual=true current=$subjects disabled=$readOnly required=$subjectsRequired}
 			{/fbvFormSection}
 		{/if}
 		{if $disciplinesEnabled}
-			{fbvFormSection label="search.discipline" required=$disciplinesRequired}
+			{fbvFormSection description="submission.submit.metadataForm.tip" label="search.discipline" required=$disciplinesRequired}
 				{fbvElement type="keyword" id="disciplines" multilingual=true current=$disciplines disabled=$readOnly required=$disciplinesRequired}
 			{/fbvFormSection}
 		{/if}
 		{if $keywordsEnabled}
-			{fbvFormSection label="common.keywords" required=$keywordsRequired}
+			{fbvFormSection description="submission.submit.metadataForm.tip" label="common.keywords" required=$keywordsRequired}
 				{fbvElement type="keyword" id="keywords" multilingual=true current=$keywords disabled=$readOnly required=$keywordsRequired}
 			{/fbvFormSection}
 		{/if}
 		{if $agenciesEnabled}
-			{fbvFormSection label="submission.supportingAgencies" required=$agenciesRequired}
+			{fbvFormSection description="submission.submit.metadataForm.tip" label="submission.supportingAgencies" required=$agenciesRequired}
 				{fbvElement type="keyword" id="agencies" multilingual=true current=$agencies disabled=$readOnly required=$agenciesRequired}
 			{/fbvFormSection}
 		{/if}

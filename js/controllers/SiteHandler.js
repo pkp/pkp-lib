@@ -130,8 +130,6 @@
 			function() {
 
 		if (typeof tinyMCE !== 'undefined') {
-			tinyMCE.PluginManager.load('jbimages', $.pkp.app.baseUrl +
-					'/plugins/generic/tinymce/plugins/justboil.me/plugin.js');
 			tinyMCE.PluginManager.load('pkpTags', $.pkp.app.baseUrl +
 					'/plugins/generic/tinymce/plugins/pkpTags/plugin.js');
 			tinyMCE.PluginManager.load('pkpwordcount', $.pkp.app.baseUrl +
@@ -142,17 +140,17 @@
 				resize: 'both',
 				entity_encoding: 'raw',
 				plugins: 'paste,fullscreen,link,lists,code,' +
-						'-jbimages,-pkpTags,noneditable',
+						'-pkpTags,noneditable',
 				convert_urls: false,
 				forced_root_block: 'p',
 				paste_auto_cleanup_on_paste: true,
 				apply_source_formatting: false,
 				theme: 'modern',
 				toolbar: 'copy paste | bold italic underline | link unlink ' +
-						'code fullscreen | jbimages | pkpTags',
+						'code fullscreen | pkpTags',
 				richToolbar: 'copy paste | bold italic underline | bullist numlist | ' +
 						'superscript subscript | link unlink code fullscreen | ' +
-						'jbimages | pkpTags',
+						'pkpTags',
 				statusbar: false,
 				content_css: $.pkp.app.baseUrl +
 						'/plugins/generic/tinymce/styles/content.css'

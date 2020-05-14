@@ -13,8 +13,12 @@
  * @uses $showDatePublished bool Show the date this preprint was published?
  * @uses $hideGalleys bool Hide the preprint galleys for this preprint?
  * @uses $primaryGenreIds array List of file genre ids for primary file types
+ * @uses $heading string HTML heading element, default: h3
  *}
 {assign var=preprintPath value=$preprint->getBestId()}
+{if !$heading}
+	{assign var="heading" value="h2"}
+{/if}
 
 {if (!$section.hideAuthor && $preprint->getHideAuthor() == $smarty.const.AUTHOR_TOC_DEFAULT) || $preprint->getHideAuthor() == $smarty.const.AUTHOR_TOC_SHOW}
 	{assign var="showAuthor" value=true}
@@ -33,7 +37,7 @@
 		</div>
 	{/if}
 
-	<div class="title">
+	<{$heading} class="title">
 		<a id="preprint-{$preprint->getId()}" {if $journal}href="{url journal=$journal->getPath() page="preprint" op="view" path=$preprintPath}"{else}href="{url page="preprint" op="view" path=$preprintPath}"{/if}>
 			{$preprint->getLocalizedTitle()|strip_unsafe_html}
 			{if $preprint->getLocalizedSubtitle()}
@@ -42,7 +46,7 @@
 				</span>
 			{/if}
 		</a>
-	</div>
+	</{$heading}>
 	<div class="meta">
 
 		{if $showAuthor}
@@ -96,7 +100,7 @@
 			</ul>
 		</div>
 		{/if}
-	</div>	
+	</div>  
 
 	{if !$hideGalleys}
 		<ul class="galleys_links">

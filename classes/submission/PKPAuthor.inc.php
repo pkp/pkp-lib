@@ -53,10 +53,21 @@ class PKPAuthor extends Identity {
 	}
 
 	/**
+	 * @copydoc Identity::getLocalizedGivenName()
+	 */
+	function getLocalizedGivenName($defaultLocale = null) {
+		if (!isset($defaultLocale)) $defaultLocale = $this->getSubmissionLocale();
+
+		return parent::getLocalizedGivenName($defaultLocale);
+	}
+
+	/**
 	 * @copydoc Identity::getLocalizedFamilyName()
 	 */
 	function getLocalizedFamilyName($defaultLocale = null) {
-		return parent::getLocalizedFamilyName($this->getSubmissionLocale());
+		if (!isset($defaultLocale)) $defaultLocale = $this->getSubmissionLocale();
+
+		return parent::getLocalizedFamilyName($defaultLocale);
 	}
 
 	/**

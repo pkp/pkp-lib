@@ -28,20 +28,12 @@ define('PLUGIN_UPGRADE_FILE', 'upgrade.xml');
 
 class PluginHelper {
 	/**
-	 * Constructor.
-	 * @param $function string PLUGIN_ACTION_...
-	 */
-	function __construct() {
-	}
-
-	/**
 	 * Extract and validate a plugin (prior to installation)
 	 * @param $filePath string Full path to plugin archive
 	 * @param $originalFileName string Original filename of plugin archive
-	 * @param &$errorMsg string Modified string of error message, if any
-	 * @return string|null Extracted plugin path on success; null on error
+	 * @return string Extracted plugin path
 	 */
-	function extractPlugin($filePath, $originalFileName, &$errorMsg) {
+	public function extractPlugin($filePath, $originalFileName) {
 		$fileManager = new FileManager();
 		// tar archive basename (less potential version number) must
 		// equal plugin directory name and plugin files must be in a
@@ -50,9 +42,7 @@ class PluginHelper {
 		PKPString::regexp_match_get('/^[a-zA-Z0-9]+/', basename($originalFileName, '.tar.gz'), $matches);
 		$pluginShortName = array_pop($matches);
 		if (!$pluginShortName) {
-			$errorMsg = __('manager.plugins.invalidPluginArchive');
-			$fileManager->deleteByPath($filePath);
-			return null;
+			throw new Exception(__('manager.plugins.invalidPluginArchive'));
 		}
 
 		// Create random dirname to avoid symlink attacks.
@@ -61,98 +51,87 @@ class PluginHelper {
 
 		// Test whether the tar binary is available for the export to work
 		$tarBinary = Config::getVar('cli', 'tar');
-		if (!empty($tarBinary) && file_exists($tarBinary)) {
-			$output = '';
-			$returnCode = 0;
-			exec($tarBinary.' -xzf ' . escapeshellarg($filePath) . ' -C ' . escapeshellarg($pluginExtractDir), $output, $returnCode);
-			if ($returnCode) {
-				$errorMsg = __('form.dropzone.dictInvalidFileType');
-			}
-		} else {
-			$errorMsg = __('manager.plugins.tarCommandNotFound');
+		if (empty($tarBinary) || !file_exists($tarBinary)) {
+			rmdir($pluginExtractDir);
+			throw new Exception(__('manager.plugins.tarCommandNotFound'));
 		}
-		$fileManager->deleteByPath($filePath);
 
-		if (empty($errorMsg)) {
-			// Look for a directory named after the plug-in's short
-			// (alphanumeric) name within the extracted archive.
-			if (is_dir($tryDir = $pluginExtractDir . '/' . $pluginShortName)) {
-				return $tryDir; // Success
-			}
-
-			// Failing that, look for a directory named after the
-			// archive. (Typically also contains the version number
-			// e.g. with github generated release archives.)
-			PKPString::regexp_match_get('/^[a-zA-Z0-9.-]+/', basename($originalFileName, '.tar.gz'), $matches);
-			if (is_dir($tryDir = $pluginExtractDir . '/' . array_pop($matches))) {
-				// We found a directory named after the archive
-				// within the extracted archive. (Typically also
-				// contains the version number, e.g. github
-				// generated release archives.)
-				return $tryDir;
-			}
-			$errorMsg = __('manager.plugins.invalidPluginArchive');
+		$output = '';
+		$returnCode = 0;
+		if (in_array('exec', explode(',', ini_get('disable_functions')))) throw new Exception('The "exec" PHP function has been disabled on your server. Contact your system adminstrator to enable it.');
+		exec($tarBinary.' -xzf ' . escapeshellarg($filePath) . ' -C ' . escapeshellarg($pluginExtractDir), $output, $returnCode);
+		if ($returnCode) {
+			$fileManager->rmtree($pluginExtractDir);
+			throw new Exception(__('form.dropzone.dictInvalidFileType'));
 		}
+
+		// Look for a directory named after the plug-in's short
+		// (alphanumeric) name within the extracted archive.
+		if (is_dir($tryDir = $pluginExtractDir . '/' . $pluginShortName)) {
+			return $tryDir; // Success
+		}
+
+		// Failing that, look for a directory named after the
+		// archive. (Typically also contains the version number
+		// e.g. with github generated release archives.)
+		PKPString::regexp_match_get('/^[a-zA-Z0-9.-]+/', basename($originalFileName, '.tar.gz'), $matches);
+		if (is_dir($tryDir = $pluginExtractDir . '/' . array_pop($matches))) {
+			// We found a directory named after the archive
+			// within the extracted archive. (Typically also
+			// contains the version number, e.g. github
+			// generated release archives.)
+			return $tryDir;
+		}
+
+		// Could not match the plugin archive's contents against our expectations; error out.
 		$fileManager->rmtree($pluginExtractDir);
-		return null;
+		throw new Exception(__('manager.plugins.invalidPluginArchive'));
 	}
 
 	/**
 	 * Installs an extracted plugin
 	 * @param $path string path to plugin Directory
-	 * @param $errorMsg string Reference to string receiving error message
-	 * @return Version|null Version of installed plugin on success
+	 * @return Version Version of installed plugin on success
 	 */
-	function installPlugin($path, &$errorMsg) {
+	public function installPlugin($path) {
 		$versionFile = $path . '/' . PLUGIN_VERSION_FILE;
 
-		$pluginVersion = VersionCheck::getValidPluginVersionInfo($versionFile, $errorMsg);
-		if (!$pluginVersion) return null;
+		$pluginVersion = VersionCheck::getValidPluginVersionInfo($versionFile);
 
-		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /** @var $versionDao VersionDAO */
 		$installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct(), true);
 		$pluginDest = Core::getBaseDir() . '/' . strtr($pluginVersion->getProductType(), '.', '/') . '/' . $pluginVersion->getProduct();
 
-		$fileManager = new FileManager();
-		if (!$installedPlugin || !file_exists($pluginDest)) {
-			$pluginLibDest = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/' . strtr($pluginVersion->getProductType(), '.', '/') . '/' . $pluginVersion->getProduct();
-
-			// Copy the plug-in from the temporary folder to the
-			// target folder.
-			if (!$this->_cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, $errorMsg, $fileManager)) {
-				return null;
-			}
-
-			// Upgrade the database with the new plug-in.
-			$installFile = $pluginDest . '/' . PLUGIN_INSTALL_FILE;
-			if(!is_file($installFile)) $installFile = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/xml/defaultPluginInstall.xml';
-			assert(is_file($installFile));
-			$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
-			$site = $siteDao->getSite();
-			$params = $this->_getConnectionParams();
-			$params['locale'] = $site->getPrimaryLocale();
-			$params['additionalLocales'] = $site->getSupportedLocales();
-			$installer = new Install($params, $installFile, true);
-			$installer->setCurrentVersion($pluginVersion);
-			if (!$installer->execute()) {
-				// Roll back the copy
-				if (is_dir($pluginLibDest)) $fileManager->rmtree($pluginLibDest);
-				if (is_dir($pluginDest)) $fileManager->rmtree($pluginDest);
-				$errorMsg = __('manager.plugins.installFailed', array('errorString' => $installer->getErrorString()));
-				return null;
-			}
-
-			$versionDao->insertVersion($pluginVersion, true);
-			return $pluginVersion;
-		} else {
+		if ($installedPlugin && file_exists($pluginDest)) {
 			if ($this->_checkIfNewer($pluginVersion->getProductType(), $pluginVersion->getProduct(), $pluginVersion)) {
-				$errorMsg = __('manager.plugins.pleaseUpgrade');
+				throw new Exception(__('manager.plugins.pleaseUpgrade'));
 			} else {
-				$errorMsg = __('manager.plugins.installedVersionOlder');
+				throw new Exception(__('manager.plugins.installedVersionOlder'));
 			}
-			$fileManager->rmtree(dirname($path));
 		}
-		return null;
+
+		// Copy the plug-in from the temporary folder to the target folder.
+		if (!rename($path, $pluginDest)) throw new Exception('Could not move plugin to desination!');
+
+		// Upgrade the database with the new plug-in.
+		$installFile = $pluginDest . '/' . PLUGIN_INSTALL_FILE;
+		if(!is_file($installFile)) $installFile = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/xml/defaultPluginInstall.xml';
+		assert(is_file($installFile));
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /** @var $siteDao SiteDAO */
+		$site = $siteDao->getSite();
+		$params = $this->_getConnectionParams();
+		$params['locale'] = $site->getPrimaryLocale();
+		$params['additionalLocales'] = $site->getSupportedLocales();
+		$installer = new Install($params, $installFile, true);
+		$installer->setCurrentVersion($pluginVersion);
+		if (!$installer->execute()) {
+			// Roll back the copy
+			if (is_dir($pluginDest)) $fileManager->rmtree($pluginDest);
+			throw new Exception(__('manager.plugins.installFailed', array('errorString' => $installer->getErrorString())));
+		}
+
+		$versionDao->insertVersion($pluginVersion, true);
+		return $pluginVersion;
 	}
 
 	/**
@@ -162,8 +141,8 @@ class PluginHelper {
 	 * @param $newVersion Version Version object of plugin to check against database
 	 * @return boolean
 	 */
-	function _checkIfNewer($productType, $productName, $newVersion) {
-		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
+	protected function _checkIfNewer($productType, $productName, $newVersion) {
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /** @var $versionDao VersionDAO */
 		$installedPlugin = $versionDao->getCurrentVersion($productType, $productName, true);
 		if ($installedPlugin && $installedPlugin->compare($newVersion) > 0) return true;
 		return false;
@@ -173,7 +152,7 @@ class PluginHelper {
 	 * Load database connection parameters into an array (needed for upgrade).
 	 * @return array
 	 */
-	function _getConnectionParams() {
+	protected function _getConnectionParams() {
 		return array(
 			'clientCharset' => Config::getVar('i18n', 'client_charset'),
 			'connectionCharset' => Config::getVar('i18n', 'connection_charset'),
@@ -190,124 +169,62 @@ class PluginHelper {
 	 * @param $category string
 	 * @param $plugin string
 	 * @param $path string path to plugin Directory
-	 * @return Version|null The upgraded version, on success; null on fail
+	 * @return Version
 	 */
-	function upgradePlugin($category, $plugin, $path, &$errorMsg) {
+	public function upgradePlugin($category, $plugin, $path) {
 		$fileManager = new FileManager();
 
 		$versionFile = $path . '/' . PLUGIN_VERSION_FILE;
-		$pluginVersion = VersionCheck::getValidPluginVersionInfo($versionFile, $errorMsg);
-		if (!$pluginVersion) return null;
+		$pluginVersion = VersionCheck::getValidPluginVersionInfo($versionFile);
 
 		// Check whether the uploaded plug-in fits the original plug-in.
 		if ('plugins.'.$category != $pluginVersion->getProductType()) {
-			$errorMsg = __('manager.plugins.wrongCategory');
-			$fileManager->rmtree(dirname($path));
-			return null;
+			throw new Exception(__('manager.plugins.wrongCategory'));
 		}
 
 		if ($plugin != $pluginVersion->getProduct()) {
-			$errorMsg = __('manager.plugins.wrongName');
-			$fileManager->rmtree(dirname($path));
-			return null;
+			throw new Exception(__('manager.plugins.wrongName'));
 		}
 
-		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /** @var $versionDao VersionDAO */
 		$installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct(), true);
 		if(!$installedPlugin) {
-			$errorMsg = __('manager.plugins.pleaseInstall');
-			$fileManager->rmtree(dirname($path));
-			return null;
+			throw new Exception(__('manager.plugins.pleaseInstall'));
 		}
 
 		if ($this->_checkIfNewer($pluginVersion->getProductType(), $pluginVersion->getProduct(), $pluginVersion)) {
-			$errorMsg = __('manager.plugins.installedVersionNewer');
-			$fileManager->rmtree(dirname($path));
-			return null;
-		} else {
-			$pluginDest = Core::getBaseDir() . '/plugins/' . $category . '/' . $plugin;
-			$pluginLibDest = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/plugins/' . $category . '/' . $plugin;
-
-			// Delete existing files.
-			if (is_dir($pluginDest)) $fileManager->rmtree($pluginDest);
-			if (is_dir($pluginLibDest)) $fileManager->rmtree($pluginLibDest);
-
-			// Check whether deleting has worked.
-			if(is_dir($pluginDest) || is_dir($pluginLibDest)) {
-				$errorMsg = __('manager.plugins.deleteError', array('pluginName' => $pluginVersion->getProduct()));
-				$fileManager->rmtree(dirname($path));
-				return null;
-			}
-
-			// Copy the plug-in from the temporary folder to the
-			// target folder.
-			if (!$this->_cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, $errorMsg, $fileManager)) {
-				return null;
-			}
-
-			$upgradeFile = $pluginDest . '/' . PLUGIN_UPGRADE_FILE;
-			if($fileManager->fileExists($upgradeFile)) {
-				$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
-				$site = $siteDao->getSite();
-				$params = $this->_getConnectionParams();
-				$params['locale'] = $site->getPrimaryLocale();
-				$params['additionalLocales'] = $site->getSupportedLocales();
-				$installer = new Upgrade($params, $upgradeFile, true);
-
-				if (!$installer->execute()) {
-					$errorMsg = __('manager.plugins.upgradeFailed', array('errorString' => $installer->getErrorString()));
-					return null;
-				}
-			}
-
-			$installedPlugin->setCurrent(0);
-			$pluginVersion->setCurrent(1);
-			$versionDao->insertVersion($pluginVersion, true);
-			return $pluginVersion;
-		}
-	}
-
-	/**
-	 * Cut and paste plugin from temporary files to its actual place.
-	 * @param $path string Path of temporary files
-	 * @param $pluginDest string Path of application-specific part (mandatory)
-	 * @param $pluginLibDest string path of library part (if any)
-	 * @param $errorMsg string Error message
-	 * @param $fileManager FileManager Manager to manage files. Will be created if not specified.
-	 * @return boolean Was it successful
-	 */
-	function _cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, &$errorMsg, $fileManager = null) {
-		if (!isset($fileManager)) {
-			$fileManager = new FileManager();
-		}
-		// Start with the library part (if any).
-		$libPath = $path . '/lib';
-		if (is_dir($libPath)) {
-			if (!$this->_cutAndPasteDir($fileManager, $libPath, $pluginLibDest)) {
-				$errorMsg = __('manager.plugins.copyError');
-				return false;
-			}
+			throw new Exception(__('manager.plugins.installedVersionNewer'));
 		}
 
-		// Continue with the application-specific part (mandatory)
-		if (!$this->_cutAndPasteDir($fileManager, $path, $pluginDest)) {
-			$errorMsg = __('manager.plugins.copyError');
-			return false;
-		}
-		return true;
-	}
+		$pluginDest = Core::getBaseDir() . '/plugins/' . $category . '/' . $plugin;
 
-	/**
-	 * Cuts and pastes source to target.
-	 * @param $manager FileManager The file manager to use
-	 * @param $src string The source directory
-	 * @param $trg string The target directory
-	 * @return boolean Was it successful
-	 */
-	function _cutAndPasteDir($manager, $src, $trg) {
-		$copySuccess = $manager->copyDir($src, $trg);
-		$manager->rmtree(dirname($src));
-		return $copySuccess;
+		// Delete existing files.
+		if (is_dir($pluginDest)) $fileManager->rmtree($pluginDest);
+
+		// Check whether deleting has worked.
+		if(is_dir($pluginDest)) {
+			throw new Exception(__('manager.plugins.deleteError', array('pluginName' => $pluginVersion->getProduct())));
+		}
+
+		// Copy the plug-in from the temporary folder to the target folder.
+		if (!rename($path, $pluginDest)) throw new Exception('Could not move plugin to desination!');
+
+		$upgradeFile = $pluginDest . '/' . PLUGIN_UPGRADE_FILE;
+		if($fileManager->fileExists($upgradeFile)) {
+			$siteDao = DAORegistry::getDAO('SiteDAO'); /** @var $siteDao SiteDAO */
+			$site = $siteDao->getSite();
+			$params = $this->_getConnectionParams();
+			$params['locale'] = $site->getPrimaryLocale();
+			$params['additionalLocales'] = $site->getSupportedLocales();
+			$installer = new Upgrade($params, $upgradeFile, true);
+
+			if (!$installer->execute()) throw new Exception(__('manager.plugins.upgradeFailed', array('errorString' => $installer->getErrorString())));
+		}
+
+		$installedPlugin->setCurrent(0);
+		$pluginVersion->setCurrent(1);
+		$versionDao->insertVersion($pluginVersion, true);
+		return $pluginVersion;
 	}
 }
 

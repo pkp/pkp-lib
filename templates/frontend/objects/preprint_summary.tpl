@@ -13,7 +13,7 @@
  * @uses $showDatePublished bool Show the date this preprint was published?
  * @uses $hideGalleys bool Hide the preprint galleys for this preprint?
  * @uses $primaryGenreIds array List of file genre ids for primary file types
- * @uses $heading string HTML heading element, default: h3
+ * @uses $heading string HTML heading element, default: h2
  *}
 {assign var=preprintPath value=$preprint->getBestId()}
 {if !$heading}

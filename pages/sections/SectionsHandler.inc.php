@@ -1,24 +1,24 @@
 <?php
 
 /**
- * @file pages/series/SeriesHandler.inc.php
+ * @file pages/sections/SeriesHandler.inc.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class SeriesHandler
- * @ingroup pages_series
+ * @class SectionsHandler
+ * @ingroup pages_sections
  *
- * @brief Handle requests for series functions.
+ * @brief Handle requests for sections functions.
  *
  */
 
 import('classes.handler.Handler');
 
-class SeriesHandler extends Handler {
-	/** series associated with the request **/
-	var $series;
+class SectionsHandler extends Handler {
+	/** sections associated with the request **/
+	var $sections;
 
 	/**
 	 * @copydoc PKPHandler::authorize()
@@ -35,10 +35,10 @@ class SeriesHandler extends Handler {
 	}
 
 	/**
-	 * View a series
+	 * View a section
 	 *
 	 * @param $args array [
-	 *		@option string Series ID
+	 *		@option string Section ID
 	 *		@option string page number
  	 * ]
 	 * @param $request PKPRequest
@@ -119,7 +119,7 @@ class SeriesHandler extends Handler {
 			'prevPage' => $prevPage,
 		));
 
-		$templateMgr->display('frontend/pages/series.tpl');
+		$templateMgr->display('frontend/pages/sections.tpl');
 
 	}
 

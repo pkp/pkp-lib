@@ -46,9 +46,13 @@ class IndexHandler extends PKPIndexHandler {
 		$templateMgr = TemplateManager::getManager($request);
 		if ($journal) {
 
-			// OPS: Series
-			$sectionDao = DAORegistry::getDAO('SectionDAO');
-			$series = $sectionDao->getByContextId($journal->getId());
+			// OPS: sections
+			$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
+			$sections = $sectionDao->getByContextId($journal->getId());
+
+			// OPS: categories
+			$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
+			$categories = $categoryDao->getByContextId($journal->getId());			
 
 			// Latest preprints
 			import('classes.submission.Submission');
@@ -66,7 +70,8 @@ class IndexHandler extends PKPIndexHandler {
 				'homepageImage' => $journal->getLocalizedData('homepageImage'),
 				'homepageImageAltText' => $journal->getLocalizedData('homepageImageAltText'),
 				'journalDescription' => $journal->getLocalizedData('description'),
-				'series' => $series,
+				'sections' => $sections,
+				'categories' => $categories,
 				'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true),
 				'publishedSubmissions' => $publishedSubmissions,
 			));

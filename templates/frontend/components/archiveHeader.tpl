@@ -14,14 +14,14 @@
 		{include file="frontend/components/searchForm_archive.tpl" className="pkp_search_desktop"}
 	</section>
 
-	{* Series listing *}
-	<section class="archiveHeader_series">
-	<ul class="series_listing">
-		{if $series && $series->getCount()}
-			{iterate from=series item=serie}
-				<li class="series_{$serie->getPath()|escape}">
-					<a href="{url router=$smarty.const.ROUTE_PAGE page="series" op="view" path=$serie->getPath()|escape}">
-						{$serie->getLocalizedTitle()|escape}
+	{* Categories listing *}
+	<section class="archiveHeader_categories">
+	<ul class="categories_listing">
+		{if $categories}
+			{iterate from=categories item=category}
+				<li class="category_{$category->getPath()|escape}">
+					<a href="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|escape}">
+						{$category->getLocalizedTitle()|escape}
 					</a>
 				</li>
 			{/iterate}

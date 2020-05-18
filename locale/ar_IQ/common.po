@@ -1209,6 +1209,7 @@ msgstr "هذا المشارك يُسمح له فقط بتقديم التوصية
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "صلاحيات تعديل البيانات الوصفية لطلب التقديم."
 
+#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr "السماح لهذا المستخدم بتعديل البيانات الوصفية لطلب التقديم"
 

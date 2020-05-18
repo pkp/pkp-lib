@@ -1213,6 +1213,7 @@ msgstr "Этому участнику разрешено только реком
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Разрешение на редактирование метаданных материала"
 
+#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr "Разрешить изменять метаданные материала этому пользователю."
 

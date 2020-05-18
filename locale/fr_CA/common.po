@@ -1221,6 +1221,7 @@ msgstr "Ce(cette) participant-e est uniquement autorisé-e à recommander une d�
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Autorisation de modifications aux métadonnées de la soumission."
 
+#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr "Autoriser cet utilisateur-trice à apporter des modifications aux métadonnées de la soumission."
 

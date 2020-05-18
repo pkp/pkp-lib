@@ -1792,6 +1792,7 @@ msgstr "Pri tem sodelujočem spremembe niso možne"
 msgid "stageParticipants.selectedUser"
 msgstr "Sodelujoči"
 
+#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr "Dovolite tej osebi, da spreminja podrobnosti objave."
 

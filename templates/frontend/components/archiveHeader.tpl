@@ -17,13 +17,15 @@
 	{* Categories listing *}
 	<section class="archiveHeader_categories">
 	<ul class="categories_listing">
-		{if $categories}
+		{if $categories && $categories->getCount()}
 			{iterate from=categories item=category}
-				<li class="category_{$category->getPath()|escape}">
-					<a href="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|escape}">
-						{$category->getLocalizedTitle()|escape}
-					</a>
-				</li>
+				{if !$category->getParentId()}
+					<li class="category_{$category->getPath()|escape}">
+						<a href="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|escape}">
+							{$category->getLocalizedTitle()|escape}
+						</a>
+					</li>
+				{/if}
 			{/iterate}
 		{/if}
 	</ul>

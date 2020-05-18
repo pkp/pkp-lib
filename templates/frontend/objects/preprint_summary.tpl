@@ -75,22 +75,6 @@
 			{/if}
 		{/foreach}
 
-		{if $preprint->getDatePublished()}
-			<div class="published">
-				{translate key="submission.dates" submitted=$preprint->getDateSubmitted()|date_format:$dateFormatShort published=$preprint->getDatePublished()|date_format:$dateFormatShort}
-			</div>
-		{/if}
-
-		<div class="downloads">
-			{translate key="publication.galley.downloads" downloads=$preprint->getTotalGalleyViews($primaryGenreIds)}
-		</div>
-
-		{if count($preprint->getPublishedPublications()) > 1}
-			<div class="versions">
-				{translate key="submission.numberOfVersions" numberOfVersions=count($preprint->getPublishedPublications())}
-			</div>
-		{/if}
-
 		{if !empty($preprint->getCurrentPublication()->getLocalizedData('keywords'))}
 		<div class="keywords">
 			<ul class="keyword_links">
@@ -100,7 +84,19 @@
 			</ul>
 		</div>
 		{/if}
-	</div>  
+
+		<div class="details">
+				{translate key="publication.galley.downloads" downloads=$preprint->getTotalGalleyViews($primaryGenreIds)}
+				{if $preprint->getDatePublished()}
+					<span class="details_divider">-</span>
+					{translate key="submission.dates" submitted=$preprint->getDateSubmitted()|date_format:$dateFormatShort published=$preprint->getDatePublished()|date_format:$dateFormatShort}
+				{/if}
+				{if count($preprint->getPublishedPublications()) > 1}
+					<span class="details_divider">-</span>
+					{translate key="submission.numberOfVersions" numberOfVersions=count($preprint->getPublishedPublications())}
+				{/if}
+		</div>
+	</div>
 
 	{if !$hideGalleys}
 		<ul class="galleys_links">

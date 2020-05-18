@@ -15,7 +15,7 @@ describe('Data suite tests', function() {
 		cy.get('div[id=contextGridContainer]').find('a').contains('Create').click();
 
 		// Fill in various details
-		cy.wait(1000); // https://github.com/tinymce/tinymce/issues/4355
+		cy.wait(2000); // https://github.com/tinymce/tinymce/issues/4355
 		cy.get('div[id=editContext]').find('button[label="Français (Canada)"]').click();
 		cy.get('input[name="name-fr_CA"]').type(Cypress.env('contextTitles')['fr_CA'], {delay: 0});
 		cy.get('button').contains('Save').click()

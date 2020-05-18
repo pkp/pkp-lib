@@ -54,6 +54,7 @@
  * @uses $firstPublication Publication The first published version of this article
  * @uses $currentPublication Publication The most recently published version of this article
  * @uses $section Section The journal section this preprint is assigned to
+ * @uses $categories array Category titles and paths the preprint is assigned to
  * @uses $primaryGalleys array List of preprint galleys that are not supplementary or dependent
  * @uses $supplementaryGalleys array List of preprint galleys that are supplementary
  * @uses $keywords array List of keywords assigned to this preprint
@@ -330,6 +331,26 @@
 			</div>
 			{/if}
 
+			{* Categories preprint appears in *}
+			<div class="item categories">
+				{if $categories}
+					<section class="sub_item">
+						<h2 class="label">
+							{translate key="category.categories"}
+						</h2>
+						<ul class="value">
+							{foreach from=$categories item=category}
+								<li class="category_{$category.path}">
+									<a href="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$category.path|escape}">
+										{$category.title|escape}
+									</a>
+								</li>
+							{/foreach}
+						</ul>
+					</section>
+				{/if}
+			</div>
+
 			{* How to cite *}
 			{if $citation}
 				<div class="item citation">
@@ -381,20 +402,6 @@
 					</section>
 				</div>
 			{/if}
-
-			{* Section preprint appears in *}
-			<div class="item section">
-				{if $section}
-					<section class="sub_item">
-						<h2 class="label">
-							{translate key="section.section"}
-						</h2>
-						<div class="value">
-							{$section->getLocalizedTitle()|escape}
-						</div>
-					</section>
-				{/if}
-			</div>
 
 			{* PubIds (requires plugins) *}
 			{foreach from=$pubIdPlugins item=pubIdPlugin}

@@ -10,10 +10,17 @@
  */
 .obj_galley_link {
 	&:extend(.cmp_button_wire);
+	font-size: 1.1em;
+	padding: 0.25em 1em;
+	font-weight: @bold;
+	background: @primary;
+	color: #fff;
 
 	&:hover,
 	&:focus {
 		&:extend(.cmp_button_wire:hover);
+		background: #fff;
+		color: @text;
 	}
 
 	&:before {
@@ -27,9 +34,6 @@
 	}
 
 	&.restricted {
-		border-color: @offset;
-		color: @offset;
-
 		&:before {
 			.fa();
 			content: @fa-var-lock;

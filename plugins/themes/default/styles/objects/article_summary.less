@@ -10,6 +10,7 @@
  */
 .obj_article_summary {
 	.pkp_helpers_clear();
+	margin-bottom: 2em;
 
 	.cover {
 		display: block;
@@ -43,34 +44,50 @@
 		color: @text-light;
 	}
 
+	.doi {
+		color: @text-light;
+		margin-top: @base;
+	}
+
 	.meta {
 		position: relative;
 		padding-top: @half;
 		font-size: @font-sml;
 		line-height: @double;
+
+		.authors{
+			font-size: @font-base;
+		}
+
+		.details{
+			color: @text-light;
+			margin-top: @base;
+	
+			.details_divider{
+				color: @text-light;
+				margin-left: 0.5em;
+				margin-right: 0.5em;		
+			}
+		}
 	}
 
-	.authors{
-		font-size: @font-base;
-	}
+	.keywords{
+		margin-top: @base;
+		.keyword_links {
+			&:extend(.pkp_unstyled_list);
 
-	.published, .downloads, .versions, .keywords, .doi {
-		color: @text-light;
-	}
+			li {
+				display: inline-block;
+				margin: 0 0.5em 0.5em 0;
+				border: 1px solid;
+				border-radius: 1.2em;
+				padding-left: 1em;
+				padding-right: 1em;
+				color: @text;				
 
-	.keyword_links {
-		&:extend(.pkp_unstyled_list);
-
-		li {
-			display: inline-block;
-			margin-right: 0.5em;
-			padding: 2px 4px 2px 4px;
-			border: 1px solid @text-light;
-			border-radius: @radius;
-			line-height: @double;
-
-			&:last-child {
-				margin-right: 0;
+				&:last-child {
+					margin-right: 0;
+				}
 			}
 		}
 	}

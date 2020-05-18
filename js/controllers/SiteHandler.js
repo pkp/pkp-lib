@@ -139,17 +139,38 @@
 				width: '100%',
 				resize: 'both',
 				entity_encoding: 'raw',
-				plugins: 'paste,fullscreen,link,lists,code,' +
+				plugins: 'paste,fullscreen,link,lists,code,image,' +
 						'-pkpTags,noneditable',
 				convert_urls: false,
 				forced_root_block: 'p',
+				// See: https://www.tiny.cloud/docs/general-configuration-guide/upload-images/#rollingyourimagehandler
+				images_upload_handler(blobInfo, success, failure) {
+					const data = new FormData();
+					data.append('file', blobInfo.blob(), blobInfo.filename());
+					$.ajax({
+						method: 'POST',
+						url: $.pkp.app.publicFileApiUrl,
+						data: data,
+						processData: false,
+						contentType: false,
+						headers: {
+							'X-Csrf-Token': $.pkp.currentUser.csrfToken
+						},
+						success(r) {
+							success(r.url);
+						},
+						error(r) {
+							failure(r.responseJSON.errorMessage);
+						}
+					});
+				},
 				paste_auto_cleanup_on_paste: true,
 				apply_source_formatting: false,
 				theme: 'modern',
-				toolbar: 'copy paste | bold italic underline | link unlink ' +
+				toolbar: 'copy paste | bold italic underline | link unlink | image | ' +
 						'code fullscreen | pkpTags',
 				richToolbar: 'copy paste | bold italic underline | bullist numlist | ' +
-						'superscript subscript | link unlink code fullscreen | ' +
+						'superscript subscript | image | link unlink code fullscreen | ' +
 						'pkpTags',
 				statusbar: false,
 				content_css: $.pkp.app.baseUrl +

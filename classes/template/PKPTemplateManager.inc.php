@@ -687,6 +687,7 @@ class PKPTemplateManager extends Smarty {
 			'apiBasePath' => '/api/v1',
 			'pathInfoEnabled' => Config::getVar('general', 'disable_path_info') ? false : true,
 			'restfulUrlsEnabled' => Config::getVar('general', 'restful_urls') ? true : false,
+			'publicFileApiUrl' => isset($context) ? $this->_request->getDispatcher()->url($this->_request, ROUTE_API, $context->getPath(), '_uploadPublicFile') : '',
 		);
 		$output .= '$.pkp.app = ' . json_encode($app_data) . ';';
 

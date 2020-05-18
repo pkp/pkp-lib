@@ -401,6 +401,9 @@ msgstr "My Authored"
 msgid "submission.addFile"
 msgstr "Upload File"
 
+msgid "submission.additionalFiles"
+msgstr "Additional Files"
+
 msgid "submission.agencies"
 msgstr "Agencies"
 
@@ -508,6 +511,9 @@ msgstr "Coverage Information"
 
 msgid "submission.done"
 msgstr "Done"
+
+msgid "submission.downloads"
+msgstr "Downloads"
 
 msgid "submission.dueDate"
 msgstr "Due Date"

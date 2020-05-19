@@ -19,7 +19,6 @@ describe('Data suite tests', function() {
 		});
 
 		cy.createSubmission({
-			'section': 'Preprints',
 			title,
 			'abstract': 'In this review, the recent progress on genetic transformation of forest trees were discussed. Its described also, different applications of genetic engineering for improving forest trees or understanding the mechanisms governing genes expression in woody plants.',
 		});

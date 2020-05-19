@@ -19,7 +19,6 @@ describe('Data suite tests', function() {
 		});
 
 		cy.createSubmission({
-			'section': 'Reviews',
 			title,
 			'abstract': 'None.',
 		});

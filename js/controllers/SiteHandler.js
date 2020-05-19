@@ -144,8 +144,8 @@
 				convert_urls: false,
 				forced_root_block: 'p',
 				// See: https://www.tiny.cloud/docs/general-configuration-guide/upload-images/#rollingyourimagehandler
-				images_upload_handler(blobInfo, success, failure) {
-					const data = new FormData();
+				images_upload_handler: function(blobInfo, success, failure) {
+					var data = new FormData();
 					data.append('file', blobInfo.blob(), blobInfo.filename());
 					$.ajax({
 						method: 'POST',
@@ -156,10 +156,10 @@
 						headers: {
 							'X-Csrf-Token': $.pkp.currentUser.csrfToken
 						},
-						success(r) {
+						success: function(r) {
 							success(r.url);
 						},
-						error(r) {
+						error: function(r) {
 							failure(r.responseJSON.errorMessage);
 						}
 					});

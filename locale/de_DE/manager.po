@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2020-05-15 12:38+0000\n"
-"Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
+"PO-Revision-Date: 2020-05-20 12:38+0000\n"
+"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de/>\n"
 "Language: de_DE\n"
@@ -684,9 +684,8 @@ msgstr "Hauptkontakt"
 msgid "manager.setup.principalContactDescription"
 msgstr "Geben Sie Kontaktinformationen, üblicherweise für eine Hauptredaktion, Redaktionsleitung oder Redaktionsbüro, an, die auf Ihrer öffentlich zugänglichen Webseite angezeigt werden können."
 
-#, fuzzy
 msgid "manager.setup.privacyStatement"
-msgstr "Erklärung zum Schutz personenbezogener Daten"
+msgstr "Schutz personenbezogener Daten"
 
 msgid "manager.setup.privacyStatement.description"
 msgstr "Diese Erklärung wird während der Registrierung neuer Nutzer/innen, bei Autor/inneneinreichungen und auf der öffentlichen Seite zum Datenschutz angezeigt. In manchen Staaten sind Sie rechtlich verpflichtet, in dieser Erklärung anzugeben, wie Sie mit den Daten der Nutzer/innen verfahren."
@@ -1497,11 +1496,9 @@ msgstr "Dieser Link wird nur angezeigt, wenn die Besucherin/der Besucher eingelo
 msgid "manager.navigationMenus.search.description"
 msgstr "Link zur Suchseite."
 
-#, fuzzy
 msgid "manager.navigationMenus.privacyStatement.description"
 msgstr "Link zu der Seite mit der Erklärung zum Schutz personenbezogener Daten."
 
-#, fuzzy
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr ""
 "Dieser Link wird nur angezeigt, wenn Sie eine Erklärung zum Schutz "

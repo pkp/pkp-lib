@@ -137,52 +137,33 @@ class VersionCheck {
 	/**
 	 * Checks whether the given version file exists and whether it
 	 * contains valid data. Returns a Version object if everything
-	 * is ok, otherwise null. If $returnErroMsg is true, returns the
-	 * error message.
-	 *
+	 * is ok, otherwise throws an Exception.
 	 * @param $versionFile string
-	 * @param $returnErrorMesg boolean
-	 * @return Version or null/string if invalid or missing version file
+	 * @return Version
 	 */
-	static function getValidPluginVersionInfo($versionFile, $returnErrorMsg = false) {
-		$errorMsg = null;
+	static function getValidPluginVersionInfo($versionFile) {
 		$fileManager = new FileManager();
 		if ($fileManager->fileExists($versionFile)) {
 			$versionInfo = self::parseVersionXML($versionFile);
 		} else {
-			$errorMsg = 'manager.plugins.versionFileNotFound';
+			throw new Exception(__('manager.plugins.versionFileNotFound'));
 		}
 
 		// Validate plugin name and type to avoid abuse
-		if (is_null($errorMsg)) {
-			$productType = explode(".", $versionInfo['type']);
-			if(count($productType) != 2 || $productType[0] != 'plugins') {
-				$errorMsg = 'manager.plugins.versionFileInvalid';
+		$productType = explode(".", $versionInfo['type']);
+		if(count($productType) != 2 || $productType[0] != 'plugins') {
+			throw new Exception(__('manager.plugins.versionFileInvalid'));
+		}
+
+		$pluginVersion = $versionInfo['version'];
+		$namesToValidate = array($pluginVersion->getProduct(), $productType[1]);
+		foreach($namesToValidate as $nameToValidate) {
+			if (!PKPString::regexp_match('/[a-z][a-zA-Z0-9]+/', $nameToValidate)) {
+				throw new Exception(__('manager.plugins.versionFileInvalid'));
 			}
 		}
 
-		if (is_null($errorMsg)) {
-			$pluginVersion = $versionInfo['version'];
-			$namesToValidate = array($pluginVersion->getProduct(), $productType[1]);
-			foreach($namesToValidate as $nameToValidate) {
-				if (!PKPString::regexp_match('/[a-z][a-zA-Z0-9]+/', $nameToValidate)) {
-					$errorMsg = 'manager.plugins.versionFileInvalid';
-					break;
-				}
-			}
-		}
-
-		if ($errorMsg) {
-			if ($returnErrorMsg) {
-				return $errorMsg;
-			} else {
-				$templateMgr = TemplateManager::getManager();
-				$templateMgr->assign('message', $errorMsg);
-				return null;
-			}
-		} else {
-			return $pluginVersion;
-		}
+		return $pluginVersion;
 	}
 
 	/**

@@ -301,12 +301,12 @@ abstract class FileLoader extends ScheduledTask {
 
 		if (pathinfo($processingFilePath, PATHINFO_EXTENSION) == 'gz') {
 			$fileMgr = new FileManager();
-			$errorMsg = null;
-			if ($processingFilePath = $fileMgr->decompressFile($processingFilePath, $errorMsg)) {
+			try {
+				$processingFilePath = $fileMgr->decompressFile($processingFilePath);
 				$filename = pathinfo($processingFilePath, PATHINFO_BASENAME);
-			} else {
+			} catch (Exception $e) {
 				$this->moveFile($this->_processingPath, $this->_stagePath, $filename);
-				$this->addExecutionLogEntry($errorMsg, SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
+				$this->addExecutionLogEntry($e->getMessage(), SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
 				return false;
 			}
 		}
@@ -331,16 +331,15 @@ abstract class FileLoader extends ScheduledTask {
 	 */
 	private function _archiveFile() {
 		$this->moveFile($this->_processingPath, $this->_archivePath, $this->_claimedFilename);
-		$filePath = $this->_archivePath . DIRECTORY_SEPARATOR . $this->_claimedFilename;
-		$returner = true;
 		if ($this->getCompressArchives()) {
-			$fileMgr = new FileManager();
-			$errorMsg = null;
-			if (!$returner = $fileMgr->compressFile($filePath, $errorMsg)) {
-				$this->addExecutionLogEntry($errorMsg, SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
+			try {
+				$fileMgr = new FileManager();
+				$filePath = $this->_archivePath . DIRECTORY_SEPARATOR . $this->_claimedFilename;
+				$fileMgr->compressFile($filePath);
+			} catch (Exception $e) {
+				$this->addExecutionLogEntry($e->getMessage(), SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
 			}
 		}
-		return $returner;
 	}
 
 	/**

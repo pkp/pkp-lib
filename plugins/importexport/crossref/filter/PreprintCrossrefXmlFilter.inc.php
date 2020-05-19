@@ -160,7 +160,7 @@ class PreprintCrossrefXmlFilter extends NativeExportFilter {
 
 			// Check if both givenName and familyName is set for the submission language.
 			if (isset($familyNames[$locale]) && isset($givenNames[$locale])) {
-				$personNameNode->setAttribute('language', $this->getIso639LanguageFromLanguageCode($locale));
+				$personNameNode->setAttribute('language', PKPLocale::getIso1FromLocale($locale));
 				$personNameNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'given_name', htmlspecialchars(ucfirst($givenNames[$locale]), ENT_COMPAT, 'UTF-8')));
 				$personNameNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'surname', htmlspecialchars(ucfirst($familyNames[$locale]), ENT_COMPAT, 'UTF-8')));
 
@@ -175,7 +175,7 @@ class PreprintCrossrefXmlFilter extends NativeExportFilter {
 						}
 
 						$nameNode = $doc->createElementNS($deployment->getNamespace(), 'name');
-						$nameNode->setAttribute('language', $this->getIso639LanguageFromLanguageCode($otherLocal));
+						$nameNode->setAttribute('language', PKPLocale::getIso1FromLocale($otherLocal));
 
 						$nameNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'surname', htmlspecialchars(ucfirst($familyName), ENT_COMPAT, 'UTF-8')));
 						if (isset($givenNames[$otherLocal]) && !empty($givenNames[$otherLocal])) {
@@ -280,27 +280,6 @@ class PreprintCrossrefXmlFilter extends NativeExportFilter {
 		$relationsDataNode->appendChild($relatedItemNode);
 
 		return $relationsDataNode;
-	}
-
-	/**
-	 * Get's the Iso639 representation of the language code that 
-	 * localised parameters are using. For example if en_US is entered
-	 * then en is returned
-	 * 
-	 * @var string $languageCode It is the code that localised parameters are using
-	 * @return string|null the ISO 639 code
-	 */
-	function getIso639LanguageFromLanguageCode($languageCode) {
-		if (is_null($languageCode)) {
-			return null;
-		}
-
-		$languageCodeParts = explode('_', $languageCode);
-		if (count($languageCodeParts) == 2) {
-			return $languageCodeParts[0];
-		}
-
-		return $languageCode;
 	}
 }
 

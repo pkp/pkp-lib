@@ -405,6 +405,9 @@ msgstr "С моим авторством"
 msgid "submission.addFile"
 msgstr "Загрузить файл"
 
+msgid "submission.additionalFiles"
+msgstr "Дополнительные файлы"
+
 msgid "submission.agencies"
 msgstr "Организации"
 
@@ -512,6 +515,9 @@ msgstr "Информация об охвате"
 
 msgid "submission.done"
 msgstr "Готово"
+
+msgid "submission.downloads"
+msgstr "Загрузки"
 
 msgid "submission.dueDate"
 msgstr "Срок выполнения"

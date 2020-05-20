@@ -126,8 +126,8 @@ class PKPNotificationManagerTest extends PKPTestCase {
 	public function testCreateTrivialNotification($notification, $notificationParams = array()) {
 		$trivialNotification = $notification;
 		// Adapt the notification to the expected result.
-		$trivialNotification->setAssocId(null);
-		$trivialNotification->setAssocType(null);
+		$trivialNotification->unsetData('assocId');
+		$trivialNotification->unsetData('assocType');
 		$trivialNotification->setType(NOTIFICATION_TYPE_SUCCESS);
 
 		$this->injectNotificationDaoMock($trivialNotification);

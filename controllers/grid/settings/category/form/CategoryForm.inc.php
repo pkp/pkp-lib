@@ -357,7 +357,7 @@ class CategoryForm extends Form {
 
 		return new \PKP\components\listPanels\ListPanel(
 			'subeditors',
-			__('user.role.subEditors'),
+			__('submissionGroup.assignedSubEditors'),
 			[
 				'canSelect' => true,
 				'getParams' => $params,

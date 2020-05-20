@@ -34,6 +34,11 @@ class DataObject {
 	/** @var boolean whether injection adapters have already been loaded from the database */
 	var $_injectionAdaptersLoaded = false;
 
+	/**
+	 * Constructor
+	 */
+	public function __construct() { }
+
 
 	//
 	// Getters and Setters

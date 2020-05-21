@@ -38,7 +38,13 @@
 						<span>Open Menu</span>
 					</button>
 					{if !$requestedPage || $requestedPage === 'index'}
-						<h1 class="pkp_screen_reader">{$displayPageHeaderTitle|escape}</h1>
+						<h1 class="pkp_screen_reader">
+							{if $currentContext}
+								{$displayPageHeaderTitle|escape}
+							{else}
+								{$siteTitle|escape}
+							{/if}
+						</h1>
 					{/if}
 					<div class="pkp_site_name">
 					{capture assign="homeUrl"}

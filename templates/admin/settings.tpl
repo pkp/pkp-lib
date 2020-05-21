@@ -12,10 +12,10 @@
 {assign var="uuid" value=""|uniqid|escape}
 <div id="settings-admin-{$uuid}">
 	<tabs>
-		{if $componentAvailability['SiteSetup']}
+		{if $componentAvailability['siteSetup']}
 		<tab id="setup" label="{translate key="admin.siteSetup"}">
 			<tabs :is-side-tabs="true">
-				{if $componentAvailability['SiteConfig']}
+				{if $componentAvailability['siteConfig']}
 				<tab id="settings" label="{translate key="admin.settings"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_SITE_CONFIG}"
@@ -23,7 +23,7 @@
 					/>
 				</tab>
 				{/if}
-				{if $componentAvailability['SiteInfo']}
+				{if $componentAvailability['siteInfo']}
 				<tab id="info" label="{translate key="manager.setup.information"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_SITE_INFO}"
@@ -31,13 +31,13 @@
 					/>
 				</tab>
 				{/if}
-				{if $componentAvailability['Languages']}
+				{if $componentAvailability['languages']}
 				<tab id="languages" label="{translate key="common.languages"}">
 					{capture assign=languagesUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.admin.languages.AdminLanguageGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="languageGridContainer" url=$languagesUrl}
 				</tab>
 				{/if}
-				{if $componentAvailability['NavigationMenus']}
+				{if $componentAvailability['navigationMenus']}
 				<tab id="nav" label="{translate key="manager.navigationMenus"}">
 					{capture assign=navigationMenusGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenusGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="navigationMenuGridContainer" url=$navigationMenusGridUrl}
@@ -49,10 +49,10 @@
 			</tabs>
 		</tab>
 		{/if}
-		{if $componentAvailability['SiteAppearance']}
+		{if $componentAvailability['siteAppearance']}
 		<tab id="appearance" label="{translate key="manager.website.appearance"}">
 			<tabs :is-side-tabs="true">
-				{if $componentAvailability['SiteTheme']}
+				{if $componentAvailability['siteTheme']}
 				<tab id="theme" label="{translate key="manager.setup.theme"}">
 					<theme-form
 						v-bind="components.{$smarty.const.FORM_THEME}"
@@ -60,7 +60,7 @@
 					/>
 				</tab>
 				{/if}
-				{if $componentAvailability['SiteAppearanceSetup']}
+				{if $componentAvailability['siteAppearanceSetup']}
 				<tab id="setup" label="{translate key="navigation.setup"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_SITE_APPEARANCE}"
@@ -72,7 +72,7 @@
 			</tabs>
 		</tab>
 		{/if}
-		{if $componentAvailability['SitePlugins']}
+		{if $componentAvailability['sitePlugins']}
 		<tab id="plugins" label="{translate key="common.plugins"}">
 			{capture assign=pluginGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.admin.plugins.AdminPluginGridHandler" op="fetchGrid" escape=false}{/capture}
 			{load_url_in_div id="pluginGridContainer" url=$pluginGridUrl}

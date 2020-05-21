@@ -107,27 +107,31 @@ class AdminHandler extends Handler {
 		$templateMgr->display('admin/settings.tpl');
 	}
 
+	/**
+	 * Business logic for site settings single/multiple contexts availability
+	 * 
+	 * @param $request PKPRequest
+	 * @return array [siteComponent, availability (bool)]
+	 */
 	private function siteSettingsAvailability($request) {
 		$tabsSingleContextAvailability = [
-			'SiteSetup', 
-			'Languages',
+			'siteSetup', 
+			'languages',
 		];
 
 		$tabs = [
-			'SiteSetup', // Horizontal, parent tab
-			'SiteAppearance', // Horizontal, parent tab
-			'SitePlugins', // Horizontal
-			'SiteConfig', // Side tab, 'SiteSetup' child
-			'SiteInfo', // Side tab, 'SiteSetup' child
-			'Languages', // Side tab, 'SiteSetup' child
-			'NavigationMenus', // Side tab, 'SiteSetup' child
-			'SiteTheme', // Side tab, 'SiteAppearance' child
-			'SiteAppearance', // Side tab, 'SiteAppearance' child
+			'siteSetup',
+			'siteAppearance',
+			'sitePlugins',
+			'siteConfig',
+			'siteInfo',
+			'languages',
+			'navigationMenus',
+			'siteTheme',
+			'siteAppearanceSetup',
 		];	
 
-		$contextDao = Application::getContextDAO();
-		$contextFactory = $contextDao->getAll();
-		$singleContextSite = ($contextFactory->getCount() == 1);
+		$singleContextSite = (Services::get('context')->getCount() == 1);
 
 		$tabsAvailability = array();
 

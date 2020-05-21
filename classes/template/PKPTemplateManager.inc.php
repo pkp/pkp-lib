@@ -227,6 +227,23 @@ class PKPTemplateManager extends Smarty {
 						'contexts' => 'backend',
 					)
 				);
+
+				// Load special character sets when needed
+				$languageCode = substr(AppLocale::getLocale(), 0, 2);
+				switch ($languageCode) {
+					case 'ar':
+					case 'fa':
+					case 'ku':
+						$this->addStyleSheet(
+							'pkpLibKufiArabic',
+							'//fonts.googleapis.com/earlyaccess/notokufiarabic.css',
+							array(
+								'priority' => STYLE_SEQUENCE_CORE,
+								'contexts' => 'backend',
+							)
+						);
+						break;
+				}
 			}
 
 			// Register the backend app stylesheets

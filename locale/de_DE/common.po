@@ -1732,6 +1732,7 @@ msgstr "Dieser Beteiligte kann nicht geändert werden."
 msgid "stageParticipants.selectedUser"
 msgstr "Beteiligte/r"
 
+#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr "Dieser Person das Ändern der Veröffentlichungsdetails erlauben."
 

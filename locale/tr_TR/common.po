@@ -1809,6 +1809,7 @@ msgstr "Bu katılımcıda hiçbir değişiklik yapılamaz"
 msgid "stageParticipants.selectedUser"
 msgstr "Katılımcı"
 
+#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr "Bu kişinin yayın ayrıntılarını düzenlemesine izin ver."
 

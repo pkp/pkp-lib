@@ -1029,6 +1029,7 @@ msgstr "Tidak boleh mengubah partisipan ini"
 msgid "stageParticipants.selectedUser"
 msgstr "Partisipan"
 
+#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr "Izinkan orang ini mengubah rincian publikasi."
 

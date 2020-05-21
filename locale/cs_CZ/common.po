@@ -1584,6 +1584,7 @@ msgstr "Veřejný přístup"
 msgid "stageParticipants.selectedUser"
 msgstr "Účastník"
 
+#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr "Povolit této osobě upravovat podrobnosti vydání."
 

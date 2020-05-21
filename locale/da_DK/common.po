@@ -1843,6 +1843,7 @@ msgstr "Der kan ikke foretages ændringer af denne deltager"
 msgid "stageParticipants.selectedUser"
 msgstr "Deltager"
 
+#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr "Tillad denne person at redigere publikationsoplysningerne."
 

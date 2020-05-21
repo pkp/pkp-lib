@@ -1655,6 +1655,7 @@ msgstr "No pueden hacerse cambios a este participante"
 msgid "stageParticipants.selectedUser"
 msgstr "Participante"
 
+#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr "Permitir a esta persona editar los detalles de publicación."
 

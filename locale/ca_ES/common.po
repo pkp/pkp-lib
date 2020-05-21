@@ -1839,6 +1839,7 @@ msgstr "No poden fer-se canvis en aquest participant"
 msgid "stageParticipants.selectedUser"
 msgstr "Participant"
 
+#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr "Permetre que aquesta persona editi els detalls de publicació."
 

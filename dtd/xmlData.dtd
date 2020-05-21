@@ -21,7 +21,7 @@
 		null (0|1) #IMPLIED>
 
 <!-- Raw SQL -->
-<!ELEMENT sql (query|drop|rename)*>
+<!ELEMENT sql (query|drop|dropindex|rename)*>
 <!ELEMENT query (#PCDATA)>
 	<!-- The "driver" attribute can specify several drivers using comma separators. -->
 	<!ATTLIST query
@@ -32,6 +32,10 @@
 	<!ATTLIST drop
 		table CDATA #REQUIRED
 		column CDATA #IMPLIED>
+<!ELEMENT dropindex EMPTY>
+	<!ATTLIST dropindex
+		table CDATA #REQUIRED
+		index CDATA #IMPLIED>
 <!ELEMENT rename EMPTY>
 	<!ATTLIST rename
 		table CDATA #REQUIRED

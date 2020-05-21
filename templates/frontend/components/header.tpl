@@ -42,11 +42,7 @@
 					{/if}
 					<div class="pkp_site_name">
 					{capture assign="homeUrl"}
-						{if $currentContext && $multipleContexts}
-							{url page="index" router=$smarty.const.ROUTE_PAGE}
-						{else}
-							{url context="index" router=$smarty.const.ROUTE_PAGE}
-						{/if}
+						{url page="index" router=$smarty.const.ROUTE_PAGE}
 					{/capture}
 					{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
 						<a href="{$homeUrl}" class="is_img">

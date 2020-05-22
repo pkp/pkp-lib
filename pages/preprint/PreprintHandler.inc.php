@@ -161,11 +161,27 @@ class PreprintHandler extends Handler {
 		$this->setupTemplate($request);
 
 		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
+		$publicationCategories = $categoryDao->getByPublicationId($publication->getId())->toArray();
+		foreach ($publicationCategories as $category) {
+			$title = $category->getLocalizedTitle();
+			if ($category->getParentId()) {
+				$title = $categoryDao->getById($category->getParentId())->getLocalizedTitle() . ' > ' . $title;
+			}
+			$categories[] = [
+				'path' => $category->getPath(),
+				'title' => $title,
+			];
+		}
+
 		$templateMgr->assign([
 			'ccLicenseBadge' => Application::get()->getCCLicenseBadge($publication->getData('licenseUrl')),
 			'publication' => $publication,
 			'section' => $sectionDao->getById($publication->getData('sectionId')),
+			'categories' => $categories,
 		]);
+
+
 
 		if ($this->galley && !$this->userCanViewGalley($request, $preprint->getId(), $this->galley->getId())) {
 			fatalError('Cannot view galley.');

@@ -1,5 +1,5 @@
 /**
- * @file cypress/tests/data/50-CreateSeries.spec.js
+ * @file cypress/tests/data/50-SubmissionGroups.spec.js
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2000-2020 John Willinsky
@@ -16,7 +16,7 @@ describe('Data suite tests', function() {
 		cy.get('a').contains('Server').click();
 		cy.get('button[id="sections-button"]').click();
 
-		// Edit Articles section to add section editors
+		// Edit Preprints section to add section editors
 		cy.get('a[class=show_extras]').click();
 		cy.get('a[id^=component-grid-settings-sections-sectiongrid-row-1-editSection-button-]').click();
 		cy.wait(1000); // Avoid occasional failure due to form init taking time
@@ -24,15 +24,27 @@ describe('Data suite tests', function() {
 		cy.get('div.pkpListPanelItem').contains('Stephanie Berardo').click();
 		cy.get('form[id=sectionForm]').contains('Save').click();
 
-		// Create a Reviews section
-		cy.get('a[id^=component-grid-settings-sections-sectiongrid-addSection-button-]').click();
+	});
+	it('Creates/configures categories', function() {
+		cy.login('admin', 'admin');
+		cy.get('a').contains('admin').click();
+		cy.get('a').contains('Dashboard').click();
+		cy.get('a').contains('Settings').click();
+		cy.get('a').contains('Server').click();
+		cy.get('button[id="categories-button"]').click();
+
+		cy.addCategory('History', 'history');
+		cy.addCategory('Biology', 'biology');
+		cy.addCategory('Social sciences', 'social-sciences');
+		cy.addCategory('Mathematics', 'mathematics');
+
+		// Create a Cultural History subcategory
+		cy.get('a[id^=component-grid-settings-category-categorycategorygrid-addCategory-button-]').click();
 		cy.wait(1000); // Avoid occasional failure due to form init taking time
-		cy.get('input[id^="title-en_US-"]').type('Reviews', {delay: 0});
-		cy.get('input[id^="abbrev-en_US-"]').type('REV', {delay: 0});
-		cy.get('input[id^="path-"]').type('reviews', {delay: 0});
-		cy.get('input[id^="identifyType-en_US-"]').type('Review Article', {delay: 0});
-		cy.get('input[id=abstractsNotRequired]').click();
-		cy.get('div.pkpListPanelItem').contains('Minoti Inoue').click();
-		cy.get('form[id=sectionForm]').contains('Save').click();
+		cy.get('input[id^="name-en_US-"]').type('Cultural History', {delay: 0});
+		cy.get('select[id="parentId"],select[id="parentId"]').select('History');
+		cy.get('input[id^="path-"]').type('cultural-history', {delay: 0});
+		cy.get('form[id=categoryForm]').contains('OK').click();
+
 	});
 })

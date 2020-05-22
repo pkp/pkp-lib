@@ -19,7 +19,6 @@ describe('Data suite tests', function() {
 		});
 
 		cy.createSubmission({
-			'section': 'Preprints',
 			title,
 			'abstract': 'We compare a setting where actors individually decide whom to sanction with a setting where sanctions are only implemented when actors collectively agree that a certain actor should be sanctioned. Collective sanctioning decisions are problematic due to the difficulty of reaching consensus. However, when a decision is made collectively, perverse sanctioning (e.g. punishing high contributors) by individual actors is ruled out. Therefore, collective sanctioning decisions are likely to be in the interest of the whole group.',
 			'keywords': [

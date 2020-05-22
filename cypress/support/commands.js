@@ -21,6 +21,15 @@ Cypress.Commands.add('publish', (issueId, issueTitle) => {
 	cy.get('div.pkpWorkflow__publishModal button:contains("Publish")').click();
 });
 
+Cypress.Commands.add('addCategory', (categoryName, categoryPath) => {
+	cy.get('div.pkp_grid_category a[id^=component-grid-settings-category-categorycategorygrid-addCategory-button-]').click();
+	cy.wait(1000); // Avoid occasional failure due to form init taking time
+	cy.get('input[id^="name-en_US-"]').type(categoryName, {delay: 0});
+	cy.get('input[id^="path-"]').type(categoryPath, {delay: 0});
+	cy.get('form[id=categoryForm]').contains('OK').click();
+	cy.wait(2000); // Avoid occasional failure due to form save taking time
+});
+
 Cypress.Commands.add('isInIssue', (submissionTitle, issueTitle) => {
 	cy.visit('');
 	cy.get('a:contains("Archives")').click();

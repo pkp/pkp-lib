@@ -76,7 +76,7 @@ class DashboardHandler extends Handler {
 			'items' => $myQueueListPanel->getItems($request),
 			'itemsMax' => $myQueueListPanel->getItemsMax()
 		]);
-		$lists[$myQueueListPanel->id] = $myQueueListPanel->getConfig();
+		$lists[$myQueueListPanel->id] = $myQueueListPanel->getConfig(true);
 
 		if (!empty(array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles))) {
 
@@ -93,7 +93,7 @@ class DashboardHandler extends Handler {
 					'lazyLoad' => true,
 				]
 			);
-			$lists[$unassignedListPanel->id] = $unassignedListPanel->getConfig();
+			$lists[$unassignedListPanel->id] = $unassignedListPanel->getConfig(true);
 
 			// Active
 			$activeListPanel = new \APP\components\listPanels\SubmissionsListPanel(
@@ -129,6 +129,10 @@ class DashboardHandler extends Handler {
 		$lists[$archivedListPanel->id] = $archivedListPanel->getConfig();
 
 		$templateMgr->assign('containerData', ['components' => $lists]);
+
+		// Check if Submissions are enabled
+		$submissionsEnabled = $context->getData('enableSubmissions');
+		$templateMgr->assign('submissionsEnabled', $submissionsEnabled);
 
 		return $templateMgr->display('dashboard/index.tpl');
 	}

@@ -107,7 +107,9 @@ class ManagementHandler extends Handler {
 			],
 		];
 
+		$submissionsEnabled = $context->getData('enableSubmissions');
 		$templateMgr->assign('settingsData', $settingsData);
+		$templateMgr->assign('submissionsEnabled', $submissionsEnabled);
 
 		// Display a warning message if there is a new version of OJS available
 		if (Config::getVar('general', 'show_upgrade_warning')) {
@@ -183,6 +185,10 @@ class ManagementHandler extends Handler {
 
 		$templateMgr->assign('settingsData', $settingsData);
 
+		// Check if the submissions are enabled
+		$submissionsEnabled = $context->getData('enableSubmissions');
+		$templateMgr->assign('submissionsEnabled', $submissionsEnabled);
+		
 		$templateMgr->display('management/website.tpl');
 	}
 
@@ -217,6 +223,7 @@ class ManagementHandler extends Handler {
 
 		$authorGuidelinesForm = new \PKP\components\forms\context\PKPAuthorGuidelinesForm($contextApiUrl, $locales, $context);
 		$metadataSettingsForm = new \APP\components\forms\context\MetadataSettingsForm($contextApiUrl, $context);
+		$allowSubmissionsForm = new \APP\components\forms\context\AllowSubmissionsForm($contextApiUrl, $context);
 		$emailSetupForm = new \PKP\components\forms\context\PKPEmailSetupForm($contextApiUrl, $locales, $context);
 		$reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
 		$reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($contextApiUrl, $locales, $context);
@@ -237,6 +244,7 @@ class ManagementHandler extends Handler {
 			'components' => [
 				FORM_AUTHOR_GUIDELINES => $authorGuidelinesForm->getConfig(),
 				FORM_METADATA_SETTINGS => $metadataSettingsForm->getConfig(),
+				FORM_ALLOW_SUBMISSIONS => $allowSubmissionsForm->getConfig(),
 				FORM_EMAIL_SETUP => $emailSetupForm->getConfig(),
 				FORM_REVIEW_GUIDANCE => $reviewGuidanceForm->getConfig(),
 				FORM_REVIEW_SETUP => $reviewSetupForm->getConfig(),

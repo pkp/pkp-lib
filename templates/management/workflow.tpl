@@ -9,6 +9,13 @@
  *}
 {include file="common/header.tpl" pageTitle="manager.workflow.title"}
 
+{if !$submissionsEnabled}
+	<div class="pkp_notification">
+		{capture assign="notificationContents"}{translate key="manager.setup.allowSubmissions.enableSubmissions.notAccepting" }{/capture}
+		{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId="submissionsEnabledWarning-"|uniqid notificationStyleClass="notifyWarning" notificationTitle="common.warning"|translate notificationContents=$notificationContents}
+	</div>
+{/if}
+
 {assign var="uuid" value=""|uniqid|escape}
 <div id="settings-context-{$uuid}">
 	<tabs>
@@ -32,6 +39,12 @@
 				<tab id="authorGuidelines" label="{translate key="manager.setup.authorGuidelines"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_AUTHOR_GUIDELINES}"
+						@set="set"
+					/>
+				</tab>
+				<tab id="allowSubmissions" label="{translate key="manager.setup.allowSubmissions"}">
+					<pkp-form
+						v-bind="components.{$smarty.const.FORM_ALLOW_SUBMISSIONS}"
 						@set="set"
 					/>
 				</tab>

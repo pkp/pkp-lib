@@ -24,7 +24,7 @@ class PKPStatsHandler extends Handler {
 		parent::__construct();
 		$this->addRoleAssignment(
 			[ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER],
-			array('editorial', 'publications', 'users')
+			['editorial', 'publications', 'users']
 		);
 	}
 
@@ -125,7 +125,7 @@ class PKPStatsHandler extends Handler {
 		foreach (Application::get()->getApplicationStages() as $stageId) {
 			$activeByStage[] = [
 				'name' => Application::get()->getWorkflowStageName($stageId),
-				'count' => Services::get('editorialStats')->countActiveByStages($stageId),
+				'count' => Services::get('editorialStats')->countActiveByStages($stageId, $args),
 				'color' => Application::get()->getWorkflowStageColor($stageId),
 			];
 		}
@@ -210,11 +210,11 @@ class PKPStatsHandler extends Handler {
 		$count = 30;
 
 		$timeline = Services::get('stats')->getTimeline(STATISTICS_DIMENSION_DAY, [
-      'assocTypes' => ASSOC_TYPE_SUBMISSION,
-      'contextIds' => $context->getID(),
+			'assocTypes' => ASSOC_TYPE_SUBMISSION,
+			'contextIds' => $context->getId(),
 			'count' => $count,
 			'dateStart' => $dateStart,
-      'dateEnd' => $dateEnd,
+			'dateEnd' => $dateEnd,
 		]);
 
 		$statsComponent = new \PKP\components\PKPStatsPublicationContainer(

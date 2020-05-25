@@ -96,6 +96,8 @@ class DataObject {
 
 	/**
 	 * Set the value of a new or existing data variable.
+	 * NB: Passing in null as a value will unset the
+	 * data variable if it already existed.
 	 * @param $key string
 	 * @param $value mixed can be either a single value or
 	 *  an array of of localized values in the form:
@@ -113,10 +115,23 @@ class DataObject {
 		if (is_null($locale)) {
 			// This is either a non-localized value or we're
 			// passing in all locales at once.
-			$this->_data[$key] = $value;
+			if (is_null($value)) {
+				if (array_key_exists($key, $this->_data)) unset($this->_data[$key]);
+			} else {
+				$this->_data[$key] = $value;
+			}
 		} else {
-			// Set a single localized value.
-			$this->_data[$key][$locale] = $value;
+			// (Un-)set a single localized value.
+			if (is_null($value)) {
+				// see http://bugs.php.net/bug.php?id=29848
+				if (array_key_exists($key, $this->_data)) {
+					if (is_array($this->_data[$key]) && array_key_exists($locale, $this->_data[$key])) unset($this->_data[$key][$locale]);
+					// Was this the last entry for the data variable?
+					if (empty($this->_data[$key])) unset($this->_data[$key]);
+				}
+			} else {
+				$this->_data[$key][$locale] = $value;
+			}
 		}
 	}
 

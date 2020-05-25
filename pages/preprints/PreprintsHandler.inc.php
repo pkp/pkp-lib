@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @file pages/archive/ArchiveHandler.inc.php
+ * @file pages/preprints/PreprintsHandler.inc.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ArchiveHandler
- * @ingroup pages_archive
+ * @class PreprintsHandler
+ * @ingroup pages_preprints
  *
- * @brief Handle requests for archive functions.
+ * @brief Handle requests for preprints archive functions.
  */
 
 import('classes.handler.Handler');
 
-class ArchiveHandler extends Handler {
+class PreprintsHandler extends Handler {
 
 	/**
 	 * @copydoc PKPHandler::authorize()
@@ -31,34 +31,25 @@ class ArchiveHandler extends Handler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
-	 * @param $args array Arguments list
-	 */
-	function initialize($request, $args = array()) {
-
-	}
-
-	/**
-	 * Display about index page.
-	 */
-	function index($args, $request) {
-		$this->archive($args, $request);
-	}
-
-	/**
 	 * Display the preprint archive listings
+	 *
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return null|JSONMessage
 	 */
-	function archive($args, $request) {
+	function index($args, $request) {
 		$this->setupTemplate($request);
 		$page = isset($args[0]) ? (int) $args[0] : 1;
 		$templateMgr = TemplateManager::getManager($request);
 		$context = $request->getContext();
 
-		// OPS: Series
-		$sectionDao = DAORegistry::getDAO('SectionDAO');
-		$series = $sectionDao->getByContextId($context->getId());
+		// OPS: sections
+		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
+		$sections = $sectionDao->getByContextId($context->getId());
+
+		// OPS: categories
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
+		$categories = $categoryDao->getByContextId($context->getId());
 
 		$count = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : Config::getVar('interface', 'items_per_page');
 		$offset = $page > 1 ? ($page - 1) * $count : 0;
@@ -80,7 +71,8 @@ class ArchiveHandler extends Handler {
 		$prevPage = $showingStart > 1 ? $page - 1 : null;
 
 		$templateMgr->assign(array(
-			'series' => $series,
+			'sections' => $sections,
+			'categories' => $categories,
 			'publishedSubmissions' => $publishedSubmissions,
 			'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true),
 			'showingStart' => $showingStart,
@@ -90,7 +82,7 @@ class ArchiveHandler extends Handler {
 			'prevPage' => $prevPage,
 		));
 
-		$templateMgr->display('frontend/pages/archive.tpl');
+		$templateMgr->display('frontend/pages/preprints.tpl');
 	}
 
 	function setupTemplate($request) {

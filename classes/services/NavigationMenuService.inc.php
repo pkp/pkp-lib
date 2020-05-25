@@ -85,7 +85,7 @@ class NavigationMenuService extends \PKP\Services\PKPNavigationMenuService {
 						$request,
 						ROUTE_PAGE,
 						null,
-						'archive',
+						'preprints',
 						null,
 						null
 					));

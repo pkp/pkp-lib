@@ -24,7 +24,7 @@
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="apiProfileNotification"}
 
 	{fbvFormSection list=true}
-		{fbvElement id=apiKeyEnabled type="checkbox" label="user.apiKeyEnabled" checked=$apiKeyEnabled|compare:true:true:false value=1}
+		{fbvElement id=apiKeyEnabled type="checkbox" label="user.apiKeyEnabled" checked=$apiKeyEnabled value=1}
 		{fbvElement id=generateApiKey type="checkbox" label="user.apiKey.generate" value=1}
 	{/fbvFormSection}
 	<p>{translate key="user.apiKey.generateWarning"}</p>

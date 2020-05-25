@@ -36,22 +36,6 @@ class AdminHandler extends Handler {
 		$this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
 		$returner = parent::authorize($request, $args, $roleAssignments);
 
-		// Make sure user is in a context. Otherwise, redirect.
-		$context = $request->getContext();
-		$router = $request->getRouter();
-		$requestedOp = $router->getRequestedOp($request);
-
-		if ($requestedOp == 'settings') {
-			$contextDao = Application::getContextDAO();
-			$contextFactory = $contextDao->getAll();
-			if ($contextFactory->getCount() == 1) {
-				// Don't let users access site settings in a single context installation.
-				// In that case, those settings are available under management or are not
-				// relevant (like site appearance).
-				return false;
-			}
-		}
-
 		return $returner;
 	}
 
@@ -118,8 +102,47 @@ class AdminHandler extends Handler {
 		];
 
 		$templateMgr->assign('settingsData', $settingsData);
+		$templateMgr->assign('componentAvailability', $this->siteSettingsAvailability($request));
 
 		$templateMgr->display('admin/settings.tpl');
+	}
+
+	/**
+	 * Business logic for site settings single/multiple contexts availability
+	 * 
+	 * @param $request PKPRequest
+	 * @return array [siteComponent, availability (bool)]
+	 */
+	private function siteSettingsAvailability($request) {
+		$tabsSingleContextAvailability = [
+			'siteSetup', 
+			'languages',
+		];
+
+		$tabs = [
+			'siteSetup',
+			'siteAppearance',
+			'sitePlugins',
+			'siteConfig',
+			'siteInfo',
+			'languages',
+			'navigationMenus',
+			'siteTheme',
+			'siteAppearanceSetup',
+		];	
+
+		$singleContextSite = (Services::get('context')->getCount() == 1);
+
+		$tabsAvailability = array();
+
+		foreach ($tabs as $tab) {
+			$tabsAvailability[$tab] = true;
+			if ($singleContextSite && !in_array($tab, $tabsSingleContextAvailability)) {
+				$tabsAvailability[$tab] = false;
+			}
+		}
+
+		return $tabsAvailability;
 	}
 
 	/**

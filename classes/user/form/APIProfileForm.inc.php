@@ -32,7 +32,7 @@ class APIProfileForm extends BaseProfileForm {
 	 */
 	public function initData() {
 		$user = $this->getUser();
-		$this->setData('apiKeyEnabled', $user->getSetting('apiKeyEnabled'));
+		$this->setData('apiKeyEnabled', (bool) $user->getData('apiKeyEnabled'));
 	}
 
 	/**
@@ -40,7 +40,7 @@ class APIProfileForm extends BaseProfileForm {
 	 */
 	public function readInputData() {
 		parent::readInputData();
-	
+
 		$this->readUserVars(array(
 				'apiKeyEnabled', 'generateApiKey',
 		));
@@ -53,23 +53,19 @@ class APIProfileForm extends BaseProfileForm {
 	 */
 	public function fetch($request, $template = null, $display = false) {
 		$user = $request->getUser();
-		$apiKey = $user->getSetting('apiKey');
 		$secret = Config::getVar('security', 'api_key_secret', '');
-		$jwt = '';
-		if ($secret !== '') {
-			$jwt = JWT::encode(json_encode($apiKey), $secret, 'HS256');
-		} else {
+		if ($secret === '') {
 			$notificationManager = new NotificationManager();
 			$notificationManager->createTrivialNotification(
 				$user->getId(), NOTIFICATION_TYPE_WARNING, array(
 					'contents' => __('user.apiKey.secretRequired'),
 			));
+		} elseif ($user->getData('apiKey')) {
+			$templateMgr = TemplateManager::getManager($request);
+			$templateMgr->assign(array(
+				'apiKey' => JWT::encode($user->getData('apiKey'), $secret, 'HS256'),
+			));
 		}
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign(array(
-			'apiKeyEnabled' => $user->getSetting('apiKeyEnabled'),
-			'apiKey' => $jwt,
-		));
 		return parent::fetch($request, $template, $display);
 	}
 
@@ -81,17 +77,19 @@ class APIProfileForm extends BaseProfileForm {
 		$user = $request->getUser();
 
 		$apiKeyEnabled = (bool) $this->getData('apiKeyEnabled');
-		$user->updateSetting('apiKeyEnabled', $apiKeyEnabled);
+		$user->setData('apiKeyEnabled', $apiKeyEnabled);
 
 		// remove api key if exists
 		if (!$apiKeyEnabled) {
-			$user->updateSetting('apiKey', NULL);
+			$user->setData('apiKeyEnabled', null);
 		}
 
 		// generate api key
 		if ($apiKeyEnabled && !is_null($this->getData('generateApiKey'))) {
-			$apiKey = sha1(time());
-			$user->updateSetting('apiKey', $apiKey);
+			$secret = Config::getVar('security', 'api_key_secret', '');
+			if ($secret) {
+				$user->setData('apiKey', sha1(time()));
+			}
 		}
 
 		parent::execute(...$functionArgs);

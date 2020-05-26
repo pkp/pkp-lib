@@ -2005,9 +2005,6 @@ msgstr ""
 msgid "metadata.property.displayName.abstract"
 msgstr "Kivonat"
 
-msgid "submissions.inactive"
-msgstr "Inaktív {$days} napja"
-
 msgid "log.review.reviewConfirmed"
 msgstr "{$userName} szerkesztőként megerősítette a(z) {$submissionId} beküldés szakmai lektorálását a {$round} számú lektorálási körben."
 

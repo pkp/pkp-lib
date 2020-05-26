@@ -1982,9 +1982,6 @@ msgstr "Redigér opgave"
 msgid "submission.status.scheduled"
 msgstr "Planlagt"
 
-msgid "submissions.inactive"
-msgstr "Inaktiv i {$days} dage"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "Dette er en forældet version offentliggjort d. {$datePublished}. Læs den <a "

@@ -1970,9 +1970,6 @@ msgstr "Uredi zadolžitev"
 msgid "submission.status.scheduled"
 msgstr "Načrtovano"
 
-msgid "submissions.inactive"
-msgstr "Neaktiven {$days} dni"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "To je stara verzija objvaljena {$datePublished}. Preberite <a href=\""

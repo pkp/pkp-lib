@@ -2168,9 +2168,6 @@ msgstr "Por favor insira um assunto."
 msgid "submission.submit.form.languagesRequired"
 msgstr "Por favor insira um idioma."
 
-msgid "submissions.inactive"
-msgstr "Inativo por {$days} dias"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "Esta é uma versão desatualizada publicada em {$datePublished}. Leia a <a "

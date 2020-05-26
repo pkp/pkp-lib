@@ -2093,9 +2093,6 @@ msgstr "Editar asignación"
 msgid "submission.status.scheduled"
 msgstr "Programado"
 
-msgid "submissions.inactive"
-msgstr "Inactivo durante {$days} días"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "Esta es un versión antigua publicada el {$datePublished}. Consulte la <a "

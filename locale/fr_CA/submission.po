@@ -1854,9 +1854,6 @@ msgstr "Modifier l'assignation"
 msgid "submission.status.scheduled"
 msgstr "Prévu(e)"
 
-msgid "submissions.inactive"
-msgstr "Inactive depuis {$days} jour(s)"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "Ceci est une version obsolète publiée le {$datePublished}. Consulter la <a "

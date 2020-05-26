@@ -2042,9 +2042,6 @@ msgstr ""
 msgid "submission.status.scheduled"
 msgstr "Запланований"
 
-msgid "submissions.inactive"
-msgstr "Не активні протягом {$days} днів"
-
 msgid "submission.publisherId.enable"
 msgstr "Активувати для {$objects}"
 

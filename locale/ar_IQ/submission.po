@@ -923,9 +923,6 @@ msgstr "رفض"
 msgid "submissions.incomplete"
 msgstr "غير مكتمل"
 
-msgid "submissions.inactive"
-msgstr "غير فعالة لمدة {$days} يوم/أيام"
-
 msgid "submissions.noSubmissions"
 msgstr "لا طلبات نشر"
 

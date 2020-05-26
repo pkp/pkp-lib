@@ -125,23 +125,22 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 		$setterMappings = $this->_getLocalizedPublicationFields();
 		$controlledVocabulariesMappings = $this->_getControlledVocabulariesMappings();
 
+		list($locale, $value) = $this->parseLocalizedContent($n);
+		if (empty($locale)) $locale = $publication->getData('locale');
+
 		if (in_array($n->tagName, $setterMappings)) {
-			list($locale, $value) = $this->parseLocalizedContent($n);
-
-			if (empty($locale)) $locale = $publication->getData('locale');
-
 			$publication->setData($n->tagName, $value, $locale);
 		} elseif (isset($controlledVocabulariesMappings[$n->tagName])) {
 			$controlledVocabulariesDao = $submissionKeywordDao = DAORegistry::getDAO($controlledVocabulariesMappings[$n->tagName][0]);
 			$insertFunction = $controlledVocabulariesMappings[$n->tagName][1];
-			list($locale, $value) = $this->parseLocalizedContent($n);
-			if (empty($locale)) $locale = $publication->getLocale();
+
 			$controlledVocabulary = array();
 			for ($nc = $n->firstChild; $nc !== null; $nc=$nc->nextSibling) {
 				if (is_a($nc, 'DOMElement')) {
 					$controlledVocabulary[] = $nc->textContent;
 				}
 			}
+			
 			$controlledVocabulariesValues = array();
 			$controlledVocabulariesValues[$locale] = $controlledVocabulary;
 

@@ -471,6 +471,9 @@ msgstr "Less"
 msgid "common.lessThan"
 msgstr "{$value} or less"
 
+msgid "common.lessThanOnly"
+msgstr "Less than"
+
 msgid "common.commaListSeparator"
 msgstr ", "
 
@@ -500,6 +503,9 @@ msgstr "More"
 
 msgid "common.moreThan"
 msgstr "{$value} or more"
+
+msgid "common.moreThanOnly"
+msgstr "More than"
 
 msgid "common.noneAssigned"
 msgstr "None assigned"

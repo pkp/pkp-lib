@@ -51,7 +51,7 @@ class PKPSelectReviewerListPanel extends ListPanel {
 						'min' => 1,
 						'max' => 5,
 						'useStars' => true,
-						'starLabel' => __('reviewer.list.reviewerRating'),
+						'valueLabel' => '{$value/5}',
 					],
 					[
 						'param' => 'reviewsCompleted',
@@ -59,8 +59,7 @@ class PKPSelectReviewerListPanel extends ListPanel {
 						'value' => 10,
 						'min' => 0,
 						'max' => 20,
-						// The slider component expects variables in the format {var}
-						'formatter' => str_replace('$', '', __('common.moreThan')),
+						'valueLabel' => __('common.moreThan'),
 					],
 					[
 						'param' => 'daysSinceLastAssignment',
@@ -68,6 +67,10 @@ class PKPSelectReviewerListPanel extends ListPanel {
 						'value' => [0, 365],
 						'min' => 0,
 						'max' => 365,
+						'filterType' => 'filter-slider-multirange',
+						'valueLabel' => __('common.range'),
+						'moreThanLabel' => __('common.moreThanOnly'),
+						'lessThanLabel' => __('common.lessThanOnly'),
 					],
 					[
 						'param' => 'reviewsActive',
@@ -75,6 +78,10 @@ class PKPSelectReviewerListPanel extends ListPanel {
 						'value' => [0, 20],
 						'min' => 0,
 						'max' => 20,
+						'filterType' => 'filter-slider-multirange',
+						'valueLabel' => __('common.range'),
+						'moreThanLabel' => __('common.moreThanOnly'),
+						'lessThanLabel' => __('common.lessThanOnly'),
 					],
 					[
 						'param' => 'averageCompletion',
@@ -82,6 +89,7 @@ class PKPSelectReviewerListPanel extends ListPanel {
 						'value' => 75,
 						'min' => 0,
 						'max' => 75,
+						'valueLabel' => __('common.lessThan'),
 					],
 				],
 			],

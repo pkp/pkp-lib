@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4098494392293817bcbab537004b19a",
+    "content-hash": "ffce78c1469df0fb6e91ded5c88e29ef",
     "packages": [
         {
             "name": "adodb/adodb-php",
-            "version": "dev-v5.20.14-mods",
+            "version": "dev-v5.20.17-mods",
             "source": {
                 "type": "git",
                 "url": "https://github.com/asmecher/ADOdb.git",
-                "reference": "961214de8055b4541b36885f28eea6bb06c1aeba"
+                "reference": "b601c210f794ccf7e9110fe08b43ce15913cc21e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asmecher/ADOdb/zipball/961214de8055b4541b36885f28eea6bb06c1aeba",
-                "reference": "961214de8055b4541b36885f28eea6bb06c1aeba",
+                "url": "https://api.github.com/repos/asmecher/ADOdb/zipball/b601c210f794ccf7e9110fe08b43ce15913cc21e",
+                "reference": "b601c210f794ccf7e9110fe08b43ce15913cc21e",
                 "shasum": ""
             },
             "require": {
@@ -61,7 +61,7 @@
                 "issues": "https://github.com/ADOdb/ADOdb/issues",
                 "source": "https://github.com/ADOdb/ADOdb"
             },
-            "time": "2019-04-24T20:40:48+00:00"
+            "time": "2020-05-27T17:31:04+00:00"
         },
         {
             "name": "alex198710/pnotify",
@@ -2435,6 +2435,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -2481,6 +2482,7 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
@@ -4282,8 +4284,8 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "email": "arne@blankerts.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "arne@blankerts.de"
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",

@@ -38,6 +38,10 @@
 	<!-- OPS schema -->
 	<schema file="dbscripts/xml/ops_schema.xml" />
 
+	<upgrade minversion="3.2.0.0" maxversion="3.2.0.9">
+		<code function="installEmailTemplate" key="ANNOUNCEMENT" locales="en_US" />
+	</upgrade>
+
 	<!-- update plugin configuration - should be done as the final upgrade task -->
 	<code function="addPluginVersions" />
 </install>

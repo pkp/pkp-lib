@@ -113,9 +113,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				return $this->_getTranslatedKeyWithParameters('common.pluginDisabled', $notification->getId());
 			case NOTIFICATION_TYPE_LOCALE_INSTALLED:
 				return $this->_getTranslatedKeyWithParameters('admin.languages.localeInstalled', $notification->getId());
-			case NOTIFICATION_TYPE_NEW_ANNOUNCEMENT:
-				assert($notification->getAssocType() == ASSOC_TYPE_ANNOUNCEMENT);
-				return __('notification.type.newAnnouncement');
 			case NOTIFICATION_TYPE_REVIEWER_COMMENT:
 				assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ASSIGNMENT && is_numeric($notification->getAssocId()));
 				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */

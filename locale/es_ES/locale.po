@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-29 09:38+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2020-05-29 16:39+0000\n"
+"Last-Translator: Rodolfo Barbeito <rbarbeito@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/locale/"
 "es_ES/>\n"
 "Language: es_ES\n"
@@ -270,7 +270,7 @@ msgid "submission.search"
 msgstr "Búsqueda de preprint"
 
 msgid "submissions.published"
-msgstr "Publicado"
+msgstr "Enviado"
 
 msgid "article.abstract"
 msgstr "Resumen"
@@ -352,3 +352,6 @@ msgstr "Versiones: {$numberOfVersions}"
 
 msgid "submission.layout.galleyPublicIdentificationExists"
 msgstr "La identificación pública de la galerada ya existe."
+
+msgid "category.categories"
+msgstr "Categorías"

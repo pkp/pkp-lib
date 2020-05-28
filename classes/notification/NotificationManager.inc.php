@@ -25,15 +25,16 @@ class NotificationManager extends PKPNotificationManager {
 	 */
 	public function getNotificationUrl($request, $notification) {
 		$router = $request->getRouter();
-		$dispatcher = $router->getDispatcher();	
+		$dispatcher = $router->getDispatcher();
 
-		assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
 		switch ($notification->getType()) {
 			// OPS: links leading to a new submission have to be redirected to production stage
 			case NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
 				$contextDao = Application::getContextDAO();
 				$context = $contextDao->getById($notification->getContextId());
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->getAssocId());
+			default:
+				return parent::getNotificationUrl($request, $notification);
 		}
 	}
 

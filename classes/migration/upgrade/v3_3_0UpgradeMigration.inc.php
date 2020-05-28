@@ -35,6 +35,12 @@ class v3_3_0UpgradeMigration extends Migration {
 		Capsule::schema()->table('announcements', function (Blueprint $table) {
 			$table->date('date_expire')->change();
 		});
+
+		Capsule::schema()->table('email_templates_default', function (Blueprint $table) {
+			$table->bigInteger('stage_id')->nullable();
+		});
+
+		$this->_populateEmailTemplates();
 	}
 
 	/**
@@ -43,5 +49,21 @@ class v3_3_0UpgradeMigration extends Migration {
 	 */
 	public function down() {
 		throw new Exception('Downgrade not supported.');
+	}
+
+	/**
+	 * @return void
+	 * @brief populate email templates with new records for workflow stage id
+	 */
+	private function _populateEmailTemplates() {
+		$xmlDao = new XMLDAO();
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$data = $xmlDao->parseStruct($emailTemplateDao->getMainEmailTemplatesFilename(), array('email'));
+		foreach ($data['email'] as $template) {
+			$attr = $template['attributes'];
+			if (array_key_exists('stage_id', $attr)) {
+				Capsule::table('email_templates_default')->where('email_key', $attr['key'])->update(array('stage_id' => $attr['stage_id']));
+			}
+		}
 	}
 }

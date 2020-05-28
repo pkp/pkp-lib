@@ -1997,9 +1997,6 @@ msgstr "Atamayı Düzenle"
 msgid "submission.status.scheduled"
 msgstr "Programlanmış"
 
-msgid "submissions.inactive"
-msgstr "{$days} gün boyunca etkin değil"
-
 msgid "submission.publisherId.enable"
 msgstr "{$objects} için etkinleştir"
 

@@ -504,9 +504,6 @@ msgstr "لە گۆڕانکاری دایە"
 msgid "submissions.noSubmissions"
 msgstr "هیچ پێشکەشکردنێک نییە"
 
-msgid "submissions.inactive"
-msgstr "ناچالاکە بۆ  {$days} ڕۆژ"
-
 msgid "submissions.incomplete"
 msgstr "ناتەواو"
 

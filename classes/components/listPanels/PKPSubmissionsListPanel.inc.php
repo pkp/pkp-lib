@@ -75,17 +75,25 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 						'value' => true,
 						'title' => __('submissions.incomplete'),
 					),
-					array(
-						'param' => 'daysInactive',
-						'value' => 30,
-						'title' => __('submissions.inactive', ['days' => '30']),
-					),
 				),
 			),
-			array(
+			[
 				'heading' => __('settings.roles.stages'),
 				'filters' => $this->getWorkflowStages(),
-			),
+			],
+			[
+				'heading' => __('submission.list.activity'),
+				'filters' => [
+					[
+						'title' => __('submission.list.daysSinceLastActivity'),
+						'param' => 'daysInactive',
+						'value' => 30,
+						'min' => 1,
+						'max' => 180,
+						'filterType' => 'pkp-filter-slider',
+					]
+				]
+			]
 		];
 
 		// Load grid localisation files

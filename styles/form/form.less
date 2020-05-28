@@ -21,7 +21,7 @@
 	font-size: @font-sml;
 	line-height: @line-sml;
 
-	fieldset {
+	fieldset:not(.pkpFilter__input--sliderMultirange) {
 		margin: 0 0 @double 0;
 		padding: 0;
 		border: none;
@@ -164,6 +164,10 @@
 		background: @bg;
 		color: @text-light;
 		color: @text-light-rgba;
+	}
+
+	input[type="range"][disabled] {
+		background: transparent;
 	}
 
 	// Field descriptions and labels beneath fields

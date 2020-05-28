@@ -2054,9 +2054,6 @@ msgstr ""
 msgid "submission.submissionTitle"
 msgstr "Títol de la tramesa:"
 
-msgid "submissions.inactive"
-msgstr "Inactiu durant {$days} dies"
-
 msgid "submission.publisherId.enable"
 msgstr "Habilitar per a {$objects}"
 

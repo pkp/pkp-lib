@@ -942,9 +942,6 @@ msgstr "Отклонены"
 msgid "submissions.incomplete"
 msgstr "Не закончены"
 
-msgid "submissions.inactive"
-msgstr "Не активны в течение {$days} дней"
-
 msgid "submissions.noSubmissions"
 msgstr "Нет материалов"
 

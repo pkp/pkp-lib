@@ -1811,9 +1811,6 @@ msgstr "Redigeringsuppdag"
 msgid "submission.status.scheduled"
 msgstr "Planerad"
 
-msgid "submissions.inactive"
-msgstr "Inaktiv i {$days} dagar"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "Det här är en gammal version publicerad {$datePublished}. Läs <a href=\""

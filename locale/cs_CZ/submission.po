@@ -1992,9 +1992,6 @@ msgstr "Upravit přiřazení"
 msgid "submission.status.scheduled"
 msgstr "Naplánováno"
 
-msgid "submissions.inactive"
-msgstr "Neaktivní po dobu {$days} dnů"
-
 msgid "submission.publisherId.enable"
 msgstr "Povolit pro {$objects}"
 

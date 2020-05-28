@@ -1911,9 +1911,6 @@ msgstr "Zuordnung ändern"
 msgid "submission.status.scheduled"
 msgstr "Eingeplant"
 
-msgid "submissions.inactive"
-msgstr "Inaktiv seit {$days} Tagen"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "Dies ist eine überholte Version, die am {$datePublished} veröffentlicht "

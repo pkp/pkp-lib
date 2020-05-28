@@ -14,6 +14,10 @@
 <install version="3.2.1.0">
 	<code function="checkPhpVersion" />
 
+	<upgrade minversion="3.2.0.0" maxversion="3.2.0.9">
+		<data file="dbscripts/xml/upgrade/3.2.1_preupdate_subeditor_categories.xml" />
+	</upgrade>
+
 	<!-- PKP schema components -->
 	<schema file="lib/pkp/xml/schema/common.xml" />
 	<schema file="lib/pkp/xml/schema/log.xml" />

@@ -21,7 +21,7 @@
 			{iterate from=categories item=category}
 				{if !$category->getParentId()}
 					<li class="category_{$category->getPath()|escape}">
-						<a href="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|escape}">
+						<a href="{url router=$smarty.const.ROUTE_PAGE page="preprints" op="category" path=$category->getPath()|escape}">
 							{$category->getLocalizedTitle()|escape}
 						</a>
 					</li>

@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SectionsHandler
- * @ingroup pages_sections
+ * @ingroup pages_preprints
  *
  * @brief Handle requests for sections functions.
  *
@@ -44,7 +44,7 @@ class SectionsHandler extends Handler {
 	 * @param $request PKPRequest
 	 * @return null|JSONMessage
 	 */
-	function view($args, $request) {
+	function section($args, $request) {
 		$sectionPath = isset($args[0]) ? $args[0] : null;
 		$page = isset($args[1]) && ctype_digit((string) $args[1]) ? (int) $args[1] : 1;
 		$context = $request->getContext();

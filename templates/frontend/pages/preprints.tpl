@@ -1,5 +1,5 @@
 {**
- * templates/frontend/pages/archive.tpl
+ * templates/frontend/pages/preprints.tpl
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
@@ -48,12 +48,12 @@
 
 		{* Pagination *}
 		{if $prevPage > 1}
-			{capture assign=prevUrl}{url router=$smarty.const.ROUTE_PAGE page="archive" path=$prevPage}{/capture}
+			{capture assign=prevUrl}{url router=$smarty.const.ROUTE_PAGE page="preprints" path=$prevPage}{/capture}
 		{elseif $prevPage === 1}
-			{capture assign=prevUrl}{url router=$smarty.const.ROUTE_PAGE page="archive"}{/capture}
+			{capture assign=prevUrl}{url router=$smarty.const.ROUTE_PAGE page="preprints"}{/capture}
 		{/if}
 		{if $nextPage}
-			{capture assign=nextUrl}{url router=$smarty.const.ROUTE_PAGE page="archive" path=$nextPage}{/capture}
+			{capture assign=nextUrl}{url router=$smarty.const.ROUTE_PAGE page="preprints" path=$nextPage}{/capture}
 		{/if}
 		{include
 			file="frontend/components/pagination.tpl"

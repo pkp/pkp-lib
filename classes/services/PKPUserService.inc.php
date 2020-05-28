@@ -21,7 +21,7 @@ use \DAORegistry;
 use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
-use \APP\Services\QueryBuilders\UserQueryBuilder;
+use \PKP\Services\QueryBuilders\PKPUserQueryBuilder;
 
 class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
@@ -98,7 +98,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
-	 * @return UserQueryBuilder
+	 * @return PKPUserQueryBuilder
 	 */
 	public function getQueryBuilder($args = []) {
 		$defaultArgs = array(
@@ -118,7 +118,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
 		$args = array_merge($defaultArgs, $args);
 
-		$userListQB = new UserQueryBuilder();
+		$userListQB = new PKPUserQueryBuilder();
 		$userListQB
 			->filterByContext($args['contextId'])
 			->orderBy($args['orderBy'], $args['orderDirection'])
@@ -137,6 +137,14 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
 		if (isset($args['offset'])) {
 			$userListQB->offsetBy($args['count']);
+		}
+
+		if (isset($args['assignedToSection'])) {
+			$userListQB->assignedToSection($args['assignedToSection']);
+		}
+
+		if (isset($args['assignedToCategory'])) {
+			$userListQB->assignedToCategory($args['assignedToCategory']);
 		}
 
 		\HookRegistry::call('User::getMany::queryBuilder', array($userListQB, $args));

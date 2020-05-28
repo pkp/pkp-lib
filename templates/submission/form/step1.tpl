@@ -29,6 +29,8 @@
 
 	{$additionalFormContent2}
 
+	{include file="submission/form/categories.tpl"}
+
 	{* Submission checklist *}
 	{if $currentContext->getLocalizedData('submissionChecklist')}
 		{fbvFormSection list="true" label="submission.submit.submissionChecklist" description="submission.submit.submissionChecklistDescription" id="pkp_submissionChecklist"}

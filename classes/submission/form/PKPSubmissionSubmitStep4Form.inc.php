@@ -84,9 +84,9 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 
 		$notificationManager = new NotificationManager();
 
-		// Assign sub editors for that section
+		// Assign sub editors for sections
 		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /* @var $subEditorsDao SubEditorsDAO */
-		$subEditors = $subEditorsDao->getBySectionId($this->submission->getSectionId(), $this->submission->getContextId());
+		$subEditors = $subEditorsDao->getBySubmissionGroupId($this->submission->getSectionId(), ASSOC_TYPE_SECTION, $this->submission->getContextId());
 		foreach ($subEditors as $subEditor) {
 			$userGroups = $userGroupDao->getByUserId($subEditor->getId(), $this->submission->getContextId());
 			while ($userGroup = $userGroups->next()) {
@@ -95,6 +95,25 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 				// If we assign a stage assignment in the Submission stage to a sub editor, make note.
 				if ($userGroupDao->userGroupAssignedToStage($userGroup->getId(), WORKFLOW_STAGE_ID_SUBMISSION)) {
 					$notifyUsers[] = $subEditor->getId();
+				}
+			}
+		}
+
+		// Assign sub editors for categories
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
+		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /* @var $subEditorsDao SubEditorsDAO */
+		$categories = $categoryDao->getByPublicationId($this->submission->getCurrentPublication()->getId());
+		while ($category = $categories->next()) {
+			$subEditors = $subEditorsDao->getBySubmissionGroupId($category->getId(), ASSOC_TYPE_CATEGORY, $this->submission->getContextId());
+			foreach ($subEditors as $subEditor) {
+				$userGroups = $userGroupDao->getByUserId($subEditor->getId(), $this->submission->getContextId());
+				while ($userGroup = $userGroups->next()) {
+					if ($userGroup->getRoleId() != ROLE_ID_SUB_EDITOR) continue;
+					$stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $subEditor->getId(), $userGroup->getRecommendOnly());
+					// If we assign a stage assignment in the Submission stage to a sub editor, make note.
+					if ($userGroupDao->userGroupAssignedToStage($userGroup->getId(), WORKFLOW_STAGE_ID_SUBMISSION)) {
+						$notifyUsers[] = $subEditor->getId();
+					}
 				}
 			}
 		}

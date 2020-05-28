@@ -133,7 +133,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 */
 	function readInputData() {
 		// 'keywords' is a tagit catchall that contains an array of values for each keyword/locale combination on the form.
-		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights', 'keywords', 'citationsRaw', 'locale', 'categories');
+		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights', 'keywords', 'citationsRaw', 'locale');
 		$this->_parentForm->readUserVars($userVars);
 	}
 
@@ -226,15 +226,6 @@ class PKPSubmissionMetadataFormImplementation {
 		$submissionDisciplineDao->insertDisciplines($disciplines, $submission->getCurrentPublication()->getId());
 		$submissionLanguageDao->insertLanguages($languages, $submission->getCurrentPublication()->getId());
 		$submissionSubjectDao->insertSubjects($subjects, $submission->getCurrentPublication()->getId());
-
-		// Save the submission categories
-		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
-		$categoryDao->deletePublicationAssignments($publication->getId());
-		if ($categories = $this->_parentForm->getData('categories')) {
-			foreach ((array) $categories as $categoryId) {
-				$categoryDao->insertPublicationAssignment($categoryId, $publication->getId());
-			}
-		}
 
 		// Only log modifications on completed submissions
 		if ($submission->getSubmissionProgress() == 0) {

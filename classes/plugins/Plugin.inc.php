@@ -435,6 +435,8 @@ abstract class Plugin {
 	 * @return boolean
 	 */
 	function addLocaleData($locale = null) {
+		AppLocale::requireComponents($this->additionalPKPLocales());
+
 		if ($locale == '') $locale = AppLocale::getLocale();
 		$localeFilenames = $this->getLocaleFilename($locale);
 		if ($localeFilenames) {
@@ -444,7 +446,17 @@ abstract class Plugin {
 			}
 			return true;
 		}
+
 		return false;
+	}
+
+	/**
+	 * Load necessary PKP locales
+	 * 
+	 * @return array Set of LOCALE_COMPONENT_* strings that are needed across the plugin
+	 */
+	function additionalPKPLocales() {
+		return array();
 	}
 
 	/**

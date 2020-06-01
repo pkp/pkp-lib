@@ -61,6 +61,14 @@ class AuthorDashboardTabHandler extends Handler {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$templateMgr->assign('submission', $submission);
 
+		// Check if current author can access CopyeditFilesGrid within copyedit stage
+		$canAccessCopyeditingStage = true;
+		$userAllowedStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+		if (!array_key_exists(WORKFLOW_STAGE_ID_EDITING, $userAllowedStages)) {
+			$canAccessCopyeditingStage = false;
+		}
+		$templateMgr->assign('canAccessCopyeditingStage', $canAccessCopyeditingStage);
+
 		// Import submission file to define file stages.
 		import('lib.pkp.classes.submission.SubmissionFile');
 

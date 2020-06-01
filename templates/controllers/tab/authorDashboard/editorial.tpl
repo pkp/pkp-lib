@@ -16,8 +16,10 @@
 	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
 
 	<!-- Copyedited Files grid -->
-	{capture assign=copyeditedFilesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.CopyeditFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
-	{load_url_in_div id="copyeditedFilesGrid" url=$copyeditedFilesGridUrl}
+	{if $canAccessCopyeditingStage}
+		{capture assign=copyeditedFilesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.CopyeditFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
+		{load_url_in_div id="copyeditedFilesGrid" url=$copyeditedFilesGridUrl}
+	{/if}
 {else}
 	{translate key="submission.stageNotInitiated"}
 {/if}

@@ -671,7 +671,7 @@ msgid "manager.setup.allowSubmissions"
 msgstr "Allow Submissions"
 
 msgid "manager.setup.allowSubmissions.description"
-msgstr "Allow users to submit new articles to the journal. Submissions can be disabled for individual journal sections by archiving the section."
+msgstr "Allow users to submit new articles to the journal. Submissions can be disabled for individual journal sections on the journal sections settings page."
 
 msgid "manager.setup.allowSubmissions.success"
 msgstr "The submissions allowance has been successfully updated."

@@ -286,6 +286,13 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			$canEditPublication =  false;
 		}
 
+		// Check if current author can access ArticleGalleyGrid within production stage
+		$canAccessProductionStage = true;
+		$userAllowedStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+		if(!array_key_exists(WORKFLOW_STAGE_ID_PRODUCTION, $userAllowedStages)) {
+			$canAccessProductionStage = false;
+		}
+
 		$workflowData = [
 			'components' => [
 				FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
@@ -297,7 +304,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 				FORM_TITLE_ABSTRACT,
 				FORM_CITATIONS,
 			],
-			'representationsGridUrl' => $this->_getRepresentationsGridUrl($request, $submission),
+			'representationsGridUrl' => $canAccessProductionStage ? $this->_getRepresentationsGridUrl($request, $submission) : '',
 			'submission' => $submissionProps,
 			'publicationList' => $publicationList,
 			'currentPublication' => $currentPublicationProps,
@@ -341,6 +348,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			'submission' => $submission,
 			'workflowData' => $workflowData,
 			'workflowStages' => $workflowStages,
+			'canAccessProductionStage' => $canAccessProductionStage,
 		]);
 
 	}

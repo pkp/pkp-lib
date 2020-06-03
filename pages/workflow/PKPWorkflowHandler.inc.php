@@ -351,6 +351,7 @@ abstract class PKPWorkflowHandler extends Handler {
 			'unpublishConfirmLabel' => __('publication.unpublish.confirm'),
 			'unpublishLabel' => __('publication.unpublish'),
 			'unscheduleConfirmLabel' => __('publication.unschedule.confirm'),
+			'unscheduleLabel' => __('publication.unschedule'),
 			'versionLabel' => __('semicolon', ['label' => __('admin.version')]),
 			'versionConfirmLabel' => __('publication.version.confirm'),
 			'workingPublication' => $workingPublicationProps,

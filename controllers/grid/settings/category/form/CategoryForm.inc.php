@@ -116,7 +116,6 @@ class CategoryForm extends Form {
 			$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 			$sortOption = $category->getSortOption() ? $category->getSortOption() : $submissionDao->getDefaultSortOption();
 			$this->setData('sortOption', $sortOption);
-			$this->setData('subEditors', $this->_getAssignedSubEditorIds($this->getCategoryId(), $this->getContextId()));
 		}
 	}
 
@@ -190,15 +189,26 @@ class CategoryForm extends Form {
 		$templateMgr->assign('sortOptions', $submissionDao->getSortSelectOptions());
 
 		// Sub Editors
-		$subEditorsListPanel = $this->_getSubEditorsListPanel($context->getId(), $request);
-		$templateMgr->assign(array(
-			'hasSubEditors' => !empty($subEditorsListPanel->items),
-			'subEditorsListData' => [
-				'components' => [
-					'subeditors' => $subEditorsListPanel->getConfig(),
-				]
-			]
-		));
+		$usersIterator = Services::get('user')->getMany([
+			'contextId' => $context->getId(),
+			'roleIds' => ROLE_ID_SUB_EDITOR,
+		]);
+		$availableSubeditors = [];
+		foreach ($usersIterator as $user) {
+			$availableSubeditors[(int) $user->getId()] = $user->getFullName();
+		}
+		$assignedToCategory = [];
+		if ($this->getCategoryId()) {
+			$assignedToCategory = Services::get('user')->getIds([
+				'contextId' => $context->getId(),
+				'roleIds' => ROLE_ID_SUB_EDITOR,
+				'assignedToCategory' => (int) $this->getCategoryId(),
+			]);
+		}
+		$templateMgr->assign([
+			'availableSubeditors' => $availableSubeditors,
+			'assignedToCategory' => $assignedToCategory,
+		]);
 
 		return parent::fetch($request, $template, $display);
 	}
@@ -235,7 +245,17 @@ class CategoryForm extends Form {
 		}
 
 		// Update category editors
-		$this->_saveSubEditors($this->getContextId());
+		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /* @var $subEditorsDao SubEditorsDAO */
+		$subEditorsDao->deleteBySubmissionGroupId($category->getId(), ASSOC_TYPE_CATEGORY, $category->getContextId());
+		$subEditors = $this->getData('subEditors');
+		if (!empty($subEditors)) {
+			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+			foreach ($subEditors as $subEditor) {
+				if ($roleDao->userHasRole($category->getContextId(), $subEditor, ROLE_ID_SUB_EDITOR)) {
+					$subEditorsDao->insertEditor($category->getContextId(), $category->getId(), $subEditor, ASSOC_TYPE_CATEGORY);
+				}
+			}
+		}
 
 		// Handle the image upload if there was one.
 		if ($temporaryFileId = $this->getData('temporaryFileId')) {
@@ -314,80 +334,6 @@ class CategoryForm extends Form {
 		$categoryDao->updateObject($category);
 		parent::execute(...$functionArgs);
 		return $category;
-	}
-
-	/**
-	 * Get a list of all subeditor IDs assigned to this category
-	 *
-	 * @param $categoryId int
-	 * @param $contextId int
-	 * @return array
-	 */
-	public function _getAssignedSubEditorIds($categoryId, $contextId) {
-		return Services::get('user')->getIds(array(
-			'contextId' => $contextId,
-			'roleIds' => ROLE_ID_SUB_EDITOR,
-			'assignedToCategory' => $categoryId,
-		));
-	}
-
-	/**
-	 * Compile data for a subeditors SelectListPanel
-	 *
-	 * @param $contextId int
-	 * @param $request Request
-	 * @return \PKP\components\listPanels\ListPanel
-	 */
-	public function _getSubEditorsListPanel($contextId, $request) {
-
-		$params = [
-			'contextId' => $contextId,
-			'roleIds' => ROLE_ID_SUB_EDITOR,
-		];
-
-		import('classes.core.Services');
-		$usersIterator = Services::get('user')->getMany($params);
-		$items = [];
-		foreach ($usersIterator as $user) {
-			$items[] = [
-				'id' => (int) $user->getId(),
-				'title' => $user->getFullName()
-			];
-		}
-
-		return new \PKP\components\listPanels\ListPanel(
-			'subeditors',
-			__('submissionGroup.assignedSubEditors'),
-			[
-				'canSelect' => true,
-				'getParams' => $params,
-				'items' => $items,
-				'itemsmax' => Services::get('user')->getMax($params),
-				'selected' => $this->getData('subEditors')
-						? $this->getData('subEditors')
-						: [],
-				'selectorName' => 'subEditors[]',
-			]
-		);
-	}
-
-	/**
-	 * Save changes to subeditors
-	 *
-	 * @param $contextId int
-	 */
-	public function _saveSubEditors($contextId) {
-		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /* @var $subEditorsDao SubEditorsDAO */
-		$subEditorsDao->deleteBySubmissionGroupId($this->_categoryId, ASSOC_TYPE_CATEGORY, $contextId);
-		$subEditors = $this->getData('subEditors');
-		if (!empty($subEditors)) {
-			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
-			foreach ($subEditors as $subEditor) {
-				if ($roleDao->userHasRole($contextId, $subEditor, ROLE_ID_SUB_EDITOR)) {
-					$subEditorsDao->insertEditor($contextId, $this->_categoryId, $subEditor, ASSOC_TYPE_CATEGORY);
-				}
-			}
-		}
 	}
 }
 

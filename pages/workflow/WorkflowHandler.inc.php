@@ -89,28 +89,30 @@ class WorkflowHandler extends PKPWorkflowHandler {
 			$sectionWordLimits[$section->getId()] = (int) $section->getAbstractWordCount() ?? 0;
 		}
 
-		$workflowData = $templateMgr->getTemplateVars('workflowData');
 
 		// Add the word limit to the existing title/abstract form
-		if (!empty($workflowData['components'][FORM_TITLE_ABSTRACT]) &&
+		$components = $templateMgr->getState('components');
+		if (!empty($components[FORM_TITLE_ABSTRACT]) &&
 				array_key_exists($submission->getLatestPublication()->getData('sectionId'), $sectionWordLimits)) {
 			$limit = (int) $sectionWordLimits[$submission->getLatestPublication()->getData('sectionId')];
-			foreach ($workflowData['components'][FORM_TITLE_ABSTRACT]['fields'] as $key => $field) {
+			foreach ($components[FORM_TITLE_ABSTRACT]['fields'] as $key => $field) {
 				if ($field['name'] === 'abstract') {
-					$workflowData['components'][FORM_TITLE_ABSTRACT]['fields'][$key]['wordLimit'] = $limit;
+					$components[FORM_TITLE_ABSTRACT]['fields'][$key]['wordLimit'] = $limit;
 					break;
 				}
 			}
 		}
+		$components[FORM_ISSUE_ENTRY] = $issueEntryForm->getConfig();
+		$components[FORM_ID_RELATION] = $relationForm->getConfig();
 
-		$workflowData['components'][FORM_ISSUE_ENTRY] = $issueEntryForm->getConfig();
-		$workflowData['publicationFormIds'][] = FORM_ISSUE_ENTRY;
-		$workflowData['components'][FORM_ID_RELATION] = $relationForm->getConfig();
-		$workflowData['sectionWordLimits'] = $sectionWordLimits;
-		$workflowData['i18n']['schedulePublication'] = __('editor.submission.schedulePublication');
-		$workflowData['i18n']['setRelationSuccess'] = __('publication.relation.success');
+		$publicationFormIds = $templateMgr->getState('publicationFormIds');
+		$publicationFormIds[] = FORM_ISSUE_ENTRY;
 
-		$templateMgr->assign('workflowData', $workflowData);
+		$templateMgr->setState([
+			'components' => $components,
+			'publicationFormIds' => $publicationFormIds,
+			'sectionWordLimits' => $sectionWordLimits,
+		]);
 	}
 
 

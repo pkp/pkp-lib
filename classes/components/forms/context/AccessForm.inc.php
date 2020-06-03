@@ -35,7 +35,6 @@ class AccessForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;
-		$this->successMessage = __('manager.distribution.publishingMode.success');
 		$this->locales = $locales;
 
 		$this->addField(new FieldOptions('publishingMode', [

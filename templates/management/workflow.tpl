@@ -7,10 +7,13 @@
  *
  * @brief The workflow settings page.
  *}
-{include file="common/header.tpl" pageTitle="manager.workflow.title"}
+{extends file="layouts/backend.tpl"}
 
-{assign var="uuid" value=""|uniqid|escape}
-<div id="settings-context-{$uuid}">
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="manager.workflow.title"}
+	</h1>
+
 	<tabs>
 		<tab id="submission" label="{translate key="manager.publication.submissionStage"}">
 			{help file="settings" section="workflow-submission" class="pkp_help_tab"}
@@ -71,9 +74,4 @@
 		</tab>
 		{call_hook name="Template::Settings::workflow"}
 	</tabs>
-</div>
-<script type="text/javascript">
-	pkp.registry.init('settings-context-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
-</script>
-
-{include file="common/footer.tpl"}
+{/block}

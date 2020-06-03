@@ -1818,6 +1818,12 @@ msgstr "Этот материал должен быть завершен до т
 msgid "submission.list.currentStage"
 msgstr "Сейчас на этапе «{$stage}»."
 
+msgid "submission.list.activity"
+msgstr "Активность"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Дней с момента последней активности"
+
 msgid "submission.list.assignEditor"
 msgstr "Назначить редактора"
 

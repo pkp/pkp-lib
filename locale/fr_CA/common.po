@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-02-08 03:24+0000\n"
+"PO-Revision-Date: 2020-06-04 18:39+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
 "helene.vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -1945,3 +1945,12 @@ msgstr "Résumé du rapport de statistiques."
 
 msgid "common.override"
 msgstr "Outrepasser"
+
+msgid "navigation.skip.description"
+msgstr "Aller directement aux liens de contenu"
+
+msgid "common.moreThanOnly"
+msgstr "Plus que"
+
+msgid "common.lessThanOnly"
+msgstr "Moins que"

@@ -277,6 +277,7 @@
 			<col>context_id</col>
 		</index>
 		<index name="subeditor_submission_group_assoc_id">
+			<col>assoc_type</col>
 			<col>assoc_id</col>
 		</index>
 		<index name="subeditor_submission_group_user_id">

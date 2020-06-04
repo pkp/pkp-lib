@@ -122,15 +122,16 @@ class SubmissionsMigration extends Migration {
 			$table->index(['submission_id'], 'submission_comments_submission_id');
 		});
 
-		// Assignments of sub editors to sections/series.
-		Capsule::schema()->create('section_editors', function (Blueprint $table) {
+		// Assignments of sub editors to submission groups.
+		Capsule::schema()->create('subeditor_submission_group', function (Blueprint $table) {
 			$table->bigInteger('context_id');
-			$table->bigInteger('section_id');
+			$table->bigInteger('assoc_id');
+			$table->bigInteger('assoc_type');
 			$table->bigInteger('user_id');
 			$table->index(['context_id'], 'section_editors_context_id');
-			$table->index(['section_id'], 'section_editors_section_id');
-			$table->index(['user_id'], 'section_editors_user_id');
-			$table->unique(['context_id', 'section_id', 'user_id'], 'section_editors_pkey');
+			$table->index(['assoc_id', 'assoc_type'], 'subeditor_submission_group_assoc_id');
+			$table->index(['user_id'], 'subeditor_submission_group_user_id');
+			$table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id'], 'section_editors_pkey');
 		});
 
 		// queries posted on submission workflow

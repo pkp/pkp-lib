@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-02-08 03:24+0000\n"
+"PO-Revision-Date: 2020-06-04 18:39+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
 "helene.vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -1987,7 +1987,6 @@ msgstr "Soumissions acceptées"
 msgid "stats.name.submissionsReceived"
 msgstr "Soumissions reçues"
 
-#, fuzzy
 msgid "stats.userStatistics"
 msgstr "Statistiques utilisateur"
 
@@ -2052,3 +2051,6 @@ msgstr "Obliger l'auteur-e à fournir le type avant d'accepter sa soumission."
 
 msgid "manager.setup.metadata.subjects.require"
 msgstr "Obliger l'auteur-e à fournir des sujets avant d'accepter sa soumission."
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/année)"

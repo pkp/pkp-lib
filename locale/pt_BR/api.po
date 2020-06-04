@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2020-01-30 18:24+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2020-06-04 18:39+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -114,3 +114,37 @@ msgstr "Você não está autorizado para acessar o recurso solicitado."
 
 msgid "api.400.paramNotSupported"
 msgstr "O parâmetro {$param} não é suportado."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "O vocabulário {$vocab} não é suportado."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "A localidade {$locale} não é suportada."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"O tema ativo, {$themePluginPath}, não está ativado e pode não estar "
+"instalado."
+
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"Não foi possível carregar o arquivo devido a um erro de configuração do "
+"servidor. Entre em contato com o administrador do sistema."
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "Arquivos maiores que {$maxSize} não podem ser carregados."
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "Não foi possível carregar um ou mais arquivos."
+
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "Nenhum arquivo a ser carregado foi encontrado com a solicitação."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Este terminal não está disponível em um contexto. Ele deve ser acessado no "
+"namespace de todo o site."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Sua solicitação não foi válida. O orderDirection deve ser `desc` ou` asc`."

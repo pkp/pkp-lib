@@ -471,6 +471,9 @@ msgstr "أقل"
 msgid "common.lessThan"
 msgstr "{$value} أو أقل"
 
+msgid "common.lessThanOnly"
+msgstr "أقل من"
+
 msgid "common.commaListSeparator"
 msgstr "، "
 
@@ -500,6 +503,9 @@ msgstr "المزيد"
 
 msgid "common.moreThan"
 msgstr "{$value} أو أكثر"
+
+msgid "common.moreThanOnly"
+msgstr "أكثر من"
 
 msgid "common.noneAssigned"
 msgstr "لا أحد معَيَّن"
@@ -1209,9 +1215,8 @@ msgstr "هذا المشارك يُسمح له فقط بتقديم التوصية
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "صلاحيات تعديل البيانات الوصفية لطلب التقديم."
 
-#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
-msgstr "السماح لهذا المستخدم بتعديل البيانات الوصفية لطلب التقديم"
+msgstr "السماح لهذا المستخدم بالتعديل في المنشور، مثل العنوان، الملخص، البيانات الوصفية وغيرها من تفاصيل طلب التقديم. قد ترغب بإبطال هذه المزية عندما يجتاز العمل كل مراحل التدقيق ويصير جاهزاً للنشر النهائي"
 
 msgid "stageParticipants.selectedUser"
 msgstr "المشارك"
@@ -1314,6 +1319,9 @@ msgstr "التهيئة"
 
 msgid "navigation.sitemap"
 msgstr "خارطة الموقع"
+
+msgid "navigation.skip.description"
+msgstr "إقفز إلى روابط المحتوى"
 
 msgid "navigation.skip.announcements"
 msgstr "إقفز إلى الإعلانات"

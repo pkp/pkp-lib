@@ -50,6 +50,9 @@ msgstr "استمر إلى الخطوة #3"
 msgid "reviewer.submission.submitReview"
 msgstr "تقديم التحكيم"
 
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "إحفظه لما بعد"
+
 msgid "reviewer.submission.reviewerGuidelines"
 msgstr "إرشادات المحكم"
 

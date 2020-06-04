@@ -392,11 +392,17 @@ msgstr "{$name}، {$affiliation}"
 msgid "submission.shortAuthor"
 msgstr "{$author}."
 
+msgid "submission.representationOfTitle"
+msgstr "{$representation} لـ {$title}"
+
 msgid "submission.mySubmissions"
-msgstr "طلباتي للنشر"
+msgstr "طلبات تقديمي"
 
 msgid "submission.addFile"
 msgstr "رفع الملف"
+
+msgid "submission.additionalFiles"
+msgstr "الملفات الإضافية"
 
 msgid "submission.agencies"
 msgstr "الوكالات"
@@ -505,6 +511,9 @@ msgstr "معلومات التغطية"
 
 msgid "submission.done"
 msgstr "تم"
+
+msgid "submission.downloads"
+msgstr "التنزيلات"
 
 msgid "submission.dueDate"
 msgstr "تأريخ الاستيجاب"
@@ -679,6 +688,12 @@ msgstr "المعرفات"
 
 msgid "submission.publisherId"
 msgstr "معرفات الرابط العام"
+
+msgid "submission.publisherId.description"
+msgstr "رمز تعريف المنشور قد يجري استعماله لتوثيق رمز التعريف المأخوذ من قاعدة بيانات خارجية. على سبيل المال، الفقرات المصدرة لغرض إيداعها لدى PubMed قد تتضمن رمز تعريف الناشر. لا ينبغي استعمال هذا الحقل لمعرفات المكونات الرقمية DOI."
+
+msgid "submission.publisherId.enable"
+msgstr "Enable for {$objects}"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "معلومات المؤلَّف"
@@ -915,10 +930,10 @@ msgid "submission.saveMetadata"
 msgstr "حفظ البيانات الوصفية"
 
 msgid "submissions.completed"
-msgstr "إكتمل"
+msgstr "مكتمل"
 
 msgid "submissions.declined"
-msgstr "رفض"
+msgstr "مرفوض"
 
 msgid "submissions.incomplete"
 msgstr "غير مكتمل"
@@ -1322,6 +1337,9 @@ msgstr "إلتماس التنقيحات"
 msgid "editor.submission.decision.resubmit"
 msgstr "إعادة التقديم للتحكيم"
 
+msgid "editor.submission.decision.newRound"
+msgstr "جولة تحكيم جديدة"
+
 msgid "editor.submission.decision.decline"
 msgstr "رفض المؤلَّف"
 
@@ -1465,6 +1483,9 @@ msgstr "التحكيم مطلوب."
 
 msgid "notification.type.editorDecisionResubmit"
 msgstr "أعد التقديم للتحكيم."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "جولة تحكيمات جديدة قد بوشر بها."
 
 msgid "notification.type.editorDecisionDecline"
 msgstr "طلب النشر مرفوض."
@@ -1652,27 +1673,21 @@ msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by/4
 msgid "submission.license.cc.by-sa4.footer"
 msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc-nd3.footer"
 msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc3.footer"
 msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons Attribution-NonCommercial 3.0 Unported License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc-sa3.footer"
 msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nd3.footer"
 msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by3.footer"
 msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 Unported License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-sa3.footer"
 msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>"
 
@@ -1793,6 +1808,12 @@ msgstr "لا بد من إكمال طلب التقديم هذا قبل أن يت�
 msgid "submission.list.currentStage"
 msgstr "حالياً، في مرحلة {$stage}."
 
+msgid "submission.list.activity"
+msgstr "النشاط"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "يوم/أيام منذ آخر نشاط"
+
 msgid "submission.list.assignEditor"
 msgstr "تعيين المحرر"
 
@@ -1828,6 +1849,9 @@ msgstr "الفئات الفرعية"
 
 msgid "submission.publication"
 msgstr "المنشور"
+
+msgid "submission.publications"
+msgstr "المنشورات"
 
 msgid "publication.citations.success"
 msgstr "تم تحديث المراجع."
@@ -1933,6 +1957,18 @@ msgstr "لا تجدول"
 
 msgid "publication.unschedule.confirm"
 msgstr "هل أنت متأكد من رغبتك في عدم جدولته للنشر؟"
+
+msgid "publication.urlPath"
+msgstr "مسار الرابط"
+
+msgid "publication.urlPath.description"
+msgstr "مسار إختياري لاستعماله ضمن الرابط كبديل عن رمز المعرف."
+
+msgid "publication.urlPath.duplicate"
+msgstr "مسار الرابط هذا مستعمل سابقاً ولا يمكن استعماله مجدداً."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "مسار الرابط لا يمكن أن يكون رقماً."
 
 msgid "publication.version.all"
 msgstr "كل النسخ"

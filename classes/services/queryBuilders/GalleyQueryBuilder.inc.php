@@ -17,7 +17,7 @@ namespace APP\Services\QueryBuilders;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-class GalleyQueryBuilder extends \PKP\Services\QueryBuilders\BaseQueryBuilder implements EntityQueryBuilderInterface {
+class GalleyQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var array get authors for one or more publications */
 	protected $publicationIds = [];

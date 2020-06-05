@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2020-06-04 18:39+0000\n"
+"PO-Revision-Date: 2020-06-06 02:37+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_BR/>\n"
@@ -18,7 +18,7 @@ msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
 
 msgid "common.currentStyleSheet"
-msgstr "Folha de estilos atual"
+msgstr "Folha de estilo atual"
 
 msgid "about.description"
 msgstr "Descrição"
@@ -346,10 +346,10 @@ msgid "common.enabled"
 msgstr "Habilitado"
 
 msgid "common.error.databaseError"
-msgstr "Ocorreu um erro de base de dados: {$error}"
+msgstr "Ocorreu um erro de banco de dados: {$error}"
 
 msgid "common.error.databaseErrorUnknown"
-msgstr "Ocorreu um erro desconhecido de conexão à base de dados."
+msgstr "Ocorreu um erro desconhecido de conexão ao banco de dados."
 
 msgid "common.error.framesRequired"
 msgstr "Esta página requer frames. <a href=\"{$url}\">Clique aqui</a> para a versão sem frames."
@@ -508,7 +508,7 @@ msgid "common.on"
 msgstr "Ativado"
 
 msgid "common.ok"
-msgstr "ok"
+msgstr "OK"
 
 msgid "common.options"
 msgstr "Opções"
@@ -646,7 +646,7 @@ msgid "common.select"
 msgstr "Selecionar"
 
 msgid "common.sendEmail"
-msgstr "Enviar email"
+msgstr "Enviar e-mail"
 
 msgid "common.size"
 msgstr "Tamanho"
@@ -712,7 +712,7 @@ msgid "common.upload.changeFile"
 msgstr "Alterar arquivo"
 
 msgid "common.upload.dragFile"
-msgstr "Arraste um arquivo aqui para iniciar o upload"
+msgstr "Arraste um arquivo aqui para iniciar o <em>upload</em>"
 
 msgid "common.url"
 msgstr "URL"
@@ -826,7 +826,7 @@ msgid "email.from"
 msgstr "De"
 
 msgid "email.invalid"
-msgstr "O endereço de e-mail {$email} é invalido."
+msgstr "O endereço de <em>e-mail</em> {$email} é invalido."
 
 msgid "email.multipart"
 msgstr "Esta é parte de uma mensagem em formato MIME."
@@ -844,13 +844,13 @@ msgid "email.senderName"
 msgstr "Nome do Remetente"
 
 msgid "email.senderEmail"
-msgstr "Email do Remetente"
+msgstr "<em>E-mail</em> do Remetente"
 
 msgid "email.send"
 msgstr "Enviar"
 
 msgid "email.skip"
-msgstr "Não enviar e-mail"
+msgstr "Não enviar <em>e-mail</em>"
 
 msgid "email.subject"
 msgstr "Assunto"
@@ -1192,7 +1192,7 @@ msgid "notification.confirmSuccess"
 msgstr "Assinatura realizada com sucesso."
 
 msgid "notification.email"
-msgstr "Não me envie um email para esses tipos de notificações."
+msgstr "Não me envie um <em>e-mail</em> para esses tipos de notificações."
 
 msgid "notification.noneExist"
 msgstr "Não há notificações no momento."
@@ -1533,13 +1533,15 @@ msgid "navigation.skip.nav"
 msgstr "Ir para o menu de navegação principal"
 
 msgid "navigation.skip.footer"
-msgstr "Ir pro rodapé"
+msgstr "Ir para o rodapé"
 
 msgid "notification.removedSubmission"
 msgstr "Submissão removida."
 
 msgid "notification.addedReviewerNoEmail"
-msgstr "{$reviewerName} foi designado para avaliar essa submissão e não recebeu uma notificação por email."
+msgstr ""
+"{$reviewerName} foi designado para avaliar essa submissão e não recebeu uma "
+"notificação por <em>e-mail</em>."
 
 msgid "common.captcha.error.missing-input-response"
 msgstr "Você deve completar a checagem de validação para evitar o envio de SPAM."
@@ -1551,7 +1553,7 @@ msgid "common.publicAccess"
 msgstr "Acesso Público"
 
 msgid "common.upload.thumbnailPreview"
-msgstr "Prévia of the imagem selecionada atualmente."
+msgstr "Prévia da imagem atualmente selecionada."
 
 msgid "common.submenu"
 msgstr "Submenu"
@@ -1866,10 +1868,11 @@ msgid "notification.cancelledReviewer"
 msgstr "Avaliador cancelado."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Enviar e-mail de notificação para todos os usuários registrados"
+msgstr ""
+"Enviar <em>e-mail</em> de notificação para todos os usuários registrados"
 
 msgid "notification.reviewerThankedEmail"
-msgstr "E-mail de agradecimento enviado ao avaliador."
+msgstr "<em>E-mail</em> de agradecimento enviado ao avaliador."
 
 msgid "navigation.skip.announcements"
 msgstr "Pular para os anúncios"
@@ -1991,8 +1994,8 @@ msgstr "Somente os seguintes idiomas são paermitidos: {$languages}."
 
 msgid "email.compose.error"
 msgstr ""
-"Houve um problema ao enviar uma mensagem de e-mail. Por favor tente mais "
-"tarde, ou contate o administrador do sistema."
+"Houve um problema ao enviar uma mensagem de <em>e-mail</em>. Por favor tente "
+"mais tarde, ou contate o administrador do sistema."
 
 msgid "navigation.skip.description"
 msgstr "Ir para os links de conteúdo"

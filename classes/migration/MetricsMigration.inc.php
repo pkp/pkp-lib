@@ -46,6 +46,13 @@ class MetricsMigration extends Migration {
 			$table->index(['metric_type', 'submission_id', 'assoc_type'], 'metrics_metric_type_submission_id_assoc_type');
 			$table->index(['metric_type', 'context_id', 'assoc_type', 'assoc_id'], 'metrics_metric_type_submission_id_assoc');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('metrics');
 	}
 }

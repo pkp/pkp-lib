@@ -35,6 +35,13 @@ class NotesMigration extends Migration {
 			$table->text('contents')->nullable();
 			$table->index(['assoc_type', 'assoc_id'], 'notes_assoc');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('notes');
 	}
 }

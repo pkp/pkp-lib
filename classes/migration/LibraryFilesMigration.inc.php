@@ -49,6 +49,14 @@ class LibraryFilesMigration extends Migration {
 			$table->index(['file_id'], 'library_file_settings_id');
 			$table->unique(['file_id', 'locale', 'setting_name'], 'library_file_settings_pkey');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('library_file_settings');
+		Capsule::schema()->drop('library_files');
 	}
 }

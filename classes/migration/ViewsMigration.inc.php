@@ -30,6 +30,13 @@ class ViewsMigration extends Migration {
 			$table->datetime('date_last_viewed')->nullable();
 			$table->unique(['assoc_type', 'assoc_id', 'user_id'], 'item_views_pkey');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('item_views');
 	}
 }

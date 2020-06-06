@@ -50,4 +50,13 @@ class GenresMigration extends Migration {
 		});
 
 	}
+
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('genre_settings');
+		Capsule::schema()->drop('genres');
+	}
 }

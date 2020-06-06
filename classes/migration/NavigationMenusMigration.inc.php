@@ -69,6 +69,17 @@ class NavigationMenusMigration extends Migration {
 			$table->index(['navigation_menu_item_assignment_id'], 'assignment_settings_navigation_menu_item_assignment_id');
 			$table->unique(['navigation_menu_item_assignment_id', 'locale', 'setting_name'], 'navigation_menu_item_assignment_settings_pkey');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('navigation_menu_item_assignment_settings');
+		Capsule::schema()->drop('navigation_menu_item_assignments');
+		Capsule::schema()->drop('navigation_menu_item_settings');
+		Capsule::schema()->drop('navigation_menu_items');
+		Capsule::schema()->drop('navigation_menus');
 	}
 }

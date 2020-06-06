@@ -64,6 +64,16 @@ class AnnouncementsMigration extends Migration {
 			$table->index(['announcement_id'], 'announcement_settings_announcement_id');
 			$table->unique(['announcement_id', 'locale', 'setting_name'], 'announcement_settings_pkey');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('announcement_types');
+		Capsule::schema()->drop('announcement_type_settings');
+		Capsule::schema()->drop('announcements');
+		Capsule::schema()->drop('announcement_settings');
 	}
 }

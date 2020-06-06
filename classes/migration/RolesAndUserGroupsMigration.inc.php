@@ -80,6 +80,17 @@ class RolesAndUserGroupsMigration extends Migration {
 			$table->index(['user_group_id'], 'stage_assignments_user_group_id');
 			$table->index(['user_id'], 'stage_assignments_user_id');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('stage_assignments');
+		Capsule::schema()->drop('user_group_stage');
+		Capsule::schema()->drop('user_user_groups');
+		Capsule::schema()->drop('user_group_settings');
+		Capsule::schema()->drop('user_groups');
 	}
 }

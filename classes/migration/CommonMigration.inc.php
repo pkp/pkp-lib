@@ -242,4 +242,29 @@ class CommonMigration extends Migration {
 		});
 
 	}
+
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('plugin_settings');
+		Capsule::schema()->drop('oai_resumption_tokens');
+		Capsule::schema()->drop('email_templates_settings');
+		Capsule::schema()->drop('email_templates');
+		Capsule::schema()->drop('email_templates_default_data');
+		Capsule::schema()->drop('email_templates_default');
+		Capsule::schema()->drop('notification_mail_list');
+		Capsule::schema()->drop('notification_subscription_settings');
+		Capsule::schema()->drop('notification_settings');
+		Capsule::schema()->drop('notifications');
+		Capsule::schema()->drop('access_keys');
+		Capsule::schema()->drop('sessions');
+		Capsule::schema()->drop('user_settings');
+		Capsule::schema()->drop('users');
+		Capsule::schema()->drop('auth_sources');
+		Capsule::schema()->drop('site_settings');
+		Capsule::schema()->drop('site');
+		Capsule::schema()->drop('versions');
+	}
 }

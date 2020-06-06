@@ -58,4 +58,15 @@ class ControlledVocabMigration extends Migration {
 		});
 
 	}
+
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('user_interests');
+		Capsule::schema()->drop('controlled_vocab_entry_settings');
+		Capsule::schema()->drop('controlled_vocab_entries');
+		Capsule::schema()->drop('controlled_vocabs');
+	}
 }

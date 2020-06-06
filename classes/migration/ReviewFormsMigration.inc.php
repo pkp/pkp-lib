@@ -74,6 +74,17 @@ class ReviewFormsMigration extends Migration {
 			$table->text('response_value')->nullable();
 			$table->index(['review_form_element_id', 'review_id'], 'review_form_responses_pkey');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('review_form_responses');
+		Capsule::schema()->drop('review_form_element_settings');
+		Capsule::schema()->drop('review_form_elements');
+		Capsule::schema()->drop('review_form_settings');
+		Capsule::schema()->drop('review_forms');
 	}
 }

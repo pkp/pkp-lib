@@ -33,6 +33,13 @@ class TemporaryFilesMigration extends Migration {
 			$table->datetime('date_uploaded');
 			$table->index(['user_id'], 'temporary_files_user_id');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('temporary_files');
 	}
 }

@@ -99,6 +99,19 @@ class MetadataMigration extends Migration {
 			$table->index(['filter_id'], 'filter_settings_id');
 			$table->unique(['filter_id', 'locale', 'setting_name'], 'filter_settings_pkey');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('filter_settings');
+		Capsule::schema()->drop('filters');
+		Capsule::schema()->drop('filter_groups');
+		Capsule::schema()->drop('metadata_description_settings');
+		Capsule::schema()->drop('metadata_descriptions');
+		Capsule::schema()->drop('citation_settings');
+		Capsule::schema()->drop('citations');
 	}
 }

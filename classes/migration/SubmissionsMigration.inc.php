@@ -63,6 +63,11 @@ class SubmissionsMigration extends Migration {
 			$table->index(['publication_id'], 'publication_settings_publication_id');
 			$table->unique(['publication_id', 'locale', 'setting_name'], 'publication_settings_pkey');
 		});
+		// Add partial index (DBMS-specific)
+		switch (Capsule::connection()->getDriverName()) {
+			case 'mysql': Capsule::connection()->unprepared('CREATE INDEX publication_settings_name_value ON publication_settings (setting_name(50), setting_value(150))'); break;
+			case 'pgsql': Capsule::connection()->unprepared("CREATE INDEX publication_settings_name_value ON publication_settings (setting_name, setting_value) WHERE setting_name IN ('indexingState', 'medra::registeredDoi', 'datacite::registeredDoi', 'pub-id::publisher-id')"); break;
+		}
 
 		// Authors for submissions.
 		Capsule::schema()->create('authors', function (Blueprint $table) {
@@ -177,6 +182,25 @@ class SubmissionsMigration extends Migration {
 			$table->index(['keyword_id'], 'submission_search_object_keywords_keyword_id');
 			$table->unique(['object_id', 'pos'], 'submission_search_object_keywords_pkey');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('submission_search_object_keywords');
+		Capsule::schema()->drop('submission_search_objects');
+		Capsule::schema()->drop('submission_search_keyword_list');
+		Capsule::schema()->drop('query_participants');
+		Capsule::schema()->drop('queries');
+		Capsule::schema()->drop('subeditor_submission_group');
+		Capsule::schema()->drop('submission_comments');
+		Capsule::schema()->drop('edit_decisions');
+		Capsule::schema()->drop('author_settings');
+		Capsule::schema()->drop('authors');
+		Capsule::schema()->drop('publication_settings');
+		Capsule::schema()->drop('submission_settings');
+		Capsule::schema()->drop('submissions');
 	}
 }

@@ -52,6 +52,15 @@ class TombstoneMigration extends Migration {
 			$table->bigInteger('assoc_id');
 			$table->index(['tombstone_id'], 'data_object_tombstone_oai_set_objects_tombstone_id');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('data_object_tombstone_oai_set_objects');
+		Capsule::schema()->drop('data_object_tombstone_settings');
+		Capsule::schema()->drop('data_object_tombstones');
 	}
 }

@@ -52,4 +52,14 @@ class CategoriesMigration extends Migration {
 		});
 
 	}
+
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('categories');
+		Capsule::schema()->drop('category_settings');
+		Capsule::schema()->drop('publication_categories');
+	}
 }

@@ -82,6 +82,16 @@ class SubmissionFilesMigration extends Migration {
 			$table->bigInteger('file_id');
 			$table->bigInteger('revision');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('submission_supplementary_files');
+		Capsule::schema()->drop('submission_artwork_files');
+		Capsule::schema()->drop('submission_file_settings');
+		Capsule::schema()->drop('submission_files');
 	}
 }

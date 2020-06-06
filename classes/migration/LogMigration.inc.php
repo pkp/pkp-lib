@@ -72,6 +72,16 @@ class LogMigration extends Migration {
 			$table->bigInteger('user_id');
 			$table->unique(['email_log_id', 'user_id'], 'email_log_user_id');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('email_log_users');
+		Capsule::schema()->drop('email_log');
+		Capsule::schema()->drop('event_log_settings');
+		Capsule::schema()->drop('event_log');
 	}
 }

@@ -28,6 +28,13 @@ class ScheduledTasksMigration extends Migration {
 			$table->datetime('last_run')->nullable();
 			$table->unique(['class_name'], 'scheduled_tasks_pkey');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('scheduled_tasks');
 	}
 }

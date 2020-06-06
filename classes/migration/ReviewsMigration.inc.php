@@ -88,6 +88,16 @@ class ReviewsMigration extends Migration {
 			$table->index(['review_id'], 'review_files_review_id');
 			$table->unique(['review_id', 'file_id'], 'review_files_pkey');
 		});
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('review_files');
+		Capsule::schema()->drop('review_round_files');
+		Capsule::schema()->drop('review_rounds');
+		Capsule::schema()->drop('review_assignments');
 	}
 }

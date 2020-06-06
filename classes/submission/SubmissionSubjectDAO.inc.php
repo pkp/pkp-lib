@@ -23,12 +23,11 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	/**
 	 * Build/fetch and return a controlled vocabulary for subjects.
 	 * @param $publicationId int
-	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
 	 * @return ControlledVocab
 	 */
-	function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION) {
+	function build($publicationId) {
 		// may return an array of ControlledVocabs
-		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $assocType, $publicationId);
+		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_SUBJECT, ASSOC_TYPE_PUBLICATION, $publicationId);
 	}
 
 	/**
@@ -91,13 +90,12 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	 * @param $subjects array
 	 * @param $publicationId int
 	 * @param $deleteFirst boolean
-	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
 	 * @return int
 	 */
-	function insertSubjects($subjects, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION) {
+	function insertSubjects($subjects, $publicationId, $deleteFirst = true) {
 		$subjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /* @var $subjectDao SubmissionSubjectDAO */
 		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /* @var $submissionSubjectEntryDao SubmissionSubjectEntryDAO */
-		$currentSubjects = $this->build($publicationId, $assocType);
+		$currentSubjects = $this->build($publicationId);
 
 		if ($deleteFirst) {
 			$existingEntries = $subjectDao->enumerate($currentSubjects->getId(), CONTROLLED_VOCAB_SUBMISSION_SUBJECT);

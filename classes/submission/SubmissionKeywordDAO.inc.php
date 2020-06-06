@@ -23,12 +23,11 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	/**
 	 * Build/fetch and return a controlled vocabulary for keywords.
 	 * @param $publicationId int
-	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
 	 * @return ControlledVocab
 	 */
-	function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION) {
+	function build($publicationId) {
 		// may return an array of ControlledVocabs
-		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $assocType, $publicationId);
+		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_KEYWORD, ASSOC_TYPE_PUBLICATION, $publicationId);
 	}
 
 	/**
@@ -91,17 +90,16 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	 * @param $keywords array
 	 * @param $publicationId int
 	 * @param $deleteFirst boolean
-	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
 	 * @return int
 	 */
-	function insertKeywords($keywords, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION) {
+	function insertKeywords($keywords, $publicationId, $deleteFirst = true) {
 		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $keywordDao SubmissionKeywordDAO */
 		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /* @var $submissionKeywordEntryDao SubmissionKeywordEntryDAO */
 
 		if ($deleteFirst) {
 			$currentKeywords = $this->deleteByPublicationId($publicationId);
 		} else {
-			$currentKeywords = $this->build($publicationId, $assocType);
+			$currentKeywords = $this->build($publicationId);
 		}
 		if (is_array($keywords)) { // localized, array of arrays
 

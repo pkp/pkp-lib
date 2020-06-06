@@ -22,10 +22,23 @@ class v3_3_0UpgradeMigration extends Migration {
          * @return void
          */
         public function up() {
-		// Submissions
 		Capsule::schema()->table('submissions', function (Blueprint $table) {
-			// Remove hold-over from OJS 2.x to 3 upgrade.
 			$table->dropColumn('locale');
+			$table->dropColumn('section_id');
 		});
+		Capsule::schema()->table('authors', function (Blueprint $table) {
+			$table->dropColumn('submission_id');
+		});
+		Capsule::schema()->table('author_settings', function (Blueprint $table) {
+			$table->dropColumn('setting_type');
+		});
+	}
+
+	/**
+	 * Reverse the downgrades
+	 * @return void
+	 */
+	public function down() {
+		throw new Exception('Downgrade not supported.');
 	}
 }

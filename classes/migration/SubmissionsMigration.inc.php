@@ -25,11 +25,7 @@ class SubmissionsMigration extends Migration {
 		// Submissions
 		Capsule::schema()->create('submissions', function (Blueprint $table) {
 			$table->bigInteger('submission_id')->autoIncrement();
-			//  DEPRECATED: DO NOT USE. Held over for the OJS 2.x to 3 upgrade (pkp/pkp-lib#3572) 
-			$table->string('locale', 14)->nullable();
 			$table->bigInteger('context_id');
-			//  DEPRECATED: DO NOT USE. Held over for OJS 3.2 upgrade 
-			$table->bigInteger('section_id')->nullable();
 			$table->bigInteger('current_publication_id')->nullable();
 			$table->datetime('date_last_activity')->nullable();
 			$table->datetime('date_submitted')->nullable();
@@ -76,8 +72,6 @@ class SubmissionsMigration extends Migration {
 			$table->tinyInteger('include_in_browse')->default(1);
 			//  NOTNULL Constraint commented to allow upgrade to 3.2 
 			$table->bigInteger('publication_id')->nullable();
-			//  DEPRECATED Held over for 3.2 upgrade 
-			$table->bigInteger('submission_id')->nullable();
 			$table->float('seq', 8, 2)->default(0);
 			$table->bigInteger('user_group_id')->nullable();
 			$table->index(['publication_id'], 'authors_publication_id');
@@ -89,8 +83,6 @@ class SubmissionsMigration extends Migration {
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
 			$table->text('setting_value')->nullable();
-			//  DEPRECATED: Held over for OJS pre-3.2 upgrade 
-			$table->string('setting_type', 6)->nullable();
 			$table->index(['author_id'], 'author_settings_author_id');
 			$table->unique(['author_id', 'locale', 'setting_name'], 'author_settings_pkey');
 		});

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2020-06-06 02:37+0000\n"
+"PO-Revision-Date: 2020-06-07 13:56+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
@@ -30,7 +30,8 @@ msgid "submission.submit.submissionCompleteThanks"
 msgstr "Obrigado pelo seu interesse em publicar com {$contextName}."
 
 msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Concordo em cumprir os termos da declaração de direitos autorais."
+msgstr ""
+"Sim, eu concordo em cumprir os termos da declaração de direitos autorais."
 
 msgid "submission.submit.whatNext"
 msgstr "O que acontece a seguir?"
@@ -357,7 +358,7 @@ msgid "submission.mySubmissions"
 msgstr "Submissões de Minha Autoria"
 
 msgid "submission.addFile"
-msgstr "Enviar Arquivo"
+msgstr "Enviar arquivo"
 
 msgid "submission.agencies"
 msgstr "Agências"
@@ -1299,10 +1300,10 @@ msgid "submission.status.published"
 msgstr "Publicado"
 
 msgid "submission.submit.uploadStep"
-msgstr "1. Enviar Submissão"
+msgstr "1. Carregar arquivo"
 
 msgid "submission.submit.uploadSubmissionFile"
-msgstr "Carregar Arquivo da Submissão"
+msgstr "Enviar arquivo(s) de Submissão"
 
 msgid "submission.submit.metadataStep"
 msgstr "2. Metadados"
@@ -1320,21 +1321,21 @@ msgid "submission.submit.howToSubmitNoPhone"
 msgstr "Dificuldades? Contate <a href=\"mailto:{$supportEmail}\">{$supportName}</ a> para obter ajuda."
 
 msgid "submission.upload.noGenre"
-msgstr "Gênero ausente ou inválido!"
+msgstr "Componente ausente ou inválido!"
 
 msgid "submission.upload.invalidUserGroup"
 msgstr "Grupo de usuário inválido ou ausente!"
 
 msgid "submission.upload.possibleRevision"
-msgstr "Detectada Possível Duplicação ou Avaliação (há duvida sobre essa tradução)"
+msgstr "Possível duplicação ou revisão detectada"
 
 msgid "submission.upload.possibleRevisionDescription"
 msgstr ""
 "O nome do arquivo enviado assemelha-se ao nome do arquivo previamente "
 "carregado \" {$revisedFileName}\". Este arquivo deve substituir o arquivo \""
 "{$revisedFileName}\"? Em caso positivo, selecione o arquivo abaixo. Caso "
-"contrário, selecione \"Esta não é a revisão de um arquivo existente\" antes "
-"de proceder."
+"contrário, selecione \"Esta não é uma revisão de um arquivo existente\" "
+"antes de proceder."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Por favor selecione o arquivo que gostaria de revisar."
@@ -1343,7 +1344,7 @@ msgid "submission.upload.selectOptionalFileToRevise"
 msgstr "Se você estiver carregando uma revisão de um arquivo existente, por favor, indique qual arquivo."
 
 msgid "submission.upload.uploadNewFile"
-msgstr "Selecionar arquivo (preservar o histórico)"
+msgstr "Esta não é uma revisão de um arquivo existente"
 
 msgid "submission.upload.userGroup"
 msgstr "Envie este arquivo no meu papel como ..."
@@ -1364,7 +1365,7 @@ msgid "submission.upload.copyeditedVersion"
 msgstr "Enviar Arquivo da Edição de Texto"
 
 msgid "submission.upload.fairCopy"
-msgstr "Enviar Cópia \"Fair\" (???)"
+msgstr "Enviar Cópia \"Fair\""
 
 msgid "submission.upload.uploadFiles"
 msgstr "Enviar Arquivos"
@@ -1507,7 +1508,7 @@ msgid "submission.event.fileAuditUploaded"
 msgstr "\"{$name}\" ({$username}) completou sua auditoria e enviou o arquivo \"{$file}.\""
 
 msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}) has signed off on the signoff for \"{$file}.\" (???)"
+msgstr "\"{$name}\" ({$username})  foi encerrado na assinatura do \"{$file}.\""
 
 msgid "submission.event.proofsApproved"
 msgstr "\"{$name}\" ({$username}) aprovou a leitura de prova para \"{$formatName}.\""
@@ -1784,9 +1785,8 @@ msgstr "Mudar Arquivo"
 msgid "submission.identifiers"
 msgstr "Identificadores"
 
-#, fuzzy
 msgid "submission.publisherId"
-msgstr "Publisher ID"
+msgstr "ID da editora"
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Novas avaliações foram enviados e estão sendo considerados pelo editor."

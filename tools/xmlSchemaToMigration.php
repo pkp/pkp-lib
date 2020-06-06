@@ -94,7 +94,7 @@ class $this->className extends Migration {
 			$keys = [];
 			$hasAutoIncrementNamed = null;
 			foreach ($tableNode->childNodes as $tableChild) switch (true) {
-				case $tableChild->nodeType == XML_COMMENT_NODE: throw new Exception('Unexpected comment!');
+				case $tableChild->nodeType == XML_COMMENT_NODE: throw new Exception('Unexpected comment in table ' . $tableNode->getAttribute('name') . '!');
 				case $tableChild->nodeName == 'field':
 					// Preprocess comments
 					foreach ($tableChild->childNodes as $fieldChild) switch (true) {

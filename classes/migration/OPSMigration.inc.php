@@ -127,6 +127,26 @@ class OPSMigration extends Migration {
 			$table->index(['galley_id'], 'publication_galley_settings_galley_id');
 			$table->unique(['galley_id', 'locale', 'setting_name'], 'publication_galley_settings_pkey');
 		});
+		// Add partial index (DBMS-specific)
+		switch (Capsule::connection()->getDriverName()) {
+			case 'mysql': Capsule::connection()->unprepared('CREATE INDEX publication_galley_settings_name_value ON publication_galley_settings (setting_name(50), setting_value(150))'); break;
+			case 'pgsql': Capsule::connection()->unprepared('CREATE INDEX publication_galley_settings_name_value ON publication_galley_settings (setting_name, setting_value)'); break;
+		}
+	}
 
+	/**
+	 * Reverse the migration.
+	 * @return void
+	 */
+	public function down() {
+		Capsule::schema()->drop('completed_payments');
+		Capsule::schema()->drop('journals');
+		Capsule::schema()->drop('journal_settings');
+		Capsule::schema()->drop('sections');
+		Capsule::schema()->drop('section_settings');
+		Capsule::schema()->drop('submission_tombstones');
+		Capsule::schema()->drop('publications');
+		Capsule::schema()->drop('publication_galleys');
+		Capsule::schema()->drop('publication_galley_settings');
 	}
 }

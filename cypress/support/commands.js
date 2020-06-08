@@ -249,12 +249,12 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 	cy.get('h2').contains('Submission complete');
 });
 
-Cypress.Commands.add('findSubmissionAsEditor', (username, password, title, context) => {
+Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, context) => {
 	context = context || 'publicknowledge';
 	cy.login(username, password, context);
 	cy.get('button[id="active-button"]').click();
 	// Get the <a> above the title-containing div
-	cy.get('div[id=active]').find('div').contains(title).parent().parent().click();
+	cy.get('a').contains('View ' + familyName).click({force: true});
 });
 
 Cypress.Commands.add('sendToReview', (toStage, fromStage) => {
@@ -293,13 +293,11 @@ Cypress.Commands.add('assignReviewer', name => {
 	cy.wait(2000); // FIXME: Occasional problems opening the grid
 	cy.get('a[id^="component-grid-users-reviewer-reviewergrid-addReviewer-button-"]').click();
 	cy.waitJQuery();
-	cy.get('fieldset.pkpListPanel--selectReviewer input.pkpSearch__input', {timeout: 20000}).type(name, {delay: 0});
-	cy.get('div.listPanel__item--reviewer__fullName:contains(' + Cypress.$.escapeSelector(name) + ')').click();
-	cy.get('button[id="selectReviewerButton"]').click();
+	cy.get('.listPanel--selectReviewer .pkpSearch__input', {timeout: 20000}).type(name, {delay: 0});
+	cy.contains('Select ' + name).click();
 	cy.waitJQuery();
-	cy.flushNotifications();
 	cy.get('button:contains("Add Reviewer")').click();
-	cy.get('div:contains("' + Cypress.$.escapeSelector(name) + ' was assigned to review")');
+	cy.contains(name + ' was assigned to review');
 	cy.waitJQuery();
 });
 
@@ -315,7 +313,7 @@ Cypress.Commands.add('performReview', (username, password, title, recommendation
 	context = context || 'publicknowledge';
 	comments = comments || 'Here are my review comments';
 	cy.login(username, password, context);
-	cy.get('div[id=myQueue]').find('div').contains(title).parent().parent().click();
+	cy.get('a').contains('View ' + title).click({force: true});
 	cy.get('input[id="privacyConsent"]').click();
 	cy.get('button:contains("Accept Review, Continue to Step #2")').click();
 	cy.get('button:contains("Continue to Step #3")').click();
@@ -358,7 +356,6 @@ Cypress.Commands.add('createUser', user => {
 	});
 	cy.get('form[id=userRoleForm] button[id^=submitFormButton]').click();
 	cy.get('span[id$="-username"]:contains("' + Cypress.$.escapeSelector(user.username) + '")');
-	cy.scrollTo('topLeft');
 });
 
 Cypress.Commands.add('flushNotifications', function() {

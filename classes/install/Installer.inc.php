@@ -403,6 +403,7 @@ class Installer {
 				$fullClassName = $action['attr']['class'];
 				import($fullClassName);
 				$shortClassName = substr($fullClassName, strrpos($fullClassName, '.')+1);
+				$this->log(sprintf('migration: %s', $shortClassName));
 				$migration = new $shortClassName();
 				try {
 					$migration->up();

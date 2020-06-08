@@ -19,7 +19,8 @@
 		"danielstjules/stringy": "3.*",
 		"adodb/adodb-php": "dev-v5.20.17-mods",
 		"gettext/gettext": "^4.6",
-		"sokil/php-isocodes": "^3.0"
+		"sokil/php-isocodes": "^3.0",
+		"doctrine/dbal": "^2.10"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~8",

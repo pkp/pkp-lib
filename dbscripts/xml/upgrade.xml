@@ -14,12 +14,16 @@
 <install version="3.2.1.0">
 	<code function="checkPhpVersion" />
 
-	<upgrade minversion="3.2.0.0" maxversion="3.2.0.9">
-		<data file="dbscripts/xml/upgrade/3.2.1_preupdate_subeditor_categories.xml" />
+	<upgrade minversion="3.0.0.0" maxversion="3.2.0.9">
+		<data file="dbscripts/xml/upgrade/3.2.1_update.xml" />
+		<code function="installEmailTemplate" key="ANNOUNCEMENT" locales="en_US" />
+		<migration class="lib.pkp.classes.migration.upgrade.v3_2_1SubeditorCategoriesMigration" />
+		<note file="docs/release-notes/README-3.2.1" />
 	</upgrade>
 
-	<upgrade minversion="3.2.0.0" maxversion="3.2.0.9">
-		<code function="installEmailTemplate" key="ANNOUNCEMENT" locales="en_US" />
+	<upgrade minversion="3.0.0.0" maxversion="3.2.9.9">
+		<migration class="lib.pkp.classes.migration.upgrade.v3_3_0UpgradeMigration" />
+		<note file="docs/release-notes/README-3.3.0" />
 	</upgrade>
 
 	<!-- update plugin configuration - should be done as the final upgrade task -->

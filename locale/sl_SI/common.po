@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2020-02-21 18:06+0000\n"
+"PO-Revision-Date: 2020-06-08 14:06+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sl/>\n"
@@ -1929,3 +1929,12 @@ msgstr ""
 
 msgid "common.override"
 msgstr "Prepiši"
+
+msgid "navigation.skip.description"
+msgstr "Skoči na povezave z vsebino"
+
+msgid "common.moreThanOnly"
+msgstr "Več kot"
+
+msgid "common.lessThanOnly"
+msgstr "Manj kot"

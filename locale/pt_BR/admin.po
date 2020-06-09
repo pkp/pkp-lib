@@ -11,23 +11,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.settings.config.success"
-msgstr "As configurações do site foram atualizadas com sucesso."
-
-msgid "admin.settings.appearance.success"
-msgstr "As configurações de aparência do site foram atualizadas com sucesso."
-
-msgid "admin.settings.info.success"
-msgstr "As informações do site foram atualizadas com sucesso."
-
 msgid "admin.contexts.contextDescription"
 msgstr "Descrição do servidor"
-
-msgid "admin.contexts.form.edit.success"
-msgstr "{$ name} foi editado com sucesso."
-
-msgid "admin.contexts.form.create.success"
-msgstr "{$ name} foi criado com sucesso."
 
 msgid "admin.contexts.form.pathExists"
 msgstr "O caminho que você forneceu já está sendo usado por outro servidor."

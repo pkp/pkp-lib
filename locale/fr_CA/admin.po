@@ -15,12 +15,6 @@ msgstr ""
 msgid "admin.contexts.contextDescription"
 msgstr "Description du serveur"
 
-msgid "admin.contexts.form.edit.success"
-msgstr "{$name} a bien été modifié-e."
-
-msgid "admin.contexts.form.create.success"
-msgstr "{$name} a bien été créé-e."
-
 msgid "admin.contexts.form.pathExists"
 msgstr "Le chemin d'accès sélectionné est déjà utilisé par un autre serveur."
 
@@ -90,15 +84,6 @@ msgstr ""
 
 msgid "admin.settings.redirect"
 msgstr "Réacheminement vers le serveur"
-
-msgid "admin.settings.info.success"
-msgstr "Les informations du site ont bien été mises à jour."
-
-msgid "admin.settings.config.success"
-msgstr "Les paramètres de configuration du site ont bien été mis à jour."
-
-msgid "admin.settings.appearance.success"
-msgstr "Les paramètres d'apparence du site ont bien été mis à jour."
 
 msgid "admin.hostedContexts"
 msgstr "Serveurs hébergés"

@@ -20,12 +20,6 @@ msgstr "Las configuraciones regionales marcadas pueden estar incompletas."
 msgid "admin.contexts.contextDescription"
 msgstr "Descripción del servidor"
 
-msgid "admin.contexts.form.edit.success"
-msgstr "{$name} se editó con éxito."
-
-msgid "admin.contexts.form.create.success"
-msgstr "{$name} se creó con éxito."
-
 msgid "admin.contexts.form.pathExists"
 msgstr "La ruta que proporcionó ya está en uso por otro servidor."
 
@@ -88,17 +82,6 @@ msgstr ""
 
 msgid "admin.settings.redirect"
 msgstr "Redireccionamiento del servidor"
-
-msgid "admin.settings.info.success"
-msgstr "La información del sitio ha sido actualizada con éxito."
-
-msgid "admin.settings.config.success"
-msgstr ""
-"La configuración de apariencia del sitio se ha actualizado correctamente."
-
-msgid "admin.settings.appearance.success"
-msgstr ""
-"La configuración de apariencia del sitio se ha actualizado correctamente."
 
 msgid "admin.hostedContexts"
 msgstr "Servidores alojados"

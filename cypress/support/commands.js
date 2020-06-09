@@ -413,13 +413,13 @@ Cypress.Commands.add('checkTable', (articleDetails, articles, authors) => {
 	cy.get('h2:contains("' + articleDetails + '")');
 	cy.get('div:contains("2 of 2 ' + articles + '")');
 	authors.forEach(author => {
-		cy.get('div.pkpStats__table td.pkpTable__cell span:contains("' + author + '")');
+		cy.get('.pkpStats__panel .pkpTable__cell:contains("' + author + '")');
 	});
 	cy.get('input.pkpSearch__input').type('shouldreturnzeromatches', {delay: 0});
 	cy.get('div:contains("No ' + articles + ' were found with usage statistics matching these parameters.")');
 	cy.get('div:contains("0 of 0 ' + articles + '")');
 	cy.get('input.pkpSearch__input').clear().type(authors[0], {delay: 0});
-	cy.get('div.pkpStats__table td.pkpTable__cell span:contains("' + authors[0] + '")');
+	cy.get('.pkpStats__panel .pkpTable__cell:contains("' + authors[0] + '")');
 	cy.get('div:contains("1 of 1 ' + articles + '")');
 	cy.get('input.pkpSearch__input').clear();
 });

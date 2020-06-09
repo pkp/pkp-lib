@@ -405,6 +405,9 @@ msgstr "С моим авторством"
 msgid "submission.addFile"
 msgstr "Загрузить файл"
 
+msgid "submission.additionalFiles"
+msgstr "Дополнительные файлы"
+
 msgid "submission.agencies"
 msgstr "Организации"
 
@@ -512,6 +515,9 @@ msgstr "Информация об охвате"
 
 msgid "submission.done"
 msgstr "Готово"
+
+msgid "submission.downloads"
+msgstr "Загрузки"
 
 msgid "submission.dueDate"
 msgstr "Срок выполнения"
@@ -935,9 +941,6 @@ msgstr "Отклонены"
 
 msgid "submissions.incomplete"
 msgstr "Не закончены"
-
-msgid "submissions.inactive"
-msgstr "Не активны в течение {$days} дней"
 
 msgid "submissions.noSubmissions"
 msgstr "Нет материалов"
@@ -1814,6 +1817,12 @@ msgstr "Этот материал должен быть завершен до т
 
 msgid "submission.list.currentStage"
 msgstr "Сейчас на этапе «{$stage}»."
+
+msgid "submission.list.activity"
+msgstr "Активность"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Дней с момента последней активности"
 
 msgid "submission.list.assignEditor"
 msgstr "Назначить редактора"

@@ -1974,9 +1974,6 @@ msgstr ""
 msgid "submission.source"
 msgstr "Sumber"
 
-msgid "submissions.inactive"
-msgstr "Tidak aktif selama {$days} hari"
-
 msgid "submission.rights.tip"
 msgstr ""
 "Jika mau, Anda bisa menambahkan uraian singkat tentang akses hak cipta yang "

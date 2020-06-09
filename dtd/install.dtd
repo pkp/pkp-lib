@@ -28,20 +28,23 @@
   *
   -->
 
-<!ELEMENT install (schema?, data?, code?, note?, upgrade?)*>
+<!ELEMENT install (schema?, data?, migration?, code?, note?, upgrade?)*>
 	<!ATTLIST install
 		version CDATA #IMPLIED>
-<!ELEMENT upgrade (schema?, data?, code?, note?, upgrade?)+>
+<!ELEMENT upgrade (schema?, data?, migration?, code?, note?, upgrade?)+>
 	<!ATTLIST upgrade
 		minversion CDATA #IMPLIED
 		maxversion CDATA #IMPLIED>
 <!ELEMENT schema EMPTY>
 	<!ATTLIST schema
-		file CDATA #REQUIRED>
+		file CDATA #IMPLIED>
 <!ELEMENT data EMPTY>
 	<!ATTLIST data
 		file CDATA #REQUIRED
 		condition CDATA #IMPLIED>
+<!ELEMENT migration EMPTY>
+	<!ATTLIST migration
+		class CDATA #REQUIRED>
 <!ELEMENT code EMPTY>
 	<!ATTLIST code
 		message CDATA #IMPLIED

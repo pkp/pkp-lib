@@ -187,19 +187,18 @@ class AnnouncementForm extends Form {
 
 		// Send a notification to associated users if selected
 		if ($this->getData('sendAnnouncementNotification')){
-			import('classes.notification.NotificationManager');
-			$notificationManager = new NotificationManager();
+			import('lib.pkp.classes.notification.managerDelegate.AnnouncementNotificationManager');
+			$announcementNotificationManager = new AnnouncementNotificationManager(NOTIFICATION_TYPE_NEW_ANNOUNCEMENT);
+			$announcementNotificationManager->initialize($announcement);
+
+			$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-			$notificationUsers = array();
 			$allUsers = $userGroupDao->getUsersByContextId($contextId);
 			while ($user = $allUsers->next()) {
-				$notificationUsers[] = array('id' => $user->getId());
-			}
-			foreach ($notificationUsers as $userRole) {
-				$notificationManager->createNotification(
-					Application::get()->getRequest(), $userRole['id'], NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
-					$contextId, ASSOC_TYPE_ANNOUNCEMENT, $announcement->getId()
-				);
+				$blockedEmails = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $user->getId(), $contextId);
+				if (!in_array(NOTIFICATION_TYPE_NEW_ANNOUNCEMENT, $blockedEmails)) {
+					$announcementNotificationManager->notify($user);
+				}
 			}
 		}
 		parent::execute(...$functionArgs);

@@ -71,7 +71,6 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 	function getStageNameStageIdMapping() {
 		import('lib.pkp.classes.submission.SubmissionFile'); // Get file constants
 		return array(
-			'public' => SUBMISSION_FILE_PUBLIC,
 			'submission' => SUBMISSION_FILE_SUBMISSION,
 			'note' => SUBMISSION_FILE_NOTE,
 			'review_file' => SUBMISSION_FILE_REVIEW_FILE,

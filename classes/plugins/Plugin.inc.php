@@ -90,7 +90,7 @@ abstract class Plugin {
 	function register($category, $path, $mainContextId = null) {
 		$this->pluginPath = $path;
 		$this->pluginCategory = $category;
-		if ($this->getInstallSchemaFile()) {
+		if ($this->getInstallSchemaFile() || $this->getInstallMigration()) {
 			HookRegistry::register ('Installer::postInstall', array($this, 'updateSchema'));
 		}
 		if ($this->getInstallSitePluginSettingsFile()) {
@@ -202,17 +202,25 @@ abstract class Plugin {
 	/**
 	 * Get the filename of the ADODB schema for this plugin.
 	 * Subclasses using SQL tables should override this.
-	 *
-	 * @return string
+	 * @deprecated See Plugin::getInstallMigration
+	 * @return string?
 	 */
 	function getInstallSchemaFile() {
 		return null;
 	}
 
 	/**
+	 * Get the installation migration for this plugin.
+	 * @return Illuminate\Database\Migrations\Migration?
+	 */
+	function getInstallMigration() {
+		return null;
+	}
+
+	/**
 	 * Get the filename of the install data for this plugin.
 	 * Subclasses using SQL tables should override this.
-	 *
+	 * @deprecated Use getInstallMigration instead.
 	 * @return string|array|null one or more data files to be installed.
 	 */
 	function getInstallDataFile() {
@@ -745,12 +753,22 @@ abstract class Plugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		$schemaXMLParser = new adoSchema($installer->dbconn);
-		$sql = $schemaXMLParser->parseSchema($this->getInstallSchemaFile());
-		if ($sql) {
-			$result = $installer->executeSQL($sql);
-		} else {
-			$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallSchemaFile(), __('installer.installParseDBFileError')));
+		// Deprecated: Create schema using ADODB XML Schema
+		if ($schemaFile = $this->getInstallSchemaFile()) {
+			$schemaXMLParser = new adoSchema($installer->dbconn);
+			$sql = $schemaXMLParser->parseSchema($schemaFile);
+			if ($sql) {
+				$result = $installer->executeSQL($sql);
+			} else {
+				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallSchemaFile(), __('installer.installParseDBFileError')));
+				$result = false;
+			}
+		}
+		// Preferred: Create schema using Migrations
+		if ($migration = $this->getInstallMigration()) try {
+			$migration->up();
+		} catch (Exception $e) {
+			$installer->setError(INSTALLER_ERROR_DB, __('installer.installMigrationError', ['class' => get_class($migration)]));
 			$result = false;
 		}
 		return false;

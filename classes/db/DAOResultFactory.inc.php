@@ -97,7 +97,7 @@ class DAOResultFactory extends ItemIterator {
 
 	/**
 	 * Return the object representing the next row.
-	 * @return object
+	 * @return object?
 	 */
 	function next() {
 		if ($this->records == null) return $this->records;
@@ -117,7 +117,7 @@ class DAOResultFactory extends ItemIterator {
 
 	/**
 	 * Return the next row, with key.
-	 * @return array ($key, $value)
+	 * @return array? ($key, $value)
 	 */
 	function nextWithKey($idField = null) {
 		$result = $this->next();
@@ -242,24 +242,6 @@ class DAOResultFactory extends ItemIterator {
 			$returner[$result->getData($idField)] = $result;
 			unset($result);
 		}
-		return $returner;
-	}
-
-	/**
-	 * Determine whether or not this iterator is in the range of pages for the set it represents
-	 * @return boolean
-	 */
-	function isInBounds() {
-		return ($this->pageCount >= $this->page);
-	}
-
-	/**
-	 * Get the RangeInfo representing the last page in the set.
-	 * @return object
-	 */
-	function getLastPageRangeInfo() {
-		import('lib.pkp.classes.db.DBResultRange');
-		$returner = new DBResultRange($this->count, $this->pageCount);
 		return $returner;
 	}
 }

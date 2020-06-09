@@ -17,7 +17,7 @@ namespace PKP\Services\QueryBuilders;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-class PKPUserQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilderInterface {
+class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var int Context ID */
 	protected $contextId = null;
@@ -36,6 +36,12 @@ class PKPUserQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilder
 
 	/** @var array list of role ids */
 	protected $roleIds = null;
+
+	/** @var int Assigned as editor to this category id */
+	protected $assignedToCategoryId = null;
+
+	/** @var int Assigned as editor to this section id */
+	protected $assignedToSectionId = null;
 
 	/** @var int submission ID */
 	protected $assignedToSubmissionId = null;
@@ -141,6 +147,30 @@ class PKPUserQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilder
 			$roleIds = array($roleIds);
 		}
 		$this->roleIds = $roleIds;
+		return $this;
+	}
+
+	/**
+	 * Limit results to users assigned as editors to this category
+	 *
+	 * @param $categoryId int
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function assignedToCategory($categoryId) {
+		$this->assignedToCategoryId = $categoryId;
+		return $this;
+	}
+
+	/**
+	 * Limit results to users assigned as editors to this section
+	 *
+	 * @param $sectionId int
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function assignedToSection($sectionId) {
+		$this->assignedToSectionId = $sectionId;
 		return $this;
 	}
 
@@ -589,6 +619,32 @@ class PKPUserQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilder
 		}
 		if (!empty($this->offset)) {
 			$q->offset($this->offset);
+		}
+
+		// Section assignments 
+		if (!is_null($this->assignedToSectionId)) {
+			$sectionId = $this->assignedToSectionId;
+
+			$q->leftJoin('subeditor_submission_group as ssg', function($table) use ($sectionId) {
+				$table->on('u.user_id', '=', 'ssg.user_id');
+				$table->on('ssg.assoc_type', '=', Capsule::raw((int) ASSOC_TYPE_SECTION));
+				$table->on('ssg.assoc_id', '=', Capsule::raw((int) $sectionId));
+			});
+
+			$q->whereNotNull('ssg.assoc_id');
+		}
+
+		// Category assignments
+		if (!is_null($this->assignedToCategoryId)) {
+			$categoryId = $this->assignedToCategoryId;
+
+			$q->leftJoin('subeditor_submission_group as ssg', function($table) use ($categoryId) {
+				$table->on('u.user_id', '=', 'ssg.user_id');
+				$table->on('ssg.assoc_type', '=', Capsule::raw((int) ASSOC_TYPE_CATEGORY));
+				$table->on('ssg.assoc_id', '=', Capsule::raw((int) $categoryId));
+			});
+
+			$q->whereNotNull('ssg.assoc_id');
 		}
 
 		// Add app-specific query statements

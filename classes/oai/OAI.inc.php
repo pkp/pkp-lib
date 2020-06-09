@@ -167,7 +167,7 @@ abstract class OAI {
 	/**
 	 * Retrieve a resumption token.
 	 * @param $tokenId string
-	 * @return OAIResumptionToken (or false, if token invalid)
+	 * @return OAIResumptionToken|false
 	 */
 	abstract function resumptionToken($tokenId);
 

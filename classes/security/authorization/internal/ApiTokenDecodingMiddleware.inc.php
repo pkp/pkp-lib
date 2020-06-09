@@ -38,7 +38,7 @@ class ApiTokenDecodingMiddleware {
 		$secret = Config::getVar('security', 'api_key_secret', '');
 		if ($secret !== '' && !is_null($jwt = $slimRequest->getQueryParam('apiToken'))) {
 			try {
-				$apiToken = json_decode(JWT::decode($jwt, $secret, array('HS256')));
+				$apiToken = JWT::decode($jwt, $secret, array('HS256'));
 				$this->_handler->setApiToken($apiToken);
 				return true;
 			} catch (Exception $e) {

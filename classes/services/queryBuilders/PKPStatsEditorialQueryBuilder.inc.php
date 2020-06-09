@@ -16,10 +16,9 @@
 
 namespace PKP\Services\QueryBuilders;
 
-use PKP\Services\QueryBuilders\BaseQueryBuilder;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-abstract class PKPStatsEditorialQueryBuilder extends BaseQueryBuilder {
+abstract class PKPStatsEditorialQueryBuilder {
 
 	/** @var array Return stats for activity in these contexts */
 	protected $contextIds = [];

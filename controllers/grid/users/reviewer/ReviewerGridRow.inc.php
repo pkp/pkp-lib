@@ -95,9 +95,9 @@ class ReviewerGridRow extends GridRow {
 				)
 			);
 
-			if (!$this->_isCurrentUserAssignedAuthor && !$reviewAssignment->getCancelled()) {
-				$this->addAction(
-					new LinkAction(
+			if (!$this->_isCurrentUserAssignedAuthor) {
+				if (!$reviewAssignment->getCancelled()) {
+					$this->addAction(new LinkAction(
 						'manageAccess',
 						new AjaxModal(
 							$router->url($request, null, null, 'editReview', null, $actionArgs),
@@ -106,12 +106,8 @@ class ReviewerGridRow extends GridRow {
 						),
 						__('common.edit'),
 						'edit'
-					)
-				);
-
-				// Only assign this action if the reviewer has not acknowledged yet.
-				if (!$reviewAssignment->getCancelled()) $this->addAction(
-					new LinkAction(
+					));
+					$this->addAction(new LinkAction(
 						'unassignReviewer',
 						new AjaxModal(
 							$router->url($request, null, null, 'unassignReviewer', null, $actionArgs),
@@ -120,9 +116,8 @@ class ReviewerGridRow extends GridRow {
 						),
 					$reviewAssignment->getDateConfirmed()?__('editor.review.cancelReviewer'):__('editor.review.unassignReviewer'),
 					'delete'
-					)
-				);
-				else $this->addAction(
+					));
+				} else $this->addAction(
 					new LinkAction(
 						'reinstateReviewer',
 						new AjaxModal(

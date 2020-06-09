@@ -284,6 +284,11 @@ class FormComponent {
 			'multilingualProgress' => __('form.multilingualProgress'),
 		], $this->i18n);
 
+		$visibleLocales = [\AppLocale::getLocale()];
+		if (\AppLocale::getLocale() !== \AppLocale::getPrimaryLocale()) {
+			array_unshift($visibleLocales, \AppLocale::getPrimaryLocale());
+		}
+
 		$config = array(
 			'id' => $this->id,
 			'method' => $this->method,
@@ -292,7 +297,7 @@ class FormComponent {
 			'groups' => $this->groups,
 			'pages' => $this->pages,
 			'primaryLocale' => \AppLocale::getPrimaryLocale(),
-			'visibleLocales' => [\AppLocale::getLocale()],
+			'visibleLocales' => $visibleLocales,
 			'supportedFormLocales' => array_values($this->locales), // See #5690
 			'errors' => new \stdClass(),
 			'csrfToken' => $csrfToken,

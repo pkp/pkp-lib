@@ -411,7 +411,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		// Parse the citations
 		if ($publication->getData('citationsRaw')) {
 			$citationDao = DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
-			$citationDao-importCitations($publication->getId(), $publication->getData('citationsRaw'));
+			$citationDao->importCitations($publication->getId(), $publication->getData('citationsRaw'));
 		}
 
 		// Move uploaded files into place and update the settings

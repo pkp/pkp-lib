@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2020-04-30 19:38+0000\n"
+"PO-Revision-Date: 2020-06-04 18:39+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/tr/>\n"
+"submission/tr_TR/>\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1997,9 +1997,6 @@ msgstr "Atamayı Düzenle"
 msgid "submission.status.scheduled"
 msgstr "Programlanmış"
 
-msgid "submissions.inactive"
-msgstr "{$days} gün boyunca etkin değil"
-
 msgid "submission.publisherId.enable"
 msgstr "{$objects} için etkinleştir"
 
@@ -2044,3 +2041,24 @@ msgstr "Bu yazarın yayını bulunamadı."
 
 msgid "author.editPublishedDisabled"
 msgstr "Yayınlanmış yazıyı yazarlar düzenleyemez."
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Son etkinlikten bu yana geçen gün sayısı"
+
+msgid "submission.list.activity"
+msgstr "Etkinlik"
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Yeni değerlendirme turu başlatıldı."
+
+msgid "editor.submission.decision.newRound"
+msgstr "Yeni değerlendirme turu"
+
+msgid "submission.downloads"
+msgstr "İndir"
+
+msgid "submission.additionalFiles"
+msgstr "Ek Dosyalar"
+
+msgid "submission.representationOfTitle"
+msgstr "{$title} / {$representation}"

@@ -151,6 +151,52 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			'hasPrivacyStatement' => $this->hasPrivacyStatement,
 		]);
 
+		// Categories list
+		$assignedCategories = [];
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
+
+		if (isset($this->submission)) {
+			$categories = $categoryDao->getByPublicationId($this->submission->getCurrentPublication()->getId());
+			while ($category = $categories->next()) {
+				$assignedCategories[] = $category->getId();
+			}
+		}
+
+		$items = [];
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
+		$categories = $categoryDao->getByContextId($this->context->getId())->toAssociativeArray();
+		foreach ($categories as $category) {
+			$title = $category->getLocalizedTitle();
+			if ($category->getParentId()) {
+				$title = $categories[$category->getParentId()]->getLocalizedTitle() . ' > ' . $title;
+			}
+			$items[] = [
+				'id' => (int) $category->getId(),
+				'title' => $title,
+			];
+		}
+		$categoriesList = new \PKP\components\listPanels\ListPanel(
+			'categories',
+			__('grid.category.categories'),
+			[
+				'canSelect' => true,
+				'items' => $items,
+				'itemsMax' => count($items),
+				'selected' => $assignedCategories,
+				'selectorName' => 'categories[]',
+			]
+		);
+
+		$templateMgr->assign(array(
+			'assignedCategories' => $assignedCategories,
+			'hasCategories' => !empty($categoriesList->items),
+			'categoriesListData' => [
+				'components' => [
+					'categories' => $categoriesList->getConfig(),
+				]
+			]
+		));
+
 		return parent::fetch($request, $template, $display);
 	}
 
@@ -192,7 +238,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function readInputData() {
 		$vars = array(
-			'userGroupId', 'locale', 'copyrightNoticeAgree', 'commentsToEditor','privacyConsent'
+			'userGroupId', 'locale', 'copyrightNoticeAgree', 'commentsToEditor','privacyConsent', 'categories'
 		);
 		foreach ((array) $this->context->getLocalizedData('submissionChecklist') as $key => $checklistItem) {
 			$vars[] = "checklist-$key";
@@ -247,7 +293,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 				$queryDao->resequence(ASSOC_TYPE_SUBMISSION, $submissionId);
 				$queryId = $query->getId();
 
-				$userIds = array_keys([$userId => null] + $subEditorsDAO->getBySectionId($this->submission->getSectionId(), $this->submission->getContextId()));
+				$userIds = array_keys([$userId => null] + $subEditorsDAO->getBySubmissionGroupId($this->submission->getSectionId(), ASSOC_TYPE_SECTION, $this->submission->getContextId()));
 				foreach (array_unique($userIds) as $id) {
 					$queryDao->insertParticipant($queryId, $id);
 				}
@@ -389,6 +435,15 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			// Add comments to editor
 			if ($this->getData('commentsToEditor')){
 				$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId());
+			}
+		}
+
+		// Save the submission categories
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
+		$categoryDao->deletePublicationAssignments($publication->getId());
+		if ($categories = $this->getData('categories')) {
+			foreach ((array) $categories as $categoryId) {
+				$categoryDao->insertPublicationAssignment($categoryId, $publication->getId());
 			}
 		}
 

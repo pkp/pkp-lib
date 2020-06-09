@@ -18,7 +18,7 @@ namespace PKP\Services\QueryBuilders;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilderInterface {
+abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var int|string|null Context ID or '*' to get from all contexts */
 	protected $categoryIds = null;

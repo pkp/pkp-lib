@@ -646,13 +646,11 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 		// Build the basic query that joins the class tables.
 		// The DISTINCT is required to de-dupe the review_round_files join in
 		// SubmissionFileDAO.
-		// The COALESCE(p.locale, s.locale) is required for the upgrade to 3.2;
-		// it can be removed when submission.locale is removed. (pkp/pkp-lib#5634)
 		return 'SELECT DISTINCT
 				sf.file_id AS submission_file_id, sf.revision AS submission_revision,
 				af.file_id AS artwork_file_id, af.revision AS artwork_revision,
 				suf.file_id AS supplementary_file_id, suf.revision AS supplementary_revision,
-				COALESCE(p.locale, s.locale) AS submission_locale,
+				p.locale AS submission_locale,
 				sf.*, af.*, suf.*
 			FROM	submission_files sf
 				LEFT JOIN submission_artwork_files af ON sf.file_id = af.file_id AND sf.revision = af.revision

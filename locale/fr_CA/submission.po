@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-05-08 20:38+0000\n"
+"PO-Revision-Date: 2020-06-04 18:39+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
 "helene.vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -1854,9 +1854,6 @@ msgstr "Modifier l'assignation"
 msgid "submission.status.scheduled"
 msgstr "Prévu(e)"
 
-msgid "submissions.inactive"
-msgstr "Inactive depuis {$days} jour(s)"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "Ceci est une version obsolète publiée le {$datePublished}. Consulter la <a "
@@ -2096,3 +2093,24 @@ msgstr ""
 "à partir d'une base de données externe. Par exemple, les éléments exportés "
 "pour dépôt dans PubMed peuvent inclure l'identifiant de l'éditeur. Ceci ne "
 "doit cependant pas être utilisé pour les DOI."
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Nombre de jours depuis la dernière intervention"
+
+msgid "submission.list.activity"
+msgstr "Activité"
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Un nouveau cycle d'évaluation a débuté."
+
+msgid "editor.submission.decision.newRound"
+msgstr "Nouveau cycle d'évaluation"
+
+msgid "submission.downloads"
+msgstr "Téléchargements"
+
+msgid "submission.additionalFiles"
+msgstr "Fichiers supplémentaires"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} de {$title}"

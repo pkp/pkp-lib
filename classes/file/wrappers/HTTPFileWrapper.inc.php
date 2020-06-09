@@ -74,8 +74,10 @@ class HTTPFileWrapper extends FileWrapper {
 			}
 		}
 
-		if (!($this->fp = fsockopen($host, $port)))
+		if (!($this->fp = fsockopen($host, $port))) {
+			error_log(__FILE__ . ':' . __LINE__ . ' Could not connect to ' . $host . ': ' . $errstr);
 			return false;
+		}
 
 		$additionalHeadersString = '';
 		if (is_array($this->headers)) foreach ($this->headers as $name => $value) {
@@ -114,6 +116,7 @@ class HTTPFileWrapper extends FileWrapper {
 			}
 		}
 		$this->close();
+		error_log(__FILE__ . ':' . __LINE__ . ' Could not connect to ' . $host . ' (' . $rc . '; ' . $this->redirects . ')');
 		return false;
 	}
 

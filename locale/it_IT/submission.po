@@ -1970,9 +1970,6 @@ msgstr "Modifica l'assegnazione"
 msgid "submission.status.scheduled"
 msgstr "Pianificato"
 
-msgid "submissions.inactive"
-msgstr "Non attivo da {$days} giorni"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "Questa è una versione superata pubblicata il {$datePublished}. Visita la <a "

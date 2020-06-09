@@ -475,6 +475,9 @@ msgstr "Меньше"
 msgid "common.lessThan"
 msgstr "{$value} или меньше"
 
+msgid "common.lessThanOnly"
+msgstr "Менее чем"
+
 msgid "common.commaListSeparator"
 msgstr ", "
 
@@ -504,6 +507,9 @@ msgstr "Больше"
 
 msgid "common.moreThan"
 msgstr "{$value} или больше"
+
+msgid "common.moreThanOnly"
+msgstr "Более чем"
 
 msgid "common.noneAssigned"
 msgstr "Никто не назначен"
@@ -1214,7 +1220,7 @@ msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Разрешение на редактирование метаданных материала"
 
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Разрешить изменять метаданные материала этому пользователю."
+msgstr "Разрешить этому пользователю вносить изменения в публикацию, меняя название, аннотацию, метаданные и другую информацию о ней. Вы можете решить отозвать это право, если материал прошёл финальную проверку и готов к публикации."
 
 msgid "stageParticipants.selectedUser"
 msgstr "Участник"

@@ -128,6 +128,9 @@ msgstr "The directory specified for uploaded files does not exist or is not writ
 msgid "installer.installParseDBFileError"
 msgstr "Error parsing the database installation file <tt>{$file}</tt>."
 
+msgid "installer.installMigrationError"
+msgstr "Error executing the migration class <tt>{$class}</tt>."
+
 msgid "installer.installParseEmailTemplatesFileError"
 msgstr "Error parsing the email template file <tt>{$file}</tt>."
 

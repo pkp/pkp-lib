@@ -471,6 +471,9 @@ msgstr "Less"
 msgid "common.lessThan"
 msgstr "{$value} or less"
 
+msgid "common.lessThanOnly"
+msgstr "Less than"
+
 msgid "common.commaListSeparator"
 msgstr ", "
 
@@ -500,6 +503,9 @@ msgstr "More"
 
 msgid "common.moreThan"
 msgstr "{$value} or more"
+
+msgid "common.moreThanOnly"
+msgstr "More than"
 
 msgid "common.noneAssigned"
 msgstr "None assigned"
@@ -1210,7 +1216,7 @@ msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Permissions"
 
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Allow this person to edit the publication details."
+msgstr "Allow this person to make changes to the publication, such as the title, abstract, metadata and other publication details. You may wish to revoke this privilege if the submission has received a final check and is ready for publication."
 
 msgid "stageParticipants.selectedUser"
 msgstr "Participant"

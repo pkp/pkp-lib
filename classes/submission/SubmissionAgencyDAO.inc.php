@@ -23,11 +23,10 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	/**
 	 * Build/fetch and return a controlled vocabulary for agencies.
 	 * @param $publicationId int
-	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
 	 * @return ControlledVocab
 	 */
-	function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION) {
-		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_AGENCY, $assocType, $publicationId);
+	function build($publicationId) {
+		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_AGENCY, ASSOC_TYPE_PUBLICATION, $publicationId);
 	}
 
 	/**
@@ -90,13 +89,12 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	 * @param $agencies array List of agencies.
 	 * @param $publicationId int Submission ID.
 	 * @param $deleteFirst boolean True iff existing agencies should be removed first.
-	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
 	 * @return int
 	 */
-	function insertAgencies($agencies, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION) {
+	function insertAgencies($agencies, $publicationId, $deleteFirst = true) {
 		$agencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /* @var $agencyDao SubmissionAgencyDAO */
 		$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /* @var $submissionAgencyEntryDao SubmissionAgencyEntryDAO */
-		$currentAgencies = $this->build($publicationId, $assocType);
+		$currentAgencies = $this->build($publicationId);
 
 		if ($deleteFirst) {
 			$existingEntries = $agencyDao->enumerate($currentAgencies->getId(), CONTROLLED_VOCAB_SUBMISSION_AGENCY);

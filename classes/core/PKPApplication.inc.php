@@ -40,6 +40,7 @@ define('ASSOC_TYPE_REVIEW_ROUND',		0x000020B);
 define('ASSOC_TYPE_SUBMISSION_FILES',		0x000020F);
 define('ASSOC_TYPE_PLUGIN',			0x0000211);
 define('ASSOC_TYPE_SECTION',			0x0000212);
+define('ASSOC_TYPE_CATEGORY',			0x000020D);
 define('ASSOC_TYPE_USER',			0x0001000); // This value used because of bug #6068
 define('ASSOC_TYPE_USER_GROUP',			0x0100002);
 define('ASSOC_TYPE_CITATION',			0x0100003);
@@ -65,6 +66,8 @@ define('WORKFLOW_STAGE_PATH_PRODUCTION', 'production');
 // Constant used to distinguish between editorial and author workflows
 define('WORKFLOW_TYPE_EDITORIAL', 'editorial');
 define('WORKFLOW_TYPE_AUTHOR', 'author');
+
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 interface iPKPApplicationInfoProvider {
 	/**
@@ -196,6 +199,34 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 					fatalError('Database connection failed!');
 				}
 			}
+
+			// Map valid config options to Illuminate database drivers
+			$driver = strtolower(Config::getVar('database', 'driver'));
+			if (substr($driver, 0, 8) === 'postgres') {
+				$driver = 'pgsql';
+			} else {
+				$driver = 'mysql';
+			}
+
+			// Always use `utf8` unless `latin1` is specified
+			$charset = Config::getVar('i18n', 'connection_charset');
+			if ($charset !== 'latin1') {
+				$charset = 'utf8';
+			}
+
+			$capsule = new Capsule;
+			$capsule->addConnection([
+				'driver'    => $driver,
+				'host'      => Config::getVar('database', 'host'),
+				'database'  => Config::getVar('database', 'name'),
+				'username'  => Config::getVar('database', 'username'),
+			        'port'      => Config::getVar('database', 'port'),
+			        'unix_socket'=> Config::getVar('database', 'unix_socket'),
+				'password'  => Config::getVar('database', 'password'),
+				'charset'   => $charset,
+				'collation' => 'utf8_general_ci',
+			]);
+			$capsule->setAsGlobal();
 		}
 
 		// Register custom autoloader functions for namespaces

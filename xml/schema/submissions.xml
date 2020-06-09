@@ -9,6 +9,7 @@
   * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
   *
   * Submission-related schema (e.g. authors) in XML.
+  * XML-BASED DESCRIPTORS ARE DEPRECATED AND SHOULD NOT BE EDITED.
   -->
 
 <schema version="0.2">
@@ -256,33 +257,37 @@
 
 	<!--
 	  *
-	  * TABLE section_editors
+	  * TABLE subeditor_submission_group
 	  *
 	  -->
-	<table name="section_editors">
+	<table name="subeditor_submission_group">
 		<field name="context_id" type="I8">
 			<NOTNULL />
 		</field>
-		<field name="section_id" type="I8">
+		<field name="assoc_id" type="I8">
 			<NOTNULL />
 		</field>
 		<field name="user_id" type="I8">
 			<NOTNULL />
 		</field>
-		<descr>Assignments of sub editors to sections/series.</descr>
-		<index name="section_editors_context_id">
+		<field name="assoc_type" type="I8">
+			<NOTNULL />
+		</field>
+		<descr>Assignments of sub editors to submission groups.</descr>
+		<index name="subeditor_submission_group_context_id">
 			<col>context_id</col>
 		</index>
-		<index name="section_editors_section_id">
-			<col>section_id</col>
+		<index name="subeditor_submission_group_assoc_id">
+			<col>assoc_id</col>
 		</index>
-		<index name="section_editors_user_id">
+		<index name="subeditor_submission_group_user_id">
 			<col>user_id</col>
 		</index>
 		<index name="section_editors_pkey">
 			<col>context_id</col>
-			<col>section_id</col>
+			<col>assoc_id</col>
 			<col>user_id</col>
+			<col>assoc_type</col>
 			<UNIQUE />
 		</index>
 	</table>

@@ -139,6 +139,7 @@ class PKPLocale {
 		// Use defaults if locale info unspecified.
 		$locale = AppLocale::getLocale();
 		setlocale(LC_ALL, $locale . '.' . LOCALE_ENCODING, $locale);
+		putenv("LC_ALL=$locale");
 
 		AppLocale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.po");
 

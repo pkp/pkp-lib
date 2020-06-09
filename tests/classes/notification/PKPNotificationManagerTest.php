@@ -30,13 +30,12 @@ class PKPNotificationManagerTest extends PKPTestCase {
 	 */
 	public function testGetNotificationMessage() {
 		$notification = $this->getTrivialNotification();
-		$notification->setType(NOTIFICATION_TYPE_NEW_ANNOUNCEMENT);
-		$notification->setAssocType(ASSOC_TYPE_ANNOUNCEMENT);
+		$notification->setType(NOTIFICATION_TYPE_REVIEW_ASSIGNMENT);
 
 		$requestDummy = $this->getMockBuilder(PKPRequest::class)->getMock();
 		$result = $this->notificationMgr->getNotificationMessage($requestDummy, $notification);
 
-		$this->assertEquals('##notification.type.newAnnouncement##', $result);
+		$this->assertEquals('##notification.type.reviewAssignment##', $result);
 	}
 
 	/**
@@ -126,8 +125,8 @@ class PKPNotificationManagerTest extends PKPTestCase {
 	public function testCreateTrivialNotification($notification, $notificationParams = array()) {
 		$trivialNotification = $notification;
 		// Adapt the notification to the expected result.
-		$trivialNotification->setAssocId(null);
-		$trivialNotification->setAssocType(null);
+		$trivialNotification->unsetData('assocId');
+		$trivialNotification->unsetData('assocType');
 		$trivialNotification->setType(NOTIFICATION_TYPE_SUCCESS);
 
 		$this->injectNotificationDaoMock($trivialNotification);

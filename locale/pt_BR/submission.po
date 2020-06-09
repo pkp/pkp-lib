@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2020-01-18 18:35+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2020-06-04 18:39+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -18,7 +18,10 @@ msgid "author.submit.submissionCitations"
 msgstr "Forneça uma lista formatada de citações incluídas nesta submissão."
 
 msgid "submission.confirm.message"
-msgstr "Seu envio está no sistema e pronto para ser finalizado. Você pode voltar e ajustar as informações fornecidas antes de continuar. Quando pronto, clique em \"Finalizar Submissão\"."
+msgstr ""
+"Sua submissão está no sistema e pronto para ser finalizado. Você pode voltar "
+"e ajustar as informações fornecidas antes de continuar. Quando pronto, "
+"clique em \"Finalizar Submissão\"."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Submissão completa"
@@ -111,13 +114,13 @@ msgid "metadata.property.displayName.date"
 msgstr "Data de publicação"
 
 msgid "metadata.property.validationMessage.date"
-msgstr "Informe uma data de publicação válida (formato: YYYY-MM-DD)."
+msgstr "Informe uma data de publicação válida (formato: AAAA-MM-DD)."
 
 msgid "metadata.property.displayName.access-date"
 msgstr "Data de acesso"
 
 msgid "metadata.property.validationMessage.access-date"
-msgstr "Infome uma data de acesso válida (formato: YYYY-MM-DD)."
+msgstr "Informe uma data de acesso válida (formato: AAAA-MM-DD)."
 
 msgid "metadata.property.displayName.issue"
 msgstr "Edição"
@@ -165,7 +168,7 @@ msgid "metadata.property.displayName.conf-date"
 msgstr "Data da conferência"
 
 msgid "metadata.property.validationMessage.conf-date"
-msgstr "Informe uma data de conferência válida (formato: YYYY-MM-DD)."
+msgstr "Informe uma data de conferência válida (formato: AAAA-MM-DD)."
 
 msgid "metadata.property.displayName.conf-loc"
 msgstr "Local da conferência"
@@ -942,7 +945,7 @@ msgid "submission.date.mmdd"
 msgstr "MM-DD"
 
 msgid "submission.date.yyyymmdd"
-msgstr "YYYY-MM-DD"
+msgstr "AAAA-MM-DD"
 
 msgid "submission.citations.editor.details.editRawCitationDatabaseServices"
 msgstr "Escolha os serviços de bases de citações:"
@@ -1067,7 +1070,7 @@ msgid "submission.createRemote"
 msgstr "Criar remoto"
 
 msgid "submission.form.name"
-msgstr "Informe um nome útil para o arquivo"
+msgstr "Informe um nome útil para o arquivo (por exemplo, Manuscrito; Tabela 1)"
 
 msgid "submission.form.replaceExisting"
 msgstr "Substituindo um arquivo existente?"
@@ -1208,7 +1211,9 @@ msgid "submission.source"
 msgstr "Fonte"
 
 msgid "submission.source.tip"
-msgstr "Este submissão é derivada de outro recurso? Se assim for, informe uma URL ou uma descrição destes recursos."
+msgstr ""
+"Esta submissão é derivada de outro recurso? Se assim for, informe uma URL ou "
+"uma descrição destes recursos."
 
 msgid "submission.submit.finishSubmission"
 msgstr "Finalizar Submissão"
@@ -1885,7 +1890,9 @@ msgid "submission.list.dualWorkflowLinks"
 msgstr "Foram designados múltiplos papéis para o seu usuário nesta submissão. Gostaria de acessar o <a href=\"{$urlAuthorWorkflow}\">fluxo do Autor</a> ou o <a href=\"{$urlEditorialWorkflow}\">fluxo Editorial</a>?"
 
 msgid "submission.list.reviewerWorkflowLink"
-msgstr "Foi designado(a) um papel editorial ao seu usuário nesta submissão. Gostaria de acessá-la pelo <a href=\"{$urlEditorialWorkflow}\">fluxo Editorial</a>?"
+msgstr ""
+"Foi designado(a) um papel editorial ao seu usuário nesta submissão. Gostaria "
+"de acessá-la pelo <a href=\"{$urlEditorialWorkflow}\">Fluxo Editorial</a>?"
 
 msgid "submission.list.incompleteSubmissionNotice"
 msgstr "Esta submissão deve ser completada para quer um editor a avalie."
@@ -1978,7 +1985,7 @@ msgid "publication.editDisabled"
 msgstr "Esta versão foi publicada e não pode ser editada."
 
 msgid "publication.datePublished.errorFormat"
-msgstr "A data deve estar no formato AAAA-MM-DD, como 2019-01-01."
+msgstr "A data deve estar no formato AAAA-MM-DD, como 2019-12-20."
 
 msgid "publication.datePublished"
 msgstr "Data de Publicação"
@@ -2020,58 +2027,59 @@ msgstr ""
 msgid "submission.query.leaveQuery"
 msgstr "Sair da Discussão"
 
-#, fuzzy
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
-"0/88x31.png\" /></a><p>Este trabalho é licenciado sob uma licença <a rel=\""
-"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative "
-"Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>"
+"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/3.0/\">\n"
+"<img alt=\"Licença Creative Commons\" style=\"border-width:0\" src=\""
+"https://i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>Esta obra "
+"está licenciado com uma Licença <a rel=\"license\" href=\""
+"http://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Attribution-ShareAlike 3.0 Unported License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by3.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
-"88x31.png\" /></a><p>Este trabalho é licenciado sob uma licença <a rel=\""
-"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
-"Commons Attribution 3.0 Unported License</a>.</p>"
+"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by/3.0/\">\n"
+"<img alt=\"Licença Creative Commons\" style=\"border-width:0\" src=\""
+"https://i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>Esta obra está "
+"licenciado com uma Licença\n"
+" <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/3.0/\">"
+"Creative Commons Atribuição 3.0 Não Adaptada</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nd3.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
-"0/88x31.png\" /></a><p>Este trabalho é licenciado sob uma licença <a rel=\""
-"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative "
-"Commons Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
+"<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"3.0/88x31.png\" /><a rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by-nd/3.0/\"><img alt=\"Creative Commons License\" src=\""
+"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>Este trabalho é "
+"licenciado sob uma licença <a rel=\"license\" href=\"https://creativecommons."
+"org/licenses/by-nd/3.0/\">Creative Commons Attribution-NoDerivatives 3.0 "
+"Unported License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc-sa3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
 "\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
 "by-nc-sa/3.0/88x31.png\" /></a><p>Este trabalho é licenciado sob uma licença "
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
-"\">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International "
+"\">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported "
 "License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc3.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
-"0/88x31.png\" /></a><p>Este trabalho é licenciado sob uma licença <a rel=\""
-"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative "
-"Commons Attribution-NonCommercial 3.0 Unported License</a>.</p>"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">"
+"\n"
+"<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"3.0/88x31.png\" /></a><p>Este trabalho é licenciado sob uma licença \n"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">"
+"Creative Commons Attribution-NonCommercial 3.0 Unported License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc-nd3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
-"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"\">\n"
+"<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
 "by-nc-nd/3.0/88x31.png\" /></a><p>Este trabalho é licenciado sob uma licença "
+"\n"
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
 "\">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 "
 "International License</a>.</p>"
@@ -2167,9 +2175,6 @@ msgstr "Por favor insira um assunto."
 
 msgid "submission.submit.form.languagesRequired"
 msgstr "Por favor insira um idioma."
-
-msgid "submissions.inactive"
-msgstr "Inativo por {$days} dias"
 
 msgid "submission.outdatedVersion"
 msgstr ""
@@ -2338,3 +2343,72 @@ msgstr "A submissão foi despublicada."
 
 msgid "publication.version.confirm"
 msgstr "Tem certeza de que deseja criar uma nova versão?"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"O ID do editor pode ser usado para registrar o ID de um banco de dados "
+"externo. Por exemplo, itens exportados para depósito no PubMed podem incluir "
+"o ID do editor. Isso não deve ser usado para DOIs."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "O caminho da URL não pode ser um número."
+
+msgid "publication.urlPath.duplicate"
+msgstr "O caminho da URL já foi usado e não pode ser usado novamente."
+
+msgid "publication.urlPath.description"
+msgstr "Um caminho opcional a ser usado na URL em vez do ID."
+
+msgid "publication.urlPath"
+msgstr "Caminho da URL"
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"O ano dos direitos autorais será definido automaticamente com base na data "
+"de publicação."
+
+msgid "submission.publications"
+msgstr "Publicações"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Dias desde a última atividade"
+
+msgid "submission.list.activity"
+msgstr "Atividade"
+
+msgid "submission.copyrightOther.description"
+msgstr "Atribua direitos autorais para submissões publicadas à parte seguinte."
+
+msgid "submission.copyrightOther"
+msgstr "Declaração de direitos autorais"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Declaração de direitos autorais personalizada"
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Os direitos autorais serão atribuídos automaticamente a {$copyright} quando "
+"publicados."
+
+msgid "submission.license.description"
+msgstr ""
+"A licença será definida automaticamente como <a href='{$licenseUrl}' "
+"target='_blank'> {$licenseName} </a> quando publicada."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Uma nova rodada de avaliações foi iniciada."
+
+msgid "editor.submission.decision.newRound"
+msgstr "Nova rodada de avaliação"
+
+msgid "submission.publisherId.enable"
+msgstr "Ativar para {$objects}"
+
+msgid "submission.downloads"
+msgstr "Downloads"
+
+msgid "submission.additionalFiles"
+msgstr "Arquivos adicionais"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} de {$title}"

@@ -97,7 +97,7 @@ class Identity extends DataObject {
 	/**
 	 * Get given name.
 	 * @param $locale string
-	 * @return string
+	 * @return string|array
 	 */
 	function getGivenName($locale) {
 		return $this->getData(IDENTITY_SETTING_GIVENNAME, $locale);
@@ -116,14 +116,14 @@ class Identity extends DataObject {
 	 * Get the localized given name
 	 * @return string
 	 */
-	function getLocalizedGivenName() {
-		return $this->getLocalizedData(IDENTITY_SETTING_GIVENNAME);
+	function getLocalizedGivenName($defaultLocale = null) {
+		return $this->getLocalizedData(IDENTITY_SETTING_GIVENNAME, $defaultLocale);
 	}
 
 	/**
 	 * Get family name.
 	 * @param $locale string
-	 * @return string
+	 * @return string|array
 	 */
 	function getFamilyName($locale) {
 		return $this->getData(IDENTITY_SETTING_FAMILYNAME, $locale);
@@ -145,18 +145,23 @@ class Identity extends DataObject {
 	 * @return string
 	 */
 	function getLocalizedFamilyName($defaultLocale = null) {
-		$locale = AppLocale::getLocale();
-		$givenName = $this->getGivenName($locale);
-		if (empty($givenName)) {
-			if (is_null($defaultLocale)) {
-				// the users register for the site, thus
-				// the site primary locale is the default locale
-				$site = Application::get()->getRequest()->getSite();
-				$defaultLocale =  $site->getPrimaryLocale();
-			}
-			$locale = $defaultLocale;
-			assert(!empty($this->getGivenName($locale)));
+		$localePriorityList = array();
+
+		if (!is_null($defaultLocale)) {
+			$localePriorityList[] = $defaultLocale;
 		}
+		
+		$localePriorityList[] = AppLocale::getLocale();
+
+		foreach ($localePriorityList as $locale) {
+			$givenName = $this->getGivenName($locale);
+			if (!empty($givenName)) {
+				return $this->getFamilyName($locale);
+			}
+		}
+
+		$site = Application::get()->getRequest()->getSite();
+		$locale = $site->getPrimaryLocale();
 		return $this->getFamilyName($locale);
 	}
 

@@ -401,6 +401,9 @@ msgstr "My Authored"
 msgid "submission.addFile"
 msgstr "Upload File"
 
+msgid "submission.additionalFiles"
+msgstr "Additional Files"
+
 msgid "submission.agencies"
 msgstr "Agencies"
 
@@ -508,6 +511,9 @@ msgstr "Coverage Information"
 
 msgid "submission.done"
 msgstr "Done"
+
+msgid "submission.downloads"
+msgstr "Downloads"
 
 msgid "submission.dueDate"
 msgstr "Due Date"
@@ -931,9 +937,6 @@ msgstr "Declined"
 
 msgid "submissions.incomplete"
 msgstr "Incomplete"
-
-msgid "submissions.inactive"
-msgstr "Inactive for {$days} days"
 
 msgid "submissions.noSubmissions"
 msgstr "No Submissions"
@@ -1804,6 +1807,12 @@ msgstr "This submission must be completed before an editor will review it."
 
 msgid "submission.list.currentStage"
 msgstr "Currently in the {$stage} stage."
+
+msgid "submission.list.activity"
+msgstr "Activity"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Days since last activity"
 
 msgid "submission.list.assignEditor"
 msgstr "Assign Editor"

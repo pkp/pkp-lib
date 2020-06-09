@@ -1189,6 +1189,7 @@ msgstr "Цей учасник має право лише рекомендува�
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Дозвіл на редагування метаданих подання"
 
+#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr "Дозволити зміну метаданих для цього користувача."
 

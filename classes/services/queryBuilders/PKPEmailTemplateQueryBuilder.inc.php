@@ -17,7 +17,7 @@ namespace PKP\Services\QueryBuilders;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilderInterface {
+class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var integer journal or press ID */
 	protected $contextId = null;

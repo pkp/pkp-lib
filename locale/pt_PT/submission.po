@@ -1741,9 +1741,6 @@ msgstr "Editar Designação"
 msgid "submission.status.scheduled"
 msgstr "Agendado"
 
-msgid "submissions.inactive"
-msgstr "Inativo à {$days} dias"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "Esta é uma versão desatualizada publicada em {$datePublished}. Consulte a <a "

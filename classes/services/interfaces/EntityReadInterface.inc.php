@@ -67,7 +67,7 @@ interface EntityReadInterface {
 	 *
 	 * @param array $args Assoc array describing how the querybuilder should be
 	 * configured.
-	 * @return BaseQueryBuilder
+	 * @return Object
 	 */
 	public function getQueryBuilder($args = []);
 }

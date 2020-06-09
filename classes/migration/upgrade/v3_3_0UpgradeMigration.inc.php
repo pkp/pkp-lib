@@ -17,11 +17,11 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 class v3_3_0UpgradeMigration extends Migration {
-        /**
-         * Run the migrations.
-         * @return void
-         */
-        public function up() {
+	/**
+	 * Run the migrations.
+	 * @return void
+	 */
+	public function up() {
 		Capsule::schema()->table('submissions', function (Blueprint $table) {
 			$table->dropColumn('locale');
 			$table->dropColumn('section_id');
@@ -31,6 +31,9 @@ class v3_3_0UpgradeMigration extends Migration {
 		});
 		Capsule::schema()->table('author_settings', function (Blueprint $table) {
 			$table->dropColumn('setting_type');
+		});
+		Capsule::schema()->table('announcements', function (Blueprint $table) {
+			$table->date('date_expire')->change();
 		});
 	}
 

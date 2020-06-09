@@ -1464,6 +1464,9 @@ msgstr "Документы отправленного материала"
 msgid "notification.type.editorAssign"
 msgstr "Вы были назначены редактором для материала «{$title}»."
 
+msgid "notification.type.submissionNewVersion"
+msgstr "Новая версия представления была создана"
+
 msgid "notification.type.copyeditorRequest"
 msgstr "Вас попросили выполнить литературное редактирование для «{$title}»."
 

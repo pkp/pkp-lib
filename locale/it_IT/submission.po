@@ -1358,6 +1358,9 @@ msgstr "Documenti della proposta"
 msgid "notification.type.editorAssign"
 msgstr "Sei stato asseganto come editor alla proposta \"{$title}\"."
 
+msgid "notification.type.submissionNewVersion"
+msgstr "È stata creata una nuova versione di un invio"
+
 msgid "notification.type.copyeditorRequest"
 msgstr "Ti è stato chiesto di revisonare il copyediting per il titolo \"{$title}\"."
 

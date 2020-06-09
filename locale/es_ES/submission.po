@@ -1240,6 +1240,9 @@ msgstr "Respuesta subida."
 msgid "notification.type.editorAssignment"
 msgstr "Debe asignarse a un editor/a para que pueda comenzar la revisión. Añada a un editor/a utilizando el enlace Participantes que figura arriba."
 
+msgid "notification.type.submissionNewVersion"
+msgstr "Se creó una nueva versión de un envío"
+
 msgid "grid.reviewAttachments.title"
 msgstr "Archivos adjuntos del revisor/a"
 

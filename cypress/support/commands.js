@@ -156,7 +156,7 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 		cy.wait(2000);
 		for (const field in file.metadata) {
 			cy.get('input[id^="' + Cypress.$.escapeSelector(field) + '"]:visible,textarea[id^="' + Cypress.$.escapeSelector(field) + '"]').type(file.metadata[field], {delay: 0});
-			cy.get('a:contains("2. Review Details")').click(); // Close potential multilingual pop-over
+			cy.get('input[id^="language"').click({force: true}); // Close multilingual and datepicker pop-overs
 		}
 		cy.get('button').contains('Continue').click();
 		cy.get('button').contains('Complete').click();

@@ -1985,12 +1985,6 @@ msgstr ""
 "Bidragets upphovsrättsvillkor som t ex Intellectual Property Rights (IPR), "
 "Copyright, och andra olika upphovsrättsvillkor."
 
-msgid "manager.setup.userAccess.success"
-msgstr "Detaljerna för användarnas tillgång till pressen har uppdaterats."
-
-msgid "manager.setup.contact.success"
-msgstr "Kontaktuppgifterna för den här pressen har uppdaterats."
-
 msgid "stats.dateRange.thisYear"
 msgstr "Nuvarande år"
 

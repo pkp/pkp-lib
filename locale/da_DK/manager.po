@@ -2118,8 +2118,5 @@ msgstr "Licens"
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Registrerede brugere"
 
-msgid "manager.setup.userAccess.success"
-msgstr "Oplysninger om brugeradgang til dette forlag er blevet opdateret."
-
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/year)"

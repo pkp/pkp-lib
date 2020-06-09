@@ -253,8 +253,7 @@ Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, 
 	context = context || 'publicknowledge';
 	cy.login(username, password, context);
 	cy.get('button[id="active-button"]').click();
-	// Get the <a> above the title-containing div
-	cy.get('a').contains('View ' + familyName).click({force: true});
+	cy.contains('View ' + familyName).click({force: true});
 });
 
 Cypress.Commands.add('sendToReview', (toStage, fromStage) => {

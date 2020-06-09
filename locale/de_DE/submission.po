@@ -1411,6 +1411,9 @@ msgstr "Dokumente der Einreichung"
 msgid "notification.type.editorAssign"
 msgstr "Sie sind als Redakteur/in für den Beitrag \"{$title}\" eingeteilt worden."
 
+msgid "notification.type.submissionNewVersion"
+msgstr "Eine neue Version einer Einreichung wurde erstellt"
+
 msgid "notification.type.copyeditorRequest"
 msgstr "Sie sind gebeten worden, das Lektorat von \"{$title}\" zu überprüfen."
 

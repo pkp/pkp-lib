@@ -1496,6 +1496,9 @@ msgstr "Response uploaded."
 msgid "notification.type.editorAssignment"
 msgstr "An editor must be assigned before review is initiated. Please add editor using the Participants list."
 
+msgid "notification.type.submissionNewVersion"
+msgstr "A new version of a submission was created"
+
 msgid "grid.reviewAttachments.title"
 msgstr "Reviewer's Attachments"
 

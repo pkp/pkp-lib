@@ -32,12 +32,14 @@ class SubmissionNotificationManager extends NotificationManagerDelegate {
 		assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($notification->getAssocId()); /* @var $submission Submission */
-
+		
 		switch ($notification->getType()) {
 			case NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
 				return __('notification.type.submissionSubmitted', array('title' => $submission->getLocalizedTitle()));
 			case NOTIFICATION_TYPE_METADATA_MODIFIED:
 				return __('notification.type.metadataModified', array('title' => $submission->getLocalizedTitle()));
+			case NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
+				return __('notification.type.submissionNewVersion');
 			case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
 				return __('notification.type.editorAssignmentTask');
 			default:
@@ -59,7 +61,13 @@ class SubmissionNotificationManager extends NotificationManagerDelegate {
 			case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
 				$contextDao = Application::getContextDAO();
 				$context = $contextDao->getById($notification->getContextId());
+				
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'submission', $notification->getAssocId());
+			case NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
+				$contextDao = Application::getContextDAO();
+				$context = $contextDao->getById($notification->getContextId());
+				
+				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'authorDashboard', 'submission', $notification->getAssocId());
 			default:
 				assert(false);
 		}

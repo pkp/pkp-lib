@@ -1329,6 +1329,9 @@ msgstr "Resposta carregada."
 msgid "notification.type.editorAssignment"
 msgstr "Um editor deve ser atribuído antes da revisão ser iniciada. Adicione um editor usando o link Participantes acima."
 
+msgid "notification.type.submissionNewVersion"
+msgstr "Uma nova versão de uma submissão foi criada"
+
 msgid "grid.reviewAttachments.title"
 msgstr "Anexos da Revisão"
 

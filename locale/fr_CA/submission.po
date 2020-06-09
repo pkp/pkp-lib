@@ -1413,6 +1413,9 @@ msgstr "Documents de soumission"
 msgid "notification.type.editorAssign"
 msgstr "Vous avez été assigné-e comme rédacteur-trice pour la soumission « {$title} »."
 
+msgid "notification.type.submissionNewVersion"
+msgstr "Une nouvelle version d'une soumission a été créée"
+
 msgid "notification.type.copyeditorRequest"
 msgstr "Vous avez été invité-e à valider les révisions pour le titre « {$title} »."
 

@@ -282,9 +282,9 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				$errorFlag = false;
 				if (preg_match('|\w+://.+|', $filesrc)) {
 					// process as a URL
-					import('lib.pkp.classes.file.FileWrapper');
-					$wrapper = FileWrapper::wrapper($filesrc);
-					file_put_contents($temporaryFilename, $wrapper->contents());
+					$client = Application::get()->getHttpClient();
+					$response = $client->request('GET', $filesrc);
+					file_put_contents($temporaryFilename, $response->getBody());
 					if (!filesize($temporaryFilename)) {
 						$errorFlag = true;
 					}

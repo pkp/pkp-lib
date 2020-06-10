@@ -153,7 +153,7 @@
 
 		// Trigger the notify user event, passing this
 		// html element as data.
-		this.trigger('notifyUser', [this.getHtmlElement()]);
+		this.trigger('notifyUser');
 
 		// Hide the form spinner.
 		this.hideSpinner();

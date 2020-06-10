@@ -178,7 +178,6 @@ class PublicationService extends PKPPublicationService {
 	 */
 	public function validatePublishPublication($hookName, $args) {
 		$errors =& $args[0];
-		$publication = $args[1];
 		$submission = $args[2];
 		if (!$this->canAuthorPublish($submission->getId())){
 			$errors['authorCheck'] = __('author.submit.authorsCanNotPublish');
@@ -316,7 +315,7 @@ class PublicationService extends PKPPublicationService {
 		while ($assignment = $submitterAssignments->next()) {
 			if ($currentUser->getId() == $assignment->getUserId()) {
 				$isAuthor = true;
-			} 
+			}
 		}
 
 		// By default authors can not publish, but this can be overridden in screening plugins with the hook Publication::canAuthorPublish
@@ -329,7 +328,7 @@ class PublicationService extends PKPPublicationService {
 		}
 
 		// If the user is not an author, has to be an editor, return true
-		return true;	
+		return true;
 	}
 
 	/**
@@ -341,17 +340,17 @@ class PublicationService extends PKPPublicationService {
 	public function getRelationOptions() {
 		return array(
 					array(
-						"value" => PUBLICATION_RELATION_NONE, 
+						"value" => PUBLICATION_RELATION_NONE,
 						"label" => __('publication.relation.none')
 					),
 					array(
-						"value" => PUBLICATION_RELATION_SUBMITTED, 
+						"value" => PUBLICATION_RELATION_SUBMITTED,
 						"label" => __('publication.relation.submitted')
 					),
 					array(
-						"value" => PUBLICATION_RELATION_PUBLISHED, 
+						"value" => PUBLICATION_RELATION_PUBLISHED,
 						"label" => __('publication.relation.published')
 					)
-		);	
+		);
 	}
 }

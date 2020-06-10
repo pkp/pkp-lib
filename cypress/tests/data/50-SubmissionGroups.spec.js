@@ -12,16 +12,15 @@ describe('Data suite tests', function() {
 		cy.login('admin', 'admin');
 		cy.get('a').contains('admin').click();
 		cy.get('a').contains('Dashboard').click();
-		cy.get('a').contains('Settings').click();
-		cy.get('a').contains('Server').click();
+		cy.get('.app__nav a').contains('Server').click();
 		cy.get('button[id="sections-button"]').click();
 
 		// Edit Preprints section to add section editors
 		cy.get('a[class=show_extras]').click();
 		cy.get('a[id^=component-grid-settings-sections-sectiongrid-row-1-editSection-button-]').click();
 		cy.wait(1000); // Avoid occasional failure due to form init taking time
-		cy.get('div.pkpListPanelItem').contains('David Buskins').click();
-		cy.get('div.pkpListPanelItem').contains('Stephanie Berardo').click();
+		cy.get('label').contains('David Buskins').click();
+		cy.get('label').contains('Stephanie Berardo').click();
 		cy.get('form[id=sectionForm]').contains('Save').click();
 
 	});
@@ -29,8 +28,7 @@ describe('Data suite tests', function() {
 		cy.login('admin', 'admin');
 		cy.get('a').contains('admin').click();
 		cy.get('a').contains('Dashboard').click();
-		cy.get('a').contains('Settings').click();
-		cy.get('a').contains('Server').click();
+		cy.get('.app__nav a').contains('Server').click();
 		cy.get('button[id="categories-button"]').click();
 
 		cy.addCategory('History', 'history');

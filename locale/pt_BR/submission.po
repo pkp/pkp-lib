@@ -32,9 +32,6 @@ msgstr "O preprint não foi submetido para publicação"
 msgid "publication.relation.label"
 msgstr "Submetido para publicação"
 
-msgid "publication.relation.success"
-msgstr "Relações de publicação salvas com sucesso"
-
 msgid "publication.relation"
 msgstr "Relações"
 

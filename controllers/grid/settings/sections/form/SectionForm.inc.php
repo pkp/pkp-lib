@@ -33,7 +33,7 @@ class SectionForm extends PKPSectionForm {
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorLocale($this, 'title', 'required', 'manager.setup.form.section.nameRequired'));
 		$this->addCheck(new FormValidatorLocale($this, 'abbrev', 'required', 'manager.sections.form.abbrevRequired'));
-		$this->addCheck(new FormValidator($this, 'path', 'required', 'manager.setup.form.section.pathRequired'));		
+		$this->addCheck(new FormValidator($this, 'path', 'required', 'manager.setup.form.section.pathRequired'));
 		$journal = $request->getJournal();
 	}
 
@@ -62,7 +62,11 @@ class SectionForm extends PKPSectionForm {
 				'editorRestriction' => $section->getEditorRestricted(),
 				'policy' => $section->getPolicy(null), // Localized
 				'wordCount' => $section->getAbstractWordCount(),
-				'subEditors' => $this->_getAssignedSubEditorIds($sectionId, $journal->getId()),
+				'assignedSubeditors' => Services::get('user')->getIds([
+					'contextId' => Application::get()->getRequest()->getContext()->getId(),
+					'roleIds' => ROLE_ID_SUB_EDITOR,
+					'assignedToSection' => (int) $this->getSectionId(),
+				]),
 			));
 		}
 
@@ -75,19 +79,6 @@ class SectionForm extends PKPSectionForm {
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('sectionId', $this->getSectionId());
-
-		$journal = $request->getJournal();
-
-		// Section/Series Editors
-		$subEditorsListPanel = $this->_getSubEditorsListPanel($journal->getId(), $request);
-		$templateMgr->assign(array(
-			'hasSubEditors' => !empty($subEditorsListPanel->items),
-			'subEditorsListData' => [
-				'components' => [
-					'subeditors' => $subEditorsListPanel->getConfig(),
-				]
-			]
-		));
 
 		return parent::fetch($request, $template, $display);
 	}
@@ -146,9 +137,6 @@ class SectionForm extends PKPSectionForm {
 			$this->setSectionId($sectionDao->insertObject($section));
 			$sectionDao->resequenceSections($journal->getId());
 		}
-
-		// Update section editors
-		$this->_saveSubEditors($journal->getId());
 
 		return parent::execute(...$functionArgs);
 	}

@@ -90,17 +90,10 @@ class SettingsHandler extends ManagementHandler {
 		$accessForm = new \APP\components\forms\context\AccessForm($apiUrl, $locales, $context);
 
 		// Add forms to the existing settings data
-		$settingsData = $templateMgr->getTemplateVars('settingsData');
-		$settingsData['components'][$accessForm->id] = $accessForm->getConfig();
-		$templateMgr->assign('settingsData', $settingsData);
+		$components = $templateMgr->getState('components');
+		$components[$accessForm->id] = $accessForm->getConfig();
+		$templateMgr->setState(['components' => $components]);
 
-		// Hook into the settings templates to add the appropriate tabs
-		HookRegistry::register('Template::Settings::distribution', function($hookName, $args) {
-			$templateMgr = $args[1];
-			$output = &$args[2];
-			$output .= $templateMgr->fetch('management/additionalDistributionTabs.tpl');
-			return false;
-		});
 		$templateMgr->display('management/distribution.tpl');
 	}
 }

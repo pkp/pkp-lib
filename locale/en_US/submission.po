@@ -112,9 +112,6 @@ msgstr "The publication date will be set automatically when the preprint is publ
 msgid "publication.relation"
 msgstr "Relations"
 
-msgid "publication.relation.success"
-msgstr "Publication relations saved successfully"
-
 msgid "publication.relation.label"
 msgstr "Submitted for Publication"
 
@@ -132,3 +129,6 @@ msgstr "DOI of the published article"
 
 msgid "publication.publish.confirmation"
 msgstr "All requirements have been met. Are you sure you want to publish this?"
+
+msgid "author.submit.authorsCanNotPublish"
+msgstr "You can not publish your own preprint. It must be approved and published by a moderator."

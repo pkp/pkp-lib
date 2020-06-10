@@ -19,16 +19,9 @@ msgstr ""
 msgid "manager.setup.numPageLinks"
 msgstr "Page de liens"
 
-msgid "manager.setup.masthead.success"
-msgstr "Les renseignements du bloc générique de ce serveur ont été mis à jour."
-
 msgid "manager.setup.lists"
 msgstr "Listes"
 
-msgid "manager.setup.lists.success"
-msgstr "Les paramètres de listes pour ce serveur ont été mis à jour."
-
-#, fuzzy
 msgid "manager.setup.keyInfo.description"
 msgstr ""
 "Fournir une brève description de votre serveur et présenter les rédacteurs-"
@@ -78,9 +71,6 @@ msgstr ""
 
 msgid "manager.setup.itemsPerPage"
 msgstr "Éléments par page"
-
-msgid "manager.setup.information.success"
-msgstr "Les informations pour ce serveur ont été mises à jour."
 
 msgid "manager.setup.information.forReaders"
 msgstr "Pour les lecteurs-trices"
@@ -152,11 +142,6 @@ msgstr ""
 "L'administrateur-trice se chargera d'inscrire tous et toutes les "
 "utilisateurs-trices."
 
-msgid "manager.setup.contact.success"
-msgstr ""
-"Les renseignements de la personne-ressource pour ce serveur ont été mis à "
-"jour."
-
 msgid "manager.setup.announcementsIntroduction.description"
 msgstr ""
 "Ajouter toute information additionnelle qui devrait être affichée aux "
@@ -164,9 +149,6 @@ msgstr ""
 
 msgid "manager.setup.announcementsIntroduction"
 msgstr "Introduction"
-
-msgid "manager.setup.announcements.success"
-msgstr "Les paramètres des annonces ont été mis à jour."
 
 msgid "manager.setup.announcements"
 msgstr "Annonces"
@@ -272,9 +254,6 @@ msgstr "Soumissions"
 
 msgid "manager.language.ui"
 msgstr "Interface usager"
-
-msgid "manager.distribution.publishingMode.success"
-msgstr "Les renseignements de publication ont été mis à jour."
 
 msgid "manager.distribution.publishingMode.openAccess"
 msgstr "Le serveur offrira son contenu en libre accès."

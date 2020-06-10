@@ -24,7 +24,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler {
 	 */
 	function setupTemplate($request) {
 		parent::setupTemplate($request);
-		$templateMgr = TemplateManager::getManager($request);		
+		$templateMgr = TemplateManager::getManager($request);
 
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
@@ -37,10 +37,9 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler {
 		$localeNames = AppLocale::getAllLocales();
 		$locales = array_map(function($localeKey) use ($localeNames) {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-		}, $supportedFormLocales);		
+		}, $supportedFormLocales);
 
 		$latestPublication = $submission->getLatestPublication();
-		$latestPublicationApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
 		$relatePublicationApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId()) . '/relate';
 
 		$publishUrl = $request->getDispatcher()->url(
@@ -56,36 +55,27 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler {
 			]
 		);
 
-		$titleAbstractForm = new PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
-		$relationForm = new APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $locales, $latestPublication, $submissionContext, $baseUrl, $temporaryFileApiUrl);
+		$relationForm = new APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $locales, $latestPublication);
 
 		// Import constants
 		import('classes.submission.Submission');
-		import('classes.components.forms.publication.PublishForm');
 		import('classes.components.forms.publication.RelationForm');
 
 		$templateMgr->setConstants([
-			'STATUS_QUEUED',
-			'STATUS_PUBLISHED',
-			'STATUS_DECLINED',
-			'STATUS_SCHEDULED',
-			'FORM_TITLE_ABSTRACT',
-			'FORM_PUBLISH',
-			'FORM_JOURNAL_ENTRY',
 			'FORM_ID_RELATION',
 		]);
 
-		$workflowData = $templateMgr->getTemplateVars('workflowData');
-		$workflowData['components'][FORM_TITLE_ABSTRACT] = $titleAbstractForm->getConfig();
-		$workflowData['components'][FORM_ID_RELATION] = $relationForm->getConfig();
-		$workflowData['i18n']['schedulePublication'] = __('editor.submission.schedulePublication');
-		$workflowData['i18n']['publish'] = __('publication.publish');
-		$workflowData['i18n']['setRelationSuccess'] = __('publication.relation.success');
-		$workflowData['publishUrl'] = $publishUrl;
-		$workflowData['components']['publicationFormIds'] = [FORM_PUBLISH,
-				FORM_TITLE_ABSTRACT, FORM_JOURNAL_ENTRY];
-		$templateMgr->assign('workflowData', $workflowData);
-		
+		$components = $templateMgr->getState('components');
+		$components[FORM_ID_RELATION] = $relationForm->getConfig();
+
+		$templateMgr->setState([
+			'components' => $components,
+			'publishLabel' => __('publication.publish'),
+			'publishUrl' => $publishUrl,
+			'unpublishConfirmLabel' => __('publication.unpublish.confirm'),
+			'unpublishLabel' => __('publication.unpublish'),
+		]);
+
 		// If authors can publish show publish buttons
 		$canPublish = Services::get('publication')->canAuthorPublish($submission->getId()) ? true : false;
 		$templateMgr->assign('canPublish', $canPublish);

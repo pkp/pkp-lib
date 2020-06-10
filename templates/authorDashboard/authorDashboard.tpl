@@ -7,25 +7,11 @@
  *
  * Display the author dashboard.
  *}
-{strip}
-	{assign var=primaryAuthor value=$submission->getPrimaryAuthor()}
-	{if !$primaryAuthor}
-		{assign var=authors value=$submission->getAuthors()}
-		{assign var=primaryAuthor value=$authors[0]}
-	{/if}
-	{assign var=submissionTitleSafe value=$submission->getLocalizedTitle()|strip_unsafe_html}
-	{if $primaryAuthor}
-		{assign var="pageTitleTranslated" value=$primaryAuthor->getFullName()|concat:", ":$submissionTitleSafe}
-	{else}
-		{assign var="pageTitleTranslated" value=$submissionTitleSafe}
-	{/if}
-	{include file="common/header.tpl" suppressPageTitle=true}
-{/strip}
+{extends file="layouts/backend.tpl"}
 
-<div class="pkp_page_content">
-	{assign var="uuid" value=""|uniqid|escape}
-	<div id="workflow-{$uuid}" class="pkpWorkflow">
-		<pkp-header :is-one-line="true" class="pkpWorkflow__header">
+{block name="page"}
+	<div class="pkpWorkflow">
+		<pkp-header class="pkpWorkflow__header">
 			<h1 class="pkpWorkflow__identification">
 				<badge
 					v-if="submission.status === getConstant('STATUS_PUBLISHED')"
@@ -35,19 +21,12 @@
 					{translate key="publication.status.published"}
 				</badge>
 				<badge
-					v-else-if="submission.status === getConstant('STATUS_SCHEDULED')"
-					class="pkpWorkflow__identificationStatus"
-					:is-primary="true"
-				>
-					{translate key="publication.status.scheduled"}
-				</badge>
-				<badge
 					v-else-if="submission.status === getConstant('STATUS_DECLINED')"
 					class="pkpWorkflow__identificationStatus"
 					:is-warnable="true"
 				>
 					{translate key="common.declined"}
-				</badge>				
+				</badge>
 				<span class="pkpWorkflow__identificationId">{{ submission.id }}</span>
 				<span class="pkpWorkflow__identificationDivider">/</span>
 				<span class="pkpWorkflow__identificationAuthor">
@@ -61,30 +40,30 @@
 			<template slot="actions">
 				<pkp-button
 					v-if="uploadFileUrl"
-					:label="i18n.uploadFile"
 					ref="uploadFileButton"
 					@click="openFileUpload"
-				></pkp-button>
+				>
+					{translate key="common.upload.addFile"}
+				</pkp-button>
 				<pkp-button
-					label="{translate key="editor.submissionLibrary"}"
 					@click="openLibrary"
-				></pkp-button>
+				>
+					{translate key="editor.submissionLibrary"}
+				</pkp-button>
 			</template>
 		</pkp-header>
+		{include file="controllers/notification/inPlaceNotification.tpl" notificationId="authorDashboardNotification" requestOptions=$authorDashboardNotificationRequestOptions}
 		<tabs>
 			<tab id="publication" label="{translate key="submission.publication"}">
-				{include file="controllers/notification/inPlaceNotification.tpl" notificationId="authorDashboardNotification" requestOptions=$authorDashboardNotificationRequestOptions}
 				<div class="pkpPublication" ref="publication" aria-live="polite">
-					<pkp-header class="pkpPublication__header">
+					<pkp-header class="pkpPublication__header" :is-one-line="false">
 						<span class="pkpPublication__status">
-							<strong>{{ i18n.status }}</strong>
-							<span v-if="workingPublication.status === getConstant('STATUS_QUEUED') && workingPublication.id === currentPublication.id" class="pkpPublication__statusUnpublished">{translate key="publication.status.unscheduled"}</span>
-							<span v-else-if="workingPublication.status === getConstant('STATUS_SCHEDULED')">{translate key="publication.status.scheduled"}</span>
-							<span v-else-if="workingPublication.status === getConstant('STATUS_PUBLISHED')" class="pkpPublication__statusPublished">{translate key="publication.status.published"}</span>
+							<strong>{{ statusLabel }}</strong>
+							<span v-if="workingPublication.status === getConstant('STATUS_PUBLISHED')" class="pkpPublication__statusPublished">{translate key="publication.status.published"}</span>
 							<span v-else class="pkpPublication__statusUnpublished">{translate key="publication.status.unpublished"}</span>
 						</span>
 							<span v-if="publicationList.length > 1" class="pkpPublication__version">
-								<strong tabindex="0">{{ i18n.version }}</strong> {{ workingPublication.id }}
+								<strong tabindex="0">{{ versionLabel }}</strong> {{ workingPublication.id }}
 								<dropdown
 									class="pkpPublication__versions"
 									label="{translate key="publication.version.all"}"
@@ -99,9 +78,7 @@
 												@click="setWorkingPublicationById(publication.id)"
 											>
 												{{ publication.id }} /
-												<template v-if="publication.status === getConstant('STATUS_QUEUED') && publication.id === currentPublication.id">{translate key="publication.status.unscheduled"}</template>
-												<template v-else-if="publication.status === getConstant('STATUS_SCHEDULED')">{translate key="publication.status.scheduled"}</template>
-												<template v-else-if="publication.status === getConstant('STATUS_PUBLISHED')">{translate key="publication.status.published"}</template>
+												<template v-if="publication.status === getConstant('STATUS_PUBLISHED')">{translate key="publication.status.published"}</template>
 												<template v-else>{translate key="publication.status.unpublished"}</template>
 											</button>
 										</li>
@@ -109,41 +86,36 @@
 								</dropdown>
 							</span>
 							{if $canPublish}
-							<span class="pkpPublication__relation">
-								<dropdown
-									class="pkpWorkflow__relation"
-									label="{translate key="publication.relation"}"
-								>
-									<pkp-form class="pkpWorkflow__relateForm" v-bind="components.{$smarty.const.FORM_ID_RELATION}" @set="set">
-								</dropdown>
-							</span>
-							{/if}
-							{if $canPublish}
+								<span class="pkpPublication__relation">
+									<dropdown
+										class="pkpWorkflow__relation"
+										label="{translate key="publication.relation"}"
+									>
+										<pkp-form class="pkpWorkflow__relateForm" v-bind="components.{$smarty.const.FORM_ID_RELATION}" @set="set">
+									</dropdown>
+								</span>
 								<template slot="actions">
 									<pkp-button
 										v-if="workingPublication.status === getConstant('STATUS_QUEUED')"
 										ref="publish"
-										:label="submission.status === getConstant('STATUS_PUBLISHED') ? i18n.publish : i18n.schedulePublication"
 										@click="openPublish"
-									></pkp-button>
-									<pkp-button
-										v-else-if="workingPublication.status === getConstant('STATUS_SCHEDULED')"
-										label="{translate key="publication.unschedule"}"
-										:is-warnable="true"
-										@click="openUnpublish"
-									></pkp-button>
+									>
+										{translate key="publication.publish"}
+									</pkp-button>
 									<pkp-button
 										v-else-if="workingPublication.status === getConstant('STATUS_PUBLISHED')"
-										label="{translate key="publication.unpublish"}"
 										:is-warnable="true"
 										@click="openUnpublish"
-									></pkp-button>
+									>
+										{translate key="publication.unpublish"}
+									</pkp-button>
 									<pkp-button
 										v-if="canCreateNewVersion"
 										ref="createVersion"
-										label="{translate key="publication.createVersion"}"
 										@click="createVersion"
-									></pkp-button>
+									>
+										{translate key="publication.createVersion"}
+									</pkp-button>
 								</template>
 							{/if}
 					</pkp-header>
@@ -190,9 +162,4 @@
 			{call_hook name="Template::Workflow"}
 		</tabs>
 	</div>
-	<script type="text/javascript">
-		pkp.registry.init('workflow-{$uuid}', 'WorkflowContainer', {$workflowData|json_encode});
-	</script>
-</div>
-
-{include file="common/footer.tpl"}
+{/block}

@@ -76,10 +76,6 @@ msgstr ""
 msgid "manager.setup.userRegistration"
 msgstr "registro de usuario"
 
-msgid "manager.setup.userAccess.success"
-msgstr ""
-"Los detalles de acceso de usuario para este servidor se han actualizado."
-
 msgid "manager.setup.enableOai.description"
 msgstr ""
 "Proporcione metadatos a servicios de indexación de terceros a través de <a "
@@ -112,9 +108,6 @@ msgstr ""
 "Le recomendamos que envíe su <a href=\"{$sitemapUrl}\" target=\"_blank\">"
 "mapa del sitio</a>."
 
-msgid "manager.setup.searchEngineIndexing.success"
-msgstr "La configuración del índice del motor de búsqueda se ha actualizado."
-
 msgid "manager.setup.searchEngineIndexing"
 msgstr "Indización de búsqueda"
 
@@ -128,9 +121,6 @@ msgstr ""
 "Los usuarios deben estar registrados e iniciar sesión para ver el contenido "
 "de acceso abierto."
 
-msgid "manager.setup.privacyStatement.success"
-msgstr "La declaración de privacidad ha sido actualizada."
-
 msgid "manager.setup.numPageLinks.description"
 msgstr ""
 "Limite el número de enlaces para mostrar en las páginas siguientes de una "
@@ -139,19 +129,12 @@ msgstr ""
 msgid "manager.setup.numPageLinks"
 msgstr "Enlaces de página"
 
-msgid "manager.setup.masthead.success"
-msgstr "Los detalles de la cabecera de este servidor se han actualizado."
-
 msgid "manager.setup.masthead"
 msgstr "Cabecera"
 
 msgid "manager.setup.lists"
 msgstr "Listas"
 
-msgid "manager.setup.lists.success"
-msgstr "La configuración de la lista para este servidor se ha actualizado."
-
-#, fuzzy
 msgid "manager.setup.keyInfo.description"
 msgstr ""
 "Proporcione una breve descripción de su servidor e identifique a los "
@@ -200,9 +183,6 @@ msgstr ""
 
 msgid "manager.setup.itemsPerPage"
 msgstr "Artículos por página"
-
-msgid "manager.setup.information.success"
-msgstr "La información para este servidor fue actualizada."
 
 msgid "manager.setup.information.forReaders"
 msgstr "Para los lectores"
@@ -273,9 +253,6 @@ msgstr "Dirección de rebote"
 msgid "manager.setup.disableUserRegistration"
 msgstr "El Administrador del servidor registrará todas las cuentas de usuario."
 
-msgid "manager.setup.contact.success"
-msgstr "Los datos de contacto de este servidor se han actualizado."
-
 msgid "manager.setup.authorScreening"
 msgstr "Complementos de selección del autor"
 
@@ -286,9 +263,6 @@ msgstr ""
 
 msgid "manager.setup.announcementsIntroduction"
 msgstr "Introducción"
-
-msgid "manager.setup.announcements.success"
-msgstr "La configuración de anuncios ha sido actualizada."
 
 msgid "manager.setup.announcements"
 msgstr "Anuncios"
@@ -382,9 +356,6 @@ msgstr "Envíos"
 
 msgid "manager.language.ui"
 msgstr "UI"
-
-msgid "manager.distribution.publishingMode.success"
-msgstr "Los detalles de publicación han sido actualizados."
 
 msgid "manager.distribution.publishingMode.openAccess"
 msgstr "El servidor proporcionará acceso abierto a sus contenidos."

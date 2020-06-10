@@ -11,14 +11,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.contexts.form.create.success"
-msgstr "{$name} berhasil dibuat."
-
 msgid "admin.contexts.contextDescription"
 msgstr "Deskripsi server"
-
-msgid "admin.contexts.form.edit.success"
-msgstr "{$name} berhasil disunting."
 
 msgid "admin.contexts.form.pathExists"
 msgstr "Path yang dimasukkan sudah digunakan oleh server lain."
@@ -84,15 +78,6 @@ msgstr ""
 
 msgid "admin.settings.redirect"
 msgstr "Pengarahan Server"
-
-msgid "admin.settings.info.success"
-msgstr "Informasi situs telah berhasil diperbaharui."
-
-msgid "admin.settings.config.success"
-msgstr "Pengaturan konfigurasi situs telah berhasil diperbaharui."
-
-msgid "admin.settings.appearance.success"
-msgstr "Pengaturan tampilan situs telah berhasil diperbaharui."
 
 msgid "admin.hostedContexts"
 msgstr "Rumah Server"

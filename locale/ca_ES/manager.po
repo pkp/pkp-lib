@@ -2029,11 +2029,6 @@ msgstr "Segur que voleu instal·lar aquest mòdul?"
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Usuaris/àries registrats"
 
-msgid "manager.setup.userAccess.success"
-msgstr ""
-"S'han actualitzat els detalls d'accés de l'usuari/ària per a aquesta "
-"publicació."
-
 msgid "manager.setup.theme.notFound"
 msgstr "El tema que heu seleccionat no està instal·lat o habilitat."
 
@@ -2179,9 +2174,6 @@ msgstr ""
 
 msgid "manager.setup.copyrightNotice"
 msgstr "Avís de drets d'autor"
-
-msgid "manager.setup.contact.success"
-msgstr "S'han actualitzat els detalls de contacte d'aquesta publicació."
 
 msgid "manager.setup.appearance.success"
 msgstr "S'ha actualitzat la configuració d'aparença."

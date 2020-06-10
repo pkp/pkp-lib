@@ -35,7 +35,6 @@ class PKPSiteInformationForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $site) {
 		$this->action = $action;
-		$this->successMessage = __('admin.settings.info.success');
 		$this->locales = $locales;
 
 		$this->addField(new FieldTextarea('about', [

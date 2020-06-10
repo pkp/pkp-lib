@@ -19,6 +19,16 @@ import('lib.pkp.controllers.grid.notifications.NotificationsGridHandler');
 class TaskNotificationsGridHandler extends NotificationsGridHandler {
 
 	/**
+	 * @copydoc GridHandler::initialize()
+	 */
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
+
+		// Basic grid configuration.
+		$this->setTitle('common.tasks');
+	}
+
+	/**
 	 * @see GridHandler::loadData()
 	 * @return array Grid data.
 	 */

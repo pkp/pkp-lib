@@ -710,9 +710,6 @@ msgstr "Pojmovi"
 msgid "search.matchAll"
 msgstr "Združi sve kategorije"
 
-msgid "search.noKeywordError"
-msgstr "Morate unijeti najmanje jednu ključnu riječ za pretraživanje."
-
 msgid "search.noResults"
 msgstr "Nema rezultata"
 

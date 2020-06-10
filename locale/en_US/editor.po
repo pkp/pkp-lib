@@ -404,12 +404,6 @@ msgstr "The public identifier '{$publicIdentifier}' must not be a number."
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "The pattern {$pattern} is not allowed for the public identifier."
 
-msgid "reviewer.list.count"
-msgstr "{$count} reviewers"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} of {$total} reviewers"
-
 msgid "reviewer.list.filterRating"
 msgstr "Rated at least"
 

@@ -68,35 +68,17 @@ class UserForm extends Form {
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$templateMgr = TemplateManager::getManager($request);
 
-		$items = [];
+		$allUserGroups = [];
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getByContextId($contextId);
 		while ($userGroup = $userGroups->next()) {
-			$items[] = array(
-				'id' => (int) $userGroup->getId(),
-				'title' => $userGroup->getLocalizedName(),
-			);
+			$allUserGroups[(int) $userGroup->getId()] = $userGroup->getLocalizedName();
 		}
 
-		$selectRoleList = new \PKP\components\listPanels\ListPanel(
-			'selectRole',
-			__('grid.user.userRoles'),
-			[
-				'canSelect' => true,
-				'selected' => array_map('intval', $this->getData('userGroupIds')),
-				'selectorName' => 'userGroupIds[]',
-				'items' => $items,
-				'itemsMax' => count($items),
-			]
-		);
-
-		$templateMgr->assign(array(
-			'selectRoleListData' => [
-				'components' => [
-					'selectRole' => $selectRoleList->getConfig(),
-				]
-			]
-		));
+		$templateMgr->assign([
+			'allUserGroups' => $allUserGroups,
+			'assignedUserGroups' => array_map('intval', $this->getData('userGroupIds')),
+		]);
 
 		return $this->fetch($request);
 	}

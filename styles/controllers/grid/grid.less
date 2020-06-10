@@ -12,10 +12,10 @@
 
 .pkp_controllers_grid {
 	position: relative;
-	margin-bottom: @double * 2;
 	font-size: @font-sml;
-	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 	border-radius: @radius;
+	background: @lift;
 
 	.header,
 	.footer {
@@ -25,8 +25,8 @@
 	// Header
 	.header {
 		position: relative;
-		background: @grid-border-color;
-		padding: 0 1em;
+		padding: 0 0.5rem 0 1rem;
+		border-bottom: @grid-border;
 		border-top-left-radius: @radius;
 		border-top-right-radius: @radius;
 
@@ -36,14 +36,14 @@
 			margin: 0;
 			padding-top: @half;
 			padding-bottom: @half;
+			line-height: @double;
 		}
 	}
 
 	// Footer
 	.footer {
-		background: @grid-border-color;
-		padding-left: 1em;
-		padding-right: 1em;
+		border-top: @grid-border;
+		padding: 0rem 0.5rem 0.5rem 1rem;
 	}
 
 	// Actions (header + footer )
@@ -51,8 +51,7 @@
 		display: inline-block;
 		float: right;
 		margin: 0;
-		padding: 0;
-		padding-top: 6px;
+		padding: 7px 0;
 		list-style: none;
 
 		li {
@@ -60,16 +59,7 @@
 		}
 
 		a {
-			position: relative;
-			top: 1px; // alignment to account for filter toggle offset
-			display: inline-block;
-			border-top: 2px solid transparent;
-			padding: 0 1em @half;
-			line-height: @double;
-			font-weight: @bold;
-			text-decoration: none;
-			background: transparent;
-			transition: all 0.3s ease;
+			&:extend(.pkp_button);
 		}
 	}
 
@@ -125,6 +115,10 @@
 				height: @double;
 			}
 		}
+
+		.pkp_spinner {
+			float: right;
+		}
 	}
 
 	// Grid rows
@@ -139,7 +133,7 @@
 	}
 
 	// Content rows only
-	.gridRow {
+	.gridRow:not(:first-child) {
 		border-top: @grid-border;
 	}
 
@@ -154,9 +148,9 @@
 		font-size: @font-tiny;
 		line-height: 16px;
 		color: @text-light-rgba;
-		background: @grid-border-color;
 
 		th {
+			box-shadow: inset 0 -1px 0 @grid-border-color;
 			padding-top: @half;
 			padding-bottom: @half;
 			font-weight: @normal;
@@ -248,15 +242,15 @@
 	}
 
 	.order_finish_controls {
-		padding: @base;
-		background: @grid-border-color;
+		padding: @half;
+		text-align: right;
 
 		.saveButton {
 			&:extend(.pkp_button all);
 		}
 
 		.cancelFormButton {
-			&:extend(.pkp_button_link_offset all);
+			&:extend(.pkp_button_offset all);
 		}
 	}
 
@@ -545,9 +539,12 @@
 // Categorized grids
 .pkp_grid_category {
 
+	.gridRow:not(:first-child) {
+		border-top: none;
+	}
+
 	.gridRow.category,
 	.category_controls {
-		background: @grid-border-color;
 
 		.label {
 			font-weight: @bold;
@@ -645,4 +642,9 @@
 		margin: 0;
 		height: 24px;
 	}
+}
+
+// Space between two grids
+div:not(:last-child) > .pkp_controllers_grid {
+	margin-bottom: 1rem;
 }

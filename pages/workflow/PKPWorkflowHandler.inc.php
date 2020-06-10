@@ -23,6 +23,9 @@ import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 abstract class PKPWorkflowHandler extends Handler {
 
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
+
 	//
 	// Implement template methods from PKPHandler
 	//
@@ -315,7 +318,8 @@ abstract class PKPWorkflowHandler extends Handler {
 			);
 		}
 
-		$workflowData = [
+		$state = [
+			'activityLogLabel' => __('submission.list.infoCenter'),
 			'canAccessPublication' => $canAccessPublication,
 			'canEditPublication' => $canEditPublication,
 			'components' => [
@@ -324,7 +328,6 @@ abstract class PKPWorkflowHandler extends Handler {
 				FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
 			],
 			'contributorsGridUrl' => $contributorsGridUrl,
-			'csrfToken' => $request->getSession()->getCSRFToken(),
 			'currentPublication' => $currentPublicationProps,
 			'editorialHistoryUrl' => $editorialHistoryUrl,
 			'publicationFormIds' => [
@@ -334,31 +337,24 @@ abstract class PKPWorkflowHandler extends Handler {
 				FORM_TITLE_ABSTRACT,
 			],
 			'publicationList' => $publicationList,
+			'publicationTabsLabel' => __('publication.version.details'),
+			'publishLabel' => __('publication.publish'),
 			'publishUrl' => $publishUrl,
 			'representationsGridUrl' => $this->_getRepresentationsGridUrl($request, $submission),
+			'schedulePublicationLabel' => __('editor.submission.schedulePublication'),
+			'statusLabel' => __('semicolon', ['label' => __('common.status')]),
 			'submission' => $submissionProps,
 			'submissionApiUrl' => $submissionApiUrl,
+			'submissionLibraryLabel' => __('grid.libraryFiles.submission.title'),
 			'submissionLibraryUrl' => $submissionLibraryUrl,
 			'supportsReferences' => !!$submissionContext->getData('citations'),
+			'unpublishConfirmLabel' => __('publication.unpublish.confirm'),
+			'unpublishLabel' => __('publication.unpublish'),
+			'unscheduleConfirmLabel' => __('publication.unschedule.confirm'),
+			'unscheduleLabel' => __('publication.unschedule'),
+			'versionLabel' => __('semicolon', ['label' => __('admin.version')]),
+			'versionConfirmLabel' => __('publication.version.confirm'),
 			'workingPublication' => $workingPublicationProps,
-			'i18n' => [
-				'activityLog' => __('submission.list.infoCenter'),
-				'cancel' => __('common.cancel'),
-				'ok' => __('common.ok'),
-				'no' => __('common.no'),
-				'publicationTabsLabel' => __('publication.version.details'),
-				'publish' => __('publication.publish'),
-				'schedulePublication' => __('editor.submission.schedulePublication'),
-				'save' => __('common.save'),
-				'status' => __('semicolon', ['label' => __('common.status')]),
-				'submissionLibrary' => __('grid.libraryFiles.submission.title'),
-				'unpublishConfirm' => __('publication.unpublish.confirm'),
-				'unscheduleConfirm' => __('publication.unschedule.confirm'),
-				'view' => __('common.view'),
-				'version' => __('semicolon', ['label' => __('admin.version')]),
-				'versionConfirm' => __('publication.version.confirm'),
-				'yes' => __('common.yes'),
-			],
 		];
 
 		// Add the metadata form if one or more metadata fields are enabled
@@ -374,8 +370,8 @@ abstract class PKPWorkflowHandler extends Handler {
 			$vocabSuggestionUrlBase =$request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
 			$metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
 			$templateMgr->setConstants(['FORM_METADATA']);
-			$workflowData['components'][FORM_METADATA] = $metadataForm->getConfig();
-			$workflowData['publicationFormIds'][] = FORM_METADATA;
+			$state['components'][FORM_METADATA] = $metadataForm->getConfig();
+			$state['publicationFormIds'][] = FORM_METADATA;
 		}
 
 		// Add the identifieres form if one or more identifier is enabled
@@ -390,9 +386,11 @@ abstract class PKPWorkflowHandler extends Handler {
 		if ($identifiersEnabled) {
 			$identifiersForm = new PKP\components\forms\publication\PKPPublicationIdentifiersForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
 			$templateMgr->setConstants(['FORM_PUBLICATION_IDENTIFIERS']);
-			$workflowData['components'][FORM_PUBLICATION_IDENTIFIERS] = $identifiersForm->getConfig();
-			$workflowData['publicationFormIds'][] = FORM_PUBLICATION_IDENTIFIERS;
+			$state['components'][FORM_PUBLICATION_IDENTIFIERS] = $identifiersForm->getConfig();
+			$state['publicationFormIds'][] = FORM_PUBLICATION_IDENTIFIERS;
 		}
+
+		$templateMgr->setState($state);
 
 		$templateMgr->assign([
 			'canAccessEditorialHistory' => $canAccessEditorialHistory,
@@ -402,9 +400,14 @@ abstract class PKPWorkflowHandler extends Handler {
 			'canPublish' => $canPublish,
 			'identifiersEnabled' => $identifiersEnabled,
 			'metadataEnabled' => $metadataEnabled,
+			'pageComponent' => 'WorkflowPage',
+			'pageTitle' => join(__('common.titleSeparator'), [
+				$submission->getShortAuthorString(),
+				$submission->getLocalizedTitle()
+			]),
+			'pageWidth' => PAGE_WIDTH_WIDE,
 			'requestedStageId' => $requestedStageId,
 			'submission' => $submission,
-			'workflowData' => $workflowData,
 			'workflowStages' => $workflowStages,
 		]);
 

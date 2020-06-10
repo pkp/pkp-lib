@@ -73,57 +73,26 @@ class PKPSectionForm extends Form {
 	}
 
 	/**
-	 * Get a list of all subeditor IDs assigned to this section
-	 *
-	 * @param $sectionId int
-	 * @param $contextId int
-	 * @return array
+	 * @copydoc Form::fetch()
 	 */
-	public function _getAssignedSubEditorIds($sectionId, $contextId) {
-		import('classes.core.Services');
-		return Services::get('user')->getIds(array(
-			'contextId' => $contextId,
-			'roleIds' => ROLE_ID_SUB_EDITOR,
-			'assignedToSection' => $sectionId,
-		));
-	}
-
-	/**
-	 * Compile data for a subeditors SelectListPanel
-	 *
-	 * @param $contextId int
-	 * @param $request Request
-	 * @return \PKP\components\listPanels\ListPanel
-	 */
-	public function _getSubEditorsListPanel($contextId, $request) {
-
+	function fetch($request, $template = null, $display = false) {
 		$params = [
-			'contextId' => $contextId,
+			'contextId' => $request->getContext()->getId(),
 			'roleIds' => ROLE_ID_SUB_EDITOR,
 		];
 
-		import('classes.core.Services');
 		$usersIterator = Services::get('user')->getMany($params);
-		$items = [];
+		$subeditors = [];
 		foreach ($usersIterator as $user) {
-			$items[] = [
-				'id' => (int) $user->getId(),
-				'title' => $user->getFullName()
-			];
+			$subeditors[(int) $user->getId()] = $user->getFullName();
 		}
 
-		return new \PKP\components\listPanels\ListPanel(
-			'subeditors',
-			__('submissionGroup.assignedSubEditors'),
-			[
-				'canSelect' => true,
-				'getParams' => $params,
-				'items' => $items,
-				'itemsmax' => Services::get('user')->getMax($params),
-				'selected' => (array) $this->getData('subEditors'),
-				'selectorName' => 'subEditors[]',
-			]
-		);
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign([
+			'subeditors' => $subeditors,
+		]);
+
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**
@@ -131,7 +100,8 @@ class PKPSectionForm extends Form {
 	 *
 	 * @param $contextId int
 	 */
-	public function _saveSubEditors($contextId) {
+	public function execute(...$functionArgs) {
+		$contextId = Application::get()->getRequest()->getContext()->getId();
 		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /* @var $subEditorsDao SubEditorsDAO */
 		$subEditorsDao->deleteBySubmissionGroupId($this->getSectionId(), ASSOC_TYPE_SECTION, $contextId);
 		$subEditors = $this->getData('subEditors');
@@ -143,6 +113,8 @@ class PKPSectionForm extends Form {
 				}
 			}
 		}
+
+		parent::execute($functionArgs);
 	}
 
 }

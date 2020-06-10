@@ -362,9 +362,6 @@ msgstr "Lektorálási vita létrehozása erről az ajánlásról."
 msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
 msgstr "Ne hozzon létre szakmai lektorálási vitát."
 
-msgid "reviewer.list.count"
-msgstr "{$count} szakmai lektor"
-
 msgid "reviewer.list.filterRating"
 msgstr "Értékelve legalább"
 
@@ -379,9 +376,6 @@ msgstr "Utolsó lektorálási felkérés óta eltelt napok"
 
 msgid "reviewer.list.averageCompletion"
 msgstr "Lektorálás megtétele átlagosan ennyi nap alatt"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} a {$total} lektorból"
 
 msgid "reviewer.list.warnOnAssign"
 msgstr "A lektor blokkolásra került, mert olyan szerep lett hozzárendelve amelyben megismerheti a szerző személyét. A vak lektorálási forma így nem garantálható. Szeretné ennek ellenére feloldani a lektor blokkolását?"

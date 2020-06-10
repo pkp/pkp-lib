@@ -416,12 +416,6 @@ msgstr "L'identifiant public « {$publicIdentifier} » ne peut être un numéro.
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Le modèle {$pattern} ne peut pas être utilisé comme identifiant public."
 
-msgid "reviewer.list.count"
-msgstr "{$count} évaluateur-trice-s"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} de {$total} évaluateur-trice-s"
-
 msgid "reviewer.list.filterRating"
 msgstr "Évalué au moins à"
 

@@ -103,11 +103,9 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 				'currentlyAssigned' => $currentlyAssigned,
 				'getParams' => [
 					'contextId' => $submissionContext->getId(),
-					'count' => 15,
 					'reviewStage' => $reviewRound->getStageId(),
 				],
 				'selectorName' => 'reviewerId',
-				'selectorType' => 'radio',
 				'warnOnAssignment' => $warnOnAssignment,
 			]
 		);

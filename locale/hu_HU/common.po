@@ -702,6 +702,9 @@ msgstr "Összetevő"
 msgid "common.uninitiated"
 msgstr "Nem megkezdett"
 
+msgid "common.unknownError"
+msgstr "Váratlan hiba történt. Töltse be újra az oldalt, majd próbálja újra."
+
 msgid "common.unread"
 msgstr "Olvasatlan"
 
@@ -1206,12 +1209,6 @@ msgstr "Értesítéstípus szerkesztése."
 msgid "notification.removedAnnouncementType"
 msgstr "Értesítéstípus törölt."
 
-msgid "notification.addedAnnouncement"
-msgstr "Értesítés hozzáadott."
-
-msgid "notification.editedAnnouncement"
-msgstr "Értesítés szerkesztett."
-
 msgid "notification.removedAnnouncement"
 msgstr "Értesítés törölt."
 
@@ -1376,9 +1373,6 @@ msgstr "Minden index kifejezés mező"
 
 msgid "search.matchAll"
 msgstr "Az összes kategóriának megfelel"
-
-msgid "search.noKeywordError"
-msgstr "Adjon meg legalább egy kulcsszót."
 
 msgid "search.noResults"
 msgstr "Nincs eredmény"
@@ -1855,14 +1849,6 @@ msgstr "Érvényes ID-t kell megadni."
 
 msgid "form.requirePrimaryLocale"
 msgstr "Be kell fejelznie a mezőt {$language} nyelven."
-
-msgid "form.missingRequired"
-msgstr "Kötelezően töltendő mező."
-
-msgid "form.errorUnknown"
-msgstr ""
-"Váratlan hiba történt. Lehet, hogy kilett léptetve a rendszerből.  Kérjük, "
-"frissítse az oldalt és próbája meg ismét."
 
 msgid "form.errors"
 msgstr ""

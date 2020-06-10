@@ -1981,9 +1981,6 @@ msgstr ""
 msgid "manager.setup.metadata.coverage"
 msgstr "Cobertura"
 
-msgid "manager.setup.metadata.success"
-msgstr "Los metadatos de envío han sido actualizados correctamente."
-
 msgid "settings.roles.permitMetadataEdit"
 msgstr "Permitir la edición de metadatos de envío."
 
@@ -2007,18 +2004,11 @@ msgstr "Términos de la licencia"
 msgid "manager.distribution.license.other"
 msgstr "URL de otra licencia"
 
-msgid "manager.distribution.license.success"
-msgstr "Los detalles de licencia han sido actualizados. "
-
 msgid "manager.distribution.license"
 msgstr "Licencia"
 
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Usuarios/as registrados"
-
-msgid "manager.setup.userAccess.success"
-msgstr ""
-"Los detalles de acceso de usuario/a para este medio han sido actualizados."
 
 msgid "manager.setup.theme.notFound"
 msgstr "El tema seleccionado no está instalado o habilitado."
@@ -2030,11 +2020,6 @@ msgstr ""
 
 msgid "manager.setup.theme"
 msgstr "Tema"
-
-msgid "manager.setup.theme.success"
-msgstr ""
-"El tema ha sido actualizado. <a href=\"{$url}\" target=\"_blank\">Visualizar "
-"ahora</a>"
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Modo de revisión por defecto"
@@ -2083,9 +2068,6 @@ msgstr ""
 msgid "manager.setup.checklist"
 msgstr "Lista de comprobación"
 
-msgid "manager.setup.authorGuidelines.success"
-msgstr "Las directrices para autores/as han sido actualizadas correctamente."
-
 msgid "manager.setup.copyrightNotice.description"
 msgstr ""
 "Exigir que los autores/as acepten el siguiente aviso de derechos de autor "
@@ -2093,12 +2075,6 @@ msgstr ""
 
 msgid "manager.setup.copyrightNotice"
 msgstr "Aviso de derechos de autor"
-
-msgid "manager.setup.contact.success"
-msgstr "Los detalles de contacto para esta publicación han sido actualizados."
-
-msgid "manager.setup.appearance.success"
-msgstr "Los ajustes de apariencia han sido actualizados."
 
 msgid "manager.setup.advanced"
 msgstr "Avanzado"
@@ -2133,29 +2109,14 @@ msgstr ""
 "La contraseña del correo electrónico solo puede contener letras, números y "
 "guiones bajos."
 
-msgid "manager.emails.editEmail.success"
-msgstr "La plantilla de correo electrónico ha sido modificada."
-
 msgid "manager.emails.customTemplate"
 msgstr "Plantilla personalizada"
-
-msgid "manager.emails.addEmail.success"
-msgstr "La plantilla de correo electrónico fue añadida."
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Los detalles del recordatorio para revisores/as han sido actualizados."
 
-msgid "manager.publication.reviewSetup.success"
-msgstr "Los ajustes de revisión han sido actualizados."
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "La guía para revisores/as ha sido actualizada."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Guía para revisores/as"
-
-msgid "manager.publication.emailSetup.success"
-msgstr "Los ajustes de correo electrónico han sido actualizados."
 
 msgid "stats.description.daysToDecision"
 msgstr ""

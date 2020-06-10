@@ -18,6 +18,9 @@ import('lib.pkp.classes.core.JSONMessage');
 
 abstract class PKPSubmissionHandler extends Handler {
 
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
+
 	/**
 	 * @copydoc PKPHandler::authorize()
 	 */
@@ -99,6 +102,9 @@ abstract class PKPSubmissionHandler extends Handler {
 		} else {
 			$templateMgr->assign('submissionProgress', 1);
 		}
+		$templateMgr->assign([
+			'pageTitle' => __('submission.submit.title'),
+		]);
 		$templateMgr->display('submission/form/index.tpl');
 	}
 

@@ -7,33 +7,32 @@
  *
  * Header for the submission review pages.
  *}
-{strip}
-{capture assign="review"}{translate key='submission.review'}{/capture}
-{assign var="submissionTitle" value=$submission->getLocalizedTitle()|strip_unsafe_html}
-{assign var="pageTitleTranslated" value="$review: <em>$submissionTitle</em>"}
-{include file="common/header.tpl"}
-{/strip}
+{extends file="layouts/backend.tpl"}
 
-<script type="text/javascript">
-	// Attach the JS file tab handler.
-	$(function() {ldelim}
-		$('#reviewTabs').pkpHandler(
-			'$.pkp.pages.reviewer.ReviewerTabHandler',
-			{ldelim}
-				reviewStep: {$reviewStep|escape},
-				selected: {$selected|escape}
-			{rdelim}
-		);
-	{rdelim});
-</script>
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{$pageTitle}
+	</h1>
 
-<div id="reviewTabs" class="pkp_controllers_tab">
-	<ul>
-		<li><a href="{url op="step" path=$submission->getId() step=1}">{translate key="reviewer.reviewSteps.request"}</a></li>
-		<li><a href="{url op="step" path=$submission->getId() step=2}">{translate key="reviewer.reviewSteps.guidelines"}</a></li>
-		<li><a href="{url op="step" path=$submission->getId() step=3}">{translate key="reviewer.reviewSteps.download"}</a></li>
-		<li><a href="{url op="step" path=$submission->getId() step=4}">{translate key="reviewer.reviewSteps.completion"}</a></li>
-	</ul>
-</div>
+	<script type="text/javascript">
+		// Attach the JS file tab handler.
+		$(function() {ldelim}
+			$('#reviewTabs').pkpHandler(
+				'$.pkp.pages.reviewer.ReviewerTabHandler',
+				{ldelim}
+					reviewStep: {$reviewStep|escape},
+					selected: {$selected|escape}
+				{rdelim}
+			);
+		{rdelim});
+	</script>
 
-{include file="common/footer.tpl"}
+	<div id="reviewTabs" class="pkp_controllers_tab">
+		<ul>
+			<li><a href="{url op="step" path=$submission->getId() step=1}">{translate key="reviewer.reviewSteps.request"}</a></li>
+			<li><a href="{url op="step" path=$submission->getId() step=2}">{translate key="reviewer.reviewSteps.guidelines"}</a></li>
+			<li><a href="{url op="step" path=$submission->getId() step=3}">{translate key="reviewer.reviewSteps.download"}</a></li>
+			<li><a href="{url op="step" path=$submission->getId() step=4}">{translate key="reviewer.reviewSteps.completion"}</a></li>
+		</ul>
+	</div>
+{/block}

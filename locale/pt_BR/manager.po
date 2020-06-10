@@ -1478,16 +1478,8 @@ msgstr "Este link apenas será exibido se você submeteu uma declaração de pri
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Usuários cadastrados"
 
-msgid "manager.setup.userAccess.success"
-msgstr "Os detalhes de acesso do usuário foram atualizados."
-
 msgid "manager.setup.theme.notFound"
 msgstr "O tema selecionado não está instalado ou habilitado."
-
-msgid "manager.setup.theme.success"
-msgstr ""
-"O tema foi atualizado. <a href=\"{$url}\" target=\"_blank\">Visualizar "
-"Agora</a>"
 
 msgid "manager.setup.reviewOptions.showBlindReviewLink"
 msgstr ""
@@ -1529,15 +1521,6 @@ msgstr ""
 msgid "manager.setup.checklist"
 msgstr "Lista de verificação"
 
-msgid "manager.setup.authorGuidelines.success"
-msgstr "As instruções aos autores foram atualizadas com sucesso."
-
-msgid "manager.setup.contact.success"
-msgstr "Os detalhes de contato foram atualizados."
-
-msgid "manager.setup.appearance.success"
-msgstr "As configurações de aparência foram atualizadas."
-
 msgid "manager.setup.advanced"
 msgstr "Avançado"
 
@@ -1574,14 +1557,8 @@ msgstr "Modelos de E-mail"
 msgid "manager.emails.emailKey.description"
 msgstr "A chave de e-mail pode conter apenas letras, números e sobrescritos."
 
-msgid "manager.emails.editEmail.success"
-msgstr "O modelo de e-mail foi modificado."
-
 msgid "manager.emails.customTemplate"
 msgstr "Modelo Customizado"
-
-msgid "manager.emails.addEmail.success"
-msgstr "O modelo de e-mail foi adicionado."
 
 msgid "manager.emails.addEmail"
 msgstr "Adicionar modelo"
@@ -1589,17 +1566,8 @@ msgstr "Adicionar modelo"
 msgid "manager.publication.reviewReminders.success"
 msgstr "Os detalhes de lembrete de avaliação foram atualizados."
 
-msgid "manager.publication.reviewSetup.success"
-msgstr "As configurações de avaliação foram atualizadas."
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "As orientações ao avaliador foram atualizadas."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Orientações ao Avaliador"
-
-msgid "manager.publication.emailSetup.success"
-msgstr "As configurações de e-mail foram atualizadas."
 
 msgid "stats.name.declinedReviewRate"
 msgstr "Taxa de Rejeição Após Avaliação"
@@ -2030,9 +1998,6 @@ msgstr ""
 msgid "manager.setup.metadata.coverage"
 msgstr "Cobertura"
 
-msgid "manager.setup.metadata.success"
-msgstr "Os metadados da submissão foram atualizados com sucesso."
-
 msgid "manager.reviewFormElements.description"
 msgstr "Descrição"
 
@@ -2086,9 +2051,6 @@ msgstr "Termos da Licença"
 
 msgid "manager.distribution.license.other"
 msgstr "URL de outra licença"
-
-msgid "manager.distribution.license.success"
-msgstr "Os detalhes de licenciamento foram atualizados. "
 
 msgid "manager.distribution.license"
 msgstr "Licença"

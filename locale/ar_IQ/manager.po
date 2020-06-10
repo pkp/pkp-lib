@@ -155,17 +155,8 @@ msgstr "الإنتاج"
 msgid "manager.publication.emails"
 msgstr "رسائل البريد الالكتروني"
 
-msgid "manager.publication.emailSetup.success"
-msgstr "إعدادات البريد الالكتروني تغيرت بنجاح."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "دليل المحكم"
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "دليل المحكم تغير بنجاح."
-
-msgid "manager.publication.reviewSetup.success"
-msgstr "إعدادات التحكيم تغيرت بنجاح."
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "تفاصيل تذكير المحكمين تغيرت بنجاح."
@@ -178,9 +169,6 @@ msgstr "هل أنت متأكد من رغبتك في استعادة إفتراض�
 
 msgid "manager.emails.addEmail"
 msgstr "إضافة قالب"
-
-msgid "manager.emails.addEmail.success"
-msgstr "إضافة القالب تمت بنجاح."
 
 msgid "manager.emails.createEmail"
 msgstr "إنشاء رسالة"
@@ -202,9 +190,6 @@ msgstr "أنت على وشك تعطيل قالب الرسالة هذا. إذا �
 
 msgid "manager.emails.editEmail"
 msgstr "تعديل الرسالة"
-
-msgid "manager.emails.editEmail.success"
-msgstr "قالب الرسالة تغير بنجاح."
 
 msgid "manager.emails.editTestExample"
 msgstr "تعديل نموذج إختبار القالب"
@@ -646,12 +631,6 @@ msgstr "أي شيء تكتبه هنا سيظهر في صفحتك الرئيسي�
 msgid "manager.setup.advanced"
 msgstr "متقدم"
 
-msgid "manager.setup.appearance.success"
-msgstr "إعدادات المظهر تغيرت بنجاح."
-
-msgid "manager.setup.contact.success"
-msgstr "تفاصيل عنوان الاتصال لهذه المؤسسة تغير ت بنجاح."
-
 msgid "manager.setup.copyrightNotice"
 msgstr "بيان الحقوق الفكرية"
 
@@ -663,9 +642,6 @@ msgstr "إرشادات المؤلف"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr "الإرشادات الموصى بها تتضمن المعايير القياسية للسيرة والتنسيق جنباً إلى جنب مع أمثلة لتنسيقات شائعة من الاقتباسات التي بالإمكان استعمالها في المؤلفات."
-
-msgid "manager.setup.authorGuidelines.success"
-msgstr "إرشادات المؤلف تغيرت بنجاح."
 
 msgid "manager.setup.checklist"
 msgstr "قائمة التأشير"
@@ -802,9 +778,6 @@ msgstr "عنوان الاتصال للدعم الفني"
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr "شخص بإمكانه مساعدة المحررين، المؤلفين، والمحكمين إذا واجهتهم أي صعوبات عند العمل على الموقع."
 
-msgid "manager.setup.theme.success"
-msgstr "النمط تغير بنجاح. <a href=\"{$url}\" target=\"_blank\">عاينه الآن</a>"
-
 msgid "manager.setup.theme"
 msgstr "النمط"
 
@@ -813,9 +786,6 @@ msgstr "يمكن تنصيب المزيد من الأنماط عبر تبويب �
 
 msgid "manager.setup.theme.notFound"
 msgstr "النمط الذي اخترته غير منصب أو غير مُمَكن."
-
-msgid "manager.setup.userAccess.success"
-msgstr "تفاصيل خيارات وصول المستخدمين لهذه المؤسسة تغيرت بنجاح."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "خيارات الوصول في الموقع"
@@ -1089,9 +1059,6 @@ msgstr "تم تعديل المستخدم."
 
 msgid "manager.distribution.license"
 msgstr "الترخيص"
-
-msgid "manager.distribution.license.success"
-msgstr "تفاصيل الترخيص تغيرت بنجاح. "
 
 msgid "manager.distribution.license.other"
 msgstr "رابط تراخيص أخرى"
@@ -1398,9 +1365,6 @@ msgstr "رابط إلى موقع يصف الرخصة، لو توافر ذلك."
 
 msgid "manager.setup.metadata.submission"
 msgstr "نموذج تقديم طلب النشر"
-
-msgid "manager.setup.metadata.success"
-msgstr "البيانات الوصفية لطلب التقديم تغيرت بنجاح."
 
 msgid "manager.setup.metadata.coverage"
 msgstr "التغطية"

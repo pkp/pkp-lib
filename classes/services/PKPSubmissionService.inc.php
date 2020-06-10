@@ -277,7 +277,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	}
 
 	/**
-	 * Returns properties for the backend UI SubmissionListPanel component
+	 * Returns properties for custom API endpoints used in the backend
 	 * @param Submission $submission
 	 * @param array extra arguments
 	 *		$args['request'] PKPRequest Required

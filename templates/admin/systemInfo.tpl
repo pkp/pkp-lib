@@ -7,36 +7,105 @@
  *
  * Display system information.
  *}
-{strip}
-{assign var="pageTitle" value="admin.systemInformation"}
-{include file="common/header.tpl"}
-{/strip}
+{extends file="layouts/backend.tpl"}
 
-<div class="pkp_page_content pkp_page_admin">
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="admin.systemInformation"}
+	</h1>
 
-	<h3>{translate key="admin.currentVersion"}: {$currentVersion->getVersionString(false)} ({$currentVersion->getDateInstalled()|date_format:$datetimeFormatLong})</h3>
-
-	{if $latestVersionInfo}
-			<p>{translate key="admin.version.latest"}: {$latestVersionInfo.release|escape} ({$latestVersionInfo.date|date_format:$dateFormatLong})</p>
-		{if $currentVersion->compare($latestVersionInfo.version) < 0}
-			<p><strong>{translate key="admin.version.updateAvailable"}</strong>: <a href="{$latestVersionInfo.package|escape}">{translate key="admin.version.downloadPackage"}</a> | {if $latestVersionInfo.patch}<a href="{$latestVersionInfo.patch|escape}">{translate key="admin.version.downloadPatch"}</a>{else}{translate key="admin.version.downloadPatch"}{/if} | <a href="{$latestVersionInfo.info|escape}">{translate key="admin.version.moreInfo"}</a></p>
-		{else}
-			<p><strong>{translate key="admin.version.upToDate"}</strong></p>
-		{/if}
-	{else}
-	<p><a href="{url versionCheck=1}">{translate key="admin.version.checkForUpdates"}</a></p>
+	{if $newVersionAvailable}
+		<notification>
+			{translate key="site.upgradeAvailable.admin" currentVersion=$currentVersion->getVersionString(false) latestVersion=$latestVersion}
+		</notification>
 	{/if}
 
-	{capture assign=versionInfoGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.VersionInfoGridHandler" op="fetchGrid" escape=false}{/capture}
-	{load_url_in_div id="versionInfoGridContainer" url=$versionInfoGridUrl}
+	<div class="app__contentPanel">
 
-	{capture assign=serverInfoGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.ServerInfoGridHandler" op="fetchGrid" escape=false}{/capture}
-	{load_url_in_div id="serverInfoGridContainer" url=$serverInfoGridUrl}
+		<h2>{translate key="admin.currentVersion"}: {$currentVersion->getVersionString(false)} ({$currentVersion->getDateInstalled()|date_format:$datetimeFormatLong})</h2>
 
-	{capture assign=systemInfoGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.admin.systemInfo.SystemInfoGridHandler" op="fetchGrid" escape=false}{/capture}
-	{load_url_in_div id="systemInfoGridContainer" url=$systemInfoGridUrl}
+		{if $latestVersionInfo}
+				<p>{translate key="admin.version.latest"}: {$latestVersionInfo.release|escape} ({$latestVersionInfo.date|date_format:$dateFormatLong})</p>
+			{if $currentVersion->compare($latestVersionInfo.version) < 0}
+				<p><strong>{translate key="admin.version.updateAvailable"}</strong>: <a href="{$latestVersionInfo.package|escape}">{translate key="admin.version.downloadPackage"}</a> | {if $latestVersionInfo.patch}<a href="{$latestVersionInfo.patch|escape}">{translate key="admin.version.downloadPatch"}</a>{else}{translate key="admin.version.downloadPatch"}{/if} | <a href="{$latestVersionInfo.info|escape}">{translate key="admin.version.moreInfo"}</a></p>
+			{else}
+				<p><strong>{translate key="admin.version.upToDate"}</strong></p>
+			{/if}
+		{else}
+		<p><a href="{url versionCheck=1}">{translate key="admin.version.checkForUpdates"}</a></p>
+		{/if}
 
-	<a href="{url op="phpinfo"}" target="_blank">{translate key="admin.phpInfo"}</a>
-</div><!-- .pkp_page_content -->
+		<h2 id="versionHistory">{translate key="admin.versionHistory"}</h2>
 
-{include file="common/footer.tpl"}
+		<table class="pkpTable" aria-labelledby="versionHistory">
+			<thead>
+				<tr>
+					<th>{translate key="admin.version"}</th>
+					<th>{translate key="admin.versionMajor"}</th>
+					<th>{translate key="admin.versionMinor"}</th>
+					<th>{translate key="admin.versionRevision"}</th>
+					<th>{translate key="admin.versionBuild"}</th>
+					<th>{translate key="admin.dateInstalled"}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{foreach from=$versionHistory item="version"}
+					<tr>
+						<td>{$version->getVersionString(false)}</td>
+						<td>{$version->getMajor()}</td>
+						<td>{$version->getMinor()}</td>
+						<td>{$version->getRevision()}</td>
+						<td>{$version->getBuild()}</td>
+						<td>{$version->getDateInstalled()|date_format:$dateFormatShort}</td>
+					</tr>
+				{/foreach}
+			</tbody>
+		</table>
+
+		<h2 id="serverInformation">{translate key="admin.serverInformation"}</h2>
+
+		<table class="pkpTable" aria-labelledby="serverInformation">
+			<thead>
+				<tr>
+					<th>{translate key="admin.systemInfo.settingName"}</th>
+					<th>{translate key="admin.systemInfo.settingValue"}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{foreach from=$serverInfo item="value" key="name"}
+					<tr>
+						<td>{translate key=$name}</td>
+						<td>{$value|escape}</td>
+					</tr>
+				{/foreach}
+			</tbody>
+		</table>
+
+		<h2>{translate key="admin.systemConfiguration"}</h2>
+
+		<table class="pkpTable" aria-labelledby="systemConfiguration{$key}">
+			<thead>
+				<tr>
+					<th>{translate key="admin.systemInfo.settingName"}</th>
+					<th>{translate key="admin.systemInfo.settingValue"}</th>
+				</tr>
+			</thead>
+			{foreach from=$configData item="settings" key="category"}
+				<tbody>
+					<tr>
+						<td colspan="2" class="app--admin__systemInfoGroup">{$category}</td>
+					</tr>
+					{foreach from=$settings item="value" key="name"}
+						<tr>
+							<td>{$name|escape}</td>
+							<td>{$value|escape}</td>
+						</tr>
+					{/foreach}
+				</tbody>
+			{/foreach}
+		</table>
+
+
+		<a href="{url op="phpinfo"}" target="_blank">{translate key="admin.phpInfo"}</a>
+	</div><!-- .pkp_page_content -->
+{/block}

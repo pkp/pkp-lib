@@ -356,12 +356,6 @@ msgstr "Oceń jakość dostarczonej recenzji. Ocena recenzenta nie jest widoczna
 msgid "editor.review.reviewerRating.none"
 msgstr "Brak oceny"
 
-msgid "reviewer.list.count"
-msgstr "{$count} recenzenci"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} z {$total} recenzentów"
-
 msgid "reviewer.list.filterRating"
 msgstr "Oceniono przynajmniej na"
 

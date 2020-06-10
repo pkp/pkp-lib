@@ -8,12 +8,14 @@
  * The editorial statistics page.
  *
  *}
-{include file="common/header.tpl" suppressPageTitle=true pageTitle="stats.userStatistics"}
+{extends file="layouts/backend.tpl"}
 
-<div class="pkp_page_content">
-	<h1 id="usersTableLabel" class="pkpHeader__title">{translate key="manager.statistics.statistics.registeredUsers"}</h1>
-	<div class="pkpStats__container">
-		<div class="pkpStats__content">
+{block name="page"}
+	<div class="pkpStats">
+		<div class="pkpStats__panel">
+			<pkp-header>
+				<h1 id="usersTableLabel" class="pkpHeader__title">{translate key="manager.statistics.statistics.registeredUsers"}</h1>
+			</pkp-header>
 			<table class="pkpTable" labelled-by="usersTableLabel">
 				<thead>
 					<tr>
@@ -32,6 +34,4 @@
 			</table>
 		</div>
 	</div>
-</div>
-
-{include file="common/footer.tpl"}
+{/block}

@@ -797,9 +797,6 @@ msgstr "索引项目"
 msgid "search.matchAll"
 msgstr "匹配所有类别"
 
-msgid "search.noKeywordError"
-msgstr "您必须至少输入一个搜索关键字."
-
 msgid "search.noResults"
 msgstr "没有结果"
 

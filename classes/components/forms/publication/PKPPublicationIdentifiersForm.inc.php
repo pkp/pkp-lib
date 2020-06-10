@@ -39,7 +39,6 @@ class PKPPublicationIdentifiersForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $publication, $submissionContext) {
 		$this->action = $action;
-		$this->successMessage = __('publication.publicationIdentifiers.success');
 		$this->locales = $locales;
 		$this->publication = $publication;
 		$this->submissionContext = $submissionContext;

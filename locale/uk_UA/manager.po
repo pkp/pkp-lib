@@ -1674,29 +1674,14 @@ msgstr "Пошук за назвою, автором та ідентифікат
 msgid "stats.total"
 msgstr "Усього"
 
-msgid "manager.publication.emailSetup.success"
-msgstr "Налаштування електронних листів оновлено."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Настанови для рецензента"
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "Настанови для рецензента оновлено."
-
-msgid "manager.publication.reviewSetup.success"
-msgstr "Налаштування рецензування оновлено."
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Деталі нагадування для рецензентів оновлено."
 
-msgid "manager.emails.addEmail.success"
-msgstr "Шаблон для електронних листів оновлено."
-
 msgid "manager.emails.customTemplate"
 msgstr "Власний шаблон"
-
-msgid "manager.emails.editEmail.success"
-msgstr "Шаблон для електронних листів був оновлений."
 
 msgid "manager.emails.emailKey.description"
 msgstr "Ключ для електронних листів може включати лише букви, числа та нижні підкреслення."
@@ -1718,15 +1703,6 @@ msgstr "Предмет: {$subject}"
 
 msgid "manager.setup.advanced"
 msgstr "Додаткові налаштування"
-
-msgid "manager.setup.appearance.success"
-msgstr "Налаштування вигляду оновлено."
-
-msgid "manager.setup.contact.success"
-msgstr "Контактні деталі для цього видавничого продукту оновлено."
-
-msgid "manager.setup.authorGuidelines.success"
-msgstr "Настанови для авторів успішно оновлено."
 
 msgid "manager.setup.checklist"
 msgstr "Контрольний список"
@@ -1752,9 +1728,6 @@ msgstr "Нагадування для рецензування"
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Спосіб рецензування за замовчуванням"
 
-msgid "manager.setup.theme.success"
-msgstr "Тему було оновлено. <a href=\"{$url}\" target=\"_blank\">Переглянути зараз</a>"
-
 msgid "manager.setup.theme"
 msgstr "Теми"
 
@@ -1766,14 +1739,8 @@ msgstr ""
 msgid "manager.setup.theme.notFound"
 msgstr "Тема, яку ви обрали, не інстальована або не увімкнена."
 
-msgid "manager.setup.userAccess.success"
-msgstr "Інформацію про доступ користувачів для цього видання було оновлено."
-
 msgid "manager.distribution.license"
 msgstr "Ліцензія"
-
-msgid "manager.distribution.license.success"
-msgstr "Деталі щодо ліцензії оновлено. "
 
 msgid "manager.distribution.license.other"
 msgstr "Інша URL для ліцензії"
@@ -1789,9 +1756,6 @@ msgstr "Теги користувача"
 
 msgid "manager.distribution.customHeaders.description"
 msgstr "Додати власні HTML теги, також відомі як мета теги, які ви бажаєте вставити у голову (head) кожної сторінки. Проконсультуйтесь із технічним радником перед тим як додавати ці теги."
-
-msgid "manager.setup.metadata.success"
-msgstr "Метадані подання успішно оновлено."
 
 msgid "manager.setup.metadata.coverage"
 msgstr "Охоплення"

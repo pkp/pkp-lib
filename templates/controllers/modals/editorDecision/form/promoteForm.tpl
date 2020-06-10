@@ -110,6 +110,7 @@
 	</div>
 
 	{fbvFormSection class="formButtons form_buttons"}
+		<span class="pkp_spinner"></span>
 		<button class="pkp_button promoteForm-step-btn" data-step="files">
 			{translate key="editor.submission.decision.nextButton" stageName=$stageName}
 		</button>
@@ -119,6 +120,5 @@
 		</button>
 		{assign var=cancelButtonId value="cancelFormButton"|concat:"-"|uniqid}
 		<a href="#" id="{$cancelButtonId}" class="cancelButton">{translate key="common.cancel"}</a>
-		<span class="pkp_spinner"></span>
 	{/fbvFormSection}
 </form>

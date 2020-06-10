@@ -207,7 +207,7 @@ class QueryForm extends Form {
 
 			// Get currently selected participants in the query
 			$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
-			$selectedParticipants = $query->getId() ? $queryDao->getParticipantIds($query->getId()) : array();
+			$assignedParticipants = $query->getId() ? $queryDao->getParticipantIds($query->getId()) : array();
 
 			// Always include current user, even if not with a stage assignment
 			$includeUsers[] = $user->getId();
@@ -260,7 +260,7 @@ class QueryForm extends Form {
 				}
 			}
 
-			// Get a ListPanel to select query participants
+			// Get list of participants to include in query
 			$params = [
 				'contextId' => $context->getId(),
 				'count' => 100, // high upper value
@@ -274,8 +274,7 @@ class QueryForm extends Form {
 			$userService = Services::get('user');
 			$usersIterator = $userService->getMany($params);
 
-			$items = [];
-			$itemsMax = 0;
+			$allParticipants = [];
 			if (count($usersIterator)) {
 				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 				foreach ($usersIterator as $user) {
@@ -298,38 +297,17 @@ class QueryForm extends Form {
 					if (!count($userRoles)) {
 						$userRoles[] = __('submission.status.unassigned');
 					}
-					$items[] = [
-						'id' => $user->getId(),
-						'title' => __('submission.query.participantTitle', [
-							'fullName' => $user->getFullName(),
-							'userGroup' => join(__('common.commaListSeparator'), $userRoles),
-						]),
-					];
+					$allParticipants[$user->getId()] = __('submission.query.participantTitle', [
+						'fullName' => $user->getFullName(),
+						'userGroup' => join(__('common.commaListSeparator'), $userRoles),
+					]);
 				}
-				$itemsMax = $userService->getMax($params);
 			}
 
-			$queryParticipantsList = new \PKP\components\listPanels\ListPanel(
-				'queryParticipants',
-				__('editor.submission.stageParticipants'),
-				[
-					'canSelect' => true,
-					'getParams' => $params,
-					'items' => $items,
-					'itemsMax' => $itemsMax,
-					'selected' => $selectedParticipants,
-					'selectorName' => 'users[]',
-				]
-			);
-
-			$templateMgr->assign(array(
-				'hasParticipants' => count($items),
-				'queryParticipantsListData' => [
-					'components' => [
-						'queryParticipants' => $queryParticipantsList->getConfig(),
-					]
-				],
-			));
+			$templateMgr->assign([
+				'allParticipants' => $allParticipants,
+				'assignedParticipants' => $assignedParticipants,
+			]);
 		}
 
 		return parent::fetch($request, $template, $display);

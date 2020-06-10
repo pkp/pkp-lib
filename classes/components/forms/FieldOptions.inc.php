@@ -29,12 +29,6 @@ class FieldOptions extends Field {
 	 * @copydoc Field::getConfig()
 	 */
 	public function getConfig() {
-		if ($this->isOrderable) {
-			$this->i18n = array_merge([
-				'orderUp' => __('common.orderUp'),
-				'orderDown' => __('common.orderDown'),
-			], $this->i18n);
-		}
 		$config = parent::getConfig();
 		$config['type'] = $this->type;
 		$config['isOrderable'] = $this->isOrderable;

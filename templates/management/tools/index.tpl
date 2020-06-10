@@ -7,21 +7,25 @@
  *
  * Management index.
  *}
-{include file="common/header.tpl" pageTitle="navigation.tools"}
+{extends file="layouts/backend.tpl"}
 
-<script type="text/javascript">
-	// Attach the JS file tab handler.
-	$(function() {ldelim}
-		$('#managementTabs').pkpHandler('$.pkp.controllers.TabHandler');
-	{rdelim});
-</script>
-<div id="managementTabs" class="pkp_controllers_tab">
-	<ul>
-		<li><a name="importexport" href="{url op="importexport"}">{translate key="navigation.tools.importExport"}</a></li>
-		<li><a name="statistics" href="{url op="statistics"}">{translate key="manager.statistics.reports"}</a></li>
-		<li><a name="permissions" href="{url op="permissions"}">{translate key="settings.libraryFiles.category.permissions"}</a></li>
-		{call_hook name="Templates::Management::Settings::tools"}
-	</ul>
-</div>
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="navigation.tools"}
+	</h1>
 
-{include file="common/footer.tpl"}
+	<script type="text/javascript">
+		// Attach the JS file tab handler.
+		$(function() {ldelim}
+			$('#managementTabs').pkpHandler('$.pkp.controllers.TabHandler');
+		{rdelim});
+	</script>
+	<div id="managementTabs" class="pkp_controllers_tab">
+		<ul>
+			<li><a name="importexport" href="{url op="importexport"}">{translate key="navigation.tools.importExport"}</a></li>
+			<li><a name="statistics" href="{url op="statistics"}">{translate key="manager.statistics.reports"}</a></li>
+			<li><a name="permissions" href="{url op="permissions"}">{translate key="settings.libraryFiles.category.permissions"}</a></li>
+			{call_hook name="Templates::Management::Settings::tools"}
+		</ul>
+	</div>
+{/block}

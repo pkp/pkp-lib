@@ -797,9 +797,6 @@ msgstr "Индекс појмова"
 msgid "search.matchAll"
 msgstr "Упари све категорије"
 
-msgid "search.noKeywordError"
-msgstr "Морате унети најмање једну кључну реч за претраживање."
-
 msgid "search.noResults"
 msgstr "Нема резултата"
 
@@ -1252,12 +1249,6 @@ msgstr "Тип обавештења је измењен."
 
 msgid "notification.removedAnnouncementType"
 msgstr "Тип обавештења је уклоњен."
-
-msgid "notification.addedAnnouncement"
-msgstr "Додато обавештење."
-
-msgid "notification.editedAnnouncement"
-msgstr "Обавештење је измењено."
 
 msgid "notification.removedAnnouncement"
 msgstr "Обавештење уклоњено."

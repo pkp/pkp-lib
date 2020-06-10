@@ -170,31 +170,11 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			if ($category->getParentId()) {
 				$title = $categories[$category->getParentId()]->getLocalizedTitle() . ' > ' . $title;
 			}
-			$items[] = [
-				'id' => (int) $category->getId(),
-				'title' => $title,
-			];
+			$items[(int) $category->getId()] = $title;
 		}
-		$categoriesList = new \PKP\components\listPanels\ListPanel(
-			'categories',
-			__('grid.category.categories'),
-			[
-				'canSelect' => true,
-				'items' => $items,
-				'itemsMax' => count($items),
-				'selected' => $assignedCategories,
-				'selectorName' => 'categories[]',
-			]
-		);
-
 		$templateMgr->assign(array(
 			'assignedCategories' => $assignedCategories,
-			'hasCategories' => !empty($categoriesList->items),
-			'categoriesListData' => [
-				'components' => [
-					'categories' => $categoriesList->getConfig(),
-				]
-			]
+			'categories' => $items,
 		));
 
 		return parent::fetch($request, $template, $display);

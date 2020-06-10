@@ -63,11 +63,28 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	}
 
 	/**
+	 * Get a summary of context information limited, filtered
+	 * and sorted by $args.
+	 *
+	 * This is faster than getMany if you don't need to
+	 * retrieve all the context settings. It returns the
+	 * data from the main table and the name of the context
+	 * in its primary locale.
+	 *
+	 * @see self::getMany()
+	 * @return array
+	 */
+	public function getManySummary($args = []) {
+		return $this->getQueryBuilder($args)->getManySummary();
+	}
+
+	/**
 	 * Get a collection of Context objects limited, filtered
 	 * and sorted by $args
 	 *
 	 * @param array $args {
 	 * 		@option bool isEnabled
+	 * 		@option int userId
 	 * 		@option string searchPhrase
 	 * 		@option int count
 	 * 		@option int offset
@@ -110,6 +127,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
 		$defaultArgs = array(
 			'isEnabled' => null,
+			'userId' => null,
 			'searchPhrase' => null,
 		);
 
@@ -118,6 +136,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		$contextListQB = new ContextQueryBuilder();
 		$contextListQB
 			->filterByIsEnabled($args['isEnabled'])
+			->filterByUserId($args['userId'])
 			->searchPhrase($args['searchPhrase']);
 
 		\HookRegistry::call('Context::getMany::queryBuilder', array($contextListQB, $args));

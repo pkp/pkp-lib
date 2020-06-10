@@ -404,12 +404,6 @@ msgstr "Шаблон «{$pattern}» не разрешен для открыто�
 msgid "editor.submission.schedulePublication"
 msgstr "Запланировать для публикации"
 
-msgid "reviewer.list.count"
-msgstr "Рецензентов: {$count}"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "Рецензентов: {$count} из {$total}"
-
 msgid "reviewer.list.filterRating"
 msgstr "Рейтинг не менее"
 

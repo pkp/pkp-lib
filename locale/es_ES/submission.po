@@ -1854,9 +1854,6 @@ msgstr "¿Seguro que no quiere que esto sea publicado?"
 msgid "publication.unpublish"
 msgstr "Retirar de publicación"
 
-msgid "publication.titleAbstract.success"
-msgstr "El título y el resumen han sido actualizados."
-
 msgid "publication.titleAbstract"
 msgstr "Título y resumen"
 
@@ -1880,9 +1877,6 @@ msgstr ""
 msgid "publication.required.declined"
 msgstr "Un envío rechazado no puede ser publicado."
 
-msgid "publication.publish.success"
-msgstr "El estado de la publicación ha sido cambiado correctamente."
-
 msgid "publication.publish.requirements"
 msgstr ""
 "Se deben cumplir los siguientes requisitos antes de que esto pueda ser "
@@ -1891,17 +1885,8 @@ msgstr ""
 msgid "publication.publish"
 msgstr "Publicar"
 
-msgid "publication.publicationLicense.success"
-msgstr "La información de licencia y de derechos de autor ha sido actualizada."
-
 msgid "publication.publicationLicense"
 msgstr "Permisos y divulgación"
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "Los identificadores han sido actualizados."
-
-msgid "publication.metadata.success"
-msgstr "Los metadatos han sido actualizados."
 
 msgid "publication.invalidSubmission"
 msgstr "No se pudo encontrar el envío para esta publicación."
@@ -1951,9 +1936,6 @@ msgstr ""
 
 msgid "publication.contributors"
 msgstr "Colaboradores/as"
-
-msgid "publication.citations.success"
-msgstr "Las referencias han sido actualizadas."
 
 msgid "submission.publication"
 msgstr "Publicación"

@@ -34,11 +34,11 @@
 			{fbvElement type="text" password="true" id="password2" value=$oldPassword maxLength="32" label="user.profile.repeatNewPassword" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 
-		{fbvFormButtons submitText="common.save"}
-
 		<p>
 			{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
 			{translate key="user.privacyLink" privacyUrl=$privacyUrl}
 		</p>
+
+		{fbvFormButtons submitText="common.save"}
 	{/fbvFormArea}
 </form>

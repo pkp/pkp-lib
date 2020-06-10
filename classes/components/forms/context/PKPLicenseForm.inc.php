@@ -35,7 +35,6 @@ class PKPLicenseForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;
-		$this->successMessage = __('manager.distribution.license.success');
 		$this->locales = $locales;
 
 		$licenseOptions = \Application::getCCLicenseOptions();

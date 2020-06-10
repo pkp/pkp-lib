@@ -36,7 +36,6 @@ class PKPSearchIndexingForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context, $sitemapUrl) {
 		$this->action = $action;
-		$this->successMessage = __('manager.setup.searchEngineIndexing.success');
 		$this->locales = $locales;
 
 		$this->addGroup([

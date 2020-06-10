@@ -34,7 +34,7 @@
 		// Save the default key, to select upon the first list load.
 		this.defaultKey_ = options.defaultKey;
 
-		// Expose e.g. the selectMonograph event to the containing element.
+		// Expose the event to the containing element.
 		this.publishEvent(this.eventName_);
 
 		// Save the url for fetching the options in the dropdown element.

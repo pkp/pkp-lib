@@ -27,7 +27,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0.5);
 	z-index: 1000;
 	overflow-y: auto;
 	cursor: pointer;
@@ -51,7 +51,7 @@
 	background: @lift;
 	margin: @base auto;
 	cursor: auto;
-	border-radius: 5px;
+	border-radius: 3px;
 	.transform(translateY(-30px));
 	-webkit-transition-property: -webkit-transform;
 	-moz-transition-property: -moz-transform;
@@ -82,56 +82,52 @@
 	}
 
 	> .header {
-		min-height: @double * 2;
-		background: @primary;
+		min-height: 3rem;
 		border-top-left-radius: @radius;
 		border-top-right-radius: @radius;
 		font-weight: @bold;
-		line-height: @double;
-		color: @lift;
-		padding-right: @pkp_modal_panel_close_box_len;
+		line-height: 3rem;
+		padding: 0 3rem 0 1rem;
 	}
 
 	> .close {
 		position: absolute;
-		top: 0;
-		right: 0;
-		width: @pkp_modal_panel_close_box_len;
-		height: @pkp_modal_panel_close_box_len; // matches height of .header
-		line-height: @pkp_modal_panel_close_box_len;
+		top: 0.5rem;
+		right: 0.5rem;
+		width: 2rem;
+		height: 2rem;
+		line-height: 2rem;
+		font-size: 24px;
 		border-top-right-radius: @radius;
-		color: rgba(255,255,255,0.7);
-		color: @bg;
 		text-align: center;
+		text-decoration: none;
+		color: @text;
+		border: 1px solid transparent;
 
-		&:before {
-			.fa();
-			content: @fa-var-times;
-			font-size: @double;
-			line-height: @pkp_modal_panel_close_box_len;
+		&:hover {
+			color: @primary;
 		}
 
-		&:hover,
 		&:focus {
-			background: @bg;
-			color: @offset;
+			outline: 0;
+			border-radius: @radius;
+			border: 1px solid @primary;
 		}
 	}
 
 	> .footer {
-		padding: @base;
-		background: @bg;
+		padding: 1rem;
 		border-bottom-left-radius: @radius;
 		border-bottom-right-radius: @radius;
+		text-align: right;
 
 		.ok {
 			&:extend(.pkp_button all);
 		}
 
 		.cancel {
-			&:extend(.pkp_button_link_offset all);
-			border: none;
-			background: transparent;
+			&:extend(.pkp_button_offset all);
+			margin-left: 0.5rem;
 		}
 	}
 }
@@ -139,12 +135,42 @@
 // Confirmation modals
 .pkp_modal_confirmation {
 	max-width: 30em;
+
+	.content {
+		font-size: @font-sml;
+		line-height: @line-sml;
+	}
 }
 
 // Tabs
-.pkp_modal .ui-tabs-nav {
-	margin: -@base -@base 0;
-	padding: @base @base 0;
+.pkp_modal {
+
+	.ui-tabs-nav {
+		margin: -@base -@base 0;
+		padding: @base @base 0;
+		background: transparent;
+		border-bottom: 1px solid @bg-border-color-light;
+
+		a {
+			position: relative;
+			top: 1px;
+			border: 1px solid transparent;
+			border-bottom: none;
+			background: transparent;
+		}
+
+		.ui-state-active a {
+			border-left-color: @bg-border-color-light;
+			border-right-color: @bg-border-color-light;
+			background: @lift;
+		}
+	}
+
+	.ui-tabs-panel .pkp_help_tab {
+		border: 1px solid @bg-border-color-light;
+		border-bottom: none;
+		top: -@double - 1px;
+	}
 }
 
 .pkp_modal .ui-tabs-panel {
@@ -153,12 +179,21 @@
 }
 
 .modal_buttons {
-	&:extend(.pkp_form .form_buttons all);
-	&:extend(.pkp_modal .pkp_form .form_buttons all);
+	margin-top: 2rem;
 
 	.pkp_spinner {
 		&:extend(.pkp_form .pkp_spinner);
 	}
+
+	.cancel {
+		&:extend(.pkp_button_offset);
+		margin-left: 0.5em;
+	}
+}
+
+// Help link inside modals
+.pkp_modal_panel > .content > .pkp_help_link {
+	top: @half;
 }
 
 // Vue.js forms inside modals

@@ -797,9 +797,6 @@ msgstr "Indeks pojmova"
 msgid "search.matchAll"
 msgstr "Upari sve kategorije"
 
-msgid "search.noKeywordError"
-msgstr "Morate uneti najmanje jednu ključnu reč za pretraživanje."
-
 msgid "search.noResults"
 msgstr "Nema rezultata"
 
@@ -1252,12 +1249,6 @@ msgstr "Tip obaveštenja je izmenjen."
 
 msgid "notification.removedAnnouncementType"
 msgstr "Tip obaveštenja je uklonjen."
-
-msgid "notification.addedAnnouncement"
-msgstr "Dodato obaveštenje."
-
-msgid "notification.editedAnnouncement"
-msgstr "Obaveštenje je izmenjeno."
 
 msgid "notification.removedAnnouncement"
 msgstr "Obaveštenje uklonjeno."

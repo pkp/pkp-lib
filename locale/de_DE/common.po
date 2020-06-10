@@ -732,6 +732,9 @@ msgstr "Komponente"
 msgid "common.uninitiated"
 msgstr "Nicht begonnen"
 
+msgid "common.unknownError"
+msgstr "Es ist ein unerwarteter Fehler aufgetreten. Bitte laden Sie die Seite neu und versuchen Sie es noch einmal."
+
 msgid "common.unread"
 msgstr "Ungelesen"
 
@@ -1245,12 +1248,6 @@ msgstr "Mitteilungstyp bearbeitet."
 msgid "notification.removedAnnouncementType"
 msgstr "Mitteilungstyp gelöscht."
 
-msgid "notification.addedAnnouncement"
-msgstr "Mitteilung hinzugefügt."
-
-msgid "notification.editedAnnouncement"
-msgstr "Mitteilung bearbeitet."
-
 msgid "notification.removedAnnouncement"
 msgstr "Mitteilung gelöscht."
 
@@ -1370,9 +1367,6 @@ msgstr "Alle Indexfelder"
 
 msgid "search.matchAll"
 msgstr "In allen Kategorien übereinstimmen"
-
-msgid "search.noKeywordError"
-msgstr "Geben Sie mindestens einen Suchbegriff ein."
 
 msgid "search.noResults"
 msgstr "Kein Ergebnis"
@@ -1750,19 +1744,11 @@ msgstr ""
 "Dieses Formular konnte nicht abgeschickt werden. Sie wurden möglicherweise "
 "abgemeldet. Bitte laden Sie die Seite neu und versuchen Sie es erneut."
 
-msgid "form.missingRequired"
-msgstr "Dies ist ein Pflichtfeld."
-
 msgid "form.requireId"
 msgstr "Bitte geben Sie eine gültige ID an."
 
 msgid "form.requirePrimaryLocale"
 msgstr "Bitte füllen Sie dieses Feld in {$language} aus."
-
-msgid "form.errorUnknown"
-msgstr ""
-"Es ist ein unerwarteter Fehler aufgetreten. Sie wurden möglicherweise "
-"abgemeldet. Bitte laden Sie die Seite neu und versuchen Sie es erneut."
 
 msgid "form.errors"
 msgstr ""

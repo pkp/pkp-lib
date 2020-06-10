@@ -1,12 +1,12 @@
 <?php
 /**
- * @file components/PKPStatsEditorialContainer.inc.php
+ * @file components/PKPStatsEditorialPage.inc.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2000-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPStatsEditorialContainer
+ * @class PKPStatsEditorialPage
  * @ingroup classes_controllers_stats
  *
  * @brief A class to prepare the data object for the editorial statistics
@@ -18,7 +18,7 @@ use PKP\components\PKPStatsComponent;
 
 import('classes.statistics.StatisticsHelper');
 
-class PKPStatsEditorialContainer extends PKPStatsComponent {
+class PKPStatsEditorialPage extends PKPStatsComponent {
 	/** @var array A key/value array of active submissions by stage */
 	public $activeByStage = [];
 
@@ -30,9 +30,6 @@ class PKPStatsEditorialContainer extends PKPStatsComponent {
 
 	/** @var array List of stats details to display in the table */
 	public $tableRows = [];
-
-	/** @var array Localized strings to pass to the component */
-	public $i18n = [];
 
 	/**
 	 * Retrieve the configuration data to be used when initializing this
@@ -51,14 +48,6 @@ class PKPStatsEditorialContainer extends PKPStatsComponent {
 				'averagesApiUrl' => $this->averagesApiUrl,
 				'percentageStats' => $this->percentageStats,
 				'tableRows' => $this->tableRows,
-				'i18n' => array_merge(
-					$config['i18n'],
-					[
-						'descriptionForStat' => __('stats.descriptionForStat'),
-						'countWithYearlyAverage' => __('stats.countWithYearlyAverage'),
-					],
-					$this->i18n
-				),
 			]
 		);
 

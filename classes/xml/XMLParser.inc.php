@@ -69,10 +69,9 @@ class XMLParser {
 	 * Parse an XML file using the specified handler.
 	 * If no handler has been specified, XMLParserDOMHandler is used by default, returning a tree structure representing the document.
 	 * @param $file string full path to the XML file
-	 * @param $dataCallback mixed Optional callback for data handling: function dataCallback($operation, $wrapper, $data = null)
-	 * @return object actual return type depends on the handler
+	 * @return object|false actual return type depends on the handler
 	 */
-	function parse($file, $dataCallback = null) {
+	function parse($file) {
 		$parser = $this->createParser();
 
 		if (!isset($this->handler)) {
@@ -85,47 +84,40 @@ class XMLParser {
 		xml_set_element_handler($parser, "startElement", "endElement");
 		xml_set_character_data_handler($parser, "characterData");
 
-		import('lib.pkp.classes.file.FileWrapper');
-		$wrapper = FileWrapper::wrapper($file);
+		if (!$stream = $this->_getStream($file)) return false;
 
-		// Handle responses of various types
-		while (true) {
-			$newWrapper = $wrapper->open();
-			if (is_a($newWrapper, 'FileWrapper')) {
-				// Follow a redirect
-				$wrapper = $newWrapper;
-			} elseif (!$newWrapper) {
-				// Could not open resource -- error
-				$returner = false;
-				return $returner;
-			} else {
-				// OK, we've found the end result
-				break;
-			}
-		}
-
-		if (!$wrapper) {
-			$result = false;
-			return $result;
-		}
-
-		if ($dataCallback) call_user_func($dataCallback, 'open', $wrapper);
-
-		while (!$wrapper->eof() && ($data = $wrapper->read()) !== false) {
-			if ($dataCallback) call_user_func($dataCallback, 'parse', $wrapper, $data);
-			if (!xml_parse($parser, $data, $wrapper->eof())) {
+		while (($data = $stream->read(16384)) !== '') {
+			if (!xml_parse($parser, $data, $stream->eof())) {
 				$this->addError(xml_error_string(xml_get_error_code($parser)));
 			}
 		}
 
-		if ($dataCallback) call_user_func($dataCallback, 'close', $wrapper);
-		$wrapper->close();
+		$stream->close();
 		$result = $this->handler->getResult();
 		$this->destroyParser($parser);
 		if (isset($handler)) {
 			$handler->destroy();
 		}
 		return $result;
+	}
+
+	/**
+	 * Get a PSR7 stream given a filename or URL.
+	 * @param $filenameOrUrl
+	 * @return \GuzzleHttp\Psr7\Stream|null
+	 */
+	protected function _getStream($filenameOrUrl) {
+		$urlPieces = parse_url($filenameOrUrl);
+		if ($urlPieces && isset($urlPieces['scheme'])) {
+			// Remote URL.
+			$client = Application::get()->getHttpClient();
+			$response = $client->request('GET', $filenameOrUrl);
+			return GuzzleHttp\Psr7\stream_for($response->getBody());
+		} elseif (file_exists($filenameOrUrl) && is_readable($filenameOrUrl)) {
+			$resource = fopen($filenameOrUrl, 'r');
+			return GuzzleHttp\Psr7\stream_for($resource);
+		}
+		return null;
 	}
 
 	/**
@@ -205,12 +197,10 @@ class XMLParser {
 	 * @return array? a struct of the form ($TAG => array('attributes' => array( ... ), 'value' => $VALUE), ... )
 	 */
 	function parseStruct($file, $tagsToMatch = array()) {
-		import('lib.pkp.classes.file.FileWrapper');
-		$wrapper = FileWrapper::wrapper($file);
-		$fileContents = $wrapper->contents();
+		$stream = $this->_getStream($file);
+		$fileContents = $stream->getContents();
 		if (!$fileContents) {
-			$result = false;
-			return $result;
+			return false;
 		}
 		return $this->parseTextStruct($fileContents, $tagsToMatch);
 	}

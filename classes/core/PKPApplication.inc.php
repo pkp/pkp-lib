@@ -220,8 +220,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 				'host'      => Config::getVar('database', 'host'),
 				'database'  => Config::getVar('database', 'name'),
 				'username'  => Config::getVar('database', 'username'),
-			        'port'      => Config::getVar('database', 'port'),
-			        'unix_socket'=> Config::getVar('database', 'unix_socket'),
+				'port'      => Config::getVar('database', 'port'),
+				'unix_socket'=> Config::getVar('database', 'unix_socket'),
 				'password'  => Config::getVar('database', 'password'),
 				'charset'   => $charset,
 				'collation' => 'utf8_general_ci',
@@ -256,6 +256,19 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 */
 	public static function get() {
 		return Registry::get('application');
+	}
+
+	/**
+	 * Return a HTTP client implementation.
+	 * @return \GuzzleHttp\Client
+	 */
+	public function getHttpClient() {
+		return new \GuzzleHttp\Client([
+			'proxy' => [
+				'http' => Config::getVar('proxy', 'http_proxy', null),
+				'https' => Config::getVar('proxy', 'https_proxy', null),
+			],
+		]);
 	}
 
 	/**

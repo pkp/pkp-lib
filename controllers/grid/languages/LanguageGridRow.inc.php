@@ -40,20 +40,6 @@ class LanguageGridRow extends GridRow {
 			);
 
 			if (Validation::isSiteAdmin()) {
-				if (!$request->getContext() && !$rowData['primary']) {
-					$this->addAction(
-						new LinkAction(
-							'uninstall',
-							new RemoteActionConfirmationModal(
-								$request->getSession(),
-								__('admin.languages.confirmUninstall'),
-								__('grid.action.remove'),
-								$router->url($request, null, null, 'uninstallLocale', null, $actionArgs)
-								),
-							__('grid.action.remove'),
-							'delete')
-					);
-				}
 				if ($request->getContext()) {
 					$this->addAction(
 						new LinkAction(

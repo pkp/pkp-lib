@@ -128,6 +128,9 @@ msgstr "Каталог, указанный в качестве каталога 
 msgid "installer.installParseDBFileError"
 msgstr "Ошибка синтаксического разбора файла установки БД <tt>{$file}</tt>."
 
+msgid "installer.installMigrationError"
+msgstr "Ошибка выполнения класса миграции <tt>{$class}</tt>."
+
 msgid "installer.installParseEmailTemplatesFileError"
 msgstr "Ошибка синтаксического разбора файла шаблонов писем электронной почты <tt>{$file}</tt>."
 

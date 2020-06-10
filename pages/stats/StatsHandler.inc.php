@@ -40,12 +40,22 @@ class StatsHandler extends PKPStatsHandler {
 			return;
 		}
 
-		$statsComponent = $templateMgr->getTemplateVars('statsComponent');
-		$statsComponent->filters = [
-			[
-				'heading' => __('section.sections'),
-				'filters' => APP\components\listPanels\SubmissionsListPanel::getSectionFilters(),
-			],
+		$sectionFilters = APP\components\listPanels\SubmissionsListPanel::getSectionFilters();
+
+		if (count($sectionFilters) < 2) {
+			return;
+		}
+
+		$filters = $templateMgr->getState('filters');
+		if (is_null($filters)) {
+			$filters = [];
+		}
+		$filters[] = [
+			'heading' => __('section.sections'),
+			'filters' => $sectionFilters,
 		];
+		$templateMgr->setState([
+			'filters' => $filters
+		]);
 	}
 }

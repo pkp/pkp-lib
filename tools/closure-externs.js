@@ -294,15 +294,6 @@ $.pkp.cons = {
 /**
  * @type {Object}
  */
-var _ = {
-	isNull: function(object) {},
-	each: function(array, callback) {},
-	reject: function(array, callback) {}
-};
-
-/**
- * @type {Object}
- */
 var pkp = {
 	currentUser: {
 		id: 0,

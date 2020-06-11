@@ -363,14 +363,18 @@
 	 *  false if an error occurred.
 	 */
 	$.pkp.classes.Handler.prototype.handleJson = function(jsonData) {
+		var key, eventData;
+
 		if (!jsonData) {
 			throw new Error('Server error: Server returned no or invalid data!');
 		}
 
 		if (jsonData.status === true) {
 			// Trigger events passed from the server
-			for (var key in jsonData.events) {
-				var eventData = jsonData.events[key].hasOwnProperty('data') ? jsonData.events[key].data : null;
+			for (key in jsonData.events) {
+				eventData = jsonData.events[key].hasOwnProperty('data') ?
+						jsonData.events[key].data :
+						null;
 				if (eventData !== null && eventData.isGlobalEvent) {
 					eventData.handler = this;
 					pkp.eventBus.$emit(jsonData.events[key].name, eventData);
@@ -516,9 +520,9 @@
 	 * @param {Function} callback The function to fire when event is triggered
 	 */
 	$.pkp.classes.Handler.prototype.unbindGlobal = function(eventName, callback) {
-		var wrapper = this.callbackWrapper(callback);
+		var wrapper = this.callbackWrapper(callback),
+				globalEventListeners = [];
 		if (typeof this.globalEventListeners_[eventName] !== 'undefined') {
-			var globalEventListeners = [];
 			this.globalEventListeners.forEach(function(callback) {
 				if (callback !== wrapper) {
 					globalEventListeners.push(callback);
@@ -534,9 +538,10 @@
 	 * Unbind all global event listeners on this handler and any child handlers
 	 */
 	$.pkp.classes.Handler.prototype.unbindGlobalAll = function() {
+		var event, callback;
 		if (typeof this.globalEventListeners_ !== 'undefined') {
-			for (var event in this.globalEventListeners_) {
-				for (var callback in this.globalEventListeners_[event]) {
+			for (event in this.globalEventListeners_) {
+				for (callback in this.globalEventListeners_[event]) {
 					pkp.eventBus.$off(event, this.globalEventListeners_[event][callback]);
 				}
 			}
@@ -613,13 +618,14 @@
 	 */
 	$.pkp.classes.Handler.prototype.trigger =
 			function(eventName, opt_data) {
+		var $handledElement;
 
 		if (opt_data === undefined) {
 			opt_data = null;
 		}
 
 		// Trigger the event on the handled element.
-		var $handledElement = this.getHtmlElement();
+		$handledElement = this.getHtmlElement();
 		$handledElement.triggerHandler(eventName, opt_data);
 
 		// Trigger the event publicly if it's not
@@ -638,6 +644,7 @@
 	 * @param {string} eventName The event name.
 	 */
 	$.pkp.classes.Handler.prototype.publishEvent = function(eventName) {
+		var eventData;
 		// If the event has been published before then do nothing.
 		if (this.publishedEvents_[eventName]) {
 			return;
@@ -648,7 +655,7 @@
 
 		this.bind(eventName, function(context, privateEvent, var_args) {
 			// Retrieve additional event data.
-			var eventData = null;
+			eventData = null;
 			if (arguments.length > 2) {
 				eventData = Array.prototype.slice.call(arguments, 2);
 			}
@@ -846,10 +853,11 @@
 	 */
 	$.pkp.classes.Handler.prototype.unbindPartial =
 			function($partial) {
+		var handler;
 
 		$('*', $partial).each(function() {
 			if ($.pkp.classes.Handler.hasHandler($(this))) {
-				var handler = $.pkp.classes.Handler.getHandler($(this));
+				handler = $.pkp.classes.Handler.getHandler($(this));
 				handler.callbackWrapper(handler.unbindGlobalAll());
 			}
 		});

@@ -1464,9 +1464,6 @@ msgstr "Документы отправленного материала"
 msgid "notification.type.editorAssign"
 msgstr "Вы были назначены редактором для материала «{$title}»."
 
-msgid "notification.type.submissionNewVersion"
-msgstr "Новая версия представления была создана"
-
 msgid "notification.type.copyeditorRequest"
 msgstr "Вас попросили выполнить литературное редактирование для «{$title}»."
 
@@ -1502,6 +1499,9 @@ msgstr "Загружен ответ."
 
 msgid "notification.type.editorAssignment"
 msgstr "Редактор должен быть назначен до начала рецензирования. Пожалуйста, добавьте редактора с помощью списка «Участники»."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Новая версия представления была создана"
 
 msgid "grid.reviewAttachments.title"
 msgstr "Файлы, прикрепленные рецензентом"

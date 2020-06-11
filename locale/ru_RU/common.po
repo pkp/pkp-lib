@@ -733,6 +733,9 @@ msgstr "Отменить выбор"
 msgid "common.select"
 msgstr "Выбрать"
 
+msgid "common.selectWithName"
+msgstr "Выбрать «{$name}»"
+
 msgid "common.sendEmail"
 msgstr "Отправить письмо электронной почтой"
 
@@ -762,6 +765,9 @@ msgstr "Предложить"
 
 msgid "common.title"
 msgstr "Заголовок"
+
+msgid "common.titleSeparator"
+msgstr " | "
 
 msgid "common.top"
 msgstr "Верх"
@@ -828,6 +834,9 @@ msgstr "Пользователь"
 
 msgid "common.view"
 msgstr "Просмотреть"
+
+msgid "common.viewWithName"
+msgstr "Просмотреть «{$name}»"
 
 msgid "common.viewProfile"
 msgstr "Просмотреть профиль"
@@ -1084,6 +1093,9 @@ msgstr "Вы должны ввести корректный ID."
 msgid "form.resubmit"
 msgstr "Отправить снова"
 
+msgid "form.saved"
+msgstr "Сохранено"
+
 msgid "form.saveToUpload"
 msgstr "Используйте «Сохранить» для загрузки файла на сервер."
 
@@ -1260,6 +1272,9 @@ msgstr "Статистика"
 
 msgid "navigation.browse"
 msgstr "Просматривать"
+
+msgid "navigation.backTo"
+msgstr "⟵ Назад к «{$page}»"
 
 msgid "navigation.browseByAuthor"
 msgstr "По автору"
@@ -1445,7 +1460,7 @@ msgid "notification.savedSubmissionMetadata"
 msgstr "Сохранены метаданные материала."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Отправить уведомление электронной почтой всем зарегистрированным пользователям"
+msgstr "Отправить об этом письмо электронной почтой всем зарегистрированным пользователям."
 
 msgid "search.author"
 msgstr "По автору"
@@ -1563,6 +1578,9 @@ msgstr "Задачи"
 
 msgid "dashboard.myQueue"
 msgstr "Мои дела"
+
+msgid "review.blindPeerReview.title"
+msgstr "Обеспечение слепого рецензирования"
 
 msgid "review.blindPeerReview"
 msgstr ""

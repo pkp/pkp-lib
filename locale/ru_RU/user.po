@@ -183,7 +183,7 @@ msgid "user.logOut"
 msgstr "Выйти из системы"
 
 msgid "user.logOutAs"
-msgstr "Выйти из системы как"
+msgstr "Выйти из системы как «{$username}»"
 
 msgid "user.hello"
 msgstr "Добро пожаловать, "

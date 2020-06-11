@@ -28,7 +28,7 @@ msgid "manager.announcements"
 msgstr "Объявления"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Вы уверены, что хотите навсегда удалить это объявление?"
+msgstr "Вы уверены, что хотите навсегда удалить объявление «{$title}»?"
 
 msgid "manager.announcements.create"
 msgstr "Создать новое объявление"
@@ -41,6 +41,9 @@ msgstr "Актуально до"
 
 msgid "manager.announcements.datePublish"
 msgstr "Опубликовано"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Удалить объявление"
 
 msgid "manager.announcements.edit"
 msgstr "Редактировать объявление"
@@ -67,7 +70,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Пожалуйста, выберите месяц и/или день, а не только год даты потери актуальности."
 
 msgid "manager.announcements.form.description"
-msgstr "Описание"
+msgstr "Объявление"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Полный текст обьявления."
@@ -246,8 +249,14 @@ msgstr "Сбросить все"
 msgid "manager.emails.resetAll.message"
 msgstr "Если вы сбросите все шаблоны, все изменения, сделанные в шаблонах писем электронной почты, будут потеряны. Вы хотите подтвердить эту операцию?"
 
+msgid "manager.emails.resetAll.complete"
+msgstr "Шаблоны писем электронной почты, заданные по умолчанию, были восстановлены."
+
 msgid "manager.emails.reset"
 msgstr "Сбросить"
+
+msgid "manager.emails.resetComplete"
+msgstr "Шаблон письма электронной почты был успешно сброшен."
 
 msgid "manager.emails.reset.message"
 msgstr "Если вы сбросите этот шаблон, все данные сообщения будут заменены на их значения по умолчанию, все изменения будут потеряны. Вы хотите подтвердить эту операцию?"
@@ -443,6 +452,9 @@ msgstr "Удалить"
 
 msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Сохранить и создать другой"
+
+msgid "manager.people.signedInAs"
+msgstr "Вы сейчас зашли в систему под именем {$username}"
 
 msgid "manager.people.signInAs"
 msgstr "Войти как"

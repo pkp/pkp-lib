@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2020-01-18 18:35+0000\n"
+"PO-Revision-Date: 2020-06-08 14:06+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl/>\n"
@@ -2042,3 +2042,9 @@ msgstr "Podrobnosti za recenzijski opomnik so bile posodobljene."
 
 msgid "manager.publication.reviewerGuidance"
 msgstr "Navodila za recenzente"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "Email nastavitve so bile posodobljene."
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/year)"

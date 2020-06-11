@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2020-06-04 18:39+0000\n"
+"PO-Revision-Date: 2020-06-07 13:56+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -465,7 +465,8 @@ msgid "plugins.categories.reports"
 msgstr "Plugins de Relatório"
 
 msgid "plugins.categories.themes.description"
-msgstr "Plugins de Visual podem ser utilizados para alterar o visual do sistema."
+msgstr ""
+"Plugins de Visual podem ser utilizados para alterar a aparência do sistema."
 
 msgid "plugins.categories.themes"
 msgstr "Plugins de Visual"
@@ -522,7 +523,7 @@ msgid "plugins.categories.oaiMetadataFormats.description"
 msgstr "Os plugins de formato geram metadados para comunicação via protocolo OAI."
 
 msgid "grid.action.addGenre"
-msgstr "Incluir gênero"
+msgstr "Incluir um Componente"
 
 msgid "manager.language.ui"
 msgstr "IU"
@@ -763,7 +764,7 @@ msgid "manager.plugins.wrongName"
 msgstr "O version.xml no plugin carregado contém um nome de plugin que não se encaixa no nome do plugin atualizado."
 
 msgid "manager.plugins.pleaseInstall"
-msgstr "Plugin não existe. Por favor instale-o"
+msgstr "Plugin não existe. Por favor, instale-o"
 
 msgid "manager.plugins.pleaseUpgrade"
 msgstr "Plugin já existe, mas é mais recente do que a versão instalada. Por favor, atualize"
@@ -835,7 +836,7 @@ msgid "manager.plugins.upgradeSuccessful"
 msgstr "Atualizado com êxito para a versão {$versionString}"
 
 msgid "manager.plugins.uploadError"
-msgstr "Erro enviando arquivo"
+msgstr "Erro ao enviar o arquivo"
 
 msgid "manager.plugins.uploadPluginDir"
 msgstr "Selecione o arquivo do plugin"
@@ -958,13 +959,13 @@ msgid "settings.libraryFiles.category.other"
 msgstr "Outros"
 
 msgid "grid.action.editGenre"
-msgstr "Editar este Gênero"
+msgstr "Editar este Componente"
 
 msgid "grid.action.deleteGenre"
-msgstr "Apagar este Gênero"
+msgstr "Apagar este Componente"
 
 msgid "grid.action.restoreGenres"
-msgstr "Restaurar os gêneros para as configurações padrão"
+msgstr "Restaurar os componentes para as configurações padrão"
 
 msgid "manager.settings.wizard"
 msgstr "Assistente de Configurações"
@@ -1602,10 +1603,10 @@ msgid "manager.publication.emailSetup.success"
 msgstr "As configurações de e-mail foram atualizadas."
 
 msgid "stats.name.declinedReviewRate"
-msgstr "Taxa de Rejeição Após Avaliação"
+msgstr "Taxa de Rejeição após Avaliação"
 
 msgid "stats.name.declinedDeskRate"
-msgstr "Taxa de Rejeitção na Entrada"
+msgstr "Taxa de Rejeição na Entrada"
 
 msgid "stats.name.declineRate"
 msgstr "Taxa de Rejeição"

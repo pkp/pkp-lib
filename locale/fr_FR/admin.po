@@ -254,18 +254,6 @@ msgstr "Attention: le fichier {$filePath} existe déjà dans le répertoire des 
 msgid "admin.copyAccessLogFileTool.success"
 msgstr "Succès: {$filePath} dans {$destinationPath}"
 
-msgid "admin.languages.download"
-msgstr "Télécharger le paramètre régional"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Télécharger les paramètres régionaux"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Ne peut pas ouvrir le descripteur de langue du site Web PKP"
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Ne peut pas ajouter le nouveau paramètre régional au fichier de registre du paramètre régional, normalement \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "Ce paramètre régional est la langue principale du site. Vous ne pouvez pas le désactiver avant d'avoir choisi un autre paramètre régional principal."
 

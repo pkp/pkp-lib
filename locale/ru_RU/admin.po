@@ -68,18 +68,6 @@ msgstr "Показать новую конфигурацию"
 msgid "admin.expireSessions"
 msgstr "Прекратить сессии пользователей"
 
-msgid "admin.languages.download"
-msgstr "Загрузить язык"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Загрузить языки"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Не удается открыть дескриптор языка с веб-сайта PKP."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Не удается добавить новый язык в файл списка языков, обычно это «registry/locales.xml»."
-
 msgid "admin.languages.cantDisable"
 msgstr "Этот язык является основным языком сайта. Вы не можете отключить его до тех пор, пока не выберете другой основной язык."
 

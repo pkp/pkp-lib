@@ -221,15 +221,6 @@ msgstr "Ayar Değeri"
 msgid "admin.contexts.confirmDelete"
 msgstr "{$contextName} ve tüm  içeriklerini kalıcı olarak silmek istediğinizden emin misiniz?"
 
-msgid "admin.languages.download"
-msgstr "Dil İndir"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Dilleri İndir"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "PKP web sayfasından dil tanımlayıcısı açılamıyor."
-
 msgid "admin.languages.noLocalesToDownload"
 msgstr "İndirilecek herhangi bir dil bulunmuyor."
 
@@ -318,11 +309,6 @@ msgstr ""
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "{$filename} dosyası işlendi ve arşivlendi."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr ""
-"\"registry/locales.xml\" konumunda yer alan dil kayıt dosyasına yeni dil "
-"eklenemiyor."
 
 msgid "admin.languages.cantDisable"
 msgstr ""

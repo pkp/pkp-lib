@@ -68,18 +68,6 @@ msgstr "Display New Configuration"
 msgid "admin.expireSessions"
 msgstr "Expire User Sessions"
 
-msgid "admin.languages.download"
-msgstr "Download Locale"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Download Locales"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Cannot open language descriptor from PKP web site."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Cannot add the new locale to the locale registry file, typically \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "This locale is the primary language of the site. You can't disable it until you choose another primary locale."
 

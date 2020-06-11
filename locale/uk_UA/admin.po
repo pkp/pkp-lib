@@ -72,18 +72,6 @@ msgstr "Показати нову конфігурацію"
 msgid "admin.expireSessions"
 msgstr "Припинити користувацькі сесії"
 
-msgid "admin.languages.download"
-msgstr "Завантажити мову"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Завантажити мови"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Не вдається відкрити дескриптор мови з веб-сайту PKP."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Не вдається додати нову мову до файлу списку мов, як правило, це \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "Ця мова є основною мовою сайту. Ви не можете відключити її, доки не оберете іншу основну мову."
 

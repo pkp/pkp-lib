@@ -72,18 +72,6 @@ msgstr "Prikaži novo konfiguracijo"
 msgid "admin.expireSessions"
 msgstr "Prekini uporabniške seje"
 
-msgid "admin.languages.download"
-msgstr "Prenesi jezikovni paket"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Prenesi jezikovne pakete"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Opis jezikovnega paketa ni bilo mogoče odpreti iz PKP spletne strani."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Vpis novega jezika v registracijsko datoteko, običajno \"registry/locales.xml\" ni bilo mogoče."
-
 msgid "admin.languages.cantDisable"
 msgstr "Ta jezik je primaren za to spletišče. Ne morete ga izključiti, dokler ne izberete drugega primarnega jezika."
 

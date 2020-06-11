@@ -71,18 +71,6 @@ msgstr "Neue Konfiguration anzeigen"
 msgid "admin.expireSessions"
 msgstr "Benutzer/innensitzungen schließen"
 
-msgid "admin.languages.download"
-msgstr "Regionaleinstellung herunterladen"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Regionaleinstellungen herunterladen"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Die Sprachbeschreibung von der PKP-Webseite kann nicht geöffnet werden."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Die neue Regionaleinstellung kann nicht zu der Registrierungsdatei für Regionaleinstellungen (üblicherweise \"registry/locales.xml\") hinzugefügt werden."
-
 msgid "admin.languages.cantDisable"
 msgstr "Diese Sprache ist die primäre Sprache dieser Website. Sie können sie erst deaktivieren, wenn Sie eine andere primäre Regionalausstellung ausgewählt haben."
 

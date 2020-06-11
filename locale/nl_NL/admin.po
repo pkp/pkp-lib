@@ -68,18 +68,6 @@ msgstr "Bekijk nieuwe instellingen"
 msgid "admin.expireSessions"
 msgstr "Laat gebruikerssessies verlopen"
 
-msgid "admin.languages.download"
-msgstr "Download taalbestand"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Download taalbestanden"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "De taalbeschrijving kan niet worden opgehaald van de PKP website."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "De nieuwe vertaling kan niet worden toegevoegd aan het register met vertalingen, dat zich doorgaans bevindt in \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "Deze taal is de hoofdtaal voor de website. Ze kan niet worden uitgeschakeld voor u een andere hoofdtaal selecteert."
 

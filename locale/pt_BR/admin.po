@@ -71,18 +71,6 @@ msgstr "Exibir Configuração Atual"
 msgid "admin.expireSessions"
 msgstr "Expirar sessões de usuários"
 
-msgid "admin.languages.download"
-msgstr "Baixar idioma"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Baixar idiomas"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Não foi possível abrir a descrição de idioma do site PKP."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Não foi possível adicionar o novo idioma ao registro de idiomas, normalmente localizado em \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "Este idioma é o padrão do site. Você não pode desativá-lo até que escolha outro idioma padrão."
 

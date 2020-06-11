@@ -206,18 +206,6 @@ msgstr "Naziv podešavanja"
 msgid "admin.systemInfo.settingValue"
 msgstr "Vrednost podešavanja"
 
-msgid "admin.languages.download"
-msgstr "Preuzmi lokalizaciju"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Preuzmi lokalizacije"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Ne mogu da otvorim deskriptor jezika sa PKP web sajta."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Ne mogu da dodam novu lokalizaciju u lokalni registar, uobičajeno \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "Ova lokalizacija je primarni jezik sajta i ne može biti obrisana dok ne odaberete novi primarni jezik."
 

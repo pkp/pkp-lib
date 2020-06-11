@@ -340,20 +340,6 @@ msgstr ""
 "Bahasa ini adalah bahasa utama situs web. Anda tidak bisa menonaktifkannya "
 "sebelum memilih bahasa utama lain."
 
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr ""
-"Tidak dapat menambahkan bahasa baru ke dalam file registry bahasa, biasanya "
-"\"registry/locales.xml\"."
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Tidak dapat membuka deskriptor bahasa dari situs web PKP."
-
-msgid "admin.languages.downloadLocales"
-msgstr "Unduh Bahasa"
-
-msgid "admin.languages.download"
-msgstr "Unduh Bahasa"
-
 msgid "admin.contexts.confirmDelete"
 msgstr ""
 "Yakin ingin menghapus secara permanen {$contextName} dan seluruh isinya?"

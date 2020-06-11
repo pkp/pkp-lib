@@ -44,20 +44,6 @@ msgstr ""
 "یا :ئەم زمانە زمانی سەرەکی پێگەکەیە، ناتوانی لەکاری بخەیت لەکاتێکدا زمانێکی "
 "ترت بە زمانی سەرەکی هەڵنەبژاردووە."
 
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr ""
-"ناتوانی زمانیكی تر( زمانێکی نوێ) بۆ لیستی زمانەکان زیاد بکەیت: \"registry/"
-"locales.xml\"."
-
-msgid "admin.languages.download.cannotOpen"
-msgstr ".ناتوانی وەسفکردنی زمان لە پێگەی زانیاریی گشتیدا بکەیتەوە"
-
-msgid "admin.languages.downloadLocales"
-msgstr "دابەزاندنی زمانەکان"
-
-msgid "admin.languages.download"
-msgstr "دابەزاندنی زمان"
-
 msgid "admin.expireSessions"
 msgstr "کۆتایی هێنان بە کارپێکردنی بەکارهێنەران"
 

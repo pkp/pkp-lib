@@ -240,18 +240,6 @@ msgstr "Error: non posso eseguire \"{$utilPath}\".  Controlla la configurazione 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Non ci sono lingue disponibili per il download."
 
-msgid "admin.languages.download"
-msgstr "Scarica traduzione"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Scarica traduzioni"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Non riesco ad aprire la descrizione della lingua dal sito di PKP."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Non riesco ad aggiungere la nuova traduzione al file registry collegato, di solito è \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "Questa lingua è la lingua primaria del sito. Non puoi disabilitarla fino a quando non scegli un'altra lingua come primaria."
 

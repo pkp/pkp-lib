@@ -272,20 +272,6 @@ msgstr ""
 "Er du sikker på, at du vil slette {$contextName} og tilhørende indhold "
 "permanent?"
 
-msgid "admin.languages.download"
-msgstr "Download sprog"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Download sprog"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Kan ikke åbne sprogbeskrivelse fra PKPs websted."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr ""
-"Kan ikke tilføje det nye sprog til sprog-registreringsfilen, typisk \""
-"registry/locales.xml\"."
-
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Ryd planlagte opgavers eksekverings-logfiler"
 

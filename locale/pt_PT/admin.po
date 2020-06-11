@@ -197,18 +197,6 @@ msgstr "Nome configuração"
 msgid "admin.systemInfo.settingValue"
 msgstr "Valor configuração"
 
-msgid "admin.languages.download"
-msgstr "Download idioma"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Download idioma"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Não é possível abrir o descritor de idioma a partir do site PKP."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Não é possível adicionar o novo idioma ao ficheiro de registos de idiomas, disponível em \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "Este é o principal idioma do portal. Não é possível desactivá-lo, a não ser que escolha outro idioma."
 

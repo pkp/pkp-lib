@@ -68,18 +68,6 @@ msgstr "Προβολή νέων ρυθμίσεων"
 msgid "admin.expireSessions"
 msgstr "Τερματισμός συνδέσεων Χρηστών"
 
-msgid "admin.languages.download"
-msgstr "Λήψη αρχείου γλώσσας"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Λήψη αρχείων γλώσσας"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Δεν είναι δυνατό να ανοίξει ο προσδιοριστής γλώσσας από τον ιστότοπο του PKP."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Δεν είναι δυνατό να προστεθεί η νέα γλώσσα στο μητρώο γλωσσών, συνήθως \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "Αυτή η γλώσσα είναι η κύρια γλώσσα του ιστότοπου. Δεν μπορείτε να την απενεργοποιήσετε έως ότου επιλέξετε άλλη κύρια γλώσσα."
 

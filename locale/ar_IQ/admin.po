@@ -68,18 +68,6 @@ msgstr "إعرض الإعدادات الجديدة"
 msgid "admin.expireSessions"
 msgstr "إنهاء صلاحية جلسات التشغيل للمستخدمين"
 
-msgid "admin.languages.download"
-msgstr "تنزيل اللغة"
-
-msgid "admin.languages.downloadLocales"
-msgstr "تنزيل اللغات"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "تعذر فتح موصف اللغة من موقع مشروع المعرفة العامة."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "تعذرت إضافة اللغة الجديدة إلى ملف سجل اللغات، والذي هو عادة: \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "هذه اللغة هي اللغة الأولية للموقع. لا يمكنك تعطيلها ما لم تختر لغة أولية أخرى."
 

@@ -266,18 +266,6 @@ msgstr "Nazwa"
 msgid "admin.systemInfo.settingValue"
 msgstr "Wartość"
 
-msgid "admin.languages.download"
-msgstr "Pobierz tłumaczenie"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Pobierz tłumaczenia"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Nie można załadować opisu języka ze strony PKP."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Nie można dodać nowego języka w rejestrze tłumaczeń, w pliku \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "Ten język jest językiem domyślnym dla strony. Nie można go wyłączyć przed wybraniem innego języka."
 

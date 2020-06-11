@@ -65,18 +65,6 @@ msgstr "Näytä uusi määritys"
 msgid "admin.expireSessions"
 msgstr "Päätä käyttäjäistunnot"
 
-msgid "admin.languages.download"
-msgstr "Lataa kielialue"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Lataa kielialueita"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Kielenkuvausta ei voitu avata PKP:n verkkosivustosta."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Uutta kielialuetta ei voitu lisätä kielialueiden rekisteritiedostoon, yleensä \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "Tämä kielialue on sivuston pääkieli. Et voi poistaa sitä käytöstä, ennen kuin valitset toisen ensisijainen kielialueen."
 

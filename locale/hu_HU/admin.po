@@ -68,18 +68,6 @@ msgstr "Az új konfiguráció megjelenítése"
 msgid "admin.expireSessions"
 msgstr "A lejárt felhasználói munkamenetek"
 
-msgid "admin.languages.download"
-msgstr "Honosítás letöltése"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Honosítások letöltése"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Nem nyitható meg a nyelvleíró a PHP weboldaláról."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Nem lehet hozzáadni az új nyelvterületet a nyelveket tartalmazó registry fájlhoz, általában a \"registry/locales.xml\" útvonalon."
-
 msgid "admin.languages.cantDisable"
 msgstr "Ez a nyelv az elsődleges nyelv az oldalon. Nem kapcsolhatja ki, amíg nem állít be egy másik elsődleges nyelvet."
 

@@ -68,18 +68,6 @@ msgstr "نمایش پیکره‌بندی جدید"
 msgid "admin.expireSessions"
 msgstr "خارج کردن کاربران از سیستم"
 
-msgid "admin.languages.download"
-msgstr "دانلود فایل (های) زبانی"
-
-msgid "admin.languages.downloadLocales"
-msgstr "دانلود زبان‌ها"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "قادر به باز کردن فایل توصیف کننده زبان از سایت PKP نیست"
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "افزودن زبان جدید به فایل رجیستری زبان ممکن نیست"
-
 msgid "admin.languages.cantDisable"
 msgstr "این زیان، زبان اصلی سایت است و تا زمانی که زبان دیگری را به‌عنوان زبان اصلی سایت انتخاب نکنید، اجازه حذف این زبان را ندارید."
 

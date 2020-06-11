@@ -96,18 +96,6 @@ msgstr "Mostrar nueva configuración"
 msgid "admin.expireSessions"
 msgstr "Caducidad de las sesiones"
 
-msgid "admin.languages.download"
-msgstr "Descargar configuración regional"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Descargar configuraciones regionales"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "No se puede abrir el descriptor de idiomas del sitio web PKP."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "No se puede añadir la nueva configuración regional al archivo de registro de configuraciones locales, normalmente \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "La configuración regional es el idioma principal del sitio. No se puede deshabilitar hasta que elija otra configuración regional principal."
 

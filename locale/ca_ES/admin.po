@@ -102,18 +102,6 @@ msgstr "Visualitza la nova configuració"
 msgid "admin.expireSessions"
 msgstr "Fes vèncer les sessions d’usuari/usuària"
 
-msgid "admin.languages.download"
-msgstr "Descarrega la configuració regional"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Descarrega configuracions regionals"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "No s'ha pogut obrir el descriptor de llengua des del lloc web de PKP."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "No s'ha pogut afegir la nova configuració regional al fitxer de registre de configuracions regionals, normalment «registry/locales.xml»."
-
 msgid "admin.languages.cantDisable"
 msgstr "Aquesta és la configuració regional principal del lloc web. No podeu inhabilitar-la fins que no hàgiu triat una altra configuració regional primària."
 

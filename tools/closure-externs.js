@@ -308,7 +308,7 @@ var pkp = {
 		id: 0,
 		csrfToken: '',
 		roles: []
-	}
+	},
 	eventBus: {
 		$emit: function(name, data) {},
 		$on: function(name, callback) {},

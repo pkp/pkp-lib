@@ -37,6 +37,7 @@
 		<input type="hidden" name="source" value="{$source|escape}" />
 
 		<fieldset class="fields">
+			<legend>{translate key="user.userCredentials"}</legend>
 			<div class="username">
 				<label>
 					<span class="label">

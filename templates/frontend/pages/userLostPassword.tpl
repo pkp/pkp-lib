@@ -27,6 +27,7 @@
 		{/if}
 
 		<fieldset class="fields">
+			<legend>{translate key="user.email"}</legend>
 			<div class="email">
 				<label>
 					<span class="label">

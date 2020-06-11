@@ -34,6 +34,7 @@
 			<fieldset class="consent">
 				{if $currentContext->getData('privacyStatement')}
 					{* Require the user to agree to the terms of the privacy policy *}
+					<legend>{translate key="user.register.form.privacyConsentLabel"}</legend>
 					<div class="fields">
 						<div class="optin optin-privacy">
 							<label>

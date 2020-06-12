@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2020-05-15 12:38+0000\n"
+"PO-Revision-Date: 2020-06-13 14:39+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ca_ES/>\n"
@@ -2045,3 +2045,12 @@ msgstr "Eliminant"
 
 msgid "common.dateDecided"
 msgstr "Data decidida"
+
+msgid "common.lessThanOnly"
+msgstr "Menys que"
+
+msgid "navigation.skip.description"
+msgstr "Salta al enllaços de contingut"
+
+msgid "common.moreThanOnly"
+msgstr "Més que"

@@ -905,12 +905,6 @@ msgstr "Sprog deaktiveret."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} sat til primært sprog."
 
-msgid "notification.localeInstalled"
-msgstr "Alle valgte sprog installeret og aktiveret."
-
-msgid "notification.localeUninstalled"
-msgstr "{$locale} sprog afinstalleret."
-
 msgid "notification.localeReloaded"
 msgstr "{$locale} sprog genindlæst."
 

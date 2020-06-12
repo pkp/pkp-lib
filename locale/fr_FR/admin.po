@@ -68,18 +68,6 @@ msgstr "Fermer les sessions utilisateurs"
 msgid "admin.languages.confirmReload"
 msgstr "Êtes-vous sûr de vouloir réinitialiser cette langue? Ceci effacera toute donnée spécifique à cette langue tels que les modèles de courriel personnalisés."
 
-msgid "admin.languages.installedLocales"
-msgstr "Langues installées"
-
-msgid "admin.languages.installLanguages"
-msgstr "Gérer les langues"
-
-msgid "admin.languages.installLocales"
-msgstr "Installer"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Installer de nouvelles langues"
-
 msgid "admin.languages.languageSettings"
 msgstr "Paramètres de langue"
 
@@ -259,12 +247,6 @@ msgstr "Ce paramètre régional est la langue principale du site. Vous ne pouvez
 
 msgid "admin.languages.availableLocales"
 msgstr "Paramètres régionaux disponibles"
-
-msgid "admin.languages.installLocale"
-msgstr "Installer le paramètre régional"
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Il n'y a pas de paramètre régional disponible pour l'installation."
 
 msgid "admin.scheduledTask"
 msgstr "Tâche programmée"

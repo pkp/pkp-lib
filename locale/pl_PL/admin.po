@@ -62,18 +62,6 @@ msgstr "Wyloguj wszystkich użytkowników"
 msgid "admin.languages.confirmReload"
 msgstr "Czy na pewno przeładować ten język? Takie działanie spowoduje usunięcie wszystkich danych związanych z językiem włączając w to szablony wiadomości e-mail."
 
-msgid "admin.languages.installedLocales"
-msgstr "Zainstalowane języki"
-
-msgid "admin.languages.installLanguages"
-msgstr "Zarządzaj językami"
-
-msgid "admin.languages.installLocales"
-msgstr "Instaluj"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Zainstaluj nowe języki"
-
 msgid "admin.languages.languageSettings"
 msgstr "Ustawienia języków"
 
@@ -272,9 +260,6 @@ msgstr "Ten język jest językiem domyślnym dla strony. Nie można go wyłączy
 msgid "admin.languages.availableLocales"
 msgstr "Dostępne języki"
 
-msgid "admin.languages.installLocale"
-msgstr "Zainstaluj tłumaczenie"
-
 msgid "admin.settings.defaultMetricDescription"
 msgstr "Twój system jest skonfigurowany, aby wykorzystywać więcej niż jedną metrykę. Statystyki mogą być wyświetlane w wielu kontekstach. Niektóre konteksty wymagają użycia pojedynczej metryki, np. w celu wyświetlenia listy punktowanej najczęściej wyświetlanych zgłoszeń lub w celu stopniowania list wyników wyszukiwania. Wybierz jedną z metryk jako domyślną."
 
@@ -301,9 +286,6 @@ msgstr "Ostrzeżenie: Plik {$filePath} już istnieje w katalogu statystyk."
 
 msgid "admin.copyAccessLogFileTool.success"
 msgstr "Powodzenie: {$filePath} do {$destinationPath}"
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Brak plików tłumaczeń do pobrania."
 
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr ""

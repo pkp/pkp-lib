@@ -1058,12 +1058,6 @@ msgstr "Язык отключен."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} установлен как основной язык."
 
-msgid "notification.localeInstalled"
-msgstr "Все выбранные языки установлены и активированы."
-
-msgid "notification.localeUninstalled"
-msgstr "Язык «{$locale}» удален."
-
 msgid "notification.localeReloaded"
 msgstr "Язык «{$locale}» загружен для «{$contextName}»."
 

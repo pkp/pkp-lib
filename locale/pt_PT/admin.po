@@ -65,18 +65,6 @@ msgstr "Expirar Sessões de Utilizadores"
 msgid "admin.languages.confirmReload"
 msgstr "Deseja realmente recarregar este idioma? A sua execução irá apagar qualquer informação de idioma específico como customização de e-mails."
 
-msgid "admin.languages.installedLocales"
-msgstr "Idiomas Instalados"
-
-msgid "admin.languages.installLanguages"
-msgstr "Administrar Idiomas"
-
-msgid "admin.languages.installLocales"
-msgstr "Instalar"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Instalar Idiomas"
-
 msgid "admin.languages.languageSettings"
 msgstr "Configurações de Idioma"
 
@@ -203,9 +191,6 @@ msgstr "Este é o principal idioma do portal. Não é possível desactivá-lo, a
 msgid "admin.languages.availableLocales"
 msgstr "Idiomas Disponíveis"
 
-msgid "admin.languages.installLocale"
-msgstr "Instalar Idioma"
-
 msgid "admin.scheduledTask"
 msgstr "Tarefa agendada"
 
@@ -304,9 +289,6 @@ msgstr "A \"{$utilPath}\" execução do programa devolveu o seguinte erro: {$out
 
 msgid "admin.error.executingUtil"
 msgstr "Erro: não foi possível executar \"{$utilPath}\".  Verifique {$utilVar} as configurações em config.inc.php."
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Não estão disponíveis idiomas para download."
 
 msgid "admin.contexts.confirmDelete"
 msgstr "Confirma que pretende apagar {$contextName} e todo o seu conteúdo?"

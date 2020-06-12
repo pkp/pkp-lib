@@ -71,23 +71,8 @@ msgstr "Tämä kielialue on sivuston pääkieli. Et voi poistaa sitä käytöst�
 msgid "admin.languages.confirmReload"
 msgstr "Haluatko varmasti ladata tämän kielialueen uudelleen? Tämä poistaa kaikki aiemmat kielialuekohtaiset tiedot, kuten mukautetut sähköpostipohjat."
 
-msgid "admin.languages.installedLocales"
-msgstr "Asennetut kielialueet"
-
-msgid "admin.languages.installLanguages"
-msgstr "Hallinnoi kielialueita"
-
 msgid "admin.languages.availableLocales"
 msgstr "Saatavilla olevat kielialueet"
-
-msgid "admin.languages.installLocale"
-msgstr "Asenna kielialue"
-
-msgid "admin.languages.installLocales"
-msgstr "Asenna"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Asentaa uusia kielialueita"
 
 msgid "admin.languages.languageSettings"
 msgstr "Kieliasetukset"
@@ -291,9 +276,6 @@ msgstr "\"{$utilPath}\" ohjelman suoritus tuotti seuraavan virheen: {$output}"
 
 msgid "admin.error.executingUtil"
 msgstr "Virhe: ei voi suorittaa \"{$utilPath}\". Tarkista {$utilVar}-asetuksesi config.inc.php -tiedostosta."
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Kielialueita ei ole ladattavissa."
 
 msgid "admin.contexts.confirmDelete"
 msgstr "Haluatko varmasti pysyvästi poistaa {$contextName} ja kaikki siihen liittyvät sisällöt?"

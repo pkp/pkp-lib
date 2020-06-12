@@ -62,18 +62,6 @@ msgstr "用户会话过期"
 msgid "admin.languages.confirmReload"
 msgstr "您确定要重新加载此语言环境？这将删除任何现有的区域设置特定的数据，如定制的电子邮件模板."
 
-msgid "admin.languages.installedLocales"
-msgstr "已安装的语言环境"
-
-msgid "admin.languages.installLanguages"
-msgstr "管理语言环境"
-
-msgid "admin.languages.installLocales"
-msgstr "安装"
-
-msgid "admin.languages.installNewLocales"
-msgstr "安装新的语言环境"
-
 msgid "admin.languages.languageSettings"
 msgstr "语言设置"
 

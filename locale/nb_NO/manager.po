@@ -1001,12 +1001,6 @@ msgstr "Lokalinnstilling slått av."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} definert som primær lokalinnstilling."
 
-msgid "notification.localeInstalled"
-msgstr "Alle valgte lokalinnstillinger er installert og aktivert."
-
-msgid "notification.localeUninstalled"
-msgstr "{$locale} lokalinnstillinger avinstallert."
-
 msgid "notification.localeReloaded"
 msgstr "{$locale} lokalinnstillinger lastet inn på nytt."
 

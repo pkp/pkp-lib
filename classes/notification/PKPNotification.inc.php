@@ -30,8 +30,6 @@ define('NOTIFICATION_TYPE_HELP',				0x0000006);
 define('NOTIFICATION_TYPE_FORM_ERROR',				0x0000007);
 define('NOTIFICATION_TYPE_NEW_ANNOUNCEMENT', 		0x0000008);
 
-define('NOTIFICATION_TYPE_LOCALE_INSTALLED',			0x4000001);
-
 define('NOTIFICATION_TYPE_PLUGIN_ENABLED',			0x5000001);
 define('NOTIFICATION_TYPE_PLUGIN_DISABLED',			0x5000002);
 
@@ -214,5 +212,4 @@ class PKPNotification extends DataObject {
 		$this->setData('context_id', $contextId);
 	}
 }
-
 

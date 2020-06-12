@@ -811,12 +811,6 @@ msgstr "Configuración regional deshabilitada."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} definido como configuración regional principal."
 
-msgid "notification.localeInstalled"
-msgstr "Todas las configuraciones regionales seleccionadas están instaladas y activadas."
-
-msgid "notification.localeUninstalled"
-msgstr "{$locale} Configuración regional desinstalada."
-
 msgid "notification.localeReloaded"
 msgstr "{$locale} configuración regional recargada."
 

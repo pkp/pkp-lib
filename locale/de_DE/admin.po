@@ -77,23 +77,8 @@ msgstr "Diese Sprache ist die primäre Sprache dieser Website. Sie können sie e
 msgid "admin.languages.confirmReload"
 msgstr "Sind Sie sicher, dass Sie diese Regionaleinstellung neu laden wollen? Dadurch werden alle regionalspezifischen Daten (wie z.B. angepasste E-Mail-Vorlagen) gelöscht."
 
-msgid "admin.languages.installedLocales"
-msgstr "Eingerichtete Regionaleinstellungen"
-
-msgid "admin.languages.installLanguages"
-msgstr "Regionaleinstellungen verwalten"
-
 msgid "admin.languages.availableLocales"
 msgstr "Verfügbare Regionaleinstellungen"
-
-msgid "admin.languages.installLocale"
-msgstr "Regionaleinstellungen installieren"
-
-msgid "admin.languages.installLocales"
-msgstr "Installieren"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Neue Regionaleinstellungen installieren"
 
 msgid "admin.languages.languageSettings"
 msgstr "Spracheinstellungen"
@@ -305,9 +290,6 @@ msgstr "Die Ausführung des Programms \"{$utilPath}\" hat den folgenden Fehler g
 
 msgid "admin.error.executingUtil"
 msgstr "Fehler: Ausführung von \"{$utilPath}\" nicht möglich. Überprüfen Sie die {$utilVar}-Einstellung in config.inc.php."
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Es sind keine Regionaleinstellungen zum Download verfügbar."
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Die zur Veröffentlichung vorgesehenen Beiträge jetzt veröffentlichen"

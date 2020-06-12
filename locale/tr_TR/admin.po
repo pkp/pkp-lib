@@ -75,18 +75,6 @@ msgstr "Kullanıcı Oturumlarını Sonlandır"
 msgid "admin.languages.confirmReload"
 msgstr "Bu dili yeniden yüklemek istediğinizden emin misiniz? Yeniden yükleme dile özgü hazırlanmış özelleştirilmiş e-posta şablonlarını silecektir."
 
-msgid "admin.languages.installedLocales"
-msgstr "Yüklü Diller"
-
-msgid "admin.languages.installLanguages"
-msgstr "Dilleri Yönet"
-
-msgid "admin.languages.installLocales"
-msgstr "Yükle"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Yeni Dilleri Yükle"
-
 msgid "admin.languages.languageSettings"
 msgstr "Dil Ayarları"
 
@@ -221,14 +209,8 @@ msgstr "Ayar Değeri"
 msgid "admin.contexts.confirmDelete"
 msgstr "{$contextName} ve tüm  içeriklerini kalıcı olarak silmek istediğinizden emin misiniz?"
 
-msgid "admin.languages.noLocalesToDownload"
-msgstr "İndirilecek herhangi bir dil bulunmuyor."
-
 msgid "admin.languages.availableLocales"
 msgstr "Kullanılabilir Diller"
-
-msgid "admin.languages.installLocale"
-msgstr "Dil Yükle"
 
 msgid "admin.scheduledTask"
 msgstr "Zamanlanmış görevler"

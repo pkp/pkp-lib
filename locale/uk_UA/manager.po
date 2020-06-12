@@ -1042,12 +1042,6 @@ msgstr "Мова вимкнена."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} встановлена як основна мова."
 
-msgid "notification.localeInstalled"
-msgstr "Усі обрані мови встановлені та активовані."
-
-msgid "notification.localeUninstalled"
-msgstr "Мова {$locale} вилучена."
-
 msgid "notification.localeReloaded"
 msgstr "Мова {$locale} перезавантажена."
 

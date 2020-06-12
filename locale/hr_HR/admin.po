@@ -62,18 +62,6 @@ msgstr "Učini korisničke sesije nevažećima"
 msgid "admin.languages.confirmReload"
 msgstr "Jeste li sigurni da ponovno želite učitati ovaj prijevod? To će obrisati sve izmjene u prijevodu koje su učinjene u pojedinim časopisima (na primjer, prilagođeni predlošci e-pošte)."
 
-msgid "admin.languages.installedLocales"
-msgstr "Instalirani prijevodi"
-
-msgid "admin.languages.installLanguages"
-msgstr "Postavi prijevode sustava"
-
-msgid "admin.languages.installLocales"
-msgstr "Instaliraj"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Instalacija novih prijevoda"
-
 msgid "admin.languages.noLocalesAvailable"
 msgstr "Nema dodatnih prijevoda na raspolaganju za instalaciju."
 

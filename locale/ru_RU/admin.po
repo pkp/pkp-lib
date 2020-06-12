@@ -77,23 +77,8 @@ msgstr "Вы уверены, что хотите изменить основно
 msgid "admin.languages.confirmReload"
 msgstr "Вы уверены, что хотите заново загрузить этот язык? Это приведет к удалению всех данных пользователя, связанных с этим языком, например, изменений в шаблонах писем электронной почты."
 
-msgid "admin.languages.installedLocales"
-msgstr "Установленные языки"
-
-msgid "admin.languages.installLanguages"
-msgstr "Управление языками"
-
 msgid "admin.languages.availableLocales"
 msgstr "Доступные языки"
-
-msgid "admin.languages.installLocale"
-msgstr "Установить язык"
-
-msgid "admin.languages.installLocales"
-msgstr "Установить"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Установить новые языки"
 
 msgid "admin.languages.languageSettings"
 msgstr "Настройки языка"
@@ -308,6 +293,3 @@ msgstr "Выполнение программы «{$utilPath}» закончил
 
 msgid "admin.error.executingUtil"
 msgstr "Ошибка: не могу выполнить «{$utilPath}». Проверьте вашу настройку {$utilVar} в файле config.inc.php."
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Нет доступных языков для скачивания."

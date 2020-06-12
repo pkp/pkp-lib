@@ -81,23 +81,8 @@ msgstr "Ви впевнені, що бажаєте змінити основну
 msgid "admin.languages.confirmReload"
 msgstr "Ви впевнені, що бажаєте перезавантажити мову? Це призведе до знищення усіх існуючих мовних даних, таких як шаблони листів."
 
-msgid "admin.languages.installedLocales"
-msgstr "Встановлені мови"
-
-msgid "admin.languages.installLanguages"
-msgstr "Керування мовами"
-
 msgid "admin.languages.availableLocales"
 msgstr "Наявні мови"
-
-msgid "admin.languages.installLocale"
-msgstr "Встановити мову"
-
-msgid "admin.languages.installLocales"
-msgstr "Встановити"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Встановити нові мови"
 
 msgid "admin.languages.languageSettings"
 msgstr "Мовні налаштування"
@@ -333,9 +318,6 @@ msgstr "Виконання програми «{$utilPath}» завершилос
 
 msgid "admin.error.executingUtil"
 msgstr "Помилка: не можу виконати «{$utilPath}». Перевірте ваші налаштування {$utilVar} у файлі config.inc.php."
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Відсутні мови для завантаження."
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Опублікувати подання, що заплановані до публікації"

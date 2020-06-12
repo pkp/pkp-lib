@@ -1054,12 +1054,6 @@ msgstr "Locale disabled."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} defined as primary locale."
 
-msgid "notification.localeInstalled"
-msgstr "All selected locale(s) installed and activated."
-
-msgid "notification.localeUninstalled"
-msgstr "{$locale} locale uninstalled."
-
 msgid "notification.localeReloaded"
 msgstr "{$locale} locale reloaded for {$contextName}."
 

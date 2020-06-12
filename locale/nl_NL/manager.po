@@ -1000,12 +1000,6 @@ msgstr "Taal uitgeschakeld."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} ingesteld als hoofdtaal."
 
-msgid "notification.localeInstalled"
-msgstr "Alle geselecteerde taal/talen zijn geïnstalleerd en actief."
-
-msgid "notification.localeUninstalled"
-msgstr "Taal {$locale} verwijderd."
-
 msgid "notification.localeReloaded"
 msgstr "Taal {$locale} vernieuwd."
 

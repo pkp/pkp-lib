@@ -1000,12 +1000,6 @@ msgstr "Jezik izključen."
 msgid "notification.primaryLocaleDefined"
 msgstr "Primarni jezik je nastavljen na {$locale}."
 
-msgid "notification.localeInstalled"
-msgstr "Vsi izbrani jeziki so namščeni in aktivirani."
-
-msgid "notification.localeUninstalled"
-msgstr "Jezik {$locale} je odstranjen."
-
 msgid "notification.localeReloaded"
 msgstr "Jezik {$locale} je ponovno nameščen."
 

@@ -156,17 +156,8 @@ msgstr "زمانی زێتر نییه‌ بۆ دانان"
 msgid "admin.languages.languageSettings"
 msgstr "رێكخستنه‌كانی زمان"
 
-msgid "admin.languages.installNewLocales"
-msgstr "داناننی زمانی تر"
-
-msgid "admin.languages.installLocale"
-msgstr "دامه‌زراندنی زمان"
-
 msgid "admin.languages.availableLocales"
 msgstr "زمانه‌ فه‌راهه‌مكراوه‌كان"
-
-msgid "admin.languages.installLanguages"
-msgstr "به‌ڕێوه‌بردنی زمانه‌كان"
 
 msgid "admin.settings.contactName"
 msgstr "ناوی کەسی پەیوەندیكردنی سەرەکی"
@@ -181,12 +172,6 @@ msgid "admin.scheduledTask.downloadLog"
 msgstr ""
 "جێگیرکردنی بەرنامەی {$softwareName} بە تۆماتیکی جێبەجێ کرا و تەواو بو، ئێستا "
 "تۆ دەتوانیت فایلەکە لێرە داببەزێنیت:  {$url}"
-
-msgid "admin.languages.installLocales"
-msgstr "دانان/دامه‌زراندن"
-
-msgid "admin.languages.installedLocales"
-msgstr "شوێنەکانی دابەزین"
 
 msgid "admin.languages.confirmReload"
 msgstr ""
@@ -290,9 +275,6 @@ msgstr "وه‌شان"
 
 msgid "admin.version.upToDate"
 msgstr "سیسته‌مه‌كه‌ت نوێترین وه‌شانه‌"
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr ".هیچ شتێکی ناوەخۆ بەردەست نیە بۆ دابەزاندن"
 
 msgid "admin.copyAccessLogFileTool.success"
 msgstr "سەرکەوت: لە {$filePath}بۆ {$destinationPath}"

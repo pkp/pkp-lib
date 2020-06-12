@@ -950,12 +950,6 @@ msgstr "Kielialue poistettu käytöstä."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} määritelty ensisijaiseksi kielialueeksi."
 
-msgid "notification.localeInstalled"
-msgstr "Kaikki valitut kielialueet asennettu ja aktivoitu."
-
-msgid "notification.localeUninstalled"
-msgstr "{$locale} kielialueen asennus poistettu."
-
 msgid "notification.localeReloaded"
 msgstr "{$locale} kielialue ladattu uudelleen."
 

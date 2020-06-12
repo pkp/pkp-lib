@@ -77,23 +77,8 @@ msgstr "Are you sure you want to change the site primary locale? Users' names, w
 msgid "admin.languages.confirmReload"
 msgstr "Are you sure you want to reload this locale? This will erase any existing locale-specific data such as customized email templates."
 
-msgid "admin.languages.installedLocales"
-msgstr "Installed Locales"
-
-msgid "admin.languages.installLanguages"
-msgstr "Manage Locales"
-
 msgid "admin.languages.availableLocales"
 msgstr "Available Locales"
-
-msgid "admin.languages.installLocale"
-msgstr "Install Locale"
-
-msgid "admin.languages.installLocales"
-msgstr "Install"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Install New Locales"
 
 msgid "admin.languages.languageSettings"
 msgstr "Language Settings"
@@ -308,6 +293,3 @@ msgstr "The \"{$utilPath}\" program execution returned the following error: {$ou
 
 msgid "admin.error.executingUtil"
 msgstr "Error: can't execute \"{$utilPath}\".  Check your {$utilVar} setting in config.inc.php."
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "There are no locales available for download."

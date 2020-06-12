@@ -1164,12 +1164,6 @@ msgstr "Nyelv letiltva."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} elsődleges nyelvként definiálva."
 
-msgid "notification.localeInstalled"
-msgstr "Az összes kiválasztott nyelv telepítve és aktiválva."
-
-msgid "notification.localeUninstalled"
-msgstr "{$locale} nyelv törölve."
-
 msgid "notification.localeReloaded"
 msgstr "{$locale} nyelv újratöltve."
 

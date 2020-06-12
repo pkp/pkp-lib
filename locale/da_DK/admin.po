@@ -67,18 +67,6 @@ msgstr ""
 "Er du sikker på, at du vil genindlæse dette sprog? Denne handling sletter "
 "alle eksisterende sprogspecifikke data, f.eks. tilpassede e-mail-skabeloner."
 
-msgid "admin.languages.installedLocales"
-msgstr "Installerede sprog"
-
-msgid "admin.languages.installLanguages"
-msgstr "Administrér sprog"
-
-msgid "admin.languages.installLocales"
-msgstr "Installér"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Installér nye sprog"
-
 msgid "admin.languages.languageSettings"
 msgstr "Sprogindstillinger"
 
@@ -216,9 +204,6 @@ msgstr ""
 msgid "admin.languages.availableLocales"
 msgstr "Tilgængelige sprog"
 
-msgid "admin.languages.installLocale"
-msgstr "Installér sprog"
-
 msgid "admin.copyAccessLogFileTool.error.creatingFolder"
 msgstr "Fejl: Kan ikke danne midlertidig mappe {$tmpDir}"
 
@@ -236,9 +221,6 @@ msgstr "\"{$utilPath}\" programudførelse returnerede følgende fejl: {$output}"
 
 msgid "admin.error.executingUtil"
 msgstr "Fejl: Kan ikke eksekvere \"{$utilPath}\".  Tjek {$utilVar} indstillinger i config.inc.php."
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Ingen sprog er tilgængelige for download."
 
 msgid "admin.scheduledTask"
 msgstr "Planlagt opgave"

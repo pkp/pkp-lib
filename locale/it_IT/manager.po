@@ -1182,12 +1182,6 @@ msgstr "Lingua disabilitata."
 msgid "notification.primaryLocaleDefined"
 msgstr "La lingua {$locale}  è definita come lingua primaria."
 
-msgid "notification.localeInstalled"
-msgstr "Tutte le lingue selezionate  sono installate e attive."
-
-msgid "notification.localeUninstalled"
-msgstr "Lingua {$locale} disinstallata."
-
 msgid "notification.localeReloaded"
 msgstr "Lingua {$locale} ricaricata."
 

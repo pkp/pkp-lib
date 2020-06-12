@@ -78,23 +78,8 @@ msgstr "Ta jezik je primaren za to spletišče. Ne morete ga izključiti, dokler
 msgid "admin.languages.confirmReload"
 msgstr "Ste prepričani, da želite ponovno naložiti ta jezik? To bo izbrisalo vse obstoječe specifike, kot so email predloge."
 
-msgid "admin.languages.installedLocales"
-msgstr "Nameščeni jeziki"
-
-msgid "admin.languages.installLanguages"
-msgstr "Upravljaj jezike"
-
 msgid "admin.languages.availableLocales"
 msgstr "Jeziki, ki so na voljo"
-
-msgid "admin.languages.installLocale"
-msgstr "Namesti jezik"
-
-msgid "admin.languages.installLocales"
-msgstr "Namesti"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Namesti nov jezik"
 
 msgid "admin.languages.languageSettings"
 msgstr "Nastavitve jezika"
@@ -304,9 +289,6 @@ msgstr "Izvajanje programa \"{$utilPath}\" je vrnilo naslednjo napako: {$output}
 
 msgid "admin.error.executingUtil"
 msgstr "Napaka: \"{$utilPath}\" ni možno zagnati. Preverite {$utilVar} nastavitve v config.inc.php."
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Na voljo ni nobneih jezikovnih paketov za prenos."
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr "Ste prepričani, da želite spremeniti primarni jezik revije? Uporabniška imena (ki so obvezna v primarnem jeziku), ki niso podana v novem jeziku, bodo skopirana iz obstoječega jezika."

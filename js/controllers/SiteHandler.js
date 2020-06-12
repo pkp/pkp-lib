@@ -649,7 +649,8 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.showNotification_ =
 			function(jsonData) {
-		var workingJsonData, notificationsData, levelId, notificationId;
+		var workingJsonData, notificationsData, levelId, notificationId,
+				addclass, type;
 
 		workingJsonData = this.handleJson(jsonData);
 		if (workingJsonData !== false) {
@@ -657,15 +658,16 @@
 				notificationsData = workingJsonData.content.general;
 				for (levelId in notificationsData) {
 					for (notificationId in notificationsData[levelId]) {
-						var addclass = notificationsData[levelId][notificationId].addclass;
-						var type = 'notice';
+						addclass = notificationsData[levelId][notificationId].addclass;
+						type = 'notice';
 						if (addclass == 'notifySuccess') {
 							type = 'success';
 						} else if (addclass == 'notifyWarning' || addclass == 'notifyError' ||
 								addclass == 'notifyFormError' || addclass == 'notifyForbidden') {
 							type = 'warning';
 						}
-						pkp.eventBus.$emit('notify', notificationsData[levelId][notificationId].text, type);
+						pkp.eventBus.$emit('notify',
+								notificationsData[levelId][notificationId].text, type);
 					}
 				}
 			}

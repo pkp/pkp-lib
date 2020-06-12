@@ -28,17 +28,6 @@ msgstr "Criar Servidor"
 msgid "admin.systemConfiguration"
 msgstr "Configuração do OPS"
 
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr ""
-"Não é possível adicionar o novo código do idioma ao arquivo de registro do "
-"código do idioma, normalmente \"registry/locales.xml\"."
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Não é possível abrir o descritor de idioma do site PKP."
-
-msgid "admin.languages.download"
-msgstr "Faça o download do Locale"
-
 msgid "admin.languages.localeInstalled"
 msgstr "A localidade \"{$ locale}\" foi instalada."
 
@@ -56,16 +45,6 @@ msgstr ""
 
 msgid "admin.locale.maybeIncomplete"
 msgstr "As localidades marcadas podem estar incompletas."
-
-msgid "admin.languages.downloadUnavailable"
-msgstr ""
-"<p>O download de pacotes de idiomas do servidor da web Public Knowledge "
-"Project não está disponível no momento porque</p><ul><li>Seu servidor não "
-"possui ou não permite a execução do utilitário \"tar\" do GNU</li><li>O OPS "
-"não pode modificar o arquivo de registro de localidade, normalmente \""
-"registry/ locales.xml\".</li></ul><p>Os pacotes de idiomas podem ser "
-"baixados manualmente do \n"
-"<a href=\"http://pkp.sfu.ca\">site web do PKP</a>.</p>"
 
 msgid "admin.languages.confirmDisable"
 msgstr ""

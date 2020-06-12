@@ -23,15 +23,6 @@ msgstr "Requests to the main site will be redirected to this server. This may be
 msgid "admin.languages.confirmDisable"
 msgstr "Are you sure you want to disable this locale? This may affect any hosted servers currently using the locale."
 
-msgid "admin.languages.downloadUnavailable"
-msgstr ""
-"<p>Downloading language packs from the Public Knowledge Project web server is not currently available because:</p>"
-"\t<ul>"
-"\t\t<li>Your server does not have or allow execution of the GNU \"tar\" utility.</li>"
-"\t\t<li>OPS is unable to modify the locale registry file, typically \"registry/locales.xml\".</li>"
-"\t</ul>"
-"<p>Language packs can be manually downloaded from the <a href=\"http://pkp.sfu.ca\">PKP web site</a>.</p>"
-
 msgid "admin.locale.maybeIncomplete"
 msgstr "Marked locales may be incomplete."
 
@@ -43,15 +34,6 @@ msgstr "Select any additional locales to install support for in this system. Loc
 
 msgid "admin.languages.localeInstalled"
 msgstr "The "{$locale}" locale has been installed."
-
-msgid "admin.languages.download"
-msgstr "Download Locale"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Cannot open language descriptor from PKP web site."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Cannot add the new locale to the locale registry file, typically "registry/locales.xml"."
 
 msgid "admin.systemConfiguration"
 msgstr "OPS Configuration"

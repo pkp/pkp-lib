@@ -11,9 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.languages.download"
-msgstr "Descargar configuración regional"
-
 msgid "admin.locale.maybeIncomplete"
 msgstr "Las configuraciones regionales marcadas pueden estar incompletas."
 
@@ -34,14 +31,6 @@ msgstr "Crear Servidor"
 msgid "admin.systemConfiguration"
 msgstr "Configuración OPS"
 
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr ""
-"No se puede agregar la nueva configuración regional al archivo de registro "
-"de configuración regional, generalmente \"Registry/locales.xml\"."
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "No se puede abrir el descriptor de idioma desde el sitio web PKP."
-
 msgid "admin.languages.localeInstalled"
 msgstr "Se ha instalado la configuración regional \"{$locale}\"."
 
@@ -58,16 +47,6 @@ msgstr ""
 "¿Seguro que quiere desinstalar esta configuración regional? Esto puede "
 "afectar a los servidores alojados que actualmente usan la configuración "
 "regional."
-
-msgid "admin.languages.downloadUnavailable"
-msgstr ""
-"<p>La descarga de paquetes de idiomas desde el servidor web de Public "
-"Knowledge Project no está disponible actualmente porque:</p>\t<ul>\t\t<li>Su "
-"servidor no tiene o no permite la ejecución de la utilidad GNU \"tar\".</li>"
-"\t\t<li>OPS no puede modificar el archivo de registro de configuración "
-"regional, normalmente \"registry/locales.xml\".</li>\t</ul><p>Los paquetes "
-"de idioma se pueden descargar manualmente desde el <a href=\"http://pkp.sfu."
-"ca\">sitio web de PKP</a>.</p>"
 
 msgid "admin.languages.confirmDisable"
 msgstr ""

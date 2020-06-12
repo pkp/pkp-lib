@@ -30,17 +30,6 @@ msgstr "Créer un serveur"
 msgid "admin.systemConfiguration"
 msgstr "Configuration d'OPS"
 
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr ""
-"Impossible d'ajouter la nouvelle langue au fichier de registre de langues, "
-"généralement \"registry/locales.xml\"."
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Impossible d'ouvrir le descripteur de langue depuis le site Web de PKP."
-
-msgid "admin.languages.download"
-msgstr "Télécharger la langue"
-
 msgid "admin.languages.localeInstalled"
 msgstr "La langue \"{$locale}\" a été installée."
 
@@ -58,19 +47,6 @@ msgstr ""
 
 msgid "admin.locale.maybeIncomplete"
 msgstr "Les langues sélectionnées peuvent être incomplètes."
-
-msgid "admin.languages.downloadUnavailable"
-msgstr ""
-"<p>Le téléchargement de fichiers de langue depuis le serveur web du Public "
-"Knowledge Project n'est pas disponible actuellement car : </p>\n"
-"<ul>\n"
-"<li>Votre serveur n'a pas ou ne permet pas l'exécution de l'utilitaire GNU  «"
-" tar ». </li>\n"
-"<li>OPS est incapable de modifier le fichier de registre de langues, "
-"généralement « registry/locales.xml ». </li>\n"
-"</ul>\n"
-"<p>Les fichiers de langue peuvent être téléchargés manuellement depuis le <a "
-"href=\"http://pkp.sfu.ca\">site Web PKP </a>.</p>"
 
 msgid "admin.languages.confirmDisable"
 msgstr ""

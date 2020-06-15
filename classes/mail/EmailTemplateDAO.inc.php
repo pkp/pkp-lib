@@ -41,6 +41,7 @@ class EmailTemplateDAO extends SchemaDAO {
 		'canEdit' => 'can_edit',
 		'fromRoleId' => 'from_role_id',
 		'toRoleId' => 'to_role_id',
+		'stageId' => 'stage_id',
 	];
 
 	/**
@@ -63,6 +64,7 @@ class EmailTemplateDAO extends SchemaDAO {
 		unset($partialObject->_data['description']);
 		unset($partialObject->_data['fromRoleId']);
 		unset($partialObject->_data['toRoleId']);
+		unset($partialObject->_data['stageId']);
 
 		parent::insertObject($partialObject);
 	}
@@ -80,6 +82,7 @@ class EmailTemplateDAO extends SchemaDAO {
 		unset($partialObject->_data['description']);
 		unset($partialObject->_data['fromRoleId']);
 		unset($partialObject->_data['toRoleId']);
+		unset($partialObject->_data['stageId']);
 
 		parent::updateObject($partialObject);
 	}
@@ -198,14 +201,15 @@ class EmailTemplateDAO extends SchemaDAO {
 				$this->update(array_shift($sql));
 			}
 			$sql[] = 'INSERT INTO email_templates_default
-				(email_key, can_disable, can_edit, from_role_id, to_role_id)
+				(email_key, can_disable, can_edit, from_role_id, to_role_id, stage_id)
 				VALUES
 				(' .
 				$dataSource->qstr($attrs['key']) . ', ' .
 				($attrs['can_disable']?1:0) . ', ' .
 				($attrs['can_edit']?1:0) . ', ' .
 				(isset($attrs['from_role_id'])?((int) $attrs['from_role_id']):'null') . ', ' .
-				(isset($attrs['to_role_id'])?((int) $attrs['to_role_id']):'null') .
+				(isset($attrs['to_role_id'])?((int) $attrs['to_role_id']):'null') . ', ' .
+				(isset($attrs['stage_id'])?((int) $attrs['stage_id']):'null') .
 				")";
 			if (!$returnSql) {
 				$this->update(array_shift($sql));

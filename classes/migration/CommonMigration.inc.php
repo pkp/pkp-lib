@@ -189,6 +189,7 @@ class CommonMigration extends Migration {
 			$table->tinyInteger('can_edit')->default(1);
 			$table->bigInteger('from_role_id')->nullable();
 			$table->bigInteger('to_role_id')->nullable();
+			$table->bigInteger('stage_id')->nullable();
 			$table->index(['email_key'], 'email_templates_default_email_key');
 		});
 

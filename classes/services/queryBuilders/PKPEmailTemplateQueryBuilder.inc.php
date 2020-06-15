@@ -40,6 +40,9 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 	/** @var string search phrase */
 	protected $searchPhrase = null;
 
+	/** @var array filter by workflow stage IDs */
+	protected $stageIds = [];
+
 	/**
 	 * Set context filter
 	 *
@@ -109,6 +112,18 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 	 */
 	public function filterByKeys($keys) {
 		$this->keys = $keys;
+		return $this;
+	}
+
+	/**
+	 * Set stage ID filter
+	 *
+	 * @param $stageIds array
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+	 */
+	public function filterByStageIds($stageIds) {
+		$this->stageIds = $stageIds;
 		return $this;
 	}
 
@@ -245,6 +260,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 			Capsule::raw('COALESCE(etd.email_key, et.email_key) as email_key'),
 			'etd.from_role_id',
 			'etd.to_role_id',
+			'etd.stage_id',
 			'et.email_id',
 			'et.context_id',
 			Capsule::raw('COALESCE(et.enabled, 1) as enabled'),
@@ -265,6 +281,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 			->groupBy('etd.can_edit')
 			->groupBy('etd.from_role_id')
 			->groupBy('etd.to_role_id')
+			->groupBy('etd.stage_id')
 			->groupBy('et.email_id');
 
 		if (!is_null($this->contextId)) {
@@ -307,6 +324,15 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 
 		if (!empty($this->toRoleIds)) {
 			$q->whereIn('etd.to_role_id', $this->toRoleIds);
+		}
+
+		if (!empty($this->stageIds)) {
+			if (in_array(EMAIL_TEMPLATE_STAGE_DEFAULT, $this->stageIds)) {
+				$q->whereNull('etd.stage_id')
+					->orWhereIn('etd.stage_id', $this->stageIds);
+			} else {
+				$q->whereIn('etd.stage_id', $this->stageIds);
+			}
 		}
 
 		// search phrase

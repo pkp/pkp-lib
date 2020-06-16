@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-16 01:35+0000\n"
-"Last-Translator: Lilian Nassi Calo <calolilian@gmail.com>\n"
+"PO-Revision-Date: 2020-06-07 04:39+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "admin/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -29,7 +29,7 @@ msgid "admin.systemConfiguration"
 msgstr "Configuração do OPS"
 
 msgid "admin.languages.localeInstalled"
-msgstr "A localidade \"{$ locale}\" foi instalada."
+msgstr "A localidade \"{$locale}\" foi instalada."
 
 msgid "admin.languages.installNewLocalesInstructions"
 msgstr ""

@@ -179,6 +179,7 @@ abstract class PKPStatsEditorialQueryBuilder extends BaseQueryBuilder {
 
 		return $this->_getObject()
 			->where('s.status', '=', STATUS_QUEUED)
+			->where('s.submission_progress', '=', 0)
 			->whereIn('s.stage_id', $stages)
 			->count();
 	}

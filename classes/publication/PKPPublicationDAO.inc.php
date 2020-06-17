@@ -16,6 +16,7 @@
 import('lib.pkp.classes.db.SchemaDAO');
 import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
 import('classes.publication.Publication');
+import('lib.pkp.classes.services.PKPSchemaService'); // SCHEMA_ constants
 
 class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	/** @copydoc SchemaDao::$schemaName */

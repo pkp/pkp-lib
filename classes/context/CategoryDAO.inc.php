@@ -374,7 +374,7 @@ class CategoryDAO extends DAO {
 			FROM	categories c
 				LEFT JOIN categories pc ON (pc.category_id = c.parent_id)
 			WHERE	c.context_id = ?
-			ORDER BY (COALESCE(pc.seq, 0)*16384) + CASE WHEN pc.seq IS NULL THEN 16384 * c.seq ELSE c.seq END',
+			ORDER BY (COALESCE((pc.seq * 8192) + pc.category_id, 0) * 8192) + CASE WHEN pc.category_id IS NULL THEN 8192 * ((c.seq * 8192) + c.category_id) ELSE c.seq END',
 			array((int) $contextId)
 		);
 

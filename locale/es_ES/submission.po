@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2020-04-17 18:37+0000\n"
+"PO-Revision-Date: 2020-06-18 17:39+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/es/>\n"
+"submission/es_ES/>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1975,32 +1975,29 @@ msgstr ""
 msgid "submission.query.leaveQuery"
 msgstr "Abandonar la discusión"
 
-#, fuzzy
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
-"0/88x31.png\" /></a><p>Esta obra está bajo una licencia <a rel=\"license\" href="
-"\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
-"Attribution-ShareAlike 3.0 Unported License</a>.</p>"
+"0/88x31.png\" /></a><p>Esta obra está bajo una licencia <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Reconocimiento-CompartirIgual 3.0 Unported</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
-"88x31.png\" /></a><p>Esta obra está bajo una licencia <a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
-"3.0 Unported License</a>.</p>"
+"88x31.png\" /></a><p>Esta obra está bajo una licencia <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Reconocimiento 3.0 Unported</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nd3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
-"0/88x31.png\" /></a><p>Esta obra está bajo una licencia <a rel=\"license\" href="
-"\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
-"Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
+"0/88x31.png\" /></a><p>Esta obra está bajo una licencia <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"Reconocimiento-SinObraDerivada 3.0 Unported</a>.</p>"
 
 #, fuzzy
 msgid "submission.license.cc.by-nc-sa3.footer"
@@ -2012,14 +2009,13 @@ msgstr ""
 "by-nc-sa/3.0/\">Creative Commons Reconocimiento-NoComercial-CompartirIgual "
 "3.0</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
-"0/88x31.png\" /></a><p>Esta obra está bajo una licencia <a rel=\"license\" href="
-"\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
-"Attribution-NonCommercial 3.0 Unported License</a>.</p>"
+"0/88x31.png\" /></a><p>Esta obra está bajo una licencia <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Reconocimiento-NoComercial 3.0 Unported</a>.</p>"
 
 #, fuzzy
 msgid "submission.license.cc.by-nc-nd3.footer"
@@ -2152,3 +2148,24 @@ msgstr ""
 "de datos externa. Por ejemplo, los elementos que se exportan para "
 "depositarlos en PubMed puede incluir la ID de la editorial. Sin embargo, "
 "esto no debería utilizarse para los DOI."
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Días desde la última actividad"
+
+msgid "submission.list.activity"
+msgstr "Actividad"
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Se ha iniciado una nueva ronda de revisiones."
+
+msgid "editor.submission.decision.newRound"
+msgstr "Nueva ronda de revisión"
+
+msgid "submission.downloads"
+msgstr "Descargas"
+
+msgid "submission.additionalFiles"
+msgstr "Archivos adicionales"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} de {$title}"

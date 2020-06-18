@@ -225,6 +225,7 @@ class PKPStatsEditorialService {
 				if ($yearEnd >= date('Y')) {
 					$yearEnd--;
 				}
+				$years = ($yearEnd - $yearStart) + 1;
 				if ($years) {
 					$argsYearly = array_merge(
 						$args,

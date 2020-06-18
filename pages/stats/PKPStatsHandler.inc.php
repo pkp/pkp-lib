@@ -118,7 +118,9 @@ class PKPStatsHandler extends Handler {
 			if ($description) {
 				$row['description'] = $description;
 			}
-			if (array_key_exists($stat['key'], $averages) && !empty($averages[$stat['key']])) {
+			if (array_key_exists($stat['key'], $averages)
+					&& $averages[$stat['key']] !== -1
+					&& $row['total'] > 0) {
 				$row['total'] = __('stats.countWithYearlyAverage', [
 					'count' => $stat['value'],
 					'average' => $averages[$stat['key']],

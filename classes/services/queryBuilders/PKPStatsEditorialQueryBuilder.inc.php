@@ -334,6 +334,24 @@ abstract class PKPStatsEditorialQueryBuilder {
 				->whereNotNull('ps.publication_id');
 		}
 
+		// Exclude submissions when the date_submitted is later
+		// than the first date_published. This prevents imported
+		// submissions from being counted in editorial stats.
+		$q->leftJoin('publications as pi', function($q) {
+					$q->where('pi.publication_id', function($q) {
+						$q->from('publications as pi2')
+							->where('pi2.submission_id', '=', Capsule::raw('s.submission_id'))
+							->where('pi2.status', '=', STATUS_PUBLISHED)
+							->orderBy('pi2.date_published', 'ASC')
+							->limit(1)
+							->select('pi2.publication_id');
+					});
+				})
+				->where(function($q) {
+					$q->whereNull('pi.date_published')
+						->orWhere('s.date_submitted', '<', Capsule::raw('pi.date_published'));
+				});
+
 		\HookRegistry::call('Stats::editorial::queryObject', array($q, $this));
 
 		return $q;

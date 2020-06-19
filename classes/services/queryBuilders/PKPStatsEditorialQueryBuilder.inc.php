@@ -334,6 +334,9 @@ abstract class PKPStatsEditorialQueryBuilder {
 				->whereNotNull('ps.publication_id');
 		}
 
+		// Exclude incomplete submissions
+		$q->where('s.submission_progress', '=', 0);
+
 		// Exclude submissions when the date_submitted is later
 		// than the first date_published. This prevents imported
 		// submissions from being counted in editorial stats.

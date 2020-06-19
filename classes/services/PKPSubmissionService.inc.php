@@ -655,7 +655,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		} else {
 			if ($submission->getSubmissionProgress() != 0 ) {
 				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-				$assignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, 1, $currentUser->getId());
+				$assignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, WORKFLOW_STAGE_ID_SUBMISSION, $currentUser->getId());
 				$assignment = $assignments->next();
 				if ($assignment) {
 					$canDelete = true;

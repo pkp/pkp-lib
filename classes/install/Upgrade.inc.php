@@ -57,4 +57,15 @@ class Upgrade extends Installer {
 		$templateMgr->clearCssCache();
 		return true;
 	}
+
+	/**
+	 * Submissions with stage_id=WORKFLOW_STAGE_ID_SUBMISSION should be changed to stage_id=WORKFLOW_STAGE_ID_PRODUCTION, which is the only stage in OPS
+	 * @return boolean
+	 */
+	function changeSubmissionStageToProduction() {
+		$submissioDao = DAORegistry::getDAO('SubmissionDAO');
+		$submissioDao->update('UPDATE submissions SET stage_id = ? WHERE stage_id = ?', array(WORKFLOW_STAGE_ID_PRODUCTION, WORKFLOW_STAGE_ID_SUBMISSION));
+
+		return true;
+	}
 }

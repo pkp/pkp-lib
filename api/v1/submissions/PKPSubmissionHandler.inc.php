@@ -625,15 +625,16 @@ class PKPSubmissionHandler extends APIHandler {
 		);
 
 		$notificationManager = new NotificationManager();
-		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$managers = $roleDao->getUsersByRoleId(ROLE_ID_MANAGER, $submission->getContextId());
-		$managersArray = $managers->toAssociativeArray();
+		$userService = Services::get('user');
+		$usersIterator = $userService->getMany(array(
+			'contextId' => $submission->getContextId(),
+			'assignedToSubmission' => $submission->getId(),
+		));
 
-		$allUserIds = array_keys($managersArray);
-		foreach ($allUserIds as $userId) {
+		foreach ($usersIterator as $user) {
 			$notificationManager->createNotification(
 				$request,
-				$userId,
+				$user->getId(),
 				NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
 				$submission->getContextId(),
 				ASSOC_TYPE_SUBMISSION,

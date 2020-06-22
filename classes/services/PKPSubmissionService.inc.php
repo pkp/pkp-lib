@@ -655,7 +655,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		} else {
 			if ($submission->getSubmissionProgress() != 0 ) {
 				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-				$assignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, 1, $currentUser->getId());
+				$assignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, WORKFLOW_STAGE_ID_SUBMISSION, $currentUser->getId());
 				$assignment = $assignments->next();
 				if ($assignment) {
 					$canDelete = true;
@@ -778,11 +778,6 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submissionDao->deleteObject($submission);
-
-		$authorsIterator = Services::get('author')->getMany(['publicationIds' => $submission->getId()]);
-		foreach ($authorsIterator as $author) {
-			Services::get('author')->delete($author);
-		}
 
 		\HookRegistry::call('Submission::delete', [$submission]);
 	}

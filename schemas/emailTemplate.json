@@ -91,6 +91,12 @@
 			"description": "The `ROLE_ID_*` of the user who will receive this email.",
 			"apiSummary": true,
 			"readOnly": true
+		},
+		"stageId": {
+			"type": "integer",
+			"description": "The `WORKFLOW_STAGE_ID_*` that email template is associated with or `null` if it is not associated with a stage.",
+			"apiSummary": true,
+			"readOnly": true
 		}
 	}
 }

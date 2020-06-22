@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2020-04-17 18:37+0000\n"
+"PO-Revision-Date: 2020-06-16 22:35+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/ca/>\n"
+"submission/ca_ES/>\n"
 "Language: ca_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2246,3 +2246,24 @@ msgstr ""
 "internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
 "by-nc-nd/3.0/\">Creative Commons Reconeixement-NoComercial-SenseObraDerivada "
 "3.0</a>.</p>"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Dies des de l'última activitat"
+
+msgid "submission.list.activity"
+msgstr "Activitat"
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "S'ha iniciat una nova ronda de revisions."
+
+msgid "editor.submission.decision.newRound"
+msgstr "Nova ronda de revisió"
+
+msgid "submission.downloads"
+msgstr "Descàrregues"
+
+msgid "submission.additionalFiles"
+msgstr "Arxius addicionals"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} de {$title}"

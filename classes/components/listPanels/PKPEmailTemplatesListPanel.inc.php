@@ -145,6 +145,28 @@ class PKPEmailTemplatesListPanel extends ListPanel {
 			],
 		];
 
+		$workflowStageDao = \DAORegistry::getDAO('WorkflowStageDAO');
+		$stageFilters = array();
+		foreach ($workflowStageDao->getWorkflowStageTranslationKeys() as $stageId => $stageKey) {
+			$stageFilters[] = [
+					'param' => 'stageIds',
+					'title' => __($stageKey),
+					'value' => $stageId
+			];
+		}
+
+		import('lib.pkp.classes.services.PKPEmailTemplateService'); // load const
+		$stageFilters[] = [
+			'param' => 'stageIds',
+			'title' => __('common.other'),
+			'value' => EMAIL_TEMPLATE_STAGE_DEFAULT
+		];
+
+		$config['filters'][] = [
+			'heading' => __('workflow.stage'),
+			'filters' => $stageFilters
+		];
+
 		$config['addLabel'] = __('manager.emails.addEmail');
 		$config['delete'] = __('common.delete');
 		$config['deleteConfirmMessage'] = __('manager.emails.confirmDelete');

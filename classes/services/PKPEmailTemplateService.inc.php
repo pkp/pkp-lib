@@ -25,6 +25,8 @@ use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
 use \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder;
 
+define('EMAIL_TEMPLATE_STAGE_DEFAULT', 0);
+
 import('lib.pkp.classes.db.DBResultRange');
 
 class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
@@ -87,6 +89,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 * 		@option int|array fromRoleIds
 	 * 		@option int|array toRoleIds
 	 * 		@option string searchPhrase
+	 * 		@option int|array stageIds
 	 * }
 	 * @return Iterator
 	 */
@@ -121,6 +124,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 			'isCustom' => null,
 			'fromRoleIds' => null,
 			'toRoleIds' => null,
+			'stageIds' => null,
 			'searchPhrase' => null,
 		);
 
@@ -133,6 +137,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 			->filterByIsCustom($args['isCustom'])
 			->filterByFromRoleIds($args['fromRoleIds'])
 			->filterByToRoleIds($args['toRoleIds'])
+			->filterByStageIds($args['stageIds'])
 			->searchPhrase($args['searchPhrase']);
 
 		HookRegistry::call('EmailTemplate::getMany::queryBuilder', array($emailTemplateQB, $args));

@@ -363,14 +363,17 @@
 	 *  false if an error occurred.
 	 */
 	$.pkp.classes.Handler.prototype.handleJson = function(jsonData) {
+		var key, eventData;
+
 		if (!jsonData) {
 			throw new Error('Server error: Server returned no or invalid data!');
 		}
 
 		if (jsonData.status === true) {
 			// Trigger events passed from the server
-			for (var key in jsonData.events) {
-				var eventData = jsonData.events[key].hasOwnProperty('data') ? jsonData.events[key].data : null;
+			for (key in jsonData.events) {
+				eventData = jsonData.events[key].hasOwnProperty('data') ?
+						jsonData.events[key].data : null;
 				if (eventData !== null && eventData.isGlobalEvent) {
 					eventData.handler = this;
 					pkp.eventBus.$emit(jsonData.events[key].name, eventData);
@@ -516,9 +519,9 @@
 	 * @param {Function} callback The function to fire when event is triggered
 	 */
 	$.pkp.classes.Handler.prototype.unbindGlobal = function(eventName, callback) {
-		var wrapper = this.callbackWrapper(callback);
+		var wrapper = this.callbackWrapper(callback),
+				globalEventListeners = [];
 		if (typeof this.globalEventListeners_[eventName] !== 'undefined') {
-			var globalEventListeners = [];
 			this.globalEventListeners.forEach(function(callback) {
 				if (callback !== wrapper) {
 					globalEventListeners.push(callback);
@@ -534,9 +537,10 @@
 	 * Unbind all global event listeners on this handler and any child handlers
 	 */
 	$.pkp.classes.Handler.prototype.unbindGlobalAll = function() {
+		var event, callback;
 		if (typeof this.globalEventListeners_ !== 'undefined') {
-			for (var event in this.globalEventListeners_) {
-				for (var callback in this.globalEventListeners_[event]) {
+			for (event in this.globalEventListeners_) {
+				for (callback in this.globalEventListeners_[event]) {
 					pkp.eventBus.$off(event, this.globalEventListeners_[event][callback]);
 				}
 			}

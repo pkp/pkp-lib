@@ -107,6 +107,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 
 				case 'fromRoleIds':
 				case 'toRoleIds':
+				case 'stageIds':
 					if (is_string($val) && strpos($val, ',') > -1) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {

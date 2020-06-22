@@ -7,11 +7,9 @@
  *
  * @brief Query grid form
  *
- * @uses $hasParticipants boolean Are any participants available
- * @uses $queryParticipantsListData array JSON-encoded data for the ListPanel to select a user
  *}
 
- {if !$hasParticipants}
+ {if !count($allParticipants)}
 		{translate key="submission.query.noParticipantOptions"}
  {else}
 	<script>
@@ -31,20 +29,11 @@
 
 		{include file="controllers/notification/inPlaceNotification.tpl" notificationId="queryFormNotification"}
 
-		{if $queryParticipantsListData}
-			{fbvFormSection}
-				{assign var="uuid" value=""|uniqid|escape}
-				<div id="queryParticipants-{$uuid}">
-					<list-panel
-						v-bind="components.queryParticipants"
-						@set="set"
-					/>
-				</div>
-				<script type="text/javascript">
-					pkp.registry.init('queryParticipants-{$uuid}', 'Container', {$queryParticipantsListData|json_encode});
-				</script>
-			{/fbvFormSection}
-		{/if}
+		{fbvFormSection list=true title="editor.submission.stageParticipants"}
+			{foreach from=$allParticipants item="participant" key="id"}
+				{fbvElement type="checkbox" id="users[]" value=$id checked=in_array($id, $assignedParticipants) label=$participant translate=false}
+			{/foreach}
+		{/fbvFormSection}
 
 		{fbvFormArea id="queryContentsArea"}
 			{fbvFormSection title="common.subject" for="subject" required="true"}

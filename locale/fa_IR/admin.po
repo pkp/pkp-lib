@@ -68,41 +68,14 @@ msgstr "نمایش پیکره‌بندی جدید"
 msgid "admin.expireSessions"
 msgstr "خارج کردن کاربران از سیستم"
 
-msgid "admin.languages.download"
-msgstr "دانلود فایل (های) زبانی"
-
-msgid "admin.languages.downloadLocales"
-msgstr "دانلود زبان‌ها"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "قادر به باز کردن فایل توصیف کننده زبان از سایت PKP نیست"
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "افزودن زبان جدید به فایل رجیستری زبان ممکن نیست"
-
 msgid "admin.languages.cantDisable"
 msgstr "این زیان، زبان اصلی سایت است و تا زمانی که زبان دیگری را به‌عنوان زبان اصلی سایت انتخاب نکنید، اجازه حذف این زبان را ندارید."
 
 msgid "admin.languages.confirmReload"
 msgstr "آیا می‌خواهید این زبان را از نو بارگذاری کنید؟ این کار باعث می‌شود داده‌های مختص این زبان مانند ایمیل‌های اختصاصی شده پاک شود"
 
-msgid "admin.languages.installedLocales"
-msgstr "زبان‌های نصب شده"
-
-msgid "admin.languages.installLanguages"
-msgstr "نصب زبان‌ها"
-
 msgid "admin.languages.availableLocales"
 msgstr "زبان‌های موجود"
-
-msgid "admin.languages.installLocale"
-msgstr "نصب زبان دیگر"
-
-msgid "admin.languages.installLocales"
-msgstr "نصب"
-
-msgid "admin.languages.installNewLocales"
-msgstr "نصب زبان‌های جدید"
 
 msgid "admin.languages.languageSettings"
 msgstr "تنظیمات زبان"
@@ -301,6 +274,3 @@ msgstr "اجرای برنامه \"{$utilPath}\"  با خطای زیر مواجه
 
 msgid "admin.error.executingUtil"
 msgstr "خطا: اجرای \"{$utilPath}\" امکان‌پذیر نمی‌باشد. تنظیمات {$utilVar} را در فایل config.inc.php بررسی کنید."
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "زبانی برای دانلود وجود ندارد."

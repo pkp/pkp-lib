@@ -65,18 +65,6 @@ msgstr "Vypršení uživatelské relace"
 msgid "admin.languages.confirmReload"
 msgstr "Jste si jistý, že chcete znovu načíst tuto lokalizaci? To vymaže všechna existující data vztahující se k lokalizaci jako například přizpůsobené e-mailové šablony."
 
-msgid "admin.languages.installedLocales"
-msgstr "Instalované lokalizace"
-
-msgid "admin.languages.installLanguages"
-msgstr "Spravovat lokalizace"
-
-msgid "admin.languages.installLocales"
-msgstr "Instalovat"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Instalovat nové lokalizace"
-
 msgid "admin.languages.languageSettings"
 msgstr "Nastavení jazyka"
 
@@ -197,26 +185,11 @@ msgstr "Nastavení - název"
 msgid "admin.systemInfo.settingValue"
 msgstr "Nastavení - hodnota"
 
-msgid "admin.languages.download"
-msgstr "Stažení lokalizace"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Stažení lokalizací"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Nelze otevřít deskriptor jazyků ze stránek PKP."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Nelze přidat novou lokalizaci do souboru registru lokalizací, typicky \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "Tato lokalizace je primární jazyk těchto stránek. Nemůžete ji vypnout dokud nezvolíte jinou primární lokalizaci."
 
 msgid "admin.languages.availableLocales"
 msgstr "Dostupné lokalizace"
-
-msgid "admin.languages.installLocale"
-msgstr "Instalovat lokalizaci"
 
 msgid "admin.scheduledTask"
 msgstr "Naplánovaná úloha"
@@ -271,9 +244,6 @@ msgstr "Soubor {$filename}  byl zpracován a archivován."
 
 msgid "admin.fileLoader.emailSubject"
 msgstr "Nahrávání souboru"
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Nejsou dostupné žádné lokalizace ke stažení."
 
 msgid "admin.copyAccessLogFileTool.error.copyingFile"
 msgstr "Chyba: nelze zkopírovat soubor z {$filePath} do {$tmpFilePath}"

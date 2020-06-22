@@ -731,9 +731,6 @@ msgstr "Indizeko terminoak"
 msgid "search.matchAll"
 msgstr "Kategoria guztietan"
 
-msgid "search.noKeywordError"
-msgstr "Gako-hitz bat behintzat sartu behar duzu bilaketa egiteko."
-
 msgid "search.noResults"
 msgstr "Emaitzarik ez"
 

@@ -20,16 +20,35 @@ import('classes.core.Services');
 
 abstract class PKPSubmissionsListPanel extends ListPanel {
 
-	/** @copydoc ListPanel::$count */
-	public $count = 20;
+	/** @var string URL to the API endpoint where items can be retrieved */
+	public $apiUrl = '';
+
+	/** @var integer Number of items to show at one time */
+	public $count = 30;
+
+	/** @var array Query parameters to pass if this list executes GET requests  */
+	public $getParams = [];
+
+	/** @var boolean Should items be loaded after the component is mounted?  */
+	public $lazyLoad = false;
+
+	/** @var integer Count of total items available for list */
+	public $itemsMax = 0;
 
 	/**
 	 * @copydoc ListPanel::getConfig()
 	 */
 	public function getConfig() {
+		\AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_EDITOR]);
 		$request = \Application::get()->getRequest();
 
 		$config = parent::getConfig();
+
+		$config['apiUrl'] = $this->apiUrl;
+		$config['count'] = $this->count;
+		$config['getParams'] = $this->getParams;
+		$config['lazyLoad'] = $this->lazyLoad;
+		$config['itemsMax'] = $this->itemsMax;
 
 		// URL to add a new submission
 		$config['addUrl'] = $request->getDispatcher()->url(
@@ -96,52 +115,6 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			]
 		];
 
-		// Load grid localisation files
-		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
-		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
-
-		$config['i18n'] = array_merge($config['i18n'], [
-			'id' => __('common.id'),
-			'add' => __('submission.submit.newSubmissionSingle'),
-			'empty' => __('submission.list.empty'),
-			'loadMore' => __('grid.action.moreItems'),
-			'incomplete' => __('submissions.incomplete'),
-			'delete' => __('common.delete'),
-			'infoCenter' => __('submission.list.infoCenter'),
-			'yes' => __('common.yes'),
-			'no' => __('common.no'),
-			'deleting' => __('common.deleting'),
-			'currentStage' => __('submission.list.currentStage'),
-			'confirmDelete' => __('submission.list.confirmDelete'),
-			'responseDue' => __('submission.list.responseDue'),
-			'reviewDue' => __('submission.list.reviewDue'),
-			'reviewComplete' => __('submission.list.reviewComplete'),
-			'reviewCancelled' => __('submission.list.reviewCancelled'),
-			'viewSubmission' => __('submission.list.viewSubmission'),
-			'reviewAssignment' => __('submission.list.reviewAssignment'),
-			'reviewsCompleted' => __('submission.list.reviewsCompleted'),
-			'revisionsSubmitted' => __('submission.list.revisionsSubmitted'),
-			'copyeditsSubmitted' => __('submission.list.copyeditsSubmitted'),
-			'galleysCreated' => __('submission.list.galleysCreated'),
-			'filesPrepared' => __('submission.list.filesPrepared'),
-			'discussions' => __('submission.list.discussions'),
-			'assignEditor' => __('submission.list.assignEditor'),
-			'dualWorkflowLinks' => __('submission.list.dualWorkflowLinks'),
-			'reviewerWorkflowLink' => __('submission.list.reviewerWorkflowLink'),
-			'incompleteSubmissionNotice' => __('submission.list.incompleteSubmissionNotice'),
-			'viewMore' => __('list.viewMore'),
-			'viewLess' => __('list.viewLess'),
-			'lastActivity' => __('common.lastActivity'),
-			'paginationLabel' => __('common.pagination.label'),
-			'goToLabel' => __('common.pagination.goToPage'),
-			'pageLabel' => __('common.pageNumber'),
-			'nextPageLabel' => __('common.pagination.next'),
-			'previousPageLabel' => __('common.pagination.previous'),
-		]);
-
-		// Attach a CSRF token for post requests
-		$config['csrfToken'] = $request->getSession()->getCSRFToken();
-
 		// Provide required constants
 		import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
@@ -176,6 +149,31 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			'REVIEW_ASSIGNMENT_STATUS_CANCELLED',
 			'REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY',
 			'REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED',
+		]);
+
+		$templateMgr->setLocaleKeys([
+			'common.lastActivity',
+			'editor.submissionArchive.confirmDelete',
+			'submission.list.empty',
+			'submission.submit.newSubmissionSingle',
+			'submission.review',
+			'submissions.incomplete',
+			'submission.list.assignEditor',
+			'submission.list.copyeditsSubmitted',
+			'submission.list.currentStage',
+			'submission.list.discussions',
+			'submission.list.dualWorkflowLinks',
+			'submission.list.galleysCreated',
+			'submission.list.infoCenter',
+			'submission.list.reviewAssignment',
+			'submission.list.responseDue',
+			'submission.list.reviewCancelled',
+			'submission.list.reviewComplete',
+			'submission.list.reviewDue',
+			'submission.list.reviewerWorkflowLink',
+			'submission.list.reviewsCompleted',
+			'submission.list.revisionsSubmitted',
+			'submission.list.viewSubmission',
 		]);
 
 		return $config;

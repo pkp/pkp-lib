@@ -14,7 +14,7 @@
 	{/if}
 
 	{* Editorial decision actions, if available *}
-	<div class="pkp_context_sidebar">
+	<div class="pkp_workflow_sidebar">
 		{if !$isAssignedAsAuthor}
 			{capture assign=reviewDecisionsUrl}{url router=$smarty.const.ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId contextId="reviewRoundTab-"|concat:$reviewRoundId escape=false}{/capture}
 			{load_url_in_div id="reviewDecisionsDiv-"|concat:$reviewRoundId url=$reviewDecisionsUrl class="pkp_tab_actions" refreshOn="decisionActionUpdated"}
@@ -22,7 +22,7 @@
 		{include file="controllers/tab/workflow/stageParticipants.tpl"}
 	</div>
 
-	<div class="pkp_content_panel">
+	<div class="pkp_workflow_content">
 
 		{* Review files grid *}
 		{capture assign=reviewFileSelectionGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.EditorReviewFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}

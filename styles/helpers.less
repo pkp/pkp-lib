@@ -12,141 +12,92 @@
 // Buttons
 .pkp_button {
 	display: inline-block;
-	padding: 7px @base;
-	vertical-align: middle;
-	background-color: #eee;
-	background-image: linear-gradient(#eee, #ddd);
-	border: 1px solid #ccc;
+	padding: 0 0.5em;
+	background: #fff;
+	border: @bg-border-light;
 	border-radius: @radius;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.6);
-	font-size: @font-tiny;
+	font-size: @font-sml;
+	line-height: @double;
 	font-weight: @bold;
-	line-height: @line-tiny;
-	color: @text-rgba;
-	text-shadow: 0 2px 0 rgba(255,255,255,0.6);
-	cursor: pointer;
+	color: @primary;
 	text-decoration: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	-webkit-appearance: none;
+	box-shadow: 0 1px 0 @bg-border-color-light;
+	cursor: pointer;
 
 	&:hover,
 	&:focus {
-		background-color: #fff;
-		background-image: linear-gradient(#fff, #ddd);
-		color: #000;
+		color: @primary;
+		border-color: @primary;
+		outline: 0;
 	}
 
 	&:active {
-		background-color: #ddd;
-		background-image: linear-gradient(#eee, #ccc);
+		box-shadow: 0 0 2px;
 	}
 
-	&[disabled] {
-		opacity: 0.5;
-		cursor: default;
+	&:disabled {
+		color: @text-disabled;
+
+		&:hover {
+			color: @text-disabled;
+			border-color: @bg-border-color-light;
+			cursor: not-allowed;
+		}
 	}
 }
 
 .pkp_button_primary {
-	&:extend(.pkp_button);
-	background-color: @primary;
-	background-image: linear-gradient( lighten( @primary, 10% ), @primary );
-	box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.4);
+	&:extend(.pkp_button all);
 	color: #fff;
-	text-shadow: 0 2px 0 rgba(0,0,0,0.2);
+	background: @primary;
 	border-color: @primary;
+	box-shadow: 0 1px 0 @primary;
 
 	&:hover,
 	&:focus {
-		text-decoration: none;
-		background-color: @primary-lift;
-		background-image: linear-gradient( lighten( @primary, 20% ), darken( @primary, 5% ) );
+		background: @primary-lift;
 		color: #fff;
 	}
 
-	&:active {
-		background-color: darken( @primary, 10% );
-		background-image: linear-gradient( lighten( @primary, 5% ), darken( @primary, 15% ) );
-	}
-
-	&[disabled] {
-		&:extend(.pkp_button[disabled]);
+	&:disabled,
+	&:disabled:hover {
+		&:extend(.pkp_button[disabled] all);
+		color: #fff;
+		background: @bg-dark;
+		border-color: @bg-dark;
+		box-shadow: 0 1px 0 @shade;
+		cursor: not-allowed;
 	}
 }
 
 .pkp_button_offset {
-	&:extend(.pkp_button);
-	background-color: @offset;
-	background-image: linear-gradient( lighten( @offset, 10% ), @offset );
-	box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.4);
-	color: #fff;
-	text-shadow: 0 2px 0 rgba(0,0,0,0.2);
-	border-color: @offset;
+	&:extend(.pkp_button all);
+	color: @no;
 
 	&:hover,
 	&:focus {
-		text-decoration: none;
-		background-color: darken( @offset, 5% );
-		background-image: linear-gradient( lighten( @offset, 20% ), darken( @offset, 5% ) );
+		border-color: @no;
+		color: @no;
+	}
+
+	&:disabled,
+	&:disabled:hover {
+		&:extend(.pkp_button[disabled] all);
 		color: #fff;
-	}
-
-	&:active {
-		background-color: darken( @offset, 10% );
-		background-image: linear-gradient( lighten( @offset, 5% ), darken( @offset, 15% ) );
-	}
-
-	&[disabled] {
-		&:extend(.pkp_button[disabled]);
+		background: @bg-dark;
+		border-color: @bg-dark;
+		box-shadow: 0 1px 0 @shade;
+		cursor: not-allowed;
 	}
 }
 
 .pkp_button_link {
-	display: inline-block;
-	padding: 7px @base;
-	vertical-align: middle;
-	font-size: @font-tiny;
-	font-weight: @bold;
-	line-height: @line-tiny;
-	color: @primary;
-	text-shadow: 0 2px 0 rgba(255,255,255,0.6);
-	cursor: pointer;
-	text-decoration: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	-webkit-appearance: none;
+	&:extend(.pkp_button all);
+	box-shadow: none;
+	border-color: transparent;
 
-	&:hover,
-	&:focus {
-		color: @primary-lift;
-	}
-
-	&:active {
-		color: @primary-shade;
-	}
-
-	&[disabled] {
-		opacity: 0.5;
-		cursor: default;
-	}
-}
-
-.pkp_button_link_offset {
-	&:extend(.pkp_button_link all);
-	color: @offset;
-
-	&:hover,
-	&:focus {
-		color: @offset-lift;
-	}
-
-	&:active {
-		color: @offset-shade;
+	&:disabled:hover {
+		border-color: transparent;
 	}
 }
 
@@ -287,8 +238,10 @@
 
 .pkp_help_modal {
 	&:extend(.pkp_help_tab);
-	top: @double;
-	right: @double * 2;
+	top: 8px;
+	padding: 8px;
+	right: 48px;
+	border: none;
 }
 
 // Summary of an uploaded file

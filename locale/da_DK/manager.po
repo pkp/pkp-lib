@@ -905,12 +905,6 @@ msgstr "Sprog deaktiveret."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} sat til primært sprog."
 
-msgid "notification.localeInstalled"
-msgstr "Alle valgte sprog installeret og aktiveret."
-
-msgid "notification.localeUninstalled"
-msgstr "{$locale} sprog afinstalleret."
-
 msgid "notification.localeReloaded"
 msgstr "{$locale} sprog genindlæst."
 
@@ -1711,10 +1705,6 @@ msgstr "Brugernavnet \"{$username}\" og e-mailen \"{$email}\" stemmer ikke overe
 msgid "manager.setup.theme.notFound"
 msgstr "Det valgte tema er ikke blevet installeret eller aktiveret."
 
-msgid "manager.setup.theme.success"
-msgstr ""
-"Temaet er blevet opdateret. <a href=\"{$url}\" target=\"_blank\">Se nu</a>"
-
 msgid "manager.setup.reviewOptions.showBlindReviewLink"
 msgstr ""
 "Vis et link til <button type=\"button\">Sikring af en blind review</button> "
@@ -1745,15 +1735,6 @@ msgstr ""
 
 msgid "manager.setup.checklist"
 msgstr "Tjekliste"
-
-msgid "manager.setup.authorGuidelines.success"
-msgstr "Forfattervejledningerne er blevet opdateret."
-
-msgid "manager.setup.contact.success"
-msgstr "Dette forlags kontaktoplysninger er blevet opdateret."
-
-msgid "manager.setup.appearance.success"
-msgstr "Indstillingerne for udseende er blevet opdateret."
 
 msgid "manager.setup.advanced"
 msgstr "Udvidet"
@@ -1788,14 +1769,8 @@ msgstr "E-mail-skabelon"
 msgid "manager.emails.emailKey.description"
 msgstr "E-mail-nøglen kan kun indeholde bogstaver, tal og understregninger."
 
-msgid "manager.emails.editEmail.success"
-msgstr "E-mail-skabelonen blev ændret."
-
 msgid "manager.emails.customTemplate"
 msgstr "Brugerdefineret skabelon"
-
-msgid "manager.emails.addEmail.success"
-msgstr "E-mail-skabelonen blev tilføjet."
 
 msgid "manager.emails.addEmail"
 msgstr "Tilføj skabelon"
@@ -1803,17 +1778,8 @@ msgstr "Tilføj skabelon"
 msgid "manager.publication.reviewReminders.success"
 msgstr "Detaljer under rykkerindstillinger til bedømmerne er blevet opdateret."
 
-msgid "manager.publication.reviewSetup.success"
-msgstr "Bedømmerindstillingerne er blevet opdateret."
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "Vejledning til bedømmere er blevet opdateret."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Vejledning til bedømmere"
-
-msgid "manager.publication.emailSetup.success"
-msgstr "E-mail-indstillingerne er blevet opdateret."
 
 msgid "stats.name.declinedReviewRate"
 msgstr "Afvisningsprocent efter bedømmelse/review"
@@ -2117,9 +2083,6 @@ msgstr ""
 msgid "manager.setup.metadata.coverage"
 msgstr "Dækningsområde"
 
-msgid "manager.setup.metadata.success"
-msgstr "Indsendelsesmetadata er blevet opdateret."
-
 msgid "settings.roles.permitMetadataEdit"
 msgstr "Tillad redigering af metadata til indsendelse."
 
@@ -2143,17 +2106,11 @@ msgstr "Licensvilkår"
 msgid "manager.distribution.license.other"
 msgstr "Anden licens-URL"
 
-msgid "manager.distribution.license.success"
-msgstr "Licensoplysningerne er blevet opdateret. "
-
 msgid "manager.distribution.license"
 msgstr "Licens"
 
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Registrerede brugere"
-
-msgid "manager.setup.userAccess.success"
-msgstr "Oplysninger om brugeradgang til dette forlag er blevet opdateret."
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/year)"

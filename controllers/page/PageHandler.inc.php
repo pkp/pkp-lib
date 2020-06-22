@@ -28,7 +28,7 @@ class PageHandler extends Handler {
 		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
 		$this->addPolicy(new PKPSiteAccessPolicy(
 			$request,
-			array('userNav', 'userNavBackend', 'tasks', 'css'),
+			array('tasks', 'css'),
 			SITE_ACCESS_ALL_ROLES
 		));
 
@@ -40,22 +40,6 @@ class PageHandler extends Handler {
 	//
 	// Public operations
 	//
-	/**
-	 * Display the backend user-context menu.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function userNavBackend($args, $request) {
-		$this->setupTemplate($request);
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER); // Management menu items
-		$templateMgr = TemplateManager::getManager($request);
-
-		$this->setupHeader($args, $request);
-
-		return $templateMgr->fetchJson('controllers/page/usernav.tpl');
-	}
-
 	/**
 	 * Display the tasks component
 	 * @param $args array
@@ -170,52 +154,6 @@ class PageHandler extends Handler {
 		header('Content-Length: ' . filesize($cachedFile));
 		readfile($cachedFile);
 		die;
-	}
-
-	/**
-	 * Setup and assign variables for any templates that want the overall header
-	 * context.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	private function setupHeader($args, $request) {
-
-		$templateMgr = TemplateManager::getManager($request);
-
-		$workingContexts = $this->getWorkingContexts($request);
-		$context = $request->getContext();
-
-		if ($workingContexts && $workingContexts->getCount() > 1) {
-			$dispatcher = $request->getDispatcher();
-			$contextsNameAndUrl = array();
-			while ($workingContext = $workingContexts->next()) {
-				$contextUrl = $dispatcher->url($request, ROUTE_PAGE, $workingContext->getPath(), 'submissions');
-				$contextsNameAndUrl[$contextUrl] = $workingContext->getLocalizedName();
-			}
-
-			// Get the current context switcher value. We don´t need to worry about the
-			// value when there is no current context, because then the switcher will not
-			// be visible.
-			$currentContextUrl = null;
-			$currentContextName = null;
-			if ($context) {
-				$currentContextUrl = $dispatcher->url($request, ROUTE_PAGE, $context->getPath());
-				$currentContextName = $context->getLocalizedName();
-			}
-
-			$templateMgr->assign(array(
-				'currentContextUrl' => $currentContextUrl,
-				'currentContextName' => $currentContextName,
-				'contextsNameAndUrl' => $contextsNameAndUrl,
-				'multipleContexts' => true
-			));
-		} else {
-			$templateMgr->assign('noContextsConfigured', true);
-			if (!$workingContexts) {
-				$templateMgr->assign('notInstalled', true);
-			}
-		}
 	}
 }
 

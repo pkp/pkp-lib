@@ -34,7 +34,6 @@ class PKPPrivacyForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context, $imageUploadUrl) {
 		$this->action = $action;
-		$this->successMessage = __('manager.setup.privacyStatement.success');
 		$this->locales = $locales;
 
 		$this->addField(new FieldRichTextArea('privacyStatement', [

@@ -65,18 +65,6 @@ msgstr "Fai scadere le sessioni degli utenti"
 msgid "admin.languages.confirmReload"
 msgstr "Sei sicuro di voler aggiornare questa lingua aggiuntiva? Questo cancellerà le impostazioni già esistenti, come ad esempio i modelli per le email."
 
-msgid "admin.languages.installedLocales"
-msgstr "localizzazioni installate"
-
-msgid "admin.languages.installLanguages"
-msgstr "Amministra localizzazioni"
-
-msgid "admin.languages.installLocales"
-msgstr "Installazione"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Installa nuove localizzazioni"
-
 msgid "admin.languages.languageSettings"
 msgstr "Impostazioni per le lingue"
 
@@ -206,9 +194,6 @@ msgstr "Nome"
 msgid "admin.systemInfo.settingValue"
 msgstr "Valore"
 
-msgid "admin.languages.installLocale"
-msgstr "Installa lingua"
-
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Svuota registro delle procedure programmate"
 
@@ -236,21 +221,6 @@ msgstr "Successo: {$filePath} a{$destinationPath}"
 
 msgid "admin.error.executingUtil"
 msgstr "Error: non posso eseguire \"{$utilPath}\".  Controlla la configurazione di {$utilVar} config.inc.php."
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Non ci sono lingue disponibili per il download."
-
-msgid "admin.languages.download"
-msgstr "Scarica traduzione"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Scarica traduzioni"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Non riesco ad aprire la descrizione della lingua dal sito di PKP."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Non riesco ad aggiungere la nuova traduzione al file registry collegato, di solito è \"registry/locales.xml\"."
 
 msgid "admin.languages.cantDisable"
 msgstr "Questa lingua è la lingua primaria del sito. Non puoi disabilitarla fino a quando non scegli un'altra lingua come primaria."

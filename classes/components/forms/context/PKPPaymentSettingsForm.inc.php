@@ -34,7 +34,6 @@ class PKPPaymentSettingsForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;
-		$this->successMessage = __('manager.payment.success');
 		$this->locales = $locales;
 
 		$currencies = [];

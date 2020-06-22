@@ -72,11 +72,30 @@
 	text-align: center;
 }
 
+#stageTabs {
+	&:extend(.pkp_helpers_clear all);
+
+	.pkp_workflow_sidebar {
+		float: right;
+		width: 25%;
+		padding-left: 1rem;
+	}
+
+	.pkp_workflow_content {
+		float: left;
+		width: 75%;
+	}
+}
+
 .pkp_workflow_decisions {
+	margin: 0 0 @base;
+	padding-left: 0;
+	list-style: none;
 
 	a {
 		&:extend(.pkp_button all);
 		width: 100%;
+		text-align: center;
 
 		&.pkp_linkaction_decline {
 			&:extend(.pkp_button_offset all);
@@ -89,11 +108,20 @@
 			&:extend(.pkp_button_primary all);
 		}
 	}
+
+	button {
+		width: 100%;
+	}
+
+	li + li {
+		margin-top: 0.5rem;
+	}
 }
 
 .pkp_no_workflow_decisions,
 .pkp_workflow_decided,
 .pkp_workflow_recommendations {
+	margin-bottom: @base;
 	padding: @base;
 	font-size: @font-sml;
 	line-height: @line-sml;

@@ -17,7 +17,6 @@
 
 import('lib.pkp.controllers.grid.languages.LanguageGridHandler');
 import('lib.pkp.controllers.grid.languages.LanguageGridRow');
-import('lib.pkp.controllers.grid.languages.form.InstallLanguageForm');
 
 class AdminLanguageGridHandler extends LanguageGridHandler {
 	/**
@@ -29,8 +28,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 			array(ROLE_ID_SITE_ADMIN),
 			array(
 				'fetchGrid', 'fetchRow',
-				'installLocale', 'saveInstallLocale', 'uninstallLocale',
-				'downloadLocale', 'disableLocale', 'enableLocale',
+				'disableLocale', 'enableLocale',
 				'setPrimaryLocale'
 			)
 		);
@@ -72,21 +70,6 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 		// Grid actions.
 		$router = $request->getRouter();
 
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		$this->addAction(
-			new LinkAction(
-				'installLocale',
-				new AjaxModal(
-					$router->url($request, null, null, 'installLocale', null, null),
-					__('admin.languages.installLocale'),
-					null,
-					true
-					),
-				__('admin.languages.installLocale'),
-				'add')
-		);
-
-		$cellProvider = $this->getCellProvider();
 
 		// Columns.
 		// Enable locale.
@@ -96,7 +79,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 				'common.enable',
 				null,
 				'controllers/grid/common/cell/selectStatusCell.tpl',
-				$cellProvider,
+				$this->getCellProvider(),
 				array('width' => 10)
 			)
 		);
@@ -170,128 +153,6 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 	//
 	// Public grid actions.
 	//
-	/**
-	 * Open a form to select locales for installation.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	public function installLocale($args, $request) {
-		// Form handling.
-		$installLanguageForm = new InstallLanguageForm();
-		$installLanguageForm->initData();
-		return new JSONMessage(true, $installLanguageForm->fetch($request));
-
-	}
-
-	/**
-	 * Save the install language form.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	public function saveInstallLocale($args, $request) {
-		$installLanguageForm = new InstallLanguageForm();
-		$installLanguageForm->readInputData();
-
-		if ($installLanguageForm->validate()) {
-			$installLanguageForm->execute();
-			$this->_updateContextLocaleSettings($request);
-
-			$notificationManager = new NotificationManager();
-			$user = $request->getUser();
-			$notificationManager->createTrivialNotification(
-				$user->getId(), NOTIFICATION_TYPE_SUCCESS,
-				array('contents' => __('notification.localeInstalled'))
-			);
-		}
-		return DAO::getDataChangedEvent();
-	}
-
-	/**
-	 * Download a locale from the PKP web site.
-	 * @param $args array
-	 * @param $request object
-	 * @return JSONMessage JSON object
-	 */
-	public function downloadLocale($args, $request) {
-		$this->setupTemplate($request, true);
-		$locale = $request->getUserVar('locale');
-
-		import('lib.pkp.classes.i18n.LanguageAction');
-		$languageAction = new LanguageAction();
-
-		if (!$languageAction->isDownloadAvailable() || !preg_match('/^[a-z]{2}_[A-Z]{2}$/', $locale)) {
-			$request->redirect(null, 'admin', 'settings');
-		}
-
-		$notificationManager = new NotificationManager();
-		$user = $request->getUser();
-		$json = new JSONMessage(true);
-
-		$errors = array();
-		if (!$languageAction->downloadLocale($locale, $errors)) {
-			$notificationManager->createTrivialNotification(
-				$user->getId(),
-				NOTIFICATION_TYPE_ERROR,
-				array('contents' => $errors));
-			$json->setEvent('refreshForm', $this->_fetchReviewerForm($args, $request));
-		} else {
-			$notificationManager->createTrivialNotification(
-				$user->getId(),
-				NOTIFICATION_TYPE_SUCCESS,
-				array('contentLocaleKey' => __('admin.languages.localeInstalled'),
-					 'params' => array('locale' => $locale)));
-		}
-
-		// Refresh form.
-		$installLanguageForm = new InstallLanguageForm();
-		$installLanguageForm->initData();
-		$json->setEvent('refreshForm', $installLanguageForm->fetch($request));
-		return $json;
-	}
-
-	/**
-	 * Uninstall a locale.
-	 * @param $args array
-	 * @param $request Request
-	 * @return JSONMessage JSON object
-	 */
-	public function uninstallLocale($args, $request) {
-		$site = $request->getSite();
-		$locale = $request->getUserVar('rowId');
-		$gridData = $this->getGridDataElements($request);
-
-		if ($request->checkCSRF() && array_key_exists($locale, $gridData)) {
-			$localeData = $gridData[$locale];
-			if ($localeData['primary']) return new JSONMessage(false);
-
-			$installedLocales = $site->getInstalledLocales();
-			if (in_array($locale, $installedLocales)) {
-				$installedLocales = array_diff($installedLocales, array($locale));
-				$site->setInstalledLocales($installedLocales);
-				$supportedLocales = $site->getSupportedLocales();
-				$supportedLocales = array_diff($supportedLocales, array($locale));
-				$site->setSupportedLocales($supportedLocales);
-				$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
-				$siteDao->updateObject($site);
-
-				$this->_updateContextLocaleSettings($request);
-				AppLocale::uninstallLocale($locale);
-
-				$notificationManager = new NotificationManager();
-				$user = $request->getUser();
-				$notificationManager->createTrivialNotification(
-					$user->getId(), NOTIFICATION_TYPE_SUCCESS,
-					array('contents' => __('notification.localeUninstalled', array('locale' => $localeData['name'])))
-				);
-			}
-			return DAO::getDataChangedEvent($locale);
-		}
-
-		return new JSONMessage(false);
-	}
-
 	/**
 	 * Enable an existing locale.
 	 * @param $args array

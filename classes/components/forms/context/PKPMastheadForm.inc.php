@@ -35,7 +35,6 @@ class PKPMastheadForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context, $imageUploadUrl) {
 		$this->action = $action;
-		$this->successMessage = __('manager.setup.masthead.success');
 		$this->locales = $locales;
 
 		$this->addGroup([

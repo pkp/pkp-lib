@@ -31,6 +31,3 @@ msgstr "به دلیل آنکه برخی از اطلاعات ضروری در دس
 
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "شماره، دوره و یا سال درخواستی معتبر نمی‌باشد"
-
-msgid "api.submissions.unknownError"
-msgstr "خطای غیرمنتظره‌ای رخ داده است. لطفاً صفحه را از اول بارگذاری کرده و دوباره تلاش کنید"

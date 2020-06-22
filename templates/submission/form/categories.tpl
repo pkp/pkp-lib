@@ -7,25 +7,20 @@
  *
  * Include categories for submissions.
  *}
-{if $hasCategories}
+{if count($categories)}
 	{if $readOnly}
 		{fbvFormSection title="grid.category.categories" list=true}
-			{foreach from=$assignedCategories item=category}
-				<li>{$category->getLocalizedTitle()|escape}</li>
+			{foreach from=$categories item="category" key="id"}
+				{if in_array($id, $assignedCategories)}
+					<li>{$category->getLocalizedTitle()|escape}</li>
+				{/if}
 			{/foreach}
 		{/fbvFormSection}
 	{else}
-		{fbvFormSection}
-			{assign var="uuid" value=""|uniqid|escape}
-			<div id="categories-{$uuid}">
-				<list-panel
-					v-bind="components.categories"
-					@set="set"
-				/>
-			</div>
-			<script type="text/javascript">
-				pkp.registry.init('categories-{$uuid}', 'Container', {$categoriesListData|json_encode});
-			</script>
+		{fbvFormSection list=true title="grid.category.categories"}
+			{foreach from=$categories item="category" key="id"}
+				{fbvElement type="checkbox" id="categories[]" value=$id checked=in_array($id, $assignedCategories) label=$category translate=false}
+			{/foreach}
 		{/fbvFormSection}
 	{/if}
 {/if}

@@ -359,12 +359,6 @@ msgstr "Het patroon {$pattern} is niet toegelaten voor de publieke identificatie
 msgid "editor.submission.schedulePublication"
 msgstr "Inplannen voor publicatie in"
 
-msgid "reviewer.list.count"
-msgstr "{$count} reviewers"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} van {$total} reviewers"
-
 msgid "reviewer.list.filterRating"
 msgstr "Minimumbeoordeling"
 

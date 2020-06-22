@@ -275,12 +275,6 @@ $.pkp.app = {
 	tinyMceContentFont: ''
 };
 
-$.pkp.locale = {
-	search_noKeywordError: '',
-	form_dataHasChanged: '',
-	common_close: ''
-};
-
 $.pkp.cons = {
 	WORKFLOW_STAGE_ID_SUBMISSION: 0,
 	WORKFLOW_STAGE_ID_INTERNAL_REVIEW: 0,
@@ -310,6 +304,11 @@ var _ = {
  * @type {Object}
  */
 var pkp = {
+	currentUser: {
+		id: 0,
+		csrfToken: '',
+		roles: []
+	},
 	eventBus: {
 		$emit: function(name, data) {},
 		$on: function(name, callback) {},

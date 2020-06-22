@@ -170,11 +170,14 @@ class NotificationsGridHandler extends GridHandler {
 
 		$selectedElements = (array) $request->getUserVar('selectedElements');
 		foreach ($selectedElements as $notificationId) {
-			if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
+			if ($notificationDao->getById($notificationId, $user->getId())) {
 				$notificationDao->setDateRead($notificationId, null);
 			}
 		}
-		return DAO::getDataChangedEvent(null, null, $selectedElements);
+
+		$json = DAO::getDataChangedEvent(null, null, $selectedElements);
+		$json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
+		return $json;
 	}
 
 	/**
@@ -201,7 +204,9 @@ class NotificationsGridHandler extends GridHandler {
 		} else {
 			// The notification has been marked read explicitly.
 			// Update its status in the grid.
-			return DAO::getDataChangedEvent(null, null, $selectedElements);
+			$json = DAO::getDataChangedEvent(null, null, $selectedElements);
+			$json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
+			return $json;
 		}
 	}
 
@@ -221,7 +226,9 @@ class NotificationsGridHandler extends GridHandler {
 				$notificationDao->deleteObject($notification);
 			}
 		}
-		return DAO::getDataChangedEvent();
+		$json = DAO::getDataChangedEvent(null, null, $selectedElements);
+		$json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
+		return $json;
 	}
 
 	/**
@@ -230,10 +237,9 @@ class NotificationsGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
-	function getUnreadNotificationsCount($args, $request) {
+	function getUnreadNotificationsCount($user) {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-		$user = $request->getUser();
-		return new JSONMessage(true, $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK));
+		return (int) $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK);
 	}
 }
 

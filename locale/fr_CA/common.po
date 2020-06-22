@@ -783,6 +783,9 @@ msgstr "Élément"
 msgid "common.uninitiated"
 msgstr "Non-initié-e"
 
+msgid "common.unknownError"
+msgstr "Une erreur imprévue est survenue. Veuillez recharger la page et essayer à nouveau."
+
 msgid "common.unread"
 msgstr "Non lu-e"
 
@@ -1044,9 +1047,6 @@ msgstr "Veuillez corriger {$count} erreurs."
 msgid "form.errors"
 msgstr "Le formulaire n'a pas été enregistré car {$ count} erreurs ont été rencontrées. Veuillez corriger ces erreurs et réessayer."
 
-msgid "form.errorUnknown"
-msgstr "Une erreur inattendue est survenue. Vous avez peut-être été déconnecté-e. Veuillez recharger la page et essayer de nouveau."
-
 msgid "form.errorsOccurred"
 msgstr "Des erreurs se sont produites pendant le traitement du formulaire"
 
@@ -1061,9 +1061,6 @@ msgstr "contient"
 
 msgid "form.is"
 msgstr "est"
-
-msgid "form.missingRequired"
-msgstr "Ce champ est requis."
 
 msgid "form.startsWith"
 msgstr "commence par"
@@ -1390,12 +1387,6 @@ msgstr "Type d'annoncé modifié."
 msgid "notification.removedAnnouncementType"
 msgstr "Type d'annonce supprimé."
 
-msgid "notification.addedAnnouncement"
-msgstr "Annonce ajoutée."
-
-msgid "notification.editedAnnouncement"
-msgstr "Annonce modifiée."
-
 msgid "notification.removedAnnouncement"
 msgstr "Annonce supprimée."
 
@@ -1515,9 +1506,6 @@ msgstr "Tous les termes des champs indexés"
 
 msgid "search.matchAll"
 msgstr "Dans toutes les catégories"
-
-msgid "search.noKeywordError"
-msgstr "Vous devez entrer au moins un mot-clé de recherche."
 
 msgid "search.noResults"
 msgstr "Aucun résultat"

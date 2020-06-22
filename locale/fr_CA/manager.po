@@ -160,17 +160,8 @@ msgstr "Production"
 msgid "manager.publication.emails"
 msgstr "Courriels"
 
-msgid "manager.publication.emailSetup.success"
-msgstr "Les paramètres de courriels ont été mis à jour."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Conseils aux évaluateurs-trices"
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "Les conseils aux évaluateurs-trices ont été mis à jour."
-
-msgid "manager.publication.reviewSetup.success"
-msgstr "Les paramètres d'évaluation ont été mis à jour."
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Les renseignements du rappel d'évaluation ont été mis à jour."
@@ -183,9 +174,6 @@ msgstr "Êtes-vous certain-e de vouloir réinitialiser ce modèle de courriel à
 
 msgid "manager.emails.addEmail"
 msgstr "Ajouter un modèle de courriel"
-
-msgid "manager.emails.addEmail.success"
-msgstr "Le modèle de courriel a été ajouté."
 
 msgid "manager.emails.createEmail"
 msgstr "Créer un courriel"
@@ -207,9 +195,6 @@ msgstr "Vous êtes sur le point de désactiver ce modèle de courriel. Si des pr
 
 msgid "manager.emails.editEmail"
 msgstr "Modifier un courriel"
-
-msgid "manager.emails.editEmail.success"
-msgstr "Le modèle de courriel a été modifié."
 
 msgid "manager.emails.editTestExample"
 msgstr "Modifier l'exemple du test de courriel"
@@ -659,12 +644,6 @@ msgstr "Tout ce que vous inscrirez ici apparaîtra sur votre page d'accueil."
 msgid "manager.setup.advanced"
 msgstr "Configuration avançée"
 
-msgid "manager.setup.appearance.success"
-msgstr "Les paramètres d'apparence ont été mis à jour."
-
-msgid "manager.setup.contact.success"
-msgstr "Les coordonnées de cette presse ont été mises à jour."
-
 msgid "manager.setup.copyrightNotice"
 msgstr "Avis de droit d'auteur"
 
@@ -676,9 +655,6 @@ msgstr "Directives aux auteurs-es"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr "Les lignes directrices comprennent des normes bibliographiques et de mise en forme ainsi que des exemples de formats de citation usuels à employer dans les soumissions."
-
-msgid "manager.setup.authorGuidelines.success"
-msgstr "Les directives aux auteurs-es ont bien été mises à jour."
 
 msgid "manager.setup.checklist"
 msgstr "Liste de vérification"
@@ -820,9 +796,6 @@ msgstr "Personne-ressource pour le soutien technique"
 
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr "Une personne-ressource qui peut aider les rédacteurs-trices, les auteurs-es et les évaluateurs-trices à résoudre les difficultés rencontrées durant la soumission, l'évaluation, la révision ou la publication."
-
-msgid "manager.setup.theme.success"
-msgstr "Le thème a été mis à jour. <a href=\"{$url}\" target=\"_blank\">Afficher</a>"
 
 msgid "manager.setup.theme"
 msgstr "Thème"
@@ -1088,12 +1061,6 @@ msgstr "Paramètre régional désactivé."
 
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} est défini en tant que paramètre régional principal."
-
-msgid "notification.localeInstalled"
-msgstr "Tous les paramètres régionaux sélectionnés sont installés et activés."
-
-msgid "notification.localeUninstalled"
-msgstr "Le paramètre régional {$locale} est désinstallé."
 
 msgid "notification.localeReloaded"
 msgstr "Le paramètre régional {$locale} a été rechargé."
@@ -1815,9 +1782,6 @@ msgstr ""
 "une étiquette temporelle, une date ou une intervalle de dates) ou un "
 "juridiction (telle qu'une entité administrative nommée)."
 
-msgid "manager.setup.metadata.success"
-msgstr "Les métadonnées de la soumission ont bien été mises à jour."
-
 msgid "settings.roles.permitMetadataEdit"
 msgstr "Permettre l'édition des métadonnées de la soumission."
 
@@ -1837,11 +1801,6 @@ msgstr ""
 
 msgid "manager.distribution.license.other"
 msgstr "Autre URL de la licence"
-
-msgid "manager.setup.userAccess.success"
-msgstr ""
-"Les renseignements d'accès de l'utilisateur-trice à cette revue on été mis à "
-"jour."
 
 msgid "manager.setup.metadata.disciplines.enable"
 msgstr "Activer la métadonnée « Disciplines »"
@@ -1871,9 +1830,6 @@ msgstr "Demander à l'auteur-e de fournir un URL source pendant la soumission."
 
 msgid "manager.distribution.licenseTerms"
 msgstr "Termes de la licence"
-
-msgid "manager.distribution.license.success"
-msgstr "Les clauses de la licence ont été mises à jour. "
 
 msgid "manager.distribution.license"
 msgstr "Licence"

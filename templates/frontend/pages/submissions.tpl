@@ -21,7 +21,7 @@
 	<div class="cmp_notification">
 		{if $sections|@count == 0}
 			{translate key="author.submit.notAccepting"}
-		{elseif !$submissionsEnabled}
+		{elseif !$currentContext->getData('enableSubmissions')}
 			{translate key="manager.setup.allowSubmissions.enableSubmissions.notAccepting"}
 		{else}
 			{if $isUserLoggedIn}
@@ -40,7 +40,7 @@
 		<div class="submission_checklist">
 			<h2>
 				{translate key="about.submissionPreparationChecklist"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission" sectionTitleKey="about.submissionPreparationChecklist"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/submissionChecklist" sectionTitleKey="about.submissionPreparationChecklist"}
 			</h2>
 			{translate key="about.submissionPreparationChecklist.description"}
 			<ul>
@@ -57,7 +57,7 @@
 	<div class="author_guidelines" id="authorGuidelines">
 		<h2>
 			{translate key="about.authorGuidelines"}
-			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission" sectionTitleKey="about.authorGuidelines"}
+			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submission/authorGuidelines" sectionTitleKey="about.authorGuidelines"}
 		</h2>
 		{$currentContext->getLocalizedData('authorGuidelines')}
 	</div>
@@ -82,7 +82,7 @@
 		<div class="copyright_notice">
 			<h2>
 				{translate key="about.copyrightNotice"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="distribution" anchor="license" sectionTitleKey="about.copyrightNotice"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/authorGuidelines" sectionTitleKey="about.copyrightNotice"}
 			</h2>
 			{$currentContext->getLocalizedData('copyrightNotice')}
 		</div>
@@ -92,7 +92,7 @@
 	<div class="privacy_statement" id="privacyStatement">
 		<h2>
 			{translate key="about.privacyStatement"}
-			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="setup" sectionTitleKey="about.privacyStatement"}
+			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="setup/privacy" sectionTitleKey="about.privacyStatement"}
 		</h2>
 		{$currentContext->getLocalizedData('privacyStatement')}
 	</div>

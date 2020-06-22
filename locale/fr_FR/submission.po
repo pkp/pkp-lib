@@ -959,6 +959,9 @@ msgstr "Rappeler un utilisateur"
 msgid "notification.type.editorAssignment"
 msgstr "Il faut choisir un rédacteur en chef afin d'entamer le processus d'évaluation. Veuillez ajouter un rédacteur en chef en utilisant le lien Participants ci-haut."
 
+msgid "notification.type.submissionNewVersion"
+msgstr "Une nouvelle version d'une soumission a été créée"
+
 msgid "grid.reviewAttachments.title"
 msgstr "Pièces jointes du rapporteur"
 

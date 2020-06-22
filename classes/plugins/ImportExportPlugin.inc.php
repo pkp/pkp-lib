@@ -64,6 +64,20 @@ abstract class ImportExportPlugin extends Plugin {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->registerPlugin('function', 'plugin_url', array($this, 'pluginUrl'));
 		$this->_request = $request; // Store this for use by the pluginUrl function
+		$templateMgr->assign([
+			'breadcrumbs' => [
+				[
+					'id' => 'tools',
+					'name' => __('navigation.tools'),
+					'url' => $request->getRouter()->url($request, null, 'management', 'tools'),
+				],
+				[
+					'id' => $this->getPluginPath(),
+					'name' => $this->getDisplayName()
+				],
+			],
+			'pageTitle' => $this->getDisplayName(),
+		]);
 	}
 
 	/**

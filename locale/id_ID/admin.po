@@ -69,18 +69,6 @@ msgstr "Akhiri Sesi Pengguna"
 msgid "admin.languages.confirmReload"
 msgstr "Apakah Anda yakin ingin memuat ulang locale ini? Ini akan menghapus semua data spesifik-locale yang sudah ada seperti template email yang disesuaikan."
 
-msgid "admin.languages.installedLocales"
-msgstr "Locale yang diinstal"
-
-msgid "admin.languages.installLanguages"
-msgstr "Mengatur Locale"
-
-msgid "admin.languages.installLocales"
-msgstr "Instal"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Instal Locale"
-
 msgid "admin.languages.languageSettings"
 msgstr "Pengaturan Locale"
 
@@ -223,9 +211,6 @@ msgstr ""
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Terbitkan naskah yang telah dijadwalkan terbit"
 
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Tidak ada bahasa yang dapat diunduh."
-
 msgid "admin.error.executingUtil"
 msgstr ""
 "Error: tidak dapat mejalankan \"{$utilPath}\".  Periksa pengaturan {$utilVar}"
@@ -323,9 +308,6 @@ msgstr "Proses tugas dimulai."
 msgid "admin.scheduledTask"
 msgstr "Tugas Terjadwal"
 
-msgid "admin.languages.installLocale"
-msgstr "Install Bahasa"
-
 msgid "admin.languages.availableLocales"
 msgstr "Bahasa yang Tersedia"
 
@@ -339,20 +321,6 @@ msgid "admin.languages.cantDisable"
 msgstr ""
 "Bahasa ini adalah bahasa utama situs web. Anda tidak bisa menonaktifkannya "
 "sebelum memilih bahasa utama lain."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr ""
-"Tidak dapat menambahkan bahasa baru ke dalam file registry bahasa, biasanya "
-"\"registry/locales.xml\"."
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Tidak dapat membuka deskriptor bahasa dari situs web PKP."
-
-msgid "admin.languages.downloadLocales"
-msgstr "Unduh Bahasa"
-
-msgid "admin.languages.download"
-msgstr "Unduh Bahasa"
 
 msgid "admin.contexts.confirmDelete"
 msgstr ""

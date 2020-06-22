@@ -11,39 +11,42 @@
 // Vue lib and custom mixins
 import Vue from 'vue';
 import GlobalMixins from '@/mixins/global.js';
+import VModal from 'vue-js-modal';
 import VTooltip from 'v-tooltip';
 import VueScrollTo from 'vue-scrollto';
+
+// Global components of UI Library
+import Badge from '@/components/Badge/Badge.vue';
+import Icon from '@/components/Icon/Icon.vue';
+import PkpButton from '@/components/Button/Button.vue';
+import Spinner from '@/components/Spinner/Spinner.vue';
+import Tab from '@/components/Tabs/Tab.vue';
+import Tabs from '@/components/Tabs/Tabs.vue';
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
 
+Vue.use(VModal, {
+	dynamic: true,
+	injectModalsContainer: true
+});
 Vue.use(VTooltip, {defaultTrigger: 'click'});
 Vue.use(VueScrollTo);
 Vue.mixin(GlobalMixins);
+
+// Register global components
+Vue.component('Badge', Badge);
+Vue.component('Icon', Icon);
+Vue.component('PkpButton', PkpButton);
+Vue.component('Spinner', Spinner);
+Vue.component('Tab', Tab);
+Vue.component('Tabs', Tabs);
 
 export default {
 	Vue: Vue,
 	registry: VueRegistry,
 	eventBus: new Vue(),
 	const: {},
-	/**
-	 * Helper function to determine if the current user has a role
-	 *
-	 * @param int|array roles The role ID to look for (pkp.const.ROLE_ID...)
-	 * @return bool
-	 */
-	userHasRole: function(roles) {
-		if (!Array.isArray(roles)) {
-			roles = [roles];
-		}
-
-		var hasRole = false;
-		roles.forEach(role => {
-			if ($.pkp.currentUser.accessRoles.indexOf(role) > -1) {
-				hasRole = true;
-			}
-		});
-
-		return hasRole;
-	}
+	localeKeys: {},
+	currentUser: null
 };

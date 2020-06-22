@@ -426,12 +426,6 @@ msgstr "{$count} aktif"
 msgid "reviewer.list.filterRating"
 msgstr "Nilai minimal"
 
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} dari {$total} mitra bestari"
-
-msgid "reviewer.list.count"
-msgstr "{$count} mitra bestari"
-
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Pola {$pattern} tidak diperbolehkan untuk identifier publik."
 

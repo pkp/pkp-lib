@@ -111,8 +111,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				return $this->_getTranslatedKeyWithParameters('common.pluginEnabled', $notification->getId());
 			case NOTIFICATION_TYPE_PLUGIN_DISABLED:
 				return $this->_getTranslatedKeyWithParameters('common.pluginDisabled', $notification->getId());
-			case NOTIFICATION_TYPE_LOCALE_INSTALLED:
-				return $this->_getTranslatedKeyWithParameters('admin.languages.localeInstalled', $notification->getId());
 			case NOTIFICATION_TYPE_REVIEWER_COMMENT:
 				assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ASSIGNMENT && is_numeric($notification->getAssocId()));
 				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
@@ -363,6 +361,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 		switch ($notificationType) {
 			case NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
 			case NOTIFICATION_TYPE_METADATA_MODIFIED:
+			case NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
 			case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
 				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
 				import('lib.pkp.classes.notification.managerDelegate.SubmissionNotificationManager');
@@ -453,5 +452,4 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 		return __($key, $this->getParamsForCurrentLocale($params));
 	}
 }
-
 

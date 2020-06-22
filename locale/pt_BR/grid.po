@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2020-06-04 18:39+0000\n"
+"PO-Revision-Date: 2020-06-07 13:56+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/grid/pt_BR/>\n"
@@ -291,7 +291,7 @@ msgid "grid.action.history"
 msgstr "Ver Histórico"
 
 msgid "grid.action.unconsiderReview"
-msgstr "Esta revisão está completa, mas você pode desconsiderá-la"
+msgstr "Esta avaliação está completa, mas você pode desconsiderá-la"
 
 msgid "grid.action.enable"
 msgstr "Habilitar"
@@ -318,7 +318,7 @@ msgid "grid.action.copy"
 msgstr "Copiar"
 
 msgid "grid.action.preview"
-msgstr "Previsualizar"
+msgstr "Pré-visualizar"
 
 msgid "grid.action.install"
 msgstr "Instalar"
@@ -339,7 +339,8 @@ msgid "grid.task.status.unfinished"
 msgstr "Tarefa não finalizada"
 
 msgid "grid.task.status.reviewReady"
-msgstr "A revisão está pronte. Clique no ícone de anotação da direita para lê-la."
+msgstr ""
+"A avaliação está pronta. Clique no ícone de anotação da direita para lê-la."
 
 msgid "grid.columns.actions"
 msgstr "Ações"
@@ -411,13 +412,13 @@ msgid "grid.libraryFiles.column.files"
 msgstr "Documentos"
 
 msgid "grid.libraryFiles.submission.title"
-msgstr "Biblioteca de submissão"
+msgstr "Biblioteca da Submissão"
 
 msgid "grid.libraryFiles.editorial.title"
 msgstr "Biblioteca editorial"
 
 msgid "grid.libraryFiles.review.title"
-msgstr "Bilbioteca de revisão"
+msgstr "Biblioteca de avaliação"
 
 msgid "grid.libraryFiles.production.title"
 msgstr "Biblioteca de editoração"

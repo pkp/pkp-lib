@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2020-02-21 18:06+0000\n"
+"PO-Revision-Date: 2020-06-08 14:06+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl/>\n"
@@ -1769,9 +1769,6 @@ msgstr "Ste prepričani, da želite umakniti to objavo?"
 msgid "publication.unpublish"
 msgstr "Umakni objavo"
 
-msgid "publication.titleAbstract.success"
-msgstr "Naslov in izvleček sta bila posodobljena."
-
 msgid "publication.titleAbstract"
 msgstr "Naslov in izvleček"
 
@@ -1795,26 +1792,14 @@ msgstr ""
 msgid "publication.required.declined"
 msgstr "Zavrnjen prispevek ne more biti objavljen."
 
-msgid "publication.publish.success"
-msgstr "Status objave je bil uspešno spremenjen."
-
 msgid "publication.publish.requirements"
 msgstr "Spodnje zahteve morajo biti izpolnjene pred objavo."
 
 msgid "publication.publish"
 msgstr "Objavi"
 
-msgid "publication.publicationLicense.success"
-msgstr "Avtorske pravice in informacije o licenci so bile posodobljene."
-
 msgid "publication.publicationLicense"
 msgstr "Dovoljenja in razkritja"
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "Identifikatorji so bili posodobljeni."
-
-msgid "publication.metadata.success"
-msgstr "Metapodatki so bili posodobljeni."
 
 msgid "publication.invalidSubmission"
 msgstr "Prispevka za objavo ni bilo mogoče najti."
@@ -1858,9 +1843,6 @@ msgstr ""
 
 msgid "publication.contributors"
 msgstr "Sodelujoči"
-
-msgid "publication.citations.success"
-msgstr "Reference so bile posodobljene."
 
 msgid "submission.publication"
 msgstr "Objava"
@@ -2049,3 +2031,24 @@ msgstr ""
 "ID založnika se lahko uporabi za shranjevanje v zunanje baze. Npr. izvoz za "
 "deponiranje v PubMed lahko vključuje ID založnika. Ta ID se ne uporablja za "
 "DOI."
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Dni od zadnje aktivnosti"
+
+msgid "submission.list.activity"
+msgstr "Aktivnost"
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Ustvarjen je bil nov recenzijski krog."
+
+msgid "editor.submission.decision.newRound"
+msgstr "Nov recenzijski krog"
+
+msgid "submission.downloads"
+msgstr "Prenosi"
+
+msgid "submission.additionalFiles"
+msgstr "Dodatne datoteke"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} od {$title}"

@@ -20,6 +20,10 @@ define('SUBMISSIONS_LIST_MY_QUEUE', 'myQueue');
 define('SUBMISSIONS_LIST_UNASSIGNED', 'unassigned');
 
 class DashboardHandler extends Handler {
+
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
+
 	/**
 	 * Constructor
 	 */
@@ -70,13 +74,14 @@ class DashboardHandler extends Handler {
 					'status' => STATUS_QUEUED,
 					'assignedTo' => (int) $request->getUser()->getId(),
 				],
+				'includeInactiveSectionFilters' => true,
 			]
 		);
 		$myQueueListPanel->set([
 			'items' => $myQueueListPanel->getItems($request),
 			'itemsMax' => $myQueueListPanel->getItemsMax()
 		]);
-		$lists[$myQueueListPanel->id] = $myQueueListPanel->getConfig(true);
+		$lists[$myQueueListPanel->id] = $myQueueListPanel->getConfig();
 
 		if (!empty(array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles))) {
 
@@ -91,9 +96,10 @@ class DashboardHandler extends Handler {
 						'assignedTo' => -1,
 					],
 					'lazyLoad' => true,
+					'includeInactiveSectionFilters' => true,
 				]
 			);
-			$lists[$unassignedListPanel->id] = $unassignedListPanel->getConfig(true);
+			$lists[$unassignedListPanel->id] = $unassignedListPanel->getConfig();
 
 			// Active
 			$activeListPanel = new \APP\components\listPanels\SubmissionsListPanel(
@@ -128,11 +134,10 @@ class DashboardHandler extends Handler {
 		);
 		$lists[$archivedListPanel->id] = $archivedListPanel->getConfig();
 
-		$templateMgr->assign('containerData', ['components' => $lists]);
-
-		// Check if Submissions are enabled
-		$submissionsEnabled = $context->getData('enableSubmissions');
-		$templateMgr->assign('submissionsEnabled', $submissionsEnabled);
+		$templateMgr->setState(['components' => $lists]);
+		$templateMgr->assign([
+			'pageTitle' => __('navigation.submissions'),
+		]);
 
 		return $templateMgr->display('dashboard/index.tpl');
 	}

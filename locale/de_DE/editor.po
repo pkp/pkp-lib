@@ -366,12 +366,6 @@ msgstr "Die öffentliche Kennung '{$publicIdentifier}' darf keine Zahl sein."
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Das Muster {$pattern} ist für die Bildung der öffentlichen Kennung nicht zulässig."
 
-msgid "reviewer.list.count"
-msgstr "{$count} Gutachter/innen"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} von {$total} Gutachter/innen"
-
 msgid "reviewer.list.filterRating"
 msgstr "Mindestens bewertet"
 

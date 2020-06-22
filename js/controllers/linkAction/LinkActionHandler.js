@@ -254,7 +254,7 @@
 			// redirection.
 			this.trigger('redirectDataChangedToGrid', [eventData]);
 		}
-		this.trigger('notifyUser', [this.getHtmlElement()]);
+		this.trigger('notifyUser');
 	};
 
 

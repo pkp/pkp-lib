@@ -46,12 +46,12 @@
 		{/fbvFormSection}
 	{/if}
 
-	{fbvFormButtons hideCancel=true submitText="common.save"}
-
 	<p>
 		{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
 		{translate key="user.privacyLink" privacyUrl=$privacyUrl}
 	</p>
 
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
+	{fbvFormButtons hideCancel=true submitText="common.save"}
 </form>

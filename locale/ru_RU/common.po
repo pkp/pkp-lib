@@ -733,6 +733,9 @@ msgstr "Отменить выбор"
 msgid "common.select"
 msgstr "Выбрать"
 
+msgid "common.selectWithName"
+msgstr "Выбрать «{$name}»"
+
 msgid "common.sendEmail"
 msgstr "Отправить письмо электронной почтой"
 
@@ -763,6 +766,9 @@ msgstr "Предложить"
 msgid "common.title"
 msgstr "Заголовок"
 
+msgid "common.titleSeparator"
+msgstr " | "
+
 msgid "common.top"
 msgstr "Верх"
 
@@ -780,6 +786,9 @@ msgstr "Компонент"
 
 msgid "common.uninitiated"
 msgstr "Не начат"
+
+msgid "common.unknownError"
+msgstr "Произошла неожиданная ошибка. Пожалуйста, перезагрузите страницу и попробуйте снова."
 
 msgid "common.unread"
 msgstr "Не прочитан"
@@ -825,6 +834,9 @@ msgstr "Пользователь"
 
 msgid "common.view"
 msgstr "Просмотреть"
+
+msgid "common.viewWithName"
+msgstr "Просмотреть «{$name}»"
 
 msgid "common.viewProfile"
 msgstr "Просмотреть профиль"
@@ -1042,9 +1054,6 @@ msgstr "Пожалуйста, исправьте ошибки: {$count}."
 msgid "form.errors"
 msgstr "Форма не была сохранена, так как были обнаружены ошибки ({$count}). Пожалуйста, исправьте эти ошибки и попробуйте снова."
 
-msgid "form.errorUnknown"
-msgstr "Произошла неожиданная ошибка. Возможно, вы вышли из системы. Пожалуйста, перезагрузите страницу и попробуйте снова."
-
 msgid "form.errorsOccurred"
 msgstr "При обработке этой формы произошли ошибки"
 
@@ -1059,9 +1068,6 @@ msgstr "содержит"
 
 msgid "form.is"
 msgstr "равно"
-
-msgid "form.missingRequired"
-msgstr "Это поле обязательно."
 
 msgid "form.startsWith"
 msgstr "начинается с"
@@ -1086,6 +1092,9 @@ msgstr "Вы должны ввести корректный ID."
 
 msgid "form.resubmit"
 msgstr "Отправить снова"
+
+msgid "form.saved"
+msgstr "Сохранено"
 
 msgid "form.saveToUpload"
 msgstr "Используйте «Сохранить» для загрузки файла на сервер."
@@ -1264,6 +1273,9 @@ msgstr "Статистика"
 msgid "navigation.browse"
 msgstr "Просматривать"
 
+msgid "navigation.backTo"
+msgstr "⟵ Назад к «{$page}»"
+
 msgid "navigation.browseByAuthor"
 msgstr "По автору"
 
@@ -1390,12 +1402,6 @@ msgstr "Тип объявлений отредактирован."
 msgid "notification.removedAnnouncementType"
 msgstr "Тип объявлений удален."
 
-msgid "notification.addedAnnouncement"
-msgstr "Объявление добавлено."
-
-msgid "notification.editedAnnouncement"
-msgstr "Объявление отредактировано."
-
 msgid "notification.removedAnnouncement"
 msgstr "Объявление удалено."
 
@@ -1454,7 +1460,7 @@ msgid "notification.savedSubmissionMetadata"
 msgstr "Сохранены метаданные материала."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Отправить уведомление электронной почтой всем зарегистрированным пользователям"
+msgstr "Отправить об этом письмо электронной почтой всем зарегистрированным пользователям."
 
 msgid "search.author"
 msgstr "По автору"
@@ -1516,9 +1522,6 @@ msgstr "Все поля терминов для индексирования"
 msgid "search.matchAll"
 msgstr "Совпадение по всем категориям"
 
-msgid "search.noKeywordError"
-msgstr "Вы должны ввести хотя бы одно ключевое слово для поиска."
-
 msgid "search.noResults"
 msgstr "Нет результатов"
 
@@ -1575,6 +1578,9 @@ msgstr "Задачи"
 
 msgid "dashboard.myQueue"
 msgstr "Мои дела"
+
+msgid "review.blindPeerReview.title"
+msgstr "Обеспечение слепого рецензирования"
 
 msgid "review.blindPeerReview"
 msgstr ""

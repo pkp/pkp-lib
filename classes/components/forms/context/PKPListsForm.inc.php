@@ -34,7 +34,6 @@ class PKPListsForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;
-		$this->successMessage = __('manager.setup.lists.success');
 		$this->locales = $locales;
 
 		$this->addField(new FieldText('itemsPerPage', [

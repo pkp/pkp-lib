@@ -55,16 +55,11 @@
 
 		{if $userId}
 			{fbvFormSection}
-				{assign var="uuid" value=""|uniqid|escape}
-				<div id="userGroups-{$uuid}">
-						<list-panel
-							v-bind="components.selectRole"
-							@set="set"
-						/>
-				</div>
-					<script type="text/javascript">
-						pkp.registry.init('userGroups-{$uuid}', 'Container', {$selectRoleListData|json_encode});
-					</script>
+				{fbvFormSection list=true title="grid.user.userRoles"}
+					{foreach from=$allUserGroups item="userGroup" key="id"}
+						{fbvElement type="checkbox" id="userGroupIds[]" value=$id checked=in_array($id, $assignedUserGroups) label=$userGroup translate=false}
+					{/foreach}
+				{/fbvFormSection}
 			{/fbvFormSection}
 		{/if}
 		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

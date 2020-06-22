@@ -1358,6 +1358,9 @@ msgstr "Documenti della proposta"
 msgid "notification.type.editorAssign"
 msgstr "Sei stato asseganto come editor alla proposta \"{$title}\"."
 
+msgid "notification.type.submissionNewVersion"
+msgstr "È stata creata una nuova versione di un invio"
+
 msgid "notification.type.copyeditorRequest"
 msgstr "Ti è stato chiesto di revisonare il copyediting per il titolo \"{$title}\"."
 
@@ -1768,9 +1771,6 @@ msgstr "Confermi di non voler pubblicare questo articolo?"
 msgid "publication.unpublish"
 msgstr "Rimuovi dalla pubblicazione"
 
-msgid "publication.titleAbstract.success"
-msgstr "Titolo e abstract sono stati aggiornati."
-
 msgid "publication.titleAbstract"
 msgstr "Titolo e abstract"
 
@@ -1794,26 +1794,14 @@ msgstr ""
 msgid "publication.required.declined"
 msgstr "Un'articolo rigettato non puo' essere pubblicato."
 
-msgid "publication.publish.success"
-msgstr "Lo status di pubblicazione sono stati modificati."
-
 msgid "publication.publish.requirements"
 msgstr "Prima della pubblicazione confermare i seguenti requisiti."
 
 msgid "publication.publish"
 msgstr "Pubblicare"
 
-msgid "publication.publicationLicense.success"
-msgstr "Le informazioni su copyright e licenza sono state aggiornate."
-
 msgid "publication.publicationLicense"
 msgstr "Permessi e dichiarazioni"
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "Gli identificatori sono stati aggiornati."
-
-msgid "publication.metadata.success"
-msgstr "I metadati sono stati aggiornati."
 
 msgid "publication.invalidSubmission"
 msgstr "L'articolo per questa uscita non è stato trovato."
@@ -1858,9 +1846,6 @@ msgstr ""
 
 msgid "publication.contributors"
 msgstr "Co-autori"
-
-msgid "publication.citations.success"
-msgstr "Le referenze sono state aggiornate."
 
 msgid "submission.publication"
 msgstr "Pubblicazione"

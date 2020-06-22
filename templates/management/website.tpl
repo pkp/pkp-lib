@@ -7,17 +7,20 @@
  *
  * The website settings page.
  *}
-{include file="common/header.tpl" pageTitle="manager.website.title"}
+{extends file="layouts/backend.tpl"}
 
-{if !$submissionsEnabled}
-	<div class="pkp_notification">
-		{capture assign="notificationContents"}{translate key="manager.setup.allowSubmissions.enableSubmissions.notAccepting" }{/capture}
-		{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId="submissionsEnabledWarning-"|uniqid notificationStyleClass="notifyWarning" notificationTitle="common.warning"|translate notificationContents=$notificationContents}
-	</div>
-{/if}
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="manager.website.title"}
+	</h1>
 
-{assign var="uuid" value=""|uniqid|escape}
-<div id="settings-context-{$uuid}">
+	{if !$currentContext->getData('enableSubmissions')}
+		<div class="pkp_notification">
+			{capture assign="notificationContents"}{translate key="manager.setup.allowSubmissions.enableSubmissions.notAccepting" }{/capture}
+			{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId="submissionsEnabledWarning-"|uniqid notificationStyleClass="notifyWarning" notificationTitle="common.warning"|translate notificationContents=$notificationContents}
+		</div>
+	{/if}
+
 	<tabs>
 		<tab id="appearance" label="{translate key="manager.website.appearance"}">
 			{help file="settings/website-settings" class="pkp_help_tab"}
@@ -99,9 +102,4 @@
 		</tab>
 		{call_hook name="Template::Settings::website"}
 	</tabs>
-</div>
-<script type="text/javascript">
-	pkp.registry.init('settings-context-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
-</script>
-
-{include file="common/footer.tpl"}
+{/block}

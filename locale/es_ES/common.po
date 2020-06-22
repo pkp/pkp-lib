@@ -623,6 +623,9 @@ msgstr "Tipo"
 msgid "common.uninitiated"
 msgstr "Sin iniciar"
 
+msgid "common.unknownError"
+msgstr "Un error inesperado ha ocurrido. Por favor recargue la página e intente nuevamente."
+
 msgid "common.unread"
 msgstr "No leído"
 
@@ -1049,12 +1052,6 @@ msgstr "Tipo de aviso editado."
 msgid "notification.removedAnnouncementType"
 msgstr "Tipo de aviso eliminado."
 
-msgid "notification.addedAnnouncement"
-msgstr "Aviso añadido."
-
-msgid "notification.editedAnnouncement"
-msgstr "Aviso editado."
-
 msgid "notification.removedAnnouncement"
 msgstr "Aviso eliminado."
 
@@ -1165,9 +1162,6 @@ msgstr "Todos los campos de términos de la indexación"
 
 msgid "search.matchAll"
 msgstr "Coincidencia en todas las categorías"
-
-msgid "search.noKeywordError"
-msgstr "Debe introducir al menos un término de búsqueda."
 
 msgid "search.noResults"
 msgstr "No hay resultados"
@@ -1678,14 +1672,6 @@ msgid "form.csrfInvalid"
 msgstr ""
 "No se puedo enviar el formulario. Puede que haya sido desconectado. Recargue "
 "la página y vuelva a intentarlo."
-
-msgid "form.missingRequired"
-msgstr "Este campo es obligatorio."
-
-msgid "form.errorUnknown"
-msgstr ""
-"Ocurrió un error inesperado. Puede que haya sido desconectado. Recargue la "
-"página y vuelva a intentarlo."
 
 msgid "form.errors"
 msgstr ""

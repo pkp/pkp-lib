@@ -15,8 +15,30 @@
  */
 
 import('lib.pkp.classes.announcement.Announcement');
+import('lib.pkp.classes.db.SchemaDAO');
 
-class AnnouncementDAO extends DAO {
+class AnnouncementDAO extends SchemaDAO {
+	/** @var string One of the SCHEMA_... constants */
+	var $schemaName = SCHEMA_ANNOUNCEMENT;
+
+	/** @var string The name of the primary table for this object */
+	var $tableName = 'announcements';
+
+	/** @var string The name of the settings table for this object */
+	var $settingsTableName = 'announcement_settings';
+
+	/** @var string The column name for the object id in primary and settings tables */
+	var $primaryKeyColumn = 'announcement_id';
+
+	/** @var array Maps schema properties for the primary table to their column names */
+	var $primaryTableColumns = [
+		'id' => 'announcement_id',
+		'assocId' => 'assoc_id',
+		'assocType' => 'assoc_type',
+		'typeId' => 'type_id',
+		'dateExpire' => 'date_expire',
+		'datePosted' => 'date_posted',
+	];
 
 	/**
 	 * Retrieve an announcement by announcement ID.
@@ -73,121 +95,11 @@ class AnnouncementDAO extends DAO {
 	}
 
 	/**
-	 * Get the list of localized field names for this table
-	 * @return array
-	 */
-	function getLocaleFieldNames() {
-		return array('title', 'descriptionShort', 'description');
-	}
-
-	/**
 	 * Get a new data object.
 	 * @return DataObject
 	 */
 	function newDataObject() {
 		return new Announcement();
-	}
-
-	/**
-	 * Internal function to return an Announcement object from a row.
-	 * @param $row array
-	 * @return Announcement
-	 */
-	function _fromRow($row) {
-		$announcement = $this->newDataObject();
-		$announcement->setId($row['announcement_id']);
-		$announcement->setAssocType($row['assoc_type']);
-		$announcement->setAssocId($row['assoc_id']);
-		$announcement->setTypeId($row['type_id']);
-		$announcement->setDateExpire($this->datetimeFromDB($row['date_expire']));
-		$announcement->setDatePosted($this->datetimeFromDB($row['date_posted']));
-
-		$this->getDataObjectSettings('announcement_settings', 'announcement_id', $row['announcement_id'], $announcement);
-
-		return $announcement;
-	}
-
-	/**
-	 * Update the settings for this object
-	 * @param $announcement object
-	 */
-	function updateLocaleFields($announcement) {
-		$this->updateDataObjectSettings('announcement_settings', $announcement, array(
-			'announcement_id' => $announcement->getId()
-		));
-	}
-
-	/**
-	 * Insert a new Announcement.
-	 * @param $announcement Announcement
-	 * @return int
-	 */
-	function insertObject($announcement) {
-		$dateExpire = $announcement->getDateExpire();
-		$this->update(
-			sprintf('INSERT INTO announcements
-				(assoc_type, assoc_id, type_id, date_expire, date_posted)
-				VALUES
-				(?, ?, ?, %s, %s)',
-				!empty($dateExpire)?$this->datetimeToDB($dateExpire):'null', $this->datetimeToDB($announcement->getDatetimePosted())),
-			array(
-				(int) $announcement->getAssocType(),
-				(int) $announcement->getAssocId(),
-				(int) $announcement->getTypeId()
-			)
-		);
-		$announcement->setId($this->getInsertId());
-		$this->updateLocaleFields($announcement);
-		return $announcement->getId();
-	}
-
-	/**
-	 * Update an existing announcement.
-	 * @param $announcement Announcement
-	 * @return boolean
-	 */
-	function updateObject($announcement) {
-		$dateExpire = $announcement->getDateExpire();
-		$returner = $this->update(
-			sprintf('UPDATE announcements
-				SET
-					assoc_type = ?,
-					assoc_id = ?,
-					type_id = ?,
-					date_expire = %s
-				WHERE announcement_id = ?',
-				!empty($dateExpire)?$this->datetimeToDB($dateExpire):'null'),
-			array(
-				(int) $announcement->getAssocType(),
-				(int) $announcement->getAssocId(),
-				(int) $announcement->getTypeId(),
-				(int) $announcement->getId()
-			)
-		);
-		$this->updateLocaleFields($announcement);
-		return $returner;
-	}
-
-	/**
-	 * Delete an announcement.
-	 * @param $announcement Announcement
-	 * @return boolean
-	 */
-	function deleteObject($announcement) {
-		return $this->deleteById($announcement->getId());
-	}
-
-	/**
-	 * Delete an announcement by announcement ID.
-	 * @param $announcementId int
-	 * @return boolean
-	 */
-	function deleteById($announcementId) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-		$notificationDao->deleteByAssoc(ASSOC_TYPE_ANNOUNCEMENT, $announcementId);
-
-		$this->update('DELETE FROM announcement_settings WHERE announcement_id = ?', (int) $announcementId);
-		return $this->update('DELETE FROM announcements WHERE announcement_id = ?', (int) $announcementId);
 	}
 
 	/**

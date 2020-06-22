@@ -85,9 +85,6 @@ msgstr "La demande n'a pu être remplie par manque d'information."
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Le volume, numéro ou année requis-e n'est pas valide."
 
-msgid "api.submissions.unknownError"
-msgstr "Une erreur imprévue est survenue. Veuillez recharger la page et essayer à nouveau."
-
 msgid "api.temporaryFiles.400.noUpload"
 msgstr "Aucun fichier à téléverser n'a pu être trouvé avec la requête."
 

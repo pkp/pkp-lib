@@ -35,7 +35,6 @@ class PKPInformationForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context, $imageUploadUrl) {
 		$this->action = $action;
-		$this->successMessage = __('manager.setup.information.success');
 		$this->locales = $locales;
 
 		$this->addGroup([

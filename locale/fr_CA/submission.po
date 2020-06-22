@@ -1413,6 +1413,9 @@ msgstr "Documents de soumission"
 msgid "notification.type.editorAssign"
 msgstr "Vous avez été assigné-e comme rédacteur-trice pour la soumission « {$title} »."
 
+msgid "notification.type.submissionNewVersion"
+msgstr "Une nouvelle version d'une soumission a été créée"
+
 msgid "notification.type.copyeditorRequest"
 msgstr "Vous avez été invité-e à valider les révisions pour le titre « {$title} »."
 
@@ -1934,9 +1937,6 @@ msgstr "Êtes-vous certain-e de ne pas vouloir que cela soit publié ?"
 msgid "publication.unpublish"
 msgstr "Dépublier"
 
-msgid "publication.titleAbstract.success"
-msgstr "Le titre et résumé ont été mis à jour."
-
 msgid "publication.titleAbstract"
 msgstr "Titre et résumé"
 
@@ -1960,9 +1960,6 @@ msgstr ""
 msgid "publication.required.declined"
 msgstr "Une soumission refusée ne peut pas être publiée."
 
-msgid "publication.publish.success"
-msgstr "Le statut de publication a bien été modifié."
-
 msgid "publication.publish.requirements"
 msgstr ""
 "Les conditions suivantes doivent être remplies avant que ceci ne puisse être "
@@ -1971,17 +1968,8 @@ msgstr ""
 msgid "publication.publish"
 msgstr "Publier"
 
-msgid "publication.publicationLicense.success"
-msgstr "Les informations de droit d'auteur et de licence ont été mises à jour."
-
 msgid "publication.publicationLicense"
 msgstr "Autorisations et divulgation"
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "Les identifiants ont été mis à jour."
-
-msgid "publication.metadata.success"
-msgstr "Les métadonnées ont été mises à jour."
 
 msgid "publication.invalidSubmission"
 msgstr "La soumission pour cette publication n'a pu être trouvée."
@@ -2032,9 +2020,6 @@ msgstr ""
 
 msgid "publication.contributors"
 msgstr "Contributeurs-trices"
-
-msgid "publication.citations.success"
-msgstr "Les références ont été mises à jour."
 
 msgid "submission.publication"
 msgstr "Publication"

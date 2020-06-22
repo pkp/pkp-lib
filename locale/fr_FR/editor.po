@@ -407,12 +407,6 @@ msgstr "Noter la qualité du rapport. Cette note n'est pas accessible par le rap
 msgid "editor.review.reviewerRating.none"
 msgstr "Pas de notation."
 
-msgid "reviewer.list.count"
-msgstr "{$count} rapporteurs"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} sur {$total} rapporteurs"
-
 msgid "reviewer.list.filterRating"
 msgstr "Noté le moins bien"
 

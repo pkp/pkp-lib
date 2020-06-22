@@ -8,11 +8,15 @@
  * Report generator page.
  *
  *}
-{include file="common/header.tpl" pageTitle="manager.statistics.reports"}
+{extends file="layouts/backend.tpl"}
 
-<div class="pkp_page_content pkp_page_statistics">
-    {capture assign=reportGeneratorUrl}{url router=$smarty.const.ROUTE_COMPONENT component="statistics.ReportGeneratorHandler" op="fetchReportGenerator" escape=false}{/capture}
-    {load_url_in_div id="reportGeneratorContainer" url="$reportGeneratorUrl"}
-</div>
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="manager.statistics.reports"}
+	</h1>
 
-{include file="common/footer.tpl"}
+	<div class="pkp_page_content pkp_page_statistics">
+			{capture assign=reportGeneratorUrl}{url router=$smarty.const.ROUTE_COMPONENT component="statistics.ReportGeneratorHandler" op="fetchReportGenerator" escape=false}{/capture}
+			{load_url_in_div id="reportGeneratorContainer" url="$reportGeneratorUrl"}
+	</div>
+{/block}

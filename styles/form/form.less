@@ -303,7 +303,6 @@
 	// Loading indicator
 	.pkp_spinner {
 		opacity: 0;
-		float: right;
 		margin-right: 0.5em;
 		.transition(opacity 0.3s ease-in-out);
 
@@ -330,12 +329,13 @@
 
 // Row of buttons
 .form_buttons {
+	text-align: right;
 
 	a {
-		&:extend(.pkp_button_link all);
+		&:extend(.pkp_button all);
 
 		&.cancelButton {
-			&:extend(.pkp_button_link_offset all);
+			&:extend(.pkp_button_offset all);
 		}
 	}
 }
@@ -738,15 +738,6 @@ a[id^="publicIdentifiersForm-clearObjectsPubIds-button"] {
 		.item_buttons .fa {
 			color: @text-light;
 		}
-	}
-}
-
-// Override form styles that are effecting reviewer selection grid filters
-.pkp_form {
-
-	.pkpListPanel__filterInputLabel {
-		font-size: @font-sml;
-		font-weight: @normal;
 	}
 }
 

@@ -404,12 +404,6 @@ msgstr "إن النمط {$pattern} غير مسموح به للمعرفات ال�
 msgid "editor.submission.schedulePublication"
 msgstr "جدوله للنشر"
 
-msgid "reviewer.list.count"
-msgstr "{$count} محكم/محكمين"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} من أصل {$total} محكم"
-
 msgid "reviewer.list.filterRating"
 msgstr "مقيَّم على الأقل"
 

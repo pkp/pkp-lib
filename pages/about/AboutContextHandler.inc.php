@@ -71,7 +71,6 @@ class AboutContextHandler extends Handler {
 		$this->setupTemplate($request);
 
 		$context = $request->getContext();
-		$submissionsEnabled = $context->getData('enableSubmissions');
 		$checklist = $context->getLocalizedData('submissionChecklist');
 		if (!empty($checklist)) {
 			ksort($checklist);
@@ -96,7 +95,6 @@ class AboutContextHandler extends Handler {
 		}
 
 		$templateMgr->assign('sections', $sections);
-		$templateMgr->assign('submissionsEnabled', $submissionsEnabled);
 
 		$templateMgr->display('frontend/pages/submissions.tpl');
 	}

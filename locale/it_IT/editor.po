@@ -364,12 +364,6 @@ msgstr "Valuta la qualità della revisione effettuata. Questa valutazione non sa
 msgid "editor.review.reviewerRating.none"
 msgstr "Nessuna valutazione"
 
-msgid "reviewer.list.count"
-msgstr "{$count} revisori"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} di {$total} revisori"
-
 msgid "reviewer.list.filterRating"
 msgstr "Valutati al minimo"
 

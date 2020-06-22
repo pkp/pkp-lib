@@ -1121,12 +1121,6 @@ msgstr "S'ha editat un tipus d'avís."
 msgid "notification.removedAnnouncementType"
 msgstr "S'ha eliminat un tipus d'avís."
 
-msgid "notification.addedAnnouncement"
-msgstr "S'ha afegit un avís."
-
-msgid "notification.editedAnnouncement"
-msgstr "S'ha editat un avís."
-
 msgid "notification.removedAnnouncement"
 msgstr "S'ha eliminat un avís."
 
@@ -1238,9 +1232,6 @@ msgstr "Tots els camps de termes de l’índex"
 msgid "search.matchAll"
 msgstr "Coincidència a totes les categories"
 
-msgid "search.noKeywordError"
-msgstr "Heu d’introduir una paraula clau per a la cerca com a mínim."
-
 msgid "search.noResults"
 msgstr "No hi ha resultats"
 
@@ -1273,9 +1264,6 @@ msgstr "Títol"
 
 msgid "search.typeMethodApproach"
 msgstr "Tipus (mètode/enfocament)"
-
-msgid "grid.action.toggleHelp"
-msgstr "Alterna la previsualització de l'ajuda en cua"
 
 msgid "grid.action.downloadFile"
 msgstr "Descarrega aquest fitxer"
@@ -1877,14 +1865,6 @@ msgid "form.csrfInvalid"
 msgstr ""
 "El formulari no s'ha pogut enviar. És possible que hagueu estat "
 "desconnectat. Torneu a carregar la pàgina i torneu-ho a provar."
-
-msgid "form.missingRequired"
-msgstr "Aquest camp és obligatori."
-
-msgid "form.errorUnknown"
-msgstr ""
-"Ha ocorregut un error inesperat. És possible que hagueu estat desconnectat. "
-"Torneu a carregar la pàgina i torneu-ho a provar."
 
 msgid "form.errors"
 msgstr ""

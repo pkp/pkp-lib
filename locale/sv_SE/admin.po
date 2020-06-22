@@ -68,41 +68,14 @@ msgstr "Visa ny konfiguration"
 msgid "admin.expireSessions"
 msgstr "Avsluta användarsessioner"
 
-msgid "admin.languages.download"
-msgstr "Ladda ned språk/region"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Ladda ned språk/region"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Kan ej öppna språkbeskrivning från PKP:s webbplats."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Kan ej lägga till nya språk/regioner till språkregistreringsfilen, vanligtvis \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "Det här kommer att vara förvalt språk/region för webbplatsen. Du kan inte inaktivera det utan att välja ett annat förvalt språk/region."
 
 msgid "admin.languages.confirmReload"
 msgstr "Är du säker på att du vill uppdatera språkfilen? Tillgänglig språkspecifik information, t.ex. anpassade e-postformulär, kommer att raderas."
 
-msgid "admin.languages.installedLocales"
-msgstr "Installerade språk/regioner"
-
-msgid "admin.languages.installLanguages"
-msgstr "Hantera språk/regioner"
-
 msgid "admin.languages.availableLocales"
 msgstr "Tillgängliga språk/regioner"
-
-msgid "admin.languages.installLocale"
-msgstr "Installera språk/regioner"
-
-msgid "admin.languages.installLocales"
-msgstr "Installera"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Installera nya språk/regioner"
 
 msgid "admin.languages.languageSettings"
 msgstr "Språkinställningar"
@@ -314,6 +287,3 @@ msgstr "Körningen av \"{$utilPath}\"-programmet genererade följande fel: {$out
 
 msgid "admin.error.executingUtil"
 msgstr "Fel: Kan inte köra \"{$utilPath}\". Kolla inställningen {$utilVar} i config.inc.php."
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Det finns inga språk/region-filer tillgängliga för nedladdning."

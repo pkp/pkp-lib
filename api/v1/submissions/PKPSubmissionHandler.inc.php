@@ -312,6 +312,10 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(400)->withJsonError('api.submissions.403.contextRequired');
 		}
 
+		if (!$request->getContext()->getData('enableSubmissions')) {
+			return $response->withStatus(403)->withJsonError('author.submit.notAccepting');
+		}
+
 		$params = $this->convertStringsToSchema(SCHEMA_SUBMISSION, $slimRequest->getParsedBody());
 		$params['contextId'] = $request->getContext()->getId();
 
@@ -623,6 +627,24 @@ class PKPSubmissionHandler extends APIHandler {
 				'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
 			]
 		);
+
+		$notificationManager = new NotificationManager();
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$managers = $roleDao->getUsersByRoleId(ROLE_ID_MANAGER, $submission->getContextId());
+		$managersArray = $managers->toAssociativeArray();
+
+		$allUserIds = array_keys($managersArray);
+		foreach ($allUserIds as $userId) {
+			$notificationManager->createNotification(
+				$request,
+				$userId,
+				NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
+				$submission->getContextId(),
+				ASSOC_TYPE_SUBMISSION,
+				$submission->getId(),
+				NOTIFICATION_LEVEL_TASK
+			);
+		}
 
 		return $response->withJson($publicationProps, 200);
 	}

@@ -9,10 +9,13 @@
  *
  * @uses $editContext Context The context that is being edited.
  *}
-{include file="common/header.tpl" pageTitle="manager.settings.wizard"}
+{extends file="layouts/backend.tpl"}
 
-{assign var="uuid" value=""|uniqid|escape}
-<div id="settings-admin-{$uuid}">
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="manager.settings.wizard"}
+	</h1>
+
 	<tabs>
 		<tab id="setup" label="{translate key="manager.setup"}">
 			<tabs>
@@ -60,9 +63,4 @@
 		</tab>
 		{call_hook name="Template::Settings::admin::contextSettings"}
 	</tabs>
-</div>
-<script type="text/javascript">
-	pkp.registry.init('settings-admin-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
-</script>
-
-{include file="common/footer.tpl"}
+{/block}

@@ -356,12 +356,6 @@ msgstr "Mönstret {$pattern} tillåts inte för den publika identifikatorn."
 msgid "editor.submission.schedulePublication"
 msgstr "Planera för publicering"
 
-msgid "reviewer.list.count"
-msgstr "{$count} granskare"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} av {$total} granskare"
-
 msgid "reviewer.list.filterRating"
 msgstr "Med lägsta betyg"
 

@@ -1012,9 +1012,6 @@ msgstr "Будь ласка, виправте {$count} помил(ки/ок)."
 msgid "form.errors"
 msgstr "Форма не збереглася через {$count} помилк(у/и). Будь ласка, виправте її/їх та спробуйте знову."
 
-msgid "form.errorUnknown"
-msgstr "Виникла неочікувана помилка. Ви могли вийти із свого акаунта. Будь ласка, перезавантажте сторінку та спробуйте ща раз."
-
 msgid "form.errorsOccurred"
 msgstr "Під час обробки цієї форми виникли помилки"
 
@@ -1029,9 +1026,6 @@ msgstr "містить"
 
 msgid "form.is"
 msgstr "дорівнює"
-
-msgid "form.missingRequired"
-msgstr "Це поле необхідно заповнити."
 
 msgid "form.startsWith"
 msgstr "починається з"
@@ -1358,12 +1352,6 @@ msgstr "Тип оголошення відредаговано."
 msgid "notification.removedAnnouncementType"
 msgstr "Тип оголошення видалено."
 
-msgid "notification.addedAnnouncement"
-msgstr "Оголошення додано."
-
-msgid "notification.editedAnnouncement"
-msgstr "Оголошення відредаговано."
-
 msgid "notification.removedAnnouncement"
 msgstr "Оголошення видалено."
 
@@ -1483,9 +1471,6 @@ msgstr "Всі поля термінів для індексування"
 
 msgid "search.matchAll"
 msgstr "За всіма полями"
-
-msgid "search.noKeywordError"
-msgstr "Ви повинні ввести хоча б один пошуковий термін."
 
 msgid "search.noResults"
 msgstr "Немає результатів"

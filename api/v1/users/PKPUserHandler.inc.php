@@ -260,10 +260,12 @@ class PKPUserHandler extends APIHandler {
 				case 'reviewsActive':
 				case 'daysSinceLastAssignment':
 				case 'averageCompletion':
-					if (strpos($val, '-') !== false) {
+					if (is_array($val)) {
+						$val = array_map('intval', $val);
+					} elseif (strpos($val, '-') !== false) {
 						$val = array_map('intval', explode('-', $val));
 					} else {
-						$val = (int) $val;
+						$val = [(int) $val];
 					}
 					$returnParams[$param] = $val;
 					break;

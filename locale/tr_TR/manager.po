@@ -942,12 +942,6 @@ msgstr "Dil pasifleştirildi."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} birincil dil olarak belirlendi."
 
-msgid "notification.localeInstalled"
-msgstr "Seçilen dil/diller yüklendi ve etkinleştirildi."
-
-msgid "notification.localeUninstalled"
-msgstr "{$locale} dili kaldırıldı."
-
 msgid "notification.localeReloaded"
 msgstr "{$locale} dili yeniden yüklendi."
 
@@ -1967,9 +1961,6 @@ msgstr "Lisans"
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Kayıtlı kullanıcılar"
 
-msgid "manager.setup.userAccess.success"
-msgstr "Bu basım için kullanıcı erişim ayrıntıları güncellendi."
-
 msgid "manager.setup.theme.notFound"
 msgstr "Seçtiğiniz tema yüklü veya etkin değil."
 
@@ -2037,9 +2028,6 @@ msgstr ""
 
 msgid "manager.setup.copyrightNotice"
 msgstr "Telif Hakkı Bildirimi"
-
-msgid "manager.setup.contact.success"
-msgstr "Bu basım için iletişim bilgileri güncellendi."
 
 msgid "manager.setup.appearance.success"
 msgstr "Görünüm ayarları güncellendi."

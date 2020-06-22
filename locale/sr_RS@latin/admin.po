@@ -62,18 +62,6 @@ msgstr "Učini korisničke sesije nevažećima"
 msgid "admin.languages.confirmReload"
 msgstr "Da li ste sigurni da ponovno želite učitati ovaj prevod? To će obrisati sve izmene u prevodu koje su urađene u pojedinim časopisima (na primer, prilagođeni šabloni imejl pošte)."
 
-msgid "admin.languages.installedLocales"
-msgstr "Instalirane lokalizacije"
-
-msgid "admin.languages.installLanguages"
-msgstr "Podesi lokalizacije"
-
-msgid "admin.languages.installLocales"
-msgstr "Instaliraj"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Instaliraj novu lokalizaciju"
-
 msgid "admin.languages.languageSettings"
 msgstr "Podešavanje jeyika"
 
@@ -206,26 +194,11 @@ msgstr "Naziv podešavanja"
 msgid "admin.systemInfo.settingValue"
 msgstr "Vrednost podešavanja"
 
-msgid "admin.languages.download"
-msgstr "Preuzmi lokalizaciju"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Preuzmi lokalizacije"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Ne mogu da otvorim deskriptor jezika sa PKP web sajta."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Ne mogu da dodam novu lokalizaciju u lokalni registar, uobičajeno \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "Ova lokalizacija je primarni jezik sajta i ne može biti obrisana dok ne odaberete novi primarni jezik."
 
 msgid "admin.languages.availableLocales"
 msgstr "Dostupne lokalizacije"
-
-msgid "admin.languages.installLocale"
-msgstr "Instaliraj lokalizaciju"
 
 msgid "admin.scheduledTask"
 msgstr "Planirani zadaci"
@@ -295,9 +268,6 @@ msgstr "\"{$utilPath}\" izvršavanje programa dalo je sledeću grešku: {$output
 
 msgid "admin.error.executingUtil"
 msgstr "Greška: ne mogu da izvršim \"{$utilPath}\".  Proverite vaše podešavanje {$utilVar} u config.inc.php."
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Nema lokalizacija dostupnih za preuzimanje"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""

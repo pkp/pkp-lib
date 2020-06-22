@@ -39,7 +39,6 @@ class PKPAppearanceSetupForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context, $baseUrl, $temporaryFileApiUrl, $imageUploadUrl) {
 		$this->action = $action;
-		$this->successMessage = __('manager.setup.appearance.success');
 		$this->locales = $locales;
 
 		$sidebarOptions = [];

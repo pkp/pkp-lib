@@ -986,12 +986,6 @@ msgstr "Lokalizace zakázána."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} byla definována jako primární lokalizace."
 
-msgid "notification.localeInstalled"
-msgstr "Všechny vybrané lokalizace byly nainstalovány a aktivovány."
-
-msgid "notification.localeUninstalled"
-msgstr "Lokalizace {$locale} byla odinstalovány."
-
 msgid "notification.localeReloaded"
 msgstr "Lokalizace {$locale} byla znovu nahrána."
 
@@ -1945,9 +1939,6 @@ msgstr "Licence"
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Registrovaní uživatelé"
 
-msgid "manager.setup.userAccess.success"
-msgstr "Údaje o přístupu uživatelů pro tento výtisk byly aktualizovány."
-
 msgid "manager.setup.theme.notFound"
 msgstr "Vybrané téma není nainstalováno ani povoleno."
 
@@ -1988,9 +1979,6 @@ msgstr "Kontrolní seznam"
 
 msgid "manager.setup.authorGuidelines.success"
 msgstr "Pokyny pro autory byly úspěšně aktualizovány."
-
-msgid "manager.setup.contact.success"
-msgstr "Kontaktní údaje pro tento výtisk byly aktualizovány."
 
 msgid "manager.setup.appearance.success"
 msgstr "Nastavení vzhledu bylo aktualizováno."

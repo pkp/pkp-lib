@@ -592,7 +592,7 @@
 		// prevent orphaned date pickers that may be still open.
 		$form.find('.hasDatepicker').datepicker('hide');
 		if (this.formChangesTracked) {
-			if (!confirm($.pkp.locale.form_dataHasChanged)) {
+			if (!confirm(pkp.localeKeys['form.dataHasChanged'])) {
 				informationObject.closePermitted = false;
 				return false;
 			} else {

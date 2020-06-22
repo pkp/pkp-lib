@@ -2032,9 +2032,6 @@ msgstr "Új verzió létrehozása"
 msgid "publication.contributors"
 msgstr "Közreműködők"
 
-msgid "publication.citations.success"
-msgstr "A hivatkozások frissítésre kerültek."
-
 msgid "submission.publication"
 msgstr "Cikk"
 
@@ -2237,9 +2234,6 @@ msgstr "Biztosan nem szeretné publikálni?"
 msgid "publication.unpublish"
 msgstr "Publikálásból visszavonva"
 
-msgid "publication.titleAbstract.success"
-msgstr "A cím és absztrakt frissítése megtörtént."
-
 msgid "publication.titleAbstract"
 msgstr "Cím & Absztrakt"
 
@@ -2263,26 +2257,14 @@ msgstr ""
 msgid "publication.required.declined"
 msgstr "Elutasított beküldés nem publikálható."
 
-msgid "publication.publish.success"
-msgstr "A publikálási állapot sikeresen módosítva."
-
 msgid "publication.publish.requirements"
 msgstr "Az alábbi feltételeknek kell teljesülnie, mielőtt publikálhatóvá válik."
 
 msgid "publication.publish"
 msgstr "Publikál"
 
-msgid "publication.publicationLicense.success"
-msgstr "A copyright és licenc információk frissítésre kerültek."
-
 msgid "publication.publicationLicense"
 msgstr "Engedélyek & Közzététel"
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "Az azonosítók frissítésre kerültek."
-
-msgid "publication.metadata.success"
-msgstr "A metaadat frissítésre került."
 
 msgid "publication.invalidSubmission"
 msgstr "Ennek a publikációnak a beküldése nem található."

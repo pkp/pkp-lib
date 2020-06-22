@@ -19,6 +19,9 @@ import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_REVIEW_.
 
 abstract class PKPAuthorDashboardHandler extends Handler {
 
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
+
 	/**
 	 * Constructor
 	 */
@@ -181,7 +184,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		$localeNames = AppLocale::getAllLocales();
 		$locales = array_map(function($localeKey) use ($localeNames) {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-		}, $supportedFormLocales);		
+		}, $supportedFormLocales);
 
 		$latestPublication = $submission->getLatestPublication();
 
@@ -293,13 +296,14 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			$canAccessProductionStage = false;
 		}
 
-		$workflowData = [
+		$state = [
+			'canEditPublication' => $canEditPublication,
 			'components' => [
 				FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
 				FORM_CITATIONS => $citationsForm->getConfig(),
 			],
 			'contributorsGridUrl' => $contributorsGridUrl,
-			'csrfToken' => $request->getSession()->getCSRFToken(),
+			'currentPublication' => $currentPublicationProps,
 			'publicationFormIds' => [
 				FORM_TITLE_ABSTRACT,
 				FORM_CITATIONS,
@@ -307,23 +311,15 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			'representationsGridUrl' => $canAccessProductionStage ? $this->_getRepresentationsGridUrl($request, $submission) : '',
 			'submission' => $submissionProps,
 			'publicationList' => $publicationList,
-			'currentPublication' => $currentPublicationProps,
 			'workingPublication' => $workingPublicationProps,
 			'submissionApiUrl' => $submissionApiUrl,
+			'submissionLibraryLabel' => __('grid.libraryFiles.submission.title'),
 			'submissionLibraryUrl' => $submissionLibraryUrl,
 			'supportsReferences' => !!$submissionContext->getData('citations'),
+			'statusLabel' => __('semicolon', ['label' => __('common.status')]),
+			'uploadFileModalLabel' => __('editor.submissionReview.uploadFile'),
 			'uploadFileUrl' => $uploadFileUrl,
-			'canEditPublication' => $canEditPublication,
-			'i18n' => [
-				'publicationTabsLabel' => __('publication.version.details'),
-				'status' => __('semicolon', ['label' => __('common.status')]),
-				'submissionLibrary' => __('grid.libraryFiles.submission.title'),
-				'uploadFile' => __('common.upload.addFile'),
-				'uploadFileModal' => __('editor.submissionReview.uploadFile'),
-				'view' => __('common.view'),
-				'version' => __('semicolon', ['label' => __('admin.version')]),
-				'save' => __('common.save'),
-			],
+			'versionLabel' => __('semicolon', ['label' => __('admin.version')]),
 		];
 
 		// Add the metadata form if one or more metadata fields are enabled
@@ -339,18 +335,23 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			$vocabSuggestionUrlBase =$request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
 			$metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
 			$templateMgr->setConstants(['FORM_METADATA']);
-			$workflowData['components'][FORM_METADATA] = $metadataForm->getConfig();
-			$workflowData['publicationFormIds'][] = FORM_METADATA;
+			$state['components'][FORM_METADATA] = $metadataForm->getConfig();
+			$state['publicationFormIds'][] = FORM_METADATA;
 		}
+
+		$templateMgr->setState($state);
 
 		$templateMgr->assign([
 			'metadataEnabled' => $metadataEnabled,
+			'pageComponent' => 'WorkflowPage',
+			'pageTitle' => join(__('common.titleSeparator'), [
+				$submission->getShortAuthorString(),
+				$submission->getLocalizedTitle()
+			]),
 			'submission' => $submission,
-			'workflowData' => $workflowData,
 			'workflowStages' => $workflowStages,
 			'canAccessProductionStage' => $canAccessProductionStage,
 		]);
-
 	}
 
 	/**

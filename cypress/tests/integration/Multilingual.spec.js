@@ -19,13 +19,13 @@ describe('Multilingual configurations', function() {
 		cy.get('button.pkpFormLocales__locale').eq(0).contains('Français (Canada)').click();
 		cy.get('#masthead-acronym-control-fr_CA').type('JCP');
 		cy.get('#masthead button').contains('Save').click();
-		cy.contains('have been updated');
+		cy.get('#masthead [role="status"]').contains('Saved');
 
 		cy.visit('index.php/publicknowledge/workflow/access/1');
 		cy.get('#publication-button').click();
 		cy.get('button.pkpFormLocales__locale').eq(0).contains('Français (Canada)').click();
 		cy.get('#titleAbstract-title-control-fr_CA').type("L'influence de la lactation sur la quantité et la qualité de la production de cachemire");
 		cy.get('#titleAbstract button').contains('Save').click();
-		cy.contains('The title and abstract have been updated.');
+		cy.get('#titleAbstract [role="status"]').contains('Saved');
 	});
 });

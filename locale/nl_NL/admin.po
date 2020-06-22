@@ -68,44 +68,14 @@ msgstr "Bekijk nieuwe instellingen"
 msgid "admin.expireSessions"
 msgstr "Laat gebruikerssessies verlopen"
 
-msgid "admin.languages.download"
-msgstr "Download taalbestand"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Download taalbestanden"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "De taalbeschrijving kan niet worden opgehaald van de PKP website."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "De nieuwe vertaling kan niet worden toegevoegd aan het register met vertalingen, dat zich doorgaans bevindt in \"registry/locales.xml\"."
-
 msgid "admin.languages.cantDisable"
 msgstr "Deze taal is de hoofdtaal voor de website. Ze kan niet worden uitgeschakeld voor u een andere hoofdtaal selecteert."
 
 msgid "admin.languages.confirmReload"
 msgstr "Weet u zeker dat u deze taalbestanden opnieuw wilt laden? Eigen aanpassingen zoals in e-mail sjablonen zullen verloren gaan."
 
-msgid "admin.languages.installedLocales"
-msgstr "Geïnstalleerde talen"
-
-msgid "admin.languages.installLanguages"
-msgstr "Beheer talen"
-
 msgid "admin.languages.availableLocales"
 msgstr "Beschikbare talen"
-
-msgid "admin.languages.installLocale"
-msgstr "Installeer taalbestanden"
-
-msgid "admin.languages.installLocales"
-msgstr "Installeer"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Installeer nieuwe talen"
-
-msgid "admin.languages.languageSettings"
-msgstr "Taalinstellingen"
 
 msgid "admin.languages.noLocalesAvailable"
 msgstr "Er zijn geen bijkomende talen die geïnstalleerd kunnen worden."
@@ -310,6 +280,3 @@ msgstr "Het \"{$utilPath}\" programma eindigde met volgende fout: {$output}"
 
 msgid "admin.error.executingUtil"
 msgstr "Fout: kan \"{$utilPath}\" niet uitvoeren.  Controleer de instelling voor {$utilVar} in config.inc.php."
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Er zijn geen taalbestanden om te downloaden."

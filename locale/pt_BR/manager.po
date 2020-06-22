@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2020-06-04 18:39+0000\n"
+"PO-Revision-Date: 2020-06-07 13:56+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -465,7 +465,8 @@ msgid "plugins.categories.reports"
 msgstr "Plugins de Relatório"
 
 msgid "plugins.categories.themes.description"
-msgstr "Plugins de Visual podem ser utilizados para alterar o visual do sistema."
+msgstr ""
+"Plugins de Visual podem ser utilizados para alterar a aparência do sistema."
 
 msgid "plugins.categories.themes"
 msgstr "Plugins de Visual"
@@ -522,7 +523,7 @@ msgid "plugins.categories.oaiMetadataFormats.description"
 msgstr "Os plugins de formato geram metadados para comunicação via protocolo OAI."
 
 msgid "grid.action.addGenre"
-msgstr "Incluir gênero"
+msgstr "Incluir um Componente"
 
 msgid "manager.language.ui"
 msgstr "IU"
@@ -763,7 +764,7 @@ msgid "manager.plugins.wrongName"
 msgstr "O version.xml no plugin carregado contém um nome de plugin que não se encaixa no nome do plugin atualizado."
 
 msgid "manager.plugins.pleaseInstall"
-msgstr "Plugin não existe. Por favor instale-o"
+msgstr "Plugin não existe. Por favor, instale-o"
 
 msgid "manager.plugins.pleaseUpgrade"
 msgstr "Plugin já existe, mas é mais recente do que a versão instalada. Por favor, atualize"
@@ -835,7 +836,7 @@ msgid "manager.plugins.upgradeSuccessful"
 msgstr "Atualizado com êxito para a versão {$versionString}"
 
 msgid "manager.plugins.uploadError"
-msgstr "Erro enviando arquivo"
+msgstr "Erro ao enviar o arquivo"
 
 msgid "manager.plugins.uploadPluginDir"
 msgstr "Selecione o arquivo do plugin"
@@ -854,12 +855,6 @@ msgstr "Idioma desativado."
 
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} definido como idioma primário."
-
-msgid "notification.localeInstalled"
-msgstr "Os idiomas selecionados foram instalados e ativados."
-
-msgid "notification.localeUninstalled"
-msgstr "Idioma {$locale} desinstalado."
 
 msgid "notification.localeReloaded"
 msgstr "Idioma {$locale} recarregado."
@@ -958,13 +953,13 @@ msgid "settings.libraryFiles.category.other"
 msgstr "Outros"
 
 msgid "grid.action.editGenre"
-msgstr "Editar este Gênero"
+msgstr "Editar este Componente"
 
 msgid "grid.action.deleteGenre"
-msgstr "Apagar este Gênero"
+msgstr "Apagar este Componente"
 
 msgid "grid.action.restoreGenres"
-msgstr "Restaurar os gêneros para as configurações padrão"
+msgstr "Restaurar os componentes para as configurações padrão"
 
 msgid "manager.settings.wizard"
 msgstr "Assistente de Configurações"
@@ -1478,16 +1473,8 @@ msgstr "Este link apenas será exibido se você submeteu uma declaração de pri
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Usuários cadastrados"
 
-msgid "manager.setup.userAccess.success"
-msgstr "Os detalhes de acesso do usuário foram atualizados."
-
 msgid "manager.setup.theme.notFound"
 msgstr "O tema selecionado não está instalado ou habilitado."
-
-msgid "manager.setup.theme.success"
-msgstr ""
-"O tema foi atualizado. <a href=\"{$url}\" target=\"_blank\">Visualizar "
-"Agora</a>"
 
 msgid "manager.setup.reviewOptions.showBlindReviewLink"
 msgstr ""
@@ -1529,15 +1516,6 @@ msgstr ""
 msgid "manager.setup.checklist"
 msgstr "Lista de verificação"
 
-msgid "manager.setup.authorGuidelines.success"
-msgstr "As instruções aos autores foram atualizadas com sucesso."
-
-msgid "manager.setup.contact.success"
-msgstr "Os detalhes de contato foram atualizados."
-
-msgid "manager.setup.appearance.success"
-msgstr "As configurações de aparência foram atualizadas."
-
 msgid "manager.setup.advanced"
 msgstr "Avançado"
 
@@ -1574,14 +1552,8 @@ msgstr "Modelos de E-mail"
 msgid "manager.emails.emailKey.description"
 msgstr "A chave de e-mail pode conter apenas letras, números e sobrescritos."
 
-msgid "manager.emails.editEmail.success"
-msgstr "O modelo de e-mail foi modificado."
-
 msgid "manager.emails.customTemplate"
 msgstr "Modelo Customizado"
-
-msgid "manager.emails.addEmail.success"
-msgstr "O modelo de e-mail foi adicionado."
 
 msgid "manager.emails.addEmail"
 msgstr "Adicionar modelo"
@@ -1589,23 +1561,14 @@ msgstr "Adicionar modelo"
 msgid "manager.publication.reviewReminders.success"
 msgstr "Os detalhes de lembrete de avaliação foram atualizados."
 
-msgid "manager.publication.reviewSetup.success"
-msgstr "As configurações de avaliação foram atualizadas."
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "As orientações ao avaliador foram atualizadas."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Orientações ao Avaliador"
 
-msgid "manager.publication.emailSetup.success"
-msgstr "As configurações de e-mail foram atualizadas."
-
 msgid "stats.name.declinedReviewRate"
-msgstr "Taxa de Rejeição Após Avaliação"
+msgstr "Taxa de Rejeição após Avaliação"
 
 msgid "stats.name.declinedDeskRate"
-msgstr "Taxa de Rejeitção na Entrada"
+msgstr "Taxa de Rejeição na Entrada"
 
 msgid "stats.name.declineRate"
 msgstr "Taxa de Rejeição"
@@ -2030,9 +1993,6 @@ msgstr ""
 msgid "manager.setup.metadata.coverage"
 msgstr "Cobertura"
 
-msgid "manager.setup.metadata.success"
-msgstr "Os metadados da submissão foram atualizados com sucesso."
-
 msgid "manager.reviewFormElements.description"
 msgstr "Descrição"
 
@@ -2086,9 +2046,6 @@ msgstr "Termos da Licença"
 
 msgid "manager.distribution.license.other"
 msgstr "URL de outra licença"
-
-msgid "manager.distribution.license.success"
-msgstr "Os detalhes de licenciamento foram atualizados. "
 
 msgid "manager.distribution.license"
 msgstr "Licença"

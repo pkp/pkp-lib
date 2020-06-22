@@ -23,6 +23,9 @@ msgstr "The requested resource was not found."
 msgid "api.404.endpointNotFound"
 msgstr "The requested URL was not recognized."
 
+msgid "api.announcements.404.announcementNotFound"
+msgstr "The announcement you requested was not found."
+
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "The email template you requested was not found."
 
@@ -100,9 +103,6 @@ msgstr "Your request could not be fulfilled because it is missing required infor
 
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "The requested volume, number or year is not valid."
-
-msgid "api.submissions.unknownError"
-msgstr "An unexpected error has occurred. Please reload the page and try again."
 
 msgid "api.temporaryFiles.400.noUpload"
 msgstr "No file to be uploaded could be found with the request."

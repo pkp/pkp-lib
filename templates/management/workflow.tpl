@@ -7,17 +7,20 @@
  *
  * @brief The workflow settings page.
  *}
-{include file="common/header.tpl" pageTitle="manager.workflow.title"}
+{extends file="layouts/backend.tpl"}
 
-{if !$submissionsEnabled}
-	<div class="pkp_notification">
-		{capture assign="notificationContents"}{translate key="manager.setup.allowSubmissions.enableSubmissions.notAccepting" }{/capture}
-		{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId="submissionsEnabledWarning-"|uniqid notificationStyleClass="notifyWarning" notificationTitle="common.warning"|translate notificationContents=$notificationContents}
-	</div>
-{/if}
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="manager.workflow.title"}
+	</h1>
 
-{assign var="uuid" value=""|uniqid|escape}
-<div id="settings-context-{$uuid}">
+	{if !$currentContext->getData('enableSubmissions')}
+		<div class="pkp_notification">
+			{capture assign="notificationContents"}{translate key="manager.setup.allowSubmissions.enableSubmissions.notAccepting" }{/capture}
+			{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId="submissionsEnabledWarning-"|uniqid notificationStyleClass="notifyWarning" notificationTitle="common.warning"|translate notificationContents=$notificationContents}
+		</div>
+	{/if}
+
 	<tabs>
 		<tab id="submission" label="{translate key="manager.publication.submissionStage"}">
 			{help file="settings/workflow-settings" section="submission" class="pkp_help_tab"}
@@ -100,9 +103,4 @@
 		</tab>
 		{call_hook name="Template::Settings::workflow"}
 	</tabs>
-</div>
-<script type="text/javascript">
-	pkp.registry.init('settings-context-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
-</script>
-
-{include file="common/footer.tpl"}
+{/block}

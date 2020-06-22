@@ -102,41 +102,14 @@ msgstr "Visualitza la nova configuració"
 msgid "admin.expireSessions"
 msgstr "Fes vèncer les sessions d’usuari/usuària"
 
-msgid "admin.languages.download"
-msgstr "Descarrega la configuració regional"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Descarrega configuracions regionals"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "No s'ha pogut obrir el descriptor de llengua des del lloc web de PKP."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "No s'ha pogut afegir la nova configuració regional al fitxer de registre de configuracions regionals, normalment «registry/locales.xml»."
-
 msgid "admin.languages.cantDisable"
 msgstr "Aquesta és la configuració regional principal del lloc web. No podeu inhabilitar-la fins que no hàgiu triat una altra configuració regional primària."
 
 msgid "admin.languages.confirmReload"
 msgstr "Esteu segur/a que voleu tornar a carregar aquesta configuració regional? Això eliminarà qualsevol dada de configuració regional existent, com ara les plantilles de correu electrònic personalitzades."
 
-msgid "admin.languages.installedLocales"
-msgstr "Configuracions regionals instal·lades"
-
-msgid "admin.languages.installLanguages"
-msgstr "Gestiona les configuracions regionals"
-
 msgid "admin.languages.availableLocales"
 msgstr "Configuracions regionals disponibles"
-
-msgid "admin.languages.installLocale"
-msgstr "Instal·la una configuració regional"
-
-msgid "admin.languages.installLocales"
-msgstr "Instal·la"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Instal·la configuracions regionals noves"
 
 msgid "admin.languages.languageSettings"
 msgstr "Configuració de llengua"
@@ -336,9 +309,6 @@ msgstr "Segur que voleu eliminar permanentment {$contextName} i tots els seus co
 
 msgid "admin.settings.siteLogo"
 msgstr "Logotip del lloc"
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "No hi ha configuracions regionals disponibles per descarregar."
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Publicar les trameses programades per a publicació"

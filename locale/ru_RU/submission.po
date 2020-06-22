@@ -1500,6 +1500,9 @@ msgstr "Загружен ответ."
 msgid "notification.type.editorAssignment"
 msgstr "Редактор должен быть назначен до начала рецензирования. Пожалуйста, добавьте редактора с помощью списка «Участники»."
 
+msgid "notification.type.submissionNewVersion"
+msgstr "Новая версия представления была создана"
+
 msgid "grid.reviewAttachments.title"
 msgstr "Файлы, прикрепленные рецензентом"
 
@@ -1677,27 +1680,21 @@ msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"
 msgid "submission.license.cc.by-sa4.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 4.0 Всемирная</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc-nd3.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">лицензии Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 3.0 Непортированная</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc3.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">лицензии Creative Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 3.0 Непортированная</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc-sa3.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">лицензии Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 3.0 Непортированная</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nd3.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">лицензии Creative Commons «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 3.0 Непортированная</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by3.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">лицензии Creative Commons «Attribution» («Атрибуция») 3.0 Непортированная</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-sa3.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 3.0 Непортированная</a>.</p>"
 
@@ -1768,13 +1765,13 @@ msgid "submission.list.empty"
 msgstr "Материалы не найдены."
 
 msgid "submission.list.responseDue"
-msgstr "Срок ответа на запрос"
+msgstr "Срок ответа на запрос: {$date}"
 
 msgid "submission.list.reviewAssignment"
 msgstr "Назначение на рецензию"
 
 msgid "submission.list.reviewDue"
-msgstr "Срок сдачи рецензии"
+msgstr "Срок сдачи рецензии: {$date}"
 
 msgid "submission.list.reviewComplete"
 msgstr "Рецензия отправлена"
@@ -1863,9 +1860,6 @@ msgstr "Публикация"
 msgid "submission.publications"
 msgstr "Публикации"
 
-msgid "publication.citations.success"
-msgstr "Ссылки были обновлены."
-
 msgid "publication.contributors"
 msgstr "Авторы"
 
@@ -1911,26 +1905,14 @@ msgstr "Версия была убрана с публикации."
 msgid "publication.invalidSubmission"
 msgstr "Материал для этой публикации не удаётся найти."
 
-msgid "publication.metadata.success"
-msgstr "Метаданные были обновлены."
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "Идентификаторы были обновлены."
-
 msgid "publication.publicationLicense"
 msgstr "Разрешения и соглашения"
-
-msgid "publication.publicationLicense.success"
-msgstr "Информация о лицензии и авторском праве была обновлена."
 
 msgid "publication.publish"
 msgstr "Опубликовать"
 
 msgid "publication.publish.requirements"
 msgstr "Перед публикацией необходимо выполнить следующие требования."
-
-msgid "publication.publish.success"
-msgstr "Статус публикации был успешно изменён."
 
 msgid "publication.required.declined"
 msgstr "Отклонённый материал нельзя опубликовать."
@@ -1952,9 +1934,6 @@ msgstr "Снято с плана"
 
 msgid "publication.titleAbstract"
 msgstr "Название и аннотация"
-
-msgid "publication.titleAbstract.success"
-msgstr "Название и аннотация были обновлены."
 
 msgid "publication.unpublish"
 msgstr "Снять с публикации"

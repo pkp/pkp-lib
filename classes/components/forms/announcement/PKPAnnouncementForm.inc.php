@@ -9,7 +9,7 @@
  * @class PKPAnnouncementForm
  * @ingroup classes_controllers_form
  *
- * @brief A preset form for setting a publication's title and abstract
+ * @brief A preset form for creating a new announcement
  */
 namespace PKP\components\forms\announcement;
 use \PKP\components\forms\FormComponent;

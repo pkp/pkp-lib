@@ -15,8 +15,9 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-class PKPAnnouncementQueryBuilder extends BaseQueryBuilder {
+class PKPAnnouncementQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var array get announcements for one or more contexts */
 	protected $contextIds = [];
@@ -89,7 +90,7 @@ class PKPAnnouncementQueryBuilder extends BaseQueryBuilder {
 	 * @return object Query object
 	 */
 	public function getQuery() {
-		$this->columns = ['*'];
+		$this->columns = ['a.*'];
 		$q = Capsule::table('announcements as a');
 
 		if (!empty($this->contextIds)) {
@@ -126,6 +127,7 @@ class PKPAnnouncementQueryBuilder extends BaseQueryBuilder {
 		}
 
 		$q->orderBy('a.date_posted', 'desc');
+		$q->groupBy('a.announcement_id');
 
 		// Add app-specific query statements
 		\HookRegistry::call('Announcement::getMany::queryObject', array(&$q, $this));

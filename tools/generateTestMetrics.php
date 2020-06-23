@@ -17,35 +17,51 @@ require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php
 
 class generateTestMetrics extends CommandLineTool {
 
+	var $contextId;
+	var $dateStart;
+	var $dateEnd;
+
 	/**
 	 * Constructor
 	 */
 	function __construct($argv = array()) {
 		parent::__construct($argv);
+
+		if (sizeof($this->argv) < 3) {
+			$this->usage();
+			exit(1);
+		}
+
+		$this->contextId = (int) $argv[1];
+		$this->dateStart = $argv[2];
+		$this->dateEnd = $argv[3];
 	}
 
 	/**
-	 * Generate some test metrics.
+	 * Print command usage information.
+	 */
+	function usage() {
+		echo "Generate fake usage data in the metrics table.\n"
+			. "Usage: {$this->scriptName} [contextId] [dateStart] [dateEnd]\n"
+			. "contextId      The context to add metrics for.\n"
+			. "dateStart      Add metrics after this date. YYYY-MM-DD\n"
+			. "dateEnd        Add metrics after this date. YYYY-MM-DD\n";
+	}
+
+	/**
+	 * Generate test metrics
 	 */
 	function execute() {
-		// Fix missing schema constant error
-		import('classes.core.Services');
-		Services::get('schema');
+		$submissionIds = $this->getPublishedSubmissionIds();
 
-		// Generate some usage statistics for the last 90 days
-		import('lib.pkp.classes.submission.PKPSubmission');
-		import('classes.statistics.StatisticsHelper');
-		$metricsDao = DAORegistry::getDAO('MetricsDAO');
-		$submissionIds = array_map(
-			function($submission) {
-				return $submission->getId();
-			},
-			iterator_to_array(Services::get('submission')->getMany(['contextId' => 1, 'status' => STATUS_PUBLISHED]))
-		);
-		$currentDate = new DateTime();
-		$currentDate->sub(new DateInterval('P90D'));
-		$dateEnd = new DateTime();
-		while ($currentDate->getTimestamp() < $dateEnd->getTimestamp()) {
+		$currentDate = new DateTime($this->dateStart);
+		$endDate = new DateTime($this->dateEnd);
+		$endDateTimeStamp = $endDate->getTimestamp();
+
+		$metricsDao = DAORegistry::getDao('MetricsDAO');
+
+		$count = 0;
+		while ($currentDate->getTimestamp() < $endDateTimeStamp) {
 			foreach ($submissionIds as $submissionId) {
 				$metricsDao->insertRecord([
 					'load_id' => 'test_events_' . $currentDate->format('Ymd'),
@@ -53,12 +69,28 @@ class generateTestMetrics extends CommandLineTool {
 					'assoc_id' => $submissionId,
 					'submission_id' => $submissionId,
 					'metric_type' => METRIC_TYPE_COUNTER,
-					'metric' => rand(5, 10),
+					'metric' => rand(1, 10),
 					'day' => $currentDate->format('Ymd'),
 				]);
+				$count++;
 			}
 			$currentDate->add(new DateInterval('P1D'));
 		}
+
+		echo $count . " records added for " . count($submissionIds) . " submissions.\n";
+	}
+
+	/**
+	 * Get an array of all published submission IDs in the database
+	 */
+	public function getPublishedSubmissionIds() {
+		import('classes.submission.Submission');
+		$submissionsIterator = Services::get('submission')->getMany(['contextId' => $this->contextId, 'status' => STATUS_PUBLISHED]);
+		$submissionIds = [];
+		foreach ($submissionsIterator as $submission) {
+			$submissionIds[] = $submission->getId();
+		}
+		return $submissionIds;
 	}
 }
 

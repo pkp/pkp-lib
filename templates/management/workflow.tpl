@@ -15,16 +15,21 @@
 	</h1>
 
 	{if !$currentContext->getData('enableSubmissions')}
-		<div class="pkp_notification">
-			{capture assign="notificationContents"}{translate key="manager.setup.allowSubmissions.enableSubmissions.notAccepting" }{/capture}
-			{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId="submissionsEnabledWarning-"|uniqid notificationStyleClass="notifyWarning" notificationTitle="common.warning"|translate notificationContents=$notificationContents}
-		</div>
+		<notification>
+			{translate key="author.submit.notAccepting" }{/capture}
+		</notification>
 	{/if}
 
 	<tabs>
 		<tab id="submission" label="{translate key="manager.publication.submissionStage"}">
 			{help file="settings/workflow-settings" section="submission" class="pkp_help_tab"}
 			<tabs :is-side-tabs="true">
+				<tab id="allowSubmissions" label="{translate key="manager.setup.allowSubmissions"}">
+					<pkp-form
+						v-bind="components.{$smarty.const.FORM_ALLOW_SUBMISSIONS}"
+						@set="set"
+					/>
+				</tab>
 				<tab id="metadata" label="{translate key="submission.informationCenter.metadata"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_METADATA_SETTINGS}"
@@ -42,12 +47,6 @@
 				<tab id="authorGuidelines" label="{translate key="manager.setup.authorGuidelines"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_AUTHOR_GUIDELINES}"
-						@set="set"
-					/>
-				</tab>
-				<tab id="allowSubmissions" label="{translate key="manager.setup.allowSubmissions"}">
-					<pkp-form
-						v-bind="components.{$smarty.const.FORM_ALLOW_SUBMISSIONS}"
 						@set="set"
 					/>
 				</tab>

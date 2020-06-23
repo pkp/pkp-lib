@@ -207,7 +207,7 @@
 		},
 		"enableSubmissions": {
 			"type": "boolean",
-			"default": 1,
+			"default": true,
 			"validation": [
 				"nullable"
 			]

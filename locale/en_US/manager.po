@@ -658,17 +658,8 @@ msgstr "Recommended guidelines include bibliographic and formatting standards al
 msgid "manager.setup.allowSubmissions"
 msgstr "Allow Submissions"
 
-msgid "manager.setup.allowSubmissions.description"
-msgstr "Allow users to submit new articles to the journal. Submissions can be disabled for individual journal sections on the journal sections settings page."
-
-msgid "manager.setup.allowSubmissions.success"
-msgstr "The submissions allowance has been successfully updated."
-
 msgid "manager.setup.allowSubmissions.enableSubmissions.label"
-msgstr "Enable Submissions"
-
-msgid "manager.setup.allowSubmissions.enableSubmissions.notAccepting"
-msgstr "Submissions are currently disabled for this journal"
+msgstr "Allow Submissions"
 
 msgid "manager.setup.checklist"
 msgstr "Checklist"

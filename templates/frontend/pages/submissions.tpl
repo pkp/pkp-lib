@@ -22,7 +22,7 @@
 		{if $sections|@count == 0}
 			{translate key="author.submit.notAccepting"}
 		{elseif !$currentContext->getData('enableSubmissions')}
-			{translate key="manager.setup.allowSubmissions.enableSubmissions.notAccepting"}
+			{translate key="author.submit.notAccepting"}
 		{else}
 			{if $isUserLoggedIn}
 				{capture assign="newSubmission"}<a href="{url page="submission" op="wizard"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}

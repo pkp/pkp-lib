@@ -805,6 +805,15 @@ msgstr "New themes may be installed from the Plugins tab at the top of this page
 msgid "manager.setup.theme.notFound"
 msgstr "The theme you selected is not installed or enabled."
 
+msgid "manager.sections.form.deactivateSection"
+msgstr "Deactivate this section and do not allow new submissions to be made to it."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Are you sure you wish to deactivate this section?"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Are you sure you wish to activate this section?"
+
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Site Access Options"
 

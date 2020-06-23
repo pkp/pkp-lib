@@ -111,7 +111,9 @@ class PluginHelper {
 		}
 
 		// Copy the plug-in from the temporary folder to the target folder.
-		if (!rename($path, $pluginDest)) throw new Exception('Could not move plugin to desination!');
+		$fileManager = new FileManager();
+		if (!$fileManager->copyDir($path, $pluginDest)) throw new Exception('Could not copy plugin to desination!');
+		if (!$fileManager->rmtree($path)) throw new Exception('Could not remove temporary plugin path!');
 
 		// Upgrade the database with the new plug-in.
 		$installFile = $pluginDest . '/' . PLUGIN_INSTALL_FILE;
@@ -207,7 +209,8 @@ class PluginHelper {
 		}
 
 		// Copy the plug-in from the temporary folder to the target folder.
-		if (!rename($path, $pluginDest)) throw new Exception('Could not move plugin to desination!');
+		if (!$fileManager->copyDir($path, $pluginDest)) throw new Exception('Could not copy plugin to desination!');
+		if (!$fileManager->rmtree($path)) throw new Exception('Could not remove temporary plugin path!');
 
 		$upgradeFile = $pluginDest . '/' . PLUGIN_UPGRADE_FILE;
 		if($fileManager->fileExists($upgradeFile)) {

@@ -1106,7 +1106,7 @@ class PKPTemplateManager extends Smarty {
 				$currentUser = [
 					'csrfToken' => $this->_request->getSession()->getCSRFToken(),
 					'id' => (int) $user->getId(),
-					'roles' => array_unique($userRoles),
+					'roles' => array_values(array_unique($userRoles)),
 				];
 				$output .= 'pkp.currentUser = ' . json_encode($currentUser) . ';';
 			}

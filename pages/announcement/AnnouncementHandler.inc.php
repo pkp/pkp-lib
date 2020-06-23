@@ -41,6 +41,10 @@ class AnnouncementHandler extends Handler {
 	 * @return string
 	 */
 	function index($args, $request) {
+		if (!$request->getContext()->getData('enableAnnouncements')) {
+			$request->getDispatcher()->handle404();
+		}
+
 		$this->setupTemplate($request);
 
 		$context = $request->getContext();
@@ -66,6 +70,9 @@ class AnnouncementHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function view($args, $request) {
+		if (!$request->getContext()->getData('enableAnnouncements')) {
+			$request->getDispatcher()->handle404();
+		}
 		$this->validate();
 		$this->setupTemplate($request);
 

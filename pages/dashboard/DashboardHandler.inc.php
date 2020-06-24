@@ -20,10 +20,6 @@ define('SUBMISSIONS_LIST_MY_QUEUE', 'myQueue');
 define('SUBMISSIONS_LIST_UNASSIGNED', 'unassigned');
 
 class DashboardHandler extends Handler {
-
-	/** @copydoc PKPHandler::_isBackendPage */
-	var $_isBackendPage = true;
-
 	/**
 	 * Constructor
 	 */
@@ -112,6 +108,17 @@ class DashboardHandler extends Handler {
 				]
 			);
 			$lists[$activeListPanel->id] = $activeListPanel->getConfig();
+			$lists[$activeListPanel->id]['filters'][] = [
+							'heading' => __('assigned'),
+							'filters' => [
+								[
+									'title' => _('editors'),
+									'param' => 'assignedTo',
+									'value' => [],
+									'filterType' => 'pkp-filter-autosuggest',
+								]
+							]
+						];
 		}
 
 		// Archived
@@ -132,10 +139,7 @@ class DashboardHandler extends Handler {
 		);
 		$lists[$archivedListPanel->id] = $archivedListPanel->getConfig();
 
-		$templateMgr->setState(['components' => $lists]);
-		$templateMgr->assign([
-			'pageTitle' => __('navigation.submissions'),
-		]);
+		$templateMgr->assign('containerData', ['components' => $lists]);
 
 		return $templateMgr->display('dashboard/index.tpl');
 	}

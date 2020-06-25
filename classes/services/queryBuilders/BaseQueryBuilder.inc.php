@@ -59,7 +59,7 @@ abstract class BaseQueryBuilder {
 			        'unix_socket'=> Config::getVar('database', 'unix_socket'),
 				'password'  => Config::getVar('database', 'password'),
 				'charset'   => $charset,
-				'collation' => 'utf8_general_ci',
+				'collation' => Config::getVar('database', 'collation', 'utf8_general_ci'),
 		));
 		$capsule->setAsGlobal();
 	}

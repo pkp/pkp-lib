@@ -131,6 +131,19 @@ class RecommendationForm extends Form {
 	}
 
 	/**
+	 * @copydoc Form::fetch()
+	 */
+	function fetch($request, $template = null, $display = false) {
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign(array(
+			'allowedVariables' => [
+				'recommendation' => __('editor.submission.recommendation'),
+			],
+		));
+		return parent::fetch($request, $template, $display);
+	}
+
+	/**
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {

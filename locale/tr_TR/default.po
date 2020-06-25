@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2020-04-30 19:38+0000\n"
+"PO-Revision-Date: 2020-06-23 05:39+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
-"tr/>\n"
+"tr_TR/>\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,19 +21,19 @@ msgid "default.groups.plural.siteAdmin"
 msgstr "Site Yöneticileri"
 
 msgid "default.groups.name.productionEditor"
-msgstr "Basım editörü"
+msgstr "Üretim editörü"
 
 msgid "default.groups.plural.productionEditor"
-msgstr "Basım editörleri"
+msgstr "Üretim editörleri"
 
 msgid "default.groups.abbrev.productionEditor"
 msgstr "ÜrE"
 
 msgid "default.groups.name.copyeditor"
-msgstr "Kopya Editörü"
+msgstr "Redaktör"
 
 msgid "default.groups.plural.copyeditor"
-msgstr "Kopya Editörleri"
+msgstr "Redaktörler"
 
 msgid "default.groups.abbrev.copyeditor"
 msgstr "KE"
@@ -93,13 +93,13 @@ msgid "default.groups.abbrev.indexer"
 msgstr "İND"
 
 msgid "default.groups.name.layoutEditor"
-msgstr "Düzen Editörü"
+msgstr "Tasarım Editörü"
 
 msgid "default.groups.plural.layoutEditor"
-msgstr "Düzen Editörleri"
+msgstr "Tasarım Editörleri"
 
 msgid "default.groups.abbrev.layoutEditor"
-msgstr "DE"
+msgstr "TE"
 
 msgid "default.groups.name.author"
 msgstr "Yazar"

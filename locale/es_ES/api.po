@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-06-16 22:35+0000\n"
+"PO-Revision-Date: 2020-06-18 17:39+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "es_ES/>\n"
@@ -146,3 +146,8 @@ msgstr "No está autorizado para acceder al recurso solicitado."
 
 msgid "api.400.paramNotSupported"
 msgstr "El parámetro {$param} no está soportado."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Este terminal no está disponible desde el contexto. Se debe acceder a él "
+"desde el espacio de nombres (namespace) de todo el sitio."

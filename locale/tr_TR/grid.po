@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2020-04-30 19:38+0000\n"
+"PO-Revision-Date: 2020-06-20 11:39+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
-"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/tr/"
-">\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"tr_TR/>\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "grid.noItems"
-msgstr "Öğe Yok"
+msgstr "Öge Yok"
 
 msgid "grid.settings"
 msgstr "Ayarlar"
@@ -24,7 +24,7 @@ msgid "grid.action.sort"
 msgstr "Sırala"
 
 msgid "grid.action.addItem"
-msgstr "Öğe Ekle"
+msgstr "Öge Ekle"
 
 msgid "grid.action.delete"
 msgstr "Sil"
@@ -33,19 +33,19 @@ msgid "grid.action.remove"
 msgstr "Kaldır"
 
 msgid "grid.action.edit"
-msgstr "Düzelt"
+msgstr "Düzenle"
 
 msgid "grid.action.approve"
 msgstr "Onayla"
 
 msgid "grid.action.decline"
-msgstr "Bu  Gönderiyi Geri Çevir"
+msgstr "Aday makaleyi Reddet"
 
 msgid "grid.action.moreInformation"
 msgstr "Daha Fazla Bilgi"
 
 msgid "grid.action.restoreDefaults"
-msgstr "Varsayılan ayarlara dön"
+msgstr "Varsayılan Ayarlara Dön"
 
 msgid "grid.columns.actions"
 msgstr "Eylemler"
@@ -60,7 +60,7 @@ msgid "grid.sponsor.title"
 msgstr "Sponsor"
 
 msgid "grid.contributor.title"
-msgstr "Katılımcı"
+msgstr "Destek Kaynakları"
 
 msgid "grid.action.addAuthor"
 msgstr "Yazar Ekle"
@@ -81,16 +81,16 @@ msgid "grid.libraryFiles.review.title"
 msgstr "Değerlendirme Kütüphanesi"
 
 msgid "grid.libraryFiles.production.title"
-msgstr "Ürün Kütüphanesi"
+msgstr "Üretim Kütüphanesi"
 
 msgid "grid.libraryFiles.productionTemplate.title"
-msgstr "Ürün Şablon Kütüphanesi"
+msgstr "Dizgi Şablon Kütüphanesi"
 
 msgid "grid.submissionChecklist.title"
 msgstr "Gönderi Kontrol Listesi"
 
 msgid "grid.submissionChecklist.column.checklistItem"
-msgstr "Çek Edilecek Kontrol Listesi"
+msgstr "Kontrol Listesi Ögesi"
 
 msgid "author.users.contributor.name"
 msgstr "Ad"
@@ -114,7 +114,7 @@ msgid "grid.action.editAuthor"
 msgstr "Yazar Düzenle"
 
 msgid "grid.action.deleteAuthor"
-msgstr "Yazat Sil"
+msgstr "Yazar Sil"
 
 msgid "grid.action.addAuditor"
 msgstr "Denetçi Ekle"
@@ -126,7 +126,7 @@ msgid "grid.action.order"
 msgstr "Sırala"
 
 msgid "grid.action.cancelOrdering"
-msgstr "Sıralamayı İptal Et"
+msgstr "Sıralamayı iptal et"
 
 msgid "grid.action.email"
 msgstr "E-posta gönder"
@@ -135,7 +135,7 @@ msgid "grid.action.addReviewer"
 msgstr "Hakem ekle"
 
 msgid "grid.action.addFile"
-msgstr "Dosya Ekle"
+msgstr "Dosya ekle"
 
 msgid "grid.action.editFile"
 msgstr "Dosya düzenle"
@@ -159,46 +159,46 @@ msgid "grid.action.editMedia"
 msgstr "Medya Düzelt"
 
 msgid "grid.action.extendAll"
-msgstr "Hepsini Aç"
+msgstr "Hepsini aç"
 
 msgid "grid.action.collapse"
-msgstr "Başarısızlık"
+msgstr "Daralt"
 
 msgid "grid.action.collapseAll"
-msgstr "Tüm Başarısızlık"
+msgstr "Tümünü daralt"
 
 msgid "grid.action.wizard"
-msgstr "Ayar Sihirbazı"
+msgstr "Ayarlar sihirbazı"
 
 msgid "grid.action.moveItem"
-msgstr "Öğe Taşı"
+msgstr "Öge Taşı"
 
 msgid "grid.action.downloadAll"
-msgstr "tüm dosyaları arşiv olarak indir"
+msgstr "Tüm dosyaları arşiv dosyası olarak indir"
 
 msgid "grid.action.readReview"
-msgstr "Bu değerlenidirmeyi oku"
+msgstr "Değerlendirmeyi oku"
 
 msgid "grid.action.requestRevisions"
-msgstr "Bu gönerinin istek revizyonu"
+msgstr "Aday makale için revizyon iste"
 
 msgid "grid.action.accept"
-msgstr "Bu gönderiyi kabul et"
+msgstr "Aday makaleyi kabul et"
 
 msgid "grid.action.internalReview"
-msgstr "Bu gönderiyi iç değerlendirmeye gönder"
+msgstr "Aday makaleyi değerlendirmeye al"
 
 msgid "grid.action.externalReview"
-msgstr "Bu gönderiyi dış değerlendirmeye gönder"
+msgstr "Aday makaleyi değerlendirmeye gödner"
 
 msgid "grid.action.sendToProduction"
-msgstr "Bu gönderiyi yapıma gönder"
+msgstr "Aday makaleyi yayımlanma sürecine al"
 
 msgid "grid.action.importexport"
-msgstr "İçeriği veya site verisini al veya gönder"
+msgstr "İçeriği veya site verisini içeri veya dışarı aktar"
 
 msgid "grid.action.orderItems"
-msgstr "Sıralama yöntemini etkinleştir"
+msgstr "Sıralama seçeneğini etkinleştir"
 
 msgid "grid.action.editSubmissionChecklist"
 msgstr "Kontrol listesini düzenle"
@@ -207,7 +207,7 @@ msgid "grid.action.deleteSubmissionChecklist"
 msgstr "Kontrol listesini sil"
 
 msgid "grid.action.resetAll"
-msgstr "Tüm öğeleri varsayılan biçime döndür"
+msgstr "Tüm ögeleri varsayılan biçime döndür"
 
 msgid "grid.action.addPreparedEmail"
 msgstr "Yeni bir e-posta şablonu ekle"
@@ -225,16 +225,16 @@ msgid "grid.action.expandAll"
 msgstr "Tümünü Genişlet"
 
 msgid "grid.action.requestAccount"
-msgstr "Katılımcı Ekle"
+msgstr "Kişi Ekle"
 
 msgid "grid.action.expand"
 msgstr "Genişlet"
 
 msgid "grid.action.notify"
-msgstr "Bu üyeyi bilgilendir"
+msgstr "Kişiyi bilgilendir"
 
 msgid "grid.action.addUserGroup"
-msgstr "Yeni bir Üye Grubu ekle"
+msgstr "Yeni bir Üye Grubu Ekle"
 
 msgid "grid.action.editUserGroup"
 msgstr "Üye grubunu düzelt"
@@ -243,10 +243,10 @@ msgid "grid.action.disable"
 msgstr "Pasifleştir"
 
 msgid "grid.action.details"
-msgstr "Öğeyi göster"
+msgstr "Ögeyi göster"
 
 msgid "grid.action.enrolExisting"
-msgstr "Aktif üyeyi hakem olarak kaydet"
+msgstr "Var olan üyeyi hakem olarak yetkilendir"
 
 msgid "grid.action.selectCreate"
 msgstr "Yeni hakem oluştur"
@@ -255,22 +255,22 @@ msgid "grid.action.advancedSearch"
 msgstr "Gelişmiş arama"
 
 msgid "grid.action.viewMetadata"
-msgstr "Gönderinin Üst Verisini Göster"
+msgstr "Aday Makale Üstverisini Göster"
 
 msgid "grid.action.sendReminder"
 msgstr "Kullanıcıya görev hatırlatması gönder"
 
 msgid "grid.action.newRound"
-msgstr "Yeni tur oluştur"
+msgstr "Yeni tur başlat"
 
 msgid "grid.action.viewReviewGuidelines"
 msgstr "Hakem rehberini göster"
 
 msgid "grid.action.viewCompetingInterestGuidelines"
-msgstr "Çıkar Çelişkisi Rehberleri Politikasını Görüntüle"
+msgstr "Çıkar çatışması rehberleri politikasını görüntüle"
 
 msgid "grid.action.thankReviewer"
-msgstr "Bu hakeme bir teşekkür mesajı gönder"
+msgstr "Bu hakeme teşekkür mesajı gönder"
 
 msgid "grid.action.uploadFile"
 msgstr "Dosya yükle"
@@ -282,10 +282,10 @@ msgid "grid.action.addAnnouncement"
 msgstr "Duyuru Ekle"
 
 msgid "grid.task.status.completed"
-msgstr "Bu göre tamamlandı"
+msgstr "Bu görev tamamlandı"
 
 msgid "grid.task.status.new"
-msgstr "Bu yeni bir öğe ve dikkat gerektirir"
+msgstr "Bu yeni bir öge ve dikkat gerektirir"
 
 msgid "grid.task.status.uploaded"
 msgstr "Sütun başlığı bu dosyayı kimin yüklediğini gösterir"
@@ -294,7 +294,7 @@ msgid "grid.columns.auditor"
 msgstr "Denetçi"
 
 msgid "grid.columns.locale"
-msgstr "Yerel"
+msgstr "Dil"
 
 msgid "grid.action.addSponsor"
 msgstr "Sponsor Ekle"
@@ -342,7 +342,7 @@ msgid "grid.roles.add"
 msgstr "Görev Ekle"
 
 msgid "grid.roles.stageAssignment"
-msgstr "Sahne Ataması"
+msgstr "Aşama Ataması"
 
 msgid "grid.user.currentUsers"
 msgstr "Güncel Üyeler"
@@ -372,10 +372,10 @@ msgid "grid.user.disable"
 msgstr "Pasifleştir"
 
 msgid "grid.user.disableReason"
-msgstr "Üye pasifleştirmenin nedeni"
+msgstr "Üyeyi pasifleştirme nedeni"
 
 msgid "grid.user.enableReason"
-msgstr "Üye etkinleştirmenin nedeni"
+msgstr "Üyeyi etkinleştirme nedeni"
 
 msgid "grid.user.error"
 msgstr "Bu üyeyi düzenlerken bir hata oluştu. Lütfen tekrar deneyin."
@@ -462,7 +462,7 @@ msgid "grid.action.history"
 msgstr "Geçmişi Göster"
 
 msgid "grid.task.status.unfinished"
-msgstr "Değerlendirme Tamamlanmadı"
+msgstr "Değerlendirme tamamlanmadı"
 
 msgid "grid.task.status.reviewReady"
 msgstr "Bu değerlendirme hazır.  Okumak için soldaki not simgesine tıklayınız."
@@ -471,7 +471,7 @@ msgid "grid.noAuditors"
 msgstr "Denetçi Yok"
 
 msgid "grid.remotelyHostedItem"
-msgstr "Bu öğe uzakta barındırılıyor."
+msgstr "Bu öge uzakta barındırılıyor."
 
 msgid "grid.action.uninstall"
 msgstr "Kaldır"
@@ -507,7 +507,7 @@ msgid "grid.action.editSection"
 msgstr "Bölümü Düzenle"
 
 msgid "grid.action.export"
-msgstr "İhraç"
+msgstr "Dışarı Aktar"
 
 msgid "grid.action.deleteSection"
 msgstr "Bölüm Sil"
@@ -522,7 +522,7 @@ msgid "grid.action.setApproval"
 msgstr "Onayı Ayarla"
 
 msgid "grid.action.restoreDefaults.confirm"
-msgstr "Varsayılanları geri yüklemek istediğinizden emin misiniz?"
+msgstr "Varsayılan ayarları geri yüklemek istediğinizden emin misiniz?"
 
 msgid "grid.action.search"
 msgstr "Ara"
@@ -603,22 +603,22 @@ msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Bir tür seç ..."
 
 msgid "grid.action.unconsiderReview"
-msgstr "Bu inceleme tamamlandı, bunu göz ardı edebilirsiniz."
+msgstr "Değerlendirme tamamlandı, bunu göz ardı edebilirsiniz"
 
 msgid "grid.action.enable"
 msgstr "Etkinleştir"
 
 msgid "grid.action.bookInfo"
-msgstr "Gönderi Bilgisi"
+msgstr "Aday Makale Detay"
 
 msgid "grid.action.logInAs"
 msgstr "Gibi Giriş Yap"
 
 msgid "grid.action.exportAllUsers"
-msgstr "Tüm Kullanıcıları İhraç Et"
+msgstr "Tüm Kullanıcıları Dışarı Aktar"
 
 msgid "grid.users.confirmExportAllUsers"
-msgstr "Tüm kullanıcıları dışa aktarmak istediğinizden emin misiniz?"
+msgstr "Tüm kullanıcıları dışarı aktarmak istediğinizden emin misiniz?"
 
 msgid "grid.action.activate"
 msgstr "Etkinleştir"
@@ -627,7 +627,7 @@ msgid "grid.action.deactivate"
 msgstr "Pasifleştir"
 
 msgid "grid.action.copy"
-msgstr "Kopya"
+msgstr "Kopyala"
 
 msgid "grid.action.preview"
 msgstr "Ön İzleme"
@@ -636,7 +636,7 @@ msgid "grid.action.install"
 msgstr "Yükle"
 
 msgid "grid.action.moreItems"
-msgstr "Daha Fazla Çağır"
+msgstr "Daha fazla getir"
 
 msgid "grid.user.addRole"
 msgstr "Rol Ekle"

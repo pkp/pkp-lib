@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2020-06-13 14:39+0000\n"
+"PO-Revision-Date: 2020-06-18 17:39+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ca_ES/>\n"
@@ -1537,13 +1537,13 @@ msgid "navigation.items.shownTotal"
 msgstr "{$shown} de {$total} elements"
 
 msgid "navigation.skip.main"
-msgstr "Saltar al contingut principal"
+msgstr "Passar al contingut principal"
 
 msgid "navigation.skip.nav"
-msgstr "Saltar al menú de navegació principal"
+msgstr "Passar al menú de navegació principal"
 
 msgid "navigation.skip.footer"
-msgstr "Saltar al peu de pàgina del lloc"
+msgstr "Passar al peu de pàgina del lloc"
 
 msgid "navigation.viewFrontend"
 msgstr "Veure el lloc"
@@ -1832,7 +1832,7 @@ msgid "notification.reviewerThankedEmail"
 msgstr "Correu electrònic d'agraïment enviat al revisor/a."
 
 msgid "navigation.skip.announcements"
-msgstr "Saltar als avisos"
+msgstr "Passar als avisos"
 
 msgid "stageParticipants.noOptionsToHandle"
 msgstr "No poden fer-se canvis en aquest participant"
@@ -2050,7 +2050,7 @@ msgid "common.lessThanOnly"
 msgstr "Menys que"
 
 msgid "navigation.skip.description"
-msgstr "Salta al enllaços de contingut"
+msgstr "Salta als enllaços de contingut"
 
 msgid "common.moreThanOnly"
 msgstr "Més que"

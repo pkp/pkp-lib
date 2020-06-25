@@ -60,7 +60,7 @@ class Submission extends PKPSubmission {
 						$fieldValue = $context->getName(null);
 						break;
 					default:
-						$fieldValue = $context->getLocalizedData('copyrightHolderOther');
+						$fieldValue = $context->getData('copyrightHolderOther');
 						break;
 				}
 				break;

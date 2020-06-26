@@ -1564,6 +1564,9 @@ msgstr "The provided filesize \"{$expected}\" and the actual filesize \"{$actual
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
 msgstr "The revision \"{$revisionId}\" for submission file \"{$fileId}\" would create a duplicate record"
 
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "The submission's current publication is missing"
+
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "The submission file could not be imported"
 

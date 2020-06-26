@@ -59,6 +59,35 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	}
 
 	/**
+	 * @see Filter::process()
+	 * @param $document DOMDocument|string
+	 * @return array Array of imported documents
+	 */
+	function &process(&$document) {
+		$importedObjects =& parent::process($document);
+
+		$deployment = $this->getDeployment();
+		$submission = $deployment->getSubmission();
+
+		$publication = $submission->getCurrentPublication();
+		if (!isset($publication)) {
+			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(),  __('plugins.importexport.common.error.currentPublicationNullOrMissing'));
+		} else {
+			// Index imported content
+			$articleSearchIndex = Application::getSubmissionSearchIndex();
+			foreach ($importedObjects as $submission) {
+				assert(is_a($submission, 'Submission'));
+				$articleSearchIndex->submissionMetadataChanged($submission);
+				$articleSearchIndex->submissionFilesChanged($submission);
+			}
+
+			$articleSearchIndex->submissionChangesFinished();
+		}
+		
+		return $importedObjects;
+	}
+
+	/**
 	 * Handle a singular element import.
 	 * @param $node DOMElement
 	 */
@@ -129,10 +158,12 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			case 'publication':
 				$publication = $this->parsePublication($n, $submission);
 
-				$publications = $submission->getData('publications');
-				$publications[] = $publication[0];
-				$submission->setData('publications', $publications);
-
+				if ($publication) {
+					$publications = $submission->getData('publications');
+					$publications[] = $publication[0];
+					$submission->setData('publications', $publications);
+				}
+				
 				break;
 			default:
 				$deployment = $this->getDeployment();

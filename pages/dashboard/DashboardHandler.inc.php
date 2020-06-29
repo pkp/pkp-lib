@@ -121,7 +121,7 @@ class DashboardHandler extends Handler {
 						'filterType' => 'pkp-filter-autosuggest',
 						'autosuggestProps' => [
 								'allErrors' => (object) [],
-								'apiUrl' => $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'users', null, null, ['roleIds' => [ROLE_ID_MANAGER, ROLE_ID_EDITOR]]),
+								'apiUrl' => $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'users', null, null, ['roleIds' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]]),
 								'component' => 'field-autosuggest',
 								'description' => '',
 								'deselectLabel' => __('common.removeItem'),
@@ -129,7 +129,7 @@ class DashboardHandler extends Handler {
 								'groupId' => 'default',
 								'initialPosition' => 'inline',
 								'isRequired' => false,
-								'label' => __('submission.list.assignedTo'),
+								'label' => __('editor.submissions.assignedTo'),
 								'locales' => [],
 								'name' => 'editorIds',
 								'primaryLocale' => 'en_US',

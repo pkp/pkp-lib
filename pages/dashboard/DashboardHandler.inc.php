@@ -72,7 +72,7 @@ class DashboardHandler extends Handler {
 				'apiUrl' => $apiUrl,
 				'getParams' => [
 					'status' => STATUS_QUEUED,
-					'assignedTo' => (int) $request->getUser()->getId(),
+					'assignedTo' => [(int) $request->getUser()->getId()],
 				],
 			]
 		);

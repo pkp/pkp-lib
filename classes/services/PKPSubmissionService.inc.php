@@ -126,7 +126,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			'contextId' => CONTEXT_ID_NONE,
 			'orderBy' => 'dateSubmitted',
 			'orderDirection' => 'DESC',
-			'assignedTo' => null,
+			'assignedTo' => [],
 			'status' => null,
 			'stageIds' => null,
 			'searchPhrase' => null,

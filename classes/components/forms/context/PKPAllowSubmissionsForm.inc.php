@@ -47,12 +47,12 @@ class PKPAllowSubmissionsForm extends FormComponent {
 		$description = __('manager.setup.allowSubmissions.description', ['url' => $url]);
 		
 		$this->addField(new FieldOptions('enableSubmissions', [
-				'label' => __('manager.setup.allowSubmissions.enableSubmissions.label'),
+				'label' => __('manager.setup.allowSubmissions'),
 				'description' => $description,
 				'options' => [
 					[
 						'value' => true,
-						'label' => __('manager.setup.allowSubmissions.enableSubmissions.label', ['lockssUrl' => $lockssUrl]),
+						'label' => __('manager.setup.allowSubmissions'),
 					],
 				],
 				'value' => (bool) $context->getData('enableSubmissions'),

@@ -57,10 +57,11 @@ class PKPSectionForm extends Form {
 		if ($this->getData('isInactive')) {
 			$request = Application::get()->getRequest();
 			$journal = $request->getJournal();
+			$sectionId = $this->getSectionId();
 
 			$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
 			$sectionsIterator = $sectionDao->getByContextId($journal->getId());
-			$activeSectionsCount = 0;
+			$activeSectionsCount = ($sectionId) ? 0 : 1;
 			while ($section = $sectionsIterator->next()) {
 				if (!$section->getIsInactive()) {
 					$activeSectionsCount++;
@@ -69,6 +70,7 @@ class PKPSectionForm extends Form {
 
 			if ($activeSectionsCount <= 1 && $this->getData('isInactive')) {
 				$this->addError('isInactive', __('manager.sections.confirmDeactivateSection.error'));
+				$this->addErrorField('isInactive');
 			}
 		}
 

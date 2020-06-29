@@ -28,12 +28,18 @@
 			);
 		{rdelim});
 	</script>
-
-	<div id="submitTabs" class="pkp_controllers_tab">
-		<ul>
-			{foreach from=$steps key=step item=stepLocaleKey}
-				<li><a name="step-{$step|escape}" href="{url op="step" path=$step submissionId=$submissionId sectionId=$sectionId}">{$step}. {translate key=$stepLocaleKey}</a></li>
-			{/foreach}
-		</ul>
-	</div>
+	{if !$currentContext->getData('enableSubmissions')}
+		<notification>
+			{capture assign=url}{url page="management" op="settings" path="workflow" anchor="submission/allowSubmissions"}{/capture}
+			{translate key="manager.setup.allowSubmissions.notAccepting"}
+		</notification>
+	{else}
+		<div id="submitTabs" class="pkp_controllers_tab">
+			<ul>
+				{foreach from=$steps key=step item=stepLocaleKey}
+					<li><a name="step-{$step|escape}" href="{url op="step" path=$step submissionId=$submissionId sectionId=$sectionId}">{$step}. {translate key=$stepLocaleKey}</a></li>
+				{/foreach}
+			</ul>
+		</div>
+	{/if}
 {/block}

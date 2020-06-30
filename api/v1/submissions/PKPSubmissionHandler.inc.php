@@ -312,7 +312,7 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(400)->withJsonError('api.submissions.403.contextRequired');
 		}
 
-		if (!$request->getContext()->getData('enableSubmissions')) {
+		if (!$request->getContext()->getData('disableSubmissions')) {
 			return $response->withStatus(403)->withJsonError('author.submit.notAccepting');
 		}
 

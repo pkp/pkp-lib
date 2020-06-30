@@ -14,10 +14,10 @@
 		{translate key="manager.workflow.title"}
 	</h1>
 
-	{if !$currentContext->getData('enableSubmissions')}
+	{if $currentContext->getData('disableSubmissions')}
 		<notification>
-			{capture assign=url}{url page="management" op="settings" path="workflow" anchor="submission/allowSubmissions"}{/capture}
-			{translate key="manager.setup.allowSubmissions.notAccepting"}
+			{capture assign=url}{url page="management" op="settings" path="workflow" anchor="submission/disableSubmissions"}{/capture}
+			{translate key="manager.setup.disableSubmissions.notAccepting"}
 		</notification>
 	{/if}
 
@@ -25,9 +25,9 @@
 		<tab id="submission" label="{translate key="manager.publication.submissionStage"}">
 			{help file="settings/workflow-settings" section="submission" class="pkp_help_tab"}
 			<tabs :is-side-tabs="true">
-				<tab id="allowSubmissions" label="{translate key="manager.setup.allowSubmissions"}">
+				<tab id="disableSubmissions" label="{translate key="manager.setup.disableSubmissions"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_ALLOW_SUBMISSIONS}"
+						v-bind="components.{$smarty.const.FORM_DISABLE_SUBMISSIONS}"
 						@set="set"
 					/>
 				</tab>

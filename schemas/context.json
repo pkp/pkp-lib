@@ -205,9 +205,9 @@
 				"nullable"
 			]
 		},
-		"enableSubmissions": {
+		"disableSubmissions": {
 			"type": "boolean",
-			"default": true,
+			"default": false,
 			"validation": [
 				"nullable"
 			]

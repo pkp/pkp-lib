@@ -655,8 +655,8 @@ msgstr "Author Guidelines"
 msgid "manager.setup.authorGuidelines.description"
 msgstr "Recommended guidelines include bibliographic and formatting standards alongside examples of common citation formats to be used in submissions."
 
-msgid "manager.setup.allowSubmissions"
-msgstr "Allow Submissions"
+msgid "manager.setup.disableSubmissions"
+msgstr "Disable Submissions"
 
 msgid "manager.setup.checklist"
 msgstr "Checklist"
@@ -807,9 +807,6 @@ msgstr "Deactivate this section and do not allow new submissions to be made to i
 
 msgid "manager.sections.confirmDeactivateSection"
 msgstr "Are you sure you wish to deactivate this section?"
-
-msgid "manager.sections.inactive"
-msgstr "Inactive"
 
 msgid "manager.sections.confirmActivateSection"
 msgstr "Are you sure you wish to activate this section?"

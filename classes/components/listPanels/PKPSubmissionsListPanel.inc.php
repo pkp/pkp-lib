@@ -41,6 +41,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 	public function getConfig() {
 		\AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_EDITOR]);
 		$request = \Application::get()->getRequest();
+		$context = $request->getContext();
 
 		$config = parent::getConfig();
 
@@ -51,6 +52,10 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 		$config['itemsMax'] = $this->itemsMax;
 
 		// URL to add a new submission
+		if ($context->getData('disableSubmissions')) {
+			$config['showButton'] = false;
+		}
+
 		$config['addUrl'] = $request->getDispatcher()->url(
 			$request,
 			ROUTE_PAGE,

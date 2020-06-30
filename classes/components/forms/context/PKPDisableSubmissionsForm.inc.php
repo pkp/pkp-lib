@@ -1,25 +1,25 @@
 <?php
 /**
- * @file classes/components/form/context/PKPAllowSubmissionsForm.inc.php
+ * @file classes/components/form/context/PKPDisableSubmissionsForm.inc.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2000-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPAllowSubmissionsForm
+ * @class PKPDisableSubmissionsForm
  * @ingroup classes_controllers_form
  *
- * @brief  A preset form for allowing new submissions.
+ * @brief  A preset form for disabling new submissions.
  */
 namespace PKP\components\forms\context;
 use \PKP\components\forms\FormComponent;
 use \PKP\components\forms\FieldOptions;
 
-define('FORM_ALLOW_SUBMISSIONS', 'allowSubmissions');
+define('FORM_DISABLE_SUBMISSIONS', 'disableSubmissions');
 
-class PKPAllowSubmissionsForm extends FormComponent {
+class PKPDisableSubmissionsForm extends FormComponent {
 	/** @copydoc FormComponent::$id */
-	public $id = FORM_ALLOW_SUBMISSIONS;
+	public $id = FORM_DISABLE_SUBMISSIONS;
 
 	/** @copydoc FormComponent::$method */
 	public $method = 'PUT';
@@ -44,18 +44,18 @@ class PKPAllowSubmissionsForm extends FormComponent {
 				'sections'
 			);
 
-		$description = __('manager.setup.allowSubmissions.description', ['url' => $url]);
+		$description = __('manager.setup.disableSubmissions.description', ['url' => $url]);
 		
-		$this->addField(new FieldOptions('enableSubmissions', [
-				'label' => __('manager.setup.allowSubmissions'),
+		$this->addField(new FieldOptions('disableSubmissions', [
+				'label' => __('manager.setup.disableSubmissions'),
 				'description' => $description,
 				'options' => [
 					[
 						'value' => true,
-						'label' => __('manager.setup.allowSubmissions'),
+						'label' => __('manager.setup.disableSubmissions'),
 					],
 				],
-				'value' => (bool) $context->getData('enableSubmissions'),
+				'value' => (bool) $context->getData('disableSubmissions'),
 			]));
 	}
 }

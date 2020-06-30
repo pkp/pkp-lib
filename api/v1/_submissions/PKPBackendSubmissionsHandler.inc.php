@@ -89,7 +89,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		$canAccessUnassignedSubmission = !empty(array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles));
 		if (!$canAccessUnassignedSubmission) {
-			$defaultParams['assignedTo'] = $currentUser->getId();
+			$defaultParams['assignedTo'] = [$currentUser->getId()];
 		}
 
 		$params = array_merge($defaultParams, $slimRequest->getQueryParams());
@@ -101,6 +101,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 				// Always convert status and stageIds to array
 				case 'status':
 				case 'stageIds':
+				case 'assignedTo':
 					if (is_string($val) && strpos($val, ',') > -1) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
@@ -109,7 +110,6 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 					$params[$param] = array_map('intval', $val);
 					break;
 
-				case 'assignedTo':
 				case 'daysInactive':
 				case 'offset':
 					$params[$param] = (int) $val;
@@ -143,7 +143,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 
 		// Prevent users from viewing submissions they're not assigned to,
 		// except for journal managers and admins.
-		if (!$canAccessUnassignedSubmission && $params['assignedTo'] != $currentUser->getId()) {
+		if (!$canAccessUnassignedSubmission && !in_array($currentUser->getId(), $params['assignedTo'])) {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
 		}
 

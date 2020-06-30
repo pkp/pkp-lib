@@ -72,7 +72,7 @@ class DashboardHandler extends Handler {
 				'apiUrl' => $apiUrl,
 				'getParams' => [
 					'status' => STATUS_QUEUED,
-					'assignedTo' => (int) $request->getUser()->getId(),
+					'assignedTo' => [(int) $request->getUser()->getId()],
 				],
 			]
 		);
@@ -112,6 +112,33 @@ class DashboardHandler extends Handler {
 				]
 			);
 			$lists[$activeListPanel->id] = $activeListPanel->getConfig();
+			$lists[$activeListPanel->id]['filters'][] = [
+				'filters' => [
+					[
+						'title' => _('editors'),
+						'param' => 'assignedTo',
+						'value' => [],
+						'filterType' => 'pkp-filter-autosuggest',
+						'autosuggestProps' => [
+								'allErrors' => (object) [],
+								'apiUrl' => $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'users', null, null, ['roleIds' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]]),
+								'component' => 'field-autosuggest',
+								'description' => '',
+								'deselectLabel' => __('common.removeItem'),
+								'formId' => 'default',
+								'groupId' => 'default',
+								'initialPosition' => 'inline',
+								'isRequired' => false,
+								'label' => __('editor.submissions.assignedTo'),
+								'locales' => [],
+								'name' => 'editorIds',
+								'primaryLocale' => 'en_US',
+								'selectedLabel' => __('common.assigned'),
+								'value' => [],
+							]
+						]
+					]
+				];
 		}
 
 		// Archived

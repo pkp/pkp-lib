@@ -41,8 +41,8 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 	/** @var array|null list of stage ids */
 	protected $stageIds = null;
 
-	/** @var int|null user ID */
-	protected $assigneeId = null;
+	/** @var int|array user IDs */
+	protected $assignedTo = [];
 
 	/** @var string|null search phrase */
 	protected $searchPhrase = null;
@@ -186,12 +186,13 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 	/**
 	 * Limit results to a specific user's submissions
 	 *
-	 * @param int $assigneeId
+	 * @param int|array $assignedTo List of assigned user ids or -1 to
+	 *   get submissions with no user assigned.
 	 *
 	 * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
 	 */
-	public function assignedTo($assigneeId) {
-		$this->assigneeId = $assigneeId;
+	public function assignedTo($assignedTo) {
+		$this->assignedTo = $assignedTo;
 		return $this;
 	}
 
@@ -345,29 +346,29 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 			});
 		}
 
-		// assigned to
-		$isAssignedOnly = !is_null($this->assigneeId) && ($this->assigneeId !== -1);
+		// Assigned to
+		$isAssignedOnly = !empty($this->assignedTo) && $this->assignedTo !== -1;
 		if ($isAssignedOnly) {
-			$assigneeId = $this->assigneeId;
+			$assignedTo = $this->assignedTo;
 
 			// Stage assignments
-			$q->leftJoin('stage_assignments as sa', function($table) use ($assigneeId) {
+			$q->leftJoin('stage_assignments as sa', function($table) use ($assignedTo) {
 				$table->on('s.submission_id', '=', 'sa.submission_id');
-				$table->on('sa.user_id', '=', Capsule::raw((int) $assigneeId));
+				$table->whereIn('sa.user_id', $assignedTo);
 			});
 
 			// Review assignments
-			$q->leftJoin('review_assignments as ra', function($table) use ($assigneeId) {
+			$q->leftJoin('review_assignments as ra', function($table) use ($assignedTo) {
 				$table->on('s.submission_id', '=', 'ra.submission_id');
-				$table->on('ra.reviewer_id', '=', Capsule::raw((int) $assigneeId));
 				$table->on('ra.declined', '=', Capsule::raw((int) 0));
+				$table->whereIn('ra.reviewer_id', $assignedTo);
 			});
 
 			$q->where(function($q) {
 				$q->whereNotNull('sa.stage_assignment_id');
 				$q->orWhereNotNull('ra.review_id');
 			});
-		} elseif ($this->assigneeId === -1) {
+		} elseif ($this->assignedTo === -1) {
 			$sub = Capsule::table('stage_assignments')
 						->select(Capsule::raw('count(stage_assignments.stage_assignment_id)'))
 						->leftJoin('user_groups','stage_assignments.user_group_id','=','user_groups.user_group_id')

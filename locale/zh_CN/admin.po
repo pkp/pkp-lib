@@ -1,10 +1,11 @@
+# Yukari Chiba <Charles@nia.ac.cn>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-04T08:55:00-08:00\n"
 "PO-Revision-Date: 2023-02-17 03:48+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
 "Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -235,7 +236,8 @@ msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "您确定要删除所有计划的任务执行日志吗？"
 
 msgid "admin.scheduledTask.downloadLog"
-msgstr "您的{$softwareName}安装会自动执行并完成此任务，您可以在此处下载日志文件：{$url}"
+msgstr "您的{$softwareName}安装会自动执行并完成此任务，您可以在此处下载日志文件：{$ur"
+"l}"
 
 msgid "admin.scheduledTask.noLog"
 msgstr "任务未生成日志。"
@@ -256,7 +258,8 @@ msgid "admin.languages.availableLocales"
 msgstr "可用的语言"
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr "您确定要更改站点的主要语言设置吗？ 用户名称是网站的主要语言环境所要求的，缺失部分将从现有主要语言中复制而来。"
+msgstr "您确定要更改站点的主要语言设置吗？ "
+"用户名称是网站的主要语言环境所要求的，缺失部分将从现有主要语言中复制而来。"
 
 msgid "admin.languages.cantDisable"
 msgstr "此语言环境是网站的主要语言。 您必须先选择另一个主要语言环境才能禁用它。"

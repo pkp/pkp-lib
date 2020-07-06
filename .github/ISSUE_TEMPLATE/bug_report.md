@@ -18,7 +18,7 @@ Steps to reproduce the behavior:
 4. See error
 
 **What application are you using?**
- OJS or OMP version X.X.X
+ OJS, OMP or OPS version X.X.X
 
 **Additional information**
 Please add any screenshots, logs or other information we can use to investigate this bug report.

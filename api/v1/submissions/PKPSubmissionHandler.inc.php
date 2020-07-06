@@ -305,6 +305,8 @@ class PKPSubmissionHandler extends APIHandler {
 	 * @return Response
 	 */
 	public function add($slimRequest, $response, $args) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_AUTHOR);
+
 		$request = $this->getRequest();
 
 		// Don't allow submissions to be added via the site-wide API
@@ -312,7 +314,7 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(400)->withJsonError('api.submissions.403.contextRequired');
 		}
 
-		if (!$request->getContext()->getData('disableSubmissions')) {
+		if ($request->getContext()->getData('disableSubmissions')) {
 			return $response->withStatus(403)->withJsonError('author.submit.notAccepting');
 		}
 

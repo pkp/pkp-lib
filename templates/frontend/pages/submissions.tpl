@@ -22,7 +22,6 @@
 		{if $sections|@count == 0}
 			{translate key="author.submit.notAccepting"}
 		{elseif $currentContext->getData('disableSubmissions')}
-			{capture assign=url}{url page="management" op="settings" path="workflow" anchor="submission/disableSubmissions"}{/capture}
 			{translate key="manager.setup.disableSubmissions.notAccepting"}
 		{else}
 			{if $isUserLoggedIn}

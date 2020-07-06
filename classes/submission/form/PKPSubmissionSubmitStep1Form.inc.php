@@ -66,7 +66,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$sectionId = $this->getData('sectionId');
 		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
 		$section = $sectionDao->getById($sectionId);
-		if (!$context->getData('disableSubmissions') || $section->getIsInactive()) {
+		if ($context->getData('disableSubmissions') || $section->getIsInactive()) {
 			return false;
 		}
 

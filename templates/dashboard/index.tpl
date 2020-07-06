@@ -14,12 +14,6 @@
 		{translate key="navigation.submissions"}
 	</h1>
 
-	{if $currentContext->getData('disableSubmissions')}
-		<notification>
-			{translate key="manager.setup.disableSubmissions.notAccepting"}
-		</notification>
-	{/if}
-
 	<tabs>
 		<tab id="myQueue" label="{translate key="dashboard.myQueue"}" :badge="components.{$smarty.const.SUBMISSIONS_LIST_MY_QUEUE}.itemsMax">
 			{help file="submissions" class="pkp_help_tab"}

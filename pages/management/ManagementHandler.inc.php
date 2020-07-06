@@ -113,7 +113,7 @@ class ManagementHandler extends Handler {
 				FORM_MASTHEAD => $mastheadForm->getConfig(),
 			],
 		]);
-		
+
 		// Display a warning message if there is a new version of OJS available
 		if (Config::getVar('general', 'show_upgrade_warning')) {
 			import('lib.pkp.classes.site.VersionCheck');

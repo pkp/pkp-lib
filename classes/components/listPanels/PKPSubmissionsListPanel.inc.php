@@ -53,7 +53,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 
 		// URL to add a new submission
 		if ($context->getData('disableSubmissions')) {
-			$config['showButton'] = false;
+			$config['allowSubmissions'] = false;
 		}
 
 		$config['addUrl'] = $request->getDispatcher()->url(

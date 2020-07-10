@@ -62,6 +62,18 @@ msgstr "Учини корисничке сесије неважећима"
 msgid "admin.languages.confirmReload"
 msgstr "Да ли сте сигурни да поновно желите учитати овај превод? То ће обрисати све измене у преводу које су урађене у појединим часописима (на пример, прилагођени шаблони имејл поште)."
 
+msgid "admin.languages.installedLocales"
+msgstr "Инсталиране локализације"
+
+msgid "admin.languages.installLanguages"
+msgstr "Подеси локализације"
+
+msgid "admin.languages.installLocales"
+msgstr "Инсталирај"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Инсталирај нову локализацију"
+
 msgid "admin.languages.languageSettings"
 msgstr "Подешавање језика"
 
@@ -200,6 +212,9 @@ msgstr "Ова локализација је примарни језик сај�
 msgid "admin.languages.availableLocales"
 msgstr "Доступне локализације"
 
+msgid "admin.languages.installLocale"
+msgstr "Инсталирај локализацију"
+
 msgid "admin.scheduledTask"
 msgstr "Планирани задаци"
 
@@ -268,6 +283,9 @@ msgstr "\"{$utilPath}\" извршавање програма дало је сл
 
 msgid "admin.error.executingUtil"
 msgstr "Грешка: не могу да извршим \"{$utilPath}\".  Проверите ваше подешавање {$utilVar} у config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Нема локализација доступних за преузимање"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""

@@ -902,11 +902,17 @@ msgstr "Локализација је онемогућена."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} локализација је дефинисана као примарна локализација."
 
+msgid "notification.localeInstalled"
+msgstr "Све одабране локализације су инсталиране и активиране."
+
 msgid "notification.localeReloaded"
 msgstr "{$locale} локализација је поново учитана."
 
 msgid "notification.localeSettingsSaved"
 msgstr "Подешавања локализације су сачувана."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} локализација је обрисана."
 
 msgid "notification.editedUser"
 msgstr "Корисник је уређен."
@@ -1228,3 +1234,6 @@ msgstr "Дефинишите колоне које ћете користити �
 
 msgid "manager.statistics.reports.objectId.label"
 msgstr "Дефинишите један или више id објекта и одвојите зарезом (нпр. 1,2,3,4,5)."
+
+msgid "about.editorialPOLICY"
+msgstr "about.editorialPOLICY"

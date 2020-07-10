@@ -833,6 +833,12 @@ msgstr "S'ha desactivat la configuració regional."
 msgid "notification.primaryLocaleDefined"
 msgstr "S'ha establert {$locale} com a configuració regional principal."
 
+msgid "notification.localeInstalled"
+msgstr "Totes les configuracions regionals seleccionades s'han instal·lat i activat."
+
+msgid "notification.localeUninstalled"
+msgstr "S'ha desinstal·lat la configuració regional {$locale}."
+
 msgid "notification.localeReloaded"
 msgstr "S'ha actualitzat la configuració regional {$locale}."
 

@@ -987,6 +987,12 @@ msgstr "Regionaleinstellung deaktiviert."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} als primäre Regionaleinstellung definiert."
 
+msgid "notification.localeInstalled"
+msgstr "Alle ausgewählten Regionaleinstellungen installiert und aktiviert."
+
+msgid "notification.localeUninstalled"
+msgstr "Regionaleinstellung {$locale} deinstalliert."
+
 msgid "notification.localeReloaded"
 msgstr "Regionaleinstellung {$locale} neu geladen."
 

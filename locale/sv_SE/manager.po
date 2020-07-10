@@ -980,6 +980,12 @@ msgstr "Språk/region inaktiverad."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} har gjorts till primär språk/region-inställning."
 
+msgid "notification.localeInstalled"
+msgstr "Alla valda språk/regioner installerade och aktiverade."
+
+msgid "notification.localeUninstalled"
+msgstr "Språket/regionen {$locale} avinstallerad."
+
 msgid "notification.localeReloaded"
 msgstr "Språket/regionen {$locale} laddades om."
 

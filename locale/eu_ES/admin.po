@@ -62,6 +62,18 @@ msgstr "Iraungi erabiltzaileen saioak"
 msgid "admin.languages.confirmReload"
 msgstr "Ziur zaude hizkuntza hau birkargatu nahi duzula? Hizkuntza horretan definitutako datu guztiak borratu egingo dira, esate baterako, posta elektronikoko txantiloi pertsonalizatuak."
 
+msgid "admin.languages.installedLocales"
+msgstr "Instalatutako hizkuntzak"
+
+msgid "admin.languages.installLanguages"
+msgstr "Kudeatu localeak"
+
+msgid "admin.languages.installLocales"
+msgstr "Instalatu"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instalatu hizkuntza gehiago"
+
 msgid "admin.languages.languageSettings"
 msgstr "Hizkuntza-ezarpenak"
 

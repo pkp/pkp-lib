@@ -74,8 +74,23 @@ msgstr "این زیان، زبان اصلی سایت است و تا زمانی �
 msgid "admin.languages.confirmReload"
 msgstr "آیا می‌خواهید این زبان را از نو بارگذاری کنید؟ این کار باعث می‌شود داده‌های مختص این زبان مانند ایمیل‌های اختصاصی شده پاک شود"
 
+msgid "admin.languages.installedLocales"
+msgstr "زبان‌های نصب شده"
+
+msgid "admin.languages.installLanguages"
+msgstr "نصب زبان‌ها"
+
 msgid "admin.languages.availableLocales"
 msgstr "زبان‌های موجود"
+
+msgid "admin.languages.installLocale"
+msgstr "نصب زبان دیگر"
+
+msgid "admin.languages.installLocales"
+msgstr "نصب"
+
+msgid "admin.languages.installNewLocales"
+msgstr "نصب زبان‌های جدید"
 
 msgid "admin.languages.languageSettings"
 msgstr "تنظیمات زبان"
@@ -274,3 +289,6 @@ msgstr "اجرای برنامه \"{$utilPath}\"  با خطای زیر مواجه
 
 msgid "admin.error.executingUtil"
 msgstr "خطا: اجرای \"{$utilPath}\" امکان‌پذیر نمی‌باشد. تنظیمات {$utilVar} را در فایل config.inc.php بررسی کنید."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "زبانی برای دانلود وجود ندارد."

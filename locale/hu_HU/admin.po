@@ -74,8 +74,23 @@ msgstr "Ez a nyelv az elsődleges nyelv az oldalon. Nem kapcsolhatja ki, amíg n
 msgid "admin.languages.confirmReload"
 msgstr "Biztos benne, hogy újratölti ezt a nyelvi beállítást? Ez törölni fogja a meglévő hely-specifikus adatokat, mint például az átalakított e-mail sablonokat."
 
+msgid "admin.languages.installedLocales"
+msgstr "Telepített nyelvi fájlok"
+
+msgid "admin.languages.installLanguages"
+msgstr "Nyelvi fájlok szerkesztése"
+
 msgid "admin.languages.availableLocales"
 msgstr "Elérhető nyelvek"
+
+msgid "admin.languages.installLocale"
+msgstr "Nyelv telepítése"
+
+msgid "admin.languages.installLocales"
+msgstr "Telepítés"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Új nyelvi fájlok telepítése"
 
 msgid "admin.languages.languageSettings"
 msgstr "Nyelvi beállítások"
@@ -304,6 +319,9 @@ msgstr "A \"{$utilPath}\" végrehajtása az alábbi hibaüzenettel tért véget:
 
 msgid "admin.error.executingUtil"
 msgstr "Hiba: nem hajtható végre \"{$utilPath}\". Ellenőrizze a {$utilVar} config.inc.php beállításait."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Nincsenek elérhető nyelvi fájlok letöltésre."
 
 msgid "admin.contexts.confirmDelete"
 msgstr "Biztosan véglegesen törölni akarja ezt {$contextName} annak minden tartalmával együtt?"

@@ -1062,6 +1062,12 @@ msgstr "Paramètre régional désactivé."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} est défini en tant que paramètre régional principal."
 
+msgid "notification.localeInstalled"
+msgstr "Tous les paramètres régionaux sélectionnés sont installés et activés."
+
+msgid "notification.localeUninstalled"
+msgstr "Le paramètre régional {$locale} est désinstallé."
+
 msgid "notification.localeReloaded"
 msgstr "Le paramètre régional {$locale} a été rechargé."
 

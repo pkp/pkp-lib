@@ -62,6 +62,18 @@ msgstr "Avbryt brukersesjoner"
 msgid "admin.languages.confirmReload"
 msgstr "Er du sikker på at du vil laste opp igjen denne lokalinnstillingen? Dette vil slette alle nåværende lokalinnstilling-spesifikke data som for eksempel tilpassete e-post maler."
 
+msgid "admin.languages.installedLocales"
+msgstr "Installerte lokalinnstillinger"
+
+msgid "admin.languages.installLanguages"
+msgstr "Installer språk"
+
+msgid "admin.languages.installLocales"
+msgstr "Installer"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Installer nye lokalinnstillinger"
+
 msgid "admin.languages.languageSettings"
 msgstr "Språkinnstillinger"
 
@@ -191,8 +203,14 @@ msgstr "Nettstedstema"
 msgid "admin.siteSetup"
 msgstr "Nettstedsoppsett"
 
+msgid "admin.languages.download"
+msgstr "Last ned språkfil"
+
 msgid "admin.languages.availableLocales"
 msgstr "Tilgjengelige språk"
+
+msgid "admin.languages.installLocale"
+msgstr "Installer språk"
 
 msgid "admin.scheduledTask"
 msgstr "Planlagt oppgave"

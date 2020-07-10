@@ -1129,6 +1129,12 @@ msgstr "Idioma desactivado."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} definido como idioma principal."
 
+msgid "notification.localeInstalled"
+msgstr "Todos os idiomas seleccionados intalados e activados."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} idioma desinstalado."
+
 msgid "notification.localeReloaded"
 msgstr "{$locale} idioma recarregado."
 

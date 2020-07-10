@@ -79,8 +79,23 @@ msgstr ""
 "Deseja realmente recarregar este idioma? A execução irá apagar qualquer "
 "informação de idioma específico como customização de <em>e-mails</em>."
 
+msgid "admin.languages.installedLocales"
+msgstr "Idiomas Instalados"
+
+msgid "admin.languages.installLanguages"
+msgstr "Administrar idiomas"
+
 msgid "admin.languages.availableLocales"
 msgstr "Idiomas disponíveis"
+
+msgid "admin.languages.installLocale"
+msgstr "Instalar Idioma"
+
+msgid "admin.languages.installLocales"
+msgstr "Instalar"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instalar Novos Idiomas"
 
 msgid "admin.languages.languageSettings"
 msgstr "Configurações de Idioma"
@@ -300,6 +315,9 @@ msgstr "Erro: não foi possível executar \"{$utilPath}\".  Cheque a configuraç
 
 msgid "admin.settings.siteLogo"
 msgstr "Logotipo do Site"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Sem idiomas disponíveis para download."
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Publicar submissões agendadas para esta publicação"

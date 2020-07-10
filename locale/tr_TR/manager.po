@@ -942,6 +942,12 @@ msgstr "Dil pasifleştirildi."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} birincil dil olarak belirlendi."
 
+msgid "notification.localeInstalled"
+msgstr "Seçilen dil/diller yüklendi ve etkinleştirildi."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} dili kaldırıldı."
+
 msgid "notification.localeReloaded"
 msgstr "{$locale} dili yeniden yüklendi."
 

@@ -82,8 +82,23 @@ msgstr "Êtes-vous certain-e de vouloir changer le paramètre régional principa
 msgid "admin.languages.confirmReload"
 msgstr "Êtes-vous certain-e de vouloir réinitialiser cette langue ? Ceci effacera toutes données spécifiques à ce paramètre régional tels que les modèles de courriel personnalisés."
 
+msgid "admin.languages.installedLocales"
+msgstr "Paramètres régionaux installés"
+
+msgid "admin.languages.installLanguages"
+msgstr "Gérer les paramètres régionaux"
+
 msgid "admin.languages.availableLocales"
 msgstr "Paramètres régionaux disponibles"
+
+msgid "admin.languages.installLocale"
+msgstr "Installer le paramètre régional"
+
+msgid "admin.languages.installLocales"
+msgstr "Installer"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Installer de nouveaux paramètres régionaux"
 
 msgid "admin.languages.languageSettings"
 msgstr "Paramètres de langue"
@@ -303,3 +318,6 @@ msgid "admin.error.executingUtil"
 msgstr ""
 "Erreur : impossible de lancer « {$utilPath} ». Veuillez vérifier la "
 "configuration de {$utilVar} dans le fichier config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Il n'y a pas de paramètre régional disponible pour l'installation."

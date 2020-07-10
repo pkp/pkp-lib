@@ -188,7 +188,6 @@ class AdminHandler extends Handler {
 		$templateMgr->assign([
 			'breadcrumbs' => $breadcrumbs,
 			'pageTitle' => __('admin.siteSettings'),
-			'settingsData' => $settingsData,
 			'componentAvailability' => $this->siteSettingsAvailability($request),
 		]);
 

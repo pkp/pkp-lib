@@ -103,7 +103,7 @@ class PKPStatsHandler extends Handler {
 		foreach ($totals as $i => $stat) {
 			$row = [
 				'key' => $stat['key'],
-				'name' => $stat['name'],
+				'name' => __($stat['name']),
 				'total' => $stat['value'],
 				'dateRange' => $dateRangeTotals[$i]['value'],
 			];
@@ -133,7 +133,7 @@ class PKPStatsHandler extends Handler {
 		$activeByStage = [];
 		foreach (Application::get()->getApplicationStages() as $stageId) {
 			$activeByStage[] = [
-				'name' => Application::get()->getWorkflowStageName($stageId),
+				'name' => __(Application::get()->getWorkflowStageName($stageId)),
 				'count' => Services::get('editorialStats')->countActiveByStages($stageId, $args),
 				'color' => Application::get()->getWorkflowStageColor($stageId),
 			];
@@ -322,7 +322,13 @@ class PKPStatsHandler extends Handler {
 
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
-		$templateMgr->assign('userStats', Services::get('user')->getRolesOverview(['contextId' => $context->getId()]));
+		$templateMgr->assign('userStats', array_map(
+			function ($item) {
+				$item['name'] = __($item['name']);
+				return $item;
+			},
+			Services::get('user')->getRolesOverview(['contextId' => $context->getId()])
+		));
 		$templateMgr->display('stats/users.tpl');
 	}
 

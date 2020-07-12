@@ -751,11 +751,11 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	public static function getWorkflowStageName($stageId) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
 		switch ($stageId) {
-			case WORKFLOW_STAGE_ID_SUBMISSION: return __('submission.submission');
-			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return __('workflow.review.internalReview');
-			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW: return __('workflow.review.externalReview');
-			case WORKFLOW_STAGE_ID_EDITING: return __('submission.editorial');
-			case WORKFLOW_STAGE_ID_PRODUCTION: return __('submission.production');
+			case WORKFLOW_STAGE_ID_SUBMISSION: return 'submission.submission';
+			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return 'workflow.review.internalReview';
+			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW: return 'workflow.review.externalReview';
+			case WORKFLOW_STAGE_ID_EDITING: return 'submission.editorial';
+			case WORKFLOW_STAGE_ID_PRODUCTION: return 'submission.production';
 		}
 		throw new Exception('Name requested for an unrecognized stage id.');
 	}

@@ -47,8 +47,11 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	public function initialize(Context $context, DateTimeInterface $dateStart, DateTimeInterface $dateEnd) : void
 	{
 		$this->_context = $context;
+		$locale = $this->_context->getPrimaryLocale();
 		$dateStart = $dateStart;
 		$dateEnd = $dateEnd;
+
+		\AppLocale::requireComponents([LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_USER], $locale);
 
 		$dispatcher = Application::get()->getDispatcher();
 
@@ -58,7 +61,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 			'dateEnd' => $dateEnd->format('Y-m-d'),
 		]);
 		$this->_editorialTrendsTotal = Services::get('editorialStats')->getOverview([
-			'contextIds' => [$this->_context->getId()],
+			'contextIds' => [$this->_context->getId()]
 		]);
 
 		foreach ($this->_editorialTrends as $stat) {
@@ -80,7 +83,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 			'declinedSubmissions' => $declinedSubmissions,
 			'acceptedSubmissions' => $acceptedSubmissions,
 			'totalSubmissions' => Services::get('editorialStats')->countSubmissionsReceived(['contextIds' => [$this->_context->getId()]]),
-			'month' => $dateStart->format('F'),
+			'month' => $this->_getLocalizedMonthName($dateStart, $locale),
 			'year' => $dateStart->format('Y'),
 			'editorialStatsLink' => $dispatcher->url($this->_request, ROUTE_PAGE, $this->_context->getPath(), 'stats', 'editorial'),
 			'publicationStatsLink' => $dispatcher->url($this->_request, ROUTE_PAGE, $this->_context->getPath(), 'stats', 'publications')
@@ -91,49 +94,69 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 		// Create the CSV file attachment
 		// Active submissions by stage
 		$file = new SplFileObject(tempnam(sys_get_temp_dir(), 'tmp'), 'wb');
-		$file->fputcsv([
-			__('stats.submissionsActive'),
-			__('stats.total')
-		]);
-		foreach (Application::get()->getApplicationStages() as $stageId) {
+		// Adds BOM (byte order mark) to enforce the UTF-8 format
+		try {
+			$file->fwrite("\xEF\xBB\xBF");
 			$file->fputcsv([
-				Application::get()->getWorkflowStageName($stageId),
-				Services::get('editorialStats')->countActiveByStages($stageId)
+				__('stats.submissionsActive', [], $locale),
+				__('stats.total', [], $locale)
 			]);
-		}
+			foreach (Application::get()->getApplicationStages() as $stageId) {
+				$file->fputcsv([
+					__(Application::get()->getWorkflowStageName($stageId), [], $locale),
+					Services::get('editorialStats')->countActiveByStages($stageId)
+				]);
+			}
 
-		$file->fputcsv([]);
+			$file->fputcsv([]);
 
-		// Editorial trends
-		$file->fputcsv([
-			__('stats.trends'),
-			$dateStart->format('F' . __('common.commaListSeparator') . 'Y'),
-			__('stats.total')
-		]);
-		foreach ($this->_editorialTrends as $i => $stat) {
+			// Editorial trends
 			$file->fputcsv([
-				$stat['name'],
-				$stat['value'],
-				$this->_editorialTrendsTotal[$i]['value']
+				__('stats.trends', [], $locale),
+				$this->_getLocalizedMonthName($dateStart, $locale) . __('common.commaListSeparator', [], $locale) . $dateStart->format('Y'),
+				__('stats.total', [], $locale)
 			]);
-		}
+			foreach ($this->_editorialTrends as $i => $stat) {
+				$file->fputcsv([
+					__($stat['name'], [], $locale),
+					$stat['value'],
+					$this->_editorialTrendsTotal[$i]['value']
+				]);
+			}
 
-		$file->fputcsv([]);
+			$file->fputcsv([]);
 
-		// Count of users by role
-		$file->fputcsv([
-			__('manager.users'),
-			__('stats.total')
-		]);
-		foreach ($this->_userRolesOverview as $role) {
+			// Count of users by role
 			$file->fputcsv([
-				$role['name'],
-				$role['value']
+				__('manager.users', [], $locale),
+				__('stats.total', [], $locale)
 			]);
-		}
+			foreach ($this->_userRolesOverview as $role) {
+				$file->fputcsv([
+					__($role['name'], [], $locale),
+					$role['value']
+				]);
+			}
 
-		$this->_attachmentFilename = $file->getRealPath();
-		$file = null;
+			$this->_attachmentFilename = $file->getRealPath();
+		}
+		finally {
+			$file = null;
+		}
+	}
+
+	/**
+	 * Retrieves the localized month name for the given date and locale
+	 * @param \DateTimeInterface Date object
+	 * @
+	 * @return string
+	 */
+	public function _getLocalizedMonthName(\DateTimeInterface $date, ?string $locale = null): string
+	{
+		static $cache = [];
+		$locale ?? $locale = \AppLocale::getLocale();
+		$formatter = $cache[$locale] ?? $cache[$locale] = \IntlDateFormatter::create($locale, null, null, null, null, 'MMMM');
+		return $formatter->format($date);
 	}
 
 	/**
@@ -141,7 +164,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	 */
 	public function getNotificationMessage($request, $notification) : string
 	{
-		return __('notification.type.editorialReport');
+		return __('notification.type.editorialReport', [], $this->_context->getPrimaryLocale());
 	}
 
 	/**
@@ -192,7 +215,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 			null,
 			null,
 			NOTIFICATION_LEVEL_TASK,
-			array('contents' => __('notification.type.editorialReport.contents')),
+			['contents' => __('notification.type.editorialReport.contents', [], $this->_context->getPrimaryLocale())],
 			false,
 			function ($mail) use ($user) {
 				return $this->_setupMessage($mail, $user);
@@ -206,7 +229,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	protected function getMailTemplate($emailKey = null) : MailTemplate
 	{
 		import('lib.pkp.classes.mail.MailTemplate');
-		$mail = new MailTemplate('STATISTICS_REPORT_NOTIFICATION', null, $this->_context, false);
+		$mail = new MailTemplate('STATISTICS_REPORT_NOTIFICATION', $this->_context->getPrimaryLocale(), $this->_context, false);
 		return $mail;
 	}
 
@@ -232,7 +255,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	 */
 	private function _getMessageParams(User $user) : array
 	{
-		return $this->_params + ['name' => $user->getLocalizedGivenName()];
+		return $this->_params + ['name' => $user->getLocalizedGivenName($this->_context->getPrimaryLocale())];
 	}
 
 	/**

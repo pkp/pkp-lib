@@ -106,7 +106,13 @@ abstract class PKPStatsEditorialHandler extends APIHandler {
 			return $response->withStatus(400)->withJsonError($result);
 		}
 
-		return $response->withJson(Services::get('editorialStats')->getOverview($params));
+		return $response->withJson(array_map(
+			function ($item) {
+				$item['name'] = __($item['name']);
+				return $item;
+			},
+			Services::get('editorialStats')->getOverview($params)
+		));
 	}
 
 	/**

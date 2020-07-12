@@ -27,8 +27,7 @@ class PKPStatsEditorialService {
 	public function getOverview($args = []) {
 		import('classes.workflow.EditorDecisionActionsManager');
 		import('lib.pkp.classes.submission.PKPSubmission');
-		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
-		\AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
+		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
 
 		$received = $this->countSubmissionsReceived($args);
 		$accepted = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
@@ -88,67 +87,67 @@ class PKPStatsEditorialService {
 		$overview = [
 			[
 				'key' => 'submissionsReceived',
-				'name' => __('stats.name.submissionsReceived'),
+				'name' => 'stats.name.submissionsReceived',
 				'value' => $received,
 			],
 			[
 				'key' => 'submissionsAccepted',
-				'name' => __('stats.name.submissionsAccepted'),
+				'name' => 'stats.name.submissionsAccepted',
 				'value' => $accepted,
 			],
 			[
 				'key' => 'submissionsDeclined',
-				'name' => __('stats.name.submissionsDeclined'),
+				'name' => 'stats.name.submissionsDeclined',
 				'value' => $declined,
 			],
 			[
 				'key' => 'submissionsDeclinedDeskReject',
-				'name' => __('stats.name.submissionsDeclinedDeskReject'),
+				'name' => 'stats.name.submissionsDeclinedDeskReject',
 				'value' => $declinedDesk,
 			],
 			[
 				'key' => 'submissionsDeclinedPostReview',
-				'name' => __('stats.name.submissionsDeclinedPostReview'),
+				'name' => 'stats.name.submissionsDeclinedPostReview',
 				'value' => $declinedReview,
 			],
 			[
 				'key' => 'submissionsPublished',
-				'name' => __('stats.name.submissionsPublished'),
+				'name' => 'stats.name.submissionsPublished',
 				'value' => $this->countSubmissionsPublished($args),
 			],
 			[
 				'key' => 'daysToDecision',
-				'name' => __('stats.name.daysToDecision'),
+				'name' => 'stats.name.daysToDecision',
 				'value' => $firstDecisionDaysRate,
 			],
 			[
 				'key' => 'daysToAccept',
-				'name' => __('stats.name.daysToAccept'),
+				'name' => 'stats.name.daysToAccept',
 				'value' => $acceptDecisionDaysRate,
 			],
 			[
 				'key' => 'daysToReject',
-				'name' => __('stats.name.daysToReject'),
+				'name' => 'stats.name.daysToReject',
 				'value' => $declineDecisionDaysRate,
 			],
 			[
 				'key' => 'acceptanceRate',
-				'name' => __('stats.name.acceptanceRate'),
+				'name' => 'stats.name.acceptanceRate',
 				'value' => round($acceptanceRate, 2),
 			],
 			[
 				'key' => 'declineRate',
-				'name' => __('stats.name.declineRate'),
+				'name' => 'stats.name.declineRate',
 				'value' => round($declineRate, 2),
 			],
 			[
 				'key' => 'declinedDeskRate',
-				'name' => __('stats.name.declinedDeskRate'),
+				'name' => 'stats.name.declinedDeskRate',
 				'value' => round($declinedDeskRate, 2),
 			],
 			[
 				'key' => 'declinedReviewRate',
-				'name' => __('stats.name.declinedReviewRate'),
+				'name' => 'stats.name.declinedReviewRate',
 				'value' => round($declinedReviewRate, 2),
 			],
 		];

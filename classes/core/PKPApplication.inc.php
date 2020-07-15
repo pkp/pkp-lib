@@ -263,10 +263,24 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * @return \GuzzleHttp\Client
 	 */
 	public function getHttpClient() {
+		$application = Application::get();
+		$userAgent = $application->getName() . '/';
+		if (Config::getVar('general', 'installed') && !defined('RUNNING_UPGRADE')) {
+			$currentVersion = $application->getCurrentVersion();
+			$userAgent .= $currentVersion->getVersionString();
+		} else {
+			$userAgent .= '?';
+		}
+
 		return new \GuzzleHttp\Client([
 			'proxy' => [
 				'http' => Config::getVar('proxy', 'http_proxy', null),
 				'https' => Config::getVar('proxy', 'https_proxy', null),
+			],
+			'defaults' => [
+				'headers' => [
+					'User-Agent' => $userAgent,
+				],
 			],
 		]);
 	}

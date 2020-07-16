@@ -17,14 +17,14 @@
 	<upgrade minversion="3.0.0.0" maxversion="3.2.0.9">
 		<data file="dbscripts/xml/upgrade/3.2.1_update.xml" />
 		<code function="installEmailTemplate" key="ANNOUNCEMENT" locales="en_US" />
-		<migration class="lib.pkp.classes.migration.upgrade.v3_2_1SubeditorCategoriesMigration" />
+		<migration class="lib.pkp.classes.migration.upgrade.PKPv3_2_1SubeditorCategoriesMigration" />
 		<note file="docs/release-notes/README-3.2.1" />
 	</upgrade>
 
 	<upgrade minversion="3.0.0.0" maxversion="3.2.9.9">
 		<!-- Submissions with stage_id=WORKFLOW_STAGE_ID_SUBMISSION should be changed to stage_id=WORKFLOW_STAGE_ID_PRODUCTION, which is the only stage in OPS -->
 		<code function="changeSubmissionStageToProduction" />
-		<migration class="lib.pkp.classes.migration.upgrade.v3_3_0UpgradeMigration" />
+		<migration class="lib.pkp.classes.migration.PKPupgrade.v3_3_0UpgradeMigration" />
 		<note file="docs/release-notes/README-3.3.0" />
 	</upgrade>
 

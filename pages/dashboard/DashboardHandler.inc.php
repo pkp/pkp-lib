@@ -64,6 +64,8 @@ class DashboardHandler extends Handler {
 		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_submissions');
 		$lists = [];
 
+		$includeIssuesFilter = array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $userRoles);
+
 		// My Queue
 		$myQueueListPanel = new \APP\components\listPanels\SubmissionsListPanel(
 			SUBMISSIONS_LIST_MY_QUEUE,
@@ -74,7 +76,8 @@ class DashboardHandler extends Handler {
 					'status' => STATUS_QUEUED,
 					'assignedTo' => [(int) $request->getUser()->getId()],
 				],
-			]
+				'includeIssuesFilter' => $includeIssuesFilter,
+			],
 		);
 		$myQueueListPanel->set([
 			'items' => $myQueueListPanel->getItems($request),
@@ -95,6 +98,7 @@ class DashboardHandler extends Handler {
 						'assignedTo' => -1,
 					],
 					'lazyLoad' => true,
+					'includeIssuesFilter' => $includeIssuesFilter,
 				]
 			);
 			$lists[$unassignedListPanel->id] = $unassignedListPanel->getConfig();
@@ -109,6 +113,7 @@ class DashboardHandler extends Handler {
 						'status' => STATUS_QUEUED,
 					],
 					'lazyLoad' => true,
+					'includeIssuesFilter' => $includeIssuesFilter,
 				]
 			);
 			$lists[$activeListPanel->id] = $activeListPanel->getConfig();
@@ -123,7 +128,6 @@ class DashboardHandler extends Handler {
 						'autosuggestProps' => [
 								'allErrors' => (object) [],
 								'apiUrl' => $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'users', null, null, ['roleIds' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]]),
-								'component' => 'field-select-users',
 								'description' => '',
 								'deselectLabel' => __('common.removeItem'),
 								'formId' => 'default',
@@ -140,34 +144,6 @@ class DashboardHandler extends Handler {
 						]
 					]
 				];
-				$lists[$activeListPanel->id]['filters'][] = [
-					'filters' => [
-						[
-							'title' => _('issues'),
-							'param' => 'issueIds',
-							'value' => [],
-							'filterType' => 'pkp-filter-autosuggest',
-							'component' => 'field-select-issues',
-							'autosuggestProps' => [
-									'allErrors' => (object) [],
-									'apiUrl' => $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'issues', null, null, ['roleIds' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]]),
-									'component' => 'field-select-issues',
-									'description' => '',
-									'deselectLabel' => __('common.removeItem'),
-									'formId' => 'default',
-									'groupId' => 'default',
-									'initialPosition' => 'inline',
-									'isRequired' => false,
-									'label' => __('issues.submissions.issueIds'),
-									'locales' => [],
-									'name' => 'issueIds',
-									'primaryLocale' => 'en_US',
-									'selectedLabel' => __('common.assigned'),
-									'value' => [],
-								]
-							]
-						]
-					];
 		}
 
 		// Archived

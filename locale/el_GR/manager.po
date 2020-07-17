@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2020-07-17 09:33+0000\n"
+"PO-Revision-Date: 2020-07-17 23:36+0000\n"
 "Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -414,10 +414,10 @@ msgid "manager.statistics.reports"
 msgstr "Δημιουργία  Εκθέσεων"
 
 msgid "manager.statistics.statistics.count.value"
-msgstr "{$count}  ({$percentage}F)"
+msgstr "{$count} ({$percentage}%)"
 
 msgid "manager.statistics.statistics.totalNewValue"
-msgstr "{$numTotal} ({$numNew}  new)"
+msgstr "{$numTotal} ({$numNew} new)"
 
 msgid "manager.users"
 msgstr "Χρήστες"
@@ -483,7 +483,7 @@ msgid "plugins.categories.oaiMetadataFormats.description"
 msgstr "Αυτοί οι τύποι Plugins μεταφέρους τα μεταδεδομένα στις ΟΑΙ επικοινωνίας."
 
 msgid "grid.action.addGenre"
-msgstr "Προσθήκη Μέρος Βιβλίου"
+msgstr "Προσθέστε ένα Στοιχείο"
 
 msgid "manager.reviewForms"
 msgstr "Φόρμες αξιολόγησης"
@@ -988,3 +988,540 @@ msgstr "Εμφάνιση"
 
 msgid "manager.website.information"
 msgstr "Πληροφορίες"
+
+msgid "manager.distribution.title"
+msgstr "Ρυθμίσεις Κατανομής"
+
+msgid "manager.distribution"
+msgstr "Κατανομή"
+
+msgid "manager.workflow.title"
+msgstr "Ρυθμίσεις Ροής Εργασιών"
+
+msgid "manager.workflow"
+msgstr "Ροή εργασιών"
+
+msgid "manager.website.title"
+msgstr "Ρυθμίσεις ιστοτόπου"
+
+msgid "manager.website"
+msgstr "Δικτυακός τόπος"
+
+msgid "manager.users.roleRequired"
+msgstr ""
+"Πρέπει να επιλέξετε τουλάχιστον έναν ρόλο που θα συσχετιστεί με αυτόν το "
+"χρήστη."
+
+msgid "manager.settings.wizard"
+msgstr "Οδηγός Ρυθμίσεων"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Το κλειδί μπορεί να περιέχει μόνο αλφαριθμητικούς χαρακτήρες, κάτω παύλες "
+"και παύλες και πρέπει να ξεκινά και να τελειώνει με αλφαριθμητικό χαρακτήρα."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Αυτό το κλειδί υπάρχει."
+
+msgid "manager.setup.genres.key.description"
+msgstr "Ένα προαιρετικό σύντομο συμβολικό αναγνωριστικό για αυτό το είδος."
+
+msgid "manager.setup.genres.key"
+msgstr "Κλειδί"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Σήμανση αρχείων αυτού του τύπου ως συμπληρωματικά αρχεία (π.χ. όχι πρωτεύον "
+"περιεχόμενο υποβολής)"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Σήμανση αρχείων αυτού του τύπου ως εξαρτώμενα αρχεία (π.χ. να μην "
+"παρατίθενται με δημοσιευμένο περιεχόμενο)"
+
+msgid "grid.action.restoreGenres"
+msgstr "Επαναφέρετε τα στοιχεία στις προεπιλεγμένες ρυθμίσεις"
+
+msgid "grid.action.deleteGenre"
+msgstr "Διαγράψτε αυτό το Στοιχείο"
+
+msgid "grid.action.editGenre"
+msgstr "Επεξεργαστείτε αυτό το Στοιχείο"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Άλλα"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Αναφορές"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Δικαιώματα"
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Συμβάσεις"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Απαιτείται ένας τύπος αρχείου για αυτό το αρχείο βιβλιοθήκης."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Γι' αυτό το αρχείο βιβλιοθήκης απαιτείται όνομα."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Να επιτρέπεται η επεξεργασία των μεταδεδομένων της υποβολής."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"Απαιτείται αρχείο βιβλιοθήκης. Βεβαιωθείτε ότι έχετε επιλέξει και "
+"μεταφορτώσει ένα αρχείο."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Πρέπει να ορίσετε ένα στάδιο στο οποίο θα ανατεθεί."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Πρέπει να ορίσετε ένα επίπεδο δικαιωμάτων ρόλου."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Πρέπει να ορίσετε μια μοναδική συντομογραφία ρόλου."
+
+msgid "settings.roles.uniqueName"
+msgstr "Πρέπει να ορίσετε ένα μοναδικό όνομα ρόλου."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Πρέπει να ορίσετε μια συντομογραφία ρόλου."
+
+msgid "settings.roles.nameRequired"
+msgstr "Πρέπει να ορίσετε ένα όνομα ρόλου."
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Πρόκειται να καταργήσετε αυτόν τον ρόλο από αυτό το πλαίσιο. Αυτή η ενέργεια "
+"θα διαγράψει επίσης τις σχετικές ρυθμίσεις και όλες τις αναθέσεις χρηστών σε "
+"αυτό το ρόλο. Θέλετε να συνεχίσετε?"
+
+msgid "settings.roles.from"
+msgstr "Επίπεδο Δικαιωμάτων"
+
+msgid "settings.roles.roleDetails"
+msgstr "Λεπτομέρειες ρόλου"
+
+msgid "settings.roles.stages"
+msgstr "Στάδια"
+
+msgid "settings.roles.assignedStages"
+msgstr "Εκχωρημένα Στάδια"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Συντομογραφία"
+
+msgid "settings.roles.roleName"
+msgstr "Όνομα Ρόλου"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Αυτός ο ρόλος επιτρέπεται μόνο να προτείνει μια απόφαση κρίσης και θα "
+"απαιτηθεί από έναν εξουσιοδοτημένο συντάκτη να καταγράψει μια τελική απόφαση."
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Να επιτρέπεται η εγγραφή από τον ίδιο τον χρήστη"
+
+msgid "settings.roles.showTitles"
+msgstr "Εμφάνιση τίτλου ρόλου στη λίστα συνεργατών"
+
+msgid "settings.roles.roleOptions"
+msgstr "Επιλογές Ρόλων"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Νόμισμα"
+
+msgid "manager.paymentMethod.method"
+msgstr "Μέθοδος Πληρωμής"
+
+msgid "manager.paymentMethod.none"
+msgstr "Δεν έχει επιλεγεί μέθοδος πληρωμής"
+
+msgid "manager.paymentMethod.title"
+msgstr "Μέθοδοι Πληρωμής"
+
+msgid "manager.paymentMethod"
+msgstr "Πληρωμές"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Προσθέστε προσαρμοσμένες ετικέτες HTML, επίσης γνωστές ως μετα-ετικέτες, τις "
+"οποίες θα θέλατε να εισαγάγετε στην αρχή κάθε σελίδας. Συμβουλευτείτε έναν "
+"τεχνικό πριν προσθέσετε ετικέτες εδώ."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Προσαρμοσμένες ετικέτες"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Εισαγάγετε τους όρους δημόσιας αδειοδότησης που θέλετε να εμφανίζονται "
+"παράλληλα με τη δημοσιευμένη εργασία."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Όροι Άδειας Χρήσης"
+
+msgid "manager.distribution.license.other"
+msgstr "Σύνδεσμος επιπλέον αδειών χρήσης"
+
+msgid "manager.distribution.license.success"
+msgstr "Οι λεπτομέρειες αδειοδότησης ενημερώθηκαν. "
+
+msgid "manager.distribution.license"
+msgstr "Άδεια Χρήσης"
+
+msgid "notification.editedUser"
+msgstr "Έγινε επεξεργασία του χρήστη."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Οι ρυθμίσεις γλώσσας αποθηκεύτηκαν."
+
+msgid "notification.localeReloaded"
+msgstr "Η γλώσσα {$locale} ξαναφορτώθηκε για το πλαίσιο {$contextName}."
+
+msgid "notification.localeUninstalled"
+msgstr "Η γλώσσα {$locale} απεγκαταστάθηκε."
+
+msgid "notification.localeInstalled"
+msgstr "Όλες οι επιλεγμένες γλώσσες έχουν εγκατασταθεί και ενεργοποιηθεί."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "Η {$locale} ορίζεται ως κύρια γλώσσα."
+
+msgid "notification.localeDisabled"
+msgstr "Η γλώσσα απενεργοποιήθηκε."
+
+msgid "notification.localeEnabled"
+msgstr "Η γλώσσα ενεργοποιήθηκε."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "Το αρχείο version.xml δεν βρέθηκε στον κατάλογο των πρόσθετων"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr ""
+"Το αρχείο version.xml στον κατάλογο των πρόσθετων περιέχει μη έγκυρα "
+"δεδομένα."
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Επιλέξτε πρόσθετο"
+
+msgid "manager.plugins.uploadError"
+msgstr "Σφάλμα κατά τη μεταφόρτωση αρχείου"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Αναβαθμίστηκε με επιτυχία στην έκδοση {$versionString}"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Η αναβάθμιση απέτυχε. {$errorString}"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Αυτή η φόρμα σάς επιτρέπει να αναβαθμίσετε ένα πρόσθετο. Βεβαιωθείτε ότι "
+"είναι συμπιεσμένο ως αρχείο .tar.gz."
+
+msgid "manager.plugins.upgrade"
+msgstr "Αναβάθμιση πρόσθετου"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr ""
+"Η εντολή tar δεν είναι διαθέσιμη. Παρακαλούμε να το ρυθμίσετε σωστά στο \""
+"config.inc.php\"."
+
+msgid "manager.plugins.settings"
+msgstr "Ρυθμίσεις"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"Το πρόσθετο υπάρχει ήδη, αλλά είναι νεότερο από την εγκατεστημένη έκδοση. "
+"Αναβαθμίστε το"
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Το πρόσθετο δεν υπάρχει. Εγκαταστήστε το"
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"Η έκδοση.xml στο πρόσθετο που μεταφορτώσατε περιέχει ένα όνομα πρόσθετου που "
+"δεν ταιριάζει με το όνομα του αναβαθμιζόμενου πρόσθετου."
+
+msgid "manager.plugins.wrongCategory"
+msgstr ""
+"Το πρόσθετο που μεταφορτώσατε δεν ταιριάζει με την κατηγορία της "
+"αναβαθμισμένου πρόσθετου."
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+"Το αρχειοθετημένο πρόσθετο δεν περιέχει ένα φάκελο που αντιστοιχεί στο όνομα "
+"του πρόσθετου."
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Επιτυχής εγκατάσταση της έκδοσης {$versionNumber}"
+
+msgid "manager.plugins.installFailed"
+msgstr "Η εγκατάσταση απέτυχε. {$errorString}"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Μη διαθέσιμο"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Ενημερωμένο"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Μπορεί να αναβαθμιστεί"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Νεότερη από τη διαθέσιμη έκδοση"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Το πρόσθετο είναι ήδη εγκατεστημένο και ενημερωμένο."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+"Το πρόσθετο έχει ήδη εγκατασταθεί, αλλά μπορεί να ενημερωθεί σε νεότερη "
+"έκδοση."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+"Το πρόσθετο έχει ήδη εγκατασταθεί και είναι νεότερο από την έκδοση που "
+"υπάρχει στη συλλογή."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr ""
+"Αυτήν τη στιγμή δεν υπάρχει διαθέσιμη συμβατή έκδοση αυτού του πρόσθετου."
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Αυτό το πρόσθετο δεν έχει εγκατασταθεί ακόμα."
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Κατάσταση"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Περίληψη"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Αρχική Σελίδα"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "Η έκδοση v{$version} κυκλοφόρησε στις {$date}"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Συντηρητής"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Αυτό το πρόσθετο παρέχεται από έναν από τους συνεργάτες μας."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Εταίρος"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Αυτό το πρόσθετο έχει ελεγχθεί και εγκριθεί από την ομάδα Public Knowledge "
+"Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Ελεγμένο"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Αυτό το πρόσθετο αναπτύσσεται και συντηρείται από την ομάδα Project Public "
+"Knowledge."
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Επίσημο"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Τελευταία συμβατή έκδοση"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Εγκατάσταση"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Επισκόπηση"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Συλλογή Προσθέτων"
+
+msgid "manager.plugins.installed"
+msgstr "Εγκατεστημένα πρόσθετα"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Βεβαιωθείτε ότι έχει επιλεγεί αρχείο για μεταφόρτωση."
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Αυτή η φόρμα σάς επιτρέπει να ανεβάσετε και να εγκαταστήσετε ένα νέο "
+"πρόσθετο. Βεβαιωθείτε ότι το πρόσθετο είναι συμπιεσμένο ως .tar.gz."
+
+msgid "manager.plugins.upload"
+msgstr "Μεταφορτώστε ένα Νέο Πρόσθετο"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Επιλέξτε πρώτα ένα αρχείο"
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Το πρόσθετο \"{$pluginName}\" δεν υπάρχει"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Αυτή η σελίδα επιτρέπει στον Διαχειριστή του Περιοδικού να επιβλέπει και "
+"πιθανώς να ρυθμίζει τα πρόσθετα που είναι εγκατεστημένα αυτή τη στιγμή. Τα "
+"πρόσθετα χωρίζονται σε κατηγορίες ανάλογα με την λειτουργία τους. Οι "
+"κατηγορίες παρατίθενται παρακάτω μαζί με το τρέχον σύνολο των προσθέτων ανά "
+"κατηγορία."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Το πρόσθετο  \"{$pluginName}\" διαγράφτηκε με επιτυχία"
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"Δεν κατέστη δυνατή η διαγραφή του πρόσθετου \"{$pluginName}\" από το σύστημα "
+"αρχείων. Ίσως να υπάρχει πρόβλημα με τα δικαιώματα πρόσβασης σε αρχεία. "
+"Βεβαιωθείτε ότι ο διακομιστής έχει δικαίωμα εγγραφής στον φάκελο των "
+"προσθέτων (και στους υποφακέλους αυτού) αλλά μην ξεχάσετε να ασφαλίσετε ξανά "
+"τον φάκελο μετά το πέρας της διαδικασίας."
+
+msgid "manager.plugins.deleteDescription"
+msgstr ""
+"Πατώντας \"Διαγραφή\" θα διαγράψετε αυτό το πρόσθετο από το σύστημα αρχείων "
+"του Διακομιστή."
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Επιβεβαιώστε ότι θέλετε να διαγράψετε αυτό το Πρόσθετο από το σύστημα."
+
+msgid "grid.action.installPlugin"
+msgstr "Εγκατάσταση ή αναβάθμιση αυτού του Πρόσθετου"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Επιβεβαιώστε ότι θέλετε να αναβαθμίσετε αυτό το Πρόσθετο."
+
+msgid "manager.plugins.installConfirm"
+msgstr "Επιβεβαιώστε ότι θέλετε να διαγράψετε αυτό το Πρόσθετο."
+
+msgid "manager.plugins.delete"
+msgstr "Διαγραφή Πρόσθετου"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Το πρόσθετο δεν αντιγράφηκε με επιτυχία. Ίσως να υπάρχει πρόβλημα με τα "
+"δικαιώματα πρόσβασης σε αρχεία. Βεβαιωθείτε ότι ο διακομιστής έχει δικαίωμα "
+"εγγραφής στον φάκελο των προσθέτων (και στους υποφακέλους αυτού) αλλά μην "
+"ξεχάσετε να ασφαλίσετε ξανά τον φάκελο μετά το πέρας της διαδικασίας."
+
+msgid "plugins.categories.pubIds.description"
+msgstr ""
+"Αυτά τα Πρόσθετα υλοποιούν την υποστήριξη για ένα δημόσιο αναγνωριστικό."
+
+msgid "plugins.categories.pubIds"
+msgstr "Πρόσθετα Δημόσιου Αναγνωριστικού"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Τα Πρόσθετα μεταδεδομένων εφαρμόζουν επιπλέον πρότυπα μεταδεδομένων."
+
+msgid "plugins.categories.metadata"
+msgstr "Πρόσθετα Μεταδεδομένων"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Εγγεγραμμένοι χρήστες"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Επιλογές Πρόσβασης στον Ιστότοπο"
+
+msgid "manager.setup.theme.notFound"
+msgstr "Το θέμα που επιλέξατε δεν είναι εγκατεστημένο ή ενεργοποιημένο."
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Μπορείτε να εγκαταστήσετε νέα θέματα από την καρτέλα Πρόσθετα στο πάνω μέρος "
+"αυτής της σελίδας."
+
+msgid "manager.setup.theme"
+msgstr "Θέμα"
+
+msgid "manager.setup.theme.success"
+msgstr ""
+"Το θέμα έχει ενημερωθεί. <a href=\"{$url}\" target=\"_blank\"> Προβολή τώρα "
+"</a>"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Ένα άτομο που μπορεί να υποστηρίξει επιμελητές, συγγραφείς και κριτές σε "
+"προβλήματα υποβολής, επιμέλειας, κρίσης ή δημοσίευσης υλικού."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Υπεύθυνος Τεχνικής Υποστήριξης"
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Οι έμπειροι προγραμματιστές ιστοσελίδων μπορούν να μεταφορτώσουν ένα αρχείο "
+"CSS για να προσαρμόσουν περαιτέρω την εμφάνιση του ιστοτόπου."
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Τα ονόματα των οργανισμών (π.χ., ακαδημαϊκές ενώσεις, πανεπιστημιακά "
+"τμήματα, συνεταιρισμοί, κτλ.) που αποτελούν χορηγούς του περιοδικού θα "
+"εμφανίζονται δημόσια στην σελίδα \"Σχετικά με το Περιοδικό\" και ενδέχεται "
+"να συνοδεύονται από ευχαριστήριο σημείωμα."
+
+msgid "manager.setup.sponsors.note"
+msgstr "Σχέσεις Χορηγών και Περιγραφή Πολιτικής"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr ""
+"Προσθέστε έναν σύνδεσμο για την <button type=\"button\">Εξασφάλιση τυφλής "
+"κρίσης</button> κατά τη μεταφόρτωση"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Προεπιλεγμένη Λειτουργία Αξιολόγησης"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Αποστολή υπενθύμισης εάν ο κριτής δεν έχει υποβάλει κάποια σύσταση μετά την "
+"προθεσμία κρίσης, μέσα σε διάστημα (ημέρες):"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Υπενθύμιση Αξιολόγησης"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Αποστολή υπενθύμισης εάν ο κριτής δεν έχει απαντήσει σε αίτημα κρίσης μετά "
+"την προθεσμία απόκρισης, μέσα σε διάστημα (ημέρες):"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Υπενθύμιση Απόκρισης"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Οι προεπιλογές μπορούν να τροποποιηθούν για κάθε κρίση κατά τη συντακτική "
+"διαδικασία."
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Χωρίς αποστολή Υπενθύμισης"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Αριθμός εβδομάδων για την ολοκλήρωση μιας Κρίσης"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr ""
+"Αριθμός εβδομάδων που επιτρέπεται να γίνεται δεκτό ή να απορρίπτεται ένα "
+"αίτημα Κρίσης."
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Προκαθορισμένη προθεσμία ολοκλήρωσης"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Προκαθορισμένη προθεσμία απόκρισης"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Αυτή η δήλωση θα εμφανιστεί κατά τη διάρκεια της Υποβολής Συγγραφέων και στη "
+"δημόσια διαθέσιμη σελίδα \"Πληροφορίες\"."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Δήλωση Προστασίας Προσωπικών Δεδομένων"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Προσθέστε τις λεπτομέρειες επικοινωνίας, τυπικά με τους υπεύθυνους "
+"επιμέλειας, διαχείρισης επιμέλειας ή διοικητικού προσωπικού, που θα "
+"εμφανίζεται στην αρχική σελίδα του περιοδικού κάτω από την κεφαλίδα \""
+"Επικοινωνία\"."

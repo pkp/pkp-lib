@@ -95,7 +95,6 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 		$submissionChecklist = $context->getData('submissionChecklist');
-
 		return $submissionChecklist[AppLocale::getLocale()];
 	}
 
@@ -222,6 +221,8 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 			}
 		}
 
+		// Update both the in-memory value and database setting.
+		$context->setData('submissionChecklist', $orderedChecklistItems);
 		$context->updateSetting('submissionChecklist', $orderedChecklistItems, 'object', true);
 	}
 }

@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
+"PO-Revision-Date: 2020-07-17 09:33+0000\n"
+"Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
+"Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
+"el/>\n"
+"Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:44+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "manager.announcements"
 msgstr "Ανακοινώσεις"
@@ -129,10 +132,13 @@ msgid "manager.announcementTypes.typeName"
 msgstr "Τύπος ανακοίνωσης"
 
 msgid "manager.emails.confirmDelete"
-msgstr "Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε το συγκεκριμένο πρότυπο μηνύματος?"
+msgstr ""
+"Επιβεβαιώστε ότι επιθυμείτε να διαγράψετε το συγκεκριμένο πρότυπο μηνύματος."
 
 msgid "manager.emails.confirmReset"
-msgstr " Είστε βέβαιοι ότι επιθυμείτε να επαναφέρετε το συγκεκριμένο πρότυπο μηνύματος στις προεπιλεγμένες τιμές του?"
+msgstr ""
+"Επιβεβαιώστε ότι επιθυμείτε να επαναφέρετε το συγκεκριμένο πρότυπο μηνύματος "
+"στις προεπιλεγμένες τιμές του."
 
 msgid "manager.emails.createEmail"
 msgstr "Δημιουργία μηνύματος"
@@ -586,3 +592,399 @@ msgstr "Πλαίσιο κειμένου μονής γραμμής"
 
 msgid "manager.reviewFormElements.viewable"
 msgstr "Ορατό (για συγγραφείς)"
+
+msgid "manager.setup.principalContact"
+msgstr "Υπεύθυνος επικοινωνίας"
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Παρουσιάστε συνοπτικά τις πολιτικές και τις διαδικασίες του περιοδικού "
+"σχετικά με την ομότιμη κρίση για αναγνώστες και συγγραφείς, περιλαμβάνοντας "
+"τον αριθμό των κριτών που συνήθως χρησιμοποιούνται στην κρίση μια υποβολής, "
+"τα κριτήρια βάσει των οποίων οι κριτές καλούνται να κρίνουν υποβολές, τον "
+"τυπικό χρόνο που απαιτείται για τη διεξαγωγή κρίσεων και τις βασικές αρχές "
+"σύμφωνα με τις οποίες γίνεται η επιλογή των κριτών. Αυτή η περιγραφή θα "
+"εμφανίζεται στην σελίδα \"Σχετικά με το περιοδικό\"."
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Προσθέστε εικόνες, κείμενο ή κώδικα HTML που θα εμφανίζεται στο κάτω μέρος "
+"του ιστοτόπου."
+
+msgid "manager.setup.pageFooter"
+msgstr "Υποσέλιδο"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Εάν το περιοδικό παρέχει άμεσα ελεύθερη πρόσβαση στο σύνολο του περιεχομένου "
+"του περιοδικού, εισάγετε μια δήλωση σχετικά με την Πολιτική Ανοικτής "
+"Πρόσβασης του περιοδικού που θα εμφανίζεται στην σελίδα «Σχετικά με το "
+"περιοδικό»."
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Πολιτική Ανοικτής Πρόσβασης"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Με την ολοκλήρωση της διαδικασίας υποβολής, οι συγγραφείς λαμβάνουν αυτόματα "
+"ένα ευχαριστήριο email (που μπορεί να προβληθεί και να επεξεργαστεί μέσω της "
+"σελίδας \"Έτοιμα email\"). Επιπλέον, ένα αντίγραφο του ευχαριστήριου "
+"μηνύματος μπορεί να αποσταλεί ως εξής:"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Αποστολή αντιγράφου στην εξής διεύθυνση email"
+
+msgid "manager.setup.notifications"
+msgstr "Ειδοποίηση σχετικά με Υποβολή Συγγραφέα"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr ""
+"Δεν ήταν δυνατή η εύρεση του αρχείου που ανεβάσατε. Προσπαθήστε να το "
+"ανεβάσετε ξανά."
+
+msgid "manager.setup.logo"
+msgstr "Λογότυπο"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Δεν βρέθηκε το μπλοκ {$name}. Βεβαιωθείτε ότι το πρόσθετο είναι "
+"εγκατεστημένο και ενεργοποιημένο."
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Πλαϊνή μπάρα"
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Περιγραφές"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Μεταφορτώστε μια εικόνα που θα εμφανίζεται στην αρχική σελίδα."
+
+msgid "manager.setup.homepageImage"
+msgstr "Εικόνα Αρχικής Σελίδας"
+
+msgid "manager.setup.groupType"
+msgstr "Ομαδοποίηση τύπων αρχείων"
+
+msgid "manager.setup.favicon"
+msgstr "Εικονίδιο ιστοτόπου"
+
+msgid "manager.setup.competingInterests"
+msgstr "Συγκρουόμενα Συμφέροντα"
+
+msgid "manager.setup.checklist"
+msgstr "Λίστα ελέγχου"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Οι οδηγίες προς συγγραφείς ενημερώθηκαν με επιτυχία."
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Διατυπώστε τα πρότυπα βιβλιογραφίας και μορφοποίησης που θα πρέπει να "
+"ακολουθούν οι συγγραφείς, όταν υποβάλλουν  τεκμήρια στο περιοδικό, καθώς και "
+"παραδείγματα κοινών μορφών αναφορών και μορφοποίησης για περιοδικά και "
+"βιβλία."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Οδηγίες για τους Συγγραφείς"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Να απαιτείται από τους συγγραφείς να συμφωνούν με τη Δήλωση Προστασίας "
+"Πνευματικών Δικαιωμάτων ως μέρος της διαδικασίας υποβολής."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Δήλωση Προστασίας Πνευματικών Δικαιωμάτων"
+
+msgid "manager.setup.appearance.success"
+msgstr "Οι ρυθμίσεις εμφάνισης ενημερώθηκαν."
+
+msgid "manager.setup.advanced"
+msgstr "Σύνθετα"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Οτιδήποτε εισαχθεί εδώ θα εμφανιστεί στην αρχική σας σελίδα."
+
+msgid "manager.setup.additionalContent"
+msgstr "Επιπλέον περιεχόμενο"
+
+msgid "manager.affiliationAndSupport"
+msgstr "Χορηγοί"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Περιορίστε τα αποτελέσματα κατά χώρα, περιοχή και/ή πόλη."
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "Κατά γεωγραφική περιοχή"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Ή επιλέξτε την έκταση κατά:"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Επιλέξτε την έκταση της αναφοράς"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Κατά τύπο και/ή ID αντικειμένου"
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "Κατά πλαίσιο"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr ""
+"Ο ακόλουθος σύνδεσμος μπορεί να χρησιμοποιηθεί για τη δημιουργία μιας "
+"αναφοράς με τις τρέχουσες ρυθμίσεις φόρμας.  Μπορείτε να το αντιγράψετε και "
+"να τον δείτε στον περιηγητή σας.  Επίσης μπορείτε να την αποθηκεύσετε στους "
+"σελιδοδείκτες σας."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "Σύνδεσμος Αναφοράς"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr ""
+"Πρέπει να επιλέξετε τουλάχιστον μία στήλη για να δημιουργηθεί η αναφορά."
+
+msgid "manager.statistics.reports.cities.label"
+msgstr "Ένα ή περισσότερα ονόματα πόλεων χωρισμένα με κόμμα (πχ Πόλη 1, Πόλη 2)"
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Χρησιμοποιήστε την μορφή ΕΕΕΕΜΜΗΗ."
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Χρησιμοποιήστε την μορφή ΕΕΕΕΜΜ."
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Φθίνουσα"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Αύξουσα"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Κατεύθυνση"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Ταξινόμηση κατά"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Τρέχων μήνας"
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Χθες"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr ""
+"Ορίστε ένα ή περισσότερα IDs αντικειμένων χωρισμένα με κόμμα (π.χ. "
+"1,2,3,4,5)."
+
+msgid "manager.statistics.reports.objectId"
+msgstr "ID αντικειμένου"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Τύπος Αντικειμένου"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Δεν βρέθηκε το αντικείμενο στη βάση δεδομένων"
+
+msgid "manager.statistics.reports.filters"
+msgstr "Φίλτρα"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr ""
+"Καθορίστε τις στήλες που θα χρησιμοποιηθούν για την δημιουργία της "
+"αναφοράς.  Οι στήλες που θα επιλέξετε εδώ όχι μόνο καθορίζουν ποια δεδομένα "
+"θα παρουσιαστούν μέσα στις αναφορές, αλλά καθορίζουν και το βαθμό "
+"συσσωμάτωσης στα στατιστικά.  Για παράδειγμα αν επιλέξετε τις στήλες ID, "
+"Τύπος και Μήνας, η αναφορά θα αθροίσει όλες τις προβολές ενός αντικειμένου "
+"σε ένα μήνα και θα παρουσιάσει τα δεδομένα σε μία γραμμή.  Αν επιλέξετε "
+"Ημέρα αντί για Μήνα, κάθε αντικείμενο θα έχει μία γραμμή για κάθε μέρα."
+
+msgid "manager.statistics.reports.columns"
+msgstr "Στήλες"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Απόκρυψη Σύνθετων Επιλογών"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Σύνθετες επιλογές"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Δημιουργία μη τυποποιημένης Αναφοράς"
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Προεπιλεγμένα Πρότυπα Αναφορών"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr ""
+"Αντικείμενα με πλάγια γραφή και σημειωμένα με * αντιπροσωπεύουν μη "
+"υποχρεωτικά δεδομένα για τον τρόπο υπολογισμού των στατιστικών στο σύστημα "
+"(μετρικό). Η ύπαρξη αυτών των δεδομένων εξαρτάται από την διαμόρφωση του "
+"πρόσθετου στατιστικών."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Συγκεντρωτικά στατιστικά κατά:"
+
+msgid "manager.statistics.region"
+msgstr "Περιφέρεια"
+
+msgid "manager.statistics.city"
+msgstr "Πόλη"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tTo {$contextObjectName} σας έχει ρυθμιστεί για να καταγράψει περισσότερα "
+"από ένα μετρικά συστήματα χρήσης. Τα στατιστικά χρήσης θα εμφανιστεί σε "
+"πολλαπλά πλαίσια.\n"
+"\t\tΥπάρχουν περιπτώσεις όπου ένα μοναδικό στατιστικό χρήσης πρέπει να "
+"χρησιμοποιηθεί, π.χ.η προβολή μιας λίστας των πιο δημοφιλών άρθρων ή η "
+"ταξινόμηση των αποτελεσμάτων αναζήτησης. Επιλέξτε ένα από τα μετρικά "
+"συστήματα ως προκαθορισμένο.\n"
+"\t"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Χρησιμοποιήστε την ακόλουθη φόρμα για να ορίσετε τις μέγιστες τιμές για τους "
+"όρους που επιθυμείτε να αναζητήσετε. Η φόρμα είναι προσυμπληρωμένη με τις "
+"υπολογισμένες μέσες τιμές αυτών των πεδίων."
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Αναζήτηση κατά Όνομα"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Αλλαγή"
+
+#, fuzzy
+msgid "manager.representative.inUse"
+msgstr ""
+"Δεν μπορείτε να διαγράψετε αυτόν τον εκπρόσωπο επειδή έχει εκχωρηθεί στα "
+"μεταδεδομένα για μία ή περισσότερες μορφές δημοσίευσης για αυτήν την υποβολή."
+
+msgid "manager.userSearch.searchByName"
+msgstr "Αναζήτηση χρήστη κατά Όνομα"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Πρέπει να εισαχθεί ένας υπάρχων χρήστης."
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Επαναφορά προεπιλογών"
+
+msgid "manager.language.forms"
+msgstr "Φόρμες"
+
+msgid "manager.language.submissions"
+msgstr "Υποβολές"
+
+#, fuzzy
+msgid "manager.language.ui"
+msgstr "Διεπαφή Χρήστη"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Θέμα: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Παραλήπτης"
+
+msgid "manager.emails.sentFrom"
+msgstr "Αποστολέας"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Εάν επαναφέρετε αυτό το πρότυπο, όλα τα δεδομένα μηνυμάτων θα επαναφερθούν "
+"στην προεπιλεγμένη τιμή του, χάνοντας όλες τις τροποποιήσεις. Θέλετε να "
+"επιβεβαιώσετε αυτήν τη λειτουργία;"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Εάν επαναφέρετε όλα τα πρότυπα, όλες οι τροποποιήσεις στα πρότυπα email θα "
+"χαθούν. Θέλετε να επιβεβαιώσετε αυτήν τη λειτουργία;"
+
+msgid "manager.emails.resetAll"
+msgstr "Επαναφορά Όλων"
+
+msgid "manager.emails.enable.message"
+msgstr ""
+"Πρόκειται να ενεργοποιήσετε αυτό το μήνυμα email. Θέλετε να επιβεβαιώσετε "
+"αυτήν τη λειτουργία;"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Το κλειδί που παρείχατε χρησιμοποιείται ήδη."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"Πρέπει να παρέχετε ένα αναγνωριστικό (context ID) κατά την προσθήκη ενός "
+"προτύπου email."
+
+msgid "manager.emails.emailTemplates"
+msgstr "Πρότυπα μηνυμάτων email"
+
+#, fuzzy
+msgid "manager.emails.emailKey.description"
+msgstr ""
+"Το κλειδί (email key) μπορεί να περιέχει μόνο γράμματα, αριθμούς και κάτω "
+"παύλες."
+
+msgid "manager.emails.editEmail.success"
+msgstr "Τροποποιήθηκε το πρότυπο μηνυμάτων email."
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Πρόκειται να απενεργοποιήσετε αυτό το πρότυπο μηνυμάτων email. Εάν υπήρχαν "
+"διαδικασίες συστήματος που χρησιμοποιούν αυτό το πρότυπο, δεν θα το "
+"χρησιμοποιούν πια. Θέλετε να επιβεβαιώσετε αυτήν τη λειτουργία;"
+
+msgid "manager.emails.details"
+msgstr "Λεπτομέρειες Προτύπου"
+
+msgid "manager.emails.data"
+msgstr "Δεδομένα προτύπου μηνυμάτων"
+
+msgid "manager.emails.customTemplate"
+msgstr "Προσαρμοσμένο πρότυπο"
+
+msgid "manager.emails.addEmail.success"
+msgstr "Προστέθηκε το πρότυπο μηνυμάτων email."
+
+msgid "manager.emails.addEmail"
+msgstr "Προσθήκη προτύπου"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Οι ρυθμίσεις υπενθύμισης αξιολόγησης ενημερώθηκαν."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Οι ρυθμίσεις αξιολόγησης ενημερώθηκαν."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Η καθοδήγηση Αξιολογητή ενημερώθηκε."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Καθοδήγηση Αξιολογητή"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "Οι ρυθμίσεις email ενημερώθηκαν."
+
+msgid "manager.publication.emails"
+msgstr "Emails"
+
+msgid "manager.publication.productionStage"
+msgstr "Δημοσίευση"
+
+msgid "manager.publication.editorialStage"
+msgstr "Σύνταξη"
+
+msgid "manager.publication.reviewStage"
+msgstr "Αξιολόγηση"
+
+msgid "manager.publication.submissionStage"
+msgstr "Υποβολή"
+
+msgid "manager.announcements.datePublish"
+msgstr "Δημοσιευμένο"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Είναι απαραίτητο ένα αρχείο εικόνας. Βεβαιωθείτε ότι επιλέξατε και "
+"μεταφορτώσατε ένα τέτοιο αρχείο."
+
+msgid "manager.website.appearance"
+msgstr "Εμφάνιση"
+
+msgid "manager.website.information"
+msgstr "Πληροφορίες"

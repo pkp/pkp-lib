@@ -28,6 +28,10 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			// pkp/pkp-lib#2493 Remove obsolete columns
 			$table->dropColumn('section_id');
 		});
+		Capsule::schema()->table('publication_settings', function (Blueprint $table) {
+			// pkp/pkp-lib#6096 DB field type TEXT is cutting off long content
+			$table->mediumText('setting_value')->nullable()->change();
+		});
 		Capsule::schema()->table('authors', function (Blueprint $table) {
 			// pkp/pkp-lib#2493 Remove obsolete columns
 			$table->dropColumn('submission_id');

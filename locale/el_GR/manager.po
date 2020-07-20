@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2020-07-20 12:35+0000\n"
+"PO-Revision-Date: 2020-07-20 12:45+0000\n"
 "Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -24,7 +24,7 @@ msgid "manager.announcements.create"
 msgstr "Δημιουργία νέας ανακοίνωσης"
 
 msgid "manager.announcements.createTitle"
-msgstr "Δημιουργία "
+msgstr "Δημιουργία"
 
 msgid "manager.announcements.dateExpire"
 msgstr "Ημερομηνία λήξης"
@@ -33,7 +33,7 @@ msgid "manager.announcements.edit"
 msgstr "Διαμόρφωση ανακοίνωσης"
 
 msgid "manager.announcements.editTitle"
-msgstr "Διαμόρφωση "
+msgstr "Διαμόρφωση"
 
 msgid "manager.announcements.form.dateExpireDayIncompleteDate"
 msgstr "Επιλέξτε έτος ή/και μήνα εκτός από την ημέρα της ημερομηνίας λήξης."
@@ -105,7 +105,7 @@ msgid "manager.announcementTypes.create"
 msgstr "Δημιουργία τύπου ανακοινώσεων"
 
 msgid "manager.announcementTypes.createTitle"
-msgstr "Δημιουργία "
+msgstr "Δημιουργία"
 
 msgid "manager.announcementTypes.edit"
 msgstr "Διαμόρφωση τύπου ανακοινώσεων"
@@ -114,7 +114,7 @@ msgid "manager.announcementTypes.editTitle"
 msgstr "Διαμόρφωση"
 
 msgid "manager.announcementTypes.form.saveAndCreateAnother"
-msgstr " Αποθήκευση και δημιουργία νέου "
+msgstr "Αποθήκευση και δημιουργία νέου"
 
 msgid "manager.announcementTypes.form.typeNameExists"
 msgstr "Ένας τύπος ανακοίνωσης με το συγκεκριμένο όνομα υπάρχει ήδη."
@@ -168,7 +168,7 @@ msgid "manager.emails.enable"
 msgstr "Ενεργοποίηση"
 
 msgid "manager.emails.form.bodyRequired"
-msgstr " Απαιτείται η συμπλήρωση του κυρίου σώματος για το μήνυμα."
+msgstr "Απαιτείται η συμπλήρωση του κυρίου σώματος για το μήνυμα."
 
 msgid "manager.emails.form.subjectRequired"
 msgstr "Απαιτείται ο ορισμός θέματος για το μήνυμα."
@@ -294,7 +294,7 @@ msgid "manager.people.enable"
 msgstr "Ενεργοποίηση"
 
 msgid "manager.people.enroll"
-msgstr " Ανάθεση ρόλου"
+msgstr "Ανάθεση ρόλου"
 
 msgid "manager.people.enrollment"
 msgstr "Ανάθεση ρόλων"
@@ -303,7 +303,7 @@ msgid "manager.people.enrollSelected"
 msgstr "Ανάθεση ρόλου στους επιλεγμένους χρήστες"
 
 msgid "manager.people.enrollSyncRole"
-msgstr "Συγχρονισμός Ρόλου "
+msgstr "Συγχρονισμός Ρόλου"
 
 msgid "manager.people.enrollSync"
 msgstr "Συγχρονισμένη ανάθεση ρόλων"
@@ -312,7 +312,7 @@ msgid "manager.people.enrollUserAsDescription"
 msgstr "Εάν δεν έχουν επιλεγεί ρόλοι, ο χρήστης θα δημιουργηθεί στο σύστημα αλλά δεν θα είναι εγγεγραμμένος σε κάποιον ρόλο στα πλαίσια του συγκεκριμένου περιοδικού. Κατόπιν της δημιουργίας του χρήστη, η ανάθεση ή μη ρόλων μπορεί να πραγματοποιηθεί ανά πάσα στιγμή."
 
 msgid "manager.people.enrollUserAs"
-msgstr "Ανάθεση ρόλου "
+msgstr "Ανάθεση ρόλου"
 
 msgid "manager.people.invalidUser"
 msgstr "Ο χρήστης δεν υπάρχει."
@@ -357,7 +357,7 @@ msgid "manager.people.syncUsers"
 msgstr "Συγχρονισμός ανάθεσης ρόλων"
 
 msgid "manager.people.unenroll"
-msgstr "Απαλλαγή "
+msgstr "Απαλλαγή"
 
 msgid "manager.people.userCreatedSuccessfully"
 msgstr "Ο χρήστης δημιουργήθηκε επιτυχώς."
@@ -399,7 +399,9 @@ msgid "manager.setup.loggingAndAuditing"
 msgstr "Σύνδεση και έλεγχος"
 
 msgid "manager.setup.pageHeaderLogoImageInvalid"
-msgstr " Μη έγκυρη μορφή εικόνας λογοτύπου της κεφαλίδας της σελίδας. Έγκυρες μορφές είναι .gif, .jpg, ή .png."
+msgstr ""
+"Μη έγκυρη μορφή εικόνας λογοτύπου της κεφαλίδας της σελίδας. Έγκυρες μορφές "
+"είναι .gif, .jpg, ή .png."
 
 msgid "manager.setup.selectOne"
 msgstr "Επιλέξτε ένα"
@@ -474,7 +476,7 @@ msgid "manager.reviewerSearch.interests"
 msgstr "Ενδιαφέροντα Αξιολόγησης"
 
 msgid "manager.setup.errorDeletingItem"
-msgstr "Παρουσιάστηκε σφάλμα κατά την διαγραφή του φίλτρου"
+msgstr "Παρουσιάστηκε σφάλμα κατά την διαγραφή του φίλτρου."
 
 msgid "plugins.categories.oaiMetadataFormats"
 msgstr "OAI Metadata Format Plugins"
@@ -543,7 +545,9 @@ msgid "manager.reviewFormElements.chooseType"
 msgstr "Επιλέξτε τύπο πεδίου"
 
 msgid "manager.reviewFormElements.confirmDelete"
-msgstr "Είστε σίγουροι ότι επιθυμείτε να διαγράψετε ένα στοιχείο μιας δημοσιευμένης φόρμας αξιολόγησης?"
+msgstr ""
+"Επιβεβαιώστε ότι επιθυμείτε να διαγράψετε ένα στοιχείο μιας δημοσιευμένης "
+"φόρμας αξιολόγησης..."
 
 msgid "manager.reviewFormElements.copyTo"
 msgstr "Αντιγραφή σε:"
@@ -2006,8 +2010,8 @@ msgstr ""
 
 msgid "manager.setup.metadata.keywords.require"
 msgstr ""
-"Ζητήστε από τον συγγραφέα να προτείνει λέξεις-κλειδιά πριν αποδεχτείτε την "
-"υποβολή του."
+"Απαιτείστε από τον συγγραφέα να προτείνει λέξεις-κλειδιά πριν αποδεχτείτε "
+"την υποβολή του."
 
 msgid "manager.setup.metadata.keywords.request"
 msgstr "Ζητήστε από τον συγγραφέα να προτείνει λέξεις-κλειδιά κατά την υποβολή."

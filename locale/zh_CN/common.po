@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-04T08:55:07-08:00\n"
-"PO-Revision-Date: 2020-01-09 22:34+0000\n"
-"Last-Translator: Yang Luo <hsluoyz@sohu.com>\n"
+"PO-Revision-Date: 2020-07-03 17:40+0000\n"
+"Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
 "Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -1006,3 +1006,209 @@ msgstr "{$label}:"
 
 msgid "common.homepageNavigationLabel"
 msgstr "主页"
+
+msgid "common.sendEmail"
+msgstr "发送电子邮件"
+
+msgid "common.saving"
+msgstr "保存中"
+
+msgid "common.removeItem"
+msgstr "移除 {$item}"
+
+msgid "common.readMoreWithTitle"
+msgstr "进一步了解{$title}"
+
+msgid "common.readMore"
+msgstr "阅读更多"
+
+msgid "common.quality"
+msgstr "质量"
+
+msgid "common.prefix"
+msgstr "前缀"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.pageNumber"
+msgstr "第 {$pageNumber} 页"
+
+msgid "common.pagination.previous"
+msgstr "上一页"
+
+msgid "common.pagination.goToPage"
+msgstr "转到{$page}"
+
+msgid "common.pagination.next"
+msgstr "下一页"
+
+msgid "common.override"
+msgstr "覆盖"
+
+msgid "common.orderDown"
+msgstr "减少{$itemTitle}的排名"
+
+msgid "common.orderUp"
+msgstr "增加{$itemTitle}的排名"
+
+msgid "common.notified.date"
+msgstr "通知：{$dateNotified}"
+
+msgid "common.notes.tooltip"
+msgstr "注释（黄色：有新注释；蓝色：已查看注释；灰色：无注释）"
+
+msgid "common.noTemporaryFile"
+msgstr "找不到您上传的文件。 请尝试再次上传。"
+
+msgid "common.noItemsFound"
+msgstr "未找到任何项目。"
+
+msgid "common.moreThanOnly"
+msgstr "高于"
+
+msgid "common.moreThan"
+msgstr "{$value}以上"
+
+msgid "common.lessThanOnly"
+msgstr "低于"
+
+msgid "common.lessThan"
+msgstr "{$value}以下"
+
+msgid "common.lastActivity"
+msgstr "最近的活动记录在{$date}。"
+
+msgid "common.itemsPerPage"
+msgstr "每页项目"
+
+msgid "common.until"
+msgstr "直到"
+
+msgid "common.fromWithValue"
+msgstr "来自: {$value}"
+
+msgid "common.from"
+msgstr "来自"
+
+msgid "common.filterRemove"
+msgstr "清除过滤器：{$filterTitle}"
+
+msgid "common.filterAdd"
+msgstr "添加过滤器：{$filterTitle}"
+
+msgid "common.filter"
+msgstr "过滤器"
+
+msgid "common.fileUploaderError"
+msgstr "系统文件上传器正在加载。 如果未出现，则此浏览器可能不支持其任何一种运行时。 请联系管理部门以获取支持。"
+
+msgid "common.downloadPdf"
+msgstr "下载 PDF"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} 像素"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; DPI/PPI为 {$dpi}"
+
+msgid "common.designation"
+msgstr "指定"
+
+msgid "common.deleting"
+msgstr "删除中"
+
+msgid "common.dateHijri"
+msgstr "回历日历"
+
+msgid "common.dateDecided"
+msgstr "决定日期"
+
+msgid "common.contents"
+msgstr "内容"
+
+msgid "common.confirmed.date"
+msgstr "确认：{$dateConfirmed}"
+
+msgid "common.completed.date"
+msgstr "完成：{$dateCompleted}"
+
+msgid "common.closePanel"
+msgstr "关闭面板"
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "您没有通过用于阻止垃圾提交的验证检查。"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "您必须完成用于阻止垃圾提交的验证检查。"
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr "此网站的验证码未正确配置。 密钥无效。"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr "此网站的验证码未正确配置。 缺少密钥。"
+
+msgid "common.notice"
+msgstr "注意"
+
+msgid "common.error"
+msgstr "错误"
+
+msgid "common.available"
+msgstr "可用"
+
+msgid "common.assigned.date"
+msgstr "已指派：{$dateAssigned}"
+
+msgid "common.altTextInstructions"
+msgstr "为使用纯文本浏览器或辅助设备的访问者描述此图像。 示例：“我们的编辑在PKP会议上发言。”"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"of a the and an or nor but is if then else when at from by on off for in out "
+"over to into with"
+
+msgid "common.name"
+msgstr "名称"
+
+msgid "common.abstract"
+msgstr "摘要"
+
+msgid "common.confirmDelete"
+msgstr "您确定要删除此项目吗？ 此操作无法撤消。"
+
+msgid "common.grid"
+msgstr "网格"
+
+msgid "common.list"
+msgstr "列表"
+
+msgid "common.tasks"
+msgstr "任务"
+
+msgid "common.navigation.user"
+msgstr "用户导航"
+
+msgid "common.navigation.siteContext"
+msgstr "网站上下文导航"
+
+msgid "common.navigation.site"
+msgstr "站点导航"
+
+msgid "common.navigation.sidebar"
+msgstr "侧边栏"
+
+msgid "common.allDownloads"
+msgstr "所有下载"
+
+msgid "about.guidelines"
+msgstr "指南"
+
+msgid "about.description"
+msgstr "描述"
+
+msgid "common.currentStyleSheet"
+msgstr "当前样式表"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"

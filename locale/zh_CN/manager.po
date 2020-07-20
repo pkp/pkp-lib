@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-04T08:55:35-08:00\n"
+"PO-Revision-Date: 2020-07-03 17:40+0000\n"
+"Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
+"Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/manager/zh_Hans/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-04T08:55:35-08:00\n"
-"PO-Revision-Date: 2019-11-04T08:55:35-08:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "manager.announcements"
 msgstr "公告"
@@ -604,3 +607,93 @@ msgstr "预览表单"
 
 msgid "manager.reviewForms.title"
 msgstr "名称"
+
+msgid "manager.userSearch.searchByName"
+msgstr "按名称搜索用户"
+
+msgid "manager.people.existingUserRequired"
+msgstr "必须输入一个现有用户。"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "重新加载默认值"
+
+msgid "manager.language.forms"
+msgstr "表单"
+
+msgid "manager.language.submissions"
+msgstr "提交"
+
+msgid "manager.language.ui"
+msgstr "用户界面"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "主题：{$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "发给"
+
+msgid "manager.emails.sentFrom"
+msgstr "来自"
+
+msgid "manager.emails.resetAll"
+msgstr "重置所有"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "您提供的密钥已在使用中。"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "添加电子邮件模板时，必须提供上下文ID。"
+
+msgid "manager.emails.emailTemplates"
+msgstr "电子邮件模板"
+
+msgid "manager.emails.emailKey.description"
+msgstr "电子邮件密钥只能包含字母，数字和下划线。"
+
+msgid "manager.emails.editEmail.success"
+msgstr "电子邮件模板已修改。"
+
+msgid "manager.emails.customTemplate"
+msgstr "自定义模板"
+
+msgid "manager.emails.addEmail.success"
+msgstr "电子邮件模板已添加。"
+
+msgid "manager.emails.addEmail"
+msgstr "添加模板"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "评审提醒详细信息已更新。"
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "评审设置已更新。"
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "评审人指导已更新。"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "评审人指导"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "电子邮件设置已更新。"
+
+msgid "manager.publication.emails"
+msgstr "电子邮件"
+
+msgid "manager.publication.productionStage"
+msgstr "生产"
+
+msgid "manager.publication.reviewStage"
+msgstr "评审"
+
+msgid "manager.publication.submissionStage"
+msgstr "投稿"
+
+msgid "manager.website.imageFileRequired"
+msgstr "需要图像文件。 请确保您已选择并上传了文件。"
+
+msgid "manager.website.appearance"
+msgstr "外观"
+
+msgid "manager.website.information"
+msgstr "信息"

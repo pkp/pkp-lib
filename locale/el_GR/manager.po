@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2020-07-20 11:15+0000\n"
+"PO-Revision-Date: 2020-07-20 12:35+0000\n"
 "Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -872,7 +872,6 @@ msgstr "Φόρμες"
 msgid "manager.language.submissions"
 msgstr "Υποβολές"
 
-#, fuzzy
 msgid "manager.language.ui"
 msgstr "Διεπαφή Χρήστη"
 
@@ -1549,3 +1548,491 @@ msgstr "Φόρμα Υποβολής"
 
 msgid "manager.reviewFormElements.description"
 msgstr "Περιγραφή"
+
+msgid "stats.name.declineRate"
+msgstr "Ποσοστό Απόρριψης"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Ποσοστό Αποδοχής"
+
+msgid "stats.name.daysToReject"
+msgstr "Ημέρες μέχρι την Απόρριψη"
+
+msgid "stats.name.daysToAccept"
+msgstr "Ημέρες μέχρι την Αποδοχή"
+
+msgid "stats.name.daysToDecision"
+msgstr "Ημέρες έως την Πρώτη Συντακτική Απόφαση"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Δημοσιευμένες Υποβολές"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Αποδεκτές Υποβολές"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Απορριφθείσες Υποβολές"
+
+#, fuzzy
+msgid "stats.name.submissionsReceived"
+msgstr "Κατατεθειμένες Υποβολές"
+
+msgid "stats.userStatistics"
+msgstr "Στατιστικά Χρηστών"
+
+msgid "stats.trends"
+msgstr "Τάσεις"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Σύνολο εντός εύρους ημερομηνιών"
+
+msgid "stats.total"
+msgstr "Σύνολο"
+
+msgid "stats.submissionsActive"
+msgstr "Ενεργές Υποβολές"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Αναζήτηση ανά τίτλο, συγγραφέα και αναγνωριστικό ID"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Μηνιαία"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.fileViews"
+msgstr "Προβολές αρχείων"
+
+msgid "stats.editorialActivity"
+msgstr "Συντακτική δραστηριότητα"
+
+msgid "stats.descriptionForStat"
+msgstr "Περιγραφή για {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Ο αριθμός των ημερών που απαιτούνται για να λάβουν οι περισσότερες υποβολές "
+"την πρώτη συντακτική απόφαση, όπως απόρριψη ή αποστολή για έλεγχο. <br> <br> "
+"Αυτά τα στοιχεία δείχνουν ότι το 80% των υποβολών λαμβάνει την απόφαση εντός "
+"αυτού του  αριθμού ημερών. < br> <br> Αυτή η στατιστική επιχειρεί να "
+"περιγράψει πότε η πλειονότητα των συγγραφέων που υποβάλλουν στο περιοδικό "
+"σας μπορούν να περιμένουν μια απόφαση."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Το ποσοστό για το επιλεγμένο εύρος ημερομηνιών υπολογίζεται για υποβολές που "
+"έχουν υποβληθεί κατά τη διάρκεια αυτού του εύρους ημερομηνιών και έχουν "
+"λάβει τελική απόφαση. <br> <br> Για παράδειγμα, εξετάστε την περίπτωση κατά "
+"την οποία δέκα υποβολές υποβλήθηκαν κατά τη διάρκεια αυτού του εύρους "
+"ημερομηνιών. Τέσσερις έγιναν δεκτές, τέσσερις απορρίφθηκαν και δύο ακόμη "
+"περιμένουν μια τελική απόφαση. <br> <br> Το ποσοστό αποδοχής θα είναι 50% (4 "
+"από 8 υποβολές) επειδή δεν υπολογίζονται οι δύο υποβολές που δεν έχουν λάβει "
+"τελική απόφαση."
+
+msgid "stats.dateRange.untilDate"
+msgstr "Μέχρι {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Μέχρι"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Φέτος"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Από {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Τελευταίο έτος"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Τελευταία δύο έτη"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Τελευταίες 90 ημέρες"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Τελευταίες 30 ημέρες"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Τελευταίοι 12 μήνες"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Η ημερομηνία έναρξης δεν μπορεί να είναι νωρίτερα από {$ date}."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Η ημερομηνία λήξης δεν μπορεί να είναι μετά από {$date}."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Η ημερομηνία έναρξης πρέπει να είναι πριν από την ημερομηνία λήξης."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Η μορφή ημερομηνίας δεν είναι έγκυρη. Εισαγάγετε κάθε ημερομηνία με τη μορφή "
+"ΕΕΕΕ-ΜΜ-ΗΗ."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Εισαγάγετε κάθε ημερομηνία με τη μορφή ΕΕΕΕ-ΜΜ-ΗΗ. Για παράδειγμα, εάν "
+"θέλετε την ημερομηνία για τις 15 Ιανουαρίου 2019, εισαγάγετε 2019-01-15."
+
+msgid "stats.dateRange.from"
+msgstr "Από"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Δεν υπάρχει μία από τις ημερομηνίες που έχουν εισαχθεί."
+
+msgid "stats.dateRange.customRange"
+msgstr "Προσαρμοσμένο Εύρος"
+
+msgid "stats.dateRange.change"
+msgstr "Αλλαγή εύρους ημερομηνιών"
+
+msgid "stats.dateRange.apply"
+msgstr "Εφαρμογή"
+
+msgid "stats.dateRange.allDates"
+msgstr "Όλες οι ημερομηνίες"
+
+msgid "stats.dateRange"
+msgstr "Εύρος ημερομηνιών"
+
+msgid "stats.daily"
+msgstr "Καθημερινά"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/year)"
+
+msgid "stats.allUsers"
+msgstr "Όλοι οι Χρήστες"
+
+msgid "grid.category.categoryDetails"
+msgstr "Λεπτομέρειες Κατηγορίας"
+
+msgid "grid.category.nameRequired"
+msgstr "Εισαγάγετε ένα όνομα κατηγορίας."
+
+msgid "grid.category.removeText"
+msgstr "Επιβεβαιώστε ότι θέλετε να καταργήσετε αυτήν την κατηγορία."
+
+msgid "grid.category.parentCategory"
+msgstr "Γονική Κατηγορία"
+
+msgid "grid.category.description"
+msgstr "Περιγραφή"
+
+msgid "grid.category.pathExists"
+msgstr "Η διαδρομή κατηγορίας υπάρχει ήδη. Εισαγάγετε μια μοναδική διαδρομή."
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr ""
+"Η διαδρομή κατηγορίας πρέπει να αποτελείται μόνο από γράμματα και αριθμούς."
+
+msgid "grid.category.urlWillBe"
+msgstr "Η διεύθυνση URL της κατηγορίας θα είναι: {$sampleUrl}"
+
+msgid "grid.category.path"
+msgstr "Διαδρομή"
+
+msgid "grid.category.name"
+msgstr "Όνομα"
+
+msgid "grid.category.edit"
+msgstr "Επεξεργασία Κατηγορίας"
+
+msgid "grid.category.add"
+msgstr "Προσθήκη Κατηγορίας"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Αυτός ο σύνδεσμος θα εμφανίζεται μόνο εάν έχετε εισαγάγει μια δήλωση "
+"απορρήτου στις Ρυθμίσεις > Ροή εργασιών > Υποβολές."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Σύνδεσμος προς τη σελίδα όπου εμφανίζεται η δήλωση απορρήτου σας."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Σύνδεσμος προς τη σελίδα αναζήτησης."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Αυτός ο σύνδεσμος θα εμφανίζεται μόνο εάν ο επισκέπτης είναι συνδεδεμένος, "
+"οι πληρωμές είναι ενεργοποιημένες στις Ρυθμίσεις > Διανομή > Πληρωμές και "
+"απαιτούνται συνδρομές στις Ρυθμίσεις > Διανομή > Πρόσβαση."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Αυτός ο σύνδεσμος θα εμφανίζεται μόνο εάν οι πληρωμές είναι ενεργοποιημένες "
+"στις Ρυθμίσεις > Διανομή > Πληρωμές."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Επιλέξτε έναν τύπο μενού πλοήγησης."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Αυτός ο σύνδεσμος θα εμφανίζεται μόνο εάν έχετε συμπληρώσει τα στοιχεία "
+"επικοινωνίας στην περιοχή Ρυθμίσεις > Επικοινωνία."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Κριτές από προηγούμενους γύρους αυτής της υποβολής."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr ""
+"Αυτός ο σύνδεσμος θα εμφανίζεται μόνο όταν ο επισκέπτης δεν είναι "
+"συνδεδεμένος."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr ""
+"Αυτός ο σύνδεσμος θα εμφανίζεται μόνο όταν ο επισκέπτης είναι συνδεδεμένος."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Ένας σύνδεσμος που αποσυνδέει τον χρήστη."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Αυτός ο σύνδεσμος θα εμφανίζεται μόνο σε Διαχειριστές."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Σύνδεση με τα εργαλεία διαχείρισης σε επίπεδο ιστοτόπου."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Σύνδεση στη σελίδα προφίλ χρήστη."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Σύνδεση με τον πίνακα Σύνταξης."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Σύνδεση στη σελίδα εγγραφής χρηστών."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Σύνδεση στη σελίδα σύνδεσης χρήστη."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Αυτός ο σύνδεσμος θα εμφανιστεί μόνο αν έχετε ενεργοποιήσει τις Ανακοινώσεις "
+"στις Ρυθμίσεις > Ιστότοπος."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Σύνδεση με τη σελίδα ανακοινώσεων."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Σύνδεση με το αρχείο της έκδοσης."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Σύνδεση με το τρέχον τεύχος."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Σύνδεση με τη σελίδα που εμφανίζει τις οδηγίες υποβολής."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Αυτός ο σύνδεσμος θα εμφανιστεί μόνο αν έχετε συμπληρώσει την ενότητα \""
+"Ομάδα Συντακτών\" στις Ρυθμίσεις > Περιοδικό."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Σύνδεση σε μια σελίδα που εμφανίζει το περιεχόμενο του Κύριου Τίτλου στις "
+"Ρυθμίσεις > Περιοδικό."
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Αυτός ο σύνδεσμος θα εμφανιστεί μόνο αν έχετε συμπληρώσει την ενότητα \""
+"Σχετικά με το Περιοδικό\" στις Ρυθμίσεις > Περιοδικό."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Σύνδεση σε μια σελίδα που εμφανίζει το περιεχόμενο \"Σχετικά με το "
+"Περιοδικό\" στις Ρυθμίσεις> Περιοδικό"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr ""
+"Σύνδεση σε οποιαδήποτε διεύθυνση URL σε έναν άλλο ιστότοπο, όπως "
+"http://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Απομακρυσμένη διεύθυνση URL"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Δημιουργήστε μια προσαρμοσμένη σελίδα στον ιστότοπό σας και συνδεθείτε με "
+"αυτήν από ένα μενού πλοήγησης."
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Προσαρμοσμένη σελίδα"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr ""
+"Επιλέξτε ένα Τύπο Μενού Πλοήγησης ή ένα Προσαρμοσμένο για να δημιουργήσετε "
+"το δικό σας"
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Τύπος Μενού Πλοήγησης"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Όταν ένα στοιχείο μενού ανοίγει ένα υπομενού, αυτός ο σύνδεσμος δεν μπορεί "
+"να τηρηθεί σε όλες τις συσκευές. Για παράδειγμα, εάν διαθέτετε ένα στοιχείο "
+"\"Σχετικά\" το οποίο ανοίγει ένα υπομενού με \"Επαφή\" και \"Συντακτική "
+"ομάδα\", ο σύνδεσμος \"Σχετικά\" ενδέχεται να μην είναι προσβάσιμος σε όλες "
+"τις συσκευές. Στο προεπιλεγμένο μενού, αυτό γίνεται με τη δημιουργία ενός "
+"δεύτερου στοιχείου μενού, \"Σχετικά με το περιοδικό\", το οποίο εμφανίζεται "
+"στο υπομενού."
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"Μάθετε περισσότερα σχετικά με το πότε θα εμφανίζεται ή θα αποκρύπτεται αυτό "
+"το στοιχείο μενού."
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Πρέπει να παρέχεται ένας σύνδεσμος URL"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "Διεύθυνση URL"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Σ' αυτήν την περιοχή έχει ήδη αντιστοιχηθεί ένα μενού πλοήγησης."
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Επιλέξτε μια περιοχή πλοήγησης"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Περιοχές Πλοήγησης Ενεργών Θεμάτων"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Μη Αντιστοιχισμένα Στοιχεία Μενού"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Αντιστοιχισμένα στοιχεία μενού"
+
+msgid "manager.navigationMenuItems"
+msgstr "Στοιχεία του Μενού Πλοήγησης"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Ο τίτλος απαιτείται"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Αυτός ο τίτλος υπάρχει ήδη για άλλο μενού πλοήγησης."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Αυτή η διαδρομή υπάρχει ήδη για άλλο στοιχείο στο μενού πλοήγησης."
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Το πεδίο διαδρομής πρέπει να περιέχει μόνο αλφαριθμητικούς χαρακτήρες και "
+".', '/', '-', and '_'."
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Αυτή η σελίδα θα είναι προσβάσιμη στο: "
+"<blockquote>{$pagesPath}</blockquote>...όπου %PATH% είναι η διαδρομή που "
+"καταχωρήσαμε παραπάνω. <strong>Σημείωση:</strong> Δεν επιτρέπεται να έχουν "
+"δύο σελίδες την ίδια διαδρομή. Η χρήση διαδρομών ενσωματωμένων στο σύστημα "
+"μπορεί να προκαλέσει την απώλεια πρόσβασης σε σημαντικές λειτουργίες.</p>"
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Σφάλματα εισαγωγής/εξαγωγής:"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Δεν ήταν δυνατή η εισαγωγή του αρχείου υποβολής"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Η αναθεώρηση \"{$revisionId}\" για το αρχείο υποβολής \"{$fileId}\" θα "
+"δημιουργούσε μια διπλότυπη καταχώρηση"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Το παρεχόμενο μέγεθος αρχείου \"{$expected}\" και το πραγματικό μέγεθος "
+"αρχείου \"{$actual}\" δεν ταιριάζουν"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Το προσωρινό αρχείο {$dest} δεν μπορεί να δημιουργηθεί από το {$source}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Άγνωστη ομάδα χρηστών {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Το περιεχόμενο δεν κωδικοποιείται ως {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Άγνωστη κωδικοποίηση {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Άγνωστο είδος {$param}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Άγνωστο στοιχείο {$param}"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Παρουσιάστηκαν σφάλματα:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Προειδοποιήσεις:"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Σφάλματα επικύρωσης:"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Η φύση ή το είδος του κύριου περιεχομένου της υποβολής. Ο τύπος είναι "
+"συνήθως \"Κείμενο\", αλλά μπορεί επίσης να είναι \"Σύνολο δεδομένων\", \""
+"Εικόνα\" ή οποιοδήποτε από τα <a target=\"_blank\" href=\"http://dublincore."
+"org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Τύποι "
+"Dublin Core</a>."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Απαιτήστε από τον συγγραφέα να εισαγάγει τις γλώσσες της υποβολής πριν "
+"αποδεχτείτε την υποβολή τους."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Ζητήστε από τον συγγραφέα να δηλώσει τις γλώσσες της υποβολής κατά την "
+"υποβολή."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+"Μην ζητήσετε τις γλώσσες της υποβολής από τον συντάκτη κατά την υποβολή."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Ενεργοποίηση μεταδεδομένων γλώσσας"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Η Γλώσσα υποδεικνύει την κύρια γλώσσα του έργου χρησιμοποιώντας έναν κωδικό "
+"γλώσσας (\"en\") με έναν προαιρετικό κωδικό χώρας (\"en_US\")."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Ζητήστε από τον συγγραφέα να προτείνει λέξεις-κλειδιά πριν αποδεχτείτε την "
+"υποβολή του."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Ζητήστε από τον συγγραφέα να προτείνει λέξεις-κλειδιά κατά την υποβολή."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Να μην απαιτούνται λέξεις κλειδιά από τον συγγραφέα κατά την υποβολή."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Ενεργοποίηση μεταδεδομένων λέξεων-κλειδιών"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Οι λέξεις-κλειδιά είναι τυπικά φράσεις μιας ως τριών λέξεων που "
+"χρησιμοποιούνται για να υποδείξουν τα κύρια θέματα μιας υποβολής."
+
+msgid "grid.action.createReviewForm"
+msgstr "Δημιουργία νέας Φόρμας Αξιολόγησης"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr ""
+"Επιβεβαιώστε ότι θέλετε να δημιουργήσετε ένα αντίγραφο αυτής της φόρμας "
+"αξιολόγησης."
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Επιβεβαιώστε ότι θέλετε να διαγράψετε αυτήν τη φόρμα αξιολόγησης."
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Προώθηση"

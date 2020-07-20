@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2020-07-17 23:36+0000\n"
+"PO-Revision-Date: 2020-07-20 11:15+0000\n"
 "Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -1525,3 +1525,27 @@ msgstr ""
 "επιμέλειας, διαχείρισης επιμέλειας ή διοικητικού προσωπικού, που θα "
 "εμφανίζεται στην αρχική σελίδα του περιοδικού κάτω από την κεφαλίδα \""
 "Επικοινωνία\"."
+
+msgid "manager.navigationMenus"
+msgstr "Πλοήγηση"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Περιεχόμενο"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Διαδρομή"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Τίτλος"
+
+msgid "manager.setup.metadata.coverage"
+msgstr ""
+
+msgid "manager.setup.metadata.success"
+msgstr "Τα μεταδεδομένα υποβολής ενημερώθηκαν."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Φόρμα Υποβολής"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Περιγραφή"

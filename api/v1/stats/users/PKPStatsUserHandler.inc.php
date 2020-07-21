@@ -101,6 +101,12 @@ class PKPStatsUserHandler extends APIHandler {
 			return $response->withStatus(400)->withJsonError($result);
 		}
 
-		return $response->withJson(Services::get('user')->getRolesOverview($params));
+		return $response->withJson(array_map(
+			function ($item) {
+				$item['name'] = __($item['name']);
+				return $item;
+			},
+			Services::get('user')->getRolesOverview($params)
+		));
 	}
 }

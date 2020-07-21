@@ -385,9 +385,8 @@ class AdminHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function clearDataCache($args, $request) {
-		// Clear the CacheManager's caches
-		$cacheManager = CacheManager::getManager();
-		$cacheManager->flush();
+		$driver = Core::getStashDriver();
+		$driver->clear();
 
 		// Clear ADODB's cache
 		$userDao = DAORegistry::getDAO('UserDAO'); // As good as any

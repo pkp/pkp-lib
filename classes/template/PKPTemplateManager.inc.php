@@ -84,7 +84,7 @@ class PKPTemplateManager extends Smarty {
 
 		// Set up Smarty configuration
 		$baseDir = Core::getBaseDir();
-		$cachePath = CacheManager::getFileCachePath();
+		$cachePath = Core::getFileCachePath();
 
 		$this->compile_dir = $cachePath . DIRECTORY_SEPARATOR . 't_compile';
 		$this->config_dir = $cachePath . DIRECTORY_SEPARATOR . 't_config';
@@ -405,7 +405,7 @@ class PKPTemplateManager extends Smarty {
 	 * @return $path string Path to the less file or false if not found
 	 */
 	public function getCachedLessFilePath($name) {
-		$cacheDirectory = CacheManager::getFileCachePath();
+		$cacheDirectory = Core::getFileCachePath();
 		$context = $this->_request->getContext();
 		$contextId = is_a($context, 'Context') ? $context->getId() : 0;
 		return $cacheDirectory . DIRECTORY_SEPARATOR . $contextId . '-' . $name . '.css';
@@ -1161,9 +1161,9 @@ class PKPTemplateManager extends Smarty {
 	 * Clear all compiled CSS files
 	 */
 	public function clearCssCache() {
-		$cacheDirectory = CacheManager::getFileCachePath();
+		$cacheDirectory = Core::getFileCachePath();
 		$files = scandir($cacheDirectory);
-		array_map('unlink', glob(CacheManager::getFileCachePath() . DIRECTORY_SEPARATOR . '*.' . CSS_FILENAME_SUFFIX));
+		array_map('unlink', glob(Core::getFileCachePath() . DIRECTORY_SEPARATOR . '*.' . CSS_FILENAME_SUFFIX));
 	}
 
 	/**

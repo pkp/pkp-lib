@@ -515,12 +515,6 @@ msgstr "Strona wygenerowana w"
 msgid "debug.memoryUsage"
 msgstr "Zużycie pamięci"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Tłumaczenie \"{$localeList}\" załadowano z XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Tłumaczenie \"{$localeFile}\" załadowano z XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Brak tłumaczenia dla klucza \"{$key}\"."
 

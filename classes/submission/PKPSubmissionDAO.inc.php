@@ -22,9 +22,6 @@ define('ORDERBY_DATE_PUBLISHED', 'datePublished');
 define('ORDERBY_TITLE', 'title');
 
 abstract class PKPSubmissionDAO extends SchemaDAO {
-	var $cache;
-	var $authorDao;
-
 	/** @copydoc SchemaDAO::$schemaName */
 	public $schemaName = SCHEMA_SUBMISSION;
 
@@ -49,38 +46,6 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 		'status' => 'status',
 		'submissionProgress' => 'submission_progress',
 	];
-
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-		$this->authorDao = DAORegistry::getDAO('AuthorDAO');
-	}
-
-	/**
-	 * Callback for a cache miss.
-	 * @param $cache Cache
-	 * @param $id string
-	 * @return Submission
-	 */
-	function _cacheMiss($cache, $id) {
-		$submission = $this->getById($id, null, false);
-		$cache->setCache($id, $submission);
-		return $submission;
-	}
-
-	/**
-	 * Get the submission cache.
-	 * @return Cache
-	 */
-	function _getCache() {
-		if (!isset($this->cache)) {
-			$cacheManager = CacheManager::getManager();
-			$this->cache = $cacheManager->getObjectCache('submissions', 0, array(&$this, '_cacheMiss'));
-		}
-		return $this->cache;
-	}
 
 	/**
 	 * @copydoc SchemaDAO::_fromRow()
@@ -217,14 +182,6 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 	}
 
 	/**
-	 * Flush the submission cache.
-	 */
-	function flushCache() {
-		$cache = $this->_getCache();
-		$cache->flush();
-	}
-
-	/**
 	 * Get all submissions for a context.
 	 * @param $contextId int
 	 * @return DAOResultFactory containing matching Submissions
@@ -269,7 +226,6 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 				$publication = Services::get('publication')->edit($publication, $params, Application::get()->getRequest());
 			}
 		}
-		$this->flushCache();
 	}
 
 	/**

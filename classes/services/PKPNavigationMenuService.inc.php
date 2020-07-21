@@ -369,7 +369,7 @@ class PKPNavigationMenuService {
 		$templateMgr->assign('navigationMenuItem', $navigationMenuItem);
 	}
 
-	public function loadMenuTree(&$navigationMenu) {
+	public function loadMenuTree($navigationMenu) {
 		$navigationMenuItemDao = \DAORegistry::getDAO('NavigationMenuItemDAO');
 		$items = $navigationMenuItemDao->getByMenuId($navigationMenu->getId())->toArray();
 
@@ -409,11 +409,6 @@ class PKPNavigationMenuService {
 				$navigationMenu->menuTree[$i]->children = $children[$assignmentId];
 			}
 		}
-
-		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
-		$cache = $navigationMenuDao->getCache($navigationMenu->getId());
-		$json = json_encode($navigationMenu);
-		$cache->setEntireCache($json);
 	}
 
 	/**
@@ -421,15 +416,7 @@ class PKPNavigationMenuService {
 	 * @param $navigationMenu \NavigationMenu
 	 *
 	 */
-	public function getMenuTree(&$navigationMenu) {
-		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
-		$cache = $navigationMenuDao->getCache($navigationMenu->getId());
-		if ($cache->cache) {
-			$navigationMenu = json_decode($cache->cache, true);
-			$navigationMenu = $this->arrayToObject('NavigationMenu', $navigationMenu);
-			$this->loadMenuTreeDisplayState($navigationMenu);
-			return;
-		}
+	public function getMenuTree($navigationMenu) {
 		$this->loadMenuTree($navigationMenu);
 		$this->loadMenuTreeDisplayState($navigationMenu);
 	}
@@ -449,53 +436,6 @@ class PKPNavigationMenuService {
 			}
 			$this->getDisplayStatus($nmi, $navigationMenu);
 		}
-	}
-
-	/**
-	 * Helper function to transform the json_decoded cached NavigationMenu object (stdClass) to the actual NavigationMenu object
-	 * Some changes on the NavigationMenu objects must be reflected here
-	 * @param mixed $class
-	 * @param mixed $array
-	 * @return mixed
-	 */
-	function arrayToObject($class, $array) {
-		if ($class == 'NavigationMenu') {
-			$obj = new \NavigationMenu();
-		} else if ($class == 'NavigationMenuItem') {
-			$obj = new \NavigationMenuItem();
-		} else if ($class == 'NavigationMenuItemAssignment') {
-			$obj = new \NavigationMenuItemAssignment();
-		}
-		foreach($array as $k => $v) {
-			if(strlen($k)) {
-				if(is_array($v) && $k == 'menuTree') {
-					$treeChildren = array();
-					foreach($v as $treeChild) {
-						array_push($treeChildren, $this->arrayToObject('NavigationMenuItemAssignment', $treeChild));
-					}
-					$obj->{$k} = $treeChildren;
-				} else if(is_array($v) && $k == 'navigationMenuItem') {
-					$obj->{$k} = $this->arrayToObject('NavigationMenuItem', $v); //RECURSION
-				} else if(is_array($v) && $k == 'children') {
-					$treeChildren = array();
-					foreach($v as $treeChild) {
-						array_push($treeChildren, $this->arrayToObject('NavigationMenuItemAssignment', $treeChild));
-					}
-					$obj->{$k} = $treeChildren;
-				} else {
-					$obj->{$k} = $v;
-				}
-			}
-		}
-
-		// should call transformNavMenuItemTitle because some
-		// request don't have all template variables in place
-		if ($class == 'NavigationMenuItem') {
-			$templateMgr = \TemplateManager::getManager(\Application::get()->getRequest());
-			$this->transformNavMenuItemTitle($templateMgr, $obj);
-		}
-
-		return $obj;
 	}
 
 	/**

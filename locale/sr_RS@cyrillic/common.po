@@ -512,12 +512,6 @@ msgstr "Страница генерисана у"
 msgid "debug.memoryUsage"
 msgstr "Коришћење меморије"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Учитана локална листа \"{$localeList}\" из XML-a"
-
-msgid "debug.notes.localeLoad"
-msgstr "Учитана локални фајл \"{$localeFile}\" из XML-a"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Локални кључ који недостаје \"{$key}\"."
 

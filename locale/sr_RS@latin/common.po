@@ -512,12 +512,6 @@ msgstr "Stranica generisana u"
 msgid "debug.memoryUsage"
 msgstr "Korišćenje memorije"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Učitana lokalna lista \"{$localeList}\" iz XML-a"
-
-msgid "debug.notes.localeLoad"
-msgstr "Učitan lokalni fajl \"{$localeFile}\" iz XML-a"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Lokalni ključ koji nedostaje \"{$key}\"."
 

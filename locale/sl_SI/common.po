@@ -790,12 +790,6 @@ msgstr "Stran pripravljena v"
 msgid "debug.memoryUsage"
 msgstr "Uporaba pomnilnika"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Naložen seznam jezikov \"{$localeList}\" iz XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Naložena datoteka jezika \"{$localeFile}\" iz XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Manjka ključ jezika \"{$key}\"."
 

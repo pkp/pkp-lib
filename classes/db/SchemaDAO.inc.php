@@ -44,16 +44,20 @@ abstract class SchemaDAO extends DAO {
 	 * @return DataObject
 	 */
 	public function getById($objectId) {
+		// Try the cache first.
+		$pool = $this->_getCachePool();
+		$item = $pool->getItem($this->_getCacheId($objectId));
+		if (!$item->isMiss()) return $item->get();
+
+		// In case of cache miss, go to the database.
 		$result = $this->retrieve(
 			'SELECT * FROM ' . $this->tableName . ' WHERE ' . $this->primaryKeyColumn . ' = ?',
 			(int) $objectId
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
+		$returner = $result->RecordCount() ? $this->_fromRow($result->GetRowAssoc(false)) : null;
 		$result->Close();
+		$pool->save($item->set($returner));
 		return $returner;
 	}
 
@@ -128,6 +132,9 @@ abstract class SchemaDAO extends DAO {
 	 * @param $object DataObject The object to insert into the database
 	 */
 	public function updateObject($object) {
+		// Update the cache.
+		$this->clearCache($object->getId());
+
 		$schemaService = Services::get('schema');
 		$schema = $schemaService->get($this->schemaName);
 		$sanitizedProps = $schemaService->sanitize($this->schemaName, $object->_data);
@@ -206,6 +213,10 @@ abstract class SchemaDAO extends DAO {
 	 * @param $objectId int
 	 */
 	public function deleteById($objectId) {
+		// Update the cache.
+		$this->clearCache($objectId);
+
+		// Remove the item rom the database.
 		$this->update(
 			"DELETE FROM $this->tableName WHERE $this->primaryKeyColumn = ?",
 			(int) $objectId
@@ -297,5 +308,38 @@ abstract class SchemaDAO extends DAO {
 		}
 
 		return $primaryDbProps;
+	}
+
+	/**
+	 * Clear an item from the object cache by ID.
+	 * @param $objectId int
+	 */
+	public function clearCache($objectId) {
+		$pool = $this->_getCachePool();
+		$pool->deleteItem($this->_getCacheId($objectId));
+	}
+
+	/**
+	 * Get a Stash cache implementation.
+	 * @return Stash\Driver\Ephemeral
+	 */
+	protected function _getCachePool() {
+		static $pool;
+		if (!$pool) {
+			$objectCacheDriver = Config::getVar('cache', 'object_cache_driver', 'Stash\Driver\Ephemeral');
+			$objectCacheOptions = Config::getVar('cache', 'object_cache_options', []);
+			if (!empty($objectCacheOptions)) $objectCacheOptions = (array) json_decode($objectCacheOptions);
+			$pool = new Stash\Pool(new $objectCacheDriver($objectCacheOptions));
+		}
+		return $pool;
+	}
+
+	/**
+	 * Get a cache ID for this object.
+	 * @param $id string Value of ID column for this data object.
+	 * @return string
+	 */
+	protected function _getCacheId($id) {
+		return $this->tableName . '/' . $this->primaryKeyColumn . '/' . $id;
 	}
 }

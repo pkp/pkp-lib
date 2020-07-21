@@ -157,7 +157,7 @@ function normalizeMockEnvironment($mockEnv) {
 require_once('./lib/pkp/includes/bootstrap.inc.php');
 
 // Make sure ADOdb doesn't "clean up" our /tmp folder.
-$ADODB_CACHE_DIR = CacheManager::getFileCachePath() . DIRECTORY_SEPARATOR . '_db';
+$ADODB_CACHE_DIR = 'cache/_db';
 
 // Remove the PKP error handler so that PHPUnit
 // can set its own error handler and catch errors for us.

@@ -485,12 +485,6 @@ msgstr "页面生成"
 msgid "debug.memoryUsage"
 msgstr "内存使用"
 
-msgid "debug.notes.localeListLoad"
-msgstr "从XML里载入语言环境列表 \"{$localeList}\""
-
-msgid "debug.notes.localeLoad"
-msgstr "从XML里载入语言环境列表 \"{$localeList}\""
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "缺少语言环境键值 \"{$key}\"."
 

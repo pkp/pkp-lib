@@ -42,9 +42,9 @@ fi
 # Use the template configuration file.
 cp config.TEMPLATE.inc.php config.inc.php
 
-# Use ENABLE_CDN = 1 to prevent default disabling of the CDN for test purposes.
-if [[ "$ENABLE_CDN" != "1" ]]; then
-	sed -i -e "s/enable_cdn = On/enable_cdn = Off/" config.inc.php
+# Use MEMCACHE = 1 to enable testing with the Memcache object cache.
+if [[ "$MEMCACHE" == "1" ]]; then
+	sed -i -e "s/; object_cache_driver = Stash\\\Driver\\\Memcache/object_cache_driver = Stash\\\Driver\\\Memcache/" config.inc.php
 fi
 # Use DISABLE_PATH_INFO = 1 to turn on disable_path_info mode in config.inc.php.
 if [[ "$DISABLE_PATH_INFO" == "1" ]]; then

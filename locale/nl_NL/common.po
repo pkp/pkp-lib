@@ -815,12 +815,6 @@ msgstr "Pagina aangemaakt in"
 msgid "debug.memoryUsage"
 msgstr "Geheugengebruik:"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Talenlijst \"{$localeList}\" uit XML geladen"
-
-msgid "debug.notes.localeLoad"
-msgstr "Taalbestand \"{$localeFile}\" uit XML geladen"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Ontbrekende taalsleutel \"{$key}\"."
 

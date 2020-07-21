@@ -522,12 +522,6 @@ msgstr "Sayfa oluşturuldu"
 msgid "debug.memoryUsage"
 msgstr "Bellek Kullanımı"
 
-msgid "debug.notes.localeListLoad"
-msgstr "XML'den yüklenen yerel liste: \"{$localeList}\""
-
-msgid "debug.notes.localeLoad"
-msgstr "XML'den yüklenen yerel dosya: \"{$localeFile}\""
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Eksik yerel anahtar: \"{$key}\"."
 

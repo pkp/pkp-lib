@@ -813,12 +813,6 @@ msgstr "Seite erstellt am"
 msgid "debug.memoryUsage"
 msgstr "Speicherbelegung"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Regionaleinstellungsliste \"{$localeList}\" aus XML geladen"
-
-msgid "debug.notes.localeLoad"
-msgstr "Regionaleinstellung \"{$localeFile}\" aus XML geladen"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Regionaleinstellungsschlüssel \"{$key}\" fehlt."
 

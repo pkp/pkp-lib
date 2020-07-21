@@ -764,12 +764,6 @@ msgstr "صفحه تولید شد در"
 msgid "debug.memoryUsage"
 msgstr "میزان مصرف حافظه"
 
-msgid "debug.notes.localeListLoad"
-msgstr "لیست زبان‌ها (بارگذاری شده از فایل «{$localeList}»)"
-
-msgid "debug.notes.localeLoad"
-msgstr "لیست زبان‌ها (بارگذاری شده از فایل «{$localeFile}»)"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "زبان مربوط به کد «{$key}» یافت نشد."
 

@@ -302,8 +302,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 		$navigationMenuItemAssignment = $this->getById($id);
 		if ($navigationMenuItemAssignment) {
 			$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
-			$cache = $navigationMenuDao->getCache($navigationMenuItemAssignment->getMenuId());
-			if ($cache) $cache->flush();
+			$navigationMenuDao->unCache($navigationMenuItemAssignment->getMenuId());
 		}
 	}
 }

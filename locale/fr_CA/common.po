@@ -870,12 +870,6 @@ msgstr "Page créée en"
 msgid "debug.memoryUsage"
 msgstr "Utilisation de la mémoire"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Liste du paramètre régional « {$localeList} » chargée à partir du XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "Fichier du paramètre régional « {$localeFile} » chargé à partir du XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Clé du paramètre « {$key} » régional manquante."
 

@@ -159,8 +159,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		import('lib.pkp.classes.db.DAORegistry');
 		import('lib.pkp.classes.db.XMLDAO');
 
-		import('lib.pkp.classes.cache.CacheManager');
-
 		import('lib.pkp.classes.security.RoleDAO');
 		import('lib.pkp.classes.security.Validation');
 		import('lib.pkp.classes.session.SessionManager');
@@ -496,7 +494,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'SubmissionKeywordEntryDAO' => 'lib.pkp.classes.submission.SubmissionKeywordEntryDAO',
 			'SubmissionSubjectDAO' => 'lib.pkp.classes.submission.SubmissionSubjectDAO',
 			'SubmissionSubjectEntryDAO' => 'lib.pkp.classes.submission.SubmissionSubjectEntryDAO',
-			'TimeZoneDAO' => 'lib.pkp.classes.i18n.TimeZoneDAO',
 			'TemporaryFileDAO' => 'lib.pkp.classes.file.TemporaryFileDAO',
 			'UserGroupAssignmentDAO' => 'lib.pkp.classes.security.UserGroupAssignmentDAO',
 			'UserDAO' => 'lib.pkp.classes.user.UserDAO',

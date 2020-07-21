@@ -540,12 +540,6 @@ msgstr "Halaman dihasilkan di"
 msgid "debug.memoryUsage"
 msgstr "Kegunaan Memori"
 
-msgid "debug.notes.localeListLoad"
-msgstr "Daftar bahasa yang dimuat \"{$localeList}\" dari XML"
-
-msgid "debug.notes.localeLoad"
-msgstr "File bahasa yang dimuat \"{$localeFile}\" dari XML"
-
 msgid "debug.notes.missingLocaleKey"
 msgstr "Kunci bahasa yang hilang\"{$key}\"."
 

@@ -276,7 +276,7 @@ class DAO {
 		if (!isset($cacheDir)) {
 			global $ADODB_CACHE_DIR;
 
-			$cacheDir = CacheManager::getFileCachePath() . '/_db';
+			$cacheDir = Core::getFileCachePath() . '/_db';
 
 			$ADODB_CACHE_DIR = $cacheDir;
 		}

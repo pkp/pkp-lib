@@ -209,8 +209,7 @@ abstract class PKPSubmissionHandler extends Handler {
 	 */
 	function setupTemplate($request) {
 		parent::setupTemplate($request);
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
-
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_MANAGER);
 		// Get steps information.
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('steps', $this->getStepsNumberAndLocaleKeys());

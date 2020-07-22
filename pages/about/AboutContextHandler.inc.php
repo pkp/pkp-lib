@@ -21,7 +21,7 @@ class AboutContextHandler extends Handler {
 	 */
 	function __construct() {
 		parent::__construct();
-		AppLocale::requireComponents([LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_MANAGER]);
+		AppLocale::requireComponents([LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER]);
 	}
 
 	/**

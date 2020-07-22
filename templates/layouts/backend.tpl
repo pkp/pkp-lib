@@ -52,7 +52,7 @@
 				</dropdown>
 			{/if}
 			{if $currentContext}
-				<a class="app__contextTitle" href="{url context=$currentContext}">
+				<a class="app__contextTitle" href="{url page="index"}">
 					{$currentContext->getLocalizedData('name')}
 				</a>
 			{elseif $siteTitle}

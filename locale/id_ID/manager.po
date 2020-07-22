@@ -1134,6 +1134,12 @@ msgstr "Pengaturan bahasa telah disimpan."
 msgid "notification.localeReloaded"
 msgstr "Bahasa {$locale} dimuat ulang untuk {$contextName}."
 
+msgid "notification.localeUninstalled"
+msgstr "bahasa {$locale} dihapus."
+
+msgid "notification.localeInstalled"
+msgstr "Semua bahasa terpilih telah terpasang dan aktif."
+
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} dipilih sebagai bahasa utama."
 

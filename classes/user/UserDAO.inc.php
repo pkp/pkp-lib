@@ -39,7 +39,7 @@ class UserDAO extends DAO {
 	 * Retrieve a user by ID.
 	 * @param $userId int
 	 * @param $allowDisabled boolean
-	 * @return User
+	 * @return User?
 	 */
 	function getById($userId, $allowDisabled = true) {
 		$result = $this->retrieve(
@@ -49,7 +49,7 @@ class UserDAO extends DAO {
 
 		$user = null;
 		if ($result->RecordCount() != 0) {
-			$user =& $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
+			$user = $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		return $user;
@@ -59,20 +59,20 @@ class UserDAO extends DAO {
 	 * Retrieve a user by username.
 	 * @param $username string
 	 * @param $allowDisabled boolean
-	 * @return User
+	 * @return User?
 	 */
-	function &getByUsername($username, $allowDisabled = true) {
+	function getByUsername($username, $allowDisabled = true) {
 		$result = $this->retrieve(
 			'SELECT * FROM users WHERE username = ?' . ($allowDisabled?'':' AND disabled = 0'),
 			array($username)
 		);
 
-		$returner = null;
+		$user = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
+			$user = $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
 		}
 		$result->Close();
-		return $returner;
+		return $user;
 	}
 
 	/**
@@ -80,7 +80,7 @@ class UserDAO extends DAO {
 	 * @param $settingName string
 	 * @param $settingValue string
 	 * @param $allowDisabled boolean
-	 * @return User
+	 * @return User?
 	 */
 	function getBySetting($settingName, $settingValue, $allowDisabled = true) {
 		$result = $this->retrieve(
@@ -88,52 +88,52 @@ class UserDAO extends DAO {
 			array($settingName, $settingValue)
 		);
 
-		$returner = null;
+		$user = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
+			$user = $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
 		}
 		$result->Close();
-		return $returner;
+		return $user;
 	}
 
 	/**
 	 * Get the user by the TDL ID (implicit authentication).
 	 * @param $authstr string
 	 * @param $allowDisabled boolean
-	 * @return object User
+	 * @return User?
 	 */
-	function &getUserByAuthStr($authstr, $allowDisabled = true) {
+	function getUserByAuthStr($authstr, $allowDisabled = true) {
 		$result = $this->retrieve(
 			'SELECT * FROM users WHERE auth_str = ?' . ($allowDisabled?'':' AND disabled = 0'),
 			array($authstr)
 		);
 
-		$returner = null;
+		$user = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
+			$user = $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
 		}
 		$result->Close();
-		return $returner;
+		return $user;
 	}
 
 	/**
 	 * Retrieve a user by email address.
 	 * @param $email string
 	 * @param $allowDisabled boolean
-	 * @return User
+	 * @return User?
 	 */
-	function &getUserByEmail($email, $allowDisabled = true) {
+	function getUserByEmail($email, $allowDisabled = true) {
 		$result = $this->retrieve(
 			'SELECT * FROM users WHERE email = ?' . ($allowDisabled?'':' AND disabled = 0'),
 			array($email)
 		);
 
-		$returner = null;
+		$user = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
+			$user = $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
 		}
 		$result->Close();
-		return $returner;
+		return $user;
 	}
 
 	/**
@@ -141,20 +141,20 @@ class UserDAO extends DAO {
 	 * @param $username string
 	 * @param $password string encrypted password
 	 * @param $allowDisabled boolean
-	 * @return User
+	 * @return User?
 	 */
-	function &getUserByCredentials($username, $password, $allowDisabled = true) {
+	function getUserByCredentials($username, $password, $allowDisabled = true) {
 		$result = $this->retrieve(
 			'SELECT * FROM users WHERE username = ? AND password = ?' . ($allowDisabled?'':' AND disabled = 0'),
 			array($username, $password)
 		);
 
-		$returner = null;
+		$user = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
+			$user = $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
 		}
 		$result->Close();
-		return $returner;
+		return $user;
 	}
 
 	/**
@@ -267,8 +267,8 @@ class UserDAO extends DAO {
 	 * @param $callHook boolean
 	 * @return User
 	 */
-	function &_returnUserFromRowWithData($row, $callHook = true) {
-		$user =& $this->_returnUserFromRow($row, false);
+	function _returnUserFromRowWithData($row, $callHook = true) {
+		$user = $this->_returnUserFromRow($row, false);
 		$this->getDataObjectSettings('user_settings', 'user_id', $row['user_id'], $user);
 
 		if (isset($row['review_id'])) $user->review_id = $row['review_id'];
@@ -283,7 +283,7 @@ class UserDAO extends DAO {
 	 * @param $callHook boolean
 	 * @return User
 	 */
-	function &_returnUserFromRow($row, $callHook = true) {
+	function _returnUserFromRow($row, $callHook = true) {
 		$user = $this->newDataObject();
 		$user->setId($row['user_id']);
 		$user->setUsername($row['username']);
@@ -443,7 +443,7 @@ class UserDAO extends DAO {
 	 * @param $user User
 	 */
 	function deleteObject($user) {
-		return $this->deleteUserById($user->getId());
+		$this->deleteUserById($user->getId());
 	}
 
 	/**
@@ -452,7 +452,7 @@ class UserDAO extends DAO {
 	 */
 	function deleteUserById($userId) {
 		$this->update('DELETE FROM user_settings WHERE user_id = ?', array((int) $userId));
-		return $this->update('DELETE FROM users WHERE user_id = ?', array((int) $userId));
+		$this->update('DELETE FROM users WHERE user_id = ?', array((int) $userId));
 	}
 
 	/**
@@ -463,8 +463,7 @@ class UserDAO extends DAO {
 	 */
 	function getUserFullName($userId, $allowDisabled = true) {
 		$user = $this->getById($userId, $allowDisabled);
-		if ($user) return $user->getFullName();
-		return null;
+		return $user?$user->getFullName():null;
 	}
 
 	/**
@@ -479,14 +478,13 @@ class UserDAO extends DAO {
 			array((int) $userId)
 		);
 
-		if($result->RecordCount() == 0) {
-			$returner = false;
-		} else {
-			$returner = $result->fields[0];
+		$email = false;
+		if ($result->RecordCount()) {
+			$email = $result->fields[0];
 		}
 
 		$result->Close();
-		return $returner;
+		return $email;
 	}
 
 	/**
@@ -521,10 +519,10 @@ class UserDAO extends DAO {
 			'SELECT COUNT(*) FROM users WHERE user_id = ?' . ($allowDisabled?'':' AND disabled = 0'),
 			array((int) $userId)
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] != 0 ? true : false;
+		$userExists = isset($result->fields[0]) && $result->fields[0] != 0;
 
 		$result->Close();
-		return $returner;
+		return $userExists;
 	}
 
 	/**
@@ -539,10 +537,10 @@ class UserDAO extends DAO {
 			'SELECT COUNT(*) FROM users WHERE username = ?' . (isset($userId) ? ' AND user_id != ?' : '') . ($allowDisabled?'':' AND disabled = 0'),
 			isset($userId) ? array($username, (int) $userId) : array($username)
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
+		$userExists = isset($result->fields[0]) && $result->fields[0] == 1;
 
 		$result->Close();
-		return $returner;
+		return $userExists;
 	}
 
 	/**
@@ -557,10 +555,10 @@ class UserDAO extends DAO {
 			'SELECT COUNT(*) FROM users WHERE email = ?' . (isset($userId) ? ' AND user_id != ?' : '') . ($allowDisabled?'':' AND disabled = 0'),
 			isset($userId) ? array($email, (int) $userId) : array($email)
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
+		$userExists = isset($result->fields[0]) && $result->fields[0] == 1;
 
 		$result->Close();
-		return $returner;
+		return $userExists;
 	}
 
 	/**
@@ -674,7 +672,5 @@ class UserDAO extends DAO {
 	function getOrderBy() {
 		return 'ORDER BY user_family, user_given';
 	}
-
 }
-
 

@@ -320,7 +320,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		$site = $request->getSite();
 		$currentUser = $request->getUser();
 		$contextDao = Application::getContextDAO();
-		$contextSettingsDao = Application::getContextSettingsDAO();
 
 		if (!$context->getData('primaryLocale')) {
 			$context->setData('primaryLocale', $site->getPrimaryLocale());

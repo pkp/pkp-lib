@@ -45,7 +45,7 @@ class SubmissionsMigration extends Migration {
 			$table->bigInteger('submission_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
-			$table->text('setting_value')->nullable();
+			$table->mediumText('setting_value')->nullable();
 			$table->index(['submission_id'], 'submission_settings_submission_id');
 			$table->unique(['submission_id', 'locale', 'setting_name'], 'submission_settings_pkey');
 		});

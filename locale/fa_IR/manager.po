@@ -1049,6 +1049,12 @@ msgstr "زبان غیرفعال شد."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale}  به عنوان زبان اصلی سامانه تعریف شده است."
 
+msgid "notification.localeInstalled"
+msgstr "تمامی زیان‌ها با موفقیت نصب شدند"
+
+msgid "notification.localeUninstalled"
+msgstr "زبان {$locale} حذف شد."
+
 msgid "notification.localeReloaded"
 msgstr "زبان {$locale} بارگذاری مجدد شد."
 

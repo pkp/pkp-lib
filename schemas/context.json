@@ -703,7 +703,7 @@
 		"urlPath": {
 			"type": "string",
 			"validation": [
-				"regex:/^[a-z0-9]+([\\-_][a-z0-9]+)*$/"
+				"regex:/^[a-zA-Z0-9]+([\\-_][a-zA-Z0-9]+)*$/"
 			],
 			"apiSummary": true
 		}

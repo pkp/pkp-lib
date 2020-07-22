@@ -82,12 +82,6 @@ interface iPKPApplicationInfoProvider {
 	public static function getSectionDAO();
 
 	/**
-	 * Get the submission DAO.
-	 * @deprecated Just use DAORegistry::getDAO('SubmissionDAO') directly.
-	 */
-	public static function getSubmissionDAO();
-
-	/**
 	 * Get the representation DAO.
 	 */
 	public static function getRepresentationDAO();
@@ -263,10 +257,24 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * @return \GuzzleHttp\Client
 	 */
 	public function getHttpClient() {
+		$application = Application::get();
+		$userAgent = $application->getName() . '/';
+		if (Config::getVar('general', 'installed') && !defined('RUNNING_UPGRADE')) {
+			$currentVersion = $application->getCurrentVersion();
+			$userAgent .= $currentVersion->getVersionString();
+		} else {
+			$userAgent .= '?';
+		}
+
 		return new \GuzzleHttp\Client([
 			'proxy' => [
 				'http' => Config::getVar('proxy', 'http_proxy', null),
 				'https' => Config::getVar('proxy', 'https_proxy', null),
+			],
+			'defaults' => [
+				'headers' => [
+					'User-Agent' => $userAgent,
+				],
 			],
 		]);
 	}
@@ -777,11 +785,11 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	public static function getWorkflowStageName($stageId) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
 		switch ($stageId) {
-			case WORKFLOW_STAGE_ID_SUBMISSION: return __('submission.submission');
-			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return __('workflow.review.internalReview');
-			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW: return __('workflow.review.externalReview');
-			case WORKFLOW_STAGE_ID_EDITING: return __('submission.editorial');
-			case WORKFLOW_STAGE_ID_PRODUCTION: return __('submission.production');
+			case WORKFLOW_STAGE_ID_SUBMISSION: return 'submission.submission';
+			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return 'workflow.review.internalReview';
+			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW: return 'workflow.review.externalReview';
+			case WORKFLOW_STAGE_ID_EDITING: return 'submission.editorial';
+			case WORKFLOW_STAGE_ID_PRODUCTION: return 'submission.production';
 		}
 		throw new Exception('Name requested for an unrecognized stage id.');
 	}

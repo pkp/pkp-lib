@@ -1050,6 +1050,12 @@ msgstr "اللغة معطلة."
 msgid "notification.primaryLocaleDefined"
 msgstr "اللغة {$locale} معرفة على أنها اللغة الأساسية."
 
+msgid "notification.localeInstalled"
+msgstr "جميع اللغات المختارة منصبة وممكنة."
+
+msgid "notification.localeUninstalled"
+msgstr "أُلغي تنصيب اللغة {$locale}."
+
 msgid "notification.localeReloaded"
 msgstr "أُعيد تحميل اللغة {$locale} بالنسبة إلى {$contextName}."
 

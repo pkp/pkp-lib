@@ -831,6 +831,9 @@ msgstr "URL"
 msgid "common.user"
 msgstr "User"
 
+msgid "common.user.nonexistent"
+msgstr "[Nonexistent user]"
+
 msgid "common.view"
 msgstr "View"
 

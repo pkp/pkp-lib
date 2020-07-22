@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
+"PO-Revision-Date: 2020-07-17 23:36+0000\n"
+"Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
+"Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/common/el/"
+">\n"
+"Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:43+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -646,7 +649,7 @@ msgid "common.remove"
 msgstr "Αφαίρεση"
 
 msgid "common.removeSelection"
-msgstr "Αφαίρεση επιλογής/ων"
+msgstr "Αφαίρεση επιλογής"
 
 msgid "common.replaced"
 msgstr "Αντικαταστάθηκε"
@@ -1445,13 +1448,40 @@ msgstr "Η λίστα μου"
 
 msgid "review.blindPeerReview"
 msgstr ""
-"\n"
-"\t\t<p>Η διασφάλιση της διαφάνειας κατά τη διαδικασία τυφλής αξιολόγησης εξαρτάται από την απόκρυψη της ταυτότητας των Συγγραφέων στους Αξιολογητές και αντιστρόφως. Οι Συγγραφείς, οι Επιμελητές και οι Αξιολογητές (οι οποίοι μεταφορτώνουν αρχεία κατά την αξιολόγηση) πρέπει να ελέγχουν τα ακόλουθα σημεία σε σχέση με τις ιδιότητες των κειμένων και των αρχείων που μεταφορτώνονται:</p>\n"
-"\t\t\t<ul><li>Οι Συγγραφείς έχουν διαγράψει τα ονόματά τους από το κείμενο. Εάν υπάρχουν παραπομπές σε προηγούμενες εργασίες των Sυγγραφέων, τα ονόματά τους αντικαθίστανται με τη λέξη \"Συγγραφέας\", ο τίτλος των εργασιών αφαιρείται και παραμένει μόνο το έτος έκδοσης.</li>\n"
-"\t\t\t<li>Σε έγγραφα του Microsoft Office, η ταυτότητα των Συγγραφέων πρέπει επίσης να αφαιρείται από τις ιδιότητες του αρχείου, ως ακολούθως: Στο μενού εργασιών του εγγράφου επιλέγετε \"Αρχείο\", στη συνέχεια \"Έλεγχος για θέματα\" και \"Έλεγχος εγγράφου\", όπου ακολουθείτε τις οδηγίες του προγράμματος.</li>\n"
-"\t\t\t<li>Σε έγγραφα PDF, τα ονόματα των Συγγραφέων αφαιρούνται από τις \"Ιδιότητες\", στο μενού \"Αρχείο\" του Adobe Acrobat.</li>\n"
-"\t\t</ul>\n"
-"\t"
+"<p>Η διασφάλιση της διαφάνειας κατά τη διαδικασία τυφλής αξιολόγησης "
+"εξαρτάται από την απόκρυψη της ταυτότητας των Συγγραφέων στους Αξιολογητές "
+"και αντιστρόφως. Οι Συγγραφείς, οι Επιμελητές και οι Αξιολογητές (οι οποίοι "
+"μεταφορτώνουν αρχεία κατά την αξιολόγηση) πρέπει να ελέγχουν τα ακόλουθα "
+"σημεία σε σχέση με τις ιδιότητες των κειμένων και των αρχείων που "
+"μεταφορτώνονται:</p>\n"
+"<ul><li>Οι Συγγραφείς έχουν διαγράψει τα ονόματά τους από το κείμενο. Εάν "
+"υπάρχουν παραπομπές σε προηγούμενες εργασίες των Συγγραφέων, τα ονόματά τους "
+"αντικαθίστανται με τη λέξη \"Συγγραφέας\", ο τίτλος των εργασιών αφαιρείται "
+"και παραμένει μόνο το έτος έκδοσης.</li>\n"
+"<li> Οι συντάκτες του εγγράφου έχουν αφαιρέσει προσωπικές πληροφορίες από "
+"τις ιδιότητες του αρχείου ακολουθώντας τα ακόλουθα βήματα:\n"
+"<ul> <li> Microsoft Word για Windows:\n"
+"<ul> <li> Μετάβαση στο αρχείο </li>\n"
+"<li> Επιλέξτε Πληροφορίες </li>\n"
+"<li> Κάντε κλικ στην επιλογή Έλεγχος ζητημάτων </li>\n"
+"<li> Κάντε κλικ στο Επιθεώρηση εγγράφου </li>\n"
+"<li> Στο πλαίσιο διαλόγου Document Inspector, επιλέξτε τους τύπους του "
+"κρυφού περιεχομένου που θέλετε να επιθεωρήσετε. </li>\n"
+"<li> Κάντε κλικ στην επιλογή Κατάργηση όλων </li>\n"
+"<li> Κάντε κλικ στο Κλείσιμο </li>\n"
+"<li> Αποθηκεύστε το έγγραφο </li> </ul>\n"
+"<li> Microsoft Word για MacOS:\n"
+"<ul> <li> Μεταβείτε στα Εργαλεία </li>\n"
+"<li> Κάντε κλικ στην Προστασία εγγράφου </li>\n"
+"<li> Επιλέξτε Κατάργηση προσωπικών πληροφοριών για αυτό το αρχείο στην "
+"αποθήκευση </li>\n"
+"<li> Κάντε κλικ στο OK και αποθηκεύστε το αρχείο </li> </ul> </li>\n"
+"<li> PDF:\n"
+"<ul> <li> Μετάβαση στο αρχείο </li>\n"
+"<li> Επιλέξτε Ιδιότητες </li>\n"
+"<li> Κατάργηση οποιουδήποτε ονόματος στο πεδίο συγγραφέα </li>\n"
+"<li> Κάντε κλικ στο OK </li>\n"
+"<li> Αποθήκευση εγγράφου </li> </ul> </li> </ul>\n"
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Χρονοδιάγραμμα αξιολόγησης"
@@ -1472,7 +1502,9 @@ msgid "navigation.goBack"
 msgstr "Επιστροφή"
 
 msgid "notification.addedReviewer"
-msgstr " Η αξιολόγηση ανατέθηκε στον Αξιολογητή {$reviewerName}, στον οποίο στάλθηκε σχετική ενημέρωση."
+msgstr ""
+"Η αξιολόγηση ανατέθηκε στον Αξιολογητή {$reviewerName}, στον οποίο στάλθηκε "
+"σχετική ενημέρωση."
 
 msgid "notification.addedReviewerNoEmail"
 msgstr "Η αξιολόγηση ανατέθηκε στον Αξιολογητή {$reviewerName}, χωρίς να έχει αποσταλεί σχετική ενημέρωση."
@@ -1535,7 +1567,7 @@ msgid "notification.type.queryActivity"
 msgstr "Δραστηριότητα συζητήσεων"
 
 msgid "notification.type.queryAdded"
-msgstr "Η συζήτηση προστέθηκε"
+msgstr "Η συζήτηση προστέθηκε."
 
 msgid "notification.type.assignCopyeditors"
 msgstr "Ανάθεση σε Επιμελητή Κειμένων μέσω του σχετικού συνδέσμου στη λίστα συντελεστών."
@@ -1572,3 +1604,363 @@ msgstr "Προβολή πρόσθετων πληροφοριών για το {$n
 
 msgid "list.viewLess"
 msgstr "Απόκρυψη πρόσθετων πληροφοριών για το {$name}"
+
+msgid "validator.url"
+msgstr "Μη έγκυρο URL."
+
+msgid "validator.timezone"
+msgstr "Δεν είναι έγκυρη η ζώνη ώρας."
+
+msgid "validator.string"
+msgstr "Μη έγκυρη συμβολοσειρά."
+
+msgid "validator.size.array"
+msgstr "Πρέπει να περιέχει {$size} στοιχεία."
+
+msgid "validator.size.string"
+msgstr "Πρέπει να έχει {$size} χαρακτήρες."
+
+msgid "validator.size.file"
+msgstr "Πρέπει να έχει μέγεθος {$size} ΚΒ."
+
+msgid "validator.size.numeric"
+msgstr "Πρέπει να έχει μέγεθος {$size}."
+
+msgid "validator.same"
+msgstr "Τα χαρακτηριστικά {$attribute} και {$ other} πρέπει να ταιριάζουν."
+
+msgid "validator.required_without_all"
+msgstr ""
+"Αυτό το πεδίο απαιτείται όταν δεν υπάρχει καμία από τις τιμές {$values}."
+
+#, fuzzy
+msgid "validator.required_without"
+msgstr "Αυτό το πεδίο απαιτείται όταν δεν υπάρχει το {$values}."
+
+#, fuzzy
+msgid "validator.required_with_all"
+msgstr "Αυτό το πεδίο απαιτείται όταν υπάρχει το {$values}."
+
+#, fuzzy
+msgid "validator.required_with"
+msgstr "Αυτό το πεδίο απαιτείται όταν υπάρχει το {$values}."
+
+#, fuzzy
+msgid "validator.required_unless"
+msgstr "Αυτό το πεδίο απαιτείται, εκτός εάν το {$other} είναι στο {$values}."
+
+msgid "validator.required_if"
+msgstr "Αυτό το πεδίο απαιτείται όταν το {$other} είναι {$value}."
+
+msgid "validator.required"
+msgstr "Αυτό το πεδίο είναι υποχρεωτικό."
+
+msgid "validator.regex"
+msgstr "Δεν έχει μορφοποιηθεί σωστά."
+
+msgid "validator.present"
+msgstr "Το πεδίο {$attribute} πρέπει να υπάρχει."
+
+msgid "validator.orcid"
+msgstr "Μη έγκυρο ORCID."
+
+msgid "validator.numeric"
+msgstr "Μη έγκυρος αριθμός."
+
+msgid "validator.not_in"
+msgstr "Το επιλεγμένο χαρακτηριστικό {$attribute} δεν είναι έγκυρο."
+
+msgid "validator.min.array"
+msgstr "Πρέπει να υπάρχουν τουλάχιστον {$max} στοιχεία."
+
+msgid "validator.min.string"
+msgstr "Πρέπει να περιέχει τουλάχιστον {$min} χαρακτήρες."
+
+msgid "validator.min.file"
+msgstr "Πρέπει να είναι τουλάχιστον {$min} ΚΒ."
+
+msgid "validator.min.numeric"
+msgstr "Πρέπει να είναι τουλάχιστον {$min}."
+
+msgid "validator.mimes"
+msgstr "Πρέπει να είναι αρχείο τύπου {$Values}."
+
+msgid "validator.max.array"
+msgstr "Δεν επιτρέπεται να υπάρχουν περισσότερα από {$max} στοιχεία."
+
+msgid "validator.max.string"
+msgstr "Δεν μπορεί να είναι μεγαλύτερο από {$max} χαρακτήρες."
+
+msgid "validator.max.file"
+msgstr "Δεν μπορεί να είναι μεγαλύτερο από {$max} ΚΒ."
+
+msgid "validator.max.numeric"
+msgstr "Δεν μπορεί να είναι μεγαλύτερο από {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Οι γλώσσες πρέπει να καθοριστούν χρησιμοποιώντας τον τοπικό κωδικό. "
+"Παραδείγματα: en_US, fr_CA, el_GR, sr_RS @ cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Αυτό το πεδίο είναι πολύγλωσσο. Πρέπει να παρέχονται ξεχωριστές τιμές για "
+"κάθε υποστηριζόμενη γλώσσα."
+
+msgid "validator.locale"
+msgstr "Αυτή η γλώσσα δεν είναι αποδεκτή."
+
+msgid "validator.json"
+msgstr "Αυτή δεν είναι έγκυρη συμβολοσειρά JSON."
+
+msgid "validator.issn"
+msgstr "Αυτό δεν είναι έγκυρο ISSN."
+
+msgid "validator.ip"
+msgstr "Αυτή δεν είναι έγκυρη διεύθυνση IP."
+
+msgid "validator.integer"
+msgstr "Αυτός δεν είναι έγκυρος ακέραιος."
+
+msgid "validator.in"
+msgstr "Το επιλεγμένο χαρακτηριστικό {$attribute} δεν είναι έγκυρο."
+
+msgid "validator.image"
+msgstr "Πρέπει να είναι μια εικόνα."
+
+msgid "validator.filled"
+msgstr "Αυτό το πεδίο είναι υποχρεωτικό."
+
+msgid "validator.exists"
+msgstr "Το επιλεγμένο χαρακτηριστικό {$attribute} δεν είναι έγκυρο."
+
+msgid "validator.email"
+msgstr "Αυτή δεν είναι έγκυρη διεύθυνση email."
+
+msgid "validator.digits_between"
+msgstr "Πρέπει να έχει από {$min} και {$max} ψηφία."
+
+msgid "validator.digits"
+msgstr "Πρέπει να έχει μήκος {$digits} ψηφία."
+
+msgid "validator.different"
+msgstr "Το {$attribute} και το {$other} πρέπει να είναι διαφορετικά."
+
+msgid "validator.date_format"
+msgstr "Αυτό δεν ταιριάζει με τη μορφή {$format}."
+
+msgid "validator.date"
+msgstr "Η ημερομηνία δεν είναι έγκυρη."
+
+msgid "validator.currency"
+msgstr "Δεν είναι έγκυρο αυτό το νόμισμα."
+
+msgid "validator.confirmed"
+msgstr "Η επιβεβαίωση για αυτό το πεδίο δεν ταιριάζει."
+
+msgid "validator.boolean"
+msgstr "Αυτό το πεδίο πρέπει να ισχύει ή όχι."
+
+msgid "validator.between.array"
+msgstr "Αυτό πρέπει να έχει από {$ min} ως {$ max} στοιχεί."
+
+msgid "validator.between.string"
+msgstr "Πρέπει να κυμαίνεται μεταξύ {$min} και {$max} χαρακτήρες."
+
+msgid "validator.between.file"
+msgstr "Πρέπει να κυμαίνεται μεταξύ {$min} και {$max} kilobytes."
+
+msgid "validator.between.numeric"
+msgstr "Αυτό πρέπει να κυμαίνεται μεταξύ {$min} και {$max}."
+
+msgid "validator.before"
+msgstr "Αυτή η ημερομηνία πρέπει να είναι πριν από {$date}."
+
+msgid "validator.alpha_num"
+msgstr "Πρέπει να περιλαμβάνονται μόνο γράμματα και αριθμοί."
+
+msgid "validator.alpha_dash"
+msgstr ""
+"Πρέπει να περιλαμβάνονται μόνο γράμματα, αριθμοί, παύλες και κάτω_παύλες."
+
+msgid "validator.alpha"
+msgstr "Πρέπει να περιλαμβάνονται μόνο γράμματα."
+
+msgid "validator.after"
+msgstr "Αυτή η ημερομηνία πρέπει να είναι μεταγενέστερη από {$date}."
+
+msgid "validator.active_url"
+msgstr "Αυτό δεν είναι έγκυρο URL."
+
+msgid "validator.accepted"
+msgstr "Αποδεχτείτε αυτό το αντικείμενο .."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Μια υπενθύμιση για να ελέγξετε την υγεία του περιοδικού σας μέσω της "
+"συντακτικής έκθεσης."
+
+msgid "notification.type.editorialReport"
+msgstr "Περίληψη αναφοράς στατιστικών."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Μη έγκυρη δημοσίευση."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Έγινε επαναφορά του Αξιολογητή."
+
+msgid "notification.cancelledReviewer"
+msgstr "Ο Αξιολογητής ακυρώθηκε."
+
+msgid "navigation.skip.announcements"
+msgstr "Μετάβαση στις ανακοινώσεις"
+
+msgid "navigation.skip.description"
+msgstr "Μετάβαση στους συνδέσμους περιεχομένου"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Δεν μπορούν να γίνουν αλλαγές σε αυτόν τον μετέχοντα"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Μετέχων"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Επιτρέψτε σε αυτό το άτομο να κάνει αλλαγές στη δημοσίευση, όπως ο τίτλος, η "
+"περίληψη, τα μεταδεδομένα και άλλες λεπτομέρειες δημοσίευσης. Μπορεί να "
+"θέλετε να ανακαλέσετε αυτό το προνόμιο εάν η υποβολή περάσει τον τελικό "
+"έλεγχο και είναι έτοιμη για δημοσίευση."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Δικαιώματα"
+
+msgid "form.multilingualProgress"
+msgstr "Ολοκληρώθηκαν {$count} από τις {$total} γλώσσες"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} στο {$localeName}"
+
+msgid "form.requireId"
+msgstr "Πρέπει να δώσετε ένα έγκυρο αναγνωριστικό (ID)."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Πρέπει να συμπληρώσετε αυτό το πεδίο στα {$language}."
+
+msgid "form.missingRequired"
+msgstr "Αυτό το πεδίο είναι υποχρεωτικό."
+
+msgid "form.errorUnknown"
+msgstr ""
+"Προέκυψε ένα μη αναμενόμενο σφάλμα. Μπορεί να έχετε αποσυνδεθεί. Ανανεώστε "
+"τη σελίδα και ξαναπροσπαθήστε."
+
+msgid "form.errors"
+msgstr ""
+"Η φόρμα δεν αποθηκεύτηκε επειδή παρουσιάστηκαν {$count} σφάλματα. Διορθώστε "
+"αυτά τα σφάλματα και δοκιμάστε ξανά."
+
+msgid "form.errorMany"
+msgstr "Διορθώστε {$count} σφάλματα."
+
+msgid "form.errorOne"
+msgstr "Διορθώστε ένα σφάλμα."
+
+msgid "form.errorGoTo"
+msgstr "Μετάβαση στο επόμενο σφάλμα"
+
+msgid "form.errorA11y"
+msgstr "Μετάβαση στο  {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Δεν μπορείτε να ανεβάσετε επιπλέον αρχεία."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Κατάργηση αρχείου"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Επιβεβαιώστε ότι θέλετε να ακυρώσετε αυτήν τη μεταφόρτωση"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Η μεταφόρτωση ακυρώθηκε"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Ακύρωση μεταφόρτωσης"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Ο διακομιστής απάντησε με κωδικό σφάλματος {{statusCode}}. Επικοινωνήστε με "
+"το διαχειριστή του συστήματος εάν το πρόβλημα παραμένει."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Δεν είναι δυνατή η μεταφόρτωση αρχείων αυτού του τύπου."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Το αρχείο είναι πολύ μεγάλο  ({{filesize}}mb). Δεν είναι δυνατή η "
+"μεταφόρτωση αρχείων μεγαλύτερων από {{maxFilesize}}mb."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Χρησιμοποιήστε την ακόλουθη φόρμα για να ανεβάσετε τα αρχεία σας."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"Αυτό το πρόγραμμα περιήγησης δεν υποστηρίζει μεταφορτώσεις αρχείων με "
+"απόθεση."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Αποθέστε εδώ τα αρχεία για μεταφόρτωση"
+
+msgid "form.disallowedProp"
+msgstr "Αυτή η ιδιότητα δεν επιτρέπεται."
+
+msgid "form.disallowedLocales"
+msgstr "Επιτρέπονται μόνο οι ακόλουθες γλώσσες: {$Languages}."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Προεπισκόπηση της επιλεγμένης εικόνας."
+
+msgid "common.upload.restore"
+msgstr "Επαναφορά αρχικού"
+
+msgid "common.toWithValue"
+msgstr "Μέχρι: {$value}"
+
+msgid "common.submenu"
+msgstr "Υπομενού"
+
+msgid "common.selectedPrefix"
+msgstr "Επιλεγμένα:"
+
+msgid "common.removeItem"
+msgstr "Αφαίρεση του {$item}"
+
+#, fuzzy
+msgid "common.orderDown"
+msgstr "Μειώστε τη θέση του {$itemTitle}"
+
+#, fuzzy
+msgid "common.orderUp"
+msgstr "Αυξήστε τη θέση του {$itemTitle}"
+
+msgid "common.override"
+msgstr "Παράκαμψη"
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"Δεν ήταν δυνατή η εύρεση του αρχείου που ανεβάσατε. Προσπαθήστε να το "
+"ανεβάσετε ξανά."
+
+msgid "common.noItemsFound"
+msgstr "Δεν βρέθηκαν αντικείμενα."
+
+msgid "common.moreThanOnly"
+msgstr "Περισσότερο από"
+
+msgid "common.lessThanOnly"
+msgstr "Λιγότερο από"
+
+msgid "common.lastActivity"
+msgstr "Η τελευταία δραστηριότητα καταγράφηκε στις {$date}."
+
+msgid "common.fromWithValue"
+msgstr "Από: {$value}"

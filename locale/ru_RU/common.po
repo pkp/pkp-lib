@@ -832,6 +832,9 @@ msgstr "URL-адрес"
 msgid "common.user"
 msgstr "Пользователь"
 
+msgid "common.user.nonexistent"
+msgstr "[Несуществующий пользователь]"
+
 msgid "common.view"
 msgstr "Просмотреть"
 

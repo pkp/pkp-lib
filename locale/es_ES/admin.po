@@ -102,8 +102,23 @@ msgstr "La configuración regional es el idioma principal del sitio. No se puede
 msgid "admin.languages.confirmReload"
 msgstr "¿Está seguro de que quiere volver a cargar esta configuración regional? Esta opción borrará los datos de configuración específica existentes, como las plantillas de correo electrónico personalizadas."
 
+msgid "admin.languages.installedLocales"
+msgstr "Ficheros de idioma instalados"
+
+msgid "admin.languages.installLanguages"
+msgstr "Gestionar ficheros de idioma"
+
 msgid "admin.languages.availableLocales"
 msgstr "Idiomas disponibles"
+
+msgid "admin.languages.installLocale"
+msgstr "Instalar configuración regional"
+
+msgid "admin.languages.installLocales"
+msgstr "Instalar"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instalar nuevos ficheros de idioma"
 
 msgid "admin.languages.languageSettings"
 msgstr "Configuración de idioma"
@@ -285,6 +300,9 @@ msgstr "Está seguro de que quiere eliminar todos los registros de ejecución de
 
 msgid "admin.settings.siteLogo"
 msgstr "Logo del sitio"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "No hay traducciones disponibles para descargar."
 
 msgid "admin.contexts.confirmDelete"
 msgstr "¿Seguro que quiere eliminar permanentemente {$contextName} y todo su contenido?"

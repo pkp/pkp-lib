@@ -986,6 +986,12 @@ msgstr "Lokalizace zakázána."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} byla definována jako primární lokalizace."
 
+msgid "notification.localeInstalled"
+msgstr "Všechny vybrané lokalizace byly nainstalovány a aktivovány."
+
+msgid "notification.localeUninstalled"
+msgstr "Lokalizace {$locale} byla odinstalovány."
+
 msgid "notification.localeReloaded"
 msgstr "Lokalizace {$locale} byla znovu nahrána."
 

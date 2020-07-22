@@ -902,11 +902,17 @@ msgstr "Lokalizacija je onemogućena."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} lokalizacija je definisana kao primarna lokalizacija."
 
+msgid "notification.localeInstalled"
+msgstr "Sve odabrane lokalizacije su instalirane i aktivirane."
+
 msgid "notification.localeReloaded"
 msgstr "{$locale} lokalizacija je ponovo učitana."
 
 msgid "notification.localeSettingsSaved"
 msgstr "Podešavanja lokalizacije su sačuvana."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} lokalizacija je obrisana."
 
 msgid "notification.editedUser"
 msgstr "Korisnik je uređen."

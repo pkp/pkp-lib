@@ -108,8 +108,23 @@ msgstr "Aquesta és la configuració regional principal del lloc web. No podeu i
 msgid "admin.languages.confirmReload"
 msgstr "Esteu segur/a que voleu tornar a carregar aquesta configuració regional? Això eliminarà qualsevol dada de configuració regional existent, com ara les plantilles de correu electrònic personalitzades."
 
+msgid "admin.languages.installedLocales"
+msgstr "Configuracions regionals instal·lades"
+
+msgid "admin.languages.installLanguages"
+msgstr "Gestiona les configuracions regionals"
+
 msgid "admin.languages.availableLocales"
 msgstr "Configuracions regionals disponibles"
+
+msgid "admin.languages.installLocale"
+msgstr "Instal·la una configuració regional"
+
+msgid "admin.languages.installLocales"
+msgstr "Instal·la"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instal·la configuracions regionals noves"
 
 msgid "admin.languages.languageSettings"
 msgstr "Configuració de llengua"
@@ -309,6 +324,9 @@ msgstr "Segur que voleu eliminar permanentment {$contextName} i tots els seus co
 
 msgid "admin.settings.siteLogo"
 msgstr "Logotip del lloc"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "No hi ha configuracions regionals disponibles per descarregar."
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Publicar les trameses programades per a publicació"

@@ -1010,6 +1010,12 @@ msgstr "Język wyłączony."
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} jest określony jako domyślny."
 
+msgid "notification.localeInstalled"
+msgstr "Wszystkie wybrane języki zainstalowane i włączone."
+
+msgid "notification.localeUninstalled"
+msgstr "Język {$locale} odinstalowany."
+
 msgid "notification.localeReloaded"
 msgstr "Język {$locale} przeładowany."
 

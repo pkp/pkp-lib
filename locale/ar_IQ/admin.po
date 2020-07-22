@@ -77,8 +77,23 @@ msgstr "هل أنت متأكد من رغبتك في تغيير اللغة الأ
 msgid "admin.languages.confirmReload"
 msgstr "هل أنت متأكد من رغبتك في إعادة تحميل هذه اللغة؟ هذا من شأنه حذف أي بيانات تخصيصية للغة مثل قوالب المراسلات الالكترونية المخصصة."
 
+msgid "admin.languages.installedLocales"
+msgstr "اللغات المنصبة"
+
+msgid "admin.languages.installLanguages"
+msgstr "إدارة اللغات"
+
 msgid "admin.languages.availableLocales"
 msgstr "اللغات المتوفرة"
+
+msgid "admin.languages.installLocale"
+msgstr "تنصيب لغة"
+
+msgid "admin.languages.installLocales"
+msgstr "تنصيب"
+
+msgid "admin.languages.installNewLocales"
+msgstr "تنصيب لغات أخرى"
 
 msgid "admin.languages.languageSettings"
 msgstr "إعدادات اللغة"
@@ -293,3 +308,6 @@ msgstr "إن تنفيذ البرنامج عند المسار \"{$utilPath}\" أ�
 
 msgid "admin.error.executingUtil"
 msgstr "خطأ: يتعذر تنفيذ \"{$utilPath}\". تحقق من إعدادات {$utilVar} في ملف التهيئة config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "ليست هناك لغات متاحة للتنزيل من الموقع."

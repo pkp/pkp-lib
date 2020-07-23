@@ -14,7 +14,7 @@
  */
 
 define('RECAPTCHA_RESPONSE_FIELD', 'g-recaptcha-response');
-define('RECAPTCHA_HOST', 'https://www.google.com');
+define('RECAPTCHA_HOST', 'https://www.recaptcha.net');
 define("RECAPTCHA_PATH", "/recaptcha/api/siteverify");
 
 class FormValidatorReCaptcha extends FormValidator {

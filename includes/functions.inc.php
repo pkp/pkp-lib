@@ -189,6 +189,7 @@ function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expected
 			// Construct meaningful error message.
 			$expectedPackageCount = count($expectedPackages);
 			$separator = '';
+			$expectedPackageString = '';
 			foreach($expectedPackages as $expectedPackageIndex => $expectedPackage) {
 				if ($expectedPackageIndex > 0) {
 					$separator = ($expectedPackageIndex == $expectedPackageCount-1 ? ' or ' : ', ' );

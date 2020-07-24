@@ -67,7 +67,6 @@ class ReviewerGossipForm extends Form {
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$userDao->updateObject($this->_user);
 		parent::execute(...$functionArgs);
-		return $user;
 	}
 }
 

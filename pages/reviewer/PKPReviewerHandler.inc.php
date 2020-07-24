@@ -74,8 +74,11 @@ class PKPReviewerHandler extends Handler {
 			return new JSONMessage(true, $reviewerForm->fetch($request));
 		} else {
 			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->assign('submission', $reviewerSubmission);
-			$templateMgr->assign('step', 4);
+			$templateMgr->assign([
+				'submission' => $reviewerSubmission,
+				'step' => 4,
+				'reviewAssignment' => $reviewAssignment,
+			]);
 			return $templateMgr->fetchJson('reviewer/review/reviewCompleted.tpl');
 		}
 	}

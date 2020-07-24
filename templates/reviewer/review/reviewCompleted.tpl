@@ -16,5 +16,5 @@
 <p>{translate key="reviewer.complete.whatNext"}</p>
 
 <!-- Display queries grid -->
-{capture assign="queriesGridUrl"}{url router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW escape=false}{/capture}
+{capture assign="queriesGridUrl"}{url router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$reviewAssignment->getStageId() escape=false}{/capture}
 {load_url_in_div id="queriesGridComplete" url=$queriesGridUrl}

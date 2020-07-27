@@ -427,3 +427,21 @@ msgstr "Oui, je souhaite être notifié des nouvelles publications et annonces."
 
 msgid "user.privacyLink"
 msgstr "Vos données personnelles sont traitées selon notre  <a href=\"{$privacyUrl}\" target=\"_blank\">Déclaration de confidentialité</a>."
+
+msgid "user.givenName"
+msgstr "Prénom"
+
+msgid "user.familyName"
+msgstr "Nom de famille"
+
+msgid "user.preferredPublicName"
+msgstr "Appellation publique souhaitée"
+
+msgid "user.preferredPublicName.description"
+msgstr "Comment préférez-vous que l'on s'adresse à vous ? Les titres, seconds prénoms et suffixes peuvent être ajoutés ici si vous le souhaitez."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Un prénom est obligatoire."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Vous avez ajouté un nom de famille dans une langue pour laquelle un prénom n'a pas été spécifié. Veuillez ajouter un prénom pour cette langue."

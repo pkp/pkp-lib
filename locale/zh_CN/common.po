@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-04T08:55:07-08:00\n"
-"PO-Revision-Date: 2020-07-03 17:40+0000\n"
+"PO-Revision-Date: 2020-07-28 15:47+0000\n"
 "Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
 "Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/zh_Hans/>\n"
@@ -127,21 +127,31 @@ msgstr "验证"
 
 msgid "common.ccLicense"
 msgstr ""
-"<br /><br />\n"
-"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
-"\t\t<br/>\n"
-"\t\t 本作品遵循 <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  License 授权许可</a>."
+"\t\t<br />\n"
+"\t\t本作品遵循  <a rel=\"license\" target=\"_blank\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">知识共享 署名 3.0  授权许可</a>.\n"
+"\t"
 
 msgid "common.ccLicense.rt"
 msgstr ""
-"<div class=\"rtBlock\">\n"
+"\n"
+"\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\t本作品遵循 <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License 授权许可</a>.\n"
-"\t</div>"
+"\t\t本作品遵循  <a rel=\"license\" target=\"_blank\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">知识共享 署名 3.0  授权许可</a>.\n"
+"\t</div>\n"
+"\t"
 
 msgid "common.changesSaved"
 msgstr "您的变更已保存."
@@ -771,7 +781,7 @@ msgid "search.abstract"
 msgstr "摘要"
 
 msgid "search.author"
-msgstr "作者"
+msgstr "按作者"
 
 msgid "search.coverage"
 msgstr "覆盖"
@@ -1211,4 +1221,739 @@ msgid "common.currentStyleSheet"
 msgstr "当前样式表"
 
 msgid "common.publicKnowledgeProject"
-msgstr "Public Knowledge Project"
+msgstr "公共知识计划"
+
+msgid "validator.url"
+msgstr "这不是有效的网址。"
+
+msgid "validator.unique"
+msgstr "{$attribute}已被使用。"
+
+msgid "validator.timezone"
+msgstr "这不是有效的时区。"
+
+msgid "validator.string"
+msgstr "这不是有效的字符串。"
+
+msgid "validator.size.array"
+msgstr "此列表必须包含 {$size} 个项目。"
+
+msgid "validator.size.string"
+msgstr "此项长度必须是 {$size} 个字符。"
+
+msgid "validator.size.file"
+msgstr "该文件大小必须是 {$size} 千字节。"
+
+msgid "validator.size.numeric"
+msgstr "该项大小必须是 {$size}。"
+
+msgid "validator.same"
+msgstr "{$attribute} 和 {$other} 必须匹配。"
+
+msgid "validator.required_without_all"
+msgstr "如果 {$values} 中没有项目存在，则此字段为必填项。"
+
+msgid "validator.required_without"
+msgstr "如果不存在 {$values}，则此字段为必填项。"
+
+msgid "validator.required_with_all"
+msgstr "如果存在 {$values}，则此字段为必填项。"
+
+msgid "validator.required_with"
+msgstr "如果存在 {$values}，则此字段为必填项。"
+
+msgid "validator.required_unless"
+msgstr "除非 {$others} 位于 {$values} 中，否则此字段是必填项。"
+
+msgid "validator.required_if"
+msgstr "当 {$other} 为 {$value} 时，此字段是必填项。"
+
+msgid "validator.required"
+msgstr "这是必填项。"
+
+msgid "validator.regex"
+msgstr "此项格式不正确。"
+
+msgid "validator.present"
+msgstr "必须提供 {$attribute} 字段。"
+
+msgid "validator.orcid"
+msgstr "这不是有效的ORCID。"
+
+msgid "validator.numeric"
+msgstr "这不是有效的数字。"
+
+msgid "validator.not_in"
+msgstr "所选的 {$attribute} 无效。"
+
+msgid "validator.min.array"
+msgstr "该列表必须至少包含 {$min} 个项目。"
+
+msgid "validator.min.string"
+msgstr "该项必须至少为 {$min} 个字符。"
+
+msgid "validator.min.file"
+msgstr "文件大小必须至少为 {$min} 千字节。"
+
+msgid "validator.min.numeric"
+msgstr "该值必须至少为 {$min}。"
+
+msgid "validator.mimes"
+msgstr "此项必须是 {$values} 类型的文件。"
+
+msgid "validator.max.array"
+msgstr "此项不得超过 {$max} 个项目。"
+
+msgid "validator.max.string"
+msgstr "此项不得超过 {$max} 个字符。"
+
+msgid "validator.max.file"
+msgstr "此项不得超过 {$max} 千字节。"
+
+msgid "validator.max.numeric"
+msgstr "此项不得大于{$ max}。"
+
+msgid "validator.localeKey"
+msgstr "必须使用语言环境代码指定语言。 例如：en_US，fr_CA，sr_RS@cyrillic。"
+
+msgid "validator.localeExpected"
+msgstr "该字段是多语言的。 必须为每种受支持的语言提供单独的值。"
+
+msgid "validator.locale"
+msgstr "该语言不被接受。"
+
+msgid "validator.json"
+msgstr "这不是有效的JSON字符串。"
+
+msgid "validator.issn"
+msgstr "这不是有效的ISSN。"
+
+msgid "validator.ip"
+msgstr "这不是有效的IP地址。"
+
+msgid "validator.integer"
+msgstr "这不是有效的整数。"
+
+msgid "validator.in"
+msgstr "所选的 {$attribute} 无效。"
+
+msgid "validator.image"
+msgstr "此项必须是图像。"
+
+msgid "validator.filled"
+msgstr "这是必填项。"
+
+msgid "validator.exists"
+msgstr "所选的 {$attribute} 无效。"
+
+msgid "validator.email"
+msgstr "这个电子邮件地址无效。"
+
+msgid "validator.digits_between"
+msgstr "此项必须在 {$min} 和 {$max} 位之间。"
+
+msgid "validator.digits"
+msgstr "该项长度必须为 {$digits} 个数字。"
+
+msgid "validator.different"
+msgstr "{$attribute} 和 {$other} 必须不同。"
+
+msgid "validator.date_format"
+msgstr "此项与格式 {$format} 不匹配。"
+
+msgid "validator.date"
+msgstr "这不是有效的日期。"
+
+msgid "validator.currency"
+msgstr "这不是有效的货币。"
+
+msgid "validator.confirmed"
+msgstr "此项的确认项不匹配。"
+
+msgid "validator.boolean"
+msgstr "该字段必须为true或false。"
+
+msgid "validator.between.array"
+msgstr "此项的项目数量必须介于 {$min} 和 {$max} 之间。"
+
+msgid "validator.between.string"
+msgstr "此项必须介于 {$min} 和 {$max} 个字符之间。"
+
+msgid "validator.between.file"
+msgstr "此项必须介于 {$min} 至 {$max} KB之间。"
+
+msgid "validator.between.numeric"
+msgstr "该值必须在 {$min} 和 {$max} 之间。"
+
+msgid "validator.before"
+msgstr "此日期必须早于 {$date} 。"
+
+msgid "validator.array"
+msgstr "这不是有效的数组。"
+
+msgid "validator.alpha_num"
+msgstr "此项只能包含字母和数字。"
+
+msgid "validator.alpha_dash"
+msgstr "此项只能包含字母，数字，短横线和下划线。"
+
+msgid "validator.alpha"
+msgstr "此项只能包含字母。"
+
+msgid "validator.after"
+msgstr "此日期必须在 {$date} 之后。"
+
+msgid "validator.active_url"
+msgstr "这不是有效的网址。"
+
+msgid "validator.accepted"
+msgstr "请接受此项目。"
+
+msgid "list.viewLess"
+msgstr "隐藏有关 {$name} 的详细信息"
+
+msgid "list.viewMore"
+msgstr "显示有关 {$name} 的更多详细信息"
+
+msgid "notification.removedNavigationMenu"
+msgstr "导航菜单已成功删除"
+
+msgid "notification.editedNavigationMenu"
+msgstr "导航菜单已成功更新"
+
+msgid "notification.addedNavigationMenu"
+msgstr "导航菜单已成功添加"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "导航菜单项已成功添加"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "导航菜单项已成功删除"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "导航菜单项已成功更新"
+
+msgid "notification.type.editorialReport.contents"
+msgstr "这里提醒您通过编辑报告检查期刊的健康状况。"
+
+msgid "notification.type.assignCopyeditors"
+msgstr "使用“参与者”列表中的“分配”链接分配一个编辑。"
+
+msgid "notification.type.queryAdded"
+msgstr "讨论已添加。"
+
+msgid "notification.type.queryActivity"
+msgstr "讨论活动。"
+
+msgid "user.authorization.submissionAuthor"
+msgstr "当前用户不是所请求提交的作者。 请验证您是否使用正确的用户帐户登录。"
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "您当前没有足够的权限来查看提交。 请编辑您的个人资料，以确保已在“注册为”下被授予适当的角色。"
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "无效的表示。"
+
+msgid "user.authorization.invalidSubmission"
+msgstr "无效的提交。"
+
+msgid "user.authorization.invalidPublication"
+msgstr "无效的出版。"
+
+msgid "user.authorization.submissionFile"
+msgstr "当前用户无权访问指定的提交文件。"
+
+msgid "notification.type.reviewerComment"
+msgstr "审阅者对“ {$title}”发表了评论。"
+
+msgid "notification.type.metadataModified"
+msgstr "“ {$title}” 的元数据已被修改。"
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "修订已提交到 {$stage}。"
+
+msgid "notification.type.pendingRevisions"
+msgstr "在{$stage}中要考虑的修订。"
+
+msgid "notification.type.allRevisionsIn"
+msgstr "已将修订后的文件上传到{$stage}中供您编辑。"
+
+msgid "notification.type.allReviewsIn"
+msgstr "所有审核者都做出了回应，需要在{$stage}中做出决定。"
+
+msgid "notification.type.auditorRequest"
+msgstr "审核“ {$file}”的请求"
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "审阅分配已更新。"
+
+msgid "notification.type.reviewAssignment"
+msgstr "审核中。"
+
+msgid "notification.type.newAnnouncement"
+msgstr "新公告。"
+
+msgid "review.blindPeerReview"
+msgstr ""
+"<p>为了确保提交到本出版社的同行盲审的完整性，应尽一切努力防止作者和审稿人的身份相互了解。 "
+"这涉及到作者，编辑和审阅者（他们在审阅过程中上载文档），检查是否针对文本和文件属性采取了以下步骤：</p>\n"
+"<ul><li>该文档的作者已从文本中删除了他们的姓名，并在引用和脚注中使用了“作者”和年份，而不是作者的姓名，文章标题等。</li>\n"
+"<li>该文档的作者通过执行以下步骤从文件属性中删除了个人信息：\n"
+"<ul><li>Windows的Microsoft Word：\n"
+"<ul><li>打开“文件”</li>\n"
+"<li>选择“信息”</li>\n"
+"<li>点击“检查问题”</li>\n"
+"<li>点击“检查文件”</li>\n"
+"<li>在“文档检查器”对话框中，选中复选框以选择要检查的隐藏内容的类型。</li>\n"
+"<li>点击全部删除</li>\n"
+"<li>点击关闭</li>\n"
+"<li>保存文档</li></ul>\n"
+"<li>MacOS的Microsoft Word：\n"
+"<ul><li>前往“工具”</li>\n"
+"<li>点击“保护文档”</li>\n"
+"<li>选择“保存时删除此文件的个人信息”</li>\n"
+"<li>点击确定并保存文件</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>前往“文件”</li>\n"
+"<li>选择“属性”</li>\n"
+"<li>在作者字段中删除任何名称</li>\n"
+"<li>点击确定</li>\n"
+"<li>保存文档</li></ul></li></ul>\n"
+
+msgid "notification.removedSubmission"
+msgstr "删除的提交。"
+
+msgid "form.multilingualLabel"
+msgstr "{$localeName} 中的 {$label}"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "可用公制"
+
+msgid "defaultMetric.title"
+msgstr "默认公制"
+
+msgid "common.metric"
+msgstr "公制"
+
+msgid "notification.editStageParticipant"
+msgstr "阶段分配已更改。"
+
+msgid "notification.addedStageParticipant"
+msgstr "用户已添加为阶段参与者。"
+
+msgid "notification.reinstatedReviewer"
+msgstr "审阅者已恢复。"
+
+msgid "notification.cancelledReviewer"
+msgstr "审阅者已取消。"
+
+msgid "notification.removedReviewer"
+msgstr "审阅者已删除。"
+
+msgid "notification.addedReviewerNoEmail"
+msgstr "已分配 {$reviewerName} 来评审此投稿，未发送电子邮件通知。"
+
+msgid "notification.addedReviewer"
+msgstr "已分配 {$reviewerName} 来评审此投稿并已发送电子邮件通知。"
+
+msgid "navigation.goBack"
+msgstr "返回"
+
+msgid "submission.task.responseDueDate"
+msgstr "回应截止日期"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "评审截止日期"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "回应截止日期"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "编辑的要求"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "评审时间表"
+
+msgid "dashboard.myQueue"
+msgstr "我的队列"
+
+msgid "dashboard.tasks"
+msgstr "任务"
+
+msgid "grid.action.markRead"
+msgstr "标记为已读"
+
+msgid "grid.action.markNew"
+msgstr "标记为新增"
+
+msgid "grid.action.deleteNotification"
+msgstr "删除任务"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "阅读当前的审核政策"
+
+msgid "context.path"
+msgstr "路径"
+
+msgid "grid.action.downloadFile"
+msgstr "下载此文件"
+
+msgid "search.SearchFor"
+msgstr "搜索"
+
+msgid "search.indexTermsLong"
+msgstr "所有索引词字段"
+
+msgid "search.deleteFilter"
+msgstr "删除"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} 篇文章被索引"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "错误"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "完成"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "清除索引"
+
+msgid "search.searchAgain"
+msgstr "再次搜索"
+
+msgid "search.advancedSearchLess"
+msgstr "隐藏更多搜索选项"
+
+msgid "search.advancedSearchMore"
+msgstr "更多搜索选项"
+
+msgid "search.advancedFilters"
+msgstr "高级筛选"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "向所有注册的用户发送通知电子邮件"
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "投稿元数据已保存。"
+
+msgid "notification.sentNotification"
+msgstr "通知已发送。"
+
+msgid "notification.removedFile"
+msgstr "删除的文件。"
+
+msgid "notification.email"
+msgstr "不要给我发送有关此类通知的电子邮件。"
+
+msgid "notification.editedAuthor"
+msgstr "作者已编辑。"
+
+msgid "notification.addedAuthor"
+msgstr "作者已添加。"
+
+msgid "notification.removedAnnouncement"
+msgstr "公告已删除。"
+
+msgid "notification.editedAnnouncement"
+msgstr "公告已编辑。"
+
+msgid "notification.addedAnnouncement"
+msgstr "公告已添加。"
+
+msgid "notification.removedAnnouncementType"
+msgstr "公告类型已删除。"
+
+msgid "notification.editedAnnouncementType"
+msgstr "公告类型已编辑。"
+
+msgid "notification.addedAnnouncementType"
+msgstr "公告类型已添加。"
+
+msgid "notification.updatedReviewFiles"
+msgstr "评审文件已更新。"
+
+msgid "notification.reviewerThankedEmail"
+msgstr "感谢信已发送给审稿人的电子邮箱。"
+
+msgid "notification.reviewAcknowledged"
+msgstr "评审标记为已确认。 电子邮件未发送。"
+
+msgid "notification.addedQuery"
+msgstr "新增讨论"
+
+msgid "notification.removedAuditor"
+msgstr "审核员已删除。"
+
+msgid "notification.addedAuditor"
+msgstr "审核员已添加。"
+
+msgid "navigation.viewFrontend"
+msgstr "查看网站"
+
+msgid "navigation.skip.footer"
+msgstr "跳转到网站页脚"
+
+msgid "navigation.skip.nav"
+msgstr "跳转到主导航菜单"
+
+msgid "navigation.skip.main"
+msgstr "跳转到主要内容"
+
+msgid "navigation.skip.announcements"
+msgstr "跳转到公告"
+
+msgid "navigation.skip.description"
+msgstr "跳转到内容链接"
+
+msgid "navigation.tools.statistics"
+msgstr "统计信息"
+
+msgid "navigation.tools.importExport"
+msgstr "导入/导出"
+
+msgid "navigation.tools"
+msgstr "工具"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "你在这里："
+
+msgid "navigation.archives"
+msgstr "归档"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "无法对此参与者进行任何更改"
+
+msgid "stageParticipants.selectedUser"
+msgstr "参与者"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr "允许此人对出版物进行更改，例如标题，摘要，元数据和其他出版物详细信息。 如果提交的内容已收到最终检查并准备发布，则您可能希望撤销此权限。"
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "权限"
+
+msgid "stageParticipants.recommendOnly"
+msgstr "仅允许该参与者推荐编辑决定，并且将要求一位授权的编辑来记录编辑决定。"
+
+msgid "stageParticipants.options"
+msgstr "指派权限"
+
+msgid "stageParticipants.notify.warning"
+msgstr "请确保您已填写消息字段，并在讨论中包括了您以外的其他人。"
+
+msgid "stageParticipants.notify.message"
+msgstr "消息"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "选择要使用的预定义消息，或填写下面的表格。"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "开始您和 {$userFullName} 之间的讨论。"
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "发起讨论"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "通知已发送给用户。"
+
+msgid "informationCenter.history.messageSent"
+msgstr "通知已发送给用户。"
+
+msgid "informationCenter.history.notePosted"
+msgstr "发布新说明。"
+
+msgid "informationCenter.history.noItems"
+msgstr "没有记录的事件。"
+
+msgid "informationCenter.pastHistory"
+msgstr "早期修订"
+
+msgid "informationCenter.currentHistory"
+msgstr "当前修订"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "您确定要删除此说明吗？"
+
+msgid "informationCenter.pastNotes"
+msgstr "早期修订说明"
+
+msgid "informationCenter.noNotes"
+msgstr "没有要显示的说明。"
+
+msgid "informationCenter.addNote"
+msgstr "添加说明"
+
+msgid "informationCenter.editorialHistory"
+msgstr "编辑历史"
+
+msgid "informationCenter.informationCenter"
+msgstr "资讯中心"
+
+msgid "help.next"
+msgstr "下一个"
+
+msgid "help.previous"
+msgstr "上一个"
+
+msgid "form.multilingualProgress"
+msgstr "已完成 {$count} / {$total} 种语言"
+
+msgid "form.requireId"
+msgstr "您必须提供一个有效的ID。"
+
+msgid "form.requirePrimaryLocale"
+msgstr "您必须使用 {$language} 填写此字段。"
+
+msgid "form.fileRequired"
+msgstr "必须上传文件。"
+
+msgid "form.csrfInvalid"
+msgstr "该表格无法提交。 您可能已注销。 请刷新页面，然后再试一次。"
+
+msgid "form.missingRequired"
+msgstr "这是必填项。"
+
+msgid "form.errorUnknown"
+msgstr "发生意外问题。 您可能已注销。 请刷新页面，然后再试一次。"
+
+msgid "form.errors"
+msgstr "表单未保存，因为遇到 {$count} 个错误。 请更正这些错误，然后重试。"
+
+msgid "form.errorMany"
+msgstr "请更正 {$count} 个错误。"
+
+msgid "form.errorOne"
+msgstr "请更正一个错误。"
+
+msgid "form.errorGoTo"
+msgstr "跳至下一个错误"
+
+msgid "form.errorA11y"
+msgstr "前往 {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "您无法再上传更多文件。"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "移除文件"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "您确定要取消此上传吗？"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "上传已取消"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "取消上传"
+
+msgid "form.dropzone.dictResponseError"
+msgstr "服务器响应代码 {{statusCode}}。 如果此问题仍然存在，请与系统管理员联系。"
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "此类文件无法上传。"
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr "文件太大（{{filesize}} mb）。 不能上传大于{{maxFilesize}} mb的文件。"
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "请使用下面的备用表格上传文件。"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "您的浏览器不支持拖放文件上传。"
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "将文件拖放到此处进行上传"
+
+msgid "form.disallowedProp"
+msgstr "不允许使用此属性。"
+
+msgid "form.disallowedLocales"
+msgstr "仅允许以下语言：{$languages}。"
+
+msgid "form.url.invalid"
+msgstr "指定的URL无效。 请检查并重试。"
+
+msgid "email.senderEmail"
+msgstr "发件人 Email"
+
+msgid "email.senderName"
+msgstr "发件人姓名"
+
+msgid "email.compose.error"
+msgstr "发送电子邮件时出现问题。 请稍后重试，或与系统管理员联系。"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "上传文件"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "上传评审文件"
+
+msgid "common.publicAccess"
+msgstr "公共访问"
+
+msgid "common.count"
+msgstr "计数"
+
+msgid "common.viewProfile"
+msgstr "查看资料"
+
+msgid "common.upload.dragFile"
+msgstr "将文件拖放到此处即可开始上传"
+
+msgid "common.upload.changeFile"
+msgstr "变更文件"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "预览当前选择的图像。"
+
+msgid "common.upload.restore"
+msgstr "恢复到原始状态"
+
+msgid "common.upload.addFile"
+msgstr "上传文件"
+
+msgid "common.uploadedDate"
+msgstr "上传日期"
+
+msgid "common.component"
+msgstr "组件"
+
+msgid "common.toWithValue"
+msgstr "至：{$value}"
+
+msgid "common.subtitle"
+msgstr "副标题"
+
+msgid "common.submenu"
+msgstr "子菜单"
+
+msgid "common.subjects"
+msgstr "主题"
+
+msgid "common.selectedPrefix"
+msgstr "已选择："
+
+msgid "common.clearSearch"
+msgstr "清除搜索词组"
+
+msgid "common.searchQuery"
+msgstr "搜索查询"
+
+msgid "common.reminded.date"
+msgstr "已提醒：{$dateReminded}"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "例如: A, The"
+
+msgid "common.pagination.label"
+msgstr "查看更多页面"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} 共 {$total} 项"

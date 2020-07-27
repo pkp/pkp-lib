@@ -59,20 +59,11 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	function validate($callHooks = true) {
 		if (!parent::validate($callHooks)) return false;
 
-		$request = Application::get()->getRequest();
-		$context = $request->getContext();
-		
-		// Ensure that submissions are enabled and the assigned section is activated
-		$sectionId = $this->getData('sectionId');
-		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
-		$section = $sectionDao->getById($sectionId);
-		if ($context->getData('disableSubmissions') || $section->getIsInactive()) {
-			return false;
-		}
-
 		// Ensure that the user is in the specified userGroupId or trying to enroll an allowed role
 		$userGroupId = (int) $this->getData('userGroupId');
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$request = Application::get()->getRequest();
+		$context = $request->getContext();
 		$user = $request->getUser();
 		if (!$user) return false;
 

@@ -66,7 +66,7 @@ msgid "manager.sections.editorRestriction"
 msgstr "Items can only be submitted by Managers and Moderators."
 
 msgid "manager.sections.confirmDeactivateSection.error"
-msgstr "At least one section must be active. Visit the workflow settings to disable all submissions to this journal."
+msgstr "At least one section must be active. Visit the workflow settings to disable all submissions to this server."
 
 msgid "manager.sections.form.abbrevRequired"
 msgstr "An abbreviated title is required for the section"
@@ -240,10 +240,10 @@ msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Submission Preparation Checklist"
 
 msgid "manager.setup.disableSubmissions.description"
-msgstr "Prevent users from submitting new articles to the journal. Submissions can be disabled for individual journal sections on the <a href="{$url}">journal sections</a> settings page."
+msgstr "Prevent users from submitting new articles to the server. Submissions can be disabled for individual server sections on the <a href="{$url}">server sections</a> settings page."
 
 msgid "manager.setup.disableSubmissions.notAccepting"
-msgstr "This journal is not accepting submissions at this time. Visit the workflow settings to allow submissions."
+msgstr "This server is not accepting submissions at this time. Visit the workflow settings to allow submissions."
 
 msgid "manager.setup.enableOai"
 msgstr "Enable OAI"

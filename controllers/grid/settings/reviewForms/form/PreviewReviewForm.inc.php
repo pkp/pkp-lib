@@ -61,7 +61,6 @@ class PreviewReviewForm extends Form {
 			// Get review form elements
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($this->reviewFormId);
-			$count = count($reviewFormElements);
 
 			// Set data
 			$this->setData('title', $reviewForm->getLocalizedTitle(null));

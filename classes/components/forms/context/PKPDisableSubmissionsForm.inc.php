@@ -28,10 +28,12 @@ class PKPDisableSubmissionsForm extends FormComponent {
 	 * Constructor
 	 *
 	 * @param $action string URL to submit the form to
+	 * @param $locales array Supported locales
 	 * @param $context Context Journal or Press to change settings for
 	 */
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;
+		$this->locales = $locales;
 
 		$url = \Application::get()->getRequest()->getDispatcher()->url(
 				\Application::get()->getRequest(),

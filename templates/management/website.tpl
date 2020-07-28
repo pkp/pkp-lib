@@ -14,6 +14,12 @@
 		{translate key="manager.website.title"}
 	</h1>
 
+	{if $currentContext->getData('disableSubmissions')}
+		<notification>
+			{translate key="manager.setup.disableSubmissions.notAccepting"}
+		</notification>
+	{/if}
+
 	<tabs>
 		<tab id="appearance" label="{translate key="manager.website.appearance"}">
 			{help file="settings" section="website" class="pkp_help_tab"}

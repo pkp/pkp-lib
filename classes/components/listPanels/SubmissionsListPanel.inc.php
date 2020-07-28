@@ -17,6 +17,9 @@ use \PKP\components\listPanels\PKPSubmissionsListPanel;
 
 class SubmissionsListPanel extends PKPSubmissionsListPanel {
 
+	/** @var boolean Whether to show inactive section filters */
+	public $includeActiveSectionFiltersOnly = false;
+
 	/**
 	 * @copydoc PKPSubmissionsListPanel::getConfig()
 	 */
@@ -27,7 +30,7 @@ class SubmissionsListPanel extends PKPSubmissionsListPanel {
 		if ($request->getContext()) {
 			$config['filters'][] = [
 				'heading' => __('section.sections'),
-				'filters' => self::getSectionFilters(),
+				'filters' => self::getSectionFilters($this->includeActiveSectionFiltersOnly),
 			];
 		}
 
@@ -54,7 +57,7 @@ class SubmissionsListPanel extends PKPSubmissionsListPanel {
 	 *
 	 * @return array
 	 */
-	static function getSectionFilters() {
+	static function getSectionFilters($activeOnly = false) {
 		$request = \Application::get()->getRequest();
 		$context = $request->getContext();
 
@@ -62,7 +65,7 @@ class SubmissionsListPanel extends PKPSubmissionsListPanel {
 			return [];
 		}
 
-		$sections = \Services::get('section')->getSectionList($context->getId());
+		$sections = \Services::get('section')->getSectionList($context->getId(), $activeOnly);
 
 		return array_map(function($section) {
 			return [

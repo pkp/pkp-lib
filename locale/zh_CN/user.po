@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-04T08:55:56-08:00\n"
-"PO-Revision-Date: 2020-07-03 17:40+0000\n"
+"PO-Revision-Date: 2020-07-28 15:47+0000\n"
 "Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
 "Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/zh_Hans/>\n"
@@ -177,7 +177,7 @@ msgid "user.register.passwordLengthRestriction"
 msgstr "密码必须至少含有 {$length} 个字符."
 
 msgid "user.register.registerAs"
-msgstr "注册为"
+msgstr "在 {$contextName} 注册为 ..."
 
 msgid "user.register"
 msgstr "注册"
@@ -237,19 +237,19 @@ msgid "user.repeatPassword"
 msgstr "重复密码"
 
 msgid "user.profile.form.affiliationRequired"
-msgstr "联系地址是必须的"
+msgstr "联系地址是必须的。"
 
 msgid "user.register.form.emailsDoNotMatch"
-msgstr "电子邮件地址不匹配"
+msgstr "电子邮件地址不匹配。"
 
 msgid "user.authorization.loginRequired"
-msgstr "需要登陆"
+msgstr "需要登陆。"
 
 msgid "user.accountInformation"
 msgstr "帐户信息"
 
 msgid "user.authorization.accessDenied"
-msgstr "拒绝读取"
+msgstr "访问被拒绝。"
 
 msgid "user.affiliation.description"
 msgstr "（您的所在机构，如“西蒙.弗雷泽大学”）"
@@ -288,16 +288,16 @@ msgid "user.hello"
 msgstr "嗨，"
 
 msgid "user.profile.form.countryRequired"
-msgstr "要求国家名"
+msgstr "要求国家名。"
 
 msgid "user.profile.form.mailingAddressRequired"
-msgstr "要求邮件地址"
+msgstr "要求邮件地址。"
 
 msgid "user.profile.form.passwordSameAsOld"
-msgstr "您的新密码同旧密码相同"
+msgstr "您的新密码同旧密码相同。"
 
 msgid "user.profile.form.usergroupRequired"
-msgstr "要求用户群"
+msgstr "要求用户组。"
 
 msgid "user.apiKey"
 msgstr "API密钥"

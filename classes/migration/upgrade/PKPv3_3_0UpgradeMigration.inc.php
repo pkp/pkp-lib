@@ -44,9 +44,6 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			// pkp/pkp-lib#5865 Change announcement expiry format in database
 			$table->date('date_expire')->change();
 		});
-		Capsule::schema()->table('sections', function (Blueprint $table) {
-			$table->tinyInteger('is_inactive')->default(0);
-		});
 
 		Capsule::schema()->table('email_templates_default', function (Blueprint $table) {
 			// pkp/pkp-lib#4796 stage ID as a filter parameter to email templates

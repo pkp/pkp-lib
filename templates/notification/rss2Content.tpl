@@ -20,6 +20,7 @@
 	<description>
 		{$notificationContent|escape:"html"}
 	</description>
-	<pubDate>{$notificationDateCreated|date_format:"%a, %d %b %Y %T %z"}</pubDate>
+	{capture assign="notificationDateCreated"}{$notificationDateCreated|strtotime}{/capture}
+	<pubDate>{$smarty.const.DATE_RSS|date:$notificationDateCreated}</pubDate>
 </item>
 

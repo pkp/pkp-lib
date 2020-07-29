@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-07-29 18:46+0000\n"
+"PO-Revision-Date: 2020-07-29 21:33+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/mk/>\n"
@@ -19,3 +19,99 @@ msgstr "Библиотека"
 
 msgid "editor.activityLog"
 msgstr "Активности"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Вид на лектура"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Назначи лектор повторно"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Откажи лектор"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Исклучи лектор"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Вклучи постоечки корисник"
+
+msgid "editor.review.createReviewer"
+msgstr "Креирај нов лектор"
+
+msgid "editor.submission.backToSearch"
+msgstr "Врати на барање"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Тековни датотеки за преглед за {$round} пат"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Покажете датотеки од сите достапни фази на работниот тек."
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Пронајди корисник"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Пронајди рецензент"
+
+msgid "editor.submission.addReviewer"
+msgstr "Додади рецензент"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"Користете <em> +Додај прегледувач</em> за да ги поканите читателите да ги "
+"разгледаат датотеките за поднесување. Иконата во тетратката означува дека е "
+"доставена рецензија, кој потоа ќе биде проверен<em> Потврди </em>откако ќе "
+"се консултира. Кога рецензиите се задоцнети, се појавува икона со црвен плик "
+"за потсетување на рецензентите."
+
+msgid "editor.submission.revisions"
+msgstr "Ревизија"
+
+msgid "editor.submission.selectFiles"
+msgstr "Избери фајл"
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Аплоадирај/избери фајл"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Мора да изберете корисник за доделување."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Не испраќајте е-пошта до ревизорот"
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Мора да вклучите лична порака."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr ""
+"Мора да изберете барем една датотека за да му ја доделите на корисникот."
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Изберете датотеки подолу за да ги испратите во фаза на рецензија."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Порака до корисникот"
+
+msgid "editor.review.notInitiated"
+msgstr "Процесот на рецензија сè уште не е започнат."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Промени ја одлуката"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Поднесувањето е прифатено за лектуира."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Прати во продукција."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Прати за нов  круг на лектура."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Поднесувањето е објавено."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Поднесувањето е одобрено."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Поднесувањето е одбиено."

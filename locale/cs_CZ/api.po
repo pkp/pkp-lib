@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-23 05:47+0000\n"
+"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs/>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Nemáte povolení editovat tuto publikaci."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Nemáte povoleno nahrávat soubory."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Soubor, který jste nahrály neodpovídá koncovce souboru. To se může stát, "
+"pokud byl soubor přejmenován na nekompatibilní typ, například změnou "
+"photo.png na photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Nahraný obrázek není platný."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Můžete nahrávat pouze soubory následujících typů: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Nejprve je třeba zrušit publikování této publikace, než ji budete moci "
+"smazat."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Status nejde změni přímo pomocí API. Místo toho použijte funkce /publish a "
+"/unpublish."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Tuto publikaci nejde editovat, protože již byla publikována."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Publikace, u které chcete zrušit publikování, nebyla publikována."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Publikace, kterou chcete publikovat již byla publikována."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Požadovaná šablona emailu nebyla nalezena."
+
+msgid "api.404.endpointNotFound"
+msgstr "Požadované URL nebylo rozpoznáno."
+
+msgid "api.404.resourceNotFound"
+msgstr "Požadovaný zdroj nebyl nalezen."
+
+msgid "api.403.unauthorized"
+msgstr "Nemáte oprávnění pro přístup k požadovanému zdroji."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parametr {$param} není podporován."

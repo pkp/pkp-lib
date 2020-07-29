@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-07-29 18:45+0000\n"
+"PO-Revision-Date: 2020-07-29 23:17+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/mk/>\n"
@@ -19,3 +19,113 @@ msgstr "Вредност на подесувањето"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Име на подесувањето"
+
+msgid "admin.languages.installLocales"
+msgstr "Инсталирај"
+
+msgid "admin.languages.installLocale"
+msgstr "Инсталирај локализација"
+
+msgid "admin.languages.availableLocales"
+msgstr "Можни локализации"
+
+msgid "admin.languages.installLanguages"
+msgstr "Уреди  локализација"
+
+msgid "admin.languages.installedLocales"
+msgstr "Инсталирани локализации"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Дали сте сигурни дека сакате повторно да ја вчитате локализацијатат? Ова ќе "
+"ги избрише сите постоечки податоци специфични за локализацијата, како што се "
+"прилагодените обрасци за е-пошта."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Дали сте сигурни дека сакате да јапромените примарната локализација на "
+"страницата? Имињата на корисниците, кои се потребни во основната "
+"локализација на страницата, ќе бидат копирани од постојното примарно место "
+"каде што недостасуваат."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Оваа локализација  е примарен јазик на страницата. Не можете да го "
+"оневозможите сè додека не изберете друг основна локализација."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr ""
+"Не можам да ја додадам новата локализација во датотеката за регистар на "
+"локации, обично  \"registry/locales.xml\"."
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Не можам да го отворам дескрипторот на јазик од веб-страницата PKP."
+
+msgid "admin.languages.downloadLocales"
+msgstr "Симнете локализации"
+
+msgid "admin.languages.download"
+msgstr "Симнете локализација"
+
+msgid "admin.expireSessions"
+msgstr "Затворете ги сесии за корисниците"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Прикажи нова конфигурација"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Содржината на ажурираната конфигурација е прикажана подолу. За да ги "
+"примените промените во конфигурацијата, мора да го отворите "
+"<tt>config.inc.php</tt> во соодветен уредувач на текст и да ги замените "
+"неговите содржини со содржината на полето за текст подолу."
+
+msgid "admin.dateInstalled"
+msgstr "Дата на инсталација"
+
+msgid "admin.currentVersion"
+msgstr "Тековна верзија"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Дали сте сигурни дека сакате трајно да ја избришете {$contextName} и целата "
+"содржина?"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Содржина на датотеката за конфигурација"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Дали сте сигурни дека сакате да ги истечете сите сесии на корисници? Сите "
+"корисници кои во моментот сте најавени во системот, ќе бидат принудени да се "
+"најават повторно (вклучено и вие)."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Дали сте сигурни дека сакате да го исчистите кешот на собрани шаблони?"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Вашата датотека за конфигурација е успешно ажурирана. Забележете дека ако "
+"вашата веб-страница веќе не работи правилно, можеби ќе треба рачно да ја "
+"поправите вашата конфигурација со директно уредување на "
+"<tt>config.inc.php</tt>."
+
+msgid "admin.clearTemplateCache"
+msgstr "Избриши го кешот со шаблони"
+
+msgid "admin.clearDataCache"
+msgstr "Исчистете ги мемориските податоци"
+
+msgid "admin.authSources"
+msgstr "Извори за автентикација"
+
+msgid "admin.auth.noneCreated"
+msgstr "Не се дефинирани извори за автентикација."
+
+msgid "admin.auth.create"
+msgstr "Креирај извор за автентикација"
+
+msgid "admin.auth.confirmDelete"
+msgstr ""
+"Дали сте сигурни дека сакате трајно да го избришете овој извор на "
+"автентикација?"

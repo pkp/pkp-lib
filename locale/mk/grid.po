@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-07-29 21:33+0000\n"
+"PO-Revision-Date: 2020-07-29 23:17+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "mk/>\n"
@@ -19,3 +19,126 @@ msgstr "Подесувања"
 
 msgid "grid.noItems"
 msgstr "Нема елементи"
+
+msgid "grid.action.wizard"
+msgstr "Магесник за уредување"
+
+msgid "grid.action.collapseAll"
+msgstr "Затворете сѐ"
+
+msgid "grid.action.collapse"
+msgstr "Затвори"
+
+msgid "grid.action.extendAll"
+msgstr "Проширете сѐ"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Откажи редослед"
+
+msgid "grid.action.order"
+msgstr "Редослед"
+
+msgid "grid.action.upgrade"
+msgstr "Ажурирај"
+
+msgid "grid.action.addAuditor"
+msgstr "Додади автор"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Избриши автор"
+
+msgid "grid.action.editAuthor"
+msgstr "Уреди автор"
+
+msgid "grid.action.addAuthor"
+msgstr "Додади автор"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Дали сте сигурни дека сакате да ги вратите основните нагодувања?"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Врати ги основните поставки"
+
+msgid "grid.action.moreInformation"
+msgstr "Повеќе информации"
+
+msgid "grid.action.setApproval"
+msgstr "Постави согласност"
+
+msgid "grid.action.disapprove"
+msgstr "Одби"
+
+msgid "grid.action.approve"
+msgstr "Одобри"
+
+msgid "grid.action.edit"
+msgstr "Уреди"
+
+msgid "grid.action.remove"
+msgstr "Отстрани"
+
+msgid "grid.action.editorialHistory"
+msgstr "Историја на уредување"
+
+msgid "grid.action.deleteSection"
+msgstr "Избриши оддел"
+
+msgid "grid.action.export"
+msgstr "Експортирај"
+
+msgid "grid.action.editSection"
+msgstr "Уреди оддел"
+
+msgid "grid.action.editMedia"
+msgstr "Уреди медиум"
+
+msgid "grid.action.deleteMedia"
+msgstr "Избриши медиум"
+
+msgid "grid.action.deleteFile"
+msgstr "Избриши фајл"
+
+msgid "grid.action.delete"
+msgstr "Избриши"
+
+msgid "grid.action.reload"
+msgstr "Вчитај повторно"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Одобрете ја оваа датотека лектура за испраќање во следната фаза"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Исклучи го овој рецензент"
+
+msgid "grid.action.addUser"
+msgstr "Додади корисник"
+
+msgid "grid.action.updateQuery"
+msgstr "Ажурирај дискусија"
+
+msgid "grid.action.deleteQuery"
+msgstr "Избриши дискусија"
+
+msgid "grid.action.readQuery"
+msgstr "Прочитај ја одлуката"
+
+msgid "grid.action.addQuery"
+msgstr "Додади дискусија"
+
+msgid "grid.action.addNote"
+msgstr "Додади белешка"
+
+msgid "grid.action.addItem"
+msgstr "Додади елемент"
+
+msgid "grid.action.sort"
+msgstr "Сортирај"
+
+msgid "grid.action.manageAccess"
+msgstr "Уреди пристап"
+
+msgid "grid.action.uninstall"
+msgstr "Анинсталирај"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Оваа ставка е хостирана од далечина."

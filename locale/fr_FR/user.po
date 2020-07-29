@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
+"PO-Revision-Date: 2020-07-28 15:47+0000\n"
+"Last-Translator: Paul Heckler <paul.d.heckler@gmail.com>\n"
+"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/user/fr/>"
+"\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:50+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "user.affiliation"
 msgstr "Affiliation"
@@ -60,7 +63,7 @@ msgid "user.login.changePasswordInstructions"
 msgstr "Vous devez sélectionner un nouveau mot de passe avant de pouvoir vous connecter à ce site.<br /><br />Veuillez entrer votre nom d'utilisateur et vos mots de passe actuel et nouveau ci-dessous pour modifier le mot de passe de votre compte."
 
 msgid "user.login.forgotPassword"
-msgstr "Vous avez oublié votre mot de passe?"
+msgstr "Vous avez oublié votre mot de passe ?"
 
 msgid "user.login.loginError"
 msgstr "Nom d'usager ou mot de passe non valide. Veuillez essayer de nouveau."
@@ -189,7 +192,7 @@ msgid "user.register.form.usernameExists"
 msgstr "Le nom d'utilisateur sélectionné est déjà utilisé par un autre utilisateur."
 
 msgid "user.register.registerAs"
-msgstr "S'inscrire en tant que {$contextName}"
+msgstr "S'inscrire à {$contextName} en tant que …"
 
 msgid "user.register"
 msgstr "S'inscrire"
@@ -261,13 +264,13 @@ msgid "user.accountInformation"
 msgstr "Renseignements sur le compte"
 
 msgid "user.authorization.accessDenied"
-msgstr "Accès refusé"
+msgstr "Accès refusé."
 
 msgid "user.authorization.processAuthenticationTokenRequired"
 msgstr "Le jeton d'authentification du processus est absent ou invalide."
 
 msgid "user.hello"
-msgstr "Bonjour,"
+msgstr "Bonjour, "
 
 msgid "user.profile.form.passwordSameAsOld"
 msgstr "Votre nouveau mot de passe est identique à votre ancien mot de passe."
@@ -288,7 +291,9 @@ msgid "user.role.editors"
 msgstr "Rédacteurs"
 
 msgid "user.authorization.contextRequired"
-msgstr "Vous ne pouvez pas appeler cette opération sans spécifier son contexte (presse, journal, conférence, etc.)"
+msgstr ""
+"Vous ne pouvez pas effectuer cette opération sans spécifier son contexte ("
+"presse, journal, conférence, etc.)."
 
 msgid "user.authorization.loginRequired"
 msgstr "Ouverture de session requise."
@@ -318,16 +323,16 @@ msgid "user.logOutAs"
 msgstr "Fermeture de session en tant que"
 
 msgid "user.profile.form.countryRequired"
-msgstr "Il faut indiquer un pays"
+msgstr "Il faut indiquer un pays."
 
 msgid "user.profile.form.mailingAddressRequired"
-msgstr "Il faut indiquer l'adresse postale"
+msgstr "Il faut indiquer l'adresse postale."
 
 msgid "user.profile.form.usergroupRequired"
-msgstr "Il faut indiquer le groupe d'utilisateur"
+msgstr "Il faut indiquer le groupe d'utilisateur."
 
 msgid "user.login.registerNewAccount"
-msgstr "Vous n'êtes pas un utilisateur? Veuillez vous inscrire au site."
+msgstr "S'inscrire"
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Pour des raisons de sécurité, ce système envoie un nouveau mot de passe par courriel aux utilisateurs inscrits au lieu de rappeler le mot de passe actuel. .<br /><br />Indiquez votre adresse courriel ci-dessous pour réinitialiser votre mot de passe. Une confirmation sera envoyée par courriel."
@@ -354,16 +359,16 @@ msgid "user.authorization.accessibleWorkflowStage"
 msgstr "Vous n'avez pas actuellement accès à cette étape du processus éditorial."
 
 msgid "user.authorization.workflowStageRequired"
-msgstr "Une étape du processus éditorial n'est pas spécifiée"
+msgstr "Une étape du processus éditorial n'est pas spécifiée."
 
 msgid "user.authorization.pluginRequired"
-msgstr "Un module requis n'a pas été sélectionné"
+msgstr "Un module requis n'a pas été sélectionné."
 
 msgid "user.login.registrationComplete"
 msgstr "Inscription complétée"
 
 msgid "user.login.registrationComplete.instructions"
-msgstr "Merci de vous êtes inscrit(e)! Que voulez-vous faire ensuite?"
+msgstr "Merci pour votre inscription ! Que voulez-vous faire ensuite ?"
 
 msgid "user.login.registrationComplete.manageSubmissions"
 msgstr "Voir les évaluations"
@@ -375,7 +380,7 @@ msgid "user.login.registrationComplete.continueBrowsing"
 msgstr "Explorer le site de la revue"
 
 msgid "user.register.form.userGroupRequired"
-msgstr "Au moins un rôle doit être sélectionné"
+msgstr "Au moins un rôle doit être sélectionné."
 
 msgid "user.register.registrationCompleted"
 msgstr "*Vous vous êtes inscrit avec succès. <a href=\"{$profileUrl}\"> Cliquez ici </a> pour compléter votre profil utilisateur."
@@ -387,7 +392,7 @@ msgid "user.login.registrationPendingValidation"
 msgstr "Inscription en attente de validation"
 
 msgid "user.apiKey"
-msgstr "API Key"
+msgstr "Clé API"
 
 msgid "user.apiKeyEnabled"
 msgstr "Autoriser les applications externes avec l'API key d'accéder à ce compte"
@@ -402,7 +407,9 @@ msgid "user.role.assistant"
 msgstr "Assistant"
 
 msgid "user.apiKey.secretRequired"
-msgstr "Avant de générer une clé pour l'API, vous devez mettre un secret dans le fichier de configuration  (\"api_key_secret\")"
+msgstr ""
+"Avant de générer une clé l'API, l'administrateur du site doit définir un "
+"code secret dans le fichier de configuration  (\"api_key_secret\")."
 
 msgid "user.authorization.assignedStageRoleBasedAccessDenied"
 msgstr "Vous n'avez pas les droits pour accéder à cette opération."
@@ -427,3 +434,25 @@ msgstr "Oui, je souhaite être notifié des nouvelles publications et annonces."
 
 msgid "user.privacyLink"
 msgstr "Vos données personnelles sont traitées selon notre  <a href=\"{$privacyUrl}\" target=\"_blank\">Déclaration de confidentialité</a>."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Vous avez ajouté un nom de famille dans une langue pour laquelle un prénom "
+"n'a pas été spécifié. Veuillez ajouter un prénom pour cette langue."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Un prénom est obligatoire."
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Comment préférez-vous que l'on s'adresse à vous ? Les titres,  seconds "
+"prénoms et suffixes peuvent être ajoutés ici si vous le souhaitez."
+
+msgid "user.preferredPublicName"
+msgstr "Nom public souhaité"
+
+msgid "user.familyName"
+msgstr "Nom de famille"
+
+msgid "user.givenName"
+msgstr "Prénom"

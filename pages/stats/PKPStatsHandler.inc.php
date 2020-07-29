@@ -23,7 +23,7 @@ class PKPStatsHandler extends Handler {
 	public function __construct() {
 		parent::__construct();
 		$this->addRoleAssignment(
-			[ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER],
+			[ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
 			['editorial', 'publications', 'users']
 		);
 	}

@@ -21,177 +21,177 @@ define('SUBMISSIONS_LIST_UNASSIGNED', 'unassigned');
 
 class DashboardHandler extends Handler {
 
-    /** @copydoc PKPHandler::_isBackendPage */
-    var $_isBackendPage = true;
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
 
-    /**
-     * Constructor
-     */
-    function __construct() {
-        parent::__construct();
+	/**
+	 * Constructor
+	 */
+	function __construct() {
+		parent::__construct();
 
-        $this->addRoleAssignment(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT),
-                array('index', 'tasks', 'myQueue', 'unassigned', 'active', 'archives'));
-    }
+		$this->addRoleAssignment(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT),
+				array('index', 'tasks', 'myQueue', 'unassigned', 'active', 'archives'));
+	}
 
-    /**
-     * @copydoc PKPHandler::authorize()
-     */
-    function authorize($request, &$args, $roleAssignments) {
-        import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
-        $this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
-        return parent::authorize($request, $args, $roleAssignments);
-    }
+	/**
+	 * @copydoc PKPHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
+		$this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
+		return parent::authorize($request, $args, $roleAssignments);
+	}
 
-    /**
-     * Display about index page.
-     * @param $request PKPRequest
-     * @param $args array
-     */
-    function index($args, $request) {
-        $context = $request->getContext();
-        $dispatcher = $request->getDispatcher();
+	/**
+	 * Display about index page.
+	 * @param $request PKPRequest
+	 * @param $args array
+	 */
+	function index($args, $request) {
+		$context = $request->getContext();
+		$dispatcher = $request->getDispatcher();
 
-        if (!$context) {
-            $request->redirect(null, 'user');
-        }
+		if (!$context) {
+			$request->redirect(null, 'user');
+		}
 
-        $templateMgr = TemplateManager::getManager($request);
-        $this->setupTemplate($request);
+		$templateMgr = TemplateManager::getManager($request);
+		$this->setupTemplate($request);
 
-        $currentUser = $request->getUser();
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        $apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_submissions');
-        $lists = [];
+		$currentUser = $request->getUser();
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_submissions');
+		$lists = [];
 
-        $includeIssuesFilter = array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $userRoles);
+		$includeIssuesFilter = array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $userRoles);
 
-        // My Queue
-        $myQueueListPanel = new \APP\components\listPanels\SubmissionsListPanel(
-            SUBMISSIONS_LIST_MY_QUEUE,
-            __('common.queue.long.myAssigned'),
-            [
-                'apiUrl' => $apiUrl,
-                'getParams' => [
-                    'status' => STATUS_QUEUED,
-                    'assignedTo' => [(int) $request->getUser()->getId()],
-                ],
-                'includeIssuesFilter' => $includeIssuesFilter,
-            ],
-        );
-        $myQueueListPanel->set([
-            'items' => $myQueueListPanel->getItems($request),
-            'itemsMax' => $myQueueListPanel->getItemsMax()
-        ]);
-        $lists[$myQueueListPanel->id] = $myQueueListPanel->getConfig();
+		// My Queue
+		$myQueueListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+			SUBMISSIONS_LIST_MY_QUEUE,
+			__('common.queue.long.myAssigned'),
+			[
+				'apiUrl' => $apiUrl,
+				'getParams' => [
+					'status' => STATUS_QUEUED,
+					'assignedTo' => [(int) $request->getUser()->getId()],
+				],
+				'includeIssuesFilter' => $includeIssuesFilter,
+			],
+		);
+		$myQueueListPanel->set([
+			'items' => $myQueueListPanel->getItems($request),
+			'itemsMax' => $myQueueListPanel->getItemsMax()
+		]);
+		$lists[$myQueueListPanel->id] = $myQueueListPanel->getConfig();
 
-        if (!empty(array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles))) {
+		if (!empty(array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles))) {
 
-            // Unassigned
-            $unassignedListPanel = new \APP\components\listPanels\SubmissionsListPanel(
-                SUBMISSIONS_LIST_UNASSIGNED,
-                __('common.queue.long.submissionsUnassigned'),
-                [
-                    'apiUrl' => $apiUrl,
-                    'getParams' => [
-                        'status' => STATUS_QUEUED,
-                        'assignedTo' => -1,
-                    ],
-                    'lazyLoad' => true,
-                    'includeIssuesFilter' => $includeIssuesFilter,
-                ]
-            );
-            $lists[$unassignedListPanel->id] = $unassignedListPanel->getConfig();
+			// Unassigned
+			$unassignedListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+				SUBMISSIONS_LIST_UNASSIGNED,
+				__('common.queue.long.submissionsUnassigned'),
+				[
+					'apiUrl' => $apiUrl,
+					'getParams' => [
+						'status' => STATUS_QUEUED,
+						'assignedTo' => -1,
+					],
+					'lazyLoad' => true,
+					'includeIssuesFilter' => $includeIssuesFilter,
+				]
+			);
+			$lists[$unassignedListPanel->id] = $unassignedListPanel->getConfig();
 
-            // Active
-            $activeListPanel = new \APP\components\listPanels\SubmissionsListPanel(
-                SUBMISSIONS_LIST_ACTIVE,
-                __('common.queue.long.active'),
-                [
-                    'apiUrl' => $apiUrl,
-                    'getParams' => [
-                        'status' => STATUS_QUEUED,
-                    ],
-                    'lazyLoad' => true,
-                    'includeIssuesFilter' => $includeIssuesFilter,
-                ]
-            );
-            $lists[$activeListPanel->id] = $activeListPanel->getConfig();
-            $lists[$activeListPanel->id]['filters'][] = [
-                'filters' => [
-                    [
-                        'title' => _('editors'),
-                        'param' => 'assignedTo',
-                        'value' => [],
-                        'filterType' => 'pkp-filter-autosuggest',
-                        'component' => 'field-select-users',
-                        'autosuggestProps' => [
-                                'allErrors' => (object) [],
-                                'apiUrl' => $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'users', null, null, ['roleIds' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]]),
-                                'description' => '',
-                                'deselectLabel' => __('common.removeItem'),
-                                'formId' => 'default',
-                                'groupId' => 'default',
-                                'initialPosition' => 'inline',
-                                'isRequired' => false,
-                                'label' => __('editor.submissions.assignedTo'),
-                                'locales' => [],
-                                'name' => 'editorIds',
-                                'primaryLocale' => 'en_US',
-                                'selectedLabel' => __('common.assigned'),
-                                'value' => [],
-                            ]
-                        ]
-                    ]
-                ];
-        }
+			// Active
+			$activeListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+				SUBMISSIONS_LIST_ACTIVE,
+				__('common.queue.long.active'),
+				[
+					'apiUrl' => $apiUrl,
+					'getParams' => [
+						'status' => STATUS_QUEUED,
+					],
+					'lazyLoad' => true,
+					'includeIssuesFilter' => $includeIssuesFilter,
+				]
+			);
+			$lists[$activeListPanel->id] = $activeListPanel->getConfig();
+			$lists[$activeListPanel->id]['filters'][] = [
+				'filters' => [
+					[
+						'title' => _('editors'),
+						'param' => 'assignedTo',
+						'value' => [],
+						'filterType' => 'pkp-filter-autosuggest',
+						'component' => 'field-select-users',
+						'autosuggestProps' => [
+								'allErrors' => (object) [],
+								'apiUrl' => $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'users', null, null, ['roleIds' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]]),
+								'description' => '',
+								'deselectLabel' => __('common.removeItem'),
+								'formId' => 'default',
+								'groupId' => 'default',
+								'initialPosition' => 'inline',
+								'isRequired' => false,
+								'label' => __('editor.submissions.assignedTo'),
+								'locales' => [],
+								'name' => 'editorIds',
+								'primaryLocale' => 'en_US',
+								'selectedLabel' => __('common.assigned'),
+								'value' => [],
+							]
+						]
+					]
+				];
+		}
 
-        // Archived
-        $params = [
-            'status' => [STATUS_DECLINED, STATUS_PUBLISHED, STATUS_SCHEDULED],
-        ];
-        if (empty(array_intersect([ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN], $userRoles))) {
-            $params['assignedTo'] = (int) $currentUser->getId();
-        }
-        $archivedListPanel = new \APP\components\listPanels\SubmissionsListPanel(
-            SUBMISSIONS_LIST_ARCHIVE,
-            __('common.queue.long.submissionsArchived'),
-            [
-                'apiUrl' => $apiUrl,
-                'getParams' => $params,
-                'lazyLoad' => true,
-                'includeIssuesFilter' => $includeIssuesFilter,
-            ]
-        );
-        $lists[$archivedListPanel->id] = $archivedListPanel->getConfig();
+		// Archived
+		$params = [
+			'status' => [STATUS_DECLINED, STATUS_PUBLISHED, STATUS_SCHEDULED],
+		];
+		if (empty(array_intersect([ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN], $userRoles))) {
+			$params['assignedTo'] = (int) $currentUser->getId();
+		}
+		$archivedListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+			SUBMISSIONS_LIST_ARCHIVE,
+			__('common.queue.long.submissionsArchived'),
+			[
+				'apiUrl' => $apiUrl,
+				'getParams' => $params,
+				'lazyLoad' => true,
+				'includeIssuesFilter' => $includeIssuesFilter,
+			]
+		);
+		$lists[$archivedListPanel->id] = $archivedListPanel->getConfig();
 
-        $templateMgr->setState(['components' => $lists]);
-        $templateMgr->assign([
-            'pageTitle' => __('navigation.submissions'),
-        ]);
+		$templateMgr->setState(['components' => $lists]);
+		$templateMgr->assign([
+			'pageTitle' => __('navigation.submissions'),
+		]);
 
-        return $templateMgr->display('dashboard/index.tpl');
-    }
+		return $templateMgr->display('dashboard/index.tpl');
+	}
 
-    /**
-     * View tasks tab
-     * @param $args array
-     * @param $request PKPRequest
-     * @return JSONMessage JSON object
-     */
-    function tasks($args, $request) {
-        $templateMgr = TemplateManager::getManager($request);
-        $this->setupTemplate($request);
+	/**
+	 * View tasks tab
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function tasks($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$this->setupTemplate($request);
 
-        return $templateMgr->fetchJson('dashboard/tasks.tpl');
-    }
+		return $templateMgr->fetchJson('dashboard/tasks.tpl');
+	}
 
-    /**
-     * Setup common template variables.
-     * @param $request PKPRequest
-     */
-    function setupTemplate($request = null) {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
-        parent::setupTemplate($request);
-    }
+	/**
+	 * Setup common template variables.
+	 * @param $request PKPRequest
+	 */
+	function setupTemplate($request = null) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
+		parent::setupTemplate($request);
+	}
 }

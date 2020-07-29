@@ -34,7 +34,6 @@ class NavigationMenusMigration extends Migration {
 		Capsule::schema()->create('navigation_menu_items', function (Blueprint $table) {
 			$table->bigInteger('navigation_menu_item_id')->autoIncrement();
 			$table->bigInteger('context_id');
-			$table->string('url', 255)->default('')->nullable();
 			$table->string('path', 255)->default('')->nullable();
 			$table->string('type', 255)->default('')->nullable();
 		});

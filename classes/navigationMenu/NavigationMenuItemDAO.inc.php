@@ -148,7 +148,7 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('title', 'content');
+		return array('title', 'content', 'remoteUrl');
 	}
 
 	/**
@@ -175,7 +175,6 @@ class NavigationMenuItemDAO extends DAO {
 		$navigationMenuItem = $this->newDataObject();
 		$navigationMenuItem->setId($row['navigation_menu_item_id']);
 		$navigationMenuItem->setContextId($row['context_id']);
-		$navigationMenuItem->setUrl($row['url']);
 		$navigationMenuItem->setType($row['type']);
 		$navigationMenuItem->setPath($row['path']);
 
@@ -202,13 +201,12 @@ class NavigationMenuItemDAO extends DAO {
 	function insertObject($navigationMenuItem) {
 		$this->update(
 				'INSERT INTO navigation_menu_items
-				(path, context_id, url, type)
+				(path, context_id, type)
 				VALUES
-				(?, ?, ?, ?)',
+				(?, ?, ?)',
 			array(
 				$navigationMenuItem->getPath(),
 				(int) $navigationMenuItem->getContextId(),
-				$navigationMenuItem->getUrl(),
 				$navigationMenuItem->getType(),
 			)
 		);
@@ -231,13 +229,11 @@ class NavigationMenuItemDAO extends DAO {
 				SET
 					path = ?,
 					context_id = ?,
-					url = ?,
 					type = ?
 				WHERE navigation_menu_item_id = ?',
 			array(
 				$navigationMenuItem->getPath(),
 				(int) $navigationMenuItem->getContextId(),
-				$navigationMenuItem->getUrl(),
 				$navigationMenuItem->getType(),
 				(int) $navigationMenuItem->getId(),
 			)

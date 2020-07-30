@@ -50,6 +50,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		});
 
 		$this->_populateEmailTemplates();
+		$this->_makeRemoteUrlLocalizable();
 	}
 
 	/**
@@ -74,5 +75,51 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 				Capsule::table('email_templates_default')->where('email_key', $attr['key'])->update(array('stage_id' => $attr['stage_id']));
 			}
 		}
+	}
+
+	/**
+	 * @return void
+	 * @brief make remoteUrl navigation item type multilingual and drop the url column
+	 */
+	private function _makeRemoteUrlLocalizable() {
+		$contextService = Services::get('context');
+		$contextIds = $contextService->getIds();
+		foreach ($contextIds as $contextId) {
+			$context = $contextService->get($contextId);
+			$locales = $context->getData('supportedLocales');
+
+			$navigationItems = Capsule::table('navigation_menu_items')->where('context_id', $contextId)->pluck('url', 'navigation_menu_item_id')->filter()->all();
+			foreach ($navigationItems as $navigation_menu_item_id => $url) {
+				foreach ($locales as $locale) {
+					Capsule::table('navigation_menu_item_settings')->insert([
+						'navigation_menu_item_id' => $navigation_menu_item_id,
+						'locale' => $locale,
+						'setting_name' => 'remoteUrl',
+						'setting_value' => $url,
+						'setting_type' => 'string'
+					]);
+				}
+			}
+		}
+
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
+		$site = $siteDao->getSite();
+		$supportedLocales = $site->getSupportedLocales();
+		$navigationItems = Capsule::table('navigation_menu_items')->where('context_id', '0')->pluck('url', 'navigation_menu_item_id')->filter()->all();
+		foreach ($navigationItems as $navigation_menu_item_id => $url) {
+			foreach ($supportedLocales as $locale) {
+				Capsule::table('navigation_menu_item_settings')->insert([
+					'navigation_menu_item_id' => $navigation_menu_item_id,
+					'locale' => $locale,
+					'setting_name' => 'remoteUrl',
+					'setting_value' => $url,
+					'setting_type' => 'string'
+				]);
+			}
+		}
+
+		Capsule::schema()->table('navigation_menu_items', function (Blueprint $table) {
+			$table->dropColumn('url');
+		});
 	}
 }

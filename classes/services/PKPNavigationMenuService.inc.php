@@ -361,6 +361,9 @@ class PKPNavigationMenuService {
 						null
 					));
 					break;
+				case NMI_TYPE_REMOTE_URL:
+					$navigationMenuItem->setUrl($navigationMenuItem->getLocalizedRemoteUrl());
+					break;
 			}
 		}
 

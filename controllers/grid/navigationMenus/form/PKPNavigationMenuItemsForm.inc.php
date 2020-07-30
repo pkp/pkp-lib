@@ -223,7 +223,7 @@ class PKPNavigationMenuItemsForm extends Form {
 				$remoteUrls = $this->getData('remoteUrl');
 				foreach ($remoteUrls as $remoteUrl) {
 					if(!filter_var($remoteUrl, FILTER_VALIDATE_URL)) {
-						$this->addError('url', __('manager.navigationMenus.form.customUrlError'));
+						$this->addError('remoteUrl', __('manager.navigationMenus.form.customUrlError'));
 					}
 				}
 			}

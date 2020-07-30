@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-07-29 23:17+0000\n"
+"PO-Revision-Date: 2020-07-31 13:56+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "mk/>\n"
@@ -142,3 +142,54 @@ msgstr "Анинсталирај"
 
 msgid "grid.remotelyHostedItem"
 msgstr "Оваа ставка е хостирана од далечина."
+
+msgid "grid.action.orderItems"
+msgstr "Овозможи подредување"
+
+msgid "grid.action.importexport"
+msgstr "Увези или извези содржина или податоци на сајтот"
+
+msgid "grid.action.settings"
+msgstr "Подесувања"
+
+msgid "grid.action.sendToProduction"
+msgstr "Испрати го поднесокот во продукција"
+
+msgid "grid.action.externalReview"
+msgstr "Испрати го поднесокот на надворешна рецензија"
+
+msgid "grid.action.internalReview"
+msgstr "Испрати го поднесокот на внатрешна лектура"
+
+msgid "grid.action.decline"
+msgstr "Одби го поднесокот"
+
+msgid "grid.action.accept"
+msgstr "Прифати го поднесокот"
+
+msgid "grid.action.requestRevisions"
+msgstr "Побарај ревизија за овој поднесок"
+
+msgid "grid.action.selectFiles"
+msgstr "Селектирај фајлови за промена"
+
+msgid "grid.action.editFile"
+msgstr "Уреди фајл"
+
+msgid "grid.action.addFile"
+msgstr "Додади фајл"
+
+msgid "grid.action.addReviewer"
+msgstr "Додади рецензент"
+
+msgid "grid.action.email"
+msgstr "Испрати имејл"
+
+msgid "grid.action.readReview"
+msgstr "Прочитај ја рецензијата"
+
+msgid "grid.action.downloadAll"
+msgstr "Симни ги сите фајлови како архива"
+
+msgid "grid.action.moveItem"
+msgstr "Премести го елементот"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-07-29 23:17+0000\n"
+"PO-Revision-Date: 2020-07-31 13:56+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "mk/>\n"
@@ -133,3 +133,51 @@ msgstr "Афилијација"
 
 msgid "user.affiliation.description"
 msgstr "(Вашата институција, на пр. „Универзитет Симон Фрејзер“)"
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"Испратена нова лозинка на имејл. Сега можете да се најавите на страницата со "
+"вашата нова лозинка."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Ниту еден корисник не постои со наведениот имејл.."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"Линкот што го кликнавте истече или не е валиден. Обидете се повторно да ја "
+"поставите вашата лозинка."
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"Испратена е потврда на вашиот имејл. Следете ги упатствата во имејлот за да "
+"ја поставите вашата лозинка."
+
+msgid "user.login"
+msgstr "Логин"
+
+msgid "user.login.loginError"
+msgstr "Невалидно корисничко име или лозинка. Ве молиме обидете се повторно."
+
+msgid "user.login.forgotPassword"
+msgstr "Ја заборавивте лозинката?"
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"Мора да изберете нова лозинка пред да се најавите на оваа страница. <br/> <"
+"br/> Ве молиме, внесете го вашето корисничко име и вашите тековни и нови "
+"лозинки подолу за да ја промените лозинката за вашата сметка."
+
+msgid "user.login.activated"
+msgstr ""
+"Ви благодариме за активирање на вашата сметка. Сега можете да се најавите "
+"користејќи ги ингеренциите што ги доставивте кога ја создадовте вашата "
+"сметка."
+
+msgid "user.login.activate"
+msgstr "Активирај го акаунтот"
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"Ви испративме имејл за потврда за вас $email}. Ве молиме следете ги "
+"упатствата во имејлот за да ја активирате вашата нова сметка. Ако не гледате "
+"имејл, проверете дали е ставена во папката за спам."

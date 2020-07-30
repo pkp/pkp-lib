@@ -52,6 +52,10 @@ class ControlledVocabDAO extends DAO {
 	 * @return $controlledVocab
 	 */
 	function _build($symbolic, $assocType = 0, $assocId = 0) {
+		// Attempt to fetch an existing controlled vocabulary.
+		$controlledVocab = $this->getBySymbolic($symbolic, $assocType, $assocId);
+		if ($controlledVocab) return $controlledVocab;
+
 		// Attempt to build a new controlled vocabulary.
 		$controlledVocab = $this->newDataObject();
 		$controlledVocab->setSymbolic($symbolic);

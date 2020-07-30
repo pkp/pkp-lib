@@ -72,7 +72,7 @@ class InstallTool extends CommandLineTool {
 					printf("----------------------------------------\n");
 			}
 
-			$newVersion =& $installer->getNewVersion();
+			$newVersion = $installer->getNewVersion();
 			printf("Successfully installed version %s\n", $newVersion->getVersionString(false));
 
 		} else {

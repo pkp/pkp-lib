@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2020-02-12 06:38+0000\n"
+"PO-Revision-Date: 2020-07-31 13:56+0000\n"
 "Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "de/>\n"
@@ -1941,3 +1941,12 @@ msgstr "Dieses Datum muss vor dem {$date} liegen."
 
 msgid "validator.array"
 msgstr "Dies ist kein gültiger Bereich."
+
+msgid "navigation.skip.description"
+msgstr "Springe zu Inhalt-Links"
+
+msgid "common.moreThanOnly"
+msgstr "Mehr als"
+
+msgid "common.lessThanOnly"
+msgstr "Weniger als"

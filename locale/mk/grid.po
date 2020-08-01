@@ -1,0 +1,195 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-31 13:56+0000\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"mk/>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.noAuditors"
+msgstr "Нема ревизори"
+
+msgid "grid.settings"
+msgstr "Подесувања"
+
+msgid "grid.noItems"
+msgstr "Нема елементи"
+
+msgid "grid.action.wizard"
+msgstr "Магесник за уредување"
+
+msgid "grid.action.collapseAll"
+msgstr "Затворете сѐ"
+
+msgid "grid.action.collapse"
+msgstr "Затвори"
+
+msgid "grid.action.extendAll"
+msgstr "Проширете сѐ"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Откажи редослед"
+
+msgid "grid.action.order"
+msgstr "Редослед"
+
+msgid "grid.action.upgrade"
+msgstr "Ажурирај"
+
+msgid "grid.action.addAuditor"
+msgstr "Додади автор"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Избриши автор"
+
+msgid "grid.action.editAuthor"
+msgstr "Уреди автор"
+
+msgid "grid.action.addAuthor"
+msgstr "Додади автор"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Дали сте сигурни дека сакате да ги вратите основните нагодувања?"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Врати ги основните поставки"
+
+msgid "grid.action.moreInformation"
+msgstr "Повеќе информации"
+
+msgid "grid.action.setApproval"
+msgstr "Постави согласност"
+
+msgid "grid.action.disapprove"
+msgstr "Одби"
+
+msgid "grid.action.approve"
+msgstr "Одобри"
+
+msgid "grid.action.edit"
+msgstr "Уреди"
+
+msgid "grid.action.remove"
+msgstr "Отстрани"
+
+msgid "grid.action.editorialHistory"
+msgstr "Историја на уредување"
+
+msgid "grid.action.deleteSection"
+msgstr "Избриши оддел"
+
+msgid "grid.action.export"
+msgstr "Експортирај"
+
+msgid "grid.action.editSection"
+msgstr "Уреди оддел"
+
+msgid "grid.action.editMedia"
+msgstr "Уреди медиум"
+
+msgid "grid.action.deleteMedia"
+msgstr "Избриши медиум"
+
+msgid "grid.action.deleteFile"
+msgstr "Избриши фајл"
+
+msgid "grid.action.delete"
+msgstr "Избриши"
+
+msgid "grid.action.reload"
+msgstr "Вчитај повторно"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Одобрете ја оваа датотека лектура за испраќање во следната фаза"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Исклучи го овој рецензент"
+
+msgid "grid.action.addUser"
+msgstr "Додади корисник"
+
+msgid "grid.action.updateQuery"
+msgstr "Ажурирај дискусија"
+
+msgid "grid.action.deleteQuery"
+msgstr "Избриши дискусија"
+
+msgid "grid.action.readQuery"
+msgstr "Прочитај ја одлуката"
+
+msgid "grid.action.addQuery"
+msgstr "Додади дискусија"
+
+msgid "grid.action.addNote"
+msgstr "Додади белешка"
+
+msgid "grid.action.addItem"
+msgstr "Додади елемент"
+
+msgid "grid.action.sort"
+msgstr "Сортирај"
+
+msgid "grid.action.manageAccess"
+msgstr "Уреди пристап"
+
+msgid "grid.action.uninstall"
+msgstr "Анинсталирај"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Оваа ставка е хостирана од далечина."
+
+msgid "grid.action.orderItems"
+msgstr "Овозможи подредување"
+
+msgid "grid.action.importexport"
+msgstr "Увези или извези содржина или податоци на сајтот"
+
+msgid "grid.action.settings"
+msgstr "Подесувања"
+
+msgid "grid.action.sendToProduction"
+msgstr "Испрати го поднесокот во продукција"
+
+msgid "grid.action.externalReview"
+msgstr "Испрати го поднесокот на надворешна рецензија"
+
+msgid "grid.action.internalReview"
+msgstr "Испрати го поднесокот на внатрешна лектура"
+
+msgid "grid.action.decline"
+msgstr "Одби го поднесокот"
+
+msgid "grid.action.accept"
+msgstr "Прифати го поднесокот"
+
+msgid "grid.action.requestRevisions"
+msgstr "Побарај ревизија за овој поднесок"
+
+msgid "grid.action.selectFiles"
+msgstr "Селектирај фајлови за промена"
+
+msgid "grid.action.editFile"
+msgstr "Уреди фајл"
+
+msgid "grid.action.addFile"
+msgstr "Додади фајл"
+
+msgid "grid.action.addReviewer"
+msgstr "Додади рецензент"
+
+msgid "grid.action.email"
+msgstr "Испрати имејл"
+
+msgid "grid.action.readReview"
+msgstr "Прочитај ја рецензијата"
+
+msgid "grid.action.downloadAll"
+msgstr "Симни ги сите фајлови како архива"
+
+msgid "grid.action.moveItem"
+msgstr "Премести го елементот"

@@ -1,0 +1,24 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-29 21:33+0000\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"metadata-mods34/mk/>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.metadata.mods34.displayName"
+msgstr "MODS 3.4 meta-data"
+
+msgid "plugins.metadata.mods34.mods34XmlOutput.description"
+msgstr "Конвертоирај MODS 3.4 meta-data опис во XML."
+
+msgid "plugins.metadata.mods34.mods34XmlOutput.displayName"
+msgstr "MODS 3.4 излез"
+
+msgid "plugins.metadata.mods34.description"
+msgstr "Додава на  MODS 3.4 шеми и аадаптери за апликации."

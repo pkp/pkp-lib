@@ -1,0 +1,151 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-29 21:33+0000\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"mk/>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.400.paramNotSupported"
+msgstr "Параметарот {$param} не е поддржан."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Вокапот {$vocab} не е поддржан."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Локализацијата { {$locale} не е поддржана."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Активната тема, {$themePluginPath}, не е овозможена и може да не е "
+"инсталирана."
+
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"Датотеката не може да се аплоадира заради грешка во конфигурацијата на "
+"серверот. Ве молиме контактирајте го систем администраторот."
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "Датотеките поголеми од  {$maxSize} не можат да се аплоадираат."
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "Не може да се аплоадираат една или повеќе датотеки."
+
+msgid "api.temporaryFiles.400.noUpload"
+msgstr ""
+"Ниту една датотека што треба да се аплоадира не може да се најде со барањето."
+
+msgid "api.submissions.unknownError"
+msgstr ""
+"Се случи неочекувана грешка. Вчитајте ја страницата повторно и обидете се "
+"повторно."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Бараниот волумен, број или година не е валиден."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Вашето барање не може да се исполни затоа што недостасуваат потребни "
+"информации."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Оваа крајна точка не е достапна од контекст. Треба да се пристапи од "
+"именскиот простор на целата страница."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Немате дозвола да го избришете овој поднесок."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Не можете да избришете поднесок што не е доделен на овој контекст."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Може да видите само необјавени поднесоци кои ви се доделени."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Вашето барање беше одбиено. Ова може да биде затоа што најавувањето е "
+"истечено. Повторно  вчитајте  ја страницата и обидете се повторно."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Вашето барање не беше валидно. Насоката мора да биде „надолу“ или „нагоре“."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Вашето барање не беше валидно. Временскиот интервал треба да биде „ден“ или "
+"„месец“."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Датумот на завршување не може да биде подоцна од вчера."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Датумот на започнување не може да биде порано од 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Датумот на започнување не може да биде подоцна од крајниот датум."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Датумот мора да биде во форматот YYYY-MM-DD."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Не можете да ја уредувате оваа публикација."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Јавниот директориумот за датотеки не е пронајден или датотеките не можат да "
+"се зачуваат. Контактирајте го вашиот администратор."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Немате доволно простор во вашиот кориснички директориум. Датотеката што ја "
+"испраќате е {$fileUploadSize}kb и имате уште {$dirSizeLeft}kb."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Не ви е дозволено да аплодирате датотеки."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Датотеката што ја поставивте не се совпаѓа со наставката на датотеката. Ова "
+"може да се случи кога датотеката е преименувана во некомпатибилен тип, на "
+"пример, промена на photo.png во photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Сликата што ја поставивте не е валидна."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Може да ги поставите само следниве типови датотеки:  {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Мора да ја одобјавите оваа публикација пред да ја избришете."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Не можете да го менувате статусот директно преку API. Наместо тоа, користете "
+"ги / објави и / необјави крајните точки."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Не можете да ја уредувате оваа публикација затоа што веќе е објавена."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Публикацијата што сакате да ја објавите не е објавена."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Публикацијата што сакате да ја објавите е веќе објавена."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Образецот за е-пошта што го побаравте не е пронајден."
+
+msgid "api.404.endpointNotFound"
+msgstr "Бараната URL адреса не беше препознаена."
+
+msgid "api.404.resourceNotFound"
+msgstr "Бараниот ресурс не беше пронајден."
+
+msgid "api.403.unauthorized"
+msgstr "Не сте овластени да пристапите до бараниот ресурс."

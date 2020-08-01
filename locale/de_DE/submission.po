@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2020-02-28 11:36+0000\n"
+"PO-Revision-Date: 2020-07-31 13:56+0000\n"
 "Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/de/>\n"
@@ -2048,3 +2048,24 @@ msgstr ""
 "Datenbank aufzunehmen. Beispielsweise können Objekte, die für die "
 "Deponierung bei PubMed exportiert wurden, die Verlags-ID beinhalten. Dies "
 "sollte nicht für DOIs benutzt werden."
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Tage seit der letzten Aktivität"
+
+msgid "submission.list.activity"
+msgstr "Aktivität"
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Eine neue Review-Runde wurde eröffnet."
+
+msgid "editor.submission.decision.newRound"
+msgstr "Neue Review-Runde"
+
+msgid "submission.downloads"
+msgstr "Downloads"
+
+msgid "submission.additionalFiles"
+msgstr "Zusätzliche Dateien"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} von {$title}"

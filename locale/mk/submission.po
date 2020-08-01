@@ -1,0 +1,112 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-29 21:33+0000\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/mk/>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Внесете валидна е-пошта за регистрација на PubMed ако имате."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "Е-пошта за регистрација на PubMed"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"Внесете го вашиот клуч ISBNdb API. Ако сè уште немате клуч, можете да "
+"побарате бесплатно од еден проект ISBNdb."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API Key"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Внесете е-пошта за регистрација на CrossRef. Можете да ја регистрирате "
+"вашата е-пошта бесплатно на веб-страницата CrossRef."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "Е-пошта за регистрација на CrossRef"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Проширена метадата"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Вратете се на вашата контролна табла"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Создадете нов поднесок"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Прегледајте го овој поднесок"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "За сега, можете:"
+
+msgid "submission.submit.whatNext"
+msgstr "Што се случува следно?"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr ""
+"Да, се согласувам да се придржувам кон условите на изјавата за авторски "
+"права."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Потврдете ја изјавата за авторските права"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "Ви благодариме за вашиот интерес за објавување со {$contextName}."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Поднесувањето е завршено"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"Мора да прочитате и да прифатите дека сте ги завршиле барањата подолу пред "
+"да продолжите."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Барања за поднесување"
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr ""
+"Доставете во некоја од следниве улоги ако сакате сами да гоуредувате и "
+"објавите овој поднесок:  {$managerGroups}"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Да, би сакал да бидам контактиран за овој поднесок."
+
+msgid "submission.submit.contactConsent"
+msgstr "Контакт за коресподенција"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr ""
+"Изберете ја улогата што најдобро го опишува вашиот придонес за овој поднесок."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Поднеси како"
+
+msgid "submission.confirm.message"
+msgstr ""
+"Вашиот поднесок е поставен и е подготвен да биде испратен. Може да се "
+"вратите на преглед и да ја прилагодите секоја информација што сте ја внеле "
+"пред да продолжите. Кога сте подготвени, кликнете на \"Заврши поднесување\"."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Нови рецензии се доставени и ги разгледува уредникот."
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"Обезбедете форматирана библиографија. Ве молиме одделете ги поединечните "
+"референци со празна линија."
+
+msgid "author.publicationNotFound"
+msgstr "Публикацијата за овој автор не може да се најде."
+
+msgid "author.editPublishedDisabled"
+msgstr "Не може да се уредува затоа што списанието веќе е објавено."

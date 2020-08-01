@@ -1,0 +1,183 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-31 13:56+0000\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"mk/>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.affiliation"
+msgstr "Афилиација"
+
+msgid "user.accountInformation"
+msgstr "Информации за акаунтот"
+
+msgid "user.login.accountDisabled"
+msgstr ""
+"Вашиот акаунт е оневозможен. Ве молиме контактирајте со администраторот за "
+"повеќе информации."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Вашиот акаунт е оневозможен од следниве причини: {$reason}"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"Невалиден формат на слика или сликата е премногу голема. Прифатените формати "
+"се .gif, .jpg или .png, а сликата не смее да надмине 150х150 пиксели."
+
+msgid "user.familyName"
+msgstr "Презиме"
+
+msgid "user.group"
+msgstr "Група на корисници"
+
+msgid "user.gossip.description"
+msgstr ""
+"Запишете белешки за овој рецензент што сакате да ги направите видливи за "
+"другите администратори, менаџери и сите уредници. Белешките ќе бидат видливи "
+"за идните задачи за рецензија."
+
+msgid "user.gossip"
+msgstr "Уреднички белешки"
+
+msgid "user.interests.description"
+msgstr "(Одделни интереси со притискање ентер или копчето запирка)"
+
+msgid "user.interests"
+msgstr "Рецензентски интереси"
+
+msgid "user.givenName"
+msgstr "Име"
+
+msgid "user.email"
+msgstr "Имејл"
+
+msgid "user.editMyProfile"
+msgstr "Уреди го мојот профил"
+
+msgid "user.dateRegistered"
+msgstr "Дата на регистрација"
+
+msgid "user.dateLastLogin"
+msgstr "Последно логирање"
+
+msgid "user.changePassword"
+msgstr "Промени лозинка"
+
+msgid "user.changeMyPassword"
+msgstr "Промени ја мојата лозинка"
+
+msgid "user.biography"
+msgstr "Биографски изјава (на пр. Оддел и ранг)"
+
+msgid "user.authorization.submissionQuery"
+msgstr "Немате дозвола за пристап до оваа дискусија."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Немате дозвола за пристап до оваа задача за рецензија."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Не е наведен плагин а е задолжителен."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Работна фаза не е специфицирана."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Во моментов немате пристап до таа фаза на работниот тек."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Корисник со улога на Менаџер (т.е. Уредник на производство) мора да биде "
+"назначенпред да може да се продолжи."
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"Мора да поставите валидна група за корисници за пристап до оваа операција."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Не сте  доделени на овој поднесок со улога на која е дозволено пристап до "
+"оваа операција."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Тековната улога нема пристап до оваа операција."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr ""
+"Одбиен ви е пристапот. Пристапот до оваа страница е моментално ограничен."
+
+msgid "user.authorization.privateOperation"
+msgstr "Операцијата во која се обидовте да пристапите е приватна или не постои."
+
+msgid "user.authorization.loginRequired"
+msgstr "Потребно е логирање."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"Не можете да ја повикате оваа операција без контекст (печат, списание, "
+"конференција, итн.)"
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Знакот за автентикација на процесот недостасува или не е валиден."
+
+msgid "user.authorization.accessDenied"
+msgstr "Пристап одбиен."
+
+msgid "user.affiliations"
+msgstr "Афилијација"
+
+msgid "user.affiliation.description"
+msgstr "(Вашата институција, на пр. „Универзитет Симон Фрејзер“)"
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"Испратена нова лозинка на имејл. Сега можете да се најавите на страницата со "
+"вашата нова лозинка."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Ниту еден корисник не постои со наведениот имејл.."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"Линкот што го кликнавте истече или не е валиден. Обидете се повторно да ја "
+"поставите вашата лозинка."
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"Испратена е потврда на вашиот имејл. Следете ги упатствата во имејлот за да "
+"ја поставите вашата лозинка."
+
+msgid "user.login"
+msgstr "Логин"
+
+msgid "user.login.loginError"
+msgstr "Невалидно корисничко име или лозинка. Ве молиме обидете се повторно."
+
+msgid "user.login.forgotPassword"
+msgstr "Ја заборавивте лозинката?"
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"Мора да изберете нова лозинка пред да се најавите на оваа страница. <br/> <"
+"br/> Ве молиме, внесете го вашето корисничко име и вашите тековни и нови "
+"лозинки подолу за да ја промените лозинката за вашата сметка."
+
+msgid "user.login.activated"
+msgstr ""
+"Ви благодариме за активирање на вашата сметка. Сега можете да се најавите "
+"користејќи ги ингеренциите што ги доставивте кога ја создадовте вашата "
+"сметка."
+
+msgid "user.login.activate"
+msgstr "Активирај го акаунтот"
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"Ви испративме имејл за потврда за вас $email}. Ве молиме следете ги "
+"упатствата во имејлот за да ја активирате вашата нова сметка. Ако не гледате "
+"имејл, проверете дали е ставена во папката за спам."

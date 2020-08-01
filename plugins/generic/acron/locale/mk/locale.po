@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-29 21:33+0000\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"generic-acron/mk/>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.acron.name"
+msgstr "Acron Plugin"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Закажаните задачи  повторно  се вчитани."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Вчитај ги повторно закажаните задачи"
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Cron табот е  успешно вчитан повторно."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Акрон-приклучокот е оневозможен."
+
+msgid "plugins.generic.acron.enabled"
+msgstr "Овозможен е додатокот Acron."
+
+msgid "plugins.generic.acron.description"
+msgstr ""
+"Овој додаток се обидува да ја намали зависноста на апликацијата од алатки за "
+"периодично закажување како што е „cron.“"

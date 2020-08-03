@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-03 15:21+0000\n"
+"PO-Revision-Date: 2020-08-03 19:54+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ro_RO/>\n"
@@ -178,7 +178,6 @@ msgstr "Limbă"
 msgid "common.language"
 msgstr "Limbă"
 
-#, fuzzy
 msgid "common.commaListSeparator"
 msgstr ", "
 
@@ -249,7 +248,6 @@ msgstr ""
 "a unuia și este sau nu dar dacă este așa atunci astfel o formă de a fi sau "
 "nu peste sau în interior"
 
-#, fuzzy
 msgid "common.alphaList"
 msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
 
@@ -337,3 +335,338 @@ msgstr "Fișier de stil curent"
 
 msgid "common.publicKnowledgeProject"
 msgstr "PKP"
+
+msgid "common.noItemsFound"
+msgstr "Nu a fost găsit nici un element."
+
+msgid "common.no"
+msgstr "Nu"
+
+msgid "common.none"
+msgstr "Nici una(ul)"
+
+msgid "common.noneAssigned"
+msgstr "Nici o atribuire"
+
+msgid "common.moreThanOnly"
+msgstr "Mai mult decât"
+
+msgid "common.moreThan"
+msgstr "{$value} sau mai mult"
+
+msgid "common.more"
+msgstr "Mai mult"
+
+msgid "common.month"
+msgstr "Luna"
+
+msgid "common.modify"
+msgstr "Modifică"
+
+msgid "common.minute"
+msgstr "Minut(e)"
+
+msgid "common.billingAddress"
+msgstr "Adresa de facturare (dacă diferă)"
+
+msgid "common.mailingAddress"
+msgstr "Adresă"
+
+msgid "common.manage"
+msgstr "Gestionează"
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.lessThanOnly"
+msgstr "Mai puțin decât"
+
+msgid "common.lessThan"
+msgstr "{$value} sau mai putin"
+
+msgid "common.less"
+msgstr "Mai puțin"
+
+msgid "common.lastActivity"
+msgstr "Ultima activitate a fost înregistrată în {$date}."
+
+msgid "common.keywords"
+msgstr "Cuvinte cheie"
+
+msgid "common.itemsPerPage"
+msgstr "Elemente pe pagină"
+
+msgid "common.inProgress"
+msgstr "În progres"
+
+msgid "common.initiate"
+msgstr "Începe"
+
+msgid "common.import"
+msgstr "Importă"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.hour"
+msgstr "Ora"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Logo-ul antetului paginii de start"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Acasă"
+
+msgid "common.height"
+msgstr "Înălțime"
+
+msgid "common.go"
+msgstr "Mergi"
+
+msgid "common.until"
+msgstr "Până când"
+
+msgid "common.fromWithValue"
+msgstr "Din: {$value}"
+
+msgid "common.from"
+msgstr "Din"
+
+msgid "common.filterRemove"
+msgstr "Elimină filtrul: {$filterTitle}"
+
+msgid "common.filterAdd"
+msgstr "Adaugă filtru: {$filterTitle}"
+
+msgid "common.filter"
+msgstr "Filtre"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"Actualizarea fișierelor de sistem se încarcă. Dacă nu apare mesajul de "
+"actualizare, este foarte probabil să nu fie acceptat de acest browser. Vă "
+"rugăm, contactați administrația pentru asistență."
+
+msgid "common.fileType"
+msgstr "Tip fișier"
+
+msgid "common.fileSize"
+msgstr "Mărime fișier"
+
+msgid "common.fileName"
+msgstr "Nume fișier"
+
+msgid "common.file"
+msgstr "Fișier"
+
+msgid "common.false"
+msgstr "Fals"
+
+msgid "common.fullscreenOff"
+msgstr "Dezactivare ecran complet"
+
+msgid "common.fullscreen"
+msgstr "Ecran complet"
+
+msgid "common.finish"
+msgstr "Finalizat"
+
+msgid "common.export"
+msgstr "Export"
+
+msgid "common.event"
+msgstr "Eveniment"
+
+msgid "common.error.framesRequired"
+msgstr ""
+"Această pagină necesită încadrare. <a href=\"{$url}\">Click here</a> pentru "
+"versiunea fără încadrare."
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "A apărut o eroare necunoscută la conectarea la baza de date."
+
+msgid "common.error.databaseError"
+msgstr "A apărut o eroare în baza de date:{$error}"
+
+msgid "common.enabled"
+msgstr "Permis"
+
+msgid "common.enable"
+msgstr "Permite"
+
+msgid "common.edit"
+msgstr "Editează"
+
+msgid "common.downloadPdf"
+msgstr "Descarcă PDF"
+
+msgid "common.download"
+msgstr "Descarcă"
+
+msgid "common.done"
+msgstr "Terminat"
+
+msgid "common.discipline"
+msgstr "Disciplina"
+
+msgid "common.disabled"
+msgstr "Dezactivat"
+
+msgid "common.disable"
+msgstr "Dezactivați"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pixeli"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; la {$dpi} DPI/PPI"
+
+msgid "common.description"
+msgstr "Descriere"
+
+msgid "common.designation"
+msgstr "Desemnare"
+
+msgid "common.deleteSelection"
+msgstr "Ștergeți selecția"
+
+msgid "common.deleting"
+msgstr "Ștergerea"
+
+msgid "common.delete"
+msgstr "Șterge"
+
+msgid "common.declined"
+msgstr "Refuzat"
+
+msgid "common.default"
+msgstr "Mod implicit"
+
+msgid "common.deactivate"
+msgstr "Dezactivați"
+
+msgid "common.day"
+msgstr "Ziua"
+
+msgid "common.dateHijri"
+msgstr "Calendar Hijri"
+
+msgid "common.dateUploaded"
+msgstr "Data încărcării"
+
+msgid "common.dateSubmitted"
+msgstr "Data depunerii"
+
+msgid "common.dateRequested"
+msgstr "Data solicitării"
+
+msgid "common.dateModified"
+msgstr "Data modificată"
+
+msgid "common.date"
+msgstr "Data"
+
+msgid "common.dateDecided"
+msgstr "Data decisă"
+
+msgid "common.dateCompleted"
+msgstr "Data completării"
+
+msgid "common.create"
+msgstr "Crează"
+
+msgid "common.country"
+msgstr "Țara"
+
+msgid "common.copy"
+msgstr "Copie"
+
+msgid "common.continue"
+msgstr "Continuă"
+
+msgid "common.contents"
+msgstr "Conținuturi"
+
+msgid "common.content"
+msgstr "Conținut"
+
+msgid "common.confirmed.date"
+msgstr "Confirmat: {$dateConfirmed}"
+
+msgid "common.confirm"
+msgstr "Confirm"
+
+msgid "common.completed.date"
+msgstr "Efectuat: {$dateCompleted}"
+
+msgid "common.completed"
+msgstr "Efectuat"
+
+msgid "common.complete"
+msgstr "Complet"
+
+msgid "common.closeWindow"
+msgstr "Fereastră închisă"
+
+msgid "common.closePanel"
+msgstr "Panou de închidere"
+
+msgid "common.close"
+msgstr "Închid"
+
+msgid "common.chooseOne"
+msgstr "Alege una"
+
+msgid "common.changesSaved"
+msgstr "Schimbările tale au fost salvate."
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tAceastă lucrare este licențiată în temeiul unui <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative "
+"Commons Attribution 3.0 License</a>.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tAceastă lucrare este licențiată în temeiul unui <a rel=\"license\" "
+"target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">"
+"Creative Commons Attribution 3.0  License</a>.\n"
+"\t"
+
+msgid "common.captchaField"
+msgstr "Validare"
+
+msgid "common.captchaField.description"
+msgstr "Vă rugăm să introduceți literele așa cum apar în imaginea de mai sus."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr ""
+"Nu ați trecut verificarea de validare folosită pentru a preveni trimiterea "
+"de spam."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"Trebuie să completați verificarea de validare folosită pentru a preveni "
+"trimiterea de spam."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr ""
+"Validarea captcha pentru acest site web nu este configurată corect. Cheia "
+"secretă este nevalidă."

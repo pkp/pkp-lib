@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-03 19:54+0000\n"
+"PO-Revision-Date: 2020-08-03 20:04+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ro_RO/>\n"
@@ -670,3 +670,15 @@ msgid "common.captcha.error.invalid-input-secret"
 msgstr ""
 "Validarea captcha pentru acest site web nu este configurată corect. Cheia "
 "secretă este nevalidă."
+
+msgid "search.typeMethodApproach"
+msgstr "Tip (metodă/abordare)"
+
+msgid "navigation.tools.importExport"
+msgstr "Importă/Exportă"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "common.notApplicableShort"
+msgstr "N/A"

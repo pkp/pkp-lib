@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-03 05:06+0000\n"
+"PO-Revision-Date: 2020-08-03 06:09+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ro_RO/>\n"
@@ -70,3 +70,110 @@ msgstr "Descriere"
 
 msgid "navigation.archives"
 msgstr "Arhivă"
+
+msgid "review.blindPeerReview"
+msgstr ""
+"<p>Pentru a asigura integritatea revizuirii „în orb” pentru transmiterea "
+"către această presă, trebuie depuse toate eforturile pentru a împiedica ca "
+"identitățile recenzorilor să nu fie cunoscute de autori și invers. Aceasta "
+"implică autorii, editorii și recenzorii (care încarcă documente ca parte a "
+"revizuirii lor) verificând dacă au fost făcuți pașii următori în ceea ce "
+"privește textul și proprietățile fișierului:</p>\n"
+"<ul><li>Autorii documentului și-au șters numele din text, au înlocuit cu "
+"„Autor” inclusiv anul folosit în referințe și notele de subsol, în loc de "
+"numele autorilor, titlul articolului etc.</li>\n"
+"<li>Autorii documentului au eliminat informațiile personale din "
+"proprietățile fișierului, urmând pașii următori:\n"
+"<ul><li>Microsoft Word pentru Windows:\n"
+"<ul><li>Go to File</li>\n"
+"<li>Select Info</li>\n"
+"<li>Click pe Check for Issues</li>\n"
+"<li>Click pe Inspect Document</li>\n"
+"<li>În Document Inspector dialog box, bifați căsuțele pentru a alege tipul "
+"de conținut ascuns pe care doriți să îl inspectați.</li>\n"
+"<li>Click Remove All</li>\n"
+"<li>Click Close</li>\n"
+"<li>Salvați documentul</li></ul>\n"
+"<li>Microsoft Word for MacOS:\n"
+"<ul><li>Go to Tools</li>\n"
+"<li>Click Protect Document</li>\n"
+"<li>Select Remove personal information for this file on save</li>\n"
+"<li>Click OK and save the file</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Go to File</li>\n"
+"<li>Select Properties</li>\n"
+"<li>Remove any name in the author field</li>\n"
+"<li>Click OK</li>\n"
+"<li>Save the document</li></ul></li></ul>\n"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Informații pentru cititori"
+
+msgid "informationCenter.history.messageSent"
+msgstr "Notificare trimisă utilizatorilor."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Notă nouă postată."
+
+msgid "informationCenter.history.noItems"
+msgstr "Nu sunt înregistrate evenimente."
+
+msgid "informationCenter.pastHistory"
+msgstr "Revizii anterioare"
+
+msgid "informationCenter.currentHistory"
+msgstr "Revizia curentă"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Sigur ștergi această notă?"
+
+msgid "informationCenter.pastNotes"
+msgstr "Note anterioare de revizuire"
+
+msgid "informationCenter.noNotes"
+msgstr "Nu există note de afișat."
+
+msgid "informationCenter.addNote"
+msgstr "Adăugare notă"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Istoricul editorial"
+
+msgid "informationCenter.informationCenter"
+msgstr "Centru de informare"
+
+msgid "validator.localeKey"
+msgstr ""
+"Limbile trebuie specificate folosind codul local. Exemple: en_US, fr_CA, "
+"sr_RS @ chirilic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Acest câmp este multilingvistic. Pentru fiecare limbă acceptată trebuie "
+"furnizate valori separate."
+
+msgid "validator.locale"
+msgstr "Această limbă nu este acceptată."
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} limbă terminată"
+
+msgid "form.requirePrimaryLocale"
+msgstr "Trebuie să completați acest câmp în {$language}."
+
+msgid "form.formLanguage"
+msgstr "Forma limbii"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"Pentru a introduce informațiile de mai jos în limbi suplimentare, selectați "
+"mai întâi limba."
+
+msgid "form.disallowedLocales"
+msgstr "Doar următoarele limbi sunt permise: {$languages}."
+
+msgid "common.languages"
+msgstr "Limbă"
+
+msgid "common.language"
+msgstr "Limbă"

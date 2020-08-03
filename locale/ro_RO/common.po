@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-03 06:09+0000\n"
+"PO-Revision-Date: 2020-08-03 15:21+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ro_RO/>\n"
@@ -177,3 +177,163 @@ msgstr "Limbă"
 
 msgid "common.language"
 msgstr "Limbă"
+
+#, fuzzy
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr ""
+"Validarea captcha pentru acest site web nu este configurată corect. Cheia "
+"secretă lipsește."
+
+msgid "common.notice"
+msgstr "Notă"
+
+msgid "common.error"
+msgstr "Eroare"
+
+msgid "common.warning"
+msgstr "Atenție"
+
+msgid "common.cancelled"
+msgstr "Anulat"
+
+msgid "common.cancel"
+msgstr "Anulare"
+
+msgid "common.between"
+msgstr "între"
+
+msgid "common.back"
+msgstr "Înapoi"
+
+msgid "common.available"
+msgstr "Disponibil"
+
+msgid "common.assigned.date"
+msgstr "Atribuit: {$dateAssigned}"
+
+msgid "common.assigned"
+msgstr "Atribuit"
+
+msgid "common.assign"
+msgstr "Atribuie"
+
+msgid "common.applyAction"
+msgstr "Aplică acțiunea"
+
+msgid "common.and"
+msgstr "și"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Descrieți această imagine pentru vizitatorii care vizionează situl în "
+"browser de tip doar text sau cu echipamente asistate. Exemplu: \"Editorul "
+"nostru vorbește la conferința PKP.\""
+
+msgid "common.altText"
+msgstr "Alternarea textelor"
+
+msgid "common.alreadyAssigned"
+msgstr "Atribuit"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"a unuia și este sau nu dar dacă este așa atunci astfel o formă de a fi sau "
+"nu peste sau în interior"
+
+#, fuzzy
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+msgid "common.all"
+msgstr "Toate"
+
+msgid "common.name"
+msgstr "Nume"
+
+msgid "common.addSelf"
+msgstr "Adaugă"
+
+msgid "common.add"
+msgstr "Adaugă"
+
+msgid "common.active"
+msgstr "Activ"
+
+msgid "common.activate"
+msgstr "Activare"
+
+msgid "common.action"
+msgstr "Acțiune"
+
+msgid "common.acknowledged"
+msgstr "Mulțumiri"
+
+msgid "common.accepted"
+msgstr "Acceptat"
+
+msgid "common.abstract"
+msgstr "Rezumat"
+
+msgid "common.confirmDelete"
+msgstr ""
+"Sigur doriți să ștergeți acest articol? Această acțiune nu poate fi anulată."
+
+msgid "common.grid"
+msgstr "Grilă"
+
+msgid "common.list"
+msgstr "Listă"
+
+msgid "common.tasks"
+msgstr "Sarcini"
+
+msgid "common.navigation.user"
+msgstr "Navigare utilizator"
+
+msgid "common.navigation.siteContext"
+msgstr "Navigare contextuală în site"
+
+msgid "common.navigation.site"
+msgstr "Navigare pe site"
+
+msgid "common.navigation.sidebar"
+msgstr "Bara laterală"
+
+msgid "common.allDownloads"
+msgstr "Toate descărcările"
+
+msgid "announcement.view"
+msgstr "Vezi anunțul"
+
+msgid "announcement.postedOn"
+msgstr "Postat în {$postDate}"
+
+msgid "announcement.posted"
+msgstr "Postat"
+
+msgid "announcement.noneExist"
+msgstr "Nu a fost publicat nici un anunț."
+
+msgid "announcement.moreAnnouncements"
+msgstr "Mai multe anunțuri..."
+
+msgid "announcement.announcementsHome"
+msgstr "Anunțuri"
+
+msgid "announcement.announcements"
+msgstr "Anunțuri"
+
+msgid "common.currentStyleSheet"
+msgstr "Fișier de stil curent"
+
+msgid "common.publicKnowledgeProject"
+msgstr "PKP"

@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-07-31 13:56+0000\n"
+"PO-Revision-Date: 2020-08-04 07:48+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
-"mk/>\n"
-"Language: mk\n"
+"mk_MK/>\n"
+"Language: mk_MK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -181,3 +181,326 @@ msgstr ""
 "Ви испративме имејл за потврда за вас $email}. Ве молиме следете ги "
 "упатствата во имејлот за да ја активирате вашата нова сметка. Ако не гледате "
 "имејл, проверете дали е ставена во папката за спам."
+
+msgid "user.privacyLink"
+msgstr ""
+"Вашите податоци се чуваат во согласност со нашата <a href=\"{$privacyUrl}\" "
+"target=\"_blank\"> изјава за приватност </a>."
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Пред да создадете АПИ-клуч, администраторот на вашата страница мора да "
+"постави тајна во датотеката за конфигурација (\"api_key_secret\")."
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Создавањето нов клуч API ќе го поништи сите постоечки клучови за овој "
+"корисник."
+
+msgid "user.apiKey.generate"
+msgstr "Генерирај нов API key"
+
+msgid "user.apiKeyEnabled"
+msgstr "Овозможете надворешни апликации со  API key за пристап до оваа сметка"
+
+msgid "user.apiKey"
+msgstr "API Key"
+
+msgid "user.profile.public"
+msgstr "Јавно"
+
+msgid "user.profile.contact"
+msgstr "Контакт"
+
+msgid "user.profile.identity"
+msgstr "Иднетитет"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"ORCID iD што го наведовте не е валиден. Ве молиме, вклучете го целосниот URI "
+"(на пр. \"Https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.workingLanguages"
+msgstr "Работен јазик"
+
+msgid "user.username"
+msgstr "Корисничко име"
+
+msgid "user.userHome"
+msgstr "Корисник"
+
+msgid "user.url"
+msgstr "Домашна интернет страница"
+
+msgid "user.title"
+msgstr "Наслов"
+
+msgid "user.signature"
+msgstr "Потпис"
+
+msgid "user.sendPassword.description"
+msgstr ""
+"Испратете ми имејл за потврда, вклучувајќи го моето корисничко име и лозинка"
+
+msgid "user.sendPassword"
+msgstr "Потврда"
+
+msgid "user.roles"
+msgstr "Улоги"
+
+msgid "user.role.layoutEditors"
+msgstr "Графички уредници"
+
+msgid "user.role.layoutEditor"
+msgstr "Графички уредник"
+
+msgid "user.role.proofreaders"
+msgstr "Лектори"
+
+msgid "user.role.proofreader"
+msgstr "Лектор"
+
+msgid "user.role.copyeditors"
+msgstr "Коректори"
+
+msgid "user.role.copyeditor"
+msgstr "Коректор"
+
+msgid "user.role.siteAdmins"
+msgstr "Администратори на сајтот"
+
+msgid "user.role.siteAdmin"
+msgstr "Администратор на сјатот"
+
+msgid "user.role.reviewers"
+msgstr "Рецензенти"
+
+msgid "user.role.reviewer"
+msgstr "Рецензент"
+
+msgid "user.role.readers"
+msgstr "Читатели"
+
+msgid "user.role.reader"
+msgstr "Читател"
+
+msgid "user.role.editors"
+msgstr "Уредници"
+
+msgid "user.role.editor"
+msgstr "Уредник"
+
+msgid "user.role.authors"
+msgstr "Автори"
+
+msgid "user.role.author_s"
+msgstr "Автор(и)"
+
+msgid "user.role.author"
+msgstr "Автор"
+
+msgid "user.role.assistant"
+msgstr "Асистент"
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Успешно се регистриравте <a href=\"{$profileUrl}\"> Кликнете овде </a> за да "
+"го завршите вашиот кориснички профил."
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"Корисничкото име мора да содржи само мали букви, броеви и цртички / долна "
+"црта."
+
+msgid "user.register"
+msgstr "Регистер"
+
+msgid "user.register.registerAs"
+msgstr "Регуистрирај се во {$contextName} како..."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Лозинката мора да биде {$length}  барем карактери."
+
+msgid "user.register.form.usernameExists"
+msgstr "Избраното корисничко име е веќе зафатено."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Барем една улога мора да биде селктирана."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Корисничкото име може да содржи само алфанумерички знаци со мали букви, "
+"долна и горна цртички и мора да започне и да заврши со алфанумерички "
+"карактер."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Имејлите се различни."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Лозинките се различни."
+
+msgid "user.register.form.emailExists"
+msgstr "Избраниот имејл е веќе во употреба од друг корисник."
+
+msgid "user.register.form.emailConsent"
+msgstr "Да, би сакал да бидам известен за нови публикации и објави."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Да, се согласувам  моите податоци да бидат собрани и чувани според <a href=\""
+"{$privacyUrl}\" target=\"_blank\"> изјава за приватност </a>."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Внесете јго имејлот на анаунтот подолу и ќе ви биде испратен имејл со "
+"упатства како да ја ресетирате вашата лозинка."
+
+msgid "user.login.registerNewAccount"
+msgstr "Регистрација"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Повтори ја новата лозинка"
+
+msgid "user.profile.publicProfile"
+msgstr "Кориснички профил"
+
+msgid "user.profile"
+msgstr "Профил"
+
+msgid "user.profile.oldPassword"
+msgstr "Тековна лозинка"
+
+msgid "user.profile.newPassword"
+msgstr "Нова лозинка"
+
+msgid "user.profile.leavePasswordBlank"
+msgstr ""
+"Оставете ги полињата за лозинка празни за да ја задржите тековната лозинка."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Мора да се согласите со условите на изјавата за приватност."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Корисничкото име е задолжително."
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Групата аа корисници е задолжителна."
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"Наведената URL не е валидна. Ве молиме проверете ја адресата и обидете се "
+"повторно. (Совет: Обидете се да додадете http:// на почетокот на URL-то.)"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Имејл известување за нов објавен број"
+
+msgid "user.profile.form.profileImage"
+msgstr "Слика на профилот"
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Нова лозинка е иста како и вашата стара лозинка."
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Лозинката е задолжителна."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Издадете известувања за имејл со отворен пристап"
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Оваа лозина не е точна."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Мора да внесеш нова лозинка."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Поштенската адреса е задолжителна."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Додадовте презиме за јазик на кој му недостасува име. Додадете име за овој "
+"јазик."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Името е задолжително."
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "Афилијацијата е потребна."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Потребна е велиден имејл."
+
+msgid "user.profile.form.countryRequired"
+msgstr "Земјат а е задолжителна."
+
+msgid "user.profile.editProfile"
+msgstr "Уреди профил"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"Внесете ги тековните и новите лозинки подолу за да ја смените лозинката за "
+"вашата сметка."
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Како претпочитате да бидете адресирани? Поздрави, средни имиња и суфикси "
+"може да се додадат тука, ако сакате."
+
+msgid "user.preferredPublicName"
+msgstr "Преферирано име за во јавност"
+
+msgid "user.phone"
+msgstr "Телефон"
+
+msgid "user.repeatPassword"
+msgstr "Повотри ја  лозинката"
+
+msgid "user.password"
+msgstr "Лозинка"
+
+msgid "user.name"
+msgstr "Име"
+
+msgid "user.myAccount"
+msgstr "Мојот акаунт"
+
+msgid "user.mailingAddress"
+msgstr "Поштенска адреса"
+
+msgid "user.hello"
+msgstr "Здраво, "
+
+msgid "user.logOutAs"
+msgstr "Одлогирај се како"
+
+msgid "user.logOut"
+msgstr "Одлогирање"
+
+msgid "user.login.resetPassword"
+msgstr "Ресетирај лозинка"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Остави ме логиран"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Регистрацијата чека верификација"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Продолкжи да разгледуваш"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Нов поднесок"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Види ги  поднесоците"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Ви благодариме што се регистриравте! Што би сакале да направите следно?"
+
+msgid "user.login.registrationComplete"
+msgstr "Регистрацијата е комплетна"
+
+msgid "user.login.registeredEmail"
+msgstr "Имејл  на регистран корисник"

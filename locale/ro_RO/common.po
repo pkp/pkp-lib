@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-03 04:21+0000\n"
+"PO-Revision-Date: 2020-08-03 05:06+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ro_RO/>\n"
@@ -67,3 +67,6 @@ msgstr "Ghiduri"
 
 msgid "about.description"
 msgstr "Descriere"
+
+msgid "navigation.archives"
+msgstr "Arhivă"

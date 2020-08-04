@@ -163,6 +163,9 @@ msgstr "Sorry, you do not have administrative rights over this user. This may be
 msgid "submission.layout.galley.remotelyHostedContent"
 msgstr "This galley will be available at a separate website."
 
+msgid "submission.layout.galley.remoteURL"
+msgstr "URL of remotely-hosted content"
+
 msgid "user.register.registrationDisabled"
 msgstr "This server is currently not accepting user registrations."
 

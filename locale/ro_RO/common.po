@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-03 20:04+0000\n"
+"PO-Revision-Date: 2020-08-04 12:56+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ro_RO/>\n"
@@ -682,3 +682,453 @@ msgstr "/"
 
 msgid "common.notApplicableShort"
 msgstr "N/A"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.metric"
+msgstr "Metric"
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Email de mulțumire trimis revizorului."
+
+msgid "notification.removedAuditor"
+msgstr "Auditorul a fost eliminat."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Previzualizarea imaginii selectate."
+
+msgid "common.uploadFailed"
+msgstr "Acest fișier nu poate fi încărcat ori rezuzuit."
+
+msgid "debug.notes"
+msgstr "Note:"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Revizuire marcată ca recunoscută. E-mail nu a fost trimis."
+
+msgid "notification.addedQuery"
+msgstr "S-a adăugat discuția"
+
+msgid "notification.addedAuditor"
+msgstr "Adăugare auditor."
+
+msgid "navigation.userManagement"
+msgstr "Gestionare utilizator"
+
+msgid "navigation.user"
+msgstr "Utilizator"
+
+msgid "navigation.userHome"
+msgstr "Acasă utilizator"
+
+msgid "navigation.system"
+msgstr "Sistem"
+
+msgid "navigation.submissions"
+msgstr "Subscrieri"
+
+msgid "navigation.stepNumber"
+msgstr "Pas {$step}"
+
+msgid "navigation.skip.nav"
+msgstr "Salt la meniul principal de navigare"
+
+msgid "navigation.skip.main"
+msgstr "Salt la conținutul principal"
+
+msgid "navigation.skip.announcements"
+msgstr "Sari peste anunțuri"
+
+msgid "navigation.skip.description"
+msgstr "Salt la linkurile de conținut"
+
+msgid "navigation.setup"
+msgstr "Configurare"
+
+msgid "navigation.settings"
+msgstr "Setări"
+
+msgid "navigation.register"
+msgstr "Înregistrează-te"
+
+msgid "navigation.search"
+msgstr "Caută"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Metrica disponibilă"
+
+msgid "defaultMetric.title"
+msgstr "Metrica implicită"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Lipsește cheia locală \"{$key}\"."
+
+msgid "debug.notes.localeLoad"
+msgstr "Încărcați fișierul local \"{$localeFile}\" din XML"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Încărcați lista locală \"{$localeList}\" din XML"
+
+msgid "debug.memoryUsage"
+msgstr "Folosirea memoriei"
+
+msgid "debug.executionTime"
+msgstr "Pagină generată în"
+
+msgid "debug.databaseQueries"
+msgstr "Numărul de interogări ale bazei de date"
+
+msgid "common.publicAccess"
+msgstr "Acces public"
+
+msgid "common.count"
+msgstr "Numără"
+
+msgid "common.plugins"
+msgstr "Pluginuri"
+
+msgid "common.loading"
+msgstr "Așteaptă"
+
+msgid "common.yes"
+msgstr "Da"
+
+msgid "common.year"
+msgstr "An"
+
+msgid "common.width"
+msgstr "Lățime"
+
+msgid "common.weeks"
+msgstr "Săptămâni"
+
+msgid "common.viewProfile"
+msgstr "Vizualizare profil"
+
+msgid "common.view"
+msgstr "Vizualizare"
+
+msgid "common.user"
+msgstr "Utilizator"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.upload.dragFile"
+msgstr "Trageți și plasați un fișier aici pentru a începe încărcarea"
+
+msgid "common.upload.changeFile"
+msgstr "Schimbă fișierul"
+
+msgid "common.upload.restore"
+msgstr "Restaurați originalul"
+
+msgid "common.upload.addFile"
+msgstr "Încarcă fișier"
+
+msgid "common.up"
+msgstr "Sus"
+
+msgid "common.upload"
+msgstr "Incarcă"
+
+msgid "common.uploadedDate"
+msgstr "Data actualizării"
+
+msgid "common.updated"
+msgstr "Actualizat"
+
+msgid "common.untitled"
+msgstr "Fără titlu"
+
+msgid "common.unread"
+msgstr "Necitit"
+
+msgid "common.uninitiated"
+msgstr "Neinițiat"
+
+msgid "common.component"
+msgstr "Componenta"
+
+msgid "common.type"
+msgstr "Tip"
+
+msgid "common.true"
+msgstr "Adevărat"
+
+msgid "common.toWithValue"
+msgstr "Pentru: {$value}"
+
+msgid "common.top"
+msgstr "Top"
+
+msgid "common.title"
+msgstr "Titlu"
+
+msgid "common.suggest"
+msgstr "Sugestie"
+
+msgid "common.subtitle"
+msgstr "Subtitlu"
+
+msgid "common.submenu"
+msgstr "Submeniu"
+
+msgid "common.subjects"
+msgstr "Subiecte"
+
+msgid "common.subject"
+msgstr "Subiect"
+
+msgid "common.status"
+msgstr "Status"
+
+msgid "common.source"
+msgstr "Sursa"
+
+msgid "common.size"
+msgstr "Mărimea"
+
+msgid "common.sendEmail"
+msgstr "Trimite email"
+
+msgid "common.select"
+msgstr "Selectare"
+
+msgid "common.selectNone"
+msgstr "Neselectat"
+
+msgid "common.selectedPrefix"
+msgstr "Selectate:"
+
+msgid "common.selectAll"
+msgstr "Selectare toate"
+
+msgid "common.second"
+msgstr "În al doilea rând (s)"
+
+msgid "common.clearSearch"
+msgstr "Ștergeți fraza de căutare"
+
+msgid "common.searchQuery"
+msgstr "Căutare interogare"
+
+msgid "common.search"
+msgstr "Caută"
+
+msgid "common.saving"
+msgstr "Salvare"
+
+msgid "common.save"
+msgstr "Salvează"
+
+msgid "common.saveAndEmail"
+msgstr "Salvează și trimite email"
+
+msgid "common.saveAndContinue"
+msgstr "Salvează și continuă"
+
+msgid "common.reset"
+msgstr "Reset"
+
+msgid "common.required"
+msgstr "Necesar"
+
+msgid "common.requiredField"
+msgstr "* Reprezintă câmp obligatoriu"
+
+msgid "common.replaceFile"
+msgstr "Înlocuire fișier"
+
+msgid "common.replaced"
+msgstr "Înlocuit"
+
+msgid "common.removeSelection"
+msgstr "Eliminați selecția"
+
+msgid "common.removeItem"
+msgstr "Înlătură {$item}"
+
+msgid "common.remove"
+msgstr "Înlătură"
+
+msgid "common.remoteURL"
+msgstr "URL la distanță"
+
+msgid "common.remote"
+msgstr "La distanță"
+
+msgid "common.reminded.date"
+msgstr "Reamintire: {$dateReminded}"
+
+msgid "common.reminder"
+msgstr "Reamintire"
+
+msgid "common.related"
+msgstr "Legat de"
+
+msgid "common.refresh"
+msgstr "Reîmprospătare"
+
+msgid "common.record"
+msgstr "Înregistrare"
+
+msgid "navigation.viewFrontend"
+msgstr "Vizualizați site-ul"
+
+msgid "navigation.skip.footer"
+msgstr "Salt la subsolul site-ului"
+
+msgid "navigation.sitemap"
+msgstr "Harta site"
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"În prezent, nu aveți suficiente privilegii pentru a vizualiza trimiterea. Vă "
+"rugăm să vă editați profilul pentru a vă asigura că vi s-au acordat rolurile "
+"corespunzătoare în „Înregistrare ca ca”."
+
+msgid "navigation.access"
+msgstr "Utilizatori &amp; Roluri"
+
+msgid "dashboard.myQueue"
+msgstr "În așteptare"
+
+msgid "help.upALevel"
+msgstr "Un nivel mai sus"
+
+msgid "help.next"
+msgstr "Următor"
+
+msgid "help.previous"
+msgstr "Anterior"
+
+msgid "help.toc"
+msgstr "Cuprins"
+
+msgid "help.help"
+msgstr "Ajutor"
+
+msgid "common.readMore"
+msgstr "Citește mai mult"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.queue.long.active"
+msgstr "Toate active"
+
+msgid "common.quality"
+msgstr "Calitate"
+
+msgid "common.publisher"
+msgstr "Editor"
+
+msgid "common.preview"
+msgstr "Previzualizare"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Exemple: A,"
+
+msgid "common.prefix"
+msgstr "Prefix"
+
+msgid "common.pluginDisabled"
+msgstr "Pluginul \"{$pluginName}\" a fost dezactivat."
+
+msgid "common.pluginEnabled"
+msgstr "Plugi-ul \"{$pluginName}\" a fost activat."
+
+msgid "common.plugin"
+msgstr "Plugin"
+
+msgid "common.pageNumber"
+msgstr "Pagina {$pageNumber}"
+
+msgid "common.pagination.previous"
+msgstr "Pagina anterioară"
+
+msgid "common.pagination.next"
+msgstr "Pagina următoare"
+
+msgid "common.pagination.goToPage"
+msgstr "Mergeți la {$page}"
+
+msgid "common.pagination.label"
+msgstr "Vizualizați paginile adiționale"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} of {$total}"
+
+msgid "common.override"
+msgstr "Trece peste"
+
+msgid "common.overdue"
+msgstr "Depășit"
+
+msgid "common.other"
+msgstr "Alte"
+
+msgid "common.or"
+msgstr "ori"
+
+msgid "common.originalFileName"
+msgstr "Numele original al fișierului"
+
+msgid "common.orderDown"
+msgstr "Coboară poziția {$itemTitle}"
+
+msgid "common.orderUp"
+msgstr "Crește poziția {$itemTitle}"
+
+msgid "common.order"
+msgstr "Ordin"
+
+msgid "common.options"
+msgstr "Opțiuni"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.on"
+msgstr "Închis"
+
+msgid "common.off"
+msgstr "Deschis"
+
+msgid "common.noMatches"
+msgstr "Nici-o potrivire"
+
+msgid "common.notified.date"
+msgstr "Notificat(ă): {$dateNotified}"
+
+msgid "common.notified"
+msgstr "Notificat(ă)"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Note (galben: aveți note noi; albastru: aveți note văzute; verde: fără note)"
+
+msgid "common.notes"
+msgstr "Note"
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"Fișierul ce l-ați încărcat nu poate fi găsit. Vă rugăm să îl încărcați din "
+"nou."
+
+msgid "common.note"
+msgstr "Notă"
+
+msgid "common.notAvailable"
+msgstr "Nu e disponibil"
+
+msgid "common.notApplicable"
+msgstr "Nu se aplică"
+
+msgid "common.noComments"
+msgstr "Fără comentarii"

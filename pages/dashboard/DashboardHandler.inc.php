@@ -76,9 +76,8 @@ class DashboardHandler extends Handler {
 					'status' => STATUS_QUEUED,
 					'assignedTo' => [(int) $request->getUser()->getId()],
 				],
-				'includeIssuesFilter' => $includeIssuesFilter,
-			],
-		);
+			'includeIssuesFilter' => $includeIssuesFilter,
+		]);
 		$myQueueListPanel->set([
 			'items' => $myQueueListPanel->getItems($request),
 			'itemsMax' => $myQueueListPanel->getItemsMax()

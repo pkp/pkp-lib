@@ -120,16 +120,30 @@ class PKPTemplateManager extends Smarty {
 			'defaultCharset' => Config::getVar('i18n', 'client_charset'),
 			'baseUrl' => $request->getBaseUrl(),
 			'dateFormatTrunc' => Config::getVar('general', 'date_format_trunc'),
-			'dateFormatShort' => Config::getVar('general', 'date_format_short'),
-			'dateFormatLong' => Config::getVar('general', 'date_format_long'),
-			'datetimeFormatShort' => Config::getVar('general', 'datetime_format_short'),
-			'datetimeFormatLong' => Config::getVar('general', 'datetime_format_long'),
-			'timeFormat' => Config::getVar('general', 'time_format'),
 			'currentContext' => $currentContext,
 			'currentLocale' => $locale,
 			'currentLocaleLangDir' => AppLocale::getLocaleDirection($locale),
 			'applicationName' => __($application->getNameKey()),
 		]);
+
+		// Assign date and time format
+		if ($currentContext) {
+			$this->assign(array(
+				'dateFormatShort' => $currentContext->getLocalizedDateFormatShort(),
+				'dateFormatLong' => $currentContext->getLocalizedDateFormatLong(),
+				'datetimeFormatShort' => $currentContext->getLocalizedDateTimeFormatShort(),
+				'datetimeFormatLong' => $currentContext->getLocalizedDateTimeFormatLong(),
+				'timeFormat' => $currentContext->getLocalizedTimeFormat(),
+			));
+		} else {
+			$this->assign(array(
+				'dateFormatShort' => Config::getVar('general', 'date_format_short'),
+				'dateFormatLong' => Config::getVar('general', 'date_format_long'),
+				'datetimeFormatShort' => Config::getVar('general', 'datetime_format_short'),
+				'datetimeFormatLong' => Config::getVar('general', 'datetime_format_long'),
+				'timeFormat' => Config::getVar('general', 'time_format'),
+			));
+		}
 
 		// Assign meta tags
 		if ($currentContext) {

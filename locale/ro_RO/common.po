@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-05 20:17+0000\n"
+"PO-Revision-Date: 2020-08-05 21:48+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ro_RO/>\n"
@@ -1169,8 +1169,8 @@ msgstr ""
 
 msgid "notification.type.allRevisionsIn"
 msgstr ""
-"A revised file has been uploaded for your editorial consideration in "
-"{$stage}."
+"Un fișier revizuit a fost încărcat pentru a fi luat în considerare pentru "
+"editare în {$stage}."
 
 msgid "notification.type.allReviewsIn"
 msgstr "Toți recenzorii au răspuns și este nevoie de o decizie în {$stage}."

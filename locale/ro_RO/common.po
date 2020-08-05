@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-04 12:56+0000\n"
+"PO-Revision-Date: 2020-08-05 20:17+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ro_RO/>\n"
@@ -750,7 +750,7 @@ msgid "navigation.settings"
 msgstr "Setări"
 
 msgid "navigation.register"
-msgstr "Înregistrează-te"
+msgstr "Înregistrare"
 
 msgid "navigation.search"
 msgstr "Caută"
@@ -1132,3 +1132,895 @@ msgstr "Nu se aplică"
 
 msgid "common.noComments"
 msgstr "Fără comentarii"
+
+msgid "user.authorization.invalidPublication"
+msgstr "Publicare nevalidă."
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"Utilizatorul curent nu este autorizat să acceseze fișierul de trimitere "
+"specificat."
+
+msgid "notification.signedFile"
+msgstr "Fișier considerat."
+
+msgid "notification.type.reviewerComment"
+msgstr "Un revizor a comentat \"{$title}\"."
+
+msgid "notification.type.metadataModified"
+msgstr "Metadatele \"{$title}'s\" au fost modificate."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Revizuire înregistrată în {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Revizuire considerată în {$stage}."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Revizuire în așteptare."
+
+msgid "search.matchAll"
+msgstr "Potriviți toate categoriile"
+
+msgid "notification.reminderError"
+msgstr ""
+"A apărut o eroare la trimiterea parolei, asigurați-vă că ați introdus corect "
+"adresa dvs. de e-mail."
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"A revised file has been uploaded for your editorial consideration in "
+"{$stage}."
+
+msgid "notification.type.allReviewsIn"
+msgstr "Toți recenzorii au răspuns și este nevoie de o decizie în {$stage}."
+
+msgid "notification.type.auditorRequest"
+msgstr "Cerere de audit pentru \"{$file}\""
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Revizuire în așteptare."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Anunț nou."
+
+msgid "notification.editStageParticipant"
+msgstr "Sarcina de etapă a fost modificată."
+
+msgid "notification.addedStageParticipant"
+msgstr "Utilizator adăugat ca participant la etapă."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Evaluatorul s-a reintegrat."
+
+msgid "notification.cancelledReviewer"
+msgstr "Evaluatorul a fost anulat."
+
+msgid "notification.removedReviewer"
+msgstr "Evaluatorul a fost eliminat."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} a fost desemnat să examineze acest manuscris și nu a trimis "
+"o notificare prin e-mail."
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName} a fost desemnat să examineze acest manuscris și a trimis o "
+"notificare prin e-mail."
+
+msgid "navigation.goBack"
+msgstr "Mergi înapoi"
+
+msgid "submission.task.responseDueDate"
+msgstr "Data limită de răspuns"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Data limită de răspuns"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Data limită de revizie"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Cererea editorului"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Revizuire program"
+
+msgid "dashboard.tasks"
+msgstr "Sarcini"
+
+msgid "grid.action.markRead"
+msgstr "Marcaj citit"
+
+msgid "grid.action.markNew"
+msgstr "Marcaj nou"
+
+msgid "grid.action.deleteNotification"
+msgstr "Ștergeți sarcina"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Citiți politica actuală de revizuire"
+
+msgid "review.ensuringBlindReview"
+msgstr "Asigurarea unei revizii în orb"
+
+msgid "context.path"
+msgstr "Cale"
+
+msgid "grid.action.downloadFile"
+msgstr "Descărcați acest fișier"
+
+msgid "search.title"
+msgstr "Titlu"
+
+msgid "search.titleIndex"
+msgstr "Navigator index titluri"
+
+msgid "search.subject"
+msgstr "Cuvinte cheie"
+
+msgid "search.searchResults"
+msgstr "Rezultatele căutării"
+
+msgid "search.SearchFor"
+msgstr "Caută pentru"
+
+msgid "search.operator.or"
+msgstr "ori"
+
+msgid "search.operator.not"
+msgstr "nu"
+
+msgid "search.operator.and"
+msgstr "și"
+
+msgid "search.noResults"
+msgstr "Fără rezultate"
+
+msgid "search.indexTermsLong"
+msgstr "Toate câmpurile indexului de termeni"
+
+msgid "search.indexTerms"
+msgstr "Termenii indexului"
+
+msgid "search.fullText"
+msgstr "Text complet"
+
+msgid "search.discipline"
+msgstr "Discipline"
+
+msgid "search.deleteFilter"
+msgstr "Șterge"
+
+msgid "search.dateTo"
+msgstr "Publicat înainte"
+
+msgid "search.dateFrom"
+msgstr "Publicat după"
+
+msgid "search.date"
+msgstr "Data publicării"
+
+msgid "search.coverage"
+msgstr "Coperta"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} articole indexate"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "eroare"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "gata"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Curățire index"
+
+msgid "search.searchAgain"
+msgstr "Caută din nou"
+
+msgid "search.advancedSearchLess"
+msgstr "Ascundeți mai multe opțiuni de căutare"
+
+msgid "search.advancedSearchMore"
+msgstr "Mai multe opțiuni de căutare"
+
+msgid "search.advancedFilters"
+msgstr "Filtre avansate"
+
+msgid "search.abstract"
+msgstr "Rezumat"
+
+msgid "search.author"
+msgstr "De autor"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Trimiteți email de notificare către toți utilizatorii"
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Metadatele de înregistrare au fost salvate."
+
+msgid "notification.reminderSent"
+msgstr ""
+"A apărut o eroare la trimiterea parolei, asigurați-vă că ați introdus corect "
+"adresa dvs. de e-mail."
+
+msgid "notification.settings"
+msgstr "Setări notificare"
+
+msgid "notification.sentNotification"
+msgstr "Notificare trimisă."
+
+msgid "notification.notifications"
+msgstr "Notificări"
+
+msgid "notification.notification"
+msgstr "Notificare"
+
+msgid "notification.removedSubmission"
+msgstr "Înregistrare eliminată."
+
+msgid "notification.removedFile"
+msgstr "Fișier îndepărtat."
+
+msgid "notification.removedNote"
+msgstr "Notă ștearsă."
+
+msgid "notification.addedNote"
+msgstr "Notă postată."
+
+msgid "notification.noneExist"
+msgstr "Nu aveți notificări în acest moment."
+
+msgid "notification.email"
+msgstr "Nu-mi trimiteți un e-mail pentru aceste tipuri de notificări."
+
+msgid "notification.confirmSuccess"
+msgstr "Ați fost înregistrat cu succes."
+
+msgid "notification.confirmError"
+msgstr "A apărut o eroare la confirmarea înregistrării."
+
+msgid "notification.editedAuthor"
+msgstr "Autor editat."
+
+msgid "notification.addedAuthor"
+msgstr "Autor adăugat."
+
+msgid "notification.removedAnnouncement"
+msgstr "Anunțul a fost îndepărtat."
+
+msgid "notification.addedAnnouncement"
+msgstr "Anunțul a fost adăugat."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Tipul de anunț a fost îndepărtat."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Tipul de anunț editat."
+
+msgid "notification.addedAnnouncementType"
+msgstr "A fost adăugat tipul de anunț."
+
+msgid "notification.allow"
+msgstr "Activați aceste tipuri de notificări."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Examinați fișierele actualizate."
+
+msgid "navigation.publicMenu"
+msgstr "Meniu public"
+
+msgid "navigation.previousStep"
+msgstr "Pasul anterior"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.nextStep"
+msgstr "Pasul următor"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} din {$total} elemente"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} din {$total} elemente"
+
+msgid "navigation.infoForReaders"
+msgstr "Pentru cititori"
+
+msgid "navigation.home"
+msgstr "Acasă"
+
+msgid "navigation.data"
+msgstr "Data"
+
+msgid "navigation.dashboard"
+msgstr "Tablou de bord"
+
+msgid "navigation.browseByTitle"
+msgstr "De titlu"
+
+msgid "navigation.browseByAuthor"
+msgstr "De autor"
+
+msgid "navigation.browse"
+msgstr "Navigator"
+
+msgid "navigation.tools.statistics"
+msgstr "Statistici"
+
+msgid "navigation.tools"
+msgstr "Unelte"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Esti aici:"
+
+msgid "navigation.admin"
+msgstr "Administrare"
+
+msgid "locale.supported"
+msgstr "Locații acceptate"
+
+msgid "locale.primary"
+msgstr "Localizare primară"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Nu se pot face modificări privind acest participant"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Participant"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Permiteți acestei persoane să efectueze modificări asupra datelor "
+"articolului, cum ar fi titlul, rezumatul, metadatele și alte detalii despre "
+"publicație. Puteți revoca acest privilegiu dacă trimiterea a primit un "
+"control final și este gata de publicare."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Permisiuni"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Acest participant are voie să recomande doar o decizie editorială și va "
+"solicita unui editor autorizat să înregistreze deciziile editoriale."
+
+msgid "stageParticipants.options"
+msgstr "Privilegiile de atribuire"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Vă rugăm să vă asigurați că ați completat câmpul de mesaje și ați inclus pe "
+"altcineva decât dvs. în discuție."
+
+msgid "stageParticipants.notify.message"
+msgstr "Mesaj"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+"Alegeți un mesaj predefinit pe care să-l utilizați sau completați formularul "
+"de mai jos."
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Începeți o discuție cu {$userFullName}."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Începeți discuția"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Notificare trimisă utilizatorilor."
+
+msgid "icon.view.alt"
+msgstr "Vizualizare"
+
+msgid "icon.unchecked.alt"
+msgstr "Neverificat"
+
+msgid "icon.mail.alt"
+msgstr "Email"
+
+msgid "icon.letter.alt"
+msgstr "Scrisoare"
+
+msgid "icon.info.alt"
+msgstr "Info"
+
+msgid "icon.font_small.alt"
+msgstr "Mic"
+
+msgid "icon.font_medium.alt"
+msgstr "Mediu"
+
+msgid "icon.font_large.alt"
+msgstr "Lare"
+
+msgid "icon.folder.alt"
+msgstr "Director"
+
+msgid "icon.edit.alt"
+msgstr "Editează"
+
+msgid "icon.delete.alt"
+msgstr "Șterge"
+
+msgid "icon.comment.alt"
+msgstr "Comentariu"
+
+msgid "icon.checked.alt"
+msgstr "Verificat"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} în {$localeName}"
+
+msgid "form.invalidImage"
+msgstr ""
+"A fost încărcată o imagine invalidă. Formatele acceptate sunt .png, .gif, "
+"sau .jpg."
+
+msgid "form.submit"
+msgstr "Înregistrează"
+
+msgid "form.send"
+msgstr "Trimite"
+
+msgid "form.saveToUpload"
+msgstr "Folosiți Salvare pentru a încărca fișierul."
+
+msgid "form.resubmit"
+msgstr "Retrimite"
+
+msgid "form.requireId"
+msgstr "Trebuie să furnizați un ID valid."
+
+msgid "form.required"
+msgstr "(* Obligatoriu)"
+
+msgid "form.fileRequired"
+msgstr "Este necesară încărcarea fișierului."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Formularul nu a putut fi depus. Este posibil să fiți deconectat. Reîncărcați "
+"pagina și încercați din nou."
+
+msgid "form.postRequired"
+msgstr "Formularul nu a fost trimis corect."
+
+msgid "form.startsWith"
+msgstr "începe cu"
+
+msgid "form.missingRequired"
+msgstr "Acest câmp este obligatoriu."
+
+msgid "form.is"
+msgstr "este"
+
+msgid "form.contains"
+msgstr "conține"
+
+msgid "form.errorsOccurred"
+msgstr "Au apărut erori la procesarea acestui formular"
+
+msgid "form.errorUnknown"
+msgstr ""
+"A apărut o eroare neașteptată. Este posibil să fiți deconectat. Reîncărcați "
+"pagina și încercați din nou."
+
+msgid "form.errors"
+msgstr ""
+"Formularul nu a fost salvat deoarece {$count} erori au fost înregistrate. Vă "
+"rugăm să corectați aceste erori și încercați din nou."
+
+msgid "form.errorMany"
+msgstr "Vă rugăm să corectați {$count} erori."
+
+msgid "form.errorOne"
+msgstr "Vă rugăm să corectați o eroare."
+
+msgid "form.errorGoTo"
+msgstr "Treci la următoarea eroare"
+
+msgid "form.errorA11y"
+msgstr "Mergi la {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Nu mai puteți încărca fișiere."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Șterge fișier"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Sigur doriți să anulați această încărcare?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Încărcare anulată"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Anulați încărcarea"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Serverul a răspuns cu codul {{statusCode}}. Vă rugăm să contactați "
+"administratorul de sistem dacă această problemă persistă."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Fișierele de acest tip nu pot fi încărcate."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Fișierul este prea mare ({{filesize}}mb). Fișierele mai mari decât "
+"{{maxFilesize}}mb nu pot fi încărcate."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"Vă rugăm să utilizați formularul de retragere de mai jos pentru a încărca "
+"fișierele dvs."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Browserul dvs. nu acceptă încărcări de fișiere drag'n'drop."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Trage fișierele aici pentru a le încărca"
+
+msgid "form.disallowedProp"
+msgstr "Această proprietate nu este permisă."
+
+msgid "form.dataHasChanged"
+msgstr ""
+"Datele din acest formular au fost schimbate. Doriți să continuați fără a "
+"salva?"
+
+msgid "form.emailRequired"
+msgstr "Este necesară o adresă de email."
+
+msgid "form.confirmSubmit.title"
+msgstr "Confirmă"
+
+msgid "form.confirmSubmit"
+msgstr "Sigur doriți să trimiteți acest formular?"
+
+msgid "form.url.invalid"
+msgstr ""
+"Adresa URL specificată nu este validă. Verificați-o și încercați din nou."
+
+msgid "email.to"
+msgstr "Către"
+
+msgid "email.bodyRequired"
+msgstr "Vă rugăm să furnizați textul corpului de e-mail."
+
+msgid "email.subjectRequired"
+msgstr "Vă rugăm să furnizați un subiect de e-mail."
+
+msgid "email.subject"
+msgstr "Subiect"
+
+msgid "email.skip"
+msgstr "Sari peste email"
+
+msgid "email.send"
+msgstr "Trimite"
+
+msgid "email.senderEmail"
+msgstr "Email expeditor"
+
+msgid "email.senderName"
+msgstr "Nume expeditor"
+
+msgid "email.sender"
+msgstr "Expeditor"
+
+msgid "email.recipients"
+msgstr "Destinatari"
+
+msgid "email.recipient"
+msgstr "Destinatar"
+
+msgid "email.multipart"
+msgstr "Acesta este un mesaj în mai multe părți în format MIME."
+
+msgid "email.invalid"
+msgstr "Această adresă de email {$email} este invalidă."
+
+msgid "email.from"
+msgstr "De la"
+
+msgid "email.email"
+msgstr "Email"
+
+msgid "email.compose.error"
+msgstr ""
+"A apărut o problemă la trimiterea unui mesaj de e-mail. Încercați din nou "
+"mai târziu sau contactați administratorul de sistem."
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"Încercați să trimiteți un mesaj prea devreme după trimiterea ultimului "
+"mesaj. Vă rugăm să așteptați înainte de a trimite un alt mesaj."
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Mesajul pe care încercați să îl trimiteți are prea mulți destinatari."
+
+msgid "email.compose"
+msgstr "Trimite email"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.body"
+msgstr "Corp"
+
+msgid "email.bccSender"
+msgstr "Trimite o copie a acestui mesaj la adresa mea ({$address})"
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.attachments"
+msgstr "Atașamente"
+
+msgid "email.addToRecipient"
+msgstr "Adaugă destinatar"
+
+msgid "email.addCcRecipient"
+msgstr "Adaugă CC"
+
+msgid "email.addBccRecipient"
+msgstr "Adaugă BCC"
+
+msgid "email.addAttachment"
+msgstr "Adaugă un atașament"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Încarcă un fișier"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Încarcă revizia"
+
+msgid "navigation.login"
+msgstr "Autentificare"
+
+msgid "search.noKeywordError"
+msgstr "Potriviți toate categoriile."
+
+msgid "notification.editedAnnouncement"
+msgstr "Anunțul a fost editat."
+
+msgid "validator.same"
+msgstr "{$attribute} și {$other} trebuie să se potrivească."
+
+msgid "validator.required_without_all"
+msgstr ""
+"Acest câmp este obligatoriu când nici unul dintre {$values} nu este prezent."
+
+msgid "validator.required_without"
+msgstr "Acest câmp este obligatoriu când {$values} nu este prezent."
+
+msgid "validator.required_with_all"
+msgstr "Acest câmp este obligatoriu când {$values} este prezent."
+
+msgid "validator.required_with"
+msgstr "Acest câmp este obligatoriu când {$values} este prezent."
+
+msgid "validator.required_unless"
+msgstr "Acest câmp este obligatoriu dacă nu {$other} este în {$values}."
+
+msgid "validator.required_if"
+msgstr "Acest câmp este obligatoriu când {$other} este {$value}."
+
+msgid "validator.required"
+msgstr "Acest câmp este obligatoriu."
+
+msgid "validator.regex"
+msgstr "Acesta nu este formatat corect."
+
+msgid "validator.present"
+msgstr "Câmpul {$attribute} trebuie să fie prezent."
+
+msgid "validator.orcid"
+msgstr "Acesta nu este un ORCID valid."
+
+msgid "validator.numeric"
+msgstr "Acesta nu este un număr valid."
+
+msgid "validator.not_in"
+msgstr "{$attribute} atributul selectat este invalid."
+
+msgid "validator.min.array"
+msgstr "Acesta trebuie să aibă cel puțin {$min} elemente."
+
+msgid "validator.min.string"
+msgstr "Acesta trebuie să fie cel puțin {$min} caractere."
+
+msgid "validator.min.file"
+msgstr "Acesta trebuie să fie cel puțin {$min} kilobiți."
+
+msgid "validator.min.numeric"
+msgstr "Acesta trebuie să fie cel puțin {$min}."
+
+msgid "validator.mimes"
+msgstr "Acesta trebuie să fie un fișier de tip {$values}."
+
+msgid "validator.max.array"
+msgstr "Acesta nu poate avea mai mult de {$max} caractere."
+
+msgid "validator.max.string"
+msgstr "Acesta nu poate fi mai mare de {$max} caractere."
+
+msgid "validator.max.file"
+msgstr "Acesta nu poate fi mai mare de {$max} kilobiți."
+
+msgid "validator.max.numeric"
+msgstr "Acesta nu poate fi mai mare de {$max}."
+
+msgid "validator.json"
+msgstr "Acesta nu este un șir JSON valid."
+
+msgid "validator.issn"
+msgstr "Acesta nu este un ISSN valid."
+
+msgid "validator.ip"
+msgstr "Aceasta nu este o adresă IP validă."
+
+msgid "validator.integer"
+msgstr "Acesta nu este un număr întreg valid."
+
+msgid "validator.in"
+msgstr "{$attribute} selectat este invalid."
+
+msgid "validator.image"
+msgstr "Aceasta trebuie să fie o imagine."
+
+msgid "validator.filled"
+msgstr "Acest câmp este obligatoriu."
+
+msgid "validator.exists"
+msgstr "{$attribute} selectat este invalid."
+
+msgid "validator.email"
+msgstr "Aceasta nu este o adresă de email validă."
+
+msgid "validator.digits_between"
+msgstr "Acesta trebuie să fie între {$min} și {$max} digiți."
+
+msgid "validator.digits"
+msgstr "Acesta trebuie să fie de {$digits} digiți lungime."
+
+msgid "validator.size.file"
+msgstr "Aceasta trebuie să fie {$size} kilobiți."
+
+msgid "validator.size.numeric"
+msgstr "Aceasta trebuie să fie {$size}."
+
+msgid "validator.size.string"
+msgstr "Aceasta trebuie să fie {$size} caractere."
+
+msgid "validator.size.array"
+msgstr "Acesta trebuie să conțină {$size} elemente."
+
+msgid "validator.string"
+msgstr "Acesta nu este un șir valid."
+
+msgid "validator.unique"
+msgstr "{$attribute} a fost deja luat."
+
+msgid "validator.timezone"
+msgstr "Acesta nu este un fus orar valid."
+
+msgid "validator.url"
+msgstr "Acesta nu este un URL valid."
+
+msgid "validator.different"
+msgstr "{$attribute} și {$other} trebuie să difere neapărat."
+
+msgid "validator.date_format"
+msgstr "Acesta nu corespunde formatului {$format}."
+
+msgid "validator.date"
+msgstr "Aceasta nu este o dată valabilă."
+
+msgid "validator.currency"
+msgstr "Aceasta nu este o monedă valabilă."
+
+msgid "validator.confirmed"
+msgstr "Confirmarea pentru acest câmp nu se potrivește."
+
+msgid "validator.boolean"
+msgstr "Acest câmp trebuie să fie adevărat sau fals."
+
+msgid "validator.between.array"
+msgstr "Acesta trebuie să fie între {$min} și {$max} elemente."
+
+msgid "validator.between.string"
+msgstr "Acesta trebuie să fie între {$min} și {$max} caractere."
+
+msgid "validator.between.file"
+msgstr "Acesta trebuie să fie între {$min} și {$max} kilobiți."
+
+msgid "validator.between.numeric"
+msgstr "Aceasta trebuie să fie între {$min} și {$max}."
+
+msgid "validator.before"
+msgstr "Această dată trebuie să fie înainte {$date}."
+
+msgid "validator.array"
+msgstr "Acesta nu este un tablou valid."
+
+msgid "validator.alpha_num"
+msgstr "Acesta poate conține doar litere și numere."
+
+msgid "validator.alpha_dash"
+msgstr "Acest lucru nu poate conține decât litere, numere, liniuțe. etc."
+
+msgid "validator.alpha"
+msgstr "Aceasta poate conține doar litere."
+
+msgid "validator.after"
+msgstr "Această dată trebuie să fie după {$date}."
+
+msgid "validator.active_url"
+msgstr "Acesta nu este un URL valid."
+
+msgid "validator.accepted"
+msgstr "Vă rugăm să acceptați acest element .."
+
+msgid "notification.removedNavigationMenu"
+msgstr "Meniul de navigare a fost eliminat cu succes"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Meniul de navigare a fost actualizat cu succes"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Meniul de navigare a fost adăugat cu succes"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Elementul de meniu de navigare a fost adăugat cu succes"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Elementul de meniu de navigare a fost eliminat cu succes"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Elementul meniului de navigare a fost actualizat cu succes"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Acesta este o reamintire pentru a verifica starea de sănătate a jurnalului "
+"dvs. prin raportul editorial."
+
+msgid "notification.type.editorialReport"
+msgstr "Rezumatul raportului statistic."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Status Runda {$round}"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Editor de conținut în așteptare."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Alocați un editor de conținut folosind linkul Alocare din lista Participanți."
+
+msgid "notification.type.queryAdded"
+msgstr "Discuția a fost adăugată."
+
+msgid "notification.type.queryActivity"
+msgstr "Activitate de discuție."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Utilizatorul curent nu este autorul trimiterii solicitate. Vă rugăm să "
+"verificați dacă sunteți autentificat cu contul de utilizator corect."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Reprezentare nevalidă."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Înregistrare nevalidă."

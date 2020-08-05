@@ -26,7 +26,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 	 */
 	public function __construct() {
 		$this->_handlerPath = 'stats/publications';
-		$roles = array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER);
+		$roles = array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR);
 		$this->_endpoints = array(
 			'GET' => array (
 				array(

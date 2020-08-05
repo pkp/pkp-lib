@@ -922,6 +922,29 @@ class PKPTemplateManager extends Smarty {
 							'isCurrent' => $router->getRequestedPage($request) === 'submission',
 						];
 					}
+					
+					if (count(array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $userRoles))) {
+						$menu['statistics'] = [
+							'name' => __('navigation.tools.statistics'),
+							'submenu' => [
+								'publications' => [
+									'name' => __('common.publications'),
+									'url' => $router->url($request, null, 'stats', 'publications', 'publications'),
+									'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'publications',
+								],
+								'editorial' => [
+									'name' => __('stats.editorialActivity'),
+									'url' => $router->url($request, null, 'stats', 'editorial', 'editorial'),
+									'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'editorial',
+								],
+								'users' => [
+									'name' => __('manager.users'),
+									'url' => $router->url($request, null, 'stats', 'users', 'users'),
+									'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'users',
+								]
+							]
+						];
+					}
 
 					if (in_array(ROLE_ID_MANAGER, $userRoles)) {
 						if ($request->getContext()->getData('enableAnnouncements')) {
@@ -931,6 +954,13 @@ class PKPTemplateManager extends Smarty {
 								'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('announcements', (array) $router->getRequestedArgs($request)),
 							];
 						}
+						$menu['statistics']['submenu'] += [
+							'reports' => [
+								'name' => __('manager.statistics.reports'),
+								'url' => $router->url($request, null, 'management', 'tools', null, null, 'statistics'),
+								'isCurrent' => $router->getRequestedPage($request) === 'management' && $router->getRequestedAnchor($request) === 'statistics',
+							]
+						];
 						$menu['settings'] = [
 							'name' => __('navigation.settings'),
 							'submenu' => [
@@ -958,31 +988,6 @@ class PKPTemplateManager extends Smarty {
 									'name' => __('navigation.access'),
 									'url' => $router->url($request, null, 'management', 'settings', 'access'),
 									'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('access', (array) $router->getRequestedArgs($request)),
-								]
-							]
-						];
-						$menu['statistics'] = [
-							'name' => __('navigation.tools.statistics'),
-							'submenu' => [
-								'publications' => [
-									'name' => __('common.publications'),
-									'url' => $router->url($request, null, 'stats', 'publications', 'publications'),
-									'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'publications',
-								],
-								'editorial' => [
-									'name' => __('stats.editorialActivity'),
-									'url' => $router->url($request, null, 'stats', 'editorial', 'editorial'),
-									'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'editorial',
-								],
-								'users' => [
-									'name' => __('manager.users'),
-									'url' => $router->url($request, null, 'stats', 'users', 'users'),
-									'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'users',
-								],
-								'reports' => [
-									'name' => __('manager.statistics.reports'),
-									'url' => $router->url($request, null, 'management', 'tools', null, null, 'statistics'),
-									'isCurrent' => $router->getRequestedPage($request) === 'management' && $router->getRequestedAnchor($request) === 'statistics',
 								]
 							]
 						];

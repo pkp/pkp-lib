@@ -710,6 +710,33 @@ msgstr "Введіть контактні дані, як правило, це г
 msgid "manager.setup.privacyStatement"
 msgstr "Заява про конфіденційність"
 
+msgid "manager.setup.dateTime"
+msgstr "Дата та час"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Опис"
+
+msgid "manager.setup.dateTime.description"
+msgstr "Вибиріть формат дати та часу для відображення в інтерфейсі. Якщо варіант, який підходить, відсутній, можна налаштувати власний формат відповідно до <a href='http://php.net/manual/en/function.strftime.php#refsect1-function.strftime-parameters'>цих параметрів</a>."
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Довгий формат дати"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Короткий фомат дати"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Формат часу"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Довгий формат дати та часу"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Короткий формат дати та часу"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Власний"
+
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
 msgstr "Тижнів на згоду або відмову на запит про рецензування."
 

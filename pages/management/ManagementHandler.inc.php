@@ -169,6 +169,7 @@ class ManagementHandler extends Handler {
 		$listsForm = new \PKP\components\forms\context\PKPListsForm($contextApiUrl, $locales, $context);
 		$privacyForm = new \PKP\components\forms\context\PKPPrivacyForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
 		$themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $context);
+		$dateTimeForm = new \PKP\components\forms\context\PKPDateTimeForm($contextApiUrl, $locales, $context);
 
 		$templateMgr->setConstants([
 			'FORM_ANNOUNCEMENT_SETTINGS',
@@ -183,6 +184,7 @@ class ManagementHandler extends Handler {
 				FORM_LISTS => $listsForm->getConfig(),
 				FORM_PRIVACY => $privacyForm->getConfig(),
 				FORM_THEME => $themeForm->getConfig(),
+				FORM_DATE_TIME => $dateTimeForm->getConfig(),
 			],
 			'announcementsNavLink' => [
 				'name' => __('announcement.announcements'),

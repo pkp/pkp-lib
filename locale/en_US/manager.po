@@ -739,6 +739,33 @@ msgstr "Enter contact details, typically for a principal editorship, managing ed
 msgid "manager.setup.privacyStatement"
 msgstr "Privacy Statement"
 
+msgid "manager.setup.dateTime"
+msgstr "Date & Time"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Description"
+
+msgid "manager.setup.dateTime.description"
+msgstr "Pick the date and time format to display in the UI. If there isn't suitable option, custom format can be used according to <a href='http://php.net/manual/en/function.strftime.php#refsect1-function.strftime-parameters'>these parameters</a>."
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Long Date Format"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Short Date Format"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Time Format"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Long Date & Time Format"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Short Date & Time Format"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Custom"
+
 msgid "manager.setup.privacyStatement.description"
 msgstr "This statement will appear during user registration, author submission, and on the publicly available Privacy page. In some jurisdictions, you are legally required to disclose how you handle user data in this privacy policy."
 

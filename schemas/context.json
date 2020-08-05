@@ -149,6 +149,34 @@
 				"nullable"
 			]
 		},
+		"dateFormatLong": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"dateFormatShort": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"datetimeFormatLong": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"datetimeFormatShort": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"defaultReviewMode": {
 			"type": "integer",
 			"default": 2,
@@ -679,6 +707,13 @@
 		"themePluginPath": {
 			"type": "string",
 			"default": "default"
+		},
+		"timeFormat": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"type": {
 			"type": "string",

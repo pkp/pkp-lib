@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-07-29 21:33+0000\n"
+"PO-Revision-Date: 2020-08-06 11:27+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"manager/mk/>\n"
-"Language: mk\n"
+"manager/mk_MK/>\n"
+"Language: mk_MK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,3 +16,335 @@ msgstr "Изглед"
 
 msgid "manager.website.information"
 msgstr "Информација"
+
+msgid "manager.emails.editEmail.success"
+msgstr "Шаблонот за имејли е изменет."
+
+msgid "manager.emails.editEmail"
+msgstr "Уреди имелј"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Ќе го оневозможите образецот за е-пошта. Ако имало системски процеси кои го "
+"користат овој образец, тие повеќе нема да го користат. Дали сакате да ја "
+"потврдите оваа операција?"
+
+msgid "manager.emails.disable"
+msgstr "Оневозможи"
+
+msgid "manager.emails.details"
+msgstr "Детали за шаблонот"
+
+msgid "manager.emails.data"
+msgstr "Податоци за шаблонот за порака"
+
+msgid "manager.emails.customTemplate"
+msgstr "Кориснички шаблон"
+
+msgid "manager.emails.createEmail"
+msgstr "Креирај имејл"
+
+msgid "manager.emails.addEmail.success"
+msgstr "Шаблонот за имејл е додаден."
+
+msgid "manager.emails.addEmail"
+msgstr "Додади шаблон"
+
+msgid "manager.emails.confirmReset"
+msgstr ""
+"Дали сте сигурни дека сакате да го ресетирате овој образец за е-пошта на "
+"неговите основни вредности?"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Дали сте сигурни дека сакате да го избришете овој образец за е-пошта?"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Деталите за рецензија се ажурирани."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Нагодувањата за рецензија се ажурирани."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Упатства за рецензирање се ажурирани."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Упатства за рецензирање"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "Подесувањата за имејл се ажурирани."
+
+msgid "manager.publication.emails"
+msgstr "Имејли"
+
+msgid "manager.publication.productionStage"
+msgstr "Продукција"
+
+msgid "manager.publication.editorialStage"
+msgstr "Уредништво"
+
+msgid "manager.publication.reviewStage"
+msgstr "Рецензија"
+
+msgid "manager.publication.submissionStage"
+msgstr "Поднесок"
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Видови објави"
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Не се креирани видови на објави."
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Име на видот на објава е задолжително."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Име"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Овој вид објава веќе постои."
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Сними и креирај друг"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Уреди"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Уреди вид на објави"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Креирај"
+
+msgid "manager.announcementTypes.create"
+msgstr "Креирај вид на објава"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Предупредување! Ќе бидат избришани сите објависо овој вид . Дали сте сигурни "
+"дека сакате да продолжите и да го избришете овој вид на објави?"
+
+msgid "manager.announcementTypes"
+msgstr "Видови објави"
+
+msgid "manager.announcements.type"
+msgstr "Вид"
+
+msgid "manager.announcements.title"
+msgstr "Наслов"
+
+msgid "manager.announcements.noneCreated"
+msgstr "Објава не е создадена."
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Избери валиден вид на објава."
+
+msgid "manager.announcements.form.typeId"
+msgstr "Вид"
+
+msgid "manager.announcements.form.title"
+msgstr "Наслов"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Насловот на објавата е задолжителен."
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Зачувај и креирај друг"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Краток опис"
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Краток опис  на објавата е задолжителен."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Краток опис кој ќе стои покрај насловот на објавата."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Потребен е опис на објавата."
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Целиот текст на објавата."
+
+msgid "manager.announcements.form.description"
+msgstr "Опис"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Ве молиме изберете месец и / или ден  годината од крајниот рок."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Изберете важечки датум на истекување на објавата."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Изберете година и / или ден во прилог на месецот крајниот рок."
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Објавата ќе биде прикажан на читателите до овој датум. Оставете празно ако "
+"објавата треба да биде прикажана на неодредено време."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Краен рок"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Изберете година и / или месец покрај  денот на крајниот датум."
+
+msgid "manager.announcements.editTitle"
+msgstr "Уреди"
+
+msgid "manager.announcements.edit"
+msgstr "Уреди објава"
+
+msgid "manager.announcements.datePublish"
+msgstr "Објавено"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Истекува"
+
+msgid "manager.announcements.createTitle"
+msgstr "Креирај"
+
+msgid "manager.announcements.create"
+msgstr "Создадете нова објава"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Дали сте сигурни дека сакате трајно да ја избришете оваа објава?"
+
+msgid "manager.announcements"
+msgstr "Известувања"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Потребна е слика. Ве молиме, проверете дали сте одбрале и поставиле фајл."
+
+msgid "manager.groups.title"
+msgstr "Наслов"
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Нема членови."
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Групата нема членови."
+
+msgid "manager.groups.membership"
+msgstr "Членство"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Дали сте сигурни дека сакате да го избришете членството во оваа група?"
+
+msgid "manager.groups.membership.addMember"
+msgstr "Додади член"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Потребен наслов на групата."
+
+msgid "manager.groups.editTitle"
+msgstr "Уреди наслов"
+
+msgid "manager.groups.createTitle"
+msgstr "Креирај наслов"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Дали сакате да ја избришите групата?"
+
+msgid "manager.files.uploadFile"
+msgstr "Уплодиран фајл"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Аплодирани фајлови"
+
+msgid "manager.files.parentDir"
+msgstr "Надреден директориум"
+
+msgid "manager.files.indexOfDir"
+msgstr "Индекс {$dir}"
+
+msgid "manager.files.emptyDir"
+msgstr "Не се пронајдени датотеки во овој директориум."
+
+msgid "manager.files.createDir"
+msgstr "Креирај директориум"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"Избришете ја оваа датотека или директориум? Забележете дека директориумот "
+"мора да биде празен пред да може да се избрише."
+
+msgid "manager.filesBrowser"
+msgstr "Прегледувач на фајлови"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Предмет {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Пратено на"
+
+msgid "manager.emails.sentFrom"
+msgstr "Пратено од"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Ресетирај"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Ако го ресетирате овој образец, сите податоци за пораките ќе бидат "
+"ресетирани на неговата основна вредност, губејќи ги сите модификации. Дали "
+"сакате да ја потврдите оваа операција?"
+
+msgid "manager.emails.reset"
+msgstr "Ресет"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Ако ги ресетирате сите шаблони, сите измени во шаблоните за е-пошта ќе бидат "
+"изгубени. Дали сакате да ја потврдите оваа операција?"
+
+msgid "manager.emails.resetAll"
+msgstr "Ресетирај сѐ"
+
+msgid "manager.emails"
+msgstr "Подготвени имејли"
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Потребен е предмет за имејлот."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Потребен е текст во имејлот."
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"За имејлот е потребен единствен клуч за имејлот што нема празни места или "
+"специјални карактери."
+
+msgid "manager.emails.enable.message"
+msgstr "Го овозможивте овој имејл. Дали сакате да ја потврдите оваа операција?"
+
+msgid "manager.emails.enable"
+msgstr "Овозможи"
+
+msgid "manager.emails.enabled"
+msgstr "Овозможи го овој шаблон за имелј"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Клучот што го дадовте е веќе во употреба."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"Мора да да дадете идентификација на контекст кога додавате образец за имејл."
+
+msgid "manager.emails.emailTemplates"
+msgstr "Шаблони за имејл"
+
+msgid "manager.emails.emailTemplate"
+msgstr "Шаблон за имејл"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "Клучот веќе постои. Клучот мора да бидат уникатни."
+
+msgid "manager.emails.emailKey.description"
+msgstr "Клучот за имелј може да содржи само букви, броеви и дополнувања."
+
+msgid "manager.emails.emailKey"
+msgstr "Имејл клуч"
+
+msgid "manager.emails.editTestExample"
+msgstr "Уреди примерок за имејл тест"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-04 07:48+0000\n"
+"PO-Revision-Date: 2020-08-06 11:27+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
@@ -215,3 +215,136 @@ msgstr "Известувања"
 msgid "manager.website.imageFileRequired"
 msgstr ""
 "Потребна е слика. Ве молиме, проверете дали сте одбрале и поставиле фајл."
+
+msgid "manager.groups.title"
+msgstr "Наслов"
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Нема членови."
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Групата нема членови."
+
+msgid "manager.groups.membership"
+msgstr "Членство"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Дали сте сигурни дека сакате да го избришете членството во оваа група?"
+
+msgid "manager.groups.membership.addMember"
+msgstr "Додади член"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Потребен наслов на групата."
+
+msgid "manager.groups.editTitle"
+msgstr "Уреди наслов"
+
+msgid "manager.groups.createTitle"
+msgstr "Креирај наслов"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Дали сакате да ја избришите групата?"
+
+msgid "manager.files.uploadFile"
+msgstr "Уплодиран фајл"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Аплодирани фајлови"
+
+msgid "manager.files.parentDir"
+msgstr "Надреден директориум"
+
+msgid "manager.files.indexOfDir"
+msgstr "Индекс {$dir}"
+
+msgid "manager.files.emptyDir"
+msgstr "Не се пронајдени датотеки во овој директориум."
+
+msgid "manager.files.createDir"
+msgstr "Креирај директориум"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"Избришете ја оваа датотека или директориум? Забележете дека директориумот "
+"мора да биде празен пред да може да се избрише."
+
+msgid "manager.filesBrowser"
+msgstr "Прегледувач на фајлови"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Предмет {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Пратено на"
+
+msgid "manager.emails.sentFrom"
+msgstr "Пратено од"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Ресетирај"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Ако го ресетирате овој образец, сите податоци за пораките ќе бидат "
+"ресетирани на неговата основна вредност, губејќи ги сите модификации. Дали "
+"сакате да ја потврдите оваа операција?"
+
+msgid "manager.emails.reset"
+msgstr "Ресет"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Ако ги ресетирате сите шаблони, сите измени во шаблоните за е-пошта ќе бидат "
+"изгубени. Дали сакате да ја потврдите оваа операција?"
+
+msgid "manager.emails.resetAll"
+msgstr "Ресетирај сѐ"
+
+msgid "manager.emails"
+msgstr "Подготвени имејли"
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Потребен е предмет за имејлот."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Потребен е текст во имејлот."
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"За имејлот е потребен единствен клуч за имејлот што нема празни места или "
+"специјални карактери."
+
+msgid "manager.emails.enable.message"
+msgstr "Го овозможивте овој имејл. Дали сакате да ја потврдите оваа операција?"
+
+msgid "manager.emails.enable"
+msgstr "Овозможи"
+
+msgid "manager.emails.enabled"
+msgstr "Овозможи го овој шаблон за имелј"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Клучот што го дадовте е веќе во употреба."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"Мора да да дадете идентификација на контекст кога додавате образец за имејл."
+
+msgid "manager.emails.emailTemplates"
+msgstr "Шаблони за имејл"
+
+msgid "manager.emails.emailTemplate"
+msgstr "Шаблон за имејл"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "Клучот веќе постои. Клучот мора да бидат уникатни."
+
+msgid "manager.emails.emailKey.description"
+msgstr "Клучот за имелј може да содржи само букви, броеви и дополнувања."
+
+msgid "manager.emails.emailKey"
+msgstr "Имејл клуч"
+
+msgid "manager.emails.editTestExample"
+msgstr "Уреди примерок за имејл тест"

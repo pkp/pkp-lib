@@ -114,13 +114,18 @@
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" anchor="permissions"}">{translate key="settings.libraryFiles.category.permissions"}</a></li>
 								</ul>
 							</li>
+						{/if}
+
+						{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), (array)$userRoles)}
 							<li aria-haspopup="true" aria-expanded="false">
 								<a href="#">{translate key="navigation.tools.statistics"}</a>
 								<ul>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="stats" op="publications"}">{translate key="common.publications"}</a></li>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="stats" op="editorial"}">{translate key="stats.editorialActivity"}</a></li>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="stats" op="users"}">{translate key="manager.users"}</a></li>
+								{if array_intersect(array(ROLE_ID_MANAGER), (array)$userRoles)}
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" anchor="statistics"}">{translate key="manager.statistics.reports"}</a></li>
+								{/if}
 								</ul>
 							</li>
 						{/if}

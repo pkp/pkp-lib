@@ -29,7 +29,7 @@ class PKPStatsUserHandler extends APIHandler {
 				[
 					'pattern' => $this->getEndpointPattern(),
 					'handler' => [$this, 'get'],
-					'roles' => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER],
+					'roles' => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
 				],
 			],
 		];

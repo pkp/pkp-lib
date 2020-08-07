@@ -1,2 +1,348 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2020-08-08 02:28+0000\n"
+"Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
+"Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"ro_RO/>\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.task.status.unfinished"
+msgstr "Activitate nefinalizată"
+
+msgid "grid.task.status.uploaded"
+msgstr "Titlul coloanei indică cine a încărcat acest fișier"
+
+msgid "grid.task.status.new"
+msgstr "Verificat atunci când se ia în considerare"
+
+msgid "grid.task.status.completed"
+msgstr "Această activitate este finalizată"
+
+msgid "grid.action.users"
+msgstr "Vizualizare/ Selectare utilizatori"
+
+msgid "grid.action.moreItems"
+msgstr "Încărcați mai mult"
+
+msgid "grid.action.install"
+msgstr "Instalare"
+
+msgid "grid.action.preview"
+msgstr "Previzualizare"
+
+msgid "grid.action.copy"
+msgstr "Copie"
+
+msgid "grid.action.deactivate"
+msgstr "Dezavtivare"
+
+msgid "grid.action.activate"
+msgstr "Activare"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Sigur doriți să exportați toți utilizatorii?"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Exportați toți utilizatorii"
+
+msgid "grid.action.logInAs"
+msgstr "Autentificare ca"
+
+msgid "grid.action.bookInfo"
+msgstr "Info înregistrare manuscris"
+
+msgid "grid.action.enable"
+msgstr "Activare"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Această revizie este completă, dar este posibil să nu fie acceptată"
+
+msgid "grid.action.history"
+msgstr "Vizualizare istoric"
+
+msgid "grid.action.unassignUser"
+msgstr "Utilizator neatribuit"
+
+msgid "grid.action.mergeUser"
+msgstr "Fuziune utilizator"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Adăugare anunț"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Adăugare tip de anunț"
+
+msgid "grid.action.uploadFile"
+msgstr "Încărcați un fișier"
+
+msgid "grid.action.thankReviewer"
+msgstr "Trimiteți un mesaj de mulțumire acestui revizor"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Vizualizați politica abordărilor pentru interese concurente"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Consultați ghidul de revizuire"
+
+msgid "grid.action.newRound"
+msgstr "Creați o nouă rundă"
+
+msgid "grid.action.sendReminder"
+msgstr "Trimiteți un memento de activitate către acest utilizator"
+
+msgid "grid.action.viewMetadata"
+msgstr "Vizualizare metadate pentru înregistrare manuscris"
+
+msgid "grid.action.viewLibrary"
+msgstr "Vizualizare bibliotecă de documente"
+
+msgid "grid.action.advancedSearch"
+msgstr "Căutare avansată"
+
+msgid "grid.action.search"
+msgstr "Căutare"
+
+msgid "grid.action.selectCreate"
+msgstr "Creați un nou revizor"
+
+msgid "grid.action.enrolExisting"
+msgstr "Înrolați un utilizator existent ca revizor"
+
+msgid "grid.action.details"
+msgstr "Vizualizați acest element"
+
+msgid "grid.action.disable"
+msgstr "Dezactivare"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Ștergeți acest grup de utilizatori"
+
+msgid "grid.action.editUserGroup"
+msgstr "Editați acest grup de utilizatori"
+
+msgid "grid.action.addUserGroup"
+msgstr "Adăugare grup nou de utilizatori"
+
+msgid "grid.action.notify"
+msgstr "Notificați acest utilizator"
+
+msgid "grid.action.expand"
+msgstr "Extindere"
+
+msgid "grid.action.requestAccount"
+msgstr "Adăugare participant"
+
+msgid "grid.action.expandAll"
+msgstr "Extindeți toate"
+
+msgid "grid.action.resetEmail"
+msgstr "Resetați această machetă de email la valorile implicite"
+
+msgid "grid.action.disableEmail"
+msgstr "Dezactivați această machetă de email"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Editați această machetă de email"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Adăugați o nouă machetă de email"
+
+msgid "grid.action.resetAll"
+msgstr "Resetați toate elementele la valorile inițiale"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Ștergeți acest element din lista de verificare"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Editare element din lista de verificare"
+
+msgid "grid.action.orderItems"
+msgstr "Activare mod de ordonare"
+
+msgid "grid.action.importexport"
+msgstr "Importă sau exportă conținut sau date despre site"
+
+msgid "grid.action.settings"
+msgstr "Setări"
+
+msgid "grid.action.sendToProduction"
+msgstr "Trimiteți acest manuscris la producție"
+
+msgid "grid.action.externalReview"
+msgstr "Trimiteți acest manuscris spre revizuire externă"
+
+msgid "grid.action.internalReview"
+msgstr "Trimiteți acest manuscris spre revizuire internă"
+
+msgid "grid.action.decline"
+msgstr "Refuzați această înregistrare de manuscris"
+
+msgid "grid.action.accept"
+msgstr "Acceptați această înregistrare de manuscris"
+
+msgid "grid.action.requestRevisions"
+msgstr "Solicitați revizii pentru manuscrisul înregistrat"
+
+msgid "grid.action.selectFiles"
+msgstr "Selectați fișierele de gestionat"
+
+msgid "grid.action.editFile"
+msgstr "Editare fișier"
+
+msgid "grid.action.addFile"
+msgstr "Adăugare fișier"
+
+msgid "grid.action.addReviewer"
+msgstr "Adăugare revizoe"
+
+msgid "grid.action.email"
+msgstr "Trimitere email"
+
+msgid "grid.action.readReview"
+msgstr "Citiți această recenzie"
+
+msgid "grid.action.downloadAll"
+msgstr "Descărcați toate fișierele ca arhivă"
+
+msgid "grid.action.moveItem"
+msgstr "Mutare element"
+
+msgid "grid.action.wizard"
+msgstr "Asistentul pentru setări"
+
+msgid "grid.action.collapseAll"
+msgstr "Restrângeți toate"
+
+msgid "grid.action.collapse"
+msgstr "Restrângeți"
+
+msgid "grid.action.extendAll"
+msgstr "Extindeți toate"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Anulare ordonare"
+
+msgid "grid.action.order"
+msgstr "Ordonare"
+
+msgid "grid.action.upgrade"
+msgstr "Actualizare"
+
+msgid "grid.action.addAuditor"
+msgstr "Adăugare editor"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Ștergere autor"
+
+msgid "grid.action.editAuthor"
+msgstr "Editare autor"
+
+msgid "grid.action.addAuthor"
+msgstr "Adăugare autor"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Sunteți sigur că doriți să reveniți la valorile implicite?"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Restaurați la valorile implicite"
+
+msgid "grid.action.moreInformation"
+msgstr "Mai multe informații"
+
+msgid "grid.action.setApproval"
+msgstr "Setare Aprobare"
+
+msgid "grid.action.disapprove"
+msgstr "Dezaprobare"
+
+msgid "grid.action.approve"
+msgstr "Aprobare"
+
+msgid "grid.action.edit"
+msgstr "Editare"
+
+msgid "grid.action.remove"
+msgstr "Eliminați"
+
+msgid "grid.action.editorialHistory"
+msgstr "Istoria editorială"
+
+msgid "grid.action.deleteSection"
+msgstr "Ștergere secțiune"
+
+msgid "grid.action.export"
+msgstr "Export"
+
+msgid "grid.action.editSection"
+msgstr "Editați secțiunea"
+
+msgid "grid.action.editMedia"
+msgstr "Editați fișierul media"
+
+msgid "grid.action.deleteMedia"
+msgstr "Ștergeți fișierul media"
+
+msgid "grid.action.deleteFile"
+msgstr "Ștergeți fișierul"
+
+msgid "grid.action.delete"
+msgstr "Ștergeți"
+
+msgid "grid.action.reload"
+msgstr "Reluați"
+
+msgid "grid.action.approveCopyedit"
+msgstr ""
+"Aprobați acest fișier cu conținutul editat pentru a-l trimite la următoarea "
+"etapă"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Dezactivați acest revizor"
+
+msgid "grid.action.addUser"
+msgstr "Adăugare utilizator"
+
+msgid "grid.action.updateQuery"
+msgstr "Actualizează discuția"
+
+msgid "grid.action.deleteQuery"
+msgstr "Ștergeți discuția"
+
+msgid "grid.action.readQuery"
+msgstr "Citiți discuția"
+
+msgid "grid.action.addQuery"
+msgstr "Adăugare discuție"
+
+msgid "grid.action.addNote"
+msgstr "Adăugare notă"
+
+msgid "grid.action.addItem"
+msgstr "Adăugare element"
+
+msgid "grid.action.sort"
+msgstr "Sortare"
+
+msgid "grid.action.manageAccess"
+msgstr "Gestionează acces"
+
+msgid "grid.action.uninstall"
+msgstr "Dezinstalare"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Acest element este găzduit de la distanță."
+
+msgid "grid.noAuditors"
+msgstr "Fără auditori"
+
+msgid "grid.settings"
+msgstr "Setări"
+
+msgid "grid.noItems"
+msgstr "Fără elemente"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-07 08:48+0000\n"
+"PO-Revision-Date: 2020-08-07 16:28+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ro_RO/>\n"
@@ -579,3 +579,26 @@ msgid "author.editPublishedDisabled"
 msgstr ""
 "Autorii acestei publicații nu pot fi editați, deoarece aceasta a fost deja "
 "publicată."
+
+msgid "submission.event.confirmClearLog"
+msgstr ""
+"Sigur doriți să ștergeți jurnalul de evenimente pentru această trimitere?"
+
+msgid "submission.event.backToEventLog"
+msgstr "Înapoi la jurnalul de evenimente"
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) a fost retras din {$userGroupName}."
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$name} ({$username}) a fost atribuit acestei cereri ca {$userGroupName}."
+
+msgid "submission.emailLog"
+msgstr "Jurnal de e-mail"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Ștergeți intrarea jurnalului"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Sigur doriți să ștergeți această intrare de jurnal de e-mail?"

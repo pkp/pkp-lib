@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-07 05:59+0000\n"
+"PO-Revision-Date: 2020-08-07 16:28+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ro_RO/>\n"
@@ -57,10 +57,12 @@ msgid "api.submissions.403.unauthorizedDeleteSubmission"
 msgstr "Nu aveți permisiunea de a șterge această înregistrare."
 
 msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "Nu puteți șterge o trimitere care nu este atribuită acestui context."
+msgstr ""
+"Nu puteți șterge o înregistrare de manuscris care nu este atribuită acestui "
+"context."
 
 msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
-msgstr "Puteți vizualiza numai trimiterile nepublicate care vi s-au atribuit."
+msgstr "Puteți vizualiza numai manuscrisele nepublicate care vi s-au atribuit."
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""

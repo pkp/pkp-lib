@@ -500,7 +500,7 @@ class ReviewAssignmentDAO extends DAO {
 		$reviewAssignment->setDateReminded($this->datetimeFromDB($row['date_reminded']));
 		$reviewAssignment->setReminderWasAutomatic((int) $row['reminder_was_automatic']);
 		$reviewAssignment->setRound((int) $row['round']);
-		$reviewAssignment->setReviewFormId((int) $row['review_form_id']);
+		$reviewAssignment->setReviewFormId($row['review_form_id']);
 		$reviewAssignment->setReviewRoundId((int) $row['review_round_id']);
 		$reviewAssignment->setReviewMethod((int) $row['review_method']);
 		$reviewAssignment->setStageId((int) $row['stage_id']);

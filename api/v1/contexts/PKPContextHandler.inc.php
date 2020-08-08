@@ -32,12 +32,12 @@ class PKPContextHandler extends APIHandler {
 					'roles' => $roles,
 				),
 				array(
-					'pattern' => $this->getEndpointPattern() . '/{contextId}',
+					'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}',
 					'handler' => array($this, 'get'),
 					'roles' => $roles,
 				),
 				array(
-					'pattern' => $this->getEndpointPattern() . '/{contextId}/theme',
+					'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}/theme',
 					'handler' => array($this, 'getTheme'),
 					'roles' => $roles,
 				),
@@ -51,19 +51,19 @@ class PKPContextHandler extends APIHandler {
 			),
 			'PUT' => array(
 				array(
-					'pattern' => $this->getEndpointPattern() . '/{contextId}',
+					'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}',
 					'handler' => array($this, 'edit'),
 					'roles' => $roles,
 				),
 				array(
-					'pattern' => $this->getEndpointPattern() . '/{contextId}/theme',
+					'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}/theme',
 					'handler' => array($this, 'editTheme'),
 					'roles' => $roles,
 				),
 			),
 			'DELETE' => array(
 				array(
-					'pattern' => $this->getEndpointPattern() . '/{contextId}',
+					'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}',
 					'handler' => array($this, 'delete'),
 					'roles' => array(ROLE_ID_SITE_ADMIN),
 				),

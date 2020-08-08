@@ -35,6 +35,7 @@ class CommonMigration extends Migration {
 			$table->string('product_class_name', 80)->comment('Specifies the class name associated with this product, for plugins, or the empty string where not applicable.')->nullable();
 			$table->tinyInteger('lazy_load')->default(0)->comment('1 iff the row describes a lazy-load plugin; 0 otherwise');
 			$table->tinyInteger('sitewide')->default(0)->comment('1 iff the row describes a site-wide plugin; 0 otherwise');
+
 			$table->unique(['product_type', 'product', 'major', 'minor', 'revision', 'build'], 'versions_pkey');
 		});
 
@@ -53,6 +54,7 @@ class CommonMigration extends Migration {
 			$table->string('setting_name', 255);
 			$table->string('locale', 14)->default('');
 			$table->text('setting_value')->nullable();
+
 			$table->unique(['setting_name', 'locale'], 'site_settings_pkey');
 		});
 
@@ -83,26 +85,35 @@ class CommonMigration extends Migration {
 			$table->datetime('date_validated')->nullable();
 			$table->datetime('date_last_login');
 			$table->tinyInteger('must_change_password')->nullable();
+
 			$table->bigInteger('auth_id')->nullable();
+			$table->foreign('auth_id')->references('auth_id')->on('auth_sources');
+
 			$table->string('auth_str', 255)->nullable();
 			$table->tinyInteger('disabled')->default(0);
 			$table->text('disabled_reason')->nullable();
 			$table->tinyInteger('inline_help')->nullable();
+
 			$table->unique(['username'], 'users_username');
 			$table->unique(['email'], 'users_email');
+
 		});
 
 		// Locale-specific user data
 		Capsule::schema()->create('user_settings', function (Blueprint $table) {
 			$table->bigInteger('user_id');
+			$table->foreign('user_id')->references('user_id')->on('users');
+
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
-			//  Not null not specified for sake of upgrade. 
-			$table->bigInteger('assoc_type')->default(0)->nullable();
-			//  Not null not specified for sake of upgrade. 
-			$table->bigInteger('assoc_id')->default(0)->nullable();
+			$table->bigInteger('assoc_type')->default(0);
+
+			// pkp/pkp-lib#6093 FIXME: Can't set constraint because 0 is used for CONTEXT_SITE
+			$table->bigInteger('assoc_id')->default(0); // CONTEXT_SITE
+
 			$table->text('setting_value')->nullable();
 			$table->string('setting_type', 6);
+
 			$table->index(['user_id'], 'user_settings_user_id');
 			$table->unique(['user_id', 'locale', 'setting_name', 'assoc_type', 'assoc_id'], 'user_settings_pkey');
 			$table->index(['setting_name', 'locale'], 'user_settings_locale_setting_name_index');
@@ -111,7 +122,10 @@ class CommonMigration extends Migration {
 		// Browser/user sessions and session data.
 		Capsule::schema()->create('sessions', function (Blueprint $table) {
 			$table->string('session_id', 128);
+
 			$table->bigInteger('user_id')->nullable();
+			$table->foreign('user_id')->references('user_id')->on('users');
+
 			$table->string('ip_address', 39);
 			$table->string('user_agent', 255)->nullable();
 			$table->bigInteger('created')->default(0);
@@ -119,6 +133,7 @@ class CommonMigration extends Migration {
 			$table->tinyInteger('remember')->default(0);
 			$table->text('data');
 			$table->string('domain', 255)->nullable();
+
 			$table->index(['user_id'], 'sessions_user_id');
 			$table->unique(['session_id'], 'sessions_pkey');
 		});
@@ -128,23 +143,40 @@ class CommonMigration extends Migration {
 			$table->bigInteger('access_key_id')->autoIncrement();
 			$table->string('context', 40);
 			$table->string('key_hash', 40);
+
 			$table->bigInteger('user_id');
+			$table->foreign('user_id')->references('user_id')->on('users');
+
+			// pkp/pkp-lib#6093 FIXME: Can't set constraint on assoc_id
 			$table->bigInteger('assoc_id')->nullable();
+
 			$table->datetime('expiry_date');
+
 			$table->index(['key_hash', 'user_id', 'context'], 'access_keys_hash');
 		});
 
 		// Stores notifications for users as created by the system after certain operations.
 		Capsule::schema()->create('notifications', function (Blueprint $table) {
 			$table->bigInteger('notification_id')->autoIncrement();
+
 			$table->bigInteger('context_id');
+			// pkp/pkp-lib#6093 FIXME: Can't enable constraint because 0 context_id is used.
+			//$contextDao = Application::getContextDAO();
+			//$table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+
 			$table->bigInteger('user_id')->nullable();
+			// pkp/pkp-lib#6093 FIXME: Can't enable constraint because 0 user_id is used.
+			// $table->foreign('user_id')->references('user_id')->on('users');
+
 			$table->bigInteger('level');
 			$table->bigInteger('type');
 			$table->datetime('date_created');
 			$table->datetime('date_read')->nullable();
+
+			// pkp/pkp-lib#6093 FIXME: Can't set constraint on assoc_type/assoc_id pairs
 			$table->bigInteger('assoc_type')->nullable();
 			$table->bigInteger('assoc_id')->nullable();
+
 			$table->index(['context_id', 'user_id', 'level'], 'notifications_context_id_user_id');
 			$table->index(['context_id', 'level'], 'notifications_context_id');
 			$table->index(['assoc_type', 'assoc_id'], 'notifications_assoc');
@@ -154,10 +186,13 @@ class CommonMigration extends Migration {
 		// Stores metadata for specific notifications
 		Capsule::schema()->create('notification_settings', function (Blueprint $table) {
 			$table->bigInteger('notification_id');
+			$table->foreign('notification_id')->references('notification_id')->on('notifications');
+
 			$table->string('locale', 14)->nullable();
 			$table->string('setting_name', 64);
 			$table->text('setting_value');
 			$table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
+
 			$table->unique(['notification_id', 'locale', 'setting_name'], 'notification_settings_pkey');
 		});
 
@@ -166,7 +201,10 @@ class CommonMigration extends Migration {
 			$table->bigInteger('setting_id')->autoIncrement();
 			$table->string('setting_name', 64);
 			$table->text('setting_value');
+
 			$table->bigInteger('user_id');
+			$table->foreign('user_id')->references('user_id')->on('users');
+
 			$table->bigInteger('context');
 			$table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
 		});
@@ -178,6 +216,7 @@ class CommonMigration extends Migration {
 			$table->tinyInteger('confirmed')->default(0);
 			$table->string('token', 40);
 			$table->bigInteger('context');
+
 			$table->unique(['email', 'context'], 'notification_mail_list_email_context');
 		});
 
@@ -190,6 +229,7 @@ class CommonMigration extends Migration {
 			$table->bigInteger('from_role_id')->nullable();
 			$table->bigInteger('to_role_id')->nullable();
 			$table->bigInteger('stage_id')->nullable();
+
 			$table->index(['email_key'], 'email_templates_default_email_key');
 		});
 
@@ -200,6 +240,7 @@ class CommonMigration extends Migration {
 			$table->string('subject', 120);
 			$table->text('body')->nullable();
 			$table->text('description')->nullable();
+
 			$table->unique(['email_key', 'locale'], 'email_templates_default_data_pkey');
 		});
 
@@ -207,17 +248,23 @@ class CommonMigration extends Migration {
 		Capsule::schema()->create('email_templates', function (Blueprint $table) {
 			$table->bigInteger('email_id')->autoIncrement();
 			$table->string('email_key', 64)->comment('Unique identifier for this email.');
-			//  Not null not specified for sake of upgrade. 
-			$table->bigInteger('context_id')->default(0)->nullable();
+
+			// pkp/pkp-lib#6093 FIXME: Can't set constraint because 0 is used for site-wide (?)
+			$table->bigInteger('context_id')->default(0);
+
 			$table->tinyInteger('enabled')->default(1);
+
 			$table->unique(['email_key', 'context_id'], 'email_templates_email_key');
 		});
 
 		Capsule::schema()->create('email_templates_settings', function (Blueprint $table) {
 			$table->bigInteger('email_id');
+			$table->foreign('email_id')->references('email_id')->on('email_templates');
+
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
 			$table->text('setting_value')->nullable();
+
 			$table->index(['email_id'], 'email_settings_email_id');
 			$table->unique(['email_id', 'locale', 'setting_name'], 'email_settings_pkey');
 		});
@@ -228,20 +275,25 @@ class CommonMigration extends Migration {
 			$table->bigInteger('expire');
 			$table->integer('record_offset');
 			$table->text('params')->nullable();
+
 			$table->unique(['token'], 'oai_resumption_tokens_pkey');
 		});
 
 		// Plugin settings.
 		Capsule::schema()->create('plugin_settings', function (Blueprint $table) {
 			$table->string('plugin_name', 80);
+
 			$table->bigInteger('context_id');
+			$contextDao = Application::getContextDAO();
+			$table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+
 			$table->string('setting_name', 80);
 			$table->text('setting_value')->nullable();
 			$table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
+
 			$table->index(['plugin_name'], 'plugin_settings_plugin_name');
 			$table->unique(['plugin_name', 'context_id', 'setting_name'], 'plugin_settings_pkey');
 		});
-
 	}
 
 	/**

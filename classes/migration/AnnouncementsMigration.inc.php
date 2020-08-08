@@ -25,9 +25,14 @@ class AnnouncementsMigration extends Migration {
 		// Announcement types.
 		Capsule::schema()->create('announcement_types', function (Blueprint $table) {
 			$table->bigInteger('type_id')->autoIncrement();
-			//  NOT NULL not included for upgrade purposes
-			$table->smallInteger('assoc_type')->nullable();
+			$table->smallInteger('assoc_type');
+
+			// FIXME: Rename eventually to context_id and get rid of assoc_type.
+			// Currently assoc_type/assoc_id is only used to refer to context IDs.
 			$table->bigInteger('assoc_id');
+			$contextDao = Application::getContextDAO();
+			$table->foreign('assoc_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+
 			$table->index(['assoc_type', 'assoc_id'], 'announcement_types_assoc');
 		});
 
@@ -38,7 +43,10 @@ class AnnouncementsMigration extends Migration {
 			$table->string('setting_name', 255);
 			$table->text('setting_value')->nullable();
 			$table->string('setting_type', 6);
+
 			$table->index(['type_id'], 'announcement_type_settings_type_id');
+			$table->foreign('type_id')->references('type_id')->on('announcement_types');
+
 			$table->unique(['type_id', 'locale', 'setting_name'], 'announcement_type_settings_pkey');
 		});
 
@@ -48,7 +56,10 @@ class AnnouncementsMigration extends Migration {
 			//  NOT NULL not included for upgrade purposes
 			$table->smallInteger('assoc_type')->nullable();
 			$table->bigInteger('assoc_id');
+
 			$table->bigInteger('type_id')->nullable();
+			$table->foreign('type_id')->references('type_id')->on('announcement_types');
+
 			$table->date('date_expire')->nullable();
 			$table->datetime('date_posted');
 			$table->index(['assoc_type', 'assoc_id'], 'announcements_assoc');
@@ -57,6 +68,8 @@ class AnnouncementsMigration extends Migration {
 		// Locale-specific announcement data
 		Capsule::schema()->create('announcement_settings', function (Blueprint $table) {
 			$table->bigInteger('announcement_id');
+			$table->foreign('announcement_id')->references('announcement_id')->on('announcements');
+
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
 			$table->text('setting_value')->nullable();

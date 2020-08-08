@@ -24,10 +24,8 @@ class NotesMigration extends Migration {
         public function up() {
 		Capsule::schema()->create('notes', function (Blueprint $table) {
 			$table->bigInteger('note_id')->autoIncrement();
-			//  Not flagged NOTNULL for upgrade purposes 
-			$table->bigInteger('assoc_type')->nullable();
-			//  Not flagged NOTNULL for upgrade purposes 
-			$table->bigInteger('assoc_id')->nullable();
+			$table->bigInteger('assoc_type');
+			$table->bigInteger('assoc_id');
 			$table->bigInteger('user_id');
 			$table->datetime('date_created');
 			$table->datetime('date_modified')->nullable();

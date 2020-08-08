@@ -26,11 +26,19 @@ class SubmissionFilesMigration extends Migration {
 		Capsule::schema()->create('submission_files', function (Blueprint $table) {
 			$table->bigInteger('file_id')->autoIncrement();
 			$table->bigInteger('revision');
+
 			$table->bigInteger('source_file_id')->nullable();
+			$table->foreign('source_file_id')->references('file_id')->on('submission_files');
+
 			$table->bigInteger('source_revision')->nullable();
 			$table->bigInteger('submission_id');
+			$table->foreign('submission_id')->references('submission_id')->on('submissions');
+
 			$table->string('file_type', 255);
+
 			$table->bigInteger('genre_id')->nullable();
+			$table->foreign('genre_id')->references('genre_id')->on('genres');
+
 			$table->bigInteger('file_size');
 			$table->string('original_file_name', 127)->nullable();
 			$table->bigInteger('file_stage');
@@ -39,12 +47,16 @@ class SubmissionFilesMigration extends Migration {
 			$table->tinyInteger('viewable')->nullable();
 			$table->datetime('date_uploaded');
 			$table->datetime('date_modified');
+
 			$table->bigInteger('uploader_user_id')->nullable();
+			$table->foreign('uploader_user_id')->references('user_id')->on('users');
+
+			// pkp/pkp-lib#6097 FIXME: Can't declare foreign relationships on assoc_type/assoc_id pairs
 			$table->bigInteger('assoc_type')->nullable();
 			$table->bigInteger('assoc_id')->nullable();
+
 			$table->index(['submission_id'], 'submission_files_submission_id');
-			//  pkp/pkp-lib#5804 
-			$table->index(['file_stage', 'assoc_type', 'assoc_id'], 'submission_files_stage_assoc');
+			$table->index(['file_stage', 'assoc_type', 'assoc_id'], 'submission_files_stage_assoc'); //  pkp/pkp-lib#5804 
 		});
 
 		// Work-around for compound primary key
@@ -55,10 +67,13 @@ class SubmissionFilesMigration extends Migration {
 		// Article supplementary file metadata.
 		Capsule::schema()->create('submission_file_settings', function (Blueprint $table) {
 			$table->bigInteger('file_id');
+			$table->foreign('file_id')->references('file_id')->on('submission_files');
+
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
 			$table->text('setting_value')->nullable();
 			$table->string('setting_type', 6)->comment('(bool|int|float|string|object|date)');
+
 			$table->index(['file_id'], 'submission_file_settings_id');
 			$table->unique(['file_id', 'locale', 'setting_name'], 'submission_file_settings_pkey');
 		});
@@ -66,6 +81,8 @@ class SubmissionFilesMigration extends Migration {
 		// Submission visuals.
 		Capsule::schema()->create('submission_artwork_files', function (Blueprint $table) {
 			$table->bigInteger('file_id');
+			$table->foreign('file_id')->references('file_id')->on('submission_files');
+
 			$table->bigInteger('revision');
 			$table->text('caption')->nullable();
 			$table->string('credit', 255)->nullable();
@@ -80,6 +97,8 @@ class SubmissionFilesMigration extends Migration {
 		// Submission supplementary content.
 		Capsule::schema()->create('submission_supplementary_files', function (Blueprint $table) {
 			$table->bigInteger('file_id');
+			$table->foreign('file_id')->references('file_id')->on('submission_files');
+
 			$table->bigInteger('revision');
 		});
 	}

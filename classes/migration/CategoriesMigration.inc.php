@@ -25,11 +25,17 @@ class CategoriesMigration extends Migration {
 		// Permits the organization of content into categories.
 		Capsule::schema()->create('categories', function (Blueprint $table) {
 			$table->bigInteger('category_id')->autoIncrement();
+
 			$table->bigInteger('context_id');
-			$table->bigInteger('parent_id');
+			$contextDao = Application::getContextDAO();
+			$table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+
+			$table->bigInteger('parent_id')->nullable();
+			$table->foreign('parent_id')->references('category_id')->on('categories');
 			$table->bigInteger('seq')->nullable();
 			$table->string('path', 255);
 			$table->text('image')->nullable();
+
 			$table->index(['context_id', 'parent_id'], 'category_context_id');
 			$table->unique(['context_id', 'path'], 'category_path');
 		});
@@ -37,20 +43,24 @@ class CategoriesMigration extends Migration {
 		// Category-specific settings
 		Capsule::schema()->create('category_settings', function (Blueprint $table) {
 			$table->bigInteger('category_id');
+			$table->foreign('category_id')->references('category_id')->on('categories');
+
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
 			$table->text('setting_value')->nullable();
 			$table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
+
 			$table->unique(['category_id', 'locale', 'setting_name'], 'category_settings_pkey');
 		});
 
 		// Associations for categories and publications.
 		Capsule::schema()->create('publication_categories', function (Blueprint $table) {
 			$table->bigInteger('publication_id');
+			$table->foreign('publication_id')->references('publication_id')->on('publications');
 			$table->bigInteger('category_id');
+
 			$table->unique(['publication_id', 'category_id'], 'publication_categories_id');
 		});
-
 	}
 
 	/**

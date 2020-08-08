@@ -25,10 +25,11 @@ class ReviewFormsMigration extends Migration {
 		// Review forms.
 		Capsule::schema()->create('review_forms', function (Blueprint $table) {
 			$table->bigInteger('review_form_id')->autoIncrement();
-			//  NOTNULL constraint omitted for upgrade purposes 
-			$table->bigInteger('assoc_type')->nullable();
-			//  NOTNULL constraint omitted for upgrade purposes 
-			$table->bigInteger('assoc_id')->nullable();
+
+			// pkp/pkp-lib#6093 FIXME: Can't declare relationship constraints on assoc_type/assoc_id pairs
+			$table->bigInteger('assoc_type');
+			$table->bigInteger('assoc_id');
+
 			$table->float('seq', 8, 2)->nullable();
 			$table->tinyInteger('is_active')->nullable();
 		});
@@ -36,10 +37,13 @@ class ReviewFormsMigration extends Migration {
 		// Review form settings
 		Capsule::schema()->create('review_form_settings', function (Blueprint $table) {
 			$table->bigInteger('review_form_id');
+			$table->foreign('review_form_id')->references('review_form_id')->on('review_forms');
+
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
 			$table->text('setting_value')->nullable();
 			$table->string('setting_type', 6);
+
 			$table->index(['review_form_id'], 'review_form_settings_review_form_id');
 			$table->unique(['review_form_id', 'locale', 'setting_name'], 'review_form_settings_pkey');
 		});
@@ -47,21 +51,28 @@ class ReviewFormsMigration extends Migration {
 		// Review form elements.
 		Capsule::schema()->create('review_form_elements', function (Blueprint $table) {
 			$table->bigInteger('review_form_element_id')->autoIncrement();
+
 			$table->bigInteger('review_form_id');
+			$table->foreign('review_form_id')->references('review_form_id')->on('review_forms');
+
 			$table->float('seq', 8, 2)->nullable();
 			$table->bigInteger('element_type')->nullable();
 			$table->tinyInteger('required')->nullable();
 			$table->tinyInteger('included')->nullable();
+
 			$table->index(['review_form_id'], 'review_form_elements_review_form_id');
 		});
 
 		// Review form element settings
 		Capsule::schema()->create('review_form_element_settings', function (Blueprint $table) {
 			$table->bigInteger('review_form_element_id');
+			$table->foreign('review_form_element_id')->references('review_form_element_id')->on('review_form_elements');
+
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
 			$table->text('setting_value')->nullable();
 			$table->string('setting_type', 6);
+
 			$table->index(['review_form_element_id'], 'review_form_element_settings_review_form_element_id');
 			$table->unique(['review_form_element_id', 'locale', 'setting_name'], 'review_form_element_settings_pkey');
 		});
@@ -69,9 +80,14 @@ class ReviewFormsMigration extends Migration {
 		// Review form responses.
 		Capsule::schema()->create('review_form_responses', function (Blueprint $table) {
 			$table->bigInteger('review_form_element_id');
+			$table->foreign('review_form_element_id')->references('review_form_element_id')->on('review_form_elements');
+
 			$table->bigInteger('review_id');
+			$table->foreign('review_id')->references('review_id')->on('review_assignments');
+
 			$table->string('response_type', 6)->nullable();
 			$table->text('response_value')->nullable();
+
 			$table->index(['review_form_element_id', 'review_id'], 'review_form_responses_pkey');
 		});
 	}

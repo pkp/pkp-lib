@@ -26,15 +26,20 @@ class ControlledVocabMigration extends Migration {
 		Capsule::schema()->create('controlled_vocabs', function (Blueprint $table) {
 			$table->bigInteger('controlled_vocab_id')->autoIncrement();
 			$table->string('symbolic', 64);
+
+			// pkp/pkp-lib#6093 FIXME: Can't set constraints on assoc_type/assoc_id pairs
 			$table->bigInteger('assoc_type')->default(0);
 			$table->bigInteger('assoc_id')->default(0);
+
 			$table->unique(['symbolic', 'assoc_type', 'assoc_id'], 'controlled_vocab_symbolic');
 		});
 
 		// Controlled vocabulary entries
 		Capsule::schema()->create('controlled_vocab_entries', function (Blueprint $table) {
 			$table->bigInteger('controlled_vocab_entry_id')->autoIncrement();
+
 			$table->bigInteger('controlled_vocab_id');
+			$table->foreign('controlled_vocab_id')->references('controlled_vocab_id')->on('controlled_vocabs');
 			$table->float('seq', 8, 2)->nullable();
 			$table->index(['controlled_vocab_id', 'seq'], 'controlled_vocab_entries_cv_id');
 		});
@@ -42,10 +47,13 @@ class ControlledVocabMigration extends Migration {
 		// Controlled vocabulary entry settings
 		Capsule::schema()->create('controlled_vocab_entry_settings', function (Blueprint $table) {
 			$table->bigInteger('controlled_vocab_entry_id');
+			$table->foreign('controlled_vocab_entry_id', 'cves_cve_foreign')->references('controlled_vocab_entry_id')->on('controlled_vocab_entries');
+
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
 			$table->text('setting_value')->nullable();
 			$table->string('setting_type', 6);
+
 			$table->index(['controlled_vocab_entry_id'], 'c_v_e_s_entry_id');
 			$table->unique(['controlled_vocab_entry_id', 'locale', 'setting_name'], 'c_v_e_s_pkey');
 		});
@@ -53,10 +61,11 @@ class ControlledVocabMigration extends Migration {
 		// Reviewer Interests Associative Table
 		Capsule::schema()->create('user_interests', function (Blueprint $table) {
 			$table->bigInteger('user_id');
+			$table->foreign('user_id')->references('user_id')->on('users');
+
 			$table->bigInteger('controlled_vocab_entry_id');
 			$table->unique(['user_id', 'controlled_vocab_entry_id'], 'u_e_pkey');
 		});
-
 	}
 
 	/**

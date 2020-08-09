@@ -1,2 +1,347 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2020-08-09 12:48+0000\n"
+"Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
+"Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/ro_RO/>\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Acest grup nu are membri."
+
+msgid "manager.groups.membership"
+msgstr "Apartenență"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Sigur doriți să ștergeți calitatea de membru al grupului?"
+
+msgid "manager.groups.membership.addMember"
+msgstr "Adăugați un membru"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Este necesar un titlu de grup"
+
+msgid "manager.groups.editTitle"
+msgstr "Editați titlul"
+
+msgid "manager.groups.createTitle"
+msgstr "Creați titlu"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Sigur doriți să ștergeți acest grup?"
+
+msgid "manager.files.uploadFile"
+msgstr "Încarcă fișier"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Fișiere încărcate"
+
+msgid "manager.files.parentDir"
+msgstr "Director rădăcină"
+
+msgid "manager.files.indexOfDir"
+msgstr "Index de {$dir}"
+
+msgid "manager.files.emptyDir"
+msgstr "Nu a fost găsit niciun fișier în acest director"
+
+msgid "manager.files.createDir"
+msgstr "Creați un director"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"Ștergeți acest fișier sau director? Rețineți că un director trebuie să fie "
+"gol înainte de a putea fi șters."
+
+msgid "manager.filesBrowser"
+msgstr "Browser de fișiere"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Subiect: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Trimis la"
+
+msgid "manager.emails.sentFrom"
+msgstr "Trimis de la"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Resetare la valoarea implicită"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Dacă resetați acest șablon, toate datele mesajului vor fi resetate la "
+"valoarea implicită, pierzând toate modificările. Doriți să confirmați "
+"această operație?"
+
+msgid "manager.emails.reset"
+msgstr "Resetare"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Dacă resetați toate șabloanele, toate modificările aduse șabloanelor de e-"
+"mail vor fi pierdute. Doriți să confirmați această operație?"
+
+msgid "manager.emails.resetAll"
+msgstr "Resetează tot"
+
+msgid "manager.emails"
+msgstr "E-mailuri pregătite"
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Un subiect este necesar pentru e-mail."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Pentru e-mail este necesar un corp."
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"O cheie de e-mail unică care nu conține spații sau caractere speciale este "
+"necesară pentru e-mail."
+
+msgid "manager.emails.enable.message"
+msgstr ""
+"Ești pe cale să activezi acest e-mail.  Doriți să confirmați această "
+"operație?"
+
+msgid "manager.emails.enable"
+msgstr "Activare"
+
+msgid "manager.emails.enabled"
+msgstr "Activați acest șablon de e-mail"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Cheia pe care ați furnizat-o este deja folosită."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"La adăugarea unui șablon de e-mail trebuie să furnizați un ID de context."
+
+msgid "manager.emails.emailTemplates"
+msgstr "Modele de e-mail"
+
+msgid "manager.emails.emailTemplate"
+msgstr "Model de e-mail"
+
+msgid "manager.emails.emailKeyExists"
+msgstr ""
+"Există deja un e-mail cu cheia dată. Cheile de e-mail trebuie să fie unice."
+
+msgid "manager.emails.emailKey.description"
+msgstr "Cheia de e-mail nu poate conține decât litere, numere și underscores."
+
+msgid "manager.emails.emailKey"
+msgstr "Cheie de e-mail"
+
+msgid "manager.emails.editTestExample"
+msgstr "Editați exemplul de testare prin e-mail"
+
+msgid "manager.emails.editEmail.success"
+msgstr "Modelul de e-mail a fost modificat."
+
+msgid "manager.emails.editEmail"
+msgstr "Editează e-mail"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Ești pe cale să dezactivezi acest șablon de e-mail. Dacă au existat procese "
+"de sistem care utilizează acest șablon, nu îl vor mai folosi. Doriți să "
+"confirmați această operație?"
+
+msgid "manager.emails.disable"
+msgstr "Dezactivați"
+
+msgid "manager.emails.details"
+msgstr "Detalii model"
+
+msgid "manager.emails.data"
+msgstr "Șablon Date Mesaj"
+
+msgid "manager.emails.customTemplate"
+msgstr "Șablon personalizat"
+
+msgid "manager.emails.createEmail"
+msgstr "Creați e-mail"
+
+msgid "manager.emails.addEmail.success"
+msgstr "Modelul de e-mail a fost adăugat."
+
+msgid "manager.emails.addEmail"
+msgstr "Adăugați șablon"
+
+msgid "manager.emails.confirmReset"
+msgstr "Sigur doriți să resetați acest șablon de e-mail la valorile implicite?"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Sigur doriți să ștergeți acest șablon de e-mail?"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Detaliile privind memento-ul de revizuire au fost actualizate."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Setările de revizuire au fost actualizate."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Ghidul pentru revizori a fost actualizat."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Ghid pentru revizori"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "Setările emailului au fost actualizate."
+
+msgid "manager.publication.emails"
+msgstr "Emailuri"
+
+msgid "manager.publication.productionStage"
+msgstr "Producție"
+
+msgid "manager.publication.editorialStage"
+msgstr "Editorial"
+
+msgid "manager.publication.reviewStage"
+msgstr "Revizuire"
+
+msgid "manager.publication.submissionStage"
+msgstr "Înregistrare manuscris"
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Tip anunț"
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Nu au fost create tipuri de anunțuri."
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Este necesar un nume de tip anunț"
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Nume"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Există deja un tip de anunț cu acest nume."
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Salvare și creare alt anunț"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Editare"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Editare tip anunț"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Creați"
+
+msgid "manager.announcementTypes.create"
+msgstr "Creați un tip de anunț"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Avertizare! Toate anunțurile de acest tip vor fi șterse. Sigur doriți să "
+"continuați și să ștergeți acest tip de anunț?"
+
+msgid "manager.announcementTypes"
+msgstr "Tipuri anunțuri"
+
+msgid "manager.announcements.type"
+msgstr "Tip"
+
+msgid "manager.announcements.title"
+msgstr "Titlu"
+
+msgid "manager.announcements.noneCreated"
+msgstr "Nu au fost create anunțuri."
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Vă rugăm să selectați un tip de anunț valid."
+
+msgid "manager.announcements.form.typeId"
+msgstr "Tip"
+
+msgid "manager.announcements.form.title"
+msgstr "Titlu"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Este necesar un titlu de anunț."
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Salvați și creați un alt"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Scurtă descriere"
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Este necesară o scurtă descriere a anunțului."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "O scurtă descriere să apară împreună cu titlul anunțului."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Este necesară o descriere a anunțului."
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Textul complet al anunțului."
+
+msgid "manager.announcements.form.description"
+msgstr "Descriere"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Vă rugăm să selectați luna și ziua pe lângă anul de expirare."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Vă rugăm să selectați o dată valabilă de expirare a anunțurilor."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Vă rugăm să selectați anul și ziua pe lângă luna de expirare."
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Anunțul va fi afișat cititorilor până la această dată. Lăsați gol dacă "
+"anunțul trebuie afișat nelimitat."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Data expirării"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Vă rugăm să selectați anul și luna, pe lângă ziua de expirare."
+
+msgid "manager.announcements.editTitle"
+msgstr "Editare"
+
+msgid "manager.announcements.edit"
+msgstr "Editează anunțul"
+
+msgid "manager.announcements.datePublish"
+msgstr "Publicat"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Expirare"
+
+msgid "manager.announcements.createTitle"
+msgstr "Creați"
+
+msgid "manager.announcements.create"
+msgstr "Creați un nou anunț"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Sigur doriți să ștergeți definitiv acest anunț?"
+
+msgid "manager.announcements"
+msgstr "Anunțuri"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Este necesar un fișier imagine. Vă rugăm să vă asigurați că ați ales și "
+"încărcat un fișier."
+
+msgid "manager.website.appearance"
+msgstr "Aspect"
+
+msgid "manager.website.information"
+msgstr "Informații"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-09 12:48+0000\n"
+"PO-Revision-Date: 2020-08-10 04:22+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/ro_RO/>\n"
@@ -75,7 +75,7 @@ msgid "installer.oaiSettings"
 msgstr "Setări OAI"
 
 msgid "installer.localeSettings"
-msgstr "Setări locale"
+msgstr "Setări de limbă"
 
 msgid "installer.locale.maybeIncomplete"
 msgstr "Fișierele de limbă marcate pot fi incomplete."

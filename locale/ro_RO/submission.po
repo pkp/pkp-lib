@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-09 12:48+0000\n"
+"PO-Revision-Date: 2020-08-10 04:22+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ro_RO/>\n"
@@ -669,7 +669,7 @@ msgid "publication.createVersion"
 msgstr "Creați o versiune nouă"
 
 msgid "publication.datePublished"
-msgstr "Data publicării."
+msgstr "Data publicării"
 
 msgid "publication.datePublished.errorFormat"
 msgstr "Data trebuie să fie în format AAA-LL-DD, cum ar fi 2019-01-01."
@@ -712,7 +712,7 @@ msgid "publication.event.versionScheduled"
 msgstr "O nouă versiune a fost planificată pentru publicare."
 
 msgid "publication.metadata.success"
-msgstr "Identificatorii au fost actualizați."
+msgstr "Metadatele au fost actualizate."
 
 msgid "publication.publish"
 msgstr "Publicați"
@@ -919,7 +919,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Introduceți referințele."
 
 msgid "submission.submit.form.rightsRequired"
-msgstr "Introduceți drepturile"
+msgstr "Introduceți drepturile."
 
 msgid "submission.submit.form.sourceRequired"
 msgstr "Introduceți sursa."
@@ -1122,10 +1122,10 @@ msgid "editor.submission.recordedRecommendations"
 msgstr "Recomandări înregistrate"
 
 msgid "editor.submission.recommendation.description"
-msgstr "Recomandare"
+msgstr "Recomandă o decizie editorială pentru această prezentare."
 
 msgid "editor.submission.recommendation"
-msgstr "Recommendation"
+msgstr "Recomandări"
 
 msgid "editor.submission.allRecommendations.display"
 msgstr "Recomandări: {$recommendations}"
@@ -1338,7 +1338,7 @@ msgid "submission.date.mmdd"
 msgstr "LL-ZZ"
 
 msgid "submission.nameRequired"
-msgstr "Este necesar un nume pentru acest element"
+msgstr "Este necesar un nume pentru acest element."
 
 msgid "submission.fileDetails"
 msgstr "Detalii fișier"
@@ -1392,7 +1392,7 @@ msgid "submission.supplementaryFiles"
 msgstr "Fișiere suplimentare"
 
 msgid "submission.summary"
-msgstr "Rezumat"
+msgstr "Cuprins"
 
 msgid "submission.upload.query"
 msgstr "Încărcați un fișier de discuție"
@@ -1460,7 +1460,7 @@ msgid "submission.start"
 msgstr "Start"
 
 msgid "submission.submissionTitle"
-msgstr "Titlul înregistrării de manuscris"
+msgstr "Titlul manuscrisului:"
 
 msgid "submission.submission"
 msgstr "Înregistrare manuscris"
@@ -1596,7 +1596,7 @@ msgid "submission.notes.deleteNote"
 msgstr "Ștergere notă"
 
 msgid "submission.notes.createNewNote"
-msgstr "Creare noră nouă"
+msgstr "Creare notă nouă"
 
 msgid "submission.notes.confirmDelete"
 msgstr "Ștergeți această notă de înregistrare manuscris?"
@@ -1641,7 +1641,7 @@ msgid "submission.layout.noStyleFile"
 msgstr "Nu a fost adăugat nici un fișier de stil în această galerie."
 
 msgid "submission.layout.newSupplementaryFile"
-msgstr "Încărcare noi fișiere suplimentare."
+msgstr "Încărcare noi fișiere suplimentare"
 
 msgid "submission.layout.newGalley"
 msgstr "Crearea unei noi galerii"
@@ -1868,3 +1868,366 @@ msgid "submission.event.fileAuditorAdded"
 msgstr ""
 "\"{$name}\" ({$username}) a fost adăugat ca auditor pentru fișierul\"{$file}."
 "\""
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Ați fost adăugat la o discuție intitulată \"{$queryTitle}\" privind "
+"manuscrisul \"{$submissionTitle}\"."
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"Există o nouă activitate în discuția intitulată \"{$queryTitle}\" privind "
+"manuscrisul\"{$submissionTitle}\"."
+
+msgid "submission.query.new"
+msgstr "{$creatorName} a început discuția: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} i-a răspuns lui {$noteTitle}: {$noteContents}"
+
+msgid "grid.action.openNoteForm"
+msgstr "Adăugați un nou răspuns la discuție"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Dacă părăsiți această discuție, nu veți mai fi înștiințat despre mesaje noi. "
+"Ați dori să părăsiți discuția?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Ieșiți din discuție"
+
+msgid "submission.query.addNote"
+msgstr "Adăugare mesaj"
+
+msgid "submission.query.closed"
+msgstr "Închis"
+
+msgid "submission.query.lastReply"
+msgstr "Ultimul răspuns"
+
+msgid "submission.query.from"
+msgstr "De la"
+
+msgid "submission.query.replies"
+msgstr "Răspunsuri"
+
+msgid "submission.query.messages"
+msgstr "Mesaje"
+
+msgid "submission.query.subject"
+msgstr "Subiect"
+
+msgid "submission.queries.production"
+msgstr "Discuții producție"
+
+msgid "submission.queries.editorial"
+msgstr "Discuții editare conținut"
+
+msgid "submission.queries.review"
+msgstr "Discuții revizuire"
+
+msgid "submission.queries.submission"
+msgstr "Discuții pre-revizuire"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative "
+"Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
+"Commons Attribution 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative "
+"Commons Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul "
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative "
+"Commons Attribution-NonCommercial 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul "
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4."
+"0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative "
+"Commons Attribution-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/"
+"88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative "
+"Commons Attribution 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4."
+"0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative "
+"Commons Attribution-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul "
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4."
+"0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative "
+"Commons Attribution-NonCommercial 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>TAceastă lucrare este licențiată în "
+"temeiul <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-nd/4.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 "
+"International License</a>.</p>"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "Atribuire CC-Necomercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "Atribuire CC-necomercială 4.0"
+
+msgid "submission.licenseURL"
+msgstr "Licență URL"
+
+msgid "submission.licenseURLValid"
+msgstr ""
+"Vă rugăm să furnizați o adresă URL de la distanță validă (include http: //)."
+
+msgid "submission.copyrightStatement"
+msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.copyrightYear"
+msgstr "An Copyright"
+
+msgid "submission.copyrightOther.description"
+msgstr ""
+"Alocați drepturile de autor pentru trimiterile publicate către următoarea "
+"parte."
+
+msgid "submission.copyrightOther"
+msgstr "Declarație de copyright"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Declarație de copyright personalizată"
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Dreptul de autor va fi atribuit automat la {$copyright} când acesta este "
+"publicat."
+
+msgid "submission.copyrightHolder"
+msgstr "Titular de drepturi de autor"
+
+msgid "submission.copyright"
+msgstr "Drepturi de autor"
+
+msgid "submission.license.description"
+msgstr ""
+"Licența va fi setată automat la <a href='{$licenseUrl}' "
+"target='_blank'>{$licenseName}</a> când articolul este publicat."
+
+msgid "submission.license"
+msgstr "Licență"
+
+msgid "submission.attachPermissions"
+msgstr "Atașați următoarele permisiuni la trimitere:"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Creați un nou element în formularul de revizie"
+
+msgid "submission.reviewFormResponse"
+msgstr "Formular de răspuns la revizie"
+
+msgid "submission.reviewForm"
+msgstr "Formular de revizie"
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"Un editor de producție trebuie să fie atribuit înainte de începerea "
+"procesului editorial. Vă rugăm să adăugați un editor de producție utilizând "
+"lista Participanți."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"Un editor de producție trebuie să fie atribuit înainte ca procesul de "
+"producție să poată fi inițiat. Vă rugăm să adăugați un editor de producție "
+"utilizând lista Participanți."
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Procesul de producție a început."
+
+msgid "grid.action.itemWorkflow"
+msgstr "Accesați fluxul de lucru al acestei înregistrări de manuscris"
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Această revizie este completă și revizorul a fost mulțumit pentru "
+"contribuția autorilor."
+
+msgid "submission.review.status.complete"
+msgstr "Această revizuire a fost finalizată."
+
+msgid "submission.review.status.received"
+msgstr "Evaluatorul și-a prezentat recenzia."
+
+msgid "submission.review.status.accepted"
+msgstr "Această revizie a fost acceptată."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Evaluatorul a ratat data scadenței reviziei."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Evaluatorul a ratat data scadenței răspunsului."
+
+msgid "submission.review.status.declined"
+msgstr "Evaluatorul a respins această solicitare de revizuire."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Așteptați un răspuns din partea revizorului."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} a finalizat revizuirea pentru runda {$round} de revizuire a "
+"manuscrisului {$submissionId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Editorul {$userName} a confirmat o revizie pentru runda {$round} pentru "
+"manuscrisul {$submissionId}."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"A fost inițiată runda {$round} de revizie ce va fi făcută de {$reviewerName} "
+"pentru manuscrisul {$submissionId}."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} a marcat runda {$round} de revizie pentru manuscrisul "
+"{$submissionId} ca „nu se ia în considerare”."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"Runda {$round} de revizie a {$reviewerName} pentru manuscrisul "
+"{$submissionId} a fost anulată."
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName}a fost repartizat pentru revizuirea manuscrisului "
+"{$submissionId} pentru runda de revizie {$round}."
+
+msgid "submission.productionReady"
+msgstr "Carte disponibilă"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Selectați fișierele de revizuire pentru a le partaja cu autorul(ii)"
+
+msgid "grid.reviewAttachments.title"
+msgstr "Atașamente revizori"
+
+msgid "notification.type.submissionNewVersion"
+msgstr "A fost creată o nouă versiune pentru înregistrarea de manuscris"
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Un editor trebuie să fie atribuit înainte de începerea revizuirii. Vă rugăm "
+"să adăugați un editor utilizând lista Participanți."
+
+msgid "notification.uploadedResponse"
+msgstr "Răspuns încărcat."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Înregistrare de manuscris refuzată."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "O nouă rundă de revizie a fost inițiată."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Reînregistrare manuscris pentru revizie."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Revizie necesară."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Procesul de revizuire a început."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Înregistrare de manuscris acceptată."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Ultima decizie de editor."
+
+msgid "notification.type.indexRequest"
+msgstr "Vi s-a solicitat să creați un index pentru \"{$title}\"."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Vi s-a solicitat să revizuiți conținutul machetat pentru \"{$title}\"."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Vi s-a solicitat să revizuiți conținutul editat pentru \"{$title}\"."
+
+msgid "notification.type.editorAssign"
+msgstr "Vi s-a atribuit un editor la înregistrarea manuscrisului \"{$title}\"."
+
+msgid "submission.documents"
+msgstr "Înregistrare documente"

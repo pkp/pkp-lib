@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-07-29 18:46+0000\n"
+"PO-Revision-Date: 2020-08-10 04:22+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"common/mk/>\n"
-"Language: mk\n"
+"common/mk_MK/>\n"
+"Language: mk_MK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,3 +61,24 @@ msgstr "Моментален стил"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
+
+msgid "common.navigation.site"
+msgstr "Навигација на страницата"
+
+msgid "common.navigation.sidebar"
+msgstr "Странична лента"
+
+msgid "common.allDownloads"
+msgstr "Сите преземања"
+
+msgid "announcement.view"
+msgstr "Види објава"
+
+msgid "announcement.postedOn"
+msgstr "Постирано на {$postDate}"
+
+msgid "announcement.posted"
+msgstr "Постирано"
+
+msgid "announcement.noneExist"
+msgstr "Нема објавено никакви објави."

@@ -79,9 +79,9 @@ class PKPDateTimeForm extends FormComponent {
 				'isRequired' => true,
 				'isMultilingual' => true,
 				'options' => $this->_setDateOptions($currentDateTime, [
+					'%H:%M',
 					'%I:%M %p',
-					'%I:%M %P',
-					'%k:%M',
+					'%l:%M%P',
 				]),
 				'value' => $context->getDateTimeFormats('timeFormat'),
 				'groupId' => 'descriptions',

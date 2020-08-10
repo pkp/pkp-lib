@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-09 12:48+0000\n"
+"PO-Revision-Date: 2020-08-10 14:28+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "ro_RO/>\n"
@@ -274,11 +274,11 @@ msgstr ""
 
 msgid "user.preferredPublicName.description"
 msgstr ""
-"Cum preferi să fii abordat? Salutări, nume de mijloc și sufixe pot fi "
-"adăugate aici, dacă doriți."
+"Cum preferați să fiți abordat? Dacă doriți, aici pot fi adăugate Salutări, "
+"sufixe (prof., dr., ing., ec.), etc."
 
 msgid "user.preferredPublicName"
-msgstr "Nume public preferat"
+msgstr "Nume preferat pentru afișarea publică"
 
 msgid "user.phone"
 msgstr "Telefon"

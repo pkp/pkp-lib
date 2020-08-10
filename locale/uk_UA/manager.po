@@ -714,22 +714,22 @@ msgid "manager.setup.dateTime"
 msgstr "Дата та час"
 
 msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "Опис"
+msgstr "Формат дати та часу"
 
 msgid "manager.setup.dateTime.description"
-msgstr "Вибиріть формат дати та часу для відображення в інтерфейсі. Якщо варіант, який підходить, відсутній, можна налаштувати власний формат відповідно до <a href='http://php.net/manual/en/function.strftime.php#refsect1-function.strftime-parameters'>цих параметрів</a>."
+msgstr "Вибиріть формат дати та часу, якому ви надаєте перевагу. Свій варіант можна ввести використовуючи <a href='http://php.net/manual/en/function.strftime.php#refsect1-function.strftime-parameters'>спеціальні знаки</a>."
 
 msgid "manager.setup.dateTime.longDate"
-msgstr "Довгий формат дати"
+msgstr "Дата"
 
 msgid "manager.setup.dateTime.shortDate"
 msgstr "Короткий фомат дати"
 
 msgid "manager.setup.dateTime.time"
-msgstr "Формат часу"
+msgstr "Час"
 
 msgid "manager.setup.dateTime.longDateTime"
-msgstr "Довгий формат дати та часу"
+msgstr "Дата та час"
 
 msgid "manager.setup.dateTime.shortDateTime"
 msgstr "Короткий формат дати та часу"

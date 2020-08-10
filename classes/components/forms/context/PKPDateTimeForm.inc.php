@@ -46,6 +46,19 @@ class PKPDateTimeForm extends FormComponent {
 				'label' => __('manager.setup.dateTime.descriptionTitle'),
 				'description' => __('manager.setup.dateTime.description'),
 			])
+			//The default date format to use in the editorial and reader interfaces.
+			->addField(new FieldRadioInput('dateFormatLong', [
+				'label' => __('manager.setup.dateTime.longDate'),
+				'isMultilingual' => true,
+				'options' => $this->_setDateOptions($currentDateTime, [
+					'%B %e, %Y',
+					'%B %e %Y',
+					'%e %B %Y',
+					'%Y %B %e',
+				]),
+				'value' => $context->getDateTimeFormats('dateFormatLong'),
+				'groupId' => 'descriptions',
+			]))
 			// A brief date format that is used when there is less space for the full date.
 			->addField(new FieldRadioInput('dateFormatShort', [
 				'label' => __('manager.setup.dateTime.shortDate'),
@@ -60,19 +73,6 @@ class PKPDateTimeForm extends FormComponent {
 				'groupId' => 'descriptions',
 
 			]))
-			//The default date format to use in the editorial and reader interfaces.
-			->addField(new FieldRadioInput('dateFormatLong', [
-				'label' => __('manager.setup.dateTime.longDate'),
-				'isMultilingual' => true,
-				'options' => $this->_setDateOptions($currentDateTime, [
-					'%B %e, %Y',
-					'%B %e %Y',
-					'%e %B %Y',
-					'%Y %B %e',
-				]),
-				'value' => $context->getDateTimeFormats('dateFormatLong'),
-				'groupId' => 'descriptions',
-			]))
 			->addField(new FieldRadioInput('timeFormat', [
 				'label' => __('manager.setup.dateTime.time'),
 				'isMultilingual' => true,
@@ -82,27 +82,6 @@ class PKPDateTimeForm extends FormComponent {
 					'%l:%M%P',
 				]),
 				'value' => $context->getDateTimeFormats('timeFormat'),
-				'groupId' => 'descriptions',
-			]))
-			->addField(new FieldRadioInput('datetimeFormatShort', [
-				'label' => __('manager.setup.dateTime.shortDateTime'),
-				'isMultilingual' => true,
-				'options' => array_map(function ($value) use ($context, $currentDateTime, $localizedOptions) {
-					$locale = array_search($value, $localizedOptions);
-					setlocale(LC_TIME, $locale . '.utf8');
-					$optionValue = $context->getLocalizedDateFormatShort($locale) . ' ' . $context->getLocalizedTimeFormat($locale);
-					return [
-						[
-							'value' => $optionValue,
-							'label' => strftime($optionValue, $currentDateTime),
-						],
-						[
-							'isInput' => true,
-							'label' => __('manager.setup.dateTime.custom'),
-						]
-					];
-				}, $localizedOptions),
-				'value' => $context->getDateTimeFormats('datetimeFormatShort'),
 				'groupId' => 'descriptions',
 			]))
 			->addField(new FieldRadioInput('datetimeFormatLong', [
@@ -124,6 +103,27 @@ class PKPDateTimeForm extends FormComponent {
 					];
 				}, $localizedOptions),
 				'value' => $context->getDateTimeFormats('datetimeFormatLong'),
+				'groupId' => 'descriptions',
+			]))
+			->addField(new FieldRadioInput('datetimeFormatShort', [
+				'label' => __('manager.setup.dateTime.shortDateTime'),
+				'isMultilingual' => true,
+				'options' => array_map(function ($value) use ($context, $currentDateTime, $localizedOptions) {
+					$locale = array_search($value, $localizedOptions);
+					setlocale(LC_TIME, $locale . '.utf8');
+					$optionValue = $context->getLocalizedDateFormatShort($locale) . ' ' . $context->getLocalizedTimeFormat($locale);
+					return [
+						[
+							'value' => $optionValue,
+							'label' => strftime($optionValue, $currentDateTime),
+						],
+						[
+							'isInput' => true,
+							'label' => __('manager.setup.dateTime.custom'),
+						]
+					];
+				}, $localizedOptions),
+				'value' => $context->getDateTimeFormats('datetimeFormatShort'),
 				'groupId' => 'descriptions',
 			]));
 	}

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-10 04:22+0000\n"
+"PO-Revision-Date: 2020-08-10 04:32+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ro_RO/>\n"
@@ -513,7 +513,7 @@ msgid "submission.submit.whatNext.review"
 msgstr "Examinați această trimitere"
 
 msgid "submission.submit.whatNext.forNow"
-msgstr "Deocamdată, puteți:"
+msgstr "Deocamdată, puteți să:"
 
 msgid "submission.submit.whatNext"
 msgstr "Ce se întâmplă în continuare?"
@@ -525,7 +525,7 @@ msgid "submission.submit.copyrightNoticeAgreementLabel"
 msgstr "Confirmă declarația de copyright"
 
 msgid "submission.submit.submissionCompleteThanks"
-msgstr "Vă mulțumim pentru interesul dvs. de a publica cu {$contextName}."
+msgstr "Vă mulțumim pentru interesul dvs. de a publica în {$contextName}."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Înregistrare completă"

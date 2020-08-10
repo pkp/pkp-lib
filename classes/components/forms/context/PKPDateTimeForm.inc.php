@@ -46,6 +46,7 @@ class PKPDateTimeForm extends FormComponent {
 				'label' => __('manager.setup.dateTime.descriptionTitle'),
 				'description' => __('manager.setup.dateTime.description'),
 			])
+			// A brief date format that is used when there is less space for the full date.
 			->addField(new FieldRadioInput('dateFormatShort', [
 				'label' => __('manager.setup.dateTime.shortDate'),
 				'isRequired' => true,
@@ -61,6 +62,7 @@ class PKPDateTimeForm extends FormComponent {
 				'groupId' => 'descriptions',
 
 			]))
+			//The default date format to use in the editorial and reader interfaces.
 			->addField(new FieldRadioInput('dateFormatLong', [
 				'label' => __('manager.setup.dateTime.longDate'),
 				'isRequired' => true,
@@ -137,9 +139,9 @@ class PKPDateTimeForm extends FormComponent {
 	 * @param $currentDateTime string current date and time to show for demonstration
 	 * @param $optionValues array options to pass to the field
 	 * @return array
+	 * @brief Set localized options for date/time fields
 	 */
-	private function _setDateOptions($currentDateTime, $optionValues)
-	{
+	private function _setDateOptions($currentDateTime, $optionValues) {
 		$options = [];
 		foreach ($this->locales as $localeValue) {
 			$locale = $localeValue['key'];

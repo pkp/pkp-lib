@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-07 07:45+0000\n"
+"PO-Revision-Date: 2020-08-10 14:28+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ro_RO/>\n"
@@ -25,11 +25,11 @@ msgid "reviewer.list.reviewInterests"
 msgstr "Interesele revizorului"
 
 msgid "reviewer.list.warnOnAssignUnlock"
-msgstr "Deblocare"
+msgstr "Deblocați"
 
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
-"Acest recenzor este blocat deoarece i s-a atribuit un rol care le permite să "
+"Acest recenzor este blocat deoarece i s-a atribuit un rol care îi permite să "
 "vizualizeze identitatea autorului. Nu poate fi garantată revizuirea în orb. "
 "Ați dori oricum să deblocați acest recenzor?"
 
@@ -155,13 +155,13 @@ msgid "editor.submissionReview.recordRecommendation.skipEmail"
 msgstr "Nu trimiteți email editorilor."
 
 msgid "editor.submissionReview.recordRecommendation.notifyEditors"
-msgstr "Notificare editori"
+msgstr "Notificați editorii"
 
 msgid "editor.submissionReview.recordRecommendation"
-msgstr "Înregistrare recomandare editorială"
+msgstr "Înregistrați recomandarea editorială"
 
 msgid "editor.submissionReview.recordDecision"
-msgstr "Înregistrare decizia editorială"
+msgstr "Înregistrați decizia editorială"
 
 msgid "editor.submission.newRound"
 msgstr "Rundă nouă de revizie"
@@ -482,10 +482,10 @@ msgid "editor.submission.workflowDecision.submission.underReview"
 msgstr "Manuscrisul a fost acceptat pentru revizie."
 
 msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Trimite la producție."
+msgstr "Trimiteți la producție."
 
 msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Trimite la o nouă rundă de revizuire."
+msgstr "Trimiteți la o nouă rundă de revizuire."
 
 msgid "editor.submission.workflowDecision.submission.published"
 msgstr "Manuscris publicat."

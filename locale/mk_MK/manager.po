@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-10 04:22+0000\n"
+"PO-Revision-Date: 2020-08-11 07:19+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
@@ -1116,3 +1116,121 @@ msgstr "УИ"
 
 msgid "manager.importExport"
 msgstr "Увези/извези податоци"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Процент на одбиени од дескот"
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} е дефинирано како стандардна локализација."
+
+msgid "notification.localeDisabled"
+msgstr "Локализацијата е оневозможена."
+
+msgid "notification.localeEnabled"
+msgstr "Локализацијата е овозможена."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml не е најден во директориумот за плагини"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml во директориумот со плагини содржи неважечки податоци."
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Избери плагин"
+
+msgid "manager.plugins.uploadError"
+msgstr "Грешка при аплодирање на фајл"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Успешно ажурирано до верзија {$versionString}"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Ажурирањето не успеа. $errorString}"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Оваа форма ви овозможува да ажурирате додаток. Ве молиме, проверете дали "
+"приклучокот е компресиран како датотека .tar.gz."
+
+msgid "manager.plugins.upgrade"
+msgstr "Ажурирај плагин"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr ""
+"Командата за тар не е достапна. Ве молиме, правилно конфигурирајте го во \""
+"config.inc.php\"."
+
+msgid "manager.plugins.settings"
+msgstr "Подесувања"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"Плагинот веќе постои, но е понова од инсталираната верзија. Ве молиме, "
+"ажурирајте наместо тоа"
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Плагинот не постои. Ве молиме, инсталирајте наместо тоа"
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"Верзијата.xml во поставениот плагин содржи име на додаток што не одговара на "
+"името на надградениот плагин."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Плагинот не одговара на категоријата на ажуриран плагин."
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "Архивата на плагини не содржи папка што одговара на името на плагинот."
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Успешно инсталирана верзија {$versionNumber}"
+
+msgid "manager.plugins.installFailed"
+msgstr "Инсталацијата е неуспешна. {$errorString}"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Не е достапно"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Ажурирано"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Може да се надогради"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Понова од достапната верзија"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Плагинот веќе инсталиран и ажуриран."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+"Плагинот е веќе инсталиран и е понова од верзијата достапна во галеријата."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+"Плагинот е веќе инсталиран и е понова од верзијата достапна во галеријата."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Во моментов нема достапна компатибилна верзија на овој плагин."
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Плагинот сè уште не е инсталиран."
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Статус"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Резиме"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Главна страница"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} од {$date}"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Одржувач"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Овој плагин е обезбеден од еден од нашите партнери за развој."

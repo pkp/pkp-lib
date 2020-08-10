@@ -34,6 +34,7 @@ class PKPDateTimeForm extends FormComponent {
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;
 		$this->locales = $locales;
+		$currentTimeLocale = setlocale(LC_TIME, 0);
 		$currentDateTime = time();
 
 		$localizedOptions = []; // template for localized options to be used for date and time format
@@ -126,6 +127,9 @@ class PKPDateTimeForm extends FormComponent {
 				'value' => $context->getDateTimeFormats('datetimeFormatShort'),
 				'groupId' => 'descriptions',
 			]));
+
+		// Set initial date & time locale
+		setlocale(LC_TIME, $currentTimeLocale);
 	}
 
 	/**

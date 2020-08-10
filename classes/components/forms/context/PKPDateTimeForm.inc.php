@@ -49,9 +49,7 @@ class PKPDateTimeForm extends FormComponent {
 			// A brief date format that is used when there is less space for the full date.
 			->addField(new FieldRadioInput('dateFormatShort', [
 				'label' => __('manager.setup.dateTime.shortDate'),
-				'isRequired' => true,
 				'isMultilingual' => true,
-				'locales' => $locales,
 				'options' => $this->_setDateOptions($currentDateTime, [
 					'%Y-%m-%d',
 					'%d-%m-%Y',
@@ -65,7 +63,6 @@ class PKPDateTimeForm extends FormComponent {
 			//The default date format to use in the editorial and reader interfaces.
 			->addField(new FieldRadioInput('dateFormatLong', [
 				'label' => __('manager.setup.dateTime.longDate'),
-				'isRequired' => true,
 				'isMultilingual' => true,
 				'options' => $this->_setDateOptions($currentDateTime, [
 					'%B %e, %Y',
@@ -78,7 +75,6 @@ class PKPDateTimeForm extends FormComponent {
 			]))
 			->addField(new FieldRadioInput('timeFormat', [
 				'label' => __('manager.setup.dateTime.time'),
-				'isRequired' => true,
 				'isMultilingual' => true,
 				'options' => $this->_setDateOptions($currentDateTime, [
 					'%H:%M',
@@ -90,7 +86,6 @@ class PKPDateTimeForm extends FormComponent {
 			]))
 			->addField(new FieldRadioInput('datetimeFormatShort', [
 				'label' => __('manager.setup.dateTime.shortDateTime'),
-				'isRequired' => true,
 				'isMultilingual' => true,
 				'options' => array_map(function ($value) use ($context, $currentDateTime, $localizedOptions) {
 					$locale = array_search($value, $localizedOptions);
@@ -112,7 +107,6 @@ class PKPDateTimeForm extends FormComponent {
 			]))
 			->addField(new FieldRadioInput('datetimeFormatLong', [
 				'label' => __('manager.setup.dateTime.longDateTime'),
-				'isRequired' => true,
 				'isMultilingual' => true,
 				'options' => array_map(function ($value) use ($context, $currentDateTime, $localizedOptions) {
 					$locale = array_search($value, $localizedOptions);

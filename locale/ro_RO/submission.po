@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-10 14:28+0000\n"
+"PO-Revision-Date: 2020-08-11 18:27+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ro_RO/>\n"
@@ -555,7 +555,7 @@ msgstr ""
 "înregistrare."
 
 msgid "submission.submit.availableUserGroups"
-msgstr "Înregistrează ca"
+msgstr "Depuneți ca"
 
 msgid "submission.confirm.message"
 msgstr ""
@@ -569,8 +569,8 @@ msgstr "Au fost trimise recenzii noi și sunt luate în considerare de editor."
 
 msgid "author.submit.submissionCitations"
 msgstr ""
-"Furnizați o listă formatată de referințe pentru lucrările citate în această "
-"prezentare. Vă rugăm să separați referințele individuale cu o linie goală."
+"Furnizați o listă formatată de referințe pentru lucrările citate în acest "
+"manuscris. Vă rugăm să separați referințele individuale cu o linie goală."
 
 msgid "author.publicationNotFound"
 msgstr "Publicația pentru acest autor nu a fost găsită."

@@ -172,7 +172,6 @@ class FileManager {
 	 * @return boolean returns true if successful
 	 */
 	function copyFile($source, $dest) {
-		$success = true;
 		$destDir = dirname($dest);
 		if (!$this->fileExists($destDir, 'dir')) {
 			// Try to create the destination directory

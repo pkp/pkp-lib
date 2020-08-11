@@ -134,7 +134,7 @@ class PKPUploadPublicFileHandler extends APIHandler {
 				)
 			)
 		);
-        $extension = pathinfo(strtolower(trim($filename)), PATHINFO_EXTENSION);
+		$extension = pathinfo(strtolower(trim($filename)), PATHINFO_EXTENSION);
 
 		// Only allow permitted file types
 		if (!in_array($extension, $allowedFileTypes)) {

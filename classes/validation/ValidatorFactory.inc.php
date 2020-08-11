@@ -18,6 +18,9 @@ use Illuminate\Translation\Translator;
 use Illuminate\Validation\DatabasePresenceVerifier;
 use Illuminate\Validation\Factory;
 
+// Import VALIDATE_ACTION_... constants
+import('lib.pkp.classes.services.interfaces.EntityWriteInterface');
+
 class ValidatorFactory {
 
 	/**

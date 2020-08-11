@@ -71,9 +71,9 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate {
 	/**
 	 * Sends a notification to the given user.
 	 * @param $user User The user who will be notified
-	 * @return PKPNotification The notification instance
+	 * @return PKPNotification|null The notification instance or null if no notification created
 	 */
-	public function notify(User $user) : PKPNotification {
+	public function notify(User $user) : ?PKPNotification {
 		return parent::createNotification(
 			Application::get()->getRequest(),
 			$user->getId(),

@@ -17,22 +17,36 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 class MetricsMigration extends Migration {
-        /**
-         * Run the migrations.
-         * @return void
-         */
-        public function up() {
+	/**
+	 * Run the migrations.
+	 * @return void
+	 */
+	public function up() {
 		// OLAP statistics data table.
 		Capsule::schema()->create('metrics', function (Blueprint $table) {
 			$table->string('load_id', 255);
+
 			$table->bigInteger('context_id');
+			$contextDao = Application::getContextDAO();
+			$table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+
 			$table->bigInteger('pkp_section_id')->nullable();
+			$table->foreign('pkp_section_id')->references('section_id')->on('sections');
+
+			// pkp/pkp-lib#6093 FIXME: Can't declare relationship constraints on assoc_type/assoc_id pairs
 			$table->bigInteger('assoc_object_type')->nullable();
 			$table->bigInteger('assoc_object_id')->nullable();
+
 			$table->bigInteger('submission_id')->nullable();
+			$table->foreign('submission_id')->references('submission_id')->on('submissions');
+
+			// pkp/pkp-lib#6093 FIXME: Declare foreign relationship
 			$table->bigInteger('representation_id')->nullable();
+
+			// pkp/pkp-lib#6093 FIXME: Can't declare relationship constraints on assoc_type/assoc_id pairs
 			$table->bigInteger('assoc_type');
 			$table->bigInteger('assoc_id');
+
 			$table->string('day', 8)->nullable();
 			$table->string('month', 6)->nullable();
 			$table->tinyInteger('file_type')->nullable();
@@ -41,6 +55,7 @@ class MetricsMigration extends Migration {
 			$table->string('city', 255)->nullable();
 			$table->string('metric_type', 255);
 			$table->integer('metric');
+
 			$table->index(['load_id'], 'metrics_load_id');
 			$table->index(['metric_type', 'context_id'], 'metrics_metric_type_context_id');
 			$table->index(['metric_type', 'submission_id', 'assoc_type'], 'metrics_metric_type_submission_id_assoc_type');

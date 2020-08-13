@@ -25,7 +25,11 @@ class LibraryFilesMigration extends Migration {
 		// Library files for a context
 		Capsule::schema()->create('library_files', function (Blueprint $table) {
 			$table->bigInteger('file_id')->autoIncrement();
+
 			$table->bigInteger('context_id');
+			$contextDao = Application::getContextDAO();
+			$table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+
 			$table->string('file_name', 255);
 			$table->string('original_file_name', 255);
 			$table->string('file_type', 255);
@@ -33,8 +37,12 @@ class LibraryFilesMigration extends Migration {
 			$table->tinyInteger('type');
 			$table->datetime('date_uploaded');
 			$table->datetime('date_modified');
+
 			$table->bigInteger('submission_id');
+			$table->foreign('submission_id')->references('submission_id')->on('submissions');
+
 			$table->tinyInteger('public_access')->default(0)->nullable();
+
 			$table->index(['context_id'], 'library_files_context_id');
 			$table->index(['submission_id'], 'library_files_submission_id');
 		});
@@ -42,10 +50,13 @@ class LibraryFilesMigration extends Migration {
 		// Library file metadata.
 		Capsule::schema()->create('library_file_settings', function (Blueprint $table) {
 			$table->bigInteger('file_id');
+			$table->foreign('file_id')->references('file_id')->on('library_files');
+
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
 			$table->text('setting_value')->nullable();
 			$table->string('setting_type', 6)->comment('(bool|int|float|string|object|date)');
+
 			$table->index(['file_id'], 'library_file_settings_id');
 			$table->unique(['file_id', 'locale', 'setting_name'], 'library_file_settings_pkey');
 		});

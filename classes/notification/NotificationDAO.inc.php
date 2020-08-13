@@ -198,20 +198,9 @@ class NotificationDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteById($notificationId, $userId = null) {
-		$params = array((int) $notificationId);
-		if (isset($userId)) $params[] = (int) $userId;
-		$this->update(
-			'DELETE FROM notifications WHERE notification_id = ?' . (isset($userId) ? ' AND user_id = ?' : ''),
-			$params
-		);
-		if ($this->getAffectedRows()) {
-			// If a notification was deleted (possibly validating
-			// $userId in the process) delete associated settings.
-			$notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDaoDao NotificationSettingsDAO */
-			$notificationSettingsDao->deleteSettingsByNotificationId($notificationId);
-			return true;
-		}
-		return false;
+		$notification = $this->getById($notificationId, $userId);
+		if (!$notification) return false;
+		return $this->deleteObject($notification);
 	}
 
 	/**
@@ -220,7 +209,10 @@ class NotificationDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteObject($notification) {
-		return $this->deleteById($notification->getId());
+		$notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDao NotificationSettingsDAO */
+		$notificationSettingsDao->deleteSettingsByNotificationId($notification->getId());
+		$this->update('DELETE FROM notifications WHERE notification_id = ?', [$notification->getId()]);
+		return (boolean) $this->getAffectedRows();
 	}
 
 	/**

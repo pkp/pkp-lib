@@ -25,7 +25,12 @@ class NavigationMenusMigration extends Migration {
 		// NavigationMenus
 		Capsule::schema()->create('navigation_menus', function (Blueprint $table) {
 			$table->bigInteger('navigation_menu_id')->autoIncrement();
+
 			$table->bigInteger('context_id');
+			// pkp/pkp-lib#6093 FIXME: Can't declare foreign key relationship b/c context_id of 0 is used (CONTEXT_SITE)
+			// $contextDao = Application::getContextDAO();
+			// $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+
 			$table->string('area_name', 255)->default('')->nullable();
 			$table->string('title', 255);
 		});
@@ -33,7 +38,12 @@ class NavigationMenusMigration extends Migration {
 		// NavigationMenuItems
 		Capsule::schema()->create('navigation_menu_items', function (Blueprint $table) {
 			$table->bigInteger('navigation_menu_item_id')->autoIncrement();
+
 			$table->bigInteger('context_id');
+			// pkp/pkp-lib#6093 FIXME: Can't declare foreign key relationship b/c context_id of 0 is used (CONTEXT_SITE)
+			// $contextDao = Application::getContextDAO();
+			// $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+
 			$table->string('path', 255)->default('')->nullable();
 			$table->string('type', 255)->default('')->nullable();
 		});
@@ -41,10 +51,13 @@ class NavigationMenusMigration extends Migration {
 		// Locale-specific navigation menu item data
 		Capsule::schema()->create('navigation_menu_item_settings', function (Blueprint $table) {
 			$table->bigInteger('navigation_menu_item_id');
+			$table->foreign('navigation_menu_item_id')->references('navigation_menu_item_id')->on('navigation_menu_items');
+
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
 			$table->longText('setting_value')->nullable();
 			$table->string('setting_type', 6);
+
 			$table->index(['navigation_menu_item_id'], 'navigation_menu_item_settings_navigation_menu_id');
 			$table->unique(['navigation_menu_item_id', 'locale', 'setting_name'], 'navigation_menu_item_settings_pkey');
 		});
@@ -52,19 +65,30 @@ class NavigationMenusMigration extends Migration {
 		// NavigationMenuItemAssignments which assign menu items to a menu and describe nested menu structure.
 		Capsule::schema()->create('navigation_menu_item_assignments', function (Blueprint $table) {
 			$table->bigInteger('navigation_menu_item_assignment_id')->autoIncrement();
+
 			$table->bigInteger('navigation_menu_id');
+			$table->foreign('navigation_menu_id')->references('navigation_menu_id')->on('navigation_menus');
+
 			$table->bigInteger('navigation_menu_item_id');
+			$table->foreign('navigation_menu_item_id')->references('navigation_menu_item_id')->on('navigation_menu_items');
+
 			$table->bigInteger('parent_id')->nullable();
+			// pkp/pkp-lib#6093 FIXME: Can't declare foreign key relationship b/c 0 is used (synonumous with NULL?)
+			// $table->foreign('parent_id')->references('navigation_menu_item_assignment_id')->on('navigation_menu_item_assignments');
+
 			$table->bigInteger('seq')->default(0)->nullable();
 		});
 
 		// Locale-specific navigation menu item assignments data
 		Capsule::schema()->create('navigation_menu_item_assignment_settings', function (Blueprint $table) {
 			$table->bigInteger('navigation_menu_item_assignment_id');
+			$table->foreign('navigation_menu_item_assignment_id', 'nmias_nmia_foreign')->references('navigation_menu_item_assignment_id')->on('navigation_menu_item_assignments');
+
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
 			$table->text('setting_value')->nullable();
 			$table->string('setting_type', 6);
+
 			$table->index(['navigation_menu_item_assignment_id'], 'assignment_settings_navigation_menu_item_assignment_id');
 			$table->unique(['navigation_menu_item_assignment_id', 'locale', 'setting_name'], 'navigation_menu_item_assignment_settings_pkey');
 		});

@@ -28,7 +28,8 @@ class SubmissionFilesMigration extends Migration {
 			$table->bigInteger('revision');
 
 			$table->bigInteger('source_file_id')->nullable();
-			$table->foreign('source_file_id')->references('file_id')->on('submission_files');
+			// pkp/pkp-lib#6093 FIXME: Compound foreign key
+			// $table->foreign('source_file_id')->references('file_id')->on('submission_files');
 
 			$table->bigInteger('source_revision')->nullable();
 			$table->bigInteger('submission_id');
@@ -58,16 +59,17 @@ class SubmissionFilesMigration extends Migration {
 			$table->index(['submission_id'], 'submission_files_submission_id');
 			$table->index(['file_stage', 'assoc_type', 'assoc_id'], 'submission_files_stage_assoc'); //  pkp/pkp-lib#5804 
 		});
-
 		// Work-around for compound primary key
 		switch (Capsule::connection()->getDriverName()) {
 			case 'mysql': Capsule::connection()->unprepared("ALTER TABLE submission_files DROP PRIMARY KEY, ADD PRIMARY KEY (file_id, revision)"); break;
 			case 'pgsql': Capsule::connection()->unprepared("ALTER TABLE submission_files DROP CONSTRAINT submission_files_pkey; ALTER TABLE submission_files ADD PRIMARY KEY (file_id, revision);"); break;
 		}
+
 		// Article supplementary file metadata.
 		Capsule::schema()->create('submission_file_settings', function (Blueprint $table) {
 			$table->bigInteger('file_id');
-			$table->foreign('file_id')->references('file_id')->on('submission_files');
+			// pkp/pkp-lib#6093 FIXME: Compound foreign key
+			// $table->foreign('file_id')->references('file_id')->on('submission_files');
 
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -81,7 +83,8 @@ class SubmissionFilesMigration extends Migration {
 		// Submission visuals.
 		Capsule::schema()->create('submission_artwork_files', function (Blueprint $table) {
 			$table->bigInteger('file_id');
-			$table->foreign('file_id')->references('file_id')->on('submission_files');
+			// pkp/pkp-lib#6093 FIXME: Compound foreign key
+			// $table->foreign('file_id')->references('file_id')->on('submission_files');
 
 			$table->bigInteger('revision');
 			$table->text('caption')->nullable();
@@ -97,7 +100,8 @@ class SubmissionFilesMigration extends Migration {
 		// Submission supplementary content.
 		Capsule::schema()->create('submission_supplementary_files', function (Blueprint $table) {
 			$table->bigInteger('file_id');
-			$table->foreign('file_id')->references('file_id')->on('submission_files');
+			// pkp/pkp-lib#6093 FIXME: Compound foreign key
+			// $table->foreign('file_id')->references('file_id')->on('submission_files');
 
 			$table->bigInteger('revision');
 		});
@@ -108,9 +112,9 @@ class SubmissionFilesMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('submission_supplementary_files');
+/** FIXME		Capsule::schema()->drop('submission_supplementary_files');
 		Capsule::schema()->drop('submission_artwork_files');
 		Capsule::schema()->drop('submission_file_settings');
-		Capsule::schema()->drop('submission_files');
+		Capsule::schema()->drop('submission_files');*/
 	}
 }

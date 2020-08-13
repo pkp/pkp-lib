@@ -93,7 +93,8 @@ class ReviewsMigration extends Migration {
 			$table->tinyInteger('stage_id');
 
 			$table->bigInteger('file_id');
-			$table->foreign('file_id')->references('file_id')->on('submission_files');
+			// pkp/pkp-lib#6093 FIXME: Compound foreign key
+			// $table->foreign('file_id')->references('file_id')->on('submission_files');
 
 			$table->bigInteger('revision')->default(1);
 
@@ -107,7 +108,8 @@ class ReviewsMigration extends Migration {
 			$table->foreign('review_id')->references('review_id')->on('review_assignments');
 
 			$table->bigInteger('file_id');
-			$table->foreign('file_id')->references('file_id')->on('submission_files');
+			// pkp/pkp-lib#6093 FIXME: Compound foreign key
+			// $table->foreign('file_id')->references('file_id')->on('submission_files');
 
 			$table->index(['review_id'], 'review_files_review_id');
 			$table->unique(['review_id', 'file_id'], 'review_files_pkey');

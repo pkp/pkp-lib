@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-11 07:19+0000\n"
+"PO-Revision-Date: 2020-08-14 13:48+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk_MK/>\n"
@@ -823,3 +823,303 @@ msgstr "Навигација со корисници"
 
 msgid "common.navigation.siteContext"
 msgstr "Навигација со содржината на страницата"
+
+msgid "validator.string"
+msgstr "Ова не е валиден стринг."
+
+msgid "form.startsWith"
+msgstr "почнува со"
+
+msgid "form.missingRequired"
+msgstr "Ова поле е задолжително."
+
+msgid "form.is"
+msgstr "е"
+
+msgid "form.contains"
+msgstr "содржи"
+
+msgid "form.formLanguage"
+msgstr "Јазичен формулар"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"За да ги внесете информациите подолу на дополнителни јазици, прво изберете "
+"го јазикот."
+
+msgid "form.errorsOccurred"
+msgstr "Се појавија грешки при обработка на овој фромулар"
+
+msgid "form.errorUnknown"
+msgstr ""
+"Настана неочекувана грешка. Можеби сте биле одјавени. Вчитајте ја страницата "
+"повторно и обидете се повторно."
+
+msgid "form.errors"
+msgstr ""
+"Образецот не е зачуван затоа што се појавиле {$count} грешка (и).  Поправете "
+"ги овие грешки и обидете се повторно."
+
+msgid "form.errorMany"
+msgstr "Ве молам исправете {$count} грешки."
+
+msgid "form.errorOne"
+msgstr "Исправете една грешка."
+
+msgid "form.errorGoTo"
+msgstr "Скокни на следната грешка"
+
+msgid "form.errorA11y"
+msgstr "Оди до {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Не можете да прикачете повеќе датотеки."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Отстрани фајл"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Дали сте сигурни дека сакате да го откажете ова поставување?"
+
+msgid "validator.timezone"
+msgstr "Ова не е валидна временска зона."
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Преземањето е откажано"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Откажи преземање"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Серверот одговори со {{statusCode}} код. Ве молиме, контактирајте со "
+"администраторот на системот ако овој проблем опстојува."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Датотеките од овој тип не можат да се постават."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Датотеката е премногу голема  ({{filesize}}mb). Датотеките поголеми од "
+"{{maxFilesize}} mb не можат да се постават."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"Користете го формуларот за повратни информации подолу за да ги испратите "
+"вашите датотеки."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Вашиот прелистувач не поддржува преземања на датотеки со влечење."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Довлечкај ги фајловите тука за да ги прикачиш"
+
+msgid "form.disallowedProp"
+msgstr "Ова својство не е дозволено."
+
+msgid "form.disallowedLocales"
+msgstr "Дозволени се само следниве јазици: {$languages}."
+
+msgid "form.dataHasChanged"
+msgstr ""
+"Податоците за оваа форма се променети. Дали сакате да продолжите без да ги "
+"снимите?"
+
+msgid "form.emailRequired"
+msgstr "Имејл адреса е неопходна."
+
+msgid "form.confirmSubmit.title"
+msgstr "Потврди"
+
+msgid "form.confirmSubmit"
+msgstr "Дали сте сигурни дека сакате да го доставите овој формулар?"
+
+msgid "form.url.invalid"
+msgstr "Наведената URL е неважечка. Проверете ја и обидете се повторно."
+
+msgid "email.to"
+msgstr "До"
+
+msgid "email.bodyRequired"
+msgstr "Додајте текст на имејлот."
+
+msgid "email.subjectRequired"
+msgstr "Додајте тема на имејлот."
+
+msgid "email.subject"
+msgstr "Предмет"
+
+msgid "email.skip"
+msgstr "Изостави имејл"
+
+msgid "email.send"
+msgstr "Испрати"
+
+msgid "email.senderEmail"
+msgstr "Имејл адреса на испраќачот"
+
+msgid "email.senderName"
+msgstr "Име на испраќачот"
+
+msgid "email.sender"
+msgstr "Испраќач"
+
+msgid "email.recipients"
+msgstr "Приматели"
+
+msgid "email.recipient"
+msgstr "Примател"
+
+msgid "email.multipart"
+msgstr "Ова е повеќестрана порака во MIME формат."
+
+msgid "email.invalid"
+msgstr "Имејл адресата {$email} е неисправна."
+
+msgid "email.from"
+msgstr "Од"
+
+msgid "email.email"
+msgstr "Имејл"
+
+msgid "email.compose.error"
+msgstr ""
+"Имаше проблем со испраќање на е-пошта. Обидете се повторно подоцна, или "
+"контактирајте го администраторот на системот."
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"Се обидувате да испратите порака прерано  по испратената последната порака. "
+"Ве молиме почекајте пред да испратите друга порака."
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Пораката што сакате да ја испратите има премногу примачи."
+
+msgid "email.compose"
+msgstr "Испрати имејл"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.body"
+msgstr "Порака"
+
+msgid "email.bccSender"
+msgstr "Прати копија на оваа порака на моја адреса ({$address})"
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.attachments"
+msgstr "Прилози"
+
+msgid "email.addToRecipient"
+msgstr "Додади примател"
+
+msgid "email.addCcRecipient"
+msgstr "Додади копија"
+
+msgid "email.addBccRecipient"
+msgstr "Додади невидлива копија"
+
+msgid "email.addAttachment"
+msgstr "Додади прилог"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Прилкачи фајл"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Прикачи рецензиран фајл"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Достапни метрики"
+
+msgid "defaultMetric.title"
+msgstr "Примарна метрика"
+
+msgid "debug.notes"
+msgstr "Белешки:"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Недостасува клуч за локализација  \"{$key}\"."
+
+msgid "debug.notes.localeLoad"
+msgstr "Вчитан фајл  за локализација \"{$localeFile}\" од XML"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Вчитана листа на локализации \"{$localeList}\" од XML"
+
+msgid "debug.memoryUsage"
+msgstr "Искористена меморија"
+
+msgid "debug.executionTime"
+msgstr "Страница генерирана на"
+
+msgid "debug.databaseQueries"
+msgstr "Број на барања од датабазата"
+
+msgid "common.publicAccess"
+msgstr "Јавен достап"
+
+msgid "common.count"
+msgstr "Преброј"
+
+msgid "common.metric"
+msgstr "Метрика"
+
+msgid "common.plugins"
+msgstr "Плагини"
+
+msgid "common.loading"
+msgstr "Се вчитува"
+
+msgid "common.yes"
+msgstr "Да"
+
+msgid "common.year"
+msgstr "Година"
+
+msgid "common.width"
+msgstr "Ширина"
+
+msgid "common.weeks"
+msgstr "недели"
+
+msgid "common.viewProfile"
+msgstr "Види профил"
+
+msgid "common.view"
+msgstr "Погледај"
+
+msgid "common.user"
+msgstr "Корисник"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.upload.dragFile"
+msgstr "Довлечи го фајлот тука за да започне закачувањето на фајлот"
+
+msgid "common.upload.changeFile"
+msgstr "Смени го фајлот"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Прегледај  ја селектираната слика."
+
+msgid "common.upload.restore"
+msgstr "Врати го оригиналниот"
+
+msgid "common.upload.addFile"
+msgstr "Прикачи фајл"
+
+msgid "common.up"
+msgstr "Горе"
+
+msgid "common.uploadFailed"
+msgstr "Фајлот не може да се прикачи или ревидира."
+
+msgid "common.upload"
+msgstr "Прикачување"
+
+msgid "common.uploadedDate"
+msgstr "Датум на прикачување"

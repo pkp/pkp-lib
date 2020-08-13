@@ -75,9 +75,8 @@ class PKPToolsHandler extends ManagementHandler {
 			case 'resetPermissions':
 				$this->resetPermissions($args, $request);
 				break;
-			default:
-				assert(false);
-			}
+			default: assert(false);
+		}
 	}
 
 	/**

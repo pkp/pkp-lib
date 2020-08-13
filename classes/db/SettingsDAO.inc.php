@@ -13,8 +13,7 @@
  * @brief Operations for retrieving and modifying settings.
  */
 
-class SettingsDAO extends DAO {
-
+abstract class SettingsDAO extends DAO {
 	/**
 	 * Retrieve (and newly cache) all settings.
 	 * @param $id int
@@ -280,16 +279,12 @@ class SettingsDAO extends DAO {
 	 * Get the settings table name.
 	 * @return string
 	 */
-	protected function _getTableName() {
-		assert(false); // Must be implemented by subclasses
-	}
+	abstract protected function _getTableName();
 
 	/**
 	 * Get the primary key column name.
 	 */
-	protected function _getPrimaryKeyColumn() {
-		assert(false); // Must be implemented by subclasses
-	}
+	abstract protected function _getPrimaryKeyColumn();
 
 	/**
 	 * Get the cache name.

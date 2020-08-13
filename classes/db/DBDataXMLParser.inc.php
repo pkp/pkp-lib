@@ -79,9 +79,7 @@ class DBDataXMLParser {
 										join(', ', array_values($fieldValues)));
 							}
 							break;
-
-						default:
-							assert(false);
+						default: assert(false);
 					}
 				}
 				break;

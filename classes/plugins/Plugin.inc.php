@@ -181,7 +181,7 @@ abstract class Plugin {
 	 * @return JSONMessage A JSON-encoded response
 	 */
 	function manage($args, $request) {
-		assert(false); // Unhandled case; this shouldn't happen.
+		throw new Exception('Unhandled management action!');
 	}
 
 	/**

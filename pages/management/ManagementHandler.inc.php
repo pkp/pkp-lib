@@ -79,8 +79,8 @@ class ManagementHandler extends Handler {
 				$this->announcements($args, $request);
 				break;
 			default:
-				$request->getDispatcher()->handle404();
 				assert(false);
+				$request->getDispatcher()->handle404();
 		}
 	}
 

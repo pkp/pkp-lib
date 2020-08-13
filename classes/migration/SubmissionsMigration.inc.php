@@ -31,7 +31,8 @@ class SubmissionsMigration extends Migration {
 			$table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
 
 			$table->bigInteger('current_publication_id')->nullable();
-			$table->foreign('current_publication_id')->references('publication_id')->on('publications');
+			// pkp/pkp-lib#6093 FIXME: Circular foreign key reference between submissions and publications
+			// $table->foreign('current_publication_id')->references('publication_id')->on('publications');
 
 			$table->datetime('date_last_activity')->nullable();
 			$table->datetime('date_submitted')->nullable();
@@ -56,52 +57,6 @@ class SubmissionsMigration extends Migration {
 
 			$table->index(['submission_id'], 'submission_settings_submission_id');
 			$table->unique(['submission_id', 'locale', 'setting_name'], 'submission_settings_pkey');
-		});
-
-		// publication metadata
-		Capsule::schema()->create('publication_settings', function (Blueprint $table) {
-			$table->bigInteger('publication_id');
-			$table->foreign('publication_id')->references('publication_id')->on('publications');
-
-			$table->string('locale', 14)->default('');
-			$table->string('setting_name', 255);
-			$table->text('setting_value')->nullable();
-
-			$table->index(['publication_id'], 'publication_settings_publication_id');
-			$table->unique(['publication_id', 'locale', 'setting_name'], 'publication_settings_pkey');
-		});
-		// Add partial index (DBMS-specific)
-		switch (Capsule::connection()->getDriverName()) {
-			case 'mysql': Capsule::connection()->unprepared('CREATE INDEX publication_settings_name_value ON publication_settings (setting_name(50), setting_value(150))'); break;
-			case 'pgsql': Capsule::connection()->unprepared("CREATE INDEX publication_settings_name_value ON publication_settings (setting_name, setting_value) WHERE setting_name IN ('indexingState', 'medra::registeredDoi', 'datacite::registeredDoi', 'pub-id::publisher-id')"); break;
-		}
-
-		// Authors for submissions.
-		Capsule::schema()->create('authors', function (Blueprint $table) {
-			$table->bigInteger('author_id')->autoIncrement();
-			$table->string('email', 90);
-			$table->tinyInteger('include_in_browse')->default(1);
-
-			$table->bigInteger('publication_id');
-			$table->foreign('publication_id')->references('publication_id')->on('publications');
-
-			$table->float('seq', 8, 2)->default(0);
-			$table->bigInteger('user_group_id')->nullable();
-
-			$table->index(['publication_id'], 'authors_publication_id');
-		});
-
-		// Language dependent author metadata.
-		Capsule::schema()->create('author_settings', function (Blueprint $table) {
-			$table->bigInteger('author_id');
-			$table->foreign('author_id')->references('author_id')->on('authors');
-
-			$table->string('locale', 14)->default('');
-			$table->string('setting_name', 255);
-			$table->text('setting_value')->nullable();
-
-			$table->index(['author_id'], 'author_settings_author_id');
-			$table->unique(['author_id', 'locale', 'setting_name'], 'author_settings_pkey');
 		});
 
 		// Editor decisions.
@@ -246,8 +201,6 @@ class SubmissionsMigration extends Migration {
 		Capsule::schema()->drop('subeditor_submission_group');
 		Capsule::schema()->drop('submission_comments');
 		Capsule::schema()->drop('edit_decisions');
-		Capsule::schema()->drop('author_settings');
-		Capsule::schema()->drop('authors');
 		Capsule::schema()->drop('publication_settings');
 		Capsule::schema()->drop('submission_settings');
 		Capsule::schema()->drop('submissions');

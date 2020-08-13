@@ -84,9 +84,9 @@ class AnnouncementsMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('announcement_types');
-		Capsule::schema()->drop('announcement_type_settings');
-		Capsule::schema()->drop('announcements');
 		Capsule::schema()->drop('announcement_settings');
+		Capsule::schema()->drop('announcements');
+		Capsule::schema()->drop('announcement_type_settings');
+		Capsule::schema()->drop('announcement_types');
 	}
 }

@@ -112,6 +112,20 @@ class ReviewsMigration extends Migration {
 			$table->index(['review_id'], 'review_files_review_id');
 			$table->unique(['review_id', 'file_id'], 'review_files_pkey');
 		});
+
+		// Review form responses.
+		Capsule::schema()->create('review_form_responses', function (Blueprint $table) {
+			$table->bigInteger('review_form_element_id');
+			$table->foreign('review_form_element_id')->references('review_form_element_id')->on('review_form_elements');
+
+			$table->bigInteger('review_id');
+			$table->foreign('review_id')->references('review_id')->on('review_assignments');
+
+			$table->string('response_type', 6)->nullable();
+			$table->text('response_value')->nullable();
+
+			$table->index(['review_form_element_id', 'review_id'], 'review_form_responses_pkey');
+		});
 	}
 
 	/**
@@ -119,6 +133,7 @@ class ReviewsMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
+		Capsule::schema()->drop('review_form_responses');
 		Capsule::schema()->drop('review_files');
 		Capsule::schema()->drop('review_round_files');
 		Capsule::schema()->drop('review_rounds');

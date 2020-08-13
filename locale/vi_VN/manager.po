@@ -1,2 +1,141 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2020-08-14 13:48+0000\n"
+"Last-Translator: Tran Ngoc Trung <khuchatthienduong@gmail.com>\n"
+"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/vi_VN/>\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Tên kiểu thông báo là bắt buộc."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Tên"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Một kiểu thông báo với tên này đã tồn tại."
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Lưu và tạo một cái khác"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Chỉnh sửa"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Chỉnh sửa kiểu thông báo"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Tạo"
+
+msgid "manager.announcementTypes.create"
+msgstr "Tạo kiểu thông báo"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Cảnh báo! Tất cả các thông báo có kiểu thông báo này cũng sẽ bị xóa. Bạn có "
+"chắc chắn muốn tiếp tục và xóa kiểu thông báo này không?"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Vui lòng chọn kiểu thông báo hợp lệ."
+
+msgid "manager.announcementTypes"
+msgstr "Các kiểu thông báo"
+
+msgid "manager.announcements.type"
+msgstr "Kiểu"
+
+msgid "manager.announcements.title"
+msgstr "TIêu đề"
+
+msgid "manager.announcements.noneCreated"
+msgstr "Không có thông báo nào được tạo."
+
+msgid "manager.announcements.form.typeId"
+msgstr "Kiểu"
+
+msgid "manager.announcements.form.title"
+msgstr "Tiêu đề"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Tiêu đề thông báo là bắt buộc."
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Lưu và tạo một cái khác"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Mô tả ngắn gọn"
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Mô tả thông báo ngắn gọn là bắt buộc."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Mô tả ngắn gọn xuất hiện cùng với tiêu đề thông báo."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Mô tả thông báo là bắt buộc."
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Toàn văn thông báo."
+
+msgid "manager.announcements.form.description"
+msgstr "Mô tả"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Vui lòng chọn một tháng hoặc ngày cho năm hết hạn."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Vui lòng chọn ngày hết hạn thông báo hợp lệ."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Vui lòng chọn một năm hoặc ngày cho tháng hết hạn."
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Thông báo sẽ được hiển thị cho độc giả cho đến ngày này. Để trống nếu thông "
+"báo sẽ được hiển thị vô thời hạn."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Ngày hết hạn"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Vui lòng chọn một năm hoặc tháng cho ngày hết hạn."
+
+msgid "manager.announcements.editTitle"
+msgstr "Sửa"
+
+msgid "manager.announcements.edit"
+msgstr "Chỉnh sửa thông báo"
+
+msgid "manager.announcements.datePublish"
+msgstr "Được phát hành"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Hết hạn"
+
+msgid "manager.announcements.createTitle"
+msgstr "Tạo"
+
+msgid "manager.announcements.create"
+msgstr "Tạo thông báo mới"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Bạn có chắc chắn muốn xóa vĩnh viễn thông báo này không?"
+
+msgid "manager.announcements"
+msgstr "Thông báo"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Một tệp hình ảnh là bắt buộc. Hãy đảm bảo rằng bạn đã chọn và tải lên một "
+"tệp."
+
+msgid "manager.website.appearance"
+msgstr "Xuất hiện"
+
+msgid "manager.website.information"
+msgstr "Thông tin"

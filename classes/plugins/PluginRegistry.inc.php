@@ -239,7 +239,7 @@ class PluginRegistry {
 		$pluginWrapper = "$pluginPath/index.php";
 		if (file_exists($pluginWrapper)) {
 			$plugin = include($pluginWrapper);
-			assert(is_a($plugin, $classToCheck ?? 'Plugin'));
+			assert(is_a($plugin, $classToCheck ?: 'Plugin'));
 			return $plugin;
 		} else {
 			// Try the well-known plug-in class name next.
@@ -250,7 +250,7 @@ class PluginRegistry {
 				$pluginPackage = 'plugins.'.$category.'.'.$file;
 				$plugin = instantiate($pluginPackage.'.'.$pluginClassName, $pluginClassName, $pluginPackage, 'register');
 			}
-			assert(is_a($plugin, $classToCheck ?? 'Plugin'));
+			assert(is_a($plugin, $classToCheck ?: 'Plugin'));
 			return $plugin;
 		}
 	}

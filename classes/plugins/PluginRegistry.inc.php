@@ -249,10 +249,11 @@ class PluginRegistry {
 				// Try to instantiate the plug-in class.
 				$pluginPackage = 'plugins.'.$category.'.'.$file;
 				$plugin = instantiate($pluginPackage.'.'.$pluginClassName, $pluginClassName, $pluginPackage, 'register');
+				assert(is_a($plugin, $classToCheck ?: 'Plugin'));
+				return $plugin;
 			}
-			assert(is_a($plugin, $classToCheck ?: 'Plugin'));
-			return $plugin;
 		}
+		return null;
 	}
 }
 

@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-07-29 21:33+0000\n"
+"PO-Revision-Date: 2020-08-10 04:22+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/mk/>\n"
-"Language: mk\n"
+"submission/mk_MK/>\n"
+"Language: mk_MK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -110,3 +110,102 @@ msgstr "Публикацијата за овој автор не може да �
 
 msgid "author.editPublishedDisabled"
 msgstr "Не може да се уредува затоа што списанието веќе е објавено."
+
+msgid "publication.wordCount"
+msgstr "Број на зборови: {$count}/{$limit}"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Внесите валидни серија."
+
+msgid "metadata.property.displayName.series"
+msgstr "Серија"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Внеси валидна едиција."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Едиција"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Внеси валиден наслов на глава."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Наслов на глава"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Внеси валиден идентификатор на сезона."
+
+msgid "metadata.property.displayName.season"
+msgstr "Сезона"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Внеси валиден том."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Том"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Внеси валиден број на издание."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Број"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Внесите исправен датум на пристап (формат: дд.мм.гггг.)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Датум на пристап"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Внесете исправен датум на издавање (формат: дд.мм.гггг.)."
+
+msgid "metadata.property.displayName.date"
+msgstr "Датум на издавање"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Внесете валиден наслов на публикација."
+
+msgid "metadata.property.displayName.source"
+msgstr "Наслов на публикација"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Внесете валиден наслов на статија."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Наслов на статијата"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"За најдобри резултати, уредниците треба да бидат внесени во следниот формат: "
+"Колман rуниор, Д. (Ралф) Др."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Уредници"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"За најдобри резултати, авторите треба да бидат внесени во следниот формат: "
+"Колман rуниор, Д. (Ралф) Др."
+
+msgid "metadata.property.displayName.author"
+msgstr "Автори"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Внатрешна грешка. Неоправдана вредност е објавена за поставката „поционален "
+"филтер“. Пријавете го ова како грешка."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Не користете по дифолт (сè уште ќе бидат достапни за уредникот)"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Изберете еден од дадените модули за цитирање."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Модул за цитирање"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Внеси WorldCat API Key, ако имаш."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API Key"

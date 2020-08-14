@@ -1,0 +1,248 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-10 04:22+0000\n"
+"Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
+"Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/ro_RO/>\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"Versiunea PHP a serverului dvs. nu este acceptată de acest software. "
+"Verificați cerințele de instalare din documente/README."
+
+msgid "installer.beacon.enable"
+msgstr ""
+"Furnizați un ID unic al site-ului și o adresă URL de bază OAI către PKP doar "
+"pentru statistici și alertă de securitate."
+
+msgid "installer.beacon"
+msgstr "Semnal luminos"
+
+msgid "installer.configureXSLMessage"
+msgstr ""
+"<p>Instalarea dvs. PHP nu are modulul XSL activat. Fie activați-l, fie "
+"configurați parametrul xslt_command din fișierul dvs. config.inc.php "
+"file.</p>"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Următoarele fișiere și directoare (și conținutul lor) trebuie să "
+"fie scrise:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> este scris (opțional): "
+"{$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> este scris: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> este scris: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> este scris:  "
+"{$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> este scris:  "
+"{$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> este scris: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. Trebuie creat un director pentru stocarea fișierelor încărcate "
+"care să poată fi scris (vezi „Setări fișiere” de mai jos).</p>\n"
+"\t"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Pași de pre-instalare"
+
+msgid "installer.releaseNotes"
+msgstr "Note de lansare"
+
+msgid "installer.publicFilesDirError"
+msgstr "Directorul fișierelor publice nu există sau nu poate fi scris."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Identificator de depozit"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+"Un identificator unic utilizat pentru identificarea înregistrărilor de "
+"metadate indexate de pe acest site folosind <a href=\""
+"https://www.openarchives.org/\" target=\"_blank\">Inițiativa arhivelor "
+"deschise</a> Protocol pentru colectarea metadatelor."
+
+msgid "installer.oaiSettings"
+msgstr "Setări OAI"
+
+msgid "installer.localeSettings"
+msgstr "Setări de limbă"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Fișierele de limbă marcate pot fi incomplete."
+
+msgid "installer.locale"
+msgstr "Fișiere de limbă"
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"Actualizarea nu este acceptată. Consultați documente/UPGRADE-NESUPORTAT "
+"pentru detalii."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr ""
+"Eroare la analizarea fișierului de configurare a filtrului <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Eroare la analizarea fișierului șablon de e-mail <tt>{$file}</tt>."
+
+msgid "installer.installParseDBFileError"
+msgstr ""
+"Eroare la analizarea fișierului de instalare a bazei de date "
+"<tt>{$file}</tt>."
+
+msgid "installer.installFilesDirError"
+msgstr ""
+"Directorul specificat pentru fișierele încărcate nu există sau nu poate fi "
+"scris."
+
+msgid "installer.installFileError"
+msgstr ""
+"Fișierul de instalare <tt>dbscripts/xml/install.xml</tt> nu există sau nu se "
+"poate citi."
+
+msgid "installer.installerSQLStatements"
+msgstr "Instrucțiuni SQL pentru instalare"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Au apărut erori în timpul instalării"
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br/><strong>AVERTIZARE: Versiunea dvs. actuală de PHP nu îndeplinește "
+"cerințele minime pentru instalare. Se recomandă actualizarea la o versiune "
+"mai recentă de PHP.</strong>"
+
+msgid "installer.form.usernameRequired"
+msgstr "Este necesar un nume de utilizator pentru contul de administrator."
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+"Numele de utilizator al administratorului poate conține doar caractere "
+"alfanumerice, scări subliniate și cratime și trebuie să înceapă și să se "
+"încheie cu un caracter alfanumeric."
+
+msgid "installer.form.separateMultiple"
+msgstr "Separați mai multe valori cu virgule"
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Parolele de administrator nu se potrivesc."
+
+msgid "installer.form.passwordRequired"
+msgstr "Este necesară o parolă pentru contul de administrator."
+
+msgid "installer.form.localeRequired"
+msgstr "Trebuie selectată o limbă locală."
+
+msgid "installer.form.filesDirRequired"
+msgstr ""
+"Este necesar directorul care va fi folosit pentru stocarea fișierelor "
+"încărcate."
+
+msgid "installer.form.emailRequired"
+msgstr "Este necesară o adresă de e-mail validă pentru contul de administrator."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Este necesară denumirea bazei de date."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Driverul bazei de date trebuie selectat."
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Caracterul de client trebuie selectat."
+
+msgid "installer.fileSettings"
+msgstr "Setări fișiere"
+
+msgid "installer.filesDir"
+msgstr "Director pentru încărcări"
+
+msgid "installer.databaseUsername"
+msgstr "Nume utilizator"
+
+msgid "installer.databaseSettings"
+msgstr "Setări bază de date"
+
+msgid "installer.databasePassword"
+msgstr "Parolă"
+
+msgid "installer.databaseName"
+msgstr "Numele bazei de date"
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+"Lăsați numele de gazdă necompletat pentru a vă conecta folosind socluri de "
+"domeniu în loc de TCP / IP. Acest lucru nu este necesar cu MySQL, care va "
+"utiliza automat socluri dacă este introdus \"localhost\", dar este necesar "
+"cu alte servere de baze de date, cum ar fi PostgreSQL."
+
+msgid "installer.databaseHost"
+msgstr "Gazdă"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong>Driverele de bază de date enumerate între paranteze nu par să aibă "
+"încărcată extensia PHP necesară, iar instalarea va eșua probabil dacă este "
+"selectată.</strong><br />Oricare dintre drivere de bază de date neacceptate "
+"enumerate mai sus sunt listate doar în scopuri academice și este puțin "
+"probabil să funcționeze."
+
+msgid "installer.databaseDriver"
+msgstr "Driverul bazei de date"
+
+msgid "installer.createDatabaseInstructions"
+msgstr ""
+"Pentru a utiliza această opțiune, sistemul dvs. de baze de date trebuie să "
+"susțină crearea de baze de date la distanță, iar contul de utilizator "
+"trebuie să aibă permisiunile corespunzătoare pentru a crea noi baze de date. "
+"Dacă instalarea nu reușește cu această opțiune selectată, creați manual baza "
+"de date pe serverul dvs. și rulați din nou instalatorul cu această opțiune "
+"dezactivată."
+
+msgid "installer.createDatabase"
+msgstr "Creați o bază de date nouă"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Conținutul fișierului de configurare"
+
+msgid "installer.connectionCharset"
+msgstr "Stabilirea caracterului conexiunii"
+
+msgid "installer.configFileError"
+msgstr ""
+"Fișierul de configurare  <tt>config.inc.php</tt> nu există sau nu poate fi "
+"citit."
+
+msgid "installer.clientCharsetInstructions"
+msgstr ""
+"Codificarea de utilizat pentru datele trimise și primite de la browsere."
+
+msgid "installer.clientCharset"
+msgstr "Stabilire caracter clientului"
+
+msgid "installer.checkYes"
+msgstr "Da"
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NU</span>"
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"Acest cont de utilizator va deveni administratorul site-ului și va avea "
+"acces complet la sistem. După instalare, pot fi create conturi suplimentare "
+"de utilizator."
+
+msgid "installer.administratorAccount"
+msgstr "Cont administrator"
+
+msgid "installer.additionalLocales"
+msgstr "Fișiere suplimentare de limbă"

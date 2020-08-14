@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-23 12:38+0000\n"
-"Last-Translator: Lilian Nassi Calo <calolilian@gmail.com>\n"
+"PO-Revision-Date: 2020-08-12 16:48+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -43,7 +43,7 @@ msgstr ""
 "servidor."
 
 msgid "manager.statistics.statistics.itemsPublished"
-msgstr "Artigos publicados"
+msgstr "Itens postados"
 
 msgid "manager.statistics.statistics.daysToPublication"
 msgstr "Dias até a publicação"
@@ -292,9 +292,8 @@ msgstr "Política de série"
 msgid "manager.sections.identifyTypeExamples"
 msgstr "(Por exemplo, etc.)"
 
-#, fuzzy
 msgid "manager.sections.identifyType"
-msgstr "Identifique os artigos publicados nesta série como um"
+msgstr "Identifique os artigos postados nesta série como um"
 
 #, fuzzy
 msgid "manager.setup.form.section.pathRequired"
@@ -313,10 +312,9 @@ msgstr ""
 msgid "manager.sections.create"
 msgstr "Criar série"
 
-#, fuzzy
 msgid "manager.sections.alertDelete"
 msgstr ""
-"Antes de eliminar esta série, você deve mover os preprints publicados nesta "
+"Antes de eliminar esta série, você deve mover os preprints postados nesta "
 "série para outra série."
 
 #, fuzzy

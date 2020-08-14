@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-03-03 18:36+0000\n"
-"Last-Translator: Darío Hereñú <magallania@gmail.com>\n"
-"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/manager/es/>"
-"\n"
+"PO-Revision-Date: 2020-08-12 16:48+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/manager/"
+"es_ES/>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +43,7 @@ msgstr ""
 "del servidor."
 
 msgid "manager.statistics.statistics.itemsPublished"
-msgstr "Artículos publicados"
+msgstr "Ítens postados"
 
 msgid "manager.statistics.statistics.daysToPublication"
 msgstr "Días hasta la publicación"
@@ -295,9 +295,8 @@ msgstr "Política de serie"
 msgid "manager.sections.identifyTypeExamples"
 msgstr "(Por ejemplo, etc.)"
 
-#, fuzzy
 msgid "manager.sections.identifyType"
-msgstr "Identifique los artículos publicados en esta serie como un"
+msgstr "Identifique los artículos postados en esta serie como un"
 
 #, fuzzy
 msgid "manager.setup.form.section.pathRequired"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-06-08 18:39+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2020-08-12 16:48+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "locale/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -252,7 +252,7 @@ msgid "submission.search"
 msgstr "Busca de Preprint"
 
 msgid "submissions.published"
-msgstr "Publicado"
+msgstr "Postado"
 
 msgid "article.abstract"
 msgstr "Resumo"
@@ -269,9 +269,8 @@ msgstr "Preprints"
 msgid "common.publication"
 msgstr "Preprint"
 
-#, fuzzy
 msgid "section.emptySection"
-msgstr "Nada foi publicado ainda nesta série."
+msgstr "Nada foi postado ainda nesta série."
 
 #, fuzzy
 msgid "section.pathDescription"
@@ -340,7 +339,7 @@ msgstr ""
 "arquivo\" abaixo).</p>"
 
 msgid "submission.dates"
-msgstr "Submetido {$submitted} - Publicado {$published}"
+msgstr "Submetido {$submitted} - Postado {$published}"
 
 msgid "publication.galley.downloads"
 msgstr "Downloads {$downloads}"

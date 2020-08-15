@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-14 13:48+0000\n"
-"Last-Translator: Tran Ngoc Trung <khuchatthienduong@gmail.com>\n"
+"PO-Revision-Date: 2020-08-16 10:48+0000\n"
+"Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "generic-acron/vi_VN/>\n"
 "Language: vi_VN\n"
@@ -18,7 +18,7 @@ msgid "plugins.generic.acron.reload"
 msgstr "Tải lại các công việc đã lên lịch"
 
 msgid "plugins.generic.acron.reloadedCronTab"
-msgstr "Đã tải lại thành công tab Cron."
+msgstr "Đã tải lại thành công bảng Cron."
 
 msgid "plugins.generic.acron.disabled"
 msgstr "Plugin Acorn đã bị vô hiệu hóa."

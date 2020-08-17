@@ -70,8 +70,7 @@ class SubmissionsMigration extends Migration {
 			$table->bigInteger('author_id')->autoIncrement();
 			$table->string('email', 90);
 			$table->tinyInteger('include_in_browse')->default(1);
-			//  NOTNULL Constraint commented to allow upgrade to 3.2 
-			$table->bigInteger('publication_id')->nullable();
+			$table->bigInteger('publication_id');
 			$table->float('seq', 8, 2)->default(0);
 			$table->bigInteger('user_group_id')->nullable();
 			$table->index(['publication_id'], 'authors_publication_id');
@@ -91,9 +90,7 @@ class SubmissionsMigration extends Migration {
 		Capsule::schema()->create('edit_decisions', function (Blueprint $table) {
 			$table->bigInteger('edit_decision_id')->autoIncrement();
 			$table->bigInteger('submission_id');
-			//  NOTNULL/ 
-			//  For upgrades 
-			$table->bigInteger('review_round_id')->nullable();
+			$table->bigInteger('review_round_id');
 			$table->bigInteger('stage_id')->nullable();
 			$table->tinyInteger('round');
 			$table->bigInteger('editor_id');

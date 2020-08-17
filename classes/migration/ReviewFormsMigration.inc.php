@@ -25,10 +25,8 @@ class ReviewFormsMigration extends Migration {
 		// Review forms.
 		Capsule::schema()->create('review_forms', function (Blueprint $table) {
 			$table->bigInteger('review_form_id')->autoIncrement();
-			//  NOTNULL constraint omitted for upgrade purposes 
-			$table->bigInteger('assoc_type')->nullable();
-			//  NOTNULL constraint omitted for upgrade purposes 
-			$table->bigInteger('assoc_id')->nullable();
+			$table->bigInteger('assoc_type');
+			$table->bigInteger('assoc_id');
 			$table->float('seq', 8, 2)->nullable();
 			$table->tinyInteger('is_active')->nullable();
 		});

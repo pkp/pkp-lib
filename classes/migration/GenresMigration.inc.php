@@ -26,15 +26,11 @@ class GenresMigration extends Migration {
 		Capsule::schema()->create('genres', function (Blueprint $table) {
 			$table->bigInteger('genre_id')->autoIncrement();
 			$table->bigInteger('context_id');
-			//  NOTNULL 
-			//  For upgrades; see bug #8585 
-			$table->bigInteger('seq')->nullable();
+			$table->bigInteger('seq');
 			$table->tinyInteger('enabled')->default(1);
 			$table->bigInteger('category')->default(1);
 			$table->tinyInteger('dependent')->default(0);
-			//  NOTNULL/ 
-			//  Commented for upgrade purposes 
-			$table->tinyInteger('supplementary')->default(0)->nullable();
+			$table->tinyInteger('supplementary')->default(0);
 			$table->string('entry_key', 30)->nullable();
 		});
 

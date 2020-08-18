@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-04T08:55:35-08:00\n"
-"PO-Revision-Date: 2020-08-17 17:48+0000\n"
+"PO-Revision-Date: 2020-08-19 07:48+0000\n"
 "Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
 "Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/zh_CN/>\n"
@@ -1170,3 +1170,238 @@ msgstr "或选择范围："
 
 msgid "manager.publication.editorialStage"
 msgstr "编辑"
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "描述许可证的网页的URL（如果有）。"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "在同行评审中要求提供利益冲突声明。"
+
+msgid "grid.action.createReviewForm"
+msgstr "创建一个新的审阅表"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "可见的（对于作者）"
+
+msgid "manager.reviewFormElements.included"
+msgstr "包含在发给作者的消息中"
+
+msgid "manager.reviewFormElements.description"
+msgstr "描述"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "审阅表格数据"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "没有使用任何审阅表格。"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "您确定要删除此审阅表吗？"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "您确定要创建此审阅表的副本吗？"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr "您确定要停用此审阅表吗？ 它将不再可用于新的审阅任务。"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr "您确定要激活此审阅表吗？ 将其分配给审阅后，您将无法再将其停用。"
+
+msgid "manager.distribution.title"
+msgstr "发行设置"
+
+msgid "manager.distribution"
+msgstr "发行"
+
+msgid "manager.workflow.title"
+msgstr "工作流程设定"
+
+msgid "manager.workflow"
+msgstr "工作流程"
+
+msgid "manager.website.title"
+msgstr "网站设定"
+
+msgid "manager.users.roleRequired"
+msgstr "您需要选择至少一个与该用户关联的角色。"
+
+msgid "manager.settings.wizard"
+msgstr "设置向导"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr "该键只能包含字母数字字符，下划线和连字符，并且必须以字母数字字符开头和结尾。"
+
+msgid "manager.setup.genres.key.exists"
+msgstr "键已经存在。"
+
+msgid "manager.setup.genres.key.description"
+msgstr "此类型的可选短符号标识符。"
+
+msgid "manager.setup.genres.key"
+msgstr "键"
+
+msgid "manager.setup.genres.supplementary"
+msgstr "将此类型的文件标记为补充文件（例如，不是主要提交内容）"
+
+msgid "manager.setup.genres.dependent"
+msgstr "将这种类型的文件标记为从属文件（例如，不要与已发布内容一起列出）"
+
+msgid "grid.action.restoreGenres"
+msgstr "将组件还原为默认设置"
+
+msgid "grid.action.deleteGenre"
+msgstr "删除该组件"
+
+msgid "grid.action.editGenre"
+msgstr "编辑此组件"
+
+msgid "grid.action.addGenre"
+msgstr "添加组件"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "选择要附加的库文件"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>如果启用了“公共访问”，则可以下载该库文件，网址为：<blockquote> {$downloadUrl} </blockquote> </p>"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "其他"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "报告"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "权限"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "营销"
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "合约"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "该库文件需要一个文件类型。"
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "该库文件的名称是必需的。"
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "需要一个库文件。 请确保您已选择并上传了文件。"
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "允许提交元数据编辑。"
+
+msgid "settings.roles.stageIdRequired"
+msgstr "您需要定义一个分配的阶段。"
+
+msgid "settings.roles.roleIdRequired"
+msgstr "您需要定义一个角色权限等级。"
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "您需要定义一个唯一的角色缩写。"
+
+msgid "settings.roles.uniqueName"
+msgstr "您需要定义一个唯一的角色名称。"
+
+msgid "settings.roles.abbrevRequired"
+msgstr "您需要定义一个角色缩写。"
+
+msgid "settings.roles.nameRequired"
+msgstr "您需要定义一个角色名称。"
+
+msgid "settings.roles.removeText"
+msgstr "您将要从此上下文中删除此角色。 此操作还将删除相关设置以及该角色的所有用户分配。 你想继续吗？"
+
+msgid "settings.roles.from"
+msgstr "权限等级"
+
+msgid "settings.roles.roleDetails"
+msgstr "角色详细信息"
+
+msgid "settings.roles.stages"
+msgstr "阶段"
+
+msgid "settings.roles.assignedStages"
+msgstr "分配的阶段"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "缩写"
+
+msgid "settings.roles.roleName"
+msgstr "角色名称"
+
+msgid "settings.roles.recommendOnly"
+msgstr "仅允许该角色推荐审阅决定，并且将要求授权编辑记录最终决定。"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "允许用户自行注册"
+
+msgid "settings.roles.showTitles"
+msgstr "在贡献者列表中显示角色标题"
+
+msgid "settings.roles.roleOptions"
+msgstr "角色选项"
+
+msgid "manager.paymentMethod.currency"
+msgstr "货币"
+
+msgid "manager.paymentMethod.method"
+msgstr "付款方式"
+
+msgid "manager.paymentMethod.none"
+msgstr "未选择付款方式"
+
+msgid "manager.paymentMethod.title"
+msgstr "支付方式"
+
+msgid "manager.paymentMethod"
+msgstr "付款"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr "添加您希望插入每个页面顶部的自定义HTML标签，也称为元标签。 在此处添加标签之前，请咨询技术顾问。"
+
+msgid "manager.distribution.customHeaders"
+msgstr "自定义标签"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr "输入要与已发布的作品一起显示的公共许可条款。"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "许可条款"
+
+msgid "manager.distribution.license.other"
+msgstr "其他许可证URL"
+
+msgid "manager.distribution.license.success"
+msgstr "许可详细信息已更新。 "
+
+msgid "manager.distribution.license"
+msgstr "许可证"
+
+msgid "notification.editedUser"
+msgstr "用户已编辑。"
+
+msgid "notification.localeSettingsSaved"
+msgstr "语言环境设置已保存。"
+
+msgid "notification.localeReloaded"
+msgstr "已为 {$contextName} 重新加载 {$locale} 语言环境。"
+
+msgid "notification.localeUninstalled"
+msgstr "语言环境 {$locale} 已被卸载。"
+
+msgid "notification.localeInstalled"
+msgstr "所有选定的语言环境均已安装并激活。"
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} 被设定为首选语言环境。"
+
+msgid "notification.localeDisabled"
+msgstr "语言环境已禁用。"
+
+msgid "notification.localeEnabled"
+msgstr "语言环境已启用。"
+
+msgid "manager.setup.competingInterests"
+msgstr "利益冲突"

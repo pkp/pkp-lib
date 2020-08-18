@@ -34,8 +34,6 @@ class PKPDateTimeForm extends FormComponent {
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;
 		$this->locales = $locales;
-		$currentTimeLocale = setlocale(LC_TIME, 0);
-		$currentDateTime = time();
 
 		$localizedOptions = []; // template for localized options to be used for date and time format
 		foreach ($this->locales as $key => $localeValue) {
@@ -51,7 +49,7 @@ class PKPDateTimeForm extends FormComponent {
 			->addField(new FieldRadioInput('dateFormatLong', [
 				'label' => __('manager.setup.dateTime.longDate'),
 				'isMultilingual' => true,
-				'options' => $this->_setDateOptions($currentDateTime, [
+				'options' => $this->_setDateOptions([
 					'%B %e, %Y',
 					'%B %e %Y',
 					'%e %B %Y',
@@ -64,7 +62,7 @@ class PKPDateTimeForm extends FormComponent {
 			->addField(new FieldRadioInput('dateFormatShort', [
 				'label' => __('manager.setup.dateTime.shortDate'),
 				'isMultilingual' => true,
-				'options' => $this->_setDateOptions($currentDateTime, [
+				'options' => $this->_setDateOptions([
 					'%Y-%m-%d',
 					'%d-%m-%Y',
 					'%d/%m/%Y',
@@ -77,7 +75,7 @@ class PKPDateTimeForm extends FormComponent {
 			->addField(new FieldRadioInput('timeFormat', [
 				'label' => __('manager.setup.dateTime.time'),
 				'isMultilingual' => true,
-				'options' => $this->_setDateOptions($currentDateTime, [
+				'options' => $this->_setDateOptions([
 					'%H:%M',
 					'%I:%M %p',
 					'%l:%M%P',
@@ -88,14 +86,14 @@ class PKPDateTimeForm extends FormComponent {
 			->addField(new FieldRadioInput('datetimeFormatLong', [
 				'label' => __('manager.setup.dateTime.longDateTime'),
 				'isMultilingual' => true,
-				'options' => array_map(function ($value) use ($context, $currentDateTime, $localizedOptions) {
+				'options' => array_map(function ($value) use ($context, $localizedOptions) {
 					$locale = array_search($value, $localizedOptions);
 					setlocale(LC_TIME, $locale . '.utf8');
 					$optionValue = $context->getLocalizedDateFormatLong($locale) . ' - ' . $context->getLocalizedTimeFormat($locale);
 					return [
 						[
 							'value' => $optionValue,
-							'label' => strftime($optionValue, $currentDateTime),
+							'label' => $optionValue,
 						],
 						[
 							'isInput' => true,
@@ -109,14 +107,13 @@ class PKPDateTimeForm extends FormComponent {
 			->addField(new FieldRadioInput('datetimeFormatShort', [
 				'label' => __('manager.setup.dateTime.shortDateTime'),
 				'isMultilingual' => true,
-				'options' => array_map(function ($value) use ($context, $currentDateTime, $localizedOptions) {
+				'options' => array_map(function ($value) use ($context, $localizedOptions) {
 					$locale = array_search($value, $localizedOptions);
-					setlocale(LC_TIME, $locale . '.utf8');
 					$optionValue = $context->getLocalizedDateFormatShort($locale) . ' ' . $context->getLocalizedTimeFormat($locale);
 					return [
 						[
 							'value' => $optionValue,
-							'label' => strftime($optionValue, $currentDateTime),
+							'label' => $optionValue,
 						],
 						[
 							'isInput' => true,
@@ -127,27 +124,21 @@ class PKPDateTimeForm extends FormComponent {
 				'value' => $context->getDateTimeFormats('datetimeFormatShort'),
 				'groupId' => 'descriptions',
 			]));
-
-		// Set initial date & time locale
-		setlocale(LC_TIME, $currentTimeLocale);
 	}
 
 	/**
-	 * @param $locales array of supported locales
-	 * @param $currentDateTime string current date and time to show for demonstration
 	 * @param $optionValues array options to pass to the field
 	 * @return array
 	 * @brief Set localized options for date/time fields
 	 */
-	private function _setDateOptions($currentDateTime, $optionValues) {
+	private function _setDateOptions($optionValues) {
 		$options = [];
 		foreach ($this->locales as $localeValue) {
 			$locale = $localeValue['key'];
-			setlocale(LC_TIME, $locale . '.utf8');
 			foreach ($optionValues as $optionValue) {
 				$options[$locale][] = [
 					'value' => $optionValue,
-					'label' => strftime($optionValue, $currentDateTime)
+					'label' => $optionValue
 				];
 			}
 

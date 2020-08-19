@@ -505,11 +505,11 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Add extra LESS variables before compiling
-        if (isset($args['addLessVariables'])) {
-        	foreach ((array) $args['addLessVariables'] as $addlessVariables) {
-            	$less->parse($addlessVariables);
-            }
-        }
+		if (isset($args['addLessVariables'])) {
+			foreach ((array) $args['addLessVariables'] as $addlessVariables) {
+				$less->parse($addlessVariables);
+			}
+		}
 
 		// Set the @baseUrl variable
 		$baseUrl = !empty($args['baseUrl']) ? $args['baseUrl'] : $request->getBaseUrl(true);

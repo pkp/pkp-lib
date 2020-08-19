@@ -226,7 +226,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$args['style'] = substr($args['style'], (strlen(LESS_FILENAME_SUFFIX) * -1)) == LESS_FILENAME_SUFFIX ? $this->_getBaseDir($args['style']) : $this->_getBaseUrl($args['style']);
 		}
 
-		$style = array_merge($style, $args);
+		$style = array_merge_recursive($style, $args);
 	}
 
 	/**

@@ -51,8 +51,8 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 
 		// pkp/pkp-lib#6093 Don't allow nulls (previously an upgrade workaround)
 		Capsule::schema()->table('user_settings', function (Blueprint $table) {
-			$table->bigInteger('assoc_type')->change();
-			$table->bigInteger('assoc_id')->change();
+			$table->bigInteger('assoc_type')->default(0)->change();
+			$table->bigInteger('assoc_id')->default(0)->change();
 		});
 		Capsule::schema()->table('announcement_types', function (Blueprint $table) {
 			$table->bigInteger('assoc_type')->change();

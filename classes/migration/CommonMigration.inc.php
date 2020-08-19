@@ -97,8 +97,8 @@ class CommonMigration extends Migration {
 			$table->bigInteger('user_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
-			$table->bigInteger('assoc_type');
-			$table->bigInteger('assoc_id');
+			$table->bigInteger('assoc_type')->default(0);
+			$table->bigInteger('assoc_id')->default(0);
 			$table->text('setting_value')->nullable();
 			$table->string('setting_type', 6);
 			$table->index(['user_id'], 'user_settings_user_id');

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-22 16:48+0000\n"
+"PO-Revision-Date: 2020-08-23 18:48+0000\n"
 "Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/vi_VN/>\n"
@@ -846,7 +846,7 @@ msgstr "Các đánh giá mới đã được gửi và đang được xem xét b
 msgid "author.submit.submissionCitations"
 msgstr ""
 "Cung cấp danh sách tài liệu tham khảo được định dạng cho các công trình được "
-"trích dẫn trong bài nộp này. Vui lòng phân tách các tham chiếu riêng lẻ bằng "
+"trích dẫn trong bài gửi này. Vui lòng phân tách các tham chiếu riêng lẻ bằng "
 "một dòng trống."
 
 msgid "author.publicationNotFound"
@@ -1287,8 +1287,7 @@ msgstr "\"{$name}\" ({$username}) đã đăng xuất khi đăng xuất cho \"{$f
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"\"{$name}\" ({$username}) đã hoàn thành kiểm tra và tải tập tin \"{$file}\" "
-"lên."
+"\"{$name}\" ({$username}) đã hoàn thành kiểm tra và tải lên tệp \"{$file}.\""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""

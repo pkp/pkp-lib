@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-22 16:48+0000\n"
+"PO-Revision-Date: 2020-08-23 18:48+0000\n"
 "Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/vi_VN/>\n"
@@ -1104,7 +1104,6 @@ msgstr "Sửa"
 msgid "common.downloadPdf"
 msgstr "Tải xuống PDF"
 
-#, fuzzy
 msgid "common.download"
 msgstr "Tải xuống"
 
@@ -1676,4 +1675,344 @@ msgid "common.currentStyleSheet"
 msgstr "Biểu định kiểu hiện tại"
 
 msgid "common.publicKnowledgeProject"
-msgstr "Dự án trị thức công cộng"
+msgstr "Dự án Trị thức Công cộng"
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "navigation.previousPage"
+msgstr "&lt;2&lt;"
+
+msgid "navigation.nextPage"
+msgstr "&gt;2&gt;"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "email.email"
+msgstr "E-mail"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "validator.url"
+msgstr "Đây không phải là một URL hợp lệ."
+
+msgid "navigation.about"
+msgstr "Bao gồm"
+
+msgid "validator.unique"
+msgstr "Thuộc tính {$attribute} đã được sử dụng."
+
+msgid "validator.timezone"
+msgstr "Đây không phải là một múi giờ hợp lệ."
+
+msgid "validator.string"
+msgstr "Đây không phải là một chuỗi hợp lệ."
+
+msgid "validator.size.array"
+msgstr "Số mục phải là {$size}."
+
+msgid "validator.size.string"
+msgstr "Số ký tự phải là {$size}."
+
+msgid "validator.size.file"
+msgstr "Kích thước tệp phải là {$size} kilobytes."
+
+msgid "validator.size.numeric"
+msgstr "Kích thước số phải là {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} và {$other} phải trùng nhau."
+
+msgid "validator.required_without_all"
+msgstr "Trường này là bắt buộc khi không có giá trị nào {$values} hiện diện."
+
+msgid "validator.required_without"
+msgstr "Trường này là bắt buộc khi không có {$values}."
+
+msgid "validator.required_with_all"
+msgstr "Trường này là bắt buộc khi {$values} là giá trị hiện tại."
+
+msgid "validator.required_with"
+msgstr "Trường này là bắt buộc khi {$values} là  giá trị hiện tại."
+
+msgid "validator.required_unless"
+msgstr "Trường này là bắt buộc trừ khi {$other} nằm trong {$values}."
+
+msgid "validator.required_if"
+msgstr "Trường này là bắt buộc khi {$other} là {$value}."
+
+msgid "validator.required"
+msgstr "Trường này là bắt buộc."
+
+msgid "validator.regex"
+msgstr "Các mẫu này không được định dạng đúng."
+
+msgid "validator.present"
+msgstr "Trường {$attribute} phải có."
+
+msgid "validator.orcid"
+msgstr "Đây không phải là một ORCID hợp lệ."
+
+msgid "validator.numeric"
+msgstr "Đây không phải là một số hợp lệ."
+
+msgid "validator.not_in"
+msgstr "Thuộc tính {$attribute} đã chọn là không hợp lệ."
+
+msgid "validator.min.array"
+msgstr "Ở đây phải có ít nhất {$min} mục."
+
+msgid "validator.min.string"
+msgstr "Đây phải có ít nhất {$min} ký tự."
+
+msgid "validator.min.file"
+msgstr "Dung lượng nhỏ nhất cũng phải là {$min} kilobytes."
+
+msgid "validator.min.numeric"
+msgstr "Giá trị này nhỏ nhất cũng phải là {$min}."
+
+msgid "validator.mimes"
+msgstr "Đây phải là tệp thuộc loại {$values}."
+
+msgid "validator.max.array"
+msgstr "Giá trị trong mảng này không được lớn hơn {$max}."
+
+msgid "notification.type.metadataModified"
+msgstr "Siêu dữ liệu của \"{$title}\" đã được sửa đổi."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Các bản sửa đổi đã được gửi tới {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Các bản sửa đổi cần xem xét trong {$stage}."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "Tệp sửa đổi đã được tải lên để xem xét biên tập trong {$stage}."
+
+msgid "notification.type.allReviewsIn"
+msgstr ""
+"Tất cả những người đánh giá đã phản hồi và cần có quyết định ở giai đoạn "
+"{$stage}."
+
+msgid "notification.type.auditorRequest"
+msgstr "Yêu cầu kiểm tra cho \"{$file}\""
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Đã cập nhật phân công đánh giá."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Đang chờ xem xét."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Thông báo mới."
+
+msgid "notification.editStageParticipant"
+msgstr "Phân công giai đoạn đã được thay đổi."
+
+msgid "notification.addedStageParticipant"
+msgstr "Đã thêm người dùng làm người tham gia giai đoạn."
+
+msgid "validator.max.string"
+msgstr "Số ký tự ở đây không được lớn hơn {$max}  ký tự."
+
+msgid "validator.max.file"
+msgstr "Giá trị này không được lớn hơn {$max} kilobyte."
+
+msgid "validator.max.numeric"
+msgstr "Con số này không được lớn hơn {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Các ngôn ngữ phải được chỉ định bằng mã ngôn ngữ. Ví dụ: en_US, vi_VN, sr_RS "
+"..."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Trường này là đa ngôn ngữ. Các giá trị riêng biệt phải được cung cấp cho mỗi "
+"ngôn ngữ được hỗ trợ."
+
+msgid "validator.locale"
+msgstr "Ngôn ngữ này không được chấp nhận."
+
+msgid "validator.json"
+msgstr "Đây không phải là một chuỗi JSON hợp lệ."
+
+msgid "validator.issn"
+msgstr "Đây không phải là một ISSN hợp lệ."
+
+msgid "validator.ip"
+msgstr "Đây không phải là một địa chỉ IP hợp lệ."
+
+msgid "validator.integer"
+msgstr "Đây không phải là một số nguyên hợp lệ."
+
+msgid "validator.in"
+msgstr "Thuộc tính {$attribute} đã chọn là không hợp lệ."
+
+msgid "validator.image"
+msgstr "Đây phải là một hình ảnh."
+
+msgid "validator.filled"
+msgstr "Trường này là bắt buộc."
+
+msgid "validator.exists"
+msgstr "Thuộc tính {$attribute} đã chọn là không hợp lệ."
+
+msgid "validator.email"
+msgstr "Đây không phải là một địa chỉ email hợp lệ."
+
+msgid "validator.digits_between"
+msgstr "Giá trị ở đây phải từ {$min} đến {$max} chữ số."
+
+msgid "validator.digits"
+msgstr "Số chữ số phải là {$digits} chữ số."
+
+msgid "validator.different"
+msgstr "{$attribute} và {$other} phải khác nhau."
+
+msgid "validator.date_format"
+msgstr "Ở đây không phù hợp với định dạng {$format}."
+
+msgid "validator.date"
+msgstr "Đây không phải là một ngày hợp lệ."
+
+msgid "validator.currency"
+msgstr "Đây không phải là một loại tiền tệ hợp lệ."
+
+msgid "validator.confirmed"
+msgstr "Xác nhận cho trường này không khớp."
+
+msgid "validator.boolean"
+msgstr "Trường này phải là đúng hoặc sai."
+
+msgid "validator.between.array"
+msgstr "Số mục phải nằm trong khoảng {$min} đến {$max}."
+
+msgid "validator.between.string"
+msgstr "Số ký tự phải từ {$min} đến {$max}."
+
+msgid "validator.between.file"
+msgstr "Giá trị ở đây phải từ {$min} đến {$max} kilobyte."
+
+msgid "validator.between.numeric"
+msgstr "Giá trị ở đây phải nằm giữa khoảng {$min} và {$max}."
+
+msgid "validator.before"
+msgstr "Ngày ở đây phải trước {$date}."
+
+msgid "validator.array"
+msgstr "Đây không phải là một mảng hợp lệ."
+
+msgid "validator.alpha_num"
+msgstr "Ở đây có thể chỉ chứa các chữ cái và số."
+
+msgid "validator.alpha_dash"
+msgstr "Ở đây chỉ có thể chứa các chữ cái, số, dấu gạch ngang và dấu gạch dưới."
+
+msgid "validator.alpha"
+msgstr "Ở đây có thể chỉ chứa các chữ cái."
+
+msgid "validator.after"
+msgstr "Ngày này phải sau {$date}."
+
+msgid "validator.active_url"
+msgstr "Đây không phải là một URL hợp lệ."
+
+msgid "validator.accepted"
+msgstr "Vui lòng chấp nhận mục này.."
+
+msgid "list.viewLess"
+msgstr "Ẩn chi tiết mở rộng về {$name}"
+
+msgid "list.viewMore"
+msgstr "Hiển thị thêm chi tiết về {$name}"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Menu điều hướng đã được loại bỏ thành công"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Menu điều hướng đã được cập nhật"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Menu điều hướng đã được thêm vào"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Mục menu điều hướng đã được thêm vào"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Mục menu điều hướng đã được loại bỏ thành công"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Mục menu điều hướng đã được cập nhật thành công"
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Đây là một lời nhắc nhở tốt cho bạn để kiểm tra tình hình hoạt động của tạp "
+"chí thông qua báo cáo biên tập."
+
+msgid "notification.type.editorialReport"
+msgstr "Báo cáo thống kê tóm tắt."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Trạng thái Vòng {$round}"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Đang chờ Biên tập bản thảo."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Chỉ định Biên tập viên bản thảo bằng liên kết Chỉ định trong danh sách Người "
+"tham gia."
+
+msgid "notification.type.queryAdded"
+msgstr "Thêm thảo luận."
+
+msgid "notification.type.queryActivity"
+msgstr "Hoạt động thảo luận."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Người dùng hiện tại không phải là tác giả của bài gửi được yêu cầu. Vui lòng "
+"xác minh rằng bạn đã đăng nhập bằng đúng tài khoản người dùng."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Bạn hiện không có đủ đặc quyền để xem nội dung bài gửi. Vui lòng chỉnh sửa "
+"hồ sơ của bạn để đảm bảo rằng bạn đã được cấp các vai trò thích hợp trong \""
+"Đăng ký với tư cách\"."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Đại diện không hợp lệ."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Bài gửi không hợp lệ."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Xuất bản không hợp lệ."
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"Người dùng hiện tại không được phép truy cập vào tệp bài gửi đã chỉ định."
+
+msgid "notification.signedFile"
+msgstr "Đã xem xét tệp."
+
+msgid "notification.type.reviewerComment"
+msgstr "Một phản biện đã bình luận về \"{$title}\"."

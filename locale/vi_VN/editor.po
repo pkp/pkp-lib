@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-22 16:48+0000\n"
+"PO-Revision-Date: 2020-08-23 18:48+0000\n"
 "Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/vi_VN/>\n"
@@ -236,7 +236,7 @@ msgid "editor.submission.fileAuditor.form.userRequired"
 msgstr "Bạn phải chọn một người dùng để phân công."
 
 msgid "editor.submission.fileAuditor.skipEmail"
-msgstr "Không gửi e-mail cho Người giám sát."
+msgstr "Không gửi e-mail cho Người giám sát"
 
 msgid "editor.submission.fileAuditor.form.messageRequired"
 msgstr "Bạn phải bao gồm một thông điệp cá nhân."
@@ -282,3 +282,221 @@ msgstr "Thư viện"
 
 msgid "editor.activityLog"
 msgstr "Nhật ký hoạt động"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Đăng ký Người dùng hiện tại làm Người phản biện"
+
+msgid "reviewer.list.empty"
+msgstr "Không có phản biện nào được tìm thấy"
+
+msgid "reviewer.list.biography"
+msgstr "Tiểu sử"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Lĩnh vực phản biện"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Mở khoá"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Người phản biện này bị khóa vì họ đã được chỉ định một vai trò cho phép xem "
+"danh tính của tác giả. Việc phản biện kín không thể được đảm bảo. Bạn có "
+"muốn mở khóa người phản biện này không?"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Phản biện này đã được chỉ định để xem xét bài nộp này."
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Chưa bao giờ được phân công"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Số ngày trung bình để hoàn thành bài đánh giá"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Số ngày kể từ ngày phân công lần cuối"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Ngày hôm qua"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} ngày trước"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Xếp hạng người phản biện: {$rating}"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Huỷ yêu cầu phản biện"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Yêu cầu phản biện bị từ chối"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Hoàn thành phản biện"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Các phản biện hoạt động hiện được chỉ định"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} hoạt động"
+
+msgid "reviewer.list.filterRating"
+msgstr "Được xếp hạng ít nhất"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} của {$total} phản biện"
+
+msgid "reviewer.list.count"
+msgstr "{$count} phản biện"
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Mẫu {$pattern} là không được phép cho số nhận dạng công khai."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Mã định danh công khai '{$publicIdentifier}' không được là một số."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Thu hồi phê duyệt cho bằng chứng này để cho biết việc hiệu đính không còn "
+"hoàn tất và tệp chưa sẵn sàng để xuất bản."
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Phê duyệt bằng chứng này để cho biết việc hiệu đính đã hoàn tất và tệp đã "
+"sẵn sàng để xuất bản."
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Thu hồi Phê duyệt bằng chứng"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Phê duyệt Hiệu đính"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Chọn Phản biện"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr ""
+"Các tệp có thể được đính kèm để đưa vào cuộc thảo luận này từ danh sách bên "
+"dưới."
+
+msgid "grid.action.editQuery"
+msgstr "Chỉnh sửa Thảo luận"
+
+msgid "submission.queries.attachedFiles"
+msgstr "Tập tin đính kèm"
+
+msgid "submission.queries.messageRequired"
+msgstr "Một thông báo thảo luận là bắt buộc."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Một chủ đề thảo luận là bắt buộc."
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Bạn chưa chọn bất kỳ tệp nào để phản biện xem xét, đánh giá."
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Không có tệp nào được chọn"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Cảnh báo: Việc thay đổi biểu mẫu đánh giá (phản biện) sẽ ảnh hưởng đến bất "
+"kỳ câu trả lời nào mà phản biện (người đánh giá) đã thực hiện bằng biểu mẫu "
+"này. Bạn có chắc muốn tiếp tục không?"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Lựa chọn Biểu mẫu phản biện"
+
+msgid "editor.article.reviewForms"
+msgstr "Các Biểu mẫu Phản biện"
+
+msgid "editor.submission.createNewRound"
+msgstr "Tạo Vòng phản biện Mới"
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Bạn sắp tạo một vòng đánh giá mới cho bài nộp này. Các tệp chưa được sử dụng "
+"trong các vòng đánh giá khác được liệt kê dưới đây."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Không tạo một cuộc thảo luận đánh giá."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Tạo một cuộc thảo luận đánh giá về đề xuất này."
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Không gửi e-mail cho Các biên tập viên."
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Thông báo cho các Biên tập viên"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Ghi lại Đề xuất Biên tập"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Ghi Quyết định Ban biên tập"
+
+msgid "editor.submission.newRound"
+msgstr "Vòng đánh giá mới"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Các tệp Sẵn sàng để Sản xuất"
+
+msgid "editor.review.emailReviewer"
+msgstr "Gưi email cho Phản biện"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Bạn đã không tải lên một tệp phản biện nào."
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Không có tệp nào được tải lên"
+
+msgid "editor.review.reviewDetails"
+msgstr "Đánh giá chi tiết"
+
+msgid "editor.review"
+msgstr "Phản biện"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"Bất kỳ tệp nào đã được tải lên ở bất kỳ giai đoạn nào của bài gửi đều có thể "
+"được thêm vào danh sách Tệp Biên tập bằng cách chọn hộp kiểm Bao gồm bên "
+"dưới và nhấp vào Tìm kiếm: tất cả các tệp có sẵn sẽ được liệt kê và có thể "
+"được chọn để đưa vào. Các tệp bổ sung chưa được tải lên một vùng có thể được "
+"thêm vào danh sách bằng cách nhấp vào liên kết Tải tệp lên."
+
+msgid "editor.submission.addAuditor"
+msgstr "Phân công giám sát viên"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"Việc từ chối tệp đã biên tập này sẽ khiến tệp không thể gửi đến giai đoạn "
+"sản xuất. Bạn có muốn từ chối tệp này không?"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"Tệp đã được biên tập cần được phê duyệt trước khi có thể được gửi đến giai "
+"đoạn Sản xuất. Bạn có muốn phê duyệt tệp này không?"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Nhắc nhở Soát lỗi"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "E-mail để gửi tới người dùng"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Không yêu cầu kiểm tra cho tệp này"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Lịch làm việc"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Ngày đến hạn của Nhiệm vụ"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Chọn Phản biện"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Các tập tin đang biên tập bản thảo"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Lịch trình Xuất bản"

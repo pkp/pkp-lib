@@ -65,7 +65,7 @@ class PKPDateTimeForm extends FormComponent {
 				'options' => $this->_setDateOptions([
 					'%Y-%m-%d',
 					'%d-%m-%Y',
-					'%d/%m/%Y',
+					'%m/%d/%Y',
 					'%d.%m.%Y',
 				]),
 				'value' => $context->getDateTimeFormats('dateFormatShort'),
@@ -88,7 +88,6 @@ class PKPDateTimeForm extends FormComponent {
 				'isMultilingual' => true,
 				'options' => array_map(function ($value) use ($context, $localizedOptions) {
 					$locale = array_search($value, $localizedOptions);
-					setlocale(LC_TIME, $locale . '.utf8');
 					$optionValue = $context->getLocalizedDateFormatLong($locale) . ' - ' . $context->getLocalizedTimeFormat($locale);
 					return [
 						[

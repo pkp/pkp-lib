@@ -52,7 +52,7 @@
 	</span>
 {else}
 	{* This is not a multilingual control or there is only one locale available *}
-	<input	type="{if $FBV_isPassword}password{elseif $FBV_isTypeURL}url{elseif $FBV_isTypeSearch}search{elseif $FBV_isTypeEmail}email{else}text{/if}"
+	<input	type="{if $FBV_isPassword}password{elseif $FBV_isTypeURL}url{elseif $FBV_isTypeSearch}search{elseif $FBV_isTypeEmail}email{elseif $FBV_isTypeTel}tel{else}text{/if}"
 		{$FBV_textInputParams}
 		class="field text{if $FBV_class} {$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}"
 		{if $FBV_disabled} disabled="disabled"{/if}

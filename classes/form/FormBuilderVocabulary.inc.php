@@ -265,9 +265,6 @@ class FormBuilderVocabulary {
 				$content = $this->_smartyFBVCheckboxGroup($params, $smarty);
 				unset($params['label']);
 				break;
-			case 'email':
-				$content = $this->_smartyFBVTextInput($params, $smarty);
-				break;
 			case 'file':
 				$content = $this->_smartyFBVFileInput($params, $smarty);
 				break;
@@ -286,16 +283,12 @@ class FormBuilderVocabulary {
 				break;
 			case 'search':
 			case 'text':
+			case 'email':
+			case 'url':
 				$content = $this->_smartyFBVTextInput($params, $smarty);
 				break;
 			case 'select':
 				$content = $this->_smartyFBVSelect($params, $smarty);
-				break;
-			case 'text':
-				$content = $this->_smartyFBVTextInput($params, $smarty);
-				break;
-			case 'url':
-				$content = $this->_smartyFBVTextInput($params, $smarty);
 				break;
 			case 'textarea':
 				$content = $this->_smartyFBVTextArea($params, $smarty);
@@ -402,17 +395,22 @@ class FormBuilderVocabulary {
 		));
 		foreach ($params as $key => $value) {
 			switch ($key) {
-				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;
-				case 'type': break;
-				case 'size': break;
-				case 'inline': break;
-				case 'subLabelTranslate': break;
+				case 'label': 
+					$smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); 
+				break;
+				case 'type':
+				case 'size':
+				case 'inline': 
+				case 'subLabelTranslate':
+					break;
 				case 'urlValidationErrorMsg':
 					if ($params['type'] === 'url') {
 						$smarty->assign('FBV_urlValidationErrorMessage', __($value));
 					}
 					break;
-				case 'placeholder': $textInputParams .= 'placeholder="' . htmlspecialchars(__($value), ENT_QUOTES, LOCALE_ENCODING) . '" '; break;
+				case 'placeholder': 
+					$textInputParams .= 'placeholder="' . htmlspecialchars(__($value), ENT_QUOTES, LOCALE_ENCODING) . '" '; 
+				break;
 				case 'disabled':
 				case 'readonly':
 				case 'multilingual':
@@ -421,8 +419,11 @@ class FormBuilderVocabulary {
 				case 'value':
 				case 'uniqId':
 					$smarty->assign('FBV_' . $key, $value); break;
-				case 'required': if ($value) $textInputParams .= 'required="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '"'; break;
-				default: $textInputParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING). '" ';
+				case 'required': 
+					if ($value) $textInputParams .= 'required="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '"'; 
+				break;
+				default: 
+					$textInputParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING). '" ';
 			}
 		}
 

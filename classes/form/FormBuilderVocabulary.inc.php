@@ -384,6 +384,7 @@ class FormBuilderVocabulary {
 			'FBV_isPassword' => isset($params['password']) ? true : false,
 			'FBV_isTypeURL' => $params['type'] === 'url' ? true : false,
 			'FBV_isTypeSearch' => $params['type'] === 'search' ? true : false,
+			'FBV_isTypeEmail' => $params['type'] === 'email' ? true : false,
 			'FBV_disabled' => false,
 			'FBV_readonly' => false,
 			'FBV_multilingual' => false,

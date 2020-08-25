@@ -27,17 +27,22 @@ class PublishForm extends FormComponent {
 	/** @var Publication */
 	public $publication;
 
+	/** @var \Context */
+	public $submissionContext;
+
 	/**
 	 * Constructor
 	 *
 	 * @param $action string URL to submit the form to
 	 * @param $publication Publication The publication to change settings for
+	 * @param $submissionContext \Context journal or press
 	 * @param $requirementErrors array A list of pre-publication requirements that are not met.
 	 */
-	public function __construct($action, $publication, $requirementErrors) {
+	public function __construct($action, $publication, $submissionContext, $requirementErrors) {
 		$this->action = $action;
 		$this->errors = $requirementErrors;
 		$this->publication = $publication;
+		$this->submissionContext = $submissionContext;
 
 		// Set separate messages and buttons if publication requirements have passed
 		if (empty($requirementErrors)) {

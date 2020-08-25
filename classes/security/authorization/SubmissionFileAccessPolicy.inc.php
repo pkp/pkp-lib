@@ -74,10 +74,14 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 			// been assigned to a lesser role in the stage.
 			$managerFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
 			$managerFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER]));
+
+			$stageId = $request->getUserVar('stageId'); // WORKFLOW_STAGE_ID_...
+			import('lib.pkp.classes.security.authorization.internal.SubmissionFileMatchesWorkflowStageIdPolicy');
+			$managerFileAccessPolicy->addPolicy(new SubmissionFileMatchesWorkflowStageIdPolicy($request, $fileIdAndRevision, $stageId));
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-			$managerFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
+			$managerFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
 			import('lib.pkp.classes.security.authorization.AssignedStageRoleHandlerOperationPolicy');
-			$managerFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER], $request->getUserVar('stageId')));
+			$managerFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER], $stageId));
 
 			$fileAccessPolicy->addPolicy($managerFileAccessPolicy);
 		}
@@ -92,10 +96,13 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 			$authorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_AUTHOR, $roleAssignments[ROLE_ID_AUTHOR]));
 
 			// 2) ...if they are assigned to the workflow stage as an author.  Note: This loads the application-specific policy class.
+			$stageId = $request->getUserVar('stageId');
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-			$authorFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
+			$authorFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
+			import('lib.pkp.classes.security.authorization.internal.SubmissionFileMatchesWorkflowStageIdPolicy');
+			$managerFileAccessPolicy->addPolicy(new SubmissionFileMatchesWorkflowStageIdPolicy($request, $fileIdAndRevision, $stageId));
 			import('lib.pkp.classes.security.authorization.AssignedStageRoleHandlerOperationPolicy');
-			$authorFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_AUTHOR, $roleAssignments[ROLE_ID_AUTHOR], $request->getUserVar('stageId')));
+			$authorFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_AUTHOR, $roleAssignments[ROLE_ID_AUTHOR], $stageId));
 
 			// 3) ...and if they meet one of the following requirements:
 			$authorFileAccessOptionsPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
@@ -185,10 +192,13 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 
 			// 2) ... but only if they have been assigned to the submission workflow as an assistant.
 			// Note: This loads the application-specific policy class
+			$stageId = $request->getUserVar('stageId');
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-			$contextAssistantFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
+			$contextAssistantFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
+			import('lib.pkp.classes.security.authorization.internal.SubmissionFileMatchesWorkflowStageIdPolicy');
+			$managerFileAccessPolicy->addPolicy(new SubmissionFileMatchesWorkflowStageIdPolicy($request, $fileIdAndRevision, $stageId));
 			import('lib.pkp.classes.security.authorization.AssignedStageRoleHandlerOperationPolicy');
-			$contextAssistantFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_ASSISTANT, $roleAssignments[ROLE_ID_ASSISTANT], $request->getUserVar('stageId')));
+			$contextAssistantFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_ASSISTANT, $roleAssignments[ROLE_ID_ASSISTANT], $stageId));
 
 			// 3) ...and if they meet one of the following requirements:
 			$contextAssistantFileAccessOptionsPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
@@ -216,10 +226,13 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 			$subEditorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR]));
 
 			// 2) ... but only if they have been assigned as a subeditor to the requested submission ...
+			$stageId = $request->getUserVar('stageId');
 			import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
 			$subEditorFileAccessPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
 			import('lib.pkp.classes.security.authorization.AssignedStageRoleHandlerOperationPolicy');
-			$subEditorFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR], $request->getUserVar('stageId')));
+			$subEditorFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR], $stageId));
+			import('lib.pkp.classes.security.authorization.internal.SubmissionFileMatchesWorkflowStageIdPolicy');
+			$managerFileAccessPolicy->addPolicy(new SubmissionFileMatchesWorkflowStageIdPolicy($request, $fileIdAndRevision, $stageId));
 
 			// 3) ... and only if they are not also assigned as an author and this is not part of a blind review
 			import('lib.pkp.classes.security.authorization.internal.SubmissionFileAuthorEditorPolicy');

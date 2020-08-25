@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-10 14:28+0000\n"
+"PO-Revision-Date: 2020-08-25 18:31+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/ro_RO/>\n"
@@ -37,7 +37,7 @@ msgid "manager.groups.confirmDelete"
 msgstr "Sigur doriți să ștergeți acest grup?"
 
 msgid "manager.files.uploadFile"
-msgstr "Încarcă fișier"
+msgstr "Încărcați fișierul"
 
 msgid "manager.files.uploadedFiles"
 msgstr "Fișiere încărcate"
@@ -995,7 +995,7 @@ msgid "grid.action.addGenre"
 msgstr "Adăugați componenta"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Selectați fișiere bibliotecă de atașat"
+msgstr "Selectați fișierele ce urmează să le atașați"
 
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""

@@ -1,0 +1,80 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-29 21:33+0000\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reader/mk/>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.nReplies"
+msgstr "({$num} Replies)"
+
+msgid "reader.fullText"
+msgstr "Целиот текст:"
+
+msgid "comments.viewAllComments"
+msgstr "Види ги сите коментари"
+
+msgid "comments.title"
+msgstr "Наслов"
+
+msgid "comments.replies"
+msgstr "Одговори"
+
+msgid "comments.readMore"
+msgstr "Прочитај повеќе"
+
+msgid "comments.readerComments"
+msgstr "Коментари од читатели"
+
+msgid "comments.postReply"
+msgstr "Постирја одговор"
+
+msgid "comments.postAnonymously"
+msgstr "Постирај го овој коментар анонимно"
+
+msgid "comments.oneReply"
+msgstr "(1 одговор)"
+
+msgid "comments.noComments"
+msgstr "Нема постирано коментари од читатели."
+
+msgid "comments.name"
+msgstr "Име на испраќачот"
+
+msgid "comments.inResponseTo"
+msgstr "Во одговор на <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.enterComment"
+msgstr "Внеси коментар"
+
+msgid "comments.emailReply"
+msgstr "Одговори со имејл"
+
+msgid "comments.email"
+msgstr "Имејл на испраќачот"
+
+msgid "comments.delete"
+msgstr "Избришете го коментарот"
+
+msgid "comments.confirmDeleteChildren"
+msgstr ""
+"Бришењето на овој коментар ќе ги избрише сите одговори на истиот. Дали сте "
+"сигурни дека сакате да го направите ова?"
+
+msgid "comments.titleRequired"
+msgstr "Потребен е наслов на коментарот."
+
+msgid "comments.body"
+msgstr "Тело"
+
+msgid "comments.anonymous"
+msgstr "Анонимен корисник"

@@ -1,0 +1,377 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-30 21:15+0000\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"admin/mk/>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.adminFunctions"
+msgstr "Административна функција"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Вредност на подесувањето"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Име на подесувањето"
+
+msgid "admin.languages.installLocales"
+msgstr "Инсталирај"
+
+msgid "admin.languages.installLocale"
+msgstr "Инсталирај локализација"
+
+msgid "admin.languages.availableLocales"
+msgstr "Можни локализации"
+
+msgid "admin.languages.installLanguages"
+msgstr "Уреди  локализација"
+
+msgid "admin.languages.installedLocales"
+msgstr "Инсталирани локализации"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Дали сте сигурни дека сакате повторно да ја вчитате локализацијатат? Ова ќе "
+"ги избрише сите постоечки податоци специфични за локализацијата, како што се "
+"прилагодените обрасци за е-пошта."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Дали сте сигурни дека сакате да јапромените примарната локализација на "
+"страницата? Имињата на корисниците, кои се потребни во основната "
+"локализација на страницата, ќе бидат копирани од постојното примарно место "
+"каде што недостасуваат."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Оваа локализација  е примарен јазик на страницата. Не можете да го "
+"оневозможите сè додека не изберете друг основна локализација."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr ""
+"Не можам да ја додадам новата локализација во датотеката за регистар на "
+"локации, обично  \"registry/locales.xml\"."
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Не можам да го отворам дескрипторот на јазик од веб-страницата PKP."
+
+msgid "admin.languages.downloadLocales"
+msgstr "Симнете локализации"
+
+msgid "admin.languages.download"
+msgstr "Симнете локализација"
+
+msgid "admin.expireSessions"
+msgstr "Затворете ги сесии за корисниците"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Прикажи нова конфигурација"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Содржината на ажурираната конфигурација е прикажана подолу. За да ги "
+"примените промените во конфигурацијата, мора да го отворите "
+"<tt>config.inc.php</tt> во соодветен уредувач на текст и да ги замените "
+"неговите содржини со содржината на полето за текст подолу."
+
+msgid "admin.dateInstalled"
+msgstr "Дата на инсталација"
+
+msgid "admin.currentVersion"
+msgstr "Тековна верзија"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Дали сте сигурни дека сакате трајно да ја избришете {$contextName} и целата "
+"содржина?"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Содржина на датотеката за конфигурација"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Дали сте сигурни дека сакате да ги истечете сите сесии на корисници? Сите "
+"корисници кои во моментот сте најавени во системот, ќе бидат принудени да се "
+"најават повторно (вклучено и вие)."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Дали сте сигурни дека сакате да го исчистите кешот на собрани шаблони?"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Вашата датотека за конфигурација е успешно ажурирана. Забележете дека ако "
+"вашата веб-страница веќе не работи правилно, можеби ќе треба рачно да ја "
+"поправите вашата конфигурација со директно уредување на "
+"<tt>config.inc.php</tt>."
+
+msgid "admin.clearTemplateCache"
+msgstr "Избриши го кешот со шаблони"
+
+msgid "admin.clearDataCache"
+msgstr "Исчистете ги мемориските податоци"
+
+msgid "admin.authSources"
+msgstr "Извори за автентикација"
+
+msgid "admin.auth.noneCreated"
+msgstr "Не се дефинирани извори за автентикација."
+
+msgid "admin.auth.create"
+msgstr "Креирај извор за автентикација"
+
+msgid "admin.auth.confirmDelete"
+msgstr ""
+"Дали сте сигурни дека сакате трајно да го избришете овој извор на "
+"автентикација?"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Нема достапни локализации за преземање."
+
+msgid "admin.error.executingUtil"
+msgstr ""
+"Грешка: не може да се изврши \"{$utilPath}\". Проверете ја поставката "
+"{{$utilVar} во конфигурацијата.inc.php."
+
+msgid "admin.error.utilExecutionProblem"
+msgstr ""
+"Извршувањето на програмата \"{$utilPath}\" ја врати следната грешка: "
+"{$output}"
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Успешно: {$filePath} во {$destinationPath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+"Предупредување: датотека {$filePath} веќе постои во директориумот за "
+"статистика на употреба."
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Грешка: не може да се избрише датотеката {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr ""
+"Грешка: не може да ја копирате датотеката од {$filePath} во {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Грешка: Датотека {$filePath} не постои или не може да се пристапи."
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Грешка: не може да се создаде привремена папка {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Копирајте ги положените записи apache, филтрирај ги записите поврзани со "
+"оваа инсталација,\n"
+"до тековниот директориум со датотеки, во рамките на фазата на директориум "
+"UsageStatsPlugin. Мора да работи под корисник со доволно привилегии за да ги "
+"прочита датотеките за логирање пристап.\n"
+"\n"
+"Оваа алатка само ќе копира датотеки што веќе не се во директориумот "
+"usageStats  (фаза, обработка, архивирање, отфрлање).\n"
+"\n"
+"Употреба {$scriptName} path/to/apache/log/file.log\n"
+"Употреба (processing all files inside a directory): {$scriptName} path/to/"
+"apache/directory\n"
+"\t"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Учитувач на фајл"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Датотеката {$filename} беше обработена и архивирана."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"Датотеката {$filename} не може да се премести од  {$currentFilePath} "
+"до{$destinationPath}"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Фолдерот path{$path не е директориум или не може да се чита."
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr ""
+"Основна патека path  {$path} мора да биде во директориумот на јавни датотеки."
+
+msgid "admin.version"
+msgstr "Верзија"
+
+msgid "admin.version.upToDate"
+msgstr "Ја имате последната верзија"
+
+msgid "admin.version.updateAvailable"
+msgstr "Достапна е ажурирана верзија"
+
+msgid "admin.versionRevision"
+msgstr "Ревизија"
+
+msgid "admin.version.moreInfo"
+msgstr "Повеќе информации"
+
+msgid "admin.versionMinor"
+msgstr "Споредна"
+
+msgid "admin.versionMajor"
+msgstr "Главно"
+
+msgid "admin.version.latest"
+msgstr "Последна верзија"
+
+msgid "admin.versionHistory"
+msgstr "Историја на верзиите"
+
+msgid "admin.version.downloadPatch"
+msgstr "Симни закрпа"
+
+msgid "admin.version.downloadPackage"
+msgstr "Симни"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Побарај ажурирање"
+
+msgid "admin.versionBuild"
+msgstr "Изведба"
+
+msgid "admin.systemInformation"
+msgstr "Системски информации"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"Конфигурациската датотека <tt>config.inc.php</tt> не постои, не може да се "
+"чита или не е валидна."
+
+msgid "admin.siteSetup"
+msgstr "Поставување на сајтот"
+
+msgid "admin.siteSettings"
+msgstr "Подесувања на сајтот"
+
+msgid "admin.siteManagement"
+msgstr "Менаџмент на сајтот"
+
+msgid "admin.siteAdmin"
+msgstr "Администрирање на сајтот"
+
+msgid "admin.settings.siteTheme"
+msgstr "Тема на сајтот"
+
+msgid "admin.settings.siteTitle"
+msgstr "Име на сајтот"
+
+msgid "admin.settings.siteLogo"
+msgstr "Лого  на сајтот"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "syle sheet на сајтот"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr ""
+"Невалиден формат на лист во стилот на страницата. Прифатениот формат е .css."
+
+msgid "admin.settings.siteLanguage"
+msgstr "Јазик на сајтот"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Минимална должина на лозинката (каркатери)"
+
+msgid "admin.settings.introduction"
+msgstr "Вовед"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tВашата инсталација е конфигурирана да снима повеќе од една метрика за "
+"употреба. Статистиката за употреба ќе биде прикажана во неколку контексти.\n"
+"Постојат случаи кога мора да се користи статистика за единечна употреба, на "
+"пр. да се прикаже нарачана листа со најчесто користени поднесоци или да се "
+"рангира\n"
+"Резултати од пребарувањето. Изберете една од конфигурираните метрика како "
+"стандардна.\n"
+"\t"
+
+msgid "admin.settings.contactName"
+msgstr "Име на главниот контакт"
+
+msgid "admin.settings.contactEmail"
+msgstr "Имејл на примарниот контакт"
+
+msgid "admin.settings.about"
+msgstr "За сајтот"
+
+msgid "admin.settings"
+msgstr "Подесувања"
+
+msgid "admin.server.platform"
+msgstr "OS  платформа"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP верзија"
+
+msgid "admin.serverInformation"
+msgstr "Информација за серверот"
+
+msgid "admin.server.dbVersion"
+msgstr "Верзија на датабаза серверот"
+
+msgid "admin.server.dbDriver"
+msgstr "Драјвер за датабаза"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache верзија"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Потсетник за завршување на претплатата"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Прегледај ги потсетниците"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Објавувете ги поднесоците закажани за објавување"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Исчистете ги записите за закажаните задачи"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Дали сте сигурни дека сакате да ги избришете сите записи закажани задачи за "
+"извршување?"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Вашата {$softwareName} инсталација автоматски е извршена и заврши вашата цел "
+"и можете да гопреземете записот овде: {$url}"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Целта даде запис."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Процесот на цел запре."
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Процесот на цел започна."
+
+msgid "admin.scheduledTask"
+msgstr "Планирани цели"
+
+msgid "admin.phpInfo"
+msgstr "Проширени PHP информации"
+
+msgid "admin.languages.uninstall"
+msgstr "Анинсталирај локализација"
+
+msgid "admin.languages.reload"
+msgstr "Превчитај локализација"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Нема дополнителни локализации за инсталација."
+
+msgid "admin.languages.languageSettings"
+msgstr "Подесување на јазик"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Инсталирај нова локализација"

@@ -404,6 +404,10 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 						->orWhere(function($q) use ($word, $isAssignedOnly) {
 							$q->where('aus.setting_name', IDENTITY_SETTING_FAMILYNAME);
 							$q->where(Capsule::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
+						})
+						->orWhere(function($q) use ($word, $isAssignedOnly) {
+							$q->where('aus.setting_name', 'orcid');
+							$q->where(Capsule::raw('lower(aus.setting_value)'), '=', "{$word}");
 						});
 						// Prevent reviewers from matching searches by author name
 						if ($isAssignedOnly) {

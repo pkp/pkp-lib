@@ -1,0 +1,126 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-29 21:33+0000\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reviewer/mk/>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Овој корисник не е назначен како рецензент на бараниот документ."
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Само за уредникот"
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "За авторот и за уредникот"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"Уредникот бара да прифатите или одбиете рецензија пред датумот за одговор и "
+"да ја завршите рецензијата до крајниот датум."
+
+msgid "reviewer.aboutDueDates"
+msgstr "За крајните рокови"
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"Ви благодариме што јазавршивте рецензијата на овој поднесок. Вашата "
+"рецензија беше доставен успешно. Го цениме вашиот придонес за квалитетот на "
+"работата што ја објавуваме; уредникот може да ве контактира повторно за "
+"повеќе информации ако е потребно."
+
+msgid "reviewer.confirmSubmit"
+msgstr "Дали сте сигурни дека сакате да ја доставите оваа рецензија?"
+
+msgid "reviewer.complete"
+msgstr "Рецензирај го  поднесеното"
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"Поставете датотеки за кои  сакате да се консултирате со уредникот и / или "
+"авторот, вклучувајќи ги и ревидираните верзии на оригиналната датотека за "
+"рецензија."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Внесете (или залепете) преглед на овој поднесок во формуларот подолу."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"Кликнете на имињата на датотеки подолу за да ги преземете датотеките "
+"поврзани со овој поднесок."
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Овој издавач не постави никакви упатства за рецензирање."
+
+msgid "reviewer.submission.guidelines"
+msgstr "Водич за лекторирање"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Конлфикт на интереси"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"Овој издавач има политика за откривање на потенцијален конфликт на интереси "
+"од нејзините рецензенти. Ве молиме, разгледате ја оваа политика."
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Можеби имам конлфикт на  интереси (наведете подолу)"
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Немам никаков конлфикт на интереси"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Водич за рецензирање"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Зачувајте за подоцна"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Поднесете ја рецензијата"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Продолжете кон чекор 3"
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Прифатете рецензија, продолжете на чекор  2"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr ""
+"Може да му наведете  причини на уредникот зошто го одбивате овој преглед на "
+"полето подолу."
+
+msgid "reviewer.submission.declineReview"
+msgstr "Одби го барањето за рецензија"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Рецензентски фајлови"
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Погледнете ги сите детали за поднесокот"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+"Вие сте избрани за потенцијален рецензент на следниот поднесок. Подолу е "
+"преглед на поднесокот, како и временската рамка за овој преглед. Се надеваме "
+"дека сте во можност да учествувате."
+
+msgid "reviewer.step1.request"
+msgstr "Барање за рецензија"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Завршување"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Симни и рецензирај"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Водич"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Барање"

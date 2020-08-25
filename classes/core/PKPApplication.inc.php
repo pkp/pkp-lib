@@ -97,22 +97,6 @@ interface iPKPApplicationInfoProvider {
 	public static function getSubmissionSearchDAO();
 
 	/**
-	 * Returns the name of the context column in plugin_settings.
-	 * This is necessary to prevent a column name mismatch during
-	 * the upgrade process when the codebase and the database are out
-	 * of sync.
-	 * See:  https://pkp.sfu.ca/bugzilla/show_bug.cgi?id=8265
-	 *
-	 * The 'generic' category of plugin is loaded before the schema
-	 * is reconciled.  Subclasses of PKPApplication perform a check
-	 * against their various schemas to determine which column is
-	 * present when an upgrade is being performed so the plugin
-	 * category can be initially be loaded correctly.
-	 * @return string
-	 */
-	public static function getPluginSettingsContextColumnName();
-
-	/**
 	 * Get the stages used by the application.
 	 */
 	public static function getApplicationStages();

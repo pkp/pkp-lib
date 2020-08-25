@@ -64,6 +64,8 @@ class DashboardHandler extends Handler {
 		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_submissions');
 		$lists = [];
 
+		$includeIssuesFilter = array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $userRoles);
+
 		// My Queue
 		$myQueueListPanel = new \APP\components\listPanels\SubmissionsListPanel(
 			SUBMISSIONS_LIST_MY_QUEUE,
@@ -74,9 +76,9 @@ class DashboardHandler extends Handler {
 					'status' => STATUS_QUEUED,
 					'assignedTo' => [(int) $request->getUser()->getId()],
 				],
-				'includeActiveSectionFiltersOnly' => true,
-			]
-		);
+			'includeIssuesFilter' => $includeIssuesFilter,
+			'includeActiveSectionFiltersOnly' => true,
+		]);
 		$myQueueListPanel->set([
 			'items' => $myQueueListPanel->getItems($request),
 			'itemsMax' => $myQueueListPanel->getItemsMax()
@@ -96,6 +98,7 @@ class DashboardHandler extends Handler {
 						'assignedTo' => -1,
 					],
 					'lazyLoad' => true,
+					'includeIssuesFilter' => $includeIssuesFilter,
 					'includeActiveSectionFiltersOnly' => true,
 				]
 			);
@@ -111,6 +114,7 @@ class DashboardHandler extends Handler {
 						'status' => STATUS_QUEUED,
 					],
 					'lazyLoad' => true,
+					'includeIssuesFilter' => $includeIssuesFilter,
 				]
 			);
 			$lists[$activeListPanel->id] = $activeListPanel->getConfig();
@@ -121,10 +125,10 @@ class DashboardHandler extends Handler {
 						'param' => 'assignedTo',
 						'value' => [],
 						'filterType' => 'pkp-filter-autosuggest',
+						'component' => 'field-select-users',
 						'autosuggestProps' => [
 								'allErrors' => (object) [],
 								'apiUrl' => $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'users', null, null, ['roleIds' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]]),
-								'component' => 'field-autosuggest',
 								'description' => '',
 								'deselectLabel' => __('common.removeItem'),
 								'formId' => 'default',
@@ -157,6 +161,7 @@ class DashboardHandler extends Handler {
 				'apiUrl' => $apiUrl,
 				'getParams' => $params,
 				'lazyLoad' => true,
+				'includeIssuesFilter' => $includeIssuesFilter,
 			]
 		);
 		$lists[$archivedListPanel->id] = $archivedListPanel->getConfig();

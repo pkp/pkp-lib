@@ -97,10 +97,8 @@ class CommonMigration extends Migration {
 			$table->bigInteger('user_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
-			//  Not null not specified for sake of upgrade. 
-			$table->bigInteger('assoc_type')->default(0)->nullable();
-			//  Not null not specified for sake of upgrade. 
-			$table->bigInteger('assoc_id')->default(0)->nullable();
+			$table->bigInteger('assoc_type')->default(0);
+			$table->bigInteger('assoc_id')->default(0);
 			$table->text('setting_value')->nullable();
 			$table->string('setting_type', 6);
 			$table->index(['user_id'], 'user_settings_user_id');
@@ -207,8 +205,7 @@ class CommonMigration extends Migration {
 		Capsule::schema()->create('email_templates', function (Blueprint $table) {
 			$table->bigInteger('email_id')->autoIncrement();
 			$table->string('email_key', 64)->comment('Unique identifier for this email.');
-			//  Not null not specified for sake of upgrade. 
-			$table->bigInteger('context_id')->default(0)->nullable();
+			$table->bigInteger('context_id');
 			$table->tinyInteger('enabled')->default(1);
 			$table->unique(['email_key', 'context_id'], 'email_templates_email_key');
 		});

@@ -226,7 +226,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$args['style'] = substr($args['style'], (strlen(LESS_FILENAME_SUFFIX) * -1)) == LESS_FILENAME_SUFFIX ? $this->_getBaseDir($args['style']) : $this->_getBaseUrl($args['style']);
 		}
 
-		$style = array_merge($style, $args);
+		$style = array_merge_recursive($style, $args);
 	}
 
 	/**
@@ -551,8 +551,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		$values = $pluginSettingsDAO->getPluginSettings($contextId, $this->getName());
 		foreach ($this->options as $optionName => $optionConfig) {
 			$value = isset($values[$optionName]) ? $values[$optionName] : null;
-			// Convert values stored in the db as strings into booleans and
-			// integers if the default value is a boolean or integer
+			// Convert values stored in the db to the type of the default value
 			if (!is_null($optionConfig->default)) {
 				switch (gettype($optionConfig->default)) {
 					case 'boolean':
@@ -560,6 +559,9 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 						break;
 					case 'integer':
 						$value = (int) $value;
+						break;
+					case 'array':
+						$value = $value === null ? [] : unserialize($value);
 						break;
 				}
 			}

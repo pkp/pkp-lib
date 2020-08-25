@@ -50,7 +50,50 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			$table->bigInteger('stage_id')->nullable();
 		});
 
+		// pkp/pkp-lib#6093 Don't allow nulls (previously an upgrade workaround)
+		Capsule::schema()->table('user_settings', function (Blueprint $table) {
+			$table->bigInteger('assoc_type')->default(0)->change();
+			$table->bigInteger('assoc_id')->default(0)->change();
+		});
+		Capsule::schema()->table('announcement_types', function (Blueprint $table) {
+			$table->bigInteger('assoc_type')->change();
+		});
+		Capsule::schema()->table('email_templates', function (Blueprint $table) {
+			$table->bigInteger('context_id')->default(0)->change();
+		});
+		Capsule::schema()->table('genres', function (Blueprint $table) {
+			$table->bigInteger('seq')->change();
+			$table->tinyInteger('supplementary')->default(0)->change();
+		});
+		Capsule::schema()->table('event_log', function (Blueprint $table) {
+			$table->bigInteger('assoc_type')->change();
+			$table->bigInteger('assoc_id')->change();
+		});
+		Capsule::schema()->table('email_log', function (Blueprint $table) {
+			$table->bigInteger('assoc_type')->change();
+			$table->bigInteger('assoc_id')->change();
+		});
+		Capsule::schema()->table('notes', function (Blueprint $table) {
+			$table->bigInteger('assoc_type')->change();
+			$table->bigInteger('assoc_id')->change();
+		});
+		Capsule::schema()->table('review_forms', function (Blueprint $table) {
+			$table->bigInteger('assoc_type')->change();
+			$table->bigInteger('assoc_id')->change();
+		});
+		Capsule::schema()->table('review_assignments', function (Blueprint $table) {
+			$table->bigInteger('review_round_id')->change();
+		});
+		Capsule::schema()->table('authors', function (Blueprint $table) {
+			$table->bigInteger('publication_id')->change();
+		});
+		Capsule::schema()->table('edit_decisions', function (Blueprint $table) {
+			$table->bigInteger('review_round_id')->change();
+		});
+		Capsule::connection()->unprepared('UPDATE review_assignments SET review_form_id=NULL WHERE review_form_id=0');
+
 		$this->_populateEmailTemplates();
+		$this->_makeRemoteUrlLocalizable();
 	}
 
 	/**
@@ -75,5 +118,51 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 				Capsule::table('email_templates_default')->where('email_key', $attr['key'])->update(array('stage_id' => $attr['stage_id']));
 			}
 		}
+	}
+
+	/**
+	 * @return void
+	 * @brief make remoteUrl navigation item type multilingual and drop the url column
+	 */
+	private function _makeRemoteUrlLocalizable() {
+		$contextService = Services::get('context');
+		$contextIds = $contextService->getIds();
+		foreach ($contextIds as $contextId) {
+			$context = $contextService->get($contextId);
+			$locales = $context->getData('supportedLocales');
+
+			$navigationItems = Capsule::table('navigation_menu_items')->where('context_id', $contextId)->pluck('url', 'navigation_menu_item_id')->filter()->all();
+			foreach ($navigationItems as $navigation_menu_item_id => $url) {
+				foreach ($locales as $locale) {
+					Capsule::table('navigation_menu_item_settings')->insert([
+						'navigation_menu_item_id' => $navigation_menu_item_id,
+						'locale' => $locale,
+						'setting_name' => 'remoteUrl',
+						'setting_value' => $url,
+						'setting_type' => 'string'
+					]);
+				}
+			}
+		}
+
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
+		$site = $siteDao->getSite();
+		$supportedLocales = $site->getSupportedLocales();
+		$navigationItems = Capsule::table('navigation_menu_items')->where('context_id', '0')->pluck('url', 'navigation_menu_item_id')->filter()->all();
+		foreach ($navigationItems as $navigation_menu_item_id => $url) {
+			foreach ($supportedLocales as $locale) {
+				Capsule::table('navigation_menu_item_settings')->insert([
+					'navigation_menu_item_id' => $navigation_menu_item_id,
+					'locale' => $locale,
+					'setting_name' => 'remoteUrl',
+					'setting_value' => $url,
+					'setting_type' => 'string'
+				]);
+			}
+		}
+
+		Capsule::schema()->table('navigation_menu_items', function (Blueprint $table) {
+			$table->dropColumn('url');
+		});
 	}
 }

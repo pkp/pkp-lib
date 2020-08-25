@@ -25,8 +25,7 @@ class AnnouncementsMigration extends Migration {
 		// Announcement types.
 		Capsule::schema()->create('announcement_types', function (Blueprint $table) {
 			$table->bigInteger('type_id')->autoIncrement();
-			//  NOT NULL not included for upgrade purposes
-			$table->smallInteger('assoc_type')->nullable();
+			$table->smallInteger('assoc_type');
 			$table->bigInteger('assoc_id');
 			$table->index(['assoc_type', 'assoc_id'], 'announcement_types_assoc');
 		});

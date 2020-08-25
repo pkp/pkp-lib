@@ -25,10 +25,8 @@ class LogMigration extends Migration {
 		// A log of all events associated with an object.
 		Capsule::schema()->create('event_log', function (Blueprint $table) {
 			$table->bigInteger('log_id')->autoIncrement();
-			//  Nullable for upgrade purposes only 
-			$table->bigInteger('assoc_type')->nullable();
-			//  Nullable for upgrade purposes only 
-			$table->bigInteger('assoc_id')->nullable();
+			$table->bigInteger('assoc_type');
+			$table->bigInteger('assoc_id');
 			$table->bigInteger('user_id');
 			$table->datetime('date_logged');
 			$table->bigInteger('event_type')->nullable();
@@ -50,10 +48,8 @@ class LogMigration extends Migration {
 		// A log of all emails sent out related to an object.
 		Capsule::schema()->create('email_log', function (Blueprint $table) {
 			$table->bigInteger('log_id')->autoIncrement();
-			//  Nullable for upgrade purposes only 
-			$table->bigInteger('assoc_type')->nullable();
-			//  Nullable for upgrade purposes only 
-			$table->bigInteger('assoc_id')->nullable();
+			$table->bigInteger('assoc_type');
+			$table->bigInteger('assoc_id');
 			$table->bigInteger('sender_id');
 			$table->datetime('date_sent');
 			$table->bigInteger('event_type')->nullable();

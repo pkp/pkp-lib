@@ -1,0 +1,688 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-04 07:48+0000\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"mk_MK/>\n"
+"Language: mk_MK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.noAuditors"
+msgstr "Нема ревизори"
+
+msgid "grid.settings"
+msgstr "Подесувања"
+
+msgid "grid.noItems"
+msgstr "Нема елементи"
+
+msgid "grid.action.wizard"
+msgstr "Магесник за уредување"
+
+msgid "grid.action.collapseAll"
+msgstr "Затворете сѐ"
+
+msgid "grid.action.collapse"
+msgstr "Затвори"
+
+msgid "grid.action.extendAll"
+msgstr "Проширете сѐ"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Откажи редослед"
+
+msgid "grid.action.order"
+msgstr "Редослед"
+
+msgid "grid.action.upgrade"
+msgstr "Ажурирај"
+
+msgid "grid.action.addAuditor"
+msgstr "Додади автор"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Избриши автор"
+
+msgid "grid.action.editAuthor"
+msgstr "Уреди автор"
+
+msgid "grid.action.addAuthor"
+msgstr "Додади автор"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Дали сте сигурни дека сакате да ги вратите основните нагодувања?"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Врати ги основните поставки"
+
+msgid "grid.action.moreInformation"
+msgstr "Повеќе информации"
+
+msgid "grid.action.setApproval"
+msgstr "Постави согласност"
+
+msgid "grid.action.disapprove"
+msgstr "Одби"
+
+msgid "grid.action.approve"
+msgstr "Одобри"
+
+msgid "grid.action.edit"
+msgstr "Уреди"
+
+msgid "grid.action.remove"
+msgstr "Отстрани"
+
+msgid "grid.action.editorialHistory"
+msgstr "Историја на уредување"
+
+msgid "grid.action.deleteSection"
+msgstr "Избриши оддел"
+
+msgid "grid.action.export"
+msgstr "Експортирај"
+
+msgid "grid.action.editSection"
+msgstr "Уреди оддел"
+
+msgid "grid.action.editMedia"
+msgstr "Уреди медиум"
+
+msgid "grid.action.deleteMedia"
+msgstr "Избриши медиум"
+
+msgid "grid.action.deleteFile"
+msgstr "Избриши фајл"
+
+msgid "grid.action.delete"
+msgstr "Избриши"
+
+msgid "grid.action.reload"
+msgstr "Вчитај повторно"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Одобрете ја оваа датотека лектура за испраќање во следната фаза"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Исклучи го овој рецензент"
+
+msgid "grid.action.addUser"
+msgstr "Додади корисник"
+
+msgid "grid.action.updateQuery"
+msgstr "Ажурирај дискусија"
+
+msgid "grid.action.deleteQuery"
+msgstr "Избриши дискусија"
+
+msgid "grid.action.readQuery"
+msgstr "Прочитај ја одлуката"
+
+msgid "grid.action.addQuery"
+msgstr "Додади дискусија"
+
+msgid "grid.action.addNote"
+msgstr "Додади белешка"
+
+msgid "grid.action.addItem"
+msgstr "Додади елемент"
+
+msgid "grid.action.sort"
+msgstr "Сортирај"
+
+msgid "grid.action.manageAccess"
+msgstr "Уреди пристап"
+
+msgid "grid.action.uninstall"
+msgstr "Анинсталирај"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Оваа ставка е хостирана од далечина."
+
+msgid "grid.action.orderItems"
+msgstr "Овозможи подредување"
+
+msgid "grid.action.importexport"
+msgstr "Увези или извези содржина или податоци на сајтот"
+
+msgid "grid.action.settings"
+msgstr "Подесувања"
+
+msgid "grid.action.sendToProduction"
+msgstr "Испрати го поднесокот во продукција"
+
+msgid "grid.action.externalReview"
+msgstr "Испрати го поднесокот на надворешна рецензија"
+
+msgid "grid.action.internalReview"
+msgstr "Испрати го поднесокот на внатрешна лектура"
+
+msgid "grid.action.decline"
+msgstr "Одби го поднесокот"
+
+msgid "grid.action.accept"
+msgstr "Прифати го поднесокот"
+
+msgid "grid.action.requestRevisions"
+msgstr "Побарај ревизија за овој поднесок"
+
+msgid "grid.action.selectFiles"
+msgstr "Селектирај фајлови за промена"
+
+msgid "grid.action.editFile"
+msgstr "Уреди фајл"
+
+msgid "grid.action.addFile"
+msgstr "Додади фајл"
+
+msgid "grid.action.addReviewer"
+msgstr "Додади рецензент"
+
+msgid "grid.action.email"
+msgstr "Испрати имејл"
+
+msgid "grid.action.readReview"
+msgstr "Прочитај ја рецензијата"
+
+msgid "grid.action.downloadAll"
+msgstr "Симни ги сите фајлови како архива"
+
+msgid "grid.action.moveItem"
+msgstr "Премести го елементот"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Одбери тип..."
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Нема мени за навигација"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Нема елементи во менито за навигација"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Додади елемент"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Додади мени"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Вклучете нецелосни поднесоци што не се доставени од автор."
+
+msgid "grid.submission.itemTitle"
+msgstr "Автор; Наслов"
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "Улогата {$userGroupName} тргната од {$stageName} фаза."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "Улогата {$userGroupName} назначена во {$stageName} фаза."
+
+msgid "grid.userGroup.removed"
+msgstr "Улогата {$userGroupName}  е отстранета."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"Не може да се отстрани улогата {$userGroupName}.  {$usersCount} корисник(ци) "
+"се назначени."
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "Улогата {$userGroupName} не може да се отстрани."
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Со ниво на дозвола на"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Листа на зададените улоги на"
+
+msgid "grid.userGroup.allStages"
+msgstr "Сите фази на работата"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Откажи фаза"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Додели фаза"
+
+msgid "grid.artworkFile.placement"
+msgstr "Положба на поднесокот"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Услови на дозволата"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Информации за контакт (ако не е авторот/издавачот)"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Сопственик на копирајтот"
+
+msgid "grid.artworkFile.credit"
+msgstr "Заслуги"
+
+msgid "grid.artworkFile.caption"
+msgstr "Наслов"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Има лектурски корекции.  Можеш да ја откажеш оваа задача"
+
+msgid "grid.plugin.disable"
+msgstr "Дали сте сигурни дека сакате да го оневозможите овој плагин?"
+
+msgid "grid.plugin.allCategories"
+msgstr "Сите категории"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Тековна листа"
+
+msgid "grid.preparedEmails.title"
+msgstr "Подготвени шаблони за имејл"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"Дали сте сигурни дека сакате да ја споите сметката со корисничкото име \""
+"{$oldUsername}\" на сметката со корисничкото име \"{$newUsername}\"? "
+"Сметката со корисничко име \"{$oldUsername}\" нема да постои потоа. Оваа "
+"акција не е реверзибилна."
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Сите вклучени корисници"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Спои во овој корисник"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Спои корисник"
+
+msgid "grid.user.mergeUsers"
+msgstr "Спои корисници"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"Најави се како овој корисник? Сите активности што ги извршувате ќе му се "
+"припишат на овој корисник."
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Те молам селектирај корисник"
+
+msgid "grid.user.selectUser"
+msgstr "Селектирај корисник"
+
+msgid "grid.user.addRole"
+msgstr "Додади улога"
+
+msgid "grid.user.addRoles"
+msgstr "Додади улоги"
+
+msgid "grid.user.step2"
+msgstr "Чекор 2: Додади улоги на корисникот {$userFullName}"
+
+msgid "grid.user.step1"
+msgstr "Чекор 1: Пополни ги деталите за корисникот"
+
+msgid "grid.user.userNoRoles"
+msgstr "Овој корисник нема никаква улога."
+
+msgid "grid.user.userRoles"
+msgstr "Улоги на корисникот"
+
+msgid "grid.user.userDetails"
+msgstr "Детали за корисникот"
+
+msgid "grid.user.lessDetails"
+msgstr "Помалку детали за корисникот"
+
+msgid "grid.user.moreDetails"
+msgstr "Повеќе детали за корисникот"
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Бара корисникот да ја смени лозинката следниот пат кога ќе се најави."
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Кореисникот мора да ја смени лозинката при следното логирање."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Смени лозинка"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Испрати имејл за добредојде на корисникот."
+
+msgid "grid.user.notifyUser"
+msgstr "Информирај го корисникот"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Генерирај рандом лозинка за овој корисник."
+
+msgid "grid.user.generatePassword"
+msgstr "Генерирај лозинка"
+
+msgid "grid.user.mustProvideName"
+msgstr "Потребно е барем презимето на корисникот."
+
+msgid "grid.user.authSource"
+msgstr "Извор на автентификација"
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"Немате доволно дозволи за администрирање на овој корисник. За да управувате "
+"со корисник, мора да бидете администратор на страницата, или да управувате "
+"со сите контексти во кои е запишан овој корисник."
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"Се појави грешка при испраќањето наовој имел. Ве молиме, проверете дали "
+"вашата конфигурација на серверот за имејл работи и / или контактирајте го "
+"вашиот системски администратор."
+
+msgid "grid.user.error"
+msgstr ""
+"Наиде на грешка при администрирање на овој корисник. Ве молиме обидете се "
+"повторно."
+
+msgid "grid.user.enableReason"
+msgstr "Причина за овозможување корисник"
+
+msgid "grid.user.disableReason"
+msgstr "Причина за оневозможување на корисник"
+
+msgid "grid.user.disable"
+msgstr "Оневозможи"
+
+msgid "grid.user.enable"
+msgstr "Овозможи"
+
+msgid "grid.user.email"
+msgstr "Имејл"
+
+msgid "grid.user.edit"
+msgstr "Уреди корисник"
+
+msgid "grid.user.enroll"
+msgstr "Вклучи корисник"
+
+msgid "grid.user.add"
+msgstr "Додади корисник"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Сите нивоа на дозволи"
+
+msgid "grid.user.allRoles"
+msgstr "Сите улоги"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Тековни записи"
+
+msgid "grid.user.currentUsers"
+msgstr "Тековни корисници"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Доделување во фаза"
+
+msgid "grid.roles.add"
+msgstr "Креирај нова улога"
+
+msgid "grid.roles.currentRoles"
+msgstr "Тековни улоги"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Во листата за преглед"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Примарен контакт"
+
+msgid "author.users.contributor.role"
+msgstr "Улога"
+
+msgid "author.users.contributor.email"
+msgstr "Имејл"
+
+msgid "author.users.contributor.name"
+msgstr "Име"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Елемент на чек листа"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Чек листа за поднесок"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Библиотека на шеми за објавување"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Библиотека на објавување"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Библиотека на рецензенти"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Уредничка библиотека"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Библиотека на поднесоци"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Фајлови"
+
+msgid "grid.noFiles"
+msgstr "Нема фајлови"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Опции за одговор"
+
+msgid "grid.reviewForm.title"
+msgstr "Формулари за лектура"
+
+msgid "grid.action.newVersion"
+msgstr "Креирај нова верзија"
+
+msgid "grid.action.deleteContributor"
+msgstr "Избриши соработник"
+
+msgid "grid.action.editContributor"
+msgstr "Уреди соработник"
+
+msgid "grid.action.addContributor"
+msgstr "Додади соработник"
+
+msgid "grid.contributor.title"
+msgstr "Извор на поддршка"
+
+msgid "grid.action.deleteCategory"
+msgstr "Избриши категорија"
+
+msgid "grid.action.editCategory"
+msgstr "Уреди категорија"
+
+msgid "grid.action.addCategory"
+msgstr "Додади категорија"
+
+msgid "grid.action.deleteSeries"
+msgstr "Избриши серии"
+
+msgid "grid.action.editSeries"
+msgstr "Уреди серии"
+
+msgid "grid.action.addSeries"
+msgstr "Додади серии"
+
+msgid "grid.action.editSponsor"
+msgstr "Уреди спонзор"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Избриши спонзор"
+
+msgid "grid.action.addSponsor"
+msgstr "Додади спонзор"
+
+msgid "grid.sponsor.title"
+msgstr "Организација спонзор"
+
+msgid "grid.columns.locale"
+msgstr "Локализација"
+
+msgid "grid.columns.auditor"
+msgstr "Ревизор"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.institution"
+msgstr "Институција"
+
+msgid "grid.columns.actions"
+msgstr "Акции"
+
+msgid "grid.task.status.reviewReady"
+msgstr "Рецензијата е готова. Притисни на иконката лево да ја прочиташ."
+
+msgid "grid.task.status.unfinished"
+msgstr "Задачате е недовршена"
+
+msgid "grid.task.status.uploaded"
+msgstr "Насловот на колоната покажува кој го апдејтирал фајлот"
+
+msgid "grid.task.status.new"
+msgstr "Означено кога се разгледува"
+
+msgid "grid.task.status.completed"
+msgstr "Задачата е завршена"
+
+msgid "grid.action.users"
+msgstr "Види /селектирај корисници"
+
+msgid "grid.action.moreItems"
+msgstr "Вчитај повеќе"
+
+msgid "grid.action.install"
+msgstr "Инсталирај"
+
+msgid "grid.action.preview"
+msgstr "Рецензија"
+
+msgid "grid.action.copy"
+msgstr "Копирај"
+
+msgid "grid.action.deactivate"
+msgstr "Деактивирај"
+
+msgid "grid.action.activate"
+msgstr "Активирај"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Дали навцистина скатае да ги ескпортирате сите корисници?"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Експортирај ги сите корисници"
+
+msgid "grid.action.logInAs"
+msgstr "Логирај се како"
+
+msgid "grid.action.bookInfo"
+msgstr "Информации за поднесокот"
+
+msgid "grid.action.enable"
+msgstr "Овозможи"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Оваа рецензија е завршена, но може да не ја земете во обзир"
+
+msgid "grid.action.history"
+msgstr "Види историја"
+
+msgid "grid.action.unassignUser"
+msgstr "Откажи корисник"
+
+msgid "grid.action.mergeUser"
+msgstr "Спои корисник"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Додади известување"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Додади вид на известување"
+
+msgid "grid.action.uploadFile"
+msgstr "Аплодирај фајл"
+
+msgid "grid.action.thankReviewer"
+msgstr "Испрати порака со балгодарнсот до рецензентот"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Види ги насоките за политиката на конфликт на интереси"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Види ги насоките за рецензирање"
+
+msgid "grid.action.newRound"
+msgstr "Креирај нов круг"
+
+msgid "grid.action.sendReminder"
+msgstr "Испрати потсетник за задача на овој корисник"
+
+msgid "grid.action.viewMetadata"
+msgstr "Види ја матадатата за овој поднесок"
+
+msgid "grid.action.viewLibrary"
+msgstr "Погледај ја библитеката документи"
+
+msgid "grid.action.advancedSearch"
+msgstr "Напредно барање"
+
+msgid "grid.action.search"
+msgstr "Барај"
+
+msgid "grid.action.selectCreate"
+msgstr "Создај нов рецензент"
+
+msgid "grid.action.enrolExisting"
+msgstr "Вклучи постоечки корисник како  рецензент"
+
+msgid "grid.action.details"
+msgstr "Види го овој елемент"
+
+msgid "grid.action.disable"
+msgstr "Оневозможи"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Отсрани ја оваа група корисници"
+
+msgid "grid.action.editUserGroup"
+msgstr "Уреди ја оваа група корисници"
+
+msgid "grid.action.addUserGroup"
+msgstr "Додади нов корисник во групата"
+
+msgid "grid.action.notify"
+msgstr "Информирај го овој корисник"
+
+msgid "grid.action.expand"
+msgstr "Рашири"
+
+msgid "grid.action.requestAccount"
+msgstr "Додади учесник"
+
+msgid "grid.action.expandAll"
+msgstr "Рашири ги сите"
+
+msgid "grid.action.resetEmail"
+msgstr "Ресетирај го овој шаблон за имејли"
+
+msgid "grid.action.disableEmail"
+msgstr "Ислкучи го овој шаблон за имејли"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Уреди го овој шаблон за имејли"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Додади нов шаблон за имејли"
+
+msgid "grid.action.resetAll"
+msgstr "Ресетирај ги сите"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Избриши го овој елемент од чек листата"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Уреди го овој елемент од чек листата"

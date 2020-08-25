@@ -44,8 +44,7 @@ class ReviewsMigration extends Migration {
 			$table->datetime('date_rated')->nullable();
 			$table->datetime('date_reminded')->nullable();
 			$table->tinyInteger('quality')->nullable();
-			//  NOTNULL constraint not included b/c of bug #8247 
-			$table->bigInteger('review_round_id')->nullable();
+			$table->bigInteger('review_round_id');
 			$table->tinyInteger('stage_id')->default(1);
 			$table->tinyInteger('review_method')->default(1);
 			$table->tinyInteger('round')->default(1);

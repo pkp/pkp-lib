@@ -223,6 +223,31 @@ class NavigationMenuItem extends DataObject {
 	function setTitleLocaleKey($titleLocaleKey) {
 		return $this->setData('titleLocaleKey', $titleLocaleKey);
 	}
+
+	/**
+	 * Get the remoteUrl of the navigation Menu.
+	 * @return string
+	 */
+	function getLocalizedRemoteUrl() {
+		return $this->getLocalizedData('remoteUrl');
+	}
+	
+	/**
+	 * Get the remoteUrl of the navigation menu item.
+	 * @param $locale string
+	 */
+	function getRemoteUrl($locale) {
+		return $this->getData('remoteUrl', $locale);
+	}
+	
+	/**
+	 * Set the remoteUrl of the navigation menu item.
+	 * @param $url string
+	 * @param $locale string
+	 */
+	function setRemoteUrl($url, $locale) {
+		$this->setData('remoteUrl', $url, $locale);
+	}
 }
 
 

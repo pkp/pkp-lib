@@ -46,9 +46,7 @@ abstract class OAIMetadataFormatPlugin extends Plugin {
 	/**
 	 * Get a hold of the class that does the formatting.
 	 */
-	function getFormatClass() {
-		assert(false); // Should always be overridden
-	}
+	abstract function getFormatClass();
 
 	function callback_formatRequest($hookName, $args) {
 		$namesOnly = $args[0];

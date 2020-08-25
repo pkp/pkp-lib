@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
+"PO-Revision-Date: 2020-08-04 12:43+0000\n"
+"Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
+"Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/el_GR/>\n"
+"Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:44+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "submission.agencies"
 msgstr "ΦορείςΓραφεία"
@@ -907,3 +910,1137 @@ msgstr "Τρέχουσα Εικόνα"
 
 msgid "catalog.browseTitles"
 msgstr "Περιήγηση σε {$numTitles} Τίτλους"
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Έχουν υποβληθεί νέες αξιολογήσεις και ελέγχονται από τον επιμελητή."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Υποβολή ως"
+
+msgid "publication.wordCount"
+msgstr "Αριθμός λέξεων: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Η περίληψη είναι πολύ μεγάλη. Θα πρέπει να είναι {$limit} λέξεις ή "
+"λιγότερες. Προς το παρόν είναι {$count} λέξεις."
+
+msgid "publication.version.all"
+msgstr "Όλες οι εκδόσεις"
+
+msgid "publication.titleAbstract.success"
+msgstr "Ο τίτλος και η περίληψη ενημερώθηκαν."
+
+msgid "publication.titleAbstract"
+msgstr "Τίτλος & Περίληψη"
+
+msgid "publication.status.scheduled"
+msgstr "Προγραμματισμένο"
+
+msgid "publication.status.published"
+msgstr "Δημοσιευμένο"
+
+msgid "publication.publish.success"
+msgstr "Η κατάσταση δημοσίευσης άλλαξε με επιτυχία."
+
+msgid "publication.publish.requirements"
+msgstr "Πρέπει να πληρούνται οι ακόλουθες προϋποθέσεις για να δημοσιευτεί."
+
+msgid "publication.publish"
+msgstr "Δημοσίευση"
+
+msgid "publication.publicationLicense.success"
+msgstr ""
+"Οι πληροφορίες σχετικά με τα πνευματικά δικαιώματα και την άδεια έχουν "
+"ενημερωθεί."
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Τα αναγνωριστικά ενημερώθηκαν."
+
+msgid "publication.metadata.success"
+msgstr "Τα μεταδεδομένα ενημερώθηκαν."
+
+msgid "publication.invalidSubmission"
+msgstr "Δεν ήταν δυνατή η εύρεση της υποβολής αυτής της δημοσίευσης."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Μια έκδοση καταργήθηκε από τη δημοσίευση."
+
+msgid "publication.event.versionScheduled"
+msgstr "Μια νέα έκδοση είχε προγραμματιστεί για δημοσίευση."
+
+msgid "publication.event.versionPublished"
+msgstr "Δημοσιεύθηκε μια νέα έκδοση."
+
+msgid "publication.event.versionCreated"
+msgstr "Δημιουργήθηκε μια νέα έκδοση."
+
+msgid "publication.event.scheduled"
+msgstr "Η υποβολή είχε προγραμματιστεί για δημοσίευση."
+
+msgid "publication.event.published"
+msgstr "Η υποβολή δημοσιεύτηκε."
+
+msgid "publication.editDisabled"
+msgstr "Αυτή η έκδοση έχει δημοσιευτεί και δεν είναι δυνατή η επεξεργασία της."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Η ημερομηνία πρέπει να έχει τη μορφή ΕΕΕΕ-ΜΜ-ΗΗ, όπως 2019-01-01."
+
+msgid "publication.datePublished"
+msgstr "Ημερομηνία Δημοσίευσης"
+
+msgid "publication.createVersion"
+msgstr "Δημιουργία Νέας Έκδοσης"
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"Το έτος πνευματικών δικαιωμάτων θα οριστεί αυτόματα με βάση την ημερομηνία "
+"δημοσίευσης."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"Το έτος πνευματικών δικαιωμάτων θα οριστεί αυτόματα όταν δημοσιευθεί σε ένα "
+"τεύχος."
+
+msgid "publication.contributors"
+msgstr "Συντελεστές"
+
+msgid "publication.citations.success"
+msgstr "Οι αναφορές ενημερώθηκαν."
+
+msgid "submission.publications"
+msgstr "Δημοσιεύσεις"
+
+msgid "submission.publication"
+msgstr "Δημοσίευση"
+
+msgid "catalog.category.subcategories"
+msgstr "Υποκατηγορίες"
+
+msgid "catalog.category.noItems"
+msgstr "Τίποτα δεν έχει δημοσιευτεί ακόμη σε αυτήν την κατηγορία."
+
+msgid "category.coverImage"
+msgstr "Εικόνα Εξώφυλλου"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Ημερομηνία δημοσίευσης (νεώτερη πρώτη)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Ημερομηνία δημοσίευσης (παλαιότερη πρώτη)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Τίτλος (Ω-A)"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Τίτλος (A-Ω)"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Ημέρες από την τελευταία δραστηριότητα"
+
+msgid "submission.list.activity"
+msgstr "Δραστηριότητα"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Η Υποβολή πρέπει να ολοκληρωθεί πριν την κρίνει κάποιος επιμελητής."
+
+msgid "submission.list.discussions"
+msgstr "Ανοιχτές Συζητήσεις"
+
+msgid "submission.list.filesPrepared"
+msgstr "Προετοιμασμένα Αρχεία"
+
+msgid "submission.list.galleysCreated"
+msgstr "Δημιουργήθηκαν Τυπογραφικά Δοκίμια για παραγωγή"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Υποβλήθηκαν Αναθεωρήσεις"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Ολοκληρώθηκαν οι ανατεθειμένες υποβολές"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Υποβλήθηκαν επιμελημένα αρχεία"
+
+msgid "submission.list.viewSubmission"
+msgstr "Προβολή Υποβολής"
+
+msgid "submission.list.confirmDelete"
+msgstr "Να διαγραφεί η Υποβολή?"
+
+msgid "submission.list.reviewDue"
+msgstr "Προθεσμία Κρίσης"
+
+msgid "submission.list.responseDue"
+msgstr "Προθεσμία Απόκρισης"
+
+msgid "submission.list.empty"
+msgstr "Δεν βρέθηκαν θποβολές."
+
+msgid "submission.list.infoCenter"
+msgstr "Καταγραφή δραστηριότητας και Σημειώσεις"
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"Πρέπει να αναθέσετε αυτή την υποβολή τουλάχιστον σε έναν Συμμετέχοντα πριν "
+"ξεκινήσει η συζήτηση."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Έχετε προστεθεί στη συζήτηση με τίτλο \"{$queryTitle}\" που σχετίζεται με "
+"την υποβολή \"{$submissionTitle}\"."
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"Υπάρχει νέα δραστηριότητα στη συζήτηση με τίτλο \"{$queryTitle}\" που "
+"σχετίζεται με την υποβολή \"{$submissionTitle}\"."
+
+msgid "submission.query.new"
+msgstr "Ο/Η {$creatorName} ξεκίνησε μια Συζήτηση: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity"
+msgstr "Ο/Η {$responderName} απάντησε στο {$noteTitle}: {$noteContents}"
+
+msgid "grid.action.openNoteForm"
+msgstr "Προσθήκη νέας απάντησης στη Συζήτηση"
+
+msgid "submission.query.closed"
+msgstr "Κλειστό"
+
+msgid "submission.query.addNote"
+msgstr "Προσθήκη Μηνύματος"
+
+msgid "submission.query.lastReply"
+msgstr "Τελευταία Απάντηση"
+
+msgid "submission.query.from"
+msgstr "Από"
+
+msgid "submission.query.replies"
+msgstr "Απαντήσεις"
+
+msgid "submission.query.messages"
+msgstr "Μηνύματα"
+
+msgid "submission.query.subject"
+msgstr "Θέμα"
+
+msgid "submission.queries.production"
+msgstr "Συζητήσεις Παραγωγής"
+
+msgid "submission.queries.editorial"
+msgstr "Συζητήσεις Επιμέλειας"
+
+msgid "submission.queries.review"
+msgstr "Συζητήσεις Κρίσης"
+
+msgid "submission.queries.submission"
+msgstr "Συζητήσεις προ-Κρίσης"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Αυτή η εργασία είναι αδειοδοτημένη υπό το <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative "
+"Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Αυτή η εργασία είναι αδειοδοτημένη υπό το <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
+"Commons Attribution 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Αυτή η εργασία είναι αδειοδοτημένη υπό το <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative "
+"Commons Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Αυτή η εργασία είναι αδειοδοτημένη υπό το <"
+"a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\""
+">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Αυτή η εργασία είναι αδειοδοτημένη υπό το <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative "
+"Commons Attribution-NonCommercial 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Αυτή η εργασία είναι αδειοδοτημένη υπό το <"
+"a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\""
+">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4."
+"0/88x31.png\" /></a><p>Αυτή η εργασία είναι αδειοδοτημένη υπό το <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative "
+"Commons Attribution-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/"
+"88x31.png\" /></a><p>Αυτή η εργασία είναι αδειοδοτημένη υπό το <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">CC Αναφορά "
+"Δημιουργού 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4."
+"0/88x31.png\" /></a><p>Αυτή η εργασία είναι αδειοδοτημένη υπό το <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">CC "
+"Αναφορά Δημιουργού – Όχι Παράγωγα Έργα 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>Αυτή η εργασία είναι αδειοδοτημένη υπό το <"
+"a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\""
+">CC Αναφορά Δημιουργού – Μη Εμπορική Χρήση – Παρόμοια Διανομή 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4."
+"0/88x31.png\" /></a><p>Αυτή η εργασία είναι αδειοδοτημένη υπό το <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">CC "
+"Αναφορά Δημιουργού – Μη Εμπορική Χρήση 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>Αυτή η εργασία είναι αδειοδοτημένη υπό το <"
+"a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/4.0/\">"
+"CC Αναφορά Δημιουργού – Μη Εμπορική Χρήση – Όχι Παράγωγα Έργα 4.0 "
+"4.0</a>.</p>"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Αναφορά Δημιουργού 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Αναφορά Δημιουργού – Όχι Παράγωγα Έργα 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Αναφορά Δημιουργού – Μη Εμπορική Χρήση – Παρόμοια Διανομή 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Αναφορά Δημιουργού – Μη Εμπορική Χρήση 4.0"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Αναφορά Δημιουργού – Μη Εμπορική Χρήση – Όχι Παράγωγα Έργα 4.0 4.0"
+
+msgid "submission.licenseURL"
+msgstr "Σύνδεσμος Άδειας"
+
+msgid "submission.licenseURLValid"
+msgstr "Εισάγετε έναν έγκυρο σύνδεσμο (συμπεριλάβετε το http://)."
+
+msgid "submission.copyrightStatement"
+msgstr "Πνευματική ιδιοκτησία (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.copyrightYear"
+msgstr "Έτος πνευματικών δικαιωμάτων"
+
+msgid "submission.copyrightHolder"
+msgstr "Κάτοχος πνευματικών δικαιωμάτων"
+
+msgid "submission.copyright"
+msgstr "Πνευματική ιδιοκτησία"
+
+msgid "submission.license"
+msgstr "Άδεια"
+
+msgid "submission.attachPermissions"
+msgstr "Προσθήκη των ακόλουθων δικαιωμάτων στην Υποβολή:"
+
+msgid "submission.permissions"
+msgstr "Δικαιώματα"
+
+msgid "grid.action.editMetadata"
+msgstr "Επεξεργασία Μεταδεδομένων"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Δημιουργήστε μια νέα κρίση από το στοιχείο"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Συντελεστής ή χορηγός"
+
+msgid "submission.supplementary.publisher"
+msgstr "Εκδότης"
+
+msgid "submission.supplementary.subject"
+msgstr "Θέμα"
+
+msgid "submission.supplementary.creator"
+msgstr "Δημιουργός (ή κάτοχος) του αρχείου"
+
+msgid "submission.supplementary"
+msgstr "Συμπληρωματικό υλικό"
+
+msgid "submission.art"
+msgstr "Έργο Τέχνης"
+
+msgid "submission.document"
+msgstr "Κείμενο"
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Ολοκληρώθηκε αυτή η κρίση και δόθηκαν ευχαριστίες στον κριτή για τη "
+"συνεισφορά του."
+
+msgid "submission.review.status.complete"
+msgstr "Αυτή η κρίση ολοκληρώθηκε."
+
+msgid "submission.review.status.received"
+msgstr "Ο κριτής υπέβαλε την κρίση του."
+
+msgid "submission.review.status.accepted"
+msgstr "Αυτή η κρίση έγινε αποδεκτή."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Ο κριτής έχασε την προθεσμία κρίσης."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Ο κριτής έχασε την προθεσμία απόκρισης."
+
+msgid "submission.review.status.declined"
+msgstr "Ο κριτής απέρριψε το αίτημα κρίσης."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Σε αναμονή απόκρισης με τον κριτή."
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Μεταφόρτωση αναθεωρημένου αρχείου"
+
+msgid "submission.productionReady"
+msgstr "Διαθέσιμο βιβλίο"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Επιλέξτε τα αρχεία κρίσης που θα μοιραστείτε με τον/τους συγγραφέα/είς"
+
+msgid "notification.type.indexRequest"
+msgstr ""
+"Σας έχει ζητηθεί να δημιουργήσετε ένα ευρετήριο για την υποβολή  \"{$title}\""
+"."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Σας έχει ζητηθεί να κρίνετε τη διάταξη του \"{$title}\"."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Σας έχει ζητηθεί η κρίση της επιμέλειας για το \"{$title}\"."
+
+msgid "notification.type.editorAssign"
+msgstr "Σας έχει ανατεθεί ο ρόλος του επιμελητή για την υποβολή \"{$title}\"."
+
+msgid "submission.documents"
+msgstr "Τεκμήρια Υποβολής"
+
+msgid "submission.description"
+msgstr "Περιγραφή"
+
+msgid "submission.overview"
+msgstr "Επισκόπηση Υποβολής"
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+"Ο/Η \"{$name}\" ({$username}) έχει εγκρίνει τις διορθώσεις για το \""
+"{$formatName}.\""
+
+msgid "submission.event.signoffSignoff"
+msgstr "Ο/Η \"{$name}\" ({$username}) προσυπέγραψε για το αρχείο \"{$file}.\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"Ο/Η \"{$name}\" ({$username}) ολοκλήρωσε τον έλεγχο και μετά φόρτωσε το "
+"αρχείο \"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"Ο/Η \"{$name}\" ({$username}) απαλλάχθηκε από την επιμέλεια του αρχείου \""
+"{$file}.\""
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"Ο/Η \"{$name}\" ({$username}) προστέθηκε ως επιμελητής για το αρχείο \""
+"{$file}.\""
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr ""
+"Η τελευταία αναθεώρηση του αρχείου \"{$title}\" διαγράφτηκε από τον/την  "
+"{$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"Διαγράφτηκε το αναθεωρημένο αρχείο \"{$originalFileName}\" της υποβολής "
+"{$submissionId} από τον/την {$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"Μεταφορτώθηκε η αναθεώρηση του αρχείου \"{$originalFileName}\" της υποβολής "
+"{$submissionId} από τον/την {$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"Διαγράφτηκε το αρχείο \"{$originalFileName}\" της υποβολής {$submissionId} "
+"από τον/την {$username}."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"Μεταφορτώθηκε το αρχείο \"{$originalFileName}\" για την υποβολή "
+"{$submissionId} από τον/την {$username}."
+
+msgid "editor.submission.addAuditorError"
+msgstr ""
+"Παρουσιάστηκε σφάλμα στην προσπάθεια ανάθεσης στον κριτή. Παρακαλώ "
+"ξαναπροσπαθήστε."
+
+msgid "submission.finalDraft"
+msgstr "Πρόχειρα αρχεία"
+
+msgid "submission.submit.currentFile"
+msgstr "Τρέχον αρχείο"
+
+msgid "submission.actionNeeded"
+msgstr "Απαιτείται ενέργεια"
+
+msgid "submission.noActionRequired"
+msgstr "Δεν απαιτείται ενέργεια"
+
+msgid "submission.currentStage"
+msgstr "Τρέχον στάδιο"
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "Προηγούμενο: Ενημέρωση Συγγραφέα"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr "Επιλέξτε τα αρχεία που θέλετε να προωθήσετε στο στάδιο  {$stageName}."
+
+msgid "editor.submission.decision.nextButton"
+msgstr "Επόμενο: Επιλέξτε Αρχεία για το {$stageName}"
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Καταγεγραμμένες συστάσεις"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Προτείνετε μία απόφαση σύνταξης για αυτή την υποβολή."
+
+msgid "editor.submission.recommendation"
+msgstr "Σύσταση"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Συστάσεις: {$recommendations}"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Σύσταση: {$recommendation}"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Αλλαγή Σύστασης"
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Κάντε Σύσταση"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+"Κάντε ανάθεση σε έναν Συντάκτη για να ενεργοποιήσετε τις συντακτικές "
+"αποφάσεις για αυτό το στάδιο."
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Αυτό το επιμελημένο αρχείο δεν θα είναι πλέον διαθέσιμο για λήψη ή αγορά. "
+"Θέλετε να το απορρίψετε?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Έγκριση Διορθώσεων"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"Για να καταστεί διαθέσιμο το επιμελημένο αρχείο, πρέπει να σημειωθεί ως "
+"Εγκεκριμένο. Θέλετε να το εγκρίνετε?"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Αποστολή για Εσωτερική Κρίση"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Αποστολή στην Παραγωγή"
+
+msgid "editor.submission.decision.decline"
+msgstr "Απόρριψη Υποβολής"
+
+msgid "editor.submission.decision.newRound"
+msgstr "Νέος γύρος κρίσεων"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Επανυποβολή για κρίση"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Αίτηση Αναθεωρήσεων"
+
+msgid "editor.submission.decision.accept"
+msgstr "Αποδοχή Υπόβολής"
+
+msgid "editor.submission.decision"
+msgstr "Απόφαση"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Επιβεβαιώστε ότι θέλετε οι συγγραφείς αυτής της υποβολής να μπορούν να "
+"επεξεργαστούν τα μεταδεδομένα της υποβολής σε αυτό το στάδιο."
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Επιβεβαιώστε ότι θέλετε οι συγγραφείς αυτής της υποβολής να μην μπορούν να "
+"επεξεργαστούν τα μεταδεδομένα της υποβολής σε αυτό το στάδιο."
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Επιτρέψτε την Επεξεργασία Μεταδεδομένων"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Απαγόρευση επεξεργασίας μεταδεδομένων"
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Πρέπει να επιλέξετε έναν χρήστη για αυτή την ομάδα."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Πρέπει να επιλέξετε μία ομάδα χρηστών."
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+"Πρόκειται να αφαιρέσετε αυτόν το συμμετέχοντα από <strong>όλα</strong> τα "
+"στάδια."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Απομάκρυνση Συμμετέχοντος"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Οι ρόλοι ανατίθενται στους χρήστες στα επιμέρους στάδια της ροής εργασιών "
+"ανάλογα με την ομάδα που ανήκουν.  Όσοι χρήστες έχουν ανάθεση σε αυτό το "
+"στάδιο θα τους ανατεθούν αυτόματα τα υπόλοιπα στάδια στα οποία ανήκει η "
+"ομάδα τους.  Αυτή είναι πάγια τακτική για τους επιμελητές, συγγραφείς και "
+"μεταφραστές."
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Αλλαγή Ανάθεσης"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Ανάθεση σε Συμμετέχοντα"
+
+msgid "editor.submission.participant"
+msgstr "Συμμετέχων"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Καμιά ανάθεση"
+
+msgid "editor.submission.stageParticipants"
+msgstr "Συμμετέχοντες"
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Έχουν κατατεθεί όλες οι συστάσεις και αναμένεται απόφαση."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Έχουν υποβληθεί νέες συστάσεις σύνταξης."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Αναμένονται συστάσεις από επιμελητές."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Μια κρίση είναι εκπρόθεσμη."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Έχουν κατατεθεί όλες οι κρίσεις και αναμένεται μια απόφαση."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Έχουν υποβληθεί νέες κρίσεις."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Σε αναμονή αποκρίσεων από κριτές."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Σε αναμονή ανάληψης από κριτές."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Η Υποβολή απορρίφθηκε."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Η Υποβολή έγινε δεκτή."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Η υποβολή πρέπει να υποβληθεί εκ νέου για έναν νέο γύρο ελέγχου."
+
+msgid "submission.editorial"
+msgstr "Επιμέλεια"
+
+msgid "submission.copyediting"
+msgstr "Επιμέλεια"
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Οι αναθεωρήσεις έχουν υποβληθεί."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Έχουν ζητηθεί αναθεωρήσεις."
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Αυτή τη στιγμή δεν υπάρχουν αρχεία για να αναθεωρήσετε."
+
+msgid "submission.upload.proof"
+msgstr "Μεταφορτώστε το Έτοιμο για Δημοσίευση αρχείο"
+
+msgid "submission.upload.productionReady"
+msgstr "Μεταφορτώστε το Έτοιμο για Παραγωγή αρχείο"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"Μετά την κρίση του ανατεθειμένου αρχείου, καταγράψτε όποια σχόλια στο αρχείο "
+"που ακολουθεί, και/ή μεταφορτώστε ένα αντίγραφο με επισημάνσεις (ή ένα άλλο "
+"αρχείο)."
+
+msgid "submission.upload.uploadFiles"
+msgstr "Μεταφόρτωση αρχείων"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Μεταφόρτωση επιμελημένου αρχείου"
+
+msgid "submission.upload.finalDraft"
+msgstr "Μεταφόρτωση αρχείου"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Κατηγορία Αρχείων Υποβολής"
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Μεταφόρτωση ενός Αρχείου Βιβλιοθήκης"
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"Αν υποβάλλετε έναν Αναθεωρημένο Τόμο, θα πρέπει να μεταφορτώσετε όλα τα "
+"κεφάλαια του τόμου ξεχωριστά, υπό τον ρόλο σας ως επιμελητής τόμου."
+
+msgid "submission.upload.userGroup"
+msgstr "Μεταφόρτωση αυτού του αρχείου υπό τον ρόλο μου ως..."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Αυτή δεν είναι μια αναθεωρημένη έκδοση υπάρχοντος αρχείου"
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+"Αν μεταφορτώνετε την αναθεωρημένη έκδοση ενός υπάρχοντος αρχείου, πρέπει να "
+"καθορίσετε το αρχείο αυτό."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Επιλέξτε το αρχείο που θέλετε να αναθεωρήσετε."
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"Το όνομα του αρχείου που μεταφορτώθηκε μοιάζει με το όνομα ενός αρχείου που "
+"είχε μεταφορτωθεί παλιότερα, \"{$revisedFileName}\". Αυτό το αρχείο "
+"προορίζεται να αντικαταστήσει το \"{$revisedFileName}\"; Εάν ναι, επιλέξτε "
+"το παρακάτω αρχείο. Διαφορετικά, προτού προχωρήσετε, επιλέξτε \"Αυτή δεν "
+"είναι μια αναθεώρηση ενός υπάρχοντος αρχείου\"."
+
+msgid "submission.upload.possibleRevision"
+msgstr "Εντοπίστηκε πιθανή Αλληλοεπικάλυψη ή Αναθεώρηση"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Αυτή η ομάδα χρηστών δεν υπάρχει ή δεν είναι έγκυρη!"
+
+msgid "submission.upload.noGenre"
+msgstr "Το συστατικό αυτό δεν υπάρχει ή δεν είναι έγκυρο!"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Πρέπει να ονομάσετε αυτό το αρχείο"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Επιβεβαίωση"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Έλεγχος λεπτομερειών"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Μεταφόρτωση αρχείου υποβολής"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Μεταφόρτωση αρχείου"
+
+msgid "submission.status.scheduled"
+msgstr "Προγραμματισμένο"
+
+msgid "submission.status.published"
+msgstr "Δημοσιεύτηκε"
+
+msgid "submission.status.declined"
+msgstr "Απορρίφθηκε"
+
+msgid "submission.status.unassigned"
+msgstr "Χωρίς ανάθεση"
+
+msgid "submission.status.submission"
+msgstr "Σε αναμονή απόφασης του Επιμελητή"
+
+msgid "submission.status.review"
+msgstr "Κρίνεται"
+
+msgid "submission.status.production"
+msgstr "Διορθώνεται"
+
+msgid "workflow.review.internalReview"
+msgstr "Εσωτερική Κρίση"
+
+msgid "submission.status.editorial"
+msgstr "Επιμελείται"
+
+msgid "workflow.stage"
+msgstr "Στάδιο"
+
+msgid "workflow.stage.any"
+msgstr "Οποιοδήποτε Στάδιο"
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Εισάγετε μια λέξη-κλειδί."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Εισάγετε ένα θέμα."
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Εισάγετε μια γλώσσα."
+
+msgid "submission.submit.addAuthor"
+msgstr "Προσθήκη Συντελεστή"
+
+msgid "submission.submit.contributorRole"
+msgstr "Ρόλος Συντελεστή"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Κύρια επαφή για την συντακτική αλληλογραφία."
+
+msgid "submission.createRemote"
+msgstr "Δημιουργήστε απομακρυσμένο"
+
+msgid "submission.type.tip"
+msgstr ""
+"Ο τύπος υποβολής είναι συνήθως «εικόνα», «κείμενο» ή άλλα πολυμέσα, όπως "
+"«λογισμικό» και «διαδραστικό υλικό».  Επιλέξτε αυτό που είναι πλέον σχετικό "
+"με την υποβολή σας.  Μπορείτε να βρείτε παραδείγματα στο  <a target=\""
+"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type</a>"
+
+msgid "submission.supportingAgencies"
+msgstr "Οργανισμοί Υποστήριξης"
+
+msgid "submission.upload.query"
+msgstr "Μεταφορτώστε ένα αρχείο συζήτησης"
+
+msgid "submission.upload.dependent"
+msgstr "Μεταφορτώστε ένα Σχετιζόμενο Αρχείο"
+
+msgid "submission.manageDependentFiles"
+msgstr "Διαχείριση Σχετιζόμενων Αρχείων"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Σχετιζόμενα αρχεία"
+
+msgid "submission.submit.submissionFiles"
+msgstr "Αρχεία της Υποβολής"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Γίνονται δεκτές υποβολές σε αρκετές γλώσσες.  Επιλέξτε την κύρια γλώσσα της "
+"υποβολής από την ακόλουθη λίστα."
+
+msgid "submission.submit.submissionLocale"
+msgstr "Γλώσσα Υποβολής"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Προσθέστε επιπλέον πληροφορίες για την υποβολή σας.  Πατήστε «enter» μετά "
+"από κάθε όρο."
+
+msgid "submission.submit.metadataForm"
+msgstr "Επιπλέον Βελτιώσεις"
+
+msgid "submission.submit.newFile"
+msgstr "Προσθήκη επιπλέον Αρχείου"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Να συμπεριληφθεί αυτός ο συντελεστής στις λίστες αναζήτησης?"
+
+msgid "submission.submit.fileAdded"
+msgstr "Το αρχείο προστέθηκε"
+
+msgid "submission.submit.fileInformation"
+msgstr "Πληροφορίες αρχείου"
+
+msgid "submission.submit.selectFile"
+msgstr "Επιλογή αρχείου"
+
+msgid "submission.submissionTitle"
+msgstr "Τίτλος Υποβολής:"
+
+msgid "submission.submission"
+msgstr "Υποβολή"
+
+msgid "submission.source.tip"
+msgstr ""
+"Αν αυτή η υποβολή απορρέει από μια άλλη πηγή, μπορείτε να εισάγετε έναν "
+"σύνδεσμο ή μια περιγραφή αυτής της πηγής."
+
+msgid "submission.source"
+msgstr "Πηγή"
+
+msgid "submission.rights.tip"
+msgstr ""
+"Αν επιθυμείτε, μπορείτε να προσθέσετε μια περιληπτική δήλωση σχετικά με τα "
+"δικαιώματα πρόσβασης που ακολουθούν αυτή την υποβολή."
+
+msgid "submission.rights"
+msgstr "Δικαιώματα"
+
+msgid "submission.reviewed"
+msgstr "Κρίθηκε"
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Απομακρυσμένο URL"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr ""
+"Σας παρακαλούμε συμπληρώστε ένα έγκυρο απομακρυσμένο URL (συμπεριλάβετε και "
+"το πρόθεμα http://)."
+
+msgid "submission.production"
+msgstr "Παραγωγή"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Εμφάνιση συμβάντων από προηγούμενες εκδόσεις"
+
+msgid "submission.informationCenter.history"
+msgstr "Ιστορικό"
+
+msgid "submission.informationCenter.notes"
+msgstr "Σημειώσεις"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Μεταδεδομένα"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Πληροφορίες Υποβολής"
+
+msgid "submission.publisherId.enable"
+msgstr "Ενεργοποίηση για {$objects}"
+
+msgid "submission.publisherId"
+msgstr ""
+
+msgid "submission.identifiers"
+msgstr "Αναγνωριστικά"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Πρόκειται για μια παλιά έκδοση που δημοσιεύτηκε στις {$datePublished}. "
+"Διαβάστε την <a href=\"{$urlRecentVersion}\">πιο πρόσφατη έκδοση</a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished}  ({$version})"
+
+msgid "submission.versions"
+msgstr "Εκδόσεις"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Ενημερώθηκε στις {$dateUpdated}"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Λήψη Αναφορών"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Περισσότερες Μορφοποιήσεις Αναφορών"
+
+msgid "submission.howToCite"
+msgstr "Πώς να δημιουργήσετε Αναφορές"
+
+msgid "submission.files.downloadAll"
+msgstr "Λήψη όλων των Αρχείων"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Οι συγγραφείς δεν έχουν πλέον τη δυνατότητα να επεξεργάζονται μεταδεδομένα "
+"κατά την υποβολή τους στο στάδιο {stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Οι συγγραφείς έχουν πλέον τη δυνατότητα να επεξεργάζονται μεταδεδομένα κατά "
+"την υποβολή τους στο στάδιο {stage}."
+
+msgid "submission.event.viewEmail"
+msgstr "Προβολή μηνύματος"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Εστάλη ένα μήνυμα:"
+
+msgid "submission.event.fileRevised"
+msgstr ""
+"Μεταφορτώθηκε η αναθεώρηση \"{$name}\" (ID αρχείου "
+"{$fileId}-{$fileRevision})."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Η πρωτότυπη Υποβολή ολοκληρώθηκε."
+
+msgid "submission.downloads"
+msgstr "Λήψεις"
+
+msgid "submission.coverage"
+msgstr "Πληροφορίες Κάλυψης"
+
+msgid "submission.queryNoteFiles"
+msgstr "Αρχεία Συζητήσεων"
+
+msgid "submission.copyedited"
+msgstr "Το κείμενο επιμελήθηκε"
+
+msgid "submission.contributors"
+msgstr "Κατάλογος συνεργατών"
+
+msgid "submission.comments.addReviews"
+msgstr "Προσθέστε Κρίσεις στο Email"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.citations.description"
+msgstr ""
+"Εισαγάγετε κάθε αναφορά σε μια νέα γραμμή, ώστε να μπορούν να εξαχθούν και "
+"να καταγραφούν ξεχωριστά."
+
+msgid "submission.changeFile"
+msgstr "Αλλαγή Αρχείου"
+
+msgid "submission.additionalFiles"
+msgstr "Επιπλέον Αρχεία"
+
+msgid "submission.addFile"
+msgstr "Μεταφόρτωση Αρχείου"
+
+msgid "submission.mySubmissions"
+msgstr "Το Συγγραφικό μου Έργο"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} του {$title}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} et al."
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.authorBiographies"
+msgstr "Βιογραφικά Συγγραφέων"
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Αποδεχτείτε τη δήλωση περί πνευματικών δικαιωμάτων"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"Πρέπει να διαβάσετε και να αποδεχτείτε ότι πληροίτε τις απαιτήσεις που "
+"ακολουθούν πριν συνεχίσετε."
+
+msgid "submission.submit.whatNext.review"
+msgstr "Κρίνετε αυτήν την υποβολή"
+
+msgid "submission.authorBiography"
+msgstr "Βιογραφικό Συγγραφέα"
+
+msgid "submission.authors"
+msgstr "Συγγραφείς"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Αρχειοθετημένες Υποβολές"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Οι Αναθέσεις μου"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Χωρίς ανάθεση"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Περίληψη"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Εκτεταμένα μεταδεδομένα"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Επιστρέψετε στον κεντρικό ταμπλό"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Δημιουργήσετε μια νέα υποβολή"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Προς το παρόν, μπορείτε να:"
+
+msgid "submission.submit.whatNext"
+msgstr "Τι ακολουθεί?"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr ""
+"Αποδέχομαι να συμμορφωθώ με τους όρους της δήλωσης πνευματικών δικαιωμάτων."
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr ""
+"Σας ευχαριστούμε για το ενδιαφέρον σας για δημοσίευση στο {$contextName}."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Ολοκλήρωση Υποβολής"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Απαιτήσεις Υποβολής"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Ναι, θα ήθελα να επικοινωνήσετε μαζί μου σχετικά με αυτήν την υποβολή."
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr ""
+"Επιλέξτε το ρόλο που περιγράφει καλύτερα τη συνεισφορά σας σε αυτήν την "
+"υποβολή."
+
+msgid "submission.submit.finishSubmission"
+msgstr "Ολοκλήρωση Υποβολής"
+
+msgid "submission.confirm.message"
+msgstr ""
+"Η υποβολή σας έχει μεταφορτωθεί και είναι έτοιμη για αποστολή. Μπορείτε να "
+"επιστρέψετε για να ελέγξετε και να προσαρμόσετε  τις πληροφορίες που έχετε "
+"εισαγάγει πριν συνεχίσετε. Όταν είστε έτοιμοι, κάντε κλικ στο \"Ολοκλήρωση "
+"Υποβολής\"."
+
+msgid "author.publicationNotFound"
+msgstr "Δεν ήταν δυνατή η εύρεση της δημοσίευσης γι' αυτόν τον συγγραφέα."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Δεν είναι δυνατή η επεξεργασία των συγγραφέων αυτής της δημοσίευσης επειδή "
+"έχει ήδη δημοσιευτεί."

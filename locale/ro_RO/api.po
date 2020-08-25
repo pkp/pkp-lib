@@ -1,0 +1,154 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-07 16:28+0000\n"
+"Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
+"Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"ro_RO/>\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Vocabularul {$vocab} nu este suportat."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Limba {$locale} nu este suportată."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Tema activă, {$themePluginPath}, nu este activată și este posibil să nu fie "
+"instalată."
+
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"Fișierul nu a putut fi încărcat din cauza unei erori de configurare a "
+"serverului. Vă rugăm să contactați administratorul de sistem."
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "Nu pot fi încărcate fișiere mai mari de {$maxSize}."
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "Unul sau mai multe fișiere nu au putut fi încărcate."
+
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "Nici un fișier din cele solicitate nu a fost găsit spre încărcare."
+
+msgid "api.submissions.unknownError"
+msgstr ""
+"A fost înregistrată o eroare neașteptată. Vă rugăm să reîncărcați pagina."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Volumul, numărul sau anul solicitat nu este valid."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Cererea dvs. nu a putut fi procesată, deoarece lipsesc informațiile necesare."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Acest punct final nu este disponibil dintr-un context. Trebuie să fie "
+"accesat din spațiul de nume de pe întregul site."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Nu aveți permisiunea de a șterge această înregistrare."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"Nu puteți șterge o înregistrare de manuscris care nu este atribuită acestui "
+"context."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Puteți vizualiza numai manuscrisele nepublicate care vi s-au atribuit."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Solicitarea dvs. a fost respinsă. Acest lucru se poate întâmpla deoarece "
+"autentificarea dvs. a expirat. Încercați să reîncărcați pagina și încercați "
+"din nou."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Cererea dvs. nu este validă. Direcția trebuie să fie `desc` sau` asc`."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Cererea dvs. nu este validă. Intervalul de timp trebuie să fie `zi` sau` "
+"lună`."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Data de încheiere nu poate fi mai târziu decât ieri ."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Data de începere nu poate fi anterioară datei de 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Data de început nu poate fi mai târziu decât data de încheiere."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Data trebuie să fie în format AAAA-MM-DD."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Nu aveți voie să editați această publicație."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Directorul fișierelor publice nu a fost găsit sau fișierele nu pot fi "
+"salvate. Vă rugăm să contactați administratorul dvs. pentru a rezolva "
+"această problemă."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Nu aveți suficient spațiu în directorul dvs. de utilizator. Fișierul pe care "
+"îl încărcați este {$fileUploadSize}kb iar dumneavoastră aveți disponibili "
+"{$dirSizeLeft}kb."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Nu aveți dreptul să încărcați fișiere."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Fișierul încărcat nu se potrivește cu extensia de fișier. Acest lucru se "
+"poate întâmpla când un fișier a fost redenumit la un tip incompatibil, de "
+"exemplu schimbarea photo.png în photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Imaginea pe care a-ți încărcat-o nu este validă."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Puteți încărca doar următoarele tipuri de fișiere: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Trebuie să retrageți de la publicare acest articol înainte de a-l șterge."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Nu puteți modifica starea direct prin API. În schimb, utilizați punctele "
+"finale /publica și /retrage de la publicare."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Nu puteți edita acest articol deoarece a fost deja publicat."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Articolul pe care doriți să îl publicați nu este publicat."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Articolul pe care doriți să îl publicați este deja publicat."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Modelul de e-mail solicitat nu a fost găsit."
+
+msgid "api.404.endpointNotFound"
+msgstr "Adresa URL solicitată nu a fost recunoscută."
+
+msgid "api.404.resourceNotFound"
+msgstr "Resursa solicitată nu a fost găsită."
+
+msgid "api.403.unauthorized"
+msgstr "Nu sunteți autorizat să accesați resursa solicitată."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parametrul {$param} nu este suportat."

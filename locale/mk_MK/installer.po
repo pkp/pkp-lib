@@ -1,0 +1,241 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-29 21:33+0000\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/mk/>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "installer.beacon"
+msgstr "Beacon"
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"PHP-верзијата на вашиот сервер не е поддржана од овој софтвер. Двојно "
+"проверете ги барањата за инсталација во документи / README."
+
+msgid "installer.beacon.enable"
+msgstr ""
+"Додади единствена идентификација на страници и URL-адреса на ОАИ на PKP само "
+"за статистика и цели за предупредување за безбедност."
+
+msgid "installer.configureXSLMessage"
+msgstr ""
+"<p> Во вашата PHP-инсталација не е овозможен XSL-модулот. Или овозможете го, "
+"или конфигурирајте го параметарот xslt_command во датотеката config.inc.php. "
+"</p>"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Следните фајлови и директориуми (и нивната содржина) мора да бидат "
+"достапни за запис:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> е достапано (опционално): "
+"{$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> е достапен: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> е достапен: {$writable_cache}</li>\n"
+"<li><tt>cache/t_cache/</tt> е достапен: {$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> е достапен: "
+"{$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> е достапен: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. Директориумот за аплодирање фајлови мора да биде направен и "
+"достапан за запис(погледајте \"Подесување на фајлови\" подоле).</p>\n"
+"\t"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Чекори за прединсталација"
+
+msgid "installer.releaseNotes"
+msgstr "Забелешки за изданието"
+
+msgid "installer.publicFilesDirError"
+msgstr "Јавниот директориумот  не постои или не може да се запише."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Идентификатор на репозиторијумот"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+"Уникатен идентификатор користен за идентификација на записите за "
+"метаподатоци, индексирани од оваа страница, <a href=\""
+"https://www.openarchives.org/\" target=\"_blank\">Open Archives "
+"Initiative</a> користејќи го протоколот за собирање на метаподатоци."
+
+msgid "installer.oaiSettings"
+msgstr "OAI Подесувања"
+
+msgid "installer.localeSettings"
+msgstr "Подесувања на локализацијата"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Обележаната локализација можеби некомплетна."
+
+msgid "installer.locale"
+msgstr "Локализација"
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"Ажурирајте го неподдржано. Погледнете ги документите / UPGRADE-UNSUPPORTED "
+"за детали."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr ""
+"Грешка при анализирање на датотеката за конфигурација на филтерот "
+"<tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Грешка при анализирање на образецот за е-пошта <tt>{$file}</tt>."
+
+msgid "installer.installParseDBFileError"
+msgstr "Грешка при анализирање на инсталација на датабазата <tt>{$file}</tt>."
+
+msgid "installer.installFilesDirError"
+msgstr ""
+"Директориумот наведен за поставени датотеки не постои или не може да се "
+"запише."
+
+msgid "installer.installFileError"
+msgstr ""
+"Датотеката за инсталација <tt>dbscripts/xml/install.xml</tt> не постои или "
+"не е читлива."
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL  изјави за за инсталација"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Има грешка при инсталација"
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br/><strong> ПРЕДУПРЕДУВАЕ: Вашата тековна верзија на PHP не ги исполнува "
+"минималните услови за инсталација. Препорачливо е да се ажурира на "
+"неодамнешно издание на PHP. </strong>"
+
+msgid "installer.form.usernameRequired"
+msgstr "Потребно е корисничко име на администраторскиот акоунт."
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+"Корисничкото име на администраторот може да содржи само алфанумерички знаци, "
+"горна или долан цртичка, и мора да започне и да заврши со алфанумерички "
+"карактер."
+
+msgid "installer.form.separateMultiple"
+msgstr "Оддели ги  вредностите со запирка"
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Администраторските лозинки не одговараат."
+
+msgid "installer.form.passwordRequired"
+msgstr "Потребна е лозинка за администраторскиот акаунт."
+
+msgid "installer.form.localeRequired"
+msgstr "Мора да се избере локализација."
+
+msgid "installer.form.filesDirRequired"
+msgstr ""
+"Потребен е директориум што ќе се користи за чување на поставени датотеки."
+
+msgid "installer.form.emailRequired"
+msgstr "Потебен е имејл за администраторскиот акоунт."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Името на датабазата е задолжително."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Мора да се избере драјвер за датабазата."
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Мора да се избере азбука."
+
+msgid "installer.fileSettings"
+msgstr "Подесување на фајл"
+
+msgid "installer.filesDir"
+msgstr "Директориум за аплоадирање"
+
+msgid "installer.databaseUsername"
+msgstr "Корисничко име"
+
+msgid "installer.databaseSettings"
+msgstr "Подесувања на датабаза"
+
+msgid "installer.databasePassword"
+msgstr "Лозинка"
+
+msgid "installer.databaseName"
+msgstr "Име на датабазата"
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+"Оставете го името на хостот празно за да се поврзете користејќи приклучоци "
+"за домени наместо преку TCP / IP. Ова не е неопходно со MySQL, кој "
+"автоматски ќе користи приклучоци ако се внесе „localhost“, но е потребно со "
+"некои други сервери за бази на податоци, како што е PostgreSQL."
+
+msgid "installer.databaseHost"
+msgstr "Хост"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong> Драјверите на датабази наведени во загради, се чини дека ја немаат "
+"потребната PHP наставка, а инсталацијата најверојатно нема да успее ако е "
+"изберана. </strong> <br/> Било кои драјверите кои не се поддржани во базата "
+"наведени погоре, се наведени исклучиво за академски цели и веројатно нема да "
+"работат."
+
+msgid "installer.databaseDriver"
+msgstr "Драјвер за датабазата"
+
+msgid "installer.createDatabaseInstructions"
+msgstr ""
+"За да ја користите оваа опција, вашата датабаза мора да поддржува создавање "
+"оддалеченадатабаза и вашиот акаунт мора да има соодветни дозволи за "
+"создавање нови датабази. Ако инсталацијата не успее со оваа опција избрана , "
+"рачно креирајте ја датабазата на вашиот сервер и повторно стартувајте го "
+"инсталаторот со оваа опција оневозможена."
+
+msgid "installer.createDatabase"
+msgstr "Креирај нова датабаза"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Содржина на фајлот за подесување"
+
+msgid "installer.connectionCharset"
+msgstr "Азбука за корекција"
+
+msgid "installer.configFileError"
+msgstr ""
+"Конфигурациската датотека <tt>config.inc.php</tt> не постои или не се чита."
+
+msgid "installer.clientCharsetInstructions"
+msgstr ""
+"Кодирањето да се користи за податоци испратени и примени од прелистувачи."
+
+msgid "installer.clientCharset"
+msgstr "Азбука на клиентот"
+
+msgid "installer.checkYes"
+msgstr "Да"
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">НЕ</span>"
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"Овој акоунт ќе стане администратор на страницата и ќе има целосен пристап до "
+"системот. Дополнителни акоунти можат да се создадат по инсталацијата."
+
+msgid "installer.administratorAccount"
+msgstr "Администраторски налог"
+
+msgid "installer.additionalLocales"
+msgstr "Додатна локализација"

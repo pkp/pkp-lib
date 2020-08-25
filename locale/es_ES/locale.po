@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-12 16:48+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2020-08-25 18:36+0000\n"
+"Last-Translator: Manuel Garcia <usuariodemanuel@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/locale/"
 "es_ES/>\n"
 "Language: es_ES\n"
@@ -354,3 +354,9 @@ msgstr "La identificación pública de la galerada ya existe."
 
 msgid "category.categories"
 msgstr "Categorías"
+
+msgid "submission.layout.galley.remoteURL"
+msgstr "URL de contenido alojado de forma remota"
+
+msgid "article.pageTitle"
+msgstr "Vista de {$title}"

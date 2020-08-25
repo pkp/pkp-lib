@@ -119,7 +119,6 @@ class PKPTemplateManager extends Smarty {
 		$this->assign([
 			'defaultCharset' => Config::getVar('i18n', 'client_charset'),
 			'baseUrl' => $request->getBaseUrl(),
-			'dateFormatTrunc' => Config::getVar('general', 'date_format_trunc'),
 			'currentContext' => $currentContext,
 			'currentLocale' => $locale,
 			'currentLocaleLangDir' => AppLocale::getLocaleDirection($locale),
@@ -936,7 +935,7 @@ class PKPTemplateManager extends Smarty {
 							'isCurrent' => $router->getRequestedPage($request) === 'submission',
 						];
 					}
-					
+
 					if (count(array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $userRoles))) {
 						$menu['statistics'] = [
 							'name' => __('navigation.tools.statistics'),

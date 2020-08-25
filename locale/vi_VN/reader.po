@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-14 13:48+0000\n"
-"Last-Translator: Tran Ngoc Trung <khuchatthienduong@gmail.com>\n"
+"PO-Revision-Date: 2020-08-16 10:48+0000\n"
+"Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reader/vi_VN/>\n"
 "Language: vi_VN\n"
@@ -39,28 +39,28 @@ msgid "comments.oneReply"
 msgstr "(1 trả lời)"
 
 msgid "comments.nReplies"
-msgstr "({$num} trả lời)"
+msgstr "({$num}  trả lời)"
 
 msgid "comments.noComments"
 msgstr "Không có bình luận của độc giả đã được đăng."
 
 msgid "comments.name"
-msgstr "Tên áp phích"
+msgstr "Áp phích email"
 
 msgid "comments.inResponseTo"
 msgstr "Phản hồi lại <a href=\"{$url}\">{$title}</a>"
 
 msgid "comments.enterComment"
-msgstr "Nhập bình luận"
+msgstr "Nhận xét của người đọc"
 
 msgid "comments.emailReply"
-msgstr "Email trả lời"
+msgstr "Đăng trả lời"
 
 msgid "comments.email"
 msgstr "Email áp phích"
 
 msgid "comments.delete"
-msgstr "Xóa nhận xét này"
+msgstr "Nhận xét của người đọc"
 
 msgid "comments.confirmDeleteChildren"
 msgstr ""
@@ -71,10 +71,10 @@ msgid "comments.titleRequired"
 msgstr "Tiêu đề bình luận là bắt buộc."
 
 msgid "comments.body"
-msgstr "Phần thân"
+msgstr "Nội dung bình luận"
 
 msgid "comments.anonymousNamed"
-msgstr "\"{$userName}\""
+msgstr "bí danh \"{$userName}\""
 
 msgid "comments.anonymous"
 msgstr "Người dùng ẩn danh"

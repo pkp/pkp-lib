@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-26 06:45+0000\n"
+"PO-Revision-Date: 2020-08-27 15:48+0000\n"
 "Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/vi_VN/>\n"
@@ -162,7 +162,7 @@ msgid "navigation.infoForReaders.long"
 msgstr "Thông tin cho bạn đọc"
 
 msgid "navigation.infoForReaders"
-msgstr "Cho bạn đọc"
+msgstr "Dành cho bạn đọc"
 
 msgid "navigation.home"
 msgstr "Trang chủ"

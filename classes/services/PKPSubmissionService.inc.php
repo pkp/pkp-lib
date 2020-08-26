@@ -315,8 +315,10 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 				continue;
 			}
 
-			$currentUser = \Application::get()->getRequest()->getUser();
-			$dateFormatShort = \Config::getVar('general', 'date_format_short');
+			$request = \Application::get()->getRequest();
+			$currentUser = $request->getUser();
+			$context = $request->getContext();
+			$dateFormatShort = $context->getLocalizedDateFormatShort();
 			$due = is_null($reviewAssignment->getDateDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateDue()));
 			$responseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateResponseDue()));
 

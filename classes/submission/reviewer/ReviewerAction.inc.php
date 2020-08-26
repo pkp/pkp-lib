@@ -101,6 +101,7 @@ class ReviewerAction {
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $reviewAssignment->getStageId());
 		$recipient = null;
+		$context = $request->getContext();
 		while ($stageAssignment = $stageAssignments->next()) {
 			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 			if (!in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) continue;
@@ -109,13 +110,12 @@ class ReviewerAction {
 			$email->addRecipient($recipient->getEmail(), $recipient->getFullName());
 		}
 		if (!$recipient) {
-			$context = $request->getContext();
 			$email->addRecipient($context->getData('contactEmail'), $context->getData('contactName'));
 		}
 
 		// Get due date
 		$reviewDueDate = strtotime($reviewAssignment->getDateDue());
-		$dateFormatShort = Config::getVar('general', 'date_format_short');
+		$dateFormatShort = $context->getLocalizedDateFormatShort();
 		if ($reviewDueDate == -1) $reviewDueDate = $dateFormatShort; // Default to something human-readable if no date specified
 		else $reviewDueDate = strftime($dateFormatShort, $reviewDueDate);
 

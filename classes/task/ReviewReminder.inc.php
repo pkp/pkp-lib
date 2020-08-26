@@ -81,7 +81,7 @@ class ReviewReminder extends ScheduledTask {
 
 		// Format the review due date
 		$reviewDueDate = strtotime($reviewAssignment->getDateDue());
-		$dateFormatShort = Config::getVar('general', 'date_format_short');
+		$dateFormatShort = $context->getLocalizedDateFormatShort();
 		if ($reviewDueDate === -1 || $reviewDueDate === false) {
 			// Default to something human-readable if no date specified
 			$reviewDueDate = '_____';

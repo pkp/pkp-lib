@@ -273,7 +273,7 @@ class PKPStatsService {
 			$interval = 'P1M';
 		} elseif ($timelineInterval === STATISTICS_DIMENSION_DAY) {
 			$dateFormat = 'Y-m-d';
-			$labelFormat = \Config::getVar('general', 'date_format_long');
+			$labelFormat = \Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong();
 			$interval = 'P1D';
 		}
 

@@ -56,17 +56,19 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 		$headNote = $element->getHeadNote();
 		$user = $headNote?$headNote->getUser():null;
 		$notes = $element->getReplies(null, NOTE_ORDER_ID, SORT_DIRECTION_DESC);
+		$context = \Application::get()->getRequest()->getContext();
+		$datetimeFormatShort = $context->getLocalizedDateTimeFormatShort();
 
 		switch ($columnId) {
 			case 'replies':
 				return array('label' => max(0,$notes->getCount()-1));
 			case 'from':
-				return array('label' => ($user?$user->getUsername():'&mdash;') . '<br />' . ($headNote?strftime(Config::getVar('general','datetime_format_short'), strtotime($headNote->getDateCreated())):''));
+				return array('label' => ($user?$user->getUsername():'&mdash;') . '<br />' . ($headNote?strftime($datetimeFormatShort, strtotime($headNote->getDateCreated())):''));
 			case 'lastReply':
 				$latestReply = $notes->next();
 				if ($latestReply && $latestReply->getId() != $headNote->getId()) {
 					$repliedUser = $latestReply->getUser();
-					return array('label' => ($repliedUser?$repliedUser->getUsername():'&mdash;') . '<br />' . strftime(Config::getVar('general','datetime_format_short'), strtotime($latestReply->getDateCreated())));
+					return array('label' => ($repliedUser?$repliedUser->getUsername():'&mdash;') . '<br />' . strftime($datetimeFormatShort, strtotime($latestReply->getDateCreated())));
 				} else {
 					return array('label' => '-');
 				}

@@ -43,10 +43,11 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 		$columnId = $column->getId();
 		assert(is_a($element, 'DataObject') && !empty($columnId));
 		$user = $element->getUser();
+		$datetimeFormatShort = \Application::get()->getRequest()->getContext()->getLocalizedDateTimeFormatShort();
 
 		switch ($columnId) {
 			case 'from':
-				return array('label' => ($user?$user->getUsername():'&mdash;') . '<br />' . strftime(Config::getVar('general','datetime_format_short'), strtotime($element->getDateCreated())));
+				return array('label' => ($user?$user->getUsername():'&mdash;') . '<br />' . strftime($datetimeFormatShort, strtotime($element->getDateCreated())));
 		}
 
 		return parent::getTemplateVarsFromRowColumn($row, $column);

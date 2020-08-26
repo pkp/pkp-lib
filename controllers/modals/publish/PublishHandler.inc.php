@@ -85,7 +85,7 @@ class PublishHandler extends Handler {
 
 		$publicationApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getPath(), 'submissions/' . $this->submission->getId() . '/publications/' . $this->publication->getId() . '/publish');
 
-		$publishForm = new APP\components\forms\publication\PublishForm($publicationApiUrl, $this->publication, $errors);
+		$publishForm = new APP\components\forms\publication\PublishForm($publicationApiUrl, $this->publication, $submissionContext, $errors);
 
 		$settingsData = [
 			'components' => [

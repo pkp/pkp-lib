@@ -198,7 +198,7 @@ class EditorAction {
 						'reviewAssignmentId' => $reviewAssignment->getId(),
 						'reviewerName' => $reviewer->getFullName(),
 						'dueDate' => strftime(
-							Config::getVar('general', 'date_format_short'),
+							$context->getLocalizedDateFormatShort(),
 							strtotime($reviewAssignment->getDateDue())
 						),
 						'submissionId' => $submission->getId(),

@@ -59,7 +59,6 @@ class ConfigTest extends PKPTestCase {
 			'session_cookie_name' => 'OJSSID',
 			'session_lifetime' => 30,
 			'scheduled_tasks' => false,
-			'date_format_trunc' => '%m-%d',
 			'date_format_short' => '%Y-%m-%d',
 			'date_format_long' => '%B %e, %Y',
 			'datetime_format_short' => '%Y-%m-%d %I:%M %p',

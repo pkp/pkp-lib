@@ -50,8 +50,8 @@ class FileDateGridColumn extends GridColumn {
 		$submissionFile = $submissionFileData['submissionFile'];
 		assert(is_a($submissionFile, 'SubmissionFile'));
 		$mtimestamp = strtotime($submissionFile->getDateModified());
-		$dateFormatShort = \Config::getVar('general', 'date_format_long');
-		$date = strftime($dateFormatShort, $mtimestamp);
+		$dateFormatLong = \Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong();
+		$date = strftime($dateFormatLong, $mtimestamp);
 		// File age
 		$age = (int)floor((date('U') - $mtimestamp) / 86400);
 		switch( true ) {

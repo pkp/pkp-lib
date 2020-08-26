@@ -123,7 +123,7 @@ class SubmissionEventLogGridHandler extends GridHandler {
 				null,
 				new DateGridCellProvider(
 					$cellProvider,
-					Config::getVar('general', 'date_format_short')
+					\Application::get()->getRequest()->getContext()->getLocalizedDateFormatShort()
 				)
 			)
 		);

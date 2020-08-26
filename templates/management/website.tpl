@@ -70,6 +70,12 @@
 						@set="set"
 					/>
 				</tab>
+				<tab id="dateTime" label="{translate key="manager.setup.dateTime"}">
+					<date-time-form
+							v-bind="components.{$smarty.const.FORM_DATE_TIME}"
+							@set="set"
+					/>
+				</tab>
 				{call_hook name="Template::Settings::website::setup"}
 			</tabs>
 		</tab>

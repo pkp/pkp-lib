@@ -23,7 +23,7 @@
 
 	{if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
 		<img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImageAltText|escape}">
-	{/if}	
+	{/if}
 
 	{* Search and category listing *}
 	{include file="frontend/components/archiveHeader.tpl"}
@@ -71,7 +71,7 @@
 							</a>
 						</h4>
 						<div class="date">
-							{$announcement->getDatePosted()}
+							{$announcement->getDatePosted()|date_format:$dateFormatShort}
 						</div>
 					</article>
 				{/if}

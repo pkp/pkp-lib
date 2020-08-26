@@ -46,17 +46,15 @@ class TemplateManager extends PKPTemplateManager {
 				$this->addStyleSheet(
 					'siteStylesheet',
 					$request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath() . '/' . $site->getData('styleSheet')['uploadName'],
-					array(
-						'priority' => STYLE_SEQUENCE_LATE
-					)
+					['priority' => STYLE_SEQUENCE_LATE]
 				);
 			}
 
 			// Pass app-specific details to template
-			$this->assign(array(
+			$this->assign([
 				'brandImage' => 'templates/images/ops_brand.png',
 				'packageKey' => 'common.software',
-			));
+			]);
 
 			// Get a count of unread tasks.
 			if ($user = $request->getUser()) {
@@ -67,7 +65,7 @@ class TemplateManager extends PKPTemplateManager {
 			}
 			if (isset($context)) {
 
-				$this->assign(array(
+				$this->assign([
 					'currentJournal' => $context,
 					'siteTitle' => $context->getLocalizedName(),
 					'publicFilesDir' => $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId()),
@@ -80,28 +78,29 @@ class TemplateManager extends PKPTemplateManager {
 					'itemsPerPage' => $context->getData('itemsPerPage'),
 					'enableAnnouncements' => $context->getData('enableAnnouncements'),
 					'disableUserReg' => $context->getData('disableUserReg'),
-				));
+				]);
 
 				// Get a link to the settings page for the current context.
 				// This allows us to reduce template duplication by using this
 				// variable in templates/common/header.tpl, instead of
 				// reproducing a lot of OMP/OJS-specific logic there.
 				$dispatcher = $request->getDispatcher();
-				$this->assign( 'contextSettingsUrl', $dispatcher->url($request, ROUTE_PAGE, null, 'management', 'settings', 'context') );
-
-				$this->assign('pageFooter', $context->getLocalizedData('pageFooter'));
+				$this->assign([
+					'contextSettingsUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'management', 'settings', 'context'),
+					'pageFooter' => $context->getLocalizedData('pageFooter')
+				]);
 			} else {
 				// Check if registration is open for any contexts
 				$contextDao = Application::getContextDAO();
 				$contexts = $contextDao->getAll(true)->toArray();
-				$contextsForRegistration = array();
+				$contextsForRegistration = [];
 				foreach($contexts as $context) {
 					if (!$context->getData('disableUserReg')) {
 						$contextsForRegistration[] = $context;
 					}
 				}
 
-				$this->assign(array(
+				$this->assign([
 					'contexts' => $contextsForRegistration,
 					'disableUserReg' => empty($contextsForRegistration),
 					'displayPageHeaderTitle' => $site->getLocalizedPageHeaderTitle(),
@@ -110,8 +109,7 @@ class TemplateManager extends PKPTemplateManager {
 					'primaryLocale' => $site->getPrimaryLocale(),
 					'supportedLocales' => $site->getSupportedLocaleNames(),
 					'pageFooter' => $site->getLocalizedData('pageFooter'),
-				));
-
+				]);
 			}
 		}
 	}

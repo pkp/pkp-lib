@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-29 09:38+0000\n"
+"PO-Revision-Date: 2020-08-12 16:48+0000\n"
 "Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/emails/"
 "es_ES/>\n"
@@ -40,7 +40,7 @@ msgstr ""
 "{$editorialContactSignature}"
 
 msgid "emails.publishNotify.subject"
-msgstr "Nuevo preprint publicado"
+msgstr "Nuevo preprint postado"
 
 msgid "emails.userValidate.description"
 msgstr ""

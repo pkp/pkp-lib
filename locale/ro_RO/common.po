@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-25 18:31+0000\n"
+"PO-Revision-Date: 2020-08-26 06:45+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ro_RO/>\n"
@@ -234,11 +234,11 @@ msgstr "și"
 msgid "common.altTextInstructions"
 msgstr ""
 "Descrieți această imagine pentru vizitatorii care vizionează situl în "
-"browser de tip doar text sau cu echipamente asistate. Exemplu: \"Editorul "
-"nostru vorbește la conferința PKP.\""
+"browser de tip text sau cu echipamente asistate. Exemplu: \"Editorul nostru "
+"vorbește la conferința PKP.\""
 
 msgid "common.altText"
-msgstr "Alternarea textelor"
+msgstr "Text alternativ"
 
 msgid "common.alreadyAssigned"
 msgstr "Atribuit"
@@ -948,10 +948,10 @@ msgid "common.removeSelection"
 msgstr "Eliminați selecția"
 
 msgid "common.removeItem"
-msgstr "Înlătură {$item}"
+msgstr "Eliminați {$item}"
 
 msgid "common.remove"
-msgstr "Înlătură"
+msgstr "Eliminați"
 
 msgid "common.remoteURL"
 msgstr "URL la distanță"
@@ -1765,22 +1765,22 @@ msgid "email.attachments"
 msgstr "Atașamente"
 
 msgid "email.addToRecipient"
-msgstr "Adaugă destinatar"
+msgstr "Adăugați destinatar"
 
 msgid "email.addCcRecipient"
-msgstr "Adaugă CC"
+msgstr "Adăugați CC"
 
 msgid "email.addBccRecipient"
-msgstr "Adaugă BCC"
+msgstr "Adăugați BCC"
 
 msgid "email.addAttachment"
-msgstr "Adaugă un atașament"
+msgstr "Adăugați un atașament"
 
 msgid "editor.submissionReview.uploadAttachment"
-msgstr "Încarcă un fișier"
+msgstr "Încărcați un fișier"
 
 msgid "editor.submissionReview.uploadFile"
-msgstr "Încarcă revizia"
+msgstr "Încărcați revizia"
 
 msgid "navigation.login"
 msgstr "Autentificare"

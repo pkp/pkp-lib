@@ -126,9 +126,10 @@ class PKPDateTimeForm extends FormComponent {
 	}
 
 	/**
+	 * Set localized options for date/time fields
+	 *
 	 * @param $optionValues array options to pass to the field
 	 * @return array
-	 * @brief Set localized options for date/time fields
 	 */
 	private function _setDateOptions($optionValues) {
 		$options = [];

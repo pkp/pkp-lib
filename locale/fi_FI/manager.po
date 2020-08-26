@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
+"PO-Revision-Date: 2020-08-25 06:33+0000\n"
+"Last-Translator: Hannu Toivonen <hannu.toivonen@helsinki.fi>\n"
+"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
+"fi/>\n"
+"Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:48+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "manager.website.information"
 msgstr "Tietoja"
@@ -1513,3 +1516,140 @@ msgstr "Käyttäjällä \"{$username}\" on salaamaton salasana, jota ei sallita.
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr "Käyttäjänimi \"{$username}\" ja sähköposti \"{$email}\" eivät täsmää saman olemassa olevan käyttäjän tietojen kanssa."
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Avain on jo käytössä."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Sähköpostipohjaa lisättäessä täytyy antaa kontekstin tunniste."
+
+msgid "manager.emails.emailKey.description"
+msgstr "Sähköpostiavain voi sisältää vain kirjaimia, numeroita ja alaviivan."
+
+msgid "stats.name.submissionsPublished"
+msgstr "Julkaistut käsikirjoitukset"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Arvioinnin perusteella hylätyt käsikirjoitukset"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Ilman arviointia hylätyt käsikirjoitukset"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Hylätyt käsikirjoitukset"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Hyväksytyt käsikirjoitukset"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Saadut käsikirjoitukset"
+
+msgid "stats.dateRange.untilDate"
+msgstr "{$date} asti"
+
+msgid "stats.dateRange.to"
+msgstr "Saakka"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "{$date} lähtien"
+
+msgid "stats.dateRange.from"
+msgstr "Alkaen"
+
+msgid "stats.allUsers"
+msgstr "Kaikki käyttäjät"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Älä kysy kirjoittajalta lähetettävän käsikirjoituksen tyyppiltä."
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Vaadi kirjoittajalta lähetettävän käsikirjoituksen tyyppi."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Kysy kirjoittajalta lähettävän käsikirjoituksen tyyppi."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr "Vaadi kirjoittajalta lähetettävän käsikirjoituksen kieli"
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Kysy kirjoittajalta lähetettävän käsikirjoituksen kieli"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Älä kysy kirjoittajalta lähetettävän käsikirjoituksen kieltä"
+
+msgid "manager.distribution.license"
+msgstr "Lisenssi"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Rekisteröityneet käyttäjät"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr ""
+"Tarjoa ladatessa linkki <button type=\"button\">Varmista "
+"sokkoarviointi</button>"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Arvioinnin oletusmuoto"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Muistutus arvioinnista"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Oletusaika arvion takarajalle."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Oletusaika vastauksen takarajalle"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Lataamaasi tiedostoa ei löydy. Lataa se ystävällisesti uudestaan."
+
+msgid "manager.setup.checklist"
+msgstr "Tarkistuslista"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Kirjoittajan ohjeet on päivitetty."
+
+msgid "manager.setup.appearance.success"
+msgstr "Ulkoasuasetukset on päivitetty."
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Aihe: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Vastaanottaja"
+
+msgid "manager.emails.sentFrom"
+msgstr "Lähettäjä"
+
+msgid "manager.emails.resetAll"
+msgstr "Palauta kaikki"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Sähköpostipohjat"
+
+msgid "manager.emails.editEmail.success"
+msgstr "Sähköpostipohjaa muokattiin."
+
+msgid "manager.emails.customTemplate"
+msgstr "Räätälöity sähköpostipohja"
+
+msgid "manager.emails.addEmail.success"
+msgstr "Sähköpostipohja lisättiin."
+
+msgid "manager.emails.addEmail"
+msgstr "Lisää sähköpostipohja"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Arviointimuistutuksen tiedot on päivitetty."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Arviointiasetukset on päivitetty."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Arvioijan opastus on päivitetty."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Arvioijan opastus"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "Sähköpostiasetukset on päivitetty."

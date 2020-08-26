@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-23 18:48+0000\n"
+"PO-Revision-Date: 2020-08-26 06:45+0000\n"
 "Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/vi_VN/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "default.groups.abbrev.productionEditor"
-msgstr "ProdE"
+msgstr "Prod-E"
 
 msgid "default.genres.styleSheet"
 msgstr "Biểu định kiểu HTML"
@@ -111,10 +111,10 @@ msgid "default.groups.abbrev.proofreader"
 msgstr "PR"
 
 msgid "default.groups.plural.proofreader"
-msgstr "Những người hiệu đính"
+msgstr "Những người đọc soát lỗi"
 
 msgid "default.groups.name.proofreader"
-msgstr "Người hiệu đính"
+msgstr "Người đọc soát lỗi"
 
 msgid "default.groups.abbrev.copyeditor"
 msgstr "CE"
@@ -129,7 +129,7 @@ msgid "default.groups.plural.productionEditor"
 msgstr "Các biên tập viên sản xuất"
 
 msgid "default.groups.name.productionEditor"
-msgstr "Biên tập sản xuất"
+msgstr "Biên tập viên sản xuất"
 
 msgid "default.groups.plural.siteAdmin"
 msgstr "Quản trị viên trang web"

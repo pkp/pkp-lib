@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-23 18:48+0000\n"
+"PO-Revision-Date: 2020-08-26 06:45+0000\n"
 "Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/vi_VN/>\n"
@@ -1708,7 +1708,7 @@ msgid "common.url"
 msgstr "URL"
 
 msgid "common.range"
-msgstr "{$min}-{$max}"
+msgstr "{$min} - {$max}"
 
 msgid "validator.url"
 msgstr "Đây không phải là một URL hợp lệ."

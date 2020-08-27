@@ -100,6 +100,9 @@ msgstr "The publication for this galley could not be found."
 msgid "publication.invalidSection"
 msgstr "The section for this publication could not be found."
 
+msgid "publication.inactiveSection"
+msgstr "{$section} (Inactive)"
+
 msgid "preprint.entry"
 msgstr "Preprint entry"
 

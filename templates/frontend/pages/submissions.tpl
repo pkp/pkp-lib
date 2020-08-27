@@ -21,6 +21,8 @@
 	<div class="cmp_notification">
 		{if $sections|@count == 0}
 			{translate key="author.submit.notAccepting"}
+		{elseif $currentContext->getData('disableSubmissions')}
+			{translate key="manager.setup.disableSubmissions.notAccepting"}
 		{else}
 			{if $isUserLoggedIn}
 				{capture assign="newSubmission"}<a href="{url page="submission" op="wizard"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
@@ -44,7 +46,6 @@
 			<ul>
 				{foreach from=$submissionChecklist item=checklistItem}
 					<li>
-						<span class="fa fa-check" aria-hidden="true"></span>
 						{$checklistItem.content|nl2br}
 					</li>
 				{/foreach}

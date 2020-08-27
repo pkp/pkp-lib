@@ -233,6 +233,13 @@
 				"nullable"
 			]
 		},
+		"disableSubmissions": {
+			"type": "boolean",
+			"default": false,
+			"validation": [
+				"nullable"
+			]
+		},
 		"enableClockss": {
 			"type": "boolean",
 			"validation": [

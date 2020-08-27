@@ -228,6 +228,7 @@ class ManagementHandler extends Handler {
 
 		$authorGuidelinesForm = new \PKP\components\forms\context\PKPAuthorGuidelinesForm($contextApiUrl, $locales, $context);
 		$metadataSettingsForm = new \APP\components\forms\context\MetadataSettingsForm($contextApiUrl, $context);
+		$disableSubmissionsForm = new \PKP\components\forms\context\PKPDisableSubmissionsForm($contextApiUrl, $locales, $context);
 		$emailSetupForm = new \PKP\components\forms\context\PKPEmailSetupForm($contextApiUrl, $locales, $context);
 		$reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
 		$reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($contextApiUrl, $locales, $context);
@@ -249,6 +250,7 @@ class ManagementHandler extends Handler {
 			'components' => [
 				FORM_AUTHOR_GUIDELINES => $authorGuidelinesForm->getConfig(),
 				FORM_METADATA_SETTINGS => $metadataSettingsForm->getConfig(),
+				FORM_DISABLE_SUBMISSIONS => $disableSubmissionsForm->getConfig(),
 				FORM_EMAIL_SETUP => $emailSetupForm->getConfig(),
 				FORM_REVIEW_GUIDANCE => $reviewGuidanceForm->getConfig(),
 				FORM_REVIEW_SETUP => $reviewSetupForm->getConfig(),

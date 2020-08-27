@@ -77,6 +77,7 @@ class DashboardHandler extends Handler {
 					'assignedTo' => [(int) $request->getUser()->getId()],
 				],
 			'includeIssuesFilter' => $includeIssuesFilter,
+			'includeActiveSectionFiltersOnly' => true,
 		]);
 		$myQueueListPanel->set([
 			'items' => $myQueueListPanel->getItems($request),
@@ -98,6 +99,7 @@ class DashboardHandler extends Handler {
 					],
 					'lazyLoad' => true,
 					'includeIssuesFilter' => $includeIssuesFilter,
+					'includeActiveSectionFiltersOnly' => true,
 				]
 			);
 			$lists[$unassignedListPanel->id] = $unassignedListPanel->getConfig();

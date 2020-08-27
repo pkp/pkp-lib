@@ -119,6 +119,9 @@ msgstr "Activate"
 msgid "common.active"
 msgstr "Active"
 
+msgid "common.inactive"
+msgstr "Inactive"
+
 msgid "common.add"
 msgstr "Add"
 

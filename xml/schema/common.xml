@@ -491,6 +491,7 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="1"/>
 		</field>
+		<field name="stage_id" type="I8"/>
 		<field name="from_role_id" type="I8"/>
 		<field name="to_role_id" type="I8"/>
 		<descr>Default email templates.</descr>

@@ -51,6 +51,6 @@ class PKPv3_2_1SubeditorCategoriesMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		throw new Exception('Downgrade not supported.');
+		throw new PKP\install\DowngradeNotSupportedException();
 	}
 }

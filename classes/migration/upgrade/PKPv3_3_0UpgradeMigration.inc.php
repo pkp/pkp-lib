@@ -45,10 +45,13 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			$table->date('date_expire')->change();
 		});
 
-		Capsule::schema()->table('email_templates_default', function (Blueprint $table) {
-			// pkp/pkp-lib#4796 stage ID as a filter parameter to email templates
-			$table->bigInteger('stage_id')->nullable();
-		});
+		// Transitional: The stage_id column may have already been added by the ADODB schema toolset
+		if (!Capsule::schema()->hasColumn('email_templates_default', 'stage_id')) {
+			Capsule::schema()->table('email_templates_default', function (Blueprint $table) {
+				// pkp/pkp-lib#4796 stage ID as a filter parameter to email templates
+				$table->bigInteger('stage_id')->nullable();
+			});
+		}
 
 		// pkp/pkp-lib#6093 Don't allow nulls (previously an upgrade workaround)
 		Capsule::schema()->table('user_settings', function (Blueprint $table) {
@@ -101,7 +104,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		throw new Exception('Downgrade not supported.');
+		throw new PKP\install\DowngradeNotSupportedException();
 	}
 
 	/**

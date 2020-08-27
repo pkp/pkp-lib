@@ -23,7 +23,7 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	/**
 	 * Build/fetch and return a controlled vocabulary for subjects.
 	 * @param $publicationId int
-	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
 	 * @return ControlledVocab
 	 */
 	function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION) {
@@ -43,12 +43,13 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	 * Get Subjects for a submission.
 	 * @param $publicationId int
 	 * @param $locales array
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#6213
 	 * @return array
 	 */
-	function getSubjects($publicationId, $locales = []) {
+	function getSubjects($publicationId, $locales = [], $assocType = ASSOC_TYPE_PUBLICATION) {
 		$result = [];
 
-		$subjects = $this->build($publicationId);
+		$subjects = $this->build($publicationId, $assocType);
 		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /* @var $submissionSubjectEntryDao SubmissionSubjectEntryDAO */
 		$submissionSubjects = $submissionSubjectEntryDao->getByControlledVocabId($subjects->getId());
 		while ($subjectEntry = $submissionSubjects->next()) {
@@ -91,7 +92,7 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	 * @param $subjects array
 	 * @param $publicationId int
 	 * @param $deleteFirst boolean
-	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
 	 * @return int
 	 */
 	function insertSubjects($subjects, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION) {

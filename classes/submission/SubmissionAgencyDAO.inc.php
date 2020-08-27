@@ -23,7 +23,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	/**
 	 * Build/fetch and return a controlled vocabulary for agencies.
 	 * @param $publicationId int
-	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
 	 * @return ControlledVocab
 	 */
 	function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION) {
@@ -42,12 +42,13 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	 * Get agencies for a specified submission ID.
 	 * @param $publicationId int
 	 * @param $locales array
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#6213
 	 * @return array
 	 */
-	function getAgencies($publicationId, $locales = []) {
+	function getAgencies($publicationId, $locales = [], $assocType = ASSOC_TYPE_PUBLICATION) {
 		$result = [];
 
-		$agencies = $this->build($publicationId);
+		$agencies = $this->build($publicationId, $assocType);
 		$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /* @var $submissionAgencyEntryDao SubmissionAgencyEntryDAO */
 		$submissionAgencies = $submissionAgencyEntryDao->getByControlledVocabId($agencies->getId());
 		while ($agencyEntry = $submissionAgencies->next()) {
@@ -90,7 +91,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	 * @param $agencies array List of agencies.
 	 * @param $publicationId int Submission ID.
 	 * @param $deleteFirst boolean True iff existing agencies should be removed first.
-	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
 	 * @return int
 	 */
 	function insertAgencies($agencies, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION) {

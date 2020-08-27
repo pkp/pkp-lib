@@ -24,7 +24,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 	/**
 	 * Build/fetch a publication's discipline controlled vocabulary.
 	 * @param $publicationId int
-	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
 	 * @return ControlledVocabulary
 	 */
 	function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION) {
@@ -43,12 +43,13 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 	 * Get disciplines for a submission.
 	 * @param $publicationId int
 	 * @param $locales array
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#6213
 	 * @return array
 	 */
-	function getDisciplines($publicationId, $locales = []) {
+	function getDisciplines($publicationId, $locales = [], $assocType = ASSOC_TYPE_PUBLICATION) {
 		$result = [];
 
-		$disciplines = $this->build($publicationId);
+		$disciplines = $this->build($publicationId, $assocType);
 		$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /* @var $submissionDisciplineEntryDao SubmissionDisciplineEntryDAO */
 		$submissionDisciplines = $submissionDisciplineEntryDao->getByControlledVocabId($disciplines->getId());
 		while ($disciplineEntry = $submissionDisciplines->next()) {
@@ -91,7 +92,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 	 * @param $disciplines array
 	 * @param $publicationId int
 	 * @param $deleteFirst boolean
-	 * @param $assocType int DO NOT USE: For 2.x to 3.x migration pkp/pkp-lib#3572
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
 	 * @return int
 	 */
 	function insertDisciplines($disciplines, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION) {

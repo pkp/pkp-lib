@@ -29,12 +29,12 @@ class CommonMigration extends Migration {
 			$table->integer('revision')->default(0)->comment('Revision component of version number, e.g. the 8 in OJS 2.3.8-0');
 			$table->integer('build')->default(0)->comment('Build component of version number, e.g. the 0 in OJS 2.3.8-0');
 			$table->datetime('date_installed');
-			$table->boolean('current')->default(0)->comment('1 iff the version entry being described is currently active. This permits the table to store past installation history for forensic purposes.');
+			$table->boolean('current')->default(false)->comment('1 iff the version entry being described is currently active. This permits the table to store past installation history for forensic purposes.');
 			$table->string('product_type', 30)->comment('Describes the type of product this row describes, e.g. "plugins.generic" (for a generic plugin) or "core" for the application itelf')->nullable();
 			$table->string('product', 30)->comment('Uniquely identifies the product this version row describes, e.g. "ojs2" for OJS 2.x, "languageToggle" for the language toggle block plugin, etc.')->nullable();
 			$table->string('product_class_name', 80)->comment('Specifies the class name associated with this product, for plugins, or the empty string where not applicable.')->nullable();
-			$table->boolean('lazy_load')->default(0)->comment('1 iff the row describes a lazy-load plugin; 0 otherwise');
-			$table->boolean('sitewide')->default(0)->comment('1 iff the row describes a site-wide plugin; 0 otherwise');
+			$table->boolean('lazy_load')->default(false)->comment('1 iff the row describes a lazy-load plugin; 0 otherwise');
+			$table->boolean('sitewide')->default(false)->comment('1 iff the row describes a site-wide plugin; 0 otherwise');
 			$table->unique(['product_type', 'product', 'major', 'minor', 'revision', 'build'], 'versions_pkey');
 		});
 
@@ -61,7 +61,7 @@ class CommonMigration extends Migration {
 			$table->bigInteger('auth_id')->autoIncrement();
 			$table->string('title', 60);
 			$table->string('plugin', 32);
-			$table->boolean('auth_default')->default(0);
+			$table->boolean('auth_default')->default(false);
 			$table->text('settings')->nullable();
 		});
 
@@ -85,7 +85,7 @@ class CommonMigration extends Migration {
 			$table->boolean('must_change_password')->nullable();
 			$table->bigInteger('auth_id')->nullable();
 			$table->string('auth_str', 255)->nullable();
-			$table->boolean('disabled')->default(0);
+			$table->boolean('disabled')->default(false);
 			$table->text('disabled_reason')->nullable();
 			$table->boolean('inline_help')->nullable();
 			$table->unique(['username'], 'users_username');
@@ -114,7 +114,7 @@ class CommonMigration extends Migration {
 			$table->string('user_agent', 255)->nullable();
 			$table->bigInteger('created')->default(0);
 			$table->bigInteger('last_used')->default(0);
-			$table->boolean('remember')->default(0);
+			$table->boolean('remember')->default(false);
 			$table->text('data');
 			$table->string('domain', 255)->nullable();
 			$table->index(['user_id'], 'sessions_user_id');
@@ -173,7 +173,7 @@ class CommonMigration extends Migration {
 		Capsule::schema()->create('notification_mail_list', function (Blueprint $table) {
 			$table->bigInteger('notification_mail_list_id')->autoIncrement();
 			$table->string('email', 90);
-			$table->boolean('confirmed')->default(0);
+			$table->boolean('confirmed')->default(false);
 			$table->string('token', 40);
 			$table->bigInteger('context');
 			$table->unique(['email', 'context'], 'notification_mail_list_email_context');
@@ -183,8 +183,8 @@ class CommonMigration extends Migration {
 		Capsule::schema()->create('email_templates_default', function (Blueprint $table) {
 			$table->bigInteger('email_id')->autoIncrement();
 			$table->string('email_key', 64)->comment('Unique identifier for this email.');
-			$table->boolean('can_disable')->default(1);
-			$table->boolean('can_edit')->default(1);
+			$table->boolean('can_disable')->default(true);
+			$table->boolean('can_edit')->default(true);
 			$table->bigInteger('from_role_id')->nullable();
 			$table->bigInteger('to_role_id')->nullable();
 			$table->bigInteger('stage_id')->nullable();
@@ -206,7 +206,7 @@ class CommonMigration extends Migration {
 			$table->bigInteger('email_id')->autoIncrement();
 			$table->string('email_key', 64)->comment('Unique identifier for this email.');
 			$table->bigInteger('context_id');
-			$table->boolean('enabled')->default(1);
+			$table->boolean('enabled')->default(true);
 			$table->unique(['email_key', 'context_id'], 'email_templates_email_key');
 		});
 

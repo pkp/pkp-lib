@@ -69,7 +69,7 @@ class SubmissionsMigration extends Migration {
 		Capsule::schema()->create('authors', function (Blueprint $table) {
 			$table->bigInteger('author_id')->autoIncrement();
 			$table->string('email', 90);
-			$table->boolean('include_in_browse')->default(1);
+			$table->boolean('include_in_browse')->default(true);
 			$table->bigInteger('publication_id');
 			$table->float('seq', 8, 2)->default(0);
 			$table->bigInteger('user_group_id')->nullable();

@@ -37,9 +37,9 @@ class ReviewsMigration extends Migration {
 			$table->datetime('date_due')->nullable();
 			$table->datetime('date_response_due')->nullable();
 			$table->datetime('last_modified')->nullable();
-			$table->boolean('reminder_was_automatic')->default(0);
-			$table->boolean('declined')->default(0);
-			$table->boolean('cancelled')->default(0);
+			$table->boolean('reminder_was_automatic')->default(false);
+			$table->boolean('declined')->default(false);
+			$table->boolean('cancelled')->default(false);
 			$table->bigInteger('reviewer_file_id')->nullable();
 			$table->datetime('date_rated')->nullable();
 			$table->datetime('date_reminded')->nullable();

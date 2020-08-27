@@ -28,7 +28,7 @@ class ReviewsMigration extends Migration {
 			$table->bigInteger('submission_id');
 			$table->bigInteger('reviewer_id');
 			$table->text('competing_interests')->nullable();
-			$table->tinyInteger('recommendation')->nullable();
+			$table->smallInteger('recommendation')->nullable();
 			$table->datetime('date_assigned')->nullable();
 			$table->datetime('date_notified')->nullable();
 			$table->datetime('date_confirmed')->nullable();
@@ -37,20 +37,20 @@ class ReviewsMigration extends Migration {
 			$table->datetime('date_due')->nullable();
 			$table->datetime('date_response_due')->nullable();
 			$table->datetime('last_modified')->nullable();
-			$table->tinyInteger('reminder_was_automatic')->default(0);
-			$table->tinyInteger('declined')->default(0);
-			$table->tinyInteger('cancelled')->default(0);
+			$table->boolean('reminder_was_automatic')->default(0);
+			$table->boolean('declined')->default(0);
+			$table->boolean('cancelled')->default(0);
 			$table->bigInteger('reviewer_file_id')->nullable();
 			$table->datetime('date_rated')->nullable();
 			$table->datetime('date_reminded')->nullable();
-			$table->tinyInteger('quality')->nullable();
+			$table->smallInteger('quality')->nullable();
 			$table->bigInteger('review_round_id');
-			$table->tinyInteger('stage_id')->default(1);
-			$table->tinyInteger('review_method')->default(1);
-			$table->tinyInteger('round')->default(1);
-			$table->tinyInteger('step')->default(1);
+			$table->smallInteger('stage_id')->default(1);
+			$table->smallInteger('review_method')->default(1);
+			$table->smallInteger('round')->default(1);
+			$table->smallInteger('step')->default(1);
 			$table->bigInteger('review_form_id')->nullable();
-			$table->tinyInteger('unconsidered')->nullable();
+			$table->boolean('unconsidered')->nullable();
 			$table->index(['submission_id'], 'review_assignments_submission_id');
 			$table->index(['reviewer_id'], 'review_assignments_reviewer_id');
 			$table->index(['review_form_id'], 'review_assignments_form_id');
@@ -62,7 +62,7 @@ class ReviewsMigration extends Migration {
 			$table->bigInteger('review_round_id')->autoIncrement();
 			$table->bigInteger('submission_id');
 			$table->bigInteger('stage_id')->nullable();
-			$table->tinyInteger('round');
+			$table->smallInteger('round');
 			$table->bigInteger('review_revision')->nullable();
 			$table->bigInteger('status')->nullable();
 			$table->index(['submission_id'], 'review_rounds_submission_id');
@@ -73,7 +73,7 @@ class ReviewsMigration extends Migration {
 		Capsule::schema()->create('review_round_files', function (Blueprint $table) {
 			$table->bigInteger('submission_id');
 			$table->bigInteger('review_round_id');
-			$table->tinyInteger('stage_id');
+			$table->smallInteger('stage_id');
 			$table->bigInteger('file_id');
 			$table->bigInteger('revision')->default(1);
 			$table->index(['submission_id'], 'review_round_files_submission_id');

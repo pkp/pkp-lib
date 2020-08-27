@@ -114,6 +114,9 @@ class $this->className extends Migration {
 							$allowDefault = false;
 							break;
 						case 'I1':
+							// This may be a boolean or a numeric constant!
+							// MySQL complains (https://github.com/laravel/framework/issues/8840)
+							// but it's better to review and fix manually rather than rely on this.
 							echo "\$table->tinyInteger('" . $tableChild->getAttribute('name') . "')";
 							break;
 						case 'I2':

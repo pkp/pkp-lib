@@ -33,10 +33,10 @@ class SubmissionsMigration extends Migration {
 			//  WORKFLOW_STAGE_ID_SUBMISSION 
 			$table->bigInteger('stage_id')->default(1);
 			//  STATUS_QUEUED 
-			$table->tinyInteger('status')->default(1);
-			$table->tinyInteger('submission_progress')->default(1);
+			$table->smallInteger('status')->default(1);
+			$table->smallInteger('submission_progress')->default(1);
 			//  Used in OMP only; should not be null there 
-			$table->tinyInteger('work_type')->default(0)->nullable();
+			$table->smallInteger('work_type')->default(0)->nullable();
 			$table->index(['context_id'], 'submissions_context_id');
 		});
 
@@ -69,7 +69,7 @@ class SubmissionsMigration extends Migration {
 		Capsule::schema()->create('authors', function (Blueprint $table) {
 			$table->bigInteger('author_id')->autoIncrement();
 			$table->string('email', 90);
-			$table->tinyInteger('include_in_browse')->default(1);
+			$table->boolean('include_in_browse')->default(1);
 			$table->bigInteger('publication_id');
 			$table->float('seq', 8, 2)->default(0);
 			$table->bigInteger('user_group_id')->nullable();
@@ -92,9 +92,9 @@ class SubmissionsMigration extends Migration {
 			$table->bigInteger('submission_id');
 			$table->bigInteger('review_round_id');
 			$table->bigInteger('stage_id')->nullable();
-			$table->tinyInteger('round');
+			$table->smallInteger('round');
 			$table->bigInteger('editor_id');
-			$table->tinyInteger('decision');
+			$table->smallInteger('decision');
 			$table->datetime('date_decided');
 			$table->index(['submission_id'], 'edit_decisions_submission_id');
 			$table->index(['editor_id'], 'edit_decisions_editor_id');
@@ -112,7 +112,7 @@ class SubmissionsMigration extends Migration {
 			$table->text('comments')->nullable();
 			$table->datetime('date_posted')->nullable();
 			$table->datetime('date_modified')->nullable();
-			$table->tinyInteger('viewable')->nullable();
+			$table->boolean('viewable')->nullable();
 			$table->index(['submission_id'], 'submission_comments_submission_id');
 		});
 
@@ -133,7 +133,7 @@ class SubmissionsMigration extends Migration {
 			$table->bigInteger('query_id')->autoIncrement();
 			$table->bigInteger('assoc_type');
 			$table->bigInteger('assoc_id');
-			$table->tinyInteger('stage_id')->default(1);
+			$table->smallInteger('stage_id')->default(1);
 			$table->float('seq', 8, 2)->default(0);
 			$table->datetime('date_posted')->nullable();
 			$table->datetime('date_modified')->nullable();

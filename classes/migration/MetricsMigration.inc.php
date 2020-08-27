@@ -35,7 +35,7 @@ class MetricsMigration extends Migration {
 			$table->bigInteger('assoc_id');
 			$table->string('day', 8)->nullable();
 			$table->string('month', 6)->nullable();
-			$table->tinyInteger('file_type')->nullable();
+			$table->smallInteger('file_type')->nullable();
 			$table->string('country_id', 2)->nullable();
 			$table->string('region', 2)->nullable();
 			$table->string('city', 255)->nullable();

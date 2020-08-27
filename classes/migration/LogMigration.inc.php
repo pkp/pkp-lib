@@ -31,7 +31,7 @@ class LogMigration extends Migration {
 			$table->datetime('date_logged');
 			$table->bigInteger('event_type')->nullable();
 			$table->text('message')->nullable();
-			$table->tinyInteger('is_translated')->nullable();
+			$table->boolean('is_translated')->nullable();
 			$table->index(['assoc_type', 'assoc_id'], 'event_log_assoc');
 		});
 

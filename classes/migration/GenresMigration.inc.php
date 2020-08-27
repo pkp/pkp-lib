@@ -27,13 +27,13 @@ class GenresMigration extends Migration {
 			$table->bigInteger('genre_id')->autoIncrement();
 			$table->bigInteger('context_id');
 			$table->bigInteger('seq');
-			$table->boolean('enabled')->default(true);
+			$table->smallInteger('enabled')->default(1);
 
 			import('lib.pkp.classes.submission.Genre'); // for constant
 			$table->bigInteger('category')->default(GENRE_CATEGORY_DOCUMENT);
 
-			$table->boolean('dependent')->default(false);
-			$table->boolean('supplementary')->default(false);
+			$table->smallInteger('dependent')->default(0);
+			$table->smallInteger('supplementary')->default(0);
 			$table->string('entry_key', 30)->nullable();
 		});
 

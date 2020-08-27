@@ -27,10 +27,10 @@ class RolesAndUserGroupsMigration extends Migration {
 			$table->bigInteger('user_group_id')->autoIncrement();
 			$table->bigInteger('context_id');
 			$table->bigInteger('role_id');
-			$table->boolean('is_default')->default(false);
-			$table->boolean('show_title')->default(true);
-			$table->boolean('permit_self_registration')->default(false);
-			$table->boolean('permit_metadata_edit')->default(false);
+			$table->smallInteger('is_default')->default(0);
+			$table->smallInteger('show_title')->default(1);
+			$table->smallInteger('permit_self_registration')->default(0);
+			$table->smallInteger('permit_metadata_edit')->default(0);
 			$table->index(['user_group_id'], 'user_groups_user_group_id');
 			$table->index(['context_id'], 'user_groups_context_id');
 			$table->index(['role_id'], 'user_groups_role_id');
@@ -73,8 +73,8 @@ class RolesAndUserGroupsMigration extends Migration {
 			$table->bigInteger('user_group_id');
 			$table->bigInteger('user_id');
 			$table->datetime('date_assigned');
-			$table->boolean('recommend_only')->default(false);
-			$table->boolean('can_change_metadata')->default(false);
+			$table->smallInteger('recommend_only')->default(0);
+			$table->smallInteger('can_change_metadata')->default(0);
 			$table->unique(['submission_id', 'user_group_id', 'user_id'], 'stage_assignment');
 			$table->index(['submission_id'], 'stage_assignments_submission_id');
 			$table->index(['user_group_id'], 'stage_assignments_user_group_id');

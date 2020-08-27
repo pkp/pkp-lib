@@ -34,7 +34,7 @@ class LibraryFilesMigration extends Migration {
 			$table->datetime('date_uploaded');
 			$table->datetime('date_modified');
 			$table->bigInteger('submission_id');
-			$table->boolean('public_access')->default(false)->nullable();
+			$table->smallInteger('public_access')->default(0)->nullable();
 			$table->index(['context_id'], 'library_files_context_id');
 			$table->index(['submission_id'], 'library_files_submission_id');
 		});

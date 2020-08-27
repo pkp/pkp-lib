@@ -66,7 +66,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		});
 		Capsule::schema()->table('genres', function (Blueprint $table) {
 			$table->bigInteger('seq')->change();
-			$table->boolean('supplementary')->default(false)->change();
+			$table->smallInteger('supplementary')->default(0)->change();
 		});
 		Capsule::schema()->table('event_log', function (Blueprint $table) {
 			$table->bigInteger('assoc_type')->change();

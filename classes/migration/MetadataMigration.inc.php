@@ -84,7 +84,7 @@ class MetadataMigration extends Migration {
 			$table->bigInteger('context_id')->default(0);
 			$table->string('display_name', 255)->nullable();
 			$table->string('class_name', 255)->nullable();
-			$table->boolean('is_template')->default(false);
+			$table->smallInteger('is_template')->default(0);
 			$table->bigInteger('parent_filter_id')->default(0);
 			$table->bigInteger('seq')->default(0);
 		});

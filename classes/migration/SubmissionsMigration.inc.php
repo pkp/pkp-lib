@@ -30,10 +30,11 @@ class SubmissionsMigration extends Migration {
 			$table->datetime('date_last_activity')->nullable();
 			$table->datetime('date_submitted')->nullable();
 			$table->datetime('last_modified')->nullable();
-			//  WORKFLOW_STAGE_ID_SUBMISSION 
-			$table->bigInteger('stage_id')->default(1);
-			//  STATUS_QUEUED 
-			$table->smallInteger('status')->default(1);
+			$table->bigInteger('stage_id')->default(WORKFLOW_STAGE_ID_SUBMISSION);
+
+			import('lib.pkp.classes.submission.PKPSubmission'); // for constant
+			$table->smallInteger('status')->default(STATUS_QUEUED);
+
 			$table->smallInteger('submission_progress')->default(1);
 			//  Used in OMP only; should not be null there 
 			$table->smallInteger('work_type')->default(0)->nullable();
@@ -69,7 +70,7 @@ class SubmissionsMigration extends Migration {
 		Capsule::schema()->create('authors', function (Blueprint $table) {
 			$table->bigInteger('author_id')->autoIncrement();
 			$table->string('email', 90);
-			$table->boolean('include_in_browse')->default(true);
+			$table->smallInteger('include_in_browse')->default(1);
 			$table->bigInteger('publication_id');
 			$table->float('seq', 8, 2)->default(0);
 			$table->bigInteger('user_group_id')->nullable();
@@ -112,7 +113,7 @@ class SubmissionsMigration extends Migration {
 			$table->text('comments')->nullable();
 			$table->datetime('date_posted')->nullable();
 			$table->datetime('date_modified')->nullable();
-			$table->boolean('viewable')->nullable();
+			$table->smallInteger('viewable')->nullable();
 			$table->index(['submission_id'], 'submission_comments_submission_id');
 		});
 
@@ -133,7 +134,7 @@ class SubmissionsMigration extends Migration {
 			$table->bigInteger('query_id')->autoIncrement();
 			$table->bigInteger('assoc_type');
 			$table->bigInteger('assoc_id');
-			$table->smallInteger('stage_id')->default(1);
+			$table->smallInteger('stage_id');
 			$table->float('seq', 8, 2)->default(0);
 			$table->datetime('date_posted')->nullable();
 			$table->datetime('date_modified')->nullable();

@@ -28,7 +28,7 @@ class ReviewFormsMigration extends Migration {
 			$table->bigInteger('assoc_type');
 			$table->bigInteger('assoc_id');
 			$table->float('seq', 8, 2)->nullable();
-			$table->boolean('is_active')->nullable();
+			$table->smallInteger('is_active')->nullable();
 		});
 
 		// Review form settings
@@ -48,8 +48,8 @@ class ReviewFormsMigration extends Migration {
 			$table->bigInteger('review_form_id');
 			$table->float('seq', 8, 2)->nullable();
 			$table->bigInteger('element_type')->nullable();
-			$table->boolean('required')->nullable();
-			$table->boolean('included')->nullable();
+			$table->smallInteger('required')->nullable();
+			$table->smallInteger('included')->nullable();
 			$table->index(['review_form_id'], 'review_form_elements_review_form_id');
 		});
 

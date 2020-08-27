@@ -135,7 +135,7 @@ class ReviewAssignment extends DataObject {
 
 	/**
 	 * Get the workflow stage id.
-	 * @return int
+	 * @return int WORKFLOW_STAGE_ID_...
 	 */
 	function getStageId() {
 		return $this->getData('stageId');
@@ -143,7 +143,7 @@ class ReviewAssignment extends DataObject {
 
 	/**
 	 * Set the workflow stage id.
-	 * @param $stageId int
+	 * @param $stageId int WORKFLOW_STAGE_ID_...
 	 */
 	function setStageId($stageId) {
 		$this->setData('stageId', $stageId);

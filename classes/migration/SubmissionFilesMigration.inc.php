@@ -36,7 +36,7 @@ class SubmissionFilesMigration extends Migration {
 			$table->bigInteger('file_stage');
 			$table->string('direct_sales_price', 255)->nullable();
 			$table->string('sales_type', 255)->nullable();
-			$table->boolean('viewable')->nullable();
+			$table->smallInteger('viewable')->nullable();
 			$table->datetime('date_uploaded');
 			$table->datetime('date_modified');
 			$table->bigInteger('uploader_user_id')->nullable();

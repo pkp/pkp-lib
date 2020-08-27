@@ -37,20 +37,23 @@ class ReviewsMigration extends Migration {
 			$table->datetime('date_due')->nullable();
 			$table->datetime('date_response_due')->nullable();
 			$table->datetime('last_modified')->nullable();
-			$table->boolean('reminder_was_automatic')->default(false);
-			$table->boolean('declined')->default(false);
-			$table->boolean('cancelled')->default(false);
+			$table->smallInteger('reminder_was_automatic')->default(0);
+			$table->smallInteger('declined')->default(0);
+			$table->smallInteger('cancelled')->default(0);
 			$table->bigInteger('reviewer_file_id')->nullable();
 			$table->datetime('date_rated')->nullable();
 			$table->datetime('date_reminded')->nullable();
 			$table->smallInteger('quality')->nullable();
 			$table->bigInteger('review_round_id');
-			$table->smallInteger('stage_id')->default(1);
-			$table->smallInteger('review_method')->default(1);
+			$table->smallInteger('stage_id');
+
+			import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment'); // for constant
+			$table->smallInteger('review_method')->default(SUBMISSION_REVIEW_METHOD_BLIND);
+
 			$table->smallInteger('round')->default(1);
 			$table->smallInteger('step')->default(1);
 			$table->bigInteger('review_form_id')->nullable();
-			$table->boolean('unconsidered')->nullable();
+			$table->smallInteger('unconsidered')->nullable();
 			$table->index(['submission_id'], 'review_assignments_submission_id');
 			$table->index(['reviewer_id'], 'review_assignments_reviewer_id');
 			$table->index(['review_form_id'], 'review_assignments_form_id');

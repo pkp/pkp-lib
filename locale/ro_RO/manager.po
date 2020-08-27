@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-26 06:45+0000\n"
+"PO-Revision-Date: 2020-08-28 19:43+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/ro_RO/>\n"
@@ -1523,7 +1523,7 @@ msgstr ""
 "confidențialitate."
 
 msgid "manager.setup.privacyStatement"
-msgstr "Declarație de confidențialitate"
+msgstr "Declarația de confidențialitate"
 
 msgid "manager.setup.principalContactDescription"
 msgstr ""

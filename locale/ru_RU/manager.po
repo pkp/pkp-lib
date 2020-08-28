@@ -740,6 +740,33 @@ msgstr "Введите данные контактного лица, обычн�
 msgid "manager.setup.privacyStatement"
 msgstr "Заявление о конфиденциальности"
 
+msgid "manager.setup.dateTime"
+msgstr "Дата и время"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Форматы даты и времени"
+
+msgid "manager.setup.dateTime.description"
+msgstr "Выберите предпочтительный формат для даты и времени. Пользовательский формат можно ввести, используя специальные <a href='http://php.net/manual/en/function.strftime.php#refsect1-function.strftime-parameters'>символы форматирования</a>."
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Дата"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Дата (короткая)"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Время"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Дата и время"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Дата и время (короткая)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Пользовательский формат"
+
 msgid "manager.setup.privacyStatement.description"
 msgstr "Это заявление будет появляться во время регистрации пользователя, отправки автором материала и на странице «Конфиденциальность» в открытом доступе. В некоторых странах закон требует, чтобы вы в раскрыли как именно вы обрабатываете данные пользователей в этом Заявлении о конфиденциальности."
 

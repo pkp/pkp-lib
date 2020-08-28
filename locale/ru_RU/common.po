@@ -123,6 +123,9 @@ msgstr "Активировать"
 msgid "common.active"
 msgstr "Активны"
 
+msgid "common.inactive"
+msgstr "Неактивны"
+
 msgid "common.add"
 msgstr "Добавить"
 

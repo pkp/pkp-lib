@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-27 15:48+0000\n"
+"PO-Revision-Date: 2020-08-28 19:44+0000\n"
 "Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/vi_VN/>\n"
@@ -1817,3 +1817,426 @@ msgid "manager.setup.notifications.description"
 msgstr ""
 "Các tác giả sẽ tự động được gửi một email xác nhận họ đã gửi. Bạn có thể có "
 "các bản sao của email này được gửi tới những địa chỉ sau:"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Nguồn tỷ lệ bàn từ chối"
+
+msgid "stats.name.declineRate"
+msgstr "Tỷ lệ từ chối"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Tỷ lệ chấp nhận"
+
+msgid "stats.name.daysToReject"
+msgstr "Ngày từ chối"
+
+msgid "stats.name.daysToAccept"
+msgstr "Ngày chấp nhận"
+
+msgid "stats.name.daysToDecision"
+msgstr "Số ngày đến quyết định biên tập đầu tiên"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Bài gửi bị từ chối"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Bài báo bị Từ chối (Sau khi nhận xét)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Đệ trình bị Từ chối (Bàn từ chối)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Bài gửi bị từ chối"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Bài gửi đã được chấp nhận"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Đã nhận bài"
+
+msgid "stats.userStatistics"
+msgstr "Thống kê sử dụng"
+
+msgid "stats.trends"
+msgstr "Xu hướng"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Tổng số trong Phạm vi ngày"
+
+msgid "stats.total"
+msgstr "Tổng số"
+
+msgid "stats.submissionsActive"
+msgstr "Các bài gửi đang xử lý"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Tìm kiếm theo tiêu đề, tác giả và ID"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Hằng tháng"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.fileViews"
+msgstr "Lượt xem tệp"
+
+msgid "stats.editorialActivity"
+msgstr "Hoạt động Biên tập"
+
+msgid "stats.descriptionForStat"
+msgstr "Mô tả cho {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Số ngày cần để hầu hết các bài gửi nhận được quyết định biên tập đầu tiên, "
+"chẳng hạn như từ chối bàn hoặc gửi để đánh giá (phản biện) tiếp. <br> <br> "
+"Những con số này cho thấy rằng 80% số bài gửi đi đến quyết định trong một số "
+"ngày nhất định. < br> <br> Thống kê này cố gắng mô tả thời điểm phần lớn các "
+"tác giả gửi đến tạp chí của bạn sẽ có thể nhận được một quyết định."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Tỷ lệ phần trăm cho phạm vi ngày đã chọn được tính cho các nội dung đã được "
+"gửi trong phạm vi ngày này và đã nhận được quyết định cuối cùng. <br> <br> "
+"Ví dụ: hãy xem xét trường hợp có mười lần gửi được thực hiện trong phạm vi "
+"ngày này. Bốn người đã được chấp nhận, bốn người bị từ chối và hai người vẫn "
+"đang chờ quyết định cuối cùng. <br> <br> Tỷ lệ chấp nhận sẽ là 50% (4 trong "
+"số 8 lần gửi) vì hai bài nộp chưa đi đến quyết định cuối cùng sẽ không được "
+"tính."
+
+msgid "stats.dateRange.untilDate"
+msgstr "Cho đến {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Đến"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Từ năm đến ngày"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Kể từ {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Năm ngoái"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Hai năm qua"
+
+msgid "stats.dateRange.last90Days"
+msgstr "90 ngày qua"
+
+msgid "stats.dateRange.last30Days"
+msgstr "30 ngày qua"
+
+msgid "stats.dateRange.last12Months"
+msgstr "12 tháng qua"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Ngày bắt đầu không được sớm hơn {$date}."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Ngày kết thúc không được muộn hơn {$date}."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Ngày bắt đầu phải trước ngày kết thúc."
+
+msgid "stats.dateRange.invalidDate"
+msgstr "Định dạng ngày không hợp lệ. Nhập từng ngày ở định dạng YYYY-MM-DD."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Nhập từng ngày ở định dạng YYYY-MM-DD. Ví dụ: nếu bạn muốn ngày cho ngày 15 "
+"tháng 1 năm 2019, hãy nhập 2019-01-15."
+
+msgid "stats.dateRange.from"
+msgstr "Từ"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Một trong những ngày đã nhập không tồn tại."
+
+msgid "stats.dateRange.customRange"
+msgstr "Phạm vi Tùy chỉnh"
+
+msgid "stats.dateRange.change"
+msgstr "Thay đổi phạm vi ngày"
+
+msgid "stats.dateRange.apply"
+msgstr "Áp dụng"
+
+msgid "stats.dateRange.allDates"
+msgstr "Tất cả các ngày"
+
+msgid "stats.dateRange"
+msgstr "Phạm vi ngày"
+
+msgid "stats.daily"
+msgstr "Hằng ngày"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/year)"
+
+msgid "stats.allUsers"
+msgstr "Tất cả người dùng"
+
+msgid "grid.category.categoryDetails"
+msgstr "Chi tiết về thể loại"
+
+msgid "grid.category.nameRequired"
+msgstr "Xin vui lòng nhập tên thể loại."
+
+msgid "grid.category.removeText"
+msgstr "Bạn có chắc chắn muốn xóa thể loại này không?"
+
+msgid "grid.category.parentCategory"
+msgstr "Thư mục chính"
+
+msgid "grid.category.description"
+msgstr "Mô tả"
+
+msgid "grid.category.pathExists"
+msgstr "Đường dẫn danh mục đã tồn tại. Vui lòng nhập một đường dẫn duy nhất."
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Đường dẫn thể loại chỉ được bao gồm các chữ cái và số."
+
+msgid "grid.category.urlWillBe"
+msgstr "Đường dẫn URL sẽ là: {$sampleUrl}"
+
+msgid "grid.category.path"
+msgstr "Đường dẫn"
+
+msgid "grid.category.name"
+msgstr "Tên"
+
+msgid "grid.category.edit"
+msgstr "Chỉnh sửa thể loại"
+
+msgid "grid.category.add"
+msgstr "Thêm thể loại"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Liên kết này sẽ chỉ được hiển thị nếu bạn đã nhập tuyên bố về quyền riêng tư "
+"trong Cài đặt > Luồng công việc > Bài gửi."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Liên kết đến trang hiển thị tuyên bố về quyền riêng tư của bạn."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Liên kết đến trang tìm kiếm."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Liên kết này sẽ chỉ được hiển thị nếu khách truy cập đã đăng nhập, thanh "
+"toán được bật trong Cài đặt > Phân phối > Thanh toán và đăng ký là bắt buộc "
+"trong Cài đặt > Phân phối > Truy cập."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Liên kết này sẽ chỉ được hiển thị nếu thanh toán được bật trong Cài đặt > "
+"Phân phối > Thanh toán."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Vui lòng chọn một loại menu điều hướng."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Liên kết này sẽ chỉ được hiển thị nếu bạn đã điền thông tin liên hệ trong "
+"Cài đặt > Liên hệ."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Liên kết đến một trang hiển thị thông tin liên hệ của bạn."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Liên kết này sẽ chỉ được hiển thị khi khách truy cập chưa đăng nhập."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Liên kết này sẽ chỉ được hiển thị khi khách truy cập đã đăng nhập."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Một liên kết sẽ đăng xuất người dùng."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Liên kết này sẽ chỉ được hiển thị cho người dùng quản trị."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Liên kết đến các công cụ quản trị trên toàn trang web."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Liên kết đến trang hồ sơ người dùng."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Liên kết đến bảng điều khiển biên tập."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Liên kết đến trang đăng ký người dùng."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Liên kết đến trang đăng nhập của người dùng."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Liên kết này sẽ chỉ được hiển thị nếu bạn đã bật thông báo trong Cài đặt > "
+"Trang web."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Liên kết đến trang hiển thị thông báo của bạn."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Liên kết đến kho lưu trữ các số xuất bản."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Liên kết đến Số hiện tại của bạn."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Liên kết đến trang hiển thị hướng dẫn gửi bài."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Liên kết này sẽ chỉ được hiển thị nếu bạn đã điền vào phần Nhóm biên tập "
+"trong Cài đặt> Nhật ký."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Liên kết đến một trang hiển thị nội dung giới thiệu về Ban biên tập trong "
+"Cài đặt > Tạp chí."
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Liên kết này sẽ chỉ được hiển thị nếu bạn đã điền vào phần Giới thiệu Tạp "
+"chí trong Cài đặt > Tạp chí."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Liên kết đến trang hiển thị nội dung Giới thiệu tạp chí trong Cài đặt > Tạp "
+"chí"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr ""
+"Liên kết đến bất kỳ URL nào trên trang web khác, ví dụ như "
+"https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "URL từ xa"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Tạo một trang tùy chỉnh trên trang web của bạn và liên kết đến trang đó từ "
+"menu điều hướng."
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Trang tùy chỉnh"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Chọn Loại menu điều hướng hoặc Menu điều hướng tùy chỉnh của riêng bạn"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Bắt buộc phải có tiêu đề."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Loại menu Điều hướng"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Khi một mục menu mở menu con, liên kết của nó không thể được theo dõi trên "
+"tất cả các thiết bị. Ví dụ: nếu bạn có mục \"Giới thiệu\" mở menu con có \""
+"Liên hệ\" và \"Nhóm biên tập\", liên kết \"Giới thiệu\" có thể không truy "
+"cập được trên tất cả các thiết bị. Trong menu mặc định, việc này được xử lý "
+"bằng cách tạo một mục menu thứ hai, \"Giới thiệu về Nhật ký\", xuất hiện "
+"trong menu con."
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "Tìm hiểu thêm về thời điểm hiển thị hoặc ẩn mục menu này."
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Phải cung cấp một URL"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Một menu điều hướng đã được chỉ định cho khu vực này."
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Chọn một khu vực điều hướng"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Khu vực điều hướng chủ đề đang hoạt động"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Các Mục Menu không được Chỉ định"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Các Mục Menu được Chỉ định"
+
+msgid "manager.navigationMenuItems"
+msgstr "Mục trong menu điều hướng"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Tiêu đề này đã tồn tại cho một menu điều hướng khác."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Đường dẫn này đã tồn tại cho một mục menu điều hướng khác."
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Trường đường dẫn phải chỉ chứa các ký tự chữ và số cộng với '.', '/', '-' và "
+"'_'."
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Nội dung"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p> Bạn có thể truy cập trang này tại: <blockquote> {$ pagesPath} "
+"</blockquote> ... trong đó%PATH% là đường dẫn đã nhập ở trên. <strong> Lưu ý:"
+" </strong> Không có hai trang nào có thể có cùng một đường dẫn. Việc sử dụng "
+"các đường dẫn được tích hợp sẵn trong hệ thống có thể khiến bạn mất quyền "
+"truy cập vào các chức năng quan trọng. </p>"
+
+msgid "manager.navigationMenus"
+msgstr "Điều hướng"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Đường dẫn"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Tiêu đề"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Tên người dùng \"{$username}\" và e-mail \"{$email}\" không khớp và cùng với "
+"một người dùng hiện có."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Người dùng đã nhập \"{$username}\" có mật khẩu thuần túy không hợp lệ. Người "
+"dùng chưa được nhập."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Không thể nhập mật khẩu \"{$username}\" của người dùng đã nhập. Mật khẩu mới "
+"được gửi đến email người dùng. Người dùng đã được nhập."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Người dùng đã nhập \"{$username}\" không có mật khẩu. Kiểm tra định dạng XML "
+"nhập của bạn. Người dùng chưa được nhập."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Lỗi Nhập/Xuất dữ liệu:"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Không thể nhập tệp bài gửi"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Bản sửa đổi \"{$reviseId}\" cho tệp gửi \"{$fileId}\" sẽ tạo một bản ghi "
+"trùng lặp"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Tỷ lệ Từ chối sau khi Phản biện"

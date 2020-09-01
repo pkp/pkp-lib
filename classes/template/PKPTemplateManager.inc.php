@@ -317,13 +317,13 @@ class PKPTemplateManager extends Smarty {
 
 			$user = $request->getUser();
 			if ($user) {
+				$notificationDao = DAORegistry::getDAO('NotificationDAO');
 				$this->assign([
 					'currentUser' => $user,
-				]);
-
-				// Assign the user name to be used in the sitenav
-				$this->assign([
+					// Assign the user name to be used in the sitenav
 					'loggedInUsername' => $user->getUserName(),
+					// Assign a count of unread tasks
+					'unreadNotificationCount' => $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK),
 				]);
 			}
 		}

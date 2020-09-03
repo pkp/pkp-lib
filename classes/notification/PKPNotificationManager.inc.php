@@ -191,12 +191,11 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				$templateMgr->assign('errors', $content);
 				return $templateMgr->fetch('controllers/notification/formErrorNotificationContent.tpl');
 			case NOTIFICATION_TYPE_ERROR:
-				if (is_array($content)) {
-					$templateMgr->assign('errors', $content);
-					return $templateMgr->fetch('controllers/notification/errorNotificationContent.tpl');
-				} else {
-					return $content;
-				}
+				if (!is_array($content)) return $content;
+
+				$templateMgr = TemplateManager::getManager($request);
+				$templateMgr->assign('errors', $content);
+				return $templateMgr->fetch('controllers/notification/errorNotificationContent.tpl');
 			default:
 				$delegateResult = $this->getByDelegate(
 					$notification->getType(),

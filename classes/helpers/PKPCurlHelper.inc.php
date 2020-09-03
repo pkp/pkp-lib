@@ -42,9 +42,9 @@ class PKPCurlHelper {
 		$application = Application::get();
 		if (Config::getVar('general', 'installed') && !defined('RUNNING_UPGRADE')) {
 			$currentVersion = $application->getCurrentVersion();
-			curl_setopt($curlCh, CURLOPT_USERAGENT, $application->getName() . '/' . $currentVersion->getVersionString());
+			curl_setopt($curl, CURLOPT_USERAGENT, $application->getName() . '/' . $currentVersion->getVersionString());
 		} else {
-			curl_setopt($curlCh, CURLOPT_USERAGENT, $application->getName() . '/?');
+			curl_setopt($curl, CURLOPT_USERAGENT, $application->getName() . '/?');
 		}
 
 		return $curl;

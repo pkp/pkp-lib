@@ -94,6 +94,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 				header('Content-Type: application/json');
 				return $json->getString();
 			case 'importBounce':
+				if (!$request->checkCSRF()) throw new Exception('CSRF mismatch!');
 				$json = new JSONMessage(true);
 				$json->setEvent('addTab', array(
 					'title' => __('plugins.importexport.users.results'),

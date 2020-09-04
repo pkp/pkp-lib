@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-04T08:55:35-08:00\n"
-"PO-Revision-Date: 2020-08-19 07:48+0000\n"
+"PO-Revision-Date: 2020-08-30 02:48+0000\n"
 "Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
 "Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/zh_CN/>\n"
@@ -1405,3 +1405,146 @@ msgstr "语言环境已启用。"
 
 msgid "manager.setup.competingInterests"
 msgstr "利益冲突"
+
+msgid "manager.navigationMenus.about.description"
+msgstr "链接到在“设置”>“期刊”中显示“关于期刊”内容的页面"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "链接到另一个站点上的任何URL，例如https://pkp.sfu.ca。"
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "外部URL"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "在您的站点上创建一个自定义页面，并从导航菜单链接到该页面。"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "自定义页面"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "选择导航菜单类型或自定义以制作自己的导航菜单"
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "导航菜单类型"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"当一个菜单项打开子菜单时，并非所有设备都会遵循其链接。 "
+"例如，如果您有一个“关于”项目，该项目通过“联系人”和“编辑团队”打开一个子菜单，则可能无法在所有设备上访问“关于”链接。 "
+"在默认菜单中，这是通过创建第二个菜单项“关于期刊”来处理的，该菜单项出现在子菜单中。"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "了解有关何时显示或隐藏此菜单项的更多信息。"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "必须提供一个URL"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "一个导航菜单已经分配给了该区域。"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "选择一个导航区域"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "已激活主题的导航区域"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "未分配的菜单项"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "分配的菜单项"
+
+msgid "manager.navigationMenuItems"
+msgstr "导航菜单项"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "标题为必填项"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "该标题已经存在于另一个导航菜单中。"
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "此路径已经存在于另一个导航菜单中。"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr "路径字段只能包含字母数字字符以及“.”，“ /”，“-”和“ _”。"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>可以在以下页面访问此页面：<blockquote> {$pagesPath} </blockquote> ...其中％PATH％是在上面输入的路径。"
+" <strong>注意：</strong>不能有两个页面具有相同的路径。 使用系统内置的路径可能会导致您无法使用重要功能。</p>"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "内容"
+
+msgid "manager.navigationMenus"
+msgstr "导航"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "路径"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "标题"
+
+msgid "manager.setup.metadata.type.description"
+msgstr "提交主要内容的性质或类型。 该类型通常为“文本”，但也可以为“数据集”，“图像”或任何都柏林核心类型</a>。"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr "主题将是描述提交主题的关键字，关键短语或分类代码。"
+
+msgid "manager.setup.metadata.source.require"
+msgstr "要求作者接受他们提交之前提供源URL。"
+
+msgid "manager.setup.metadata.source.request"
+msgstr "要求作者在提交过程中提供源URL。"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "在提交过程中，不向作者请求源URL。"
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "启用源元数据"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "在提交过程中，不要求作者披露权利。"
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "启用权利元数据"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr "提交内容所拥有的任何权利，包括知识产权（IPR），版权和各种产权。"
+
+msgid "manager.setup.metadata.languages.require"
+msgstr "要求作者在接受提交之前输入提交的语言。"
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "启用关键字元数据"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr "关键字通常是一到三个词的短语，用于指示提交的主要主题。"
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr "要求作者在接受他们的投稿之前，建议覆盖范围元数据。"
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr "要求作者在提交过程中建议覆盖范围元数据。"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "在提交过程中，请勿向作者请求覆盖范围元数据。"
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "启用覆盖范围元数据"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr "覆盖范围通常将指示作品的空间位置（地名或地理坐标），时间段（时间段标签，日期或日期范围）或辖区（例如指定的管理实体）。"
+
+msgid "manager.setup.metadata.coverage"
+msgstr "覆盖范围"
+
+msgid "manager.setup.metadata.success"
+msgstr "提交元数据已成功更新。"
+
+msgid "manager.setup.metadata.submission"
+msgstr "提交表单"

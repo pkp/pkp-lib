@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-25 18:31+0000\n"
+"PO-Revision-Date: 2020-08-28 19:43+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ro_RO/>\n"
@@ -161,7 +161,7 @@ msgid "common.queue.long.myAssigned"
 msgstr "Manuscrise alocate"
 
 msgid "common.queue.long.submissionsUnassigned"
-msgstr "Nedesemnat(ă)"
+msgstr "Nealocate"
 
 msgid "metadata.property.validationMessage.name-type"
 msgstr ""

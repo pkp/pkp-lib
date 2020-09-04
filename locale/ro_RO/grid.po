@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-09 12:48+0000\n"
+"PO-Revision-Date: 2020-08-28 19:43+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "ro_RO/>\n"
@@ -250,7 +250,7 @@ msgid "grid.action.restoreDefaults.confirm"
 msgstr "Sunteți sigur că doriți să reveniți la valorile implicite?"
 
 msgid "grid.action.restoreDefaults"
-msgstr "Restaurați la valorile implicite"
+msgstr "Reveniți la valorile implicite"
 
 msgid "grid.action.moreInformation"
 msgstr "Mai multe informații"

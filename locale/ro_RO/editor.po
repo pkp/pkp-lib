@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-10 14:28+0000\n"
+"PO-Revision-Date: 2020-08-26 06:45+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ro_RO/>\n"
@@ -359,10 +359,10 @@ msgid "editor.review.reviewsAdded"
 msgstr "Reviziile au fost adăugate în conținutul mesajului."
 
 msgid "editor.review.newReviewRound"
-msgstr "Solicită o nouă rundă de revizie"
+msgstr "Solicitați o nouă rundă de revizie"
 
 msgid "editor.review.uploadRevision"
-msgstr "Încarcă revizia"
+msgstr "Încărcați revizia"
 
 msgid "editor.review.importantDates"
 msgstr "Date importante"

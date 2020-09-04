@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-25 18:31+0000\n"
+"PO-Revision-Date: 2020-08-28 19:43+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/ro_RO/>\n"
@@ -1523,12 +1523,12 @@ msgstr ""
 "confidențialitate."
 
 msgid "manager.setup.privacyStatement"
-msgstr "Declarație de confidențialitate"
+msgstr "Declarația de confidențialitate"
 
 msgid "manager.setup.principalContactDescription"
 msgstr ""
-"Introduceți datele de contact, de obicei pentru o grupul de editori. Acestea "
-"pot fi afișate pe site-ul dvs. într-ul spațiu accesibil publicului."
+"Introduceți datele de contact, de obicei pentru un redactor principal. "
+"Acestea pot fi afișate pe site-ul dvs. într-ul spațiu accesibil publicului."
 
 msgid "manager.setup.principalContact"
 msgstr "Contact principal"
@@ -1885,7 +1885,7 @@ msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Salvați și creați un alt"
 
 msgid "manager.people.remove"
-msgstr "Înlătură"
+msgstr "Eliminați"
 
 msgid "manager.people"
 msgstr "Persoane"

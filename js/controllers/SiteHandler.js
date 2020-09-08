@@ -249,6 +249,10 @@
 			tinyMCEObject.settings.statusbar = true;
 		}
 
+		if (target.attr('dir')) {
+			tinyMCEObject.settings.directionality = target.attr('dir');
+		}
+
 		// Set height based on textarea rows
 		height = target.attr('rows') || 10; // default: 10
 		height *= 20; // 20 pixels per row

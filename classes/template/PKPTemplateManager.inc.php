@@ -261,6 +261,7 @@ class PKPTemplateManager extends Smarty {
 		$this->registerPlugin('function','page_links', [$this, 'smartyPageLinks']);
 		$this->registerPlugin('function','page_info', [$this, 'smartyPageInfo']);
 		$this->registerPlugin('function','pluck_files', [$this, 'smartyPluckFiles']);
+		$this->registerPlugin('function','locale_direction', [$this, 'smartyLocaleDirection']);
 
 		$this->registerPlugin('function','title', [$this, 'smartyTitle']);
 		$this->registerPlugin('function', 'url', [$this, 'smartyUrl']);
@@ -674,6 +675,25 @@ class PKPTemplateManager extends Smarty {
 			'tinyMceContentCSS' => $this->_request->getBaseUrl() . '/plugins/generic/tinymce/styles/content.css',
 			'tinyMceContentFont' => Config::getVar('general', 'enable_cdn') ? $this->_request->getBaseUrl() .  '/plugins/generic/tinymce/styles/content-font.css' : '',
 		];
+
+		// Add an array of rtl languages (right-to-left)
+		if (Config::getVar('general', 'installed') && !defined('SESSION_DISABLE_INIT')) {
+			$allLocales = [];
+			if ($context) {
+				$allLocales = array_merge(
+					$context->getSupportedLocales(),
+					$context->getSupportedFormLocales(),
+					$context->getSupportedSubmissionLocales()
+				);
+			} else {
+				$allLocales = $this->_request->getSite()->getSupportedLocales();
+			}
+			$allLocales = array_unique($allLocales);
+			$rtlLocales = array_filter($allLocales, function($locale) {
+				return AppLocale::getLocaleDirection($locale) === 'rtl';
+			});
+			$app_data['rtlLocales'] = array_values($rtlLocales);
+		}
 
 		$output .= '$.pkp.app = ' . json_encode($app_data) . ';';
 
@@ -2183,6 +2203,20 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		$smarty->assign($params['assign'], $matching_files);
+	}
+
+	/**
+	 * Get the direction of a locale
+	 *
+	 * @param array $params
+	 * @param TemplateManager $smarty
+	 * @return void
+	 */
+	public function smartyLocaleDirection($params, $smarty) {
+		$locale = !empty($params['locale'])
+			? $params['locale']
+			: AppLocale::getLocale();
+		return AppLocale::getLocaleDirection($locale);
 	}
 
 	/**

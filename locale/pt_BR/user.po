@@ -222,9 +222,6 @@ msgstr "O país é obrigatório."
 msgid "user.profile.form.emailRequired"
 msgstr "Endereço de e-mail válido obrigatório."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "A instituição/afiliação é obrigatória."
-
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "Um endereço postal é obrigatório."
 

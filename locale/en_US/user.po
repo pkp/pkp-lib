@@ -224,9 +224,6 @@ msgstr "A country is required."
 msgid "user.profile.form.emailRequired"
 msgstr "A valid email address is required."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "An affiliation is required."
-
 msgid "user.profile.form.givenNameRequired"
 msgstr "A given name is required."
 

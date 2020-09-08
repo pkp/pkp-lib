@@ -239,9 +239,6 @@ msgstr "Ohar pribatuak"
 msgid "user.profile.form.profileImageInvalid"
 msgstr "Irudi-formatu profil baliogabea edo irudi handiegia. Formatu onartuak .gif, .jpg, eta .png dira, eta irudiak ezin du 150x150 pixeleko tamaina gainditu."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Afiliatzea behar da."
-
 msgid "user.register.form.emailsDoNotMatch"
 msgstr "Helbide elektronikoaren eremuak ez datoz bat."
 

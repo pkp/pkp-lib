@@ -352,9 +352,6 @@ msgstr ""
 msgid "user.profile.form.givenNameRequired"
 msgstr "ناوی یەکەم داوا کراوە."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "میلاک داوا کراوە."
-
 msgid "user.profile.form.emailRequired"
 msgstr "ئیمەیڵێکی دروست داوا کراوە."
 

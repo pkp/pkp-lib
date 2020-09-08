@@ -131,9 +131,6 @@ msgstr "Izmeni profil"
 msgid "user.profile.form.emailRequired"
 msgstr "Ispravna imejl adresa je neophodna."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Afilijacija je neophodna."
-
 msgid "user.profile.form.newPasswordRequired"
 msgstr "Morate uneti novu lozinku."
 

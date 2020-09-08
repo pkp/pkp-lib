@@ -231,9 +231,6 @@ msgstr "Il faut indiquer un pays."
 msgid "user.profile.form.emailRequired"
 msgstr "Une adresse de courriel valide est obligatoire."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "L'affiliation est obligatoire."
-
 msgid "user.profile.form.givenNameRequired"
 msgstr "Un prénom est obligatoire."
 

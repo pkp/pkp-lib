@@ -207,9 +207,6 @@ msgstr "Необхідно вказати країну."
 msgid "user.profile.form.emailRequired"
 msgstr "Необхідно вказати коректну адресу email."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Необхідно вказати місце роботи."
-
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "Необхідно вказати поштову адресу."
 

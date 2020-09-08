@@ -255,9 +255,6 @@ msgstr ""
 msgid "user.profile.form.givenNameRequired"
 msgstr "Prenumele este necesar."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Este necesară o afiliere."
-
 msgid "user.profile.form.emailRequired"
 msgstr "Este necesară o adresă de email validă."
 

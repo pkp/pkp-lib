@@ -173,9 +173,6 @@ msgstr "Cal que introduïu un país."
 msgid "user.profile.form.emailRequired"
 msgstr "Heu d’introduir una adreça electrònica vàlida."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Cal que introduïu una institució."
-
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "Cal que introduïu un correu electrònic vàlid."
 

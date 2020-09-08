@@ -253,9 +253,6 @@ msgstr ""
 msgid "user.profile.form.givenNameRequired"
 msgstr "Một tên cụ thể là bắt buộc."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Một liên kết là bắt buộc."
-
 msgid "user.profile.form.emailRequired"
 msgstr "Một địa chỉ email hợp lệ là bặt buộc."
 

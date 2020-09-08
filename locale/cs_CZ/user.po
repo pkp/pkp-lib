@@ -140,9 +140,6 @@ msgstr "Editovat profil"
 msgid "user.profile.form.emailRequired"
 msgstr "Je vyžadována platná emailová adresa."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Prosím, vyplňte položku pracoviště."
-
 msgid "user.profile.form.firstNameRequired"
 msgstr "Je vyžadováno jméno."
 

@@ -426,9 +426,6 @@ msgstr ""
 msgid "user.profile.form.givenNameRequired"
 msgstr "Името е задолжително."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Афилијацијата е потребна."
-
 msgid "user.profile.form.emailRequired"
 msgstr "Потребна е велиден имејл."
 

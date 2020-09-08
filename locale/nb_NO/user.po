@@ -236,9 +236,6 @@ msgstr "Ugyldig profilbildeformat eller et for stort bilde. Mulige formater er .
 msgid "user.affiliation.description"
 msgstr "(Din institusjon, f.eks. «Det Kongelige Frederiks Universitet»"
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Institusjonstilhørighet må angis."
-
 msgid "user.accountInformation"
 msgstr "Kontoinformasjon"
 

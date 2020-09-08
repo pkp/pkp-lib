@@ -191,9 +191,6 @@ msgstr "Introduzca un país."
 msgid "user.profile.form.emailRequired"
 msgstr "Es necesaria una dirección de correo-e válida."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Se requiere afiliación."
-
 msgid "user.profile.form.firstNameRequired"
 msgstr "Es necesario el nombre."
 

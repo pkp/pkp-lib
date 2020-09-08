@@ -170,9 +170,6 @@ msgstr "Profil Düzenle"
 msgid "user.profile.form.emailRequired"
 msgstr "Geçerli bir e-posta adresi gerekli."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Kurum adı girmeniz gerekli."
-
 msgid "user.profile.form.firstNameRequired"
 msgstr "İlk isimi girmeniz gerekli."
 

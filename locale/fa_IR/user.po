@@ -200,9 +200,6 @@ msgstr "انتخاب کشور الزامی است"
 msgid "user.profile.form.emailRequired"
 msgstr "وارد کردن آدرس ایمیل معتبر الزامی است"
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "وابستگی سازمانی لازم است"
-
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "آدرس ایمیل الزامی است"
 

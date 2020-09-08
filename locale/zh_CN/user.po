@@ -236,9 +236,6 @@ msgstr "填写这个表格以注册到这个期刊."
 msgid "user.repeatPassword"
 msgstr "重复密码"
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "联系地址是必须的。"
-
 msgid "user.register.form.emailsDoNotMatch"
 msgstr "电子邮件地址不匹配。"
 

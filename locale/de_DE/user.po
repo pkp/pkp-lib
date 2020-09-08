@@ -227,9 +227,6 @@ msgstr "Ein Staat ist erforderlich."
 msgid "user.profile.form.emailRequired"
 msgstr "Eine gültige E-Mail-Adresse ist erforderlich."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Die Angabe einer Institution ist erforderlich."
-
 msgid "user.profile.form.givenNameRequired"
 msgstr "Die Angabe eines Vornamens ist erforderlich."
 

@@ -161,9 +161,6 @@ msgstr "Edit Profil"
 msgid "user.profile.form.emailRequired"
 msgstr "Alamat email yang valid diperlukan."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Afiliasi diperlukan."
-
 msgid "user.profile.form.newPasswordRequired"
 msgstr "Anda harus memasukkan kata sandi baru."
 

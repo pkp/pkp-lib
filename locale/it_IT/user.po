@@ -230,9 +230,6 @@ msgstr "Lingue conosciute"
 msgid "user.profile.form.profileImageInvalid"
 msgstr "Formato non valido o immagine troppo grande. I formati accettati sono .gif, .jpg, or .png, e le immagini devono essere grandi 150x150 pixel al massimo."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Inserisci un'affiliazione."
-
 msgid "user.register.form.emailsDoNotMatch"
 msgstr "Le email inserite non corrispondono."
 

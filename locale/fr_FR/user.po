@@ -248,9 +248,6 @@ msgstr "Langues de travail"
 msgid "user.profile.form.profileImageInvalid"
 msgstr "Format d'image du profil invalide ou image trop grande. Les formats acceptés sont .gif, .jpg, or .png, et l'image ne doit pas dépasser 150x150 pixels."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "L'affiliation est obligatoire."
-
 msgid "user.affiliation.description"
 msgstr "(Votre institution, par ex., \"Université de Montréal\")"
 

@@ -155,9 +155,6 @@ msgstr "Edytuj profil"
 msgid "user.profile.form.emailRequired"
 msgstr "Podanie adresu e-mail jest wymagane."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Podanie afiliacji jest wymagane."
-
 msgid "user.profile.form.newPasswordRequired"
 msgstr "Musisz podać swoje nowe hasło."
 

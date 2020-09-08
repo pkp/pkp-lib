@@ -227,9 +227,6 @@ msgstr "Απαιτείται η συμπλήρωση της χώρας εργα�
 msgid "user.profile.form.emailRequired"
 msgstr "Απαιτείται η συμπλήρωση μιας έγκυρης διεύθυνσης ηλεκτρονικού ταχυδρομείου."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Θα πρέπει να δηλώσετε τη σχέση σας με έναν φορέα/οργανισμό/ίδρυμα."
-
 msgid "user.profile.form.givenNameRequired"
 msgstr "Απαραίτητο να συμπληρωθεί το όνομα."
 

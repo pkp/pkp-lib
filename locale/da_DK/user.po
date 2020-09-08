@@ -266,9 +266,6 @@ msgstr ""
 "accepterede formater er .gif, .jpg og .png, og billedet må ikke overskride "
 "150 x 150 pixels."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Kræver et tilhørsforhold."
-
 msgid "user.register.form.emailsDoNotMatch"
 msgstr "Felterne for e-mail-adresse stemmer ikke overens."
 

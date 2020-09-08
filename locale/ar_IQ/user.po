@@ -228,9 +228,6 @@ msgstr "البلد مطلوب حتماً."
 msgid "user.profile.form.emailRequired"
 msgstr "عنوان بريد الكتروني صحيح مطلوب حتماً."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "الانتماء مطلوب حتماً."
-
 msgid "user.profile.form.givenNameRequired"
 msgstr "الاسم مطلوب حتماً."
 

@@ -207,9 +207,6 @@ msgstr "Država je obvezna."
 msgid "user.profile.form.emailRequired"
 msgstr "Veljaven e-potšni naslov je obvezen."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Organizacija je obvezen."
-
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "E-poštni naslov je obvezen."
 

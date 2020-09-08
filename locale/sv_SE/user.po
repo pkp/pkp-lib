@@ -215,9 +215,6 @@ msgstr "Land krävs."
 msgid "user.profile.form.emailRequired"
 msgstr "Giltig e-postadress krävs."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Affiliering krävs."
-
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "Postadress krävs."
 

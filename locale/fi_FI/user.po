@@ -200,9 +200,6 @@ msgstr "Maa vaaditaan."
 msgid "user.profile.form.emailRequired"
 msgstr "Voimassa oleva sähköpostiosoite vaaditaan."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Affiliaatio vaaditaan."
-
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "Postiosoite vaaditaan."
 

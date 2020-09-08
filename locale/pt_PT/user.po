@@ -233,9 +233,6 @@ msgstr "(A sua instituição, e.g. \"ISPA - Instituto Universitário\")"
 msgid "user.gossip"
 msgstr "Notas Privadas"
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Obrigatório inserir uma afiliação."
-
 msgid "user.register.form.emailsDoNotMatch"
 msgstr "Os campos e-mail não coincidem."
 

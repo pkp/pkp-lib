@@ -224,9 +224,6 @@ msgstr "Страна обязательна."
 msgid "user.profile.form.emailRequired"
 msgstr "Правильный адрес электронной почты обязателен."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Организация обязательна."
-
 msgid "user.profile.form.givenNameRequired"
 msgstr "Имя обязательно."
 

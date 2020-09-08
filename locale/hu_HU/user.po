@@ -230,9 +230,6 @@ msgstr "Ország név kötelező."
 msgid "user.profile.form.emailRequired"
 msgstr "Érvényes email címet kell megadni."
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "Egy kapcsolati adat kötelező."
-
 msgid "user.profile.form.firstNameRequired"
 msgstr "A keresztnév megadása kötelező."
 

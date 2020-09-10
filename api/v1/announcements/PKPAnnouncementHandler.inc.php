@@ -234,7 +234,7 @@ class PKPAnnouncementHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.announcements.400.contextsNotMatched');
 		}
 
-		$params = $this->convertStringsToSchema(SCHEMA_CONTEXT, $slimRequest->getParsedBody());
+		$params = $this->convertStringsToSchema(SCHEMA_ANNOUNCEMENT, $slimRequest->getParsedBody());
 		$params['id'] = $announcement->getId();
 
 		$context = $request->getContext();

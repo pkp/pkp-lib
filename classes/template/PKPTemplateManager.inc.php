@@ -1981,7 +1981,7 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Smarty usage: {load_header context="frontent" headers=$headers}
+	 * Smarty usage: {load_header context="frontend" headers=$headers}
 	 *
 	 * Custom Smarty function for printing scripts attached to a context.
 	 * @param $params array associative array

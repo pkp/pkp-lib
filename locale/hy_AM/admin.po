@@ -1,2 +1,112 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2020-09-12 20:05+0000\n"
+"Last-Translator: anau vpn <anauvpn@gmail.com>\n"
+"Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"hy_AM/>\n"
+"Language: hy_AM\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.languages.availableLocales"
+msgstr "Հասանելի լեզուները"
+
+msgid "admin.languages.installLanguages"
+msgstr "Կառավարել լեզուները"
+
+msgid "admin.languages.installedLocales"
+msgstr "Տեղադրված լեզուները"
+
+msgid "admin.languages.confirmReload"
+msgstr "Համեզված եք, որ ցանկանում եք վերագործարկել այս լեզուն։"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr "Համոզվա՞ծ եք, որ ուզում եք փոխել կայքի հիմնական լեզուն։"
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Այս լեզուն կայքի հիմնական լեզուն է։ Դուք չեք կարող ապաակտիվացնել այն մինչև "
+"չընտրեք այլ հիմնական լեզու։"
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr ""
+"Հնարավոր չե ավելացնել նոր տվյալ , լոկալ ռեգիստր ֆալում, մասնավորապես \""
+"registry/locales.xml\"."
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Հնարավոր չե բացել լեզվի նկարագիրը PKP կայքից"
+
+msgid "admin.languages.downloadLocales"
+msgstr "ներբեռնել լոկալ"
+
+msgid "admin.languages.download"
+msgstr "Ներբերնել լոկալ"
+
+msgid "admin.expireSessions"
+msgstr "Ավարտվել են օգտատիրոջ սեսսիաները"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Պատկերեկ նոր կարգավորումները"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Ձեր կողմից թարմացված կարգավորումների պարունակությունը պատկերված է ստորև։ "
+"Հաստատելու համար անհրաժեշտ է բացել <tt>config.inc.php</tt> ֆալյը Text editor-"
+"ով և տեղադրել այնտեղ ստորև պատկերված տեքստը։"
+
+msgid "admin.dateInstalled"
+msgstr "Օրացույցային տվյալները կարգավորված են"
+
+msgid "admin.currentVersion"
+msgstr "Գործող տարբերակը"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Համոզված եք, որ ուզում եք ջնջել  {$contextName} և ամբողջ իր պարունակությունը?"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Կարգավորման ֆալյի պարունակությունները։"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Համոզված եք, որ ուզում եք ավարտել բոլոր օգտատերերի սեսսիաները։ Բոլոր նրանք, "
+"ովքեր ներկայումս նույնականացված են, դուրս կհանվեն համակարգից։"
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Համոզված եք, որ ուզում եք ջնջել Template-ի քեշ հիշողությունը։"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Ձեր կարգավորումների ֆայլը հաջողությամբ թարմացվել է։ Խնդրում ենք հաշվի առնել, "
+"որ եթե կայքը չի ջործում ինչպես կարգն է, անհրաժեշտ է անմիջական միջամտությամբ "
+"կարգավորել  <tt>config.inc.php</tt> ֆայլը."
+
+msgid "admin.clearTemplateCache"
+msgstr "Մաքրել  Template-ի քեշը"
+
+msgid "admin.clearDataCache"
+msgstr "Մաքրել տվյալների քեշը"
+
+msgid "admin.authSources"
+msgstr "Նույնականացման աղբյուր"
+
+msgid "admin.auth.noneCreated"
+msgstr "Նույնականացման աղբյուր հայտարարված չե։"
+
+msgid "admin.auth.create"
+msgstr "Ստեղծել նույնականացման աղբյուր"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Համեզվա՞ծ եք, որ ուզում եք ջնջել ասյ իդենտիֆիկացիոն աղբյուրը"
+
+msgid "admin.adminFunctions"
+msgstr "Ադմինիստրատիվ ֆունկցիաներ"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Կարգավորման արժեք"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Կարգավորման անվանում"

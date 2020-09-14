@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-09-14 05:15+0000\n"
+"PO-Revision-Date: 2020-09-16 06:49+0000\n"
 "Last-Translator: anau vpn <anauvpn@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy_AM/>\n"
@@ -113,3 +113,229 @@ msgstr "Կարգավորման անվանում"
 
 msgid "admin.languages.installLocale"
 msgstr "Տեղադրել լեզուն"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tՏեղադրումը կատարված է մեկից ավելի օգտագործման չափիշ գրանցելու համար: "
+"Օգտագործման վիճակագրությունը կցուցադրվի տարբեր համատեքստերում: \n"
+"Կան դեպքեր , երբ միանգամյա օգտագործման վիճակագրությունը պետք է օգտագործվի, "
+"օր.՝ առավել հաճախ օգտագործված հայտերը ըստ հերթականության կամ որոնման "
+"արդյունքները  տեսակավորելու համար: Խնդրում ենք, ընտրեք չափանիշներից մեկը, "
+"որպես լռելյայն:\n"
+"\t"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Առաջադրանքը log-ում չի գրանցվել:"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Ներբեռնման համար հասանելի լեզուներ չկան:"
+
+msgid "admin.error.executingUtil"
+msgstr ""
+"Սխալ:  \"{$utilPath}\" չի կարող կատարել.  Ստուգեք Ձեր  {$utilVar} "
+"կարգավորումը config.inc.php-ի մեջ:."
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "«{$ UtilPath}» ծրագրի կատարումը պարունակում է հետևյալ սխալը՝ {$ Output}"
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Հաջողություն: {$filePath} to {$destinationPath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+"Զգուշացում: {$filePath} ֆայլը արդեն գոյություն ունի օգտագործման "
+"վիճակագրության ցուցակում:"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Սխալ:  {$tmpFilePath} ֆայլը չի կարող ջնջվել:"
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Սխալ: չի կարող ֆայլը պատճենել {$ filePath} - ից {$ tmpFilePath}:"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Սխալ: {$ FilePath} ֆայլը գոյություն չունի կամ հնարավոր չէ մուտք գործել:"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Սխալ: {$tmpDir} ժամանակավոր պանակաը չի կարող ստեղծվել:"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Ֆայլերի բեռնիչ"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "{$filename} ֆայլը մշակվել և արխիվացվել է:"
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"{$filename} ֆայլը չի կարող տեղափոխվել  {$currentFilePath}ից "
+"{$destinationPath}:"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "{$ Path} պանակը ուղեցույց չէ կամ ընթերցելի չէ:"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "{$ Path} հիմնական ուղին պետք է լինի հանրային ֆայլերի ուղեցույցում:"
+
+msgid "admin.version"
+msgstr "Տարբերակ"
+
+msgid "admin.version.upToDate"
+msgstr "Ձեր համակարգը արդիական է:"
+
+msgid "admin.version.updateAvailable"
+msgstr "Թարմացված տարբերակը հասանելի է:"
+
+msgid "admin.versionRevision"
+msgstr "Վերանայում"
+
+msgid "admin.version.moreInfo"
+msgstr "Լրացուցիչ տեղեկատվություն"
+
+msgid "admin.versionMinor"
+msgstr "Կրտսեր"
+
+msgid "admin.versionMajor"
+msgstr "Գլխավոր"
+
+msgid "admin.version.latest"
+msgstr "Վերջին տարբերակ"
+
+msgid "admin.versionHistory"
+msgstr "Տարբերակների պատմություն"
+
+msgid "admin.version.downloadPatch"
+msgstr "Ներբեռնել ուղին"
+
+msgid "admin.version.downloadPackage"
+msgstr "Ներբեռնել"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Ստուգել թարմացումները"
+
+msgid "admin.versionBuild"
+msgstr "Ստեղծել"
+
+msgid "admin.systemInformation"
+msgstr "Համակարգի տեղեկատվություն"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"<tt> config.inc.php </tt> ֆայլը գոյություն չունի, ընթերցելի չէ կամ անվավեր է:"
+
+msgid "admin.siteSetup"
+msgstr "Կայքի տեղադրում"
+
+msgid "admin.siteSettings"
+msgstr "Կայքի կարգաբերումներ"
+
+msgid "admin.siteManagement"
+msgstr "Կայքի կառավարում"
+
+msgid "admin.siteAdmin"
+msgstr "Կայքի կառավարում"
+
+msgid "admin.settings.siteTheme"
+msgstr "Կայքի թեմա"
+
+msgid "admin.settings.siteTitle"
+msgstr "Կայքի անվանում"
+
+msgid "admin.settings.siteLogo"
+msgstr "Կայքի լոգո"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Կայքի ոճի բլանկ"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Կայքի ոճի բլանկի անվավեր ձևաչափ: Ընդունելի ձևաչափը՝ css:"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Կայքի լեզու"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Գաղտնաբառի նվազագույն երկարություն (նշան)"
+
+msgid "admin.settings.introduction"
+msgstr "Ներածություն"
+
+msgid "admin.settings.contactName"
+msgstr "Հիմնական կապի անվանումը"
+
+msgid "admin.settings.contactEmail"
+msgstr "Կոնտակտային էլ. հասցե"
+
+msgid "admin.settings.about"
+msgstr "Կայքի մասին"
+
+msgid "admin.settings"
+msgstr "Կարգաբերումներ"
+
+msgid "admin.server.platform"
+msgstr "OS հարթակ"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP տարբերակ"
+
+msgid "admin.serverInformation"
+msgstr "Սերվերի տեղեկատվություն"
+
+msgid "admin.server.dbVersion"
+msgstr "Տվյալների բազայի սերվերի տարբերակ"
+
+msgid "admin.server.dbDriver"
+msgstr "Տվյալների բազաների համապատասխանեցման ծրագիր"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache տարբերակ"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Բաժանորդագրության ժամկետի ավարտի մասին հիշեցում"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Գրախոսության հիշեցում"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Հրապարակել  պլանավորված հոդվածները:"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Մաքրել պլանավորված առաջադրանքների կատարման գրանցամատյանները:"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Վստա՞հ եք, որ ցանկանում եք ջնջել պլանավորված առաջադրանքների կատարման բոլոր "
+"գրանցամատյանները:"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Ձեր {$ softwareName} տեղադրումը ավտոմատ կերպով կատարվեց և ավարտեց այս "
+"առաջադրանքը, և գրանցամատյանի ֆայլը կարող եք ներբեռնել այստեղ ՝ {$ url}"
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Առաջադրանքի  գործընթացը դադարեցվել է:"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Առաջադրանքի կատարման գործընթացը սկսված է:"
+
+msgid "admin.scheduledTask"
+msgstr "Պլանավորված առաջադրանք"
+
+msgid "admin.phpInfo"
+msgstr "Ընդլայնել PHP տեղեկատվությունը"
+
+msgid "admin.languages.uninstall"
+msgstr "Հեռացնել լեզուն"
+
+msgid "admin.languages.reload"
+msgstr "Վերբեռնել լեզու"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Լրացուցիչ լեզուներ հասանելի չեն տեղադրելու համար"
+
+msgid "admin.languages.languageSettings"
+msgstr "Լեզվի կարգաբերումներ"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Տեղադրել նոր լեզուներ"
+
+msgid "admin.languages.installLocales"
+msgstr "Տեղադրել"

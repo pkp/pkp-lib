@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-09-12 20:05+0000\n"
+"PO-Revision-Date: 2020-09-14 05:15+0000\n"
 "Last-Translator: anau vpn <anauvpn@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy_AM/>\n"
@@ -110,3 +110,6 @@ msgstr "Կարգավորման արժեք"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Կարգավորման անվանում"
+
+msgid "admin.languages.installLocale"
+msgstr "Տեղադրել լեզուն"

@@ -329,7 +329,8 @@ class PKPStatsHandler extends Handler {
 	 * @param array $args
 	 * @param Request $request
 	 */
-	public function users($args, $request) {
+	public function users(array $args, \Request $request): void
+	{
 		$dispatcher = $request->getDispatcher();
 		$context = $request->getContext();
 
@@ -337,8 +338,24 @@ class PKPStatsHandler extends Handler {
 			$dispatcher->handle404();
 		}
 
+		// The POST handler is here merely to serve a redirection URL to the Vue component
+		if ($request->isPost()) {
+			echo $dispatcher->url($request, ROUTE_API, $context->getPath(), 'users/report', null, null, $request->getUserVars());
+			exit;
+		}
+
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
+
+		$context = $request->getContext();
+		$selfUrl = $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'stats', 'users');
+		$reportForm = new PKP\components\forms\statistics\users\ReportForm($selfUrl, $context);
+
+		$templateMgr->setState([
+			'components' => [
+				'usersReportForm' => $reportForm->getConfig()
+			]
+		]);
 		$templateMgr->assign([
 			'pageTitle' => __('stats.userStatistics'),
 			'userStats' => array_map(

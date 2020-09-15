@@ -447,7 +447,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 		$site = \Application::get()->getRequest()->getSite();
 		$primaryLocale = $site->getPrimaryLocale();
 
-		$this->columns[] = 'u.*';
+		$this->columns = ['u.*'];
 		$this->columns[] = Capsule::raw('COALESCE(ugl.setting_value, ugpl.setting_value) AS user_given');
 		$this->columns[] = Capsule::raw('CASE WHEN ugl.setting_value <> \'\' THEN ufl.setting_value ELSE ufpl.setting_value END AS user_family');
 		$q = Capsule::table('users as u')

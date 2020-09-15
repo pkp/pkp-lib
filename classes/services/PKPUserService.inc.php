@@ -22,6 +22,7 @@ use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\QueryBuilders\PKPUserQueryBuilder;
+use \PKP\User\Report\{Report, Mappings};
 
 class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
@@ -608,5 +609,36 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Retrieves a filtered user report instance
+	 *
+	 * @param array $args
+	 *		@option string[] mappings List of standard mappings to include
+	 *		@option int[] userGroupIds List of user groups
+	 * @return Report
+	 */
+	public function getReport(?array $args = []): Report
+	{
+		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR);
+
+		$report = new Report(false);
+
+		$mappings = array_unique(array_merge([Mappings\Standard::class], $args['mappings'] ?? []));
+		foreach($mappings as $mapping) {
+			if (class_exists($mapping)) {
+				new $mapping($report);
+			}
+		}
+
+		$report
+			->getQueryBuilder()
+			->filterByContext($args['contextId'])
+			->filterByUserGroup($args['userGroupIds'] ?? []);
+
+		\HookRegistry::call('User::getReport', $report);
+
+		return $report;
 	}
 }

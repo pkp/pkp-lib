@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-09-13 20:49+0000\n"
+"PO-Revision-Date: 2020-09-17 10:49+0000\n"
 "Last-Translator: anau vpn <anauvpn@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
@@ -34,3 +34,119 @@ msgstr "Գործող դիզայն"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Հրապարակային գիտական լեզու"
+
+msgid "common.cancel"
+msgstr "Չեղյալ"
+
+msgid "common.between"
+msgstr "միջև"
+
+msgid "common.back"
+msgstr "Հետ"
+
+msgid "common.available"
+msgstr "Հասանելի"
+
+msgid "common.assigned.date"
+msgstr "Նշանակված է՝ {$dateAssigned}"
+
+msgid "common.assigned"
+msgstr "Նշանակված"
+
+msgid "common.assign"
+msgstr "Նշանակել"
+
+msgid "common.applyAction"
+msgstr "Կատարել գործողություն"
+
+msgid "common.all"
+msgstr "Բոլորը"
+
+msgid "common.name"
+msgstr "Անուն"
+
+msgid "common.add"
+msgstr "Ավելացնել"
+
+msgid "common.active"
+msgstr "Ակտիվ"
+
+msgid "common.activate"
+msgstr "Ակտիվացնել"
+
+msgid "common.action"
+msgstr "Գործողություն"
+
+msgid "common.acknowledged"
+msgstr "Ընդունված է"
+
+msgid "common.accepted"
+msgstr "Ընդունված է"
+
+msgid "common.abstract"
+msgstr "Աբստրակտ"
+
+msgid "common.confirmDelete"
+msgstr ""
+"Դուք վստա՞հ եք, որ ցանկանում եք ջնջել սա: Այս գործողությունը չի կարող "
+"չեղարկվել:"
+
+msgid "common.grid"
+msgstr "Grid"
+
+msgid "common.list"
+msgstr "Ցուցակ"
+
+msgid "common.tasks"
+msgstr "Առաջադրանքներ"
+
+msgid "common.navigation.user"
+msgstr "Օգտագործողի նավիգացիա"
+
+msgid "common.navigation.siteContext"
+msgstr "Կայքի բովանդակության նավիգացիա"
+
+msgid "common.navigation.site"
+msgstr "Կայքի նավիգացիա"
+
+msgid "common.navigation.sidebar"
+msgstr "Կողմնային մենյու"
+
+msgid "common.allDownloads"
+msgstr "Բոլոր ներբեռնումները"
+
+msgid "announcement.view"
+msgstr "Տեսնել հայտարարությունը"
+
+msgid "announcement.postedOn"
+msgstr "Հրապարակված է {$postDate}"
+
+msgid "announcement.posted"
+msgstr "Հրապարակաված է"
+
+msgid "announcement.noneExist"
+msgstr "Հայտարարություն չի հրապարակվել"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Ավելի շատ հայտարարություններ"
+
+msgid "announcement.announcementsHome"
+msgstr "Հայտարարություններ"
+
+msgid "announcement.announcements"
+msgstr "Հայտարարություններ"
+
+msgid "about.siteMap"
+msgstr "Կայքի քարտեզ"
+
+msgid "about.policies"
+msgstr "Քաղաքականություններ"
+
+msgid "about.people"
+msgstr "Մարդիկ"
+
+msgid "about.other"
+msgstr "Այլ"
+
+msgid "about.contact.supportContact"
+msgstr "Օգնություն"

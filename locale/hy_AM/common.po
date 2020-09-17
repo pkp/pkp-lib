@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-09-17 10:49+0000\n"
+"PO-Revision-Date: 2020-09-18 12:49+0000\n"
 "Last-Translator: anau vpn <anauvpn@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
@@ -150,3 +150,261 @@ msgstr "Այլ"
 
 msgid "about.contact.supportContact"
 msgstr "Օգնություն"
+
+msgid "common.inProgress"
+msgstr "Ընթացքի մեջ է"
+
+msgid "common.initiate"
+msgstr "Թողարկել"
+
+msgid "common.import"
+msgstr "Ներմուծել"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.hour"
+msgstr "Ժամ"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Գլխավոր էջի վերևի մասի լոգո"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Գլխավոր"
+
+msgid "common.height"
+msgstr "Բարձրություն"
+
+msgid "common.until"
+msgstr "Մինչև"
+
+msgid "common.fromWithValue"
+msgstr "Սկսած: {$value}"
+
+msgid "common.filterRemove"
+msgstr "Հեռացնել զտիչը: {$filterTitle}"
+
+msgid "common.filterAdd"
+msgstr "Ավելացնել զտիչ: {$filterTitle}"
+
+msgid "common.filter"
+msgstr "Զտիչներ"
+
+msgid "common.fileType"
+msgstr "Ֆայլի տիպ"
+
+msgid "common.fileSize"
+msgstr "Ֆայլի չափ"
+
+msgid "common.fileName"
+msgstr "Ֆայլի անվանում"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file"
+msgstr "Ֆայլ"
+
+msgid "common.fullscreenOff"
+msgstr "Անջատել ամբողջական էկրանը"
+
+msgid "common.fullscreen"
+msgstr "Ամբողջ էկրան"
+
+msgid "common.finish"
+msgstr "Ավարտել"
+
+msgid "common.export"
+msgstr "Արտահանել"
+
+msgid "common.event"
+msgstr "Միջոցառում"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Տեղի է ունեցել անհայտ տվյալների բազայի կապի խնդիր:"
+
+msgid "common.error.databaseError"
+msgstr "Տվյալների բազայի հետ կապված խնդիր է տեղի ունեցել:"
+
+msgid "common.enabled"
+msgstr "Միացված է"
+
+msgid "common.enable"
+msgstr "Միացնել"
+
+msgid "common.edit"
+msgstr "Խմբագրել"
+
+msgid "common.downloadPdf"
+msgstr "Ներբեռնել PDF"
+
+msgid "common.download"
+msgstr "Ներբեռնել"
+
+msgid "common.done"
+msgstr "Կատարված է"
+
+msgid "common.disabled"
+msgstr "Անջատված է"
+
+msgid "common.disable"
+msgstr "Անջատել"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pixels"
+
+msgid "common.description"
+msgstr "Նկարագրություն"
+
+msgid "common.designation"
+msgstr "Նշանակում"
+
+msgid "common.deleteSelection"
+msgstr "Ջնջել բաժինը"
+
+msgid "common.deleting"
+msgstr "Ջնջվում է"
+
+msgid "common.delete"
+msgstr "Ջնջել"
+
+msgid "common.declined"
+msgstr "Չեղարկված է"
+
+msgid "common.default"
+msgstr "Լռելյայն"
+
+msgid "common.deactivate"
+msgstr "Ապաակտիվացնել"
+
+msgid "common.day"
+msgstr "Օր"
+
+msgid "common.dateHijri"
+msgstr "Hijri օրացույց"
+
+msgid "common.dateUploaded"
+msgstr "Ներբեռնման ամսաթիվ"
+
+msgid "common.dateSubmitted"
+msgstr "Դիմելու ամսաթիվ"
+
+msgid "common.dateRequested"
+msgstr "Պահանջվում է ամսաթիվ"
+
+msgid "common.dateModified"
+msgstr "Ամսաթիվը փոփոխված է"
+
+msgid "common.date"
+msgstr "Ամսաթիվ"
+
+msgid "common.dateDecided"
+msgstr "Օրը որոշված է"
+
+msgid "common.create"
+msgstr "Ստեղծել"
+
+msgid "common.country"
+msgstr "Երկիր"
+
+msgid "common.copy"
+msgstr "Պատճեն"
+
+msgid "common.continue"
+msgstr "Շարունակել"
+
+msgid "common.contents"
+msgstr "Բովանդակություններ"
+
+msgid "common.content"
+msgstr "Բովանդակություն"
+
+msgid "common.confirmed.date"
+msgstr "Հաստատված է՝  {$dateConfirmed}"
+
+msgid "common.confirm"
+msgstr "Հաստատել"
+
+msgid "common.completed.date"
+msgstr "{$dateCompleted} - կատարված է:"
+
+msgid "common.completed"
+msgstr "Կատարված է"
+
+msgid "common.complete"
+msgstr "Կատարել"
+
+msgid "common.closeWindow"
+msgstr "Փակել պատուհանը"
+
+msgid "common.closePanel"
+msgstr "Փակել վահանը"
+
+msgid "common.close"
+msgstr "Փակել"
+
+msgid "common.chooseOne"
+msgstr "Ընտրեք մեկը"
+
+msgid "common.changesSaved"
+msgstr "Ձեր կողմից կատարված փոփոխությունները պահպանված են:"
+
+msgid "common.captchaField"
+msgstr "Վավերականություն"
+
+msgid "common.captchaField.description"
+msgstr "Մուտքագրեք վերևի նկարում հայտնված տառերը:"
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr ""
+"Դուք չեք հաղթահարել վավերացման ստուգումը սպամ հայտերի ներկայացումը կանխելու "
+"համար:"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"Դուք պետք է ավարտեք վավերացման ստուգումը, որն օգտագործվել է սպամ հայտերի "
+"ներկայացումը կանխելու համար:"
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr ""
+"Այս կայքի captcha վավերացումը ճիշտ չէ կարգավորված: Գաղտնի բանալին վավեր չէ:"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr ""
+"Այս կայքի captcha վավերացումը ճիշտ չէ կարգավորված: Գաղտնի բանալին բացակայում "
+"է:"
+
+msgid "common.notice"
+msgstr "Նկատել"
+
+msgid "common.error"
+msgstr "Սխալ"
+
+msgid "common.warning"
+msgstr "Զգուշացում"
+
+msgid "common.cancelled"
+msgstr "Չեղարկված"
+
+msgid "common.and"
+msgstr "և"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Նկարագրեք այս պատկերը այցելուների համար, որոնք կայքը դիտում են միայն "
+"տեքստային դիտարկչում կամ օժանդակ սարքերով: Օրինակ. «Մեր խմբագիրը PKP "
+"համաժողովում ելույթ ունենալիս»:"
+
+msgid "common.altText"
+msgstr "Այլընտրանքային տեքստ"
+
+msgid "common.alreadyAssigned"
+msgstr "Նշանակված"
+
+msgid "common.alphaList"
+msgstr ""
+"Ա Բ Գ Դ Ե Զ Է Ը Թ Ժ Ի Լ Խ Ծ Կ Հ Ձ Ղ Ճ Մ Յ Ն Շ Ո Չ Պ Ջ Ռ Ս Վ Տ Ր Ց ՈՒ Փ Ք և Օ "
+"Ֆ"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-09-18 12:49+0000\n"
+"PO-Revision-Date: 2020-09-19 15:49+0000\n"
 "Last-Translator: anau vpn <anauvpn@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
@@ -408,3 +408,125 @@ msgid "common.alphaList"
 msgstr ""
 "Ա Բ Գ Դ Ե Զ Է Ը Թ Ժ Ի Լ Խ Ծ Կ Հ Ձ Ղ Ճ Մ Յ Ն Շ Ո Չ Պ Ջ Ռ Ս Վ Տ Ր Ց ՈՒ Փ Ք և Օ "
 "Ֆ"
+
+msgid "common.other"
+msgstr "այլ"
+
+msgid "common.or"
+msgstr "կամ"
+
+msgid "common.originalFileName"
+msgstr "Ֆայլի օրիգինալ անուն"
+
+msgid "common.order"
+msgstr "Հրաման"
+
+msgid "common.options"
+msgstr "Տարբերակներ"
+
+msgid "common.ok"
+msgstr "Լավ"
+
+msgid "common.noMatches"
+msgstr "Համընկնումներ չկան"
+
+msgid "common.notified.date"
+msgstr "Տեղեկացված: {$dateNotified}"
+
+msgid "common.notified"
+msgstr "Տեղեկացված"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Նշում (դեղին: կա նոր նշում; կապույտ: կան դիտված նշումներ; մոխրագույն: չկան "
+"նշումներ)"
+
+msgid "common.notes"
+msgstr "Նշումներ"
+
+msgid "common.noTemporaryFile"
+msgstr "Ձեր ներբեռնած ֆայլը չի գտնվել: Խնդրում ենք փորձել ներբեռնել կրկին:"
+
+msgid "common.note"
+msgstr "Նշում"
+
+msgid "common.notAvailable"
+msgstr "Հասանելի չէ"
+
+msgid "common.notApplicableShort"
+msgstr "Ոչ կիրառ."
+
+msgid "common.notApplicable"
+msgstr "Ոչ կիրառելի"
+
+msgid "common.noComments"
+msgstr "Մեկնաբանություն չկա"
+
+msgid "common.noItemsFound"
+msgstr "Ոչինչ չի գտնվել"
+
+msgid "common.no"
+msgstr "Ոչ"
+
+msgid "common.none"
+msgstr "Չկա"
+
+msgid "common.noneAssigned"
+msgstr "Նշանակված չէ"
+
+msgid "common.moreThanOnly"
+msgstr "Ավելի քան"
+
+msgid "common.moreThan"
+msgstr "{$value} կամ ավել"
+
+msgid "common.more"
+msgstr "Ավել"
+
+msgid "common.month"
+msgstr "Ամիս"
+
+msgid "common.modify"
+msgstr "Ձևափոխել"
+
+msgid "common.minute"
+msgstr "Րոպե(ներ)"
+
+msgid "common.billingAddress"
+msgstr "Վճարման հասցեն (եթե տարբերվում է)"
+
+msgid "common.mailingAddress"
+msgstr "Էլ. փոստի հասցե"
+
+msgid "common.manage"
+msgstr "Կառավարել"
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.lessThanOnly"
+msgstr "Պակաս քան"
+
+msgid "common.lessThan"
+msgstr "{$value} կամ պակաս"
+
+msgid "common.less"
+msgstr "Պակաս"
+
+msgid "common.lastActivity"
+msgstr "Վերջին գրանցված գործողության պահ՝  {$date}."
+
+msgid "common.languages"
+msgstr "Լեզուներ"
+
+msgid "common.language"
+msgstr "Լեզու"
+
+msgid "common.keywords"
+msgstr "Բանալի բառեր"
+
+msgid "common.itemsPerPage"
+msgstr "Քանակը յուրաքանչյուր էջում"

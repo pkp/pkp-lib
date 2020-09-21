@@ -32,6 +32,9 @@ class SearchHelperParser extends SearchFileParser {
 		if (isset($prog)) {
 			$exec = sprintf($prog, escapeshellarg($this->getFilePath()));
 			$this->fp = @popen($exec, 'r');
+			$this->type = 'text/plain';
+			$this->setFilePath(substr($this->filePath, 0, strrpos($this->filePath, ".")).".txt");
+			$this->fp = @fopen($this->filePath, 'rb');
 			return $this->fp ? true : false;
 		}
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-09-19 15:49+0000\n"
+"PO-Revision-Date: 2020-09-22 15:20+0000\n"
 "Last-Translator: anau vpn <anauvpn@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
@@ -530,3 +530,254 @@ msgstr "Բանալի բառեր"
 
 msgid "common.itemsPerPage"
 msgstr "Քանակը յուրաքանչյուր էջում"
+
+msgid "common.upload.restore"
+msgstr "Վերականգնել բնօրինակը"
+
+msgid "common.upload.addFile"
+msgstr "Ներբեռնել ֆայլը"
+
+msgid "common.uploadFailed"
+msgstr "Ֆայլը չի կարող ներբեռնվել կամ խմբագրվել:"
+
+msgid "common.upload"
+msgstr "Ներբեռնել"
+
+msgid "common.uploadedDate"
+msgstr "Ներբեռնման ամսաթիվ"
+
+msgid "common.updated"
+msgstr "Թարմացված"
+
+msgid "common.untitled"
+msgstr "Չվերնագրված"
+
+msgid "common.unread"
+msgstr "Չկարդացված"
+
+msgid "common.uninitiated"
+msgstr "Անտեղյակ"
+
+msgid "common.component"
+msgstr "Բաղադրիչ"
+
+msgid "common.type"
+msgstr "Տիպ"
+
+msgid "common.true"
+msgstr "Ճիշտ"
+
+msgid "common.toWithValue"
+msgstr "To: {$value}"
+
+msgid "common.top"
+msgstr "Գագաթ"
+
+msgid "common.title"
+msgstr "Վերնագիր"
+
+msgid "common.suggest"
+msgstr "Խորհուրդ տալ"
+
+msgid "common.subtitle"
+msgstr "Ենթագիր"
+
+msgid "common.submenu"
+msgstr "Սաբմենյու"
+
+msgid "common.subjects"
+msgstr "Թեմաներ"
+
+msgid "common.subject"
+msgstr "Թեմա"
+
+msgid "common.status"
+msgstr "Կարգավիճակ"
+
+msgid "common.source"
+msgstr "Աղբյուր"
+
+msgid "common.size"
+msgstr "Չափ"
+
+msgid "common.sendEmail"
+msgstr "Ուղարկել նամակ"
+
+msgid "common.select"
+msgstr "Ընտրել"
+
+msgid "common.selectNone"
+msgstr "Ոչ մեկը չընտրել"
+
+msgid "common.selectedPrefix"
+msgstr "Ընտրված է"
+
+msgid "common.selectAll"
+msgstr "Ընտրել բոլորը"
+
+msgid "common.second"
+msgstr "Վայրկյան(ներ)"
+
+msgid "common.clearSearch"
+msgstr "Հեռացնել որոնվող արտահայտությունը"
+
+msgid "common.searchQuery"
+msgstr "Որոնման հարցում"
+
+msgid "common.search"
+msgstr "Որոնել"
+
+msgid "common.saving"
+msgstr "Պահպանվում է"
+
+msgid "common.save"
+msgstr "Պահպանել"
+
+msgid "common.saveAndEmail"
+msgstr "Պահպանել և հաղորդագրություն ուղարկել"
+
+msgid "common.saveAndContinue"
+msgstr "Պահպանել և շարունակել"
+
+msgid "common.reset"
+msgstr "Վերատեղադրել"
+
+msgid "common.required"
+msgstr "Պահանջված"
+
+msgid "common.requiredField"
+msgstr "* Պահանջվող դաշտ"
+
+msgid "common.replaceFile"
+msgstr "Տեղափոխել ֆայլը"
+
+msgid "common.replaced"
+msgstr "Տեղափոխված"
+
+msgid "common.removeSelection"
+msgstr "Հեռացնել ընտրությունը"
+
+msgid "common.removeItem"
+msgstr "Հեռացնել {$item}ը"
+
+msgid "common.remove"
+msgstr "Հեռացնել"
+
+msgid "common.remoteURL"
+msgstr "Հեռավար URL"
+
+msgid "common.remote"
+msgstr "Հեռավար"
+
+msgid "common.reminded.date"
+msgstr "Հիշեցում: {$dateReminded}"
+
+msgid "common.reminder"
+msgstr "Հիշեցնող"
+
+msgid "common.related"
+msgstr "Կապ ունեցող"
+
+msgid "common.refresh"
+msgstr "Թարմացնել"
+
+msgid "common.record"
+msgstr "Ձայնագրություն"
+
+msgid "common.readMoreWithTitle"
+msgstr "Կարդալ ավելին {$title}ի մասին"
+
+msgid "common.readMore"
+msgstr "Կարդալ ավելին"
+
+msgid "common.re"
+msgstr "Հտն:"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.queue.long.active"
+msgstr "Ամբողջապես ակտիվ"
+
+msgid "common.quality"
+msgstr "Որակ"
+
+msgid "common.publisher"
+msgstr "Թողարկիչ"
+
+msgid "common.preview"
+msgstr "Նախադիտում"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Օրինակ՝ A, The"
+
+msgid "common.prefix"
+msgstr "Նախածանց"
+
+msgid "common.pluginDisabled"
+msgstr "\"{$pluginName}\" պլագինը անջատված է:"
+
+msgid "common.pluginEnabled"
+msgstr "\"{$pluginName}\"  պլագնիը միացված է:"
+
+msgid "common.plugin"
+msgstr "Պլագին"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.pageNumber"
+msgstr "Էջ համար {$pageNumber}"
+
+msgid "common.pagination.previous"
+msgstr "Նախորդ էջ"
+
+msgid "common.pagination.next"
+msgstr "Հաջորդ էջ"
+
+msgid "common.pagination.goToPage"
+msgstr "Գնալ {$page} էջ"
+
+msgid "common.pagination.label"
+msgstr "Տեսնել լրացուցիչ էջեր"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} of {$total}"
+
+msgid "common.override"
+msgstr "Չեղարկել"
+
+msgid "common.overdue"
+msgstr "Ժամկետնանց"
+
+msgid "common.orderDown"
+msgstr "{$itemTitle}ը իջեցնել"
+
+msgid "common.orderUp"
+msgstr "{$itemTitle}ի տեղը բարձրացնել"
+
+msgid "common.go"
+msgstr "Գնացինք"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"Համակարգի ֆայլերի վերբեռնիչը բեռնում է: Եթե այն չհայտնվի, հավանական է, որ իր "
+"աշխատաժամանակներից ոչ մեկը խորհուրդ չի տրվում: Աջակցության համար դիմեք "
+"ադմինիստրայիա:"
+
+msgid "common.false"
+msgstr "Սխալ"
+
+msgid "common.error.framesRequired"
+msgstr ""
+"Այս էջը պահանջում է շրջանակ: <a href=\"{$url}\">Սեղմեք այստեղ </a> առանց "
+"շրջանակ օգտագործելու համար:"
+
+msgid "common.discipline"
+msgstr "Կարգ"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+
+msgid "common.dateCompleted"
+msgstr "ժամկետը լրացել է"

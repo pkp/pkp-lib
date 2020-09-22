@@ -354,7 +354,13 @@ class DAO {
 				break;
 			case 'object':
 			case 'array':
-				$value = unserialize($value);
+				$decodedValue = json_decode($value, true);
+				// FIXME: pkp/pkp-lib#6250 Remove after 3.3.x upgrade code is removed (see also pkp/pkp-lib#5772)
+				if (!is_null($decodedValue)) {
+					$value = $decodedValue;
+				} else {
+					$value = unserialize($value);
+				}
 				break;
 			case 'date':
 				if ($value !== null) $value = strtotime($value);
@@ -406,7 +412,7 @@ class DAO {
 		switch ($type) {
 			case 'object':
 			case 'array':
-				$value = serialize($value);
+				$value = json_encode($value, JSON_UNESCAPED_UNICODE);
 				break;
 			case 'bool':
 			case 'boolean':

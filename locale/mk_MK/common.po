@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-14 13:48+0000\n"
+"PO-Revision-Date: 2020-09-06 10:49+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk_MK/>\n"
@@ -1123,3 +1123,111 @@ msgstr "Прикачување"
 
 msgid "common.uploadedDate"
 msgstr "Датум на прикачување"
+
+msgid "informationCenter.noNotes"
+msgstr "Нема белешки за приказ."
+
+msgid "informationCenter.addNote"
+msgstr "Додади белешка"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Историја на уредувања"
+
+msgid "informationCenter.informationCenter"
+msgstr "Центар за информации"
+
+msgid "icon.view.alt"
+msgstr "Преглед"
+
+msgid "icon.unchecked.alt"
+msgstr "Одчекирано"
+
+msgid "icon.mail.alt"
+msgstr "Пошта"
+
+msgid "icon.letter.alt"
+msgstr "Писмо"
+
+msgid "icon.info.alt"
+msgstr "Информации"
+
+msgid "icon.font_small.alt"
+msgstr "Мало"
+
+msgid "icon.font_medium.alt"
+msgstr "Средно"
+
+msgid "icon.font_large.alt"
+msgstr "Големо"
+
+msgid "icon.folder.alt"
+msgstr "Фолдер"
+
+msgid "icon.edit.alt"
+msgstr "Уреди"
+
+msgid "icon.delete.alt"
+msgstr "Избриши"
+
+msgid "icon.comment.alt"
+msgstr "Коментар"
+
+msgid "icon.checked.alt"
+msgstr "Проверено"
+
+msgid "help.upALevel"
+msgstr "Едно ниво погоре"
+
+msgid "help.next"
+msgstr "Следно"
+
+msgid "help.previous"
+msgstr "Претходно"
+
+msgid "help.toc"
+msgstr "Содржина"
+
+msgid "help.help"
+msgstr "Помош"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} јазици завршени"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} во {$localeName}"
+
+msgid "form.invalidImage"
+msgstr ""
+"Поставена е невалидна слика. Прифатените формати се .png, .gif или .jpg."
+
+msgid "form.submit"
+msgstr "Поднеси"
+
+msgid "form.send"
+msgstr "Испрати"
+
+msgid "form.saveToUpload"
+msgstr "Користете Зачувај за да испратите датотека."
+
+msgid "form.resubmit"
+msgstr "Повторно испрати"
+
+msgid "form.requireId"
+msgstr "Мора да наведете важечки ID."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Ова поле мора да го пополните на {$language}."
+
+msgid "form.required"
+msgstr "(* Задолжително)"
+
+msgid "form.fileRequired"
+msgstr "Потребно е поставување датотека."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Формуларот не може да се достави. Можеби сте биле одјавени. Повторно "
+"вчитајте ја страницата и обидете се повторно."
+
+msgid "form.postRequired"
+msgstr "Образецот не е доставен како што треба."

@@ -1,0 +1,420 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-09-17 10:49+0000\n"
+"Last-Translator: anau vpn <anauvpn@gmail.com>\n"
+"Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
+"hy_AM/>\n"
+"Language: hy_AM\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "editor.submissionLibrary"
+msgstr "Գրադարան"
+
+msgid "editor.activityLog"
+msgstr "Ակտիվության տվյալներ"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Կցել գրախոսող"
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Ուղարկել գրախոսման նոր փուլի:"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Ֆայլի պատճենահանում"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Պլանավորել թողարկման համար"
+
+msgid "editor.review.unconsiderReview"
+msgstr "Հաշվի չառնել այս գրախոսականը"
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Գրախոսողին ջնջելու հետ կապված սխալ կա: Փորձեք կրկին:"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Գրախոսողին ավելացնելու հետ կապված սխալ կա: Խնդրում եք փորձել կրկին:"
+
+msgid "editor.review.mustSelect"
+msgstr "Դուք պետք է ընտրեք գրախոսողին"
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Գնահատում չկա"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Գնահատել տրամադրված գրախոսությունը: Այս գնահատականը հասանելի չի լինի "
+"գրախոսողին:"
+
+msgid "editor.review.rateReviewer"
+msgstr "Գրախոսողի վարկանիշ"
+
+msgid "editor.review.reviewerComments"
+msgstr "Գրախոսության մեկնաբանություններ"
+
+msgid "editor.review.reviewerThanked"
+msgstr "Գրախոսողին երախտագիտություն է ուղարկվել"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Գրախոսությունը ներկայացված է"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Գրախոսությունը հաստատված է"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Գրախոսությունը կատարված է"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Գրախոսման վերջնաժամկետ"
+
+msgid "editor.review.reviewDue"
+msgstr "Գրախոսություն ըստ  {$date}"
+
+msgid "editor.review.revertDecision"
+msgstr "Վերադարձնել որոշումը"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Խմբագիրը չեղարկեց այս գրախոսության հարցումը:"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Գրախոսողը մերժեց այս գրախոսման հարցումը:"
+
+msgid "editor.review.requestCancelled"
+msgstr "Հարցումը չեղարկված է"
+
+msgid "editor.review.requestDeclined"
+msgstr "Հարցումը մերշված է"
+
+msgid "editor.review.requestAccepted"
+msgstr "Հարցումն ընդունված է"
+
+msgid "editor.review.requestSent"
+msgstr "Հարցումն ուղարկված է"
+
+msgid "editor.review.responseDue"
+msgstr "Պատասխան ըստ: {$date}"
+
+msgid "editor.review.readNewReview"
+msgstr "Ուղարկել նոր գրախոսություն"
+
+msgid "editor.review.readReview"
+msgstr "Կարդալ գրախոսությունը"
+
+msgid "editor.review.sendReminder"
+msgstr "Ուղարկել հիշեցում"
+
+msgid "editor.review.skipEmail"
+msgstr "Գրախոսողին նամակ չուղարկել:"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Գրախոսողին շնորհակալության ուղարկման սխալ"
+
+msgid "editor.review.reminderError"
+msgstr "Գրախոսության հիշեցման ուղարկման հետ կապված սխալ"
+
+msgid "editor.review.thankReviewer"
+msgstr "Շնորհակալություն հայտնել գրախոսողին"
+
+msgid "editor.review.reminder"
+msgstr "Գրախոսության հիշեցում"
+
+msgid "editor.review.noReviews"
+msgstr "Չկան ակնարկներ ներմուծելու համար"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Գրախոսությունները ավելացվել են նամակին:"
+
+msgid "editor.review.dateAccepted"
+msgstr "Վերանայման ընդունման ամսաթիվը"
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Վերանայումները գրախոսության նոր փուլի առարկա են:"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Վերանայումները նոր փուլի գրախոսության առարկա չեն:"
+
+msgid "editor.review.newReviewRound"
+msgstr "Պահանջել գրախոսության նոր փուլ"
+
+msgid "editor.review.uploadRevision"
+msgstr "Ներբեռնել վերանայումները"
+
+msgid "editor.review.importantDates"
+msgstr "Կարևոր ամսաթիվ"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Նամակ, որը պետք է ուղարկվի գրախոսության:"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Անանուն գրախոսող"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Խմբագրել գրախոսականը"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Փակել ֆայլի բաժինը"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Գրախոսման ենթակա ֆայլեր"
+
+msgid "editor.submissionReview.open"
+msgstr "Բացել"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "էլ. փոստով ծանուցում չուղարկել:"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Ուղարկել ծանուցում  էլ. փոստով խմբագրին(ներին): {$editorNames}"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "էլ. փոստով ծանուցում ուղարկել հեղինակին՝ {$authorName}:"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Գրախոսության տեսակ"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Վերականգնել գրախոսողին"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Չեղարկել գրախոսին"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Չնշանակված գրախոսող"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Ավելացնել գոյություն ունեցող օգտագործող"
+
+msgid "editor.review.createReviewer"
+msgstr "Ստեղծել նոր գրախոսող"
+
+msgid "editor.submission.backToSearch"
+msgstr "Վերադառնալ որոնմանը"
+
+msgid "editor.submission.addReviewer"
+msgstr "Ավելացնել գրախոսող"
+
+msgid "editor.submission.revisions"
+msgstr "Վերանայում"
+
+msgid "editor.submission.selectFiles"
+msgstr "Ընտրել ֆայլ"
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Ներբեռնել/Ընտրել ֆայլ"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Դուք պետք է ընտրեք օգտագործող նշանակելու համար:"
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Աուդիտորին չուղարկել նամակ:"
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Դուք պետք է ներառեք նաև անձնական նամակ:"
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Դուք պետք է ընտրեք առնվազն մեկ ֆայլ օգտագործող նշանակելու համար:"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Ընտրել ստորև նշված ֆայլերը գրախոսման ուղարկելու համար:"
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Նամակ օգտագործողին"
+
+msgid "editor.review.notInitiated"
+msgstr "Գրախոսման գործընթացը դեռ բացված չէ:"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Փոխել որոշումը"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Հոդվածն ընդունված է գրախոսման:"
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Ուղարկել  թողարկման"
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Հոդվածը հրապարակված է:"
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Հայտն ընդունված է"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Հայտը մերժված է"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Որոշումը գրանցված է"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Երեկ"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} օր առաջ"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Գրախոսման վարկանիշ՝  {$rating}"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Գրախոսման հարցումները չեղարկված են"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Գրախոսման հարցումը մերժված է"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Գրախոսությունները կատարված են"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Այս պահին նշված ակտիվ գրախոսողներ"
+
+msgid "reviewer.list.activeReviews"
+msgstr "Ակտիվ {$count}"
+
+msgid "reviewer.list.filterRating"
+msgstr "Գնահատված՝ նվազագույն"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count}ից {$total} գրախոսողներ"
+
+msgid "reviewer.list.count"
+msgstr "{$count} գրախոսող"
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "{$ Pattern} օրինակը չի թույլատրվում հանրային նույնացուցիչի համար:"
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Հանրային ցուցիչը՝ '{$publicIdentifier}' չպետք է լինի թիվ:"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Չեղարկել հաստատումը"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Հաստատել"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Ընտրված խմբագիր"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Ֆայլերը կարող են կցվել այս որոշման մեջ վերանայում կատարելու համար:"
+
+msgid "grid.action.editQuery"
+msgstr "Խմբագրել որոշումը"
+
+msgid "submission.queries.attachedFiles"
+msgstr "Կից ֆայլեր"
+
+msgid "submission.queries.messageRequired"
+msgstr "Պահանջվում է լրացնել քննարկման նյութը:"
+
+msgid "submission.queries.subjectRequired"
+msgstr "Որոշման թեման անհրաժեշտ է:"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Դուք չեք ընտրել որևէ ֆայլ գրախոսության համար:"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Ֆայլեր չեն ընտրվել"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Զգուշացում: Գրախոսության ձևաչափի փոփոխությունը կազդի գրախոսողների "
+"պատասխանների վրա, որոնք օգտագործել են այս ձևը: Դուք վաստա՞հ եք, որ ցանկանում "
+"եք շարունակել:"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Ընտրել գրախոսության ձևաչափ"
+
+msgid "editor.article.reviewForms"
+msgstr "Գրախոսության ձև"
+
+msgid "editor.submission.createNewRound"
+msgstr "Ստեղծել գրախոսության նոր փուլ:"
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Դուք պատրաստվում եք ստեղծել նոր գրախոսական փուլ հայտի համար: Չօգտագործված "
+"ֆայլերը ցուցակագրված են ներքևում այլ գրախոսական փուլի համար:"
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Չստեղծել խմնագրական որոշում:"
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Ստեղծել գրախոսական որոշում խորհրդատվության մասին:"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Խմբագիրներին նամակ չուղարկել"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Տեղեկացնել խմբագիրներին"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Գրանցել խմբագրական խորհրդատվությունը"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Գրանցել խմբագրական որոշումը"
+
+msgid "editor.submission.newRound"
+msgstr "Խմբագրման նոր փուլ"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Թողարկման համար պատրաստ ֆայլեր"
+
+msgid "editor.review.emailReviewer"
+msgstr "Էլեկտրոնային փոստի վերանայող"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Դուք չեք ներբեռնել որևէ գրախոսման ֆայլ:"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Ներբեռնման ֆայլ չկա"
+
+msgid "editor.review.reviewDetails"
+msgstr "Գրապոսման մանրամասներ"
+
+msgid "editor.review"
+msgstr "Գրախոսական"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"Յուրաքանչյուր ֆայլ, որն արդեն ներբեռնվել է ներկայացման համար կարող է "
+"ավելացվել պատճենված ֆայլերի ցանկին՝ նշելով ներքևում ներառված վանդակը և "
+"սեղմելվ Որոնում . բոլոր հասանելի ֆայլերը կցուցակագրվեն և կընտրվեն հավելվածի "
+"համար: Դեռ չներբեռնված լրացուցիչ ֆայլերը կարող են ավելացվել ցուցակում՝ "
+"սեղմելով Ներբեռնել ֆայլ հղումը:"
+
+msgid "editor.submission.addAuditor"
+msgstr "Նշանակել աուդիտոր"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"Եթե չհաստատեք ֆայլի պատճենահանումը հնարավոր չի լինի դա ուղարկել թողարկման: "
+"Դուք ցանկանու՞մ  եք  մերժել ֆայլը:"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"Պատճենված ֆայլը պետք է հաստատվի նախքան թողարկման փուլը: Դուք ցանկանու՞մ եք "
+"հաստատել ֆայլը:"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Ապացույցի հիշեցում"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"Ցանկանու՞մ եք այս գրախոսությունը հաշվի չառնել: Գրախոսության պատմությունը "
+"կներկայացվի:"
+
+msgid "editor.review.userGroupSelect"
+msgstr "Ավելացնել օգտագործող այս գրախոսողների խմբին:"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Գրախոսողին վերականգնելու հետ կապված սխալ կա: Խնդրում ենք փորձել կրկին:"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "{$round} փուլի գրախոսման  ընթացիկ ֆայլեր"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Ցուցադրել ֆայլերը բոլոր  հասանելի աշխատանքի փուլերից:"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Տեղադրել օգտագործող"

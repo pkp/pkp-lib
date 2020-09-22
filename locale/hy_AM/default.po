@@ -1,0 +1,126 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-09-18 12:49+0000\n"
+"Last-Translator: anau vpn <anauvpn@gmail.com>\n"
+"Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"default/hy_AM/>\n"
+"Language: hy_AM\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Թողարկման խմբագիր"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Կայքի ադմիններ"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Կայքի ադմին"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "Թողարկ. խմբ."
+
+msgid "default.groups.name.proofreader"
+msgstr "Սրբագրիչ"
+
+msgid "default.genres.image"
+msgstr "Պատկեր"
+
+msgid "default.genres.multimedia"
+msgstr "Մուլտիմեդիա"
+
+msgid "default.genres.other"
+msgstr "Այլ"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Կարդալ"
+
+msgid "default.groups.plural.reader"
+msgstr "Ընթերցողներ"
+
+msgid "default.groups.name.reader"
+msgstr "Ընթերցող"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Թարգ."
+
+msgid "default.groups.plural.translator"
+msgstr "Թարգմանիչներ"
+
+msgid "default.groups.name.translator"
+msgstr "Թարգմանիչ"
+
+msgid "default.groups.abbrev.author"
+msgstr "Հեղ."
+
+msgid "default.groups.plural.author"
+msgstr "Հեղինակներ"
+
+msgid "default.groups.name.author"
+msgstr "Հեղինակ"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "Դասավ.խմբ."
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Դասավորության խմբագիրներ"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Դասավորության խմբագիր"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "Ինդ."
+
+msgid "default.groups.plural.indexer"
+msgstr "Ինդեքսավորողներ"
+
+msgid "default.groups.name.indexer"
+msgstr "Ինդեքսավորող"
+
+msgid "default.groups.abbrev.funding"
+msgstr "Ֆին. համակարգող"
+
+msgid "default.groups.plural.funding"
+msgstr "Ֆինանսավորման համակարգողներ"
+
+msgid "default.groups.name.funding"
+msgstr "Ֆինանսավորման համակարգող"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "Մարքեթինգ"
+
+msgid "default.groups.plural.marketing"
+msgstr "Մարքեթինգի և վաճառքների համակարգողներ"
+
+msgid "default.groups.name.marketing"
+msgstr "Մարքեթինգի և վաճառքների համակարգող"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "Ն.Գ."
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Ներքին գրախոսողներ"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Ներքին գրախոսող"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Դիզայն"
+
+msgid "default.groups.plural.designer"
+msgstr "Դիզայներներ"
+
+msgid "default.groups.name.designer"
+msgstr "Դիզայներ"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "Սրբագ."
+
+msgid "default.groups.plural.proofreader"
+msgstr "Սրբագրիչներ"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Թողարկման խմբագիրներ"

@@ -58,7 +58,8 @@ class FileNameGridColumn extends GridColumn {
 		$submissionFileData = $row->getData();
 		$submissionFile = $submissionFileData['submissionFile'];
 		assert(is_a($submissionFile, 'SubmissionFile'));
-		$id = $submissionFile->getFileId() . '-' . $submissionFile->getRevision();
+		$timestamp = date('Y-m-d', strtotime($submissionFile->getDateUploaded()));
+		$id = $timestamp . '&ensp;' . $submissionFile->getFileId() . '-' . $submissionFile->getRevision();
 		$fileExtension = strtolower($submissionFile->getExtension());
 		return array('label' => '<span class="file_extension ' . $fileExtension . '">' . $id . '</span>');
 	}

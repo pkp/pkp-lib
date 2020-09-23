@@ -1670,6 +1670,12 @@ msgstr "A reviewer has commented on \"{$title}\"."
 msgid "notification.signedFile"
 msgstr "File considered."
 
+msgid "user.email"
+msgstr "Email address"
+
+msgid "user.userCredentials"
+msgstr "Username and Password credentials"
+
 msgid "user.authorization.submissionFile"
 msgstr "The current user is not authorized to access the specified submission file."
 
@@ -1687,6 +1693,9 @@ msgstr "You do not currently have sufficient privileges to view the submission. 
 
 msgid "user.authorization.submissionAuthor"
 msgstr "The current user is not the author of the requested submission. Please verify that you are logged in with the correct user account."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Privacy Options"
 
 msgid "notification.type.queryActivity"
 msgstr "Discussion activity."

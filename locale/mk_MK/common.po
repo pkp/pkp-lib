@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-09-06 10:49+0000\n"
+"PO-Revision-Date: 2020-09-25 17:49+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk_MK/>\n"
@@ -1231,3 +1231,264 @@ msgstr ""
 
 msgid "form.postRequired"
 msgstr "Образецот не е доставен како што треба."
+
+msgid "notification.removedFile"
+msgstr "Фајлот е избриушан."
+
+msgid "notification.removedNote"
+msgstr "Белешката е избришана."
+
+msgid "notification.addedNote"
+msgstr "Белешката е пратена."
+
+msgid "notification.noneExist"
+msgstr "Во моментов немате известувања."
+
+msgid "notification.email"
+msgstr "Не ми праќај е-пошта за овие типови на известувања."
+
+msgid "notification.confirmSuccess"
+msgstr "Вие сте успешно претплатени."
+
+msgid "notification.confirmError"
+msgstr "Настана грешка при потврдување на вашата претплата."
+
+msgid "notification.editedAuthor"
+msgstr "Авторот е уреден."
+
+msgid "notification.addedAuthor"
+msgstr "Авторот е додаден."
+
+msgid "notification.removedAnnouncement"
+msgstr "Објавата е отстранета."
+
+msgid "notification.editedAnnouncement"
+msgstr "Известувањето е изменето."
+
+msgid "notification.addedAnnouncement"
+msgstr "Објавата е додадена."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Видот на објавата е отстранет."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Типот на објавата е изменет."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Видот на објавата е додаден."
+
+msgid "notification.allow"
+msgstr "Овозможете ги овие типови на известувања."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Рецензиите се аплодирани."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Ви благодариме на е-пошта испратена до рецензентот."
+
+msgid "notification.reviewAcknowledged"
+msgstr "Прегледот е обележан како примен. Е-поштата не е испратена."
+
+msgid "notification.addedQuery"
+msgstr "Додадена дискусија"
+
+msgid "notification.addedAuditor"
+msgstr "Додаден ревизор."
+
+msgid "navigation.viewFrontend"
+msgstr "Погледни ја страницата"
+
+msgid "navigation.userManagement"
+msgstr "Управување со корисници"
+
+msgid "navigation.user"
+msgstr "Корисник"
+
+msgid "navigation.userHome"
+msgstr "Дома корисник"
+
+msgid "navigation.system"
+msgstr "Систем"
+
+msgid "navigation.submissions"
+msgstr "Поднесување"
+
+msgid "navigation.stepNumber"
+msgstr "Чекор {$step}"
+
+msgid "navigation.skip.footer"
+msgstr "Прескокнете до подножјето на страницата"
+
+msgid "navigation.skip.nav"
+msgstr "Прескокнете на главното мени за навигација"
+
+msgid "navigation.skip.main"
+msgstr "Прескокни до главната содржина"
+
+msgid "navigation.skip.announcements"
+msgstr "Прескокнете до објавите"
+
+msgid "navigation.skip.description"
+msgstr "Скокни до врските со содржина"
+
+msgid "navigation.sitemap"
+msgstr "Мапа на страницата"
+
+msgid "navigation.setup"
+msgstr "Поставување"
+
+msgid "navigation.settings"
+msgstr "Уредувања"
+
+msgid "navigation.search"
+msgstr "Барај"
+
+msgid "navigation.register"
+msgstr "Регистер"
+
+msgid "navigation.publicMenu"
+msgstr "Јавно мени"
+
+msgid "navigation.previousStep"
+msgstr "Претходен чекор"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.nextStep"
+msgstr "Следен чекор"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.login"
+msgstr "Логирај се"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} од{$total} ставки"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} од{$total} ставки"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Информации за читателите"
+
+msgid "navigation.infoForReaders"
+msgstr "За читателите"
+
+msgid "navigation.home"
+msgstr "Дома"
+
+msgid "navigation.data"
+msgstr "Податоци"
+
+msgid "navigation.dashboard"
+msgstr "Контролна табла"
+
+msgid "navigation.browseByTitle"
+msgstr "По наслов"
+
+msgid "navigation.browseByAuthor"
+msgstr "По автор"
+
+msgid "navigation.browse"
+msgstr "Преглед"
+
+msgid "navigation.tools.statistics"
+msgstr "Статистики"
+
+msgid "navigation.tools.importExport"
+msgstr "Увези/извези"
+
+msgid "navigation.tools"
+msgstr "Алатки"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Вие сте тука:"
+
+msgid "navigation.archives"
+msgstr "Архиви"
+
+msgid "navigation.admin"
+msgstr "Администрација"
+
+msgid "navigation.about"
+msgstr "За"
+
+msgid "navigation.access"
+msgstr "Корисник  &amp; улоги"
+
+msgid "locale.supported"
+msgstr "Поддржани локалитети"
+
+msgid "locale.primary"
+msgstr "Примарен локалитет"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Не може да се направат промени во овој учесник"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Учесник"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Дозволете ова лице да направи промени во публикацијата, како што се наслов, "
+"апстракт, метаподатоци и други детали за публикацијата. Можеби ќе сакате да "
+"ја одземете оваа привилегија ако поднесокот добил последна проверка и е "
+"подготвен за објавување."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Дозволи"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"На овој учесник му е дозволено да препорача само уредничко решение и ќе "
+"треба овластен уредник да ги запише уредничките одлуки."
+
+msgid "stageParticipants.options"
+msgstr "Привилегии за доделување"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Ве молиме, осигурете се дека сте го пополниле полето за порака и дека сте "
+"вклучиле некој друг освен вас во дискусијата."
+
+msgid "stageParticipants.notify.message"
+msgstr "Порака"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+"Изберете предефинирана порака за употреба или пополнете го образецот подолу."
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Започнете дискусија помеѓу вас и {$userFullName}."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Започни дискусија"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Известувањето е испратено до корисниците."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Известувањето е испратено до корисниците."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Објавена нова белешка."
+
+msgid "informationCenter.history.noItems"
+msgstr "Нема најавени настани."
+
+msgid "informationCenter.pastHistory"
+msgstr "Претходни ревизии"
+
+msgid "informationCenter.currentHistory"
+msgstr "Моментална ревизија"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Дали сте сигурни дека сакате да ја избришете оваа белешка?"
+
+msgid "informationCenter.pastNotes"
+msgstr "Белешки за претходните ревизии"

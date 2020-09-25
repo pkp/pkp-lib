@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @mainpage OJS API Reference
+ * @mainpage OPS API Reference
  *
- * Welcome to the OJS API Reference. This resource contains documentation
- * generated automatically from the OJS source code.
+ * Welcome to the OPS API Reference. This resource contains documentation
+ * generated automatically from the OPS source code.
  *
- * The design of Open %Journal Systems 2.x is heavily structured for
- * maintainability, flexibility and robustness. Those familiar with Sun's
- * Enterprise Java Beans technology or the Model-View-Controller (MVC) pattern
- * will note similarities.
+ * The design of Open %Preprint Systems, which is based on 
+ * Open Journal Systems (OJS), is heavily structured for maintainability, 
+ * flexibility and robustness. Those familiar with Sun's Enterprise Java Beans
+ * technology or the Model-View-Controller (MVC) pattern will note similarities.
  *
  * As in a MVC structure, data storage and representation, user interface
  * presentation, and control are separated into different layers. The major
@@ -42,13 +42,13 @@
  * has a Class name of the form [Something]%DAO, and has a filename of the form
  * [Something]%DAO.inc.php.
  *
- * To learn more about developing OJS, there are several additional resources
+ * To learn more about developing OPS, there are several additional resources
  * that may be useful:
  * - The docs/README.md document
  * - The PKP support forum at https://forum.pkp.sfu.ca/
  * - Documentation available at https://docs.pkp.sfu.ca/dev/
  *
- * @file ojs/index.php
+ * @file ops/index.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
@@ -56,7 +56,7 @@
  *
  * @ingroup index
  *
- * Bootstrap code for OJS site. Loads required files and then calls the
+ * Bootstrap code for OPS site. Loads required files and then calls the
  * dispatcher to delegate to the appropriate request handler.
  */
 

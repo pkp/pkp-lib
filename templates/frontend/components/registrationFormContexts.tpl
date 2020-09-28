@@ -23,7 +23,7 @@
 
 	{* Allow users to register for any journal/press on this site *}
 	<fieldset name="contexts">
-		<legend>
+		<legend class="pkp_screen_reader">
 			{translate key="user.register.contextsPrompt"}
 		</legend>
 		<div class="fields">
@@ -37,7 +37,7 @@
 								{$context->getLocalizedName()}
 							</div class="name">
 							<fieldset class="roles">
-								<legend>
+								<legend class="pkp_screen_reader">
 									{translate key="user.register.otherContextRoles"}
 								</legend>
 								{foreach from=$readerUserGroups[$contextId] item=userGroup}

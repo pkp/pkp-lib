@@ -26,8 +26,8 @@
 			</div>
 		{/if}
 
-		<fieldset class="fields">
-			<legend>{translate key="user.email"}</legend>
+		<div class="fields">
+			<legend class="pkp_screen_reader">{translate key="user.email"}</legend>
 			<div class="email">
 				<label>
 					<span class="label">
@@ -52,7 +52,7 @@
 					</a>
 				{/if}
 			</div>
-		</fieldset>
+		</div>
 
 	</form>
 

@@ -16,7 +16,7 @@
  * @uses $username string Username input entry if available
  *}
 <fieldset class="identity">
-	<legend>
+	<legend class="pkp_screen_reader">
 		{translate key="user.profile"}
 	</legend>
 	<div class="fields">
@@ -71,7 +71,7 @@
 </fieldset>
 
 <fieldset class="login">
-	<legend>
+	<legend class="pkp_screen_reader">
 		{translate key="user.login"}
 	</legend>
 	<div class="fields">

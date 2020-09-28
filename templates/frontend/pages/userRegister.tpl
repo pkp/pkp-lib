@@ -34,7 +34,7 @@
 			<fieldset class="consent">
 				{if $currentContext->getData('privacyStatement')}
 					{* Require the user to agree to the terms of the privacy policy *}
-					<legend>{translate key="user.register.form.privacyConsentLabel"}</legend>
+					<legend class="pkp_screen_reader">{translate key="user.register.form.privacyConsentLabel"}</legend>
 					<div class="fields">
 						<div class="optin optin-privacy">
 							<label>
@@ -67,7 +67,7 @@
 			{if $userCanRegisterReviewer}
 				<fieldset class="reviewer">
 					{if $userCanRegisterReviewer > 1}
-						<legend>
+						<legend class="pkp_screen_reader">
 							{translate key="user.reviewerPrompt"}
 						</legend>
 						{capture assign="checkboxLocaleKey"}user.reviewerPrompt.userGroup{/capture}
@@ -128,7 +128,7 @@
 		   enter their reviewer interests *}
 		{if !$currentContext}
 			<fieldset class="reviewer_nocontext_interests">
-				<legend>
+				<legend class="pkp_screen_reader">
 					{translate key="user.register.noContextReviewerInterests"}
 				</legend>
 				<div class="fields">

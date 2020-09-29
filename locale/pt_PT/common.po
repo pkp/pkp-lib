@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2020-02-06 08:35+0000\n"
-"Last-Translator: Carla Marques <carla.marques@sdum.uminho.pt>\n"
+"PO-Revision-Date: 2020-09-30 13:49+0000\n"
+"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "about.aboutSite"
-msgstr "Sobre o Portal"
+msgstr "Sobre o Site"
 
 msgid "about.contact"
 msgstr "Contacto"
@@ -42,7 +42,7 @@ msgid "about.policies"
 msgstr "Políticas"
 
 msgid "about.siteMap"
-msgstr "Mapa do Portal"
+msgstr "Mapa do Site"
 
 msgid "announcement.announcements"
 msgstr "Notícias"
@@ -66,19 +66,19 @@ msgid "common.copy"
 msgstr "Copiar"
 
 msgid "common.preview"
-msgstr "Visualizar"
+msgstr "Pré-visualizar"
 
 msgid "common.activate"
-msgstr "Activar"
+msgstr "Ativar"
 
 msgid "common.deactivate"
-msgstr "Desactivar"
+msgstr "Desativar"
 
 msgid "common.action"
-msgstr "Acção"
+msgstr "Ação"
 
 msgid "common.active"
-msgstr "Activo"
+msgstr "Ativo"
 
 msgid "common.add"
 msgstr "Adicionar"
@@ -102,7 +102,7 @@ msgid "common.and"
 msgstr "e"
 
 msgid "common.applyAction"
-msgstr "Aplicar Acção"
+msgstr "Aplicar Ação"
 
 msgid "common.assign"
 msgstr "Designar"
@@ -183,13 +183,13 @@ msgid "common.delete"
 msgstr "Eliminar"
 
 msgid "common.deleteSelection"
-msgstr "Eliminar selecção"
+msgstr "Eliminar seleção"
 
 msgid "common.description"
 msgstr "Descrição"
 
 msgid "common.disabled"
-msgstr "Desactivado"
+msgstr "Desativado"
 
 msgid "common.discipline"
 msgstr "Área e sub-área do conhecimento"
@@ -204,7 +204,7 @@ msgid "common.edit"
 msgstr "Editar"
 
 msgid "common.enabled"
-msgstr "Activado"
+msgstr "Ativado"
 
 msgid "common.error.databaseError"
 msgstr "Ocorreu um erro na base de dados: {$error}"
@@ -222,7 +222,7 @@ msgid "common.export"
 msgstr "Exportar"
 
 msgid "common.file"
-msgstr "Documento"
+msgstr "Ficheiro"
 
 msgid "common.fileName"
 msgstr "Nome do ficheiro"
@@ -231,7 +231,7 @@ msgid "common.fileSize"
 msgstr "Tamanho do ficheiro"
 
 msgid "common.fileType"
-msgstr "Tipo do Ficheiro"
+msgstr "Tipo de Ficheiro"
 
 msgid "common.file.namingPattern"
 msgstr "{$username}, {$originalFilename}"
@@ -243,7 +243,7 @@ msgid "common.height"
 msgstr "Altura"
 
 msgid "common.homePageHeaderLogo.altText"
-msgstr "Logótipo do cabeçalho da página inicial"
+msgstr "Logótipo do cabeçalho da página de início"
 
 msgid "common.hour"
 msgstr "Hora"
@@ -306,10 +306,10 @@ msgid "common.notes"
 msgstr "Notas"
 
 msgid "common.off"
-msgstr "Desactivado"
+msgstr "Desativado"
 
 msgid "common.on"
-msgstr "Activado"
+msgstr "Ativado"
 
 msgid "common.options"
 msgstr "Opções"
@@ -318,10 +318,10 @@ msgid "common.order"
 msgstr "Ordem"
 
 msgid "common.orderUp"
-msgstr "Incrementar posição de {$itemTitle}"
+msgstr "Aumentar posição de {$itemTitle}"
 
 msgid "common.orderDown"
-msgstr "Decrementar posição de {$itemTitle}"
+msgstr "Diminuir posição de {$itemTitle}"
 
 msgid "common.originalFileName"
 msgstr "Nome original do ficheiro"
@@ -348,7 +348,7 @@ msgid "common.remove"
 msgstr "Remover"
 
 msgid "common.removeSelection"
-msgstr "Remover/Retirar Selecção"
+msgstr "Remover/Retirar Seleção"
 
 msgid "common.replaced"
 msgstr "Substituído"
@@ -378,13 +378,13 @@ msgid "common.second"
 msgstr "Segundo(s)"
 
 msgid "common.selectAll"
-msgstr "Seleccionar Todos"
+msgstr "Selecionar Todos"
 
 msgid "common.selectNone"
-msgstr "Não seleccionar"
+msgstr "Não selecionar"
 
 msgid "common.select"
-msgstr "Seleccionar"
+msgstr "Selecionar"
 
 msgid "common.size"
 msgstr "Tamanho"
@@ -417,13 +417,13 @@ msgid "common.untitled"
 msgstr "Sem título"
 
 msgid "common.updated"
-msgstr "Actualizado"
+msgstr "Atualizado"
 
 msgid "common.upload"
 msgstr "Transferir"
 
 msgid "common.up"
-msgstr "Acima/Subir"
+msgstr "Subir"
 
 msgid "common.url"
 msgstr "URL"
@@ -543,7 +543,9 @@ msgid "form.errorsOccurred"
 msgstr "Erros detetados ao processar o formulário"
 
 msgid "form.formLanguage.description"
-msgstr "Para inserir as informações abaixo em idiomas adicionais, primeiro selcecione o idioma."
+msgstr ""
+"Para inserir as informações abaixo em idiomas adicionais, primeiro selecione "
+"o idioma."
 
 msgid "form.formLanguage"
 msgstr "Idioma do formulário"
@@ -579,7 +581,7 @@ msgid "help.upALevel"
 msgstr "Subir um Nível"
 
 msgid "icon.checked.alt"
-msgstr "Seleccionado"
+msgstr "Selecionado"
 
 msgid "icon.comment.alt"
 msgstr "Comentário"
@@ -612,7 +614,7 @@ msgid "icon.mail.alt"
 msgstr "Correio"
 
 msgid "icon.unchecked.alt"
-msgstr "Não Seleccionado"
+msgstr "Não Selecionado"
 
 msgid "icon.view.alt"
 msgstr "Exibir"
@@ -633,7 +635,7 @@ msgid "navigation.browseByTitle"
 msgstr "Por Título"
 
 msgid "navigation.home"
-msgstr "Capa"
+msgstr "Página de início"
 
 msgid "navigation.infoForReaders"
 msgstr "Para Leitores"
@@ -651,7 +653,7 @@ msgid "navigation.nextPage"
 msgstr "&gt;&gt;"
 
 msgid "navigation.nextStep"
-msgstr "Avançar"
+msgstr "Próximo Passo"
 
 msgid "navigation.previousPage"
 msgstr "&lt;&lt;"
@@ -684,13 +686,13 @@ msgid "search.coverage"
 msgstr "Cobertura"
 
 msgid "search.date"
-msgstr "Data"
+msgstr "Data de Publicação"
 
 msgid "search.dateFrom"
-msgstr "De"
+msgstr "Publicado depois"
 
 msgid "search.dateTo"
-msgstr "Até"
+msgstr "Publicado depois"
 
 msgid "search.discipline"
 msgstr "Área do Conhecimento"
@@ -705,22 +707,22 @@ msgid "search.matchAll"
 msgstr "Encontrar em todas as categorias"
 
 msgid "search.noKeywordError"
-msgstr "Indique pelo menos um termo para pesquisa."
+msgstr "Indique pelo menos uma palavra-chave para pesquisa."
 
 msgid "search.noResults"
 msgstr "Nenhum resultado encontrado"
 
 msgid "search.operator.and"
-msgstr "E"
+msgstr "e"
 
 msgid "search.operator.not"
-msgstr "NÃO"
+msgstr "não"
 
 msgid "search.operator.or"
-msgstr "OU"
+msgstr "ou"
 
 msgid "search.searchResults"
-msgstr "Resultado da Pesquisa"
+msgstr "Resultados da Pesquisa"
 
 msgid "search.subject"
 msgstr "Assunto"
@@ -745,7 +747,7 @@ msgstr ""
 "\t\t</a>\n"
 "\t\t<br/>Este trabalho está licenciado sob uma <a rel=\"license\" target=\""
 "_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Licença "
-"Creative Commons Attribution 3.0 </a>.\n"
+"Creative Commons Atribuição 3.0 </a>.\n"
 "\t"
 
 msgid "common.ccLicense.rt"
@@ -759,7 +761,7 @@ msgstr ""
 "\t\t<br />\n"
 "\t\tEste trabalho está licenciado sob uma <a rel=\"license\" href=\""
 "https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Licença "
-"Creative Commons Attribution 3.0</a>.\n"
+"Creative Commons Atribuição 3.0</a>.\n"
 "\t</div>\n"
 "\t"
 
@@ -785,10 +787,10 @@ msgid "notification.confirmSuccess"
 msgstr "Subscrição realizada com sucesso."
 
 msgid "notification.email"
-msgstr "No enviar e-mail para este tipo de notificações."
+msgstr "Não enviar e-mail para este tipo de notificações."
 
 msgid "notification.noneExist"
-msgstr "Não há notificações no momento."
+msgstr "Não há notificações de momento."
 
 msgid "notification.notification"
 msgstr "Notificação"
@@ -800,10 +802,17 @@ msgid "notification.settings"
 msgstr "Configuração de Notificações"
 
 msgid "notification.settingsDescription"
-msgstr "Escolha os eventos do sistema sobre os quais deseja ser notificado. Desmarcar um item evitará a exibição de notificações do evento no canal de notificações."
+msgstr ""
+"Escolha os eventos do sistema sobre os quais deseja ser notificado. "
+"Desmarcar um item evitará a exibição de notificações do evento no canal de "
+"notificações e que lhe seja enviado e-mail. Eventos ativados aparecerão no "
+"sistema e terá uma opção extra de receber ou não a mesma notificação por "
+"e-mail."
 
 msgid "notification.reminderError"
-msgstr "Ocorreu um erro ao enviar a senha. Verifique se o endereço de e-mail fornecido está correcto."
+msgstr ""
+"Ocorreu um erro ao enviar a senha. Verifique se o endereço de e-mail "
+"fornecido está correto."
 
 msgid "notification.reminderSent"
 msgstr "Uma nova senha foi enviada para o endereço de e-mail fornecido."
@@ -824,25 +833,25 @@ msgid "navigation.dashboard"
 msgstr "Painel"
 
 msgid "common.disable"
-msgstr "Desactivar"
+msgstr "Desativar"
 
 msgid "common.enable"
-msgstr "Activar"
+msgstr "Ativar"
 
 msgid "common.fullscreen"
-msgstr "Ecrã Pleno"
+msgstr "Ecrã Completo"
 
 msgid "common.fullscreenOff"
-msgstr "Tela padrão"
+msgstr "Ecrã Completo desativado"
 
 msgid "common.pluginEnabled"
-msgstr "O Plugin \"{$pluginName}\" foi activado."
+msgstr "O Plugin \"{$pluginName}\" foi ativado."
 
 msgid "common.pluginDisabled"
-msgstr "O Plugin \"{$pluginName}\" foi desactivado."
+msgstr "O Plugin \"{$pluginName}\" foi desativado."
 
 msgid "common.refresh"
-msgstr "Actualizar"
+msgstr "Atualizar"
 
 msgid "common.loading"
 msgstr "A carregar"
@@ -851,10 +860,10 @@ msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
 
 msgid "common.currentStyleSheet"
-msgstr "Folha de Estilos Actual"
+msgstr "Folha de Estilos Atual"
 
 msgid "about.guidelines"
-msgstr "Directrizes"
+msgstr "Diretrizes"
 
 msgid "announcement.postedOn"
 msgstr "Publicada em {$postDate}"
@@ -866,7 +875,7 @@ msgid "common.navigation.sidebar"
 msgstr "Barra Lateral"
 
 msgid "common.navigation.site"
-msgstr "Navegação no Portal"
+msgstr "Navegação no Site"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
@@ -881,13 +890,17 @@ msgid "common.finish"
 msgstr "Concluir"
 
 msgid "common.fileUploaderError"
-msgstr "O uploader do ficheiro do sistema está carregando. Se não aparecer, é provável que nenhum dos seus tempos de execução seja suportado por este navegador. Por favor, entre em contacto com a administração da revista para obter suporte."
+msgstr ""
+"O uploader do ficheiro do sistema está a carregar. Se não aparecer, é "
+"provável que nenhum dos seus tempos de execução seja suportado por este "
+"navegador. Por favor, entre em contacto com a administração da revista para "
+"obter suporte."
 
 msgid "common.go"
 msgstr "Ir"
 
 msgid "common.homepageNavigationLabel"
-msgstr "Home"
+msgstr "Página de Início"
 
 msgid "common.itemsPerPage"
 msgstr "Artigos por página"
@@ -902,7 +915,7 @@ msgid "about.description"
 msgstr "Descrição"
 
 msgid "common.navigation.siteContext"
-msgstr "Contexto Navegação do Portal"
+msgstr "Navegação no Site do Contexto"
 
 msgid "common.navigation.user"
 msgstr "Navegação do Utilizador"
@@ -914,10 +927,10 @@ msgid "common.list"
 msgstr "Lista"
 
 msgid "common.grid"
-msgstr "Quadrícula"
+msgstr "Grelha"
 
 msgid "common.confirmDelete"
-msgstr "Tem a certeza que pretende eliminar este artigo? Esta acção é irreversível."
+msgstr "Deseja realmente eliminar este item? Esta ação é irreversível."
 
 msgid "common.abstract"
 msgstr "Resumo"
@@ -947,7 +960,9 @@ msgid "common.notice"
 msgstr "Notificação"
 
 msgid "common.captcha.error.missing-input-secret"
-msgstr "A validação do captcha para este portal não está configurada correctamente. A chave secreta está em falta."
+msgstr ""
+"A validação do captcha para este site não está configurada corretamente. A "
+"chave secreta está em falta."
 
 msgid "common.captcha.error.missing-input-response"
 msgstr "Deve completar a verificação de validação utilizada para evitar envios de spam."
@@ -971,7 +986,7 @@ msgid "common.contents"
 msgstr "Conteúdos"
 
 msgid "common.dateHijri"
-msgstr "Calendário Hijri"
+msgstr "Calendário islâmico"
 
 msgid "common.declined"
 msgstr "Recusado"
@@ -980,10 +995,11 @@ msgid "common.designation"
 msgstr "Designação"
 
 msgid "common.billingAddress"
-msgstr "Endereço facturação (se diferente)"
+msgstr "Endereço de faturação (se diferente)"
 
 msgid "common.notes.tooltip"
-msgstr "Notas (amarelo: tem novas notas; azul: viu notas; cinza: sem notas)"
+msgstr ""
+"Notas (amarelo: tem novas notas; azul: tem notas já vistas; cinza: sem notas)"
 
 msgid "common.notified"
 msgstr "Notificado"
@@ -1007,13 +1023,13 @@ msgid "common.prefix"
 msgstr "Prefixo"
 
 msgid "common.prefixAndTitle.tip"
-msgstr "Exemplos: A, O"
+msgstr "Exemplos: Um, Uma, Uns, Umas, A, O, As, Os"
 
 msgid "common.quality"
 msgstr "Qualidade"
 
 msgid "common.queue.long.active"
-msgstr "Todos as Activas"
+msgstr "Todos as Ativas"
 
 msgid "common.range"
 msgstr "{$min}-{$max}"
@@ -1085,10 +1101,10 @@ msgid "editor.submissionReview.uploadAttachment"
 msgstr "Upload Ficheiro"
 
 msgid "email.senderName"
-msgstr "Nome Destinatário"
+msgstr "Nome do Remetente"
 
 msgid "email.senderEmail"
-msgstr "E-mail Destinatário"
+msgstr "E-mail de Remetente"
 
 msgid "email.subjectRequired"
 msgstr "Assunto obrigatório."
@@ -1106,7 +1122,7 @@ msgid "form.confirmSubmit.title"
 msgstr "Confirmar"
 
 msgid "form.emailRequired"
-msgstr "É obrigat´ório o e-mail."
+msgstr "É obrigatório o endereço de e-mail."
 
 msgid "form.dataHasChanged"
 msgstr "A informação inserida no formulário foi modificada. Pretende avançar sem guardar as alterações?"
@@ -1124,10 +1140,14 @@ msgid "help.next"
 msgstr "Próximo"
 
 msgid "common.titleSmallWords"
-msgstr "de um e um ou não, mas é se, de outra forma, quando de dentro para fora em para fora para dentro com"
+msgstr ""
+"de um e um ou não mas é se de outra forma quando de dentro para fora em para "
+"fora para dentro com"
 
 msgid "common.captcha.error.invalid-input-secret"
-msgstr "A validação do captcha para este portal não está configurada correctamente. A chave secreta é inválida."
+msgstr ""
+"A validação do captcha para este portal não está configurada corretamente. A "
+"chave secreta é inválida."
 
 msgid "common.closePanel"
 msgstr "Fechar Painel"
@@ -1145,7 +1165,7 @@ msgid "informationCenter.informationCenter"
 msgstr "Centro de Informações"
 
 msgid "informationCenter.editorialHistory"
-msgstr "Historial Edição"
+msgstr "Histórico da Edição"
 
 msgid "informationCenter.addNote"
 msgstr "Adicionar Nota"
@@ -1160,7 +1180,7 @@ msgid "informationCenter.deleteConfirm"
 msgstr "Tem a certeza que pretende eliminar esta nota?"
 
 msgid "informationCenter.currentHistory"
-msgstr "Revisão Actual"
+msgstr "Revisão Atual"
 
 msgid "informationCenter.pastHistory"
 msgstr "Revisões Anteriores"
@@ -1175,7 +1195,7 @@ msgid "informationCenter.history.messageSent"
 msgstr "Enviada notificação para utilizadores."
 
 msgid "stageParticipants.history.messageSent"
-msgstr "Enviada notificação para utilizares."
+msgstr "Enviada notificação aos utilizadores."
 
 msgid "stageParticipants.notify.chooseMessage"
 msgstr "Escolha uma mensagem predefinida para usar ou preencha o formulário abaixo."
@@ -1184,7 +1204,9 @@ msgid "stageParticipants.notify.message"
 msgstr "Mensagem"
 
 msgid "stageParticipants.notify.warning"
-msgstr "Certifique-se que preencheu o campo de mensagem e seleccionou pelo menos um destinatário."
+msgstr ""
+"Certifique-se que preencheu o campo de mensagem e selecionou pelo menos um "
+"destinatário além de si próprio."
 
 msgid "navigation.access"
 msgstr "Utilizadores &amp; Papéis"
@@ -1226,16 +1248,16 @@ msgid "navigation.setup"
 msgstr "Configurar"
 
 msgid "navigation.sitemap"
-msgstr "Mapa do Portal"
+msgstr "Mapa do Site"
 
 msgid "navigation.skip.main"
 msgstr "Saltar para conteúdo principal"
 
 msgid "navigation.skip.nav"
-msgstr "Saltar para menu navegação principal"
+msgstr "Saltar para menu de navegação principal"
 
 msgid "navigation.skip.footer"
-msgstr "Saltar para rodapé do portal"
+msgstr "Saltar para rodapé do site"
 
 msgid "navigation.submissions"
 msgstr "Submissões"
@@ -1247,7 +1269,7 @@ msgid "navigation.userManagement"
 msgstr "Gestão de Utilizadores"
 
 msgid "navigation.viewFrontend"
-msgstr "Ver Portal"
+msgstr "Ver Site"
 
 msgid "notification.addedAuditor"
 msgstr "Adicionado Auditor."
@@ -1262,25 +1284,25 @@ msgid "notification.reviewAcknowledged"
 msgstr "Revisão marcada como confirmada. E-mail não foi enviado."
 
 msgid "notification.updatedReviewFiles"
-msgstr "Rever os ficheiros actualizados."
+msgstr "Ficheiros de Revisão atualizados."
 
 msgid "notification.addedAnnouncementType"
-msgstr "Tipo de anúncio adicionado."
+msgstr "Tipo de notícia adicionado."
 
 msgid "notification.editedAnnouncementType"
-msgstr "Tipo de anúncio editado."
+msgstr "Tipo de notícia editado."
 
 msgid "notification.removedAnnouncementType"
-msgstr "Tipo de anúncio removido."
+msgstr "Tipo de notícia removido."
 
 msgid "notification.addedAnnouncement"
-msgstr "Anúncio adicionado."
+msgstr "Notícia adicionada."
 
 msgid "notification.editedAnnouncement"
-msgstr "Anúncio editado."
+msgstr "Notícia editada."
 
 msgid "notification.removedAnnouncement"
-msgstr "Anúncio removido."
+msgstr "Notícia removida."
 
 msgid "notification.addedAuthor"
 msgstr "Adicionado autor."
@@ -1289,7 +1311,7 @@ msgid "notification.editedAuthor"
 msgstr "Editado autor."
 
 msgid "notification.addedNote"
-msgstr "Anúncio publicado."
+msgstr "Nota publicada."
 
 msgid "notification.removedNote"
 msgstr "Nota eliminada."
@@ -1304,7 +1326,7 @@ msgid "notification.sentNotification"
 msgstr "Enviada notificação."
 
 msgid "notification.savedSubmissionMetadata"
-msgstr "Guardados metadados da submissão."
+msgstr "Metadados da submissão guardados."
 
 msgid "search.advancedFilters"
 msgstr "Filtros avançados"
@@ -1319,7 +1341,7 @@ msgid "search.searchAgain"
 msgstr "Pesquisar novamente"
 
 msgid "search.cli.rebuildIndex.clearingIndex"
-msgstr "Índice de compensação"
+msgstr "Índice de tiragem"
 
 msgid "search.cli.rebuildIndex.done"
 msgstr "feito"
@@ -1334,13 +1356,13 @@ msgid "search.deleteFilter"
 msgstr "Eliminar"
 
 msgid "search.indexTermsLong"
-msgstr "odos os campos de termo de índice"
+msgstr "Todos os campos de termos indexados"
 
 msgid "search.SearchFor"
 msgstr "Pesquisar por"
 
 msgid "grid.action.downloadFile"
-msgstr "Download este ficheiro"
+msgstr "Transferir este ficheiro"
 
 msgid "context.path"
 msgstr "Caminho"
@@ -1349,7 +1371,7 @@ msgid "review.ensuringBlindReview"
 msgstr "Assegurar Revisão Cega"
 
 msgid "grid.action.showReviewPolicy"
-msgstr "Ler a actual política de revisão"
+msgstr "Ler a atual política de revisão"
 
 msgid "grid.action.deleteNotification"
 msgstr "Eliminar Tarefa"
@@ -1409,13 +1431,13 @@ msgid "reviewer.submission.reviewRequestDate"
 msgstr "Pedido do Editor"
 
 msgid "reviewer.submission.responseDueDate"
-msgstr "Prazo da Resposta"
+msgstr "Prazo de Resposta"
 
 msgid "reviewer.submission.reviewDueDate"
-msgstr "Prazo da Revisão"
+msgstr "Prazo de Revisão"
 
 msgid "submission.task.responseDueDate"
-msgstr "Prazo da Resposta"
+msgstr "Prazo de Resposta"
 
 msgid "navigation.goBack"
 msgstr "Voltar"
@@ -1426,7 +1448,7 @@ msgstr ""
 "email de notificação."
 
 msgid "notification.removedReviewer"
-msgstr "Removido revisor."
+msgstr "Revisor removido."
 
 msgid "notification.addedStageParticipant"
 msgstr "Utilizador adicionado como participante da etapa."
@@ -1441,7 +1463,8 @@ msgid "notification.type.auditorRequest"
 msgstr "Pedido de auditoria para \"{$file}\""
 
 msgid "notification.type.allReviewsIn"
-msgstr "Todas as revisões estão dentro e uma decisão é necessária em {$stage}."
+msgstr ""
+"Todas revisores responderam e é necessário emitir uma decisão em {$stage}."
 
 msgid "notification.type.allRevisionsIn"
 msgstr "Foi carregado um ficheiro revisto para a sua consideração editorial em {$stage}."
@@ -1453,7 +1476,7 @@ msgid "notification.type.pendingRevisions.title"
 msgstr "Revisões enviadas para {$stage}."
 
 msgid "notification.type.metadataModified"
-msgstr "Os metadados \"{$title} foram modificados."
+msgstr "Os metadados de \"{$title} foram modificados."
 
 msgid "notification.type.reviewerComment"
 msgstr "Um revisor comentou sobre \"{$title}\"."
@@ -1462,7 +1485,7 @@ msgid "notification.signedFile"
 msgstr "Ficheiro considerado."
 
 msgid "user.authorization.submissionFile"
-msgstr "O actual utilizador não está autorizado a aceder ao ficheiro específico a ser submetido."
+msgstr "O atual utilizador não está autorizado a aceder ao ficheiro específico."
 
 msgid "user.authorization.invalidSubmission"
 msgstr "Submissão inválida."
@@ -1474,13 +1497,18 @@ msgid "navigation.archives"
 msgstr "Arquivos"
 
 msgid "user.authorization.authorRoleMissing"
-msgstr "Actualmente não possui privilégios suficientes para visualizar a submissão. Edite o seu perfil para garantir que pode assumir o papel adequado em \"Registar-se como\"."
+msgstr ""
+"Atualmente não possui privilégios suficientes para visualizar a submissão. "
+"Edite o seu perfil para garantir que pode assumir o papel adequado em \""
+"Registar-se como\"."
 
 msgid "user.authorization.submissionAuthor"
-msgstr "O actual utilizador não é o autor da submissão solicitada. Verifique se está autenticado com a conta de utilizador correcta."
+msgstr ""
+"O atual utilizador não é o autor da submissão. Verifique se está autenticado "
+"com a conta de utilizador correta."
 
 msgid "notification.type.queryActivity"
-msgstr "Actividade discussão."
+msgstr "Atividade da discussão."
 
 msgid "notification.type.queryAdded"
 msgstr "Adicionada discussão."
@@ -1490,10 +1518,10 @@ msgstr ""
 "Atribuir um Editor de Texto usando o link Designar na lista de Participantes."
 
 msgid "notification.type.awaitingCopyedits"
-msgstr "Aguardando as edições das cópias."
+msgstr "A aguardar a Edição de texto."
 
 msgid "notification.type.roundStatusTitle"
-msgstr "Estado Ronda {$round}"
+msgstr "Estado da Ronda {$round}"
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1571,16 +1599,16 @@ msgid "notification.removedNavigationMenuItem"
 msgstr "Item do menu de navegação removido com sucesso"
 
 msgid "notification.addedNavigationMenuItem"
-msgstr "Item do menu de navegação foi adicionado com sucesso"
+msgstr "Item do menu de navegação adicionado com sucesso"
 
 msgid "notification.addedNavigationMenu"
-msgstr "Menu de navegação foi adicionado com sucesso"
+msgstr "Menu de navegação adicionado com sucesso"
 
 msgid "notification.editedNavigationMenu"
-msgstr "Menu de navegação foi atualizado com sucesso"
+msgstr "Menu de navegação atualizado com sucesso"
 
 msgid "notification.removedNavigationMenu"
-msgstr "Menu de navegação foi removido com sucesso"
+msgstr "Menu de navegação removido com sucesso"
 
 msgid "list.viewMore"
 msgstr "Apresentar mais detalhes sobre {$name}"
@@ -1589,7 +1617,7 @@ msgid "list.viewLess"
 msgstr "Esconder detalhes de {$name}"
 
 msgid "notification.type.reviewAssignmentUpdated"
-msgstr "Atribuição de revisão atualizada."
+msgstr "Designação de revisão atualizada."
 
 msgid "validator.required_without"
 msgstr "Este campo é obrigatório quando {$values} não se encontra presente."
@@ -1737,7 +1765,7 @@ msgid "validator.alpha_num"
 msgstr "Só pode conter letras e números."
 
 msgid "validator.alpha_dash"
-msgstr "Só pode conter letras, números, traços e underscores."
+msgstr "Só pode conter letras, números, hífens e underscores."
 
 msgid "validator.alpha"
 msgstr "Só pode conter letras."
@@ -1780,9 +1808,12 @@ msgstr "Não podem ser feitas alterações a este participante"
 msgid "stageParticipants.selectedUser"
 msgstr "Participante"
 
-#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Permitir a esta pessoa editar os detalhes da publicação."
+msgstr ""
+"Permitir a esta pessoa editar os detalhes da publicação, tal como título, "
+"resumo, metadados e outros detalhes de publicação. Pode desejar retirar esta "
+"permissão se a submissão receber a aprovação final e estiver pronto para "
+"publicação."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Permissões"
@@ -1959,3 +1990,12 @@ msgstr "O {$attribute} e {$other} devem corresponder."
 
 msgid "validator.required_without_all"
 msgstr "Este campo é obrigatório quando nenhum dos {$values} estão presentes."
+
+msgid "navigation.skip.description"
+msgstr "Ir para os links de conteúdo"
+
+msgid "common.moreThanOnly"
+msgstr "Mais que"
+
+msgid "common.lessThanOnly"
+msgstr "Menor que"

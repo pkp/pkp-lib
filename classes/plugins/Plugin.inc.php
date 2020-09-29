@@ -336,8 +336,15 @@ abstract class Plugin {
 		}
 		$plugin = basename($pluginPath);
 		$category = basename(dirname($pluginPath));
+
+		$contextId = CONTEXT_SITE;
+		if (Config::getVar('general', 'installed')) {
+			$context = Application::get()->getRequest()->getContext();
+			if (is_a($context, 'Context')) $contextId = $context->getId();
+		}
+
 		// Slash characters (/) are not allowed in resource names, so use dashes (-) instead.
-		$resourceName = strtr(join('/', array(PLUGIN_TEMPLATE_RESOURCE_PREFIX, $pluginPath, $category, $plugin)),'/','-');
+		$resourceName = strtr(join('/', array(PLUGIN_TEMPLATE_RESOURCE_PREFIX, $contextId, $pluginPath, $category, $plugin)),'/','-');
 		return $resourceName . ($template!==null?":$template":'');
 	}
 

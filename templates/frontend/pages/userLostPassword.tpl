@@ -27,7 +27,6 @@
 		{/if}
 
 		<div class="fields">
-			<legend class="pkp_screen_reader">{translate key="user.email"}</legend>
 			<div class="email">
 				<label>
 					<span class="label">

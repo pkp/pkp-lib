@@ -1673,9 +1673,6 @@ msgstr "File considered."
 msgid "user.email"
 msgstr "Email address"
 
-msgid "user.userCredentials"
-msgstr "Username and Password credentials"
-
 msgid "user.authorization.submissionFile"
 msgstr "The current user is not authorized to access the specified submission file."
 

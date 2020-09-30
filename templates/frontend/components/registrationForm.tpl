@@ -71,7 +71,7 @@
 </fieldset>
 
 <fieldset class="login">
-	<legend class="pkp_screen_reader">
+	<legend>
 		{translate key="user.login"}
 	</legend>
 	<div class="fields">

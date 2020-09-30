@@ -67,7 +67,7 @@
 			{if $userCanRegisterReviewer}
 				<fieldset class="reviewer">
 					{if $userCanRegisterReviewer > 1}
-						<legend class="pkp_screen_reader">
+						<legend>
 							{translate key="user.reviewerPrompt"}
 						</legend>
 						{capture assign="checkboxLocaleKey"}user.reviewerPrompt.userGroup{/capture}
@@ -128,7 +128,7 @@
 		   enter their reviewer interests *}
 		{if !$currentContext}
 			<fieldset class="reviewer_nocontext_interests">
-				<legend class="pkp_screen_reader">
+				<legend>
 					{translate key="user.register.noContextReviewerInterests"}
 				</legend>
 				<div class="fields">

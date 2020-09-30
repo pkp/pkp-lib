@@ -26,7 +26,7 @@
 			</div>
 		{/if}
 
-		<fieldset class="fields">
+		<div class="fields">
 			<div class="email">
 				<label>
 					<span class="label">
@@ -51,7 +51,7 @@
 					</a>
 				{/if}
 			</div>
-		</fieldset>
+		</div>
 
 	</form>
 

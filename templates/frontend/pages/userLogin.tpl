@@ -37,6 +37,7 @@
 		<input type="hidden" name="source" value="{$source|escape}" />
 
 		<fieldset class="fields">
+			<legend class="pkp_screen_reader">{translate key="user.login"}</legend>
 			<div class="username">
 				<label>
 					<span class="label">

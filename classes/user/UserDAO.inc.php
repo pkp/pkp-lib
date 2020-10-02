@@ -47,12 +47,8 @@ class UserDAO extends DAO {
 			array((int) $userId)
 		);
 
-		$user = null;
-		if ($result->RecordCount() != 0) {
-			$user = $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $user;
+		$row = (array) $result->current();
+		return $row?$this->_returnUserFromRowWithData($row):null;
 	}
 
 	/**
@@ -67,12 +63,8 @@ class UserDAO extends DAO {
 			array($username)
 		);
 
-		$user = null;
-		if ($result->RecordCount() != 0) {
-			$user = $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $user;
+		$row = (array) $result->current();
+		return $row?$this->_returnUserFromRowWithData($row):null;
 	}
 
 	/**

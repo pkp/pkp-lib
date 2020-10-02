@@ -33,7 +33,7 @@ class DAOResultFactory extends ItemIterator {
 	 */
 	var $idFields;
 
-	/** @var ADORecordSet The ADORecordSet to be wrapped around */
+	/** @var ADORecordSet|Generator The ADORecordSet to be wrapped around (old) or Generator (new) */
 	var $records;
 
 	/** @var boolean True iff the resultset was always empty */
@@ -62,7 +62,10 @@ class DAOResultFactory extends ItemIterator {
 		$this->dao = $dao;
 		$this->idFields = $idFields;
 
-		if (!$records || $records->EOF) {
+		if ($records instanceof Generator) {
+			$this->records = $records;
+			$this->wasEmpty = false;
+		} elseif (!$records || $records->EOF) {
 			if ($records) $records->Close();
 			$this->records = null;
 			$this->wasEmpty = true;
@@ -101,18 +104,24 @@ class DAOResultFactory extends ItemIterator {
 	 */
 	function next() {
 		if ($this->records == null) return $this->records;
-		if (!$this->records->EOF) {
-			$functionName = $this->functionName;
-			$dao = $this->dao;
-			$row = $this->records->getRowAssoc(false);
-			$result = $dao->$functionName($row, $this->functionParams);
-			if (!$this->records->MoveNext()) $this->close();
-			return $result;
+
+		$row = null;
+		$functionName = $this->functionName;
+		$dao = $this->dao;
+
+		if ($this->records instanceof Generator) {
+			$row = (array) $this->records->current();
+			$this->records->next();
 		} else {
-			$this->close();
-			$nullVar = null;
-			return $nullVar;
+			if (!$this->records->EOF) {
+				$row = $this->records->getRowAssoc(false);
+				if (!$this->records->MoveNext()) $this->close();
+			} else {
+				$this->close();
+			}
 		}
+		if (!$row) return null;
+		return $dao->$functionName($row, $this->functionParams);
 	}
 
 	/**
@@ -184,6 +193,7 @@ class DAOResultFactory extends ItemIterator {
 	 */
 	function eof() {
 		if ($this->records == null) return true;
+		if ($this->records instanceof Generator) return !$this->records->valid();
 		if ($this->records->EOF) {
 			$this->close();
 			return true;
@@ -216,8 +226,15 @@ class DAOResultFactory extends ItemIterator {
 	 * @return array
 	 */
 	function toArray() {
-		$returner = array();
-		while (!$this->eof()) {
+		$returner = [];
+		if ($this->records instanceof Generator) {
+			$functionName = $this->functionName;
+			$dao = $this->dao;
+			foreach ($this->records as $row) {
+				$returner[] = $dao->$functionName((array) $row, $this->functionParams);
+			}
+		}
+		else while (!$this->eof()) {
 			$returner[] = $this->next();
 		}
 		return $returner;

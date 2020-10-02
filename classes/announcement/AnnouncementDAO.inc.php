@@ -17,6 +17,8 @@
 import('lib.pkp.classes.announcement.Announcement');
 import('lib.pkp.classes.db.SchemaDAO');
 
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 class AnnouncementDAO extends SchemaDAO {
 	/** @var string One of the SCHEMA_... constants */
 	var $schemaName = SCHEMA_ANNOUNCEMENT;
@@ -48,50 +50,13 @@ class AnnouncementDAO extends SchemaDAO {
 	 * @return Announcement
 	 */
 	function getById($announcementId, $assocType = null, $assocId = null) {
-		$params = array((int) $announcementId);
-		if ($assocType !== null) $params[] = (int) $assocType;
-		if ($assocId !== null) $params[] = (int) $assocId;
-		$result = $this->retrieve(
-			'SELECT	* FROM announcements WHERE announcement_id = ?' .
-			($assocType !== null?' AND assoc_type = ?':'') .
-			($assocId !== null?' AND assoc_id = ?':''),
-			$params
-		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		$query = Capsule::table($this->tableName)->where($this->primaryKeyColumn, '=', (int) $announcementId);
+		if ($assocType !== null) $query->where('assoc_type', '=', (int) $assocType);
+		if ($assocId !== null) $query->where('assoc_id', '=', (int) $assocType);
+		if ($result = $query->first()) {
+			return $this->_fromRow((array) $result);
 		}
-		$result->Close();
-		return $returner;
-	}
-
-	/**
-	 * Retrieve announcement Assoc ID by announcement ID.
-	 * @param $announcementId int
-	 * @return int
-	 */
-	function getAnnouncementAssocId($announcementId) {
-		$result = $this->retrieve(
-			'SELECT assoc_id FROM announcements WHERE announcement_id = ?',
-			(int) $announcementId
-		);
-
-		return isset($result->fields[0]) ? $result->fields[0] : 0;
-	}
-
-	/**
-	 * Retrieve announcement Assoc ID by announcement ID.
-	 * @param $announcementId int
-	 * @return int
-	 */
-	function getAnnouncementAssocType($announcementId) {
-		$result = $this->retrieve(
-			'SELECT assoc_type FROM announcements WHERE announcement_id = ?',
-			(int) $announcementId
-		);
-
-		return isset($result->fields[0]) ? $result->fields[0] : 0;
+		return null;
 	}
 
 	/**
@@ -131,20 +96,15 @@ class AnnouncementDAO extends SchemaDAO {
 	 * Retrieve an array of announcements matching a particular assoc ID.
 	 * @param $assocType int ASSOC_TYPE_...
 	 * @param $assocId int
-	 * @param $rangeInfo DBResultRange (optional)
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
-	function getByAssocId($assocType, $assocId, $rangeInfo = null) {
-		$result = $this->retrieveRange(
-			'SELECT *
-			FROM announcements
-			WHERE assoc_type = ? AND assoc_id = ?
-			ORDER BY date_posted DESC',
-			array((int) $assocType, (int) $assocId),
-			$rangeInfo
-		);
+	function getByAssocId($assocType, $assocId) {
+		$query = Capsule::table($this->tableName)
+			->where('assoc_type', '=', (int) $assocType)
+			->where('assoc_id', '=', (int) $assocId)
+			->orderByDesc('date_posted');
 
-		return new DAOResultFactory($result, $this, '_fromRow');
+		return new DAOResultFactory($query->get(), $this, '_fromRow');
 	}
 
 	/**

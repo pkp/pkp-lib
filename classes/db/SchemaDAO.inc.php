@@ -242,8 +242,8 @@ abstract class SchemaDAO extends DAO {
 			array($primaryRow[$this->primaryKeyColumn])
 		);
 
-		while (!$result->EOF) {
-			$settingRow = $result->getRowAssoc(false);
+		foreach ($result as $settingRow) {
+			$settingRow = (array) $settingRow;
 			if (!empty($schema->properties->{$settingRow['setting_name']})) {
 				$object->setData(
 					$settingRow['setting_name'],
@@ -254,7 +254,6 @@ abstract class SchemaDAO extends DAO {
 					empty($settingRow['locale']) ? null : $settingRow['locale']
 				);
 			}
-			$result->MoveNext();
 		}
 
 		return $object;

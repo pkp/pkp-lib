@@ -19,7 +19,6 @@
  * @brief Operations for retrieving and modifying objects from a database.
  */
 
-
 import('lib.pkp.classes.db.DBConnection');
 import('lib.pkp.classes.db.DAOResultFactory');
 import('lib.pkp.classes.db.DBResultRange');
@@ -28,51 +27,20 @@ import('lib.pkp.classes.core.DataObject');
 define('SORT_DIRECTION_ASC', 0x00001);
 define('SORT_DIRECTION_DESC', 0x00002);
 
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 class DAO {
-	/** The database connection object */
-	var $_dataSource;
-
-	/**
-	 * Get db conn.
-	 * @return ADONewConnection
-	 */
-	function getDataSource() {
-		return $this->_dataSource;
-	}
-
-	/**
-	 * Set db conn.
-	 * @param $dataSource ADONewConnection
-	 */
-	function setDataSource($dataSource) {
-		$this->_dataSource = $dataSource;
-	}
-
-	/**
-	 * Concatenation.
-	 */
-	function concat() {
-		$args = func_get_args();
-		return call_user_func_array(array($this->getDataSource(), 'Concat'), $args);
-	}
-
 	/**
 	 * Constructor.
 	 * Initialize the database connection.
 	 */
-	function __construct($dataSource = null, $callHooks = true) {
+	function __construct($callHooks = true) {
 		if ($callHooks === true) {
 			// Call hooks based on the object name. Results
 			// in hook calls named e.g. "sessiondao::_Constructor"
-			if (HookRegistry::call(strtolower_codesafe(get_class($this)) . '::_Constructor', array($this, &$dataSource))) {
+			if (HookRegistry::call(strtolower_codesafe(get_class($this)) . '::_Constructor', array($this))) {
 				return;
 			}
-		}
-
-		if (!isset($dataSource)) {
-			$this->setDataSource(DBConnection::getConn());
-		} else {
-			$this->setDataSource($dataSource);
 		}
 	}
 
@@ -82,7 +50,7 @@ class DAO {
 	 * @param $params array parameters for the SQL statement
 	 * @return ADORecordSet
 	 */
-	function &retrieve($sql, $params = false, $callHooks = true) {
+	function retrieve($sql, $params = false, $callHooks = true) {
 		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
@@ -95,17 +63,13 @@ class DAO {
 			}
 		}
 
-		$start = Core::microtime();
-		$dataSource = $this->getDataSource();
-		$result = $dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
-		if ($dataSource->errorNo()) {
-			// FIXME Handle errors more elegantly.
-			$this->handleError($dataSource, $sql);
-		}
-
-		return $result;
+		yield from Capsule::cursor(Capsule::raw($sql), $this->_prepareParameters($params));
 	}
 
+	private function _prepareParameters($params) {
+		if ($params === false) return [];
+		return $params;
+	}
 	/**
 	 * Execute a cached SELECT SQL statement.
 	 * @param $sql string the SQL statement
@@ -113,6 +77,7 @@ class DAO {
 	 * @return ADORecordSet
 	 */
 	function &retrieveCached($sql, $params = false, $secsToCache = 3600, $callHooks = true) {
+		throw new Exception('BROKEN');
 		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
@@ -145,7 +110,7 @@ class DAO {
 	 * @param $offset int row offset in the result set
 	 * @return ADORecordSet
 	 */
-	function &retrieveLimit($sql, $params = false, $numRows = false, $offset = false, $callHooks = true) {
+	function retrieveLimit($sql, $params = false, $numRows = false, $offset = false, $callHooks = true) {
 		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
@@ -157,14 +122,10 @@ class DAO {
 				return $value;
 			}
 		}
-
-		$start = Core::microtime();
-		$dataSource = $this->getDataSource();
-		$result = $dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params);
-		if ($dataSource->errorNo()) {
-			$this->handleError($dataSource, $sql);
-		}
-		return $result;
+		$query = Capsule::raw($sql);
+		if ($offset !== false) $query->skip($offset);
+		if ($numRows !== false) $query->take($numRows);
+		yield from Capsule::cursor($query, $this->_prepareParameters($params));
 	}
 
 	/**
@@ -173,7 +134,9 @@ class DAO {
 	 * @param $params array parameters for the SQL statement
 	 * @param $dbResultRange DBResultRange object describing the desired range
 	 */
-	function &retrieveRange($sql, $params = false, $dbResultRange = null, $callHooks = true) {
+	function retrieveRange($sql, $params = false, $dbResultRange = null, $callHooks = true) {
+		if ($dbResultRange === null) return $this->retrieve($sql, $params, $callHooks);
+		throw new Exception('BROKEN');
 		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
@@ -198,7 +161,7 @@ class DAO {
 			}
 		}
 		else {
-			$result = $this->retrieve($sql, $params, false);
+			$result = $this->retrieve($sql, $this->_prepareParameters($params));
 		}
 		return $result;
 	}
@@ -209,7 +172,7 @@ class DAO {
 	 * @param $params an array of parameters for the SQL statement
 	 * @param $callHooks boolean Whether or not to call hooks
 	 * @param $dieOnError boolean Whether or not to die if an error occurs
-	 * @return boolean
+	 * @return boolean true for success, false on failure
 	 */
 	function update($sql, $params = false, $callHooks = true, $dieOnError = true) {
 		if ($callHooks === true) {
@@ -224,13 +187,7 @@ class DAO {
 			}
 		}
 
-		$start = Core::microtime();
-		$dataSource = $this->getDataSource();
-		$dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
-		if ($dieOnError && $dataSource->errorNo()) {
-			$this->handleError($dataSource, $sql);
-		}
-		return $dataSource->errorNo() == 0 ? true : false;
+		return Capsule::statement($sql, $this->_prepareParameters($params));
 	}
 
 	/**
@@ -241,20 +198,15 @@ class DAO {
 	 * @return int @see ADODB::Replace
 	 */
 	function replace($table, $arrFields, $keyCols) {
-		$dataSource = $this->getDataSource();
-		$arrFields = array_map(array($dataSource, 'qstr'), $arrFields);
-		return $dataSource->Replace($table, $arrFields, $keyCols, false);
+		return Capsule::table($table)->upsert($arrFields, $keyCols);
 	}
 
 	/**
 	 * Return the last ID inserted in an autonumbered field.
-	 * @param $table string table name
-	 * @param $id string the ID/key column in the table
 	 * @return int
 	 */
-	protected function _getInsertId($table = '', $id = '') {
-		$dataSource = $this->getDataSource();
-		return $dataSource->po_insert_id($table, $id);
+	protected function _getInsertId() {
+		return Capsule::getPdo()->lastInsertId();
 	}
 
 	/**
@@ -262,8 +214,7 @@ class DAO {
 	 * @return int (or false if not supported)
 	 */
 	function getAffectedRows() {
-		$dataSource = $this->getDataSource();
-		return $dataSource->Affected_Rows();
+		return Capsule::getPdo()->rowCount();
 	}
 
 	/**
@@ -297,8 +248,7 @@ class DAO {
 	 * @return string
 	 */
 	function datetimeToDB($dt) {
-		$dataSource = $this->getDataSource();
-		return $dataSource->DBTimeStamp($dt);
+		return '\'' . date('Y-m-d H:i:s', $dt) . '\'';
 	}
 
 	/**
@@ -307,8 +257,7 @@ class DAO {
 	 * @return string
 	 */
 	function dateToDB($d) {
-		$dataSource = $this->getDataSource();
-		return $dataSource->DBDate($d);
+		return '\'' . date('Y-m-d', $d) . '\'';
 	}
 
 	/**
@@ -318,8 +267,7 @@ class DAO {
 	 */
 	function datetimeFromDB($dt) {
 		if ($dt === null) return null;
-		$dataSource = $this->getDataSource();
-		return $dataSource->UserTimeStamp($dt, 'Y-m-d H:i:s');
+		return date('Y-m-d H:i:s', strtotime($dt));
 	}
 	/**
 	 * Return date from DB as ISO date string.
@@ -328,8 +276,7 @@ class DAO {
 	 */
 	function dateFromDB($d) {
 		if ($d === null) return null;
-		$dataSource = $this->getDataSource();
-		return $dataSource->UserDate($d, 'Y-m-d');
+		return date('Y-m-d', strtotime($d));
 	}
 
 	/**
@@ -594,8 +541,8 @@ class DAO {
 			$params = false;
 		}
 		$result = $this->retrieve($sql, $params);
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$dataObject->setData(
 				$row['setting_name'],
 				$this->convertFromDB(
@@ -604,10 +551,7 @@ class DAO {
 				),
 				empty($row['locale'])?null:$row['locale']
 			);
-			$result->MoveNext();
 		}
-		$result->Close();
-
 	}
 
 	/**
@@ -615,6 +559,7 @@ class DAO {
 	 * @return string
 	 */
 	function getDriver() {
+		throw new Exception('BROKEN');
 		$conn = DBConnection::getInstance();
 		return $conn->getDriver();
 	}
@@ -703,9 +648,5 @@ class DAO {
 			assert(false);
 			return null;
 		}
-	}
-
-	function handleError($dataSource, $sql) {
-		throw new Exception('DB Error: ' . $dataSource->errorMsg() . ' Query: ' . $sql);
 	}
 }

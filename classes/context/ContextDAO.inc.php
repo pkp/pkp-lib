@@ -56,18 +56,15 @@ abstract class ContextDAO extends SchemaDAO {
 	/**
 	 * Retrieve a context by path.
 	 * @param $path string
-	 * @return Context
+	 * @return Context?
 	 */
 	function getByPath($path) {
 		$result = $this->retrieve(
 			'SELECT * FROM ' . $this->tableName . ' WHERE path = ?',
-			(string) $path
+			[(string) $path]
 		);
-		if ($result->RecordCount() == 0) return null;
-
-		$returner = $this->_fromRow($result->GetRowAssoc(false));
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**

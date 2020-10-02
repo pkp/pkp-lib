@@ -24,7 +24,7 @@ class VersionDAO extends DAO {
 	 * @param $productType string
 	 * @param $product string
 	 * @param $isPlugin boolean
-	 * @return Version
+	 * @return Version?
 	 */
 	function getCurrentVersion($productType = null, $product = null, $isPlugin = false) {
 		if(!$productType || !$product) {
@@ -37,10 +37,8 @@ class VersionDAO extends DAO {
 			'SELECT * FROM versions WHERE current = 1 AND product_type = ? AND product = ?',
 			[$productType, $product]
 		);
-		$returner = $this->_returnVersionFromRow($result->GetRowAssoc(false));
-
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_returnVersionFromRow($row):null;
 	}
 
 	/**
@@ -63,12 +61,9 @@ class VersionDAO extends DAO {
 			array($productType, $product)
 		);
 
-		while (!$result->EOF) {
-			$versions[] = $this->_returnVersionFromRow($result->GetRowAssoc(false));
-			$result->MoveNext();
+		foreach ($result as $row) {
+			$versions[] = $this->_returnVersionFromRow((array) $row);
 		}
-
-		$result->Close();
 		return $versions;
 	}
 
@@ -200,16 +195,14 @@ class VersionDAO extends DAO {
 				lower(v.product_class_name) = ps.plugin_name
 				AND ps.setting_name = \'enabled\' '.$contextWhereClause.'
 			WHERE v.current = 1 AND (ps.setting_value = \'1\' OR v.lazy_load <> 1)',
-			$context, false
+			array_values($context), false
 		);
 
-		$productArray = array();
-		while(!$result->EOF) {
-			$row = $result->getRowAssoc(false);
+		$productArray = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$productArray[$row['product_type']][$row['product']] = $this->_returnVersionFromRow($row);
-			$result->MoveNext();
 		}
-		$result->_close();
 		return $productArray;
 	}
 

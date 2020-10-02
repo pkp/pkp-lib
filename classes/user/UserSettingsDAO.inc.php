@@ -33,22 +33,16 @@ class UserSettingsDAO extends DAO {
 				setting_name = ? AND
 				assoc_type = ? AND
 				assoc_id = ?',
-			array(
+			[
 				(int) $userId,
 				$name,
 				Application::getContextAssocType(),
 				(int) $contextId
-			)
+			]
 		);
 
-		if ($result->RecordCount() != 0) {
-			$row = $result->getRowAssoc(false);
-			$returner = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-		} else {
-			$returner = null;
-		}
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->convertFromDB($row['setting_value'], $row['setting_type']):null;
 	}
 
 	/**
@@ -70,7 +64,7 @@ class UserSettingsDAO extends DAO {
 				s.setting_value = ? AND
 				s.assoc_type = ? AND
 				s.assoc_id = ?',
-			array($name, $value, Application::getContextAssocType(), (int) $contextId)
+			[$name, $value, Application::getContextAssocType(), (int) $contextId]
 		);
 
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
@@ -92,17 +86,15 @@ class UserSettingsDAO extends DAO {
 			WHERE	user_id = ? AND
 				assoc_type = ?
 				AND assoc_id = ?',
-			array((int) $userId, Application::getContextAssocType(), (int) $contextId)
+			[(int) $userId, Application::getContextAssocType(), (int) $contextId]
 		);
 
 		$userSettings = array();
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$value = $this->convertFromDB($row['setting_value'], $row['setting_type']);
 			$userSettings[$row['setting_name']] = $value;
-			$result->MoveNext();
 		}
-		$result->Close();
 		return $userSettings;
 	}
 
@@ -116,30 +108,31 @@ class UserSettingsDAO extends DAO {
 	 */
 	function updateSetting($userId, $name, $value, $type = null, $contextId = CONTEXT_SITE) {
 		$result = $this->retrieve(
-			'SELECT	COUNT(*)
+			'SELECT	COUNT(*) AS row_count
 			FROM	user_settings
 			WHERE	user_id = ? AND
 				setting_name = ?
 				AND assoc_type = ?
 				AND assoc_id = ?',
-			array((int) $userId, $name, Application::getContextAssocType(), (int) $contextId)
+			[(int) $userId, $name, Application::getContextAssocType(), (int) $contextId]
 		);
 
+		$row = (array) $result->current();
 		$value = $this->convertToDB($value, $type);
-		if ($result->fields[0] == 0) {
+		if (!$row || $row['row_count'] == 0) {
 			$this->update(
 				'INSERT INTO user_settings
 					(user_id, setting_name, assoc_type, assoc_id, setting_value, setting_type)
 				VALUES
 					(?, ?, ?, ?, ?, ?)',
-				array(
+				[
 					(int) $userId,
 					$name,
 					Application::getContextAssocType(),
 					(int) $contextId,
 					$value,
 					$type
-				)
+				]
 			);
 		} else {
 			$this->update(
@@ -150,18 +143,16 @@ class UserSettingsDAO extends DAO {
 					setting_name = ? AND
 					assoc_type = ? AND
 					assoc_id = ?',
-				array(
+				[
 					$value,
 					$type,
 					(int) $userId,
 					$name,
 					Application::getContextAssocType(),
 					(int) $contextId
-				)
+				]
 			);
 		}
-
-		$result->Close();
 	}
 
 	/**
@@ -173,7 +164,7 @@ class UserSettingsDAO extends DAO {
 	function deleteSetting($userId, $name, $contextId = CONTEXT_SITE) {
 		$this->update(
 			'DELETE FROM user_settings WHERE user_id = ? AND setting_name = ? AND assoc_type = ? AND assoc_id = ?',
-			array((int) $userId, $name, Application::getContextAssocType(), (int) $contextId)
+			[(int) $userId, $name, Application::getContextAssocType(), (int) $contextId]
 		);
 	}
 
@@ -183,7 +174,7 @@ class UserSettingsDAO extends DAO {
 	 */
 	function deleteSettings($userId) {
 		return $this->update(
-			'DELETE FROM user_settings WHERE user_id = ?', (int) $userId
+			'DELETE FROM user_settings WHERE user_id = ?', [(int) $userId]
 		);
 	}
 }

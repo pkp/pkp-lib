@@ -22,10 +22,10 @@ class CategoryDAO extends DAO {
 	 * @param $categoryId int
 	 * @param $contextId int optional
 	 * @param $parentId int optional
-	 * @return Category
+	 * @return Category?
 	 */
 	function getById($categoryId, $contextId = null, $parentId = null) {
-		$params = array((int) $categoryId);
+		$params = [(int) $categoryId];
 		if ($contextId) $params[] = (int) $contextId;
 		if ($parentId) $params[] = (int) $parentId;
 
@@ -38,33 +38,24 @@ class CategoryDAO extends DAO {
 			$params
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
 	 * Retrieve a category by path.
 	 * @param $path string
 	 * @param $contextId int
-	 * @return Category
+	 * @return Category?
 	 */
 	function getByPath($path, $contextId) {
-		$returner = null;
 		$result = $this->retrieve(
 			'SELECT * FROM categories WHERE path = ? AND context_id = ?',
-			array((string) $path, (int) $contextId)
+			[(string) $path, (int) $contextId]
 		);
 
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
@@ -112,7 +103,7 @@ class CategoryDAO extends DAO {
 			FROM categories c
 			INNER JOIN publication_categories pc ON (pc.category_id = c.category_id)
 			WHERE pc.publication_id = ?',
-			(int) $publicationId
+			[(int) $publicationId]
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');

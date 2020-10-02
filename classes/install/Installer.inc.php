@@ -29,8 +29,6 @@ import('lib.pkp.classes.site.Version');
 import('lib.pkp.classes.site.VersionDAO');
 import('lib.pkp.classes.config.ConfigParser');
 
-require_once './lib/pkp/lib/vendor/adodb/adodb-php/adodb-xmlschema.inc.php';
-
 class Installer {
 
 	/** @var string descriptor path (relative to INSTALLER_DATA_DIR) */

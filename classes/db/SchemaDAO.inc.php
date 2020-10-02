@@ -41,20 +41,16 @@ abstract class SchemaDAO extends DAO {
 	/**
 	 * Retrieve an object by ID
 	 * @param $objectId int
-	 * @return DataObject
+	 * @return DataObject?
 	 */
 	public function getById($objectId) {
 		$result = $this->retrieve(
 			'SELECT * FROM ' . $this->tableName . ' WHERE ' . $this->primaryKeyColumn . ' = ?',
-			(int) $objectId
+			[(int) $objectId]
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**

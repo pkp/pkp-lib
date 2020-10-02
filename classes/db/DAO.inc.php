@@ -49,7 +49,7 @@ class DAO {
 	 * @param $params array parameters for the SQL statement
 	 * @return ADORecordSet
 	 */
-	function retrieve($sql, $params = false, $callHooks = true) {
+	function retrieve($sql, $params = [], $callHooks = true) {
 		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
@@ -62,20 +62,16 @@ class DAO {
 			}
 		}
 
-		yield from Capsule::cursor(Capsule::raw($sql), $this->_prepareParameters($params));
+		yield from Capsule::cursor(Capsule::raw($sql), $params);
 	}
 
-	private function _prepareParameters($params) {
-		if ($params === false) return [];
-		return $params;
-	}
 	/**
 	 * Execute a cached SELECT SQL statement.
 	 * @param $sql string the SQL statement
 	 * @param $params array parameters for the SQL statement
 	 * @return ADORecordSet
 	 */
-	function &retrieveCached($sql, $params = false, $secsToCache = 3600, $callHooks = true) {
+	function &retrieveCached($sql, $params = [], $secsToCache = 3600, $callHooks = true) {
 		throw new Exception('BROKEN');
 		if ($callHooks === true) {
 			$trace = debug_backtrace();
@@ -102,40 +98,12 @@ class DAO {
 	}
 
 	/**
-	 * Execute a SELECT SQL statement with LIMIT on the rows returned.
-	 * @param $sql string the SQL statement
-	 * @param $params array parameters for the SQL statement
-	 * @param $numRows int maximum number of rows to return in the result set
-	 * @param $offset int row offset in the result set
-	 * @return ADORecordSet
-	 */
-	function retrieveLimit($sql, $params = false, $numRows = false, $offset = false, $callHooks = true) {
-		if ($callHooks === true) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::_getsession"
-			// (all lowercase).
-			$value = null;
-			if (HookRegistry::call(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$numRows, &$offset, &$value))) {
-				return $value;
-			}
-		}
-		$query = Capsule::raw($sql);
-		if ($offset !== false) $query->skip($offset);
-		if ($numRows !== false) $query->take($numRows);
-		yield from Capsule::cursor($query, $this->_prepareParameters($params));
-	}
-
-	/**
 	 * Execute a SELECT SQL statment, returning rows in the range supplied.
 	 * @param $sql string the SQL statement
 	 * @param $params array parameters for the SQL statement
 	 * @param $dbResultRange DBResultRange object describing the desired range
 	 */
-	function retrieveRange($sql, $params = false, $dbResultRange = null, $callHooks = true) {
-		if ($dbResultRange === null) return $this->retrieve($sql, $params, $callHooks);
-		throw new Exception('BROKEN');
+	function retrieveRange($sql, $params = [], $dbResultRange = null, $callHooks = true) {
 		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
@@ -147,22 +115,14 @@ class DAO {
 			}
 		}
 
-		if (isset($dbResultRange) && $dbResultRange->isValid()) {
-			$start = Core::microtime();
-			$dataSource = $this->getDataSource();
-			if (is_null($dbResultRange->getOffset())) {
-				$result = $dataSource->PageExecute($sql, $dbResultRange->getCount(), $dbResultRange->getPage(), $params);
-			} else {
-				$result = $dataSource->SelectLimit($sql, $dbResultRange->getCount(), $dbResultRange->getOffset(), $params);
-			}
-			if ($dataSource->errorNo()) {
-				$this->handleError($dataSource, $sql);
-			}
+		if ($dbResultRange && $dbResultRange->isValid()) {
+			$sql .= ' LIMIT ' . (int) $dbResultRange->getCount();
+			$offset = (int) $dbResultRange->getOffset();
+			$offset += $dbResultRange->getPage() * Config::getVar('interface', 'items_per_page');
+			$sql .= ' OFFSET ' . $offset;
 		}
-		else {
-			$result = $this->retrieve($sql, $this->_prepareParameters($params));
-		}
-		return $result;
+
+		yield from Capsule::cursor(Capsule::raw($sql), $params);
 	}
 
 	/**
@@ -173,7 +133,7 @@ class DAO {
 	 * @param $dieOnError boolean Whether or not to die if an error occurs
 	 * @return int Affected row count
 	 */
-	function update($sql, $params = false, $callHooks = true, $dieOnError = true) {
+	function update($sql, $params = [], $callHooks = true, $dieOnError = true) {
 		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
@@ -186,7 +146,7 @@ class DAO {
 			}
 		}
 
-		return Capsule::affectingStatement($sql, $this->_prepareParameters($params));
+		return Capsule::affectingStatement($sql, $params);
 	}
 
 	/**
@@ -529,10 +489,10 @@ class DAO {
 	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject) {
 		if ($idFieldName !== null) {
 			$sql = "SELECT * FROM $tableName WHERE $idFieldName = ?";
-			$params = array($idFieldValue);
+			$params = [$idFieldValue];
 		} else {
 			$sql = "SELECT * FROM $tableName";
-			$params = false;
+			$params = [];
 		}
 		$result = $this->retrieve($sql, $params);
 		foreach ($result as $row) {

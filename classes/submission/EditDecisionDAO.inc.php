@@ -85,20 +85,19 @@ class EditDecisionDAO extends DAO {
 			$params
 		);
 
-		$decisions = array();
-		while (!$result->EOF) {
-			$decisions[] = array(
-				'editDecisionId' => $result->fields['edit_decision_id'],
-				'reviewRoundId' => $result->fields['review_round_id'],
-				'stageId' => $result->fields['stage_id'],
-				'round' => $result->fields['round'],
-				'editorId' => $result->fields['editor_id'],
-				'decision' => $result->fields['decision'],
-				'dateDecided' => $this->datetimeFromDB($result->fields['date_decided'])
-			);
-			$result->MoveNext();
+		$decisions = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$decisions[] = [
+				'editDecisionId' => $row['edit_decision_id'],
+				'reviewRoundId' => $row['review_round_id'],
+				'stageId' => $row['stage_id'],
+				'round' => $row['round'],
+				'editorId' => $row['editor_id'],
+				'decision' => $row['decision'],
+				'dateDecided' => $this->datetimeFromDB($row['date_decided'])
+			];
 		}
-		$result->Close();
 		return $decisions;
 	}
 

@@ -101,7 +101,7 @@ class StageAssignmentDAO extends DAO {
 		$params = array((int) $submissionId, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR);
 		if ($stageId) $params[] = (int) $stageId;
 		$result = $this->retrieve(
-			'SELECT	COUNT(*)
+			'SELECT	COUNT(*) AS row_count
 			FROM	stage_assignments sa
 				JOIN user_groups ug ON (sa.user_group_id = ug.user_group_id)
 				JOIN user_group_stage ugs ON (ug.user_group_id = ugs.user_group_id)
@@ -110,10 +110,8 @@ class StageAssignmentDAO extends DAO {
 				($stageId?' AND ugs.stage_id = ?':''),
 			$params
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row && $row['row_count'];
 	}
 
 	/**
@@ -123,16 +121,12 @@ class StageAssignmentDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function getByUserGroupId($userGroupId, $contextId) {
-		$params = array(
-			(int) $userGroupId,
-			(int) $contextId
-		);
 
 		$result = $this->retrieve(
 			'SELECT * FROM stage_assignments sa'
 			. ' JOIN submissions s ON s.submission_id = sa.submission_id'
 			. ' WHERE sa.user_group_id = ? AND s.context_id = ?',
-			$params
+			[(int) $userGroupId, (int) $contextId]
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');

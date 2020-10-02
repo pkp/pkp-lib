@@ -61,16 +61,13 @@ class ReviewAssignmentDAO extends DAO {
 	 * @return array
 	 */
 	function _getReviewAssignmentsArray($query, $queryParams) {
-		$reviewAssignments = array();
-
 		$result = $this->retrieve($query, $queryParams);
 
-		while (!$result->EOF) {
-			$reviewAssignments[$result->fields['review_id']] = $this->_fromRow($result->GetRowAssoc(false));
-			$result->MoveNext();
+		$reviewAssignments = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$reviewAssignments[$row['review_id']] = $this->_fromRow($row);
 		}
-
-		$result->Close();
 		return $reviewAssignments;
 	}
 
@@ -580,30 +577,15 @@ class ReviewAssignmentDAO extends DAO {
 	 * Get the last review round review assignment for a given user.
 	 * @param $submissionId int
 	 * @param $reviewerId int
-	 * @return ReviewAssignment
+	 * @return ReviewAssignment?
 	 */
 	function getLastReviewRoundReviewAssignmentByReviewer($submissionId, $reviewerId) {
-		$params = array(
-				(int) $submissionId,
-				(int) $reviewerId
+		$result = $this->retrieve(
+			$this->_getSelectQuery() .  ' WHERE	r.submission_id = ? AND r.reviewer_id = ?  ORDER BY r2.stage_id DESC, r2.round DESC',
+			[(int) $submissionId, (int) $reviewerId]
 		);
-
-		$result = $this->retrieveLimit(
-				$this->_getSelectQuery() .
-				' WHERE	r.submission_id = ? AND
-				r.reviewer_id = ?
-				ORDER BY r2.stage_id DESC, r2.round DESC',
-				$params,
-				1
-		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**

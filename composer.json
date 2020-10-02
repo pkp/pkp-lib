@@ -21,7 +21,8 @@
 		"sokil/php-isocodes": "^3.0",
 		"doctrine/dbal": "^2.10",
 		"guzzlehttp/guzzle": "^6.5",
-		"league/flysystem": "^1.0"
+		"league/flysystem": "^1.0",
+		"staudenmeir/laravel-upsert": "^1.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~8",

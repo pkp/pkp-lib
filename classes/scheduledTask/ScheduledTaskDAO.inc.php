@@ -35,15 +35,9 @@ class ScheduledTaskDAO extends DAO {
 			'SELECT last_run FROM scheduled_tasks WHERE class_name = ?',
 			array($className)
 		);
-
-		if ($result->RecordCount() == 0) {
-			$returner = 0;
-		} else {
-			$returner = strtotime($this->datetimeFromDB($result->fields[0]));
-		}
-
-		$result->Close();
-		return $returner;
+		if (!$result) return 0;
+		$row = (array) $result->current();
+		return strtotime($this->datetimeFromDB($row['last_run']));
 	}
 
 	/**

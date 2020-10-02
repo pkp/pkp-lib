@@ -107,12 +107,10 @@ class PluginSettingsDAO extends DAO {
 		);
 
 		$pluginSettings = array();
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$pluginSettings[$row['setting_name']] = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-			$result->MoveNext();
 		}
-		$result->Close();
 
 		$cache = $this->_getCache($contextId, $pluginName);
 		$cache->setEntireCache($pluginSettings);

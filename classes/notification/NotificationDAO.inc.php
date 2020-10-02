@@ -260,15 +260,13 @@ class NotificationDAO extends DAO {
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
-			'SELECT count(*) FROM notifications WHERE user_id = ? AND date_read IS' . ($read ? ' NOT' : '') . ' NULL AND level = ?'
+			'SELECT count(*) AS row_count FROM notifications WHERE user_id = ? AND date_read IS' . ($read ? ' NOT' : '') . ' NULL AND level = ?'
 			. (isset($contextId) ? ' AND context_id = ?' : ''),
 			$params
 		);
 
-		$returner = $result->fields[0];
-
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$row['row_count']:0;
 	}
 
 	/**

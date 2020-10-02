@@ -31,16 +31,13 @@ class SessionDAO extends DAO {
 	 * @param $sessionId string
 	 * @return Session
 	 */
-	function &getSession($sessionId) {
+	function getSession($sessionId) {
 		$result = $this->retrieve(
 			'SELECT * FROM sessions WHERE session_id = ?',
 			array($sessionId)
 		);
 
-		$session = null;
-		if ($result->RecordCount() != 0) {
-			$row = $result->GetRowAssoc(false);
-
+		if ($row = (array) $result->current()) {
 			$session = $this->newDataObject();
 			$session->setId($row['session_id']);
 			$session->setUserId($row['user_id']);
@@ -51,10 +48,10 @@ class SessionDAO extends DAO {
 			$session->setRemember($row['remember']);
 			$session->setSessionData($row['data']);
 			$session->setDomain($row['domain']);
+			return $session;
 		}
 
-		$result->Close();
-		return $session;
+		return null;
 	}
 
 	/**
@@ -84,7 +81,7 @@ class SessionDAO extends DAO {
 	 * Update an existing session.
 	 * @param $session Session
 	 */
-	function updateObject(&$session) {
+	function updateObject($session) {
 		return $this->update(
 			'UPDATE sessions
 				SET
@@ -115,7 +112,7 @@ class SessionDAO extends DAO {
 	 * Delete a session.
 	 * @param $session Session
 	 */
-	function deleteObject(&$session) {
+	function deleteObject($session) {
 		return $this->deleteById($session->getId());
 	}
 

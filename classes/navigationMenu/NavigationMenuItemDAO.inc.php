@@ -21,7 +21,7 @@ class NavigationMenuItemDAO extends DAO {
 	/**
 	 * Retrieve a navigation menu item by ID.
 	 * @param $navigationMenuItemId int
-	 * @return NavigationMenuItem
+	 * @return NavigationMenuItem?
 	 */
 	function getById($navigationMenuItemId) {
 		$params = array((int) $navigationMenuItemId);
@@ -30,19 +30,15 @@ class NavigationMenuItemDAO extends DAO {
 			$params
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
 	 * Retrieve a navigation menu item by path.
 	 * @param $contextId int Context Id
 	 * @param $path string
-	 * @return NavigationMenuItem
+	 * @return NavigationMenuItem?
 	 */
 	function getByPath($contextId, $path) {
 		$params = array($path, (int) $contextId, 'NMI_TYPE_CUSTOM');
@@ -51,12 +47,8 @@ class NavigationMenuItemDAO extends DAO {
 			$params
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**

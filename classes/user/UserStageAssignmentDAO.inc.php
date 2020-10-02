@@ -48,7 +48,27 @@ class UserStageAssignmentDAO extends UserDAO {
 	 * @return DAOResultFactory StageAssignment
 	 */
 	function getUsersBySubmissionAndStageId($submissionId, $stageId = null, $userGroupId = null, $roleId = null, $userId = null) {
-		return $this->_getUsersByIds($submissionId, $stageId, $userGroupId, $userId, $roleId);
+		$params = [(int) $submissionId];
+		if (isset($stageId)) $params[] = (int) $stageId;
+		if (isset($userGroupId)) $params[] = (int) $userGroupId;
+		if (isset($userId)) $params[] = (int) $userId;
+		if (isset($roleId)) $params[] = (int) $roleId;
+
+		$result = $this->retrieve(
+			'SELECT u.*
+			FROM stage_assignments sa
+			INNER JOIN user_group_stage ugs ON (sa.user_group_id = ugs.user_group_id)
+			INNER JOIN users u ON (u.user_id = sa.user_id) ' .
+			(isset($roleId) ? 'INNER JOIN user_groups ug ON (ug.user_group_id = sa.user_group_id) ' : '') .
+			'WHERE submission_id = ?' .
+			(isset($stageId) ? ' AND ugs.stage_id = ?' : '') .
+			(isset($userGroupId) ? ' AND sa.user_group_id = ?':'') .
+			(isset($userId)?' AND u.user_id = ? ' : '') .
+			(isset($roleId)?' AND ug.role_id = ?' : ''),
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
 	}
 
 	/**
@@ -104,53 +124,5 @@ class UserStageAssignmentDAO extends UserDAO {
 				$rangeInfo);
 		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
 	}
-
-	//
-	// Private helper method
-	//
-	/**
-	 * Retrieve a user by submission and stage IDs.
-	 * Private method because it serves two purposes: returns a single assignment
-	 * or returns a factory, depending on the calling context.
-	 * @param $submissionId int
-	 * @param $stageId int optional
-	 * @param $userGroupId int optional
-	 * @param $userId int optional
-	 * @param $roleId int optional
-	 * @return object DAOResultFactory
-	 */
-	function _getUsersByIds($submissionId, $stageId = null, $userGroupId = null, $userId = null, $roleId = null) {
-		$params = array((int) $submissionId);
-		if (isset($stageId)) $params[] = (int) $stageId;
-		if (isset($userGroupId)) $params[] = (int) $userGroupId;
-		if (isset($userId)) $params[] = (int) $userId;
-		if (isset($roleId)) $params[] = (int) $roleId;
-
-		$result = $this->retrieve(
-			'SELECT u.*
-			FROM stage_assignments sa
-			INNER JOIN user_group_stage ugs ON (sa.user_group_id = ugs.user_group_id)
-			INNER JOIN users u ON (u.user_id = sa.user_id) ' .
-			(isset($roleId) ? 'INNER JOIN user_groups ug ON (ug.user_group_id = sa.user_group_id) ' : '') .
-			'WHERE submission_id = ?' .
-			(isset($stageId) ? ' AND ugs.stage_id = ?' : '') .
-			(isset($userGroupId) ? ' AND sa.user_group_id = ?':'') .
-			(isset($userId)?' AND u.user_id = ? ' : '') .
-			(isset($roleId)?' AND ug.role_id = ?' : ''),
-			$params);
-
-		$returner = null;
-		// This is a little obscure.
-		// 4 params and 1 search results, means calling context was seeking an individual user.
-		if ($result->RecordCount() == 1 && count($params) == 4) {
-			// If all parameters were specified, then seeking only one assignment.
-			$returner = $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
-			$result->Close();
-		} elseif ($result) {
-			$returner = new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
-		}
-		return $returner;
-	}
 }
-
 

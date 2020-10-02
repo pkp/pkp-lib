@@ -111,6 +111,7 @@ class ReviewRoundDAO extends DAO {
 	 * @param $submissionId integer
 	 * @param $stageId int One of the Stage_id_* constants.
 	 * @param $round int The review round to be retrieved.
+	 * @return ReviewRound?
 	 */
 	function getReviewRound($submissionId, $stageId, $round) {
 		$result = $this->retrieve(
@@ -118,12 +119,8 @@ class ReviewRoundDAO extends DAO {
 			array((int) $submissionId, (int) $stageId, (int) $round)
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
@@ -213,27 +210,22 @@ class ReviewRoundDAO extends DAO {
 	 * Get the last review round for a give stage (or for the latest stage)
 	 * @param $submissionId int
 	 * @param $stageId int
-	 * @return ReviewRound
+	 * @return ReviewRound?
 	 */
 	function getLastReviewRoundBySubmissionId($submissionId, $stageId = null) {
-		$params = array((int)$submissionId);
+		$params = [(int)$submissionId];
 		if ($stageId) $params[] = (int) $stageId;
-		$result = $this->retrieveLimit(
+		$result = $this->retrieve(
 			'SELECT	*
 			FROM	review_rounds
 			WHERE	submission_id = ?
 			' . ($stageId ? ' AND stage_id = ?' : '') . '
 			ORDER BY stage_id DESC, round DESC',
-			$params,
-			1
+			$params
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**

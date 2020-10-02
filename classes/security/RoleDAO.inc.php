@@ -120,16 +120,12 @@ class RoleDAO extends DAO {
 	function userHasRole($contextId, $userId, $roleId) {
 		$roleId = is_array($roleId) ? join(',', array_map('intval', $roleId)) : (int) $roleId;
 		$result = $this->retrieve(
-			'SELECT count(*) FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
+			'SELECT count(*) AS row_count FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
 			WHERE ug.context_id = ? AND uug.user_id = ? AND ug.role_id IN (' . $roleId . ')',
-			array((int) $contextId, (int) $userId)
+			[(int) $contextId, (int) $userId]
 		);
-
-		// > 0 because user could belong to more than one user group with this role
-		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row && $row['row_count'];
 	}
 
 	/**

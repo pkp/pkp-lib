@@ -102,8 +102,8 @@ class EmailTemplateDAO extends SchemaDAO {
 			[$emailTemplate->getData('key')]
 		);
 		$props = ['subject', 'body', 'description'];
-		while (!$result->EOF) {
-			$settingRow = $result->getRowAssoc(false);
+		foreach ($result as $settingRow) {
+			$settingRow = (array) $settingRow;
 			foreach ($props as $prop) {
 				// Don't allow default data to override custom template data
 				if ($emailTemplate->getData($prop, $settingRow['locale'])) {
@@ -118,9 +118,7 @@ class EmailTemplateDAO extends SchemaDAO {
 					$settingRow['locale']
 				);
 			}
-			$result->MoveNext();
 		}
-		$result->Close();
 
 		return $emailTemplate;
 	}
@@ -131,7 +129,7 @@ class EmailTemplateDAO extends SchemaDAO {
 	 */
 	function deleteEmailTemplatesByLocale($locale) {
 		$this->update(
-			'DELETE FROM email_templates_settings WHERE locale = ?', $locale
+			'DELETE FROM email_templates_settings WHERE locale = ?', [$locale]
 		);
 	}
 
@@ -141,7 +139,7 @@ class EmailTemplateDAO extends SchemaDAO {
 	 */
 	function deleteDefaultEmailTemplatesByLocale($locale) {
 		$this->update(
-			'DELETE FROM email_templates_default_data WHERE locale = ?', $locale
+			'DELETE FROM email_templates_default_data WHERE locale = ?', [$locale]
 		);
 	}
 
@@ -154,14 +152,13 @@ class EmailTemplateDAO extends SchemaDAO {
 	 */
 	function defaultTemplateIsInstalled($key) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*)
+			'SELECT COUNT(*) AS row_count
 				FROM email_templates_default
 				WHERE email_key = ?',
-			$key
+			[$key]
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] != 0;
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row && $row['row_count'];
 	}
 
 	/**

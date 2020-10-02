@@ -286,13 +286,11 @@ class UserGroupDAO extends DAO {
 			$params
 		);
 
-		$userGroupIds = array();
-		while (!$result->EOF) {
-			$userGroupIds[] = (int) $result->fields[0];
-			$result->MoveNext();
+		$userGroupIds = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$userGroupIds[] = (int) $row['user_group_id'];
 		}
-
-		$result->Close();
 		return $userGroupIds;
 	}
 

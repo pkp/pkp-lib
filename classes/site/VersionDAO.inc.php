@@ -33,38 +33,11 @@ class VersionDAO extends DAO {
 			$product = $application->getName();
 		}
 
-		// We only have to check whether we are on a version previous
-		// to the introduction of products when we're not looking for
-		// a product version anyway.
-		$returner = null;
-		if (!$isPlugin) {
-			$result = $this->retrieve(
-				'SELECT * FROM versions WHERE current = 1'
-			);
-			// If we only have one current version then this must be
-			// the application version before the introduction of products
-			// into the versions table.
-			if ($result->RecordCount() == 1) {
-				$oldVersion = $this->_returnVersionFromRow($result->GetRowAssoc(false));
-				if (isset($oldVersion)) $returner = $oldVersion;
-			}
-			$result->Close();
-		}
-
-		if (!$returner) {
-			// From here on we can assume that we have the product type
-			// and product columns available in the versions table.
-			$result = $this->retrieve(
-				'SELECT * FROM versions WHERE current = 1 AND product_type = ? AND product = ?',
-				array($productType, $product)
-			);
-			$versionCount = $result->RecordCount();
-			if ($versionCount == 1) {
-				$returner = $this->_returnVersionFromRow($result->GetRowAssoc(false));
-			} elseif ($versionCount >1) {
-				fatalError('More than one current version defined for the product type "'.$productType.'" and product "'.$product.'"!');
-			}
-		}
+		$result = $this->retrieve(
+			'SELECT * FROM versions WHERE current = 1 AND product_type = ? AND product = ?',
+			[$productType, $product]
+		);
+		$returner = $this->_returnVersionFromRow($result->GetRowAssoc(false));
 
 		$result->Close();
 		return $returner;

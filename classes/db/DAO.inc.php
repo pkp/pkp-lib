@@ -19,7 +19,6 @@
  * @brief Operations for retrieving and modifying objects from a database.
  */
 
-import('lib.pkp.classes.db.DBConnection');
 import('lib.pkp.classes.db.DAOResultFactory');
 import('lib.pkp.classes.db.DBResultRange');
 import('lib.pkp.classes.core.DataObject');
@@ -172,7 +171,7 @@ class DAO {
 	 * @param $params an array of parameters for the SQL statement
 	 * @param $callHooks boolean Whether or not to call hooks
 	 * @param $dieOnError boolean Whether or not to die if an error occurs
-	 * @return boolean true for success, false on failure
+	 * @return int Affected row count
 	 */
 	function update($sql, $params = false, $callHooks = true, $dieOnError = true) {
 		if ($callHooks === true) {
@@ -187,7 +186,7 @@ class DAO {
 			}
 		}
 
-		return Capsule::statement($sql, $this->_prepareParameters($params));
+		return Capsule::affectingStatement($sql, $this->_prepareParameters($params));
 	}
 
 	/**
@@ -198,7 +197,8 @@ class DAO {
 	 * @return int @see ADODB::Replace
 	 */
 	function replace($table, $arrFields, $keyCols) {
-		return Capsule::table($table)->upsert($arrFields, $keyCols);
+		$queryBuilder = new \Staudenmeir\LaravelUpsert\Query\Builder(Capsule::connection());
+		return $queryBuilder->from($table)->upsert($arrFields, $keyCols);
 	}
 
 	/**
@@ -207,14 +207,6 @@ class DAO {
 	 */
 	protected function _getInsertId() {
 		return Capsule::getPdo()->lastInsertId();
-	}
-
-	/**
-	 * Return the number of affected rows by the last UPDATE or DELETE.
-	 * @return int (or false if not supported)
-	 */
-	function getAffectedRows() {
-		return Capsule::getPdo()->rowCount();
 	}
 
 	/**
@@ -248,6 +240,7 @@ class DAO {
 	 * @return string
 	 */
 	function datetimeToDB($dt) {
+		if (!ctype_digit($dt)) $dt = strtotime($dt);
 		return '\'' . date('Y-m-d H:i:s', $dt) . '\'';
 	}
 
@@ -257,6 +250,7 @@ class DAO {
 	 * @return string
 	 */
 	function dateToDB($d) {
+		if (!ctype_digit($d)) $dt = strtotime($d);
 		return '\'' . date('Y-m-d', $d) . '\'';
 	}
 
@@ -552,16 +546,6 @@ class DAO {
 				empty($row['locale'])?null:$row['locale']
 			);
 		}
-	}
-
-	/**
-	 * Get the driver for this connection.
-	 * @return string
-	 */
-	function getDriver() {
-		throw new Exception('BROKEN');
-		$conn = DBConnection::getInstance();
-		return $conn->getDriver();
 	}
 
 	/**

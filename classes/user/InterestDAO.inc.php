@@ -40,14 +40,10 @@ class InterestDAO extends ControlledVocabDAO {
 			array((int) $controlledVocab->getId(), (int) $userId)
 		);
 
-		$ids = array();
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
-			$ids[] = $row['controlled_vocab_entry_id'];
-			$result->MoveNext();
+		$ids = [];
+		foreach ($result as $row) {
+			$ids[] = $row->controlled_vocab_entry_id;
 		}
-		$result->Close();
-
 		return $ids;
 	}
 

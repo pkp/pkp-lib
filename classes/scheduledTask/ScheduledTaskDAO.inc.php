@@ -35,9 +35,8 @@ class ScheduledTaskDAO extends DAO {
 			'SELECT last_run FROM scheduled_tasks WHERE class_name = ?',
 			array($className)
 		);
-		if (!$result) return 0;
 		$row = (array) $result->current();
-		return strtotime($this->datetimeFromDB($row['last_run']));
+		return $row?strtotime($this->datetimeFromDB($row['last_run'])):null;
 	}
 
 	/**
@@ -47,43 +46,30 @@ class ScheduledTaskDAO extends DAO {
 	 * @return int
 	 */
 	function updateLastRunTime($className, $timestamp = null) {
-		$result = $this->retrieve(
-			'SELECT COUNT(*) FROM scheduled_tasks WHERE class_name = ?',
-			array($className)
-		);
+		$result = $this->retrieve('SELECT COUNT(*) AS row_count FROM scheduled_tasks WHERE class_name = ?', [$className]);
 
-		if (isset($result->fields[0]) && $result->fields[0] != 0) {
+		$row = (array) $result->current();
+		if ($row && $row['row_count'] != 0) {
 			if (isset($timestamp)) {
-				$this->update(
-					'UPDATE scheduled_tasks SET last_run = ' . $this->datetimeToDB($timestamp) . ' WHERE class_name = ?',
-					array($className)
-				);
+				$this->update('UPDATE scheduled_tasks SET last_run = ' . $this->datetimeToDB($timestamp) . ' WHERE class_name = ?', [$className]);
 			} else {
-				$this->update(
-					'UPDATE scheduled_tasks SET last_run = NOW() WHERE class_name = ?',
-					array($className)
-				);
+				$this->update( 'UPDATE scheduled_tasks SET last_run = NOW() WHERE class_name = ?', [$className]);
 			}
-
 		} else {
 			if (isset($timestamp)) {
 				$this->update(
-					sprintf('INSERT INTO scheduled_tasks (class_name, last_run)
-					VALUES (?, %s)', $this->datetimeToDB($timestamp)),
-					array($className)
+					sprintf('INSERT INTO scheduled_tasks (class_name, last_run) VALUES (?, %s)', $this->datetimeToDB($timestamp)),
+					[$className]
 				);
 			} else {
 				$this->update(
-					'INSERT INTO scheduled_tasks (class_name, last_run)
-					VALUES (?, NOW())',
-					array($className)
+					'INSERT INTO scheduled_tasks (class_name, last_run) VALUES (?, NOW())',
+					[$className]
 				);
 			}
 		}
 
-		$result->Close();
 		return $this->getAffectedRows();
 	}
 }
-
 

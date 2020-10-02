@@ -80,6 +80,7 @@ class SessionDAO extends DAO {
 	/**
 	 * Update an existing session.
 	 * @param $session Session
+	 * @return int Number of affected rows
 	 */
 	function updateObject($session) {
 		return $this->update(

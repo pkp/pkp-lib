@@ -166,18 +166,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		Registry::set('system.debug.notes', $notes);
 
 		if (Config::getVar('general', 'installed')) {
-			// Initialize database connection
-			$conn = DBConnection::getInstance();
-
-			if (!$conn->isConnected()) {
-				if (Config::getVar('database', 'debug')) {
-					$dbconn =& $conn->getDBConn();
-					fatalError('Database connection failed: ' . $dbconn->errorMsg());
-				} else {
-					fatalError('Database connection failed!');
-				}
-			}
-
 			// Map valid config options to Illuminate database drivers
 			$driver = strtolower(Config::getVar('database', 'driver'));
 			if (substr($driver, 0, 8) === 'postgres') {

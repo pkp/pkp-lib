@@ -182,11 +182,9 @@ class SessionManager {
 	function write($sessionId, $data) {
 		if (isset($this->userSession)) {
 			$this->userSession->setSessionData($data);
-			return $this->sessionDao->updateObject($this->userSession);
-
-		} else {
-			return true;
+			$this->sessionDao->updateObject($this->userSession);
 		}
+		return true;
 	}
 
 	/**
@@ -195,7 +193,7 @@ class SessionManager {
 	 * @return boolean
 	 */
 	function destroy($sessionId) {
-		return $this->sessionDao->deleteById($sessionId);
+		return (boolean) $this->sessionDao->deleteById($sessionId);
 	}
 
 	/**
@@ -205,7 +203,7 @@ class SessionManager {
 	 * @return boolean
 	 */
 	function gc($maxlifetime) {
-		return $this->sessionDao->deleteByLastUsed(time() - 86400, Config::getVar('general', 'session_lifetime') <= 0 ? 0 : time() - Config::getVar('general', 'session_lifetime') * 86400);
+		return (boolean) $this->sessionDao->deleteByLastUsed(time() - 86400, Config::getVar('general', 'session_lifetime') <= 0 ? 0 : time() - Config::getVar('general', 'session_lifetime') * 86400);
 	}
 
 	/**

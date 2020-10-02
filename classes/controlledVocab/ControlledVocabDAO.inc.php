@@ -171,6 +171,7 @@ class ControlledVocabDAO extends DAO {
 	 * @param $symbolic string
 	 * @param $assocType int
 	 * @param $assocId int
+	 * @return ControlledVocab?
 	 */
 	function getBySymbolic($symbolic, $assocType = 0, $assocId = 0) {
 		$result = $this->retrieve(
@@ -178,12 +179,8 @@ class ControlledVocabDAO extends DAO {
 			array($symbolic, (int) $assocType, (int) $assocId)
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**

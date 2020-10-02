@@ -107,7 +107,7 @@ class NotificationDAO extends DAO {
 				SET date_read = %s
 				WHERE notification_id = ?',
 				$this->datetimeToDB($dateRead)),
-			(int) $notificationId
+			[(int) $notificationId]
 		);
 
 		return $dateRead;
@@ -200,11 +200,10 @@ class NotificationDAO extends DAO {
 	function deleteById($notificationId, $userId = null) {
 		$params = array((int) $notificationId);
 		if (isset($userId)) $params[] = (int) $userId;
-		$this->update(
+		if ($this->update(
 			'DELETE FROM notifications WHERE notification_id = ?' . (isset($userId) ? ' AND user_id = ?' : ''),
 			$params
-		);
-		if ($this->getAffectedRows()) {
+		)) {
 			// If a notification was deleted (possibly validating
 			// $userId in the process) delete associated settings.
 			$notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDaoDao NotificationSettingsDAO */

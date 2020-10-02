@@ -209,8 +209,8 @@ class UserGroupDAO extends DAO {
 			WHERE	user_group_id = ?' . ($contextId !== null?' AND context_id = ?':''),
 			$params
 		);
-
-		return $this->_returnFromRow($result->GetRowAssoc(false));
+		$row = (array) $result->current();
+		return $row?$this->_returnFromRow($row):null;
 	}
 
 	/**

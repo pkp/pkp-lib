@@ -108,6 +108,24 @@ msgstr ""
 msgid "emails.publishNotify.description"
 msgstr "This email is sent to registered readers via the \"Notify Users\" link in the Moderator's User Home. It notifies readers of a new preprint and invites them to visit the server at a supplied URL."
 
+msgid "emails.postedAck.subject"
+msgstr "Preprint Posted Acknowledgement"
+
+msgid "emails.postedAck.body"
+msgstr ""
+"{$authorName}:<br />\n"
+"<br />\n"
+"Your preprint, &quot;{$submissionTitle}&quot; has been posted online on {$contextName}.<br />\n
+<br />\n"
+"Preprint URL: {$publicationUrl}<br />\n"
+"<br />\n"
+"If you have any questions, please contact me.<br />\n"
+"<br />\n"
+"{$editorialContactSignature}"
+
+msgid "emails.postedAck.description"
+msgstr "This email, when enabled, is automatically sent to an author when the preprint is posted online on the server."
+
 msgid "emails.submissionAck.subject"
 msgstr "Submission Acknowledgement"
 

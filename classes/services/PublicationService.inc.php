@@ -35,6 +35,7 @@ class PublicationService extends PKPPublicationService {
 		\HookRegistry::register('Publication::add', [$this, 'addPublication']);
 		\HookRegistry::register('Publication::version', [$this, 'versionPublication']);
 		\HookRegistry::register('Publication::publish::before', [$this, 'publishPublicationBefore']);
+		\HookRegistry::register('Publication::publish', [$this, 'publishPublication']);
 		\HookRegistry::register('Publication::delete::before', [$this, 'deletePublicationBefore']);
 	}
 
@@ -268,7 +269,55 @@ class PublicationService extends PKPPublicationService {
 	}
 
 	/**
-	 * Delete OJS-specific objects before a publication is deleted
+	 * Fire events after a publication has been published
+	 *
+	 * @param $hookName string
+	 * @param $args array [
+	 *		@option Publication The new version of the publication
+	 *		@option Publication The old version of the publication
+	 *		@option Submission The publication's submission
+	 * ]
+	 */
+	public function publishPublication($hookName, $args) {
+		$newPublication = $args[0];
+		$submission = $args[2];
+		$request = Application::get()->getRequest();
+		$context = $request->getContext();
+		$router = $request->getRouter();
+
+		// Send preprint posted acknowledgement email when the first version is published
+		if ($newPublication->getData('version') > 1) {
+
+			import('classes.mail.ArticleMailTemplate');
+
+			$mail = new ArticleMailTemplate($submission, 'SUBMISSION_ACK', null, null, false);
+
+			if ($mail->isEnabled()) {
+
+				// posted ack emails should be from the contact.
+				$mail->setFrom($this->context->getData('contactEmail'), $this->context->getData('contactName'));
+
+				$user = $request->getUser();
+				$mail->addRecipient($user->getEmail(), $user->getFullName());
+
+				$mail->assignParams(array(
+					'authorName' => $user->getFullName(),
+					'authorUsername' => $user->getUsername(),
+					'editorialContactSignature' => $context->getData('contactName'),
+					'publicationUrl' => $router->url($request, $context->getPath(), 'preprint', 'view', $submission->getBestId(), null, null, true),
+				));
+
+				if (!$mail->send($request)) {
+					import('classes.notification.NotificationManager');
+					$notificationMgr = new NotificationManager();
+					$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+				}
+			}
+		}
+	}
+
+	/**
+	 * Delete OPS-specific objects before a publication is deleted
 	 *
 	 * @param $hookName string
 	 * @param $args array [

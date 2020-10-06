@@ -18,6 +18,7 @@
 	<email key="USER_VALIDATE" can_edit="1" can_disable="0" subject="emails.userValidate.subject" description="emails.userValidate.description" body="emails.userValidate.body"/>
 	<email key="PUBLISH_NOTIFY" can_edit="1" can_disable="0" subject="emails.publishNotify.subject" description="emails.publishNotify.description" body="emails.publishNotify.body"/>
 	<email key="SUBMISSION_ACK" can_edit="1" can_disable="1" to_role_id="65536" stage_id="5" subject="emails.submissionAck.subject" description="emails.submissionAck.description" body="emails.submissionAck.body"/>
+	<email key="POSTED_ACK" can_edit="1" can_disable="1" to_role_id="65536" stage_id="5" subject="emails.postedAck.subject" description="emails.postedAck.description" body="emails.postedAck.body"/>
 	<email key="SUBMISSION_ACK_NOT_USER" can_edit="1" can_disable="1" to_role_id="65536" stage_id="5" subject="emails.submissionAckNotUser.subject" description="emails.submissionAckNotUser.description" body="emails.submissionAckNotUser.body"/>
 	<email key="EDITOR_ASSIGN" can_edit="1" can_disable="1" from_role_id="16" to_role_id="16" stage_id="5" subject="emails.editorAssign.subject" description="emails.editorAssign.description" body="emails.editorAssign.body"/>
 	<email key="EDITOR_DECISION_ACCEPT" can_edit="1" can_disable="0" from_role_id="16" to_role_id="65536" stage_id="5" subject="emails.editorDecisionAccept.subject" description="emails.editorDecisionAccept.description" body="emails.editorDecisionAccept.body"/>

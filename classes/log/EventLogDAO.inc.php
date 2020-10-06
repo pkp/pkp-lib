@@ -89,17 +89,15 @@ class EventLogDAO extends DAO {
 		$entry->setMessage($row['message']);
 		$entry->setIsTranslated($row['is_translated']);
 
-		$result = $this->retrieve('SELECT * FROM event_log_settings WHERE log_id = ?', array((int) $entry->getId()));
-		$params = array();
-		while (!$result->EOF) {
-			$r = $result->getRowAssoc(false);
+		$result = $this->retrieve('SELECT * FROM event_log_settings WHERE log_id = ?', [(int) $entry->getId()]);
+		$params = [];
+		foreach ($result as $r) {
+			$r = (array) $r;
 			$params[$r['setting_name']] = $this->convertFromDB(
 				$r['setting_value'],
 				$r['setting_type']
 			);
-			$result->MoveNext();
 		}
-		$result->Close();
 		$entry->setParams($params);
 
 		HookRegistry::call('EventLogDAO::build', array(&$entry, &$row));

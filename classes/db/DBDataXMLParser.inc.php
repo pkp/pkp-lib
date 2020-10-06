@@ -14,13 +14,11 @@
  * See dbscripts/xml/dtd/xmldata.dtd for the XML schema used.
  */
 
-
 import('lib.pkp.classes.xml.XMLParser');
 
-class DBDataXMLParser {
-	/** @var ADOConnection the underlying database connection */
-	var $dbconn;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
+class DBDataXMLParser {
 	/** @var array the array of parsed SQL statements */
 	var $sql;
 
@@ -29,15 +27,6 @@ class DBDataXMLParser {
 	 */
 	function __construct() {
 		$this->sql = array();
-	}
-
-	/**
-	 * Set the database connection to use for executeData().
-	 * If the connection is not set, the default system database connection will be used.
-	 * @param $dbconn ADOConnection the database connection
-	 */
-	function setDBConn($dbconn) {
-		$this->dbconn = $dbconn;
 	}
 
 	/**
@@ -51,7 +40,8 @@ class DBDataXMLParser {
 		$tree = $parser->parse($file);
 		if (!$tree) return array();
 
-		$allTables = $this->dbconn->MetaTables();
+		$allTables = Capsule::connection()->getDoctrineSchemaManager()->listTableNames();
+
 		foreach ($tree->getChildren() as $type) switch($type->getName()) {
 			case 'table':
 				$fieldDefaultValues = array();
@@ -87,9 +77,7 @@ class DBDataXMLParser {
 				// Match sql element (set of SQL queries)
 				foreach ($type->getChildren() as $child) switch ($child->getName()) {
 					case 'drop':
-						if (!isset($dbdict)) {
-							$dbdict = @NewDataDictionary($this->dbconn);
-						}
+						throw new Exception('FIXME');
 						$table = $child->getAttribute('table');
 						$column = $child->getAttribute('column');
 						if ($column) {
@@ -100,9 +88,7 @@ class DBDataXMLParser {
 						}
 						break;
 					case 'rename':
-						if (!isset($dbdict)) {
-							$dbdict = @NewDataDictionary($this->dbconn);
-						}
+						throw new Exception('FIXME');
 						$table = $child->getAttribute('table');
 						$column = $child->getAttribute('column');
 						$to = $child->getAttribute('to');
@@ -153,9 +139,7 @@ class DBDataXMLParser {
 						}
 						break;
 					case 'dropindex':
-						if (!isset($dbdict)) {
-							$dbdict = @NewDataDictionary($this->dbconn);
-						}
+						throw new Exception('FIXME');
 						$table = $child->getAttribute('table');
 						$index = $child->getAttribute('index');
 						if (!$table || !$index) {
@@ -170,7 +154,7 @@ class DBDataXMLParser {
 						// If a "driver" attribute is specified, multiple drivers can be
 						// specified with a comma separator.
 						$driver = $child->getAttribute('driver');
-						if (empty($driver) || in_array($this->dbconn->databaseType, array_map('trim', explode(',', $driver)))) {
+						if (empty($driver) || in_array(Config::getVar('database', 'driver'), array_map('trim', explode(',', $driver)))) {
 							$this->sql[] = $child->getValue();
 						}
 						break;
@@ -187,8 +171,8 @@ class DBDataXMLParser {
 	 */
 	function executeData($continueOnError = false) {
 		$this->errorMsg = null;
-		$dbconn = $this->dbconn == null ? DBConnection::getConn() : $this->dbconn;
 		foreach ($this->sql as $stmt) {
+			Capsule::statement($stmt);
 			$dbconn->execute($stmt);
 			if (!$continueOnError && $dbconn->errorNo() != 0) {
 				return false;
@@ -211,7 +195,7 @@ class DBDataXMLParser {
 	 * @return string
 	 */
 	function quoteString($str) {
-		return $this->dbconn->qstr($str);
+		return Capsule::connection()->getPdo()->quote($str);
 	}
 
 

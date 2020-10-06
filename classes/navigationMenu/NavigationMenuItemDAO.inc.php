@@ -89,13 +89,9 @@ class NavigationMenuItemDAO extends DAO {
 	 * @param $contextId int
 	 * @param $menuItemType string
 	 * @param $menuItemTitleLocaleKey string
+	 * @return NavigationMenuItem?
 	 */
 	public function getByTypeAndTitleLocaleKey($contextId, $menuItemType, $menuItemTitleLocaleKey) {
-		$params = array(
-			$menuItemType,
-			$menuItemTitleLocaleKey,
-			(int) $contextId
-		);
 		$result = $this->retrieve(
 			'SELECT *
 				FROM navigation_menu_items
@@ -103,17 +99,10 @@ class NavigationMenuItemDAO extends DAO {
 				WHERE navigation_menu_items.type = ?
 				AND (navigation_menu_item_settings.setting_name = \'titleLocaleKey\' and navigation_menu_item_settings.setting_value = ?)
 				AND navigation_menu_items.context_id = ?',
-			$params
+			[$menuItemType, $menuItemTitleLocaleKey, (int) $contextId]
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
@@ -427,7 +416,7 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return mixed
 	 */
 	function getSetting($navigationMenuItemId, $name, $locale = null) {
-		$params = array((int) $navigationMenuItemId, $name);
+		$params = [(int) $navigationMenuItemId, $name];
 		if ($locale) $params[] = $locale;
 		$result = $this->retrieve(
 			'SELECT	setting_name, setting_value, setting_type, locale
@@ -438,21 +427,13 @@ class NavigationMenuItemDAO extends DAO {
 			$params
 		);
 
-		$recordCount = $result->RecordCount();
-		$returner = false;
-		if ($recordCount == 1) {
-			$row = $result->getRowAssoc(false);
-			$returner = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-		} elseif ($recordCount > 1) {
-			$returner = array();
-			while (!$result->EOF) {
-				$returner[$row['locale']] = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-				$result->MoveNext();
-			}
-
-			$result->Close();
+		$setting = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$returner[$row['locale']] = $this->convertFromDB($row['setting_value'], $row['setting_type']);
 		}
-
+		if (count($returner) == 1) return array_shift($returner);
+		if (count($returner) == 0) return false;
 		return $returner;
 	}
 

@@ -71,18 +71,13 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	 * @return array
 	 */
 	function getAllUniqueAgencies() {
-		$agencies = array();
+		$result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [CONTROLLED_VOCAB_SUBMISSION_AGENCY]);
 
-		$result = $this->retrieve(
-			'SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', CONTROLLED_VOCAB_SUBMISSION_AGENCY
-		);
-
-		while (!$result->EOF) {
-			$agencies[] = $result->fields[0];
-			$result->MoveNext();
+		$agencies = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$agencies[] = $row['setting_value'];
 		}
-
-		$result->Close();
 		return $agencies;
 	}
 

@@ -50,26 +50,15 @@ class ScheduledTaskDAO extends DAO {
 
 		$row = (array) $result->current();
 		if ($row && $row['row_count'] != 0) {
-			if (isset($timestamp)) {
-				$this->update('UPDATE scheduled_tasks SET last_run = ' . $this->datetimeToDB($timestamp) . ' WHERE class_name = ?', [$className]);
-			} else {
-				$this->update( 'UPDATE scheduled_tasks SET last_run = NOW() WHERE class_name = ?', [$className]);
-			}
+			if (isset($timestamp)) return $this->update('UPDATE scheduled_tasks SET last_run = ' . $this->datetimeToDB($timestamp) . ' WHERE class_name = ?', [$className]);
+			return $this->update( 'UPDATE scheduled_tasks SET last_run = NOW() WHERE class_name = ?', [$className]);
 		} else {
-			if (isset($timestamp)) {
-				$this->update(
-					sprintf('INSERT INTO scheduled_tasks (class_name, last_run) VALUES (?, %s)', $this->datetimeToDB($timestamp)),
-					[$className]
-				);
-			} else {
-				$this->update(
-					'INSERT INTO scheduled_tasks (class_name, last_run) VALUES (?, NOW())',
-					[$className]
-				);
-			}
+			if (isset($timestamp)) return $this->update(
+				sprintf('INSERT INTO scheduled_tasks (class_name, last_run) VALUES (?, %s)', $this->datetimeToDB($timestamp)),
+				[$className]
+			);
+			return $this->update('INSERT INTO scheduled_tasks (class_name, last_run) VALUES (?, NOW())', [$className]);
 		}
-
-		return $this->getAffectedRows();
 	}
 }
 

@@ -156,22 +156,13 @@ class ReviewFormResponseDAO extends DAO {
 	 * @param $reviewId int
 	 * @return array review_form_element_id => array(review form response for this element)
 	 */
-	function &getReviewReviewFormResponseValues($reviewId) {
-		$returner = array();
-
-		$result = $this->retrieveRange(
-			'SELECT * FROM review_form_responses WHERE review_id = ?',
-			(int) $reviewId
-		);
-
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
-			$reviewFormResponse =& $this->_returnReviewFormResponseFromRow($row);
+	function getReviewReviewFormResponseValues($reviewId) {
+		$result = $this->retrieveRange('SELECT * FROM review_form_responses WHERE review_id = ?', [(int) $reviewId]);
+		$returner = [];
+		foreach ($result as $row) {
+			$reviewFormResponse = $this->_returnReviewFormResponseFromRow((array) $row);
 			$returner[$reviewFormResponse->getReviewFormElementId()] = $reviewFormResponse->getValue();
-			$result->MoveNext();
 		}
-
-		$result->Close();
 		return $returner;
 	}
 
@@ -182,18 +173,16 @@ class ReviewFormResponseDAO extends DAO {
 	 * @return boolean
 	 */
 	function reviewFormResponseExists($reviewId, $reviewFormElementId = null) {
-		$sql = 'SELECT COUNT(*) FROM review_form_responses WHERE review_id = ?';
-		$params = array($reviewId);
+		$sql = 'SELECT COUNT(*) AS row_count FROM review_form_responses WHERE review_id = ?';
+		$params = [$reviewId];
 		if ($reviewFormElementId !== null) {
 			$sql .= ' AND review_form_element_id = ?';
 			$params[] = $reviewFormElementId;
 		}
 		$result = $this->retrieve($sql, $params);
+		$row = (array) $result->current();
 
-		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
-
-		$result->Close();
-		return $returner;
+		return $row && $row['row_count'] > 0;
 	}
 }
 

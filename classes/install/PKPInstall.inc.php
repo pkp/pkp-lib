@@ -68,26 +68,9 @@ class PKPInstall extends Installer {
 			array_push($this->installedLocales, $this->locale);
 		}
 
-		// Connect to database
-		$conn = new DBConnection(
-			$driver = $this->getParam('databaseDriver'),
-			$this->getParam('databaseHost'),
-			$this->getParam('databaseUsername'),
-			$this->getParam('databasePassword'),
-			$this->getParam('createDatabase') ? null : $this->getParam('databaseName'),
-			false,
-			$connectionCharset = $this->getParam('connectionCharset') == '' ? false : $this->getParam('connectionCharset')
-		);
-
-		$this->dbconn =& $conn->getDBConn();
-
-		if (!$conn->isConnected()) {
-			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-			return false;
-		}
-
 		// Map valid config options to Illuminate database drivers
-		$driver = strtolower($driver);
+		$driver = strtolower($this->getParam('databaseDriver'));
+		$connectionCharset = $this->getParam('connectionCharset');
 		if (substr($driver, 0, 8) === 'postgres') {
 			$driver = 'pgsql';
 		} else {
@@ -95,18 +78,21 @@ class PKPInstall extends Installer {
 		}
 
 		$capsule = new Capsule;
-		$capsule->addConnection([
-			'driver'    => $driver,
-			'host'      => $this->getParam('databaseHost'),
-			'database'  => $this->getParam('databaseName'),
-			'username'  => $this->getParam('databaseUsername'),
-			'password'  => $this->getParam('databasePassword'),
-			'charset'   => $connectionCharset == 'latin1'?'latin1':'utf8',
-			'collation' => 'utf8_general_ci',
-		]);
-		$capsule->setAsGlobal();
-
-		DBConnection::getInstance($conn);
+		try {
+			$capsule->addConnection([
+				'driver'    => $driver,
+				'host'      => $this->getParam('databaseHost'),
+				'database'  => $this->getParam('databaseName'),
+				'username'  => $this->getParam('databaseUsername'),
+				'password'  => $this->getParam('databasePassword'),
+				'charset'   => $connectionCharset == 'latin1'?'latin1':'utf8',
+				'collation' => 'utf8_general_ci',
+			]);
+			$capsule->setAsGlobal();
+		} catch (Exception $e) {
+			$this->setError(INSTALLER_ERROR_DB, $e->getMessage());
+			return false;
+		}
 
 		return parent::preInstall();
 	}

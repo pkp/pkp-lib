@@ -74,8 +74,7 @@ abstract class PKPAuthorDAO extends SchemaDAO {
 	 * @return array Authors ordered by sequence
 	 */
 	function getByPublicationId($publicationId, $sortByAuthorId = false, $useIncludeInBrowse = false) {
-		$authors = array();
-		$params = array((int) $publicationId);
+		$params = [(int) $publicationId];
 		if ($useIncludeInBrowse) $params[] = 1;
 
 		$result = $this->retrieve(
@@ -91,18 +90,16 @@ abstract class PKPAuthorDAO extends SchemaDAO {
 			$params
 		);
 
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
+		$authors = array();
+		foreach ($result as $row) {
+			$row = (array) $row;
 			if ($sortByAuthorId) {
 				$authorId = $row['author_id'];
 				$authors[$authorId] = $this->_fromRow($row);
 			} else {
 				$authors[] = $this->_fromRow($row);
 			}
-			$result->MoveNext();
 		}
-
-		$result->Close();
 		return $authors;
 	}
 

@@ -106,9 +106,6 @@ abstract class Plugin {
 		if ($this->getInstallEmailTemplateDataFile()) {
 			HookRegistry::register ('Installer::postInstall', array($this, 'installEmailTemplateData'));
 		}
-		if ($this->getInstallDataFile()) {
-			HookRegistry::register ('Installer::postInstall', array($this, 'installData'));
-		}
 		if ($this->getContextSpecificPluginSettingsFile()) {
 			HookRegistry::register ('Context::add', array($this, 'installContextSpecificSettings'));
 		}
@@ -214,16 +211,6 @@ abstract class Plugin {
 	 * @return Illuminate\Database\Migrations\Migration?
 	 */
 	function getInstallMigration() {
-		return null;
-	}
-
-	/**
-	 * Get the filename of the install data for this plugin.
-	 * Subclasses using SQL tables should override this.
-	 * @deprecated Use getInstallMigration instead.
-	 * @return string|array|null one or more data files to be installed.
-	 */
-	function getInstallDataFile() {
 		return null;
 	}
 
@@ -547,36 +534,6 @@ abstract class Plugin {
 	}
 
 	/**
-	 * Callback used to install data files.
-	 *
-	 * @param $hookName string
-	 * @param $args array
-	 * @return boolean
-	 */
-	function installData($hookName, $args) {
-		$installer =& $args[0];
-		$result =& $args[1];
-
-		// Treat single and multiple data files uniformly.
-		$dataFiles = $this->getInstallDataFile();
-		if (is_scalar($dataFiles)) $dataFiles = array($dataFiles);
-
-		// Install all data files.
-		foreach($dataFiles as $dataFile) {
-			$sql = $installer->dataXMLParser->parseData($dataFile);
-			if ($sql) {
-				$result = $installer->executeSQL($sql);
-			} else {
-				AppLocale::requireComponents(LOCALE_COMPONENT_PKP_INSTALLER);
-				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), __('installer.installParseDBFileError')));
-				$result = false;
-			}
-			if (!$result) return false;
-		}
-		return false;
-	}
-
-	/**
 	 * Callback used to install settings on system install.
 	 *
 	 * @param $hookName string
@@ -686,7 +643,7 @@ abstract class Plugin {
 			if ($sql) {
 				$result = $installer->executeSQL($sql);
 			} else {
-				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), __('installer.installParseEmailTemplatesFileError')));
+				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $filename, __('installer.installParseEmailTemplatesFileError')));
 				$result = false;
 			}
 		}
@@ -760,16 +717,8 @@ abstract class Plugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		// Deprecated: Create schema using ADODB XML Schema
 		if ($schemaFile = $this->getInstallSchemaFile()) {
-			$schemaXMLParser = new adoSchema($installer->dbconn);
-			$sql = $schemaXMLParser->parseSchema($schemaFile);
-			if ($sql) {
-				$result = $installer->executeSQL($sql);
-			} else {
-				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallSchemaFile(), __('installer.installParseDBFileError')));
-				$result = false;
-			}
+			throw new Exception('XML-based plugin schemata not supported.');
 		}
 		// Preferred: Create schema using Migrations
 		if ($migration = $this->getInstallMigration()) try {

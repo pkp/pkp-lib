@@ -139,16 +139,14 @@ abstract class PKPOAIDAO extends DAO {
 	 */
 	function getRecords($setIds, $from, $until, $set, $offset, $limit, &$total) {
 		$result = $this->_getRecordsRecordSet($setIds, $from, $until, $set);
-		$total = $result->RecordCount();
 
-		$records = array();
-		$result->Move($offset);
-		for ($count = 0; $count < $limit && !$result->EOF; $count++) {
-			$row = $result->GetRowAssoc(false);
+		for ($i=0; $i<$offset; $i++) $result->next(); // FIXME inefficient
+		$total = $offset;
+		$records = [];
+		for ($count = 0; $row = (array) $result->current() && $count < $limit; $count++; $total++) {
 			$records[] = $this->_returnRecordFromRow($row);
-			$result->MoveNext();
+			$result->next();
 		}
-		$result->Close();
 		return $records;
 	}
 
@@ -169,14 +167,13 @@ abstract class PKPOAIDAO extends DAO {
 		$result = $this->_getRecordsRecordSet($setIds, $from, $until, $set);
 		$total = $result->RecordCount();
 
-		$records = array();
-		$result->Move($offset);
-		for ($count = 0; $count < $limit && !$result->EOF; $count++) {
-			$row = $result->GetRowAssoc(false);
+		for ($i=0; $i<$offset; $i++) $result->next(); // FIXME inefficient
+		$total = $offset;
+		$records = [];
+		for ($count = 0; $row = (array) $result->current() && $count < $limit; $count++; $total++) {
 			$records[] = $this->_returnIdentifierFromRow($row);
-			$result->MoveNext();
+			$result->next();
 		}
-		$result->Close();
 		return $records;
 	}
 

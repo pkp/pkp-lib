@@ -217,24 +217,22 @@ class ControlledVocabDAO extends DAO {
 				LEFT JOIN controlled_vocab_entry_settings n ON (n.controlled_vocab_entry_id = e.controlled_vocab_entry_id AND n.setting_name = ? AND n.locale = ?)
 			WHERE	e.controlled_vocab_id = ?
 			ORDER BY e.seq',
-			array(
+			[
 				$settingName, AppLocale::getLocale(),		// Current locale
 				$settingName, AppLocale::getPrimaryLocale(),	// Primary locale
 				$settingName, '',				// No locale
 				(int) $controlledVocabId
-			)
+			]
 		);
 
-		$returner = array();
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
+		$returner = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$returner[$row['controlled_vocab_entry_id']] = $this->convertFromDB(
 				$row['setting_value'],
 				$row['setting_type']
 			);
-			$result->MoveNext();
 		}
-		$result->Close();
 		return $returner;
 	}
 

@@ -132,17 +132,6 @@ class Installer {
 	 */
 	function preInstall() {
 		$this->log('pre-install');
-		if (!isset($this->dbconn)) {
-			// Connect to the database.
-			$conn = DBConnection::getInstance();
-			$this->dbconn = $conn->getDBConn();
-
-			if (!$conn->isConnected()) {
-				$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-				return false;
-			}
-		}
-
 		if (!isset($this->currentVersion)) {
 			// Retrieve the currently installed version
 			$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
@@ -157,13 +146,8 @@ class Installer {
 			$this->installedLocales = array_keys(AppLocale::getAllLocales());
 		}
 
-		if (!isset($this->dataXMLParser)) {
-			$this->dataXMLParser = new DBDataXMLParser();
-			$this->dataXMLParser->setDBConn($this->dbconn);
-		}
-
 		$result = true;
-		HookRegistry::call('Installer::preInstall', array($this, &$result));
+		HookRegistry::call('Installer::preInstall', [$this, &$result]);
 
 		return $result;
 	}
@@ -468,9 +452,10 @@ class Installer {
 				}
 			}
 		} else {
-			$this->dbconn->execute($sql);
-			if ($this->dbconn->errorNo() != 0) {
-				$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
+			try {
+				Capsule::affectingStatement($sql);
+			} catch (Exception $e) {
+				$this->setError(INSTALLER_ERROR_DB, $e->getMessage());
 				return false;
 			}
 		}
@@ -702,21 +687,12 @@ class Installer {
 	 * @return boolean
 	 */
 	function columnExists($tableName, $columnName) {
-		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
-		$dataSource = $siteDao->getDataSource();
-		$dict = NewDataDictionary($dataSource);
-
+		$schema = Capsule::connection()->getDoctrineSchemaManager();
 		// Make sure the table exists
-		$tables = $dict->MetaTables('TABLES', false);
+		$tables = $schema->listTableNames();
 		if (!in_array($tableName, $tables)) return false;
 
-		// Check to see whether it contains the specified column.
-		// Oddly, MetaColumnNames doesn't appear to be available.
-		$columns = $dict->MetaColumns($tableName);
-		foreach ($columns as $column) {
-			if ($column->name == $columnName) return true;
-		}
-		return false;
+		return $schema->hasColumn($tableName, $columnName);
 	}
 
 	/**
@@ -726,12 +702,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function tableExists($tableName) {
-		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
-		$dataSource = $siteDao->getDataSource();
-		$dict = NewDataDictionary($dataSource);
-
-		// Check whether the table exists.
-		$tables = $dict->MetaTables('TABLES', false);
+		$tables = Capsule::connection()->getDoctrineSchemaManager()->listTableNames();
 		return in_array($tableName, $tables);
 	}
 
@@ -865,19 +836,16 @@ class Installer {
 		);
 
 		$sidebarSettings = [];
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
-			if ($row['setting_value'] != 1) { // BLOCK_CONTEXT_SIDEBAR
-				$result->MoveNext();
-			}
+		foreach ($result as $row) {
+			$row = (array) $row;
+			if ($row['setting_value'] != 1) continue; // BLOCK_CONTEXT_SIDEBAR
+
 			$seq = $pluginSettingsDao->getSetting($row['context_id'], $row['plugin_name'], 'seq');
 			if (!isset($sidebarSettings[$row['context_id']])) {
 				$sidebarSettings[$row['context_id']] = [];
 			}
 			$sidebarSettings[$row['context_id']][(int) $seq] = $row['plugin_name'];
-			$result->MoveNext();
 		}
-		$result->Close();
 
 		foreach ($sidebarSettings as $contextId => $contextSetting) {
 			// Order by sequence
@@ -923,12 +891,10 @@ class Installer {
 
 		$result = $contextDao->retrieve('SELECT ' . $contextDao->primaryKeyColumn . ' from ' . $contextDao->tableName);
 		$contextIds = [];
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$contextIds[] = $row[$contextDao->primaryKeyColumn];
-			$result->MoveNext();
 		}
-		$result->Close();
 
 		foreach ($metadataSettings as $metadataSetting) {
 			foreach ($contextIds as $contextId) {
@@ -949,8 +915,8 @@ class Installer {
 					]
 				);
 				$value = METADATA_DISABLE;
-				while (!$result->EOF) {
-					$row = $result->getRowAssoc(false);
+				foreach ($result as $row) {
+					$row = (array) $row;
 					if ($row['setting_name'] === $metadataSetting . 'Required' && $row['setting_value']) {
 						$value = METADATA_REQUIRE;
 					} elseif ($row['setting_name'] === $metadataSetting . 'EnabledSubmission' && $row['setting_value'] && $value !== METADATA_REQUIRE) {
@@ -958,9 +924,7 @@ class Installer {
 					} elseif ($row['setting_name'] === $metadataSetting . 'EnabledWorkflow' && $row['setting_value'] && $value !== METADATA_REQUEST && $value !== METADATA_REQUIRE) {
 						$value = METADATA_ENABLE;
 					}
-					$result->MoveNext();
 				}
-				$result->Close();
 
 				if ($value !== METADATA_DISABLE) {
 					$contextDao->update('

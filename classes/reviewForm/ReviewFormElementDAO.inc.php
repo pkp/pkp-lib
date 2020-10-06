@@ -224,16 +224,14 @@ class ReviewFormElementDAO extends DAO {
 	function getRequiredReviewFormElementIds($reviewFormId) {
 		$result = $this->retrieve(
 			'SELECT review_form_element_id FROM review_form_elements WHERE review_form_id = ? AND required = 1 ORDER BY seq',
-			$reviewFormId
+			[(int) $reviewFormId]
 		);
 
-		$requiredReviewFormElementIds = array();
-		while (!$result->EOF) {
-			$requiredReviewFormElementIds[] = $result->fields[0];
-			$result->MoveNext();
+		$requiredReviewFormElementIds = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$requiredReviewFormElementIds[] = $row['review_form_element_id'];
 		}
-
-		$result->Close();
 		return $requiredReviewFormElementIds;
 	}
 
@@ -268,22 +266,14 @@ class ReviewFormElementDAO extends DAO {
 	function resequenceReviewFormElements($reviewFormId) {
 		$result = $this->retrieve(
 			'SELECT review_form_element_id FROM review_form_elements WHERE review_form_id = ? ORDER BY seq',
-			(int) $reviewFormId
+			[(int) $reviewFormId]
 		);
 
-		for ($i=1; !$result->EOF; $i++) {
+		for ($i=1; $row = (array) $result->current(); $i++) {
 			list($reviewFormElementId) = $result->fields;
-			$this->update(
-				'UPDATE review_form_elements SET seq = ? WHERE review_form_element_id = ?',
-				array(
-					$i,
-					$reviewFormElementId
-				)
-			);
-
-			$result->MoveNext();
+			$this->update('UPDATE review_form_elements SET seq = ? WHERE review_form_element_id = ?', [$i, $reviewFormElementId]); 
+			$result->next();
 		}
-		$result->Close();
 	}
 
 	/**

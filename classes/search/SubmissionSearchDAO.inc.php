@@ -58,7 +58,7 @@ class SubmissionSearchDAO extends DAO {
 	 */
 	function deleteSubmissionKeywords($submissionId, $type = null, $assocId = null) {
 		$sql = 'SELECT object_id FROM submission_search_objects WHERE submission_id = ?';
-		$params = array((int) $submissionId);
+		$params = [(int) $submissionId];
 
 		if (isset($type)) {
 			$sql .= ' AND type = ?';
@@ -71,13 +71,11 @@ class SubmissionSearchDAO extends DAO {
 		}
 
 		$result = $this->retrieve($sql, $params);
-		while (!$result->EOF) {
-			$objectId = $result->fields[0];
-			$this->update('DELETE FROM submission_search_object_keywords WHERE object_id = ?', $objectId);
-			$this->update('DELETE FROM submission_search_objects WHERE object_id = ?', $objectId);
-			$result->MoveNext();
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$this->update('DELETE FROM submission_search_object_keywords WHERE object_id = ?', [$row['object_id']]);
+			$this->update('DELETE FROM submission_search_objects WHERE object_id = ?', [$row['object_id']]);
 		}
-		$result->Close();
 	}
 
 	/**

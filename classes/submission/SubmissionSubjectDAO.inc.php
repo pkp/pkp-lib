@@ -72,18 +72,13 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	 * @return array
 	 */
 	function getAllUniqueSubjects() {
+		$result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [CONTROLLED_VOCAB_SUBMISSION_SUBJECT]);
+
 		$subjects = array();
-
-		$result = $this->retrieve(
-			'SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', CONTROLLED_VOCAB_SUBMISSION_SUBJECT
-		);
-
-		while (!$result->EOF) {
-			$subjects[] = $result->fields[0];
-			$result->MoveNext();
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$subjects[] = $row['setting_value'];
 		}
-
-		$result->Close();
 		return $subjects;
 	}
 

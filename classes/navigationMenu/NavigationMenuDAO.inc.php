@@ -62,7 +62,7 @@ class NavigationMenuDAO extends DAO {
 	 * @return NavigationMenu
 	 */
 	function getByArea($contextId, $areaName) {
-		$result = $this->retrieve('SELECT * FROM navigation_menus WHERE area_name = ? and context_id = ?', [$areaName, $areaName]);
+		$result = $this->retrieve('SELECT * FROM navigation_menus WHERE area_name = ? and context_id = ?', [$areaName, (int) $contextId]);
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 

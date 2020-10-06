@@ -269,24 +269,12 @@ class ReviewFormDAO extends DAO {
 	 * @param $assocId int
 	 */
 	function resequenceReviewForms($assocType, $assocId) {
-		$result = $this->retrieve(
-			'SELECT review_form_id FROM review_forms WHERE assoc_type = ? AND assoc_id = ? ORDER BY seq',
-			array((int) $assocType, (int) $assocId)
-		);
+		$result = $this->retrieve('SELECT review_form_id FROM review_forms WHERE assoc_type = ? AND assoc_id = ? ORDER BY seq', [(int) $assocType, (int) $assocId]);
 
-		for ($i=1; !$result->EOF; $i++) {
-			list($reviewFormId) = $result->fields;
-			$this->update(
-				'UPDATE review_forms SET seq = ? WHERE review_form_id = ?',
-				array(
-					$i,
-					$reviewFormId
-				)
-			);
-
-			$result->MoveNext();
+		for ($i=1; $row = (array) $result->current(); $i++) {
+			$this->update('UPDATE review_forms SET seq = ? WHERE review_form_id = ?', [$i, $row['review_form_id']]);
+			$result->next();
 		}
-		$result->Close();
 	}
 
 	/**

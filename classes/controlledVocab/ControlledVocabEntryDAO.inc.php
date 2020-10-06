@@ -246,25 +246,12 @@ class ControlledVocabEntryDAO extends DAO {
 	 * @param $controlledVocabId int Controlled vocabulary ID
 	 */
 	function resequence($controlledVocabId) {
-		$result = $this->retrieve(
-			'SELECT controlled_vocab_entry_id FROM controlled_vocab_entries WHERE controlled_vocab_id = ? ORDER BY seq',
-			array((int) $controlledVocabId)
-		);
+		$result = $this->retrieve('SELECT controlled_vocab_entry_id FROM controlled_vocab_entries WHERE controlled_vocab_id = ? ORDER BY seq', [(int) $controlledVocabId]);
 
-		for ($i=1; !$result->EOF; $i++) {
-			list($controlledVocabEntryId) = $result->fields;
-			$this->update(
-				'UPDATE controlled_vocab_entries SET seq = ? WHERE controlled_vocab_entry_id = ?',
-				array(
-					(int) $i,
-					(int) $controlledVocabEntryId
-				)
-			);
-
-			$result->MoveNext();
+		for ($i=1; $row = (array) $result->current(); $i++) {
+			$this->update('UPDATE controlled_vocab_entries SET seq = ? WHERE controlled_vocab_entry_id = ?', [(int) $i, (int) $row['controlled_vocab_entry_id']]);
+			$result->next();
 		}
-
-		$result->Close();
 	}
 
 	/**
@@ -275,5 +262,4 @@ class ControlledVocabEntryDAO extends DAO {
 		return parent::_getInsertId('controlled_vocab_entries', 'controlled_vocab_entry_id');
 	}
 }
-
 

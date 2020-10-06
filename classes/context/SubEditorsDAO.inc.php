@@ -79,15 +79,12 @@ class SubEditorsDAO extends DAO {
 			$params
 		);
 
-		$users = array();
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
+		$users = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$user = $userDao->getById($row['user_id']);
 			$users[$user->getId()] = $user;
-			$result->MoveNext();
 		}
-
-		$result->Close();
 		return $users;
 	}
 

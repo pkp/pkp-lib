@@ -253,20 +253,10 @@ class CategoryDAO extends DAO {
 			$params
 		);
 
-		for ($i=1; !$result->EOF; $i++) {
-			list($categoryId) = $result->fields;
-			$this->update(
-				'UPDATE categories SET seq = ? WHERE category_id = ?',
-				array(
-					(int) $i,
-					(int) $categoryId
-				)
-			);
-
-			$result->MoveNext();
+		for ($i=1; $row = (array) $result->current(); $i++) {
+			$this->update('UPDATE categories SET seq = ? WHERE category_id = ?', [(int) $i, (int) $row['category_id']]);
+			$result->next();
 		}
-
-		$result->Close();
 	}
 
 	/**

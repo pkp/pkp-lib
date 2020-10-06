@@ -21,24 +21,22 @@ class DataObjectTombstoneSettingsDAO extends DAO {
 	 * @param $name
 	 * @param $locale string optional
 	 */
-	function &getSetting($tombstoneId, $name, $locale = null) {
-		$sql = 'SELECT	setting_value, setting_type	FROM data_object_tombstone_settings	WHERE tombstone_id = ? AND setting_name = ?';
-		$params = array((int) $tombstoneId, $name);
-		if ($locale !== null) {
-			$sql .= ' AND l.locale = ?';
-			$params[] = $locale;
-		}
-		$result = $this->retrieve($sql, $params);
+	function getSetting($tombstoneId, $name, $locale = null) {
+		$params = [(int) $tombstoneId, $name];
+		if ($locale !== null) $params[] = $locale;
+		$result = $this->retrieve(
+			'SELECT setting_value, setting_type FROM data_object_tombstone_settings WHERE tombstone_id = ? AND setting_name = ?'
+			. ($locale !== null ? ' AND l.locale = ?':''),
+			$params
+		);
 
 		$setting = null;
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$value = $this->convertFromDB($row['setting_value'], $row['setting_type']);
 			if (!array_key_exists('locale', $row) || $row['locale'] == '') $setting[$name] = $value;
 			else $setting[$name][$row['locale']] = $value;
-			$result->MoveNext();
 		}
-		$result->Close();
 		return $setting;
 	}
 

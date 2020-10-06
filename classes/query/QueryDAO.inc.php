@@ -188,13 +188,11 @@ class QueryDAO extends DAO {
 			($userId?' AND user_id = ?':''),
 			$params
 		);
-		$userIds = array();
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
+		$userIds = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$userIds[] = (int) $row['user_id'];
-			$result->MoveNext();
 		}
-		$result->Close();
 		return $userIds;
 	}
 
@@ -275,19 +273,10 @@ class QueryDAO extends DAO {
 			array((int) $assocType, (int) $assocId)
 		);
 
-		for ($i=1; !$result->EOF; $i++) {
-			list($queryId) = $result->fields;
-			$this->update(
-				'UPDATE queries SET seq = ? WHERE query_id = ?',
-				array(
-					$i,
-					$queryId
-				)
-			);
-
-			$result->MoveNext();
+		for ($i=1; $row = (array) $result->current(); $i++) {
+			$this->update('UPDATE queries SET seq = ? WHERE query_id = ?', [$i, $row['query_id']]);
+			$result->next();
 		}
-		$result->Close();
 	}
 
 	/**

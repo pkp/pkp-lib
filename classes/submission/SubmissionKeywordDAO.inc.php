@@ -72,18 +72,13 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	 * @return array
 	 */
 	function getAllUniqueKeywords() {
-		$keywords = array();
+		$result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [CONTROLLED_VOCAB_SUBMISSION_KEYWORD]);
 
-		$result = $this->retrieve(
-			'SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', CONTROLLED_VOCAB_SUBMISSION_KEYWORD
-		);
-
-		while (!$result->EOF) {
-			$keywords[] = $result->fields[0];
-			$result->MoveNext();
+		$keywords = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$keywords[] = $row['setting_value'];
 		}
-
-		$result->Close();
 		return $keywords;
 	}
 

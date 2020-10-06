@@ -31,7 +31,7 @@ class FilterHelper {
 
 			// Make sure that the filter group has not been
 			// installed before to guarantee idempotence.
-			$existingFilterGroup =& $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic);
+			$existingFilterGroup = $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic);
 			if (!is_null($existingFilterGroup)) continue;
 
 			// Instantiate and configure the filter group.

@@ -47,7 +47,7 @@ class DBRowIterator extends ItemIterator {
 		parent::__construct();
 		$this->idFields = $idFields;
 
-		if (!$records || $records->EOF) {
+		if (!$records || !$records->current()) {
 			if ($records) $records->Close();
 			$this->records = null;
 			$this->wasEmpty = true;
@@ -56,8 +56,7 @@ class DBRowIterator extends ItemIterator {
 			$this->isLast = true;
 			$this->count = 0;
 			$this->pageCount = 1;
-		}
-		else {
+		} else {
 			$this->records = $records;
 			$this->wasEmpty = false;
 			$this->page = $records->AbsolutePage();
@@ -74,14 +73,11 @@ class DBRowIterator extends ItemIterator {
 	 */
 	function next() {
 		if ($this->records == null) return $this->records;
-		if (!$this->records->EOF) {
-			$row = $this->records->getRowAssoc(false);
-			if (!$this->records->MoveNext()) $this->close();
+		if ($row = (array) $this->records->current()) {
 			return $row;
 		} else {
 			$this->close();
-			$nullVar = null;
-			return $nullVar;
+			return null;
 		}
 	}
 
@@ -151,7 +147,7 @@ class DBRowIterator extends ItemIterator {
 	 */
 	function eof() {
 		if ($this->records == null) return true;
-		if ($this->records->EOF) {
+		if (!$this->records->current()) {
 			$this->close();
 			return true;
 		}

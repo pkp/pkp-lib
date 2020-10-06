@@ -58,16 +58,14 @@ class InterestDAO extends ControlledVocabDAO {
 			FROM user_interests ui
 				INNER JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
 			WHERE cves.setting_name = ? AND cves.setting_value = ?',
-			array('interest', $interest)
+			['interest', $interest]
 		);
 
-		$returner = array();
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
+		$returner = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$returner[] = $row['user_id'];
-			$result->MoveNext();
 		}
-		$result->Close();
 		return $returner;
 
 	}

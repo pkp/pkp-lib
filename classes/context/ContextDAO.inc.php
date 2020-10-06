@@ -78,7 +78,7 @@ abstract class ContextDAO extends SchemaDAO {
 			'SELECT * FROM ' . $this->tableName .
 			($enabledOnly?' WHERE enabled = 1':'') .
 			' ORDER BY seq',
-			false,
+			[],
 			$rangeInfo
 		);
 
@@ -143,22 +143,10 @@ abstract class ContextDAO extends SchemaDAO {
 	 * Sequentially renumber each context according to their sequence order.
 	 */
 	function resequence() {
-		$result = $this->retrieve(
-			'SELECT ' . $this->primaryKeyColumn . ' FROM ' . $this->tableName . ' ORDER BY seq'
-		);
-
-		for ($i=1; !$result->EOF; $i+=2) {
-			list($contextId) = $result->fields;
-			$this->update(
-				'UPDATE ' . $this->tableName . ' SET seq = ? WHERE ' . $this->primaryKeyColumn . ' = ?',
-				array(
-					$i,
-					$contextId
-				)
-			);
-
-			$result->MoveNext();
+		$result = $this->retrieve('SELECT ' . $this->primaryKeyColumn . ' FROM ' . $this->tableName . ' ORDER BY seq'); 
+		for ($i=1; $row = (array) $result->current(); $i+=2) {
+			$this->update('UPDATE ' . $this->tableName . ' SET seq = ? WHERE ' . $this->primaryKeyColumn . ' = ?', [$i, $row['context_id']]);
+			$result->next();
 		}
-		$result->Close();
 	}
 }

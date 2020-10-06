@@ -82,12 +82,8 @@ class InstallPluginVersionTool extends CommandLineTool {
 				return false;
 			}
 		}
-		if (!isset($installer->dataXMLParser)) {
-			$installer->dataXMLParser = new DBDataXMLParser();
-			$installer->dataXMLParser->setDBConn($installer->dbconn);
-		}
 		$result = true;
-		$param = array(&$installer, &$result);
+		$param = [&$installer, &$result];
 
 		if ($plugin->getInstallSchemaFile()) {
 			$plugin->updateSchema('Installer::postInstall', $param);
@@ -103,9 +99,6 @@ class InstallPluginVersionTool extends CommandLineTool {
 		}
 		if ($plugin->getInstallEmailTemplateDataFile()) {
 			$plugin->installEmailTemplateData('Installer::postInstall', $param);
-		}
-		if ($plugin->getInstallDataFile()) {
-			$plugin->installData('Installer::postInstall', $param);
 		}
 		$plugin->installFilters('Installer::postInstall', $param);
 		return $result;

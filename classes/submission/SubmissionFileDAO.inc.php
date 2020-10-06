@@ -97,14 +97,11 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 		$sql .= ' ORDER BY f.file_id';
 		$result = $this->retrieve($sql, $params);
 
-		$fileIds = array();
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
+		$fileIds = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$fileIds[] = $row['file_id'];
-			$result->MoveNext();
 		}
-
-		$result->Close();
 		return $fileIds;
 	}
 

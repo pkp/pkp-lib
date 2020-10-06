@@ -148,14 +148,11 @@ class UserGroupDAO extends DAO {
 	function deleteByContextId($contextId) {
 		$result = $this->retrieve('SELECT user_group_id FROM user_groups WHERE context_id = ?', (int) $contextId);
 
-		for ($i=1; !$result->EOF; $i++) {
-			list($userGroupId) = $result->fields;
-
-			$this->update('DELETE FROM user_group_stage WHERE user_group_id = ?', (int) $userGroupId);
-			$this->update('DELETE FROM user_group_settings WHERE user_group_id = ?', (int) $userGroupId);
-			$this->update('DELETE FROM user_groups WHERE user_group_id = ?', (int) $userGroupId);
-
-			$result->MoveNext();
+		for ($i=1; $row = (array) $result->current(); $i++) {
+			$this->update('DELETE FROM user_group_stage WHERE user_group_id = ?', [(int) $row['user_group_id']]);
+			$this->update('DELETE FROM user_group_settings WHERE user_group_id = ?', [(int) $row['user_group_id']]);
+			$this->update('DELETE FROM user_groups WHERE user_group_id = ?', [(int) $row['user_group_id']]);
+			$result->next();
 		}
 	}
 
@@ -683,20 +680,16 @@ class UserGroupDAO extends DAO {
 			$params
 		);
 
-		$recordCount = $result->RecordCount();
 		$returner = false;
-		if ($recordCount == 1) {
-			$row = $result->getRowAssoc(false);
-			$returner = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-		} elseif ($recordCount > 1) {
-			$returner = array();
-			while (!$result->EOF) {
-				$returner[$row['locale']] = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-				$result->MoveNext();
-			}
-			$result->Close();
+		if ($row = (array) $result->current()) {
+			return $this->convertFromDB($row['setting_value'], $row['setting_type']);
 		}
-		return $returner;
+		$returner = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$returner[$row['locale']] = $this->convertFromDB($row['setting_value'], $row['setting_type']);
+		}
+		return count($returner) ? $returner : false;
 	}
 
 	//
@@ -914,16 +907,15 @@ class UserGroupDAO extends DAO {
 			FROM	user_group_stage
 			WHERE	context_id = ? AND
 				user_group_id = ?',
-			array((int) $contextId, (int) $userGroupId)
+			[(int) $contextId, (int) $userGroupId]
 		);
 
-		$returner = array();
-		while (!$result->EOF) {
-			$stageId = $result->Fields('stage_id');
+		$returner = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$stageId = $row('stage_id');
 			$returner[$stageId] = WorkflowStageDAO::getTranslationKeyFromId($stageId);
-			$result->MoveNext();
 		}
-
 		return $returner;
 	}
 
@@ -984,7 +976,7 @@ class UserGroupDAO extends DAO {
 		if ($roleId) $params[] = (int) $roleId;
 
 		$result = $this->retrieve(
-			'SELECT	ug.user_group_id
+			'SELECT	ug.user_group_id AS user_group_id
 			FROM user_groups ug
 			JOIN user_group_settings ugs ON (ugs.user_group_id = ug.user_group_id AND ugs.setting_name = \'recommendOnly\' AND ugs.setting_value = \'1\')
 			WHERE ug.context_id = ?
@@ -992,13 +984,11 @@ class UserGroupDAO extends DAO {
 			$params
 		);
 
-		$userGroupIds = array();
-		while (!$result->EOF) {
-			$userGroupIds[] = (int) $result->fields[0];
-			$result->MoveNext();
+		$userGroupIds = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$userGroupIds[] = (int) $row['user_group_id'];
 		}
-
-		$result->Close();
 		return $userGroupIds;
 	}
 
@@ -1013,7 +1003,7 @@ class UserGroupDAO extends DAO {
 		if ($roleId) $params[] = (int) $roleId;
 
 		$result = $this->retrieve(
-			'SELECT	ug.user_group_id
+			'SELECT	ug.user_group_id AS user_group_id
 			FROM user_groups ug
 			WHERE permit_metadata_edit = 1 AND
 			ug.context_id = ?
@@ -1021,13 +1011,11 @@ class UserGroupDAO extends DAO {
 			$params
 		);
 
-		$userGroupIds = array();
-		while (!$result->EOF) {
-			$userGroupIds[] = (int) $result->fields[0];
-			$result->MoveNext();
+		$userGroupIds = [];
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$userGroupIds[] = (int) $row['user_group_id'];
 		}
-
-		$result->Close();
 		return $userGroupIds;
 	}
 

@@ -170,7 +170,7 @@ class AuthSourceDAO extends DAO {
 	 */
 	function deleteObject($authId) {
 		return $this->update(
-			'DELETE FROM auth_sources WHERE auth_id = ?', $authId
+			'DELETE FROM auth_sources WHERE auth_id = ?', [$authId]
 		);
 	}
 
@@ -195,7 +195,7 @@ class AuthSourceDAO extends DAO {
 	function getSources($rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT * FROM auth_sources ORDER BY auth_id',
-			false,
+			[],
 			$rangeInfo
 		);
 

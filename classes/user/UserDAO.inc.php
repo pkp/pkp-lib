@@ -580,35 +580,31 @@ class UserDAO extends DAO {
 				LEFT JOIN user_settings usp ON (usp.user_id = us.user_id AND usp.locale = ? AND usp.setting_name = ?)",
 			$params
 		);
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$userId = $row['user_id'];
 			if (empty($row['given_name']) && empty($row['family_name']) && empty($row['preferred_public_name'])) {
 				// if no user name exists in the new locale, insert them all
 				foreach ($settingNames as $settingName) {
-					$params = array($newLocale, $settingName, $settingName, $oldLocale, $userId);
 					$this->update(
 						"INSERT INTO user_settings (user_id, locale, setting_name, setting_value, setting_type)
 						SELECT DISTINCT us.user_id, ?, ?, us.setting_value, 'string'
 						FROM user_settings us
 						WHERE us.setting_name = ? AND us.locale = ? AND us.user_id = ?",
-						$params
+						[$newLocale, $settingName, $settingName, $oldLocale, $userId]
 					);
 				}
 			} elseif (empty($row['given_name'])) {
 				// if the given name does not exist in the new locale (but one of the other names do exist), insert it
-				$params = array($newLocale, IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_GIVENNAME, $oldLocale, $userId);
 				$this->update(
 					"INSERT INTO user_settings (user_id, locale, setting_name, setting_value, setting_type)
 					SELECT DISTINCT us.user_id, ?, ?, us.setting_value, 'string'
 					FROM user_settings us
 					WHERE us.setting_name = ? AND us.locale = ? AND us.user_id = ?",
-					$params
+					[$newLocale, IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_GIVENNAME, $oldLocale, $userId]
 				 );
 			}
-			$result->MoveNext();
 		}
-		$result->Close();
 	}
 
 	/**

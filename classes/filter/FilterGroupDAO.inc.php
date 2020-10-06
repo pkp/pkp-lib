@@ -29,13 +29,13 @@ class FilterGroupDAO extends DAO {
 			sprintf('INSERT INTO filter_groups
 				(symbolic, display_name, description, input_type, output_type)
 				VALUES (?, ?, ?, ?, ?)'),
-			array(
+			[
 				$filterGroup->getSymbolic(),
 				$filterGroup->getDisplayName(),
 				$filterGroup->getDescription(),
 				$filterGroup->getInputType(),
 				$filterGroup->getOutputType()
-			)
+			]
 		);
 		$filterGroup->setId((int)$this->getInsertId());
 		return $filterGroup->getId();
@@ -46,7 +46,7 @@ class FilterGroupDAO extends DAO {
 	 * @param $filterGroup FilterGroup
 	 * @return FilterGroup
 	 */
-	function &getObject(&$filterGroup) {
+	function getObject($filterGroup) {
 		return $this->getObjectById($filterGroup->getId());
 	}
 
@@ -55,18 +55,12 @@ class FilterGroupDAO extends DAO {
 	 * @param $filterGroupId integer
 	 * @return FilterGroup
 	 */
-	function &getObjectById($filterGroupId) {
+	function getObjectById($filterGroupId) {
 		$result = $this->retrieve(
 				'SELECT * FROM filter_groups'.
-				' WHERE filter_group_id = ?', $filterGroupId);
-
-		$filterGroup = null;
-		if ($result->RecordCount() != 0) {
-			$filterGroup = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $filterGroup;
+				' WHERE filter_group_id = ?', [$filterGroupId]);
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
@@ -74,18 +68,13 @@ class FilterGroupDAO extends DAO {
 	 * @param $filterGroupSymbolic string
 	 * @return FilterGroup
 	 */
-	function &getObjectBySymbolic($filterGroupSymbolic) {
+	function getObjectBySymbolic($filterGroupSymbolic) {
 		$result = $this->retrieve(
 				'SELECT * FROM filter_groups'.
-				' WHERE symbolic = ?', $filterGroupSymbolic);
+				' WHERE symbolic = ?', [$filterGroupSymbolic]);
 
-		$filterGroup = null;
-		if ($result->RecordCount() != 0) {
-			$filterGroup = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $filterGroup;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
@@ -101,14 +90,14 @@ class FilterGroupDAO extends DAO {
 				input_type = ?,
 				output_type = ?
 			WHERE	filter_group_id = ?',
-			array(
+			[
 				$filterGroup->getSymbolic(),
 				$filterGroup->getDisplayName(),
 				$filterGroup->getDescription(),
 				$filterGroup->getInputType(),
 				$filterGroup->getOutputType(),
 				(integer)$filterGroup->getId()
-			)
+			]
 		);
 	}
 
@@ -117,7 +106,7 @@ class FilterGroupDAO extends DAO {
 	 * @param $filterGroup FilterGroup
 	 * @return boolean
 	 */
-	function deleteObject(&$filterGroup) {
+	function deleteObject($filterGroup) {
 		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 
 		// Check whether there are still templates saved for this filter group.
@@ -129,7 +118,7 @@ class FilterGroupDAO extends DAO {
 		if (!empty($filters)) return false;
 
 		// Delete the group if it's empty.
-		$this->update('DELETE FROM filter_groups WHERE filter_group_id = ?', $filterGroup->getId());
+		$this->update('DELETE FROM filter_groups WHERE filter_group_id = ?', [$filterGroup->getId()]);
 
 		return true;
 	}

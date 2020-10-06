@@ -248,7 +248,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('title');
+		return ['title'];
 	}
 
 	/**
@@ -264,9 +264,9 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @param $navigationMenuItemAssignment object
 	 */
 	function updateLocaleFields($navigationMenuItemAssignment) {
-		$this->updateDataObjectSettings('navigation_menu_item_assignment_settings', $navigationMenuItemAssignment, array(
+		$this->updateDataObjectSettings('navigation_menu_item_assignment_settings', $navigationMenuItemAssignment, [
 			'navigation_menu_item_assignment_id' => $navigationMenuItemAssignment->getId()
-		));
+		]);
 	}
 
 	/**
@@ -274,13 +274,11 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @param mixed $id
 	 */
 	function unCacheRelatedNavigationMenus($id) {
-		$navigationMenuItemAssignment = $this->getById($id);
-		if ($navigationMenuItemAssignment) {
+		if ($navigationMenuItemAssignment = $this->getById($id)) {
 			$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
 			$cache = $navigationMenuDao->getCache($navigationMenuItemAssignment->getMenuId());
 			if ($cache) $cache->flush();
 		}
 	}
 }
-
 

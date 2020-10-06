@@ -283,19 +283,18 @@ class PublicationService extends PKPPublicationService {
 		$submission = $args[2];
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
-		$router = $request->getRouter();
+		$dispatcher = $request->getDispatcher();
 
 		// Send preprint posted acknowledgement email when the first version is published
-		if ($newPublication->getData('version') > 1) {
+		if ($newPublication->getData('version') == 1) {
 
 			import('classes.mail.ArticleMailTemplate');
-
-			$mail = new ArticleMailTemplate($submission, 'SUBMISSION_ACK', null, null, false);
+			$mail = new \ArticleMailTemplate($submission, 'POSTED_ACK', null, null, false);
 
 			if ($mail->isEnabled()) {
 
 				// posted ack emails should be from the contact.
-				$mail->setFrom($this->context->getData('contactEmail'), $this->context->getData('contactName'));
+				$mail->setFrom($context->getData('contactEmail'), $context->getData('contactName'));
 
 				$user = $request->getUser();
 				$mail->addRecipient($user->getEmail(), $user->getFullName());
@@ -304,12 +303,12 @@ class PublicationService extends PKPPublicationService {
 					'authorName' => $user->getFullName(),
 					'authorUsername' => $user->getUsername(),
 					'editorialContactSignature' => $context->getData('contactName'),
-					'publicationUrl' => $router->url($request, $context->getPath(), 'preprint', 'view', $submission->getBestId(), null, null, true),
+					'publicationUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getData('urlPath'), 'preprint', 'view', $submission->getBestId(), null, null, true),
 				));
 
 				if (!$mail->send($request)) {
 					import('classes.notification.NotificationManager');
-					$notificationMgr = new NotificationManager();
+					$notificationMgr = new \NotificationManager();
 					$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
 				}
 			}

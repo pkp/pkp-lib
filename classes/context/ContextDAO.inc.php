@@ -95,10 +95,10 @@ abstract class ContextDAO extends SchemaDAO {
 	 * @return DAOResultFactory containing matching Contexts
 	 */
 	function getAvailable($userId = null, $rangeInfo = null) {
-		$params = array();
+		$params = [];
 		if ($userId) $params = array_merge(
 			$params,
-			array((int) $userId, (int) $userId, (int) ROLE_ID_SITE_ADMIN)
+			[(int) $userId, (int) $userId, (int) ROLE_ID_SITE_ADMIN]
 		);
 
 		$result = $this->retrieveRange(

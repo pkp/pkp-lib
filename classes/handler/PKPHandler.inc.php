@@ -559,16 +559,15 @@ class PKPHandler {
 			// No context requested. Check how many contexts the site has.
 			$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
 			$contexts = $contextDao->getAll(true);
-			$contextsCount = $contexts->getCount();
-			$context = null;
-			if ($contextsCount === 1) {
+			$firstContext = $contexts->next();
+			$secondContext = $contexts->next();
+			if ($firstContext && !$secondContext) {
 				// Return the unique context.
-				$context = $contexts->next();
-			}
-			if (!$context && $contextsCount > 1) {
+				$context = $firstContext;
+			} elseif ($firstContext && $secondContext) {
 				// Get the site redirect.
 				$context = $this->getSiteRedirectContext($request);
-			}
+			} else $context = null;
 		} else {
 			// Return the requested context.
 			$context = $router->getContext($request);

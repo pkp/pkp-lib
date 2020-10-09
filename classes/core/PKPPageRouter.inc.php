@@ -422,9 +422,10 @@ class PKPPageRouter extends PKPRouter {
 		if ($context = $this->getContext($request, 1)) {
 			// The user is in the context, see if they have zero or one roles only
 			$userGroups = $userGroupDao->getByUserId($userId, $context->getId());
-			if($userGroups->getCount() <= 1) {
-				$userGroup = $userGroups->next();
-				if (!$userGroup || $userGroup->getRoleId() == ROLE_ID_READER) return $request->url(null, 'index');
+			$firstUserGroup = $userGroups->next();
+			$secondUserGroup = $userGroups->next();
+			if (!$secondUserGroup) {
+				if (!$firstUserGroup || $firstUserGroup->getRoleId() == ROLE_ID_READER) return $request->url(null, 'index');
 			}
 			return $request->url(null, 'submissions');
 		} else {

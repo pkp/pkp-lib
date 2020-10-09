@@ -913,7 +913,7 @@ class PKPTemplateManager extends Smarty {
 
 				// Load system notifications in SiteHandler.js
 				$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-				$notifications = $notificationDao->getByUserId($request->getUser()->getId(), NOTIFICATION_LEVEL_TRIVIAL);
+				$notificationsCount = count($notificationDao->getByUserId($request->getUser()->getId(), NOTIFICATION_LEVEL_TRIVIAL));
 
 				// Load context switcher
 				if (in_array(ROLE_ID_SITE_ADMIN, $this->get_template_vars('userRoles'))) {
@@ -1060,7 +1060,7 @@ class PKPTemplateManager extends Smarty {
 
 				$this->assign([
 					'availableContexts' => $availableContexts,
-					'hasSystemNotifications' => $notifications->getCount() > 0,
+					'hasSystemNotifications' => $notificationsCount > 0,
 				]);
 			}
 		}

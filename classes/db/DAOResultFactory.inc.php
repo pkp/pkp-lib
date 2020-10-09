@@ -18,6 +18,8 @@
 import('lib.pkp.classes.core.ItemIterator');
 import('lib.pkp.classes.db.DAOResultIterator');
 
+use Illuminate\Support\Enumerable;
+
 class DAOResultFactory extends ItemIterator {
 	/** @var DAO The DAO used to create objects */
 	var $dao;
@@ -33,22 +35,13 @@ class DAOResultFactory extends ItemIterator {
 	 */
 	var $idFields;
 
-	/** @var ADORecordSet|Generator The ADORecordSet to be wrapped around (old) or Generator (new) */
+	/** @var ADORecordSet|Enumerable The ADORecordSet to be wrapped around (old) or Enumerable (new) */
 	var $records;
-
-	/** @var boolean True iff the resultset was always empty */
-	var $wasEmpty;
-
-	var $isFirst;
-	var $isLast;
-	var $page;
-	var $count;
-	var $pageCount;
 
 	/**
 	 * Constructor.
 	 * Initialize the DAOResultFactory
-	 * @param $records object ADO record set
+	 * @param $records object ADO record set, Generator, or Enumerable
 	 * @param $dao object DAO class for factory
 	 * @param $functionName The function to call on $dao to create an object
 	 * @param $idFields array an array of primary key field names that uniquely
@@ -62,40 +55,7 @@ class DAOResultFactory extends ItemIterator {
 		$this->dao = $dao;
 		$this->idFields = $idFields;
 
-		if ($records instanceof Generator) {
-			$this->records = $records;
-			$this->wasEmpty = false;
-		} elseif (!$records || $records->EOF) {
-			if ($records) $records->Close();
-			$this->records = null;
-			$this->wasEmpty = true;
-			$this->page = 1;
-			$this->isFirst = true;
-			$this->isLast = true;
-			$this->count = 0;
-			$this->pageCount = 1;
-		} else {
-			$this->records = $records;
-			$this->wasEmpty = false;
-			$this->page = $records->AbsolutePage();
-			$this->isFirst = $records->atFirstPage();
-			$this->isLast = $records->atLastPage();
-			$this->count = $records->MaxRecordCount();
-			$this->pageCount = $records->LastPageNo();
-		}
-	}
-
-	/**
-	 * Advances the internal cursor to a specific row.
-	 * @param int $to
-	 * @return boolean
-	 */
-	function move($to) {
-		if ($this->records == null) return false;
-		if ($this->records->Move($to))
-			return true;
-		else
-			return false;
+		$this->records = $records;
 	}
 
 	/**
@@ -112,14 +72,9 @@ class DAOResultFactory extends ItemIterator {
 		if ($this->records instanceof Generator) {
 			$row = (array) $this->records->current();
 			$this->records->next();
-		} else {
-			if (!$this->records->EOF) {
-				$row = $this->records->getRowAssoc(false);
-				if (!$this->records->MoveNext()) $this->close();
-			} else {
-				$this->close();
-			}
-		}
+		} elseif ($this->records instanceof Enumerable) {
+			$row = (array) $this->records->shift();
+		} else throw new Exception('Unsupported record set type (' . join(', ', class_implements($this->records)) . ')');
 		if (!$row) return null;
 		return $dao->$functionName($row, $this->functionParams);
 	}
@@ -148,65 +103,12 @@ class DAOResultFactory extends ItemIterator {
 	}
 
 	/**
-	 * Determine whether this iterator represents the first page of a set.
-	 * @return boolean
-	 */
-	function atFirstPage() {
-		return $this->isFirst;
-	}
-
-	/**
-	 * Determine whether this iterator represents the last page of a set.
-	 * @return boolean
-	 */
-	function atLastPage() {
-		return $this->isLast;
-	}
-
-	/**
-	 * Get the page number of a set that this iterator represents.
-	 * @return int
-	 */
-	function getPage() {
-		return $this->page;
-	}
-
-	/**
-	 * Get the total number of items in the set.
-	 * @return int
-	 */
-	function getCount() {
-		return $this->count;
-	}
-
-	/**
-	 * Get the total number of pages in the set.
-	 * @return int
-	 */
-	function getPageCount() {
-		return $this->pageCount;
-	}
-
-	/**
 	 * Return a boolean indicating whether or not we've reached the end of results
 	 * @return boolean
 	 */
 	function eof() {
 		if ($this->records == null) return true;
-		if ($this->records instanceof Generator) return !$this->records->valid();
-		if ($this->records->EOF) {
-			$this->close();
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * Return a boolean indicating whether or not this resultset was empty from the beginning
-	 * @return boolean
-	 */
-	function wasEmpty() {
-		return $this->wasEmpty;
+		return !$this->records->valid();
 	}
 
 	/**
@@ -227,15 +129,10 @@ class DAOResultFactory extends ItemIterator {
 	 */
 	function toArray() {
 		$returner = [];
-		if ($this->records instanceof Generator) {
-			$functionName = $this->functionName;
-			$dao = $this->dao;
-			foreach ($this->records as $row) {
-				$returner[] = $dao->$functionName((array) $row, $this->functionParams);
-			}
-		}
-		else while (!$this->eof()) {
-			$returner[] = $this->next();
+		$functionName = $this->functionName;
+		$dao = $this->dao;
+		foreach ($this->records as $row) {
+			$returner[] = $dao->$functionName((array) $row, $this->functionParams);
 		}
 		return $returner;
 	}

@@ -62,7 +62,7 @@ class DAO {
 			}
 		}
 
-		yield from Capsule::cursor(Capsule::raw($sql), $params);
+		return Capsule::cursor(Capsule::raw($sql), $params);
 	}
 
 	/**
@@ -122,7 +122,7 @@ class DAO {
 			$sql .= ' OFFSET ' . $offset;
 		}
 
-		yield from Capsule::cursor(Capsule::raw($sql), $params);
+		return Capsule::cursor(Capsule::raw($sql), $params);
 	}
 
 	/**

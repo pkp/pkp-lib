@@ -14,8 +14,9 @@
  * @brief Operations for retrieving and modifying Notification objects.
  */
 
-
 import('classes.notification.Notification');
+
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 class NotificationDAO extends DAO {
 
@@ -50,20 +51,18 @@ class NotificationDAO extends DAO {
 	 * @param $level int
 	 * @param $type int
 	 * @param $contextId int
-	 * @param $rangeInfo Object
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
-	function getByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $type = null, $contextId = null, $rangeInfo = null) {
-		$params = array((int) $userId, (int) $level);
-		if ($type) $params[] = (int) $type;
-		if ($contextId) $params[] = (int) $contextId;
-
-		$result = $this->retrieveRange(
-			'SELECT * FROM notifications WHERE user_id = ? AND level = ?' . (isset($type) ?' AND type = ?' : '') . (isset($contextId) ?' AND context_id = ?' : '') . ' ORDER BY date_created DESC',
-			$params, $rangeInfo
-		);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
+	function getByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $type = null, $contextId = null) {
+		$result = Capsule::table('notifications')
+			->where('user_id', '=', (int) $userId)
+			->where('level', '=', (int) $level)
+			->get();
+		$notifications = [];
+		foreach ($result as $row) {
+			$notifications[$row->notification_id] = $this->_fromRow((array) $row);
+		}
+		return $notifications;
 	}
 
 	/**

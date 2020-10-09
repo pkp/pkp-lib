@@ -347,8 +347,8 @@ class UserGroupDAO extends DAO {
 	 * @param $contextId int
 	 * @return DAOResultFactory
 	 */
-	function getByUserId($userId, $contextId = null){
-		$params = array((int) $userId);
+	function getByUserId($userId, $contextId = null) {
+		$params = [(int) $userId];
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
@@ -371,20 +371,14 @@ class UserGroupDAO extends DAO {
 	 */
 	function contextHasGroup($contextId, $userGroupId) {
 		$result = $this->retrieve(
-			'SELECT count(*)
+			'SELECT count(*) AS row_count
 				FROM user_groups ug
 				WHERE ug.user_group_id = ?
 				AND ug.context_id = ?',
-			array (
-				(int) $userGroupId,
-				(int) $contextId
-			)
+			[(int) $userGroupId, (int) $contextId]
 		);
-
-		$returner = isset($result->fields[0]) && $result->fields[0] == 0 ? false : true;
-
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row && $row['row_count'] != 0;
 	}
 
 	/**
@@ -418,7 +412,7 @@ class UserGroupDAO extends DAO {
 		if ($userGroupId) $params[] = (int) $userGroupId;
 		if ($roleId) $params[] = (int) $roleId;
 		$result = $this->retrieve(
-			'SELECT	COUNT(DISTINCT(uug.user_id))
+			'SELECT	COUNT(DISTINCT(uug.user_id)) AS row_count
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
 			WHERE	context_id = ?' .
@@ -426,11 +420,8 @@ class UserGroupDAO extends DAO {
 				($roleId?' AND ug.role_id = ?':''),
 			$params
 		);
-
-		$returner = $result->fields[0];
-
-		$result->Close();
-		return (int) $returner;
+		$row = $result->current();
+		return $row?$row['row_count']:0;
 	}
 
 	/**
@@ -493,12 +484,14 @@ class UserGroupDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function getUsersById($userGroupId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
-		$params = $this->userDao->getFetchParameters();
-		$params = array_merge($params, array(IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME));
+		$params = array_merge(
+			$this->userDao->getFetchParameters(),
+			[IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME]
+		);
 		if ($contextId) $params[] = (int) $contextId;
 		if ($userGroupId) $params[] = (int) $userGroupId;
 
-		$sql =
+		$result = $this->retrieveRange(
 			'SELECT DISTINCT u.*,
 				' . $this->userDao->getFetchColumns() .'
 			FROM	users AS u
@@ -514,10 +507,7 @@ class UserGroupDAO extends DAO {
 			WHERE	1=1 ' .
 				($contextId?'AND ug.context_id = ? ':'') .
 				($userGroupId?'AND ug.user_group_id = ? ':'') .
-				$this->_getSearchSql($searchType, $search, $searchMatch, $params);
-
-		$result = $this->retrieveRange(
-			$sql,
+				$this->_getSearchSql($searchType, $search, $searchMatch, $params),
 			$params,
 			$dbResultRange
 		);
@@ -601,7 +591,7 @@ class UserGroupDAO extends DAO {
 	function assignGroupToStage($contextId, $userGroupId, $stageId) {
 		$this->update(
 			'INSERT INTO user_group_stage (context_id, user_group_id, stage_id) VALUES (?, ?, ?)',
-			array((int) $contextId, (int) $userGroupId, (int) $stageId)
+			[(int) $contextId, (int) $userGroupId, (int) $stageId]
 		);
 	}
 
@@ -614,7 +604,7 @@ class UserGroupDAO extends DAO {
 	function removeGroupFromStage($contextId, $userGroupId, $stageId) {
 		$this->update(
 			'DELETE FROM user_group_stage WHERE context_id = ? AND user_group_id = ? AND stage_id = ?',
-			array((int) $contextId, (int) $userGroupId, (int) $stageId)
+			[(int) $contextId, (int) $userGroupId, (int) $stageId]
 		);
 	}
 
@@ -630,7 +620,7 @@ class UserGroupDAO extends DAO {
 	 * @param $isLocalized boolean
 	 */
 	function updateSetting($userGroupId, $name, $value, $type = null, $isLocalized = false) {
-		$keyFields = array('setting_name', 'locale', 'user_group_id');
+		$keyFields = ['setting_name', 'locale', 'user_group_id'];
 
 		if (!$isLocalized) {
 			$value = $this->convertToDB($value, $type);
@@ -652,9 +642,7 @@ class UserGroupDAO extends DAO {
 				$this->update('INSERT INTO user_group_settings
 					(user_group_id, setting_name, setting_value, setting_type, locale)
 					VALUES (?, ?, ?, ?, ?)',
-					array(
-						$userGroupId, $name, $this->convertToDB($localeValue, $type), $type, $locale
-					)
+					[$userGroupId, $name, $this->convertToDB($localeValue, $type), $type, $locale]
 				);
 			}
 		}

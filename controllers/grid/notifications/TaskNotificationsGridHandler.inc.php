@@ -37,7 +37,7 @@ class TaskNotificationsGridHandler extends NotificationsGridHandler {
 
 		// Get all level task notifications.
 		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-		return $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TASK);
+		return $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TASK)->toArray();
 	}
 }
 

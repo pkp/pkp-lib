@@ -37,10 +37,8 @@ class NotificationDAO extends DAO {
 			' . ($userId?' AND user_id = ?':''),
 			$params
 		);
-
-		$notification = $this->_fromRow($result->GetRowAssoc(false));
-		$result->Close();
-		return $notification;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow((array) $row):null;
 	}
 
 	/**
@@ -58,11 +56,7 @@ class NotificationDAO extends DAO {
 			->where('user_id', '=', (int) $userId)
 			->where('level', '=', (int) $level)
 			->get();
-		$notifications = [];
-		foreach ($result as $row) {
-			$notifications[$row->notification_id] = $this->_fromRow((array) $row);
-		}
-		return $notifications;
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**

@@ -54,10 +54,10 @@ class ProfileHandler extends UserHandler {
 			$user = $request->getUser();
 			$contextDao = Application::getContextDAO();
 			$workingContexts = $contextDao->getAvailable($user?$user->getId():null);
-			if ($workingContexts && $workingContexts->getCount() == 1) {
-				$workingContext = $workingContexts->next();
-				$contextPath = $workingContext->getPath();
-				$request->redirect($contextPath, 'user', 'profile', null, $args);
+			$firstContext = $workingContexts->next();
+			$secondContext = $workingContexts->next();
+			if ($firstContext && !$secondContext) {
+				$request->redirect($firstContext->getPath(), 'user', 'profile', null, $args);
 			}
 		}
 

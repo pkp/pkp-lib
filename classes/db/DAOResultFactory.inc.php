@@ -80,6 +80,13 @@ class DAOResultFactory extends ItemIterator {
 	}
 
 	/**
+	 * @copydoc ItemIterator::count()
+	 */
+	function getCount() {
+		throw new Exception('DAOResultFactory instances cannot be counted!');
+	}
+
+	/**
 	 * Return the next row, with key.
 	 * @return array? ($key, $value)
 	 */

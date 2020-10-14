@@ -58,11 +58,10 @@ class Mapping {
 	/**
 	 * Calls the data provider and returns its data
 	 * @param \User $user The User instance
-	 * @param object $userRecord The data row produced by the query builder
 	 * @return ?string
 	 */
-	public function __invoke(\User $user, object $userRecord): ?string
+	public function __invoke(\User $user): ?string
 	{
-		return ($this->_value)($user, $userRecord);
+		return ($this->_value)($user);
 	}
 }

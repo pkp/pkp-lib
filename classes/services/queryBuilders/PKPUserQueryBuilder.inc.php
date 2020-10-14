@@ -97,6 +97,9 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 	/** @var int whether to offset the number of results returned. Use to return a second page of results. */
 	protected $offset = 0;
 
+	/** @var int[] filter by user group. */
+	protected $userGroupIds = null;
+
 	/**
 	 * Set context submissions filter
 	 *

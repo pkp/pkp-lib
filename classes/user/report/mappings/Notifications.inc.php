@@ -17,18 +17,12 @@
  */
 
 namespace PKP\User\Report\Mappings;
-use PKP\User\Report\{Report, Mapping, QueryBuilder, QueryListenerInterface, QueryOptions};
+use PKP\User\Report\{Report, Mapping};
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-class Notifications implements QueryListenerInterface {
+class Notifications {
 	/** @var string The key to extract the notification title */
 	private const NOTIFICATION_TITLE_KEY = 'settingKey';
-
-	/** @var string The setting which holds the notification status */
-	private const BLOCKED_NOTIFICATION_KEY = 'blocked_notification';
-
-	/** @var string The setting which holds the email notification status */
-	private const BLOCKED_EMAIL_NOTIFICATION_KEY = 'blocked_emailed_notification';
 
 	/** @var array A dictionary containing all notifications available in the application, the key is the notification ID */
 	private $_notificationsMap;
@@ -39,28 +33,9 @@ class Notifications implements QueryListenerInterface {
 	 */
 	public function __construct(Report $report)
 	{
+		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR);
 		$this->_loadNotificationsMap();
-		$report->getQueryBuilder()->addListener($this);
 		$report->addMappings(...$this->_getMappings());
-	}
-
-	/**
-	 * @copydoc QueryListenerInterface::onQuery()
-	 */
-	public function onQuery(\Illuminate\Database\Query\Builder $query, QueryOptions $options): void
-	{
-		$query->leftJoin('notification_subscription_settings AS nss', function ($join) {
-			$join->on('nss.user_id', 'u.user_id')
-				->on('nss.context', 'ug.context_id');
-		});
-		switch (Capsule::connection()->getDriverName()) {
-			case 'mysql':
-				$options->columns[] = Capsule::raw("GROUP_CONCAT(DISTINCT CONCAT('[', nss.setting_name, '-', nss.setting_value, ']')) AS notifications");
-				break;
-			default:
-				$options->columns[] = Capsule::raw("STRING_AGG(DISTINCT CONCAT('[', nss.setting_name, '-', nss.setting_value, ']'), ',') AS notifications");
-				break;
-		}
 	}
 
 	/**
@@ -75,14 +50,14 @@ class Notifications implements QueryListenerInterface {
 				$mappings,
 				new Mapping(
 					__('notification.notification') . ': ' . __($caption),
-					function (\User $user, object $userRecord) use ($notificationId): string {
-						return $this->_getStatus($userRecord, $notificationId, false);
+					function (\User $user) use ($notificationId): string {
+						return $this->_getStatus($user, $notificationId, false);
 					}
 				),
 				new Mapping(
 					__('notification.notification') . ' (' . __('email.email') . ')' . ': ' . __($caption),
-					function (\User $user, object $userRecord) use ($notificationId): string {
-						return $this->_getStatus($userRecord, $notificationId, true);
+					function (\User $user) use ($notificationId): string {
+						return $this->_getStatus($user, $notificationId, true);
 					}
 				)
 			);
@@ -109,14 +84,26 @@ class Notifications implements QueryListenerInterface {
 
 	/**
 	 * Retrieves whether the given notification is enabled
-	 * @param object $userRecord The user object
+	 * @param \User $user The user object
 	 * @param int $notificationId The notification ID
 	 * @param bool $isEmail Whether it's a simple or email notification
 	 * @return string Localized text with Yes or No
 	 */
-	private static function _getStatus(object $userRecord, int $notificationId, bool $isEmail): string
+	private static function _getStatus(\User $user, int $notificationId, bool $isEmail): string
 	{
-		$type = $isEmail ? self::BLOCKED_EMAIL_NOTIFICATION_KEY : self::BLOCKED_NOTIFICATION_KEY;
-		return __(is_int(strpos($userRecord->notifications, '[' . $type . '-' . $notificationId . ']')) ? 'common.no' : 'common.yes');
+		static $lastUserId = null;
+		static $notifications = null;
+
+		if ($lastUserId != $user->getId()) {
+			['notifications' => $notifications] = \Services::get('user')->getProperties($user, ['notifications'], ['request' => \Application::get()->getRequest()]);
+			$lastUserId = $user->getId();
+		}
+		
+		$hasNotification = !is_int(array_search($notificationId, $notifications['notifications']));
+		if ($isEmail && $hasNotification) {
+			$hasNotification = !is_int(array_search($notificationId, $notifications['emailNotifications']));
+		}
+
+		return __($hasNotification ? 'common.yes' : 'common.no');
 	}
 }

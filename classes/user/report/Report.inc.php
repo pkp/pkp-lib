@@ -24,17 +24,22 @@ class Report implements \IteratorAggregate {
 	/** @var Mapping[] An array of Mapping objects responsible to feed the report's header and body */
 	private $_mappings = [];
 
-	/** @var QueryBuilder QueryBuilder instance */
-	private $_queryBuilder;
+	/** @var SerializerInterface The report serializer */
+	private $_serializer;
+
+	/** @var iterable The report data source */
+	private $_dataSource;
 
 	/**
 	 * Constructor
+	 * @param iterable $dataSource The data source, should yield /User objects
+	 * @param SerializerInterface $serializer The serializer
 	 * @param bool $addDefaultMappings Whether default mappings should be automatically added (defaults to true)
 	 */
-	public function __construct(?bool $addDefaultMappings = true)
+	public function __construct(iterable $dataSource, SerializerInterface $serializer, ?bool $addDefaultMappings = true)
 	{
-		$this->_queryBuilder = new QueryBuilder();
-
+		$this->_dataSource = $dataSource;
+		$this->_serializer = $serializer;
 		if ($addDefaultMappings) {
 			new Mappings\Standard($this);
 			new Mappings\UserGroups($this);
@@ -74,44 +79,23 @@ class Report implements \IteratorAggregate {
 	}
 
 	/**
+	 * Serializes the report to the given output
+	 * @param resource $output A ready to write stream
+	 */
+	public function serialize($output): void
+	{
+		$this->_serializer->serialize($this, $output);
+	}
+
+	/**
 	 * Implements the IteratorAggregate interface
-	 * @return Traversable A data row generator, which yields each user
+	 * @return Traversable A data row generator
 	 */
 	public function getIterator(): \Traversable
 	{
-		// Outputs each user
-		foreach ($this->_queryBuilder->getQuery()->get() as $userRecord) {
-			yield $this->_getRawData($userRecord);
-		}
-	}
-
-	/**
-	 * Retrieves the query builder
-	 * @return QueryBuilder
-	 */
-	public function getQueryBuilder(): QueryBuilder
-	{
-		return $this->_queryBuilder;
-	}
-
-	/**
-	 * Converts a raw user record from the QueryBuilder to an User model
-	 * @param object $userRecord The database row
-	 * @return \User
-	 */
-	private function _toUserEntity(object $userRecord): \User
-	{
-		$userDao = \DAORegistry::getDAO('UserDAO');
-		$user = $userDao->_returnUserFromRow((array) $userRecord);
-		$user->setGivenName($userRecord->user_given, null);
-		$user->setFamilyName($userRecord->user_family, null);
-
-		foreach(['orcid', 'biography', 'signature', 'affiliation', 'preferredPublicName'] as $setting) {
-			$identifier = strtolower($setting);
-			$user->setData($setting, $userDao->convertFromDB($userRecord->$identifier, $userRecord->{$identifier . '_type'}));
-		}
-
-		return $user;
+		foreach ($this->_dataSource as $user) {
+			yield $this->_getDataRow($user);
+		};
 	}
 
 	/**
@@ -131,16 +115,15 @@ class Report implements \IteratorAggregate {
 
 	/**
 	 * Retrieves a report data row
-	 * @param object $userRecord The database row
+	 * @param \User $user An user instance
 	 * @return string[]
 	 */	
-	private function _getRawData(object $userRecord): array
+	private function _getDataRow(\User $user): array
 	{
-		$user = $this->_toUserEntity($userRecord);
 		return array_map(
-			function (Mapping $mapping) use ($user, $userRecord): ?string
+			function (Mapping $mapping) use ($user): ?string
 			{
-				return $mapping($user, $userRecord);
+				return $mapping($user);
 			},
 			$this->_mappings
 		);

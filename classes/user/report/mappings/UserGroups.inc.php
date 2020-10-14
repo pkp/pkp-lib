@@ -17,10 +17,10 @@
  */
 
 namespace PKP\User\Report\Mappings;
-use PKP\User\Report\{Report, Mapping, QueryBuilder, QueryOptions, QueryListenerInterface};
+use PKP\User\Report\{Report, Mapping};
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-class UserGroups implements QueryListenerInterface {
+class UserGroups {
 	/** @var array A dictionary [id => name] containing all user groups available in the application */
 	private $_userGroups;
 
@@ -30,24 +30,9 @@ class UserGroups implements QueryListenerInterface {
 	 */
 	public function __construct(Report $report)
 	{
+		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR);
 		$this->_loadUserGroups();
-		$report->getQueryBuilder($this);
 		$report->addMappings(...$this->_getMappings());
-	}
-
-	/**
-	 * @copydoc QueryListenerInterface::onQuery()
-	 */
-	public function onQuery(\Illuminate\Database\Query\Builder $query, QueryOptions $options): void
-	{
-		switch (Capsule::connection()->getDriverName()) {
-			case 'mysql':
-				$options->columns[] = Capsule::raw("GROUP_CONCAT(DISTINCT CONCAT('[', uug.user_group_id, ']')) AS user_groups");
-				break;
-			default:
-				$options->columns[] = Capsule::raw("STRING_AGG(DISTINCT CONCAT('[', uug.user_group_id, ']'), ',') AS user_groups");
-				break;
-		}
 	}
 
 	/**
@@ -62,9 +47,9 @@ class UserGroups implements QueryListenerInterface {
 				$mappings,
 				new Mapping(
 					$name,
-					function (\User $user, object $userRecord) use ($userGroupId): string
+					function (\User $user) use ($userGroupId): string
 					{
-						return $this->_getStatus($userRecord, $userGroupId);
+						return $this->_getStatus($user, $userGroupId);
 					}
 				)
 			);
@@ -78,7 +63,7 @@ class UserGroups implements QueryListenerInterface {
 	private function _loadUserGroups(): void
 	{
 		$userGroups = [];
-		foreach(\DAORegistry::getDAO('UserGroupDAO')->getByContextId()->toIterator() as $userGroup) {
+		foreach (\DAORegistry::getDAO('UserGroupDAO')->getByContextId()->toIterator() as $userGroup) {
 			$userGroups[$userGroup->getId()] = $userGroup->getLocalizedName();
 		}
 
@@ -87,12 +72,26 @@ class UserGroups implements QueryListenerInterface {
 
 	/**
 	 * Retrieves whether the user has the given user group
-	 * @param object $userRecord The user object
+	 * @param \User $user The user object
 	 * @param int $userGroupId The user group ID
 	 * @return string Localized text with Yes or No
 	 */
-	private static function _getStatus(object $userRecord, int $userGroupId): string
+	private static function _getStatus(\User $user, int $userGroupId): string
 	{
-		return __(is_int(strpos($userRecord->user_groups, '[' . $userGroupId . ']')) ? 'common.yes' : 'common.no');
+		static $lastUserId = null;
+		static $groups = null;
+
+		if ($lastUserId != $user->getId()) {
+			['groups' => $groups] = \Services::get('user')->getProperties($user, ['groups'], ['request' => \Application::get()->getRequest()]);
+			$lastUserId = $user->getId();
+		}
+
+		foreach ($groups as ['id' => $id]) {
+			if ($id == $userGroupId) {
+				return __('common.yes');
+			}
+		}
+
+		return __('common.no');
 	}
 }

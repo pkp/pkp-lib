@@ -294,10 +294,7 @@ class PKPUserHandler extends APIHandler {
 			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
 		}
 
-		$params = [
-			'contextId' => $context->getId(),
-			'serializer' => \PKP\User\Report\Serializer\CSV::class
-		];
+		$params = ['contextId' => $context->getId()];
 		foreach ($slimRequest->getQueryParams() as $param => $value) {
 			switch ($param) {
 				case 'userGroupIds':
@@ -321,10 +318,9 @@ class PKPUserHandler extends APIHandler {
 
 		\HookRegistry::call('API::users::user::report::params', [&$params, $slimRequest]);
 
-		$report = Services::get('user')->getReport($params);
-		$serializer = new $params['serializer']();
+		$report = \Services::get('user')->getReport($params);
 		$output = fopen(tempnam(sys_get_temp_dir(), 'tmp'), 'w+');
-		$serializer->serialize($report, $output);
+		$report->serialize($output);
 		fseek($output, 0);
 
 		return $response

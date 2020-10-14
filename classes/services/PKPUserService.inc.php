@@ -65,6 +65,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * 		@option array excludeUsers
 	 * 		@option string status
 	 * 		@option string searchPhrase
+	 *  	@option array userGroupIds
 	 * 		@option int count
 	 * 		@option int offset
 	 * @return Iterator
@@ -134,7 +135,8 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			->includeUsers($args['includeUsers'])
 			->excludeUsers($args['excludeUsers'])
 			->filterByStatus($args['status'])
-			->searchPhrase($args['searchPhrase']);
+			->searchPhrase($args['searchPhrase'])
+			->filterByUserGroup($args['userGroupIds']);
 
 		if (isset($args['count'])) {
 			$userListQB->limitTo($args['count']);
@@ -389,6 +391,16 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 						}
 					}
 					break;
+				case 'notifications':
+					$values[$prop] = null;
+					if ($context) {
+						$notificationSubscriptionSettingsDao = \DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
+						$values[$prop] = [
+							'notifications' => $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(\NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY, $user->getId(), $context->getId()),
+							'emailNotifications' => $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(\NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY, $user->getId(), $context->getId())
+						];
+					}
+					break;
 			}
 
 			$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_USER, $values, $context->getSupportedFormLocales());
@@ -615,27 +627,25 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * Retrieves a filtered user report instance
 	 *
 	 * @param array $args
-	 *		@option string[] mappings List of standard mappings to include
-	 *		@option int[] userGroupIds List of user groups
+	 *		@option int contextId Context ID (required)
+	 *		@option string[] mappings List of standard mappings to include (default mappings are always included)
+	 *		@option int[] userGroupIds List of user groups (all groups by default)
+	 *		@option \PKP\User\Report\SerializerInterface serializer The report serializer (CSV by default)
 	 * @return Report
 	 */
-	public function getReport(?array $args = []): Report
+	public function getReport(array $args): Report
 	{
-		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR);
-
-		$report = new Report(false);
-
+		$dataSource = \Services::get('user')->getMany([
+			'userGroupIds' => $args['userGroupIds'] ?? null,
+			'contextId' => $args['contextId']
+		]);
+		$report = new Report($dataSource, $args['serializer'] ?? new \PKP\User\Report\Serializer\CSV(), false);
 		$mappings = array_unique(array_merge([Mappings\Standard::class], $args['mappings'] ?? []));
-		foreach($mappings as $mapping) {
+		foreach ($mappings as $mapping) {
 			if (class_exists($mapping)) {
 				new $mapping($report);
 			}
 		}
-
-		$report
-			->getQueryBuilder()
-			->filterByContext($args['contextId'])
-			->filterByUserGroup($args['userGroupIds'] ?? []);
 
 		\HookRegistry::call('User::getReport', $report);
 

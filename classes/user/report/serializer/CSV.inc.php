@@ -26,8 +26,7 @@ class CSV implements SerializerInterface {
 	public function serialize(Report $report, $output): void
 	{
 		// Adds BOM (byte order mark) to enforce the UTF-8 format
-		$data = "\xEF\xBB\xBF";
-		fwrite($output, $data);
+		fwrite($output, "\xEF\xBB\xBF");
 
 		// Outputs column headings
 		fputcsv($output, array_map(
@@ -39,7 +38,7 @@ class CSV implements SerializerInterface {
 		));
 
 		// Outputs each user
-		foreach($report as $dataRow) {
+		foreach ($report as $dataRow) {
 			fputcsv($output, array_map(
 				function (?string $data): ?string
 				{

@@ -26,6 +26,7 @@ class Standard {
 	 */
 	public function __construct(Report $report)
 	{
+		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR);
 		$report->addMappings(...$this->_getMappings());
 	}
 
@@ -39,39 +40,39 @@ class Standard {
 		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_COMMON);
 		
 		return [
-			new Mapping(__('common.id'), function (\User $user, object $userRecord): ?string
+			new Mapping(__('common.id'), function (\User $user): ?string
 			{
 				return $user->getId();
 			}),
-			new Mapping(__('user.givenName'), function (\User $user, object $userRecord): ?string
+			new Mapping(__('user.givenName'), function (\User $user): ?string
 			{
 				return $user->getLocalizedGivenName();
 			}),
-			new Mapping(__('user.familyName'), function (\User $user, object $userRecord): ?string
+			new Mapping(__('user.familyName'), function (\User $user): ?string
 			{
-				return $user->getFamilyName(null);
+				return $user->getFamilyName(\AppLocale::getLocale());
 			}),
-			new Mapping(__('user.email'), function (\User $user, object $userRecord): ?string
+			new Mapping(__('user.email'), function (\User $user): ?string
 			{
 				return $user->getEmail();
 			}),
-			new Mapping(__('user.phone'), function (\User $user, object $userRecord): ?string
+			new Mapping(__('user.phone'), function (\User $user): ?string
 			{
 				return $user->getPhone();
 			}),
-			new Mapping(__('common.country'), function (\User $user, object $userRecord): ?string
+			new Mapping(__('common.country'), function (\User $user): ?string
 			{
 				return $user->getCountryLocalized();
 			}),
-			new Mapping(__('common.mailingAddress'), function (\User $user, object $userRecord): ?string
+			new Mapping(__('common.mailingAddress'), function (\User $user): ?string
 			{
 				return $user->getMailingAddress();
 			}),
-			new Mapping(__('user.dateRegistered'), function (\User $user, object $userRecord): ?string
+			new Mapping(__('user.dateRegistered'), function (\User $user): ?string
 			{
 				return $user->getDateRegistered();
 			}),
-			new Mapping(__('common.updated'), function (\User $user, object $userRecord): ?string
+			new Mapping(__('common.updated'), function (\User $user): ?string
 			{
 				return $user->getLocalizedData('dateProfileUpdated');
 			})

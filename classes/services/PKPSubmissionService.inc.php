@@ -94,9 +94,14 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			import('lib.pkp.classes.db.DBResultRange');
 			$range = new \DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
 		}
+		// Pagination is handled by the DAO, so don't pass count and offset
+		// arguments to the QueryBuilder.
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
 		$submissionListQO = $this->getQueryBuilder($args)->getQuery();
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$queryResults = new DAOResultFactory($submissionListQO->get(), $submissionDao, '_fromRow');
+		$result = $submissionDao->retrieveRange($sql = $submissionListQO->toSql(), $params = $submissionListQO->getBindings(), $range);
+		$queryResults = new DAOResultFactory($result, $submissionDao, '_fromRow', [], $sql, $params);
 
 		return $queryResults->toIterator();
 	}

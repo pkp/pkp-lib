@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2020-10-14 12:50+0000\n"
+"PO-Revision-Date: 2020-10-15 14:50+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi_FI/>\n"
@@ -1714,3 +1714,117 @@ msgid "manager.representative.inUse"
 msgstr ""
 "Et voi poistaa tätä edustajaa, koska hänet on osoitettu yhden tai useamman "
 "julkaistun version markkinointia koskeviin kuvailutietoihin."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Vaadi kirjoittajalta aiheita käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Kysy kirjoittajalta aiheita käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Älä kysy kirjoittajalta aiheita käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Ota aiheita koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Aiheet ovat avainsanoja, fraaseja tai luokitteluja, jotka kuvaavat "
+"käsikirjoitukseen sisällön."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Kysy kirjoittajalta lähdetietoa käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta lähdetietoa käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Vaadi kirjoittajalta lähdetietoa käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Ota lähteitä koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Lähde voi olla toisen työn ID-tunnus, kuten DOI, josta lähetettävä työ on "
+"johdettu."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Vaadi kirjoittajalta oikeuksia koskevia tietoja käsikirjoituksen lähetyksen "
+"yhteydessä."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Kysy kirjoittajalta oikeuksia koskevia tietoja käsikirjoituksen lähetyksen "
+"yhteydessä."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta oikeuksia koskevia tietoja käsikirjoituksen "
+"lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Ota oikeuksia koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Kaikki käsikirjoitukseen liittyvät immateriaalioikeudet, tekijänoikeudet ja "
+"omistusoikeudet."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Ota kieltä koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Kieli ilmaisee työn pääasiallisen kielen. Käytä muotoa \"fi, en\" tai \""
+"fi_FI, en_US\"."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Vaadi kirjoittajalta avainsanoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Kysy kirjoittajalta avainsanoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta avainsanoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Ota avainsanoja koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Avainsanat ovat tavallisesti yhden tai muutaman sanan pituisia ilmaisuja, "
+"joilla kuvataan käsikirjoituksen keskeiset aiheet."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Vaadi kirjoittajalta kattavuustietoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Kysy kirjoittajalta kattavuustietoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta kattavuustietoja käsikirjoituksen lähetyksen "
+"yhteydessä."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Ota kattavuutta koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Kattavuudella määritetään tavallisesti työn maantieteellinen sijainti ("
+"paikan nimi tai koordinaatit), ajallinen rajaus (aikakauden nimi, päivämäärä "
+"tai aikarajaus) tai toimivalta (hallinnollisen yksikön nimi)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Kattavuus"
+
+msgid "manager.setup.metadata.success"
+msgstr "Käsikirjoituksen kuvailutiedot päivitetty."

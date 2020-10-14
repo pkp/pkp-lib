@@ -231,6 +231,7 @@ class DAO {
 	 * @return string
 	 */
 	function dateToDB($d) {
+		if ($d === null) return 'NULL';
 		if (!ctype_digit($d)) $dt = strtotime($d);
 		return '\'' . date('Y-m-d', $d) . '\'';
 	}

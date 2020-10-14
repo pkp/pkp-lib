@@ -118,7 +118,7 @@ class DAO {
 		if ($dbResultRange && $dbResultRange->isValid()) {
 			$sql .= ' LIMIT ' . (int) $dbResultRange->getCount();
 			$offset = (int) $dbResultRange->getOffset();
-			$offset += $dbResultRange->getPage() * Config::getVar('interface', 'items_per_page');
+			$offset += max(0, $dbResultRange->getPage()-1) * Config::getVar('interface', 'items_per_page', 30);
 			$sql .= ' OFFSET ' . $offset;
 		}
 
@@ -220,6 +220,7 @@ class DAO {
 	 * @return string
 	 */
 	function datetimeToDB($dt) {
+		if ($dt === null) return 'NULL';
 		if (!ctype_digit($dt)) $dt = strtotime($dt);
 		return '\'' . date('Y-m-d H:i:s', $dt) . '\'';
 	}

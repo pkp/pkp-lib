@@ -27,8 +27,6 @@ class DAOResultFactory extends ItemIterator {
 	/** @var string The name of the DAO's factory function (to be called with an associative array of values) */
 	var $functionName;
 
-	var $functionParams;
-
 	/**
 	 * @var array an array of primary key field names that uniquely
 	 *   identify a result row in the record set.
@@ -48,10 +46,9 @@ class DAOResultFactory extends ItemIterator {
 	 *  identify a result row in the record set.
 	 *  Should be data object _data array key, not database column name
 	 */
-	function __construct($records, $dao, $functionName, $idFields = array(), $functionParams = array()) {
+	function __construct($records, $dao, $functionName, $idFields = []) {
 		parent::__construct();
 		$this->functionName = $functionName;
-		$this->functionParams = $functionParams;
 		$this->dao = $dao;
 		$this->idFields = $idFields;
 
@@ -76,7 +73,7 @@ class DAOResultFactory extends ItemIterator {
 			$row = (array) $this->records->shift();
 		} else throw new Exception('Unsupported record set type (' . join(', ', class_implements($this->records)) . ')');
 		if (!$row) return null;
-		return $dao->$functionName($row, $this->functionParams);
+		return $dao->$functionName($row);
 	}
 
 	/**
@@ -106,7 +103,7 @@ class DAOResultFactory extends ItemIterator {
 				$key .= (string)$result->getData($idField);
 			}
 		}
-		return array($key, $result);
+		return [$key, $result];
 	}
 
 	/**
@@ -139,7 +136,7 @@ class DAOResultFactory extends ItemIterator {
 		$functionName = $this->functionName;
 		$dao = $this->dao;
 		foreach ($this->records as $row) {
-			$returner[] = $dao->$functionName((array) $row, $this->functionParams);
+			$returner[] = $dao->$functionName((array) $row);
 		}
 		return $returner;
 	}
@@ -157,7 +154,7 @@ class DAOResultFactory extends ItemIterator {
 	 * @return array
 	 */
 	function toAssociativeArray($idField = 'id') {
-		$returner = array();
+		$returner = [];
 		while (!$this->eof()) {
 			$result = $this->next();
 			$returner[$result->getData($idField)] = $result;

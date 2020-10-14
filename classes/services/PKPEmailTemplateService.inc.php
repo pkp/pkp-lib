@@ -60,11 +60,8 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 			->getCompiledQuery();
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$result = $emailTemplateDao->retrieve($emailTemplateQueryParts[0], $emailTemplateQueryParts[1]);
-		if ($result->RecordCount() !== 0) {
-			$emailTemplate = $emailTemplateDao->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return !empty($emailTemplate) ? $emailTemplate : null;
+		$row = $result->current();
+		return $row?$emailTemplateDao->_fromRow((array)$row):null;
 	}
 
 	/**

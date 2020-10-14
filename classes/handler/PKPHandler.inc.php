@@ -547,10 +547,10 @@ class PKPHandler {
 	 * a request needs to have one in its context but may be in a site-level
 	 * context as specified in the URL.
 	 * @param $request Request
-	 * @param $contextsCount int Optional reference to receive context count
+	 * @param $hasNoContexts boolean Optional reference to receive true iff no contexts were found.
 	 * @return mixed Either a Context or null if none could be determined.
 	 */
-	function getTargetContext($request, &$contextsCount = null) {
+	function getTargetContext($request, &$hasNoContexts = null) {
 		// Get the requested path.
 		$router = $request->getRouter();
 		$requestedPath = $router->getRequestedContextPath($request);
@@ -564,10 +564,15 @@ class PKPHandler {
 			if ($firstContext && !$secondContext) {
 				// Return the unique context.
 				$context = $firstContext;
+				$hasNoContexts = false;
 			} elseif ($firstContext && $secondContext) {
 				// Get the site redirect.
 				$context = $this->getSiteRedirectContext($request);
-			} else $context = null;
+				$hasNoContexts = false;
+			} else {
+				$context = null;
+				$hasNoContexts = true;
+			}
 		} else {
 			// Return the requested context.
 			$context = $router->getContext($request);

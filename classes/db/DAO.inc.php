@@ -232,7 +232,7 @@ class DAO {
 	 */
 	function dateToDB($d) {
 		if ($d === null) return 'NULL';
-		if (!ctype_digit($d)) $dt = strtotime($d);
+		if (!ctype_digit($d)) $d = strtotime($d);
 		return '\'' . date('Y-m-d', $d) . '\'';
 	}
 

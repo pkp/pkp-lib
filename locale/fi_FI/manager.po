@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2020-08-25 06:33+0000\n"
-"Last-Translator: Hannu Toivonen <hannu.toivonen@helsinki.fi>\n"
+"PO-Revision-Date: 2020-10-14 12:50+0000\n"
+"Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
-"fi/>\n"
+"fi_FI/>\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -456,7 +456,7 @@ msgid "manager.reviewerSearch.searchByName.short"
 msgstr "Hae nimen mukaan"
 
 msgid "manager.reviewerSearch.interests"
-msgstr "Sisällölliset ja tutkimusmenetelmälliset osaamisalueet?"
+msgstr "Sisällölliset ja tutkimusmenetelmälliset osaamisalueet"
 
 msgid "manager.reviewerSearch.form.instructions"
 msgstr "Käytä alla olevaa lomaketta asettaaksesi maksimiarvot termeille, joita haluat hakea. Lomakkeeseen on esitäytetty kyseisten kenttien laskennalliset keskiarvot."
@@ -675,7 +675,8 @@ msgid "manager.setup.privacyStatement"
 msgstr "Tietosuojaseloste"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Arviointipyynnön hyväksymiseen tai siitä kieltäytymiseen annettava aika (vk)"
+msgstr ""
+"Arviointipyynnön hyväksymiseen tai siitä kieltäytymiseen annettava aika (vk)."
 
 msgid "manager.setup.reviewOptions.numWeeksPerReview"
 msgstr "Arvioinnin suorittamiseen annettava aika (vk)"
@@ -687,10 +688,14 @@ msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr "Jokaisen arvioinnin oletusarvoja voidaan muokata toimitusprosessin aikana."
 
 msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr "Lähetä muistutus, jos arvioija ei ole vastannut arviointipyyntöön seuraavan ajan (pv) kuluttua vastauksen määräpäivästä:"
+msgstr ""
+"Lähetä muistutus, jos arvioija ei ole vastannut arviointipyyntöön seuraavan "
+"ajan (pv) kuluttua vastauksen määräpäivästä."
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr "Lähetä muistutus jos arvioija ei ole lähettänyt suositusta seuraavan ajan (pv) kuluttua arvioinnin määräpäivästä:"
+msgstr ""
+"Lähetä muistutus jos arvioija ei ole lähettänyt suositusta seuraavan ajan "
+"(pv) kuluttua arvioinnin määräpäivästä."
 
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Arvioinnin oletusmääräajat"
@@ -855,7 +860,7 @@ msgid "manager.plugins.pluginGallery.maintainer"
 msgstr "Ylläpitäjä"
 
 msgid "manager.plugins.pluginGallery.version"
-msgstr "v{$version} released on {$date}"
+msgstr "Versio {$version} julkaistu {$date}"
 
 msgid "manager.plugins.pluginGallery.homepage"
 msgstr "Etusivu"
@@ -1377,7 +1382,7 @@ msgid "manager.navigationMenus.remoteUrl.description"
 msgstr "Linkki mihin tahansa ulkoiselle sivulle, kuten https://pkp.sfu.ca."
 
 msgid "manager.navigationMenus.about.description"
-msgstr "Linkki \"Tietoja julkaisusta\" -sivulle."
+msgstr "Linkki \"Tietoja julkaisusta\" -sivulle"
 
 msgid "manager.navigationMenus.about.conditionalWarning"
 msgstr "Tämä linkki näkyy vain mikäli olet täyttänyt \"Tietoja julkaisusta\"-kohdan lehden asetuksista."
@@ -1422,10 +1427,10 @@ msgid "manager.setup.genres.key"
 msgstr "Avain"
 
 msgid "manager.setup.genres.key.description"
-msgstr "Vapaaehtoinen lyhyt tunniste genrelle"
+msgstr "Vapaaehtoinen lyhyt tunniste lajityypille."
 
 msgid "manager.setup.genres.key.exists"
-msgstr "Avain on jo käytössä"
+msgstr "Avain on jo käytössä."
 
 msgid "manager.setup.genres.key.alphaNumeric"
 msgstr "Avain voi sisältää vain alfanumeerisia merkkejä, alaviivoja ja väliviivoja ja sen pitää alkaa ja loppua alfanumeeriseen merkkiin."
@@ -1455,7 +1460,9 @@ msgid "manager.navigationMenus.privacyStatement.description"
 msgstr "Linkki tietosuojaselosteen sisältävälle sivulle."
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
-msgstr "Tämä linkki näkyy ainoastaan, jos olet syöttänyt tietosuojaselosteen asetusten kohtaan Asetukset > Työnkulku > Käsikirjoituksen vastaanotto"
+msgstr ""
+"Tämä linkki näkyy ainoastaan, jos olet syöttänyt tietosuojaselosteen "
+"asetusten kohtaan Asetukset > Työnkulku > Käsikirjoituksen vastaanotto."
 
 msgid "manager.setup.privacyStatement.description"
 msgstr "Tietosuojaseloste näkyy rekisteröitymisen ja käsikirjoituksen lähetyksen yhteydessä sekä julkisella tietosuojaselostesivulla. Joidenkin maiden lainsäädäntö velvoittaa kuvaamaan miten kerättyjä henkilötietoja käytetään."
@@ -1569,13 +1576,13 @@ msgid "manager.setup.metadata.type.request"
 msgstr "Kysy kirjoittajalta lähettävän käsikirjoituksen tyyppi."
 
 msgid "manager.setup.metadata.languages.require"
-msgstr "Vaadi kirjoittajalta lähetettävän käsikirjoituksen kieli"
+msgstr "Vaadi kirjoittajalta lähetettävän käsikirjoituksen kieli."
 
 msgid "manager.setup.metadata.languages.request"
-msgstr "Kysy kirjoittajalta lähetettävän käsikirjoituksen kieli"
+msgstr "Kysy kirjoittajalta lähetettävän käsikirjoituksen kieli."
 
 msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Älä kysy kirjoittajalta lähetettävän käsikirjoituksen kieltä"
+msgstr "Älä kysy kirjoittajalta lähetettävän käsikirjoituksen kieltä."
 
 msgid "manager.distribution.license"
 msgstr "Lisenssi"
@@ -1595,7 +1602,7 @@ msgid "manager.setup.reviewOptions.reminders.submit"
 msgstr "Muistutus arvioinnista"
 
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "Oletusaika arvion takarajalle."
+msgstr "Oletusaika arvion takarajalle"
 
 msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
 msgstr "Oletusaika vastauksen takarajalle"
@@ -1653,3 +1660,57 @@ msgstr "Arvioijan opastus"
 
 msgid "manager.publication.emailSetup.success"
 msgstr "Sähköpostiasetukset on päivitetty."
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Pyydä tiedot sidonnaisuuksista ennen vertaisarviointia."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Salli käsikirjoituksen kuvailutietojen muokkaus."
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Lisää mukautettuja HTML-kuvailuelementtejä, jotka haluat esille jokaiselle "
+"sivulle. Ole yhteydessä tekniseen asiantuntijaan ennen sisällön lisäämistä."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Mukautetut tagit"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Anna julkisen lisenssin ehdot, jotka haluat esittää julkaistujen "
+"käsikirjoitusten yhteydessä."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Lisenssin ehdot"
+
+msgid "manager.distribution.license.other"
+msgstr "Muun lisenssin URL"
+
+msgid "manager.distribution.license.success"
+msgstr "Lisenssejä koskevat asetukset on päivitetty. "
+
+msgid "manager.setup.userAccess.success"
+msgstr "Käyttäjien pääsyä koskevat asetukset on päivitetty."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Valitsemaasi teemaa ei ole asennettu tai sitä ei ole otettu käyttöön."
+
+msgid "manager.setup.theme.success"
+msgstr "Teema on päivitetty. <a href=\"{$url}\" target=\"_blank\">Katso</a>"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Vastausten muistutukset"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr "Lohkoa {$name} ei löydy. Varmista, että lisäosa on asennettu ja päällä."
+
+msgid "manager.setup.contact.success"
+msgstr "Julkaisijan yhteystiedot päivitetty."
+
+msgid "manager.setup.advanced"
+msgstr "Lisäasetukset"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Et voi poistaa tätä edustajaa, koska hänet on osoitettu yhden tai useamman "
+"julkaistun version markkinointia koskeviin kuvailutietoihin."

@@ -45,21 +45,19 @@ class PKPSiteConfigForm extends FormComponent {
 			'value' => $site->getData('title'),
 		]));
 
-		if (count($contextsIterator)) {
-			$options = [['value' => '', 'label' => '']];
-			foreach ($contextsIterator as $context) {
-				$options[] = [
-					'value' => $context->getId(),
-					'label' => $context->getLocalizedData('name'),
-				];
-			}
-			$this->addField(new FieldSelect('redirect', [
-				'label' => __('admin.settings.redirect'),
-				'description' => __('admin.settings.redirectInstructions'),
-				'options' => $options,
-				'value' => $site->getData('redirect'),
-			]));
+		$options = [['value' => '', 'label' => '']];
+		foreach ($contextsIterator as $context) {
+			$options[] = [
+				'value' => $context->getId(),
+				'label' => $context->getLocalizedData('name'),
+			];
 		}
+		if (count($options) > 1) $this->addField(new FieldSelect('redirect', [
+			'label' => __('admin.settings.redirect'),
+			'description' => __('admin.settings.redirectInstructions'),
+			'options' => $options,
+			'value' => $site->getData('redirect'),
+		]));
 
 		$this->addField(new FieldText('minPasswordLength', [
 			'label' => __('admin.settings.minPasswordLength'),

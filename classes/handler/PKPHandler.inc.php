@@ -559,8 +559,7 @@ class PKPHandler {
 			// No context requested. Check how many contexts the site has.
 			$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
 			$contexts = $contextDao->getAll(true);
-			$firstContext = $contexts->next();
-			$secondContext = $contexts->next();
+			list($firstContext, $secondContext) = [$contexts->next(), $contexts->next()];
 			if ($firstContext && !$secondContext) {
 				// Return the unique context.
 				$context = $firstContext;

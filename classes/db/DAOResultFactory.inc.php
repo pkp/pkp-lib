@@ -37,22 +37,33 @@ class DAOResultFactory extends ItemIterator {
 	var $records;
 
 	/**
+	 * @var string|null Fetch SQL
+	 */
+	var $sql;
+
+	/**
+	 * @var array|null Fetch parameters
+	 */
+	var $params;
+
+	/**
 	 * Constructor.
 	 * Initialize the DAOResultFactory
 	 * @param $records object ADO record set, Generator, or Enumerable
 	 * @param $dao object DAO class for factory
 	 * @param $functionName The function to call on $dao to create an object
-	 * @param $idFields array an array of primary key field names that uniquely
-	 *  identify a result row in the record set.
-	 *  Should be data object _data array key, not database column name
+	 * @param $idFields array an array of primary key field names that uniquely identify a result row in the record set. Should be data object _data array key, not database column name
+	 * @param $sql string Optional SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
+	 * @param $params string Optional parameters for SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
 	 */
-	function __construct($records, $dao, $functionName, $idFields = []) {
+	function __construct($records, $dao, $functionName, $idFields = [], $sql = null, $params = []) {
 		parent::__construct();
 		$this->functionName = $functionName;
 		$this->dao = $dao;
 		$this->idFields = $idFields;
-
 		$this->records = $records;
+		$this->sql = $sql;
+		$this->params = $params;
 	}
 
 	/**
@@ -80,7 +91,8 @@ class DAOResultFactory extends ItemIterator {
 	 * @copydoc ItemIterator::count()
 	 */
 	function getCount() {
-		throw new Exception('DAOResultFactory instances cannot be counted!');
+		if ($this->sql === null) throw new Exception('DAOResultFactory instances cannot be counted unless supplied in constructor (DAO ' . get_class($this->dao) . ')!');
+		return $this->dao->countRecords($this->sql, $this->params);
 	}
 
 	/**

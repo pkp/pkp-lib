@@ -419,7 +419,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 		$contextDao = Application::getContextDAO();
 		$contexts = $contextDao->getAll();
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		$context = $request->getContext();
-		return ($contexts->getCount() == 1 && $context && in_array(ROLE_ID_MANAGER, $userRoles));
+		list($firstContext, $secondContext) = [$contexts->next(), $contexts->next()];
+		return ($firstContext && !$secondContext && $request->getContext() && in_array(ROLE_ID_MANAGER, $userRoles));
 	}
 }

@@ -54,8 +54,7 @@ class ProfileHandler extends UserHandler {
 			$user = $request->getUser();
 			$contextDao = Application::getContextDAO();
 			$workingContexts = $contextDao->getAvailable($user?$user->getId():null);
-			$firstContext = $workingContexts->next();
-			$secondContext = $workingContexts->next();
+			list($firstContext, $secondContext) = [$workingContexts->next(), $workingContexts->next()];
 			if ($firstContext && !$secondContext) {
 				$request->redirect($firstContext->getPath(), 'user', 'profile', null, $args);
 			}

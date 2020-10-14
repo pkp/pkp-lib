@@ -126,6 +126,26 @@ class DAO {
 	}
 
 	/**
+	 * Count the number of records in the supplied SQL statement (with optional bind parameters parameters)
+	 * @param $sql string SQL query to be counted
+	 * @param $params array Optional SQL query bind parameters
+	 * @return int
+	 */
+	public function countRecords($sql, $params = []) {
+		$result = $this->retrieve('SELECT COUNT(*) AS row_count FROM (' . $sql . ') AS count_subquery', $params);
+		return $result->current()->row_count;
+	}
+
+	/**
+	 * Concatenate SQL expressions into a single string.
+	 * @param ...$args SQL expressions (e.g. column names) to concatenate.
+	 * @return string
+	 */
+	public function concat(...$args) {
+		return 'CONCAT(' .  join(',', $args) . ')';
+	}
+
+	/**
 	 * Execute an INSERT, UPDATE, or DELETE SQL statement.
 	 * @param $sql the SQL statement the execute
 	 * @param $params an array of parameters for the SQL statement

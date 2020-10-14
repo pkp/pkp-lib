@@ -491,8 +491,10 @@ class UserGroupDAO extends DAO {
 		if ($contextId) $params[] = (int) $contextId;
 		if ($userGroupId) $params[] = (int) $userGroupId;
 
+
+		// Get the result set
 		$result = $this->retrieveRange(
-			'SELECT DISTINCT u.*,
+			$sql = 'SELECT DISTINCT u.*,
 				' . $this->userDao->getFetchColumns() .'
 			FROM	users AS u
 				LEFT JOIN user_settings us ON (us.user_id = u.user_id AND us.setting_name = \'affiliation\')
@@ -512,7 +514,7 @@ class UserGroupDAO extends DAO {
 			$dbResultRange
 		);
 
-		return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
+		return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData', [], $sql, $params);
 	}
 
 	//

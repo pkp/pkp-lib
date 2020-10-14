@@ -72,16 +72,14 @@ class GeneralPagingFeature extends GridFeature {
 			$currentItemsPerPage = $defaultItemsPerPage;
 		}
 
-		$options = array(
+		$this->addOptions([
 			'itemsPerPageParamName' => $this->_getItemsPerPageParamName($grid->getId()),
 			'defaultItemsPerPage' => $defaultItemsPerPage,
 			'currentItemsPerPage' => $currentItemsPerPage,
 			'itemsTotal' => $iterator->getCount(),
 			'pageParamName' => PKPHandler::getPageParamName($grid->getId()),
 			'currentPage' => $iterator->getPage()
-		);
-
-		$this->addOptions($options);
+		]);
 
 		parent::setOptions($request, $grid);
 	}
@@ -100,7 +98,7 @@ class GeneralPagingFeature extends GridFeature {
 		$filter = $args['filter'];
 
 		if (is_array($filter) && !empty($filter)) {
-			$this->addOptions(array('filter' => json_encode($filter)));
+			$this->addOptions(['filter' => json_encode($filter)]);
 		}
 	}
 
@@ -131,7 +129,7 @@ class GeneralPagingFeature extends GridFeature {
 		$grid = $args['grid'];
 		$requestArgs =& $args['requestArgs'];
 
-		// Add paging info so grid actions will not loose paging context.
+		// Add paging info so grid actions will not lose paging context.
 		// Only works if grid link actions use the getRequestArgs
 		// returned content.
 		$request = Application::get()->getRequest();

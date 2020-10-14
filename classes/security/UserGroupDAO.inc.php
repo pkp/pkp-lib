@@ -253,7 +253,7 @@ class UserGroupDAO extends DAO {
 		$params = array((int) $contextId, (int) $roleId);
 		if ($default) $params[] = 1; // true
 		$result = $this->retrieveRange(
-			'SELECT	*
+			$sql = 'SELECT	*
 			FROM	user_groups
 			WHERE	context_id = ? AND
 				role_id = ?
@@ -263,7 +263,7 @@ class UserGroupDAO extends DAO {
 			$dbResultRange
 		);
 
-		return new DAOResultFactory($result, $this, '_returnFromRow');
+		return new DAOResultFactory($result, $this, '_returnFromRow', [], $sql, $params);
 	}
 
 	/**
@@ -392,14 +392,14 @@ class UserGroupDAO extends DAO {
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieveRange(
-			'SELECT ug.*
+			$sql = 'SELECT ug.*
 			FROM	user_groups ug' .
 				($contextId?' WHERE ug.context_id = ?':''),
 			$params,
 			$dbResultRange
 		);
 
-		return new DAOResultFactory($result, $this, '_returnFromRow');
+		return new DAOResultFactory($result, $this, '_returnFromRow', [], $sql, $params);
 	}
 
 	/**
@@ -870,7 +870,7 @@ class UserGroupDAO extends DAO {
 		if ($roleId) $params[] = (int) $roleId;
 		return new DAOResultFactory(
 			$this->retrieveRange(
-				'SELECT	ug.*
+				$sql = 'SELECT	ug.*
 				FROM	user_groups ug
 					JOIN user_group_stage ugs ON (ug.user_group_id = ugs.user_group_id AND ug.context_id = ugs.context_id)
 				WHERE	ugs.context_id = ? AND
@@ -881,7 +881,9 @@ class UserGroupDAO extends DAO {
 				$dbResultRange
 			),
 			$this,
-			'_returnFromRow'
+			'_returnFromRow',
+			[],
+			$sql, $params
 		);
 	}
 
@@ -903,7 +905,7 @@ class UserGroupDAO extends DAO {
 		$returner = [];
 		foreach ($result as $row) {
 			$row = (array) $row;
-			$stageId = $row('stage_id');
+			$stageId = $row['stage_id'];
 			$returner[$stageId] = WorkflowStageDAO::getTranslationKeyFromId($stageId);
 		}
 		return $returner;

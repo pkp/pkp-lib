@@ -145,11 +145,7 @@ class DAOResultFactory extends ItemIterator {
 	 */
 	function toArray() {
 		$returner = [];
-		$functionName = $this->functionName;
-		$dao = $this->dao;
-		foreach ($this->records as $row) {
-			$returner[] = $dao->$functionName((array) $row);
-		}
+		while ($row = $this->next()) $returner[] = $row;
 		return $returner;
 	}
 

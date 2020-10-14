@@ -141,12 +141,12 @@ class GridHandler extends PKPHandler {
 	 */
 	function getRequestArgs() {
 		$dataProvider = $this->getDataProvider();
-		$requestArgs = array();
-		if (is_a($dataProvider, 'GridDataProvider')) {
+		$requestArgs = [];
+		if ($dataProvider instanceof GridDataProvider) {
 			$requestArgs = $dataProvider->getRequestArgs();
 		}
 
-		$this->callFeaturesHook('getRequestArgs', array('grid' => &$this, 'requestArgs' => &$requestArgs));
+		$this->callFeaturesHook('getRequestArgs', ['grid' => &$this, 'requestArgs' => &$requestArgs]);
 
 		return $requestArgs;
 	}

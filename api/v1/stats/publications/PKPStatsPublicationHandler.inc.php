@@ -242,13 +242,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			$statsQB->filterBySubmissions($allowedParams['submissionIds']);
 		}
 		$statsQO = $statsQB->getSubmissionIds();
-		$result = \DAORegistry::getDAO('MetricsDAO')
-			->retrieve($statsQO->toSql(), $statsQO->getBindings());
-		$itemsMax = $result->RecordCount();
 
+		$metricsDao = \DAORegistry::getDAO('MetricsDAO'); /** @var MetricsDAO */
 		return $response->withJson([
 			'items' => $items,
-			'itemsMax' => $itemsMax,
+			'itemsMax' => $metricsDao->countRecords($statsQO->toSql(), $statsQO->getBindings()),
 		], 200);
 	}
 

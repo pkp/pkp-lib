@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2020-10-14 12:50+0000\n"
+"PO-Revision-Date: 2020-10-15 14:50+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "fi_FI/>\n"
@@ -63,3 +63,28 @@ msgstr "Julkaistun version poistamiseksi sinun pitää ensin perua sen julkaisu.
 
 msgid "api.submissions.403.userCantEdit"
 msgstr "Sinulla ei ole lupaa muokata tätä julkaistua versiota."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Omassa hakemistossasi ei ole riittävästi tilaa. Lataamasi tiedosto on "
+"{$fileUploadSize}kb ja sinulla on {$dirSizeLeft}kb jäljellä."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Sinulla ei ole lupaa ladata tiedostoja."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Lataamasi tiedosto ei vastannut tiedostopäätettä. Näin voi tapahtua, jos "
+"tiedoston on nimetty uudelleen ja myös tiedostopääte on vaihdettu."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Etsimääsi sähköpostipohjaa ei löytynyt."
+
+msgid "api.404.endpointNotFound"
+msgstr "Pyydettyä URL-polkua ei tunnistettu."
+
+msgid "api.403.unauthorized"
+msgstr "Sinulla ei ole pääsyä pyydettyyn resurssiin."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parametria {$param} ei tueta."

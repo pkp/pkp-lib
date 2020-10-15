@@ -153,8 +153,8 @@ class StageAssignmentDAO extends DAO {
 
 
 		// If one exists, fetch and return.
-		$stageAssignment = $this->getBySubmissionAndStageId($submissionId, null, $userGroupId, $userId);
-		if (!$stageAssignment->wasEmpty()) return $stageAssignment;
+		$stageAssignments = $this->getBySubmissionAndStageId($submissionId, null, $userGroupId, $userId);
+		if ($stageAssignment = $stageAssignments->next()) return $stageAssignment;
 
 		// Otherwise, build one.
 		$stageAssignment = $this->newDataObject();
@@ -297,8 +297,8 @@ class StageAssignmentDAO extends DAO {
 	 * @return StageAssignment|ResultFactory Mixed, depending on $single
 	 */
 	function _getByIds($submissionId = null, $stageId = null, $userGroupId = null, $userId = null, $roleId = null, $single = false) {
-		$conditions = array();
-		$params = array();
+		$conditions = [];
+		$params = [];
 		if (isset($submissionId)) {
 			$conditions[] = 'sa.submission_id = ?';
 			$params[] = (int) $submissionId;
@@ -332,14 +332,13 @@ class StageAssignmentDAO extends DAO {
 			// all four parameters must be specified for a single record to be returned
 			if (!$submissionId && !$stageId && !$userGroupId && !$userId) return false;
 			// no matches were found.
-			if ($result->RecordCount() == 0) return false;
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-			$result->Close();
-			return $returner;
-		} else {
-			// In any other case, return a list of all assignments
-			return new DAOResultFactory($result, $this, '_fromRow');
+			if ($row = $result->current()) {
+				return $this->fromRow((array) $row);
+			}
+			return false;
 		}
+		// In any other case, return a list of all assignments
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**

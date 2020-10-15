@@ -27,7 +27,7 @@ class ReviewFormDAO extends DAO {
 	 * @return ReviewForm
 	 */
 	function getById($reviewFormId, $assocType = null, $assocId = null) {
-		$params = array((int) $reviewFormId);
+		$params = [(int) $reviewFormId];
 		if ($assocType) {
 			$params[] = (int) $assocType;
 			$params[] = (int) $assocId;
@@ -43,14 +43,8 @@ class ReviewFormDAO extends DAO {
 			GROUP BY rf.review_form_id',
 			$params
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**

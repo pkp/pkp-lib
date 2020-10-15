@@ -116,7 +116,7 @@ class AnnouncementDAO extends SchemaDAO {
 	function getByTypeId($typeId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT * FROM announcements WHERE type_id = ? ORDER BY date_posted DESC',
-			(int) $typeId,
+			[(int) $typeId],
 			$rangeInfo
 		);
 
@@ -138,7 +138,7 @@ class AnnouncementDAO extends SchemaDAO {
 			WHERE assoc_type = ?
 				AND assoc_id = ?
 			ORDER BY date_posted DESC LIMIT ?',
-			array((int) $assocType, (int) $assocId, (int) $numAnnouncements),
+			[(int) $assocType, (int) $assocId, (int) $numAnnouncements],
 			$rangeInfo
 		);
 
@@ -161,7 +161,7 @@ class AnnouncementDAO extends SchemaDAO {
 				AND (date_expire IS NULL OR DATE(date_expire) > DATE(NOW()))
 				AND (DATE(date_posted) <= DATE(NOW()))
 			ORDER BY date_posted DESC',
-			array((int) $assocType, (int) $assocId),
+			[(int) $assocType, (int) $assocId],
 			$rangeInfo
 		);
 
@@ -185,7 +185,7 @@ class AnnouncementDAO extends SchemaDAO {
 				AND (date_expire IS NULL OR DATE(date_expire) > DATE(NOW()))
 				AND (DATE(date_posted) <= DATE(NOW()))
 			ORDER BY date_posted DESC LIMIT ?',
-			array((int) $assocType, (int) $assocId, (int) $numAnnouncements),
+			[(int) $assocType, (int) $assocId, (int) $numAnnouncements],
 			$rangeInfo
 		);
 
@@ -205,15 +205,10 @@ class AnnouncementDAO extends SchemaDAO {
 			WHERE assoc_type = ?
 				AND assoc_id = ?
 			ORDER BY date_posted DESC LIMIT 1',
-			array((int) $assocType, (int) $assocId)
+			[(int) $assocType, (int) $assocId]
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**

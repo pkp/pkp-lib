@@ -27,7 +27,7 @@ class EmailLogDAO extends DAO {
 	 * @return EmailLogEntry
 	 */
 	function getById($logId, $assocType = null, $assocId = null) {
-		$params = array((int) $logId);
+		$params = [(int) $logId];
 		if (isset($assocType)) {
 			$params[] = (int) $assocType;
 			$params[] = (int) $assocId;
@@ -38,14 +38,8 @@ class EmailLogDAO extends DAO {
 			(isset($assocType)?' AND assoc_type = ? AND assoc_id = ?':''),
 			$params
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner =& $this->build($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->build((array) $row) : null;
 	}
 
 	/**
@@ -58,10 +52,11 @@ class EmailLogDAO extends DAO {
 	 * @return EmailLogEntry
 	 */
 	function _getByEventType($assocType, $assocId, $eventType, $userId = null, $rangeInfo = null) {
-		$params = array(
-				(int) $assocType,
-				(int) $assocId,
-				(int) $eventType);
+		$params = [
+			(int) $assocType,
+			(int) $assocId,
+			(int) $eventType
+		];
 		if ($userId) $params[] = $userId;
 
 		$result = $this->retrieveRange(
@@ -93,7 +88,7 @@ class EmailLogDAO extends DAO {
 			WHERE	assoc_type = ?
 				AND assoc_id = ?
 			ORDER BY log_id DESC',
-			array((int) $assocType, (int) $assocId),
+			[(int) $assocType, (int) $assocId],
 			$rangeInfo
 		);
 
@@ -105,7 +100,7 @@ class EmailLogDAO extends DAO {
 	 * @param $row array
 	 * @return EmailLogEntry
 	 */
-	function &build($row) {
+	function build($row) {
 		$entry = $this->newDataObject();
 		$entry->setId($row['log_id']);
 		$entry->setAssocType($row['assoc_type']);
@@ -120,7 +115,7 @@ class EmailLogDAO extends DAO {
 		$entry->setSubject($row['subject']);
 		$entry->setBody($row['body']);
 
-		HookRegistry::call('EmailLogDAO::build', array(&$entry, &$row));
+		HookRegistry::call('EmailLogDAO::build', [&$entry, &$row]);
 
 		return $entry;
 	}
@@ -129,14 +124,14 @@ class EmailLogDAO extends DAO {
 	 * Insert a new log entry.
 	 * @param $entry EmailLogEntry
 	 */
-	function insertObject(&$entry) {
+	function insertObject($entry) {
 		$this->update(
 			sprintf('INSERT INTO email_log
 				(sender_id, date_sent, event_type, assoc_type, assoc_id, from_address, recipients, cc_recipients, bcc_recipients, subject, body)
 				VALUES
 				(?, %s, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB($entry->getDateSent())),
-			array(
+			[
 				$entry->getSenderId(),
 				$entry->getEventType(),
 				$entry->getAssocType(),
@@ -147,7 +142,7 @@ class EmailLogDAO extends DAO {
 				$entry->getBccs(),
 				$entry->getSubject(),
 				$entry->getBody()
-			)
+			]
 		);
 
 		$entry->setId($this->getInsertId());
@@ -163,7 +158,7 @@ class EmailLogDAO extends DAO {
 	 * @param $assocId int optional
 	 */
 	function deleteObject($logId, $assocType = null, $assocId = null) {
-		$params = array((int) $logId);
+		$params = [(int) $logId];
 		if (isset($assocType)) {
 			$params[] = (int) $assocType;
 			$params[] = (int) $assocId;
@@ -183,7 +178,7 @@ class EmailLogDAO extends DAO {
 	function deleteByAssoc($assocType, $assocId) {
 		return $this->update(
 			'DELETE FROM email_log WHERE assoc_type = ? AND assoc_id = ?',
-			array((int) $assocType, (int) $assocId)
+			[(int) $assocType, (int) $assocId]
 		);
 	}
 
@@ -195,7 +190,7 @@ class EmailLogDAO extends DAO {
 	function changeUser($oldUserId, $newUserId) {
 		return $this->update(
 			'UPDATE email_log SET sender_id = ? WHERE sender_id = ?',
-			array((int) $newUserId, (int) $oldUserId)
+			[(int) $newUserId, (int) $oldUserId]
 		);
 	}
 
@@ -230,8 +225,8 @@ class EmailLogDAO extends DAO {
 				// We use replace here to avoid inserting duplicated entries
 				// in table (sometimes the recipients can have the same email twice).
 				$this->replace('email_log_users',
-					array('email_log_id' => $entry->getId(), 'user_id' => $user->getId()),
-					array('email_log_id', 'user_id'));
+					['email_log_id' => $entry->getId(), 'user_id' => $user->getId()],
+					['email_log_id', 'user_id']);
 			}
 		}
 	}

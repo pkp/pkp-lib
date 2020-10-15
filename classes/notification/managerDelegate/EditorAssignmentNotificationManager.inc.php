@@ -84,11 +84,11 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate {
 		$editorAssigned = $stageAssignmentDao->editorAssignedToStage($submissionId, $this->_getStageIdByNotificationType());
 
 		// Decide if we have to create or delete a notification.
-		if ($editorAssigned && !$notificationFactory->wasEmpty()) {
+		$notification = $notificationFactory->next();
+		if ($editorAssigned && $notification) {
 			// Delete the notification.
-			$notification = $notificationFactory->next();
 			$notificationDao->deleteObject($notification);
-		} else if (!$editorAssigned && $notificationFactory->wasEmpty()) {
+		} else if (!$editorAssigned && !$notification) {
 			// Create a notification.
 			$this->createNotification(
 				$request, null, $notificationType, $context->getId(), ASSOC_TYPE_SUBMISSION,

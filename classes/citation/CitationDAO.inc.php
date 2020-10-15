@@ -30,18 +30,9 @@ class CitationDAO extends DAO {
 			$result = $this->retrieve(
 				'SELECT MAX(seq) AS lastseq FROM citations
 				 WHERE publication_id = ?',
-				array(
-					(integer)$citation->getData('publicationId'),
-				)
+				[(int)$citation->getData('publicationId')]
 			);
-
-			if ($result->RecordCount() != 0) {
-				$row = $result->GetRowAssoc(false);
-				$seq = $row['lastseq'] + 1;
-			} else {
-				$seq = 1;
-			}
-			$citation->setSequence($seq);
+			$citation->setSequence($row ? $row->lastseq + 1 : 1);
 		}
 
 		$this->update(
@@ -49,11 +40,11 @@ class CitationDAO extends DAO {
 				(publication_id, raw_citation, seq)
 				VALUES
 				(?, ?, ?)'),
-			array(
-				(integer)$citation->getData('publicationId'),
+			[
+				(int) $citation->getData('publicationId'),
 				$citation->getRawCitation(),
-				(integer)$seq
-			)
+				(int) $seq
+			]
 		);
 		$citation->setId($this->getInsertId());
 		$this->_updateObjectMetadata($citation, false);
@@ -67,16 +58,10 @@ class CitationDAO extends DAO {
 	 */
 	function getById($citationId) {
 		$result = $this->retrieve(
-			'SELECT * FROM citations WHERE citation_id = ?', $citationId
+			'SELECT * FROM citations WHERE citation_id = ?', [$citationId]
 		);
-
-		$citation = null;
-		if ($result->RecordCount() != 0) {
-			$citation = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-
-		return $citation;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -121,20 +106,10 @@ class CitationDAO extends DAO {
 			FROM citations
 			WHERE publication_id = ?
 			ORDER BY seq, citation_id',
-			array((int)$publicationId),
+			[(int)$publicationId],
 			$rangeInfo
 		);
-		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
-	}
-
-	/**
-	 * Get a list of additional fields that do not have
-	 * dedicated accessors.
-	 * @return array
-	 */
-	function getAdditionalFieldNames() {
-		$additionalFields = parent::getAdditionalFieldNames();
-		return $additionalFields;
+		return new DAOResultFactory($result, $this, '_fromRow', ['id']);
 	}
 
 	/**
@@ -148,12 +123,12 @@ class CitationDAO extends DAO {
 				raw_citation = ?,
 				seq = ?
 			WHERE	citation_id = ?',
-			array(
-				(integer)$citation->getData('publicationId'),
+			[
+				(int) $citation->getData('publicationId'),
 				$citation->getRawCitation(),
-				(integer)$citation->getSequence(),
-				(integer)$citation->getId()
-			)
+				(int) $citation->getSequence(),
+				(int) $citation->getId()
+			]
 		);
 		$this->_updateObjectMetadata($citation);
 	}
@@ -173,12 +148,8 @@ class CitationDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteById($citationId) {
-		assert(!empty($citationId));
-
-		// Delete citation
-		$params = array((int)$citationId);
-		$this->update('DELETE FROM citation_settings WHERE citation_id = ?', $params);
-		return $this->update('DELETE FROM citations WHERE citation_id = ?', $params);
+		$this->update('DELETE FROM citation_settings WHERE citation_id = ?', [(int) $citationId]);
+		return $this->update('DELETE FROM citations WHERE citation_id = ?', [(int) $citationId]);
 	}
 
 	/**
@@ -240,11 +211,8 @@ class CitationDAO extends DAO {
 	 * @param $citation Citation
 	 */
 	function _updateObjectMetadata($citation) {
-		// Persist citation meta-data
-		$this->updateDataObjectSettings('citation_settings', $citation,
-				array('citation_id' => $citation->getId()));
+		$this->updateDataObjectSettings('citation_settings', $citation, ['citation_id' => $citation->getId()]);
 	}
-
 }
 
 

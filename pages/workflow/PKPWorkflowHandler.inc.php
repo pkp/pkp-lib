@@ -163,19 +163,18 @@ abstract class PKPWorkflowHandler extends Handler {
 				$submission->getId(),
 				$request->getUser()->getId(),
 				WORKFLOW_STAGE_ID_PRODUCTION
-			);
+			)->toArray();
 
 			// If they have no stage assignments, check the role they have been granted
 			// for the production workflow stage. An unassigned admin or manager may
 			// have been granted access and should be allowed to publish.
-			if ($result->wasEmpty() && is_array($accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION])) {
+			if (empty($result) && is_array($accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION])) {
 				$canPublish = (bool) array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER], $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
 
 			// Otherwise, check stage assignments
 			// "Recommend only" stage assignments can not publish
 			} else {
-				while (!$result->eof()) {
-					$stageAssignment = $result->next();
+				foreach ($result as $stageAssignment) {
 					foreach ($workflowUserGroups as $workflowUserGroup) {
 						if ($stageAssignment->getUserGroupId() == $workflowUserGroup->getId() &&
 								!$stageAssignment->getRecommendOnly()) {
@@ -760,14 +759,14 @@ abstract class PKPWorkflowHandler extends Handler {
 		$editorAssignments = $notificationDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, $editorAssignmentNotificationType, $contextId);
 
 		// if the User has assigned TASKs in this stage check, return true
-		if (!$editorAssignments->wasEmpty()) {
+		if ($editorAssignments->next()) {
 			return true;
 		}
 
 		// check for more specific notifications on those stages that have them.
 		if ($stageId == WORKFLOW_STAGE_ID_PRODUCTION) {
 			$submissionApprovalNotification = $notificationDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, NOTIFICATION_TYPE_APPROVE_SUBMISSION, $contextId);
-			if (!$submissionApprovalNotification->wasEmpty()) {
+			if ($submissionApprovalNotification->next()) {
 				return true;
 			}
 		}

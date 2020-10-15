@@ -46,7 +46,7 @@ class SubmissionFileDAODelegate extends DAO {
 			$submissionFile->setViewable(false);
 		}
 
-		$params = array(
+		$params = [
 			(int)$submissionFile->getRevision(),
 			(int)$submissionFile->getSubmissionId(),
 			is_null($submissionFile->getSourceFileId()) ? null : (int)$submissionFile->getSourceFileId(),
@@ -62,7 +62,7 @@ class SubmissionFileDAODelegate extends DAO {
 			is_null($submissionFile->getGenreId()) ? null : (int)$submissionFile->getGenreId(),
 			$submissionFile->getDirectSalesPrice(),
 			$submissionFile->getSalesType(),
-		);
+		];
 
 		if ($fileId) {
 			array_unshift($params, (int) $fileId);
@@ -83,9 +83,9 @@ class SubmissionFileDAODelegate extends DAO {
 
 		$submissionLocale = $submissionFile->getSubmissionLocale();
 
-		$reviewStage = in_array($submissionFile->getFileStage(), array(
+		$reviewStage = in_array($submissionFile->getFileStage(), [
 				SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_REVIEW_ATTACHMENT, SUBMISSION_FILE_REVIEW_REVISION
-		));
+		]);
 
 		if ($reviewStage) {
 			$submissionFile->setName($submissionFile->_generateName(true), $submissionLocale);
@@ -158,7 +158,7 @@ class SubmissionFileDAODelegate extends DAO {
 					sales_type = ?
 				WHERE file_id = ? AND revision = ?',
 				$this->datetimeToDB($submissionFile->getDateUploaded()), $this->datetimeToDB($submissionFile->getDateModified())),
-			array(
+			[
 				(int)$submissionFile->getFileId(),
 				(int)$submissionFile->getRevision(),
 				(int)$submissionFile->getSubmissionId(),
@@ -177,7 +177,7 @@ class SubmissionFileDAODelegate extends DAO {
 				$submissionFile->getSalesType(),
 				(int)$previousFile->getFileId(),
 				(int)$previousFile->getRevision(),
-			)
+			]
 		);
 
 		$this->updateLocaleFields($submissionFile);
@@ -209,23 +209,21 @@ class SubmissionFileDAODelegate extends DAO {
 	 */
 	function deleteObject($submissionFile) {
 		if (!$this->update(
-			'DELETE FROM submission_files
-			 WHERE file_id = ? AND revision = ?',
-			array(
-				(int)$submissionFile->getFileId(),
-				(int)$submissionFile->getRevision()
-			))) return false;
+			'DELETE FROM submission_files WHERE file_id = ? AND revision = ?',
+			[(int)$submissionFile->getFileId(), (int)$submissionFile->getRevision()]
+		)) return false;
 
 		// if we've removed the last revision of this file, clean up
 		// the settings for this file as well.
 		$result = $this->retrieve(
 			'SELECT * FROM submission_files WHERE file_id = ?',
-			array((int)$submissionFile->getFileId())
+			[(int)$submissionFile->getFileId()]
 		);
-
-		if ($result->RecordCount() == 0) {
-			$this->update('DELETE FROM submission_file_settings WHERE file_id = ?',
-			array((int) $submissionFile->getFileId()));
+		if ($result->next()) {
+			$this->update(
+				'DELETE FROM submission_file_settings WHERE file_id = ?',
+				[(int) $submissionFile->getFileId()]
+			);
 		}
 
 		// Delete all dependent objects.
@@ -315,9 +313,9 @@ class SubmissionFileDAODelegate extends DAO {
 	 */
 	function updateLocaleFields($submissionFile) {
 		// Update the locale fields.
-		$this->updateDataObjectSettings('submission_file_settings', $submissionFile, array(
+		$this->updateDataObjectSettings('submission_file_settings', $submissionFile, [
 			'file_id' => $submissionFile->getFileId()
-		));
+		]);
 	}
 
 	/**

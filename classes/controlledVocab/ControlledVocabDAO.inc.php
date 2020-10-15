@@ -32,16 +32,9 @@ class ControlledVocabDAO extends DAO {
 	 * @return ControlledVocab
 	 */
 	function getById($controlledVocabId) {
-		$result = $this->retrieve(
-			'SELECT * FROM controlled_vocabs WHERE controlled_vocab_id = ?', array((int) $controlledVocabId)
-		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$result = $this->retrieve('SELECT * FROM controlled_vocabs WHERE controlled_vocab_id = ?', [(int) $controlledVocabId]);
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -104,11 +97,11 @@ class ControlledVocabDAO extends DAO {
 				(symbolic, assoc_type, assoc_id)
 				VALUES
 				(?, ?, ?)'),
-			array(
+			[
 				$controlledVocab->getSymbolic(),
 				(int) $controlledVocab->getAssocType(),
 				(int) $controlledVocab->getAssocId()
-			),
+			],
 			true, // callHooks
 			$dieOnError
 		);
@@ -131,12 +124,12 @@ class ControlledVocabDAO extends DAO {
 					assoc_type = ?,
 					assoc_id = ?
 				WHERE	controlled_vocab_id = ?'),
-			array(
+			[
 				$controlledVocab->getSymbolic(),
 				(int) $controlledVocab->getAssocType(),
 				(int) $controlledVocab->getAssocId(),
 				(int) $controlledVocab->getId()
-			)
+			]
 		);
 		return $returner;
 	}
@@ -156,13 +149,12 @@ class ControlledVocabDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteObjectById($controlledVocabId) {
-		$params = array((int) $controlledVocabId);
 		$controlledVocabEntryDao = DAORegistry::getDAO('ControlledVocabEntryDAO'); /* @var $controlledVocabEntryDao ControlledVocabEntryDAO */
 		$controlledVocabEntries = $this->enumerate($controlledVocabId);
 		foreach ($controlledVocabEntries as $controlledVocabEntryId => $controlledVocabEntryName) {
 			$controlledVocabEntryDao->deleteObjectById($controlledVocabEntryId);
 		}
-		return $this->update('DELETE FROM controlled_vocabs WHERE controlled_vocab_id = ?', $params);
+		return $this->update('DELETE FROM controlled_vocabs WHERE controlled_vocab_id = ?', [(int) $controlledVocabId]);
 	}
 
 	/**
@@ -176,11 +168,10 @@ class ControlledVocabDAO extends DAO {
 	function getBySymbolic($symbolic, $assocType = 0, $assocId = 0) {
 		$result = $this->retrieve(
 			'SELECT * FROM controlled_vocabs WHERE symbolic = ? AND assoc_type = ? AND assoc_id = ?',
-			array($symbolic, (int) $assocType, (int) $assocId)
+			[$symbolic, (int) $assocType, (int) $assocId]
 		);
-
-		$row = (array) $result->current();
-		return $row?$this->_fromRow($row):null;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -193,10 +184,7 @@ class ControlledVocabDAO extends DAO {
 	 */
 	function enumerateBySymbolic($symbolic, $assocType, $assocId, $settingName = 'name') {
 		$controlledVocab = $this->getBySymbolic($symbolic, $assocType, $assocId);
-		if (!$controlledVocab) {
-			$returner = array();
-			return $returner;
-		}
+		if (!$controlledVocab) return [];
 		return $controlledVocab->enumerate($settingName);
 	}
 
@@ -227,10 +215,9 @@ class ControlledVocabDAO extends DAO {
 
 		$returner = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$returner[$row['controlled_vocab_entry_id']] = $this->convertFromDB(
-				$row['setting_value'],
-				$row['setting_type']
+			$returner[$row->controlled_vocab_entry_id] = $this->convertFromDB(
+				$row->setting_value,
+				$row->setting_type
 			);
 		}
 		return $returner;

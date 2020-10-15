@@ -35,7 +35,7 @@ class AnnouncementTypeDAO extends DAO {
 	 * @return AnnouncementType
 	 */
 	function getById($typeId, $assocType = null, $assocId = null) {
-		$params = array((int) $typeId);
+		$params = [(int) $typeId];
 		if ($assocType !== null) $params[] = (int) $assocType;
 		if ($assocId !== null) $params[] = (int) $assocId;
 		$result = $this->retrieve(
@@ -44,13 +44,8 @@ class AnnouncementTypeDAO extends DAO {
 			($assocId !== null?' AND assoc_id = ?':''),
 			$params
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**

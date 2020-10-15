@@ -162,7 +162,7 @@ class EditorDecisionForm extends Form {
 		);
 
 		// Create round status notification if there is no notification already.
-		if ($notificationFactory->wasEmpty()) {
+		if (!$notificationFactory->next()) {
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createNotification(
 				$request,

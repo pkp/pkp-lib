@@ -160,14 +160,8 @@ class FilterDAO extends DAO {
 			 filter_id = ?',
 			[(int) $filterId]
 		);
-
-		$filter = null;
-		if ($result->RecordCount() != 0) {
-			$filter = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $filter;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**

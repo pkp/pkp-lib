@@ -74,12 +74,12 @@ class ReviewRoundDAO extends DAO {
 				(submission_id, stage_id, round, status)
 				VALUES
 				(?, ?, ?, ?)',
-				array(
+				[
 					(int)$reviewRound->getSubmissionId(),
 					(int)$reviewRound->getStageId(),
 					(int)$reviewRound->getRound(),
 					(int)$reviewRound->getStatus()
-				)
+				]
 		);
 		return $reviewRound;
 	}
@@ -96,12 +96,12 @@ class ReviewRoundDAO extends DAO {
 			WHERE	submission_id = ? AND
 				stage_id = ? AND
 				round = ?',
-			array(
+			[
 				(int)$reviewRound->getStatus(),
 				(int)$reviewRound->getSubmissionId(),
 				(int)$reviewRound->getStageId(),
 				(int)$reviewRound->getRound()
-			)
+			]
 		);
 		return $returner;
 	}
@@ -116,11 +116,10 @@ class ReviewRoundDAO extends DAO {
 	function getReviewRound($submissionId, $stageId, $round) {
 		$result = $this->retrieve(
 			'SELECT * FROM review_rounds WHERE submission_id = ? AND stage_id = ? AND round = ?',
-			array((int) $submissionId, (int) $stageId, (int) $round)
+			[(int) $submissionId, (int) $stageId, (int) $round]
 		);
-
-		$row = (array) $result->current();
-		return $row?$this->_fromRow($row):null;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -131,15 +130,10 @@ class ReviewRoundDAO extends DAO {
 	function getById($reviewRoundId) {
 		$result = $this->retrieve(
 			'SELECT * FROM review_rounds WHERE review_round_id = ?',
-			(int) $reviewRoundId
+			[(int) $reviewRoundId]
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -153,14 +147,10 @@ class ReviewRoundDAO extends DAO {
 				INNER JOIN review_round_files rrf
 				ON rr.review_round_id = rrf.review_round_id
 				WHERE rrf.submission_file_id = ?',
-				array((int) $submissionFileId));
+				[(int) $submissionFileId]);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -254,7 +244,7 @@ class ReviewRoundDAO extends DAO {
 		// Avoid unnecessary database access.
 		if ($status != $currentStatus) {
 			$this->update('UPDATE review_rounds SET status = ? WHERE review_round_id = ?',
-				array((int)$status, (int)$reviewRound->getId())
+				[(int)$status, (int)$reviewRound->getId()]
 			);
 			// Update the data in object too.
 			$reviewRound->setStatus($status);
@@ -287,8 +277,8 @@ class ReviewRoundDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteById($reviewRoundId) {
-		$this->update('DELETE FROM notifications WHERE assoc_type = ? AND assoc_id = ?', array((int) ASSOC_TYPE_REVIEW_ROUND, (int) $reviewRoundId));
-		return $this->update('DELETE FROM review_rounds WHERE review_round_id = ?', array((int) $reviewRoundId));
+		$this->update('DELETE FROM notifications WHERE assoc_type = ? AND assoc_id = ?', [(int) ASSOC_TYPE_REVIEW_ROUND, (int) $reviewRoundId]);
+		return $this->update('DELETE FROM review_rounds WHERE review_round_id = ?', [(int) $reviewRoundId]);
 	}
 
 	//

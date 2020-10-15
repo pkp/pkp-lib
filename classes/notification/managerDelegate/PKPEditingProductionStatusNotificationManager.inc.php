@@ -111,7 +111,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 						$this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
 					} else {
 						// If there is a representation
-						if (!$representations->wasEmpty()) {
+						if (!$representations->next()) {
 							// Remove 'assign a production user' and 'awaiting representations' notification
 							$this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
 						} else {

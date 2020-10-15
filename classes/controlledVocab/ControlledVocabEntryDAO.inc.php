@@ -33,7 +33,7 @@ class ControlledVocabEntryDAO extends DAO {
 	 * @return ControlledVocabEntry
 	 */
 	function getById($controlledVocabEntryId, $controlledVocabId = null) {
-		$params = array((int) $controlledVocabEntryId);
+		$params = [(int) $controlledVocabEntryId];
 		if (!empty($controlledVocabId)) $params[] = (int) $controlledVocabId;
 
 		$result = $this->retrieve(
@@ -41,13 +41,8 @@ class ControlledVocabEntryDAO extends DAO {
 			(!empty($controlledVocabId)?' AND controlled_vocab_id = ?':''),
 			$params
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -73,15 +68,10 @@ class ControlledVocabEntryDAO extends DAO {
 				cv.symbolic = ? AND
 				cv.assoc_type = ? AND
 				cv.assoc_id = ?',
-			array($settingName, $locale, $settingValue, $symbolic, $assocType, $assocId)
+			[$settingName, $locale, $settingValue, $symbolic, $assocType, $assocId]
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -114,7 +104,7 @@ class ControlledVocabEntryDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('name');
+		return ['name'];
 	}
 
 	/**
@@ -122,9 +112,9 @@ class ControlledVocabEntryDAO extends DAO {
 	 * @param $controlledVocabEntry object
 	 */
 	function updateLocaleFields($controlledVocabEntry) {
-		$this->updateDataObjectSettings('controlled_vocab_entry_settings', $controlledVocabEntry, array(
+		$this->updateDataObjectSettings('controlled_vocab_entry_settings', $controlledVocabEntry, [
 			'controlled_vocab_entry_id' => $controlledVocabEntry->getId()
-		));
+		]);
 	}
 
 	/**
@@ -136,10 +126,10 @@ class ControlledVocabEntryDAO extends DAO {
 		$this->update(
 			'INSERT INTO controlled_vocab_entries (controlled_vocab_id, seq)
 			VALUES (?, ?)',
-			array(
+			[
 				(int) $controlledVocabEntry->getControlledVocabId(),
 				(float) $controlledVocabEntry->getSequence()
-			)
+			]
 		);
 		$controlledVocabEntry->setId($this->getInsertId());
 		$this->updateLocaleFields($controlledVocabEntry);
@@ -159,9 +149,8 @@ class ControlledVocabEntryDAO extends DAO {
 	 * @param $controlledVocabEntryId int
 	 */
 	function deleteObjectById($controlledVocabEntryId) {
-		$params = array((int) $controlledVocabEntryId);
-		$this->update('DELETE FROM controlled_vocab_entry_settings WHERE controlled_vocab_entry_id = ?', $params);
-		$this->update('DELETE FROM controlled_vocab_entries WHERE controlled_vocab_entry_id = ?', $params);
+		$this->update('DELETE FROM controlled_vocab_entry_settings WHERE controlled_vocab_entry_id = ?', [(int) $controlledVocabEntryId]);
+		$this->update('DELETE FROM controlled_vocab_entries WHERE controlled_vocab_entry_id = ?', [(int) $controlledVocabEntryId]);
 	}
 
 	/**
@@ -171,7 +160,7 @@ class ControlledVocabEntryDAO extends DAO {
 	 * @return object DAOResultFactory containing matching CVE objects
 	 */
 	function getByControlledVocabId($controlledVocabId, $rangeInfo = null, $filter = null) {
-		$params = array((int) $controlledVocabId);
+		$params = [(int) $controlledVocabId];
 		if (!empty($filter)) $params[] = "%$filter%";
 
 		$result = $this->retrieveRange(
@@ -232,11 +221,11 @@ class ControlledVocabEntryDAO extends DAO {
 			SET	controlled_vocab_id = ?,
 				seq = ?
 			WHERE	controlled_vocab_entry_id = ?',
-			array(
+			[
 				(int) $controlledVocabEntry->getControlledVocabId(),
 				(float) $controlledVocabEntry->getSequence(),
 				(int) $controlledVocabEntry->getId()
-			)
+			]
 		);
 		$this->updateLocaleFields($controlledVocabEntry);
 	}
@@ -248,8 +237,8 @@ class ControlledVocabEntryDAO extends DAO {
 	function resequence($controlledVocabId) {
 		$result = $this->retrieve('SELECT controlled_vocab_entry_id FROM controlled_vocab_entries WHERE controlled_vocab_id = ? ORDER BY seq', [(int) $controlledVocabId]);
 
-		for ($i=1; $row = (array) $result->current(); $i++) {
-			$this->update('UPDATE controlled_vocab_entries SET seq = ? WHERE controlled_vocab_entry_id = ?', [(int) $i, (int) $row['controlled_vocab_entry_id']]);
+		for ($i=1; $row = $result->current(); $i++) {
+			$this->update('UPDATE controlled_vocab_entries SET seq = ? WHERE controlled_vocab_entry_id = ?', [(int) $i, (int) $row->controlled_vocab_entry_id]);
 			$result->next();
 		}
 	}

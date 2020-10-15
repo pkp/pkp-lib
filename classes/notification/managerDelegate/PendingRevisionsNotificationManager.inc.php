@@ -118,7 +118,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 					NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS,
 					$context->getId()
 				);
-				if ($notificationFactory->wasEmpty()) {
+				if (!$notificationFactory->next()) {
 					// Create or update a pending revision task notification.
 					$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 					$notificationDao->build(

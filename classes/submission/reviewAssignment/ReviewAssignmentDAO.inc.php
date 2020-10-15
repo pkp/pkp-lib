@@ -95,19 +95,13 @@ class ReviewAssignmentDAO extends DAO {
 			$this->_getSelectQuery() .
 			' WHERE	r.review_round_id = ? AND
 				r.reviewer_id = ?',
-			array(
+			[
 				(int) $reviewRoundId,
 				(int) $reviewerId
-			)
+			]
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 
@@ -117,26 +111,15 @@ class ReviewAssignmentDAO extends DAO {
 	 * @return ReviewAssignment
 	 */
 	function getById($reviewId) {
-		$reviewRoundJoinString = $this->getReviewRoundJoin();
-		if ($reviewRoundJoinString) {
-			$result = $this->retrieve(
-				'SELECT	r.*, r2.review_revision
-				FROM	review_assignments r
-					LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
-				WHERE	r.review_id = ?',
-				(int) $reviewId
-			);
-
-			$returner = null;
-			if ($result->RecordCount() != 0) {
-				$returner = $this->_fromRow($result->GetRowAssoc(false));
-			}
-
-			$result->Close();
-			return $returner;
-		} else {
-			assert(false);
-		}
+		$result = $this->retrieve(
+			'SELECT	r.*, r2.review_revision
+			FROM	review_assignments r
+				LEFT JOIN review_rounds r2 ON (' . $this->getReviewRoundJoin() . ')
+			WHERE	r.review_id = ?',
+			[(int) $reviewId]
+		);
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -145,24 +128,18 @@ class ReviewAssignmentDAO extends DAO {
 	 * @return array ReviewAssignments
 	 */
 	function getIncompleteReviewAssignments() {
-		$reviewAssignments = array();
-		$reviewRoundJoinString = $this->getReviewRoundJoin();
-		if ($reviewRoundJoinString) {
-			$result = $this->retrieve(
-				'SELECT	r.*, r2.review_revision
-				FROM	review_assignments r
-					LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
-				WHERE' . $this->getIncompleteReviewAssignmentsWhereString() .
-				' ORDER BY r.submission_id'
-			);
+		$result = $this->retrieve(
+			'SELECT	r.*, r2.review_revision
+			FROM	review_assignments r
+				LEFT JOIN review_rounds r2 ON (' . $this->getReviewRoundJoin() . ')
+			WHERE' . $this->getIncompleteReviewAssignmentsWhereString() .
+			' ORDER BY r.submission_id'
+		);
 
-			foreach ($result as $row) {
-				$reviewAssignments[] = $this->_fromRow((array) $row);
-			}
-		} else {
-			assert(false);
+		$reviewAssignments = [];
+		foreach ($result as $row) {
+			$reviewAssignments[] = $this->_fromRow((array) $row);
 		}
-
 		return $reviewAssignments;
 	}
 

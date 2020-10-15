@@ -101,8 +101,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$userGroupNames = array();
 
 		// List existing user roles
-		$managerUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_MANAGER);
-		$authorUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_AUTHOR);
+		$managerUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_MANAGER)->toArray();
+		$authorUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_AUTHOR)->toArray();
 
 		// List available author roles
 		$availableAuthorUserGroups = $userGroupDao->getUserGroupsByStage($this->context->getId(), WORKFLOW_STAGE_ID_SUBMISSION, ROLE_ID_AUTHOR);
@@ -119,8 +119,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$managerGroups = false;
 
 		// If the user has manager roles, add manager roles and available author roles to selection
-		if (!$managerUserGroupAssignments->wasEmpty()) {
-			while($managerUserGroupAssignment = $managerUserGroupAssignments->next()) {
+		if (!empty($managerUserGroupAssignments)) {
+			foreach ($managerUserGroupAssignments as $managerUserGroupAssignment) {
 				$managerUserGroup = $userGroupDao->getById($managerUserGroupAssignment->getUserGroupId());
 				$userGroupNames[$managerUserGroup->getId()] = $managerUserGroup->getLocalizedName();
 			}
@@ -131,12 +131,11 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$defaultGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), ROLE_ID_MANAGER);
 
 		// else if the user only has existing author roles, add to selection
-		} else if (!$authorUserGroupAssignments->wasEmpty()) {
-			while($authorUserGroupAssignment = $authorUserGroupAssignments->next()) {
+		} elseif (!empty($authorUserGroupAssignments)) {
+			foreach ($authorUserGroupAssignments as $authorUserGroupAssignment) {
 				$authorUserGroup = $userGroupDao->getById($authorUserGroupAssignment->getUserGroupId());
 				$userGroupNames[$authorUserGroup->getId()] = $authorUserGroup->getLocalizedName();
 			}
-
 		// else the user has no roles, only add available author roles to selection
 		} else {
 			$userGroupNames = $availableUserGroupNames;

@@ -204,11 +204,11 @@ class ReviewFormElementDAO extends DAO {
 	 */
 	function getByReviewFormId($reviewFormId, $rangeInfo = null, $included = null) {
 		$result = $this->retrieveRange(
-			'SELECT * 
-			FROM review_form_elements 
+			'SELECT *
+			FROM review_form_elements
 			WHERE review_form_id = ?
 			' . ($included === true?' AND included = 1':'') . '
-			' . ($included === false?' AND included = 0':'') . ' 
+			' . ($included === false?' AND included = 0':'') . '
 			ORDER BY seq',
 			(int) $reviewFormId, $rangeInfo
 		);
@@ -242,21 +242,18 @@ class ReviewFormElementDAO extends DAO {
 	 * @return boolean
 	 */
 	function reviewFormElementExists($reviewFormElementId, $reviewFormId = null) {
-		$params = array((int) $reviewFormElementId);
+		$params = [(int) $reviewFormElementId];
 		if ($reviewFormId) $params[] = (int) $reviewFormId;
 
 		$result = $this->retrieve(
-			'SELECT	COUNT(*)
+			'SELECT	COUNT(*) AS row_count
 			FROM	review_form_elements
 			WHERE	review_form_element_id = ?
 				' . ($reviewFormId?' AND review_form_id = ?':''),
 			$params
 		);
-
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $row->row_count == 1 : false;
 	}
 
 	/**
@@ -270,8 +267,7 @@ class ReviewFormElementDAO extends DAO {
 		);
 
 		for ($i=1; $row = (array) $result->current(); $i++) {
-			list($reviewFormElementId) = $result->fields;
-			$this->update('UPDATE review_form_elements SET seq = ? WHERE review_form_element_id = ?', [$i, $reviewFormElementId]); 
+			$this->update('UPDATE review_form_elements SET seq = ? WHERE review_form_element_id = ?', [$i, $row->review_form_element_id]);
 			$result->next();
 		}
 	}

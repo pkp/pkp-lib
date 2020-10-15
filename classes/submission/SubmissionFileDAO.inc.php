@@ -70,7 +70,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @return array The file IDs identified by setting.
 	 */
 	function getFileIdsBySetting($settingName, $settingValue, $submissionId = null, $contextId = null) {
-		$params = array($settingName);
+		$params = [$settingName];
 
 		$sql = 'SELECT DISTINCT	f.file_id
 			FROM	submission_files f
@@ -274,14 +274,12 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 		// Retrieve the latest revision from the database.
 		$result = $this->retrieve(
 			'SELECT MAX(revision) AS max_revision FROM submission_files WHERE file_id = ?',
-			(int) $fileId
+			[(int) $fileId]
 		);
-		if($result->RecordCount() != 1) return null;
+		$row = $result->current();
+		if (!$row) return null;
 
-		$row = $result->FetchRow();
-		$result->Close();
-
-		$latestRevision = (int)$row['max_revision'];
+		$latestRevision = (int)$row->max_revision;
 		assert($latestRevision > 0);
 		return $latestRevision;
 	}
@@ -456,13 +454,13 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			'INSERT INTO review_round_files
 				(submission_id, review_round_id, stage_id, file_id, revision)
 			VALUES (?, ?, ?, ?, ?)',
-			array(
+			[
 				(int)$reviewRound->getSubmissionId(),
 				(int)$reviewRound->getId(),
 				(int)$reviewRound->getStageId(),
 				(int)$fileId,
 				(int)$revision
-			)
+			]
 		);
 	}
 
@@ -546,7 +544,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	 */
 	function deleteAllRevisionsByReviewRound($reviewRoundId) {
 		// Remove currently assigned review files.
-		return $this->update('DELETE FROM review_round_files WHERE review_round_id = ?', (int)$reviewRoundId);
+		return $this->update('DELETE FROM review_round_files WHERE review_round_id = ?', [(int)$reviewRoundId]);
 	}
 
 	/**
@@ -561,12 +559,12 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 		$this->update(
 			'DELETE FROM review_round_files
 			WHERE submission_id = ? AND stage_id = ? AND file_id = ? AND revision = ?',
-			array(
+			[
 				(int) $submissionId,
 				(int) $stageId,
 				(int) $fileId,
 				(int) $revision
-			)
+			]
 		);
 	}
 
@@ -690,7 +688,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	function getAllFileStages() {
 		// Bring in the file stages definition.
 		import('lib.pkp.classes.submission.SubmissionFile');
-		return array(
+		return [
 			SUBMISSION_FILE_SUBMISSION,
 			SUBMISSION_FILE_NOTE,
 			SUBMISSION_FILE_REVIEW_FILE,
@@ -705,7 +703,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			SUBMISSION_FILE_REVIEW_REVISION,
 			SUBMISSION_FILE_DEPENDENT,
 			SUBMISSION_FILE_QUERY,
-		);
+		];
 	}
 
 	/**
@@ -1004,7 +1002,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 
 		// Collect the filtered columns and ids in
 		// an array for consistent handling.
-		$filters = array(
+		$filters = [
 			'sf.submission_id' => $submissionId,
 			'sf.file_stage' => $fileStage,
 			'sf.file_id' => $fileId,
@@ -1014,7 +1012,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			'sf.uploader_user_id' => $uploaderUserId,
 			'rrf.stage_id' => $stageId,
 			'rrf.review_round_id' => $reviewRoundId,
-		);
+		];
 
 		// Build and return a SQL where clause and a parameter
 		// array.

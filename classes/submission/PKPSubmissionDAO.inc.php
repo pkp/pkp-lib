@@ -184,9 +184,7 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 			'pub-id::' . $pubIdType,
 			$pubId,
 		];
-		if ($contextId) {
-			$params[] = $contextId;
-		}
+		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
 			'SELECT s.submission_id
@@ -197,14 +195,8 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 				. ($contextId ? ' AND s.context_id = ?' : ''),
 			$params
 		);
-
-		$submissionId = $result->fields[0];
-
-		if (!$submissionId) {
-			return null;
-		}
-
-		return $this->getById($submissionId);
+		$row = $result->current();
+		return $row ? $this->getById($row->submission_id) : null;
 	}
 
 
@@ -285,12 +277,12 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 	 * @return array
 	 */
 	function getSortSelectOptions() {
-		return array(
+		return [
 			$this->getSortOption(ORDERBY_TITLE, SORT_DIRECTION_ASC) => __('catalog.sortBy.titleAsc'),
 			$this->getSortOption(ORDERBY_TITLE, SORT_DIRECTION_DESC) => __('catalog.sortBy.titleDesc'),
 			$this->getSortOption(ORDERBY_DATE_PUBLISHED, SORT_DIRECTION_ASC) => __('catalog.sortBy.datePublishedAsc'),
 			$this->getSortOption(ORDERBY_DATE_PUBLISHED, SORT_DIRECTION_DESC) => __('catalog.sortBy.datePublishedDesc'),
-		);
+		];
 	}
 
 	/**
@@ -337,6 +329,7 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 	 * @return DAOResultFactory
 	 */
 	function getExportable($contextId, $pubIdType = null, $title = null, $author = null, $issueId = null, $pubIdSettingName = null, $pubIdSettingValue = null, $rangeInfo = null) {
+		$params = [];
 		if ($pubIdSettingName) {
 			$params[] = $pubIdSettingName;
 		}

@@ -65,8 +65,10 @@ class SubEditorsDAO extends DAO {
 	 */
 	function getBySubmissionGroupId($assocId, $assocType, $contextId) {
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-		$params = array((int) $contextId, (int) $assocId, (int) $assocType);
-		$params = array_merge($userDao->getFetchParameters(), $params);
+		$params = array_merge(
+			$userDao->getFetchParameters(),
+			[(int) $contextId, (int) $assocId, (int) $assocType]
+		);
 		$result = $this->retrieve(
 			'SELECT	u.user_id,
 			' . $userDao->getFetchColumns() . '
@@ -81,8 +83,7 @@ class SubEditorsDAO extends DAO {
 
 		$users = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$user = $userDao->getById($row['user_id']);
+			$user = $userDao->getById($row->user_id);
 			$users[$user->getId()] = $user;
 		}
 		return $users;
@@ -95,7 +96,7 @@ class SubEditorsDAO extends DAO {
 	 * @param $contextId int
 	 */
 	function deleteBySubmissionGroupId($assocId, $assocType, $contextId = null) {
-		$params = array((int) $assocId, (int) $assocType);
+		$params = [(int) $assocId, (int) $assocType];
 		if ($contextId) $params[] = (int) $contextId;
 		$this->update(
 			'DELETE FROM subeditor_submission_group WHERE assoc_id = ? AND assoc_type = ?' .
@@ -112,7 +113,7 @@ class SubEditorsDAO extends DAO {
 	 * @param $assocType int optional ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
 	 */
 	function deleteByUserId($userId, $contextId  = null, $assocId = null, $assocType = null) {
-		$params = array((int) $userId);
+		$params = [(int) $userId];
 		if ($contextId) $params[] = (int) $contextId;
 		if ($assocId) $params[] = (int) $assocId;
 		if ($assocType) $params[] = (int) $assocType;
@@ -136,13 +137,11 @@ class SubEditorsDAO extends DAO {
 	 */
 	function editorExists($contextId, $assocId, $userId, $assocType) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*) FROM subeditor_submission_group WHERE context_id = ? AND section_id = ? AND user_id = ? AND assoc_id = ?',
-			array((int) $contextId, (int) $assocId, (int) $userId, (int) $assocType)
+			'SELECT COUNT(*) AS row_count FROM subeditor_submission_group WHERE context_id = ? AND section_id = ? AND user_id = ? AND assoc_id = ?',
+			[(int) $contextId, (int) $assocId, (int) $userId, (int) $assocType]
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 }
 

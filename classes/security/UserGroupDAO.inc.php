@@ -300,20 +300,16 @@ class UserGroupDAO extends DAO {
 	 */
 	function userInGroup($userId, $userGroupId) {
 		$result = $this->retrieve(
-			'SELECT	count(*)
+			'SELECT	count(*) AS row_count
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
 			WHERE
 				uug.user_id = ? AND
 				ug.user_group_id = ?',
-			array((int) $userId, (int) $userGroupId)
+			[(int) $userId, (int) $userGroupId]
 		);
-
-		// > 0 because user could belong to more than one user group with this role
-		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**
@@ -323,22 +319,19 @@ class UserGroupDAO extends DAO {
 	 * @return boolean
 	 */
 	function userInAnyGroup($userId, $contextId = null) {
-		$params = array((int) $userId);
+		$params = [(int) $userId];
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
-			'SELECT	count(*)
+			'SELECT	count(*) AS row_count
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
 			WHERE	uug.user_id = ?
 				' . ($contextId?' AND ug.context_id = ?':''),
 			$params
 		);
-
-		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**
@@ -919,17 +912,14 @@ class UserGroupDAO extends DAO {
 	 */
 	function userGroupAssignedToStage($userGroupId, $stageId) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*)
+			'SELECT COUNT(*) AS row_count
 			FROM	user_group_stage
 			WHERE	user_group_id = ? AND
 			stage_id = ?',
-			array((int) $userGroupId, (int) $stageId)
+			[(int) $userGroupId, (int) $stageId]
 		);
-
-		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**
@@ -941,20 +931,17 @@ class UserGroupDAO extends DAO {
 	 */
 	function userAssignmentExists($contextId, $userId, $stageId) {
 		$result = $this->retrieve(
-			'SELECT	COUNT(*)
+			'SELECT	COUNT(*) AS row_count
 			FROM	user_group_stage ugs,
 			user_user_groups uug
 			WHERE	ugs.user_group_id = uug.user_group_id AND
 			ugs.context_id = ? AND
 			uug.user_id = ? AND
 			ugs.stage_id = ?',
-			array((int) $contextId, (int) $userId, (int) $stageId)
+			[(int) $contextId, (int) $userId, (int) $stageId]
 		);
-
-		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**
@@ -964,7 +951,7 @@ class UserGroupDAO extends DAO {
 	 * @return array
 	 */
 	function getRecommendOnlyGroupIds($contextId, $roleId = null) {
-		$params = array((int) $contextId);
+		$params = [(int) $contextId];
 		if ($roleId) $params[] = (int) $roleId;
 
 		$result = $this->retrieve(

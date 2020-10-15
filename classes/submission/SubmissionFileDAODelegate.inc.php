@@ -333,37 +333,34 @@ class SubmissionFileDAODelegate extends DAO {
 	 */
 	function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*)
+			'SELECT COUNT(*) AS row_count
 			FROM submission_file_settings sfs
 				INNER JOIN submission_files sf ON sfs.file_id = sf.file_id
 				INNER JOIN submissions s ON sf.submission_id = s.submission_id
 			WHERE sfs.setting_name = ? AND sfs.setting_value = ? AND sfs.file_id <> ? AND s.context_id = ?',
-			array(
+			[
 				'pub-id::'.$pubIdType,
 				$pubId,
 				(int) $excludePubObjectId,
 				(int) $contextId
-			)
+			]
 		);
-		$returner = $result->fields[0] ? true : false;
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**
 	 * @copydoc PKPPubIdPluginDAO::changePubId()
 	 */
 	function changePubId($pubObjectId, $pubIdType, $pubId) {
-		$idFields = array(
-			'file_id', 'locale', 'setting_name'
-		);
-		$updateArray = array(
+		$idFields = ['file_id', 'locale', 'setting_name'];
+		$updateArray = [
 			'file_id' => (int) $pubObjectId,
 			'locale' => '',
 			'setting_name' => 'pub-id::'.$pubIdType,
 			'setting_type' => 'string',
 			'setting_value' => (string)$pubId
-		);
+		];
 		$this->replace('submission_file_settings', $updateArray, $idFields);
 		$this->flushCache();
 	}
@@ -375,10 +372,7 @@ class SubmissionFileDAODelegate extends DAO {
 		$settingName = 'pub-id::'.$pubIdType;
 		$this->update(
 			'DELETE FROM submission_file_settings WHERE setting_name = ? AND file_id = ?',
-			array(
-				$settingName,
-				(int)$pubObjectId
-			)
+			[$settingName, (int)$pubObjectId]
 		);
 		$this->flushCache();
 	}
@@ -397,10 +391,7 @@ class SubmissionFileDAODelegate extends DAO {
 			foreach ($submissionFiles as $submissionFile) {
 				$this->update(
 					'DELETE FROM submission_file_settings WHERE setting_name = ? AND file_id = ?',
-					array(
-						$settingName,
-						(int)$submissionFile->getFileId()
-					)
+					[$settingName, (int)$submissionFile->getFileId()]
 				);
 			}
 		}

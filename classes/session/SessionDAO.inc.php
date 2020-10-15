@@ -32,10 +32,7 @@ class SessionDAO extends DAO {
 	 * @return Session
 	 */
 	function getSession($sessionId) {
-		$result = $this->retrieve(
-			'SELECT * FROM sessions WHERE session_id = ?',
-			array($sessionId)
-		);
+		$result = $this->retrieve('SELECT * FROM sessions WHERE session_id = ?', [$sessionId]);
 
 		if ($row = (array) $result->current()) {
 			$session = $this->newDataObject();
@@ -64,7 +61,7 @@ class SessionDAO extends DAO {
 				(session_id, ip_address, user_agent, created, last_used, remember, data, domain)
 				VALUES
 				(?, ?, ?, ?, ?, ?, ?, ?)',
-			array(
+			[
 				$session->getId(),
 				$session->getIpAddress(),
 				substr($session->getUserAgent(), 0, 255),
@@ -73,7 +70,7 @@ class SessionDAO extends DAO {
 				$session->getRemember() ? 1 : 0,
 				$session->getSessionData(),
 				$session->getDomain()
-			)
+			]
 		);
 	}
 
@@ -95,7 +92,7 @@ class SessionDAO extends DAO {
 					data = ?,
 					domain = ?
 				WHERE session_id = ?',
-			array(
+			[
 				$session->getUserId()==''?null:(int) $session->getUserId(),
 				$session->getIpAddress(),
 				substr($session->getUserAgent(), 0, 255),
@@ -105,7 +102,7 @@ class SessionDAO extends DAO {
 				$session->getSessionData(),
 				$session->getDomain(),
 				$session->getId()
-			)
+			]
 		);
 	}
 
@@ -122,10 +119,7 @@ class SessionDAO extends DAO {
 	 * @param $sessionId string
 	 */
 	function deleteById($sessionId) {
-		return $this->update(
-			'DELETE FROM sessions WHERE session_id = ?',
-			array($sessionId)
-		);
+		$this->update('DELETE FROM sessions WHERE session_id = ?', [$sessionId]);
 	}
 
 	/**
@@ -133,9 +127,9 @@ class SessionDAO extends DAO {
 	 * @param $userId string
 	 */
 	function deleteByUserId($userId) {
-		return $this->update(
+		$this->update(
 			'DELETE FROM sessions WHERE user_id = ?',
-			array((int) $userId)
+			[(int) $userId]
 		);
 	}
 
@@ -146,14 +140,14 @@ class SessionDAO extends DAO {
 	 */
 	function deleteByLastUsed($lastUsed, $lastUsedRemember = 0) {
 		if ($lastUsedRemember == 0) {
-			return $this->update(
+			$this->update(
 				'DELETE FROM sessions WHERE (last_used < ? AND remember = 0)',
-				array((int) $lastUsed)
+				[(int) $lastUsed]
 			);
 		} else {
-			return $this->update(
+			$this->update(
 				'DELETE FROM sessions WHERE (last_used < ? AND remember = 0) OR (last_used < ? AND remember = 1)',
-				array((int) $lastUsed, (int) $lastUsedRemember)
+				[(int) $lastUsed, (int) $lastUsedRemember]
 			);
 		}
 	}
@@ -162,7 +156,7 @@ class SessionDAO extends DAO {
 	 * Delete all sessions.
 	 */
 	function deleteAllSessions() {
-		return $this->update('DELETE FROM sessions');
+		$this->update('DELETE FROM sessions');
 	}
 
 	/**
@@ -171,14 +165,9 @@ class SessionDAO extends DAO {
 	 * @return boolean
 	 */
 	function sessionExistsById($sessionId) {
-		$result = $this->retrieve(
-			'SELECT COUNT(*) FROM sessions WHERE session_id = ?',
-			array($sessionId)
-		);
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$result = $this->retrieve('SELECT COUNT(*) AS row_count FROM sessions WHERE session_id = ?', [$sessionId]);
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 }
 

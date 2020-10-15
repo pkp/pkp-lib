@@ -45,12 +45,11 @@ abstract class ContextDAO extends SchemaDAO {
 	 */
 	function existsByPath($path) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*) FROM ' . $this->tableName . ' WHERE path = ?',
-			(string) $path
+			'SELECT COUNT(*) AS row_count FROM ' . $this->tableName . ' WHERE path = ?',
+			[(string) $path]
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**

@@ -27,16 +27,14 @@ class QueuedPaymentDAO extends DAO {
 	function getById($queuedPaymentId) {
 		$result = $this->retrieve(
 			'SELECT * FROM queued_payments WHERE queued_payment_id = ?',
-			(int) $queuedPaymentId
+			[(int) $queuedPaymentId]
 		);
-
-		$queuedPayment = null;
-		if ($result->RecordCount() != 0) {
-			$queuedPayment = unserialize($result->fields['payment_data']);
-			$queuedPayment->setId($result->fields['queued_payment_id']);
+		if ($row = $result->current()) {
+			$queuedPayment = unserialize($row->payment_data);
+			$queuedPayment->setId($row->queued_payment_id);
+			return $queuedPayment;
 		}
-		$result->Close();
-		return $queuedPayment;
+		return null;
 	}
 
 	/**
@@ -53,9 +51,9 @@ class QueuedPaymentDAO extends DAO {
 				$this->datetimeToDB(Core::getCurrentDate()),
 				$this->datetimeToDB(Core::getCurrentDate()),
 				$this->datetimeToDB($expiryDate)),
-			array(
+			[
 				serialize($queuedPayment)
-			)
+			]
 		);
 
 		return $queuedPayment->setId($this->getInsertId());
@@ -74,10 +72,10 @@ class QueuedPaymentDAO extends DAO {
 					payment_data = ?
 				WHERE queued_payment_id = ?',
 				$this->datetimeToDB(Core::getCurrentDate())),
-			array(
+			[
 				serialize($queuedPayment),
 				(int) $queuedPaymentId
-			)
+			]
 		);
 	}
 
@@ -96,9 +94,9 @@ class QueuedPaymentDAO extends DAO {
 	function deleteById($queuedPaymentId) {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notificationDao->deleteByAssoc(ASSOC_TYPE_QUEUED_PAYMENT, $queuedPaymentId);
-		return $this->update(
+		$this->update(
 			'DELETE FROM queued_payments WHERE queued_payment_id = ?',
-			array((int) $queuedPaymentId)
+			[(int) $queuedPaymentId]
 		);
 	}
 
@@ -106,9 +104,7 @@ class QueuedPaymentDAO extends DAO {
 	 * Delete expired queued payments.
 	 */
 	function deleteExpired() {
-		return $this->update(
-			'DELETE FROM queued_payments WHERE expiry_date < now()'
-		);
+		$this->update('DELETE FROM queued_payments WHERE expiry_date < now()');
 	}
 }
 

@@ -254,11 +254,11 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$publicationQO = $this->getQueryBuilder($args)->getDateBoundaries();
 		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
 		$result = $publicationDao->retrieve($publicationQO->toSql(), $publicationQO->getBindings());
-		if (!empty($result->fields)) {
-			return [$result->fields[0], $result->fields[1]];
-		}
+		$row = $result->current();
 		import('classes.statistics.StatisticsHelper');
-		return [STATISTICS_EARLIEST_DATE, date('Y-m-d', strtotime('yesterday'))];
+		return $row ?
+			[$row->min_date_published, $row->max_date_published] :
+			[STATISTICS_EARLIEST_DATE, date('Y-m-d', strtotime('yesterday'))];
 	}
 
 	/**

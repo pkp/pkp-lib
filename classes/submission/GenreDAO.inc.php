@@ -356,15 +356,14 @@ class GenreDAO extends DAO {
 	 * @return boolean
 	 */
 	function keyExists($key, $contextId, $genreId = null) {
-		$params = array($key, (int) $contextId);
+		$params = [$key, (int) $contextId];
 		if ($genreId) $params[] = (int) $genreId;
 		$result = $this->retrieveRange(
-			'SELECT COUNT(*) FROM genres WHERE entry_key = ? AND context_id = ?' . (isset($genreId) ? ' AND genre_id <> ?' : ''),
+			'SELECT COUNT(*) AS row_count FROM genres WHERE entry_key = ? AND context_id = ?' . (isset($genreId) ? ' AND genre_id <> ?' : ''),
 			$params
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**
@@ -372,7 +371,7 @@ class GenreDAO extends DAO {
 	 * @param $locale string Locale code
 	 */
 	function deleteSettingsByLocale($locale) {
-		$this->update('DELETE FROM genre_settings WHERE locale = ?', $locale);
+		$this->update('DELETE FROM genre_settings WHERE locale = ?', [$locale]);
 	}
 }
 

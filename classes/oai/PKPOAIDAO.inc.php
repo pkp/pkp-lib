@@ -38,7 +38,7 @@ abstract class PKPOAIDAO extends DAO {
 	 */
 	function clearTokens() {
 		$this->update(
-			'DELETE FROM oai_resumption_tokens WHERE expire < ?', time()
+			'DELETE FROM oai_resumption_tokens WHERE expire < ?', [time()]
 		);
 	}
 
@@ -48,21 +48,9 @@ abstract class PKPOAIDAO extends DAO {
 	 * @return OAIResumptionToken
 	 */
 	function getToken($tokenId) {
-		$result = $this->retrieve(
-			'SELECT * FROM oai_resumption_tokens WHERE token = ?',
-			array($tokenId)
-		);
-
-		if ($result->RecordCount() == 0) {
-			$token = null;
-
-		} else {
-			$row = $result->getRowAssoc(false);
-			$token = new OAIResumptionToken($row['token'], $row['record_offset'], unserialize($row['params']), $row['expire']);
-		}
-
-		$result->Close();
-		return $token;
+		$result = $this->retrieve('SELECT * FROM oai_resumption_tokens WHERE token = ?', [$tokenId]);
+		$row = $result->current();
+		return $row ? new OAIResumptionToken($row->token, $row->record_offset, unserialize($row->params), $row->expire) : null;
 	}
 
 	/**
@@ -75,19 +63,18 @@ abstract class PKPOAIDAO extends DAO {
 			// Generate unique token ID
 			$token->id = md5(uniqid(mt_rand(), true));
 			$result = $this->retrieve(
-				'SELECT COUNT(*) FROM oai_resumption_tokens WHERE token = ?',
-				array($token->id)
+				'SELECT COUNT(*) AS row_count FROM oai_resumption_tokens WHERE token = ?',
+				[$token->id]
 			);
-			$val = $result->fields[0];
-
-			$result->Close();
+			$row = $result->current();
+			$val = $row->row_count;
 		} while($val != 0);
 
 		$this->update(
 			'INSERT INTO oai_resumption_tokens (token, record_offset, params, expire)
 			VALUES
 			(?, ?, ?, ?)',
-			array($token->id, $token->offset, serialize($token->params), $token->expire)
+			[$token->id, $token->offset, serialize($token->params), $token->expire]
 		);
 
 		return $token;
@@ -116,12 +103,8 @@ abstract class PKPOAIDAO extends DAO {
 	 */
 	function getRecord($dataObjectId, $setIds = array()) {
 		$result = $this->_getRecordsRecordSet($setIds, null, null, null, $dataObjectId);
-		if ($result->RecordCount() != 0) {
-			$row = $result->GetRowAssoc(false);
-			$returner = $this->_returnRecordFromRow($row);
-		} else $returner = null;
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_returnRecordFromRow((array) $row) : null;
 	}
 
 	/**
@@ -140,11 +123,13 @@ abstract class PKPOAIDAO extends DAO {
 	function getRecords($setIds, $from, $until, $set, $offset, $limit, &$total) {
 		$result = $this->_getRecordsRecordSet($setIds, $from, $until, $set);
 
-		for ($i=0; $i<$offset; $i++) $result->next(); // FIXME inefficient
-		$total = $offset;
+		for ($i=0; $i<$offset; $i++) {
+			if ($result->next()) $total++; // FIXME inefficient
+		}
 		$records = [];
-		for ($count = 0; $row = (array) $result->current() && $count < $limit; $count++; $total++) {
+		for ($count = 0; $row = (array) $result->current() && $count < $limit; $count++) {
 			$records[] = $this->_returnRecordFromRow($row);
+			$total++;
 			$result->next();
 		}
 		return $records;
@@ -165,13 +150,14 @@ abstract class PKPOAIDAO extends DAO {
 	 */
 	function getIdentifiers($setIds, $from, $until, $set, $offset, $limit, &$total) {
 		$result = $this->_getRecordsRecordSet($setIds, $from, $until, $set);
-		$total = $result->RecordCount();
 
-		for ($i=0; $i<$offset; $i++) $result->next(); // FIXME inefficient
-		$total = $offset;
+		for ($i=0; $i<$offset; $i++) {
+			if ($result->next()) $total++; // FIXME inefficient
+		}
 		$records = [];
-		for ($count = 0; $row = (array) $result->current() && $count < $limit; $count++; $total++) {
+		for ($count = 0; $row = (array) $result->current() && $count < $limit; $count++) {
 			$records[] = $this->_returnIdentifierFromRow($row);
+			$total++;
 			$result->next();
 		}
 		return $records;
@@ -186,15 +172,11 @@ abstract class PKPOAIDAO extends DAO {
 	 */
 	function getEarliestDatestamp($setIds = array()) {
 		$result = $this->_getRecordsRecordSet($setIds, null, null, null, null, 'last_modified ASC');
-		if ($result->RecordCount() != 0) {
-			$row = $result->GetRowAssoc(false);
-			$record = $this->_returnRecordFromRow($row);
+		if ($row = $result->current()) {
+			$record = $this->_returnRecordFromRow((array) $row);
 			$datestamp = OAIUtils::UTCtoTimestamp($record->datestamp);
-		} else {
-			$datestamp = 0;
 		}
-		$result->Close();
-		return $datestamp;
+		return 0;
 	}
 
 
@@ -210,7 +192,7 @@ abstract class PKPOAIDAO extends DAO {
 		$record = new OAIRecord();
 		$record = $this->_doCommonOAIFromRowOperations($record, $row);
 
-		HookRegistry::call('OAIDAO::_returnRecordFromRow', array(&$record, &$row));
+		HookRegistry::call('OAIDAO::_returnRecordFromRow', [&$record, &$row]);
 
 		return $record;
 	}
@@ -224,7 +206,7 @@ abstract class PKPOAIDAO extends DAO {
 		$record = new OAIIdentifier();
 		$record = $this->_doCommonOAIFromRowOperations($record, $row);
 
-		HookRegistry::call('OAIDAO::_returnIdentifierFromRow', array(&$record, &$row));
+		HookRegistry::call('OAIDAO::_returnIdentifierFromRow', [&$record, &$row]);
 
 		return $record;
 	}

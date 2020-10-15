@@ -127,6 +127,10 @@ class DAOResultFactory extends ItemIterator {
 		return !$this->records->valid();
 	}
 
+	function wasEmpty() {
+		if ($this->sql === null) throw new Exception('DAOResultFactory instances do not support wasEmpty (DAO ' . get_class($this->dao) . ')!');
+	}
+
 	/**
 	 * Clean up the record set.
 	 * This is called aggressively because it can free resources.

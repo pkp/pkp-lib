@@ -67,11 +67,11 @@ class PluginSettingsDAO extends DAO {
 	function settingExists($contextId, $pluginName, $name) {
 		$pluginName = strtolower_codesafe($pluginName);
 		$result = $this->retrieve(
-			'SELECT COUNT(*) FROM plugin_settings WHERE plugin_name = ? AND context_id = ? AND setting_name = ?', array($pluginName, (int) $contextId, $name)
+			'SELECT COUNT(*) AS row_count FROM plugin_settings WHERE plugin_name = ? AND context_id = ? AND setting_name = ?',
+			[$pluginName, (int) $contextId, $name]
 		);
-		$returner = $result->fields[0] ? true : false;
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**

@@ -22,17 +22,18 @@ class SubmissionSearchDAO extends DAO {
 	 * @return int the keyword ID
 	 */
 	function insertKeyword($keyword) {
-		static $submissionSearchKeywordIds = array();
+		static $submissionSearchKeywordIds = [];
 		if (isset($submissionSearchKeywordIds[$keyword])) return $submissionSearchKeywordIds[$keyword];
 		$result = $this->retrieve(
 			'SELECT keyword_id FROM submission_search_keyword_list WHERE keyword_text = ?',
-			$keyword
+			[$keyword]
 		);
-		if($result->RecordCount() == 0) {
-			$result->Close();
+		if ($row = $result->current()) {
+			$keywordId = $row->keyword_id;
+		} else {
 			if ($this->update(
 				'INSERT INTO submission_search_keyword_list (keyword_text) VALUES (?)',
-				$keyword,
+				[$keyword],
 				true,
 				false
 			)) {
@@ -40,9 +41,6 @@ class SubmissionSearchDAO extends DAO {
 			} else {
 				$keywordId = null; // Bug #2324
 			}
-		} else {
-			$keywordId = $result->fields[0];
-			$result->Close();
 		}
 
 		$submissionSearchKeywordIds[$keyword] = $keywordId;
@@ -88,24 +86,21 @@ class SubmissionSearchDAO extends DAO {
 	function insertObject($submissionId, $type, $assocId, $keepExisting = false) {
 		$result = $this->retrieve(
 			'SELECT object_id FROM submission_search_objects WHERE submission_id = ? AND type = ? AND assoc_id = ?',
-			array((int) $submissionId, (int) $type, (int) $assocId)
+			[(int) $submissionId, (int) $type, (int) $assocId]
 		);
-		if ($result->RecordCount() == 0) {
-			$this->update(
-				'INSERT INTO submission_search_objects (submission_id, type, assoc_id) VALUES (?, ?, ?)',
-				array((int) $submissionId, (int) $type, (int) $assocId)
-			);
-			$objectId = $this->_getInsertId('submission_search_objects', 'object_id');
-
-		} else {
-			$objectId = $result->fields[0];
+		if ($row = $result->current()) {
 			$this->update(
 				'DELETE FROM submission_search_object_keywords WHERE object_id = ?',
-				(int) $objectId
+				[(int) $row->object_id]
 			);
+			return $row->object_id;
+		} else {
+			$this->update(
+				'INSERT INTO submission_search_objects (submission_id, type, assoc_id) VALUES (?, ?, ?)',
+				[(int) $submissionId, (int) $type, (int) $assocId]
+			);
+			return $this->_getInsertId('submission_search_objects', 'object_id');
 		}
-		$result->Close();
-		return $objectId;
 	}
 
 	/**
@@ -120,7 +115,7 @@ class SubmissionSearchDAO extends DAO {
 		if ($keywordId === null) return null; // Bug #2324
 		$this->update(
 			'INSERT INTO submission_search_object_keywords (object_id, keyword_id, pos) VALUES (?, ?, ?)',
-			array((int) $objectId, (int) $keywordId, (int) $position)
+			[(int) $objectId, (int) $keywordId, (int) $position]
 		);
 		return $keywordId;
 	}

@@ -92,13 +92,11 @@ class ReviewFormDAO extends DAO {
 	 */
 	function reviewFormExists($reviewFormId, $assocType, $assocId) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*) FROM review_forms WHERE review_form_id = ? AND assoc_type = ? AND assoc_id = ?',
-			array((int) $reviewFormId, (int) $assocType, (int) $assocId)
+			'SELECT COUNT(*) AS row_count FROM review_forms WHERE review_form_id = ? AND assoc_type = ? AND assoc_id = ?',
+			[(int) $reviewFormId, (int) $assocType, (int) $assocId]
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $row->row_count == 1 : false;
 	}
 
 	/**
@@ -129,12 +127,12 @@ class ReviewFormDAO extends DAO {
 				(assoc_type, assoc_id, seq, is_active)
 				VALUES
 				(?, ?, ?, ?)',
-			array(
+			[
 				(int) $reviewForm->getAssocType(),
 				(int) $reviewForm->getAssocId(),
 				$reviewForm->getSequence() == null ? 0 : (float) $reviewForm->getSequence(),
 				$reviewForm->getActive()?1:0
-			)
+			]
 		);
 
 		$reviewForm->setId($this->getInsertId());
@@ -156,13 +154,13 @@ class ReviewFormDAO extends DAO {
 					seq = ?,
 					is_active = ?
 				WHERE review_form_id = ?',
-			array(
+			[
 				(int) $reviewForm->getAssocType(),
 				(int) $reviewForm->getAssocId(),
 				(float) $reviewForm->getSequence(),
 				$reviewForm->getActive()?1:0,
 				(int) $reviewForm->getId()
-			)
+			]
 		);
 
 		$this->updateLocaleFields($reviewForm);
@@ -186,8 +184,8 @@ class ReviewFormDAO extends DAO {
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 		$reviewFormElementDao->deleteByReviewFormId($reviewFormId);
 
-		$this->update('DELETE FROM review_form_settings WHERE review_form_id = ?', (int) $reviewFormId);
-		$this->update('DELETE FROM review_forms WHERE review_form_id = ?', (int) $reviewFormId);
+		$this->update('DELETE FROM review_form_settings WHERE review_form_id = ?', [(int) $reviewFormId]);
+		$this->update('DELETE FROM review_forms WHERE review_form_id = ?', [(int) $reviewFormId]);
 	}
 
 	/**
@@ -220,7 +218,8 @@ class ReviewFormDAO extends DAO {
 			WHERE   rf.assoc_type = ? AND rf.assoc_id = ?
 			GROUP BY rf.review_form_id
 			ORDER BY rf.seq',
-			array((int) $assocType, (int) $assocId), $rangeInfo
+			[(int) $assocType, (int) $assocId],
+			$rangeInfo
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');
@@ -243,7 +242,8 @@ class ReviewFormDAO extends DAO {
 			WHERE	rf.assoc_type = ? AND rf.assoc_id = ? AND rf.is_active = 1
 			GROUP BY rf.review_form_id
 			ORDER BY rf.seq',
-			array((int) $assocType, (int) $assocId), $rangeInfo
+			[(int) $assocType, (int) $assocId],
+			$rangeInfo
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');
@@ -271,8 +271,8 @@ class ReviewFormDAO extends DAO {
 	function resequenceReviewForms($assocType, $assocId) {
 		$result = $this->retrieve('SELECT review_form_id FROM review_forms WHERE assoc_type = ? AND assoc_id = ? ORDER BY seq', [(int) $assocType, (int) $assocId]);
 
-		for ($i=1; $row = (array) $result->current(); $i++) {
-			$this->update('UPDATE review_forms SET seq = ? WHERE review_form_id = ?', [$i, $row['review_form_id']]);
+		for ($i=1; $row = $result->current(); $i++) {
+			$this->update('UPDATE review_forms SET seq = ? WHERE review_form_id = ?', [$i, $row->review_form_id]);
 			$result->next();
 		}
 	}

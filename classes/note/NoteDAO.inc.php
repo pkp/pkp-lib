@@ -114,20 +114,18 @@ class NoteDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Note objects
 	 */
 	function notesExistByAssoc($assocType, $assocId, $userId = null) {
-		$params = array((int) $assocId, (int) $assocType);
+		$params = [(int) $assocId, (int) $assocType];
 		if ($userId) $params[] = (int) $userId;
 
 		$result = $this->retrieve(
-			'SELECT	COUNT(*)
+			'SELECT	COUNT(*) AS row_count
 			FROM	notes
 			WHERE	assoc_id = ? AND assoc_type = ?
 			' . ($userId?' AND user_id = ?':''),
 			$params
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] == 0 ? false : true;
-		$result->Close();
-
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**
@@ -137,27 +135,24 @@ class NoteDAO extends DAO {
 	 * @param $userId int User ID
 	 */
 	function unreadNotesExistByAssoc($assocType, $assocId, $userId) {
-		$params = array((int) $assocId, (int) $assocType, (int) $userId);
+		$params = [(int) $assocId, (int) $assocType, (int) $userId];
 
 		$result = $this->retrieve(
-			'SELECT	COUNT(*)
+			'SELECT	COUNT(*) AS row_count
 			FROM	notes n
 				JOIN item_views v ON (v.assoc_type = ? AND v.assoc_id = CAST(n.note_id AS CHAR) AND v.user_id = ?)
 			WHERE	n.assoc_type = ? AND
 				n.assoc_id = ? AND
 				v.assoc_id IS NULL',
-			array(
+			[
 				(int) ASSOC_TYPE_NOTE,
 				(int) $userId,
 				(int) $assocType,
 				(int) $assocId
-			)
+			]
 		);
-
-		$returner = isset($result->fields[0]) && $result->fields[0] == 0 ? false : true;
-		$result->Close();
-
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**
@@ -196,13 +191,13 @@ class NoteDAO extends DAO {
 				$this->datetimeToDB($note->getDateCreated()),
 				$this->datetimeToDB(Core::getCurrentDate())
 			),
-			array(
+			[
 				(int) $note->getUserId(),
 				$note->getTitle(),
 				$note->getContents(),
 				(int) $note->getAssocType(),
 				(int) $note->getAssocId()
-			)
+			]
 		);
 
 		$note->setId($this->getInsertId());
@@ -228,14 +223,14 @@ class NoteDAO extends DAO {
 				$this->datetimeToDB($note->getDateCreated()),
 				$this->datetimeToDB(Core::getCurrentDate())
 			),
-			array(
+			[
 				(int) $note->getUserId(),
 				$note->getTitle(),
 				$note->getContents(),
 				(int) $note->getAssocType(),
 				(int) $note->getAssocId(),
 				(int) $note->getId()
-			)
+			]
 		);
 	}
 
@@ -253,7 +248,7 @@ class NoteDAO extends DAO {
 	 * @param $userId int optional
 	 */
 	function deleteById($noteId, $userId = null) {
-		$params = array((int) $noteId);
+		$params = [(int) $noteId];
 		if ($userId) $params[] = (int) $userId;
 
 		$this->update(

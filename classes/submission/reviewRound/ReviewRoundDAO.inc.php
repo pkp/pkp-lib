@@ -170,7 +170,7 @@ class ReviewRoundDAO extends DAO {
 	 * @param $round int (optional)
 	 */
 	function getBySubmissionId($submissionId, $stageId = null, $round = null) {
-		$params = array($submissionId);
+		$params = [(int) $submissionId];
 		if ($stageId) $params[] = $stageId;
 		if ($round) $params[] = $round;
 
@@ -192,7 +192,7 @@ class ReviewRoundDAO extends DAO {
 	 * @return int
 	 */
 	function getCurrentRoundBySubmissionId($submissionId, $stageId = null) {
-		$params = array((int)$submissionId);
+		$params = [(int)$submissionId];
 		if ($stageId) $params[] = (int) $stageId;
 		$result = $this->retrieve(
 			'SELECT MAX(stage_id) as stage_id, MAX(round) as round
@@ -201,9 +201,8 @@ class ReviewRoundDAO extends DAO {
 			($stageId ? ' AND stage_id = ?' : ''),
 			$params
 		);
-		$returner = isset($result->fields['round']) ? (int)$result->fields['round'] : 1;
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (int) $row->round : 1;
 	}
 
 	/**

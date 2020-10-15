@@ -226,12 +226,12 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 */
 	public function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*)
+			'SELECT COUNT(*) AS row_count
 			FROM publication_settings ps
 			LEFT JOIN publications p ON p.publication_id = ps.publication_id
 			LEFT JOIN submissions s ON p.submission_id = s.submission_id
 			WHERE ps.setting_name = ? and ps.setting_value = ? and s.submission_id <> ? AND s.context_id = ?',
-			array(
+			[
 				'pub-id::'.$pubIdType,
 				$pubId,
 				// The excludePubObjectId refers to the submission id
@@ -239,26 +239,23 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 				// are allowed to share a DOI.
 				(int) $excludePubObjectId,
 				(int) $contextId
-			)
+			]
 		);
-		$returner = $result->fields[0] ? true : false;
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**
 	 * @copydoc PKPPubIdPluginDAO::changePubId()
 	 */
 	function changePubId($pubObjectId, $pubIdType, $pubId) {
-		$idFields = array(
-			'publication_id', 'locale', 'setting_name'
-		);
-		$updateArray = array(
+		$idFields = ['publication_id', 'locale', 'setting_name'];
+		$updateArray = [
 			'publication_id' => (int) $pubObjectId,
 			'locale' => '',
-			'setting_name' => 'pub-id::'.$pubIdType,
-			'setting_value' => (string)$pubId
-		);
+			'setting_name' => 'pub-id::' . $pubIdType,
+			'setting_value' => (string) $pubId
+		];
 		$this->replace('publication_settings', $updateArray, $idFields);
 		$this->flushCache();
 	}

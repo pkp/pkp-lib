@@ -75,7 +75,7 @@ class SiteDAO extends DAO {
 				// that calls to $site->getInstalledLocales() and
 				// $site->getSupportedLocales() return an appropriate array.
 				if (in_array($column, ['installed_locales', 'supported_locales']) &&
-						!is_null($primaryRow[$column]) && strpos($primaryRow[$column], '{') === false) {
+						!is_null($primaryRow[$column]) && strpos($primaryRow[$column], '{') === false && is_null(json_decode($primaryRow[$column]))) {
 					$site->setData($propName, explode(':', $primaryRow[$column]));
 				} else {
 					$site->setData(

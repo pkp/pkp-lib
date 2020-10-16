@@ -22,6 +22,7 @@ import PkpButton from '@/components/Button/Button.vue';
 import Spinner from '@/components/Spinner/Spinner.vue';
 import Tab from '@/components/Tabs/Tab.vue';
 import Tabs from '@/components/Tabs/Tabs.vue';
+import DoiListPanel from "@/components/ListPanel/doi/DoiListPanel";
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
@@ -41,6 +42,8 @@ Vue.component('PkpButton', PkpButton);
 Vue.component('Spinner', Spinner);
 Vue.component('Tab', Tab);
 Vue.component('Tabs', Tabs);
+// TODO: Move to page specific file, not global load
+Vue.component('DoiListPanel', DoiListPanel);
 
 export default {
 	Vue: Vue,

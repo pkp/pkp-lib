@@ -210,8 +210,6 @@ class DAO {
 	 */
 	function flushCache() {
 		$this->setCacheDir();
-		$dataSource = $this->getDataSource();
-		$dataSource->CacheFlush();
 	}
 
 	/**

@@ -27,9 +27,10 @@ class StageAssignmentDAO extends DAO {
 		$result = $this->retrieve(
 			$this->getBaseQueryForAssignmentSelection()
 			. 'WHERE stage_assignment_id = ?',
-			(int) $stageAssignmentId
+			[(int) $stageAssignmentId]
 		);
-		return $this->_fromRow($result->GetRowAssoc(false));
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -98,7 +99,7 @@ class StageAssignmentDAO extends DAO {
 	 * @return bool
 	 */
 	function editorAssignedToStage($submissionId, $stageId = null) {
-		$params = array((int) $submissionId, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR);
+		$params = [(int) $submissionId, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR];
 		if ($stageId) $params[] = (int) $stageId;
 		$result = $this->retrieve(
 			'SELECT	COUNT(*) AS row_count
@@ -110,8 +111,8 @@ class StageAssignmentDAO extends DAO {
 				($stageId?' AND ugs.stage_id = ?':''),
 			$params
 		);
-		$row = (array) $result->current();
-		return $row && $row['row_count'];
+		$row = $result->current();
+		return $row && $row->row_count;
 	}
 
 	/**
@@ -208,14 +209,13 @@ class StageAssignmentDAO extends DAO {
 				VALUES
 					(?, ?, ?, %s, ?, ?)',
 				$this->datetimeToDB(Core::getCurrentDate())
-			),
-			array(
+			), [
 				$stageAssignment->getSubmissionId(),
 				$this->nullOrInt($stageAssignment->getUserGroupId()),
 				$this->nullOrInt($stageAssignment->getUserId()),
 				(int) $stageAssignment->getRecommendOnly(),
 				(int) $stageAssignment->getCanChangeMetadata()
-			)
+			]
 		);
 	}
 
@@ -235,15 +235,14 @@ class StageAssignmentDAO extends DAO {
 					can_change_metadata = ?
 				WHERE	stage_assignment_id = ?',
 				$this->datetimeToDB(Core::getCurrentDate())
-			),
-			array(
+			), [
 				(int) $stageAssignment->getSubmissionId(),
 				$this->nullOrInt($stageAssignment->getUserGroupId()),
 				$this->nullOrInt($stageAssignment->getUserId()),
 				(int) $stageAssignment->getRecommendOnly(),
 				(int) $stageAssignment->getCanChangeMetadata(),
 				(int) $stageAssignment->getId()
-			)
+			]
 		);
 	}
 
@@ -271,7 +270,7 @@ class StageAssignmentDAO extends DAO {
 			WHERE	submission_id = ?
 				AND user_group_id = ?
 				AND user_id = ?',
-			array((int) $submissionId, (int) $userGroupId, (int) $userId)
+			[(int) $submissionId, (int) $userGroupId, (int) $userId]
 		);
 	}
 

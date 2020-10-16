@@ -127,9 +127,6 @@ class SubmissionSearchDAO extends DAO {
 		$this->update('DELETE FROM submission_search_object_keywords');
 		$this->update('DELETE FROM submission_search_objects');
 		$this->update('DELETE FROM submission_search_keyword_list');
-		$this->setCacheDir(Config::getVar('files', 'files_dir') . '/_db');
-		$dataSource = $this->getDataSource();
-		$dataSource->CacheFlush();
 	}
 }
 

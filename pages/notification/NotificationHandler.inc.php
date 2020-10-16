@@ -113,11 +113,7 @@ class NotificationHandler extends Handler {
 	 * @param $notificationArray Array
 	 */
 	function _addNotificationsToArray($resultFactory, $notificationArray) {
-		if (!$resultFactory->wasEmpty()) {
-			$notificationArray = array_merge($notificationArray, $resultFactory->toArray());
-		}
-
-		return $notificationArray;
+		return array_merge($notificationArray, $resultFactory->toArray());
 	}
 
 	/**

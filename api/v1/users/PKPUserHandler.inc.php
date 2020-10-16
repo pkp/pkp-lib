@@ -92,22 +92,18 @@ class PKPUserHandler extends APIHandler {
 
 		$items = [];
 		$usersItereator = Services::get('user')->getMany($params);
-		if (count($usersItereator)) {
-			$propertyArgs = [
-				'request' => $request,
-				'slimRequest' => $slimRequest,
-			];
-			foreach ($usersItereator as $user) {
-				$items[] = Services::get('user')->getSummaryProperties($user, $propertyArgs);
-			}
+		$propertyArgs = [
+			'request' => $request,
+			'slimRequest' => $slimRequest,
+		];
+		foreach ($usersItereator as $user) {
+			$items[] = Services::get('user')->getSummaryProperties($user, $propertyArgs);
 		}
 
-		$data = [
+		return $response->withJson([
 			'itemsMax' => Services::get('user')->getMax($params),
 			'items' => $items,
-		];
-
-		return $response->withJson($data, 200);
+		], 200);
 	}
 
 	/**
@@ -174,22 +170,18 @@ class PKPUserHandler extends APIHandler {
 
 		$items = [];
 		$usersIterator = Services::get('user')->getReviewers($params);
-		if (count($usersIterator)) {
-			$propertyArgs = [
-				'request' => $request,
-				'slimRequest' => $slimRequest,
-			];
-			foreach ($usersIterator as $user) {
-				$items[] = Services::get('user')->getReviewerSummaryProperties($user, $propertyArgs);
-			}
+		$propertyArgs = [
+			'request' => $request,
+			'slimRequest' => $slimRequest,
+		];
+		foreach ($usersIterator as $user) {
+			$items[] = Services::get('user')->getReviewerSummaryProperties($user, $propertyArgs);
 		}
 
-		$data = array(
+		return $response->withJson([
 			'itemsMax' => Services::get('user')->getReviewersMax($params),
 			'items' => $items,
-		);
-
-		return $response->withJson($data, 200);
+		], 200);
 	}
 
 	/**

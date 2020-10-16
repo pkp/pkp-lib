@@ -91,13 +91,10 @@ class SubmissionCommentDAO extends DAO {
 	 */
 	function getById($commentId) {
 		$result = $this->retrieve(
-			'SELECT * FROM submission_comments WHERE comment_id = ?', (int) $commentId
+			'SELECT * FROM submission_comments WHERE comment_id = ?', [(int) $commentId]
 		);
-
-		$submissionComment = $this->_fromRow($result->GetRowAssoc(false));
-
-		$result->Close();
-		return $submissionComment;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**

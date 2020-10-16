@@ -795,7 +795,7 @@ class Installer {
 		$result = $siteDao->retrieve('SELECT installed_locales, supported_locales FROM site');
 
 		$set = $params = [];
-		$row = $result->GetRowAssoc(false);
+		$row = (array) $result->current();
 		$type = 'array';
 		foreach ($row as $column => $value) {
 			if (!empty($value)) {

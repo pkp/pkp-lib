@@ -282,11 +282,10 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 				$note->setAssocId($queryId);
 				$noteDao->insertObject($note);
 			}
-		} else{
+		} else {
 			$queryId = $query->getId();
 			$notes = $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $queryId);
-			if (!$notes->wasEmpty()) {
-				$note = $notes->next();
+			if ($note = $notes->next()) {
 				if ($commentsToEditor) {
 					$note->setContents($commentsToEditor);
 					$note->setDateModified(Core::getCurrentDate());

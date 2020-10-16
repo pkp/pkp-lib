@@ -32,17 +32,14 @@ class NoteDAO extends DAO {
 	/**
 	 * Retrieve Note by note id
 	 * @param $noteId int Note ID
-	 * @return Note object
+	 * @return Note|null object
 	 */
 	function getById($noteId) {
 		$result = $this->retrieve(
-			'SELECT * FROM notes WHERE note_id = ?', (int) $noteId
+			'SELECT * FROM notes WHERE note_id = ?', [(int) $noteId]
 		);
-
-		$note = $this->_fromRow($result->GetRowAssoc(false));
-
-		$result->Close();
-		return $note;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -54,7 +51,7 @@ class NoteDAO extends DAO {
 	function getByUserId($userId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT * FROM notes WHERE user_id = ? ORDER BY date_created DESC',
-			array((int) $userId),
+			[(int) $userId],
 			$rangeInfo
 		);
 
@@ -71,7 +68,7 @@ class NoteDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Note objects
 	 */
 	function getByAssoc($assocType, $assocId, $userId = null, $orderBy = NOTE_ORDER_DATE_CREATED, $sortDirection = SORT_DIRECTION_DESC, $isAdmin = false) {
-		$params = array((int) $assocId, (int) $assocType);
+		$params = [(int) $assocId, (int) $assocType];
 		if ($userId) $params[] = (int) $userId;
 
 		// Sanitize sort ordering

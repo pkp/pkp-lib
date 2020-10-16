@@ -33,7 +33,8 @@ class UserStageAssignmentDAO extends UserDAO {
 				JOIN user_group_stage ugs ON (uug.user_group_id = ugs.user_group_id AND ugs.stage_id = ?)
 			WHERE	uug.user_group_id = ? AND
 				s.user_group_id IS NULL',
-			array((int) $submissionId, (int) $stageId, (int) $userGroupId));
+			[(int) $submissionId, (int) $stageId, (int) $userGroupId]
+		);
 
 		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
 	}
@@ -77,7 +78,7 @@ class UserStageAssignmentDAO extends UserDAO {
 	 * @return bool
 	 */
 	function deleteAssignment($assignmentId) {
-		return $this->update('DELETE FROM stage_assignments WHERE stage_assignment_id = ?', (int) $assignmentId);
+		return $this->update('DELETE FROM stage_assignments WHERE stage_assignment_id = ?', [(int) $assignmentId]);
 	}
 
 	/**
@@ -93,7 +94,7 @@ class UserStageAssignmentDAO extends UserDAO {
 		$site = Application::get()->getRequest()->getSite();
 		$primaryLocale = $site->getPrimaryLocale();
 		$locale = AppLocale::getLocale();
-		$params = array(
+		$params = [
 			(int) $submissionId,
 			(int) $stageId,
 			IDENTITY_SETTING_GIVENNAME, $primaryLocale,
@@ -101,12 +102,12 @@ class UserStageAssignmentDAO extends UserDAO {
 			IDENTITY_SETTING_GIVENNAME, $locale,
 			IDENTITY_SETTING_FAMILYNAME, $locale,
 			(int) $userGroupId,
-		);
+		];
 		if ($name !== null) {
 			$params = array_merge($params, array_fill(0, 6, '%'.(string) $name.'%'));
 		}
 		$result = $this->retrieveRange(
-				'SELECT	u.*
+			$sql = 'SELECT	u.*
 			FROM	users u
 				LEFT JOIN user_user_groups uug ON (u.user_id = uug.user_id)
 				LEFT JOIN stage_assignments s ON (s.user_id = uug.user_id AND s.user_group_id = uug.user_group_id AND s.submission_id = ?)
@@ -122,7 +123,7 @@ class UserStageAssignmentDAO extends UserDAO {
 			. ' ORDER BY COALESCE(usfs_l.setting_value, usfs_pl.setting_value)',
 				$params,
 				$rangeInfo);
-		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
+		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData', [], $sql, $params);
 	}
 }
 

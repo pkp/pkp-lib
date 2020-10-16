@@ -62,21 +62,19 @@ class PKPAnnouncementForm extends FormComponent {
 			]));
 
 		$announcementTypeDAO = \DAORegistry::getDAO('AnnouncementTypeDAO');
-		$announcementTypesFactory = $announcementTypeDAO->getByAssoc(\Application::get()->getContextAssocType(), $announcementContext->getId());
-		if (!$announcementTypesFactory->wasEmpty) {
-			$announcementOptions = [];
-			while ($announcementType = $announcementTypesFactory->next()) {
-				$announcementOptions[] = [
-					'value' => (int) $announcementType->getId(),
-					'label' => $announcementType->getLocalizedTypeName(),
-				];
-			}
-			$this->addField(new FieldOptions('typeId', [
-				'label' => __('manager.announcementTypes.typeName'),
-				'type' => 'radio',
-				'options' => $announcementOptions,
-			]));
+		$announcementTypes = $announcementTypeDAO->getByAssoc(\Application::get()->getContextAssocType(), $announcementContext->getId());
+		$announcementOptions = [];
+		foreach ($announcementTypes as $announcementType) {
+			$announcementOptions[] = [
+				'value' => (int) $announcementType->getId(),
+				'label' => $announcementType->getLocalizedTypeName(),
+			];
 		}
+		if (!empty($announcementOptions)) $this->addField(new FieldOptions('typeId', [
+			'label' => __('manager.announcementTypes.typeName'),
+			'type' => 'radio',
+			'options' => $announcementOptions,
+		]));
 
 		$this->addField(new FieldOptions('sendEmail', [
 			'label' => __('common.sendEmail'),

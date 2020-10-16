@@ -49,12 +49,12 @@ class DataObjectTombstoneDAO extends DAO {
 	 * @param $dataObjectId int
 	 * @return DataObjectTombstone object
 	 */
-	function &getByDataObjectId($dataObjectId) {
+	function getByDataObjectId($dataObjectId) {
 		$result = $this->retrieve(
-			'SELECT * FROM data_object_tombstones WHERE data_object_id = ?', (int) $dataObjectId
+			'SELECT * FROM data_object_tombstones WHERE data_object_id = ?', [(int) $dataObjectId]
 		);
 
-		$dataObjectTombstone = $this->_fromRow($result->GetRowAssoc(false));
+		$dataObjectTombstone = $this->_fromRow((array) $result->current());
 
 		$result->Close();
 		return $dataObjectTombstone;

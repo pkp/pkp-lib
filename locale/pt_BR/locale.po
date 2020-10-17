@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-12 16:48+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2020-10-13 13:50+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "locale/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -352,3 +352,9 @@ msgstr "A identificação da composição final pública já existe."
 
 msgid "category.categories"
 msgstr "Categorias"
+
+msgid "submission.layout.galley.remoteURL"
+msgstr "URL de conteúdo hospedado remotamente"
+
+msgid "article.pageTitle"
+msgstr "Visualização do {$title}"

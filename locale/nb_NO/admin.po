@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
+"PO-Revision-Date: 2020-10-17 20:30+0000\n"
+"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/admin/nb_NO/>\n"
+"Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:54+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "admin.adminFunctions"
 msgstr "Administrative funksjoner"
@@ -156,7 +159,7 @@ msgid "admin.systemInformation"
 msgstr "Systeminformasjon"
 
 msgid "admin.versionBuild"
-msgstr "Build"
+msgstr "Versjon"
 
 msgid "admin.version.checkForUpdates"
 msgstr "Se etter oppdateringer"
@@ -174,7 +177,7 @@ msgid "admin.version.latest"
 msgstr "Siste versjon"
 
 msgid "admin.versionMajor"
-msgstr "Major"
+msgstr "Hoved"
 
 msgid "admin.versionMinor"
 msgstr "Minor"
@@ -232,3 +235,122 @@ msgstr "Nettstedets logo"
 
 msgid "admin.error.executingUtil"
 msgstr "Feil: Kan ikke eksekvere \"{$utilPath}\".  Sjekk {$utilVar}-innstillingene i config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Ingen språk er tilgjengelig for nedlasting."
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "\"{$utilPath}\" programtillegget returnerte følgende feil: {$output}"
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Suksess: {$filePath} til {$destinationPath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+"Advarsel: filen {$filePath} eksisterer allerede inne i bruksstatistikkmappen."
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Feil: Kan ikke slette filen {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Feil: Kan ikke kopiere filen fra {$filePath} til {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Fejl: Filen {$filePath} eksisterer ikke eller kan ikke nås."
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Feil: Kan ikke opprette midlertidig mappe {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Kopier den godkjente apache-tilgangsloggen (e) som filtrerte postene "
+"relatert til denne installasjonen\n"
+"til den nåværende filkatalogen i UsageStatsPlugin-katalogen. Må kjøres av "
+"bruker med tilstrekkelige rettigheter til å lese apache-logger.\n"
+"\n"
+"Dette verktøyet kopierer bare filer som ikke allerede er i "
+"bruksstatistikkmappene for innlasting av filer (stage, processing, archive, "
+"reject).\n"
+"\n"
+"Usage: {$scriptName} path/to/apache/log/file.log\n"
+"Usage (processing all files inside a directory): {$scriptName} path/to/"
+"apache/directory\n"
+"\t"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Fillaster"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Filen {$filename} blev ferdigbehandlet og arkivert."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"Filen {$filename} kunne ikke flyttes fra {$currentFilePath} til "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Mappen {$path} er ikke en fil-katalog, eller så er mappen ikke lesbar."
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Basisstien {$path} må ligge under den tilgjenelige filmappen (public)."
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tDin installation er konfigureret til å lagre mere enn én brugkparameter. "
+"Bruksstatistikker vises i flere sammenhenger.\n"
+"\t\tDet er tilfeller hvor en enkelt bruksstatistik skal brukes, f.eks. en "
+"visning av en ordnet liste over mest viste innleveringer eller en rangering "
+"af søkeresultater.\n"
+"\t\tVennligst velg en av de konfigurerte bruksparametrene som standard.\n"
+"\t"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Påminnelse om abbonementslutt"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Påminnelse om fagfellevurdering"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publisér innleveringer som er planlagt for publisering"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Tøm planlagte oppgavers kjøre-logfiler"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Er du sikker på at du vil slette alle de genererte log-dataene fra planlagte "
+"oppgaver?"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Er du sikker på om du vil endre primærspråk? Brukernes navn, som kreves "
+"under nettstedets primærspråk, vil hvor de mangler bli kopieret fra det "
+"eksisterende primærspråket."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Dette språket er valgt som nettstedets primærspråk. Det kan ikke deaktiveres "
+"før et nytt primærspråk er valgt."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr ""
+"Kan ikke legge det nye språket til språk-registreringsfilen, typisk \""
+"registry/locales.xml\"."
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Kan ikke åpne språkbeskrivelsen fra PKPs nettsted."
+
+msgid "admin.languages.downloadLocales"
+msgstr "Last ned språkfiler"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Er du helt sikker på at du vil slette {$contextName} med tilhørende innhold "
+"permanent?"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Innstillingsverdi"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Innstillingsnavn"

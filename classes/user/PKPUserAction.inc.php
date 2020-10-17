@@ -84,8 +84,7 @@ class PKPUserAction {
 		// Transfer old user's roles
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getByUserId($oldUserId);
-		while(!$userGroups->eof()) {
-			$userGroup = $userGroups->next();
+		while($userGroup = $userGroups->next()) {
 			if (!$userGroupDao->userInGroup($newUserId, $userGroup->getId())) {
 				$userGroupDao->assignUserToGroup($newUserId, $userGroup->getId());
 			}

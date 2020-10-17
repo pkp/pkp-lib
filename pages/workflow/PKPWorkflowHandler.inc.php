@@ -125,8 +125,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		$result = $userGroupDao->getByContextId($submission->getData('contextId'));
 		$authorUserGroups = [];
 		$workflowUserGroups = [];
-		while (!$result->eof()) {
-			$userGroup = $result->next();
+		while ($userGroup = $result->next()) {
 			if ($userGroup->getRoleId() == ROLE_ID_AUTHOR) {
 				$authorUserGroups[] = $userGroup;
 			}

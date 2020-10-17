@@ -69,8 +69,7 @@ class StageRolePolicy extends AuthorizationPolicy {
 				Application::get()->getRequest()->getUser()->getId(),
 				$this->_stageId
 			);
-			while (!$result->eof()) {
-				$stageAssignment = $result->next();
+			while ($stageAssignment = $result->next()) {
 				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 				$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 				if (in_array($userGroup->getRoleId(), $this->_roleIds) && !$stageAssignment->getRecommendOnly()) {

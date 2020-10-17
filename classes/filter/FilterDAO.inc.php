@@ -520,12 +520,7 @@ class FilterDAO extends DAO {
 		$daoResultFactory = new DAOResultFactory($result, $this, '_fromRow', ['filter_id']);
 
 		// Add sub-filters.
-		while (!$daoResultFactory->eof()) {
-			// Retrieve the sub filter.
-			// NB: This recursively loads sub-filters
-			// of this filter via _fromRow().
-			$subFilter = $daoResultFactory->next();
-
+		while ($subFilter = $daoResultFactory->next()) {
 			// Add the sub-filter to the filter list
 			// of its parent filter.
 			$parentFilter->addFilter($subFilter);

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-28 19:43+0000\n"
+"PO-Revision-Date: 2020-10-16 05:34+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ro_RO/>\n"
@@ -647,7 +647,7 @@ msgid "catalog.category.subcategories"
 msgstr "Subcategorii"
 
 msgid "submission.publication"
-msgstr "Publicație"
+msgstr "Publicare"
 
 msgid "submission.publications"
 msgstr "Publicații"

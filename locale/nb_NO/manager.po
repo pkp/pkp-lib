@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
+"PO-Revision-Date: 2020-10-17 20:30+0000\n"
+"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/manager/nb_NO/>\n"
+"Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:54+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "manager.announcements"
 msgstr "Oppslagstavle"
@@ -1234,3 +1237,495 @@ msgstr "En kontaktperson som kan bistå redaktører, forfattere og fagfeller med
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Tilgangsmuligheter"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Stifeltet kan bare inneholde alfanumeriske tegn pluss '.', '/', '-' og '_'."
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Innhold"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p> Denne siden vil være tilgjengelig på: <blockquote> {$ pagesPath} "
+"</blockquote> ... hvor% PATH% er stien som er angitt ovenfor. <strong> Merk: "
+"</strong> To sider kan ikke ha samme sti. Hvis du bruker sti som allerede er "
+"en del av systemet, kan du miste tilgangen til viktige funksjoner. </p>"
+
+msgid "manager.navigationMenus"
+msgstr "Navigasjon"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Sti"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Tittel"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Brukernavnet \"{$username}\" og e-posten \"{$email}\" samsvarer ikke med en "
+"og samme eksisterende bruker."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Den importerte brukeren \"{$username}\" har et ukryptert passord som ikke er "
+"gyldig. Brukeren er ikke importert."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Det importerte brukerpassordet \"{$username}\" kunne ikke importeres som det "
+"er. Et nytt passord er sendt til brukerens e-post. Brukeren er importert."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Den importerte brukeren \"{$username}\" har ikke noe passord. Sjekk import-"
+"XML-formatet ditt. Brukeren er ikke importert."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Import/eksportfeil:"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Innleveringsfilen kunne ikke importeres"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Revisjonen \"{$revisionId}\" av innsendingsfilen \"{$fileId}\" vil opprette "
+"en dublettpost"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Den angitte filstørrelsen \"{$expected}\" og den nåværende filstørrelsen \""
+"{$actual}\" samsvarer ikke"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Innholdet er ikke kodet som {$param}"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Midlertidig fil {$dest} kunne ikke opprettes fra {$source}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Ukjent opplaster {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Forfatteren {$authorName} har ikke et gitt fornavn på innleveringsspråket, { "
+"localeName}. Innleveringen kan ikke importeres uten denne opplysningen."
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Ukjent brukergruppe {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Ukjent kode {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Ukjent genre {$param}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Ukjent element {$param}"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Feil oppstod:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Advarsler:"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr "Krev at forfatteren oppgir referanser før innleveringen godkjennes."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Be forfatteren om å angi referanser under innleveringen."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Krev ikke referansemetadata fra forfatteren under innlevering."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Aktiver referansemetadata"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Samle innleveringens referanser i et separat felt. Dette kan være nødvendig "
+"for siteringsovervåkningstjenester som Crossref."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Be forfatteren om å oppgi støtteorganisasjoner før godkjenning av "
+"innleveringen."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr "Be forfatteren om å oppgi støtteorganisasjoner under innsendingen."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Ikke be om at forfatteren skal oppgi støtteorganisasjoner under "
+"innleveringen."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Aktiver metadata tilknyttet støtteorganisasjoner"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Støtteorganisasjoner kan angi kilden til forskningsmidler eller annen "
+"institusjonell støtte som fremmer forskningen."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Be forfatteren om å oppgi disipliner under innleveringen."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Krev at forfatteren oppgir disipliner før vedkommende godkjenner "
+"innleveringen."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Krev ikke angivelse av disipliner fra forfatteren under innleveringen."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Aktivér metadata i forbindelse med disipliner"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Med disipliner menes studier eller vitenområder som beskrevet av "
+"universitetsfakulteter og vitenskapelige samfunn."
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Krev at forfatteren angir metadata-type under innleveringen."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Be forfatteren om å angi metadata-type under innleveringen."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Krev ikke type-metadata fra forfatteren under innleveringen."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Aktivér metadata i forbindelse med typer"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Typen eller genren i forbindelse med innleveringens hovedindhold. Typen er "
+"normalt \"Tekst\", men kan også være \"Datasett\", \"Bilde\" eller et "
+"hvilket som helst av følgende<a target=\"_blank\" href=\"http://dublincore."
+"org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin "
+"Core typer</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Krev at forfatteren angi emner under innleveringen før den godkjennes."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Be forfatteren angi emner under innleveringen."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Krev ikke emner fra forfatteren under innlevering."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Aktivér emne-metadata"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Emner er nøkkelord, nøkkelfraser eller klassifikasjonskoder som beskriver et "
+"tema i innleveringen."
+
+msgid "manager.setup.metadata.source.require"
+msgstr "Krev at forfatteren angir en kilde-URL før innleveringen godkjennes."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Be forfatteren angi en kilde-URL under innleveringen."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Ikke krev en kilde-URL fra forfatteren under innleveringen."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Aktivér metadata i forbindelse med kilde"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Kilden kan være en ID, slik som en DOI, fra et annet verk eller materiale "
+"som innleveringen bygger på."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Krev at forfatteren angir tidligere opphavsrettsvilkår før innleveringen "
+"godkjennes."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Be forfatteren om å angi tidligere opphavsrettsvilkår under innleveringen."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Ikke krev rettighetsopplysninger fra forfatteren under innleveringen."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Aktivér metadata i forbindelse med rettigheter"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Eventuelle rettigheter over innleveringen som kan omfatte intellektuell "
+"opphavsrett (Intellectual Property Rights - IPR), kopirett og diverse "
+"opphavsrettigheter."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Krev at forfatteren angir innleveringens språk før innleveringen godkjennes."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Be forfatteren om å angi språk på innleveringen."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Ikke krev at forfatteren angir språk på innleveringen."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Aktivér språkmetadata"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Språk angir verkets primære språk ved hjelp av en spåkkode (\"en\") med en "
+"valgfri landekode (\"en_US\")."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Be forfatteren foreslå nøkkelord, før vedkommende godkjenner innleveringen."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Be forfatteren foreslå nøkkelord i forbindelse med innleveringen."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Ikke krev nøkkelord fra forfatteren i forbindelse med innlevering."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Aktivér metadata i forbindelse med nøkkelord"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Nøkkelord er typiske formuleringer som består av et til tre ord som brukes "
+"til å angi de viktigste emnene i forbindelse med en innlevering."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Be forfatteren foreslå metadata i forbindelse med dekningsområde før "
+"vedkommende godkjenner innleveringen."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Be forfatteren om å foreslå metadata i forbindelse med dekningsområde under "
+"innleveringen."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Ikke krev metadata i tilknytning til dekningsområde fra forfatteren under "
+"innleveringen."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Aktivér metadata i tilknytning til dekningsområde"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Dekningsområde vil typisk angi et verks romlige plassering (et stednavn "
+"eller geografiske koordinater), tidsmessig periode (en periodebetegnelse, "
+"dato eller datointervall) eller myndighet (slik som en navngitt "
+"administrativ enhet)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Dekningsområde"
+
+msgid "manager.setup.metadata.success"
+msgstr "Innleveringsmetadata har blitt oppdatert."
+
+msgid "manager.reviewFormElements.description"
+msgstr "Beskrivelse"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Nøkkelen kan kun inneholde alfanumeriske tegn, understreker og bindestreker, "
+"og skal begynne og slutte med et alfanumerisk tegn."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Nøkkelen eksisterer allerede."
+
+msgid "manager.setup.genres.key.description"
+msgstr "En kort symbolsk identifikator for denne genren (valgfri)."
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Denne biblioteksfilen kan gjøres tilgjengelig for nedlasting, hvis \""
+"Offentlig adgang\" er aktivert på: "
+"<blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "manager.setup.genres.key"
+msgstr "Nøkkel"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Velg biblioteksfiler som skal legges ved"
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Tillat redigering av innleveringens metadata."
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Denne rollen kan kun anbefale en redaksjonell beslutning. Det vil kreve en "
+"autorisert redaktør for å registrere en endelig redaksjonell beslutning."
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Legg til brugerdefinerte HTML-tagger, også kjent som meta-tagger, som du "
+"gjerne vil ha lagt til i <HEAD>-seksjonen på hver nettside. Kontakt en "
+"teknisk rådgiver, før du legger til tagger her."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Brukerdefinerte tagger"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Angi offentlige lisensvilkår som du vil ha vist sammen med publiserte verk."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Lisensvilkår"
+
+msgid "manager.distribution.license.other"
+msgstr "Annen lisens-URL"
+
+msgid "manager.distribution.license.success"
+msgstr "Lisensopplysningene har blitt oppdatert. "
+
+msgid "manager.distribution.license"
+msgstr "Lisens"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Dette programtillegget leveres av en av våre utviklingspartnere."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Dette programtillegget er blitt gjennomgått og godkjent av  Public Knowledge "
+"Project teamet."
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Dette programtillegget er utviklet og vedlikeholdes av Public Knowledge "
+"Project."
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Registrerte brukere"
+
+msgid "manager.setup.userAccess.success"
+msgstr "Opplysninger om brukertilgang til dette forlaget har blitt oppdatert."
+
+#, fuzzy
+msgid "manager.setup.theme.notFound"
+msgstr "Valgt tema er ikke installert eller aktivert."
+
+#, fuzzy
+msgid "manager.setup.theme.success"
+msgstr ""
+"Temaet har blitt oppdatert. <a href=\"{$url}\" target=\"_blank\">Se nå</a>"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr ""
+"Vis lenken <button type=\"button\">Sikre blind fagfellevurdering</button> "
+"under opplasting"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Standard fagfellevurderingsinnstilling"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Fagfellevurderingspåminnelse"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Svarpåminnelse"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Standardfrist for fulføring"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Standard svarfrist"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Denne erklæringen vises under brukerregistrering, manuskriptinnlevering og "
+"på den offentligt tilgjengelige siden om beskyttelse av personlige "
+"opplysninger.\n"
+"I noen rettskretser er du forpliktet til å opplyse, hvordan du håndterer "
+"bruerdata i din datapolitik."
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Filen du lastet opp ble ikke funnet. Prøv å laste den opp igjen."
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"{$name}-blokken ble ikke funnet. Sørg for at programtillegget er installert "
+"og aktivert."
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Sidemeny"
+
+msgid "manager.setup.checklist"
+msgstr "Sjekkliste"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Forfatterveiledningen har blitt oppdatert."
+
+msgid "manager.setup.contact.success"
+msgstr "Kontaktinformasjonen til dette forlaget har blitt oppdatert."
+
+msgid "manager.setup.appearance.success"
+msgstr "Innstillingene for utseendet har blitt oppdatert."
+
+msgid "manager.setup.advanced"
+msgstr "Avansert"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Du kan ikke slette denne representanten da vedkommende er tilknyttet "
+"markedsmetadata til ett eller flere publikasjonsformater i forbindelse med "
+"denne innleveringen."
+
+msgid "manager.people.existingUserRequired"
+msgstr "En registrert bruker må fylles inn."
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Emne: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Sendt til"
+
+msgid "manager.emails.sentFrom"
+msgstr "Sendt fra"
+
+msgid "manager.emails.resetAll"
+msgstr "Nullstill alt"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Nøkkelen du valgte er opptatt."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Du må angi et ID når en e-postmal legges til."
+
+msgid "manager.emails.emailTemplates"
+msgstr "E-postmaler"
+
+msgid "manager.emails.emailKey.description"
+msgstr "E-postnøkkelen kan kun inneholde bokstaver, tall og understrek."
+
+msgid "manager.emails.editEmail.success"
+msgstr "E-postmalen har blitt endret."
+
+msgid "manager.emails.customTemplate"
+msgstr "Brukerdefinert mal"
+
+msgid "manager.emails.addEmail.success"
+msgstr "E-postmalen ble lagt til."
+
+msgid "manager.emails.addEmail"
+msgstr "Legg til mal"
+
+#, fuzzy
+msgid "manager.publication.reviewReminders.success"
+msgstr "Detaljene om påminnelse om fagfellevurdering har blitt oppdatert."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Fagfellevurderingsinnstillingene har blitt oppdatert."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Fagfelleveiledning har blitt oppdatert."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Fagfelleveiledning"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "E-postinstillningene har blitt oppdatert."

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2020-10-17 20:30+0000\n"
+"PO-Revision-Date: 2020-10-17 20:33+0000\n"
 "Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -1729,3 +1729,25 @@ msgstr "Fagfelleveiledning"
 
 msgid "manager.publication.emailSetup.success"
 msgstr "E-postinstillningene har blitt oppdatert."
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Menyelementer uten plassering"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Tilordnede menyelementer"
+
+msgid "manager.navigationMenuItems"
+msgstr "Innholdselementer i navigasjonsmenyen"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Tittelen kreves"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr ""
+"Denne tittelen eksisterer allerede i forbindelse med en annen "
+"navigasjonsmeny."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr ""
+"Denne stien eksisterer allerede i forbindelse med et annet "
+"navigasjonsmenyelement."

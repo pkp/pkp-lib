@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
+"PO-Revision-Date: 2020-10-17 09:50+0000\n"
+"Last-Translator: Tom Granroth <tom.granroth@tsv.fi>\n"
+"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"fi_FI/>\n"
+"Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:47+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr "Pyyntösi on hylätty. Tämä voi johtua vanhentuneesta istunnosta. Ole hyvä ja yritä uudelleen."
@@ -34,3 +37,57 @@ msgstr "Tapahtui virhe. Ole hyvä yritä uudelleen."
 
 msgid "api.submissions.400.stageNotValid"
 msgstr "Pyyntöäsi ei voitu suorittaa, koska annettu työvaiheen tunniste on virheellinen."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Julkaistu versio jonka haluat julkaista on jo julkinen."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Julkaistu versio jonka julkaisun haluat perua ei ole julkinen."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Et voi muokata julkaistua versiota koska se on julkinen."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Et voi muokata tilaa tämän rajapinnan kautta, käytä /publish ja /unpublish "
+"päätepisteitä."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Lataamasi kuva ei ole kelvollinen."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Voit ladata vain seuraavanlaisia tiedostoja: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Julkaistun version poistamiseksi sinun pitää ensin perua sen julkaisu."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Sinulla ei ole lupaa muokata tätä julkaistua versiota."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Omassa hakemistossasi ei ole riittävästi tilaa. Lataamasi tiedosto on "
+"{$fileUploadSize}kb ja sinulla on {$dirSizeLeft}kb jäljellä."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Sinulla ei ole lupaa ladata tiedostoja."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Lataamasi tiedosto ei vastannut tiedostopäätettä. Näin voi tapahtua, jos "
+"tiedoston on nimetty uudelleen ja myös tiedostopääte on vaihdettu."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Etsimääsi sähköpostipohjaa ei löytynyt."
+
+msgid "api.404.endpointNotFound"
+msgstr "Pyydettyä URL-polkua ei tunnistettu."
+
+msgid "api.403.unauthorized"
+msgstr "Sinulla ei ole pääsyä pyydettyyn resurssiin."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parametria {$param} ei tueta."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Sanastoa {$vocab} ei tueta."

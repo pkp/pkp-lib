@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
+"PO-Revision-Date: 2020-09-25 17:49+0000\n"
+"Last-Translator: Hamid Sadeghieh <sadeghieh@gmail.com>\n"
+"Language-Team: Persian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/fa_IR/>\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:47+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "author.submit.submissionCitations"
 msgstr "لیست مرتب شده‌ای از مراجع بکار رفته در این مقاله ارسالی را وارد کنید."
@@ -18,16 +21,22 @@ msgid "author.submission.roundStatus.reviewsReady"
 msgstr "داوری جدید ثبت شده و توسط سردبیر بررسی خواهد شد."
 
 msgid "submission.confirm.message"
-msgstr "مقاله ی شما با موفقیت بر روی این سامانه بارگذاری گردیده و آماده ی ارسال میباشد . شما میتوانید قبل از عبور از این مرحله برای بازنگری یا اصلاح موارد وارد شده به مراحل قبلی بازگردید"
+msgstr ""
+"مقاله شما با موفقیت بارگذاری گردید و آماده ارسال است. شما می‌توانید قبل از "
+"عبور از این مرحله برای بازنگری یا اصلاح اطلاعات وارد شده به مراحل قبل "
+"بازگردید. پس از اطمینان از صحت اطلاعات وارد شده روی «پایان ارسال مقاله» کلیک "
+"کنید."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "موارد ضروری برای ارسال"
 
 msgid "submission.submit.submissionChecklistDescription"
-msgstr "قبل از ورود به قسمت های بعدی نسبت به موارد زیر اطمینان حاصل کنید"
+msgstr ""
+"پیش از آغاز فرایند ارسال مقاله باید ضمن مطالعه دقیق موارد خواسته‌شده زیر، "
+"لحاظ شدن تک‌تک موارد را تایید کنید."
 
 msgid "submission.submit.submissionComplete"
-msgstr "ثبت مقاله تکمیل شد."
+msgstr "ثبت مقاله تکمیل شد"
 
 msgid "submission.submit.submissionCompleteThanks"
 msgstr "ممنونیم که در {$contextName} مقاله خود را ثبت نمودید."
@@ -36,7 +45,7 @@ msgid "submission.submit.copyrightNoticeAgreementLabel"
 msgstr "قوانین و شرایط ثبت"
 
 msgid "submission.submit.copyrightNoticeAgree"
-msgstr "تمامی شرایط را میپذیرم"
+msgstr "همه شرایط و ضوابط را میپذیرم."
 
 msgid "submission.submit.whatNext"
 msgstr "برای ادامه ؟"
@@ -45,16 +54,16 @@ msgid "submission.submit.whatNext.forNow"
 msgstr "شما می توانید:"
 
 msgid "submission.submit.whatNext.review"
-msgstr "وضعیت مقاله ثبت شده را مرور کنید."
+msgstr "مرور اطلاعات مقاله ارسالی"
 
 msgid "submission.submit.whatNext.create"
-msgstr "مقاله جدیدی ثبت کنید."
+msgstr "ثبت مقاله جدید"
 
 msgid "submission.submit.whatNext.return"
-msgstr "به داشبورد برگردید."
+msgstr "بازگشت به داشبورد"
 
 msgid "submission.submit.extendedMetadata"
-msgstr "فراداده ها را گسترش دهید."
+msgstr "فراداده‌های تکمیلی"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
 msgstr "ایمیل ثبت‌نام CrossRef"
@@ -96,13 +105,17 @@ msgid "metadata.property.displayName.author"
 msgstr "نویسندگان"
 
 msgid "metadata.property.validationMessage.author"
-msgstr "برای حصول بهترین نتیجه نویسندگان را با فرمت زیر وارد کنید  Coleman Jr, D. (Ralf) Dr"
+msgstr ""
+"برای حصول بهترین نتیجه نویسندگان را با فرمت زیر وارد کنید:  Coleman Jr, D. "
+"(Ralf) Dr."
 
 msgid "metadata.property.displayName.editor"
 msgstr "دبیران"
 
 msgid "metadata.property.validationMessage.editor"
-msgstr "برای حصول بهترین نتیجه نام دبیران را با فرمت زیر وارد کنید  Coleman Jr, D. (Ralf) Dr"
+msgstr ""
+"برای حصول بهترین نتیجه نام دبیران را با فرمت زیر وارد کنید  Coleman Jr, D. "
+"(Ralf) Dr."
 
 msgid "metadata.property.displayName.article-title"
 msgstr "عنوان مقاله"
@@ -114,187 +127,187 @@ msgid "metadata.property.displayName.source"
 msgstr "عنوان مجله/کتاب"
 
 msgid "metadata.property.validationMessage.source"
-msgstr "لطفاً عنوان مجله / کتاب را وارد کنید"
+msgstr "لطفاً عنوان مناسبی برای نشریه وارد کنید."
 
 msgid "metadata.property.displayName.date"
 msgstr "تاریخ چاپ"
 
 msgid "metadata.property.validationMessage.date"
-msgstr "لطفاً تاریخ چاپ را وارد کنید: YYYY-MM-DD"
+msgstr "لطفاً تاریخ چاپ را وارد کنید (قالب تاریخ YYYY-MM-DD)."
 
 msgid "metadata.property.displayName.access-date"
 msgstr "تاریخ دسترسی"
 
 msgid "metadata.property.validationMessage.access-date"
-msgstr "لطفاً تاریخ دسترسی را وارد کنید: YYYY-MM-DD"
+msgstr "لطفاً تاریخ دسترسی را وارد کنید (قالب تاریخ YYYY-MM-DD)."
 
 msgid "metadata.property.displayName.issue"
 msgstr "شماره مجله"
 
 msgid "metadata.property.validationMessage.issue"
-msgstr "لطفاً شماره مجله را وارد کنید"
+msgstr "لطفاً شماره مجله را وارد کنید."
 
 msgid "metadata.property.displayName.volume"
 msgstr "دوره"
 
 msgid "metadata.property.validationMessage.volume"
-msgstr "لطفاً دوره را وارد کنید"
+msgstr "لطفاً دوره را وارد کنید."
 
 msgid "metadata.property.displayName.season"
 msgstr "فصل"
 
 msgid "metadata.property.validationMessage.season"
-msgstr "لطفاً فصل را وارد کنید"
+msgstr "لطفاً شناسه فصل را وارد کنید."
 
 msgid "metadata.property.displayName.chapter-title"
 msgstr "عنوان فصل"
 
 msgid "metadata.property.validationMessage.chapter-title"
-msgstr "لطفاً عنوان فصل را وارد کنید"
+msgstr "لطفاً عنوان فصل را وارد کنید."
 
 msgid "metadata.property.displayName.edition"
 msgstr "شماره ویرایش"
 
 msgid "metadata.property.validationMessage.edition"
-msgstr "لطفاً شماره ویرایش را وارد کنید"
+msgstr "لطفاً شماره ویراست را وارد کنید."
 
 msgid "metadata.property.displayName.series"
 msgstr "سری‌ها"
 
 msgid "metadata.property.validationMessage.series"
-msgstr "لطفاً شماره سری را وارد کنید"
+msgstr "لطفاً شماره سری را وارد کنید."
 
 msgid "metadata.property.displayName.supplement"
 msgstr "ویژه‌نامه"
 
 msgid "metadata.property.validationMessage.supplement"
-msgstr "لطفاً ویژه نامه را وارد کنید"
+msgstr "لطفاً ویژه‌نامه را وارد کنید."
 
 msgid "metadata.property.displayName.conf-date"
 msgstr "تاریخ کنفرانس"
 
 msgid "metadata.property.validationMessage.conf-date"
-msgstr "لطفاً تاریخ کنفرانس را وارد کنید: YYYY-MM-DD"
+msgstr "لطفاً تاریخ همایش را وارد کنید (قالب تاریخ YYYY-MM-DD)."
 
 msgid "metadata.property.displayName.conf-loc"
 msgstr "محل کنفرانس"
 
 msgid "metadata.property.validationMessage.conf-loc"
-msgstr "لطفاً محل کنفرانس را وارد کنید"
+msgstr "لطفاً محل همایش را وارد کنید."
 
 msgid "metadata.property.displayName.conf-name"
 msgstr "نام کنفرانس"
 
 msgid "metadata.property.validationMessage.conf-name"
-msgstr "لطفاً نام کنفرانس را وارد کنید"
+msgstr "لطفاً نام همایش را وارد کنید."
 
 msgid "metadata.property.displayName.conf-sponsor"
 msgstr "حامی کنفرانس"
 
 msgid "metadata.property.validationMessage.conf-sponsor"
-msgstr "لطفاً حامی کنفرانس را وارد کنید"
+msgstr "لطفاً حامی همایش را وارد کنید."
 
 msgid "metadata.property.displayName.institution"
 msgstr "موسسه"
 
 msgid "metadata.property.validationMessage.institution"
-msgstr "لطفاً موسسه را وارد کنید"
+msgstr "لطفاً مؤسسه را وارد کنید."
 
 msgid "metadata.property.displayName.fpage"
 msgstr "صفحه شروع"
 
 msgid "metadata.property.validationMessage.fpage"
-msgstr "لطفاً صفحه شروع را وارد کنید"
+msgstr "لطفاً شماره صفحه نخست را وارد کنید (باید مقدار عددی باشد)."
 
 msgid "metadata.property.displayName.lpage"
 msgstr "صفحه پایان"
 
 msgid "metadata.property.validationMessage.lpage"
-msgstr "لطفاً صفحه پایان را وارد کنید"
+msgstr "لطفاً شماره صفحه پایانی را وارد کنید (باید مقدار عددی باشد)."
 
 msgid "metadata.property.displayName.size"
 msgstr "تعداد صفحات"
 
 msgid "metadata.property.validationMessage.size"
-msgstr "لطفاً تعداد صفحات را وارد کنید"
+msgstr "لطفاً تعداد صفحات را وارد کنید (باید مقدار عددی باشد)."
 
 msgid "metadata.property.displayName.publisher-loc"
 msgstr "محل ناشر"
 
 msgid "metadata.property.validationMessage.publisher-loc"
-msgstr "لطفاً محل ناشر را وارد کنید"
+msgstr "لطفاً محل ناشر را وارد کنید."
 
 msgid "metadata.property.displayName.publisher-name"
 msgstr "نام ناشر"
 
 msgid "metadata.property.validationMessage.publisher-name"
-msgstr "لطفاً نام ناشر را وارد کنید"
+msgstr "لطفاً نام ناشر را وارد کنید."
 
 msgid "metadata.property.displayName.isbn"
 msgstr "شابک"
 
 msgid "metadata.property.validationMessage.isbn"
-msgstr "لطفاً شاپا را وارد کنید"
+msgstr "لطفاً شاپا را وارد کنید (عدد ۹ یا ۱۳ رقمی)."
 
 msgid "metadata.property.displayName.issn"
 msgstr "شاپا چاپی"
 
 msgid "metadata.property.validationMessage.issn"
-msgstr "لطفاً شاپا چاپی را وارد کنید"
+msgstr "لطفاً شاپای نسخه چاپی را وارد کنید."
 
 msgid "metadata.property.displayName.eissn"
 msgstr "شاپا الکترونیکی"
 
 msgid "metadata.property.validationMessage.eissn"
-msgstr "لطفاً شاپا الکترونیکی را وارد کنید"
+msgstr "لطفاً شاپای الکترونیکی را وارد کنید."
 
 msgid "metadata.property.displayName.doi"
 msgstr "DOI"
 
 msgid "metadata.property.validationMessage.doi"
-msgstr "لطفاً DOI را وارد کنید"
+msgstr "لطفاً DOI را وارد کنید."
 
 msgid "metadata.property.displayName.publisher-id"
 msgstr "شناسه نشر سفارشی"
 
 msgid "metadata.property.validationMessage.publisher-id"
-msgstr "لطفاً شناسه محلی چاپ را وارد کنید"
+msgstr "لطفاً شناسه محلی چاپ را وارد کنید."
 
 msgid "metadata.property.displayName.coden"
 msgstr "CODEN"
 
 msgid "metadata.property.validationMessage.coden"
-msgstr "لطفاً CODEN را وارد کنید"
+msgstr "لطفاً CODEN را وارد کنید."
 
 msgid "metadata.property.displayName.sici"
 msgstr "SICI"
 
 msgid "metadata.property.validationMessage.sici"
-msgstr "لطفاً SICI را وارد کنید"
+msgstr "لطفاً SICI را وارد کنید."
 
 msgid "metadata.property.displayName.pmid"
 msgstr "PMID"
 
 msgid "metadata.property.validationMessage.pmid"
-msgstr "لطفاً PMID را وارد کنید"
+msgstr "لطفاً PMID را وارد کنید."
 
 msgid "metadata.property.displayName.uri"
 msgstr "لینک به چاپ"
 
 msgid "metadata.property.validationMessage.uri"
-msgstr "لطفاً لینک به صفحه چاپ را وارد کنید"
+msgstr "لطفاً لینک جایگزین به صفحه چاپ را وارد کنید."
 
 msgid "metadata.property.displayName.comment"
 msgstr "نظرات"
 
 msgid "metadata.property.validationMessage.comment"
-msgstr "لطفاً توضیح را وارد کنید"
+msgstr "لطفاً توضیح را وارد کنید."
 
 msgid "metadata.property.displayName.annotation"
 msgstr "یادداشت"
 
 msgid "metadata.property.validationMessage.annotation"
-msgstr "لطفاً یادداشت را وارد کنید"
+msgstr "لطفاً یادداشت را وارد کنید."
 
 msgid "metadata.property.displayName.publication-type"
 msgstr "نوع نشر"
@@ -309,7 +322,7 @@ msgid "metadata.property.validationMessage.title-type"
 msgstr "لطفاً یک نوع عنوان معتبر وارد کنید، که می‌تواند شامل: \"خلاصه\"، \"ترجمه\"، \"جایگزین\" و یا \"یکنواخت\" باشد."
 
 msgid "metadata.property.displayName.nonSort"
-msgstr "قسمتی از عنوان که در زمان مرتب‌سازی نادیده گرفته می‌شود."
+msgstr "قسمتی از عنوان که در زمان مرتب‌سازی نادیده گرفته می‌شود"
 
 msgid "metadata.property.validationMessage.nonSort"
 msgstr "لطفاً تنها کاراکترهای آغازین عنوان را که در زمان مرتب‌سازی بایستی نادیده گرفته شوند وارد کنید."
@@ -318,31 +331,33 @@ msgid "metadata.property.displayName.title"
 msgstr "عنوان"
 
 msgid "metadata.property.validationMessage.title"
-msgstr "لطفاً یک عنوان معتبر وارد کنید"
+msgstr "لطفاً یک عنوان معتبر وارد کنید."
 
 msgid "metadata.property.displayName.subTitle"
 msgstr "زیر عنوان"
 
 msgid "metadata.property.validationMessage.subTitle"
-msgstr "لطفاً یک زیر عنوان معتبر وارد کنید"
+msgstr "لطفاً یک زیرعنوان معتبر وارد کنید."
 
 msgid "metadata.property.displayName.partNumber"
 msgstr "شماره قطعه"
 
 msgid "metadata.property.validationMessage.partNumber"
-msgstr "لطفاً یک شماره قطعه معتبر وارد کنید"
+msgstr "لطفاً یک شماره قطعه معتبر وارد کنید."
 
 msgid "metadata.property.displayName.partName"
 msgstr "نام قطعه"
 
 msgid "metadata.property.validationMessage.partName"
-msgstr "لطفاً یک نام قطعه معتبر وارد کنید"
+msgstr "لطفاً یک نام قطعه معتبر وارد کنید."
 
 msgid "metadata.property.displayName.name-type"
 msgstr "نوع نام"
 
 msgid "metadata.property.validationMessage.name-type"
-msgstr "یک نوع برای نام خود وارد کنید. این نوع می‌تواند: \"حقیقی\"، \"سازمانی\" یا \"کنفرانس\" باشد"
+msgstr ""
+"یک نوع برای نام خود وارد کنید. این نوع می‌تواند «حقیقی»، «سازمانی» یا "
+"«کنفرانس» باشد."
 
 msgid "common.queue.long.submissionsUnassigned"
 msgstr "انتساب نشده"
@@ -363,16 +378,16 @@ msgid "submission.authorBiographies"
 msgstr "بیوگرافی نویسندگان"
 
 msgid "submission.authorWithAffiliation"
-msgstr "{$name}, {$affiliation}"
+msgstr "{$name}، {$affiliation}"
 
 msgid "submission.shortAuthor"
-msgstr "{$author} و سایر همکاران."
+msgstr "{$author} و همکاران"
 
 msgid "submission.mySubmissions"
-msgstr "نوشته های من"
+msgstr "نوشته‌های من"
 
 msgid "submission.addFile"
-msgstr "اضافه کردن فایل"
+msgstr "بارگزاری فایل"
 
 msgid "submission.agencies"
 msgstr "آژانسها"
@@ -381,13 +396,13 @@ msgid "submission.abstractViews"
 msgstr "مشاهده چکیده"
 
 msgid "submission.accepted"
-msgstr "پذیرش"
+msgstr "پذیرفته‌شده"
 
 msgid "submission.acknowledge"
 msgstr "تشکر"
 
 msgid "submission.addSuppFile"
-msgstr "اضافه کردن فایل مکمل"
+msgstr "افزودن فایل مطالب تکمیلی"
 
 msgid "submission.ask"
 msgstr "درخواست"
@@ -396,7 +411,7 @@ msgid "submission.attachedFile"
 msgstr "فایل ضمیمه"
 
 msgid "submission.backToSubmissionEditing"
-msgstr "بازگشت به صفحه ویرایش مقاله ارسالی"
+msgstr "بازگشت به صفحه ویرایش مقاله"
 
 msgid "submission.changeComments"
 msgstr "تغییر بده به"
@@ -624,7 +639,7 @@ msgid "submission.citations.metadata.changeWarning"
 msgstr "آیا مطمئن هستید که می خواهید لیست ارجاعات را بروز رسانی کنید؟ در صورت کلیک بر روی تایید تمام تغییرات دبیر از بین می رود. اگر مطمئن نیستید با دبیر تماس بگیرید."
 
 msgid "submission.comments.addComment"
-msgstr "اضافه کردن نقطه نظر"
+msgstr "افزودن نظر"
 
 msgid "submission.comments.comments"
 msgstr "نظرات"
@@ -636,7 +651,7 @@ msgid "submission.comments.corrections"
 msgstr "اصلاحات"
 
 msgid "submission.comments.editComment"
-msgstr "ویرایش نقطه نظر"
+msgstr "ویرایش نظر"
 
 msgid "submission.comments.importPeerReviews"
 msgstr "درج نظرات داوران"
@@ -723,7 +738,7 @@ msgid "submission.event.backToEventLog"
 msgstr "بازگشت به سابقه رویدادها"
 
 msgid "submission.event.confirmClearLog"
-msgstr "آیا میخواهید سوابق رویدادهای این مقاله ارسال را حذف کنید."
+msgstr "آیا می‌خواهید سوابق رویدادهای این مقاله را حذف کنید؟"
 
 msgid "submission.event.confirmDeleteLogEntry"
 msgstr "آیا میخواهید این سابقه رویداد را از لیست حذف کنید؟"
@@ -738,10 +753,10 @@ msgid "submission.event.fileRevised"
 msgstr "اصلاحات \"{$name}\" (با شناسه فایل {$fileId}-{$fileRevision}) آپلود شد."
 
 msgid "submission.event.general.metadataUpdated"
-msgstr "فراداده ارسال شده به روز رسانی شد."
+msgstr "فراداده ارسال شده به روز رسانی شد"
 
 msgid "submission.event.general.suppFileUpdated"
-msgstr "فایل ارسال شده به روز رسانی شد."
+msgstr "فایل ارسال شده به روز رسانی شد"
 
 msgid "submission.event.reviewer.reviewAcceptedByProxy"
 msgstr "داوری به وسیله پروکسی مورد قبول واقع شد"
@@ -750,7 +765,7 @@ msgid "submission.event.reviewer.reviewAccepted"
 msgstr "انجام داوری مورد قبول واقع شد"
 
 msgid "submission.event.reviewer.reviewDeclined"
-msgstr "از انجام داوری خود داری شد."
+msgstr "از انجام داوری خودداری شد"
 
 msgid "submission.event.reviewer.reviewDueDate"
 msgstr "مهلت داوری تعیین شد"
@@ -783,7 +798,7 @@ msgid "submission.event.reviewer.reviewRevision"
 msgstr "نسخه داوری"
 
 msgid "submission.event.subjectPrefix"
-msgstr "یک ایمیل ارسال شده است"
+msgstr "یک ایمیل ارسال شده است:"
 
 msgid "submission.event.viewEmail"
 msgstr "نمایش ایمیل"
@@ -804,7 +819,7 @@ msgid "submission.history"
 msgstr "سوابق"
 
 msgid "submission.history.noLogEntries"
-msgstr "هیج سابقه ای وجود ندارد"
+msgstr "هیج سابقه ای وجود ندارد."
 
 msgid "submission.history.recentLogEntries"
 msgstr "سوابق اخیر"
@@ -837,7 +852,7 @@ msgid "submission.identifiers"
 msgstr "شناسه ها"
 
 msgid "submission.publisherId"
-msgstr "شناسه عمومی URL"
+msgstr "شناسه ناشر"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "اطلاعات مقاله ارسالی"
@@ -927,7 +942,7 @@ msgid "submission.layout.layoutFile"
 msgstr "فایل صفحه‌آرا"
 
 msgid "submission.layout"
-msgstr " صفحه‌آرایی"
+msgstr "صفحه‌آرایی"
 
 msgid "submission.layout.layoutVersion"
 msgstr "نسخه صفحه‌آرا"
@@ -951,16 +966,16 @@ msgid "submission.layout.viewProof"
 msgstr "مشاهده نسخه بازبینی"
 
 msgid "submission.metadata"
-msgstr "فراداده "
+msgstr "فراداده مقاله ارسالی"
 
 msgid "submission.noReviewAssignments"
 msgstr "داوری منتسب نشده است"
 
 msgid "submission.notes.addNewNote"
-msgstr "اضافه کردن یادداشت جدید"
+msgstr "افزودن یادداشت جدید"
 
 msgid "submission.notes.attachedFile"
-msgstr "ضمیمه فایل "
+msgstr "ضمیمه فایل"
 
 msgid "submission.notes.backToSubmissionNotes"
 msgstr "بازگشت به یادداشتهای ارسال شده"
@@ -1113,7 +1128,7 @@ msgid "submission.submission"
 msgstr "مقاله ارسالی"
 
 msgid "submission.submissionTitle"
-msgstr "عنوان مقاله مقاله ارسالی"
+msgstr "عنوان مقاله ارسالی:"
 
 msgid "submission.start"
 msgstr "شروع"
@@ -1143,10 +1158,10 @@ msgid "submission.submit.fileAdded"
 msgstr "فایل شما با موفقیت اضافه شد"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "این پدیدآورنده در فهرست پدید آورندگان نمایش داده شود"
+msgstr "آیا این پدیدآورنده در فهرست پدیدآورندگان نمایش داده شود؟"
 
 msgid "submission.submit.newFile"
-msgstr "اضافه کردن فایل جدید"
+msgstr "افزودن فایل جدید"
 
 msgid "submission.submit.metadataForm"
 msgstr "پالایش بیشتر"
@@ -1314,7 +1329,7 @@ msgid "submission.upload.uploadNewFile"
 msgstr "این فایل نسخه اصلاحی فایل موجود نیست"
 
 msgid "submission.upload.userGroup"
-msgstr "این فایل تحت کدام نقش ثبت شود؟"
+msgstr "بارگزاری این فایل تحت عنوان نقش …"
 
 msgid "submission.upload.userGroupDescription"
 msgstr "اگر د رحال ثبت شماره ویراش شده هستید، باید تمامی فصل های این شماره را به صورت جداگانه آپلود کنید."
@@ -1446,7 +1461,9 @@ msgid "editor.submission.decision.approveProofs"
 msgstr "تأیید نسخه بازبینی نهایی"
 
 msgid "editor.submission.decision.disapproveProofsDescription"
-msgstr "این نسخه بازبینی نهایی دیگر برای دانلود و یا خرید در دسترس نخواهد بود. آیا می‌خواهید این نسخه را لغو تأیید کنید."
+msgstr ""
+"این نسخه بازبینی نهایی دیگر برای دانلود یا خرید در دسترس نخواهد بود. آیا می‌"
+"خواهید پذیرش این نسخه را لغو کنید؟"
 
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "یک دبیر انتساب کنید تا اتخاذ تصمیم برای این مرحله قابل اجرا باشد"
@@ -1467,7 +1484,7 @@ msgid "editor.submission.recommendation"
 msgstr "توصیه"
 
 msgid "editor.submission.recommendation.description"
-msgstr "توصیه یک تصمیم برای این مقاله ارسالی "
+msgstr "یک تصمیم برای این مقاله ارسالی ثبت کنید."
 
 msgid "editor.submission.recordedRecommendations"
 msgstr "توصیه‌های ثبت شده"
@@ -1581,7 +1598,7 @@ msgid "notification.type.editorAssignment"
 msgstr "باید قبل از آغاز روند داوری سردبیر مشخص شود. لطفاً با استفاده از گزینه بالا یک سردبیر بی افزایید."
 
 msgid "grid.reviewAttachments.title"
-msgstr "فایل‌های ضمیمه داوری "
+msgstr "فایل‌های ضمیمه داور"
 
 msgid "grid.reviewAttachments.send.title"
 msgstr "انتخاب فایل‌های داوری برای اشتراک گداری با نویسنده(گان)"
@@ -1647,7 +1664,7 @@ msgid "submission.supplementary.sponsor"
 msgstr "مراکز مشارکت کننده یا حمایت کننده"
 
 msgid "grid.action.itemWorkflow"
-msgstr "رفتن به گردش کار این مقاله "
+msgstr "رفتن به گردش کار این مقاله"
 
 msgid "notification.type.editorDecisionSendToProduction"
 msgstr "پروسه انتشار آغاز شد."
@@ -1656,7 +1673,9 @@ msgid "notification.type.editorAssignmentProduction"
 msgstr "قبل از شروع روند انتشار باید یک دبیر تولید انتساب داده شود. می‌توانید از قسمت افزودن لینک یک دبیر تولید را به همکاران بی افزایید."
 
 msgid "notification.type.editorAssignmentEditing"
-msgstr "قبل از شروع روند داوری باید یک دبیر تولید انتساب داده شود. می‌توانید از قسمت افزودن لینک یک دبیر تولید را به همکاران بی افزایید.  "
+msgstr ""
+"قبل از شروع روند داوری باید یک دبیر تولید انتساب داده شود. می‌توانید از قسمت "
+"افزودن لینک یک دبیر تولید را به همکاران بی افزایید."
 
 msgid "submission.reviewForm"
 msgstr "فرم داوری"
@@ -1674,7 +1693,7 @@ msgid "submission.permissions"
 msgstr "مجوز ها"
 
 msgid "submission.attachPermissions"
-msgstr "مجوز های زیر به مقاله اضافه شود"
+msgstr "مجوزهای زیر به مقاله اضافه شود:"
 
 msgid "submission.license"
 msgstr "مجوز"
@@ -1819,3 +1838,48 @@ msgstr "باز کردن یک گفتگو"
 
 msgid "submission.list.incompleteSubmissionNotice"
 msgstr "ارسال مقاله باید تکمیل شود تا دبیر بتواند آن را برای داوری ارسال کند."
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} / {$title}"
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "استخراج و ذخیره‌سازی فهرست مراجع"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"فهرست مراجع زیر از مقاله استخراج شده است و با مشخصات مقاله ارتباط داده "
+"خواهند شد."
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.additionalFiles"
+msgstr "فایل‌های دیگر"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "چکیده"
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr ""
+"اگر می‌خواهید امکان ویرایش یا انتشار این مقاله برای شما فراهم باشد، با یکی "
+"از نقش‌های زیر مقاله را ارسال کنید: {$managerGroups}"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "بله، مایلم در مورد این مقاله با من تماس گرفته شود."
+
+msgid "submission.submit.contactConsent"
+msgstr "نویسنده مسئول"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr ""
+"نقشی را که بهتر از بقیه نوع مشارکت شما در این مقاله را توصیف می‌کند انتخاب "
+"کنید."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "ارسال به عنوان"
+
+msgid "author.publicationNotFound"
+msgstr "مقاله منتشرشده‌ای برای این نویسنده پیدا نشد."
+
+msgid "author.editPublishedDisabled"
+msgstr "این مقاله منتشر شده است و ویرایش نویسندگان این مقاله مقدور نیست."

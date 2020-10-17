@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2020-03-18 12:36+0000\n"
+"PO-Revision-Date: 2020-10-14 12:50+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
-"fi/>\n"
+"fi_FI/>\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -138,7 +138,9 @@ msgid "common.alphaList"
 msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Å Ä Ö"
 
 msgid "common.titleSmallWords"
-msgstr "of a the and an or nor but is if then else when at from by on off for in out over to into with"
+msgstr ""
+"että jotta koska kun jos vaikka kuin kunnes kuten mutta vaan paitsi tai vai "
+"ja sekä"
 
 msgid "common.alreadyAssigned"
 msgstr "Valittu"
@@ -741,7 +743,7 @@ msgid "common.yes"
 msgstr "Kyllä"
 
 msgid "common.loading"
-msgstr "Ladataan..."
+msgstr "Ladataan"
 
 msgid "common.plugins"
 msgstr "Lisäosat"
@@ -1293,7 +1295,7 @@ msgid "search.noResults"
 msgstr "Ei tuloksia"
 
 msgid "search.operator.and"
-msgstr "and"
+msgstr "ja"
 
 msgid "search.operator.not"
 msgstr "not"
@@ -1302,7 +1304,7 @@ msgid "search.operator.or"
 msgstr "or"
 
 msgid "search.SearchFor"
-msgstr "Hae..."
+msgstr "Hae"
 
 msgid "search.searchResults"
 msgstr "Hakutulokset"
@@ -1513,13 +1515,13 @@ msgid "semicolon"
 msgstr "{$label}:"
 
 msgid "notification.editedNavigationMenuItem"
-msgstr "Navigaatiovalikko päivitettiin onnistuneesti."
+msgstr "Navigaatiovalikko päivitettiin onnistuneesti"
 
 msgid "notification.removedNavigationMenuItem"
-msgstr "Navigaatiovalikon kohde poistettiin onnistuneesti."
+msgstr "Navigaatiovalikon kohde poistettiin onnistuneesti"
 
 msgid "notification.addedNavigationMenuItem"
-msgstr "Navigaatiovalikon kohde lisättiin onnistuneesti."
+msgstr "Navigaatiovalikon kohde lisättiin onnistuneesti"
 
 msgid "notification.addedNavigationMenu"
 msgstr "Navigaatiovalikko lisättiin onnistuneesti"
@@ -1573,10 +1575,10 @@ msgid "notification.type.reviewAssignmentUpdated"
 msgstr "Arviointipyyntö päivitetty."
 
 msgid "common.commaListSeparator"
-msgstr ","
+msgstr ", "
 
 msgid "common.semicolonListSeparator"
-msgstr ";"
+msgstr "; "
 
 msgid "email.compose.error"
 msgstr "Sähköpostin lähetyksessä tapahtui virhe. Ole hyvä ja yritä uudelleen tai ota yhteyttä sivuston ylläpitäjään."
@@ -1941,3 +1943,12 @@ msgstr ""
 "Kuvaile kuva käyttäjille, jotka katsovat sivustoa tekstipohjaisella "
 "verkkoselaimella. Esimerkiksi \"Toimittajamme puhumassa PKP:n konferenssissa."
 "\""
+
+msgid "navigation.skip.description"
+msgstr "Siirry sisältölinkkeihin"
+
+msgid "common.moreThanOnly"
+msgstr "Enemmän kuin"
+
+msgid "common.lessThanOnly"
+msgstr "Vähemmän kuin"

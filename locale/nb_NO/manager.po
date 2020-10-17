@@ -1751,3 +1751,12 @@ msgid "manager.navigationMenus.form.duplicatePath"
 msgstr ""
 "Denne stien eksisterer allerede i forbindelse med et annet "
 "navigasjonsmenyelement."
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "En navigasjonsmeny er allerede tildelt dette området."
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Velg et navigasjonsområde"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Aktive temanavigasjonsområder"

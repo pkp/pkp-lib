@@ -214,11 +214,11 @@ class UserGroupDAO extends DAO {
 	 * Get a single default user group with a particular roleId
 	 * @param $contextId int Context ID
 	 * @param $roleId int ROLE_ID_...
+	 * @return UserGroup|false
 	 */
 	function getDefaultByRoleId($contextId, $roleId) {
 		$allDefaults = $this->getByRoleId($contextId, $roleId, true);
-		if ($allDefaults->eof()) return false;
-		return $allDefaults->next();
+		return $allDefaults->next() ?? false;
 	}
 
 	/**

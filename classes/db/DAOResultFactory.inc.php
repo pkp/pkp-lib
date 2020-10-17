@@ -132,18 +132,6 @@ class DAOResultFactory extends ItemIterator {
 	}
 
 	/**
-	 * Clean up the record set.
-	 * This is called aggressively because it can free resources.
-	 */
-	function close() {
-		if ($this->records) {
-			$this->records->close();
-			unset($this->records);
-			$this->records = null;
-		}
-	}
-
-	/**
 	 * Convert this iterator to an array.
 	 * @return array
 	 */
@@ -167,11 +155,7 @@ class DAOResultFactory extends ItemIterator {
 	 */
 	function toAssociativeArray($idField = 'id') {
 		$returner = [];
-		while (!$this->eof()) {
-			$result = $this->next();
-			$returner[$result->getData($idField)] = $result;
-			unset($result);
-		}
+		while ($row = $this->next()) $returner[$row->getData($idField)] = $row;
 		return $returner;
 	}
 }

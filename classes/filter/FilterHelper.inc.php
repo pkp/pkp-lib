@@ -110,7 +110,7 @@ class FilterHelper {
 
 			// There can be a maximum of exactly one identical transformation
 			// in the database otherwise we've somehow installed a duplicate filter.
-			assert($count($similarFilters) <= 1);
+			assert(count($similarFilters) <= 1);
 
 			// If the filter has been installed before then return the existing filter.
 			if (count($similarFilters) == 1) {

@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2020-10-17 09:50+0000\n"
-"Last-Translator: Tom Granroth <tom.granroth@tsv.fi>\n"
+"PO-Revision-Date: 2020-10-19 09:01+0000\n"
+"Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi_FI/>\n"
 "Language: fi_FI\n"
@@ -1917,3 +1917,117 @@ msgstr ""
 msgid "manager.setup.metadata.disciplines.request"
 msgstr ""
 "Kysy kirjoittajalta tieteenalatietoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Arvioinnin jälkeinen hylkäysaste"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Arviointia edeltävä hylkäysaste"
+
+msgid "stats.name.declineRate"
+msgstr "Hylkäysaste"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Hyväksymisaste"
+
+msgid "stats.name.daysToReject"
+msgstr "Aikaa hylkäämiseen (pv)"
+
+msgid "stats.name.daysToAccept"
+msgstr "Aikaa hyväksymiseen (pv)"
+
+msgid "stats.name.daysToDecision"
+msgstr "Aikaa ensimmäiseen päätökseen (pv)"
+
+msgid "stats.fileViews"
+msgstr "Tiedostolatauksia"
+
+msgid "stats.editorialActivity"
+msgstr "Toimituksellinen toiminta"
+
+msgid "stats.descriptionForStat"
+msgstr "{$stat}:n kuvailutieto"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Päivien lukumäärä, jonka kuluessa useimmat julkaisut saavat päätöksen, kuten "
+"hylkääminen tai lähetä arvioitavaksi.<br /><br />Arvo ilmaisee, että 80% "
+"käsikirjoituksista on saanut päätöksen kyseisen päivälukeman aikana.<br /><"
+"br />Tilasto kuvailee ajanjaksoa, jonka aikana käsikirjoituksen lähettäneet "
+"kirjoittajat voivat olettaa saavansa  päätöksen."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Prosenttiluku valitulle ajanjaksolle lasketaan lähetettyjen ja lopullisen "
+"päätöksen saaneiden käsikirjoitusten määrästä.<br /><br />Esimerkkinä "
+"tilanne, jossa aikavälillä on kymmenen käsikirjoitusta. Näistä on neljä "
+"hyväksyttyä, neljä hylättyä ja kaksi odottaa lopullista päätöstä. "
+"Hyväksymisprosenttiluku on silloin 50% (neljä kahdeksasta käsikirjoituksesta)"
+" koska kahta, jotka odottavat vielä lopullista päätöstä, ei oteta huomioon."
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Yhtä päivämäärää ei löydy."
+
+msgid "stats.dateRange.customRange"
+msgstr "Mukautettu väli"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Vaadi kirjoittajalta viitetietoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr ""
+"Kysy kirjoittajalta viitetietoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta viiitetietoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Ota viitteitä koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Kerää käsikirjoituksen viittausohjeet erilliseen kenttään. Tätä tarvitaan "
+"lähdeviitteiden seurantapalvelujen, kuten Crossrefin, tarpeisiin."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Vaadi kirjoittajalta tietoja rahoittajista käsikirjoituksen lähetyksen "
+"yhteydessä."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Kysy kirjoittajalta tietoja rahoittajista käsikirjoituksen lähetyksen "
+"yhteydessä."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta tietoja rahoittajista käsikirjoituksen lähetyksen "
+"yhteydessä."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Mitkä tutkimusrahastot tai -säätiöt ovat tukeneet tutkimuksen toteutumista."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta tieteenaloja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Ota tieteenaloja koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Tieteenalat ovat yliopiston tiedekuntien ja tieteellisten seurojen kuvaamia "
+"tutkimusaloja tai tieteenhaaroja."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Ota tyyppiä koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Julkaisun lajityyppi. Yleensä teksti (Text), mutta voi olla myös tietojoukko "
+"(dataset), kuva (Image) tai jokin <a target=\"_blank\" href=\""
+"https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#section-7\""
+">Dublin Coren tyyppisanastosta</a>."

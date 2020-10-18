@@ -17,40 +17,49 @@ namespace APP\Services;
 class StatsEditorialService extends \PKP\Services\PKPStatsEditorialService {
 
 	/**
-	 * Initialize hooks for extending PKPStatsEditorialService
+	 * Get overview of key editorial stats
+	 *
+	 * @copydoc PKPStatsEditorialService::getOverview()
 	 */
-	public function __construct() {
-		\HookRegistry::register('EditorialStats::overview', array($this, 'modifyOverview'));
+	public function getOverview($args = []) {
+		import('classes.workflow.EditorDecisionActionsManager');
+		import('lib.pkp.classes.submission.PKPSubmission');
+		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
+
+		$received = $this->countSubmissionsReceived($args);
+		$accepted = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
+		$declinedDesk = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
+		$declinedReview = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_DECLINE, $args);
+		$declined = $declinedDesk + $declinedReview;
+
+		$overview = [
+			[
+				'key' => 'submissionsReceived',
+				'name' => 'stats.name.submissionsReceived',
+				'value' => $received,
+			],
+			[
+				'key' => 'submissionsAccepted',
+				'name' => 'stats.name.submissionsAccepted',
+				'value' => $accepted,
+			],
+			[
+				'key' => 'submissionsDeclined',
+				'name' => 'stats.name.submissionsDeclined',
+				'value' => $declined,
+			],
+			[
+				'key' => 'submissionsPublished',
+				'name' => 'stats.name.submissionsPublished',
+				'value' => $this->countSubmissionsPublished($args),
+			],
+		];
+
+		\HookRegistry::call('EditorialStats::overview', [&$overview, $args]);
+
+		return $overview;
 	}
 
-	/**
-	 * Collect and sanitize request params for submissions API endpoint
-	 *
-	 * @param $hookName string
-	 * @param $args array [
-	 *		@option array $overview
-	 *		@option array args
-	 * ]
-	 *
-	 * @return array
-	 */
-	public function modifyOverview($hookName, $args) {
-		$overview =& $args[0];
-
-		// Remove statistics not used with OPS
-		$removeKeys = [];
-		foreach ($overview as $key => $item) {
-			if (in_array($item['key'], ['submissionsAccepted','submissionsDeclinedPostReview', 'submissionsDeclinedDeskReject', 'daysToDecision', 'daysToAccept', 'daysToReject', 'declinedDeskRate', 'declinedReviewRate'])) {
-				$removeKeys[] = $key;
-			}
-		}
-
-		foreach ($removeKeys as $key) {
-			unset($overview[$key]);
-		}
-		// Reset keys
-		$overview = array_values($overview);
-	}
 
 	/**
 	 * Process the sectionIds param when getting the query builder

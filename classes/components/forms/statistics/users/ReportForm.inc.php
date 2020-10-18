@@ -13,7 +13,6 @@
  */
 namespace PKP\components\forms\statistics\users;
 use \PKP\components\forms\{FormComponent, FieldOptions};
-use \PKP\User\Report\Mappings;
 
 class ReportForm extends FormComponent {
 	/**
@@ -44,19 +43,6 @@ class ReportForm extends FormComponent {
 			'default' => array_map(function ($userGroup) {
 				return $userGroup->getId();
 			}, $userGroups)
-		]));
-
-		$mappingGroups = [
-			['value' => Mappings\Notifications::class, 'label' => __('notification.notifications')],
-			['value' => Mappings\UserGroups::class, 'label' => __('manager.roles')]
-		];
-		$this->addField(new FieldOptions('mappings', [
-			'groupId' => 'default',
-			'label' => __('common.export'),
-			'options' => $mappingGroups,
-			'default' => array_map(function ($mappingGroup) {
-				return $mappingGroup['value'];
-			}, $mappingGroups)
 		]));
 	}
 }

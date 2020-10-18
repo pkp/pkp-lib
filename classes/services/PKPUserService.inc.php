@@ -22,7 +22,7 @@ use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\QueryBuilders\PKPUserQueryBuilder;
-use \PKP\User\Report\{Report, Mappings};
+use \PKP\User\Report;
 
 class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
@@ -391,16 +391,6 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 						}
 					}
 					break;
-				case 'notifications':
-					$values[$prop] = null;
-					if ($context) {
-						$notificationSubscriptionSettingsDao = \DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
-						$values[$prop] = [
-							'notifications' => $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(\NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY, $user->getId(), $context->getId()),
-							'emailNotifications' => $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(\NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY, $user->getId(), $context->getId())
-						];
-					}
-					break;
 			}
 
 			$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_USER, $values, $context->getSupportedFormLocales());
@@ -628,9 +618,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 *
 	 * @param array $args
 	 *		@option int contextId Context ID (required)
-	 *		@option string[] mappings List of standard mappings to include (default mappings are always included)
 	 *		@option int[] userGroupIds List of user groups (all groups by default)
-	 *		@option \PKP\User\Report\SerializerInterface serializer The report serializer (CSV by default)
 	 * @return Report
 	 */
 	public function getReport(array $args): Report
@@ -639,13 +627,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			'userGroupIds' => $args['userGroupIds'] ?? null,
 			'contextId' => $args['contextId']
 		]);
-		$report = new Report($dataSource, $args['serializer'] ?? new \PKP\User\Report\Serializer\CSV(), false);
-		$mappings = array_unique(array_merge([Mappings\Standard::class], $args['mappings'] ?? []));
-		foreach ($mappings as $mapping) {
-			if (class_exists($mapping)) {
-				new $mapping($report);
-			}
-		}
+		$report = new Report($dataSource);
 
 		\HookRegistry::call('User::getReport', $report);
 

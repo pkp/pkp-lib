@@ -89,7 +89,7 @@
 			if (!this.hasElementInFocus_()) {
 				this.hidePopover_();
 			}
-		}), 0);
+		}), 100);
 
 		return true;
 	};

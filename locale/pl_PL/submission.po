@@ -314,9 +314,6 @@ msgstr "Zaakceptowany"
 msgid "submission.acknowledge"
 msgstr "Potwierdzenie"
 
-msgid "submission.addSuppFile"
-msgstr "Dodaj plik pomocniczy"
-
 msgid "submission.ask"
 msgstr "Zapytaj"
 
@@ -503,9 +500,6 @@ msgstr "Czy na pewno chcesz usunąć szablon pliku do publikacji?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Czy na pewno chcesz usunąć obraz pliku do publikacji?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Czy na pewno chcesz usunąć plik pomocniczy?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Usuń styl."
 
@@ -563,14 +557,8 @@ msgstr "Wersja szablonu"
 msgid "submission.layout.newGalley"
 msgstr "Utwórz wersję do publikacji"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Prześlij plik pomocniczy"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Szablon stylów nie został dodany."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Recenzja pliku pomocniczego"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Przeglądanie plików do publikacji"
@@ -737,9 +725,6 @@ msgstr "Przesyłający"
 msgid "submission.summary"
 msgstr "Podsumowanie"
 
-msgid "submission.supplementaryFiles"
-msgstr "Pliki dodatkowe"
-
 msgid "submission.supportingAgencies"
 msgstr "Instytucje finansujące"
 
@@ -902,8 +887,9 @@ msgstr "Zakończono wstępne zgłoszenie."
 msgid "submission.event.fileUploaded"
 msgstr "Plik \"{$originalFileName}\" został przesłany do zgłoszenia {$submissionId} przez {$username}."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Wersja \"{$name}\" (ID {$fileId}-{$fileRevision}) została przesłana."
+msgstr "Wersja \"{$name}\" (ID {$submissionFileId}) została przesłana."
 
 msgid "submission.event.participantAdded"
 msgstr "{$name} ({$username}) został przypisany do zgłoszenia jako {$userGroupName}."
@@ -1108,9 +1094,6 @@ msgstr "Prześlij plik"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Prześlij plik do korekty"
-
-msgid "submission.upload.fairCopy"
-msgstr "Prześlij wersję po wszystkich zmianach (czystopis)"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Prześlij pliki"

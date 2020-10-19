@@ -155,7 +155,7 @@ class PKPPublicIdentifiersForm extends Form {
 		$publisherId = $this->getData('publisherId');
 		$pubObjectId = $pubObject->getId();
 		if ($assocType == ASSOC_TYPE_SUBMISSION_FILE) {
-			$pubObjectId = $pubObject->getFileId();
+			$pubObjectId = $pubObject->getId();
 		}
 		$contextDao = Application::getContextDAO();
 		if ($publisherId) {

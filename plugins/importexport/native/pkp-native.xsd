@@ -85,30 +85,37 @@
 
 	<complexType name="submission_file">
 		<sequence>
-			<element name="revision" minOccurs="1" maxOccurs="unbounded" >
+			<element name="creator" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="description" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+			<element name="publisher" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="source" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="sponsor" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="subject" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="submission_file_ref" type="pkp:submission_file_ref" minOccurs="0" maxOccurs="1" />
+			<element name="file" minOccurs="1" maxOccurs="unbounded">
 				<complexType>
 					<sequence>
-						<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded" />
-						<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
-						<element name="submission_file_ref" type="pkp:submission_file_ref" minOccurs="0" maxOccurs="1" />
 						<group ref="pkp:fileContents" />
 					</sequence>
-					<attribute name="direct_sales_price" type="decimal" />
-					<attribute name="number" type="int" use="required" />
-					<attribute name="source" type="normalizedString" />
-					<attribute name="filename" type="normalizedString" use="required" />
-					<attribute name="viewable" type="boolean" />
-					<attribute name="date_uploaded" type="date" />
-					<attribute name="date_modified" type="date" />
-					<attribute name="uploader" type="pkp:username" />
-					<attribute name="genre" type="normalizedString" />
+					<attribute name="id" type="int" />
 					<attribute name="filesize" type="int" />
-					<attribute name="filetype" type="normalizedString" use="required" />
+					<attribute name="extension" type="string" />
 				</complexType>
 			</element>
-			<element name="salesType" minOccurs="0" maxOccurs="1" />
 		</sequence>
-		<attribute name="id" type="normalizedString" />
+		<attribute name="caption" type="string" />
+		<attribute name="copyright_owner" type="string" />
+		<attribute name="created_at" type="date" />
+		<attribute name="credit" type="string" />
+		<attribute name="date_created" type="string" />
+		<attribute name="direct_sales_price" type="decimal" />
+		<attribute name="fileId" type="int" />
+		<attribute name="genre" type="normalizedString" />
+		<attribute name="id" type="int" />
+		<attribute name="language" type="string" />
+		<attribute name="sales_type" type="int" />
+		<attribute name="source_submission_file_id" type="int" />
 		<attribute name="stage">
 			<simpleType>
 				<restriction base="string">
@@ -130,12 +137,15 @@
 				</restriction>
 			</simpleType>
 		</attribute>
+		<attribute name="terms" type="string" />
+		<attribute name="updated_at" type="date" />
+		<attribute name="uploader" type="pkp:username" />
+		<attribute name="viewable" type="boolean" />
 	</complexType>
 
 	<!-- A reference to a submission file that is declared elsewhere -->
 	<complexType name="submission_file_ref">
-		<attribute name="id" type="normalizedString" />
-		<attribute name="revision" type="int" />
+		<attribute name="id" type="int" />
 	</complexType>
 
 	<!--

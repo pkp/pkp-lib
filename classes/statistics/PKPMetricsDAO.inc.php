@@ -354,13 +354,12 @@ class PKPMetricsDAO extends DAO {
 		switch($assocType) {
 			case ASSOC_TYPE_SUBMISSION_FILE:
 			case ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER:
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-				$submissionFile = $submissionFileDao->getLatestRevision($assocId);
+				$submissionFile = Services::get('submissionFile')->get($assocId);
 				if ($submissionFile) {
 					$isFile = true;
-					$submissionId = $submissionFile->getSubmissionId();
-					if ($submissionFile->getAssocType() == ASSOC_TYPE_REPRESENTATION) {
-						$representationId = $submissionFile->getAssocId();
+					$submissionId = $submissionFile->getData('submissionId');
+					if ($submissionFile->getData('assocType') == ASSOC_TYPE_REPRESENTATION) {
+						$representationId = $submissionFile->getData('assocId');
 					} else {
 						throw new Exception('Cannot load record: submission file is not associated with a representation object.');
 					}

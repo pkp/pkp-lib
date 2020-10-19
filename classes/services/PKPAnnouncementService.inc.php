@@ -17,7 +17,6 @@ namespace PKP\Services;
 use \Core;
 use \DAOResultFactory;
 use \DAORegistry;
-use \DBResultRange;
 use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
@@ -52,7 +51,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMany()
 	 */
-	public function getMany($args = null) {
+	public function getMany($args = []) {
 		$range = null;
 		if (isset($args['count'])) {
 			import('lib.pkp.classes.db.DBResultRange');
@@ -81,6 +80,9 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 		return (int) $this->getQueryBuilder($args)->getCount();
 	}
 
+	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
+	 */
 	public function getQueryBuilder($args = []) {
 
 		$defaultArgs = [

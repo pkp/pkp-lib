@@ -645,9 +645,6 @@ msgstr "Restringir resultados por país, região e / ou cidade."
 msgid "manager.setup.competingInterests"
 msgstr "Conflito de Interesses"
 
-msgid "manager.setup.groupType"
-msgstr "Agrupamento por tipo de arquivo"
-
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
 msgstr "Número de semanas para aceitar ou recusar um convite de avaliação."
 
@@ -1117,14 +1114,8 @@ msgstr "Informe a URL da página da licença, se disponível."
 msgid "manager.setup.metadata.submission"
 msgstr "Formulário de Submissão"
 
-msgid "manager.setup.genres.dependent"
-msgstr "Marque os arquivos deste tipo como arquivos dependentes (por exemplo, não submissões primárias)"
-
 msgid "manager.reviewerSearch.change"
 msgstr "Mudar"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Marcar arquivos deste tipo como arquivos suplementares (por exemplo conteúdos que não sejam primários à submissão)"
 
 msgid "manager.reviewForms.confirmActivate"
 msgstr "Ter certeza que deseja ativar este formulário de avaliação? Uma vez designado a um avaliador você não poderá mais desativa-lo."

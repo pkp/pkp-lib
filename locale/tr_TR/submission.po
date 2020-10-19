@@ -317,9 +317,6 @@ msgstr "Kabul edildi"
 msgid "submission.acknowledge"
 msgstr "Onaylama"
 
-msgid "submission.addSuppFile"
-msgstr "Ek bir dosya yükle"
-
 msgid "submission.ask"
 msgstr "İstek"
 
@@ -503,9 +500,6 @@ msgstr "Bu dizgiyi tamamen silmek istediğinizden emin misiniz?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Dizgiden bu resmi çıkarmak istediğinize emin misiniz?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Bu ek dosyayı tamamen silmek istediğinizden emin misiniz?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Bu stil sayfasını sil."
 
@@ -563,14 +557,8 @@ msgstr "Mizanpaj Sürümü"
 msgid "submission.layout.newGalley"
 msgstr "Yeni Dizgi Oluştur"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Yeni Ek Dosya Yükle"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Bu dizgiye stil sayfa dosyası eklenmedi."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Ek Dosya Değerlendirme"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Başvuru Dizgisini Görüntüleme"
@@ -736,9 +724,6 @@ msgstr "Gönderici"
 
 msgid "submission.summary"
 msgstr "Özet"
-
-msgid "submission.supplementaryFiles"
-msgstr "Ek Dosyalar"
 
 msgid "submission.supportingAgencies"
 msgstr "Destekleyen Kurumlar"
@@ -938,8 +923,9 @@ msgstr "\"{$name}\" ({$username}) bu gönderi için {$userGroupName}'den kaldır
 msgid "submission.event.submissionSubmitted"
 msgstr "İlk gönderi tamamlandı."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "\"{$name}\" adlı revizyon (file ID {$fileId}-{$fileRevision}) olarak yüklendi."
+msgstr "\"{$name}\" adlı revizyon (file ID {$submissionFileId}) olarak yüklendi."
 
 msgid "submission.event.subjectPrefix"
 msgstr "Bir e-posta gönderildi:"
@@ -1171,9 +1157,6 @@ msgstr "Dosya Yükle"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Düzenlenmiş Kopya Dosyası Yükle"
-
-msgid "submission.upload.fairCopy"
-msgstr "Adil Kopyayı Yükle"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Dosyaları Yükle"

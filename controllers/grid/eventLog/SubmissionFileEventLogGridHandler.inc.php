@@ -49,7 +49,7 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
-		$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ));
+		$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ, (int) $args['submissionFileId']));
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -78,11 +78,11 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 	function getRequestArgs() {
 		$submissionFile = $this->getSubmissionFile();
 
-		return array(
-			'submissionId' => $submissionFile->getSubmissionId(),
-			'fileId' => $submissionFile->getFileId(),
-			'revision' => $submissionFile->getRevision(),
-		);
+		return [
+			'submissionId' => $submissionFile->getData('submissionId'),
+			'submissionFileId' => $submissionFile->getId(),
+			'stageId' => $this->_stageId,
+		];
 	}
 
 	/**
@@ -91,22 +91,10 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 	protected function loadData($request, $filter = null) {
 		$submissionFile = $this->getSubmissionFile();
 		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /* @var $submissionFileEventLogDao SubmissionFileEventLogDAO */
-		$eventLogEntries = $submissionFileEventLogDao->getByFileId(
-			$submissionFile->getFileId()
+		$eventLogEntries = $submissionFileEventLogDao->getById(
+			$submissionFile->getId()
 		);
 		$eventLogEntries = $eventLogEntries->toArray();
-
-		if ($filter['allEvents']) {
-			// Also include events from past versions
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-			while (true) {
-				$submissionFile = $submissionFileDao->getRevision($submissionFile->getSourceFileId(), $submissionFile->getSourceRevision());
-				if (!$submissionFile) break;
-
-				$iterator = $submissionFileEventLogDao->getByFileId($submissionFile->getFileId());
-				$eventLogEntries += $iterator->toArray();
-			}
-		}
 
 		return $eventLogEntries;
 	}

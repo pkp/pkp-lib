@@ -359,9 +359,6 @@ msgstr "Aceptado"
 msgid "submission.acknowledge"
 msgstr "Recibido"
 
-msgid "submission.addSuppFile"
-msgstr "Añadir archivo complementario"
-
 msgid "submission.ask"
 msgstr "Preguntar"
 
@@ -476,8 +473,9 @@ msgstr "Borrar entrada de registro"
 msgid "submission.event.submissionSubmitted"
 msgstr "Envío inicial completado."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Se cargó la revisión \"{$name}\" (Id. de archivo {$fileId}-{$fileRevision})."
+msgstr "Se cargó la revisión \"{$name}\" (Id. de archivo {$submissionFileId})."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadatos de envío actualizados"
@@ -593,9 +591,6 @@ msgstr "¿Seguro que quieres eliminar esta galerada de forma permanente?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "¿Seguro que quieres eliminar esta imagen de la galerada?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "¿Seguro que quieres eliminar este archivo adicional de forma permanente?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Eliminar esta hoja de estilo."
 
@@ -659,14 +654,8 @@ msgstr "Versión maquetada"
 msgid "submission.layout.newGalley"
 msgstr "Crear nueva galerada"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Subir nuevo archivo complementario"
-
 msgid "submission.layout.noStyleFile"
 msgstr "No se ha añadido ningún archivo de hoja de estilo a esta galerada."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Revisión de archivo complementario"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Ver galerada de envío"
@@ -893,9 +882,6 @@ msgstr "Subir un archivo dependiente"
 msgid "submission.summary"
 msgstr "Resumen"
 
-msgid "submission.supplementaryFiles"
-msgstr "Archivos complementarios"
-
 msgid "submission.supportingAgencies"
 msgstr "Agencias de apoyo"
 
@@ -1044,9 +1030,6 @@ msgstr "Subir archivo"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Subir archivo corregido"
-
-msgid "submission.upload.fairCopy"
-msgstr "Subir copia en limpio"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Subir archivos"

@@ -146,14 +146,12 @@ class NotificationsGridCellProvider extends GridCellProvider {
 
 		if (!isset($submissionId) && isset($fileId)) {
 			assert(is_numeric($fileId));
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-			$submissionFile = $submissionFileDao->getLatestRevision($fileId);
+			$submissionFile = Services::get('submissionFile')->get($fileId);
 			assert(is_a($submissionFile, 'SubmissionFile'));
-			$submissionId = $submissionFile->getSubmissionId();
+			$submissionId = $submissionFile->getData('submissionId');
 		}
 		assert(is_numeric($submissionId));
-		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$submission = $submissionDao->getById($submissionId);
+		$submission = Services::get('submission')->get($submissionId);
 		assert(is_a($submission, 'Submission'));
 
 		return $submission->getLocalizedTitle();

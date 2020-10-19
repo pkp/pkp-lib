@@ -12,6 +12,7 @@
  *
  * @brief Base class that converts a Native XML document to a submission file
  */
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
@@ -58,75 +59,24 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	/**
 	 * Handle a submission file element
 	 * @param $node DOMElement
-	 * @return array Array of SubmissionFile objects
+	 * @return SubmissionFile|null Null if skipping this file
 	 */
 	function handleElement($node) {
 		$deployment = $this->getDeployment();
+		$submission = $deployment->getSubmission();
+		$context = $deployment->getContext();
 		$stageName = $node->getAttribute('stage');
-		$fileId = $node->getAttribute('id');
+		$submissionFileId = $node->getAttribute('id');
 		$stageNameIdMapping = $deployment->getStageNameStageIdMapping();
 		assert(isset($stageNameIdMapping[$stageName]));
 		$stageId = $stageNameIdMapping[$stageName];
-
-		$submissionFiles = array();
-		// Handle metadata in subelements
-		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
-			if (is_a($n, 'DOMElement')) {
-				$this->handleChildElement($n, $stageId, $fileId, $submissionFiles);
-			}
-		}
-		
-		return $submissionFiles;
-	}
-
-	/**
-	 * Handle a child node of the submission file element; add new files, if
-	 * any, to $submissionFiles
-	 * @param $node DOMElement
-	 * @param $stageId int SUBMISSION_FILE_...
-	 * @param $fileId int File id
-	 * @param $submissionFiles array
-	 */
-	function handleChildElement($node, $stageId, $fileId, &$submissionFiles) {
-		$deployment = $this->getDeployment();
-		$submission = $deployment->getSubmission();
-		switch ($node->tagName) {
-			case 'revision':
-				$submissionFile = $this->handleRevisionElement($node, $stageId, $fileId);
-				if ($submissionFile) $submissionFiles[] = $submissionFile;
-				break;
-			default:
-				$deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $node->tagName)));
-		}
-	}
-
-	/**
-	 * Handle a revision element
-	 * @param $node DOMElement
-	 * @param $stageId int SUBMISSION_FILE_...
-	 * @param $fileId int File id
-	 */
-	function handleRevisionElement($node, $stageId, $fileId) {
-		static $genresByContextId = array();
-
-		$deployment = $this->getDeployment();
-		$submission = $deployment->getSubmission();
-		$context = $deployment->getContext();
-
+		$request = Application::get()->getRequest();
 		$errorOccured = false;
-
-		$revisionId = $node->getAttribute('number');
-
-		$source = $node->getAttribute('source');
-		$sourceFileAndRevision = null;
-		if ($source) {
-			$sourceFileAndRevision = explode('-', $source);
-		}
 
 		$genreId = null;
 		$genreName = $node->getAttribute('genre');
+		// Build a cached list of genres by context ID by name
 		if ($genreName) {
-			// Build a cached list of genres by context ID by name
 			if (!isset($genresByContextId[$context->getId()])) {
 				$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 				$genres = $genreDao->getByContextId($context->getId());
@@ -145,35 +95,8 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			}
 		}
 
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFile = $submissionFileDao->newDataObjectByGenreId($genreId);
-		$submissionFile->setSubmissionId($submission->getId());
-		$submissionFile->setSubmissionLocale($submission->getLocale());
-		$submissionFile->setGenreId($genreId);
-		$submissionFile->setFileStage($stageId);
-		$submissionFile->setDateUploaded(Core::getCurrentDate());
-		$submissionFile->setDateModified(Core::getCurrentDate());
-		if ($node->getAttribute('available') == 'true') $submissionFile->setViewable(true);
-
-		$submissionFile->setOriginalFileName($filename = $node->getAttribute('filename'));
-		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
-			if (is_a($n, 'DOMElement')) {
-				$filename = $this->handleRevisionChildElement($n, $submission, $submissionFile);
-			}
-		}
-		if (!$filename) {
-			// $this->handleRevisionChildElement() failed to provide any file (error message should have been handled in called method)
-			$errorOccured = true;
-		} else {
-			clearstatcache(true, $filename);
-			if (!file_exists($filename) || !filesize($filename)) {
-				// $this->handleRevisionChildElement() failed to provide a real file
-				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.native.error.submissionFileImportFailed'));
-				$errorOccured = true;
-			}
-		}
-
 		$uploaderUsername = $node->getAttribute('uploader');
+		$uploaderUserId = null;
 		if (!$uploaderUsername) {
 			$user = $deployment->getUser();
 		} else {
@@ -181,161 +104,221 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$user = $userDao->getByUsername($uploaderUsername);
 		}
-		if ($user) {
-			$submissionFile->setUploaderUserId($user->getId());
-		} else {
-			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownUploader', array('param' => $uploaderUsername)));
-			$errorOccured = true;
+		$uploaderUserId = $user
+			? (int) $user->getId()
+			: Application::get()->getRequest()->getUser()->getId();
+
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+		$submissionFile = $submissionFileDao->newDataObject();
+		$submissionFile->setData('submissionId', $submission->getId());
+		$submissionFile->setData('locale', $submission->getLocale());
+		$submissionFile->setData('fileStage', $stageId);
+		$submissionFile->setData('createdAt', Core::getCurrentDate());
+		$submissionFile->setData('updatedAt', Core::getCurrentDate());
+		$submissionFile->setData('dateCreated', $node->getAttribute('date_created'));
+		$submissionFile->setData('language', $node->getAttribute('language'));
+
+		if ($caption = $node->getAttribute('caption')) {
+			$submissionFile->setData('caption', $caption);
+		}
+		if ($copyrightOwner = $node->getAttribute('copyright_owner')) {
+			$submissionFile->setData('copyrightOwner', $copyrightOwner);
+		}
+		if ($credit = $node->getAttribute('credit')) {
+			$submissionFile->setData('credit', $credit);
+		}
+		if ($directSalesPrice = $node->getAttribute('direct_sales_price')) {
+			$submissionFile->setData('directSalesPrice', $directSalesPrice);
+		}
+		if ($genreId) {
+			$submissionFile->setData('genreId', $genreId);
+		}
+		if ($salesType = $node->getAttribute('sales_type')) {
+			$submissionFile->setData('salesType', $salesType);
+		}
+		if ($sourceSubmissionFileId = $node->getAttribute('source_submission_file_id')) {
+			$submissionFile->setData('sourceSubmissionFileId', $sourceSubmissionFileId);
+		}
+		if ($terms = $node->getAttribute('terms')) {
+			$submissionFile->setData('terms', $terms);
+		}
+		if ($uploaderUserId) {
+			$submissionFile->setData('uploaderUserId', $uploaderUserId);
+		}
+		if ($node->getAttribute('viewable') == 'true') {
+			$submissionFile->setViewable(true);
 		}
 
-		$fileSize = $node->getAttribute('filesize');
-		$fileSizeOnDisk = filesize($filename);
-		if ($fileSize) {
-			if ($fileSize != $fileSizeOnDisk) {
-				$deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.filesizeMismatch', array('expected' => $fileSize, 'actual' => $fileSizeOnDisk)));
-			}
-		}
-		else {
-			$fileSize = $fileSizeOnDisk;
-		}
-		$submissionFile->setFileSize($fileSize);
+		// Handle metadata in subelements
+		$allRevisionIds = [];
+		for ($childNode = $node->firstChild; $childNode !== null; $childNode=$childNode->nextSibling) {
+			if (is_a($childNode, 'DOMElement')) {
+				switch ($childNode->tagName) {
+					case 'creator':
+					case 'description':
+					case 'name':
+					case 'publisher':
+					case 'source':
+					case 'sponsor':
+					case 'subject':
+						list($locale, $value) = $this->parseLocalizedContent($childNode);
+						$submissionFile->setData($childNode->tagName, $value, $locale);
+					case 'submission_file_ref':
+						if ($submissionFile->getData('fileStage') == SUBMISSION_FILE_DEPENDENT) {
+							$oldAssocId = $node->getAttribute('id');
+							$newAssocId = $deployment->getSubmissionFileDBId($oldAssocId);
+							if ($newAssocId) {
+								$submissionFile->setData('assocType', ASSOC_TYPE_SUBMISSION_FILE);
+								$submissionFile->setData('assocId', $newAssocId);
+							}
+						}
+						break;
+					case 'file':
+						// File has already been imported so update file id
+						if ($deployment->getFileDBId($childNode->getAttribute('id'))) {
+							$newFileId = $deployment->getFileDBId($childNode->getAttribute('id'));
+						} else {
+							$newFileId = $this->handleRevisionElement($childNode);
+						}
+						if ($newFileId) {
+							$allRevisionIds[] = $newFileId;
+						}
+						// If this is the current file revision, set the submission file id
+						if ($childNode->getAttribute('id') == $node->getAttribute('fileId')) {
+							$submissionFile->setData('fileId', $newFileId);
+						}
 
-		$fileType = $node->getAttribute('filetype');
-		$submissionFile->setFileType($fileType);
-
-		$submissionFile->setRevision($revisionId);
-
-		if ($sourceFileAndRevision) {
-			// the source file revision should already be processed, so get the new source file ID
-			$sourceFileId = $deployment->getFileDBId($sourceFileAndRevision[0], $sourceFileAndRevision[1]);
-			if ($sourceFileId) {
-				$submissionFile->setSourceFileId($sourceFileId);
-				$submissionFile->setSourceRevision($sourceFileAndRevision[1]);
-			}
-		}
-
-		// if the same file is already inserted, take its DB file ID
-		$DBId = $deployment->getFileDBId($fileId);
-		if ($DBId) {
-			$submissionFile->setFileId($DBId);
-			$DBRevision = $deployment->getFileDBId($fileId, $revisionId);
-			// If both the file id and the revision id is duplicated, we cannot insert the record
-			if ($DBRevision) {
-				$errorOccured = true;
-				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.duplicateRevisionForSubmission', array('fileId' => $fileId, 'revisionId' => $revisionId)));
+						break;
+					default:
+						$deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $node->tagName)));
+				}
 			}
 		}
 
 		if ($errorOccured) {
-			// if error occured, the file cannot be inserted into DB, becase
-			// genre, uploader and user group are required (e.g. at name generation).
-			$submissionFile = null;
-		} else {
-			$insertedSubmissionFile = $submissionFileDao->insertObject($submissionFile, $filename, false);
-			$deployment->setFileDBId($fileId, $revisionId, $insertedSubmissionFile->getFileId());
+			return null;
 		}
 
-		import('lib.pkp.classes.file.FileManager');
-		$fileManager = new FileManager();
-		$fileManager->deleteByPath($filename);
+		// Add and edit the submission file revisions one-by-one so that a useful activity
+		// log is built and past revisions can be accessed
+		if (count($allRevisionIds) < 2) {
+			$submissionFile = Services::get('submissionFile')->add($submissionFile, $request);
+		} else {
+			$currentFileId = $submissionFile->getData('fileId');
+			foreach ($allRevisionIds as $i => $fileId) {
+				if ($fileId === $currentFileId) {
+					continue;
+				}
+				if ($i === 0) {
+					$submissionFile->setData('fileId', $fileId);
+					$submissionFile = Services::get('submissionFile')->add($submissionFile, $request);
+				} else {
+					$submissionFile = Services::get('submissionFile')->edit($submissionFile, ['fileId' => $fileId], $request);
+				}
+			}
+			$submissionFile = Services::get('submissionFile')->edit($submissionFile, ['fileId' => $currentFileId], $request);
+		}
+
+		$deployment->setSubmissionFileDBId($node->getAttribute('id'), $submissionFile->getId());
+
 		return $submissionFile;
 	}
 
 	/**
-	 * Handle a child of the revision element
+	 * Handle a revision element
 	 * @param $node DOMElement
-	 * @param $submission Submission
-	 * @param $submissionFile SubmissionFile
-	 * @return string Filename for temporary file, if one was created
+	 * @return int|null The new file id if successful
 	 */
-	function handleRevisionChildElement($node, $submission, $submissionFile) {
+	function handleRevisionElement($node) {
 		$deployment = $this->getDeployment();
-		$context = $deployment->getContext();
 		$submission = $deployment->getSubmission();
-		switch ($node->tagName) {
-			case 'submission_file_ref':
-				if ($submissionFile->getFileStage() == SUBMISSION_FILE_DEPENDENT) {
-					$fileId = $node->getAttribute('id');
-					$revisionId = $node->getAttribute('revision');
-					$dbFileId = $deployment->getFileDBId($fileId, $revisionId);
-					if ($dbFileId) {
-						$submissionFile->setAssocType(ASSOC_TYPE_SUBMISSION_FILE);
-						$submissionFile->setAssocId($dbFileId);
-					}
+
+		for ($childNode = $node->firstChild; $childNode !== null; $childNode=$childNode->nextSibling) {
+			if (is_a($childNode, 'DOMElement')) {
+				switch ($childNode->tagName) {
+					case 'href':
+						import('lib.pkp.classes.file.TemporaryFileManager');
+						$temporaryFileManager = new TemporaryFileManager();
+						$temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'src');
+						$filesrc = $childNode->getAttribute('src');
+						$errorFlag = false;
+						if (preg_match('|\w+://.+|', $filesrc)) {
+							// process as a URL
+							$client = Application::get()->getHttpClient();
+							$response = $client->request('GET', $filesrc);
+							file_put_contents($temporaryFilename, $response->getBody());
+							if (!filesize($temporaryFilename)) {
+								$errorFlag = true;
+							}
+						} elseif (substr($filesrc, 0, 1) === '/') {
+							// local file (absolute path)
+							if (!copy($filesrc, $temporaryFilename)) {
+								$errorFlag = true;
+							}
+						} elseif (is_readable($deployment->getImportPath() . '/' . $filesrc)) {
+							// local file (relative path)
+							$filesrc = $deployment->getImportPath() . '/' . $filesrc;
+							if(!copy($filesrc, $temporaryFilename)) {
+								$errorFlag = true;
+							}
+						} else {
+							// unhandled file path
+							$errorFlag = true;
+						}
+						if ($errorFlag) {
+							$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', array('dest' => $temporaryFilename, 'source' => $filesrc)));
+							$fileManager = new FileManager();
+							$fileManager->deleteByPath($temporaryFilename);
+							$temporaryFilename = '';
+						}
+						break;
+					case 'embed':
+						import('lib.pkp.classes.file.TemporaryFileManager');
+						$temporaryFileManager = new TemporaryFileManager();
+						$temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'embed');
+						if (($e = $childNode->getAttribute('encoding')) != 'base64') {
+							$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownEncoding', array('param' => $e)));
+						} else {
+							$content = base64_decode($childNode->textContent, true);
+							$errorFlag = false;
+							if (!$content) {
+								$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.encodingError', array('param' => $e)));
+								$errorFlag = true;
+							} elseif (!file_put_contents($temporaryFilename, $content)) {
+								$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', array('dest' => $temporaryFilename, 'source' => 'embed')));
+								$errorFlag = true;
+							}
+							if ($errorFlag) {
+								$fileManager = new FileManager();
+								$fileManager->deleteByPath($temporaryFilename);
+								$temporaryFilename = '';
+							}
+						}
+						break;
 				}
-				break;
-			case 'id':
-				$this->parseIdentifier($node, $submissionFile);
-				break;
-			case 'name':
-				$locale = $node->getAttribute('locale');
-				if (empty($locale)) $locale = $context->getPrimaryLocale();
-				$submissionFile->setName($node->textContent, $locale);
-				$submissionFile->setSubmissionLocale($locale);
-				break;
-			case 'href':
-				$submissionFile->setFileType($node->getAttribute('mime_type'));
-				import('lib.pkp.classes.file.TemporaryFileManager');
-				$temporaryFileManager = new TemporaryFileManager();
-				$temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'src');
-				$filesrc = $node->getAttribute('src');
-				$errorFlag = false;
-				if (preg_match('|\w+://.+|', $filesrc)) {
-					// process as a URL
-					$client = Application::get()->getHttpClient();
-					$response = $client->request('GET', $filesrc);
-					file_put_contents($temporaryFilename, $response->getBody());
-					if (!filesize($temporaryFilename)) {
-						$errorFlag = true;
-					}
-				} elseif (substr($filesrc, 0, 1) === '/') {
-					// local file (absolute path)
-					if (!copy($filesrc, $temporaryFilename)) {
-						$errorFlag = true;
-					}
-				} elseif (is_readable($deployment->getImportPath() . '/' . $filesrc)) {
-					// local file (relative path)
-					$filesrc = $deployment->getImportPath() . '/' . $filesrc;
-					if(!copy($filesrc, $temporaryFilename)) {
-						$errorFlag = true;
-					}
-				} else {
-					// unhandled file path
-					$errorFlag = true;
-				}
-				if ($errorFlag) {
-					$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', array('dest' => $temporaryFilename, 'source' => $filesrc)));
-					$fileManager = new FileManager();
-					$fileManager->deleteByPath($temporaryFilename);
-					$temporaryFilename = '';
-				}
-				return $temporaryFilename;
-				break;
-			case 'embed':
-				$submissionFile->setFileType($node->getAttribute('mime_type'));
-				import('lib.pkp.classes.file.TemporaryFileManager');
-				$temporaryFileManager = new TemporaryFileManager();
-				$temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'embed');
-				if (($e = $node->getAttribute('encoding')) != 'base64') {
-					$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownEncoding', array('param' => $e)));
-				} else {
-					$content = base64_decode($node->textContent, true);
-					$errorFlag = false;
-					if (!$content) {
-						$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.encodingError', array('param' => $e)));
-						$errorFlag = true;
-					} elseif (!file_put_contents($temporaryFilename, $content)) {
-						$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', array('dest' => $temporaryFilename, 'source' => 'embed')));
-						$errorFlag = true;
-					}
-					if ($errorFlag) {
-						$fileManager = new FileManager();
-						$fileManager->deleteByPath($temporaryFilename);
-						$temporaryFilename = '';
-					}
-				}
-				return $temporaryFilename;
-				break;
+			}
+		}
+
+		if ($temporaryFilename) {
+			$fileSizeOnDisk = filesize($temporaryFilename);
+			$expectedFileSize = $node->getAttribute('filesize');
+			if ($fileSizeOnDisk != $expectedFileSize) {
+				$deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.filesizeMismatch', array('expected' => $expectedFileSize, 'actual' => $fileSizeOnDisk)));
+			} else {
+				clearstatcache(true, $temporaryFilename);
+				import('lib.pkp.classes.file.FileManager');
+				$fileManager = new FileManager();
+				$submissionDir = Services::get('submissionFile')->getSubmissionDir($submission->getData('contextId'), $submission->getId());
+				$newFileId = Services::get('file')->add(
+					$temporaryFilename,
+					$submissionDir . '/' . uniqid() . '.' . $node->getAttribute('extension')
+				);
+				$deployment->setFileDBId($node->getAttribute('id'), $newFileId);
+			}
+		}
+
+		if ($newFileId) {
+			return $newFileId;
 		}
 	}
 

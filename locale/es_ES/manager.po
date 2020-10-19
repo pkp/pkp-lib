@@ -588,9 +588,6 @@ msgstr "Conflicto de intereses"
 msgid "manager.setup.competingInterestsDescription"
 msgstr "Se pedirá a los revisores/as que cumplan con la política de divulgación de conflictos de intereses que especifique a continuación."
 
-msgid "manager.setup.groupType"
-msgstr "Agrupación de tipos de archivo"
-
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
 msgstr "Número de semanas para aceptar o rechazar una petición de revisión."
 
@@ -931,9 +928,6 @@ msgstr "Eliminar este género"
 msgid "grid.action.restoreGenres"
 msgstr "Restaurar todos los géneros a la configuración por defecto"
 
-msgid "manager.setup.genres.dependent"
-msgstr "Marcar los archivos de este tipo como archivos dependientes"
-
 msgid "manager.settings.wizard"
 msgstr "Asistente de ajustes"
 
@@ -1139,11 +1133,6 @@ msgstr "Actualizado"
 
 msgid "manager.plugins.noCompatibleVersion.short"
 msgstr "No disponible"
-
-msgid "manager.setup.genres.supplementary"
-msgstr ""
-"Marcar los ficheros de este tipo como ficheros complementarios (p. ej.: "
-"contenido de envío no primario)"
 
 msgid "manager.reviewForms"
 msgstr "Formularios de revisión"

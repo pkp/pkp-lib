@@ -844,9 +844,6 @@ msgstr "Interesses Concorrentes"
 msgid "manager.setup.favicon"
 msgstr "Favicon"
 
-msgid "manager.setup.groupType"
-msgstr "Agrupamento tipo de ficheiro"
-
 msgid "manager.setup.homepageImage"
 msgstr "Image Homepage"
 
@@ -1242,12 +1239,6 @@ msgstr "Eliminar este Componente"
 
 msgid "grid.action.restoreGenres"
 msgstr "Restaurar os componentes para as configurações padrão"
-
-msgid "manager.setup.genres.dependent"
-msgstr "Marcar ficheiros deste tipo como ficheiros dependentes (por exemplo, não para serem listados com conteúdo publicado)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Marcar ficheiros deste tipo como ficheiros suplementares (por exemplo, não conteúdo de submissão principal)"
 
 msgid "manager.settings.wizard"
 msgstr "Assistente de configurações"

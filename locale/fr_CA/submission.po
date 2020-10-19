@@ -409,9 +409,6 @@ msgstr "Accepté-e"
 msgid "submission.acknowledge"
 msgstr "Envoyer un accusé de réception"
 
-msgid "submission.addSuppFile"
-msgstr "Ajouter un fichier supplémentaire"
-
 msgid "submission.ask"
 msgstr "Demander"
 
@@ -556,8 +553,9 @@ msgstr "Supprimer l'entrée du registre"
 msgid "submission.event.submissionSubmitted"
 msgstr "Soumission initiale complétée."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "La révision « {$name} » (# Fichier {$fileId}-{$fileRevision}) a été téléversée."
+msgstr "La révision « {$name} » (# Fichier {$submissionFileId}) a été téléversée."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Métadonnées de la soumission mises à jour"
@@ -691,9 +689,6 @@ msgstr "Êtes-vous certain-e de vouloir supprimer définitivement ces épreuves 
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Êtes-vous certain-e de vouloir supprimer cette image des épreuves ?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Êtes-vous certain-e de vouloir supprimer définitivement ce fichier supplémentaire ?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Supprimer cette feuille de style."
 
@@ -757,14 +752,8 @@ msgstr "Version de mise en page"
 msgid "submission.layout.newGalley"
 msgstr "Créer de nouvelles épreuves"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Téléverser un nouveau fichier supplémentaire"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Aucun fichier de feuille de style n'a été ajouté à ces épreuves."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Révision du fichier supplémentaire"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Affichage les épreuves de la soumission"
@@ -1000,9 +989,6 @@ msgstr "Téléverser un fichier de discussion"
 msgid "submission.summary"
 msgstr "Sommaire"
 
-msgid "submission.supplementaryFiles"
-msgstr "Fichiers supplémentaires"
-
 msgid "submission.supportingAgencies"
 msgstr "Organismes subventionnaires"
 
@@ -1188,9 +1174,6 @@ msgstr "Téléverser le fichier"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Téléverser le fichier corrigé"
-
-msgid "submission.upload.fairCopy"
-msgstr "Téléverser la copie au net"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Téléverser les fichiers"

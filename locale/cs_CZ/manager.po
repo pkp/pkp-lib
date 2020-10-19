@@ -878,12 +878,6 @@ msgstr "Nastavení distribuce"
 msgid "manager.reviewForms.confirmActivate"
 msgstr "Jste si jisti, že chcete povolit tento formulář recenzenta? Jakmile bude přiřazen k jakékoliv recenzi, nebude možné ho zakázat."
 
-msgid "manager.setup.genres.dependent"
-msgstr "Označte soubory tohoto typu jako závislé soubory (např. nezobrazované s publikovaným obsahem)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Označit soubory tohoto typu jako doplňkové soubory (např. ty, co neobsahují primární obsah článku)"
-
 msgid "manager.settings.wizard"
 msgstr "Průvodce nastavením"
 
@@ -1054,9 +1048,6 @@ msgstr "Nikdy nepřipomínat"
 
 msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr "Výchozí hodnoty lze upravit pro každou recenzi během redakčního procesu."
-
-msgid "manager.setup.groupType"
-msgstr "Seskupení podle typu souboru"
 
 msgid "manager.setup.homepageImage"
 msgstr "Obrázek na domácí stránku"

@@ -43,9 +43,8 @@ class FileLinkAction extends LinkAction {
 
 		// Create the action arguments array.
 		$args =  array(
-			'fileId' => $submissionFile->getFileId(),
-			'revision' => $submissionFile->getRevision(),
-			'submissionId' => $submissionFile->getSubmissionId()
+			'submissionFileId' => $submissionFile->getId(),
+			'submissionId' => $submissionFile->getData('submissionId')
 		);
 		if ($stageId) $args['stageId'] = $stageId;
 

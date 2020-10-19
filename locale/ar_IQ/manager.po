@@ -659,9 +659,6 @@ msgstr "حدث خطأ ما عند حذف هذه الفقرة."
 msgid "manager.setup.favicon"
 msgstr "الصورة المصغرة"
 
-msgid "manager.setup.groupType"
-msgstr "التجميع حسب نوع الملف"
-
 msgid "manager.setup.homepageImage"
 msgstr "الصفحة الرئيسية"
 
@@ -1194,12 +1191,6 @@ msgstr "حذف هذا المكون"
 
 msgid "grid.action.restoreGenres"
 msgstr "استعادة الإعدادات الإفتراضية لهذا المكون"
-
-msgid "manager.setup.genres.dependent"
-msgstr "إعتبر الملفات من هذا النوع ملفات مستقلة (أي، لا يتم إدراجها مع المحتوى المنشور)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "إعتبر الملفات من هذا النوع ملفات تكميلية (أي، ليست ملفات طلب نشر أساسية)"
 
 msgid "manager.setup.genres.key"
 msgstr "المفتاح"

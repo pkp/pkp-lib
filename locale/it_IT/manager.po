@@ -932,9 +932,6 @@ msgstr "Dichiarazione di copyright"
 msgid "manager.setup.authorCopyrightNoticeAgree"
 msgstr "Richiedi agli autori di condividere la dichiarazione di copyright come parte del processo di invio di una proposta."
 
-msgid "manager.setup.groupType"
-msgstr "Insieme di tipo file"
-
 msgid "manager.setup.homepageImage"
 msgstr "Immagine della homepage"
 
@@ -1250,12 +1247,6 @@ msgstr "Cancella questo componente"
 
 msgid "grid.action.restoreGenres"
 msgstr "Riporto il componente alle configurazioni di default"
-
-msgid "manager.setup.genres.dependent"
-msgstr "Segna i file di questo tipo come file dipendenti (ad esempio non verranno elencati nei contenuti pubblicati)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Segna i file di questo tipo come file supplementati (ad esempio non sono il contenuto primario di una proposta)"
 
 msgid "manager.settings.wizard"
 msgstr "Configurazione guidata"

@@ -23,9 +23,6 @@ msgstr "Prihvaćena"
 msgid "submission.acknowledge"
 msgstr "Potvrđeno"
 
-msgid "submission.addSuppFile"
-msgstr "Dodavanje dopunske datoteke"
-
 msgid "submission.ask"
 msgstr "Upit"
 
@@ -194,9 +191,6 @@ msgstr "Jeste li sigurni da želite trajno izbrisati ovaj prijelom?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Jeste li sigurni da želite ukloniti ovu sliku iz prijeloma?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Jeste li sigurni da želite trajno izbrisati ovu dopunsku datoteku?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Obrišite ovu stilsku tablicu."
 
@@ -254,14 +248,8 @@ msgstr "Verzija za prijelom"
 msgid "submission.layout.newGalley"
 msgstr "Kreirajte novu prijelom"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Postavite novu dopunsku datoteku"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Stilska tablica datoteke nije dodana ovom prijelomu."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Recenzija dopunske datoteke"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Pregled prijave za prijelom"
@@ -415,9 +403,6 @@ msgstr "Recenzija prijave"
 
 msgid "submission.submitter"
 msgstr "Podnositelj"
-
-msgid "submission.supplementaryFiles"
-msgstr "Dopunske datoteke"
 
 msgid "submission.titleAndAbstract"
 msgstr "Naslov i sažetak"

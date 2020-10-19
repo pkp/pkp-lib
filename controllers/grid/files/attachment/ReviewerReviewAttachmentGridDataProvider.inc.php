@@ -79,12 +79,12 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
 	 * @copydoc GridDataProvider::loadData()
 	 */
 	function loadData($filter = array()) {
-		// Get all review files assigned to this submission.
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFiles = $submissionFileDao->getLatestRevisionsByAssocId(
-			ASSOC_TYPE_REVIEW_ASSIGNMENT, $this->_getReviewId(), $this->getSubmission()->getId(), $this->getFileStage()
-		);
-		return $this->prepareSubmissionFileData($submissionFiles, false, $filter);
+		$submissionFilesIterator = Services::get('submissionFile')->getMany([
+			'submissionIds' => [$this->getSubmission()->getId()],
+			'assocTypes' => [ASSOC_TYPE_REVIEW_ASSIGNMENT],
+			'assocIds' => [$this->_getReviewId()]
+		]);
+		return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), false, $filter);
 	}
 
 	//

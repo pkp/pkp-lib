@@ -45,6 +45,7 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 		'dateLastActivity' => 'date_last_activity',
 		'dateSubmitted' => 'date_submitted',
 		'lastModified' => 'last_modified',
+		'locale' => 'locale',
 		'stageId' => 'stage_id',
 		'status' => 'status',
 		'submissionProgress' => 'submission_progress',
@@ -112,8 +113,6 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 			throw new Exception('Could not delete submission. No submission with the id ' . (int) $submissionId . ' was found.');
 		}
 
-		parent::deleteById($submissionId);
-
 		// Delete publications
 		$publicationsIterator = Services::get('publication')->getMany(['submissionIds' => $submissionId]);
 		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
@@ -122,15 +121,12 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 		}
 
 		// Delete submission files.
-		// 'deleteAllRevisionsBySubmissionId' has to be called before 'rmtree'
-		// because SubmissionFileDaoDelegate::deleteObjects checks the file
-		// and returns false if the file is not there, which makes the foreach loop in
-		// SubmissionFileDAO::_deleteInternally not run till the end.
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFileDao->deleteAllRevisionsBySubmissionId($submissionId);
-		import('lib.pkp.classes.file.SubmissionFileManager');
-		$submissionFileManager = new SubmissionFileManager($submission->getContextId(), $submission->getId());
-		$submissionFileManager->rmtree($submissionFileManager->getBasePath());
+		$submissionFilesIterator = Services::get('submissionFile')->getMany([
+			'submissionIds' => [$submission->getId()],
+		]);
+		foreach ($submissionFilesIterator as $submissionFile) {
+			Services::get('submissionFile')->delete($submissionFile);
+		}
 
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$reviewRoundDao->deleteBySubmissionId($submissionId);
@@ -167,6 +163,8 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 
 		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 		$submissionEmailLogDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
+
+		parent::deleteById($submissionId);
 	}
 
 	/**

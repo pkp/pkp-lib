@@ -155,7 +155,7 @@ class ReviewRoundDAO extends DAO {
 				'SELECT * FROM review_rounds rr
 				INNER JOIN review_round_files rrf
 				ON rr.review_round_id = rrf.review_round_id
-				WHERE rrf.file_id = ?',
+				WHERE rrf.submission_file_id = ?',
 				array((int) $submissionFileId));
 
 		$returner = null;

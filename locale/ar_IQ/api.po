@@ -101,16 +101,16 @@ msgstr "تعذر تنفيذ طلبك لأنه يفتقر إلى معلومات �
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "ما تطلبه من رقم المجلد، العدد، أو السنة، غير صحيح."
 
-msgid "api.temporaryFiles.400.noUpload"
+msgid "api.files.400.noUpload"
 msgstr "تعذر العثور على أي ملف لرفعه مع الطلب."
 
-msgid "api.temporaryFiles.409.uploadFailed"
+msgid "api.files.400.uploadFailed"
 msgstr "تعذر رفع واحد أو أكثر من الملفات."
 
-msgid "api.temporaryFiles.400.fileSize"
+msgid "api.files.400.fileSize"
 msgstr "يتعذر رفع الملفات التي يزيد حجمها عن {$maxSize}."
 
-msgid "api.temporaryFiles.400.config"
+msgid "api.files.400.config"
 msgstr "تعذر رفع الملف بسبب خطأ في إعدادات الملقم. لطفاً، بادر إلى مراسلة مشرف النظام."
 
 msgid "api.themes.404.themeUnavailable"

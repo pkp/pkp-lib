@@ -67,18 +67,18 @@ msgstr ""
 "Az aktív téma, {$themePluginPath}, nincs engedélyezve és lehet, hogy nincs "
 "telepítve sem."
 
-msgid "api.temporaryFiles.400.config"
+msgid "api.files.400.config"
 msgstr ""
 "A fájlt nem lehetett feltölteni szerverkonfigurációs hiba miatt. Vegye fel a "
 "kapcsolatot a rendszergazdával."
 
-msgid "api.temporaryFiles.400.fileSize"
+msgid "api.files.400.fileSize"
 msgstr "A(z) {$maxSize}-nél/nél nagyobb fájlokat nem lehet feltölteni."
 
-msgid "api.temporaryFiles.409.uploadFailed"
+msgid "api.files.400.uploadFailed"
 msgstr "Egy vagy több fájlt nem lehetett feltölteni."
 
-msgid "api.temporaryFiles.400.noUpload"
+msgid "api.files.400.noUpload"
 msgstr "A kéréssel egyetlen feltölthető fájl sem található."
 
 msgid "api.submissions.404.siteWideEndpoint"

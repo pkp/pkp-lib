@@ -26,9 +26,6 @@ msgstr "Δεκτό"
 msgid "submission.acknowledge"
 msgstr "Ελήφθη"
 
-msgid "submission.addSuppFile"
-msgstr "Πρόσθεση Συμπληρωματικού Αρχείου"
-
 msgid "submission.ask"
 msgstr "Ερώτημα"
 
@@ -221,9 +218,6 @@ msgstr "Είστε βέβαιοι ότι επιθυμείτε να διαγρά�
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr " Είστε βέβαιοι ότι επιθυμείτε να καταργήσετε τη συγκεκριμένη εικόνα από το  Τυπογραφικό Δοκίμιο;"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr " Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε οριστικά το συγκεκριμένο συμπληρωματικό αρχείο;"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Διαγραφή του συγκεκριμένου StyleSheet."
 
@@ -281,14 +275,8 @@ msgstr "Έκδοση Σελιδοποίησης"
 msgid "submission.layout.newGalley"
 msgstr "Δημιουργία νέου Τυπογραφικού Δοκιμίου"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Φόρτωση νέου συμπληρωματικού αρχείου"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Δεν έχει γίνει προσθήκη Stylesheet στο συγκεκριμένο Τυπογραφικό Δοκίμιο."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Αξιολόγηση συμπληρωματικού αρχείου "
 
 msgid "submission.layout.viewingGalley"
 msgstr "Προβολή Υποβληθέντων Τυπογραφικών Δοκιμίων"
@@ -451,9 +439,6 @@ msgstr "Υποβολέας"
 
 msgid "submission.summary"
 msgstr "Σύνοψη"
-
-msgid "submission.supplementaryFiles"
-msgstr "Συμπληρωματικά Αρχεία"
 
 msgid "submission.titleAndAbstract"
 msgstr "Τίτλος και Περίληψη"
@@ -1903,10 +1888,11 @@ msgstr "Προβολή μηνύματος"
 msgid "submission.event.subjectPrefix"
 msgstr "Εστάλη ένα μήνυμα:"
 
+#, fuzzy
 msgid "submission.event.fileRevised"
 msgstr ""
 "Μεταφορτώθηκε η αναθεώρηση \"{$name}\" (ID αρχείου "
-"{$fileId}-{$fileRevision})."
+"{$submissionFileId})."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Η πρωτότυπη Υποβολή ολοκληρώθηκε."

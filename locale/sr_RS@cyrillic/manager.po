@@ -668,9 +668,6 @@ msgstr "Напомена о ауторском праву"
 msgid "manager.setup.copyrightNotice.description"
 msgstr "Захтевај од аутора да прихвате \"Напомену о ауторским правим\" као део процеса предаје рада."
 
-msgid "manager.setup.groupType"
-msgstr "Груписање докумената по типу"
-
 msgid "manager.setup.homepageImage.description"
 msgstr "Доставите слику која ће бити видљива на почетној страници."
 
@@ -1153,12 +1150,6 @@ msgstr "Морате одабрати барем једну улогу да је
 
 msgid "manager.reviewForms.confirmActivate"
 msgstr "Да ли сте сигурни да желите да активирате овај рецензентски образац? Кад му доделите рецензију нећете моћи да га деактивирате."
-
-msgid "manager.setup.genres.dependent"
-msgstr "Означите фајлове овог типа као зависне фајлове (они неће бити излистани са објављеним садржајем)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Означите фајлове овог типа као допунске фајлове (не примарно као садржај пријављеног чланка)"
 
 msgid "settings.libraryFiles.fileRequired"
 msgstr "Фајл библиотека је неопходан. Проверите да ли сте одабрали и на сервер поставили фајл."

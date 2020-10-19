@@ -178,7 +178,7 @@ abstract class ImportExportPlugin extends Plugin {
 			echo '<p><pre>' . htmlspecialchars($xml) . '</pre></p>';
 			echo '</body></html>';
 		}
-		fatalError(__('plugins.importexport.common.error.validation'));
+		throw new Exception(__('plugins.importexport.common.error.validation'));
 	}
 
 }

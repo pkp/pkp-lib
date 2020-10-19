@@ -79,7 +79,7 @@ class PKPUploadPublicFileHandler extends APIHandler {
 		$request = $this->getRequest();
 
 		if (empty($_FILES) || empty($_FILES['file'])) {
-			return $response->withStatus(400)->withJsonError('api.temporaryFiles.400.noUpload');
+			return $response->withStatus(400)->withJsonError('api.files.400.noUpload');
 		}
 
 		$siteDir = Core::getBaseDir() . '/' . Config::getVar('files', 'public_files_dir') . '/site';
@@ -163,18 +163,18 @@ class PKPUploadPublicFileHandler extends APIHandler {
 				switch ($fileManager->getUploadErrorCode($filename)) {
 					case UPLOAD_ERR_INI_SIZE:
 					case UPLOAD_ERR_FORM_SIZE:
-					return $response->withStatus(400)->withJsonError('api.temporaryFiles.400.fileSize', ['maxSize' => Application::getReadableMaxFileSize()]);
+					return $response->withStatus(400)->withJsonError('api.files.400.fileSize', ['maxSize' => Application::getReadableMaxFileSize()]);
 					case UPLOAD_ERR_PARTIAL:
-					return $response->withStatus(400)->withJsonError('api.temporaryFiles.409.uploadFailed');
+					return $response->withStatus(400)->withJsonError('api.files.400.uploadFailed');
 					case UPLOAD_ERR_NO_FILE:
-					return $response->withStatus(400)->withJsonError('api.temporaryFiles.400.noUpload');
+					return $response->withStatus(400)->withJsonError('api.files.400.noUpload');
 					case UPLOAD_ERR_NO_TMP_DIR:
 					case UPLOAD_ERR_CANT_WRITE:
 					case UPLOAD_ERR_EXTENSION:
-					return $response->withStatus(400)->withJsonError('api.temporaryFiles.400.config');
+					return $response->withStatus(400)->withJsonError('api.files.400.config');
 				}
 			}
-			return $response->withStatus(400)->withJsonError('api.temporaryFiles.409.uploadFailed');
+			return $response->withStatus(400)->withJsonError('api.files.400.uploadFailed');
 		}
 
 		return $this->getResponse($response->withJson([

@@ -194,7 +194,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * Build the reviewers query object for getReviewers requests
 	 *
 	 * @see self::getQueryBuilder()
-	 * @return UserQueryBuilder
+	 * @return PKPUserQueryBuilder
 	 */
 	public function getReviewersQueryBuilder($args = []) {
 
@@ -556,7 +556,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			$accessibleStageRoles = array_unique($accessibleStageRoles);
 		}
 
-		return $accessibleStageRoles;
+		return array_map('intval', $accessibleStageRoles);
 	}
 
 	/**

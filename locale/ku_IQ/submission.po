@@ -218,9 +218,6 @@ msgstr "هیچ فایلێک بۆ هەڵسەنگاندن بەردەست نییە.
 msgid "submission.upload.uploadFiles"
 msgstr "بارکردنی فایلەکان"
 
-msgid "submission.upload.fairCopy"
-msgstr "بارکردنی نوسخەی پیشانگا"
-
 msgid "submission.upload.copyeditedVersion"
 msgstr "بارکردنی فایلی وردبینیکراو"
 
@@ -398,9 +395,6 @@ msgstr "ئاژانسەکانی ئێستا"
 
 msgid "submission.supportingAgencies"
 msgstr "ئاژانسە پاڵپشتەکان"
-
-msgid "submission.supplementaryFiles"
-msgstr "فایلە پاشکۆکان"
 
 msgid "submission.summary"
 msgstr "پوختە"
@@ -644,14 +638,8 @@ msgstr "بینینی پێشوەختە"
 msgid "submission.layout.viewingGalley"
 msgstr "پیشاندانی تابلۆی پێشکەشکراو"
 
-msgid "submission.layout.supplementaryFiles"
-msgstr "هەڵسەنگاندنی فایلی پاشکۆ"
-
 msgid "submission.layout.noStyleFile"
 msgstr "هیچ فایلێکی شێواز بۆ ئەم تابلۆیە زیاد نەکراوە."
-
-msgid "submission.layout.newSupplementaryFile"
-msgstr "بارکردنی فایلی پاشکۆ"
 
 msgid "submission.layout.newGalley"
 msgstr "تابلۆیەکی نوێ دروست بکە"
@@ -715,9 +703,6 @@ msgstr "گۆڕانکاری لە نەخشەسازیی تابلۆ"
 
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "ئەم شێوازە بسڕەوە."
-
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "ئایا تۆ لە سڕینەوەی فایلی پاشکۆ دڵنیایت؟"
 
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی ئەم وێنەیە لە تابلۆی ئەم ژمارەیە؟"
@@ -884,9 +869,10 @@ msgstr "فایلی پێشکەشکراو نوێ کرایەوە"
 msgid "submission.event.general.metadataUpdated"
 msgstr "زانیاریی ناسێنەری پێشکەشکراوەکە نوێ کرایەوە"
 
+#, fuzzy
 msgid "submission.event.fileRevised"
 msgstr ""
-"پێداچونەوەی\"{$name}\" (ناسنامەی فایل {$fileId}-{$fileRevision}) بار کرا."
+"پێداچونەوەی\"{$name}\" (ناسنامەی فایل {$submissionFileId}) بار کرا."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "پێشکەشکردنی سەرەتایی تەواو کرا."
@@ -1050,9 +1036,6 @@ msgstr "فایلی هاوپێچ"
 
 msgid "submission.ask"
 msgstr "بپرسە"
-
-msgid "submission.addSuppFile"
-msgstr "فایلێکی پاشکۆ زیاد بکە"
 
 msgid "submission.acknowledge"
 msgstr "بڕیار"

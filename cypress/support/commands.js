@@ -132,41 +132,17 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 	cy.get('button.submitFormButton').click();
 
 	// === Submission Step 2 ===
+	cy.get('button:contains("Add File")');
 	// File uploads
-	var firstFile = true;
 	data.files.forEach(file => {
-		if (!firstFile) cy.get('a[id^="component-grid-"][id*="-add"]').click();
-		cy.wait(2000); // Avoid occasional failure due to form init taking time
-		cy.get('div.pkp_modal_panel').then($modalDiv => {
-			cy.wait(3000);
-			// PPS has a "create galley" modal that needs attention first
-			if ($modalDiv.find('div.header:contains("Create New Galley")').length) {
-				cy.get('div.pkp_modal_panel input[id^="label-"]').type('PDF', {delay: 0});
-				cy.get('div.pkp_modal_panel button:contains("Save")').click();
-				cy.wait(2000); // Avoid occasional failure due to form init taking time
-			}
-		});
-		cy.get('select[id=genreId]').select(file.genre);
 		cy.fixture(file.file, 'base64').then(fileContent => {
 			cy.get('input[type=file]').upload(
 				{fileContent, 'fileName': file.fileName, 'mimeType': 'application/pdf', 'encoding': 'base64'}
 			);
+			cy.get('button:contains("Article Text")').click();
+			cy.get('span:contains("Article Text")');
 		});
-		cy.get('button').contains('Continue').click();
-		cy.wait(2000);
-		for (const field in file.metadata) {
-			cy.get('input[id^="' + Cypress.$.escapeSelector(field) + '"]:visible,textarea[id^="' + Cypress.$.escapeSelector(field) + '"]').type(file.metadata[field], {delay: 0});
-			cy.get('input[id^="language"').click({force: true}); // Close multilingual and datepicker pop-overs
-		}
-		cy.get('button').contains('Continue').click();
-		cy.get('button').contains('Complete').click();
-		firstFile = false;
 	});
-
-	if (firstFile) {
-		// There were no files; close the automatically-opened upload form.
-		cy.get('a.pkpModalCloseButton').click();
-	}
 
 	// Save the ID to the data object
 	cy.location('search')
@@ -246,7 +222,7 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 	cy.get('form[id=submitStep4Form]').find('button').contains('Finish Submission').click();
 	cy.get('button.pkpModalConfirmButton').click();
 	cy.waitJQuery();
-	cy.get('h2').contains('Submission complete');
+	cy.get('h2:contains("Submission complete")');
 });
 
 Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, context) => {

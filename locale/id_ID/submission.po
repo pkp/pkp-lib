@@ -319,9 +319,6 @@ msgstr "Diterima"
 msgid "submission.acknowledge"
 msgstr "Diketahui"
 
-msgid "submission.addSuppFile"
-msgstr "Tambah file tambahan"
-
 msgid "submission.ask"
 msgstr "Tanya"
 
@@ -505,9 +502,6 @@ msgstr "Apakah Anda yakin ingin menghapus galley ini secara permanen?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Apakah Anda yakin ingin memindahkan gambar ini dari galley?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Apakah Anda yakin ingin menghapus file tambahan ini secara permanen?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Hapus stylesheet ini."
 
@@ -565,14 +559,8 @@ msgstr "Versi Layout"
 msgid "submission.layout.newGalley"
 msgstr "Buat Galley Baru"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "upload File Tambahan Baru"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Tidak ada file stylesheet yang telah ditambahkan ke galley ini."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Review File Tambahan"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Melihat Galley Naskah"
@@ -738,9 +726,6 @@ msgstr "Naskah"
 
 msgid "submission.summary"
 msgstr "Ringkasan"
-
-msgid "submission.supplementaryFiles"
-msgstr "File Tambahan"
 
 msgid "submission.supportingAgencies"
 msgstr "Agen Pendukung"
@@ -1744,9 +1729,6 @@ msgstr ""
 msgid "submission.upload.uploadFiles"
 msgstr "Unggah File"
 
-msgid "submission.upload.fairCopy"
-msgstr "Unggah Fair Copy"
-
 msgid "submission.upload.copyeditedVersion"
 msgstr "Unggah File Hasil Copyedit"
 
@@ -2045,8 +2027,9 @@ msgstr "Buka Email"
 msgid "submission.event.subjectPrefix"
 msgstr "Email telah dikirim:"
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Revisi \"{$name}\" (file ID {$fileId}-{$fileRevision}) telah diunggah."
+msgstr "Revisi \"{$name}\" (file ID {$submissionFileId}) telah diunggah."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Pengiriman Naskah Awal Selesai."

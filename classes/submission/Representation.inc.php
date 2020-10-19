@@ -141,18 +141,6 @@ class Representation extends DataObject {
 	function getDAO() {
 		return Application::getRepresentationDAO();
 	}
-
-	function getRepresentationFiles($fileStage = null) {
-		$publication = Services::get('publication')->get($this->getData('publicationId'));
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var $submissionFileDao SubmissionFileDAO */
-		return $submissionFileDao->getLatestRevisionsByAssocId(
-			ASSOC_TYPE_REPRESENTATION,
-			$this->getId(),
-			$publication->getData('submissionId'),
-			$fileStage,
-			null
-		);
-	}
 }
 
 

@@ -76,8 +76,9 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 		$publication = $this->populateObject($publication, $node);
 
 		$publicationLocale = $node->getAttribute('locale');
-		if (empty($publicationLocale)) 
+		if (empty($publicationLocale)) {
 			$publicationLocale = $context->getPrimaryLocale();
+		}
 
 		$publication->setData('locale', $publicationLocale);
 		$publication->setData('version', $node->getAttribute('version'));
@@ -140,7 +141,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 					$controlledVocabulary[] = $nc->textContent;
 				}
 			}
-			
+
 			$controlledVocabulariesValues = array();
 			$controlledVocabulariesValues[$locale] = $controlledVocabulary;
 

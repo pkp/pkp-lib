@@ -67,18 +67,18 @@ msgstr ""
 "El tema actiu, {$themePluginPath}, no està habilitat i podria no instal·lar-"
 "se."
 
-msgid "api.temporaryFiles.400.config"
+msgid "api.files.400.config"
 msgstr ""
 "No s'ha pogut carregar l'arxiu a causa d'un error de configuració del "
 "servidor. Contacteu amb l'administrador/a de sistemes."
 
-msgid "api.temporaryFiles.400.fileSize"
+msgid "api.files.400.fileSize"
 msgstr "Els arxius més grans que {$maxSize} no es poden carregar."
 
-msgid "api.temporaryFiles.409.uploadFailed"
+msgid "api.files.400.uploadFailed"
 msgstr "Un o més arxius no es poden carregar."
 
-msgid "api.temporaryFiles.400.noUpload"
+msgid "api.files.400.noUpload"
 msgstr "No s'ha trobat cap arxiu per carregar en aquesta sol·licitud."
 
 msgid "api.submissions.unknownError"

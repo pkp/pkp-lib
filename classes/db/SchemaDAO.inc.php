@@ -281,10 +281,15 @@ abstract class SchemaDAO extends DAO {
 		$primaryDbProps = [];
 		foreach ($this->primaryTableColumns as $propName => $columnName) {
 			if ($propName !== 'id' && array_key_exists($propName, $sanitizedProps)) {
-				$primaryDbProps[$columnName] = $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type);
+				// If the value is null and the prop is nullable, leave it null
+				if (is_null($sanitizedProps[$propName])
+						&& isset($schema->properties->{$propName}->validation)
+						&& in_array('nullable', $schema->properties->{$propName}->validation)) {
+					$primaryDbProps[$columnName] = null;
+
 				// Convert empty string values for DATETIME columns into null values
 				// because an empty string can not be saved to a DATETIME column
-				if ($primaryDbProps[$columnName] === ''
+				} elseif ($sanitizedProps[$columnName] === ''
 						&& isset($schema->properties->{$propName}->validation)
 						&& (
 							in_array('date_format:Y-m-d H:i:s', $schema->properties->{$propName}->validation)
@@ -292,6 +297,8 @@ abstract class SchemaDAO extends DAO {
 						)
 				) {
 					$primaryDbProps[$columnName] = null;
+				} else {
+					$primaryDbProps[$columnName] = $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type);
 				}
 			}
 		}

@@ -69,7 +69,7 @@ class LimitReviewFilesGridHandler extends SelectableFileListGridHandler {
 			// A review assignment was specified in the request; preset the
 			// checkboxes to the currently available set of files.
 			$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /* @var $reviewFilesDao ReviewFilesDAO */
-			return $reviewFilesDao->check($reviewAssignment->getId(), $submissionFile->getFileId());
+			return $reviewFilesDao->check($reviewAssignment->getId(), $submissionFile->getId());
 		} else {
 			// No review assignment specified; default to all files available.
 			return true;

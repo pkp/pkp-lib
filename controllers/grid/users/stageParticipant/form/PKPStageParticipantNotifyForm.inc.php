@@ -42,9 +42,8 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 		if($itemType == ASSOC_TYPE_SUBMISSION) {
 			$this->_submissionId = $itemId;
 		} else {
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-			$submissionFile = $submissionFileDao->getLatestRevision($itemId);
-			$this->_submissionId = $submissionFile->getSubmissionId();
+			$submissionFile = Services::get('submissionFile')->get($itemId);
+			$this->_submissionId = $submissionFile->getData('submissionId');
 		}
 
 		// Some other forms (e.g. the Add Participant form) subclass this form and

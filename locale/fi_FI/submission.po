@@ -385,9 +385,6 @@ msgstr "Hyväksytty"
 msgid "submission.acknowledge"
 msgstr "Kuittaa vastaanotetuksi"
 
-msgid "submission.addSuppFile"
-msgstr "Lisää liitetiedosto"
-
 msgid "submission.ask"
 msgstr "Kysy"
 
@@ -511,8 +508,9 @@ msgstr "Poista lokimerkintä"
 msgid "submission.event.submissionSubmitted"
 msgstr "Käsikirjoituksen ensimmäinen lähetys suoritettu."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Korjaus \"{$name}\" (tiedoston tunniste {$fileId}-{$fileRevision}) ladattiin."
+msgstr "Korjaus \"{$name}\" (tiedoston tunniste {$submissionFileId}) ladattiin."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Käsikirjoituksen metatiedot päivitetty"
@@ -646,9 +644,6 @@ msgstr "Haluatko varmasti poistaa tämän julkaistavan tiedoston pysyvästi?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Haluatko varmasti poistaa tämän kuvan julkaistavasta tiedostosta?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Haluatko varmasti poistaa tämän liitetiedoston pysyvästi?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Poista tämä tyylitiedosto."
 
@@ -712,14 +707,8 @@ msgstr "Taittoversio"
 msgid "submission.layout.newGalley"
 msgstr "Luo uusi julkaistava tiedosto"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Lataa uusi liitetiedosto"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Tyylitiedostoa ei ole lisätty tähän julkaistavaan tiedostoon."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Liitetiedoston arviointi"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Julkaistavan tiedoston katselu"
@@ -955,9 +944,6 @@ msgstr "Lataa keskustelutiedosto"
 msgid "submission.summary"
 msgstr "Yhteenveto"
 
-msgid "submission.supplementaryFiles"
-msgstr "Liitetiedostot"
-
 msgid "submission.supportingAgencies"
 msgstr "Kannattajajärjestöt"
 
@@ -1107,9 +1093,6 @@ msgstr "Lataa tiedosto"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Lataa teknisesti toimitettu tiedosto"
-
-msgid "submission.upload.fairCopy"
-msgstr "Lataa puhtaaksikirjoitettu teksti"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Lataa tiedostot"

@@ -221,19 +221,39 @@ abstract class PKPSubmission extends DataObject {
 	}
 
 	/**
-	 * Get a piece of data for this object, localized to the current
-	 * locale of the current publication if possible.
-	 * @param $key string
-	 * @param $preferredLocale string
-	 * @param $returnLocale string Optional reference to string receiving return value's locale
+	 * Get localized data for this object.
+	 *
+	 * It selects the locale in the following order:
+	 * - $preferredLocale
+	 * - the user's current locale
+	 * - the submission's primary locale
+	 * - the first locale we find data for
+	 *
+	 * @param string $key
+	 * @param string $preferredLocale
 	 * @return mixed
-	 * @deprecated 3.2.0.0
 	 */
-	function &getLocalizedData($key, $preferredLocale = null) {
-		$publication = $this->getCurrentPublication();
-		if ($publication) {
-			return $publication->getLocalizedData($key, $preferredLocale);
+	public function getLocalizedData($key, $preferredLocale = null) {
+		// 1. Preferred locale
+		if ($preferredLocale && $this->getData($key, $preferredLocale)) {
+			return $this->getData($key, $preferredLocale);
 		}
+		// 2. User's current locale
+		if (!empty($this->getData($key, AppLocale::getLocale()))) {
+			return $this->getData($key, AppLocale::getLocale());
+		}
+		// 3. Submission's primary locale
+		if (!empty($this->getData($key, $this->getData('locale')))) {
+			return $this->getData($key, $this->getData('locale'));
+		}
+		// 4. The first locale we can find data for
+		$data = $this->getData($key, null);
+		foreach ((array) $data as $value) {
+			if (!empty($value)) {
+				return $value;
+			}
+		}
+
 		return null;
 	}
 
@@ -451,11 +471,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @deprecated 3.2.0.0
 	 */
 	function getLocale() {
-		$publication = $this->getCurrentPublication();
-		if (!$publication) {
-			return '';
-		}
-		return $publication->getData('locale');
+		return $this->getData('locale');
 	}
 
 	/**
@@ -464,10 +480,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @deprecated 3.2.0.0
 	 */
 	function setLocale($locale) {
-		$publication = $this->getCurrentPublication();
-		if ($publication) {
-			$publication->setData('locale', $locale);
-		}
+		$this->setData('locale', $locale);
 	}
 
 	/**

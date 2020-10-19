@@ -191,10 +191,10 @@ class GenreDAO extends DAO {
 	 */
 	function _fromRow($row) {
 		$genre = $this->newDataObject();
-		$genre->setId($row['genre_id']);
+		$genre->setId((int) $row['genre_id']);
 		$genre->setKey($row['entry_key']);
 		$genre->setContextId($row['context_id']);
-		$genre->setCategory($row['category']);
+		$genre->setCategory((int) $row['category']);
 		$genre->setDependent($row['dependent']);
 		$genre->setSupplementary($row['supplementary']);
 		$genre->setSequence($row['seq']);

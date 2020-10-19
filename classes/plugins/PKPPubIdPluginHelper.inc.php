@@ -197,7 +197,7 @@ class PKPPubIdPluginHelper {
 					$dao = $pubObject->getDAO();
 					$pubObjectId = $pubObject->getId();
 					if (is_a($pubObject, 'SubmissionFile')) {
-						$pubObjectId = $pubObject->getFileId();
+						$pubObjectId = $pubObject->getId();
 					}
 					$dao->deletePubId($pubObjectId, $pubIdPlugin->getPubIdType());
 					// set the object setting/data 'pub-id::...' to null, in order

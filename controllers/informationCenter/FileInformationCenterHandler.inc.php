@@ -57,12 +57,12 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		parent::initialize($request);
 
 		$this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$this->submissionFile = $submissionFileDao->getLatestRevision($request->getUserVar('fileId'));
+		$this->submissionFile = Services::get('submissionFile')->get($request->getUserVar('submissionFileId'));
 
 		// Ensure data integrity.
-		if (!$this->_submission || !$this->submissionFile || $this->_submission->getId() != $this->submissionFile->getSubmissionId()) fatalError('Unknown or invalid submission or submission file!');
+		if (!$this->_submission || !$this->submissionFile || $this->_submission->getId() != $this->submissionFile->getData('submissionId')) {
+			throw new Exception('Unknown or invalid submission or submission file!');
+		};
 	}
 
 	/**
@@ -75,9 +75,6 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 
 		// Assign variables to the template manager and display
 		$templateMgr = TemplateManager::getManager($request);
-		$fileName = (($s = $this->submissionFile->getLocalizedName()) != '') ? $s : __('common.untitled');
-		if (($i = $this->submissionFile->getRevision()) > 1) $fileName .= " ($i)"; // Add revision number to label
-		if (empty($fileName)) $fileName = __('common.untitled');
 		$templateMgr->assign('removeHistoryTab', (int) $request->getUserVar('removeHistoryTab'));
 
 		return parent::viewInformationCenter($args, $request);
@@ -93,7 +90,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		$this->setupTemplate($request);
 
 		import('lib.pkp.controllers.informationCenter.form.NewFileNoteForm');
-		$notesForm = new NewFileNoteForm($this->submissionFile->getFileId());
+		$notesForm = new NewFileNoteForm($this->submissionFile->getId());
 		$notesForm->initData();
 
 		$templateMgr = TemplateManager::getManager($request);
@@ -116,22 +113,13 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 
 		$submissionFile = $this->submissionFile;
-		$notes = array();
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		while (true) {
-			$submissionFile = $submissionFileDao->getRevision($submissionFile->getSourceFileId(), $submissionFile->getSourceRevision());
-			if (!$submissionFile) break;
-
-			$iterator = $noteDao->getByAssoc($this->_getAssocType(), $submissionFile->getFileId());
-			$notes += $iterator->toArray();
-		}
+		$notes = $noteDao->getByAssoc($this->_getAssocType(), $submissionFile->getData('sourceSubmissionFileId'))->toArray();
 		import('lib.pkp.classes.core.ArrayItemIterator');
 		$templateMgr->assign('notes', new ArrayItemIterator($notes));
 
 		$user = $request->getUser();
 		$templateMgr->assign(array(
 			'currentUserId' => $user->getId(),
-			'notesListId' => 'pastNotesList',
 			'notesDeletable' => false,
 		));
 
@@ -148,7 +136,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		$this->setupTemplate($request);
 
 		import('lib.pkp.controllers.informationCenter.form.NewFileNoteForm');
-		$notesForm = new NewFileNoteForm($this->submissionFile->getFileId());
+		$notesForm = new NewFileNoteForm($this->submissionFile->getId());
 		$notesForm->readInputData();
 
 		if ($notesForm->validate()) {
@@ -199,7 +187,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		return array_merge(
 			parent::_getLinkParams(),
 			array(
-				'fileId' => $this->submissionFile->getFileId(),
+				'submissionFileId' => $this->submissionFile->getId(),
 				'stageId' => $this->_stageId,
 			)
 		);
@@ -210,7 +198,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 * @return int
 	 */
 	function _getAssocId() {
-		return $this->submissionFile->getFileId();
+		return $this->submissionFile->getId();
 	}
 
 	/**
@@ -230,7 +218,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 
 		// Get the latest history item to display in the header
 		$submissionEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /* @var $submissionEventLogDao SubmissionFileEventLogDAO */
-		$fileEvents = $submissionEventLogDao->getByFileId($this->submissionFile->getFileId());
+		$fileEvents = $submissionEventLogDao->getById($this->submissionFile->getId());
 		$lastEvent = $fileEvents->next();
 		if(isset($lastEvent)) {
 			$templateMgr->assign('lastEvent', $lastEvent);

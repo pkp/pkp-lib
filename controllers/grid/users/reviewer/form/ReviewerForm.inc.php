@@ -359,14 +359,19 @@ class ReviewerForm extends Form {
 		$reviewAssignmentDao->updateObject($reviewAssignment);
 
 		// Grant access for this review to all selected files.
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		import('lib.pkp.classes.submission.SubmissionFile'); // File constants
-		$submissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound($currentReviewRound, SUBMISSION_FILE_REVIEW_FILE);
-		$selectedFiles = (array) $this->getData('selectedFiles');
+		import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_
+		$submissionFilesIterator = Services::get('submissionFile')->getMany([
+			'submissionIds' => [$submission->getId()],
+			'reviewRoundIds' => [$currentReviewRound->getId()],
+			'fileStages' => [SUBMISSION_FILE_REVIEW_FILE],
+		]);
+		$selectedFiles = array_map(function($id) {
+			return (int) $id;
+		}, (array) $this->getData('selectedFiles'));
 		$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /* @var $reviewFilesDao ReviewFilesDAO */
-		foreach ($submissionFiles as $submissionFile) {
-			if (in_array($submissionFile->getFileId(), $selectedFiles)) {
-				$reviewFilesDao->grant($reviewAssignment->getId(), $submissionFile->getFileId());
+		foreach ($submissionFilesIterator as $submissionFile) {
+			if (in_array($submissionFile->getId(), $selectedFiles)) {
+				$reviewFilesDao->grant($reviewAssignment->getId(), $submissionFile->getId());
 			}
 		}
 

@@ -26,9 +26,6 @@ msgstr "Aceite"
 msgid "submission.acknowledge"
 msgstr "Acusar Recebimento"
 
-msgid "submission.addSuppFile"
-msgstr "Adicionar Documento Suplementar"
-
 msgid "submission.ask"
 msgstr "Solicitada em"
 
@@ -212,9 +209,6 @@ msgstr "Deseja realmente eliminar permanentemente este documento?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Deseja realmente remover esta imagem?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Deseja realmente eliminar permanentemente estes documentos suplementares?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Eliminar folha de estilo."
 
@@ -272,14 +266,8 @@ msgstr "para Layout"
 msgid "submission.layout.newGalley"
 msgstr "Criar nova edição"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Transferir novo documento suplementar"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Nenhuma folha de estilo incluída."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Revisão de documento suplementar"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Visualizando a edição"
@@ -442,9 +430,6 @@ msgstr "Submetido por"
 
 msgid "submission.summary"
 msgstr "Resumo"
-
-msgid "submission.supplementaryFiles"
-msgstr "Documentos suplementares"
 
 msgid "submission.titleAndAbstract"
 msgstr "Título e Resumo"
@@ -906,8 +891,9 @@ msgstr "Submissão inicial concluída."
 msgid "submission.event.fileUploaded"
 msgstr "Um ficheiro \"{$originalFileName}\" foi submetido {$submissionId} por {$username}."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Revisão \"{$name}\" (file ID {$fileId}-{$fileRevision}) foi carregada."
+msgstr "Revisão \"{$name}\" (file ID {$submissionFileId}) foi carregada."
 
 msgid "submission.event.participantAdded"
 msgstr "{$name} ({$username}) foi designado para esta submissão como {$userGroupName}."
@@ -1130,9 +1116,6 @@ msgstr "Upload Ficheiro"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Upload Ficheiro Edição Cópia"
-
-msgid "submission.upload.fairCopy"
-msgstr "Upload Cópia Finalizada"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Upload Ficheiros"

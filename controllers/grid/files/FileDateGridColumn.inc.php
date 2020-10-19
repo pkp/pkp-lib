@@ -49,7 +49,7 @@ class FileDateGridColumn extends GridColumn {
 		$submissionFileData = $row->getData();
 		$submissionFile = $submissionFileData['submissionFile'];
 		assert(is_a($submissionFile, 'SubmissionFile'));
-		$mtimestamp = strtotime($submissionFile->getDateModified());
+		$mtimestamp = strtotime($submissionFile->getData('updatedAt'));
 		$dateFormatLong = \Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong();
 		$date = strftime($dateFormatLong, $mtimestamp);
 		// File age

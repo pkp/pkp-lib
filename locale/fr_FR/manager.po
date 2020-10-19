@@ -396,9 +396,6 @@ msgstr "Outils de lecture"
 msgid "manager.roles"
 msgstr "Rôles"
 
-msgid "manager.setup.groupType"
-msgstr "Groupement par type de fichier"
-
 msgid "manager.setup.homeTitleImageInvalid"
 msgstr "Format d'image de l'en-tête de la page d'accueil invalide. Les formats acceptés sont .gif, .jpg, ou .png."
 
@@ -976,11 +973,6 @@ msgstr "Vous devez donner un nom à ce fichier bibliothèque."
 msgid "settings.libraryFiles.typeRequired"
 msgstr "Un type de fichier est nécessaire pour ce fichier bibliothèque."
 
-msgid "manager.setup.genres.dependent"
-msgstr ""
-"Marquer les fichiers de ce type comme fichiers dépendants (par exemple à ne "
-"pas lister avec le contenu publié)"
-
 msgid "manager.workflow"
 msgstr "Flux des travaux"
 
@@ -1237,9 +1229,6 @@ msgstr "Officiel"
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Révisé"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Marquer les fichiers de ce type en tant que fichiers supplémentaires (par exemple, ne font pas partie du contenu principal de la soumission)"
 
 msgid "manager.reviewForms.confirmActivate"
 msgstr ""

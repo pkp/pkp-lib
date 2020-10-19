@@ -31,12 +31,13 @@ class SubmissionsMigration extends Migration {
 			$table->datetime('date_submitted')->nullable();
 			$table->datetime('last_modified')->nullable();
 			$table->bigInteger('stage_id')->default(WORKFLOW_STAGE_ID_SUBMISSION);
+			$table->string('locale', 14)->nullable();
 
 			import('lib.pkp.classes.submission.PKPSubmission'); // for constant
 			$table->smallInteger('status')->default(STATUS_QUEUED);
 
 			$table->smallInteger('submission_progress')->default(1);
-			//  Used in OMP only; should not be null there 
+			//  Used in OMP only; should not be null there
 			$table->smallInteger('work_type')->default(0)->nullable();
 			$table->index(['context_id'], 'submissions_context_id');
 			$table->index(['current_publication_id'], 'submissions_publication_id');

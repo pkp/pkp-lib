@@ -18,19 +18,19 @@ import('lib.pkp.classes.db.SchemaDAO');
 import('lib.pkp.classes.submission.PKPAuthor');
 
 abstract class PKPAuthorDAO extends SchemaDAO {
-	/** @copydoc SchemaDao::$schemaName */
+	/** @copydoc SchemaDAO::$schemaName */
 	public $schemaName = SCHEMA_AUTHOR;
 
-	/** @copydoc SchemaDao::$tableName */
+	/** @copydoc SchemaDAO::$tableName */
 	public $tableName = 'authors';
 
-	/** @copydoc SchemaDao::$settingsTableName */
+	/** @copydoc SchemaDAO::$settingsTableName */
 	public $settingsTableName = 'author_settings';
 
-	/** @copydoc SchemaDao::$primaryKeyColumn */
+	/** @copydoc SchemaDAO::$primaryKeyColumn */
 	public $primaryKeyColumn = 'author_id';
 
-	/** @copydoc SchemaDao::$primaryTableColumns */
+	/** @copydoc SchemaDAO::$primaryTableColumns */
 	public $primaryTableColumns = [
 		'id' => 'author_id',
 		'email' => 'email',
@@ -54,7 +54,7 @@ abstract class PKPAuthorDAO extends SchemaDAO {
 	 */
 	public function getById($objectId) {
 		$result = $this->retrieve(
-			'SELECT a.*, p.locale AS submission_locale FROM authors a JOIN publications p ON (a.publication_id = p.publication_id) WHERE author_id = ?',
+			'SELECT a.*, s.locale AS submission_locale FROM authors a JOIN publications p ON (a.publication_id = p.publication_id) JOIN submissions s ON (s.submission_id = p.submission_id) WHERE author_id = ?',
 			(int) $objectId
 		);
 
@@ -79,10 +79,11 @@ abstract class PKPAuthorDAO extends SchemaDAO {
 		if ($useIncludeInBrowse) $params[] = 1;
 
 		$result = $this->retrieve(
-			'SELECT DISTINCT a.*, ug.show_title, p.locale AS submission_locale
+			'SELECT DISTINCT a.*, ug.show_title, s.locale AS submission_locale
 			FROM authors a
 				JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
 				JOIN publications p ON (p.publication_id = a.publication_id)
+				JOIN submissions s ON (s.submission_id = p.submission_id)
 				LEFT JOIN author_settings au ON (au.author_id = a.author_id)
 			WHERE	a.publication_id = ? ' .
 			($useIncludeInBrowse ? ' AND a.include_in_browse = ?' : '')

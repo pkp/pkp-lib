@@ -28,8 +28,13 @@ class PKPUserAction {
 
 		HookRegistry::call('UserAction::mergeUsers', array(&$oldUserId, &$newUserId));
 
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFileDao->transferOwnership($oldUserId, $newUserId);
+		$submissionFilesIterator = Services::get('submissionFile')->getMany([
+			'uploaderUserIds' => [$oldUserId],
+			'includeDependentFiles' => true,
+		]);
+		foreach ($submissionFilesIterator as $submissionFile) {
+			Services::get('submissionFile')->edit($submissionFile, ['uploaderUserId' => $newUserId], Application::get()->getRequest());
+		}
 
 		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$notes = $noteDao->getByUserId($oldUserId);

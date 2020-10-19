@@ -231,7 +231,9 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 * Set the submission data from the form.
 	 * @param Submission $submission
 	 */
-	function setSubmissionData($submission) { }
+	function setSubmissionData($submission) {
+		$submission->setData('locale', $this->getData('locale'));
+	}
 
 	/**
 	 * Set the publication data from the form.
@@ -240,13 +242,6 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function setPublicationData($publication, $submission) {
 		$publication->setData('submissionId', $submission->getId());
-		$oldLocale = $publication->getData('locale');
-		$publication->setData('locale', $this->getData('locale'));
-		$publication->setData('language', PKPString::substr($this->getData('locale'), 0, 2));
-		if ($oldLocale && $oldLocale != $this->getData('locale')) {
-			$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
-			$authorDao->changePublicationLocale($publication->getId(), $oldLocale, $this->getData('locale'));
-		}
 	}
 
 	/**
@@ -337,6 +332,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		}
 
 		if (isset($this->submission)) {
+			$oldLocale = $this->submission->getData('locale');
 			// Update existing submission
 			$this->setSubmissionData($this->submission);
 			if ($this->submission->getSubmissionProgress() <= $this->step) {
@@ -353,6 +349,12 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$publication = $this->submission->getCurrentPublication();
 			$this->setPublicationData($publication, $this->submission);
 			$publication = Services::get('publication')->edit($publication, $publication->_data, $request);
+
+			// Update author name data when submission locale is changed
+			if ($oldLocale !== $this->submission->getData('locale')) {
+				$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+				$authorDao->changePublicationLocale($publication->getId(), $oldLocale, $this->getData('locale'));
+			}
 
 		} else {
 			// Create new submission
@@ -385,11 +387,11 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$userGivenNames = $user->getGivenName(null);
 			$userFamilyNames = $user->getFamilyName(null);
 			if (is_null($userFamilyNames)) $userFamilyNames = array();
-			if (empty($userGivenNames[$this->submission->getLocale()])) {
+			if (empty($userGivenNames[$this->submission->getData('locale')])) {
 				$site = Application::get()->getRequest()->getSite();
-				$userGivenNames[$this->submission->getLocale()] = $userGivenNames[$site->getPrimaryLocale()];
+				$userGivenNames[$this->submission->getData('locale')] = $userGivenNames[$site->getPrimaryLocale()];
 				// then there should also be no family name for the submission locale
-				$userFamilyNames[$this->submission->getLocale()] = !empty($userFamilyNames[$site->getPrimaryLocale()]) ? $userFamilyNames[$site->getPrimaryLocale()] : '';
+				$userFamilyNames[$this->submission->getData('locale')] = !empty($userFamilyNames[$site->getPrimaryLocale()]) ? $userFamilyNames[$site->getPrimaryLocale()] : '';
 			}
 			$author->setGivenName($userGivenNames, null);
 			$author->setFamilyName($userFamilyNames, null);

@@ -473,12 +473,13 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 						$stage['status'] = __($reviewRound->getStatusKey());
 
 						// Revision files in this round.
-						import('lib.pkp.classes.submission.SubmissionFile');
-						$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-						$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($reviewRound, SUBMISSION_FILE_REVIEW_REVISION);
-						$stage['files'] = array(
-							'count' => count($submissionFiles),
-						);
+						$stage['files'] = [
+							'count' => Services::get('submissionFile')->getCount([
+								'submissionIds' => [$submission->getId()],
+								'fileStages' => [SUBMISSION_FILE_REVIEW_REVISION],
+								'reviewRounds' => [$reviewRound->getId()],
+							]),
+						];
 
 						// See if the  curent user can only recommend:
 						$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
@@ -495,9 +496,9 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 						}
 					} else {
 						// workaround for pkp/pkp-lib#4231, pending formal data model
-						$stage['files'] = array(
+						$stage['files'] = [
 							 'count' => 0
-						);
+						];
 					}
 					break;
 
@@ -506,12 +507,12 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 				case WORKFLOW_STAGE_ID_EDITING:
 				case WORKFLOW_STAGE_ID_PRODUCTION:
 					import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
-					$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-					$fileStageIId = $stageId === WORKFLOW_STAGE_ID_EDITING ? SUBMISSION_FILE_COPYEDIT : SUBMISSION_FILE_PROOF;
-					$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $fileStageIId);
-					$stage['files'] = array(
-						'count' => count($submissionFiles),
-					);
+					$stage['files'] = [
+						'count' => Services::get('submissionFile')->getCount([
+							'submissionIds' => [$submission->getId()],
+							'fileStages' => [WORKFLOW_STAGE_ID_EDITING ? SUBMISSION_FILE_COPYEDIT : SUBMISSION_FILE_PROOF],
+						]),
+					];
 					break;
 			}
 

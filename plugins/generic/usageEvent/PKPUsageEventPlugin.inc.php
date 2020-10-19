@@ -181,10 +181,14 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 			// HTML pages with no file downloads.
 			$docSize = 0;
 			$mimeType = 'text/html';
-		} else {
-			// Files.
+		} elseif (is_a($pubObject, 'IssueGalley')) {
 			$docSize = (int)$pubObject->getFileSize();
 			$mimeType = $pubObject->getFileType();
+		} else {
+			// Files.
+			$path = Services::get('file')->getPath($pubObject->getData('fileId'));
+			$docSize = Services::get('file')->fs->getSize($path);
+			$mimeType = Services::get('file')->fs->getMimetype($path);
 		}
 
 		$canonicalUrl = $router->url(

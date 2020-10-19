@@ -100,22 +100,6 @@ class LinkAction {
 	}
 
 	/**
-	 * Get a title for display when a user hovers over the
-	 * link action.  Default to the regular title if it is set.
-	 * @return string
-	 */
-	function getHoverTitle() {
-		if ($this->getToolTip()) {
-			return $this->getToolTip();
-		} else {
-			// for the locale key, remove any unique ids from the id.
-			$id = preg_replace('/([^-]+)\-.+$/', '$1', $this->getId());
-			$title = __('grid.action.' . $id);
-			return $title;
-		}
-	}
-
-	/**
 	 * Get the action image.
 	 * @return string
 	 */

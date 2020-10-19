@@ -401,9 +401,6 @@ msgstr "Geaccepteerd"
 msgid "submission.acknowledge"
 msgstr "Erkenning"
 
-msgid "submission.addSuppFile"
-msgstr "Voeg een aanvullend bestand toe"
-
 msgid "submission.ask"
 msgstr "Vraag"
 
@@ -545,8 +542,9 @@ msgstr "Verwijder uit logboek"
 msgid "submission.event.submissionSubmitted"
 msgstr "Initiële inzending voltooid."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Revisie \"{$name}\" (bestands-ID {$fileId}-{$fileRevision}) werd opgeladen."
+msgstr "Revisie \"{$name}\" (bestands-ID {$submissionFileId}) werd opgeladen."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadata van de inzending veranderd"
@@ -683,9 +681,6 @@ msgstr "Weet u zeker dat u deze proefdruk wilt verwijderen?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Weet u zeker dat u deze afbeelding wilt verwijderen uit de proeven?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Weet u zeker dat u dit aanvullend bestand wilt verwijderen?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Verwijder deze stylesheet."
 
@@ -749,14 +744,8 @@ msgstr "Opmaakversie"
 msgid "submission.layout.newGalley"
 msgstr "Nieuwe proefdruk maken"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Nieuw aanvullend bestand laden"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Er is geen stylesheet bestand aan deze proefdruk gekoppeld."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Beoordeling aanvullende bestanden"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Inzendingsproeven bekijken"
@@ -992,9 +981,6 @@ msgstr "Laad een discussie bestand op"
 msgid "submission.summary"
 msgstr "Samenvatting"
 
-msgid "submission.supplementaryFiles"
-msgstr "Aanvullende bestanden"
-
 msgid "submission.supportingAgencies"
 msgstr "Ondersteunende organisatie"
 
@@ -1171,9 +1157,6 @@ msgstr "Bestand opladen"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Geredigeerd bestand opladen"
-
-msgid "submission.upload.fairCopy"
-msgstr "Netversie opladen"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Bestanden opladen"

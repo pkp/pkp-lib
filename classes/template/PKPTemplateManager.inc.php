@@ -756,6 +756,7 @@ class PKPTemplateManager extends Smarty {
 			'common.confirm',
 			'common.delete',
 			'common.edit',
+			'common.editItem',
 			'common.error',
 			'common.filter',
 			'common.filterAdd',
@@ -1189,6 +1190,28 @@ class PKPTemplateManager extends Smarty {
 
 		// Actually display the template.
 		parent::display($template, $cache_id, $compile_id, $parent);
+	}
+
+	/**
+	 * DO NOT USE. Assign the state data to the template
+	 *
+	 * This method is a temporary workaround and should not be used
+	 * to pass state to the template. It is only used during submission
+	 * as a temporary method to initialize a Vue.js component inside
+	 * of a tab template.
+	 *
+	 * This can lead to a separate Vue instance embedded inside of the
+	 * main app's Vue instance. The instances can not talk to each other.
+	 *
+	 * This should be removed when the submission wizard is updated to
+	 * make use of the new forms powered by Vue.js.
+	 *
+	 * @deprecated 3.3
+	 * @param [type] $state
+	 * @return void
+	 */
+	function _assignState($state) {
+		$this->assign('state', $this->_state);
 	}
 
 
@@ -2146,10 +2169,8 @@ class PKPTemplateManager extends Smarty {
 		// The approved list of `by` attributes
 		// chapter Any files assigned to a chapter ID. A value of `any` will return files assigned to any chapter. A value of 0 will return files not assigned to chapter
 		// publicationFormat Any files in a given publicationFormat ID
-		// component Any files of a component type by class name: SubmissionFile|SubmissionArtworkFile|SupplementaryFile
-		// fileExtension Any files with a file extension in all caps: PDF
 		// genre Any files with a genre ID (file genres are configurable but typically refer to Manuscript, Bibliography, etc)
-		if (!in_array($params['by'], ['chapter', 'publicationFormat', 'component', 'fileExtension', 'genre'])) {
+		if (!in_array($params['by'], array('chapter','publicationFormat','fileExtension','genre'))) {
 			error_log('Smarty: {pluck_files} function called without a valid `by` param. Called in ' . __FILE__ . ':' . __LINE__);
 			$smarty->assign($params['assign'], []);
 			return;
@@ -2182,19 +2203,7 @@ class PKPTemplateManager extends Smarty {
 					break;
 
 				case 'publicationFormat':
-					if ($file->getAssocId() == $params['value']) {
-						$matching_files[] = $file;
-					}
-					break;
-
-				case 'component':
-					if (get_class($file) == $params['value']) {
-						$matching_files[] = $file;
-					}
-					break;
-
-				case 'fileExtension':
-					if ($file->getExtension() == $params['value']) {
+					if ($file->getData('assocId') == $params['value']) {
 						$matching_files[] = $file;
 					}
 					break;

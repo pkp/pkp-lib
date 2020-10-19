@@ -23,9 +23,6 @@ msgstr "已经接受的"
 msgid "submission.acknowledge"
 msgstr "致谢"
 
-msgid "submission.addSuppFile"
-msgstr "添加一个附件"
-
 msgid "submission.ask"
 msgstr "Ask"
 
@@ -206,9 +203,6 @@ msgstr "您确认将永久删除这个样稿?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "您确认将从样稿里删除这个图片?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "您确认将永久删除这个附件文件?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "删除这个样式."
 
@@ -266,14 +260,8 @@ msgstr "排版版本"
 msgid "submission.layout.newGalley"
 msgstr "创建新的样稿"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "上传新的附件"
-
 msgid "submission.layout.noStyleFile"
 msgstr "没有样式表文件被添加到这个样稿里."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "附件审查"
 
 msgid "submission.layout.viewingGalley"
 msgstr "预览投稿样稿"
@@ -436,9 +424,6 @@ msgstr "提交人"
 
 msgid "submission.summary"
 msgstr "摘要"
-
-msgid "submission.supplementaryFiles"
-msgstr "附件文件"
 
 msgid "submission.titleAndAbstract"
 msgstr "标题和摘要"

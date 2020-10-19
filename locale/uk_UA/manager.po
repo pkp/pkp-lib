@@ -632,9 +632,6 @@ msgstr "Під час видалення цього об'єкту виникла
 msgid "manager.setup.favicon"
 msgstr "Favicon"
 
-msgid "manager.setup.groupType"
-msgstr "Групування типів файлів"
-
 msgid "manager.setup.homeHeaderImageInvalid"
 msgstr "Завантаження невдале або неправильний формат зображення для логотипу заголовку домашньої сторінки. Прийнятними форматами є .gif, .jpg або .png."
 
@@ -1198,14 +1195,6 @@ msgstr "Видалити цей компонент"
 
 msgid "grid.action.restoreGenres"
 msgstr "Відновити компоненти з усталеними налаштуваннями"
-
-msgid "manager.setup.genres.dependent"
-msgstr ""
-"Позначити файли цього типу як залежні файли (наприклад, як такі, що не "
-"будуть відображатися з опублікованим вмістом)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Позначити файли цього типу як додаткові файли (наприклад, як такі, що не стосуються основного вмісту подання)"
 
 msgid "manager.setup.genres.key"
 msgstr "Ключ"

@@ -404,9 +404,6 @@ msgstr "Accepterad"
 msgid "submission.acknowledge"
 msgstr "Bekräfta"
 
-msgid "submission.addSuppFile"
-msgstr "Bifoga tilläggsfil"
-
 msgid "submission.ask"
 msgstr "Fråga"
 
@@ -548,8 +545,9 @@ msgstr "Ta bort händelse i logg"
 msgid "submission.event.submissionSubmitted"
 msgstr "Bidraget har skickats in."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Bearbetningen \"{$name}\" (fil-ID {$fileId}-{$fileRevision}) laddas upp."
+msgstr "Bearbetningen \"{$name}\" (fil-ID {$submissionFileId}) laddas upp."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Bidragets metadata uppdaterade"
@@ -683,9 +681,6 @@ msgstr "Är du säker på att du vill ta bort den här publiceringsversionen per
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Är du säker på att du vill ta bort den här bilden från publiceringsversionen?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Är du säker på att du vill ta bort den här tilläggsfilen permanent?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Ta bort den här stilmallen."
 
@@ -749,14 +744,8 @@ msgstr "Layoutversion"
 msgid "submission.layout.newGalley"
 msgstr "Skapa ny publiceringsversion"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Ladda upp tilläggsfil"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Ingen stilmall i separat fil tillagd för den här publiceringsversionen."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Granskning av tilläggsfiler"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Visar bidragets publiceringsversion"
@@ -992,9 +981,6 @@ msgstr "Ladda upp en diskussionsfil"
 msgid "submission.summary"
 msgstr "Sammanfattning"
 
-msgid "submission.supplementaryFiles"
-msgstr "Tilläggsfiler"
-
 msgid "submission.supportingAgencies"
 msgstr "Stödorganisationer"
 
@@ -1171,9 +1157,6 @@ msgstr "Ladda upp fil"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Ladda upp manusredigerad fil"
-
-msgid "submission.upload.fairCopy"
-msgstr "Ladda upp justerad kopia"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Ladda upp filer"

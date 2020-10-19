@@ -21,7 +21,7 @@
 	font-size: @font-sml;
 	line-height: @line-sml;
 
-	fieldset:not(.pkpFilter__input--sliderMultirange) {
+	fieldset:not(.pkpFilter__input--sliderMultirange):not(.pkpFormGroup):not(.pkpFormField--options) {
 		margin: 0 0 @double 0;
 		padding: 0;
 		border: none;
@@ -194,37 +194,6 @@
 	// by a section
 	.description + .section {
 		margin-top: @double;
-	}
-
-	// Form controls that toggle between display and editing states
-	[data-pkp-editable] {
-
-		[data-pkp-editable-view="input"],
-		[data-pkp-editable-view="input"] label:not(.error),
-		&.isEditing [data-pkp-editable-view="display"] {
-			position: absolute;
-			top: -9999px;
-			left: -9999px;
-		}
-
-		[data-pkp-editable-view="display"],
-		&.isEditing [data-pkp-editable-view="input"] {
-			position: relative;
-			top: auto;
-			left: auto;
-		}
-
-		.edit {
-			font-size: @font-sml;
-			margin-left: 1em;
-			text-decoration: none;
-
-			&:before {
-				.fa();
-				content: @fa-var-pencil;
-				margin-right: 0.25em;
-			}
-		}
 	}
 
 	// Localization popovers
@@ -803,4 +772,11 @@ a[id^="publicIdentifiersForm-clearObjectsPubIds-button"] {
 	.pkp_form_hidden {
 		display:none !important;
 	}
+}
+
+// When a new form (pkpForm) appears nested inside
+// of an old one (pkp_form)
+.pkp_form .pkpForm .pkpFormField--options__option {
+	font-weight: @normal;
+	font-size: @font-sml;
 }

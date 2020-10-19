@@ -69,18 +69,18 @@ msgstr ""
 "Das aktive Theme, {$themePluginPath}, ist nicht angeschalten oder nicht "
 "installiert."
 
-msgid "api.temporaryFiles.400.config"
+msgid "api.files.400.config"
 msgstr ""
 "Die Datei konnte aufgrund eines Fehlers in der Serverkonfiguration nicht "
 "hochgeladen werden. Bitte kontaktieren Sie den Systemadministrator."
 
-msgid "api.temporaryFiles.400.fileSize"
+msgid "api.files.400.fileSize"
 msgstr "Dateien größer als {$maxSize} können nicht hochgeladen werden."
 
-msgid "api.temporaryFiles.409.uploadFailed"
+msgid "api.files.400.uploadFailed"
 msgstr "Eine oder mehrere Dateien konnten nicht hochgeladen werden."
 
-msgid "api.temporaryFiles.400.noUpload"
+msgid "api.files.400.noUpload"
 msgstr "Mit dieser Anfrage konnte keine hochzuladende Datei gefunden werden."
 
 msgid "api.submissions.404.siteWideEndpoint"

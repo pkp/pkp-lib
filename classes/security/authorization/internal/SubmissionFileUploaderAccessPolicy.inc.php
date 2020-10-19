@@ -21,8 +21,8 @@ class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy 
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function __construct($request, $fileIdAndRevision = null) {
-		parent::__construct($request, $fileIdAndRevision);
+	function __construct($request, $submissionFileId = null) {
+		parent::__construct($request, $submissionFileId);
 	}
 
 

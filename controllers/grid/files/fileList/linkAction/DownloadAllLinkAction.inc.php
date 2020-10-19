@@ -26,39 +26,15 @@ class DownloadAllLinkAction extends LinkAction {
 	 * @param $actionArgs array
 	 * @param $files array Files to be downloaded.
 	 */
-	function __construct($request, $actionArgs, $files) {
+	function __construct($request, $actionArgs) {
 		// Instantiate the redirect action request.
 		$router = $request->getRouter();
-		$filesIdsAndRevisions = $this->_getFilesIdsAndRevisions($files);
-		$actionArgs['filesIdsAndRevisions'] = $filesIdsAndRevisions;
 		import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
 		$redirectRequest = new PostAndRedirectAction($router->url($request, null, 'api.file.FileApiHandler', 'recordDownload', null, $actionArgs),
 			$router->url($request, null, 'api.file.FileApiHandler', 'downloadAllFiles', null, $actionArgs));
 
 		// Configure the link action.
 		parent::__construct('downloadAll', $redirectRequest, __('submission.files.downloadAll'), 'getPackage');
-	}
-
-
-	//
-	// Private helper methods.
-	//
-	/**
-	 * Return an string with all files ids and revisions.
-	 * @param $files array The files that will be downloaded.
-	 * @return string
-	 */
-	function _getFilesIdsAndRevisions($files) {
-		$filesIdsAndRevisions = null;
-		foreach ($files as $fileData) {
-			$file =& $fileData['submissionFile'];
-			$fileId = $file->getFileId();
-			$revision = $file->getRevision();
-			$filesIdsAndRevisions .= $fileId . '-' . $revision . ';';
-			unset($file);
-		}
-
-		return $filesIdsAndRevisions;
 	}
 }
 

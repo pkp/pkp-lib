@@ -19,19 +19,19 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy {
 	/** @var PKPRequest */
 	var $_request;
 
-	/** @var string File id and revision, separated with a dash (e.g. 15-1) */
-	var $_fileIdAndRevision;
+	/** @var int Submission file id */
+	var $_submissionFileId;
 
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
-	 * @param $fileIdAndRevision string If passed, this policy will try to
+	 * @param $submissionFileId int If passed, this policy will try to
 	 * get the submission file from this data.
 	 */
-	function __construct($request, $fileIdAndRevision = null) {
+	function __construct($request, $submissionFileId = null) {
 		parent::__construct('user.authorization.submissionFile');
 		$this->_request = $request;
-		$this->_fileIdAndRevision = $fileIdAndRevision;
+		$this->_submissionFileId = $submissionFileId;
 	}
 
 
@@ -59,34 +59,19 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy {
 	 * @return SubmissionFile
 	 */
 	function getSubmissionFile($request) {
-		// Try to get the submission file info.
-		$fileIdAndRevision = $this->_fileIdAndRevision;
-		if (!is_null($fileIdAndRevision)) {
-			$fileData = explode('-', $fileIdAndRevision);
-			$fileId = (int) $fileData[0];
-			$revision = isset($fileData[1]) ? (int) $fileData[1] : 0; // -0 for most recent revision
-			$cacheId = $fileIdAndRevision;
-		} else {
-			// Get the identifying info from the request
-			$fileId = (int) $request->getUserVar('fileId');
-			$revision = (int) $request->getUserVar('revision');
-			assert($fileId>0);
-			$cacheId = "$fileId-$revision"; // -0 for most recent revision
+		// Get the identifying info from the request
+		if (is_null($this->_submissionFileId)) {
+			$this->_submissionFileId = (int) $request->getUserVar('submissionFileId');
+			assert($this->_submissionFileId > 0);
 		}
 
 		// Fetch the object, caching if possible
 		$cache =& $this->_getCache();
-		if (!isset($cache[$cacheId])) {
-			// Cache miss
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-			if ($revision) {
-				$cache[$cacheId] = $submissionFileDao->getRevision($fileId, $revision);
-			} else {
-				$cache[$cacheId] = $submissionFileDao->getLatestRevision($fileId);
-			}
+		if (!isset($cache[$this->_submissionFileId])) {
+			$cache[$this->_submissionFileId] = Services::get('submissionFile')->get($this->_submissionFileId);
 		}
 
-		return $cache[$cacheId];
+		return $cache[$this->_submissionFileId];
 	}
 
 	/**

@@ -20,18 +20,18 @@ msgstr "{$locale} dili desteklenmiyor."
 msgid "api.themes.404.themeUnavailable"
 msgstr "Aktif tema {$themePluginPath}, etkin değil veya yüklenmemiş olabilir."
 
-msgid "api.temporaryFiles.400.config"
+msgid "api.files.400.config"
 msgstr ""
 "Sunucu yapılandırma hatası nedeniyle dosya yüklenemedi. Lütfen sistem "
 "yöneticisine başvurun."
 
-msgid "api.temporaryFiles.400.fileSize"
+msgid "api.files.400.fileSize"
 msgstr "{$MaxSize}  boyutundan daha büyük dosyalar yüklenemez."
 
-msgid "api.temporaryFiles.409.uploadFailed"
+msgid "api.files.400.uploadFailed"
 msgstr "Bir veya daha fazla dosya yüklenemedi."
 
-msgid "api.temporaryFiles.400.noUpload"
+msgid "api.files.400.noUpload"
 msgstr "Sorguyla yüklenecek bir dosya bulunamadı."
 
 msgid "api.submissions.400.invalidIssueIdentifiers"

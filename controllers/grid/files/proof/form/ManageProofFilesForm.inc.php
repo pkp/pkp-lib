@@ -57,20 +57,13 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm {
 	/**
 	 * @copydoc ManageSubmissionFilesForm::importFile()
 	 */
-	protected function importFile($context, $submissionFile, $fileStage) {
-		$newSubmissionFile = parent::importFile($context, $submissionFile, $fileStage);
+	protected function importFile($submissionFile, $fileStage) {
+		$newSubmissionFile = clone $submissionFile;
+		$newSubmissionFile->setData('assocType', ASSOC_TYPE_REPRESENTATION);
+		$newSubmissionFile->setData('assocId', $this->_representationId);
+		$newSubmissionFile->setData('viewable', false); // Not approved by default
 
-		$representationDao = Application::getRepresentationDAO();
-		$representation = $representationDao->getById($this->_representationId);
-
-		$newSubmissionFile->setAssocType(ASSOC_TYPE_REPRESENTATION);
-		$newSubmissionFile->setAssocId($representation->getId());
-		$newSubmissionFile->setFileStage(SUBMISSION_FILE_PROOF);
-		$newSubmissionFile->setViewable(false); // Not approved by default
-
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFileDao->updateObject($newSubmissionFile);
-		return $newSubmissionFile;
+		return parent::importFile($newSubmissionFile, SUBMISSION_FILE_PROOF);
 	}
 }
 

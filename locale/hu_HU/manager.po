@@ -763,9 +763,6 @@ msgstr "Hivatkozás kicsomagoló szolgáltatások"
 msgid "manager.setup.filter.pleaseSelect"
 msgstr "Kérem, válasszon..."
 
-msgid "manager.setup.groupType"
-msgstr "Fájl típus csoportosítás"
-
 msgid "manager.setup.homeHeaderImageInvalid"
 msgstr "Érvénytelen honlap fejléc logó képformátum vagy a feltöltés sikertelen. Az elfogadott formátumok .gif, .jpg, vagy .png."
 
@@ -1287,12 +1284,6 @@ msgstr "Komponensek visszaállítása az alapértelmezett beállításokra"
 
 msgid "manager.setup.genres.sortable"
 msgstr "Allow files of this type to be sorted by chapter"
-
-msgid "manager.setup.genres.dependent"
-msgstr "Ehhez a típushoz tartozó fájlokat ne független anyagnak jelölje (tipikusan ne kerüljön megjelenítésre a publikált anyaggal)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Ehhez a típushoz tartozó fájlokat kiegészítő anyagnak jelölje (tipikusan nem az elsődleges, fő tartalom)"
 
 msgid "manager.settings.wizard"
 msgstr "Beállítás varázsló"

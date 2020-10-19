@@ -15,9 +15,6 @@
 
 class FileArchive {
 
-	function __construct() {
-	}
-
 	/**
 	 * Assembles an array of filenames into either a tar.gz or a .zip
 	 * file, based on what is available.  Returns a string representing

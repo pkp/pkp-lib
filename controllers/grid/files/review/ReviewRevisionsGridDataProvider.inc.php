@@ -35,10 +35,12 @@ class ReviewRevisionsGridDataProvider extends ReviewGridDataProvider {
 	function loadData($filter = array()) {
 		// Grab the files that are new (incoming) revisions
 		// of those currently assigned to the review round.
-		$reviewRound = $this->getReviewRound();
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound($reviewRound, $this->getFileStage());
-		return $this->prepareSubmissionFileData($submissionFiles, false, $filter);
+		$submissionFilesIterator = Services::get('submissionFile')->getMany([
+			'submissionIds' => [$this->getSubmission()->getId()],
+			'fileStages' => $this->getFileStage(),
+			'reviewRoundIds' => [$this->getReviewRound()->getId()],
+		]);
+		return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), false, $filter);
 	}
 
 

@@ -407,9 +407,6 @@ msgstr "Angenommen"
 msgid "submission.acknowledge"
 msgstr "Bestätigen"
 
-msgid "submission.addSuppFile"
-msgstr "Zusatzdatei hinzufügen"
-
 msgid "submission.ask"
 msgstr "Fragen"
 
@@ -555,8 +552,9 @@ msgstr "Eintrag löschen"
 msgid "submission.event.submissionSubmitted"
 msgstr "Ersteinreichung abgeschlossen."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Revisionsdatei \"{$name}\" (Datei-ID {$fileId}-{$fileRevision}) wurde hochgeladen."
+msgstr "Revisionsdatei \"{$name}\" (Datei-ID {$submissionFileId}) wurde hochgeladen."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadaten des Beitrags aktualisiert"
@@ -690,9 +688,6 @@ msgstr "Sind Sie sicher, dass Sie die Fahnen endgültig löschen wollen?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Sind Sie sicher, dass Sie das Bild aus der Fahne entfernen wollen?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Sind Sie sicher, dass Sie diese Zusatzdatei endgültig löschen wollen?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Diese Formatvorlage löschen."
 
@@ -756,14 +751,8 @@ msgstr "Layoutversion"
 msgid "submission.layout.newGalley"
 msgstr "Neue Fahne anlegen"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Neue Zusatzdatei hochladen"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Dieser Fahne wurde keine Formatvorlage hinzugefügt."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Begutachtung der Zusatzdatei"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Fahne anzeigen"
@@ -999,9 +988,6 @@ msgstr "Eine Diskussionsdatei hochladen"
 msgid "submission.summary"
 msgstr "Zusammenfassung"
 
-msgid "submission.supplementaryFiles"
-msgstr "Zusätzliche Dateien"
-
 msgid "submission.supportingAgencies"
 msgstr "Unterstützung"
 
@@ -1183,9 +1169,6 @@ msgstr "Datei hochladen"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Lektorierte Datei hochladen"
-
-msgid "submission.upload.fairCopy"
-msgstr "Reinschrift hochladen"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Dateien hochladen"

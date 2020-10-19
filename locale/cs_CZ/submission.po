@@ -26,9 +26,6 @@ msgstr "Přijata"
 msgid "submission.acknowledge"
 msgstr "Poděkovat"
 
-msgid "submission.addSuppFile"
-msgstr "Přidat doplňkový soubor"
-
 msgid "submission.ask"
 msgstr "Vyžádáno"
 
@@ -317,9 +314,6 @@ msgstr "Jste si jisti, že chcete trvale smazat tuto sazebnici?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Jste si jisti, že chcete odstranit tento obrázek ze sazebnice?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Jste si jisti, že chcete trvale smazat tento doplňkový soubor?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Smazat tento stylesheet."
 
@@ -377,14 +371,8 @@ msgstr "Verze typografa"
 msgid "submission.layout.newGalley"
 msgstr "Vytvořit novou sazebnici"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Nahrát nový doplňkový soubor"
-
 msgid "submission.layout.noStyleFile"
 msgstr "K této sazebnici nebyl přidán žádný stylesheet."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Přehled doplňkových souborů"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Prohlížení sazebnice příspěvků"
@@ -550,9 +538,6 @@ msgstr "Odesílatel"
 
 msgid "submission.summary"
 msgstr "Souhrn"
-
-msgid "submission.supplementaryFiles"
-msgstr "Doplňkové soubory"
 
 msgid "submission.supportingAgencies"
 msgstr "Podporující instituce (granty)"
@@ -998,8 +983,9 @@ msgstr "Úvodní odeslání zakončeno."
 msgid "submission.event.fileUploaded"
 msgstr "Soubor \"{$originalFileName}\" byl nahrán pro příspěvek {$submissionId} uživatelem {$username}."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Oprava \"{$name}\" (file ID {$fileId}-{$fileRevision}) byla nahrána."
+msgstr "Oprava \"{$name}\" (file ID {$submissionFileId}) byla nahrána."
 
 msgid "submission.event.participantAdded"
 msgstr "Uživatel {$name}  ({$username}) byl přiřazen k příspěvku jako {$userGroupName}."
@@ -1129,9 +1115,6 @@ msgstr "Nahrát soubor"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Nahrát soubor redakčních úprav"
-
-msgid "submission.upload.fairCopy"
-msgstr "Nahrát férovou kopii (Fair Copy)"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Nahrát soubory"

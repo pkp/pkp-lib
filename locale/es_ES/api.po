@@ -22,18 +22,18 @@ msgstr ""
 "El tema activo, {$themePluginPath}, no está habilitado y podría no "
 "instalarse."
 
-msgid "api.temporaryFiles.400.config"
+msgid "api.files.400.config"
 msgstr ""
 "No se pudo cargar el archivo debido a un error de configuración del "
 "servidor. Contacte con el administrador/a de sistemas."
 
-msgid "api.temporaryFiles.400.fileSize"
+msgid "api.files.400.fileSize"
 msgstr "Los archivos más grandes que {$maxSize} no se pueden cargar."
 
-msgid "api.temporaryFiles.409.uploadFailed"
+msgid "api.files.400.uploadFailed"
 msgstr "Uno o más archivos no se han podido cargar."
 
-msgid "api.temporaryFiles.400.noUpload"
+msgid "api.files.400.noUpload"
 msgstr ""
 "No se ha podido encontrar ningún archivo que cargar para esta solicitud."
 

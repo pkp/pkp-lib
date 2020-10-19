@@ -668,9 +668,6 @@ msgstr "Napomena o autorskom pravu"
 msgid "manager.setup.copyrightNotice.description"
 msgstr "Zahtevaj od autora da prihvate \"Napomenu o autorskim pravim\" kao deo procesa predaje rada."
 
-msgid "manager.setup.groupType"
-msgstr "Grupisanje dokumenata po tipu"
-
 msgid "manager.setup.homepageImage.description"
 msgstr "Dostavite sliku koja će biti vidljiva na početnoj stranici."
 
@@ -1153,12 +1150,6 @@ msgstr "Morate odabrati barem jednu ulogu da je dodate ovom korisniku."
 
 msgid "manager.reviewForms.confirmActivate"
 msgstr "Da li ste sigurni da želite da aktivirate ovaj recenzentski obrazac? Kad mu dodelite recenziju nećete moći da ga deaktivirate."
-
-msgid "manager.setup.genres.dependent"
-msgstr "Označite fajlove ovog tipa kao zavisne fajlove (oni neće biti izlistani sa objavljenim sadržajem)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Označite fajlove ovog tipa kao dopunske fajlove (ne primarno kao sadržaj prijavljenog članka)"
 
 msgid "settings.libraryFiles.fileRequired"
 msgstr "Fajl biblioteka je neophodan. Proverite da li ste odabrali i na server postavili fajl."

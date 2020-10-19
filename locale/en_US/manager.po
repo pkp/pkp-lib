@@ -673,9 +673,6 @@ msgstr "There was an error when deleting this item."
 msgid "manager.setup.favicon"
 msgstr "Favicon"
 
-msgid "manager.setup.groupType"
-msgstr "File type grouping"
-
 msgid "manager.setup.homepageImage"
 msgstr "Homepage Image"
 
@@ -1240,11 +1237,14 @@ msgstr "Delete this Component"
 msgid "grid.action.restoreGenres"
 msgstr "Restore the components to the default settings"
 
+msgid "manager.setup.genres.label"
+msgstr "File Type"
+
 msgid "manager.setup.genres.dependent"
-msgstr "Mark files of this type as dependent files (e.g. not to be listed with published content)"
+msgstr "These are dependent files, such as images displayed by a HTML file, and will not be displayed with published content."
 
 msgid "manager.setup.genres.supplementary"
-msgstr "Mark files of this type as supplementary files (e.g. not primary submission content)"
+msgstr "These are supplementary files, such as data sets and research materials, and will be displayed separately from the main publication files."
 
 msgid "manager.setup.genres.key"
 msgstr "Key"
@@ -1257,6 +1257,12 @@ msgstr "The key already exists."
 
 msgid "manager.setup.genres.key.alphaNumeric"
 msgstr "The key can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "File Metadata"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr "Select the type of metadata that these files may receive. Document should be selected for the main publication files, such as the downloadable PDF, so that these files inherit their metadata from the publication. Otherwise, choose Supplementary Content for most file types. Artwork is appropriate for files which require distinct credit, caption and licensing metadata."
 
 msgid "manager.settings.wizard"
 msgstr "Settings Wizard"
@@ -1615,6 +1621,9 @@ msgstr "The revision \"{$revisionId}\" for submission file \"{$fileId}\" would c
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "The submission file could not be imported"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr "The submission file {$id} was skipped because it is attached to a record that will not be imported, such as a review assignment or discussion."
 
 msgid "plugins.importexport.user.importExportErrors"
 msgstr "Import/Export errors:"

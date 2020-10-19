@@ -19,17 +19,17 @@ class ReviewFilesDAO extends DAO {
 	/**
 	 * Grant a review file to a review.
 	 * @param $reviewId int Review assignment ID
-	 * @param $fileId int Review file ID
+	 * @param $submissionFileId int Submission file ID
 	 */
-	function grant($reviewId, $fileId) {
+	function grant($reviewId, $submissionFileId) {
 		$this->update(
 			'INSERT INTO review_files
-			(review_id, file_id)
+			(review_id, submission_file_id)
 			VALUES
 			(?, ?)',
 			array(
 				(int) $reviewId,
-				(int) $fileId
+				(int) $submissionFileId
 			)
 		);
 	}
@@ -63,13 +63,13 @@ class ReviewFilesDAO extends DAO {
 	/**
 	 * Check review file availability
 	 * @param $reviewId integer
-	 * @param $fileId int
+	 * @param $submission_file_id int
 	 * @return boolean
 	 */
-	function check($reviewId, $fileId) {
+	function check($reviewId, $submission_file_id) {
 		$result = $this->retrieve(
-			'SELECT * FROM review_files WHERE review_id = ? AND file_id = ?',
-			array((int) $reviewId, (int) $fileId)
+			'SELECT * FROM review_files WHERE review_id = ? AND submission_file_id = ?',
+			array((int) $reviewId, (int) $submission_file_id)
 		);
 
 		$returner = $result->RecordCount();

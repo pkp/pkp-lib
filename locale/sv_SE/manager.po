@@ -613,9 +613,6 @@ msgstr "Ett fel uppstod vid borttagning av detta objekt."
 msgid "manager.setup.favicon"
 msgstr "Adressikon (eng. \"favicon\")"
 
-msgid "manager.setup.groupType"
-msgstr "Gruppering av filtyper"
-
 msgid "manager.setup.homepageImage"
 msgstr "Bild på förstasidan"
 
@@ -1102,12 +1099,6 @@ msgstr "Ta bort kompontenten"
 
 msgid "grid.action.restoreGenres"
 msgstr "Återställ komponenterna till defaultinställningar"
-
-msgid "manager.setup.genres.dependent"
-msgstr "Markera filer av den här typen som underordnade (t.ex. för att inte listas med publicerat innehåll)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Markera filer av den här typen som kompletterande filer (t.ex. inte primärt bidrag)"
 
 msgid "manager.setup.genres.key"
 msgstr "Kod"

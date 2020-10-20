@@ -22,10 +22,11 @@ class StatsHandler extends PKPStatsHandler {
 	public function __construct() {
 		parent::__construct();
 		HookRegistry::register ('TemplateManager::display', array($this, 'addSectionFilters'));
+		HookRegistry::register ('TemplateManager::display', array($this, 'removeEditorialStatsChartView'));
 	}
 
 	/**
-	 * Add OJS-specific configuration options to the stats component data
+	 * Add OPS-specific configuration options to the stats component data
 	 *
 	 * Fired when the `TemplateManager::display` hook is called.
 	 *
@@ -58,4 +59,24 @@ class StatsHandler extends PKPStatsHandler {
 			'filters' => $filters
 		]);
 	}
+
+	/**
+	 * Remove pie chart from editorial statistics in OPS
+	 *
+	 * Fired when the `TemplateManager::display` hook is called.
+	 *
+	 * @param string $hookname
+	 * @param array $args [$templateMgr, $template, $sendContentType, $charset, $output]
+	 */
+	public function removeEditorialStatsChartView($hookName, $args) {
+		$templateMgr = $args[0];
+		$template = $args[1];
+
+		if ($template == 'stats/editorial.tpl') {
+			$templateMgr->setState([
+				'activeByStage' => null
+			]);
+		}
+	}
+
 }

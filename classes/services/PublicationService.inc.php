@@ -340,10 +340,8 @@ class PublicationService extends PKPPublicationService {
 	 * @return Publication The new publication
 	 */
 	public function relate($publication, $params) {
-		$publication->setData('relationStatus', $params['relationStatus']);
-		$publication->setData('vorDoi', $params['vorDoi']);
-		DAORegistry::getDAO('PublicationDAO')->updateObject($publication);
-		return $publication;
+		$newPublication = Services::get('publication')->edit($publication, ['relationStatus' => $params['relationStatus'], 'vorDoi' => $params['vorDoi']], \Application::get()->getRequest());
+		return $newPublication;
 	}
 
 	/**

@@ -33,9 +33,12 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 	 * @param $stageId integer
 	 * @param $reviewRound ReviewRound
 	 * @param $revisedFileId integer
+	 * @param $assocType integer
+	 * @param $assocId integer
+	 * @param $queryId integer
 	 */
 	function __construct($request, $submissionId, $stageId, $uploaderRoles, $fileStage,
-			$revisionOnly = false, $reviewRound = null, $revisedFileId = null, $assocType = null, $assocId = null) {
+			$revisionOnly = false, $reviewRound = null, $revisedFileId = null, $assocType = null, $assocId = null, $queryId = null) {
 
 		// Initialize class.
 		assert(is_null($uploaderRoles) || (is_array($uploaderRoles) && count($uploaderRoles) >= 1));
@@ -45,7 +48,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 
 		parent::__construct(
 			$request, 'controllers/wizard/fileUpload/form/fileUploadForm.tpl',
-			$submissionId, $stageId, $fileStage, $revisionOnly, $reviewRound, $revisedFileId, $assocType, $assocId
+			$submissionId, $stageId, $fileStage, $revisionOnly, $reviewRound, $revisedFileId, $assocType, $assocId, $queryId
 		);
 
 		// Disable the genre selector for review file attachments
@@ -177,9 +180,9 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 				'username' => $user->getUsername()
 			)
 		);
-		
+
 		$hookResult = parent::execute($submissionFile, ...$functionParams);
-		if ($hookResult) { 
+		if ($hookResult) {
 			return $hookResult;
 		}
 

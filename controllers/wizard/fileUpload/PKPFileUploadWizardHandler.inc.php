@@ -42,6 +42,9 @@ class PKPFileUploadWizardHandler extends Handler {
 	/** @var integer */
 	var $_assocId;
 
+	/** @var integer */
+	var $_queryId;
+
 
 	/**
 	 * Constructor
@@ -63,6 +66,116 @@ class PKPFileUploadWizardHandler extends Handler {
 	//
 	// Implement template methods from PKPHandler
 	//
+	function authorize($request, &$args, $roleAssignments) {
+		// We validate file stage outside a policy because
+		// we don't need to validate in another places.
+		$fileStage = (int) $request->getUserVar('fileStage');
+		if ($fileStage) {
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+			$fileStages = $submissionFileDao->getAllFileStages();
+			if (!in_array($fileStage, $fileStages)) {
+				return false;
+			}
+		}
+
+		// Validate file ids. We have two cases where we might have a file id.
+		// CASE 1: user is uploading a revision to a file, the revised file id
+		// will need validation.
+		$revisedFileId = (int)$request->getUserVar('revisedFileId');
+		// CASE 2: user already have uploaded a file (and it's editing the metadata),
+		// we will need to validate the uploaded file id.
+		$fileId = (int)$request->getUserVar('fileId');
+		// Get the right one to validate.
+		$fileIdToValidate = null;
+		if ($revisedFileId && !$fileId) {
+			$fileIdToValidate = $revisedFileId;
+		} else if ($fileId && !$revisedFileId) {
+			$fileIdToValidate = $fileId;
+		} else if ($revisedFileId && $fileId) {
+			// Those two cases will not happen at the same time.
+			return false;
+		}
+
+		// Allow access to modify a specific file
+		if ($fileIdToValidate) {
+			import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
+			$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY, $fileIdToValidate));
+
+		// Allow uploading to review attachments
+		} elseif ($fileStage === SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+			$assocType = (int) $request->getUserVar('assocType');
+			$assocId = (int) $request->getUserVar('assocId');
+			$stageId = (int) $request->getUserVar('stageId');
+			if (empty($assocType) || $assocType !== ASSOC_TYPE_REVIEW_ASSIGNMENT || empty($assocId)) {
+				return false;
+			}
+
+			$stageId = (int) $request->getUserVar('stageId');
+			import('lib.pkp.classes.security.authorization.ReviewStageAccessPolicy');
+			$this->addPolicy(new ReviewStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
+			import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
+			$this->addPolicy(new ReviewRoundRequiredPolicy($request, $args));
+			import('lib.pkp.classes.security.authorization.ReviewAssignmentFileWritePolicy');
+			$this->addPolicy(new ReviewAssignmentFileWritePolicy($request, $assocId));
+
+		// Allow uploading to a note
+		} elseif ($fileStage === SUBMISSION_FILE_QUERY) {
+			$assocType = (int) $request->getUserVar('assocType');
+			$assocId = (int) $request->getUserVar('assocId');
+			$stageId = (int) $request->getUserVar('stageId');
+			if (empty($assocType) || $assocType !== ASSOC_TYPE_NOTE || empty($assocId)) {
+				return false;
+			}
+
+			import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
+			$this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, $stageId));
+			import('lib.pkp.classes.security.authorization.NoteAccessPolicy');
+			$this->addPolicy(new NoteAccessPolicy($request, $assocId, NOTE_ACCESS_WRITE));
+
+		// Allow uploading a dependent file to another file
+		} elseif ($fileStage === SUBMISSION_FILE_DEPENDENT) {
+			$assocType = (int) $request->getUserVar('assocType');
+			$assocId = (int) $request->getUserVar('assocId');
+			if (empty($assocType) || $assocType !== ASSOC_TYPE_SUBMISSION_FILE || empty($assocId)) {
+				return false;
+			}
+
+			import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
+			$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY, $assocId));
+
+		// Allow uploading to other file stages in the workflow
+		} else {
+			$stageId = (int) $request->getUserVar('stageId');
+			$assocType = (int) $request->getUserVar('assocType');
+			$assocId = (int) $request->getUserVar('assocId');
+			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
+			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
+
+			AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
+			import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy'); // SUBMISSION_FILE_ACCESS_MODIFY
+			import('lib.pkp.classes.security.authorization.internal.SubmissionFileStageAccessPolicy');
+			$this->addPolicy(new SubmissionFileStageAccessPolicy($fileStage, SUBMISSION_FILE_ACCESS_MODIFY, 'user.authorization.accessDenied'));
+
+			// Additional checks before uploading to a review file stage
+			if (in_array($fileStage, [SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_REVIEW_FILE])
+					|| $assocType === ASSOC_TYPE_REVIEW_ROUND) {
+				import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
+				$this->addPolicy(new ReviewRoundRequiredPolicy($request, $args));
+			}
+
+			// Additional checks before uploading to a galley
+			if ($fileStage === SUBMISSION_FILE_PROOF || $assocType === ASSOC_TYPE_REPRESENTATION) {
+				if (empty($assocType) || $assocType !== ASSOC_TYPE_REPRESENTATION || empty($assocId)) {
+					return false;
+				}
+				import('lib.pkp.classes.security.authorization.internal.RepresentationUploadAccessPolicy');
+				$this->addPolicy(new RepresentationUploadAccessPolicy($request, $args, $assocId));
+			}
+		}
+
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
 	/**
 	 * @copydoc PKPHandler::initialize()
 	 */
@@ -85,9 +198,9 @@ class PKPFileUploadWizardHandler extends Handler {
 
 		// Do we allow revisions only?
 		$this->_revisionOnly = (boolean)$request->getUserVar('revisionOnly');
-		$reviewRound = $this->getReviewRound();
 		$this->_assocType = $request->getUserVar('assocType') ? (int)$request->getUserVar('assocType') : null;
 		$this->_assocId = $request->getUserVar('assocId') ? (int)$request->getUserVar('assocId') : null;
+		$this->_queryId = $request->getUserVar('queryId') ? (int)$request->getUserVar('queryId') : null;
 
 		// The revised file will be non-null if we revise a single existing file.
 		if ($this->getRevisionOnly() && $request->getUserVar('revisedFileId')) {
@@ -206,6 +319,7 @@ class PKPFileUploadWizardHandler extends Handler {
 			'revisedFileId' => $this->getRevisedFileId(),
 			'assocType' => $this->getAssocType(),
 			'assocId' => $this->getAssocId(),
+			'queryId' => $this->_queryId,
 			'dependentFilesOnly' => $request->getUserVar('dependentFilesOnly'),
 		));
 		return $templateMgr->fetchJson('controllers/wizard/fileUpload/fileUploadWizard.tpl');
@@ -224,7 +338,7 @@ class PKPFileUploadWizardHandler extends Handler {
 		$fileForm = new SubmissionFilesUploadForm(
 			$request, $submission->getId(), $this->getStageId(), $this->getUploaderRoles(), $this->getFileStage(),
 			$this->getRevisionOnly(), $this->getReviewRound(), $this->getRevisedFileId(),
-			$this->getAssocType(), $this->getAssocId()
+			$this->getAssocType(), $this->getAssocId(), $this->_queryId
 		);
 		$fileForm->initData();
 
@@ -244,7 +358,7 @@ class PKPFileUploadWizardHandler extends Handler {
 		import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesUploadForm');
 		$uploadForm = new SubmissionFilesUploadForm(
 			$request, $submission->getId(), $this->getStageId(), null, $this->getFileStage(),
-			$this->getRevisionOnly(), $this->getReviewRound(), null, $this->getAssocType(), $this->getAssocId()
+			$this->getRevisionOnly(), $this->getReviewRound(), null, $this->getAssocType(), $this->getAssocId(), $this->_queryId
 		);
 		$uploadForm->readInputData();
 
@@ -273,7 +387,7 @@ class PKPFileUploadWizardHandler extends Handler {
 			if ($revisedFileId) {
 				// Instantiate the revision confirmation form.
 				import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesUploadConfirmationForm');
-				$confirmationForm = new SubmissionFilesUploadConfirmationForm($request, $submission->getId(), $this->getStageId(), $this->getFileStage(), $reviewRound, $revisedFileId, $this->getAssocType(), $this->getAssocId(), $uploadedFile);
+				$confirmationForm = new SubmissionFilesUploadConfirmationForm($request, $submission->getId(), $this->getStageId(), $this->getFileStage(), $reviewRound, $revisedFileId, $this->getAssocType(), $this->getAssocId(), $uploadedFile, $this->_queryId);
 				$confirmationForm->initData();
 
 				// Render the revision confirmation form.
@@ -353,7 +467,7 @@ class PKPFileUploadWizardHandler extends Handler {
 									$sentDates[] = $email->getDateSent();
 								}
 							}
-							if (!empty($sentDates)){ 
+							if (!empty($sentDates)){
 								$lastNotification = max(array_map('strtotime', $sentDates));
 							}
 						}
@@ -408,7 +522,12 @@ class PKPFileUploadWizardHandler extends Handler {
 		// FIXME?: need assocType and assocId? Not sure if they would be used, so not adding now.
 		$reviewRound = $this->getReviewRound();
 		$confirmationForm = new SubmissionFilesUploadConfirmationForm(
-			$request, $submission->getId(), $this->getStageId(), $this->getFileStage(), $reviewRound
+			$request, $submission->getId(), $this->getStageId(), $this->getFileStage(), $reviewRound,
+			null,
+			null,
+			null,
+			null,
+			$this->_queryId
 		);
 		$confirmationForm->readInputData();
 

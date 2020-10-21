@@ -37,9 +37,11 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 	 * @param $revisedFileId int Revised file ID, if any
 	 * @param $dependentFilesOnly bool whether to only include dependent
 	 *  files in the Genres dropdown.
+	 * @param $queryId int The query id. Use when the assoc details point
+	 *  to a note
 	 */
 	function __construct($request, $submissionId, $stageId, $uploaderRoles,
-			$fileStage, $assocType = null, $assocId = null, $reviewRoundId = null, $revisedFileId = null, $dependentFilesOnly = false) {
+			$fileStage, $assocType = null, $assocId = null, $reviewRoundId = null, $revisedFileId = null, $dependentFilesOnly = false, $queryId = null) {
 
 		// Create the action arguments array.
 		$actionArgs = array('fileStage' => $fileStage, 'reviewRoundId' => $reviewRoundId);
@@ -52,6 +54,10 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 			$actionArgs['revisionOnly'] = true;
 		}
 		if ($dependentFilesOnly) $actionArgs['dependentFilesOnly'] = true;
+
+		if ($queryId) {
+			$actionArgs['queryId'] = $queryId;
+		}
 
 		// Identify text labels based on the file stage.
 		$textLabels = AddFileLinkAction::_getTextLabels($fileStage);

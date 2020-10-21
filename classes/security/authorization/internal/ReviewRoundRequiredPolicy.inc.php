@@ -24,7 +24,7 @@ class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy {
 	 * @param $operations array Optional list of operations for which this check takes effect. If specified, operations outside this set will not be checked against this policy.
 	 */
 	function __construct($request, &$args, $parameterName = 'reviewRoundId', $operations = null) {
-		parent::__construct($request, $args, $parameterName, 'user.authorization.invalidReviewRound', $operations);
+		parent::__construct($request, $args, $parameterName, 'user.authorization.accessDenied', $operations);
 	}
 
 	//

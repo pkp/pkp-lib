@@ -55,8 +55,8 @@ class AuthorizationPolicy {
 	 * @param $adviceType integer
 	 * @param $adviceContent mixed
 	 */
-	function setAdvice($adviceType, &$adviceContent) {
-		$this->_advice[$adviceType] =& $adviceContent;
+	function setAdvice($adviceType, $adviceContent) {
+		$this->_advice[$adviceType] = $adviceContent;
 	}
 
 	/**

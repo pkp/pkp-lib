@@ -38,9 +38,12 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 	 * @param $revisionOnly boolean
 	 * @param $reviewRound ReviewRound
 	 * @param $revisedFileId integer
+	 * @param $assocType integer
+	 * @param $assocId integer
+	 * @param $queryId integer
 	 */
 	function __construct($request, $template, $submissionId, $stageId, $fileStage,
-			$revisionOnly = false, $reviewRound = null, $revisedFileId = null, $assocType = null, $assocId = null) {
+			$revisionOnly = false, $reviewRound = null, $revisedFileId = null, $assocType = null, $assocId = null, $queryId = null) {
 
 		// Check the incoming parameters.
 		if ( !is_numeric($submissionId) || $submissionId <= 0 ||
@@ -76,6 +79,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		$this->setData('reviewRoundId', $reviewRound?$reviewRound->getId():null);
 		$this->setData('assocType', $assocType ? (int)$assocType : null);
 		$this->setData('assocId', $assocId ? (int)$assocId : null);
+		$this->setData('queryId', $queryId ? (int) $queryId : null);
 
 		// Add validators.
 		$this->addCheck(new FormValidatorPost($this));

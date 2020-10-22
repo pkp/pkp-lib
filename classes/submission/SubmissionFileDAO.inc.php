@@ -770,8 +770,10 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 				return WORKFLOW_STAGE_ID_EDITING;
 			case SUBMISSION_FILE_PROOF:
 			case SUBMISSION_FILE_PRODUCTION_READY:
-			case SUBMISSION_FILE_DEPENDENT:
 				return WORKFLOW_STAGE_ID_PRODUCTION;
+			case SUBMISSION_FILE_DEPENDENT:
+				$parentFile = $this->getLatestRevision($submissionFile->getData('assocId'));
+				return $this->getWorkflowStageId($parentFile);
 			case SUBMISSION_FILE_QUERY:
 				$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 				$note = $noteDao->getById($submissionFile->getAssocId());
@@ -779,6 +781,89 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 				$query = $queryDao->getById($note->getAssocId());
 				return $query?$query->getStageId():null;
 		}
+	}
+
+	/**
+	 * Get the file stage ids that a user can access based on their
+	 * stage assignments
+	 *
+	 * This does not return file stages for ROLE_ID_REVIEWER or ROLE_ID_READER.
+	 * These roles are not granted stage assignments and this method should not
+	 * be used for these roles.
+	 *
+	 * This method does not define access to review attachments or discussion
+	 * files. Access to these files are not determined by stage assignment.
+	 *
+	 * In some cases it may be necessary to apply additional restrictions. For example,
+	 * authors are granted write access to submission files or revisions only when other
+	 * conditions are met. This method does not return those as allowed file
+	 * stages for author assignments.
+	 *
+	 * @param array $stageAssignments The stage assignments of this user.
+	 *   Each key is a workflow stage and value is an array of assigned roles
+	 * @param int $action Read or write to file stages. One of SUBMISSION_FILE_ACCESS_
+	 * @return array List of file stages (SUBMISSION_FILE_*)
+	 */
+	public function getAssignedFileStageIds($stageAssignments, $action) {
+		$allowedRoles = [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR];
+		$notAuthorRoles = array_diff($allowedRoles, [ROLE_ID_AUTHOR]);
+
+		$allowedFileStageIds = [];
+
+		if (array_key_exists(WORKFLOW_STAGE_ID_SUBMISSION, $stageAssignments)
+				&& !empty(array_intersect($allowedRoles, $stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION]))) {
+			$hasEditorialAssignment = !empty(array_intersect($notAuthorRoles, $stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION]));
+			// Authors only have read access
+			if ($action === SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
+				$allowedFileStageIds[] = SUBMISSION_FILE_SUBMISSION;
+			}
+		}
+
+		if (array_key_exists(WORKFLOW_STAGE_ID_EDITING, $stageAssignments)
+				&& !empty(array_intersect($allowedRoles, $stageAssignments[WORKFLOW_STAGE_ID_EDITING]))) {
+			$hasEditorialAssignment = !empty(array_intersect($notAuthorRoles, $stageAssignments[WORKFLOW_STAGE_ID_EDITING]));
+			// Authors only have read access
+			if ($action === SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
+				$allowedFileStageIds[] = SUBMISSION_FILE_COPYEDIT;
+			}
+			if ($hasEditorialAssignment) {
+				$allowedFileStageIds[] = SUBMISSION_FILE_FINAL;
+			}
+		}
+
+		if (array_key_exists(WORKFLOW_STAGE_ID_PRODUCTION, $stageAssignments)
+				&& !empty(array_intersect($allowedRoles, $stageAssignments[WORKFLOW_STAGE_ID_PRODUCTION]))) {
+			$hasEditorialAssignment = !empty(array_intersect($notAuthorRoles, $stageAssignments[WORKFLOW_STAGE_ID_PRODUCTION]));
+			// Authors only have read access
+			if ($action === SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
+				$allowedFileStageIds[] = SUBMISSION_FILE_PROOF;
+			}
+			if ($hasEditorialAssignment) {
+				$allowedFileStageIds[] = SUBMISSION_FILE_PRODUCTION_READY;
+				$allowedFileStageIds[] = SUBMISSION_FILE_DEPENDENT;
+			}
+		}
+
+		if (array_key_exists(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, $stageAssignments)
+				|| array_key_exists(WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $stageAssignments) ) {
+			$assignedUserRoles = array_merge(
+				$stageAssignments[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] ?? [],
+				$stageAssignments[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] ?? []
+			);
+			$hasEditorialAssignment = !empty(array_intersect($notAuthorRoles, $assignedUserRoles));
+			// Authors can only write revision files under specific conditions
+			if ($action === SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
+				$allowedFileStageIds[] = SUBMISSION_FILE_REVIEW_REVISION;
+			}
+			// Authors can never access review files
+			if ($hasEditorialAssignment) {
+				$allowedFileStageIds[] = SUBMISSION_FILE_REVIEW_FILE;
+			}
+		}
+
+		HookRegistry::call('SubmissionFile::assignedFileStageIds', [&$allowedFileStageIds, $stageAssignments, $action]);
+
+		return $allowedFileStageIds;
 	}
 
 	//

@@ -98,7 +98,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
-	 * @return PKPUserQueryBuilder
+	 * @return UserQueryBuilder
 	 */
 	public function getQueryBuilder($args = []) {
 		$defaultArgs = array(
@@ -556,7 +556,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			$accessibleStageRoles = array_unique($accessibleStageRoles);
 		}
 
-		return $accessibleStageRoles;
+		return array_map('intval', $accessibleStageRoles);
 	}
 
 	/**

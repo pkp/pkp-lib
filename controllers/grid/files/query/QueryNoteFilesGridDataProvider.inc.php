@@ -102,7 +102,11 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 		return new AddFileLinkAction(
 			$request, $submission->getId(), $this->getStageId(),
 			$this->getUploaderRoles(), $this->getFileStage(),
-			ASSOC_TYPE_NOTE, $this->_noteId
+			ASSOC_TYPE_NOTE, $this->_noteId,
+			null,
+			null,
+			null,
+			$query->getId()
 		);
 	}
 }

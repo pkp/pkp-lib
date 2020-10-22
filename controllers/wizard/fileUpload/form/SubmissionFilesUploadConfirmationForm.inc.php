@@ -28,14 +28,15 @@ class SubmissionFilesUploadConfirmationForm extends PKPSubmissionFilesUploadBase
 	 * @param $assocType int optional
 	 * @param $assocId int optional
 	 * @param $uploadedFile integer
+	 * @param $queryId integer
 	 */
 	function __construct($request, $submissionId, $stageId, $fileStage,
-			$reviewRound, $revisedFileId = null, $assocType = null, $assocId = null, $uploadedFile = null) {
+			$reviewRound, $revisedFileId = null, $assocType = null, $assocId = null, $uploadedFile = null, $queryId = null) {
 
 		// Initialize class.
 		parent::__construct(
 			$request, 'controllers/wizard/fileUpload/form/fileUploadConfirmationForm.tpl',
-			$submissionId, $stageId, $fileStage, false, $reviewRound, $revisedFileId, $assocType, $assocId
+			$submissionId, $stageId, $fileStage, false, $reviewRound, $revisedFileId, $assocType, $assocId, $queryId
 		);
 
 		if (is_a($uploadedFile, 'SubmissionFile')) {

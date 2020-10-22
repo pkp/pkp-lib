@@ -74,6 +74,10 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 			// been assigned to a lesser role in the stage.
 			$managerFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
 			$managerFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER]));
+
+			$stageId = $request->getUserVar('stageId'); // WORKFLOW_STAGE_ID_...
+			import('lib.pkp.classes.security.authorization.internal.SubmissionFileMatchesWorkflowStageIdPolicy');
+			$managerFileAccessPolicy->addPolicy(new SubmissionFileMatchesWorkflowStageIdPolicy($request, $fileIdAndRevision, $stageId));
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 			$managerFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
 			import('lib.pkp.classes.security.authorization.AssignedStageRoleHandlerOperationPolicy');
@@ -94,6 +98,11 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 			// 2) ...if they are assigned to the workflow stage as an author.  Note: This loads the application-specific policy class.
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 			$authorFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
+
+			$stageId = $request->getUserVar('stageId'); // WORKFLOW_STAGE_ID_...
+			import('lib.pkp.classes.security.authorization.internal.SubmissionFileMatchesWorkflowStageIdPolicy');
+			$authorFileAccessPolicy->addPolicy(new SubmissionFileMatchesWorkflowStageIdPolicy($request, $fileIdAndRevision, $stageId));
+
 			import('lib.pkp.classes.security.authorization.AssignedStageRoleHandlerOperationPolicy');
 			$authorFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_AUTHOR, $roleAssignments[ROLE_ID_AUTHOR], $request->getUserVar('stageId')));
 
@@ -216,12 +225,28 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 			$subEditorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR]));
 
 			// 2) ... but only if they have been assigned as a subeditor to the requested submission ...
+			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
+			$subEditorFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
 			import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
 			$subEditorFileAccessPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
 			import('lib.pkp.classes.security.authorization.AssignedStageRoleHandlerOperationPolicy');
 			$subEditorFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR], $request->getUserVar('stageId')));
 
-			// 3) ... and only if they are not also assigned as an author and this is not part of a blind review
+			// 3) ...and if they meet one of the following requirements:
+			$subEditorQueryFileAccessPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+
+			// 3a) ...the file not part of a query...
+			import('lib.pkp.classes.security.authorization.internal.SubmissionFileNotQueryAccessPolicy');
+			$subEditorQueryFileAccessPolicy->addPolicy(new SubmissionFileNotQueryAccessPolicy($request, $fileIdAndRevision));
+
+			// 3b) ...or the file is part of a query they are assigned to...
+			import('lib.pkp.classes.security.authorization.internal.SubmissionFileAssignedQueryAccessPolicy');
+			$subEditorQueryFileAccessPolicy->addPolicy(new SubmissionFileAssignedQueryAccessPolicy($request, $fileIdAndRevision));
+
+			// Add the rules from 3
+			$subEditorFileAccessPolicy->addPolicy($subEditorQueryFileAccessPolicy);
+
+			// 4) ... and only if they are not also assigned as an author and this is not part of a blind review
 			import('lib.pkp.classes.security.authorization.internal.SubmissionFileAuthorEditorPolicy');
 			$subEditorFileAccessPolicy->addPolicy(new SubmissionFileAuthorEditorPolicy($request, $fileIdAndRevision));
 

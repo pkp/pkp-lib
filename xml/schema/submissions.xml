@@ -54,6 +54,9 @@
 		<index name="submissions_context_id">
 			<col>context_id</col>
 		</index>
+		<index name="submissions_publication_id">
+			<col>current_publication_id</col>
+		</index>
 	</table>
 
 	<!--
@@ -389,6 +392,9 @@
 		<field name="assoc_id" type="I8">
 			<descr>Optional ID of an associated record (e.g., a file_id)</descr>
 		</field>
+		<index name="submission_search_object_submission">
+			<col>submission_id</col>
+		</index>
 		<descr>Indexed objects.</descr>
 	</table>
 

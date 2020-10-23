@@ -586,6 +586,8 @@ class ReviewAssignment extends DataObject {
 		switch ($status) {
 			case REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
 				return 'submission.review.status.awaitingResponse';
+			case REVIEW_ASSIGNMENT_STATUS_CANCELLED:
+				return 'common.cancelled';
 			case REVIEW_ASSIGNMENT_STATUS_DECLINED:
 				return 'submission.review.status.declined';
 			case REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:

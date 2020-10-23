@@ -53,6 +53,20 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			});
 		}
 
+		// pkp/pkp-lib#6301: Indexes may be missing that affect search performance.
+		// (These are added for 3.2.1-2 so may or may not be present for this upgrade code.)
+		$schemaManager = Capsule::connection()->getDoctrineSchemaManager();
+		if (!in_array('submissions_publication_id', $schemaManager->listTableIndexes('submissions'))) {
+			Capsule::schema()->table('submissions', function (Blueprint $table) {
+				$table->index(['submission_id'], 'submissions_publication_id');
+			});
+		}
+		if (!in_array('submission_search_object_submission', $schemaManager->listTableIndexes('submission_search_objects'))) {
+			Capsule::schema()->table('submission_search_objects', function (Blueprint $table) {
+				$table->index(['submission_id'], 'submission_search_object_submission');
+			});
+		}
+
 		// pkp/pkp-lib#6093 Don't allow nulls (previously an upgrade workaround)
 		Capsule::schema()->table('user_settings', function (Blueprint $table) {
 			$table->bigInteger('assoc_type')->default(0)->change();

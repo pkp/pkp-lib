@@ -39,6 +39,7 @@ class SubmissionsMigration extends Migration {
 			//  Used in OMP only; should not be null there 
 			$table->smallInteger('work_type')->default(0)->nullable();
 			$table->index(['context_id'], 'submissions_context_id');
+			$table->index(['current_publication_id'], 'submissions_publication_id');
 		});
 
 		// Submission metadata
@@ -162,6 +163,7 @@ class SubmissionsMigration extends Migration {
 			$table->bigInteger('submission_id');
 			$table->integer('type')->comment('Type of item. E.g., abstract, fulltext, etc.');
 			$table->bigInteger('assoc_id')->comment('Optional ID of an associated record (e.g., a file_id)')->nullable();
+			$table->index(['submission_id'], 'submission_search_object_submission');
 		});
 
 		// Keyword occurrences for each indexed object.

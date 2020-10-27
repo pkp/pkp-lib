@@ -147,7 +147,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			$userListQB->assignedToCategory($args['assignedToCategory']);
 		}
 
-		\HookRegistry::call('User::getMany::queryBuilder', array($userListQB, $args));
+		\HookRegistry::call('User::getMany::queryBuilder', array(&$userListQB, $args));
 
 		return $userListQB;
 	}
@@ -221,7 +221,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			->filterByDaysSinceLastAssignment($args['daysSinceLastAssignment'])
 			->filterByAverageCompletion($args['averageCompletion']);
 
-		\HookRegistry::call('User::getReviewers::queryBuilder', array($reviewerListQB, $args));
+		\HookRegistry::call('User::getReviewers::queryBuilder', array(&$reviewerListQB, $args));
 
 		return $reviewerListQB;
 	}

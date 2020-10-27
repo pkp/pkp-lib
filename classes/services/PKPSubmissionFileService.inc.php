@@ -2,9 +2,9 @@
 /**
  * @file classes/services/PKPSubmissionFileService.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionFileService
  * @ingroup services
@@ -52,13 +52,16 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMany()
 	 */
 	public function getMany($args = null) {
-		$submissionFileQO = $this->getQueryBuilder($args)->getQuery();
+		$submissionFileQO = $this
+			->getQueryBuilder($args)
+			->getQuery()
+			->leftJoin('submissions as s', 's.submission_id', '=', 'sf.submission_id')
+			->select(['sf.*', 's.locale as locale']);
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		$result = $submissionFileDao->retrieve($submissionFileQO->toSql(), $submissionFileQO->getBindings());
 		$queryResults = new DAOResultFactory($result, $submissionFileDao, '_fromRow');
 
 		return $queryResults->toIterator();
-
 	}
 
 	/**
@@ -111,7 +114,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 			->filterByUploaderUserIds($args['uploaderUserIds'])
 			->includeDependentFiles($args['includeDependentFiles']);
 
-		HookRegistry::call('SubmissionFile::getMany::queryBuilder', [$submissionFileQB, $args]);
+		HookRegistry::call('SubmissionFile::getMany::queryBuilder', [&$submissionFileQB, $args]);
 
 		return $submissionFileQB;
 	}
@@ -275,11 +278,14 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 		// Check for input from disallowed locales
 		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_SUBMISSION_FILE), $allowedLocales);
 
-		// Do not allow the uploaderUserId to be modified
+		// Do not allow the uploaderUserId or createdAt properties to be modified
 		if ($action === VALIDATE_ACTION_EDIT) {
 			$validator->after(function($validator) use ($props) {
 				if (!empty($props['uploaderUserId']) && !$validator->errors()->get('uploaderUserId')) {
 					$validator->errors()->add('uploaderUserId', __('submission.file.notAllowedUploaderUserId'));
+				}
+				if (!empty($props['createdAt']) && !$validator->errors()->get('createdAt')) {
+					$validator->errors()->add('createdAt', __('api.files.400.notAllowedCreatedAt'));
 				}
 			});
 		}
@@ -462,7 +468,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 			}
 		}
 
-		HookRegistry::call('SubmissionFile::add', [$submissionFile, $request]);
+		HookRegistry::call('SubmissionFile::add', [&$submissionFile, $request]);
 
 		return $submissionFile;
 	}
@@ -475,7 +481,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 		$submissionFile->_data = array_merge($submissionFile->_data, $params);
 		$submissionFile->setData('updatedAt', Core::getCurrentDate());
 
-		HookRegistry::call('SubmissionFile::edit', [$submissionFile, $submissionFile, $params, $request]);
+		HookRegistry::call('SubmissionFile::edit', [&$submissionFile, $submissionFile, $params, $request]);
 
 		DAORegistry::getDAO('SubmissionFileDAO')->updateObject($submissionFile);
 
@@ -526,7 +532,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 	public function delete($submissionFile) {
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 
-		HookRegistry::call('SubmissionFile::delete::before', [$submissionFile]);
+		HookRegistry::call('SubmissionFile::delete::before', [&$submissionFile]);
 
 		// Delete dependent files
 		$dependentFilesIterator = $this->getMany([
@@ -616,7 +622,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 			]
 		);
 
-		HookRegistry::call('SubmissionFile::delete', [$submissionFile]);
+		HookRegistry::call('SubmissionFile::delete', [&$submissionFile]);
 	}
 
 	/**
@@ -790,7 +796,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 				$query = $queryDao->getById($note->getAssocId());
 				return $query ? $query->getStageId() : null;
 		}
-		return null;
+		throw new \Exception('Could not determine the workflow stage id from submission file ' . $submissionFile->getId() . ' with file stage ' . $submissionFile->getData('fileStage'));
 	}
 
 	/**

@@ -293,7 +293,7 @@ class PKPContextHandler extends APIHandler {
 		}
 
 		$context = Application::getContextDAO()->newDataObject();
-		$context->_data = $params;
+		$context->setAllData($params);
 		$context = $contextService->add($context, $request);
 		$contextProps = $contextService->getFullProperties($context, array(
 			'request' => $request,

@@ -140,7 +140,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 			->filterByStageIds($args['stageIds'])
 			->searchPhrase($args['searchPhrase']);
 
-		HookRegistry::call('EmailTemplate::getMany::queryBuilder', array($emailTemplateQB, $args));
+		HookRegistry::call('EmailTemplate::getMany::queryBuilder', array(&$emailTemplateQB, $args));
 
 		return $emailTemplateQB;
 	}
@@ -277,7 +277,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		$emailTemplateDao->insertObject($emailTemplate);
 		$emailTemplate = $this->getByKey($contextId, $emailTemplate->getData('key'));
 
-		HookRegistry::call('EmailTemplate::add', array($emailTemplate, $request));
+		HookRegistry::call('EmailTemplate::add', array(&$emailTemplate, $request));
 
 		return $emailTemplate;
 	}
@@ -290,7 +290,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		$newEmailTemplate = $emailTemplateDao->newDataObject();
 		$newEmailTemplate->_data = array_merge($emailTemplate->_data, $params);
 
-		HookRegistry::call('EmailTemplate::edit', array($newEmailTemplate, $emailTemplate, $params, $request));
+		HookRegistry::call('EmailTemplate::edit', array(&$newEmailTemplate, $emailTemplate, $params, $request));
 
 		$emailTemplateKey = $emailTemplate->getData('key');
 
@@ -318,10 +318,10 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
 	 */
 	public function delete($emailTemplate) {
-		HookRegistry::call('EmailTemplate::delete::before', array($emailTemplate));
+		HookRegistry::call('EmailTemplate::delete::before', array(&$emailTemplate));
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$emailTemplateDao->deleteObject($emailTemplate);
-		HookRegistry::call('EmailTemplate::delete', array($emailTemplate));
+		HookRegistry::call('EmailTemplate::delete', array(&$emailTemplate));
 	}
 
 	/**

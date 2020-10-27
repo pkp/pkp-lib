@@ -102,7 +102,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 				$submissionFilesIterator = Services::get('submissionFile')->getMany([
 					'submissionIds' => [$submission->getId()],
 					'reviewRoundIds' => [$reviewRound->getId()],
-					'fileStages' => (array) $fileStage,
+					'fileStages' => [$fileStage],
 				]);
 				$stageSubmissionFiles = iterator_to_array($submissionFilesIterator);
 			} else {

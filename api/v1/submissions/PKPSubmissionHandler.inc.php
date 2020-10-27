@@ -209,7 +209,7 @@ class PKPSubmissionHandler extends APIHandler {
 				case 'status':
 				case 'stageIds':
 				case 'assignedTo':
-					if (is_string($val) && strpos($val, ',') > -1) {
+					if (is_string($val)) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
 						$val = array($val);
@@ -332,7 +332,7 @@ class PKPSubmissionHandler extends APIHandler {
 
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->newDataObject();
-		$submission->_data = $params;
+		$submission->setAllData($params);
 		$submission = Services::get('submission')->add($submission, $request);
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
@@ -585,7 +585,7 @@ class PKPSubmissionHandler extends APIHandler {
 		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$publication = $publicationDao->newDataObject();
-		$publication->_data = $params;
+		$publication->setAllData($params);
 		$publication = Services::get('publication')->add($publication, $request);
 		$publicationProps = Services::get('publication')->getFullProperties(
 			$publication,

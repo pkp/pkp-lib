@@ -1031,6 +1031,12 @@ msgstr "Dependent Files"
 msgid "submission.manageDependentFiles"
 msgstr "Manage Dependent Files"
 
+msgid "submission.upload.instructions"
+msgstr "Upload any files the editorial team will need to evaluate your submission."
+
+msgid "submission.upload.percentComplete"
+msgstr "Uploading {$percent}% complete"
+
 msgid "submission.upload.dependent"
 msgstr "Upload a Dependent File"
 

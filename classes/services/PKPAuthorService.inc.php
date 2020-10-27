@@ -108,7 +108,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 			$authorQB->filterByAffiliation($args['affiliation']);
 		}
 
-		\HookRegistry::call('Author::getMany::queryBuilder', array($authorQB, $args));
+		\HookRegistry::call('Author::getMany::queryBuilder', array(&$authorQB, $args));
 
 		return $authorQB;
 	}
@@ -211,7 +211,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 		$authorId = $authorDao->insertObject($author);
 		$author = $this->get($authorId);
 
-		\HookRegistry::call('Author::add', array($author, $request));
+		\HookRegistry::call('Author::add', array(&$author, $request));
 
 		return $author;
 	}
@@ -225,7 +225,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 		$newAuthor = $authorDao->newDataObject();
 		$newAuthor->_data = array_merge($author->_data, $params);
 
-		\HookRegistry::call('Author::edit', array($newAuthor, $author, $params, $request));
+		\HookRegistry::call('Author::edit', array(&$newAuthor, $author, $params, $request));
 
 		$authorDao->updateObject($newAuthor);
 		$newAuthor = $this->get($newAuthor->getId());
@@ -237,9 +237,9 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
 	 */
 	public function delete($author) {
-		\HookRegistry::call('Author::delete::before', [$author]);
+		\HookRegistry::call('Author::delete::before', [&$author]);
 		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
 		$authorDao->deleteObject($author);
-		\HookRegistry::call('Author::delete', [$author]);
+		\HookRegistry::call('Author::delete', [&$author]);
 	}
 }

@@ -158,7 +158,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			$submissionListQB->offsetBy($args['count']);
 		}
 
-		\HookRegistry::call('Submission::getMany::queryBuilder', array($submissionListQB, $args));
+		\HookRegistry::call('Submission::getMany::queryBuilder', array(&$submissionListQB, $args));
 
 		return $submissionListQB;
 	}
@@ -749,7 +749,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		$submissionId = $submissionDao->insertObject($submission);
 		$submission = $this->get($submissionId);
 
-		\HookRegistry::call('Submission::add', [$submission, $request]);
+		\HookRegistry::call('Submission::add', [&$submission, $request]);
 
 		return $submission;
 	}
@@ -765,7 +765,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		$submission->stampLastActivity();
 		$submission->stampModified();
 
-		\HookRegistry::call('Submission::edit', [$newSubmission, $submission, $params, $request]);
+		\HookRegistry::call('Submission::edit', [&$newSubmission, $submission, $params, $request]);
 
 		$submissionDao->updateObject($newSubmission);
 		$newSubmission = $this->get($newSubmission->getId());
@@ -777,12 +777,12 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
 	 */
 	public function delete($submission) {
-		\HookRegistry::call('Submission::delete::before', [$submission]);
+		\HookRegistry::call('Submission::delete::before', [&$submission]);
 
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submissionDao->deleteObject($submission);
 
-		\HookRegistry::call('Submission::delete', [$submission]);
+		\HookRegistry::call('Submission::delete', [&$submission]);
 	}
 
 	/**

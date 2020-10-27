@@ -139,7 +139,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			->filterByUserId($args['userId'])
 			->searchPhrase($args['searchPhrase']);
 
-		\HookRegistry::call('Context::getMany::queryBuilder', array($contextListQB, $args));
+		\HookRegistry::call('Context::getMany::queryBuilder', array(&$contextListQB, $args));
 
 		return $contextListQB;
 	}
@@ -407,7 +407,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		// Load all plugins so they can hook in and add their installation settings
 		\PluginRegistry::loadAllPlugins();
 
-		\HookRegistry::call('Context::add', array($context, $request));
+		\HookRegistry::call('Context::add', array(&$context, $request));
 
 		return $context;
 	}
@@ -440,7 +440,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		$newContext = $contextDao->newDataObject();
 		$newContext->_data = array_merge($context->_data, $params);
 
-		\HookRegistry::call('Context::edit', array($newContext, $context, $params, $request));
+		\HookRegistry::call('Context::edit', array(&$newContext, $context, $params, $request));
 
 		$contextDao->updateObject($newContext);
 		$newContext = $this->get($newContext->getId());
@@ -452,7 +452,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
 	 */
 	public function delete($context) {
-		\HookRegistry::call('Context::delete::before', array($context));
+		\HookRegistry::call('Context::delete::before', array(&$context));
 
 		$contextDao = Application::getContextDao();
 		$contextDao->deleteObject($context);
@@ -489,7 +489,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		$contextPath = \Config::getVar('files', 'files_dir') . '/' . $this->contextsFileDirName . '/' . $context->getId();
 		$fileManager->rmtree($contextPath);
 
-		\HookRegistry::call('Context::delete', array($context));
+		\HookRegistry::call('Context::delete', array(&$context));
 	}
 
 	/**

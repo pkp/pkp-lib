@@ -2,9 +2,9 @@
 /**
  * @file classes/services/PKPFileService.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPFileService
  * @ingroup services
@@ -47,7 +47,7 @@ class PKPFileService {
 			]
 		);
 
-		HookRegistry::call('File::adapter', [$adapter, $this]);
+		HookRegistry::call('File::adapter', [&$adapter, $this]);
 
 		$this->fs = new Filesystem($adapter);
 	}
@@ -132,7 +132,6 @@ class PKPFileService {
 		}
 
 		// Stream the file to the end user.
-		$localPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $path;
 		$mimetype = $this->fs->getMimetype($path) ?? 'application/octet-stream';
 		$filesize = $this->fs->getSize($path);
 		header("Content-Type: $mimetype");
@@ -142,14 +141,8 @@ class PKPFileService {
 		header('Cache-Control: private'); // Workarounds for IE weirdness
 		header('Pragma: public');
 
-		if (is_readable($localPath)) {
-			$f = fopen($localPath, 'rb');
-			if (!$f) return false;
-			while (!feof($f)) {
-				echo fread($f, 4096);
-			}
-			fclose($f);
-		}
+		fpassthru($this->fs->readStream($path));
+		exit();
 	}
 
 	/**
@@ -166,7 +159,7 @@ class PKPFileService {
 			$newFilename .= '.' . $extension;
 		}
 
-		HookRegistry::call('File::formatFilename', [$path, $filename]);
+		HookRegistry::call('File::formatFilename', [&$newFilename, $path, $filename]);
 
 		return $newFilename;
 	}

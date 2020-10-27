@@ -64,12 +64,7 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 	 */
 	public function _fromRow($primaryRow) {
 		$submissionFile = parent::_fromRow($primaryRow);
-
-		// Set the primary locale from the submission
-		$locale = Capsule::table('submissions as s')
-			->where('s.submission_id', '=', $submissionFile->getData('submissionId'))
-			->value('locale');
-		$submissionFile->setData('locale', $locale);
+		$submissionFile->setData('locale', $primaryRow['locale']);
 
 		return $submissionFile;
 	}
@@ -213,7 +208,7 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 		// Avoid duplication errors -- clear out any existing entries
 		$this->deleteReviewRoundAssignment($submissionFileId);
 
-		return $this->update(
+		$this->update(
 			'INSERT INTO review_round_files
 				(submission_id, review_round_id, stage_id, submission_file_id)
 			VALUES (?, ?, ?, ?)',

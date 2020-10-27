@@ -114,7 +114,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 			switch ($param) {
 				case 'fileStages':
 				case 'reviewRoundIds':
-					if (is_string($val) && strpos($val, ',') > -1) {
+					if (is_string($val)) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
 						$val = array($val);
@@ -324,7 +324,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 		}
 
 		$submissionFile = DAORegistry::getDao('SubmissionFileDAO')->newDataObject();
-		$submissionFile->_data = $params;
+		$submissionFile->setAllData($params);
 
 		$submissionFile = Services::get('submissionFile')->add($submissionFile, $request);
 
@@ -353,9 +353,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 		$params = $this->convertStringsToSchema(SCHEMA_SUBMISSION_FILE, $slimRequest->getParsedBody());
 
 		// Don't allow these properties to be modified
-		unset($params['submissionId']);
-		unset($params['fileId']);
-		unset($params['uploaderUserId']);
+		unset($params['submissionId'], $params['fileId'], $params['uploaderUserId']);
 
 		if (empty($params) && empty($_FILES['file'])) {
 			return $response->withStatus(400)->withJsonError('api.submissions.files.400.noParams');

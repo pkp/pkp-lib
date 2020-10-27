@@ -39,7 +39,7 @@ class ReviewRevisionsGridDataProvider extends ReviewGridDataProvider {
 		// of those currently assigned to the review round.
 		$submissionFilesIterator = Services::get('submissionFile')->getMany([
 			'submissionIds' => [$this->getSubmission()->getId()],
-			'fileStages' => $this->getFileStage(),
+			'fileStages' => [$this->getFileStage()],
 			'reviewRoundIds' => [$this->getReviewRound()->getId()],
 		]);
 		return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), false, $filter);

@@ -109,7 +109,6 @@ class FileApiHandler extends Handler {
 		$filename = Services::get('file')->formatFilename($path, $filename);
 
 		Services::get('file')->download($path, $filename);
-		die;
 	}
 
 	/**
@@ -139,10 +138,9 @@ class FileApiHandler extends Handler {
 		}
 
 		AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_EDITOR]);
-		$filename = __('submission.files');
-		if (!empty($args['nameLocaleKey'])) {
-			$filename = __($args['nameLocaleKey']) ?? $filename;
-		}
+		$filename = !empty($args['nameLocaleKey'])
+			? __($args['nameLocaleKey'])
+			: __('submission.files');
 		$filename = $args['submissionId'] . '-' . $filename;
 		$filename = \Stringy\Stringy::create($filename)->toLowerCase()->dasherize()->regexReplace('[^a-z0-9\-\_.]', '');
 

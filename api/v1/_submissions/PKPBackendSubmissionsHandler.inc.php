@@ -102,7 +102,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 				case 'status':
 				case 'stageIds':
 				case 'assignedTo':
-					if (is_string($val) && strpos($val, ',') > -1) {
+					if (is_string($val)) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
 						$val = array($val);

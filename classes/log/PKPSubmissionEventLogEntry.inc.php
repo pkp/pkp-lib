@@ -61,6 +61,10 @@ define('SUBMISSION_LOG_REVIEW_CONFIRMED',		0x40000019);
 // Production events
 define('SUBMISSION_LOG_PROOFS_APPROVED',		0x50000008);
 
+// Deprecated events. Preserved for historical data.
+define('SUBMISSION_LOG_LAST_REVISION_DELETED', 	0x50000003); // uses submission.event.lastRevisionDeleted
+
+
 class PKPSubmissionEventLogEntry extends EventLogEntry {
 
 	//

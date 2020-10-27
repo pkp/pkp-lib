@@ -2,9 +2,9 @@
 /**
  * @file classes/services/QueryBuilders/PKPSubmissionFileQueryBuilder.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionFileQueryBuilder
  * @ingroup query_builders
@@ -51,80 +51,80 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface {
 	/**
 	 * Set fileStages filter
 	 *
-	 * @param array|int $fileStages
+	 * @param array $fileStages
 	 * @return \PKP\Services\QueryBuilders\PKPSubmissionFileQueryBuilder
 	 */
-	public function filterByFileStages($fileStages) {
-		$this->fileStages = is_array($fileStages) ? $fileStages : [$fileStages];
+	public function filterByFileStages(array $fileStages) {
+		$this->fileStages = $fileStages;
 		return $this;
 	}
 
 	/**
 	 * Set genreIds filter
 	 *
-	 * @param array|int $genreIds
+	 * @param array $genreIds
 	 * @return \PKP\Services\QueryBuilders\PKPSubmissionFileQueryBuilder
 	 */
-	public function filterByGenreIds($genreIds) {
-		$this->genreIds = is_array($genreIds) ? $genreIds : [$genreIds];
+	public function filterByGenreIds(array $genreIds) {
+		$this->genreIds = $genreIds;
 		return $this;
 	}
 
 	/**
 	 * Set review rounds filter
 	 *
-	 * @param array|int $reviewRoundIds
+	 * @param array $reviewRoundIds
 	 * @return \PKP\Services\QueryBuilders\PKPSubmissionFileQueryBuilder
 	 */
-	public function filterByReviewRoundIds($reviewRoundIds) {
-		$this->reviewRoundIds = is_array($reviewRoundIds) ? $reviewRoundIds : [$reviewRoundIds];
+	public function filterByReviewRoundIds(array $reviewRoundIds) {
+		$this->reviewRoundIds = $reviewRoundIds;
 		return $this;
 	}
 
 	/**
 	 * Set review assignments filter
 	 *
-	 * @param array|int $reviewIds
+	 * @param array $reviewIds
 	 * @return \PKP\Services\QueryBuilders\PKPSubmissionFileQueryBuilder
 	 */
-	public function filterByReviewIds($reviewIds) {
-		$this->reviewIds = is_array($reviewIds) ? $reviewIds : [$reviewIds];
+	public function filterByReviewIds(array $reviewIds) {
+		$this->reviewIds = $reviewIds;
 		return $this;
 	}
 
 	/**
 	 * Set submissionIds filter
 	 *
-	 * @param array|int $submissionIds
+	 * @param array $submissionIds
 	 * @return \PKP\Services\QueryBuilders\PKPSubmissionFileQueryBuilder
 	 */
-	public function filterBySubmissionIds($submissionIds) {
-		$this->submissionIds = is_array($submissionIds) ? $submissionIds : [$submissionIds];
+	public function filterBySubmissionIds(array $submissionIds) {
+		$this->submissionIds = $submissionIds;
 		return $this;
 	}
 
 	/**
 	 * Set fileIds filter
 	 *
-	 * @param array|int $fileIds
+	 * @param array $fileIds
 	 * @return \PKP\Services\QueryBuilders\PKPSubmissionFileQueryBuilder
 	 */
-	public function filterByFileIds($fileIds) {
-		$this->fileIds = is_array($fileIds) ? $fileIds : [$fileIds];
+	public function filterByFileIds(array $fileIds) {
+		$this->fileIds = $fileIds;
 		return $this;
 	}
 
 	/**
 	 * Set assocType and assocId filters
 	 *
-	 * @param array|int $assocTypes One or more of the ASSOC_TYPE_ constants
-	 * @param array|int $assocIds Match with ids for these assoc types
+	 * @param array $assocTypes One or more of the ASSOC_TYPE_ constants
+	 * @param array $assocIds Match with ids for these assoc types
 	 * @return \PKP\Services\QueryBuilders\PKPSubmissionFileQueryBuilder
 	 */
-	public function filterByAssoc($assocTypes, $assocIds = []) {
-		$this->assocTypes = is_array($assocTypes) ? $assocTypes : [$assocTypes];
+	public function filterByAssoc(array $assocTypes, array $assocIds = []) {
+		$this->assocTypes = $assocTypes;
 		if (!empty($assocIds)) {
-			$this->assocIds = is_array($assocIds) ? $assocIds : [$assocIds];
+			$this->assocIds = $assocIds;
 		}
 		return $this;
 	}
@@ -132,11 +132,11 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface {
 	/**
 	 * Set uploaderUserIds filter
 	 *
-	 * @param array|int $uploaderUserIds
+	 * @param array $uploaderUserIds
 	 * @return \PKP\Services\QueryBuilders\PKPSubmissionFileQueryBuilder
 	 */
-	public function filterByUploaderUserIds($uploaderUserIds) {
-		$this->uploaderUserIds = is_array($uploaderUserIds) ? $uploaderUserIds : [$uploaderUserIds];
+	public function filterByUploaderUserIds(array $uploaderUserIds) {
+		$this->uploaderUserIds = $uploaderUserIds;
 		return $this;
 	}
 
@@ -179,8 +179,6 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface {
 	 * @return object Query object
 	 */
 	public function getQuery() {
-		$this->columns = ['sf.*'];
-
 		$q = Capsule::table('submission_files as sf');
 
 		if (!empty($this->submissionIds)) {
@@ -228,9 +226,6 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface {
 
 		// Add app-specific query statements
 		\HookRegistry::call('SubmissionFile::getMany::queryObject', array(&$q, $this));
-
-		// Only return results for the latest revision
-		$q->select($this->columns);
 
 		return $q;
 	}

@@ -813,6 +813,9 @@ msgstr "The file could not be uploaded or revised."
 msgid "common.up"
 msgstr "Up"
 
+msgid "common.addFile"
+msgstr "Add File"
+
 msgid "common.upload.addFile"
 msgstr "Upload File"
 

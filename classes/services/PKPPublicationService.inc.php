@@ -116,7 +116,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			$publicationQB->offsetBy($args['count']);
 		}
 
-		HookRegistry::call('Publication::getMany::queryBuilder', [$publicationQB, $args]);
+		HookRegistry::call('Publication::getMany::queryBuilder', [&$publicationQB, $args]);
 
 		return $publicationQB;
 	}
@@ -434,7 +434,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			$publication = $this->edit($publication, ['coverImage' => $value], $request);
 		}
 
-		HookRegistry::call('Publication::add', [$publication, $request]);
+		HookRegistry::call('Publication::add', [&$publication, $request]);
 
 		// Update a submission's status based on the status of its publications
 		$submission = Services::get('submission')->updateStatus($submission);
@@ -521,7 +521,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$newPublication->_data = array_merge($publication->_data, $params);
 		$newPublication->stampModified();
 
-		HookRegistry::call('Publication::edit', [$newPublication, $publication, $params, $request]);
+		HookRegistry::call('Publication::edit', [&$newPublication, $publication, $params, $request]);
 
 		$publicationDao->updateObject($newPublication);
 		$newPublication = $this->get($newPublication->getId());
@@ -576,7 +576,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			}
 		}
 
-		HookRegistry::call('Publication::publish::before', [$newPublication, $publication]);
+		HookRegistry::call('Publication::publish::before', [&$newPublication, $publication]);
 
 		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
 		$publicationDao->updateObject($newPublication);
@@ -600,7 +600,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		import('classes.log.SubmissionEventLogEntry');
 		SubmissionLog::logEvent(Application::get()->getRequest(), $submission, SUBMISSION_LOG_METADATA_PUBLISH, $msg);
 
-		HookRegistry::call('Publication::publish', [$newPublication, $publication, $submission]);
+		HookRegistry::call('Publication::publish', [&$newPublication, $publication, $submission]);
 
 		// Update the search index.
 		if ($newPublication->getData('status') === STATUS_PUBLISHED) {
@@ -624,7 +624,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$newPublication->setData('status', STATUS_QUEUED);
 		$newPublication->stampModified();
 
-		HookRegistry::call('Publication::unpublish::before', [$newPublication, $publication]);
+		HookRegistry::call('Publication::unpublish::before', [&$newPublication, $publication]);
 
 		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
 		$publicationDao->updateObject($newPublication);
@@ -643,7 +643,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		import('classes.log.SubmissionEventLogEntry');
 		SubmissionLog::logEvent(Application::get()->getRequest(), $submission, SUBMISSION_LOG_METADATA_UNPUBLISH, $msg);
 
-		HookRegistry::call('Publication::unpublish', [$newPublication, $publication, $submission]);
+		HookRegistry::call('Publication::unpublish', [&$newPublication, $publication, $submission]);
 
 		// Update the metadata in the search index.
 		if ($submission->getData('status') !== STATUS_PUBLISHED) {
@@ -663,7 +663,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
 	 */
 	public function delete($publication) {
-		HookRegistry::call('Publication::delete::before', [$publication]);
+		HookRegistry::call('Publication::delete::before', [&$publication]);
 
 		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
 		$publicationDao->deleteObject($publication);
@@ -672,7 +672,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$submission = Services::get('submission')->get($publication->getData('submissionId'));
 		$submission = $submission = Services::get('submission')->updateStatus($submission);
 
-		HookRegistry::call('Publication::delete', [$publication]);
+		HookRegistry::call('Publication::delete', [&$publication]);
 	}
 
 	/**

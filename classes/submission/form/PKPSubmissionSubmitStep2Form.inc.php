@@ -72,9 +72,9 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm {
 		$templateMgr->setState([
 			'components' => [
 				'submissionFiles' => [
-					'addFileLabel' => 'Add File',
+					'addFileLabel' => __('common.addFile'),
 					'apiUrl' => $fileUploadApiUrl,
-					'cancelUploadLabel' => 'Cancel Upload',
+					'cancelUploadLabel' => 'form.dropzone.dictCancelUpload',
 					'genrePromptLabel' => __('submission.submit.genre.label'),
 					'documentTypes' => [
 						'DOCUMENT_TYPE_DEFAULT' => DOCUMENT_TYPE_DEFAULT,
@@ -88,8 +88,8 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm {
 						'DOCUMENT_TYPE_VIDEO' => DOCUMENT_TYPE_VIDEO,
 						'DOCUMENT_TYPE_ZIP' => DOCUMENT_TYPE_ZIP,
 					],
-					'emptyLabel' => 'Upload any files the editorial team will need to evaluate your submission.',
-					'emptyAddLabel' => 'Upload Files',
+					'emptyLabel' => __('submission.upload.instructions'),
+					'emptyAddLabel' => __('common.upload.addFile'),
 					'fileStage' => SUBMISSION_FILE_SUBMISSION,
 					'form' => isset($submissionFileForm) ? $submissionFileForm->getConfig() : null,
 					'genres' => array_map(function($genre) {
@@ -115,11 +115,11 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm {
 						'dropzoneDictRemoveFile' => __('form.dropzone.dictRemoveFile'),
 						'dropzoneDictMaxFilesExceeded' => __('form.dropzone.dictMaxFilesExceeded'),
 					],
-					'otherLabel' => 'Other',
+					'otherLabel' => __('about.other'),
 					'removeConfirmLabel' => __('submission.submit.removeConfirm'),
 					'stageId' => WORKFLOW_STAGE_ID_SUBMISSION,
-					'title' => 'Files',
-					'uploadProgressLabel' => 'Uploading {$percent}% complete',
+					'title' => __('submission.files'),
+					'uploadProgressLabel' => __('submission.upload.percentComplete'),
 				],
 			],
 		]);

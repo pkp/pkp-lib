@@ -262,9 +262,9 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 		$result = $this->retrieve(
 			'SELECT COUNT(*)
 			FROM submission_file_settings sfs
-				INNER JOIN submission_files sf ON sfs.file_id = sf.file_id
+				INNER JOIN submission_files sf ON sfs.submission_file_id = sf.submission_file_id
 				INNER JOIN submissions s ON sf.submission_id = s.submission_id
-			WHERE sfs.setting_name = ? AND sfs.setting_value = ? AND sfs.file_id <> ? AND s.context_id = ?',
+			WHERE sfs.setting_name = ? AND sfs.setting_value = ? AND sfs.submission_file_id <> ? AND s.context_id = ?',
 			array(
 				'pub-id::'.$pubIdType,
 				$pubId,
@@ -282,10 +282,10 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 	 */
 	function changePubId($pubObjectId, $pubIdType, $pubId) {
 		$idFields = array(
-			'file_id', 'locale', 'setting_name'
+			'submission_file_id', 'locale', 'setting_name'
 		);
 		$updateArray = array(
-			'file_id' => (int) $pubObjectId,
+			'submission_file_id' => (int) $pubObjectId,
 			'locale' => '',
 			'setting_name' => 'pub-id::'.$pubIdType,
 			'setting_type' => 'string',
@@ -301,7 +301,7 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 	function deletePubId($pubObjectId, $pubIdType) {
 		$settingName = 'pub-id::'.$pubIdType;
 		$this->update(
-			'DELETE FROM submission_file_settings WHERE setting_name = ? AND file_id = ?',
+			'DELETE FROM submission_file_settings WHERE setting_name = ? AND submission_file_id = ?',
 			array(
 				$settingName,
 				(int)$pubObjectId

@@ -1046,6 +1046,11 @@ class PKPTemplateManager extends Smarty {
 					}
 				}
 
+				// Load the manager.people.signedInAs locale key
+				if (Validation::isLoggedInAs()) {
+					AppLocale::requireComponents([LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER]);
+				}
+
 				$this->setState([
 					'menu' => $menu,
 					'tasksUrl' => $tasksUrl,
@@ -1943,7 +1948,9 @@ class PKPTemplateManager extends Smarty {
 
 		$hasEmbeddedStyle = false;
 		foreach ($embeddedFiles as $embeddedFile) {
-			if ($embeddedFile->getFileType() === 'text/css') {
+			$path = Services::get('file')->getPath($embeddedFile->getData('fileId'));
+			$mimetype = Services::get('file')->fs->getMimetype($path);
+			if ($mimetype === 'text/css') {
 				$hasEmbeddedStyle = true;
 				break;
 			}

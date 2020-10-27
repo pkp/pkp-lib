@@ -81,13 +81,17 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 	 *  SUBMISSION_FILE_* constants.
 	 * @return array
 	 */
-	function _getTextLabels($fileStage) {
+	static function _getTextLabels($fileStage) {
 		static $textLabels = array(
 			SUBMISSION_FILE_SUBMISSION => array(
 				'wizardTitle' => 'submission.submit.uploadSubmissionFile',
 				'buttonLabel' => 'submission.addFile'
 			),
 			SUBMISSION_FILE_REVIEW_FILE => array(
+				'wizardTitle' => 'editor.submissionReview.uploadFile',
+				'buttonLabel' => 'editor.submissionReview.uploadFile'
+			),
+			SUBMISSION_FILE_INTERNAL_REVIEW_FILE => array(
 				'wizardTitle' => 'editor.submissionReview.uploadFile',
 				'buttonLabel' => 'editor.submissionReview.uploadFile'
 			),
@@ -100,6 +104,10 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 				'buttonLabel' => 'submission.addFile'
 			),
 			SUBMISSION_FILE_REVIEW_REVISION => array(
+				'wizardTitle' => 'editor.submissionReview.uploadFile',
+				'buttonLabel' => 'submission.addFile'
+			),
+			SUBMISSION_FILE_INTERNAL_REVIEW_REVISION => array(
 				'wizardTitle' => 'editor.submissionReview.uploadFile',
 				'buttonLabel' => 'submission.addFile'
 			),

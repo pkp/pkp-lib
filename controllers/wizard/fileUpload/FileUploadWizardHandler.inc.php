@@ -20,7 +20,7 @@ import('classes.handler.Handler');
 // Import JSON class for use with all AJAX requests.
 import('lib.pkp.classes.core.JSONMessage');
 
-class PKPFileUploadWizardHandler extends Handler {
+class FileUploadWizardHandler extends Handler {
 	/** @var integer */
 	var $_fileStage;
 
@@ -73,6 +73,7 @@ class PKPFileUploadWizardHandler extends Handler {
 		if ($fileStage) {
 			$fileStages = Services::get('submissionFile')->getFileStages();
 			if (!in_array($fileStage, $fileStages)) {
+				eval(\Psy\sh());
 				return false;
 			}
 		}
@@ -156,7 +157,7 @@ class PKPFileUploadWizardHandler extends Handler {
 			$this->addPolicy(new SubmissionFileStageAccessPolicy($fileStage, SUBMISSION_FILE_ACCESS_MODIFY, 'api.submissionFiles.403.unauthorizedFileStageIdWrite'));
 
 			// Additional checks before uploading to a review file stage
-			if (in_array($fileStage, [SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_REVIEW_FILE])
+			if (in_array($fileStage, [SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_INTERNAL_REVIEW_REVISION, SUBMISSION_FILE_INTERNAL_REVIEW_FILE])
 					|| $assocType === ASSOC_TYPE_REVIEW_ROUND) {
 				import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
 				$this->addPolicy(new ReviewRoundRequiredPolicy($request, $args));

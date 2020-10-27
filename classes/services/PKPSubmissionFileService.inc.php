@@ -776,8 +776,10 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 				$parentFile = Services::get('submissionFile')->get($submissionFile->getData('assocId'));
 				return $this->getWorkflowStageId($parentFile);
 			case SUBMISSION_FILE_REVIEW_FILE:
+			case SUBMISSION_FILE_INTERNAL_REVIEW_FILE:
 			case SUBMISSION_FILE_REVIEW_ATTACHMENT:
 			case SUBMISSION_FILE_REVIEW_REVISION:
+			case SUBMISSION_FILE_INTERNAL_REVIEW_REVISION:
 				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 				$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getId());
 				return $reviewRound->getStageId();

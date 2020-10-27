@@ -140,10 +140,10 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 			if ($this->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $this->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
 				// If we have a review stage id then we also expect a review round.
 				if (!$this->getData('fileStage') == SUBMISSION_FILE_QUERY && !is_a($this->getReviewRound(), 'ReviewRound')) {
-					throw new Exception('Can not get request submission files for a review stage without specifying a review round.');
+					throw new Exception('Can not request submission files for a review stage without specifying a review round.');
 				}
 				// Can only upload submission files, review files, review attachments, dependent files, or query attachments.
-				if (!in_array($this->getData('fileStage'), array(SUBMISSION_FILE_SUBMISSION, SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_REVIEW_ATTACHMENT, SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_QUERY, SUBMISSION_FILE_DEPENDENT, SUBMISSION_FILE_ATTACHMENT))) {
+				if (!in_array($this->getData('fileStage'), array(SUBMISSION_FILE_SUBMISSION, SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SUBMISSION_FILE_REVIEW_ATTACHMENT, SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_INTERNAL_REVIEW_REVISION, SUBMISSION_FILE_QUERY, SUBMISSION_FILE_DEPENDENT, SUBMISSION_FILE_ATTACHMENT))) {
 					throw new Exception('The file stage is not valid for the review stage.');
 				}
 

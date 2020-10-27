@@ -21,10 +21,12 @@ class LimitReviewFilesGridHandler extends SelectableFileListGridHandler {
 	 * Constructor
 	 */
 	function __construct() {
+		$stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
+		$fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE;
 		import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
 		// Pass in null stageId to be set in initialize from request var.
 		parent::__construct(
-			new ReviewGridDataProvider(SUBMISSION_FILE_REVIEW_FILE),
+			new ReviewGridDataProvider($fileStage),
 			null,
 			FILE_GRID_VIEW_NOTES
 		);

@@ -347,18 +347,6 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 				]);
 		}
 
-		// Update file stage for all internal review files
-		Capsule::table('submission_files as sf')
-			->leftJoin('review_round_files as rrf', 'sf.file_id', '=', 'rrf.file_id')
-			->where('sf.file_stage', '=', SUBMISSION_FILE_REVIEW_FILE)
-			->where('rrf.stage_id', '=', WORKFLOW_STAGE_ID_INTERNAL_REVIEW)
-			->update(['sf.file_stage' => SUBMISSION_FILE_INTERNAL_REVIEW_FILE]);
-		Capsule::table('submission_files as sf')
-			->leftJoin('review_round_files as rrf', 'sf.file_id', '=', 'rrf.file_id')
-			->where('sf.file_stage', '=', SUBMISSION_FILE_REVIEW_REVISION)
-			->where('rrf.stage_id', '=', WORKFLOW_STAGE_ID_INTERNAL_REVIEW)
-			->update(['sf.file_stage' => SUBMISSION_FILE_INTERNAL_REVIEW_REVISION]);
-
 		// Update name of event log params to reflect new file structure
 		Capsule::table('event_log_settings')
 			->where('setting_name', 'fileId')
@@ -394,10 +382,6 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			$table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
 		});
 		Capsule::schema()->table('review_files', function (Blueprint $table) {
-			$table->renameColumn('file_id', 'submission_file_id');
-			$table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
-		});
-		Capsule::schema()->table('publication_galleys', function (Blueprint $table) {
 			$table->renameColumn('file_id', 'submission_file_id');
 			$table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
 		});

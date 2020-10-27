@@ -177,13 +177,16 @@ class EditorDecisionForm extends Form {
 
 		// Add the selected files to the new round.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+		$fileStage = $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW
+			? SUBMISSION_FILE_INTERNAL_REVIEW_FILE
+			: SUBMISSION_FILE_REVIEW_FILE;
 
 		foreach (array('selectedFiles', 'selectedAttachments') as $userVar) {
 			$selectedFiles = $this->getData($userVar);
 			if(is_array($selectedFiles)) {
 				foreach ($selectedFiles as $fileId) {
 					$newSubmissionFile = Services::get('submissionFile')->get($fileId);
-					$newSubmissionFile->setData('fileStage', SUBMISSION_FILE_REVIEW_FILE);
+					$newSubmissionFile->setData('fileStage', $fileStage);
 					$newSubmissionFile->setData('sourceSubmissionFileId', $fileId);
 					$newSubmissionFile->setData('assocType', null);
 					$newSubmissionFile->setData('assocId', null);

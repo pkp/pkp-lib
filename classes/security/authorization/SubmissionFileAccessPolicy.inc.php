@@ -134,6 +134,9 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 				// 3f) ...or the file is at revision stage...
 				$authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SUBMISSION_FILE_REVIEW_REVISION));
 
+				// 3f) ...or the file is at revision stage...
+				$authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SUBMISSION_FILE_INTERNAL_REVIEW_REVISION));
+
 				// 3g) ...or the file is a copyedited file...
 				$authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SUBMISSION_FILE_COPYEDIT));
 

@@ -22,7 +22,9 @@ class ReviewRevisionsGridDataProvider extends ReviewGridDataProvider {
 	 * Constructor
 	 */
 	function __construct() {
-		parent::__construct(SUBMISSION_FILE_REVIEW_REVISION);
+		$stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
+		$fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_REVISION : SUBMISSION_FILE_REVIEW_REVISION;
+		parent::__construct($fileStage);
 	}
 
 

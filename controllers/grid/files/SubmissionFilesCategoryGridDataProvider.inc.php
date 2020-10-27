@@ -98,12 +98,16 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 				$reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 			}
-			$submissionFilesIterator = Services::get('submissionFile')->getMany([
-				'submissionIds' => [$submission->getId()],
-				'reviewRoundIds' => [$reviewRound->getId()],
-				'fileStages' => (array) $fileStage,
-			]);
-			$stageSubmissionFiles = iterator_to_array($submissionFilesIterator);
+			if ($reviewRound) {
+				$submissionFilesIterator = Services::get('submissionFile')->getMany([
+					'submissionIds' => [$submission->getId()],
+					'reviewRoundIds' => [$reviewRound->getId()],
+					'fileStages' => (array) $fileStage,
+				]);
+				$stageSubmissionFiles = iterator_to_array($submissionFilesIterator);
+			} else {
+				$stageSubmissionFiles = [];
+			}
 		} else {
 			// Filter the passed workflow stage files.
 			if (!$this->_submissionFiles) {
@@ -195,6 +199,8 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 				return SUBMISSION_FILE_SUBMISSION;
 				break;
 			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
+				return SUBMISSION_FILE_INTERNAL_REVIEW_FILE;
+				break;
 			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
 				return SUBMISSION_FILE_REVIEW_FILE;
 				break;

@@ -151,7 +151,7 @@ class CategoryGridHandler extends GridHandler {
 	 * Get the number of elements inside the passed category element.
 	 * @param $categoryElement mixed
 	 * @param $request PKPRequest
-	 * @return int 
+	 * @return int
 	 */
 	function getCategoryItemsCount($categoryElement, $request) {
 		$data = $this->getGridCategoryDataElements($request, $categoryElement);

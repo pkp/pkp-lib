@@ -83,7 +83,7 @@ class PKPFileService {
 		if (is_resource($stream)) {
 			fclose($stream);
 		}
-		return Capsule::table('files')->insertGetId(['path' => $to]);
+		return Capsule::table('files')->insertGetId(['path' => $to], 'file_id');
 	}
 
 	/**

@@ -281,7 +281,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			if (!Services::get('file')->fs->has($path)) {
 				throw new Exception("A submission file was expected but not found at $path.");
 			}
-			$newFileId = Capsule::table('files')->insertGetId(['path' => $path]);
+			$newFileId = Capsule::table('files')->insertGetId(['path' => $path], 'file_id');
 			Capsule::table('submission_files')
 				->where('file_id', $row->file_id)
 				->where('revision', $row->revision)

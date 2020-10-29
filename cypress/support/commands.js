@@ -132,49 +132,79 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 	cy.get('button.submitFormButton').click();
 
 	// === Submission Step 2 ===
-	cy.get('button:contains("Add File")');
 
-	// A callback function used to prevent Cypress from failing
-	// when an uncaught exception occurs in the code. This is a
-	// workaround for an exception that is thrown when a file's
-	// genre is selected in the modal form. This exception happens
-	// because the submission step 2 form handler attaches a
-	// validator to the modal form.
-	//
-	// It should be possible to remove this workaround once the
-	// submission process has been fully ported to Vue.
-	const allowException = function(error, runnable) {
-		return false;
-	}
-	cy.on('uncaught:exception', allowException);
-
-	// File uploads
-	const primaryFileGenres = ['Article Text', 'Book Manuscript', 'Chapter Manuscript'];
-	data.files.forEach(file => {
-		cy.fixture(file.file, 'base64').then(fileContent => {
-			cy.get('input[type=file]').upload(
-				{fileContent, 'fileName': file.fileName, 'mimeType': 'application/pdf', 'encoding': 'base64'}
-			);
-			var $row = cy.get('a:contains("' + file.fileName + '")').parents('.listPanel__item');
-			if (primaryFileGenres.includes(file.genre)) {
-				// For some reason this is locating two references to the button,
-				// so just click the last one, which should be the most recently
-				// uploaded file.
-				$row.get('button:contains("' + file.genre + '")').last().click();
-				$row.get('span:contains("' + file.genre + '")');
-			} else {
-				$row.get('button:contains("Other")').last().click();
-				cy.get('#submission-files-container .modal label:contains("' + file.genre + '")').click();
-				cy.get('#submission-files-container .modal button:contains("Save")').click();
+	// OPS uses the galley grid
+	if (Cypress.env('contextTitles').en_US == 'Public Knowledge Preprint Server') {
+		data.files.forEach(file => {
+			cy.get('a:contains("Add galley")').click();
+			cy.wait(2000); // Avoid occasional failure due to form init taking time
+			cy.get('div.pkp_modal_panel').then($modalDiv => {
+				cy.wait(3000);
+				if ($modalDiv.find('div.header:contains("Create New Galley")').length) {
+					cy.get('div.pkp_modal_panel input[id^="label-"]').type('PDF', {delay: 0});
+					cy.get('div.pkp_modal_panel button:contains("Save")').click();
+					cy.wait(2000); // Avoid occasional failure due to form init taking time
+				}
+			});
+			cy.get('select[id=genreId]').select(file.genre);
+			cy.fixture(file.file, 'base64').then(fileContent => {
+				cy.get('input[type=file]').upload(
+					{fileContent, 'fileName': file.fileName, 'mimeType': 'application/pdf', 'encoding': 'base64'}
+				);
+			});
+			cy.get('button').contains('Continue').click();
+			cy.wait(2000);
+			for (const field in file.metadata) {
+				cy.get('input[id^="' + Cypress.$.escapeSelector(field) + '"]:visible,textarea[id^="' + Cypress.$.escapeSelector(field) + '"]').type(file.metadata[field], {delay: 0});
+				cy.get('input[id^="language"').click({force: true}); // Close multilingual and datepicker pop-overs
 			}
-			// Make sure the genre selection is complete before moving to the
-			// next file.
-			$row.get('button:contains("What kind of file is this?")').should('not.exist');
+			cy.get('button').contains('Continue').click();
+			cy.get('button').contains('Complete').click();
 		});
-	});
 
-	// See description of allowException above
-	// cy.removeListener('uncaught:exception', allowException);
+	// Other applications use the submission files list panel
+	} else {
+		cy.get('button:contains("Add File")');
+
+		// A callback function used to prevent Cypress from failing
+		// when an uncaught exception occurs in the code. This is a
+		// workaround for an exception that is thrown when a file's
+		// genre is selected in the modal form. This exception happens
+		// because the submission step 2 form handler attaches a
+		// validator to the modal form.
+		//
+		// It should be possible to remove this workaround once the
+		// submission process has been fully ported to Vue.
+		const allowException = function(error, runnable) {
+			return false;
+		}
+		cy.on('uncaught:exception', allowException);
+
+		// File uploads
+		const primaryFileGenres = ['Article Text', 'Book Manuscript', 'Chapter Manuscript'];
+		data.files.forEach(file => {
+			cy.fixture(file.file, 'base64').then(fileContent => {
+				cy.get('input[type=file]').upload(
+					{fileContent, 'fileName': file.fileName, 'mimeType': 'application/pdf', 'encoding': 'base64'}
+				);
+				var $row = cy.get('a:contains("' + file.fileName + '")').parents('.listPanel__item');
+				if (primaryFileGenres.includes(file.genre)) {
+					// For some reason this is locating two references to the button,
+					// so just click the last one, which should be the most recently
+					// uploaded file.
+					$row.get('button:contains("' + file.genre + '")').last().click();
+					$row.get('span:contains("' + file.genre + '")');
+				} else {
+					$row.get('button:contains("Other")').last().click();
+					cy.get('#submission-files-container .modal label:contains("' + file.genre + '")').click();
+					cy.get('#submission-files-container .modal button:contains("Save")').click();
+				}
+				// Make sure the genre selection is complete before moving to the
+				// next file.
+				$row.get('button:contains("What kind of file is this?")').should('not.exist');
+			});
+		});
+	}
 
 	// Save the ID to the data object
 	cy.location('search')

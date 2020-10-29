@@ -169,7 +169,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 			$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 			if (!empty(array_intersect([SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SUBMISSION_FILE_INTERNAL_REVIEW_REVISION], $params['fileStages']))) {
-				$result = $reviewRoundDao->getBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_INTERNAL_REVIEW,);
+				$result = $reviewRoundDao->getBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_INTERNAL_REVIEW);
 				while ($reviewRound = $result->next()) {
 					$allowedReviewRoundIds[] = $reviewRound->getId();
 				}

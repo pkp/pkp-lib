@@ -110,7 +110,7 @@
 		<attribute name="credit" type="string" />
 		<attribute name="date_created" type="string" />
 		<attribute name="direct_sales_price" type="decimal" />
-		<attribute name="fileId" type="int" />
+		<attribute name="file_id" type="int" />
 		<attribute name="genre" type="normalizedString" />
 		<attribute name="id" type="int" />
 		<attribute name="language" type="string" />

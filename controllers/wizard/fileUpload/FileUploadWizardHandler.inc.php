@@ -73,7 +73,6 @@ class FileUploadWizardHandler extends Handler {
 		if ($fileStage) {
 			$fileStages = Services::get('submissionFile')->getFileStages();
 			if (!in_array($fileStage, $fileStages)) {
-				eval(\Psy\sh());
 				return false;
 			}
 		}

@@ -184,9 +184,10 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 							$allRevisionIds[] = $newFileId;
 						}
 						// If this is the current file revision, set the submission file id
-						if ($childNode->getAttribute('id') == $node->getAttribute('fileId')) {
+						if ($childNode->getAttribute('id') == $node->getAttribute('file_id')) {
 							$submissionFile->setData('fileId', $newFileId);
 						}
+						unset($newFileId);
 
 						break;
 					default:
@@ -205,10 +206,11 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			$submissionFile = Services::get('submissionFile')->add($submissionFile, $request);
 		} else {
 			$currentFileId = $submissionFile->getData('fileId');
+			$allRevisionIds = array_filter($allRevisionIds, function($fileId) use ($currentFileId) {
+				return $fileId !== $currentFileId;
+			});
+			$allRevisionIds = array_values($allRevisionIds);
 			foreach ($allRevisionIds as $i => $fileId) {
-				if ($fileId === $currentFileId) {
-					continue;
-				}
 				if ($i === 0) {
 					$submissionFile->setData('fileId', $fileId);
 					$submissionFile = Services::get('submissionFile')->add($submissionFile, $request);

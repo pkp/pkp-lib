@@ -324,7 +324,8 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 	public function add($submissionFile, $request) {
 		$submissionFile->setData('createdAt', Core::getCurrentDate());
 		$submissionFile->setData('updatedAt', Core::getCurrentDate());
-		DAORegistry::getDAO('SubmissionFileDAO')->insertObject($submissionFile);
+		$id = DAORegistry::getDAO('SubmissionFileDAO')->insertObject($submissionFile);
+		$submissionFile = $this->get($id);
 
 		$submission = Services::get('submission')->get($submissionFile->getData('submissionId'));
 

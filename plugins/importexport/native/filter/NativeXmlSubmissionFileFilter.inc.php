@@ -163,9 +163,10 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 					case 'subject':
 						list($locale, $value) = $this->parseLocalizedContent($childNode);
 						$submissionFile->setData($childNode->tagName, $value, $locale);
+						break;
 					case 'submission_file_ref':
 						if ($submissionFile->getData('fileStage') == SUBMISSION_FILE_DEPENDENT) {
-							$oldAssocId = $node->getAttribute('id');
+							$oldAssocId = $childNode->getAttribute('id');
 							$newAssocId = $deployment->getSubmissionFileDBId($oldAssocId);
 							if ($newAssocId) {
 								$submissionFile->setData('assocType', ASSOC_TYPE_SUBMISSION_FILE);

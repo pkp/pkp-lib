@@ -289,7 +289,8 @@ abstract class SchemaDAO extends DAO {
 
 				// Convert empty string values for DATETIME columns into null values
 				// because an empty string can not be saved to a DATETIME column
-				} elseif ($sanitizedProps[$columnName] === ''
+				} elseif (array_key_exists($columnName, $sanitizedProps)
+						&& $sanitizedProps[$columnName] === ''
 						&& isset($schema->properties->{$propName}->validation)
 						&& (
 							in_array('date_format:Y-m-d H:i:s', $schema->properties->{$propName}->validation)

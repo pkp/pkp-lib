@@ -72,16 +72,6 @@ class InstallPluginVersionTool extends CommandLineTool {
 
 		import('classes.install.Upgrade');
 		$installer = new Upgrade(array());
-		if (!isset($installer->dbconn)) {
-			// Connect to the database.
-			$conn = DBConnection::getInstance();
-			$installer->dbconn = $conn->getDBConn();
-
-			if (!$conn->isConnected()) {
-				$installer->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-				return false;
-			}
-		}
 		$result = true;
 		$param = [&$installer, &$result];
 

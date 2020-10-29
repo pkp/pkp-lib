@@ -15,6 +15,8 @@
 
 import('classes.handler.Handler');
 
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 class AdminHandler extends Handler {
 
 	/** @copydoc PKPHandler::_isBackendPage */
@@ -317,15 +319,14 @@ class AdminHandler extends Handler {
 
 		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$versionHistory = $versionDao->getVersionHistory();
+		$pdo = Capsule::getPDO();
 
-		$dbconn = DBConnection::getConn();
-		$dbServerInfo = $dbconn->ServerInfo();
 		$serverInfo = [
 			'admin.server.platform' => PHP_OS,
 			'admin.server.phpVersion' => phpversion(),
 			'admin.server.apacheVersion' => $_SERVER['SERVER_SOFTWARE'],
-			'admin.server.dbDriver' => Config::getVar('database', 'driver'),
-			'admin.server.dbVersion' => (empty($dbServerInfo['description']) ? $dbServerInfo['version'] : $dbServerInfo['description'])
+			'admin.server.dbDriver' => $pdo->getAttribute(PDO::ATTR_DRIVER_NAME),
+			'admin.server.dbVersion' => $pdo->getAttribute(PDO::ATTR_SERVER_VERSION),
 		];
 
 		$templateMgr = TemplateManager::getManager($request);

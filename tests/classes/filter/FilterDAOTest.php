@@ -69,14 +69,16 @@ class FilterDAOTest extends DatabaseTestCase {
 
 		// Retrieve filter by class.
 		$filtersByClassFactory = $filterDao->getObjectsByClass('lib.pkp.tests.classes.filter.PersistableTestFilter', 9999);
-		self::assertTrue($filtersByClassFactory->getCount() == 1);
 		$filterByClass = $filtersByClassFactory->next();
+		$nonexistentSecondFilter = $filtersByClassFactory->next();
+		assert($filterByClass !== null && $nonexistentSecondFilter === null);
 		self::assertEquals($testFilter, $filterByClass);
 
 		// Retrieve filter by group and class.
 		$filtersByGroupAndClassFactory = $filterDao->getObjectsByGroupAndClass('test-filter-group', 'lib.pkp.tests.classes.filter.PersistableTestFilter', 9999);
-		self::assertTrue($filtersByGroupAndClassFactory->getCount() == 1);
 		$filterByGroupAndClass = $filtersByGroupAndClassFactory->next();
+		$nonexistentSecondFilter = $filtersByGroupAndClassFactory->next();
+		assert($filterByClass !== null && $nonexistentSecondFilter === null);
 		self::assertEquals($testFilter, $filterByGroupAndClass);
 
 		// Update filter instance.

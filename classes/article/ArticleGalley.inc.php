@@ -30,9 +30,9 @@ class ArticleGalley extends Representation {
 	 */
 	function getViews() {
 		$application = Application::get();
-		$fileId = $this->getFileId();
-		if ($fileId) {
-			return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $fileId);
+		$submissionFileId = $this->getFileId();
+		if ($submissionFileId) {
+			return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFileId);
 		} else {
 			return 0;
 		}
@@ -83,39 +83,45 @@ class ArticleGalley extends Representation {
 
 	/**
 	 * Set file ID.
-	 * @param $fileId int
+	 * @deprecated 3.3
+	 * @param $submissionFileId int
 	 */
-	function setFileId($fileId) {
-		$this->setData('fileId', $fileId);
+	function setFileId($submissionFileId) {
+		$this->setData('submissionFileId', $submissionFileId);
 	}
 
 	/**
 	 * Get file id
+	 * @deprecated 3.3
 	 * @return int
 	 */
 	function getFileId() {
-		return $this->getData('fileId');
+		return $this->getData('submissionFileId');
 	}
 
 	/**
 	 * Get the submission file corresponding to this galley.
+	 * @deprecated 3.3
 	 * @return SubmissionFile
 	 */
 	function getFile() {
 		if (!isset($this->_submissionFile)) {
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-			$this->_submissionFile = $submissionFileDao->getLatestRevision($this->getFileId());
+			$this->_submissionFile = Services::get('submissionFile')->get($this->getFileId());
 		}
 		return $this->_submissionFile;
 	}
 
 	/**
 	 * Get the file type corresponding to this galley.
+	 * @deprecated 3.3
 	 * @return string MIME type
 	 */
 	function getFileType() {
 		$galleyFile = $this->getFile();
-		return isset($galleyFile) ? $galleyFile->getFileType() : null;
+		if (!$galleyFile) {
+			return null;
+		}
+		return Services::get('file')->fs->getMimetype(Services::get('file')->getPath($galleyFile->getData('fileId')));
 	}
 
 	/**

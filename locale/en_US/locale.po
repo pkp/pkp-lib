@@ -101,6 +101,9 @@ msgstr "Servers"
 msgid "context.context"
 msgstr "Server"
 
+msgid "user.authorization.representationNotFound"
+msgstr "The requested galley could not be found."
+
 msgid "user.noRoles.selectUsersWithoutRoles"
 msgstr "Include users with no roles in this server."
 
@@ -395,9 +398,6 @@ msgstr "Awaiting Galleys."
 
 msgid "user.authorization.noContext"
 msgstr "No server in context!"
-
-msgid "debug.notes.currencyListLoad"
-msgstr "Loaded currency list "{$filename}" from XML"
 
 msgid "notification.type.approveSubmission"
 msgstr "This submission is currently awaiting approval."

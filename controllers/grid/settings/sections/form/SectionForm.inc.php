@@ -65,6 +65,7 @@ class SectionForm extends PKPSectionForm {
 				'hideAuthor' => $section->getHideAuthor(),
 				'policy' => $section->getPolicy(null), // Localized
 				'wordCount' => $section->getAbstractWordCount(),
+				'path' => $section->getData('path'),
 				'assignedSubeditors' => Services::get('user')->getIds([
 					'contextId' => Application::get()->getRequest()->getContext()->getId(),
 					'roleIds' => ROLE_ID_SUB_EDITOR,

@@ -24,161 +24,38 @@ class SubmissionHandler extends PKPSubmissionHandler {
 	 * Constructor
 	 */
 	public function __construct() {
-		$this->_handlerPath = 'submissions';
-		$this->_endpoints = [
-			'GET' => [
-				[
-					'pattern' => $this->getEndpointPattern(),
-					'handler' => [$this, 'getMany'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
-				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}',
-					'handler' => [$this, 'get'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
-				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/participants',
-					'handler' => [$this, 'getParticipants'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
-				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/participants/{stageId}',
-					'handler' => [$this, 'getParticipants'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
-				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications',
-					'handler' => [$this, 'getPublications'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
-				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}',
-					'handler' => [$this, 'getPublication'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
-				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}/publish',
-					'handler' => [$this, 'publishPublication'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
-				],
-			],
-			'POST' => [
-				[
-					'pattern' => $this->getEndpointPattern(),
-					'handler' => [$this, 'add'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
-				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications',
-					'handler' => [$this, 'addPublication'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
-				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}/version',
-					'handler' => [$this, 'versionPublication'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
-				],
-			],
-			'PUT' => [
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}',
-					'handler' => [$this, 'edit'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
-				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}',
-					'handler' => [$this, 'editPublication'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
-				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}/publish',
-					'handler' => [$this, 'publishPublication'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
-				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}/unpublish',
-					'handler' => [$this, 'unpublishPublication'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
-				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}/relate',
-					'handler' => [$this, 'relatePublication'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
-				],
-			],
-			'DELETE' => [
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}',
-					'handler' => [$this, 'delete'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
-				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}',
-					'handler' => [$this, 'deletePublication'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
-				],
-			],
-		];
-		APIHandler::__construct();
+		$this->requiresSubmissionAccess[] = 'relatePublication';
+		$this->requiresProductionStageAccess[] = 'relatePublication';
+		parent::__construct();
 	}
 
-	//
-	// Implement methods from PKPHandler
-	//
-	function authorize($request, &$args, $roleAssignments) {
-		$routeName = $this->getSlimRequest()->getAttribute('route')->getName();
+	/**
+	 * Modify submission endpoints
+	 */
+	public function setupEndpoints() {
 
-		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-
-		$requiresSubmissionAccess = [
-			'get',
-			'edit',
-			'delete',
-			'getGalleys',
-			'getParticipants',
-			'getPublications',
-			'getPublication',
-			'addPublication',
-			'versionPublication',
-			'editPublication',
-			'publishPublication',
-			'unpublishPublication',
-			'deletePublication',
-			'relatePublication',
+		// Add endpoints
+		$this->_endpoints['PUT'][] = [
+			'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}/relate',
+			'handler' => [$this, 'relatePublication'],
+			'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
 		];
-		if (in_array($routeName, $requiresSubmissionAccess)) {
-			import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
-			$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
-		}
 
-		$requiresPublicationWriteAccess = [
-			'addPublication',
-			'editPublication',
-		];
-		if (in_array($routeName, $requiresPublicationWriteAccess)) {
-			import('lib.pkp.classes.security.authorization.PublicationWritePolicy');
-			$this->addPolicy(new PublicationWritePolicy($request, $args, $roleAssignments));
-		}
+		// Allow authors to create and publish versions
+		$this->_endpoints['POST'] = array_map(function($endpoint) {
+			if (in_array($endpoint['handler'][1], ['addPublication', 'versionPublication'])) {
+				$endpoint['roles'][] = ROLE_ID_AUTHOR;
+			}
+			return $endpoint;
+		}, $this->_endpoints['POST']);
+		$this->_endpoints['PUT'] = array_map(function($endpoint) {
+			if (in_array($endpoint['handler'][1], ['publishPublication', 'unpublishPublication'])) {
+				$endpoint['roles'][] = ROLE_ID_AUTHOR;
+			}
+			return $endpoint;
+		}, $this->_endpoints['PUT']);
 
-		$requiresProductionStageAccess = [
-			'versionPublication',
-			'publishPublication',
-			'unpublishPublication',
-			'deletePublication',
-			'relatePublication',
-		];
-		if (in_array($routeName, $requiresProductionStageAccess)) {
-			// Can the user access this stage?
-			import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
-			$this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
-
-			import('lib.pkp.classes.security.authorization.StageRolePolicy');
-			$this->addPolicy(new StageRolePolicy([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR]));
-		}
-
-		return APIHandler::authorize($request, $args, $roleAssignments);
+		parent::setupEndpoints();
 	}
 
 	/**

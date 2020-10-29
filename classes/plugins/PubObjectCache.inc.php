@@ -34,7 +34,10 @@ class PubObjectCache {
 		if (is_a($object, 'ArticleGalley')) {
 			assert(is_a($parent, 'Submission'));
 			$this->_insertInternally($object, 'galleys', $object->getId());
-			$this->_insertInternally($object, 'galleysByArticle', $object->getSubmissionId(), $object->getId());
+			$this->_insertInternally($object, 'galleysByArticle', $object->getData('submissionId'), $object->getId());
+		}
+		if (is_a($object, 'Genre')) {
+			$this->_insertInternally($object, 'genres', $object->getId());
 		}
 	}
 

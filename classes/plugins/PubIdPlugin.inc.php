@@ -162,7 +162,7 @@ abstract class PubIdPlugin extends PKPPubIdPlugin {
 
 				if ($submissionFile) {
 					// %f - file id
-					$pubIdSuffix = PKPString::regexp_replace('/%f/', $submissionFile->getFileId(), $pubIdSuffix);
+					$pubIdSuffix = PKPString::regexp_replace('/%f/', $submissionFile->getId(), $pubIdSuffix);
 				}
 
 				break;
@@ -179,7 +179,7 @@ abstract class PubIdPlugin extends PKPPubIdPlugin {
 				}
 
 				if ($submissionFile) {
-					$pubIdSuffix .= '.f' . $submissionFile->getFileId();
+					$pubIdSuffix .= '.f' . $submissionFile->getId();
 				}
 		}
 		if (empty($pubIdSuffix)) return null;

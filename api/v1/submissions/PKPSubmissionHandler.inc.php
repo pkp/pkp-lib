@@ -19,6 +19,38 @@ import('classes.core.Services');
 
 class PKPSubmissionHandler extends APIHandler {
 
+	/** @var array Handlers that must be authorized to access a submission */
+	public array $requiresSubmissionAccess = [
+		'get',
+		'edit',
+		'delete',
+		'getGalleys',
+		'getParticipants',
+		'getPublications',
+		'getPublication',
+		'addPublication',
+		'versionPublication',
+		'editPublication',
+		'publishPublication',
+		'unpublishPublication',
+		'deletePublication',
+	];
+
+	/** @var array Handlers that must be authorized to write to a publication */
+	public array $requiresPublicationWriteAccess = [
+		'addPublication',
+		'editPublication',
+	];
+
+	/** @var array Handlers that must be authorized to access a submission's production stage */
+	public array $requiresProductionStageAccess = [
+		'addPublication',
+		'versionPublication',
+		'publishPublication',
+		'unpublishPublication',
+		'deletePublication',
+	];
+
 	/**
 	 * Constructor
 	 */
@@ -121,41 +153,17 @@ class PKPSubmissionHandler extends APIHandler {
 		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
 		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
-		$requiresSubmissionAccess = [
-			'get',
-			'edit',
-			'delete',
-			'getParticipants',
-			'getPublications',
-			'getPublication',
-			'addPublication',
-			'versionPublication',
-			'editPublication',
-			'publishPublication',
-			'unpublishPublication',
-			'deletePublication',
-		];
-		if (in_array($routeName, $requiresSubmissionAccess)) {
+		if (in_array($routeName, $this->requiresSubmissionAccess)) {
 			import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
 			$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 		}
 
-		$requiresPublicationWriteAccess = [
-			'editPublication',
-		];
-		if (in_array($routeName, $requiresPublicationWriteAccess)) {
+		if (in_array($routeName, $this->requiresPublicationWriteAccess)) {
 			import('lib.pkp.classes.security.authorization.PublicationWritePolicy');
 			$this->addPolicy(new PublicationWritePolicy($request, $args, $roleAssignments));
 		}
 
-		$requiresProductionStageAccess = [
-			'addPublication',
-			'versionPublication',
-			'publishPublication',
-			'unpublishPublication',
-			'deletePublication',
-		];
-		if (in_array($routeName, $requiresProductionStageAccess)) {
+		if (in_array($routeName, $this->requiresProductionStageAccess)) {
 			import('lib.pkp.classes.security.authorization.StageRolePolicy');
 			$this->addPolicy(new StageRolePolicy([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], WORKFLOW_STAGE_ID_PRODUCTION, false));
 		}

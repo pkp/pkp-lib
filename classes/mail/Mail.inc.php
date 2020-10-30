@@ -478,11 +478,13 @@ class Mail extends DataObject {
 			$mailer->Port = Config::getVar('email', 'smtp_port');
 			if (($s = Config::getVar('email', 'smtp_auth')) != '') {
 				$mailer->SMTPSecure = $s;
-				$mailer->SMTPAuth = true;
 			}
 			$mailer->Host = Config::getVar('email', 'smtp_server');
-			$mailer->Username = Config::getVar('email', 'smtp_username');
-			$mailer->Password = Config::getVar('email', 'smtp_password');
+			if (($s = Config::getVar('email', 'smtp_username')) != '') {
+				$mailer->SMTPAuth = true;
+				$mailer->Username = Config::getVar('email', 'smtp_username');
+				$mailer->Password = Config::getVar('email', 'smtp_password');
+			}
 			if (Config::getVar('debug', 'show_stacktrace')) {
 				// debug level 3 represents client and server interaction, plus initial connection debugging
 				$mailer->SMTPDebug = 3;

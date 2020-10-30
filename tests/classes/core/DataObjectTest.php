@@ -111,9 +111,9 @@ class DataObjectTest extends PKPTestCase {
 		$result =& $this->dataObject->getAllData();
 		self::assertEquals($expectedResult, $result);
 
-		// Test by-ref
+		// Test assignment is not done by reference
 		$expectedResult = array('someOtherKey' => 'someOtherVal');
-		self::assertEquals($expectedResult, $result);
+		self::assertNotEquals($expectedResult, $result);
 	}
 
 	/**

@@ -32,7 +32,6 @@ class ValidatorUrlTest extends PKPTestCase {
 		self::assertFalse($validator->isValid('anything else'));
 		self::assertTrue($validator->isValid('http://189.63.74.2/'));
 		self::assertTrue($validator->isValid('http://257.63.74.2/'));
-		self::assertFalse($validator->isValid('http://189.63.74.2.7/'));
 	}
 }
 

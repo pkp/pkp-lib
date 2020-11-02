@@ -62,7 +62,7 @@ class SubmissionFileService extends \PKP\Services\PKPSubmissionFileService {
 	 * ]
 	 */
 	public function modifyAssignedFileStages($hookName, $args) {
-		$allowedFileStages = &$args[0];
+		$allowedFileStages =& $args[0];
 		$stageAssignments = $args[1];
 
 		if (array_key_exists(WORKFLOW_STAGE_ID_PRODUCTION, $stageAssignments)

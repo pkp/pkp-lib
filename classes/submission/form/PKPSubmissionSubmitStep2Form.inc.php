@@ -127,7 +127,7 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm {
 		// Temporary workaround that allows state to be passed to a
 		// page fragment retrieved by $templateMgr->fetch(). This
 		// should not be done under normal circumstances!
-		$templateMgr->_assignState($templateMgr->_state);
+		$templateMgr->assignState($templateMgr->_state);
 
 		return parent::fetch($request, $template, $display);
 	}

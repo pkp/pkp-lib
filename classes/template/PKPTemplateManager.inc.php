@@ -1215,7 +1215,7 @@ class PKPTemplateManager extends Smarty {
 	 * @param [type] $state
 	 * @return void
 	 */
-	function _assignState($state) {
+	function assignState($state) {
 		$this->assign('state', $this->_state);
 	}
 

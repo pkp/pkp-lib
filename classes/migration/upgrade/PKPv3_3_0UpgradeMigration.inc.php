@@ -279,7 +279,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 				$filename
 			);
 			if (!Services::get('file')->fs->has($path)) {
-				throw new Exception("A submission file was expected but not found at $path.");
+				error_log("A submission file was expected but not found at $path.");
 			}
 			$newFileId = Capsule::table('files')->insertGetId(['path' => $path], 'file_id');
 			Capsule::table('submission_files')
@@ -415,7 +415,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		];
 
 		if (!isset($fileStagePathMap[$fileStage])) {
-			throw new Exception('A file assigned to the file stage ' . $fileStage . ' could not be migrated.');
+			error_log('A file assigned to the file stage ' . $fileStage . ' could not be migrated.');
 		}
 
 		return $fileStagePathMap[$fileStage];

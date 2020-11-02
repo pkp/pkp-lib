@@ -73,15 +73,8 @@ class PKPFileService {
 	 * @return int file id
 	 */
 	public function add($from, $to) {
-		$stream = fopen($from, 'r+');
-		if (!$stream) {
-			throw new Exception("Unable to copy $from to $to.");
-		}
-		if (!$this->fs->writeStream($to, $stream)) {
-			throw new Exception("Unable to write file at $to.");
-		}
-		if (is_resource($stream)) {
-			fclose($stream);
+		if (!$this->fs->copy($from, $to)) {
+			throw new Exception("Unable to copy file $from to $to.");
 		}
 		return Capsule::table('files')->insertGetId(['path' => $to], 'file_id');
 	}

@@ -60,6 +60,24 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 	}
 
 	/**
+	 * @copydoc SchemaDAO::getById
+	 */
+	public function getById($objectId) {
+		$result = $this->retrieve(
+			'SELECT * FROM ' . $this->tableName . ' as sf'
+			. ' LEFT JOIN submissions as s ON (s.submission_id = sf.submission_id)'
+			. ' WHERE ' . $this->primaryKeyColumn . ' = ?',
+			(int) $objectId
+		);
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * @copydoc SchemaDAO::_fromRow()
 	 */
 	public function _fromRow($primaryRow) {

@@ -97,10 +97,6 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			$table->bigInteger('assoc_type')->change();
 			$table->bigInteger('assoc_id')->change();
 		});
-		Capsule::schema()->table('review_forms', function (Blueprint $table) {
-			$table->bigInteger('assoc_type')->change();
-			$table->bigInteger('assoc_id')->change();
-		});
 		Capsule::schema()->table('review_assignments', function (Blueprint $table) {
 			$table->bigInteger('review_round_id')->change();
 		});

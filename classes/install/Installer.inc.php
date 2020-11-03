@@ -31,6 +31,9 @@ import('lib.pkp.classes.config.ConfigParser');
 
 require_once './lib/pkp/lib/vendor/adodb/adodb-php/adodb-xmlschema.inc.php';
 
+use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Schema\Blueprint;
+
 class Installer {
 
 	/** @var string descriptor path (relative to INSTALLER_DATA_DIR) */
@@ -645,6 +648,12 @@ class Installer {
 		$locales = explode(',', $attr['locales']);
 		foreach ($locales as $locale) AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		// FIXME pkp/pkp-lib#6284 Remove after drop of support for upgrades from 3.2.0
+		if (!Capsule::schema()->hasColumn('email_templates_default', 'stage_id')) {
+			Capsule::schema()->table('email_templates_default', function (Blueprint $table) {
+				$table->bigInteger('stage_id')->nullable();
+			});
+		}
 		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), $locales, false, $attr['key']);
 		return true;
 	}

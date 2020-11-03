@@ -803,7 +803,8 @@ msgstr "Wyślij przypomnienie, jeśli recenzent nie przesłał rekomendacji prze
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Domyślne ustawienia czasu na wykonanie recenzji"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr "Wyświetl link do \"Zapewnienie ślepej recenzji\" podczas przesyłania"
 
 msgid "manager.setup.sortableByComponent"

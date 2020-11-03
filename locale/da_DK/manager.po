@@ -1711,7 +1711,8 @@ msgstr "Brugernavnet \"{$username}\" og e-mailen \"{$email}\" stemmer ikke overe
 msgid "manager.setup.theme.notFound"
 msgstr "Det valgte tema er ikke blevet installeret eller aktiveret."
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Vis et link til <button type=\"button\">Sikring af en blind review</button> "
 "under upload"

@@ -150,14 +150,14 @@ class ReviewerForm extends Form {
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignment = $reviewAssignmentDao->getReviewAssignment($reviewRound->getId(), $reviewerId, $reviewRound->getRound());
 
-		// Get the review method (open, blind, or double-blind)
+		// Get the review method (open, anonymous, or double-anonymous)
 		if (isset($reviewAssignment) && $reviewAssignment->getReviewMethod() != false) {
 			$reviewMethod = $reviewAssignment->getReviewMethod();
 			$reviewFormId = $reviewAssignment->getReviewFormId();
 		} else {
 			// Set default review method.
 			$reviewMethod = $context->getData('defaultReviewMode');
-			if (!$reviewMethod) $reviewMethod = SUBMISSION_REVIEW_METHOD_DOUBLEBLIND;
+			if (!$reviewMethod) $reviewMethod = SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
 
 			// If there is a section/series and it has a default
 			// review form designated, use it.

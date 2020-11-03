@@ -878,7 +878,8 @@ msgstr "Stáhnout tento soubor"
 msgid "context.path"
 msgstr "Cesta"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Zajištění  anonymní recenze"
 
 msgid "grid.action.showReviewPolicy"
@@ -1442,7 +1443,8 @@ msgstr "Čeká se na redakci."
 msgid "notification.type.roundStatusTitle"
 msgstr "Status fáze {$round}"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Pro zajištění integrity anonymního recenzního procesu při podání "
 "příspěvku do našeho časopisu, je třeba vynaložit veškeré úsilí, aby se "

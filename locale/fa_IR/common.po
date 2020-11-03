@@ -1340,7 +1340,8 @@ msgstr "دانلود این فایل"
 msgid "context.path"
 msgstr "مسیر"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "اطمینان از داوری محرمانه"
 
 msgid "grid.action.showReviewPolicy"
@@ -1361,7 +1362,8 @@ msgstr "وظایف"
 msgid "dashboard.myQueue"
 msgstr "وظایف من"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr "<p>برای دستیابی به اهداف سیاست‌های داوری محرمانه، باید تمامی تلاش‌ها برای عدم آگاهی نویسنده و داور از هویت همدیگر انجام گیرد. که نیازمند بررسی موارد زیر توسط سردبیر، ویراستیار و داور است:</p>\t <ul>\t   <li>نام نویسنده از داخل مقاله (قسمت نویسنده و پاورقی) و همچنین از نام فایل حذف شود.</li>\t   <li>در فایل‌های Microsoft Word نام نویسنده از خصوصیات و فراداده‌های فایل حذف گردد.</li>\t   <li>در مورد فایل‌های PDF نیز نام نویسنده از خصوصیات و فراداده‌های فایل حذف گردد.</li>\t </ul>"
 
 msgid "reviewer.submission.reviewSchedule"

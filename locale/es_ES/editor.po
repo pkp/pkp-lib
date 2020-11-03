@@ -74,10 +74,12 @@ msgstr "No enviar correo electrónico de notificación"
 msgid "editor.submissionReview.open"
 msgstr "Abrir"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Ciego"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Doble ciego"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -393,6 +395,7 @@ msgstr "Nunca asignado"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Este revisor/a ya ha sido asignado para revisar este envío."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Este revisor/a está bloqueado porque tiene un rol que le permite ver la identidad del autor/a. Por lo tanto, la revisión ciega por pares no está garantizada. ¿Desea desbloquearlo igualmente?"
 

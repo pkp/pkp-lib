@@ -155,25 +155,25 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 
 
 		// If submission is in review, add a list of reviewer Ids that should not be
-		// assigned as participants because they have blind peer reviews in progress
+		// assigned as participants because they have anonymous peer reviews in progress
 		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
-		$blindReviewerIds = array();
+		$anonymousReviewerIds = array();
 		if (in_array($this->getSubmission()->getStageId(), array(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW))) {
-			$blindReviewMethods = array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND);
+			$anonymousReviewMethods = array(SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS);
 			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getSubmission()->getId());
-			$blindReviews = array_filter($reviewAssignments, function($reviewAssignment) use ($blindReviewMethods) {
-				return in_array($reviewAssignment->getReviewMethod(), $blindReviewMethods) && !$reviewAssignment->getDeclined();
+			$anonymousReviews = array_filter($reviewAssignments, function($reviewAssignment) use ($anonymousReviewMethods) {
+				return in_array($reviewAssignment->getReviewMethod(), $anonymousReviewMethods) && !$reviewAssignment->getDeclined();
 			});
-			$blindReviewerIds = array_map(function($reviewAssignment) {
+			$anonymousReviewerIds = array_map(function($reviewAssignment) {
 				return $reviewAssignment->getReviewerId();
-			}, $blindReviews);
+			}, $anonymousReviews);
 
 		}
 		$templateMgr->assign(array(
-			'blindReviewerIds' => array_values(array_unique($blindReviewerIds)),
-			'blindReviewerWarning' => __('editor.submission.addStageParticipant.form.reviewerWarning'),
-			'blindReviewerWarningOk' => __('common.ok'),
+			'anonymousReviewerIds' => array_values(array_unique($anonymousReviewerIds)),
+			'anonymousReviewerWarning' => __('editor.submission.addStageParticipant.form.reviewerWarning'),
+			'anonymousReviewerWarningOk' => __('common.ok'),
 		));
 
 		return parent::fetch($request, $template, $display);

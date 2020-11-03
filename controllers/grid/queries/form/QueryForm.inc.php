@@ -238,7 +238,7 @@ class QueryForm extends Form {
 					}
 				}
 
-				// if current user is blind reviewer, filter out authors
+				// if current user is an anonymous reviewer, filter out authors
 				foreach ($reviewAssignments as $reviewAssignment) {
 					if ($reviewAssignment->getReviewerId() == $user->getId() ){
 						if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN){

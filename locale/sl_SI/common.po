@@ -1375,7 +1375,8 @@ msgstr "Prenesi datoteko"
 msgid "context.path"
 msgstr "Pot"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Zagotavljanje slepe recenzije"
 
 msgid "grid.action.showReviewPolicy"
@@ -1396,7 +1397,8 @@ msgstr "Naloge"
 msgid "dashboard.myQueue"
 msgstr "Dodeljeno meni"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Da bi zagotovili dvojno slepo recenzijo, je potrbno, da vsi sodelujoči "
 "storijo vse, da se prepreči razkritje identitete med avtorji in recenzenti. "

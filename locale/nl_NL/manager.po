@@ -721,7 +721,8 @@ msgstr "Verstuur een herinnerings-e-mail als een reviewer niet binnen het opgege
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Standaard reviewmodus"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr "Bied bij het opladen een link aan naar \"Verzekering van blinde review\""
 
 msgid "manager.setup.sponsors.note"

@@ -92,10 +92,12 @@ msgstr "E-Mail nicht an Autor/in schicken"
 msgid "editor.submissionReview.open"
 msgstr "Offen"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Blind"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Doppelblind"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -402,6 +404,7 @@ msgstr "Noch nie zugewiesen"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Dieser Gutachterin/diesem Gutachter ist diese Einreichung bereits zur Begutachtung zugewiesen worden."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Diese Gutachterin/dieser Gutachter ist gesperrt, weil sie eine Rolle zugewiesen bekommen haben, ind der sie die Identität der Autorin/des Autors einsehen dürfen. Eine blinde Begutachtung kann nicht garantiert werden. Möchten Sie diese Gutachterin bzw. diesen Gutachter dennoch freischalten?"
 

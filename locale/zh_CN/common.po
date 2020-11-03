@@ -1490,7 +1490,8 @@ msgstr "审核中。"
 msgid "notification.type.newAnnouncement"
 msgstr "新公告。"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>为了确保提交到本出版社的同行盲审的完整性，应尽一切努力防止作者和审稿人的身份相互了解。 "
 "这涉及到作者，编辑和审阅者（他们在审阅过程中上载文档），检查是否针对文本和文件属性采取了以下步骤：</p>\n"

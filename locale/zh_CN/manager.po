@@ -1022,7 +1022,8 @@ msgstr "例如：学术协会，大学部门，合作者等。赞助者将会公
 msgid "manager.setup.sponsors.note"
 msgstr "赞助关系和政策说明"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr "在上传过程中提供指向<button type =\"button\">确保盲审</button>的链接"
 
 msgid "manager.setup.reviewOptions.reviewMode"

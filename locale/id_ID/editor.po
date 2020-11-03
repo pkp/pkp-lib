@@ -248,10 +248,12 @@ msgstr "Tutup Pilihan File"
 msgid "editor.submissionReview.restrictFiles"
 msgstr "File Yang Akan Di-review"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Tertutup-Ganda"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Tertutup"
 
 msgid "editor.submissionReview.open"
@@ -381,6 +383,7 @@ msgstr "Minat Mereview pada Disiplin Ilmu"
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Buka"
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
 "Mitra bestari ini dikunci karena telah diberi peran yang memungkinkannya "

@@ -128,6 +128,7 @@ msgstr "Интереси за рецензирање"
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Отклучи"
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
 "Овој рецензент е заклучен затоа што им е доделена улога која му овозможува "
@@ -484,10 +485,12 @@ msgstr "Затвори го селектриањњето фајлови"
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Фајлови за рецензирање"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Двојно слепо"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Слепо"
 
 msgid "editor.submissionReview.open"

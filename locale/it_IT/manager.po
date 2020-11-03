@@ -2001,7 +2001,8 @@ msgstr "Utenti registrati"
 msgid "manager.setup.theme.notFound"
 msgstr "Il tema selezionato non è installato o abilitato."
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Visualizzare il link a <button type=\"button\">Come effettuare una revisione "
 "in cieco</button> in fase di importazione"

@@ -1425,7 +1425,8 @@ msgstr "Μεταφόρτωση του αρχείου"
 msgid "context.path"
 msgstr "Διαδρομή"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Διασφαλίζοντας την \"τυφλή\" αξιολόγηση"
 
 msgid "grid.action.showReviewPolicy"
@@ -1446,7 +1447,8 @@ msgstr "Εργασίες"
 msgid "dashboard.myQueue"
 msgstr "Η λίστα μου"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Η διασφάλιση της διαφάνειας κατά τη διαδικασία τυφλής αξιολόγησης "
 "εξαρτάται από την απόκρυψη της ταυτότητας των Συγγραφέων στους Αξιολογητές "

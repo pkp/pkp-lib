@@ -27,8 +27,8 @@ define('SUBMISSION_REVIEWER_RATING_AVERAGE', 3);
 define('SUBMISSION_REVIEWER_RATING_POOR', 2);
 define('SUBMISSION_REVIEWER_RATING_VERY_POOR', 1);
 
-define('SUBMISSION_REVIEW_METHOD_BLIND', 1);
-define('SUBMISSION_REVIEW_METHOD_DOUBLEBLIND', 2);
+define('SUBMISSION_REVIEW_METHOD_ANONYMOUS', 1);
+define('SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS', 2);
 define('SUBMISSION_REVIEW_METHOD_OPEN', 3);
 
 // A review is "unconsidered" when it is confirmed by an editor and then that
@@ -150,7 +150,7 @@ class ReviewAssignment extends DataObject {
 	}
 
 	/**
-	 * Get the method of the review (open, blind, or double-blind).
+	 * Get the method of the review (open, anonymous, or double-anonymous).
 	 * @return int
 	 */
 	function getReviewMethod() {
@@ -625,10 +625,10 @@ class ReviewAssignment extends DataObject {
 		switch ($method) {
 			case SUBMISSION_REVIEW_METHOD_OPEN:
 				return 'editor.submissionReview.open';
-			case SUBMISSION_REVIEW_METHOD_BLIND:
-				return 'editor.submissionReview.blind';
-			case SUBMISSION_REVIEW_METHOD_DOUBLEBLIND:
-				return 'editor.submissionReview.doubleBlind';
+			case SUBMISSION_REVIEW_METHOD_ANONYMOUS:
+				return 'editor.submissionReview.anonymous';
+			case SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS:
+				return 'editor.submissionReview.doubleAnonymous';
 		}
 
 		assert(false, 'No review method key could be found for ' . get_class($this) . ' on ' . __LINE__);

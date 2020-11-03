@@ -1472,7 +1472,8 @@ msgstr "Download dit bestand"
 msgid "context.path"
 msgstr "Pad"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Verzeker een blinde review"
 
 msgid "grid.action.showReviewPolicy"
@@ -1493,7 +1494,8 @@ msgstr "Taken"
 msgid "dashboard.myQueue"
 msgstr "Mijn wachtlijst"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Om de integriteit van het blinde peer-review proces te garanderen voor inzendingen voor dit tijdschrift, moeten alle maatregelen worden genomen om de identiteit van auteurs en reviewers te verbergen voor elkaar. Daarom moeten auteurs, redacteurs en reviewers (die bestanden opladen als deel van het reviewproces) nagaan of de volgende stappen werden genomen om de tekst en bestandseigenschappen te zuiveren:</p>\n"
 "\t\t\t<ul><li>De auteurs van een document hebben hun namen uit de tekst verwijderd, en in de literatuurlijst verwijzingen naar hun eigen publicaties geanonymiseerd tot \"Auteur\" en publicatiejaar.</li>\n"

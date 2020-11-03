@@ -92,10 +92,12 @@ msgstr "Skicka inte e-postmeddelande till författaren"
 msgid "editor.submissionReview.open"
 msgstr "Öppen"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Anonym"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Dubbelt anonym"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -389,6 +391,7 @@ msgstr "Aldrig tilldelad något granskningsuppdrag"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Den här granskaren har redan fått i uppdrag att granska det här bidraget."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Den här granskaren är låst eftersom hen har blivit tilldelad en roll som kan se författarens identitet. Anonym granskning kan inte garanteras. Vill du trots detta låsa upp den här granskaren?"
 

@@ -183,10 +183,12 @@ msgstr "داخستنی دیاریکردنی فایل"
 msgid "editor.submissionReview.restrictFiles"
 msgstr "فایلەکان بۆ هەڵسەنگاندن"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "هەڵسەنگاندنی نهێنی"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "نهێنی"
 
 msgid "editor.submissionReview.open"

@@ -1896,7 +1896,8 @@ msgstr "Annan licens-URL"
 msgid "manager.setup.theme.notFound"
 msgstr "Det tema som du valde är inte installerat eller aktiverat."
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Visa länken <button type=\"button\">Garanterar anonym granskning</button> "
 "under uppladdning"

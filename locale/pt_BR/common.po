@@ -1320,7 +1320,8 @@ msgstr "Baixar este arquivo"
 msgid "context.path"
 msgstr "Caminho"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Garantindo o Blind Review"
 
 msgid "grid.action.showReviewPolicy"
@@ -1344,7 +1345,8 @@ msgstr "Tarefas"
 msgid "dashboard.myQueue"
 msgstr "Fila"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Para garantir a integridade da avaliação por pares cega para a submissão "
 "a esta editora, todo esforço deve ser feito para evitar que as identidades "

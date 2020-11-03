@@ -160,10 +160,12 @@ msgstr "Lựa chọn Đóng tập tin"
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Các tập tin được phản biện"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Kín hai chiều"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Kín"
 
 msgid "editor.submissionReview.open"
@@ -298,6 +300,7 @@ msgstr "Lĩnh vực phản biện"
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Mở khoá"
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
 "Người phản biện này bị khóa vì họ đã được chỉ định một vai trò cho phép xem "

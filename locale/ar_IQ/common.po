@@ -1546,7 +1546,8 @@ msgstr "تنزيل هذا الملف"
 msgid "context.path"
 msgstr "المسار"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "ضمان التحكيم السري"
 
 msgid "grid.action.showReviewPolicy"
@@ -1567,7 +1568,8 @@ msgstr "المهام"
 msgid "dashboard.myQueue"
 msgstr "مساراتي"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>لضمان تكامل التحكيم المناظر السري بالنسبة إلى طلبات النشر لهذه الدار، يجب بذل كل جهد من شأنه حجب هويات المؤلفين والمحكمين بعضهم عن البعض الآخر. هذه المهمة يضطلع بها المؤلفون، المحررون والمحكمون (الذين يرفعون الملفات كجزء من مهام التحكيم) عبر تدقيق فيما إذا تم العمل بالخطوات الآتية المتعلقة بالنصوص وخصائص الملفات:</p>\n"
 "<ul><li>قام المؤلفون بحذف أسمائهم من النص مستبدلين إياها بكلمة \"مؤلف\"، وكذلك الحال مع المراجع والهوامش السفلية.</li>\n"

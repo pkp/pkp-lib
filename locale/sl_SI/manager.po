@@ -721,7 +721,8 @@ msgstr "Pošlji opomnik, če recenzent ni oddal recenzentsko priporočilo po nas
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Privzeti roki za recenzijo"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Prikaži povezavo do <button type=\"button\">Zagotavljanje dvojne slepe "
 "recenzije</button> med postopkom nalaganja datotek"

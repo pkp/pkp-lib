@@ -1410,7 +1410,8 @@ msgstr "A fájl letöltése"
 msgid "context.path"
 msgstr "Útvonal"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Vak szakmai lektorálás biztosítása"
 
 msgid "grid.action.showReviewPolicy"
@@ -1431,7 +1432,8 @@ msgstr "Feladatok"
 msgid "dashboard.myQueue"
 msgstr "Saját soraim"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "\n"
 "\t\t<p>A beadvány vak szakmai lektorálásának biztosítása érdekében mindent meg kell tenni, hogy a szerzők és a szakmai lektorok ne ismerjék egymást. Ez magában foglalja a szerzőket, szerkesztőket és a szakmai lektorokat (akik dokumentumokat töltenek fel a saját szakmai lektorálási munkafolyamatuk részeként),hogy ellenőrizzék az alábbi részeket a szövegben és a fájlbeállításokban:</p>\n"

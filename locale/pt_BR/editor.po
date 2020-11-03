@@ -68,10 +68,12 @@ msgstr "Não enviar email ao autor"
 msgid "editor.submissionReview.open"
 msgstr "Abrir"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Cega"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Duplo-cega"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -377,6 +379,7 @@ msgstr "Nunca designado"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Esse avaliador já foi designado para avaliar essa submissão."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Esse avaliador está bloqueado porque lhe foi designado um papel que o permite ver a identidade do autor. A avaliação cega não poderá ser garantida. Gostaria de desbloquear esse avaliador mesmo assim?"
 

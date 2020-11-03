@@ -86,10 +86,12 @@ msgstr "Szerzői emailt ne küldjön"
 msgid "editor.submissionReview.open"
 msgstr "Nyitott"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Vak"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Kettős-vak"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -377,6 +379,7 @@ msgstr "Utolsó lektorálási felkérés óta eltelt napok"
 msgid "reviewer.list.averageCompletion"
 msgstr "Lektorálás megtétele átlagosan ennyi nap alatt"
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "A lektor blokkolásra került, mert olyan szerep lett hozzárendelve amelyben megismerheti a szerző személyét. A vak lektorálási forma így nem garantálható. Szeretné ennek ellenére feloldani a lektor blokkolását?"
 

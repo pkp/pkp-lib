@@ -122,10 +122,12 @@ msgstr "Не отправлять уведомление электронной 
 msgid "editor.submissionReview.open"
 msgstr "Открытое"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Слепое"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Двойное слепое"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -443,6 +445,7 @@ msgstr "Никогда не назначали рецензентом"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Этот рецензент уже был назначен рецензентом этого материала."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Этот рецензент заблокирован, поскольку ему назначена роль, позволяющая видеть информацию об авторе. В данном случае невозможно гарантировать «слепое» рецензирование. Вы действительно хотите разблокировать этого рецензента?"
 

@@ -234,7 +234,7 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 			import('lib.pkp.classes.security.authorization.internal.SubmissionFileMatchesWorkflowStageIdPolicy');
 			$managerFileAccessPolicy->addPolicy(new SubmissionFileMatchesWorkflowStageIdPolicy($request, $fileIdAndRevision, $stageId));
 
-			// 3) ... and only if they are not also assigned as an author and this is not part of a blind review
+			// 3) ... and only if they are not also assigned as an author and this is not part of an anonymous review
 			import('lib.pkp.classes.security.authorization.internal.SubmissionFileAuthorEditorPolicy');
 			$subEditorFileAccessPolicy->addPolicy(new SubmissionFileAuthorEditorPolicy($request, $fileIdAndRevision));
 

@@ -1955,7 +1955,8 @@ msgstr ""
 "Téma bylo aktualizováno. <a href=\"{$url}\" target=\"_blank\">Zobrazit "
 "nyní</a>"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Během nahrávání uveďte odkaz na <button type=\"button\"> zajištění slepého "
 "náhledu </button>"

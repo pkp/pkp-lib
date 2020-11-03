@@ -805,8 +805,8 @@ msgstr "Send an email reminder if a reviewer has not submitted a recommendation 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Default Review Mode"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
-msgstr "Present a link to <button type=\"button\">Ensuring a Blind Review</button> during upload"
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr "Present a link to <button type=\"button\">how to ensure all files are anonymized</button> during upload"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Sponsor Relationship and Policy Description"
@@ -1462,7 +1462,6 @@ msgstr "Enable language metadata"
 msgid "manager.setup.metadata.languages.noRequest"
 msgstr "Do not request the submission's languages from the author during submission."
 
-#, fuzzy
 msgid "manager.setup.metadata.languages.request"
 msgstr ""
 "Ask the author to indicate the submission's languages during submission."

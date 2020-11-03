@@ -71,7 +71,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 
 		// Get user IDs already assigned to this submission, and admins and
 		// managers who may have access to author identities and can not guarantee
-		// blind reviews
+		// anonymous reviews
 		$warnOnAssignment = array();
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$stageAssignmentResults = $stageAssignmentDao->getBySubmissionAndStageId($this->getSubmissionId());

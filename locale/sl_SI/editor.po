@@ -93,10 +93,12 @@ msgstr "Ne pošlji email obvestila"
 msgid "editor.submissionReview.open"
 msgstr "Odpri"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Slepa"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Dvojno slepa"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -390,6 +392,7 @@ msgstr "Nikoli deljen"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Recenzent je že dodlejen temu prispevku."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Recenzent je zakljenjen, ker je v funkciji, ki mu omogoča videti identiteto avtorja. Slepa recenzija ne more biti zagotovljena. Želite vseeno odkleniti recenzenta?"
 

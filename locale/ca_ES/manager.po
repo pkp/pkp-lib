@@ -2051,7 +2051,8 @@ msgstr ""
 "Exemples: associacions acadèmiques, departaments universitaris, "
 "cooperatives, etc. Els patrocinadors es mostren públicament."
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Mostrar un enllaç per <button type=\"button\">garantir una avaluació amb "
 "cegament</button> durant la càrrega"

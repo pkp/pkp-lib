@@ -1083,7 +1083,8 @@ msgstr "Segna come nuovo"
 msgid "grid.action.markRead"
 msgstr "Segna come già letto"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Assicurare una revisione cieca"
 
 msgid "notification.addedStageParticipant"
@@ -1448,7 +1449,8 @@ msgstr "Scarica questo file"
 msgid "dashboard.tasks"
 msgstr "Tasks"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "\n"
 "\t\t<p> Per garantire l'integrità della blind peer-review per le proposte a "

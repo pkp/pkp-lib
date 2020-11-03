@@ -104,10 +104,12 @@ msgstr "e-posta bildirimi gönderme"
 msgid "editor.submissionReview.open"
 msgstr "Açık"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Körlenmiş"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Çift-Körlenmiş"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -398,6 +400,7 @@ msgstr "Ortalama değerlendirme gün sayısı"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Bu hakem, bu gönderiyi değerlendirmek için zaten atandı."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Bu hakeme, yazarın kimliğini görmesine izin veren bir rol verilmiş olduğundan kilitlenmiştir. Körlenmiş hakem değerlendirmesi garanti edilemez. Yine de bu hakeme izin vermek ister misiniz?"
 

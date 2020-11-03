@@ -83,10 +83,12 @@ msgstr "No envieu un correu electrònic a l'autor"
 msgid "editor.submissionReview.open"
 msgstr "Oberts"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Cegament"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Doble cegament"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -396,6 +398,7 @@ msgstr "Interessos de revisió"
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Desbloquejar"
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
 "Aquest revisor/a està bloquejat perquè té un altre rol que li permet veure "

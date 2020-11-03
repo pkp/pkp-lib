@@ -14,10 +14,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Double-blind"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Blind"
 
 msgid "editor.submissionReview.open"
@@ -397,6 +399,7 @@ msgstr "Aldrig tilvalgt"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Denne bedømmer er allerede blevet tildelt denne indsendelse til bedømmelse."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Denne bedømmer er låst, fordi vedkommende har fået tildelt en rolle, som giver adgang til at se forfatterens identitet. Blind peer review kan ikke garanteres. Vil du alligevel låse op for denne anmelder?"
 

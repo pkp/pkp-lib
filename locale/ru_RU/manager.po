@@ -803,7 +803,8 @@ msgstr "Отправить напоминание, если рецензент �
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Режим рецензирования по умолчанию"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr "Показывать ссылку на <button type=\"button\">Обеспечение слепого рецензирования</button> во время загрузки"
 
 msgid "manager.setup.sponsors.note"

@@ -613,8 +613,8 @@ class ReviewAssignmentDAO extends DAO {
 	function getReviewMethodsTranslationKeys() {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 		return array(
-			SUBMISSION_REVIEW_METHOD_DOUBLEBLIND => 'editor.submissionReview.doubleBlind',
-			SUBMISSION_REVIEW_METHOD_BLIND => 'editor.submissionReview.blind',
+			SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS => 'editor.submissionReview.doubleAnonymous',
+			SUBMISSION_REVIEW_METHOD_ANONYMOUS => 'editor.submissionReview.anonymous',
 			SUBMISSION_REVIEW_METHOD_OPEN => 'editor.submissionReview.open',
 		);
 	}

@@ -44,10 +44,12 @@ msgstr "Non inviare una email all'autore"
 msgid "editor.submissionReview.open"
 msgstr "Libera"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Cieco"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Doppio cieco"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -397,6 +399,7 @@ msgstr "Mai assegnate"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Questo revisore è già stato assegnato a rivedere questa proposta."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Questo revisore è bloccato perche gli è già stato assegnato un ruolo che gli permette di vedere l'identità dell'autore. Una revisione cieca non può essere garantita. Vuoi lo stesso sbloccare questo revisore ?"
 

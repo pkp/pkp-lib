@@ -768,7 +768,8 @@ msgstr ""
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "نمط التحكيم الإفتراضي"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr "وفر رابطاً <button type=\"button\">لضمان التحكيم السري</button> خلال مرحلة رفع الملفات"
 
 msgid "manager.setup.sponsors.note"

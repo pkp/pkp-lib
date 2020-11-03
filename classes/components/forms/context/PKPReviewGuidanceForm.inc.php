@@ -52,7 +52,7 @@ class PKPReviewGuidanceForm extends FormComponent {
 			]))
 			->addField(new FieldShowEnsuringLink('showEnsuringLink', [
 				'options' => [
-					['value' => true, 'label' => __('manager.setup.reviewOptions.showBlindReviewLink')],
+					['value' => true, 'label' => __('manager.setup.reviewOptions.showAnonymousReviewLink')],
 				],
 				'value' => $context->getData('showEnsuringLink'),
 			]));

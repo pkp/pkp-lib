@@ -1404,7 +1404,8 @@ msgstr "Diese Datei herunterladen"
 msgid "context.path"
 msgstr "Zugangspfad"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Eine anonyme Begutachtung sicherstellen"
 
 msgid "grid.action.showReviewPolicy"
@@ -1425,7 +1426,8 @@ msgstr "Aufgaben"
 msgid "dashboard.myQueue"
 msgstr "Meine Warteschlange"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Um die Integrität des Blind Peer Review sicherzustellen, sollte bei "
 "Einreichungen gewährleistet werden, dass die Identitäten von Autor/innen und "

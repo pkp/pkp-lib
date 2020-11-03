@@ -91,10 +91,12 @@ msgstr "Neposílat autorovi email"
 msgid "editor.submissionReview.open"
 msgstr "Otevřený"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Anonymní"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Dvojitě anonymní (Double-blind)"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -397,6 +399,7 @@ msgstr "Nikdy nebyla přidělena recenze"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Recenzentovi již byla přidělen tento příspěvek."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Tento recenzent je uzamčen, protože mu byla přidělena role, která mu umožňuje zobrazit totožnost autora. Slepé peer review nelze zaručit. Chcete přesto tohoto recenzenta odemknout?"
 

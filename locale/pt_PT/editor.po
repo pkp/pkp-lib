@@ -86,10 +86,12 @@ msgstr "Não envie o e-mail do autor"
 msgid "editor.submissionReview.open"
 msgstr "Abrir"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Cega"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Duplamente cega"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -389,6 +391,7 @@ msgstr "Nunca designado"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Este revisor já foi designado para rever esta submissão."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Este revisor está bloqueado porque tem permissões para ver a identidade do autor. A revisão cega não pode ser garantida. Confirma que pretende desbloquear o revisor?"
 

@@ -872,7 +872,8 @@ msgstr "Ha a lektor nem végzi el a lektorálást határidőre, ennyi idő múlv
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Alapértelmezett lektorálási határidők"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Ez a link <button type=\"button\">biztosítja a vak lektorálást</button> a "
 "feltöltés során"

@@ -92,10 +92,12 @@ msgstr "Να μην αποσταλεί ειδοποίηση."
 msgid "editor.submissionReview.open"
 msgstr "Ανοικτή"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "\"Τυφλή\""
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Διπλή \"Τυφλή\""
 
 msgid "editor.submissionReview.restrictFiles"
@@ -398,6 +400,7 @@ msgstr "Χωρίς καμία ανάθεση"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Η αξιολόγηση έχει ήδη ανατεθεί σε αυτόν τον Αξιολογητή."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Αυτός ο Αξιολογητής έχει εξαιρεθεί, γιατί κατέχει έναν ρόλο που του επιτρέπει την πρόσβαση στην ταυτότητα του Συγγραφέα και δεν διασφαλίζεται η \"τυφλή\" Αξιολόγηση. Θέλετε να συμπεριληφθεί στους Αξιολογητές;"
 

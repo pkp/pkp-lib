@@ -1917,7 +1917,8 @@ msgstr "Permintaan Penyunting"
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Review Jadwal"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Untuk memastikan integritas blind peer-review untuk diserahkan kepada "
 "jurnal ini, setiap upaya harus dilakukan untuk mencegah identitas penulis "
@@ -1970,7 +1971,8 @@ msgstr "Hapus Tugas"
 msgid "grid.action.showReviewPolicy"
 msgstr "Baca kebijakan review terbaru"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Pastikan Blind Review"
 
 msgid "context.path"

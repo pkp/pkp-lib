@@ -10,7 +10,7 @@
  * @ingroup security_authorization_internal
  *
  * @brief Submission file policy to ensure that an editor is denied access to
- *  blind review files when they are also assigned to the submission as an
+ *  anonymous review files when they are also assigned to the submission as an
  *  author.
  */
 
@@ -31,7 +31,7 @@ class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy {
 		if ($submissionFile->getFileStage() != SUBMISSION_FILE_REVIEW_ATTACHMENT) return AUTHORIZATION_PERMIT;
 
 		// Deny if the user is assigned as an author to any stage, and this file is
-		// attached to a blind review
+		// attached to an anonymous review
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 		foreach ($userRoles as $stageRoles) {
 			if (in_array(ROLE_ID_AUTHOR, $stageRoles)) {

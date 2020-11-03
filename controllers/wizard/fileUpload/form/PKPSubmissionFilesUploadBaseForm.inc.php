@@ -280,16 +280,16 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		$this->setData('currentSubmissionFileGenres', $currentSubmissionFileGenres);
 		$this->setData('submissionFileOptions', $submissionFileOptions);
 
-		// Show ensuring a blind review link.
+		// Show ensuring an anonymous review link.
 		$context = $request->getContext();
 		if ($context->getData('showEnsuringLink') && in_array($this->getStageId(), array(WORKFLOW_STAGE_ID_SUBMISSION, WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW))) {
 			import('lib.pkp.classes.linkAction.request.ConfirmationModal');
 			$ensuringLink = new LinkAction(
 				'addUser',
 				new ConfirmationModal(
-					__('review.blindPeerReview'),
-					__('review.ensuringBlindReview')),
-				__('review.ensuringBlindReview'));
+					__('review.anonymousPeerReview'),
+					__('review.anonymousPeerReview.title')),
+				__('review.anonymousPeerReview.title'));
 
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign('ensuringLink', $ensuringLink);

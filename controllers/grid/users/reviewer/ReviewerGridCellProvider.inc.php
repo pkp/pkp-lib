@@ -69,8 +69,8 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 		assert(is_a($element, 'DataObject') && !empty($columnId));
 		switch ($columnId) {
 			case 'name':
-				$isReviewBlind = in_array($element->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND));
-				if ($this->_isCurrentUserAssignedAuthor && $isReviewBlind) {
+				$isReviewAnonymous = in_array($element->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS));
+				if ($this->_isCurrentUserAssignedAuthor && $isReviewAnonymous) {
 					return array('label' => __('editor.review.anonymousReviewer'));
 				}
 				return array('label' => $element->getReviewerFullName());

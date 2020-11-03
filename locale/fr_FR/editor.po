@@ -80,10 +80,12 @@ msgstr "Ne pas envoyer un courriel à l'auteur"
 msgid "editor.submissionReview.open"
 msgstr "Évaluation ouverte"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Évaluation à l'aveugle"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Évaluation en double aveugle"
 
 msgid "editor.review.skipEmail"
@@ -464,6 +466,7 @@ msgstr "Jamais assigné"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Ce rapporteur évalue déjà cette soumission."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Ce rapporteur est bloqué car il a un rôle lui permettant de voir l'identité de l'auteur. Une évaluation en double-aveugle n'est donc pas garantie. Voulez-vous quand même faire la demande d'évaluation ?"
 

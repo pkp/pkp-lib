@@ -1039,7 +1039,8 @@ msgstr "Las condiciones predefinidas para cada revisión pueden ser modificadas 
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Fechas límites de revisión por defecto"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Mostrar un enlace a <button type=\"button\">mostrar una revisión "
 "ciega</button> durante la carga"

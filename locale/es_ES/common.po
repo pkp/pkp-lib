@@ -1196,7 +1196,8 @@ msgstr "Descargar este archivo"
 msgid "context.path"
 msgstr "Ruta"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Garantizar una revisión anónima"
 
 msgid "grid.action.showReviewPolicy"
@@ -1205,7 +1206,8 @@ msgstr "Leer la política de revisión actual"
 msgid "dashboard.tasks"
 msgstr "Tareas"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Para asegurar la integridad de las evaluaciones anónimas por pares de los "
 "envíos a esta publicación habrá que hacer todo lo posible para impedir que "

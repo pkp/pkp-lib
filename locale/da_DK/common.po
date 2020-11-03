@@ -1042,7 +1042,8 @@ msgstr "Min kø"
 msgid "navigation.items.shownTotal"
 msgstr "{$shown} af {$total} elementer"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Sikring af blind review"
 
 msgid "common.prefix"
@@ -1184,7 +1185,8 @@ msgstr ""
 "Tilføj en manuskriptredaktør ved at klikke på linket 'Tildel' i feltet "
 "'Deltagere'."
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Med henblik på at sikre integriteten i forbindelse med blind peer review "
 "af manuskripter til dette tidsskrift skal der gøres alt for at forhindre, at "

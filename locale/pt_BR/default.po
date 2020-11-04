@@ -18,10 +18,10 @@ msgid "default.groups.plural.siteAdmin"
 msgstr "Administradores do site"
 
 msgid "default.groups.name.productionEditor"
-msgstr "Editor de Leiaute"
+msgstr "Editor de Produção"
 
 msgid "default.groups.plural.productionEditor"
-msgstr "Editores de Leiaute"
+msgstr "Editores de Produção"
 
 msgid "default.groups.abbrev.productionEditor"
 msgstr "EP"

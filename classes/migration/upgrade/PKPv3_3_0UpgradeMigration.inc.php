@@ -412,6 +412,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		});
 		Capsule::schema()->table('review_files', function (Blueprint $table) {
 			$table->bigInteger('submission_file_id')->nullable(false)->unsigned()->change();
+			$table->dropIndex('review_files_pkey');
 			$table->unique(['review_id', 'submission_file_id'], 'review_files_pkey');
 			$table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
 		});
@@ -420,10 +421,13 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			$table->foreign('file_id')->references('file_id')->on('files');
 		});
 
-		// Postgres leaves the old file_id autoincrement counter around, and
-		// needs to have the primary key re-applied
+		// Postgres leaves the old file_id autoincrement sequence around, so
+		// we delete it and apply a new sequence.
 		if (Config::getVar('database', 'driver') === 'postgres9') {
 			Capsule::statement('DROP SEQUENCE submission_files_file_id_seq CASCADE');
+			Capsule::schema()->table('submission_files', function (Blueprint $table) {
+				$table->bigIncrements('submission_file_id')->change();
+			});
 		}
 	}
 

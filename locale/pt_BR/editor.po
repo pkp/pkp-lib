@@ -269,7 +269,7 @@ msgid "editor.review"
 msgstr "Avaliação"
 
 msgid "editor.submission.production.productionReadyFiles"
-msgstr "Arquivos prontos para o Leiaute"
+msgstr "Arquivos prontos para Produção"
 
 msgid "editor.submissionReview.recordDecision"
 msgstr "Gravar decisão editorial"

@@ -1484,7 +1484,8 @@ msgstr ""
 msgid "manager.publication.reviewerGuidance"
 msgstr "Orientações para o Revisor"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Apresentar link <button type=\"button\">Garantindo uma Revisão Cega</button> "
 "durante a transferência"

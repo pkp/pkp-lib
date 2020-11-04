@@ -44,7 +44,7 @@ class ViewSubmissionMetadataHandler extends handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$publication = $submission->getCurrentPublication();
 
-		if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) { /* SUBMISSION_REVIEW_METHOD_BLIND or _OPEN */
+		if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) { /* SUBMISSION_REVIEW_METHOD_ANONYMOUS or _OPEN */
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 			$userGroups = $userGroupDao->getByContextId($context->getId())->toArray();
 			$templateMgr->assign('authors', $publication->getAuthorString($userGroups));
@@ -56,7 +56,7 @@ class ViewSubmissionMetadataHandler extends handler {
 			$additionalMetadata[] = array(__('common.keywords'), implode(', ', $publication->getLocalizedData('keywords')));
 		}
 		if ($publication->getLocalizedData('subjects')) {
-			$additionalMetadata[] = array(__('common.subjects'), implode(', ', $publication->getLocalizedData('subjects')));			
+			$additionalMetadata[] = array(__('common.subjects'), implode(', ', $publication->getLocalizedData('subjects')));
 		}
 		if ($publication->getLocalizedData('disciplines')) {
 			$additionalMetadata[] = array(__('common.discipline'), implode(', ', $publication->getLocalizedData('disciplines')));
@@ -66,7 +66,7 @@ class ViewSubmissionMetadataHandler extends handler {
 		}
 		if ($publication->getLocalizedData('languages')) {
 			$additionalMetadata[] = array(__('common.languages'), implode(', ', $publication->getLocalizedData('languages')));
-		}		
+		}
 
 		$templateMgr->assign('additionalMetadata', $additionalMetadata);
 

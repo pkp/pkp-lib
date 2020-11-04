@@ -122,10 +122,12 @@ msgstr "لا ترسل إشعاراً بريدياً"
 msgid "editor.submissionReview.open"
 msgstr "علني"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "سري"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "مضاعف السرية"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -443,6 +445,7 @@ msgstr "لم يسبق تعيينه"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "هذا المحكم قد سبق تعيينه لتحكيم طلب التقديم هذا."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "هذا المحكم مستبعد لأنه قد أوكل إليه دور يسمح له بمعاينة هوية المؤلف. لا يمكن ضمان شرط التحكيم السري. هل ما زلت تريد رفع الاستبعاد عن هذا المحكم؟"
 

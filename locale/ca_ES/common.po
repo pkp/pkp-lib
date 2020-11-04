@@ -1271,7 +1271,8 @@ msgstr "Descarrega aquest fitxer"
 msgid "context.path"
 msgstr "Ruta"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Assegurar una avaluació anònima"
 
 msgid "grid.action.showReviewPolicy"
@@ -1283,7 +1284,8 @@ msgstr "Tasques"
 msgid "dashboard.submissions"
 msgstr "Trameses"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Per assegurar la integritat de l'avaluació d'experts amb cegament de les "
 "trameses a aquesta publicació s'ha de fer tot el possible per evitar que els "

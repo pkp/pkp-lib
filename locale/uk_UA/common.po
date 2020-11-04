@@ -1508,7 +1508,8 @@ msgstr "Завантажити цей файл"
 msgid "context.path"
 msgstr "Шлях"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Забезпечення сліпого рецензування"
 
 msgid "grid.action.showReviewPolicy"
@@ -1530,7 +1531,8 @@ msgid "dashboard.myQueue"
 msgstr "Моя черга"
 
 #, fuzzy
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Щоб переконатися в можливості подвійного сліпого рецензування для подання "
 "у це видання, необхідна переконатися, що автори і рецензенти не будуть "

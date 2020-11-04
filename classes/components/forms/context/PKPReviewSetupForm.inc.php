@@ -46,8 +46,8 @@ class PKPReviewSetupForm extends FormComponent {
 				'type' => 'radio',
 				'value' => $context->getData('defaultReviewMode'),
 				'options' => [
-					['value' => SUBMISSION_REVIEW_METHOD_DOUBLEBLIND, 'label' => __('editor.submissionReview.doubleBlind')],
-					['value' => SUBMISSION_REVIEW_METHOD_BLIND, 'label' => __('editor.submissionReview.blind')],
+					['value' => SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS, 'label' => __('editor.submissionReview.doubleAnonymous')],
+					['value' => SUBMISSION_REVIEW_METHOD_ANONYMOUS, 'label' => __('editor.submissionReview.anonymous')],
 					['value' => SUBMISSION_REVIEW_METHOD_OPEN, 'label' => __('editor.submissionReview.open')],
 				],
 			]))

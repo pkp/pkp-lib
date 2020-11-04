@@ -1543,7 +1543,8 @@ msgstr "Télécharger ce fichier"
 msgid "context.path"
 msgstr "Chemin d'accès"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Assurer une évaluation anonyme"
 
 msgid "grid.action.showReviewPolicy"
@@ -1564,7 +1565,8 @@ msgstr "Tâches"
 msgid "dashboard.myQueue"
 msgstr "Mes soumissions"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Afin d'assurer l'intégrité de l'évaluation par les pairs en double-"
 "aveugle des soumissions envoyées à cette revue, tous les efforts possibles "

@@ -11,7 +11,7 @@
  *
  * @brief An extension of the FieldOptions for the configuration setting which
  *  determines whether or not to show a link to reviewers about keeping reviews
- *  blind.
+ *  anonymous.
  */
 namespace PKP\components\forms;
 class FieldShowEnsuringLink extends FieldOptions {
@@ -26,8 +26,8 @@ class FieldShowEnsuringLink extends FieldOptions {
 	 */
 	public function getConfig() {
 		$config = parent::getConfig();
-		$config['message'] = __('review.blindPeerReview');
-		$config['modalTitle'] = __('review.blindPeerReview.title');
+		$config['message'] = __('review.anonymousPeerReview');
+		$config['modalTitle'] = __('review.anonymousPeerReview.title');
 
 		return $config;
 	}

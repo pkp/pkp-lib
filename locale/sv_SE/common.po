@@ -1402,7 +1402,8 @@ msgstr "Ladda ned den här filen"
 msgid "context.path"
 msgstr "Sökväg"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Att säkerställa anonym granskning"
 
 msgid "grid.action.showReviewPolicy"
@@ -1423,7 +1424,8 @@ msgstr "Uppgifter"
 msgid "dashboard.myQueue"
 msgstr "Min kö"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "\n"
 "\t  <p>För att säkerställa den anonyma granskningsprocessen som används för insända bidrag till den här utgivaren ska alla försiktighetsåtgärder tas för att hindra att identiteterna hos författare och granskare röjs för varandra. Detta innebär att författare, redaktörer och granskare (som laddar upp dokument under granskningsprocessen) behöver kontrollera att följande steg tagits gällande text- och filegenskaper:</p>\n"

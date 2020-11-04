@@ -130,10 +130,12 @@ msgstr "Ne pas envoyer de courriel d'avis"
 msgid "editor.submissionReview.open"
 msgstr "Évaluation ouverte"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Évaluation en simple l'aveugle"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Évaluation en double aveugle"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -455,6 +457,7 @@ msgstr "Jamais assigné-e"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Cet,Cette évaluateur-trice a déjà été assigné-e à l'évaluation de cette soumission."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Cet,Cette évaluateur-trice est verrouillé-e car un rôle lui a été attribué qui lui permet de connaître l'identité de l'auteur-e. L'évaluation par les pairs en aveugle ne peut être garantie. Souhaitez-vous tout de même déverrouiller cet ou cette évaluateur-trice ?"
 

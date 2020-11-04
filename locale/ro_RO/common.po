@@ -71,7 +71,8 @@ msgstr "Descriere"
 msgid "navigation.archives"
 msgstr "Arhivă"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Asigurarea integrității revizuirii „în orb” pentru manuscrisele "
 "înregistrate, presupune luarea tuturor măsurilor pentru a împiedica ca "
@@ -1242,7 +1243,8 @@ msgstr "Ștergeți sarcina"
 msgid "grid.action.showReviewPolicy"
 msgstr "Citiți politica actuală de revizuire"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Asigurarea unei revizii în orb"
 
 msgid "context.path"

@@ -152,7 +152,7 @@ class Mail extends DataObject {
 	}
 
 	/**
-	 * Add a blind carbon copy (BCC) recipient to the message.
+	 * Add a hidden carbon copy (BCC) recipient to the message.
 	 * @param $email string
 	 * @param $name optional
 	 */
@@ -166,7 +166,7 @@ class Mail extends DataObject {
 	}
 
 	/**
-	 * Get the blind carbon copy (BCC) recipients for the message
+	 * Get the hidden carbon copy (BCC) recipients for the message
 	 * @return array
 	 */
 	function getBccs() {
@@ -174,7 +174,7 @@ class Mail extends DataObject {
 	}
 
 	/**
-	 * Set the blind carbon copy (BCC) recipients for the message.
+	 * Set the hidden carbon copy (BCC) recipients for the message.
 	 * @param $bccs array
 	 */
 	function setBccs($bccs) {
@@ -397,7 +397,7 @@ class Mail extends DataObject {
 		$from = $this->getFrom();
 		if ($from == null) {
 			return null;
-		} 
+		}
 		return (self::encodeDisplayName($from['name'], $send) . ' <'.$from['email'].'>');
 	}
 

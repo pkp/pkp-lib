@@ -93,10 +93,12 @@ msgstr "Не надсилати електронного листа автору
 msgid "editor.submissionReview.open"
 msgstr "Відкрите"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Сліпе"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Подвійне сліпе"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -423,6 +425,7 @@ msgstr "Запити на рецензування відхилено"
 msgid "reviewer.list.cancelledReviews"
 msgstr "Запити на рецензування відмінено"
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Цей рецензент заблокований через те, що вона/він має роль, яка дозволяє переглядати особисті дані автора. Сліпе рецензування не може бути гарантованим. Чи бажаєте Ви в будь-якому випадку розблокувати цього рецензента?"
 

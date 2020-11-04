@@ -1590,7 +1590,8 @@ msgstr "Lisenssi"
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Rekisteröityneet käyttäjät"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Tarjoa ladatessa linkki <button type=\"button\">Varmista "
 "sokkoarviointi</button>"

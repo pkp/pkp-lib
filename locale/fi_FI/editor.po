@@ -86,10 +86,12 @@ msgstr "Älä lähetä kirjoittajalle sähköpostia"
 msgid "editor.submissionReview.open"
 msgstr "Avoin"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Sokko"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Kaksoissokko"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -393,6 +395,7 @@ msgstr "Asiantuntijuus"
 msgid "reviewer.list.biography"
 msgstr "Biografia"
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Arvioija on lukittu, koska hänellä on rooli, jolla voi nähdä kirjoittajan nimen. Sokkoarviointi ei ole mahdollinen. Haluatko käyttää tätä arvioijaa joka tapauksessa?"
 

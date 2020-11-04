@@ -81,12 +81,11 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider {
 						// Maybe anonymize files submitted by reviewers
 						if (isset($params['fileStage']) && $params['fileStage'] === SUBMISSION_FILE_REVIEW_ATTACHMENT) {
 							assert(isset($params['fileId']) && isset($params['submissionId']));
-							$blindAuthor = true;
 							$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 							$submissionFile = $submissionFileDao->getLatestRevision($params['fileId']);
 							if ($submissionFile && $submissionFile->getAssocType() === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
 								$reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getAssocId());
-								if (!$reviewAssignment || in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND))) {
+								if (!$reviewAssignment || in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS))) {
 									$userName = __('editor.review.anonymousReviewer');
 								}
 							}

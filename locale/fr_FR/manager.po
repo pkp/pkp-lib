@@ -2085,7 +2085,8 @@ msgstr ""
 "Le thème a été mis à jour. <a href=\"{$url}\" target=\"_blank\">Visualisez "
 "maintenant</a>"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Afficher un lien <button type=\"button\">Assurer une évaluation à "
 "l'aveugle</button> lors du téléversement"

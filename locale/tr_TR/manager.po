@@ -1468,7 +1468,8 @@ msgstr "Bir hakem, değerlendirme tarihinden sonra aşağıdaki zaman (gün) iç
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Varsayılan İnceleme Son Başvuru Tarihleri"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Yükleme sırasında <button type=\"button\">\"Kör Hakemlik Sağlanma\"</button> "
 "başlıklı bir bağlantı sunun"

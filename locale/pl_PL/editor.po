@@ -83,10 +83,12 @@ msgstr "Nie wysyłaj wiadomości e-mail z powiadomieniem"
 msgid "editor.submissionReview.open"
 msgstr "Otwarta"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Ślepa"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Podwójnie ślepa"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -392,6 +394,7 @@ msgstr "Nigdy nie przypisany"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Recenzent został już przypisany do zrecenzowania tego tekstu."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Recenzent jest zablokowany ponieważ został przypisany z rolą, która pozwala na identyfikację danych autora. Niemożliwe jest zapewnienie ślepej recenzji. Czy mimo to chcesz odblokować możliwość wykonania recenzji przez tego użytkownika?"
 

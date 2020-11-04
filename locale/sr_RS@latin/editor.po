@@ -83,10 +83,12 @@ msgstr "Ne šalji imejl autoru"
 msgid "editor.submissionReview.open"
 msgstr "Otvorena"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Slepa"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Dvostruka slepa"
 
 msgid "editor.submissionReview.restrictFiles"

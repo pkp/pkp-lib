@@ -27,6 +27,7 @@ msgstr "Interesele revizorului"
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Deblocați"
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
 "Acest recenzor este blocat deoarece i s-a atribuit un rol care îi permite să "
@@ -382,10 +383,12 @@ msgstr "Închideți fișierul selectat"
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Fișiere ce trebuie revizuite"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Dublu-orb"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Orb"
 
 msgid "editor.submissionReview.open"

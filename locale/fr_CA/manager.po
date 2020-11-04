@@ -782,7 +782,8 @@ msgstr "Politique en matière de commandites"
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Mode d'évaluation par défaut"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr "Afficher un lien <button type=\"button\">Assurer une évaluation à l'aveugle</button> lors du téléversement"
 
 msgid "manager.setup.sponsors.description"

@@ -1697,7 +1697,8 @@ msgstr "Registrierte Nutzer/innen"
 msgid "manager.setup.theme.notFound"
 msgstr "Das ausgewählte Theme ist nicht installiert oder nicht aktiviert."
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Einen Link zum <button type=\"button\">Blinde Begutachtung "
 "sicherstellen</button> -Knopf während des Hochladens zur Verfügung stellen"

@@ -1482,7 +1482,8 @@ msgstr "Usuários cadastrados"
 msgid "manager.setup.theme.notFound"
 msgstr "O tema selecionado não está instalado ou habilitado."
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Apresentar link <button type=\"button\">Garantindo uma Avaliação "
 "Cega</button> durante a transferência"

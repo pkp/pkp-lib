@@ -92,10 +92,12 @@ msgstr "عدم ارسال ایمیل به نویسندگان"
 msgid "editor.submissionReview.open"
 msgstr "باز کردن"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "محرمانگی"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "محرمانگی شدید"
 
 msgid "editor.submissionReview.restrictFiles"

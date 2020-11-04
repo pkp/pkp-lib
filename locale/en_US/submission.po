@@ -1311,7 +1311,7 @@ msgid "editor.submission.addStageParticipant.form.userRequired"
 msgstr "You must select a user for the specified user group."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
-msgstr "The participant you selected has been assigned to conduct a blind review. If you assign them as a participant, they will have access to the author's identity. You are encouraged not to assign this participant unless you can independently ensure the integrity of the peer review process."
+msgstr "The participant you selected has been assigned to conduct an anonymous review. If you assign them as a participant, they will have access to the author's identity. You are encouraged not to assign this participant unless you can independently ensure the integrity of the peer review process."
 
 msgid "editor.submission.removePermissionToEdit"
 msgstr "Disallow Edit Metadata"

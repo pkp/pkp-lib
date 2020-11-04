@@ -1461,7 +1461,8 @@ msgstr "Ana yönlendirme menüsünü atla"
 msgid "navigation.skip.footer"
 msgstr "Site alt kısmını atla"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Kör Hakemlik Sağla"
 
 msgid "grid.action.showReviewPolicy"
@@ -1760,7 +1761,8 @@ msgstr "Hakem yeniden atandı."
 msgid "notification.cancelledReviewer"
 msgstr "Hakem iptal edildi."
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Bu yayına sunulmak üzere kör hakem değerlendirmesinin bütünlüğünü "
 "sağlamak için yazarların ve hakemlerin kimliklerinin birbirleriyle "

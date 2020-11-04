@@ -1503,7 +1503,8 @@ msgstr "Recherché à nouveau"
 msgid "search.SearchFor"
 msgstr "Recherche pour"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Assurer un examen aveugle"
 
 msgid "grid.action.showReviewPolicy"
@@ -1518,7 +1519,8 @@ msgstr "L'utilisateur actuel n'a pas accès au fichier de soumission spécifié.
 msgid "user.authorization.submissionAuthor"
 msgstr "L'utilisateur actuel n'est pas l'auteur de la soumission demandée. Veuillez vous assurer d'avoir ouvert une session avec le compte d'utilisateur approprié."
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Afin d'assurer l'intégrité de l'évaluation par les pairs en double-"
 "aveugle des soumissions envoyées à cette revue, tous les efforts possibles "

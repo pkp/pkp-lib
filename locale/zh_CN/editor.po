@@ -35,10 +35,12 @@ msgstr "查找审稿人"
 msgid "editor.submission.findAndSelectUser"
 msgstr "查找用户"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "单盲"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "双盲"
 
 msgid "editor.submissionReview.editReview"
@@ -343,6 +345,7 @@ msgstr "未被分配"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "已经分配了该审阅者来审阅此提交。"
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "该审阅者被锁定，因为他们被分配了一个可以查看作者的身份的角色，不能保证匿名评审。您是否仍要解锁此审阅者？"
 

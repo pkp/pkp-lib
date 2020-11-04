@@ -1469,7 +1469,8 @@ msgstr ""
 msgid "manager.setup.sponsors.note"
 msgstr "Descrierea Politicii de sponsorizare"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Prezentați o legătură către <button type=\"button\">Asigurarea reviziei în "
 "orb</button> durata încărcării"

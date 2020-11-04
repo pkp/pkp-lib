@@ -161,7 +161,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 					);
 					break;
 				case 'authors':
-					if ($currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
+					if ($currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) {
 						$values[$prop] = [];
 					} else {
 						$values[$prop] = array_map(
@@ -174,13 +174,13 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 					break;
 				case 'authorsString':
 					$values[$prop] = '';
-					if ((!$currentUserReviewAssignment || $currentUserReviewAssignment->getReviewMethod() !== SUBMISSION_REVIEW_METHOD_DOUBLEBLIND)
+					if ((!$currentUserReviewAssignment || $currentUserReviewAssignment->getReviewMethod() !== SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS)
 						&& isset($args['userGroups'])) {
 						$values[$prop] = $publication->getAuthorString($args['userGroups']);
 					}
 					break;
 				case 'authorsStringShort':
-					if ($currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
+					if ($currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) {
 						$values[$prop] = '';
 					} else {
 						$values[$prop] = $publication->getShortAuthorString();
@@ -199,7 +199,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 					$values[$prop] = $publication->getFullTitles();
 					break;
 				case 'galleys':
-					if ($currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
+					if ($currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) {
 						$values[$prop] = [];
 					} else {
 						$galleyArgs = array_merge($args, ['publication' => $publication]);

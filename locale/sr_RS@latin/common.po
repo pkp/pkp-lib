@@ -1316,7 +1316,8 @@ msgstr "Preuzmi fajl"
 msgid "context.path"
 msgstr "Putanja"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Obezbeđivanje slepe recenzije"
 
 msgid "grid.action.showReviewPolicy"
@@ -1427,7 +1428,8 @@ msgstr "Neispravno predstavljanje."
 msgid "common.notes.tooltip"
 msgstr "Napomena (žuto: postoje nove napomene; plavo: postoje pročitane napomene; sivo: nema napomena)"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Da bi obezbedili integritet dvostruko slepe recenzije za ovaj časopis mora se učiniti svaki napor da se spreči da su autori i recenzenti jedni drugima poznati. Ovo se odnosi na autore, urednike i recenzente (koji prilažu dokumente u toku svoje recenzije)  kako bi se proverilo da li su sledeći koraci poštovani u smislu provere teksta i sobina fajlova:</p>\n"
 "\t\t\t<ul><li>Autori dokumenta treba da izbrišu svoje ime iz teksta sa \"Autor\" i godina u referencama i fusnotama, umesto imena autora, naslova članka i sl.</li>\n"

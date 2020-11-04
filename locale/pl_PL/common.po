@@ -1379,7 +1379,8 @@ msgstr "Wyniki wyszukiwania"
 msgid "context.path"
 msgstr "Ścieżka"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Zapewnienie podwójnej ślepej recenzji"
 
 msgid "grid.action.showReviewPolicy"
@@ -1400,7 +1401,8 @@ msgstr "Zadania"
 msgid "dashboard.myQueue"
 msgstr "Moja kolejka"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr "<p>Aby umożliwić wykonanie podwójnej ślepej recenzji, wszystkie dane autorów oraz recenzentów lub inne elementy mogące pomóc w ich zidentyfikowaniu muszą zostać bezwzględnie usunięte z przesłanych plików. W tym celu sprawdź czy:</p><ul><li>Autorzy dokumentu usunęli swoje dane z tekstu.</li><li>Medatane w plikach Microsoft Word i podobnych programów zostały usunięte (zobacz Plik &gt; Zapisz jako &gt; Narzędzia &gt; Bezpieczeństwo &gt; Usuń informacje o autorze przy zapisywaniu &gt; Zapisz).</li><li>W przypadku plików PDF informacje o autorach powinny być usunięte z właściwości dokumentu. Ustawienia te możesz znaleźć przechodząc z poziomu głównego menu Adobe Acrobat do zakładki Plik.</li></ul>"
 
 msgid "reviewer.submission.reviewSchedule"

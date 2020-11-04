@@ -34,7 +34,7 @@ class PKPSelectReviewerListPanel extends ListPanel {
 	/** @var string Name of the input field*/
 	public $selectorName = '';
 
-	/** @var array List of user IDs which may not be suitable for blind review because of existing access to author details */
+	/** @var array List of user IDs which may not be suitable for anonymous review because of existing access to author details */
 	public $warnOnAssignment = [];
 
 	/**

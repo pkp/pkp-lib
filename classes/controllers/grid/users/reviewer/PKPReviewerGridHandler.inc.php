@@ -110,9 +110,9 @@ class PKPReviewerGridHandler extends GridHandler {
 					return false;
 				}
 
-				if (in_array($operation, $this->_getAuthorDeniedBlindOps())) {
+				if (in_array($operation, $this->_getAuthorDeniedAnonymousOps())) {
 					$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-					if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND))) {
+					if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS))) {
 						return false;
 					}
 				}
@@ -978,10 +978,10 @@ class PKPReviewerGridHandler extends GridHandler {
 
 	/**
 	 * Get additional operations that an author is not allowed to access when the
-	 * review type is blind or double-blind.
+	 * review type is anonymous or double-anonymous.
 	 * @return array
 	 */
-	protected function _getAuthorDeniedBlindOps() {
+	protected function _getAuthorDeniedAnonymousOps() {
 		return array(
 			'readReview',
 			'reviewHistory',

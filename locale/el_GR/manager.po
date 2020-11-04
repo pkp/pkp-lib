@@ -1480,7 +1480,8 @@ msgstr ""
 msgid "manager.setup.sponsors.note"
 msgstr "Σχέσεις Χορηγών και Περιγραφή Πολιτικής"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Προσθέστε έναν σύνδεσμο για την <button type=\"button\">Εξασφάλιση τυφλής "
 "κρίσης</button> κατά τη μεταφόρτωση"

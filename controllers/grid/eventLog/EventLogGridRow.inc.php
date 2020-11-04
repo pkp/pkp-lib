@@ -61,16 +61,16 @@ class EventLogGridRow extends GridRow {
 				case SUBMISSION_LOG_FILE_UPLOAD:
 					$submissionFile = $submissionFileDao->getRevision($params['fileId'], $params['fileRevision']);
 					if ($submissionFile) {
-						$blindAuthor = false;
-						$maybeBlindAuthor = $this->_isCurrentUserAssignedAuthor && $submissionFile->getFileStage() === SUBMISSION_FILE_REVIEW_ATTACHMENT;
-						if ($maybeBlindAuthor && $submissionFile->getAssocType() === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
+						$anonymousAuthor = false;
+						$maybeAnonymousAuthor = $this->_isCurrentUserAssignedAuthor && $submissionFile->getFileStage() === SUBMISSION_FILE_REVIEW_ATTACHMENT;
+						if ($maybeAnonymousAuthor && $submissionFile->getAssocType() === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
 							$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 							$reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getAssocId());
-							if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND))) {
-								$blindAuthor = true;
+							if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS))) {
+								$anonymousAuthor = true;
 							}
 						}
-						if (!$blindAuthor) {
+						if (!$anonymousAuthor) {
 							$workflowStageId = $submissionFileDao->getWorkflowStageId($submissionFile);
 							// If a submission file is attached to a query that has been deleted, we cannot
 							// determine its stage. Don't present a download link in this case.

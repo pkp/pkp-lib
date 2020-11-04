@@ -1321,7 +1321,8 @@ msgstr "Lataa tämä tiedosto"
 msgid "context.path"
 msgstr "Polku"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Sokkoarvioinnin varmistaminen"
 
 msgid "grid.action.showReviewPolicy"
@@ -1342,7 +1343,8 @@ msgstr "Tehtävät"
 msgid "dashboard.myQueue"
 msgstr "Oma jononi"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Jotta lähetetyn käsikirjoituksen sokkovertaisarvioinnin rehellisyys "
 "voidaan varmistaa, kirjoittajien ja arvioijien henkilöllisyyden "

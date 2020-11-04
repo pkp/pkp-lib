@@ -1189,7 +1189,8 @@ msgstr "Yêu cầu của biên tập viên"
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Lịch đánh giá"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
 "<p> Để đảm bảo tính toàn vẹn của đánh giá đồng cấp mù để gửi cho báo chí "
 "này, cần cố gắng hết sức để ngăn chặn danh tính của các tác giả và người "
@@ -1242,7 +1243,8 @@ msgstr "Xóa Nhiệm vụ"
 msgid "grid.action.showReviewPolicy"
 msgstr "Đọc chính sách đánh giá hiện tại"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Đảm bảo Phản biện kín"
 
 msgid "context.path"

@@ -25,8 +25,11 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		Capsule::schema()->table('submissions', function (Blueprint $table) {
 			// pkp/pkp-lib#3572 Remove OJS 2.x upgrade tools
 			$table->dropColumn('locale');
-			// pkp/pkp-lib#2493 Remove obsolete columns
-			$table->dropColumn('section_id');
+			// pkp/pkp-lib#6285 submissions.section_id in OMP appears only from 3.2.1
+			if (Capsule::schema()->hasColumn($table->getTable(), 'section_id')) {
+				// pkp/pkp-lib#2493 Remove obsolete columns
+				$table->dropColumn('section_id');
+			};
 		});
 		Capsule::schema()->table('publication_settings', function (Blueprint $table) {
 			// pkp/pkp-lib#6096 DB field type TEXT is cutting off long content

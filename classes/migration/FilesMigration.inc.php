@@ -23,7 +23,7 @@ class FilesMigration extends Migration {
 	public function up() {
 		// Create a new table to track files in file storage
 		Capsule::schema()->create('files', function (Blueprint $table) {
-			$table->bigInteger('file_id')->autoIncrement();
+			$table->bigIncrements('file_id');
 			$table->string('path', 255);
 		});
 	}

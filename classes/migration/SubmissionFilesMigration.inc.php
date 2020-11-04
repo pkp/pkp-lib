@@ -23,9 +23,9 @@ class SubmissionFilesMigration extends Migration {
         public function up() {
 		// Files associated with submission. Includes submission files, etc.
 		Capsule::schema()->create('submission_files', function (Blueprint $table) {
-			$table->bigInteger('submission_file_id')->autoIncrement();
+			$table->bigIncrements('submission_file_id');
 			$table->bigInteger('submission_id');
-			$table->bigInteger('file_id');
+			$table->bigInteger('file_id')->nullable(false)->unsigned();
 			$table->bigInteger('source_submission_file_id')->nullable();
 			$table->bigInteger('genre_id')->nullable();
 			$table->bigInteger('file_stage');
@@ -56,9 +56,9 @@ class SubmissionFilesMigration extends Migration {
 
 		// Submission file revisions
 		Capsule::schema()->create('submission_file_revisions', function (Blueprint $table) {
-			$table->bigInteger('revision_id')->autoIncrement();
-			$table->bigInteger('submission_file_id');
-			$table->bigInteger('file_id');
+			$table->bigIncrements('revision_id');
+			$table->bigInteger('submission_file_id')->unsigned();
+			$table->bigInteger('file_id')->unsigned();
 			$table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
 			$table->foreign('file_id')->references('file_id')->on('files');
 		});

@@ -222,25 +222,25 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 
 		// Create a new table to track files in file storage
 		Capsule::schema()->create('files', function (Blueprint $table) {
-			$table->bigInteger('file_id')->autoIncrement();
+			$table->bigIncrements('file_id');
 			$table->string('path', 255);
 		});
 
 		// Create a new table to track submission file revisions
 		Capsule::schema()->create('submission_file_revisions', function (Blueprint $table) {
-			$table->bigInteger('revision_id')->autoIncrement();
-			$table->bigInteger('submission_file_id');
-			$table->bigInteger('file_id');
+			$table->bigIncrements('revision_id');
+			$table->unsignedBigInteger('submission_file_id');
+			$table->unsignedBigInteger('file_id');
 		});
 
 		// Add columns to submission_files table
 		Capsule::schema()->table('submission_files', function (Blueprint $table) {
-			$table->bigInteger('new_file_id'); // Renamed at the end of the migration
+			$table->unsignedBigInteger('new_file_id')->nullable(); // Renamed and made not nullable at the end of the migration
 		});
 
 		// Drop unique keys that will cause trouble while we're migrating
 		Capsule::schema()->table('review_round_files', function (Blueprint $table) {
-			$table->dropUnique('review_round_files_pkey');
+			$table->dropIndex('review_round_files_pkey');
 		});
 
 		// Create entry in files and revisions tables for every submission_file
@@ -334,10 +334,26 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			->whereIn('new_file_id', $newFileIdsToDelete)
 			->delete();
 
-		// Set assoc_type and assoc_id for all review round files
-		// Run this before migration to internal review file stages
+		// Update review round files
 		$rows = Capsule::table('review_round_files')->get();
 		foreach ($rows as $row) {
+			// Delete this row if another revision exists for this
+			// submission file. This ensures that when the revision
+			// column is dropped the submission_file_id column will
+			// be unique.
+			$count = Capsule::table('review_round_files')
+				->where('file_id', '=', $row->file_id)
+				->count();
+			if ($count > 1) {
+				Capsule::table('review_round_files')
+					->where('file_id', '=', $row->file_id)
+					->where('revision', '=', $row->revision)
+					->delete();
+				continue;
+			}
+
+			// Set assoc_type and assoc_id for all review round files
+			// Run this before migration to internal review file stages
 			Capsule::table('submission_files')
 				->where('file_id', '=', $row->file_id)
 				->whereIn('file_stage', [SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_REVIEW_REVISION])
@@ -367,6 +383,13 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			$table->dropColumn('file_size');
 			$table->dropColumn('file_type');
 			$table->dropColumn('original_file_name');
+		});
+		// Modify column types and attributes in separate migration
+		// function to prevent error in postgres with unfound columns
+		Capsule::schema()->table('submission_files', function (Blueprint $table) {
+			$table->bigIncrements('submission_file_id')->change();
+			$table->unique('submission_file_id');
+			$table->bigInteger('file_id')->nullable(false)->unsigned()->change();
 			$table->foreign('file_id')->references('file_id')->on('files');
 		});
 		Capsule::schema()->table('submission_file_settings', function (Blueprint $table) {
@@ -378,17 +401,30 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		Capsule::schema()->table('review_round_files', function (Blueprint $table) {
 			$table->renameColumn('file_id', 'submission_file_id');
 			$table->dropColumn('revision');
+		});
+		Capsule::schema()->table('review_round_files', function (Blueprint $table) {
+			$table->bigInteger('submission_file_id')->nullable(false)->unique()->unsigned()->change();
 			$table->unique(['submission_id', 'review_round_id', 'submission_file_id'], 'review_round_files_pkey');
 			$table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
 		});
 		Capsule::schema()->table('review_files', function (Blueprint $table) {
 			$table->renameColumn('file_id', 'submission_file_id');
+		});
+		Capsule::schema()->table('review_files', function (Blueprint $table) {
+			$table->bigInteger('submission_file_id')->nullable(false)->unsigned()->change();
+			$table->unique(['review_id', 'submission_file_id'], 'review_files_pkey');
 			$table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
 		});
 		Capsule::schema()->table('submission_file_revisions', function (Blueprint $table) {
 			$table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
 			$table->foreign('file_id')->references('file_id')->on('files');
 		});
+
+		// Postgres leaves the old file_id autoincrement counter around, and
+		// needs to have the primary key re-applied
+		if (Config::getVar('database', 'driver') === 'postgres9') {
+			Capsule::statement('DROP SEQUENCE submission_files_file_id_seq CASCADE');
+		}
 	}
 
 	/**

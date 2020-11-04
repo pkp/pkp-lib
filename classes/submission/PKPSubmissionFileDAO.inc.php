@@ -153,6 +153,10 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 			->where('submission_file_id', '=', $submissionFileId)
 			->delete();
 
+		Capsule::table('review_files')
+			->where('submission_file_id', '=', $submissionFileId)
+			->delete();
+
 		parent::deleteById($submissionFileId);
 	}
 

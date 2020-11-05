@@ -61,10 +61,10 @@ class PKPAnnouncementForm extends FormComponent {
 				'size' => 'small',
 			]));
 
-		$announcementTypeDAO = \DAORegistry::getDAO('AnnouncementTypeDAO');
-		$announcementTypes = $announcementTypeDAO->getByAssoc(\Application::get()->getContextAssocType(), $announcementContext->getId());
+		$announcementTypeDao = \DAORegistry::getDAO('AnnouncementTypeDAO');
+		$announcementTypes = $announcementTypeDao->getByAssoc(\Application::get()->getContextAssocType(), $announcementContext->getId());
 		$announcementOptions = [];
-		foreach ($announcementTypes as $announcementType) {
+		while ($announcementType = $announcementTypes->next()) {
 			$announcementOptions[] = [
 				'value' => (int) $announcementType->getId(),
 				'label' => $announcementType->getLocalizedTypeName(),

@@ -199,7 +199,10 @@ class PKPMetricsDAO extends DAO {
 		else $result = $this->retrieve($sql, $params);
 
 		// Return the report.
-		$returner = $result->GetAll();
+		$returner = [];
+		foreach ($result as $row) {
+			$returner[] = (array) $row;
+		}
 		return $returner;
 	}
 

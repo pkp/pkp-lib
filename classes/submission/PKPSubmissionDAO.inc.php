@@ -354,7 +354,7 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 		}
 
 		$result = $this->retrieveRange(
-			'SELECT	s.*
+			$sql = 'SELECT	s.*
 			FROM	submissions s
 				LEFT JOIN publications p ON s.current_publication_id = p.publication_id
 				LEFT JOIN publication_settings ps ON p.publication_id = ps.publication_id'
@@ -381,6 +381,6 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, '_fromRow');
+		return new DAOResultFactory($result, $this, '_fromRow', [], $sql, $params); // Counted via paging in CrossRef export
 	}
 }

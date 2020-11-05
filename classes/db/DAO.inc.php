@@ -421,23 +421,23 @@ class DAO {
 		// Build a data structure that we can process efficiently.
 		$translated = $metadata = 1;
 		$settings = !$metadata;
-		$settingFields = array(
+		$settingFields = [
 			// Translated data
-			$translated => array(
+			$translated => [
 				$settings => $this->getLocaleFieldNames(),
 				$metadata => $dataObject->getLocaleMetadataFieldNames()
-			),
+			],
 			// Shared data
-			!$translated => array(
+			!$translated => [
 				$settings => $this->getAdditionalFieldNames(),
 				$metadata => $dataObject->getAdditionalMetadataFieldNames()
-			)
-		);
+			]
+		];
 
 		// Loop over all fields and update them in the settings table
 		$updateArray = $idArray;
 		$noLocale = 0;
-		$staleSettings = array();
+		$staleSettings = [];
 
 		foreach ($settingFields as $isTranslated => $fieldTypes) {
 			foreach ($fieldTypes as $isMetadata => $fieldNames) {

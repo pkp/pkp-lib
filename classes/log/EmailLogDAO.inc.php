@@ -60,7 +60,7 @@ class EmailLogDAO extends DAO {
 		if ($userId) $params[] = $userId;
 
 		$result = $this->retrieveRange(
-			'SELECT	e.*
+			$sql = 'SELECT	e.*
 			FROM	email_log e' .
 			($userId ? ' LEFT JOIN email_log_users u ON e.log_id = u.email_log_id' : '') .
 			' WHERE	e.assoc_type = ? AND
@@ -71,7 +71,7 @@ class EmailLogDAO extends DAO {
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, 'build');
+		return new DAOResultFactory($result, $this, 'build', [], $sql, $params); // Counted in submissionEmails.tpl
 	}
 
 	/**

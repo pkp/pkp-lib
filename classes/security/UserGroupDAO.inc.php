@@ -887,7 +887,7 @@ class UserGroupDAO extends DAO {
 
 		$returner = [];
 		foreach ($result as $row) {
-			$returner[$row->stage_id] = WorkflowStageDAO::getTranslationKeyFromId($row->stage_idstageId);
+			$returner[$row->stage_id] = WorkflowStageDAO::getTranslationKeyFromId($row->stage_id);
 		}
 		return $returner;
 	}

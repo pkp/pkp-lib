@@ -91,10 +91,10 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler {
 		if((new EditorDecisionActionsManager())->getEditorTakenActionInReviewRound($request->getContext(), $reviewRound)) {
 			$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 			$user = $request->getUser();
-			$templateMgr->assign(array(
+			$templateMgr->assign([
 				'submissionEmails' => $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId()),
 				'showReviewAttachments' => true,
-			));
+			]);
 		}
 
 		return $templateMgr->fetchJson('authorDashboard/reviewRoundInfo.tpl');

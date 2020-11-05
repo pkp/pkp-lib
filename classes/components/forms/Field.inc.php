@@ -91,7 +91,7 @@ abstract class Field {
 	 */
 	public function getConfig() {
 		if (!$this->validate()) {
-			fatalError('Form field configuration did not pass validation: ' . print_r($this, true));
+			throw new \Exception('Form field configuration did not pass validation: ' . print_r($this, true));
 		}
 		$config = array(
 			'name' => $this->name,

@@ -69,7 +69,7 @@ class SubmissionCommentDAO extends DAO {
 		if ($reviewId) $params[] = (int) $reviewId;
 		return new DAOResultFactory(
 			$this->retrieve(
-				'SELECT	a.*
+				$sql = 'SELECT	a.*
 				FROM	submission_comments a
 				WHERE	submission_id = ?
 					' . ($reviewerId?' AND author_id = ?':'') . '
@@ -79,8 +79,7 @@ class SubmissionCommentDAO extends DAO {
 				ORDER BY date_posted DESC',
 				$params
 			),
-			$this,
-			'_fromRow'
+			$this, '_fromRow', [], $sql, $params // Counted in readReview.tpl and authorReadReview.tpl
 		);
 	}
 

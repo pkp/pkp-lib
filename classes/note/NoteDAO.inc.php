@@ -90,7 +90,7 @@ class NoteDAO extends DAO {
 		}
 
 		$result = $this->retrieve(
-			'SELECT	*
+			$sql = 'SELECT	*
 			FROM	notes
 			WHERE	assoc_id = ?
 				AND assoc_type = ?
@@ -100,7 +100,7 @@ class NoteDAO extends DAO {
 			ORDER BY ' . $orderSanitized . ' ' . $directionSanitized,
 			$params
 		);
-		return new DAOResultFactory($result, $this, '_fromRow');
+		return new DAOResultFactory($result, $this, '_fromRow', [], $sql, $params); // Counted in QueriesGridCellProvider
 	}
 
 	/**

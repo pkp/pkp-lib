@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-10-19 09:01+0000\n"
+"PO-Revision-Date: 2020-11-05 09:45+0000\n"
 "Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/nb_NO/>\n"
@@ -28,7 +28,7 @@ msgstr ""
 "systemadministratoren."
 
 msgid "api.temporaryFiles.400.fileSize"
-msgstr "Filer større enn {$ maxSize} kan ikke lastes opp."
+msgstr "Filer større enn {$maxSize} kan ikke lastes opp."
 
 msgid "api.temporaryFiles.409.uploadFailed"
 msgstr "En eller flere filer kunne ikke lastes opp."

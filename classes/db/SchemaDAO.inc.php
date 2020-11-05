@@ -87,20 +87,20 @@ abstract class SchemaDAO extends DAO {
 				}
 				if (!empty($propSchema->multilingual)) {
 					foreach ($sanitizedProps[$propName] as $localeKey => $localeValue) {
-						$this->update("INSERT INTO $this->settingsTableName ($columnsList) VALUES ($bindList)", array(
+						$this->update("INSERT INTO $this->settingsTableName ($columnsList) VALUES ($bindList)", [
 							$object->getId(),
 							$localeKey,
 							$propName,
 							$this->convertToDB($localeValue, $schema->properties->{$propName}->type),
-						));
+						]);
 					}
 				} else {
-					$this->update("INSERT INTO $this->settingsTableName ($columnsList) VALUES ($bindList)", array(
+					$this->update("INSERT INTO $this->settingsTableName ($columnsList) VALUES ($bindList)", [
 						$object->getId(),
 						'',
 						$propName,
 						$this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type),
-					));
+					]);
 				}
 			}
 		}
@@ -133,7 +133,7 @@ abstract class SchemaDAO extends DAO {
 		$set = join('=?,', array_keys($primaryDbProps)) . '=?';
 		$this->update(
 			"UPDATE $this->tableName SET $set WHERE $this->primaryKeyColumn = ?",
-			array_merge(array_values($primaryDbProps), array($object->getId()))
+			array_merge(array_values($primaryDbProps), [$object->getId()])
 		);
 
 		$deleteSettings = [];
@@ -179,9 +179,9 @@ abstract class SchemaDAO extends DAO {
 			$deleteSettingNames = join(',', array_map(function($settingName) {
 				return "'$settingName'";
 			}, $deleteSettings));
-			$this->update("DELETE FROM $this->settingsTableName WHERE $this->primaryKeyColumn = ? AND setting_name in ($deleteSettingNames)", [
-				$object->getId(),
-			]);
+			$this->update("DELETE FROM $this->settingsTableName WHERE $this->primaryKeyColumn = ? AND setting_name in ($deleteSettingNames)",
+				[$object->getId()]
+			);
 		}
 	}
 
@@ -204,11 +204,11 @@ abstract class SchemaDAO extends DAO {
 	public function deleteById($objectId) {
 		$this->update(
 			"DELETE FROM $this->tableName WHERE $this->primaryKeyColumn = ?",
-			(int) $objectId
+			[(int) $objectId]
 		);
 		$this->update(
 			"DELETE FROM $this->settingsTableName WHERE $this->primaryKeyColumn = ?",
-			(int) $objectId
+			[(int) $objectId]
 		);
 	}
 

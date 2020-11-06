@@ -220,8 +220,7 @@ class PKPMetricsDAO extends DAO {
 
 		$loadIds = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$loadIds[] = $row['load_id'];
+			$loadIds[] = $row->load_id;
 		}
 		return $loadIds;
 	}

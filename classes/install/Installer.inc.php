@@ -830,14 +830,13 @@ class Installer {
 
 		$sidebarSettings = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
-			if ($row['setting_value'] != 1) continue; // BLOCK_CONTEXT_SIDEBAR
+			if ($row->setting_value != 1) continue; // BLOCK_CONTEXT_SIDEBAR
 
-			$seq = $pluginSettingsDao->getSetting($row['context_id'], $row['plugin_name'], 'seq');
-			if (!isset($sidebarSettings[$row['context_id']])) {
-				$sidebarSettings[$row['context_id']] = [];
+			$seq = $pluginSettingsDao->getSetting($row->context_id, $row->plugin_name, 'seq');
+			if (!isset($sidebarSettings[$row->context_id])) {
+				$sidebarSettings[$row->context_id] = [];
 			}
-			$sidebarSettings[$row['context_id']][(int) $seq] = $row['plugin_name'];
+			$sidebarSettings[$row->context_id][(int) $seq] = $row->plugin_name;
 		}
 
 		foreach ($sidebarSettings as $contextId => $contextSetting) {
@@ -909,12 +908,11 @@ class Installer {
 				);
 				$value = METADATA_DISABLE;
 				foreach ($result as $row) {
-					$row = (array) $row;
-					if ($row['setting_name'] === $metadataSetting . 'Required' && $row['setting_value']) {
+					if ($row->setting_name === $metadataSetting . 'Required' && $row->setting_value) {
 						$value = METADATA_REQUIRE;
-					} elseif ($row['setting_name'] === $metadataSetting . 'EnabledSubmission' && $row['setting_value'] && $value !== METADATA_REQUIRE) {
+					} elseif ($row->setting_name === $metadataSetting . 'EnabledSubmission' && $row->setting_value && $value !== METADATA_REQUIRE) {
 						$value = METADATA_REQUEST;
-					} elseif ($row['setting_name'] === $metadataSetting . 'EnabledWorkflow' && $row['setting_value'] && $value !== METADATA_REQUEST && $value !== METADATA_REQUIRE) {
+					} elseif ($row->setting_name === $metadataSetting . 'EnabledWorkflow' && $row->setting_value && $value !== METADATA_REQUEST && $value !== METADATA_REQUIRE) {
 						$value = METADATA_ENABLE;
 					}
 				}

@@ -32,10 +32,9 @@ class NotificationSettingsDAO extends DAO {
 
 		$params = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$name = $row['setting_name'];
-			$value = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-			$locale = $row['locale'];
+			$name = $row->setting_name;
+			$value = $this->convertFromDB($row->setting_value, $row->setting_type);
+			$locale = $row->locale;
 
 			if ($locale == '') $params[$name] = $value;
 			else $params[$name][$locale] = $value;

@@ -76,8 +76,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 
 		$languages = array();
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$languages[] = $row['setting_value'];
+			$languages[] = $row->setting_value;
 		}
 		return $languages;
 	}

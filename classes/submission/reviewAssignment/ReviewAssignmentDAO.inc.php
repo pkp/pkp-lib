@@ -65,8 +65,7 @@ class ReviewAssignmentDAO extends DAO {
 
 		$reviewAssignments = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$reviewAssignments[$row['review_id']] = $this->_fromRow($row);
+			$reviewAssignments[$row->review_id] = $this->_fromRow((array) $row);
 		}
 		return $reviewAssignments;
 	}
@@ -277,8 +276,7 @@ class ReviewAssignmentDAO extends DAO {
 		$index = 0;
 		$returner = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$returner[$row['review_id']] = $index++;
+			$returner[$row->review_id] = $index++;
 		}
 		return $returner;
 	}
@@ -509,8 +507,7 @@ class ReviewAssignmentDAO extends DAO {
 
 		$returner = false;
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$this->deleteById($row['review_id']);
+			$this->deleteById($row->review_id);
 			$returner = true;
 		}
 		return $returner;

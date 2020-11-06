@@ -99,8 +99,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 
 		$fileIds = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$fileIds[] = $row['file_id'];
+			$fileIds[] = $row->file_id;
 		}
 		return $fileIds;
 	}
@@ -918,11 +917,9 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 		// Build the result array.
 		$submissionFiles = array();
 		foreach ($result as $row) {
-			$row = (array) $row;
-
 			// Construct a combined id from file id and revision
 			// that uniquely identifies the file.
-			$idAndRevision = $row['submission_file_id'].'-'.$row['submission_revision'];
+			$idAndRevision = $row->submission_file_id.'-'.$row->submission_revision;
 
 			// Check for duplicates.
 			assert(!isset($submissionFiles[$idAndRevision]));
@@ -931,7 +928,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			// result array with a unique key.
 			// N.B. The subclass implementation of fromRow receives just the $row
 			// but calls SubmissionFileDAO::fromRow($row, $fileImplementation) as defined here.
-			$submissionFiles[$idAndRevision] = $this->fromRow($row);
+			$submissionFiles[$idAndRevision] = $this->fromRow((array) $row);
 		}
 
 		return $submissionFiles;

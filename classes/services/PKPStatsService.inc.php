@@ -58,25 +58,24 @@ class PKPStatsService {
 
 		$records = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
 			$records[] = [
-				'loadId' => $row['load_id'],
-				'contextId' => (int) $row['context_id'],
-				'submissionId' => (int) $row['submission_id'],
-				'assocType' => (int) $row['assoc_type'],
-				'assocId' => (int) $row['assoc_id'],
-				'day' => (int) $row['day'],
-				'month' => (int) $row['month'],
-				'fileType' => (int) $row['file_type'],
-				'countryId' => $row['country_id'],
-				'region' => $row['region'],
-				'city' => $row['city'],
-				'metric' => (int) $row['metric'],
-				'metricType' => $row['metric_type'],
-				'pkpSectionId' => (int) $row['pkp_section_id'],
-				'assocObjectType' => (int) $row['assoc_object_type'],
-				'assocObjectTId' => (int) $row['assoc_object_id'],
-				'representation_id' => (int) $row['representation_id'],
+				'loadId' => $row->load_id,
+				'contextId' => (int) $row->context_id,
+				'submissionId' => (int) $row->submission_id,
+				'assocType' => (int) $row->assoc_type,
+				'assocId' => (int) $row->assoc_id,
+				'day' => (int) $row->day,
+				'month' => (int) $row->month,
+				'fileType' => (int) $row->file_type,
+				'countryId' => $row->country_id,
+				'region' => $row->region,
+				'city' => $row->city,
+				'metric' => (int) $row->metric,
+				'metricType' => $row->metric_type,
+				'pkpSectionId' => (int) $row->pkp_section_id,
+				'assocObjectType' => (int) $row->assoc_object_type,
+				'assocObjectTId' => (int) $row->assoc_object_id,
+				'representation_id' => (int) $row->representation_id,
 			];
 		}
 

@@ -91,9 +91,8 @@ class UserSettingsDAO extends DAO {
 
 		$userSettings = array();
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$value = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-			$userSettings[$row['setting_name']] = $value;
+			$value = $this->convertFromDB($row->setting_value, $row->setting_type);
+			$userSettings[$row->setting_name] = $value;
 		}
 		return $userSettings;
 	}

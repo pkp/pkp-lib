@@ -417,8 +417,7 @@ class NavigationMenuItemDAO extends DAO {
 
 		$setting = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$returner[$row['locale']] = $this->convertFromDB($row['setting_value'], $row['setting_type']);
+			$returner[$row->locale] = $this->convertFromDB($row->setting_value, $row->setting_type);
 		}
 		if (count($returner) == 1) return array_shift($returner);
 		if (count($returner) == 0) return false;

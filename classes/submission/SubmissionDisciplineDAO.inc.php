@@ -76,8 +76,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 
 		$disciplines = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$disciplines[] = $row['setting_value'];
+			$disciplines[] = $row->setting_value;
 		}
 		return $disciplines;
 	}

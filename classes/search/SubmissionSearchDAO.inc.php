@@ -70,9 +70,8 @@ class SubmissionSearchDAO extends DAO {
 
 		$result = $this->retrieve($sql, $params);
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$this->update('DELETE FROM submission_search_object_keywords WHERE object_id = ?', [$row['object_id']]);
-			$this->update('DELETE FROM submission_search_objects WHERE object_id = ?', [$row['object_id']]);
+			$this->update('DELETE FROM submission_search_object_keywords WHERE object_id = ?', [$row->object_id]);
+			$this->update('DELETE FROM submission_search_objects WHERE object_id = ?', [$row->object_id]);
 		}
 	}
 

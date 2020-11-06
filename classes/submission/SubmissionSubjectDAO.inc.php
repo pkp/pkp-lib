@@ -76,8 +76,7 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 
 		$subjects = array();
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$subjects[] = $row['setting_value'];
+			$subjects[] = $row->setting_value;
 		}
 		return $subjects;
 	}

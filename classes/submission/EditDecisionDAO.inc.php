@@ -87,15 +87,14 @@ class EditDecisionDAO extends DAO {
 
 		$decisions = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
 			$decisions[] = [
-				'editDecisionId' => $row['edit_decision_id'],
-				'reviewRoundId' => $row['review_round_id'],
-				'stageId' => $row['stage_id'],
-				'round' => $row['round'],
-				'editorId' => $row['editor_id'],
-				'decision' => $row['decision'],
-				'dateDecided' => $this->datetimeFromDB($row['date_decided'])
+				'editDecisionId' => $row->edit_decision_id,
+				'reviewRoundId' => $row->review_round_id,
+				'stageId' => $row->stage_id,
+				'round' => $row->round,
+				'editorId' => $row->editor_id,
+				'decision' => $row->decision,
+				'dateDecided' => $this->datetimeFromDB($row->date_decided)
 			];
 		}
 		return $decisions;

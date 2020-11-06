@@ -75,8 +75,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 
 		$agencies = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$agencies[] = $row['setting_value'];
+			$agencies[] = $row->setting_value;
 		}
 		return $agencies;
 	}

@@ -76,8 +76,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 
 		$keywords = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$keywords[] = $row['setting_value'];
+			$keywords[] = $row->setting_value;
 		}
 		return $keywords;
 	}

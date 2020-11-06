@@ -63,8 +63,7 @@ class InterestDAO extends ControlledVocabDAO {
 
 		$returner = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$returner[] = $row['user_id'];
+			$returner[] = $row->user_id;
 		}
 		return $returner;
 

@@ -516,14 +516,13 @@ class DAO {
 		}
 		$result = $this->retrieve($sql, $params);
 		foreach ($result as $row) {
-			$row = (array) $row;
 			$dataObject->setData(
-				$row['setting_name'],
+				$row->setting_name,
 				$this->convertFromDB(
-					$row['setting_value'],
-					$row['setting_type']
+					$row->setting_value,
+					$row->setting_type
 				),
-				empty($row['locale'])?null:$row['locale']
+				empty($row->locale)?null:$row->locale
 			);
 		}
 	}

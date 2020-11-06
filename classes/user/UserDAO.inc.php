@@ -548,9 +548,8 @@ class UserDAO extends DAO {
 			[$newLocale, IDENTITY_SETTING_GIVENNAME, $newLocale, IDENTITY_SETTING_FAMILYNAME, $newLocale, 'preferredPublicName']
 		);
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$userId = $row['user_id'];
-			if (empty($row['given_name']) && empty($row['family_name']) && empty($row['preferred_public_name'])) {
+			$userId = $row->user_id;
+			if (empty($row->given_name) && empty($row->family_name) && empty($row->preferred_public_name)) {
 				// if no user name exists in the new locale, insert them all
 				foreach ($settingNames as $settingName) {
 					$this->update(
@@ -561,7 +560,7 @@ class UserDAO extends DAO {
 						[$newLocale, $settingName, $settingName, $oldLocale, $userId]
 					);
 				}
-			} elseif (empty($row['given_name'])) {
+			} elseif (empty($row->given_name)) {
 				// if the given name does not exist in the new locale (but one of the other names do exist), insert it
 				$this->update(
 					"INSERT INTO user_settings (user_id, locale, setting_name, setting_value, setting_type)

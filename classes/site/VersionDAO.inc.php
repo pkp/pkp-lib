@@ -200,8 +200,7 @@ class VersionDAO extends DAO {
 
 		$productArray = [];
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$productArray[$row['product_type']][$row['product']] = $this->_returnVersionFromRow($row);
+			$productArray[$row->product_type][$row->product] = $this->_returnVersionFromRow((array) $row);
 		}
 		return $productArray;
 	}

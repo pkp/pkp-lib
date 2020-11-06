@@ -61,16 +61,12 @@ class PKPUserHandler extends Handler {
 	 * @return JSONMessage JSON object
 	 */
 	function getInterests($args, $request) {
-		// Get the input text used to filter on
-		$filter = $request->getUserVar('term');
-
 		import('lib.pkp.classes.user.InterestManager');
-		$interestManager = new InterestManager();
-
-		$interests = $interestManager->getAllInterests($filter);
-
 		import('lib.pkp.classes.core.JSONMessage');
-		return new JSONMessage(true, $interests);
+		return new JSONMessage(
+			true,
+			(new InterestManager())->getAllInterests($request->getUserVar('term'))
+		);
 	}
 
 	/**

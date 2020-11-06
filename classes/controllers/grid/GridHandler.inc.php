@@ -341,11 +341,9 @@ class GridHandler extends PKPHandler {
 	 * @param $data mixed an array or ItemIterator with element data
 	 */
 	function setGridDataElements($data) {
-		$this->callFeaturesHook('setGridDataElements', array('grid' => &$this, 'data' => &$data));
+		$this->callFeaturesHook('setGridDataElements', ['grid' => &$this, 'data' => &$data]);
 
-		// FIXME: We go to arrays for all types of iterators because
-		// iterators cannot be re-used, see #6498.
-		if (is_array($data)) {
+		if (is_iterable($data)) {
 			$this->_data = $data;
 		} elseif(is_a($data, 'DAOResultFactory')) {
 			$this->_data = $data->toAssociativeArray();
@@ -976,7 +974,7 @@ class GridHandler extends PKPHandler {
 	 * @param $elements array The grid data elements to be rendered.
 	 * @return array of HTML Strings for Grid Rows.
 	 */
-	protected function renderRowsInternally($request, &$elements) {
+	protected function renderRowsInternally($request, $elements) {
 		// Iterate through the rows and render them according
 		// to the row definition.
 		$renderedRows = array();

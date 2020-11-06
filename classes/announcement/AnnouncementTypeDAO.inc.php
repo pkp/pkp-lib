@@ -49,85 +49,11 @@ class AnnouncementTypeDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve announcement type Assoc ID by announcement type ID.
-	 * @param $typeId int
-	 * @return int|null
-	 */
-	function getAnnouncementTypeAssocId($typeId) {
-		$result = $this->retrieve(
-			'SELECT assoc_id FROM announcement_types WHERE type_id = ?',
-			[(int) $typeId]
-		);
-		$row = $result->current();
-		return $row ? $row->assoc_id : null;
-	}
-
-	/**
-	 * Retrieve announcement type name by ID.
-	 * @param $typeId int
-	 * @return string|false
-	 */
-	function getAnnouncementTypeName($typeId) {
-		$result = $this->retrieve(
-			'SELECT COALESCE(l.setting_value, p.setting_value) AS setting_value FROM announcement_type_settings p LEFT JOIN announcement_type_settings l ON (l.type_id = ? AND l.setting_name = ? AND l.locale = ?) WHERE p.type_id = ? AND p.setting_name = ? AND p.locale = ?',
-			[
-				(int) $typeId, 'name', AppLocale::getLocale(),
-				(int) $typeId, 'name', AppLocale::getPrimaryLocale()
-			]
-		);
-		$row = $result->current();
-		return $row ? $row->setting_value : false;
-	}
-
-
-	/**
-	 * Check if a announcement type exists with the given type id for a assoc type/id pair.
-	 * @param $typeId int
-	 * @param $assocType int ASSOC_TYPE_...
-	 * @param $assocId int
-	 * @return boolean
-	 */
-	function announcementTypeExistsByTypeId($typeId, $assocType, $assocId) {
-		$result = $this->retrieve(
-			'SELECT COUNT(*) AS row_count
-			FROM	announcement_types
-			WHERE	type_id = ? AND
-				assoc_type = ? AND
-				assoc_id = ?',
-			[(int) $typeId, (int) $assocType, (int) $assocId]
-		);
-		$row = $result->current();
-		return $row ? (boolean) $row->row_count : false;
-	}
-
-	/**
 	 * Get the locale field names.
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
 		return ['name'];
-	}
-
-	/**
-	 * Return announcement type ID based on a type name for an assoc type/id pair.
-	 * @param $typeName string
-	 * @param $assocType int ASSOC_TYPE_...
-	 * @param $assocId int
-	 * @return int
-	 */
-	function getByTypeName($typeName, $assocType, $assocId) {
-		$result = $this->retrieve(
-			'SELECT ats.type_id AS type_id
-				FROM announcement_type_settings AS ats
-				LEFT JOIN announcement_types at ON ats.type_id = at.type_id
-				WHERE ats.setting_name = \'name\'
-				AND ats.setting_value = ?
-				AND at.assoc_type = ?
-				AND at.assoc_id = ?',
-			[$typeName, (int) $assocType, (int) $assocId]
-		);
-		$row = $result->current();
-		return $row ? $row->type_id : 0;
 	}
 
 	/**
@@ -150,9 +76,9 @@ class AnnouncementTypeDAO extends DAO {
 	 * @param $announcementType object
 	 */
 	function updateLocaleFields($announcementType) {
-		$this->updateDataObjectSettings('announcement_type_settings', $announcementType, array(
-			'type_id' => (int) $announcementType->getId()
-		));
+		$this->updateDataObjectSettings('announcement_type_settings', $announcementType,
+			['type_id' => (int) $announcementType->getId()]
+		);
 	}
 
 	/**
@@ -224,8 +150,7 @@ class AnnouncementTypeDAO extends DAO {
 	 * @param $assocId int
 	 */
 	function deleteByAssoc($assocType, $assocId) {
-		$types = $this->getByAssoc($assocType, $assocId);
-		while ($type = $types->next()) {
+		foreach ($this->getByAssoc($assocType, $assocId) as $type) {
 			$this->deleteObject($type);
 		}
 	}
@@ -234,17 +159,16 @@ class AnnouncementTypeDAO extends DAO {
 	 * Retrieve an array of announcement types matching a particular Assoc ID.
 	 * @param $assocType int ASSOC_TYPE_...
 	 * @param $assocId int
-	 * @param $rangeInfo DBResultRange (optional)
-	 * @return object DAOResultFactory containing matching AnnouncementTypes
+	 * @return Generator Matching AnnouncementTypes
 	 */
-	function getByAssoc($assocType, $assocId, $rangeInfo = null) {
-		$result = $this->retrieveRange(
+	function getByAssoc($assocType, $assocId) {
+		$result = $this->retrieve(
 			'SELECT * FROM announcement_types WHERE assoc_type = ? AND assoc_id = ? ORDER BY type_id',
-			[(int) $assocType, (int) $assocId],
-			$rangeInfo
+			[(int) $assocType, (int) $assocId]
 		);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
+		foreach ($result as $row) {
+			yield $this->_fromRow((array) $row);
+		}
 	}
 
 	/**

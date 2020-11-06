@@ -73,8 +73,7 @@ class AnnouncementDAO extends SchemaDAO {
 	 * @return boolean
 	 */
 	function deleteByTypeId($typeId) {
-		$announcements = $this->getByTypeId($typeId);
-		while ($announcement = $announcements->next()) {
+		foreach ($this->getByTypeId($typeId) as $announcement) {
 			$this->deleteObject($announcement);
 		}
 	}
@@ -96,31 +95,33 @@ class AnnouncementDAO extends SchemaDAO {
 	 * Retrieve an array of announcements matching a particular assoc ID.
 	 * @param $assocType int ASSOC_TYPE_...
 	 * @param $assocId int
-	 * @return object DAOResultFactory containing matching Announcements
+	 * @return Generator Matching Announcements
 	 */
 	function getByAssocId($assocType, $assocId) {
-		$query = Capsule::table($this->tableName)
+		$result = Capsule::table($this->tableName)
 			->where('assoc_type', '=', (int) $assocType)
 			->where('assoc_id', '=', (int) $assocId)
-			->orderByDesc('date_posted');
-
-		return new DAOResultFactory($query->get(), $this, '_fromRow');
+			->orderByDesc('date_posted')
+			->get();
+		foreach ($result as $row) {
+			yield $this->_fromRow((array) $row);
+		}
 	}
 
 	/**
 	 * Retrieve an array of announcements matching a particular type ID.
 	 * @param $typeId int
-	 * @param $rangeInfo DBResultRange (optional)
-	 * @return object DAOResultFactory containing matching Announcements
+	 * @return Generator Matching Announcements
 	 */
-	function getByTypeId($typeId, $rangeInfo = null) {
+	function getByTypeId($typeId) {
 		$result = $this->retrieveRange(
 			'SELECT * FROM announcements WHERE type_id = ? ORDER BY date_posted DESC',
 			[(int) $typeId],
 			$rangeInfo
 		);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
+		foreach ($result as $row) {
+			yield $this->_fromRow((array) $row);
+		}
 	}
 
 	/**

@@ -66,38 +66,6 @@ class DAO {
 	}
 
 	/**
-	 * Execute a cached SELECT SQL statement.
-	 * @param $sql string the SQL statement
-	 * @param $params array parameters for the SQL statement
-	 * @return ADORecordSet
-	 */
-	function &retrieveCached($sql, $params = [], $secsToCache = 3600, $callHooks = true) {
-		throw new Exception('BROKEN');
-		if ($callHooks === true) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::_getsession"
-			// (all lowercase).
-			$value = null;
-			if (HookRegistry::call(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$secsToCache, &$value))) {
-				return $value;
-			}
-		}
-
-		$this->setCacheDir();
-
-		$start = Core::microtime();
-		$dataSource = $this->getDataSource();
-		$result = $dataSource->CacheExecute($secsToCache, $sql, $params !== false && !is_array($params) ? array($params) : $params);
-		if ($dataSource->errorNo()) {
-			// FIXME Handle errors more elegantly.
-			$this->handleError($dataSource, $sql);
-		}
-		return $result;
-	}
-
-	/**
 	 * Execute a SELECT SQL statment, returning rows in the range supplied.
 	 * @param $sql string the SQL statement
 	 * @param $params array parameters for the SQL statement

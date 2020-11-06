@@ -115,8 +115,8 @@ class DAO {
 
 	/**
 	 * Execute an INSERT, UPDATE, or DELETE SQL statement.
-	 * @param $sql the SQL statement the execute
-	 * @param $params an array of parameters for the SQL statement
+	 * @param $sql string the SQL statement the execute
+	 * @param $params array an array of parameters for the SQL statement
 	 * @param $callHooks boolean Whether or not to call hooks
 	 * @param $dieOnError boolean Whether or not to die if an error occurs
 	 * @return int Affected row count

@@ -183,7 +183,7 @@ class FilterDAO extends DAO {
 			[(int) $contextId, $className]
 		);
 
-		return new DAOResultFactory($result, $this, '_fromRow', array('filter_id'));
+		return new DAOResultFactory($result, $this, '_fromRow', ['filter_id']);
 	}
 
 	/**

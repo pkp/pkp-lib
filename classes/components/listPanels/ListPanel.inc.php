@@ -94,11 +94,6 @@ class ListPanel {
 			$config['getParams'] = $this->getParams;
 		}
 
-		if ($this->lazyLoad) {
-			$config['items'] = [];
-			$config['itemsMax'] = 0;
-		}
-
 		return $config;
 	}
 }

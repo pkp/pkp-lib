@@ -71,7 +71,7 @@ class EmailLogDAO extends DAO {
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, 'build', [], $sql, $params); // Counted in submissionEmails.tpl
+		return new DAOResultFactory($result, $this, 'build', [], $sql, $params, $rangeInfo); // Counted in submissionEmails.tpl
 	}
 
 	/**

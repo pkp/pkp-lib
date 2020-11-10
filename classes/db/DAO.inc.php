@@ -87,7 +87,7 @@ class DAO {
 		if ($dbResultRange && $dbResultRange->isValid()) {
 			$sql .= ' LIMIT ' . (int) $dbResultRange->getCount();
 			$offset = (int) $dbResultRange->getOffset();
-			$offset += max(0, $dbResultRange->getPage()-1) * Config::getVar('interface', 'items_per_page', 30);
+			$offset += max(0, $dbResultRange->getPage()-1) * (int) $dbResultRange->getCount();
 			$sql .= ' OFFSET ' . $offset;
 		}
 

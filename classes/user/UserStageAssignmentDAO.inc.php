@@ -123,7 +123,7 @@ class UserStageAssignmentDAO extends UserDAO {
 			. ' ORDER BY COALESCE(usfs_l.setting_value, usfs_pl.setting_value)',
 				$params,
 				$rangeInfo);
-		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData', [], $sql, $params);
+		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData', [], $sql, $params, $rangeInfo);
 	}
 }
 

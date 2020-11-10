@@ -47,6 +47,11 @@ class DAOResultFactory extends ItemIterator {
 	var $params;
 
 	/**
+	 * @var $rangeInfo DBResultRange|null Range information, if specified.
+	 */
+	var $rangeInfo;
+
+	/**
 	 * Constructor.
 	 * Initialize the DAOResultFactory
 	 * @param $records object ADO record set, Generator, or Enumerable
@@ -54,9 +59,10 @@ class DAOResultFactory extends ItemIterator {
 	 * @param $functionName The function to call on $dao to create an object
 	 * @param $idFields array an array of primary key field names that uniquely identify a result row in the record set. Should be data object _data array key, not database column name
 	 * @param $sql string Optional SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
-	 * @param $params string Optional parameters for SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
+	 * @param $params array Optional parameters for SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
+	 * @param $rangeInfo DBResultRange Optional pagination information. WARNING: New code should not use this.
 	 */
-	function __construct($records, $dao, $functionName, $idFields = [], $sql = null, $params = []) {
+	function __construct($records, $dao, $functionName, $idFields = [], $sql = null, $params = [], $rangeInfo = null) {
 		parent::__construct();
 		$this->functionName = $functionName;
 		$this->dao = $dao;
@@ -64,6 +70,7 @@ class DAOResultFactory extends ItemIterator {
 		$this->records = $records;
 		$this->sql = $sql;
 		$this->params = $params;
+		$this->rangeInfo = $rangeInfo;
 	}
 
 	/**
@@ -116,6 +123,22 @@ class DAOResultFactory extends ItemIterator {
 			}
 		}
 		return [$key, $result];
+	}
+
+	/**
+	 * Get the page number of a set that this iterator represents.
+	 * @return int
+	 */
+	function getPage() {
+		return $this->rangeInfo->getPage();
+	}
+
+	/**
+	 * Get the total number of pages in this set.
+	 * @return int
+	 */
+	function getPageCount() {
+		return ceil($this->getCount() / $this->rangeInfo->getCount());
 	}
 
 	/**

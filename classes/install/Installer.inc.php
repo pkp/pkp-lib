@@ -146,6 +146,10 @@ class Installer {
 			$this->installedLocales = array_keys(AppLocale::getAllLocales());
 		}
 
+		if (!isset($this->dataXMLParser)) {
+			$this->dataXMLParser = new DBDataXMLParser();
+		}
+
 		$result = true;
 		HookRegistry::call('Installer::preInstall', [$this, &$result]);
 

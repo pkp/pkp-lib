@@ -77,78 +77,50 @@ class DBDataXMLParser {
 				// Match sql element (set of SQL queries)
 				foreach ($type->getChildren() as $child) switch ($child->getName()) {
 					case 'drop':
-						throw new Exception('FIXME');
 						$table = $child->getAttribute('table');
 						$column = $child->getAttribute('column');
 						if ($column) {
-							// NOT PORTABLE; do not use this
-							$this->sql[] = $dbdict->DropColumnSql($table, $column);
+							$this->sql += array_column(Capsule::pretend(function() use ($table, $column) {
+								Capsule::schema()->table($table, function (Blueprint $table) use ($column) {
+									$table->dropColumn('column');
+								});
+							}), 'query');
 						} else {
-							$this->sql[] = $dbdict->DropTableSQL($table);
+							$this->sql += array_column(Capsule::pretend(function() use ($table) {
+								Capsule::schema()->drop($table);
+							}), 'query');
 						}
 						break;
 					case 'rename':
-						throw new Exception('FIXME');
 						$table = $child->getAttribute('table');
 						$column = $child->getAttribute('column');
 						$to = $child->getAttribute('to');
 						if ($column) {
-							// Make sure the target column does not yet exist.
-							// This is to guarantee idempotence of upgrade scripts.
-							$run = false;
-							if (in_array($table, $allTables)) {
-								$columns = $this->dbconn->MetaColumns($table, true);
-								if (!isset($columns[strtoupper($to)])) {
-									// Only run if the column has not yet been
-									// renamed.
-									$run = true;
-								}
-							} else {
-								// If the target table does not exist then
-								// we assume that another rename entry will still
-								// rename it and we should run after it.
-								$run = true;
-							}
-
-							if ($run) {
-								$colId = strtoupper($column);
-								$flds = '';
-								if (isset($columns[$colId])) {
-									$col = $columns[$colId];
-									if ($col->max_length == "-1") {
-										$max_length = '';
-									} else {
-										$max_length = $col->max_length;
-									}
-									$fld = array('NAME' => $col->name, 'TYPE' => $dbdict->MetaType($col), 'SIZE' => $max_length);
-									if ($col->primary_key) $fld['KEY'] = 'KEY';
-									if ($col->auto_increment) $fld['AUTOINCREMENT'] = 'AUTOINCREMENT';
-									if ($col->not_null) $fld['NOTNULL'] = 'NOTNULL';
-									if ($col->has_default) $fld['DEFAULT'] = $col->default_value;
-									$flds = array($colId => $fld);
-								} else assert(false);
-
-								$this->sql[] = $dbdict->RenameColumnSQL($table, $column, $to, $flds);
-							}
+							// Rename a column.
+							$this->sql += array_column(Capsule::pretend(function() use ($table, $column, $to) {
+								Capsule::schema()->table($table, function (Blueprint $table) use ($column, $to) {
+									$table->renameColumn($column, $to);
+								});
+							}), 'query');
 						} else {
-							// Make sure the target table does not yet exist.
-							// This is to guarantee idempotence of upgrade scripts.
-							if (!in_array($to, $allTables)) {
-								$this->sql[] = $dbdict->RenameTableSQL($table, $to);
-							}
+							// Rename the table.
+							$this->sql += array_column(Capsule::pretend(function() use ($table, $to) {
+								Capsule::schema()->rename($table, $to);
+							}), 'query');
 						}
 						break;
 					case 'dropindex':
-						throw new Exception('FIXME');
 						$table = $child->getAttribute('table');
 						$index = $child->getAttribute('index');
 						if (!$table || !$index) {
 							throw new Exception('dropindex called without table or index');
 						}
-						$indexes = array_map('strtoupper', array_keys($this->dbconn->MetaIndexes($table)));
-						if (in_array(strtoupper($index), $indexes)) {
-							$this->sql[] = $dbdict->DropIndexSQL($index, $table);
-						}
+
+						$this->sql += array_column(Capsule::pretend(function() use ($table, $index) {
+							Capsule::schema()->table($table, function (Blueprint $table) use ($index) {
+								$table->dropIndex($index);
+							});
+						}), 'query');
 						break;
 					case 'query':
 						// If a "driver" attribute is specified, multiple drivers can be

@@ -10,7 +10,7 @@
  * @class DAOResultFactory
  * @ingroup db
  *
- * @brief Wrapper around ADORecordSet providing "factory" features for generating
+ * @brief Wrapper around Enumerable providing "factory" features for generating
  * objects from DAOs.
  */
 
@@ -33,7 +33,7 @@ class DAOResultFactory extends ItemIterator {
 	 */
 	var $idFields;
 
-	/** @var ADORecordSet|Enumerable The ADORecordSet to be wrapped around (old) or Enumerable (new) */
+	/** @var Enumerable The results to be wrapped around */
 	var $records;
 
 	/**

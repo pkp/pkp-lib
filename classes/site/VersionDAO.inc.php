@@ -114,7 +114,7 @@ class VersionDAO extends DAO {
 				} elseif ($version->compare($oldVersion) == 1) {
 					// Version to insert is newer than the existing version entry.
 					// We reset existing entry.
-					$this->update('UPDATE versions SET current = 0 WHERE current = 1 AND product = ?', $version->getProduct());
+					$this->update('UPDATE versions SET current = 0 WHERE current = 1 AND product = ?', [$version->getProduct()]);
 				} else {
 					// We do not support downgrades.
 					fatalError('You are trying to downgrade the product "'.$version->getProduct().'" from version ['.$oldVersion->getVersionString(false).'] to version ['.$version->getVersionString(false).']. Downgrades are not supported.');
@@ -136,7 +136,7 @@ class VersionDAO extends DAO {
 					VALUES
 					(?, ?, ?, ?, %s, ?, ?, ?, ?, ?, ?)',
 					$this->datetimeToDB($version->getDateInstalled())),
-				array(
+				[
 					(int) $version->getMajor(),
 					(int) $version->getMinor(),
 					(int) $version->getRevision(),
@@ -147,14 +147,14 @@ class VersionDAO extends DAO {
 					$version->getProductClassName(),
 					($version->getLazyLoad()?1:0),
 					($version->getSitewide()?1:0)
-				)
+				]
 			);
 		} else {
 			// Update existing version entry
 			return $this->update(
 				'UPDATE versions SET current = ?, product_class_name = ?, lazy_load = ?, sitewide = ?
 					WHERE product_type = ? AND product = ? AND major = ? AND minor = ? AND revision = ? AND build = ?',
-				array(
+				[
 					(int) $version->getCurrent(),
 					$version->getProductClassName(),
 					($version->getLazyLoad()?1:0),
@@ -165,7 +165,7 @@ class VersionDAO extends DAO {
 					(int) $version->getMinor(),
 					(int) $version->getRevision(),
 					(int) $version->getBuild()
-				)
+				]
 			);
 		}
 	}
@@ -213,7 +213,7 @@ class VersionDAO extends DAO {
 	function disableVersion($productType, $product) {
 		$this->update(
 			'UPDATE versions SET current = 0 WHERE current = 1 AND product_type = ? AND product = ?',
-			array($productType, $product)
+			[$productType, $product]
 		);
 	}
 }

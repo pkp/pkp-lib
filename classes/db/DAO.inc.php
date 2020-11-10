@@ -47,7 +47,7 @@ class DAO {
 	 * Execute a SELECT SQL statement.
 	 * @param $sql string the SQL statement
 	 * @param $params array parameters for the SQL statement
-	 * @return ADORecordSet
+	 * @return Illuminate\Support\LazyCollection
 	 */
 	function retrieve($sql, $params = [], $callHooks = true) {
 		if ($callHooks === true) {
@@ -70,6 +70,7 @@ class DAO {
 	 * @param $sql string the SQL statement
 	 * @param $params array parameters for the SQL statement
 	 * @param $dbResultRange DBResultRange object describing the desired range
+	 * @return Illuminate\Support\LazyCollection
 	 */
 	function retrieveRange($sql, $params = [], $dbResultRange = null, $callHooks = true) {
 		if ($callHooks === true) {

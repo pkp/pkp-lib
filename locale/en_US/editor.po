@@ -28,3 +28,6 @@ msgstr "Cover Image"
 
 msgid "editor.publication.authorPublishRequirements"
 msgstr "The author does not fill the following publishing requirements:"
+
+msgid "editor.submissions.assignedTo"
+msgstr "Assigned to Moderator"

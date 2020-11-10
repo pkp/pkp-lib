@@ -791,7 +791,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			case WORKFLOW_STAGE_ID_SUBMISSION: return '#d00a0a';
 			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return '#e05c14';
 			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW: return '#e08914';
-			case WORKFLOW_STAGE_ID_EDITING: return '#007ab2';
+			case WORKFLOW_STAGE_ID_EDITING: return '#006798';
 			case WORKFLOW_STAGE_ID_PRODUCTION: return '#00b28d';
 		}
 		throw new Exception('Color requested for an unrecognized stage id.');

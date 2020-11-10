@@ -255,7 +255,7 @@ class UserGroupDAO extends DAO {
 			$dbResultRange
 		);
 
-		return new DAOResultFactory($result, $this, '_returnFromRow', [], $sql, $params);
+		return new DAOResultFactory($result, $this, '_returnFromRow', [], $sql, $params, $dbResultRange);
 	}
 
 	/**
@@ -383,7 +383,7 @@ class UserGroupDAO extends DAO {
 			$dbResultRange
 		);
 
-		return new DAOResultFactory($result, $this, '_returnFromRow', [], $sql, $params);
+		return new DAOResultFactory($result, $this, '_returnFromRow', [], $sql, $params, $dbResultRange);
 	}
 
 	/**
@@ -498,7 +498,7 @@ class UserGroupDAO extends DAO {
 			$dbResultRange
 		);
 
-		return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData', [], $sql, $params);
+		return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData', [], $sql, $params, $dbResultRange);
 	}
 
 	//
@@ -866,7 +866,7 @@ class UserGroupDAO extends DAO {
 			$this,
 			'_returnFromRow',
 			[],
-			$sql, $params
+			$sql, $params, $dbResultRange
 		);
 	}
 

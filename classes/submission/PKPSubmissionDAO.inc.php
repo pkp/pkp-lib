@@ -381,6 +381,6 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, '_fromRow', [], $sql, $params); // Counted via paging in CrossRef export
+		return new DAOResultFactory($result, $this, '_fromRow', [], $sql, $params, $rangeInfo); // Counted via paging in CrossRef export
 	}
 }

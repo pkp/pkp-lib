@@ -13,7 +13,9 @@
  */
 
 namespace PKP\components\listPanels;
+
 use PKP\components\listPanels\ListPanel;
+use PKP\components\forms\FieldSelectUsers;
 
 import('lib.pkp.classes.submission.PKPSubmission');
 import('classes.core.Services');
@@ -34,6 +36,9 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 
 	/** @var integer Count of total items available for list */
 	public $itemsMax = 0;
+
+	/** @var boolean Whether to show assigned to editors filter */
+	public $includeAssignedEditorsFilter = false;
 
 	/**
 	 * @copydoc ListPanel::getConfig()
@@ -119,6 +124,34 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 				]
 			]
 		];
+
+		if ($this->includeAssignedEditorsFilter) {
+			$assignedEditorsField = new FieldSelectUsers('assignedTo', [
+				'label' => __('editor.submissions.assignedTo'),
+				'value' => [],
+				'apiUrl' => $request->getDispatcher()->url(
+					$request,
+					ROUTE_API,
+					$context->getPath(),
+					'users',
+					null,
+					null,
+					['roleIds' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]]
+				),
+			]);
+			$config['filters'][] = [
+				'filters' => [
+					[
+						'title' => __('editor.submissions.assignedTo'),
+						'param' => 'assignedTo',
+						'value' => [],
+						'filterType' => 'pkp-filter-autosuggest',
+						'component' => $assignedEditorsField->component,
+						'autosuggestProps' => $assignedEditorsField->getConfig(),
+					]
+				]
+			];
+		}
 
 		// Provide required constants
 		import('lib.pkp.classes.submission.reviewRound.ReviewRound');

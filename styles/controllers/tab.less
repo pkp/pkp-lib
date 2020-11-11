@@ -22,8 +22,8 @@
 
 		a {
 			display: block;
-			padding: 0 @base;
-			line-height: @double + @base;
+			padding: 0 1rem;
+			line-height: 3rem;
 			font-weight: @bold;
 			text-decoration: none;
 
@@ -77,20 +77,20 @@
 		position: absolute;
 		top: 50%;
 		left: 100%;
-		width: @double;
-		height: @double;
+		width: 2rem;
+		height: 2rem;
 		overflow: hidden;
-		margin-top: -@base;
+		margin-top: -1rem;
 		padding: 0;
-		line-height: @double;
+		line-height: 2rem;
 		color: @no;
 		text-decoration: none;
 
 		&:before {
 			content: @fa-var-minus-circle;
 			display: block;
-			width: @double;
-			height: @double;
+			width: 2rem;
+			height: 2rem;
 			text-align: center;
 		}
 
@@ -109,7 +109,7 @@
 .ui-tabs-panel {
 	.pkp_helpers_clear;
 	position: relative;
-	padding: @double;
+	padding: 2rem;
 	background: @lift;
 }
 
@@ -119,14 +119,14 @@
  * If tabs appear inside of a tab panel, use a different visual paradigm to
  * better distinguish the hierarchy.
  */
-@pkp_nested_tab_line_height: @double + @base - 2; // account for border
+@pkp_nested_tab_line_height: calc(~"3rem - 2px"); // account for border
 .ui-tabs-panel {
 
 	.ui-tabs-nav {
-		margin-left: -@double;
-		margin-right: -@double;
-		margin-bottom: @double;
-		padding-left: @double;
+		margin-left: -2rem;
+		margin-right: -2rem;
+		margin-bottom: 2rem;
+		padding-left: 2rem;
 		border-bottom: @bg-border;
 		font-size: @font-sml;
 		line-height: @pkp_nested_tab_line_height;
@@ -138,7 +138,7 @@
 			border-top: none;
 
 			a {
-				padding: 0 @base;
+				padding: 0 1rem;
 				line-height: @pkp_nested_tab_line_height;
 
 				&:before {

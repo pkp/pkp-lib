@@ -34,9 +34,9 @@
 			display: inline-block;
 			font-size: @font-base;
 			margin: 0;
-			padding-top: @half;
-			padding-bottom: @half;
-			line-height: @double;
+			padding-top: 0.5rem;
+			padding-bottom: 0.5rem;
+			line-height: 2rem;
 		}
 	}
 
@@ -85,7 +85,7 @@
 
 	// Search filter
 	.filter {
-		padding: @base;
+		padding: 1rem;
 		font-size: @font-sml;
 
 		label {
@@ -95,7 +95,7 @@
 		}
 
 		.section {
-			margin-bottom: @half;
+			margin-bottom: 0.5rem;
 
 			&:last-child {
 				margin-bottom: 0;
@@ -105,14 +105,14 @@
 		.pkp_controllers_extrasOnDemand {
 
 			> a {
-				line-height: @double;
-				padding-left: @double + @base;
+				line-height: 2rem;
+				padding-left: 3rem;
 			}
 
 			> a .fa {
-				line-height: @double;
-				width: @double;
-				height: @double;
+				line-height: 2rem;
+				width: 2rem;
+				height: 2rem;
 			}
 		}
 
@@ -139,8 +139,8 @@
 
 	th,
 	td {
-		padding-left: @base;
-		padding-right: @base;
+		padding-left: 1rem;
+		padding-right: 1rem;
 		vertical-align: top;
 	}
 
@@ -151,8 +151,8 @@
 
 		th {
 			box-shadow: inset 0 -1px 0 @grid-border-color;
-			padding-top: @half;
-			padding-bottom: @half;
+			padding-top: 0.5rem;
+			padding-bottom: 0.5rem;
 			font-weight: @normal;
 		}
 
@@ -165,14 +165,14 @@
 
 	td {
 		position: relative;
-		padding-top: @half;
-		padding-bottom: @half - 1;
+		padding-top: 0.5rem;
+		padding-bottom: calc(~"0.5rem - 1px");
 		line-height: @line-base;
 	}
 
 	// Empty row
 	.empty td {
-		padding: 8px 0;
+		padding: 0.5rem 0;
 		font-size: @font-sml;
 		font-style: italic;
 		line-height: @line-base;
@@ -184,15 +184,15 @@
 	// Expand/collapse row actions
 	.has_extras td:first-child,
 	.row_controls td:first-child {
-		padding-left: @double;
+		padding-left: 2rem;
 	}
 
 	.show_extras,
 	.hide_extras {
 		position: absolute;
-		top: @half; // matches td padding
+		top: 0.5rem; // matches td padding
 		left: 0;
-		width: @double;
+		width: 2rem;
 		height: @line-base; // matches td line-height
 		line-height: @line-base;
 		text-align: center;
@@ -242,7 +242,7 @@
 	}
 
 	.order_finish_controls {
-		padding: @half;
+		padding: 0.5rem;
 		text-align: right;
 
 		.saveButton {
@@ -282,7 +282,7 @@
 		position: relative;
 		display: block;
 		margin: 0 -0.5em;
-		padding: 0 0.5em 0 @double;
+		padding: 0 0.5em 0 2rem;
 		line-height: @line-sml;
 
 		&:before {
@@ -387,7 +387,7 @@
 	// Actions inline with the row
 	.row_actions {
 		position: absolute;
-		top: @half;
+		top: 0.5rem;
 		right: 0;
 
 		> a {
@@ -458,7 +458,7 @@
 	// Pagination
 	.gridPaging {
 		.pkp_helpers_clear;
-		padding: @half @base;
+		padding: 0.5rem 1rem;
 		color: @text-light-rgba;
 		border-top: @grid-border;
 
@@ -487,15 +487,15 @@
 		position: relative;
 		color: @text-light-rgba;
 		text-align: center;
-		height: @double + @base;
-		line-height: @double + @base;
+		height: 3rem;
+		line-height: 3rem;
 		background: @grid-border-color;
 		border-bottom-right-radius: @radius;
 		border-bottom-left-radius: @radius;
 
 		.item_count {
 			position: absolute;
-			right: @base;
+			right: 1rem;
 		}
 
 		.pkp_linkaction_icon_more_items {
@@ -518,7 +518,7 @@
 			top: 0;
 			width: 100%;
 			background: @grid-border-color;
-			line-height: @double + @base;
+			line-height: 3rem;
 			opacity: 0;
 			transition: 0.3s opacity, 0.3s visibility;
 		}
@@ -607,7 +607,7 @@
 
 /* Fix strange grid float issue when placed inside subtabs */
 .pkpTabs--side .pkpTab .pkp_controllers_grid .header {
-	max-height: 48px;
+	max-height: 3rem;
 }
 
 // TODO check if these styles can be removed

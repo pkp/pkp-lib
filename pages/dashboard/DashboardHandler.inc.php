@@ -65,6 +65,7 @@ class DashboardHandler extends Handler {
 		$lists = [];
 
 		$includeIssuesFilter = array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $userRoles);
+		$includeAssignedEditorsFilter = array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles);
 
 		// My Queue
 		$myQueueListPanel = new \APP\components\listPanels\SubmissionsListPanel(
@@ -115,36 +116,10 @@ class DashboardHandler extends Handler {
 					],
 					'lazyLoad' => true,
 					'includeIssuesFilter' => $includeIssuesFilter,
+					'includeAssignedEditorsFilter' => $includeAssignedEditorsFilter,
 				]
 			);
 			$lists[$activeListPanel->id] = $activeListPanel->getConfig();
-			$lists[$activeListPanel->id]['filters'][] = [
-				'filters' => [
-					[
-						'title' => _('editors'),
-						'param' => 'assignedTo',
-						'value' => [],
-						'filterType' => 'pkp-filter-autosuggest',
-						'component' => 'field-select-users',
-						'autosuggestProps' => [
-								'allErrors' => (object) [],
-								'apiUrl' => $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'users', null, null, ['roleIds' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]]),
-								'description' => '',
-								'deselectLabel' => __('common.removeItem'),
-								'formId' => 'default',
-								'groupId' => 'default',
-								'initialPosition' => 'inline',
-								'isRequired' => false,
-								'label' => __('editor.submissions.assignedTo'),
-								'locales' => [],
-								'name' => 'editorIds',
-								'primaryLocale' => 'en_US',
-								'selectedLabel' => __('common.assigned'),
-								'value' => [],
-							]
-						]
-					]
-				];
 		}
 
 		// Archived
@@ -162,6 +137,7 @@ class DashboardHandler extends Handler {
 				'getParams' => $params,
 				'lazyLoad' => true,
 				'includeIssuesFilter' => $includeIssuesFilter,
+				'includeAssignedEditorsFilter' => $includeAssignedEditorsFilter,
 			]
 		);
 		$lists[$archivedListPanel->id] = $archivedListPanel->getConfig();

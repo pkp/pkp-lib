@@ -80,7 +80,7 @@
 							{$primaryMenu}
 
 							{* Search form *}
-							{if $currentContext}
+							{if $currentContext && $requestedPage !== 'search'}
 								{include file="frontend/components/searchForm_simple.tpl" className="pkp_search_desktop"}
 							{/if}
 						</div>
@@ -89,7 +89,7 @@
 						{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
 					</div>
 					{* Search form *}
-					{if $currentContext}
+					{if $currentContext && $requestedPage !== 'search'}
 						{include file="frontend/components/searchForm_simple.tpl" className="pkp_search_mobile"}
 					{/if}
 				</nav>

@@ -1548,6 +1548,12 @@ msgstr "Search for"
 msgid "search.searchResults"
 msgstr "Search Results"
 
+msgid "search.searchResults.foundSingle"
+msgstr "Found one item."
+
+msgid "search.searchResults.foundPlural"
+msgstr "Found {$count} items."
+
 msgid "search.subject"
 msgstr "Keyword(s)"
 

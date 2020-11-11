@@ -280,7 +280,7 @@ class ReviewRound extends DataObject {
 			case REVIEW_ROUND_STATUS_REVIEWS_COMPLETED:
 				return 'editor.submission.roundStatus.reviewsCompleted';
 			case REVIEW_ROUND_STATUS_REVIEWS_OVERDUE:
-				return 'editor.submission.roundStatus.reviewOverdue';
+				return $isAuthor ? 'author.submission.roundStatus.reviewOverdue' : 'editor.submission.roundStatus.reviewOverdue';
 			case REVIEW_ROUND_STATUS_PENDING_RECOMMENDATIONS:
 				return 'editor.submission.roundStatus.pendingRecommendations';
 			case REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY:

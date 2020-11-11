@@ -19,6 +19,9 @@ import('lib.pkp.classes.core.JSONMessage');
 
 class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler {
 
+	/** @var boolean Overwrite backend page handling of AuthorDashboardHandler */
+	public $_isBackendPage = false;
+
 	/**
 	 * Constructor
 	 */

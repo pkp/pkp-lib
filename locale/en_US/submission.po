@@ -23,6 +23,9 @@ msgstr "Provide a formatted list of references for works cited in this submissio
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "New reviews have been submitted and are being considered by the editor."
 
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr "One or more reviewers missed their deadline. The editorial team has been notified and will take action to ensure reviews are completed. You do not need to take any action at this time. You will be notified when a decision has been made."
+
 msgid "submission.confirm.message"
 msgstr "Your submission has been uploaded and is ready to be sent. You may go back to review and adjust any of the information you have entered before continuing. When you are ready, click \"Finish Submission\"."
 

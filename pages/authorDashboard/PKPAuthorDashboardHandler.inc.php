@@ -159,23 +159,25 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
 				$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 				$editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getRound());
-				$lastDecision = array_last($editorDecisions)['decision'];
-				$revisionDecisions = [SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, SUBMISSION_EDITOR_DECISION_RESUBMIT];
-				if (!empty($editorDecisions) && in_array($lastDecision, $revisionDecisions)) {
-					$actionArgs['submissionId'] = $submission->getId();
-					$actionArgs['stageId'] = $submission->getData('stageId');
-					$actionArgs['uploaderRoles'] = ROLE_ID_AUTHOR;
-					$actionArgs['fileStage'] = $fileStage;
-					$actionArgs['reviewRoundId'] = $lastReviewRound->getId();
-					$uploadFileUrl = $request->getDispatcher()->url(
-						$request,
-						ROUTE_COMPONENT,
-						null,
-						'wizard.fileUpload.FileUploadWizardHandler',
-						'startWizard',
-						null,
-						$actionArgs
-					);
+				if (!empty($editorDecisions)) {
+					$lastDecision = array_last($editorDecisions)['decision'];
+					$revisionDecisions = [SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, SUBMISSION_EDITOR_DECISION_RESUBMIT];
+					if (in_array($lastDecision, $revisionDecisions)) {
+						$actionArgs['submissionId'] = $submission->getId();
+						$actionArgs['stageId'] = $submission->getData('stageId');
+						$actionArgs['uploaderRoles'] = ROLE_ID_AUTHOR;
+						$actionArgs['fileStage'] = $fileStage;
+						$actionArgs['reviewRoundId'] = $lastReviewRound->getId();
+						$uploadFileUrl = $request->getDispatcher()->url(
+							$request,
+							ROUTE_COMPONENT,
+							null,
+							'wizard.fileUpload.FileUploadWizardHandler',
+							'startWizard',
+							null,
+							$actionArgs
+						);
+					}
 				}
 			}
 		}

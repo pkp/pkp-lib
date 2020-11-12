@@ -87,9 +87,6 @@ msgstr "E-pošta"
 msgid "user.interests"
 msgstr "Recenzijski interesi"
 
-msgid "user.interests.description"
-msgstr "(Interese ločite med seboj s tipko Enter ali vejicami)"
-
 msgid "user.gossip"
 msgstr "Zasebne opombe"
 

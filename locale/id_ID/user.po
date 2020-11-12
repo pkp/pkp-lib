@@ -74,9 +74,6 @@ msgstr "Email"
 msgid "user.interests"
 msgstr "Bidang Minat Review"
 
-msgid "user.interests.description"
-msgstr "(Pisahkan masing-masing bidang dengan spasi atau koma)"
-
 msgid "user.gossip"
 msgstr "Catatan Tambahan"
 

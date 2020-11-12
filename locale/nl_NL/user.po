@@ -95,9 +95,6 @@ msgstr "Voornaam"
 msgid "user.interests"
 msgstr "Review-interesses"
 
-msgid "user.interests.description"
-msgstr "(scheid interesses met de enter- of komma-toets)"
-
 msgid "user.gossip"
 msgstr "Privé-opmerkingen"
 

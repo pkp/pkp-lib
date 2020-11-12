@@ -407,9 +407,6 @@ msgstr ""
 msgid "user.gossip"
 msgstr "Ghi chú Biên tập"
 
-msgid "user.interests.description"
-msgstr "(Tách các lĩnh vực phản biện bằng cách nhấn phím enter hoặc dấu phẩy)"
-
 msgid "user.interests"
 msgstr "Lĩnh vực phản biện"
 

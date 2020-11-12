@@ -98,9 +98,6 @@ msgstr "Vorname"
 msgid "user.interests"
 msgstr "Interessen"
 
-msgid "user.interests.description"
-msgstr "(Trennen Sie Interessen durch die Enter-Taste oder durch Komma.)"
-
 msgid "user.gossip"
 msgstr "Private Notizen"
 

@@ -77,9 +77,6 @@ msgstr "Adreça electrònica"
 msgid "user.interests"
 msgstr "Interessos de revisió"
 
-msgid "user.interests.description"
-msgstr "(Separeu els interessos mitjançant la tecla de retorn o la tecla de coma)"
-
 msgid "user.gossip"
 msgstr "Notes privades"
 

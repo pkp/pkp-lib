@@ -272,9 +272,6 @@ msgstr "您必须设立有效的用户群来访问该操作。"
 msgid "user.authorization.managerRequired"
 msgstr "在您能够进行下一步前您必须指派一个出版管理身份的用户 （如出版或制作编辑）。"
 
-msgid "user.interests.description"
-msgstr "（按输入或逗号键来分隔兴趣）"
-
 msgid "user.gossip"
 msgstr "个人提醒"
 

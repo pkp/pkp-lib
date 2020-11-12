@@ -277,9 +277,6 @@ msgstr ""
 "En bruger med en redaktør-rolle (dvs. produktionsredaktør) skal tilknyttes "
 "dette trin, før du kan gå videre."
 
-msgid "user.interests.description"
-msgstr "(Adskil interesser ved at trykke på enter- eller komma-tasten)"
-
 msgid "user.group"
 msgstr "Brugergruppe"
 

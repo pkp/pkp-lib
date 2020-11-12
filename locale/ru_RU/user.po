@@ -95,9 +95,6 @@ msgstr "Имя"
 msgid "user.interests"
 msgstr "Интересы как рецензента"
 
-msgid "user.interests.description"
-msgstr "(Разделяйте интересы запятой или нажимайте «Enter»)"
-
 msgid "user.gossip"
 msgstr "Заметки редакции"
 

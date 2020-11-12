@@ -98,9 +98,6 @@ msgstr "Όνομα"
 msgid "user.interests"
 msgstr "Θεματικές ενδιαφέροντος για αξιολόγηση"
 
-msgid "user.interests.description"
-msgstr "(Διαχωρίστε τις θεματικές πατώντας enter ή με κόμμα"
-
 msgid "user.gossip"
 msgstr "Σημειώσεις"
 

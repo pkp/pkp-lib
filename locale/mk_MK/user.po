@@ -45,9 +45,6 @@ msgstr ""
 msgid "user.gossip"
 msgstr "Уреднички белешки"
 
-msgid "user.interests.description"
-msgstr "(Одделни интереси со притискање ентер или копчето запирка)"
-
 msgid "user.interests"
 msgstr "Рецензентски интереси"
 

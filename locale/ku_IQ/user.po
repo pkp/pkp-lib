@@ -14,9 +14,6 @@ msgstr ""
 msgid "user.gossip"
 msgstr "تێبینییەکانی سەرنوسەر"
 
-msgid "user.interests.description"
-msgstr "(پسپۆڕییەکان بە داگرتنی ئینتەر یان فاریزە لەیەکتر جیا بکەوە)"
-
 msgid "user.interests"
 msgstr "پسپۆڕی بۆ هەڵسەنگاندن"
 

@@ -101,9 +101,6 @@ msgstr "Kezdőbetűk"
 msgid "user.interests"
 msgstr "Érdeklődési körök"
 
-msgid "user.interests.description"
-msgstr "(Az érdeklődési köröket külön sorba írja, vagy vesszővel válassza el)"
-
 msgid "user.gossip"
 msgstr "Személyes megjegyzések"
 

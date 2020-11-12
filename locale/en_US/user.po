@@ -95,9 +95,6 @@ msgstr "Given Name"
 msgid "user.interests"
 msgstr "Reviewing interests"
 
-msgid "user.interests.description"
-msgstr "(Separate interests by pressing the enter or comma key)"
-
 msgid "user.gossip"
 msgstr "Editorial Notes"
 

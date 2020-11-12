@@ -86,9 +86,6 @@ msgstr "Iniciales"
 msgid "user.interests"
 msgstr "Intereses de revisión"
 
-msgid "user.interests.description"
-msgstr "(Para separar los intereses pulse la tecla Intro o de coma)"
-
 msgid "user.gossip"
 msgstr "Notas privadas"
 

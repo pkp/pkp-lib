@@ -86,9 +86,6 @@ msgstr "Sähköposti"
 msgid "user.interests"
 msgstr "Sisällölliset ja tutkimusmenetelmälliset osaamisalueet"
 
-msgid "user.interests.description"
-msgstr "(Erittele enterillä tai pilkulla)"
-
 msgid "user.gossip"
 msgstr "Yksityiset muistiinpanot"
 

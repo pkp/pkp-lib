@@ -310,9 +310,6 @@ msgstr "Vous devez choisir un groupe d'utilisateur valide pour accéder à cette
 msgid "user.authorization.managerRequired"
 msgstr "Un utilisateur ayant un rôle de gestionnaire (i.e. directeur de la production) doit être assigné à cette étape avant que vous puissiez continuer."
 
-msgid "user.interests.description"
-msgstr "(Séparer les intérêts en appuyant sur la touche Enter ou en ajoutant une virgule)"
-
 msgid "user.group"
 msgstr "Groupe d'utilisateur"
 

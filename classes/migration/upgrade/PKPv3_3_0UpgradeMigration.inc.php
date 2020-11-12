@@ -134,6 +134,8 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 
 		// pkp/pkp-lib#6057 Submission files refactor
 		$this->_migrateSubmissionFiles();
+		$this->_fixCapitalCustomBlockTitles();
+		$this->_createCustomBlockTitles();
 	}
 
 	/**
@@ -459,5 +461,79 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		}
 
 		return $fileStagePathMap[$fileStage];
+	}
+
+	/*
+	 * Update block names to be all lowercase
+	 *
+	 * In previous versions, a custom block name would be stored in the
+	 * array of blocks with capitals but the block name in the plugin_settings
+	 * table is all lowercase. This migration aligns the two places by changing
+	 * the block names to always use lowercase.
+	 *
+	 * @return void
+	 */
+	private function _fixCapitalCustomBlockTitles() {
+		$rows = Capsule::table('plugin_settings')
+			->where('plugin_name', 'customblockmanagerplugin')
+			->where('setting_name', 'blocks')
+			->get();
+		foreach ($rows as $row) {
+			$updateBlocks = false;
+			$blocks = json_decode($row->setting_value);
+			foreach ($blocks as $key => $block) {
+				$newBlock = strtolower_codesafe($block);
+				if ($block !== $newBlock) {
+					$blocks[$key] = $newBlock;
+					$updateBlocks = true;
+				}
+			}
+			if ($updateBlocks) {
+				Capsule::table('plugin_settings')
+					->where('plugin_name', 'customblockmanagerplugin')
+					->where('setting_name', 'blocks')
+					->where('context_id', $row->context_id)
+					->update(['setting_value' => $blocks]);
+			}
+		}
+	}
+
+	/*
+	 * Create titles for custom block plugins
+	 *
+	 * This method copies the block names, which are a unique id,
+	 * into a block setting, `blockTitle`, in the context's
+	 * primary locale
+	 *
+	 * @see https://github.com/pkp/pkp-lib/issues/5619
+	 */
+	private function _createCustomBlockTitles() {
+		$contextDao = \Application::get()->getContextDAO();
+
+		$rows = Capsule::table('plugin_settings')
+			->where('plugin_name', 'customblockmanagerplugin')
+			->where('setting_name', 'blocks')
+			->get();
+
+		$newRows = [];
+		foreach ($rows as $row) {
+			$locale = Capsule::table($contextDao->tableName)
+				->where($contextDao->primaryKeyColumn, $row->context_id)
+				->first()
+				->primary_locale;
+			$blocks = json_decode($row->setting_value);
+			foreach ($blocks as $block) {
+				$newRows[] = [
+					'plugin_name' => $block,
+					'context_id' => $row->context_id,
+					'setting_name' => 'blockTitle',
+					'setting_value' => json_encode([$locale => $block]),
+					'setting_type' => 'object',
+				];
+			}
+		}
+		if (!Capsule::table('plugin_settings')->insert($newRows)) {
+			error_log('Failed to create title for custom blocks. This can be fixed manually by editing each custom block and adding a title.');
+		}
 	}
 }

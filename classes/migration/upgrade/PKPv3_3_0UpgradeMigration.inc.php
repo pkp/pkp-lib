@@ -423,7 +423,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 
 		// Postgres leaves the old file_id autoincrement sequence around, so
 		// we delete it and apply a new sequence.
-		if (Config::getVar('database', 'driver') === 'postgres9') {
+		if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
 			Capsule::statement('DROP SEQUENCE submission_files_file_id_seq CASCADE');
 			Capsule::schema()->table('submission_files', function (Blueprint $table) {
 				$table->bigIncrements('submission_file_id')->change();

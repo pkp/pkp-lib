@@ -18,6 +18,7 @@ use \Application;
 use \DAORegistry;
 use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
+use \PKP\Services\interfaces\EntityWriteInterface;
 
 class PKPSiteService implements EntityPropertyInterface {
 

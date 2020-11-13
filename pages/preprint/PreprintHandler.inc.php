@@ -235,7 +235,7 @@ class PreprintHandler extends Handler {
 		$templateMgr->assign([
 			'licenseTerms' => $context->getLocalizedData('licenseTerms'),
 			'licenseUrl' => $publication->getData('licenseUrl'),
-			'copyrightHolder' => $publication->getData('copyrightHolder'),
+			'copyrightHolder' => $publication->getLocalizedData('copyrightHolder'),
 			'copyrightYear' => $publication->getData('copyrightYear'),
 			'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true),
 			'keywords' => $publication->getData('keywords'),

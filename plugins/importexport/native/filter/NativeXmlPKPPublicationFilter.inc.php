@@ -245,7 +245,13 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 	 */
 	function parseCitations($n, $publication) {
 		$publicationId = $publication->getId();
-		$citationsString = $n->textContent;
+		$citationsString = '';
+		foreach ($n->childNodes as $citNode) {
+			$nodeText = trim($citNode->textContent);
+			if (empty($nodeText)) continue;
+			$citationsString .= $nodeText ."\n";
+		}
+		$publication->setData('citationsRaw', $citationsString);
 		$citationDao = DAORegistry::getDAO('CitationDAO'); /** @var $citationDao CitationDAO */
 		$citationDao->importCitations($publicationId, $citationsString);
 	}

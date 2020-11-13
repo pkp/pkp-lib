@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2020-10-17 09:50+0000\n"
-"Last-Translator: Tom Granroth <tom.granroth@tsv.fi>\n"
+"PO-Revision-Date: 2020-10-19 09:01+0000\n"
+"Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "fi_FI/>\n"
 "Language: fi_FI\n"
@@ -91,3 +91,59 @@ msgstr "Parametria {$param} ei tueta."
 
 msgid "api.vocabs.400.vocabNotSupported"
 msgstr "Sanastoa {$vocab} ei tueta."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Kielialuetta {$locale} ei tueta."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Käytettävää teema {$themePluginPath} ei ole otettu käyttöön, eikä sitä voi "
+"asentaa."
+
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"Palvelimen määritysvirheen vuoksi tiedostoa ei voitu ladata. Ota yhteys "
+"järjestelmän ylläpitäjään."
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "Tiedostokooltaan {$maxSize} suurempia tiedostoja ei voi ladata."
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "Yhtä tai useampaa tiedostoa ei voitu ladata."
+
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "Pyynnöstä ei löytynyt ladattavaa tiedostoa."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Pyydetty vuosikerta, numero tai vuosi ei ole kelvollinen."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Tätä päätepistettä ei ole saatavilla. Se on käytettävissä vain koko sivuston "
+"nimiavaruudesta."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Pyyntösi ei ollut kelvollinen. Lajittelujärjestyksen tulee olla `laskeva` "
+"(desc) tai `nouseva` (asc)."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Pyyntösi ei ollut kelvollinen. Aikajakson tulee olla `päivä` tai `kuukausi`."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Lopetuspäivä ei voi olla eilisen jälkeen."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Aloituspäivämäärä ei voi olla aiempi kuin 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Aloituspäivä ei voi olla myöhempi kuin lopetuspäivä."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Päiväyksen tulee olla muodossa YYYY-MM-DD."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Kohdehakemistoa ei löytynyt tai tiedostoja ei voi tallentaa sinne. Ota "
+"yhteyttä ylläpitoon."

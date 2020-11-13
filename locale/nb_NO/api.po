@@ -1,0 +1,149 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-11-05 09:45+0000\n"
+"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/api/nb_NO/>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Ordforrådet {$vocab} støttes ikke."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Språket {$locale} støttes ikke."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Det aktive temaet, {$themePluginPath}, er ikke aktivert og kan ikke "
+"installeres."
+
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"Filen kunne ikke lastes opp på grunn av en serverkonfigurasjonsfeil. Kontakt "
+"systemadministratoren."
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "Filer større enn {$maxSize} kan ikke lastes opp."
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "En eller flere filer kunne ikke lastes opp."
+
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "Ingen av filene som skal lastes opp ble funnet basert på forespørselen."
+
+msgid "api.submissions.unknownError"
+msgstr "Det oppsto en feil. Gjenoppfrisk skjermbildet og forsøk igjen."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Den forespurte årgangen, nummeret og året er ikke gyldig."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Forespørselen kunne ikke besvares fordi den manglet nødvendig informasjon."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Dette endepunktet er ikke tilgjengelig fra en sammenheng. Det må være "
+"tilgjengelig fra hele navneområdet til nettstedet."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Du har ikke tillatelse til å slette denne innleveringen."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Du kan ikke slette en innlevering som ikke er tildelt denne konteksten."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Du kan bare se upubliserte innleveringer som du har blitt tildelt."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Du kan ikke gjøre dette. Grunnen kan være at innloggingen din har løpt ut. "
+"Forsøk å gjenoppfriske skjermbildet før du prøver igjen."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Forespørselen din var ikke gyldig. OrderDirection må være \"ned\" eller \""
+"opp\"."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Forespørselen din var ikke gyldig. Tidsintervallet må være 'dag' eller "
+"'måned'."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Slutdatoen kan ikke være senere enn i går."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Startdatoen kan ikke være tidligere enn 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Startdatoen kan ikke være senere enn sluttdatoen."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Datoen skal være i formatet ÅÅÅÅ-MM-DD."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Du har ikke tillatelse til å redigere denne publikasjonen."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Den offentlige filkatalogen ble ikke funnet, eller filene kan ikke lagres i "
+"den. Kontakt administratoren din for å løse dette problemet."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Du har ikke nok plass i brukerkatalogen din. Filen du laster opp er på "
+"{$fileUploadSize} kb, og du har {$dirSizeLeft} kb igjen."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Du har ikke tillatelse til å laste opp filer."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Filen du lastet opp, samsvarte ikke med utvidelsen. Dette kan skje når en "
+"fil har blitt omdøpt til en inkompatibel type, for eksempel når photo.png "
+"endres til photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Bildet du lastet opp er ikke gyldig."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Du kan bare laste opp følgende filtyper: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Du må trekke tilbake denne publikasjonen før du kan slette den."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Du kan ikke endre status direkte via API. I stedet skal du bruke /publish og "
+"/unpublish endepunktene."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+"Du kan ikke redigere denne publikasjonen ettersom den allerede er publisert."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Publikasjonen du ønsker å trekke tilbake er ikke publisert."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Publikasjonen du vil publisere er allerede utgitt."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "E-postmalen du ba om, ble ikke funnet."
+
+msgid "api.404.endpointNotFound"
+msgstr "Den angitte URL-en ble ikke gjenkjent."
+
+msgid "api.404.resourceNotFound"
+msgstr "Den ønskede ressursen blev ikke funnet."
+
+msgid "api.403.unauthorized"
+msgstr "Du har ikke tilgang til den ønskede ressursen."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parameteren {$param} støttes ikke."

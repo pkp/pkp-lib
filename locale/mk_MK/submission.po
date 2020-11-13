@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-10 04:22+0000\n"
+"PO-Revision-Date: 2020-10-21 11:37+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk_MK/>\n"
@@ -209,3 +209,21 @@ msgstr "Внеси WorldCat API Key, ако имаш."
 
 msgid "metadata.filters.worldcat.settings.apiKey.displayName"
 msgstr "WorldCat API Key"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Внесете важечка локација за конференција."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Локализација на конференцијата"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Ве молиме, внесете важечки датум на конференција (формат: YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Датум на конференцијата"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Внесете важечки додаток."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Додаток"

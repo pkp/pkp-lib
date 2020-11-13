@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-06-07 04:39+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2020-11-11 16:51+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "editor/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -31,7 +31,7 @@ msgstr ""
 "disponíveis serão listados e podem ser escolhidos para inclusão."
 
 msgid "grid.action.addGalley"
-msgstr "Adicione prova gráfica"
+msgstr "Adicione composição final"
 
 msgid "editor.publicIdentificationExists"
 msgstr ""

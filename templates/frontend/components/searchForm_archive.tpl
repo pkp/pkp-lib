@@ -24,7 +24,7 @@
 		{block name=searchQueryFrontpage}
 			<input name="query" value="{$searchQuery|escape}" type="text" aria-label="{translate|escape key="common.searchQuery"}">
 		{/block}
-		<button type="submit">
+		<button class="cmp_button" type="submit">
 			{translate key="common.search"}
 		</button>
 	</form>

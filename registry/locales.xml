@@ -18,6 +18,8 @@
 <locales>
 	<locale key="en_US" complete="true"  name="English" iso639-2b="eng" iso639-3="eng" />
 	<locale key="es_ES" complete="true"  name="Español (España)" iso639-2b="spa" iso639-3="spa" />
+	<locale key="fi_FI" complete="false" name="Suomi" iso639-2b="fin" iso639-3="fin" />
 	<locale key="fr_CA" complete="false" name="Français (Canada)" iso639-2b="fre" iso639-3="fra" />
+	<locale key="nb_NO" complete="false" name="Norsk Bokmål" iso639-2b="nor" iso639-3="nor" />
 	<locale key="pt_BR" complete="true"  name="Português (Brasil)" iso639-2b="por" iso639-3="por" />
 </locales>

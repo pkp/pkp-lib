@@ -147,7 +147,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			$userListQB->assignedToCategory($args['assignedToCategory']);
 		}
 
-		\HookRegistry::call('User::getMany::queryBuilder', array($userListQB, $args));
+		\HookRegistry::call('User::getMany::queryBuilder', array(&$userListQB, $args));
 
 		return $userListQB;
 	}
@@ -194,7 +194,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * Build the reviewers query object for getReviewers requests
 	 *
 	 * @see self::getQueryBuilder()
-	 * @return UserQueryBuilder
+	 * @return PKPUserQueryBuilder
 	 */
 	public function getReviewersQueryBuilder($args = []) {
 
@@ -221,7 +221,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			->filterByDaysSinceLastAssignment($args['daysSinceLastAssignment'])
 			->filterByAverageCompletion($args['averageCompletion']);
 
-		\HookRegistry::call('User::getReviewers::queryBuilder', array($reviewerListQB, $args));
+		\HookRegistry::call('User::getReviewers::queryBuilder', array(&$reviewerListQB, $args));
 
 		return $reviewerListQB;
 	}
@@ -556,7 +556,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			$accessibleStageRoles = array_unique($accessibleStageRoles);
 		}
 
-		return $accessibleStageRoles;
+		return array_map('intval', $accessibleStageRoles);
 	}
 
 	/**

@@ -74,7 +74,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 		$entityNode = $doc->createElementNS($deployment->getNamespace(), 'publication');
 
 		$this->addIdentifiers($doc, $entityNode, $entity);
-		
+
 		$entityNode->setAttribute('locale', $entity->getData('locale'));
 		$entityNode->setAttribute('version', $entity->getData('version') ?: 1);
 		$entityNode->setAttribute('status', $entity->getData('status'));
@@ -83,12 +83,12 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 
 		$isPublished = $entity->getData('status') === STATUS_PUBLISHED;
 		$isPublished ? $entityNode->setAttribute('seq', (int) $entity->getData('seq')) : $entityNode->setAttribute('seq', '0');
-		
+
 		$entityLanguages = $entity->getData('languages');
 		if ($entityLanguages) {
 			$entityNode->setAttribute('language', $entityLanguages);
 		}
-		
+
 		if ($datePublished = $entity->getData('datePublished')) {
 			$entityNode->setAttribute('date_published', strftime('%Y-%m-%d', strtotime($datePublished)));
 		}
@@ -164,13 +164,13 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 		$this->createLocalizedNodes($doc, $entityNode, 'type', $entity->getData('type'));
 		$this->createLocalizedNodes($doc, $entityNode, 'source', $entity->getData('source'));
 		$this->createLocalizedNodes($doc, $entityNode, 'rights', $entity->getData('rights'));
-		
+
 		if ($entity->getData('licenseUrl')) {
 			$entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'licenseUrl', htmlspecialchars($entity->getData('licenseUrl'))));
 		}
 
 		$this->createLocalizedNodes($doc, $entityNode, 'copyrightHolder', $entity->getData('copyrightHolder'));
-		
+
 		if ($entity->getData('copyrightYear')) {
 			$entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'copyrightYear', intval($entity->getData('copyrightYear'))));
 		}

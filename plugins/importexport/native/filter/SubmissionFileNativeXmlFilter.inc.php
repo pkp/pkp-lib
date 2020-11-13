@@ -70,81 +70,107 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 	function createSubmissionFileNode($doc, $submissionFile) {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
+		$stageToName = array_flip($deployment->getStageNameStageIdMapping());
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
+		$genre = $genreDao->getById($submissionFile->getData('genreId'));
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+		$uploaderUser = $userDao->getById($submissionFile->getData('uploaderUserId'));
 
 		// Create the submission_file node and set metadata
 		$submissionFileNode = $doc->createElementNS($deployment->getNamespace(), $this->getSubmissionFileElementName());
-
-		$stageToName = array_flip($deployment->getStageNameStageIdMapping());
+		$submissionFileNode->setAttribute('id', $submissionFile->getId());
+		$submissionFileNode->setAttribute('created_at', strftime('%Y-%m-%d', strtotime($submissionFile->getData('createdAt'))));
+		$submissionFileNode->setAttribute('date_created', $submissionFile->getData('dateCreated'));
+		$submissionFileNode->setAttribute('file_id', $submissionFile->getData('fileId'));
 		$submissionFileNode->setAttribute('stage', $stageToName[$submissionFile->getFileStage()]);
-		$submissionFileNode->setAttribute('id', $submissionFile->getFileId());
-
-		// Create the revision node and set metadata
-		$revisionNode = $doc->createElementNS($deployment->getNamespace(), 'revision');
-		$revisionNode->setAttribute('number', $submissionFile->getRevision());
-		if ($sourceFileId = $submissionFile->getSourceFileId()) {
-			$revisionNode->setAttribute('source', $sourceFileId . '-' . $submissionFile->getSourceRevision());
+		$submissionFileNode->setAttribute('updated_at', strftime('%Y-%m-%d', strtotime($submissionFile->getData('updatedAt'))));
+		$submissionFileNode->setAttribute('viewable', $submissionFile->getViewable()?'true':'false');
+		if ($caption = $submissionFile->getData('caption')) {
+			$submissionFileNode->setAttribute('caption', $caption);
 		}
-
-		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
-		$genre = $genreDao->getById($submissionFile->getGenreId());
+		if ($copyrightOwner = $submissionFile->getData('copyrightOwner')) {
+			$submissionFileNode->setAttribute('copyright_owner', $copyrightOwner);
+		}
+		if ($credit = $submissionFile->getData('credit')) {
+			$submissionFileNode->setAttribute('credit', $credit);
+		}
+		if ($directSalesPrice = $submissionFile->getData('directSalesPrice')) {
+			$submissionFileNode->setAttribute('direct_sales_price', $directSalesPrice);
+		}
 		if ($genre) {
-			$revisionNode->setAttribute('genre', $genre->getName($context->getPrimaryLocale()));
+			$submissionFileNode->setAttribute('genre', $genre->getName($context->getPrimaryLocale()));
 		}
-
-		$revisionNode->setAttribute('filename', $submissionFile->getOriginalFileName());
-		$revisionNode->setAttribute('viewable', $submissionFile->getViewable()?'true':'false');
-		$revisionNode->setAttribute('date_uploaded', strftime('%Y-%m-%d', strtotime($submissionFile->getDateUploaded())));
-		$revisionNode->setAttribute('date_modified', strftime('%Y-%m-%d', strtotime($submissionFile->getDateModified())));
-		if ($submissionFile->getDirectSalesPrice() !== null) {
-			$revisionNode->setAttribute('direct_sales_price', $submissionFile->getDirectSalesPrice());
+		if ($language = $submissionFile->getData('language')) {
+			$submissionFileNode->setAttribute('language', $language);
 		}
-		$revisionNode->setAttribute('filesize', $submissionFile->getFileSize());
-		$revisionNode->setAttribute('filetype', $submissionFile->getFileType());
+		if ($salesType = $submissionFile->getData('salesType')) {
+			$submissionFileNode->setAttribute('sales_type', $salesType);
+		}
+		if ($sourceSubmissionFileId = $submissionFile->getData('sourceSubmissionFileId')) {
+			$submissionFileNode->setAttribute('source_submission_file_id', $sourceSubmissionFileId);
+		}
+		if ($terms = $submissionFile->getData('terms')) {
+			$submissionFileNode->setAttribute('terms', $terms);
+		}
+		if ($uploaderUser) {
+			$submissionFileNode->setAttribute('uploader', $uploaderUser->getUsername());
+		}
+		$this->createLocalizedNodes($doc, $submissionFileNode, 'creator', $submissionFile->getData('creator'));
+		$this->createLocalizedNodes($doc, $submissionFileNode, 'description', $submissionFile->getData('description'));
+		$this->createLocalizedNodes($doc, $submissionFileNode, 'name', $submissionFile->getData('name'));
+		$this->createLocalizedNodes($doc, $submissionFileNode, 'publisher', $submissionFile->getData('publisher'));
+		$this->createLocalizedNodes($doc, $submissionFileNode, 'source', $submissionFile->getData('source'));
+		$this->createLocalizedNodes($doc, $submissionFileNode, 'sponsor', $submissionFile->getData('sponsor'));
+		$this->createLocalizedNodes($doc, $submissionFileNode, 'subject', $submissionFile->getData('subject'));
 
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-		$uploaderUser = $userDao->getById($submissionFile->getUploaderUserId());
-		assert(isset($uploaderUser));
-		$revisionNode->setAttribute('uploader', $uploaderUser->getUsername());
-
-		$this->addIdentifiers($doc, $revisionNode, $submissionFile);
-		$this->createLocalizedNodes($doc, $revisionNode, 'name', $submissionFile->getName(null));
-
-		// if it is a dependent file, add submission_file_ref element
-		if ($submissionFile->getFileStage() == SUBMISSION_FILE_DEPENDENT && $submissionFile->getAssocType() == ASSOC_TYPE_SUBMISSION_FILE) {
+		// If it is a dependent file, add submission_file_ref element
+		if ($submissionFile->getData('fileStage') == SUBMISSION_FILE_DEPENDENT && $submissionFile->getData('assocType') == ASSOC_TYPE_SUBMISSION_FILE) {
 			$fileRefNode = $doc->createElementNS($deployment->getNamespace(), 'submission_file_ref');
-			$fileRefNode->setAttribute('id', $submissionFile->getAssocId());
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-			$latestRevision = $submissionFileDao->getLatestRevisionNumber($submissionFile->getAssocId());
-			$fileRefNode->setAttribute('revision', $latestRevision);
-			$revisionNode->appendChild($fileRefNode);
+			$fileRefNode->setAttribute('id', $submissionFile->getData('assocId'));
+			$submissionFileNode->appendChild($fileRefNode);
 		}
 
-		$submissionFileNode->appendChild($revisionNode);
-		// Embed the file contents
+		// Add pub-id plugins
+		$this->addIdentifiers($doc, $submissionFileNode, $submissionFile);
 
-		if (array_key_exists('no-embed', $this->opts)) {
-			$hrefNode = $doc->createElementNS($deployment->getNamespace(), 'href');
-			if (array_key_exists('use-file-urls', $this->opts)) {
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-				$stageId = $submissionFileDao->getWorkflowStageId($submissionFile);
-				$app = Application::getApplication();
-				$dispatcher = $app->getDispatcher();
-				$params = ["fileId" => $submissionFile->getFileId(),
-						   "revision" => $submissionFile->getRevision(),
-						   "submissionId" => $submissionFile->getSubmissionId(),
-						   "stageId" => $stageId];
-				$url = $dispatcher->url($app->getRequest(), ROUTE_COMPONENT, $context->getPath(), "api.file.FileApiHandler", "downloadFile", null, $params);
-				$hrefNode->setAttribute('src', $url);
+		// Create the revision nodes
+		$fileIds = Services::get('submissionFile')->getRevisionFileIds($submissionFile->getId());
+		foreach ($fileIds as $fileId) {
+			$path = Services::get('file')->getPath($fileId);
+			$localPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $path;
+			$revisionNode = $doc->createElementNS($deployment->getNamespace(), 'file');
+			$revisionNode->setAttribute('id', $fileId);
+			$revisionNode->setAttribute('filesize', filesize($localPath));
+			$revisionNode->setAttribute('extension', pathinfo($path, PATHINFO_EXTENSION));
+
+			if (array_key_exists('no-embed', $this->opts)) {
+				$hrefNode = $doc->createElementNS($deployment->getNamespace(), 'href');
+				if (array_key_exists('use-file-urls', $this->opts)) {
+					$stageId = Services::get('submissionFile')->getWorkflowStageId($submissionFile);
+					$dispatcher = Application::get()->getDispatcher();
+					$request = Application::get()->getRequest();
+					$params = [
+						"submissionFileId" => $submissionFile->getId(),
+						"submissionId" => $submissionFile->getData('submissionId'),
+						"stageId" => $stageId,
+					];
+					$url = $dispatcher->url($request, ROUTE_COMPONENT, $context->getPath(), "api.file.FileApiHandler", "downloadFile", null, $params);
+					$hrefNode->setAttribute('src', $url);
+				} else {
+					$hrefNode->setAttribute('src', $path);
+				}
+				$hrefNode->setAttribute('mime_type', Services::get('file')->fs->getMimetype($path));
+				$revisionNode->appendChild($hrefNode);
 			} else {
-				$hrefNode->setAttribute('src', $submissionFile->getFilePath());
+				$embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($localPath)));
+				$embedNode->setAttribute('encoding', 'base64');
+				$revisionNode->appendChild($embedNode);
 			}
-			$hrefNode->setAttribute('mime_type', $submissionFile->getFileType());
-			$revisionNode->appendChild($hrefNode);
-		} else {
-			$embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($submissionFile->getFilePath())));
-			$embedNode->setAttribute('encoding', 'base64');
-			$revisionNode->appendChild($embedNode);
+
+			$submissionFileNode->appendChild($revisionNode);
 		}
+
+
 		return $submissionFileNode;
 	}
 

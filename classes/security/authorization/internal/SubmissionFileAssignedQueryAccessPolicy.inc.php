@@ -21,8 +21,8 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function __construct($request, $fileIdAndRevision = null) {
-		parent::__construct($request, $fileIdAndRevision);
+	function __construct($request, $submissionFileId = null) {
+		parent::__construct($request, $submissionFileId);
 	}
 
 
@@ -44,10 +44,10 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
 		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
 
 		// Check if it's associated with a note.
-		if ($submissionFile->getAssocType() != ASSOC_TYPE_NOTE) return AUTHORIZATION_DENY;
+		if ($submissionFile->getData('assocType') != ASSOC_TYPE_NOTE) return AUTHORIZATION_DENY;
 
 		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
-		$note = $noteDao->getById($submissionFile->getAssocId());
+		$note = $noteDao->getById($submissionFile->getData('assocId'));
 		if (!is_a($note, 'Note')) return AUTHORIZATION_DENY;
 
 		if ($note->getAssocType() != ASSOC_TYPE_QUERY) return AUTHORIZATION_DENY;

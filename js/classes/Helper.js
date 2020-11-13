@@ -86,7 +86,7 @@
 	 * Copyright (c) 2010 Robert Kieffer
 	 * Copyright (c) 2014-2020 Simon Fraser University
 	 * Copyright (c) 2010-2020 John Willinsky
-	 * Distributed under the GNU GPL v2 and MIT licenses. For full
+	 * Distributed under the GNU GPL v3 and MIT licenses. For full
 	 * terms see the file docs/COPYING.
 	 *
 	 * See discussion of randomness versus uniqueness:

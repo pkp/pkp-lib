@@ -179,11 +179,9 @@
 		},
 		"locale": {
 			"type": "string",
-			"description": "The primary locale of this publication.",
+			"description": "The primary locale of the submission this publication is attached to. This locale is used as the fallback when a language is missing from a multilingual property.",
 			"apiSummary": true,
-			"validation": [
-				"regex:/^[a-z]{2}_[A-Z]{2}(@[a-z]{0,})?$/"
-			]
+			"readOnly": true
 		},
 		"prefix": {
 			"type": "string",

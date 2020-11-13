@@ -878,12 +878,6 @@ msgstr "Slett denne komponenten"
 msgid "grid.action.restoreGenres"
 msgstr "Gjenopprett komponentene til standardoppsettet"
 
-msgid "manager.setup.genres.dependent"
-msgstr "Marker filer av denne typen som sekundærfiler (dvs. skal ikke bli vist sammen med publisert innhold)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Marker filer av denne typen som tilleggsfiler (dvs. ikke hovedmanuskript)"
-
 msgid "manager.settings.wizard"
 msgstr "Veiviser for instillinger"
 
@@ -1138,9 +1132,6 @@ msgstr "Programutvidelse allerede installert, men kan bli oppdatert til en nyere
 
 msgid "plugins.categories.metadata.description"
 msgstr "Programutvidelser for metadata implementerer ytterligere metadata-standarder"
-
-msgid "manager.setup.groupType"
-msgstr "Gruppering av filtyper"
 
 msgid "manager.setup.homepageImage"
 msgstr "Hjemmesidebilde"

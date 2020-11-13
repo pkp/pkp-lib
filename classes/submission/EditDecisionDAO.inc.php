@@ -171,16 +171,16 @@ class EditDecisionDAO extends DAO {
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$reviewRound = $reviewRoundDao->getReviewRound($submissionId, $stageId, $round);
 
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		import('lib.pkp.classes.submission.SubmissionFile'); // Bring the file constants.
-		$submissionFiles =  $submissionFileDao->getRevisionsByReviewRound($reviewRound, SUBMISSION_FILE_REVIEW_REVISION);
+		$submissionFilesIterator = Services::get('submissionFile')->getMany([
+			'reviewRoundIds' => [$reviewRound->getId()],
+			'fileStages' => [SUBMISSION_FILE_REVIEW_REVISION],
+		]);
 
-		if (is_array($submissionFiles)) {
-			foreach ($submissionFiles as $file) {
-				if ($file->getDateUploaded() > $decision['dateDecided']) {
-					$sentRevisions = true;
-					break;
-				}
+		foreach ($submissionFilesIterator as $submissionFile) {
+			if ($submissionFile->getData('uploadedAt') > $decision['dateDecided']) {
+				$sentRevisions = true;
+				break;
 			}
 		}
 

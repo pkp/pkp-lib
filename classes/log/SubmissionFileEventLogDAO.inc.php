@@ -31,11 +31,11 @@ class SubmissionFileEventLogDAO extends EventLogDAO {
 
 	/**
 	 * Get event log entries by submission file ID.
-	 * @param $fileId int
+	 * @param $submissionFileId int
 	 * @return DAOResultFactory
 	 */
-	function getByFileId($fileId) {
-		return $this->getByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $fileId);
+	function getById($submissionFileId) {
+		return $this->getByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFileId);
 	}
 }
 

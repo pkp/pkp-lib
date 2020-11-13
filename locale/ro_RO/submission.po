@@ -976,9 +976,10 @@ msgstr "Înregistrarea manuscrisului a fost actualizată"
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadatele înregistrării manuscrisului au fost încărcate"
 
+#, fuzzy
 msgid "submission.event.fileRevised"
 msgstr ""
-"Revizia \"{$name}\" (file ID {$fileId}-{$fileRevision}) a fost încărcată."
+"Revizia \"{$name}\" (file ID {$submissionFileId}) a fost încărcată."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Înregistrarea inițială de manuscris a fost încheiată."
@@ -1307,9 +1308,6 @@ msgstr ""
 
 msgid "submission.upload.uploadFiles"
 msgstr "Încărcați fișiere"
-
-msgid "submission.upload.fairCopy"
-msgstr "Încărcați copia corectă"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Încărcare fișier manuscris editat"

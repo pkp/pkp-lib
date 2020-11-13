@@ -969,16 +969,6 @@ msgstr "Identifier simbolik ringkas opsional untuk genre ini."
 msgid "manager.setup.genres.key"
 msgstr "Key"
 
-msgid "manager.setup.genres.supplementary"
-msgstr ""
-"Tandai jenis file ini sebagai file pelengkap (misalnya, bukan isi naskah "
-"utama)"
-
-msgid "manager.setup.genres.dependent"
-msgstr ""
-"Tandai jenis file ini sebagai file dependen (misalnya, tidak ditampilkan "
-"pada konten yang diterbitkan)"
-
 msgid "grid.action.restoreGenres"
 msgstr "Pulihkan komponen ke pengaturan awal"
 
@@ -1515,9 +1505,6 @@ msgstr "Unggah gambar untu ditampilkan pada halaman beranda."
 
 msgid "manager.setup.homepageImage"
 msgstr "Gambar Beranda"
-
-msgid "manager.setup.groupType"
-msgstr "Pengelompokan jenis file"
 
 msgid "manager.setup.favicon"
 msgstr "Favicon"

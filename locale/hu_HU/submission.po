@@ -392,9 +392,6 @@ msgstr "Elfogadott"
 msgid "submission.acknowledge"
 msgstr "Visszajelzés, köszönet"
 
-msgid "submission.addSuppFile"
-msgstr "Kiegészítő fájl hozzáadása"
-
 msgid "submission.ask"
 msgstr "Kérdez"
 
@@ -753,8 +750,9 @@ msgstr "Eredeti fájl beküldése kész."
 msgid "submission.event.fileUploaded"
 msgstr "\"{$originalFileName}\" fájlt feltöltötte a {$username} felhasználó {$submissionId} azonosítóval."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Lektori vélemény \"{$name}\" (file ID {$fileId}-{$fileRevision}) feltöltve."
+msgstr "Lektori vélemény \"{$name}\" (file ID {$submissionFileId}) feltöltve."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Beküldés metaadatai frissítve"
@@ -894,9 +892,6 @@ msgstr "Biztos benne, hogy véglegesen törölni szeretné ezt a formátumot?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Biztos benne, hogy törölni szeretné ezt a képet a tördelt változatból?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Biztos benne, hogy véglegesen törölni szeretné ezt a kiegészítő fájlt?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Ennek a stíluslapnak a törlése."
 
@@ -960,14 +955,8 @@ msgstr "Elrendezés verzió"
 msgid "submission.layout.newGalley"
 msgstr "Újformátum létrehozása"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Új kiegészítő fájl feltöltése"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Nincs stíluslap fájl hozzárendelve ehhez a formátumhoz."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Kiegészítő fájl véleményezése"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Benyújtott anyagok megtekintése"
@@ -1203,9 +1192,6 @@ msgstr "Párbeszéd fájl feltöltése"
 msgid "submission.summary"
 msgstr "Összegzés"
 
-msgid "submission.supplementaryFiles"
-msgstr "Kiegészítő fájlok"
-
 msgid "submission.supportingAgencies"
 msgstr "Támogató ügynökségek"
 
@@ -1355,9 +1341,6 @@ msgstr "Fájl feltöltése"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Megszerkesztett fájl feltöltése"
-
-msgid "submission.upload.fairCopy"
-msgstr "Pontos másolat feltöltése"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Fájlok feltöltése"

@@ -36,7 +36,7 @@ class SubmissionFilesMetadataForm extends Form {
 	function __construct($submissionFile, $stageId, $reviewRound = null, $template = null) {
 		if ($template === null) $template = 'controllers/wizard/fileUpload/form/submissionFileMetadataForm.tpl';
 		parent::__construct($template);
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_PKP_GRID);
 
 		// Initialize the object.
 		$this->_submissionFile = $submissionFile;
@@ -45,7 +45,7 @@ class SubmissionFilesMetadataForm extends Form {
 			$this->_reviewRound = $reviewRound;
 		}
 
-		$submissionLocale = $submissionFile->getSubmissionLocale();
+		$submissionLocale = $submissionFile->getData('locale');
 		$this->setDefaultFormLocale($submissionLocale);
 
 		// Add validation checks.
@@ -113,7 +113,11 @@ class SubmissionFilesMetadataForm extends Form {
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('name', 'showButtons'));
+		$this->readUserVars(array('name', 'showButtons',
+			'artworkCaption', 'artworkCredit', 'artworkCopyrightOwner',
+			'artworkCopyrightOwnerContact', 'artworkPermissionTerms',
+			'creator', 'subject', 'description', 'publisher', 'sponsor', 'source', 'language', 'dateCreated',
+		));
 	}
 
 	/**
@@ -122,10 +126,15 @@ class SubmissionFilesMetadataForm extends Form {
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$reviewRound = $this->getReviewRound();
+		$filepath = Services::get('file')->getPath($this->getSubmissionFile()->getData('fileId'));
+		$genre = DAORegistry::getDAO('GenreDAO')->getById($this->getSubmissionFile()->getData('genreId'), $request->getContext()->getId());
+
 		$templateMgr->assign(array(
 			'submissionFile' => $this->getSubmissionFile(),
 			'stageId' => $this->getStageId(),
-			'reviewRoundId' => $reviewRound?$reviewRound->getId():null
+			'reviewRoundId' => $reviewRound?$reviewRound->getId():null,
+			'supportsDependentFiles' => Services::get('submissionFile')->supportsDependentFiles($this->getSubmissionFile(), $filepath),
+			'genre' => $genre,
 		));
 		return parent::fetch($request, $template, $display);
 	}
@@ -134,14 +143,36 @@ class SubmissionFilesMetadataForm extends Form {
 	 * @copydoc Form::execute()
 	 */
 	function execute(...$functionParams) {
-		parent::execute(...$functionParams);
 
-		// Update the submission file with data from the form.
-		$submissionFile = $this->getSubmissionFile();
-		$submissionFile->setName($this->getData('name'), null); // Localized
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFileDao->updateObject($submissionFile);
+		$props = [
+			'name' => $this->getData('name'),
+		];
+
+		// Artwork metadata
+		$props = array_merge($props, [
+			'caption' => $this->getData('artworkCaption'),
+			'credit' => $this->getData('artworkCredit'),
+			'copyrightOwner' => $this->getData('artworkCopyrightOwner'),
+			'terms' => $this->getData('artworkPermissionTerms'),
+		]);
+
+		// Supplementary file metadata
+		$props = array_merge($props, [
+			'subject' => $this->getData('subject'),
+			'creator' => $this->getData('creator'),
+			'description' => $this->getData('description'),
+			'publisher' => $this->getData('publisher'),
+			'sponsor' => $this->getData('sponsor'),
+			'source' => $this->getData('source'),
+			'language' => $this->getData('language'),
+			'dateCreated' => $this->getData('dateCreated'),
+		]);
+
+		$this->_submissionFile = Services::get('submissionFile')->edit($this->getSubmissionFile(), $props, Application::get()->getRequest());
+
+		parent::execute(...$functionParams);
 	}
+
 }
 
 

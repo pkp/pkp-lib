@@ -314,9 +314,6 @@ msgstr "Прихваћено"
 msgid "submission.acknowledge"
 msgstr "Потврђено"
 
-msgid "submission.addSuppFile"
-msgstr "Додај додатни фајл"
-
 msgid "submission.ask"
 msgstr "Захтевај"
 
@@ -811,9 +808,6 @@ msgstr "Достави документ дискусије"
 msgid "submission.summary"
 msgstr "Резиме"
 
-msgid "submission.supplementaryFiles"
-msgstr "Додатни документи"
-
 msgid "submission.supportingAgencies"
 msgstr "Установе подршке"
 
@@ -940,6 +934,7 @@ msgstr "Повратак на лог дешавања"
 msgid "submission.event.fileUploaded"
 msgstr "{$username} је доставио документ \"{$originalFileName}\" уз предају {$submissionId}."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
 msgstr "Ревизија \"{$name}\" (file ID {$fileId}-{$revision}) је достављена."
 
@@ -1162,9 +1157,6 @@ msgstr "Проширени метаподаци"
 msgid "submission.upload.userGroupDescription"
 msgstr "Ако пријављујете Уређени волумен/свеску морате поставити на сервер свако поглавље посебно у вашој улози уредника волумена/свеске."
 
-msgid "submission.upload.fairCopy"
-msgstr "Постави на сервер исправну копију"
-
 msgid "submission.upload.response.description"
 msgstr "Након рецензије додељеног фајла, забележите  ниже коментаре на фајл и/или поставите копију са белешкама фајла (или други фајл)."
 
@@ -1273,9 +1265,6 @@ msgstr "Да ли сте сигурни да желите да трајно ук
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Да ли сте сигурни да желите да уклоните ову слику из пробне копије?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Да ли сте сигурни да желите трајно обристаи овај допунски фајл?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Обриши ову страницу стила."
 
@@ -1333,14 +1322,8 @@ msgstr "Верзија изгледа"
 msgid "submission.layout.newGalley"
 msgstr "Креирај нову пробну копију"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Постави нови допунски фајл"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Нема странице стила за ову пробну копију."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Рецензија допунског фајла"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Преглед пробне копије чланка"

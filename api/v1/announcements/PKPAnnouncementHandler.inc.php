@@ -3,9 +3,9 @@
 /**
  * @file api/v1/announcements/PKPAnnouncementHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAnnouncementHandler
  * @ingroup api_v1_announcement
@@ -131,7 +131,7 @@ class PKPAnnouncementHandler extends APIHandler {
 			switch ($param) {
 				case 'contextIds':
 				case 'typeIds':
-					if (is_string($val) && strpos($val, ',') > -1) {
+					if (is_string($val)) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
 						$val = [$val];
@@ -198,7 +198,7 @@ class PKPAnnouncementHandler extends APIHandler {
 		}
 
 		$announcement = DAORegistry::getDao('AnnouncementDAO')->newDataObject();
-		$announcement->_data = $params;
+		$announcement->setAllData($params);
 		$announcement = Services::get('announcement')->add($announcement, $request);
 		$announcementProps = Services::get('announcement')->getFullProperties($announcement, [
 			'request' => $request,

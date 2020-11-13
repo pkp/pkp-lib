@@ -20,9 +20,6 @@ msgstr "Akseptert"
 msgid "submission.acknowledge"
 msgstr "Bekreft"
 
-msgid "submission.addSuppFile"
-msgstr "Legg til tilleggsfil"
-
 msgid "submission.ask"
 msgstr "Spør"
 
@@ -203,9 +200,6 @@ msgstr "Er du sikker på at du vil slette dette oppsettet for alltid?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Er du sikker på at du vil fjerne dette bilde fra oppsettet?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Er du sikker på at du vil slette denne tilleggsfilen for alltid?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Slett dette stilarket."
 
@@ -263,14 +257,8 @@ msgstr "Layoutversjon"
 msgid "submission.layout.newGalley"
 msgstr "Opprett nytt oppsett"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Last opp ny tilleggsfil"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Ingen stylesheetfil er lagt til dette oppsettet."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Tilleggsfil fagvurdering"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Vis manuskriptoppsett"
@@ -433,9 +421,6 @@ msgstr "Innsender"
 
 msgid "submission.summary"
 msgstr "Oppsummering"
-
-msgid "submission.supplementaryFiles"
-msgstr "Tilleggsfiler"
 
 msgid "submission.titleAndAbstract"
 msgstr "Tittel og sammendrag"

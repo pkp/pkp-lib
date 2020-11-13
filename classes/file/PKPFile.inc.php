@@ -103,12 +103,7 @@ class PKPFile extends DataObject {
 	 * @return string
 	 */
 	function getNiceFileSize() {
-		$niceFileSizeUnits = array('B', 'KB', 'MB', 'GB');
-		$size = $this->getData('fileSize');
-		for($i = 0; $i < 4 && $size > 1024; $i++) {
-			$size >>= 10;
-		}
-		return $size . $niceFileSizeUnits[$i];
+		return Services::get('file')->getNiceFileSize($this->getFileSize());
 	}
 
 

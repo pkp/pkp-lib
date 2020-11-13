@@ -243,7 +243,7 @@ class PKPStatsQueryBuilder {
 
 		$q->where(STATISTICS_DIMENSION_METRIC_TYPE, '=', METRIC_TYPE_COUNTER);
 
-		\HookRegistry::call('Stats::queryObject', array($q, $this));
+		\HookRegistry::call('Stats::queryObject', array(&$q, $this));
 
 		return $q;
 	}

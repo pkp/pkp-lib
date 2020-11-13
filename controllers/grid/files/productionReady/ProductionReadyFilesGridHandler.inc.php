@@ -40,13 +40,7 @@ class ProductionReadyFilesGridHandler extends FileListGridHandler {
 				'deleteFile',
 			)
 		);
-	}
 
-	/**
-	 * @copydoc FileListGridHandler::initialize()
-	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
 		$this->setTitle('editor.submission.production.productionReadyFiles');
 	}
 }

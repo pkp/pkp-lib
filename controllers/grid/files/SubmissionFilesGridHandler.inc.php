@@ -142,7 +142,12 @@ class SubmissionFilesGridHandler extends GridHandler {
 		// Test whether an archive tool is available for the export to work, if so, add 'download all' grid action
 		if ($capabilities->canDownloadAll() && $this->hasGridDataElements($request)) {
 			$stageId = $this->getStageId();
-			$linkParams = array('submissionId' => $submission->getId(), 'stageId' => $stageId);
+			$linkParams = [
+				'nameLocaleKey' => $this->getTitle(),
+				'fileStage' => $this->getDataProvider()->getFileStage(),
+				'submissionId' => $submission->getId(),
+				'stageId' => $stageId,
+			];
 			$files = $this->getFilesToDownload($request);
 
 			$this->addAction($capabilities->getDownloadAllAction($request, $files, $linkParams), GRID_ACTION_POSITION_BELOW);

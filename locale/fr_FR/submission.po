@@ -38,9 +38,6 @@ msgstr "Accepté"
 msgid "submission.acknowledge"
 msgstr "Envoyer un accusé de réception"
 
-msgid "submission.addSuppFile"
-msgstr "Ajouter un fichier supplémentaire"
-
 msgid "submission.ask"
 msgstr "Demander"
 
@@ -244,11 +241,6 @@ msgstr "Êtes-vous certain de vouloir supprimer définitivement cette épreuve 
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Êtes-vous certain de vouloir supprimer cette image de l'épreuve ?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr ""
-"Êtes-vous certain de vouloir supprimer définitivement ce fichier "
-"supplémentaire ?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Supprimer cette feuille de style."
 
@@ -306,14 +298,8 @@ msgstr "Version de mise en page"
 msgid "submission.layout.newGalley"
 msgstr "Créer une nouvelle épreuve"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Télécharger un nouveau fichier supplémentaire"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Aucun fichier de feuille de style n'a été ajouté à cette épreuve."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Révision du fichier supplémentaire"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Voir l'épreuve de la submission"
@@ -482,9 +468,6 @@ msgstr "Soumissionnaire"
 
 msgid "submission.summary"
 msgstr "Résumé"
-
-msgid "submission.supplementaryFiles"
-msgstr "Fichiers supplémentaires"
 
 msgid "submission.titleAndAbstract"
 msgstr "Titre et résumé"
@@ -1161,8 +1144,9 @@ msgstr "Exemple de couverture"
 msgid "submission.event.submissionSubmitted"
 msgstr "Soumission initiale complétée."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "La révision \"{$name}\" (file ID {$fileId}-{$fileRevision}) a été téléchargée."
+msgstr "La révision \"{$name}\" (file ID {$submissionFileId}) a été téléchargée."
 
 msgid "submission.files.downloadAll"
 msgstr "Télécharger tous les fichiers"
@@ -1318,9 +1302,6 @@ msgstr "Transférer le fichier"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Transférer le fichier corrigé"
-
-msgid "submission.upload.fairCopy"
-msgstr "Transférer la copie au net"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Transférer les fichiers"

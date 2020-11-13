@@ -435,7 +435,7 @@ class PKPStatsEditorialService {
 			$qb->filterByContexts($args['contextIds']);
 		}
 
-		\HookRegistry::call('Stats::editorial::queryBuilder', array($qb, $args));
+		\HookRegistry::call('Stats::editorial::queryBuilder', array(&$qb, $args));
 
 		return $qb;
 	}

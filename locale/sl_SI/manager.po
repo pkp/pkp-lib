@@ -618,9 +618,6 @@ msgstr "Med brisanjem je prišlo do napake."
 msgid "manager.setup.favicon"
 msgstr "Napačen format favikona. Dovoljeni formati so .ico, .png in .gif"
 
-msgid "manager.setup.groupType"
-msgstr "Grupiranje po tipu datoteke"
-
 msgid "manager.setup.homeHeaderImageInvalid"
 msgstr "Napačen format slike za logotip glave osnovne strani ali pa je prišlo do napake pri nalaganju. Dovoljeni formati so .gif, .jpg, or .png."
 
@@ -1123,12 +1120,6 @@ msgstr "Odstrani to komponento"
 
 msgid "grid.action.restoreGenres"
 msgstr "Povrni privzete nastavitve komponent"
-
-msgid "manager.setup.genres.dependent"
-msgstr "Označi datoteke tega tipa kot odvisne datoteke (potem ne bodo naštete med objavljenimi vsebinami)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Ozači datoteke tega tipa kot dodatne datoteke (torej ne predstavljajo primane vsebine prispevka)"
 
 msgid "manager.setup.genres.key"
 msgstr "Ključ"

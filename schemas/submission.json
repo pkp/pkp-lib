@@ -46,6 +46,14 @@
 				"date:Y-m-d H:i:s"
 			]
 		},
+		"locale": {
+			"type": "string",
+			"description": "The primary language of this submission.",
+			"apiSummary": true,
+			"validation": [
+				"regex:/^[a-z]{2}_[A-Z]{2}(@[a-z]{0,})?$/"
+			]
+		},
 		"publications": {
 			"type": "array",
 			"description": "A list of publications that have been created for this submission.",

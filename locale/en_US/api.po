@@ -14,6 +14,9 @@ msgstr ""
 msgid "api.400.paramNotSupported"
 msgstr "The {$param} parameter is not supported."
 
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "It is not possible to change the time this was created."
+
 msgid "api.403.unauthorized"
 msgstr "You are not authorized to access the requested resource."
 
@@ -28,6 +31,18 @@ msgstr "The announcement you requested was not found."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "The email template you requested was not found."
+
+msgid "api.files.400.noUpload"
+msgstr "No file to be uploaded could be found with the request."
+
+msgid "api.files.400.uploadFailed"
+msgstr "One or more files could not be uploaded."
+
+msgid "api.files.400.fileSize"
+msgstr "Files larger than {$maxSize} can not be uploaded."
+
+msgid "api.files.400.config"
+msgstr "File could not be uploaded because of a server configuration error. Please contact the system administrator."
 
 msgid "api.publication.403.alreadyPublished"
 msgstr "The publication you want to publish is already published."
@@ -61,6 +76,38 @@ msgstr "You do not have enough space in your user directory. The file you are up
 
 msgid "api.publicFiles.500.badFilesDir"
 msgstr "The public files directory was not found or files can not be saved to it. Please contact your administrator to resolve this issue."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr "You can not modify the file association without passing an assocType and assocId."
+
+msgid "api.submissionFiles.400.noFileStageId"
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "A file from this file stage can not be a dependent file."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "You can not associated a file from this file stage a discussion note."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "You can not associated a file from this file stage with a review assignment."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "You can not associated a file from this file stage with a review round."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "You must provide a valid review round in order to upload to this file stage by including assocType and assocId properties."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "The review round for this file is not part of the specified submission stage."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "You are not authorized to access files from this stage."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "You are not authorized to add or edit files from this stage."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "You are not authorized to access files from this review round."
 
 msgid "api.submissions.403.userCantEdit"
 msgstr "You are not allowed to edit this publication."
@@ -104,17 +151,20 @@ msgstr "Your request could not be fulfilled because it is missing required infor
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "The requested volume, number or year is not valid."
 
-msgid "api.temporaryFiles.400.noUpload"
-msgstr "No file to be uploaded could be found with the request."
+msgid "api.submissions.files.403.cantChangeSubmission"
+msgstr "You can not change the submission that this file is assigned to."
 
-msgid "api.temporaryFiles.409.uploadFailed"
-msgstr "One or more files could not be uploaded."
+msgid "api.submissions.files.400.submissionsDidNotMatch"
+msgstr "The file that you requested is not part of this submission."
 
-msgid "api.temporaryFiles.400.fileSize"
-msgstr "Files larger than {$maxSize} can not be uploaded."
+msgid "api.submissions.files.400.sameFileStage"
+msgstr "The file is already added to this stage."
 
-msgid "api.temporaryFiles.400.config"
-msgstr "File could not be uploaded because of a server configuration error. Please contact the system administrator."
+msgid "api.submissions.files.400.invalidFileStage"
+msgstr "The file stage is not valid."
+
+msgid "api.submissions.files.400.noParams"
+msgstr "No changes could be found in the request to edit this file."
 
 msgid "api.themes.404.themeUnavailable"
 msgstr "The active theme, {$themePluginPath}, is not enabled and may not be installed."

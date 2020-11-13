@@ -689,9 +689,6 @@ msgstr "سرویس‌های استخراج ارجاعات"
 msgid "manager.setup.filter.pleaseSelect"
 msgstr "لطفاً انتخاب کنید ..."
 
-msgid "manager.setup.groupType"
-msgstr "دسته‌بندی نوع فایل"
-
 msgid "manager.setup.homepageImage"
 msgstr "تصویر صفحه‌ی اصلی"
 
@@ -1168,12 +1165,6 @@ msgstr "برگرداندن اجزاء به تنظیمات پیش‌فرض"
 
 msgid "manager.setup.genres.sortable"
 msgstr "اجازه به فایل‌های این نوع برای دسته‌بندی برحسب فصل"
-
-msgid "manager.setup.genres.dependent"
-msgstr "نشانه‌گذاری این نوع از فایل‌ها به عنوان فایل‌های مستقل (به این معنی که به همراه محتوای منتشر شده لیست نمی‌شود)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "نشانه‌گذاری این نوع از فایل‌ها به عنوان فایل‌های مکمل (به این معنی که محتوای ثبت شده اصلی نمی‌باشد)"
 
 msgid "manager.settings.wizard"
 msgstr "تنظیمات مرحله به مرحله"

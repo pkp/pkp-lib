@@ -39,8 +39,11 @@ class PKPImportExportDeployment {
 	/** @var array Errors keyed by object IDs */
 	var $_processedObjectsWarnings = array();
 
-	/** @var array Connection between the file and revision IDs from the XML import file and the DB file IDs */
+	/** @var array Connection between the file from the XML import file and the new IDs after they are imported */
 	var $_fileDBIds;
+
+	/** @var array Connection between the submission file IDs from the XML import file and the new IDs after they are imported */
+	var $_submissionFileDBIds;
 
 	/** @var array Connection between the author id from the XML import file and the DB file IDs */
 	var $_authorDBIds;
@@ -59,6 +62,7 @@ class PKPImportExportDeployment {
 		$this->setSubmission(null);
 		$this->setPublication(null);
 		$this->setFileDBIds(array());
+		$this->setSubmissionFileDBIds(array());
 		$this->_processedObjectsIds = array();
 	}
 
@@ -277,36 +281,60 @@ class PKPImportExportDeployment {
 
 	/**
 	 * Get the file DB Id.
-	 * @param $fileId integer
-	 * @param $revisionId integer
-	 * @return integer
+	 * @param $fileId integer The old file id
+	 * @return integer The new file id
 	 */
-	function getFileDBId($fileId, $revisionId = null) {
+	function getFileDBId($fileId) {
 		if (array_key_exists($fileId, $this->_fileDBIds)) {
-			// is there already the revisionId?
-			if ($revisionId) {
-				if (array_key_exists($revisionId, $this->_fileDBIds[$fileId])) {
-					return $this->_fileDBIds[$fileId][$revisionId];
-				} else {
-					return null;
-				}
-			} else {
-				// the revisionId is not important, but the fileId
-				// the DB Id is unique for a fileId
-				return current($this->_fileDBIds[$fileId]);
-			}
+			return $this->_fileDBIds[$fileId];
 		}
 		return null;
 	}
 
 	/**
 	 * Set the file DB Id.
-	 * @param $fileId integer
-	 * @param $revisionId integer
-	 * @param $DBId integer
+	 * @param $fileId integer The old file id
+	 * @param $DBId integer The new file id
 	 */
-	function setFileDBId($fileId, $revisionId, $DBId) {
-		return $this->_fileDBIds[$fileId][$revisionId]= $DBId;
+	function setFileDBId($fileId, $DBId) {
+		return $this->_fileDBIds[$fileId] = $DBId;
+	}
+
+	/**
+	 * Get the array of the inserted submission file DB Ids.
+	 * @return array
+	 */
+	function getSubmissionFileDBIds() {
+		return $this->_submissionFileDBIds;
+	}
+
+	/**
+	 * Set the array of the inserted submission file DB Ids.
+	 * @param $submissionFileDBIds array
+	 */
+	function setSubmissionFileDBIds($submissionFileDBIds) {
+		return $this->_submissionFileDBIds = $submissionFileDBIds;
+	}
+
+	/**
+	 * Get the submission file DB Id.
+	 * @param $fileId integer The old submission file id
+	 * @return integer The new submission file id
+	 */
+	function getSubmissionFileDBId($submissionFileDBId) {
+		if (array_key_exists($submissionFileDBId, $this->_submissionFileDBIds)) {
+			return $this->_submissionFileDBIds[$submissionFileDBId];
+		}
+		return null;
+	}
+
+	/**
+	 * Set the submission file DB Id.
+	 * @param $submissionFileDBId integer The old submission file id
+	 * @param $DBId integer The new submission file id
+	 */
+	function setSubmissionFileDBId($submissionFileDBId, $DBId) {
+		return $this->_submissionFileDBIds[$submissionFileDBId] = $DBId;
 	}
 
 	/**

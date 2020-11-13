@@ -722,9 +722,6 @@ msgstr "Recenzenci zostaną poproszeni o potwierdzenie, że nie występuje konfl
 msgid "manager.setup.favicon"
 msgstr "Nieprawidłowy format favicony. Akceptowane formaty to ICO, PNG oraz GIF."
 
-msgid "manager.setup.groupType"
-msgstr "Grupowanie plików"
-
 msgid "manager.setup.homepageImage"
 msgstr "Obraz dla strony głównej"
 
@@ -1133,12 +1130,6 @@ msgstr "Przywróć elementy do ich ustawień domyślnych"
 
 msgid "manager.setup.genres.sortable"
 msgstr "Włącz sortowanie plików wg rozdziału"
-
-msgid "manager.setup.genres.dependent"
-msgstr "Oznacz pliki tego typu jako zależne (np. aby nie były widoczne razem z opublikowaną treścią)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Oznacz pliki tego typu jako dodatkowe (np. nie będące główną zawartością zgłoszenia)"
 
 msgid "manager.settings.wizard"
 msgstr "Kreator ustawień"

@@ -76,8 +76,6 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 			'review_file' => SUBMISSION_FILE_REVIEW_FILE,
 			'review_attachment' => SUBMISSION_FILE_REVIEW_ATTACHMENT,
 			'final' => SUBMISSION_FILE_FINAL,
-			'fair_copy' => SUBMISSION_FILE_FAIR_COPY,
-			'editor' => SUBMISSION_FILE_EDITOR,
 			'copyedit' => SUBMISSION_FILE_COPYEDIT,
 			'proof' => SUBMISSION_FILE_PROOF,
 			'production_ready' => SUBMISSION_FILE_PRODUCTION_READY,

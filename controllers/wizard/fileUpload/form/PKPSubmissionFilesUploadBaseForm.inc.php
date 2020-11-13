@@ -38,9 +38,12 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 	 * @param $revisionOnly boolean
 	 * @param $reviewRound ReviewRound
 	 * @param $revisedFileId integer
+	 * @param $assocType integer
+	 * @param $assocId integer
+	 * @param $queryId integer
 	 */
 	function __construct($request, $template, $submissionId, $stageId, $fileStage,
-			$revisionOnly = false, $reviewRound = null, $revisedFileId = null, $assocType = null, $assocId = null) {
+			$revisionOnly = false, $reviewRound = null, $revisedFileId = null, $assocType = null, $assocId = null, $queryId = null) {
 
 		// Check the incoming parameters.
 		if ( !is_numeric($submissionId) || $submissionId <= 0 ||
@@ -76,6 +79,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		$this->setData('reviewRoundId', $reviewRound?$reviewRound->getId():null);
 		$this->setData('assocType', $assocType ? (int)$assocType : null);
 		$this->setData('assocId', $assocId ? (int)$assocId : null);
+		$this->setData('queryId', $queryId ? (int) $queryId : null);
 
 		// Add validators.
 		$this->addCheck(new FormValidatorPost($this));
@@ -135,9 +139,13 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			if ($this->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $this->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
 				// If we have a review stage id then we also expect a review round.
-				if (!$this->getData('fileStage') == SUBMISSION_FILE_QUERY && !is_a($this->getReviewRound(), 'ReviewRound')) assert(false);
+				if (!$this->getData('fileStage') == SUBMISSION_FILE_QUERY && !is_a($this->getReviewRound(), 'ReviewRound')) {
+					throw new Exception('Can not request submission files for a review stage without specifying a review round.');
+				}
 				// Can only upload submission files, review files, review attachments, dependent files, or query attachments.
-				if (!in_array($this->getData('fileStage'), array(SUBMISSION_FILE_SUBMISSION, SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_REVIEW_ATTACHMENT, SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_QUERY, SUBMISSION_FILE_DEPENDENT, SUBMISSION_FILE_ATTACHMENT))) fatalError('Invalid file stage!');
+				if (!in_array($this->getData('fileStage'), array(SUBMISSION_FILE_SUBMISSION, SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SUBMISSION_FILE_REVIEW_ATTACHMENT, SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_INTERNAL_REVIEW_REVISION, SUBMISSION_FILE_QUERY, SUBMISSION_FILE_DEPENDENT, SUBMISSION_FILE_ATTACHMENT))) {
+					throw new Exception('The file stage is not valid for the review stage.');
+				}
 
 				// Hide the revision selector for review
 				// attachments to make it easier for reviewers
@@ -146,22 +154,25 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 					$this->_submissionFiles = array();
 				} elseif ($reviewRound) {
 					// Retrieve the submission files for the given review round.
-					$this->_submissionFiles = $submissionFileDao->getRevisionsByReviewRound($reviewRound);
+					$submissionFilesIterator = Services::get('submissionFile')->getMany([
+						'reviewRoundIds' => [(int) $reviewRound],
+						'submissionIds' => [(int) $this->getData('submissionId')],
+					]);
+					$this->_submissionFiles = iterator_to_array($submissionFilesIterator);
 				} else {
 					// No review round, e.g. for dependent or query files
 					$this->_submissionFiles = array();
 				}
 			} else {
-				// Retrieve the submission files for the given file stage.
-				if (!$this->getAssocType() || $this->getAssocType() == ASSOC_TYPE_SUBMISSION) {
-					$this->_submissionFiles = $submissionFileDao->getLatestRevisions(
-						$this->getData('submissionId'), $this->getData('fileStage'));
-				} else {
-					$this->_submissionFiles = $submissionFileDao->getLatestRevisionsByAssocId(
-						$this->getAssocType(), $this->getAssocId(), $this->getData('submissionId'), $this->getData('fileStage')
-					);
+				$params = [
+					'fileStages' => [(int) $this->getData('fileStage')],
+					'submissionIds' => [(int) $this->getData('submissionId')],
+				];
+				if ($this->getAssocType() && $this->getAssocType() != ASSOC_TYPE_SUBMISSION) {
+					$params['assocTypes'] = [$this->getAssocType()];
+					$params['assocIds'] = [$this->getAssocId()];
 				}
-
+				$this->_submissionFiles = iterator_to_array(Services::get('submissionFile')->getMany($params));
 			}
 		}
 
@@ -180,10 +191,10 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		$submissionFiles = array();
 		foreach ($allSubmissionFiles as $submissionFile) {
 			// The uploaded file must be excluded from the list of revisable files.
-			if ($uploadedFile && $uploadedFile->getFileId() == $submissionFile->getFileId()) continue;
+			if ($uploadedFile && $uploadedFile->getId() == $submissionFile->getId()) continue;
 			if (
 				($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_ATTACHMENT || $submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_FILE) &&
-				$stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getSubmissionId(), ROLE_ID_AUTHOR, $this->getStageId(), $user->getId())
+				$stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getData('submissionId'), ROLE_ID_AUTHOR, $this->getStageId(), $user->getId())
 			) {
 				// Authors are not permitted to revise reviewer documents.
 				continue;
@@ -235,9 +246,8 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		foreach ((array) $submissionFiles as $submissionFile) {
 
 			// Is this the revised file?
-			if ($revisedFileId && $revisedFileId == $submissionFile->getFileId()) {
+			if ($revisedFileId && $revisedFileId == $submissionFile->getId()) {
 				// This is the revised submission file, so pass its data on to the form.
-				$this->setData('revisedFileName', $submissionFile->getOriginalFileName());
 				$this->setData('genreId', $submissionFile->getGenreId());
 				$foundRevisedFile = true;
 			}
@@ -245,16 +255,10 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 			// Create an entry in the list of existing files which
 			// the user can select from in case he chooses to upload
 			// a revision.
-			$fileName = $submissionFile->getLocalizedName() != '' ? $submissionFile->getLocalizedName() : __('common.untitled');
-			if ($submissionFile->getRevision() > 1) $fileName .= ' (' . $submissionFile->getRevision() . ')';
+			$fileName = $submissionFile->getLocalizedData('name') != '' ? $submissionFile->getLocalizedData('name') : __('common.untitled');
 
-			// If we are about to add a revision of a revision, remove the original one from the list of possible file choices.
-			if (array_key_exists($submissionFile->getSourceFileId(), $submissionFileOptions)) {
-				unset($submissionFileOptions[$submissionFile->getSourceFileId()]);
-			}
-
-			$submissionFileOptions[$submissionFile->getFileId()] = $fileName;
-			$currentSubmissionFileGenres[$submissionFile->getFileId()] = $submissionFile->getGenreId();
+			$submissionFileOptions[$submissionFile->getId()] = $fileName;
+			$currentSubmissionFileGenres[$submissionFile->getId()] = $submissionFile->getGenreId();
 
 			$lastSubmissionFile = $submissionFile;
 		}
@@ -262,8 +266,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		// If there is only one option for a file to review, and user must revise, do not show the selector.
 		if (count($submissionFileOptions) == 1 && $this->getData('revisionOnly')) {
 			// There was only one option, use the last added submission file
-			$this->setData('revisedFileId', $lastSubmissionFile->getFileId());
-			$this->setData('revisedFileName', $lastSubmissionFile->getOriginalFileName());
+			$this->setData('revisedFileId', $lastSubmissionFile->getId());
 			$this->setData('genreId', $lastSubmissionFile->getGenreId());
 		}
 

@@ -420,9 +420,6 @@ msgstr "Принята"
 msgid "submission.acknowledge"
 msgstr "Подтвердить"
 
-msgid "submission.addSuppFile"
-msgstr "Добавить дополнительный файл"
-
 msgid "submission.ask"
 msgstr "Запрос"
 
@@ -570,8 +567,9 @@ msgstr "Удалить запись журнала"
 msgid "submission.event.submissionSubmitted"
 msgstr "Первоначальная отправка материала завершена."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Версия «{$name}» (ID файла {$fileId}-{$fileRevision}) была загружена."
+msgstr "Версия «{$name}» (ID файла {$submissionFileId}) была загружена."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Метаданные материала обновлены"
@@ -729,9 +727,6 @@ msgstr "Вы уверены, что хотите навсегда удалить
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Вы уверены, что хотите удалить это изображение из гранки?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Вы уверены, что хотите навсегда удалить этот дополнительный файл?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Удалить эту таблицу стилей."
 
@@ -795,14 +790,8 @@ msgstr "Версия для верстки"
 msgid "submission.layout.newGalley"
 msgstr "Создать новую гранку"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Загрузить новый дополнительный файл"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Файл таблицы стилей не был добавлен к этой гранке."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Рецензия на дополнительный файл"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Просмотр гранки материала"
@@ -1038,9 +1027,6 @@ msgstr "Загрузить файл обсуждения"
 msgid "submission.summary"
 msgstr "Сводка"
 
-msgid "submission.supplementaryFiles"
-msgstr "Дополнительные файлы"
-
 msgid "submission.supportingAgencies"
 msgstr "Поддерживающие организации"
 
@@ -1220,9 +1206,6 @@ msgstr "Загрузить файл"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Загрузить файл после литературного редактирования"
-
-msgid "submission.upload.fairCopy"
-msgstr "Загрузить окончательный вариант"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Загрузить файлы"

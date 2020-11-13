@@ -85,11 +85,11 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	 * @copydoc GridDataProvider::loadData()
 	 */
 	function loadData($filter = array()) {
-		// Retrieve all submission files for the given file stage.
-		$submission = $this->getSubmission();
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $this->getFileStage(), null);
-		return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly, $filter);
+		$submissionFilesIterator = Services::get('submissionFile')->getMany([
+			'submissionIds' => [$this->getSubmission()->getId()],
+			'fileStages' => [$this->getFileStage()],
+		]);
+		return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), $this->_viewableOnly, $filter);
 	}
 
 	//
@@ -134,7 +134,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 		if (!empty($filter['search'])) switch ($filter['column']) {
 			case 'name':
 				foreach ($revisions as $key => $submissionFile) {
-					if (!stristr($submissionFile->getName(AppLocale::getLocale()), $filter['search'])) {
+					if (!stristr($submissionFile->getData('name', AppLocale::getLocale()), $filter['search'])) {
 						unset($revisions[$key]);
 					}
 				}
@@ -160,10 +160,9 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 		foreach ($revisions as $revision) {
 			if ($viewableOnly && !$revision->getViewable()) continue;
 
-			$submissionFileData[$revision->getFileId()] = array(
+			$submissionFileData[$revision->getId()] = array(
 				'submissionFile' => $revision
 			);
-			unset($revision);
 		}
 		return $submissionFileData;
 	}

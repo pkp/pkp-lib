@@ -372,9 +372,6 @@ msgstr "Aceito"
 msgid "submission.acknowledge"
 msgstr "Acusar recebimento"
 
-msgid "submission.addSuppFile"
-msgstr "Incluir documento suplementar"
-
 msgid "submission.ask"
 msgstr "Solicitada em"
 
@@ -579,9 +576,6 @@ msgstr "Deseja realmente excluir permanentemente este documento?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Deseja realmente remover esta imagem?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Deseja realmente excluir permanentemente este documento suplementar?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Excluir folha de estilo."
 
@@ -639,14 +633,8 @@ msgstr "para Layout"
 msgid "submission.layout.newGalley"
 msgstr "Criar nova composição"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Transferir novo documento suplementar"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Nenhuma folha de estilo incluída."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Avaliação de documento suplementar"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Visualizando a composição"
@@ -812,9 +800,6 @@ msgstr "Submetido por"
 
 msgid "submission.summary"
 msgstr "Resumo"
-
-msgid "submission.supplementaryFiles"
-msgstr "Documentos suplementares"
 
 msgid "submission.titleAndAbstract"
 msgstr "Título e Resumo"
@@ -1178,9 +1163,10 @@ msgstr "Submissão inicial concluída."
 msgid "submission.event.fileUploaded"
 msgstr "Um arquivo \"{$originalFileName}\" foi carregado para a submissão {$submissionId} por {$username}."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
 msgstr ""
-"Avaliação \"{$name}\" (ID do arquivo {$fileId}-{$fileRevision}) foi "
+"Avaliação \"{$name}\" (ID do arquivo {$submissionFileId}) foi "
 "carregada."
 
 msgid "submission.files.downloadAll"
@@ -1367,9 +1353,6 @@ msgstr "Enviar Arquivo"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Enviar Arquivo da Edição de Texto"
-
-msgid "submission.upload.fairCopy"
-msgstr "Enviar Cópia \"Fair\""
 
 msgid "submission.upload.uploadFiles"
 msgstr "Enviar Arquivos"

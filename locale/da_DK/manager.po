@@ -655,15 +655,6 @@ msgstr "E-mails"
 msgid "grid.action.addGenre"
 msgstr "Tilføj materialetype"
 
-msgid "manager.setup.genres.dependent"
-msgstr "Registrer disse filtyper som underordnede filer (f.eks. hvis de ikke skal indgå som en del af det publicerede materiale)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Registrer disse filtyper som supplerende filer (f.eks. når det ikke er en del af det primære indsendelsesmateriale - artikeltekst)"
-
-msgid "manager.setup.groupType"
-msgstr "Gruppering af filtyper"
-
 msgid "manager.setup.authorGuidelines"
 msgstr "Retningslinjer for forfattere"
 

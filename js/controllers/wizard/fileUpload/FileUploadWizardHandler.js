@@ -130,7 +130,7 @@
 					throw new Error('Unsupported tab index.');
 			}
 
-			newUrl = newUrl + '&fileId=' + this.uploadedFile_.fileId;
+			newUrl = newUrl + '&submissionFileId=' + this.uploadedFile_.id;
 			ui.newTab.find('.ui-tabs-anchor').attr('href', newUrl);
 		}
 
@@ -241,6 +241,8 @@
 			// If the user presses cancel after uploading a file then delete the file.
 			if (this.uploadedFile_) {
 				this.uploadedFile_.csrfToken = this.csrfToken_;
+				// Authorization policy expects to find the submissionFileId para
+				this.uploadedFile_.submissionFileId = this.uploadedFile_.id;
 				$.post(this.deleteUrl_, this.uploadedFile_,
 						$.pkp.classes.Helper.curry(this.wizardCancelSuccess, this,
 								wizardElement, event), 'json');

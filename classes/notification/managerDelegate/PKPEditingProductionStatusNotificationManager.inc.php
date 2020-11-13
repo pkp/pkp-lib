@@ -91,9 +91,11 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 		$productionQueries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_PRODUCTION);
 
 		// Get the copyedited files
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		import('lib.pkp.classes.submission.SubmissionFile');
-		$copyeditedFiles = $submissionFileDao->getLatestRevisions($submissionId, SUBMISSION_FILE_COPYEDIT);
+		$countCopyeditedFiles = Services::get('submissionFile')->getCount([
+			'submissionIds' => [$submissionId],
+			'fileStages' => [SUBMISSION_FILE_COPYEDIT],
+		]);
 
 		// Get representations
 		$representationDao = Application::getRepresentationDAO();
@@ -147,7 +149,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 					}
 					break;
 				case WORKFLOW_STAGE_ID_EDITING:
-					if (!empty($copyeditedFiles)) {
+					if ($countCopyeditedFiles) {
 						// Remove 'assign a copyeditor' and 'awaiting copyedits' notification
 						$this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
 					} else {

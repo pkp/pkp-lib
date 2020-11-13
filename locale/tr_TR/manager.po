@@ -1122,9 +1122,6 @@ msgstr "Hakemlerden, aşağıda belirttiğiniz çıkar çatışması politikası
 msgid "manager.setup.favicon"
 msgstr "Favori ikon"
 
-msgid "manager.setup.groupType"
-msgstr "Dosya türü gruplaması"
-
 msgid "settings.roles.roleIdRequired"
 msgstr "Bir rol izin düzeyi tanımlamanız gerekir."
 
@@ -1145,12 +1142,6 @@ msgstr "Bu bileşeni sil"
 
 msgid "grid.action.restoreGenres"
 msgstr "Bileşenleri varsayılan ayarlara geri yükle"
-
-msgid "manager.setup.genres.dependent"
-msgstr "Bu türdeki dosyaları bağımlı dosyalar olarak işaretleyin (ör. Yayınlanan içeriğe sahip olmamak üzere)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Bu tür dosyaları tamamlayıcı dosyalar olarak işaretleyin (ör. Birincil gönderi içeriği olayacak şekilde)"
 
 msgid "manager.setup.genres.key"
 msgstr "Anahtar"

@@ -94,8 +94,7 @@ class RepresentationNativeXmlFilter extends NativeExportFilter {
 			// Add files
 			foreach ($this->getFiles($representation) as $submissionFile) {
 				$fileRefNode = $doc->createElementNS($deployment->getNamespace(), 'submission_file_ref');
-				$fileRefNode->setAttribute('id', $submissionFile->getFileId());
-				$fileRefNode->setAttribute('revision', $submissionFile->getRevision());
+				$fileRefNode->setAttribute('id', $submissionFile->getId());
 				$representationNode->appendChild($fileRefNode);
 			}
 		}

@@ -1,77 +1,259 @@
 {
 	"title": "Submission File",
 	"description": "A submission file including associated metadata.",
+	"required": [
+		"fileId",
+		"fileStage",
+		"name",
+		"submissionId",
+		"uploaderUserId"
+	],
 	"properties": {
-		"id": {
-			"type": "integer"
+		"_href": {
+			"type": "string",
+			"format": "uri",
+			"readOnly": true,
+			"apiSummary": true
 		},
-		"revision": {
-			"type": "integer"
+		"assocId": {
+			"type": "integer",
+			"apiSummary": true,
+			"description": "Used with `assocType` to associate this file with an object such as a galley.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"assocType": {
+			"type": "integer",
+			"apiSummary": true,
+			"description": "Used with `assocId` to associate this file with an object such as a galley. One of the following constants: `ASSOC_TYPE_SUBMISSION_FILE` (dependent files), `ASSOC_TYPE_REVIEW_ASSIGNMENT` (files uploaded by a reviewer), `ASSOC_TYPE_NOTE` (files uploaded with a discussion), `ASSOC_TYPE_REPRESENTATION` (files uploaded to a galley or publication format), `ASSOC_TYPE_REVIEW_ROUND` (review files and revisions for a particular review round).",
+			"validation": [
+				"in:515,517,520,521,523"
+			]
+		},
+		"caption": {
+			"type": "string",
+			"apiSummary": true,
+			"description": "A caption for this file. Used with artwork such as images.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"copyrightOwner": {
+			"type": "string",
+			"apiSummary": true,
+			"description": "The copyright owner of this file. Used with artwork such as images.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"createdAt": {
+			"type": "string",
+			"apiSummary": true,
+			"description": "The date this submission file object was created in the system. Set automatically by the software.",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			]
+		},
+		"creator": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"description": "An attribution for this file, such as the creator of a data set. Used with supplementary files.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"credit": {
+			"type": "string",
+			"description": "An attribution for this file, such as a photographer's name. Used with artwork such as images.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"dateCreated": {
+			"type": "string",
+			"description": "Public metadata about when this content was created. Used with supplementary files.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"dependentFiles": {
+			"type": "array",
+			"readOnly": true,
+			"description": "Any dependent files, typically images or audio files that are loaded by an HTML file.",
+			"items": {
+				"$ref": "#/definitions/SubmissionFile"
+			}
+		},
+		"description": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"documentType": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"fileId": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"id": {
+			"type": "integer",
+			"apiSummary": true,
+			"readOnly": true
 		},
 		"fileStage": {
-			"type": "integer"
-		},
-		"fileName": {
-			"type": "string"
+			"type": "integer",
+			"apiSummary": true,
+			"validation": [
+				"in:2,3,4,5,6,7,8,9,10,11,13,15,17,18"
+			]
 		},
 		"genreId": {
-			"type": "integer"
+			"type": "integer",
+			"apiSummary": true
 		},
-		"metadata": {
-			"type": "object",
-			"properties": {
-				"description": {
-					"$ref": "#/definitions/LocaleObject"
-				},
-				"creator": {
-					"$ref": "#/definitions/LocaleObject"
-				},
-				"publisher": {
-					"$ref": "#/definitions/LocaleObject"
-				},
-				"source": {
-					"$ref": "#/definitions/LocaleObject"
-				},
-				"subject": {
-					"$ref": "#/definitions/LocaleObject"
-				},
-				"sponsor": {
-					"$ref": "#/definitions/LocaleObject"
-				},
-				"dateCreated": {
-					"type": "string",
-					"validation": [
-						"date:Y-m-d"
-					]
-				},
-				"language": {
-					"type": "string"
-				},
-				"caption": {
-					"type": "string"
-				},
-				"credit": {
-					"type": "string"
-				},
-				"copyrightOwner": {
-					"type": "string"
-				},
-				"terms": {
-					"type": "string"
-				},
-				"width": {
-					"type": "string"
-				},
-				"height": {
-					"type": "string"
-				},
-				"physicalWidth": {
-					"type": "string"
-				},
-				"physicalHeight": {
-					"type": "string"
+		"language": {
+			"type": "string",
+			"apiSummary": true,
+			"description": "The language of this file if it contains text. Used with supplementary files.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"locale": {
+			"type": "string",
+			"apiSummary": "true",
+			"description": "The primary locale of the submission this file is attached to. This locale is used as the fallback when a language is missing from a multilingual property.",
+			"readOnly": "true"
+		},
+		"mimetype": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"name": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true
+		},
+		"path": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"publisher": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"description": "The publisher of this file. Used with supplementary files.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"revisions": {
+			"type": "array",
+			"readOnly": true,
+			"description": "Previous versions of this file.",
+			"items": {
+				"type": "object",
+				"properties": {
+					"documentType": {
+						"type": "string"
+					},
+					"fileId": {
+						"type": "integer"
+					},
+					"mimetype": {
+						"type": "string"
+					},
+					"path": {
+						"type": "string"
+					},
+					"size": {
+						"type": "string"
+					},
+					"url": {
+						"type": "string"
+					}
 				}
 			}
+		},
+		"size": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true,
+			"description": "The size of this file in bytes."
+		},
+		"sourceSubmissionFileId": {
+			"type": "integer",
+			"apiSummary": true,
+			"description": "When a submission file is promoted from one stage to another, this property identifies the source file from which this file was promoted. Default: `null`."
+		},
+		"source": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"description": "An attribution for this file that identifies its source, such as a dataset from which this file was generated. Used with supplementary files.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"sponsor": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"description": "Sponsorship or funding disclosure for this file. Used with supplementary files.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"subject": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"description": "Subject metadata for this file. Used with supplementary files.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"submissionId": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"terms": {
+			"type": "string",
+			"apiSummary": true,
+			"description": "Licensing terms for this file. Used with artwork such as images."
+		},
+		"updatedAt": {
+			"type": "string",
+			"apiSummary": true,
+			"description": "When this object was last updated.",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			]
+		},
+		"uploaderUserId": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"url": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"viewable": {
+			"type": "boolean",
+			"apiSummary": true
 		}
 	}
 }

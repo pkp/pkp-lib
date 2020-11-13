@@ -19,7 +19,6 @@
 // Import the base handler.
 import('classes.handler.Handler');
 import('lib.pkp.classes.core.JSONMessage');
-import('lib.pkp.classes.file.SubmissionFileManager');
 import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
 
 class FileApiHandler extends Handler {
@@ -39,28 +38,29 @@ class FileApiHandler extends Handler {
 	// Implement methods from PKPHandler
 	//
 	function authorize($request, &$args, $roleAssignments) {
-		$fileIds = $request->getUserVar('filesIdsAndRevisions');
+		$submissionId = (int) $request->getUserVar('submissionId');
+		$submissionFileId = (int) $request->getUserVar('submissionFileId');
+		$fileStage = (int) $request->getUserVar('fileStage');
 		$libraryFileId = $request->getUserVar('libraryFileId');
 
-		if (is_string($fileIds)) {
-			$fileIdsArray = explode(';', $fileIds);
-			// Remove empty entries (a trailing ";" will cause these)
-			$fileIdsArray = array_filter($fileIdsArray, function($a) {
-				return !empty($a);
-			});
-		}
-		if (!empty($fileIdsArray)) {
-			$multipleSubmissionFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
-			foreach ($fileIdsArray as $fileIdAndRevision) {
-				$multipleSubmissionFileAccessPolicy->addPolicy($this->_getAccessPolicy($request, $args, $roleAssignments, $fileIdAndRevision));
-			}
-			$this->addPolicy($multipleSubmissionFileAccessPolicy);
+		if (!empty($submissionFileId)) {
+			import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
+			$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ, $submissionFileId));
 		} else if (is_numeric($libraryFileId)) {
 			import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
 			$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-		} else {
-			// IDs will be specified using the default parameters.
-			$this->addPolicy($this->_getAccessPolicy($request, $args, $roleAssignments));
+		} else if (!empty($fileStage) && empty($submissionFileId)) {
+			$submissionFileIds = Services::get('submissionFile')->getIds([
+				'submissionIds' => [$submissionId],
+				'fileStages' => [$fileStage],
+				'includeDependentFiles' => $fileStage === SUBMISSION_FILE_DEPENDENT,
+			]);
+			import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
+			$allFilesAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
+			foreach ($submissionFileIds as $submissionFileId) {
+				$allFilesAccessPolicy->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ, $submissionFileId));
+			}
+			$this->addPolicy($allFilesAccessPolicy);
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);
@@ -76,14 +76,39 @@ class FileApiHandler extends Handler {
 	 */
 	function downloadFile($args, $request) {
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
-		assert(isset($submissionFile)); // Should have been validated already
-		$context = $request->getContext();
-		$fileManager = $this->_getFileManager($context->getId(), $submissionFile->getSubmissionId());
-		if (!$fileManager->downloadById($submissionFile->getFileId(), $submissionFile->getRevision(), false, $submissionFile->getClientFileName())) {
-			error_log('FileApiHandler: File ' . $submissionFile->getFilePath() . ' does not exist or is not readable!');
-			header('HTTP/1.0 500 Internal Server Error');
-			fatalError('500 Internal Server Error');
+		$fileId = $request->getUserVar('fileId') ?? $submissionFile->getData('fileId');
+		$validFileIds = Services::get('submissionFile')->getRevisionFileIds($submissionFile->getId());
+		if (!in_array($fileId, $validFileIds)) {
+			throw new Exception('File ' . $fileId . ' is not a revision of submission file ' . $submissionFile->getId());
 		}
+		$path = Services::get('file')->getPath((int) $fileId);
+		if (!Services::get('file')->fs->has($path)) {
+			throw new Exception('File ' . $fileId . ' at ' . $path . ' does not exist or can not be read.');
+		}
+
+		$filename = $request->getUserVar('filename') ?? $submissionFile->getLocalizedData('name');
+
+		// Enforce anonymous filenames for anonymous review assignments
+		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+		if ($reviewAssignment
+				&& $reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_DOUBLEBLIND
+				&& $reviewAssignment->getReviewerId() == $request->getUser()->getId()) {
+			AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION]);
+			$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
+			$genre = $genreDao->getById($submissionFile->getData('genreId'));
+			$filename = sprintf(
+				'%s-%s-%d-%s-%d',
+				\Stringy\Stringy::create($request->getContext()->getLocalizedData('acronym'))->toLowerCase(),
+				\Stringy\Stringy::create(__('submission.list.reviewAssignment'))->dasherize(),
+				$submissionFile->getData('submissionId'),
+				$genre->getLocalizedName(),
+				$submissionFile->getId()
+			);
+		}
+
+		$filename = Services::get('file')->formatFilename($path, $filename);
+
+		Services::get('file')->download($path, $filename);
 	}
 
 	/**
@@ -105,32 +130,33 @@ class FileApiHandler extends Handler {
 	function downloadAllFiles($args, $request) {
 		// Retrieve the authorized objects.
 		$submissionFiles = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILES);
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
-		// Find out the paths of all files in this grid.
-		$context = $request->getContext();
-		$filePaths = array();
-		$fileManager = $this->_getFileManager($context->getId(), $submission->getId());
-		$filesDir = $fileManager->getBasePath();
+		$files = [];
 		foreach ($submissionFiles as $submissionFile) {
-			// Remove absolute path so the archive doesn't include it (otherwise all files are organized by absolute path)
-			$filePaths[str_replace($filesDir, '', $submissionFile->getFilePath())] = $submissionFile->getClientFileName();
-
+			$path = Services::get('file')->getPath($submissionFile->getData('fileId'));
+			$files[$path] = Services::get('file')->formatFilename($path, $submissionFile->getLocalizedData('name'));
 		}
+
+		AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_EDITOR]);
+		$filename = !empty($args['nameLocaleKey'])
+			? __($args['nameLocaleKey'])
+			: __('submission.files');
+		$filename = $args['submissionId'] . '-' . $filename;
+		$filename = \Stringy\Stringy::create($filename)->toLowerCase()->dasherize()->regexReplace('[^a-z0-9\-\_.]', '');
 
 		import('lib.pkp.classes.file.FileArchive');
 		$fileArchive = new FileArchive();
-		$archivePath = $fileArchive->create($filePaths, $filesDir);
+		$archivePath = $fileArchive->create($files, rtrim(Config::getVar('files', 'files_dir'), '/'));
 		if (file_exists($archivePath)) {
 			$fileManager = new FileManager();
 			if ($fileArchive->zipFunctional()) {
-				$fileManager->downloadByPath($archivePath, 'application/x-zip', false, 'files.zip');
+				$fileManager->downloadByPath($archivePath, 'application/x-zip', false, $filename . '.zip');
 			} else {
-				$fileManager->downloadByPath($archivePath, 'application/x-gtar', false, 'files.tar.gz');
+				$fileManager->downloadByPath($archivePath, 'application/x-gtar', false, $filename . '.tar.gz');
 			}
 			$fileManager->deleteByPath($archivePath);
 		} else {
-			fatalError('Creating archive with submission files failed!');
+			throw new Exception('Creating archive with submission files failed!');
 		}
 	}
 
@@ -142,17 +168,10 @@ class FileApiHandler extends Handler {
 	 */
 	function recordDownload($args, $request) {
 		$submissionFiles = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILES);
-		$fileId = null;
 
 		foreach ($submissionFiles as $submissionFile) {
-			$submissionFileManager = new SubmissionFileManager($request->getContext()->getId(), $submissionFile->getSubmissionId());
-			$submissionFileManager->recordView($submissionFile);
-			$fileId = $submissionFile->getFileId();
+			Services::get('submissionFile')->recordView($submissionFile);
 			unset($submissionFile);
-		}
-
-		if (count($submissionFiles) > 1) {
-			$fileId = null;
 		}
 
 		return $this->enableLinkAction($args, $request);
@@ -168,28 +187,6 @@ class FileApiHandler extends Handler {
 	 */
 	function enableLinkAction($args, $request) {
 		return DAO::getDataChangedEvent();
-	}
-
-	/**
-	 * return the application specific file manager.
-	 * @param $contextId int the context for this manager.
-	 * @param $submissionId int the submission id.
-	 * @return SubmissionFileManager
-	 */
-	function _getFileManager($contextId, $submissionId) {
-		return new SubmissionFileManager($contextId, $submissionId);
-	}
-
-	/**
-	 * return the application specific file access policy.
-	 * @param $request PKPRequest
-	 * @param $args
-	 * @param $roleAssignments array
-	 * @param $fileIdAndRevision array optional
-	 * @return SubmissionFileAccessPolicy
-	 */
-	function _getAccessPolicy($request, $args, $roleAssignments, $fileIdAndRevision = null) {
-		return new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ, $fileIdAndRevision);
 	}
 }
 

@@ -123,18 +123,18 @@ msgstr ""
 "O tema ativo, {$themePluginPath}, não está habilitado e pode não ter sido "
 "instalado."
 
-msgid "api.temporaryFiles.400.config"
+msgid "api.files.400.config"
 msgstr ""
 "O arquivo não pôde ser enviado por causa de um erro de configuração no "
 "servidor. Por favor, entre em contato com o administrador do sistema."
 
-msgid "api.temporaryFiles.400.fileSize"
+msgid "api.files.400.fileSize"
 msgstr "Arquivos maiores do que {$maxSize} não podem ser enviados."
 
-msgid "api.temporaryFiles.409.uploadFailed"
+msgid "api.files.400.uploadFailed"
 msgstr "Um ou mais arquivos não foram enviados."
 
-msgid "api.temporaryFiles.400.noUpload"
+msgid "api.files.400.noUpload"
 msgstr "Nenhum arquivo a ser carregado foi encontrado com a solicitação."
 
 msgid "api.submissions.404.siteWideEndpoint"

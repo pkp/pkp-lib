@@ -52,6 +52,7 @@ define('ASSOC_TYPE_SUBMISSION',			0x0100009);
 define('ASSOC_TYPE_QUERY',			0x010000a);
 define('ASSOC_TYPE_QUEUED_PAYMENT',		0x010000b);
 define('ASSOC_TYPE_PUBLICATION', 0x010000c);
+define('ASSOC_TYPE_ACCESSIBLE_FILE_STAGES',    0x010000d);
 
 // Constant used in UsageStats for submission files that are not full texts
 define('ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER', 0x0000213);
@@ -471,7 +472,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'SubmissionDisciplineEntryDAO' => 'lib.pkp.classes.submission.SubmissionDisciplineEntryDAO',
 			'SubmissionEmailLogDAO' => 'lib.pkp.classes.log.SubmissionEmailLogDAO',
 			'SubmissionEventLogDAO' => 'lib.pkp.classes.log.SubmissionEventLogDAO',
-			'SubmissionFileDAO' => 'lib.pkp.classes.submission.SubmissionFileDAO',
+			'SubmissionFileDAO' => 'classes.submission.SubmissionFileDAO',
 			'SubmissionFileEventLogDAO' => 'lib.pkp.classes.log.SubmissionFileEventLogDAO',
 			'QueryDAO' => 'lib.pkp.classes.query.QueryDAO',
 			'SubmissionLanguageDAO' => 'lib.pkp.classes.submission.SubmissionLanguageDAO',

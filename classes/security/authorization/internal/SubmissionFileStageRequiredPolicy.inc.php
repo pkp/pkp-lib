@@ -25,13 +25,13 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy {
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
-	 * @param $fileIdAndRevision string This policy will try to
+	 * @param $submissionFileId int This policy will try to
 	 * get the submission file from this data.
 	 * @param $fileStage int SUBMISSION_FILE_...
 	 * @param $viewable boolean Whether the file has to be viewable
 	 */
-	function __construct($request, $fileIdAndRevision, $fileStage, $viewable = false) {
-		parent::__construct($request, $fileIdAndRevision);
+	function __construct($request, $submissionFileId, $fileStage, $viewable = false) {
+		parent::__construct($request, $submissionFileId);
 		$this->_fileStage = $fileStage;
 		$this->_viewable = $viewable;
 	}
@@ -56,9 +56,9 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy {
 		if ($this->_viewable) {
 			// Make sure the file is visible. Unless file is included in an open review.
 			if (!$submissionFile->getViewable()){
-				if ($submissionFile->getAssocType() === ASSOC_TYPE_REVIEW_ASSIGNMENT){
+				if ($submissionFile->getData('assocType') === ASSOC_TYPE_REVIEW_ASSIGNMENT){
 					$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-					$reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getAssocId());
+					$reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getData('assocId'));
 					if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN){
 						return AUTHORIZATION_DENY;
 					}

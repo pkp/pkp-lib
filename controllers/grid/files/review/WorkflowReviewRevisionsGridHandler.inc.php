@@ -20,9 +20,11 @@ class WorkflowReviewRevisionsGridHandler extends FileListGridHandler {
 	 * Constructor
 	 */
 	function __construct() {
+		$stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
+		$fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_REVISION : SUBMISSION_FILE_REVIEW_REVISION;
 		import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
 		parent::__construct(
-			new ReviewGridDataProvider(SUBMISSION_FILE_REVIEW_REVISION),
+			new ReviewGridDataProvider($fileStage),
 			null,
 			FILE_GRID_ADD|FILE_GRID_EDIT|FILE_GRID_VIEW_NOTES|FILE_GRID_DELETE
 		);

@@ -390,9 +390,6 @@ msgstr "Прийнято"
 msgid "submission.acknowledge"
 msgstr "Подяка"
 
-msgid "submission.addSuppFile"
-msgstr "Додати супровідний файл"
-
 msgid "submission.ask"
 msgstr "Запитати"
 
@@ -534,8 +531,9 @@ msgstr "Видалити запис журналу"
 msgid "submission.event.submissionSubmitted"
 msgstr "Початкове надсилання подання завершено."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Версія \"{$name}\" (file ID {$fileId}-{$fileRevision}) була завантажена."
+msgstr "Версія \"{$name}\" (file ID {$submissionFileId}) була завантажена."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Метадані подання оновлені"
@@ -672,9 +670,6 @@ msgstr "Ви впевнені, що хочете назавжди видалит
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Ви впевнені, що хочете видалити це зображення з гранки?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Ви впевнені, що хочете назавжди видалити цей супровідний файл?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Видалити цю таблицю стилів."
 
@@ -738,14 +733,8 @@ msgstr "Версія верстки"
 msgid "submission.layout.newGalley"
 msgstr "Створити нову гранку"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Завантажити новий супровідний файл"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Для цієї гранки не було додано файлу таблиці стилів."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Перегляд супровідного файлу"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Перегляд гранки подання"
@@ -981,9 +970,6 @@ msgstr "Завантажити файл обговорення"
 msgid "submission.summary"
 msgstr "Резюме"
 
-msgid "submission.supplementaryFiles"
-msgstr "Супровідні файли"
-
 msgid "submission.supportingAgencies"
 msgstr "Спонсори"
 
@@ -1163,9 +1149,6 @@ msgstr "Завантажити файл"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Завантажити файл після літературного редагування"
-
-msgid "submission.upload.fairCopy"
-msgstr "Завантажити остаточний файл"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Завантажити файли"

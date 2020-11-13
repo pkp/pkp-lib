@@ -84,16 +84,16 @@ msgstr "Ваш запрос не может быть выполнен, так к
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Неправильно указан запрашиваемый том, номер или год."
 
-msgid "api.temporaryFiles.400.noUpload"
+msgid "api.files.400.noUpload"
 msgstr "Не найдены файлы для загрузки на сервер, указанные в запросе."
 
-msgid "api.temporaryFiles.409.uploadFailed"
+msgid "api.files.400.uploadFailed"
 msgstr "Один или несколько файлов не могут быть загружены на сервер."
 
-msgid "api.temporaryFiles.400.fileSize"
+msgid "api.files.400.fileSize"
 msgstr "Файлы больше чем {$maxSize} нельзя загрузить на сервер."
 
-msgid "api.temporaryFiles.400.config"
+msgid "api.files.400.config"
 msgstr "Файл не удается загрузить на сервер из-за ошибки конфигурации сервера. Пожалуйста, свяжитесь с администратором системы."
 
 msgid "api.themes.404.themeUnavailable"

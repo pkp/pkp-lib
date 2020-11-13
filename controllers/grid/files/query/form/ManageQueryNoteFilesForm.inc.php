@@ -62,15 +62,15 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 	}
 
 	/**
-	 * @copydoc ManageSubmissionFilesForm::fileExistsInStage 
+	 * @copydoc ManageSubmissionFilesForm::fileExistsInStage
 	 */
 	protected function fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage) {
 		if (!parent::fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)) return false;
-		foreach ($stageSubmissionFiles[$submissionFile->getFileId()] as $stageFile) {
+		foreach ($stageSubmissionFiles[$submissionFile->getId()] as $stageFile) {
 			if (
 				$stageFile->getFileStage() == $submissionFile->getFileStage() &&
 				$stageFile->getFileStage() == $fileStage &&
-				($stageFile->getAssocType() != ASSOC_TYPE_NOTE || $stageFile->getAssocId() == $this->_noteId)
+				($stageFile->getData('assocType') != ASSOC_TYPE_NOTE || $stageFile->getData('assocId') == $this->_noteId)
 			) return true;
 		}
 		return false;
@@ -79,13 +79,12 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 	/**
 	 * @copydoc ManageSubmissionFilesForm::importFile()
 	 */
-	protected function importFile($context, $submissionFile, $fileStage) {
-		$submissionFile = parent::importFile($context, $submissionFile, $fileStage);
-		$submissionFile->setAssocType(ASSOC_TYPE_NOTE);
-		$submissionFile->setAssocId($this->_noteId);
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFileDao->updateObject($submissionFile);
-		return $submissionFile;
+	protected function importFile($submissionFile, $fileStage) {
+		$newSubmissionFile = clone $submissionFile;
+		$newSubmissionFile->setData('assocType', ASSOC_TYPE_NOTE);
+		$newSubmissionFile->setData('assocId', $this->_noteId);
+
+		return parent::importFile($newSubmissionFile, $fileStage);
 	}
 }
 

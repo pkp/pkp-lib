@@ -191,7 +191,7 @@ class PKPSiteService implements EntityPropertyInterface {
 		$newSite = $siteDao->newDataObject();
 		$newSite->_data = array_merge($site->_data, $params);
 
-		\HookRegistry::call('Site::edit', array($newSite, $site, $params, $request));
+		\HookRegistry::call('Site::edit', array(&$newSite, $site, $params, $request));
 
 		$siteDao->updateObject($newSite);
 		$newSite = $siteDao->getSite();

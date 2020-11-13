@@ -77,18 +77,19 @@ class ReviewsMigration extends Migration {
 			$table->bigInteger('submission_id');
 			$table->bigInteger('review_round_id');
 			$table->smallInteger('stage_id');
-			$table->bigInteger('file_id');
-			$table->bigInteger('revision')->default(1);
+			$table->bigInteger('submission_file_id')->nullable(false)->unsigned();
 			$table->index(['submission_id'], 'review_round_files_submission_id');
-			$table->unique(['submission_id', 'review_round_id', 'file_id', 'revision'], 'review_round_files_pkey');
+			$table->unique(['submission_id', 'review_round_id', 'submission_file_id'], 'review_round_files_pkey');
+			$table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
 		});
 
 		// Associates reviewable submission files with reviews
 		Capsule::schema()->create('review_files', function (Blueprint $table) {
 			$table->bigInteger('review_id');
-			$table->bigInteger('file_id');
+			$table->bigInteger('submission_file_id')->nullable(false)->unsigned();
 			$table->index(['review_id'], 'review_files_review_id');
-			$table->unique(['review_id', 'file_id'], 'review_files_pkey');
+			$table->unique(['review_id', 'submission_file_id'], 'review_files_pkey');
+			$table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
 		});
 	}
 

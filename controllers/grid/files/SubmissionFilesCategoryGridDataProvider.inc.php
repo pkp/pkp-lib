@@ -86,7 +86,6 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	 * @copydoc CategoryGridDataProvider::loadCategoryData()
 	 */
 	function loadCategoryData($request, $categoryDataElement, $filter = null, $reviewRound = null) {
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$dataProvider = $this->getDataProvider();
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $categoryDataElement;
@@ -99,22 +98,34 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 				$reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 			}
-			$stageSubmissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound($reviewRound, $fileStage);
+			if ($reviewRound) {
+				$submissionFilesIterator = Services::get('submissionFile')->getMany([
+					'submissionIds' => [$submission->getId()],
+					'reviewRoundIds' => [$reviewRound->getId()],
+					'fileStages' => [$fileStage],
+				]);
+				$stageSubmissionFiles = iterator_to_array($submissionFilesIterator);
+			} else {
+				$stageSubmissionFiles = [];
+			}
 		} else {
 			// Filter the passed workflow stage files.
 			if (!$this->_submissionFiles) {
-				$this->_submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId());
+				$submissionFilesIterator = Services::get('submissionFile')->getMany([
+					'submissionIds' => [$submission->getId()],
+				]);
+				$this->_submissionFiles = iterator_to_array($submissionFilesIterator);
 			}
 			$submissionFiles = $this->_submissionFiles;
 			$stageSubmissionFiles = array();
 			foreach ($submissionFiles as $key => $submissionFile) {
-				if (in_array($submissionFile->getFileStage(), (array) $fileStage)) {
+				if (in_array($submissionFile->getData('fileStage'), (array) $fileStage)) {
 					$stageSubmissionFiles[$key] = $submissionFile;
-				} elseif ($submissionFile->getFileStage() == SUBMISSION_FILE_QUERY) {
+				} elseif ($submissionFile->getData('fileStage') == SUBMISSION_FILE_QUERY) {
 					// Determine the stage from the query.
-					if ($submissionFile->getAssocType()!=ASSOC_TYPE_NOTE) break;
+					if ($submissionFile->getData('assocType')!=ASSOC_TYPE_NOTE) break;
 					$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
-					$note = $noteDao->getById($submissionFile->getAssocId());
+					$note = $noteDao->getById($submissionFile->getData('assocId'));
 					assert($note && $note->getAssocType()==ASSOC_TYPE_QUERY);
 					$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 					$query = $queryDao->getById($note->getAssocId());
@@ -188,6 +199,8 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 				return SUBMISSION_FILE_SUBMISSION;
 				break;
 			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
+				return SUBMISSION_FILE_INTERNAL_REVIEW_FILE;
+				break;
 			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
 				return SUBMISSION_FILE_REVIEW_FILE;
 				break;

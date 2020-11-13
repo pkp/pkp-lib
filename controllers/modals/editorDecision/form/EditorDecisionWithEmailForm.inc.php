@@ -230,16 +230,16 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			$selectedAttachments = $this->getData('selectedAttachments');
 			if(is_array($selectedAttachments)) {
-				foreach ($selectedAttachments as $fileId) {
+				foreach ($selectedAttachments as $submissionFileId) {
 
 					// Retrieve the submission file.
-					$submissionFile = $submissionFileDao->getLatestRevision($fileId);
+					$submissionFile = Services::get('submissionFile')->get($submissionFileId);
 					assert(is_a($submissionFile, 'SubmissionFile'));
 
 					// Check the association information.
-					if($submissionFile->getAssocType() == ASSOC_TYPE_REVIEW_ASSIGNMENT) {
+					if($submissionFile->getData('assocType') == ASSOC_TYPE_REVIEW_ASSIGNMENT) {
 						// The review attachment has been uploaded by a reviewer.
-						$reviewAssignmentId = $submissionFile->getAssocId();
+						$reviewAssignmentId = $submissionFile->getData('assocId');
 						assert(is_numeric($reviewAssignmentId));
 					} else {
 						// The review attachment has been uploaded by the editor.
@@ -252,9 +252,10 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 					assert(!is_null($reviewIndex));
 
 					// Add the attachment to the email.
+					$path = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . Services::get('file')->getPath($submissionFile->getData('fileId'));
 					$email->addAttachment(
-						$submissionFile->getFilePath(),
-						PKPString::enumerateAlphabetically($reviewIndex).'-'.$submissionFile->getOriginalFileName()
+						$path,
+						PKPString::enumerateAlphabetically($reviewIndex).'-'.$submissionFile->getLocalizedData('name')
 					);
 
 					// Update submission file to set viewable as true, so author

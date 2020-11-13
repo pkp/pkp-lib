@@ -92,9 +92,10 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 		$editorAction = new EditorAction();
 		$editorAction->recordDecision($request, $submission, $decision, $actionLabels, $reviewRound);
 
+		// Bring in the SUBMISSION_FILE_* constants.
+		import('lib.pkp.classes.submission.SubmissionFile');
+
 		// Identify email key and status of round.
-		import('lib.pkp.classes.file.SubmissionFileManager');
-		$submissionFileManager = new SubmissionFileManager($submission->getContextId(), $submission->getId());
 		switch ($decision) {
 			case SUBMISSION_EDITOR_DECISION_ACCEPT:
 				$emailKey = 'EDITOR_DECISION_ACCEPT';
@@ -105,18 +106,17 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 				// Move to the editing stage.
 				$editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_EDITING, $request);
 
-				// Bring in the SUBMISSION_FILE_* constants.
-				import('lib.pkp.classes.submission.SubmissionFile');
-				// Bring in the Manager (we need it).
-				import('lib.pkp.classes.file.SubmissionFileManager');
-
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 
 				$selectedFiles = $this->getData('selectedFiles');
 				if(is_array($selectedFiles)) {
-					foreach ($selectedFiles as $fileId) {
-						$revisionNumber = $submissionFileDao->getLatestRevisionNumber($fileId);
-						$submissionFileManager->copyFileToFileStage($fileId, $revisionNumber, SUBMISSION_FILE_FINAL, null, true);
+					foreach ($selectedFiles as $submissionFileId) {
+						$submissionFile = Services::get('submissionFile')->get($submissionFileId);
+						$newSubmissionFile = clone $submissionFile;
+						$newSubmissionFile->setData('fileStage', SUBMISSION_FILE_FINAL);
+						$newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
+						$newSubmissionFile->setData('assocType', null);
+						$newSubmissionFile->setData('assocId', null);
+						$newSubmissionFile = Services::get('submissionFile')->add($newSubmissionFile, Application::get()->getRequest());
 					}
 				}
 
@@ -148,24 +148,24 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 
 				// Bring in the SUBMISSION_FILE_* constants.
 				import('lib.pkp.classes.submission.SubmissionFile');
-				// Bring in the Manager (we need it).
-				import('lib.pkp.classes.file.SubmissionFileManager');
-
-				// Move the revisions to the next stage
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 
 				$selectedFiles = $this->getData('selectedFiles');
 				if(is_array($selectedFiles)) {
-					foreach ($selectedFiles as $fileId) {
-						$revisionNumber = $submissionFileDao->getLatestRevisionNumber($fileId);
-						$submissionFileManager->copyFileToFileStage($fileId, $revisionNumber, SUBMISSION_FILE_PRODUCTION_READY);
+					foreach ($selectedFiles as $submissionFileId) {
+						$submissionFile = Services::get('submissionFile')->get($submissionFileId);
+						$newSubmissionFile = clone $submissionFile;
+						$newSubmissionFile->setData('fileStage', SUBMISSION_FILE_PRODUCTION_READY);
+						$newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
+						$newSubmissionFile->setData('assocType', null);
+						$newSubmissionFile->setData('assocId', null);
+						$newSubmissionFile = Services::get('submissionFile')->add($newSubmissionFile, Application::get()->getRequest());
 					}
 				}
 				// Send email to the author.
 				$this->_sendReviewMailToAuthor($submission, $emailKey, $request);
 				break;
 			default:
-				fatalError('Unsupported decision!');
+				throw new Exception('Unsupported decision!');
 		}
 
 		if ($this->getData('requestPayment')) {

@@ -24,10 +24,10 @@ class DependentFilesGridHandler extends FileListGridHandler {
 	function __construct() {
 		// import app-specific grid data provider for access policies.
 		$request = Application::get()->getRequest();
-		$fileId = $request->getUserVar('fileId'); // authorized in authorize() method.
+		$submissionFileId = $request->getUserVar('submissionFileId'); // authorized in authorize() method.
 		import('lib.pkp.controllers.grid.files.dependent.DependentFilesGridDataProvider');
 		parent::__construct(
-			new DependentFilesGridDataProvider($fileId),
+			new DependentFilesGridDataProvider($submissionFileId),
 			$request->getUserVar('stageId'),
 			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
 		);
@@ -45,7 +45,7 @@ class DependentFilesGridHandler extends FileListGridHandler {
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
-		$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY));
+		$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY, (int) $args['submissionFileId']));
 
 		return parent::authorize($request, $args, $roleAssignments);
 	}
@@ -57,7 +57,7 @@ class DependentFilesGridHandler extends FileListGridHandler {
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 		return array_merge(
 			parent::getRequestArgs(),
-			array('fileId' => $submissionFile->getFileId())
+			array('submissionFileId' => $submissionFile->getId())
 		);
 	}
 }

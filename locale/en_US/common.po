@@ -354,6 +354,9 @@ msgstr "Download PDF"
 msgid "common.edit"
 msgstr "Edit"
 
+msgid "common.editItem"
+msgstr "Edit {$name}"
+
 msgid "common.enable"
 msgstr "Enable"
 
@@ -809,6 +812,9 @@ msgstr "The file could not be uploaded or revised."
 
 msgid "common.up"
 msgstr "Up"
+
+msgid "common.addFile"
+msgstr "Add File"
 
 msgid "common.upload.addFile"
 msgstr "Upload File"
@@ -1696,6 +1702,18 @@ msgstr "Invalid submission."
 
 msgid "user.authorization.invalidRepresentation"
 msgstr "Invalid representation."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Invalid review round."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Invalid discussion."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "You do not have access to this discussion message."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "You do not have access to this review assignment."
 
 msgid "user.authorization.authorRoleMissing"
 msgstr "You do not currently have sufficient privileges to view the submission. Please edit your profile to ensure that you have been granted the appropriate roles under \"Register As\"."

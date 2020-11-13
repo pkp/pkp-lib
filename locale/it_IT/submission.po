@@ -23,9 +23,6 @@ msgstr "Accetta"
 msgid "submission.acknowledge"
 msgstr "Ringraziamenti"
 
-msgid "submission.addSuppFile"
-msgstr "Aggiungi un file supplementare"
-
 msgid "submission.ask"
 msgstr "Richiesta"
 
@@ -206,9 +203,6 @@ msgstr "Sei sicuro di eliminare definitivamente questa gabbia?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Sei sicuro di rimuovere questa immagine dalla gabbia?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Sei sicuro di eliminare definitivamente questo file aggiuntivo?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Elimina questo foglio di stile."
 
@@ -266,14 +260,8 @@ msgstr "Versione di Layout"
 msgid "submission.layout.newGalley"
 msgstr "Crea una nuova gabbia"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Invia un nuovo file aggiuntivo"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Nessun foglio di stile è stato associato a questa gabbia."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "REvisione dei file supplementari"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Vedi la gabbia dell'articolo"
@@ -436,9 +424,6 @@ msgstr "Proponente"
 
 msgid "submission.summary"
 msgstr "Riepilogo"
-
-msgid "submission.supplementaryFiles"
-msgstr "File supplementari"
 
 msgid "submission.titleAndAbstract"
 msgstr "Titolo e abstract"
@@ -946,8 +931,9 @@ msgstr "Invio iniziale completato."
 msgid "submission.event.fileUploaded"
 msgstr "Un file \"{$originalFileName}\" è stato caricato per la proposta {$submissionId} da parte di {$username}."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "La revisione \"{$name}\" (file ID {$fileId}-{$fileRevision}) è stata caricata."
+msgstr "La revisione \"{$name}\" (file ID {$submissionFileId}) è stata caricata."
 
 msgid "submission.event.subjectPrefix"
 msgstr "Una email è stata mandata:"
@@ -1156,9 +1142,6 @@ msgstr "Carica files"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Carica file (versione dopo il copyediting)"
-
-msgid "submission.upload.fairCopy"
-msgstr "Carica copia di cortesia"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Carica files"

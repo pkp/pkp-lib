@@ -94,11 +94,14 @@ class SearchFileParser {
 
 	/**
 	 * Create a text parser for a file.
-	 * @param $file [Article|Paper]File
+	 * @param SubmissionFile $submissionFile
 	 * @return SearchFileParser
 	 */
-	static function fromFile($file) {
-		return SearchFileParser::fromFileType($file->getFileType(), $file->getFilePath());
+	static function fromFile($submissionFile) {
+		$path = Services::get('file')->getPath($submissionFile->getData('fileId'));
+		$mimetype = Services::get('file')->fs->getMimetype($path);
+		$fullPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $path;
+		return SearchFileParser::fromFileType($mimetype, $fullPath);
 	}
 
 	/**

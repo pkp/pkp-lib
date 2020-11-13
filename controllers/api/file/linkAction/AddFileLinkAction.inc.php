@@ -37,9 +37,11 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 	 * @param $revisedFileId int Revised file ID, if any
 	 * @param $dependentFilesOnly bool whether to only include dependent
 	 *  files in the Genres dropdown.
+	 * @param $queryId int The query id. Use when the assoc details point
+	 *  to a note
 	 */
 	function __construct($request, $submissionId, $stageId, $uploaderRoles,
-			$fileStage, $assocType = null, $assocId = null, $reviewRoundId = null, $revisedFileId = null, $dependentFilesOnly = false) {
+			$fileStage, $assocType = null, $assocId = null, $reviewRoundId = null, $revisedFileId = null, $dependentFilesOnly = false, $queryId = null) {
 
 		// Create the action arguments array.
 		$actionArgs = array('fileStage' => $fileStage, 'reviewRoundId' => $reviewRoundId);
@@ -52,6 +54,10 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 			$actionArgs['revisionOnly'] = true;
 		}
 		if ($dependentFilesOnly) $actionArgs['dependentFilesOnly'] = true;
+
+		if ($queryId) {
+			$actionArgs['queryId'] = $queryId;
+		}
 
 		// Identify text labels based on the file stage.
 		$textLabels = AddFileLinkAction::_getTextLabels($fileStage);
@@ -75,13 +81,17 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 	 *  SUBMISSION_FILE_* constants.
 	 * @return array
 	 */
-	function _getTextLabels($fileStage) {
+	static function _getTextLabels($fileStage) {
 		static $textLabels = array(
 			SUBMISSION_FILE_SUBMISSION => array(
 				'wizardTitle' => 'submission.submit.uploadSubmissionFile',
 				'buttonLabel' => 'submission.addFile'
 			),
 			SUBMISSION_FILE_REVIEW_FILE => array(
+				'wizardTitle' => 'editor.submissionReview.uploadFile',
+				'buttonLabel' => 'editor.submissionReview.uploadFile'
+			),
+			SUBMISSION_FILE_INTERNAL_REVIEW_FILE => array(
 				'wizardTitle' => 'editor.submissionReview.uploadFile',
 				'buttonLabel' => 'editor.submissionReview.uploadFile'
 			),
@@ -97,16 +107,16 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 				'wizardTitle' => 'editor.submissionReview.uploadFile',
 				'buttonLabel' => 'submission.addFile'
 			),
+			SUBMISSION_FILE_INTERNAL_REVIEW_REVISION => array(
+				'wizardTitle' => 'editor.submissionReview.uploadFile',
+				'buttonLabel' => 'submission.addFile'
+			),
 			SUBMISSION_FILE_FINAL => array(
 				'wizardTitle' => 'submission.upload.finalDraft',
 				'buttonLabel' => 'submission.addFile'
 			),
 			SUBMISSION_FILE_COPYEDIT => array(
 				'wizardTitle' => 'submission.upload.copyeditedVersion',
-				'buttonLabel' => 'submission.addFile'
-			),
-			SUBMISSION_FILE_FAIR_COPY => array(
-				'wizardTitle' => 'submission.upload.fairCopy',
 				'buttonLabel' => 'submission.addFile'
 			),
 			SUBMISSION_FILE_PRODUCTION_READY => array(

@@ -401,9 +401,6 @@ msgstr "پذیرفته‌شده"
 msgid "submission.acknowledge"
 msgstr "تشکر"
 
-msgid "submission.addSuppFile"
-msgstr "افزودن فایل مطالب تکمیلی"
-
 msgid "submission.ask"
 msgstr "درخواست"
 
@@ -749,8 +746,9 @@ msgstr "حذف سابقه"
 msgid "submission.event.submissionSubmitted"
 msgstr "مقاله اراسل شد."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "اصلاحات \"{$name}\" (با شناسه فایل {$fileId}-{$fileRevision}) آپلود شد."
+msgstr "اصلاحات \"{$name}\" (با شناسه فایل {$submissionFileId}) آپلود شد."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "فراداده ارسال شده به روز رسانی شد"
@@ -884,9 +882,6 @@ msgstr "آیا میخواهید برای همیشه این کلیشه چاپی �
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "آیا میخواهید این تصویر را از این کلیشه چاپی حذف کنید؟"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "آیا میخواهید برای همیشه این فایل مکمل را حذف کنید؟"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "حذف این استایل شیت"
 
@@ -950,14 +945,8 @@ msgstr "نسخه صفحه‌آرا"
 msgid "submission.layout.newGalley"
 msgstr "ایجاد کلیشه چاپی جدید"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "آپلود فایل مکمل جدید"
-
 msgid "submission.layout.noStyleFile"
 msgstr "هیچ فایل استایل شیتی برای این کلیشه چاپی تعیین نشده است"
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "بررسی فایل های مکمل"
 
 msgid "submission.layout.viewingGalley"
 msgstr "مشاهده کلیشه چاپی ارسال شده"
@@ -1193,9 +1182,6 @@ msgstr "آپلود فایل گفتگو"
 msgid "submission.summary"
 msgstr "خلاصه"
 
-msgid "submission.supplementaryFiles"
-msgstr "فایل های مکمل"
-
 msgid "submission.supportingAgencies"
 msgstr "آژانس های پشتیبانی کننده"
 
@@ -1345,9 +1331,6 @@ msgstr "آپلود فایل"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "آپلود فایل ویراستاری شده"
-
-msgid "submission.upload.fairCopy"
-msgstr "آپلود کپی منصفانه"
 
 msgid "submission.upload.uploadFiles"
 msgstr "آپلود فایل‌ها"

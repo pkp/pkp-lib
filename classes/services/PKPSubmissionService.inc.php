@@ -158,7 +158,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			$submissionListQB->offsetBy($args['count']);
 		}
 
-		\HookRegistry::call('Submission::getMany::queryBuilder', array($submissionListQB, $args));
+		\HookRegistry::call('Submission::getMany::queryBuilder', array(&$submissionListQB, $args));
 
 		return $submissionListQB;
 	}
@@ -473,12 +473,13 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 						$stage['status'] = __($reviewRound->getStatusKey());
 
 						// Revision files in this round.
-						import('lib.pkp.classes.submission.SubmissionFile');
-						$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-						$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($reviewRound, SUBMISSION_FILE_REVIEW_REVISION);
-						$stage['files'] = array(
-							'count' => count($submissionFiles),
-						);
+						$stage['files'] = [
+							'count' => Services::get('submissionFile')->getCount([
+								'submissionIds' => [$submission->getId()],
+								'fileStages' => [SUBMISSION_FILE_REVIEW_REVISION],
+								'reviewRounds' => [$reviewRound->getId()],
+							]),
+						];
 
 						// See if the  curent user can only recommend:
 						$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
@@ -495,9 +496,9 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 						}
 					} else {
 						// workaround for pkp/pkp-lib#4231, pending formal data model
-						$stage['files'] = array(
+						$stage['files'] = [
 							 'count' => 0
-						);
+						];
 					}
 					break;
 
@@ -506,12 +507,12 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 				case WORKFLOW_STAGE_ID_EDITING:
 				case WORKFLOW_STAGE_ID_PRODUCTION:
 					import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
-					$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-					$fileStageIId = $stageId === WORKFLOW_STAGE_ID_EDITING ? SUBMISSION_FILE_COPYEDIT : SUBMISSION_FILE_PROOF;
-					$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $fileStageIId);
-					$stage['files'] = array(
-						'count' => count($submissionFiles),
-					);
+					$stage['files'] = [
+						'count' => Services::get('submissionFile')->getCount([
+							'submissionIds' => [$submission->getId()],
+							'fileStages' => [WORKFLOW_STAGE_ID_EDITING ? SUBMISSION_FILE_COPYEDIT : SUBMISSION_FILE_PROOF],
+						]),
+					];
 					break;
 			}
 
@@ -748,7 +749,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		$submissionId = $submissionDao->insertObject($submission);
 		$submission = $this->get($submissionId);
 
-		\HookRegistry::call('Submission::add', [$submission, $request]);
+		\HookRegistry::call('Submission::add', [&$submission, $request]);
 
 		return $submission;
 	}
@@ -764,7 +765,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		$submission->stampLastActivity();
 		$submission->stampModified();
 
-		\HookRegistry::call('Submission::edit', [$newSubmission, $submission, $params, $request]);
+		\HookRegistry::call('Submission::edit', [&$newSubmission, $submission, $params, $request]);
 
 		$submissionDao->updateObject($newSubmission);
 		$newSubmission = $this->get($newSubmission->getId());
@@ -776,12 +777,12 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
 	 */
 	public function delete($submission) {
-		\HookRegistry::call('Submission::delete::before', [$submission]);
+		\HookRegistry::call('Submission::delete::before', [&$submission]);
 
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submissionDao->deleteObject($submission);
 
-		\HookRegistry::call('Submission::delete', [$submission]);
+		\HookRegistry::call('Submission::delete', [&$submission]);
 	}
 
 	/**

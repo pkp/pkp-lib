@@ -108,7 +108,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 				case 'fromRoleIds':
 				case 'toRoleIds':
 				case 'stageIds':
-					if (is_string($val) && strpos($val, ',') > -1) {
+					if (is_string($val)) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
 						$val = array($val);
@@ -199,7 +199,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 		}
 
 		$emailTemplate = Application::getContextDAO()->newDataObject();
-		$emailTemplate->_data = $params;
+		$emailTemplate->setAllData($params);
 		$emailTemplate = Services::get('emailTemplate')->add($emailTemplate, $request);
 
 		$data = Services::get('emailTemplate')->getFullProperties($emailTemplate, [

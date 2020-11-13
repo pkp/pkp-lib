@@ -64,18 +64,18 @@ msgstr ""
 "Det aktive tema, {$themePluginPath}, er ikke aktiveret og er muligvis ikke "
 "installeret."
 
-msgid "api.temporaryFiles.400.config"
+msgid "api.files.400.config"
 msgstr ""
 "Filen kunne ikke uploades på grund af en serverkonfigurationsfejl. Kontakt "
 "systemadministratoren."
 
-msgid "api.temporaryFiles.400.fileSize"
+msgid "api.files.400.fileSize"
 msgstr "Filer, der er større end {$maxSize}, kan ikke uploades."
 
-msgid "api.temporaryFiles.409.uploadFailed"
+msgid "api.files.400.uploadFailed"
 msgstr "En eller flere filer kunne ikke uploades."
 
-msgid "api.temporaryFiles.400.noUpload"
+msgid "api.files.400.noUpload"
 msgstr ""
 "Ingen af de filer, der skal uploades, blev fundet på baggrund af anmodningen."
 

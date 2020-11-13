@@ -36,7 +36,7 @@ class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy {
 		foreach ($userRoles as $stageRoles) {
 			if (in_array(ROLE_ID_AUTHOR, $stageRoles)) {
 				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-				$reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getAssocId());
+				$reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getData('assocId'));
 				if ($reviewAssignment && $reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN){
 					return AUTHORIZATION_DENY;
 				}

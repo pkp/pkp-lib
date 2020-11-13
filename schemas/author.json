@@ -75,6 +75,12 @@
 			"description": "The order in which this contributor should appear in a list of contriibutors.",
 			"apiSummary": true
 		},
+		"submissionLocale": {
+			"type": "string",
+			"description": "The primary locale of the submission this author is attached to. This locale is used as the fallback when a language is missing from a multilingual property.",
+			"apiSummary": true,
+			"readOnly": true
+		},
 		"url": {
 			"type": "string",
 			"description": "An optional URL to this contributor's webpage.",

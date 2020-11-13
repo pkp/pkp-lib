@@ -112,44 +112,6 @@ class TemporaryFileManager extends PrivateFileManager {
 	}
 
 	/**
-	 * Create a new temporary file from a submission file.
-	 * @param $submissionFile object
-	 * @param $userId int
-	 * @return object The new TemporaryFile or false on failure
-	 */
-	function submissionToTemporaryFile($submissionFile, $userId) {
-		// Get the file extension, then rename the file.
-		$fileExtension = $this->parseFileExtension($submissionFile->getServerFileName());
-
-		if (!$this->fileExists($this->filesDir, 'dir')) {
-			// Try to create destination directory
-			$this->mkdirtree($this->filesDir);
-		}
-
-		$newFileName = basename(tempnam($this->filesDir, $fileExtension));
-		if (!$newFileName) return false;
-
-		if (copy($submissionFile->getFilePath(), $this->filesDir . $newFileName)) {
-			$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
-			$temporaryFile = $temporaryFileDao->newDataObject();
-
-			$temporaryFile->setUserId($userId);
-			$temporaryFile->setServerFileName($newFileName);
-			$temporaryFile->setFileType($submissionFile->getFileType());
-			$temporaryFile->setFileSize($submissionFile->getFileSize());
-			$temporaryFile->setOriginalFileName($submissionFile->getOriginalFileName());
-			$temporaryFile->setDateUploaded(Core::getCurrentDate());
-
-			$temporaryFileDao->insertObject($temporaryFile);
-
-			return $temporaryFile;
-
-		} else {
-			return false;
-		}
-	}
-
-	/**
 	 * Perform periodic cleanup tasks. This is used to occasionally
 	 * remove expired temporary files.
 	 */

@@ -138,7 +138,7 @@ class APIHandler extends PKPHandler {
 	/**
 	 * Return PKP request object
 	 *
-	 * @return PKPRequest
+	 * @return Request
 	 */
 	public function getRequest() {
 		return $this->_request;
@@ -273,8 +273,7 @@ class APIHandler extends PKPHandler {
 	 * @return array Converted parameters
 	 */
 	public function convertStringsToSchema($schema, $params) {
-		$schemaService = Services::get('schema');
-		$schema = $schemaService->get($schema);
+		$schema = Services::get('schema')->get($schema);
 
 		foreach ($params as $paramName => $paramValue) {
 			if (!property_exists($schema->properties, $paramName)) {

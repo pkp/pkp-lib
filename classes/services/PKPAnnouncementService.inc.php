@@ -2,9 +2,9 @@
 /**
  * @file classes/services/PKPAnnouncementService.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAnnouncementService
  * @ingroup services
@@ -17,7 +17,6 @@ namespace PKP\Services;
 use \Core;
 use \DAOResultFactory;
 use \DAORegistry;
-use \DBResultRange;
 use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
@@ -52,7 +51,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMany()
 	 */
-	public function getMany($args = null) {
+	public function getMany($args = []) {
 		$range = null;
 		if (isset($args['count'])) {
 			import('lib.pkp.classes.db.DBResultRange');
@@ -81,6 +80,9 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 		return (int) $this->getQueryBuilder($args)->getCount();
 	}
 
+	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
+	 */
 	public function getQueryBuilder($args = []) {
 
 		$defaultArgs = [
@@ -102,7 +104,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 			$announcementQB->filterByTypeIds($args['typeIds']);
 		}
 
-		\HookRegistry::call('Announcement::getMany::queryBuilder', [$announcementQB, $args]);
+		\HookRegistry::call('Announcement::getMany::queryBuilder', [&$announcementQB, $args]);
 
 		return $announcementQB;
 	}
@@ -207,7 +209,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 	public function add($announcement, $request) {
 		$announcement->setData('datePosted', Core::getCurrentDate());
 		DAORegistry::getDao('AnnouncementDAO')->insertObject($announcement);
-		\HookRegistry::call('Announcement::add', [$announcement, $request]);
+		\HookRegistry::call('Announcement::add', [&$announcement, $request]);
 
 		return $announcement;
 	}
@@ -220,7 +222,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 		$newAnnouncement = DAORegistry::getDAO('AnnouncementDAO')->newDataObject();
 		$newAnnouncement->_data = array_merge($announcement->_data, $params);
 
-		\HookRegistry::call('Announcement::edit', array($newAnnouncement, $announcement, $params, $request));
+		\HookRegistry::call('Announcement::edit', array(&$newAnnouncement, $announcement, $params, $request));
 
 		DAORegistry::getDAO('AnnouncementDAO')->updateObject($newAnnouncement);
 		$newAnnouncement = $this->get($newAnnouncement->getId());
@@ -232,8 +234,8 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
 	 */
 	public function delete($announcement) {
-		\HookRegistry::call('Announcement::delete::before', array($announcement));
+		\HookRegistry::call('Announcement::delete::before', array(&$announcement));
 		DAORegistry::getDao('AnnouncementDAO')->deleteObject($announcement);
-		\HookRegistry::call('Announcement::delete', array($announcement));
+		\HookRegistry::call('Announcement::delete', array(&$announcement));
 	}
 }

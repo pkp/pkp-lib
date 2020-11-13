@@ -375,7 +375,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 		}
 
 		// Add app-specific query statements
-		\HookRegistry::call('EmailTemplate::getMany::queryObject::default', array($q, $this));
+		\HookRegistry::call('EmailTemplate::getMany::queryObject::default', array(&$q, $this));
 
 		$q->select($this->columns);
 
@@ -442,7 +442,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 		}
 
 		// Add app-specific query statements
-		\HookRegistry::call('EmailTemplate::getMany::queryObject::custom', array($q, $this));
+		\HookRegistry::call('EmailTemplate::getMany::queryObject::custom', array(&$q, $this));
 
 		$q->select($this->columns);
 

@@ -420,9 +420,6 @@ msgstr "مقبول"
 msgid "submission.acknowledge"
 msgstr "إقرار"
 
-msgid "submission.addSuppFile"
-msgstr "أضف ملفاً تكميلياً"
-
 msgid "submission.ask"
 msgstr "إسأل"
 
@@ -570,8 +567,9 @@ msgstr "حذف المعلومة من سجل الوقائع"
 msgid "submission.event.submissionSubmitted"
 msgstr "طلب النشر الأساسي إكتمل."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "التنقيح \"{$name}\" (رمز الملف {$fileId}-{$fileRevision}) قد رُفع إلى الموقع."
+msgstr "التنقيح \"{$name}\" (رمز الملف {$submissionFileId}) قد رُفع إلى الموقع."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "البيانات الوصفية للمؤلَّف تم تحديثها"
@@ -729,9 +727,6 @@ msgstr "هل أنت متأكد من رغبتك في حذف هذا اللوح ا�
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "هل أنت متأكد من رغبتك في إزالة هذه الصورة من اللوح الطباعي؟"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "هل أنت متأكد من رغبتك في حذف هذا الملف التكميلي نهائياً؟"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "حذف ملف الأنماط هذا."
 
@@ -795,14 +790,8 @@ msgstr "نسخة التصميم"
 msgid "submission.layout.newGalley"
 msgstr "إنشاء لوح طباعي جديد"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "رفع ملف تكميلي جديد"
-
 msgid "submission.layout.noStyleFile"
 msgstr "لم تتم إضافة ملف أنماط إلى هذا اللوح الطباعي."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "تحكيم الملف التكميلي"
 
 msgid "submission.layout.viewingGalley"
 msgstr "معاينة اللوح الطباعي للمؤلَّف"
@@ -1038,9 +1027,6 @@ msgstr "إرفع ملف مناقشة"
 msgid "submission.summary"
 msgstr "الموجز"
 
-msgid "submission.supplementaryFiles"
-msgstr "الملفات التكميلية"
-
 msgid "submission.supportingAgencies"
 msgstr "الوكالات الداعمة"
 
@@ -1220,9 +1206,6 @@ msgstr "رفع الملف"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "إرفع ملفاً مدققاً"
-
-msgid "submission.upload.fairCopy"
-msgstr "رفع نسخة مصفاة"
 
 msgid "submission.upload.uploadFiles"
 msgstr "رفع الملفات"

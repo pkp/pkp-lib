@@ -24,12 +24,14 @@ define('FILE_MODE_MASK', 0666);
 define('DIRECTORY_MODE_MASK', 0777);
 
 define('DOCUMENT_TYPE_DEFAULT', 'default');
+define('DOCUMENT_TYPE_AUDIO', 'audio');
 define('DOCUMENT_TYPE_EXCEL', 'excel');
 define('DOCUMENT_TYPE_HTML', 'html');
 define('DOCUMENT_TYPE_IMAGE', 'image');
 define('DOCUMENT_TYPE_PDF', 'pdf');
 define('DOCUMENT_TYPE_WORD', 'word');
 define('DOCUMENT_TYPE_EPUB', 'epub');
+define('DOCUMENT_TYPE_VIDEO', 'video');
 define('DOCUMENT_TYPE_ZIP', 'zip');
 
 class FileManager {

@@ -23,11 +23,11 @@
 {fbvFormSection title="common.name" for="name" required="true"}
 	{fbvElement type="text" multilingual="true" id="name" value=$name maxlength="80" required="true"}
 {/fbvFormSection}
-{fbvFormSection list="true" title="common.options"}
+{fbvFormSection list="true" title="manager.setup.genres.label"}
 	{fbvElement type="checkbox" id="dependent" checked=$dependent label="manager.setup.genres.dependent"}
 	{fbvElement type="checkbox" id="supplementary" checked=$supplementary label="manager.setup.genres.supplementary"}
 {/fbvFormSection}
-{fbvFormSection title="manager.setup.groupType" for="category"}
+{fbvFormSection label="manager.setup.genres.metatadata" description="manager.setup.genres.metatadata.description" for="category"}
 	{fbvElement type="select" id="category" from=$submissionFileCategories selected=$category translate=false}
 {/fbvFormSection}
 {fbvFormSection label="manager.setup.genres.key" description="manager.setup.genres.key.description" for="key"}

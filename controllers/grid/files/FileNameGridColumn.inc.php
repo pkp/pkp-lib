@@ -58,9 +58,8 @@ class FileNameGridColumn extends GridColumn {
 		$submissionFileData = $row->getData();
 		$submissionFile = $submissionFileData['submissionFile'];
 		assert(is_a($submissionFile, 'SubmissionFile'));
-		$id = $submissionFile->getFileId() . '-' . $submissionFile->getRevision();
-		$fileExtension = strtolower($submissionFile->getExtension());
-		return array('label' => '<span class="file_extension ' . $fileExtension . '">' . $id . '</span>');
+		$fileExtension = pathinfo(Services::get('file')->getPath($submissionFile->getData('fileId')), PATHINFO_EXTENSION);
+		return array('label' => '<span class="file_extension ' . $fileExtension . '">' . $submissionFile->getId() . '</span>');
 	}
 
 

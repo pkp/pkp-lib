@@ -405,10 +405,9 @@ class PKPToolsHandler extends ManagementHandler {
 				if (!$section) break;
 				return $section->getLocalizedTitle();
 			case ASSOC_TYPE_SUBMISSION_FILE:
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-				$submissionFile = $submissionFileDao->getLatestRevision($assocId);
+				$submissionFile = Services::get('submissionFile')->get($assocId);
 				if (!$submissionFile) break;
-				return $submissionFile->getFileLabel();
+				return $submissionFile->getLocalizedData('name');
 		}
 
 		return __('manager.statistics.reports.objectNotFound');

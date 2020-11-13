@@ -37,7 +37,7 @@ class SubmissionFileLog extends SubmissionLog {
 		if ($user) $entry->setUserId($user->getId());
 
 		$entry->setAssocType(ASSOC_TYPE_SUBMISSION_FILE);
-		$entry->setAssocId($submissionFile->getFileId());
+		$entry->setAssocId($submissionFile->getId());
 
 		// Set explicit parts of the log entry
 		$entry->setEventType($eventType);

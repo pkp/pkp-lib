@@ -21,7 +21,7 @@ import('lib.pkp.classes.log.EventLogEntry');
 define('SUBMISSION_LOG_FILE_UPLOAD',	0x50000001);
 define('SUBMISSION_LOG_FILE_DELETE',	0x50000002);
 define('SUBMISSION_LOG_FILE_REVISION_UPLOAD',	0x50000008);
-define('SUBMISSION_LOG_FILE_REVISION_DELETE',	0x50000009);
+define('SUBMISSION_LOG_FILE_EDIT',	0x50000010);
 
 // Audit events
 define('SUBMISSION_LOG_FILE_AUDITOR_ASSIGN',		0x50000004);
@@ -29,23 +29,10 @@ define('SUBMISSION_LOG_FILE_AUDITOR_CLEAR',		0x50000005);
 define('SUBMISSION_LOG_FILE_AUDIT_UPLOAD', 		0x50000006);
 define('SUBMISSION_LOG_FILE_SIGNOFF_SIGNOFF', 	0x50000007);
 
+// Deprecated events. Preserve for historical logs
+define('SUBMISSION_LOG_FILE_REVISION_DELETE',	0x50000009); // uses submission.event.revisionDeleted
+
 class SubmissionFileEventLogEntry extends EventLogEntry {
-
-	/**
-	 * Set the associated file ID.
-	 * @param $fileId int File ID
-	 */
-	function setFileId($fileId) {
-		return $this->setAssocId($fileId);
-	}
-
-	/**
-	 * Get the associated file ID.
-	 * @return int File ID
-	 */
-	function getFileId() {
-		return $this->getAssocId();
-	}
 }
 
 

@@ -156,46 +156,29 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	 */
 	function addFiles($doc, $submissionNode, $submission) {
 		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFiles = $submissionFileDao->getBySubmissionId($submission->getId());
+		$submissionFilesIterator = Services::get('submissionFile')->getMany([
+			'submissionIds' => [$submission->getId()],
+			'includeDependentFiles' => true,
+		]);
 
-		// Submission files will come back from the file export filter
-		// with one revision each, wrapped in a submission_file node:
-		// <submission_file ...>
-		//  <revision ...>...</revision>
-		// </submission_file>
-		// Reformat them into groups by submission_file, i.e.:
-		// <submission_file ...>
-		//  <revision ...>...</revision>
-		//  <revision ...>...</revision>
-		// </submission_file>
-		$submissionFileNodesByFileId = array();
-		foreach ($submissionFiles as $submissionFile) {
+		foreach ($submissionFilesIterator as $submissionFile) {
+
+			// Skip files attached to objects that are not included in the export,
+			// such as files uploaded to discussions and files uploaded by reviewers
+			if (in_array($submissionFile->getData('fileStage'), [SUBMISSION_FILE_QUERY, SUBMISSION_FILE_NOTE, SUBMISSION_FILE_REVIEW_ATTACHMENT])) {
+				$this->getDeployment()->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.native.error.submissionFileSkipped', array('id' => $submissionFile->getId())));
+				continue;
+			}
+
 			$nativeExportFilters = $filterDao->getObjectsByGroup(get_class($submissionFile) . '=>native-xml');
 			assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
 			$exportFilter = array_shift($nativeExportFilters);
 			$exportFilter->setDeployment($this->getDeployment());
 
 			$exportFilter->setOpts($this->opts);
-			$submissionFileDoc = $exportFilter->execute($submissionFile);
-			$fileId = $submissionFileDoc->documentElement->getAttribute('id');
-			if (!isset($submissionFileNodesByFileId[$fileId])) {
-				$clone = $doc->importNode($submissionFileDoc->documentElement, true);
-				$submissionNode->appendChild($clone);
-				$submissionFileNodesByFileId[$fileId] = $clone;
-			} else {
-				$submissionFileNode = $submissionFileNodesByFileId[$fileId];
-				// Look for a <revision> element
-				$revisionNode = null;
-				foreach ($submissionFileDoc->documentElement->childNodes as $childNode) {
-					if (!is_a($childNode, 'DOMElement')) continue;
-					if ($childNode->tagName == 'revision') $revisionNode = $childNode;
-				}
-				assert(is_a($revisionNode, 'DOMElement'));
-				$clone = $doc->importNode($revisionNode, true);
-				$firstRevisionChild = $submissionFileNode->firstChild;
-				$submissionFileNode->insertBefore($clone, $firstRevisionChild);
-			}
+			$submissionFileDoc = $exportFilter->execute($submissionFile, true);
+			$clone = $doc->importNode($submissionFileDoc->documentElement, true);
+			$submissionNode->appendChild($clone);
 		}
 	}
 

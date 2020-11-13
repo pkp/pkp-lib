@@ -595,9 +595,6 @@ msgstr "Conflicte d’interessos"
 msgid "manager.setup.favicon"
 msgstr "Icona de web"
 
-msgid "manager.setup.groupType"
-msgstr "Classificació dels tipus de fitxers"
-
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
 msgstr "Nombre de setmanes per acceptar o rebutjar una sol·licitud de revisió."
 
@@ -1036,9 +1033,6 @@ msgstr "Elimina aquest gènere"
 
 msgid "grid.action.restoreGenres"
 msgstr "Restableix els gèneres a la configuració per defecte"
-
-msgid "manager.setup.genres.dependent"
-msgstr "Marca els fitxers d'aquest tipus com a fitxers dependents (p. ex., tramesa no principal)"
 
 msgid "manager.settings.wizard"
 msgstr "Assistent de configuració"
@@ -1886,11 +1880,6 @@ msgstr "Un identificador simbòlic curt per a aquest gènere."
 
 msgid "manager.setup.genres.key"
 msgstr "Contrasenya"
-
-msgid "manager.setup.genres.supplementary"
-msgstr ""
-"Marcar els arxius d'aquest tipus com a arxius addicionals (p. ex.: contingut "
-"de tramesa no primari)"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Seleccioneu els arxius de biblioteca per adjuntar"

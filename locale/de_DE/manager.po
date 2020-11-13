@@ -618,9 +618,6 @@ msgstr "Es gab einen Fehler beim Löschen dieses Eintrags."
 msgid "manager.setup.favicon"
 msgstr "Favicon"
 
-msgid "manager.setup.groupType"
-msgstr "Dateitypgruppierung"
-
 msgid "manager.setup.homepageImage"
 msgstr "Startseitengrafik"
 
@@ -1109,12 +1106,6 @@ msgstr "Dieses Genre entfernen"
 
 msgid "grid.action.restoreGenres"
 msgstr "Genres auf Standard zurücksetzen"
-
-msgid "manager.setup.genres.dependent"
-msgstr "Dateien dieses Typs als abhängige Dateien markieren (z.B. nicht Primärveröffentlichungen)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Dateien dieses Typs als Zusatzdateien markieren (z.B. kein primärer Beitragsinhalt)"
 
 msgid "manager.setup.genres.key"
 msgstr "Schlüssel"

@@ -23,9 +23,6 @@ msgstr "Onartua"
 msgid "submission.acknowledge"
 msgstr "Hartu-agiria"
 
-msgid "submission.addSuppFile"
-msgstr "Gehitu Fitxategi osagarria"
-
 msgid "submission.ask"
 msgstr "Galdetu"
 
@@ -206,9 +203,6 @@ msgstr "Ziur zaude galerada hau betiko ezabatu nahi duzula?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Ziur zaude irudi hau kendu nahi duzula galeradatik?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Ziur zaude fitxategi osagarri hau betiko ezabatu nahi duzula?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Ezabatu estilo-orri hau."
 
@@ -266,14 +260,8 @@ msgstr "Maketazio-bertsioa"
 msgid "submission.layout.newGalley"
 msgstr "Sortu galerada berria"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Kargatu Fitxategi osagarri berria"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Galerada honi ez zaio estilo-orriaren fitxategirik gehitu."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Fitxategi osagarriaren berrikustea"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Bidalketaren galerada ikusi"
@@ -436,9 +424,6 @@ msgstr "Bidaltzailea"
 
 msgid "submission.summary"
 msgstr "Sumarioa"
-
-msgid "submission.supplementaryFiles"
-msgstr "Fitxategi osagarriak"
 
 msgid "submission.titleAndAbstract"
 msgstr "Titulua eta laburpena"

@@ -62,6 +62,18 @@ msgstr "Acknowledge the copyright statement"
 msgid "submission.submit.copyrightNoticeAgree"
 msgstr "Yes, I agree to abide by the terms of the copyright statement."
 
+msgid "submission.submit.genre.label"
+msgstr "What kind of file is this?"
+
+msgid "submission.submit.genre.description"
+msgstr "Choose the option that best describes this file."
+
+msgid "submission.submit.genre.error"
+msgstr "Please select the kind of file for each upload."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Are you sure you want to remove this file?"
+
 msgid "submission.submit.whatNext"
 msgstr "What Happens Next?"
 
@@ -419,9 +431,6 @@ msgstr "Accepted"
 msgid "submission.acknowledge"
 msgstr "Acknowledge"
 
-msgid "submission.addSuppFile"
-msgstr "Add a Supplementary File"
-
 msgid "submission.ask"
 msgstr "Ask"
 
@@ -570,7 +579,7 @@ msgid "submission.event.submissionSubmitted"
 msgstr "Initial submission completed."
 
 msgid "submission.event.fileRevised"
-msgstr "Revision \"{$name}\" (file ID {$fileId}-{$fileRevision}) was uploaded."
+msgstr "Revision \"{$name}\" was uploaded for file {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Submission metadata updated"
@@ -634,6 +643,9 @@ msgstr "Files"
 
 msgid "submission.files.downloadAll"
 msgstr "Download All Files"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr "A record of the file uploader is saved when the file is created and can not be changed."
 
 msgid "submission.galley"
 msgstr "Galley"
@@ -728,9 +740,6 @@ msgstr "Are you sure you want to permanently delete this galley?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Are you sure you want to remove this image from the galley?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Are you sure you want to permanently delete this supplementary file?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Delete this style sheet."
 
@@ -794,14 +803,8 @@ msgstr "Layout Version"
 msgid "submission.layout.newGalley"
 msgstr "Create New Galley"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Upload New Supplementary File"
-
 msgid "submission.layout.noStyleFile"
 msgstr "No style sheet file has been added to this galley."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Supplementary File Review"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Viewing Submission Galley"
@@ -1028,6 +1031,12 @@ msgstr "Dependent Files"
 msgid "submission.manageDependentFiles"
 msgstr "Manage Dependent Files"
 
+msgid "submission.upload.instructions"
+msgstr "Upload any files the editorial team will need to evaluate your submission."
+
+msgid "submission.upload.percentComplete"
+msgstr "Uploading {$percent}% complete"
+
 msgid "submission.upload.dependent"
 msgstr "Upload a Dependent File"
 
@@ -1036,9 +1045,6 @@ msgstr "Upload a Discussion File"
 
 msgid "submission.summary"
 msgstr "Summary"
-
-msgid "submission.supplementaryFiles"
-msgstr "Supplementary Files"
 
 msgid "submission.supportingAgencies"
 msgstr "Supporting Agencies"
@@ -1219,9 +1225,6 @@ msgstr "Upload File"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Upload Copyedited File"
-
-msgid "submission.upload.fairCopy"
-msgstr "Upload Fair Copy"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Upload Files"
@@ -1417,6 +1420,9 @@ msgstr "Draft Files"
 
 msgid "editor.submission.addAuditorError"
 msgstr "There was an error trying to assign the auditor. Please Try again."
+
+msgid "submission.event.fileEdited"
+msgstr "The metadata for file \"{$originalFileName}\" was edited by {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr "A file \"{$originalFileName}\" was uploaded for submission {$submissionId} by {$username}."

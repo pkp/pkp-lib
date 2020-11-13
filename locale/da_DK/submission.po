@@ -26,9 +26,6 @@ msgstr "Accepteret"
 msgid "submission.acknowledge"
 msgstr "Bekræft"
 
-msgid "submission.addSuppFile"
-msgstr "Tilføj en supplerende fil"
-
 msgid "submission.ask"
 msgstr "Spørg"
 
@@ -213,9 +210,6 @@ msgstr "Er du sikker på, at du vil slette denne publiceringsfil permanent?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Er du sikker på, at du vil fjerne dette billede fra publiceringsfilen?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Er du sikker på, at du vil slette denne supplerende fil permanent?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Slet dette stylesheet."
 
@@ -273,14 +267,8 @@ msgstr "Layout-version"
 msgid "submission.layout.newGalley"
 msgstr "Opret ny publicerings-version"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Overfør ny supplerende fil"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Der er ikke føjet en stylesheet-fil til denne publiceringsversion."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Bedømmelse af supplerende fil"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Visning af manuskript (publiceringsversion)"
@@ -443,9 +431,6 @@ msgstr "Indsender"
 
 msgid "submission.summary"
 msgstr "Resumé"
-
-msgid "submission.supplementaryFiles"
-msgstr "Supplerende filer"
 
 msgid "submission.titleAndAbstract"
 msgstr "Titel og resumé"
@@ -1105,8 +1090,9 @@ msgstr "Copyright-år"
 msgid "submission.event.participantAdded"
 msgstr "\"{$name}\" ({$username}) blev tilknyttet denne indsendelse som {$userGroupName}."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Revision \"{$name}\" (file ID {$fileId}-{$fileRevision}) blev uploadet."
+msgstr "Revision \"{$name}\" (file ID {$submissionFileId}) blev uploadet."
 
 msgid "submission.event.lastRevisionDeleted"
 msgstr "En fil \"{$title}\" fik seneste revision fjernet af {$username}."
@@ -1267,9 +1253,6 @@ msgstr "Upload en biblioteksfil"
 
 msgid "submission.upload.libraryCategory"
 msgstr "Kategori for indsendelsesdokument"
-
-msgid "submission.upload.fairCopy"
-msgstr "Upload kopi af renskrift"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Upload filer"

@@ -19,6 +19,38 @@ import('classes.core.Services');
 
 class PKPSubmissionHandler extends APIHandler {
 
+	/** @var array Handlers that must be authorized to access a submission */
+	public $requiresSubmissionAccess = [
+		'get',
+		'edit',
+		'delete',
+		'getGalleys',
+		'getParticipants',
+		'getPublications',
+		'getPublication',
+		'addPublication',
+		'versionPublication',
+		'editPublication',
+		'publishPublication',
+		'unpublishPublication',
+		'deletePublication',
+	];
+
+	/** @var array Handlers that must be authorized to write to a publication */
+	public $requiresPublicationWriteAccess = [
+		'addPublication',
+		'editPublication',
+	];
+
+	/** @var array Handlers that must be authorized to access a submission's production stage */
+	public $requiresProductionStageAccess = [
+		'addPublication',
+		'versionPublication',
+		'publishPublication',
+		'unpublishPublication',
+		'deletePublication',
+	];
+
 	/**
 	 * Constructor
 	 */
@@ -121,41 +153,17 @@ class PKPSubmissionHandler extends APIHandler {
 		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
 		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
-		$requiresSubmissionAccess = [
-			'get',
-			'edit',
-			'delete',
-			'getParticipants',
-			'getPublications',
-			'getPublication',
-			'addPublication',
-			'versionPublication',
-			'editPublication',
-			'publishPublication',
-			'unpublishPublication',
-			'deletePublication',
-		];
-		if (in_array($routeName, $requiresSubmissionAccess)) {
+		if (in_array($routeName, $this->requiresSubmissionAccess)) {
 			import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
 			$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 		}
 
-		$requiresPublicationWriteAccess = [
-			'editPublication',
-		];
-		if (in_array($routeName, $requiresPublicationWriteAccess)) {
+		if (in_array($routeName, $this->requiresPublicationWriteAccess)) {
 			import('lib.pkp.classes.security.authorization.PublicationWritePolicy');
 			$this->addPolicy(new PublicationWritePolicy($request, $args, $roleAssignments));
 		}
 
-		$requiresProductionStageAccess = [
-			'addPublication',
-			'versionPublication',
-			'publishPublication',
-			'unpublishPublication',
-			'deletePublication',
-		];
-		if (in_array($routeName, $requiresProductionStageAccess)) {
+		if (in_array($routeName, $this->requiresProductionStageAccess)) {
 			import('lib.pkp.classes.security.authorization.StageRolePolicy');
 			$this->addPolicy(new StageRolePolicy([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], WORKFLOW_STAGE_ID_PRODUCTION, false));
 		}
@@ -209,7 +217,7 @@ class PKPSubmissionHandler extends APIHandler {
 				case 'status':
 				case 'stageIds':
 				case 'assignedTo':
-					if (is_string($val) && strpos($val, ',') > -1) {
+					if (is_string($val)) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
 						$val = array($val);
@@ -332,7 +340,7 @@ class PKPSubmissionHandler extends APIHandler {
 
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->newDataObject();
-		$submission->_data = $params;
+		$submission->setAllData($params);
 		$submission = Services::get('submission')->add($submission, $request);
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
@@ -585,7 +593,7 @@ class PKPSubmissionHandler extends APIHandler {
 		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$publication = $publicationDao->newDataObject();
-		$publication->_data = $params;
+		$publication->setAllData($params);
 		$publication = Services::get('publication')->add($publication, $request);
 		$publicationProps = Services::get('publication')->getFullProperties(
 			$publication,

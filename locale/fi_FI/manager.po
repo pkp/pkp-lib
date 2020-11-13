@@ -608,9 +608,6 @@ msgstr "Tätä kohdetta poistaessa tapahtui virhe."
 msgid "manager.setup.favicon"
 msgstr "Favicon"
 
-msgid "manager.setup.groupType"
-msgstr "Tiedostotyyppien ryhmittely"
-
 msgid "manager.setup.homepageImage"
 msgstr "Etusivun kuva"
 
@@ -1071,12 +1068,6 @@ msgstr "Poista tämä osa"
 
 msgid "grid.action.restoreGenres"
 msgstr "Palauta osien oletusasetukset"
-
-msgid "manager.setup.genres.dependent"
-msgstr "Merkitse tämäntyyppiset tiedostot riippuviksi tiedostoiksi (esim. ei luetteloida julkaistun sisällön kanssa)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Merkitse tämäntyyppiset tiedostot liitetiedostoiksi (esim. ei ensisijainen käsikirjoituksen sisältö)"
 
 msgid "manager.settings.wizard"
 msgstr "Ohjattu asetusten luonti"

@@ -365,9 +365,6 @@ msgstr "Acceptada"
 msgid "submission.acknowledge"
 msgstr "Rebuda"
 
-msgid "submission.addSuppFile"
-msgstr "Afegeix un fitxer addicional"
-
 msgid "submission.ask"
 msgstr "Sol·licita"
 
@@ -506,8 +503,9 @@ msgstr "Suprimeix l’entrada del registre"
 msgid "submission.event.submissionSubmitted"
 msgstr "La tramesa inicial s'ha completat."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "S'ha carregat la revisió «{$name}» (amb l'identificador de fitxer {$fileId}-{$fileRevision})."
+msgstr "S'ha carregat la revisió «{$name}» (amb l'identificador de fitxer {$submissionFileId})."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadades de tramesa actualitzades"
@@ -620,9 +618,6 @@ msgstr "Esteu segur/a que voleu suprimir aquestes galerades de manera permanent?
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Esteu segur/a que voleu suprimir aquesta imatge de les galerades?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Esteu segur/a que voleu suprimir aquest fitxer addicional de manera permanent?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Suprimeix aquestes galerades."
 
@@ -686,14 +681,8 @@ msgstr "Versió maquetada"
 msgid "submission.layout.newGalley"
 msgstr "Crea galerades noves"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Penja un fitxer addicional nou"
-
 msgid "submission.layout.noStyleFile"
 msgstr "No s’ha afegit cap fitxer de full d’estil a aquestes galerades."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Revisió del fitxer addicional"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Visualitza les galerades de la tramesa"
@@ -932,9 +921,6 @@ msgstr "Carrega fitxers que aquest fitxer de producció necessita per mostrar-lo
 msgid "submission.summary"
 msgstr "Resum"
 
-msgid "submission.supplementaryFiles"
-msgstr "Fitxers addicionals"
-
 msgid "submission.supportingAgencies"
 msgstr "Agències de suport"
 
@@ -1098,9 +1084,6 @@ msgstr "Puja un fitxer"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Carrega un fitxer corregit"
-
-msgid "submission.upload.fairCopy"
-msgstr "Carrega una còpia en net"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Carrega fitxers"

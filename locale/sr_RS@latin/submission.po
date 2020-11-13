@@ -314,9 +314,6 @@ msgstr "Prihvaćeno"
 msgid "submission.acknowledge"
 msgstr "Potvrđeno"
 
-msgid "submission.addSuppFile"
-msgstr "Dodaj dodatni fajl"
-
 msgid "submission.ask"
 msgstr "Zahtevaj"
 
@@ -809,9 +806,6 @@ msgstr "Dostavi dokument diskusije"
 msgid "submission.summary"
 msgstr "Rezime"
 
-msgid "submission.supplementaryFiles"
-msgstr "Dodatni dokumenti"
-
 msgid "submission.supportingAgencies"
 msgstr "Ustanove podrške"
 
@@ -938,6 +932,7 @@ msgstr "Povratak na log dešavanja"
 msgid "submission.event.fileUploaded"
 msgstr "{$username} je dostavio dokument \"{$originalFileName}\" uz predaju {$submissionId}."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
 msgstr "Revizija \"{$name}\" (file ID {$fileId}-{$revision}) je dostavljena."
 
@@ -1160,9 +1155,6 @@ msgstr "Prošireni metapodaci"
 msgid "submission.upload.userGroupDescription"
 msgstr "Ako prijavljujete Uređeni volumen/svesku morate postaviti na server svako poglavlje posebno u vašoj ulozi urednika volumena/sveske."
 
-msgid "submission.upload.fairCopy"
-msgstr "Postavi na server ispravnu kopiju"
-
 msgid "submission.upload.response.description"
 msgstr "Nakon recenzije dodeljenog fajla, zabeležite  niže komentare na fajl i/ili postavite kopiju sa beleškama fajla (ili drugi fajl)."
 
@@ -1271,9 +1263,6 @@ msgstr "Da li ste sigurni da želite da trajno uklonite ovu probnu kopiju?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Da li ste sigurni da želite da uklonite ovu sliku iz probne kopije?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Da li ste sigurni da želite trajno obristai ovaj dopunski fajl?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Obriši ovu stranicu stila."
 
@@ -1331,14 +1320,8 @@ msgstr "Verzija izgleda"
 msgid "submission.layout.newGalley"
 msgstr "Kreiraj novu probnu kopiju"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Postavi novi dopunski fajl"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Nema stranice stila za ovu probnu kopiju."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Recenzija dopunskog fajla"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Pregled probne kopije članka"

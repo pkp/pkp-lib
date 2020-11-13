@@ -402,9 +402,6 @@ msgstr "Sprejeto"
 msgid "submission.acknowledge"
 msgstr "Potrdi"
 
-msgid "submission.addSuppFile"
-msgstr "Dodaj dodatno datoteko"
-
 msgid "submission.ask"
 msgstr "Zaprošena"
 
@@ -549,8 +546,9 @@ msgstr "začetna oddaja prispevka je končana."
 msgid "submission.event.fileUploaded"
 msgstr "{$username} je naložil datoteko \"{$originalFileName}\" za prispevek {$submissionId}."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Datoteka \"{$name}\" (ID datoteke {$fileId}-{$fileRevision}) je bila posodobljena."
+msgstr "Datoteka \"{$name}\" (ID datoteke {$submissionFileId}) je bila posodobljena."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metapodatki prispevka so posodobljeni"
@@ -684,9 +682,6 @@ msgstr "Ste prepričani, da želite dokončno zbrisati ta prelom?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Ste prepričani, da želite zbrisati to sliko iz preloma?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Ste prepričani, da želite dokončno zbrisati to dodatno datoteko?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Zbriši to stilsko tablico."
 
@@ -750,14 +745,8 @@ msgstr "Verzija preloma"
 msgid "submission.layout.newGalley"
 msgstr "Ustvari nov prelom"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Oddaj novo dodatno datoteko"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Temu prelomu ni bila dodana nobena tablica stila."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Recenzija dodatne datoteke"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Pregled preloma prispevka"
@@ -993,9 +982,6 @@ msgstr "Naloži datoteko za diskusijo"
 msgid "submission.summary"
 msgstr "Izvleček"
 
-msgid "submission.supplementaryFiles"
-msgstr "Dodatne datoteke"
-
 msgid "submission.supportingAgencies"
 msgstr "Podporne ustanove"
 
@@ -1181,9 +1167,6 @@ msgstr "Naloži datoteko"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Naloži lektorirano datoteko"
-
-msgid "submission.upload.fairCopy"
-msgstr "Naloži Fair kopijo"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Naloži datoteke"

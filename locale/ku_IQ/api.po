@@ -20,18 +20,18 @@ msgstr "زمانی {$locale} زمانێکی پاڵپشتیکراو نییە."
 msgid "api.themes.404.themeUnavailable"
 msgstr "ڕوکاری ،{$themePluginPath}، چالاک نەکراوە و لەوانەیە دانەبەزێندرابێت."
 
-msgid "api.temporaryFiles.400.config"
+msgid "api.files.400.config"
 msgstr ""
 "فایلەکە بەهۆی کێشەی سێرڤەرەوە بار نەکرا. تکایە پەیوەندی بە بەڕێوەبەری "
 "پەڕەکەوە بکە."
 
-msgid "api.temporaryFiles.400.fileSize"
+msgid "api.files.400.fileSize"
 msgstr "ئەگەر فایلێک قەبارەی لە {$maxSize} گەورەتر بێت، بار ناکرێت."
 
-msgid "api.temporaryFiles.409.uploadFailed"
+msgid "api.files.400.uploadFailed"
 msgstr "یەک یان چەند فایلێک ناتواندرێت بار بکرێت."
 
-msgid "api.temporaryFiles.400.noUpload"
+msgid "api.files.400.noUpload"
 msgstr "هیچ فایلێکی بارکراو بۆ ئەم داواکارییە نەدۆزرایەوە."
 
 msgid "api.submissions.unknownError"

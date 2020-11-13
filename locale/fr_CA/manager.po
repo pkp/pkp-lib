@@ -668,9 +668,6 @@ msgstr "Il s'est produit une erreur lors de la suppression de cet élément."
 msgid "manager.setup.favicon"
 msgstr "Favicône"
 
-msgid "manager.setup.groupType"
-msgstr "Groupement par type de fichier"
-
 msgid "manager.setup.homepageImage"
 msgstr "Image de la page d'accueil"
 
@@ -1186,12 +1183,6 @@ msgstr "Supprimer cet élément"
 
 msgid "grid.action.restoreGenres"
 msgstr "Restaurer les paramètres par défaut des éléments"
-
-msgid "manager.setup.genres.dependent"
-msgstr "Marquer les fichiers de ce type en tant que fichiers reliés (ne sont pas des soumissions principales)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Marquer les fichiers de ce type en tant que fichiers supplémentaires (ne font pas partie du contenu principal de la soumission)"
 
 msgid "manager.setup.genres.key"
 msgstr "Clé"

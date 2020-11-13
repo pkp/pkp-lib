@@ -177,8 +177,8 @@ class DataObject {
 	 * Set all data variables at once.
 	 * @param $data array
 	 */
-	public function setAllData(&$data) {
-		$this->_data =& $data;
+	public function setAllData($data) {
+		$this->_data = $data;
 	}
 
 	/**

@@ -619,9 +619,6 @@ msgstr "Er is een fout opgetreden bij het verwijderen van dit onderdeel."
 msgid "manager.setup.favicon"
 msgstr "Favicon"
 
-msgid "manager.setup.groupType"
-msgstr "Groepering per bestandstype"
-
 msgid "manager.setup.homepageImage"
 msgstr "Afbeelding voor homepage"
 
@@ -1141,12 +1138,6 @@ msgstr "Verwijder dit onderdeel"
 
 msgid "grid.action.restoreGenres"
 msgstr "Herstel de onderdelen naar de standaardwaarden"
-
-msgid "manager.setup.genres.dependent"
-msgstr "Markeer bestanden van dit type als secundaire bestanden (zodat ze niet worden opgenomen bij de uiteindelijke publicatie)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Markeer bestanden van dit type als toegevoegde bestanden (d.w.z. geen primaire inzendingen)"
 
 msgid "manager.setup.genres.key"
 msgstr "Sleutel"

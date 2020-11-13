@@ -49,7 +49,7 @@ class PKPStatsService {
 		$args = array_merge($defaultArgs, $args);
 		$statsQB = $this->getQueryBuilder($args);
 
-		\HookRegistry::call('Stats::getRecords::queryBuilder', array($statsQB, $args));
+		\HookRegistry::call('Stats::getRecords::queryBuilder', array(&$statsQB, $args));
 
 		$statsQO = $statsQB->getRecords();
 
@@ -105,7 +105,7 @@ class PKPStatsService {
 		$args = array_merge($defaultArgs, $args);
 		$timelineQB = $this->getQueryBuilder($args);
 
-		\HookRegistry::call('Stats::getTimeline::queryBuilder', array($timelineQB, $args));
+		\HookRegistry::call('Stats::getTimeline::queryBuilder', array(&$timelineQB, $args));
 
 		$timelineQO = $timelineQB
 			->getSum([$timelineInterval])
@@ -173,7 +173,7 @@ class PKPStatsService {
 		$args = array_merge($defaultArgs, $args);
 		$orderedQB = $this->getQueryBuilder($args);
 
-		\HookRegistry::call('Stats::getOrderedObjects::queryBuilder', array($orderedQB, $args));
+		\HookRegistry::call('Stats::getOrderedObjects::queryBuilder', array(&$orderedQB, $args));
 
 		$orderedQO = $orderedQB
 			->getSum([$groupBy])
@@ -321,7 +321,7 @@ class PKPStatsService {
 			$statsQB->filterByFileTypes(($args['fileTypes']));
 		}
 
-		\HookRegistry::call('Stats::queryBuilder', array($statsQB, $args));
+		\HookRegistry::call('Stats::queryBuilder', array(&$statsQB, $args));
 
 		return $statsQB;
 	}

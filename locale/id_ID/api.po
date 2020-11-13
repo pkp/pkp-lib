@@ -21,18 +21,18 @@ msgid "api.themes.404.themeUnavailable"
 msgstr ""
 "Tema aktif, {$themePluginPath}, tidak diaktifkan dan mungkin belum terinstal."
 
-msgid "api.temporaryFiles.400.config"
+msgid "api.files.400.config"
 msgstr ""
 "File tidak dapat diunggah karena konfigurasi server terjadi error. Hubungi "
 "pihak admin sistem."
 
-msgid "api.temporaryFiles.400.fileSize"
+msgid "api.files.400.fileSize"
 msgstr "File lebih besar dari {$maxSize} tidak bisa diunggah."
 
-msgid "api.temporaryFiles.409.uploadFailed"
+msgid "api.files.400.uploadFailed"
 msgstr "Satu file atau lebih tidak dapat diunggah."
 
-msgid "api.temporaryFiles.400.noUpload"
+msgid "api.files.400.noUpload"
 msgstr "Tidak ada file yang akan diunggah ditemukan sesuai permintaan."
 
 msgid "api.submissions.400.invalidIssueIdentifiers"

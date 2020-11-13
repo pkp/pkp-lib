@@ -13,22 +13,24 @@
  *
  * @brief Operations for retrieving and modifying publication objects.
  */
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 import('lib.pkp.classes.db.SchemaDAO');
 import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
 import('classes.publication.Publication');
 import('lib.pkp.classes.services.PKPSchemaService'); // SCHEMA_ constants
 
 class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
-	/** @copydoc SchemaDao::$schemaName */
+	/** @copydoc SchemaDAO::$schemaName */
 	public $schemaName = SCHEMA_PUBLICATION;
 
-	/** @copydoc SchemaDao::$tableName */
+	/** @copydoc SchemaDAO::$tableName */
 	public $tableName = 'publications';
 
-	/** @copydoc SchemaDao::$settingsTableName */
+	/** @copydoc SchemaDAO::$settingsTableName */
 	public $settingsTableName = 'publication_settings';
 
-	/** @copydoc SchemaDao::$primaryKeyColumn */
+	/** @copydoc SchemaDAO::$primaryKeyColumn */
 	public $primaryKeyColumn = 'publication_id';
 
 	/** @var array List of properties that are stored in the controlled_vocab tables. */
@@ -48,6 +50,12 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 */
 	public function _fromRow($primaryRow) {
 		$publication = parent::_fromRow($primaryRow);
+
+		// Set the primary locale from the submission
+		$locale = Capsule::table('submissions as s')
+			->where('s.submission_id', '=', $publication->getData('submissionId'))
+			->value('locale');
+		$publication->setData('locale', $locale);
 
 		// Get authors
 		$publication->setData('authors', iterator_to_array(

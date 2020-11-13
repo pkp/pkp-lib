@@ -196,7 +196,7 @@ function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expected
 				}
 				$expectedPackageString .= $separator.'"'.$expectedPackage.'"';
 			}
-			fatalError('Trying to instantiate class "'.$fullyQualifiedClassName.'" which is not in any of the expected packages '.$expectedPackageString.'.');
+			throw new Exception('Trying to instantiate class "'.$fullyQualifiedClassName.'" which is not in any of the expected packages '.$expectedPackageString.'.');
 		}
 	}
 
@@ -209,7 +209,7 @@ function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expected
 
 	// Type check I: The requested class should be declared by now.
 	if (!class_exists($className)) {
-		fatalError('Cannot instantiate class. Class "'.$className.'" is not declared in "'.$fullyQualifiedClassName.'".');
+		throw new Exception('Cannot instantiate class. Class "'.$className.'" is not declared in "'.$fullyQualifiedClassName.'".');
 	}
 
 	// Ensure all expected methods are declared.
@@ -228,7 +228,7 @@ function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expected
 
 	// Type check II: The object must conform to the given interface (if any).
 	if (!is_null($expectedTypes)) {
-		if (is_scalar($expectedTypes)) $expectedTypes = array($expectedTypes);
+		if (is_scalar($expectedTypes)) $expectedTypes = [$expectedTypes];
 		$validType = false;
 		foreach($expectedTypes as $expectedType) {
 			if (is_a($classInstance, $expectedType)) {

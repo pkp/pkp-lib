@@ -166,7 +166,7 @@ function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expected
 	$errorFlag = false;
 
 	// Validate the class name
-	if (!preg_match('/^[a-zA-Z0-9.]+$/', $fullyQualifiedClassName)) {
+	if (!preg_match('/^[a-zA-Z0-9_.]+$/', $fullyQualifiedClassName)) {
 		return $errorFlag;
 	}
 

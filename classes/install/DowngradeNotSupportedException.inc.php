@@ -13,5 +13,8 @@
 namespace PKP\install;
 
 class DowngradeNotSupportedException extends \Exception {
+	function __construct() {
+		parent::__construct('Downgrade not supported!');
+	}
 }
 

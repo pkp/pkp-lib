@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-11 07:19+0000\n"
+"PO-Revision-Date: 2020-10-21 11:37+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
@@ -1235,3 +1235,18 @@ msgstr "Одржувач"
 
 msgid "manager.plugins.pluginGallery.certifications.partner.description"
 msgstr "Овој плагин е обезбеден од еден од нашите партнери за развој."
+
+msgid "notification.editedUser"
+msgstr "Корисникот е изменет."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Поставките за локација се зачувани."
+
+msgid "notification.localeReloaded"
+msgstr "{$locale} локацијата е повторно вчитана за {$textName}."
+
+msgid "notification.localeUninstalled"
+msgstr "Деинсталирано е локално {$locale}."
+
+msgid "notification.localeInstalled"
+msgstr "Сите избрани локализации се инсталирани и активирани."

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-10-07 13:50+0000\n"
+"PO-Revision-Date: 2020-10-21 11:37+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk_MK/>\n"
@@ -1586,3 +1586,436 @@ msgstr "Поднесувањето е отстрането."
 
 msgid "notification.removedAuditor"
 msgstr "Ревизорот е отстранет."
+
+msgid "validator.size.array"
+msgstr "Ова мора да содржи {$size} ставки."
+
+msgid "validator.size.string"
+msgstr "Ова мора да има {$size} знаци."
+
+msgid "validator.size.file"
+msgstr "Ова мора да биде {$size} килобајти."
+
+msgid "validator.size.numeric"
+msgstr "Ова мора да биде {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} и {$other} мора да се совпаѓаат."
+
+msgid "validator.required_without_all"
+msgstr "Ова поле е потребно кога нема ниту една од {$values}."
+
+msgid "validator.required_without"
+msgstr "Ова поле е потребно кога {$values} не е присутно."
+
+msgid "validator.required_with_all"
+msgstr "Ова поле е потребно кога се присутни {$values}."
+
+msgid "validator.required_with"
+msgstr "Ова поле е потребно кога се присутни {$values}."
+
+msgid "validator.required_unless"
+msgstr "Ова поле е задолжително освен ако {$other} е во {$values}."
+
+msgid "validator.required_if"
+msgstr "Ова поле е задолжително кога {$other} е {$value}."
+
+msgid "validator.required"
+msgstr "Ова поле е задолжително."
+
+msgid "validator.regex"
+msgstr "Ова не е правилно форматирано."
+
+msgid "validator.present"
+msgstr "Полето {$attribute} мора да биде присутно."
+
+msgid "validator.orcid"
+msgstr "Ова не е валиден ORCID."
+
+msgid "validator.numeric"
+msgstr "Ова не е валиден број."
+
+msgid "validator.not_in"
+msgstr "Избраниот {$attribute}  е неважечки."
+
+msgid "validator.min.array"
+msgstr "Ова мора да има најмалку {$min} ставки."
+
+msgid "validator.min.string"
+msgstr "Ова мора да има најмалку {$min} карактери."
+
+msgid "validator.min.file"
+msgstr "Ова мора да биде најмалку {$min} килобајти."
+
+msgid "validator.min.numeric"
+msgstr "Ова мора да биде најмалку {$min}."
+
+msgid "validator.mimes"
+msgstr "Ова мора да биде датотека од типот {$values}."
+
+msgid "validator.max.array"
+msgstr "Не може да има повеќе од {$ max} ставки."
+
+msgid "validator.max.string"
+msgstr "Не може да биде повеќе од {$max} знаци."
+
+msgid "validator.max.file"
+msgstr "Ова нe може да биде поголемо од {$max} килобајти."
+
+msgid "validator.max.numeric"
+msgstr "Ова не може да биде поголемо од {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Јазиците мора да бидат наведени со користење на кодот за локација. Примери: "
+"en_US, fr_CA, sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Ова поле е повеќејазично. За секој поддржан јазик мора да се дадат одделни "
+"вредности."
+
+msgid "validator.locale"
+msgstr "Овој јазик не е прифатен."
+
+msgid "validator.json"
+msgstr "Ова не е важечка низа JSON."
+
+msgid "validator.issn"
+msgstr "Ова не е валиден ISSN."
+
+msgid "validator.ip"
+msgstr "Ова не е валидна IP адреса."
+
+msgid "validator.integer"
+msgstr "Ова не е валиден цел број."
+
+msgid "validator.in"
+msgstr "Избраниот {$attribute} е неважечки."
+
+msgid "validator.image"
+msgstr "Ова мора да биде слика."
+
+msgid "validator.filled"
+msgstr "Ова поле е задолжително."
+
+msgid "validator.exists"
+msgstr "Избраниот {$attribute} е неважечки."
+
+msgid "validator.email"
+msgstr "Ова не е валидна адреса за е-пошта."
+
+msgid "validator.digits_between"
+msgstr "Ова мора да биде помеѓу {$min} и {$max} цифри."
+
+msgid "validator.digits"
+msgstr "Ова мора да биде долга{ $digits}  цифри."
+
+msgid "validator.different"
+msgstr "{$attribute}} и  {$other} мора да бидат различни."
+
+msgid "validator.date_format"
+msgstr "Ова не се совпаѓа со форматот {$format}."
+
+msgid "validator.date"
+msgstr "Ова не е валиден датум."
+
+msgid "validator.currency"
+msgstr "Ова не е важечка валута."
+
+msgid "validator.confirmed"
+msgstr "Потврдата за ова поле не се совпаѓа."
+
+msgid "validator.boolean"
+msgstr "Ова поле мора да биде точно или неточно."
+
+msgid "validator.between.array"
+msgstr "Ова мора да има помеѓу {$min} и {$max} ставки."
+
+msgid "validator.between.file"
+msgstr "Ова мора да биде помеѓу {$min} и {$max} килобајти."
+
+msgid "validator.between.string"
+msgstr "Ова мора да биде од {$min} и {$max} знаци."
+
+msgid "validator.between.numeric"
+msgstr "Ова мора да биде помеѓу {$min} и {$max}."
+
+msgid "validator.before"
+msgstr "Овој датум мора да биде пред {$date}."
+
+msgid "validator.array"
+msgstr "Ова не е валидна низа."
+
+msgid "validator.alpha_num"
+msgstr "Ова може да содржи само букви и броеви."
+
+msgid "validator.alpha_dash"
+msgstr "Ова може да содржи само букви, броеви, црта и долна црта."
+
+msgid "validator.alpha"
+msgstr "Ова може да содржи само букви."
+
+msgid "validator.after"
+msgstr "Овој датум мора да биде после {$date}."
+
+msgid "validator.active_url"
+msgstr "Ова не е валидна URL-адреса."
+
+msgid "validator.accepted"
+msgstr "Ве молиме прифатете ја оваа ставка .."
+
+msgid "list.viewLess"
+msgstr "Сокриј ги проширените детали за {$name}"
+
+msgid "list.viewMore"
+msgstr "Прикажи повеќе детали за {$name}"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Менито за навигација беше успешно отстрането"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Менито за навигација е успешно ажурирано"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Менито за навигација беше успешно додадено"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Ставката од менито за навигација е успешно додадена"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Ставката од менито за навигација е успешно отстранета"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Ставката од менито за навигација е успешно ажурирана"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Ова е еден вид потсетник за да го проверите здравјето на вашето списание "
+"преку уредничкиот извештај."
+
+msgid "notification.type.editorialReport"
+msgstr "Збирен статистички извештај."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Круг {$round} статус"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Се чека лектура."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Доделете лектор за уредување користејќи ја врската Додели во списокот "
+"Учесници."
+
+msgid "notification.type.queryAdded"
+msgstr "Дискусијата е додадена."
+
+msgid "notification.type.queryActivity"
+msgstr "Активности на дискусијата."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Тековниот корисник не е автор на бараниот поднесок. Ве молиме, проверете "
+"дали сте најавени со правилната корисничка сметка."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Во моментов немате доволно привилегии за да го видите поднесокот. Ве молиме, "
+"изменете го вашиот профил за да се осигурате дека сте добиле соодветни улоги "
+"во „Регистрирај се како“."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Неважечко поднесување."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Неважечко поднесување."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Невалидна публикација."
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"Тековниот корисник не е овластен да пристапува до наведената поднесена "
+"датотека."
+
+msgid "notification.signedFile"
+msgstr "Документот е земен за разгледување."
+
+msgid "notification.type.reviewerComment"
+msgstr "Рецензент коментираше на „{$title}“."
+
+msgid "notification.type.metadataModified"
+msgstr "Метаподатоците на „{$title}“ се изменети."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Ревизија предадена во {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Ревизијатта да биде разгледана во {$stage}."
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"Поставена е ревидирана датотека за вашето уредничко разгледување во {$stage}."
+
+msgid "notification.type.allReviewsIn"
+msgstr "Сите рецензенти одговорија и потребна е одлука во {$stage}."
+
+msgid "notification.type.auditorRequest"
+msgstr "Барање за ревизија за \"{$file}\""
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Задачата за рецензирање е ажурирана."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Рецензијата е на чекање."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Ново известување."
+
+msgid "notification.editStageParticipant"
+msgstr "Назначувањето за чекорот е променето."
+
+msgid "notification.addedStageParticipant"
+msgstr "Корисникот е додаден како учесник на чекорот."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Рецензентот повторно е доделен."
+
+msgid "notification.cancelledReviewer"
+msgstr "Рецензентот е одбиен."
+
+msgid "notification.removedReviewer"
+msgstr "Рецензентот е одбиен."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"На {$reviewerName} му беше доделен преглед на овој поднесок и не му беше "
+"испратено известување по е-пошта."
+
+msgid "notification.addedReviewer"
+msgstr ""
+"На {$reviewerName} му беше доделен преглед на овој поднесок и испрати "
+"известување по е-пошта."
+
+msgid "navigation.goBack"
+msgstr "Назад"
+
+msgid "submission.task.responseDueDate"
+msgstr "Одговори до датум"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Рецензија до датум"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Одговор до датум"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Барања на уредникот"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Распоред на рецензирања"
+
+msgid "review.blindPeerReview"
+msgstr ""
+"<p>За да се обезбеди интегритет на слепите рецензии за испраќање до овој "
+"печат, треба да се вложат сите напори да се спречи идентитетот на авторите и "
+"рецензентите да бидат познати за другиот. Ова ги вклучува авторите, "
+"уредниците и рецензентите (кои поставуваат документи како дел од нивниот "
+"преглед) да проверат дали се преземени следниве чекори во однос на текстот и "
+"својствата на датотеката:</p>\n"
+"<ul><li>Авторите на документот ги избришаа своите имиња од текстот, со "
+"„Автор“ и година користени во референците и фуснотите, наместо името на "
+"авторите, насловот на статијата итн.</li>\n"
+"<li>Авторите на документот отстранија лични информации од својствата на "
+"датотеката со преземање на следниве чекори:\n"
+"<ul><li>Microsoft Word for Windows:\n"
+"<ul><li>оди во File</li>\n"
+"<li>избери Info</li>\n"
+"<li>Притисни Check for Issues</li>\n"
+"<li>Притисни Inspect Document</li>\n"
+"<li>Во прозорецот за проверка на документи, изберете ги полињата за избор за "
+"да изберете тип на скриена содржина што сакате да ја прегледате.</li>\n"
+"<li>Притисни Remove All</li>\n"
+"<li>Притисни Close</li>\n"
+"<li>Сними го документот</li></ul>\n"
+"<li>Microsoft Word for MacOS:\n"
+"<ul><li>Go to Tools</li>\n"
+"<li>Click Protect Document</li>\n"
+"<li>Select Remove personal information for this file on save</li>\n"
+"<li>Click OK and save the file</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Одете во File</li>\n"
+"<li>Избери Properties</li>\n"
+"<li>Отстранете го секое име во полето за автор</li>\n"
+"<li>ПритисниOK</li>\n"
+"<li>Сними го документот</li></ul></li></ul>\n"
+
+msgid "dashboard.myQueue"
+msgstr "Мојата редица"
+
+msgid "dashboard.tasks"
+msgstr "Задачи"
+
+msgid "grid.action.markRead"
+msgstr "Обележи како прочитано"
+
+msgid "grid.action.markNew"
+msgstr "Обележи како ново"
+
+msgid "grid.action.deleteNotification"
+msgstr "Избриши задача"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Прочитајте ја тековната политика за рецензија"
+
+msgid "review.ensuringBlindReview"
+msgstr "Обезбеди слепа рецензија"
+
+msgid "context.path"
+msgstr "Патека"
+
+msgid "grid.action.downloadFile"
+msgstr "Преземете ја оваа датотека"
+
+msgid "search.typeMethodApproach"
+msgstr "Вид (метода/пристап)"
+
+msgid "search.title"
+msgstr "Наслов"
+
+msgid "search.titleIndex"
+msgstr "Прегледај го индексот на наслови"
+
+msgid "search.subject"
+msgstr "Клучен збор(ови)"
+
+msgid "search.searchResults"
+msgstr "Резултати од пребарување"
+
+msgid "search.SearchFor"
+msgstr "Барај"
+
+msgid "search.operator.or"
+msgstr "или"
+
+msgid "search.operator.not"
+msgstr "не"
+
+msgid "search.operator.and"
+msgstr "и"
+
+msgid "search.noResults"
+msgstr "Нема резултати"
+
+msgid "search.noKeywordError"
+msgstr "Мора да внесете барем еден клучен збор за пребарување."
+
+msgid "search.matchAll"
+msgstr "Одговара на сите категории"
+
+msgid "search.indexTermsLong"
+msgstr "Сите полиња со термини  за индекс"

@@ -46,3 +46,6 @@ msgstr "You do not have permission to move this email template to another server
 
 msgid "api.publications.403.submissionsDidNotMatch"
 msgstr "The publication that you requested is not part of this submission."
+
+msgid "api.submissionFiles.400.badRepresentationAssocType"
+msgstr "You can not associated a file from this file stage with a galley."

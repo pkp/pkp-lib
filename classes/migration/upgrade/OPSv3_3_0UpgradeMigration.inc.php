@@ -31,6 +31,7 @@ class OPSv3_3_0UpgradeMigration extends Migration {
 		});
 
 		$this->_settingsAsJSON();
+		$this->_migrateSubmissionFiles();
 	}
 
 	/**
@@ -150,5 +151,22 @@ class OPSv3_3_0UpgradeMigration extends Migration {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Complete submission file migrations specific to OPS
+	 *
+	 * The main submission file migration is done in
+	 * PKPv3_3_0UpgradeMigration and that migration must
+	 * be run before this one.
+	 */
+	private function _migrateSubmissionFiles() {
+		Capsule::schema()->table('publication_galleys', function (Blueprint $table) {
+			$table->renameColumn('file_id', 'submission_file_id');
+		});
+		Capsule::schema()->table('publication_galleys', function (Blueprint $table) {
+			$table->bigInteger('submission_file_id')->nullable()->unsigned()->change();
+			$table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
+		});
 	}
 }

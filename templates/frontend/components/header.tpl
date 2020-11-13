@@ -80,7 +80,7 @@
 							{$primaryMenu}
 
 							{* Search form *}
-							{if (!$currentContext || $currentContext->getData('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE) && $requestedPage !== 'search'}
+							{if !$currentContext && $requestedPage !== 'search'}
 								<div class="pkp_navigation_search_wrapper">
 									<a href="{url page="search"}" class="pkp_search pkp_search_desktop">
 										<span class="fa fa-search" aria-hidden="true"></span>

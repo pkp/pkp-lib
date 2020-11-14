@@ -358,6 +358,9 @@ msgstr "Скачать PDF"
 msgid "common.edit"
 msgstr "Редактировать"
 
+msgid "common.editItem"
+msgstr "Редактировать «{$name}»"
+
 msgid "common.enable"
 msgstr "Включить"
 
@@ -813,6 +816,9 @@ msgstr "Файл не может быть загружен или изменен
 
 msgid "common.up"
 msgstr "Наверх"
+
+msgid "common.addFile"
+msgstr "Добавить файл"
 
 msgid "common.upload.addFile"
 msgstr "Загрузить файл"
@@ -1701,6 +1707,18 @@ msgstr "Неправильный материал."
 
 msgid "user.authorization.invalidRepresentation"
 msgstr "Неправильное представление."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Неправильный раунд рецензирования."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Неправильное обсуждение."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "У Вас нет доступа к этому сообщению в обсуждении."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "У Вас нет доступа к этому назначению на рецензию."
 
 msgid "user.authorization.authorRoleMissing"
 msgstr "В данный момент у Вас не достаточно прав для просмотра материала. Пожалуйста, отредактируйте ваш профиль, чтобы убедиться в том, что Вам предоставлены соответствующие роли в разделе «Регистрация как»."

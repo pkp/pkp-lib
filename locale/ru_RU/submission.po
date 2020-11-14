@@ -66,6 +66,18 @@ msgstr "Принятие Условий передачи авторских пр
 msgid "submission.submit.copyrightNoticeAgree"
 msgstr "Да, я согласен выполнять Условия передачи авторских прав."
 
+msgid "submission.submit.genre.label"
+msgstr "Какого типа этот файл?"
+
+msgid "submission.submit.genre.description"
+msgstr "Выберите вариант, которые лучше всего описывает этот файл."
+
+msgid "submission.submit.genre.error"
+msgstr "Пожалуйста, выберите тип файла для каждого из загружаемых файлов."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Вы уверены, что хотите удалить этот файл?"
+
 msgid "submission.submit.whatNext"
 msgstr "Что делать дальше?"
 
@@ -570,7 +582,6 @@ msgstr "Удалить запись журнала"
 msgid "submission.event.submissionSubmitted"
 msgstr "Первоначальная отправка материала завершена."
 
-#, fuzzy
 msgid "submission.event.fileRevised"
 msgstr "Версия «{$name}» (ID файла {$submissionFileId}) была загружена."
 
@@ -636,6 +647,9 @@ msgstr "Файлы"
 
 msgid "submission.files.downloadAll"
 msgstr "Скачать все файлы"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr "Запись загрузчика файлов сохранена при создании файла и её нельзя изменить."
 
 msgid "submission.galley"
 msgstr "Гранка"
@@ -1021,6 +1035,12 @@ msgstr "Зависимые файлы"
 msgid "submission.manageDependentFiles"
 msgstr "Управление зависимыми файлами"
 
+msgid "submission.upload.instructions"
+msgstr "Загрузите все файлы, которые понадобятся редакции, чтобы оценить Ваш отправленный материал."
+
+msgid "submission.upload.percentComplete"
+msgstr "Загрузка: {$percent}% завершено"
+
 msgid "submission.upload.dependent"
 msgstr "Загрузить зависимый файл"
 
@@ -1404,6 +1424,9 @@ msgstr "Файлы черновиков"
 
 msgid "editor.submission.addAuditorError"
 msgstr "Произошла ошибка при попытке назначить аудитора. Пожалуйста, попробуйте снова."
+
+msgid "submission.event.fileEdited"
+msgstr "Метаданные для файла «{$originalFileName}» были отредактированы пользователем {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr "Файл «{$originalFileName}» был загружен для материала «{$submissionId}» пользователем «{$username}»."

@@ -159,9 +159,9 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 
 		switch ($this->getNotificationType()) {
 			case NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS:
-				return array_key_exists(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, $stagesData) ? $stagesData[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] : null;
+				return $stagesData[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] ?? null;
 			case NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS:
-				return $stagesData[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW];
+				return $stagesData[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] ?? null;
 			default:
 				assert(false);
 		}

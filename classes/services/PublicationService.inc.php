@@ -201,7 +201,7 @@ class PublicationService extends PKPPublicationService {
 		// Assign DOI if automatic assigment is enabled
 		$context = $request->getContext();
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
-		$doiPubIdPlugin = $pubIdPlugins['doipubidplugin'];
+		$doiPubIdPlugin = $pubIdPlugins['doipubidplugin'] ?? null;
 		if ($doiPubIdPlugin && $doiPubIdPlugin->getSetting($context->getId(), 'enablePublicationDoiAutoAssign')){
 				$publication->setData('pub-id::doi', $doiPubIdPlugin->getPubId($publication));
 		}
@@ -238,7 +238,7 @@ class PublicationService extends PKPPublicationService {
 		// Version DOI if the pattern includes the publication id
 		$context = $request->getContext();
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
-		$doiPubIdPlugin = $pubIdPlugins['doipubidplugin'];
+		$doiPubIdPlugin = $pubIdPlugins['doipubidplugin'] ?? null;
 		if ($doiPubIdPlugin){
 			$pattern = $doiPubIdPlugin->getSetting($context->getId(), 'doiPublicationSuffixPattern');
 			if (strpos($pattern, '%b')) {

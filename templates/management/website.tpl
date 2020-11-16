@@ -20,10 +20,10 @@
 		</notification>
 	{/if}
 
-	<tabs>
+	<tabs :track-history="true">
 		<tab id="appearance" label="{translate key="manager.website.appearance"}">
 			{help file="settings/website-settings" class="pkp_help_tab"}
-			<tabs :is-side-tabs="true">
+			<tabs :is-side-tabs="true" :track-history="true">
 				<tab id="theme" label="{translate key="manager.setup.theme"}">
 					<theme-form
 						v-bind="components.{$smarty.const.FORM_THEME}"
@@ -47,7 +47,7 @@
 		</tab>
 		<tab id="setup" label="{translate key="navigation.setup"}">
 			{help file="settings/website-settings" section="setup" class="pkp_help_tab"}
-			<tabs :is-side-tabs="true">
+			<tabs :is-side-tabs="true" :track-history="true">
 				<tab id="information" label="{translate key="manager.website.information"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_INFORMATION}"
@@ -93,7 +93,7 @@
 		</tab>
 		<tab id="plugins" label="{translate key="common.plugins"}">
 			{help file="settings/website-settings" section="plugins" class="pkp_help_tab"}
-			<tabs :options="{ useUrlFragment: false }">
+			<tabs :track-history="true">
 				<tab id="installedPlugins" label="{translate key="manager.plugins.installed"}">
 					{capture assign=pluginGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.plugins.SettingsPluginGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="pluginGridContainer" url=$pluginGridUrl}

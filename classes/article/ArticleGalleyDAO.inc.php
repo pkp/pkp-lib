@@ -59,13 +59,10 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
 	 * @param $pubId string
 	 * @param $publicationId int
-	 * @return ArticleGalley
+	 * @return ArticleGalley|null
 	 */
 	function getGalleyByPubId($pubIdType, $pubId, $publicationId = null) {
 		$galleyFactory = $this->getGalleysBySetting('pub-id::'.$pubIdType, $pubId, $publicationId);
-		if ($galleyFactory->wasEmpty()) return null;
-
-		assert($galleyFactory->getCount() == 1);
 		return $galleyFactory->next();
 	}
 
@@ -78,39 +75,35 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * @return DAOResultFactory The factory for galleys identified by setting.
 	 */
 	function getGalleysBySetting($settingName, $settingValue, $publicationId = null, $journalId = null) {
-		$params = array($settingName);
-
-		$sql = 'SELECT	g.*
-			FROM	publication_galleys g
+		$params = [$settingName];
+		if (!is_null($settingValue)) $params[] = (string) $settingValue;
+		if ($publicationId) $params[] = (int) $publicationId;
+		if ($journalId) $params[] = (int) $journalId;
+		return new DAOResultFactory(
+			$this->retrieve(
+				'SELECT  g.*
+				FROM	publication_galleys g
 				INNER JOIN publications p ON p.publication_id = g.publication_id
-				INNER JOIN submissions s ON s.current_publication_id = g.publication_id ';
-		if (is_null($settingValue)) {
-			$sql .= 'LEFT JOIN publication_galley_settings gs ON g.galley_id = gs.galley_id AND gs.setting_name = ?
-				WHERE	(gs.setting_value IS NULL OR gs.setting_value = \'\')';
-		} else {
-			$params[] = (string) $settingValue;
-			$sql .= 'INNER JOIN publication_galley_settings gs ON g.galley_id = gs.galley_id
-				WHERE	gs.setting_name = ? AND gs.setting_value = ?';
-		}
-		if ($publicationId) {
-			$params[] = (int) $publicationId;
-			$sql .= ' AND g.publication_id = ?';
-		}
-		if ($journalId) {
-			$params[] = (int) $journalId;
-			$sql .= ' AND s.context_id = ?';
-		}
-		$sql .= ' ORDER BY s.context_id, g.galley_id';
-		$result = $this->retrieve($sql, $params);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
+				INNER JOIN submissions s ON s.current_publication_id = g.publication_id ' .
+				(is_null($settingValue) ?
+					'LEFT JOIN publication_galley_settings gs ON g.galley_id = gs.galley_id AND gs.setting_name = ? WHERE (gs.setting_value IS NULL OR gs.setting_value = \'\')' :
+					'INNER JOIN publication_galley_settings gs ON g.galley_id = gs.galley_id WHERE gs.setting_name = ? AND gs.setting_value = ?'
+				) .
+				($publicationId ? ' AND g.publication_id = ?' : '') .
+				($journalId ? ' AND s.context_id = ?' : '') .
+				' ORDER BY s.context_id, g.galley_id',
+				$params
+			),
+			$this,
+			'_fromRow'
+		);
 	}
 
 	/**
 	 * @copydoc RepresentationDAO::getByPublicationId()
 	 */
 	function getByPublicationId($publicationId, $contextId = null) {
-		$params = array((int) $publicationId);
+		$params = [(int) $publicationId];
 		if ($contextId) $params[] = (int) $contextId;
 
 		return new DAOResultFactory(
@@ -142,7 +135,7 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 				LEFT JOIN submissions s ON (s.submission_id = p.submission_id)
 				LEFT JOIN submission_files sf ON (g.submission_file_id = sf.submission_file_id)
 			WHERE	s.context_id = ?',
-			(int) $journalId
+			[(int) $journalId]
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');
@@ -158,7 +151,7 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 			'SELECT	*
 			FROM	publication_galleys g
 			WHERE	g.submission_file_id = ?',
-			(int) $submissionFileId
+			[(int) $submissionFileId]
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');
@@ -172,11 +165,6 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * @return ArticleGalley object
 	 */
 	function getByBestGalleyId($galleyId, $publicationId) {
-		$params = [
-			(int) $publicationId,
-			$galleyId,
-		];
-
 		$result = $this->retrieve(
 			'SELECT sf.*, g.*
 			FROM publication_galleys g
@@ -185,17 +173,11 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 			WHERE g.publication_id = ?
 				AND g.url_path = ?
 			ORDER BY g.seq',
-			$params
+			[(int) $publicationId, $galleyId]
 		);
-
-		if ($result->RecordCount() != 0) {
-			$galley = $this->_fromRow($result->GetRowAssoc(false));
-		} elseif (is_int($galleyId) || ctype_digit($galleyId)) {
-			$galley = $this->getById($galleyId);
-		}
-		$result->Close();
-
-		return $galley ?? null;
+		$row = $result->current();
+		if ($row) return $this->_fromRow((array) $row);
+		return $this->getById($galleyId);
 	}
 
 	/**
@@ -203,52 +185,48 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 */
 	function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*)
+			'SELECT COUNT(*) AS row_count
 			FROM publication_galley_settings pgs
 				INNER JOIN publication_galleys pg ON pgs.galley_id = pg.galley_id
 				INNER JOIN publications p ON pg.publication_id = p.publication_id
 				INNER JOIN submissions s ON p.submission_id = s.submission_id
 			WHERE pgs.setting_name = ? AND pgs.setting_value = ? AND pgs.galley_id <> ? AND s.context_id = ?',
-			array(
-				'pub-id::'.$pubIdType,
+			[
+				'pub-id::' . $pubIdType,
 				$pubId,
 				(int) $excludePubObjectId,
 				(int) $contextId
-			)
+			]
 		);
-		$returner = $result->fields[0] ? true : false;
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**
 	 * @copydoc PKPPubIdPluginDAO::changePubId()
 	 */
 	function changePubId($pubObjectId, $pubIdType, $pubId) {
-		$idFields = array(
-			'galley_id', 'locale', 'setting_name'
+		$this->replace(
+			'publication_galley_settings',
+			[
+				'galley_id' => (int) $pubObjectId,
+				'locale' => '',
+				'setting_name' => 'pub-id::' . $pubIdType,
+				'setting_type' => 'string',
+				'setting_value' => (string) $pubId,
+			],
+			['galley_id', 'locale', 'setting_name']
 		);
-		$updateArray = array(
-			'galley_id' => (int) $pubObjectId,
-			'locale' => '',
-			'setting_name' => 'pub-id::'.$pubIdType,
-			'setting_type' => 'string',
-			'setting_value' => (string)$pubId
-		);
-		$this->replace('publication_galley_settings', $updateArray, $idFields);
 	}
 
 	/**
 	 * @copydoc PKPPubIdPluginDAO::deletePubId()
 	 */
 	function deletePubId($pubObjectId, $pubIdType) {
-		$settingName = 'pub-id::'.$pubIdType;
+		$settingName = 'pub-id::' . $pubIdType;
 		$this->update(
 			'DELETE FROM publication_galley_settings WHERE setting_name = ? AND galley_id = ?',
-			array(
-				$settingName,
-				(int)$pubObjectId
-			)
+			[$settingName, (int)$pubObjectId]
 		);
 		$this->flushCache();
 	}
@@ -257,16 +235,13 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
 	 */
 	function deleteAllPubIds($contextId, $pubIdType) {
-		$settingName = 'pub-id::'.$pubIdType;
+		$settingName = 'pub-id::' . $pubIdType;
 
 		$galleys = $this->getByContextId($contextId);
 		while ($galley = $galleys->next()) {
 			$this->update(
 				'DELETE FROM publication_galley_settings WHERE setting_name = ? AND galley_id = ?',
-				array(
-					$settingName,
-					(int)$galley->getId()
-				)
+				[$settingName, (int)$galley->getId()]
 			);
 		}
 		$this->flushCache();
@@ -286,7 +261,7 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * @return DAOResultFactory
 	 */
 	function getExportable($contextId, $pubIdType = null, $title = null, $author = null, $issueId = null, $pubIdSettingName = null, $pubIdSettingValue = null, $rangeInfo = null) {
-		$params = array();
+		$params = [];
 		if ($pubIdSettingName) {
 			$params[] = $pubIdSettingName;
 		}
@@ -294,7 +269,7 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 		$params[] = STATUS_PUBLISHED;
 		$params[] = (int) $contextId;
 		if ($pubIdType) {
-			$params[] = 'pub-id::'.$pubIdType;
+			$params[] = 'pub-id::' . $pubIdType;
 		}
 		if ($title) {
 			$params[] = 'title';

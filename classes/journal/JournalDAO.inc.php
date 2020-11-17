@@ -97,11 +97,11 @@ class JournalDAO extends ContextDAO {
 	function anyPubIdExists($journalId, $pubIdType, $pubId,
 			$assocType = ASSOC_TYPE_ANY, $assocId = 0, $forSameType = false) {
 
-		$pubObjectDaos = array(
+		$pubObjectDaos = [
 			ASSOC_TYPE_SUBMISSION => DAORegistry::getDAO('SubmissionDAO'),
 			ASSOC_TYPE_GALLEY => Application::getRepresentationDAO(),
 			ASSOC_TYPE_SUBMISSION_FILE => DAORegistry::getDAO('SubmissionFileDAO')
-		);
+		];
 		if ($forSameType) {
 			$dao = $pubObjectDaos[$assocType];
 			$excludedId = $assocId;

@@ -64,7 +64,7 @@ class Upgrade extends Installer {
 	 */
 	function changeSubmissionStageToProduction() {
 		$submissioDao = DAORegistry::getDAO('SubmissionDAO');
-		$submissioDao->update('UPDATE submissions SET stage_id = ? WHERE stage_id = ?', array(WORKFLOW_STAGE_ID_PRODUCTION, WORKFLOW_STAGE_ID_SUBMISSION));
+		$submissioDao->update('UPDATE submissions SET stage_id = ? WHERE stage_id = ?', [WORKFLOW_STAGE_ID_PRODUCTION, WORKFLOW_STAGE_ID_SUBMISSION]);
 
 		return true;
 	}

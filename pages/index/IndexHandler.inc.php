@@ -30,12 +30,12 @@ class IndexHandler extends PKPIndexHandler {
 		$journal = $request->getJournal();
 
 		if (!$journal) {
-			$journal = $this->getTargetContext($request, $journalsCount);
+			$journal = $this->getTargetContext($request, $hasNoContexts);
 			if ($journal) {
 				// There's a target context but no journal in the current request. Redirect.
 				$request->redirect($journal->getPath());
 			}
-			if ($journalsCount === 0 && Validation::isSiteAdmin()) {
+			if ($hasNoContexts && Validation::isSiteAdmin()) {
 				// No contexts created, and this is the admin.
 				$request->redirect(null, 'admin', 'contexts');
 			}

@@ -16,6 +16,7 @@
 <p>{foreach from=$alphaList item=letter}<a href="{url op="authors" searchInitial=$letter}">{if $letter == $searchInitial}<strong>{$letter|escape}</strong>{else}{$letter|escape}{/if}</a> {/foreach}<a href="{url op="authors"}">{if $searchInitial==''}<strong>{translate key="common.all"}</strong>{else}{translate key="common.all"}{/if}</a></p>
 
 <div id="authors">
+{assign var=hadAuthors value=false}
 {iterate from=authors item=author}
 	{assign var=lastFirstLetter value=$firstLetter}
 	{assign var=firstLetter value=$author->getLocalizedFamilyName()|String_substr:0:1}
@@ -45,12 +46,11 @@
 		{/if}
 	{/strip}
 	<br/>
+	{assign var=hadAuthors value=true}
 {/iterate}
-{if !$authors->wasEmpty()}
+{if $hadAuthors}
 	<br />
 	{page_info iterator=$authors}&nbsp;&nbsp;&nbsp;&nbsp;{page_links anchor="authors" iterator=$authors name="authors" searchInitial=$searchInitial}
-{else}
 {/if}
 </div>
 {include file="frontend/components/footer.tpl"}
-

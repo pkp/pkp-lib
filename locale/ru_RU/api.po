@@ -18,6 +18,9 @@ msgstr ""
 msgid "api.400.paramNotSupported"
 msgstr "Параметр «{$param}» не поддерживается."
 
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Невозможно изменить время создания этого элемента."
+
 msgid "api.403.unauthorized"
 msgstr "Вы не авторизованы для доступа к запрашиваемому ресурсу."
 
@@ -27,8 +30,23 @@ msgstr "Запрашиваемый ресурс не найден."
 msgid "api.404.endpointNotFound"
 msgstr "Запрошенный URL не распознан."
 
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Объявление, запрошенное Вами, не найдено."
+
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "Шаблон письма, который вы запросили, не был найден."
+
+msgid "api.files.400.noUpload"
+msgstr "В запросе не найден файл, который должен быть загружен на сервер."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Один или несколько файлов не удалось загрузить на сервер."
+
+msgid "api.files.400.fileSize"
+msgstr "Файлы больше чем {$maxSize} загрузить на сервер нельзя."
+
+msgid "api.files.400.config"
+msgstr "Файл нельзя загрузить из-за ошибки в конфигурации сервера. Пожалуйста, свяжитесь с администратором системы."
 
 msgid "api.publication.403.alreadyPublished"
 msgstr "Публикация, которую Вы хотите опубликовать, уже опубликована."
@@ -44,6 +62,59 @@ msgstr "Вы не можете изменить статус напрямую ч
 
 msgid "api.publication.403.cantDeletePublished"
 msgstr "Перед удалением публикации Вы должны снять её с публикации."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Вы можете загрузить только файлы следующих типов: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Изображение, которое Вы загрузили, не является корректным."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr "Файл, который Вы загрузили, не соответствует своему расширению. Такое может произойти, если файл был неправильно переименован, например, изменили photo.png на photo.jpg."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "У Вас нет прав на загрузку файлов."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr "Недостаточно места в вашем пользовательском каталоге. Файл, который Вы загружаете, имеет размер {$fileUploadSize}kb, а у Вас осталось свободными только {$dirSizeLeft}kb."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr "Каталог для общих файлов не найден или в него нельзя сохранить файлы. Пожалуйста, свяжитесь с администратором системы, чтобы решить этот вопрос."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr "Вы не можете изменить связь файла, не передав assocType и assocId."
+
+msgid "api.submissionFiles.400.noFileStageId"
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Файл с этого этапа не может быть зависимым файлом."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Вы не можете связать файл с этого этапа с заметкой в обсуждении."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Вы не можете связать файл с этого этапа с назначением на рецензию."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Вы не можете связать файл с этого этапа с раундом рецензирования."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "Вы должны указать правильный раунд рецензирования, чтобы загрузить файл на сервер на этом этапе, указав значения assocType и assocId."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Раунд рецензирования для этого файла не соответствует указанному этапу отправки."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "У Вас нет прав на доступ к файлам из этого этапа."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "У Вас нет прав на изменение или редактирование файлов с этого этапа."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "У Вас нет прав на доступ к файлам из этого раунда рецензирования."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "У Вас нет прав на редактирование этой публикации."
 
 msgid "api.stats.400.wrongDateFormat"
 msgstr "Дата должна быть в формате ГГГГ-ММ-ДД."
@@ -84,17 +155,20 @@ msgstr "Ваш запрос не может быть выполнен, так к
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Неправильно указан запрашиваемый том, номер или год."
 
-msgid "api.files.400.noUpload"
-msgstr "Не найдены файлы для загрузки на сервер, указанные в запросе."
+msgid "api.submissions.files.403.cantChangeSubmission"
+msgstr "Вы не можете изменить отправленный материал, с которым связан данный файл."
 
-msgid "api.files.400.uploadFailed"
-msgstr "Один или несколько файлов не могут быть загружены на сервер."
+msgid "api.submissions.files.400.submissionsDidNotMatch"
+msgstr "Файл, который Вы запросили, не является частью данной отправки."
 
-msgid "api.files.400.fileSize"
-msgstr "Файлы больше чем {$maxSize} нельзя загрузить на сервер."
+msgid "api.submissions.files.400.sameFileStage"
+msgstr "Файл уже добавлен на этом этапе."
 
-msgid "api.files.400.config"
-msgstr "Файл не удается загрузить на сервер из-за ошибки конфигурации сервера. Пожалуйста, свяжитесь с администратором системы."
+msgid "api.submissions.files.400.invalidFileStage"
+msgstr "Файл данного этапа является некорректным."
+
+msgid "api.submissions.files.400.noParams"
+msgstr "В запросе на редактирование данного файла нет никаких изменений, которые нужно внести."
 
 msgid "api.themes.404.themeUnavailable"
 msgstr "Активная тема «{$themePluginPath}» не включена и, возможно, не установлена на сервере."

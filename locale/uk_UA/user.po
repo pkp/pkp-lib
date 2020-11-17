@@ -87,9 +87,6 @@ msgstr "Email"
 msgid "user.interests"
 msgstr "Наукові інтереси"
 
-msgid "user.interests.description"
-msgstr "(вказуйте кожний інтерес з нового рядку або розділяйте їх комами)"
-
 msgid "user.gossip"
 msgstr "Приватні нотатки"
 

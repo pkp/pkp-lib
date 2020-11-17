@@ -289,6 +289,3 @@ msgstr "Kontuaren informazioa"
 
 msgid "user.authorization.managerRequired"
 msgstr "Mailari Prentsa Arduradun eginkizuna (adib., Prentsa edo Produkzio Editorea) duen erabiltzaile bat esleitu behar zaio, aurrera jarraitu aurretik."
-
-msgid "user.interests.description"
-msgstr "(Interesak banandu enter edo koma tekla sakatuz)"

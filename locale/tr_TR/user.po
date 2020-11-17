@@ -80,9 +80,6 @@ msgstr "İlk Harfler"
 msgid "user.interests"
 msgstr "Uzmanlık Alanı"
 
-msgid "user.interests.description"
-msgstr "(Eğer aradığınız terim listede yoksa yazdıktan sonra \"enter\" veya \"virgül\" tuşuna basınız)"
-
 msgid "user.gossip"
 msgstr "Özel notlar"
 

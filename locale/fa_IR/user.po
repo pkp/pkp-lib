@@ -83,9 +83,6 @@ msgstr "ایمیل"
 msgid "user.interests"
 msgstr "زمینه های داوری"
 
-msgid "user.interests.description"
-msgstr "(زمینه های داوری خود را با اینتر یا کاما از هم جدا کنید)"
-
 msgid "user.gossip"
 msgstr "یادداشت خصوصی"
 

@@ -276,9 +276,6 @@ msgstr "Informazioni account"
 msgid "user.authorization.managerRequired"
 msgstr "Prima di procedere è necessario assegnare un utente con ruolo di Manager di stampa (ad es. Editor di stampa o di produzione)."
 
-msgid "user.interests.description"
-msgstr "(Separare i campi di interesse premendo ENTER o usando la virgola)"
-
 msgid "user.group"
 msgstr "Gruppo utenti"
 

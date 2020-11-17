@@ -49,7 +49,7 @@
 	width: 90%;
 	max-width: 50em;
 	background: @lift;
-	margin: @base auto;
+	margin: 1rem auto;
 	cursor: auto;
 	border-radius: 3px;
 	.transform(translateY(-30px));
@@ -74,11 +74,11 @@
 .pkp_modal_panel {
 
 	// Height and width of the close button (matches height of header)
-	@pkp_modal_panel_close_box_len: @double * 2;
+	@pkp_modal_panel_close_box_len: 4rem;
 
 	> .header,
 	> .content {
-		padding: @base;
+		padding: 1rem;
 	}
 
 	> .header {
@@ -146,8 +146,8 @@
 .pkp_modal {
 
 	.ui-tabs-nav {
-		margin: -@base -@base 0;
-		padding: @base @base 0;
+		margin: -1rem -1rem 0;
+		padding: 1rem 1rem 0;
 		background: transparent;
 		border-bottom: 1px solid @bg-border-color-light;
 
@@ -169,12 +169,12 @@
 	.ui-tabs-panel .pkp_help_tab {
 		border: 1px solid @bg-border-color-light;
 		border-bottom: none;
-		top: -@double - 1px;
+		top: calc(~"(2rem - 1px) * -1");
 	}
 }
 
 .pkp_modal .ui-tabs-panel {
-	padding: @double 0 0;
+	padding: 2rem 0 0;
 	border: none;
 }
 
@@ -193,10 +193,10 @@
 
 // Help link inside modals
 .pkp_modal_panel > .content > .pkp_help_link {
-	top: @half;
+	top: 0.5rem;
 }
 
 // Vue.js forms inside modals
 .pkp_modal .pkpForm {
-	margin: -@base;
+	margin: -1rem;
 }

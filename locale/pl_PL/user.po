@@ -68,9 +68,6 @@ msgstr "E-mail"
 msgid "user.interests"
 msgstr "Zainteresowania"
 
-msgid "user.interests.description"
-msgstr "(Oddziel zainteresowania stosując ENTER lub przecinek)"
-
 msgid "user.gossip"
 msgstr "Prywatne notatki"
 

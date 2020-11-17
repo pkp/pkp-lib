@@ -293,9 +293,6 @@ msgstr "Etapa workflow není specifikována."
 msgid "user.authorization.pluginRequired"
 msgstr "Plugin nebyl specifikován a je vyžadován."
 
-msgid "user.interests.description"
-msgstr "(Jednotlivé zájmy oddělené klávesou Enter, nebo čárkou)"
-
 msgid "user.group"
 msgstr "Uživatelská skupina"
 

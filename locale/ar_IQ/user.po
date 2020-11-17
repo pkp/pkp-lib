@@ -99,9 +99,6 @@ msgstr "الاسم"
 msgid "user.interests"
 msgstr "إهتمامات التحكيم"
 
-msgid "user.interests.description"
-msgstr "(إفصل بين الاهتمامات عبر زر enter أو بالفوارز الإنجليزية)"
-
 msgid "user.gossip"
 msgstr "ملاحظات التحرير"
 

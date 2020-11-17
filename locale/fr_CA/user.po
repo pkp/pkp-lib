@@ -102,9 +102,6 @@ msgstr "Prénom"
 msgid "user.interests"
 msgstr "Champs d'intérêts pour les évaluations"
 
-msgid "user.interests.description"
-msgstr "(Séparer les champs intérêts en appuyant sur la touche « Entrée » ou en ajoutant une virgule)"
-
 msgid "user.gossip"
 msgstr "Notes privées"
 

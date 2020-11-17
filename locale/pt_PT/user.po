@@ -236,9 +236,6 @@ msgstr "Notas Privadas"
 msgid "user.register.form.emailsDoNotMatch"
 msgstr "Os campos e-mail não coincidem."
 
-msgid "user.interests.description"
-msgstr "(Separar interesses pressionando a tecla enter ou vírgula)"
-
 msgid "user.group"
 msgstr "Grupo"
 

@@ -262,6 +262,7 @@ class PKPTemplateManager extends Smarty {
 		$this->registerPlugin('function','page_info', [$this, 'smartyPageInfo']);
 		$this->registerPlugin('function','pluck_files', [$this, 'smartyPluckFiles']);
 		$this->registerPlugin('function','locale_direction', [$this, 'smartyLocaleDirection']);
+		$this->registerPlugin('function','html_select_date_a11y', [$this, 'smartyHtmlSelectDateA11y']);
 
 		$this->registerPlugin('function','title', [$this, 'smartyTitle']);
 		$this->registerPlugin('function', 'url', [$this, 'smartyUrl']);
@@ -2238,6 +2239,89 @@ class PKPTemplateManager extends Smarty {
 			? $params['locale']
 			: AppLocale::getLocale();
 		return AppLocale::getLocaleDirection($locale);
+	}
+
+	/**
+	 * Smarty usage: {html_select_date_a11y legend="Published After" prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd}
+	 *
+	 * Get a fieldset of select fields to select a date
+	 *
+	 * Mimics basic features of Smarty's html_select_date function but
+	 * gives each select field a label and returns all fields within
+	 * a fieldset in order to be accessible.
+	 *
+	 * @param array $params
+	 * @param TemplateManager $smarty
+	 * @return string
+	 */
+	public function smartyHtmlSelectDateA11y($params, $smarty) {
+		if (!isset($params['prefix'], $params['legend'], $params['start_year'], $params['end_year'])) {
+			throw new Exception('You must provide a prefix, legend, start_year and end_year when using html_select_date_a11y.');
+		}
+		$prefix = $params['prefix'];
+		$legend = $params['legend'];
+		$time = isset($params['time']) ? $params['time'] : '';
+		$startYear = $params['start_year'];
+		$endYear = $params['end_year'];
+		$yearEmpty = isset($params['year_empty']) ? $params['year_empty'] : '';
+		$monthEmpty = isset($params['month_empty']) ? $params['month_empty'] : '';
+		$dayEmpty = isset($params['day_empty']) ? $params['day_empty'] : '';
+		$yearLabel = isset($params['year_label']) ? $params['year_label'] : __('common.year');
+		$monthLabel = isset($params['month_label']) ? $params['month_label'] : __('common.month');
+		$dayLabel = isset($params['day_label']) ? $params['day_label'] : __('common.day');
+
+		$years = [];
+		$i = $startYear;
+		while ($i <= $endYear) {
+			$years[$i] = $i;
+			$i++;
+		}
+
+		$months = [];
+		for ($i = 1; $i <= 12; $i++) {
+			$months[$i] = strftime('%B', strtotime('2020-' . $i . '-01'));
+		}
+
+		$days = [];
+		for ($i = 1; $i <= 31; $i++) {
+			$days[$i] = $i;
+		}
+
+		$currentYear = $currentMonth = $currentDay = '';
+		if ($time) {
+			$currentYear = (int) substr($time, 0, 4);
+			$currentMonth = (int) substr($time, 5, 2);
+			$currentDay = (int) substr($time, 8, 2);
+		}
+
+		$output = '<fieldset><legend>' . $legend . '</legend>';
+		$output .= '<label for="' . $prefix . 'Year">' . $yearLabel . '</label>';
+		$output .= '<select id="' . $prefix . 'Year" name="' . $prefix . 'Year">';
+		$output .= '<option>' . $yearEmpty . '</option>';
+		foreach ($years as $value => $label) {
+			$selected = $currentYear === $value ? ' selected' : '';
+			$output .= '<option value="'. $value . '"' . $selected . '>' . $label . '</option>';
+		}
+		$output .= '</select>';
+		$output .= '<label for="' . $prefix . 'Month">' . $monthLabel . '</label>';
+		$output .= '<select id="' . $prefix . 'Month" name="' . $prefix . 'Month">';
+		$output .= '<option>' . $monthEmpty . '</option>';
+		foreach ($months as $value => $label) {
+			$selected = $currentMonth === $value ? ' selected' : '';
+			$output .= '<option value="'. $value . '"' . $selected . '>' . $label . '</option>';
+		}
+		$output .= '</select>';
+		$output .= '<label for="' . $prefix . 'Day">' . $dayLabel . '</label>';
+		$output .= '<select id="' . $prefix . 'Day" name="' . $prefix . 'Day">';
+		$output .= '<option>' . $dayEmpty . '</option>';
+		foreach ($days as $value => $label) {
+			$selected = $currentDay === $value ? ' selected' : '';
+			$output .= '<option value="'. $value . '"' . $selected . '>' . $label . '</option>';
+		}
+		$output .= '</select>';
+		$output .= '</fieldset>';
+
+		return $output;
 	}
 
 	/**

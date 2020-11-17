@@ -59,9 +59,6 @@ msgstr "Imejl"
 msgid "user.interests"
 msgstr "Recenzentski interesi"
 
-msgid "user.interests.description"
-msgstr "(odvojite interese pritiskom na enter ili zarezom)"
-
 msgid "user.gossip"
 msgstr "Privatne napomene"
 

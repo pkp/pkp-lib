@@ -406,9 +406,6 @@ msgstr ""
 msgid "user.gossip"
 msgstr "Note editoriale"
 
-msgid "user.interests.description"
-msgstr "(Prezentați interesele prin separare apăsând enter sau prin virgulă)"
-
 msgid "user.interests"
 msgstr "Interesele de revizuire"
 

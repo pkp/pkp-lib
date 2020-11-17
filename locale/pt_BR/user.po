@@ -94,9 +94,6 @@ msgstr "Nome Próprio"
 msgid "user.interests"
 msgstr "Área de interesse para avaliação"
 
-msgid "user.interests.description"
-msgstr "(Separe interesses pressionando as teclas enter ou vírgula)"
-
 msgid "user.gossip"
 msgstr "Notas privadas"
 

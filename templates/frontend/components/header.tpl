@@ -80,18 +80,19 @@
 							{$primaryMenu}
 
 							{* Search form *}
-							{if $currentContext}
-								{include file="frontend/components/searchForm_simple.tpl" className="pkp_search_desktop"}
+							{if $currentContext && $requestedPage !== 'search'}
+								<div class="pkp_navigation_search_wrapper">
+									<a href="{url page="search"}" class="pkp_search pkp_search_desktop">
+										<span class="fa fa-search" aria-hidden="true"></span>
+										{translate key="common.search"}
+									</a>
+								</div>
 							{/if}
 						</div>
 					</div>
 					<div class="pkp_navigation_user_wrapper" id="navigationUserWrapper">
 						{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
 					</div>
-					{* Search form *}
-					{if $currentContext}
-						{include file="frontend/components/searchForm_simple.tpl" className="pkp_search_mobile"}
-					{/if}
 				</nav>
 			</div><!-- .pkp_head_wrapper -->
 		</header><!-- .pkp_structure_head -->

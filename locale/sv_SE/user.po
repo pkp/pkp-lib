@@ -95,9 +95,6 @@ msgstr "E-post"
 msgid "user.interests"
 msgstr "Intresseområden för granskning"
 
-msgid "user.interests.description"
-msgstr "(Separera intressen genom att trycka enter eller komma)"
-
 msgid "user.gossip"
 msgstr "Redaktionella anteckningar"
 

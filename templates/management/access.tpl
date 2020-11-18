@@ -14,7 +14,7 @@
 		{translate key="navigation.access"}
 	</h1>
 
-	<tabs>
+	<tabs :track-history="true">
 		<tab id="users" label="{translate key="manager.users"}">
 			{include file="management/accessUsers.tpl"}
 		</tab>

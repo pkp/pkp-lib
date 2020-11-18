@@ -20,10 +20,10 @@
 		</notification>
 	{/if}
 
-	<tabs>
+	<tabs :track-history="true">
 		{if $componentAvailability['siteSetup']}
 		<tab id="setup" label="{translate key="admin.siteSetup"}">
-			<tabs :is-side-tabs="true">
+			<tabs :is-side-tabs="true" :track-history="true">
 				{if $componentAvailability['siteConfig']}
 				<tab id="settings" label="{translate key="admin.settings"}">
 					<pkp-form
@@ -60,7 +60,7 @@
 		{/if}
 		{if $componentAvailability['siteAppearance']}
 		<tab id="appearance" label="{translate key="manager.website.appearance"}">
-			<tabs :is-side-tabs="true">
+			<tabs :is-side-tabs="true" :track-history="true">
 				{if $componentAvailability['siteTheme']}
 				<tab id="theme" label="{translate key="manager.setup.theme"}">
 					<theme-form

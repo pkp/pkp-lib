@@ -16,9 +16,9 @@
 		{translate key="manager.settings.wizard"}
 	</h1>
 
-	<tabs>
+	<tabs :track-history="true">
 		<tab id="setup" label="{translate key="manager.setup"}">
-			<tabs>
+			<tabs :track-history="true">
 				<tab id="context" label="{translate key="context.context"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_CONTEXT}"
@@ -45,7 +45,7 @@
 			</tabs>
 		</tab>
 		<tab id="plugins" label="{translate key="common.plugins"}">
-			<tabs>
+			<tabs :track-history="true">
 				<tab id="installed" label="{translate key="manager.plugins.installed"}">
 					{capture assign=pluginGridUrl}{url router=$smarty.const.ROUTE_COMPONENT context=$editContext->getPath() component="grid.settings.plugins.SettingsPluginGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="pluginGridContainer" url=$pluginGridUrl}

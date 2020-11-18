@@ -14,7 +14,7 @@
 		{translate key="manager.setup.announcements"}
 	</h1>
 
-	<tabs>
+	<tabs :track-history="true">
 		<tab id="announcements" label="{translate key="manager.setup.announcements"}">
 			<announcements-list-panel
 				v-bind="components.announcements"

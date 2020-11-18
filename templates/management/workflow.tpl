@@ -20,10 +20,10 @@
 		</notification>
 	{/if}
 
-	<tabs>
+	<tabs :track-history="true">
 		<tab id="submission" label="{translate key="manager.publication.submissionStage"}">
 			{help file="settings" section="workflow-submission" class="pkp_help_tab"}
-			<tabs :is-side-tabs="true">
+			<tabs :is-side-tabs="true" :track-history="true">
 				<tab id="disableSubmissions" label="{translate key="manager.setup.disableSubmissions"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_DISABLE_SUBMISSIONS}"
@@ -66,7 +66,7 @@
 		</tab>
 		<tab id="emails" label="{translate key="manager.publication.emails"}">
 			{help file="settings" section="workflow-emails" class="pkp_help_tab"}
-			<tabs>
+			<tabs :track-history="true">
 				<tab id="emailsSetup" label="{translate key="navigation.setup"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_EMAIL_SETUP}"

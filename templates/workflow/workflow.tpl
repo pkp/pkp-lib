@@ -67,7 +67,7 @@
 			</pkp-button>
 		</template>
 	</pkp-header>
-	<tabs default-tab="workflow">
+	<tabs default-tab="workflow" :track-history="true">
 		<tab id="workflow" label="{translate key="manager.workflow"}">
 			<script type="text/javascript">
 				// Initialize JS handler.
@@ -169,7 +169,7 @@
 					>
 						{translate key="publication.editDisabled"}
 					</div>
-					<tabs class="pkpPublication__tabs" :is-side-tabs="true" :label="publicationTabsLabel">
+					<tabs class="pkpPublication__tabs" :is-side-tabs="true" :track-history="true" :label="publicationTabsLabel">
 						<tab id="titleAbstract" label="{translate key="publication.titleAbstract"}">
 							<pkp-form v-bind="components.{$smarty.const.FORM_TITLE_ABSTRACT}" @set="set" />
 						</tab>

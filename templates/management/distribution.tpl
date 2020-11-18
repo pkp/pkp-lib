@@ -20,7 +20,7 @@
 		</notification>
 	{/if}
 
-	<tabs>
+	<tabs :track-history="true">
 		<tab id="license" label="{translate key="submission.license"}">
 			{help file="settings/distribution-settings" class="pkp_help_tab"}
 			<pkp-form

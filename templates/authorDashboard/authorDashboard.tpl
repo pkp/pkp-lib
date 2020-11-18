@@ -53,7 +53,7 @@
 			</template>
 		</pkp-header>
 		{include file="controllers/notification/inPlaceNotification.tpl" notificationId="authorDashboardNotification" requestOptions=$authorDashboardNotificationRequestOptions}
-		<tabs>
+		<tabs :track-history="true">
 			<tab id="publication" label="{translate key="submission.publication"}">
 				<div class="pkpPublication" ref="publication" aria-live="polite">
 					<pkp-header class="pkpPublication__header" :is-one-line="false">
@@ -125,7 +125,7 @@
 					>
 						{translate key="publication.editDisabled"}
 					</div>
-					<tabs :is-side-tabs="true" class="pkpPublication__tabs" :label="publicationTabsLabel">
+					<tabs :is-side-tabs="true" :track-history="true" class="pkpPublication__tabs" :label="publicationTabsLabel">
 						<tab id="titleAbstract" label="{translate key="publication.titleAbstract"}">
 							<pkp-form v-bind="components.{$smarty.const.FORM_TITLE_ABSTRACT}" @set="set" />
 						</tab>

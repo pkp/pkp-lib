@@ -312,7 +312,10 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 		self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2?key1=val1%3F&key2[]=val2-1&key2[]=val2%3F2', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', null, null, null, null, 'some?anchor');
-		self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2#some%3Fanchor', $result);
+		self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2#someanchor', $result);
+
+		$result = $this->router->url($this->request, 'new-context1', null, null, null, null, 'some/anchor');
+		self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2#some/anchor', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', null, 'new-op', 'add-path', array('key' => 'val'), 'some-anchor');
 		self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/index/new-op/add-path?key=val#some-anchor', $result);
@@ -435,7 +438,10 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&key1=val1%3F&key2[]=val2-1&key2[]=val2%3F2', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', null, null, null, null, 'some?anchor');
-		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2#some%3Fanchor', $result);
+		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2#someanchor', $result);
+
+		$result = $this->router->url($this->request, 'new-context1', null, null, null, null, 'some/anchor');
+		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2#some/anchor', $result);
 
 		$result = $this->router->url($this->request, 'new-context1', null, 'new-op', 'add-path', array('key' => 'val'), 'some-anchor');
 		self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&page=index&op=new-op&path[]=add-path&key=val#some-anchor', $result);

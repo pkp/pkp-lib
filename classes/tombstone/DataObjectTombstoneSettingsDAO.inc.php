@@ -25,17 +25,16 @@ class DataObjectTombstoneSettingsDAO extends DAO {
 		$params = [(int) $tombstoneId, $name];
 		if ($locale !== null) $params[] = $locale;
 		$result = $this->retrieve(
-			'SELECT setting_value, setting_type FROM data_object_tombstone_settings WHERE tombstone_id = ? AND setting_name = ?'
-			. ($locale !== null ? ' AND l.locale = ?':''),
+			'SELECT setting_value, setting_type, locale FROM data_object_tombstone_settings WHERE tombstone_id = ? AND setting_name = ?'
+			. ($locale !== null ? ' AND locale = ?':''),
 			$params
 		);
 
 		$setting = null;
 		foreach ($result as $row) {
-			$row = (array) $row;
-			$value = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-			if (!array_key_exists('locale', $row) || $row['locale'] == '') $setting[$name] = $value;
-			else $setting[$name][$row['locale']] = $value;
+			$value = $this->convertFromDB($row->setting_value, $row->setting_type);
+			if (!isset($row->locale) || $row->locale == '') $setting[$name] = $value;
+			else $setting[$name][$row->locale] = $value;
 		}
 		return $setting;
 	}
@@ -47,41 +46,34 @@ class DataObjectTombstoneSettingsDAO extends DAO {
 	 * @param $value mixed
 	 * @param $type string data type of the setting. If omitted, type will be guessed
 	 * @param $isLocalized boolean
-	 * @return boolean
 	 */
 	function updateSetting($tombstoneId, $name, $value, $type = null, $isLocalized = false) {
-		$returner = null;
-
-		$keyFields = array('tombstone_id', 'setting_name', 'locale');
-
 		if (!$isLocalized) {
 			$value = $this->convertToDB($value, $type);
 			$this->replace('data_object_tombstone_settings',
-				array(
+				[
 					'tombstone_id' => $tombstoneId,
 					'setting_name' => $name,
 					'setting_value' => $value,
 					'setting_type' => $type,
 					'locale' => ''
-				),
-				$keyFields
+				],
+				['tombstone_id', 'setting_name', 'locale']
 			);
-			$returner = true;
-		} else {
-			if (is_array($value)) foreach ($value as $locale => $localeValue) {
-				$this->update('DELETE FROM data_object_tombstone_settings WHERE tombstone_id = ? AND setting_name = ? AND locale = ?', array((int) $tombstoneId, $name, $locale));
-				if (empty($localeValue)) continue;
-				$type = null;
-				$returner = $this->update('INSERT INTO data_object_tombstone_settings
-					(tombstone_id, setting_name, setting_value, setting_type, locale)
-					VALUES (?, ?, ?, ?, ?)',
-					array(
-						(int) $tombstoneId, $name, $this->convertToDB($localeValue, $type), $type, $locale
-					)
-				);
-			}
 		}
-		return $returner;
+		if (is_array($value)) foreach ($value as $locale => $localeValue) {
+			$this->update(
+				'DELETE FROM data_object_tombstone_settings WHERE tombstone_id = ? AND setting_name = ? AND locale = ?',
+				[(int) $tombstoneId, $name, $locale]
+			);
+			if (empty($localeValue)) continue;
+			$type = null;
+			$this->update('INSERT INTO data_object_tombstone_settings
+				(tombstone_id, setting_name, setting_value, setting_type, locale)
+				VALUES (?, ?, ?, ?, ?)',
+				[(int) $tombstoneId, $name, $this->convertToDB($localeValue, $type), $type, $locale]
+			);
+		}
 	}
 
 	/**
@@ -89,9 +81,10 @@ class DataObjectTombstoneSettingsDAO extends DAO {
 	 * @param $tombstoneId int
 	 * @param $name string
 	 * @param $locale string optional
+	 * @return int Affected row count
 	 */
 	function deleteSetting($tombstoneId, $name, $locale = null) {
-		$params = array((int) $tombstoneId, $name);
+		$params = [(int) $tombstoneId, $name];
 		$sql = 'DELETE FROM data_object_tombstone_settings WHERE tombstone_id = ? AND setting_name = ?';
 		if ($locale !== null) {
 			$params[] = $locale;
@@ -103,10 +96,11 @@ class DataObjectTombstoneSettingsDAO extends DAO {
 	/**
 	 * Delete all settings for an submission tombstone.
 	 * @param $tombstoneId int
+	 * @return int Affected row count
 	 */
 	function deleteSettings($tombstoneId) {
 		return $this->update(
-			'DELETE FROM data_object_tombstone_settings WHERE tombstone_id = ?', (int) $tombstoneId
+			'DELETE FROM data_object_tombstone_settings WHERE tombstone_id = ?', [(int) $tombstoneId]
 		);
 	}
 }

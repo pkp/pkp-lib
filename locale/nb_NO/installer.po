@@ -47,17 +47,6 @@ msgstr "Tegnsett for databasekoblingen"
 msgid "installer.contentsOfConfigFile"
 msgstr "Innholdet i konfigurasjonsfilen"
 
-msgid "installer.createDatabase"
-msgstr "Opprett ny database"
-
-msgid "installer.createDatabaseInstructions"
-msgstr ""
-"Dette krever at databasesystemet ditt støtter at databasen etableres "
-"eksternt. Brukerkontoen din må også ha de nødvendige rettighetene til å lage "
-"nye databaser. Hvis installasjon feiler med denne valgmuligheten valgt, lag "
-"databasen manuelt på serveren din og kjør installasjonsprogrammet igjen med "
-"denne valgmuligheten slått av."
-
 msgid "installer.databaseDriver"
 msgstr "Databasedriver"
 

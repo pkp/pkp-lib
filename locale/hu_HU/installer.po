@@ -44,12 +44,6 @@ msgstr "Kapcsolati karakterbeállítás"
 msgid "installer.contentsOfConfigFile"
 msgstr "A konfigurációs fájl tartalma"
 
-msgid "installer.createDatabase"
-msgstr "Új adatbázis létrehozása"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Ennek a beállításnak a használatához az adatbázisrendszernek támogatnia kell a távoli adatbázislétrehozást és az ön felhasználói fiókjának rendelkeznie kell a megfelelő jogosultságokkal új adatbázisok létrehozásához. Ha a telepítés megszakad ennek a beállításnak a használatakor, akkor hozza létre kézzel az adatbázist a szerverén és futassa újra a telepítőt ennek a beállításnak a kikapcsolásával."
-
 msgid "installer.databaseCharset"
 msgstr "Adatbázis karakterkódolása"
 

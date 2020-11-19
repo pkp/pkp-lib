@@ -44,12 +44,6 @@ msgstr "Conjunto de Caracteres da Conexão"
 msgid "installer.contentsOfConfigFile"
 msgstr "Conteúdo para ficheiro de configuração"
 
-msgid "installer.createDatabase"
-msgstr "Criar nova base de dados"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Para utilizar esta opção o servidor de bases de dados deve permitir criação de bases remotamente e o nome de utilizador e senha deve possuir as permissões necessárias para criação de bases e tabelas. Caso ocorra um erro durante a instalação, crie manualmente a base de dados no servidor e execute novamente o instalador desactivando esta opção."
-
 msgid "installer.databaseDriver"
 msgstr "Driver da Base de Dados"
 

@@ -44,12 +44,6 @@ msgstr "Forbindelsestegnsæt"
 msgid "installer.contentsOfConfigFile"
 msgstr "Konfigurationsfilens indhold"
 
-msgid "installer.createDatabase"
-msgstr "Opret ny database"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Hvis du vil benytte denne indstilling, skal databasesystemet understøtte oprettelse af fjerndatabaser, og din brugerkonto skal have de korrekte tilladelser til at oprette nye databaser. Hvis installationen mislykkes, når denne indstilling er valgt, skal du manuelt oprette databasen på serveren og køre installationsprogrammet igen, hvor denne indstilling er deaktiveret."
-
 msgid "installer.databaseDriver"
 msgstr "Database-driver"
 

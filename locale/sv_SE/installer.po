@@ -41,12 +41,6 @@ msgstr "Anslutningens teckenuppsättning"
 msgid "installer.contentsOfConfigFile"
 msgstr "Konfigurationsfilens innehåll"
 
-msgid "installer.createDatabase"
-msgstr "Skapa ny databas"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "För att välja det här alternativet måste din databas stödja remote database creation och ditt användarkonto måste ha rätt behörighet för att skapa nya databaser. Om installationen skulle misslyckas, skapa databasen manuellt på din server och kör installationen igen, med det här valet inaktiverat."
-
 msgid "installer.databaseDriver"
 msgstr "Databasdrivrutin"
 

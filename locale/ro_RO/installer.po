@@ -199,18 +199,6 @@ msgstr ""
 msgid "installer.databaseDriver"
 msgstr "Driverul bazei de date"
 
-msgid "installer.createDatabaseInstructions"
-msgstr ""
-"Pentru a utiliza această opțiune, sistemul dvs. de baze de date trebuie să "
-"susțină crearea de baze de date la distanță, iar contul de utilizator "
-"trebuie să aibă permisiunile corespunzătoare pentru a crea noi baze de date. "
-"Dacă instalarea nu reușește cu această opțiune selectată, creați manual baza "
-"de date pe serverul dvs. și rulați din nou instalatorul cu această opțiune "
-"dezactivată."
-
-msgid "installer.createDatabase"
-msgstr "Creați o bază de date nouă"
-
 msgid "installer.contentsOfConfigFile"
 msgstr "Conținutul fișierului de configurare"
 

@@ -41,12 +41,6 @@ msgstr "Skupina znakova konekcije"
 msgid "installer.contentsOfConfigFile"
 msgstr "Sadržaj konfiguracijske datoteke"
 
-msgid "installer.createDatabase"
-msgstr "Kreiraj novu bazu podataka"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Da biste koristili ovu opciju, sustav vaše baze podataka mora podržavati kreiranje udaljene baze podataka i vaš koristički račun mora imati prikladne dozvole za kreiranje nove baze podataka. Ukoliko instalacija nije uspjela s ovom odabranom mogućnošću, ručno kreirajte bazu podataka na vašem poslužitelju i ponovno pokrenite instalacijski program bez ove opcije."
-
 msgid "installer.databaseDriver"
 msgstr "Upravljač baze podataka"
 

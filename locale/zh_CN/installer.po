@@ -44,12 +44,6 @@ msgstr "连接字符集"
 msgid "installer.contentsOfConfigFile"
 msgstr "配置文件内容"
 
-msgid "installer.createDatabase"
-msgstr "创建新数据库"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "若要使用此选项，您的数据库系统必须支持远程数据库的建立和您的用户帐户必须具有适当的权限来创建新的数据库.如果选择此选项的时候安装失败，请在服务器上手动创建数据库，并禁用此项后重新执行安装."
-
 msgid "installer.databaseDriver"
 msgstr "数据库驱动"
 

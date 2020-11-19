@@ -44,12 +44,6 @@ msgstr "Joc de caràcters de la connexió"
 msgid "installer.contentsOfConfigFile"
 msgstr "Continguts del fitxer de configuració"
 
-msgid "installer.createDatabase"
-msgstr "Crea una base de dades nova"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Per utilitzar aquesta opció, el vostre sistema de bases de dades ha d'admetre la creació remota de bases de dades i el vostre compte d'usuari/ària ha de tenir els permisos adequats per crear noves bases de dades. Si heu seleccionat aquesta opció i la instal·lació falla, creeu la base de dades manualment al servidor i torneu a executar l'instal·lador amb l'opció desactivada."
-
 msgid "installer.databaseDriver"
 msgstr "Controlador de la base de dades"
 

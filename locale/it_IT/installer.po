@@ -44,12 +44,6 @@ msgstr "Set di caratteri per la connessione"
 msgid "installer.contentsOfConfigFile"
 msgstr "Contenuti del file di configurazione"
 
-msgid "installer.createDatabase"
-msgstr "Crea nuovo database"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Per utilizzare questa opzione il vostro database deve supportare la creazione remota di database e il vostro account utente deve avere i permessi adeguati. Se con questa opzione selezionata l'installazione dovesse fallire, creare il database manualmente e ripetete il processo d'installazione disabilitando quest'opzione."
-
 msgid "installer.databaseDriver"
 msgstr "Driver del database"
 

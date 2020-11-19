@@ -44,12 +44,6 @@ msgstr "Yhteyden merkistö"
 msgid "installer.contentsOfConfigFile"
 msgstr "Määritystiedoston sisältö"
 
-msgid "installer.createDatabase"
-msgstr "Luo uusi tietokanta"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Käyttääksesi tätä valintaa tietokantajärjestelmäsi on tuettava tietokannan etäluontia ja käyttäjätililläsi on oltava oikeudet luoda uusia tietokantoja. Jos asennus epäonnistuu tämän vaihtoehdon ollessa valittuna, luo tietokanta palvelimellesi manuaalisesti ja suorita asennusohjelma uudelleen tämän valinnan ollessa pois käytöstä."
-
 msgid "installer.databaseDriver"
 msgstr "Tietokantaohjain"
 

@@ -71,9 +71,6 @@ msgstr "میوان"
 msgid "installer.databaseDriver"
 msgstr "بەکارخەری داتابەیس"
 
-msgid "installer.createDatabase"
-msgstr "دروستکردنی داتابەیسی نوێ"
-
 msgid "installer.contentsOfConfigFile"
 msgstr "ناوەرۆکی فایلی زانیارییەکان"
 

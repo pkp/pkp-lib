@@ -41,12 +41,6 @@ msgstr "Kodowanie znaków (połączenie)"
 msgid "installer.contentsOfConfigFile"
 msgstr "Zawartość pliku konfiguracyjnego"
 
-msgid "installer.createDatabase"
-msgstr "Utwórz nową bazę danych"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Aby zdalnie utworzyć bazę danych, musisz posiadać stosowne uprawnienia oraz odpowiednią konfigurację serwera. Jeżeli instalacja nie powiedzie się z pomocą tej opcji, utwórz bazę manualnie i spróbuj instalacji ponownie."
-
 msgid "installer.databaseCharset"
 msgstr "Kodowanie znaków (baza danych)"
 

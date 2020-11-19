@@ -44,12 +44,6 @@ msgstr "Znaková sada pro připojení"
 msgid "installer.contentsOfConfigFile"
 msgstr "Obsah konfiguračního souboru"
 
-msgid "installer.createDatabase"
-msgstr "Vytvořit novou databázi"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Pro použití této možnosti musí Váš databázový systém podporovat vzdálené vytvoření databáze a Váš uživatelský účet musí mít potřebná oprávnění pro vytváření nových databází. Pokud byla tato možnost vybrána a instalace selže, vytvořte ručně databázi na Vašem serveru a s spusťte znovu instalaci s touto volbou vypnutou."
-
 msgid "installer.databaseDriver"
 msgstr "Ovladač databáze"
 

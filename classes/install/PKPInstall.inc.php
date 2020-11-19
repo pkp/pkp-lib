@@ -163,28 +163,6 @@ class PKPInstall extends Installer {
 	}
 
 	/**
-	 * Create a new database if required.
-	 * @return boolean
-	 */
-	function createDatabase() {
-		if (!$this->getParam('createDatabase')) {
-			return true;
-		}
-
-		// Get database creation sql
-		$dbdict = NewDataDictionary($this->dbconn);
-
-		list($sql) = $dbdict->CreateDatabase($this->getParam('databaseName'));
-		unset($dbdict);
-
-		if (!$this->executeSQL($sql)) {
-			return false;
-		}
-
-		return true;
-	}
-
-	/**
 	 * Write the configuration file.
 	 * @return boolean
 	 */

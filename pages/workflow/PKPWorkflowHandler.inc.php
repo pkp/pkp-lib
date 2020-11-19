@@ -600,7 +600,7 @@ abstract class PKPWorkflowHandler extends Handler {
 				}
 			}
 			// Get the possible editor decisions for this stage
-			$decisions = (new EditorDecisionActionsManager())->getStageDecisions($request->getContext(), $stageId, $makeDecision);
+			$decisions = (new EditorDecisionActionsManager())->getStageDecisions($request->getContext(), $submission, $stageId, $makeDecision);
 			// Iterate through the editor decisions and create a link action
 			// for each decision which as an operation associated with it.
 			foreach($decisions as $decision => $action) {

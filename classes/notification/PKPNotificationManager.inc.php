@@ -153,6 +153,8 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 			case NOTIFICATION_TYPE_EDITORIAL_REPORT:
 				$notificationSettings = $this->getNotificationSettings($notification->getId());
 				return $notificationSettings['contents'];
+			case NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
+				return __('notification.type.revertDecline');
 			default:
 				$delegateResult = $this->getByDelegate(
 					$notification->getType(),
@@ -381,6 +383,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 			case NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT:
 			case NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND:
 			case NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE:
+			case NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
 			case NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION:
 				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
 				import('lib.pkp.classes.notification.managerDelegate.EditorDecisionNotificationManager');

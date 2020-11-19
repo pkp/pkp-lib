@@ -142,7 +142,7 @@ class NoteDAO extends DAO {
 		$result = $this->retrieve(
 			'SELECT	COUNT(*)
 			FROM	notes n
-				JOIN item_views v ON (v.assoc_type = ? AND v.assoc_id = CAST(n.note_id AS CHAR) AND v.user_id = ?)
+				JOIN item_views v ON (v.assoc_type = ? AND CAST(v.assoc_id AS INTEGER) = n.note_id AND v.user_id = ?)
 			WHERE	n.assoc_type = ? AND
 				n.assoc_id = ? AND
 				v.assoc_id IS NULL',

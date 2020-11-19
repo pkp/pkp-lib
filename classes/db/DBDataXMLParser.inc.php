@@ -17,6 +17,7 @@
 import('lib.pkp.classes.xml.XMLParser');
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Schema\Blueprint;
 
 class DBDataXMLParser {
 	/** @var array the array of parsed SQL statements */
@@ -144,10 +145,10 @@ class DBDataXMLParser {
 	function executeData($continueOnError = false) {
 		$this->errorMsg = null;
 		foreach ($this->sql as $stmt) {
-			Capsule::statement($stmt);
-			$dbconn->execute($stmt);
-			if (!$continueOnError && $dbconn->errorNo() != 0) {
-				return false;
+			try {
+				Capsule::statement($stmt);
+			} catch (Exception $e) {
+				if (!$continueOnError) throw $e;
 			}
 		}
 		return true;

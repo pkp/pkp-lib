@@ -49,9 +49,6 @@ class Installer {
 	/** @var Version version after installation */
 	var $newVersion;
 
-	/** @var ADOConnection database connection */
-	var $dbconn;
-
 	/** @var string default locale */
 	var $locale;
 
@@ -354,7 +351,17 @@ class Installer {
 				$fileName = $action['file'];
 				$this->log(sprintf('schema: %s', $action['file']));
 
-				$schemaXMLParser = new adoSchema($this->dbconn);
+				require_once('lib/pkp/lib/vendor/adodb/adodb-php/adodb.inc.php');
+				require_once('./lib/pkp/lib/vendor/adodb/adodb-php/adodb-xmlschema.inc.php');
+				$dbconn = ADONewConnection(Config::getVar('database', 'driver'));
+				$port = Config::getVar('database', 'port');
+				$dbconn->Connect(
+					Config::getVar('database', 'host') . ($port ? ':' . $port : ''),
+					Config::getVar('database', 'username'),
+					Config::getVar('database', 'password'),
+					Config::getVar('database', 'name')
+				);
+				$schemaXMLParser = new adoSchema($dbconn);
 				$dict = $schemaXMLParser->dict;
 				$sql = $schemaXMLParser->parseSchema($fileName);
 				$schemaXMLParser->destroy();
@@ -696,7 +703,7 @@ class Installer {
 		$tables = $schema->listTableNames();
 		if (!in_array($tableName, $tables)) return false;
 
-		return $schema->hasColumn($tableName, $columnName);
+		return Capsule::schema()->hasColumn($tableName, $columnName);
 	}
 
 	/**
@@ -808,8 +815,6 @@ class Installer {
 			}
 		}
 		$siteDao->update('UPDATE site SET ' . join(',', $set), $params);
-
-		$result->Close();
 
 		return true;
 	}

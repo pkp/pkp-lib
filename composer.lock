@@ -4,8 +4,65 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9d0029ea4dae64fc6d62713295507b6",
+    "content-hash": "a4c7b0f10928fac7a8d762408b2e2c59",
     "packages": [
+        {
+            "name": "adodb/adodb-php",
+            "version": "dev-v5.20.18-mods",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/asmecher/ADOdb.git",
+                "reference": "f24f521bd46222044c862aa85c4967111ee5810f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/asmecher/ADOdb/zipball/f24f521bd46222044c862aa85c4967111ee5810f",
+                "reference": "f24f521bd46222044c862aa85c4967111ee5810f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "adodb.inc.php"
+                ]
+            },
+            "license": [
+                "BSD-3-Clause",
+                "LGPL-2.1-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "John Lim",
+                    "email": "jlim@natsoft.com",
+                    "role": "Author"
+                },
+                {
+                    "name": "Damien Regad",
+                    "role": "Current maintainer"
+                },
+                {
+                    "name": "Mark Newnham",
+                    "role": "Developer"
+                }
+            ],
+            "description": "ADOdb is a PHP database abstraction layer library",
+            "homepage": "http://adodb.org/",
+            "keywords": [
+                "abstraction",
+                "database",
+                "layer",
+                "library",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/ADOdb/ADOdb/issues",
+                "source": "https://github.com/ADOdb/ADOdb"
+            },
+            "time": "2020-08-13T23:24:52+00:00"
+        },
         {
             "name": "components/jquery",
             "version": "3.5.1",
@@ -815,16 +872,16 @@
         },
         {
             "name": "gettext/gettext",
-            "version": "v4.8.2",
+            "version": "v4.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-gettext/Gettext.git",
-                "reference": "e474f872f2c8636cf53fd283ec4ce1218f3d236a"
+                "reference": "57ff4fb16647e78e80a5909fe3c190f1c3110321"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/e474f872f2c8636cf53fd283ec4ce1218f3d236a",
-                "reference": "e474f872f2c8636cf53fd283ec4ce1218f3d236a",
+                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/57ff4fb16647e78e80a5909fe3c190f1c3110321",
+                "reference": "57ff4fb16647e78e80a5909fe3c190f1c3110321",
                 "shasum": ""
             },
             "require": {
@@ -873,7 +930,7 @@
                 "po",
                 "translation"
             ],
-            "time": "2019-12-02T10:21:14+00:00"
+            "time": "2020-11-18T22:35:49+00:00"
         },
         {
             "name": "gettext/languages",
@@ -5597,6 +5654,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "adodb/adodb-php": 20,
         "psy/psysh": 0
     },
     "prefer-stable": false,

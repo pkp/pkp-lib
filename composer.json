@@ -16,6 +16,7 @@
 		"illuminate/validation": "^7.0",
 		"firebase/php-jwt": "5.*",
 		"danielstjules/stringy": "3.*",
+		"adodb/adodb-php": "dev-v5.20.18-mods",
 		"gettext/gettext": "^4.6",
 		"sokil/php-isocodes": "^3.0",
 		"doctrine/dbal": "^2.10",

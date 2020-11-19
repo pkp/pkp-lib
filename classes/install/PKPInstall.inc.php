@@ -227,7 +227,7 @@ class PKPInstall extends Installer {
 		$siteLocale = $this->getParam('locale');
 
 		// Add initial site administrator user
-		$userDao = DAORegistry::getDAO('UserDAO', $this->dbconn);
+		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->newDataObject();
 		$user->setUsername($this->getParam('adminUsername'));
 		$user->setPassword(Validation::encryptCredentials($this->getParam('adminUsername'), $this->getParam('adminPassword'), $this->getParam('encryption')));
@@ -235,14 +235,11 @@ class PKPInstall extends Installer {
 		$user->setFamilyName($user->getUsername(), $siteLocale);
 		$user->setEmail($this->getParam('adminEmail'));
 		$user->setInlineHelp(1);
-		if (!$userDao->insertObject($user)) {
-			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-			return false;
-		}
+		$userDao->insertObject($user);
 
 		// Create an admin user group
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT);
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO', $this->dbconn);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$adminUserGroup = $userGroupDao->newDataObject();
 		$adminUserGroup->setRoleId(ROLE_ID_SITE_ADMIN);
 		$adminUserGroup->setContextId(CONTEXT_ID_NONE);
@@ -253,26 +250,20 @@ class PKPInstall extends Installer {
 			$adminUserGroup->setData('name', $name, $locale);
 			$adminUserGroup->setData('namePlural', $namePlural, $locale);
 		}
-		if (!$userGroupDao->insertObject($adminUserGroup)) {
-			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-			return false;
-		}
+		$userGroupDao->insertObject($adminUserGroup);
 
 		// Put the installer into this user group
 		$userGroupDao->assignUserToGroup($user->getId(), $adminUserGroup->getId());
 
 		// Add initial site data
-		$siteDao = DAORegistry::getDAO('SiteDAO', $this->dbconn);
+		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$site = $siteDao->newDataObject();
 		$site->setRedirect(0);
 		$site->setMinPasswordLength(INSTALLER_DEFAULT_MIN_PASSWORD_LENGTH);
 		$site->setPrimaryLocale($siteLocale);
 		$site->setInstalledLocales($this->installedLocales);
 		$site->setSupportedLocales($this->installedLocales);
-		if (!$siteDao->insertSite($site)) {
-			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-			return false;
-		}
+		$siteDao->insertSite($site);
 
 		// Install email template list and data for each locale
 		foreach ($this->installedLocales as $locale) {

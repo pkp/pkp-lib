@@ -39,6 +39,7 @@ class WorkflowTabHandler extends PKPWorkflowTabHandler {
 				}
 
 				if (!empty($errors)){
+					$authorPublishRequirements = "";
 					foreach ($errors as $error) {
 						$authorPublishRequirements .= $error . "<br />\n";
 					}

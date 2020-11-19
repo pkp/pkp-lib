@@ -46,12 +46,6 @@ msgstr "Kumpulan karakter koneksi"
 msgid "installer.contentsOfConfigFile"
 msgstr "Isi file konfigurasi"
 
-msgid "installer.createDatabase"
-msgstr "Membuat database baru"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Untuk menggunakan opsi ini sistem database Anda harus support pembuatan database dengan kendali jauh dan akun Anda harus memiliki hak akses yang sesuai untuk membuat database baru. Jika instalasi gagal dengan opsi ini, buat database secara manual pada server Anda dan lakukan instalasi lagi dengan menonaktifkan pilihan ini."
-
 msgid "installer.databaseDriver"
 msgstr "Database Driver"
 

@@ -44,12 +44,6 @@ msgstr "Bağlantı karakter seti"
 msgid "installer.contentsOfConfigFile"
 msgstr "Konfigürasyon dosyasının içeriği"
 
-msgid "installer.createDatabase"
-msgstr "Yeni veri tabanı oluştur"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Bu seçeneği kullanmak için veri tabanı sisteminiz uzaktan erişilebilir sistemi desteklemeli ve kullanıcı hesabınız yeni veri tabanı oluşturmak için giriş iznine sahip olmalıdır. Eğer bu seçenek kullanıldığında yükleme başarısız olursa veri tabanını sunucunuzda manuel olarak oluşturun. Daha sonra bu seçeneği pasif durumda bırakarak kurulumu yeniden çalıştırın."
-
 msgid "installer.databaseDriverInstructions"
 msgstr "<strong>Parentez içinde belirtilen veri tabanı sürücüleri, gerekli olan PHP uzantısını göstermez ve eğer o seçilirse yükleme muhtemelen başarısız olacaktır. </strong><br />Yukarıda belirtilen desteklenmeyen veri tabanı sürücülerinden her hangi biri yalnızca akademik amaçlar için listelenmiştir ve muhtemelen işlemeyecektir."
 

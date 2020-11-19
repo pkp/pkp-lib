@@ -39,10 +39,6 @@ abstract class DatabaseTestCase extends PKPTestCase {
 		// errors in adodb...).
 		PKPTestHelper::xdebugScream(false);
 
-		// Make sure we have a db connection (some tests
-		// might close it and that affects the next ones).
-		DBConnection::getInstance()->reconnect();
-
 		// Backup affected tables.
 		$affectedTables = $this->getAffectedTables();
 		if (is_array($affectedTables)) {

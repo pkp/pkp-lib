@@ -147,7 +147,6 @@ class InstallForm extends MaintenanceForm {
 			'databaseUsername' => Application::getName(),
 			'databasePassword' => '',
 			'databaseName' => Application::getName(),
-			'createDatabase' => 1,
 			'oaiRepositoryId' => Application::getName() . '.' . $this->_request->getServerHost(),
 			'enableBeacon' => true,
 		);
@@ -172,7 +171,6 @@ class InstallForm extends MaintenanceForm {
 			'databaseUsername',
 			'databasePassword',
 			'databaseName',
-			'createDatabase',
 			'oaiRepositoryId',
 			'enableBeacon',
 		));

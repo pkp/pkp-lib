@@ -27,14 +27,11 @@ abstract class SettingsDAO extends DAO {
 			(int) $id
 		);
 
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
-			$value = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-			if ($row['locale'] == '') $settings[$row['setting_name']] = $value;
-			else $settings[$row['setting_name']][$row['locale']] = $value;
-			$result->MoveNext();
+		foreach ($result as $row) {
+			$value = $this->convertFromDB($row->setting_value, $row->setting_type);
+			if ($row->locale == '') $settings[$row->setting_name] = $value;
+			else $settings[$row->setting_name][$row->locale] = $value;
 		}
-		$result->Close();
 
 		$cache = $this->_getCache($id);
 		if ($cache) $cache->setEntireCache($settings);

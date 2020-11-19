@@ -83,12 +83,10 @@ class LibraryFileHandler extends Handler {
 				$user = $request->getUser();
 				$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /* @var $userStageAssignmentDao UserStageAssignmentDAO */
 				$assignedUsers = $userStageAssignmentDao->getUsersBySubmissionAndStageId($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION);
-				if (!$assignedUsers->wasEmpty()) {
-					while ($assignedUser = $assignedUsers->next()) {
-						if ($assignedUser->getId()  == $user->getId()) {
-							$allowedAccess = true;
-							break;
-						}
+				while ($assignedUser = $assignedUsers->next()) {
+					if ($assignedUser->getId()  == $user->getId()) {
+						$allowedAccess = true;
+						break;
 					}
 				}
 			} else {

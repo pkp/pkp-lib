@@ -57,13 +57,11 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm {
 				'fileStages' => [SUBMISSION_FILE_SUBMISSION],
 				'submissionIds' => [$this->submission->getId()],
 			]);
-			if (count($submissionFilesIterator)) {
-				foreach ($submissionFilesIterator as $submissionFile) {
-					$submissionFiles[] = Services::get('submissionFile')->getSummaryProperties($submissionFile, [
-						'request' => $request,
-						'submission' => $this->submission,
-					]);
-				}
+			foreach ($submissionFilesIterator as $submissionFile) {
+				$submissionFiles[] = Services::get('submissionFile')->getSummaryProperties($submissionFile, [
+					'request' => $request,
+					'submission' => $this->submission,
+				]);
 			}
 		}
 

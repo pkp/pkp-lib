@@ -51,9 +51,7 @@ abstract class PKPTestHelper {
 				"INSERT INTO backup_$table SELECT * FROM $table"
 			);
 			foreach ($sqls as $sql) {
-				if (!$dao->update($sql, false, true, false)) {
-					$test->fail("Error while backing up $table: offending SQL is '$sql'");
-				}
+				$dao->update($sql, [], true, false);
 			}
 		}
 	}
@@ -72,9 +70,7 @@ abstract class PKPTestHelper {
 				"DROP TABLE backup_$table"
 			);
 			foreach ($sqls as $sql) {
-				if (!$dao->update($sql, false, true, false)) {
-					$test->fail("Error while restoring $table: offending SQL is '$sql'");
-				}
+				$dao->update($sql, [], true, false);
 			}
 		}
 	}

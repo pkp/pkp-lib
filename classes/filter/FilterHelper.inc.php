@@ -31,7 +31,7 @@ class FilterHelper {
 
 			// Make sure that the filter group has not been
 			// installed before to guarantee idempotence.
-			$existingFilterGroup =& $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic);
+			$existingFilterGroup = $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic);
 			if (!is_null($existingFilterGroup)) continue;
 
 			// Instantiate and configure the filter group.
@@ -100,24 +100,20 @@ class FilterHelper {
 
 		// We ensure idempotence of plug-in installation by checking
 		// for existing identical filters.
-		$similarFilterFactory = $filterDao->getObjectsByGroupAndClass($filterGroupSymbolic, $filterClassName, 0, $isTemplate);
-		if ($similarFilterFactory->getCount() > 0) {
-			// 1) Find similar filters.
-			$similarFilters = $similarFilterFactory->toArray();
+		$similarFilters = $filterDao->getObjectsByGroupAndClass($filterGroupSymbolic, $filterClassName, 0, $isTemplate)->toArray();
 
-			// 2) Go through similar filters and eliminate them
-			//    if they don't have the exact same settings.
+		if (count($similarFilters) > 0) {
+			// Go through similar filters and eliminate them if they don't have the exact same settings.
 			foreach($similarFilters as $index => $similarFilter) { /* @var $similarFilter PersistableFilter */
 				if (!$this->compareFilters($similarFilter, $settings, $subFilters)) unset($similarFilters[$index]);
 			}
 
 			// There can be a maximum of exactly one identical transformation
 			// in the database otherwise we've somehow installed a duplicate filter.
-			$identicalFilters = count($similarFilters);
-			assert($identicalFilters <= 1);
+			assert(count($similarFilters) <= 1);
 
-			// 3) If the filter has been installed before then return the existing filter.
-			if ($identicalFilters) {
+			// If the filter has been installed before then return the existing filter.
+			if (count($similarFilters) == 1) {
 				$existingFilter = array_pop($similarFilters);
 				return $existingFilter;
 			}

@@ -41,12 +41,6 @@ msgstr "Connectie karakterset"
 msgid "installer.contentsOfConfigFile"
 msgstr "Inhoud van het configuratiebestand"
 
-msgid "installer.createDatabase"
-msgstr "Nieuwe database aanmaken"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Om deze optie te kunnen gebruiken moet uw databasesysteem het op afstand aanmaken van databases en de opgeven gebruiker moet rechten hebben om nieuwe databases aan  te maken. Als installatie met deze optie mislukt, maak de database dan met de hand aan op uw server en voer de installatie opnieuw uit zonder deze optie in te schakelen."
-
 msgid "installer.databaseDriver"
 msgstr "Database stuurprogramma"
 

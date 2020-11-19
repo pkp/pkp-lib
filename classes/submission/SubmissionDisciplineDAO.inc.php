@@ -72,18 +72,12 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 	 * @return array
 	 */
 	function getAllUniqueDisciplines() {
-		$disciplines = array();
+		$result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE]);
 
-		$result = $this->retrieve(
-			'SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE
-		);
-
-		while (!$result->EOF) {
-			$disciplines[] = $result->fields[0];
-			$result->MoveNext();
+		$disciplines = [];
+		foreach ($result as $row) {
+			$disciplines[] = $row->setting_value;
 		}
-
-		$result->Close();
 		return $disciplines;
 	}
 

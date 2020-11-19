@@ -69,16 +69,10 @@ class AuthSourceDAO extends DAO {
 	function getSource($authId) {
 		$result = $this->retrieve(
 			'SELECT * FROM auth_sources WHERE auth_id = ?',
-			array((int) $authId)
+			[(int) $authId]
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -89,14 +83,8 @@ class AuthSourceDAO extends DAO {
 		$result = $this->retrieve(
 			'SELECT * FROM auth_sources WHERE auth_default = 1'
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -135,11 +123,11 @@ class AuthSourceDAO extends DAO {
 				(title, plugin, settings)
 				VALUES
 				(?, ?, ?)',
-			array(
+			[
 				$auth->getTitle(),
 				$auth->getPlugin(),
-				serialize($auth->getSettings() ? $auth->getSettings() : array())
-			)
+				serialize($auth->getSettings() ? $auth->getSettings() : [])
+			]
 		);
 
 		$auth->setAuthId($this->_getInsertId('auth_sources', 'auth_id'));
@@ -151,16 +139,16 @@ class AuthSourceDAO extends DAO {
 	 * @param $auth AuthSource
 	 */
 	function updateObject($auth) {
-		return $this->update(
+		$this->update(
 			'UPDATE auth_sources SET
 				title = ?,
 				settings = ?
 			WHERE	auth_id = ?',
-			array(
+			[
 				$auth->getTitle(),
 				serialize($auth->getSettings() ? $auth->getSettings() : array()),
 				(int) $auth->getAuthId()
-			)
+			]
 		);
 	}
 
@@ -169,8 +157,8 @@ class AuthSourceDAO extends DAO {
 	 * @param $authId int
 	 */
 	function deleteObject($authId) {
-		return $this->update(
-			'DELETE FROM auth_sources WHERE auth_id = ?', $authId
+		$this->update(
+			'DELETE FROM auth_sources WHERE auth_id = ?', [$authId]
 		);
 	}
 
@@ -184,7 +172,7 @@ class AuthSourceDAO extends DAO {
 		);
 		$this->update(
 			'UPDATE auth_sources SET auth_default = 1 WHERE auth_id = ?',
-			array((int) $authId)
+			[(int) $authId]
 		);
 	}
 
@@ -195,7 +183,7 @@ class AuthSourceDAO extends DAO {
 	function getSources($rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT * FROM auth_sources ORDER BY auth_id',
-			false,
+			[],
 			$rangeInfo
 		);
 

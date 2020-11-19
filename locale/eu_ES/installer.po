@@ -41,12 +41,6 @@ msgstr "Konexioko karaktere-jokoa"
 msgid "installer.contentsOfConfigFile"
 msgstr "Konfigurazio-fitxategiaren edukia"
 
-msgid "installer.createDatabase"
-msgstr "Sortu datu-base berria"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Aukera hau erabili ahal izateko, zure datu-base sistemak datu-baseak urrunetik sortzea onartu behar du eta zure erabiltzaile-kontuak datu-base berriak sortzeko baimena izan behar du. Aukera hau hautatuta instalazioak huts egiten badu, eskuz sortu beharko duzu datu-basea zure zerbitzarian eta instalatzailea berriro exekutatu, aukera hori desgaituta."
-
 msgid "installer.databaseDriver"
 msgstr "Datu-basearen kontrolatzailea"
 

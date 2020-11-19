@@ -146,8 +146,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR); // load review round status keys.
 				$user = $request->getUser();
 				$stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($reviewRound->getSubmissionId(), ROLE_ID_AUTHOR, null, $user->getId());
-				$isAuthor = $stageAssignments->getCount()>0;
-				$stageAssignments->close();
+				$isAuthor = (boolean) $stageAssignments->next();
 				return __($reviewRound->getStatusKey($isAuthor));
 			case NOTIFICATION_TYPE_PAYMENT_REQUIRED:
 				return __('payment.type.publication.required');

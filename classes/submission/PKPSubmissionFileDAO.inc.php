@@ -67,14 +67,10 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 			'SELECT * FROM ' . $this->tableName . ' as sf'
 			. ' LEFT JOIN submissions as s ON (s.submission_id = sf.submission_id)'
 			. ' WHERE ' . $this->primaryKeyColumn . ' = ?',
-			(int) $objectId
+			[(int) $objectId]
 		);
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -234,12 +230,12 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 			'INSERT INTO review_round_files
 				(submission_id, review_round_id, stage_id, submission_file_id)
 			VALUES (?, ?, ?, ?)',
-			array(
-				(int)$reviewRound->getSubmissionId(),
-				(int)$reviewRound->getId(),
-				(int)$reviewRound->getStageId(),
-				(int)$submissionFileId
-			)
+			[
+				(int) $reviewRound->getSubmissionId(),
+				(int) $reviewRound->getId(),
+				(int) $reviewRound->getStageId(),
+				(int) $submissionFileId
+			]
 		);
 	}
 
@@ -252,9 +248,7 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 		$this->update(
 			'DELETE FROM review_round_files
 			WHERE submission_file_id = ?',
-			array(
-				(int) $submissionFileId,
-			)
+			[(int) $submissionFileId]
 		);
 	}
 
@@ -277,38 +271,37 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 	 */
 	function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*)
+			'SELECT COUNT(*) AS row_count
 			FROM submission_file_settings sfs
 				INNER JOIN submission_files sf ON sfs.submission_file_id = sf.submission_file_id
 				INNER JOIN submissions s ON sf.submission_id = s.submission_id
 			WHERE sfs.setting_name = ? AND sfs.setting_value = ? AND sfs.submission_file_id <> ? AND s.context_id = ?',
-			array(
-				'pub-id::'.$pubIdType,
+			[
+				'pub-id::' . $pubIdType,
 				$pubId,
 				(int) $excludePubObjectId,
 				(int) $contextId
-			)
+			]
 		);
-		$returner = $result->fields[0] ? true : false;
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**
 	 * @copydoc PKPPubIdPluginDAO::changePubId()
 	 */
 	function changePubId($pubObjectId, $pubIdType, $pubId) {
-		$idFields = array(
-			'submission_file_id', 'locale', 'setting_name'
+		$this->replace(
+			'submission_file_settings',
+			[
+				'submission_file_id' => (int) $pubObjectId,
+				'locale' => '',
+				'setting_name' => 'pub-id::' . $pubIdType,
+				'setting_type' => 'string',
+				'setting_value' => (string) $pubId
+			],
+			['submission_file_id', 'locale', 'setting_name']
 		);
-		$updateArray = array(
-			'submission_file_id' => (int) $pubObjectId,
-			'locale' => '',
-			'setting_name' => 'pub-id::'.$pubIdType,
-			'setting_type' => 'string',
-			'setting_value' => (string)$pubId
-		);
-		$this->replace('submission_file_settings', $updateArray, $idFields);
 		$this->flushCache();
 	}
 
@@ -316,13 +309,10 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 	 * @copydoc PKPPubIdPluginDAO::deletePubId()
 	 */
 	function deletePubId($pubObjectId, $pubIdType) {
-		$settingName = 'pub-id::'.$pubIdType;
+		$settingName = 'pub-id::' . $pubIdType;
 		$this->update(
 			'DELETE FROM submission_file_settings WHERE setting_name = ? AND submission_file_id = ?',
-			array(
-				$settingName,
-				(int)$pubObjectId
-			)
+			[$settingName, (int) $pubObjectId]
 		);
 		$this->flushCache();
 	}
@@ -342,19 +332,11 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 			foreach ($submissionFileIds as $submissionFileId) {
 				$this->update(
 					'DELETE FROM submission_file_settings WHERE setting_name = ? AND submission_file_id = ?',
-					array(
-						$settingName,
-						$submissionFileId
-					)
+					[$settingName, $submissionFileId]
 				);
 			}
 		}
 		$this->flushCache();
 	}
-
-	//
-	// Private helper methods
-	//
 }
-
 

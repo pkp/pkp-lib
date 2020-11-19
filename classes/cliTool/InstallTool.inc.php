@@ -119,7 +119,6 @@ class InstallTool extends CommandLineTool {
 		$this->readParam('databaseUsername', 'installer.databaseUsername', '');
 		$this->readParam('databasePassword', 'installer.databasePassword', '');
 		$this->readParam('databaseName', 'installer.databaseName');
-		$this->readParamBoolean('createDatabase', 'installer.createDatabase', 'Y');
 
 		// Miscellaneous Settings
 		$this->printTitle('installer.miscSettings');

@@ -72,22 +72,8 @@ class InstallPluginVersionTool extends CommandLineTool {
 
 		import('classes.install.Upgrade');
 		$installer = new Upgrade(array());
-		if (!isset($installer->dbconn)) {
-			// Connect to the database.
-			$conn = DBConnection::getInstance();
-			$installer->dbconn = $conn->getDBConn();
-
-			if (!$conn->isConnected()) {
-				$installer->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-				return false;
-			}
-		}
-		if (!isset($installer->dataXMLParser)) {
-			$installer->dataXMLParser = new DBDataXMLParser();
-			$installer->dataXMLParser->setDBConn($installer->dbconn);
-		}
 		$result = true;
-		$param = array(&$installer, &$result);
+		$param = [&$installer, &$result];
 
 		if ($plugin->getInstallSchemaFile()) {
 			$plugin->updateSchema('Installer::postInstall', $param);
@@ -103,9 +89,6 @@ class InstallPluginVersionTool extends CommandLineTool {
 		}
 		if ($plugin->getInstallEmailTemplateDataFile()) {
 			$plugin->installEmailTemplateData('Installer::postInstall', $param);
-		}
-		if ($plugin->getInstallDataFile()) {
-			$plugin->installData('Installer::postInstall', $param);
 		}
 		$plugin->installFilters('Installer::postInstall', $param);
 		return $result;

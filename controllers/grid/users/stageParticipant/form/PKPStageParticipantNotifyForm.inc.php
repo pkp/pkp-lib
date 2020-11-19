@@ -303,7 +303,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			$type
 		);
 
-		if ($notificationFactory->wasEmpty()) {
+		if (!$notificationFactory->next()) {
 			$context = $request->getContext();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createNotification(

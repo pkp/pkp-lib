@@ -49,14 +49,10 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 			array((int) $userId, $settingName, (int) $contextId)
 		);
 
-		$settings = array();
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
-			$settings[] = (int) $row['setting_value'];
-			$result->MoveNext();
+		$settings = [];
+		foreach ($result as $row) {
+			$settings[] = (int) $row->setting_value;
 		}
-
-		$result->Close();
 		return $settings;
 	}
 
@@ -93,38 +89,30 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 	 * Gets a user id by an RSS token value
 	 * @param $token int
 	 * @param $contextId
-	 * @return int
+	 * @return int|null
 	 */
 	function getUserIdByRSSToken($token, $contextId) {
 		$result = $this->retrieve(
 			'SELECT user_id FROM notification_subscription_settings WHERE setting_value = ? AND setting_name = ? AND context = ?',
-			array($token, 'token', (int) $contextId)
+			[$token, 'token', (int) $contextId]
 		);
-
-		$row = $result->GetRowAssoc(false);
-		$userId = $row['user_id'];
-
-		$result->Close();
-		return $userId;
+		$row = $result->current();
+		return $row ? $row->user_id : null;
 	}
 
 	/**
 	 * Gets an RSS token for a user id
 	 * @param $userId int
 	 * @param $contextId int
-	 * @return int
+	 * @return int|null
 	 */
 	function getRSSTokenByUserId($userId, $contextId) {
 		$result = $this->retrieve(
 			'SELECT setting_value FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND context = ?',
-				array((int) $userId, 'token', (int) $contextId)
+			[(int) $userId, 'token', (int) $contextId]
 		);
-
-		$row = $result->GetRowAssoc(false);
-		$tokenId = $row['setting_value'];
-
-		$result->Close();
-		return $tokenId;
+		$row = $result->current();
+		return $row ? $row->setting_value : null;
 	}
 
 	/**
@@ -144,18 +132,17 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 				(setting_name, setting_value, user_id, context, setting_type)
 				VALUES
 				(?, ?, ?, ?, ?)',
-			array(
+			[
 				'token',
 				$token,
 				(int) $userId,
 				(int) $contextId,
 				'string'
-			)
+			]
 		);
 
 		return $token;
 	}
-
 }
 
 

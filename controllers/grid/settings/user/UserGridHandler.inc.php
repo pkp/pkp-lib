@@ -150,7 +150,7 @@ class UserGridHandler extends GridHandler {
 	 */
 	function initFeatures($request, $args) {
 		import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
-		return array(new PagingFeature());
+		return [new PagingFeature()];
 	}
 
 	/**
@@ -183,32 +183,32 @@ class UserGridHandler extends GridHandler {
 		$context = $request->getContext();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getByContextId($context->getId());
-		$userGroupOptions = array('' => __('grid.user.allRoles'));
+		$userGroupOptions = ['' => __('grid.user.allRoles')];
 		while ($userGroup = $userGroups->next()) {
 			$userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
 		}
 
 		// Import UserDAO to define the USER_FIELD_* constants.
 		import('lib.pkp.classes.user.UserDAO');
-		$fieldOptions = array(
+		$fieldOptions = [
 			IDENTITY_SETTING_GIVENNAME => 'user.givenName',
 			IDENTITY_SETTING_FAMILYNAME => 'user.familyName',
 			USER_FIELD_USERNAME => 'user.username',
 			USER_FIELD_EMAIL => 'user.email'
-		);
+		];
 
-		$matchOptions = array(
+		$matchOptions = [
 			'contains' => 'form.contains',
 			'is' => 'form.is'
-		);
+		];
 
-		$filterData = array(
+		$filterData = [
 			'userGroupOptions' => $userGroupOptions,
 			'fieldOptions' => $fieldOptions,
 			'matchOptions' => $matchOptions,
 			// oldUserId is used when merging users. see: userGridFilter.tpl
 			'oldUserId' => $request->getUserVar('oldUserId'),
-		);
+		];
 
 		return parent::renderFilter($request, $filterData);
 	}
@@ -225,13 +225,13 @@ class UserGridHandler extends GridHandler {
 		$searchMatch = $request->getUserVar('searchMatch');
 		$search = $request->getUserVar('search');
 
-		return $filterSelectionData = array(
+		return $filterSelectionData = [
 			'includeNoRole' => $includeNoRole,
 			'userGroup' => $userGroup,
 			'searchField' => $searchField,
 			'searchMatch' => $searchMatch,
 			'search' => $search ? $search : ''
-		);
+		];
 	}
 
 	/**
@@ -323,7 +323,7 @@ class UserGridHandler extends GridHandler {
 				// Successful edit of an existing user.
 				$notificationManager = new NotificationManager();
 				$user = $request->getUser();
-				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.editedUser')));
+				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.editedUser')]);
 
 				// Prepare the grid row data.
 				return DAO::getDataChangedEvent($userId);
@@ -552,10 +552,10 @@ class UserGridHandler extends GridHandler {
 			$userAction = new UserAction();
 			$userAction->mergeUsers($oldUserId, $newUserId);
 			$json = new JSONMessage(true);
-			$json->setGlobalEvent('userMerged', array(
+			$json->setGlobalEvent('userMerged', [
 				'oldUserId' => $oldUserId,
 				'newUserId' => $newUserId,
-			));
+			]);
 			return $json;
 
 		// Otherwise present the grid for selecting the user to merge into
@@ -571,7 +571,7 @@ class UserGridHandler extends GridHandler {
 	 * @see GridHandler::getRequestArgs()
 	 */
 	function getRequestArgs() {
-		$requestArgs = (array) parent::getRequestArgs();
+		$requestArgs = parent::getRequestArgs();
 		$requestArgs['oldUserId'] = $this->_oldUserId;
 		return $requestArgs;
 	}

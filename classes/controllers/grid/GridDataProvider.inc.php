@@ -77,7 +77,7 @@ class GridDataProvider {
 	 * @return PolicySet
 	 */
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {
-		assert(false);
+		throw new Exception('getRequestArgs called but not implemented!');
 	}
 
 	/**
@@ -87,7 +87,7 @@ class GridDataProvider {
 	 * @return array
 	 */
 	function getRequestArgs() {
-		assert(false);
+		throw new Exception('getRequestArgs called but not implemented!');
 	}
 
 	/**
@@ -97,8 +97,8 @@ class GridDataProvider {
 	 *  has been selected by the user then the array will be empty.
 	 * @return array
 	 */
-	function loadData($filter = array()) {
-		assert(false);
+	function loadData($filter = []) {
+		throw new Exception('getRequestArgs called but not implemented!');
 	}
 }
 

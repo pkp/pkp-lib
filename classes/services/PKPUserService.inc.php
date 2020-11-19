@@ -101,7 +101,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @return PKPUserQueryBuilder
 	 */
 	public function getQueryBuilder($args = []) {
-		$defaultArgs = array(
+		$defaultArgs = [
 			'contextId' => CONTEXT_ID_NONE,
 			'orderBy' => 'id',
 			'orderDirection' => 'DESC',
@@ -114,7 +114,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			'excludeUsers' => null,
 			'status' => 'active',
 			'searchPhrase' => null,
-		);
+		];
 
 		$args = array_merge($defaultArgs, $args);
 
@@ -147,7 +147,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			$userListQB->assignedToCategory($args['assignedToCategory']);
 		}
 
-		\HookRegistry::call('User::getMany::queryBuilder', array(&$userListQB, $args));
+		\HookRegistry::call('User::getMany::queryBuilder', [&$userListQB, $args]);
 
 		return $userListQB;
 	}
@@ -197,8 +197,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @return PKPUserQueryBuilder
 	 */
 	public function getReviewersQueryBuilder($args = []) {
-
-		$defaultArgs = array(
+		$args = array_merge([
 			'contextId' => CONTEXT_ID_NONE,
 			'reviewStage' => null,
 			'reviewsCompleted' => null,
@@ -206,10 +205,9 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			'daysSinceLastAssignment' => null,
 			'averageCompletion' => null,
 			'reviewerRating' => null,
-		);
-
-		$args = array_merge($defaultArgs, $args);
-		$args['roleIds'] = [ROLE_ID_REVIEWER];
+		], $args, [
+			'roleIds' => ROLE_ID_REVIEWER,
+		]);
 
 		$reviewerListQB = $this->getQueryBuilder($args);
 		$reviewerListQB
@@ -221,7 +219,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			->filterByDaysSinceLastAssignment($args['daysSinceLastAssignment'])
 			->filterByAverageCompletion($args['averageCompletion']);
 
-		\HookRegistry::call('User::getReviewers::queryBuilder', array(&$reviewerListQB, $args));
+		\HookRegistry::call('User::getReviewers::queryBuilder', [&$reviewerListQB, $args]);
 
 		return $reviewerListQB;
 	}
@@ -234,7 +232,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		$context = $request->getContext();
 		$dispatcher = $request->getDispatcher();
 
-		$values = array();
+		$values = [];
 		foreach ($props as $prop) {
 			switch ($prop) {
 				case 'id':
@@ -351,9 +349,9 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 						import('lib.pkp.classes.security.UserGroupDAO');
 						$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 						$userGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
-						$values[$prop] = array();
+						$values[$prop] = [];
 						while ($userGroup = $userGroups->next()) {
-							$values[$prop][] = array(
+							$values[$prop][] = [
 								'id' => (int) $userGroup->getId(),
 								'name' => $userGroup->getName(null),
 								'abbrev' => $userGroup->getAbbrev(null),
@@ -362,7 +360,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 								'permitSelfRegistration' => (boolean) $userGroup->getPermitSelfRegistration(),
 								'permitMetadataEdit' => (boolean) $userGroup->getPermitMetadataEdit(),
 								'recommendOnly' => (boolean) $userGroup->getRecommendOnly(),
-							);
+							];
 						}
 					}
 					break;
@@ -376,12 +374,12 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 							import('lib.pkp.classes.user.InterestEntryDAO');
 							$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /* @var $interestEntryDao InterestEntryDAO */
 							$results = $interestEntryDao->getByIds($interestEntryIds);
-							$values[$prop] = array();
+							$values[$prop] = [];
 							while ($interest = $results->next()) {
-								$values[$prop][] = array(
+								$values[$prop][] = [
 									'id' => (int) $interest->getId(),
 									'interest' => $interest->getInterest(),
-								);
+								];
 							}
 						}
 					}
@@ -390,7 +388,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
 			$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_USER, $values, $context->getSupportedFormLocales());
 
-			\HookRegistry::call('User::getProperties::values', array(&$values, $user, $props, $args));
+			\HookRegistry::call('User::getProperties::values', [&$values, $user, $props, $args]);
 
 			ksort($values);
 		}
@@ -402,11 +400,9 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
 	 */
 	public function getSummaryProperties($user, $args = null) {
-		$props = array (
-			'id','_href','userName','email','fullName','orcid','groups','disabled',
-		);
+		$props = ['id','_href','userName','email','fullName','orcid','groups','disabled'];
 
-		\HookRegistry::call('User::getProperties::summaryProperties', array(&$props, $user, $args));
+		\HookRegistry::call('User::getProperties::summaryProperties', [&$props, $user, $args]);
 
 		return $this->getProperties($user, $props, $args);
 	}
@@ -415,14 +411,14 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
 	 */
 	public function getFullProperties($user, $args = null) {
-		$props = array (
+		$props = [
 			'id','userName','fullName','givenName','familyName','affiliation','country','email','url',
 			'orcid','groups','interests','biography','signature','authId','authString','phone',
 			'mailingAddress','billingAddress','gossip','disabled','disabledReason',
 			'dateRegistered','dateValidated','dateLastLogin','mustChangePassword',
-		);
+		];
 
-		\HookRegistry::call('User::getProperties::fullProperties', array(&$props, $user, $args));
+		\HookRegistry::call('User::getProperties::fullProperties', [&$props, $user, $args]);
 
 		return $this->getProperties($user, $props, $args);
 	}
@@ -436,13 +432,13 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @return array
 	 */
 	public function getReviewerSummaryProperties($user, $args = null) {
-		$props = array (
+		$props = [
 			'id','_href','userName','fullName','affiliation','biography','groups','interests','gossip',
 			'reviewsActive','reviewsCompleted','reviewsDeclined','reviewsCancelled','averageReviewCompletionDays',
 			'dateLastReviewAssignment','reviewerRating', 'orcid','disabled',
-		);
+		];
 
-		\HookRegistry::call('User::getProperties::reviewerSummaryProperties', array(&$props, $user, $args));
+		\HookRegistry::call('User::getProperties::reviewerSummaryProperties', [&$props, $user, $args]);
 
 		return $this->getProperties($user, $props, $args);
 	}
@@ -488,7 +484,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		}
 
 		// Only admins, editors and subeditors can view gossip fields
-		if (!$this->userHasRole($currentUser->getId(), array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN, ROLE_ID_SUB_EDITOR), $contextId)) {
+		if (!$this->userHasRole($currentUser->getId(), [ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN, ROLE_ID_SUB_EDITOR], $contextId)) {
 			return false;
 		}
 
@@ -534,24 +530,24 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId, $stageId);
 
-		$accessibleStageRoles = array();
+		$accessibleStageRoles = [];
+
+		// Assigned users have access based on their assignment
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		while ($stageAssignment = $stageAssignmentsResult->next()) {
+			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $contextId);
+			$accessibleStageRoles[] = $userGroup->getRoleId();
+		}
+		$accessibleStageRoles = array_unique($accessibleStageRoles);
 
 		// If unassigned, only managers and admins have access
-		if ($stageAssignmentsResult->wasEmpty()) {
+		if (empty($accessibleStageRoles)) {
 			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 			$userRoles = $roleDao->getByUserId($userId, $contextId);
 			foreach ($userRoles as $userRole) {
-				if (in_array($userRole->getId(), array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER))) {
+				if (in_array($userRole->getId(), [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER])) {
 					$accessibleStageRoles[] = $userRole->getId();
 				}
-			}
-			$accessibleStageRoles = array_unique($accessibleStageRoles);
-		// Assigned users have access based on their assignment
-		} else {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-			while ($stageAssignment = $stageAssignmentsResult->next()) {
-				$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $contextId);
-				$accessibleStageRoles[] = $userGroup->getRoleId();
 			}
 			$accessibleStageRoles = array_unique($accessibleStageRoles);
 		}

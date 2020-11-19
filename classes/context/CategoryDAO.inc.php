@@ -22,10 +22,10 @@ class CategoryDAO extends DAO {
 	 * @param $categoryId int
 	 * @param $contextId int optional
 	 * @param $parentId int optional
-	 * @return Category
+	 * @return Category?
 	 */
 	function getById($categoryId, $contextId = null, $parentId = null) {
-		$params = array((int) $categoryId);
+		$params = [(int) $categoryId];
 		if ($contextId) $params[] = (int) $contextId;
 		if ($parentId) $params[] = (int) $parentId;
 
@@ -38,33 +38,24 @@ class CategoryDAO extends DAO {
 			$params
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row?$this->_fromRow((array) $row):null;
 	}
 
 	/**
 	 * Retrieve a category by path.
 	 * @param $path string
 	 * @param $contextId int
-	 * @return Category
+	 * @return Category?
 	 */
 	function getByPath($path, $contextId) {
-		$returner = null;
 		$result = $this->retrieve(
 			'SELECT * FROM categories WHERE path = ? AND context_id = ?',
-			array((string) $path, (int) $contextId)
+			[(string) $path, (int) $contextId]
 		);
 
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row?$this->_fromRow((array) $row):null;
 	}
 
 	/**
@@ -75,7 +66,7 @@ class CategoryDAO extends DAO {
 	 * @return Category
 	 */
 	function getByTitle($categoryTitle, $contextId, $locale = null) {
-		$params = array('title', $categoryTitle, (int) $contextId);
+		$params = ['title', $categoryTitle, (int) $contextId];
 		if ($locale) $params[] = $locale;
 
 		$result = $this->retrieve(
@@ -90,14 +81,8 @@ class CategoryDAO extends DAO {
 			ORDER BY seq',
 			$params
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -112,7 +97,7 @@ class CategoryDAO extends DAO {
 			FROM categories c
 			INNER JOIN publication_categories pc ON (pc.category_id = c.category_id)
 			WHERE pc.publication_id = ?',
-			(int) $publicationId
+			[(int) $publicationId]
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');
@@ -125,12 +110,10 @@ class CategoryDAO extends DAO {
 	 */
 	function categoryExistsByPath($path) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*) FROM categories WHERE path = ?', $path
+			'SELECT COUNT(*) AS row_count FROM categories WHERE path = ?', [$path]
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $result->row_count : false;
 	}
 
 	/**
@@ -158,7 +141,7 @@ class CategoryDAO extends DAO {
 
 		$this->getDataObjectSettings('category_settings', 'category_id', $row['category_id'], $category);
 
-		HookRegistry::call('CategoryDAO::_fromRow', array(&$category, &$row));
+		HookRegistry::call('CategoryDAO::_fromRow', [&$category, &$row]);
 
 		return $category;
 	}
@@ -168,7 +151,7 @@ class CategoryDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('title', 'description');
+		return ['title', 'description'];
 	}
 
 	/**
@@ -178,9 +161,7 @@ class CategoryDAO extends DAO {
 	function getAdditionalFieldNames() {
 		return array_merge(
 			parent::getAdditionalFieldNames(),
-			array(
-				'sortOption',
-			)
+			['sortOption']
 		);
 	}
 
@@ -191,9 +172,7 @@ class CategoryDAO extends DAO {
 	function updateLocaleFields($category) {
 		$this->updateDataObjectSettings(
 			'category_settings', $category,
-			array(
-				'category_id' => $category->getId()
-			)
+			['category_id' => $category->getId()]
 		);
 	}
 
@@ -208,13 +187,13 @@ class CategoryDAO extends DAO {
 				(context_id, parent_id, path, image, seq)
 				VALUES
 				(?, ?, ?, ?, ?)',
-			array(
+			[
 				(int) $category->getContextId(),
 				(int) $category->getParentId(),
 				$category->getPath(),
-				serialize($category->getImage() ? $category->getImage() : array()),
+				serialize($category->getImage() ? $category->getImage() : []),
 				(int) $category->getSequence()
-			)
+			]
 		);
 
 		$category->setId($this->getInsertId());
@@ -235,14 +214,14 @@ class CategoryDAO extends DAO {
 				image = ?,
 				seq = ?
 			WHERE	category_id = ?',
-			array(
+			[
 				(int) $category->getContextId(),
 				(int) $category->getParentId(),
 				$category->getPath(),
-				serialize($category->getImage() ? $category->getImage() : array()),
+				serialize($category->getImage() ? $category->getImage() : []),
 				(int) $category->getSequence(),
 				(int) $category->getId()
-			)
+			]
 		);
 		$this->updateLocaleFields($category);
 		return $returner;
@@ -254,7 +233,7 @@ class CategoryDAO extends DAO {
 	 * @param $parentCategoryId int Optional parent category ID
 	 */
 	function resequenceCategories($contextId, $parentCategoryId = null) {
-		$params = array((int) $contextId);
+		$params = [(int) $contextId];
 		if ($parentCategoryId) $params[] = (int) $parentCategoryId;
 		$result = $this->retrieve(
 			'SELECT category_id FROM categories WHERE context_id = ?' .
@@ -262,20 +241,10 @@ class CategoryDAO extends DAO {
 			$params
 		);
 
-		for ($i=1; !$result->EOF; $i++) {
-			list($categoryId) = $result->fields;
-			$this->update(
-				'UPDATE categories SET seq = ? WHERE category_id = ?',
-				array(
-					(int) $i,
-					(int) $categoryId
-				)
-			);
-
-			$result->MoveNext();
+		for ($i=1; $row = (array) $result->current(); $i++) {
+			$this->update('UPDATE categories SET seq = ? WHERE category_id = ?', [(int) $i, (int) $row['category_id']]);
+			$result->next();
 		}
-
-		$result->Close();
 	}
 
 	/**
@@ -295,7 +264,7 @@ class CategoryDAO extends DAO {
 	 * @param $contextId int optional
 	 */
 	function deleteById($categoryId, $contextId = null) {
-		$params = array((int) $categoryId);
+		$params = [(int) $categoryId];
 		if ($contextId) $params[] = (int) $contextId;
 
 		$this->update(
@@ -310,13 +279,13 @@ class CategoryDAO extends DAO {
 		if ($this->getAffectedRows()) {
 			$this->update(
 				'DELETE FROM category_settings WHERE category_id = ?',
-				array((int) $categoryId)
+				[(int) $categoryId]
 			);
 
 			// remove any monograph assignments for this category.
 			$this->update(
 				'DELETE FROM publication_categories WHERE category_id = ?',
-				array((int) $categoryId)
+				[(int) $categoryId]
 			);
 		}
 	}
@@ -344,7 +313,7 @@ class CategoryDAO extends DAO {
 		$this->update(
 			'INSERT INTO publication_categories (category_id, publication_id)
 			VALUES (?, ?)',
-			array((int) $categoryId, (int) $publicationId)
+			[(int) $categoryId, (int) $publicationId]
 		);
 	}
 
@@ -356,7 +325,7 @@ class CategoryDAO extends DAO {
 	public function deletePublicationAssignments($publicationId) {
 		$this->update(
 			'DELETE FROM publication_categories WHERE publication_id = ?',
-			array((int) $publicationId)
+			[(int) $publicationId]
 		);
 	}
 
@@ -375,7 +344,7 @@ class CategoryDAO extends DAO {
 				LEFT JOIN categories pc ON (pc.category_id = c.parent_id)
 			WHERE	c.context_id = ?
 			ORDER BY (COALESCE((pc.seq * 8192) + pc.category_id, 0) * 8192) + CASE WHEN pc.category_id IS NULL THEN 8192 * ((c.seq * 8192) + c.category_id) ELSE c.seq END',
-			array((int) $contextId)
+			[(int) $contextId]
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');
@@ -388,15 +357,13 @@ class CategoryDAO extends DAO {
 	 */
 	function getCountByContextId($contextId) {
 		$result = $this->retrieve(
-			'SELECT	COUNT(*)
+			'SELECT	COUNT(*) AS row_count
 			FROM	categories
 			WHERE	context_id = ?',
-			(int) $contextId
+			[(int) $contextId]
 		);
-
-		$returner = $result->fields[0];
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $row->row_count : 0;
 	}
 
 	/**
@@ -407,7 +374,7 @@ class CategoryDAO extends DAO {
 	 * @return DAOResultFactory containing Category ordered by sequence
 	 */
 	function getByParentId($parentId, $contextId = null, $rangeInfo = null) {
-		$params = array((int) $parentId);
+		$params = [(int) $parentId];
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieveRange(

@@ -81,7 +81,6 @@ display_errors = On
 [search]
 min_word_length = 3
 results_per_keyword = 500
-result_cache_hours = 1
 ; index[application/pdf] = "/usr/bin/pstotext %s"
 ; index[application/pdf] = "/usr/bin/pdftotext %s -"
 ; index[application/postscript] = "/usr/bin/pstotext %s"

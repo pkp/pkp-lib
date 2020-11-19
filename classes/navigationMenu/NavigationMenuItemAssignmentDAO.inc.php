@@ -24,21 +24,15 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	/**
 	 * Retrieve a navigation menu item assignment by ID.
 	 * @param $navigationMenuItemAssignmentId int
-	 * @return NavigationMenuItemAssignment
+	 * @return NavigationMenuItemAssignment?
 	 */
 	function getById($navigationMenuItemAssignmentId) {
-		$params = array((int) $navigationMenuItemAssignmentId);
 		$result = $this->retrieve(
 			'SELECT	* FROM navigation_menu_item_assignments WHERE navigation_menu_item_assignment_id = ?',
-			$params
+			[(int) $navigationMenuItemAssignmentId]
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
@@ -52,37 +46,34 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	/**
 	 * Retrieve items by menu id
 	 * @param $menuId int
+	 * @return DAOResultFactory
 	 */
 	public function getByMenuId($menuId) {
-		$params = array((int) $menuId);
 		$result = $this->retrieve(
 			'SELECT nmi.*,nmh.navigation_menu_id,nmh.parent_id,nmh.seq, nmh.navigation_menu_item_assignment_id
 				FROM navigation_menu_item_assignments as nmh
 				LEFT JOIN navigation_menu_items as nmi ON (nmh.navigation_menu_item_id = nmi.navigation_menu_item_id)
 				WHERE nmh.navigation_menu_id = ?
 				ORDER BY nmh.seq',
-			$params
+			[(int) $menuId]
 		);
-
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
 	 * Retrieve items by menu item id
-	 *
 	 * @param $menuItemId int
+	 * @return DAOResultFactory
 	 */
 	public function getByMenuItemId($menuItemId) {
-		$params = array((int) $menuItemId);
 		$result = $this->retrieve(
 			'SELECT nmi.*, nmh.navigation_menu_id, nmh.parent_id, nmh.seq, nmh.navigation_menu_item_assignment_id
 				FROM navigation_menu_item_assignments as nmh
 				LEFT JOIN navigation_menu_items as nmi ON (nmh.navigation_menu_item_id = nmi.navigation_menu_item_id)
 				WHERE nmh.navigation_menu_item_id = ?
 				ORDER BY nmh.seq',
-			$params
+			[(int) $menuItemId]
 		);
-
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
@@ -91,14 +82,11 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @param $navigationMenuItemId int
 	 * @param $menuId int
 	 * @param $parentId int
+	 * @return NavigationMenuItemAssignment
 	 */
 	public function getByNMIIdAndMenuIdAndParentId($navigationMenuItemId, $menuId, $parentId = null) {
-		$params = array(
-			(int) $menuId,
-			(int) $navigationMenuItemId
-		);
+		$params = [(int) $menuId, (int) $navigationMenuItemId];
 		if ($parentId) $params[] = (int) $parentId;
-
 		$result = $this->retrieve(
 			'SELECT nmh.*
 				FROM navigation_menu_item_assignments as nmh
@@ -107,13 +95,8 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 				($parentId?' AND nmh.parent_id = ?':''),
 			$params
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
@@ -122,19 +105,13 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @param $parentId int 0 if we want to return NMIAssignments with no parents
 	 */
 	public function getByMenuIdAndParentId($menuId, $parentId) {
-		$params = array(
-			(int) $menuId,
-			(int) $parentId
-		);
-
 		$result = $this->retrieve(
 			'SELECT nmh.*
 				FROM navigation_menu_item_assignments as nmh
 				WHERE nmh.navigation_menu_id = ?
 				AND nmh.parent_id = ?',
-			$params
+			[(int) $menuId, (int) $parentId]
 		);
-
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
@@ -164,26 +141,24 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 */
 	function updateObject($navigationMenuItemAssignment) {
 		$returner = $this->update(
-				'UPDATE navigation_menu_item_assignments
-				SET
-					navigation_menu_id = ?,
-					navigation_menu_item_id = ?,
-					parent_id = ?,
-					seq = ?,
-				WHERE navigation_menu_item_assignment_id = ?',
-			array(
+			'UPDATE navigation_menu_item_assignments
+			SET
+				navigation_menu_id = ?,
+				navigation_menu_item_id = ?,
+				parent_id = ?,
+				seq = ?,
+			WHERE navigation_menu_item_assignment_id = ?',
+			[
 				(int) $navigationMenuItemAssignment->getMenuId(),
 				(int) $navigationMenuItemAssignment->getMenuItemId(),
 				(int) $navigationMenuItemAssignment->getParentId(),
 				(int) $navigationMenuItemAssignment->getSequence(),
 				(int) $navigationMenuItemAssignment->getId(),
-			)
+			]
 		);
 		$this->updateLocaleFields($navigationMenuItemAssignment);
-
 		$this->unCacheRelatedNavigationMenus($navigationMenuItemAssignment->getId());
-
-		return $returner;
+		return (boolean) $returner;
 	}
 
 	/**
@@ -193,16 +168,16 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 */
 	public function insertObject($assignment) {
 		$this->update(
-				'INSERT INTO navigation_menu_item_assignments
-				(navigation_menu_id, navigation_menu_item_id, parent_id, seq)
-				VALUES
-				(?, ?, ?, ?)',
-			array(
+			'INSERT INTO navigation_menu_item_assignments
+			(navigation_menu_id, navigation_menu_item_id, parent_id, seq)
+			VALUES
+			(?, ?, ?, ?)',
+			[
 				(int) $assignment->getMenuId(),
 				(int) $assignment->getMenuItemId(),
 				(int) $assignment->getParentId(),
 				(int) $assignment->getSequence(),
-			)
+			]
 		);
 
 		// Add default title (of the navigationMenuItem)
@@ -264,8 +239,8 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	function deleteById($navigationMenuItemAssignmentId) {
 		$this->unCacheRelatedNavigationMenus($navigationMenuItemAssignmentId);
 
-		$this->update('DELETE FROM navigation_menu_item_assignment_settings WHERE navigation_menu_item_assignment_id = ?', (int) $navigationMenuItemAssignmentId);
-		$this->update('DELETE FROM navigation_menu_item_assignments WHERE navigation_menu_item_assignment_id = ?', (int) $navigationMenuItemAssignmentId);
+		$this->update('DELETE FROM navigation_menu_item_assignment_settings WHERE navigation_menu_item_assignment_id = ?', [(int) $navigationMenuItemAssignmentId]);
+		$this->update('DELETE FROM navigation_menu_item_assignments WHERE navigation_menu_item_assignment_id = ?', [(int) $navigationMenuItemAssignmentId]);
 	}
 
 	/**
@@ -273,7 +248,7 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('title');
+		return ['title'];
 	}
 
 	/**
@@ -289,9 +264,9 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @param $navigationMenuItemAssignment object
 	 */
 	function updateLocaleFields($navigationMenuItemAssignment) {
-		$this->updateDataObjectSettings('navigation_menu_item_assignment_settings', $navigationMenuItemAssignment, array(
+		$this->updateDataObjectSettings('navigation_menu_item_assignment_settings', $navigationMenuItemAssignment, [
 			'navigation_menu_item_assignment_id' => $navigationMenuItemAssignment->getId()
-		));
+		]);
 	}
 
 	/**
@@ -299,13 +274,11 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @param mixed $id
 	 */
 	function unCacheRelatedNavigationMenus($id) {
-		$navigationMenuItemAssignment = $this->getById($id);
-		if ($navigationMenuItemAssignment) {
+		if ($navigationMenuItemAssignment = $this->getById($id)) {
 			$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
 			$cache = $navigationMenuDao->getCache($navigationMenuItemAssignment->getMenuId());
 			if ($cache) $cache->flush();
 		}
 	}
 }
-
 

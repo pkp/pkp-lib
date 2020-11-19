@@ -154,14 +154,14 @@ class ArrayItemIterator extends ItemIterator {
 	 * Convert this iterator to an array
 	 * @return array
 	 */
-	function &toArray() {
+	function toArray() {
 		return $this->theArray;
 	}
 
 	/**
 	 * Return this iterator as an associative array.
 	 */
-	function &toAssociativeArray() {
+	function toAssociativeArray() {
 		return $this->theArray;
 	}
 

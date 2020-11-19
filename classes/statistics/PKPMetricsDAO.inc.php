@@ -199,7 +199,10 @@ class PKPMetricsDAO extends DAO {
 		else $result = $this->retrieve($sql, $params);
 
 		// Return the report.
-		$returner = $result->GetAll();
+		$returner = [];
+		foreach ($result as $row) {
+			$returner[] = (array) $row;
+		}
 		return $returner;
 	}
 
@@ -213,15 +216,12 @@ class PKPMetricsDAO extends DAO {
 	 * @return array
 	 */
 	function getLoadId($assocType, $assocId, $metricType) {
-		$params = array($assocType, $assocId, $metricType);
-		$result = $this->retrieve('SELECT load_id FROM metrics WHERE assoc_type = ? AND assoc_id = ? AND metric_type = ? GROUP BY load_id', $params);
+		$result = $this->retrieve('SELECT load_id FROM metrics WHERE assoc_type = ? AND assoc_id = ? AND metric_type = ? GROUP BY load_id', [$assocType, $assocId, $metricType]);
 
-		$loadIds = array();
-		while (!$result->EOF) {
-			$row = $result->FetchRow();
-			$loadIds[] = $row['load_id'];
+		$loadIds = [];
+		foreach ($result as $row) {
+			$loadIds[] = $row->load_id;
 		}
-
 		return $loadIds;
 	}
 
@@ -232,13 +232,8 @@ class PKPMetricsDAO extends DAO {
 	 * @return boolean
 	 */
 	function hasRecord($metricType) {
-		$result = $this->retrieve('SELECT load_id FROM metrics WHERE metric_type = ? LIMIT 1', array($metricType));
-		$row = $result->GetRowAssoc();
-		if ($row) {
-			return true;
-		} else {
-			return false;
-		}
+		$result = $this->retrieve('SELECT load_id FROM metrics WHERE metric_type = ? LIMIT 1', [$metricType]);
+		return (boolean) $result->current();
 	}
 
 	/**
@@ -247,7 +242,7 @@ class PKPMetricsDAO extends DAO {
 	 * @param $loadId string
 	 */
 	function purgeLoadBatch($loadId) {
-		$this->update('DELETE FROM metrics WHERE load_id = ?', $loadId); // Not a number.
+		$this->update('DELETE FROM metrics WHERE load_id = ?', [$loadId]); // Not a number.
 	}
 
 	/**
@@ -257,7 +252,7 @@ class PKPMetricsDAO extends DAO {
 	 * @param $toDate string
 	 */
 	function purgeRecords($metricType, $toDate) {
-		$this->update('DELETE FROM metrics WHERE metric_type = ? AND day IS NOT NULL AND day <= ?', array($metricType, $toDate));
+		$this->update('DELETE FROM metrics WHERE metric_type = ? AND day IS NOT NULL AND day <= ?', [$metricType, $toDate]);
 	}
 
 	/**
@@ -270,7 +265,7 @@ class PKPMetricsDAO extends DAO {
 		$recordToStore = array();
 
 		// Required dimensions.
-		$requiredDimensions = array('load_id', 'assoc_type', 'assoc_id', 'metric_type');
+		$requiredDimensions = ['load_id', 'assoc_type', 'assoc_id', 'metric_type'];
 		foreach ($requiredDimensions as $requiredDimension) {
 			if (!isset($record[$requiredDimension])) {
 				throw new Exception('Cannot load record: missing dimension "' . $requiredDimension . '".');

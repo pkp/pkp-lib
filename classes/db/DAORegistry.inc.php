@@ -51,10 +51,9 @@ class DAORegistry {
 	/**
 	 * Retrieve a reference to the specified DAO.
 	 * @param $name string the class name of the requested DAO
-	 * @param $dbconn ADONewConnection optional
 	 * @return DAO
 	 */
-	static function &getDAO($name, $dbconn = null) {
+	static function &getDAO($name) {
 		$daos =& DAORegistry::getDAOs();
 		if (!isset($daos[$name])) {
 			// Import the required DAO class.
@@ -66,9 +65,6 @@ class DAORegistry {
 
 			// Only instantiate each class of DAO a single time
 			$daos[$name] =& instantiate($className, array('DAO', 'XMLDAO'));
-			if ($dbconn != null) {
-				$daos[$name]->setDataSource($dbconn);
-			}
 		}
 
 		return $daos[$name];

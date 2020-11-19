@@ -27,10 +27,7 @@ class ReviewFilesDAO extends DAO {
 			(review_id, submission_file_id)
 			VALUES
 			(?, ?)',
-			array(
-				(int) $reviewId,
-				(int) $submissionFileId
-			)
+			[(int) $reviewId, (int) $submissionFileId]
 		);
 	}
 
@@ -42,10 +39,7 @@ class ReviewFilesDAO extends DAO {
 	function revoke($reviewId, $fileId) {
 		$this->update(
 			'DELETE FROM review_files WHERE review_id = ? AND file_id = ?',
-			array(
-				(int) $reviewId,
-				(int) $fileId
-			)
+			[(int) $reviewId, (int) $fileId]
 		);
 	}
 
@@ -56,7 +50,7 @@ class ReviewFilesDAO extends DAO {
 	function revokeByReviewId($reviewId) {
 		$this->update(
 			'DELETE FROM review_files WHERE review_id = ?',
-			(int) $reviewId
+			[(int) $reviewId]
 		);
 	}
 
@@ -69,12 +63,10 @@ class ReviewFilesDAO extends DAO {
 	function check($reviewId, $submission_file_id) {
 		$result = $this->retrieve(
 			'SELECT * FROM review_files WHERE review_id = ? AND submission_file_id = ?',
-			array((int) $reviewId, (int) $submission_file_id)
+			[(int) $reviewId, (int) $submission_file_id]
 		);
-
-		$returner = $result->RecordCount();
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row && $row->row_count;
 	}
 }
 

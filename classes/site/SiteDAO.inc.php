@@ -32,18 +32,16 @@ class SiteDAO extends DAO {
 	 * Retrieve site information.
 	 * @return Site
 	 */
-	function &getSite() {
-		$site = null;
+	function getSite() {
 		$result = $this->retrieve(
 			'SELECT * FROM site'
 		);
 
-		if ($result->RecordCount() != 0) {
-			$site = $this->_fromRow($result->GetRowAssoc(false));
+		if ($row = (array) $result->current()) {
+			return $this->_fromRow($row);
 		}
 
-		$result->Close();
-		return $site;
+		return null;
 	}
 
 	/**
@@ -88,8 +86,8 @@ class SiteDAO extends DAO {
 
 		$result = $this->retrieve("SELECT * FROM site_settings");
 
-		while (!$result->EOF) {
-			$settingRow = $result->getRowAssoc(false);
+		foreach ($result as $settingRow) {
+			$settingRow = (array) $settingRow;
 			if (!empty($schema->properties->{$settingRow['setting_name']})) {
 				$site->setData(
 					$settingRow['setting_name'],
@@ -100,7 +98,6 @@ class SiteDAO extends DAO {
 					empty($settingRow['locale']) ? null : $settingRow['locale']
 				);
 			}
-			$result->MoveNext();
 		}
 
 		return $site;

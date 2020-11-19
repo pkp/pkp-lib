@@ -26,20 +26,22 @@ class SubmissionCommentDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function getSubmissionComments($submissionId, $commentType = null, $assocId = null) {
-		$params = array((int) $submissionId);
+		$params = [(int) $submissionId];
 		if ($commentType) $params[] = (int) $commentType;
 		if ($assocId) $params[] = (int) $assocId;
-		$result = $this->retrieve(
-			'SELECT	a.*
-			FROM	submission_comments a
-			WHERE	submission_id = ?'
-				. ($commentType?' AND comment_type = ?':'')
-				. ($assocId?' AND assoc_id = ?':'')
-				. ' ORDER BY date_posted',
-			$params
+		return new DAOResultFactory(
+			$this->retrieve(
+				'SELECT	a.*
+				FROM	submission_comments a
+				WHERE	submission_id = ?'
+					. ($commentType?' AND comment_type = ?':'')
+					. ($assocId?' AND assoc_id = ?':'')
+					. ' ORDER BY date_posted',
+				$params
+			),
+			$this,
+			'_fromRow'
 		);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
@@ -48,11 +50,14 @@ class SubmissionCommentDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function getByUserId($userId) {
-		$result = $this->retrieve(
-			'SELECT a.* FROM submission_comments a WHERE author_id = ? ORDER BY date_posted', (int) $userId
+		return new DAOResultFactory(
+			$this->retrieve(
+				'SELECT a.* FROM submission_comments a WHERE author_id = ? ORDER BY date_posted',
+				[(int) $userId]
+			),
+			$this,
+			'_fromRow'
 		);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
@@ -69,7 +74,7 @@ class SubmissionCommentDAO extends DAO {
 		if ($reviewId) $params[] = (int) $reviewId;
 		return new DAOResultFactory(
 			$this->retrieve(
-				'SELECT	a.*
+				$sql = 'SELECT	a.*
 				FROM	submission_comments a
 				WHERE	submission_id = ?
 					' . ($reviewerId?' AND author_id = ?':'') . '
@@ -79,8 +84,7 @@ class SubmissionCommentDAO extends DAO {
 				ORDER BY date_posted DESC',
 				$params
 			),
-			$this,
-			'_fromRow'
+			$this, '_fromRow', [], $sql, $params // Counted in readReview.tpl and authorReadReview.tpl
 		);
 	}
 
@@ -91,13 +95,10 @@ class SubmissionCommentDAO extends DAO {
 	 */
 	function getById($commentId) {
 		$result = $this->retrieve(
-			'SELECT * FROM submission_comments WHERE comment_id = ?', (int) $commentId
+			'SELECT * FROM submission_comments WHERE comment_id = ?', [(int) $commentId]
 		);
-
-		$submissionComment = $this->_fromRow($result->GetRowAssoc(false));
-
-		$result->Close();
-		return $submissionComment;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -144,7 +145,7 @@ class SubmissionCommentDAO extends DAO {
 				VALUES
 				(?, ?, ?, ?, ?, %s, %s, ?, ?, ?)',
 				$this->datetimeToDB($submissionComment->getDatePosted()), $this->datetimeToDB($submissionComment->getDateModified())),
-			array(
+			[
 				(int) $submissionComment->getCommentType(),
 				(int) $submissionComment->getRoleId(),
 				(int) $submissionComment->getSubmissionId(),
@@ -153,7 +154,7 @@ class SubmissionCommentDAO extends DAO {
 				$submissionComment->getCommentTitle(),
 				$submissionComment->getComments(),
 				(int) $submissionComment->getViewable()
-			)
+			]
 		);
 
 		$submissionComment->setId($this->getInsertId());
@@ -183,7 +184,7 @@ class SubmissionCommentDAO extends DAO {
 	function deleteById($commentId) {
 		$this->update(
 			'DELETE FROM submission_comments WHERE comment_id = ?',
-			(int) $commentId
+			[(int) $commentId]
 		);
 	}
 
@@ -192,9 +193,9 @@ class SubmissionCommentDAO extends DAO {
 	 * @param $submissionId int
 	 */
 	function deleteBySubmissionId($submissionId) {
-		return $this->update(
+		$this->update(
 			'DELETE FROM submission_comments WHERE submission_id = ?',
-			(int) $submissionId
+			[(int) $submissionId]
 		);
 	}
 
@@ -218,7 +219,7 @@ class SubmissionCommentDAO extends DAO {
 					viewable = ?
 				WHERE comment_id = ?',
 				$this->datetimeToDB($submissionComment->getDatePosted()), $this->datetimeToDB($submissionComment->getDateModified())),
-			array(
+			[
 				(int) $submissionComment->getCommentType(),
 				(int) $submissionComment->getRoleId(),
 				(int) $submissionComment->getSubmissionId(),
@@ -228,7 +229,7 @@ class SubmissionCommentDAO extends DAO {
 				$submissionComment->getComments(),
 				$submissionComment->getViewable() === null ? 1 : (int) $submissionComment->getViewable(),
 				(int) $submissionComment->getId()
-			)
+			]
 		);
 	}
 }

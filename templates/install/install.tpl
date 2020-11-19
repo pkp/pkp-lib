@@ -140,9 +140,6 @@
 				{fbvFormSection label="installer.databaseName"}
 					{fbvElement type="text" id="databaseName" value=$databaseName maxlength="60" size=$fbvStyles.size.MEDIUM}
 				{/fbvFormSection}
-				{fbvFormSection list="true"}
-					{fbvElement type="checkbox" id="createDatabase" value="1" checked=$createDatabase label="installer.createDatabase"}
-				{/fbvFormSection}
 			{/fbvFormArea}
 
 			{fbvFormArea id="oaiSettingsFormArea" title="installer.oaiSettings"}

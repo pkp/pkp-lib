@@ -21,7 +21,7 @@ class NavigationMenuItemDAO extends DAO {
 	/**
 	 * Retrieve a navigation menu item by ID.
 	 * @param $navigationMenuItemId int
-	 * @return NavigationMenuItem
+	 * @return NavigationMenuItem?
 	 */
 	function getById($navigationMenuItemId) {
 		$params = array((int) $navigationMenuItemId);
@@ -30,33 +30,24 @@ class NavigationMenuItemDAO extends DAO {
 			$params
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
 	 * Retrieve a navigation menu item by path.
 	 * @param $contextId int Context Id
 	 * @param $path string
-	 * @return NavigationMenuItem
+	 * @return NavigationMenuItem?
 	 */
 	function getByPath($contextId, $path) {
-		$params = array($path, (int) $contextId, 'NMI_TYPE_CUSTOM');
 		$result = $this->retrieve(
 			'SELECT	* FROM navigation_menu_items WHERE path = ? and context_id = ? and type= ?',
-			$params
+			[$path, (int) $contextId, 'NMI_TYPE_CUSTOM']
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
@@ -65,10 +56,9 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return NavigationMenu
 	 */
 	function getByContextId($contextId) {
-		$params = array((int) $contextId);
 		$result = $this->retrieve(
 			'SELECT * FROM navigation_menu_items WHERE context_id = ?',
-			$params
+			[(int) $contextId]
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');
@@ -79,17 +69,15 @@ class NavigationMenuItemDAO extends DAO {
 	 * @param $menuId int
 	 */
 	public function getByMenuId($menuId) {
-		$params = array((int) $menuId);
 		$result = $this->retrieve(
 			'SELECT nmi.*
 				FROM navigation_menu_item_assignments as nmh
 				LEFT JOIN navigation_menu_items as nmi ON (nmh.navigation_menu_item_id = nmi.navigation_menu_item_id)
 				WHERE nmh.navigation_menu_id = ?
 				ORDER BY nmh.seq',
-			$params
+			[(int) $menuId]
 		);
-
-			return new DAOResultFactory($result, $this, '_fromRow');
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
@@ -97,13 +85,9 @@ class NavigationMenuItemDAO extends DAO {
 	 * @param $contextId int
 	 * @param $menuItemType string
 	 * @param $menuItemTitleLocaleKey string
+	 * @return NavigationMenuItem?
 	 */
 	public function getByTypeAndTitleLocaleKey($contextId, $menuItemType, $menuItemTitleLocaleKey) {
-		$params = array(
-			$menuItemType,
-			$menuItemTitleLocaleKey,
-			(int) $contextId
-		);
 		$result = $this->retrieve(
 			'SELECT *
 				FROM navigation_menu_items
@@ -111,17 +95,10 @@ class NavigationMenuItemDAO extends DAO {
 				WHERE navigation_menu_items.type = ?
 				AND (navigation_menu_item_settings.setting_name = \'titleLocaleKey\' and navigation_menu_item_settings.setting_value = ?)
 				AND navigation_menu_items.context_id = ?',
-			$params
+			[$menuItemType, $menuItemTitleLocaleKey, (int) $contextId]
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
@@ -131,10 +108,8 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return DAOResultFactory containing matching NavigationMenuItems
 	 */
 	function getByType($type, $contextId = null) {
-		$params = array($type);
-		if ($contextId !== null) {
-			$params[] = $contextId;
-		}
+		$params = [$type];
+		if ($contextId !== null) $params[] = $contextId;
 		$result = $this->retrieve(
 			'SELECT	* FROM navigation_menu_items WHERE type = ?' .
 			($contextId !== null ? ' AND context_id = ?' : ''),
@@ -148,14 +123,14 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('title', 'content', 'remoteUrl');
+		return ['title', 'content', 'remoteUrl'];
 	}
 
 	/**
 	 * @copydoc DAO::getAdditionalFieldNames()
 	 */
 	function getAdditionalFieldNames() {
-		return array('titleLocaleKey');
+		return ['titleLocaleKey'];
 	}
 
 	/**
@@ -188,9 +163,9 @@ class NavigationMenuItemDAO extends DAO {
 	 * @param $navigationMenuItem object
 	 */
 	function updateLocaleFields($navigationMenuItem) {
-		$this->updateDataObjectSettings('navigation_menu_item_settings', $navigationMenuItem, array(
+		$this->updateDataObjectSettings('navigation_menu_item_settings', $navigationMenuItem, [
 			'navigation_menu_item_id' => $navigationMenuItem->getId()
-		));
+		]);
 	}
 
 	/**
@@ -204,11 +179,11 @@ class NavigationMenuItemDAO extends DAO {
 				(path, context_id, type)
 				VALUES
 				(?, ?, ?)',
-			array(
+			[
 				$navigationMenuItem->getPath(),
 				(int) $navigationMenuItem->getContextId(),
 				$navigationMenuItem->getType(),
-			)
+			]
 		);
 		$navigationMenuItem->setId($this->getInsertId());
 		$this->updateLocaleFields($navigationMenuItem);
@@ -231,12 +206,12 @@ class NavigationMenuItemDAO extends DAO {
 					context_id = ?,
 					type = ?
 				WHERE navigation_menu_item_id = ?',
-			array(
+			[
 				$navigationMenuItem->getPath(),
 				(int) $navigationMenuItem->getContextId(),
 				$navigationMenuItem->getType(),
 				(int) $navigationMenuItem->getId(),
-			)
+			]
 		);
 		$this->updateLocaleFields($navigationMenuItem);
 
@@ -308,11 +283,7 @@ class NavigationMenuItemDAO extends DAO {
 
 		foreach ($tree->getChildren() as $setting) {
 			$site = $setting->getAttribute('site');
-
-			if ($contextId == CONTEXT_ID_NONE && !$site) {
-				continue;
-			}
-
+			if ($contextId == CONTEXT_ID_NONE && !$site) continue;
 			$this->installNodeSettings($contextId, $setting, null, null, 0, true);
 		}
 
@@ -397,18 +368,18 @@ class NavigationMenuItemDAO extends DAO {
 	 * @param $isLocalized boolean
 	 */
 	function updateSetting($navigationMenuItemId, $name, $value, $type = null, $isLocalized = false) {
-		$keyFields = array('setting_name', 'locale', 'navigation_menu_item_id');
+		$keyFields = ['setting_name', 'locale', 'navigation_menu_item_id'];
 
 		if (!$isLocalized) {
 			$value = $this->convertToDB($value, $type);
 			$this->replace('navigation_menu_item_settings',
-				array(
+				[
 					'navigation_menu_item_id' => (int) $navigationMenuItemId,
 					'setting_name' => $name,
 					'setting_value' => trim($value,'##'),
 					'setting_type' => $type,
 					'locale' => ''
-				),
+				],
 				$keyFields
 			);
 		} else {
@@ -419,9 +390,7 @@ class NavigationMenuItemDAO extends DAO {
 				$this->update('INSERT INTO navigation_menu_item_settings
 					(navigation_menu_item_id, setting_name, setting_value, setting_type, locale)
 					VALUES (?, ?, ?, ?, ?)',
-					array(
-						$navigationMenuItemId, $name, trim($this->convertToDB($localeValue, $type),'##'), $type, $locale
-					)
+					[$navigationMenuItemId, $name, trim($this->convertToDB($localeValue, $type),'##'), $type, $locale]
 				);
 			}
 		}
@@ -435,7 +404,7 @@ class NavigationMenuItemDAO extends DAO {
 	 * @return mixed
 	 */
 	function getSetting($navigationMenuItemId, $name, $locale = null) {
-		$params = array((int) $navigationMenuItemId, $name);
+		$params = [(int) $navigationMenuItemId, $name];
 		if ($locale) $params[] = $locale;
 		$result = $this->retrieve(
 			'SELECT	setting_name, setting_value, setting_type, locale
@@ -446,21 +415,12 @@ class NavigationMenuItemDAO extends DAO {
 			$params
 		);
 
-		$recordCount = $result->RecordCount();
-		$returner = false;
-		if ($recordCount == 1) {
-			$row = $result->getRowAssoc(false);
-			$returner = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-		} elseif ($recordCount > 1) {
-			$returner = array();
-			while (!$result->EOF) {
-				$returner[$row['locale']] = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-				$result->MoveNext();
-			}
-
-			$result->Close();
+		$setting = [];
+		foreach ($result as $row) {
+			$returner[$row->locale] = $this->convertFromDB($row->setting_value, $row->setting_type);
 		}
-
+		if (count($returner) == 1) return array_shift($returner);
+		if (count($returner) == 0) return false;
 		return $returner;
 	}
 
@@ -469,7 +429,7 @@ class NavigationMenuItemDAO extends DAO {
 	 * @param $locale
 	 */
 	function deleteSettingsByLocale($locale) {
-		return $this->update('DELETE FROM navigation_menu_item_settings WHERE locale = ?', $locale);
+		return $this->update('DELETE FROM navigation_menu_item_settings WHERE locale = ?', [$locale]);
 	}
 
 	/**

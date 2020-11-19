@@ -72,18 +72,12 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 * @return array
 	 */
 	function getAllUniqueLanguages() {
+		$result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [CONTROLLED_VOCAB_SUBMISSION_LANGUAGE]);
+
 		$languages = array();
-
-		$result = $this->retrieve(
-			'SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', CONTROLLED_VOCAB_SUBMISSION_LANGUAGE
-		);
-
-		while (!$result->EOF) {
-			$languages[] = $result->fields[0];
-			$result->MoveNext();
+		foreach ($result as $row) {
+			$languages[] = $row->setting_value;
 		}
-
-		$result->Close();
 		return $languages;
 	}
 

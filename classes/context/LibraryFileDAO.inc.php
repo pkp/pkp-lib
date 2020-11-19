@@ -25,8 +25,7 @@ class LibraryFileDAO extends DAO {
 	 * @return LibraryFile
 	 */
 	function getById($fileId, $contextId = null) {
-
-		$params = array((int) $fileId);
+		$params = [(int) $fileId];
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
@@ -34,14 +33,8 @@ class LibraryFileDAO extends DAO {
 			. ($contextId ? ' AND context_id = ?' : ''),
 			$params
 		);
-
-		$returner = null;
-		if (isset($result) && $result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -51,7 +44,7 @@ class LibraryFileDAO extends DAO {
 	 * @return array LibraryFiles
 	 */
 	function getByContextId($contextId, $type = null) {
-		$params = array((int) $contextId);
+		$params = [(int) $contextId];
 		if (isset($type)) $params[] = (int) $type;
 
 		$result = $this->retrieve(
@@ -60,7 +53,7 @@ class LibraryFileDAO extends DAO {
 			WHERE	context_id = ? AND submission_id = 0 ' . (isset($type)?' AND type = ?' : ''),
 			$params
 		);
-		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
+		return new DAOResultFactory($result, $this, '_fromRow', ['id']);
 	}
 
 	/**
@@ -71,7 +64,7 @@ class LibraryFileDAO extends DAO {
 	 * @return array LibraryFiles
 	 */
 	function getBySubmissionId($submissionId, $type = null, $contextId = null) {
-		$params = array((int) $submissionId);
+		$params = [(int) $submissionId];
 		if (isset($type)) $params[] = (int) $type;
 		if (isset($contextId)) $params[] = (int) $contextId;
 
@@ -98,7 +91,7 @@ class LibraryFileDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('name');
+		return ['name'];
 	}
 
 	/**
@@ -109,7 +102,7 @@ class LibraryFileDAO extends DAO {
 		$this->updateDataObjectSettings(
 			'library_file_settings',
 			$libraryFile,
-			array('file_id' => $libraryFile->getId())
+			['file_id' => $libraryFile->getId()]
 		);
 	}
 
@@ -145,7 +138,7 @@ class LibraryFileDAO extends DAO {
 	 * @return int
 	 */
 	function insertObject($libraryFile) {
-		$params = array(
+		$params = [
 			(int) $libraryFile->getContextId(),
 			$libraryFile->getServerFileName(),
 			$libraryFile->getOriginalFileName(),
@@ -154,7 +147,7 @@ class LibraryFileDAO extends DAO {
 			(int) $libraryFile->getType(),
 			(int) $libraryFile->getSubmissionId(),
 			(int) $libraryFile->getPublicAccess()
-		);
+		];
 
 		if ($libraryFile->getId()) $params[] = (int) $libraryFile->getId();
 
@@ -194,7 +187,7 @@ class LibraryFileDAO extends DAO {
 					date_uploaded = %s
 				WHERE	file_id = ?',
 				$this->datetimeToDB($libraryFile->getDateUploaded())
-			), array(
+			), [
 				(int) $libraryFile->getContextId(),
 				$libraryFile->getServerFileName(),
 				$libraryFile->getOriginalFileName(),
@@ -204,7 +197,7 @@ class LibraryFileDAO extends DAO {
 				(int) $libraryFile->getSubmissionId(),
 				(int) $libraryFile->getPublicAccess(),
 				(int) $libraryFile->getId()
-			)
+			]
 		);
 
 		$this->updateLocaleFields($libraryFile);
@@ -217,14 +210,8 @@ class LibraryFileDAO extends DAO {
 	 * @param $revision int
 	 */
 	function deleteById($fileId, $revision = null) {
-		$this->update(
-			'DELETE FROM library_files WHERE file_id = ?',
-			(int) $fileId
-		);
-		$this->update(
-			'DELETE FROM library_file_settings WHERE file_id = ?',
-			(int) $fileId
-		);
+		$this->update('DELETE FROM library_files WHERE file_id = ?', [(int) $fileId]);
+		$this->update('DELETE FROM library_file_settings WHERE file_id = ?', [(int) $fileId]);
 	}
 
 	/**
@@ -235,13 +222,11 @@ class LibraryFileDAO extends DAO {
 	 */
 	function filenameExists($contextId, $fileName) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*) FROM library_files WHERE context_id = ? AND file_name = ?',
-			array((int) $contextId, $fileName)
+			'SELECT COUNT(*) AS row_count FROM library_files WHERE context_id = ? AND file_name = ?',
+			[(int) $contextId, $fileName]
 		);
-
-		$returner = (isset($result->fields[0]) && $result->fields[0] > 0) ? true : false;
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**

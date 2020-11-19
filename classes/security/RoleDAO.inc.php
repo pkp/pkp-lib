@@ -120,16 +120,12 @@ class RoleDAO extends DAO {
 	function userHasRole($contextId, $userId, $roleId) {
 		$roleId = is_array($roleId) ? join(',', array_map('intval', $roleId)) : (int) $roleId;
 		$result = $this->retrieve(
-			'SELECT count(*) FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
+			'SELECT count(*) AS row_count FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
 			WHERE ug.context_id = ? AND uug.user_id = ? AND ug.role_id IN (' . $roleId . ')',
-			array((int) $contextId, (int) $userId)
+			[(int) $contextId, (int) $userId]
 		);
-
-		// > 0 because user could belong to more than one user group with this role
-		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row && $row['row_count'];
 	}
 
 	/**
@@ -142,21 +138,19 @@ class RoleDAO extends DAO {
 		$params = array((int) $userId);
 		if ($contextId !== null) $params[] = (int) $contextId;
 		$result = $this->retrieve(
-			'SELECT	DISTINCT ug.role_id
+			'SELECT	DISTINCT ug.role_id AS role_id
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
 			WHERE	uug.user_id = ?' . ($contextId !== null ? ' AND ug.context_id = ?' : ''),
 			$params
 		);
 
-		$roles = array();
-		while ( !$result->EOF ) {
+		$roles = [];
+		foreach ($result as $row) {
 			$role = $this->newDataObject();
-			$role->setRoleId($result->fields[0]);
+			$role->setRoleId($row->role_id);
 			$roles[] = $role;
-			$result->MoveNext();
 		}
-		$result->Close();
 		return $roles;
 	}
 

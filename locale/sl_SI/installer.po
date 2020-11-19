@@ -41,12 +41,6 @@ msgstr "Nabor znakov povezave"
 msgid "installer.contentsOfConfigFile"
 msgstr "Vsebina nastavitvene datoteke"
 
-msgid "installer.createDatabase"
-msgstr "Ustvari novo bazo podatkov"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Če želite uporabiti to opcijo, mora vaša baza podatkov podpirati oddaljeno ustvarjane baze podatkov, vaš uporabniški račun pa mora imeti ustrezne pravice. Če namestitev s to opcijo ni uspešna, ustvarite bazo podatkov ročno in ponovno zaženite namestitev brez te opcije."
-
 msgid "installer.databaseDriver"
 msgstr "Gonilnik baze podatkov"
 

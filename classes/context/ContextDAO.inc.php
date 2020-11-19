@@ -45,29 +45,25 @@ abstract class ContextDAO extends SchemaDAO {
 	 */
 	function existsByPath($path) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*) FROM ' . $this->tableName . ' WHERE path = ?',
-			(string) $path
+			'SELECT COUNT(*) AS row_count FROM ' . $this->tableName . ' WHERE path = ?',
+			[(string) $path]
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**
 	 * Retrieve a context by path.
 	 * @param $path string
-	 * @return Context
+	 * @return Context?
 	 */
 	function getByPath($path) {
 		$result = $this->retrieve(
 			'SELECT * FROM ' . $this->tableName . ' WHERE path = ?',
-			(string) $path
+			[(string) $path]
 		);
-		if ($result->RecordCount() == 0) return null;
-
-		$returner = $this->_fromRow($result->GetRowAssoc(false));
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
@@ -81,7 +77,7 @@ abstract class ContextDAO extends SchemaDAO {
 			'SELECT * FROM ' . $this->tableName .
 			($enabledOnly?' WHERE enabled = 1':'') .
 			' ORDER BY seq',
-			false,
+			[],
 			$rangeInfo
 		);
 
@@ -98,10 +94,10 @@ abstract class ContextDAO extends SchemaDAO {
 	 * @return DAOResultFactory containing matching Contexts
 	 */
 	function getAvailable($userId = null, $rangeInfo = null) {
-		$params = array();
+		$params = [];
 		if ($userId) $params = array_merge(
 			$params,
-			array((int) $userId, (int) $userId, (int) ROLE_ID_SITE_ADMIN)
+			[(int) $userId, (int) $userId, (int) ROLE_ID_SITE_ADMIN]
 		);
 
 		$result = $this->retrieveRange(
@@ -146,22 +142,12 @@ abstract class ContextDAO extends SchemaDAO {
 	 * Sequentially renumber each context according to their sequence order.
 	 */
 	function resequence() {
-		$result = $this->retrieve(
-			'SELECT ' . $this->primaryKeyColumn . ' FROM ' . $this->tableName . ' ORDER BY seq'
-		);
-
-		for ($i=1; !$result->EOF; $i+=2) {
-			list($contextId) = $result->fields;
-			$this->update(
-				'UPDATE ' . $this->tableName . ' SET seq = ? WHERE ' . $this->primaryKeyColumn . ' = ?',
-				array(
-					$i,
-					$contextId
-				)
-			);
-
-			$result->MoveNext();
+		$result = $this->retrieve('SELECT ' . $this->primaryKeyColumn . ' AS context_id FROM ' . $this->tableName . ' ORDER BY seq');
+		$i=1;
+		for ($i=1; $row = (array) $result->current(); $i+=2 && $result->next()) {
+			$this->update('UPDATE ' . $this->tableName . ' SET seq = ? WHERE ' . $this->primaryKeyColumn . ' = ?', [$i, $row['context_id']]);
+			$result->next();
+			$i+=2;
 		}
-		$result->Close();
 	}
 }

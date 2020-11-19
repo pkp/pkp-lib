@@ -41,12 +41,6 @@ msgstr "Zeichensatz für Verbindungen"
 msgid "installer.contentsOfConfigFile"
 msgstr "Inhalt der Konfigurationsdatei"
 
-msgid "installer.createDatabase"
-msgstr "Datenbank anlegen"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Zur Benutzung dieser Option muss Ihr Datenbanksystem das Anlegen von Datenbanken aus der Entfernung unterstützten und muss Ihr Benutzer/innen-Name die Rechte haben, Datenbanken anzulegen. Wenn die Installation unter Verwendung dieser Option scheitert, legen Sie die Datenbank manuell auf dem Server an und führen dann den Installer ohne diese Option aus."
-
 msgid "installer.databaseDriver"
 msgstr "Datenbank-Treiber"
 

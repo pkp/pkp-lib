@@ -57,27 +57,26 @@ class PKPStatsService {
 			->retrieve($statsQO->toSql(), $statsQO->getBindings());
 
 		$records = [];
-		while (!$result->EOF) {
+		foreach ($result as $row) {
 			$records[] = [
-				'loadId' => $result->fields['load_id'],
-				'contextId' => (int) $result->fields['context_id'],
-				'submissionId' => (int) $result->fields['submission_id'],
-				'assocType' => (int) $result->fields['assoc_type'],
-				'assocId' => (int) $result->fields['assoc_id'],
-				'day' => (int) $result->fields['day'],
-				'month' => (int) $result->fields['month'],
-				'fileType' => (int) $result->fields['file_type'],
-				'countryId' => $result->fields['country_id'],
-				'region' => $result->fields['region'],
-				'city' => $result->fields['city'],
-				'metric' => (int) $result->fields['metric'],
-				'metricType' => $result->fields['metric_type'],
-				'pkpSectionId' => (int) $result->fields['pkp_section_id'],
-				'assocObjectType' => (int) $result->fields['assoc_object_type'],
-				'assocObjectTId' => (int) $result->fields['assoc_object_id'],
-				'representation_id' => (int) $result->fields['representation_id'],
+				'loadId' => $row->load_id,
+				'contextId' => (int) $row->context_id,
+				'submissionId' => (int) $row->submission_id,
+				'assocType' => (int) $row->assoc_type,
+				'assocId' => (int) $row->assoc_id,
+				'day' => (int) $row->day,
+				'month' => (int) $row->month,
+				'fileType' => (int) $row->file_type,
+				'countryId' => $row->country_id,
+				'region' => $row->region,
+				'city' => $row->city,
+				'metric' => (int) $row->metric,
+				'metricType' => $row->metric_type,
+				'pkpSectionId' => (int) $row->pkp_section_id,
+				'assocObjectType' => (int) $row->assoc_object_type,
+				'assocObjectTId' => (int) $row->assoc_object_id,
+				'representation_id' => (int) $row->representation_id,
 			];
-			$result->MoveNext();
 		}
 
 		return $records;
@@ -115,13 +114,13 @@ class PKPStatsService {
 			->retrieve($timelineQO->toSql(), $timelineQO->getBindings());
 
 		$dateValues = [];
-		while (!$result->EOF) {
-			$date = substr($result->fields[$timelineInterval], 0, 4) . '-' . substr($result->fields[$timelineInterval], 4, 2);
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$date = substr($row[$timelineInterval], 0, 4) . '-' . substr($row[$timelineInterval], 4, 2);
 			if ($timelineInterval === STATISTICS_DIMENSION_DAY) {
-				$date = substr($date, 0, 7) . '-' . substr($result->fields[$timelineInterval], 6, 2);
+				$date = substr($date, 0, 7) . '-' . substr($row[$timelineInterval], 6, 2);
 			}
-			$dateValues[$date] = (int) $result->fields['metric'];
-			$result->MoveNext();
+			$dateValues[$date] = (int) $row['metric'];
 		}
 
 		$timeline = $this->getEmptyTimelineIntervals($args['dateStart'], $args['dateEnd'], $timelineInterval);
@@ -189,12 +188,12 @@ class PKPStatsService {
 			->retrieveRange($orderedQO->toSql(), $orderedQO->getBindings(), $range);
 
 		$objects = [];
-		while (!$result->EOF) {
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$objects[] = [
-				'id' => (int) $result->fields[$groupBy],
-				'total' => (int) $result->fields['metric'],
+				'id' => (int) $row[$groupBy],
+				'total' => (int) $row['metric'],
 			];
-			$result->MoveNext();
 		}
 
 		return $objects;

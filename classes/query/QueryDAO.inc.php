@@ -27,7 +27,7 @@ class QueryDAO extends DAO {
 	 * @return Query
 	 */
 	function getById($queryId, $assocType = null, $assocId = null) {
-		$params = array((int) $queryId);
+		$params = [(int) $queryId];
 		if ($assocType) {
 			$params[] = (int) $assocType;
 			$params[] = (int) $assocId;
@@ -39,14 +39,8 @@ class QueryDAO extends DAO {
 				. ($assocType?' AND assoc_type = ? AND assoc_id = ?':''),
 			$params
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -58,7 +52,7 @@ class QueryDAO extends DAO {
 	 * @return array Query
 	 */
 	function getByAssoc($assocType, $assocId, $stageId = null, $userId = null) {
-		$params = array();
+		$params = [];
 		$params[] = (int) ASSOC_TYPE_QUERY;
 		if ($userId) $params[] = (int) $userId;
 		$params[] = (int) $assocType;
@@ -119,13 +113,13 @@ class QueryDAO extends DAO {
 		$this->update(
 			'INSERT INTO queries (assoc_type, assoc_id, stage_id, closed, seq)
 			VALUES (?, ?, ?, ?, ?)',
-			array(
+			[
 				(int) $query->getAssocType(),
 				(int) $query->getAssocId(),
 				(int) $query->getStageId(),
 				(int) $query->getIsClosed(),
 				(float) $query->getSequence(),
-			)
+			]
 		);
 		$query->setId($this->getInsertId());
 		return $query->getId();
@@ -142,10 +136,7 @@ class QueryDAO extends DAO {
 			(query_id, user_id)
 			VALUES
 			(?, ?)',
-			array(
-				(int) $queryId,
-				(int) $userId,
-			)
+			[(int) $queryId, (int) $userId]
 		);
 	}
 
@@ -157,7 +148,7 @@ class QueryDAO extends DAO {
 	function removeParticipant($queryId, $userId) {
 		$this->update(
 			'DELETE FROM query_participants WHERE query_id = ? AND user_id = ?',
-			array((int) $queryId, (int) $userId)
+			[(int) $queryId, (int) $userId]
 		);
 	}
 
@@ -168,7 +159,7 @@ class QueryDAO extends DAO {
 	function removeAllParticipants($queryId) {
 		$this->update(
 			'DELETE FROM query_participants WHERE query_id = ?',
-			(int) $queryId
+			[(int) $queryId]
 		);
 	}
 
@@ -179,7 +170,7 @@ class QueryDAO extends DAO {
 	 * @return array
 	 */
 	function getParticipantIds($queryId, $userId = null) {
-		$params = array((int) $queryId);
+		$params = [(int) $queryId];
 		if ($userId) $params[] = (int) $userId;
 		$result = $this->retrieve(
 			'SELECT	user_id
@@ -188,13 +179,10 @@ class QueryDAO extends DAO {
 			($userId?' AND user_id = ?':''),
 			$params
 		);
-		$userIds = array();
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
-			$userIds[] = (int) $row['user_id'];
-			$result->MoveNext();
+		$userIds = [];
+		foreach ($result as $row) {
+			$userIds[] = (int) $row->user_id;
 		}
-		$result->Close();
 		return $userIds;
 	}
 
@@ -211,14 +199,14 @@ class QueryDAO extends DAO {
 				closed = ?,
 				seq = ?
 			WHERE	query_id = ?',
-			array(
+			[
 				(int) $query->getAssocType(),
 				(int) $query->getAssocId(),
 				(int) $query->getStageId(),
 				(int) $query->getIsClosed(),
 				(float) $query->getSequence(),
 				(int) $query->getId()
-			)
+			]
 		);
 	}
 
@@ -237,7 +225,7 @@ class QueryDAO extends DAO {
 	 * @param $assocId int Optional assoc ID per assocType
 	 */
 	function deleteById($queryId, $assocType = null, $assocId = null) {
-		$params = array((int) $queryId);
+		$params = [(int) $queryId];
 		if ($assocType) {
 			$params[] = (int) $assocType;
 			$params[] = (int) $assocId;
@@ -248,7 +236,7 @@ class QueryDAO extends DAO {
 			$params
 		);
 		if ($this->getAffectedRows()) {
-			$this->update('DELETE FROM query_participants WHERE query_id = ?', (int) $queryId);
+			$this->update('DELETE FROM query_participants WHERE query_id = ?', [(int) $queryId]);
 
 			// Remove associated notes
 			$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
@@ -272,22 +260,13 @@ class QueryDAO extends DAO {
 	function resequence($assocType, $assocId) {
 		$result = $this->retrieve(
 			'SELECT query_id FROM queries WHERE assoc_type = ? AND assoc_id = ? ORDER BY seq',
-			array((int) $assocType, (int) $assocId)
+			[(int) $assocType, (int) $assocId]
 		);
 
-		for ($i=1; !$result->EOF; $i++) {
-			list($queryId) = $result->fields;
-			$this->update(
-				'UPDATE queries SET seq = ? WHERE query_id = ?',
-				array(
-					$i,
-					$queryId
-				)
-			);
-
-			$result->MoveNext();
+		for ($i=1; $row = $result->current(); $i++) {
+			$this->update('UPDATE queries SET seq = ? WHERE query_id = ?', [$i, $row->query_id]);
+			$result->next();
 		}
-		$result->Close();
 	}
 
 	/**

@@ -82,7 +82,6 @@ class FilterDAO extends DAO {
 			assert(is_array($subFilters));
 			foreach($subFilters as $subFilter) {
 				$filter->addFilter($subFilter);
-				unset($subFilter);
 			}
 		}
 
@@ -116,7 +115,7 @@ class FilterDAO extends DAO {
 			sprintf('INSERT INTO filters
 				(filter_group_id, context_id, display_name, class_name, is_template, parent_filter_id, seq)
 				VALUES (?, ?, ?, ?, ?, ?, ?)'),
-			array(
+			[
 				(int) $filterGroup->getId(),
 				(int) $contextId,
 				$filter->getDisplayName(),
@@ -124,7 +123,7 @@ class FilterDAO extends DAO {
 				$filter->getIsTemplate()?1:0,
 				(int) $filter->getParentFilterId(),
 				(int) $filter->getSequence()
-			)
+			]
 		);
 		$filter->setId((int)$this->getInsertId());
 		$this->updateDataObjectSettings(
@@ -158,16 +157,10 @@ class FilterDAO extends DAO {
 			'SELECT * FROM filters
 			 WHERE '.($allowSubfilter ? '' : 'parent_filter_id = 0 AND '). '
 			 filter_id = ?',
-			(int) $filterId
+			[(int) $filterId]
 		);
-
-		$filter = null;
-		if ($result->RecordCount() != 0) {
-			$filter = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $filter;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -187,11 +180,10 @@ class FilterDAO extends DAO {
 				class_name = ? AND
 			' . ($allowSubfilters ? '' : ' parent_filter_id = 0 AND ') . '
 			' . ($getTemplates ? ' is_template = 1' : ' is_template = 0'),
-			array((int) $contextId, $className)
+			[(int) $contextId, $className]
 		);
 
-		$daoResultFactory = new DAOResultFactory($result, $this, '_fromRow', array('filter_id'));
-		return $daoResultFactory;
+		return new DAOResultFactory($result, $this, '_fromRow', ['filter_id']);
 	}
 
 	/**
@@ -213,7 +205,7 @@ class FilterDAO extends DAO {
 			' WHERE fg.symbolic = ? AND f.context_id = ? AND f.class_name = ?'.
 			' '.($allowSubfilters ? '' : 'AND f.parent_filter_id = 0').
 			' AND '.($getTemplates ? 'f.is_template = 1' : 'f.is_template = 0'),
-			array($groupSymbolic, (int) $contextId, $className)
+			[$groupSymbolic, (int) $contextId, $className]
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow', array('filter_id'));
@@ -249,7 +241,7 @@ class FilterDAO extends DAO {
 				' WHERE fg.input_type like ?'.
 				'  AND fg.output_type like ?'.
 				'  AND f.parent_filter_id = 0 AND f.is_template = 0',
-				array($inputTypeDescription, $outputTypeDescription)
+				[$inputTypeDescription, $outputTypeDescription]
 			);
 
 			// Instantiate all filters.
@@ -304,20 +296,19 @@ class FilterDAO extends DAO {
 			' WHERE fg.symbolic = ? AND '.($getTemplates ? 'f.is_template = 1' : 'f.is_template = 0').
 			'  '.(is_null($contextId) ? '' : 'AND f.context_id in (0, '.(int)$contextId.')').
 			'  AND f.parent_filter_id = 0',
-			$groupSymbolic
+			[$groupSymbolic]
 		);
 
 
 		// 2) Instantiate and return all transformations in the
 		//    result set that comply with the current runtime
 		//    environment.
-		$matchingFilters = array();
-		foreach($result->GetRows() as $filterRow) {
-			$filterInstance = $this->_fromRow($filterRow);
+		$matchingFilters = [];
+		foreach($result as $row) {
+			$filterInstance = $this->_fromRow((array) $row);
 			if (!$checkRuntimeEnvironment || $filterInstance->isCompatibleWithRuntimeEnvironment()) {
 				$matchingFilters[$filterInstance->getId()] = $filterInstance;
 			}
-			unset($filterInstance);
 		}
 
 		return $matchingFilters;
@@ -340,7 +331,7 @@ class FilterDAO extends DAO {
 				parent_filter_id = ?,
 				seq = ?
 			WHERE filter_id = ?',
-			array(
+			[
 				(int) $filterGroup->getId(),
 				$filter->getDisplayName(),
 				$filter->getClassName(),
@@ -348,11 +339,11 @@ class FilterDAO extends DAO {
 				(int) $filter->getParentFilterId(),
 				(int) $filter->getSequence(),
 				(int) $filter->getId()
-			)
+			]
 		);
 		$this->updateDataObjectSettings(
 			'filter_settings', $filter,
-			array('filter_id' => $filter->getId())
+			['filter_id' => $filter->getId()]
 		);
 
 		// Do we update a composite filter?
@@ -381,8 +372,8 @@ class FilterDAO extends DAO {
 	 */
 	function deleteObjectById($filterId) {
 		$filterId = (int)$filterId;
-		$this->update('DELETE FROM filters WHERE filter_id = ?', (int) $filterId);
-		$this->update('DELETE FROM filter_settings WHERE filter_id = ?', (int) $filterId);
+		$this->update('DELETE FROM filters WHERE filter_id = ?', [(int) $filterId]);
+		$this->update('DELETE FROM filter_settings WHERE filter_id = ?', [(int) $filterId]);
 		$this->_deleteSubFiltersByParentFilterId($filterId);
 		return true;
 	}
@@ -461,7 +452,7 @@ class FilterDAO extends DAO {
 
 		// Instantiate the filter
 		$filter = instantiate($filterClassName, 'PersistableFilter', null, 'execute', $filterGroup); /* @var $filter PersistableFilter */
-		if (!is_object($filter)) fatalError('Error while instantiating class "'.$filterClassName.'" as filter!');
+		if (!is_object($filter)) throw new Exception('Error while instantiating class "'.$filterClassName.'" as filter!');
 
 		return $filter;
 	}
@@ -522,17 +513,12 @@ class FilterDAO extends DAO {
 		$parentFilterId = $parentFilter->getId();
 		$result = $this->retrieve(
 			'SELECT * FROM filters WHERE parent_filter_id = ? ORDER BY seq',
-			(int) $parentFilterId
+			[(int) $parentFilterId]
 		);
-		$daoResultFactory = new DAOResultFactory($result, $this, '_fromRow', array('filter_id'));
+		$daoResultFactory = new DAOResultFactory($result, $this, '_fromRow', ['filter_id']);
 
 		// Add sub-filters.
-		while (!$daoResultFactory->eof()) {
-			// Retrieve the sub filter.
-			// NB: This recursively loads sub-filters
-			// of this filter via _fromRow().
-			$subFilter = $daoResultFactory->next();
-
+		while ($subFilter = $daoResultFactory->next()) {
 			// Add the sub-filter to the filter list
 			// of its parent filter.
 			$parentFilter->addFilter($subFilter);
@@ -565,20 +551,19 @@ class FilterDAO extends DAO {
 	 * @param $parentFilterId integer
 	 */
 	function _deleteSubFiltersByParentFilterId($parentFilterId) {
-		$parentFilterId = (int)$parentFilterId;
+		$parentFilterId = (int) $parentFilterId;
 
 		// Identify sub-filters.
 		$result = $this->retrieve(
 			'SELECT * FROM filters WHERE parent_filter_id = ?',
-			(int) $parentFilterId
+			[(int) $parentFilterId]
 		);
 
-		$allSubFilterRows = $result->GetArray();
-		foreach($allSubFilterRows as $subFilterRow) {
+		foreach($result as $row) {
 			// Delete sub-filters
 			// NB: We need to do this before we delete
 			// sub-sub-filters to avoid loops.
-			$subFilterId = $subFilterRow['filter_id'];
+			$subFilterId = $row->filter_id;
 			$this->deleteObjectById($subFilterId);
 
 			// Recursively delete sub-sub-filters.

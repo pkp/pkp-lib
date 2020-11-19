@@ -35,14 +35,14 @@ class EditDecisionDAO extends DAO {
 					VALUES (?, ?, ?, ?, ?, ?, %s)',
 					$this->datetimeToDB($editorDecision['dateDecided'])
 				),
-				array(
+				[
 					(int) $submissionId,
 					is_a($reviewRound, 'ReviewRound') ? (int) $reviewRound->getId() : 0,
 					is_a($reviewRound, 'ReviewRound') ? $reviewRound->getStageId() : (int) $stageId,
 					is_a($reviewRound, 'ReviewRound') ? (int) $reviewRound->getRound() : REVIEW_ROUND_NONE,
 					(int) $editorDecision['editorId'],
 					$editorDecision['decision']
-				)
+				]
 			);
 		}
 	}
@@ -54,7 +54,7 @@ class EditDecisionDAO extends DAO {
 	function deleteDecisionsBySubmissionId($submissionId) {
 		return $this->update(
 			'DELETE FROM edit_decisions WHERE submission_id = ?',
-			(int) $submissionId
+			[(int) $submissionId]
 		);
 	}
 
@@ -68,7 +68,7 @@ class EditDecisionDAO extends DAO {
 	 * 	editDecisionId, reviewRoundId, stageId, round, editorId, decision, dateDecided
 	 */
 	function getEditorDecisions($submissionId, $stageId = null, $round = null, $editorId = null) {
-		$params = array((int) $submissionId);
+		$params = [(int) $submissionId];
 		if ($stageId) $params[] = (int) $stageId;
 		if ($round) $params[] = (int) $round;
 		if ($editorId) $params[] = (int) $editorId;
@@ -85,20 +85,18 @@ class EditDecisionDAO extends DAO {
 			$params
 		);
 
-		$decisions = array();
-		while (!$result->EOF) {
-			$decisions[] = array(
-				'editDecisionId' => $result->fields['edit_decision_id'],
-				'reviewRoundId' => $result->fields['review_round_id'],
-				'stageId' => $result->fields['stage_id'],
-				'round' => $result->fields['round'],
-				'editorId' => $result->fields['editor_id'],
-				'decision' => $result->fields['decision'],
-				'dateDecided' => $this->datetimeFromDB($result->fields['date_decided'])
-			);
-			$result->MoveNext();
+		$decisions = [];
+		foreach ($result as $row) {
+			$decisions[] = [
+				'editDecisionId' => $row->edit_decision_id,
+				'reviewRoundId' => $row->review_round_id,
+				'stageId' => $row->stage_id,
+				'round' => $row->round,
+				'editorId' => $row->editor_id,
+				'decision' => $row->decision,
+				'dateDecided' => $this->datetimeFromDB($row->date_decided)
+			];
 		}
-		$result->Close();
 		return $decisions;
 	}
 
@@ -110,7 +108,7 @@ class EditDecisionDAO extends DAO {
 	function transferEditorDecisions($oldUserId, $newUserId) {
 		$this->update(
 			'UPDATE edit_decisions SET editor_id = ? WHERE editor_id = ?',
-			array((int) $newUserId, (int) $oldUserId)
+			[(int) $newUserId, (int) $oldUserId]
 		);
 	}
 

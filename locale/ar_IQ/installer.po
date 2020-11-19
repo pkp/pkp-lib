@@ -41,12 +41,6 @@ msgstr "نظام حروف الاتصال"
 msgid "installer.contentsOfConfigFile"
 msgstr "محتويات ملف الإعدادات"
 
-msgid "installer.createDatabase"
-msgstr "إنشاء قاعدة بيانات جديدة"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "لاستعمال هذا الخيار، على نظام قاعدة البيانات عندك أن يدعم إنشاء قاعدة بيانات عن بعد وأن يمتلك حساب المستخدم لديك الصلاحيات الكافية لإنشاء قاعدة بيانات جديدة. إن فشلت عملية التنصيب عند تفعيل هذا الخيار، عليك بإنشاء قاعدة البيانات يدوياً على الملقم، ثم شغل برنامج التنصيب مجدداً مع تعطيل هذا الخيار."
-
 msgid "installer.databaseDriver"
 msgstr "مشغل قاعدة البيانات"
 

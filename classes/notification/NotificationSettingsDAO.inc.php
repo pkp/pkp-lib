@@ -27,22 +27,18 @@ class NotificationSettingsDAO extends DAO {
 	function getNotificationSettings($notificationId) {
 		$result = $this->retrieve(
 			'SELECT * FROM notification_settings WHERE notification_id = ?',
-			(int) $notificationId
+			[(int) $notificationId]
 		);
 
-		$params = array();
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
-			$name = $row['setting_name'];
-			$value = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-			$locale = $row['locale'];
+		$params = [];
+		foreach ($result as $row) {
+			$name = $row->setting_name;
+			$value = $this->convertFromDB($row->setting_value, $row->setting_type);
+			$locale = $row->locale;
 
 			if ($locale == '') $params[$name] = $value;
 			else $params[$name][$locale] = $value;
-			$result->MoveNext();
 		}
-
-		$result->Close();
 		return $params;
 	}
 
@@ -93,7 +89,7 @@ class NotificationSettingsDAO extends DAO {
 	 * @param $notificationId
 	 */
 	function deleteSettingsByNotificationId($notificationId) {
-		return $this->update('DELETE FROM notification_settings WHERE notification_id = ?', (int) $notificationId);
+		return $this->update('DELETE FROM notification_settings WHERE notification_id = ?', [(int) $notificationId]);
 	}
 }
 

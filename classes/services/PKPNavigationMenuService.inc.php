@@ -271,9 +271,9 @@ class PKPNavigationMenuService {
 					$user = $request->getUser();
 					$contextDao = \Application::getContextDAO();
 					$workingContexts = $contextDao->getAvailable($user?$user->getId():null);
-					if ($workingContexts && $workingContexts->getCount() == 1) {
-						$workingContext = $workingContexts->next();
-						$contextPath = $workingContext->getPath();
+					list($firstContext, $secondContext) = [$workingContexts->next(), $workingContexts->next()];
+					if ($firstContext && !$secondContext) {
+						$contextPath = $firstContext->getPath();
 					}
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,

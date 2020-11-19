@@ -192,17 +192,6 @@ msgstr ""
 msgid "installer.databaseDriver"
 msgstr "Trình điều khiển cơ sở dữ liệu"
 
-msgid "installer.createDatabaseInstructions"
-msgstr ""
-"Để sử dụng tùy chọn này, hệ thống cơ sở dữ liệu của bạn phải hỗ trợ tạo cơ "
-"sở dữ liệu từ xa và tài khoản người dùng của bạn phải có quyền thích hợp để "
-"tạo cơ sở dữ liệu mới. Nếu cài đặt không thành công với tùy chọn này được "
-"chọn, hãy tạo thủ công cơ sở dữ liệu trên máy chủ của bạn và chạy lại trình "
-"cài đặt khi tùy chọn này bị tắt."
-
-msgid "installer.createDatabase"
-msgstr "Tạo cơ sở dữ liệu mới"
-
 msgid "installer.contentsOfConfigFile"
 msgstr "Nội dung của tệp cấu hình"
 

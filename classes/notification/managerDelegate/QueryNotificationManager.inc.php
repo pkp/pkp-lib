@@ -63,7 +63,6 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 				$notes = $query->getReplies(null, NOTE_ORDER_ID, SORT_DIRECTION_DESC);
 				$latestNote = $notes->next();
 				$user = $latestNote->getUser();
-				$notes->close();
 				return __('submission.query.activity', array(
 					'responderName' => $user->getFullName(),
 					'noteContents' => substr(PKPString::html2text($latestNote->getContents()), 0, 200),

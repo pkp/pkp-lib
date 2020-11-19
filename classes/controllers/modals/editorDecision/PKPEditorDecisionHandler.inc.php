@@ -188,6 +188,26 @@ class PKPEditorDecisionHandler extends Handler {
 	}
 
 	/**
+	 * Show a revert decline form.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string Serialized JSON object
+	 */
+	function revertDecline($args, $request) {
+		return $this->_initiateEditorDecision($args, $request, 'RevertDeclineForm');
+	}
+
+	/**
+	 * Save the revert decline form.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string Serialized JSON object
+	 */
+	function saveRevertDecline($args, $request) {
+		return $this->_saveEditorDecision($args, $request, 'RevertDeclineForm');
+	}
+
+	/**
 	 * Import all free-text/review form reviews to paste into message
 	 * @param $args array
 	 * @param $request PKPRequest
@@ -364,6 +384,7 @@ class PKPEditorDecisionHandler extends Handler {
 			case 'NewReviewRoundForm':
 			case 'PromoteForm':
 			case 'SendReviewsForm':
+			case 'RevertDeclineForm':
 				return "lib.pkp.controllers.modals.editorDecision.form.$formName";
 			default:
 				assert(false);
@@ -493,7 +514,7 @@ class PKPEditorDecisionHandler extends Handler {
 				$redirectUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', $redirectOp, array($submission->getId()));
 				return $request->redirectUrlJson($redirectUrl);
 			} else {
-				if (in_array($decision, [SUBMISSION_EDITOR_DECISION_DECLINE, SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE])) {
+				if (in_array($decision, [SUBMISSION_EDITOR_DECISION_DECLINE, SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, SUBMISSION_EDITOR_DECISION_REVERT_DECLINE])) {
 					$dispatcher = $this->getDispatcher();
 					$redirectUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'access', array($submission->getId()));
 					return $request->redirectUrlJson($redirectUrl);

@@ -1367,6 +1367,9 @@ msgstr "Approve Proofs"
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "This file proof will no longer be publicly available for download or purchase. Do you want to disapprove it?"
 
+msgid "editor.submission.decision.revertDecline"
+msgstr "Revert Decline"
+
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Assign an editor to enable the editorial decisions for this stage."
 
@@ -1499,6 +1502,9 @@ msgstr "A new round of reviews was initiated."
 msgid "notification.type.editorDecisionDecline"
 msgstr "Submission declined."
 
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Declined submission reactivated."
+
 msgid "notification.uploadedResponse"
 msgstr "Response uploaded."
 
@@ -1507,6 +1513,9 @@ msgstr "An editor must be assigned before review is initiated. Please add editor
 
 msgid "notification.type.submissionNewVersion"
 msgstr "A new version of a submission was created"
+
+msgid "notification.type.revertDecline"
+msgstr "The decision to decline this submission was reverted."
 
 msgid "grid.reviewAttachments.title"
 msgstr "Reviewer's Attachments"

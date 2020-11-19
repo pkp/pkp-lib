@@ -61,7 +61,7 @@ class SubmissionDAO extends PKPSubmissionDAO {
 	function changeStatus($articleId, $status) {
 		$this->update(
 			'UPDATE submissions SET status = ? WHERE submission_id = ?',
-			array((int) $status, (int) $articleId)
+			[(int) $status, (int) $articleId]
 		);
 
 		$this->flushCache();
@@ -73,7 +73,8 @@ class SubmissionDAO extends PKPSubmissionDAO {
 	 */
 	function removeSubmissionsFromSection($sectionId) {
 		$this->update(
-			'DELETE FROM publication_settings WHERE setting_name = \'sectionId\' AND setting_value = ?', (int) $sectionId
+			'DELETE FROM publication_settings WHERE setting_name = \'sectionId\' AND setting_value = ?',
+			[(int) $sectionId]
 		);
 
 		$this->flushCache();

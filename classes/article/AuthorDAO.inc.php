@@ -34,15 +34,15 @@ class AuthorDAO extends PKPAuthorDAO {
 	 */
 	function getAuthorsAlphabetizedByJournal($journalId = null, $initial = null, $rangeInfo = null, $includeEmail = false) {
 		$locale = AppLocale::getLocale();
-		$params = array(
+		$params = [
 			IDENTITY_SETTING_GIVENNAME, $locale,
 			IDENTITY_SETTING_GIVENNAME,
 			IDENTITY_SETTING_FAMILYNAME, $locale,
 			IDENTITY_SETTING_FAMILYNAME,
-		);
+		];
 		if (isset($journalId)) $params[] = $journalId;
 
-		$supportedLocales = array();
+		$supportedLocales = [];
 		if ($journalId !== null) {
 			$journalDao = DAORegistry::getDAO('JournalDAO'); /* @var $journalDao JournalDAO */
 			$journal = $journalDao->getById($journalId);

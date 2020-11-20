@@ -433,15 +433,13 @@ abstract class Plugin {
 	/**
 	 * Load locale data for this plugin.
 	 *
-	 * @param $locale string
+	 * @param $locale string|null
 	 * @return boolean
 	 */
 	function addLocaleData($locale = null) {
-		if ($locale == '') $locale = AppLocale::getLocale();
-		$localeFilenames = $this->getLocaleFilename($locale);
-		if ($localeFilenames) {
-			if (is_scalar($localeFilenames)) $localeFilenames = array($localeFilenames);
-			foreach($localeFilenames as $localeFilename) {
+		$locale = $locale ?? AppLocale::getLocale();
+		if ($localeFilenames = $this->getLocaleFilename($locale)) {
+			foreach((array) $localeFilenames as $localeFilename) {
 				AppLocale::registerLocaleFile($locale, $localeFilename);
 			}
 			return true;
@@ -513,24 +511,17 @@ abstract class Plugin {
 	 * @param $locale string
 	 * @return array The locale file names.
 	 */
-	function getLocaleFilename($locale) {
+	protected function getLocaleFilename($locale) {
 		$masterLocale = MASTER_LOCALE;
 		$baseLocaleFilename = $this->getPluginPath() . "/locale/$locale/locale.po";
 		$baseMasterLocaleFilename = $this->getPluginPath() . "/locale/$masterLocale/locale.po";
 		$libPkpFilename = "lib/pkp/$baseLocaleFilename";
 		$masterLibPkpFilename = "lib/pkp/$baseMasterLocaleFilename";
-		$filenames = array();
-		if (file_exists($baseMasterLocaleFilename)) $filenames[] = $baseLocaleFilename;
-		if (file_exists($masterLibPkpFilename)) $filenames[] = $libPkpFilename;
 
-		// This compatibility code for XML file fallback will eventually be removed.
-		// See https://github.com/pkp/pkp-lib/issues/5090.
-		$baseMasterXmlLocaleFilename = preg_replace('/\.po$/', '.xml', $baseMasterLocaleFilename);
-		if (file_exists($baseMasterXmlLocaleFilename)) $filenames[] = preg_replace('/\.po$/', '.xml', $baseLocaleFilename);
-		$masterXmlLibPkpLocaleFilename = preg_replace('/\.po$/', '.xml', $baseMasterLocaleFilename);
-		if (file_exists($masterXmlLibPkpLocaleFilename)) $filenames[] = preg_replace('/\.po$/', '.xml', $libPkpFilename);
-
-		return $filenames;
+		return array_filter([
+			file_exists($baseMasterLocaleFilename) ? $baseLocaleFilename : false,
+			file_exists($masterLibPkpFilename) ? $libPkpFilename : false,
+		]);
 	}
 
 	/**

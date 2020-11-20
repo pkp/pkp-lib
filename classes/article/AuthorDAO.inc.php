@@ -105,8 +105,7 @@ class AuthorDAO extends PKPAuthorDAO {
 					SELECT
 					MIN(aa.author_id) as author_id,
 					CONCAT(
-					' . ($includeEmail ? 'aa.email,' : 'CAST(\'\' AS CHAR),') . '
-					\' \',
+					' . ($includeEmail ? 'aa.email, \' \', ' : '') . '
 					ac.setting_value,
 					\' \'
 					' . $sqlColumnsAuthorSettings . '

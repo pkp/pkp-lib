@@ -136,6 +136,11 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		$this->_migrateSubmissionFiles();
 		$this->_fixCapitalCustomBlockTitles();
 		$this->_createCustomBlockTitles();
+
+		Capsule::schema()->create('item_views', function (Blueprint $table) {
+			// Now that submission file IDs are not compound, convert item_views.assoc_id to single ID
+			$table->bigInteger('assoc_id')->change();
+		});
 	}
 
 	/**

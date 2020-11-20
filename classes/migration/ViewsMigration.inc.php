@@ -25,7 +25,7 @@ class ViewsMigration extends Migration {
 		// Tracking of views for various types of objects such as files, reviews, etc
 		Capsule::schema()->create('item_views', function (Blueprint $table) {
 			$table->bigInteger('assoc_type');
-			$table->string('assoc_id', 32);
+			$table->bigInteger('assoc_id');
 			$table->bigInteger('user_id')->nullable();
 			$table->datetime('date_last_viewed')->nullable();
 			$table->unique(['assoc_type', 'assoc_id', 'user_id'], 'item_views_pkey');

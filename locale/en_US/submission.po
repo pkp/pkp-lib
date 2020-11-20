@@ -92,13 +92,13 @@ msgid "catalog.category.heading"
 msgstr "All Items"
 
 msgid "galley.editPublishedDisabled"
-msgstr "The galleys of this publication can not be edited because it has already been published."
+msgstr "The galleys of this version can not be edited because it has already been posted."
 
 msgid "galley.publicationNotFound"
-msgstr "The publication for this galley could not be found."
+msgstr "The version for this galley could not be found."
 
 msgid "publication.invalidSection"
-msgstr "The section for this publication could not be found."
+msgstr "The section for this version could not be found."
 
 msgid "publication.inactiveSection"
 msgstr "{$section} (Inactive)"
@@ -110,7 +110,7 @@ msgid "publication.issue.success"
 msgstr "The preprint entry details have been updated."
 
 msgid "publication.datePublished.description"
-msgstr "The publication date will be set automatically when the preprint is published. Do not enter a publication date unless you need to backdate it."
+msgstr "The posted date will be set automatically when the preprint is posted. Do not enter a posted date unless you need to backdate it."
 
 msgid "publication.relation"
 msgstr "Relations"
@@ -131,7 +131,97 @@ msgid "publication.relation.vorDoi"
 msgstr "DOI of the published article"
 
 msgid "publication.publish.confirmation"
-msgstr "All requirements have been met. Are you sure you want to publish this?"
+msgstr "All requirements have been met. Are you sure you want to post this?"
 
 msgid "author.submit.authorsCanNotPublish"
-msgstr "You can not publish your own preprint. It must be approved and published by a moderator."
+msgstr "You can not post your own preprint. It must be approved and posted by a moderator."
+
+msgid "submission.publication"
+msgstr "Preprint"
+
+msgid "publication.status.published"
+msgstr "Posted"
+
+msgid "submission.status.scheduled"
+msgstr "Scheduled"
+
+msgid "publication.status.unscheduled"
+msgstr "Unposted"
+
+msgid "submission.publication"
+msgstr "Preprint"
+
+msgid "submission.publications"
+msgstr "Preprints"
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr "The copyright year will be set automatically when this is posted"
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr "The copyright year will be set automatically based on the posted date."
+
+msgid "publication.datePublished"
+msgstr "Date Posted"
+
+msgid "publication.editDisabled"
+msgstr "This version has been posted and can not be edited."
+
+msgid "publication.event.published"
+msgstr "The submission was posted."
+
+msgid "publication.event.scheduled"
+msgstr "The submission was scheduled to be posted."
+
+msgid "publication.event.unpublished"
+msgstr "The submission was unposted."
+
+msgid "publication.event.versionPublished"
+msgstr "A new version was posted."
+
+msgid "publication.event.versionScheduled"
+msgstr "A new version was scheduled to be posted."
+
+msgid "publication.event.versionUnpublished"
+msgstr "A version was removed from preprint."
+
+msgid "publication.invalidSubmission"
+msgstr "The submission for this preprint could not be found."
+
+msgid "publication.publish"
+msgstr "Post"
+
+msgid "publication.publish.requirements"
+msgstr "The following requirements must be met before this can be posted."
+
+msgid "publication.required.declined"
+msgstr "A declined submission can not be posted."
+
+msgid "publication.required.reviewStage"
+msgstr "The submission must be in the Production stage before it can be posted."
+
+msgid "submission.license.description"
+msgstr "The license will be set automatically to <a href='{$licenseUrl}' target='_blank'>{$licenseName}</a> when this is posted."
+
+msgid "submission.copyrightHolder.description"
+msgstr "Copyright will be assigned automatically to {$copyright} when this is posted."
+
+msgid "submission.copyrightOther.description"
+msgstr "Assign copyright for posted submissions to the following party."
+
+msgid "publication.editDisabled"
+msgstr "This version has been posted and can not be edited."
+
+msgid "publication.unpublish"
+msgstr "Unpost"
+
+msgid "publication.unpublish.confirm"
+msgstr "Are you sure you don't want this to be posted?"
+
+msgid "publication.unschedule.confirm"
+msgstr "Are you sure you don't want this scheduled to be posted?"
+
+msgid "publication.version.details"
+msgstr "Details for version {$version}"
+
+msgid "submission.queries.production"
+msgstr "Discussions"

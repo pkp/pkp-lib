@@ -29,7 +29,7 @@
 						class="pkpButton pkpButton--isPrimary"
 						onClick="pkp.eventBus.$emit('open-tab', 'publication')"
 					>
-						{translate key="editor.submission.schedulePublication"}
+						{translate key="editor.submission.postPreprint"}
 					</button>
 				</li>
 			</ul>

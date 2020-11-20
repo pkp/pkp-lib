@@ -27,7 +27,7 @@ msgid "default.genres.article"
 msgstr "Preprint Text"
 
 msgid "default.contextSettings.checklist.notPreviouslyPublished"
-msgstr "The submission has not been previously published, nor is it before another server for consideration (or an explanation has been provided in Comments to the Moderator)."
+msgstr "The submission has not been previously posted."
 
 msgid "default.contextSettings.checklist.fileFormat"
 msgstr "The submission file is in OpenOffice, Microsoft Word, or RTF document file format."

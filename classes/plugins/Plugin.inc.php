@@ -500,18 +500,19 @@ abstract class Plugin {
 	}
 
 	/*
-	 * Protected helper methods (for internal use only, should not
+	 * Helper methods (for internal use only, should not
 	 * be used by custom plug-ins)
 	 *
 	 * NB: These methods may change without notice in the future!
 	 */
 	/**
 	 * Get the filename for the locale data for this plugin.
+	 * (Warning: This function is used by the custom locale plugin)
 	 *
 	 * @param $locale string
 	 * @return array The locale file names.
 	 */
-	protected function getLocaleFilename($locale) {
+	public function getLocaleFilename($locale) {
 		$masterLocale = MASTER_LOCALE;
 		$baseLocaleFilename = $this->getPluginPath() . "/locale/$locale/locale.po";
 		$baseMasterLocaleFilename = $this->getPluginPath() . "/locale/$masterLocale/locale.po";

@@ -28,7 +28,7 @@ class ReviewFormResponseDAO extends DAO {
 	function getReviewFormResponse($reviewId, $reviewFormElementId) {
 		$result = $this->retrieve(
 			'SELECT * FROM review_form_responses WHERE review_id = ? AND review_form_element_id = ?',
-			[(int) $reviewId, (int) $reviewFormElementId];
+			[(int) $reviewId, (int) $reviewFormElementId]
 		);
 		$row = $result->current();
 		return $row ? $this->_returnReviewFormResponseFromRow((array) $row) : null;

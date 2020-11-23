@@ -125,18 +125,6 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	protected function getEventHooks() {
 		return array(
 			'TemplateManager::display',
-			'FileManager::downloadFileFinished'
-		);
-	}
-
-	/**
-	 * Get all hooks that define the
-	 * finished file download.
-	 * @return array
-	 */
-	protected function getDownloadFinishedEventHooks() {
-		return array(
-			'FileManager::downloadFileFinished'
 		);
 	}
 
@@ -147,13 +135,6 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	 * @return array
 	 */
 	protected function buildUsageEvent($hookName, $args) {
-		// Finished downloading a file?
-		if (in_array($hookName, $this->getDownloadFinishedEventHooks())) {
-			// The usage event for this request is already build and
-			// passed to any other registered hook.
-			return null;
-		}
-
 		$application = Application::get();
 		$request = $application->getRequest();
 		$router = $request->getRouter(); /* @var $router PageRouter */
@@ -167,7 +148,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 		if (!$context) return false;
 
 		// Prepare request information.
-		list($pubObject, $downloadSuccess, $assocType, $idParams, $canonicalUrlPage, $canonicalUrlOp, $canonicalUrlParams) =
+		list($pubObject, $assocType, $idParams, $canonicalUrlPage, $canonicalUrlOp, $canonicalUrlParams) =
 			$this->getUsageEventData($hookName, $args, $request, $router, $templateMgr, $context);
 
 		if (!$pubObject) return false;
@@ -306,7 +287,6 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 		*
 		* 2) other common parameters
 		* %O: bytes sent => not supported (cannot be reliably determined from within PHP)
-		* %X: connection status => $downloadSuccess (not reliable!)
 		* %{ContentType}o: => $mimeType
 		* %{User-agent}i: => $userAgent
 		* %{Referer}i: => $referrer
@@ -319,7 +299,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 		// Collect all information into an array.
 		$usageEvent = compact(
 			'time', 'pubObject', 'assocType', 'canonicalUrl', 'mimeType',
-			'identifiers', 'docSize', 'downloadSuccess', 'serviceUri',
+			'identifiers', 'docSize', 'serviceUri',
 			'ip', 'host', 'user', 'roles', 'userAgent', 'referrer',
 			'classification'
 		);
@@ -346,7 +326,6 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	protected function getUsageEventData($hookName, $hookArgs, $request, $router, $templateMgr, $context) {
 		$nullVar = null;
 		$pubObject = $nullVar;
-		$downloadSuccess = false;
 		$canonicalUrlPage = $canonicalUrlOp = $assocType = null;
 		$canonicalUrlParams = $idParams = array();
 
@@ -361,12 +340,11 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 					$assocType = Application::getContextAssocType();
 					$canonicalUrlOp = '';
 					$canonicalUrlPage = 'index';
-					$downloadSuccess = true;
 				}
 			}
 		}
 
-		return array($pubObject, $downloadSuccess, $assocType, $idParams, $canonicalUrlPage, $canonicalUrlOp, $canonicalUrlParams);
+		return array($pubObject, $assocType, $idParams, $canonicalUrlPage, $canonicalUrlOp, $canonicalUrlParams);
 	}
 
 	//

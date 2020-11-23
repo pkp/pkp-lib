@@ -1552,6 +1552,12 @@ msgstr "Искать"
 msgid "search.searchResults"
 msgstr "Результаты поиска"
 
+msgid "search.searchResults.foundSingle"
+msgstr "Найден один результат."
+
+msgid "search.searchResults.foundPlural"
+msgstr "Найдено результатов: {$count}."
+
 msgid "search.subject"
 msgstr "Ключевые слова"
 

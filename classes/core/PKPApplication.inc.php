@@ -194,6 +194,15 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 				'collation' => 'utf8_general_ci',
 			]);
 			$capsule->setAsGlobal();
+
+			// Set up Laravel queue handling
+			$laravelApp = new Illuminate\Container\Container();
+			(new Illuminate\Bus\BusServiceProvider($laravelApp))->register();
+			$laravelApp->instance('Illuminate\Contracts\Events\Dispatcher', new \Illuminate\Events\Dispatcher($laravelApp));
+			$laravelApp->instance('Illuminate\Contracts\Container\Container', $laravelApp);
+			$queue = new Illuminate\Queue\Capsule\Manager($laravelApp);
+			$queue->addConnection(['driver' => 'sync']);
+			$queue->setAsGlobal();
 		}
 
 		// Register custom autoloader functions for namespaces

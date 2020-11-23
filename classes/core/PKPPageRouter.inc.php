@@ -353,7 +353,7 @@ class PKPPageRouter extends PKPRouter {
 		//
 		// Anchor
 		//
-		$anchor = (empty($anchor) ? '' : '#'.rawurlencode($anchor));
+		$anchor = (empty($anchor) ? '' : '#'.preg_replace("/[^a-zA-Z0-9\-\_\/\.\~]/", '', $anchor));
 
 		//
 		// Assemble URL

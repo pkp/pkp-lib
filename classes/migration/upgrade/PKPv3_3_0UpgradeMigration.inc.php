@@ -70,11 +70,11 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			});
 		}
 
+		// Use nulls instead of 0 for assoc_type/id in user_settings
+		Capsule::table('user_settings')->where('assoc_type', 0)->update(['assoc_type' => null]);
+		Capsule::table('user_settings')->where('assoc_id', 0)->update(['assoc_id' => null]);
+
 		// pkp/pkp-lib#6093 Don't allow nulls (previously an upgrade workaround)
-		Capsule::schema()->table('user_settings', function (Blueprint $table) {
-			$table->bigInteger('assoc_type')->default(0)->nullable(false)->change();
-			$table->bigInteger('assoc_id')->default(0)->nullable(false)->change();
-		});
 		Capsule::schema()->table('announcement_types', function (Blueprint $table) {
 			$table->bigInteger('assoc_type')->nullable(false)->change();
 		});

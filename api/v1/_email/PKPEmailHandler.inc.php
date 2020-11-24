@@ -75,7 +75,8 @@ class PKPEmailHandler extends APIHandler {
 	 * @return APIResponse
 	 */
 	public function create(ServerRequestInterface $slimRequest, APIResponse $response, array $args) {
-		$contextId = $this->getRequest()->getContext()->getId();
+		$context = $this->getRequest()->getContext();
+		$contextId = $context->getId();
 
 		$requestParams = $slimRequest->getParsedBody();
 
@@ -90,15 +91,20 @@ class PKPEmailHandler extends APIHandler {
 					}
 					$params[$param] = array_map('intval', $val);
 					break;
-				case 'email':
+				case 'body':
+				case 'subject':
 					$params[$param] = $val;
 					break;
 			}
 		}
 
 		$errors = [];
-		if (empty($params['email'])) {
-			$errors['email'] = [__('api.emails.400.missingEmail')];
+		if (empty($params['body'])) {
+			$errors['body'] = [__('api.emails.400.missingBody')];
+		}
+
+		if (empty($params['subject'])) {
+			$errors['subject'] = [__('api.emails.400.missingSubject')];
 		}
 
 		if (empty($params['userGroupIds'])) {
@@ -123,16 +129,31 @@ class PKPEmailHandler extends APIHandler {
 		$params['contextId'] = $contextId;
 
 		$userIds = Services::get('user')->getIds($params);
+		$subject = $params['subject'];
+		$body = $params['body'];
+		$fromEmail = $context->getData('contactName');
+		$fromName = $context->getData('contactEmail');
 		$queueId = 'email_' . uniqid();
 		$batches = array_chunk($userIds, self::EMAILS_PER_JOB);
 		foreach ($batches as $userIds) {
-			Queue::push(function() use ($userIds, $contextId) {
+			Queue::push(function() use ($userIds, $contextId, $subject, $body, $fromEmail, $fromName) {
+				import('lib.pkp.classes.mail.Mail');
 				$users = Services::get('user')->getMany([
 					'contextId' => $contextId,
 					'userIds' => $userIds,
 				]);
 				foreach ($users as $user) {
-					error_log('Email user id: ' . $user->getId());
+					$mail = new Mail();
+					$mail->setFrom($fromEmail, $fromName);
+					$mail->setRecipients([
+						[
+							'name' => $user->getFullName(),
+							'email' => $user->getEmail(),
+						],
+					]);
+					$mail->setSubject($subject);
+					$mail->setBody($body);
+					$mail->send();
 				}
 		}, [], $queueId, 'persistent');
 		}

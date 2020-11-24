@@ -15,6 +15,7 @@ namespace PKP\components\forms\context;
 use \PKP\components\forms\FormComponent;
 use \PKP\components\forms\FieldOptions;
 use \PKP\components\forms\FieldRichTextarea;
+use \PKP\components\forms\FieldText;
 use \Services;
 
 define('FORM_NOTIFY_USERS', 'notifyUsers');
@@ -58,7 +59,12 @@ class PKPNotifyUsersForm extends FormComponent {
 				'options' => $userGroupOptions,
 				'required' => true,
 			]))
-			->addField(new FieldRichTextarea('email', [
+			->addField(new FieldText('subject', [
+				'label' => __('email.subject'),
+				'value' => '',
+				'required' => true,
+			]))
+			->addField(new FieldRichTextarea('body', [
 				'label' => __('email.email'),
 				'size' => 'large',
 				'value' => '',

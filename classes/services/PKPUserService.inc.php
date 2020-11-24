@@ -106,6 +106,8 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			'orderBy' => 'id',
 			'orderDirection' => 'DESC',
 			'roleIds' => null,
+			'userGroupIds' => [],
+			'userIds' => [],
 			'assignedToSubmission' => null,
 			'assignedToSubmissionStage' => null,
 			'registeredAfter' => '',
@@ -123,6 +125,8 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			->filterByContext($args['contextId'])
 			->orderBy($args['orderBy'], $args['orderDirection'])
 			->filterByRoleIds($args['roleIds'])
+			->filterByUserGroupIds($args['userGroupIds'])
+			->filterByUserIds($args['userIds'])
 			->assignedToSubmission($args['assignedToSubmission'], $args['assignedToSubmissionStage'])
 			->registeredAfter($args['registeredAfter'])
 			->registeredBefore($args['registeredBefore'])

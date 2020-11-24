@@ -23,6 +23,16 @@
 			{capture assign=rolesUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.roles.UserGroupGridHandler" op="fetchGrid" escape=false}{/capture}
 			{load_url_in_div id="roleGridContainer" url=$rolesUrl}
 		</tab>
+		<tab id="notify" label="{translate key="submission.stageParticipants.notify"}">
+			<template v-if="queueId">
+				<p>Jobs: {{ completedJobs }}/{{ totalJobs }}</p>
+				<progress-bar :max="totalJobs" :min="0" :value="completedJobs" />
+			</template>
+			<notify-users-form v-else
+				v-bind="components.{$smarty.const.FORM_NOTIFY_USERS}"
+				@set="set"
+			/>
+		</tab>
 		<tab id="access" label="{translate key="manager.siteAccessOptions.siteAccessOptions"}">
 		{help file="users-and-roles" section="site-access" class="pkp_help_tab"}
 			<pkp-form

@@ -140,7 +140,6 @@ class PKPEmailHandler extends APIHandler {
 			->count();
 		$countPending = Capsule::table('jobs')
 			->where('queue', $args['queueId'])
-			->whereNull('reserved_at')
 			->count();
 
 		// Don't run another job if one is already running.

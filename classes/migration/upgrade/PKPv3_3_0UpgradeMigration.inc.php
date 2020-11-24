@@ -103,9 +103,6 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		Capsule::schema()->table('authors', function (Blueprint $table) {
 			$table->bigInteger('publication_id')->nullable(false)->change();
 		});
-		Capsule::schema()->table('edit_decisions', function (Blueprint $table) {
-			$table->bigInteger('review_round_id')->nullable(false)->change();
-		});
 		Capsule::connection()->unprepared('UPDATE review_assignments SET review_form_id=NULL WHERE review_form_id=0');
 
 		$this->_populateEmailTemplates();

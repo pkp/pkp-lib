@@ -84,20 +84,37 @@ class PKPEmailHandler extends APIHandler {
 			switch ($param) {
 				case 'userGroupIds':
 					if (!is_array($val)) {
-						$val = explode(',', $val);
+						$val = strlen(trim($val))
+							? explode(',', $val)
+							: [];
 					}
 					$params[$param] = array_map('intval', $val);
+					break;
+				case 'email':
+					$params[$param] = $val;
+					break;
 			}
 		}
 
+		$errors = [];
+		if (empty($params['email'])) {
+			$errors['email'] = [__('api.emails.400.missingEmail')];
+		}
+
 		if (empty($params['userGroupIds'])) {
-			return $response->withJsonError('api.emails.400.missingUserGroups');
+			$errors['userGroupIds'] = [__('api.emails.400.missingUserGroups')];
+		}
+
+		if ($errors) {
+			return $response->withJson($errors, 400);
 		}
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		foreach ($params['userGroupIds'] as $userGroupId) {
 			if (!$userGroupDao->contextHasGroup($contextId, $userGroupId)) {
-				return $response->withJsonError('api.emails.403.notAllowedUserGroup');
+				return $response->withJson([
+						'userGroupIds' => [__('api.emails.403.notAllowedUserGroup')],
+					], 403);
 			}
 		}
 

@@ -56,11 +56,13 @@ class PKPNotifyUsersForm extends FormComponent {
 				'description' => __('manager.setup.notifyUsers.description'),
 				'value' => [],
 				'options' => $userGroupOptions,
+				'required' => true,
 			]))
 			->addField(new FieldRichTextarea('email', [
 				'label' => __('email.email'),
 				'size' => 'large',
 				'value' => '',
+				'required' => true,
 			]));
 	}
 
@@ -69,8 +71,8 @@ class PKPNotifyUsersForm extends FormComponent {
 	 */
 	public function getConfig() {
 		$config = parent::getConfig();
-		$config['confirmLabel'] = __('confirm.label {$total}');
-		$config['sendLabel'] = __('send.label');
+		$config['confirmLabel'] = __('manager.setup.notifyUsers.confirm');
+		$config['sendLabel'] = __('manager.setup.notifyUsers.send');
 		$config['userGroupCounts'] = $this->userGroupCounts;
 
 		return $config;

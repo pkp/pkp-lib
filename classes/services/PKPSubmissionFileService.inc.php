@@ -801,23 +801,6 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 	}
 
 	/**
-	 * Record that a submission file has been viewed
-	 *
-	 * @param SubmissionFile $submissionFile
-	 */
-	public function recordView($submissionFile) {
-		$user = Application::get()->getRequest()->getUser();
-		if (is_a($user, 'User')) {
-			$viewsDao = DAORegistry::getDAO('ViewsDAO'); /* @var $viewsDao ViewsDAO */
-			$viewsDao->recordView(
-				ASSOC_TYPE_SUBMISSION_FILE,
-				$submissionFile->getId(),
-				$user->getId()
-			);
-		}
-	}
-
-	/**
 	 * Check if a submission file supports dependent files
 	 *
 	 * @param SubmissionFile $submissionFile

@@ -22,7 +22,7 @@
 	{rdelim});
 </script>
 
-<div id="note-{$noteId}" class="note{if $noteViewStatus==$smarty.const.RECORD_VIEW_RESULT_INSERTED} new{/if}">
+<div id="note-{$noteId}" class="note">
 	<div class="details">
 		<span class="user">
 			{assign var=noteUser value=$note->getUser()}

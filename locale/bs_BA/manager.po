@@ -1,0 +1,522 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:50+00:00\n"
+"Language: \n"
+
+msgid "manager.announcements"
+msgstr "Obavijesti"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Jeste li sigurni da želite trajno izbrisati ovu obavijest?"
+
+msgid "manager.announcements.create"
+msgstr "Kreiraj novu obavijest"
+
+msgid "manager.announcements.createTitle"
+msgstr "Kreiraj"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Istek"
+
+msgid "manager.announcements.edit"
+msgstr "Uredi obavijest"
+
+msgid "manager.announcements.editTitle"
+msgstr "Uredi"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Molimo odaberite godinu i/ili mjesec kao dodatak datuma isteka dana."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Datum isteka"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "Obavijest će biti prikazana čitateljima do ovog datuma. Ostavite prazno želite li da obavijest bude prikazana bez vremenskog ograničenja."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Molimo odaberite godinu i/ili dan kao dodatak datuma isteka mjeseca."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Molimo odaberite ispravan datum isteka obavijesti."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Molimo odaberite mjesec i/ili dan kao dodatak datuma isteka godine."
+
+msgid "manager.announcements.form.description"
+msgstr "Tekst obavijesti"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Pun tekst obavijesti"
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Opis obavijesti je obavezan."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Kratak opis pojavljuje se uz naslov obavijesti."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Kratki opis obavijesti je obavezan."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Kratak opis"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Spremi i kreiraj drugi"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Naslov obavijesti je obavezan."
+
+msgid "manager.announcements.form.title"
+msgstr "Naslov"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Tip"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Molimo odaberite ispravan tip obavijesti."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Nema kreiranih obavijesti."
+
+msgid "manager.announcements.title"
+msgstr "Naslov"
+
+msgid "manager.announcementTypes"
+msgstr "Tipovi obavijesti"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Upozorenje! Sve obavijesti ovoga tipa će biti izbrisane. Jeste li sigurni da želite nastaviti i obrisati ovaj tip obavijesti?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Kreiraj tip obavijesti"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Kreiraj"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Uredi"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Spremi i kreiraj drugi"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Tip obavijesti s ovim imenom već postoji."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Naziv"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Ime tipa obavijesti je obavezno."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Nema kreiranih tipova obavijesti."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Tip obavijesti"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Jeste li sigurni da želite obrisati ovaj predložak e-pošte?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Jeste li sigurni da želite vratiti izvorni predložak e-pošte na njegove standardne vrijednosti?"
+
+msgid "manager.emails.createEmail"
+msgstr "Izradi novi obrazac"
+
+msgid "manager.emails.disable"
+msgstr "Onemogući"
+
+msgid "manager.emails.editEmail"
+msgstr "Uredi e-poštu"
+
+msgid "manager.emails.editTestExample"
+msgstr "Uredite testni primjer e-pošte"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "E-pošta s datim ključem već postoji. Ključe e-pošte mora biti jedinstven."
+
+msgid "manager.emails.emailTemplate"
+msgstr "Predložak e-pošte"
+
+msgid "manager.emails.enabled"
+msgstr "Omogućite ovaj predložak e-pošte"
+
+msgid "manager.emails.enable"
+msgstr "Omogući"
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Tijelo poruke je obavezno u e-pošti."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Naslov je obavezan u e-pošti."
+
+msgid "manager.emails"
+msgstr "Pripremljeni obrasci e-pošte"
+
+msgid "manager.emails.reset"
+msgstr "Vrati izvorno"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Vratite na standardnu vrijednost"
+
+msgid "manager.filesBrowser"
+msgstr "Preglednik datoteka"
+
+msgid "manager.files.confirmDelete"
+msgstr "Želite li izbrisati ovu datoteku ili direktorij? Imajte na umu da direktorij mora biti prazan prije nego što bude izbrisan."
+
+msgid "manager.files.createDir"
+msgstr "Kreiraj direktorij"
+
+msgid "manager.files.emptyDir"
+msgstr "Nema datoteka u ovom direktoriju."
+
+msgid "manager.files.parentDir"
+msgstr "Glavni direktorij"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Poslane datoteke"
+
+msgid "manager.files.uploadFile"
+msgstr "Pošalji datoteku"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Jeste li sigurni da želite izbrisati ovu grupu?"
+
+msgid "manager.groups.createTitle"
+msgstr "Kreirajte naslov"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Naziv grupe je obavezan."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Dodaj člana"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Jeste li sigurni da želite ovog korisnika isključiti iz ove grupe?"
+
+msgid "manager.groups.membership"
+msgstr "Članstvo"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Ova grupa nema članova."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Članovi nisu pronađeni."
+
+msgid "manager.groups.title"
+msgstr "Naslov"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "Ovaj sustav omogućuje da se određene ključne informacije o časopisu i pojedinim prilozima unesu na više jezika. Da biste koristili ovu mogućnost, izaberite dodatne prijevode, te odaberate neku od niže navedenih mogućnosti."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Ukoliko odaberete dva ili više prijevoda, na svakoj će stranici biti prisutan izbornik jezika. Preko njega možete u svakom trenutku izmijeniti trenutno aktivni jezik sustava."
+
+msgid "manager.payment.timestamp"
+msgstr "Datum uplate"
+
+msgid "manager.people.authSource"
+msgstr "Izvor autentifikacije"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Želite li ukloniti ulogu ovom korisniku?"
+
+msgid "manager.people.createUser"
+msgstr "Kreiraj novog korisnika"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Generiraj slučajnu lozinku."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Pošalji korisniku e-poštu dobrodošlice koja sadrži njegovo korisničko ime i lozinku."
+
+msgid "manager.people.disable"
+msgstr "Onemogući"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Bez uloge"
+
+msgid "manager.people.editProfile"
+msgstr "Uređivanje osobnog profila"
+
+msgid "manager.people.editUser"
+msgstr "Uredite korisnika"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Pošalji e-poštu odabranim korisnicima"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Pošalji e-poštu korisnicima kojima su dodijeljene uloge kao"
+
+msgid "manager.people.emailUsers"
+msgstr "Pošalji e-poštu korisnicima"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Odaberite jezik"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "Odaberi korisnike kojima želite poslati e-poštu na način da označite kvačicom potvrdni okvir pored njihovih imena"
+
+msgid "manager.people.enable"
+msgstr "Omogući"
+
+msgid "manager.people.enroll"
+msgstr "Dodaj ulogu korisniku"
+
+msgid "manager.people.enrollment"
+msgstr "Dodijeljivanje uloga"
+
+msgid "manager.people.enrollSelected"
+msgstr "Dodijeli ulogu odabranim korisnicima"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Sinkroniziraj ulogu"
+
+msgid "manager.people.enrollSync"
+msgstr "Sinkroniziraj uloge korisnika"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Uloge mogu biti dodijeljene ili oduzete u bilo kojem trenutku nakon kreiranja novog korisnika."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Dodijeli ulogu korisniku kao"
+
+msgid "manager.people.invalidUser"
+msgstr "Oprostite, traženi korisnik ne postoji."
+
+msgid "manager.people.mergeUser"
+msgstr "Spoji korisnika"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Jeste li sigurni da želite spojiti račun korisnika \"{$oldUsername}\" s računom korisnika \"{$newUsername}\"? Račun korisničkog imena \"{$oldUsername}\" više neće postojati nakon toga. Ovo je nepovratna radnja."
+
+msgid "manager.people.mergeUsers"
+msgstr "Spajanje korisnika"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Molimo odaberite ulogu pri vrhu stranice prije nego pritisnete \"dodaj ulogu korisniku\""
+
+msgid "manager.people.mustProvideName"
+msgstr "Molimo unesite barem prezime korisnika."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Nema odgovarajućih korisnika."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Nema korisnika s dodijeljenim ulogama."
+
+msgid "manager.people"
+msgstr "Osobe"
+
+msgid "manager.people.remove"
+msgstr "Ukloni"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Spremi i kreiraj drugog"
+
+msgid "manager.people.signInAs"
+msgstr "Prijava kao"
+
+msgid "manager.people.signInAsUser"
+msgstr "Prijavite se kao korisnik"
+
+msgid "manager.people.syncUsers"
+msgstr "Sinkroniziranje uloge dodijeljene korisnicima"
+
+msgid "manager.people.unenroll"
+msgstr "Ukloni ulogu"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Korisnik uspješno kreiran."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Zatraži od korisnika da promijeni svoju lozinku prilikom sljedećeg prijavljivanja."
+
+msgid "manager.plugins.action"
+msgstr "Postupak:"
+
+msgid "manager.plugins.disable"
+msgstr "Onemogući"
+
+msgid "manager.plugins.enable"
+msgstr "Omogući"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Ovaj dodatak utječe na funkcioniranje cjelokupne stranice. Samo administrator stranice može upravljati ovim dodatkom."
+
+msgid "manager.plugins"
+msgstr "Funkcionalni dodaci sustava"
+
+msgid "manager.readingTools"
+msgstr "Alati za čitanje"
+
+msgid "manager.roles"
+msgstr "Uloge"
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "Neispravan format slike naslovne stranice. Prihvaćeni formati su .gif, .jpg, ili .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "Neispravan format slike zaglavlja naslovne stranice. Prihvaćeni formati su .gif, .jpg, ili .png."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Bilježenje uređivačkog postupka"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Neispravan format slike logotipa zaglavlja. Prihvaćeni formati su .gif, .jpg, ili .png."
+
+msgid "manager.setup.selectOne"
+msgstr "Izaberite"
+
+msgid "manager.statistics"
+msgstr "Statistike i izvještaji"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} novih)"
+
+msgid "manager.users"
+msgstr "Korisnici"
+
+msgid "plugins.categories.auth"
+msgstr "Autorizacijski dodaci"
+
+msgid "plugins.categories.blocks"
+msgstr "Blok dodaci"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Blok dodaci su adaptibilne komponente korisničkog sučelja."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Poveznički dodaci omogućuju izravan prijenos podataka prema vanjskim sustavima."
+
+msgid "plugins.categories.gateways"
+msgstr "Poveznički dodaci"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Dodaci za Unošenje/Iznošenje koriste se za prijenos sadržaja prema drugom sustavu ili iz drugog sustava."
+
+msgid "plugins.categories.importexport"
+msgstr "Dodaci za Unošenje/Iznošenje"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Dodaci za modele plaćanja implementiraju podršku za različite oblike on-line plaćanja."
+
+msgid "plugins.categories.paymethod"
+msgstr "Dodaci za plaćanje"
+
+msgid "plugins.categories.reports.description"
+msgstr "Dodaci za izvješća se koriste za generiranje raznih izvješća i izvadaka iz baze časopisa za potrebe uredništva."
+
+msgid "plugins.categories.reports"
+msgstr "Dodaci za izvješća"
+
+msgid "plugins.categories.themes.description"
+msgstr "Dodatci za stilske teme mijenjaju izgled sistema."
+
+msgid "plugins.categories.themes"
+msgstr "Dodatci za stilske teme"
+
+msgid "manager.reviewFormElements"
+msgstr "Stavke obrasca"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Dodaj izbor"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Ponuđeni odgovori (moguć odabir jednog ili više)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Odaberite tip stavke"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Kopiraj u:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Kreiraj novu stavku"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Izbornik s listom odgovora"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Uredi stavku obrasca"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Tip stavke"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Potrebno je odrediti tip stavke."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Stavka obrasca treba sadržavati pitanje."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Stavke recenzijskog obrasca nisu kreirane."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Izbor"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Stavka"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Ponuđeni odgovori (moguć odabir samo jednog)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Recenzenti moraju ispuniti ovu stavku"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Jedna riječ teksta"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Proizvoljna količina teksta"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Jedna linija teksta"
+
+msgid "manager.reviewForms"
+msgstr "Recenzijski obrasci"
+
+msgid "manager.reviewForms.completed"
+msgstr "Završeni"
+
+msgid "manager.reviewForms.create"
+msgstr "Kreiraj recenzijski obrazac"
+
+msgid "manager.reviewForms.description"
+msgstr "Opis i upute"
+
+msgid "manager.reviewForms.edit"
+msgstr "Recenzijski obrazac"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Recenzijskom obrascu nedostaje naslov."
+
+msgid "manager.reviewForms.inReview"
+msgstr "U recenziji"
+
+msgid "manager.reviewForms.list.description"
+msgstr "Ovdje se mogu kreirati specifični obrasci za recenzije koji će biti zadani recenzentima umjesto standardnog oblika koji sadrži dva tekstualna polja (\"za autora i urednika\" te \"za urednika\"). Različiti recenzijski obrasci mogu biti dodijeljeni pojedinim  rubrikama časopisa, a urednici imaju mogućnost određivanja koji će obrazac koristiti prilikom dodjeljivanja recenzijskog zaduženja. U svim slučajevima, urednici imaju mogućnost uključivanja sadržaja recenzija u korespondenciju s autorom."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Nema / Standardna recenzijska polja"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Nema kreiranih recenzijskih obrazaca."
+
+msgid "manager.reviewForms.preview"
+msgstr "Pregled obrasca"
+
+msgid "manager.reviewForms.title"
+msgstr "Naslov"

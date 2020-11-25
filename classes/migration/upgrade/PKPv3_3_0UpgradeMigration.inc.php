@@ -341,6 +341,16 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			->whereIn('new_file_id', $newFileIdsToDelete)
 			->delete();
 
+		// Remove all review round files that point to file ids
+		// that don't exist, so that the foreign key can be set
+		// up successfully.
+		// See: https://github.com/pkp/pkp-lib/issues/6337
+		Capsule::table('review_round_files as rrf')
+			->leftJoin('submission_files as sf', 'sf.file_id', '=', 'rrf.file_id')
+			->whereNotNull('rrf.file_id')
+			->whereNull('sf.file_id')
+			->delete();
+
 		// Update review round files
 		$rows = Capsule::table('review_round_files')->get();
 		foreach ($rows as $row) {

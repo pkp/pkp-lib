@@ -11,8 +11,7 @@
 <div id="{$notesListId}" class="pkp_notes_list">
 	{iterate from=notes item=note}
 		{assign var=noteId value=$note->getId()}
-		{assign var=noteViewStatus value=$note->markViewed($currentUserId)}
-		{include file="controllers/informationCenter/note.tpl" noteViewStatus=$noteViewStatus}
+		{include file="controllers/informationCenter/note.tpl"}
 	{/iterate}
 	{if $notes->wasEmpty()}
 		<p class="no_notes">{translate key="informationCenter.noNotes"}</p>

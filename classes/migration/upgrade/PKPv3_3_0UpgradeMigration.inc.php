@@ -137,8 +137,12 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		$this->_fixCapitalCustomBlockTitles();
 		$this->_createCustomBlockTitles();
 
+		// Remove item views related to submission files and notes,
+		// and convert the assoc_id to an integer
+		Capsule::table('item_views')
+			->where('assoc_type', '!=', ASSOC_TYPE_REVIEW_RESPONSE)
+			->delete();
 		Capsule::schema()->create('item_views', function (Blueprint $table) {
-			// Now that submission file IDs are not compound, convert item_views.assoc_id to single ID
 			$table->bigInteger('assoc_id')->change();
 		});
 	}

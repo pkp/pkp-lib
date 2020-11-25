@@ -136,16 +136,6 @@ class Note extends DataObject {
 	function setAssocId($assocId) {
 		$this->setData('assocId', $assocId);
 	}
-
-	/**
-	 * Mark a note viewed.
-	 * @param $userId int
-	 * @return int RECORD_VIEW_RESULT_...
-	 */
-	function markViewed($userId) {
-		$viewsDao = DAORegistry::getDAO('ViewsDAO'); /* @var $viewsDao ViewsDAO */
-		return $viewsDao->recordView(ASSOC_TYPE_NOTE, $this->getId(), $userId);
-	}
 }
 
 

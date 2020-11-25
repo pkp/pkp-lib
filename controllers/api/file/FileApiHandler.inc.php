@@ -167,13 +167,6 @@ class FileApiHandler extends Handler {
 	 * @return string
 	 */
 	function recordDownload($args, $request) {
-		$submissionFiles = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILES);
-
-		foreach ($submissionFiles as $submissionFile) {
-			Services::get('submissionFile')->recordView($submissionFile);
-			unset($submissionFile);
-		}
-
 		return $this->enableLinkAction($args, $request);
 	}
 

@@ -712,6 +712,30 @@ msgstr "Send a copy to this email address"
 msgid "manager.setup.notifications.description"
 msgstr "Authors are automatically sent an email acknowledging their submission. You may have copies of this email sent to the following:"
 
+msgid "manager.setup.notifyUsers"
+msgstr "Notify"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Select the users who should receive your email notification."
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Send a copy of this email to me at {$email}."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Send Email"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr "You are about to send an email to {$total} users. Are you sure you want to send this email?"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr "Sending the email. Please do not browse away until sending is complete."
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Email was successfully sent to all recipients."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Send another email"
+
 msgid "manager.setup.openAccessPolicy"
 msgstr "Open Access Policy"
 

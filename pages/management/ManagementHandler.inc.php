@@ -376,13 +376,27 @@ class ManagementHandler extends Handler {
 		$dispatcher = $request->getDispatcher();
 
 		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+		$notifyUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_email');
+		$progressUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_email/{queueId}');
+		$userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId());
 
 		$userAccessForm = new \APP\components\forms\context\UserAccessForm($apiUrl, $context);
+		$notifyUsersForm = new \PKP\components\forms\context\PKPNotifyUsersForm($notifyUrl, $userGroups);
+
+		$templateMgr->assign([
+			'pageComponent' => 'AccessPage',
+		]);
+
+		$templateMgr->setConstants([
+			'FORM_NOTIFY_USERS',
+		]);
 
 		$templateMgr->setState([
 			'components' => [
 				FORM_USER_ACCESS => $userAccessForm->getConfig(),
+				FORM_NOTIFY_USERS => $notifyUsersForm->getConfig(),
 			],
+			'progressUrl' => $progressUrl,
 		]);
 
 		$templateMgr->assign('pageTitle', __('navigation.access'));

@@ -29,6 +29,18 @@ msgstr "The requested URL was not recognized."
 msgid "api.announcements.404.announcementNotFound"
 msgstr "The announcement you requested was not found."
 
+msgid "api.emails.400.missingBody"
+msgstr "You must include an email to be sent."
+
+msgid "api.emails.400.missingSubject"
+msgstr "You must provide a subject for the email."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "You must indicate the user roles that should receive this email."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr "You are not allowed to send an email to users in or more of the selected roles."
+
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "The email template you requested was not found."
 

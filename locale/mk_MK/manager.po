@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-10-21 11:37+0000\n"
+"PO-Revision-Date: 2020-11-17 22:51+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
@@ -1250,3 +1250,97 @@ msgstr "Деинсталирано е локално {$locale}."
 
 msgid "notification.localeInstalled"
 msgstr "Сите избрани локализации се инсталирани и активирани."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Мора да дефинирате ниво на дозвола."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Мора да определите уникатна кратенка за улогата."
+
+msgid "settings.roles.uniqueName"
+msgstr "Мора да зададете уникатно име за улогата."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Мора да дефинирате кратенка за улогата."
+
+msgid "settings.roles.nameRequired"
+msgstr "Мора да дефинирате име на улогата"
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Ја отстранувате оваа улога од овој контекст. Оваа операција исто така ќе ги "
+"избрише поврзаните поставки и сите задачи на корисниците на оваа улога. Дали "
+"сакате да продолжите?"
+
+msgid "settings.roles.from"
+msgstr "Ниво на дозволи"
+
+msgid "settings.roles.roleDetails"
+msgstr "Детали за улогата"
+
+msgid "settings.roles.stages"
+msgstr "Чекори"
+
+msgid "settings.roles.assignedStages"
+msgstr "Доделени чекори"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Кратенка"
+
+msgid "settings.roles.roleName"
+msgstr "Име на улогата"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Оваа улога е дозволено само да препорача одлука за рецензија и ќе бара "
+"овластен уредник да запише конечна одлука."
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Дозволи корисниците самии да се регистрираат"
+
+msgid "settings.roles.showTitles"
+msgstr "Покажете наслов на улога во списокот на соработници"
+
+msgid "settings.roles.roleOptions"
+msgstr "Опции за улога"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Валута"
+
+msgid "manager.paymentMethod.method"
+msgstr "Метод за плаќање"
+
+msgid "manager.paymentMethod.none"
+msgstr "Не е избран метод за плаќање"
+
+msgid "manager.paymentMethod.title"
+msgstr "Методи за плаќање"
+
+msgid "manager.paymentMethod"
+msgstr "Плаќања"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Додадете прилагодени HTML-ознаки, познати и како мета-ознаки, што сакате да "
+"ги вметнете во главата на секоја страница. Консултирајте се со технички "
+"советник пред да додадете ознаки тука."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Прилагодени ознаки"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Внесете јавни услови за лиценцирање што сакате да ги прикажете заедно со "
+"објавениот труд."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Услови на лиценцата"
+
+msgid "manager.distribution.license.other"
+msgstr "Друга URL на лиценцата"
+
+msgid "manager.distribution.license.success"
+msgstr "Деталите за лиценцата се ажурирани. "
+
+msgid "manager.distribution.license"
+msgstr "Лиценца"

@@ -84,6 +84,20 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 		return true;
 	}
 
+	/**
+	 * @copydoc Plugin::getCanEnable()
+	 */
+	function getCanEnable() {
+		return false;
+	}
+
+	/**
+	 * @copydoc Plugin::getCanDisable()
+	 */
+	function getCanDisable() {
+		return false;
+	}
+
 
 	//
 	// Public methods.

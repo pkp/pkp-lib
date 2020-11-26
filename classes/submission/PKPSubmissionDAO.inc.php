@@ -356,7 +356,7 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 			FROM	submissions s
 				LEFT JOIN publications p ON s.current_publication_id = p.publication_id
 				LEFT JOIN publication_settings ps ON p.publication_id = ps.publication_id'
-				. ($issueId ? ' LEFT JOIN publication_settings psi ON p.publication_id = psi.publication_id AND psi.setting_name = \'issueId\'' : '')
+				. ($issueId ? ' LEFT JOIN publication_settings psi ON p.publication_id = psi.publication_id AND psi.setting_name = \'issueId\' AND psi.locale = \'\'' : '')
 				. ($pubIdType != null?' LEFT JOIN publication_settings pspidt ON (p.publication_id = pspidt.publication_id)':'')
 				. ($title != null?' LEFT JOIN publication_settings pst ON (p.publication_id = pst.publication_id)':'')
 				. ($author != null?' LEFT JOIN authors au ON (p.publication_id = au.publication_id)

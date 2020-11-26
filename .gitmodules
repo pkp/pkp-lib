@@ -12,7 +12,7 @@
 	url = https://github.com/pkp/tinymce.git
 [submodule "docs/manual"]
 	path = docs/manual
-	url = https://github.com/pkp/ojs-user-guide
+	url = https://github.com/pkp/ops-user-guide
 [submodule "plugins/generic/googleAnalytics"]
 	path = plugins/generic/googleAnalytics
 	url = https://github.com/pkp/googleAnalytics.git

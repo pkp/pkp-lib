@@ -2,14 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2020-01-30T17:12:45+00:00\n"
+"PO-Revision-Date: 2020-11-27 10:51+0000\n"
+"Last-Translator: rl <biuro@fimagis.pl>\n"
+"Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"pl_PL/>\n"
+"Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-01-30T17:12:45+00:00\n"
-"PO-Revision-Date: 2020-01-30T17:12:45+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr "Zapytanie odrzucone. Być może czas logowania minął. Przeładuj stronę i spróbuj ponownie."
@@ -52,3 +56,60 @@ msgstr "Zapytanie nie jest poprawne. Data początkowa nie może być późniejsz
 
 msgid "api.stats.400.wrongTimeSegmentDaily"
 msgstr "Zapytanie nie jest poprawne. Funkcja \"codzienny\" może być używana razem z zakresem data (data początkowa i data końcowa) w okresie ostatnich 90 dni."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr ""
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr ""
+
+msgid "api.files.400.noUpload"
+msgstr ""
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr ""
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+
+msgid "api.files.400.uploadFailed"
+msgstr ""
+
+msgid "api.publication.403.alreadyPublished"
+msgstr ""
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr ""
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr ""
+
+msgid "api.files.400.fileSize"
+msgstr ""
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr ""
+
+msgid "api.files.400.config"
+msgstr ""
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr ""

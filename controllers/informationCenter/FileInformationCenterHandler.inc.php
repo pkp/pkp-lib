@@ -217,8 +217,8 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		$templateMgr = TemplateManager::getManager($request);
 
 		// Get the latest history item to display in the header
-		$submissionEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /* @var $submissionEventLogDao SubmissionFileEventLogDAO */
-		$fileEvents = $submissionEventLogDao->getById($this->submissionFile->getId());
+		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /* @var $submissionFileEventLogDao SubmissionFileEventLogDAO */
+		$fileEvents = $submissionFileEventLogDao->getBySubmissionFileId($this->submissionFile->getId());
 		$lastEvent = $fileEvents->next();
 		if(isset($lastEvent)) {
 			$templateMgr->assign('lastEvent', $lastEvent);

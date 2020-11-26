@@ -91,7 +91,7 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 	protected function loadData($request, $filter = null) {
 		$submissionFile = $this->getSubmissionFile();
 		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /* @var $submissionFileEventLogDao SubmissionFileEventLogDAO */
-		$eventLogEntries = $submissionFileEventLogDao->getById(
+		$eventLogEntries = $submissionFileEventLogDao->getBySubmissionFileId(
 			$submissionFile->getId()
 		);
 		$eventLogEntries = $eventLogEntries->toArray();

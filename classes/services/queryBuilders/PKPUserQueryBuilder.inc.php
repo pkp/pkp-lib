@@ -37,6 +37,12 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 	/** @var array list of role ids */
 	protected $roleIds = null;
 
+	/** @var array list of user group ids */
+	protected $userGroupIds = null;
+
+	/** @var array list of user ids */
+	protected $userIds = [];
+
 	/** @var int Assigned as editor to this category id */
 	protected $assignedToCategoryId = null;
 
@@ -151,6 +157,28 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 	}
 
 	/**
+	 * Set user groups filter
+	 *
+	 * @param array $userGroupIds
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function filterByUserGroupIds(array $userGroupIds) {
+		$this->userGroupIds = $userGroupIds;
+		return $this;
+	}
+
+	/**
+	 * Set user ID filter
+	 *
+	 * @param array $userIds
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function filterByUserIds(array $userIds) {
+		$this->userIds = $userIds;
+		return $this;
+	}
+
+	/**
 	 * Limit results to users assigned as editors to this category
 	 *
 	 * @param $categoryId int
@@ -214,6 +242,9 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 	/**
 	 * Include selected users
 	 *
+	 * This will include a user even if they do not match
+	 * the query conditions.
+	 *
 	 * @param $userIds array
 	 *
 	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
@@ -225,6 +256,9 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 
 	/**
 	 * Exclude selected users
+	 *
+	 * This will exclude a user even if they match all of the
+	 * query conditions.
 	 *
 	 * @param $userIds array
 	 *
@@ -454,6 +488,16 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 			$q->whereIn('ug.role_id', $this->roleIds);
 		}
 
+		// user groups
+		if (!empty($this->userGroupIds)) {
+			$q->whereIn('ug.user_group_id', $this->userGroupIds);
+		}
+
+		// user ids
+		if (!empty($this->userIds)) {
+			$q->whereIn('u.user_id', $this->userIds);
+		}
+
 		// Exclude users
 		if (!is_null($this->excludeUsers)) {
 			$excludeUsers = $this->excludeUsers;
@@ -621,7 +665,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 			$q->offset($this->offset);
 		}
 
-		// Section assignments 
+		// Section assignments
 		if (!is_null($this->assignedToSectionId)) {
 			$sectionId = $this->assignedToSectionId;
 

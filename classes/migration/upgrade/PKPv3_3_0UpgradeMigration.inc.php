@@ -134,6 +134,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 
 		// pkp/pkp-lib#6057 Submission files refactor
 		$this->_migrateSubmissionFiles();
+
 		$this->_fixCapitalCustomBlockTitles();
 		$this->_createCustomBlockTitles();
 
@@ -144,6 +145,18 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			->delete();
 		Capsule::schema()->table('item_views', function (Blueprint $table) {
 			$table->bigInteger('assoc_id')->change();
+		});
+
+		// pkp/pkp-lib#4017 and pkp/pkp-lib#4622
+		Capsule::schema()->create('jobs', function (Blueprint $table) {
+			$table->bigIncrements('id');
+			$table->string('queue');
+			$table->longText('payload');
+			$table->unsignedTinyInteger('attempts');
+			$table->unsignedInteger('reserved_at')->nullable();
+			$table->unsignedInteger('available_at');
+			$table->unsignedInteger('created_at');
+			$table->index(['queue', 'reserved_at']);
 		});
 	}
 

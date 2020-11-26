@@ -194,6 +194,56 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 				'collation' => 'utf8_general_ci',
 			]);
 			$capsule->setAsGlobal();
+
+			// Set up Laravel queue handling
+			$laravelContainer = new Illuminate\Container\Container();
+			Registry::set('laravelContainer', $laravelContainer);
+			$laravelContainer->bind('exception.handler', function () {
+				return new class implements Illuminate\Contracts\Debug\ExceptionHandler {
+					public function shouldReport(Throwable $e) {
+						return true;
+					}
+
+					public function report(Throwable $e) {
+						error_log((string) $e);
+					}
+
+					public function render($request, Throwable $e) {
+						return null;
+					}
+
+					public function renderForConsole($output, Throwable $e) {
+						echo (string) $e;
+					}
+				};
+			});
+
+			(new Illuminate\Bus\BusServiceProvider($laravelContainer))->register();
+			(new Illuminate\Events\EventServiceProvider($laravelContainer))->register();
+
+			$laravelContainer->instance('Illuminate\Contracts\Events\Dispatcher', new \Illuminate\Events\Dispatcher($laravelContainer));
+			$laravelContainer->instance('Illuminate\Contracts\Container\Container', $laravelContainer);
+			$queue = new Illuminate\Queue\Capsule\Manager($laravelContainer);
+
+			// Synchronous (immediate) queue
+			$queue->addConnection(['driver' => 'sync']);
+
+			// Persistent queue
+			$connection = Capsule::schema()->getConnection();
+			$resolver = new \Illuminate\Database\ConnectionResolver(['default' => $connection]);
+			$manager = $queue->getQueueManager();
+			$laravelContainer['queue'] = $queue->getQueueManager();
+			$manager->addConnector('database', function () use ($resolver) {
+				return new Illuminate\Queue\Connectors\DatabaseConnector($resolver);
+			});
+			$queue->addConnection([
+				'driver' => 'database',
+				'table' => 'jobs',
+				'connection' => 'default',
+				'queue' => 'default',
+			], 'persistent');
+
+			$queue->setAsGlobal();
 		}
 
 		// Register custom autoloader functions for namespaces

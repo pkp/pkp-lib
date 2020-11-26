@@ -902,7 +902,6 @@ class PKPLocale {
 	}
 }
 
-
 /**
  * Wrapper around PKPLocale::translate().
  *
@@ -923,3 +922,4 @@ class PKPLocale {
 function __($key, $params = array(), $locale = null, $missingKeyHandler = array('PKPLocale', 'addOctothorpes')) {
 	return AppLocale::translate($key, $params, $locale, $missingKeyHandler);
 }
+

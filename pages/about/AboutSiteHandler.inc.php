@@ -34,13 +34,16 @@ class AboutSiteHandler extends Handler {
 		$version = $versionDao->getCurrentVersion();
 
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('appVersion', $version->getVersionString(false));
-
-		foreach (array(AppLocale::getLocale(), $primaryLocale = AppLocale::getPrimaryLocale(), 'en_US') as $locale) {
-			$pubProcessFile = 'locale/'.$locale.'/pubprocesslarge.png';
-			if (file_exists($pubProcessFile)) break;
-		}
-		$templateMgr->assign('pubProcessFile', $pubProcessFile);
+		$templateMgr->assign([
+			'appVersion' => $version->getVersionString(false),
+			'contactUrl' => $request->getDispatcher()->url(
+				Application::get()->getRequest(),
+				ROUTE_PAGE,
+				null,
+				'about',
+				'contact',
+			),
+		]);
 
 		$templateMgr->display('frontend/pages/aboutThisPublishingSystem.tpl');
 	}

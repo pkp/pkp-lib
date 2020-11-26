@@ -167,6 +167,14 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		Registry::set('system.debug.notes', $notes);
 
 		if (Config::getVar('general', 'installed')) {
+			$laravelContainer = new Illuminate\Container\Container();
+			Registry::set('laravelContainer', $laravelContainer);
+			(new Illuminate\Bus\BusServiceProvider($laravelContainer))->register();
+			(new Illuminate\Events\EventServiceProvider($laravelContainer))->register();
+			$eventDispatcher = new \Illuminate\Events\Dispatcher($laravelContainer);
+			$laravelContainer->instance('Illuminate\Contracts\Events\Dispatcher', $eventDispatcher);
+			$laravelContainer->instance('Illuminate\Contracts\Container\Container', $laravelContainer);
+
 			// Map valid config options to Illuminate database drivers
 			$driver = strtolower(Config::getVar('database', 'driver'));
 			if (substr($driver, 0, 8) === 'postgres') {
@@ -193,11 +201,14 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 				'charset'   => $charset,
 				'collation' => 'utf8_general_ci',
 			]);
+			$capsule->setEventDispatcher($eventDispatcher);
 			$capsule->setAsGlobal();
+			if (Config::getVar('database', 'debug')) Capsule::listen(function($query) {
+				error_log("Database query\n$query->sql\n" . json_encode($query->bindings));//\n Bindings: " . print_r($query->bindings, true));
+			});
+
 
 			// Set up Laravel queue handling
-			$laravelContainer = new Illuminate\Container\Container();
-			Registry::set('laravelContainer', $laravelContainer);
 			$laravelContainer->bind('exception.handler', function () {
 				return new class implements Illuminate\Contracts\Debug\ExceptionHandler {
 					public function shouldReport(Throwable $e) {
@@ -218,11 +229,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 				};
 			});
 
-			(new Illuminate\Bus\BusServiceProvider($laravelContainer))->register();
-			(new Illuminate\Events\EventServiceProvider($laravelContainer))->register();
-
-			$laravelContainer->instance('Illuminate\Contracts\Events\Dispatcher', new \Illuminate\Events\Dispatcher($laravelContainer));
-			$laravelContainer->instance('Illuminate\Contracts\Container\Container', $laravelContainer);
 			$queue = new Illuminate\Queue\Capsule\Manager($laravelContainer);
 
 			// Synchronous (immediate) queue

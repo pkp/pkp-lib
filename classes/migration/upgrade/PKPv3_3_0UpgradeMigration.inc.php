@@ -142,7 +142,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		Capsule::table('item_views')
 			->where('assoc_type', '!=', ASSOC_TYPE_REVIEW_RESPONSE)
 			->delete();
-		Capsule::schema()->create('item_views', function (Blueprint $table) {
+		Capsule::schema()->table('item_views', function (Blueprint $table) {
 			$table->bigInteger('assoc_id')->change();
 		});
 	}

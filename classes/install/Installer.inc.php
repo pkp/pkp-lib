@@ -406,7 +406,10 @@ class Installer {
 					$this->migrations[] = $migration;
 				} catch (Exception $e) {
 					// Log an error message
-					$this->setError(INSTALLER_ERROR_DB, $e->getMessage());
+					$this->setError(
+						INSTALLER_ERROR_DB,
+						Config::getVar('debug', 'show_stacktrace') ? (string) $e : $e->getMessage()
+					);
 
 					// Back out already-executed migrations.
 					while ($previousMigration = array_pop($this->migrations)) {

@@ -703,7 +703,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		if (is_null($value)) {
 			$oldPublication = Services::get('publication')->get($publication->getId());
 			$oldValue = $oldPublication->getData($settingName, $localeKey);
-			$fileName = $oldValue['uploadName'];
+			$fileName = $oldValue['uploadName'] ?? null;
 			if ($fileName) {
 				// File may be in use by other publications
 				$fileInUse = false;

@@ -7,9 +7,12 @@
  *
  * List of operations this plugin can perform
  *}
-{strip}
-{include file="common/header.tpl" pageTitle="plugins.importexport.crossref.displayName"}
-{/strip}
+{extends file="layouts/backend.tpl"}
+
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{$pageTitle}
+	</h1>
 
 {if !empty($configurationErrors) || !$exportArticles}
 	{assign var="allowExport" value=false}
@@ -85,4 +88,4 @@
 	{/if}
 </div>
 
-{include file="common/footer.tpl"}
+{/block}

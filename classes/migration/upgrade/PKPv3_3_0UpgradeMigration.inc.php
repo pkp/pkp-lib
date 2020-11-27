@@ -22,9 +22,13 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 	 * @return void
 	 */
 	public function up() {
+		if (Capsule::schema()->hasColumn('submissions', 'locale')) {
+			Capsule::schema()->table('submissions', function (Blueprint $table) {
+				// pkp/pkp-lib#3572 Remove OJS 2.x upgrade tools (OPS doesn't have this)
+				$table->dropColumn('locale');
+			});
+		}
 		Capsule::schema()->table('submissions', function (Blueprint $table) {
-			// pkp/pkp-lib#3572 Remove OJS 2.x upgrade tools
-			$table->dropColumn('locale');
 			// pkp/pkp-lib#6285 submissions.section_id in OMP appears only from 3.2.1
 			if (Capsule::schema()->hasColumn($table->getTable(), 'section_id')) {
 				// pkp/pkp-lib#2493 Remove obsolete columns
@@ -35,14 +39,18 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			// pkp/pkp-lib#6096 DB field type TEXT is cutting off long content
 			$table->mediumText('setting_value')->nullable()->change();
 		});
-		Capsule::schema()->table('authors', function (Blueprint $table) {
-			// pkp/pkp-lib#2493 Remove obsolete columns
-			$table->dropColumn('submission_id');
-		});
-		Capsule::schema()->table('author_settings', function (Blueprint $table) {
-			// pkp/pkp-lib#2493 Remove obsolete columns
-			$table->dropColumn('setting_type');
-		});
+		if (Capsule::schema()->hasColumn('authors', 'submission_id')) {
+			Capsule::schema()->table('authors', function (Blueprint $table) {
+				// pkp/pkp-lib#2493 Remove obsolete columns
+				$table->dropColumn('submission_id');
+			});
+		}
+		if (Capsule::schema()->hasColumn('author_settings', 'setting_type')) {
+			Capsule::schema()->table('author_settings', function (Blueprint $table) {
+				// pkp/pkp-lib#2493 Remove obsolete columns
+				$table->dropColumn('setting_type');
+			});
+		}
 		Capsule::schema()->table('announcements', function (Blueprint $table) {
 			// pkp/pkp-lib#5865 Change announcement expiry format in database
 			$table->date('date_expire')->change();

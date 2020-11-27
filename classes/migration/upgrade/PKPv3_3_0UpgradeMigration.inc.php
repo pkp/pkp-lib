@@ -70,45 +70,38 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			});
 		}
 
+		// Use nulls instead of 0 for assoc_type/id in user_settings
+		Capsule::table('user_settings')->where('assoc_type', 0)->update(['assoc_type' => null]);
+		Capsule::table('user_settings')->where('assoc_id', 0)->update(['assoc_id' => null]);
+
 		// pkp/pkp-lib#6093 Don't allow nulls (previously an upgrade workaround)
-		Capsule::schema()->table('user_settings', function (Blueprint $table) {
-			$table->bigInteger('assoc_type')->default(0)->change();
-			$table->bigInteger('assoc_id')->default(0)->change();
-		});
 		Capsule::schema()->table('announcement_types', function (Blueprint $table) {
-			$table->bigInteger('assoc_type')->change();
+			$table->bigInteger('assoc_type')->nullable(false)->change();
 		});
 		Capsule::schema()->table('email_templates', function (Blueprint $table) {
-			$table->bigInteger('context_id')->default(0)->change();
+			$table->bigInteger('context_id')->default(0)->nullable(false)->change();
 		});
 		Capsule::schema()->table('genres', function (Blueprint $table) {
-			$table->bigInteger('seq')->change();
-			$table->smallInteger('supplementary')->default(0)->change();
+			$table->bigInteger('seq')->nullable(false)->change();
+			$table->smallInteger('supplementary')->default(0)->nullable(false)->change();
 		});
 		Capsule::schema()->table('event_log', function (Blueprint $table) {
-			$table->bigInteger('assoc_type')->change();
-			$table->bigInteger('assoc_id')->change();
+			$table->bigInteger('assoc_type')->nullable(false)->change();
+			$table->bigInteger('assoc_id')->nullable(false)->change();
 		});
 		Capsule::schema()->table('email_log', function (Blueprint $table) {
-			$table->bigInteger('assoc_type')->change();
-			$table->bigInteger('assoc_id')->change();
+			$table->bigInteger('assoc_type')->nullable(false)->change();
+			$table->bigInteger('assoc_id')->nullable(false)->change();
 		});
 		Capsule::schema()->table('notes', function (Blueprint $table) {
-			$table->bigInteger('assoc_type')->change();
-			$table->bigInteger('assoc_id')->change();
-		});
-		Capsule::schema()->table('review_forms', function (Blueprint $table) {
-			$table->bigInteger('assoc_type')->change();
-			$table->bigInteger('assoc_id')->change();
+			$table->bigInteger('assoc_type')->nullable(false)->change();
+			$table->bigInteger('assoc_id')->nullable(false)->change();
 		});
 		Capsule::schema()->table('review_assignments', function (Blueprint $table) {
-			$table->bigInteger('review_round_id')->change();
+			$table->bigInteger('review_round_id')->nullable(false)->change();
 		});
 		Capsule::schema()->table('authors', function (Blueprint $table) {
-			$table->bigInteger('publication_id')->change();
-		});
-		Capsule::schema()->table('edit_decisions', function (Blueprint $table) {
-			$table->bigInteger('review_round_id')->change();
+			$table->bigInteger('publication_id')->nullable(false)->change();
 		});
 		Capsule::connection()->unprepared('UPDATE review_assignments SET review_form_id=NULL WHERE review_form_id=0');
 

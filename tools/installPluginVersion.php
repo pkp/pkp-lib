@@ -75,7 +75,7 @@ class InstallPluginVersionTool extends CommandLineTool {
 		$result = true;
 		$param = [&$installer, &$result];
 
-		if ($plugin->getInstallSchemaFile()) {
+		if ($plugin->getInstallSchemaFile() || $plugin->getInstallMigration()) {
 			$plugin->updateSchema('Installer::postInstall', $param);
 		}
 		if ($plugin->getInstallSitePluginSettingsFile()) {

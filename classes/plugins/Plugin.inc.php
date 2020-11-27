@@ -91,26 +91,26 @@ abstract class Plugin {
 		$this->pluginPath = $path;
 		$this->pluginCategory = $category;
 		if ($this->getInstallSchemaFile() || $this->getInstallMigration()) {
-			HookRegistry::register ('Installer::postInstall', array($this, 'updateSchema'));
+			HookRegistry::register ('Installer::postInstall', [$this, 'updateSchema']);
 		}
 		if ($this->getInstallSitePluginSettingsFile()) {
-			HookRegistry::register ('Installer::postInstall', array($this, 'installSiteSettings'));
+			HookRegistry::register ('Installer::postInstall', [$this, 'installSiteSettings']);
 		}
 		if ($this->getInstallControlledVocabFiles()) {
-			HookRegistry::register ('Installer::postInstall', array($this, 'installControlledVocabs'));
+			HookRegistry::register ('Installer::postInstall', [$this, 'installControlledVocabs']);
 		}
 		if ($this->getInstallEmailTemplatesFile()) {
-			HookRegistry::register ('Installer::postInstall', array($this, 'installEmailTemplates'));
-			HookRegistry::register ('PKPLocale::installLocale', array($this, 'installLocale'));
+			HookRegistry::register ('Installer::postInstall', [$this, 'installEmailTemplates']);
+			HookRegistry::register ('PKPLocale::installLocale', [$this, 'installLocale']);
 		}
 		if ($this->getInstallEmailTemplateDataFile()) {
-			HookRegistry::register ('Installer::postInstall', array($this, 'installEmailTemplateData'));
+			HookRegistry::register ('Installer::postInstall', [$this, 'installEmailTemplateData']);
 		}
 		if ($this->getContextSpecificPluginSettingsFile()) {
-			HookRegistry::register ('Context::add', array($this, 'installContextSpecificSettings'));
+			HookRegistry::register ('Context::add', [$this, 'installContextSpecificSettings']);
 		}
 
-		HookRegistry::register ('Installer::postInstall', array($this, 'installFilters'));
+		HookRegistry::register ('Installer::postInstall', [$this, 'installFilters']);
 
 		$this->_registerTemplateResource();
 		return true;

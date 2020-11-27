@@ -55,7 +55,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 		$this->addLocaleData();
-		
+
 		HookRegistry::register('AcronPlugin::parseCronTab', array($this, 'callbackParseCronTab'));
 		foreach ($this->_getDAOs() as $dao) {
 			if ($dao instanceof SchemaDAO) {
@@ -401,7 +401,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin {
 		foreach ($this->_getObjectAdditionalSettings() as $fieldName) {
 			$additionalFields[] = $fieldName;
 		}
-		
+
 		return false;
 	}
 
@@ -453,7 +453,6 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin {
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$articles = $submissionDao->getExportable(
 			$context->getId(),
-			null,
 			null,
 			null,
 			null,

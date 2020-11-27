@@ -80,6 +80,9 @@ lib/pkp/lib/vendor/ezyang/htmlpurifier/smoketests/					\
 lib/pkp/lib/vendor/pimple/pimple/ext/pimple/tests/					\
 lib/pkp/lib/vendor/robloach/component-installer/tests/					\
 lib/pkp/lib/vendor/phpmailer/phpmailer/test/						\
+lib/pkp/lib/vendor/swiftmailer/swiftmailer/tests/					\
+lib/pkp/lib/vendor/dragonmantank/cron-expression/tests/					\
+lib/pkp/lib/vendor/cweagans/composer-patches/tests/					\
 node_modules										\
 .editorconfig										\
 babel.config.js										\

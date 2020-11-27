@@ -97,6 +97,11 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 		$this->addAuthors($doc, $entityNode, $entity);
 		$this->addRepresentations($doc, $entityNode, $entity);
 
+		$citationsListNode = $this->createCitationsNode($doc, $deployment, $entity);
+		if ($citationsListNode->hasChildNodes() || $citationsListNode->hasAttributes()) {
+			$entityNode->appendChild($citationsListNode);
+		}
+
 		return $entityNode;
 	}
 
@@ -278,6 +283,27 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	 */
 	function getFiles($representation) {
 		assert(false); // To be overridden by subclasses
+	}
+
+	/**
+	 * Create and return a Citations node.
+	 * @param $doc DOMDocument
+	 * @param $deployment
+	 * @param $publication Publication
+	 * @return DOMElement
+	 */
+	private function createCitationsNode($doc, $deployment, $publication) {
+		$citationDao = DAORegistry::getDAO('CitationDAO'); /** @var $citationDao CitationDAO */
+
+		$nodeCitations = $doc->createElementNS($deployment->getNamespace(), 'citations');
+		$submissionCitations = $citationDao->getByPublicationId($publication->getId())->toAssociativeArray();
+
+		foreach ($submissionCitations as $submissionCitation) {
+			$rawCitation = $submissionCitation->getRawCitation();
+			$nodeCitations->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'citation', htmlspecialchars($rawCitation, ENT_COMPAT, 'UTF-8')));
+		}
+
+		return $nodeCitations;
 	}
 }
 

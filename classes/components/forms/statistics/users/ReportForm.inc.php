@@ -21,14 +21,13 @@ class ReportForm extends FormComponent {
 	 * @param string $action URL to submit the form to
 	 * @param \Context $context The context
 	 */
-	public function __construct(string $action, \Context $context)
-	{
+	public function __construct(string $action, \Context $context) {
 		$this->action = $action;
 		$this->id = 'reportForm';
 		$this->method = 'POST';
 
-		$this->addPage(array('id' => 'default', 'submitButton' => array('label' => __('common.export'))));
-		$this->addGroup(array('id' => 'default', 'pageId' => 'default'));
+		$this->addPage(['id' => 'default', 'submitButton' => array('label' => __('common.export'))]);
+		$this->addGroup(['id' => 'default', 'pageId' => 'default']);
 
 		$userGroups = iterator_to_array(\DAORegistry::getDAO('UserGroupDAO')->getByContextId()->toIterator());
 		$this->addField(new FieldOptions('userGroupIds', [

@@ -329,8 +329,7 @@ class PKPStatsHandler extends Handler {
 	 * @param array $args
 	 * @param Request $request
 	 */
-	public function users(array $args, \Request $request): void
-	{
+	public function users(array $args, \Request $request) : void {
 		$dispatcher = $request->getDispatcher();
 		$context = $request->getContext();
 

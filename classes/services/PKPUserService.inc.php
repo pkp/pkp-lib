@@ -136,7 +136,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			->excludeUsers($args['excludeUsers'])
 			->filterByStatus($args['status'])
 			->searchPhrase($args['searchPhrase'])
-			->filterByUserGroup($args['userGroupIds']);
+			->filterByUserGroupIds($args['userGroupIds']);
 
 		if (isset($args['count'])) {
 			$userListQB->limitTo($args['count']);
@@ -621,8 +621,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 *		@option int[] userGroupIds List of user groups (all groups by default)
 	 * @return Report
 	 */
-	public function getReport(array $args): Report
-	{
+	public function getReport(array $args) : Report {
 		$dataSource = \Services::get('user')->getMany([
 			'userGroupIds' => $args['userGroupIds'] ?? null,
 			'contextId' => $args['contextId']

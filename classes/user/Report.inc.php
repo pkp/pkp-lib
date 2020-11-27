@@ -19,12 +19,6 @@
 namespace PKP\User;
 
 class Report {
-	/** @var array An array of mappings. Each mapping is an array with two elements where:
-	 * - First: string containing the column header
-	 * - Second: callable receiving an \User and returning a ?string
-	 */
-	private $_mappings = [];
-
 	/** @var iterable The report data source, should yield /User objects */
 	private $_dataSource;
 
@@ -32,68 +26,32 @@ class Report {
 	 * Constructor
 	 * @param iterable $dataSource The data source, should yield /User objects
 	 */
-	public function __construct(iterable $dataSource)
-	{
+	public function __construct(iterable $dataSource) {
 		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_COMMON);
 		$this->_dataSource = $dataSource;
-		$this->addMappings($this->_getDefaultMappings());
-		$this->addMappings($this->_getUserGroupMappings());
-	}
-
-	/**
-	 * Retrieves the data mappings
-	 * @return array A list of mappings
-	 */
-	public function getMappings(): array
-	{
-		return $this->_mappings;
-	}
-
-	/**
-	 * Replaces the data mappings
-	 * @param array $mappings A list of mappings
-	 * @return $this
-	 */
-	public function setMappings(array $mappings): self
-	{
-		$this->_mappings = $mappings;
-		return $this;
-	}
-
-	/**
-	 * Appends mappings
-	 * @param array $mappings A list of mappings
-	 * @return $this
-	 */
-	public function addMappings(array $mappings): self
-	{
-		array_push($this->_mappings, ...$mappings);
-		return $this;
+		
 	}
 
 	/**
 	 * Serializes the report to the given output
 	 * @param resource $output A ready to write stream
 	 */
-	public function serialize($output): void
-	{
+	public function serialize($output) : void {
 		// Adds BOM (byte order mark) to enforce the UTF-8 format
 		fwrite($output, "\xEF\xBB\xBF");
 
 		// Outputs column headings
 		fputcsv($output, array_map(
-			function(?string $heading): ?string
-			{
+			function(string $heading) : string {
 				return \PKPString::html2text($heading);
 			},
-			$this->getHeadings()
+			$this->_getHeadings()
 		));
 
 		// Outputs each user
 		foreach ($this->_dataSource as $user) {
 			fputcsv($output, array_map(
-				function (?string $data): ?string
-				{
+				function (?string $data) : ?string {
 					return \PKPString::html2text($data);
 				},
 				$this->_getDataRow($user)
@@ -105,137 +63,57 @@ class Report {
 	 * Retrieves the report headings
 	 * @return string[]
 	 */
-	public function getHeadings(): array
-	{
-		return array_map(
-			function (array $mapping): ?string
-			{
-				return reset($mapping);
-			},
-			$this->_mappings
-		);
+	private function _getHeadings() : array {
+		return [
+			__('common.id'),
+			__('user.givenName'),
+			__('user.familyName'),
+			__('user.email'),
+			__('user.phone'),
+			__('common.country'),
+			__('common.mailingAddress'),
+			__('user.dateRegistered'),
+			__('common.updated'),
+			...array_map(function($userGroup) {
+				return $userGroup->getLocalizedName();
+			}, $this->_getUserGroups())
+		];
 	}
 
 	/**
-	 * Retrieves a report data row
-	 * @param \User $user An user instance
+	 * Retrieves the report row
+	 * @param \User $user
 	 * @return string[]
 	 */
-	private function _getDataRow(\User $user): array
-	{
-		return array_map(
-			function (array $mapping) use ($user): ?string
-			{
-				return end($mapping)($user);
-			},
-			$this->_mappings
-		);
-	}
+	private function _getDataRow(\User $user) : array {
+		$userGroups = \Services::get('user')->getProperties($user, ['groups'], ['request' => \Application::get()->getRequest()])['groups'];
+		$groups = [];
+		foreach ($userGroups as ['id' => $id]) {
+			$groups[$id] = 0;
+		}
 
-	/**
-	 * Retrieves the default mappings
-	 * @return array
-	 */	
-	private function _getDefaultMappings(): array
-	{
 		return [
-			[
-				__('common.id'),
-				function (\User $user): ?string
-				{
-					return $user->getId();
-				}
-			],
-			[
-				__('user.givenName'),
-				function (\User $user): ?string
-				{
-					return $user->getLocalizedGivenName();
-				}
-			],
-			[
-				__('user.familyName'),
-				function (\User $user): ?string
-				{
-					return $user->getFamilyName(\AppLocale::getLocale());
-				}
-			],
-			[
-				__('user.email'),
-				function (\User $user): ?string
-				{
-					return $user->getEmail();
-				}
-			],
-			[
-				__('user.phone'),
-				function (\User $user): ?string
-				{
-					return $user->getPhone();
-				}
-			],
-			[
-				__('common.country'),
-				function (\User $user): ?string
-				{
-					return $user->getCountryLocalized();
-				}
-			],
-			[
-				__('common.mailingAddress'),
-				function (\User $user): ?string
-				{
-					return $user->getMailingAddress();
-				}
-			],
-			[
-				__('user.dateRegistered'),
-				function (\User $user): ?string
-				{
-					return $user->getDateRegistered();
-				}
-			],
-			[
-				__('common.updated'),
-				function (\User $user): ?string
-				{
-					return $user->getLocalizedData('dateProfileUpdated');
-				}
-			],
+			$user->getId(),
+			$user->getLocalizedGivenName(),
+			$user->getFamilyName(\AppLocale::getLocale()),
+			$user->getEmail(),
+			$user->getPhone(),
+			$user->getCountryLocalized(),
+			$user->getMailingAddress(),
+			$user->getDateRegistered(),
+			$user->getLocalizedData('dateProfileUpdated'),
+			...array_map(function($userGroup) use ($groups) {
+				return __(isset($groups[$userGroup->getId()]) ? 'common.yes' : 'common.no');
+			}, $this->_getUserGroups())
 		];
 	}
 
 	/**
-	 * Retrieves the user group mappings
+	 * Retrieves the user groups
 	 * @return array
 	 */
-	private function _getUserGroupMappings(): array
-	{
-		$mappings = [];
-		$cache = (object) [
-			'lastUserId' => null,
-			'groups' => null
-		];
-		foreach (\DAORegistry::getDAO('UserGroupDAO')->getByContextId()->toIterator() as $userGroup) {
-			$mappings[] = [
-				$userGroup->getLocalizedName(),
-				function (\User $user) use ($userGroup, $cache): string
-				{
-					if ($cache->lastUserId != $user->getId()) {
-						['groups' => $cache->groups] = \Services::get('user')->getProperties($user, ['groups'], ['request' => \Application::get()->getRequest()]);
-						$cache->lastUserId = $user->getId();
-					}
-			
-					foreach ($cache->groups as ['id' => $id]) {
-						if ($id == $userGroup->getId()) {
-							return __('common.yes');
-						}
-					}
-			
-					return __('common.no');
-				}
-			];
-		}
-		return $mappings;
+	private function _getUserGroups() : array {
+		static $cache = null;
+		return $cache ?? $cache = iterator_to_array(\DAORegistry::getDAO('UserGroupDAO')->getByContextId()->toIterator());
 	}
 }

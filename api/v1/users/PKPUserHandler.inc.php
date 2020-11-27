@@ -285,8 +285,7 @@ class PKPUserHandler extends APIHandler {
 	 * @param array $args
 	 * @return \APIResponse Response
 	 */
-	public function getReport(\Slim\Http\Request $slimRequest, \APIResponse $response, array $args): \APIResponse
-	{
+	public function getReport(\Slim\Http\Request $slimRequest, \APIResponse $response, array $args) : \APIResponse {
 		$request = $this->getRequest();
 
 		$context = $request->getContext();
@@ -319,9 +318,8 @@ class PKPUserHandler extends APIHandler {
 		\HookRegistry::call('API::users::user::report::params', [&$params, $slimRequest]);
 
 		$report = \Services::get('user')->getReport($params);
-		$output = fopen(tempnam(sys_get_temp_dir(), 'tmp'), 'w+');
+		$output = fopen('php://temp', 'w+');
 		$report->serialize($output);
-		fseek($output, 0);
 
 		return $response
 			->withHeader('Content-Type', 'text/comma-separated-values')

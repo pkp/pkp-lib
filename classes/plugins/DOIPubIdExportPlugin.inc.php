@@ -125,7 +125,6 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin {
 			$this->getPubIdType(),
 			null,
 			null,
-			null,
 			$this->getPluginSettingsPrefix(). '::' . DOI_EXPORT_REGISTERED_DOI,
 			null,
 			null

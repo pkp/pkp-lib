@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2020-07-20 18:12+0000\n"
+"PO-Revision-Date: 2020-11-27 10:51+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr_TR/>\n"
@@ -54,7 +54,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Lütfen son tarih için yıl bilgisinin yanı sıra son tarih için gün ve ay da belirleyiniz."
 
 msgid "manager.announcements.form.description"
-msgstr "Açıklama"
+msgstr "Duyuru"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Duyurunun tam metni."
@@ -1460,7 +1460,6 @@ msgstr "Bir hakem, değerlendirme tarihinden sonra aşağıdaki zaman (gün) iç
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Varsayılan İnceleme Son Başvuru Tarihleri"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Yükleme sırasında <button type=\"button\">\"Kör Hakemlik Sağlanma\"</button> "
@@ -2086,3 +2085,114 @@ msgstr "İnceleme ayarları güncellendi."
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/yıl)"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"{$id} numaralı makale dosyası, bir hakem atandığından veya açık bir tartışma "
+"olduğundan içe aktarılmayacak olduğundan atlandı."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Bu dosyaların alabileceği  üstveri türünü seçin. İndirilebilir PDF gibi "
+"makale dosyaları için belge seçilmelidir, böylece bu dosyalar makalenin "
+"üstverilerini devralır. Aksi takdirde, çoğu dosya türünü Tamamlayıcı İçerik "
+"olarak belirleyin. Sanat eseri, farklı atıf, altyazı ve lisanslama meta "
+"verileri gerektiren dosyalar için uygundur."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Dosya Ütverisi"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Bunlar, veri setleri ve araştırma materyalleri gibi tamamlayıcı dosyalardır "
+"ve makale dosyalarından ayrı olarak görüntülenecektir."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Bunlar, bir HTML dosyası tarafından görüntülenen resimler gibi bağımlı "
+"dosyalardır ve yayınlanan içerikle birlikte görüntülenmeyecektir."
+
+msgid "manager.setup.genres.label"
+msgstr "Dosya Türü"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Bu bölümü etkinleştirmek istediğinizden emin misiniz?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Bu bölümü devre dışı bırakmak istediğinizden emin misiniz?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Bu bölümü devre dışı bırakın ve buraya yeni makale gönderimlerinin "
+"yapılmasını engelleyin."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Özel"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Tarih & Saat (Kısa)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Tarih & Saat"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Saat"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Tarih (Kısa)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Tarih"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Tercih ettiğiniz tarih ve saat biçimini seçin. <a href='http://php.net/"
+"manual/en/function.strftime.php#refsect1-function.strftime-parameters'>Özel "
+"bir tarih ve saat formatı</a> için özel bir format girebilirsiniz."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Tarih ve Saat Formatı"
+
+msgid "manager.setup.dateTime"
+msgstr "Tarih & Saat"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Başka bir e-posta gönder"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-posta tüm alıcılara başarıyla gönderildi."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr "E-postayı gönderiliyor. Lütfen gönderme tamamlanana sayfayı kapatmayın."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"{$total} adet kullanıcıya bir e-posta göndermek üzeresiniz. E-postayı "
+"göndermek istediğinizden emin misiniz?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "E-postayı Gönder"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Bu e-postanın bir kopyasını {$email} adresine yani bana gönder."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "E-postanızı alması gereken kullanıcıları seçin."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Bildir"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Makale Gönderimini Devre Dışı Bırak"
+
+msgid "manager.people.signedInAs"
+msgstr "Şu anda {$username} olarak giriş yaptınız"
+
+msgid "manager.emails.resetComplete"
+msgstr "E-posta şablonu başarıyla sıfırlandı."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Varsayılan e-posta şablonları geri yüklendi."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Duyuruyu Sil"

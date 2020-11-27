@@ -34,6 +34,7 @@
 			$.pkp.pages.submission.SubmissionStep2FormHandler,
 			$.pkp.controllers.form.AjaxFormHandler);
 
+
 	/**
 	 * Public callback used to prevent buttons in the submission files
 	 * list panel from submitting the form.
@@ -50,6 +51,7 @@
 	 * are routed through this.submitForm() below.
 	 *
 	 * @param {Object} event
+	 * @return {boolean}
 	 */
 	$.pkp.pages.submission.SubmissionStep2FormHandler.prototype.checkSubmit =
 			function(event) {
@@ -57,6 +59,7 @@
 		event.stopPropagation();
 		return false;
 	};
+
 
 	/**
 	 * Check if the form submission was made by clicking on one of the
@@ -71,7 +74,7 @@
 	$.pkp.pages.submission.SubmissionStep2FormHandler.prototype.submitForm =
 			function(validator, formElement) {
 		var submitButton = formElement.querySelector('[id^="submitFormButton"]'),
-			cancelButton = formElement.querySelector('[id^="cancelFormButton"]');
+				cancelButton = formElement.querySelector('[id^="cancelFormButton"]');
 
 		if (validator.submitButton.id == submitButton.id ||
 				validator.submitButton.id == cancelButton.id) {

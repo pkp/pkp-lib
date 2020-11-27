@@ -35,7 +35,8 @@
 <!ELEMENT dropindex EMPTY>
 	<!ATTLIST dropindex
 		table CDATA #REQUIRED
-		index CDATA #IMPLIED>
+		index CDATA #REQUIRED
+		ifexists CDATA #IMPLIED>
 <!ELEMENT rename EMPTY>
 	<!ATTLIST rename
 		table CDATA #REQUIRED

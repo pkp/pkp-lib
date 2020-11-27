@@ -117,6 +117,8 @@ class DBDataXMLParser {
 							throw new Exception('dropindex called without table or index');
 						}
 
+						$schemaManager = Capsule::connection()->getDoctrineSchemaManager();
+						if ($child->getAttribute('ifexists') && !in_array($index, array_keys($schemaManager->listTableIndexes($table)))) break;
 						$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table, $index) {
 							Capsule::schema()->table($table, function (Blueprint $table) use ($index) {
 								$table->dropIndex($index);

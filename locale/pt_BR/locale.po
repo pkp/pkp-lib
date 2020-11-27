@@ -58,6 +58,7 @@ msgstr "Instalação de OPS"
 msgid "help.goToEditPage"
 msgstr "Editar{$sectionTitle}"
 
+#, fuzzy
 msgid "about.aboutOJSSite"
 msgstr ""
 "Este site utiliza Open Preprint Systems {$ojsVersion}, que é um software de "
@@ -65,6 +66,7 @@ msgstr ""
 "apoiado e distribuído gratuitamente pelo <a href=\"http://pkp.sfu.ca/\">"
 "Public Knowledge Project</a> sob Licença Pública Geral GNU."
 
+#, fuzzy
 msgid "about.aboutOJSJournal"
 msgstr ""
 "Este servidor utiliza Open Preprint Systems {$ojsVersion}, que é um software "

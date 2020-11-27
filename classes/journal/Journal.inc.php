@@ -30,7 +30,8 @@ class Journal extends Context {
 
 	/**
 	 * Get "localized" journal page title (if applicable).
-	 * @return string
+	 * @return string|null
+	 * @deprecated 3.3.0, use getLocalizedData() instead
 	 */
 	function getLocalizedPageHeaderTitle() {
 		$titleArray = $this->getData('name');
@@ -44,7 +45,8 @@ class Journal extends Context {
 
 	/**
 	 * Get "localized" journal page logo (if applicable).
-	 * @return string
+	 * @return array|null
+	 * @deprecated 3.3.0, use getLocalizedData() instead
 	 */
 	function getLocalizedPageHeaderLogo() {
 		$logoArray = $this->getData('pageHeaderLogoImage');

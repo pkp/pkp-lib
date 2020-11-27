@@ -90,7 +90,7 @@ abstract class Plugin {
 	function register($category, $path, $mainContextId = null) {
 		$this->pluginPath = $path;
 		$this->pluginCategory = $category;
-		if ($this->getInstallSchemaFile() || $this->getInstallMigration()) {
+		if ($this->getInstallMigration()) {
 			HookRegistry::register ('Installer::postInstall', [$this, 'updateSchema']);
 		}
 		if ($this->getInstallSitePluginSettingsFile()) {
@@ -197,13 +197,9 @@ abstract class Plugin {
 	//
 
 	/**
-	 * Get the filename of the ADODB schema for this plugin.
-	 * Subclasses using SQL tables should override this.
-	 * @deprecated See Plugin::getInstallMigration
-	 * @return string?
+	 * @deprecated See https://github.com/pkp/pkp-lib/issues/2493
 	 */
-	function getInstallSchemaFile() {
-		return null;
+	final public function getInstallSchemaFile() {
 	}
 
 	/**
@@ -709,10 +705,6 @@ abstract class Plugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		if ($schemaFile = $this->getInstallSchemaFile()) {
-			throw new Exception('XML-based plugin schemata not supported.');
-		}
-		// Preferred: Create schema using Migrations
 		if ($migration = $this->getInstallMigration()) try {
 			$migration->up();
 		} catch (Exception $e) {

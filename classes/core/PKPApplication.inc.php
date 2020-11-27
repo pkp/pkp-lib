@@ -183,12 +183,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 				$driver = 'mysql';
 			}
 
-			// Always use `utf8` unless `latin1` is specified
-			$charset = Config::getVar('i18n', 'connection_charset');
-			if ($charset !== 'latin1') {
-				$charset = 'utf8';
-			}
-
 			$capsule = new Capsule;
 			$capsule->addConnection([
 				'driver'    => $driver,
@@ -198,8 +192,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 				'port'      => Config::getVar('database', 'port'),
 				'unix_socket'=> Config::getVar('database', 'unix_socket'),
 				'password'  => Config::getVar('database', 'password'),
-				'charset'   => $charset,
-				'collation' => 'utf8_general_ci',
+				'charset'   => Config::getVar('i18n', 'connection_charset', 'utf8'),
+				'collation' => Config::getVar('database', 'collation', 'utf8_general_ci'),
 			]);
 			$capsule->setEventDispatcher($eventDispatcher);
 			$capsule->setAsGlobal();

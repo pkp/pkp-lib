@@ -59,12 +59,12 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		// pkp/pkp-lib#6301: Indexes may be missing that affect search performance.
 		// (These are added for 3.2.1-2 so may or may not be present for this upgrade code.)
 		$schemaManager = Capsule::connection()->getDoctrineSchemaManager();
-		if (!in_array('submissions_publication_id', $schemaManager->listTableIndexes('submissions'))) {
+		if (!in_array('submissions_publication_id', array_keys($schemaManager->listTableIndexes('submissions')))) {
 			Capsule::schema()->table('submissions', function (Blueprint $table) {
 				$table->index(['submission_id'], 'submissions_publication_id');
 			});
 		}
-		if (!in_array('submission_search_object_submission', $schemaManager->listTableIndexes('submission_search_objects'))) {
+		if (!in_array('submission_search_object_submission', array_keys($schemaManager->listTableIndexes('submission_search_objects')))) {
 			Capsule::schema()->table('submission_search_objects', function (Blueprint $table) {
 				$table->index(['submission_id'], 'submission_search_object_submission');
 			});
@@ -143,9 +143,14 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		Capsule::table('item_views')
 			->where('assoc_type', '!=', ASSOC_TYPE_REVIEW_RESPONSE)
 			->delete();
-		Capsule::schema()->table('item_views', function (Blueprint $table) {
-			$table->bigInteger('assoc_id')->change();
-		});
+		// PostgreSQL requires an explicit type cast
+		if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
+			Capsule::statement('ALTER TABLE item_views ALTER COLUMN assoc_id TYPE BIGINT USING (assoc_id::INTEGER)');
+		} else {
+			Capsule::schema()->table('item_views', function (Blueprint $table) {
+				$table->bigInteger('assoc_id')->change();
+			});
+		}
 
 		// pkp/pkp-lib#4017 and pkp/pkp-lib#4622
 		Capsule::schema()->create('jobs', function (Blueprint $table) {
@@ -407,6 +412,12 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 
 		// Restructure submission_files and submission_file_settings tables
 		Capsule::schema()->table('submission_files', function (Blueprint $table) {
+			$table->bigInteger('file_id')->nullable(false)->unsigned()->change();
+		});
+		Capsule::schema()->table('submission_files', function (Blueprint $table) {
+			$table->dropPrimary(); // Drop compound primary key constraint
+		});
+		Capsule::schema()->table('submission_files', function (Blueprint $table) {
 			$table->renameColumn('file_id', 'submission_file_id');
 			$table->renameColumn('new_file_id', 'file_id');
 			$table->renameColumn('source_file_id', 'source_submission_file_id');
@@ -417,12 +428,19 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			$table->dropColumn('file_size');
 			$table->dropColumn('file_type');
 			$table->dropColumn('original_file_name');
+			$table->primary('submission_file_id');
 		});
+		//  pkp/pkp-lib#5804
+		$schemaManager = Capsule::connection()->getDoctrineSchemaManager();
+		if (!in_array('submission_files_stage_assoc', array_keys($schemaManager->listTableIndexes('submission_files')))) {
+			Capsule::schema()->table('submission_files', function (Blueprint $table) {
+				$table->index(['file_stage', 'assoc_type', 'assoc_id'], 'submission_files_stage_assoc');
+			});
+		}
 		// Modify column types and attributes in separate migration
 		// function to prevent error in postgres with unfound columns
 		Capsule::schema()->table('submission_files', function (Blueprint $table) {
-			$table->bigIncrements('submission_file_id')->change();
-			$table->unique('submission_file_id');
+			$table->bigInteger('submission_file_id')->autoIncrement()->unsigned()->change();
 			$table->bigInteger('file_id')->nullable(false)->unsigned()->change();
 			$table->foreign('file_id')->references('file_id')->on('files');
 		});

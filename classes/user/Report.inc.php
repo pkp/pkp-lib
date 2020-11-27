@@ -41,21 +41,11 @@ class Report {
 		fwrite($output, "\xEF\xBB\xBF");
 
 		// Outputs column headings
-		fputcsv($output, array_map(
-			function(string $heading) : string {
-				return \PKPString::html2text($heading);
-			},
-			$this->_getHeadings()
-		));
+		fputcsv($output, $this->_getHeadings());
 
 		// Outputs each user
 		foreach ($this->_dataSource as $user) {
-			fputcsv($output, array_map(
-				function (?string $data) : ?string {
-					return \PKPString::html2text($data);
-				},
-				$this->_getDataRow($user)
-			));
+			fputcsv($output, $this->_getDataRow($user));
 		}
 	}
 

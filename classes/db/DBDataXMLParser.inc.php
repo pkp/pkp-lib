@@ -81,15 +81,15 @@ class DBDataXMLParser {
 						$table = $child->getAttribute('table');
 						$column = $child->getAttribute('column');
 						if ($column) {
-							$this->sql += array_column(Capsule::pretend(function() use ($table, $column) {
+							$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table, $column) {
 								Capsule::schema()->table($table, function (Blueprint $table) use ($column) {
 									$table->dropColumn('column');
 								});
-							}), 'query');
+							}), 'query'));
 						} else {
-							$this->sql += array_column(Capsule::pretend(function() use ($table) {
+							$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table) {
 								Capsule::schema()->drop($table);
-							}), 'query');
+							}), 'query'));
 						}
 						break;
 					case 'rename':
@@ -98,16 +98,16 @@ class DBDataXMLParser {
 						$to = $child->getAttribute('to');
 						if ($column) {
 							// Rename a column.
-							$this->sql += array_column(Capsule::pretend(function() use ($table, $column, $to) {
+							$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table, $column, $to) {
 								Capsule::schema()->table($table, function (Blueprint $table) use ($column, $to) {
 									$table->renameColumn($column, $to);
 								});
-							}), 'query');
+							}), 'query'));
 						} else {
 							// Rename the table.
-							$this->sql += array_column(Capsule::pretend(function() use ($table, $to) {
+							$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table, $to) {
 								Capsule::schema()->rename($table, $to);
-							}), 'query');
+							}), 'query'));
 						}
 						break;
 					case 'dropindex':
@@ -117,11 +117,11 @@ class DBDataXMLParser {
 							throw new Exception('dropindex called without table or index');
 						}
 
-						$this->sql += array_column(Capsule::pretend(function() use ($table, $index) {
+						$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table, $index) {
 							Capsule::schema()->table($table, function (Blueprint $table) use ($index) {
 								$table->dropIndex($index);
 							});
-						}), 'query');
+						}), 'query'));
 						break;
 					case 'query':
 						// If a "driver" attribute is specified, multiple drivers can be

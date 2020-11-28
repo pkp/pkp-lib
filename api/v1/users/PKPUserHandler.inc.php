@@ -283,9 +283,9 @@ class PKPUserHandler extends APIHandler {
 	 * @param Slim\Http\Request $slimRequest Slim request object
 	 * @param \APIResponse $response Response
 	 * @param array $args
-	 * @return \APIResponse Response
+	 * @return ?\APIResponse Response
 	 */
-	public function getReport(\Slim\Http\Request $slimRequest, \APIResponse $response, array $args) : \APIResponse {
+	public function getReport(\Slim\Http\Request $slimRequest, \APIResponse $response, array $args) : ?\APIResponse {
 		$request = $this->getRequest();
 
 		$context = $request->getContext();
@@ -317,13 +317,12 @@ class PKPUserHandler extends APIHandler {
 
 		\HookRegistry::call('API::users::user::report::params', [&$params, $slimRequest]);
 
-		$report = \Services::get('user')->getReport($params);
-		$output = fopen('php://temp', 'w+');
-		$report->serialize($output);
+		$this->getApp()->getContainer()->get('settings')->replace(['outputBuffering' => false]);
 
-		return $response
-			->withHeader('Content-Type', 'text/comma-separated-values')
-			->withHeader('Content-Disposition', 'attachment; filename="user-report-' . date('Y-m-d') . '.csv"')
-			->withBody(new \Slim\Http\Stream($output));
+		$report = \Services::get('user')->getReport($params);
+		header('content-type: text/comma-separated-values');
+		header('content-disposition: attachment; filename="user-report-' . date('Y-m-d') . '.csv"');
+		$report->serialize(fopen('php://output', 'w+'));
+		exit;
 	}
 }

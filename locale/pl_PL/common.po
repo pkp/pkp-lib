@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:53+00:00\n"
-"PO-Revision-Date: 2020-11-27 10:51+0000\n"
+"PO-Revision-Date: 2020-11-29 09:51+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "pl_PL/>\n"
@@ -25,7 +25,7 @@ msgid "about.contact.email"
 msgstr "E-mail"
 
 msgid "about.contact.phone"
-msgstr "Tel."
+msgstr "Telefon"
 
 msgid "about.contact.principalContact"
 msgstr "Główna osoba do kontaktu"
@@ -91,7 +91,7 @@ msgid "common.altText"
 msgstr "Alternatywny tekst"
 
 msgid "common.altTextInstructions"
-msgstr "Proszę wpisać zawartość obrazka w formie tekstu."
+msgstr "Proszę wpisać zawartość obrazka w formie tekstu"
 
 msgid "common.and"
 msgstr "oraz"
@@ -125,21 +125,33 @@ msgstr "Weryfikacja"
 
 msgid "common.ccLicense"
 msgstr ""
-"<br /><br />\n"
-"\t\t<a target=\"_new\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_new\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"http://i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br/>\n"
-"\t\tUtwór dostępny na licencji <a rel=\"license\" target=\"_new\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Uznanie autorstwa 3.0</a>."
+"\t\tUtwór dostępny na licencji <a rel=\"license\" target=\"_new\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Uznanie "
+"autorstwa 3.0</a>.\n"
+"\t"
 
 msgid "common.ccLicense.rt"
 msgstr ""
-"<div class=\"rtBlock\">\n"
+"\n"
+"\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_new\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_new\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"http://i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tUtwór dostępny na licencji <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_new\">Creative Commons Uznanie autorstwa 3.0</a>.\n"
-"\t</div>"
+"\t\tUtwór dostępny na licencji <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\" target=\"_new\">Creative "
+"Commons Uznanie autorstwa 3.0</a>.\n"
+"\t</div>\n"
+"\t"
 
 msgid "common.changesSaved"
 msgstr "Twoje zmiany zostały zapisane."
@@ -496,7 +508,7 @@ msgid "common.view"
 msgstr "Widok"
 
 msgid "common.weeks"
-msgstr "Tygodnie"
+msgstr "tygodnie"
 
 msgid "common.width"
 msgstr "Szerokość"
@@ -508,7 +520,7 @@ msgid "common.yes"
 msgstr "Tak"
 
 msgid "common.loading"
-msgstr "Ładowanie..."
+msgstr "Ładowanie"
 
 msgid "debug.databaseQueries"
 msgstr "Liczba kwerend w bazie danych"
@@ -601,7 +613,7 @@ msgid "email.to"
 msgstr "Do"
 
 msgid "form.errorsOccurred"
-msgstr "Wystąpiły błędy podczas przetwarzania tego formularza."
+msgstr "Wystąpiły błędy podczas przetwarzania tego formularza"
 
 msgid "form.formLanguage.description"
 msgstr "Aby umieścić poniżej informację w innym języku, najpierw wybierz język z listy rozwijanej."
@@ -658,7 +670,7 @@ msgid "icon.edit.alt"
 msgstr "Edytuj"
 
 msgid "icon.folder.alt"
-msgstr "Folder"
+msgstr "Katalog"
 
 msgid "icon.font_large.alt"
 msgstr "Powiększ"
@@ -880,7 +892,9 @@ msgid "common.acknowledged"
 msgstr "Potwierdzony"
 
 msgid "common.titleSmallWords"
-msgstr "of a the and an or nor but is if then else when at from by on off for in out over to into with"
+msgstr ""
+"z i albo ani ale jeśli potem jeszcze kiedy w przez włącz wyłącz dla wewnątrz "
+"zewnątrz ponad do do wewnątrz"
 
 msgid "common.warning"
 msgstr "Ostrzeżenie"
@@ -976,7 +990,7 @@ msgid "form.invalidImage"
 msgstr "Został przesłany obraz o niepoprawnym rozszerzeniu. Akceptowane formaty to PNG, GIF lub JPG."
 
 msgid "navigation.access"
-msgstr "Użytkownicy i ich role"
+msgstr "Użytkownicy i role"
 
 msgid "navigation.admin"
 msgstr "Administracja"
@@ -1036,7 +1050,7 @@ msgid "grid.action.downloadFile"
 msgstr "Pobierz plik"
 
 msgid "common.publicKnowledgeProject"
-msgstr "Public Knowledge Project"
+msgstr "Projekt Public Knowledge"
 
 msgid "common.currentStyleSheet"
 msgstr "Aktualny szablon"
@@ -1129,7 +1143,7 @@ msgid "common.file.namingPattern"
 msgstr "{$username}, {$userGroup}, {$originalFilename}"
 
 msgid "common.file.anonymousNamingPattern"
-msgstr "{$genre}, {$originalFilename}"
+msgstr "{$genre} - {$originalFilename}"
 
 msgid "common.fileUploaderError"
 msgstr "Narzędzie do przesyłania plików jest ładowane. Jeżeli nie pojawi się po dłuższej chwili istnieje prawdopodobieństwo, że nie jest wspierane przez Twoją przeglądarkę. Gdyby tak się stało, skontaktuj się z administratorem w celu uzyskania pomocy."
@@ -1153,7 +1167,7 @@ msgid "common.pageNumber"
 msgstr "Strona {$pageNumber}"
 
 msgid "common.percentage"
-msgstr "{$percentage}%"
+msgstr "- {$percentage}%"
 
 msgid "common.prefix"
 msgstr "Prefiks"
@@ -1168,7 +1182,7 @@ msgid "common.queue.long.active"
 msgstr "Wszystkie aktywne"
 
 msgid "common.range"
-msgstr "{$min}-{$max}"
+msgstr "{$min}--{$max}"
 
 msgid "common.readMore"
 msgstr "Czytaj więcej"
@@ -1249,7 +1263,7 @@ msgid "informationCenter.addNote"
 msgstr "Dodaj uwagę"
 
 msgid "informationCenter.noNotes"
-msgstr "Brak uwag do wyświetlenia"
+msgstr "Brak uwag do wyświetlenia."
 
 msgid "informationCenter.pastNotes"
 msgstr "Poprzednie uwagi"
@@ -1318,7 +1332,7 @@ msgid "notification.addedAuditor"
 msgstr "Dodano kontrolera."
 
 msgid "notification.removedAuditor"
-msgstr "Usunięto kontrolera"
+msgstr "Usunięto kontrolera."
 
 msgid "notification.addedQuery"
 msgstr "Dodano dyskusję"
@@ -1383,9 +1397,8 @@ msgstr "Wyniki wyszukiwania"
 msgid "context.path"
 msgstr "Ścieżka"
 
-#, fuzzy
 msgid "review.ensuringAnonymousReview"
-msgstr "Zapewnienie podwójnej ślepej recenzji"
+msgstr "Jak spełnić warunki podwójnie ślepej recenzji"
 
 msgid "grid.action.showReviewPolicy"
 msgstr "Wyświetl warunki recenzji"
@@ -1405,9 +1418,18 @@ msgstr "Zadania"
 msgid "dashboard.myQueue"
 msgstr "Moja kolejka"
 
-#, fuzzy
 msgid "review.anonymousPeerReview"
-msgstr "<p>Aby umożliwić wykonanie podwójnej ślepej recenzji, wszystkie dane autorów oraz recenzentów lub inne elementy mogące pomóc w ich zidentyfikowaniu muszą zostać bezwzględnie usunięte z przesłanych plików. W tym celu sprawdź czy:</p><ul><li>Autorzy dokumentu usunęli swoje dane z tekstu.</li><li>Medatane w plikach Microsoft Word i podobnych programów zostały usunięte (zobacz Plik &gt; Zapisz jako &gt; Narzędzia &gt; Bezpieczeństwo &gt; Usuń informacje o autorze przy zapisywaniu &gt; Zapisz).</li><li>W przypadku plików PDF informacje o autorach powinny być usunięte z właściwości dokumentu. Ustawienia te możesz znaleźć przechodząc z poziomu głównego menu Adobe Acrobat do zakładki Plik.</li></ul>"
+msgstr ""
+"<p>Aby umożliwić wykonanie podwójnej ślepej recenzji, wszystkie dane autorów "
+"oraz recenzentów lub inne elementy mogące pomóc w ich zidentyfikowaniu muszą "
+"zostać bezwzględnie usunięte z przesłanych plików. W tym celu sprawdź "
+"czy:</p><ul><li>Autorzy dokumentu usunęli swoje dane z tekstu.</li><li>"
+"Medatane w plikach Microsoft Word i podobnych programów zostały usunięte ("
+"zobacz Plik &gt; Zapisz jako &gt; Narzędzia &gt; Bezpieczeństwo &gt; Usuń "
+"informacje o autorze przy zapisywaniu &gt; Zapisz).</li><li>W przypadku "
+"plików PDF informacje o autorach powinny być usunięte z właściwości "
+"dokumentu. Ustawienia te możesz znaleźć przechodząc z poziomu głównego menu "
+"Adobe Acrobat do zakładki Plik.</li></ul>\n"
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Harmonogram recenzji"
@@ -1542,7 +1564,8 @@ msgid "notification.reviewerThankedEmail"
 msgstr "Wiadomość z podziękowaniem została przesłana do recenzenta."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Wyślij e-mail z podziękowaniem do wszystkich zarejestrowanych użytkowników"
+msgstr ""
+"Wyślij e-mail z podziękowaniem do wszystkich zarejestrowanych użytkowników."
 
 msgid "notification.addedReviewerNoEmail"
 msgstr "{$reviewerName} został przydzielony do recenzji przesłanego tekstu - e-mail z powiadomieniem nie został wysłany."
@@ -1611,58 +1634,401 @@ msgid "list.viewLess"
 msgstr "Ukryj szczegółowe informacje o {$name}"
 
 msgid "common.lastActivity"
-msgstr ""
+msgstr "Ostatnia aktywność zarejestrowana w: {$date}."
 
 msgid "form.dropzone.dictFallbackMessage"
-msgstr ""
+msgstr "Twoja przeglądarka nie obsługuje funkcji złap i upuść."
 
 msgid "common.selectedPrefix"
-msgstr ""
+msgstr "Wybrano:"
 
 msgid "common.removeItem"
-msgstr ""
+msgstr "Usuń {$item}"
 
 msgid "common.lessThanOnly"
-msgstr ""
+msgstr "Mniej niż"
 
 msgid "common.upload.thumbnailPreview"
-msgstr ""
+msgstr "Podgląd wybranego obrazka."
 
 msgid "common.toWithValue"
-msgstr ""
+msgstr "Odbiorca: {$value}"
 
 msgid "form.disallowedProp"
-msgstr ""
+msgstr "Te właściwości są niedozowolone."
 
 msgid "common.noTemporaryFile"
 msgstr ""
+"Plik który wgrałeś nie może zostać odnaleziony.  Spróbuj załadować ponownie."
 
 msgid "common.orderUp"
-msgstr ""
+msgstr "Przesuń pozycję {$itemTitle} do góry"
 
 msgid "common.override"
-msgstr ""
+msgstr "Nadpisz"
 
 msgid "common.orderDown"
-msgstr ""
+msgstr "Przesuń pozycję {$itemTitle} w dół"
 
 msgid "common.upload.restore"
-msgstr ""
+msgstr "Przywróć oryginalne"
 
 msgid "form.disallowedLocales"
-msgstr ""
+msgstr "Tylko te języki są dozwolone: {$languages}."
 
 msgid "common.noItemsFound"
-msgstr ""
+msgstr "Nie znaleziono pasujących elementów."
 
 msgid "common.submenu"
-msgstr ""
+msgstr "Podmenu"
 
 msgid "common.moreThanOnly"
-msgstr ""
+msgstr "Więcej niż"
 
 msgid "common.fromWithValue"
-msgstr ""
+msgstr "Nadawca: {$value}"
 
 msgid "form.dropzone.dictDefaultMessage"
+msgstr "Aby wgrać pliki upuść je tutaj"
+
+msgid "validator.url"
+msgstr "Niepoprawny URL."
+
+msgid "validator.unique"
+msgstr "Atrybut {$attribute} został już zajęty."
+
+msgid "validator.timezone"
+msgstr "Nieprawidłowa strefa czasowa."
+
+msgid "validator.string"
+msgstr "String niepoprawny."
+
+msgid "validator.size.array"
+msgstr "Wartość musi być {$size} elementów."
+
+msgid "validator.size.string"
+msgstr "Wartość musi być {$size} znaków."
+
+msgid "validator.size.file"
+msgstr "Wartość musi być {$size} kilobajtów."
+
+msgid "validator.size.numeric"
+msgstr "Wartość musi być {$size}."
+
+msgid "validator.same"
+msgstr "Atrybut {$attribute} i {$other} musza do siebie pasować."
+
+msgid "validator.required_without_all"
+msgstr "Pole wymagane kiedy {$values} są znane."
+
+msgid "validator.required_without"
+msgstr "Pole wymagane kiedy {$values} są nieznane."
+
+msgid "validator.required_with_all"
+msgstr "Pole wymagane kiedy {$values} są dane."
+
+msgid "validator.required_with"
+msgstr "Pole wymagane kiedy {$value} jest dana."
+
+msgid "validator.required_unless"
+msgstr "Pole wymagane chyba że {$other} ma wartość {$value}."
+
+msgid "validator.required_if"
+msgstr "Pole wymagane kiedy {$other} ma wartość {$value}."
+
+msgid "validator.required"
+msgstr "Pole wymagane."
+
+msgid "validator.regex"
+msgstr "Niepoprawny format."
+
+msgid "validator.present"
+msgstr "Pole {$attribute} musi być dane."
+
+msgid "validator.orcid"
+msgstr "To nie jest prawidłowy ORCID."
+
+msgid "validator.numeric"
+msgstr "To nie jest prawidłowa liczba."
+
+msgid "validator.not_in"
+msgstr "Wybrany {$attribute} jest nieprawidłowy."
+
+msgid "validator.min.array"
+msgstr "Wartość nie może być mniejsza niż {$min} elementów."
+
+msgid "validator.min.string"
+msgstr "Wartość nie może być mniejsza niż {$min} znaków."
+
+msgid "validator.min.file"
+msgstr "Wartość nie może być mniejsza niż {$min} kilobajtów."
+
+msgid "validator.min.numeric"
+msgstr "Wartość nie może być mniejsza niż {$min}."
+
+msgid "validator.mimes"
+msgstr "Tylko takie typy plików {$values} są dozwolone."
+
+msgid "validator.max.array"
+msgstr "Wartość nie może być większa niż {$max} elementów."
+
+msgid "validator.max.string"
+msgstr "Wartość nie może być większa niż {$max} znaków."
+
+msgid "validator.max.file"
+msgstr "Wartość nie może być większa niż {$max} kilobajtów."
+
+msgid "validator.max.numeric"
+msgstr "Wartość nie może być większa niż {$max}."
+
+msgid "validator.localeKey"
+msgstr "Języki należy określić używając kodu. Przykłady: en_US, pl_PL, fr_CA."
+
+msgid "validator.localeExpected"
 msgstr ""
+"Pole jest wielojęzyczne. Do każdego języka należny podać oddzielne wartości."
+
+msgid "validator.locale"
+msgstr "Ten język nie jest dozwolony."
+
+msgid "validator.json"
+msgstr "Nieprawidłowy string JSON."
+
+msgid "validator.issn"
+msgstr "Nieprawidłowy ISSN."
+
+msgid "validator.ip"
+msgstr "Nieprawidłowy IP."
+
+msgid "validator.integer"
+msgstr "To nie jest prawidłowy zapis integer."
+
+msgid "validator.in"
+msgstr "Wybrany {$attribute} jest nieprawidłowy."
+
+msgid "validator.image"
+msgstr "To nie jest obraz."
+
+msgid "validator.filled"
+msgstr "Pole jest wymagane."
+
+msgid "validator.exists"
+msgstr "Wybrany {$attribute} jest niepoprawny."
+
+msgid "validator.email"
+msgstr "Nieprawidłowy adres email."
+
+msgid "validator.digits_between"
+msgstr "Wartość musi być pomiędzy {$min} i {$max} cyfr."
+
+msgid "validator.digits"
+msgstr "Wartość musi być długa na {$digits}."
+
+msgid "validator.different"
+msgstr "{$attribute} i {$other} musi się różnić."
+
+msgid "validator.date_format"
+msgstr "Nieprawidłowy format {$format}."
+
+msgid "validator.date"
+msgstr "Nieprawidłowa data."
+
+msgid "validator.currency"
+msgstr "Nieprawidłowa waluta."
+
+msgid "validator.confirmed"
+msgstr "Nie można potwierdzić zawartości tego pola."
+
+msgid "validator.boolean"
+msgstr "Pole musi zawierać wartość logiczną 0/1."
+
+msgid "validator.between.array"
+msgstr "Wartość musi mieścić się  pomiędzy {$min} i {$max} elementów."
+
+msgid "validator.between.string"
+msgstr "Wartość musi mieścić się  pomiędzy {$min} i {$max} znaków."
+
+msgid "validator.between.file"
+msgstr "Objętość musi być pomiędzy {$min} i {$max} kilobajtów."
+
+msgid "validator.between.numeric"
+msgstr "Wartość musi mieścić się  pomiędzy {$min} and {$max}."
+
+msgid "validator.before"
+msgstr "Data musi być ustawiona wcześniej niż {$date}."
+
+msgid "validator.array"
+msgstr "To nie jest prawidłowy szyk."
+
+msgid "validator.alpha_num"
+msgstr "Dozwolone są jedynie litery i cyfry."
+
+msgid "validator.alpha_dash"
+msgstr "Dozwolone są jedynie litery, cyfry i znaki interpunkcyjne."
+
+msgid "validator.alpha"
+msgstr "Dozwolone są jedynie litery."
+
+msgid "validator.after"
+msgstr "Data musi być ustawiona później niż {$date}."
+
+msgid "validator.active_url"
+msgstr "Ten URL jest nieprawidłowy."
+
+msgid "validator.accepted"
+msgstr "Proszę o akceptację elementu..."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"W ramach dbania o dobrą kondycję czasopisma przypominamy o przeglądzie "
+"statystyk redakcyjnych."
+
+msgid "notification.type.editorialReport"
+msgstr "Raport statystyk redakcyjnych."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Opcje prywatności"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Nie masz dostępu do tej recenzji."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Nie masz dostępu do tego wątku w dyskusji."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Nie masz dostępu do tej dyskusji."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Nie masz dostępu do tej rundy recenzji."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Nie masz dostępu do tej publikacji."
+
+msgid "user.email"
+msgstr "Adres email"
+
+msgid "notification.editStageParticipant"
+msgstr "Zmieniono przydział do etapu."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Przywołanie recenzenta."
+
+msgid "notification.cancelledReviewer"
+msgstr "Odwołanie recenzenta."
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Jak sprawić aby wszystkie pliki były poprawnie zanonimizowane"
+
+msgid "search.searchResults.foundPlural"
+msgstr "Znaleziono {$count} elementów."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Znaleziono jeden element."
+
+msgid "navigation.skip.announcements"
+msgstr "Skocz do ogłoszeń"
+
+msgid "navigation.skip.description"
+msgstr "Skocz do treści"
+
+msgid "navigation.backTo"
+msgstr "⟵ Wróć do {$page}"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Nie można dokonywać zmian w uczestnictwie tego użytkownika"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Uczestnik"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Zezwól tej osobie na dokonywanie zmian w zakresie: tytuł, abstrakt, metadane "
+"i inne szczegóły. Możesz w każdej chwili zamknąć dostęp do tych możliwości "
+"jeśli zgłoszenie otrzymało wszystkie korekty i jest gotowe do publikacji."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Uprawnienia"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} języków ukończono"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} w {$localeName}"
+
+msgid "form.saved"
+msgstr "Zapisano"
+
+msgid "form.requireId"
+msgstr "Musisz podać prawidłowy ID."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Musisz uzupełnić pole w języku {$language}."
+
+msgid "form.errors"
+msgstr ""
+"Formularz nie został zapisany gdyż napotkano {$count} błędów. Proszę je "
+"poprawić i spróbować ponownie."
+
+msgid "form.errorMany"
+msgstr "Proszę poprawić {count} błędów."
+
+msgid "form.errorOne"
+msgstr "Proszę poprawić błąd jeden po drugim."
+
+msgid "form.errorGoTo"
+msgstr "Skocz do następnego błędu"
+
+msgid "form.errorA11y"
+msgstr "Idź do {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Nie możesz wgrać więcej plików."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Usuń plik"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Czy jesteś pewien że chcesz przerwać to wgrywanie?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Wgrywanie przerwane"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Przerwij wgrywanie"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Serwer odpowiedział kodem {{statusCode}}. Proszę skontaktować się z "
+"administratorem jeśli problem wciąż się powtarza."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Pliki tego typu nie mogą być wgrane."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Plik jest zbyt duży i ma ({{filesize}}mb). Pliki większe niż {{maxFilesize}}"
+"mb nie mogą być załadowane."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Proszę użyć formularza starszej wersji aby załadować pliki."
+
+msgid "common.viewWithName"
+msgstr "Wyświetl {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Użytkownik nie istnieje]"
+
+msgid "common.addFile"
+msgstr "Dodaj plik"
+
+msgid "common.titleSeparator"
+msgstr " || "
+
+msgid "common.selectWithName"
+msgstr "Wybierz {$name}"
+
+msgid "common.editItem"
+msgstr "Edytuj {$name}"
+
+msgid "common.inactive"
+msgstr "Nieaktywny"

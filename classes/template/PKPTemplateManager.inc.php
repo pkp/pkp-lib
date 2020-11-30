@@ -133,6 +133,9 @@ class PKPTemplateManager extends Smarty {
 				'datetimeFormatShort' => $currentContext->getLocalizedDateTimeFormatShort(),
 				'datetimeFormatLong' => $currentContext->getLocalizedDateTimeFormatLong(),
 				'timeFormat' => $currentContext->getLocalizedTimeFormat(),
+				'displayPageHeaderTitle' => $currentContext->getLocalizedData('name'),
+				'displayPageHeaderLogo' => $currentContext->getLocalizedData('pageHeaderLogoImage'),
+				'displayPageHeaderLogoAltText' => $currentContext->getLocalizedData('pageHeaderLogoImageAltText'),
 			));
 		} else {
 			$this->assign(array(
@@ -141,6 +144,14 @@ class PKPTemplateManager extends Smarty {
 				'datetimeFormatShort' => Config::getVar('general', 'datetime_format_short'),
 				'datetimeFormatLong' => Config::getVar('general', 'datetime_format_long'),
 				'timeFormat' => Config::getVar('general', 'time_format'),
+			));
+		}
+
+		if (Config::getVar('general', 'installed') && !$currentContext) {
+			$site = $request->getSite();
+			$this->assign(array(
+				'displayPageHeaderTitle' => $site->getLocalizedTitle(),
+				'displayPageHeaderLogo' => $site->getLocalizedData('pageHeaderTitleImage'),
 			));
 		}
 

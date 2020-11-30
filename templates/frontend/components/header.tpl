@@ -14,7 +14,7 @@
 {strip}
 	{* Determine whether a logo or title string is being displayed *}
 	{assign var="showingLogo" value=true}
-	{if $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
+	{if !$displayPageHeaderLogo}
 		{assign var="showingLogo" value=false}
 	{/if}
 {/strip}
@@ -50,16 +50,12 @@
 					{capture assign="homeUrl"}
 						{url page="index" router=$smarty.const.ROUTE_PAGE}
 					{/capture}
-					{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
+					{if $displayPageHeaderLogo}
 						<a href="{$homeUrl}" class="is_img">
 							<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{/if} />
 						</a>
-					{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
+					{elseif $displayPageHeaderTitle}
 						<a href="{$homeUrl}" class="is_text">{$displayPageHeaderTitle|escape}</a>
-					{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
-						<a href="{$homeUrl}" class="is_img">
-							<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" />
-						</a>
 					{else}
 						<a href="{$homeUrl}" class="is_img">
 							<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />

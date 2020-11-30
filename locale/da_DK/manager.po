@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-11-30 11:59+0000\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -1703,11 +1703,10 @@ msgstr "Brugernavnet \"{$username}\" og e-mailen \"{$email}\" stemmer ikke overe
 msgid "manager.setup.theme.notFound"
 msgstr "Det valgte tema er ikke blevet installeret eller aktiveret."
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Vis et link til <button type=\"button\">Sikring af en blind review</button> "
-"under upload"
+"Vis et link til <button type=\"button\">hvordan man sikrer, at alle filer er "
+"anonymiserede</button> under upload"
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Standard bedømmelsesindstilling"
@@ -2115,10 +2114,10 @@ msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/year)"
 
 msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "Formater for dato og tid"
+msgstr "Formater for dato og klokkeslæt"
 
 msgid "manager.setup.dateTime"
-msgstr "Dato & Tid"
+msgstr "Dato & Klokkeslæt"
 
 msgid "manager.setup.notifyUsers.sendAnother"
 msgstr "Send endnu en e-mail"
@@ -2160,3 +2159,69 @@ msgstr "Standard-e-mail-skabelonerne er blevet gendannet."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Slet meddelelse"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Indsendelsesfilen {$id} blev sprunget over, fordi den er vedhæftet en post, "
+"der ikke importeres, som f.eks. valg af bedømmer eller en diskussions-/"
+"drøftelsespost."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Vælg den type metadata, som kan knyttes til disse filer. Du bør vælge "
+"’Dokument’ til de vigtigste publikationsfiler, såsom PDF, der kan "
+"downloades, så disse filer kan henter deres metadata fra publikationen. "
+"Ellers skal du vælge ’Supplerende indhold’ til de fleste filtyper. "
+"’Illustrationer’ passer til filer, der kræver særskilte kildeangivelses-, "
+"billedtekst- og licens-metadata."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Fil-metadata"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Disse er supplerende filer, som f.eks. datasæt og forskningsmateriale, der "
+"vises separat, adskilt fra de primære publikationsfiler."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Disse er underordnede filer, som f.eks. billeder, der vises i en HTML-fil. "
+"De vil ikke blive vist for sig selv."
+
+msgid "manager.setup.genres.label"
+msgstr "Filtype"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Er du sikker på, at du vil aktivere denne sektion?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Er du sikker på, at du vil deaktivere denne sektion?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Deaktivér denne sektion, og tillad ikke, at der indsendes nye bidrag til den."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Brugerdefineret"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Dato & Klokkeslæt (Kort)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Dato & Klokkeslæt"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Klokkeslæt"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Dato (Kort)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Dato"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Vælg det foretrukne format til datoer og klokkeslæt. Et brugerdefineret "
+"format kan indtastes ved hjælp af de specielle <a href='http://php.net/"
+"manual/en/function.strftime.php#refsect1-function.strftime-"
+"parameters'>formatskrifttyper</a>."

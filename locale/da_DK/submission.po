@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2020-10-09 07:50+0000\n"
+"PO-Revision-Date: 2020-11-30 10:51+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da_DK/>\n"
@@ -1090,9 +1090,8 @@ msgstr "Copyright-år"
 msgid "submission.event.participantAdded"
 msgstr "\"{$name}\" ({$username}) blev tilknyttet denne indsendelse som {$userGroupName}."
 
-#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Revision \"{$name}\" (file ID {$submissionFileId}) blev uploadet."
+msgstr "Revision \"{$name}\" blev uploadet til {$submissionFileId}."
 
 msgid "submission.event.lastRevisionDeleted"
 msgstr "En fil \"{$title}\" fik seneste revision fjernet af {$username}."
@@ -1577,10 +1576,10 @@ msgid "submission.list.infoCenter"
 msgstr "Aktivitetslog & Noter"
 
 msgid "submission.list.responseDue"
-msgstr "Svar forfalden"
+msgstr "Svar forfalden: {$date}"
 
 msgid "submission.list.reviewDue"
-msgstr "Bedømmelse forfalden"
+msgstr "Bedømmelse forfalden:  {$date}"
 
 msgid "submission.list.confirmDelete"
 msgstr "Slet indsendelse?"
@@ -1641,8 +1640,8 @@ msgstr "Du har fået tildelt en redaktionel rolle i forbindelse med denne indsen
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
 msgstr ""
 "Deltageren du valgte er blevet sat til at gennemføre en blind review "
-"bedømmelse. Hvis du vælger denne deltager, giver du vedkommende adgang til "
-"forfatterens identitet. Du opfordres til ikke at vælge denne deltager, "
+"bedømmelse. Hvis du vælger denne som deltager, giver du vedkommende adgang "
+"til forfatterens identitet. Du opfordres til ikke at vælge denne deltager, "
 "medmindre du kan sikre integriteten i fagfællebedømmelsesprocessen."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
@@ -2050,3 +2049,40 @@ msgstr "{$representation} af {$title}"
 
 msgid "notification.type.submissionNewVersion"
 msgstr "Der blev oprettet en ny version af en indsendelse"
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"Metadataene til filen \"{$ originalFileName}\" blev redigeret af {$ "
+"username}."
+
+msgid "submission.upload.percentComplete"
+msgstr "Upload er {$percent}% gennemført"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Upload eventuelle filer, som redaktionen har brug for i forbindelse med "
+"evalueringen af din indsendelse."
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"En registrering af fil-indlæseren gemmes, når filen oprettes og kan ikke "
+"ændres."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Er du sikker på, at du vil fjerne filen?"
+
+msgid "submission.submit.genre.error"
+msgstr "Vælg typen af fil til hver upload."
+
+msgid "submission.submit.genre.description"
+msgstr "Vælg den mulighed, der bedst beskriver denne fil."
+
+msgid "submission.submit.genre.label"
+msgstr "Hvilken slags fil er dette?"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"En eller flere bedømmere har overskredet deadline. Redaktionen er blevet "
+"underrettet og vil tage skridt til at sikre, at gennemgangen bliver "
+"afsluttet. Du behøver ikke at foretage dig noget på dette tidspunkt. Du får "
+"besked, når der er truffet en beslutning."

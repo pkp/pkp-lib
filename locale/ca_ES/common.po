@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2020-06-18 17:39+0000\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ca_ES/>\n"
@@ -1002,7 +1002,7 @@ msgid "navigation.management"
 msgstr "Gestió"
 
 msgid "navigation.access"
-msgstr "Rols i usuaris"
+msgstr "Usuaris/àries i rols"
 
 msgid "navigation.about"
 msgstr "Quant a"
@@ -1271,9 +1271,8 @@ msgstr "Descarrega aquest fitxer"
 msgid "context.path"
 msgstr "Ruta"
 
-#, fuzzy
 msgid "review.ensuringAnonymousReview"
-msgstr "Assegurar una avaluació anònima"
+msgstr "Com assegurar que tots els arxius s'han anonimitzat"
 
 msgid "grid.action.showReviewPolicy"
 msgstr "Llegiu la política de revisió actual"
@@ -1284,15 +1283,14 @@ msgstr "Tasques"
 msgid "dashboard.submissions"
 msgstr "Trameses"
 
-#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
-"<p>Per assegurar la integritat de l'avaluació d'experts amb cegament de les "
-"trameses a aquesta publicació s'ha de fer tot el possible per evitar que els "
-"autors/es coneguin la identitat dels revisors/es, i viceversa. Això "
-"significa que autors/es, editors/es i revisors/es, que són els que carreguen "
-"documents com a part de la revisió, han de comprovar que segueixen les "
-"indicacions següents respecte al text i a les propietats de l'arxiu:</p>\n"
+"<p>Per assegurar la integritat de l'avaluació d'experts anònima s'ha de fer "
+"tot el possible per evitar que els autors/es coneguin la identitat dels "
+"revisors/es, i viceversa. Això significa que autors/es, editors/es i "
+"revisors/es, que són els que carreguen documents com a part de la revisió, "
+"han de comprovar que segueixen les indicacions següents respecte al text i a "
+"les propietats de l'arxiu:</p>\n"
 "<ul><li>Els autors/es del document han eliminat els seus noms del text i "
 "utilitzen \"Autor/a (any)\" en les referències i notes al peu de pàgina en "
 "lloc del seu nom, el títol de l'article, etc.</li>\n"
@@ -1816,7 +1814,7 @@ msgstr "Revisor/a cancel·lat."
 
 msgid "notification.sendNotificationConfirmation"
 msgstr ""
-"Enviar correu electrònic de notificació a tots els usuaris/àries registrats"
+"Enviar un correu electrònic d'informació a tots els usuaris/àries registrats."
 
 msgid "notification.reviewerThankedEmail"
 msgstr "Correu electrònic d'agraïment enviat al revisor/a."
@@ -2036,3 +2034,61 @@ msgstr "Salta als enllaços de contingut"
 
 msgid "common.moreThanOnly"
 msgstr "Més que"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Opcions de privacitat"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "No teniu accés a aquesta assignació de la revisió."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "No teniu accés a aquest missatge de la discussió."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Discussió no vàlida."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Ronda de revisió no vàlida."
+
+msgid "user.email"
+msgstr "Adreça de correu electrònic"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Com assegurar que tots els arxius s'han anonimitzat"
+
+msgid "search.searchResults.foundPlural"
+msgstr "S'han trobat {$count} elements."
+
+msgid "search.searchResults.foundSingle"
+msgstr "S'ha trobat un element."
+
+msgid "navigation.backTo"
+msgstr "⟵ Tornar a {$page}"
+
+msgid "form.saved"
+msgstr "Guardat"
+
+msgid "common.viewWithName"
+msgstr "Veure {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Usuari/ària inexistent]"
+
+msgid "common.addFile"
+msgstr "Afegir arxiu"
+
+msgid "common.unknownError"
+msgstr ""
+"Ha ocorregut un error inesperat. Recarregueu la pàgina i torneu-ho a provar."
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "Seleccionar {$name}"
+
+msgid "common.editItem"
+msgstr "Editar {$name}"
+
+msgid "common.inactive"
+msgstr "Inactiu"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2020-06-18 17:39+0000\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "es_ES/>\n"
@@ -1196,9 +1196,8 @@ msgstr "Descargar este archivo"
 msgid "context.path"
 msgstr "Ruta"
 
-#, fuzzy
 msgid "review.ensuringAnonymousReview"
-msgstr "Garantizar una revisión anónima"
+msgstr "Cómo asegurarse de que todos los archivos se han anonimizado"
 
 msgid "grid.action.showReviewPolicy"
 msgstr "Leer la política de revisión actual"
@@ -1206,15 +1205,14 @@ msgstr "Leer la política de revisión actual"
 msgid "dashboard.tasks"
 msgstr "Tareas"
 
-#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
-"<p>Para asegurar la integridad de las evaluaciones anónimas por pares de los "
-"envíos a esta publicación habrá que hacer todo lo posible para impedir que "
-"los autores/as conozcan la identidad de los revisores/as, y viceversa. Para "
-"ello, los autores/as, editores/as y revisores/as que suban documentos como "
-"parte de la revisión deben comprobar que se han seguido los pasos siguientes "
-"relacionados con el texto y con las propiedades del archivo:</p>\n"
+"<p>Para asegurar la integridad de la evaluación por pares anónima se debe "
+"hacer todo lo posible para impedir que los autores/as conozcan la identidad "
+"de los revisores/as, y viceversa. Para ello, los autores/as, editores/as y "
+"revisores/as que suban documentos como parte de la revisión deben comprobar "
+"que se han seguido los pasos siguientes relacionados con el texto y con las "
+"propiedades del archivo:</p>\n"
 "<ul><li>Los autores/as del documento han eliminado sus nombres del texto y "
 "han empleado \"Autor/a\" y el año de publicación en las referencias y notas "
 "a pie de página en lugar del nombre del autor/a, el título del artículo, "
@@ -1551,7 +1549,9 @@ msgid "notification.reviewerThankedEmail"
 msgstr "El correo electrónico de agradecimiento se ha enviado al revisor/a."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Enviar correo electrónico de notificación a todos los usuarios/as registrados"
+msgstr ""
+"Enviar un correo electrónico de información a todos los usuarios/as "
+"registrados."
 
 msgid "notification.type.reviewAssignmentUpdated"
 msgstr "Asignación de revisión actualizada."
@@ -1954,3 +1954,57 @@ msgstr "Más que"
 
 msgid "common.lessThanOnly"
 msgstr "Menos que"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Opciones de privacidad"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "No tiene acceso a esta asignación de la revisión."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "No tiene acceso a este mensaje de la discusión."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Discusión no válida."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Ronda de revisión no válida."
+
+msgid "user.email"
+msgstr "Dirección de correo electrónico"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Cómo asegurarse de que todos los archivos se han anonimizado"
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} elementos encontrados."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Un elemento encontrado."
+
+msgid "navigation.backTo"
+msgstr "⟵ Volver a {$page}"
+
+msgid "form.saved"
+msgstr "Guardado"
+
+msgid "common.viewWithName"
+msgstr "Ver {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Usuario/a inexistente]"
+
+msgid "common.addFile"
+msgstr "Añadir archivo"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "Seleccionar {$name}"
+
+msgid "common.editItem"
+msgstr "Editar {$name}"
+
+msgid "common.inactive"
+msgstr "Inactivo"

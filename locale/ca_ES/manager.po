@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2020-06-13 14:39+0000\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ca_ES/>\n"
@@ -27,7 +27,7 @@ msgid "manager.announcements"
 msgstr "Avisos"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Esteu segur/a que voleu suprimir aquest avís de manera permanent?"
+msgstr "Segur que voleu suprimir de manera permanent l'avís {$title}?"
 
 msgid "manager.announcements.create"
 msgstr "Crea un avís nou"
@@ -66,7 +66,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Seleccioneu un mes i/o un dia a més de l’any per a la data de venciment."
 
 msgid "manager.announcements.form.description"
-msgstr "Descripció"
+msgstr "Avís"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Text complet de l’avís."
@@ -2041,11 +2041,10 @@ msgstr ""
 "Exemples: associacions acadèmiques, departaments universitaris, "
 "cooperatives, etc. Els patrocinadors es mostren públicament."
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Mostrar un enllaç per <button type=\"button\">garantir una avaluació amb "
-"cegament</button> durant la càrrega"
+"Mostrar un enllaç per <button type=\"button\">garantir que tots els arxius "
+"s'han anonimitzat</button> durant la càrrega"
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Mode de revisió predeterminat"
@@ -2284,3 +2283,120 @@ msgstr ""
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/any)"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"L'arxiu de l'enviament {$id} s'ha omès perquè està adjunt a un registre que "
+"no s'importarà, com una assignació de revisió o una discussió."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Seleccioneu el tipus de metadades per a aquests arxius. Hauríeu de "
+"seleccionar \"document\" per als arxius de publicació principals, com els "
+"PDF descarregables, de manera que aquests arxius reben les metadades des de "
+"la publicació. Si no escolliu \"contingut addicional\" per a la majoria de "
+"la resta d'arxius. \"Material gràfic\" és apropiat per a arxius que "
+"requereixin crèdits diferents, per a peus de foto i per a metadades de "
+"llicència."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Metadades de l'arxiu"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Aquests són arxius addicionals, com conjunts de dades i materials "
+"d'investigació, i es mostraran per separat dels arxius de publicació "
+"principals."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Aquests són arxius subordinats, com imatges mostrades per un arxiu HTML, i "
+"no es mostraran amb el contingut publicat."
+
+msgid "manager.setup.genres.label"
+msgstr "Tipus d'arxiu"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Segur que voleu activar aquesta secció?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Segur que voleu desactivar aquesta secció?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "Desactivar aquesta secció i no permetre que s'hi facin noves trameses."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Personalitzat"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Data i hora (curtes)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Data i hora"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Hora"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Data (curta)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Data"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Trieu el format preferit per a les dates i les hores. Podeu introduir un "
+"format personalitzat mitjançant els <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>caràcters de "
+"format</a> especials."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formats de data i hora"
+
+msgid "manager.setup.dateTime"
+msgstr "Data i hora"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Enviar un altre correu electrònic"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "El correu electrònic s'ha enviat correctament a tots els destinataris."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Enviant correu electrònic. No sortiu de la pàgina fins que l'enviament "
+"s'hagi completat."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Esteu a punt d'enviar un correu electrònic a {$total} usuaris/àries. Segur "
+"que voleu enviar-lo?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Enviar correu electrònic"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Enviar-me una còpia d'aquest correu electrònic a {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr ""
+"Seleccioneu els usuaris/àries que haurien de rebre la vostra notificació de "
+"correu electrònic."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Notificar"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Deshabilitar trameses"
+
+msgid "manager.people.signedInAs"
+msgstr "Actualment esteu connectat com a {$username}"
+
+msgid "manager.emails.resetComplete"
+msgstr "Plantilla de correu electrònic reiniciada correctament."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "S'han restaurat les plantilles de correu electrònic predeterminades."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Eliminar avís"

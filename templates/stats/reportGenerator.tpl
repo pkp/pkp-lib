@@ -1,5 +1,5 @@
 {**
- * templates/management/statistics/reportGenerator.tpl
+ * templates/stats/reportGenerator.tpl
  *
  * Copyright (c) 2013-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
@@ -12,10 +12,10 @@
 
 {block name="page"}
 	<h1 class="app__pageHeading">
-		{translate key="manager.statistics.reports"}
+		{translate key="manager.statistics.reports.customReportGenerator"}
 	</h1>
 
-	<div class="pkp_page_content pkp_page_statistics">
+	<div class="app__contentPanel">
 			{capture assign=reportGeneratorUrl}{url router=$smarty.const.ROUTE_COMPONENT component="statistics.ReportGeneratorHandler" op="fetchReportGenerator" escape=false}{/capture}
 			{load_url_in_div id="reportGeneratorContainer" url="$reportGeneratorUrl"}
 	</div>

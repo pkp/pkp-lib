@@ -536,7 +536,7 @@ msgid "manager.statistics.region"
 msgstr "Region"
 
 msgid "manager.statistics.reports"
-msgstr "Report Generator"
+msgstr "Reports"
 
 msgid "manager.statistics.reports.description"
 msgstr "The system generates reports that track the details associated with site usage and submissions over a given period of time. Reports are generated in CSV format which requires a spreadsheet application to view."
@@ -552,6 +552,9 @@ msgstr "Default report templates"
 
 msgid "manager.statistics.reports.generateReport"
 msgstr "Generate custom report"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Custom Report Generator"
 
 msgid "manager.statistics.reports.advancedOptions"
 msgstr "Advanced Options"

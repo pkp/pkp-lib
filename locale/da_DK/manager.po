@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-06-04 18:39+0000\n"
+"PO-Revision-Date: 2020-11-30 11:59+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -18,7 +18,7 @@ msgid "manager.announcements"
 msgstr "Meddelelser"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Er du sikker på, at du vil slette denne meddelelse permanent?"
+msgstr "Er du sikker på, at du vil slette meddelelsen  {$title} permanent?"
 
 msgid "manager.announcements.create"
 msgstr "Opret ny meddelelse"
@@ -54,7 +54,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Vælg også en måned og/eller dag ud over udløbsåret."
 
 msgid "manager.announcements.form.description"
-msgstr "Beskrivelse"
+msgstr "Meddelelse"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Meddelelsens fulde tekst."
@@ -2113,3 +2113,50 @@ msgstr "Registrerede brugere"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/year)"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formater for dato og tid"
+
+msgid "manager.setup.dateTime"
+msgstr "Dato & Tid"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Send endnu en e-mail"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-mail blev sendt til alle modtagere."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr "Afsendelse af e-mail. Browse ikke videre, før afsendelsen er afsluttet."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Du er ved at sende en e-mail til {$ total} brugere. Er du sikker på, at du "
+"vil sende denne e-mail?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Send e-mail"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Send en kopi af denne e-mail til mig på {$ email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Vælg de brugere, der skal modtage din e-mail-notifikation."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Underret"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Deaktiver indsendelser"
+
+msgid "manager.people.signedInAs"
+msgstr "Du er i øjeblikket logget ind som {$brugernavn}"
+
+msgid "manager.emails.resetComplete"
+msgstr "E-mail-skabelonen blev nulstillet."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Standard-e-mail-skabelonerne er blevet gendannet."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Slet meddelelse"

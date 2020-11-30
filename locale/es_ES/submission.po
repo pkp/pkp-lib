@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2020-06-18 17:39+0000\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/es_ES/>\n"
@@ -473,9 +473,8 @@ msgstr "Borrar entrada de registro"
 msgid "submission.event.submissionSubmitted"
 msgstr "Envío inicial completado."
 
-#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Se cargó la revisión \"{$name}\" (Id. de archivo {$submissionFileId})."
+msgstr "Se cargó la revisión \"{$name}\" del archivo {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadatos de envío actualizados"
@@ -1543,10 +1542,10 @@ msgid "submission.list.itemsOfTotal"
 msgstr "{$count} de {$total} envíos"
 
 msgid "submission.list.responseDue"
-msgstr "Plazo de respuesta"
+msgstr "Plazo de respuesta: {$date}"
 
 msgid "submission.list.reviewDue"
-msgstr "Plazo de revisión"
+msgstr "Plazo de revisión: {$date}"
 
 msgid "submission.list.confirmDelete"
 msgstr "¿Eliminar envío?"
@@ -1650,7 +1649,11 @@ msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "El artículo se ha envíado a otra ronda de revisión."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
-msgstr "El colaborador/a que ha seleccionado ha sido asignado para llevar a cabo una revisión ciega. Si lo asigna como participante tendrá acceso a la identidad del autor/a. Le aconsejamos no elegir este colaborador/a a menos que pueda garantizar la integridad del proceso de revisión por pares."
+msgstr ""
+"El colaborador/a que ha seleccionado ha sido asignado para llevar a cabo una "
+"revisión anónima. Si lo asigna como participante tendrá acceso a la "
+"identidad del autor/a. Le aconsejamos no elegir este colaborador/a a menos "
+"que pueda garantizar la integridad del proceso de revisión por pares."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Hacer una recomendación"
@@ -2137,3 +2140,39 @@ msgstr "Archivos adicionales"
 
 msgid "submission.representationOfTitle"
 msgstr "{$representation} de {$title}"
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"{$username} ha editado los metadatados del archivo \"{$originalFileName}\"."
+
+msgid "submission.upload.percentComplete"
+msgstr "{$percent}% de carga completado"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Cargue todos los archivos que el equipo editorial necesitará para evaluar su "
+"envío."
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Se guarda un registro del cargador de archivos cuando se crea el archivo y "
+"no se puede cambiar."
+
+msgid "submission.submit.removeConfirm"
+msgstr "¿Seguro que desea eliminar este archivo?"
+
+msgid "submission.submit.genre.error"
+msgstr "Seleccione el tipo de archivo para cada carga."
+
+msgid "submission.submit.genre.description"
+msgstr "Elija la opción que mejor describa a este archivo."
+
+msgid "submission.submit.genre.label"
+msgstr "Qué tipo de archivo es?"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Uno o más revisores/as han sobrepasado la fecha límite. El equipo editorial "
+"ha sido notificado y tomará las acciones oportunas para que se completen las "
+"revisiones. No necesita hacer nada más en este momento. Será notificado "
+"cuando se tome una decisión."

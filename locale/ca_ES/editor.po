@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2020-03-27 12:37+0000\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
-"ca/>\n"
+"ca_ES/>\n"
 "Language: ca_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -83,13 +83,11 @@ msgstr "No envieu un correu electrònic a l'autor"
 msgid "editor.submissionReview.open"
 msgstr "Oberts"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
-msgstr "Cegament"
+msgstr "Revisor/a anònim / Autor/a públic"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Doble cegament"
+msgstr "Revisor/a anònim / Autor/a anònim"
 
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Restringiu els fitxers disponibles"

@@ -21,8 +21,8 @@
 </script>
 <div id="{$reviewRoundTabsId}" class="pkp_controllers_tab">
 	<ul>
-		{iterate from=reviewRounds item=reviewRound}
+		{foreach from=$reviewRounds item=reviewRound}
 			<li><a href="{url router=$smarty.const.ROUTE_COMPONENT component="tab.authorDashboard.AuthorDashboardReviewRoundTabHandler" op="fetchReviewRoundInfo" submissionId=$submission->getId() stageId=$reviewRound->getStageId() reviewRoundId=$reviewRound->getId() escape=false}">{translate key="submission.round" round=$reviewRound->getRound()}</a></li>
-		{/iterate}
+		{/foreach}
 	</ul>
 </div>

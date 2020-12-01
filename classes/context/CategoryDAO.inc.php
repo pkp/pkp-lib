@@ -267,16 +267,14 @@ class CategoryDAO extends DAO {
 		$params = [(int) $categoryId];
 		if ($contextId) $params[] = (int) $contextId;
 
-		$this->update(
+		if ($this->update(
 			'DELETE FROM categories
 			WHERE	category_id = ?
 				' . ($contextId?' AND context_id = ?':''),
 			$params
-		);
-
-		// If the category was deleted (this validates context_id,
-		// if specified), delete any associated settings as well.
-		if ($this->getAffectedRows()) {
+		)) {
+			// If the category was deleted (this validates context_id,
+			// if specified), delete any associated settings as well.
 			$this->update(
 				'DELETE FROM category_settings WHERE category_id = ?',
 				[(int) $categoryId]

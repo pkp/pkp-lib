@@ -275,33 +275,31 @@ class QueryForm extends Form {
 			$usersIterator = $userService->getMany($params);
 
 			$allParticipants = [];
-			if (count($usersIterator)) {
-				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-				foreach ($usersIterator as $user) {
-					$allUserGroups = $userGroupDao->getByUserId($user->getId(), $context->getId())->toArray();
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+			foreach ($usersIterator as $user) {
+				$allUserGroups = $userGroupDao->getByUserId($user->getId(), $context->getId())->toArray();
 
-					$userRoles = array();
-					$userAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId())->toArray();
-					foreach ($userAssignments as $userAssignment) {
-						foreach ($allUserGroups as $userGroup) {
-							if ($userGroup->getId() == $userAssignment->getUserGroupId()) {
-								$userRoles[] = $userGroup->getLocalizedName();
-							}
+				$userRoles = array();
+				$userAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId())->toArray();
+				foreach ($userAssignments as $userAssignment) {
+					foreach ($allUserGroups as $userGroup) {
+						if ($userGroup->getId() == $userAssignment->getUserGroupId()) {
+							$userRoles[] = $userGroup->getLocalizedName();
 						}
 					}
-					foreach ($reviewAssignments as $assignment) {
-						if ($assignment->getReviewerId() == $user->getId()) {
-							$userRoles[] =  __('user.role.reviewer') . " (" . __($assignment->getReviewMethodKey()) . ")";
-						}
-					}
-					if (!count($userRoles)) {
-						$userRoles[] = __('submission.status.unassigned');
-					}
-					$allParticipants[$user->getId()] = __('submission.query.participantTitle', [
-						'fullName' => $user->getFullName(),
-						'userGroup' => join(__('common.commaListSeparator'), $userRoles),
-					]);
 				}
+				foreach ($reviewAssignments as $assignment) {
+					if ($assignment->getReviewerId() == $user->getId()) {
+						$userRoles[] =  __('user.role.reviewer') . " (" . __($assignment->getReviewMethodKey()) . ")";
+					}
+				}
+				if (!count($userRoles)) {
+					$userRoles[] = __('submission.status.unassigned');
+				}
+				$allParticipants[$user->getId()] = __('submission.query.participantTitle', [
+					'fullName' => $user->getFullName(),
+					'userGroup' => join(__('common.commaListSeparator'), $userRoles),
+				]);
 			}
 
 			$templateMgr->assign([

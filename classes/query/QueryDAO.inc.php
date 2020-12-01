@@ -230,12 +230,11 @@ class QueryDAO extends DAO {
 			$params[] = (int) $assocType;
 			$params[] = (int) $assocId;
 		}
-		$this->update(
+		if ($this->update(
 			'DELETE FROM queries WHERE query_id = ?' .
 			($assocType?' AND assoc_type = ? AND assoc_id = ?':''),
 			$params
-		);
-		if ($this->getAffectedRows()) {
+		)) {
 			$this->update('DELETE FROM query_participants WHERE query_id = ?', [(int) $queryId]);
 
 			// Remove associated notes

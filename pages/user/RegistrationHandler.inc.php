@@ -77,7 +77,7 @@ class RegistrationHandler extends UserHandler {
 				'pageTitle' => 'user.login.registrationPendingValidation',
 				'messageTranslated' => __('user.login.accountNotValidated', array('email' => $regForm->getData('email'))),
 			));
-			return $templateMgr->fetch('frontend/pages/message.tpl');
+			return $templateMgr->display('frontend/pages/message.tpl');
 		}
 
 		$reason = null;
@@ -97,7 +97,7 @@ class RegistrationHandler extends UserHandler {
 				'backLink' => $request->url(null, 'login'),
 				'backLinkLabel' => 'user.login',
 			));
-			return $templateMgr->fetch('frontend/pages/error.tpl');
+			return $templateMgr->display('frontend/pages/error.tpl');
 		}
 
 		$source = $request->getUserVar('source');

@@ -66,7 +66,8 @@ class Site extends DataObject {
 
 	/**
 	 * Get "localized" site page title (if applicable).
-	 * @return string
+	 * @return array|string
+	 * @deprecated 3.3.0
 	 */
 	function getLocalizedPageHeaderTitle() {
 		if ($this->getLocalizedData('pageHeaderTitleImage')) {

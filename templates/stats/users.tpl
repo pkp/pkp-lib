@@ -11,27 +11,34 @@
 {extends file="layouts/backend.tpl"}
 
 {block name="page"}
-	<div class="pkpStats">
-		<div class="pkpStats__panel">
-			<pkp-header>
-				<h1 id="usersTableLabel" class="pkpHeader__title">{translate key="manager.statistics.statistics.registeredUsers"}</h1>
-			</pkp-header>
-			<table class="pkpTable" labelled-by="usersTableLabel">
-				<thead>
-					<tr>
-						<th>{translate key="common.name"}</th>
-						<th>{translate key="stats.total"}</th>
-					</tr>
-				</thead>
-				<tbody>
-					{foreach from=$userStats item=$row}
-						<tr>
-							<td>{$row.name}</td>
-							<td>{$row.value}</td>
-						</tr>
-					{/foreach}
-				</tbody>
-			</table>
-		</div>
-	</div>
+	<tabs>
+		<tab id="usersReport" label="{translate key="stats.userStatistics"}">
+			<div class="pkpStats">
+				<div class="pkpStats__panel">
+					<pkp-header>
+						<h1 id="usersTableLabel" class="pkpHeader__title">{translate key="manager.statistics.statistics.registeredUsers"}</h1>
+					</pkp-header>
+					<table class="pkpTable" labelled-by="usersTableLabel">
+						<thead>
+							<tr>
+								<th>{translate key="common.name"}</th>
+								<th>{translate key="stats.total"}</th>
+							</tr>
+						</thead>
+						<tbody>
+							{foreach from=$userStats item=$row}
+								<tr>
+									<td>{$row.name}</td>
+									<td>{$row.value}</td>
+								</tr>
+							{/foreach}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</tab>
+		<tab id="usersExport" label="{translate key="common.export"}">
+			<pkp-form v-bind="components.usersReportForm" @set="set" @success="window.location = $event" />
+		</tab>
+	</tabs>
 {/block}

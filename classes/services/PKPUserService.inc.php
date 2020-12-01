@@ -22,6 +22,7 @@ use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\QueryBuilders\PKPUserQueryBuilder;
+use \PKP\User\Report;
 
 class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
@@ -64,6 +65,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * 		@option array excludeUsers
 	 * 		@option string status
 	 * 		@option string searchPhrase
+	 *  	@option array userGroupIds
 	 * 		@option int count
 	 * 		@option int offset
 	 * @return Iterator
@@ -133,7 +135,8 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			->includeUsers($args['includeUsers'])
 			->excludeUsers($args['excludeUsers'])
 			->filterByStatus($args['status'])
-			->searchPhrase($args['searchPhrase']);
+			->searchPhrase($args['searchPhrase'])
+			->filterByUserGroupIds($args['userGroupIds']);
 
 		if (isset($args['count'])) {
 			$userListQB->limitTo($args['count']);
@@ -608,5 +611,25 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Retrieves a filtered user report instance
+	 *
+	 * @param array $args
+	 *		@option int contextId Context ID (required)
+	 *		@option int[] userGroupIds List of user groups (all groups by default)
+	 * @return Report
+	 */
+	public function getReport(array $args) : Report {
+		$dataSource = \Services::get('user')->getMany([
+			'userGroupIds' => $args['userGroupIds'] ?? null,
+			'contextId' => $args['contextId']
+		]);
+		$report = new Report($dataSource);
+
+		\HookRegistry::call('User::getReport', $report);
+
+		return $report;
 	}
 }

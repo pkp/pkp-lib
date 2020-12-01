@@ -155,7 +155,7 @@ msgid "submission.publications"
 msgstr "Preprints"
 
 msgid "publication.copyrightYearBasis.issueDescription"
-msgstr "The copyright year will be set automatically when this is posted"
+msgstr "The copyright year will be set automatically when this is posted."
 
 msgid "publication.copyrightYearBasis.submissionDescription"
 msgstr "The copyright year will be set automatically based on the posted date."
@@ -182,7 +182,7 @@ msgid "publication.event.versionScheduled"
 msgstr "A new version was scheduled to be posted."
 
 msgid "publication.event.versionUnpublished"
-msgstr "A version was removed from preprint."
+msgstr "This version was unposted and is no longer publicly available."
 
 msgid "publication.invalidSubmission"
 msgstr "The submission for this preprint could not be found."
@@ -218,7 +218,7 @@ msgid "publication.unpublish.confirm"
 msgstr "Are you sure you don't want this to be posted?"
 
 msgid "publication.unschedule.confirm"
-msgstr "Are you sure you don't want this scheduled to be posted?"
+msgstr "Are you sure you don't want this to be scheduled to be posted?"
 
 msgid "publication.version.details"
 msgstr "Details for version {$version}"

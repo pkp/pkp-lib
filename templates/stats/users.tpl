@@ -11,34 +11,45 @@
 {extends file="layouts/backend.tpl"}
 
 {block name="page"}
-	<tabs>
-		<tab id="usersReport" label="{translate key="stats.userStatistics"}">
-			<div class="pkpStats">
-				<div class="pkpStats__panel">
-					<pkp-header>
-						<h1 id="usersTableLabel" class="pkpHeader__title">{translate key="manager.statistics.statistics.registeredUsers"}</h1>
-					</pkp-header>
-					<table class="pkpTable" labelled-by="usersTableLabel">
-						<thead>
-							<tr>
-								<th>{translate key="common.name"}</th>
-								<th>{translate key="stats.total"}</th>
-							</tr>
-						</thead>
-						<tbody>
-							{foreach from=$userStats item=$row}
-								<tr>
-									<td>{$row.name}</td>
-									<td>{$row.value}</td>
-								</tr>
-							{/foreach}
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</tab>
-		<tab id="usersExport" label="{translate key="common.export"}">
-			<pkp-form v-bind="components.usersReportForm" @set="set" @success="window.location = $event" />
-		</tab>
-	</tabs>
+	<div class="pkpStats">
+		<div class="pkpStats__panel">
+			<pkp-header>
+				<h1 id="usersTableLabel" class="pkpHeader__title">{translate key="manager.statistics.statistics.registeredUsers"}</h1>
+				<template slot="actions">
+					<pkp-button ref="exportButton" @click="$modal.show('export')">
+						{translate key="common.export"}
+					</pkp-button>
+				</template>
+			</pkp-header>
+			<table class="pkpTable" labelled-by="usersTableLabel">
+				<thead>
+					<tr>
+						<th>{translate key="common.name"}</th>
+						<th>{translate key="stats.total"}</th>
+					</tr>
+				</thead>
+				<tbody>
+					{foreach from=$userStats item=$row}
+						<tr>
+							<td>{$row.name}</td>
+							<td>{$row.value}</td>
+						</tr>
+					{/foreach}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<modal
+		v-bind="MODAL_PROPS"
+		name="export"
+		@closed="setFocusToRef('exportButton')"
+	>
+		<modal-content
+			closeLabel="Close"
+			modalName="export"
+			title="{translate key="manager.export.usersToCsv.label"}"
+		>
+			<pkp-form v-bind="components.usersReportForm" @set="set" @success="loadExport" />
+		</modal-content>
+	</modal>
 {/block}

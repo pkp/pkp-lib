@@ -33,6 +33,7 @@ class ReportForm extends FormComponent {
 		$this->addField(new FieldOptions('userGroupIds', [
 			'groupId' => 'default',
 			'label' => __('user.group'),
+			'description' => __('manager.export.usersToCsv.description'),
 			'options' => array_map(function ($userGroup) {
 				return [
 					'value' => $userGroup->getId(),

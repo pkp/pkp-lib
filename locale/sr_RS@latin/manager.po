@@ -626,6 +626,7 @@ msgstr "Obrasci"
 msgid "manager.language.reloadLocalizedDefaultSettings"
 msgstr "Učitaj početne vrednosti"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Generator izveštaja"
 

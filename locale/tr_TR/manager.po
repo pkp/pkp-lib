@@ -687,6 +687,7 @@ msgstr "Şehir"
 msgid "manager.statistics.region"
 msgstr "Bölge"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Rapor Oluştur"
 

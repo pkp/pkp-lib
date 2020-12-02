@@ -1660,6 +1660,7 @@ msgstr ""
 "dihasikan dalam format CSV yang membutuhkan aplikasi spreadsheet (misalnya, "
 "excel) untuk membukanya."
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Pembuat Laporan"
 

@@ -489,6 +489,7 @@ msgstr "Mesto"
 msgid "manager.statistics.region"
 msgstr "Regija"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Generator poročil"
 

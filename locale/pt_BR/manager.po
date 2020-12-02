@@ -413,6 +413,7 @@ msgstr "Formato de imagem inválido ou falha no envio para logo no cabeçalho de
 msgid "manager.statistics"
 msgstr "Estatísticas &amp; Relatórios"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Gerador de Relatórios"
 

@@ -626,6 +626,7 @@ msgstr "Обрасци"
 msgid "manager.language.reloadLocalizedDefaultSettings"
 msgstr "Учитај почетне вредности"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Генератор извештаја"
 

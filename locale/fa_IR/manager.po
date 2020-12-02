@@ -473,6 +473,7 @@ msgstr "شهر"
 msgid "manager.statistics.region"
 msgstr "منطقه"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "تولیدگر گزارش "
 

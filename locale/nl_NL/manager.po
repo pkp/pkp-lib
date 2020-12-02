@@ -484,6 +484,7 @@ msgstr "Stad"
 msgid "manager.statistics.region"
 msgstr "Regio"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Rapporteringstool"
 

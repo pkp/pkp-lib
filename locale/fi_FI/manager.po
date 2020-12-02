@@ -479,6 +479,7 @@ msgstr "Kaupunki"
 msgid "manager.statistics.region"
 msgstr "Alue"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Raporttigeneraattori"
 

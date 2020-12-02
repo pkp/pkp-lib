@@ -563,6 +563,7 @@ msgstr ""
 "web và gửi trong một khoảng thời gian nhất định. Báo cáo được tạo ở định "
 "dạng CSV yêu cầu ứng dụng bảng tính để xem."
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Tạo Báo cáo"
 

@@ -817,6 +817,7 @@ msgstr "Città"
 msgid "manager.statistics.region"
 msgstr "Regione"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Generatore report"
 

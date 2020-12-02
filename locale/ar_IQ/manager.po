@@ -524,6 +524,7 @@ msgstr "المدينة"
 msgid "manager.statistics.region"
 msgstr "المنطقة"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "منشئ التقرير"
 

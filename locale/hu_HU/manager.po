@@ -522,6 +522,7 @@ msgstr "Város"
 msgid "manager.statistics.region"
 msgstr "Régió"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Jelentés generáló"
 

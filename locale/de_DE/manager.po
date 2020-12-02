@@ -489,6 +489,7 @@ msgstr "Stadt"
 msgid "manager.statistics.region"
 msgstr "Region"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Berichtserstellung"
 

@@ -1785,6 +1785,7 @@ msgstr ""
 "Rapoartele sunt generate în format CSV, care necesită o aplicație de foi de "
 "calcul pentru vizualizare."
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Generator de raport"
 

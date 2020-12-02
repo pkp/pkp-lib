@@ -536,6 +536,7 @@ msgstr "Город"
 msgid "manager.statistics.region"
 msgstr "Регион"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Генератор отчетов"
 

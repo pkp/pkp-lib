@@ -490,6 +490,7 @@ msgstr "Ciutat"
 msgid "manager.statistics.region"
 msgstr "Província"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Generador d’informes"
 

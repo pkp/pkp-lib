@@ -1034,8 +1034,8 @@ class PKPTemplateManager extends Smarty {
 							$menu['statistics']['submenu'] += [
 								'reports' => [
 									'name' => __('manager.statistics.reports'),
-									'url' => $router->url($request, null, 'management', 'tools', null, null, 'statistics'),
-									'isCurrent' => $router->getRequestedPage($request) === 'management' && $router->getRequestedAnchor($request) === 'statistics',
+									'url' => $router->url($request, null, 'stats', 'reports'),
+									'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'reports',
 								]
 							];
 						}

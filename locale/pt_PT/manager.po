@@ -404,6 +404,7 @@ msgstr "O formato da imagem do logótipo do cabeçalho da página é inválido o
 msgid "manager.statistics"
 msgstr "Estatísticas &amp; Relatórios"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Gerador de Relatórios"
 

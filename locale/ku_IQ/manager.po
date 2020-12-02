@@ -358,6 +358,7 @@ msgstr "دەرکەوتن"
 msgid "manager.website.information"
 msgstr "زانیاری"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "ڕاپۆرت دروستکەر"
 

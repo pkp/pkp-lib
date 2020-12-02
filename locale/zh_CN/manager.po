@@ -787,6 +787,7 @@ msgstr "汇总统计信息："
 msgid "manager.statistics.reports.description"
 msgstr "系统生成报告，跟踪给定时间段内与网站使用情况和提交相关的详细信息。 报告以CSV格式生成，需要电子表格应用程序以查看。"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "报告生成器"
 

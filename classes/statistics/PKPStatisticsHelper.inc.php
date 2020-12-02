@@ -271,7 +271,7 @@ abstract class PKPStatisticsHelper {
 			$args['orderBy'] = json_encode($orderBy);
 		}
 
-		return $dispatcher->url($request, ROUTE_PAGE, null, 'management', 'tools', 'generateReport', $args);
+		return $dispatcher->url($request, ROUTE_PAGE, null, 'stats', 'reports', 'generateReport', $args);
 	}
 
 

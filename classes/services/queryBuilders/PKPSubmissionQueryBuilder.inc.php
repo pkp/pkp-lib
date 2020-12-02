@@ -283,7 +283,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 			$q->leftJoin('publications as publication_tlpl', 's.current_publication_id', '=', 'publication_tlpl.publication_id')
 				->leftJoin('publication_settings as publication_tlpsl', 'publication_tlp.publication_id', '=', 'publication_tlpsl.publication_id')
 				->where('publication_tlpsl.setting_name', '=', 'title')
-				->where('publication_tlpsl.locale', '=', Capsule::raw('publication_tlpl.locale'));
+				->where('publication_tlpsl.locale', '=', Capsule::raw('s.locale'));
 			$q->groupBy(Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)'));
 		}
 

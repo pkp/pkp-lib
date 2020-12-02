@@ -83,7 +83,7 @@ class PKPCatalogHandler extends Handler {
 		$templateMgr->assign(array(
 			'category' => $category,
 			'parentCategory' => $parentCategory,
-			'subcategories' => $subcategories,
+			'subcategories' => $subcategories->toArray(),
 			'publishedSubmissions' => iterator_to_array($submissionsIterator),
 		));
 

@@ -297,11 +297,6 @@ class ManagementHandler extends Handler {
 				FORM_SEARCH_INDEXING => $searchIndexingForm->getConfig(),
 				FORM_PAYMENT_SETTINGS => $paymentSettingsForm->getConfig(),
 			],
-			'paymentsNavLink' => [
-				'name' => __('common.payments'),
-				'url' => $router->url($request, null, 'payments'),
-				'isCurrent' => false,
-			],
 		]);
 		$templateMgr->assign('pageTitle', __('manager.distribution.title'));
 	}

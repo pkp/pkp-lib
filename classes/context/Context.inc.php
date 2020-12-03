@@ -302,7 +302,7 @@ abstract class Context extends DataObject {
 	 * @return array
 	 */
 	function getDateTimeFormats($format) {
-		$data = $this->getData($format);
+		$data = $this->getData($format) ?? [];
 		$fallbackConfigVar = strtolower(preg_replace('/([A-Z])/', '_$1', $format));
 		foreach ($this->getSupportedFormLocales() as $supportedLocale) {
 			if (!array_key_exists($supportedLocale, $data)) $data[$supportedLocale] = Config::getVar('general', $fallbackConfigVar);

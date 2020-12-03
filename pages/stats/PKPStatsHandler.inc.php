@@ -357,6 +357,7 @@ class PKPStatsHandler extends Handler {
 		]);
 		$templateMgr->assign([
 			'pageTitle' => __('stats.userStatistics'),
+			'pageComponent' => 'StatsUsersPage',
 			'userStats' => array_map(
 				function ($item) {
 					$item['name'] = __($item['name']);

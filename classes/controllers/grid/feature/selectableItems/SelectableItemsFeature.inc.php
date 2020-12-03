@@ -50,9 +50,9 @@ class SelectableItemsFeature extends GridFeature {
 
 		if (is_a($grid, 'CategoryGridHandler')) {
 			$categoryId = $grid->getCurrentCategoryId();
-			$row->addFlag('selected', $grid->isDataElementInCategorySelected($categoryId, $row->getData()));
+			$row->addFlag('selected', (bool) $grid->isDataElementInCategorySelected($categoryId, $row->getData()));
 		} else {
-			$row->addFlag('selected', $grid->isDataElementSelected($row->getData()));
+			$row->addFlag('selected', (bool) $grid->isDataElementSelected($row->getData()));
 		}
 	}
 }

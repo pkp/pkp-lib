@@ -272,6 +272,12 @@ msgstr "Sent To"
 msgid "manager.emails.subjectWithValue"
 msgstr "Subject: {$subject}"
 
+msgid "manager.export.usersToCsv.label"
+msgstr "Export to Excel/CSV"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Select the users to be exported to an Excel/CSV file."
+
 msgid "manager.filesBrowser"
 msgstr "Files Browser"
 

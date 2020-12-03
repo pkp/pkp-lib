@@ -27,8 +27,8 @@ class RevertDeclineForm extends EditorDecisionForm {
 	 * @param $stageId int
 	 * @param $reviewRound ReviewRound
 	 */
-	function __construct($submission, $decision, $stageId, $reviewRound = null) {
-		parent::__construct($submission, $decision, $stageId, 'controllers/modals/editorDecision/form/revertDeclineForm.tpl', $reviewRound);
+	function __construct($submission, $decision, $stageId) {
+		parent::__construct($submission, $decision, $stageId, 'controllers/modals/editorDecision/form/revertDeclineForm.tpl');
 	}
 
 	//
@@ -46,7 +46,6 @@ class RevertDeclineForm extends EditorDecisionForm {
 		if (is_a($reviewRound, 'ReviewRound')) {
 			$this->setData('reviewRoundId', $reviewRound->getId());
 		}
-
 		return parent::initData();
 	}
 
@@ -63,17 +62,23 @@ class RevertDeclineForm extends EditorDecisionForm {
 
 		// Record the decision.
 		import('classes.workflow.EditorDecisionActionsManager');
-		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), array($this->_decision));
+		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), array($this->getDecision()));
 		import('lib.pkp.classes.submission.action.EditorAction');
 		$editorAction = new EditorAction();
-		$editorAction->recordDecision($request, $submission, $this->_decision, $actionLabels);
+		$editorAction->recordDecision($request, $submission, $this->getDecision(), $actionLabels);
 
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission->setStatus(STATUS_QUEUED); // Always return submission to STATUS_QUEUED
 
 		// If we are on a review round, return the round status
 		// prior to the decline decision
-
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
+		$reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $this->getStageId());
+		if (is_a($reviewRound, 'ReviewRound')) {
+			$reviewRound->setStatus(null);
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
+			$reviewRoundDao->updateStatus($reviewRound);
+		}
 
 		$submissionDao->updateObject($submission);
 

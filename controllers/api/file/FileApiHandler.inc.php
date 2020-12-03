@@ -91,7 +91,7 @@ class FileApiHandler extends Handler {
 		// Enforce anonymous filenames for anonymous review assignments
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 		if ($reviewAssignment
-				&& $reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_DOUBLEBLIND
+				&& $reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS
 				&& $reviewAssignment->getReviewerId() == $request->getUser()->getId()) {
 			AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION]);
 			$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */

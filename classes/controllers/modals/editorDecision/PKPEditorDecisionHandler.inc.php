@@ -370,7 +370,7 @@ class PKPEditorDecisionHandler extends Handler {
 	 * @return array
 	 */
 	protected function _getReviewRoundOps() {
-		return array('promoteInReview', 'savePromoteInReview', 'newReviewRound', 'saveNewReviewRound', 'sendReviewsInReview', 'saveSendReviewsInReview', 'importPeerReviews', 'sendRecommendation', 'saveRecommendation');
+		return array('promoteInReview', 'savePromoteInReview', 'newReviewRound', 'saveNewReviewRound', 'sendReviewsInReview', 'saveSendReviewsInReview', 'importPeerReviews', 'sendRecommendation', 'saveRecommendation', 'revertDecline', 'saveRevertDecline');
 	}
 
 	/**

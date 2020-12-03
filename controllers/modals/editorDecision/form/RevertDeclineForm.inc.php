@@ -23,9 +23,12 @@ class RevertDeclineForm extends EditorDecisionForm {
 	/**
 	 * Constructor.
 	 * @param $submission Submission
+	 * @param $decision int
+	 * @param $stageId int
+	 * @param $reviewRound ReviewRound
 	 */
-	function __construct($submission, $decision, $stageId) {
-		parent::__construct($submission, $decision, $stageId, 'controllers/modals/editorDecision/form/revertDeclineForm.tpl');
+	function __construct($submission, $decision, $stageId, $reviewRound = null) {
+		parent::__construct($submission, $decision, $stageId, 'controllers/modals/editorDecision/form/revertDeclineForm.tpl', $reviewRound);
 	}
 
 	//
@@ -37,7 +40,13 @@ class RevertDeclineForm extends EditorDecisionForm {
 	 * @param $actionLabels array
 	 */
 	function initData($actionLabels = array()) {
-		$this->setData('decision', $this->_decision);
+		$this->setData('decision', $this->getDecision());
+		// If we are in review stage we need a review round.
+		$reviewRound = $this->getReviewRound();
+		if (is_a($reviewRound, 'ReviewRound')) {
+			$this->setData('reviewRoundId', $reviewRound->getId());
+		}
+
 		return parent::initData();
 	}
 
@@ -61,6 +70,11 @@ class RevertDeclineForm extends EditorDecisionForm {
 
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission->setStatus(STATUS_QUEUED); // Always return submission to STATUS_QUEUED
+
+		// If we are on a review round, return the round status
+		// prior to the decline decision
+
+
 		$submissionDao->updateObject($submission);
 
 	}

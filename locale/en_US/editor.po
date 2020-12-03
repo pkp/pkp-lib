@@ -398,6 +398,9 @@ msgstr "Approve this proof to indicate proofreading is complete and the file is 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
 msgstr "Revoke approval for this proof to indicate proofreading is no longer complete and the file is not ready to be published."
 
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Are you sure you want to reverse the decision to decline this submission?"
+
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "The public identifier '{$publicIdentifier}' must not be a number."
 
@@ -457,3 +460,5 @@ msgstr "Biography"
 
 msgid "reviewer.list.empty"
 msgstr "No reviewers found"
+
+

@@ -17,8 +17,14 @@
 
 <form class="pkp_form" id="revertDecline" method="post" action="{url op="saveRevertDecline"}" >
 	{csrf}
+
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
 	<input type="hidden" name="decision" value="{$decision|escape}" />
+	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />
+
+	<p>{translate key="editor.submission.revertDeclineDescription"}</p>
+
 	{fbvFormButtons submitText="editor.submission.decision.revertDecline"}
+
 </form>

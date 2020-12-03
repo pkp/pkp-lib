@@ -37,7 +37,7 @@ abstract class PKPEditorDecisionActionsManager {
 				$result = $this->_submissionStageDecisions($submission, $stageId, $makeDecision);
 				break;
 			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-				$result = $this->_externalReviewStageDecisions($context, $makeDecision);
+				$result = $this->_externalReviewStageDecisions($context, $submission, $makeDecision);
 				break;
 			case WORKFLOW_STAGE_ID_EDITING:
 				$result = $this->_editorialStageDecisions($makeDecision);

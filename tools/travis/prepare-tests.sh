@@ -35,7 +35,8 @@ if [[ "$TEST" == "pgsql" ]]; then
 elif [[ "$TEST" == "mysql" ]]; then
 	sudo service mysql start
 	sudo mysql -u root -e 'CREATE DATABASE `ojs-ci` DEFAULT CHARACTER SET utf8'
-	sudo mysql -u root -e "GRANT ALL ON \`ojs-ci\`.* TO \`ojs-ci\`@localhost IDENTIFIED BY 'ojs-ci'"
+	sudo mysql -u root -e "CREATE USER \`ojs-ci\`@localhost IDENTIFIED BY 'ojs-ci'"
+	sudo mysql -u root -e "GRANT ALL ON \`ojs-ci\`.* TO \`ojs-ci\`@localhost WITH GRANT OPTION"
 	export DBTYPE=MySQLi
 fi
 

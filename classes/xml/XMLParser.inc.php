@@ -107,8 +107,7 @@ class XMLParser {
 	 * @return \GuzzleHttp\Psr7\Stream|null
 	 */
 	protected function _getStream($filenameOrUrl) {
-		$urlPieces = parse_url($filenameOrUrl);
-		if ($urlPieces && isset($urlPieces['scheme'])) {
+		if (filter_var($filenameOrUrl, FILTER_VALIDATE_URL)) {
 			// Remote URL.
 			$client = Application::get()->getHttpClient();
 			$response = $client->request('GET', $filenameOrUrl);

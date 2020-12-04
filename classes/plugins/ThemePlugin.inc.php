@@ -406,6 +406,17 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 					break;
 			}
 		}
+		
+		// add paramenter upload url to enabling upload fiture for FieldRichTextarea field. 
+		if ($type == 'FieldRichTextarea' && (isset($args['plugins']) && strpos(strtolower($args['plugins']), 'image'))) {
+			$request = Application::get()->getRequest();
+			$context = $request->getContext();
+			$dispatcher = $request->getDispatcher();
+			$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile');
+
+			$args['value'] = $context->getData($name);
+			$args['uploadUrl'] = $publicFileApiUrl;
+		}
 
 		$class = 'PKP\components\forms\\' . $type;
 		try {

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-12-03 15:43+0000\n"
+"PO-Revision-Date: 2020-12-04 12:35+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -2228,3 +2228,9 @@ msgstr ""
 
 msgid "manager.statistics.reports.customReportGenerator"
 msgstr "Brugerdefineret rapportgenerator"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Udvælg de brugere, der skal eksporteres til en Excel/CSV-fil."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Eksportér til Excel/CSV"

@@ -29,7 +29,7 @@ class ReportForm extends FormComponent {
 		$this->addPage(['id' => 'default', 'submitButton' => array('label' => __('common.export'))]);
 		$this->addGroup(['id' => 'default', 'pageId' => 'default']);
 
-		$userGroups = iterator_to_array(\DAORegistry::getDAO('UserGroupDAO')->getByContextId()->toIterator());
+		$userGroups = iterator_to_array(\DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId())->toIterator());
 		$this->addField(new FieldOptions('userGroupIds', [
 			'groupId' => 'default',
 			'label' => __('user.group'),

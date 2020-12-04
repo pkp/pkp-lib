@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2020-12-03 15:43+0000\n"
+"PO-Revision-Date: 2020-12-04 12:35+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr_TR/>\n"
@@ -2199,3 +2199,9 @@ msgstr "Duyuruyu Sil"
 
 msgid "manager.statistics.reports.customReportGenerator"
 msgstr "Özel Rapor Oluşturucu"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Excel/CSV olarak dışarı aktarılacak kullanıcıları seçin."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Excel/CSV olarak Dışarı Aktar"

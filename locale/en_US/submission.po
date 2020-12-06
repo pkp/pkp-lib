@@ -136,9 +136,6 @@ msgstr "All requirements have been met. Are you sure you want to post this?"
 msgid "author.submit.authorsCanNotPublish"
 msgstr "You can not post your own preprint. It must be approved and posted by a moderator."
 
-msgid "submission.publication"
-msgstr "Preprint"
-
 msgid "publication.status.published"
 msgstr "Posted"
 
@@ -207,9 +204,6 @@ msgstr "Copyright will be assigned automatically to {$copyright} when this is po
 
 msgid "submission.copyrightOther.description"
 msgstr "Assign copyright for posted submissions to the following party."
-
-msgid "publication.editDisabled"
-msgstr "This version has been posted and can not be edited."
 
 msgid "publication.unpublish"
 msgstr "Unpost"

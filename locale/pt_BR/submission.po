@@ -1637,9 +1637,6 @@ msgstr "Discussão da avaliação"
 msgid "submission.queries.editorial"
 msgstr "Discussão da edição de texto"
 
-msgid "submission.queries.production"
-msgstr "Discussão da Editoração"
-
 msgid "submission.query.subject"
 msgstr "Assunto"
 
@@ -1970,34 +1967,14 @@ msgstr "{$numTitles} títulos"
 msgid "catalog.noTitlesSection"
 msgstr "Sem publicações para esta seção no momento."
 
-msgid "publication.event.scheduled"
-msgstr "A submissão foi agendada para publicação."
-
-msgid "publication.event.published"
-msgstr "A submissão foi publicada."
-
-msgid "publication.editDisabled"
-msgstr "Esta versão foi publicada e não pode ser editada."
-
 msgid "publication.datePublished.errorFormat"
 msgstr "A data deve estar no formato AAAA-MM-DD, como 2019-12-20."
-
-msgid "publication.datePublished"
-msgstr "Data de Publicação"
 
 msgid "publication.createVersion"
 msgstr "Criar Nova Versão"
 
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"O ano dos direitos autorais serão definido automaticamente quando for "
-"publicado em um fascículo."
-
 msgid "publication.contributors"
 msgstr "Contribuidores"
-
-msgid "submission.publication"
-msgstr "Publicação"
 
 msgid "submission.list.reviewCancelled"
 msgstr "Avaliação Cancelada"
@@ -2137,9 +2114,6 @@ msgstr "A submissão deve ser ressubmetida para outra rodada de avaliação."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revisões foram submetidas."
 
-msgid "submission.status.scheduled"
-msgstr "Agendado"
-
 msgid "submission.submit.form.citationsRequired"
 msgstr "Por favor, insira as referências."
 
@@ -2247,29 +2221,14 @@ msgstr ""
 "O resumo é muito longo. Ele deve ter {$limit} palavras ou menos. Atualmente "
 "ele possui {$limit} palavras."
 
-msgid "publication.version.details"
-msgstr "Detalhes da publicação da versão {$version}"
-
 msgid "publication.version.all"
 msgstr "Todas as Versões"
-
-msgid "publication.unschedule.confirm"
-msgstr "Tem certeza que não deseja agendar isto para publicação?"
 
 msgid "publication.unschedule"
 msgstr "Desagendar"
 
-msgid "publication.unpublish.confirm"
-msgstr "Tem certeza que não gostaria de publicar isto?"
-
-msgid "publication.unpublish"
-msgstr "Despublicar"
-
 msgid "publication.titleAbstract"
 msgstr "Título e Resumo"
-
-msgid "publication.status.unscheduled"
-msgstr "Não Agendado"
 
 msgid "publication.status.unpublished"
 msgstr "Despublicado"
@@ -2277,45 +2236,11 @@ msgstr "Despublicado"
 msgid "publication.status.scheduled"
 msgstr "Agendado"
 
-msgid "publication.status.published"
-msgstr "Publicado"
-
-msgid "publication.required.reviewStage"
-msgstr ""
-"A submissão precisa estar nos estágios de Edição ou Editoração para que ela "
-"possa ser publicada."
-
-msgid "publication.required.declined"
-msgstr "Uma submissão recusada não pode ser publicada."
-
-msgid "publication.publish.requirements"
-msgstr ""
-"Os seguintes requisitos devem ser atendidos antes que isso possa ser "
-"publicado."
-
-msgid "publication.publish"
-msgstr "Publicar"
-
 msgid "publication.publicationLicense"
 msgstr "Permissão e Divulgação"
 
-msgid "publication.invalidSubmission"
-msgstr "A submissão para esta publicação não foi encontrada."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Uma versão foi despublicada."
-
-msgid "publication.event.versionScheduled"
-msgstr "Uma nova versão foi agendada para publicação."
-
-msgid "publication.event.versionPublished"
-msgstr "Uma nova versão foi publicada."
-
 msgid "publication.event.versionCreated"
 msgstr "Uma nova versão foi criada."
-
-msgid "publication.event.unpublished"
-msgstr "A submissão foi despublicada."
 
 msgid "publication.version.confirm"
 msgstr "Tem certeza de que deseja criar uma nova versão?"
@@ -2338,38 +2263,17 @@ msgstr "Um caminho opcional a ser usado na URL em vez do ID."
 msgid "publication.urlPath"
 msgstr "Caminho da URL"
 
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"O ano dos direitos autorais será definido automaticamente com base na data "
-"de publicação."
-
-msgid "submission.publications"
-msgstr "Publicações"
-
 msgid "submission.list.daysSinceLastActivity"
 msgstr "Dias desde a última atividade"
 
 msgid "submission.list.activity"
 msgstr "Atividade"
 
-msgid "submission.copyrightOther.description"
-msgstr "Atribua direitos autorais para submissões publicadas à parte seguinte."
-
 msgid "submission.copyrightOther"
 msgstr "Declaração de direitos autorais"
 
 msgid "submission.copyrightHolder.other"
 msgstr "Declaração de direitos autorais personalizada"
-
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"Os direitos autorais serão atribuídos automaticamente a {$copyright} quando "
-"publicados."
-
-msgid "submission.license.description"
-msgstr ""
-"A licença será definida automaticamente como <a href='{$licenseUrl}' "
-"target='_blank'> {$licenseName} </a> quando publicada."
 
 msgid "notification.type.editorDecisionNewRound"
 msgstr "Uma nova rodada de avaliações foi iniciada."

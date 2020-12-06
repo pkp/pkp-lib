@@ -1744,9 +1744,6 @@ msgstr "مرور گفتگو ها"
 msgid "submission.queries.editorial"
 msgstr "گفتگوی ویراستاری"
 
-msgid "submission.queries.production"
-msgstr "گفتگوی انتشار"
-
 msgid "submission.query.subject"
 msgstr "موضوع"
 

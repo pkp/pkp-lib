@@ -1573,9 +1573,6 @@ msgstr "Recenzijska diskusija"
 msgid "submission.queries.editorial"
 msgstr "Lektorska diskusija"
 
-msgid "submission.queries.production"
-msgstr "Produkcijska diskusija"
-
 msgid "submission.query.subject"
 msgstr "Tema"
 
@@ -1731,32 +1728,17 @@ msgstr ""
 "Izvleček je predolg. Največja dolžina je {$limit} besed. Trenutno je dolg  "
 "{$count} besed."
 
-msgid "publication.version.details"
-msgstr "Podrobnosti objave za verzijo {$version}"
-
 msgid "publication.version.confirm"
 msgstr "Ste prepričani, da želite ustvariti novo verzijo?"
 
 msgid "publication.version.all"
 msgstr "Vse verzije"
 
-msgid "publication.unschedule.confirm"
-msgstr "Ste prepričani, da ne želite načrtovati te objave?"
-
 msgid "publication.unschedule"
 msgstr "Odstrani načrtovanje"
 
-msgid "publication.unpublish.confirm"
-msgstr "Ste prepričani, da želite umakniti to objavo?"
-
-msgid "publication.unpublish"
-msgstr "Umakni objavo"
-
 msgid "publication.titleAbstract"
 msgstr "Naslov in izvleček"
-
-msgid "publication.status.unscheduled"
-msgstr "Ni načrtovano"
 
 msgid "publication.status.unpublished"
 msgstr "Neobjavljeno"
@@ -1764,71 +1746,20 @@ msgstr "Neobjavljeno"
 msgid "publication.status.scheduled"
 msgstr "Načrtovano"
 
-msgid "publication.status.published"
-msgstr "Objavljeno"
-
-msgid "publication.required.reviewStage"
-msgstr ""
-"Prispevek mora biti v fazi Lektoriranje ali Produkcija preden je lahko "
-"objavljen."
-
-msgid "publication.required.declined"
-msgstr "Zavrnjen prispevek ne more biti objavljen."
-
-msgid "publication.publish.requirements"
-msgstr "Spodnje zahteve morajo biti izpolnjene pred objavo."
-
-msgid "publication.publish"
-msgstr "Objavi"
-
 msgid "publication.publicationLicense"
 msgstr "Dovoljenja in razkritja"
-
-msgid "publication.invalidSubmission"
-msgstr "Prispevka za objavo ni bilo mogoče najti."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Nova verzija ni več objavljena."
-
-msgid "publication.event.versionScheduled"
-msgstr "Nova verzija je bila načrtovana za objavo."
-
-msgid "publication.event.versionPublished"
-msgstr "Nova verzija je bila objavljena."
 
 msgid "publication.event.versionCreated"
 msgstr "Ustvarjena je bila nova verzija."
 
-msgid "publication.event.unpublished"
-msgstr "Prispevek ni več objavljen."
-
-msgid "publication.event.scheduled"
-msgstr "Prispevek je bil načrtovan za objavo."
-
-msgid "publication.event.published"
-msgstr "Prispevek je bil objavljen."
-
-msgid "publication.editDisabled"
-msgstr "Ta verzija je bila objavljena in je ni mogoče spremeniti."
-
 msgid "publication.datePublished.errorFormat"
 msgstr "Datum mora biti v formatu YYYY-MM-DD, kot na primer 2019-01-01."
-
-msgid "publication.datePublished"
-msgstr "Datum objave"
 
 msgid "publication.createVersion"
 msgstr "Ustvari novo verzijo"
 
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"Leto avtorskih pravic bo določeno avtomatično, ko bo številka objavljena."
-
 msgid "publication.contributors"
 msgstr "Sodelujoči"
-
-msgid "submission.publication"
-msgstr "Objava"
 
 msgid "submission.list.reviewCancelled"
 msgstr "Recenzija preklicana"
@@ -1932,9 +1863,6 @@ msgstr "Ne dovoli urejanja metapodatkov"
 msgid "editor.submission.editStageParticipant"
 msgstr "Uredi zadolžitev"
 
-msgid "submission.status.scheduled"
-msgstr "Načrtovano"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "To je stara verzija objvaljena {$datePublished}. Preberite <a href=\""
@@ -1969,22 +1897,6 @@ msgid "author.editPublishedDisabled"
 msgstr ""
 "Avtorji te objave ne morejo biti spremenjeni, ker je bila že objavljena."
 
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"Leto avtorskih pravic bo ob objavi avtomatično nastavljeno na datum izdaje."
-
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"Avtorske pravice bodo ob objavi avtomatično nastavljene na {$copyright}."
-
-msgid "submission.license.description"
-msgstr ""
-"Licenca bo ob objavi avtomatično nastavljena na <a href='{$licenseUrl}' "
-"target='_blank'>{$licenseName}</a>."
-
-msgid "submission.copyrightOther.description"
-msgstr "Dodeli avtorske pravice za objavljene članke naslednji osebi."
-
 msgid "submission.copyrightOther"
 msgstr "Izjava o avtorskih pravicah"
 
@@ -2002,9 +1914,6 @@ msgstr "Neobvezna pot, ki se uporablja v URL namesto IDja."
 
 msgid "publication.urlPath"
 msgstr "URL pot"
-
-msgid "submission.publications"
-msgstr "Objave"
 
 msgid "submission.publisherId.enable"
 msgstr "Omogoči za {$objects}"

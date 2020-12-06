@@ -1595,9 +1595,6 @@ msgstr "Diskussion zur Begutachtung"
 msgid "submission.queries.editorial"
 msgstr "Diskussion zum Lektorat"
 
-msgid "submission.queries.production"
-msgstr "Diskussion zur Herstellung"
-
 msgid "submission.query.subject"
 msgstr "Thema"
 
@@ -1723,48 +1720,17 @@ msgstr "{$numTitles} Titel"
 msgid "catalog.noTitlesSection"
 msgstr "In dieser Rubrik wurden bisher keine Titel veröffentlicht."
 
-msgid "publication.event.versionPublished"
-msgstr "Eine neue Version wurde veröffentlicht."
-
 msgid "publication.event.versionCreated"
 msgstr "Eine neue Version wurde erstellt."
-
-msgid "publication.event.unpublished"
-msgstr "Der Beitrag wurde zurückgezogen."
-
-msgid "publication.event.scheduled"
-msgstr "Der Beitrag wurde zur Veröffentlichung vorgesehen."
-
-msgid "publication.event.published"
-msgstr "Der Beitrag wurde veröffentlicht."
-
-msgid "publication.editDisabled"
-msgstr "Diese Version wurde veröffentlicht und kann nicht geändert werden."
 
 msgid "publication.datePublished.errorFormat"
 msgstr "Das Datum muss in dem Format YYYY-MM-DD vorliegen, z.B.  2019-01-01."
 
-msgid "publication.datePublished"
-msgstr "Veröffentlichungsdatum"
-
 msgid "publication.createVersion"
 msgstr "Erstelle eine neue Version"
 
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"Das Copyright-Jahr wird, basierend auf dem Veröffentlichungsdatum, "
-"automatisch gesetzt."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"Das Copyright-Jahr wird automatisch gesetzt, wenn dieser Beitrag in einer "
-"Ausgabe veröffentlicht wird."
-
 msgid "publication.contributors"
 msgstr "Beitragende"
-
-msgid "submission.publication"
-msgstr "Veröffentlichung"
 
 msgid "catalog.category.subcategories"
 msgstr "Unterkategorien"
@@ -1850,15 +1816,6 @@ msgstr ""
 "Creative Commons Namensnennung - Nicht-kommerziell - Keine Bearbeitung  3.0 "
 "International -Lizenz</a>.</p>"
 
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"{$copyright} wird bei Veröffentlichung automatisch als Rechteinhaber gesetzt."
-
-msgid "submission.license.description"
-msgstr ""
-"Die Lizenz wird bei Veröffentlichung  automatisch auf <a href='{$licenseUrl}"
-"' target='_blank'>{$licenseName}</a> gesetzt."
-
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} hat das Gutachten aus Begutachtungsrunde {$round} für die "
@@ -1890,9 +1847,6 @@ msgstr "Ändern der Metadaten nicht erlauben"
 
 msgid "editor.submission.editStageParticipant"
 msgstr "Zuordnung ändern"
-
-msgid "submission.status.scheduled"
-msgstr "Eingeplant"
 
 msgid "submission.outdatedVersion"
 msgstr ""
@@ -1931,33 +1885,17 @@ msgstr ""
 "Die Zusammenfassung ist zu lang. Es sollten {$limit} Worte oder weniger "
 "sein. Sie ist derzeit {$count} Worte lang."
 
-msgid "publication.version.details"
-msgstr "Veröffentlichungsdetails für Version {$version}"
-
 msgid "publication.version.confirm"
 msgstr "Sind Sie sicher, dass Sie eine neue Version erstellen wollen?"
 
 msgid "publication.version.all"
 msgstr "Alle Versionen"
 
-msgid "publication.unschedule.confirm"
-msgstr ""
-"Sind sie sicher, dass dies nicht zur Veröffentlichung eingeplant werden soll?"
-
 msgid "publication.unschedule"
 msgstr "Nicht einplanen"
 
-msgid "publication.unpublish.confirm"
-msgstr "Sind sie sicher, dass dies nicht veröffentlicht werden soll?"
-
-msgid "publication.unpublish"
-msgstr "Zurückziehen"
-
 msgid "publication.titleAbstract"
 msgstr "Titel und Abstract"
-
-msgid "publication.status.unscheduled"
-msgstr "Nicht eingeplant"
 
 msgid "publication.status.unpublished"
 msgstr "Unveröffentlicht"
@@ -1965,40 +1903,8 @@ msgstr "Unveröffentlicht"
 msgid "publication.status.scheduled"
 msgstr "Eingeplant"
 
-msgid "publication.status.published"
-msgstr "Veröffentlicht"
-
-msgid "publication.required.reviewStage"
-msgstr ""
-"Die Einreichung muss sich im Copyediting oder im Produktionsschritt befinden "
-"um veröffentlicht werden zu können."
-
-msgid "publication.required.declined"
-msgstr "Ein abgelehnter Beitrag kann nicht veröffentlicht werden."
-
-msgid "publication.publish.requirements"
-msgstr ""
-"Die folgenden Bedingungen müssen erfüllt sein, bevor dies veröffentlicht "
-"werden kann."
-
-msgid "publication.publish"
-msgstr "Veröffentlichen"
-
 msgid "publication.publicationLicense"
 msgstr "Berechtigungen und Offenlegung"
-
-msgid "publication.invalidSubmission"
-msgstr ""
-"Die Einreichung für diese Veröffentlichung konnte nicht gefunden werden."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Eine Version wurde zurückgezogen."
-
-msgid "publication.event.versionScheduled"
-msgstr "Eine neue Version wurde zur Veröffentlichung vorgesehen."
-
-msgid "submission.copyrightOther.description"
-msgstr "Die Rechte am veröffentlichten Beitrag folgender Gruppe zuordnen."
 
 msgid "submission.copyrightOther"
 msgstr "Angabe zum Copyright"
@@ -2018,9 +1924,6 @@ msgstr "Ein optionaler Pfad für die Benutzung in der URL anstatt der ID."
 
 msgid "publication.urlPath"
 msgstr "URL Pfad"
-
-msgid "submission.publications"
-msgstr "Veröffentlichungen"
 
 msgid "submission.publisherId.enable"
 msgstr "Aktivieren für {$objects}"

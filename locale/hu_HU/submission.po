@@ -1666,9 +1666,6 @@ msgstr "Lektorálási megbeszélések"
 msgid "submission.queries.editorial"
 msgstr "Technikai szerkesztéssel kapcsolatos megbeszélések"
 
-msgid "submission.queries.production"
-msgstr "Publikálási megbeszélések"
-
 msgid "submission.query.subject"
 msgstr "Tárgy"
 
@@ -1996,27 +1993,15 @@ msgstr ""
 "{$reviewerName} megtette a(z) {$submissionId} beküldés szakmai lektorálását "
 "a {$round}. számú lektorálási körben."
 
-msgid "publication.event.published"
-msgstr "A cikk publikált."
-
-msgid "publication.editDisabled"
-msgstr "Ez a verzió publikálásra került és nem szerkeszthető."
-
 msgid "publication.datePublished.errorFormat"
 msgstr ""
 "A dátumnak az alábbi formátumban kell lennie: YYYY-MM-DD, például 2019-01-01."
-
-msgid "publication.datePublished"
-msgstr "Publikálás dátuma"
 
 msgid "publication.createVersion"
 msgstr "Új verzió létrehozása"
 
 msgid "publication.contributors"
 msgstr "Közreműködők"
-
-msgid "submission.publication"
-msgstr "Cikk"
 
 msgid "submission.list.reviewCancelled"
 msgstr "Szakmai lektorálás megszakítva"
@@ -2094,19 +2079,11 @@ msgstr ""
 "Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International "
 "License</a>.</p>"
 
-msgid "submission.copyrightOther.description"
-msgstr "Szerzői jogok hozzárendelése publikált cikkekhez az alábbi fél számára."
-
 msgid "submission.copyrightOther"
 msgstr "Copyright irányelvek"
 
 msgid "submission.copyrightHolder.other"
 msgstr "Egyéni copyright irányelvek"
-
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"A szerzői jog automatikusan hozzárendelésre kerül a {$copyright}-hoz "
-"publikáláskor."
 
 msgid "log.review.reviewReinstated"
 msgstr ""
@@ -2136,9 +2113,6 @@ msgstr "Metaadatok szerkesztési lehetőségének visszavonása"
 
 msgid "editor.submission.editStageParticipant"
 msgstr "Hozzárendelés szerkesztáse"
-
-msgid "submission.status.scheduled"
-msgstr "Ütemezett"
 
 msgid "submission.outdatedVersion"
 msgstr ""
@@ -2184,9 +2158,6 @@ msgstr ""
 "Az absztrakt túl hosszú.  {$limit} vagy kevesebb szóból kell állnia. "
 "Jelenleg {$count} szó hosszú."
 
-msgid "publication.version.details"
-msgstr "A publikáció részletei ennél a verziónál: {$version}"
-
 msgid "publication.version.confirm"
 msgstr "Biztosan új verziót szeretne létrehozni?"
 
@@ -2205,23 +2176,11 @@ msgstr "Az ID helyett opcionális útvonal használata az URL-ben."
 msgid "publication.urlPath"
 msgstr "URL útvonal"
 
-msgid "publication.unschedule.confirm"
-msgstr "Biztosan nem szeretné publikálásra ütemezni?"
-
 msgid "publication.unschedule"
 msgstr "Ütemezés visszavonása"
 
-msgid "publication.unpublish.confirm"
-msgstr "Biztosan nem szeretné publikálni?"
-
-msgid "publication.unpublish"
-msgstr "Publikálásból visszavonva"
-
 msgid "publication.titleAbstract"
 msgstr "Cím & Absztrakt"
-
-msgid "publication.status.unscheduled"
-msgstr "Ütemezésből visszavonva"
 
 msgid "publication.status.unpublished"
 msgstr "Publikálásból visszavonva"
@@ -2229,62 +2188,11 @@ msgstr "Publikálásból visszavonva"
 msgid "publication.status.scheduled"
 msgstr "Publikálásra ütemezve"
 
-msgid "publication.status.published"
-msgstr "Publikált"
-
-msgid "publication.required.reviewStage"
-msgstr ""
-"A cikknek a technikai szerkesztés vagy előállítás fázisában kell lennie, "
-"hogy publikálható legyen."
-
-msgid "publication.required.declined"
-msgstr "Elutasított beküldés nem publikálható."
-
-msgid "publication.publish.requirements"
-msgstr "Az alábbi feltételeknek kell teljesülnie, mielőtt publikálhatóvá válik."
-
-msgid "publication.publish"
-msgstr "Publikál"
-
 msgid "publication.publicationLicense"
 msgstr "Engedélyek & Közzététel"
 
-msgid "publication.invalidSubmission"
-msgstr "Ennek a publikációnak a beküldése nem található."
-
-msgid "publication.event.versionUnpublished"
-msgstr "A publikálásból egy verzió el lett távolítva."
-
-msgid "publication.event.versionScheduled"
-msgstr "Új verzió volt publikálásra ütemezve."
-
-msgid "publication.event.versionPublished"
-msgstr "Új verzió került publikálásra."
-
 msgid "publication.event.versionCreated"
 msgstr "Új verzió lett létrehozva."
-
-msgid "publication.event.unpublished"
-msgstr "A cikk publikálását visszavonták."
-
-msgid "publication.event.scheduled"
-msgstr "A cikk publikálásra volt ütemezve."
-
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"A copyright  év automatikusan beállításra kerül a publikáció dátuma szerint."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"Számban történő pulikáláskor a copyright  év automatikusan beállításra kerül."
-
-msgid "submission.publications"
-msgstr "Publikációk"
-
-msgid "submission.license.description"
-msgstr ""
-"A licenc automatikusan beállításra kerül a(z) <a href='{$licenseUrl}' "
-"target='_blank'>{$licenseName}</a> számára, amikor publikálásra kerül."
 
 msgid "submission.publisherId.enable"
 msgstr "Engedélyezés a(z) {$objects} számára"

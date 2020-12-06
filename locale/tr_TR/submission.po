@@ -1562,9 +1562,6 @@ msgstr "Değerlendirme Tartışmaları"
 msgid "submission.queries.editorial"
 msgstr "Kopya Düzeltme Tartışmaları"
 
-msgid "submission.queries.production"
-msgstr "Basım Tartışmaları"
-
 msgid "submission.query.subject"
 msgstr "Konu"
 
@@ -1687,9 +1684,6 @@ msgstr ""
 "Özet çok uzun. {$limit} kelime veya daha az olmalıdır. Şu anda {$count} "
 "kelime uzunluğunda."
 
-msgid "publication.version.details"
-msgstr "{$version} sürümü için yayın ayrıntıları"
-
 msgid "publication.version.confirm"
 msgstr "Yeni bir sürüm oluşturmak istediğinizden emin misiniz?"
 
@@ -1708,17 +1702,8 @@ msgstr "URL'de kimlik yerine kullanılacak isteğe bağlı bir yol."
 msgid "publication.urlPath"
 msgstr "URL Yolu"
 
-msgid "publication.unschedule.confirm"
-msgstr "Bunun yayınlanmak üzere zamanlanmasını istemediğinizden emin misiniz?"
-
 msgid "publication.unschedule"
 msgstr "Planlanmayı İptal Et"
-
-msgid "publication.unpublish.confirm"
-msgstr "Bunun yayınlanmasını istemediğinizden emin misiniz?"
-
-msgid "publication.unpublish"
-msgstr "Yayından Kaldır"
 
 msgid "publication.titleAbstract.success"
 msgstr "Başlık ve özet güncellendi."
@@ -1726,35 +1711,14 @@ msgstr "Başlık ve özet güncellendi."
 msgid "publication.titleAbstract"
 msgstr "Başlık ve Özet"
 
-msgid "publication.status.unscheduled"
-msgstr "Planlanmamış"
-
 msgid "publication.status.unpublished"
 msgstr "Yayınlanmamış"
 
 msgid "publication.status.scheduled"
 msgstr "Planlandı"
 
-msgid "publication.status.published"
-msgstr "Yayınlandı"
-
-msgid "publication.required.reviewStage"
-msgstr ""
-"Gönderinin yayınlanabilmesi için önce Kopyalama veya Üretim aşamalarında "
-"olması gerekir."
-
-msgid "publication.required.declined"
-msgstr "Reddedilen bir gönderi yayınlanamaz."
-
 msgid "publication.publish.success"
 msgstr "Yayın durumu başarıyla değiştirildi."
-
-msgid "publication.publish.requirements"
-msgstr ""
-"Bunun yayınlanabilmesi için aşağıdaki gereksinimlerin karşılanması gerekir."
-
-msgid "publication.publish"
-msgstr "Yayınla"
 
 msgid "publication.publicationLicense.success"
 msgstr "Telif hakkı ve lisans bilgileri güncellendi."
@@ -1768,59 +1732,20 @@ msgstr "Tanımlayıcılar güncellendi."
 msgid "publication.metadata.success"
 msgstr "Üstveriler güncellendi."
 
-msgid "publication.invalidSubmission"
-msgstr "Bu yayının için gönderi bulunamadı."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Bir sürüm yayından kaldırıldı."
-
-msgid "publication.event.versionScheduled"
-msgstr "Yayınlanmak üzere yeni bir sürüm planlandı."
-
-msgid "publication.event.versionPublished"
-msgstr "Yeni bir sürüm yayınlandı."
-
 msgid "publication.event.versionCreated"
 msgstr "Yeni bir sürüm oluşturuldu."
-
-msgid "publication.event.unpublished"
-msgstr "Gönderi yayınlandı."
-
-msgid "publication.event.scheduled"
-msgstr "Gönderi yayın için planlandı."
-
-msgid "publication.event.published"
-msgstr "Gönderi yayınlandı."
-
-msgid "publication.editDisabled"
-msgstr "Bu sürüm yayınlandı ve düzenlenemez."
 
 msgid "publication.datePublished.errorFormat"
 msgstr "Tarih, 2019-01-01 gibi YYYY-AA-GG biçiminde olmalıdır."
 
-msgid "publication.datePublished"
-msgstr "Yayın Tarihi"
-
 msgid "publication.createVersion"
 msgstr "Yeni Sürüm Oluştur"
-
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr "Telif hakkı yılı, yayın tarihine göre otomatik olarak ayarlanır."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr "Telif hakkı yılı, bir sayıda yayınlandığında otomatik olarak ayarlanır."
 
 msgid "publication.contributors"
 msgstr "Katkıda Bulunanlar"
 
 msgid "publication.citations.success"
 msgstr "Referanslar güncellendi."
-
-msgid "submission.publications"
-msgstr "Yayınlar"
-
-msgid "submission.publication"
-msgstr "Yayın"
 
 msgid "catalog.category.subcategories"
 msgstr "Alt Kategoriler"
@@ -1924,24 +1849,11 @@ msgstr ""
 "Attribution-NonCommercial-NoDerivatives 3.0 International License</a> ile "
 "lisansanmıştır.</p>"
 
-msgid "submission.copyrightOther.description"
-msgstr "Yayınlanan gönderilerin telif hakkını aşağıdaki kısma atayın."
-
 msgid "submission.copyrightOther"
 msgstr "Telif hakkı bildirimi"
 
 msgid "submission.copyrightHolder.other"
 msgstr "Özel telif hakkı bildirimi"
-
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"Telif hakkı, yayınlandığında {$copyright} adresine otomatik olarak "
-"atanacaktır."
-
-msgid "submission.license.description"
-msgstr ""
-"Lisans yayınlandığında otomatik <a href='{$licenseUrl}' "
-"target='_blank'>{$licenseName}</a> olarak ayarlanacaktır."
 
 msgid "log.review.reviewReady"
 msgstr ""
@@ -1976,9 +1888,6 @@ msgstr "Üstveri Düzenlemeyi Reddet"
 
 msgid "editor.submission.editStageParticipant"
 msgstr "Atamayı Düzenle"
-
-msgid "submission.status.scheduled"
-msgstr "Programlanmış"
 
 msgid "submission.publisherId.enable"
 msgstr "{$objects} için etkinleştir"

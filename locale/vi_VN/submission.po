@@ -940,12 +940,6 @@ msgstr ""
 msgid "submission.notes.confirmDeleteAll"
 msgstr "Xoá Tất cả Các ghi chú bài gửi?"
 
-msgid "publication.unpublish"
-msgstr "Hủy xuất bản"
-
-msgid "publication.publish"
-msgstr "Xuất bản"
-
 msgid "publication.wordCount"
 msgstr "Số lượng từ: {$count}/{$limit}"
 
@@ -953,9 +947,6 @@ msgid "publication.wordCountLong"
 msgstr ""
 "Phần tóm tắt quá dài. Nó chỉ nên dài khoảng {$limit} từ trở xuống. Tóm tắt "
 "hiện tại có số từ là {$count}."
-
-msgid "publication.version.details"
-msgstr "Chi tiết xuất bản cho phiên bản {$version}"
 
 msgid "publication.version.confirm"
 msgstr "Bạn có chắc chắn muốn tạo một phiên bản mới không?"
@@ -975,17 +966,8 @@ msgstr "Sử dụng một tuỳ chọn đường dẫn trong URL thay vì ID."
 msgid "publication.urlPath"
 msgstr "Đường dẫn URL"
 
-msgid "publication.unschedule.confirm"
-msgstr "Bạn có chắc chắn rằng bạn không muốn lên lịch xuất bản?"
-
 msgid "publication.unschedule"
 msgstr "Không lên lịch"
-
-msgid "publication.unpublish.confirm"
-msgstr "Bạn có chắc chắn rằng bạn không muốn xuất bản?"
-
-msgid "publication.status.unscheduled"
-msgstr "Huỷ lên lịch"
 
 msgid "publication.titleAbstract.success"
 msgstr "Tiêu đề và tóm tắt đã được cập nhật."
@@ -999,23 +981,8 @@ msgstr "Chưa xuất bản"
 msgid "publication.status.scheduled"
 msgstr "Đã lên lịch"
 
-msgid "publication.status.published"
-msgstr "Đã xuất bản"
-
-msgid "publication.required.reviewStage"
-msgstr ""
-"Bài gửi phải qua giai đoạn Sao chép hoặc Sản xuất trước khi có thể được xuất "
-"bản."
-
-msgid "publication.required.declined"
-msgstr "Không thể xuất bản một bài bị từ chối."
-
 msgid "publication.publish.success"
 msgstr "Trạng thái xuất bản đã được thay đổi thành công."
-
-msgid "publication.publish.requirements"
-msgstr ""
-"Các yêu cầu sau phải được đáp ứng trước khi bài này có thể được xuất bản."
 
 msgid "publication.publicationLicense.success"
 msgstr "Thông tin bản quyền và giấy phép đã được cập nhật."
@@ -1029,41 +996,14 @@ msgstr "Định danh đã được cập nhật."
 msgid "publication.metadata.success"
 msgstr "Siêu dữ liệu đã được cập nhật."
 
-msgid "publication.invalidSubmission"
-msgstr "Bài gửi cho ấn phẩm này không thể được tìm thấy."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Một phiên bản đã bị xóa từ mục xuất bản."
-
-msgid "publication.event.versionScheduled"
-msgstr "Một phiên bản mới đã được lên lịch để xuất bản."
-
-msgid "publication.event.versionPublished"
-msgstr "Một phiên bản mới đã được xuất bản."
-
 msgid "publication.event.versionCreated"
 msgstr "Một phiên bản mới đã được tạo."
-
-msgid "publication.event.unpublished"
-msgstr "Bài gửi chưa được xuất bản."
-
-msgid "publication.event.scheduled"
-msgstr "Bài gửi đã được lên lịch để xuất bản."
-
-msgid "publication.event.published"
-msgstr "Bài gửi đã được xuất bản."
-
-msgid "publication.editDisabled"
-msgstr "Phiên bản này đã được xuất bản và không thể chỉnh sửa."
 
 msgid "publication.datePublished.errorFormat"
 msgstr "Ngày phải ở định dạng YYYY-MM-DD, chẳng hạn như 2019-01-01."
 
 msgid "submission.submit.contributorRole"
 msgstr "Vai trò của  người đóng góp"
-
-msgid "publication.datePublished"
-msgstr "Ngày Xuất bản"
 
 msgid "submission.licenseURL"
 msgstr "URL của giấy phép"
@@ -1077,30 +1017,17 @@ msgstr "Bản quyền (c) {$copyrightYear} {$copyrightHolder}"
 msgid "submission.copyrightYear"
 msgstr "Năm Bản quyền"
 
-msgid "submission.copyrightOther.description"
-msgstr "Chuyển nhượng bản quyền cho các bài đã xuất bản cho bên sau."
-
 msgid "submission.copyrightOther"
 msgstr "Tuyên bố bản quyền"
 
 msgid "submission.copyrightHolder.other"
 msgstr "Tuỳ chỉnh Tuyên bố bản quyền"
 
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"Bản quyền sẽ tự động được chỉ định cho {$copyright} khi tài liệu này được "
-"xuất bản."
-
 msgid "submission.copyrightHolder"
 msgstr "Chủ sở hữu bản quyền"
 
 msgid "submission.copyright"
 msgstr "Bản quyền"
-
-msgid "submission.license.description"
-msgstr ""
-"Giấy phép sẽ được đặt tự động thành <a href='{$licenseUrl}' target='_blank'> "
-"{$licenseName} </a> khi giấy phép này được xuất bản."
 
 msgid "submission.license"
 msgstr "Giấy phép"
@@ -1599,9 +1526,6 @@ msgstr "Tải lên tập tin bài gửi"
 msgid "submission.submit.uploadStep"
 msgstr "1. Tải tệp lên"
 
-msgid "submission.status.scheduled"
-msgstr "Đã lên lịch"
-
 msgid "submission.status.published"
 msgstr "Đã xuất bản"
 
@@ -1959,24 +1883,11 @@ msgstr "Chưa phân phản biện"
 msgid "publication.createVersion"
 msgstr "Tạo phiên bản mới"
 
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr "Năm bản quyền sẽ được đặt tự động dựa trên ngày xuất bản."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"Năm bản quyền sẽ được đặt tự động khi điều này được xuất bản trong một Số."
-
 msgid "publication.contributors"
 msgstr "Người đóng góp"
 
 msgid "publication.citations.success"
 msgstr "Các tài liệu tham khảo đã được cập nhật."
-
-msgid "submission.publications"
-msgstr "Ấn phẩm"
-
-msgid "submission.publication"
-msgstr "Xuất bản"
 
 msgid "catalog.category.subcategories"
 msgstr "Các thể loại phụ"
@@ -2136,9 +2047,6 @@ msgstr "Tin nhắn"
 
 msgid "submission.query.subject"
 msgstr "Chủ đề"
-
-msgid "submission.queries.production"
-msgstr "Thảo luận về sản xuất"
 
 msgid "submission.queries.editorial"
 msgstr "Các thảo luận của Biên tập bản thảo"

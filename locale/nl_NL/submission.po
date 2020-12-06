@@ -1602,9 +1602,6 @@ msgstr "Review-discussies"
 msgid "submission.queries.editorial"
 msgstr "Teksredactie-discussies"
 
-msgid "submission.queries.production"
-msgstr "Productie-discussies"
-
 msgid "submission.query.subject"
 msgstr "Onderwerp"
 

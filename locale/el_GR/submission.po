@@ -922,17 +922,8 @@ msgstr "Τίτλος & Περίληψη"
 msgid "publication.status.scheduled"
 msgstr "Προγραμματισμένο"
 
-msgid "publication.status.published"
-msgstr "Δημοσιευμένο"
-
 msgid "publication.publish.success"
 msgstr "Η κατάσταση δημοσίευσης άλλαξε με επιτυχία."
-
-msgid "publication.publish.requirements"
-msgstr "Πρέπει να πληρούνται οι ακόλουθες προϋποθέσεις για να δημοσιευτεί."
-
-msgid "publication.publish"
-msgstr "Δημοσίευση"
 
 msgid "publication.publicationLicense.success"
 msgstr ""
@@ -945,60 +936,20 @@ msgstr "Τα αναγνωριστικά ενημερώθηκαν."
 msgid "publication.metadata.success"
 msgstr "Τα μεταδεδομένα ενημερώθηκαν."
 
-msgid "publication.invalidSubmission"
-msgstr "Δεν ήταν δυνατή η εύρεση της υποβολής αυτής της δημοσίευσης."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Μια έκδοση καταργήθηκε από τη δημοσίευση."
-
-msgid "publication.event.versionScheduled"
-msgstr "Μια νέα έκδοση είχε προγραμματιστεί για δημοσίευση."
-
-msgid "publication.event.versionPublished"
-msgstr "Δημοσιεύθηκε μια νέα έκδοση."
-
 msgid "publication.event.versionCreated"
 msgstr "Δημιουργήθηκε μια νέα έκδοση."
-
-msgid "publication.event.scheduled"
-msgstr "Η υποβολή είχε προγραμματιστεί για δημοσίευση."
-
-msgid "publication.event.published"
-msgstr "Η υποβολή δημοσιεύτηκε."
-
-msgid "publication.editDisabled"
-msgstr "Αυτή η έκδοση έχει δημοσιευτεί και δεν είναι δυνατή η επεξεργασία της."
 
 msgid "publication.datePublished.errorFormat"
 msgstr "Η ημερομηνία πρέπει να έχει τη μορφή ΕΕΕΕ-ΜΜ-ΗΗ, όπως 2019-01-01."
 
-msgid "publication.datePublished"
-msgstr "Ημερομηνία Δημοσίευσης"
-
 msgid "publication.createVersion"
 msgstr "Δημιουργία Νέας Έκδοσης"
-
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"Το έτος πνευματικών δικαιωμάτων θα οριστεί αυτόματα με βάση την ημερομηνία "
-"δημοσίευσης."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"Το έτος πνευματικών δικαιωμάτων θα οριστεί αυτόματα όταν δημοσιευθεί σε ένα "
-"τεύχος."
 
 msgid "publication.contributors"
 msgstr "Συντελεστές"
 
 msgid "publication.citations.success"
 msgstr "Οι αναφορές ενημερώθηκαν."
-
-msgid "submission.publications"
-msgstr "Δημοσιεύσεις"
-
-msgid "submission.publication"
-msgstr "Δημοσίευση"
 
 msgid "catalog.category.subcategories"
 msgstr "Υποκατηγορίες"
@@ -1113,9 +1064,6 @@ msgstr "Μηνύματα"
 
 msgid "submission.query.subject"
 msgstr "Θέμα"
-
-msgid "submission.queries.production"
-msgstr "Συζητήσεις Παραγωγής"
 
 msgid "submission.queries.editorial"
 msgstr "Συζητήσεις Επιμέλειας"
@@ -1673,9 +1621,6 @@ msgstr "Μεταφόρτωση αρχείου υποβολής"
 
 msgid "submission.submit.uploadStep"
 msgstr "1. Μεταφόρτωση αρχείου"
-
-msgid "submission.status.scheduled"
-msgstr "Προγραμματισμένο"
 
 msgid "submission.status.published"
 msgstr "Δημοσιεύτηκε"

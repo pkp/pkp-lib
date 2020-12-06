@@ -1568,9 +1568,6 @@ msgstr "Обговорення рецензування"
 msgid "submission.queries.editorial"
 msgstr "Обговорення редагування"
 
-msgid "submission.queries.production"
-msgstr "Обговорення подання"
-
 msgid "submission.query.subject"
 msgstr "Тема"
 
@@ -1794,9 +1791,6 @@ msgstr ""
 "Анотація занадто довга. Довжина має бути не більше {$limit} слів, або менше. "
 "Наразі вона складається з {$count} слів."
 
-msgid "publication.version.details"
-msgstr "Деталі публікації для версії {$version}"
-
 msgid "publication.version.confirm"
 msgstr "Ви впевнені, що хочете створити нову версію?"
 
@@ -1815,17 +1809,8 @@ msgstr "Додатковий шлях для використання URL зам
 msgid "publication.urlPath"
 msgstr "URL шлях"
 
-msgid "publication.unschedule.confirm"
-msgstr "Ви впевнені, що не хочете запланувати цей матеріал до публікації?"
-
 msgid "publication.unschedule"
 msgstr "Зняти з плану"
-
-msgid "publication.unpublish.confirm"
-msgstr "Ви впевнені що не хочете публікувати цей матеріал?"
-
-msgid "publication.unpublish"
-msgstr "Зняти з публікації"
 
 msgid "publication.titleAbstract.success"
 msgstr "Назва і анотація були оновлені."
@@ -1833,34 +1818,14 @@ msgstr "Назва і анотація були оновлені."
 msgid "publication.titleAbstract"
 msgstr "Назва і Анотація"
 
-msgid "publication.status.unscheduled"
-msgstr "Знято з плану"
-
 msgid "publication.status.unpublished"
 msgstr "Знято з публікації"
 
 msgid "publication.status.scheduled"
 msgstr "Заплановано"
 
-msgid "publication.status.published"
-msgstr "Опубліковано"
-
-msgid "publication.required.reviewStage"
-msgstr ""
-"До того як Опублікувати подання, воно має бути на стадії \"Літературне "
-"редагування\" або \"Виробництво\"."
-
-msgid "publication.required.declined"
-msgstr "Матеріал якому відмовлено, неможливо опублікувати."
-
 msgid "publication.publish.success"
 msgstr "Статус публікації успішно змінено."
-
-msgid "publication.publish.requirements"
-msgstr "Наступні вимоги мають бути виконані перед публікацією."
-
-msgid "publication.publish"
-msgstr "Опублікувати"
 
 msgid "publication.publicationLicense.success"
 msgstr "Інформацію про ліцензію і авторське право оновлено."
@@ -1874,62 +1839,20 @@ msgstr "Ідентифікатори оновлено."
 msgid "publication.metadata.success"
 msgstr "Метадані оновлено."
 
-msgid "publication.invalidSubmission"
-msgstr "Подання для цієї публікації неможливо знайти."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Версія була прибрана з публікації."
-
-msgid "publication.event.versionScheduled"
-msgstr "Нова версія запланована до публікації."
-
-msgid "publication.event.versionPublished"
-msgstr "Нова версія опублікована."
-
 msgid "publication.event.versionCreated"
 msgstr "Нова версія створена."
-
-msgid "publication.event.unpublished"
-msgstr "Подання було знято з публікації."
-
-msgid "publication.event.scheduled"
-msgstr "Подання заплановане до публікації."
-
-msgid "publication.event.published"
-msgstr "Подання було опубліковано."
-
-msgid "publication.editDisabled"
-msgstr "Ця версія була опублікована і не може бути змінена."
 
 msgid "publication.datePublished.errorFormat"
 msgstr "Дата має бути у форматі РРРР-ММ-ДД, наприклад, 2019-01-01."
 
-msgid "publication.datePublished"
-msgstr "Дата Публікації"
-
 msgid "publication.createVersion"
 msgstr "Створити нову версію"
-
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"Рік авторського права буде виставлено автоматично, базуючись на даті "
-"публікації."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"Рік авторського права буде виставлено автоматично після публікації випуску."
 
 msgid "publication.contributors"
 msgstr "Автори"
 
 msgid "publication.citations.success"
 msgstr "Посилання були оновлені."
-
-msgid "submission.publications"
-msgstr "Публікації"
-
-msgid "submission.publication"
-msgstr "Публікація"
 
 msgid "submission.list.reviewAssignment"
 msgstr "Призначення рецензування"
@@ -1984,24 +1907,11 @@ msgstr ""
 "Авторства – Некомерційна – Без Похідних 3.0 Міжнародна</a>.</p>"
 
 #, fuzzy
-msgid "submission.copyrightOther.description"
-msgstr "Призначити авторські права на опубліковані матеріали наступній стороні."
-
 msgid "submission.copyrightOther"
 msgstr "Попередження про авторські права"
 
 msgid "submission.copyrightHolder.other"
 msgstr "Користувацьке формулювання \"Попередження про авторські права\""
-
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"Авторське право автоматично призначиться на {$copyright} після публікування "
-"матеріалу."
-
-msgid "submission.license.description"
-msgstr ""
-"Ліцензія призначиться автоматично <a href='{$licenseUrl}' "
-"target='_blank'>{$licenseName}</a> коли матеріал буде опубліковано."
 
 msgid "log.review.reviewReady"
 msgstr ""
@@ -2021,9 +1931,6 @@ msgid "log.review.reviewCleared"
 msgstr ""
 "Раунд {$round} рецензований {$reviewerName} для подання {$submissionId} "
 "очищений."
-
-msgid "submission.status.scheduled"
-msgstr "Запланований"
 
 msgid "submission.publisherId.enable"
 msgstr "Активувати для {$objects}"

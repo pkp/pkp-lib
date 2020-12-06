@@ -646,49 +646,17 @@ msgstr "Nu a fost publicat încă nimic în această categorie."
 msgid "catalog.category.subcategories"
 msgstr "Subcategorii"
 
-msgid "submission.publication"
-msgstr "Publicare"
-
-msgid "submission.publications"
-msgstr "Publicații"
-
 msgid "publication.citations.success"
 msgstr "Referințele au fost actualizate."
 
 msgid "publication.contributors"
 msgstr "Contributori"
 
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"Anul drepturilor de autor va fi setat automat atunci când manuscrisul va fi "
-"publicat într-un număr."
-
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr "Anul drepturilor de autor va fi setat automat pe baza datei publicării."
-
 msgid "publication.createVersion"
 msgstr "Creați o versiune nouă"
 
-msgid "publication.datePublished"
-msgstr "Data publicării"
-
 msgid "publication.datePublished.errorFormat"
 msgstr "Data trebuie să fie în format AAA-LL-DD, cum ar fi 2019-01-01."
-
-msgid "publication.editDisabled"
-msgstr "Această versiune a fost publicată și nu poate fi modificată."
-
-msgid "publication.event.published"
-msgstr "Manuscrisul a fost publicat."
-
-msgid "publication.event.scheduled"
-msgstr "Manuscrisul a fost planificat pentru publicare."
-
-msgid "publication.event.versionUnpublished"
-msgstr "O versiune a fost eliminată de la publicare."
-
-msgid "publication.invalidSubmission"
-msgstr "Manuscrisul pentru această publicație nu a fost găsit."
 
 msgid "publication.publicationIdentifiers.success"
 msgstr "Identificatorul a fost actualizat."
@@ -700,57 +668,20 @@ msgid "publication.publicationLicense.success"
 msgstr ""
 "Informațiile privind drepturile de autor și licența au fost actualizate."
 
-msgid "publication.event.unpublished"
-msgstr "Manuscrisul a fost retras de la publicare."
-
 msgid "publication.event.versionCreated"
 msgstr "A fost creată o nouă versiune."
-
-msgid "publication.event.versionPublished"
-msgstr "O nouă versiune a fost publicată."
-
-msgid "publication.event.versionScheduled"
-msgstr "O nouă versiune a fost planificată pentru publicare."
 
 msgid "publication.metadata.success"
 msgstr "Metadatele au fost actualizate."
 
-msgid "publication.publish"
-msgstr "Publicați"
-
-msgid "publication.publish.requirements"
-msgstr ""
-"Înainte ca manuscrisul să fie publicat, trebuie îndeplinite următoarele "
-"cerințe."
-
 msgid "publication.publish.success"
 msgstr "Starea publicării a fost schimbată cu succes."
-
-msgid "publication.required.declined"
-msgstr "O înregistrare de manuscris refuzată nu poate fi publicată."
-
-msgid "publication.required.reviewStage"
-msgstr ""
-"Depunerea trebuie să fie în etapele de editare conținut sau de producție "
-"înainte de a putea fi publicată."
-
-msgid "publication.status.published"
-msgstr "Publicat"
 
 msgid "publication.status.scheduled"
 msgstr "Planificat"
 
 msgid "publication.status.unpublished"
 msgstr "Nepublicat"
-
-msgid "publication.unpublish"
-msgstr "Anulare publicare"
-
-msgid "publication.status.unscheduled"
-msgstr "Neprogramat(e)"
-
-msgid "publication.unpublish.confirm"
-msgstr "Sunteți sigur că nu vreți să fie publicat(ă)?"
 
 msgid "publication.titleAbstract"
 msgstr "Titlu & Rezumat"
@@ -760,9 +691,6 @@ msgstr "Titlul și rezumatul au fost actualizate."
 
 msgid "publication.unschedule"
 msgstr "Neprogramat(e)"
-
-msgid "publication.unschedule.confirm"
-msgstr "Sunteți sigur că nu doriți ca acest program să fie publicat?"
 
 msgid "publication.urlPath"
 msgstr "Calea URL-ului"
@@ -778,9 +706,6 @@ msgstr "Toate versiunile"
 
 msgid "publication.version.confirm"
 msgstr "Ești sigur că vrei să creezi o nouă versiune?"
-
-msgid "publication.version.details"
-msgstr "Detalii de publicare pentru versiunea {$version}"
 
 msgid "publication.wordCountLong"
 msgstr ""
@@ -876,9 +801,6 @@ msgstr "Încărcați fișierul manuscrisului"
 
 msgid "submission.submit.uploadStep"
 msgstr "1. Încărcați fișierul"
-
-msgid "submission.status.scheduled"
-msgstr "Planificat"
 
 msgid "submission.status.published"
 msgstr "Publicat"
@@ -1922,9 +1844,6 @@ msgstr "Mesaje"
 msgid "submission.query.subject"
 msgstr "Subiect"
 
-msgid "submission.queries.production"
-msgstr "Discuții producție"
-
 msgid "submission.queries.editorial"
 msgstr "Discuții editare conținut"
 
@@ -2059,32 +1978,17 @@ msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
 msgid "submission.copyrightYear"
 msgstr "An Copyright"
 
-msgid "submission.copyrightOther.description"
-msgstr ""
-"Alocați drepturile de autor pentru trimiterile publicate către următoarea "
-"parte."
-
 msgid "submission.copyrightOther"
 msgstr "Declarație de copyright"
 
 msgid "submission.copyrightHolder.other"
 msgstr "Declarație de copyright personalizată"
 
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"Dreptul de autor va fi atribuit automat revistei {$copyright} în momentul "
-"publicării acesteia."
-
 msgid "submission.copyrightHolder"
 msgstr "Titular de drepturi de autor"
 
 msgid "submission.copyright"
 msgstr "Drepturi de autor"
-
-msgid "submission.license.description"
-msgstr ""
-"Licența va fi setată automat la <a href='{$licenseUrl}' "
-"target='_blank'>{$licenseName}</a> când articolul este publicat."
 
 msgid "submission.license"
 msgstr "Licență"

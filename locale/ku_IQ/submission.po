@@ -273,9 +273,6 @@ msgstr "بارکردنی فایلی پێشکەشکردن"
 msgid "submission.submit.uploadStep"
 msgstr "1. فایلەکە بار بکە"
 
-msgid "submission.status.scheduled"
-msgstr "لە خشتەی کار دانراوە"
-
 msgid "submission.status.published"
 msgstr "بڵاوکراوە"
 

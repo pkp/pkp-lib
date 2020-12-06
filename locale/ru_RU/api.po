@@ -33,6 +33,18 @@ msgstr "Запрошенный URL не распознан."
 msgid "api.announcements.404.announcementNotFound"
 msgstr "Объявление, запрошенное Вами, не найдено."
 
+msgid "api.emails.400.missingBody"
+msgstr "Вы должны добавить текст письма для отправки."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Вы должны задать тему письма."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Вы должны указать роли пользователей, которые должны получить это письмо."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr "У вас нет прав отправлять электронную почту пользователям с одной или несколькими из выбранных ролей."
+
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "Шаблон письма, который вы запросили, не был найден."
 

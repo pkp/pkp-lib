@@ -273,6 +273,12 @@ msgstr "Получатель"
 msgid "manager.emails.subjectWithValue"
 msgstr "Тема: {$subject}"
 
+msgid "manager.export.usersToCsv.label"
+msgstr "Экспорт в Excel/CSV"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Выберите пользователей для экспорта в файл Excel/CSV."
+
 msgid "manager.filesBrowser"
 msgstr "Браузер файлов"
 

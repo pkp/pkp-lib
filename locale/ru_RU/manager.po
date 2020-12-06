@@ -536,9 +536,8 @@ msgstr "Город"
 msgid "manager.statistics.region"
 msgstr "Регион"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Генератор отчетов"
+msgstr "Отчеты"
 
 msgid "manager.statistics.reports.description"
 msgstr "Система генерирует отчеты, которые помогают отследить детали, связанные с использованием сайта и материалов за заданный период времени. Отчеты генерируются в формате CSV, который требует для просмотра наличия табличного процессора."
@@ -554,6 +553,9 @@ msgstr "Шаблоны отчетов по умолчанию"
 
 msgid "manager.statistics.reports.generateReport"
 msgstr "Сгенерировать пользовательский отчет"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Генератор пользовательских отчетов"
 
 msgid "manager.statistics.reports.advancedOptions"
 msgstr "Дополнительные настройки"

@@ -72,7 +72,7 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm {
 				'submissionFiles' => [
 					'addFileLabel' => __('common.addFile'),
 					'apiUrl' => $fileUploadApiUrl,
-					'cancelUploadLabel' => 'form.dropzone.dictCancelUpload',
+					'cancelUploadLabel' => __('form.dropzone.dictCancelUpload'),
 					'genrePromptLabel' => __('submission.submit.genre.label'),
 					'documentTypes' => [
 						'DOCUMENT_TYPE_DEFAULT' => DOCUMENT_TYPE_DEFAULT,

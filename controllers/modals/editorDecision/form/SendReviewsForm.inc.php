@@ -49,7 +49,7 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 	 */
 	function initData($actionLabels = array()) {
 		$request = Application::get()->getRequest();
-		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
+		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getSubmission(), $this->getStageId(), $this->_getDecisions());
 
 		return parent::initData($actionLabels);
 	}
@@ -102,7 +102,7 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 		$submission = $this->getSubmission();
 
 		// Get this form decision actions labels.
-		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
+		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), $this->_getDecisions());
 
 		// Record the decision.
 		$reviewRound = $this->getReviewRound();

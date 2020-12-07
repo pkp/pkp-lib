@@ -44,6 +44,8 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 				return __('notification.type.editorDecisionNewRound');
 			case NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE:
 				return __('notification.type.editorDecisionDecline');
+			case NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
+				return __('notification.type.editorDecisionRevertDecline');				
 			case NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION:
 				return __('notification.type.editorDecisionSendToProduction');
 			default:
@@ -146,6 +148,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 			NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT,
 			NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND,
 			NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE,
+			NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE,
 			NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION
 		);
 	}

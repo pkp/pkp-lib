@@ -69,7 +69,7 @@ class UserGroupGridHandler extends GridHandler {
 			$this->addPolicy(new WorkflowStageRequiredPolicy($request->getUserVar('stageId')));
 		}
 
-		$userGroupRequiredOps = array_merge($workflowStageRequiredOps, array('editUserGroup', 'updateUserGroup', 'removeUserGroup'));
+		$userGroupRequiredOps = array_merge($workflowStageRequiredOps, array('editUserGroup', 'removeUserGroup'));
 		if (in_array($operation, $userGroupRequiredOps)) {
 			// Validate the user group object.
 			$userGroupId = $request->getUserVar('userGroupId');

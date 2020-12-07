@@ -117,35 +117,6 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $submission->getId()));
 		$node->setAttribute('type', 'internal');
 		$node->setAttribute('advice', 'ignore');
-
-		// // Add pub IDs by plugin
-		// $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
-		// foreach ($pubIdPlugins as $pubIdPlugin) {
-		// 	$this->addPubIdentifier($doc, $submissionNode, $submission, $pubIdPlugin);
-		// }
-	}
-
-	/**
-	 * Add submission controlled vocabulary to its DOM element.
-	 * @param $doc DOMDocument
-	 * @param $submissionNode DOMElement
-	 * @param $controlledVocabulariesNodeName string Parent node name
-	 * @param $controlledVocabularyNodeName string Item node name
-	 * @param $controlledVocabulary array Associative array (locale => array of items)
-	 */
-	function addControlledVocabulary($doc, $submissionNode, $controlledVocabulariesNodeName, $controlledVocabularyNodeName, $controlledVocabulary) {
-		$deployment = $this->getDeployment();
-		$locales = array_keys($controlledVocabulary);
-		foreach ($locales as $locale) {
-			if (!empty($controlledVocabulary[$locale])) {
-				$controlledVocabulariesNode = $doc->createElementNS($deployment->getNamespace(), $controlledVocabulariesNodeName);
-				$controlledVocabulariesNode->setAttribute('locale', $locale);
-				foreach ($controlledVocabulary[$locale] as $controlledVocabularyItem) {
-					$controlledVocabulariesNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $controlledVocabularyNodeName, htmlspecialchars($controlledVocabularyItem, ENT_COMPAT, 'UTF-8')));
-				}
-				$submissionNode->appendChild($controlledVocabulariesNode);
-			}
-		}
 	}
 
 	/**
@@ -162,7 +133,6 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		]);
 
 		foreach ($submissionFilesIterator as $submissionFile) {
-
 			// Skip files attached to objects that are not included in the export,
 			// such as files uploaded to discussions and files uploaded by reviewers
 			if (in_array($submissionFile->getData('fileStage'), [SUBMISSION_FILE_QUERY, SUBMISSION_FILE_NOTE, SUBMISSION_FILE_REVIEW_ATTACHMENT])) {

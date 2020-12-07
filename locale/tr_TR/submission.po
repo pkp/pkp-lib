@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2020-07-20 06:10+0000\n"
+"PO-Revision-Date: 2020-11-27 10:51+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/tr_TR/>\n"
@@ -923,9 +923,9 @@ msgstr "\"{$name}\" ({$username}) bu gönderi için {$userGroupName}'den kaldır
 msgid "submission.event.submissionSubmitted"
 msgstr "İlk gönderi tamamlandı."
 
-#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "\"{$name}\" adlı revizyon (file ID {$submissionFileId}) olarak yüklendi."
+msgstr ""
+"\"{$name}\" adlı revizyon (Dosya ID {$submissionFileId}) olarak yüklendi."
 
 msgid "submission.event.subjectPrefix"
 msgstr "Bir e-posta gönderildi:"
@@ -1246,7 +1246,11 @@ msgid "editor.submission.addStageParticipant.form.userRequired"
 msgstr "Belirtilen kullanıcı grubu için bir kullanıcı seçmelisiniz."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
-msgstr "Seçtiğiniz katılımcı, kör hakemlik yapmak üzere atanmıştır. Onları bir katılımcı olarak atarsanız, yazarın kimliğine erişebilecekler. Hakem değerlendirme sürecinin bütünlüğünü bağımsız olarak sağlayamadığınız sürece, bu katılımcıyı atamaya teşvik edilmezsiniz."
+msgstr ""
+"Seçtiğiniz kullanıcı, kör hakemlik yapmak üzere atanmıştır. Kişilere "
+"eklerseniz, yazarın kimliğine erişebilecekler. Hakem değerlendirme sürecinin "
+"bütünlüğünü bağımsız olarak sağlayamadığınız sürece, bu katılımcıyı kişilere "
+"eklemeyiniz."
 
 msgid "editor.submission.decision"
 msgstr "Karar"
@@ -1611,10 +1615,10 @@ msgid "submission.list.infoCenter"
 msgstr "Etkinlik Günlüğü ve Notlar"
 
 msgid "submission.list.responseDue"
-msgstr "Cevap Zamanı"
+msgstr "Yanıt için Son Tarih: {$date}"
 
 msgid "submission.list.reviewDue"
-msgstr "Değerlendirme Zamanı"
+msgstr "Değerlendirme için Son Tarih: {$date}"
 
 msgid "submission.list.reviewComplete"
 msgstr "Değerlendirme Gönderildi"
@@ -2048,3 +2052,37 @@ msgstr "{$title} / {$representation}"
 
 msgid "notification.type.submissionNewVersion"
 msgstr "Aday makalenin yeni bir sürümü oluşturuldu"
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"\"{$originalFileName}\" dosyasının üstverileri {$username} tarafından "
+"düzenlendi."
+
+msgid "submission.upload.percentComplete"
+msgstr "{$percent}% yükleniyor"
+
+msgid "submission.upload.instructions"
+msgstr "Değerlendirme için ihtiyaç duyulan tüm dosyaları yükleyin."
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Dosya oluşturulduğunda dosyayı yükleyenin kaydı kaydedilir ve değiştirilemez."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Bu dosyayı silmek istediğinizden emin misiniz?"
+
+msgid "submission.submit.genre.error"
+msgstr "Lütfen yüklenen her dosya için dosya türünü seçin."
+
+msgid "submission.submit.genre.description"
+msgstr "Bu dosyayı en iyi tanımlayan seçeneği seçin."
+
+msgid "submission.submit.genre.label"
+msgstr "Bu ne tür bir dosya?"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Bir veya daha fazla hakem değerlendirme için verilen son tarihte dönüş "
+"sağlamadı. Editörler bilgilendirildi ve değerlendirmenin tamamlanması için "
+"gerekeni gerçekleştirecektir. Şu anda herhangi bir işlem yapmanız "
+"gerekmiyor. Değerlendirme tamamlandığında bilgilendirileceksiniz."

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2020-06-15 06:39+0000\n"
+"PO-Revision-Date: 2020-12-07 11:19+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -28,7 +28,7 @@ msgid "manager.announcements"
 msgstr "الإعلانات"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "هل أنت متأكد من رغبتك في حذف هذا الإعلان نهائياً؟"
+msgstr "هل أنت متأكد من رغبتك في حذف الإعلان {$title} نهائياً؟"
 
 msgid "manager.announcements.create"
 msgstr "أنشئ إعلاناً جديداً"
@@ -67,7 +67,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "لطفاً، إختر اليوم و/أو الشهر فضلاً عن سنة انتهاء الصلاحية."
 
 msgid "manager.announcements.form.description"
-msgstr "الوصف"
+msgstr "الإعلان"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "النص الكامل للإعلان."
@@ -766,9 +766,10 @@ msgstr ""
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "نمط التحكيم الإفتراضي"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
-msgstr "وفر رابطاً <button type=\"button\">لضمان التحكيم السري</button> خلال مرحلة رفع الملفات"
+msgstr ""
+"وفر رابطاً لـ <button type=\"button\">كيفية ضمان حذف البيانات الشخصية من كل "
+"الملفات</button> خلال مرحلة رفع الملفات"
 
 msgid "manager.setup.sponsors.note"
 msgstr "وصف علاقة الجهة الراعية وسياستها"
@@ -1922,3 +1923,123 @@ msgstr "معدل الرفض المباشر"
 
 msgid "stats.name.declinedReviewRate"
 msgstr "معدل الرفض بعد التحكيم"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"تم تخطي ملف التقديم {$id} لأنه مرفق بسجل لن يتم استيراده، مثل مهمة التحكيم "
+"أو المناقشة."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"إختر نوع البيانات الوصفية التي يمكن لهذه الملفات تلقيها. ينبغي اختيار (مستند)"
+" لملفات النشر الأساسية، مثل ملفات PDF القابلة للتنزيل، بحيث أن تلك الملفات "
+"ترث بياناتها الوصفية من المحتوى المنشور. بخلاف ذلك، إختر (محتوى تكميلي) "
+"لأغلب أنواع الملفات. العمل الفني يتناسب مع الملفات التي تتطلب إعتماداً "
+"مميزاً، تسمية توضيحية وبيانات وصفية لرخصة الاستعمال."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "البيانات الوصفية للملف"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"هذه ملفات تكميلية، مثل جداول البيانات والمواد البحثية، وسيتم عرضها بشكل "
+"منفصل عن ملفات النشر الأساسية."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"هذه ملفات تابعة إلى ما سواها، مثل الصور التي تُعرض من قبل ملف HTML، ولن يتم "
+"عرضها مع المحتوى المنشور."
+
+msgid "manager.setup.genres.label"
+msgstr "نوع الملف"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "هل أنت متأكد من رغبتك في تنشيط هذا القسم؟"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "هل أنت متأكد من رغبتك في تعطيل هذا القسم؟"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "قم بتعطيل هذا القسم ولا تسمح لطلبات التقديم الجديدة فيه."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "مخصص"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "التاريخ والوقت (قصير)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "التاريخ والوقت"
+
+msgid "manager.setup.dateTime.time"
+msgstr "الوقت"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "التاريخ (قصير)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "التاريخ"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"إختر التنسيق المفضل للتواريخ والأوقات. يمكن إدخال تنسيق مخصص باستعمال <a "
+"href='http://php.net/manual/en/function.strftime.php#refsect1-function"
+".strftime-parameters'>حروف التنسيق</a> الخاصة."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "تنسيقات التاريخ والوقت"
+
+msgid "manager.setup.dateTime"
+msgstr "التاريخ والوقت"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "إرسال رسالة أخرى"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "تم إرسال البريد الالكتروني بنجاح إلى كل المتلقين."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"يجري إرسال الرسالة. يرجى تجنب الانتقال إلى صفحة أخرى حتى إكتمال عملية "
+"الإرسال."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"أنت على وشك إرسال البريد الالكتروني إلى {$total} من المستخدمين. هل أنت متأكد "
+"من رغبتك في إرسال هذه الرسالة؟"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "أرسل الرسالة"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "أرسل نسخة من هذه الرسالة لي عند {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "إختر المستخدمين الذي ينبغي لهم تلقي إشعاراتك البريدية."
+
+msgid "manager.setup.notifyUsers"
+msgstr "إشعار"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "تعطيل طلبات التقديم"
+
+msgid "manager.people.signedInAs"
+msgstr "أنت حالياً تستعمل الموقع بصفة {$username}"
+
+msgid "manager.emails.resetComplete"
+msgstr "تمت إعادة تعيين قالب البريد الالكتروني بنجاح."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "لقد تمت استعادة قوالب البريد الالكتروني الافتراضية."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "حذف الإعلان"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "منشئ التقارير المخصص"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "إختر المستخدمين المطلوب تصديرهم إلى ملف Excel/CSV."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "التصدير إلى Excel/CSV"

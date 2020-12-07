@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2020-07-23 05:47+0000\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar_IQ/>\n"
@@ -567,9 +567,8 @@ msgstr "حذف المعلومة من سجل الوقائع"
 msgid "submission.event.submissionSubmitted"
 msgstr "طلب النشر الأساسي إكتمل."
 
-#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "التنقيح \"{$name}\" (رمز الملف {$submissionFileId}) قد رُفع إلى الموقع."
+msgstr "التنقيح \"{$name}\" قد رُفع للملف {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "البيانات الوصفية للمؤلَّف تم تحديثها"
@@ -1298,7 +1297,10 @@ msgid "editor.submission.addStageParticipant.form.userRequired"
 msgstr "عليك أن تختار مستخدماً لهذه المجموعة."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
-msgstr "المشارك الذي اخترته قد سبق تعيينه لإجراء التحكيم السري. إذا عينته بدور مشارك، سيكون له إمكانية التعرف على هوية المؤلف. من الأفضل تجنب تعيين هذا المشارك إلا إذا كان بإمكانك وبشكل مستقل ضمان نزاهة عملية التحكيم السري."
+msgstr ""
+"المشارك الذي اخترته قد سبق تعيينه لإجراء التحكيم غير المشخصن. إذا عينته بدور "
+"مشارك، سيكون له إمكانية التعرف على هوية المؤلف. من الأفضل تجنب تعيين هذا "
+"المشارك إلا إذا كان بإمكانك وبشكل مستقل ضمان نزاهة عملية التحكيم المناظر."
 
 msgid "editor.submission.removePermissionToEdit"
 msgstr "منع تعديل البيانات الوصفية"
@@ -1745,13 +1747,13 @@ msgid "submission.list.empty"
 msgstr "لا طلبات تقديم هنا."
 
 msgid "submission.list.responseDue"
-msgstr "موعد الإجابة"
+msgstr "استحقاق الإجابة: {$date}"
 
 msgid "submission.list.reviewAssignment"
 msgstr "تعيينات التحكيم"
 
 msgid "submission.list.reviewDue"
-msgstr "استيجاب التحكيم"
+msgstr "استحقاق التحكيم: {$date}"
 
 msgid "submission.list.reviewComplete"
 msgstr "التحكيم مسَلم"
@@ -1956,3 +1958,36 @@ msgstr "عدد الكلمات: {$count}/{$limit}"
 
 msgid "notification.type.submissionNewVersion"
 msgstr "تم إنشاء نسخة جديدة من طلب تقديم"
+
+msgid "submission.submit.genre.label"
+msgstr "أي نوع من الملفات هذا؟"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"واحد أو أكثر من المحكمين قد تأخروا عن موعدهم. تم إشعار فريق هيئة التحرير "
+"وسيقومون باتخاذ الإجراء الذي يضمن إكمال التحكيمات. لست بحاجة إلى القيام بأي "
+"شيء حالياً. سيتم إشعارك عند التوصل إلى قرار."
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"البيانات الوصفية للملف \"{$originalFileName}\" قد تم تعديلها من قبل "
+"{$username}."
+
+msgid "submission.upload.percentComplete"
+msgstr "يجري الرفع، {$percent}% مكتمل"
+
+msgid "submission.upload.instructions"
+msgstr "قم برفع أي ملفات سيحتاج إليها أعضاء هيئة التحرير لتقييم طلب تقديمك."
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"لقد تم حفظ سجل عن من قام برفع الملف عند إنشائه ولا يمكن تغيير هذا السجل."
+
+msgid "submission.submit.removeConfirm"
+msgstr "هل أنت متأكد من رغبتك في إزالة هذا الملف؟"
+
+msgid "submission.submit.genre.error"
+msgstr "لطفاً، إختر نوع الملف لكل عملية رفع."
+
+msgid "submission.submit.genre.description"
+msgstr "حدد الخيار الأنسب لوصف هذا الملف."

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-06-18 17:39+0000\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "es_ES/>\n"
@@ -151,3 +151,29 @@ msgid "api.submissions.404.siteWideEndpoint"
 msgstr ""
 "Este terminal no está disponible desde el contexto. Se debe acceder a él "
 "desde el espacio de nombres (namespace) de todo el sitio."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"No puede enviar un correo electrónico a los usuarios/as en o más de los "
+"roles seleccionados."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"No puede modificar la asociación de archivos sin pasar un assocType y un "
+"assocId."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"Debe indicar qué roles de usuario/a deberían recibir este correo electrónico."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Debe proporcionar el asunto del correo electrónico."
+
+msgid "api.emails.400.missingBody"
+msgstr "Debe incluir un correo electrónico para enviarlo."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "No se ha encontrado el aviso solicitado."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "No es posible cambiar la fecha en que fue creado."

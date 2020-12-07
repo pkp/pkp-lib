@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2020-06-15 06:39+0000\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar_IQ/>\n"
@@ -1448,7 +1448,7 @@ msgid "notification.savedSubmissionMetadata"
 msgstr "البيانات الوصفية لطلب النشر حُفِظت."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "أرسل رسالة إشعار إلى جميع المستخدمين المسجلين"
+msgstr "أرسل رسالة عن هذا إلى جميع المستخدمين المسجلين."
 
 msgid "search.author"
 msgstr "حسب المؤلف"
@@ -1546,9 +1546,8 @@ msgstr "تنزيل هذا الملف"
 msgid "context.path"
 msgstr "المسار"
 
-#, fuzzy
 msgid "review.ensuringAnonymousReview"
-msgstr "ضمان التحكيم السري"
+msgstr "كيفية ضمان حذف البيانات الشخصية من كل الملفات"
 
 msgid "grid.action.showReviewPolicy"
 msgstr "إقرأ سياسة التحكيم الحالية"
@@ -1568,26 +1567,32 @@ msgstr "المهام"
 msgid "dashboard.myQueue"
 msgstr "مساراتي"
 
-#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
-"<p>لضمان تكامل التحكيم المناظر السري بالنسبة إلى طلبات النشر لهذه الدار، يجب بذل كل جهد من شأنه حجب هويات المؤلفين والمحكمين بعضهم عن البعض الآخر. هذه المهمة يضطلع بها المؤلفون، المحررون والمحكمون (الذين يرفعون الملفات كجزء من مهام التحكيم) عبر تدقيق فيما إذا تم العمل بالخطوات الآتية المتعلقة بالنصوص وخصائص الملفات:</p>\n"
-"<ul><li>قام المؤلفون بحذف أسمائهم من النص مستبدلين إياها بكلمة \"مؤلف\"، وكذلك الحال مع المراجع والهوامش السفلية.</li>\n"
-"<li>تنبغي إزالة هويات المؤلفين أيضاً من خصائص الملفات عبر اتباع الخطوات الآتية:\n"
-"<ul><li>الذهاب إلى Microsoft Word في نظام التشغيل Windows:\n"
+"<p>لضمان تكامل التحكيم المناظر السري، يجب بذل كل جهد من شأنه حجب هويات "
+"المؤلفين والمحكمين بعضهم عن البعض الآخر. هذه المهمة يضطلع بها المؤلفون، "
+"المحررون والمحكمون (الذين يرفعون الملفات كجزء من مهام التحكيم) عبر تدقيق "
+"فيما إذا تم العمل بالخطوات الآتية المتعلقة بالنصوص وخصائص الملفات:</p>\n"
+"<ul><li>قام المؤلفون بحذف أسمائهم من النص مستبدلين إياها بكلمة \"مؤلف\"، "
+"وكذلك مستعملين للسنة في المراجع والهوامش السفلية، بدلاً من اسم المؤلف، عنوان "
+"المقالة، إلخ.</li>\n"
+"<li>قام مؤلفو المستند بإزالة بياناتهم الشخصية أيضاً من خصائص الملفات عبر "
+"اتباع الخطوات الآتية:\n"
+"<ul><li>بالنسبة إلى Microsoft Word في نظام التشغيل Windows:\n"
 "<ul><li>الذهاب إلى (ملف)</li>\n"
 "<li>إختيار (معلومات المستند)</li>\n"
 "<li>النقر على (التحقق من المشاكل)</li>\n"
 "<li>النقر على (فحص المستند)</li>\n"
-"<li>في مربع حوار فاحص المستند، ينبغي التأشير على الخانات المحاذية لأنواع المحتوى المخفي المطلوب فحصه.</li>\n"
+"<li>في مربع حوار فاحص المستند، ينبغي التأشير على الخانات المحاذية لأنواع "
+"المحتوى المخفي المطلوب فحصه.</li>\n"
 "<li>النقر على (إزالة الكل)</li>\n"
 "<li>النقر على (إغلاق)</li>\n"
 "<li>حفظ المستند</li></ul>\n"
-"<li>الذهاب إلى Microsoft Word في نظام التشغيل MacOS:\n"
+"<li>بالنسبة إلى Microsoft Word في نظام التشغيل MacOS:\n"
 "<ul><li>الذهاب إلى (الأدوات)</li>\n"
-"<li>النقر على (أمان المستند)</li>\n"
+"<li>النقر على (حماية المستند)</li>\n"
 "<li>إختيار إزالة البيانات الشخصية من خصائص الملف عند الحفظ</li>\n"
-"<li>النقر على الموافقة ثم حفظ المستند</li></ul></li>\n"
+"<li>النقر على الموافقة ثم حفظ الملف</li></ul></li>\n"
 "<li>ملفات PDF:\n"
 "<ul><li>الذهاب إلى (ملف)</li>\n"
 "<li>إختيار الخصائص</li>\n"
@@ -1918,3 +1923,57 @@ msgstr "إن {$attribute} قد سبق اختياره."
 
 msgid "validator.url"
 msgstr "هذا ليس رابطاً صحيحاً."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "خيارات الخصوصية"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "ليس لديك حق الوصول إلى مهمة التحكيم هذه."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "ليس لديك حق الوصول إلى رسالة المناقشة هذه."
+
+msgid "user.authorization.invalidQuery"
+msgstr "مناقشة خاطئة."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "جولة تحكيم خاطئة."
+
+msgid "user.email"
+msgstr "عنوان البريد الالكتروني"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "كيفية ضمان حذف البيانات الشخصية من كل الملفات"
+
+msgid "search.searchResults.foundPlural"
+msgstr "تم العثور على {$count} من العناصر."
+
+msgid "search.searchResults.foundSingle"
+msgstr "تم العثور على عنصر واحد."
+
+msgid "navigation.backTo"
+msgstr "⟵ عودة إلى {$page}"
+
+msgid "form.saved"
+msgstr "تم الحفظ"
+
+msgid "common.viewWithName"
+msgstr "معاينة {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[مستخدم غبير موجود]"
+
+msgid "common.addFile"
+msgstr "إضافة الملف"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "إختر {$name}"
+
+msgid "common.editItem"
+msgstr "تحرير {$name}"
+
+msgid "common.inactive"
+msgstr "غير فعال"

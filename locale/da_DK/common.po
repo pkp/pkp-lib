@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-06-04 18:39+0000\n"
+"PO-Revision-Date: 2020-11-27 16:28+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "da_DK/>\n"
@@ -941,7 +941,7 @@ msgstr ""
 "eller .jpg."
 
 msgid "navigation.access"
-msgstr "Brugere &amp; roller"
+msgstr "Brugere & roller"
 
 msgid "navigation.admin"
 msgstr "Administration"
@@ -1042,9 +1042,8 @@ msgstr "Min kø"
 msgid "navigation.items.shownTotal"
 msgstr "{$shown} af {$total} elementer"
 
-#, fuzzy
 msgid "review.ensuringAnonymousReview"
-msgstr "Sikring af blind review"
+msgstr "Sådan sikrer du, at alle filer anonymiseres"
 
 msgid "common.prefix"
 msgstr "Præfiks"
@@ -1185,7 +1184,6 @@ msgstr ""
 "Tilføj en manuskriptredaktør ved at klikke på linket 'Tildel' i feltet "
 "'Deltagere'."
 
-#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Med henblik på at sikre integriteten i forbindelse med blind peer review "
@@ -1200,9 +1198,8 @@ msgstr ""
 "<li>Forfatterne af dokumentet har fjernet personlige oplysninger fra "
 "filegenskaberne ved at tage følgende trin:\n"
 "<ul><li>Microsoft Word til Windows:\n"
-"<ul><li>Gå til fil</li>\n"
+"<ul><li>Gå til Filer</li>\n"
 "<li>Vælg Oplysninger</li>\n"
-"<li>Klik på Kontrollér, om der er problemer</li>\n"
 "<li>Klik på Undersøg dokument</li>\n"
 "<li>I dialogboksen Dokumentinspektion skal du markere afkrydsningsfelterne "
 "for at vælge den type skjult indhold, du vil inspicere.</li>\n"
@@ -1533,7 +1530,7 @@ msgid "notification.reviewerThankedEmail"
 msgstr "Tak, e-mail er nu sendt til bedømmer."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Send meddelelse via mail til alle registrerede brugere"
+msgstr "Send en e-mail om dette til alle registrerede brugere."
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Navigationsmenu-elementerne blev opdateret"
@@ -1970,3 +1967,57 @@ msgstr "Mere end"
 
 msgid "common.lessThanOnly"
 msgstr "Mindre end"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Du har ikke adgang til denne bedømmelse."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Du har ikke adgang til denne drøftelsesmeddelelse."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Ugyldig drøftelse."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Ugyldig bedømmelsesrunde."
+
+msgid "user.email"
+msgstr "E-mail-adresse"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Sådan sikrer du, at alle filer anonymiseres"
+
+msgid "search.searchResults.foundPlural"
+msgstr "Fundet {$count} poster."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Fundet en post."
+
+msgid "navigation.backTo"
+msgstr "⟵ Tilbage til {$page}"
+
+msgid "form.saved"
+msgstr "Gemt"
+
+msgid "common.viewWithName"
+msgstr "Se {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Nonexistent user]"
+
+msgid "common.addFile"
+msgstr "Tilføj fil"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "Vælg {$name}"
+
+msgid "common.editItem"
+msgstr "Redigér {$name}"
+
+msgid "common.inactive"
+msgstr "Inaktiv"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Privatindstillinger"

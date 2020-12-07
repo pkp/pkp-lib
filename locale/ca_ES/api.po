@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-06-18 17:39+0000\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ca_ES/>\n"
@@ -153,3 +153,30 @@ msgstr ""
 
 msgid "api.publicFiles.403.unauthorized"
 msgstr "No teniu permís per carregar arxius."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"No podeu modificar l'associació d'arxius sense passar un assocType i un "
+"assocId."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"No podeu enviar un correu electrònic als usuaris/àries en o més dels rols "
+"seleccionats."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"Heu d'indicar quins rols d'usuari/ària haurien de rebre aquest correu "
+"electrònic."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Heu de proporcionar l'assumpte del correu electrònic."
+
+msgid "api.emails.400.missingBody"
+msgstr "Heu d'incloure un correu electrònic perquè s'enviï."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "No s'ha trobat l'avís que heu sol·licitat."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "No és possible canviar la data en què es va crear."

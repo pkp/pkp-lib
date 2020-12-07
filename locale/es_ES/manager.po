@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2020-06-18 17:39+0000\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "es_ES/>\n"
@@ -27,7 +27,7 @@ msgid "manager.announcements"
 msgstr "Avisos"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "¿Seguro que quiere borrar este aviso permanentemente?"
+msgstr "¿Seguro que quiere borrar el aviso {$title} permanentemente?"
 
 msgid "manager.announcements.create"
 msgstr "Crear nuevo aviso"
@@ -66,7 +66,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Aparte del año de caducidad, por favor elija un mes y/o un día."
 
 msgid "manager.announcements.form.description"
-msgstr "Descripción"
+msgstr "Aviso"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Texto completo del aviso."
@@ -1034,11 +1034,10 @@ msgstr "Las condiciones predefinidas para cada revisión pueden ser modificadas 
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Fechas límites de revisión por defecto"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Mostrar un enlace a <button type=\"button\">mostrar una revisión "
-"ciega</button> durante la carga"
+"Mostrar un enlace a <button type=\"button\">cómo asegurarse de que todos los "
+"archivos se han anonimizado</button> durante la carga"
 
 msgid "manager.setup.sponsors.description"
 msgstr ""
@@ -2130,3 +2129,121 @@ msgstr ""
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/año)"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"El archivo de envío {$id} se ha omitido porque está adjunto a un registro "
+"que no se importará, como una asignación de revisión o una discusión."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Seleccione el tipo de metadatos para estos archivos. Se debería seleccionar "
+"\"documento\" para los archivos de publicación principales, como los PDF "
+"descargables, de modo que estos archivos reciben sus metadatos desde la "
+"publicación. Si no elija \"contenido adicional\" para la mayoría del resto "
+"de archivos. \"Material gráfico\" es apropiado para archivos que requieran "
+"créditos distintos, para pies de foto y para metadatos de licencia."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Metadatos de archivo"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Esto son archivos adicionales, como conjuntos de datos y materiales de "
+"investigación, y se mostrarán por separado de los archivos de publicación "
+"principales."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Esto son archivos subordinados, como imágenes mostradas por un archivo HTML, "
+"y no se mostrarán con el contenido publicado."
+
+msgid "manager.setup.genres.label"
+msgstr "Tipo de archivo"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "¿Seguro que desea activar esta sección?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "¿Seguro que desea desactivar esta sección?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Desactivar esta sección y no permitir que se hagan nuevos envíos a ella."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Personalizado"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Fecha y hora (cortas)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Fecha y hora"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Hora"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Fecha (corta)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Fecha"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Elija el formato preferido para fechas y horas. Puede introducir un formato "
+"personalizado mediante los <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>caracteres de "
+"formato</a> especiales."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formatos de fecha y hora"
+
+msgid "manager.setup.dateTime"
+msgstr "Fecha y hora"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Enviar otro correo electrónico"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr ""
+"El correo electrónico se ha enviado correctamente a todos los destinatarios."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Enviando correo electrónico. No abandone la página hasta que el envío haya "
+"finalizado."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Está a punto de enviar un correo electrónico a {$total} usuarios/as. ¿Seguro "
+"que quiere enviarlo?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Enviar correo electrónico"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Enviarme una copia de este correo electrónico a {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr ""
+"Seleccione los usuarios/as que quiere que reciban su notificación de correo "
+"electrónico."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Notificar"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Deshabilitar envíos"
+
+msgid "manager.people.signedInAs"
+msgstr "Actualmente está conectado como {$username}"
+
+msgid "manager.emails.resetComplete"
+msgstr "Plantilla de correo electrónico reiniciada correctamente."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Se han restaurado las plantillas de correo electrónico predeterminadas."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Eliminar aviso"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2020-10-29 14:50+0000\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ca_ES/>\n"
@@ -503,9 +503,8 @@ msgstr "Suprimeix l’entrada del registre"
 msgid "submission.event.submissionSubmitted"
 msgstr "La tramesa inicial s'ha completat."
 
-#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "S'ha carregat la revisió «{$name}» (amb l'identificador de fitxer {$submissionFileId})."
+msgstr "S'ha carregat la revisió \"{$name}\" de l'arxiu {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadades de tramesa actualitzades"
@@ -1615,13 +1614,13 @@ msgid "submission.list.reviewComplete"
 msgstr "Revisió enviada"
 
 msgid "submission.list.reviewDue"
-msgstr "Termini de revisió"
+msgstr "Termini de revisió: {$date}"
 
 msgid "submission.list.reviewAssignment"
 msgstr "Assignació de revisió"
 
 msgid "submission.list.responseDue"
-msgstr "Termini de resposta"
+msgstr "Termini de resposta: {$date}"
 
 msgid "submission.list.empty"
 msgstr "No s'ha trobat cap tramesa."
@@ -1949,7 +1948,7 @@ msgstr "Deshabilitar l'edició de metadades"
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
 msgstr ""
 "El participant que heu seleccionat ha estat assignat per dur a terme una "
-"avaluació amb cegament. Si l'assigneu com a participant tindrà accés a la "
+"avaluació anònima. Si l'assigneu com a participant tindrà accés a la "
 "identitat de l'autor/a. Per això us aconsellem que no assigneu aquest "
 "participant a menys que pugueu garantir la integritat del procés d'avaluació "
 "amb cegament."
@@ -2253,3 +2252,38 @@ msgstr "{$representation} de {$title}"
 
 msgid "notification.type.submissionNewVersion"
 msgstr "S'ha creat una versió nova de la tramesa"
+
+msgid "submission.event.fileEdited"
+msgstr "{$username} ha editat les metadades de l'arxiu \"{$originalFileName}\"."
+
+msgid "submission.upload.percentComplete"
+msgstr "{$percent}% de càrrega completat"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Carregueu tots els arxius que l'equip editorial necessitarà per avaluar la "
+"vostra tramesa."
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Es guarda un registre del carregador de l'arxiu quan es crea l'arxiu i no es "
+"pot canviar."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Segur que voleu eliminar aquest arxiu?"
+
+msgid "submission.submit.genre.error"
+msgstr "Seleccioneu el tipus d'arxiu per a cada càrrega."
+
+msgid "submission.submit.genre.description"
+msgstr "Trieu l'opció que descrigui millor aquest arxiu."
+
+msgid "submission.submit.genre.label"
+msgstr "Quin tipus d'arxiu és?"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Un o més revisors/ores han excedit la data límit. L'equip editorial ha estat "
+"notificat i prendrà les accions oportunes perquè es completin les revisions. "
+"No heu de fer res més en aquest moment. Sereu notificat quan es prengui una "
+"decisió."

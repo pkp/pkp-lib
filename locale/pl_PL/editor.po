@@ -2,14 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2020-01-30T17:13:02+00:00\n"
+"PO-Revision-Date: 2020-11-27 16:28+0000\n"
+"Last-Translator: rl <biuro@fimagis.pl>\n"
+"Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
+"pl_PL/>\n"
+"Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-01-30T17:13:02+00:00\n"
-"PO-Revision-Date: 2020-01-30T17:13:02+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.submissionLibrary"
 msgstr "Biblioteka zgłoszeń"
@@ -83,13 +87,11 @@ msgstr "Nie wysyłaj wiadomości e-mail z powiadomieniem"
 msgid "editor.submissionReview.open"
 msgstr "Otwarta"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
-msgstr "Ślepa"
+msgstr "Recenzja pojedynczo ślepa (single blind)"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Podwójnie ślepa"
+msgstr "Recenzja podwójnie ślepa (double blind)"
 
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Pliki do zrecenzowania"
@@ -278,7 +280,7 @@ msgid "editor.submission.noReviewerFilesSelected.details"
 msgstr "Nie wybrałeś(aś) żadnego pliku do wykonania recenzji."
 
 msgid "submission.queries.subjectRequired"
-msgstr "Tytuł dyskusji jest wymagany"
+msgstr "Tytuł dyskusji jest wymagany."
 
 msgid "submission.queries.messageRequired"
 msgstr "Wiadomość dyskusji jest wymagana."
@@ -406,3 +408,58 @@ msgstr "Zainteresowania"
 
 msgid "reviewer.list.biography"
 msgstr "Biografia"
+
+msgid "reviewer.list.empty"
+msgstr "Brak znalezionych recenzentów"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Odwołane prośby o recenzję"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Zaplanuj publikację"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Wystąpił błąd w trakcie przywracania recenzenta. Proszę spróbować ponownie."
+
+msgid "editor.review.reviewerThanked"
+msgstr "Recenzent otrzymał podziękowanie"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Redaktor odwołał prośbę o recenzję."
+
+msgid "editor.review.requestCancelled"
+msgstr "Prośba skasowana"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Przywróć recenzenta"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Usuń recenzenta"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Zmień decyzję"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Zgłoszenie zaakceptowane do recenzji."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Wyślij do etapu produkcji."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Rozpocznij nową rundę recenzji."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Zgłoszenie zostało opublikowane."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Zgłoszenie zaakceptowane."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Zgłoszenie odrzucone."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Decyzja zarejestrowana"
+
+msgid "editor.activityLog"
+msgstr "Historia aktywności"

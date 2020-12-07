@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2020-11-29 09:51+0000\n"
+"PO-Revision-Date: 2020-12-07 11:19+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl_PL/>\n"
@@ -2221,3 +2221,12 @@ msgstr "Wytyczne  dla recenzentów"
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Skasuj ogłoszenie"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Raport własny"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Wybierz użytkowników do eksportu w formacie Excel/CSV."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Wyeksportuj do Exela/CSV"

@@ -64,7 +64,7 @@ class PKPTemplateManager extends Smarty {
 	private $_localeKeys = [];
 
 	/** @var array Initial state data to be managed by the page's Vue.js component */
-	private $_state = [];
+	protected $_state = [];
 
 	/** @var string Type of cacheability (Cache-Control). */
 	private $_cacheability;

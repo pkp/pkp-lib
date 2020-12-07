@@ -399,12 +399,12 @@ class UserGroupDAO extends DAO {
 			'SELECT	COUNT(DISTINCT(uug.user_id)) AS row_count
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE	context_id = ?' .
+			WHERE	ug.context_id = ?' .
 				($userGroupId?' AND ug.user_group_id = ?':'') .
 				($roleId?' AND ug.role_id = ?':''),
 			$params
 		);
-		$row = $result->current();
+		$row = (array) $result->current();
 		return $row?$row['row_count']:0;
 	}
 

@@ -83,9 +83,9 @@ class FormComponent {
 	 * @return FormComponent
 	 */
 	public function removeField($fieldName) {
-		$this->fields = array_filter($this->fields, function($field) use ($fieldName) {
+		$this->fields = array_values(array_filter($this->fields, function($field) use ($fieldName) {
 			return $field->name !== $fieldName;
-		});
+		}));
 		return $this;
 	}
 

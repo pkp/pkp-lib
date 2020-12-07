@@ -419,10 +419,10 @@ abstract class Context extends DataObject {
 	 * @param $value mixed
 	 * @param $type string optional
 	 * @param $isLocalized boolean optional
+	 * @deprecated 3.3.0.0
 	 */
 	function updateSetting($name, $value, $type = null, $isLocalized = false) {
-		$settingsDao = Application::getContextSettingsDAO();
-		return $settingsDao->updateSetting($this->getId(), $name, $value, $type, $isLocalized);
+		Services::get('context')->edit($this, [$name => $value], Application::get()->getRequest());
 	}
 
 	/**

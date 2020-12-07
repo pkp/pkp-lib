@@ -43,7 +43,7 @@ class QueryNoteFilesGridHandler extends FileListGridHandler {
 	/**
 	 * @copydoc SubmissionFilesGridHandler::authorize()
 	 */
-	function authorize($request, $args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		$stageId = $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy
 		$this->_stageId = (int)$stageId;
 

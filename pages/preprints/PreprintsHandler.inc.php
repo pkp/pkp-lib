@@ -60,6 +60,7 @@ class PreprintsHandler extends Handler {
 			'contextId' => $context->getId(),
 			'count' => $count,
 			'offset' => $offset,
+			'orderBy' => 'datePublished',
 			'status' => STATUS_PUBLISHED,
 		);
 		$publishedSubmissions = $submissionService->getMany($params);

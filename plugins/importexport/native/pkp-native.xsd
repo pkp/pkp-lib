@@ -114,7 +114,7 @@
 		<attribute name="genre" type="normalizedString" />
 		<attribute name="id" type="int" />
 		<attribute name="language" type="string" />
-		<attribute name="sales_type" type="int" />
+		<attribute name="sales_type" type="string" />
 		<attribute name="source_submission_file_id" type="int" />
 		<attribute name="stage">
 			<simpleType>
@@ -256,6 +256,7 @@
 			<element name="copyrightYear" type="int" minOccurs="0" maxOccurs="1" />
 			<element ref="pkp:keywords" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:agencies" minOccurs="0" maxOccurs="unbounded" />
+			<element ref="pkp:languages" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:disciplines" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:subjects" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:authors" minOccurs="1" maxOccurs="1" />
@@ -350,6 +351,14 @@
 		<complexType>
 			<sequence>
 				<element name="agency" type="string" minOccurs="1" maxOccurs="unbounded" />
+			</sequence>
+			<attribute name="locale" type="string" />
+		</complexType>
+	</element>
+	<element name="languages">
+		<complexType>
+			<sequence>
+				<element name="language" type="string" minOccurs="1" maxOccurs="unbounded" />
 			</sequence>
 			<attribute name="locale" type="string" />
 		</complexType>

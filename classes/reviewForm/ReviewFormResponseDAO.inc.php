@@ -85,6 +85,7 @@ class ReviewFormResponseDAO extends DAO {
 	 * @param $reviewFormResponse ReviewFormResponse
 	 */
 	function updateObject($reviewFormResponse) {
+		$type = $reviewFormResponse->getResponseType();
 		$this->update(
 			'UPDATE review_form_responses
 				SET
@@ -93,7 +94,7 @@ class ReviewFormResponseDAO extends DAO {
 				WHERE review_form_element_id = ? AND review_id = ?',
 			[
 				$reviewFormResponse->getResponseType(),
-				$this->convertToDB($reviewFormResponse->getValue(), $reviewFormResponse->getResponseType()),
+				$this->convertToDB($reviewFormResponse->getValue(), $type),
 				$reviewFormResponse->getReviewFormElementId(),
 				$reviewFormResponse->getReviewId()
 			]

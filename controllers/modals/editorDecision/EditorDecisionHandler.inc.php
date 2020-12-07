@@ -29,6 +29,7 @@ class EditorDecisionHandler extends PKPEditorDecisionHandler {
 			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER),
 			array_merge(array(
 				'sendReviews', 'saveSendReviews',
+				'revertDecline', 'saveRevertDecline',
 			), $this->_getReviewRoundOps())
 		);
 	}
@@ -59,6 +60,8 @@ class EditorDecisionHandler extends PKPEditorDecisionHandler {
 		switch ($decision) {
 			case SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE:
 				return NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE;
+			case SUBMISSION_EDITOR_DECISION_REVERT_DECLINE:
+				return NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE;
 			default:
 				assert(false);
 				return null;
@@ -70,6 +73,13 @@ class EditorDecisionHandler extends PKPEditorDecisionHandler {
 	 * @return array
 	 */
 	protected function _getReviewStages() {
+		return array();
+	}
+
+	/**
+	 * Get review-related decision notifications.
+	 */
+	protected function _getReviewNotificationTypes() {
 		return array();
 	}
 

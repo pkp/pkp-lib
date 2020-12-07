@@ -33,11 +33,12 @@ class EditorDecisionActionsManager extends PKPEditorDecisionActionsManager {
 	 * @param $decisions array
 	 * @return array
 	 */
-	function getActionLabels($request, $stageId, $decisions) {
-		$allDecisionsData = $this->_productionStageDecisions();
+	function getActionLabels($request, $submission, $stageId, $decisions) {
+		$allDecisionsData = $this->_productionStageDecisions($submission);
 		$actionLabels = array();
+
 		foreach($decisions as $decision) {
-			if ($allDecisionsData[$decision]['title']) {
+			if (isset($allDecisionsData[$decision]['title'])) {
 				$actionLabels[$decision] = $allDecisionsData[$decision]['title'];
 			}
 		}
@@ -48,12 +49,12 @@ class EditorDecisionActionsManager extends PKPEditorDecisionActionsManager {
 	/**
 	 * @copydoc PKPEditorDecisionActionsManager::getStageDecisions()
 	 */
-	public  function getStageDecisions($request, $stageId, $makeDecision = true) {
+	public  function getStageDecisions($request, $submission, $stageId, $makeDecision = true) {
 		switch ($stageId) {
 			case WORKFLOW_STAGE_ID_PRODUCTION:
-				return $this->_productionStageDecisions($makeDecision);
+				return $this->_productionStageDecisions($submission, $makeDecision);
 		}
-		return parent::getStageDecisions($request, $stageId, $makeDecision);
+		return parent::getStageDecisions($request, $submission, $stageId, $makeDecision);
 	}
 
 	//
@@ -63,19 +64,31 @@ class EditorDecisionActionsManager extends PKPEditorDecisionActionsManager {
 	 * Define and return editor decisions for the production stage.
 	 * If the user cannot make decisions i.e. if it is a recommendOnly user,
 	 * there will be no decisions options in the production stage.
+	 * @param $submission Submission	 
 	 * @param $makeDecision boolean If the user can make decisions
 	 * @return array
 	 */
-	protected function _productionStageDecisions($makeDecision = true) {
+	protected function _productionStageDecisions($submission, $makeDecision = true) {
 		$decisions = array();
 		if ($makeDecision) {
-			$decisions = $decisions + array(
-				SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => array(
-					'name' => 'decline',
-					'operation' => 'sendReviews',
-					'title' => 'editor.submission.decision.decline',
-				),
-			);
+			if ($submission->getStatus() == STATUS_QUEUED){
+				$decisions = $decisions + array(
+					SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => array(
+						'name' => 'decline',
+						'operation' => 'sendReviews',
+						'title' => 'editor.submission.decision.decline',
+					),
+				);
+			}
+			if ($submission->getStatus() == STATUS_DECLINED){
+				$decisions = $decisions + array(
+					SUBMISSION_EDITOR_DECISION_REVERT_DECLINE => array(
+						'name' => 'revert',
+						'operation' => 'revertDecline',
+						'title' => 'editor.submission.decision.revertDecline',
+					),
+				);
+			}
 		}
 		return $decisions;
 	}

@@ -126,8 +126,8 @@ class UserGroupDAO extends DAO {
 	 */
 	function deleteById($contextId, $userGroupId) {
 		$this->userGroupAssignmentDao->deleteAssignmentsByUserGroupId($userGroupId);
-		$this->update('DELETE FROM user_group_settings WHERE user_group_id = ?', (int) $userGroupId);
-		$this->update('DELETE FROM user_groups WHERE user_group_id = ?', (int) $userGroupId);
+		$this->update('DELETE FROM user_group_settings WHERE user_group_id = ?', [(int) $userGroupId]);
+		$this->update('DELETE FROM user_groups WHERE user_group_id = ?', [(int) $userGroupId]);
 		$this->removeAllStagesFromGroup($contextId, $userGroupId);
 	}
 

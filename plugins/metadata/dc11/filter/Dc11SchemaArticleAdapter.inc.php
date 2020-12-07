@@ -113,7 +113,6 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 		// Type
 		$driverType = 'info:eu-repo/semantics/preprint';
 		$dc11Description->addStatement('dc:type', $driverType, METADATA_DESCRIPTION_UNKNOWN_LOCALE);
-		$this->_addLocalizedElements($dc11Description, 'dc:type', $types);
 		$driverVersion = 'info:eu-repo/semantics/publishedVersion';
 		$dc11Description->addStatement('dc:type', $driverVersion, METADATA_DESCRIPTION_UNKNOWN_LOCALE);
 
@@ -129,6 +128,7 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 
 		// Identifier: URL
 		$request = Application::get()->getRequest();
+		$includeUrls = $journal->getSetting('publishingMode') != PUBLISHING_MODE_NONE;
 		if (is_a($article, 'Submission')) {
 			$dc11Description->addStatement('dc:identifier', $request->url($journal->getPath(), 'preprint', 'view', array($article->getBestId())));
 		}

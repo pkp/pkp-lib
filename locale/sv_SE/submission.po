@@ -1581,9 +1581,6 @@ msgstr "Granskningsdiskussioner"
 msgid "submission.queries.editorial"
 msgstr "Manusredigeringsdiskussioner"
 
-msgid "submission.queries.production"
-msgstr "Produktionsdiskussioner"
-
 msgid "submission.query.subject"
 msgstr "Ämne"
 
@@ -1692,29 +1689,11 @@ msgstr "Vill du skapa en ny version?"
 msgid "publication.version.all"
 msgstr "Alla versioner"
 
-msgid "publication.status.published"
-msgstr "Publicerad"
-
-msgid "publication.publish"
-msgstr "Publicera"
-
-msgid "publication.event.published"
-msgstr "Bidraget är publicerat."
-
-msgid "publication.editDisabled"
-msgstr "Versionen har publicerats och kan inte redigeras."
-
-msgid "publication.datePublished"
-msgstr "Publiceringsdatum"
-
 msgid "publication.createVersion"
 msgstr "Skapa en ny version"
 
 msgid "publication.contributors"
 msgstr "Medarbetare"
-
-msgid "submission.publication"
-msgstr "Publikation"
 
 msgid "catalog.category.subcategories"
 msgstr "Underkategorier"
@@ -1755,9 +1734,6 @@ msgstr ""
 "license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
 "Commons Erkännande 3.0 Internationell licens</a>.</p>"
 
-msgid "publication.status.unscheduled"
-msgstr "Inte planerad"
-
 msgid "publication.titleAbstract"
 msgstr "Titel & Abstract"
 
@@ -1782,9 +1758,6 @@ msgstr "Tillåt inte redigering av metadata"
 msgid "editor.submission.editStageParticipant"
 msgstr "Redigeringsuppdag"
 
-msgid "submission.status.scheduled"
-msgstr "Planerad"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "Det här är en gammal version publicerad {$datePublished}. Läs <a href=\""
@@ -1802,12 +1775,6 @@ msgstr "Författarna kan inte redigera metadatan när bidraget är i steg {stage
 msgid "author.publicationNotFound"
 msgstr "Författarens publikation kan inte hittas."
 
-msgid "publication.event.scheduled"
-msgstr "Bidraget ska publiceras."
-
-msgid "submission.publications"
-msgstr "Publikationer"
-
 msgid "submission.copyrightOther"
 msgstr "Upphovsrättsdeklaration"
 
@@ -1822,50 +1789,17 @@ msgstr ""
 "Abstractet är för långt.  Det får inte vara mer än {$limit}. Nu är det "
 "{$count} ord."
 
-msgid "publication.version.details"
-msgstr "Publiceringsdetaljer för version {$version}"
-
 msgid "publication.status.unpublished"
 msgstr "Inte publicerad"
 
 msgid "publication.status.scheduled"
 msgstr "Planerad"
 
-msgid "publication.required.reviewStage"
-msgstr ""
-"Bidraget måste vara i Manusredigerings- eller Produktionssteget innan det "
-"kan publiceras."
-
-msgid "publication.required.declined"
-msgstr "Ett avslaget bidrag kan inte publiceras."
-
-msgid "publication.publish.requirements"
-msgstr "Följande krav måste uppfyllas innan den kan publiceras."
-
-msgid "publication.invalidSubmission"
-msgstr "Bidraget för publikationen kan inte hittas."
-
-msgid "publication.event.versionUnpublished"
-msgstr "En version har tagits bort från publikationen."
-
-msgid "publication.event.versionScheduled"
-msgstr "En ny version ska publiceras."
-
-msgid "publication.event.versionPublished"
-msgstr "En ny version har publicerats."
-
 msgid "publication.event.versionCreated"
 msgstr "En ny version har skapats."
 
-msgid "publication.event.unpublished"
-msgstr "Bidraget är avpublicerat."
-
 msgid "publication.datePublished.errorFormat"
 msgstr "Datumet måste skrivas i formatet YYYY-MM-DD, som t ex 2019-01-01."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"Upphovsrättsåret genereras automatiskt när detta publiceras i ett nummer."
 
 msgid "submission.list.reviewAssignment"
 msgstr "Granskningsuppdrag"
@@ -1919,15 +1853,6 @@ msgstr ""
 "Creative Commons Erkännande-IckeKommersiell-IngaBearbetningar 3.0 "
 "Internationell licens</a>.</p>"
 
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"Upphovsrätt tilldelas automatiskt till {$copyright} när den är publicerad."
-
-msgid "submission.license.description"
-msgstr ""
-"Licensen <a href='{$licenseUrl}' target='_blank'>{$licenseName}</a> läggs "
-"till automatiskt när den är publicerad."
-
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} har granskat bidraget {$submissionId}, granskningsomgång "
@@ -1965,22 +1890,8 @@ msgstr "URL-sökvägen används redan och kan inte återanvändas."
 msgid "publication.urlPath"
 msgstr "URL-sökväg"
 
-msgid "publication.unschedule.confirm"
-msgstr "Vill du ta bort denna från publiceringsplanen?"
-
 msgid "publication.unschedule"
 msgstr "Ta bort från publiceringsplan"
-
-msgid "publication.unpublish.confirm"
-msgstr "Är du säker på att du vill avpublicera?"
-
-msgid "publication.unpublish"
-msgstr "Avpublicera"
-
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"Upphovsrättsåret kommer att genereras automatiskt baserat på publicerings "
-"datum."
 
 msgid "submission.copyrightHolder.other"
 msgstr "Anpassad upphovsrättsdeklaration"

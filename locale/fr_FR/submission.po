@@ -1528,9 +1528,6 @@ msgstr "On vous a demandé de créer un index pour \"{$title}\"."
 msgid "submission.licenseURLValid"
 msgstr "Veuillez indiquer une URL à distance valide (incluez http://)."
 
-msgid "submission.queries.production"
-msgstr "Discussions sur la production"
-
 msgid "submission.query.subject"
 msgstr "Sujet"
 
@@ -1804,9 +1801,6 @@ msgstr ""
 "Le résumé est trop long. Il doit compter {$limit} mots ou moins et en compte "
 "actuellement {$count}."
 
-msgid "publication.version.details"
-msgstr "Renseignements de publication pour la version {$version}"
-
 msgid "publication.version.confirm"
 msgstr "Avez-vous la certitude de vouloir créer une nouvelle version ?"
 
@@ -1826,18 +1820,8 @@ msgstr "Un chemin d'accès optionnel utilisant l'URL au lieu de l'identifiant."
 msgid "publication.urlPath"
 msgstr "Chemin d'accès URL"
 
-msgid "publication.unschedule.confirm"
-msgstr ""
-"Avez-vous la certitude de ne pas vouloir programmer ceci pour publication ?"
-
 msgid "publication.unschedule"
 msgstr "Retirer la programmation"
-
-msgid "publication.unpublish.confirm"
-msgstr "Avez-vous la certitude de ne pas vouloir que ceci soit publié ?"
-
-msgid "publication.unpublish"
-msgstr "Dépublier"
 
 msgid "publication.titleAbstract.success"
 msgstr "Les titre et résumé ont été mis à jour."
@@ -1845,36 +1829,14 @@ msgstr "Les titre et résumé ont été mis à jour."
 msgid "publication.titleAbstract"
 msgstr "Titre & résumé"
 
-msgid "publication.status.unscheduled"
-msgstr "Non programmé"
-
 msgid "publication.status.unpublished"
 msgstr "Dépublié"
 
 msgid "publication.status.scheduled"
 msgstr "Programmé"
 
-msgid "publication.status.published"
-msgstr "Publié"
-
-msgid "publication.required.reviewStage"
-msgstr ""
-"La soumission doit être à l'étape de révision ou de production avant de "
-"pouvoir être publiée."
-
-msgid "publication.required.declined"
-msgstr "Une soumission refusée ne peut pas être publiée."
-
 msgid "publication.publish.success"
 msgstr "Le statut de publication a été modifié avec succès."
-
-msgid "publication.publish.requirements"
-msgstr ""
-"les conditions suivantes doivent être remplies avant que ceci ne puisse être "
-"publié."
-
-msgid "publication.publish"
-msgstr "Publier"
 
 msgid "publication.publicationLicense.success"
 msgstr "Les informations de droits d'auteur et de licence ont été mises à jour."
@@ -1888,63 +1850,20 @@ msgstr "Les identifiants ont été mis à jour."
 msgid "publication.metadata.success"
 msgstr "Les métadonnées ont été mises à jour."
 
-msgid "publication.invalidSubmission"
-msgstr "La soumission pour cette publication n'a pu être trouvée."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Une version a été dépubliée."
-
-msgid "publication.event.versionScheduled"
-msgstr "Une nouvelle version a été programmée pour publication."
-
-msgid "publication.event.versionPublished"
-msgstr "Une nouvelle version a été publiée."
-
 msgid "publication.event.versionCreated"
 msgstr "Une nouvelle version a été créée."
-
-msgid "publication.event.unpublished"
-msgstr "La soumission a été dépubliée."
-
-msgid "publication.event.scheduled"
-msgstr "La soumission a été programmée pour publication."
-
-msgid "publication.event.published"
-msgstr "La soumission a été publiée."
-
-msgid "publication.editDisabled"
-msgstr "Cette version a été publiée et ne peut pas être modifiée."
 
 msgid "publication.datePublished.errorFormat"
 msgstr "La date doit être au format AAAA-MM-JJ, par exemple 2019-01-01."
 
-msgid "publication.datePublished"
-msgstr "Date de publication"
-
 msgid "publication.createVersion"
 msgstr "Créer une nouvelle version"
-
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"L'année des droits d'auteur sera définie automatiquement sur la base de la "
-"date de publication."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"L'année des droits d'auteur sera définie automatiquement lorsque ceci sera "
-"publié dans le numéro."
 
 msgid "publication.contributors"
 msgstr "Contributeurs(-trices)"
 
 msgid "publication.citations.success"
 msgstr "Les références ont été mises à jour."
-
-msgid "submission.publications"
-msgstr "Publications"
-
-msgid "submission.publication"
-msgstr "Publication"
 
 msgid "catalog.category.subcategories"
 msgstr "Sous-catégories"
@@ -2052,26 +1971,11 @@ msgstr ""
 "Creative Commons Attribution - Pas d’Utilisation Commerciale - Pas de "
 "Modification 3.0 non transposé</a>.</p>"
 
-msgid "submission.copyrightOther.description"
-msgstr ""
-"Attribuer à la partie suivante les droits d'auteur pour les soumissions "
-"publiées."
-
 msgid "submission.copyrightOther"
 msgstr "Déclaration de droits d'auteur"
 
 msgid "submission.copyrightHolder.other"
 msgstr "Déclaration de droits d'auteur personnalisée"
-
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"Les droits d'auteur seront automatiquement attribués à {$copyright} lorsque "
-"ceci sera publié."
-
-msgid "submission.license.description"
-msgstr ""
-"La licence sera automatiquement définie comme <a href='{$licenseUrl}' "
-"target='_blank'> {$licenseName} </a> lorsque ceci sera publié."
 
 msgid "log.review.reviewReady"
 msgstr ""
@@ -2107,9 +2011,6 @@ msgstr "Interdire la modification des métadonnées"
 
 msgid "editor.submission.editStageParticipant"
 msgstr "Modifier l'assignation"
-
-msgid "submission.status.scheduled"
-msgstr "Programmé"
 
 msgid "submission.publisherId.enable"
 msgstr "Activé pour {$objects}"

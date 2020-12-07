@@ -927,32 +927,17 @@ msgstr ""
 "Abstrak terlalu panjang. Jumlah katanya maksimal {$limit} atau kurang. "
 "Sekarang jumlahnya {$count} kata."
 
-msgid "publication.version.details"
-msgstr "PRincian publikasi naskah versi {$version}"
-
 msgid "publication.version.confirm"
 msgstr "Yakin ingin membuat versi baru?"
 
 msgid "publication.version.all"
 msgstr "Semua Versi"
 
-msgid "publication.unschedule.confirm"
-msgstr "Yakin tidak ingin menjadwalkan naskah ini untuk diterbitkan?"
-
 msgid "publication.unschedule"
 msgstr "Tidak dijadwalkan"
 
-msgid "publication.unpublish.confirm"
-msgstr "Yakin tidak ingin menerbitkan naskah ini?"
-
-msgid "publication.unpublish"
-msgstr "Tidak diterbitkan"
-
 msgid "publication.titleAbstract"
 msgstr "Judul & Abstrak"
-
-msgid "publication.status.unscheduled"
-msgstr "Tidak dijadwalkan"
 
 msgid "publication.status.unpublished"
 msgstr "Tidak Diterbitkan"
@@ -960,76 +945,20 @@ msgstr "Tidak Diterbitkan"
 msgid "publication.status.scheduled"
 msgstr "Dijadwalkan"
 
-msgid "publication.status.published"
-msgstr "Diterbitkan"
-
-msgid "publication.required.reviewStage"
-msgstr ""
-"Naskah harus melewati tahap Copyediting atau Produksi sebelum dapat "
-"diterbitkan."
-
-msgid "publication.required.declined"
-msgstr "Naskah yang ditolak tidak bisa diterbitkan."
-
-msgid "publication.publish.requirements"
-msgstr "Persyaratan berikut harus dipenuhi sebelum naskah diterbitkan."
-
-msgid "publication.publish"
-msgstr "Terbitkan"
-
 msgid "publication.publicationLicense"
 msgstr "Perijinan & Keterbukaan"
-
-msgid "publication.invalidSubmission"
-msgstr "Naskah publikasi ini tidak dapat ditemukan."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Sebuah versi dihapus dari publikasi."
-
-msgid "publication.event.versionScheduled"
-msgstr "Versi baru telah dijadwalkan untuk terbit."
-
-msgid "publication.event.versionPublished"
-msgstr "Versi baru telah diterbitkan."
 
 msgid "publication.event.versionCreated"
 msgstr "Versi baru telah dibuat."
 
-msgid "publication.event.unpublished"
-msgstr "Naskah tidak diterbitkan."
-
-msgid "publication.event.scheduled"
-msgstr "Naskah telah dijadwalkan untuk terbit."
-
-msgid "publication.event.published"
-msgstr "Naskah telah diterbitkan."
-
-msgid "publication.editDisabled"
-msgstr "Versi ini telah diterbitkan dan tidak dapat disunting."
-
 msgid "publication.datePublished.errorFormat"
 msgstr "Taggal harus dalam format  YYYY-MM-DD, contoh 2019-01-01."
-
-msgid "publication.datePublished"
-msgstr "Tanggal DIterbitkan"
 
 msgid "publication.createVersion"
 msgstr "Buat Versi Baru"
 
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"Tahunhak cipta akan ditetapkan secara otomatis berdasarkan tanggal publikasi."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"Tahunhak cipta akan ditetapkan secara otomatis jika naskah ini diterbitkan "
-"pada satu nomor terbitan."
-
 msgid "publication.contributors"
 msgstr "Kontributor"
-
-msgid "submission.publication"
-msgstr "Publikasi"
 
 msgid "catalog.category.subcategories"
 msgstr "Subkategori"
@@ -1185,9 +1114,6 @@ msgstr "Pesan"
 msgid "submission.query.subject"
 msgstr "Subjek"
 
-msgid "submission.queries.production"
-msgstr "Diskusi Produksi"
-
 msgid "submission.queries.editorial"
 msgstr "Diskusi Copyediting"
 
@@ -1326,21 +1252,11 @@ msgstr "Hak Cipta (c) {$copyrightYear} {$copyrightHolder}"
 msgid "submission.copyrightYear"
 msgstr "Tahun Hak Cipta"
 
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"Hak cipta akan ditentukan secara otomatis pada {$copyright} ketika naskah "
-"ini diterbitkan."
-
 msgid "submission.copyrightHolder"
 msgstr "Pemegang Hak Cipta"
 
 msgid "submission.copyright"
 msgstr "Hak Cipta"
-
-msgid "submission.license.description"
-msgstr ""
-"Lisensi akan ditetapkan otomatis pada <a href='{$licenseUrl}' "
-"target='_blank'>{$licenseName}</a> ketika naskah ini diterbitkan."
 
 msgid "submission.license"
 msgstr "Lisensi"
@@ -1789,9 +1705,6 @@ msgstr "Unggah File Naskah"
 msgid "submission.submit.uploadStep"
 msgstr "1. Unggah File"
 
-msgid "submission.status.scheduled"
-msgstr "Dijadwalkan"
-
 msgid "submission.status.published"
 msgstr "Diterbitkan"
 
@@ -2079,9 +1992,6 @@ msgstr ""
 "Ketik setiap rujukan pada baris baru sehingga bisa diekstrak dan dicatat "
 "secara terpisah."
 
-msgid "submission.copyrightOther.description"
-msgstr "Gunakan hak cipta untuk naskah terbitan pada pihak berikut."
-
 msgid "submission.copyrightOther"
 msgstr "Penyataan hak cipta"
 
@@ -2099,9 +2009,6 @@ msgstr "Lokasi opsional digunakan dalam URL, buka ID."
 
 msgid "publication.urlPath"
 msgstr "Lokasi URL"
-
-msgid "submission.publications"
-msgstr "Publikasi"
 
 msgid "submission.publisherId.enable"
 msgstr "Aktifkan untuk {$objects}"

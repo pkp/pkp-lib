@@ -1632,9 +1632,6 @@ msgstr "Discussions sur l'évaluation"
 msgid "submission.queries.editorial"
 msgstr "Discussions sur la révision"
 
-msgid "submission.queries.production"
-msgstr "Discussions sur la production"
-
 msgid "submission.query.subject"
 msgstr "Objet"
 
@@ -1838,9 +1835,6 @@ msgstr "Interdire la modification des métadonnées"
 msgid "editor.submission.editStageParticipant"
 msgstr "Modifier l'assignation"
 
-msgid "submission.status.scheduled"
-msgstr "Prévu(e)"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "Ceci est une version obsolète publiée le {$datePublished}. Consulter la <a "
@@ -1876,16 +1870,6 @@ msgstr ""
 "Les auteures et auteurs de cette publication ne peuvent être édités puisque "
 "celle-ci a déjà été publiée."
 
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"Les droits d'auteur seront automatiquement attribués à {$copyright} lorsque "
-"ceci sera publié."
-
-msgid "submission.license.description"
-msgstr ""
-"La licence sera automatiquement définie comme <a href='{$licenseUrl}' "
-"target='_blank'> {$licenseName} </a> lorsque ceci sera publié."
-
 msgid "log.review.reviewConfirmed"
 msgstr ""
 "Le,la rédacteur-trice {$userName} a confirmé une évaluation pour le cycle "
@@ -1899,33 +1883,17 @@ msgstr ""
 "Le résumé est trop long. Il doit compter {$limit} mots ou moins et en compte "
 "actuellement {$count}."
 
-msgid "publication.version.details"
-msgstr "Renseignements de publication pour la version {$version}"
-
 msgid "publication.version.confirm"
 msgstr "Êtes-vous certain-e de vouloir créer une nouvelle version ?"
 
 msgid "publication.version.all"
 msgstr "Toutes les versions"
 
-msgid "publication.unschedule.confirm"
-msgstr ""
-"Êtes-vous certain-e de ne pas vouloir planifier la publication de ceci ?"
-
 msgid "publication.unschedule"
 msgstr "Retirer de la planification"
 
-msgid "publication.unpublish.confirm"
-msgstr "Êtes-vous certain-e de ne pas vouloir que cela soit publié ?"
-
-msgid "publication.unpublish"
-msgstr "Dépublier"
-
 msgid "publication.titleAbstract"
 msgstr "Titre et résumé"
-
-msgid "publication.status.unscheduled"
-msgstr "Non planifié-e"
 
 msgid "publication.status.unpublished"
 msgstr "Dépublié-e"
@@ -1933,80 +1901,20 @@ msgstr "Dépublié-e"
 msgid "publication.status.scheduled"
 msgstr "Planifié-e"
 
-msgid "publication.status.published"
-msgstr "Publié-e"
-
-msgid "publication.required.reviewStage"
-msgstr ""
-"La soumission doit être à l'étape de révision ou de production avant de "
-"pouvoir être publiée."
-
-msgid "publication.required.declined"
-msgstr "Une soumission refusée ne peut pas être publiée."
-
-msgid "publication.publish.requirements"
-msgstr ""
-"Les conditions suivantes doivent être remplies avant que ceci ne puisse être "
-"publié."
-
-msgid "publication.publish"
-msgstr "Publier"
-
 msgid "publication.publicationLicense"
 msgstr "Autorisations et divulgation"
-
-msgid "publication.invalidSubmission"
-msgstr "La soumission pour cette publication n'a pu être trouvée."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Une version a été dépubliée."
-
-msgid "publication.event.versionScheduled"
-msgstr ""
-"La planification de la publication d'une nouvelle version a été enregistrée."
-
-msgid "publication.event.versionPublished"
-msgstr "Une nouvelle version a été publiée."
 
 msgid "publication.event.versionCreated"
 msgstr "Une nouvelle version a été créée."
 
-msgid "publication.event.unpublished"
-msgstr "La soumission a été dépubliée."
-
-msgid "publication.event.scheduled"
-msgstr "La planification de la publication de la soumission a été enregistrée."
-
-msgid "publication.event.published"
-msgstr "La soumission a été publiée."
-
-msgid "publication.editDisabled"
-msgstr "Cette version a été publiée et ne peut pas être modifiée."
-
 msgid "publication.datePublished.errorFormat"
 msgstr "La date doit être au format AAAA-MM-JJ, par exemple 2019-01-01."
-
-msgid "publication.datePublished"
-msgstr "Date de publication"
 
 msgid "publication.createVersion"
 msgstr "Créer une nouvelle version"
 
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"L'année du droit d'auteur sera définie automatiquement en fonction de la "
-"date de publication."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"L'année du droit d'auteur sera définie automatiquement lorsque ça sera "
-"publié dans un numéro."
-
 msgid "publication.contributors"
 msgstr "Contributeurs-trices"
-
-msgid "submission.publication"
-msgstr "Publication"
 
 msgid "submission.list.reviewAssignment"
 msgstr "Évaluation assignée"
@@ -2037,14 +1945,6 @@ msgstr "Un chemin d'accès optionnel utilisant l'URL au lieu de l'identifiant."
 
 msgid "publication.urlPath"
 msgstr "Chemin d'accès URL"
-
-msgid "submission.publications"
-msgstr "Publications"
-
-msgid "submission.copyrightOther.description"
-msgstr ""
-"Attribuer à la partie suivante les droits d'auteur pour les soumissions "
-"publiées."
 
 msgid "submission.copyrightOther"
 msgstr "Déclaration de droits d'auteur"

@@ -1430,9 +1430,6 @@ msgstr "Dyskusja w trakcie recenzji"
 msgid "submission.queries.editorial"
 msgstr "Dyskusja w trakcie korekty"
 
-msgid "submission.queries.production"
-msgstr "Dyskusja w trakcie realizacji"
-
 msgid "submission.query.subject"
 msgstr "Temat"
 

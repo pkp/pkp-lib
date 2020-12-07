@@ -470,9 +470,6 @@ msgstr "Пред рецензентске дискусије"
 msgid "submission.queries.review"
 msgstr "Рецензентске дискусије"
 
-msgid "submission.queries.production"
-msgstr "Продукционе дискусије"
-
 msgid "submission.query.subject"
 msgstr "Тема"
 

@@ -1009,9 +1009,6 @@ msgid "editor.submission.removeStageParticipant.description"
 msgstr ""
 "Du er i gang med at fjerne denne deltager fra <strong>alle</strong> trin."
 
-msgid "submission.queries.production"
-msgstr "Drøftelser under produktion"
-
 msgid "reviewer.submission.reviewFiles"
 msgstr "Bedømmelsesfiler"
 
@@ -1741,33 +1738,17 @@ msgstr ""
 "Resuméet er for langt. Det skal være på {$limit} ord eller derunder. Det er "
 "i øjeblikket {$count} ord langt."
 
-msgid "publication.version.details"
-msgstr "Publikationsoplysninger i forbindelse med version {$version}"
-
 msgid "publication.version.confirm"
 msgstr "Er du sikker på, at du vil oprette en ny version?"
 
 msgid "publication.version.all"
 msgstr "Alle versioner"
 
-msgid "publication.unschedule.confirm"
-msgstr ""
-"Er du sikker på, at du ikke vil have dette planlagt til senere publicering?"
-
 msgid "publication.unschedule"
 msgstr "Planlæg ikke"
 
-msgid "publication.unpublish.confirm"
-msgstr "Er du sikker på, at du ikke ønsker, at dette skal publiceres?"
-
-msgid "publication.unpublish"
-msgstr "Træk tilbage"
-
 msgid "publication.titleAbstract"
 msgstr "Titel & Resumé"
-
-msgid "publication.status.unscheduled"
-msgstr "Ikke planlagt"
 
 msgid "publication.status.unpublished"
 msgstr "Ikke publiceret"
@@ -1775,71 +1756,20 @@ msgstr "Ikke publiceret"
 msgid "publication.status.scheduled"
 msgstr "Planlagt"
 
-msgid "publication.status.published"
-msgstr "Publiceret"
-
-msgid "publication.required.reviewStage"
-msgstr ""
-"Indsendelsen skal være under manuskriptredigerings- eller "
-"produktionstrinnet, før det kan offentliggøres."
-
-msgid "publication.required.declined"
-msgstr "En afvist indsendelse kan ikke offentliggøres."
-
-msgid "publication.publish.requirements"
-msgstr "Følgende krav skal være opfyldt, før dette kan offentliggøres."
-
-msgid "publication.publish"
-msgstr "Publicér"
-
 msgid "publication.publicationLicense"
 msgstr "Tilladelser & offentliggørelse"
-
-msgid "publication.invalidSubmission"
-msgstr "Indsendelsen til denne publikation kunne ikke findes."
-
-msgid "publication.event.versionUnpublished"
-msgstr "En version blev fjernet fra publikationen."
-
-msgid "publication.event.versionScheduled"
-msgstr "En ny version var planlagt til publicering."
-
-msgid "publication.event.versionPublished"
-msgstr "En ny version blev publiceret."
 
 msgid "publication.event.versionCreated"
 msgstr "En ny version blev oprettet."
 
-msgid "publication.event.unpublished"
-msgstr "Indsendelsen blev ikke publiceret."
-
-msgid "publication.event.scheduled"
-msgstr "Indsendelsen var planlagt til publicering."
-
-msgid "publication.event.published"
-msgstr "Indsendelsen blev publiceret."
-
-msgid "publication.editDisabled"
-msgstr "Denne version er blevet publiceret og kan ikke redigeres."
-
 msgid "publication.datePublished.errorFormat"
 msgstr "Datoen skal være i formatet ÅÅÅÅ-MM-DD, som f.eks. 2019-01-01."
-
-msgid "publication.datePublished"
-msgstr "Dato publiceret"
 
 msgid "publication.createVersion"
 msgstr "Opret ny version"
 
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"Copyright-året indstilles automatisk, når dette offentliggøres i et nummer."
-
 msgid "publication.contributors"
 msgstr "Bidragydere"
-
-msgid "submission.publication"
-msgstr "Publikation"
 
 msgid "submission.list.reviewCancelled"
 msgstr "Bedømmelse annulleret"
@@ -1942,9 +1872,6 @@ msgstr "Afvis redigering af metadata"
 msgid "editor.submission.editStageParticipant"
 msgstr "Redigér opgave"
 
-msgid "submission.status.scheduled"
-msgstr "Planlagt"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "Dette er en forældet version offentliggjort d. {$datePublished}. Læs den <a "
@@ -1980,22 +1907,6 @@ msgstr ""
 "Forfatterne til denne publikation kan ikke redigeres, fordi publikationen "
 "allerede er offentliggjort."
 
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr "Copyright-året indstilles automatisk ud fra publiceringsdatoen."
-
-msgid "submission.copyrightHolder.description"
-msgstr "Copyright tildeles automatisk {$copyright}, når dette publiceres."
-
-msgid "submission.license.description"
-msgstr ""
-"Licensen indstilles automatisk til <a href='{$licenseUrl}' target='_blank'>{$"
-" licensnavn}</a>, når dette publiceres."
-
-msgid "submission.copyrightOther.description"
-msgstr ""
-"Tildel copyright i forbindelse med offentliggjorte indsendelser til følgende "
-"gruppe."
-
 msgid "submission.copyrightOther"
 msgstr "Copyright-erklæring"
 
@@ -2013,9 +1924,6 @@ msgstr "En valgfri sti til brug i URL'en i stedet for ID."
 
 msgid "publication.urlPath"
 msgstr "URL-sti"
-
-msgid "submission.publications"
-msgstr "Publikationer"
 
 msgid "submission.publisherId.enable"
 msgstr "Aktivér for {$objects}"

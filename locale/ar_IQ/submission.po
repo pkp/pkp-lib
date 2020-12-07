@@ -1149,9 +1149,6 @@ msgstr "مرفوض"
 msgid "submission.status.published"
 msgstr "منشور"
 
-msgid "submission.status.scheduled"
-msgstr "مجدول"
-
 msgid "submission.submit.uploadStep"
 msgstr "1. رفع الملف"
 
@@ -1593,26 +1590,17 @@ msgstr "إرفق الصلاحيات الآتية بالمؤلَّف:"
 msgid "submission.license"
 msgstr "الرخصة"
 
-msgid "submission.license.description"
-msgstr "الرخصة سيتم ضبطها تلقائياً لتكون <a href='{$licenseUrl}' target='_blank'>{$licenseName}</a> عند النشر."
-
 msgid "submission.copyright"
 msgstr "الحقوق الفكرية"
 
 msgid "submission.copyrightHolder"
 msgstr "مالك الحقوق الفكرية"
 
-msgid "submission.copyrightHolder.description"
-msgstr "الحقوق الفكرية سيتم تعيينها تلقائياً إلى {$copyright} عند النشر."
-
 msgid "submission.copyrightHolder.other"
 msgstr "بيان الحقوق الفكرية المخصص"
 
 msgid "submission.copyrightOther"
 msgstr "بيان الحقوق الفكرية"
-
-msgid "submission.copyrightOther.description"
-msgstr "أعط الحقوق الفكرية لطلبات التقديم المنشورة إلى الجهة الآتية."
 
 msgid "submission.copyrightYear"
 msgstr "سنة الحقوق الفكرية"
@@ -1688,9 +1676,6 @@ msgstr "مناقشات التحكيم"
 
 msgid "submission.queries.editorial"
 msgstr "مناقشات التدقيق"
-
-msgid "submission.queries.production"
-msgstr "مناقشات الإنتاج"
 
 msgid "submission.query.subject"
 msgstr "الموضوع"
@@ -1836,74 +1821,20 @@ msgstr "لم يتم نشر أي شيء من هذه الفئة بعد."
 msgid "catalog.category.subcategories"
 msgstr "الفئات الفرعية"
 
-msgid "submission.publication"
-msgstr "المنشور"
-
-msgid "submission.publications"
-msgstr "المنشورات"
-
 msgid "publication.contributors"
 msgstr "المساهمون"
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr "سنة الحقوق الفكرية سيتم ضبطها تلقائياً عند النشر في أحد الأعداد."
-
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr "سنة الحقوق الفكرية سيتم ضبطها تلقائياً استناداً إلى تأريخ النشر."
 
 msgid "publication.createVersion"
 msgstr "إنشاء نسخة جديدة"
 
-msgid "publication.datePublished"
-msgstr "تأريخ النشر"
-
 msgid "publication.datePublished.errorFormat"
 msgstr "التأريخ لا بد أن يكون بتنسيق YYYY-MM-DD، مثلاً 2020-01-01."
-
-msgid "publication.editDisabled"
-msgstr "هذه النسخة سبق وأن نُشرت ولا يمكن تعديلها."
-
-msgid "publication.event.published"
-msgstr "طلب التقديم نُشر."
-
-msgid "publication.event.scheduled"
-msgstr "طلب التقديم تمت جدولته للنشر."
-
-msgid "publication.event.unpublished"
-msgstr "طلب التقديم لم يُنشر."
 
 msgid "publication.event.versionCreated"
 msgstr "نسخة جديدة قد تم إنشاؤها."
 
-msgid "publication.event.versionPublished"
-msgstr "نسخة جديدة قد تم نشرها."
-
-msgid "publication.event.versionScheduled"
-msgstr "نسخة جديدة قد تمت جدولتها للنشر."
-
-msgid "publication.event.versionUnpublished"
-msgstr "إحدى النسخ قد تمت إزالتها عن النشر."
-
-msgid "publication.invalidSubmission"
-msgstr "تعذر العثور على طلب التقديم المتعلق بهذا المنشور."
-
 msgid "publication.publicationLicense"
 msgstr "الصلاحيات والإفصاح"
-
-msgid "publication.publish"
-msgstr "النشر"
-
-msgid "publication.publish.requirements"
-msgstr "لا بد من تلبية المتطلبات الآتية قبل الشروع بالنشر."
-
-msgid "publication.required.declined"
-msgstr "طلب التقديم المرفوض لا يمكن له أن يُنشر."
-
-msgid "publication.required.reviewStage"
-msgstr "طلب التقديم لا بد أن يكون في مرحلة التدقيق أو الانتاج قبل أن يتسنى نشره."
-
-msgid "publication.status.published"
-msgstr "منشور"
 
 msgid "publication.status.scheduled"
 msgstr "مجدول"
@@ -1911,23 +1842,11 @@ msgstr "مجدول"
 msgid "publication.status.unpublished"
 msgstr "غير منشور"
 
-msgid "publication.status.unscheduled"
-msgstr "غير مجدول"
-
 msgid "publication.titleAbstract"
 msgstr "العنوان والملخص"
 
-msgid "publication.unpublish"
-msgstr "لا تنشر"
-
-msgid "publication.unpublish.confirm"
-msgstr "هل أنت متأكد من رغبتك في عدم النشر؟"
-
 msgid "publication.unschedule"
 msgstr "لا تجدول"
-
-msgid "publication.unschedule.confirm"
-msgstr "هل أنت متأكد من رغبتك في عدم جدولته للنشر؟"
 
 msgid "publication.urlPath"
 msgstr "مسار الرابط"
@@ -1946,9 +1865,6 @@ msgstr "كل النسخ"
 
 msgid "publication.version.confirm"
 msgstr "هل أنت متأكد من رغبتك في إنشاء نسخة جديدة؟"
-
-msgid "publication.version.details"
-msgstr "تفاصيل النشر للنسخة {$version}"
 
 msgid "publication.wordCountLong"
 msgstr "الملخص طويل للغاية. لا بد أن يقتصر على {$limit} كلمة أو أقل. طوله الحالي {$count} كلمة."

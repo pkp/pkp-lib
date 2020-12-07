@@ -1425,9 +1425,6 @@ msgstr "Diskuse během recenzního procesu"
 msgid "submission.queries.editorial"
 msgstr "Diskuse během redakčního procesu"
 
-msgid "submission.queries.production"
-msgstr "Diskuse během produkčního procesu"
-
 msgid "submission.query.subject"
 msgstr "Předmět"
 
@@ -1685,9 +1682,6 @@ msgstr ""
 "Abstrakt je příliš dlouhý. Může být dlouhý maximálně {$limit} slov nebo "
 "méně. V současné době je {$count} slov dlouhý."
 
-msgid "publication.version.details"
-msgstr "Podrobnosti publikace pro verzi {$version}"
-
 msgid "publication.version.confirm"
 msgstr "Opravdu chcete vytvořit novou verzi?"
 
@@ -1706,17 +1700,8 @@ msgstr "Volitelná cesta k použití v adrese URL namísto ID."
 msgid "publication.urlPath"
 msgstr "Cesta URL"
 
-msgid "publication.unschedule.confirm"
-msgstr "Opravdu si nepřejete, aby to bylo naplánováno na zveřejnění?"
-
 msgid "publication.unschedule"
 msgstr "Neplánovaný"
-
-msgid "publication.unpublish.confirm"
-msgstr "Opravdu nechcete, aby to bylo zveřejněno?"
-
-msgid "publication.unpublish"
-msgstr "Nepublikovat"
 
 msgid "publication.titleAbstract.success"
 msgstr "Název a abstrakt byly aktualizovány."
@@ -1724,32 +1709,14 @@ msgstr "Název a abstrakt byly aktualizovány."
 msgid "publication.titleAbstract"
 msgstr "Název a abstrakt"
 
-msgid "publication.status.unscheduled"
-msgstr "Neplánovaný"
-
 msgid "publication.status.unpublished"
 msgstr "Nepublikovaný"
 
 msgid "publication.status.scheduled"
 msgstr "Naplánováno"
 
-msgid "publication.status.published"
-msgstr "Publikováno"
-
-msgid "publication.required.reviewStage"
-msgstr "Před zveřejněním musí být ve fázi editace nebo produkce."
-
-msgid "publication.required.declined"
-msgstr "Odmítnutý příspěvek nelze zveřejnit."
-
 msgid "publication.publish.success"
 msgstr "Stav publikace byl úspěšně změněn."
-
-msgid "publication.publish.requirements"
-msgstr "Před zveřejněním musí být splněny následující požadavky."
-
-msgid "publication.publish"
-msgstr "Publikovat"
 
 msgid "publication.publicationLicense.success"
 msgstr "Informace o autorských právech a licencích byly aktualizovány."
@@ -1763,62 +1730,20 @@ msgstr "Identifikátory byly aktualizovány."
 msgid "publication.metadata.success"
 msgstr "Metadata byla aktualizována."
 
-msgid "publication.invalidSubmission"
-msgstr "Příspěvek pro tuto publikace nebyl nalezen."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Verze byla odstraněna z publikace."
-
-msgid "publication.event.versionScheduled"
-msgstr "Vydání nové verze bylo naplánováno."
-
-msgid "publication.event.versionPublished"
-msgstr "Byla vydána nová verze."
-
 msgid "publication.event.versionCreated"
 msgstr "Byla vytvořena nová verze."
-
-msgid "publication.event.unpublished"
-msgstr "Příspěvek nebyl publikován."
-
-msgid "publication.event.scheduled"
-msgstr "Příspěvek byl naplánován k publikaci."
-
-msgid "publication.event.published"
-msgstr "Příspěvek byl publikován."
-
-msgid "publication.editDisabled"
-msgstr "Tato verze byla publikována a nelze ji upravovat."
 
 msgid "publication.datePublished.errorFormat"
 msgstr "Datum musí být ve formátu RRRR-MM-DD, například 2019-01-01."
 
-msgid "publication.datePublished"
-msgstr "Datum publikace"
-
 msgid "publication.createVersion"
 msgstr "Vytvořit novou verzi"
-
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"Rok autorských práv bude nastaven automaticky na základě data zveřejnění."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"Rok vydání autorských práv bude nastaven automaticky, jakmile bude toto "
-"číslo zveřejněno."
 
 msgid "publication.contributors"
 msgstr "Autoři"
 
 msgid "publication.citations.success"
 msgstr "Reference byly aktualizovány."
-
-msgid "submission.publications"
-msgstr "Vydání"
-
-msgid "submission.publication"
-msgstr "Vydání"
 
 msgid "catalog.category.subcategories"
 msgstr "Podkategorie"
@@ -1920,23 +1845,11 @@ msgstr ""
 "Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported "
 "License</a>. </p>"
 
-msgid "submission.copyrightOther.description"
-msgstr "Přiřaďte autorská práva k publikovaným příspěvkům následující straně."
-
 msgid "submission.copyrightOther"
 msgstr "Prohlášení o autorských právech"
 
 msgid "submission.copyrightHolder.other"
 msgstr "Vlastní prohlášení o autorských právech"
-
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"Po jeho zveřejnění bude autorské právo automaticky přiděleno {$copyright}."
-
-msgid "submission.license.description"
-msgstr ""
-"Jakmile bude tato licence zveřejněna, bude automaticky nastavena na <a "
-"href='{$licenseUrl}' target='_blank'> {$licenseName} </a>."
 
 msgid "log.review.reviewReady"
 msgstr ""
@@ -1971,9 +1884,6 @@ msgstr "Zakázat úpravy metadat"
 
 msgid "editor.submission.editStageParticipant"
 msgstr "Upravit přiřazení"
-
-msgid "submission.status.scheduled"
-msgstr "Naplánováno"
 
 msgid "submission.publisherId.enable"
 msgstr "Povolit pro {$objects}"

@@ -1173,9 +1173,6 @@ msgstr "Отклонен"
 msgid "submission.status.published"
 msgstr "Опубликован"
 
-msgid "submission.status.scheduled"
-msgstr "Запланирован"
-
 msgid "submission.submit.uploadStep"
 msgstr "1. Загрузить файл"
 
@@ -1620,26 +1617,17 @@ msgstr "Добавить следующие права к материалу:"
 msgid "submission.license"
 msgstr "Лицензия"
 
-msgid "submission.license.description"
-msgstr "Автоматически при публикации будет назначена лицензия <a href='{$licenseUrl}' target='_blank'>{$licenseName}</a>."
-
 msgid "submission.copyright"
 msgstr "Авторское право"
 
 msgid "submission.copyrightHolder"
 msgstr "Владелец авторского права"
 
-msgid "submission.copyrightHolder.description"
-msgstr "Автоматически при публикации будет проставлено авторское право {$copyright}."
-
 msgid "submission.copyrightHolder.other"
 msgstr "Пользовательская формулировка Предупреждения об авторском праве"
 
 msgid "submission.copyrightOther"
 msgstr "Предупреждение об авторском праве"
-
-msgid "submission.copyrightOther.description"
-msgstr "Проставить авторское право на опубликованных материалах с указанием следующей формулировки."
 
 msgid "submission.copyrightYear"
 msgstr "Год авторского права"
@@ -1715,9 +1703,6 @@ msgstr "Обсуждения рецензирования"
 
 msgid "submission.queries.editorial"
 msgstr "Обсуждения литературного редактирования"
-
-msgid "submission.queries.production"
-msgstr "Обсуждения публикации"
 
 msgid "submission.query.subject"
 msgstr "Тема"
@@ -1863,74 +1848,20 @@ msgstr "В этой категории пока ничего не опублик
 msgid "catalog.category.subcategories"
 msgstr "Подкатегории"
 
-msgid "submission.publication"
-msgstr "Публикация"
-
-msgid "submission.publications"
-msgstr "Публикации"
-
 msgid "publication.contributors"
 msgstr "Авторы"
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr "Год копирайта будет задан автоматически при публикации выпуска."
-
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr "Год копирайта будет проставлен автоматически, исходя из даты публикации."
 
 msgid "publication.createVersion"
 msgstr "Создать новую версию"
 
-msgid "publication.datePublished"
-msgstr "Дата публикации"
-
 msgid "publication.datePublished.errorFormat"
 msgstr "Дата должна быть в формате ГГГГ-ММ-ДД, например, 2019-01-01."
-
-msgid "publication.editDisabled"
-msgstr "Эта версия была опубликована, её нельзя отредактировать."
-
-msgid "publication.event.published"
-msgstr "Материал был опубликован."
-
-msgid "publication.event.scheduled"
-msgstr "Материал запланирован к публикации."
-
-msgid "publication.event.unpublished"
-msgstr "Материал был снят с публикации."
 
 msgid "publication.event.versionCreated"
 msgstr "Создана новая версия."
 
-msgid "publication.event.versionPublished"
-msgstr "Опубликована новая версия."
-
-msgid "publication.event.versionScheduled"
-msgstr "Новая версия запланирована к публикации."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Версия была убрана с публикации."
-
-msgid "publication.invalidSubmission"
-msgstr "Материал для этой публикации не удаётся найти."
-
 msgid "publication.publicationLicense"
 msgstr "Разрешения и соглашения"
-
-msgid "publication.publish"
-msgstr "Опубликовать"
-
-msgid "publication.publish.requirements"
-msgstr "Перед публикацией необходимо выполнить следующие требования."
-
-msgid "publication.required.declined"
-msgstr "Отклонённый материал нельзя опубликовать."
-
-msgid "publication.required.reviewStage"
-msgstr "Перед публикацией материал должен быть на этапе «Литературное редактирование» или «Публикация»."
-
-msgid "publication.status.published"
-msgstr "Опубликовано"
 
 msgid "publication.status.scheduled"
 msgstr "Запланировано"
@@ -1938,23 +1869,11 @@ msgstr "Запланировано"
 msgid "publication.status.unpublished"
 msgstr "Снято с публикации"
 
-msgid "publication.status.unscheduled"
-msgstr "Снято с плана"
-
 msgid "publication.titleAbstract"
 msgstr "Название и аннотация"
 
-msgid "publication.unpublish"
-msgstr "Снять с публикации"
-
-msgid "publication.unpublish.confirm"
-msgstr "Вы уверены, что не хотите публиковать этот материал?"
-
 msgid "publication.unschedule"
 msgstr "Снять с плана"
-
-msgid "publication.unschedule.confirm"
-msgstr "Вы уверены, что не хотите запланировать этот материал к публикации?"
 
 msgid "publication.urlPath"
 msgstr "Путь URL"
@@ -1973,9 +1892,6 @@ msgstr "Все версии"
 
 msgid "publication.version.confirm"
 msgstr "Вы уверены, что хотите создать новую версию?"
-
-msgid "publication.version.details"
-msgstr "Информация о публикации для версии {$version}"
 
 msgid "publication.wordCountLong"
 msgstr "Аннотация слишком длинная. Она должна быть длиной не больше {$limit} слов. В данный момент её длина {$count} слов."

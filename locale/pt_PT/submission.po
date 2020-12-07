@@ -1464,9 +1464,6 @@ msgstr "Rever Discussões"
 msgid "submission.queries.editorial"
 msgstr "Discussões de edição de cópia"
 
-msgid "submission.queries.production"
-msgstr "Discussões da Produção"
-
 msgid "submission.query.subject"
 msgstr "Assunto"
 
@@ -1724,9 +1721,6 @@ msgstr "Não Permitir Edição de Metadados"
 msgid "editor.submission.editStageParticipant"
 msgstr "Editar Designação"
 
-msgid "submission.status.scheduled"
-msgstr "Agendado"
-
 msgid "submission.outdatedVersion"
 msgstr ""
 "Esta é uma versão desatualizada publicada em {$datePublished}. Consulte a <a "
@@ -1773,32 +1767,17 @@ msgstr ""
 "O resumo é demasiado longo. Não deve ter mais do que {$limit} palavras. "
 "Atualmente tem {$count} palavras."
 
-msgid "publication.version.details"
-msgstr "Deatlhes de publicação da versão {$version}"
-
 msgid "publication.version.confirm"
 msgstr "Deseja realmente criar uma nova versão?"
 
 msgid "publication.version.all"
 msgstr "Todas as Versões"
 
-msgid "publication.unschedule.confirm"
-msgstr "Tem a certeza de não querer agendar para publicação?"
-
 msgid "publication.unschedule"
 msgstr "Desagendar"
 
-msgid "publication.unpublish.confirm"
-msgstr "Tem a certeza que não pretende que seja publicado?"
-
-msgid "publication.unpublish"
-msgstr "Despublicar"
-
 msgid "publication.titleAbstract"
 msgstr "Título e Resumo"
-
-msgid "publication.status.unscheduled"
-msgstr "Não agendado"
 
 msgid "publication.status.unpublished"
 msgstr "Despublicado"
@@ -1806,77 +1785,20 @@ msgstr "Despublicado"
 msgid "publication.status.scheduled"
 msgstr "Agendado"
 
-msgid "publication.status.published"
-msgstr "Publicado"
-
-msgid "publication.required.reviewStage"
-msgstr ""
-"A submissão deve estar nas etapas de Edição de Texto ou Produção antes de "
-"ser publicada."
-
-msgid "publication.required.declined"
-msgstr "Uma submissão rejeitada não pode ser publicada."
-
-msgid "publication.publish.requirements"
-msgstr "Os seguintes requisitos devem ser cumpridos antes de ser publicado."
-
-msgid "publication.publish"
-msgstr "Publicar"
-
 msgid "publication.publicationLicense"
 msgstr "Permissões e Divulgação"
-
-msgid "publication.invalidSubmission"
-msgstr "A submissão desta publicação não foi encontrada."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Uma versão foi despublicada."
-
-msgid "publication.event.versionScheduled"
-msgstr "Uma nova versão foi agendada para publicação."
-
-msgid "publication.event.versionPublished"
-msgstr "Uma nova versão foi publicada."
 
 msgid "publication.event.versionCreated"
 msgstr "Uma nova versão foi criada."
 
-msgid "publication.event.unpublished"
-msgstr "A submissão foi despublicada."
-
-msgid "publication.event.scheduled"
-msgstr "A submissão foi agendada para publicação."
-
-msgid "publication.event.published"
-msgstr "A submissão foi publicada."
-
-msgid "publication.editDisabled"
-msgstr "Esta versão já foi publicada e não pode ser editada."
-
 msgid "publication.datePublished.errorFormat"
 msgstr "O data deve estar no formato AAAA-MM-DD, por exemplo 2019-01-01."
-
-msgid "publication.datePublished"
-msgstr "Data de Publicação"
 
 msgid "publication.createVersion"
 msgstr "Criar Nova Versão"
 
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"O ano de direitos de autor será configurado automaticamente com base na data "
-"de publicação."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"O ano dos direitos de autor será configurado automaticamente quando for "
-"publicado num volume."
-
 msgid "publication.contributors"
 msgstr "Contribuidores"
-
-msgid "submission.publication"
-msgstr "Publicação"
 
 msgid "catalog.category.subcategories"
 msgstr "Subcategorias"
@@ -1984,16 +1906,6 @@ msgstr ""
 ">Licença Internacional Creative Commons Atribuição-NãoComercial-"
 "SemDerivações 3.0</a>.</p>"
 
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"Os direitos de autor serão atribuídos automaticamente como {$copyright} "
-"quando for publicado."
-
-msgid "submission.license.description"
-msgstr ""
-"A licença será configurada automaticamente para <a href='{$licenseUrl}' "
-"target='_blank'>{$licenseName}</a> quando for publicado."
-
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} concluiu a revisão da ronda de revisão {$round} da submissão "
@@ -2008,9 +1920,6 @@ msgid "editor.submission.addPermissionToEditDescription"
 msgstr ""
 "Deseja realmente dar permissões aos autores desta submissão para que editem "
 "os metadados nesta etapa?"
-
-msgid "submission.copyrightOther.description"
-msgstr "Atribuir direitos de autor para submissões publicadas à parte seguinte."
 
 msgid "submission.copyrightOther"
 msgstr "Declaração de direitos de autor"
@@ -2029,9 +1938,6 @@ msgstr "Um caminho opcional para usar no URL em vez do ID."
 
 msgid "publication.urlPath"
 msgstr "Caminho URL"
-
-msgid "submission.publications"
-msgstr "Publicações"
 
 msgid "submission.publisherId.enable"
 msgstr "Ativar para {$objects}"

@@ -1427,9 +1427,6 @@ msgstr "Discusiones de revisión"
 msgid "submission.queries.editorial"
 msgstr "Discusiones de corrección"
 
-msgid "submission.queries.production"
-msgstr "Discusiones de producción"
-
 msgid "submission.query.subject"
 msgstr "Tema"
 
@@ -1822,32 +1819,17 @@ msgstr ""
 "El resumen es demasiado largo. Debería tener {$limit} palabras o menos. "
 "Actualmente tiene {$count} palabras."
 
-msgid "publication.version.details"
-msgstr "Detalles de publicación de la versión {$version}"
-
 msgid "publication.version.confirm"
 msgstr "¿Seguro que quiere crear una versión nueva?"
 
 msgid "publication.version.all"
 msgstr "Todas las versiones"
 
-msgid "publication.unschedule.confirm"
-msgstr "¿Seguro que no quiere que esto se programe para su publicación?"
-
 msgid "publication.unschedule"
 msgstr "Desprogramar"
 
-msgid "publication.unpublish.confirm"
-msgstr "¿Seguro que no quiere que esto sea publicado?"
-
-msgid "publication.unpublish"
-msgstr "Retirar de publicación"
-
 msgid "publication.titleAbstract"
 msgstr "Título y resumen"
-
-msgid "publication.status.unscheduled"
-msgstr "Desprogramado"
 
 msgid "publication.status.unpublished"
 msgstr "Retirado de publicación"
@@ -1855,79 +1837,20 @@ msgstr "Retirado de publicación"
 msgid "publication.status.scheduled"
 msgstr "Programado"
 
-msgid "publication.status.published"
-msgstr "Publicado"
-
-msgid "publication.required.reviewStage"
-msgstr ""
-"El envío debe estar en las fases de \"corrección\" o de \"producción\" antes "
-"de poder ser publicado."
-
-msgid "publication.required.declined"
-msgstr "Un envío rechazado no puede ser publicado."
-
-msgid "publication.publish.requirements"
-msgstr ""
-"Se deben cumplir los siguientes requisitos antes de que esto pueda ser "
-"publicado."
-
-msgid "publication.publish"
-msgstr "Publicar"
-
 msgid "publication.publicationLicense"
 msgstr "Permisos y divulgación"
-
-msgid "publication.invalidSubmission"
-msgstr "No se pudo encontrar el envío para esta publicación."
-
-msgid "publication.event.versionUnpublished"
-msgstr "Se eliminó una versión de publicación."
-
-msgid "publication.event.versionScheduled"
-msgstr "Se programó una versión nueva para su publicación."
-
-msgid "publication.event.versionPublished"
-msgstr "Se publicó una versión nueva."
 
 msgid "publication.event.versionCreated"
 msgstr "Se creó una versión nueva."
 
-msgid "publication.event.unpublished"
-msgstr "El envío fue retirado de publicación."
-
-msgid "publication.event.scheduled"
-msgstr "El envío se programó para su publicación."
-
-msgid "publication.event.published"
-msgstr "El envío fue publicado."
-
-msgid "publication.editDisabled"
-msgstr "Esta versión ya ha sido publicada y no puede editarse."
-
 msgid "publication.datePublished.errorFormat"
 msgstr "La fecha debe estar en formato AAAA-MM-DD, por ejemplo 2019-01-01."
-
-msgid "publication.datePublished"
-msgstr "Fecha de publicación"
 
 msgid "publication.createVersion"
 msgstr "Crear una versión nueva"
 
-msgid "publication.copyrightYearBasis.submissionDescription"
-msgstr ""
-"El año de los derechos de autor se ajustará automáticamente en función de la "
-"fecha de publicación."
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr ""
-"El año de los derechos de autor se ajustará automáticamente cuando se "
-"publique en un número."
-
 msgid "publication.contributors"
 msgstr "Colaboradores/as"
-
-msgid "submission.publication"
-msgstr "Publicación"
 
 msgid "submission.list.reviewCancelled"
 msgstr "Revisión cancelada"
@@ -1998,25 +1921,11 @@ msgstr ""
 "by-nc-nd/3.0/\">Creative Commons Reconocimiento-NoComercial-SinObraDerivada "
 "3.0</a>.</p>"
 
-msgid "submission.copyrightOther.description"
-msgstr ""
-"Asignar derechos de autor para los envíos publicados en la parte siguiente."
-
 msgid "submission.copyrightOther"
 msgstr "Declaración de derechos de autor"
 
 msgid "submission.copyrightHolder.other"
 msgstr "Declaración de derechos de autor personalizada"
-
-msgid "submission.copyrightHolder.description"
-msgstr ""
-"Los derechos de autor se asignarán automáticamente a {$copyright} cuando se "
-"publique."
-
-msgid "submission.license.description"
-msgstr ""
-"La licencia se ajustará automáticamente a <a href='{$licenseUrl}' "
-"target='_blank'>{$licenseName}</a> cuando se publique."
 
 msgid "log.review.reviewReady"
 msgstr ""
@@ -2056,9 +1965,6 @@ msgstr "Deshabilitar la edición de metadatos"
 
 msgid "editor.submission.editStageParticipant"
 msgstr "Editar asignación"
-
-msgid "submission.status.scheduled"
-msgstr "Programado"
 
 msgid "submission.outdatedVersion"
 msgstr ""
@@ -2100,9 +2006,6 @@ msgstr "La ruta URL no puede ser un número."
 
 msgid "publication.urlPath"
 msgstr "Ruta URL"
-
-msgid "submission.publications"
-msgstr "Publicaciones"
 
 msgid "submission.publisherId.enable"
 msgstr "Habilitar para {$objects}"

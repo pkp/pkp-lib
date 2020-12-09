@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2020-10-14 12:50+0000\n"
+"PO-Revision-Date: 2020-12-09 09:51+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fi_FI/>\n"
@@ -1034,7 +1034,7 @@ msgid "locale.supported"
 msgstr "Tuetut kielialueet"
 
 msgid "navigation.access"
-msgstr "Käyttäjät &amp; Roolit"
+msgstr "Käyttäjät & Roolit"
 
 msgid "navigation.about"
 msgstr "Tietoa"
@@ -1321,9 +1321,8 @@ msgstr "Lataa tämä tiedosto"
 msgid "context.path"
 msgstr "Polku"
 
-#, fuzzy
 msgid "review.ensuringAnonymousReview"
-msgstr "Sokkoarvioinnin varmistaminen"
+msgstr "Miten tiedostojen anonymisointi varmistetaan"
 
 msgid "grid.action.showReviewPolicy"
 msgstr "Lue nykyiset arviointiperiaatteet"
@@ -1502,7 +1501,7 @@ msgid "notification.reviewerThankedEmail"
 msgstr "Kiitosviesti lähetetty arvioijalle."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Lähetä ilmoitus kaikille rekisteröityneille käyttäjille"
+msgstr "Lähetä sähköposti kaikille rekisteröityneille käyttäjille."
 
 msgid "notification.addedReviewerNoEmail"
 msgstr "{$reviewerName} valittiin käsikirjoituksen arvioijaksi, mutta sähköposti-ilmoitusta ei lähetetty."
@@ -1940,3 +1939,39 @@ msgstr "Enemmän kuin"
 
 msgid "common.lessThanOnly"
 msgstr "Vähemmän kuin"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Miten varmistetaan, että kaikki tiedostot ovat anonymisoituja"
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} kohdetta löytyi."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Yksi kohde löytyi."
+
+msgid "navigation.backTo"
+msgstr "⟵ Takaisin sivulle {$page}"
+
+msgid "form.saved"
+msgstr "Tallennettu"
+
+msgid "common.viewWithName"
+msgstr "Näytä {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Ei käyttäjää]"
+
+msgid "common.addFile"
+msgstr "Lisää tiedosto"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "Valitse {$name}"
+
+msgid "common.editItem"
+msgstr "Muokkaa {$name}"
+
+msgid "common.inactive"
+msgstr "Pois käytöstä"

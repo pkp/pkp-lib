@@ -109,20 +109,23 @@ class ManagementHandler extends Handler {
 
 		$templateMgr->assign('settingsData', $settingsData);
 
-		// Display a warning message if there is a new version of OJS available
-		if (Config::getVar('general', 'show_upgrade_warning')) {
-			import('lib.pkp.classes.site.VersionCheck');
-			if ($latestVersion = VersionCheck::checkIfNewVersionExists()) {
-				$templateMgr->assign('newVersionAvailable', true);
-				$templateMgr->assign('latestVersion', $latestVersion);
-				$currentVersion = VersionCheck::getCurrentDBVersion();
-				$templateMgr->assign('currentVersion', $currentVersion->getVersionString());
+		// Interact with the beacon (if enabled) and determine if a new version exists
+		import('lib.pkp.classes.site.VersionCheck');
+		$latestVersion = VersionCheck::checkIfNewVersionExists();
 
-				// Get contact information for site administrator
-				$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
-				$siteAdmins = $roleDao->getUsersByRoleId(ROLE_ID_SITE_ADMIN);
-				$templateMgr->assign('siteAdmin', $siteAdmins->next());
-			}
+		// Display a warning message if there is a new version of OJS available
+		if (Config::getVar('general', 'show_upgrade_warning') && $latestVersion) {
+			$currentVersion = VersionCheck::getCurrentDBVersion();
+			$templateMgr->assign([
+				'newVersionAvailable' =>  true,
+				'currentVersion' => $currentVersion->getVersionString()
+				'latestVersion' =>  $latestVersion,
+			]);
+
+			// Get contact information for site administrator
+			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+			$siteAdmins = $roleDao->getUsersByRoleId(ROLE_ID_SITE_ADMIN);
+			$templateMgr->assign('siteAdmin', $siteAdmins->next());
 		}
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);

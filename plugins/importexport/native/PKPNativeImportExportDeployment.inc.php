@@ -17,9 +17,17 @@
  * application's specifics.
  */
 
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 import('lib.pkp.classes.plugins.importexport.PKPImportExportDeployment');
+import('lib.pkp.plugins.importexport.native.filter.NativeImportExportFilter');
 
 class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
+
+	var $xmlValidationErrors = array();
+	var $processFailed = false;
+	var $processResult = null;
+
 	/**
 	 * Constructor
 	 * @param $context Context
@@ -84,6 +92,130 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 			'dependent' => SUBMISSION_FILE_DEPENDENT,
 			'query' => SUBMISSION_FILE_QUERY,
 		);
+	}
+
+	function import($rootFilter, $importXml) {
+		$dbConnection = Capsule::connection();
+		try {
+			$currentFilter = NativeImportExportFilter::getFilter($rootFilter, $this);
+
+			$dbConnection->beginTransaction();
+
+			libxml_use_internal_errors(true);
+
+			$result = $currentFilter->execute($importXml);
+
+			$this->xmlValidationErrors = array_filter(libxml_get_errors(), function($a) {
+				return $a->level == LIBXML_ERR_ERROR || $a->level == LIBXML_ERR_FATAL;
+			});
+
+			libxml_clear_errors();
+
+			$dbConnection->commit();
+
+			$this->processResult = $result;
+		} catch (\Error $e) {
+			$this->addError(ASSOC_TYPE_ANY, 0, $e->getMessage());
+			$dbConnection->rollBack();
+
+			$this->processFailed = true;
+		} catch (\Exception $e) {
+			$this->addError(ASSOC_TYPE_ANY, 0, $e->getMessage());
+			$dbConnection->rollBack();
+
+			$this->processFailed = true;
+		}
+	}
+
+	function export($rootFilter, $exportObjects, $opts = null) {
+		try {
+			$currentFilter = NativeImportExportFilter::getFilter($rootFilter, $this, $opts);
+
+			$currentFilter->setOpts($opts);
+
+			libxml_use_internal_errors(true);
+			$result = $currentFilter->execute($exportObjects, true);
+
+			$this->xmlValidationErrors = array_filter(libxml_get_errors(), function($a) {
+				return $a->level == LIBXML_ERR_ERROR || $a->level == LIBXML_ERR_FATAL;
+			});
+
+			libxml_clear_errors();
+
+			$this->processResult = $result;
+		} catch (\Error $e) {
+			$this->addError(ASSOC_TYPE_ANY, 0, $e->getMessage());
+
+			$this->processFailed = true;
+		} catch (Exception $e) {
+			$this->addError(ASSOC_TYPE_ANY, 0, $e->getMessage());
+
+			$this->processFailed = true;
+		}
+	}
+
+	function getXMLValidationErrors() {
+		return $this->xmlValidationErrors;
+	}
+
+	/**
+	 * Get all public objects, with their
+	 * respective names as array values.
+	 * @return array
+	 */
+	protected function getObjectTypesArray() {
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
+		$objectTypes = array(
+				ASSOC_TYPE_ANY => __('plugins.importexport.native.common.any'),
+				ASSOC_TYPE_SUBMISSION => __('common.submission'),
+		);
+
+		return $objectTypes;
+	}
+
+	/**
+	* Get object type string.
+	* @param $assocType mixed int or null (optional)
+	* @return mixed string or array
+	*/
+	function getObjectTypeString($assocType = null) {
+		$objectTypes = $this->getObjectTypesArray();
+
+		if (is_null($assocType)) {
+			return $objectTypes;
+		} else {
+			if (isset($objectTypes[$assocType])) {
+				return $objectTypes[$assocType];
+			} else {
+				assert(false);
+			}
+		}
+	}
+
+	function getWarningsAndErrors() {
+		$problems = array();
+		$objectTypes = $this->getObjectTypesArray();
+		foreach ($objectTypes as $assocType => $name) {
+			$foundWarnings = $this->getProcessedObjectsWarnings($assocType);
+			if (!empty($foundWarnings)) {
+				$problems['warnings'][$name][] = $foundWarnings;
+			}
+
+			$foundErrors = $this->getProcessedObjectsErrors($assocType);
+			if (!empty($foundErrors)) {
+				$problems['errors'][$name][] = $foundErrors;
+			}
+		}
+
+		return $problems;
+	}
+
+	function isProcessFailed() {
+		if ($this->processFailed || count($this->xmlValidationErrors) > 0) {
+			return true;
+		}
+
+		return false;
 	}
 }
 

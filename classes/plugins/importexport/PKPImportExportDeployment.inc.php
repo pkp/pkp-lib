@@ -252,6 +252,11 @@ class PKPImportExportDeployment {
 	 * @param $user User
 	 */
 	function setUser($user) {
+		$registeredUser = Registry::get('user', true, null);
+		if (!isset($registeredUser)) {
+			Registry::set('user', $user);
+		}
+
 		$this->_user = $user;
 	}
 

@@ -98,6 +98,21 @@ class NativeImportFilter extends NativeImportExportFilter {
 	function parseLocalizedContent($element) {
 		return array($element->getAttribute('locale'), $element->textContent);
 	}
+
+	function importWithXMLNode($n, $filter = null) {
+		$articleGalleyDoc = new DOMDocument();
+		$articleGalleyDoc->appendChild($articleGalleyDoc->importNode($n, true));
+		$importFilter = null;
+		if ($filter) {
+			$importFilter = NativeImportExportFilter::getFilter($filter, $this->getDeployment());
+		} elseif (method_exists($this,'getImportFilter')) {
+			$importFilter = $this->getImportFilter($n->tagName);
+		} else {
+			throw new Exception('Could not import XML Node');
+		}
+
+		return $importFilter->execute($articleGalleyDoc);
+	}
 }
 
 

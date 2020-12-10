@@ -46,6 +46,16 @@ class NativeImportExportFilter extends PersistableFilter {
 	function getDeployment() {
 		return $this->_deployment;
 	}
+
+	static function getFilter($filter, $deployment) {
+		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+		$nativeExportFilters = $filterDao->getObjectsByGroup($filter);
+		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
+		$exportFilter = array_shift($nativeExportFilters);
+		$exportFilter->setDeployment($deployment);
+
+		return $exportFilter;
+	}
 }
 
 

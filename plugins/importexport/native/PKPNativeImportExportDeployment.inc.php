@@ -167,7 +167,7 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
 		$objectTypes = array(
 				ASSOC_TYPE_ANY => __('plugins.importexport.native.common.any'),
-				ASSOC_TYPE_SUBMISSION => __('common.submission'),
+				ASSOC_TYPE_SUBMISSION => __('submission.submission'),
 		);
 
 		return $objectTypes;
@@ -208,6 +208,19 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 		}
 
 		return $problems;
+	}
+
+	function getImportedRootEntitiesWithNames() {
+		$rootEntities = array();
+		$objectTypes = $this->getObjectTypesArray();
+		foreach ($objectTypes as $assocType => $name) {
+			$entities = $this->getImportedRootEntities($assocType);
+			if (!empty($entities)) {
+				$rootEntities[$name][] = $entities;
+			}
+		}
+
+		return $rootEntities;
 	}
 
 	function isProcessFailed() {

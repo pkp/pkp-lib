@@ -51,6 +51,8 @@ class PKPImportExportDeployment {
 	/** @var string Base path for the import source */
 	var $_baseImportPath = '';
 
+	var $_importedRootEntities;
+
 	/**
 	 * Constructor
 	 * @param $context Context
@@ -64,6 +66,7 @@ class PKPImportExportDeployment {
 		$this->setFileDBIds(array());
 		$this->setSubmissionFileDBIds(array());
 		$this->_processedObjectsIds = array();
+		$this->_importedRootEntities = array();
 	}
 
 	//
@@ -394,6 +397,23 @@ class PKPImportExportDeployment {
 	 */
 	function getImportPath() {
 		return $this->_baseImportPath;
+	}
+
+	/**
+	 * Add the processed object ID.
+	 * @param $assocType integer ASSOC_TYPE_...
+	 * @param $assocId integer
+	 */
+	function addImportedRootEntity($assocType, $entity) {
+		$this->_importedRootEntities[$assocType][] = $entity;
+	}
+
+	function getImportedRootEntities($assocType) {
+		if (array_key_exists($assocType, $this->_importedRootEntities)) {
+			return $this->_importedRootEntities[$assocType];
+		}
+
+		return null;
 	}
 }
 

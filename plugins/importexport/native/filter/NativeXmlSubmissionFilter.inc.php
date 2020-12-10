@@ -84,6 +84,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 
 		$submission = Services::get('submission')->add($submission, Application::get()->getRequest());
 		$deployment->setSubmission($submission);
+		$deployment->addProcessedObjectId(ASSOC_TYPE_SUBMISSION, $submission->getId());
 
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
 			if (is_a($n, 'DOMElement')) {
@@ -92,6 +93,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		}
 
 		$submission = Services::get('submission')->get($submission->getId());
+		$deployment->addImportedRootEntity(ASSOC_TYPE_SUBMISSION, $submission);
 
 		return $submission;
 	}

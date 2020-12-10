@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T11:06:22+00:00\n"
+"PO-Revision-Date: 2020-11-29 09:51+0000\n"
+"Last-Translator: rl <biuro@fimagis.pl>\n"
+"Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"generic-acron/pl_PL/>\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.acron.name"
+msgstr "Wtyczka Acron"
+
+msgid "plugins.generic.acron.description"
+msgstr ""
+"Wtyczka umożliwia zmniejszenie uzależnienia aplikacji od narzędzi do "
+"planowania takich jak \"cron.\""
+
+msgid "plugins.generic.acron.enabled"
+msgstr "Wtyczka Acron została włączona."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Wtyczka Acron została wyłączona."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Z powodzeniem załadowano kartę Cron."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Przeładowanie zaplanowanych zadań"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Zaplanowane zadania zostały przeładowane."

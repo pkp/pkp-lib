@@ -1,9 +1,9 @@
 {**
  * templates/controllers/grid/user/reviewer/form/advancedSearchReviewerForm.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Advanced Search and assignment reviewer form.
  *
@@ -32,7 +32,6 @@
 
 		{** This button will get the reviewer selected in the grid and insert their ID into the form below **}
 		{fbvFormSection class="form_buttons"}
-			{fbvElement type="button" id="selectReviewerButton" label="editor.submission.selectReviewer"}
 			{foreach from=$reviewerActions item=action}
 				{if $action->getId() == 'advancedSearch'}
 					{continue}

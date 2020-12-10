@@ -3,9 +3,9 @@
 /**
  * @file classes/notification/NotificationSettingsDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NotificationSettingsDAO
  * @ingroup notification
@@ -27,22 +27,18 @@ class NotificationSettingsDAO extends DAO {
 	function getNotificationSettings($notificationId) {
 		$result = $this->retrieve(
 			'SELECT * FROM notification_settings WHERE notification_id = ?',
-			(int) $notificationId
+			[(int) $notificationId]
 		);
 
-		$params = array();
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
-			$name = $row['setting_name'];
-			$value = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-			$locale = $row['locale'];
+		$params = [];
+		foreach ($result as $row) {
+			$name = $row->setting_name;
+			$value = $this->convertFromDB($row->setting_value, $row->setting_type);
+			$locale = $row->locale;
 
 			if ($locale == '') $params[$name] = $value;
 			else $params[$name][$locale] = $value;
-			$result->MoveNext();
 		}
-
-		$result->Close();
 		return $params;
 	}
 
@@ -93,7 +89,7 @@ class NotificationSettingsDAO extends DAO {
 	 * @param $notificationId
 	 */
 	function deleteSettingsByNotificationId($notificationId) {
-		return $this->update('DELETE FROM notification_settings WHERE notification_id = ?', (int) $notificationId);
+		return $this->update('DELETE FROM notification_settings WHERE notification_id = ?', [(int) $notificationId]);
 	}
 }
 

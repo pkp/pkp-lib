@@ -3,14 +3,14 @@
 /**
  * @file api/v1/vocabs/PKPVocabHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class SubmissionHandler
- * @ingroup api_v1_submission
+ * @class PKPVocabHandler
+ * @ingroup api_v1_vocab
  *
- * @brief Handle API requests for submission operations.
+ * @brief Handle API requests for controlled vocab operations.
  *
  */
 
@@ -80,21 +80,28 @@ class PKPVocabHandler extends APIHandler {
 
 		switch ($vocab) {
 			case CONTROLLED_VOCAB_SUBMISSION_KEYWORD:
-				$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+				$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /* @var $submissionKeywordEntryDao SubmissionKeywordEntryDAO */
 				$entries = $submissionKeywordEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();
 				break;
 			case CONTROLLED_VOCAB_SUBMISSION_SUBJECT:
-				$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO');
+				$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /* @var $submissionSubjectEntryDao SubmissionSubjectEntryDAO */
 				$entries = $submissionSubjectEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();
 				break;
 			case CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE:
-				$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO');
+				$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /* @var $submissionDisciplineEntryDao SubmissionDisciplineEntryDAO */
 				$entries = $submissionDisciplineEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();
 				break;
 			case CONTROLLED_VOCAB_SUBMISSION_LANGUAGE:
-				return $response->withJson(DAORegistry::getDAO('LanguageDAO')->getLanguageNames($locale), 200);
+				$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory(\Sokil\IsoCodes\IsoCodesFactory::OPTIMISATION_IO);
+				$languageNames = [];
+				foreach ($isoCodes->getLanguages() as $language) {
+					if (!$language->getAlpha2() || $language->getType() != 'L' || $language->getScope() != 'I') continue;
+					$languageNames[] = $language->getLocalName();
+				}
+				asort($languageNames);
+				return $response->withJson($languageNames, 200);
 			case CONTROLLED_VOCAB_SUBMISSION_AGENCY:
-				$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO');
+				$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /* @var $submissionAgencyEntryDao SubmissionAgencyEntryDAO */
 				$entries = $submissionAgencyEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();
 				break;
 			default:

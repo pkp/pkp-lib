@@ -35,9 +35,6 @@ ini_set('assert.warning', true);
 ini_set('assert.callback', null);
 ini_set('assert.quiet_eval', false);
 
-// Log errors to test specific error log
-ini_set('error_log', dirname(__FILE__) . DIRECTORY_SEPARATOR . 'results' . DIRECTORY_SEPARATOR . 'error.log');
-
 // NB: Our test framework provides the possibility to
 // import mock classes to replace regular classes.
 // This is necessary to mock static method calls.

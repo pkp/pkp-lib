@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/FieldPubId.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldPubId
  * @ingroup classes_controllers_form
@@ -15,6 +15,12 @@ namespace PKP\components\forms;
 class FieldPubId extends Field {
 	/** @copydoc Field::$component */
 	public $component = 'field-pub-id';
+
+	/** @var string A localized label for the button to assign the pubid */
+	public $assignIdLabel;
+
+	/** @var string A localized label for the button to clear the pubid */
+	public $clearIdLabel;
 
 	/** @var string The journal/press initials to use when generating a pub id */
 	public $contextInitials;
@@ -27,6 +33,9 @@ class FieldPubId extends Field {
 
 	/** @var string The issue volume to use when generating a pub id */
 	public $issueVolume;
+
+	/** @var string A localized message when the pub id can not be generated due to missing information */
+	public $missingPartsLabel;
 
 	/** @var string The page numbers use when generating a pub id */
 	public $pages;
@@ -46,6 +55,9 @@ class FieldPubId extends Field {
 	/** @var string The submission ID to use when generating a pub id */
 	public $submissionId;
 
+	/** @var string The publication ID to use when generating a pub id */
+	public $publicationId;
+
 	/** @var string The year of publication to use when generating a pub id */
 	public $year;
 
@@ -54,6 +66,9 @@ class FieldPubId extends Field {
 	 */
 	public function getConfig() {
 		$config = parent::getConfig();
+		$config['assignIdLabel'] = $this->assignIdLabel;
+		$config['clearIdLabel'] = $this->clearIdLabel;
+		$config['missingPartsLabel'] = $this->missingPartsLabel;
 		if (isset($this->contextInitials)) {
 			$config['contextInitials'] = $this->contextInitials;
 		}
@@ -77,6 +92,9 @@ class FieldPubId extends Field {
 		}
 		if (isset($this->submissionId)) {
 			$config['submissionId'] = $this->submissionId;
+		}
+		if (isset($this->publicationId)) {
+			$config['publicationId'] = $this->publicationId;
 		}
 		if (isset($this->year)) {
 			$config['year'] = $this->year;

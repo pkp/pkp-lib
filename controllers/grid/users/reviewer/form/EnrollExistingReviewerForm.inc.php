@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/reviewer/form/EnrollExistingReviewerForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EnrollExistingReviewerForm
  * @ingroup controllers_grid_users_reviewer_form
@@ -48,9 +48,9 @@ class EnrollExistingReviewerForm extends ReviewerForm {
 	}
 
 	/**
-	 * Save review assignment
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		// Assign a reviewer user group to an existing non-reviewer
 		$userId = (int) $this->getData('userId');
 
@@ -61,7 +61,7 @@ class EnrollExistingReviewerForm extends ReviewerForm {
 		// Set the reviewerId in the Form for the parent class to use
 		$this->setData('reviewerId', $userId);
 
-		return parent::execute();
+		return parent::execute(...$functionArgs);
 	}
 }
 

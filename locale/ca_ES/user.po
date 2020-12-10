@@ -1,0 +1,472 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"ca_ES/>\n"
+"Language: ca_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.accountInformation"
+msgstr "Informació del compte"
+
+msgid "user.affiliation"
+msgstr "Institució/Empresa"
+
+msgid "user.affiliation.description"
+msgstr "(La institució en què esteu adscrit, p. ex. «Universitat Autònoma de Barcelona»)"
+
+msgid "user.affiliations"
+msgstr "Filiacions"
+
+msgid "user.authorization.accessDenied"
+msgstr "Accés denegat."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "El testimoni (token) d’autenticació del procés no hi és o no és vàlid."
+
+msgid "user.authorization.contextRequired"
+msgstr "No podeu dur a terme aquesta operació sense un context (premsa, revista, conferència, etc.)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Inici de sessió obligatori."
+
+msgid "user.authorization.privateOperation"
+msgstr "L’operació a la qual heu intentat accedir és privada o no existeix."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Teniu l'accés denegat. Actualment, l'accés a aquest lloc web està restringit."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "El rol actual no té accés a aquesta operació."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Cal que configureu un grup d’usuari/ària vàlid per accedir a l’operació."
+
+msgid "user.authorization.managerRequired"
+msgstr "Un usuari/ària amb el rol d'administrador/a (p. ex., editor/a de producció) ha d'estar assignat a la fase abans de continuar."
+
+msgid "user.biography"
+msgstr "Resum biogràfic"
+
+msgid "user.changeMyPassword"
+msgstr "Canvia la meva contrasenya"
+
+msgid "user.changePassword"
+msgstr "Canvia la contrasenya"
+
+msgid "user.dateLastLogin"
+msgstr "Darrer inici de sessió"
+
+msgid "user.dateRegistered"
+msgstr "Data de registre"
+
+msgid "user.editMyProfile"
+msgstr "Edita el meu perfil"
+
+msgid "user.email"
+msgstr "Adreça electrònica"
+
+msgid "user.interests"
+msgstr "Interessos de revisió"
+
+msgid "user.gossip"
+msgstr "Notes privades"
+
+msgid "user.group"
+msgstr "Grup d'usuaris/àries"
+
+msgid "user.login.activated"
+msgstr "Gràcies per activar el compte. Ara ja podeu iniciar la sessió amb les dades que heu indicat en crear el compte."
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "El format de la imatge del perfil no és vàlid o la imatge és massa gran. Els formats admesos són .gif, .jpg i .png. i la imatge no ha de superar els 150x150 píxels."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "El vostre compte s'ha inhabilitat pel motiu següent: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "El vostre compte s'ha inhabilitat. Per obtenir més informació, poseu-vos en contacte amb l'administrador/a."
+
+msgid "user.login.accountNotValidated"
+msgstr "Li hem enviat un correu electrònic de confirmació a {$email}. Segueixi les instruccions d'aquest correu per activar el seu nou compte. Si no troba aquest correu electrònic, comprovi que no hagi anat a parar a la carpeta de correu brossa."
+
+msgid "user.login.activate"
+msgstr "Activa el compte"
+
+msgid "user.login.changePasswordInstructions"
+msgstr "Heu de triar una nova contrasenya abans d'iniciar sessió.<br /><br />Introduïu el vostre nom d'usuari i les vostres contrasenyes nova i antiga a continuació per canviar la contrasenya del vostre compte."
+
+msgid "user.login.forgotPassword"
+msgstr "Heu oblidat la contrasenya?"
+
+msgid "user.login.loginError"
+msgstr "El nom d'usuari/ària o la contrasenya són no vàlids. Torneu-ho a intentar."
+
+msgid "user.login"
+msgstr "Inici de la sessió"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "S'ha enviat un missatge de confirmació a la vostra adreça electrònica. Seguiu les instruccions del correu electrònic per restablir la contrasenya."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "L'enllaç que heu seleccionat ha vençut o bé no és vàlid. Intenteu restablir la contrasenya de nou."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "No existeix cap usuari/usuària amb l’adreça electrònica especificada."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "S'ha enviat una nova contrasenya a la vostra adreça electrònica. Ja podeu iniciar la sessió amb aquesta contrasenya."
+
+msgid "user.login.registeredEmail"
+msgstr "Adreça electrònica de l’usuari/usuària registrat"
+
+msgid "user.login.resetPassword"
+msgstr "Reinicieu la contrasenya"
+
+msgid "user.logOut"
+msgstr "Surt de la sessió"
+
+msgid "user.logOutAs"
+msgstr "Tancar sessió com a {$username}"
+
+msgid "user.hello"
+msgstr "Hola, "
+
+msgid "user.mailingAddress"
+msgstr "Adreça postal"
+
+msgid "user.myAccount"
+msgstr "El meu compte"
+
+msgid "user.name"
+msgstr "Nom"
+
+msgid "user.password"
+msgstr "Contrasenya"
+
+msgid "user.repeatPassword"
+msgstr "Repetiu la contrasenya"
+
+msgid "user.phone"
+msgstr "Telèfon"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Introduïu la contrasenya actual i la contrasenya nova per a canviar la contrasenya del vostre compte."
+
+msgid "user.profile.editProfile"
+msgstr "Edició del perfil"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Cal que introduïu un país."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Heu d’introduir una adreça electrònica vàlida."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Cal que introduïu un correu electrònic vàlid."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Heu d’introduir la contrasenya nova."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "La contrasenya actual que heu introduït és incorrecta."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Notificacions per correu electrònic de l’accés lliure per a un número"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Heu d’introduir una contrasenya."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "La vostra contrasenya nova coincideix amb l'anterior."
+
+msgid "user.profile.form.profileImage"
+msgstr "Imatge del perfil"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Notificacions per correu electrònic de la publicació d’un número nou"
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"L'URL especificat no és vàlid. Comproveu l'enllaç URL i torneu-ho a provar. "
+"(Consell: proveu d'afegir \"http://\" al principi de l'URL.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Cal que introduïu un grup d'usuaris/àries."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Heu d’introduir un nom d’usuari."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "No empleneu els camps de contrasenya si voleu mantenir la contrasenya actual."
+
+msgid "user.profile.newPassword"
+msgstr "Contrasenya nova"
+
+msgid "user.profile.oldPassword"
+msgstr "Contrasenya actual"
+
+msgid "user.profile"
+msgstr "Perfil"
+
+msgid "user.profile.publicProfile"
+msgstr "Perfil d’usuari"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Repetiu la contrasenya nova"
+
+msgid "user.login.registerNewAccount"
+msgstr "Registrar-se"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "Per motius de seguretat, aquest sistema envia un missatge de restabliment de contrasenya als usuaris registrats, en lloc de tornar-ho a intentar amb la contrasenya actual.<br /><br />Introduïu la vostra adreça electrònica al camp següent per restablir la vostra contrasenya. S'enviarà un missatge de confirmació a la vostra adreça electrònica."
+
+msgid "user.register.form.emailExists"
+msgstr "Ja hi ha un altre usuari/usuària que utilitza l’adreça electrònica seleccionada."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Les contrasenyes no coincideixen."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Els camps de correu electrònic no coincideixen."
+
+msgid "user.register.form.usernameExists"
+msgstr "Ja hi ha un altre usuari/usuària que utilitza el nom d’usuari seleccionat."
+
+msgid "user.register.passwordLengthRestriction"
+msgstr "La contrasenya ha de tenir {$length} caràcters com a mínim."
+
+msgid "user.register.registerAs"
+msgstr "Registrar-se en {$contextName} com a..."
+
+msgid "user.register"
+msgstr "Registre"
+
+msgid "user.register.usernameRestriction"
+msgstr "El nom d’usuari només pot contenir lletres minúscules, nombres, guionets i ratlles baixes."
+
+msgid "user.role.assistant"
+msgstr "Ajudant de producció"
+
+msgid "user.role.author"
+msgstr "Autor/a"
+
+msgid "user.role.author_s"
+msgstr "Autors/ores"
+
+msgid "user.role.authors"
+msgstr "Autors/ores"
+
+msgid "user.role.editor"
+msgstr "Editor/a"
+
+msgid "user.role.editors"
+msgstr "Editors/ores"
+
+msgid "user.role.reader"
+msgstr "Lector/a"
+
+msgid "user.role.readers"
+msgstr "Lectors/es"
+
+msgid "user.role.reviewer"
+msgstr "Revisor/a"
+
+msgid "user.role.reviewers"
+msgstr "Revisors/es"
+
+msgid "user.role.siteAdmin"
+msgstr "Administrador/a del lloc web"
+
+msgid "user.role.siteAdmins"
+msgstr "Administradors/es de llocs web"
+
+msgid "user.role.copyeditor"
+msgstr "Corrector/a d’originals"
+
+msgid "user.role.copyeditors"
+msgstr "Correctors/ores d’originals"
+
+msgid "user.role.proofreader"
+msgstr "Corrector/a de proves"
+
+msgid "user.role.proofreaders"
+msgstr "Correctors/ores de proves"
+
+msgid "user.role.layoutEditor"
+msgstr "Maquetista"
+
+msgid "user.role.layoutEditors"
+msgstr "Maquetistes"
+
+msgid "user.roles"
+msgstr "Rols"
+
+msgid "user.sendPassword"
+msgstr "Confirmació"
+
+msgid "user.sendPassword.description"
+msgstr ""
+"Envieu-me un correu electrònic de confirmació amb el meu nom d’usuari/ària i "
+"la contrasenya"
+
+msgid "user.signature"
+msgstr "Signatura"
+
+msgid "user.title"
+msgstr "Títol"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.userHome"
+msgstr "Pàgina inicial de l’usuari/usuària"
+
+msgid "user.username"
+msgstr "Nom d’usuari"
+
+msgid "user.workingLanguages"
+msgstr "Llengües de treball"
+
+msgid "user.register.completeForm"
+msgstr "Empleneu aquest formulari per registrar-vos en aquesta revista."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Actualment no té accés a aquesta fase del flux de treball."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "No s'ha especificat cap fase del flux de treball."
+
+msgid "user.authorization.pluginRequired"
+msgstr "No s'ha especificat cap mòdul."
+
+msgid "user.login.registrationComplete"
+msgstr "Registre complet"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Gràcies per registrar-se! Què voleu fer ara?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Veure trameses"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Fer una tramesa nova"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Continuar navegant"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Registre pendent de verificació"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Mantenir-me connectat"
+
+msgid "user.register.form.userGroupRequired"
+msgstr "S'ha de seleccionar un rol com a mínim."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "La contrasenya ha de tenir almenys {$length} caràcters."
+
+msgid "user.orcid"
+msgstr "Identificador ORCID"
+
+msgid "user.profile.identity"
+msgstr "Identitat"
+
+msgid "user.profile.contact"
+msgstr "Contacte"
+
+msgid "user.profile.public"
+msgstr "Públic"
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "El nom d'usuari/ària només pot contenir caràcters alfanumèrics en minúscula, guions i guions baixos, i ha de començar i acabar amb un caràcter alfanumèric."
+
+msgid "user.register.registrationCompleted"
+msgstr "S'ha registrat correctament. Faci <a href=\"{$profileUrl}\">clic aquí</a> per completar el seu perfil d'usuari/ària."
+
+msgid "user.orcid.orcidInvalid"
+msgstr "L'identificador ORCID especificat no es vàlid. Inclogui el URI complet (p. ex.: \"https://orcid.org/0000-0002-1825-0097\"), si us plau."
+
+msgid "user.privacyLink"
+msgstr ""
+"Les vostres dades s'emmagatzemen d'acord amb la nostra <a href=\""
+"{$privacyUrl}\" target=\"_blank\">declaració de privacitat</a>."
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Abans de generar una clau API, l'administrador/a del lloc ha d'establir una "
+"clau secreta en l'arxiu de configuració (\"api_key_secret\")."
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Generar una clau API nova invalidarà qualsevol clau existent d'aquest usuari/"
+"ària."
+
+msgid "user.apiKey.generate"
+msgstr "Generar una clau API nova"
+
+msgid "user.apiKeyEnabled"
+msgstr ""
+"Habilitar l'accés a aquest compte a aplicacions externes amb la clau API"
+
+msgid "user.apiKey"
+msgstr "Clau API"
+
+msgid "user.register.form.emailConsent"
+msgstr "Sí, vull que em notifiquin les publicacions noves i els avisos."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Sí, estic d'acord que les meves dades es recopilin i emmagatzemin segons la <"
+"a href=\"{$privacyUrl}\" target=\"_blank\">declaració de privacitat</a>."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Heu d'acceptar els termes de la declaració de privacitat."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Heu afegit un cognom per a un idioma en què falta el nom. Afegiu el nom per "
+"a aquest idioma."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "El nom es obligatori."
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Com preferiu que se us adrecin? Aquí podeu afegir encapçalaments, segons "
+"noms i sufixos si ho desitgeu."
+
+msgid "user.preferredPublicName"
+msgstr "Nom públic preferit"
+
+msgid "user.familyName"
+msgstr "Cognoms"
+
+msgid "user.gossip.description"
+msgstr ""
+"Registreu les notes sobre aquest revisor/a que us agradaria que fossin "
+"visibles per a altres administradors/ores, gestors/es i tots els editors/es. "
+"Les notes seran visibles en futures assignacions de revisió."
+
+msgid "user.givenName"
+msgstr "Nom"
+
+msgid "user.authorization.submissionQuery"
+msgstr "No teniu permís per accedir a aquesta discussió."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "No teniu permís per accedir a aquesta assignació de revisió."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"El rol que teniu assignat per a aquesta tramesa no us permet accedir a "
+"aquesta operació."

@@ -1,9 +1,9 @@
 {**
  * templates/controllers/modals/editorDecision/form/promoteForm.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Form used to send reviews to author
  *
@@ -110,6 +110,7 @@
 	</div>
 
 	{fbvFormSection class="formButtons form_buttons"}
+		<span class="pkp_spinner"></span>
 		<button class="pkp_button promoteForm-step-btn" data-step="files">
 			{translate key="editor.submission.decision.nextButton" stageName=$stageName}
 		</button>
@@ -119,6 +120,5 @@
 		</button>
 		{assign var=cancelButtonId value="cancelFormButton"|concat:"-"|uniqid}
 		<a href="#" id="{$cancelButtonId}" class="cancelButton">{translate key="common.cancel"}</a>
-		<span class="pkp_spinner"></span>
 	{/fbvFormSection}
 </form>

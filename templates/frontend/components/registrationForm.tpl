@@ -1,9 +1,9 @@
 {**
  * templates/frontend/components/registrationForm.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the basic registration form fields
  *
@@ -24,12 +24,12 @@
 			<label>
 				<span class="label">
 					{translate key="user.givenName"}
-					<span class="required">*</span>
+					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="givenName" id="givenName" value="{$givenName|escape}" maxlength="255" required>
+				<input type="text" name="givenName" autocomplete="given-name" id="givenName" value="{$givenName|escape}" maxlength="255" required aria-required="true">
 			</label>
 		</div>
 		<div class="family_name">
@@ -37,31 +37,31 @@
 				<span class="label">
 					{translate key="user.familyName"}
 				</span>
-				<input type="text" name="familyName" id="familyName" value="{$familyName|escape}" maxlength="255">
+				<input type="text" name="familyName" autocomplete="family-name" id="familyName" value="{$familyName|escape}" maxlength="255">
 			</label>
 		</div>
 		<div class="affiliation">
 			<label>
 				<span class="label">
 					{translate key="user.affiliation"}
-					<span class="required">*</span>
+					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required>
+				<input type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required aria-required="true">
 			</label>
 		</div>
 		<div class="country">
 			<label>
 				<span class="label">
 					{translate key="common.country"}
-					<span class="required">*</span>
+					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>
 				</span>
-				<select name="country" id="country" required>
+				<select name="country" id="country" required aria-required="true">
 					<option></option>
 					{html_options options=$countries selected=$country}
 				</select>
@@ -79,48 +79,48 @@
 			<label>
 				<span class="label">
 					{translate key="user.email"}
-					<span class="required">*</span>
+					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="email" id="email" value="{$email|escape}" maxlength="90" required>
+				<input type="email" name="email" id="email" value="{$email|escape}" maxlength="90" required aria-required="true" autocomplete="email">
 			</label>
 		</div>
 		<div class="username">
 			<label>
 				<span class="label">
 					{translate key="user.username"}
-					<span class="required">*</span>
+					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
+				<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required aria-required="true" autocomplete="username">
 			</label>
 		</div>
 		<div class="password">
 			<label>
 				<span class="label">
 					{translate key="user.password"}
-					<span class="required">*</span>
+					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="password" name="password" id="password" password="true" maxlength="32" required>
+				<input type="password" name="password" id="password" password="true" maxlength="32" required aria-required="true">
 			</label>
 		</div>
 		<div class="password">
 			<label>
 				<span class="label">
 					{translate key="user.repeatPassword"}
-					<span class="required">*</span>
+					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="password" name="password2" id="password2" password="true" maxlength="32" required>
+				<input type="password" name="password2" id="password2" password="true" maxlength="32" required aria-required="true">
 			</label>
 		</div>
 	</div>

@@ -1,9 +1,9 @@
 /**
  * closure-externs-check-only.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2010-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2010-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Import symbols into the closure compiler that are not defined
  * within the files compiled during the strict check phase of the build
@@ -26,19 +26,6 @@
  * @param {string=} form the selector of a form element.
  */
 function ajaxAction(actOnId, callingElement, url, data, eventName, form) {}
-
-/**
- * @constructor
- */
-function PNotify(param1) {}
-
-// JQuery externs. These appear to be included in newer versions of Closure --
-// see https://code.google.com/p/closure-compiler/source/browse/externs/es5.js
-/**
- * A fake type to model the JSON object.
- * @constructor
- */
-var JSONType = function() {};
 
 
 /**

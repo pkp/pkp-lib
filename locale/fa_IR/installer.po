@@ -1,0 +1,174 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:46+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:46+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "زبان‌های اضافی"
+
+msgid "installer.administratorAccount"
+msgstr "حساب مدیر"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "این حساب کاربری مدیر سایت خواهد شد و دسترسی کامل به  سیستم خواهد داشت. حساب‌های اضافی کاربران را می‌توان پس از نصب برنامه ایجاد کرد."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">خیر</span>"
+
+msgid "installer.checkYes"
+msgstr "بلی"
+
+msgid "installer.clientCharset"
+msgstr "سیستم کاراکتری"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "سیستم کدگذاری مورد استفاده برای ارسال و دریافت داده‌ها از مرورگر"
+
+msgid "installer.configFileError"
+msgstr "فایل تنظیمات  <tt>config.inc.php</tt> موجود نیست و یا قابل خواندن نمی‌باشد."
+
+msgid "installer.connectionCharset"
+msgstr "سیستم کاراکتری اتصال"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "محتوای فایل تنظیمات"
+
+msgid "installer.databaseDriver"
+msgstr "درایور بانک اطلاعاتی"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>درایورهای بانک‌های اطلاعاتی که در کروشه آمده است نصب نشده یا توسط PHP قابل دسترسی نمی‌باشند..</strong><br />تمام درایورهای نصب نشده فقط به منظور آکادمیک در اینجا لیست شده‌اند و بعید است که در حال حاضر کارکرد داشته باشند."
+
+msgid "installer.databaseHost"
+msgstr "میزبان"
+
+msgid "installer.databaseHostInstructions"
+msgstr "برای اتصال از طریق سوکت دامنه بجای اتصال از طریق TCP/IP نام میزبان را خالی بگذارید. در صورت استفاده از  MySQL این کار لازم نیست ، زیرا MySQL چنانچه مقدار  \"localhost\"  برای آن وارد شود به‌طور اتوماتیک از سوکت استفاده می‌کند ولی در مورد بعضی پایگاه‌های اطلاعاتی دیگر مانند PostgreSQL لازم است."
+
+msgid "installer.databaseName"
+msgstr "نام بانک اطلاعاتی"
+
+msgid "installer.databasePassword"
+msgstr "رمز عبور"
+
+msgid "installer.databaseSettings"
+msgstr "تنظیمات بانک اطلاعاتی"
+
+msgid "installer.databaseUsername"
+msgstr "نام کاربری"
+
+msgid "installer.filesDir"
+msgstr "پوشه آپلود"
+
+msgid "installer.fileSettings"
+msgstr "تنظیمات فایل"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "سیستم کاراکتری باید انتخاب شود."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "درایور بانک اطلاعاتی باید انتخاب شود."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "نام بانک اطلاعاتی لازم است"
+
+msgid "installer.form.emailRequired"
+msgstr "یک آدرس ایمیل صحیح برای حساب مدیر لازم است"
+
+msgid "installer.form.filesDirRequired"
+msgstr "پوشه ذخیره فایل‌های آپلود شده باید وارد شود."
+
+msgid "installer.form.localeRequired"
+msgstr "یک زبان باید انتخاب شود"
+
+msgid "installer.form.passwordRequired"
+msgstr "رمز عبور برای حساب مدیر لازم است"
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "عدم تطابق در تکرار رمز عبور مدیر"
+
+msgid "installer.form.separateMultiple"
+msgstr "مقادیر متعدد را با کاما از هم جدا کنید"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "نام کاربری مدیر فقط می‌تواند دارای حروف و اعداد، خط فاصله پائین و خط فاصله باشد. همچنین باید با یک حرف یا عدد شروع و به یک حرف یا عدد ختم شود."
+
+msgid "installer.form.usernameRequired"
+msgstr "نام کاربری برای حساب مدیر لازم است"
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>هشدار: نسخه PHP شما فاقد حداقل‌های مورد نیاز برای نصب برنامه است. توصیه می‌شود به نسخه‌های جدید ارتقاء دهید.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "بروز خطا هنگام نصب"
+
+msgid "installer.installerSQLStatements"
+msgstr "دستورات SQL برای نصب"
+
+msgid "installer.installFileError"
+msgstr "فایل نصب  <tt>dbscripts/xml/install.xml</tt> وجود ندارد و یا قابل خواندن نیست."
+
+msgid "installer.installFilesDirError"
+msgstr "پوشه تعیین شده برای فایل‌های آپلودی وجود ندارد و یا قابل نوشتن نیست"
+
+msgid "installer.installParseDBFileError"
+msgstr "بروز خطا هنگام خواندن فایل نصب بانک اطلاعاتی: <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "بروز خطا هنگام پردازش فایل الگوی ایمیل: <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "در خواندن فایل <tt>{$file}</tt> خطایی رخ داده است."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "عدم پشتیبانی از به‌روزرسانی. برای اطلاعات بیشتر به مرجع زیر مراجعه کنید: docs/UPGRADE-UNSUPPORTED "
+
+msgid "installer.locale"
+msgstr "زبان"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "زبان‌های مشخص شده ممکن است ناکامل باشند."
+
+msgid "installer.localeSettings"
+msgstr "تنظیمات زبان"
+
+msgid "installer.oaiSettings"
+msgstr "تنظیماتOAI "
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "یک شناسه منحصربه‌فرد برای استفاده در تشخیص فراداده‌های نمایه شده از این سایت توسط پروتکل  <a href=\"https://www.openarchives.org/\" target=\"_blank\"> Open Archives Initiative </a> "
+
+msgid "installer.oaiRepositoryId"
+msgstr "شناسه مخزن OAI"
+
+msgid "installer.publicFilesDirError"
+msgstr "پوشه فایل‌های عمومی وجود ندارد و یا قابل نوشتن نیست"
+
+msgid "installer.releaseNotes"
+msgstr "یادداشت‌های منتشره"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "مراحل آماده‌سازی"
+
+msgid "installer.preInstallationInstructions"
+msgstr "<h4>مراحل پیش از نصب</h4>\t  <p>1. فایل‌ها و پوشه‌های زیر (به همراه فایل‌های درون پوشه‌ها) باید قابل نوشتن باشند</p>\t  <ul>\t\t  <li><tt>config.inc.php</tt> قابل نوشتن است (اختیاری): {$writable_config}</li>\t\t  <li><tt>public/</tt> قابل نوشتن است: {$writable_public}</li>\t\t  <li><tt>cache/</tt> قابل نوشتن است: {$writable_cache}</li>\t\t  <li><tt>cache/t_cache/</tt> قابل نوشتن است: {$writable_templates_cache}</li>\t\t  <li><tt>cache/t_compile/</tt> قابل نوشتن است: {$writable_templates_compile}</li>\t\t  <li><tt>cache/_db</tt> قابل نوشتن است: {$writable_db_cache}</li>\t  </ul>\t  <p>2. پوشه فایل‌ها باید ایجاد شده و قابل نوشتن باشد (بخش تنظیمات فایل‌ها را مشاهده کنید)</p>"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p> در نسخه php نصب شده در سرور شما ماژول XSL فعال نشده است. یا این ماژول را فعال کنید و یا آنکه در فایل config.inc.php پارامتر xslt_command  را تنظیم نمایید</p>"
+
+msgid "installer.beacon"
+msgstr "دیدبانی"
+
+msgid "installer.beacon.enable"
+msgstr "یک آدرس URL و شناسه منحصربه‌فرد تعیین کنید که از آن به هدف اطلاع‌رسانی آمار و پیام‌های امنیتی استفاده می‌شود."
+
+msgid "installer.miscSettings"
+msgstr "تنظیمات متفرقه"

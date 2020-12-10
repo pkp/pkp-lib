@@ -1,0 +1,142 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:57+00:00\n"
+"PO-Revision-Date: 2020-11-27 10:51+0000\n"
+"Last-Translator: rl <biuro@fimagis.pl>\n"
+"Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
+"pl_PL/>\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Administrator strony"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Administratorzy strony"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Redaktorzy czasopisma od etapu produkcji"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Redaktorzy czasopisma od etapu produkcji"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "RED PROD"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Korektor"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Korektorzy"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "KOR"
+
+msgid "default.groups.name.proofreader"
+msgstr "Korektor pliku do publikacji"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Korektorzy pliku do publikacji"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "KOR PLIKU"
+
+msgid "default.groups.name.designer"
+msgstr "Projektant"
+
+msgid "default.groups.plural.designer"
+msgstr "Projektanci"
+
+msgid "default.groups.abbrev.designer"
+msgstr "PRO"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Recenzent wewnętrzny"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Recenzenci wewnętrzni"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "REC W"
+
+msgid "default.groups.name.marketing"
+msgstr "Koordynator marketingu i sprzedaży"
+
+msgid "default.groups.plural.marketing"
+msgstr "Koordynatorzy marketingu i sprzedaży"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MiS"
+
+msgid "default.groups.name.funding"
+msgstr "Koordynator ds. finansowych"
+
+msgid "default.groups.plural.funding"
+msgstr "Koordynatorzy ds. finansowych"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FIN"
+
+msgid "default.groups.name.indexer"
+msgstr "Indeksujący"
+
+msgid "default.groups.plural.indexer"
+msgstr "Indeksujący"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Składacz"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Składacze"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "DTP"
+
+msgid "default.groups.name.author"
+msgstr "Autor"
+
+msgid "default.groups.plural.author"
+msgstr "Autorzy"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.name.translator"
+msgstr "Tłumacz"
+
+msgid "default.groups.plural.translator"
+msgstr "Tłumacze"
+
+msgid "default.groups.abbrev.translator"
+msgstr "TŁ"
+
+msgid "default.groups.name.reader"
+msgstr "Czytelnik"
+
+msgid "default.groups.plural.reader"
+msgstr "Czytelnicy"
+
+msgid "default.groups.abbrev.reader"
+msgstr "CZ"
+
+msgid "default.genres.other"
+msgstr "Inne"
+
+msgid "default.genres.multimedia"
+msgstr "Media"
+
+msgid "default.genres.image"
+msgstr "Obraz"
+
+msgid "default.genres.styleSheet"
+msgstr "Szablon HTML"

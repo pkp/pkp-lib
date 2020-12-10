@@ -2,9 +2,9 @@
 /**
  * @file classes/services/QueryBuilders/PKPUserQueryBuilder.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUserQueryBuilder
  * @ingroup query_builders
@@ -15,8 +15,9 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-class PKPUserQueryBuilder extends BaseQueryBuilder {
+class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var int Context ID */
 	protected $contextId = null;
@@ -36,11 +37,29 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 	/** @var array list of role ids */
 	protected $roleIds = null;
 
+	/** @var array list of user group ids */
+	protected $userGroupIds = null;
+
+	/** @var array list of user ids */
+	protected $userIds = [];
+
+	/** @var int Assigned as editor to this category id */
+	protected $assignedToCategoryId = null;
+
+	/** @var int Assigned as editor to this section id */
+	protected $assignedToSectionId = null;
+
 	/** @var int submission ID */
 	protected $assignedToSubmissionId = null;
 
 	/** @var int submission stage ID */
 	protected $assignedToSubmissionStageId = null;
+
+	/** @var string get users registered after this date */
+	protected $registeredAfter = '';
+
+	/** @var string get users registered before this date */
+	protected $registeredBefore = '';
 
 	/** @var array user IDs */
 	protected $includeUsers = null;
@@ -50,9 +69,6 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 
 	/** @var string search phrase */
 	protected $searchPhrase = null;
-
-	/** @var bool whether to return only a count of results */
-	protected $countOnly = null;
 
 	/** @var bool whether to return reviewer activity data */
 	protected $getReviewerData = null;
@@ -74,6 +90,12 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 
 	/** @var int|array filter by average days to complete a review */
 	protected $averageCompletion = null;
+
+	/** @var int|null whether to limit the number of results returned */
+	protected $limit = null;
+
+	/** @var int whether to offset the number of results returned. Use to return a second page of results. */
+	protected $offset = 0;
 
 	/**
 	 * Set context submissions filter
@@ -135,6 +157,52 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Set user groups filter
+	 *
+	 * @param array $userGroupIds
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function filterByUserGroupIds(array $userGroupIds) {
+		$this->userGroupIds = $userGroupIds;
+		return $this;
+	}
+
+	/**
+	 * Set user ID filter
+	 *
+	 * @param array $userIds
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function filterByUserIds(array $userIds) {
+		$this->userIds = $userIds;
+		return $this;
+	}
+
+	/**
+	 * Limit results to users assigned as editors to this category
+	 *
+	 * @param $categoryId int
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function assignedToCategory($categoryId) {
+		$this->assignedToCategoryId = $categoryId;
+		return $this;
+	}
+
+	/**
+	 * Limit results to users assigned as editors to this section
+	 *
+	 * @param $sectionId int
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function assignedToSection($sectionId) {
+		$this->assignedToSectionId = $sectionId;
+		return $this;
+	}
+
+	/**
 	 * Limit results to users assigned to this submission
 	 *
 	 * @param $submissionId int
@@ -150,7 +218,32 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Limit results to users who registered after this date
+	 *
+	 * @param $date string
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function registeredAfter($date) {
+		$this->registeredAfter = $date;
+		return $this;
+	}
+
+	/**
+	 * Limit results to users who registered before this date
+	 *
+	 * @param $date string
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function registeredBefore($date) {
+		$this->registeredBefore = $date;
+		return $this;
+	}
+
+	/**
 	 * Include selected users
+	 *
+	 * This will include a user even if they do not match
+	 * the query conditions.
 	 *
 	 * @param $userIds array
 	 *
@@ -163,6 +256,9 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 
 	/**
 	 * Exclude selected users
+	 *
+	 * This will exclude a user even if they match all of the
+	 * query conditions.
 	 *
 	 * @param $userIds array
 	 *
@@ -182,18 +278,6 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 	 */
 	public function searchPhrase($phrase) {
 		$this->searchPhrase = $phrase;
-		return $this;
-	}
-
-	/**
-	 * Whether to return only a count of results
-	 *
-	 * @param $enable bool
-	 *
-	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
-	 */
-	public function countOnly($enable = true) {
-		$this->countOnly = $enable;
 		return $this;
 	}
 
@@ -302,18 +386,68 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Set query limit
+	 *
+	 * @param int $count
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function limitTo($count) {
+		$this->limit = $count;
+		return $this;
+	}
+
+	/**
+	 * Set how many results to skip
+	 *
+	 * @param int $offset
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function offsetBy($offset) {
+		$this->offset = $offset;
+		return $this;
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+	 */
+	public function getCount() {
+		$q = $this->getQuery();
+		// Reset the groupBy and orderBy
+		$q->groups = ['u.user_id'];
+		$q->orders = [];
+		return $q->select('u.user_id')
+			->get()
+			->count();
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
+	 */
+	public function getIds() {
+		$q = $this->getQuery();
+		// Reset the groupBy and orderBy
+		$q->groups = ['u.user_id'];
+		$q->orders = [];
+		return $q->select('u.user_id')
+			->pluck('u.user_id')
+			->toArray();
+	}
+
+	/**
 	 * Execute query builder
 	 *
 	 * @return object Query object
 	 */
-	public function get() {
+	public function getQuery() {
 		$locale = \AppLocale::getLocale();
 		// the users register for the site, thus
 		// the site primary locale should be the default locale
 		$site = \Application::get()->getRequest()->getSite();
 		$primaryLocale = $site->getPrimaryLocale();
 
-		$this->columns[] = 'u.*';
+		$this->columns = ['u.*'];
 		$this->columns[] = Capsule::raw('COALESCE(ugl.setting_value, ugpl.setting_value) AS user_given');
 		$this->columns[] = Capsule::raw('CASE WHEN ugl.setting_value <> \'\' THEN ufl.setting_value ELSE ufpl.setting_value END AS user_family');
 		$q = Capsule::table('users as u')
@@ -354,6 +488,16 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 			$q->whereIn('ug.role_id', $this->roleIds);
 		}
 
+		// user groups
+		if (!empty($this->userGroupIds)) {
+			$q->whereIn('ug.user_group_id', $this->userGroupIds);
+		}
+
+		// user ids
+		if (!empty($this->userIds)) {
+			$q->whereIn('u.user_id', $this->userIds);
+		}
+
 		// Exclude users
 		if (!is_null($this->excludeUsers)) {
 			$excludeUsers = $this->excludeUsers;
@@ -385,6 +529,17 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 				$q->leftJoin('user_group_stage as ugs', 'sa.user_group_id', '=', 'ugs.user_group_id');
 				$q->where('ugs.stage_id', '=', Capsule::raw((int) $stageId));
 			}
+		}
+
+		// date registered
+		if (!empty($this->registeredAfter)) {
+			$q->where('u.date_registered', '>=', $this->registeredAfter);
+		}
+		if (!empty($this->registeredBefore)) {
+			// Include useres who registered up to the end of the day
+			$dateTime = new \DateTime($this->registeredBefore);
+			$dateTime->add(new \DateInterval('P1D'));
+			$q->where('u.date_registered', '<', $dateTime->format('Y-m-d'));
 		}
 
 		// review stage id
@@ -502,17 +657,46 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 			$q->orWhereIn('u.user_id', $includeUsers);
 		}
 
+		// Limit and offset results for pagination
+		if (!is_null($this->limit)) {
+			$q->limit($this->limit);
+		}
+		if (!empty($this->offset)) {
+			$q->offset($this->offset);
+		}
+
+		// Section assignments
+		if (!is_null($this->assignedToSectionId)) {
+			$sectionId = $this->assignedToSectionId;
+
+			$q->leftJoin('subeditor_submission_group as ssg', function($table) use ($sectionId) {
+				$table->on('u.user_id', '=', 'ssg.user_id');
+				$table->on('ssg.assoc_type', '=', Capsule::raw((int) ASSOC_TYPE_SECTION));
+				$table->on('ssg.assoc_id', '=', Capsule::raw((int) $sectionId));
+			});
+
+			$q->whereNotNull('ssg.assoc_id');
+		}
+
+		// Category assignments
+		if (!is_null($this->assignedToCategoryId)) {
+			$categoryId = $this->assignedToCategoryId;
+
+			$q->leftJoin('subeditor_submission_group as ssg', function($table) use ($categoryId) {
+				$table->on('u.user_id', '=', 'ssg.user_id');
+				$table->on('ssg.assoc_type', '=', Capsule::raw((int) ASSOC_TYPE_CATEGORY));
+				$table->on('ssg.assoc_id', '=', Capsule::raw((int) $categoryId));
+			});
+
+			$q->whereNotNull('ssg.assoc_id');
+		}
+
 		// Add app-specific query statements
 		\HookRegistry::call('User::getMany::queryObject', array(&$q, $this));
 
-		if (!empty($this->countOnly)) {
-			$q->select(Capsule::raw('count(*) as user_count'))
-				->groupBy('u.user_id');
-		} else {
-			$q->select($this->columns)
-				->groupBy('u.user_id', 'user_given', 'user_family')
-				->orderBy($this->orderColumn, $this->orderDirection);
-		}
+		$q->select($this->columns)
+			->groupBy('u.user_id', 'user_given', 'user_family')
+			->orderBy($this->orderColumn, $this->orderDirection);
 
 		return $q;
 	}

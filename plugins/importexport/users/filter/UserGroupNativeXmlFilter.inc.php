@@ -3,9 +3,9 @@
 /**
  * @file plugins/importexport/users/filter/UserGroupNativeXmlFilter.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserGroupNativeXmlFilter
  * @ingroup plugins_importexport_users
@@ -84,12 +84,12 @@ class UserGroupNativeXmlFilter extends NativeExportFilter {
 		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'is_default', $userGroup->getDefault() ? 'true' : 'false'));
 		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'show_title', $userGroup->getShowTitle() ? 'true' : 'false'));
 		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_self_registration', $userGroup->getPermitSelfRegistration() ? 'true' : 'false'));
-		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_metadata_edit', $userGroup->getpPermitMetadataEdit() ? 'true' : 'false'));
+		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_metadata_edit', $userGroup->getPermitMetadataEdit() ? 'true' : 'false'));
 
 		$this->createLocalizedNodes($doc, $userGroupNode, 'name', $userGroup->getName(null));
 		$this->createLocalizedNodes($doc, $userGroupNode, 'abbrev', $userGroup->getAbbrev(null));
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$assignedStages = $userGroupDao->getAssignedStagesByUserGroupId($context->getId(), $userGroup->getId());
 		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'stage_assignments', htmlspecialchars(join(':', array_keys($assignedStages)), ENT_COMPAT, 'UTF-8')));
 		return $userGroupNode;

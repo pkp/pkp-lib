@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/publication/PKPPublicationIdentifiersForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPublicationIdentifiersForm
  * @ingroup classes_controllers_form
@@ -13,7 +13,6 @@
  */
 namespace PKP\components\forms\publication;
 use \PKP\components\forms\FormComponent;
-use \PKP\components\forms\FieldText;
 
 define('FORM_PUBLICATION_IDENTIFIERS', 'publicationIdentifiers');
 
@@ -40,14 +39,8 @@ class PKPPublicationIdentifiersForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $publication, $submissionContext) {
 		$this->action = $action;
-		$this->successMessage = __('publication.publicationIdentifiers.success');
 		$this->locales = $locales;
 		$this->publication = $publication;
 		$this->submissionContext = $submissionContext;
-
-		$this->addField(new FieldText('pub-id::publisher-id', [
-			'label' => __('submission.publisherId'),
-			'value' => $publication->getData('pub-id::publisher-id'),
-		]));
 	}
 }

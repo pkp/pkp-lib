@@ -3,9 +3,9 @@
 /**
  * @file controllers/modals/editorDecision/form/PromoteForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PromoteForm
  * @ingroup controllers_modals_editorDecision_form
@@ -52,7 +52,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	 */
 	function initData($actionLabels = array()) {
 		$request = Application::get()->getRequest();
-		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
+		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getSubmission(), $this->getStageId(), $this->_getDecisions());
 
 		$submission = $this->getSubmission();
 		$this->setData('stageId', $this->getStageId());
@@ -74,14 +74,16 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
+
 		$request = Application::get()->getRequest();
 
 		// Retrieve the submission.
 		$submission = $this->getSubmission();
 
 		// Get this form decision actions labels.
-		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
+		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), $this->_getDecisions());
 
 		// Record the decision.
 		$reviewRound = $this->getReviewRound();
@@ -90,9 +92,10 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 		$editorAction = new EditorAction();
 		$editorAction->recordDecision($request, $submission, $decision, $actionLabels, $reviewRound);
 
+		// Bring in the SUBMISSION_FILE_* constants.
+		import('lib.pkp.classes.submission.SubmissionFile');
+
 		// Identify email key and status of round.
-		import('lib.pkp.classes.file.SubmissionFileManager');
-		$submissionFileManager = new SubmissionFileManager($submission->getContextId(), $submission->getId());
 		switch ($decision) {
 			case SUBMISSION_EDITOR_DECISION_ACCEPT:
 				$emailKey = 'EDITOR_DECISION_ACCEPT';
@@ -103,18 +106,17 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 				// Move to the editing stage.
 				$editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_EDITING, $request);
 
-				// Bring in the SUBMISSION_FILE_* constants.
-				import('lib.pkp.classes.submission.SubmissionFile');
-				// Bring in the Manager (we need it).
-				import('lib.pkp.classes.file.SubmissionFileManager');
-
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 
 				$selectedFiles = $this->getData('selectedFiles');
 				if(is_array($selectedFiles)) {
-					foreach ($selectedFiles as $fileId) {
-						$revisionNumber = $submissionFileDao->getLatestRevisionNumber($fileId);
-						$submissionFileManager->copyFileToFileStage($fileId, $revisionNumber, SUBMISSION_FILE_FINAL, null, true);
+					foreach ($selectedFiles as $submissionFileId) {
+						$submissionFile = Services::get('submissionFile')->get($submissionFileId);
+						$newSubmissionFile = clone $submissionFile;
+						$newSubmissionFile->setData('fileStage', SUBMISSION_FILE_FINAL);
+						$newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
+						$newSubmissionFile->setData('assocType', null);
+						$newSubmissionFile->setData('assocId', null);
+						$newSubmissionFile = Services::get('submissionFile')->add($newSubmissionFile, Application::get()->getRequest());
 					}
 				}
 
@@ -146,29 +148,29 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 
 				// Bring in the SUBMISSION_FILE_* constants.
 				import('lib.pkp.classes.submission.SubmissionFile');
-				// Bring in the Manager (we need it).
-				import('lib.pkp.classes.file.SubmissionFileManager');
-
-				// Move the revisions to the next stage
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 
 				$selectedFiles = $this->getData('selectedFiles');
 				if(is_array($selectedFiles)) {
-					foreach ($selectedFiles as $fileId) {
-						$revisionNumber = $submissionFileDao->getLatestRevisionNumber($fileId);
-						$submissionFileManager->copyFileToFileStage($fileId, $revisionNumber, SUBMISSION_FILE_PRODUCTION_READY);
+					foreach ($selectedFiles as $submissionFileId) {
+						$submissionFile = Services::get('submissionFile')->get($submissionFileId);
+						$newSubmissionFile = clone $submissionFile;
+						$newSubmissionFile->setData('fileStage', SUBMISSION_FILE_PRODUCTION_READY);
+						$newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
+						$newSubmissionFile->setData('assocType', null);
+						$newSubmissionFile->setData('assocId', null);
+						$newSubmissionFile = Services::get('submissionFile')->add($newSubmissionFile, Application::get()->getRequest());
 					}
 				}
 				// Send email to the author.
 				$this->_sendReviewMailToAuthor($submission, $emailKey, $request);
 				break;
 			default:
-				fatalError('Unsupported decision!');
+				throw new Exception('Unsupported decision!');
 		}
 
 		if ($this->getData('requestPayment')) {
 			$context = $request->getContext();
-			$stageDecisions = (new EditorDecisionActionsManager())->getStageDecisions($context, $this->getStageId());
+			$stageDecisions = (new EditorDecisionActionsManager())->getStageDecisions($context, $submission, $this->getStageId());
 			$decisionData = $stageDecisions[$decision];
 			if (isset($decisionData['paymentType'])) {
 				$paymentType = $decisionData['paymentType'];
@@ -180,7 +182,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 
 				// Notify any authors that this needs payment.
 				$notificationMgr = new NotificationManager();
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 				$stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null);
 				$userIds = array();
 				while ($stageAssignment = $stageAssignments->next()) {

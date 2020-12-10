@@ -3,9 +3,9 @@
 /**
  * @file classes/notification/NotificationDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NotificationDAO
  * @ingroup notification
@@ -14,8 +14,9 @@
  * @brief Operations for retrieving and modifying Notification objects.
  */
 
-
 import('classes.notification.Notification');
+
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 class NotificationDAO extends DAO {
 
@@ -36,10 +37,8 @@ class NotificationDAO extends DAO {
 			' . ($userId?' AND user_id = ?':''),
 			$params
 		);
-
-		$notification = $this->_fromRow($result->GetRowAssoc(false));
-		$result->Close();
-		return $notification;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow((array) $row):null;
 	}
 
 	/**
@@ -50,19 +49,13 @@ class NotificationDAO extends DAO {
 	 * @param $level int
 	 * @param $type int
 	 * @param $contextId int
-	 * @param $rangeInfo Object
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
-	function getByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $type = null, $contextId = null, $rangeInfo = null) {
-		$params = array((int) $userId, (int) $level);
-		if ($type) $params[] = (int) $type;
-		if ($contextId) $params[] = (int) $contextId;
-
-		$result = $this->retrieveRange(
-			'SELECT * FROM notifications WHERE user_id = ? AND level = ?' . (isset($type) ?' AND type = ?' : '') . (isset($contextId) ?' AND context_id = ?' : '') . ' ORDER BY date_created DESC',
-			$params, $rangeInfo
-		);
-
+	function getByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $type = null, $contextId = null) {
+		$result = Capsule::table('notifications')
+			->where('user_id', '=', (int) $userId)
+			->where('level', '=', (int) $level)
+			->get();
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
@@ -107,7 +100,7 @@ class NotificationDAO extends DAO {
 				SET date_read = %s
 				WHERE notification_id = ?',
 				$this->datetimeToDB($dateRead)),
-			(int) $notificationId
+			[(int) $notificationId]
 		);
 
 		return $dateRead;
@@ -200,11 +193,10 @@ class NotificationDAO extends DAO {
 	function deleteById($notificationId, $userId = null) {
 		$params = array((int) $notificationId);
 		if (isset($userId)) $params[] = (int) $userId;
-		$this->update(
+		if ($this->update(
 			'DELETE FROM notifications WHERE notification_id = ?' . (isset($userId) ? ' AND user_id = ?' : ''),
 			$params
-		);
-		if ($this->getAffectedRows()) {
+		)) {
 			// If a notification was deleted (possibly validating
 			// $userId in the process) delete associated settings.
 			$notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDaoDao NotificationSettingsDAO */
@@ -260,15 +252,13 @@ class NotificationDAO extends DAO {
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
-			'SELECT count(*) FROM notifications WHERE user_id = ? AND date_read IS' . ($read ? ' NOT' : '') . ' NULL AND level = ?'
+			'SELECT count(*) AS row_count FROM notifications WHERE user_id = ? AND date_read IS' . ($read ? ' NOT' : '') . ' NULL AND level = ?'
 			. (isset($contextId) ? ' AND context_id = ?' : ''),
 			$params
 		);
 
-		$returner = $result->fields[0];
-
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$row['row_count']:0;
 	}
 
 	/**

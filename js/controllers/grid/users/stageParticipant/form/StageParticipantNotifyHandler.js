@@ -4,9 +4,9 @@
 /**
  * @file js/controllers/grid/users/stageParticipant/form/StageParticipantNotifyHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class StageParticipantNotifyHandler
  * @ingroup js_controllers_grid_users_stageParticipant_form
@@ -63,16 +63,16 @@
 					options.permitMetadataEditUserGroupIds;
 		}
 
-		if (options.blindReviewerIds) {
-			this.blindReviewerIds_ = options.blindReviewerIds;
+		if (options.anonymousReviewerIds) {
+			this.anonymousReviewerIds_ = options.anonymousReviewerIds;
 		}
 
-		if (options.blindReviewerWarning) {
-			this.blindReviewerWarning_ = options.blindReviewerWarning;
+		if (options.anonymousReviewerWarning) {
+			this.anonymousReviewerWarning_ = options.anonymousReviewerWarning;
 		}
 
-		if (options.blindReviewerWarningOk) {
-			this.blindReviewerWarningOk_ = options.blindReviewerWarningOk;
+		if (options.anonymousReviewerWarningOk) {
+			this.anonymousReviewerWarningOk_ = options.anonymousReviewerWarningOk;
 		}
 
 		// Update the recommendOnly option display when user group changes
@@ -86,7 +86,7 @@
 				.change(this.callbackWrapper(
 				this.updateSubmissionMetadataEditPermitOption));
 
-		// Trigger a warning message if a blind reviewer is selected
+		// Trigger a warning message if an anonymous reviewer is selected
 		$('input[name=\'userIdSelected\']', $form)
 				.change(this.callbackWrapper(this.maybeTriggerReviewerWarning));
 
@@ -113,33 +113,33 @@
 
 
 	/**
-	 * A list of user IDs which are already assigned blind reviews for this
+	 * A list of user IDs which are already assigned anonymous reviews for this
 	 * submission.
 	 * @private
 	 * @type {Array}
 	 */
 	$.pkp.controllers.grid.users.stageParticipant.form.
-			StageParticipantNotifyHandler.prototype.blindReviewerIds_ = null;
+			StageParticipantNotifyHandler.prototype.anonymousReviewerIds_ = null;
 
 
 	/**
-	 * A warning message to display when a blind reviewer is selected to be
+	 * A warning message to display when an anonymous reviewer is selected to be
 	 * added as a recipient
 	 * @private
 	 * @type {string?}
 	 */
 	$.pkp.controllers.grid.users.stageParticipant.form.
-			StageParticipantNotifyHandler.prototype.blindReviewerWarning_ = null;
+			StageParticipantNotifyHandler.prototype.anonymousReviewerWarning_ = null;
 
 
 	/**
-	 * The OK button language for the blind reviewer warning message
+	 * The OK button language for the anonymous reviewer warning message
 	 * @private
 	 * @type {string?}
 	 */
 	$.pkp.controllers.grid.users.stageParticipant.form.
 			StageParticipantNotifyHandler.prototype.
-			blindReviewerWarningOk_ = null;
+			anonymousReviewerWarningOk_ = null;
 
 
 	/**
@@ -228,7 +228,7 @@
 				$checkboxDiv = $form.find('.recommendOnlyWrapper'),
 				i,
 				found = false,
-				filterUserGroupIdVal = /** @type {string} */ $filterUserGroupId.val();
+				filterUserGroupIdVal = /** @type {string} */ ($filterUserGroupId.val());
 
 		// If user group changes, hide the recommendOnly option
 		if ($(sourceElement).prop('name') == 'userGroupId') {
@@ -274,15 +274,15 @@
 		var userId = $(sourceElement).val(),
 				opts;
 
-		if (!userId || this.blindReviewerIds_.indexOf(userId) < 0) {
+		if (!userId || this.anonymousReviewerIds_.indexOf(userId) < 0) {
 			return;
 		}
 
 		opts = {
 			title: '',
-			okButton: this.blindReviewerWarningOk_,
+			okButton: this.anonymousReviewerWarningOk_,
 			cancelButton: false,
-			dialogText: this.blindReviewerWarning_
+			dialogText: this.anonymousReviewerWarning_
 		};
 
 		$('<div id="' + $.pkp.classes.Helper.uuid() + '" ' +
@@ -308,7 +308,7 @@
 				$checkboxDiv = $form.find('.submissionEditMetadataPermit'),
 				i,
 				found = false,
-				filterUserGroupIdVal = /** @type {string} */ $filterUserGroupId.val();
+				filterUserGroupIdVal = /** @type {string} */ ($filterUserGroupId.val());
 
 		// If user group changes, hide the canChangeMetadata option
 		if ($(sourceElement).prop('name') == 'userGroupId') {
@@ -371,5 +371,4 @@
 				'handleResponse', formElement, jsonData));
 	};
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

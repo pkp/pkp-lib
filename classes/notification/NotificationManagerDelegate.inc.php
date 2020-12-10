@@ -3,9 +3,9 @@
 /**
  * @file classes/notification/NotificationManagerDelegate.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NotificationManagerDelegate
  * @ingroup notification
@@ -56,9 +56,9 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	 * creation of the passed notification type.
 	 * @copydoc PKPNotificationOperationManager::createNotification()
 	 */
-	function createNotification($request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false) {
+	function createNotification($request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false, callable $mailConfigurator = null) {
 		assert($notificationType == $this->getNotificationType() || $this->multipleTypesUpdate());
-		return parent::createNotification($request, $userId, $notificationType, $contextId, $assocType, $assocId, $level, $params, $suppressEmail);
+		return parent::createNotification($request, $userId, $notificationType, $contextId, $assocType, $assocId, $level, $params, $suppressEmail, $mailConfigurator);
 	}
 
 	/**

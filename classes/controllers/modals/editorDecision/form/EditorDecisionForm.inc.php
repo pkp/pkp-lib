@@ -3,9 +3,9 @@
 /**
  * @file controllers/modals/editorDecision/form/EditorDecisionForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionForm
  * @ingroup controllers_modals_editorDecision_form
@@ -112,7 +112,7 @@ class EditorDecisionForm extends Form {
 		$this->setData('stageId', $this->getStageId());
 
 		$templateMgr = TemplateManager::getManager($request);
-		$stageDecisions = (new EditorDecisionActionsManager())->getStageDecisions($request->getContext(), $this->getStageId());
+		$stageDecisions = (new EditorDecisionActionsManager())->getStageDecisions($request->getContext(), $submission, $this->getStageId());
 		$templateMgr->assign(array(
 			'decisionData' => $stageDecisions[$this->getDecision()],
 			'submissionId' => $submission->getId(),
@@ -152,7 +152,7 @@ class EditorDecisionForm extends Form {
 		$reviewRound = $reviewRoundDao->build($submission->getId(), $stageId, $newRound, $status);
 
 		// Check for a notification already in place for the current review round.
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notificationFactory = $notificationDao->getByAssoc(
 			ASSOC_TYPE_REVIEW_ROUND,
 			$reviewRound->getId(),
@@ -162,7 +162,7 @@ class EditorDecisionForm extends Form {
 		);
 
 		// Create round status notification if there is no notification already.
-		if ($notificationFactory->wasEmpty()) {
+		if (!$notificationFactory->next()) {
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createNotification(
 				$request,
@@ -177,20 +177,21 @@ class EditorDecisionForm extends Form {
 
 		// Add the selected files to the new round.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+		$fileStage = $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW
+			? SUBMISSION_FILE_INTERNAL_REVIEW_FILE
+			: SUBMISSION_FILE_REVIEW_FILE;
 
-		// Bring in the SUBMISSION_FILE_* constants.
-		import('lib.pkp.classes.submission.SubmissionFile');
-		// Bring in the Manager (we need it).
-		import('lib.pkp.classes.file.SubmissionFileManager');
-		$submissionFileManager = new SubmissionFileManager($submission->getContextId(), $submission->getId());
 		foreach (array('selectedFiles', 'selectedAttachments') as $userVar) {
 			$selectedFiles = $this->getData($userVar);
 			if(is_array($selectedFiles)) {
 				foreach ($selectedFiles as $fileId) {
-					// Retrieve the file last revision number.
-					$revisionNumber = $submissionFileDao->getLatestRevisionNumber($fileId);
-					list($newFileId, $newRevision) = $submissionFileManager->copyFileToFileStage($fileId, $revisionNumber, SUBMISSION_FILE_REVIEW_FILE, null, true);
-					$submissionFileDao->assignRevisionToReviewRound($newFileId, $newRevision, $reviewRound);
+					$newSubmissionFile = Services::get('submissionFile')->get($fileId);
+					$newSubmissionFile->setData('fileStage', $fileStage);
+					$newSubmissionFile->setData('sourceSubmissionFileId', $fileId);
+					$newSubmissionFile->setData('assocType', null);
+					$newSubmissionFile->setData('assocId', null);
+					$newSubmissionFile = Services::get('submissionFile')->add($newSubmissionFile, $request);
+					$submissionFileDao->assignRevisionToReviewRound($newSubmissionFile->getId(), $reviewRound);
 				}
 			}
 		}

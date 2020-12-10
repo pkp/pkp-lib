@@ -1,20 +1,35 @@
 {**
  * templates/management/workflow.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief The workflow settings page.
  *}
-{include file="common/header.tpl" pageTitle="manager.workflow.title"}
+{extends file="layouts/backend.tpl"}
 
-{assign var="uuid" value=""|uniqid|escape}
-<div id="settings-context-{$uuid}">
-	<tabs>
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="manager.workflow.title"}
+	</h1>
+
+	{if $currentContext->getData('disableSubmissions')}
+		<notification>
+			{translate key="manager.setup.disableSubmissions.notAccepting"}
+		</notification>
+	{/if}
+
+	<tabs :track-history="true">
 		<tab id="submission" label="{translate key="manager.publication.submissionStage"}">
 			{help file="settings/workflow-settings" section="submission" class="pkp_help_tab"}
-			<tabs :is-side-tabs="true">
+			<tabs :is-side-tabs="true" :track-history="true">
+				<tab id="disableSubmissions" label="{translate key="manager.setup.disableSubmissions"}">
+					<pkp-form
+						v-bind="components.{$smarty.const.FORM_DISABLE_SUBMISSIONS}"
+						@set="set"
+					/>
+				</tab>
 				<tab id="metadata" label="{translate key="submission.informationCenter.metadata"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_METADATA_SETTINGS}"
@@ -40,7 +55,7 @@
 		</tab>
 		<tab id="review" label="{translate key="manager.publication.reviewStage"}">
 			{help file="settings/workflow-settings" section="review" class="pkp_help_tab"}
-			<tabs :is-side-tabs="true">
+			<tabs :is-side-tabs="true" :track-history="true">
 				<tab id="reviewSetup" label="{translate key="navigation.setup"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_REVIEW_SETUP}"
@@ -67,7 +82,7 @@
 		</tab>
 		<tab id="emails" label="{translate key="manager.publication.emails"}">
 			{help file="settings/workflow-settings" section="emails" class="pkp_help_tab"}
-			<tabs>
+			<tabs :track-history="true">
 				<tab id="emailsSetup" label="{translate key="navigation.setup"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_EMAIL_SETUP}"
@@ -87,9 +102,4 @@
 		</tab>
 		{call_hook name="Template::Settings::workflow"}
 	</tabs>
-</div>
-<script type="text/javascript">
-	pkp.registry.init('settings-context-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
-</script>
-
-{include file="common/footer.tpl"}
+{/block}

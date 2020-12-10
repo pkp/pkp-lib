@@ -3,9 +3,9 @@
 /**
  * @file classes/plugins/PluginSettingsDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginSettingsDAO
  * @ingroup plugins
@@ -67,11 +67,11 @@ class PluginSettingsDAO extends DAO {
 	function settingExists($contextId, $pluginName, $name) {
 		$pluginName = strtolower_codesafe($pluginName);
 		$result = $this->retrieve(
-			'SELECT COUNT(*) FROM plugin_settings WHERE plugin_name = ? AND context_id = ? AND setting_name = ?', array($pluginName, (int) $contextId, $name)
+			'SELECT COUNT(*) AS row_count FROM plugin_settings WHERE plugin_name = ? AND context_id = ? AND setting_name = ?',
+			[$pluginName, (int) $contextId, $name]
 		);
-		$returner = $result->fields[0] ? true : false;
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**
@@ -102,18 +102,14 @@ class PluginSettingsDAO extends DAO {
 		// Normalize plug-in name to lower case.
 		$pluginName = strtolower_codesafe($pluginName);
 
-		$contextColumn = Application::getPluginSettingsContextColumnName();
 		$result = $this->retrieve(
-			'SELECT setting_name, setting_value, setting_type FROM plugin_settings WHERE plugin_name = ? AND ' . $contextColumn . ' = ?', array($pluginName, (int) $contextId)
+			'SELECT setting_name, setting_value, setting_type FROM plugin_settings WHERE plugin_name = ? AND context_id = ?', array($pluginName, (int) $contextId)
 		);
 
 		$pluginSettings = array();
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
-			$pluginSettings[$row['setting_name']] = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-			$result->MoveNext();
+		foreach ($result as $row) {
+			$pluginSettings[$row->setting_name] = $this->convertFromDB($row->setting_value, $row->setting_type);
 		}
-		$result->Close();
 
 		$cache = $this->_getCache($contextId, $pluginName);
 		$cache->setEntireCache($pluginSettings);
@@ -247,10 +243,7 @@ class PluginSettingsDAO extends DAO {
 		$xmlParser = new XMLParser();
 		$tree = $xmlParser->parse($filename);
 
-		if (!$tree) {
-			$xmlParser->destroy();
-			return false;
-		}
+		if (!$tree) return false;
 
 		// Check for existing settings and leave them if they are already in place.
 		$currentSettings = $this->getPluginSettings($contextId, $pluginName);
@@ -277,8 +270,6 @@ class PluginSettingsDAO extends DAO {
 				$this->updateSetting($contextId, $pluginName, $name, $value, $type);
 			}
 		}
-
-		$xmlParser->destroy();
 	}
 }
 

@@ -3,9 +3,9 @@
 /**
  * @file api/v1/users/PKPUserHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUserHandler
  * @ingroup api_v1_users
@@ -24,26 +24,31 @@ class PKPUserHandler extends APIHandler {
 	 */
 	public function __construct() {
 		$this->_handlerPath = 'users';
-		$roles = array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR);
-		$this->_endpoints = array(
-			'GET' => array (
-				array(
+		$roles = [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR];
+		$this->_endpoints = [
+			'GET' => [
+				[
 					'pattern' => $this->getEndpointPattern(),
-					'handler' => array($this, 'getMany'),
+					'handler' => [$this, 'getMany'],
 					'roles' => $roles
-				),
-				array(
+				],
+				[
 					'pattern' => $this->getEndpointPattern() . '/reviewers',
-					'handler' => array($this, 'getReviewers'),
+					'handler' => [$this, 'getReviewers'],
 					'roles' => $roles
-				),
-				array(
-					'pattern' => $this->getEndpointPattern() . '/{userId}',
-					'handler' => array($this, 'get'),
+				],
+				[
+					'pattern' => $this->getEndpointPattern() . '/{userId:\d+}',
+					'handler' => [$this, 'get'],
 					'roles' => $roles
-				),
-			),
-		);
+				],
+				[
+					'pattern' => $this->getEndpointPattern() . '/report',
+					'handler' => [$this, 'getReport'],
+					'roles' => $roles
+				],
+			],
+		];
 		parent::__construct();
 	}
 
@@ -67,32 +72,43 @@ class PKPUserHandler extends APIHandler {
 	public function getMany($slimRequest, $response, $args) {
 		$request = $this->getRequest();
 		$context = $request->getContext();
-		$userService = Services::get('user');
 
 		if (!$context) {
 			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
 		}
 
-		$params = $this->_buildListRequestParams($slimRequest);
+		$params = $this->_processAllowedParams($slimRequest->getQueryParams(), [
+			'assignedToCategory',
+			'assignedToSection',
+			'assignedToSubmission',
+			'assignedToSubmissionStage',
+			'count',
+			'offset',
+			'orderBy',
+			'orderDirection',
+			'roleIds',
+			'searchPhrase',
+			'status',
+		]);
 
-		$items = array();
-		$usersItereator = $userService->getMany($params);
-		if (count($usersItereator)) {
-			$propertyArgs = array(
-				'request' => $request,
-				'slimRequest' => $slimRequest,
-			);
-			foreach ($usersItereator as $user) {
-				$items[] = $userService->getSummaryProperties($user, $propertyArgs);
-			}
+		$params['contextId'] = $context->getId();
+
+		\HookRegistry::call('API::users::params', [&$params, $slimRequest]);
+
+		$items = [];
+		$usersItereator = Services::get('user')->getMany($params);
+		$propertyArgs = [
+			'request' => $request,
+			'slimRequest' => $slimRequest,
+		];
+		foreach ($usersItereator as $user) {
+			$items[] = Services::get('user')->getSummaryProperties($user, $propertyArgs);
 		}
 
-		$data = array(
-			'itemsMax' => $userService->getMax($params),
+		return $response->withJson([
+			'itemsMax' => Services::get('user')->getMax($params),
 			'items' => $items,
-		);
-
-		return $response->withJson($data, 200);
+		], 200);
 	}
 
 	/**
@@ -105,18 +121,16 @@ class PKPUserHandler extends APIHandler {
 	 */
 	public function get($slimRequest, $response, $args) {
 		$request = $this->getRequest();
-		$context = $request->getContext();
-		$userService = Services::get('user');
 
 		if (!empty($args['userId'])) {
-			$user = $userService->get((int) $args['userId']);
+			$user = Services::get('user')->get((int) $args['userId']);
 		}
 
 		if (!$user) {
 			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
 		}
 
-		$data = $userService->getFullProperties($user, array(
+		$data = Services::get('user')->getFullProperties($user, array(
 			'request' => $request,
 			'slimRequest' 	=> $slimRequest
 		));
@@ -135,74 +149,73 @@ class PKPUserHandler extends APIHandler {
 	public function getReviewers($slimRequest, $response, $args) {
 		$request = $this->getRequest();
 		$context = $request->getContext();
-		$userService = Services::get('user');
 
 		if (!$context) {
 			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
 		}
 
-		// We do not support these params from /users
-		if (isset($returnParams['assignedToSubmission'])) {
-			return $response->withStatus(400)->withJsonError('api.400.paramNotSupported', 'assignedToSubmission');
-		}
-		if (isset($returnParams['assignedToSubmissionStage'])) {
-			return $response->withStatus(400)->withJsonError('api.400.paramNotSupported', 'assignedToSubmissionStage');
-		}
-		if (isset($returnParams['roleIds'])) {
-			return $response->withStatus(400)->withJsonError('api.400.paramNotSupported', 'roleIds');
+		$params = $this->_processAllowedParams($slimRequest->getQueryParams(), [
+			'averageCompletion',
+			'count',
+			'daysSinceLastAssignment',
+			'offset',
+			'orderBy',
+			'orderDirection',
+			'reviewerRating',
+			'reviewsActive',
+			'reviewsCompleted',
+			'reviewStage',
+			'searchPhrase',
+			'status',
+		]);
+
+		$params['contextId'] = $context->getId();
+
+		\HookRegistry::call('API::users::reviewers::params', array(&$params, $slimRequest));
+
+		$items = [];
+		$usersIterator = Services::get('user')->getReviewers($params);
+		$propertyArgs = [
+			'request' => $request,
+			'slimRequest' => $slimRequest,
+		];
+		foreach ($usersIterator as $user) {
+			$items[] = Services::get('user')->getReviewerSummaryProperties($user, $propertyArgs);
 		}
 
-		$params = $this->_buildReviewerListRequestParams($slimRequest);
-
-		$items = array();
-		$users = $userService->getReviewers($params);
-		if (!empty($users)) {
-			$propertyArgs = array(
-				'request' => $request,
-				'slimRequest' => $slimRequest,
-			);
-			foreach ($users as $user) {
-				$items[] = $userService->getReviewerSummaryProperties($user, $propertyArgs);
-			}
-		}
-
-		$data = array(
-			'itemsMax' => $userService->getReviewersMax($params),
+		return $response->withJson([
+			'itemsMax' => Services::get('user')->getReviewersMax($params),
 			'items' => $items,
-		);
-
-		return $response->withJson($data, 200);
+		], 200);
 	}
 
 	/**
-	 * Convert params passed to list requests. Coerce type and only return
-	 * white-listed params.
+	 * Convert the query params passed to the end point. Exclude unsupported
+	 * params and coerce the type of those passed.
 	 *
-	 * @param $slimRequest Request Slim request object
+	 * @param array $params Key/value of request params
+	 * @param array $allowedKeys The param keys which should be processed and returned
 	 * @return array
 	 */
-	private function _buildListRequestParams($slimRequest) {
-
-		$request = $this->getRequest();
-		$currentUser = $request->getUser();
-		$context = $request->getContext();
+	private function _processAllowedparams($params, $allowedKeys) {
 
 		// Merge query params over default params
-		$defaultParams = array(
+		$defaultParams = [
 			'count' => 20,
 			'offset' => 0,
-		);
+		];
 
-		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
-
-		$returnParams = array();
+		$requestParams = array_merge($defaultParams, $params);
 
 		// Process query params to format incoming data as needed
+		$returnParams = [];
 		foreach ($requestParams as $param => $val) {
+			if (!in_array($param, $allowedKeys)) {
+				continue;
+			}
 			switch ($param) {
-
 				case 'orderBy':
-					if (in_array($val, array('id', 'familyName', 'givenName'))) {
+					if (in_array($val, ['id', 'familyName', 'givenName'])) {
 						$returnParams[$param] = $val;
 					}
 					break;
@@ -212,23 +225,27 @@ class PKPUserHandler extends APIHandler {
 					break;
 
 				case 'status':
-					if (in_array($val, array('all', 'active', 'disabled'))) {
+					if (in_array($val, ['all', 'active', 'disabled'])) {
 						$returnParams[$param] = $val;
 					}
 					break;
 
 				// Always convert roleIds to array
 				case 'roleIds':
-					if (is_string($val) && strpos($val, ',') > -1) {
+					if (is_string($val)) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
-						$val = array($val);
+						$val = [$val];
 					}
 					$returnParams[$param] = array_map('intval', $val);
 					break;
-
+				case 'assignedToCategory':
+				case 'assignedToSection':
 				case 'assignedToSubmissionStage':
 				case 'assignedToSubmission':
+				case 'reviewerRating':
+				case 'reviewStage':
+				case 'offset':
 					$returnParams[$param] = (int) $val;
 					break;
 
@@ -236,64 +253,76 @@ class PKPUserHandler extends APIHandler {
 					$returnParams[$param] = trim($val);
 					break;
 
-				// Enforce a maximum count to prevent the API from crippling the
-				// server
+				case 'reviewsCompleted':
+				case 'reviewsActive':
+				case 'daysSinceLastAssignment':
+				case 'averageCompletion':
+					if (is_array($val)) {
+						$val = array_map('intval', $val);
+					} elseif (strpos($val, '-') !== false) {
+						$val = array_map('intval', explode('-', $val));
+					} else {
+						$val = [(int) $val];
+					}
+					$returnParams[$param] = $val;
+					break;
+
+				// Enforce a maximum count per request
 				case 'count':
 					$returnParams[$param] = min(100, (int) $val);
 					break;
-
-				case 'offset':
-					$returnParams[$param] = (int) $val;
-					break;
 			}
 		}
-
-		$returnParams['contextId'] = $context->getId();
-
-		\HookRegistry::call('API::users::params', array(&$returnParams, $slimRequest));
 
 		return $returnParams;
 	}
 
 	/**
-	 * Add reviewer-specific params
+	 * Retrieve the user report
 	 *
-	 * @param $slimRequest Request Slim request object
-	 * @return array
+	 * @param Slim\Http\Request $slimRequest Slim request object
+	 * @param \APIResponse $response Response
+	 * @param array $args
+	 * @return ?\APIResponse Response
 	 */
-	private function _buildReviewerListRequestParams($slimRequest) {
+	public function getReport(\Slim\Http\Request $slimRequest, \APIResponse $response, array $args) : ?\APIResponse {
+		$request = $this->getRequest();
 
-		$returnParams = $this->_buildListRequestParams($slimRequest);
-		$contextId = $returnParams['contextId'];
-		$requestParams = $slimRequest->getQueryParams();
+		$context = $request->getContext();
+		if (!$context) {
+			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+		}
 
-		foreach ($requestParams as $param => $val) {
+		$params = ['contextId' => $context->getId()];
+		foreach ($slimRequest->getQueryParams() as $param => $value) {
 			switch ($param) {
-
-				case 'reviewerRating':
-				case 'reviewStage':
-					$returnParams[$param] = (int) $val;
-					break;
-
-				case 'reviewsCompleted':
-				case 'reviewsActive':
-				case 'daysSinceLastAssignment':
-				case 'averageCompletion':
-					if (strpos($val, '-') !== false) {
-						$val = array_map('intval', explode('-', $val));
-					} else {
-						$val = (int) $val;
+				case 'userGroupIds':
+					if (is_string($value) && strpos($value, ',') > -1) {
+						$value = explode(',', $value);
+					} elseif (!is_array($value)) {
+						$value = [$value];
 					}
-					$returnParams[$param] = $val;
+					$params[$param] = array_map('intval', $value);
+					break;
+				case 'mappings':
+					if (is_string($value) && strpos($value, ',') > -1) {
+						$value = explode(',', $value);
+					} elseif (!is_array($value)) {
+						$value = [$value];
+					}
+					$params[$param] = $value;
 					break;
 			}
 		}
 
-		// Don't allow the contextId to be overridden
-		$returnParams['contextId'] = $contextId;
+		\HookRegistry::call('API::users::user::report::params', [&$params, $slimRequest]);
 
-		\HookRegistry::call('API::users::reviewers::params', array(&$returnParams, $slimRequest));
+		$this->getApp()->getContainer()->get('settings')->replace(['outputBuffering' => false]);
 
-		return $returnParams;
+		$report = \Services::get('user')->getReport($params);
+		header('content-type: text/comma-separated-values');
+		header('content-disposition: attachment; filename="user-report-' . date('Y-m-d') . '.csv"');
+		$report->serialize(fopen('php://output', 'w+'));
+		exit;
 	}
 }

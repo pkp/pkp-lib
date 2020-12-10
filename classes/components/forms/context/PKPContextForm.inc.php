@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/context/PKPContextForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPContextForm
  * @ingroup classes_controllers_form
@@ -29,14 +29,12 @@ class PKPContextForm extends FormComponent {
 	 * Constructor
 	 *
 	 * @param $action string URL to submit the form to
-	 * @param $successMessage string Message to display when form submitted successfully
 	 * @param $locales array Supported locales
 	 * @param $baseUrl string Base URL for the site
 	 * @param $context Context Journal or Press to change settings for
 	 */
-	public function __construct($action, $successMessage, $locales, $baseUrl, $context) {
+	public function __construct($action, $locales, $baseUrl, $context) {
 		$this->action = $action;
-		$this->successMessage = $successMessage;
 		$this->locales = $locales;
 		$this->method = $context ? 'PUT' : 'POST';
 

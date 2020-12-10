@@ -3,9 +3,9 @@
 /**
  * @file tests/classes/notification/PKPNotificationManagerTest.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationManagerTest
  * @ingroup tests_classes_notification
@@ -30,13 +30,12 @@ class PKPNotificationManagerTest extends PKPTestCase {
 	 */
 	public function testGetNotificationMessage() {
 		$notification = $this->getTrivialNotification();
-		$notification->setType(NOTIFICATION_TYPE_NEW_ANNOUNCEMENT);
-		$notification->setAssocType(ASSOC_TYPE_ANNOUNCEMENT);
+		$notification->setType(NOTIFICATION_TYPE_REVIEW_ASSIGNMENT);
 
 		$requestDummy = $this->getMockBuilder(PKPRequest::class)->getMock();
 		$result = $this->notificationMgr->getNotificationMessage($requestDummy, $notification);
 
-		$this->assertContains('notification.type.newAnnouncement', $result);
+		$this->assertEquals('##notification.type.reviewAssignment##', $result);
 	}
 
 	/**
@@ -126,8 +125,8 @@ class PKPNotificationManagerTest extends PKPTestCase {
 	public function testCreateTrivialNotification($notification, $notificationParams = array()) {
 		$trivialNotification = $notification;
 		// Adapt the notification to the expected result.
-		$trivialNotification->setAssocId(null);
-		$trivialNotification->setAssocType(null);
+		$trivialNotification->unsetData('assocId');
+		$trivialNotification->unsetData('assocType');
 		$trivialNotification->setType(NOTIFICATION_TYPE_SUCCESS);
 
 		$this->injectNotificationDaoMock($trivialNotification);
@@ -167,7 +166,7 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		return array('NotificationDAO', 'NotificationSettingsDAO', 'UserDAO');
 	}
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 
 		$this->notificationMgr = new PKPNotificationManager();

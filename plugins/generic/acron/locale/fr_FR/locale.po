@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T11:06:22+00:00\n"
+"PO-Revision-Date: 2020-08-01 14:38+0000\n"
+"Last-Translator: Paul Heckler <paul.d.heckler@gmail.com>\n"
+"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"generic-acron/fr/>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.acron.name"
+msgstr "Module Acron"
+
+msgid "plugins.generic.acron.description"
+msgstr ""
+"Ce module a pour fonction de réduire la dépendance de l'application aux "
+"outils de planification périodique tel que « cron »."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Recharger les tâches planifiées"
+
+msgid "plugins.generic.acron.enabled"
+msgstr "Le module Acron a été activé."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Le module Acron a été désactivé."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Le fichier de crontab a été rechargé avec succès."
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Les tâches planifiées ont été rechargées."

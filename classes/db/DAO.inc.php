@@ -8,9 +8,9 @@
 /**
  * @file classes/db/DAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAO
  * @ingroup db
@@ -19,8 +19,6 @@
  * @brief Operations for retrieving and modifying objects from a database.
  */
 
-
-import('lib.pkp.classes.db.DBConnection');
 import('lib.pkp.classes.db.DAOResultFactory');
 import('lib.pkp.classes.db.DBResultRange');
 import('lib.pkp.classes.core.DataObject');
@@ -28,51 +26,20 @@ import('lib.pkp.classes.core.DataObject');
 define('SORT_DIRECTION_ASC', 0x00001);
 define('SORT_DIRECTION_DESC', 0x00002);
 
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 class DAO {
-	/** The database connection object */
-	var $_dataSource;
-
-	/**
-	 * Get db conn.
-	 * @return ADONewConnection
-	 */
-	function getDataSource() {
-		return $this->_dataSource;
-	}
-
-	/**
-	 * Set db conn.
-	 * @param $dataSource ADONewConnection
-	 */
-	function setDataSource($dataSource) {
-		$this->_dataSource = $dataSource;
-	}
-
-	/**
-	 * Concatenation.
-	 */
-	function concat() {
-		$args = func_get_args();
-		return call_user_func_array(array($this->getDataSource(), 'Concat'), $args);
-	}
-
 	/**
 	 * Constructor.
 	 * Initialize the database connection.
 	 */
-	function __construct($dataSource = null, $callHooks = true) {
+	function __construct($callHooks = true) {
 		if ($callHooks === true) {
 			// Call hooks based on the object name. Results
 			// in hook calls named e.g. "sessiondao::_Constructor"
-			if (HookRegistry::call(strtolower_codesafe(get_class($this)) . '::_Constructor', array($this, &$dataSource))) {
+			if (HookRegistry::call(strtolower_codesafe(get_class($this)) . '::_Constructor', array($this))) {
 				return;
 			}
-		}
-
-		if (!isset($dataSource)) {
-			$this->setDataSource(DBConnection::getConn());
-		} else {
-			$this->setDataSource($dataSource);
 		}
 	}
 
@@ -80,9 +47,9 @@ class DAO {
 	 * Execute a SELECT SQL statement.
 	 * @param $sql string the SQL statement
 	 * @param $params array parameters for the SQL statement
-	 * @return ADORecordSet
+	 * @return Illuminate\Support\LazyCollection
 	 */
-	function &retrieve($sql, $params = false, $callHooks = true) {
+	function retrieve($sql, $params = [], $callHooks = true) {
 		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
@@ -95,76 +62,7 @@ class DAO {
 			}
 		}
 
-		$start = Core::microtime();
-		$dataSource = $this->getDataSource();
-		$result = $dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
-		if ($dataSource->errorNo()) {
-			// FIXME Handle errors more elegantly.
-			$this->handleError($dataSource, $sql);
-		}
-
-		return $result;
-	}
-
-	/**
-	 * Execute a cached SELECT SQL statement.
-	 * @param $sql string the SQL statement
-	 * @param $params array parameters for the SQL statement
-	 * @return ADORecordSet
-	 */
-	function &retrieveCached($sql, $params = false, $secsToCache = 3600, $callHooks = true) {
-		if ($callHooks === true) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::_getsession"
-			// (all lowercase).
-			$value = null;
-			if (HookRegistry::call(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$secsToCache, &$value))) {
-				return $value;
-			}
-		}
-
-		$this->setCacheDir();
-
-		$start = Core::microtime();
-		$dataSource = $this->getDataSource();
-		$result = $dataSource->CacheExecute($secsToCache, $sql, $params !== false && !is_array($params) ? array($params) : $params);
-		if ($dataSource->errorNo()) {
-			// FIXME Handle errors more elegantly.
-			$this->handleError($dataSource, $sql);
-		}
-		return $result;
-	}
-
-	/**
-	 * Execute a SELECT SQL statement with LIMIT on the rows returned.
-	 * @param $sql string the SQL statement
-	 * @param $params array parameters for the SQL statement
-	 * @param $numRows int maximum number of rows to return in the result set
-	 * @param $offset int row offset in the result set
-	 * @return ADORecordSet
-	 */
-	function &retrieveLimit($sql, $params = false, $numRows = false, $offset = false, $callHooks = true) {
-		if ($callHooks === true) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::_getsession"
-			// (all lowercase).
-			$value = null;
-			if (HookRegistry::call(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$numRows, &$offset, &$value))) {
-				return $value;
-			}
-		}
-
-		$start = Core::microtime();
-		$dataSource = $this->getDataSource();
-		$result = $dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params);
-		if ($dataSource->errorNo()) {
-			$this->handleError($dataSource, $sql);
-		}
-		return $result;
+		return Capsule::cursor(Capsule::raw($sql), $params);
 	}
 
 	/**
@@ -172,8 +70,9 @@ class DAO {
 	 * @param $sql string the SQL statement
 	 * @param $params array parameters for the SQL statement
 	 * @param $dbResultRange DBResultRange object describing the desired range
+	 * @return Illuminate\Support\LazyCollection
 	 */
-	function &retrieveRange($sql, $params = false, $dbResultRange = null, $callHooks = true) {
+	function retrieveRange($sql, $params = [], $dbResultRange = null, $callHooks = true) {
 		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
@@ -185,33 +84,45 @@ class DAO {
 			}
 		}
 
-		if (isset($dbResultRange) && $dbResultRange->isValid()) {
-			$start = Core::microtime();
-			$dataSource = $this->getDataSource();
-			if (is_null($dbResultRange->getOffset())) {
-				$result = $dataSource->PageExecute($sql, $dbResultRange->getCount(), $dbResultRange->getPage(), $params);
-			} else {
-				$result = $dataSource->SelectLimit($sql, $dbResultRange->getCount(), $dbResultRange->getOffset(), $params);
-			}
-			if ($dataSource->errorNo()) {
-				$this->handleError($dataSource, $sql);
-			}
+		if ($dbResultRange && $dbResultRange->isValid()) {
+			$sql .= ' LIMIT ' . (int) $dbResultRange->getCount();
+			$offset = (int) $dbResultRange->getOffset();
+			$offset += max(0, $dbResultRange->getPage()-1) * (int) $dbResultRange->getCount();
+			$sql .= ' OFFSET ' . $offset;
 		}
-		else {
-			$result = $this->retrieve($sql, $params, false);
-		}
-		return $result;
+
+		return Capsule::cursor(Capsule::raw($sql), $params);
+	}
+
+	/**
+	 * Count the number of records in the supplied SQL statement (with optional bind parameters parameters)
+	 * @param $sql string SQL query to be counted
+	 * @param $params array Optional SQL query bind parameters
+	 * @return int
+	 */
+	public function countRecords($sql, $params = []) {
+		$result = $this->retrieve('SELECT COUNT(*) AS row_count FROM (' . $sql . ') AS count_subquery', $params);
+		return $result->current()->row_count;
+	}
+
+	/**
+	 * Concatenate SQL expressions into a single string.
+	 * @param ...$args SQL expressions (e.g. column names) to concatenate.
+	 * @return string
+	 */
+	public function concat(...$args) {
+		return 'CONCAT(' .  join(',', $args) . ')';
 	}
 
 	/**
 	 * Execute an INSERT, UPDATE, or DELETE SQL statement.
-	 * @param $sql the SQL statement the execute
-	 * @param $params an array of parameters for the SQL statement
+	 * @param $sql string the SQL statement the execute
+	 * @param $params array an array of parameters for the SQL statement
 	 * @param $callHooks boolean Whether or not to call hooks
 	 * @param $dieOnError boolean Whether or not to die if an error occurs
-	 * @return boolean
+	 * @return int Affected row count
 	 */
-	function update($sql, $params = false, $callHooks = true, $dieOnError = true) {
+	function update($sql, $params = [], $callHooks = true, $dieOnError = true) {
 		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
@@ -224,13 +135,7 @@ class DAO {
 			}
 		}
 
-		$start = Core::microtime();
-		$dataSource = $this->getDataSource();
-		$dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
-		if ($dieOnError && $dataSource->errorNo()) {
-			$this->handleError($dataSource, $sql);
-		}
-		return $dataSource->errorNo() == 0 ? true : false;
+		return Capsule::affectingStatement($sql, $params);
 	}
 
 	/**
@@ -241,29 +146,16 @@ class DAO {
 	 * @return int @see ADODB::Replace
 	 */
 	function replace($table, $arrFields, $keyCols) {
-		$dataSource = $this->getDataSource();
-		$arrFields = array_map(array($dataSource, 'qstr'), $arrFields);
-		return $dataSource->Replace($table, $arrFields, $keyCols, false);
+		$queryBuilder = new \Staudenmeir\LaravelUpsert\Query\Builder(Capsule::connection());
+		return $queryBuilder->from($table)->upsert($arrFields, $keyCols);
 	}
 
 	/**
 	 * Return the last ID inserted in an autonumbered field.
-	 * @param $table string table name
-	 * @param $id string the ID/key column in the table
 	 * @return int
 	 */
-	protected function _getInsertId($table = '', $id = '') {
-		$dataSource = $this->getDataSource();
-		return $dataSource->po_insert_id($table, $id);
-	}
-
-	/**
-	 * Return the number of affected rows by the last UPDATE or DELETE.
-	 * @return int (or false if not supported)
-	 */
-	function getAffectedRows() {
-		$dataSource = $this->getDataSource();
-		return $dataSource->Affected_Rows();
+	protected function _getInsertId() {
+		return Capsule::getPdo()->lastInsertId();
 	}
 
 	/**
@@ -287,8 +179,6 @@ class DAO {
 	 */
 	function flushCache() {
 		$this->setCacheDir();
-		$dataSource = $this->getDataSource();
-		$dataSource->CacheFlush();
 	}
 
 	/**
@@ -297,8 +187,9 @@ class DAO {
 	 * @return string
 	 */
 	function datetimeToDB($dt) {
-		$dataSource = $this->getDataSource();
-		return $dataSource->DBTimeStamp($dt);
+		if ($dt === null) return 'NULL';
+		if (!ctype_digit($dt)) $dt = strtotime($dt);
+		return '\'' . date('Y-m-d H:i:s', $dt) . '\'';
 	}
 
 	/**
@@ -307,8 +198,9 @@ class DAO {
 	 * @return string
 	 */
 	function dateToDB($d) {
-		$dataSource = $this->getDataSource();
-		return $dataSource->DBDate($d);
+		if ($d === null) return 'NULL';
+		if (!ctype_digit($d)) $d = strtotime($d);
+		return '\'' . date('Y-m-d', $d) . '\'';
 	}
 
 	/**
@@ -318,8 +210,7 @@ class DAO {
 	 */
 	function datetimeFromDB($dt) {
 		if ($dt === null) return null;
-		$dataSource = $this->getDataSource();
-		return $dataSource->UserTimeStamp($dt, 'Y-m-d H:i:s');
+		return date('Y-m-d H:i:s', strtotime($dt));
 	}
 	/**
 	 * Return date from DB as ISO date string.
@@ -328,8 +219,7 @@ class DAO {
 	 */
 	function dateFromDB($d) {
 		if ($d === null) return null;
-		$dataSource = $this->getDataSource();
-		return $dataSource->UserDate($d, 'Y-m-d');
+		return date('Y-m-d', strtotime($d));
 	}
 
 	/**
@@ -354,7 +244,13 @@ class DAO {
 				break;
 			case 'object':
 			case 'array':
-				$value = unserialize($value);
+				$decodedValue = json_decode($value, true);
+				// FIXME: pkp/pkp-lib#6250 Remove after 3.3.x upgrade code is removed (see also pkp/pkp-lib#5772)
+				if (!is_null($decodedValue)) {
+					$value = $decodedValue;
+				} else {
+					$value = unserialize($value);
+				}
 				break;
 			case 'date':
 				if ($value !== null) $value = strtotime($value);
@@ -406,7 +302,7 @@ class DAO {
 		switch ($type) {
 			case 'object':
 			case 'array':
-				$value = serialize($value);
+				$value = json_encode($value, JSON_UNESCAPED_UNICODE);
 				break;
 			case 'bool':
 			case 'boolean':
@@ -494,23 +390,23 @@ class DAO {
 		// Build a data structure that we can process efficiently.
 		$translated = $metadata = 1;
 		$settings = !$metadata;
-		$settingFields = array(
+		$settingFields = [
 			// Translated data
-			$translated => array(
+			$translated => [
 				$settings => $this->getLocaleFieldNames(),
 				$metadata => $dataObject->getLocaleMetadataFieldNames()
-			),
+			],
 			// Shared data
-			!$translated => array(
+			!$translated => [
 				$settings => $this->getAdditionalFieldNames(),
 				$metadata => $dataObject->getAdditionalMetadataFieldNames()
-			)
-		);
+			]
+		];
 
 		// Loop over all fields and update them in the settings table
 		$updateArray = $idArray;
 		$noLocale = 0;
-		$staleSettings = array();
+		$staleSettings = [];
 
 		foreach ($settingFields as $isTranslated => $fieldTypes) {
 			foreach ($fieldTypes as $isMetadata => $fieldNames) {
@@ -582,35 +478,22 @@ class DAO {
 	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject) {
 		if ($idFieldName !== null) {
 			$sql = "SELECT * FROM $tableName WHERE $idFieldName = ?";
-			$params = array($idFieldValue);
+			$params = [$idFieldValue];
 		} else {
 			$sql = "SELECT * FROM $tableName";
-			$params = false;
+			$params = [];
 		}
 		$result = $this->retrieve($sql, $params);
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
+		foreach ($result as $row) {
 			$dataObject->setData(
-				$row['setting_name'],
+				$row->setting_name,
 				$this->convertFromDB(
-					$row['setting_value'],
-					$row['setting_type']
+					$row->setting_value,
+					$row->setting_type
 				),
-				empty($row['locale'])?null:$row['locale']
+				empty($row->locale)?null:$row->locale
 			);
-			$result->MoveNext();
 		}
-		$result->Close();
-
-	}
-
-	/**
-	 * Get the driver for this connection.
-	 * @return string
-	 */
-	function getDriver() {
-		$conn = DBConnection::getInstance();
-		return $conn->getDriver();
 	}
 
 	/**
@@ -697,9 +580,5 @@ class DAO {
 			assert(false);
 			return null;
 		}
-	}
-
-	function handleError($dataSource, $sql) {
-		fatalError('DB Error: ' . $dataSource->errorMsg() . ' Query: ' . $sql);
 	}
 }

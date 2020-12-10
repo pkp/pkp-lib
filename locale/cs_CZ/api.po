@@ -1,0 +1,151 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-03 06:09+0000\n"
+"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs_CZ/"
+">\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Nemáte povolení editovat tuto publikaci."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Nemáte povoleno nahrávat soubory."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Soubor, který jste nahrály neodpovídá koncovce souboru. To se může stát, "
+"pokud byl soubor přejmenován na nekompatibilní typ, například změnou "
+"photo.png na photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Nahraný obrázek není platný."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Můžete nahrávat pouze soubory následujících typů: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Nejprve je třeba zrušit publikování této publikace, než ji budete moci "
+"smazat."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Status nejde změni přímo pomocí API. Místo toho použijte funkce /publish a "
+"/unpublish."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Tuto publikaci nejde editovat, protože již byla publikována."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Publikace, u které chcete zrušit publikování, nebyla publikována."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Publikace, kterou chcete publikovat již byla publikována."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Požadovaná šablona emailu nebyla nalezena."
+
+msgid "api.404.endpointNotFound"
+msgstr "Požadované URL nebylo rozpoznáno."
+
+msgid "api.404.resourceNotFound"
+msgstr "Požadovaný zdroj nebyl nalezen."
+
+msgid "api.403.unauthorized"
+msgstr "Nemáte oprávnění pro přístup k požadovanému zdroji."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parametr {$param} není podporován."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Slovník {$vocab} není podporován."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Lokalizace {$locale} není podporována."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Aktivní téma {$themePluginPath} není povoleno, je možné, že není vůbec "
+"nainstalováno."
+
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"Soubor nejde nahrát kvůli chybě konfigurace serveru. Kontaktujte, prosím, "
+"administrátora serveru."
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "Nelze nahrát soubory větší, než {$maxSize}."
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "Nelze nahrát jeden, či více souborů."
+
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "V požadavku nebyl zadán soubor k nahrání."
+
+msgid "api.submissions.unknownError"
+msgstr "Vznikla neočekávaná chyba. Obnovte, prosím, stránku a zkuste to znovu."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Požadovaný svazek, číslo či ročník nejsou platné."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "Váš požadavek nemůže být splněn protože chybí požadovaná informace."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Tento koncový bod není přístupný z kontextu. Musí se k němu přistupovat z "
+"jmenného prostoru pro všechny stránky."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Nemáte oprávnění smazat tento příspěvek."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Nemůžete smazat příspěvek, který není přiřazen v této souvislosti."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Můžete vidět pouze nepublikované příspěvky, u kterých vám byla přiřazena "
+"nějaká role."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Váš požadavek byl zamítnut. K tomu mohlo dojít z důvodu vypršení doby vašeho "
+"přihlášení. Obnovte, prosím, stránku a zkuste to znovu."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Váš požadavek nebyl platný. Směr řazení musí být  \"sestupně\", nebo \""
+"vzestupně\"."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Váš požadavek nebyl platný. Zadaný časový interval musí být \"dny\", nebo \""
+"měsíce\"."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Datum ukončení nemůže být později, než včera."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Počáteční datum nemůže být dřívější, než 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Počáteční datum nesmí být pozdější, než datum ukončení."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Datum musí být ve formátu RRRR-MM-DD."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Nebyla nalezena veřejná knihovna, nebo do ní nelze ukládat soubory. "
+"Kontaktujte, prosím, správce serveru, pokud chcete tento problém vyřešit."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Nemáte dostatek prostoru v uživatelské knihovně. Nahráváte soubor s "
+"velikostí {$fileUploadSize}kb a v knihovně vám zbývá {$dirSizeLeft}kb."

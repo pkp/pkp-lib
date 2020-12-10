@@ -1,0 +1,497 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-04-17 18:37+0000\n"
+"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
+"Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"ku_IQ/>\n"
+"Language: ku_IQ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.gossip"
+msgstr "تێبینییەکانی سەرنوسەر"
+
+msgid "user.interests"
+msgstr "پسپۆڕی بۆ هەڵسەنگاندن"
+
+msgid "user.givenName"
+msgstr "ناوی یەکەم"
+
+msgid "user.email"
+msgstr "ئیمەیڵ"
+
+msgid "user.editMyProfile"
+msgstr "گۆڕانکاری لە هەژماری کەسی"
+
+msgid "user.dateRegistered"
+msgstr "ڕێککەوتی تۆمارکردن"
+
+msgid "user.dateLastLogin"
+msgstr "دواهەمین داخلبون"
+
+msgid "user.changePassword"
+msgstr "گۆڕینی وشەی نهێنی"
+
+msgid "user.changeMyPassword"
+msgstr "وشەی نهێنییەکەم بگۆڕە"
+
+msgid "user.biography"
+msgstr "کورتەیەکی ژیانت (بۆ نمونە بەشەکەت و ناسناوی زانستیت و ئەرکەکەت)"
+
+msgid "user.authorization.submissionQuery"
+msgstr "تۆ ناتوانیت بەشداری لەم گفتوگۆیەدا بکەیت."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "تۆ ناتوانیت ئەم هەڵسەنگاندنە بکەیت چونکە ئەرکدار نەکراویت."
+
+msgid "user.authorization.pluginRequired"
+msgstr "گرێدان دایاری نەکراوە هەرچەندە داوا کراوە."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "ڕێڕەوی کار دیاری نەکراوە."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "لە ئێستادا تۆ دەستپێڕاگەیشتنی ئەم قۆناغەت بۆ ئەم ڕێڕەوی کارە نییە."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"هەژماری خاوەنی ڕۆڵی بەڕێوەبەر (بۆ نمونە سەرنوسەری بەرهەمهێنان) دەبێت بۆ ئەم "
+"قۆناغە ئەرکدار بکرێت پێش ئەوەی تۆ زیاتر بچیتە پێش."
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"تۆ دەبێت گروپێک بەکارهێنەری دروست دیاری بکەیت بۆ دەستپێڕاگەیشتن بەم کردارە."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"تۆ بۆ ئەم توێژینەوەیە بەم ڕۆڵە ئەرکدار نەکراویت، بۆیە ناتوانیت ئەم کردارە "
+"بکەیت."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "بەم ڕۆڵە، تۆ ناتوانیت ئەم کردارە ئەنجام بدەیت."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "تۆ ناتوانیت ئەم پەڕەیە بکەیتەوە. چونکە پەڕەکە سنوردار کراوە."
+
+msgid "user.authorization.privateOperation"
+msgstr "ئەوەی کە تۆ دەتەوێت دەستت پێی بگات شتێکی کەسییە یان بونی نییە."
+
+msgid "user.authorization.loginRequired"
+msgstr "دەبێت داخلی هەژمارەکەت ببیت."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"تۆ ناتوانیت ئەم کردارە لە دەرەوەی ژینگەی گونجاو بکەیت (ڕاگەیاندن، گۆڤار، "
+"کۆنفرانس...هتد)."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "پرۆسەی دڵنیابونەوە نەکراوە یان سەرکەوتو نەبووە."
+
+msgid "user.authorization.accessDenied"
+msgstr "دەستپێڕاگەیشتن ئاستەنگ کرا."
+
+msgid "user.affiliations"
+msgstr "میلاکەکان"
+
+msgid "user.affiliation.description"
+msgstr "(دەزگاکەت، بۆ نمونە ''زانکۆی کۆیە'')"
+
+msgid "user.affiliation"
+msgstr "میلاک"
+
+msgid "user.accountInformation"
+msgstr "زانیاریی هەژمارەکە"
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "وشەی نهێنی دەبێت لانیکەم  {$length} پیت بێت."
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"ناسنامەی ORCID iDیەکەی تۆ دیاریت کردووە نادروستە. تکایە لینکی تەواو بنوسە ("
+"بۆ نمونە: \"https://orcid.org/0000-0003-4513-6596\")."
+
+msgid "user.register.registerAs"
+msgstr "خۆت تۆمار بکە لە{$contextName} وەک..."
+
+msgid "user.privacyLink"
+msgstr ""
+"زانیارییەکانی تۆ بە گوێرەی <a href=\"{$privacyUrl}\" target=\"_blank\"> خەزن "
+"کراون. دەستەواژەی تایبەتێتی</a>."
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"پێش دروستکردنی کلیلی API، بەڕێوەبەری پەڕە دەبیت نهێنییەک دروست بکات بەم "
+"شێوەیە (\"api_key_secret\")."
+
+msgid "user.apiKey.generateWarning"
+msgstr "دروستکردنی کلیلی APIی نوێ هەمو کلیلە کۆنەکان هەڵ دەوەشێنێتەوە."
+
+msgid "user.apiKey.generate"
+msgstr "دروستکردنی کلیلێکی نوێی API"
+
+msgid "user.apiKeyEnabled"
+msgstr ""
+"ئەپڵیکەیشنی دەرەکی بە بەکارهێنانی کلیلی API  چالاک بکە بۆ دەستگەیشتن بەم "
+"ئەژمارە"
+
+msgid "user.apiKey"
+msgstr "کلیلی API"
+
+msgid "user.profile.public"
+msgstr "گشتی"
+
+msgid "user.profile.contact"
+msgstr "پەیوەندی"
+
+msgid "user.profile.identity"
+msgstr "ناسنامە"
+
+msgid "user.orcid"
+msgstr "ناسنامەی ORCID"
+
+msgid "user.workingLanguages"
+msgstr "زمانە کاراکان"
+
+msgid "user.username"
+msgstr "ناوی بەکارهێنەر"
+
+msgid "user.userHome"
+msgstr "پەڕەی سەرەکیی بەکارهێنەر"
+
+msgid "user.url"
+msgstr "لینکی پەڕەی سەرەکی"
+
+msgid "user.title"
+msgstr "ناونیشان"
+
+msgid "user.signature"
+msgstr "واژۆ"
+
+msgid "user.sendPassword.description"
+msgstr "ئیمەیڵی دڵنیاکردنەوەم بە ناوی بەکارهێنەر و ژمارەی نهێنییەوە بۆ بنێرە"
+
+msgid "user.sendPassword"
+msgstr "دڵنیاکردنەوە"
+
+msgid "user.roles"
+msgstr "ڕۆڵەکان"
+
+msgid "user.role.layoutEditors"
+msgstr "سەرنوسەرانی نەخشەساز"
+
+msgid "user.role.layoutEditor"
+msgstr "سەرنوسەری نەخشەساز"
+
+msgid "user.role.proofreaders"
+msgstr "هەڵسەنگێنەرانی زمانی"
+
+msgid "user.role.proofreader"
+msgstr "هەڵسەنگێنەری زمانی"
+
+msgid "user.role.copyeditors"
+msgstr "وردبینەکان"
+
+msgid "user.role.copyeditor"
+msgstr "وردبین"
+
+msgid "user.role.siteAdmins"
+msgstr "بەڕێوەبەرانی پەڕە"
+
+msgid "user.role.siteAdmin"
+msgstr "بەڕێوەبەری پەڕە"
+
+msgid "user.role.reviewers"
+msgstr "هەڵسەنگێنەران"
+
+msgid "user.role.reviewer"
+msgstr "هەڵسەنگێنەر"
+
+msgid "user.role.readers"
+msgstr "خوێنەران"
+
+msgid "user.role.reader"
+msgstr "خوێنەر"
+
+msgid "user.role.editors"
+msgstr "سەرنوسەران"
+
+msgid "user.role.editor"
+msgstr "سەرنوسەر"
+
+msgid "user.role.authors"
+msgstr "توێژەرەکان"
+
+msgid "user.role.author_s"
+msgstr "توێژەر/ توێژەرەکان"
+
+msgid "user.role.author"
+msgstr "توێژەر"
+
+msgid "user.role.assistant"
+msgstr "هاوکار"
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"تۆ بە سەرکەوتویی تۆمار کرایت. <a href=\"{$profileUrl}\"> کلیک لێرە بکە</a> "
+"بۆ تەواوکردنی پڕۆفایلی بەکارهێنەر."
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"ناوی بەکارهێنەر دەبێت تەنیا ئەمانەی تێدا بێت؛ پیتەکان، ژمارەکان، خەتی ژێرەوە "
+"و ناوەڕاست."
+
+msgid "user.register"
+msgstr "تۆمارکردن"
+
+msgid "user.register.form.usernameExists"
+msgstr ""
+"ئەم ناوی بەکارهێنەرەی تۆ دیاریت کردووە لە لایەن ئەژمارێکی کەسیی دیکەوە بەکار "
+"هاتووە."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "لانی کەم دەبێت ڕۆڵێک دیاری بکرێت."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"ناوی بەکارهێنەر دەبێت تەنیا بە پیتی سمۆڵ بنوسرێت و لەوانەیە پیت یان خەتی "
+"ژێرەوە یان ناوەڕاستیش بەکار بهێنیت، بەڵام دەبێت بە ئەلفبێ دەست پێ بکات."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "ئەو ئیمەیڵانەی نوسیوتن وەک یەکدی نین."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "وشە نهێنییەکانت وەک یەکدی نین."
+
+msgid "user.register.form.emailExists"
+msgstr ""
+"ئەم ئیمەیڵەی تۆ دیاریت کردووە لە لایەن ئەژمارێکی کەسیی دیکەوە بەکار هاتووە."
+
+msgid "user.register.form.emailConsent"
+msgstr "بەڵێ، من دەمەوێت لە ژمارەی نوێی گۆڤار و ڕاگەیاندنەکان ئاگادار بکرێمەوە."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"بەڵێ، من ڕازیم بەوەی کە داتاکانم بە گوێرەی  <a href=\"{$privacyUrl}\" target="
+"\"_blank\"> کۆ کراونەتەوە و پارێزراون دەستەواژەی تایبەتێتی</a>."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"ئیمەیڵەکەت لە خوارەوە بنوسە، ئیمەیڵێک بۆ ئیمەیڵەکەت دێت و ڕێنماییەکانی "
+"گۆڕینی وشەی نهێنی لەخۆ گرتووە."
+
+msgid "user.login.registerNewAccount"
+msgstr "تۆمارکردن"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "وشە نهێنییە نوێیەکە دوبارە بکەوە"
+
+msgid "user.profile.publicProfile"
+msgstr "پڕۆفایلی بەکارهێنەر"
+
+msgid "user.profile"
+msgstr "پڕۆفایل"
+
+msgid "user.profile.oldPassword"
+msgstr "وشەی نهێنیی ئێستا"
+
+msgid "user.profile.newPassword"
+msgstr "وشەی نهێنیی نوێ"
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "بۆشاییەکە بە چۆڵی بەجێ بهێڵە بۆ مانەوەی ژمارەی نهێنیی ئێستات وەک خۆی."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "تۆ دەبێت بە مەرجەکانی تایبەتێتی ڕازی ببیت."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "ناوی بەکارهێنەر داوا کراوە."
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "گروپی بەکارهێنەر داوا کراوە."
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"ئەو لینکە دروست نییە. تکایە دو کلیک لەسەر لینکەکە بکە و دوبارە هەوڵ بدەوە. ("
+"لەوانەیە ئەم پێشگرەت بۆ لینکەکە نەنوسیبێت http://)"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "ئاگادارکردنەوەی دەرچونی ژمارەی گۆڤار"
+
+msgid "user.profile.form.profileImage"
+msgstr "وێنەی پڕۆفایل"
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "وشە نهێنییە نوێیەکەت لەگەڵ کۆنەکەت هەمان شتە."
+
+msgid "user.profile.form.passwordRequired"
+msgstr "وشەی نهێنی داوا کراوە."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "ئاگادارکردنەوەی دەرچونی ژمارەی کراوەی گۆڤار"
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "ئەو وشە نهێنییەی کە تۆ نوسیوتە هەڵەیە."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "تۆ دەبێت وشە نهێنییە نوێیەکەت بنوسیت."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "ئیمەیڵێک داوا کراوە."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"ناسناوت بۆ زمانێک نوسیوە و ناوی یەکەمت نەنوسیوە. تکایە ناوی یەکەمیشت بەم "
+"زمانە بنوسە."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "ناوی یەکەم داوا کراوە."
+
+msgid "user.profile.form.emailRequired"
+msgstr "ئیمەیڵێکی دروست داوا کراوە."
+
+msgid "user.profile.form.countryRequired"
+msgstr "وڵاتێک داوا کراوە."
+
+msgid "user.profile.editProfile"
+msgstr "گۆڕانکاری لە پڕۆفایل"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"تکایە وشەی نهێنیی ئێستات و وشەی نهێنیی نوێ لە خوارەوە بنوسە بۆ گۆڕینی وشەی "
+"نهێنیی ئەژمارەکەت."
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"ئایا دەتەوێت چۆن بانگ بکرێیت؟ پێشگری ناو، ناوی باوک و پاشگری ناو لێرە داخل "
+"دەکرێن."
+
+msgid "user.preferredPublicName"
+msgstr "ناوی گشتیی خوازراو"
+
+msgid "user.phone"
+msgstr "تەلەفۆن"
+
+msgid "user.repeatPassword"
+msgstr "وشەی نهێنییەکەت دوبارە بنوسە"
+
+msgid "user.password"
+msgstr "وشەی نهێنی"
+
+msgid "user.name"
+msgstr "ناو"
+
+msgid "user.myAccount"
+msgstr "هەژمارەکەم"
+
+msgid "user.mailingAddress"
+msgstr "ناونیشانی پۆستی"
+
+msgid "user.hello"
+msgstr "سڵاو! "
+
+msgid "user.logOutAs"
+msgstr "بچۆ دەر وەک"
+
+msgid "user.logOut"
+msgstr "چونە دەر"
+
+msgid "user.login.resetPassword"
+msgstr "گۆڕینی وشەی نهێنی"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "لەناو هەژمارەکەم بمهێڵەوە"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "تۆمارکردنەکە لە چاوەڕوانیی دڵنیاکردنەوە دایە"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "بەردەوامی"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "توێژینەوەیەکی نوێ پێشکەش بکە"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "بینینی توێژینەوە پێشکەشکراوەکان"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "سوپاس بۆ خۆتۆمارکردنت! ئایا دەتەوێت دواتر چی بکەیت؟"
+
+msgid "user.login.registrationComplete"
+msgstr "تۆمار کرا"
+
+msgid "user.login.registeredEmail"
+msgstr "ئیمەیڵی بەکارهێنەری تۆمارکراو"
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"وشەیەکی نهێنیی نوێ بۆ ئیمەیڵەکەت نێردرا. تۆ ئێستا دەتوانیت داخلی پەڕەکە ببیت "
+"بە بەکارهێنانی وشە نهێنییە نوێیەکە."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "هیچ ئەژمارێکی تایبەت بەم ئیمەیڵە تۆمار نەکراوە."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"ببورە، ئەو لینکەی کە تۆ کلیکت لەسەر کردووە بەسەر چووە یان نادروستە. تکایە "
+"دیسان هەوڵی گۆڕینی وشەی نهێنییەکەت بدەوە."
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"ئیمەیڵی دڵنیاکردنەوە بۆ ئیمەیڵەکەت نێردرا. تکایە بە گوێرەی ڕێنماییەکان کە بۆ "
+"ئیمەیڵەکەت هاتووە وشە نهێنییەکەت بگۆڕە."
+
+msgid "user.login"
+msgstr "داخل بون"
+
+msgid "user.login.loginError"
+msgstr "ناوی بەکارهێنەر یان وشەی نهێنییەکەت هەڵەیە. تکایە دوبارە هەوڵ بدەوە."
+
+msgid "user.login.forgotPassword"
+msgstr "ئایا ژمارە نهێنییەکەتت لە بیر کردووە؟"
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"تۆ دەبێت وشەیەکی نهێنیی نوێ هەڵ ببژێریت پێش ئەوەی داخلی ئەم پەڕەیە ببیت. <br "
+"/><br /> تکایە ناوی بەکارهێنەر و وشەی نهێنیی ئێستات و وشە نهێنییە نوێیەکەت "
+"داخل بکە."
+
+msgid "user.login.activated"
+msgstr ""
+"سوپاس بۆ چالاککردنی هەژمارەکەت. تۆ دەتوانیت بە بەکارهێنانی ئەو زانیارییانەی "
+"کە لە کاتی دروستکردنی هەژمارەکەت خستوتە بەر دەست، داخلی هەژمارەکەت ببیت."
+
+msgid "user.login.activate"
+msgstr "چالاککردنی هەژمارەکە"
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"ئێمە ئیمەیڵی دڵنیاکردنەوەمان بۆ ناردویت بەم ئیمەیڵەدا {$email}.تکایە بە "
+"گوێرەی ڕێنماییەکان هەژمارە نوێیەکەت چالاک بکە. ئەگەر ئیمەیڵە هاتووەکەت "
+"نەبینی، تکایە فۆڵدەری سپامی ئیمەیڵەکەت بگەڕێ."
+
+msgid "user.login.accountDisabled"
+msgstr ""
+"هەژمارەکەت ناچالاک کراوە. تکایە بۆ زانیاریی زیاتر پەیوەندی بە بەڕێوەبەرەوە "
+"بکە."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "هەژمارەکەت لەبەر ئەم هۆکارە ناچالاک کراوە: {$reason}"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"ئەم جۆرە وێنەیە پەسەند نییە یان قەبارەکەی زۆر گەورەیە. جۆرە پەسەندەکان "
+"ئەمانەن؛ gif، .jpg، or .png، هەروەها قەبارەی وێنەکە نابێت ١٥٠x١٥٠ تێپەڕ بکات."
+
+msgid "user.familyName"
+msgstr "ناسناو (ناوی باپیر، ئەگەر ناسناوت نییە)"
+
+msgid "user.group"
+msgstr "گروپی بەکارهێنەر"
+
+msgid "user.gossip.description"
+msgstr ""
+"تێبینییەکانی دەربارەی ئەم هەڵسەنگاندنە کە تۆ دەتەوێت پیشانی بەڕێوەبەر و "
+"سەرنوسەرەکانی دیکەی بدەیت. تێبینییەکان بۆ ئەرکەکانی داهاتو بەردەست دەبن."

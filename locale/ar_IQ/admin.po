@@ -1,0 +1,313 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:37+00:00\n"
+"Language: \n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "اسم الإعداد"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "قيمة الإعداد"
+
+msgid "admin.adminFunctions"
+msgstr "الوظائف الإدارية"
+
+msgid "admin.auth.confirmDelete"
+msgstr "هل أنت متأكد من رغبتك في حذف مصدر التوثيق هذا نهائياً؟?"
+
+msgid "admin.auth.create"
+msgstr "إنشاء مصدر توثيق"
+
+msgid "admin.auth.noneCreated"
+msgstr "لم يتم تعريف أي مصادر توثيق بعد."
+
+msgid "admin.authSources"
+msgstr "مصادر التوثيق"
+
+msgid "admin.clearDataCache"
+msgstr "إزالة البيانات المخبأة"
+
+msgid "admin.clearTemplateCache"
+msgstr "إزالة القوالب المخبأة"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "ملف التعريف الخاص بك تم تحديثه بنجاح. لطفاً، لاحظ أنه إن لم يعد موقعك عاملاً بالشكل الصحيح، فقد تضطر إلى إجراء التصحيح على ملف التعريف يدوياً عبر التعديل المباشر على الملف<tt>config.inc.php</tt>."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "هل أنت متأكد من رغبتك في إزالة الملفات المخبأة الخاصة بالقوالب المجمَّعة؟"
+
+msgid "admin.confirmExpireSessions"
+msgstr "هل أنت متأكد من رغبتك في إنهاء صلاحية جلسات التشغيل لجميع المستخدمين؟ إذ أن جميع المستخدمين الداخلين إلى الموقع سيُجبرون على الدخول إليه مجدداً (بضمنهم أنت)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "محتويات ملف التعريف"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "هل أنت متأكد من رغبتك في الحذف النهائي لـ \"{$contextName}\" شاملاً ذلك كل المحتوى ذي الصلة؟"
+
+msgid "admin.currentVersion"
+msgstr "النسخة الحالية"
+
+msgid "admin.dateInstalled"
+msgstr "تأريخ التنصيب"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "إن محتويات ملفك التعريفي المحدث معروضة أدناه. لتطبيق التعديلات في الإعدادات، عليك بفتح الملف<tt>config.inc.php</tt> مستعملاً برنامج تحرير نصوص مناسب وتبديل محتوياته بمحتويات مربع النص أدناه."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "إعرض الإعدادات الجديدة"
+
+msgid "admin.expireSessions"
+msgstr "إنهاء صلاحية جلسات التشغيل للمستخدمين"
+
+msgid "admin.languages.cantDisable"
+msgstr "هذه اللغة هي اللغة الأولية للموقع. لا يمكنك تعطيلها ما لم تختر لغة أولية أخرى."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr "هل أنت متأكد من رغبتك في تغيير اللغة الأساسية في الموقع؟ أسماء المستخدمين المطلوبة إلزاماً بلغة الموقع الأساسية سيتم نسخها من اللغة الأساسية الحالية حيثما كانت مفقودة."
+
+msgid "admin.languages.confirmReload"
+msgstr "هل أنت متأكد من رغبتك في إعادة تحميل هذه اللغة؟ هذا من شأنه حذف أي بيانات تخصيصية للغة مثل قوالب المراسلات الالكترونية المخصصة."
+
+msgid "admin.languages.installedLocales"
+msgstr "اللغات المنصبة"
+
+msgid "admin.languages.installLanguages"
+msgstr "إدارة اللغات"
+
+msgid "admin.languages.availableLocales"
+msgstr "اللغات المتوفرة"
+
+msgid "admin.languages.installLocale"
+msgstr "تنصيب لغة"
+
+msgid "admin.languages.installLocales"
+msgstr "تنصيب"
+
+msgid "admin.languages.installNewLocales"
+msgstr "تنصيب لغات أخرى"
+
+msgid "admin.languages.languageSettings"
+msgstr "إعدادات اللغة"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "لا يتوفر المزيد من اللغات لغرض التنصيب."
+
+msgid "admin.languages.reload"
+msgstr "إعادة تحميل اللغة"
+
+msgid "admin.languages.uninstall"
+msgstr "إلغاء تنصيب اللغة"
+
+msgid "admin.phpInfo"
+msgstr "معلومات PHP الإضافية"
+
+msgid "admin.scheduledTask"
+msgstr "مهمة مجدولة"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "بدأت المهمة."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "توقفت المهمة."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "المهمة لم تقدم سجل عمل لها."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "تنصيبك الحالي من نظام المجلات المفتوحة يقوم تلقائياً بتنفيذ هذه المهمة وإنهائها، وبإمكانك الحصول على ملف توثيق المهام من هنا: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "هل أنت متأكد من رغبتك في حذف بيانات توثيق المهام المجدولة جميعاً؟"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "إزالة بيانات توثيق المهام المجدولة"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "نشر طلبات التقديم المجدولة للنشر"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "تذكير التحكيم"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "تذكير انتهاء صلاحية الاشتراك"
+
+msgid "admin.server.apacheVersion"
+msgstr "رقم نسخة Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "مشغل قاعدة البيانات"
+
+msgid "admin.server.dbVersion"
+msgstr "رقم نسخة ملقم قاعدة البيانات"
+
+msgid "admin.serverInformation"
+msgstr "معلومات الملقم"
+
+msgid "admin.server.phpVersion"
+msgstr "رقم نسخة PHP"
+
+msgid "admin.server.platform"
+msgstr "منصة نظام التشغيل"
+
+msgid "admin.settings"
+msgstr "الإعدادات"
+
+msgid "admin.settings.about"
+msgstr "عن الموقع"
+
+msgid "admin.settings.contactEmail"
+msgstr "البريد الالكتروني لعنوان الاتصال الأساسي"
+
+msgid "admin.settings.contactName"
+msgstr "اسم عنوان الاتصال الأساسي"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tإن نظامك مهيأ لتسجيل أكثر من مقياس استعمال واحد. إحصائيات الاستعمال سيتم عرضها في عدة سياقات.\n"
+"\t\tهناك حالات لا بد فيها من استعمال إحصائية واحدة، مثلاً: عرض قائمة مرتبة بأكثر طلبات النشر استعمالاً\n"
+"\t\tأو عند تقييم نتائج البحث في الموقع. لطفاً، عليك اختيار أحد هذه المقاييس ليكون بمثابة المقياس الافتراضي.\n"
+"\t"
+
+msgid "admin.settings.introduction"
+msgstr "المقدمة"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "أقل طول لكلمة المرور"
+
+msgid "admin.settings.siteLanguage"
+msgstr "لغة الموقع"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "صيغة ملف أنماط الموقع غير صحيحة. الصيغة المقبولة هي .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "ملف أنماط الموقع"
+
+msgid "admin.settings.siteLogo"
+msgstr "شعار الموقع"
+
+msgid "admin.settings.siteTitle"
+msgstr "عنوان الموقع"
+
+msgid "admin.settings.siteTheme"
+msgstr "نمط الموقع"
+
+msgid "admin.siteAdmin"
+msgstr "إدارة الموقع"
+
+msgid "admin.siteManagement"
+msgstr "إدارة الموقع"
+
+msgid "admin.siteSettings"
+msgstr "إعدادات الموقع"
+
+msgid "admin.siteSetup"
+msgstr "تهيئة الموقع"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "إن ملف الإعدادات <tt>config.inc.php</tt> غير موجود، أو تتعذر قراءته، أو غير صحيح."
+
+msgid "admin.systemInformation"
+msgstr "معلومات النظام"
+
+msgid "admin.versionBuild"
+msgstr "بناء"
+
+msgid "admin.version.checkForUpdates"
+msgstr "التحقق من وجود تحديثات"
+
+msgid "admin.version.downloadPackage"
+msgstr "التنزيل"
+
+msgid "admin.version.downloadPatch"
+msgstr "حزمة التنزيل"
+
+msgid "admin.versionHistory"
+msgstr "تأريخ النسخ"
+
+msgid "admin.version.latest"
+msgstr "النسخة الأخيرة"
+
+msgid "admin.versionMajor"
+msgstr "الرئيسي"
+
+msgid "admin.versionMinor"
+msgstr "الفرعي"
+
+msgid "admin.version.moreInfo"
+msgstr "مزيد من المعلومات"
+
+msgid "admin.versionRevision"
+msgstr "المراجعة"
+
+msgid "admin.version.updateAvailable"
+msgstr "تتوفر نسخة محدثة"
+
+msgid "admin.version.upToDate"
+msgstr "إن نظامك مواكب لأحدث نسخة"
+
+msgid "admin.version"
+msgstr "النسخة"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "المسار الأساسي {$path} ينبغي أن يكون ضمن حافظة الملفات العمومية."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "حافظة الملفات {$path} ليست مساراً صحيحاً أو تتعذر قراءتها."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "الملف {$filename} تعذر نقله من {$currentFilePath} إلى {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "الملف {$filename} قد تمت معالجته وحفظه."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "محمِّل الملفات"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"\t\tإنسخ ملفات سجل التوثيق السابقة للملقم apache مع قيامك بتصفية الإدخالات المتعلقة بهذا التنصيب،\n"
+"\t\tوضعها في حافظة الملفات الحالية ضمن موضع الإضافة UsageStatsPlugin. هذا يجب أن يقوم به مستخدم يمكل صلاحيات كافية تسمح له بقراءة هذا النوع من الملفات.\n"
+"\n"
+"\t\tهذه الأداة ستقوم بمجرد نسخ الملفات التي لم يسبق لها أن تكون ضمن حوافظة ملفات الإضافة usageStats وهي: (stage, processing, archive, reject).\n"
+"\n"
+"\t\tUsage: {$scriptName} path/to/apache/log/file.log\n"
+"\t\tUsage (processing all files inside a directory): {$scriptName} path/to/apache/directory\n"
+"\t"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "خطأ: تعذر إنشاء حافظة ملفات مؤقتة بالمسار {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "خطأ: إن الملف {$filePath} لا وجود له أو لا يمكن الوصول إليه."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "خطأ: تعذر نسخ الملف من المسار {$filePath} إلى المسار {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "خطأ: تعذر حذف الملف {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "تحذير: إن الملف {$filePath} موجود مسبقاً ضمن حافظة ملفات إحصائيات الاستعمال."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "نجحت العملية: {$filePath} إلى {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "إن تنفيذ البرنامج عند المسار \"{$utilPath}\" أدى إلى الخطأ الآتي: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "خطأ: يتعذر تنفيذ \"{$utilPath}\". تحقق من إعدادات {$utilVar} في ملف التهيئة config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "ليست هناك لغات متاحة للتنزيل من الموقع."

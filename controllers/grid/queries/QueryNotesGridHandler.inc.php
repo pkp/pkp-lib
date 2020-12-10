@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/queries/QueryNotesGridHandler.inc.php
  *
- * Copyright (c) 2016-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2016-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNotesGridHandler
  * @ingroup controllers_grid_query
@@ -211,7 +211,7 @@ class QueryNotesGridHandler extends GridHandler {
 	 */
 	function deleteNote($args, $request) {
 		$query = $this->getQuery();
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$note = $noteDao->getById($request->getUserVar('noteId'));
 		$user = $request->getUser();
 

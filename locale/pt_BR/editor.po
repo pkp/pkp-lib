@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
+"PO-Revision-Date: 2020-11-05 07:22+0000\n"
+"Last-Translator: Luiz Borges <luizbgomide@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/editor/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2019-09-30T11:54:13-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.submissionLibrary"
 msgstr "Biblioteca da Submissão"
@@ -33,7 +36,7 @@ msgid "editor.submission.selectFiles"
 msgstr "Selecionar Arquivos"
 
 msgid "editor.submission.revisions"
-msgstr "Avaliações"
+msgstr "Revisões"
 
 msgid "editor.submission.addReviewer"
 msgstr "Adicionar Avaliador"
@@ -42,7 +45,7 @@ msgid "editor.submission.findAndSelectReviewer"
 msgstr "Localizar um Avaliador"
 
 msgid "editor.submission.fileList.includeAllStages"
-msgstr "Mostrar arquivos de todos os estágios de trabalho."
+msgstr "Mostrar arquivos de todos os estágios do fluxo editorial."
 
 msgid "editor.submission.backToSearch"
 msgstr "Voltar a Busca"
@@ -65,10 +68,12 @@ msgstr "Não enviar email ao autor"
 msgid "editor.submissionReview.open"
 msgstr "Abrir"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Cega"
 
-msgid "editor.submissionReview.doubleBlind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Duplo-cega"
 
 msgid "editor.submissionReview.restrictFiles"
@@ -177,7 +182,10 @@ msgid "editor.submission.newRound"
 msgstr "Nova Rodada de Avaliação"
 
 msgid "editor.submission.newRoundDescription"
-msgstr "You are about to create a new review round for this submission.  Files that have not been used in other review rounds are listed below.  By default, the reviewers from the previous review round have been selected to participate in this new review round."
+msgstr ""
+"Você está prestes a criar uma nova rodada de avaliação para esta submissão. "
+"Os arquivos que não foram usados em outras rodadas de avaliação estão "
+"listados abaixo."
 
 msgid "editor.article.reviewForms"
 msgstr "Formulários de Avaliação"
@@ -201,7 +209,7 @@ msgid "editor.submission.review.reviewersDescription"
 msgstr "Use <em>+Adicionar Avaliador</em> para convidar avaliadores para revisar os arquivos da submissão. O ícone do bloco de notas indica que uma avaliação foi submetida, que depois é marcada como <em>Reconhecida</em> após ser consultada. Quando avaliações estiverem fora do prazo, clique no ícone do envelope vermelho para notificar os avaliadores."
 
 msgid "editor.submission.review.currentFiles"
-msgstr "Arquivos para avaiação na rodada {$round}"
+msgstr "Arquivos para avaliação na rodada {$round}"
 
 msgid "editor.review.reviewDueDate"
 msgstr "Data limite para avaliação"
@@ -261,7 +269,7 @@ msgid "editor.review"
 msgstr "Avaliação"
 
 msgid "editor.submission.production.productionReadyFiles"
-msgstr "Arquivos prontos para o Leiaute"
+msgstr "Arquivos prontos para Editoração"
 
 msgid "editor.submissionReview.recordDecision"
 msgstr "Gravar decisão editorial"
@@ -333,13 +341,7 @@ msgid "editor.submission.schedulePublication"
 msgstr "Agendar para Publicação"
 
 msgid "editor.review.reviewsAdded"
-msgstr "Sem avaliações por pares para importar"
-
-msgid "reviewer.list.count"
-msgstr "{$count} avaliadores"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} de {$total} avaliadores"
+msgstr "Avaliações incluídas no corpo da mensagem."
 
 msgid "reviewer.list.filterRating"
 msgstr "Classificação mínima"
@@ -377,6 +379,7 @@ msgstr "Nunca designado"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Esse avaliador já foi designado para avaliar essa submissão."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Esse avaliador está bloqueado porque lhe foi designado um papel que o permite ver a identidade do autor. A avaliação cega não poderá ser garantida. Gostaria de desbloquear esse avaliador mesmo assim?"
 
@@ -388,3 +391,95 @@ msgstr "Áreas de atuação"
 
 msgid "reviewer.list.biography"
 msgstr "Biografia"
+
+msgid "reviewer.list.empty"
+msgstr "Não foram encontrados avaliadores"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Houve um erro ao restituir o avaliador. Por favor tente novamente."
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Restituir Avaliador"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Solicitações de avaliação cancelada"
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Não criar uma discussão de avaliação."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Criar uma discussão de avaliação para esta recomendação."
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Não enviar e-mail aos editores."
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Notificar Editores"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Registrar Recomendação Editorial"
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Sem avaliação"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Avalie a qualidade da avaliação fornecida. Esta avaliação não é "
+"compartilhada com o avaliador."
+
+msgid "editor.review.reviewerThanked"
+msgstr "Avaliador Recebeu Agradecimentos"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "O editor cancelou esta solicitação de avaliação."
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "O avaliador recusou esta solicitação de avaliação."
+
+msgid "editor.review.requestCancelled"
+msgstr "Solicitação Cancelada"
+
+msgid "editor.review.requestDeclined"
+msgstr "Solicitação Recusada"
+
+msgid "editor.review.newReviewRound"
+msgstr "Exigir Nova Rodada de Avaliação"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Avaliador Anônimo"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Enviar uma notificação por e-mail para o(s) editor(es): {$editorNames}"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Enviar uma notificação por e-mail ao(s) autor(es): {$authorName}"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Cancelar Avaliador"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Alterar decisão"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Submissão aceita para avaliação."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Enviado para editoração."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Enviada para uma nova rodada de avaliações."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Submissão publicada."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Submissão aceita."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Submissão recusada."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Decisão registrada"
+
+msgid "editor.activityLog"
+msgstr "Histórico de Atividades"

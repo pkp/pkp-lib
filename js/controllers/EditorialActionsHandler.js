@@ -3,7 +3,7 @@
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorialActionsHandler
  * @ingroup js_controllers
@@ -23,7 +23,8 @@
 	 */
 	$.pkp.controllers.EditorialActionsHandler = function($element, options) {
 		this.parent($element, options);
-		$element.find('.pkp_workflow_change_decision').click(this.callbackWrapper(this.showActions_));
+		$element.find('.pkp_workflow_change_decision')
+				.click(this.callbackWrapper(this.showActions_));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.EditorialActionsHandler, $.pkp.classes.Handler);
@@ -45,5 +46,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

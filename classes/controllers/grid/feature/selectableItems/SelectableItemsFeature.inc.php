@@ -3,9 +3,9 @@
 /**
  * @file classes/controllers/grid/feature/selectableItems/SelectableItemsFeature.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SelectableItemsFeature
  * @ingroup controllers_grid_feature_selectableItems
@@ -50,9 +50,9 @@ class SelectableItemsFeature extends GridFeature {
 
 		if (is_a($grid, 'CategoryGridHandler')) {
 			$categoryId = $grid->getCurrentCategoryId();
-			$row->addFlag('selected', $grid->isDataElementInCategorySelected($categoryId, $row->getData()));
+			$row->addFlag('selected', (bool) $grid->isDataElementInCategorySelected($categoryId, $row->getData()));
 		} else {
-			$row->addFlag('selected', $grid->isDataElementSelected($row->getData()));
+			$row->addFlag('selected', (bool) $grid->isDataElementSelected($row->getData()));
 		}
 	}
 }

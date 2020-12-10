@@ -1,9 +1,9 @@
 /**
  * @file js/controllers/TabHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TabHandler
  * @ingroup js_controllers
@@ -130,17 +130,20 @@
 		var unsavedForm = false;
 		this.$currentTab_.find('form').each(function(index) {
 
-			var handler = $.pkp.classes.Handler.getHandler($('#' + $(this).attr('id')));
-			if (handler.formChangesTracked) {
-				unsavedForm = true;
-				return false; // found an unsaved form, no need to continue with each().
+			if ($.pkp.classes.Handler.hasHandler($('#' + $(this).attr('id')))) {
+				var handler = $.pkp.classes.Handler.getHandler(
+						$('#' + $(this).attr('id')));
+				if (handler.formChangesTracked) {
+					unsavedForm = true;
+					return false; // found an unsaved form, no need to continue with each().
+				}
 			}
 		});
 
 		this.$currentTab_.find('.hasDatepicker').datepicker('hide');
 
 		if (unsavedForm) {
-			if (!confirm($.pkp.locale.form_dataHasChanged)) {
+			if (!confirm(pkp.localeKeys['form.dataHasChanged'])) {
 				return false;
 			} else {
 				this.trigger('unregisterAllForms');
@@ -314,7 +317,7 @@
 						.attr('href', jsonContent.url),
 				$closeSpanElement = $('<a/>')
 						.addClass('close')
-						.text($.pkp.locale.common_close)
+						.text(pkp.localeKeys['common.close'])
 						.attr('href', '#'),
 				$liElement = $('<li/>')
 						.append($anchorElement)
@@ -332,7 +335,7 @@
 				var handler = $.pkp.classes.Handler.getHandler($(this));
 				if (handler.formChangesTracked) {
 					// Confirm before proceeding
-					if (!confirm($.pkp.locale.form_dataHasChanged)) {
+					if (!confirm(pkp.localeKeys['form.dataHasChanged'])) {
 						unsavedForm = true;
 						return false;
 					}
@@ -390,5 +393,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

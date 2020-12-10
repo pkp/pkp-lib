@@ -3,9 +3,9 @@
 /**
  * @file tests/classes/filter/FilterGroupDAOTest.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FilterGroupDAOTest
  * @ingroup tests_classes_filter
@@ -39,7 +39,7 @@ class FilterGroupDAOTest extends DatabaseTestCase {
 		self::assertTrue($filterGroupId > 0);
 
 		// Retrieve filter group instance by id.
-		$filterGroupById =& $filterGroupDao->getObjectById($filterGroupId);
+		$filterGroupById = $filterGroupDao->getObjectById($filterGroupId);
 		self::assertEquals($testFilterGroup, $filterGroupById);
 
 		// Update filter group instance.
@@ -50,11 +50,11 @@ class FilterGroupDAOTest extends DatabaseTestCase {
 		$testFilterGroup->setOutputType('primitive::string');
 
 		$filterGroupDao->updateObject($testFilterGroup);
-		$filterGroupAfterUpdate =& $filterGroupDao->getObject($testFilterGroup);
+		$filterGroupAfterUpdate = $filterGroupDao->getObject($testFilterGroup);
 		self::assertEquals($testFilterGroup, $filterGroupAfterUpdate);
 
 		// Retrieve filter group instance by symbolic name.
-		$filterGroupBySymbolic =& $filterGroupDao->getObjectBySymbolic('some-other-symbol');
+		$filterGroupBySymbolic = $filterGroupDao->getObjectBySymbolic('some-other-symbol');
 		self::assertEquals($testFilterGroup, $filterGroupAfterUpdate);
 
 		// Delete filter group instance.

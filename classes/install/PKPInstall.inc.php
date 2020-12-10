@@ -9,9 +9,9 @@
 /**
  * @file classes/install/PKPInstall.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Install
  * @ingroup install
@@ -27,6 +27,8 @@
 
 import('lib.pkp.classes.install.Installer');
 import('classes.core.Services');
+
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 class PKPInstall extends Installer {
 
@@ -66,25 +68,31 @@ class PKPInstall extends Installer {
 			array_push($this->installedLocales, $this->locale);
 		}
 
-		// Connect to database
-		$conn = new DBConnection(
-			$this->getParam('databaseDriver'),
-			$this->getParam('databaseHost'),
-			$this->getParam('databaseUsername'),
-			$this->getParam('databasePassword'),
-			$this->getParam('createDatabase') ? null : $this->getParam('databaseName'),
-			false,
-			$this->getParam('connectionCharset') == '' ? false : $this->getParam('connectionCharset')
-		);
-
-		$this->dbconn =& $conn->getDBConn();
-
-		if (!$conn->isConnected()) {
-			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-			return false;
+		// Map valid config options to Illuminate database drivers
+		$driver = strtolower($this->getParam('databaseDriver'));
+		$connectionCharset = $this->getParam('connectionCharset');
+		if (substr($driver, 0, 8) === 'postgres') {
+			$driver = 'pgsql';
+		} else {
+			$driver = 'mysql';
 		}
 
-		DBConnection::getInstance($conn);
+		$capsule = new Capsule;
+		try {
+			$capsule->addConnection([
+				'driver'    => $driver,
+				'host'      => $this->getParam('databaseHost'),
+				'database'  => $this->getParam('databaseName'),
+				'username'  => $this->getParam('databaseUsername'),
+				'password'  => $this->getParam('databasePassword'),
+				'charset'   => $connectionCharset == 'latin1'?'latin1':'utf8',
+				'collation' => 'utf8_general_ci',
+			]);
+			$capsule->setAsGlobal();
+		} catch (Exception $e) {
+			$this->setError(INSTALLER_ERROR_DB, $e->getMessage());
+			return false;
+		}
 
 		return parent::preInstall();
 	}
@@ -155,50 +163,6 @@ class PKPInstall extends Installer {
 	}
 
 	/**
-	 * Create a new database if required.
-	 * @return boolean
-	 */
-	function createDatabase() {
-		if (!$this->getParam('createDatabase')) {
-			return true;
-		}
-
-		// Get database creation sql
-		$dbdict = NewDataDictionary($this->dbconn);
-
-		list($sql) = $dbdict->CreateDatabase($this->getParam('databaseName'));
-		unset($dbdict);
-
-		if (!$this->executeSQL($sql)) {
-			return false;
-		}
-
-		// Re-connect to the created database
-		$this->dbconn->disconnect();
-
-		$conn = new DBConnection(
-			$this->getParam('databaseDriver'),
-			$this->getParam('databaseHost'),
-			$this->getParam('databaseUsername'),
-			$this->getParam('databasePassword'),
-			$this->getParam('databaseName'),
-			true,
-			$this->getParam('connectionCharset') == '' ? false : $this->getParam('connectionCharset')
-		);
-
-		DBConnection::getInstance($conn);
-
-		$this->dbconn =& $conn->getDBConn();
-
-		if (!$conn->isConnected()) {
-			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-			return false;
-		}
-
-		return true;
-	}
-
-	/**
 	 * Write the configuration file.
 	 * @return boolean
 	 */
@@ -241,7 +205,7 @@ class PKPInstall extends Installer {
 		$siteLocale = $this->getParam('locale');
 
 		// Add initial site administrator user
-		$userDao = DAORegistry::getDAO('UserDAO', $this->dbconn);
+		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->newDataObject();
 		$user->setUsername($this->getParam('adminUsername'));
 		$user->setPassword(Validation::encryptCredentials($this->getParam('adminUsername'), $this->getParam('adminPassword'), $this->getParam('encryption')));
@@ -249,14 +213,11 @@ class PKPInstall extends Installer {
 		$user->setFamilyName($user->getUsername(), $siteLocale);
 		$user->setEmail($this->getParam('adminEmail'));
 		$user->setInlineHelp(1);
-		if (!$userDao->insertObject($user)) {
-			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-			return false;
-		}
+		$userDao->insertObject($user);
 
 		// Create an admin user group
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT);
-		$userGroupDao = DAORegistry::getDao('UserGroupDAO', $this->dbconn);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$adminUserGroup = $userGroupDao->newDataObject();
 		$adminUserGroup->setRoleId(ROLE_ID_SITE_ADMIN);
 		$adminUserGroup->setContextId(CONTEXT_ID_NONE);
@@ -267,33 +228,27 @@ class PKPInstall extends Installer {
 			$adminUserGroup->setData('name', $name, $locale);
 			$adminUserGroup->setData('namePlural', $namePlural, $locale);
 		}
-		if (!$userGroupDao->insertObject($adminUserGroup)) {
-			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-			return false;
-		}
+		$userGroupDao->insertObject($adminUserGroup);
 
 		// Put the installer into this user group
 		$userGroupDao->assignUserToGroup($user->getId(), $adminUserGroup->getId());
 
 		// Add initial site data
-		$siteDao = DAORegistry::getDAO('SiteDAO', $this->dbconn);
+		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$site = $siteDao->newDataObject();
 		$site->setRedirect(0);
 		$site->setMinPasswordLength(INSTALLER_DEFAULT_MIN_PASSWORD_LENGTH);
 		$site->setPrimaryLocale($siteLocale);
 		$site->setInstalledLocales($this->installedLocales);
 		$site->setSupportedLocales($this->installedLocales);
-		if (!$siteDao->insertSite($site)) {
-			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-			return false;
-		}
+		$siteDao->insertSite($site);
 
 		// Install email template list and data for each locale
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename());
 		foreach ($this->installedLocales as $locale) {
-			$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale));
+			AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
 		}
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), $this->installedLocales);
 
 		// Install default site settings
 		$schemaService = Services::get('schema');

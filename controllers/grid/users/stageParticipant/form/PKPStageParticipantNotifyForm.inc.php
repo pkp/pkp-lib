@@ -3,9 +3,9 @@
 /**
  * @file lib/pkp/controllers/grid/users/stageParticipant/form/PKPStageParticipantNotifyForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStageParticipantNotifyForm
  * @ingroup controllers_grid_users_stageParticipant_form
@@ -42,9 +42,8 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 		if($itemType == ASSOC_TYPE_SUBMISSION) {
 			$this->_submissionId = $itemId;
 		} else {
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-			$submissionFile = $submissionFileDao->getLatestRevision($itemId);
-			$this->_submissionId = $submissionFile->getSubmissionId();
+			$submissionFile = Services::get('submissionFile')->get($itemId);
+			$this->_submissionId = $submissionFile->getData('submissionId');
 		}
 
 		// Some other forms (e.g. the Add Participant form) subclass this form and
@@ -61,7 +60,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $template = null, $display = false) {
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($this->_submissionId);
 
 		// All stages can choose the default template
@@ -69,12 +68,12 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 
 		// Determine if the current user can use any custom templates defined.
 		$user = $request->getUser();
-		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getContextId());
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getData('contextId'));
 		foreach ($userRoles as $userRole) {
 			if (in_array($userRole->getId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
 				$emailTemplatesIterator = Services::get('emailTemplate')->getMany([
-					'contextId' => $submission->getContextId(),
+					'contextId' => $submission->getData('contextId'),
 					'isCustom' => true,
 				]);
 				$customTemplateKeys = [];
@@ -130,15 +129,15 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
-		$submissionDao = Application::getSubmissionDAO();
+	function execute(...$functionParams) {
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($this->_submissionId);
 		if ($this->getData('message')) {
 			$request = Application::get()->getRequest();
 			$this->sendMessage((int) $this->getData('userId'), $submission, $request);
 			$this->_logEventAndCreateNotification($request, $submission);
 		}
-		return parent::execute();
+		return parent::execute(...$functionParams);
 	}
 
 	/**
@@ -157,7 +156,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 
 		$dispatcher = $request->getDispatcher();
 
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getById($userId);
 		if (isset($user)) {
 			$email->addRecipient($user->getEmail(), $user->getFullName());
@@ -180,30 +179,34 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 				'authorName' => $user->getFullName(),
 			));
 
+			$suppressNotificationEmail = false;
+
 			if (!$email->send($request)) {
 				import('classes.notification.NotificationManager');
 				$notificationMgr = new NotificationManager();
 				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+			} else {
+				$suppressNotificationEmail = true;
 			}
 
 			// remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
 			switch ($template) {
 				case 'EDITOR_ASSIGN':
-					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_EDITOR_ASSIGN, $user->getId(), $submission->getId());
+					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_EDITOR_ASSIGN, $user->getId(), $submission->getId(), $suppressNotificationEmail);
 					break;
 				case 'COPYEDIT_REQUEST':
-					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $user->getId(), $submission->getId());
+					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $user->getId(), $submission->getId(), $suppressNotificationEmail);
 					break;
 				case 'LAYOUT_REQUEST':
-					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $user->getId(), $submission->getId());
+					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $user->getId(), $submission->getId(), $suppressNotificationEmail);
 					break;
 				case 'INDEX_REQUEST':
-					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission->getId());
+					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission->getId(), $suppressNotificationEmail);
 					break;
 			}
 
 			// Create a query
-			$queryDao = DAORegistry::getDAO('QueryDAO');
+			$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 			$query = $queryDao->newDataObject();
 			$query->setAssocType(ASSOC_TYPE_SUBMISSION);
 			$query->setAssocId($submission->getId());
@@ -219,7 +222,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			}
 
 			// Create a head note
-			$noteDao = DAORegistry::getDAO('NoteDAO');
+			$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 			$headNote = $noteDao->newDataObject();
 			$headNote->setUserId($request->getUser()->getId());
 			$headNote->setAssocType(ASSOC_TYPE_QUERY);
@@ -289,9 +292,10 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	 * @param $type int NOTIFICATION_TYPE_...
 	 * @param $userId int User ID
 	 * @param $submissionId int Submission ID
+	 * @param $suppressEmail bool Indicates whether not to send the Notification email to the user.
 	 */
-	private function _addAssignmentTaskNotification($request, $type, $userId, $submissionId) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
+	private function _addAssignmentTaskNotification($request, $type, $userId, $submissionId, $suppressEmail = false) {
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var $notificationDao NotificationDAO */
 		$notificationFactory = $notificationDao->getByAssoc(
 			ASSOC_TYPE_SUBMISSION,
 			$submissionId,
@@ -299,7 +303,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			$type
 		);
 
-		if ($notificationFactory->wasEmpty()) {
+		if (!$notificationFactory->next()) {
 			$context = $request->getContext();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createNotification(
@@ -309,7 +313,9 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 				$context->getId(),
 				ASSOC_TYPE_SUBMISSION,
 				$submissionId,
-				NOTIFICATION_LEVEL_TASK
+				NOTIFICATION_LEVEL_TASK,
+				null,
+				$suppressEmail
 			);
 		}
 	}
@@ -348,7 +354,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	 * @param $submission Submission
 	 * @param $templateKey string
 	 * @param $includeSignature boolean
-	 * @return array
+	 * @return SubmissionMailTemplate
 	 */
 	abstract protected function _getMailTemplate($submission, $templateKey, $includeSignature = true);
 }

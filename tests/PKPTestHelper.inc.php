@@ -2,9 +2,9 @@
 /**
  * @file tests/PKPTestHelper.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TestHelper
  * @ingroup tests
@@ -51,9 +51,7 @@ abstract class PKPTestHelper {
 				"INSERT INTO backup_$table SELECT * FROM $table"
 			);
 			foreach ($sqls as $sql) {
-				if (!$dao->update($sql, false, true, false)) {
-					$test->fail("Error while backing up $table: offending SQL is '$sql'");
-				}
+				$dao->update($sql, [], true, false);
 			}
 		}
 	}
@@ -72,9 +70,7 @@ abstract class PKPTestHelper {
 				"DROP TABLE backup_$table"
 			);
 			foreach ($sqls as $sql) {
-				if (!$dao->update($sql, false, true, false)) {
-					$test->fail("Error while restoring $table: offending SQL is '$sql'");
-				}
+				$dao->update($sql, [], true, false);
 			}
 		}
 	}

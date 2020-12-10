@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
+"PO-Revision-Date: 2020-07-30 09:39+0000\n"
+"Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
+"Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
+"el_GR/>\n"
+"Language: el_GR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Αίτημα"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Οδηγίες"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Μεταφόρτωση & Αξιολόγησης"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Ολοκλήρωση"
+
+msgid "reviewer.step1.request"
+msgstr "Αίτημα για αξιολόγηση"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Έχετε επιλεγεί ως πιθανός Αξιολογητής για την ακόλουθη υποβολή. Ακολουθεί η επισκόπηση της υποβολής και το προβλεπόμενο χρονοδιάγραμμα της αξιολόγησης. Ελπίζουμε ότι θα συμβάλετε στην αξιολόγηση."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Προβολή στοιχείων της υποβολής"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Αρχεία Αξιολογητών"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Απόρριψη αιτήματος αξιολόγησης"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Εφόσον επιθυμείτε, αναφέρετε τους λόγους απόρριψης της αξιολόγησης στο πεδίο που ακολουθεί."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Αποδοχή αξιολόγησης, συνέχεια στο Βήμα #2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Συνέχεια στο Βήμα #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Υποβολή αξιολόγησης"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Οδηγίες προς Αξιολογητές"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Ο εκδότης εφαρμόζει πολιτικές δήλωσης αντικρουόμενων συμφερόντων από τους Αξιολογητές. Παρακαλούμε συμβουλευθείτε το σχετικό κείμενο."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Δεν υπάρχουν αντικρουόμενα συμφέροντα"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Πιθανώς υπάρχουν αντικρουόμενα συμφέροντα (παρακαλούμε προσδιορίστε)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Αντικρουόμενα συμφέροντα"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Οδηγίες αξιολόγησης"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Δεν διατίθενται οδηγίες προς Αξιολογητές."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Επιλέξτε τους τίτλους αρχείων της υποβολής για να τα μεταφορτώσετε στον υπολογιστή σας."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Εισάγετε (ή αντιγράψτε) την αξιολόγησή σας στην ακόλουθη φόρμα."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Μεταφορτώστε στην πλατφόρμα τα αρχεία προς τους Επιμελητές και/ή τους Συγγραφείς (συμπεριλαμβανομένων των αναθεωρημένων εκδόσεων των αρχικών αρχείων αξιολόγησης)."
+
+msgid "reviewer.complete"
+msgstr "Η αξιολόγηση καταχωρήθηκε."
+
+msgid "reviewer.confirmSubmit"
+msgstr "Επιβεβαιώνετε την υποβολή της αξιολόγησης;"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Η αξιολόγηση ολοκληρώθηκε επιτυχώς. Ευχαριστούμε για τη συμβολή σας στη βελτίωση της ποιότητας των υποβαλλόμενων εργασιών. Εάν χρειαστεί, οι Επιμελητές θα επικοινωνήσουν μαζί σας για πρόσθετες διευκρινίσεις."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Σχετικά με τις προθεσμίες αξιολόγησης"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "Παρακαλούμε απαντήστε στο αίτημα αξιολόγησης και ολοκληρώστε την αξιολόγησή μέχρι τις αντίστοιχες προβλεπόμενες ημερομηνίες."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Για Συγγραφείς και Επιμελητές"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Μόνο για Επιμελητές"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Ο Χρήστης δεν έχει επιλεγεί ως Αξιολογητής για τη συγκεκριμένη εργασία."
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Αποθήκευση για αργότερα"

@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/FieldUpload.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldUpload
  * @ingroup classes_controllers_form
@@ -25,38 +25,29 @@ class FieldUpload extends Field {
 	public $options = [];
 
 	/**
-	 * @var string A CSRF token required to upload files
-	 */
-	public $csrfToken = '';
-
-	/**
 	 * @copydoc Field::__construct()
 	 */
 	public function __construct($name, $args = []) {
 		parent::__construct($name, $args);
-		$this->i18n = array_merge([
-			'uploadFile' => __('common.upload.addFile'),
-			'remove' => __('common.remove'),
-			'restore' => __('common.upload.restore'),
-			'dropzoneDictDefaultMessage' => __('form.dropzone.dictDefaultMessage'),
-			'dropzoneDictFallbackMessage' => __('form.dropzone.dictFallbackMessage'),
-			'dropzoneDictFallbackText' => __('form.dropzone.dictFallbackText'),
-			'dropzoneDictFileTooBig' => __('form.dropzone.dictFileTooBig'),
-			'dropzoneDictInvalidFileType' => __('form.dropzone.dictInvalidFileType'),
-			'dropzoneDictResponseError' => __('form.dropzone.dictResponseError'),
-			'dropzoneDictCancelUpload' => __('form.dropzone.dictCancelUpload'),
-			'dropzoneDictUploadCanceled' => __('form.dropzone.dictUploadCanceled'),
-			'dropzoneDictCancelUploadConfirmation' => __('form.dropzone.dictCancelUploadConfirmation'),
-			'dropzoneDictRemoveFile' => __('form.dropzone.dictRemoveFile'),
-			'dropzoneDictMaxFilesExceeded' => __('form.dropzone.dictMaxFilesExceeded'),
-		], $this->i18n);
 
 		$this->options['maxFilesize'] = \Application::getIntMaxFileMBs();
 
-		$session = \Application::get()->getRequest()->getSession();
-		if ($session) {
-			$this->csrfToken = $session->getCSRFToken();
-		}
+		$this->options = array_merge(
+			[
+				'dropzoneDictDefaultMessage' => __('form.dropzone.dictDefaultMessage'),
+				'dropzoneDictFallbackMessage' => __('form.dropzone.dictFallbackMessage'),
+				'dropzoneDictFallbackText' => __('form.dropzone.dictFallbackText'),
+				'dropzoneDictFileTooBig' => __('form.dropzone.dictFileTooBig'),
+				'dropzoneDictInvalidFileType' => __('form.dropzone.dictInvalidFileType'),
+				'dropzoneDictResponseError' => __('form.dropzone.dictResponseError'),
+				'dropzoneDictCancelUpload' => __('form.dropzone.dictCancelUpload'),
+				'dropzoneDictUploadCanceled' => __('form.dropzone.dictUploadCanceled'),
+				'dropzoneDictCancelUploadConfirmation' => __('form.dropzone.dictCancelUploadConfirmation'),
+				'dropzoneDictRemoveFile' => __('form.dropzone.dictRemoveFile'),
+				'dropzoneDictMaxFilesExceeded' => __('form.dropzone.dictMaxFilesExceeded'),
+			],
+			$this->options
+		);
 	}
 
 	/**
@@ -75,7 +66,8 @@ class FieldUpload extends Field {
 	public function getConfig() {
 		$config = parent::getConfig();
 		$config['options'] = $this->options;
-		$config['csrfToken'] = $this->csrfToken;
+		$config['uploadFileLabel'] = __('common.upload.addFile');
+		$config['restoreLabel'] = __('common.upload.restore');
 
 		return $config;
 	}

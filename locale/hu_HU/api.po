@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
+"PO-Revision-Date: 2020-02-28 11:36+0000\n"
+"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"hu/>\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr "Kérése megtagadva. Azért fordulhatott elő, mert a bejelentkezése lejárt. Próbálja újratölteni az oldalt, majd próbálkozzon még egyszer."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Csak azokat a meg nem jelent kéziratokat láthatja, amelyekhez Ön hozzá lett rendelve."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Nem tudja törölni a kéziratot, amely nincs hozzárendelve ehhez a szövegkörnyezethez."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Nincs engedélye ennek a kéziratnak a törléséhez."
+
+msgid "api.submissions.404.resourceNotFound"
+msgstr "A kért forrás nem található."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "A kérése nem teljesíthető, mert hiányzik a szükséges információ."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "A kért évfolyam, szám vagy év nem érvényes."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Nem megfelelő kérés. A dátumnak az alábbi formátumban kell szerepelni:  ÉÉÉÉ-HH-NN"
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "A kezdő dátum nem lehet későbbi, mint a befejező dátum."
+
+msgid "api.stats.400.wrongTimeSegmentDaily"
+msgstr "Nem megfelelő kérés. A 'napi' időszegmens csak 90 napon belüli időszakkal (kezdeti és vég dátum) együtt érvényes. "
+
+msgid "api.400.paramNotSupported"
+msgstr "A {$param} paraméter nem támogatott."
+
+msgid "api.403.unauthorized"
+msgstr "Nincs jogosultsága a hozzáféréshez."
+
+msgid "api.404.resourceNotFound"
+msgstr "A kérés nem található."
+
+msgid "api.404.endpointNotFound"
+msgstr "Nem ismert URL."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "A(z) {$vocab} nem támogatott."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "A(z) {$locale} területi beállítás nem támogatott."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Az aktív téma, {$themePluginPath}, nincs engedélyezve és lehet, hogy nincs "
+"telepítve sem."
+
+msgid "api.files.400.config"
+msgstr ""
+"A fájlt nem lehetett feltölteni szerverkonfigurációs hiba miatt. Vegye fel a "
+"kapcsolatot a rendszergazdával."
+
+msgid "api.files.400.fileSize"
+msgstr "A(z) {$maxSize}-nél/nél nagyobb fájlokat nem lehet feltölteni."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Egy vagy több fájlt nem lehetett feltölteni."
+
+msgid "api.files.400.noUpload"
+msgstr "A kéréssel egyetlen feltölthető fájl sem található."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Ez a végpont nem érhető el a 'context'-ből. Az egész webhelyre kiterjedő "
+"névtérből kell hozzáférni."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Kérése érvénytelen. Az orderDirection legyen \"desc\" vagy \"asc\"."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Kérése érvénytelen. Az idővonal-intervallum \"nap\" vagy \"hónap\" kell, "
+"hogy legyen."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "A befejezési dátum nem lehet későbbi, mint a tegnapi."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "A kezdő dátum nem lehet korábbi mint 2001-01-01."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Ön számára nem engedélyezett a cikk szerkesztése."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"A nyilvános fájlok könyvtárat nem találtuk, vagy a fájlokat nem lehet rá "
+"menteni. Vegye fel a kapcsolatot a rendszergazdával a probléma megoldásához."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Nincs elég hely a felhasználói könyvtárban. Feltöltési file mérete: "
+"{$fileUploadSize}kb. Rendelkezésre álló tárterület: {$dirSizeLeft}kb"
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Nem tölthet fel fájlokat."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"A feltöltött fájl nem felelt meg a fájlkiterjesztés kritériumnak. Ez akkor "
+"fordulhat elő, ha egy fájlt átneveztek egy nem kompatibilis típusra, például "
+"a photo.png fájlt a photo.jpg fájlra."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "A feltöltött kép érvénytelen."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Csak a következő típusú fájlokat töltheti fel: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Törlés előtt vissza kell vonnia a cikk publikáltságát."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Az állapotot közvetlenül az API-n keresztül nem módosíthatja. Ehelyett "
+"használja a /megjelentetés és /megjelentetés visszavonása végpontokat."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Nem szerkeszthető a cikk, mert már megjelentetett."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr ""
+"A cikk aminek megjelentetését vissza szeretné vonni, még nem megjelentetett."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "A cikk, amit meg szeretne jeleníteni, már megjelentetett."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "A kért e-mail sablon nem található."

@@ -3,9 +3,9 @@
 /**
  * @file classes/db/DBDataXMLParser.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DBDataXMLParser
  * @ingroup db
@@ -14,13 +14,12 @@
  * See dbscripts/xml/dtd/xmldata.dtd for the XML schema used.
  */
 
-
 import('lib.pkp.classes.xml.XMLParser');
 
-class DBDataXMLParser {
-	/** @var ADOConnection the underlying database connection */
-	var $dbconn;
+use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Schema\Blueprint;
 
+class DBDataXMLParser {
 	/** @var array the array of parsed SQL statements */
 	var $sql;
 
@@ -29,15 +28,6 @@ class DBDataXMLParser {
 	 */
 	function __construct() {
 		$this->sql = array();
-	}
-
-	/**
-	 * Set the database connection to use for executeData().
-	 * If the connection is not set, the default system database connection will be used.
-	 * @param $dbconn ADOConnection the database connection
-	 */
-	function setDBConn(&$dbconn) {
-		$this->dbconn =& $dbconn;
 	}
 
 	/**
@@ -51,7 +41,8 @@ class DBDataXMLParser {
 		$tree = $parser->parse($file);
 		if (!$tree) return array();
 
-		$allTables = $this->dbconn->MetaTables();
+		$allTables = Capsule::connection()->getDoctrineSchemaManager()->listTableNames();
+
 		foreach ($tree->getChildren() as $type) switch($type->getName()) {
 			case 'table':
 				$fieldDefaultValues = array();
@@ -59,12 +50,6 @@ class DBDataXMLParser {
 				// Match table element
 				foreach ($type->getChildren() as $row) {
 					switch ($row->getName()) {
-						case 'field_default':
-							// Match a default field element
-							list($fieldName, $value) = $this->_getFieldData($row);
-							$fieldDefaultValues[$fieldName] = $value;
-							break;
-
 						case 'row':
 							// Match a row element
 							$fieldValues = array();
@@ -85,9 +70,7 @@ class DBDataXMLParser {
 										join(', ', array_values($fieldValues)));
 							}
 							break;
-
-						default:
-							assert(false);
+						default: assert(false);
 					}
 				}
 				break;
@@ -95,74 +78,58 @@ class DBDataXMLParser {
 				// Match sql element (set of SQL queries)
 				foreach ($type->getChildren() as $child) switch ($child->getName()) {
 					case 'drop':
-						if (!isset($dbdict)) {
-							$dbdict = @NewDataDictionary($this->dbconn);
-						}
 						$table = $child->getAttribute('table');
 						$column = $child->getAttribute('column');
 						if ($column) {
-							// NOT PORTABLE; do not use this
-							$this->sql[] = $dbdict->DropColumnSql($table, $column);
+							$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table, $column) {
+								Capsule::schema()->table($table, function (Blueprint $table) use ($column) {
+									$table->dropColumn('column');
+								});
+							}), 'query'));
 						} else {
-							$this->sql[] = $dbdict->DropTableSQL($table);
+							$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table) {
+								Capsule::schema()->drop($table);
+							}), 'query'));
 						}
 						break;
 					case 'rename':
-						if (!isset($dbdict)) {
-							$dbdict = @NewDataDictionary($this->dbconn);
-						}
 						$table = $child->getAttribute('table');
 						$column = $child->getAttribute('column');
 						$to = $child->getAttribute('to');
 						if ($column) {
-							// Make sure the target column does not yet exist.
-							// This is to guarantee idempotence of upgrade scripts.
-							$run = false;
-							if (in_array($table, $allTables)) {
-								$columns =& $this->dbconn->MetaColumns($table, true);
-								if (!isset($columns[strtoupper($to)])) {
-									// Only run if the column has not yet been
-									// renamed.
-									$run = true;
-								}
-							} else {
-								// If the target table does not exist then
-								// we assume that another rename entry will still
-								// rename it and we should run after it.
-								$run = true;
-							}
-
-							if ($run) {
-								$colId = strtoupper($column);
-								$flds = '';
-								if (isset($columns[$colId])) {
-									$col = $columns[$colId];
-									if ($col->max_length == "-1") {
-										$max_length = '';
-									} else {
-										$max_length = $col->max_length;
-									}
-									$fld = array('NAME' => $col->name, 'TYPE' => $dbdict->MetaType($col), 'SIZE' => $max_length);
-									if ($col->primary_key) $fld['KEY'] = 'KEY';
-									if ($col->auto_increment) $fld['AUTOINCREMENT'] = 'AUTOINCREMENT';
-									if ($col->not_null) $fld['NOTNULL'] = 'NOTNULL';
-									if ($col->has_default) $fld['DEFAULT'] = $col->default_value;
-									$flds = array($colId => $fld);
-								} else assert(false);
-
-								$this->sql[] = $dbdict->RenameColumnSQL($table, $column, $to, $flds);
-							}
+							// Rename a column.
+							$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table, $column, $to) {
+								Capsule::schema()->table($table, function (Blueprint $table) use ($column, $to) {
+									$table->renameColumn($column, $to);
+								});
+							}), 'query'));
 						} else {
-							// Make sure the target table does not yet exist.
-							// This is to guarantee idempotence of upgrade scripts.
-							if (!in_array($to, $allTables)) {
-								$this->sql[] = $dbdict->RenameTableSQL($table, $to);
-							}
+							// Rename the table.
+							$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table, $to) {
+								Capsule::schema()->rename($table, $to);
+							}), 'query'));
 						}
 						break;
+					case 'dropindex':
+						$table = $child->getAttribute('table');
+						$index = $child->getAttribute('index');
+						if (!$table || !$index) {
+							throw new Exception('dropindex called without table or index');
+						}
+
+						$schemaManager = Capsule::connection()->getDoctrineSchemaManager();
+						if ($child->getAttribute('ifexists') && !in_array($index, array_keys($schemaManager->listTableIndexes($table)))) break;
+						$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table, $index) {
+							Capsule::schema()->table($table, function (Blueprint $table) use ($index) {
+								$table->dropIndex($index);
+							});
+						}), 'query'));
+						break;
 					case 'query':
+						// If a "driver" attribute is specified, multiple drivers can be
+						// specified with a comma separator.
 						$driver = $child->getAttribute('driver');
-						if (empty($driver) || $this->dbconn->databaseType === $driver) {
+						if (empty($driver) || in_array(Config::getVar('database', 'driver'), array_map('trim', explode(',', $driver)))) {
 							$this->sql[] = $child->getValue();
 						}
 						break;
@@ -179,11 +146,11 @@ class DBDataXMLParser {
 	 */
 	function executeData($continueOnError = false) {
 		$this->errorMsg = null;
-		$dbconn = $this->dbconn == null ? DBConnection::getConn() : $this->dbconn;
 		foreach ($this->sql as $stmt) {
-			$dbconn->execute($stmt);
-			if (!$continueOnError && $dbconn->errorNo() != 0) {
-				return false;
+			try {
+				Capsule::statement($stmt);
+			} catch (Exception $e) {
+				if (!$continueOnError) throw $e;
 			}
 		}
 		return true;
@@ -203,7 +170,7 @@ class DBDataXMLParser {
 	 * @return string
 	 */
 	function quoteString($str) {
-		return $this->dbconn->qstr($str);
+		return Capsule::connection()->getPdo()->quote($str);
 	}
 
 

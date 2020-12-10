@@ -1,0 +1,1979 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"ar_IQ/>\n"
+"Language: ar_IQ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "common.publicKnowledgeProject"
+msgstr "مشروع المعرفة العامة"
+
+msgid "common.currentStyleSheet"
+msgstr "ملف الأنماط الحالي"
+
+msgid "about.description"
+msgstr "الوصف"
+
+msgid "about.guidelines"
+msgstr "الخطوط العريضة"
+
+msgid "about.aboutSite"
+msgstr "عن الموقع"
+
+msgid "about.contact"
+msgstr "عنوان الاتصال"
+
+msgid "about.contact.email"
+msgstr "البريد الالكتروني"
+
+msgid "about.contact.phone"
+msgstr "هاتف"
+
+msgid "about.contact.principalContact"
+msgstr "عنوان الاتصال الأساسي"
+
+msgid "about.contact.supportContact"
+msgstr "عنوان اتصال الدعم الفني"
+
+msgid "about.other"
+msgstr "غير ذلك"
+
+msgid "about.people"
+msgstr "أفراد المجلة"
+
+msgid "about.policies"
+msgstr "السياسات"
+
+msgid "about.siteMap"
+msgstr "خارطة الموقع"
+
+msgid "announcement.announcements"
+msgstr "الإعلانات"
+
+msgid "announcement.announcementsHome"
+msgstr "الإعلانات"
+
+msgid "announcement.moreAnnouncements"
+msgstr "المزيد من الإعلانات..."
+
+msgid "announcement.noneExist"
+msgstr "لم تُنشر أي إعلانات بعد."
+
+msgid "announcement.posted"
+msgstr "مطروحة"
+
+msgid "announcement.postedOn"
+msgstr "مطروحة في {$postDate}"
+
+msgid "announcement.view"
+msgstr "معاينة الإعلان"
+
+msgid "common.allDownloads"
+msgstr "كل التحميلات"
+
+msgid "common.navigation.sidebar"
+msgstr "الشريط الجانبي"
+
+msgid "common.navigation.site"
+msgstr "التنقل عبر الموقع"
+
+msgid "common.navigation.siteContext"
+msgstr "التنقل في سياق الموقع"
+
+msgid "common.navigation.user"
+msgstr "تنقل المستخدم"
+
+msgid "common.tasks"
+msgstr "المهام"
+
+msgid "common.list"
+msgstr "قائمة"
+
+msgid "common.grid"
+msgstr "شبكة"
+
+msgid "common.confirmDelete"
+msgstr "هل أنت متأكد من رغبتك في حذف هذه الفقرة؟ هذا الإجراء لا يمكن التراجع عنه."
+
+msgid "common.abstract"
+msgstr "الملخص"
+
+msgid "common.accepted"
+msgstr "مقبول"
+
+msgid "common.acknowledged"
+msgstr "معرَّف"
+
+msgid "common.action"
+msgstr "إجراء"
+
+msgid "common.activate"
+msgstr "تفعيل"
+
+msgid "common.active"
+msgstr "نشط"
+
+msgid "common.add"
+msgstr "أضف"
+
+msgid "common.addSelf"
+msgstr "أضفني"
+
+msgid "common.name"
+msgstr "الاسم"
+
+msgid "common.all"
+msgstr "الكل"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z أ ب  ت ث  ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن هـ و ي"
+
+msgid "common.titleSmallWords"
+msgstr "of a the and an or nor but is if then else when at from by on off for in out over to into with و أو من إلى في على عن كل إلا او الى هو هي هم اي أي كم"
+
+msgid "common.alreadyAssigned"
+msgstr "معيَّن سابقاً"
+
+msgid "common.altText"
+msgstr "النص البديل"
+
+msgid "common.altTextInstructions"
+msgstr "أعط وصفاً لزوار الموقع عن هذه الصورة ليظهر لهم عند استعمالهم لمستعرضات لا تدعم الصور أو تلك المخصصة لأجهزة مساعدة ذوي الاحتياجات الخاصة. مثلاً: \"محررنا يتحدث في المؤتمر.\""
+
+msgid "common.and"
+msgstr "و"
+
+msgid "common.applyAction"
+msgstr "أجرِ اللازم"
+
+msgid "common.assign"
+msgstr "عيِّن"
+
+msgid "common.assigned"
+msgstr "معيَّن"
+
+msgid "common.assigned.date"
+msgstr "معيَّن بتاريخ: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "متوافر"
+
+msgid "common.back"
+msgstr "رجوع"
+
+msgid "common.between"
+msgstr "بين"
+
+msgid "common.cancel"
+msgstr "إلغاء"
+
+msgid "common.cancelled"
+msgstr "ملغى"
+
+msgid "common.warning"
+msgstr "تحذير"
+
+msgid "common.error"
+msgstr "خطأ"
+
+msgid "common.notice"
+msgstr "ملاحظة"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr "التحقق الرسومي لهذا الموقع غير مهيأ بشكل صحيح. المفتاح السري مفقود."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr "التحقق الرسومي لهذا الموقع غير مهيأ بشكل صحيح. المفتاح السري خاطئ."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "عليك أن تكمل متطلبات التحقق المستعمل لمنع الطلبات الإزعاجية."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "أنت لم تجتز متطلبات التحقق المستعمل لمنع الطلبات الإزعاجية."
+
+msgid "common.captchaField.description"
+msgstr "لطفاً أدخل الحروف كما تبدو لك في الصورة أعلاه."
+
+msgid "common.captchaField"
+msgstr "التحقق"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tهذا العمل مرخص بموجب رخصة <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 License</a>.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tهذا العمل مرخص بموجب رخصة <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License</a>.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.changesSaved"
+msgstr "تم حفظ تعديلاتك."
+
+msgid "common.chooseOne"
+msgstr "إختر واحداً..."
+
+msgid "common.close"
+msgstr "إغلاق"
+
+msgid "common.closePanel"
+msgstr "إغلاق اللوحة"
+
+msgid "common.closeWindow"
+msgstr "إغلاق النافذة"
+
+msgid "common.complete"
+msgstr "أكمل"
+
+msgid "common.completed"
+msgstr "إكتمل"
+
+msgid "common.completed.date"
+msgstr "إكتمل بتاريخ: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "تأكيد"
+
+msgid "common.confirmed.date"
+msgstr "مؤكد بتاريخ: {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "المحتوى"
+
+msgid "common.contents"
+msgstr "المحتويات"
+
+msgid "common.continue"
+msgstr "استمر"
+
+msgid "common.copy"
+msgstr "نسخ"
+
+msgid "common.country"
+msgstr "البلد"
+
+msgid "common.create"
+msgstr "أنشئ"
+
+msgid "common.dateCompleted"
+msgstr "تأريخ إكماله"
+
+msgid "common.dateDecided"
+msgstr "تأريخ تقريره"
+
+msgid "common.date"
+msgstr "التأريخ"
+
+msgid "common.dateModified"
+msgstr "تأريخ تعديله"
+
+msgid "common.dateRequested"
+msgstr "تأريخ استدعائه"
+
+msgid "common.dateSubmitted"
+msgstr "تأريخ تقديمه"
+
+msgid "common.dateUploaded"
+msgstr "تأريخ رفعه"
+
+msgid "common.dateHijri"
+msgstr "التقويم الهجري"
+
+msgid "common.day"
+msgstr "يوم"
+
+msgid "common.deactivate"
+msgstr "تعطيل"
+
+msgid "common.default"
+msgstr "الإفتراضي"
+
+msgid "common.declined"
+msgstr "مرفوض"
+
+msgid "common.delete"
+msgstr "حذف"
+
+msgid "common.deleting"
+msgstr "الحذف جارٍ"
+
+msgid "common.deleteSelection"
+msgstr "حذف الاختيار"
+
+msgid "common.designation"
+msgstr "المضمون"
+
+msgid "common.description"
+msgstr "الوصف"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; بدقة {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} بكسل"
+
+msgid "common.disable"
+msgstr "تعطيل"
+
+msgid "common.disabled"
+msgstr "معطل"
+
+msgid "common.discipline"
+msgstr "التخصص العلمي"
+
+msgid "common.done"
+msgstr "تم"
+
+msgid "common.download"
+msgstr "تنزيل"
+
+msgid "common.downloadPdf"
+msgstr "تنزيل بصيغة PDF"
+
+msgid "common.edit"
+msgstr "تعديل"
+
+msgid "common.enable"
+msgstr "تمكين"
+
+msgid "common.enabled"
+msgstr "مُمَكَّنة"
+
+msgid "common.error.databaseError"
+msgstr "حدث خطأ ما في قاعدة البيانات: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "حدث خطأ غير معروف لدى الاتصال بقاعدة البيانات."
+
+msgid "common.error.framesRequired"
+msgstr "هذه الصفحة تتطلب وجود إطارات. <a href=\"{$url}\">أنقر هنا</a> للنسخة التي بلا إطارات."
+
+msgid "common.event"
+msgstr "الحدث"
+
+msgid "common.export"
+msgstr "تصدير"
+
+msgid "common.finish"
+msgstr "إنهاء"
+
+msgid "common.fullscreen"
+msgstr "ملء الشاشة"
+
+msgid "common.fullscreenOff"
+msgstr "إلغاء ملء الشاشة"
+
+msgid "common.false"
+msgstr "خطأ"
+
+msgid "common.file"
+msgstr "الملف"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}، {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}، {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "اسم الملف"
+
+msgid "common.fileSize"
+msgstr "حجم الملف"
+
+msgid "common.fileType"
+msgstr "نوع الملف"
+
+msgid "common.fileUploaderError"
+msgstr "إن برنامج رفع الملفات في النظام يجري تحميله الآن. إن لم يظهر لك، فهذا يعني أن هناك احتمالية كون المتصفح الذي تستعمله لا يدعم متطلبات تشغيله. لطفاً، حاول استحصال الدعم من الإدارة."
+
+msgid "common.filter"
+msgstr "التصفيات"
+
+msgid "common.filterAdd"
+msgstr "إضافة التصفية: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "تصفير التصفية: {$filterTitle}"
+
+msgid "common.from"
+msgstr "من"
+
+msgid "common.fromWithValue"
+msgstr "من: {$value}"
+
+msgid "common.until"
+msgstr "حتى"
+
+msgid "common.go"
+msgstr "إذهب"
+
+msgid "common.height"
+msgstr "الارتفاع"
+
+msgid "common.homepageNavigationLabel"
+msgstr "الرئيسية"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "شعار رأس الصفحة الرئيسية"
+
+msgid "common.hour"
+msgstr "الساعة"
+
+msgid "common.id"
+msgstr "الرمز"
+
+msgid "common.import"
+msgstr "استيراد"
+
+msgid "common.initiate"
+msgstr "إبدأ"
+
+msgid "common.inProgress"
+msgstr "قيد الإنجاز"
+
+msgid "common.itemsPerPage"
+msgstr "فقرة لكل صفحة"
+
+msgid "common.keywords"
+msgstr "الكلمات المفتاحية"
+
+msgid "common.language"
+msgstr "اللغة"
+
+msgid "common.languages"
+msgstr "اللغات"
+
+msgid "common.lastActivity"
+msgstr "آخر نشاط مسجل بتأريخ {$date}."
+
+msgid "common.less"
+msgstr "أقل"
+
+msgid "common.lessThan"
+msgstr "{$value} أو أقل"
+
+msgid "common.lessThanOnly"
+msgstr "أقل من"
+
+msgid "common.commaListSeparator"
+msgstr "، "
+
+msgid "common.semicolonListSeparator"
+msgstr "؛ "
+
+msgid "common.manage"
+msgstr "إدارة"
+
+msgid "common.mailingAddress"
+msgstr "عنوان المراسلة"
+
+msgid "common.billingAddress"
+msgstr "عنوان الفواتير (إذا اختلف)"
+
+msgid "common.minute"
+msgstr "دقيقة/دقائق"
+
+msgid "common.modify"
+msgstr "تعديل"
+
+msgid "common.month"
+msgstr "شهر"
+
+msgid "common.more"
+msgstr "المزيد"
+
+msgid "common.moreThan"
+msgstr "{$value} أو أكثر"
+
+msgid "common.moreThanOnly"
+msgstr "أكثر من"
+
+msgid "common.noneAssigned"
+msgstr "لا أحد معَيَّن"
+
+msgid "common.none"
+msgstr "لا أحد"
+
+msgid "common.no"
+msgstr "لا"
+
+msgid "common.noItemsFound"
+msgstr "لا فقرات هنا."
+
+msgid "common.noComments"
+msgstr "لا تعليقات"
+
+msgid "common.notApplicable"
+msgstr "غير مطبق"
+
+msgid "common.notApplicableShort"
+msgstr "بلا"
+
+msgid "common.notAvailable"
+msgstr "غير متاح"
+
+msgid "common.note"
+msgstr "ملاحظة"
+
+msgid "common.noTemporaryFile"
+msgstr "تعذر العثور على الملف الذي قمت برفعه. لطفاً، حاول رفعه مرة أخرى."
+
+msgid "common.notes"
+msgstr "ملاحظات"
+
+msgid "common.notes.tooltip"
+msgstr "ملاحظات (الأصفر: لديه ملاحظات جديدة؛ الأزرق: لديه ملاحظات مقروءة؛ الرمادي: لا ملاحظات عليه)"
+
+msgid "common.notified"
+msgstr "مُبَلَّغ"
+
+msgid "common.notified.date"
+msgstr "مُبَلَّغ بتاريخ: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "لا نظير"
+
+msgid "common.off"
+msgstr "متوقف"
+
+msgid "common.on"
+msgstr "On"
+
+msgid "common.ok"
+msgstr "تمام"
+
+msgid "common.options"
+msgstr "خيارات"
+
+msgid "common.order"
+msgstr "ترتيب"
+
+msgid "common.orderUp"
+msgstr "رفع موضع {$itemTitle}"
+
+msgid "common.orderDown"
+msgstr "تنزيل موضع {$itemTitle}"
+
+msgid "common.originalFileName"
+msgstr "الاسم الأصلي للملف"
+
+msgid "common.or"
+msgstr "أو"
+
+msgid "common.other"
+msgstr "غير ذلك"
+
+msgid "common.overdue"
+msgstr "متأخر"
+
+msgid "common.override"
+msgstr "تجاوز"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} من {$total}"
+
+msgid "common.pagination.label"
+msgstr "معاينة الصفحات الإضافية"
+
+msgid "common.pagination.goToPage"
+msgstr "إذهب إلى {$page}"
+
+msgid "common.pagination.next"
+msgstr "الصفحة التالية"
+
+msgid "common.pagination.previous"
+msgstr "الصفحة السابقة"
+
+msgid "common.pageNumber"
+msgstr "الصفحة {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "البرنامج الإضافي"
+
+msgid "common.pluginEnabled"
+msgstr "البرنامج الإضافي \"{$pluginName}\" تم تمكينه."
+
+msgid "common.pluginDisabled"
+msgstr "البرنامج الإضافي \"{$pluginName}\" تم تعطيله."
+
+msgid "common.prefix"
+msgstr "بادئة"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "أمثلة: A، The، ال"
+
+msgid "common.preview"
+msgstr "معاينة"
+
+msgid "common.publisher"
+msgstr "الناشر"
+
+msgid "common.quality"
+msgstr "النوعية"
+
+msgid "common.queue.long.active"
+msgstr "كل ما هو نشط"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "رد:"
+
+msgid "common.readMore"
+msgstr "إقرأ المزيد"
+
+msgid "common.readMoreWithTitle"
+msgstr "إقرأ المزيد عن {$title}"
+
+msgid "common.record"
+msgstr "السجل"
+
+msgid "common.refresh"
+msgstr "تحديث"
+
+msgid "common.related"
+msgstr "ذو صلة"
+
+msgid "common.reminder"
+msgstr "تذكير"
+
+msgid "common.reminded.date"
+msgstr "مذكَّر بتاريخ: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "بعيد"
+
+msgid "common.remoteURL"
+msgstr "رابط خارجي"
+
+msgid "common.remove"
+msgstr "إزالة"
+
+msgid "common.removeItem"
+msgstr "إزالة {$item}"
+
+msgid "common.removeSelection"
+msgstr "إزالة الاختيار"
+
+msgid "common.replaced"
+msgstr "استبدال"
+
+msgid "common.replaceFile"
+msgstr "استبدال الملف"
+
+msgid "common.requiredField"
+msgstr "* تدل على حقول إجبارية"
+
+msgid "common.required"
+msgstr "مطلوب حتماً"
+
+msgid "common.reset"
+msgstr "إعادة ضبط"
+
+msgid "common.saveAndContinue"
+msgstr "إحفظ واستمر"
+
+msgid "common.saveAndEmail"
+msgstr "إحفظ وأرسل بالبريد الالكتروني"
+
+msgid "common.save"
+msgstr "إحفظ"
+
+msgid "common.saving"
+msgstr "الحفظ جارٍ"
+
+msgid "common.search"
+msgstr "إبحث"
+
+msgid "common.searchQuery"
+msgstr "استعلام البحث"
+
+msgid "common.clearSearch"
+msgstr "تصفير عبارة البحث"
+
+msgid "common.second"
+msgstr "ثانية/ثوان"
+
+msgid "common.selectAll"
+msgstr "إختر الكل"
+
+msgid "common.selectedPrefix"
+msgstr "مختارة:"
+
+msgid "common.selectNone"
+msgstr "لا تختر شيئاً"
+
+msgid "common.select"
+msgstr "إختر"
+
+msgid "common.sendEmail"
+msgstr "أرسل الرسالة"
+
+msgid "common.size"
+msgstr "الحجم"
+
+msgid "common.source"
+msgstr "المصدر"
+
+msgid "common.status"
+msgstr "الحالة"
+
+msgid "common.subject"
+msgstr "الموضوع"
+
+msgid "common.subjects"
+msgstr "الموضوعات"
+
+msgid "common.submenu"
+msgstr "القائمة الفرعية"
+
+msgid "common.subtitle"
+msgstr "العنوان الفرعي"
+
+msgid "common.suggest"
+msgstr "إقترح"
+
+msgid "common.title"
+msgstr "العنوان"
+
+msgid "common.top"
+msgstr "أعلى"
+
+msgid "common.toWithValue"
+msgstr "إلى: {$value}"
+
+msgid "common.true"
+msgstr "صحيح"
+
+msgid "common.type"
+msgstr "النوع"
+
+msgid "common.component"
+msgstr "المكون"
+
+msgid "common.uninitiated"
+msgstr "غير مستهل"
+
+msgid "common.unknownError"
+msgstr "حدث خطأ غير متوقع. لطفاً، أعد تحميل الصفحة ثم حاول مرة أخرى."
+
+msgid "common.unread"
+msgstr "غير مقروء"
+
+msgid "common.untitled"
+msgstr "بلا عنوان"
+
+msgid "common.updated"
+msgstr "محدث"
+
+msgid "common.uploadedDate"
+msgstr "تاريخ الرفع"
+
+msgid "common.upload"
+msgstr "رفع"
+
+msgid "common.uploadFailed"
+msgstr "تعذر رفع الملف أو تنقيحه."
+
+msgid "common.up"
+msgstr "أعلى"
+
+msgid "common.upload.addFile"
+msgstr "رفع الملف"
+
+msgid "common.upload.restore"
+msgstr "استعادة الأصلي"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "معاينة الصورة المختارة حالياً."
+
+msgid "common.upload.changeFile"
+msgstr "تغيير الملف"
+
+msgid "common.upload.dragFile"
+msgstr "إسحب الملف وأسقطه هنا للبدء برفعه"
+
+msgid "common.url"
+msgstr "الرابط"
+
+msgid "common.user"
+msgstr "المستخدم"
+
+msgid "common.view"
+msgstr "معاينة"
+
+msgid "common.viewProfile"
+msgstr "معاينة الملف الشخصي"
+
+msgid "common.weeks"
+msgstr "أسابيع"
+
+msgid "common.width"
+msgstr "العرض"
+
+msgid "common.year"
+msgstr "سنة"
+
+msgid "common.yes"
+msgstr "نعم"
+
+msgid "common.loading"
+msgstr "تحميل..."
+
+msgid "common.plugins"
+msgstr "الإضافات"
+
+msgid "common.metric"
+msgstr "المقياس"
+
+msgid "common.count"
+msgstr "العدد"
+
+msgid "common.publicAccess"
+msgstr "الإتاحة للعامة"
+
+msgid "debug.databaseQueries"
+msgstr "عدد استعلامات قاعدة البيانات"
+
+msgid "debug.executionTime"
+msgstr "تم توليد الصفحة في"
+
+msgid "debug.memoryUsage"
+msgstr "استعمال الذاكرة"
+
+msgid "debug.notes.localeListLoad"
+msgstr "قائمة اللغة المحملة \"{$localeList}\" من ملف XML"
+
+msgid "debug.notes.localeLoad"
+msgstr "ملف اللغة المحملة \"{$localeFile}\" من ملف"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "مفتاح اللغة \"{$key}\" مفقود."
+
+msgid "debug.notes"
+msgstr "ملاحظات:"
+
+msgid "defaultMetric.title"
+msgstr "المقياس الافتراضي"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "المقاييس المتاحة"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "رفع الملف للتحكيم"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "إرفع الملف"
+
+msgid "email.addAttachment"
+msgstr "أضف مرفق"
+
+msgid "email.addBccRecipient"
+msgstr "أضف نسخة سرية"
+
+msgid "email.addCcRecipient"
+msgstr "أضف نسخة"
+
+msgid "email.addToRecipient"
+msgstr "أضف مستلم"
+
+msgid "email.attachments"
+msgstr "المرفقات"
+
+msgid "email.bcc"
+msgstr "نسخة سرية"
+
+msgid "email.bccSender"
+msgstr "أرسل نسخة من هذه الرسالة إلى عنواني ({$address})"
+
+msgid "email.body"
+msgstr "المتن"
+
+msgid "email.cc"
+msgstr "نسخة"
+
+msgid "email.compose"
+msgstr "أرسل رسالة الكترونية"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "الرسالة التي تحاول إرسالها تتضمن العديد من العناوين."
+
+msgid "email.compose.tooSoon"
+msgstr "لم تمض إلا برهة على إرسال رسالتك الأخيرة. لطفاً، تريث قليلاً قبل إرسال المزيد من الرسائل."
+
+msgid "email.compose.error"
+msgstr "حدثت مشكلة عند إرسال الرسالة. لطفاً، حاول فيما بعد، أو اتصل بالمشرف على النظام."
+
+msgid "email.email"
+msgstr "البريد الالكتروني"
+
+msgid "email.from"
+msgstr "من"
+
+msgid "email.invalid"
+msgstr "عنوان البريد الالكتروني {$email} غير صحيح."
+
+msgid "email.multipart"
+msgstr "هذه رسالة متعددة الأجزاء بصيغة MIME."
+
+msgid "email.recipient"
+msgstr "المستلم"
+
+msgid "email.recipients"
+msgstr "المستلمون"
+
+msgid "email.sender"
+msgstr "المرسل"
+
+msgid "email.senderName"
+msgstr "اسم المرسل"
+
+msgid "email.senderEmail"
+msgstr "عنوان المرسل"
+
+msgid "email.send"
+msgstr "أرسل"
+
+msgid "email.skip"
+msgstr "تخطى الرسالة"
+
+msgid "email.subject"
+msgstr "الموضوع"
+
+msgid "email.subjectRequired"
+msgstr "لطفاً، أعط الرسالة موضوعاً."
+
+msgid "email.bodyRequired"
+msgstr "لطفاً، أعط الرسالة متناً أو فحوى."
+
+msgid "email.to"
+msgstr "إلى"
+
+msgid "form.url.invalid"
+msgstr "الرابط المحدد غير صحيح. لطفاً، تحقق منه ثم عاود المحاولة."
+
+msgid "form.confirmSubmit"
+msgstr "هل أنت متأكد من رغبتك في تقديم هذا النموذج؟"
+
+msgid "form.confirmSubmit.title"
+msgstr "تأكيد"
+
+msgid "form.emailRequired"
+msgstr "عنوان البريد الالكتروني مطلوب حتماً."
+
+msgid "form.dataHasChanged"
+msgstr "البيانات في هذا النموذج تغيرت. تستمر رغم ذلك وبدون حفظها؟"
+
+msgid "form.disallowedLocales"
+msgstr "اللغات الآتية فقط متاحة: {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "هذه الخاصية غير متاحة."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "أفلت الملفات هنا لرفعها"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "مستعرض الإنترنت الذي تستعمله لا يدعم رفع الملفات عبر السحب والإفلات."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "لطفاً، استعمل النموذج البديل أدناه لرفع ملفاتك."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr "حجم الملف كبير جداً ({{filesize}}mb). الملفات الأكبر من {{maxFilesize}}mb لا يمكن رفعها إلى الموقع."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "الملفات من هذا النوع لا يمكن رفعها هنا."
+
+msgid "form.dropzone.dictResponseError"
+msgstr "أجاب الملقم برسالة الخطأ ذات الرمز {{statusCode}}. لطفاً، اتصل بالمشرف على النظام إذا تكرر هذا الخطأ مراراً."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "إلغاء الرفع"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "ألغيت عملية الرفع"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "هل أنت متأكد من رغبتك في إلغاء رفع الملفات؟"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "إزالة الملف"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "يتعذر عليك رفع المزيد من الملفات هنا."
+
+msgid "form.errorA11y"
+msgstr "إذهب إلى {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "الفقز إلى الخطأ التالي"
+
+msgid "form.errorOne"
+msgstr "لطفاً، صحح خطأً واحداً."
+
+msgid "form.errorMany"
+msgstr "لطفاً، صحح {$count} خطأ/أخطاء."
+
+msgid "form.errors"
+msgstr "تعذر حفظ النموذج لوجود {$count} خطأ/أخطاء. لطفاً، أجر التصحيحات اللازمة ثم حاول مجدداً."
+
+msgid "form.errorsOccurred"
+msgstr "حدثت أخطاء عند معالجة هذا النموذج"
+
+msgid "form.formLanguage.description"
+msgstr "لإدخال البيانات أدناه بلغات أخرى أيضاً، لطفاً، إختر اللغة أولاً."
+
+msgid "form.formLanguage"
+msgstr "لغة النموذج"
+
+msgid "form.contains"
+msgstr "يتضمن"
+
+msgid "form.is"
+msgstr "هو"
+
+msgid "form.startsWith"
+msgstr "يبدأ بـ"
+
+msgid "form.postRequired"
+msgstr "لم يتم تقديم النموذج بالشكل الصحيح."
+
+msgid "form.csrfInvalid"
+msgstr "تعذر تقديم النموذج. ربما سجلت خروجك من الموقع. لطفاً، قم بتنشيط الصفحة ثم حاول مجدداً."
+
+msgid "form.fileRequired"
+msgstr "لا بد من تحميل ملف."
+
+msgid "form.required"
+msgstr "(* مطلوب حتماً)"
+
+msgid "form.requirePrimaryLocale"
+msgstr "عليك إدخال محتوى في هذا الحقل بلغة {$language}."
+
+msgid "form.requireId"
+msgstr "لا بد لك من تقديم رمز تعريف صحيح."
+
+msgid "form.resubmit"
+msgstr "إعادة التقديم"
+
+msgid "form.saveToUpload"
+msgstr "استعمل (حفظ) لرفع الملف."
+
+msgid "form.send"
+msgstr "إرسال"
+
+msgid "form.submit"
+msgstr "تقديم"
+
+msgid "form.invalidImage"
+msgstr "تم رفع صورة غير صحيحة. الصيغ المقبولة هي .png، .gif، أو .jpg."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} في {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} من اللغات مكتملة"
+
+msgid "help.help"
+msgstr "المساعدة"
+
+msgid "help.toc"
+msgstr "جدول المحتويات"
+
+msgid "help.previous"
+msgstr "السابق"
+
+msgid "help.next"
+msgstr "التالي"
+
+msgid "help.upALevel"
+msgstr "المستوى الأعلى"
+
+msgid "icon.checked.alt"
+msgstr "مؤشر"
+
+msgid "icon.comment.alt"
+msgstr "تعليق"
+
+msgid "icon.delete.alt"
+msgstr "حذف"
+
+msgid "icon.edit.alt"
+msgstr "تعديل"
+
+msgid "icon.folder.alt"
+msgstr "حافظة ملفات"
+
+msgid "icon.font_large.alt"
+msgstr "كبير"
+
+msgid "icon.font_medium.alt"
+msgstr "متوسط"
+
+msgid "icon.font_small.alt"
+msgstr "صغير"
+
+msgid "icon.info.alt"
+msgstr "معلومات"
+
+msgid "icon.letter.alt"
+msgstr "رسالة"
+
+msgid "icon.mail.alt"
+msgstr "بريد الالكتروني"
+
+msgid "icon.unchecked.alt"
+msgstr "غير مؤشر"
+
+msgid "icon.view.alt"
+msgstr "معاينة"
+
+msgid "informationCenter.informationCenter"
+msgstr "مركز المعلومات"
+
+msgid "informationCenter.editorialHistory"
+msgstr "أحداث ووقوعات التحرير"
+
+msgid "informationCenter.addNote"
+msgstr "أضف ملاحظة"
+
+msgid "informationCenter.noNotes"
+msgstr "ليس هناك ملاحظات لعرضها."
+
+msgid "informationCenter.pastNotes"
+msgstr "ملاحظات التحكيم السابقة"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "هل أنت متأكد من رغبتك في حذف هذه الملاحظة؟"
+
+msgid "informationCenter.currentHistory"
+msgstr "التحكيم الحالي"
+
+msgid "informationCenter.pastHistory"
+msgstr "التحكيمات السابقة"
+
+msgid "informationCenter.history.noItems"
+msgstr "ليس هناك أحداث سبق توثيقها."
+
+msgid "informationCenter.history.notePosted"
+msgstr "ملاحظة جديدة مطروحة."
+
+msgid "informationCenter.history.messageSent"
+msgstr "قد أرسل إشعار إلى المستخدمين."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "قد أُرسلَ إشعار إلى المستخدمين."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "إبدأ المناقشة"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "إبدأ المناقشة فيما بينك و {$userFullName}."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "إختر رسالة مسبقة التعريف لإرسالها، أو إملأ النموذج أدناه."
+
+msgid "stageParticipants.notify.message"
+msgstr "الرسالة"
+
+msgid "stageParticipants.notify.warning"
+msgstr "لطفاً، تأكد من أنك قد كتبت شيئاً في حقل الرسالة واخترت شخصاً آخر غيرك لمراسلته."
+
+msgid "stageParticipants.options"
+msgstr "صلاحيات التعيين"
+
+msgid "stageParticipants.recommendOnly"
+msgstr "هذا المشارك يُسمح له فقط بتقديم التوصية بشأن قرار التحرير وسيكون بحاجة إلى الاستعانة بمحرر مخول لتسجيل قرارات هيئة التحرير."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "صلاحيات تعديل البيانات الوصفية لطلب التقديم"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"السماح لهذا المستخدم بالتعديل في المنشور، مثل العنوان، الملخص، البيانات "
+"الوصفية وغيرها من تفاصيل طلب التقديم. قد ترغب بإبطال هذه المزية عندما يجتاز "
+"العمل كل مراحل التدقيق ويصير جاهزاً للنشر النهائي."
+
+msgid "stageParticipants.selectedUser"
+msgstr "المشارك"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "لا يمكن إجراء تعديلات على هذا المشارك"
+
+msgid "locale.primary"
+msgstr "اللغة الأولية"
+
+msgid "locale.supported"
+msgstr "اللغات المدعومة"
+
+msgid "navigation.access"
+msgstr "المستخدمون والأدوار"
+
+msgid "navigation.about"
+msgstr "عن"
+
+msgid "navigation.admin"
+msgstr "الإدارة"
+
+msgid "navigation.archives"
+msgstr "المحفوظات"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "أنت هنا:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "الأدوات"
+
+msgid "navigation.tools.importExport"
+msgstr "استيراد/تصدير"
+
+msgid "navigation.tools.statistics"
+msgstr "الإحصائيات"
+
+msgid "navigation.browse"
+msgstr "التصفح"
+
+msgid "navigation.browseByAuthor"
+msgstr "حسب المؤلف"
+
+msgid "navigation.browseByTitle"
+msgstr "حسب العنوان"
+
+msgid "navigation.dashboard"
+msgstr "لوحة التحكم الرئيسية"
+
+msgid "navigation.data"
+msgstr "البيانات"
+
+msgid "navigation.home"
+msgstr "الصفحة الرئيسية"
+
+msgid "navigation.infoForReaders"
+msgstr "للقراء"
+
+msgid "navigation.infoForReaders.long"
+msgstr "معلومات للقراء"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} من {$total} فقرة"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} من {$total} فقرة"
+
+msgid "navigation.login"
+msgstr "الدخول"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "الخطوة الآتية"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "الخطوة السابقة"
+
+msgid "navigation.publicMenu"
+msgstr "قائمة عامة"
+
+msgid "navigation.register"
+msgstr "التسجيل"
+
+msgid "navigation.search"
+msgstr "البحث"
+
+msgid "navigation.settings"
+msgstr "الإعدادات"
+
+msgid "navigation.setup"
+msgstr "التهيئة"
+
+msgid "navigation.sitemap"
+msgstr "خارطة الموقع"
+
+msgid "navigation.skip.description"
+msgstr "إقفز إلى روابط المحتوى"
+
+msgid "navigation.skip.announcements"
+msgstr "إقفز إلى الإعلانات"
+
+msgid "navigation.skip.main"
+msgstr "إقفز إلى المحتوى الرئيسي"
+
+msgid "navigation.skip.nav"
+msgstr "إقفز إلى قائمة التنقل الرئيسية"
+
+msgid "navigation.skip.footer"
+msgstr "إقفز إلى نهاية الموقع"
+
+msgid "navigation.stepNumber"
+msgstr "الخطوة {$step}"
+
+msgid "navigation.submissions"
+msgstr "طلبات النشر"
+
+msgid "navigation.system"
+msgstr "النظام"
+
+msgid "navigation.userHome"
+msgstr "صفحة المستخدم الرئيسية"
+
+msgid "navigation.user"
+msgstr "المستخدم"
+
+msgid "navigation.userManagement"
+msgstr "إدارة المستخدم"
+
+msgid "navigation.viewFrontend"
+msgstr "معاينة الموقع"
+
+msgid "notification.addedAuditor"
+msgstr "المدقق أضيف."
+
+msgid "notification.removedAuditor"
+msgstr "المدقق أزيل."
+
+msgid "notification.addedQuery"
+msgstr "المحادثة المضافة"
+
+msgid "notification.reviewAcknowledged"
+msgstr "التحكيم مؤشر على أنه مبلغ، لكن الرسالة غير مرسلة."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "رسالة شكر قد تم إرسالها إلى المحكم."
+
+msgid "notification.updatedReviewFiles"
+msgstr "الملفات المحكمة حُدِّثت."
+
+msgid "notification.allow"
+msgstr "قم بتمكين هذا النوع من الإشعارات."
+
+msgid "notification.addedAnnouncementType"
+msgstr "نوعية الإعلان أضيفت."
+
+msgid "notification.editedAnnouncementType"
+msgstr "نوعية الإعلان عُدلت."
+
+msgid "notification.removedAnnouncementType"
+msgstr "نوعية الإعلان أُزيلت."
+
+msgid "notification.removedAnnouncement"
+msgstr "الإعلان أُزيل removed."
+
+msgid "notification.addedAuthor"
+msgstr "المؤلف أُضيف."
+
+msgid "notification.editedAuthor"
+msgstr "المؤلف عُدِّل."
+
+msgid "notification.confirmError"
+msgstr "حدث خطأ لدى تأكيد اشتراكك."
+
+msgid "notification.confirmSuccess"
+msgstr "لقد اشتركت معنا بنجاح."
+
+msgid "notification.email"
+msgstr "لا تراسلني بشأن هذه الأنواع من الإشعارات."
+
+msgid "notification.noneExist"
+msgstr "ليس لديك أي إشعارات حالياً."
+
+msgid "notification.addedNote"
+msgstr "الملاحظة طُرحت."
+
+msgid "notification.removedNote"
+msgstr "الملاحظة حُذفت."
+
+msgid "notification.removedFile"
+msgstr "الملف المحذوف."
+
+msgid "notification.removedSubmission"
+msgstr "طلب النشر المحذوف."
+
+msgid "notification.notification"
+msgstr "إشعار"
+
+msgid "notification.notifications"
+msgstr "إشعارات"
+
+msgid "notification.sentNotification"
+msgstr "الإشعار أُرسل."
+
+msgid "notification.settings"
+msgstr "إعدادات الإشعارات"
+
+msgid "notification.settingsDescription"
+msgstr "إختر الأحداث التي تود أن تستلم إشعارات عنها. إزالة التأشير من الفقرة سيمنع ظهورها في مجهز الإشعارات لديك."
+
+msgid "notification.reminderError"
+msgstr "حدث خطأ ما عند إرسال كلمة مرورك. لطفاً، تأكد من صحة إدخالك لعنوان بريدك ."
+
+msgid "notification.reminderSent"
+msgstr "كلمة مرورك الجديدة قد أرسلت إلى العنوان البريدي الذي حددته."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "البيانات الوصفية لطلب النشر حُفِظت."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "أرسل رسالة عن هذا إلى جميع المستخدمين المسجلين."
+
+msgid "search.author"
+msgstr "حسب المؤلف"
+
+msgid "search.abstract"
+msgstr "الملخص"
+
+msgid "search.advancedFilters"
+msgstr "تصفية متقدمة"
+
+msgid "search.advancedSearchMore"
+msgstr "إظهار خيارات البحث الإضافية"
+
+msgid "search.advancedSearchLess"
+msgstr "إخفاء خيارات البحث الإضافية)"
+
+msgid "search.searchAgain"
+msgstr "إبحث مجدداً"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "محو الفهرس"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "تم"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "خطأ"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} مؤلَّف تمت فهرسته"
+
+msgid "search.coverage"
+msgstr "التغطية"
+
+msgid "search.date"
+msgstr "تأريخ النشر"
+
+msgid "search.dateFrom"
+msgstr "من"
+
+msgid "search.dateTo"
+msgstr "حتى"
+
+msgid "search.deleteFilter"
+msgstr "حذف"
+
+msgid "search.discipline"
+msgstr "التخصصات العلمية"
+
+msgid "search.fullText"
+msgstr "النص الكامل"
+
+msgid "search.indexTerms"
+msgstr "عبارات الفهرسة"
+
+msgid "search.indexTermsLong"
+msgstr "كل حقول عبارة الفهرسة"
+
+msgid "search.matchAll"
+msgstr "مطابقة كل الفئات"
+
+msgid "search.noResults"
+msgstr "لا نتائج"
+
+msgid "search.operator.and"
+msgstr "و"
+
+msgid "search.operator.not"
+msgstr "لا"
+
+msgid "search.operator.or"
+msgstr "أو"
+
+msgid "search.SearchFor"
+msgstr "البحث عن"
+
+msgid "search.searchResults"
+msgstr "إبحث ضمن النتائج"
+
+msgid "search.subject"
+msgstr "كلمة/كلمات مفتاحية"
+
+msgid "search.titleIndex"
+msgstr "استعرض فهرس العناوين"
+
+msgid "search.title"
+msgstr "العنوان"
+
+msgid "search.typeMethodApproach"
+msgstr "النوع (طريقة/نهج)"
+
+msgid "grid.action.downloadFile"
+msgstr "تنزيل هذا الملف"
+
+msgid "context.path"
+msgstr "المسار"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "كيفية ضمان حذف البيانات الشخصية من كل الملفات"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "إقرأ سياسة التحكيم الحالية"
+
+msgid "grid.action.deleteNotification"
+msgstr "إحذف المهمة"
+
+msgid "grid.action.markNew"
+msgstr "كأنها جديدة"
+
+msgid "grid.action.markRead"
+msgstr "كأنها مقروءة"
+
+msgid "dashboard.tasks"
+msgstr "المهام"
+
+msgid "dashboard.myQueue"
+msgstr "مساراتي"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>لضمان تكامل التحكيم المناظر السري، يجب بذل كل جهد من شأنه حجب هويات "
+"المؤلفين والمحكمين بعضهم عن البعض الآخر. هذه المهمة يضطلع بها المؤلفون، "
+"المحررون والمحكمون (الذين يرفعون الملفات كجزء من مهام التحكيم) عبر تدقيق "
+"فيما إذا تم العمل بالخطوات الآتية المتعلقة بالنصوص وخصائص الملفات:</p>\n"
+"<ul><li>قام المؤلفون بحذف أسمائهم من النص مستبدلين إياها بكلمة \"مؤلف\"، "
+"وكذلك مستعملين للسنة في المراجع والهوامش السفلية، بدلاً من اسم المؤلف، عنوان "
+"المقالة، إلخ.</li>\n"
+"<li>قام مؤلفو المستند بإزالة بياناتهم الشخصية أيضاً من خصائص الملفات عبر "
+"اتباع الخطوات الآتية:\n"
+"<ul><li>بالنسبة إلى Microsoft Word في نظام التشغيل Windows:\n"
+"<ul><li>الذهاب إلى (ملف)</li>\n"
+"<li>إختيار (معلومات المستند)</li>\n"
+"<li>النقر على (التحقق من المشاكل)</li>\n"
+"<li>النقر على (فحص المستند)</li>\n"
+"<li>في مربع حوار فاحص المستند، ينبغي التأشير على الخانات المحاذية لأنواع "
+"المحتوى المخفي المطلوب فحصه.</li>\n"
+"<li>النقر على (إزالة الكل)</li>\n"
+"<li>النقر على (إغلاق)</li>\n"
+"<li>حفظ المستند</li></ul>\n"
+"<li>بالنسبة إلى Microsoft Word في نظام التشغيل MacOS:\n"
+"<ul><li>الذهاب إلى (الأدوات)</li>\n"
+"<li>النقر على (حماية المستند)</li>\n"
+"<li>إختيار إزالة البيانات الشخصية من خصائص الملف عند الحفظ</li>\n"
+"<li>النقر على الموافقة ثم حفظ الملف</li></ul></li>\n"
+"<li>ملفات PDF:\n"
+"<ul><li>الذهاب إلى (ملف)</li>\n"
+"<li>إختيار الخصائص</li>\n"
+"<li>إزالة الأسماء من حقل المؤلفين</li>\n"
+"<li>النقر على الموافقة</li>\n"
+"<li>حفظ المستند</li></ul></li></ul>\n"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "جدول التحكيم"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "إلتماس المحرر"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "تاريخ استيجاب الرد"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "تاريخ استيجاب التحكيم"
+
+msgid "submission.task.responseDueDate"
+msgstr "تاريخ استيجاب الرد"
+
+msgid "navigation.goBack"
+msgstr "عودة"
+
+msgid "notification.addedReviewer"
+msgstr "{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا كما قد تمت مراسلته بهذا الشأن."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr "{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا ولكن لم تتم مراسلته بهذا الشأن بعد."
+
+msgid "notification.removedReviewer"
+msgstr "المحكم أُزيل."
+
+msgid "notification.cancelledReviewer"
+msgstr "المحكم أُلغي."
+
+msgid "notification.reinstatedReviewer"
+msgstr "المحكم أُعيد."
+
+msgid "notification.addedStageParticipant"
+msgstr "أضيف المستخدم بمثابة مشارك مرحلي."
+
+msgid "notification.editStageParticipant"
+msgstr "تعيينات المرحلة قد تغيرت."
+
+msgid "notification.type.newAnnouncement"
+msgstr "إشعار جديد."
+
+msgid "notification.type.reviewAssignment"
+msgstr "التحكيم مؤجل."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "مهمة التحكيم حُدِّثَت."
+
+msgid "notification.type.auditorRequest"
+msgstr "إلتماس متابعة للملف \"{$file}\""
+
+msgid "notification.type.allReviewsIn"
+msgstr "كل المحكمين وردت تحكيماتهم والقرار مطلوب في {$stage}."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "تم رفع ملف منقح ليأخذ به المحرر في {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "التحكيمات التي ينبغي الأخذ بها في {$stage}."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "التحكيمات المقدمة إلى {$stage}."
+
+msgid "notification.type.metadataModified"
+msgstr "البيانات الوصفية للمؤلَّف الموسوم \"{$title}\" قد تم تعديلها."
+
+msgid "notification.type.reviewerComment"
+msgstr "علق أحد المحكمين على \"{$title}\"."
+
+msgid "notification.signedFile"
+msgstr "الملف أُخذ به."
+
+msgid "user.authorization.submissionFile"
+msgstr "المستخدم الحالي ليس مخولاً بالوصول إلى هذا الملف."
+
+msgid "user.authorization.invalidPublication"
+msgstr "نشر خاطئ."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "طلب نشر خاطئ."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "تمثيل خاطئ."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "ليس لديك حالياً الصلاحيات الكافية لمعاينة طلب النشر. لطفاً، عدل ملفك الشخصي للتأكد من كونك تمتلك الدور المناسب تحت باب \"مسجل بصفة\"."
+
+msgid "user.authorization.submissionAuthor"
+msgstr "المستخدم الحالي ليس هو مؤلف طلب النشر المطلوب. لطفاً، تأكد من كونك تدخل الموقع بحساب المستخدم الصحيح المقصود."
+
+msgid "notification.type.queryActivity"
+msgstr "نشاط المناقشة."
+
+msgid "notification.type.queryAdded"
+msgstr "المناقشة أُضيفت."
+
+msgid "notification.type.assignCopyeditors"
+msgstr "عيِّن مدققاً مستعملاً رابط التعيين ضمن قائمة المشاركين."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "التدقيقات قيد الانتظار."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "حالة الجولة {$round}"
+
+msgid "notification.type.editorialReport"
+msgstr "ملخص التقرير الإحصائي."
+
+msgid "notification.type.editorialReport.contents"
+msgstr "هذا تذكير لك للتحقق من حالة مجلتك عبر تقرير هيئة التحرير."
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "عنصر قائمة التنقل قد تم تعديله بنجاح"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "عنصر قائمة التنقل قد تمت إزالته بنجاح"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "عنصر قائمة التنقل قد تمت إضافته بنجاح"
+
+msgid "notification.addedNavigationMenu"
+msgstr "قائمة التنقل قد تمت إضافتها بنجاح"
+
+msgid "notification.editedNavigationMenu"
+msgstr "قائمة التنقل قد تم تعديلها بنجاح"
+
+msgid "notification.removedNavigationMenu"
+msgstr "قائمة التنقل قد تمت إزالتها بنجاح"
+
+msgid "list.viewMore"
+msgstr "أظهر المزيد من التفاصيل عن {$name}"
+
+msgid "list.viewLess"
+msgstr "أخفِ التفاصيل الموسعة بشأن {$name}"
+
+msgid "validator.accepted"
+msgstr "لطفاً، إقبل هذه الفقرة.."
+
+msgid "validator.active_url"
+msgstr "هذا ليس رابطاً صحيحاً."
+
+msgid "validator.after"
+msgstr "هذا التأريخ لا بد أن يكون بعد {$date}."
+
+msgid "validator.alpha"
+msgstr "هذا ينبغي أن يحتوي حروفاً فقط."
+
+msgid "validator.alpha_dash"
+msgstr "هذا ينبغي أن يحتوي حروفاً، أرقاماً، شُرطاً وخطوطاً تحتانية فقط."
+
+msgid "validator.alpha_num"
+msgstr "هذا ينبغي أن يحتوي حروفاً وأرقاماً فقط."
+
+msgid "validator.array"
+msgstr "هذه ليست مصفوفة صحيحة."
+
+msgid "validator.before"
+msgstr "هذا التأريخ لا بد أن يكون قبل {$date}."
+
+msgid "validator.between.numeric"
+msgstr "هذا ينبغي أن يكون ما بين {$min} و {$max}."
+
+msgid "validator.between.file"
+msgstr "هذا ينبغي أن يكون ما بين {$min} و {$max} كيلو بايت."
+
+msgid "validator.between.string"
+msgstr "هذا ينبغي أن يكون ما بين {$min} و {$max} حرفاً/حروفاً."
+
+msgid "validator.between.array"
+msgstr "هذا ينبغي أن يحتوي ما بين {$min} و {$max} فقرة/فقرات."
+
+msgid "validator.boolean"
+msgstr "هذا الحقل لا بد أن يكون صحيحاً أو خاطئاً."
+
+msgid "validator.confirmed"
+msgstr "التحقق من هذا الحقل لا يتوافق."
+
+msgid "validator.currency"
+msgstr "هذه ليست عملة صحيحة."
+
+msgid "validator.date"
+msgstr "هذا ليس تأريخاً صحيحاً."
+
+msgid "validator.date_format"
+msgstr "هذا لا يتوافق مع التنسيق {$format}."
+
+msgid "validator.different"
+msgstr "إن {$attribute} و {$other} لا بد لهما أن يكونا مختلفين."
+
+msgid "validator.digits"
+msgstr "هذا لا بد له أن يكون من {$digits} مرتبة رقمية."
+
+msgid "validator.digits_between"
+msgstr "هذا لا بد له أن يكون ما بين {$min} و {$max} مرتبة رقمية."
+
+msgid "validator.email"
+msgstr "هذا ليس عنواناً بريدياً صحيحاً."
+
+msgid "validator.exists"
+msgstr "إن {$attribute} المختارة غير صحيحة."
+
+msgid "validator.filled"
+msgstr "هذا الحقل مطلوب."
+
+msgid "validator.image"
+msgstr "هذه لا بد أن تكون صورة."
+
+msgid "validator.in"
+msgstr "إن {$attribute} المختارة غير صحيحة."
+
+msgid "validator.integer"
+msgstr "هذا ليس عدداً صحيحاً."
+
+msgid "validator.ip"
+msgstr "هذا ليس عنوان IP صحيح."
+
+msgid "validator.issn"
+msgstr "هذا ليس رقماً معيارياً صحيحاً."
+
+msgid "validator.json"
+msgstr "هذه ليست عبارة صحيحة بلغة JSON."
+
+msgid "validator.locale"
+msgstr "هذه اللغة غير مقبولة."
+
+msgid "validator.localeExpected"
+msgstr "هذا الحقل متعدد اللغات. قيم مختلفة ينبغي إدخالها لكل من اللغات المتاحة."
+
+msgid "validator.localeKey"
+msgstr "لا بد من تحديد اللغات عبر استعمال رموزها. مثلاً: ar_IQ، en_US، fr_CA، sr_RS@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "هذا ليس له أن يكون أكبر من {$max}."
+
+msgid "validator.max.file"
+msgstr "هذا ليس له أن يكون أكبر من {$max} كيلو بايت."
+
+msgid "validator.max.string"
+msgstr "هذا ليس له أن يكون أكبر من {$max} حرفاً."
+
+msgid "validator.max.array"
+msgstr "هذا ليس له أن يحتوي أكثر من {$max} فقرة/فقرات."
+
+msgid "validator.mimes"
+msgstr "هذا لا بد أن يكون ملفاً بصيغة {$values}."
+
+msgid "validator.min.numeric"
+msgstr "هذا لا بد أن يكون على الأقل {$min}."
+
+msgid "validator.min.file"
+msgstr "هذا لا بد أن يكون على الأقل {$min} كيلو بايت."
+
+msgid "validator.min.string"
+msgstr "هذا لا بد أن يكون على الأقل {$min} حرفاً."
+
+msgid "validator.min.array"
+msgstr "هذا لا بد أن يحتوي على الأقل {$min} فقرة/فقرات."
+
+msgid "validator.not_in"
+msgstr "إن {$attribute} المختارة غير صحيحة."
+
+msgid "validator.numeric"
+msgstr "هذا ليس رقماً."
+
+msgid "validator.orcid"
+msgstr "هذا ليس معرفاً صحيحاً لحساب ORCID."
+
+msgid "validator.present"
+msgstr "إن الحقل {$attribute} لا بد أن يكون موجوداً."
+
+msgid "validator.regex"
+msgstr "هذا ليس بالتنسيق الصحيح."
+
+msgid "validator.required"
+msgstr "هذا الحقل مطلوب حتماً."
+
+msgid "validator.required_if"
+msgstr "هذا الحقل مطلوب عندما يكون {$other} بقيمة {$value}."
+
+msgid "validator.required_unless"
+msgstr "هذا الحقل مطلوب ما لم يكن {$other} بقيمة {$values}."
+
+msgid "validator.required_with"
+msgstr "هذا الحقل مطلوب عندما يكون {$values} موجوداً."
+
+msgid "validator.required_with_all"
+msgstr "هذا الحقل مطلوب عندما تكون {$values} موجودة."
+
+msgid "validator.required_without"
+msgstr "هذا الحقل مطلوب عندما يكون {$values} غير موجود."
+
+msgid "validator.required_without_all"
+msgstr "هذا الحقل مطلوب عندما لا يكون أي من {$values} موجوداً."
+
+msgid "validator.same"
+msgstr "على كل من {$attribute} و {$other} أن يتطابقا."
+
+msgid "validator.size.numeric"
+msgstr "هذا لا بد أن يكون بحجم {$size}."
+
+msgid "validator.size.file"
+msgstr "هذا لا بد أن يكون بحجم {$size} كيلو بايت."
+
+msgid "validator.size.string"
+msgstr "هذا لا بد أن يكون من {$size} حرف/حروف."
+
+msgid "validator.size.array"
+msgstr "هذا لا بد أن يحتوي {$size} فقرة/فقرات."
+
+msgid "validator.string"
+msgstr "هذا ليس نصاً صحيحاً."
+
+msgid "validator.timezone"
+msgstr "هذه ليست منطقة زمنية صحيحة."
+
+msgid "validator.unique"
+msgstr "إن {$attribute} قد سبق اختياره."
+
+msgid "validator.url"
+msgstr "هذا ليس رابطاً صحيحاً."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "خيارات الخصوصية"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "ليس لديك حق الوصول إلى مهمة التحكيم هذه."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "ليس لديك حق الوصول إلى رسالة المناقشة هذه."
+
+msgid "user.authorization.invalidQuery"
+msgstr "مناقشة خاطئة."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "جولة تحكيم خاطئة."
+
+msgid "user.email"
+msgstr "عنوان البريد الالكتروني"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "كيفية ضمان حذف البيانات الشخصية من كل الملفات"
+
+msgid "search.searchResults.foundPlural"
+msgstr "تم العثور على {$count} من العناصر."
+
+msgid "search.searchResults.foundSingle"
+msgstr "تم العثور على عنصر واحد."
+
+msgid "navigation.backTo"
+msgstr "⟵ عودة إلى {$page}"
+
+msgid "form.saved"
+msgstr "تم الحفظ"
+
+msgid "common.viewWithName"
+msgstr "معاينة {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[مستخدم غبير موجود]"
+
+msgid "common.addFile"
+msgstr "إضافة الملف"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "إختر {$name}"
+
+msgid "common.editItem"
+msgstr "تحرير {$name}"
+
+msgid "common.inactive"
+msgstr "غير فعال"

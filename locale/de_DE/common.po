@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
+"PO-Revision-Date: 2020-07-31 13:56+0000\n"
+"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"de/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:23-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -36,7 +39,7 @@ msgid "about.contact.phone"
 msgstr "Telefon"
 
 msgid "about.contact.principalContact"
-msgstr "Hauptkontakt "
+msgstr "Hauptkontakt"
 
 msgid "about.contact.supportContact"
 msgstr "Kontakt bei technischen Fragen"
@@ -78,7 +81,7 @@ msgid "common.allDownloads"
 msgstr "Alle Downloads"
 
 msgid "common.navigation.sidebar"
-msgstr "Sidebar"
+msgstr "Seitenleiste"
 
 msgid "common.navigation.site"
 msgstr "Website-Navigation"
@@ -96,7 +99,7 @@ msgid "common.list"
 msgstr "Liste"
 
 msgid "common.grid"
-msgstr "Grid"
+msgstr "Raster"
 
 msgid "common.confirmDelete"
 msgstr "Sind Sie sicher, dass Sie diesen Eintrag löschen wollen? Der Vorgang kann nicht rückgängig gemacht werden."
@@ -226,7 +229,7 @@ msgid "common.changesSaved"
 msgstr "Ihre Änderungen wurden gespeichert."
 
 msgid "common.chooseOne"
-msgstr "Bitte wählen Sie aus."
+msgstr "Bitte wählen Sie aus"
 
 msgid "common.close"
 msgstr "Schließen"
@@ -586,7 +589,7 @@ msgid "common.prefix"
 msgstr "Präfix"
 
 msgid "common.prefixAndTitle.tip"
-msgstr "Wenn der Buchtitel mit \"Ein(e)\" oder \"Die\" (oder etwas ähnlichem in Bezug auf alphabetische Sortierung) beginnt, geben Sie dieses Wort bei Präfix ein."
+msgstr "Beispielsweise: A, Das"
 
 msgid "common.preview"
 msgstr "Vorschau"
@@ -729,6 +732,9 @@ msgstr "Komponente"
 msgid "common.uninitiated"
 msgstr "Nicht begonnen"
 
+msgid "common.unknownError"
+msgstr "Es ist ein unerwarteter Fehler aufgetreten. Bitte laden Sie die Seite neu und versuchen Sie es noch einmal."
+
 msgid "common.unread"
 msgstr "Ungelesen"
 
@@ -805,7 +811,7 @@ msgid "debug.executionTime"
 msgstr "Seite erstellt am"
 
 msgid "debug.memoryUsage"
-msgstr "Speicherbelegung:"
+msgstr "Speicherbelegung"
 
 msgid "debug.notes.localeListLoad"
 msgstr "Regionaleinstellungsliste \"{$localeList}\" aus XML geladen"
@@ -865,7 +871,10 @@ msgid "email.compose.tooManyRecipients"
 msgstr "Ihre Nachricht hat zu viele Empfänger/innen."
 
 msgid "email.compose.tooSoon"
-msgstr "Sie versuchen, eine Nachricht zu früh nach Ihrer letzten Nachricht zu versenden. Bitte warten Sie ein wenig, bevor Sie eine weitere Nachricht versenden.>"
+msgstr ""
+"Sie versuchen, eine Nachricht zu früh nach Ihrer letzten Nachricht zu "
+"versenden. Bitte warten Sie ein wenig, bevor Sie eine weitere Nachricht "
+"versenden."
 
 msgid "email.compose.error"
 msgstr "Beim Senden einer E-Mail ist ein Problem aufgetreten. Bitte versuchen Sie es später noch einmal oder benachrichtigen Sie Ihre/n Systemadministrator/in."
@@ -955,7 +964,7 @@ msgid "form.fileRequired"
 msgstr "Dateiupload ist erforderlich."
 
 msgid "form.required"
-msgstr "Mit * gekennzeichnete Angaben sind Pflichtangaben."
+msgstr "(* Pflichtangabe)"
 
 msgid "form.resubmit"
 msgstr "Erneut abschicken"
@@ -1027,7 +1036,7 @@ msgid "icon.view.alt"
 msgstr "Anzeigen"
 
 msgid "informationCenter.informationCenter"
-msgstr "Information Center"
+msgstr "Informationszentrum"
 
 msgid "informationCenter.editorialHistory"
 msgstr "Redaktionsverlauf"
@@ -1177,7 +1186,7 @@ msgid "navigation.setup"
 msgstr "Einrichtung"
 
 msgid "navigation.sitemap"
-msgstr "Site Map"
+msgstr "Übersichtsseite"
 
 msgid "navigation.skip.main"
 msgstr "Zum Inhalt springen"
@@ -1239,12 +1248,6 @@ msgstr "Mitteilungstyp bearbeitet."
 msgid "notification.removedAnnouncementType"
 msgstr "Mitteilungstyp gelöscht."
 
-msgid "notification.addedAnnouncement"
-msgstr "Mitteilung hinzugefügt."
-
-msgid "notification.editedAnnouncement"
-msgstr "Mitteilung bearbeitet."
-
 msgid "notification.removedAnnouncement"
 msgstr "Mitteilung gelöscht."
 
@@ -1297,19 +1300,19 @@ msgid "notification.reminderError"
 msgstr "Das Zusenden des Passworts verursachte einen Fehler; stellen Sie bitte sicher, dass Sie die E-Mail-Adresse richtig eingegeben haben."
 
 msgid "notification.reminderSent"
-msgstr "Ihr neues Passwort wurde an die angegebene E-Mail-Adresse geschickt"
+msgstr "Ihr neues Passwort wurde an die angegebene E-Mail-Adresse geschickt."
 
 msgid "notification.savedSubmissionMetadata"
 msgstr "Metadaten gespeichert."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Benachrichtigungs-E-Mail an alle angemeldeten Nutzer/innen schicken."
+msgstr "Benachrichtigungs-E-Mail an alle angemeldeten Nutzer/innen schicken"
 
 msgid "search.author"
 msgstr "Nach Autor/in"
 
 msgid "search.abstract"
-msgstr "Abstract"
+msgstr "Zusammenfassung"
 
 msgid "search.advancedFilters"
 msgstr "Erweiterte Filter"
@@ -1365,9 +1368,6 @@ msgstr "Alle Indexfelder"
 msgid "search.matchAll"
 msgstr "In allen Kategorien übereinstimmen"
 
-msgid "search.noKeywordError"
-msgstr "Geben Sie mindestens einen Suchbegriff ein."
-
 msgid "search.noResults"
 msgstr "Kein Ergebnis"
 
@@ -1404,7 +1404,8 @@ msgstr "Diese Datei herunterladen"
 msgid "context.path"
 msgstr "Zugangspfad"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Eine anonyme Begutachtung sicherstellen"
 
 msgid "grid.action.showReviewPolicy"
@@ -1425,15 +1426,29 @@ msgstr "Aufgaben"
 msgid "dashboard.myQueue"
 msgstr "Meine Warteschlange"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
-"\n"
-"\t\t<p>Um die Integrität des Blind Peer Review sicherzustellen, sollte bei Einreichungen gewährleistet werden, dass die Identitäten von Autor/innen und Gutachter/innen voreinander zu verbergen. Autor/innen, Redakteur/innen und Gutachter/innen (die Dokumente im Rahmen ihrer Begutachtung hochladen) sollten die Einhaltung der folgenden Schritte in Bezug auf den jeweiligen Text und die Dateieigenschaften erledigt worden sind:</p>\n"
-"\t\t\t<ul><li>Die Autor/innen des Dokuments haben ihre Namen aus dem Text entfernt und haben \"Autor/in\" und das Jahr in Zitaten und Fußnoten verwendet an Stelle von Autor/innennamen, Artikeltitel etc.</li>\n"
-"\t\t\t<li>In Microsoft-Word-Dokumenten sollten die Informationen, die Autor/innen identifizieren könnten, aus den Dokumenteigenschaften der Datei (im Menü \"Datei\" in Word) entfernt werden. Dazu klicken Sie, beginnend mit dem Punkt \"Datei\" im Hauptmenü der Microsoft-Anwendungen: Datei &gt; Speichern unter &gt; Einstellungen (oder Optionen bei einem Mac) &gt; Sicherheit &gt; Persönliche Informationen aus den Dateieigenschaften beim Speichern entfernen &gt; Speichern.</li>\n"
-"\t\t\t<li>In PDF-Dateien sollten die Autor/innennamen aus den Dokumenteigenschaften, die unter \"Datei\" im Hauptmenü von Adobe Acrobat gefunden werden können, entfernt werden.</li>\n"
+"<p>Um die Integrität des Blind Peer Review sicherzustellen, sollte bei "
+"Einreichungen gewährleistet werden, dass die Identitäten von Autor/innen und "
+"Gutachter/innen voreinander zu verbergen. Autor/innen, Redakteur/innen und "
+"Gutachter/innen (die Dokumente im Rahmen ihrer Begutachtung hochladen) "
+"sollten die Einhaltung der folgenden Schritte in Bezug auf den jeweiligen "
+"Text und die Dateieigenschaften erledigt worden sind:</p>\n"
+"<ul><li>Die Autor/innen des Dokuments haben ihre Namen aus dem Text entfernt "
+"und haben \"Autor/in\" und das Jahr in Zitaten und Fußnoten verwendet an "
+"Stelle von Autor/innennamen, Artikeltitel etc.</li>\n"
+"<li>In Microsoft-Word-Dokumenten sollten die Informationen, die Autor/innen "
+"identifizieren könnten, aus den Dokumenteigenschaften der Datei (im Menü \""
+"Datei\" in Word) entfernt werden. Dazu klicken Sie, beginnend mit dem Punkt "
+"\"Datei\" im Hauptmenü der Microsoft-Anwendungen: Datei &gt; Speichern unter "
+"&gt; Einstellungen (oder Optionen bei einem Mac) &gt; Sicherheit &gt; "
+"Persönliche Informationen aus den Dateieigenschaften beim Speichern "
+"entfernen &gt; Speichern.</li>\n"
+"\t\t\t<li>In PDF-Dateien sollten die Autor/innennamen aus den "
+"Dokumenteigenschaften, die unter \"Datei\" im Hauptmenü von Adobe Acrobat "
+"gefunden werden können, entfernt werden.</li>\n"
 "\t\t</ul>\n"
-"\t"
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Zeitplan der Begutachtung"
@@ -1505,7 +1520,7 @@ msgid "user.authorization.invalidSubmission"
 msgstr "Ungültige Einreichung."
 
 msgid "user.authorization.invalidRepresentation"
-msgstr "Ungültige Repräsentation"
+msgstr "Ungültige Repräsentation."
 
 msgid "user.authorization.authorRoleMissing"
 msgstr "Sie verfügen nicht über ausreichende Rechte, um die Einreichung anzusehen. Bitte überarbeiten Sie Ihr Profil, um zu gewährleisten, dass Sie für die entsprechenden Rollen registriert sind."
@@ -1554,3 +1569,372 @@ msgstr "Mehr Details über {$name} anzeigen"
 
 msgid "list.viewLess"
 msgstr "Details über {$name} verbergen"
+
+msgid "form.errorMany"
+msgstr "Bitte beheben Sie {$count} Fehler."
+
+msgid "form.errorOne"
+msgstr "Bitte beheben Sie einen Fehler."
+
+msgid "form.errorGoTo"
+msgstr "Springe zum nächsten Fehler"
+
+msgid "form.errorA11y"
+msgstr "Gehe zu {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Sie können keine weiteren Dateien hochladen."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Datei entfernen"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Sind Sie sicher, dass das Hochladen abgebrochen werden soll?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Hochladen abgebrochen"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Hochladen abbrechen"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Der Server antwortete mit {{statusCode}}. Bitte kontaktieren Sie Ihre/n "
+"Systemadministrator/in, wenn dieses Problem länger bestehen bleibt."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Dateien diesen Formats können nicht hochgeladen werden."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Die Datei ist zu groß ({{filesize}}mb). Dateien größer als {{maxFilesize}}mb "
+"können nicht hochgeladen werden."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"Bitte benutzen Sie das Ersatzformular unten zum Hochladen Ihrer Dateien."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"Hochladen von Dateien per Drag'n'Drop wird von Ihrem Browser nicht "
+"unterstützt."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Dateien hier ablegen zum Hochladen"
+
+msgid "form.disallowedProp"
+msgstr "Diese Eigenschaft ist nicht zulässig."
+
+msgid "form.disallowedLocales"
+msgstr "Nur die folgenden Sprachen sind zugelassen: {$languages}."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Vorschau des derzeit ausgewählten Bildes."
+
+msgid "common.upload.restore"
+msgstr "Original wiederherstellen"
+
+msgid "common.toWithValue"
+msgstr "An: {$value}"
+
+msgid "common.submenu"
+msgstr "Untermenü"
+
+msgid "common.selectedPrefix"
+msgstr "Ausgewählt:"
+
+msgid "common.removeItem"
+msgstr "Entferne {$item}"
+
+msgid "common.pagination.previous"
+msgstr "vorherige Seite"
+
+msgid "common.pagination.next"
+msgstr "nächste Seite"
+
+msgid "common.pagination.goToPage"
+msgstr "Gehe zu {$page}"
+
+msgid "common.override"
+msgstr "Überschreiben"
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"Die hochgeladene Datei konnte nicht gefunden werden. Bitte versuchen Sie "
+"erneut die Datei hochzuladen."
+
+msgid "common.noItemsFound"
+msgstr "Keine Elemente gefunden."
+
+msgid "common.lastActivity"
+msgstr "Letzte Aktivität verzeichnet am {$date}."
+
+msgid "common.fromWithValue"
+msgstr "Von: {$value}"
+
+msgid "common.dateDecided"
+msgstr "Entscheidungsdatum"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Beschreiben Sie das Bild für Benutzer/innen, die die Webseite mit einem nur-"
+"Text-Browser oder mit Hilfsgeräten besuchen. Beispielsweise: \"Unser "
+"Redakteur spricht auf der PKP Konferenz.\""
+
+msgid "validator.alpha_num"
+msgstr "Dies darf nur Buchstaben und Zahlen enthalten."
+
+msgid "validator.alpha_dash"
+msgstr "Dies darf nur Buchstaben, Zahlen, Striche und Unterstriche enthalten."
+
+msgid "validator.alpha"
+msgstr "Dies darf nur Buchstaben enthalten."
+
+msgid "validator.after"
+msgstr "Dieses Datum muss nach dem {$date} liegen."
+
+msgid "validator.active_url"
+msgstr "Dies ist keine gültige URL."
+
+msgid "validator.accepted"
+msgstr "Bitte akzeptieren Sie dieses Element."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Dies ist eine freundliche Erinnerung daran, die Gesundheit der Zeitschrift "
+"anhand des Redaktionsberichts zu überprüfen."
+
+msgid "notification.type.editorialReport"
+msgstr "Zusammenfassung des Statistikberichts."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Ungültige Veröffentlichung."
+
+msgid "notification.editStageParticipant"
+msgstr "Die Zuordnung zu einem Bearbeitungsschritt wurde geändert."
+
+msgid "notification.cancelledReviewer"
+msgstr "Gutachter/in gestrichen."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Gutachter/in wiedereingesetzt."
+
+msgid "navigation.skip.announcements"
+msgstr "Zu den Mitteilungen springen"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Dieser Beteiligte kann nicht geändert werden."
+
+msgid "stageParticipants.selectedUser"
+msgstr "Beteiligte/r"
+
+#, fuzzy
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Dieser Person das Ändern der Veröffentlichungsdetails erlauben."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Rechte"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} Sprachen vollständig"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} in {$localeName}"
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Dieses Formular konnte nicht abgeschickt werden. Sie wurden möglicherweise "
+"abgemeldet. Bitte laden Sie die Seite neu und versuchen Sie es erneut."
+
+msgid "form.requireId"
+msgstr "Bitte geben Sie eine gültige ID an."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Bitte füllen Sie dieses Feld in {$language} aus."
+
+msgid "form.errors"
+msgstr ""
+"Das Formular wurde nicht gespeichert, da {$count} Fehler aufgetreten sind. "
+"Bitte korrigieren Sie diese(n) Fehler und versuchen Sie es erneut."
+
+msgid "validator.url"
+msgstr "Dies ist keine gültige URL."
+
+msgid "validator.unique"
+msgstr "{$attribute} ist bereits vergeben."
+
+msgid "validator.timezone"
+msgstr "Dies ist keine gültige Zeitzone."
+
+msgid "validator.string"
+msgstr "Dies ist keine gültige Zeichenkette."
+
+msgid "validator.size.array"
+msgstr "Dies muss {$min} Elemente enthalten."
+
+msgid "validator.size.string"
+msgstr "Dies muss {$size} Zeichen enthalten."
+
+msgid "validator.size.file"
+msgstr "Dies müssen  {$size} Kilobyte sein."
+
+msgid "validator.size.numeric"
+msgstr "Dies muss {$size} groß sein."
+
+msgid "validator.same"
+msgstr "{$attribute} und {$other} müssen übereinstimmen."
+
+msgid "validator.required_without_all"
+msgstr "Dies ist ein Pflichtfeld, wenn keine {$values} vorhanden sind."
+
+msgid "validator.required_without"
+msgstr "Dies ist ein Pflichtfeld, wenn {$values} nicht vorhanden ist."
+
+msgid "validator.required_with_all"
+msgstr "Dies ist ein Pflichtfeld, wenn {$values} vorhanden ist."
+
+msgid "validator.required_with"
+msgstr "Dies ist ein Pflichtfeld, wenn {$values} vorhanden ist."
+
+msgid "validator.required_unless"
+msgstr ""
+"Dies ist ein Pflichtfeld, außer wenn {$other} in {$values} enthalten ist."
+
+msgid "validator.required_if"
+msgstr "Dies ist ein Pflichtfeld, wenn {$other} {$value} ist."
+
+msgid "validator.required"
+msgstr "Dies ist ein Pflichtfeld."
+
+msgid "validator.regex"
+msgstr "Dies ist nicht korrekt formatiert."
+
+msgid "validator.present"
+msgstr "Das Feld {$attribute} muss vorhanden sein."
+
+msgid "validator.orcid"
+msgstr "Dies ist keine gültige ORCID."
+
+msgid "validator.numeric"
+msgstr "Dies ist keine gültige Zahl."
+
+msgid "validator.not_in"
+msgstr "Das gewählte {$attribute} ist ungültig."
+
+msgid "validator.min.array"
+msgstr "Dies muss mindestens {$min} Elemente enthalten."
+
+msgid "validator.min.string"
+msgstr "Dies muss mindestens {$min} Zeichen lang sein."
+
+msgid "validator.min.file"
+msgstr "Dies müssen mindestens {$min} Kilobyte sein."
+
+msgid "validator.min.numeric"
+msgstr "Dies müssen mindestens {$min} sein."
+
+msgid "validator.mimes"
+msgstr "Dies muss eine Datei des Typs {$values} sein."
+
+msgid "validator.max.array"
+msgstr "Dies darf nicht mehr als  {$max} Elemente enthalten."
+
+msgid "validator.max.string"
+msgstr "Dies darf nicht mehr als  {$max} Zeichen lang sein."
+
+msgid "validator.max.file"
+msgstr "Dies darf nicht größer als  {$max} Kilobyte sein."
+
+msgid "validator.max.numeric"
+msgstr "Dies darf nicht größer als  {$max} sein."
+
+msgid "validator.localeKey"
+msgstr ""
+"Sprachen müssen über den Code für Regionaleinstellungen angegeben werden. "
+"Beispiele: en_US, fr_CA, sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Dies ist ein mehrsprachiges Feld. Werte müssen für jede unterstützte Sprache "
+"getrennt eingegeben werden."
+
+msgid "validator.locale"
+msgstr "Dies Sprache wird nicht akzeptiert."
+
+msgid "validator.json"
+msgstr "Dies ist keine gültige JSON Zeichenkette."
+
+msgid "validator.issn"
+msgstr "Dies ist keine gültige ISSN."
+
+msgid "validator.ip"
+msgstr "Dies ist keine gültige IP-Adresse."
+
+msgid "validator.integer"
+msgstr "Dies ist keine gültige Ganzzahl."
+
+msgid "validator.in"
+msgstr "Das gewählte {$attribute} ist ungültig."
+
+msgid "validator.image"
+msgstr "Dies muss ein Bild sein."
+
+msgid "validator.filled"
+msgstr "Dies ist ein Pflichtfeld."
+
+msgid "validator.exists"
+msgstr "Das gewählte {$attribute} ist ungültig."
+
+msgid "validator.email"
+msgstr "Dies ist keine gültige E-Mail-Adresse."
+
+msgid "validator.digits_between"
+msgstr "Dies muss zwischen {$min} und {$max} Zeichen lang sein."
+
+msgid "validator.digits"
+msgstr "Dies muss {$digits} Zeichen lang sein."
+
+msgid "validator.different"
+msgstr "{$attribute} und {$other} müssen verschieden sein."
+
+msgid "validator.date_format"
+msgstr "Dies stimmt nicht mit dem Format  {$format} überein."
+
+msgid "validator.date"
+msgstr "Dies ist kein gültiges Datum."
+
+msgid "validator.currency"
+msgstr "Dies ist keine gültige Währung."
+
+msgid "validator.confirmed"
+msgstr "Die Bestätigung dieses Feldes stimmt nicht mit dem Wert überein."
+
+msgid "validator.boolean"
+msgstr "Dieses Feld muss wahr oder falsch sein."
+
+msgid "validator.between.array"
+msgstr "Dies muss {$min} bis {$max} Elemente haben."
+
+msgid "validator.between.string"
+msgstr "Dies muss zwischen {$min} und {$max} Zeichen lang sein."
+
+msgid "validator.between.file"
+msgstr "Dies muss zwischen {$min} und {$max} kilobytes groß sein."
+
+msgid "validator.between.numeric"
+msgstr "Dies muss zwischen {$min} und {$max} liegen."
+
+msgid "validator.before"
+msgstr "Dieses Datum muss vor dem {$date} liegen."
+
+msgid "validator.array"
+msgstr "Dies ist kein gültiger Bereich."
+
+msgid "navigation.skip.description"
+msgstr "Springe zu Inhalt-Links"
+
+msgid "common.moreThanOnly"
+msgstr "Mehr als"
+
+msgid "common.lessThanOnly"
+msgstr "Weniger als"

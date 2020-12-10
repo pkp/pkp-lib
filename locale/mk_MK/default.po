@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-29 21:33+0000\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"default/mk/>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MS"
+
+msgid "default.groups.plural.marketing"
+msgstr "Координатори на маркетинг и продажба"
+
+msgid "default.groups.name.marketing"
+msgstr "Координатор на маркетинг и продажба"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Интерни рецензенти"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Интерен рецензент"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Дизајн"
+
+msgid "default.groups.plural.designer"
+msgstr "Дизајнери"
+
+msgid "default.groups.name.designer"
+msgstr "Дизајнер"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "PR"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Коректори"
+
+msgid "default.groups.name.proofreader"
+msgstr "Коректор"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Лектори"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Лектор"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ProdE"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Уредници на продукција"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Уредник на продукција"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Администратори на сајтот"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Администратор на сјатот"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML Stylesheet"
+
+msgid "default.genres.image"
+msgstr "Слика"
+
+msgid "default.genres.multimedia"
+msgstr "Мултимедија"
+
+msgid "default.genres.other"
+msgstr "Друго"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Read"
+
+msgid "default.groups.plural.reader"
+msgstr "Читатели"
+
+msgid "default.groups.name.reader"
+msgstr "Читател"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Trans"
+
+msgid "default.groups.plural.translator"
+msgstr "Преведувачи"
+
+msgid "default.groups.name.translator"
+msgstr "Преведувач"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.plural.author"
+msgstr "Автори"
+
+msgid "default.groups.name.author"
+msgstr "Автор"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "LE"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Графички уредници"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Графички уредник"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.plural.indexer"
+msgstr "Координатор за индексирање"
+
+msgid "default.groups.name.indexer"
+msgstr "Координатор за индексирање"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FC"
+
+msgid "default.groups.plural.funding"
+msgstr "Координатори за финансии"
+
+msgid "default.groups.name.funding"
+msgstr "Координатор за финансирање"

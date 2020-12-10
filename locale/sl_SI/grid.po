@@ -1,0 +1,676 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
+"PO-Revision-Date: 2020-06-06 02:37+0000\n"
+"Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
+"Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"sl/>\n"
+"Language: sl_SI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.noItems"
+msgstr "Ni postavk"
+
+msgid "grid.settings"
+msgstr "Nastavitve"
+
+msgid "grid.noAuditors"
+msgstr "Ni revizorjev"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Ta element gostuje drugje."
+
+msgid "grid.action.manageAccess"
+msgstr "Upravljaj dostope"
+
+msgid "grid.action.sort"
+msgstr "Uredi"
+
+msgid "grid.action.addItem"
+msgstr "Dodaj postavko"
+
+msgid "grid.action.addNote"
+msgstr "Dodaj opombo"
+
+msgid "grid.action.addQuery"
+msgstr "Dodaj diskusijo"
+
+msgid "grid.action.readQuery"
+msgstr "Poglej diskusijo"
+
+msgid "grid.action.deleteQuery"
+msgstr "Odstrani diskusijo"
+
+msgid "grid.action.updateQuery"
+msgstr "Dopolni diskusijo"
+
+msgid "grid.action.addUser"
+msgstr "Dodaj uporabnika"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Odstrani recenzenta"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Odobri to lektorirano datoteko za uporabo v naslednji fazi"
+
+msgid "grid.action.reload"
+msgstr "Ponovno naloži"
+
+msgid "grid.action.delete"
+msgstr "Odstrani"
+
+msgid "grid.action.deleteFile"
+msgstr "Odstrani datoteko"
+
+msgid "grid.action.deleteMedia"
+msgstr "Odstrani medij"
+
+msgid "grid.action.editMedia"
+msgstr "Uredi medij"
+
+msgid "grid.action.editSection"
+msgstr "Uredi rubriko"
+
+msgid "grid.action.export"
+msgstr "Izvozi"
+
+msgid "grid.action.deleteSection"
+msgstr "Odstrani rubriko"
+
+msgid "grid.action.editorialHistory"
+msgstr "Zgodovina revije"
+
+msgid "grid.action.remove"
+msgstr "Odstrani"
+
+msgid "grid.action.edit"
+msgstr "Uredi"
+
+msgid "grid.action.approve"
+msgstr "Odobri"
+
+msgid "grid.action.disapprove"
+msgstr "Zavrni"
+
+msgid "grid.action.setApproval"
+msgstr "Določi odobritev"
+
+msgid "grid.action.moreInformation"
+msgstr "Več informacij"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Povrni privzeto"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Ste prepričani, da želite povrniti na privzeto?"
+
+msgid "grid.action.addAuthor"
+msgstr "Dodaj avtorja"
+
+msgid "grid.action.editAuthor"
+msgstr "Uredi avtorja"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Odstrani avtorja"
+
+msgid "grid.action.addAuditor"
+msgstr "Dodaj revizorja"
+
+msgid "grid.action.upgrade"
+msgstr "Nadgradnja"
+
+msgid "grid.action.order"
+msgstr "Vrstni red"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Odstrani vrstni red"
+
+msgid "grid.action.extendAll"
+msgstr "Razširi vse"
+
+msgid "grid.action.collapse"
+msgstr "Strni"
+
+msgid "grid.action.collapseAll"
+msgstr "Strni vse"
+
+msgid "grid.action.wizard"
+msgstr "Nastavitveni čarovnik"
+
+msgid "grid.action.moveItem"
+msgstr "Premakni predmet"
+
+msgid "grid.action.downloadAll"
+msgstr "Prenesi vse datoteke kot arhiv"
+
+msgid "grid.action.readReview"
+msgstr "Poglej to recenzijo"
+
+msgid "grid.action.email"
+msgstr "Pošlji email"
+
+msgid "grid.action.addReviewer"
+msgstr "Dodaj recenzenta"
+
+msgid "grid.action.addFile"
+msgstr "Dodaj datoteko"
+
+msgid "grid.action.editFile"
+msgstr "Uredi datoteko"
+
+msgid "grid.action.selectFiles"
+msgstr "Izberi datoteko za spremembo"
+
+msgid "grid.action.requestRevisions"
+msgstr "Zahtevaj posodobitev prispevka"
+
+msgid "grid.action.accept"
+msgstr "Sprejmi prispevek"
+
+msgid "grid.action.decline"
+msgstr "Zavrni prispevek"
+
+msgid "grid.action.internalReview"
+msgstr "Pošlji prispevek v interno receznijo"
+
+msgid "grid.action.externalReview"
+msgstr "Pošlji prispevek v zunanjo receznijo"
+
+msgid "grid.action.sendToProduction"
+msgstr "Pošlji prispevek v produkcijo"
+
+msgid "grid.action.settings"
+msgstr "Nastavitve"
+
+msgid "grid.action.importexport"
+msgstr "Uvozi ali izvozi vsebino ali podatke spletišča"
+
+msgid "grid.action.orderItems"
+msgstr "Omogoči urejanje vrstnega reda"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Uredi to postavko kontrolnega seznama"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Odstrani to postavko kontrolnega seznama"
+
+msgid "grid.action.resetAll"
+msgstr "Ponastavi vse postavke na privzete vrednosti"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Dodaj novo email predlogo"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Uredi to email predlogo"
+
+msgid "grid.action.disableEmail"
+msgstr "Onemogoči to email predlogo"
+
+msgid "grid.action.resetEmail"
+msgstr "Ponastavi to email predlogo na privzeto"
+
+msgid "grid.action.expandAll"
+msgstr "Razširi vse"
+
+msgid "grid.action.requestAccount"
+msgstr "Dodaj sodelujočega"
+
+msgid "grid.action.expand"
+msgstr "Razširi"
+
+msgid "grid.action.notify"
+msgstr "Opozori tega uporabnika"
+
+msgid "grid.action.addUserGroup"
+msgstr "Dodaj novo uporabniško skupino"
+
+msgid "grid.action.editUserGroup"
+msgstr "Uredi to uporabniško skupino"
+
+msgid "grid.action.disable"
+msgstr "Onemogoči"
+
+msgid "grid.action.details"
+msgstr "Poglej to postavko"
+
+msgid "grid.action.enrolExisting"
+msgstr "Registriraj obstoječega uporabnika"
+
+msgid "grid.action.selectCreate"
+msgstr "ustvri novega recenzenta"
+
+msgid "grid.action.search"
+msgstr "Iskanje"
+
+msgid "grid.action.advancedSearch"
+msgstr "Napredno iskanje"
+
+msgid "grid.action.viewLibrary"
+msgstr "Poglej knjižnico dokumentov"
+
+msgid "grid.action.viewMetadata"
+msgstr "Poglej metapodatke tega prispevka"
+
+msgid "grid.action.sendReminder"
+msgstr "Pošlji opomnik za nalogo temu uporabniku"
+
+msgid "grid.action.newRound"
+msgstr "Ustvari nov krog"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Poglej navodila za recenziranje"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Poglej navodila za politiko nasprotujočih interesov"
+
+msgid "grid.action.thankReviewer"
+msgstr "Pošlji zahvalno sporočilo temu recenzentu"
+
+msgid "grid.action.uploadFile"
+msgstr "Naloži datoteko"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Dodaj nov tip obvestil"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Dodaj obvestilo"
+
+msgid "grid.action.mergeUser"
+msgstr "Združi uporabnika"
+
+msgid "grid.action.unassignUser"
+msgstr "Razveljavi uporabnika"
+
+msgid "grid.action.history"
+msgstr "Poglej zgodovino"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Ta recenzija je končana, lahko jo tudi ne upoštevate"
+
+msgid "grid.action.enable"
+msgstr "Omogoči"
+
+msgid "grid.action.bookInfo"
+msgstr "Podatki o prispevku"
+
+msgid "grid.action.logInAs"
+msgstr "Prijavi se kot"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Izvozi vse uporabnike"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Ste prepričani, da želite izvoziti vse uporabnike?"
+
+msgid "grid.action.activate"
+msgstr "Aktiviraj"
+
+msgid "grid.action.deactivate"
+msgstr "Deaktiviraj"
+
+msgid "grid.action.copy"
+msgstr "Kopiraj"
+
+msgid "grid.action.preview"
+msgstr "Predogled"
+
+msgid "grid.action.install"
+msgstr "Namesti"
+
+msgid "grid.action.moreItems"
+msgstr "Naloži več"
+
+msgid "grid.task.status.completed"
+msgstr "Ta naloga je opravljena"
+
+msgid "grid.task.status.new"
+msgstr "Označeno, če je upoštevano"
+
+msgid "grid.task.status.uploaded"
+msgstr "Naslov stolpca pove, kdo je naložil to datoteko"
+
+msgid "grid.task.status.unfinished"
+msgstr "Naloga ni dokončana"
+
+msgid "grid.task.status.reviewReady"
+msgstr "Ta recenzija je pripravljena. Kliknite ikono na levi, da jo pogledate."
+
+msgid "grid.columns.actions"
+msgstr "Akcije"
+
+msgid "grid.columns.institution"
+msgstr "Institucije"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.auditor"
+msgstr "Revizor"
+
+msgid "grid.columns.locale"
+msgstr "Jezik"
+
+msgid "grid.sponsor.title"
+msgstr "Sponzorske organizacije"
+
+msgid "grid.action.addSponsor"
+msgstr "Dodaj sponzorja"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Odstrani sponzorja"
+
+msgid "grid.action.editSponsor"
+msgstr "Uredi sponzorja"
+
+msgid "grid.action.addSeries"
+msgstr "Dodaj serijo"
+
+msgid "grid.action.editSeries"
+msgstr "Uredi serijo"
+
+msgid "grid.action.deleteSeries"
+msgstr "Odstrani serijo"
+
+msgid "grid.action.addCategory"
+msgstr "Dodaj kategorijo"
+
+msgid "grid.action.editCategory"
+msgstr "Uredi kategorijo"
+
+msgid "grid.action.deleteCategory"
+msgstr "Odstrani kategorijo"
+
+msgid "grid.contributor.title"
+msgstr "Sodelavci"
+
+msgid "grid.action.addContributor"
+msgstr "Dodaj sodelavca"
+
+msgid "grid.action.editContributor"
+msgstr "Uredi sodelavca"
+
+msgid "grid.action.deleteContributor"
+msgstr "Odstrani sodelavca"
+
+msgid "grid.reviewForm.title"
+msgstr "Recenzijski obrazci"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Možnosti odgovorov"
+
+msgid "grid.noFiles"
+msgstr "Ni datotek"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Datoteke"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Knjižnica prispevka"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Uredniška knjižnica"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Recenzentska knjižnica"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Produkcijska knjižnica"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Knjižnica produkcijskih predlog"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Kontrolni seznam za oddajo"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Postavka kontrolnega seznama"
+
+msgid "author.users.contributor.name"
+msgstr "Ime"
+
+msgid "author.users.contributor.email"
+msgstr "Email"
+
+msgid "author.users.contributor.role"
+msgstr "Vloga"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Primarni kontakt"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Objavljen v seznamu"
+
+msgid "grid.roles.currentRoles"
+msgstr "Trenutna vloga"
+
+msgid "grid.roles.add"
+msgstr "Ustvari novo vlogo"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Zadolžitev v fazi"
+
+msgid "grid.user.currentUsers"
+msgstr "Trenutni uporabniki"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Trenutno vpisani"
+
+msgid "grid.user.allRoles"
+msgstr "Vse vloge"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Dovoljenja na vseh nivojih"
+
+msgid "grid.user.add"
+msgstr "Dodaj uporabnika"
+
+msgid "grid.user.enroll"
+msgstr "Registriraj uporabnika"
+
+msgid "grid.user.edit"
+msgstr "uredi uporabnika"
+
+msgid "grid.user.email"
+msgstr "Email"
+
+msgid "grid.user.enable"
+msgstr "Omogoči"
+
+msgid "grid.user.disable"
+msgstr "Onemogoči"
+
+msgid "grid.user.disableReason"
+msgstr "Razlog za onemogočitev"
+
+msgid "grid.user.enableReason"
+msgstr "Razlog za omogočitev"
+
+msgid "grid.user.error"
+msgstr "Prišlo je do napake pri urejanju tega uporabnnika. Prosimo, poskusite ponovno."
+
+msgid "grid.user.errorEmail"
+msgstr "Prišlo je do napake pri pošiljanju emaila. Prosimo preverite, da so email nastavitve pravilne in /ali se obrnite na vašega sistemskega adminisratorja."
+
+msgid "grid.user.cannotAdminister"
+msgstr "Nimate dovolj pravic za urejanje tega uporabnika. Za urejanje tega uporabnika morate biti ali administrator spletišča ali  administrator vseh revij, pri katerih je ta uporabnik registriran."
+
+msgid "grid.user.authSource"
+msgstr "Avtentikacijski vir"
+
+msgid "grid.user.mustProvideName"
+msgstr "Prosimo vnestie najprej vsaj priimek tega uporabnika."
+
+msgid "grid.user.generatePassword"
+msgstr "Ustvari geslo"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Ustvari naključno geslo za tega uporabnika."
+
+msgid "grid.user.notifyUser"
+msgstr "Obvesti uporabnika"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Pošlji uporabniku email z dobrodošlico."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Spremeni geslo"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Uporabnik mora spremeniti geslo ob naslednji prijavi."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Zahteva, da uporabnik ob naslednji prijavi obvezno spremeni geslo."
+
+msgid "grid.user.moreDetails"
+msgstr "Več podatkov o uporabniku"
+
+msgid "grid.user.lessDetails"
+msgstr "Manj podatkov o uporabniku"
+
+msgid "grid.user.userDetails"
+msgstr "Podatki o uporabniku"
+
+msgid "grid.user.userRoles"
+msgstr "Vloge uporabnika"
+
+msgid "grid.user.userNoRoles"
+msgstr "Ta uporabnik nima dodeljene nobene vloge."
+
+msgid "grid.user.step1"
+msgstr "Korak #1: Vpišite podatke o uporabniku"
+
+msgid "grid.user.step2"
+msgstr "Step #2: Dodelite vloge uporabniku {$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "Dodaj vlogo"
+
+msgid "grid.user.addRole"
+msgstr "Dodaj vloge"
+
+msgid "grid.user.selectUser"
+msgstr "Izberi uporabnika"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Prosim izberite uporabnika"
+
+msgid "grid.user.confirmLogInAs"
+msgstr "Prijavi se kot ta uporabnik? Vse akcije, ki jih boste naredili, bodo pripisane temu uporabniku."
+
+msgid "grid.user.mergeUsers"
+msgstr "Združi uporabnike"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Združi uporabnika"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Združi v tega uporabnika"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Vsi registrirani uporabniki"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr "Ste prepričani, da želite združiti uporabniški račun z imenom \"{$oldUsername}\" v uporabniški rčaun \"{$newUsername}\"? Uporabniški račun \"{$oldUsername}\" po tem ne bo več obstajal. To akcije se ne da preklicati."
+
+msgid "grid.preparedEmails.title"
+msgstr "Pripravljene email predloge"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Trenutna lista"
+
+msgid "grid.plugin.allCategories"
+msgstr "Vse kategorije"
+
+msgid "grid.plugin.disable"
+msgstr "Ste prepričani, da želite onemogočiti ta vtičnik?"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Korekture so opravljene. To nalogo lahko tudi ne upoštevate"
+
+msgid "grid.artworkFile.caption"
+msgstr "Napis"
+
+msgid "grid.artworkFile.credit"
+msgstr "Zasluga"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Lastnik avtorskih pravic"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Kontakt (če ni avtor/izdajatelj)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Dovoljenja"
+
+msgid "grid.artworkFile.placement"
+msgstr "Umestitev v prispevek"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Dodeli fazo"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Odstrani fazo"
+
+msgid "grid.userGroup.allStages"
+msgstr "Vse faze delovnega toka"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Prikaži vloge dodeljene"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Z nivojem pravic na"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "Uporabniška vloga {$userGroupName} je privzeta in je ni možno odstraniti."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr "Uporabniško vlogo {$userGroupName} ni mogoče odstraniti. V njej je še {$usersCount} uporabnikov."
+
+msgid "grid.userGroup.removed"
+msgstr "Uporabniška vloga {$userGroupName} je odstranjena."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "Uporabniška vloga {$userGroupName} je dodeljena fazi {$stageName}."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "Uporabniška vloga {$userGroupName} je odstranjena iz faze {$stageName}."
+
+msgid "grid.submission.itemTitle"
+msgstr "Avtor; Naslov"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Vključi tudi nedokončane oddaje, ki jih ni oddal avtor."
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Dodaj meni"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Dodaj postavko"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Ni postavk za navigacijski meni"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Ni navigacijskih menijev"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Izberite tip..."
+
+msgid "grid.action.uninstall"
+msgstr "Odstrani"
+
+msgid "grid.action.users"
+msgstr "Poglej/izberi uporabnike"
+
+msgid "grid.action.newVersion"
+msgstr "Ustvari novo verzijo"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Odstrani to uporabniško skupino"

@@ -3,9 +3,9 @@
 /**
  * @file classes/services/PKPStatsService.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsService
  * @ingroup services
@@ -15,10 +15,7 @@
 
 namespace PKP\Services;
 
-use PKP\Services\Traits\EntityReadTrait;
-
 class PKPStatsService {
-	use EntityReadTrait;
 
 	/**
 	 * Get all statistics records that match the passed arguments
@@ -42,7 +39,7 @@ class PKPStatsService {
 
 		$defaultArgs = [
 			'dateStart' => STATISTICS_EARLIEST_DATE,
-			'dateEnd' => date('Ymd', strtotime('yesterday')),
+			'dateEnd' => date('Y-m-d', strtotime('yesterday')),
 
 			// Require a context to be specified to prevent unwanted data leakage
 			// if someone forgets to specify the context.
@@ -50,9 +47,9 @@ class PKPStatsService {
 		];
 
 		$args = array_merge($defaultArgs, $args);
-		$statsQB = $this->_getQueryBuilder($args);
+		$statsQB = $this->getQueryBuilder($args);
 
-		\HookRegistry::call('Stats::getRecords::queryBuilder', array($statsQB, $args));
+		\HookRegistry::call('Stats::getRecords::queryBuilder', array(&$statsQB, $args));
 
 		$statsQO = $statsQB->getRecords();
 
@@ -60,27 +57,26 @@ class PKPStatsService {
 			->retrieve($statsQO->toSql(), $statsQO->getBindings());
 
 		$records = [];
-		while (!$result->EOF) {
+		foreach ($result as $row) {
 			$records[] = [
-				'loadId' => $result->fields['load_id'],
-				'contextId' => (int) $result->fields['context_id'],
-				'submissionId' => (int) $result->fields['submission_id'],
-				'assocType' => (int) $result->fields['assoc_type'],
-				'assocId' => (int) $result->fields['assoc_id'],
-				'day' => (int) $result->fields['day'],
-				'month' => (int) $result->fields['month'],
-				'fileType' => (int) $result->fields['file_type'],
-				'countryId' => $result->fields['country_id'],
-				'region' => $result->fields['region'],
-				'city' => $result->fields['city'],
-				'metric' => (int) $result->fields['metric'],
-				'metricType' => $result->fields['metric_type'],
-				'pkpSectionId' => (int) $result->fields['pkp_section_id'],
-				'assocObjectType' => (int) $result->fields['assoc_object_type'],
-				'assocObjectTId' => (int) $result->fields['assoc_object_id'],
-				'representation_id' => (int) $result->fields['representation_id'],
+				'loadId' => $row->load_id,
+				'contextId' => (int) $row->context_id,
+				'submissionId' => (int) $row->submission_id,
+				'assocType' => (int) $row->assoc_type,
+				'assocId' => (int) $row->assoc_id,
+				'day' => (int) $row->day,
+				'month' => (int) $row->month,
+				'fileType' => (int) $row->file_type,
+				'countryId' => $row->country_id,
+				'region' => $row->region,
+				'city' => $row->city,
+				'metric' => (int) $row->metric,
+				'metricType' => $row->metric_type,
+				'pkpSectionId' => (int) $row->pkp_section_id,
+				'assocObjectType' => (int) $row->assoc_object_type,
+				'assocObjectTId' => (int) $row->assoc_object_id,
+				'representation_id' => (int) $row->representation_id,
 			];
-			$result->MoveNext();
 		}
 
 		return $records;
@@ -97,7 +93,7 @@ class PKPStatsService {
 
 		$defaultArgs = [
 			'dateStart' => STATISTICS_EARLIEST_DATE,
-			'dateEnd' => date('Ymd', strtotime('yesterday')),
+			'dateEnd' => date('Y-m-d', strtotime('yesterday')),
 
 			// Require a context to be specified to prevent unwanted data leakage
 			// if someone forgets to specify the context. If you really want to
@@ -106,9 +102,9 @@ class PKPStatsService {
 		];
 
 		$args = array_merge($defaultArgs, $args);
-		$timelineQB = $this->_getQueryBuilder($args);
+		$timelineQB = $this->getQueryBuilder($args);
 
-		\HookRegistry::call('Stats::getTimeline::queryBuilder', array($timelineQB, $args));
+		\HookRegistry::call('Stats::getTimeline::queryBuilder', array(&$timelineQB, $args));
 
 		$timelineQO = $timelineQB
 			->getSum([$timelineInterval])
@@ -118,13 +114,13 @@ class PKPStatsService {
 			->retrieve($timelineQO->toSql(), $timelineQO->getBindings());
 
 		$dateValues = [];
-		while (!$result->EOF) {
-			$date = substr($result->fields[$timelineInterval], 0, 4) . '-' . substr($result->fields[$timelineInterval], 4, 2);
+		foreach ($result as $row) {
+			$row = (array) $row;
+			$date = substr($row[$timelineInterval], 0, 4) . '-' . substr($row[$timelineInterval], 4, 2);
 			if ($timelineInterval === STATISTICS_DIMENSION_DAY) {
-				$date = substr($date, 0, 7) . '-' . substr($result->fields[$timelineInterval], 6, 2);
+				$date = substr($date, 0, 7) . '-' . substr($row[$timelineInterval], 6, 2);
 			}
-			$dateValues[$date] = (int) $result->fields['metric'];
-			$result->MoveNext();
+			$dateValues[$date] = (int) $row['metric'];
 		}
 
 		$timeline = $this->getEmptyTimelineIntervals($args['dateStart'], $args['dateEnd'], $timelineInterval);
@@ -165,9 +161,7 @@ class PKPStatsService {
 
 		$defaultArgs = [
 			'dateStart' => STATISTICS_EARLIEST_DATE,
-			'dateEnd' => date('Ymd', strtotime('yesterday')),
-			'count' => 30,
-			'offset' => 0,
+			'dateEnd' => date('Y-m-d', strtotime('yesterday')),
 
 			// Require a context to be specified to prevent unwanted data leakage
 			// if someone forgets to specify the context. If you really want to
@@ -176,24 +170,30 @@ class PKPStatsService {
 		];
 
 		$args = array_merge($defaultArgs, $args);
-		$orderedQB = $this->_getQueryBuilder($args);
+		$orderedQB = $this->getQueryBuilder($args);
 
-		\HookRegistry::call('Stats::getOrderedObjects::queryBuilder', array($orderedQB, $args));
+		\HookRegistry::call('Stats::getOrderedObjects::queryBuilder', array(&$orderedQB, $args));
 
 		$orderedQO = $orderedQB
 			->getSum([$groupBy])
 			->orderBy('metric', $orderDirection === STATISTICS_ORDER_ASC ? 'asc' : 'desc');
 
+		$range = null;
+		if (isset($args['count'])) {
+			import('lib.pkp.classes.db.DBResultRange');
+			$range = new \DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
+		}
+
 		$result = \DAORegistry::getDAO('MetricsDAO')
-			->retrieveRange($orderedQO->toSql(), $orderedQO->getBindings(), $this->getRangeByArgs($args));
+			->retrieveRange($orderedQO->toSql(), $orderedQO->getBindings(), $range);
 
 		$objects = [];
-		while (!$result->EOF) {
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$objects[] = [
-				'id' => (int) $result->fields[$groupBy],
-				'total' => (int) $result->fields['metric'],
+				'id' => (int) $row[$groupBy],
+				'total' => (int) $row['metric'],
 			];
-			$result->MoveNext();
 		}
 
 		return $objects;
@@ -256,7 +256,7 @@ class PKPStatsService {
 	}
 
 	/**
-	 * Get all time segments (months or days) beween the start and end date
+	 * Get all time segments (months or days) between the start and end date
 	 * with empty values.
 	 *
 	 * @param $startDate string
@@ -272,7 +272,7 @@ class PKPStatsService {
 			$interval = 'P1M';
 		} elseif ($timelineInterval === STATISTICS_DIMENSION_DAY) {
 			$dateFormat = 'Y-m-d';
-			$labelFormat = \Config::getVar('general', 'date_format_long');
+			$labelFormat = \Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong();
 			$interval = 'P1D';
 		}
 
@@ -298,7 +298,7 @@ class PKPStatsService {
 	 * @param array $args See self::getRecords()
 	 * @return \PKP\Services\QueryBuilders\PKPStatsQueryBuilder
 	 */
-	protected function _getQueryBuilder($args = []) {
+	protected function getQueryBuilder($args = []) {
 		$statsQB = new \PKP\Services\QueryBuilders\PKPStatsQueryBuilder();
 		$statsQB
 			->filterByContexts($args['contextIds'])
@@ -320,7 +320,7 @@ class PKPStatsService {
 			$statsQB->filterByFileTypes(($args['fileTypes']));
 		}
 
-		\HookRegistry::call('Stats::queryBuilder', array($statsQB, $args));
+		\HookRegistry::call('Stats::queryBuilder', array(&$statsQB, $args));
 
 		return $statsQB;
 	}

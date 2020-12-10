@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:50+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Dodatni prijevodi"
+
+msgid "installer.administratorAccount"
+msgstr "Administratorski račun"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Ovaj korisnički račun će postati administrator stranice i imati potpuni pristup sustavu. Dodatni korisnički računi mogu biti kreirani nakon instalacije."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NE</span>"
+
+msgid "installer.checkYes"
+msgstr "Da"
+
+msgid "installer.clientCharset"
+msgstr "Skupina znakova klijenta"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Enkoding koji se koristi za slanje i primanje podataka iz preglednika."
+
+msgid "installer.configFileError"
+msgstr "Konfiguracijska datoteka <tt>config.inc.php</tt> ne postoji ili je nečitljiva."
+
+msgid "installer.connectionCharset"
+msgstr "Skupina znakova konekcije"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Sadržaj konfiguracijske datoteke"
+
+msgid "installer.databaseDriver"
+msgstr "Upravljač baze podataka"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Upravljači baze podataka izlistani u uglatim zagradama nemaju učitanu potrebnu PHP ekstenziju i instalacija će vjerovatno podbaciti ukoliko su odabrani.</strong><br />Bilo koji nepodržani dolje izlistani upravljači baza podataka su izlistani isključivo za akademske svrhe i vjerovatno neće raditi."
+
+msgid "installer.databaseHost"
+msgstr "Domaćin"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Ostavite ime glavnog računala prazno da bi se spojili koristeći spojnice domene umjesto preko TCP/IP-a. Ovo nije neophodno s MySQL-om, koji će automatski koristiti spojnice ako je upisano \"localhost\", ali je obavezno s nekim drugim poslužiteljima baza podataka kao što je PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Ime baze podataka"
+
+msgid "installer.databasePassword"
+msgstr "Lozinka"
+
+msgid "installer.databaseSettings"
+msgstr "Postavke baze podataka"
+
+msgid "installer.databaseUsername"
+msgstr "Korisničko ime"
+
+msgid "installer.encryption"
+msgstr "Algoritam enkripcije lozinke"
+
+msgid "installer.filesDir"
+msgstr "Direktorij za slanje datoteka"
+
+msgid "installer.fileSettings"
+msgstr "Postavke datoteka"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Klijentski skup znakova mora biti odabran."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Upravljač baze podataka mora biti odabran."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Ime baze podataka je obavezno."
+
+msgid "installer.form.emailRequired"
+msgstr "Ispravna adresa e-pošte za administratorski račun je obavezna."
+
+msgid "installer.form.encryptionRequired"
+msgstr "Algoritam koji se koristi za šifriranje korisničkih lozinki mora biti odabran."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Direktorij koji će se koristiti za pohranu poslanih datoteka je obavezan."
+
+msgid "installer.form.localeRequired"
+msgstr "Barem jedan jezik mora biti odabran."
+
+msgid "installer.form.passwordRequired"
+msgstr "Lozinka za administratorski račun je obavezna."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Administratorove lozinke se ne podudaraju."
+
+msgid "installer.form.separateMultiple"
+msgstr "Razdvojite višestruke vrijednosti zarezima."
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Administratorsko korisničko ime može sadržavati samo slovnobrojčane znakove, podvlačenja i crtice, a mora početi i završiti sa slovnobrojčanim znakom."
+
+msgid "installer.form.usernameRequired"
+msgstr "Korisničko ime za administratorski račun je obavezno."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>UPOZORENJE: Vaša trenutna verzija PHP-a ne odgovara minimalnim zahtjevima instalacije. Preporučujemo da instalirate noviju verziju PHP-a.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Pojavile su se pogreške tijekom instalacije"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL izjave za instalaciju"
+
+msgid "installer.installFileError"
+msgstr "Instalacijska datoteka <tt>dbscripts/xml/install.xml</tt> ne postoji ili je nečitljiva."
+
+msgid "installer.installFilesDirError"
+msgstr "Direktorij određen za poslane datoteke ne postoji ili se ne može pisati po njemu."
+
+msgid "installer.installParseDBFileError"
+msgstr "Pogreška kod sintaktičke analize instalacijske datoteke baze podataka:  <tt>{$file}</tt>."
+
+msgid "installer.locale"
+msgstr "Prijevod"
+
+msgid "installer.localeSettings"
+msgstr "Postavke prijevoda sustava"
+
+msgid "installer.miscSettings"
+msgstr "Razne postavke"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Jedinstveni identifikator koji se koristi za identifikaciju zapisa metapodataka indeksiranih s ove stranice koristeći <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a>, Protokol za sakupljanje metapodataka."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Identifikator OAI repozitorija"
+
+msgid "installer.publicFilesDirError"
+msgstr "Direktorij javnih datoteka ne postoji ili se ne može pisati po njemu."
+
+msgid "installer.releaseNotes"
+msgstr "Bilješke o izdanju"

@@ -2,9 +2,9 @@
 /**
  * @file classes/services/QueryBuilders/PKPEmailTemplateQueryBuilder.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEmailTemplateQueryBuilder
  * @ingroup query_builders
@@ -15,8 +15,9 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
+class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var integer journal or press ID */
 	protected $contextId = null;
@@ -38,6 +39,9 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 
 	/** @var string search phrase */
 	protected $searchPhrase = null;
+
+	/** @var array filter by workflow stage IDs */
+	protected $stageIds = [];
 
 	/**
 	 * Set context filter
@@ -70,7 +74,7 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 	 *
 	 * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
 	 */
-	public function filterByisCustom($isCustom) {
+	public function filterByIsCustom($isCustom) {
 		$this->isCustom = $isCustom;
 		return $this;
 	}
@@ -112,6 +116,18 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Set stage ID filter
+	 *
+	 * @param $stageIds array
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+	 */
+	public function filterByStageIds($stageIds) {
+		$this->stageIds = $stageIds;
+		return $this;
+	}
+
+	/**
 	 * Set query search phrase
 	 *
 	 * @param $phrase string
@@ -124,12 +140,53 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Set query limit
+	 *
+	 * @param int $count
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+	 */
+	public function limitTo($count) {
+		$this->limit = $count;
+		return $this;
+	}
+
+	/**
+	 * Set how many results to skip
+	 *
+	 * @param int $offset
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+	 */
+	public function offsetBy($offset) {
+		$this->offset = $offset;
+		return $this;
+	}
+
+	/**
+	 * Do not use this method.
+	 */
+	public function getIds() {
+		throw new \Exception('PKPEmailTemplateQueryBuilder::getIds() is not supported. Email templates should be referenced by key instead of id.');
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+	 */
+	public function getCount() {
+		$compiledQuery = $this->getCompiledQuery();
+		return Capsule::table(Capsule::raw('(' . $compiledQuery[0] . ') as email_template_count'))
+			->setBindings($compiledQuery[1])
+			->count();
+	}
+
+	/**
 	 * Do not use this method.
 	 *
 	 * @see self::getCompiledQuery()
 	 */
-	public function get() {
-		throw new Exception('PKPEmailTemplateQueryBuilder::get() is not supported. Use PKPEmailTemplateQueryBuilder::getCompiledQuery() instead.');
+	public function getQuery() {
+		throw new \Exception('PKPEmailTemplateQueryBuilder::getQuery() is not supported. Use PKPEmailTemplateQueryBuilder::getCompiledQuery() instead.');
 	}
 
 	/**
@@ -177,18 +234,6 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
-	 * Retrieve count of matches from query builder
-	 *
-	 * @return integer
-	 */
-	public function getCount() {
-		$compiledQuery = $this->getCompiledQuery();
-		return Capsule::table(Capsule::raw('(' . $compiledQuery[0] . ') as email_template_count'))
-			->setBindings($compiledQuery[1])
-			->count();
-	}
-
-	/**
 	 * Retrieve all matches from query builder limited by those
 	 * which are custom templates or have been modified from the
 	 * default.
@@ -215,6 +260,7 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 			Capsule::raw('COALESCE(etd.email_key, et.email_key) as email_key'),
 			'etd.from_role_id',
 			'etd.to_role_id',
+			'etd.stage_id',
 			'et.email_id',
 			'et.context_id',
 			Capsule::raw('COALESCE(et.enabled, 1) as enabled'),
@@ -235,6 +281,7 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 			->groupBy('etd.can_edit')
 			->groupBy('etd.from_role_id')
 			->groupBy('etd.to_role_id')
+			->groupBy('etd.stage_id')
 			->groupBy('et.email_id');
 
 		if (!is_null($this->contextId)) {
@@ -279,6 +326,15 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 			$q->whereIn('etd.to_role_id', $this->toRoleIds);
 		}
 
+		if (!empty($this->stageIds)) {
+			if (in_array(EMAIL_TEMPLATE_STAGE_DEFAULT, $this->stageIds)) {
+				$q->whereNull('etd.stage_id')
+					->orWhereIn('etd.stage_id', $this->stageIds);
+			} else {
+				$q->whereIn('etd.stage_id', $this->stageIds);
+			}
+		}
+
 		// search phrase
 		if (!empty($this->searchPhrase)) {
 			$words = explode(' ', $this->searchPhrase);
@@ -319,7 +375,7 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 		}
 
 		// Add app-specific query statements
-		\HookRegistry::call('EmailTemplate::getMany::queryObject::default', array($q, $this));
+		\HookRegistry::call('EmailTemplate::getMany::queryObject::default', array(&$q, $this));
 
 		$q->select($this->columns);
 
@@ -386,7 +442,7 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 		}
 
 		// Add app-specific query statements
-		\HookRegistry::call('EmailTemplate::getMany::queryObject::custom', array($q, $this));
+		\HookRegistry::call('EmailTemplate::getMany::queryObject::custom', array(&$q, $this));
 
 		$q->select($this->columns);
 

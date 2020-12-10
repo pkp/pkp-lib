@@ -2,9 +2,9 @@
 /**
  * @file classes/services/PKPSchemaService.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSchemaService
  * @ingroup services
@@ -14,6 +14,7 @@
  */
 namespace PKP\Services;
 
+define('SCHEMA_ANNOUNCEMENT', 'announcement');
 define('SCHEMA_AUTHOR', 'author');
 define('SCHEMA_CONTEXT', 'context');
 define('SCHEMA_EMAIL_TEMPLATE', 'emailTemplate');
@@ -72,7 +73,7 @@ class PKPSchemaService {
 			$schema = $this->merge($schema, $appSchema);
 		}
 
-		\HookRegistry::call('Schema::get::' . $schemaName, $schema);
+		\HookRegistry::call('Schema::get::' . $schemaName, array(&$schema));
 
 		$this->_schemas[$schemaName] = $schema;
 
@@ -252,8 +253,7 @@ class PKPSchemaService {
 				if (is_object($value) || is_array($value)) {
 					$value = serialize($value);
 				}
-				$value = (string) $value;
-				return get_magic_quotes_gpc() ? stripslashes($value) : $value;
+				return (string) $value;
 			case 'array':
 				$newArray = [];
 				if (is_array($schema->items)) {

@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
+"PO-Revision-Date: 2019-12-29 20:34+0000\n"
+"Last-Translator: Lucia Steele <lucia.steele@aboutscience.eu>\n"
+"Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/reader/"
+"it/>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "comments.anonymous"
+msgstr "Utente anonimo"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Corpo"
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Cancellando questo commento saranno cancellate anche tutte le risposte. Sicuro di voler continuare?"
+
+msgid "comments.delete"
+msgstr "Cancella questo commento"
+
+msgid "comments.email"
+msgstr "Email"
+
+msgid "comments.emailReply"
+msgstr "Rispondi per email"
+
+msgid "comments.enterComment"
+msgstr "Inserisci un commento"
+
+msgid "comments.inResponseTo"
+msgstr "In risposta a <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Nome"
+
+msgid "comments.noComments"
+msgstr "Non è stato inserito nessun commento."
+
+msgid "comments.nReplies"
+msgstr "({$num} risposte)"
+
+msgid "comments.oneReply"
+msgstr "(1 risposta)"
+
+msgid "comments.postAnonymously"
+msgstr "Invia un commento anonimo"
+
+msgid "comments.postReply"
+msgstr "Invia una risposta"
+
+msgid "comments.readerComments"
+msgstr "Commenti dei lettori"
+
+msgid "comments.readMore"
+msgstr "Leggi tutto"
+
+msgid "comments.replies"
+msgstr "Risposte"
+
+msgid "comments.title"
+msgstr "Titolo"
+
+msgid "comments.viewAllComments"
+msgstr "Vedi tutti i commenti"
+
+msgid "reader.fullText"
+msgstr "Full Text:"
+
+msgid "comments.titleRequired"
+msgstr "Inserisci un titolo per il commento."

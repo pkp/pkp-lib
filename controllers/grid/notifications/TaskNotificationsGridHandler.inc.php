@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/notifications/TaskNotificationsGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TaskNotificationsGridHandler
  * @ingroup controllers_grid_notifications
@@ -19,6 +19,16 @@ import('lib.pkp.controllers.grid.notifications.NotificationsGridHandler');
 class TaskNotificationsGridHandler extends NotificationsGridHandler {
 
 	/**
+	 * @copydoc GridHandler::initialize()
+	 */
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
+
+		// Basic grid configuration.
+		$this->setTitle('common.tasks');
+	}
+
+	/**
 	 * @see GridHandler::loadData()
 	 * @return array Grid data.
 	 */
@@ -27,8 +37,7 @@ class TaskNotificationsGridHandler extends NotificationsGridHandler {
 
 		// Get all level task notifications.
 		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-		$notifications = $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TASK);
-		return $notifications->toAssociativeArray();
+		return $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TASK)->toArray();
 	}
 }
 

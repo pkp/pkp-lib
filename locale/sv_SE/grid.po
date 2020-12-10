@@ -1,0 +1,675 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
+"PO-Revision-Date: 2020-05-27 20:29+0000\n"
+"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
+"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/sv/"
+">\n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.noItems"
+msgstr "Inga objekt"
+
+msgid "grid.settings"
+msgstr "Inställningar"
+
+msgid "grid.noAuditors"
+msgstr "Inga manusgranskare"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Det här objektet lagras externt."
+
+msgid "grid.action.uninstall"
+msgstr "Avinstallera"
+
+msgid "grid.action.manageAccess"
+msgstr "Hantera tillgänglighet"
+
+msgid "grid.action.sort"
+msgstr "Ordna"
+
+msgid "grid.action.addItem"
+msgstr "Lägg till objekt"
+
+msgid "grid.action.addNote"
+msgstr "Lägg till anteckning"
+
+msgid "grid.action.addQuery"
+msgstr "Lägg till diskussion"
+
+msgid "grid.action.readQuery"
+msgstr "Läs diskussion"
+
+msgid "grid.action.deleteQuery"
+msgstr "Ta bort diskussion"
+
+msgid "grid.action.updateQuery"
+msgstr "Uppdatera diskussionen"
+
+msgid "grid.action.addUser"
+msgstr "Lägg till användare"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Ta bort den här granskaren"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Godkänn den här manusredigeringsfilen för vidaresändning till nästa steg"
+
+msgid "grid.action.reload"
+msgstr "Uppdatera"
+
+msgid "grid.action.delete"
+msgstr "Ta bort"
+
+msgid "grid.action.deleteFile"
+msgstr "Ta bort fil"
+
+msgid "grid.action.deleteMedia"
+msgstr "Ta bort media"
+
+msgid "grid.action.editMedia"
+msgstr "Redigera media"
+
+msgid "grid.action.editSection"
+msgstr "Redigera sektion"
+
+msgid "grid.action.export"
+msgstr "Exportera"
+
+msgid "grid.action.deleteSection"
+msgstr "Ta bort sektion"
+
+msgid "grid.action.editorialHistory"
+msgstr "Redaktionell historik"
+
+msgid "grid.action.remove"
+msgstr "Ta bort"
+
+msgid "grid.action.edit"
+msgstr "Redigera"
+
+msgid "grid.action.approve"
+msgstr "Godkänn"
+
+msgid "grid.action.disapprove"
+msgstr "Avslå"
+
+msgid "grid.action.setApproval"
+msgstr "Lägg in godkännande"
+
+msgid "grid.action.moreInformation"
+msgstr "Mer information"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Återställ till default"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Är du säker på att du vill återställa till default?"
+
+msgid "grid.action.addAuthor"
+msgstr "Lägg till författare"
+
+msgid "grid.action.editAuthor"
+msgstr "Redigera författare"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Ta bort författare"
+
+msgid "grid.action.addAuditor"
+msgstr "Tilldela manusgranskare"
+
+msgid "grid.action.upgrade"
+msgstr "Uppgradera"
+
+msgid "grid.action.order"
+msgstr "Ordna"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Avbryt ordna"
+
+msgid "grid.action.extendAll"
+msgstr "Förläng alla"
+
+msgid "grid.action.collapse"
+msgstr "Fäll ihop"
+
+msgid "grid.action.collapseAll"
+msgstr "Fäll ihop alla"
+
+msgid "grid.action.wizard"
+msgstr "Inställningsguide"
+
+msgid "grid.action.moveItem"
+msgstr "Flytta objekt"
+
+msgid "grid.action.downloadAll"
+msgstr "Ladda ned samtliga filer som ett arkiv"
+
+msgid "grid.action.readReview"
+msgstr "Läs den här granskningen"
+
+msgid "grid.action.email"
+msgstr "Skicka e-postmeddelande"
+
+msgid "grid.action.addReviewer"
+msgstr "Lägg till en granskare"
+
+msgid "grid.action.addFile"
+msgstr "Lägg till en fil"
+
+msgid "grid.action.editFile"
+msgstr "Redigera en fil"
+
+msgid "grid.action.selectFiles"
+msgstr "Välj filer att hantera"
+
+msgid "grid.action.requestRevisions"
+msgstr "Begär bearbetning av det här bidraget"
+
+msgid "grid.action.accept"
+msgstr "Acceptera det här bidraget"
+
+msgid "grid.action.decline"
+msgstr "Refusera det här bidraget"
+
+msgid "grid.action.internalReview"
+msgstr "Skicka det här bidraget till intern granskning"
+
+msgid "grid.action.externalReview"
+msgstr "Skicka det här bidraget till extern granskning"
+
+msgid "grid.action.sendToProduction"
+msgstr "Skicka det här bidraget till produktion"
+
+msgid "grid.action.settings"
+msgstr "Inställningar"
+
+msgid "grid.action.importexport"
+msgstr "Importera eller exportera innehåll eller webbplats-data"
+
+msgid "grid.action.orderItems"
+msgstr "Aktivera ordna-läge"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Redigera det här elementet i checklistan"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Ta bort det här elementet från checklistan"
+
+msgid "grid.action.resetAll"
+msgstr "Återställ alla element till defaultvärden"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Lägg till en ny e-postmall"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Redigera den här e-postmallen"
+
+msgid "grid.action.disableEmail"
+msgstr "Inaktivera den här e-postmallen"
+
+msgid "grid.action.resetEmail"
+msgstr "Återställ den här e-postmallen till default"
+
+msgid "grid.action.expandAll"
+msgstr "Fäll ut alla"
+
+msgid "grid.action.requestAccount"
+msgstr "Lägg till en deltagare"
+
+msgid "grid.action.expand"
+msgstr "Fäll ut"
+
+msgid "grid.action.notify"
+msgstr "Meddela den här användaren"
+
+msgid "grid.action.addUserGroup"
+msgstr "Lägg till en ny användargrupp"
+
+msgid "grid.action.editUserGroup"
+msgstr "Redigera den här användargruppen"
+
+msgid "grid.action.disable"
+msgstr "Inaktivera"
+
+msgid "grid.action.details"
+msgstr "Visa det här objektet"
+
+msgid "grid.action.enrolExisting"
+msgstr "Lägg till en befintlig användare som granskare"
+
+msgid "grid.action.selectCreate"
+msgstr "Skapa en ny granskare"
+
+msgid "grid.action.search"
+msgstr "Sök"
+
+msgid "grid.action.advancedSearch"
+msgstr "Avancerad sök"
+
+msgid "grid.action.viewLibrary"
+msgstr "Visa dokumentbibliotek"
+
+msgid "grid.action.viewMetadata"
+msgstr "Visa metadata för det här bidraget"
+
+msgid "grid.action.sendReminder"
+msgstr "Skicka en påminnelse om uppdrag till den här användaren"
+
+msgid "grid.action.newRound"
+msgstr "Skapa en ny omgång"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Visa riktlinjerna för granskare"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Visa riktlinjer och policy för intressekonflikter"
+
+msgid "grid.action.thankReviewer"
+msgstr "Skicka ett tackmeddelande till den här granskaren"
+
+msgid "grid.action.uploadFile"
+msgstr "Ladda upp en fil"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Lägg till typ för Meddelanden"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Lägg till meddelande"
+
+msgid "grid.action.mergeUser"
+msgstr "Slå ihop användare"
+
+msgid "grid.action.unassignUser"
+msgstr "Ta tillbaka tilldelning av användare"
+
+msgid "grid.action.history"
+msgstr "Visa historik"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Den här granskningen är färdig, men du kan välja att bortse från den"
+
+msgid "grid.action.enable"
+msgstr "Aktivera"
+
+msgid "grid.action.bookInfo"
+msgstr "Information om bidraget"
+
+msgid "grid.action.logInAs"
+msgstr "Logga in som"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Exportera alla användare"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Är du säker på att du vill exportera alla användare?"
+
+msgid "grid.action.activate"
+msgstr "Aktivera"
+
+msgid "grid.action.deactivate"
+msgstr "Avaktivera"
+
+msgid "grid.action.copy"
+msgstr "Kopiera"
+
+msgid "grid.action.preview"
+msgstr "Förhandsgranska"
+
+msgid "grid.action.install"
+msgstr "Installera"
+
+msgid "grid.action.moreItems"
+msgstr "Ladda fler"
+
+msgid "grid.task.status.completed"
+msgstr "Den här uppgiften är klar"
+
+msgid "grid.task.status.new"
+msgstr "Detta är ett nytt objekt som kräver uppmärksamhet"
+
+msgid "grid.task.status.uploaded"
+msgstr "Kolumnrubriken visar vem som laddat upp den här filen"
+
+msgid "grid.task.status.unfinished"
+msgstr "Uppgift ej slutförd"
+
+msgid "grid.task.status.reviewReady"
+msgstr "Den här granskningen är färdig. Klicka på antecknings-ikonen till vänster för att läsa den."
+
+msgid "grid.columns.actions"
+msgstr "Händelser"
+
+msgid "grid.columns.institution"
+msgstr "Institution"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.auditor"
+msgstr "Manusgranskare"
+
+msgid "grid.columns.locale"
+msgstr "Språk/region"
+
+msgid "grid.sponsor.title"
+msgstr "Sponsor"
+
+msgid "grid.action.addSponsor"
+msgstr "Lägg till sponsor"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Ta bort sponsor"
+
+msgid "grid.action.editSponsor"
+msgstr "Redigera sponsor"
+
+msgid "grid.action.addSeries"
+msgstr "Lägg till serie"
+
+msgid "grid.action.editSeries"
+msgstr "Redigera serie"
+
+msgid "grid.action.deleteSeries"
+msgstr "Ta bort serie"
+
+msgid "grid.action.addCategory"
+msgstr "Lägg till kategori"
+
+msgid "grid.action.editCategory"
+msgstr "Redigera kategori"
+
+msgid "grid.action.deleteCategory"
+msgstr "Ta bort kategori"
+
+msgid "grid.contributor.title"
+msgstr "Med stöd från"
+
+msgid "grid.action.addContributor"
+msgstr "Lägg till medarbetare"
+
+msgid "grid.action.editContributor"
+msgstr "Redigera medarbetare"
+
+msgid "grid.action.deleteContributor"
+msgstr "Ta bort medarbetare"
+
+msgid "grid.reviewForm.title"
+msgstr "Granskningsformulär"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Svarsalternativ"
+
+msgid "grid.noFiles"
+msgstr "Inga filer"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Filer"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Bidragsbibliotek"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Redkationsbibliotek"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Granskningsbibliotek"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Produktionsbibliotek"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Produktionsmallsbibliotek"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Checklista för bidrag"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Element i checklista"
+
+msgid "author.users.contributor.name"
+msgstr "Namn"
+
+msgid "author.users.contributor.email"
+msgstr "E-postadress"
+
+msgid "author.users.contributor.role"
+msgstr "Roll"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Primär kontaktperson"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "I bläddringslista"
+
+msgid "grid.roles.currentRoles"
+msgstr "Nuvarande roller"
+
+msgid "grid.roles.add"
+msgstr "Skapa ny roll"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Tilldelning av steg"
+
+msgid "grid.user.currentUsers"
+msgstr "Nuvarande användare"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Nuvarande roller"
+
+msgid "grid.user.allRoles"
+msgstr "Alla roller"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Alla behörighetsnivåer"
+
+msgid "grid.user.add"
+msgstr "Lägg till användare"
+
+msgid "grid.user.enroll"
+msgstr "Tilldela roll till användare"
+
+msgid "grid.user.edit"
+msgstr "Redigera användare"
+
+msgid "grid.user.email"
+msgstr "Skicka e-postmeddelande"
+
+msgid "grid.user.enable"
+msgstr "Aktivera"
+
+msgid "grid.user.disable"
+msgstr "Inaktivera"
+
+msgid "grid.user.disableReason"
+msgstr "Anledning till inaktivering av användare"
+
+msgid "grid.user.enableReason"
+msgstr "Anledning till aktivering av användare"
+
+msgid "grid.user.error"
+msgstr "Det uppstod ett fel vid hanteringen av den här användaren. Vänligen försök igen."
+
+msgid "grid.user.errorEmail"
+msgstr "Det uppstod ett fel när det här e-postmeddelandet skulle skickas. Vänligen verifiera att din e-postserver är korrekt konfigurerad och/eller kontakta din systemadministratör."
+
+msgid "grid.user.cannotAdminister"
+msgstr "Dina behörigheter räcker inte för att administrera den här användaren. För att administrera en användare behöver du vara antingen webbplatsadministratör eller ha administrationsbehörighet för samtliga kontexter som användaren är inblandad i."
+
+msgid "grid.user.authSource"
+msgstr "Autentiseringskälla"
+
+msgid "grid.user.mustProvideName"
+msgstr "Vänligen ange åtminstone användarens namn först."
+
+msgid "grid.user.generatePassword"
+msgstr "Generera lösenord"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Generera ett slumpmässigt lösenord till den här användaren."
+
+msgid "grid.user.notifyUser"
+msgstr "Meddela användare"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Skicka ett välkomstmeddelande till användaren."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Byt lösenord"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Användaren måste byta lösenord nästa gång hen loggar in."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Kräv att användaren byter sitt lösenord nästa gång hen loggar in."
+
+msgid "grid.user.moreDetails"
+msgstr "Fler användardetaljer"
+
+msgid "grid.user.lessDetails"
+msgstr "Färre användardetaljer"
+
+msgid "grid.user.userDetails"
+msgstr "Användardetaljer"
+
+msgid "grid.user.userRoles"
+msgstr "Användarens roller"
+
+msgid "grid.user.userNoRoles"
+msgstr "Den här användaren saknar roller."
+
+msgid "grid.user.step1"
+msgstr "Steg 1: Fyll i användardetaljer"
+
+msgid "grid.user.step2"
+msgstr "Steg 2: Tilldela {$userFullName} roller"
+
+msgid "grid.user.addRoles"
+msgstr "Tilldela roller"
+
+msgid "grid.user.addRole"
+msgstr "Tilldela roll"
+
+msgid "grid.user.selectUser"
+msgstr "Välj användare"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Vänligen välj en användare"
+
+msgid "grid.user.confirmLogInAs"
+msgstr "Logga in som den här användaren? Allt du gör kommer att ske i egenskap av den här användaren."
+
+msgid "grid.user.mergeUsers"
+msgstr "Slå ihop användare"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Slå ihop användare"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Slå ihop med den här användaren"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Alla registrerade användare"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr "Är du säker på att du vill slå ihop kontot med användarnamnet \"{$oldUsername}\" med kontot med användarnamnet \"{$newUsername}\"? Kontot med användarnamnet \"{$oldUsername}\" kommer inte längre att existera efteråt. Åtgärden kan inte ångras."
+
+msgid "grid.preparedEmails.title"
+msgstr "Färdiga e-postmallar"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Aktuell lista"
+
+msgid "grid.plugin.allCategories"
+msgstr "Alla kategorier"
+
+msgid "grid.plugin.disable"
+msgstr "Är du säker på att du vill inaktivera det här pluginet?"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Korrekturändringar gjorda. Du kan välja att bortse från den här uppgiften"
+
+msgid "grid.artworkFile.caption"
+msgstr "Bildtext"
+
+msgid "grid.artworkFile.credit"
+msgstr "Källa"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Upphovsrättsinnehavare"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Kontaktinformation (om annan än författare/utgivare)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Rättigheter för användning"
+
+msgid "grid.artworkFile.placement"
+msgstr "Placering i bidraget"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Tilldela steg"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Ta tillbaka tilldelning av steg"
+
+msgid "grid.userGroup.allStages"
+msgstr "Alla steg i arbetsflödet"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Lista roller tilldelade"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Med behörighetsnivån"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "Rollen {$userGroupName} är en defaultroll och kan inte tas bort."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr "Kan inte ta bort rollen {$userGroupName}. För närvarande har {$usersCount} användare den rollen."
+
+msgid "grid.userGroup.removed"
+msgstr "Rollen {$userGroupName} borttagen."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "Rollen {$userGroupName} tilldelad steg {$stageName}."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "Rollen {$userGroupName} borttagen från steg {$stageName}."
+
+msgid "grid.submission.itemTitle"
+msgstr "Författare; Titel"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Inkludera ofullständiga bidrag som inte skickats in av författaren."
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Lägg till meny"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Lägg till objekt"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Inga objekt i navigationsmenyn"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Inga navigationsmenyer"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Välj typ..."
+
+msgid "grid.action.newVersion"
+msgstr "Skapa en ny version"
+
+msgid "grid.action.users"
+msgstr "Visa/välj användare"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Radera den här användargruppen"

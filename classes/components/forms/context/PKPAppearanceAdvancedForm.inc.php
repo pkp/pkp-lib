@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/context/PKPAppearanceAdvancedForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAppearanceAdvancedForm
  * @ingroup classes_controllers_form
@@ -38,7 +38,6 @@ class PKPAppearanceAdvancedForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context, $baseUrl, $temporaryFileApiUrl, $imageUploadUrl) {
 		$this->action = $action;
-		$this->successMessage = __('manager.setup.appearance.success');
 		$this->locales = $locales;
 
 		$this->addField(new FieldUpload('styleSheet', [

@@ -1,0 +1,199 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
+"PO-Revision-Date: 2020-11-27 10:51+0000\n"
+"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/tr_TR/>\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "installer.additionalLocales"
+msgstr "Ek diller"
+
+msgid "installer.administratorAccount"
+msgstr "Yönetici Hesabı"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Bu kullanıcı hesabı site yöneticisi olacaktır ve sisteme tam giriş yetkisi olacaktır. Ek kullanıcı hesapları kurulumdan sonra oluşturulabilir."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">HAYIR</span>"
+
+msgid "installer.checkYes"
+msgstr "Evet"
+
+msgid "installer.clientCharset"
+msgstr "Kullanıcı karakter seti"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Hizmet vericiden veri gönderme ve alma için şifreleme."
+
+msgid "installer.configFileError"
+msgstr "<tt>config.inc.php</tt> adlı konfigürasyon dosyası mevcut değil veya okunabilir değil."
+
+msgid "installer.connectionCharset"
+msgstr "Bağlantı karakter seti"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Konfigürasyon dosyasının içeriği"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Parentez içinde belirtilen veri tabanı sürücüleri, gerekli olan PHP uzantısını göstermez ve eğer o seçilirse yükleme muhtemelen başarısız olacaktır. </strong><br />Yukarıda belirtilen desteklenmeyen veri tabanı sürücülerinden her hangi biri yalnızca akademik amaçlar için listelenmiştir ve muhtemelen işlemeyecektir."
+
+msgid "installer.databaseDriver"
+msgstr "Veri tabanı sürücüsü"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Alan (domain) soketleri yerine TCP/IP üzerinden bağlanmak için\"hostname\"i boş bırakın. \"localhost\" bilgisi girildiyse soketler otomatik olarak kullanılacaktır. Bu MySQL için gerekli değildir, fakat PstgreSQL gibi bazı veri tabanı sunucuları için gereklidir."
+
+msgid "installer.databaseHost"
+msgstr "Ana Bilgisayar"
+
+msgid "installer.databaseName"
+msgstr "Veri tabanı adı"
+
+msgid "installer.databasePassword"
+msgstr "Şifre"
+
+msgid "installer.databaseSettings"
+msgstr "Veri Tabanı Ayarları"
+
+msgid "installer.databaseUsername"
+msgstr "Kullanıcı adı"
+
+msgid "installer.filesDir"
+msgstr "Yüklemeler için dizin"
+
+msgid "installer.fileSettings"
+msgstr "Dosya Ayarları"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Bir kullanıcı karakter seti seçilmiş olmalıdır."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Bir veri tabanı sürücüsü seçilmiş olmalıdır."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Veri tabanı ismi gereklidir."
+
+msgid "installer.form.emailRequired"
+msgstr "Yönetici hesabı için geçerli bir e-posta adresi gereklidir."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Yüklenen dosyaları saklamak için kullanılacak dizin gereklidir."
+
+msgid "installer.form.localeRequired"
+msgstr "Bir yer seçilmeli."
+
+msgid "installer.form.passwordRequired"
+msgstr "Yönetici hesabı için bir şifre gereklidir."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Yönetici şifresi eşleşmedi."
+
+msgid "installer.form.separateMultiple"
+msgstr "Çoklu değerleri virgül ile ayırın"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Yöneticinin kullanıcı adı yalnızca alfanümerik karakterleri, alt çizgileri ve tire işaretlerini içerebilir ve mutlaka bir alfanümerik karakter ile başlayıp sonlanmalıdır."
+
+msgid "installer.form.usernameRequired"
+msgstr "Yönetici hesabı için bir kullanıcı adı gereklidir."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>UYARI: Kullanmakta olduğunuz PHP sürümü kurulum için minimum gereksinimleri karşılamıyor. Daha güncel bir PHP sürümü yüklemeniz önerilir.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Yükleme sırasında hata oluştu"
+
+msgid "installer.installerSQLStatements"
+msgstr "Kurulum için SQL açıklamaları"
+
+msgid "installer.installFileError"
+msgstr "<tt>dbscripts/xml/install.xml</tt> adlı kurulum dosyası mevcut değil veya okunabilir değil."
+
+msgid "installer.installFilesDirError"
+msgstr "Yüklenen dosyalara özgü dizin mevcut veya yazılabilir değil."
+
+msgid "installer.installParseDBFileError"
+msgstr "<tt>{$file}</tt> adlı veri tabanı kurulum dosyasında ayrıştırma hatası oluştu."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "<tt>{$file}</tt> adlı e-posta şablon dosyasında ayrıştırma hatası oluştu."
+
+msgid "installer.locale"
+msgstr "Kurulum dili yeri"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "İşaretli diller tamamlanmamış olabilir."
+
+msgid "installer.localeSettings"
+msgstr "Yerel Ayarlar"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Bu sitede <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> üst veri harmanlama protokolüne uygun olarak meta verilerini tanımlamak için tekil bir tanımlama kullanılır."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Kurumsal Arşiv Belirleyici"
+
+msgid "installer.publicFilesDirError"
+msgstr "Genel dosya dizini mevcut değil veya yazılabilir değil."
+
+msgid "installer.releaseNotes"
+msgstr "Sürüm Notları"
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Filitre konfigürasyon dosyası <tt>{$file}</tt> ayrıştırma hatası."
+
+msgid "installer.oaiSettings"
+msgstr "OAI Ayarları"
+
+msgid "installer.unsupportedPhpError"
+msgstr "Sunucunuzun PHP sürümü bu yazılımı desteklemiyor. docs/README dosyasından kurulum gereksinimlerini tekrar kontrol ediniz."
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Ön Yükleme Adımları"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Aşağıdaki dosyalar ve dizinler (ve içerikleri) yazılabilir "
+"olmalıdır:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> yazılabilir (opsiyonel): "
+"{$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> yazılabilir: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> yazılabilir: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> yazılabilir: "
+"{$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> yazılabilir: "
+"{$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> yazılabilir: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"<p>2. Yüklenen dosyaları depolamak için bir dizin oluşturulmalı ve "
+"yazılabilir yapmalısınız (Aşağıdaki \"Dosya Ayarları\" kısmına bakınız).</p>"
+"\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>PHP kurulumunuzda XSL modülü etkin değil. Bunu etkinleştirin veya config.inc.php dosyanızda xslt_command parametresini yapılandırın. </p>"
+
+msgid "installer.beacon"
+msgstr "İşaretçi"
+
+msgid "installer.beacon.enable"
+msgstr "Yalnızca istatistik ve güvenlik uyarıları için PKP'ye tekil bir site kimliği ve OAI temel URL'si oluşturun."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Yükseltme desteklenmiyor. Ayrıntılar için docs/UPGRADE-UNSUPPORTED dokümanına bakınız."
+
+msgid "installer.installMigrationError"
+msgstr "<tt>{$class}</tt>'ı taşıma sınıf hatası."

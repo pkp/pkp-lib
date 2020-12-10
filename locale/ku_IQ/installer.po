@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-04-17 18:37+0000\n"
+"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
+"Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/ku_IQ/>\n"
+"Language: ku_IQ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "installer.installerSQLStatements"
+msgstr "دەستەواژەکانی SQL  بۆ دابەزاندن"
+
+msgid "installer.installErrorsOccurred"
+msgstr "لە کاتی دابەزاندندا هەڵەیەک پەیدا بو"
+
+msgid "installer.form.usernameRequired"
+msgstr "ناوێکی بەکارهێنەر بۆ ئەژماری بەڕێوەبەر داوا کراوە."
+
+msgid "installer.form.separateMultiple"
+msgstr "بە فاریزەی ئینگلیزی وشەکان لە یەکدی جیا بکەوە"
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "وشە نهێنییەکانی بەڕێوەبەر هاوشێوە نین."
+
+msgid "installer.form.passwordRequired"
+msgstr "وشەیەکی نهێنی بۆ ئەژماری بەڕێوەبەر داوا کراوە."
+
+msgid "installer.form.localeRequired"
+msgstr "زمانێک دەبێت دیاری بکرێت."
+
+msgid "installer.form.filesDirRequired"
+msgstr "فەرهەنگەکە بۆ خەزنکردنی فایلە بارکراوەکان داوا کراوە."
+
+msgid "installer.form.emailRequired"
+msgstr "ئیمەیڵێکی دروست بۆ ئەژماری بەڕێوەبەر داوا کراوە."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "ناوی داتابەیس داوا کراوە."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "بەکارخەری داتابەیس دەبێت دیاری بکرێت."
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "دیاریکردنی سیستەمی پیتەکان بۆ مشتەری."
+
+msgid "installer.fileSettings"
+msgstr "ڕێکخستنەکانی فایل"
+
+msgid "installer.filesDir"
+msgstr "فەرهەنگ بۆ بارکردنەکان"
+
+msgid "installer.databaseUsername"
+msgstr "ناوی بەکارهێنەر"
+
+msgid "installer.databaseSettings"
+msgstr "ڕێکخستنەکانی داتابەیس"
+
+msgid "installer.databasePassword"
+msgstr "وشەی نهێنی"
+
+msgid "installer.databaseName"
+msgstr "ناوی داتابەیس"
+
+msgid "installer.databaseHost"
+msgstr "میوان"
+
+msgid "installer.databaseDriver"
+msgstr "بەکارخەری داتابەیس"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "ناوەرۆکی فایلی زانیارییەکان"
+
+msgid "installer.connectionCharset"
+msgstr "کۆمەڵەی بەیەکگەیشتنی پیتەکان"
+
+msgid "installer.configFileError"
+msgstr "فایلی <tt>config.inc.php</tt> نییە یان ناخوێندرێتەوە."
+
+msgid "installer.clientCharsetInstructions"
+msgstr "کۆدکردنی بەکارهێندراو بۆ داتا بۆ براوزەر دەنێردرێت و لێیەوە وەردەگیرێت."
+
+msgid "installer.clientCharset"
+msgstr "سیستەمی پیت بۆ کڕیار"
+
+msgid "installer.checkYes"
+msgstr "بەڵێ"
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">نەخێر</span>"
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"ئەم ئەژماری بەکارهێنەرە دەبێتە بەڕێوەبەری پەڕەکە و دەستپێڕاگەیشتنی تەواوی بۆ "
+"سیستەمەکە دەبێت. ئەژماری بەکارهێنەری دیکە دەکریت دوای دابەزاندنی سیستەمەکە "
+"دروست بکرێن."
+
+msgid "installer.administratorAccount"
+msgstr "ئەژماری بەڕێوەبەر"
+
+msgid "installer.additionalLocales"
+msgstr "زمانەکانی دیکە"

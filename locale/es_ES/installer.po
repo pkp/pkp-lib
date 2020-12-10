@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:23-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "installer.additionalLocales"
 msgstr "Locales adicionales"
@@ -40,12 +43,6 @@ msgstr "Conjunto de caracteres de la conexión"
 
 msgid "installer.contentsOfConfigFile"
 msgstr "Contenidos del fichero de configuración"
-
-msgid "installer.createDatabase"
-msgstr "Crear nueva base de datos"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "Para usar esta opción, el sistema de la base de datos debe ser compatible con la creación de bases de datos remotas y su cuenta de usuario/a debe tener los permisos necesarios para crear nuevas bases de datos. Si la instalación no da resultado con esta opción seleccionada, cree la base de datos manualmente en su servidor y ejecute de nuevo el instalador con la opción deshabilitada."
 
 msgid "installer.databaseDriver"
 msgstr "Driver de la base de datos"
@@ -96,7 +93,7 @@ msgid "installer.form.localeRequired"
 msgstr "Se debe seleccionar un locale."
 
 msgid "installer.form.passwordRequired"
-msgstr "Es necesaria una contraseña para la cuenta de administrador"
+msgstr "Es necesaria una contraseña para la cuenta de administrador."
 
 msgid "installer.form.passwordsDoNotMatch"
 msgstr "Las contraseñas del administrador no coinciden."
@@ -194,3 +191,6 @@ msgstr "Este software no soporta la versión PHP de su servidor. Vuelva a compro
 
 msgid "installer.miscSettings"
 msgstr "Configuración adicional"
+
+msgid "installer.installMigrationError"
+msgstr "Error al ejecutar la clase de migración <tt>{$class}</tt>."

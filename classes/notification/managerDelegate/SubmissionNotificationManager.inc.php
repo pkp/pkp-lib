@@ -3,9 +3,9 @@
 /**
  * @file classes/notification/managerDelegate/SubmissionNotificationManager.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionNotificationManager
  * @ingroup managerDelegate
@@ -30,14 +30,16 @@ class SubmissionNotificationManager extends NotificationManagerDelegate {
 	 */
 	public function getNotificationMessage($request, $notification) {
 		assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($notification->getAssocId()); /* @var $submission Submission */
-
+		
 		switch ($notification->getType()) {
 			case NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
 				return __('notification.type.submissionSubmitted', array('title' => $submission->getLocalizedTitle()));
 			case NOTIFICATION_TYPE_METADATA_MODIFIED:
 				return __('notification.type.metadataModified', array('title' => $submission->getLocalizedTitle()));
+			case NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
+				return __('notification.type.submissionNewVersion');
 			case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
 				return __('notification.type.editorAssignmentTask');
 			default:
@@ -59,7 +61,13 @@ class SubmissionNotificationManager extends NotificationManagerDelegate {
 			case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
 				$contextDao = Application::getContextDAO();
 				$context = $contextDao->getById($notification->getContextId());
+				
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'submission', $notification->getAssocId());
+			case NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
+				$contextDao = Application::getContextDAO();
+				$context = $contextDao->getById($notification->getContextId());
+				
+				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->getAssocId());
 			default:
 				assert(false);
 		}

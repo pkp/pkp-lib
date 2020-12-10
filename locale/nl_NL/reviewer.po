@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:56+00:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Verzoek"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Richtlijnen"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Download & Review"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Voltooiing"
+
+msgid "reviewer.step1.request"
+msgstr "Reviewverzoek"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "U werd geselecteerd als mogelijke reviewer voor volgende inzending. Hieronder vindt u een overzicht van de inzending, en een planning voor deze review. We hopen dat u kan deelnemen aan het peer review proces."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Bekijk alle gegevens van de inzending"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Reviewbestanden"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Wijs reviewverzoek af"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Hieronder kan u een reden opgeven voor de weigering van dit reviewverzoek."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Aanvaard review, ga door naar stap #2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Ga door naar stap #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Dien review in"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Review richtlijnen"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Deze uitgever heeft een beleid voor een verklaring over strijdige belangen van reviewers. Neemt u a.u.b. even de tijd om dit beleid door te nemen."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Ik heb geen strijdige belangen."
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Het is mogelijk dat ik strijdige belangen heb (beschrijf die hieronder)."
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Strijdige belangen"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Review richtlijnen"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Deze uitgever heeft geen review richtlijnen opgesteld."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Klik hieronder op de bestandsnaam om de bestanden van deze inzending te downloaden."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Vul in onderstaand formulier uw review van deze inzending in."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Laad bestanden op die de redactie/auteur(s) moeten kunnen raadplegen, inclusief bewerkte versies van de originele reviewbestand(en)."
+
+msgid "reviewer.complete"
+msgstr "Review ingediend"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Weet u zeker dat u deze review wilt indienen?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Bedankt voor het voltooien van de review voor deze inzending. Uw review is met succes ingediend. We appreciëren uw bijdrage aan de kwaliteit van onze publicatie; de redactie kan u eventueel nog contacteren voor meer informatie."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Belangrijke datums"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "De redactie vraagt dat u het reviewverzoek aanvaardt of afwijst vóór de uiterste antwoorddatum, en -indien u aanvaardt- dat u de review indient voor de uiterste reviewdatum."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Voor auteur en redacteur"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Enkel voor de redacteur"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "De huidige gebruiker is niet toegekend als reviewer voor het opgevraagde document."

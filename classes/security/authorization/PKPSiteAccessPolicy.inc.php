@@ -2,9 +2,9 @@
 /**
  * @file classes/security/authorization/PKPSiteAccessPolicy.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSiteAccessPolicy
  * @ingroup security_authorization
@@ -39,7 +39,7 @@ class PKPSiteAccessPolicy extends PolicySet {
 			import('lib.pkp.classes.security.authorization.PKPPublicAccessPolicy');
 			$siteRolePolicy->addPolicy(new PKPPublicAccessPolicy($request, $operations));
 		} else {
-			fatalError('Invalid role assignments!');
+			throw new Exception('Invalid role assignments!');
 		}
 		$this->addPolicy($siteRolePolicy);
 	}

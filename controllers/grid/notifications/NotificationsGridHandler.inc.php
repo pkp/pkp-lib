@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/notifications/NotificationsGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NotificationsGridHandler
  * @ingroup controllers_grid_notifications
@@ -165,16 +165,19 @@ class NotificationsGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function markNew($args, $request) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$user = $request->getUser();
 
 		$selectedElements = (array) $request->getUserVar('selectedElements');
 		foreach ($selectedElements as $notificationId) {
-			if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
+			if ($notificationDao->getById($notificationId, $user->getId())) {
 				$notificationDao->setDateRead($notificationId, null);
 			}
 		}
-		return DAO::getDataChangedEvent(null, null, $selectedElements);
+
+		$json = DAO::getDataChangedEvent(null, null, $selectedElements);
+		$json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
+		return $json;
 	}
 
 	/**
@@ -184,7 +187,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function markRead($args, $request) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$user = $request->getUser();
 
 		$selectedElements = (array) $request->getUserVar('selectedElements');
@@ -201,7 +204,9 @@ class NotificationsGridHandler extends GridHandler {
 		} else {
 			// The notification has been marked read explicitly.
 			// Update its status in the grid.
-			return DAO::getDataChangedEvent(null, null, $selectedElements);
+			$json = DAO::getDataChangedEvent(null, null, $selectedElements);
+			$json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
+			return $json;
 		}
 	}
 
@@ -212,7 +217,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteNotifications($args, $request) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$user = $request->getUser();
 
 		$selectedElements = (array) $request->getUserVar('selectedElements');
@@ -221,7 +226,9 @@ class NotificationsGridHandler extends GridHandler {
 				$notificationDao->deleteObject($notification);
 			}
 		}
-		return DAO::getDataChangedEvent();
+		$json = DAO::getDataChangedEvent(null, null, $selectedElements);
+		$json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
+		return $json;
 	}
 
 	/**
@@ -230,10 +237,9 @@ class NotificationsGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
-	function getUnreadNotificationsCount($args, $request) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
-		$user = $request->getUser();
-		return new JSONMessage(true, $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK));
+	function getUnreadNotificationsCount($user) {
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
+		return (int) $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK);
 	}
 }
 

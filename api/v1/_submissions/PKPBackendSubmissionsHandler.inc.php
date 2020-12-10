@@ -3,9 +3,9 @@
 /**
  * @file api/v1/_submissions/PKPBackendSubmissionsHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPBackendSubmissionsHandler
  * @ingroup api_v1_backend
@@ -89,7 +89,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		$canAccessUnassignedSubmission = !empty(array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles));
 		if (!$canAccessUnassignedSubmission) {
-			$defaultParams['assignedTo'] = $currentUser->getId();
+			$defaultParams['assignedTo'] = [$currentUser->getId()];
 		}
 
 		$params = array_merge($defaultParams, $slimRequest->getQueryParams());
@@ -101,7 +101,8 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 				// Always convert status and stageIds to array
 				case 'status':
 				case 'stageIds':
-					if (is_string($val) && strpos($val, ',') > -1) {
+				case 'assignedTo':
+					if (is_string($val)) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
 						$val = array($val);
@@ -109,7 +110,6 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 					$params[$param] = array_map('intval', $val);
 					break;
 
-				case 'assignedTo':
 				case 'daysInactive':
 				case 'offset':
 					$params[$param] = (int) $val;
@@ -143,12 +143,11 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 
 		// Prevent users from viewing submissions they're not assigned to,
 		// except for journal managers and admins.
-		if (!$canAccessUnassignedSubmission && $params['assignedTo'] != $currentUser->getId()) {
+		if (!$canAccessUnassignedSubmission && !in_array($currentUser->getId(), $params['assignedTo'])) {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
 		}
 
-		$submissionService = Services::get('submission');
-		$submissionsIterator = $submissionService->getMany($params);
+		$submissionsIterator = Services::get('submission')->getMany($params);
 		$items = array();
 		if (count($submissionsIterator)) {
 			$propertyArgs = array(
@@ -156,12 +155,12 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 				'slimRequest' => $slimRequest,
 			);
 			foreach ($submissionsIterator as $submission) {
-				$items[] = $submissionService->getBackendListProperties($submission, $propertyArgs);
+				$items[] = Services::get('submission')->getBackendListProperties($submission, $propertyArgs);
 			}
 		}
 		$data = array(
 			'items' => $items,
-			'itemsMax' => $submissionService->getMax($params),
+			'itemsMax' => Services::get('submission')->getMax($params),
 		);
 
 		return $response->withJson($data);
@@ -176,14 +175,10 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 	 * @return Response
 	 */
 	public function delete($slimRequest, $response, $args) {
-
 		$request = $this->getRequest();
-		$currentUser = $request->getUser();
 		$context = $request->getContext();
-
 		$submissionId = (int) $args['submissionId'];
-
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionId);
 
 		if (!$submission) {
@@ -195,13 +190,11 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 		}
 
 		import('classes.core.Services');
-		$submissionService = Services::get('submission');
-
-		if (!$submissionService->canCurrentUserDelete($submission)) {
+		if (!Services::get('submission')->canCurrentUserDelete($submission)) {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.unauthorizedDeleteSubmission');
 		}
 
-		$submissionService->delete($submission);
+		Services::get('submission')->delete($submission);
 
 		return $response->withJson(true);
 	}

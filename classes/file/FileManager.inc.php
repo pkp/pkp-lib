@@ -9,9 +9,9 @@
 /**
  * @file classes/file/FileManager.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  * ePUB mime type added  Leah M Root (rootl) SUNY Geneseo
  * @class FileManager
  * @ingroup file
@@ -24,12 +24,14 @@ define('FILE_MODE_MASK', 0666);
 define('DIRECTORY_MODE_MASK', 0777);
 
 define('DOCUMENT_TYPE_DEFAULT', 'default');
+define('DOCUMENT_TYPE_AUDIO', 'audio');
 define('DOCUMENT_TYPE_EXCEL', 'excel');
 define('DOCUMENT_TYPE_HTML', 'html');
 define('DOCUMENT_TYPE_IMAGE', 'image');
 define('DOCUMENT_TYPE_PDF', 'pdf');
 define('DOCUMENT_TYPE_WORD', 'word');
 define('DOCUMENT_TYPE_EPUB', 'epub');
+define('DOCUMENT_TYPE_VIDEO', 'video');
 define('DOCUMENT_TYPE_ZIP', 'zip');
 
 class FileManager {
@@ -172,7 +174,6 @@ class FileManager {
 	 * @return boolean returns true if successful
 	 */
 	function copyFile($source, $dest) {
-		$success = true;
 		$destDir = dirname($dest);
 		if (!$this->fileExists($destDir, 'dir')) {
 			// Try to create the destination directory
@@ -326,6 +327,7 @@ class FileManager {
 	/**
 	 * Delete all contents including directory (equivalent to "rm -r")
 	 * @param $file string the full path of the directory to be removed
+	 * @return boolean true iff success, otherwise false
 	 */
 	function rmtree($file) {
 		if (file_exists($file)) {
@@ -333,16 +335,17 @@ class FileManager {
 				$handle = opendir($file);
 				while (($filename = readdir($handle)) !== false) {
 					if ($filename != '.' && $filename != '..') {
-						$this->rmtree($file . '/' . $filename);
+						if (!$this->rmtree($file . '/' . $filename)) return false;
 					}
 				}
 				closedir($handle);
-				rmdir($file);
+				if (!rmdir($file)) return false;
 
 			} else {
-				unlink($file);
+				if (!unlink($file)) return false;
 			}
 		}
+		return true;
 	}
 
 	/**
@@ -462,6 +465,7 @@ class FileManager {
 			case 'image/ico':
 				return '.ico';
 			case 'image/svg+xml':
+			case 'image/svg':
 				return '.svg';
 			case 'application/x-shockwave-flash':
 				return '.swf';
@@ -565,21 +569,19 @@ class FileManager {
 	/**
 	 * Decompress passed gziped file.
 	 * @param $filePath string
-	 * @param $errorMsg string
-	 * @return boolean|string
+	 * @return string The file path that was created.
 	 */
-	function decompressFile($filePath, &$errorMsg) {
-		return $this->_executeGzip($filePath, true, $errorMsg);
+	function decompressFile($filePath) {
+		return $this->_executeGzip($filePath, true);
 	}
 
 	/**
 	 * Compress passed file.
 	 * @param $filePath string The file to be compressed.
-	 * @param $errorMsg string
-	 * @return boolean|string
+	 * @return string The file path that was created.
 	 */
-	function compressFile($filePath, &$errorMsg) {
-		return $this->_executeGzip($filePath, false, $errorMsg);
+	function compressFile($filePath) {
+		return $this->_executeGzip($filePath, false);
 	}
 
 
@@ -591,31 +593,27 @@ class FileManager {
 	 * @param $filePath string file to be compressed or uncompressed.
 	 * @param $decompress boolean optional Set true if the passed file
 	 * needs to be decompressed.
-	 * @param $errorMsg string
-	 * @return false|string The file path that was created with the operation
-	 * or false in case of fail.
+	 * @return string The file path that was created with the operation
 	 */
-	private function _executeGzip($filePath, $decompress = false, &$errorMsg) {
+	private function _executeGzip($filePath, $decompress = false) {
 		PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
 		$gzipPath = Config::getVar('cli', 'gzip');
 		if (!is_executable($gzipPath)) {
-			$errorMsg = __('admin.error.executingUtil', array('utilPath' => $gzipPath, 'utilVar' => 'gzip'));
-			return false;
+			throw new Exception(__('admin.error.executingUtil', array('utilPath' => $gzipPath, 'utilVar' => 'gzip')));
 		}
 		$gzipCmd = escapeshellarg($gzipPath);
 		if ($decompress) $gzipCmd .= ' -d';
 		// Make sure any output message will mention the file path.
 		$output = array($filePath);
 		$returnValue = 0;
-		$gzipCmd .= ' ' . $filePath;
+		$gzipCmd .= ' ' . escapeshellarg($filePath);
 		if (!Core::isWindows()) {
 			// Get the output, redirecting stderr to stdout.
 			$gzipCmd .= ' 2>&1';
 		}
 		exec($gzipCmd, $output, $returnValue);
 		if ($returnValue > 0) {
-			$errorMsg = __('admin.error.utilExecutionProblem', array('utilPath' => $gzipPath, 'output' => implode(PHP_EOL, $output)));
-			return false;
+			throw new Exception(__('admin.error.utilExecutionProblem', array('utilPath' => $gzipPath, 'output' => implode(PHP_EOL, $output))));
 		}
 		if ($decompress) {
 			return substr($filePath, 0, -3);

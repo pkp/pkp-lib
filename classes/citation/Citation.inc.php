@@ -7,9 +7,9 @@
 /**
  * @file classes/citation/Citation.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Citation
  * @ingroup citation
@@ -26,7 +26,7 @@ class Citation extends DataObject {
 	 */
 	function __construct($rawCitation = null) {
 		parent::__construct();
-		$this->setRawCitation($rawCitation); // this will set state to CITATION_RAW
+		$this->setRawCitation($rawCitation);
 	}
 
 	//

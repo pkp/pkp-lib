@@ -1,0 +1,297 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:02+00:00\n"
+"Language: \n"
+
+msgid "admin.adminFunctions"
+msgstr "Административне функције"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Да ли сте сигурни да желите трајно обрисати овај извор аутентификације?"
+
+msgid "admin.auth.create"
+msgstr "Креирајте извор аутентификације"
+
+msgid "admin.auth.noneCreated"
+msgstr "Ни један извор аутентификације није дефинисан."
+
+msgid "admin.authSources"
+msgstr "Извори аутентификације"
+
+msgid "admin.clearDataCache"
+msgstr "Брисање кеш меморије података"
+
+msgid "admin.clearTemplateCache"
+msgstr "Брисање кеш меморије шаблона"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Ваш конфигурациони фајл је успешно ажурирана. Имајте на уму да уколико ваш сајт више не ради исправно, морате ручно подесити конфигурацију приликом директног уређивања <tt>config.inc.php</tt> фајла."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Да ли сте сигурни да желите обрисати кеш меморију израђених шаблона?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Да ли сте сигурни да желите да сесије свих корисника истекну? Сви корисници који су тренутно пријављени у систем ће бит присиљени да се поновно пријаве (Ви такође)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Садржај конфигурационог фајла"
+
+msgid "admin.currentVersion"
+msgstr "Тренутна верзија"
+
+msgid "admin.dateInstalled"
+msgstr "Датум инсталације"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Систем не може аутоматски обавити преписивање преко конфигурационог фајла. Како бисте применили конфигурационе измене морате отворити фајл <tt>config.inc.php</tt> у прикладном уређивачу текста и замиенити његов садржај са садржајем текста у пољу испод."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Прикажи нову конфигурацију"
+
+msgid "admin.expireSessions"
+msgstr "Учини корисничке сесије неважећима"
+
+msgid "admin.languages.confirmReload"
+msgstr "Да ли сте сигурни да поновно желите учитати овај превод? То ће обрисати све измене у преводу које су урађене у појединим часописима (на пример, прилагођени шаблони имејл поште)."
+
+msgid "admin.languages.installedLocales"
+msgstr "Инсталиране локализације"
+
+msgid "admin.languages.installLanguages"
+msgstr "Подеси локализације"
+
+msgid "admin.languages.installLocales"
+msgstr "Инсталирај"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Инсталирај нову локализацију"
+
+msgid "admin.languages.languageSettings"
+msgstr "Подешавање језика"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Нема додатних превода на располагању за инсталацију."
+
+msgid "admin.languages.reload"
+msgstr "Поновно учитавање локализације"
+
+msgid "admin.languages.uninstall"
+msgstr "Брисање локализације"
+
+msgid "admin.phpInfo"
+msgstr "Додатне информације о PHP-у"
+
+msgid "admin.server.apacheVersion"
+msgstr "Верзија Apache-a"
+
+msgid "admin.server.dbDriver"
+msgstr "Тип базе података"
+
+msgid "admin.server.dbVersion"
+msgstr "Верзија сервера базе података"
+
+msgid "admin.serverInformation"
+msgstr "Информације о серверу"
+
+msgid "admin.server.phpVersion"
+msgstr "Верзија PHP-a"
+
+msgid "admin.server.platform"
+msgstr "Платформа ОС-а"
+
+msgid "admin.settings.about"
+msgstr "Опис сајта"
+
+msgid "admin.settings.contactEmail"
+msgstr "Имејл главног контакта"
+
+msgid "admin.settings.contactName"
+msgstr "Име главног контакта"
+
+msgid "admin.settings.introduction"
+msgstr "Увод"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Минимална дужина лозинке"
+
+msgid "admin.settings.oaiRegistration"
+msgstr "Региструјте сајт за индексирање (сакупљање метаподатака)"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Језик сајта"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Неисправан формат странице стила. Систем прихвата само .css формат."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Страница стила (CSS) сајта"
+
+msgid "admin.settings.siteTitle"
+msgstr "Назив сајта"
+
+msgid "admin.siteAdmin"
+msgstr "Администрација сајта"
+
+msgid "admin.siteManagement"
+msgstr "Управљање сајтом"
+
+msgid "admin.siteSettings"
+msgstr "Подешавање сајта"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Конфигурациони фајл <tt>config.inc.php</tt> не постоји, није читљив или је неисправн."
+
+msgid "admin.systemInformation"
+msgstr "Информације о систему"
+
+msgid "admin.versionBuild"
+msgstr "Грађа"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Проверите да ли постоје нове верзије"
+
+msgid "admin.version.downloadPackage"
+msgstr "Преузмите"
+
+msgid "admin.version.downloadPatch"
+msgstr "Преузмите закрпу"
+
+msgid "admin.versionHistory"
+msgstr "Претходне верзије"
+
+msgid "admin.version.latest"
+msgstr "Последња верзија"
+
+msgid "admin.versionMajor"
+msgstr "Главна"
+
+msgid "admin.versionMinor"
+msgstr "Споредна"
+
+msgid "admin.version.moreInfo"
+msgstr "Више информација"
+
+msgid "admin.versionRevision"
+msgstr "Ревизија"
+
+msgid "admin.version.updateAvailable"
+msgstr "Ажурирана верзија је доступна"
+
+msgid "admin.version.upToDate"
+msgstr "Имате последњу верзију система"
+
+msgid "admin.version"
+msgstr "Верзија"
+
+msgid "admin.settings"
+msgstr "Подешавања"
+
+msgid "admin.settings.siteTheme"
+msgstr "Шаблон сајта"
+
+msgid "admin.siteSetup"
+msgstr "Намештање сајта"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Назив подешавања"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Вредност подешавања"
+
+msgid "admin.languages.cantDisable"
+msgstr "Ова локализација је примарни језик сајта и не може бити обрисана док не одаберете нови примарни језик."
+
+msgid "admin.languages.availableLocales"
+msgstr "Доступне локализације"
+
+msgid "admin.languages.installLocale"
+msgstr "Инсталирај локализацију"
+
+msgid "admin.scheduledTask"
+msgstr "Планирани задаци"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Процес задатка је започео."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Процес задатка је стао."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Задатак је произвео лог."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Ваша {$softwareName} инсталација је аутоматски извршила и завршила овај задатак, лог фајл можете преузети и погледати овде: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Да ли сте сигурни да желите да обришете све логове извршења планираних задатака?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Обриши логове извршења планираних задатака"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Подсетник рецензирања"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Подсетник истека претплате"
+
+msgid "admin.settings.siteLogo"
+msgstr "Лого сајта"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Базична путања {$path} мора бити унутар јавно доступног директоријума."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Директоријум {$path} није директоријум или није читљив."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Фајл {$filename} не може бити премештен из {$currentFilePath} у {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Фајл {$filename} је обрађен и архивиран."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Учитавач фајла"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Грешка: не могу направити привремени директоријум {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Грешка: фајл {$filePath} не постоји или му се не може приступити."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Грешка: не могу копирати фајл из {$filePath} у {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Грешка: не могу да обришем фајл {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Упозорење: фајл {$filePath} већ постоји унутар директоријума статистике употребе."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Успешно: {$filePath} у {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "\"{$utilPath}\" извршавање програма дало је следећу грешку: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Грешка: не могу да извршим \"{$utilPath}\".  Проверите ваше подешавање {$utilVar} у config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Нема локализација доступних за преузимање"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"Ваша инсталација је подешена да прати више од једне статистике. Статистике коришћења биће приказане у више различитих контекста.\n"
+"\t\tПостоје случајеви где је потребно користити само једну статистику, нпр. приказивање сложене листе најкоришћенијих предаја или приликом рангирања\n"
+"\t\tрезултата претраге. Молимо вас да подесите једну од подешених метрика као примарну."
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr "Ископирајте приступне лог фајлове за apache, филтрирајући уписе везане за ову инсталацију у директориј за фајлове унутар UsageStatsPlugin статус/stage директорија. Морате обезбедити привилегије за читање и приступ apache лог фајловима. Овај алат ће ископирати само оне фајлове  који нису већ у директоријима  за usageStats (статус, обрада, архивирај, одбиј)."

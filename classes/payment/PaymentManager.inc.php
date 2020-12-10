@@ -3,9 +3,9 @@
 /**
  * @file classes/payment/PaymentManager.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PaymentManager
  * @ingroup payment
@@ -36,7 +36,7 @@ abstract class PaymentManager {
 	function queuePayment($queuedPayment, $expiryDate = null) {
 		if (!$this->isConfigured()) return false;
 
-		$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO');
+		$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO'); /* @var $queuedPaymentDao QueuedPaymentDAO */
 		$queuedPaymentId = $queuedPaymentDao->insertObject($queuedPayment, $expiryDate);
 
 		// Perform periodic cleanup
@@ -88,7 +88,7 @@ abstract class PaymentManager {
 	 * @return QueuedPayment
 	 */
 	function getQueuedPayment($queuedPaymentId) {
-		$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO');
+		$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO'); /* @var $queuedPaymentDao QueuedPaymentDAO */
 		$queuedPayment = $queuedPaymentDao->getById($queuedPaymentId);
 		return $queuedPayment;
 	}

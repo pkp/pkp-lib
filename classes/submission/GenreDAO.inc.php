@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/GenreDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GenreDAO
  * @ingroup submission
@@ -25,7 +25,7 @@ class GenreDAO extends DAO {
 	 * @return Genre
 	 */
 	function getById($genreId, $contextId = null) {
-		$params = array((int) $genreId);
+		$params = [(int) $genreId];
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
@@ -34,12 +34,8 @@ class GenreDAO extends DAO {
 			' ORDER BY seq',
 			$params
 		);
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row?$this->_fromRow((array) $row):null;
 	}
 
 	/**
@@ -50,16 +46,15 @@ class GenreDAO extends DAO {
 	 * @return DAOResultFactory containing matching genres
 	 */
 	function getEnabledByContextId($contextId, $rangeInfo = null) {
-		$params = array(1, (int) $contextId);
-
 		$result = $this->retrieveRange(
 			'SELECT * FROM genres
 			WHERE	enabled = ? AND context_id = ?
 			ORDER BY seq',
-			$params, $rangeInfo
+			[1, (int) $contextId],
+			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
+		return new DAOResultFactory($result, $this, '_fromRow', ['id']);
 	}
 
 	/**
@@ -74,11 +69,11 @@ class GenreDAO extends DAO {
 			'SELECT * FROM genres
 			WHERE enabled = ? AND context_id = ? AND dependent = ?
 			ORDER BY seq',
-			array(1, (int) $contextId, (int) $dependentFilesOnly),
+			[1, (int) $contextId, (int) $dependentFilesOnly],
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
+		return new DAOResultFactory($result, $this, '_fromRow', ['id']);
 	}
 
 	/**
@@ -93,11 +88,11 @@ class GenreDAO extends DAO {
 			'SELECT * FROM genres
 			WHERE enabled = ? AND context_id = ? AND supplementary = ?
 			ORDER BY seq',
-			array(1, (int) $contextId, (int) $supplementaryFilesOnly),
+			[1, (int) $contextId, (int) $supplementaryFilesOnly],
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
+		return new DAOResultFactory($result, $this, '_fromRow', ['id']);
 	}
 
 	/**
@@ -115,7 +110,7 @@ class GenreDAO extends DAO {
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
+		return new DAOResultFactory($result, $this, '_fromRow', ['id']);
 	}
 
 	/**
@@ -131,7 +126,7 @@ class GenreDAO extends DAO {
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
+		return new DAOResultFactory($result, $this, '_fromRow', ['id']);
 	}
 
 	/**
@@ -141,20 +136,17 @@ class GenreDAO extends DAO {
 	 * @return Genre
 	 */
 	function getByKey($key, $contextId = null) {
-		$params = array($key);
+		$params = [$key];
 		if ($contextId) $params[] = (int) $contextId;
 
-		$sql = 'SELECT * FROM genres WHERE entry_key = ? ' .
-		($contextId ? ' AND context_id = ?' : '');
+		$result = $this->retrieve(
+			'SELECT * FROM genres WHERE entry_key = ? ' .
+			($contextId ? ' AND context_id = ?' : ''),
+			$params
+		);
 
-		$result = $this->retrieve($sql, $params);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row?$this->_fromRow((array) $row):null;
 	}
 
 	/**
@@ -162,7 +154,7 @@ class GenreDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('name');
+		return ['name'];
 	}
 
 	/**
@@ -172,7 +164,7 @@ class GenreDAO extends DAO {
 	function updateLocaleFields($genre) {
 		$this->updateDataObjectSettings(
 			'genre_settings', $genre,
-			array('genre_id' => $genre->getId())
+			['genre_id' => $genre->getId()]
 		);
 	}
 
@@ -191,10 +183,10 @@ class GenreDAO extends DAO {
 	 */
 	function _fromRow($row) {
 		$genre = $this->newDataObject();
-		$genre->setId($row['genre_id']);
+		$genre->setId((int) $row['genre_id']);
 		$genre->setKey($row['entry_key']);
 		$genre->setContextId($row['context_id']);
-		$genre->setCategory($row['category']);
+		$genre->setCategory((int) $row['category']);
 		$genre->setDependent($row['dependent']);
 		$genre->setSupplementary($row['supplementary']);
 		$genre->setSequence($row['seq']);
@@ -364,15 +356,14 @@ class GenreDAO extends DAO {
 	 * @return boolean
 	 */
 	function keyExists($key, $contextId, $genreId = null) {
-		$params = array($key, (int) $contextId);
+		$params = [$key, (int) $contextId];
 		if ($genreId) $params[] = (int) $genreId;
 		$result = $this->retrieveRange(
-			'SELECT COUNT(*) FROM genres WHERE entry_key = ? AND context_id = ?' . (isset($genreId) ? ' AND genre_id <> ?' : ''),
+			'SELECT COUNT(*) AS row_count FROM genres WHERE entry_key = ? AND context_id = ?' . (isset($genreId) ? ' AND genre_id <> ?' : ''),
 			$params
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**
@@ -380,7 +371,7 @@ class GenreDAO extends DAO {
 	 * @param $locale string Locale code
 	 */
 	function deleteSettingsByLocale($locale) {
-		$this->update('DELETE FROM genre_settings WHERE locale = ?', $locale);
+		$this->update('DELETE FROM genre_settings WHERE locale = ?', [$locale]);
 	}
 }
 

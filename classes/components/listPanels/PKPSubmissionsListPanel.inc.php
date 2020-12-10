@@ -2,9 +2,9 @@
 /**
  * @file components/listPanels/PKPSubmissionsListPanel.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionsListPanel
  * @ingroup classes_components_list
@@ -13,25 +13,54 @@
  */
 
 namespace PKP\components\listPanels;
+
 use PKP\components\listPanels\ListPanel;
+use PKP\components\forms\FieldSelectUsers;
 
 import('lib.pkp.classes.submission.PKPSubmission');
 import('classes.core.Services');
 
 abstract class PKPSubmissionsListPanel extends ListPanel {
 
-	/** @copydoc ListPanel::$count */
-	public $count = 20;
+	/** @var string URL to the API endpoint where items can be retrieved */
+	public $apiUrl = '';
+
+	/** @var integer Number of items to show at one time */
+	public $count = 30;
+
+	/** @var array Query parameters to pass if this list executes GET requests  */
+	public $getParams = [];
+
+	/** @var boolean Should items be loaded after the component is mounted?  */
+	public $lazyLoad = false;
+
+	/** @var integer Count of total items available for list */
+	public $itemsMax = 0;
+
+	/** @var boolean Whether to show assigned to editors filter */
+	public $includeAssignedEditorsFilter = false;
 
 	/**
 	 * @copydoc ListPanel::getConfig()
 	 */
 	public function getConfig() {
+		\AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_EDITOR]);
 		$request = \Application::get()->getRequest();
+		$context = $request->getContext();
 
 		$config = parent::getConfig();
 
+		$config['apiUrl'] = $this->apiUrl;
+		$config['count'] = $this->count;
+		$config['getParams'] = $this->getParams;
+		$config['lazyLoad'] = $this->lazyLoad;
+		$config['itemsMax'] = $this->itemsMax;
+
 		// URL to add a new submission
+		if ($context->getData('disableSubmissions')) {
+			$config['allowSubmissions'] = false;
+		}
+
 		$config['addUrl'] = $request->getDispatcher()->url(
 			$request,
 			ROUTE_PAGE,
@@ -75,64 +104,54 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 						'value' => true,
 						'title' => __('submissions.incomplete'),
 					),
-					array(
-						'param' => 'daysInactive',
-						'value' => 30,
-						'title' => __('submissions.inactive', ['days' => '30']),
-					),
 				),
 			),
-			array(
+			[
 				'heading' => __('settings.roles.stages'),
 				'filters' => $this->getWorkflowStages(),
-			),
+			],
+			[
+				'heading' => __('submission.list.activity'),
+				'filters' => [
+					[
+						'title' => __('submission.list.daysSinceLastActivity'),
+						'param' => 'daysInactive',
+						'value' => 30,
+						'min' => 1,
+						'max' => 180,
+						'filterType' => 'pkp-filter-slider',
+					]
+				]
+			]
 		];
 
-		// Load grid localisation files
-		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
-		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
-
-		$config['i18n'] = array_merge($config['i18n'], [
-			'id' => __('common.id'),
-			'add' => __('submission.submit.newSubmissionSingle'),
-			'empty' => __('submission.list.empty'),
-			'loadMore' => __('grid.action.moreItems'),
-			'incomplete' => __('submissions.incomplete'),
-			'delete' => __('common.delete'),
-			'infoCenter' => __('submission.list.infoCenter'),
-			'yes' => __('common.yes'),
-			'no' => __('common.no'),
-			'deleting' => __('common.deleting'),
-			'currentStage' => __('submission.list.currentStage'),
-			'confirmDelete' => __('submission.list.confirmDelete'),
-			'responseDue' => __('submission.list.responseDue'),
-			'reviewDue' => __('submission.list.reviewDue'),
-			'reviewComplete' => __('submission.list.reviewComplete'),
-			'reviewCancelled' => __('submission.list.reviewCancelled'),
-			'viewSubmission' => __('submission.list.viewSubmission'),
-			'reviewAssignment' => __('submission.list.reviewAssignment'),
-			'reviewsCompleted' => __('submission.list.reviewsCompleted'),
-			'revisionsSubmitted' => __('submission.list.revisionsSubmitted'),
-			'copyeditsSubmitted' => __('submission.list.copyeditsSubmitted'),
-			'galleysCreated' => __('submission.list.galleysCreated'),
-			'filesPrepared' => __('submission.list.filesPrepared'),
-			'discussions' => __('submission.list.discussions'),
-			'assignEditor' => __('submission.list.assignEditor'),
-			'dualWorkflowLinks' => __('submission.list.dualWorkflowLinks'),
-			'reviewerWorkflowLink' => __('submission.list.reviewerWorkflowLink'),
-			'incompleteSubmissionNotice' => __('submission.list.incompleteSubmissionNotice'),
-			'viewMore' => __('list.viewMore'),
-			'viewLess' => __('list.viewLess'),
-			'lastActivity' => __('common.lastActivity'),
-			'paginationLabel' => __('common.pagination.label'),
-			'goToLabel' => __('common.pagination.goToPage'),
-			'pageLabel' => __('common.pageNumber'),
-			'nextPageLabel' => __('common.pagination.next'),
-			'previousPageLabel' => __('common.pagination.previous'),
-		]);
-
-		// Attach a CSRF token for post requests
-		$config['csrfToken'] = $request->getSession()->getCSRFToken();
+		if ($this->includeAssignedEditorsFilter) {
+			$assignedEditorsField = new FieldSelectUsers('assignedTo', [
+				'label' => __('editor.submissions.assignedTo'),
+				'value' => [],
+				'apiUrl' => $request->getDispatcher()->url(
+					$request,
+					ROUTE_API,
+					$context->getPath(),
+					'users',
+					null,
+					null,
+					['roleIds' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]]
+				),
+			]);
+			$config['filters'][] = [
+				'filters' => [
+					[
+						'title' => __('editor.submissions.assignedTo'),
+						'param' => 'assignedTo',
+						'value' => [],
+						'filterType' => 'pkp-filter-autosuggest',
+						'component' => $assignedEditorsField->component,
+						'autosuggestProps' => $assignedEditorsField->getConfig(),
+					]
+				]
+			];
+		}
 
 		// Provide required constants
 		import('lib.pkp.classes.submission.reviewRound.ReviewRound');
@@ -140,6 +159,10 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 		import('lib.pkp.classes.services.PKPSubmissionService'); // STAGE_STATUS_SUBMISSION_UNASSIGNED
 		$templateMgr = \TemplateManager::getManager($request);
 		$templateMgr->setConstants([
+			'STATUS_QUEUED',
+			'STATUS_PUBLISHED',
+			'STATUS_DECLINED',
+			'STATUS_SCHEDULED',
 			'WORKFLOW_STAGE_ID_SUBMISSION',
 			'WORKFLOW_STAGE_ID_INTERNAL_REVIEW',
 			'WORKFLOW_STAGE_ID_EXTERNAL_REVIEW',
@@ -166,6 +189,31 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			'REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED',
 		]);
 
+		$templateMgr->setLocaleKeys([
+			'common.lastActivity',
+			'editor.submissionArchive.confirmDelete',
+			'submission.list.empty',
+			'submission.submit.newSubmissionSingle',
+			'submission.review',
+			'submissions.incomplete',
+			'submission.list.assignEditor',
+			'submission.list.copyeditsSubmitted',
+			'submission.list.currentStage',
+			'submission.list.discussions',
+			'submission.list.dualWorkflowLinks',
+			'submission.list.galleysCreated',
+			'submission.list.infoCenter',
+			'submission.list.reviewAssignment',
+			'submission.list.responseDue',
+			'submission.list.reviewCancelled',
+			'submission.list.reviewComplete',
+			'submission.list.reviewDue',
+			'submission.list.reviewerWorkflowLink',
+			'submission.list.reviewsCompleted',
+			'submission.list.revisionsSubmitted',
+			'submission.list.viewSubmission',
+		]);
+
 		return $config;
 	}
 
@@ -176,11 +224,10 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 	 * @return array
 	 */
 	public function getItems($request) {
-		$submissionService = \Services::get('submission');
-		$submissionsIterator = $submissionService->getMany($this->_getItemsParams());
+		$submissionsIterator = \Services::get('submission')->getMany($this->_getItemsParams());
 		$items = [];
 		foreach ($submissionsIterator as $submission) {
-			$items[] = $submissionService->getBackendListProperties($submission, ['request' => $request]);
+			$items[] = \Services::get('submission')->getBackendListProperties($submission, ['request' => $request]);
 		}
 
 		return $items;

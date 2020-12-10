@@ -1,0 +1,190 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:06+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Fler språk/regioner"
+
+msgid "installer.administratorAccount"
+msgstr "Administratörskonto"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Det här användarkontot kommer att bli webbplatsadministratör och kommer att ha full tillgång till systemet. Ytterligare användarkonton kan skapas efter installationen."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NEJ</span>"
+
+msgid "installer.checkYes"
+msgstr "Ja"
+
+msgid "installer.clientCharset"
+msgstr "Teckenuppsättning för klienten"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Kodning för data som skickas från och till webbläsaren."
+
+msgid "installer.configFileError"
+msgstr "Konfigurationsfilen <tt>config.inc.php</tt> finns inte eller går inte att läsa."
+
+msgid "installer.connectionCharset"
+msgstr "Anslutningens teckenuppsättning"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Konfigurationsfilens innehåll"
+
+msgid "installer.databaseDriver"
+msgstr "Databasdrivrutin"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Databasdrivrutiner listade inom hakparanteser verkar sakna nödvändiga PHP-tillägg och installationen kommer troligtvis misslyckas om dessa väljs.</strong><br />Databasdrivrutiner som inte stöds och listas ovan, finns med endast för pedagogisk upplysning och fungerar inte med nödvändighet."
+
+msgid "installer.databaseHost"
+msgstr "Värd"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Lämna värdnamnet tomt för att ansluta genom domänsockets istället för över TCP/IP. Detta är inte nödvändigt med MySQL, som med automatik kommer använda sockets om \"localhost\" är angivet, men är obligatoriskt hos andra databaserservrar, t.ex. PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Databasnamn"
+
+msgid "installer.databasePassword"
+msgstr "Lösenord"
+
+msgid "installer.databaseSettings"
+msgstr "Databasinställningar"
+
+msgid "installer.databaseUsername"
+msgstr "Användarnamn"
+
+msgid "installer.filesDir"
+msgstr "Katalog för uppladdade filer"
+
+msgid "installer.fileSettings"
+msgstr "Filinställningar"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "En teckenuppsättning för klienten måste anges."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "En databasdrivrutin måste anges."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Ett namn på databasen måste anges."
+
+msgid "installer.form.emailRequired"
+msgstr "Det krävs en giltig e-postadress för administratörskontot."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Det krävs en katalog för lagring av uppladdade filer."
+
+msgid "installer.form.localeRequired"
+msgstr "Språk/region måste anges."
+
+msgid "installer.form.passwordRequired"
+msgstr "Ett lösenord för administratörskontot måste anges."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Administratörens lösenord stämmer inte överens."
+
+msgid "installer.form.separateMultiple"
+msgstr "Separera flera värden med kommatecken"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Administratörens användarnamn får endast innehålla alfanumeriska tecken, understreck eller bindestreck, och måste inledas och avslutas med ett alfanumeriskt tecken."
+
+msgid "installer.form.usernameRequired"
+msgstr "Ett användarnamn för administratörskontot måste anges."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>VARNING: Din nuvarande version av PHP uppfyller inte minimikraven för installationen. Vi rekommenderar att du uppgraderar till en nyare version av PHP.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Det uppstod fel under installationen"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL-kommandon för installation"
+
+msgid "installer.installFileError"
+msgstr "Installationsfilen <tt>dbscripts/xml/install.xml</tt> existerar inte eller går inte att läsa."
+
+msgid "installer.installFilesDirError"
+msgstr "Katalogen specificerad för uppladdade filer existerar inte, eller går inte att skriva till."
+
+msgid "installer.installParseDBFileError"
+msgstr "Fel vid inläsning av installationsfilen för databasen: <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Fel vid inläsning av filen för e-postmallar: <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Fel vid inläsning av konfigurationsfilen för filter: <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Uppgradering stöds inte. Se docs/UPGRADE-UNSUPPORTED för mer detaljer."
+
+msgid "installer.locale"
+msgstr "Språk/region"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Valda språk/regioner kan vara ofullständiga."
+
+msgid "installer.localeSettings"
+msgstr "Språk/region-inställningar"
+
+msgid "installer.oaiSettings"
+msgstr "OAI-inställningar"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "En unik identifikator att använda för att identifiera metadata-poster indexerade från den här webbplatsen genom användandet av <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> Protocol for Metadata Harvesting."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Identifikator för arkiv"
+
+msgid "installer.publicFilesDirError"
+msgstr "Katalogen för publika filer existerar inte, eller går inte att skriva till."
+
+msgid "installer.releaseNotes"
+msgstr "Versionsinformation"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Installationsförberedelser"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Nedanstående filer och kataloger (och deras innehåll) måste vara skrivbara:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> är skrivbar (valfritt): {$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> är skrivbar: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> är skrivbar: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> är skrivbar: {$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> är skrivbar: {$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> är skrivbar: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. En katalog för att lagra uppladdade filer behöver skapas och göras skrivbar (se \"Filinställningar\" nedan).</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>Din PHP-installation har inte XSL-modulen aktiverat. Aktivera den eller konfigurera xslt_command-parametern i din config.inc.php-fil.</p>"
+
+msgid "installer.beacon"
+msgstr "Identifikationssignal"
+
+msgid "installer.beacon.enable"
+msgstr "Förse PKP med ett unikt ID för webbplatsen och bas-URL:en för OAI (bara för statistik och säkerhetsvarningar)."
+
+msgid "installer.unsupportedPhpError"
+msgstr "Den här programvaran stödjer inte PHP-versionen på din server. Dubbelkolla installationskraven i docs/README."
+
+msgid "installer.miscSettings"
+msgstr "Diverse inställningar"

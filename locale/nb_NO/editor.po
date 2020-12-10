@@ -1,0 +1,505 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
+"PO-Revision-Date: 2020-10-19 09:01+0000\n"
+"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/editor/nb_NO/>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "editor.review.rateReviewer"
+msgstr "Vurdering av fagfelle"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Send en beskjed via e-post til redaktøren(e): {$editorNames}"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Send en beskjed via e-post til forfatter(ne): {$authorName}"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Type vurdering"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"Bruk <em>+«Legg til fagfelle»</em> til å invitere lesere til å vurdere de "
+"innsendte filene. Notatbokikonet viser at en fagfellevurdering er sendt inn. "
+"Det merkes <em>«Bekreftet»</em> etter at fagfellevurderingen er lest. Dersom "
+"fagfellevurderingen er forsinket, vil et ikon med en rød konvolutt minne "
+"fagfellen om vurderingen."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Ikke send melding til sluttkontrollør"
+
+msgid "editor.review.notInitiated"
+msgstr "Fagfelleurderingen har ikke startet."
+
+msgid "editor.submissionLibrary"
+msgstr "Innleveringsbibliotek"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Ingen forespørsel om sluttkontroll av denne filen"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Legg til en eksisterende bruker som fagfelle"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Planlagte oppgaver"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Frist"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Velg fagfelle"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Filer til språkvask"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Planlegg for publisering"
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+"Klikk «Bekreft» etter at du har lest fagfellevurderingen slik at prosessen "
+"kan fortsette. Dersom fagfellen har levert inn vurderingen et annet sted, "
+"kan du laste opp filen under og så klikk «Bekreft» for å fortsette."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Ikke ta med fagfellevurderingen"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"Vil du markere at fagfellevurderingen ikke er tatt med? Fagfellehistorikken "
+"blir beholdt."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Legg til brukeren til fagfellegruppen"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Det skjedde en feil da fagfellen skulle legges til på nytt. Prøv igjen."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Det skjedde en feil da du forsøkte å fjerne en fagfelle. Prøv igjen."
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Det skjedde en feil da du forsøkte å legge til en fagfelle. Prøv igjen."
+
+msgid "editor.review.mustSelect"
+msgstr "Du må velge en fagfelle"
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Ingen vurdering"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Intern vurdering av kvaliteten på fagfellevurderingen. Denne vurderingen "
+"blir ikke delt med fagfellen."
+
+msgid "editor.review.reviewerComments"
+msgstr "Fagfellens kommentarer"
+
+msgid "editor.review.reviewerThanked"
+msgstr "Fagfelle takket"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Fagfellevurdering levert inn"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Fagfellevurdering bekreftet"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Fagfellevurdering gjennomført"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Frist for fagfellevurdering"
+
+msgid "editor.review.reviewDue"
+msgstr "Frist for fagfellevurdering: {$date}"
+
+msgid "editor.review.revertDecision"
+msgstr "Gjør om avgjørelsen"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Redaktøren har avbrutt denne vurderingsforespørselen."
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Fagfellen har avvist denne forespørslen om vurdering."
+
+msgid "editor.review.requestCancelled"
+msgstr "Forespørsel avbrutt"
+
+msgid "editor.review.requestDeclined"
+msgstr "Forespørsel avvist"
+
+msgid "editor.review.requestAccepted"
+msgstr "Forespørsel akseptert"
+
+msgid "editor.review.requestSent"
+msgstr "Forespørsel sendt"
+
+msgid "editor.review.responseDue"
+msgstr "Frist for tilbakemelding: {$date}"
+
+msgid "editor.review.readNewReview"
+msgstr "Les ny fagfellevurdering"
+
+msgid "editor.review.readReview"
+msgstr "Les fagfellevurdering"
+
+msgid "editor.review.sendReminder"
+msgstr "Send påminnelse"
+
+msgid "editor.review.skipEmail"
+msgstr "Ikke send e-post til fagfelle."
+
+msgid "editor.review.thankReviewerError"
+msgstr "Feil ved sending av takk til fagfelle"
+
+msgid "editor.review.reminderError"
+msgstr "Feil ved sending av påminnelse om fagfellevurdering"
+
+msgid "editor.review.thankReviewer"
+msgstr "Takk fagfelle"
+
+msgid "editor.review.reminder"
+msgstr "Påminnelse om fagfellevurdering"
+
+msgid "editor.review.noReviews"
+msgstr "Ingen fagfellevurdering å importere"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Fagfellevurdering lagt til beskjed."
+
+msgid "editor.review.dateAccepted"
+msgstr "Dato fagfellevurderingen ble mottatt"
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr ""
+"Be forfatteren gjøre en større revidering av manuskriptet. Ny "
+"fagfellevurdering vil bli utført."
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Be forfatteren om å revidere manuskriptet."
+
+msgid "editor.review.newReviewRound"
+msgstr "Be om ny runde fagfellevurdering"
+
+msgid "reviewer.list.empty"
+msgstr "Ingen fagfeller funnet"
+
+msgid "reviewer.list.biography"
+msgstr "Biografi"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Vurderingsinteresser"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Lås opp"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Denne fagfellen er låst fordi vedkommende har en rolle som gir tilgang til å "
+"se forfatterens identitet. Anonym fagfellevurdering kan ikke garanteres. Vil "
+"du allikevel låse opp for denne fagfellen?"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr ""
+"Denne fagfellen har allerede fått i oppgave å vurdere denne innleveringen."
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Aldri tildelt fagfellevurderingsoppdrag"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Gjennomsnittlig tid brukt på fagfellevurderingsoppdrag"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Dager siden tildeling av forrige fagfellevurderingsoppdrag"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "I går"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} dager siden"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Vurdering av fagfelle: {$rating}"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Avbrutte vurderingsoppdrag"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Avviste fagfellevurderingsoppdrag"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Fullførte fagfellevurderingsoppdrag"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Aktive, pågående fagfellevurderingsoppdrag"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} aktive"
+
+msgid "reviewer.list.filterRating"
+msgstr "Vurdert til minst"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} av {$total} fagfeller"
+
+msgid "reviewer.list.count"
+msgstr "{$count} fagfeller"
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr ""
+"Dette mønsteret {$pattern} er ikke tillatt for en offentlig identifikator."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr ""
+"Den offentlige identifikatoren {$publicIdentifier} kan ikke være et nummer."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Opphev godkjenningen av siste korrektur for å vise at korrekturen ikke "
+"lenger er komplett og at filen ikke er klar for publisering."
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Godkjenn siste korrektur for å vise at korrekturen er ferdig og at filen er "
+"klar for publisering."
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Opphev godkjenning av korrektur"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Godkjenn korrektur"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Valgt fagfelle"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Velg filer fra listen nedenfor om du vil legge noe til diskusjonen."
+
+msgid "grid.action.editQuery"
+msgstr "Rediger diskusjonen"
+
+msgid "submission.queries.attachedFiles"
+msgstr "Vedlagte filer"
+
+msgid "submission.queries.messageRequired"
+msgstr "Du må legge inn en melding om diskusjonen."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Du må legge inn et tema for diskusjonen."
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Du har ikke valgt noen filer for fagfellevurderingen."
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Ingen filer er valgt"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Advarsel: Er du sikker på at du vil fortsette? Når du forandrer "
+"vurderingsskjemaet, vil det påvirke svarene andre har gitt i dette skjemaet."
+
+msgid "editor.article.selectReviewForm"
+msgstr "Velg vurderingsskjema"
+
+msgid "editor.article.reviewForms"
+msgstr "Vurderingsskjema"
+
+msgid "editor.submission.createNewRound"
+msgstr "Opprett ny runde med fagfellevurdering"
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Du er i ferd med å opprette ny fagfellevurdering. Filer som ikke har vært "
+"brukt i andre vurderingsrunder er listet nedenfor."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Ikke opprett en diskusjon om anbefalingen."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Opprett en diskusjon denne anbefalingen."
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Ikke send e-post til redaktørene."
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Gi beskjed til redaktørene"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Registrer redaksjonell anbefaling"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Registrer redaksjonens avgjørelse"
+
+msgid "editor.submission.newRound"
+msgstr "Ny runde med fagfellevurdering"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Filer klare til produksjon"
+
+msgid "editor.review.emailReviewer"
+msgstr "E-post til fagfelle"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Du har ikke lastet opp noen filer."
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Ingen filer er lastet opp"
+
+msgid "editor.review.reviewDetails"
+msgstr "Detaljer vedr. fagfellevurdering"
+
+msgid "editor.review"
+msgstr "Fagfellevurdering"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"Du kan legge flere filer til listen over filer til språkvask, uansett "
+"hvilken fase filen er i. Kryss av «Inkluder» i boksen under og klikk «Søk». "
+"Alle tilgjengelige filer vil bli listet og kan legges til. Ytterligere filer "
+"som ikke allerede er lastet opp kan bli lagt til listen ved å klikke på "
+"lenken «Last opp fil»."
+
+msgid "editor.submission.addAuditor"
+msgstr "Oppnevn sluttkontrollør"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"Om du ikke godkjenner den språkvaskede filen vil den ikke kunne sendes til "
+"produksjonsfasen. Vil du underkjenne filen?"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"Den språkvaskede filen må bli godkjent før den kan bli sendt til "
+"produksjonsfasen. Vil du godkjenne filen?"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Påminnelse om siste korrektur"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "E-post til bruker"
+
+msgid "editor.review.uploadRevision"
+msgstr "Last opp revidering"
+
+msgid "editor.review.importantDates"
+msgstr "Viktige datoer"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "E-post til fagfellen"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Anonym fagfelle"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Revider fagfellevurderingen"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Lukk filvalg"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Filer til fagfellevurdering"
+
+msgid "editor.submissionReview.doubleBlind"
+msgstr "Dobbelt blind"
+
+msgid "editor.submissionReview.blind"
+msgstr "Blind"
+
+msgid "editor.submissionReview.open"
+msgstr "Åpen"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Ikke send e-post til forfatter"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Gjenoppnevn fagfelle"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Avslutt fagfellevurdering for fagfelle"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Fjern fagfelle"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Legg til eksisterende bruker"
+
+msgid "editor.review.createReviewer"
+msgstr "Opprett ny fagfelle"
+
+msgid "editor.submission.backToSearch"
+msgstr "Tilbake til søk"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Filer til fagfellevurdering i denne runden {$round}"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Vis filer fra alle tilgjengelige stadier i prosessen."
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Finn en bruker"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Finn en fagfelle"
+
+msgid "editor.submission.addReviewer"
+msgstr "Legg til fagfelle"
+
+msgid "editor.submission.revisions"
+msgstr "Revideringer"
+
+msgid "editor.submission.selectFiles"
+msgstr "Velg filer"
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Last opp/velg filer"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Du må velge en bruker til oppgaven."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Du må inkludere en personlig melding til brukeren."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Du må velge minst en fil for at brukeren kan utføre oppgaven."
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Velg filer under for å sende dem til fagfellevurdering."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Melding til bruker"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Endre avgjørelse"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Innlevering akseptert og sendt til vurdering."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Sendt til produksjon."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Sendt til en ny vurdering."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Innlevering publisert."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Innlevering akseptert."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Innlevering avvist."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Beslutning registrert"
+
+msgid "editor.activityLog"
+msgstr "Aktivitetsloggen"

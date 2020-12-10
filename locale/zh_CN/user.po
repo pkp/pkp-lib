@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-04T08:55:56-08:00\n"
+"PO-Revision-Date: 2020-07-28 15:47+0000\n"
+"Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
+"Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/user/zh_Hans/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-04T08:55:56-08:00\n"
-"PO-Revision-Date: 2019-11-04T08:55:56-08:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "user.affiliation"
 msgstr "工作单位"
@@ -174,7 +177,7 @@ msgid "user.register.passwordLengthRestriction"
 msgstr "密码必须至少含有 {$length} 个字符."
 
 msgid "user.register.registerAs"
-msgstr "注册为"
+msgstr "在 {$contextName} 注册为 ..."
 
 msgid "user.register"
 msgstr "注册"
@@ -233,20 +236,17 @@ msgstr "填写这个表格以注册到这个期刊."
 msgid "user.repeatPassword"
 msgstr "重复密码"
 
-msgid "user.profile.form.affiliationRequired"
-msgstr "联系地址是必须的"
-
 msgid "user.register.form.emailsDoNotMatch"
-msgstr "电子邮件地址不匹配"
+msgstr "电子邮件地址不匹配。"
 
 msgid "user.authorization.loginRequired"
-msgstr "需要登陆"
+msgstr "需要登陆。"
 
 msgid "user.accountInformation"
 msgstr "帐户信息"
 
 msgid "user.authorization.accessDenied"
-msgstr "拒绝读取"
+msgstr "访问被拒绝。"
 
 msgid "user.affiliation.description"
 msgstr "（您的所在机构，如“西蒙.弗雷泽大学”）"
@@ -272,9 +272,6 @@ msgstr "您必须设立有效的用户群来访问该操作。"
 msgid "user.authorization.managerRequired"
 msgstr "在您能够进行下一步前您必须指派一个出版管理身份的用户 （如出版或制作编辑）。"
 
-msgid "user.interests.description"
-msgstr "（按输入或逗号键来分隔兴趣）"
-
 msgid "user.gossip"
 msgstr "个人提醒"
 
@@ -285,13 +282,169 @@ msgid "user.hello"
 msgstr "嗨，"
 
 msgid "user.profile.form.countryRequired"
-msgstr "要求国家名"
+msgstr "要求国家名。"
 
 msgid "user.profile.form.mailingAddressRequired"
-msgstr "要求邮件地址"
+msgstr "要求邮件地址。"
 
 msgid "user.profile.form.passwordSameAsOld"
-msgstr "您的新密码同旧密码相同"
+msgstr "您的新密码同旧密码相同。"
 
 msgid "user.profile.form.usergroupRequired"
-msgstr "要求用户群"
+msgstr "要求用户组。"
+
+msgid "user.apiKey"
+msgstr "API密钥"
+
+msgid "user.apiKeyEnabled"
+msgstr "使用API密钥启用外部应用程序对此帐户的访问"
+
+msgid "user.apiKey.generate"
+msgstr "生成新的API密钥"
+
+msgid "user.apiKey.generateWarning"
+msgstr "生成新的API密钥会使该用户的所有现有密钥无效。"
+
+msgid "user.apiKey.secretRequired"
+msgstr "在生成API密钥之前，您的站点管理员必须在配置文件（“ api_key_secret”）中设置密钥。"
+
+msgid "user.privacyLink"
+msgstr "您的数据是根据我们的<a href=\"{$privacyUrl}\" target=\"_blank\">隐私声明</a>存储的。"
+
+msgid "user.profile.contact"
+msgstr "联系"
+
+msgid "user.profile.identity"
+msgstr "身分"
+
+msgid "user.orcid.orcidInvalid"
+msgstr "您指定的ORCID ID无效。 请包括完整的URI（例如“ https://orcid.org/0000-0002-1825-0097”）。"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.role.layoutEditors"
+msgstr "布局编辑"
+
+msgid "user.role.layoutEditor"
+msgstr "布局编辑"
+
+msgid "user.role.proofreaders"
+msgstr "校对"
+
+msgid "user.role.proofreader"
+msgstr "校对"
+
+msgid "user.role.copyeditors"
+msgstr "编审"
+
+msgid "user.role.copyeditor"
+msgstr "编审"
+
+msgid "user.role.editors"
+msgstr "编辑"
+
+msgid "user.role.editor"
+msgstr "编辑"
+
+msgid "user.role.authors"
+msgstr "作者"
+
+msgid "user.role.author_s"
+msgstr "作者"
+
+msgid "user.role.author"
+msgstr "作者"
+
+msgid "user.role.assistant"
+msgstr "助理"
+
+msgid "user.register.registrationCompleted"
+msgstr "您已经成功注册。 <a href=\"{$profileUrl}\">单击此处</a>以完善您的用户个人资料。"
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "密码必须至少为{$length}个字符。"
+
+msgid "user.register.form.userGroupRequired"
+msgstr "必须至少选择一个角色。"
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "用户名只能包含小写字母或数字字符，下划线和连字符，并且必须以字母或数字字符开头和结尾。"
+
+msgid "user.register.form.emailConsent"
+msgstr "是的，我希望收到新的出版和公告的通知。"
+
+msgid "user.register.form.privacyConsent"
+msgstr "是的，我同意按照<a href=\"{$privacyUrl}\" target=\"_blank\">隐私声明</a>收集和存储我的数据。"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "在下面输入您帐户的电子邮件地址，一封电子邮件将会被发送，其中包含有关如何重设密码的说明。"
+
+msgid "user.login.registerNewAccount"
+msgstr "注册"
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "您必须同意隐私声明中的条款。"
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "您为缺少名字的语言添加了姓氏。 请为此语言添加一个给定的名字。"
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "必须输入名字。"
+
+msgid "user.preferredPublicName.description"
+msgstr "您希望如何被提及？ 如果需要，可以在此处添加称呼，中间名和后缀。"
+
+msgid "user.preferredPublicName"
+msgstr "首选公众名称"
+
+msgid "user.logOutAs"
+msgstr "登出为"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "保持登录状态"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "注册正在等待验证"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "继续浏览"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "进行新的提交"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "查看提交"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "感谢您的注册！ 接下来想做什么？"
+
+msgid "user.login.registrationComplete"
+msgstr "注册完成"
+
+msgid "user.familyName"
+msgstr "姓氏"
+
+msgid "user.gossip.description"
+msgstr "记录您希望对其他管理员和所有编辑者可见的，有关此审阅者的注释。 注释在未来进行审阅的时候将可见。"
+
+msgid "user.givenName"
+msgstr "名字"
+
+msgid "user.authorization.submissionQuery"
+msgstr "您无权访问此讨论。"
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "您无权访问此审阅。"
+
+msgid "user.authorization.pluginRequired"
+msgstr "未指定插件，而这是必需的。"
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "未指定工作流的阶段。"
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "您目前无权访问工作流的该阶段。"
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "您尚未被分配一个能够对此提交进行这种操作的角色。"

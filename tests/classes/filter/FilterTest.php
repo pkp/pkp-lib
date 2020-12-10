@@ -3,9 +3,9 @@
 /**
  * @file tests/classes/filter/FilterTest.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FilterTest
  * @ingroup tests_classes_filter
@@ -95,11 +95,11 @@ class FilterTest extends PKPTestCase {
 
 	/**
 	 * @covers Filter
-	 * @expectedException PHPUnit\Framework\Exception
 	 */
 	public function testUnsupportedEnvironment() {
 		$mockFilter = $this->getFilterMock();
 		$mockFilter->setData('phpVersionMin', '20.0.0');
+		$this->expectError();
 		$testOutput = $mockFilter->execute($testInput);
 	}
 

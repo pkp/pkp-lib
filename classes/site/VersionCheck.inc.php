@@ -3,9 +3,9 @@
 /**
  * @file classes/site/VersionCheck.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class VersionCheck
  * @ingroup site
@@ -26,7 +26,7 @@ class VersionCheck {
 	 * @return array
 	 */
 	static function getLatestVersion() {
-		$application = Application::getApplication();
+		$application = Application::get();
 		$includeId = Config::getVar('general', 'installed') &&
 			!defined('RUNNING_UPGRADE') &&
 			Config::getVar('general', 'enable_beacon', true);
@@ -50,7 +50,7 @@ class VersionCheck {
 	 * @return Version
 	 */
 	static function getCurrentDBVersion() {
-		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		return $versionDao->getCurrentVersion();
 	}
 
@@ -137,52 +137,33 @@ class VersionCheck {
 	/**
 	 * Checks whether the given version file exists and whether it
 	 * contains valid data. Returns a Version object if everything
-	 * is ok, otherwise null. If $returnErroMsg is true, returns the
-	 * error message.
-	 *
+	 * is ok, otherwise throws an Exception.
 	 * @param $versionFile string
-	 * @param $returnErrorMesg boolean
-	 * @return Version or null/string if invalid or missing version file
+	 * @return Version
 	 */
-	static function getValidPluginVersionInfo($versionFile, $returnErrorMsg = false) {
-		$errorMsg = null;
+	static function getValidPluginVersionInfo($versionFile) {
 		$fileManager = new FileManager();
 		if ($fileManager->fileExists($versionFile)) {
 			$versionInfo = self::parseVersionXML($versionFile);
 		} else {
-			$errorMsg = 'manager.plugins.versionFileNotFound';
+			throw new Exception(__('manager.plugins.versionFileNotFound'));
 		}
 
 		// Validate plugin name and type to avoid abuse
-		if (is_null($errorMsg)) {
-			$productType = explode(".", $versionInfo['type']);
-			if(count($productType) != 2 || $productType[0] != 'plugins') {
-				$errorMsg = 'manager.plugins.versionFileInvalid';
+		$productType = explode(".", $versionInfo['type']);
+		if(count($productType) != 2 || $productType[0] != 'plugins') {
+			throw new Exception(__('manager.plugins.versionFileInvalid'));
+		}
+
+		$pluginVersion = $versionInfo['version'];
+		$namesToValidate = array($pluginVersion->getProduct(), $productType[1]);
+		foreach($namesToValidate as $nameToValidate) {
+			if (!PKPString::regexp_match('/[a-z][a-zA-Z0-9]+/', $nameToValidate)) {
+				throw new Exception(__('manager.plugins.versionFileInvalid'));
 			}
 		}
 
-		if (is_null($errorMsg)) {
-			$pluginVersion = $versionInfo['version'];
-			$namesToValidate = array($pluginVersion->getProduct(), $productType[1]);
-			foreach($namesToValidate as $nameToValidate) {
-				if (!PKPString::regexp_match('/[a-z][a-zA-Z0-9]+/', $nameToValidate)) {
-					$errorMsg = 'manager.plugins.versionFileInvalid';
-					break;
-				}
-			}
-		}
-
-		if ($errorMsg) {
-			if ($returnErrorMsg) {
-				return $errorMsg;
-			} else {
-				$templateMgr = TemplateManager::getManager();
-				$templateMgr->assign('message', $errorMsg);
-				return null;
-			}
-		} else {
-			return $pluginVersion;
-		}
+		return $pluginVersion;
 	}
 
 	/**

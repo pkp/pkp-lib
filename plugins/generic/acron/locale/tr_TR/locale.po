@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T11:06:23+00:00\n"
+"PO-Revision-Date: 2020-04-29 15:38+0000\n"
+"Last-Translator: Sönmez Çelik <snmzclk@gmail.com>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"generic-acron/tr/>\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.acron.name"
+msgstr "Acron Eklentisi"
+
+msgid "plugins.generic.acron.description"
+msgstr ""
+"Bu eklenti, sistemin 'cron' gibi periyodik zamanlama araçları üzerindeki "
+"bağımlılığını azaltmaya çalışır. Ör  'cron.'"
+
+msgid "plugins.generic.acron.enabled"
+msgstr "Acron eklentisi etkinleştirildi."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Acron eklentisi devre dışı bırakıldı."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Zamanlanmış işlemler başarılı olarak yenilendi."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Zamanlanmış İşlemleri Yenile"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Zamanlanmış işlemler yenilendi."

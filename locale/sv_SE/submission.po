@@ -1,0 +1,1904 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
+"PO-Revision-Date: 2020-11-17 22:51+0000\n"
+"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
+"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/sv_SE/>\n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "author.submit.submissionCitations"
+msgstr "Lägg till en formaterad lista av referenser för verk som citeras i bidraget. Separera varje referens med blankrad."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Nya granskningar har inkommit och är under övervägande hos redaktör."
+
+msgid "submission.confirm.message"
+msgstr "Ditt bidrag har laddats upp och kan skickas in. Du kan gå tillbaka för att granska och justera informationen du har lagt in innan du skickar in. När du är färdig, klicka på \"Skicka in bidrag\"."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Skicka in som"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Välj den roll som bäst beskriver din del i det här bidraget."
+
+msgid "submission.submit.contactConsent"
+msgstr "Kontaktperson"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Ja, jag vil bli kontaktad i frågor angående det här bidraget."
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr "Skicka in i någon av följande roller för att redigera och publicera det här bidraget själv: {$managerGroups}"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Kravlista för bidrag"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "Du måste läsa och godkänna nedanstående krav innan du kan fortsätta."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Bidraget är inskickat"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "Tack för visat intresse av publicering i {$contextName}."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Acceptera upphovsrättsdeklaration"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "Ja, jag accepterar att följa villkoren i upphovsrättsdeklarationen."
+
+msgid "submission.submit.whatNext"
+msgstr "Vad händer nu?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Nu kan du:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Granska bidraget"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Skicka in ett nytt bidrag"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Gå tillbaka till din översikt"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Ytterligare metadata"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "E-postadress för CrossRef-registrering"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr "Skriv in en giltig e-postadress för CrossRef-registrering. Du kan utan kostnad registrera din e-postadress fpå CrossRefs webbplats."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "API-nyckel för ISBNdb"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr "Skriv in din API-nyckel för ISBNdb. Om du saknar en sådan kan du begära en från ISBNdb-projektet utan kostnad."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "E-postadress för PubMed-registrering"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Skriv in en giltig e-postadress för PubMed-registrering om du har en sådan."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "API-nyckel för WorldCat"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Skriv in en giltig nyckel för WorldCats API om du har en sådan."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Citeringsmodul"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Välj en av befintliga citeringsmoduler."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Använd inte i första hand (fortfarande tillgängligt genom redigeraren)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr "Internt fel. Ett ogiltigt värde angavs för \"valbart filter\"-inställningen. Vänligen rapportera detta som en bugg."
+
+msgid "metadata.property.displayName.author"
+msgstr "Författare"
+
+msgid "metadata.property.validationMessage.author"
+msgstr "För bästa resultat ska författare anges i följande format: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Redaktörer"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "För bästa resultat ska redaktörer anges i följande format: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Artikeltitel"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Vänligen ange en giltig artikeltitel."
+
+msgid "metadata.property.displayName.source"
+msgstr "Publikationens titel"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Vänligen ange en giltig titel på publikationen."
+
+msgid "metadata.property.displayName.date"
+msgstr "Publiceringsdatum"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Vänligen ange ett giltigt publiceringsdatum (format: ÅÅÅÅ-MM-DD)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Tillgänglighetsdatum"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Vänligen ange ett giltigt tillgänglighetsdatum (format: ÅÅÅÅ-MM-DD)."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Nummer"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Vänligen ange ett giltigt nummer."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Volym"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Vänligen ange en giltig volym."
+
+msgid "metadata.property.displayName.season"
+msgstr "Säsong"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Vänligen ange en giltig identifikator för säsong."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Kapiteltitel"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Vänligen ange en giltig kapiteltitel."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Utgåva"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Vänligen ange en giltig utgåva."
+
+msgid "metadata.property.displayName.series"
+msgstr "Serie"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Vänligen ange en giltig serie."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Bilaga"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Vänligen ange en giltig bilaga."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Konferensdatum"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Vänligen ange ett giltigt konferensdatum (format: ÅÅÅÅ-MM-DD)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Plats för konferensen"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Vänligen ange en giltig plats för konferens."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Konferensens namn"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Vänligen ange ett giltigt namn på konferensen."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Konferenssponsor"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Vänligen ange en giltig konferenssponsor."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Institution"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Vänligen ange en giltig institution."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Första sida"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Vänligen ange en giltig första sida (måste vara ett numeriskt värde)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Sista sida"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Vänligen ange en giltig sista sida (måste vara ett numeriskt värde)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Antal sidor"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Vänligen ange ett giltigt omfång på totalt antal sidor (måste vara ett numeriskt värde)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Utgivningsort"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Vänligen ange en giltig utgivningsort."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Namn på utgivare"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Vänligen ange ett giltigt namn på utgivare."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Vänligen ange ett giltigt ISBN (9 eller 13 siffror)."
+
+msgid "metadata.property.displayName.issn"
+msgstr "ISSN (tryck)"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Vänligen ange ett giltigt ISSN (tryck)."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "e-ISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Vänligen ange ett giltigt e-ISSN."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Vänligen ange en giltig DOI."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Annat publikations-ID"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Vänligen ange ett giltigt annat publikations-ID."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Vänligen ange ett giltigt CODEN."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Vänligen ange ett giltigt SICI."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Vänligen ange ett giltigt PMID."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Länk till publikationen"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Vänligen ange en giltig alternativ länk till publikationen."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Kommentar"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Vänligen ange en giltig kommentar."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Anteckning"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Vänlig ange en giltig anteckning."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Publikationstyp"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr "Se till så att du alltid väljer en publikationstyp. Giltiga värden är för närvarande bok (för böcker och bokkapitel) och tidskrift (för tidskriftsartiklar). Om publikationstyp saknas blir inte citeringsformatteringen korrekt."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Titeltyp"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr "Se till att du sätter en giltig titeltyp. Giltiga värden är 'abbreviated', 'translated', 'alternative' or 'uniform'."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Del av titel att ignorera vid sortering"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "Skriv in de första tecknen som ska ignoreras i sorteringen av titeln."
+
+msgid "metadata.property.displayName.title"
+msgstr "Titel"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Ange en giltig titel."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Undertitel"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Ange en giltig undertitel."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Delnummer"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Ange ett giltigt delnummer."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Delnamn"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Ange ett giltigt namn på del."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Namntyp"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr "Se till att du sätter en giltig namntyp. Giltiga värden är 'personal', 'corporate' och 'conference'."
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Ej tilldelat"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Mina tilldelade bidrag"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Arkiverade bidrag"
+
+msgid "submission.authors"
+msgstr "Författare"
+
+msgid "submission.authorBiography"
+msgstr "Författarbiografi"
+
+msgid "submission.authorBiographies"
+msgstr "Författarbiografier"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} m.fl."
+
+msgid "submission.mySubmissions"
+msgstr "Bidrag med mig som författare"
+
+msgid "submission.addFile"
+msgstr "Ladda upp fil"
+
+msgid "submission.agencies"
+msgstr "Organisationer"
+
+msgid "submission.abstractViews"
+msgstr "Visningar av abstract"
+
+msgid "submission.accepted"
+msgstr "Accepterad"
+
+msgid "submission.acknowledge"
+msgstr "Bekräfta"
+
+msgid "submission.ask"
+msgstr "Fråga"
+
+msgid "submission.attachedFile"
+msgstr "Bifogad fil"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Tillbaka till redigering av bidrag"
+
+msgid "submission.changeComments"
+msgstr "Ändra till"
+
+msgid "submission.changeFile"
+msgstr "Byt fil"
+
+msgid "submission.citations"
+msgstr "Referenser"
+
+msgid "submission.citations.description"
+msgstr "Skriv in varje referens på på en ny rad så att den kan bli extraherad."
+
+msgid "submission.parsedCitations"
+msgstr "Extraherade referenser"
+
+msgid "submission.parsedCitations.description"
+msgstr "Följande referenser har extraherats och kommer att länkas till bidragets metadata."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Extrahera och spara referenser"
+
+msgid "submission.comments.addComment"
+msgstr "Lägg till kommentar"
+
+msgid "submission.comments.comments"
+msgstr "Kommentarer"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Är du säker på att du vill ta bort den här kommentaren?"
+
+msgid "submission.comments.corrections"
+msgstr "Rättelser"
+
+msgid "submission.comments.editComment"
+msgstr "Redigera kommentar"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Importera sakkunniggranskningar"
+
+msgid "submission.comments.addReviews"
+msgstr "Lägg till granskningar i e-postmeddelande"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Granskare {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Inga kommentarer"
+
+msgid "submission.comments.noReviews"
+msgstr "Inga granskningar"
+
+msgid "submission.comments.review"
+msgstr "Granskning"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Skicka redaktörsbesked till granskare"
+
+msgid "submission.comments.subject"
+msgstr "Ämne"
+
+msgid "submission.complete"
+msgstr "Färdig"
+
+msgid "submission.contributors"
+msgstr "Lista över medarbetare"
+
+msgid "submission.copyedited"
+msgstr "Manusredigerad"
+
+msgid "submission.copyediting"
+msgstr "Manusredigering"
+
+msgid "submission.queryNoteFiles"
+msgstr "Diskussionsfiler"
+
+msgid "submission.coverage"
+msgstr "Information om täckning"
+
+msgid "submission.done"
+msgstr "Klar"
+
+msgid "submission.dueDate"
+msgstr "Deadline"
+
+msgid "submission.due"
+msgstr "Förväntad"
+
+msgid "submission.editing"
+msgstr "Redigering"
+
+msgid "submission.editMetadata"
+msgstr "Redigera metadata"
+
+msgid "submission.editorial"
+msgstr "Manusredigering"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Tillbaka till e-postlogg"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Är du säker på att vill rensa e-postloggen för det här bidraget?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Är du säker på att du vill ta bort den här händelsen ur e-postloggen?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Ta bort händelse i logg"
+
+msgid "submission.emailLog"
+msgstr "E-postlogg"
+
+msgid "submission.event.participantAdded"
+msgstr "{$name} ({$username}) tilldelades det här bidraget som {$userGroupName}."
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) togs bort som {$userGroupName}."
+
+msgid "submission.event.backToEventLog"
+msgstr "Tillbaka till Händelselogg"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Är du säker på att du vill ta bort händelseloggen för det här bidraget?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Är du säker på att du vill ta bort den här händelsen ur loggen?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Ta bort händelse i logg"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Bidraget har skickats in."
+
+#, fuzzy
+msgid "submission.event.fileRevised"
+msgstr "Bearbetningen \"{$name}\" (fil-ID {$submissionFileId}) laddas upp."
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Bidragets metadata uppdaterade"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Bidragsfil uppdaterad"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Granskningsuppdrag accepterat via mellanhand"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Granskningsuppdrag accepterat"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Granskningsuppdrag avböjt"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Deadline för granskning ändrad"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Bidrag tilldelat granskare"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Betygsättning av granskare registrerad"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Granskare har borttagen från bidrag"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Granskningsfil uppdaterad"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Granskningsarbete påbörjat"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Granskares rekommendationsfil"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Granskningsarbete påbörjat på nytt"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Granskning inskickad på nytt"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Granskares reviderade fil uppdaterad"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Ett e-postmeddelande skickades:"
+
+msgid "submission.event.viewEmail"
+msgstr "Visa e-postmeddelande"
+
+msgid "submission.files"
+msgstr "Filer"
+
+msgid "submission.files.downloadAll"
+msgstr "Ladda ned samtliga filer"
+
+msgid "submission.galley"
+msgstr "Publiceringsversion"
+
+msgid "submission.history.clearLog"
+msgstr "Rensa logg"
+
+msgid "submission.history"
+msgstr "Historik"
+
+msgid "submission.history.noLogEntries"
+msgstr "Inga händelser i loggen."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Nyligen tillagda händelser"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "E-postlogg"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Händelselogg"
+
+msgid "submission.history.submissionNotes"
+msgstr "Bidragsanteckningar"
+
+msgid "submission.history.viewLog"
+msgstr "Visa logg"
+
+msgid "submission.howToCite"
+msgstr "Referera så här"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Fler referensstilar"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Ladda ned referens"
+
+msgid "submission.initiated"
+msgstr "Påbörjad"
+
+msgid "submission.identifiers"
+msgstr "Identifikatorer"
+
+msgid "submission.publisherId"
+msgstr "Utgivar-ID"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Information om bidraget"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Metadata"
+
+msgid "submission.informationCenter.notes"
+msgstr "Anteckningar"
+
+msgid "submission.informationCenter.history"
+msgstr "Historik"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Visa händelser från tidigare versioner"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Meddela"
+
+msgid "submission.lastModified"
+msgstr "Senast ändrad"
+
+msgid "submission.layout.addGalley"
+msgstr "Lägg till en layout-publiceringsversion"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Är du säker på att du vill ta bort den här publiceringsversionen permanent?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Är du säker på att du vill ta bort den här bilden från publiceringsversionen?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Ta bort den här stilmallen."
+
+msgid "submission.layout.editGalley"
+msgstr "Redigera en layoutad publiceringsversion"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Format på publiceringsversion"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "Filer för HTML-publiceringsversion"
+
+msgid "submission.layout.galleyImages"
+msgstr "Bilder"
+
+msgid "submission.layout.galleyLabel"
+msgstr "Etikett för publiceringsversion"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Den här etiketten används vanligen för att identifiera filens filformat (t.ex. PDF, HTML, etc.)."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Det krävs en etikett för publiceringsversion är obligatorisk."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Det krävs en angivelse om språk för publiceringsversion."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Det krävs en angivelse om språk/region för publiceringsversionen."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Extern URL"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Vänligen ange en giltig extern URL (inklusive http://-prefix)."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Inga bilder"
+
+msgid "submission.layout.galleys"
+msgstr "Publiceringsversioner"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Stilmall som separat fil"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Utseende"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Första skapade publiceringsversion"
+
+msgid "submission.layout.layoutFile"
+msgstr "Layoutfil"
+
+msgid "submission.layout"
+msgstr "Layout"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Layoutversion"
+
+msgid "submission.layout.newGalley"
+msgstr "Skapa ny publiceringsversion"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Ingen stilmall i separat fil tillagd för den här publiceringsversionen."
+
+msgid "submission.layout.viewingGalley"
+msgstr "Visar bidragets publiceringsversion"
+
+msgid "submission.layout.viewProof"
+msgstr "Visa korrektur"
+
+msgid "submission.metadata"
+msgstr "Metadata för bidraget"
+
+msgid "submission.noReviewAssignments"
+msgstr "Inga granskningsuppdrag"
+
+msgid "submission.notes.addNewNote"
+msgstr "Lägg till ny anteckning"
+
+msgid "submission.notes.attachedFile"
+msgstr "Bifogad fil"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Tillbaka till anteckningar för bidrag"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Anteckningar"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Rensa alla anteckningar"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Fäll in anteckningar"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Ta bort alla anteckningar för bidrag?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Ta bort den här anteckningen?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Skapa ny anteckning"
+
+msgid "submission.notes.deleteNote"
+msgstr "Radera anteckning"
+
+msgid "submission.notes.editNote"
+msgstr "Redigera anteckning"
+
+msgid "submission.notes.expandNotes"
+msgstr "Fäll ut anteckningar"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Inga anteckningar för bidrag"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Ta bort uppladdad fil"
+
+msgid "submission.notes"
+msgstr "Anteckningar för bidrag"
+
+msgid "submission.notes.updateNote"
+msgstr "Uppdatera anteckning"
+
+msgid "submission.notes.viewNotes"
+msgstr "Visa anteckningar"
+
+msgid "submission.originalFile"
+msgstr "Originalfil"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Redigera"
+
+msgid "submission.page.history"
+msgstr "#{$id} Historik"
+
+msgid "submission.page.review"
+msgstr "#{$id} Granska"
+
+msgid "submission.page.summary"
+msgstr "#{$id} Sammanfattning"
+
+msgid "submission.page.citations"
+msgstr "#{$id} Referenser"
+
+msgid "submission.peerReview"
+msgstr "Sakkunniggranskning"
+
+msgid "submission.production"
+msgstr "Produktion"
+
+msgid "submission.recommendation"
+msgstr "Rekommendation: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Avvisad"
+
+msgid "submission.request"
+msgstr "Förfrågan"
+
+msgid "submission.response"
+msgstr "Svar"
+
+msgid "submission.restrictions"
+msgstr "Begränsningar"
+
+msgid "submission.reviewMetadata"
+msgstr "Granska metadata"
+
+msgid "submission.review"
+msgstr "Granska"
+
+msgid "submission.reviewed"
+msgstr "Granskad"
+
+msgid "submission.reviewVersion"
+msgstr "Version för granskning"
+
+msgid "submission.rights"
+msgstr "Rättigheter"
+
+msgid "submission.rights.tip"
+msgstr "Om du vill kan du ange en kort beskrivning för vilka rättigheter för tillgång som gäller för det här bidraget."
+
+msgid "submissions.active"
+msgstr "Aktiv"
+
+msgid "submissions.archived"
+msgstr "Arkiverad"
+
+msgid "submission.saveMetadata"
+msgstr "Spara metadata"
+
+msgid "submissions.completed"
+msgstr "Avslutad"
+
+msgid "submissions.declined"
+msgstr "Refuserad"
+
+msgid "submissions.incomplete"
+msgstr "Ofullständig"
+
+msgid "submissions.noSubmissions"
+msgstr "Inga bidrag"
+
+msgid "submissions.queuedEditing"
+msgstr "Redigering pågår"
+
+msgid "submissions.queued"
+msgstr "I kö"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Bidraget har inte blivit tilldelad någon redaktör."
+
+msgid "submissions.ruling"
+msgstr "Utslag"
+
+msgid "submission.source"
+msgstr "Källa"
+
+msgid "submission.source.tip"
+msgstr "Härstammar det här bidraget från en annan resurs? Om ja, mata in en URL eller en beskriving av den resursen."
+
+msgid "submissions.submit"
+msgstr "Skicka in"
+
+msgid "submissions.submitted"
+msgstr "Inskickad"
+
+msgid "submission.submission"
+msgstr "Bidrag"
+
+msgid "submission.submissionTitle"
+msgstr "Bidragets titel:"
+
+msgid "submission.start"
+msgstr "Start"
+
+msgid "submission.submissionHistory"
+msgstr "Historik för bidrag"
+
+msgid "submission.submissionManuscript"
+msgstr "Manuskript för bidrag"
+
+msgid "submission.submissionReview"
+msgstr "Granskning av bidrag"
+
+msgid "submission.submitter"
+msgstr "Insändare"
+
+msgid "submission.submit.finishSubmission"
+msgstr "Skicka in bidrag"
+
+msgid "submission.submit.selectFile"
+msgstr "Välj fil"
+
+msgid "submission.submit.fileInformation"
+msgstr "Filinformation"
+
+msgid "submission.submit.fileAdded"
+msgstr "En fil är tillagd"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Lägg till medarbetare i bläddringslistor?"
+
+msgid "submission.submit.newFile"
+msgstr "Lägg till ytterligare en fil"
+
+msgid "submission.submit.metadataForm"
+msgstr "Ytterligare information"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Lägg till ytterligare information om ditt bidrag. Tryck \"enter\" efter varje bit."
+
+msgid "submission.submit.submissionLocale"
+msgstr "Bidragets språk"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Publikationen accepterar bidrag på olika språk. Välj ett språk i rullisten nedan."
+
+msgid "submission.submit.submissionFiles"
+msgstr "Bidragsfiler"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Relaterade filer"
+
+msgid "submission.manageDependentFiles"
+msgstr "Hantera relaterade filer"
+
+msgid "submission.upload.dependent"
+msgstr "Ladda upp en relaterad fil"
+
+msgid "submission.upload.query"
+msgstr "Ladda upp en diskussionsfil"
+
+msgid "submission.summary"
+msgstr "Sammanfattning"
+
+msgid "submission.supportingAgencies"
+msgstr "Stödorganisationer"
+
+msgid "submission.currentAgencies"
+msgstr "Aktuelle organisationer"
+
+msgid "submission.indexingInformation"
+msgstr "Indexeringsinformation"
+
+msgid "submission.titleAndAbstract"
+msgstr "Titel och abstract"
+
+msgid "submission.type.tip"
+msgstr "Bidragstypen är vanligen någon av 'bild', 'text', eller andra multimedia-typer som 'mjukvara' eller 'interaktiv'. Välj den som är mest relevant för ditt bidrag. Det finns exempel på <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.underway"
+msgstr "På väg"
+
+msgid "submission.uploadFileTo"
+msgstr "Ladda upp fil till"
+
+msgid "submission.createRemote"
+msgstr "Skapa extern"
+
+msgid "submission.viewMetadata"
+msgstr "Visa metadata"
+
+msgid "submission.views"
+msgstr "Visningar"
+
+msgid "submission.uploadSuccessful"
+msgstr "Din fil har laddats upp."
+
+msgid "submission.loadMessage"
+msgstr "Vänta medan din fil laddas upp på servern."
+
+msgid "submission.artworkFileDetails"
+msgstr "Detaljer för grafikfil"
+
+msgid "submission.fileDetails"
+msgstr "Detaljer för fil"
+
+msgid "submission.nameRequired"
+msgstr "Den här elementet måste ha ett namn."
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.date.yyyymmdd"
+msgstr "ÅÅÅÅ-MM-DD"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Huvudkontakt för redaktionens korrespondens."
+
+msgid "submission.submit.contributorRole"
+msgstr "Medarbetares roll"
+
+msgid "submission.submit.addAuthor"
+msgstr "Lägg till medarbetare"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Vänligen ange språk."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Vänligen ange ett ämne."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Vänligen ange en disciplin."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Vänligen ange nyckelord."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Vänligen ange information om täckning."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Vänligen ange typ."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Vänligen ange källa."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Vänligen ange rättigheter."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Vänligen ange referenser."
+
+msgid "submission.form.name"
+msgstr "Namnge filen (t.ex. Manus; Tabell 1)"
+
+msgid "submission.form.replaceExisting"
+msgstr "Ersätter du en befintlig fil?"
+
+msgid "workflow.review.internalReview"
+msgstr "Intern granskning"
+
+msgid "workflow.stage.any"
+msgstr "Vilket steg som helst"
+
+msgid "workflow.stage"
+msgstr "Steg"
+
+msgid "submission.status.editorial"
+msgstr "Under manusredigering"
+
+msgid "submission.status.production"
+msgstr "Under korrekturläsning"
+
+msgid "submission.status.review"
+msgstr "Under granskning"
+
+msgid "submission.status.submission"
+msgstr "Väntar på redaktörsbeslut"
+
+msgid "submission.status.unassigned"
+msgstr "Ej tilldelad"
+
+msgid "submission.status.declined"
+msgstr "Refuserad"
+
+msgid "submission.status.published"
+msgstr "Publicerad"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Ladda upp fil"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Ladda upp bidragsfil"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Granska detaljer"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Bekräfta"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Du måste ge den här filen ett filnamn"
+
+msgid "submission.upload.noGenre"
+msgstr "Komponent saknas eller är ogiltig!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Användargrupp saknas eller är ogiltig!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "Potentiell kopia eller bearbetning upptäckt"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr "Namnet på den uppladdade filen påminner om en tidigare uppladdad fil, \"{$revisedFileName}\". Ska den här filen ersätta \"{$revisedFileName}\"? Om den ska det, välj filen nedan. Om inte, välj \"Det här är inte en bearbetning av en redan existerande fil\" innan du fortsätter."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Välj filen du vill uppdatera."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "Om du laddar upp en bearbetning av en redan existerande fil, ange vilken fil."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Det här är inte en bearbetning av en existerande fil"
+
+msgid "submission.upload.userGroup"
+msgstr "Ladda upp den här filen i egenskap av min roll som..."
+
+msgid "submission.upload.userGroupDescription"
+msgstr "Om du hanterar en Antologi ska alla volymens kapitel laddas upp individuellt, i din roll som volymredaktör."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Ladda upp en biblioteksfil"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Kategori, dokument för bidrag"
+
+msgid "submission.upload.finalDraft"
+msgstr "Ladda upp fil"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Ladda upp manusredigerad fil"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Ladda upp filer"
+
+msgid "submission.upload.response.description"
+msgstr "När du granskat filen du fått tilldelad dig, mata in samtliga kommentarer till filen nedan och/eller ladda upp en annoterad kopia av filen (eller en annan fil)."
+
+msgid "submission.upload.productionReady"
+msgstr "Ladda upp en produktionsklar fil"
+
+msgid "submission.upload.proof"
+msgstr "Ladda upp en publiceringsklar"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Du har inga filer att granska för tillfället."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Bearbetningar begärda."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Bearbetningar har skickats in."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Bidraget måste sändas in på nytt för en ny granskningsomgäng."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Bidraget har sänts in på nytt för en ny granskningsomgång."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Skickat för extern granskning."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Bidrag accepterat."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Bidrag refuserat."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Väntar på tilldelning av granskare."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Väntar på svar från granskare."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Nya granskningar har inkommit."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Alla granskningar har inkommit och nu behövs ett redaktörsbeslut."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "En granskning är försenad."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Väntar på rekommendationer från redaktörer."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Det har registrerats nya redaktionsrekommendationer."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Alla rekommendationer har inkommit och nu behövs ett redaktörsbeslut."
+
+msgid "editor.submission.stageParticipants"
+msgstr "Deltagare"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Inga tilldelade"
+
+msgid "editor.submission.participant"
+msgstr "Deltagare"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Lägg till deltagare"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr "Användare knyts till steg i arbetsflödet utifrån användargrupp. Alla användare knutna till det här steget kommer automatiskt knytas till de andra steg användargruppen är knuten till. Detta är vanligen reserverat för redaktörer, författare och översättare."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Ta bort deltagare"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "Du håller på att ta bort den här deltagaren från <strong>alla</strong> steg. Om användaren också har utestående manusgranskningar kommer dessa också att tas bort."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Du måste välja en användargrupp."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Du måste välja en användare för den specificerade användargruppen."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr "Deltagaren du valt har blivit utsedd att utföra en anonym granskning. Om du lägger till hen som deltagare kommer hen att kunna se författarens identitet. Vi uppmanar dig att inte utse den här deltagaren om du inte oavsett kan garantera integriteten i sakkunniggranskningsprocessen."
+
+msgid "editor.submission.decision"
+msgstr "Beslut"
+
+msgid "editor.submission.decision.accept"
+msgstr "Acceptera bidrag"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Begär bearbetningar"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Skicka in för granskning på nytt"
+
+msgid "editor.submission.decision.decline"
+msgstr "Refusera bidrag"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Skicka till Produktion"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Acceptera och hoppa över granskning"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Skicka till intern granskning"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr "Korrekturet måste godkännas för att göras tillgängligt. Vill du godkänna det?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Godkänn korrektur"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr "Den här korrekturfilen kommer inte längre vara publikt tillgänglig för nedladdning eller köp. Vill du avslå det?"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "Tilldela bidraget en redaktör för att möjliggöra redaktionella beslut i det här steget."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Rekommendation"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Ändra rekommendation"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Rekommendation: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Rekommendationer: {$recommendations}"
+
+msgid "editor.submission.recommendation"
+msgstr "Rekommendation"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Rekommendera ett redaktörsbeslut för det här bidraget."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Registrerade rekommendationer"
+
+msgid "editor.submission.decision.nextButton"
+msgstr "Nästa: Välj filer för {$stageName}"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr "Välj filer som du vill föra vidare till{$stageName}-steget."
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "Tidigare: Författaravisering"
+
+msgid "submission.currentStage"
+msgstr "Nuvarande steg"
+
+msgid "submission.noActionRequired"
+msgstr "Behöver inte åtgärdas"
+
+msgid "submission.actionNeeded"
+msgstr "Behöver åtgärdas"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Granskningsfiler"
+
+msgid "submission.submit.currentFile"
+msgstr "Nuvarande fil"
+
+msgid "submission.finalDraft"
+msgstr "Utkastfiler"
+
+msgid "editor.submission.addAuditorError"
+msgstr "Det blev ett fel när manusgranskare skulle registreras."
+
+msgid "submission.event.fileUploaded"
+msgstr "Filen \"{$originalFileName}\" laddas upp till bidrag {$submissionId} av {$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr "Filen \"{$originalFileName}\" raderades från bidrag {$submissionId} av {$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr "Den bearbetade filen \"{$originalFileName}\" laddades upp till bidrag {$submissionId} av {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr "Den bearbetade filen \"{$originalFileName}\" raderades från bidrag {$submissionId} av {$username}."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "Filen \"{$title}\" fick sin senaste bearbetning borttagen av {$username}."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$name}\" ({$username}) lades till som manusgranskare för filen \"{$file}."
+"\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$name}\" ({$username}) togs bort som manusgranskare för filen \"{$file}.\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$name}\" ({$username}) har färdigställt manusgranskningen och laddat upp "
+"\"{$file}.\""
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) har signerat godkännande för \"{$file}.\""
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+"\"{$name}\" ({$username}) har godkänt korrekturet för \"{$formatName}.\""
+
+msgid "submission.overview"
+msgstr "Översikt bidrag"
+
+msgid "submission.description"
+msgstr "Beskrivning"
+
+msgid "submission.stageNotInitiated"
+msgstr "Steget inte påbörjat."
+
+msgid "submission.documents"
+msgstr "Dokument för bidrag"
+
+msgid "notification.type.editorAssign"
+msgstr "Du har blivit tilldelad rollen som redaktör för bidraget \"{$title}\"."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Du har blivit ombedd att granska manusredigeringen av \"{$title}\"."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Du har blivit ombedd att granska layouten av \"{$title}\"."
+
+msgid "notification.type.indexRequest"
+msgstr "Du har blivit ombedd att skapa ett index \"{$title}\"."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Senaste redaktörsbeslut."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Bidrag accepterat."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Extern granskningsprocess påbörjad."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Ändringar krävs."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Skicka in för granskning på nytt."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Bidrag refuserat."
+
+msgid "notification.uploadedResponse"
+msgstr "Svar uppladdat."
+
+msgid "notification.type.editorAssignment"
+msgstr "En redaktör måste tilldelas bidraget innan granskningsprocessen kan påbörjas. Lägg till en redaktör via Deltagarlistan."
+
+msgid "grid.reviewAttachments.title"
+msgstr "Granskares bifogade filer"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Välj granskningsfiler att dela med författaren/författarna"
+
+msgid "submission.productionReady"
+msgstr "Bok tillgänglig"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Ladda upp bearbetad fil"
+
+msgid "log.review.reviewerAssigned"
+msgstr "{$reviewerName} har fått uppdraget att granska bidrag {$submissionId}, granskningsomgång {$round}."
+
+msgid "log.review.reviewCleared"
+msgstr "Omgång {$round}, med {$reviewerName} som granskare för bidrag {$submissionId}, har tagits bort."
+
+msgid "log.review.reviewReinstated"
+msgstr "Omgång {$round}, med {$reviewerName} som granskare för bidrag {$submissionId}, har börjat om på nytt."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Väntar på svar från granskaren."
+
+msgid "submission.review.status.declined"
+msgstr "Granskaren avböjde denna granskningsfrågan."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Granskaren har missat deadline för svar."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Granskaren har missat deadline för granskning."
+
+msgid "submission.review.status.accepted"
+msgstr "Granskningen har accepterats."
+
+msgid "submission.review.status.received"
+msgstr "Granskaren har skickat in sin granskning."
+
+msgid "submission.review.status.complete"
+msgstr "Den här granskningen är slutförd."
+
+msgid "submission.review.status.thanked"
+msgstr "Den här granskningen är slutförd och granskaren har tackats för sin medverkan."
+
+msgid "submission.document"
+msgstr "Dokument"
+
+msgid "submission.art"
+msgstr "Grafik"
+
+msgid "submission.supplementary"
+msgstr "Extramaterial"
+
+msgid "submission.supplementary.creator"
+msgstr "Filens skapare (eller ägare)"
+
+msgid "submission.supplementary.subject"
+msgstr "Ämne"
+
+msgid "submission.supplementary.publisher"
+msgstr "Utgivare"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Bidragsgivare eller sponsororganisation"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Gå till arbetsflödet för det här bidraget"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Produktionsprocessen påbörjad."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr "En produktionsredaktör måste registreras innan produktionsprocessen kan påbörjas. Lägg till en produktionsredaktör via Deltagarlistan."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr "En produktionsredaktör måste registreras innan den redaktionella processen kan påbörjas. Lägg till en produktionsredaktör via Deltagarlistan."
+
+msgid "submission.reviewForm"
+msgstr "Granskningsformulär"
+
+msgid "submission.reviewFormResponse"
+msgstr "Svar i granskningsformulär"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Skapa ett nytt element i granskningsformuläret"
+
+msgid "grid.action.editMetadata"
+msgstr "Redigera metadata"
+
+msgid "submission.permissions"
+msgstr "Rättigheter"
+
+msgid "submission.attachPermissions"
+msgstr "Lägg till följande rättigheter för bidraget:"
+
+msgid "submission.license"
+msgstr "Licens"
+
+msgid "submission.copyright"
+msgstr "Upphovsrätt"
+
+msgid "submission.copyrightHolder"
+msgstr "Upphovsrättsinnehavare"
+
+msgid "submission.copyrightYear"
+msgstr "Upphovsrättsår"
+
+msgid "submission.copyrightStatement"
+msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "Ange en giltig extern URL (inklusive http://)."
+
+msgid "submission.licenseURL"
+msgstr "Licens-URL"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Erkännande-IckeKommersiell-IngaBearbetningar 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Erkännande-IckeKommersiell 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Erkännande-IckeKommersiell-DelaLika 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Erkännande-IngaBearbetningar 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Erkännande 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Erkännande-DelaLika 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Erkännande-Ickekommersiell-IngaBearbetningar 4.0 Internationell-licens</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Erkännande-IckeKommersiell 4.0 Internationell-licens</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Erkännande-IckeKommersiell-DelaLika 4.0 Internationell Licens</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons Erkännande-IngaBearbetningar 4.0 Internationell-licens</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><img alt=\"Creative Commons-license\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>Det här verket är licensierat under en <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Erkännande 4.0 Internationell-licens</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Det här verket är licensierat under en <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Erkännande-DelaLika 4.0 Internationell-licens</a>.</p>"
+
+msgid "submission.queries.submission"
+msgstr "Diskussioner före granskning"
+
+msgid "submission.queries.review"
+msgstr "Granskningsdiskussioner"
+
+msgid "submission.queries.editorial"
+msgstr "Manusredigeringsdiskussioner"
+
+msgid "submission.query.subject"
+msgstr "Ämne"
+
+msgid "submission.query.messages"
+msgstr "Meddelanden"
+
+msgid "submission.query.replies"
+msgstr "Svar"
+
+msgid "submission.query.from"
+msgstr "Från"
+
+msgid "submission.query.lastReply"
+msgstr "Senaste svar"
+
+msgid "submission.query.closed"
+msgstr "Stängd"
+
+msgid "submission.query.addNote"
+msgstr "Lägg till ett meddelande"
+
+msgid "grid.action.openNoteForm"
+msgstr "Lägg till ett nytt svar i diskussionen"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} svarade i {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} startade en diskussion: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr "Det har varit ny aktivitet i diskussionen med namnet \"{$queryTitle}\" angående bidraget \"{$submissionTitle}\"."
+
+msgid "submission.query.new.contents"
+msgstr "Du har blivit tillagd i diskussionen med namnet \"{$queryTitle}\" angående bidraget \"{$submissionTitle}\"."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.noParticipantOptions"
+msgstr "De måste lägga till minst en deltagare till det här bidraget innan du kan påbörja en diskussion."
+
+msgid "submission.list.infoCenter"
+msgstr "Aktivitetslogg & anteckningar"
+
+msgid "submission.list.responseDue"
+msgstr "Deadline för svar"
+
+msgid "submission.list.reviewDue"
+msgstr "Deadline för granskning"
+
+msgid "submission.list.reviewComplete"
+msgstr "Granskning inskickad"
+
+msgid "submission.list.confirmDelete"
+msgstr "Radera bidrag?"
+
+msgid "submission.list.viewSubmission"
+msgstr "Visa bidrag"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Tilldelade granskningar slutförda"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Bearbetningar insända"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Manusredigerade filer insända"
+
+msgid "submission.list.galleysCreated"
+msgstr "Publiceringsversioner för produktion skapade"
+
+msgid "submission.list.filesPrepared"
+msgstr "Filer förberedda"
+
+msgid "submission.list.discussions"
+msgstr "Öppna diskussioner"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr "Du har blivit tilldelad flera olika roller för det här bidraget. Vill du ha tillgång till <a href=\"{$urlAuthorWorkflow}\">arbetsflödet för författare</a> eller <a href=\"{$urlEditorialWorkflow}\">arbetsflödet för redaktionen?</a>?"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr "Du har blivit tilldelad en redaktörsroll för det här bidraget. Vill du gå till <a href=\"{$urlEditorialWorkflow}\">det redaktionella arbetsflödet</a>?"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Det här bidraget måste vara färdigt innan en redaktör granskar det."
+
+msgid "submission.list.currentStage"
+msgstr "För närvarande i {$stage}-steget."
+
+msgid "submission.list.assignEditor"
+msgstr "Tilldela redaktör"
+
+#, fuzzy
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Det här verket är licensierat under en <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative "
+"Commons Erkännande-IngaBearbetningar 3.0 Internationell license</a>.</p>"
+
+msgid "publication.version.confirm"
+msgstr "Vill du skapa en ny version?"
+
+msgid "publication.version.all"
+msgstr "Alla versioner"
+
+msgid "publication.createVersion"
+msgstr "Skapa en ny version"
+
+msgid "publication.contributors"
+msgstr "Medarbetare"
+
+msgid "catalog.category.subcategories"
+msgstr "Underkategorier"
+
+msgid "catalog.category.noItems"
+msgstr "Ingenting har publicerats i kategorin ännu."
+
+msgid "submission.currentCoverImage"
+msgstr "Nuvarande bild"
+
+msgid "submission.submit.placement.categories"
+msgstr "Kategorier"
+
+msgid "category.coverImage"
+msgstr "Omslagsbild"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Publiceringsdatum (nyaste först)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Publiceringsdatum (äldsta först)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Titel (Z-A)"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Titel (A-Z)"
+
+msgid "grid.category.categories"
+msgstr "Kategorier"
+
+#, fuzzy
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Det här verket är licensierad under en  <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
+"Commons Erkännande 3.0 Internationell licens</a>.</p>"
+
+msgid "publication.titleAbstract"
+msgstr "Titel & Abstract"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Versioner"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Abstract"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Tillåt redigering av metadata"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Tillåt inte redigering av metadata"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Redigeringsuppdag"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Det här är en gammal version publicerad {$datePublished}. Läs <a href=\""
+"{$urlRecentVersion}\">senaste versionen</a>."
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Uppdaterad {$dateUpdated}"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr "Författarna kan inte redigera metadatan när bidraget är i steg {stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr "Författarna kan inte redigera metadatan när bidraget är i steg {stage}."
+
+msgid "author.publicationNotFound"
+msgstr "Författarens publikation kan inte hittas."
+
+msgid "submission.copyrightOther"
+msgstr "Upphovsrättsdeklaration"
+
+msgid "submission.publisherId.enable"
+msgstr "Använd för {$objects}"
+
+msgid "publication.wordCount"
+msgstr "Antal ord:{$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Abstractet är för långt.  Det får inte vara mer än {$limit}. Nu är det "
+"{$count} ord."
+
+msgid "publication.status.unpublished"
+msgstr "Inte publicerad"
+
+msgid "publication.status.scheduled"
+msgstr "Planerad"
+
+msgid "publication.event.versionCreated"
+msgstr "En ny version har skapats."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Datumet måste skrivas i formatet YYYY-MM-DD, som t ex 2019-01-01."
+
+msgid "submission.list.reviewAssignment"
+msgstr "Granskningsuppdrag"
+
+msgid "submission.list.empty"
+msgstr "Inget bidrag hittas."
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Om du lämnar diskussionen kommer du inte längre få meddelande om nya inlägg. "
+"Vill du lämna diskussionen?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Lämna diskussionen"
+
+#, fuzzy
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Det här verket är licensierad under en <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative "
+"Commons Erkännande-DelaLika 3.0 Internationell licens</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
+"Creative Commons Erkännande-IckeKommersiell-DelaLika 3.0 Internationell "
+"License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Detta verk är licensierat under en  <a rel=\"license\""
+" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Erkännande-IckeKommersiell 3.0 Internationell licens</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
+"Creative Commons Erkännande-IckeKommersiell-IngaBearbetningar 3.0 "
+"Internationell licens</a>.</p>"
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} har granskat bidraget {$submissionId}, granskningsomgång "
+"{$round}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Redaktören {$userName} har bekräftat granskning av bidraget {$submissionId} "
+"för granskningsomgång {$round}."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} har markerat att granskningsomgång {$round} för bidraget "
+"{$submissionId} inte är aktuellt."
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Vill du att författarna till bidraget ska kunna redigera bidragets metadata "
+"i det här steget?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Vill du att författarna till bidraget inte ska kunna redigera bidragets "
+"metadata i det här steget?"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Granskning avbruten"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "URL-sökvägen kan inte vara ett siffera."
+
+msgid "publication.urlPath.duplicate"
+msgstr "URL-sökvägen används redan och kan inte återanvändas."
+
+msgid "publication.urlPath"
+msgstr "URL-sökväg"
+
+msgid "publication.unschedule"
+msgstr "Ta bort från publiceringsplan"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Anpassad upphovsrättsdeklaration"
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Publikationen kan inte redigeras av författarna eftersom den är publicerad."
+
+msgid "publication.publicationLicense"
+msgstr "Behörigheter & tillgänglighet"

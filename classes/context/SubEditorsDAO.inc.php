@@ -3,139 +3,145 @@
 /**
  * @file classes/context/SubEditorsDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubEditorsDAO
  * @ingroup context
  *
- * @brief Base class associating sections/series to sub editors.
+ * @brief Base class associating sections, series and categories to sub editors.
  */
 
 class SubEditorsDAO extends DAO {
 
 	/**
-	 * Insert a new section editor.
+	 * Insert a new sub editor.
 	 * @param $contextId int
-	 * @param $sectionId int
+	 * @param $assocId int
 	 * @param $userId int
+	 * @param $userType int ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
 	 */
-	function insertEditor($contextId, $sectionId, $userId) {
+	function insertEditor($contextId, $assocId, $userId, $assocType) {
 		return $this->update(
-			'INSERT INTO section_editors
-				(context_id, section_id, user_id)
+			'INSERT INTO subeditor_submission_group
+				(context_id, assoc_id, user_id, assoc_type)
 				VALUES
-				(?, ?, ?)',
+				(?, ?, ?, ?)',
 			array(
 				(int) $contextId,
-				(int) $sectionId,
+				(int) $assocId,
 				(int) $userId,
+				(int) $assocType,
 			)
 		);
 	}
 
 	/**
-	 * Delete a section editor.
+	 * Delete a sub editor.
 	 * @param $contextId int
-	 * @param $sectionId int
+	 * @param $assocId int
 	 * @param $userId int
+	 * @param $assocType int ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
 	 */
-	function deleteEditor($contextId, $sectionId, $userId) {
+	function deleteEditor($contextId, $assocId, $userId, $assocType) {
 		$this->update(
-			'DELETE FROM section_editors WHERE context_id = ? AND section_id = ? AND user_id = ?',
+			'DELETE FROM subeditor_submission_group WHERE context_id = ? AND section_id = ? AND user_id = ? AND assoc_type = ?',
 			array(
 				(int) $contextId,
-				(int) $sectionId,
+				(int) $assocId,
 				(int) $userId,
+				(int) $assocType,
 			)
 		);
 	}
 
 	/**
-	 * Retrieve a list of all section editors assigned to the specified section.
-	 * @param $sectionId int
+	 * Retrieve a list of all sub editors assigned to the specified submission group.
+	 * @param $assocId int
+	 * @param $assocType int ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
 	 * @param $contextId int
 	 * @return array matching Users
 	 */
-	function getBySectionId($sectionId, $contextId) {
-		$userDao = DAORegistry::getDAO('UserDAO');
-		$params = array((int) $contextId, (int) $sectionId);
-		$params = array_merge($userDao->getFetchParameters(), $params);
+	function getBySubmissionGroupId($assocId, $assocType, $contextId) {
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+		$params = array_merge(
+			$userDao->getFetchParameters(),
+			[(int) $contextId, (int) $assocId, (int) $assocType]
+		);
 		$result = $this->retrieve(
 			'SELECT	u.user_id,
 			' . $userDao->getFetchColumns() . '
-			FROM	section_editors e
+			FROM	subeditor_submission_group e
 				JOIN users u ON (e.user_id = u.user_id)
 				' . $userDao->getFetchJoins() . '
 			WHERE	e.context_id = ? AND
-				e.section_id = ?
+				e.assoc_id = ? AND e.assoc_type = ?
 			' . $userDao->getOrderBy(),
 			$params
 		);
 
-		$users = array();
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
-			$user = $userDao->getById($row['user_id']);
+		$users = [];
+		foreach ($result as $row) {
+			$user = $userDao->getById($row->user_id);
 			$users[$user->getId()] = $user;
-			$result->MoveNext();
 		}
-
-		$result->Close();
 		return $users;
 	}
 
 	/**
-	 * Delete all section editors for a specified section in a context.
-	 * @param $sectionId int
+	 * Delete all sub editors for a specified submission group in a context.
+	 * @param $assocId int
+	 * @param $assocType int ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
 	 * @param $contextId int
 	 */
-	function deleteBySectionId($sectionId, $contextId = null) {
-		$params = array((int) $sectionId);
+	function deleteBySubmissionGroupId($assocId, $assocType, $contextId = null) {
+		$params = [(int) $assocId, (int) $assocType];
 		if ($contextId) $params[] = (int) $contextId;
 		$this->update(
-			'DELETE FROM section_editors WHERE section_id = ?' .
+			'DELETE FROM subeditor_submission_group WHERE assoc_id = ? AND assoc_type = ?' .
 			($contextId?' AND context_id = ?':''),
 			$params
 		);
 	}
 
 	/**
-	 * Delete all section assignments for the specified user.
+	 * Delete all submission group assignments for the specified user.
 	 * @param $userId int
 	 * @param $contextId int optional, include assignments only in this context
-	 * @param $sectionId int optional, include only this section
+	 * @param $assocId int optional, include only this submission group
+	 * @param $assocType int optional ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
 	 */
-	function deleteByUserId($userId, $contextId  = null, $sectionId = null) {
-		$params = array((int) $userId);
+	function deleteByUserId($userId, $contextId  = null, $assocId = null, $assocType = null) {
+		$params = [(int) $userId];
 		if ($contextId) $params[] = (int) $contextId;
-		if ($sectionId) $params[] = (int) $sectionId;
+		if ($assocId) $params[] = (int) $assocId;
+		if ($assocType) $params[] = (int) $assocType;
 
 		$this->update(
-			'DELETE FROM section_editors WHERE user_id = ?' .
+			'DELETE FROM subeditor_submission_group WHERE user_id = ?' .
 			($contextId?' AND context_id = ?':'') .
-			($sectionId?' AND section_id = ?':''),
+			($assocId?' AND assoc_id = ?':'') . 
+			($assocType?' AND assoc_type = ?':''),
 			$params
 		);
 	}
 
 	/**
-	 * Check if a user is assigned to a specified section.
+	 * Check if a user is assigned to a specified submission group.
 	 * @param $contextId int
-	 * @param $sectionId int
+	 * @param $assocId int
 	 * @param $userId int
+	 * @param $assocType int optional ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
 	 * @return boolean
 	 */
-	function editorExists($contextId, $sectionId, $userId) {
+	function editorExists($contextId, $assocId, $userId, $assocType) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*) FROM section_editors WHERE context_id = ? AND section_id = ? AND user_id = ?',
-			array((int) $contextId, (int) $sectionId, (int) $userId)
+			'SELECT COUNT(*) AS row_count FROM subeditor_submission_group WHERE context_id = ? AND section_id = ? AND user_id = ? AND assoc_id = ?',
+			[(int) $contextId, (int) $assocId, (int) $userId, (int) $assocType]
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 }
 

@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/context/PKPListsForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPListsForm
  * @ingroup classes_controllers_form
@@ -34,7 +34,6 @@ class PKPListsForm extends FormComponent {
 	 */
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;
-		$this->successMessage = __('manager.setup.lists.success');
 		$this->locales = $locales;
 
 		$this->addField(new FieldText('itemsPerPage', [

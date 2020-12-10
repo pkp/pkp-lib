@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/files/query/QueryNoteFilesGridDataProvider.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNoteFilesGridDataProvider
  * @ingroup controllers_grid_files_query
@@ -63,15 +63,20 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 		$submission = $this->getSubmission();
 		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
 
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$note = $noteDao->getById($this->_noteId);
 		if ($note->getAssocType() != ASSOC_TYPE_QUERY || $note->getAssocId() != $query->getId()) {
-			fatalError('Invalid note ID specified!');
+			throw new Exception('Invalid note ID specified!');
 		}
 
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFiles = $submissionFileDao->getLatestRevisionsByAssocId(ASSOC_TYPE_NOTE, $this->_noteId, $submission->getId(), $this->getFileStage());
-		return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly, $filter);
+		$submissionFilesIterator = Services::get('submissionFile')->getMany([
+			'assocTypes' => [ASSOC_TYPE_NOTE],
+			'assocIds' => [$this->_noteId],
+			'submissionIds' => [$submission->getId()],
+			'fileStages' => [(int) $this->getFileStage()],
+		]);
+
+		return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), $this->_viewableOnly, $filter);
 	}
 
 	/**
@@ -100,9 +105,17 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
 		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
 		return new AddFileLinkAction(
-			$request, $submission->getId(), $this->getStageId(),
-			$this->getUploaderRoles(), $this->getFileStage(),
-			ASSOC_TYPE_NOTE, $this->_noteId
+			$request,
+			$submission->getId(),
+			$this->getStageId(),
+			$this->getUploaderRoles(),
+			$this->getFileStage(),
+			ASSOC_TYPE_NOTE,
+			$this->_noteId,
+			null,
+			null,
+			null,
+			$query->getId()
 		);
 	}
 }

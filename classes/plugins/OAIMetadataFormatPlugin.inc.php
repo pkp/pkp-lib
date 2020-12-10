@@ -3,9 +3,9 @@
 /**
  * @file lib/pkp/classes/plugins/OAIMetadataFormatPlugin.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OAIMetadataFormatPlugin
  * @ingroup plugins
@@ -46,9 +46,7 @@ abstract class OAIMetadataFormatPlugin extends Plugin {
 	/**
 	 * Get a hold of the class that does the formatting.
 	 */
-	function getFormatClass() {
-		assert(false); // Should always be overridden
-	}
+	abstract function getFormatClass();
 
 	function callback_formatRequest($hookName, $args) {
 		$namesOnly = $args[0];

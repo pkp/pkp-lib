@@ -2,16 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
+"PO-Revision-Date: 2020-11-24 02:51+0000\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
+"helene.vezina@umontreal.ca>\n"
+"Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/fr_CA/>\n"
+"Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: fr_CA\n"
-# localization file for fr_CA. Last revision 2019-10-23T04:40:30 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
+# localization file for fr_CA. Last revision 2019-10-23T04:40:30 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "author.submit.submissionCitations"
 msgstr "Fournir une liste structurée de références pour les travaux cités dans cette soumission. Veuillez séparer chaque référence par une ligne vide."
 
@@ -34,7 +38,9 @@ msgid "submission.submit.contactConsentDescription"
 msgstr "Oui, je souhaite être contacté-e à propos de cette soumission."
 
 msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Soumettez sous l'un des rôles suivants si vous souhaitez pouvoir modifier et publier vous-même cette soumission : {$managerGroups}"
+msgstr ""
+"Soumettre sous l'un des rôles suivants si vous souhaitez pouvoir modifier et "
+"publier vous-même cette soumission : {$managerGroups}"
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Liste de vérification de la soumission"
@@ -46,10 +52,11 @@ msgid "submission.submit.submissionComplete"
 msgstr "Soumission complète"
 
 msgid "submission.submit.submissionCompleteThanks"
-msgstr "Merci de votre intérêt à vouloir publier dans « {$contextName} »."
+msgstr ""
+"Merci de votre intérêt à vouloir publier dans la revue « {$contextName} »."
 
 msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Acceptation de la déclaration de droit d'auteur."
+msgstr "Acceptation de la déclaration de droit d'auteur"
 
 msgid "submission.submit.copyrightNoticeAgree"
 msgstr "J'accepte et respecterai les conditions de la déclaration de droit d'auteur."
@@ -211,7 +218,7 @@ msgid "metadata.property.validationMessage.conf-sponsor"
 msgstr "Veuillez saisir un organisme subventionnaire de la conférence valide."
 
 msgid "metadata.property.displayName.institution"
-msgstr "Institution"
+msgstr "Établissement"
 
 msgid "metadata.property.validationMessage.institution"
 msgstr "Veuillez saisir une institution valide."
@@ -325,7 +332,7 @@ msgid "metadata.property.validationMessage.title-type"
 msgstr "Assurez-vous d'avoir établi un type de titre valide. Les valeurs acceptées sont « abrégé », « traduit », « alternatif » et « uniforme »."
 
 msgid "metadata.property.displayName.nonSort"
-msgstr "Une portion du titre a été ignorée pendant le tri."
+msgstr "Une portion du titre a été ignorée pendant le tri"
 
 msgid "metadata.property.validationMessage.nonSort"
 msgstr "Saisir seulement les premiers caractères du titre qui devraient être ignorés au moment du tri alphabétique du titre."
@@ -394,16 +401,13 @@ msgid "submission.agencies"
 msgstr "Organismes"
 
 msgid "submission.abstractViews"
-msgstr "Consultations du sommaire"
+msgstr "Consultations de la page du résumé"
 
 msgid "submission.accepted"
 msgstr "Accepté-e"
 
 msgid "submission.acknowledge"
 msgstr "Envoyer un accusé de réception"
-
-msgid "submission.addSuppFile"
-msgstr "Ajouter un fichier supplémentaire"
 
 msgid "submission.ask"
 msgstr "Demander"
@@ -478,7 +482,7 @@ msgid "submission.comments.subject"
 msgstr "Objet"
 
 msgid "submission.complete"
-msgstr "Terminer"
+msgstr "Complétée"
 
 msgid "submission.contributors"
 msgstr "Liste des contributeurs-trices"
@@ -547,10 +551,11 @@ msgid "submission.event.deleteLogEntry"
 msgstr "Supprimer l'entrée du registre"
 
 msgid "submission.event.submissionSubmitted"
-msgstr "Soumission initiale complétée"
+msgstr "Soumission initiale complétée."
 
+#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "La révision « {$name} » (# Fichier {$fileId}-{$fileRevision}) a été téléversée."
+msgstr "La révision « {$name} » (# Fichier {$submissionFileId}) a été téléversée."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Métadonnées de la soumission mises à jour"
@@ -619,7 +624,7 @@ msgid "submission.history"
 msgstr "Historique"
 
 msgid "submission.history.noLogEntries"
-msgstr "Aucune entrée dans le registre"
+msgstr "Aucune entrée dans le registre."
 
 msgid "submission.history.recentLogEntries"
 msgstr "Entrées récentes"
@@ -652,7 +657,7 @@ msgid "submission.identifiers"
 msgstr "Identifiants"
 
 msgid "submission.publisherId"
-msgstr "Identifiant URL public"
+msgstr "Identifiant de l'éditeur"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Renseignements sur la soumission"
@@ -683,9 +688,6 @@ msgstr "Êtes-vous certain-e de vouloir supprimer définitivement ces épreuves 
 
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Êtes-vous certain-e de vouloir supprimer cette image des épreuves ?"
-
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Êtes-vous certain-e de vouloir supprimer définitivement ce fichier supplémentaire ?"
 
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Supprimer cette feuille de style."
@@ -721,7 +723,7 @@ msgid "submission.layout.galleyRemoteURL"
 msgstr "URL distant"
 
 msgid "submission.layout.galleyRemoteURLValid"
-msgstr "Veuillez fournir un URL distant valide (inclure http://)"
+msgstr "Veuillez fournir un URL distant valide (inclure http://)."
 
 msgid "submission.layout.galleyNoImages"
 msgstr "Aucune image"
@@ -750,14 +752,8 @@ msgstr "Version de mise en page"
 msgid "submission.layout.newGalley"
 msgstr "Créer de nouvelles épreuves"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Téléverser un nouveau fichier supplémentaire"
-
 msgid "submission.layout.noStyleFile"
 msgstr "Aucun fichier de feuille de style n'a été ajouté à ces épreuves."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Révision du fichier supplémentaire"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Affichage les épreuves de la soumission"
@@ -826,16 +822,16 @@ msgid "submission.originalFile"
 msgstr "Fichier original"
 
 msgid "submission.page.editing"
-msgstr "Révision #{$id} "
+msgstr "Révision #{$id}"
 
 msgid "submission.page.history"
-msgstr "Historique #{$id} "
+msgstr "Historique #{$id}"
 
 msgid "submission.page.review"
-msgstr "Évaluation #{$id} "
+msgstr "Évaluation #{$id}"
 
 msgid "submission.page.summary"
-msgstr "Sommaire #{$id} "
+msgstr "Sommaire #{$id}"
 
 msgid "submission.page.citations"
 msgstr "Références #{$id}"
@@ -907,7 +903,7 @@ msgid "submissions.queued"
 msgstr "En attente"
 
 msgid "submissions.queuedUnassigned"
-msgstr "En attente d'assignation"
+msgstr "Cette soumission est  en attente d'assignation d'un-e rédacteur-trice."
 
 msgid "submissions.ruling"
 msgstr "Décision ferme"
@@ -976,7 +972,7 @@ msgid "submission.submit.submissionLocaleDescription"
 msgstr "Les soumissions dans plusieurs langues sont acceptées. Choisir la langue principale de la soumission parmi celles présentes dans le menu déroulant."
 
 msgid "submission.submit.submissionFiles"
-msgstr "Fichiers de soumission"
+msgstr "Fichiers de la soumission"
 
 msgid "submission.submit.dependentFiles"
 msgstr "Fichiers reliés"
@@ -992,9 +988,6 @@ msgstr "Téléverser un fichier de discussion"
 
 msgid "submission.summary"
 msgstr "Sommaire"
-
-msgid "submission.supplementaryFiles"
-msgstr "Fichiers supplémentaires"
 
 msgid "submission.supportingAgencies"
 msgstr "Organismes subventionnaires"
@@ -1126,7 +1119,7 @@ msgid "submission.submit.uploadSubmissionFile"
 msgstr "Téléverser le fichier de soumission"
 
 msgid "submission.submit.metadataStep"
-msgstr "2. Métadonnées"
+msgstr "2. Renseignements du fichier"
 
 msgid "submission.submit.finishingUpStep"
 msgstr "3. Terminer"
@@ -1135,16 +1128,22 @@ msgid "submission.submit.fileNameRequired"
 msgstr "Vous devez entrer un nom de fichier pour ce fichier."
 
 msgid "submission.upload.noGenre"
-msgstr "Élément manquant ou invalide!"
+msgstr "Élément manquant ou invalide !"
 
 msgid "submission.upload.invalidUserGroup"
-msgstr "Groupe d'utilisateurs-trices manquant ou invalide!"
+msgstr "Groupe d'utilisateurs-trices manquant ou invalide !"
 
 msgid "submission.upload.possibleRevision"
 msgstr "Détection d'une possible duplication de fichiers"
 
 msgid "submission.upload.possibleRevisionDescription"
-msgstr "<p>Le nom du fichier que vous venez de téléverser ressemble au nom du fichier « {$revisedFileName} » préalablement téléversé.<br/>Si le fichier que vous venez de téléverser doit remplacer le fichier précédent, sélectionner le nom du fichier à remplacer dans le menu déroulant ci-dessous.<br/>Autrement, si le fichier téléversé ne remplace pas le fichier précédent, choisir « Fichier original (ne remplace pas un fichier existant) ».</p>"
+msgstr ""
+"Le nom du fichier que vous venez de téléverser ressemble au nom d'un fichier "
+"préalablement téléversé, soit « {$revisedFileName} ». Ce nouveau fichier "
+"devrait-il remplacer le fichier « {$revisedFileName} » ? Dans l'affirmative, "
+"sélectionner le nom du fichier à remplacer dans le menu déroulant ci-"
+"dessous. Autrement, choisir « Ceci ne remplace pas un fichier déjà existant »"
+" avant de poursuivre."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Veuillez sélectionner le fichier que vous souhaitez réviser."
@@ -1153,28 +1152,28 @@ msgid "submission.upload.selectOptionalFileToRevise"
 msgstr "Si vous téléversez une révision d'un fichier existant, veuillez indiquer de quel fichier il s'agit."
 
 msgid "submission.upload.uploadNewFile"
-msgstr "Fichier original (ne remplace pas un fichier existant)"
+msgstr "Ceci ne remplace pas un fichier déjà existant"
 
 msgid "submission.upload.userGroup"
 msgstr "Téléverser ce fichier. Mon rôle est..."
 
 msgid "submission.upload.userGroupDescription"
-msgstr "S'il s'agit d'un volume édité par plusieurs auteurs-es, vous devriez téléverser tous les chapitres du volume individuellement, en tant qu'éditeur du volume."
+msgstr ""
+"Si vous soumettez un volume édité par plusieurs, vous devriez téléverser "
+"tous les chapitres du volume individuellement, en tant qu'éditeur-trice du "
+"volume."
 
 msgid "submission.upload.uploadLibraryFile"
-msgstr "Téléverser un fichier bibliothèque"
+msgstr "Téléverser un fichier dans la bibliothèque"
 
 msgid "submission.upload.libraryCategory"
-msgstr "Catégorie de document"
+msgstr "Catégorie de document soumis"
 
 msgid "submission.upload.finalDraft"
 msgstr "Téléverser le fichier"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Téléverser le fichier corrigé"
-
-msgid "submission.upload.fairCopy"
-msgstr "Téléverser la copie au net"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Téléverser les fichiers"
@@ -1282,7 +1281,7 @@ msgid "editor.submission.decision.decline"
 msgstr "Refuser la soumission"
 
 msgid "editor.submission.decision.sendToProduction"
-msgstr "Envoyer pour publication"
+msgstr "Envoyer au montage"
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Accepter sans évaluation"
@@ -1324,10 +1323,10 @@ msgid "editor.submission.recordedRecommendations"
 msgstr "Enregistrer les recommandations"
 
 msgid "editor.submission.decision.nextButton"
-msgstr "Poursuivre (faire parvenir fichiers pour la {$stageName})"
+msgstr "Poursuivre (faire parvenir les fichiers pour l'étape de {$stageName})"
 
 msgid "editor.submission.decision.selectFiles"
-msgstr "Sélectionner les fichiers que vous voulez faire suivre à l'étape {$stageName}."
+msgstr "Sélectionner les fichiers que vous voulez faire suivre à l'étape de {$stageName}."
 
 msgid "editor.submission.decision.previousAuthorNotification"
 msgstr "Précédent  (avis à l'auteur-e)"
@@ -1342,7 +1341,7 @@ msgid "submission.actionNeeded"
 msgstr "Action requise"
 
 msgid "reviewer.submission.reviewFiles"
-msgstr "Fichiers d'évaluation"
+msgstr "Fichiers à évaluer"
 
 msgid "submission.submit.currentFile"
 msgstr "Fichier en cours"
@@ -1397,6 +1396,9 @@ msgstr "Documents de soumission"
 
 msgid "notification.type.editorAssign"
 msgstr "Vous avez été assigné-e comme rédacteur-trice pour la soumission « {$title} »."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Une nouvelle version d'une soumission a été créée"
 
 msgid "notification.type.copyeditorRequest"
 msgstr "Vous avez été invité-e à valider les révisions pour le titre « {$title} »."
@@ -1543,10 +1545,10 @@ msgid "submission.copyrightYear"
 msgstr "Année du copyright"
 
 msgid "submission.copyrightStatement"
-msgstr "(c) Tous droits réservés {$copyrightHolder} {$copyrightYear} "
+msgstr "(c) Tous droits réservés {$copyrightHolder} {$copyrightYear}"
 
 msgid "submission.licenseURLValid"
-msgstr "Veuillez indiquer un URL distante valide (inclure http: //)."
+msgstr "Veuillez indiquer un URL distant valide (inclure http://)."
 
 msgid "submission.licenseURL"
 msgstr "URL de la licence"
@@ -1570,34 +1572,65 @@ msgid "submission.license.cc.by-sa4"
 msgstr "Attribution - Partage dans les Mêmes Conditions 4.0 International (CC BY-SA 4.0)"
 
 msgid "submission.license.cc.by-nc-nd4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Ce travail est disponible sous licence <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr\">Creative Commons Attribution - Pas d'Utilisation Commerciale - Pas de Modification 4.0 International</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"deed.fr\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons."
+"org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/deed."
+"fr\">Creative Commons Attribution - Pas d'Utilisation Commerciale - Pas de "
+"Modification 4.0 International</a>.</p>"
 
 msgid "submission.license.cc.by-nc4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/deed.fr\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>Ce travail est disponible sous licence <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/deed.fr\">Creative Commons Attribution - Pas d'Utilisation Commerciale 4.0 International</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/"
+"deed.fr\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons."
+"org/l/by-nc/4.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/deed.fr\">"
+"Creative Commons Attribution - Pas d'Utilisation Commerciale 4.0 "
+"International</a>.</p>"
 
 msgid "submission.license.cc.by-nc-sa4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Ce travail est disponible sous licence  <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr\">Creative Commons Attribution - Pas d'Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"deed.fr\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons."
+"org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Cette œuvre est sous licence  <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed."
+"fr\">Creative Commons Attribution - Pas d'Utilisation Commerciale - Partage "
+"dans les Mêmes Conditions 4.0 International</a>.</p>"
 
 msgid "submission.license.cc.by-nd4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.fr\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>Ce travail est disponible sous licence <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.fr\">Creative Commons Attribution - Pas de Modification 4.0 International</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/"
+"deed.fr\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons."
+"org/l/by-nd/4.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.fr\">"
+"Creative Commons Attribution - Pas de Modification 4.0 International</a>.</p>"
 
 msgid "submission.license.cc.by4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/deed.fr\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>Ce travail est disponible sous la licence  <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/deed.fr\">Creative Commons Attribution 4.0 International </a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/deed."
+"fr\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/"
+"by/4.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by/4.0/deed.fr\">Creative "
+"Commons Attribution 4.0 International</a>.</p>"
 
 msgid "submission.license.cc.by-sa4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.fr\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Ce travail est disponible sous licence <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.fr\">Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 International</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/"
+"deed.fr\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons."
+"org/l/by-sa/4.0/88x31.png\" /></a><p>Cette œuvre est protégée sous licence <"
+"a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/deed."
+"fr\">Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 "
+"International</a>.</p>"
 
 msgid "submission.queries.submission"
-msgstr "Discussions pré-évaluation"
+msgstr "Discussions préévaluation"
 
 msgid "submission.queries.review"
 msgstr "Discussions sur l'évaluation"
 
 msgid "submission.queries.editorial"
 msgstr "Discussions sur la révision"
-
-msgid "submission.queries.production"
-msgstr "Discussions sur la production"
 
 msgid "submission.query.subject"
 msgstr "Objet"
@@ -1660,7 +1693,7 @@ msgid "submission.list.viewSubmission"
 msgstr "Voir la soumission"
 
 msgid "submission.list.reviewsCompleted"
-msgstr "Assigner les évaluations complétées"
+msgstr "Évaluations assignées complétées"
 
 msgid "submission.list.revisionsSubmitted"
 msgstr "Révisions soumises"
@@ -1722,3 +1755,230 @@ msgstr "Rien n'a encore été publié dans cette catégorie."
 msgid "catalog.category.subcategories"
 msgstr "Sous-categories"
 
+#, fuzzy
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
+"3.0 non transposé</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Attribution - Partage dans les Mêmes Conditions 3.0 non transposé</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"Attribution - Pas de Modification 3.0 non transposé</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
+"Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans "
+"les Mêmes Conditions 3.0 non transposé</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Attribution - Pas d’Utilisation Commerciale 3.0 non transposé</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
+"Creative Commons Attribution - Pas d’Utilisation Commerciale - Pas de "
+"Modification 3.0 non transposé</a>.</p>"
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} a complété l'évaluation du cycle {$round} d'évaluation pour "
+"la soumission {$submissionId}."
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Souhaitez-vous vraiment que les auteurs et auteures de cette soumission "
+"puissent modifier les métadonnées de la soumission à ce stade ?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Souhaitez-vous vraiment que les auteurs et auteures de cette soumission ne "
+"puissent pas modifier les métadonnées de la soumission à ce stade ?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Permettre la modification des métadonnées"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Interdire la modification des métadonnées"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Modifier l'assignation"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Ceci est une version obsolète publiée le {$datePublished}. Consulter la <a "
+"href=\"{$urlRecentVersion}\">version la plus récente</a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Versions"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Mis(e) à jour {$dateUpdated}"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Les auteures et auteurs ne sont désormais pas autorisés à modifier les "
+"métadonnées lorsqu'à l'étape {stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Les auteures et auteurs sont désormais autorisés à modifier les métadonnées  "
+"lorsqu'à l'étape {stage}."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Résumé"
+
+msgid "author.publicationNotFound"
+msgstr "Aucune publication de cet auteur ou cette auteure n'a pu être trouvée."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Les auteures et auteurs de cette publication ne peuvent être édités puisque "
+"celle-ci a déjà été publiée."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Le,la rédacteur-trice {$userName} a confirmé une évaluation pour le cycle "
+"d'évaluation {$round} pour la soumission {$submissionId}."
+
+msgid "publication.wordCount"
+msgstr "Décompte de mots : {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Le résumé est trop long. Il doit compter {$limit} mots ou moins et en compte "
+"actuellement {$count}."
+
+msgid "publication.version.confirm"
+msgstr "Êtes-vous certain-e de vouloir créer une nouvelle version ?"
+
+msgid "publication.version.all"
+msgstr "Toutes les versions"
+
+msgid "publication.unschedule"
+msgstr "Retirer de la planification"
+
+msgid "publication.titleAbstract"
+msgstr "Titre et résumé"
+
+msgid "publication.status.unpublished"
+msgstr "Dépublié-e"
+
+msgid "publication.status.scheduled"
+msgstr "Planifié-e"
+
+msgid "publication.publicationLicense"
+msgstr "Autorisations et divulgation"
+
+msgid "publication.event.versionCreated"
+msgstr "Une nouvelle version a été créée."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "La date doit être au format AAAA-MM-JJ, par exemple 2019-01-01."
+
+msgid "publication.createVersion"
+msgstr "Créer une nouvelle version"
+
+msgid "publication.contributors"
+msgstr "Contributeurs-trices"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Évaluation assignée"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Évaluation annulée"
+
+msgid "submission.list.empty"
+msgstr "Aucune soumission trouvée."
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Si vous quittez cette discussion, vous ne serez plus informé des nouveaux "
+"messages. Souhaitez-vous quitter la discussion ?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Quitter la discussion"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Le chemin d'accès URL ne peut être un nombre."
+
+msgid "publication.urlPath.duplicate"
+msgstr ""
+"Le chemin d'accès URL a déjà été utilisé et ne peut être utilisé à nouveau."
+
+msgid "publication.urlPath.description"
+msgstr "Un chemin d'accès optionnel utilisant l'URL au lieu de l'identifiant."
+
+msgid "publication.urlPath"
+msgstr "Chemin d'accès URL"
+
+msgid "submission.copyrightOther"
+msgstr "Déclaration de droits d'auteur"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Déclaration de droits d'auteur personnalisée"
+
+msgid "submission.publisherId.enable"
+msgstr "Activé-e pour {$objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"L'identifiant de l'éditeur peut être utilisé pour enregistrer l'identifiant "
+"à partir d'une base de données externe. Par exemple, les éléments exportés "
+"pour dépôt dans PubMed peuvent inclure l'identifiant de l'éditeur. Ceci ne "
+"doit cependant pas être utilisé pour les DOI."
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Nombre de jours depuis la dernière intervention"
+
+msgid "submission.list.activity"
+msgstr "Activité"
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Un nouveau cycle d'évaluation a débuté."
+
+msgid "editor.submission.decision.newRound"
+msgstr "Nouveau cycle d'évaluation"
+
+msgid "submission.downloads"
+msgstr "Téléchargements"
+
+msgid "submission.additionalFiles"
+msgstr "Fichiers supplémentaires"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} de {$title}"

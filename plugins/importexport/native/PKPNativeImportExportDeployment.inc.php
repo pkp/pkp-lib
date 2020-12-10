@@ -6,9 +6,9 @@
 /**
  * @file plugins/importexport/native/PKPNativeImportExportDeployment.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNativeImportExportDeployment
  * @ingroup plugins_importexport_native
@@ -71,14 +71,11 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 	function getStageNameStageIdMapping() {
 		import('lib.pkp.classes.submission.SubmissionFile'); // Get file constants
 		return array(
-			'public' => SUBMISSION_FILE_PUBLIC,
 			'submission' => SUBMISSION_FILE_SUBMISSION,
 			'note' => SUBMISSION_FILE_NOTE,
 			'review_file' => SUBMISSION_FILE_REVIEW_FILE,
 			'review_attachment' => SUBMISSION_FILE_REVIEW_ATTACHMENT,
 			'final' => SUBMISSION_FILE_FINAL,
-			'fair_copy' => SUBMISSION_FILE_FAIR_COPY,
-			'editor' => SUBMISSION_FILE_EDITOR,
 			'copyedit' => SUBMISSION_FILE_COPYEDIT,
 			'proof' => SUBMISSION_FILE_PROOF,
 			'production_ready' => SUBMISSION_FILE_PRODUCTION_READY,

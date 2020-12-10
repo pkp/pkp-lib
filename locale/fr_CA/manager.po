@@ -2,16 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
+"PO-Revision-Date: 2020-10-02 21:49+0000\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
+"helene.vezina@umontreal.ca>\n"
+"Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/fr_CA/>\n"
+"Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: fr_CA\n"
-# localization file for fr_CA. Last revision 2019-10-23T01:54:57 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
+# localization file for fr_CA. Last revision 2019-10-23T01:54:57 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "manager.website.information"
 msgstr "Renseignements"
 
@@ -156,17 +160,8 @@ msgstr "Production"
 msgid "manager.publication.emails"
 msgstr "Courriels"
 
-msgid "manager.publication.emailSetup.success"
-msgstr "Les paramètres de courriels ont été mis à jour."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Conseils aux évaluateurs-trices"
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "Les conseils aux évaluateurs-trices ont été mis à jour."
-
-msgid "manager.publication.reviewSetup.success"
-msgstr "Les paramètres d'évaluation ont été mis à jour."
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Les renseignements du rappel d'évaluation ont été mis à jour."
@@ -179,9 +174,6 @@ msgstr "Êtes-vous certain-e de vouloir réinitialiser ce modèle de courriel à
 
 msgid "manager.emails.addEmail"
 msgstr "Ajouter un modèle de courriel"
-
-msgid "manager.emails.addEmail.success"
-msgstr "Le modèle de courriel a été ajouté."
 
 msgid "manager.emails.createEmail"
 msgstr "Créer un courriel"
@@ -203,9 +195,6 @@ msgstr "Vous êtes sur le point de désactiver ce modèle de courriel. Si des pr
 
 msgid "manager.emails.editEmail"
 msgstr "Modifier un courriel"
-
-msgid "manager.emails.editEmail.success"
-msgstr "Le modèle de courriel a été modifié."
 
 msgid "manager.emails.editTestExample"
 msgstr "Modifier l'exemple du test de courriel"
@@ -238,7 +227,9 @@ msgid "manager.emails.enable"
 msgstr "Activer"
 
 msgid "manager.emails.enable.message"
-msgstr "Vous êtes sur le point de désactiver ce courriel. Vous souhaitez confirmer cette opération ?"
+msgstr ""
+"Vous êtes sur le point de d'activer ce courriel. Vous souhaitez confirmer "
+"cette opération ?"
 
 msgid "manager.emails.form.emailKeyRequired"
 msgstr "Une clé de courriel unique est obligatoire pour le courriel."
@@ -361,7 +352,7 @@ msgid "manager.people.authSource"
 msgstr "Source d'authentification"
 
 msgid "manager.people.confirmUnenroll"
-msgstr "Désincrire cet ou cette utilisateur-trice?"
+msgstr "Désinscrire cet,cette utilisateur-trice ?"
 
 msgid "manager.people.createUser"
 msgstr "Créer un-e nouvel-elle utilisateur-trice"
@@ -524,8 +515,15 @@ msgstr "Statistiques et rapports"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"Votre {$contextObjectName} a été configuré-e pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes.\n"
-"Il y a des cas où seule une statistique d'utilisation doit être utilisée, par exemple pour afficher une liste ordonnée des articles les plus consultés ou pour classer les résultats de recherche. Veuillez sélectionner l'une des mesures configurées par défaut."
+"\n"
+"\t\tVotre {$contextObjectName} a été configuré-e pour enregistrer plus d'une "
+"mesure d'utilisation. Les statistiques d'utilisation seront affichées dans "
+"plusieurs contextes.\n"
+"\t\tIl y a des cas où seule une statistique d'utilisation doit être "
+"utilisée, par exemple pour afficher une liste ordonnée des articles les plus "
+"consultés ou pour classer les résultats de recherche.\n"
+"\t\tVeuillez sélectionner l'une des  mesures configurées par défaut.\n"
+"\t"
 
 msgid "manager.statistics.city"
 msgstr "Ville"
@@ -533,6 +531,7 @@ msgstr "Ville"
 msgid "manager.statistics.region"
 msgstr "Région"
 
+#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Générateur de rapports"
 
@@ -576,7 +575,9 @@ msgid "manager.statistics.reports.objectId"
 msgstr "Identifiant (ID) de l'objet"
 
 msgid "manager.statistics.reports.objectId.label"
-msgstr "Définir un ou plusieur identifiant(s) d'objet, séparés par une virgule (par exemple 1,2,3,4,5)"
+msgstr ""
+"Définir un ou plusieur identifiant(s) d'objet, séparés par une virgule (par "
+"exemple 1,2,3,4,5)."
 
 msgid "manager.statistics.reports.yesterday"
 msgstr "Hier"
@@ -642,13 +643,7 @@ msgid "manager.setup.additionalContent.description"
 msgstr "Tout ce que vous inscrirez ici apparaîtra sur votre page d'accueil."
 
 msgid "manager.setup.advanced"
-msgstr "Configuration avançée"
-
-msgid "manager.setup.appearance.success"
-msgstr "Les paramètres d'apparence ont été mis à jour."
-
-msgid "manager.setup.contact.success"
-msgstr "Les coordonnées de cette presse ont été mises à jour."
+msgstr "Configuration avancée"
 
 msgid "manager.setup.copyrightNotice"
 msgstr "Avis de droit d'auteur"
@@ -662,9 +657,6 @@ msgstr "Directives aux auteurs-es"
 msgid "manager.setup.authorGuidelines.description"
 msgstr "Les lignes directrices comprennent des normes bibliographiques et de mise en forme ainsi que des exemples de formats de citation usuels à employer dans les soumissions."
 
-msgid "manager.setup.authorGuidelines.success"
-msgstr "Les directives aux auteurs-es ont bien été mises à jour."
-
 msgid "manager.setup.checklist"
 msgstr "Liste de vérification"
 
@@ -677,11 +669,8 @@ msgstr "Il s'est produit une erreur lors de la suppression de cet élément."
 msgid "manager.setup.favicon"
 msgstr "Favicône"
 
-msgid "manager.setup.groupType"
-msgstr "Groupement par type de fichier"
-
 msgid "manager.setup.homepageImage"
-msgstr "Image de la page d'accueil."
+msgstr "Image de la page d'accueil"
 
 msgid "manager.setup.homepageImage.description"
 msgstr "Téléverser une image qui sera affichée en pleine grandeur sur la page d'accueil."
@@ -756,7 +745,8 @@ msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Délai par défaut pour compléter l'évaluation"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Délai de réponse alloué pour accepter ou décliner l'invitation (semaines)"
+msgstr ""
+"Délai de réponse alloué pour accepter ou décliner l'invitation (semaines)."
 
 msgid "manager.setup.reviewOptions.numWeeksPerReview"
 msgstr "Délai alloué pour compléter l'évaluation (semaines)"
@@ -771,13 +761,18 @@ msgid "manager.setup.reviewOptions.reminders.response"
 msgstr "Rappel de demande d'évaluation"
 
 msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr "Envoyer un rappel si l'évaluateur-trice n'a pas répondu à la demande d'évaluation dans le délai suivant (jours) :"
+msgstr ""
+"Envoyer un rappel si l'évaluateur-trice n'a pas répondu à la demande "
+"d'évaluation dans un délai de (___ jours) suivants la date d'échéance de "
+"réponse."
 
 msgid "manager.setup.reviewOptions.reminders.submit"
 msgstr "Rappel de délai d'échéance de l'évaluation"
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr "Envoyer un rappel si l'évaluateur-trice n'a pas fait sa recommandation dans le délai suivant (jours) :"
+msgstr ""
+"Envoyer un rappel si l'évaluateur-trice n'a pas soumis sa recommandation "
+"dans un délai de (___ jours) suivants la date d'échéance de l'évaluation."
 
 msgid "manager.setup.sponsors.note"
 msgstr "Politique en matière de commandites"
@@ -785,7 +780,8 @@ msgstr "Politique en matière de commandites"
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Mode d'évaluation par défaut"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr "Afficher un lien <button type=\"button\">Assurer une évaluation à l'aveugle</button> lors du téléversement"
 
 msgid "manager.setup.sponsors.description"
@@ -799,9 +795,6 @@ msgstr "Personne-ressource pour le soutien technique"
 
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr "Une personne-ressource qui peut aider les rédacteurs-trices, les auteurs-es et les évaluateurs-trices à résoudre les difficultés rencontrées durant la soumission, l'évaluation, la révision ou la publication."
-
-msgid "manager.setup.theme.success"
-msgstr "Le thème a été mis à jour. <a href=\"{$url}\" target=\"_blank\">Afficher</a>"
 
 msgid "manager.setup.theme"
 msgstr "Thème"
@@ -825,10 +818,12 @@ msgid "manager.users"
 msgstr "Utilisateurs-trices"
 
 msgid "plugins.categories.metadata"
-msgstr "Modules d'extension des métadonnées"
+msgstr "Plugiciels des métadonnées"
 
 msgid "plugins.categories.metadata.description"
-msgstr "Les modules d'extension des métadonnées mettent en place des normes supplémentaires pour les métadonnées."
+msgstr ""
+"Les plugiciels de métadonnées prennent en charge des normes supplémentaires "
+"pour les métadonnées."
 
 msgid "plugins.categories.auth"
 msgstr "Plugiciels d'autorisation"
@@ -849,7 +844,9 @@ msgid "plugins.categories.generic"
 msgstr "Plugiciels génériques"
 
 msgid "plugins.categories.importexport.description"
-msgstr "Les plugiciels d'importation/exportation peuvent être utilisés pour transférer le contenu soit vers un système, soit à partir d'un système."
+msgstr ""
+"Les plugiciels d'importation/exportation peuvent être utilisés pour "
+"transférer le contenu à partir de ou encore vers un système."
 
 msgid "plugins.categories.importexport"
 msgstr "Plugiciels d'importation/exportation"
@@ -978,7 +975,7 @@ msgid "manager.plugins.pluginGallery.status"
 msgstr "État"
 
 msgid "manager.plugins.noInstalledVersion"
-msgstr "Le plugiciel n'est pas encore installé"
+msgstr "Le plugiciel n'est pas encore installé."
 
 msgid "manager.plugins.noCompatibleVersion"
 msgstr "Il n'existe actuellement aucune version compatible de ce plugiciel."
@@ -1071,13 +1068,14 @@ msgid "notification.localeUninstalled"
 msgstr "Le paramètre régional {$locale} est désinstallé."
 
 msgid "notification.localeReloaded"
-msgstr "Le paramètre régional {$locale} a été rechargé."
+msgstr ""
+"Le paramètre régional {$locale} a été rechargé pour la revue {$contextName}."
 
 msgid "notification.localeSettingsSaved"
 msgstr "Les paramètres du paramètre régional ont été sauvegardés."
 
 msgid "notification.editedUser"
-msgstr "Utilisateur-trice modifié-e"
+msgstr "Utilisateur-trice modifié-e."
 
 msgid "manager.paymentMethod"
 msgstr "Paiements"
@@ -1146,13 +1144,13 @@ msgid "settings.roles.stageIdRequired"
 msgstr "Vous devez préciser une étape qui sera assignée."
 
 msgid "settings.libraryFiles.fileRequired"
-msgstr "Un fichier bibliothèque est requis. Assurez-vous d'avoir choisi et téléversé un fichier."
+msgstr "Un fichier de la bibliothèque est requis. Assurez-vous d'avoir choisi et téléversé un fichier."
 
 msgid "settings.libraryFiles.nameRequired"
-msgstr "Vous devez donner un nom à ce fichier bibliothèque."
+msgstr "Vous devez donner un nom à ce fichier de la bibliothèque."
 
 msgid "settings.libraryFiles.typeRequired"
-msgstr "Un type de fichier est nécessaire pour ce fichier bibliothèque."
+msgstr "Un type de fichier est nécessaire pour ce fichier de la bibliothèque."
 
 msgid "settings.libraryFiles.category.contracts"
 msgstr "Contrats"
@@ -1173,7 +1171,7 @@ msgid "settings.libraryFiles.public.viewInstructions"
 msgstr "<p>Ce fichier peut être accessible pour téléchargement, si « Accès public » est activé pour :<blockquote>{$downloadUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Sélectionner le fichier bibliothèque à joindre"
+msgstr "Sélectionner le(s) fichier(s) de la bibliothèque à joindre"
 
 msgid "grid.action.addGenre"
 msgstr "Ajouter un élément"
@@ -1185,13 +1183,7 @@ msgid "grid.action.deleteGenre"
 msgstr "Supprimer cet élément"
 
 msgid "grid.action.restoreGenres"
-msgstr "Restaurer les paramètres par défaut des éléments."
-
-msgid "manager.setup.genres.dependent"
-msgstr "Marquer les fichiers de ce type en tant que fichiers reliés (ne sont pas des soumissions principales)"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "Marquer les fichiers de ce type en tant que fichiers supplémentaires (ne font pas partie du contenu principal de la soumission)"
+msgstr "Restaurer les paramètres par défaut des éléments"
 
 msgid "manager.setup.genres.key"
 msgstr "Clé"
@@ -1305,7 +1297,7 @@ msgid "manager.reviewFormElements.copyTo"
 msgstr "Copier :"
 
 msgid "manager.reviewFormElements.create"
-msgstr "Créer un nouvel élément "
+msgstr "Créer un nouvel élément"
 
 msgid "manager.reviewFormElements.dropdownbox"
 msgstr "Case déroulante"
@@ -1359,7 +1351,7 @@ msgid "grid.action.createReviewForm"
 msgstr "Créer un nouveau formulaire d'évaluation"
 
 msgid "manager.setup.competingInterests.required"
-msgstr "Demander une déclaration d'intérêts divergents lors de l'évaluation"
+msgstr "Exiger une déclaration d'intérêts divergents lors de l'évaluation."
 
 msgid "manager.setup.licenseURLDescription"
 msgstr "URL de la page décrivant la licence, si disponible."
@@ -1569,7 +1561,7 @@ msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
 msgstr "Ce lien ne sera affiché que si le visiteur ou la visiteuse est connecté-e, si les paiements sont activés dans Paramètres > Distribution > Paiements et si l'abonnement est exigé dans Paramètres > Distribution > Accès."
 
 msgid "manager.navigationMenus.search.description"
-msgstr "Lien vers la page de recherche"
+msgstr "Lien vers la page de recherche."
 
 msgid "manager.navigationMenus.privacyStatement.description"
 msgstr "Lien vers la page affichant la déclaration de confidentialité."
@@ -1632,7 +1624,7 @@ msgid "stats.dateRange.customRange"
 msgstr "Période personnalisée"
 
 msgid "stats.dateRange.dateDoesNotExist"
-msgstr "L'une des dates entrées n'existe pas"
+msgstr "L'une des dates entrées n'existe pas."
 
 msgid "stats.dateRange.from"
 msgstr "De"
@@ -1685,3 +1677,336 @@ msgstr "Chercher par titre, auteur-e et identifiant (ID)"
 msgid "stats.total"
 msgstr "Total"
 
+msgid "manager.setup.metadata.coverage"
+msgstr "Couverture de contenu"
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Obliger l'auteur-e à fournir un URL source avant d'accepter sa soumission."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Obliger l'auteur-e à divulguer tout droit d'accès antérieur avant d'accepter "
+"sa soumission."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Obliger l'auteur-e à entrer la,les langue-s du document soumis avant "
+"d'accepter sa soumission."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Obliger l'auteur-e à suggérer des mots-clés avant d'accepter sa soumission."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Obliger l'auteur-e à suggérer des métadonnées de couverture de contenu avant "
+"d'accepter sa soumission."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Demander à l'auteur-e de fournir des références pendant la soumission."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Demander à l'auteur-e de divulguer tout organisme subventionnaire pendant la "
+"soumission."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Demander à l'auteur-e de fournir des disciplines pendant la soumission."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Demander à l'auteur-e de fournir le type pendant la soumission."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Demander à l'auteur-e de fournir des sujets pendant la soumission."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Demander à l'auteur-e de divulguer tout droit d'accès antérieur pendant la "
+"soumission."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Demander à l'auteur-e d'indiquer la,les langues du document soumis au moment "
+"de la soumission."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Demander à l'auteur-e de suggérer des mots-clés pendant la soumission."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Demander à l'auteur-e de suggérer des métadonnées de couverture de contenu "
+"pendant la soumission."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+"Ne pas demander une divulgation de droits à l'auteur-e pendant la soumission."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Ne pas demander de références à l'auteur-e pendant la soumission."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Ne pas demander d'organismes subventionnaires à l'auteur-e pendant la "
+"soumission."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Ne pas demander de sujets à l'auteur-e pendant la soumission."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Ne pas demander le type à l'auteur-e pendant la soumission."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Ne pas demander de disciplines à l'auteur-e pendant la soumission."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+"Ne pas demander la,les langue-s du document à l'auteur-e pendant la "
+"soumission."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Ne pas demander de mots-clés à l'auteur-e pendant la soumission."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Ne pas demander de métadonnées de couverture de contenu à l'auteur-e pendant "
+"la soumission."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Activer la métadonnée « Couverture de contenu »"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"La couverture de contenu comporte de façon typique la localisation spatiale ("
+"un nom de lieu ou des coordonnées géographiques), une période temporelle ("
+"une étiquette temporelle, une date ou une intervalle de dates) ou un "
+"juridiction (telle qu'une entité administrative nommée)."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Permettre l'édition des métadonnées de la soumission."
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Ajouter des balises HTML personnalisées, également appelées balises méta, "
+"que vous souhaitez insérer dans l'en-tête de chaque page. Consulter un,une "
+"conseiller-ère technique avant d'ajouter ici des balises."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Balises personalisées"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Saisir les termes de licence publique que vous souhaitez faire afficher à "
+"côté du contenu publié."
+
+msgid "manager.distribution.license.other"
+msgstr "Autre URL de la licence"
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Activer la métadonnée « Disciplines »"
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Activer la métadonnée « Type »"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Ne pas demander d'URL source à l'auteur-e pendant la soumission."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Activer la métadonnée « Source »"
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Activer la métadonnée « Sujet »"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"La nature ou le genre du contenu principal de la soumission. Le type est "
+"habituellement « Text », mais peut également être « Dataset », « Image » ou "
+"n'importe lequel des <a target=\"_blank\" href=\"http://dublincore.org/"
+"documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">types "
+"Dublin</a>."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Demander à l'auteur-e de fournir un URL source pendant la soumission."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Termes de la licence"
+
+msgid "manager.distribution.license"
+msgstr "Licence"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Utilisateurs-trices enregistrés-es"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Colliger les références d'une soumission dans un champ séparé. Ceci peut "
+"être nécessaire pour se conformer aux services de suivi des citations tels "
+"que Crossref."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Les organismes subventionnaires peuvent référer à la source de financement "
+"de la recherche ou tout autre soutien institutionnel ayant facilité la "
+"recherche."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Les disciplines sont des types d'études ou des branches de connaissances "
+"telles que décrites par les facultés universitaires et les sociétés savantes."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Les sujets seront des mots-clés, des phrases-clés ou des codes de "
+"classification qui décrivent un sujet de la soumission."
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"La source peut être un identifiant, tel qu'un DOI, d'un autre travail ou "
+"ressource dont la soumission est dérivée."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Tous les droits détenus sur la soumission, lesquels peuvent inclure les "
+"droits de propriété intellectuelle (DPI), le droit d'auteur et divers droits "
+"de propriété."
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Le nombre de jours nécessaires à la plupart des soumissions pour recevoir "
+"une première décision éditoriale, comme le rejet en préévaluation ou l'envoi "
+"pour évaluation. <br> <br> Ces chiffres indiquent que 80% des soumissions "
+"parviennent à la décision dans le délai imparti. < br> <br> Cette "
+"statistique tente de chiffrer le délai pour lequel la majorité des auteurs-"
+"es soumettant à votre revue peuvent s'attendre à une décision."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Le pourcentage pour la période sélectionnée entre deux dates est calculé "
+"pour les soumissions qui ont été soumises pendant cet intervalle de dates et "
+"qui ont reçu une décision finale. <br> <br> Par exemple, considérons le cas "
+"où dix soumissions ont été faites pendant cet intervalle de dates :  Quatre "
+"ont été acceptées, quatre ont été rejetées et deux attendent toujours une "
+"décision finale. <br> <br> Le taux d'acceptation sera de 50% (4 des 8 "
+"soumissions) car les deux soumissions qui n'ont pas abouti à une décision "
+"finale ne sont pas comptées."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Saisir chaque date au format AAAA-MM-JJ. Par exemple, si vous voulez la date "
+"du 15 janvier 2019, entrer 2019-01-15."
+
+msgid "stats.dateRange.thisYear"
+msgstr "Depuis le début de l'année jusqu'à ce jour"
+
+msgid "stats.name.daysToDecision"
+msgstr "Nb de jour(s) pour prendre une 1ère décision éditoriale"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Taux de refus suite à l'évaluation"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Taux de refus en préévaluation"
+
+msgid "stats.name.declineRate"
+msgstr "Taux de refus"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Taux d'acceptation"
+
+msgid "stats.name.daysToAccept"
+msgstr "Nb de jour(s) pour accepter"
+
+msgid "stats.name.daysToReject"
+msgstr "Nb de jour(s) pour refuser"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Soumissions publiées"
+
+msgid "stats.editorialActivity"
+msgstr "Activité éditoriale"
+
+msgid "stats.descriptionForStat"
+msgstr "Description de {$stat}"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Soumissions refusées (suite à l'évaluation)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Soumissions refusées (dès la préévaluation)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Soumissions refusées"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Soumissions acceptées"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Soumissions reçues"
+
+msgid "stats.userStatistics"
+msgstr "Statistiques utilisateur"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Total pour la période"
+
+msgid "stats.trends"
+msgstr "Tendances"
+
+msgid "stats.submissionsActive"
+msgstr "Soumissions actives"
+
+msgid "stats.dateRange.lastYear"
+msgstr "La dernière année"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Les 2 dernières années"
+
+msgid "stats.allUsers"
+msgstr "Tous,toutes les utilisateurs-trices"
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Activer la métadonnée « Références »"
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Activer la métadonnée « organismes subventionnaires »"
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Activer la métadonnée « Droits »"
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Activer la métadonnée « Langue »"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"La langue indique la langue principale de l'œuvre à l'aide d'un code de "
+"langue (« en ») avec, facultativement, un code de pays (« en_US »)."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Activer la métadonnée « Mot-clé»"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Les mots-clés sont généralement des phrases qui comportent de un à trois "
+"mots qui sont utilisées pour indiquer les principaux sujets d'une soumission."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Obliger l'auteur-e à divulguer tout organisme subventionnaire avant "
+"d'accepter sa soumission."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Obliger l'auteur-e à fournir des références avant d'accepter sa soumission."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Obliger l'auteur-e à fournir des disciplines avant d'accepter sa soumission."
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Obliger l'auteur-e à fournir le type avant d'accepter sa soumission."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Obliger l'auteur-e à fournir des sujets avant d'accepter sa soumission."
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/année)"

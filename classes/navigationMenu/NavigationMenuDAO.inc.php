@@ -3,9 +3,9 @@
 /**
  * @file classes/navigationMenu/NavigationMenuDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuDAO
  * @ingroup navigationMenu
@@ -30,10 +30,10 @@ class NavigationMenuDAO extends DAO {
 	 * Retrieve a navigation menu by navigation menu ID.
 	 * @param $navigationMenuId int navigation menu ID
 	 * @param $contextId int Context Id
-	 * @return NavigationMenu
+	 * @return NavigationMenu?
 	 */
 	function getById($navigationMenuId, $contextId = null) {
-		$params = array((int) $navigationMenuId);
+		$params = [(int) $navigationMenuId];
 		if ($contextId !== null) $params[] = (int) $contextId;
 		$result = $this->retrieve(
 			'SELECT * FROM navigation_menus WHERE navigation_menu_id = ?' .
@@ -41,12 +41,8 @@ class NavigationMenuDAO extends DAO {
 			$params
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
@@ -55,12 +51,7 @@ class NavigationMenuDAO extends DAO {
 	 * @return NavigationMenu
 	 */
 	function getByContextId($contextId) {
-		$params = array((int) $contextId);
-		$result = $this->retrieve(
-			'SELECT * FROM navigation_menus WHERE context_id = ?',
-			$params
-		);
-
+		$result = $this->retrieve('SELECT * FROM navigation_menus WHERE context_id = ?', [(int) $contextId]);
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
@@ -71,13 +62,7 @@ class NavigationMenuDAO extends DAO {
 	 * @return NavigationMenu
 	 */
 	function getByArea($contextId, $areaName) {
-		$params = array($areaName);
-		$params[] = (int) $contextId;
-		$result = $this->retrieve(
-			'SELECT * FROM navigation_menus WHERE area_name = ? and context_id = ?',
-			$params
-		);
-
+		$result = $this->retrieve('SELECT * FROM navigation_menus WHERE area_name = ? and context_id = ?', [$areaName, (int) $contextId]);
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
@@ -85,22 +70,12 @@ class NavigationMenuDAO extends DAO {
 	 * Retrieve a navigation menu by title
 	 * @param $contextId int Context Id
 	 * @param $title string
-	 * @return NavigationMenu
+	 * @return NavigationMenu?
 	 */
 	function getByTitle($contextId, $title) {
-		$params = array((int) $contextId);
-		$params[] = $title;
-		$result = $this->retrieve(
-			'SELECT * FROM navigation_menus WHERE context_id = ? and title = ?',
-			$params
-		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$result = $this->retrieve('SELECT * FROM navigation_menus WHERE context_id = ? and title = ?', [(int) $contextId, $title]);
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
@@ -111,20 +86,9 @@ class NavigationMenuDAO extends DAO {
 	 * @return boolean True if a NM exists by that title
 	 */
 	function navigationMenuExistsByTitle($contextId, $title) {
-		$result = $this->retrieve(
-			'SELECT COUNT(*)
-			FROM	navigation_menus
-			WHERE	title = ? AND
-				context_id = ?',
-			array(
-				$title,
-				(int) $contextId
-			)
-		);
-		$returner = isset($result->fields[0]) && $result->fields[0] != 0 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$result = $this->retrieve('SELECT COUNT(*) AS row_count FROM navigation_menus WHERE title = ? AND context_id = ?', [$title, (int) $contextId]);
+		$row = (array) $result->current();
+		return $row && $row['row_count'] != 0;
 	}
 
 	/**
@@ -132,7 +96,7 @@ class NavigationMenuDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array();
+		return [];
 	}
 
 	/**
@@ -156,19 +120,10 @@ class NavigationMenuDAO extends DAO {
 	 * @return int
 	 */
 	function insertObject($navigationMenu) {
-		$this->update(
-				'INSERT INTO navigation_menus
-				(title, area_name, context_id)
-				VALUES
-				(?, ?, ?)',
-			array(
-				$navigationMenu->getTitle(),
-				$navigationMenu->getAreaName(),
-				(int) $navigationMenu->getContextId(),
-			)
+		$this->update('INSERT INTO navigation_menus (title, area_name, context_id) VALUES (?, ?, ?)',
+			[$navigationMenu->getTitle(), $navigationMenu->getAreaName(), (int) $navigationMenu->getContextId()]
 		);
 		$navigationMenu->setId($this->getInsertId());
-
 		return $navigationMenu->getId();
 	}
 
@@ -184,17 +139,15 @@ class NavigationMenuDAO extends DAO {
 				area_name = ?,
 				context_id = ?
 			WHERE	navigation_menu_id = ?',
-			array(
+			[
 				$navigationMenu->getTitle(),
 				$navigationMenu->getAreaName(),
 				(int) $navigationMenu->getContextId(),
 				(int) $navigationMenu->getId(),
-			)
+			]
 		);
-
 		$this->unCache($navigationMenu->getId());
-
-		return $returner;
+		return (boolean) $returner;
 	}
 
 	/**
@@ -212,10 +165,8 @@ class NavigationMenuDAO extends DAO {
 	 */
 	function deleteById($navigationMenuId) {
 		$this->unCache($navigationMenuId);
-
-		$this->update('DELETE FROM navigation_menus WHERE navigation_menu_id = ?', (int) $navigationMenuId);
-
-		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
+		$this->update('DELETE FROM navigation_menus WHERE navigation_menu_id = ?', [(int) $navigationMenuId]);
+		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO'); /* @var $navigationMenuItemAssignmentDao NavigationMenuItemAssignmentDAO */
 		$navigationMenuItemAssignmentDao->deleteByMenuId($navigationMenuId);
 	}
 
@@ -225,10 +176,7 @@ class NavigationMenuDAO extends DAO {
 	 */
 	function deleteByContextId($contextId) {
 		$navigationMenus = $this->getByContextId($contextId);
-
-		while ($navigationMenu = $navigationMenus->next()) {
-			$this->deleteObject($navigationMenu);
-		}
+		while ($navigationMenu = $navigationMenus->next()) $this->deleteObject($navigationMenu);
 	}
 
 	/**
@@ -249,26 +197,15 @@ class NavigationMenuDAO extends DAO {
 		$xmlParser = new XMLParser();
 		$tree = $xmlParser->parse($filename);
 
-		if ($contextId != CONTEXT_ID_NONE) {
-			$contextDao = Application::getContextDAO();
-			$context = $contextDao->getById($contextId);
-			$supportedLocales = $context->getSupportedLocales();
-		} else {
-			$siteDao = DAORegistry::getDAO('SiteDAO');
+		if ($contextId == CONTEXT_ID_NONE) {
+			$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 			$site = $siteDao->getSite();
-			$supportedLocales = $site->getSupportedLocales();
 		}
-
-		if (!$tree) {
-			$xmlParser->destroy();
-			return false;
-		}
+		if (!$tree) return false;
 
 		foreach ($tree->getChildren() as $navigationMenuNode) {
 			$site = $navigationMenuNode->getAttribute('site');
-			if ($contextId == CONTEXT_ID_NONE && !$site) {
-				continue;
-			}
+			if ($contextId == CONTEXT_ID_NONE && !$site) continue;
 
 			if ($navigationMenuNode->name == 'navigationMenu') {
 				$title = $navigationMenuNode->getAttribute('title');
@@ -303,13 +240,13 @@ class NavigationMenuDAO extends DAO {
 
 				$seq = 0;
 				foreach ($navigationMenuNode->getChildren() as $navigationMenuItemFirstLevelNode) {
-					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 					$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuItemFirstLevelNode, $navigationMenu->getId(), null, $seq, true);
 
 					$seq++;
 				}
 			} elseif ($navigationMenuNode->name == 'navigationMenuItem') {
-				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 				$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuNode, null, null, 0, true);
 			}
 		}

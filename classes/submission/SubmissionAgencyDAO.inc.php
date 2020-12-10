@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/SubmissionAgencyDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionAgencyDAO
  * @ingroup submission
@@ -23,10 +23,11 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	/**
 	 * Build/fetch and return a controlled vocabulary for agencies.
 	 * @param $publicationId int
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
 	 * @return ControlledVocab
 	 */
-	function build($publicationId) {
-		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_AGENCY, ASSOC_TYPE_PUBLICATION, $publicationId);
+	function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION) {
+		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_AGENCY, $assocType, $publicationId);
 	}
 
 	/**
@@ -41,13 +42,14 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	 * Get agencies for a specified submission ID.
 	 * @param $publicationId int
 	 * @param $locales array
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#6213
 	 * @return array
 	 */
-	function getAgencies($publicationId, $locales = []) {
+	function getAgencies($publicationId, $locales = [], $assocType = ASSOC_TYPE_PUBLICATION) {
 		$result = [];
 
-		$agencies = $this->build($publicationId);
-		$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO');
+		$agencies = $this->build($publicationId, $assocType);
+		$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /* @var $submissionAgencyEntryDao SubmissionAgencyEntryDAO */
 		$submissionAgencies = $submissionAgencyEntryDao->getByControlledVocabId($agencies->getId());
 		while ($agencyEntry = $submissionAgencies->next()) {
 			$agency = $agencyEntry->getAgency();
@@ -69,18 +71,12 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	 * @return array
 	 */
 	function getAllUniqueAgencies() {
-		$agencies = array();
+		$result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [CONTROLLED_VOCAB_SUBMISSION_AGENCY]);
 
-		$result = $this->retrieve(
-			'SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', CONTROLLED_VOCAB_SUBMISSION_AGENCY
-		);
-
-		while (!$result->EOF) {
-			$agencies[] = $result->fields[0];
-			$result->MoveNext();
+		$agencies = [];
+		foreach ($result as $row) {
+			$agencies[] = $row->setting_value;
 		}
-
-		$result->Close();
 		return $agencies;
 	}
 
@@ -89,12 +85,13 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	 * @param $agencies array List of agencies.
 	 * @param $publicationId int Submission ID.
 	 * @param $deleteFirst boolean True iff existing agencies should be removed first.
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
 	 * @return int
 	 */
-	function insertAgencies($agencies, $publicationId, $deleteFirst = true) {
-		$agencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
-		$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO');
-		$currentAgencies = $this->build($publicationId);
+	function insertAgencies($agencies, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION) {
+		$agencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /* @var $agencyDao SubmissionAgencyDAO */
+		$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /* @var $submissionAgencyEntryDao SubmissionAgencyEntryDAO */
+		$currentAgencies = $this->build($publicationId, $assocType);
 
 		if ($deleteFirst) {
 			$existingEntries = $agencyDao->enumerate($currentAgencies->getId(), CONTROLLED_VOCAB_SUBMISSION_AGENCY);
@@ -112,7 +109,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 					$i = 1;
 					foreach ($list as $agency) {
 						$agencyEntry = $submissionAgencyEntryDao->newDataObject();
-						$agencyEntry->setControlledVocabId($currentAgencies->getID());
+						$agencyEntry->setControlledVocabId($currentAgencies->getId());
 						$agencyEntry->setAgency(urldecode($agency), $locale);
 						$agencyEntry->setSequence($i);
 						$i++;

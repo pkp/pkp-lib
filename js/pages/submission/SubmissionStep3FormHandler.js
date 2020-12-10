@@ -9,9 +9,9 @@ jQuery.pkp.pages.submission = jQuery.pkp.pages.submission || { };
 /**
 * @file js/pages/submission/SubmissionStep3FormHandler.js
 *
-* Copyright (c) 2014-2019 Simon Fraser University
-* Copyright (c) 2000-2019 John Willinsky
-* Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+* Copyright (c) 2014-2020 Simon Fraser University
+* Copyright (c) 2000-2020 John Willinsky
+* Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
 *
 * @class SubmissionStep3FormHandler
 * @ingroup js_pages_submission
@@ -80,5 +80,4 @@ jQuery.pkp.pages.submission = jQuery.pkp.pages.submission || { };
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

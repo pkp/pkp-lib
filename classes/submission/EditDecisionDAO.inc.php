@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/EditDecisionDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditDecisionDAO
  * @ingroup submission
@@ -35,14 +35,14 @@ class EditDecisionDAO extends DAO {
 					VALUES (?, ?, ?, ?, ?, ?, %s)',
 					$this->datetimeToDB($editorDecision['dateDecided'])
 				),
-				array(
+				[
 					(int) $submissionId,
 					is_a($reviewRound, 'ReviewRound') ? (int) $reviewRound->getId() : 0,
 					is_a($reviewRound, 'ReviewRound') ? $reviewRound->getStageId() : (int) $stageId,
 					is_a($reviewRound, 'ReviewRound') ? (int) $reviewRound->getRound() : REVIEW_ROUND_NONE,
 					(int) $editorDecision['editorId'],
 					$editorDecision['decision']
-				)
+				]
 			);
 		}
 	}
@@ -54,7 +54,7 @@ class EditDecisionDAO extends DAO {
 	function deleteDecisionsBySubmissionId($submissionId) {
 		return $this->update(
 			'DELETE FROM edit_decisions WHERE submission_id = ?',
-			(int) $submissionId
+			[(int) $submissionId]
 		);
 	}
 
@@ -68,7 +68,7 @@ class EditDecisionDAO extends DAO {
 	 * 	editDecisionId, reviewRoundId, stageId, round, editorId, decision, dateDecided
 	 */
 	function getEditorDecisions($submissionId, $stageId = null, $round = null, $editorId = null) {
-		$params = array((int) $submissionId);
+		$params = [(int) $submissionId];
 		if ($stageId) $params[] = (int) $stageId;
 		if ($round) $params[] = (int) $round;
 		if ($editorId) $params[] = (int) $editorId;
@@ -85,20 +85,18 @@ class EditDecisionDAO extends DAO {
 			$params
 		);
 
-		$decisions = array();
-		while (!$result->EOF) {
-			$decisions[] = array(
-				'editDecisionId' => $result->fields['edit_decision_id'],
-				'reviewRoundId' => $result->fields['review_round_id'],
-				'stageId' => $result->fields['stage_id'],
-				'round' => $result->fields['round'],
-				'editorId' => $result->fields['editor_id'],
-				'decision' => $result->fields['decision'],
-				'dateDecided' => $this->datetimeFromDB($result->fields['date_decided'])
-			);
-			$result->MoveNext();
+		$decisions = [];
+		foreach ($result as $row) {
+			$decisions[] = [
+				'editDecisionId' => $row->edit_decision_id,
+				'reviewRoundId' => $row->review_round_id,
+				'stageId' => $row->stage_id,
+				'round' => $row->round,
+				'editorId' => $row->editor_id,
+				'decision' => $row->decision,
+				'dateDecided' => $this->datetimeFromDB($row->date_decided)
+			];
 		}
-		$result->Close();
 		return $decisions;
 	}
 
@@ -110,7 +108,7 @@ class EditDecisionDAO extends DAO {
 	function transferEditorDecisions($oldUserId, $newUserId) {
 		$this->update(
 			'UPDATE edit_decisions SET editor_id = ? WHERE editor_id = ?',
-			array((int) $newUserId, (int) $oldUserId)
+			[(int) $newUserId, (int) $oldUserId]
 		);
 	}
 
@@ -128,7 +126,7 @@ class EditDecisionDAO extends DAO {
 		$revisionDecisions = array(SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, SUBMISSION_EDITOR_DECISION_RESUBMIT);
 		if (!in_array($revisionDecision, $revisionDecisions)) return null;
 
-		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 		$editorDecisions = $editDecisionDao->getEditorDecisions($submissionId);
 		$workingDecisions = array_reverse($editorDecisions);
 		$pendingRevisionDecision = null;
@@ -168,19 +166,19 @@ class EditDecisionDAO extends DAO {
 		$round = $decision['round'];
 		$sentRevisions = false;
 
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$reviewRound = $reviewRoundDao->getReviewRound($submissionId, $stageId, $round);
 
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		import('lib.pkp.classes.submission.SubmissionFile'); // Bring the file constants.
-		$submissionFiles =  $submissionFileDao->getRevisionsByReviewRound($reviewRound, SUBMISSION_FILE_REVIEW_REVISION);
+		$submissionFilesIterator = Services::get('submissionFile')->getMany([
+			'reviewRoundIds' => [$reviewRound->getId()],
+			'fileStages' => [SUBMISSION_FILE_REVIEW_REVISION],
+		]);
 
-		if (is_array($submissionFiles)) {
-			foreach ($submissionFiles as $file) {
-				if ($file->getDateUploaded() > $decision['dateDecided']) {
-					$sentRevisions = true;
-					break;
-				}
+		foreach ($submissionFilesIterator as $submissionFile) {
+			if ($submissionFile->getData('uploadedAt') > $decision['dateDecided']) {
+				$sentRevisions = true;
+				break;
 			}
 		}
 

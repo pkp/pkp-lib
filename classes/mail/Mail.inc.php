@@ -8,9 +8,9 @@
 /**
  * @file classes/mail/Mail.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Mail
  * @ingroup mail
@@ -152,7 +152,7 @@ class Mail extends DataObject {
 	}
 
 	/**
-	 * Add a blind carbon copy (BCC) recipient to the message.
+	 * Add a hidden carbon copy (BCC) recipient to the message.
 	 * @param $email string
 	 * @param $name optional
 	 */
@@ -166,7 +166,7 @@ class Mail extends DataObject {
 	}
 
 	/**
-	 * Get the blind carbon copy (BCC) recipients for the message
+	 * Get the hidden carbon copy (BCC) recipients for the message
 	 * @return array
 	 */
 	function getBccs() {
@@ -174,7 +174,7 @@ class Mail extends DataObject {
 	}
 
 	/**
-	 * Set the blind carbon copy (BCC) recipients for the message.
+	 * Set the hidden carbon copy (BCC) recipients for the message.
 	 * @param $bccs array
 	 */
 	function setBccs($bccs) {
@@ -331,12 +331,12 @@ class Mail extends DataObject {
 	* @param $name string optional
 	*/
 	function addReplyTo($email, $name = '') {
-                if (($replyTos = $this->getData('replyTo')) == null) {
-                        $replyTos = array();
-                }
-                array_push($replyTos, array('name' => $name, 'email' => $email));
+		if (($replyTos = $this->getData('replyTo')) == null) {
+			$replyTos = array();
+		}
+		array_push($replyTos, array('name' => $name, 'email' => $email));
 
-                $this->setData('replyTo', $replyTo);
+		$this->setData('replyTo', $replyTo);
 	}
 
 
@@ -397,7 +397,7 @@ class Mail extends DataObject {
 		$from = $this->getFrom();
 		if ($from == null) {
 			return null;
-		} 
+		}
 		return (self::encodeDisplayName($from['name'], $send) . ' <'.$from['email'].'>');
 	}
 
@@ -478,15 +478,27 @@ class Mail extends DataObject {
 			$mailer->Port = Config::getVar('email', 'smtp_port');
 			if (($s = Config::getVar('email', 'smtp_auth')) != '') {
 				$mailer->SMTPSecure = $s;
-				$mailer->SMTPAuth = true;
 			}
 			$mailer->Host = Config::getVar('email', 'smtp_server');
-			$mailer->Username = Config::getVar('email', 'smtp_username');
-			$mailer->Password = Config::getVar('email', 'smtp_password');
+			if (($s = Config::getVar('email', 'smtp_username')) != '') {
+				$mailer->SMTPAuth = true;
+				$mailer->Username = Config::getVar('email', 'smtp_username');
+				$mailer->Password = Config::getVar('email', 'smtp_password');
+			}
 			if (Config::getVar('debug', 'show_stacktrace')) {
 				// debug level 3 represents client and server interaction, plus initial connection debugging
 				$mailer->SMTPDebug = 3;
 				$mailer->Debugoutput = 'error_log';
+			}
+			if (Config::getVar('email', 'smtp_suppress_cert_check')) {
+				// disabling the SMTP certificate check.
+				$mailer->SMTPOptions = array(
+					'ssl' => array(
+						'verify_peer' => false,
+						'verify_peer_name' => false,
+						'allow_self_signed' => true
+					)
+				);
 			}
 		}
 		$mailer->CharSet = Config::getVar('i18n', 'client_charset');

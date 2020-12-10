@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/ReviewFilesDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewFilesDAO
  * @ingroup submission
@@ -13,24 +13,22 @@
  * @brief Operations for managing review round / submission file associations.
  * These control which files are available for download by reviewers during review.
  */
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 class ReviewFilesDAO extends DAO {
 
 	/**
 	 * Grant a review file to a review.
 	 * @param $reviewId int Review assignment ID
-	 * @param $fileId int Review file ID
+	 * @param $submissionFileId int Submission file ID
 	 */
-	function grant($reviewId, $fileId) {
+	function grant($reviewId, $submissionFileId) {
 		$this->update(
 			'INSERT INTO review_files
-			(review_id, file_id)
+			(review_id, submission_file_id)
 			VALUES
 			(?, ?)',
-			array(
-				(int) $reviewId,
-				(int) $fileId
-			)
+			[(int) $reviewId, (int) $submissionFileId]
 		);
 	}
 
@@ -42,10 +40,7 @@ class ReviewFilesDAO extends DAO {
 	function revoke($reviewId, $fileId) {
 		$this->update(
 			'DELETE FROM review_files WHERE review_id = ? AND file_id = ?',
-			array(
-				(int) $reviewId,
-				(int) $fileId
-			)
+			[(int) $reviewId, (int) $fileId]
 		);
 	}
 
@@ -56,25 +51,21 @@ class ReviewFilesDAO extends DAO {
 	function revokeByReviewId($reviewId) {
 		$this->update(
 			'DELETE FROM review_files WHERE review_id = ?',
-			(int) $reviewId
+			[(int) $reviewId]
 		);
 	}
 
 	/**
 	 * Check review file availability
 	 * @param $reviewId integer
-	 * @param $fileId int
+	 * @param $submissionFileId int
 	 * @return boolean
 	 */
-	function check($reviewId, $fileId) {
-		$result = $this->retrieve(
-			'SELECT * FROM review_files WHERE review_id = ? AND file_id = ?',
-			array((int) $reviewId, (int) $fileId)
-		);
-
-		$returner = $result->RecordCount();
-		$result->Close();
-		return $returner;
+	function check($reviewId, $submissionFileId) {
+		return Capsule::table('review_files')
+			->where('review_id', (int) $reviewId)
+			->where('submission_file_id', (int) $submissionFileId)
+			->exists();
 	}
 }
 

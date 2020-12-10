@@ -3,9 +3,9 @@
 /**
  * @file classes/cliTool/InstallTool.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class installTool
  * @ingroup tools
@@ -72,7 +72,7 @@ class InstallTool extends CommandLineTool {
 					printf("----------------------------------------\n");
 			}
 
-			$newVersion =& $installer->getNewVersion();
+			$newVersion = $installer->getNewVersion();
 			printf("Successfully installed version %s\n", $newVersion->getVersionString(false));
 
 		} else {
@@ -119,7 +119,6 @@ class InstallTool extends CommandLineTool {
 		$this->readParam('databaseUsername', 'installer.databaseUsername', '');
 		$this->readParam('databasePassword', 'installer.databasePassword', '');
 		$this->readParam('databaseName', 'installer.databaseName');
-		$this->readParamBoolean('createDatabase', 'installer.createDatabase', 'Y');
 
 		// Miscellaneous Settings
 		$this->printTitle('installer.miscSettings');

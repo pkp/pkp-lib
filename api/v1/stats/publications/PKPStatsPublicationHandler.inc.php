@@ -3,9 +3,9 @@
 /**
  * @file api/v1/stats/PKPStatsHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsPublicationHandler
  * @ingroup api_v1_stats
@@ -16,7 +16,6 @@
 
 import('lib.pkp.classes.handler.APIHandler');
 import('classes.core.Services');
-import('lib.pkp.classes.validation.ValidatorFactory');
 import('classes.statistics.StatisticsHelper');
 import('lib.pkp.classes.submission.PKPSubmission'); // import STATUS_ constants
 
@@ -27,7 +26,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 	 */
 	public function __construct() {
 		$this->_handlerPath = 'stats/publications';
-		$roles = array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER);
+		$roles = array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR);
 		$this->_endpoints = array(
 			'GET' => array (
 				array(
@@ -135,7 +134,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 
 		\HookRegistry::call('API::stats::publications::params', array(&$allowedParams, $slimRequest));
 
-		$result = $this->_validateDates($allowedParams);
+		$result = $this->_validateStatDates($allowedParams);
 		if ($result !== true) {
 			return $response->withStatus(400)->withJsonError($result);
 		}
@@ -157,15 +156,18 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			}
 		}
 
-		// Get a list of top publications by total abstract views
+		// Get a list of top publications by total abstract and file views
 		$statsService = \Services::get('stats');
 		$totals = $statsService->getOrderedObjects(STATISTICS_DIMENSION_SUBMISSION_ID, $allowedParams['orderDirection'], array_merge($allowedParams, [
-			'assocTypes' => ASSOC_TYPE_SUBMISSION,
+			'assocTypes' => [ASSOC_TYPE_SUBMISSION, ASSOC_TYPE_SUBMISSION_FILE]
 		]));
 
 		// Get the stats for each publication
 		$items = [];
 		foreach ($totals as $total) {
+			if (empty($total['id'])) {
+				continue;
+			}
 
 			$galleyRecords = $statsService->getRecords(array_merge($allowedParams, [
 				'assocTypes' => ASSOC_TYPE_SUBMISSION_FILE,
@@ -178,9 +180,15 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			$htmlViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordHtml']), [$statsService, 'sumMetric'], 0);
 			$otherViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordOther']), [$statsService, 'sumMetric'], 0);
 
+			// Get the abstract records
+			$abstractRecords = $statsService->getRecords(array_merge($allowedParams, [
+				'assocTypes' => ASSOC_TYPE_SUBMISSION,
+				'submissionIds' => [$total['id']],
+			]));
+			$abstractViews = array_reduce($abstractRecords, [$statsService, 'sumMetric'], 0);
+
 			// Get the publication
-			$submissionService = \Services::get('submission');
-			$submission = $submissionService->get($total['id']);
+			$submission = \Services::get('submission')->get($total['id']);
 			$getPropertiesArgs = [
 				'request' => $request,
 				'slimRequest' => $slimRequest,
@@ -188,7 +196,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			// Stats may still exist for deleted publications
 			$submissionProps = ['id' => $total['id']];
 			if ($submission) {
-				$submissionProps = $submissionService->getProperties(
+				$submissionProps = \Services::get('submission')->getProperties(
 					$submission,
 					[
 						'_href',
@@ -212,7 +220,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			}
 
 			$items[] = [
-				'abstractViews' => $total['total'],
+				'abstractViews' => $abstractViews,
 				'galleyViews' => $galleyViews,
 				'pdfViews' => $pdfViews,
 				'htmlViews' => $htmlViews,
@@ -234,13 +242,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			$statsQB->filterBySubmissions($allowedParams['submissionIds']);
 		}
 		$statsQO = $statsQB->getSubmissionIds();
-		$result = \DAORegistry::getDAO('MetricsDAO')
-			->retrieve($statsQO->toSql(), $statsQO->getBindings());
-		$itemsMax = $result->RecordCount();
 
+		$metricsDao = \DAORegistry::getDAO('MetricsDAO'); /** @var MetricsDAO */
 		return $response->withJson([
 			'items' => $items,
-			'itemsMax' => $itemsMax,
+			'itemsMax' => $metricsDao->countRecords($statsQO->toSql(), $statsQO->getBindings()),
 		], 200);
 	}
 
@@ -281,7 +287,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimelineInterval');
 		}
 
-		$result = $this->_validateDates($allowedParams);
+		$result = $this->_validateStatDates($allowedParams);
 		if ($result !== true) {
 			return $response->withStatus(400)->withJsonError($result);
 		}
@@ -344,7 +350,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimelineInterval');
 		}
 
-		$result = $this->_validateDates($allowedParams);
+		$result = $this->_validateStatDates($allowedParams);
 		if ($result !== true) {
 			return $response->withStatus(400)->withJsonError($result);
 		}
@@ -393,7 +399,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 
 		\HookRegistry::call('API::stats::publication::params', array(&$allowedParams, $slimRequest));
 
-		$result = $this->_validateDates($allowedParams);
+		$result = $this->_validateStatDates($allowedParams);
 		if ($result !== true) {
 			return $response->withStatus(400)->withJsonError($result);
 		}
@@ -417,13 +423,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		$htmlViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordHtml']), [$statsService, 'sumMetric'], 0);
 		$otherViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordOther']), [$statsService, 'sumMetric'], 0);
 
-		$publicationProps = Services::get('submission')->getProperties(
+		$submissionProps = Services::get('submission')->getProperties(
 			$submission,
 			[
 				'_href',
 				'id',
-				'fullTitle',
-				'shortAuthorString',
 				'urlWorkflow',
 				'urlPublished',
 			],
@@ -432,6 +436,20 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 				'slimRequest' => $slimRequest,
 			]
 		);
+		$submissionProps = array_merge(
+			$submissionProps,
+			Services::get('publication')->getProperties(
+				$submission->getCurrentPublication(),
+				[
+					'authorsStringShort',
+					'fullTitle',
+				],
+				[
+					'request' => $request,
+					'slimRequest' => $slimRequest,
+				]
+			)
+		);
 
 		return $response->withJson([
 			'abstractViews' => $abstractViews,
@@ -439,7 +457,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			'pdfViews' => $pdfViews,
 			'htmlViews' => $htmlViews,
 			'otherViews' => $otherViews,
-			'publication' => $publicationProps,
+			'publication' => $submissionProps,
 		], 200);
 	}
 
@@ -483,7 +501,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 
 		\HookRegistry::call('API::stats::publication::abstract::params', array(&$allowedParams, $slimRequest));
 
-		$result = $this->_validateDates($allowedParams);
+		$result = $this->_validateStatDates($allowedParams);
 		if ($result !== true) {
 			return $response->withStatus(400)->withJsonError($result);
 		}
@@ -534,7 +552,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 
 		\HookRegistry::call('API::stats::publication::galley::params', array(&$allowedParams, $slimRequest));
 
-		$result = $this->_validateDates($allowedParams);
+		$result = $this->_validateStatDates($allowedParams);
 		if ($result !== true) {
 			return $response->withStatus(400)->withJsonError($result);
 		}
@@ -595,59 +613,13 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			}
 		}
 
-		return $returnParams;
-	}
-
-	/**
-	 * A helper method to validate start and end date params
-	 *
-	 * @param array $params The params to validate
-	 * @return boolean|string True if they validate, or a string which
-	 *   contains the locale key of an error message.
-	 */
-	protected function _validateDates($params) {
-		$validator = \ValidatorFactory::make(
-			$params,
-			[
-				'dateStart' => [
-					'date_format:Y-m-d',
-					'after_or_equal:' . STATISTICS_EARLIEST_DATE,
-					'before_or_equal:dateEnd',
-				],
-				'dateEnd' => [
-					'date_format:Y-m-d',
-					'before_or_equal:yesterday',
-					'after_or_equal:dateStart',
-				],
-			],
-			[
-				'*.date_format' => 'invalidFormat',
-				'dateStart.after_or_equal' => 'tooEarly',
-				'dateEnd.before_or_equal' => 'tooLate',
-				'dateStart.before_or_equal' => 'invalidRange',
-				'dateEnd.after_or_equal' => 'invalidRange',
-			]
-		);
-
-		if ($validator->fails()) {
-			$errors = $validator->errors()->getMessages();
-			if ((!empty($errors['dateStart'] && in_array('invalidFormat', $errors['dateStart'])))
-					|| (!empty($errors['dateEnd'] && in_array('invalidFormat', $errors['dateEnd'])))) {
-				return 'api.stats.400.wrongDateFormat';
-			}
-			if (!empty($errors['dateStart'] && in_array('tooEarly', $errors['dateStart']))) {
-				return 'api.stats.400.earlyDateRange';
-			}
-			if (!empty($errors['dateEnd'] && in_array('tooLate', $errors['dateEnd']))) {
-				return 'api.stats.400.lateDateRange';
-			}
-			if ((!empty($errors['dateStart'] && in_array('invalidRange', $errors['dateStart'])))
-					|| (!empty($errors['dateEnd'] && in_array('invalidRange', $errors['dateEnd'])))) {
-				return 'api.stats.400.wrongDateRange';
-			}
+		// Get the earliest date of publication if no start date set
+		if (in_array('dateStart', $allowedParams) && !isset($returnParams['dateStart'])) {
+			$dateRange = Services::get('publication')->getDateBoundaries(['contextIds' => $this->getRequest()->getContext()->getId()]);
+			$returnParams['dateStart'] = $dateRange[0];
 		}
 
-		return true;
+		return $returnParams;
 	}
 
 	/**
@@ -662,16 +634,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 	 * @return array submission ids
 	 */
 	protected function _processSearchPhrase($searchPhrase, $submissionIds = []) {
-		$submissionsIterator = \Services::get('submission')->getMany([
+		$searchPhraseSubmissionIds = \Services::get('submission')->getIds([
 			'contextId' => \Application::get()->getRequest()->getContext()->getId(),
 			'searchPhrase' => $searchPhrase,
 			'status' => STATUS_PUBLISHED,
 		]);
-
-		$searchPhraseSubmissionIds = [];
-		foreach ($submissionsIterator as $submission) {
-			$searchPhraseSubmissionIds[] = $submission->getId();
-		}
 
 		if (!empty($submissionIds)) {
 			$submissionIds = array_intersect($submissionIds, $searchPhraseSubmissionIds);

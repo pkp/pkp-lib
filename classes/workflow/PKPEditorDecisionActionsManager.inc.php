@@ -3,9 +3,9 @@
 /**
  * @file classes/workflow/PKPEditorDecisionActionsManager.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEditorDecisionActionsManager
  * @ingroup classes_workflow
@@ -19,23 +19,25 @@ define('SUBMISSION_EDITOR_RECOMMEND_ACCEPT', 11);
 define('SUBMISSION_EDITOR_RECOMMEND_PENDING_REVISIONS', 12);
 define('SUBMISSION_EDITOR_RECOMMEND_RESUBMIT', 13);
 define('SUBMISSION_EDITOR_RECOMMEND_DECLINE', 14);
+define('SUBMISSION_EDITOR_DECISION_REVERT_DECLINE', 17);
 
 abstract class PKPEditorDecisionActionsManager {
 	/**
 	 * Get the available decisions by stage ID and user making decision permissions,
 	 * if the user can make decisions or if it is recommendOnly user.
 	 * @param $context Context
+	 * @param $submission Submission
 	 * @param $stageId int WORKFLOW_STAGE_ID_...
 	 * @param $makeDecision boolean If the user can make decisions
 	 */
-	public function getStageDecisions($context, $stageId, $makeDecision = true) {
+	public function getStageDecisions($context, $submission, $stageId, $makeDecision = true) {
 		$result = null;
 		switch ($stageId) {
 			case WORKFLOW_STAGE_ID_SUBMISSION:
-				$result = $this->_submissionStageDecisions($stageId, $makeDecision);
+				$result = $this->_submissionStageDecisions($submission, $stageId, $makeDecision);
 				break;
 			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-				$result = $this->_externalReviewStageDecisions($context, $makeDecision);
+				$result = $this->_externalReviewStageDecisions($context, $submission, $makeDecision);
 				break;
 			case WORKFLOW_STAGE_ID_EDITING:
 				$result = $this->_editorialStageDecisions($makeDecision);
@@ -44,7 +46,7 @@ abstract class PKPEditorDecisionActionsManager {
 				assert(false);
 		}
 		HookRegistry::call('EditorAction::modifyDecisionOptions',
-			array($context, $stageId, &$makeDecision, &$result));
+			array($context, $submission, $stageId, &$makeDecision, &$result));
 		return $result;
 	}
 
@@ -69,11 +71,12 @@ abstract class PKPEditorDecisionActionsManager {
 	 * If the user cannot make decisions i.e. if it is a recommendOnly user,
 	 * the user can only send the submission to the review stage, and neither
 	 * acept nor decline the submission.
+	 * @param $submission Submission
 	 * @param $stageId int WORKFLOW_STAGE_ID_...
 	 * @param $makeDecision boolean If the user can make decisions
 	 * @return array
 	 */
-	protected function _submissionStageDecisions($stageId, $makeDecision = true) {
+	protected function _submissionStageDecisions($submission, $stageId, $makeDecision = true) {
 		$decisions = array(
 			SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW => array(
 				'operation' => 'externalReview',
@@ -94,13 +97,24 @@ abstract class PKPEditorDecisionActionsManager {
 				);
 			}
 
-			$decisions = $decisions + array(
-				SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => array(
-					'name' => 'decline',
-					'operation' => 'sendReviews',
-					'title' => 'editor.submission.decision.decline',
-				),
-			);
+			if ($submission->getStatus() == STATUS_QUEUED){
+				$decisions = $decisions + array(
+					SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => array(
+						'name' => 'decline',
+						'operation' => 'sendReviews',
+						'title' => 'editor.submission.decision.decline',
+					),
+				);
+			}
+			if ($submission->getStatus() == STATUS_DECLINED){
+				$decisions = $decisions + array(
+					SUBMISSION_EDITOR_DECISION_REVERT_DECLINE => array(
+						'name' => 'revert',
+						'operation' => 'revertDecline',
+						'title' => 'editor.submission.decision.revertDecline',
+					),
+				);
+			}
 		}
 		return $decisions;
 	}

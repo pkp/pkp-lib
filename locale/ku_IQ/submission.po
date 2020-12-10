@@ -1,0 +1,1540 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-04-22 20:38+0000\n"
+"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
+"Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/ku_IQ/>\n"
+"Language: ku_IQ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "author.publicationNotFound"
+msgstr "بڵاوکراوەی ئەم توێژەرە نەدۆزرایەوە."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"توێژەرانی ئەم توێژینەوەیە گۆڕانکارییان تێدا ناکرێت چونکە توێژینەوەکە بڵاو "
+"کراوەتەوە."
+
+msgid "submission.upload.response.description"
+msgstr ""
+"دوای هەڵسەنگاندنی فایلی ئەرکدارکراو، هەمو تێچێنەکان لەم فایلەی خوارەوە تۆمار "
+"بکە و/یان کۆپیی پەراوێزەکان بار بکە (یان فایلێکی دیکە)."
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"ناوی ئەم فایلە بارکراوە هاوشێوەی ناوی فایلێکە کە پێشتر بارکراوە \""
+"{$revisedFileName}.\" ئایا دەتەوێت ئاڵوگۆڕی لەگەڵ \"{$revisedFileName}\" پێ "
+"بکەیت؟ ئەگەر بەڵێ، تکایە ئەو فایلەی خوارەوە دیاری بکە. ئەگەر نا ''ئەمە "
+"فایلێکی چاککراوی بەردەست نییە'' دیاری بکە."
+
+msgid "submission.type.tip"
+msgstr ""
+"پێشکەشکردن دەبێت تێکست، وێنە یان جۆرەکانی دیکەی مەڵتیمیدیا وەک پڕۆگرام و "
+"فایلی چالاککەر بێت. تکایە گونجاوترین پێشکەشکردن هەڵبژێرە. نمونەکان لێرەوە "
+"دەدۆزیتەوە <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/"
+"04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/"
+"04/12/usageguide/generic.shtml#type</a>"
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "پێشکەشکردنەکە قبوڵ کرا."
+
+msgid "submission.documents"
+msgstr "دۆکیومێنتەکانی پێشکەشکراوەکە"
+
+msgid "submission.stageNotInitiated"
+msgstr "ئەم قۆناغە دەستی پێ نەکردووە."
+
+msgid "submission.description"
+msgstr "ناساندن"
+
+msgid "submission.overview"
+msgstr "پیشاندانی گشتیی پێشکەشکراوەکە"
+
+msgid "submission.finalDraft"
+msgstr "فایلی گەڵاڵەکراو"
+
+msgid "submission.submit.currentFile"
+msgstr "فایلەکانی ئێستا"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "فایلەکانی هەڵسەنگاندن"
+
+msgid "submission.actionNeeded"
+msgstr "کردارێک داوا کراوە"
+
+msgid "submission.noActionRequired"
+msgstr "هیچ کردارێک داواکراو نییە"
+
+msgid "submission.currentStage"
+msgstr "قۆناغی ئێستا"
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "پێشتر: ئاگادارکردنەوەی توێژەر"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr "ئەو فایلە دیاری بکە کە دەتەوێت هاوپێچی قۆناغی {$stageName} بکەیت."
+
+msgid "editor.submission.decision.nextButton"
+msgstr "دواتر: فایلەکان دیاری بکە بۆ {$stageName}"
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "پێشنیازە تۆمارکراوەکان"
+
+msgid "editor.submission.recommendation.description"
+msgstr "پێشنیازەکان و بڕیاری سەرنوسەر دەربارەی ئەم پێشکەشکراوە."
+
+msgid "editor.submission.recommendation"
+msgstr "پێشنیاز"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "پێشنیازەکان: {$recommendations}"
+
+msgid "editor.submission.recommendation.display"
+msgstr "پێشنیاز: {$recommendation}"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "پێشنیازەکە بگۆڕە"
+
+msgid "editor.submission.makeRecommendation"
+msgstr "پێشنیاز بکە"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "بەڵگەکانی قبوڵکردن"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "بینێرە بۆ هەڵسەنگێنەری ناوخۆیی"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "پێشکەشکردنەکە قبوڵ بکە و مەینێرە بۆ هەڵسەنگاندن"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "بینێرە بۆ بەرهەمهێنان"
+
+msgid "editor.submission.decision.decline"
+msgstr "پێشکەشکردنەکە ڕەت بکەوە"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "پێشکەشکردنەکە دوبارە بۆ هەڵسەنگاندن بنێرە"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "پێداچونەوە داوا بکە"
+
+msgid "editor.submission.decision.accept"
+msgstr "پێشکەشکردنەکە قبوڵ بکە"
+
+msgid "editor.submission.decision"
+msgstr "بڕیار"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"ئایا تۆ دڵنیایت لە ڕێگەپێدانی توێژەران بۆ گۆڕینی زانیارییە ناسێنەرەکانیان لە "
+"هەمو قۆناغەکاندا؟"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "ڕێگەدان بە گۆڕینی زانیاریی ناسێنەر"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "ڕێگەندان بە گۆڕینی زانیاریی ناسێنەر"
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "تۆ پێویستە بەکارهێنەرێک لە گروپی بەکارهێنەراندا دیاری بکەیت."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "تۆ دەتوانیت گروپی بەکارهێنەران دیاری بکەیت."
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "تۆ دەتوانیت ئەم بەشداربووە لە قۆناغەکانی <strong> و </strong> بسڕیتەوە."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "سڕینەوەی بەشداربو"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "گۆڕینی ئەرک"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "ئەرکدارکردنی بەشداربو"
+
+msgid "editor.submission.participant"
+msgstr "بەشدار"
+
+msgid "editor.submission.noneAssigned"
+msgstr "ئەرکدار نەکراوە"
+
+msgid "editor.submission.stageParticipants"
+msgstr "بەشداران"
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "هەمو پێشنیازەکان بەردەستن و بڕیار داوا کراوە."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "پێشنیازەکانی سەرنوسەر پێشکەش کران."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "لە چاوەڕوانیی پێشنیازەکانی سەرنوسەران دایە."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "کاتی هەڵسەنگاندنەکە تەواو بووە."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "هەمو هەڵسەنگاندنەکان نێردرانەوە و لە چاوەڕوانی بڕیاری کۆتایی دان."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "هەڵسەنگاندنی نوێ پێشکەش کرا."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "لە چاوەڕوانی وەڵامی هەڵسەنگێنەران دایە."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "لە چاوەڕوانی دیاریکردنی هەڵسەنگاندن دایە."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "پێشکەشکردنەکە ڕەت کرایەوە."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "پێشکەشکردنەکە قبوڵ کرا."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "بینێرە بۆ هەڵسەنگاندنی دەرەکی."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "پێشکەشکردنەکە بۆ خولێکی دیکەی هەڵسەنگاندن پێشکەش کرایەوە."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "پێشکەشکردنەکە دەبێت بۆ قۆناغی دووەمی هەڵسەنگاندن پێشکەش بکرێتەوە."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "پێداچونەوەکان پێشکەش کران."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "پێداچونەوە داوا کراوە."
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "هیچ فایلێک بۆ هەڵسەنگاندن بەردەست نییە."
+
+msgid "submission.upload.uploadFiles"
+msgstr "بارکردنی فایلەکان"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "بارکردنی فایلی وردبینیکراو"
+
+msgid "submission.upload.finalDraft"
+msgstr "بارکردنی فایل"
+
+msgid "submission.upload.libraryCategory"
+msgstr "پۆلێنکردنی بەڵگەنامەکانی پێشکەشکردن"
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "فایلێکی کتێبخانە بار بکە"
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"ئەگەر تۆ بەرگێکی چاککراو پێشکەش دەکەیت، تۆ دەبێت هەمو بەشەکانی بەرگەکە بە "
+"جیا بار بکەیت، لە ژێر ڕۆڵەکەت وەک سەرنوسەری بەرگەکە."
+
+msgid "submission.upload.userGroup"
+msgstr "ئەم فایلە بار بکە لە ڕۆڵەکەم وەک…"
+
+msgid "submission.upload.uploadNewFile"
+msgstr "ئەمە چاککردنی فایلە بەردەستەکە نییە"
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+"ئەگەر تۆ فایلی چاککراو بۆ فایلێکی بەردەست بار دەکەیت، تکایە فایلەکە دیاری "
+"بکە."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "تکایە ئەو فایلە دیاری بکە کە دەتەوێت پێداچونەوەی بۆ بکەیت."
+
+msgid "submission.upload.possibleRevision"
+msgstr "لەوانەیە ئەمە دوبارە بێت"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "گروپی بەکارهێنەران هەڵەیە یان ونە!"
+
+msgid "submission.upload.noGenre"
+msgstr "شتێک هەڵە یان ونە!"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "تۆ دەبێت ناوی ئەم فایلە داخل بکەیت"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. دڵنیاکردنەوە"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. وردەکارییەکانی هەڵسەنگاندن"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "بارکردنی فایلی پێشکەشکردن"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. فایلەکە بار بکە"
+
+msgid "submission.status.published"
+msgstr "بڵاوکراوە"
+
+msgid "submission.status.declined"
+msgstr "ڕەت کراوە"
+
+msgid "submission.status.unassigned"
+msgstr "بێ ئەرک کردن"
+
+msgid "submission.status.submission"
+msgstr "لە چاوەڕوانی بڕیاری سەرنوسەر دایە"
+
+msgid "submission.status.review"
+msgstr "لە هەڵسەنگاندن دایە"
+
+msgid "submission.status.production"
+msgstr "لە هەڵسەنگاندنی زمانی دایە"
+
+msgid "submission.status.editorial"
+msgstr "لە وردبینی دایە"
+
+msgid "workflow.stage"
+msgstr "قۆناغ"
+
+msgid "workflow.stage.any"
+msgstr "هەر قۆناغێک"
+
+msgid "workflow.review.internalReview"
+msgstr "هەڵسەنگاندنی ناوخۆیی"
+
+msgid "submission.form.replaceExisting"
+msgstr "ئایا دەتەوێت فایلەکە ئاڵوگۆڕ بکەیت؟"
+
+msgid "submission.form.name"
+msgstr "ناوی فایلەکەت بنێ ( بۆ نمونە، ڕەشنوس؛ خشتەی ١)"
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "تکایە سەرچاوەکان داخل بکە."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "تکایە مافەکان داخل بکە."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "تکایە سەرچاوەکە داخل بکە."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "تکایە جۆرەکەی داخل بکە."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "تکایە زانیارییەکانی پەراوێز بنوسە."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "تکایە کلیلە وشەیەک بنوسە."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "تکایە بوارێک داخل بکە."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "تکایە بابەتێک داخل بکە."
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "زمانێکی داخل بکە."
+
+msgid "submission.submit.addAuthor"
+msgstr "هاوبەشێک زیاد بکە"
+
+msgid "submission.submit.contributorRole"
+msgstr "ڕۆڵی هاوبەشکار"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "کەسی سەرەکیی پەیوەندیدار بۆ پەیوەندیکردن بە سەرنوسەرەوە."
+
+msgid "submission.date.yyyymmdd"
+msgstr "YYYY-MM-DD"
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.nameRequired"
+msgstr "ناوێک بۆ ئەم دانەیە داوا کراوە."
+
+msgid "submission.fileDetails"
+msgstr "وردەکاریی فایلەکان"
+
+msgid "submission.artworkFileDetails"
+msgstr "وردەکارییەکانی فایلە هونەرییەکان"
+
+msgid "submission.loadMessage"
+msgstr "تکایە چاوەڕێ بکە هەتا فایلەکەت بۆ سێرڤەر بار دەکرێت."
+
+msgid "submission.uploadSuccessful"
+msgstr "فایلەکەت بار کرا."
+
+msgid "submission.views"
+msgstr "پیشاندانەکان"
+
+msgid "submission.viewMetadata"
+msgstr "پیشاندانی زانیاریی ناسێنەر"
+
+msgid "submission.createRemote"
+msgstr "دروستکردنی لینکی دەرەکی"
+
+msgid "submission.uploadFileTo"
+msgstr "بارکردنی فایل بۆ"
+
+msgid "submission.underway"
+msgstr "بەردەوامە"
+
+msgid "submission.titleAndAbstract"
+msgstr "ناونیشان و پوختە"
+
+msgid "submission.indexingInformation"
+msgstr "زانیاریی پێنوێنکردن"
+
+msgid "submission.currentAgencies"
+msgstr "ئاژانسەکانی ئێستا"
+
+msgid "submission.supportingAgencies"
+msgstr "ئاژانسە پاڵپشتەکان"
+
+msgid "submission.summary"
+msgstr "پوختە"
+
+msgid "submission.upload.query"
+msgstr "بارکردنی فایلی گفتوگۆ"
+
+msgid "submission.upload.dependent"
+msgstr "بارکردنی فایلی پاشکۆ"
+
+msgid "submission.manageDependentFiles"
+msgstr "ڕێکخستنی فایلە پاشکۆکان"
+
+msgid "submission.submit.dependentFiles"
+msgstr "فایلە پاشکۆکان"
+
+msgid "submission.submit.submissionFiles"
+msgstr "فایلەکانی پێشکەشکردنەکە"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"پێشکەشکردن بە چەند زمانێکی جیاواز قبوڵ کراوە. تکایە زمانی سەرەکی "
+"پێشکەشکردنەکە هەڵ ببژێرە."
+
+msgid "submission.submit.submissionLocale"
+msgstr "زمانی توێژینەوەکە"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"زانیارییەکانی دیکە بۆ پێشکەشکردنەکەت زیاد بکە. تکایە دوای هەر دەربڕینێک "
+"'enter' لێ بدە."
+
+msgid "submission.submit.metadataForm"
+msgstr "چاککارییە زیادکراوەکان"
+
+msgid "submission.submit.newFile"
+msgstr "فایلێکی دیکە زیاد بکە"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "ئایا دەتەوێت ئەم هاوکارە لە لیستەکەدا هەبێت؟"
+
+msgid "submission.submit.fileAdded"
+msgstr "فایلەکە زیاد کرا"
+
+msgid "submission.submit.fileInformation"
+msgstr "زانیاریی فایلەکە"
+
+msgid "submission.submit.selectFile"
+msgstr "فایلەکە دیاری بکە"
+
+msgid "submission.submit.finishSubmission"
+msgstr "تەواوکردنی پێشکەشکردن"
+
+msgid "submission.submitter"
+msgstr "پێشکەشکەر"
+
+msgid "submission.submissionReview"
+msgstr "هەڵسەنگاندنی پێشکەشکردنەکە"
+
+msgid "submission.submissionManuscript"
+msgstr "ڕەشنوسی پێشکەشکردنەکە"
+
+msgid "submission.submissionHistory"
+msgstr "مێژوی پێشکەشکردن"
+
+msgid "submission.start"
+msgstr "دەستپێکردن"
+
+msgid "submission.submissionTitle"
+msgstr "ناونیشانی پێشکەشکردنەکە:"
+
+msgid "submission.submission"
+msgstr "پێشکەشکردن"
+
+msgid "submissions.submitted"
+msgstr "پێشکەش کرا"
+
+msgid "submissions.submit"
+msgstr "پێشکەشکردن"
+
+msgid "submission.source.tip"
+msgstr ""
+"ئایا ئەم پێشکەشکردنە لە سەرچاوەیەکی دیکەوە داڕێژراوە؟ ئەگەر بەڵێ، لینکی "
+"سەرچاوە ڕەسەنەکە دابنێ یان کورتەیەک دەربارەی بنوسە."
+
+msgid "submission.source"
+msgstr "سەرچاوە"
+
+msgid "submissions.ruling"
+msgstr "هەڵسەنگاندن"
+
+msgid "submissions.queuedUnassigned"
+msgstr "هیچ سەرنوسەرێک بۆ ئەم پێشکەشکردنە ئەرکدار نەکراوە."
+
+msgid "submissions.queued"
+msgstr "لە سەرە دایە"
+
+msgid "submissions.queuedEditing"
+msgstr "لە گۆڕانکاری دایە"
+
+msgid "submissions.noSubmissions"
+msgstr "هیچ پێشکەشکردنێک نییە"
+
+msgid "submissions.incomplete"
+msgstr "ناتەواو"
+
+msgid "submissions.declined"
+msgstr "ڕەت کراوە"
+
+msgid "submissions.completed"
+msgstr "تەواو کراو"
+
+msgid "submission.saveMetadata"
+msgstr "خەزنکردنی زانیاریی ناسێنەر"
+
+msgid "submissions.archived"
+msgstr "ئەرشیف کراوە"
+
+msgid "submissions.active"
+msgstr "چالاکە"
+
+msgid "submission.rights.tip"
+msgstr ""
+"ئەگەر دەتەوێت، دەتوانیت کورتەیەک دەربارەی دەستپێڕاگەیشتن بەم پێشکەشکردنە "
+"بنوسیت."
+
+msgid "submission.rights"
+msgstr "مافەکان"
+
+msgid "submission.reviewVersion"
+msgstr "وەشانی هەڵسەنگێندراو"
+
+msgid "submission.reviewed"
+msgstr "هەڵسەنگێندراو"
+
+msgid "submission.review"
+msgstr "هەڵسەنگاندن"
+
+msgid "submission.reviewMetadata"
+msgstr "هەڵسەنگاندنی زانیاریی ناسێنەر"
+
+msgid "submission.restrictions"
+msgstr "قەدەخەکان"
+
+msgid "submission.response"
+msgstr "وەڵام"
+
+msgid "submission.request"
+msgstr "داواکاری"
+
+msgid "submission.rejected"
+msgstr "ڕەت کراوە"
+
+msgid "submission.recommendation"
+msgstr "پێشنیازەکان: {$recommendation}"
+
+msgid "submission.production"
+msgstr "بەرهەمهێنان"
+
+msgid "submission.peerReview"
+msgstr "هەڵسەنگاندنی نهێنی"
+
+msgid "submission.page.citations"
+msgstr "#{$id} گوتراوەکانی"
+
+msgid "submission.page.summary"
+msgstr "#{$id} پوختەی"
+
+msgid "submission.page.review"
+msgstr "#{$id} هەڵسەنگاندنی"
+
+msgid "submission.page.history"
+msgstr "#{$id} مێژوی"
+
+msgid "submission.page.editing"
+msgstr "#{$id} گۆڕینی"
+
+msgid "submission.originalFile"
+msgstr "فایلە ڕەسەنەکە"
+
+msgid "submission.notes.viewNotes"
+msgstr "پیشاندانی تێبینی"
+
+msgid "submission.notes.updateNote"
+msgstr "نوێکردنەوەی تێبینی"
+
+msgid "submission.notes"
+msgstr "تێبینییەکانی پێشکەشکردنەکە"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "سڕینەوەی فایلی بارکراو"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "هیچ تێبینییەکی ئەم پێشکەشکراوە نییە"
+
+msgid "submission.notes.expandNotes"
+msgstr "فراوانکردنی تێبینی"
+
+msgid "submission.notes.editNote"
+msgstr "گۆڕینی تێبینی"
+
+msgid "submission.notes.deleteNote"
+msgstr "سڕینەوەی تێبینی"
+
+msgid "submission.notes.createNewNote"
+msgstr "تێبینییەکی نوێ دروست بکە"
+
+msgid "submission.notes.confirmDelete"
+msgstr "ئایا دەتەوێت هەمو تێبینییەکانی ئەم پێشکەشکراوە بسڕیتەوە؟"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "ئایا دەتەوێت هەمو تێبینییەکانی ئەم پێشکەشکراوە بسڕیتەوە؟"
+
+msgid "submission.notes.collapseNotes"
+msgstr "سڕینەوەی تێبینییەکان"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "سڕینەوەی هەمو تێبینییەکان"
+
+msgid "submission.notes.breadcrumb"
+msgstr "تێبینییەکان"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "گەڕانەوە بۆ تێبینییەکانی فایلی پێشکەشکراو"
+
+msgid "submission.notes.attachedFile"
+msgstr "هاوپێچکردنی فایل"
+
+msgid "submission.notes.addNewNote"
+msgstr "زیادکردنی تێبینییەکی نوێ"
+
+msgid "submission.noReviewAssignments"
+msgstr "هیچ ئەرکێکی هەڵسەنگاندن نییە"
+
+msgid "submission.metadata"
+msgstr "زانیاریی ناسێنەری پێشکەشکراو"
+
+msgid "submission.layout.viewProof"
+msgstr "بینینی پێشوەختە"
+
+msgid "submission.layout.viewingGalley"
+msgstr "پیشاندانی تابلۆی پێشکەشکراو"
+
+msgid "submission.layout.noStyleFile"
+msgstr "هیچ فایلێکی شێواز بۆ ئەم تابلۆیە زیاد نەکراوە."
+
+msgid "submission.layout.newGalley"
+msgstr "تابلۆیەکی نوێ دروست بکە"
+
+msgid "submission.layout.layoutVersion"
+msgstr "وەشانی نەخشەساز"
+
+msgid "submission.layout"
+msgstr "نەخشەساز"
+
+msgid "submission.layout.layoutFile"
+msgstr "فایلی نەخشەساز"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "دروستکردنی تابلۆی سەرەتایی"
+
+msgid "submission.layout.galleyStyle"
+msgstr "شێواز"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "پەڕەشێواز"
+
+msgid "submission.layout.galleys"
+msgstr "تابلۆکان"
+
+msgid "submission.layout.galleyNoImages"
+msgstr "وێنە بەردەست نییە"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "تکایە لینکێکی دەرەکیی دروست بنوسە (ئەم پێشگرەشی لەگەڵ بێتhttp://)."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "لینکی دەرەکی"
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "زمانی تابلۆ داوا کراوە."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "زمانی تابلۆ داوا کراوە."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "ناونانی تابلۆی ئەم ژمارەیە داواکراوە."
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "بەکار دێت بۆ ناسینەوەی ڕێکخستنی فایلەکان بۆ نمونە (PDF، HTML، هتد.)."
+
+msgid "submission.layout.galleyLabel"
+msgstr "ناسنامەی تابلۆ"
+
+msgid "submission.layout.galleyImages"
+msgstr "وێنەکان"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "فایلی تابلۆ بە HTML"
+
+msgid "submission.layout.galleyFormat"
+msgstr "ڕێکخستنی تابلۆ"
+
+msgid "submission.layout.editGalley"
+msgstr "گۆڕانکاری لە نەخشەسازیی تابلۆ"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "ئەم شێوازە بسڕەوە."
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی ئەم وێنەیە لە تابلۆی ئەم ژمارەیە؟"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی کۆتایی ئەم تابلۆیە؟"
+
+msgid "submission.layout.addGalley"
+msgstr "زیادکردنی تابلۆی نەخشەساز"
+
+msgid "submission.lastModified"
+msgstr "دواهەمین چاککراو"
+
+msgid "submission.stageParticipants.notify"
+msgstr "ئاگادارکردنەوە"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "ڕوداوەکانی وەشانەکانی پێشتر پیشان بدە"
+
+msgid "submission.informationCenter.history"
+msgstr "مێژو"
+
+msgid "submission.informationCenter.notes"
+msgstr "تێبینییەکان"
+
+msgid "submission.informationCenter.metadata"
+msgstr "زانیاریی ناسێنەر"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "زانیاریی پێشکەشکراوەکە"
+
+msgid "submission.publisherId.enable"
+msgstr "چالاکی بکە بۆ {$objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"ناسێنەری بڵاوکراوە لەوانەیە لە تۆماری زانیارییە ناسێنەرە دەرەکییەکان تۆمار "
+"بکرێت. بۆ نمونە ئەو دانانەی کە هەناردە دەکرێن بۆ PubMed  لەوانەیە ئەم "
+"ناسێنەرە لە خۆیان بگرن. بەڵام نابێت بۆ ناسێنەری سەرچاوە دیجیتاڵییەکان بەکار "
+"بهێندرێت."
+
+msgid "submission.publisherId"
+msgstr "ناسنامەی بڵاوکراوە"
+
+msgid "submission.identifiers"
+msgstr "ناسێنەرەکان"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"ئەمە وەشانی کۆنە و لە {$datePublished} بڵاو کراوەتەوە. بخوێنەوە<a href=\""
+"{$urlRecentVersion}\">وەشانی نوێ</a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "وەشانەکان"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — لە {$dateUpdated} نوێ کرایەوە"
+
+msgid "submission.initiated"
+msgstr "دەستی پێ کرد"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "دابەزاندنی گوتراوەکان"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "ڕێکخستنی زیاتری بەکارهێنانی سەرچاوە"
+
+msgid "submission.howToCite"
+msgstr "چۆنییەتی بەکارهێنانی سەرچاوە"
+
+msgid "submission.history.viewLog"
+msgstr "لیستی ڕوداوەکان ببینە"
+
+msgid "submission.history.submissionNotes"
+msgstr "تێبینییەکانی پێشکەشکردنەکە"
+
+msgid "submission.history.submissionEventLog"
+msgstr "تۆماری ڕوداوەکان"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "تۆماری ئیمەیڵ"
+
+msgid "submission.history.recentLogEntries"
+msgstr "داخلکراوە نوێیەکان"
+
+msgid "submission.history.noLogEntries"
+msgstr "هیچ لیستێکی ڕوداوەکان بەردەست نییە."
+
+msgid "submission.history"
+msgstr "مێژو"
+
+msgid "submission.history.clearLog"
+msgstr "سڕینەوەی لیستی ڕوداوەکان"
+
+msgid "submission.galley"
+msgstr "تابلۆ"
+
+msgid "submission.files.downloadAll"
+msgstr "هەمو فایلەکان دابگرە"
+
+msgid "submission.files"
+msgstr "فایلەکان"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"توێژەران لە قۆناغی {stage} ڕێگا پێ نەدراون بۆ گۆڕانکاریکردن لە زانیاریی "
+"ناسێنەر."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"توێژەران لە قۆناغی {stage} ڕێگا پێدراون بۆ گۆڕانکاریکردن لە زانیاریی ناسێنەر."
+
+msgid "submission.event.viewEmail"
+msgstr "ئیمەیڵەکە ببینە"
+
+msgid "submission.event.subjectPrefix"
+msgstr "ئیمەیڵێک نێردرا:"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "فایلی پێداچونەوەی هەڵسەنگاندن نوێ کرایەوە"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "هەڵسەنگاندن دوبارە پێشکەش کرایەوە"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "ئەرکی هەڵسەنگاندن دوبارە دەستی پێ کردەوە"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "فایلی ڕێنماییەکانی هەڵسەنگاندن"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "ئەرکی هەڵسەنگاندن دەستی پێ کرد"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "فایلی هەڵسەنگاندن نوێ کرایەوە"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "هەڵسەنگێنەر لە ئەرکی هەڵسەنگاندنی ئەم پێشکەشکراوە بەخشرا"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "هەڵسەنگاندنی هەڵسەنگێنەر پێشکەش کرا"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "هەڵسەنگێنەر بۆ پێشکەشکردنەکە دیاری کرا"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "کۆتا ڕۆژی هەڵسەنگاندن گۆڕدرا"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "ئەرکی هەڵسەنگاندنەکە ڕەت کرایەوە"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "ئەرکی هەڵسەنگاندنەکە پەسەند کرا"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "ئەرکی هەڵسەنگاندنەکە لە لایەن وەکیلەوە پەسەند کرا"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "فایلی پێشکەشکراو نوێ کرایەوە"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "زانیاریی ناسێنەری پێشکەشکراوەکە نوێ کرایەوە"
+
+#, fuzzy
+msgid "submission.event.fileRevised"
+msgstr ""
+"پێداچونەوەی\"{$name}\" (ناسنامەی فایل {$submissionFileId}) بار کرا."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "پێشکەشکردنی سەرەتایی تەواو کرا."
+
+msgid "submission.event.deleteLogEntry"
+msgstr "سڕینەوەی داخلکردنی لیست"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی داخلکردنی ئەم بۆنەیە؟"
+
+msgid "submission.event.confirmClearLog"
+msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی ئەم بۆنەیە بۆ ئەم پێشکەشکردنە؟"
+
+msgid "submission.event.backToEventLog"
+msgstr "گەڕانەوە بۆ بۆنەکان"
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) وەک {$userGroupName} سڕاوەتەوە."
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$name} ({$username}) بۆ ئەم پێشکەشکردنە وەک {$userGroupName} ئەرکدار کراوە."
+
+msgid "submission.due"
+msgstr "هۆکار"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"تکایە ناوێکی دروست دیاری بکە. ناوەکان دەبێت یەکێک لەمانە بیت؛ 'personal', "
+"'corporate' و 'conference'."
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"تکایە ناونیشانێکی دروست بنوسە. دەبێت یەکێک لەمانە بێت 'abbreviated', "
+"'translated', 'alternative' و 'uniform'."
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"تکایە هەمو کاتێک جۆری بڵاوکراوەکە دیاری بکە. لە ئێستادا بڵاوکراوەکان ئەمانەن؛"
+" پەرتوک (پەرتوک یان بەشی پەرتوکێک) گۆڤار (بۆ توێژینەوەی زانستی). بە "
+"پێچەوانەوە ڕێکخستنی گوتراوەکان لەوانەیە بە دروستی کار نەکات."
+
+msgid "submission.emailLog"
+msgstr "تۆماری ئیمەیڵ"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "زانیارییەکە لە لیستەکە بسڕەوە"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی ئەم داخلکردنەی ئیمەیڵ؟"
+
+msgid "submission.email.confirmClearLog"
+msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی ئەم ئیمەیڵانە بۆ ئەم پێشکەشکردنە؟"
+
+msgid "submission.email.backToEmailLog"
+msgstr "گەڕانەوە بۆ ئیمەیڵ"
+
+msgid "submission.editorial"
+msgstr "وردبینیکردن"
+
+msgid "submission.editMetadata"
+msgstr "گۆڕینی زانیاریی ناسێنەر"
+
+msgid "submission.editing"
+msgstr "گۆڕانکاری"
+
+msgid "submission.dueDate"
+msgstr "ڕێککەوتی وەڵامدانەوە"
+
+msgid "submission.done"
+msgstr "ئەنجام درا"
+
+msgid "submission.coverage"
+msgstr "گەیاندنی زانیاری"
+
+msgid "submission.queryNoteFiles"
+msgstr "فایلەکانی گفتوگۆکردن"
+
+msgid "submission.copyediting"
+msgstr "وردبینیکردن"
+
+msgid "submission.copyedited"
+msgstr "وردبینی کراوە"
+
+msgid "submission.contributors"
+msgstr "لیستی هاوکاران"
+
+msgid "submission.complete"
+msgstr "تەواوکردن"
+
+msgid "submission.comments.subject"
+msgstr "بابەت"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "بڕیاری هەڵسەنگاندن بۆ سەرنوسەر بنێرە"
+
+msgid "submission.comments.review"
+msgstr "هەڵسەنگاندن"
+
+msgid "submission.comments.noReviews"
+msgstr "هیچ هەڵسەنگاندنێک نییە"
+
+msgid "submission.comments.noComments"
+msgstr "هیچ تێچێنێک نییە"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "هەڵسەنگێنەر {$reviewerLetter}:"
+
+msgid "submission.comments.addReviews"
+msgstr "زیادکردنی هەڵسەنگاندن بۆ ئیمەیڵی"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "هاوردەکردنی هەڵسەنگاندنی نهێنی"
+
+msgid "submission.comments.editComment"
+msgstr "گۆڕانکاری لە تێچێنەکە"
+
+msgid "submission.comments.corrections"
+msgstr "ڕاستکردنەوەکان"
+
+msgid "submission.comments.confirmDelete"
+msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی ئەم تێچێنە؟"
+
+msgid "submission.comments.comments"
+msgstr "تێچێنەکان"
+
+msgid "submission.comments.addComment"
+msgstr "تێچێنێک زیاد بکە"
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "هەڵێنجان و خەزنکردنی سەرچاوەکان"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"ئەم سەرچاوانەی خوارەوە هەڵ هێنجران و بۆ زانیاریی ناسێنەری توێژینەوەکە زیاد "
+"دەکرین."
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI ناسێنەری سەرچاوە دیجیتاڵییەکان"
+
+msgid "submission.parsedCitations"
+msgstr "هەڵێنجانی سەرچاوەکان"
+
+msgid "submission.citations.description"
+msgstr "هەر سەرچاوەیەک لە هێڵێکی تایبەت بە خۆی بنوسە."
+
+msgid "submission.citations"
+msgstr "سەرچاوەکان"
+
+msgid "submission.changeFile"
+msgstr "گۆڕینی فایل"
+
+msgid "submission.changeComments"
+msgstr "بگۆڕە بۆ"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "گەڕانەوە بۆ گۆڕانکاری لە پێشکەشکردنەکە"
+
+msgid "submission.attachedFile"
+msgstr "فایلی هاوپێچ"
+
+msgid "submission.ask"
+msgstr "بپرسە"
+
+msgid "submission.acknowledge"
+msgstr "بڕیار"
+
+msgid "submission.accepted"
+msgstr "قبوڵ کرا"
+
+msgid "submission.abstractViews"
+msgstr "پیشاندانی پوختەکان"
+
+msgid "submission.agencies"
+msgstr "ئاژانسەکان"
+
+msgid "submission.addFile"
+msgstr "بارکردنی فایل"
+
+msgid "submission.mySubmissions"
+msgstr "پێشکەشکردنەکانم"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} و هاوکارانی."
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.authorBiographies"
+msgstr "زانیاریی کەسیی نوسەر"
+
+msgid "submission.authorBiography"
+msgstr "ژیاننامەی توێژەر"
+
+msgid "submission.authors"
+msgstr "توێژەران"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "توێژینەوە ئەرشیفکراوەکان"
+
+msgid "common.queue.long.myAssigned"
+msgstr "ئەرکەکانم"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "بێ ئەرک کردن"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "پوختە"
+
+msgid "metadata.property.displayName.name-type"
+msgstr "جۆری ناو"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "تکایە ناوی بەش بە دروستی بنوسە."
+
+msgid "metadata.property.displayName.partName"
+msgstr "ناوی بەش"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "تکایە ژمارەی بەش بە دروستی بنوسە."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "ژمارەی بەش"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "تکایە ژێرنوسی دروست بنوسە."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "ناونیشانی لاوەکی"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "تکایە ناونیشانێکی دروست بنوسە."
+
+msgid "metadata.property.displayName.title"
+msgstr "ناونیشان"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"تکایە ئەو پیتانەی ناونیشانەکە بنوسە کە لە کاتی ڕیزکردندا دەبێت پشتگوێ بخرێن."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "بەشێک لە ناونیشانەکە پشتگوێ خراوە لە کاتی ڕیزکردندا"
+
+msgid "metadata.property.displayName.title-type"
+msgstr "جۆری ناونیشان"
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "جۆری بڵاوکراوە"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "تکایە پەراوێزی دروست بنوسە."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "پەراوێز"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "تکایە تێچێنێکی دروست بنوسە."
+
+msgid "metadata.property.displayName.comment"
+msgstr "تێچێن"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "تکایە لینکی ئەڵتەرناتیڤی بڵاوکراوەکە بنوسە."
+
+msgid "metadata.property.displayName.uri"
+msgstr "لینکی بڵاوکراوەکە"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "تکایە PMIDی دروست بنوسە."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "تکایە SICIی دروست بنوسە."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "تکایە CODENی دروست بنوسە."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "تکایە ناسنامەی تایبەتی بڵاوکراوەکە بنوسە."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "ناسنامەی بڵاوکراوەی تایبەت"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "تکایە ناسێنەری سەرچاوە دیجیتاڵییەکان بە دروستی بنوسە."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOIناسێنەری سەرچاوە دیجیتاڵییەکان"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "تکایە eISSNی دروست بنوسە."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "تکایە ژمارەیەکی دروستی ISSN چاپەکە بنوسە."
+
+msgid "metadata.property.displayName.issn"
+msgstr "ISSNی چاپ"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "تکایە ISBN  بە دروستی بنوسە (٩ یان ١٣ ژمارەیە)."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "تکایە ناوی دروستی بڵاوکەرەوەکە بنوسە."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "ناوی بڵاوکەرەوە"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "تکایە شوێنی بڵاوکردنەوەکە بنوسە."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "شوێنی بڵاوکردنەوە"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "تکایە کۆی ژمارەی لاپەڕەکان بنوسە (دەبێت بە ژمارە بێت)."
+
+msgid "metadata.property.displayName.size"
+msgstr "ژمارەی لاپەڕەکان"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "تکایە لاپەڕەی کۆتایی بە دروستی بنوسە (دەبێت بە ژمارە بێت)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "لاپەڕەی کۆتایی"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "تکایە لاپەڕەی یەکەم بە دروستی بنوسە (دەبێت بە ژمارە بێت)."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "لاپەڕەی یەکەم"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "تکایە ناوی دروستی دەزگاکە بنوسە."
+
+msgid "metadata.property.displayName.institution"
+msgstr "دەزگا"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "تکایە ناوی سپۆنسەری کۆنفرانسەکە بنوسە."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "سپۆنسەری کۆنفرانس"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "تکایە ناوی کۆنفرانسەکە بنوسە."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "ناوی کۆنفرانس"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "تکایە شوێنی ئەنجامدانی کۆنفرانسەکە بنوسە."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "شوێنی کۆنفرانس"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "تکایە ڕێککەوتی کۆنفرانس بەم جۆرە ڕێکخستنە بنوسە: (YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "ڕێککەوتی کۆنفرانس"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "تکایە پاشکۆیەکی دروست بنوسە."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "پاشکۆ"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "تکایە ژمارەیەکی دروستی زنجیرەکە بنوسە."
+
+msgid "metadata.property.displayName.series"
+msgstr "زنجیرە"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "تکایە ژمارەیەکی دروستی چاپەکە بنوسە."
+
+msgid "metadata.property.displayName.edition"
+msgstr "چاپ"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "تکایە ناونیشانێکی بەشیی دروست بنوسە."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "ناونیشانی بەش"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "تکایە ناسێنەری وەرزێکی دروست بنوسە."
+
+msgid "metadata.property.displayName.season"
+msgstr "وەرز"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "تکایە ژمارەیەکی دروستی بەرگەکە بنوسە."
+
+msgid "metadata.property.displayName.volume"
+msgstr "بەرگ"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "تکایە ژمارەیەکی دروستی گۆڤار بنوسە."
+
+msgid "metadata.property.displayName.issue"
+msgstr "ژمارە"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "تکایە ڕێککەوتی دەستپێڕاگەیشتن بەم جۆرە ڕێکخستنە بنوسە: (YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "ڕێککەوتی دەستپێڕاگەیشتن"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "تکایە ڕێککەوتی بڵاوکردنەوە بەم جۆرە ڕێکخستنە بنوسە: (YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.date"
+msgstr "ڕێککەوتی بڵاوکردنەوە"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "تکایە ناونیشانێکی دروستی بڵاوکراوەکە بنوسە."
+
+msgid "metadata.property.displayName.source"
+msgstr "ناونیشانی بڵاوکراوە"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "تکایە ناونیشانێکی دروست بنوسە."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "ناونیشانی توێژینەوە"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"بۆ باشترین ئەنجام، سەرنوسەران دەبێت بەم ڕێکخستنە بنوسرێن: Coleman Jr, D. "
+"(Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "سەرنوسەران"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"بۆ باشترین ئەنجام، توێژەران دەبێت بەم ڕێکخستنە بنوسرێن: Coleman Jr, D. (Ralf)"
+" Dr."
+
+msgid "metadata.property.displayName.author"
+msgstr "توێژەران"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"هەڵەیەکی ناوەکی. بەهایەکی نادروست لە ڕێکخستنی'فلتەری بژاردە' بڵاو کراوەتەوە. "
+"تکایە ئەمە وەک هەڵەی پڕۆگرام دەستنیشان بکە."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "بە بنەڕەتی بەکاری مەهێنە (بۆ سەرنوسەر بەردەست دەبێت)"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "تکایە یەکێک لەم شێوازانەی ڕیزکردنی گوتراوەکان دیاری بکە."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "یەکگرتویی گوتراوەکان"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "تکایە کلیلێکی دروستی WorldCat API بنوسە، ئەگەر هەتە."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "کلیلی WorldCat API"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "تکایە ئیمەیڵێکی دروستی PubMed  بنوسە، ئەگەر هەتە."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "تۆمارکردنی ئیمەیڵ لە PubMed"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"تکایە کلیلی ISBNdb API بنوسە. ئەگەر ئەم کلیلەت نییە، تۆ دەتوانیت داوای "
+"کلیلێکی خۆڕایی لە ISBNdb API بکەیت."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API کلیلی"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"تکایە ئیمەیڵێکی تۆمارکراوی CrossRefی دروست بنوسە. تۆ دەتوانیت بەخۆڕایی "
+"ئیمەیڵەکەت لە CrossRef تۆمار بکەیت."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "تۆمارکردنی ئیمەیڵی CrossRef"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "زانیاریی ناسێنەری فراوانکراو"
+
+msgid "submission.submit.whatNext.return"
+msgstr "بۆ ڕوپەلی سەرەکیی خۆت بگەڕێوە"
+
+msgid "submission.submit.whatNext.create"
+msgstr "دروستکردنی پێشکەشکردنێکی نوێ"
+
+msgid "submission.submit.whatNext.review"
+msgstr "بە پێشکەشکردنەکەدا بچۆوە"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "لە ئێستادا، تۆ دەتوانیت:"
+
+msgid "submission.submit.whatNext"
+msgstr "دواتر چی ڕو دەدات؟"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "بەڵێ، من بە مەرجەکان مافی خاوەندارێتی ڕازیم."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "زانیاری دەربارەی مافی خاوەندارێتی بزانە"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "سوپاس بۆ خواستی بڵاوکردنەوەت لە {$contextName}."
+
+msgid "submission.submit.submissionComplete"
+msgstr "توێژینەوەکە پێشکەش دەکرێت"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"پێویستە تۆ مەرجەکانی خوارەوە بخوێنیتەوە و قبوڵییان بکەیت پێش ئەوەی زیاتر "
+"بچیتە پێشەوە."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "مەرجەکانی پێشکەشکردن"
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr ""
+"بە یەکێک لەم ڕۆڵانە توێژینەوەکەت پێشکەش بکە ئەگەر تۆ دەتەوێت بتوانیت بۆ خۆت "
+"ئەمە بڵاو بکەیتەوە یان گۆڕانکاری تێدا بکەیت: {$managerGroups}"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "بەڵێ، من دەمەوێت دەربارەی ئەم توێژینەوەیە پەیوەندیم پێوە بکرێت."
+
+msgid "submission.submit.contactConsent"
+msgstr "پەیوەندیکردن بە لایەنی پەیوەندیدارەوە"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "ڕۆڵێک دیاری بکە کە تۆ بناسێنێت لە کاتی پێشکەشکردنی ئەم توێژینەوەیە."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "پێشکەشی بکە وەک"
+
+msgid "submission.confirm.message"
+msgstr ""
+"پێشکەشکردنەکەت بار کرا و ئامادەیە بۆ ناردن. پێش ئەوەی زیاتر بڕۆیت دەکرێت بە "
+"زانیارییەکانتدا بچیتەوە و گۆڕانکارییان تێدا بکەیت. ئەگەر هەست دەکەیت هەمو "
+"شتەکان تەواوە، کلیک لەسەر ''توێژینەوەکە پێشکەش بکە'' بکە."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr ""
+"هەڵسەنگاندنی نوێ پێشکەش کراون و لە لایەن سەرنوسەرەوە بڕیاریان لێ دەدرێت."
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"لیستی سەرچاوەکان بخە بەردەست. تکایە با هێڵێکی بەتاڵ لە نێوان سەرچاوەکاندا "
+"هەبێت."
+
+msgid "submission.upload.proof"
+msgstr "بارکردنی فایلی ئامادە بۆ بڵاوکردنەوە"
+
+msgid "submission.upload.productionReady"
+msgstr "بارکردنی فایلی ئامادەی بەرهەمهێنان"
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "دواهەمین بڕیاری سەرنوسەر."
+
+msgid "notification.type.indexRequest"
+msgstr "تۆ داوات لێ کراوە کە پێنوێن بۆ \"{$title}\" دروست بکەیت."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "تۆ داوات لێ کراوە کە وردبینی بۆ نەخشەسازی \"{$title}\" بکەیت."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "تۆ داوات لێ کراوە کە وردبینی بۆ \"{$title}\" بکەیت."
+
+msgid "notification.type.editorAssign"
+msgstr "تۆ وەک سەرنوسەری \"{$title}\" دەستنیشان کرایت."
+
+msgid "submission.event.proofsApproved"
+msgstr "\"{$name}\" ({$username}) بەڵگەکانی فایلی \"{$formatName}\" پەسەند کرد"
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) لە فایلی \"{$file}\" چووە دەرەوە"
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$name}\" ({$username}) وردبینی تەواو کرد و ئەم فایلەی بار کردەوە \""
+"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$name}\" ({$username}) وەک وردبینی ژمێریاری لا برا بۆ فایلی \"{$file}.\""
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$name}\" ({$username}) وەک وردبینی ژمێریاری زیاد کرا بۆ فایلی \"{$file}.\""
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr ""
+"فایلی \"{$title}\" کە دواهەمین چاککراوی هەبو، سڕایەوە لە لایەن {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"فایلی چاککراوی \"{$originalFileName}\" سڕایەوە بۆ پێشکەشکردن {$submissionId} "
+"لە لایەن {$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"فایلی چاککراوی \"{$originalFileName}\" بار کرا بۆ پێشکەشکردن {$submissionId} "
+"لە لایەن {$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"فایلی \"{$originalFileName}\" سڕایەوە لە پێشکەشکردنی {$submissionId} لە "
+"لایەن {$username}."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"فایلی \"{$originalFileName}\" بار کرا بۆ پێشکەشکردنی {$submissionId} لە "
+"لایەن{$username}."
+
+msgid "editor.submission.addAuditorError"
+msgstr ""
+"هەڵەیەک لە ئەرکدارکردنی وردبینی ژمێریاریدا هەیە. تکایە دوبارە هەوڵ بدەوە."
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "سەرنوسەرێک دیاری بکە بۆ چالاککردنی بڕیاری سەرنوسەری لەم قۆناغەدا."
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"ئەم فایلی بەڵگەیە هیچی دیکە بۆ گشتی و دابەزاندن و داواکردن بەردەست نابێت. "
+"ئایا دەتەوێت قبوڵکردنەکە بکشێنیتەوە؟"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"پەڕەی فایلی بەڵگەنامەکان دەبێت وردبینی بۆ بکرێت و قبوڵ بکرێت و چالاک بکرێت، "
+"ئایا دەتەوێت قبوڵی بکەیت؟"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"ئایا تۆ دڵنیایت لە ڕێگەپێدانی توێژەران بۆ گۆڕینی زانیارییە ناسێنەرەکانیان "
+"لەم قۆناغەدا؟"
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"ئەو بەشداربووەی کە تۆ دیاریت کردووە بۆ هەڵسەنگاندنی نهێنی ئەرکدار کراوە. "
+"ئەگەر تۆ وەک بەشداربو ئەرکداری بکەیت، ئەوا دەتوانێت زانیارییەکانی توێژەر "
+"ببینێت. هەر بۆیە وا باشترە کە ئەم کەسانە وەک بەشداربو ئەرکدار نەکرێت هەتا تۆ "
+"دڵنیا نەبیت لە پرۆسەی نهێنیی هەڵسەنگاندن."
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"بەکارهێنەران بۆ قۆناغەکانی ڕێڕەوی کار ئەرکدار کراون لە لایەن گروپی "
+"بەکارهێنەرانەوە. هەر بەکارهێنەرێک بۆ ئەم قۆناغە ئەرکدار کرابێت، تۆماتیکی بۆ "
+"قۆناغەکانی دیکەی هەمان گروپ ئەرکدار دەکرێت. ئەمە بە گشتی تایبەتە بە "
+"سەرنوسەران، نوسەر و توێژەران و وەرگێڕان."

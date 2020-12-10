@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/reviewer/form/EmailReviewerForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EmailReviewerForm
  * @ingroup controllers_grid_users_reviewer_form
@@ -52,7 +52,7 @@ class EmailReviewerForm extends Form {
 	 * @see Form::fetch
 	 */
 	function fetch($request, $template = null, $display = false, $requestArgs = array()) {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getById($this->_reviewAssignment->getReviewerId());
 
 		$templateMgr = TemplateManager::getManager($request);
@@ -70,7 +70,7 @@ class EmailReviewerForm extends Form {
 	 * @param $submission Submission
 	 */
 	function execute($submission) {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$toUser = $userDao->getById($this->_reviewAssignment->getReviewerId());
 		$request = Application::get()->getRequest();
 		$fromUser = $request->getUser();

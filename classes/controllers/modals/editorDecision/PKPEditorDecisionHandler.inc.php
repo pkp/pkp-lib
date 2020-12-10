@@ -3,9 +3,9 @@
 /**
  * @file controllers/modals/editorDecision/EditorDecisionHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionHandler
  * @ingroup controllers_modals_editorDecision
@@ -188,6 +188,26 @@ class PKPEditorDecisionHandler extends Handler {
 	}
 
 	/**
+	 * Show a revert decline form.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string Serialized JSON object
+	 */
+	function revertDecline($args, $request) {
+		return $this->_initiateEditorDecision($args, $request, 'RevertDeclineForm');
+	}
+
+	/**
+	 * Save the revert decline form.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string Serialized JSON object
+	 */
+	function saveRevertDecline($args, $request) {
+		return $this->_saveEditorDecision($args, $request, 'RevertDeclineForm');
+	}
+
+	/**
 	 * Import all free-text/review form reviews to paste into message
 	 * @param $args array
 	 * @param $request PKPRequest
@@ -201,10 +221,10 @@ class PKPEditorDecisionHandler extends Handler {
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 
 		// Retrieve peer reviews.
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
-		$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
-		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+		$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
+		$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /* @var $reviewFormResponseDao ReviewFormResponseDAO */
+		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 
 		$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
 		$reviewIndexes = $reviewAssignmentDao->getReviewIndexesForRound($submission->getId(), $reviewRound->getId());
@@ -364,6 +384,7 @@ class PKPEditorDecisionHandler extends Handler {
 			case 'NewReviewRoundForm':
 			case 'PromoteForm':
 			case 'SendReviewsForm':
+			case 'RevertDeclineForm':
 				return "lib.pkp.controllers.modals.editorDecision.form.$formName";
 			default:
 				assert(false);
@@ -447,7 +468,7 @@ class PKPEditorDecisionHandler extends Handler {
 
 			// Get a list of author user IDs
 			$authorUserIds = array();
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 			$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
 			while ($assignment = $submitterAssignments->next()) {
 				$authorUserIds[] = $assignment->getUserId();
@@ -493,8 +514,15 @@ class PKPEditorDecisionHandler extends Handler {
 				$redirectUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', $redirectOp, array($submission->getId()));
 				return $request->redirectUrlJson($redirectUrl);
 			} else {
-				// Needed to update review round status notifications.
-				return DAO::getDataChangedEvent();
+				if (in_array($decision, [SUBMISSION_EDITOR_DECISION_DECLINE, SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, SUBMISSION_EDITOR_DECISION_REVERT_DECLINE])) {
+					$dispatcher = $this->getDispatcher();
+					$redirectUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'access', array($submission->getId()));
+					return $request->redirectUrlJson($redirectUrl);
+
+				} else {
+					// Needed to update review round status notifications.
+					return DAO::getDataChangedEvent();
+				}
 			}
 		} else {
 			return new JSONMessage(false);

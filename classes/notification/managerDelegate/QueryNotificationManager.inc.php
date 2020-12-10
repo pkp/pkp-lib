@@ -3,9 +3,9 @@
 /**
  * @file classes/notification/managerDelegate/QueryNotificationManager.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNotificationManager
  * @ingroup managerDelegate
@@ -45,7 +45,7 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 	 */
 	public function getNotificationMessage($request, $notification) {
 		assert($notification->getAssocType() == ASSOC_TYPE_QUERY);
-		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		$query = $queryDao->getById($notification->getAssocId());
 
 		$headNote = $query->getHeadNote();
@@ -63,7 +63,6 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 				$notes = $query->getReplies(null, NOTE_ORDER_ID, SORT_DIRECTION_DESC);
 				$latestNote = $notes->next();
 				$user = $latestNote->getUser();
-				$notes->close();
 				return __('submission.query.activity', array(
 					'responderName' => $user->getFullName(),
 					'noteContents' => substr(PKPString::html2text($latestNote->getContents()), 0, 200),
@@ -79,7 +78,7 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 	 * @return Submission
 	 */
 	protected function getQuerySubmission($query) {
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		switch ($query->getAssocType()) {
 			case ASSOC_TYPE_SUBMISSION:
 				return $submissionDao->getById($query->getAssocId());
@@ -97,7 +96,7 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 	 */
 	public function getNotificationUrl($request, $notification) {
 		assert($notification->getAssocType() == ASSOC_TYPE_QUERY);
-		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		$query = $queryDao->getById($notification->getAssocId());
 		assert(is_a($query, 'Query'));
 		$submission = $this->getQuerySubmission($query);
@@ -111,7 +110,7 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 	 */
 	public function getNotificationContents($request, $notification) {
 		assert($notification->getAssocType() == ASSOC_TYPE_QUERY);
-		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		$query = $queryDao->getById($notification->getAssocId());
 		assert(is_a($query, 'Query'));
 

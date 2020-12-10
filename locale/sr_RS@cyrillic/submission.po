@@ -1,0 +1,1455 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:03+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:03+00:00\n"
+"Language: \n"
+
+msgid "author.submit.submissionCitations"
+msgstr "Даје форматирану листу референци за радове цитиран документу. Одвојте референце празнинама."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "CrossRef регистрациони имејл"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr "Унесите имејл за који је урађена регистрација на CrossRef сајту."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API кључ"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr "Унесите ISBNdb API кључ. Уколико га немате, можете га добити бесплатно ан ISBNdb пројекту."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "PubMed регистрациони имејл"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Унесите PubMed регистрациони имејл уколико га имате."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API кључ"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Унесите исправан WorldCat API кључ уколико га имате."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Цитатни модул"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Изаберите један од понуђених цитатних модула."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "По правилу не користи (и даље ће бити доступно уреднику)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr "Интерна грешка. Неисправна вредност је унета за 'optional filter' подешавања. Молимо вас да ово пријавите као \"bug\"."
+
+msgid "metadata.property.displayName.author"
+msgstr "Аутори"
+
+msgid "metadata.property.validationMessage.author"
+msgstr "За најбоље резултате, аутори би требали бити унешени у формату: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Уредници"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "За најбоље резултате, уредници би требали бити унешени у формату: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Наслов рада"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Молимо Вас да унесете исправан наслов рада"
+
+msgid "metadata.property.displayName.source"
+msgstr "Наслов часописа/књиге"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Молимо Вас да унесете исправан наслов часописа/књиге."
+
+msgid "metadata.property.displayName.date"
+msgstr "Датум објављивања"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Молимо Вас да унесете исправан датум издавања (формат: дд.мм.гггг.)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Датум приступања"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Унесите исправан датум приступања (формат: дд.мм.гггг.)."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Издање (број)"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Унесите исправно издање (број)."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Књига"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Унесите исправан број књиге."
+
+msgid "metadata.property.displayName.season"
+msgstr "Сезона"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Унесите исправан идентификатор сезоне."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Наслов поглавља"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Унесите исправан наслов поглавља."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Едиција"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Унесите исправну едицију."
+
+msgid "metadata.property.displayName.series"
+msgstr "Серија"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Унесите исправну серију."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Додатак"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Унесите исправан додатак."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Датум конференције"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Унесите исправан датум концеренције (формат: ДД.ММ.ГГГГ.)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Место одржавања конференције"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Унесите место одржавања конференције."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Назив конференције"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Унесите исправан назив конференције."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Спонзор конференције"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Унесите спонзора конференције."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Институција"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Унесите назив институције."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Прва страна"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Унесите исправну прву страну (мора бити нумеричка вредност)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Последња страна"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Унесите исправну последњу страну (мора бити нумеричка вредност)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Број страна"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Унесите број страна (мора бити нумеричка вредност)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Место издавача"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Унесите место издавача."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Назив издавача"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Унесите назив издавача."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Унесите исправан ISBN."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Штампани ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Унесите штампани ISSN."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Унесите исправан eISSN"
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Унесите исправан DOI."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Прилагођени ID публикације"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Унесите исправан прилагођени ID публикације."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Унесите исправан CODEN."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Унесите исправан SICI."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Унесите исправан PMID."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Линк ка публикацији"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Унесите алтернативни линк ка публикацији."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Коментар"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Унесите исправан коментар."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Белешке"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Унесите исправне белешке."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Тип публикације."
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr "Увек подесите тип публикације. Тренутно су подржани типови: књига (за књиге и поглавља) часописи. У супротном форматирање цитата неће радити исправно."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Тип наслова"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr "Унесите исправан тип наслова. Подржани типови су: 'скраћен', 'преведен', 'алтернативан' и 'униформан'."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Део наслова који ће се игнорисати код сортирања"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "Унесите почетне карактере наслова који би требали бити игнорисани приликом сортирања."
+
+msgid "metadata.property.displayName.title"
+msgstr "Наслов"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Унесите исправан наслов."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Поднаслов"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Унесите исправан поднаслов."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Број дела"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Унесите исправан број дела."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Име дела"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Унесите исправно име дела."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Тип имена"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr "Молимо проверите да ли сте подесили исправан тип имена. Подржане вредности су 'лично', 'корпоративно' и 'конференција'."
+
+msgid "submission.agencies"
+msgstr "Установе"
+
+msgid "submission.abstractViews"
+msgstr "Приступа апстракту"
+
+msgid "submission.accepted"
+msgstr "Прихваћено"
+
+msgid "submission.acknowledge"
+msgstr "Потврђено"
+
+msgid "submission.ask"
+msgstr "Захтевај"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Повратак на уређивање пријаве"
+
+msgid "submission.changeComments"
+msgstr "Промени у"
+
+msgid "submission.citations"
+msgstr "Референце"
+
+msgid "submission.date.mmdd"
+msgstr "ДД.ММ"
+
+msgid "submission.date.yyyymmdd"
+msgstr "ДД.ММ.ГГГГ."
+
+msgid "submission.addFile"
+msgstr "Додај фајл"
+
+msgid "submission.comments.addReviews"
+msgstr "Додај рецензије у имејл"
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Удаљени URL"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Молимо додајте исправан URL (укључујући http://)."
+
+msgid "submission.reviewed"
+msgstr "Рецензирано"
+
+msgid "submission.createRemote"
+msgstr "Направи удаљено"
+
+msgid "submission.form.name"
+msgstr "Унесите име документа (нпр. Рукопис; Табела 1)"
+
+msgid "submission.form.replaceExisting"
+msgstr "Заменити постојећи фајл?"
+
+msgid "log.review.reviewerAssigned"
+msgstr "{$reviewerName} је додељен(а) као рецензент предаје {$submissionId} у {$round}. кругу рецензије."
+
+msgid "log.review.reviewCleared"
+msgstr "Рецензија {$round}. круга рецензента {$reviewerName} за прилог {$submissionId} је обрисана."
+
+msgid "log.review.reviewReinstated"
+msgstr "{$round}. круг рецензије рецензента {$reviewerName} за прилог {$submissionId} је изнова покренут."
+
+msgid "submission.reviewForm"
+msgstr "Рецензентски образац"
+
+msgid "submission.reviewFormResponse"
+msgstr "Одговор на рецензентски образац"
+
+msgid "submission.query.from"
+msgstr "Од"
+
+msgid "submission.query.lastReply"
+msgstr "Последњи одговор"
+
+msgid "submission.query.closed"
+msgstr "Затворено"
+
+msgid "submission.query.addNote"
+msgstr "Додај поруку"
+
+msgid "grid.action.openNoteForm"
+msgstr "Додај одговор у дискусију"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} је одговорила/о на {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} је започела/о дискусију: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr "Дошло је до промена у дискусији \"{$queryTitle}\" поводом предаје \"{$submissionTitle}\"."
+
+msgid "submission.query.new.contents"
+msgstr "Додати сте у дискусију \"{$queryTitle}\" поводом предаје \"{$submissionTitle}\"."
+
+msgid "grid.action.editMetadata"
+msgstr "Измени метаподатке"
+
+msgid "submission.permissions"
+msgstr "Права"
+
+msgid "submission.attachPermissions"
+msgstr "Додај следећа права уз предају:"
+
+msgid "submission.license"
+msgstr "Лиценца"
+
+msgid "submission.copyright"
+msgstr "Ауторска права"
+
+msgid "submission.copyrightHolder"
+msgstr "Носилац ауторских права"
+
+msgid "submission.copyrightYear"
+msgstr "Година ауторског права"
+
+msgid "submission.copyrightStatement"
+msgstr "Сва права задржана (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "Унесите исправан удаљени URL (укључујући и http://)."
+
+msgid "submission.licenseURL"
+msgstr "URL лиценци"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Aуторство-Некомерцијално-Без прераде 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Aуторство-Некомерцијално 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Aуторство-Некомерцијално-Дели под ситим условима 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Aуторство-Без прераде 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Aуторство 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Aуторство-Дели под истим условима 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Овај рад је под <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Aуторство-Nекомерцијално-Без прераде 4.0 Интернационална лиценца</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>Овај рад је под <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Aуторство-Nекомерцијално 4.0 Интернационална лиценца</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Овај рад је под <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Aуторство-Nекомерцијално-Дели под истим условима 4.0 Интернационална лиценца</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>Овај рад је под <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons Aуторство-Без прерада 4.0 Интернационална лиценца</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>Овај рад је под <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Aуторство 4.0 Интернационална лиценца</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Овај рад је под <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Aуторство-Дели под истим условима 4.0 Интернационална лиценца</a>.</p>"
+
+msgid "submission.queries.submission"
+msgstr "Пред рецензентске дискусије"
+
+msgid "submission.queries.review"
+msgstr "Рецензентске дискусије"
+
+msgid "submission.query.subject"
+msgstr "Тема"
+
+msgid "submission.query.messages"
+msgstr "Поруке"
+
+msgid "submission.query.replies"
+msgstr "Одговори"
+
+msgid "submission.event.participantAdded"
+msgstr "\"{$name}\" ({$username}) је додељен предаји као {$userGroupName}."
+
+msgid "submission.stageParticipants.notify"
+msgstr "Обавести"
+
+msgid "editor.submission.stageParticipants"
+msgstr "Сарадници"
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr "Уредник продукције мора бити додељен часопису пре него што уреднички процес може бити започет. Додајте уредника продукције користећи линк \"Сарадници\"."
+
+msgid "submission.noActionRequired"
+msgstr "Нема потребних радњи"
+
+msgid "submission.actionNeeded"
+msgstr "Потребна је радња"
+
+msgid "submission.document"
+msgstr "Документ"
+
+msgid "submission.art"
+msgstr "Илустрација"
+
+msgid "submission.supplementary"
+msgstr "Допунски садржај"
+
+msgid "submission.supplementary.creator"
+msgstr "Креатор (или власник) документа (фајла)"
+
+msgid "submission.supplementary.subject"
+msgstr "Тема"
+
+msgid "submission.supplementary.publisher"
+msgstr "Издавач"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Сарадник или установа подршке"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Иди на процес предаје"
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr "Уредник продукције мора бити додељен часопису пре него што продукцијски процес може бити започет. Додајте уредника продукције користећи линк \"Сарадници\"."
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Пошаљи у продукцију"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Пошаљи на интерну рецензију"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Одобри пробне копије"
+
+msgid "submission.currentStage"
+msgstr "Тренутна фаза"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Прегледај фајлове"
+
+msgid "submission.submit.currentFile"
+msgstr "Тренутни фајлови"
+
+msgid "submission.finalDraft"
+msgstr "Привремени фајлови"
+
+msgid "submission.event.proofsApproved"
+msgstr "\"{$name}\" ({$username}) је одобрио пруф за \"{$formatName}.\""
+
+msgid "submission.overview"
+msgstr "Преглед предаје"
+
+msgid "submission.description"
+msgstr "Опис"
+
+msgid "submission.stageNotInitiated"
+msgstr "Фаза није започета."
+
+msgid "submission.documents"
+msgstr "Документи предаје"
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Замољени сте да прегледате изглед часописа \"{$title}\"."
+
+msgid "notification.type.indexRequest"
+msgstr "Замољени сте да урадите садржај за \"{$title}\"."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Последња уредничка одлука."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Предати чланак је прихваћен."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Процес рецензирања од стране спољних рецензената ја започето."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Ревизија је потребна."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Поново пошаљи на рецензирање."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Предати чланак је одбијен."
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Процес продукције је започет."
+
+msgid "notification.uploadedResponse"
+msgstr "Одговор је достављен."
+
+msgid "notification.type.editorAssignment"
+msgstr "Уредник мора бити додељен пре него што рецензирање може бити започето. Додајте уредника користећи линк \"Сарадници\"."
+
+msgid "grid.reviewAttachments.title"
+msgstr "Додати фајлови рецензента"
+
+msgid "submission.productionReady"
+msgstr "Књига је доступна"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Достави ревидиране фајлове"
+
+msgid "editor.submission.decision.decline"
+msgstr "Одбиј предати чланак"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Нема додељених"
+
+msgid "editor.submission.participant"
+msgstr "Сарадник"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Додај сарадника"
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Уклони сарадника"
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Морате одабрати корисничку групу."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Морате одабрати корисника за одабрану корисничку групу."
+
+msgid "editor.submission.decision"
+msgstr "Одлука"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Захтевај ревизију"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Поново пошаљи на рецензирање"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Немате докумената за ревидирање."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Захтева се ревизија."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Послато на спољашње рецензирање."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Предаја је прихваћена"
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Предаја је одбијена."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Чека се одабир рецензената"
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Чека се одговор од рецензената."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Достављене су нове рецензије."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Рецензије су завршене."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+"Уколико\n"
+" достављате ревизију постојећег документа, обавезно назначите којег."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Ово није ревизија постојећег документа"
+
+msgid "submission.upload.userGroup"
+msgstr "Достави документ у мојој улози као..."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Достави документ библиотеке"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Категорија докумената предаје"
+
+msgid "submission.upload.finalDraft"
+msgstr "Достави документ"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Достави лекторисани документ"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Достави документе"
+
+msgid "submission.upload.productionReady"
+msgstr "Доставите \"Документ спреман за продукцију\""
+
+msgid "submission.upload.proof"
+msgstr "Доставите \"Документ спреман за објављивање\""
+
+msgid "workflow.review.internalReview"
+msgstr "Интерно рецензирање"
+
+msgid "workflow.stage.any"
+msgstr "Било која фаза"
+
+msgid "workflow.stage"
+msgstr "Фаза"
+
+msgid "submission.status.editorial"
+msgstr "На лектури"
+
+msgid "submission.status.production"
+msgstr "На коректури"
+
+msgid "submission.status.review"
+msgstr "На рецензирању"
+
+msgid "submission.status.submission"
+msgstr "Чека одлуку уредника"
+
+msgid "submission.status.unassigned"
+msgstr "Недодељено"
+
+msgid "submission.status.declined"
+msgstr "Одбијено"
+
+msgid "submission.status.published"
+msgstr "Објављено"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Достављање документа"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Достављање документа предаје"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Преглед детаља"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Потврда"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Морате унети назив документа"
+
+msgid "submission.upload.noGenre"
+msgstr "Непостојећа или неисправна компонента!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Непостојећа или неисправна корисничка група!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "Откривено је могуће дупликовање ревизија"
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Одаберите документ који желите да ревидирате."
+
+msgid "submission.submit.contributorRole"
+msgstr "Улога сарадника"
+
+msgid "submission.submit.addAuthor"
+msgstr "Додај сарадника"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Главни контакт за уредничку коресподенцију."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Прихватам изјаву о ауторским правима и обавезама"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "Слажем се да ћу поштовати ауторске обавезе."
+
+msgid "submission.submit.submissionLocale"
+msgstr "Језик предаје"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Овај часопис прихвата предаје радова на више језика. Одаберите примарни језик предај из менија."
+
+msgid "submission.views"
+msgstr "Прикази"
+
+msgid "submission.uploadSuccessful"
+msgstr "Документ је достављен."
+
+msgid "submission.loadMessage"
+msgstr "Сачекајте док се документ доставља на сервер."
+
+msgid "submission.artworkFileDetails"
+msgstr "Детаљи документа илустрације"
+
+msgid "submission.fileDetails"
+msgstr "Детаљи документа"
+
+msgid "submission.nameRequired"
+msgstr "Унесите назив"
+
+msgid "submission.submit.submissionFiles"
+msgstr "Документи предаје"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Зависни документи"
+
+msgid "submission.manageDependentFiles"
+msgstr "Управљај зависним документима"
+
+msgid "submission.upload.dependent"
+msgstr "Достави зависни документ"
+
+msgid "submission.upload.query"
+msgstr "Достави документ дискусије"
+
+msgid "submission.summary"
+msgstr "Резиме"
+
+msgid "submission.supportingAgencies"
+msgstr "Установе подршке"
+
+msgid "submission.currentAgencies"
+msgstr "Тренутне агенције"
+
+msgid "submission.indexingInformation"
+msgstr "Информације за индексирање"
+
+msgid "submission.titleAndAbstract"
+msgstr "Наслов и апстракт"
+
+msgid "submission.underway"
+msgstr "У току"
+
+msgid "submission.uploadFileTo"
+msgstr "Достави документ у"
+
+msgid "submission.viewMetadata"
+msgstr "Прикажи метаподатке"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Додељено мени"
+
+msgid "submission.mySubmissions"
+msgstr "Моје ауторство"
+
+msgid "submission.attachedFile"
+msgstr "Придодати фајлови"
+
+msgid "submission.changeFile"
+msgstr "Измени фајл"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Недодељено"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Архивиране предаје"
+
+msgid "submission.authors"
+msgstr "Аутори"
+
+msgid "submission.authorBiographies"
+msgstr "Биографије аутора"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} и други."
+
+msgid "submission.comments.addComment"
+msgstr "Додај коментар"
+
+msgid "submission.comments.comments"
+msgstr "Коментари"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Да ли сте сигурни да желите да обришете коментар?"
+
+msgid "submission.comments.corrections"
+msgstr "Исправке"
+
+msgid "submission.comments.editComment"
+msgstr "Измени коментар"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Рецензент {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Нема коментара"
+
+msgid "submission.comments.noReviews"
+msgstr "Нема рецензија"
+
+msgid "submission.comments.review"
+msgstr "Рецензија"
+
+msgid "submission.comments.subject"
+msgstr "Тема"
+
+msgid "submission.complete"
+msgstr "Завршено"
+
+msgid "submission.contributors"
+msgstr "Листа сарадника"
+
+msgid "submission.copyedited"
+msgstr "Лекторисано"
+
+msgid "submission.copyediting"
+msgstr "Лектура"
+
+msgid "submission.queryNoteFiles"
+msgstr "Фајл дискусије"
+
+msgid "submission.done"
+msgstr "Готово"
+
+msgid "submission.dueDate"
+msgstr "До датума"
+
+msgid "submission.due"
+msgstr "До"
+
+msgid "submission.editing"
+msgstr "Уређивање"
+
+msgid "submission.editMetadata"
+msgstr "Измени метаподатке"
+
+msgid "submission.editorial"
+msgstr "Лектура"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Повратак на лог имејлова"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Обриши унос у логу"
+
+msgid "submission.emailLog"
+msgstr "Лог имејлова"
+
+msgid "submission.event.backToEventLog"
+msgstr "Повратак на лог дешавања"
+
+msgid "submission.event.fileUploaded"
+msgstr "{$username} је доставио документ \"{$originalFileName}\" уз предају {$submissionId}."
+
+#, fuzzy
+msgid "submission.event.fileRevised"
+msgstr "Ревизија \"{$name}\" (file ID {$fileId}-{$revision}) је достављена."
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Метаподаци предаје су ажурирани"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Документ предаје је ажуриран"
+
+msgid "submission.howToCite"
+msgstr "Како цитирати"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Формати цитирања"
+
+msgid "submission.initiated"
+msgstr "Започето"
+
+msgid "submission.identifiers"
+msgstr "Идентификатори"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Информације о предаји"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Метаподаци"
+
+msgid "submission.informationCenter.notes"
+msgstr "Напомене"
+
+msgid "submission.informationCenter.history"
+msgstr "Историја"
+
+msgid "submission.lastModified"
+msgstr "Последњи пут измењено"
+
+msgid "submission.submit.finishSubmission"
+msgstr "Заврши предају"
+
+msgid "submission.submit.selectFile"
+msgstr "Одабери документ"
+
+msgid "submission.submit.fileInformation"
+msgstr "Информације о документу"
+
+msgid "submission.submit.fileAdded"
+msgstr "Документ је додат"
+
+msgid "submission.submit.newFile"
+msgstr "Додај следећи документ"
+
+msgid "submission.confirm.message"
+msgstr "Ваша предаја и документи које сте доставили су спремни за слање. Можете се вратити и проверити све податке које сте унели пре наставка. Када се уверите да је све у реду, кликните на \"Заврши шредају\"."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Предаја је завршена"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "Захваљујемо се на интересовању да објавите Ваш рад у нашем часопису {$contextName}."
+
+msgid "submission.rights"
+msgstr "Права"
+
+msgid "submissions.active"
+msgstr "Активно"
+
+msgid "submissions.archived"
+msgstr "Архивирано"
+
+msgid "submission.saveMetadata"
+msgstr "Сачувај метаподатке"
+
+msgid "submissions.completed"
+msgstr "Завршено"
+
+msgid "submissions.declined"
+msgstr "Одбијено"
+
+msgid "submissions.incomplete"
+msgstr "Некомплетно"
+
+msgid "submissions.noSubmissions"
+msgstr "Нема предаја"
+
+msgid "submissions.queuedEditing"
+msgstr "У уређивању"
+
+msgid "submissions.queued"
+msgstr "На чекању"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Чека доделу"
+
+msgid "submission.source"
+msgstr "Извор"
+
+msgid "submissions.submit"
+msgstr "Предај"
+
+msgid "submissions.submitted"
+msgstr "Предато"
+
+msgid "submission.submission"
+msgstr "Предаја"
+
+msgid "submission.submissionTitle"
+msgstr "Наслов рада:"
+
+msgid "submission.start"
+msgstr "Започни"
+
+msgid "submission.submissionHistory"
+msgstr "Историја предаја"
+
+msgid "submission.submissionManuscript"
+msgstr "Рукопис предаје"
+
+msgid "submission.submissionReview"
+msgstr "Рецензије предаје"
+
+msgid "submission.submitter"
+msgstr "Подносилац"
+
+msgid "submission.production"
+msgstr "Продукција"
+
+msgid "submission.files.downloadAll"
+msgstr "Преузми све документе"
+
+msgid "submission.galley"
+msgstr "Фајл приказа"
+
+msgid "submission.history.clearLog"
+msgstr "Очисти лог"
+
+msgid "submission.history"
+msgstr "Историја"
+
+msgid "submission.review"
+msgstr "Рецензија"
+
+msgid "submission.recommendation"
+msgstr "Препорука: {$recommendation}"
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Замољени сте да прегледате пробну копију за \"{$title}\"."
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Креирајте нови елемент за рецензентски образац"
+
+msgid "submission.queries.editorial"
+msgstr "Коректурне дискусије"
+
+msgid "submission.event.fileAuditorAdded"
+msgstr "\"{$name}\" ({$username}) је додат као ревизор за фајл \"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr "\"{$name}\" ({$username}) је уклоњен као ревизор за фајл \"{$file}.\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr "\"{$name}\" ({$username}) је комплетирао ревизију за постављен \"{$file}.\""
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) је одјављен на делу за одјаву за \"{$file}.\""
+
+msgid "editor.submission.addAuditorError"
+msgstr "Појавила се грешка у додели ревизора. Покушајте поново."
+
+msgid "submission.event.fileDeleted"
+msgstr "{$username} је обрисао фајл {$originalFileName}\" заб пријављен чланак {$submissionId}."
+
+msgid "submission.event.revisionUploaded"
+msgstr "{$username} је поставио на сервер ревизију фајла \"{$originalFileName}\" за пријављен чланак  {$submissionId}."
+
+msgid "submission.event.revisionDeleted"
+msgstr "{$username} је избрисао ревизију фајла \"{$originalFileName}\" за пријављен чланак {$submissionId}."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "{$username} је уклонио последњу ревизију за фајл \"{$title}\"."
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr "Корисници су додељени фазама процеса рада у корисничкој групи. Корисник додељен овој фази че аутоматски бити додељен другим фазама којима је додељена његова корисничка група. Ово је обично резервисано за уреднике, ауторе и преводиоце."
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "Ви ћете уклонити овог учесника из <strong>свих</strong> фаза. Ако корисник има отворене ревизорксе задатке они ће бити такође уклоњени."
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr "Страница са пробним копијама мора бити означена као одобрена да би била доступна. Да ли желите да је одобрите?"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr "Ова проверена копија више неће бити јавно доступна за преузимање или куповину. Да ли желите да је укинете?"
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Нема поднесених рецензија нити рецензија које уредник разматра."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Услови за предају чланка"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "Морате прочитати и потврдити д сте задовољили услове пре наставка пријаве."
+
+msgid "submission.submit.whatNext"
+msgstr "Шта се дешава следеће?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "За сада, можете:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Извршите рецензију пријављеног чланка"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Пријавите нови чланак"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Вратите се на контролну таблу"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Проширени метаподаци"
+
+msgid "submission.upload.userGroupDescription"
+msgstr "Ако пријављујете Уређени волумен/свеску морате поставити на сервер свако поглавље посебно у вашој улози уредника волумена/свеске."
+
+msgid "submission.upload.response.description"
+msgstr "Након рецензије додељеног фајла, забележите  ниже коментаре на фајл и/или поставите копију са белешкама фајла (или други фајл)."
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr "Име постављеног фајла подсећа на име претходно постављеног фајла \"{$revisedFileName}.\". Да ли је то фајл који треба да замени \"{$revisedFileName}\"? Ако јесте одаберите фајл испод. АКо није одаберите \"Ово није ревизија постојећег фајла\" пре него што наставите."
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Пошаљи рецензентима уредникову одлуку"
+
+msgid "submission.coverage"
+msgstr "Информација о широј области"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Да ли сте сигурни да желите обрисати лог за поруке за овај пријављени чланак?"
+
+msgid "submission.type.tip"
+msgstr "Тип пријављеног дела је обично 'слика', 'текст', или други мултимедијални тип укључујући и 'компјутерски програм' или 'интерактивно'."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Додајте додатне информације з ваш пријављен чланак. Притисните 'enter' након сваког термина."
+
+msgid "submission.source.tip"
+msgstr "Да ли јевај пријављени чланак изведен из другог извора? АКо јесте, можете уписати URL или описати тај извор."
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Додати овог коаутора у листу за претрагу?"
+
+msgid "submission.submit.metadataForm"
+msgstr "Додатна пречишћавања"
+
+msgid "submission.rejected"
+msgstr "Одбијено"
+
+msgid "submission.request"
+msgstr "Захтев"
+
+msgid "submission.response"
+msgstr "Одговор"
+
+msgid "submission.restrictions"
+msgstr "Ограничења"
+
+msgid "submission.reviewMetadata"
+msgstr "Преглед метаподатака"
+
+msgid "submission.reviewVersion"
+msgstr "Рецензирана верзија"
+
+msgid "submission.rights.tip"
+msgstr "АКо желите можете уписати кратки став о правима приступа за овај пријављени чланак."
+
+msgid "submissions.ruling"
+msgstr "Одлука"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Нема белешки о пријави"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Уклони постављен фајл"
+
+msgid "submission.notes"
+msgstr "Белешке о пријављеном чланку"
+
+msgid "submission.notes.updateNote"
+msgstr "Ажурирај белешку"
+
+msgid "submission.notes.viewNotes"
+msgstr "Види белешке"
+
+msgid "submission.originalFile"
+msgstr "Изворни фајл"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Уређивање"
+
+msgid "submission.page.history"
+msgstr "#{$id} Историја"
+
+msgid "submission.page.review"
+msgstr "#{$id} Рецензија"
+
+msgid "submission.page.summary"
+msgstr "#{$id}  Сажетак"
+
+msgid "submission.page.citations"
+msgstr "#{$id}Цитати"
+
+msgid "submission.peerReview"
+msgstr "Стручна&nbsp;Рецензија"
+
+msgid "submission.history.viewLog"
+msgstr "Види лог"
+
+msgid "submission.publisherId"
+msgstr "Јавна URL одредница"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Покажи догађаје из претходних верзија"
+
+msgid "submission.layout.addGalley"
+msgstr "Додај изглед пробне копије"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Да ли сте сигурни да желите да трајно уклоните ову пробну копију?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Да ли сте сигурни да желите да уклоните ову слику из пробне копије?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Обриши ову страницу стила."
+
+msgid "submission.layout.editGalley"
+msgstr "Уреди изглед пробне копије"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Формат пробне копије"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML фајлови пробне копије"
+
+msgid "submission.layout.galleyImages"
+msgstr "Слике"
+
+msgid "submission.layout.galleyLabel"
+msgstr "Етикета пробне копије"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Обично се користи за идентификовање формата фајла (нпр. PDF, HTML, etc.)."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Потребна етикета за пробну копију."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Потребан језик за локалну копију"
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Потребна локализација за пробну копију"
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Нема слика"
+
+msgid "submission.layout.galleys"
+msgstr "Пробне копије"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Фајл странице стила"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Стил"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Почетно креирање пробне копије"
+
+msgid "submission.layout.layoutFile"
+msgstr "Фајл изгледа/прелома"
+
+msgid "submission.layout"
+msgstr "Изглед/прелом"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Верзија изгледа"
+
+msgid "submission.layout.newGalley"
+msgstr "Креирај нову пробну копију"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Нема странице стила за ову пробну копију."
+
+msgid "submission.layout.viewingGalley"
+msgstr "Преглед пробне копије чланка"
+
+msgid "submission.layout.viewProof"
+msgstr "Види пробну копију"
+
+msgid "submission.metadata"
+msgstr "Метаподаци о чланку"
+
+msgid "submission.noReviewAssignments"
+msgstr "Нема додељених рецензија"
+
+msgid "submission.notes.addNewNote"
+msgstr "Додај нову белешку"
+
+msgid "submission.notes.attachedFile"
+msgstr "Фајл у прилогу"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Повратак на белешке"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Белешке"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Обриши све белешке"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Сакупи белешке"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Уклонити све белешке за овај чланак?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Уклонити белешку за овај чланак?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Напиши нову белешку"
+
+msgid "submission.notes.deleteNote"
+msgstr "Обриши белешку"
+
+msgid "submission.notes.editNote"
+msgstr "Уреди белешку"
+
+msgid "submission.notes.expandNotes"
+msgstr "Прошири белешке"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Увези стручне рецензије"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Да ли сте сигурни да желите обристаи емаил лог унос?"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Да ли сте сигурни да желите обристаи лог унос за овај чланак?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Да ли сте сигурни да желите обрисати овај унос у логу?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Обриши унос у логу."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Инцијална пријава чланка комплетирана."
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Додлеа рецензије прихваћена преко овлашћене особе"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Додела рецензије прихваћена"
+
+msgid "submission.event.reviewer.reviewCancelled"
+msgstr "Додела рецензије поништена"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Обустава доделе рецензије"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Модификован рок за рецензију"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Рецнзент додељен чланку"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Приложено вредновање рецензента"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Рецензент одјављен од пријављеног чланка"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Ажурирана рецензија фајла"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Додела рецензије покренута"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Рецензија препорученог фајла"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Додела рецензије поново покренута"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Рецензија поново послата"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Ажуриран фајл рецензиране верзије"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Имејл је послат:"
+
+msgid "submission.event.viewEmail"
+msgstr "Види имејл"
+
+msgid "submission.files"
+msgstr "Фајлови"
+
+msgid "submission.history.noLogEntries"
+msgstr "Нема уноса у логу."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Недавни уноси"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Лог емаил порука"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Лог догађаја"
+
+msgid "submission.history.submissionNotes"
+msgstr "Белешке о пријављеном чланку"

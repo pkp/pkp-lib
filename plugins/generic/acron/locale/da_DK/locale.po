@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T11:06:21+00:00\n"
+"PO-Revision-Date: 2020-03-09 11:49+0000\n"
+"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"generic-acron/da/>\n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.acron.name"
+msgstr "Acron-plugin"
+
+msgid "plugins.generic.acron.description"
+msgstr ""
+"Denne plugin forsøger at reducere afhængigheden af applikationen på "
+"periodiske planlægningsværktøjer såsom 'cron.'"
+
+msgid "plugins.generic.acron.enabled"
+msgstr "Acron-pluginen er blevet aktiveret."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Acron-pluginen er blevet deaktiveret."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Cron-fanen blev genindlæst."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Genindlæs planlagte opgaver"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Planlagte opgaver blev genindlæst."

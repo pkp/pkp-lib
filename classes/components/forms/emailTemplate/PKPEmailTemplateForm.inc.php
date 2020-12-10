@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/context/PKPEmailTemplateForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEmailTemplateForm
  * @ingroup classes_controllers_form
@@ -33,7 +33,6 @@ class PKPEmailTemplateForm extends FormComponent {
 	public function __construct($action, $locales, $emailTemplate = null) {
 		$this->action = $action;
 		$this->method = is_null($emailTemplate) ? 'POST' : 'PUT';
-		$this->successMessage = is_null($emailTemplate) ? __('manager.emails.addEmail.success') : __('manager.emails.editEmail.success');
 		$this->locales = $locales;
 
 		if (is_null($emailTemplate)) {

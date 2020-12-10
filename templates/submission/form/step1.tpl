@@ -1,9 +1,9 @@
 {**
  * templates/submission/form/step1.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Step 1 of author submission process.
  *}
@@ -29,11 +29,13 @@
 
 	{$additionalFormContent2}
 
+	{include file="submission/form/categories.tpl"}
+
 	{* Submission checklist *}
 	{if $currentContext->getLocalizedData('submissionChecklist')}
 		{fbvFormSection list="true" label="submission.submit.submissionChecklist" description="submission.submit.submissionChecklistDescription" id="pkp_submissionChecklist"}
 			{foreach name=checklist from=$currentContext->getLocalizedData('submissionChecklist') key=checklistId item=checklistItem}
-				{fbvElement type="checkbox" id="checklist-$checklistId" required=true value=1 label=$checklistItem.content|strip_unsafe_html translate=false checked=false}
+				{fbvElement type="checkbox" id="checklist-$checklistId" required=true value=1 label=$checklistItem.content|nl2br translate=false checked=false}
 			{/foreach}
 		{/fbvFormSection}
 	{/if}

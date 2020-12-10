@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/settings/user/UserGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserGridHandler
  * @ingroup controllers_grid_settings_user
@@ -150,7 +150,7 @@ class UserGridHandler extends GridHandler {
 	 */
 	function initFeatures($request, $args) {
 		import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
-		return array(new PagingFeature());
+		return [new PagingFeature()];
 	}
 
 	/**
@@ -163,7 +163,7 @@ class UserGridHandler extends GridHandler {
 		$context = $request->getContext();
 
 		// Get all users for this context that match search criteria.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
 		return $userGroupDao->getUsersById(
@@ -181,34 +181,34 @@ class UserGridHandler extends GridHandler {
 	 */
 	function renderFilter($request, $filterData = array()) {
 		$context = $request->getContext();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getByContextId($context->getId());
-		$userGroupOptions = array('' => __('grid.user.allRoles'));
+		$userGroupOptions = ['' => __('grid.user.allRoles')];
 		while ($userGroup = $userGroups->next()) {
 			$userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
 		}
 
 		// Import UserDAO to define the USER_FIELD_* constants.
 		import('lib.pkp.classes.user.UserDAO');
-		$fieldOptions = array(
+		$fieldOptions = [
 			IDENTITY_SETTING_GIVENNAME => 'user.givenName',
 			IDENTITY_SETTING_FAMILYNAME => 'user.familyName',
 			USER_FIELD_USERNAME => 'user.username',
 			USER_FIELD_EMAIL => 'user.email'
-		);
+		];
 
-		$matchOptions = array(
+		$matchOptions = [
 			'contains' => 'form.contains',
 			'is' => 'form.is'
-		);
+		];
 
-		$filterData = array(
+		$filterData = [
 			'userGroupOptions' => $userGroupOptions,
 			'fieldOptions' => $fieldOptions,
 			'matchOptions' => $matchOptions,
 			// oldUserId is used when merging users. see: userGridFilter.tpl
 			'oldUserId' => $request->getUserVar('oldUserId'),
-		);
+		];
 
 		return parent::renderFilter($request, $filterData);
 	}
@@ -225,13 +225,13 @@ class UserGridHandler extends GridHandler {
 		$searchMatch = $request->getUserVar('searchMatch');
 		$search = $request->getUserVar('search');
 
-		return $filterSelectionData = array(
+		return $filterSelectionData = [
 			'includeNoRole' => $includeNoRole,
 			'userGroup' => $userGroup,
 			'searchField' => $searchField,
 			'searchMatch' => $searchMatch,
 			'search' => $search ? $search : ''
-		);
+		];
 	}
 
 	/**
@@ -323,7 +323,7 @@ class UserGridHandler extends GridHandler {
 				// Successful edit of an existing user.
 				$notificationManager = new NotificationManager();
 				$user = $request->getUser();
-				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.editedUser')));
+				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.editedUser')]);
 
 				// Prepare the grid row data.
 				return DAO::getDataChangedEvent($userId);
@@ -454,7 +454,7 @@ class UserGridHandler extends GridHandler {
 		}
 
 		// Remove user from all user group assignments for this context.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		// Check if this user has any user group assignments for this context.
 		if (!$userGroupDao->userInAnyGroup($userId, $context->getId())) {
@@ -478,7 +478,7 @@ class UserGridHandler extends GridHandler {
 		// Identify the user Id.
 		$userId = $request->getUserVar('rowId');
 
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		if (
 			!$roleDao->userHasRole(CONTEXT_SITE, $user->getId(), ROLE_ID_SITE_ADMIN) && !(
 				$context &&
@@ -510,7 +510,7 @@ class UserGridHandler extends GridHandler {
 		// Identify the user Id.
 		$userId = $request->getUserVar('userId');
 
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		if (
 			!$roleDao->userHasRole(CONTEXT_SITE, $user->getId(), ROLE_ID_SITE_ADMIN) && !(
 				$context &&
@@ -552,10 +552,10 @@ class UserGridHandler extends GridHandler {
 			$userAction = new UserAction();
 			$userAction->mergeUsers($oldUserId, $newUserId);
 			$json = new JSONMessage(true);
-			$json->setGlobalEvent('userMerged', array(
+			$json->setGlobalEvent('userMerged', [
 				'oldUserId' => $oldUserId,
 				'newUserId' => $newUserId,
-			));
+			]);
 			return $json;
 
 		// Otherwise present the grid for selecting the user to merge into
@@ -571,7 +571,7 @@ class UserGridHandler extends GridHandler {
 	 * @see GridHandler::getRequestArgs()
 	 */
 	function getRequestArgs() {
-		$requestArgs = (array) parent::getRequestArgs();
+		$requestArgs = parent::getRequestArgs();
 		$requestArgs['oldUserId'] = $this->_oldUserId;
 		return $requestArgs;
 	}

@@ -3,19 +3,15 @@
 /**
  * @file classes/views/ViewsDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ViewsDAO
  * @ingroup views
  *
  * @brief Class for keeping track of item views.
  */
-
-define('RECORD_VIEW_RESULT_FAIL', 0);
-define('RECORD_VIEW_RESULT_EXISTING', 1);
-define('RECORD_VIEW_RESULT_INSERTED', 2);
 
 class ViewsDAO extends DAO {
 
@@ -26,16 +22,16 @@ class ViewsDAO extends DAO {
 	 * @param $userId integer The id of the user viewing the item.
 	 * @return int RECORD_VIEW_RESULT_...
 	 */
-	function recordView($assocType, $assocId, $userId) {
+	public function recordView($assocType, $assocId, $userId) {
 		return $this->replace(
 			'item_views',
-			array(
+			[
 				'date_last_viewed' => strftime('%Y-%m-%d %H:%M:%S'),
 				'assoc_type' => (int) $assocType,
 				'assoc_id' => $assocId,
 				'user_id' => (int) $userId
-			),
-			array('assoc_type', 'assoc_id', 'user_id')
+			],
+			['assoc_type', 'assoc_id', 'user_id']
 		);
 	}
 
@@ -46,18 +42,19 @@ class ViewsDAO extends DAO {
 	 * @param $userId integer
 	 * @return string|boolean Datetime of last view. False if no view found.
 	 */
-	function getLastViewDate($assocType, $assocId, $userId = null) {
-		$params = array((int)$assocType, $assocId);
+	public function getLastViewDate($assocType, $assocId, $userId = null) {
+		$params = [(int)$assocType, $assocId];
 		if ($userId) $params[] = (int)$userId;
 		$result = $this->retrieve(
 			'SELECT	date_last_viewed
 			FROM	item_views
 			WHERE	assoc_type = ?
-				AND	assoc_id = ?' .
-				($userId ? ' AND	user_id = ?' : ''),
+				AND assoc_id = ?' .
+				($userId ? ' AND user_id = ?' : ''),
 			$params
 		);
-		return (isset($result->fields[0])) ? $result->fields[0] : false;
+		$row = $result->current();
+		return $row ? $row->date_last_viewed : false;
 	}
 
 	/**
@@ -66,10 +63,10 @@ class ViewsDAO extends DAO {
 	 * @param $oldAssocId string
 	 * @param $newAssocId string
 	 */
-	function moveViews($assocType, $oldAssocId, $newAssocId) {
+	public function moveViews($assocType, $oldAssocId, $newAssocId) {
 		return $this->update(
 			'UPDATE item_views SET assoc_id = ? WHERE assoc_type = ? AND assoc_id = ?',
-			array($newAssocId, (int)$assocType, $oldAssocId)
+			[$newAssocId, (int)$assocType, $oldAssocId]
 		);
 	}
 
@@ -78,12 +75,11 @@ class ViewsDAO extends DAO {
 	 * @param $assocType integer One of the ASSOC_TYPE_* constants.
 	 * @param $assocId string
 	 */
-	function deleteViews($assocType, $assocId) {
+	public function deleteViews($assocType, $assocId) {
 		return $this->update(
 			'DELETE FROM item_views WHERE assoc_type = ? AND assoc_id = ?',
-			array((int)$assocType, $assocId)
+			[(int)$assocType, $assocId]
 		);
 	}
 }
-
 

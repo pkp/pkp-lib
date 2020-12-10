@@ -1,0 +1,143 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-09-16 06:49+0000\n"
+"Last-Translator: anau vpn <anauvpn@gmail.com>\n"
+"Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"hy_AM/>\n"
+"Language: hy_AM\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.403.unauthorized"
+msgstr "Դուք նույնականացված չեք այս աղբյուրին հասանելիության համար"
+
+msgid "api.400.paramNotSupported"
+msgstr "Այս {$param} պարամետրը չի դիտարկվում"
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "{$vocab} բառապաշարը չի երաշխավորվում:"
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "{$locale} լեզուն չի երաշխավորվում:"
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Ակտիվ թեման՝  {$themePluginPath}, ապաակտիվացված չէ և չի կարող տեղադրվել:"
+
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"Ֆայլը չի կարող ներբեռնվել սերվերի կարգավորման սխալի պատճառով: Խնդրում ենք, "
+"կապ հաստատեք կայքի ադմինիստրատորի հետ:"
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "{$maxSize}ից ավելի մեծ ֆայլեր չեն կարող ներբեռնվել:"
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "Մեկ կամ մեկից ավել ֆայլ կարող է ներբեռնվել:"
+
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "Ներբեռնման համար անհրաժեշտ ֆայլ չի գտնվել:"
+
+msgid "api.submissions.unknownError"
+msgstr "Չսպասված սխալ է տեղի ունեցել: Խնդրում ենք, թարմացրեք էջ և կրկին փորձեք:"
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Հարցման ծավալը, համարը կամ տարին վավեր չէ:"
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Ձեր հարցումը չի կարող կատարվել, քանի որ պահանջվող տեղեկատվությունը "
+"բացակայում է:"
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr "Այս վերջնակետը հասանելի չէ համատեքստից:"
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Այս հայտը ջնջելու թույլտվություն Դուք չունեք:"
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"Դուք չեք կարող ջնջել ներկայացման հայտը, որը վերագրված չէ այս համատեքաստին:"
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Դուք կարող եք տեսնել միայն չհրապարակված հայտերը, որոնց համար արդեն դիմել եք:"
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Ձեր հարցումը մերժված է: Հնարավոր է մուտքի ժամկետը լրացել է: Վերբեռնեք էջը և "
+"փորձեք կրկին:"
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Ձեր հարցումը վավեր չէ: Հրամանը պետք է լինի   `desc` կամ `asc`:"
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Ձեր հարցումը վավեր չէ: Ժամանակագրական ինտերվալը պետք է լինի «օր» կամ «ամիս»:"
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Ավարտի ամսաթիվը ավելի ուշ քան երեկ չի կարող լինել:"
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Սկզբի ամսաթիվը չի կարող ավելի շուտ լինել քան 2001-01-01-ը:"
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Սկզբի ամսաթիվը չի կարող լինել ավելի ուշ քան ավարտի ամսաթիվը:"
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Ամսաթիվը պետք է լինի հետևյալ ֆորմատի՝ YYYY-MM-DD:"
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Այս հոդվածը խմբագրելու համար Դուք թույլտվություն չունեք:"
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Հանրային ֆայլերի ցուցակ չի գտնվել կամ ֆայլերը այդտեղ չեն կարող պահպանվել: "
+"Խնդրում ենք կապ հաստատել ադմինիստրատորի հետ խնդիրը լուծելու համար:"
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Դուք բավարար տարածություն չունեք Ձեր՝ օգտագործողի տեղեկատուի մեջ: Ֆայլը, որը "
+"Դուք ներբեռնում եք  {$fileUploadSize}kb է և Ձեզ հասանելի է {$dirSizeLeft}kb:"
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Դուք ֆայլ ներբեռնելու թույլտվություն չունեք:"
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Ձեր ներբեռնած ֆայլը չի համապատասխանում  պահանջներին: Սա կարող է տեղի "
+"ունենալ, երբ ֆայլը վերաանվանված է  անհամատեղելի  տիպի, օրինակ photo.png-ն "
+"փոխել photo.jpg:"
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Ձեր ներբեռնած նկարը վավեր չէ:"
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Դուք կարող եք միայն ներբեռնել հետևյալ ֆայլի տիպը՝{$fileTypes}:"
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Դուք կարող եք ձևափոխել կարգավիճակը API-ի միջոցով: Փոխարենը, օգտագործեք /"
+"հրապարակել և /չհրապարակել վերջնակետերը:"
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+"Դուք չեք կարող խմբագրել այս հրապարակումը, քանի որ դա արդեն հրապարակված է:"
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Հրապարակումը, ոը չեք ցանկանում հրապարակել, հրապարակված չէ:"
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Հոդվածը, որը Դուք ցանկանում եք հրապարակել արդեն հրապարակված է:"
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Էլ. հասցեի պահանջված ձևանմուշը չի գտնվել:"
+
+msgid "api.404.endpointNotFound"
+msgstr "Պահանջվող հղումը չի ճանաչվել:"
+
+msgid "api.404.resourceNotFound"
+msgstr "Պահանջվող ռեսուրսը չի գտնվել:"

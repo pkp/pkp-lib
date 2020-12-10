@@ -3,9 +3,9 @@
 /**
  * @file classes/controllers/grid/GridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GridHandler
  * @ingroup classes_controllers_grid
@@ -141,12 +141,12 @@ class GridHandler extends PKPHandler {
 	 */
 	function getRequestArgs() {
 		$dataProvider = $this->getDataProvider();
-		$requestArgs = array();
-		if (is_a($dataProvider, 'GridDataProvider')) {
+		$requestArgs = [];
+		if ($dataProvider instanceof GridDataProvider) {
 			$requestArgs = $dataProvider->getRequestArgs();
 		}
 
-		$this->callFeaturesHook('getRequestArgs', array('grid' => &$this, 'requestArgs' => &$requestArgs));
+		$this->callFeaturesHook('getRequestArgs', ['grid' => &$this, 'requestArgs' => &$requestArgs]);
 
 		return $requestArgs;
 	}
@@ -341,11 +341,9 @@ class GridHandler extends PKPHandler {
 	 * @param $data mixed an array or ItemIterator with element data
 	 */
 	function setGridDataElements($data) {
-		$this->callFeaturesHook('setGridDataElements', array('grid' => &$this, 'data' => &$data));
+		$this->callFeaturesHook('setGridDataElements', ['grid' => &$this, 'data' => &$data]);
 
-		// FIXME: We go to arrays for all types of iterators because
-		// iterators cannot be re-used, see #6498.
-		if (is_array($data)) {
+		if (is_iterable($data)) {
 			$this->_data = $data;
 		} elseif(is_a($data, 'DAOResultFactory')) {
 			$this->_data = $data->toAssociativeArray();
@@ -976,7 +974,7 @@ class GridHandler extends PKPHandler {
 	 * @param $elements array The grid data elements to be rendered.
 	 * @return array of HTML Strings for Grid Rows.
 	 */
-	protected function renderRowsInternally($request, &$elements) {
+	protected function renderRowsInternally($request, $elements) {
 		// Iterate through the rows and render them according
 		// to the row definition.
 		$renderedRows = array();

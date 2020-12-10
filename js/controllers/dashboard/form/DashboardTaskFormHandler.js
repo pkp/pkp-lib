@@ -4,9 +4,9 @@
 /**
  * @file js/controllers/dashboard/form/DashboardTaskFormHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DashboardTaskFormHandler
  * @ingroup js_controllers_dashboard_form
@@ -69,7 +69,8 @@
 	$.pkp.controllers.dashboard.form.DashboardTaskFormHandler.
 			prototype.startSingleContextSubmission_ = function() {
 
-		window.location.href = /** @type {string} */ this.singleContextSubmissionUrl_;
+		window.location.href =
+				/** @type {string} */ (this.singleContextSubmissionUrl_);
 	};
 
 
@@ -84,10 +85,9 @@
 				url = $form.find('#multipleContext').val();
 
 		if (url != 0) { // not the default
-			window.location.href = /** @type {string} */ url;
+			window.location.href = /** @type {string} */ (url);
 		}
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/files/dependent/DependentFilesGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DependentFilesGridHandler
  * @ingroup controllers_grid_files_dependent
@@ -24,10 +24,10 @@ class DependentFilesGridHandler extends FileListGridHandler {
 	function __construct() {
 		// import app-specific grid data provider for access policies.
 		$request = Application::get()->getRequest();
-		$fileId = $request->getUserVar('fileId'); // authorized in authorize() method.
+		$submissionFileId = $request->getUserVar('submissionFileId'); // authorized in authorize() method.
 		import('lib.pkp.controllers.grid.files.dependent.DependentFilesGridDataProvider');
 		parent::__construct(
-			new DependentFilesGridDataProvider($fileId),
+			new DependentFilesGridDataProvider($submissionFileId),
 			$request->getUserVar('stageId'),
 			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
 		);
@@ -43,9 +43,9 @@ class DependentFilesGridHandler extends FileListGridHandler {
 	/**
 	 * @copydoc SubmissionFilesGridHandler::authorize()
 	 */
-	function authorize($request, $args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
-		$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY));
+		$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY, (int) $args['submissionFileId']));
 
 		return parent::authorize($request, $args, $roleAssignments);
 	}
@@ -57,7 +57,7 @@ class DependentFilesGridHandler extends FileListGridHandler {
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 		return array_merge(
 			parent::getRequestArgs(),
-			array('fileId' => $submissionFile->getFileId())
+			array('submissionFileId' => $submissionFile->getId())
 		);
 	}
 }

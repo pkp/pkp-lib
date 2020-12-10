@@ -3,9 +3,9 @@
 /**
 * @file classes/statistics/PKPStatisticsHelper.inc.php
 *
-* Copyright (c) 2013-2019 Simon Fraser University
-* Copyright (c) 2003-2019 John Willinsky
-* Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+* Copyright (c) 2013-2020 Simon Fraser University
+* Copyright (c) 2003-2020 John Willinsky
+* Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
 *
 * @class PKPStatisticsHelper
 * @ingroup statistics
@@ -264,14 +264,14 @@ abstract class PKPStatisticsHelper {
 		$args = array(
 			'metricType' => $metricType,
 			'columns' => $columns,
-			'filters' => serialize($filter)
+			'filters' => json_encode($filter)
 		);
 
 		if (!empty($orderBy)) {
-			$args['orderBy'] = serialize($orderBy);
+			$args['orderBy'] = json_encode($orderBy);
 		}
 
-		return $dispatcher->url($request, ROUTE_PAGE, null, 'management', 'tools', 'generateReport', $args);
+		return $dispatcher->url($request, ROUTE_PAGE, null, 'stats', 'reports', 'generateReport', $args);
 	}
 
 

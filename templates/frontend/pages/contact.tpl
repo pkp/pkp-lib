@@ -1,9 +1,9 @@
 {**
  * templates/frontend/pages/contact.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the page to view the press's contact details.
  *
@@ -74,9 +74,7 @@
 
 				{if $contactEmail}
 				<div class="email">
-					<a href="mailto:{$contactEmail|escape}">
-						{$contactEmail|escape}
-					</a>
+					{mailto address=$contactEmail encode='javascript'}
 				</div>
 				{/if}
 			</div>
@@ -108,9 +106,7 @@
 
 				{if $supportEmail}
 				<div class="email">
-					<a href="mailto:{$supportEmail|escape}">
-						{$supportEmail|escape}
-					</a>
+					{mailto address=$supportEmail encode='javascript'}
 				</div>
 				{/if}
 			</div>

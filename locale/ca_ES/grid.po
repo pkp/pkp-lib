@@ -1,0 +1,714 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
+"PO-Revision-Date: 2020-03-13 09:36+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/ca/"
+">\n"
+"Language: ca_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.noItems"
+msgstr "No hi ha cap element"
+
+msgid "grid.settings"
+msgstr "Configuració"
+
+msgid "grid.noAuditors"
+msgstr "No hi ha auditors"
+
+msgid "grid.action.manageAccess"
+msgstr "Administra l'accés"
+
+msgid "grid.action.sort"
+msgstr "Ordena"
+
+msgid "grid.action.addItem"
+msgstr "Afegeix un element"
+
+msgid "grid.action.addUser"
+msgstr "Afegeix usuaris/àries"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Aprova aquest fitxer corregit per enviar-lo a la propera fase"
+
+msgid "grid.action.reload"
+msgstr "Recarrega"
+
+msgid "grid.action.delete"
+msgstr "Suprimeix"
+
+msgid "grid.action.deleteFile"
+msgstr "Elimina el fitxer"
+
+msgid "grid.action.deleteMedia"
+msgstr "Eliminar multimèdia"
+
+msgid "grid.action.editMedia"
+msgstr "Editar multimèdia"
+
+msgid "grid.action.editSection"
+msgstr "Edita la secció"
+
+msgid "grid.action.export"
+msgstr "Exporta"
+
+msgid "grid.action.deleteSection"
+msgstr "Elimina la secció"
+
+msgid "grid.action.editorialHistory"
+msgstr "Historial d'editorial"
+
+msgid "grid.action.remove"
+msgstr "Suprimeix"
+
+msgid "grid.action.edit"
+msgstr "Edita"
+
+msgid "grid.action.approve"
+msgstr "Accepta"
+
+msgid "grid.action.moreInformation"
+msgstr "Més informació"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Restaura els valors per defecte"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Esteu segur/a que voleu restaurar els valors per defecte?"
+
+msgid "grid.action.addAuthor"
+msgstr "Afegeix un autor/a"
+
+msgid "grid.action.editAuthor"
+msgstr "Editar l'autor/a"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Elimina l'autor/a"
+
+msgid "grid.action.addAuditor"
+msgstr "Afegeix un auditor/a"
+
+msgid "grid.action.upgrade"
+msgstr "Actualiza"
+
+msgid "grid.action.order"
+msgstr "Ordena"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Cancel·lar l'ordre"
+
+msgid "grid.action.extendAll"
+msgstr "Expandir tot"
+
+msgid "grid.action.collapse"
+msgstr "Replegar"
+
+msgid "grid.action.collapseAll"
+msgstr "Replegar todo"
+
+msgid "grid.action.wizard"
+msgstr "Assistent de configuració"
+
+msgid "grid.action.moveItem"
+msgstr "Moure ítem"
+
+msgid "grid.action.downloadAll"
+msgstr "Descarrega tots els fitxers en un únic arxiu"
+
+msgid "grid.action.readReview"
+msgstr "Llegeix aquesta revisió"
+
+msgid "grid.action.email"
+msgstr "Envia un correu electrònic"
+
+msgid "grid.action.addReviewer"
+msgstr "Afegeix un revisor"
+
+msgid "grid.action.addFile"
+msgstr "Afegeix un fitxer"
+
+msgid "grid.action.editFile"
+msgstr "Edita un fitxer"
+
+msgid "grid.action.selectFiles"
+msgstr "Tria fitxers per gestionar"
+
+msgid "grid.action.requestRevisions"
+msgstr "Demana revisions per a aquesta tramesa"
+
+msgid "grid.action.resubmit"
+msgstr "Sol·licita que aquesta tramesa es reenviï"
+
+msgid "grid.action.accept"
+msgstr "Acepta aquesta tramesa"
+
+msgid "grid.action.decline"
+msgstr "Rebutja"
+
+msgid "grid.action.internalReview"
+msgstr "Envia aquest article a revisió interna"
+
+msgid "grid.action.externalReview"
+msgstr "Envia aquest article a revisió externa"
+
+msgid "grid.action.sendToProduction"
+msgstr "Envia aquest article a producció"
+
+msgid "grid.action.settings"
+msgstr "Configuració"
+
+msgid "grid.action.importexport"
+msgstr "Importeu o exporteu contingut o dades del lloc"
+
+msgid "grid.action.orderItems"
+msgstr "Activa el mode d'ordenació"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Edita aquest ítem de la llista de comprovació"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Elimina aquest ítem de la llista de comprovació"
+
+msgid "grid.action.resetAll"
+msgstr "Reinicia tots els ítems en els vsus valors per defecte"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Afegeix una nova plantilla de correu"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Edita aquesta plantilla de correu"
+
+msgid "grid.action.disableEmail"
+msgstr "Desactiva aquesta plantilla de correu"
+
+msgid "grid.action.resetEmail"
+msgstr "Restitueix aquesta plantilla de correu als valors per defecte"
+
+msgid "grid.action.addSignoff"
+msgstr "Afegeix una resposta auditada per a aquest fitxer"
+
+msgid "grid.action.deleteSignoff"
+msgstr "Elimina aquesta subscripció"
+
+msgid "grid.action.fileSignoff"
+msgstr "Subscriu aquest fitxer"
+
+msgid "grid.action.readSignoff"
+msgstr "Veure aquesta subscripció"
+
+msgid "grid.action.expandAll"
+msgstr "Expandir tot"
+
+msgid "grid.action.requestAccount"
+msgstr "Afegeix un participant"
+
+msgid "grid.action.expand"
+msgstr "Expandir"
+
+msgid "grid.action.notify"
+msgstr "Notificar aquest usuario/a"
+
+msgid "grid.action.addUserGroup"
+msgstr "Afegeix un nou grup d'usuaris"
+
+msgid "grid.action.editUserGroup"
+msgstr "Edita aquest grup d'usuaris"
+
+msgid "grid.action.disable"
+msgstr "Inhabilita"
+
+msgid "grid.action.details"
+msgstr "Vegeu aquest ítem"
+
+msgid "grid.action.enrolExisting"
+msgstr "Inscriure un usuari/ària existent"
+
+msgid "grid.action.selectCreate"
+msgstr "Crea un nou revisor/a"
+
+msgid "grid.action.advancedSearch"
+msgstr "Cerca avançada"
+
+msgid "grid.action.viewLibrary"
+msgstr "Visualitza la biblioteca de documents"
+
+msgid "grid.action.viewMetadata"
+msgstr "Veure les metadades d'aquesta tramessa"
+
+msgid "grid.action.sendReminder"
+msgstr "Envia un recordatori de tasca a aquest usuari/ària"
+
+msgid "grid.action.newRound"
+msgstr "Crea una nova ronda"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Vegeu la política de revisió"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Veure les directrius de les polítiques sobre conflicte d'interessos"
+
+msgid "grid.action.thankReviewer"
+msgstr "Envia un missatge d'agraïment a aquest revisor/ora"
+
+msgid "grid.action.uploadFile"
+msgstr "Carrega un fitxer"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Afegeix un tipus d'anunci"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Afegeix un anunci"
+
+msgid "grid.action.mergeUser"
+msgstr "Fusiona l'usuari/ària"
+
+msgid "grid.action.unassignUser"
+msgstr "Dessasigna l'usuari/ària"
+
+msgid "grid.action.history"
+msgstr "Vegeu la història"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Aquesta revisió s'ha enllestit, però podeu no tenir-la en compte"
+
+msgid "grid.action.enable"
+msgstr "Habilita"
+
+msgid "grid.action.bookInfo"
+msgstr "Informació de la tramesa"
+
+msgid "grid.action.logInAs"
+msgstr "Inicieu sessió com a"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Exporta tots els usuaris"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Esteu segur/a que voleu exportar tots els usuaris/àries?"
+
+msgid "grid.task.status.completed"
+msgstr "Aquesta tasca està completada"
+
+msgid "grid.task.status.new"
+msgstr "Aquest és un nou ítem i requereix atenció"
+
+msgid "grid.task.status.uploaded"
+msgstr "La columna títol indica qui ha carregat aquest fitxer"
+
+msgid "grid.task.status.unfinished"
+msgstr "Tasca no finalitzada"
+
+msgid "grid.task.status.reviewReady"
+msgstr "Aquesta revisió ja està preparada. Feu clic a la icona de la nota a l'esquerra per llegir-la."
+
+msgid "grid.columns.actions"
+msgstr "Accions"
+
+msgid "grid.columns.institution"
+msgstr "Institució"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.auditor"
+msgstr "Auditor/a"
+
+msgid "grid.columns.locale"
+msgstr "Configuració regional"
+
+msgid "grid.sponsor.title"
+msgstr "Patrocinadors/ores"
+
+msgid "grid.action.addSponsor"
+msgstr "Afegeix un patrocinador"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Esborra un patrocinador"
+
+msgid "grid.action.editSponsor"
+msgstr "Edita un patrocinador"
+
+msgid "grid.action.addSeries"
+msgstr "Afegeix sèries"
+
+msgid "grid.action.editSeries"
+msgstr "Edita sèries"
+
+msgid "grid.action.deleteSeries"
+msgstr "Esborra sèries"
+
+msgid "grid.action.addCategory"
+msgstr "Afegeix la categoria"
+
+msgid "grid.action.editCategory"
+msgstr "Edita categoria"
+
+msgid "grid.action.deleteCategory"
+msgstr "Esborra categoria"
+
+msgid "grid.contributor.title"
+msgstr "Col·laborador/a"
+
+msgid "grid.action.addContributor"
+msgstr "Afegeix un col·laborador"
+
+msgid "grid.action.editContributor"
+msgstr "Edita col·laborador"
+
+msgid "grid.action.deleteContributor"
+msgstr "Esborra col·laborador"
+
+msgid "grid.genres.title"
+msgstr "Gèneres"
+
+msgid "grid.genres.description"
+msgstr "Aquests gèneres es fan servir per anomenar fitxers i es presenten en un menú desplegable quan carregueu fitxers. Els gèneres designats ## permeten els usuaris/àries associar el fitxer amb un llibre sencer 99Z o amb un capítol concret per número (p. ex. 02)."
+
+msgid "grid.reviewForm.title"
+msgstr "Formularis de revisió"
+
+msgid "grid.noFiles"
+msgstr "Cap fitxer"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Fitxers"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Biblioteca de tramesa"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Biblioteca d'editorial"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Biblioteca de revisió"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Biblioteca de producció"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Biblioteca de producció de plantilles"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Llista de verificació de la tramesa"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Element de la llista de verificació"
+
+msgid "author.users.contributor.name"
+msgstr "Nom"
+
+msgid "author.users.contributor.email"
+msgstr "Correu electrònic"
+
+msgid "author.users.contributor.role"
+msgstr "Rol"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Contacte principal"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "En la llista de navegació"
+
+msgid "grid.roles.currentRoles"
+msgstr "Rols actuals"
+
+msgid "grid.roles.add"
+msgstr "Crea un nou rol"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Asignació d'etapa"
+
+msgid "grid.user.currentUsers"
+msgstr "Usuaris actuals"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Inscripcions actuals"
+
+msgid "grid.user.allRoles"
+msgstr "Tots els rols"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Tots els nivells de permisos"
+
+msgid "grid.user.add"
+msgstr "Afegeix usuaris"
+
+msgid "grid.user.enroll"
+msgstr "Dóna d’alta l’usuari/usuària"
+
+msgid "grid.user.edit"
+msgstr "Edita l’usuari/usuària"
+
+msgid "grid.user.email"
+msgstr "Adreça electrònica"
+
+msgid "grid.user.enable"
+msgstr "Habilita"
+
+msgid "grid.user.disable"
+msgstr "Inhabilita"
+
+msgid "grid.user.disableReason"
+msgstr "Motiu pel qual es desactiva l'usuari/ària"
+
+msgid "grid.user.enableReason"
+msgstr "Motiu pel qual s'activa l'usuari/ària"
+
+msgid "grid.user.error"
+msgstr "Hi ha hagut un error quan es gestionava aquest usuari. Torneu-ho a intentar."
+
+msgid "grid.user.errorEmail"
+msgstr "Ha aparegut un error en enviar aquest correu electrònic. Assegureu-vos que la configuració del servidor de correu electrònic funciona i/o contacteu amb l'administrador/a del sistema."
+
+msgid "grid.user.cannotAdminister"
+msgstr "No disposes dels permisos per editar aquest usuari/ària."
+
+msgid "grid.user.authSource"
+msgstr "Font d’autenticació"
+
+msgid "grid.user.mustProvideName"
+msgstr "Indiqueu un cognom per a l’usuari/usuària com a mínim."
+
+msgid "grid.user.generatePassword"
+msgstr "Genera una contrasenya"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Genera una contrasenya aleatòria per a aquest usuari/ària."
+
+msgid "grid.user.notifyUser"
+msgstr "Notificar-ho a l'usuari/ària"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Envia un correu de benvinguda a l'usuari/ària."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Canvia la contrasenya"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "L'usuari/ària haurà de canviar la contrasenya el pròxim cop que accedeixi."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Demana a l’usuari/usuària que canviï la contrasenya quan torni a iniciar la sessió."
+
+msgid "grid.user.moreDetails"
+msgstr "Més detalls de l'usuari/ària"
+
+msgid "grid.user.lessDetails"
+msgstr "Menys detalls de l'usuari/ària"
+
+msgid "grid.user.userDetails"
+msgstr "Detalls de l'usuari/ària"
+
+msgid "grid.user.userRoles"
+msgstr "Rols de l'usuari/ària"
+
+msgid "grid.user.userNoRoles"
+msgstr "Aquest usuari/ària no té cap rol."
+
+msgid "grid.user.step1"
+msgstr "Pas 1: Completar els detalls de l'usuari/ària"
+
+msgid "grid.user.step2"
+msgstr "Pas 2: Afegeix rols d'usuari/ària a {$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "Afegeix rols"
+
+msgid "grid.user.addRole"
+msgstr "Afegeix un rol"
+
+msgid "grid.user.selectUser"
+msgstr "Escull un usuari/ària"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Seleccionar un usuari/ària"
+
+msgid "grid.user.confirmLogInAs"
+msgstr "Voleu iniciar sessió amb aquest usuari/ària? Totes les accions que realitzeu s'atribuïran a aquest usuari/ària."
+
+msgid "grid.user.mergeUsers"
+msgstr "Fusió d’usuaris/usuàries"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Fusiona l’usuari/usuària"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Fusiona amb aquest usuari/ària"
+
+msgid "grid.user.mergeUsers.into.description"
+msgstr "Ara heu de seleccionar un usuari/ària a qui atribuir l'autoria, l'edició de les assignacions, etc. de l'usuari/ària previ."
+
+msgid "grid.user.mergeUsers.from.description"
+msgstr "Seleccioneu un usuari/ària (o més d'un) que vulgueu fusionar amb un altre compte d’usuari/ària (p. ex. un usuari/ària que en tingui dos de diferents). Amb aquesta acció se suprimeix el primer compte que hàgiu seleccionat i les seves trameses, assignacions, etc., s’assignen al segon compte."
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Tots els usuaris/àries donats d’alta"
+
+msgid "grid.user.mergeUsers.mergeUserSelect.confirm"
+msgstr "Esteu segur/a que voleu fusionar aquest usuari/ària amb un altre/a?  Trieu el segon usuari/ària a la pantalla següent."
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr "Esteu segur/a que voleu fusionar aquest compte, amb el nom d'usuari «{$oldUsername}», amb el compte amb el nom d'usuari «{$newUsername}»? Si ho feu, el compte amb nom d'usuari «{$oldUsername}» deixarà d'existir. Aquesta acció és irreversible."
+
+msgid "grid.user.mergeUsers.noneEnrolled"
+msgstr "No hi ha cap usuari/ària amb aquest rol."
+
+msgid "grid.preparedEmails.title"
+msgstr "Plantilles de correu preestablertes"
+
+msgid "grid.preparedEmails.description"
+msgstr "La premsa facilita la comunicació al flux de treball mitjançant l'ús de correus electrònics preparats. El redactat per defecte d'aquestes plantilles de correu es pot modificar fàcilment a continuació."
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Llista actual"
+
+msgid "grid.plugin.allCategories"
+msgstr "Totes les categories"
+
+msgid "grid.plugin.disable"
+msgstr "Estàs segur/a que vols desactivar aquest connector?"
+
+msgid "grid.action.viewSignoffNotes"
+msgstr "Visualitza les notes de tancament de sessió"
+
+msgid "grid.action.fileUnconsider"
+msgstr "S'han fet les esmenes de correcció. Podeu rebutjar aquesta tasca"
+
+msgid "grid.artworkFile.caption"
+msgstr "Peu"
+
+msgid "grid.artworkFile.credit"
+msgstr "Crèdit"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Propietari de drets d'autor/a"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Informació de contacte (si no sou un autor/a ni una institució publicadora)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Condicions de permisos"
+
+msgid "grid.artworkFile.placement"
+msgstr "Col·locació a la tramesa"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Fase d'assignació"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Fase de desassignació"
+
+msgid "grid.userGroup.allStages"
+msgstr "Totes les fases del circuit de treball"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Llista de rols assignats a"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Amb el nivell de permís determinat per"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "El rol {$userGroupName} és predeterminat i no es pot eliminar."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr "No es pot eliminar el rol {$userGroupName}. Actualment hi ha {$usersCount} usuaris/àries assignats."
+
+msgid "grid.userGroup.removed"
+msgstr "S'ha eliminat el rol {$userGroupName}."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "S'ha assignat el rol {$userGroupName} a la fase de {$stageName}."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "El rol {$userGroupName} s'ha desassignat de la fase de {$stageName}."
+
+msgid "grid.remotelyHostedItem"
+msgstr "Aquest element està allotjat remotament."
+
+msgid "grid.action.addNote"
+msgstr "Afegeix nota"
+
+msgid "grid.action.addQuery"
+msgstr "Afegeix discussió"
+
+msgid "grid.action.readQuery"
+msgstr "Llegeix la discussió"
+
+msgid "grid.action.deleteQuery"
+msgstr "Elimina la discussió"
+
+msgid "grid.action.updateQuery"
+msgstr "Actualitza la discussió"
+
+msgid "grid.action.disapprove"
+msgstr "No accepta"
+
+msgid "grid.action.setApproval"
+msgstr "Ajustar acceptació"
+
+msgid "grid.action.search"
+msgstr "Cerca"
+
+msgid "grid.action.activate"
+msgstr "Activa"
+
+msgid "grid.action.deactivate"
+msgstr "Desactiva"
+
+msgid "grid.action.copy"
+msgstr "Copia"
+
+msgid "grid.action.preview"
+msgstr "Previsualització"
+
+msgid "grid.action.install"
+msgstr "Instal·la"
+
+msgid "grid.action.moreItems"
+msgstr "Carrega més"
+
+msgid "grid.submission.itemTitle"
+msgstr "Autor/a; Títol"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Cancel·lar l'assignació d'aquest revisor/a"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Opcions de resposta"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Incloure trameses incompletes no enviades per un autor/a."
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Triar un tipus..."
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "No hi ha menús de navegació"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "No hi ha elements del menú de navegació"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Afegir element"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Afegir menú"
+
+msgid "grid.action.newVersion"
+msgstr "Crear una versió nova"
+
+msgid "grid.action.users"
+msgstr "Veure/Seleccionar usuaris/àries"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Eliminar aquest grup d'usuaris/àries"
+
+msgid "grid.action.uninstall"
+msgstr "Desinstal·lar"

@@ -1,9 +1,9 @@
 {**
  * templates/frontend/pages/userLostPassword.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Password reset form.
  *
@@ -26,17 +26,17 @@
 			</div>
 		{/if}
 
-		<fieldset class="fields">
+		<div class="fields">
 			<div class="email">
 				<label>
 					<span class="label">
 						{translate key="user.login.registeredEmail"}
-						<span class="required">*</span>
+						<span class="required" aria-hidden="true">*</span>
 						<span class="pkp_screen_reader">
 							{translate key="common.required"}
 						</span>
 					</span>
-					<input type="text" name="email" id="email" value="{$email|escape}" required>
+					<input type="email" name="email" id="email" value="{$email|escape}" required aria-required="true">
 				</label>
 			</div>
 			<div class="buttons">
@@ -51,7 +51,7 @@
 					</a>
 				{/if}
 			</div>
-		</fieldset>
+		</div>
 
 	</form>
 

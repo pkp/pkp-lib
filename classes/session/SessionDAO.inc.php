@@ -3,9 +3,9 @@
 /**
  * @file classes/session/SessionDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SessionDAO
  * @ingroup session
@@ -31,16 +31,10 @@ class SessionDAO extends DAO {
 	 * @param $sessionId string
 	 * @return Session
 	 */
-	function &getSession($sessionId) {
-		$result = $this->retrieve(
-			'SELECT * FROM sessions WHERE session_id = ?',
-			array($sessionId)
-		);
+	function getSession($sessionId) {
+		$result = $this->retrieve('SELECT * FROM sessions WHERE session_id = ?', [$sessionId]);
 
-		$session = null;
-		if ($result->RecordCount() != 0) {
-			$row = $result->GetRowAssoc(false);
-
+		if ($row = (array) $result->current()) {
 			$session = $this->newDataObject();
 			$session->setId($row['session_id']);
 			$session->setUserId($row['user_id']);
@@ -51,10 +45,10 @@ class SessionDAO extends DAO {
 			$session->setRemember($row['remember']);
 			$session->setSessionData($row['data']);
 			$session->setDomain($row['domain']);
+			return $session;
 		}
 
-		$result->Close();
-		return $session;
+		return null;
 	}
 
 	/**
@@ -67,7 +61,7 @@ class SessionDAO extends DAO {
 				(session_id, ip_address, user_agent, created, last_used, remember, data, domain)
 				VALUES
 				(?, ?, ?, ?, ?, ?, ?, ?)',
-			array(
+			[
 				$session->getId(),
 				$session->getIpAddress(),
 				substr($session->getUserAgent(), 0, 255),
@@ -76,15 +70,16 @@ class SessionDAO extends DAO {
 				$session->getRemember() ? 1 : 0,
 				$session->getSessionData(),
 				$session->getDomain()
-			)
+			]
 		);
 	}
 
 	/**
 	 * Update an existing session.
 	 * @param $session Session
+	 * @return int Number of affected rows
 	 */
-	function updateObject(&$session) {
+	function updateObject($session) {
 		return $this->update(
 			'UPDATE sessions
 				SET
@@ -97,7 +92,7 @@ class SessionDAO extends DAO {
 					data = ?,
 					domain = ?
 				WHERE session_id = ?',
-			array(
+			[
 				$session->getUserId()==''?null:(int) $session->getUserId(),
 				$session->getIpAddress(),
 				substr($session->getUserAgent(), 0, 255),
@@ -107,7 +102,7 @@ class SessionDAO extends DAO {
 				$session->getSessionData(),
 				$session->getDomain(),
 				$session->getId()
-			)
+			]
 		);
 	}
 
@@ -115,7 +110,7 @@ class SessionDAO extends DAO {
 	 * Delete a session.
 	 * @param $session Session
 	 */
-	function deleteObject(&$session) {
+	function deleteObject($session) {
 		return $this->deleteById($session->getId());
 	}
 
@@ -124,10 +119,7 @@ class SessionDAO extends DAO {
 	 * @param $sessionId string
 	 */
 	function deleteById($sessionId) {
-		return $this->update(
-			'DELETE FROM sessions WHERE session_id = ?',
-			array($sessionId)
-		);
+		$this->update('DELETE FROM sessions WHERE session_id = ?', [$sessionId]);
 	}
 
 	/**
@@ -135,9 +127,9 @@ class SessionDAO extends DAO {
 	 * @param $userId string
 	 */
 	function deleteByUserId($userId) {
-		return $this->update(
+		$this->update(
 			'DELETE FROM sessions WHERE user_id = ?',
-			array((int) $userId)
+			[(int) $userId]
 		);
 	}
 
@@ -148,14 +140,14 @@ class SessionDAO extends DAO {
 	 */
 	function deleteByLastUsed($lastUsed, $lastUsedRemember = 0) {
 		if ($lastUsedRemember == 0) {
-			return $this->update(
+			$this->update(
 				'DELETE FROM sessions WHERE (last_used < ? AND remember = 0)',
-				array((int) $lastUsed)
+				[(int) $lastUsed]
 			);
 		} else {
-			return $this->update(
+			$this->update(
 				'DELETE FROM sessions WHERE (last_used < ? AND remember = 0) OR (last_used < ? AND remember = 1)',
-				array((int) $lastUsed, (int) $lastUsedRemember)
+				[(int) $lastUsed, (int) $lastUsedRemember]
 			);
 		}
 	}
@@ -164,7 +156,7 @@ class SessionDAO extends DAO {
 	 * Delete all sessions.
 	 */
 	function deleteAllSessions() {
-		return $this->update('DELETE FROM sessions');
+		$this->update('DELETE FROM sessions');
 	}
 
 	/**
@@ -173,14 +165,9 @@ class SessionDAO extends DAO {
 	 * @return boolean
 	 */
 	function sessionExistsById($sessionId) {
-		$result = $this->retrieve(
-			'SELECT COUNT(*) FROM sessions WHERE session_id = ?',
-			array($sessionId)
-		);
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
-
-		$result->Close();
-		return $returner;
+		$result = $this->retrieve('SELECT COUNT(*) AS row_count FROM sessions WHERE session_id = ?', [$sessionId]);
+		$row = $result->current();
+		return $row ? (boolean) $row->row_count : false;
 	}
 }
 

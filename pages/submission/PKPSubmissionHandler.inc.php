@@ -3,9 +3,9 @@
 /**
  * @file pages/submission/PKPSubmissionHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionHandler
  * @ingroup pages_submission
@@ -17,6 +17,9 @@ import('classes.handler.Handler');
 import('lib.pkp.classes.core.JSONMessage');
 
 abstract class PKPSubmissionHandler extends Handler {
+
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
 
 	/**
 	 * @copydoc PKPHandler::authorize()
@@ -99,6 +102,9 @@ abstract class PKPSubmissionHandler extends Handler {
 		} else {
 			$templateMgr->assign('submissionProgress', 1);
 		}
+		$templateMgr->assign([
+			'pageTitle' => __('submission.submit.title'),
+		]);
 		$templateMgr->display('submission/form/index.tpl');
 	}
 
@@ -203,8 +209,7 @@ abstract class PKPSubmissionHandler extends Handler {
 	 */
 	function setupTemplate($request) {
 		parent::setupTemplate($request);
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
-
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_MANAGER);
 		// Get steps information.
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('steps', $this->getStepsNumberAndLocaleKeys());

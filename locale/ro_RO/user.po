@@ -1,0 +1,502 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-28 19:43+0000\n"
+"Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
+"Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"ro_RO/>\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Introduceți adresa de e-mail a contului de mai jos și un e-mail va fi trimis "
+"cu instrucțiuni despre modul de resetare a parolei."
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Generarea unei noi chei API va invalida orice cheie existentă pentru acest "
+"utilizator."
+
+msgid "user.privacyLink"
+msgstr ""
+"Datele dvs. sunt stocate în conformitate cu <a href=\"{$privacyUrl}\" target="
+"\"_blank\">declarația de confidențialitate</a>."
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Înainte de a genera o cheie API, administratorul site-ului trebuie să "
+"stabilească un „secret” în fișierul de configurare („api_key_secret”)."
+
+msgid "user.apiKey.generate"
+msgstr "Generați o nouă cheie API"
+
+msgid "user.apiKeyEnabled"
+msgstr "Activați aplicațiile externe cu cheia API pentru a accesa acest cont"
+
+msgid "user.apiKey"
+msgstr "Cheie API"
+
+msgid "user.profile.public"
+msgstr "Public"
+
+msgid "user.profile.contact"
+msgstr "Contact"
+
+msgid "user.profile.identity"
+msgstr "Identitate"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"ID ORCID specificat de dvs. nu este valabil. Vă rugăm să includeți URL-ul "
+"complet (e.g. \"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.orcid"
+msgstr "ID ORCID"
+
+msgid "user.workingLanguages"
+msgstr "Limbi de lucru"
+
+msgid "user.username"
+msgstr "Nume de utilizator"
+
+msgid "user.userHome"
+msgstr "Acasă utilizator"
+
+msgid "user.url"
+msgstr "URL-ul paginii de pornire"
+
+msgid "user.title"
+msgstr "Titlu"
+
+msgid "user.signature"
+msgstr "Semnătură"
+
+msgid "user.sendPassword.description"
+msgstr ""
+"Trimiteți-mi un e-mail de confirmare, inclusiv numele de utilizator și parola"
+
+msgid "user.sendPassword"
+msgstr "Confirmare"
+
+msgid "user.roles"
+msgstr "Roluri"
+
+msgid "user.role.layoutEditors"
+msgstr "Editori de Machetă"
+
+msgid "user.role.layoutEditor"
+msgstr "Editor de machetă"
+
+msgid "user.role.proofreaders"
+msgstr "Corectori"
+
+msgid "user.role.proofreader"
+msgstr "Corector"
+
+msgid "user.role.copyeditors"
+msgstr "Editori de conținut"
+
+msgid "user.role.copyeditor"
+msgstr "Editor de conținut"
+
+msgid "user.role.siteAdmins"
+msgstr "Administratori site"
+
+msgid "user.role.siteAdmin"
+msgstr "Administrator site"
+
+msgid "user.role.reviewers"
+msgstr "Revizori"
+
+msgid "user.role.reviewer"
+msgstr "Revizor"
+
+msgid "user.role.readers"
+msgstr "Cititori"
+
+msgid "user.role.reader"
+msgstr "Cititor"
+
+msgid "user.role.editors"
+msgstr "Editori"
+
+msgid "user.role.editor"
+msgstr "Editor"
+
+msgid "user.role.authors"
+msgstr "Autori"
+
+msgid "user.role.author_s"
+msgstr "Autor(i)"
+
+msgid "user.role.author"
+msgstr "Autor"
+
+msgid "user.role.assistant"
+msgstr "Asistent"
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"V-ați înregistrat cu succes. <a href=\"{$profileUrl}\">Click aici</a> pentru "
+"a vă completa profilul de utilizator."
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"Numele de utilizator trebuie să conțină doar litere mici, cifre și cratime/"
+"sublinii."
+
+msgid "user.register"
+msgstr "Înregistrare"
+
+msgid "user.register.registerAs"
+msgstr "Înregistrați-vă în {$contextName} ca..."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Parola trebuie să aibă cel puțin {$length} caractere."
+
+msgid "user.register.form.usernameExists"
+msgstr "Numele de utilizator selectat este deja folosit de un alt utilizator."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Trebuie selectat cel puțin un rol."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Numele de utilizator poate conține doar caractere alfanumerice, minuscule și "
+"cratime, și trebuie să înceapă și să se încheie cu un caracter alfanumeric."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Câmpurile de adresă de e-mail nu se potrivesc."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Parola nu se potrivește."
+
+msgid "user.register.form.emailExists"
+msgstr "Adresa de e-mail selectată este deja folosită de un alt utilizator."
+
+msgid "user.register.form.emailConsent"
+msgstr "Da, aș dori să fiu informat despre noile publicații și despre anunțuri."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Da, sunt de acord ca datele mele să fie colectate și stocate în conformitate "
+"cu <a href=\"{$privacyUrl}\" target=\"_blank\">Declarațiea de "
+"confidențialitate</a>."
+
+msgid "user.login.registerNewAccount"
+msgstr "Înregistrare"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Repetați parola nouă"
+
+msgid "user.profile.publicProfile"
+msgstr "Profil utilizator"
+
+msgid "user.profile"
+msgstr "Profil"
+
+msgid "user.profile.oldPassword"
+msgstr "Parolă curentă"
+
+msgid "user.profile.newPassword"
+msgstr "Parolă nouă"
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Lăsați câmpurile de parolă necompletate pentru a păstra parola curentă."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Trebuie să fiți de acord cu termenii declarației de confidențialitate."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Este necesar un nume de utilizator."
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Este necesar un grup de utilizatori."
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"Adresa URL specificată nu este validă. Verificați adresa URL și încercați "
+"din nou. (Sugestie: încercați să adăugați http:// la începutul adresei URL.)"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Notificare prin email pentru publicarea unui număr nou"
+
+msgid "user.profile.form.profileImage"
+msgstr "Imagine de profil"
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Noua ta parolă este aceeași cu cea anterioară."
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Este necesară o parolă."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Emite notificări prin e-mail de acces deschis"
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Parola curentă introdusă este incorectă."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Trebuie să introduceți noua parolă."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Este necesară o adresă poștală."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Ați adăugat un nume de familie pentru o limbă care lipsește prenumele. Vă "
+"rugăm să adăugați un prenume pentru această limbă."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Prenumele este necesar."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Este necesară o adresă de email validă."
+
+msgid "user.profile.form.countryRequired"
+msgstr "Este necesară selectarea țării."
+
+msgid "user.profile.editProfile"
+msgstr "Editare profil"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"Introduceți mai jos parolele curente și noi pentru a schimba parola pentru "
+"contul dvs."
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Cum preferați să fiți abordat? Dacă doriți, aici pot fi adăugate Salutări, "
+"sufixe (prof., dr., ing., ec.), etc."
+
+msgid "user.preferredPublicName"
+msgstr "Nume preferat pentru afișarea publică"
+
+msgid "user.phone"
+msgstr "Telefon"
+
+msgid "user.repeatPassword"
+msgstr "Repetă parola"
+
+msgid "user.password"
+msgstr "Parolă"
+
+msgid "user.name"
+msgstr "Nume"
+
+msgid "user.myAccount"
+msgstr "Contul meu"
+
+msgid "user.mailingAddress"
+msgstr "adresă postală"
+
+msgid "user.hello"
+msgstr "Bună ziua, "
+
+msgid "user.logOutAs"
+msgstr "Deconectare ca"
+
+msgid "user.logOut"
+msgstr "Deconectare"
+
+msgid "user.login.resetPassword"
+msgstr "Reseteaza parola"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Ține-mă logat"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Înregistrarea așteaptă verificarea"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Continua navigarea"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Realizați o nouă înregistrare de manuscris"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Vizualizare înregistrări manuscrise"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Mulțumim pentru înregistrare! Ce ați dori să faceți în continuare?"
+
+msgid "user.login.registrationComplete"
+msgstr "Înregistrare completă"
+
+msgid "user.login.registeredEmail"
+msgstr "Adresa de e-mail a utilizatorului înregistrat"
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"O nouă parolă a fost trimisă la adresa dvs. de e-mail. Acum vă puteți "
+"autentifica pe site cu noua parolă."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Nu există utilizator cu adresa de e-mail specificată."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"Ne pare rău, linkul pe care ai făcut clic a expirat sau nu este valid. "
+"Încercați să resetați parola din nou."
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"A fost trimisă o confirmare la adresa dvs. de e-mail. Vă rugăm să urmați "
+"instrucțiunile din e-mail pentru a reseta parola."
+
+msgid "user.login"
+msgstr "Autentificare"
+
+msgid "user.login.loginError"
+msgstr "Nume de utilizator sau parola incorecte. Vă rugăm să încercați din nou."
+
+msgid "user.login.forgotPassword"
+msgstr "Ați uitat parola?"
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"Trebuie să alegeți o nouă parolă înainte de a vă autentifica pe acest site.<"
+"br /><br />Vă rugăm să introduceți numele de utilizator și parolele curente "
+"și noi de mai jos pentru a schimba parola pentru contul dvs."
+
+msgid "user.login.activated"
+msgstr ""
+"Vă mulțumim pentru activarea contului. Acum vă puteți autentifica folosind "
+"datele de acreditare furnizate când v-ați creat contul."
+
+msgid "user.login.activate"
+msgstr "Activare cont"
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"V-am trimis un e-mail de confirmare la {$email}. Vă rugăm să urmați "
+"instrucțiunile din acel e-mail pentru a activa noul cont. Dacă nu vedeți un "
+"e-mail, verificați dacă a fost introdus în folderul de spam."
+
+msgid "user.login.accountDisabled"
+msgstr ""
+"Contul tau a fost dezactivat. Vă rugăm să contactați administratorul pentru "
+"mai multe informații."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Contul dvs. a fost dezactivat din următorul motiv: {$reason}"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"Formatul de imagine nevalid sau imaginea prea mare. Formate acceptate sunt "
+".gif, .jpg sau .png, iar imaginea nu trebuie să depășească 150x150 pixeli."
+
+msgid "user.familyName"
+msgstr "Nume"
+
+msgid "user.group"
+msgstr "Grup de utilizatori"
+
+msgid "user.gossip.description"
+msgstr ""
+"Înregistrați note despre acest recenzor pe care doriți să le faceți vizibile "
+"altor administratori, manageri și tuturor editorilor. Notele vor fi vizibile "
+"pentru viitoarele misiuni de revizuire."
+
+msgid "user.gossip"
+msgstr "Note editoriale"
+
+msgid "user.interests"
+msgstr "Interesele de revizuire"
+
+msgid "user.givenName"
+msgstr "Prenume"
+
+msgid "user.email"
+msgstr "Email"
+
+msgid "user.editMyProfile"
+msgstr "Editarea profilului"
+
+msgid "user.dateRegistered"
+msgstr "Data înregistrării"
+
+msgid "user.dateLastLogin"
+msgstr "Ultima autentificare"
+
+msgid "user.changePassword"
+msgstr "Schimbare parolă"
+
+msgid "user.changeMyPassword"
+msgstr "Schimbați-mi parola"
+
+msgid "user.biography"
+msgstr "Declarație biografică (de exemplu, departament și rang)"
+
+msgid "user.authorization.submissionQuery"
+msgstr "Nu aveți permisiunea de a accesa această discuție."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Nu aveți permisiunea de a accesa această misiune de revizuire."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Un plugin nu a fost specificat și este necesar."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Nu a fost specificată o etapă a fluxului de lucru."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "În prezent nu aveți acces la acea etapă a fluxului de lucru."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Un utilizator cu rol de manager (adică editor de producție) trebuie să fie "
+"atribuit înainte de a putea continua."
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"Trebuie să setați un grup de utilizatori valabil pentru a accesa această "
+"operațiune."
+
+msgid "user.authorization.loginRequired"
+msgstr "Conectare obligatorie."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"Nu puteți accesa această operațiune fără un context (presă, jurnal, "
+"conferință etc.)."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Tokenul de autentificare a procesului lipsește sau este nevalid."
+
+msgid "user.authorization.accessDenied"
+msgstr "Acces interzis."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Nu vi s-a atribuit pentru această înregistrare de manuscris un rol care să "
+"vă permită să accesați această operațiune."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Rolul actual deținut nu vă permite accesul la această operațiune."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr ""
+"Vi s-a refuzat accesul. Accesul la acest site este restricționat în prezent."
+
+msgid "user.authorization.privateOperation"
+msgstr ""
+"Operațiunea la care ați încercat să obțineți acces este fie privată, fie nu "
+"există."
+
+msgid "user.affiliations"
+msgstr "Afilieri"
+
+msgid "user.affiliation.description"
+msgstr "(Instituția dumneavoastră, ex \"Simon Fraser University\")"
+
+msgid "user.affiliation"
+msgstr "Afiliere"
+
+msgid "user.accountInformation"
+msgstr "Informații cont"

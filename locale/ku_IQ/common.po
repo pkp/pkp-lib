@@ -1,0 +1,187 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-04-24 02:38+0000\n"
+"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
+"Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"ku_IQ/>\n"
+"Language: ku_IQ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "common.captchaField"
+msgstr "دروستی"
+
+msgid "common.notice"
+msgstr "سەرنجدان"
+
+msgid "common.error"
+msgstr "هەڵە"
+
+msgid "common.warning"
+msgstr "ئاگاداری"
+
+msgid "common.cancel"
+msgstr "پاشگەزبوونەوە"
+
+msgid "common.between"
+msgstr "لەنێوان"
+
+msgid "common.back"
+msgstr "دواوە"
+
+msgid "common.available"
+msgstr "بەردەستە"
+
+msgid "common.assigned.date"
+msgstr "پێسپێردراو: {$dateAssigned}"
+
+msgid "common.assigned"
+msgstr "پێسپێردراو"
+
+msgid "common.assign"
+msgstr "پێسپاردن"
+
+msgid "common.applyAction"
+msgstr "جێبەجێکردنی کردار"
+
+msgid "common.and"
+msgstr "و"
+
+msgid "common.altText"
+msgstr "دەقی جێگرەوە"
+
+msgid "common.all"
+msgstr "هەموو"
+
+msgid "common.name"
+msgstr "ناو"
+
+msgid "common.add"
+msgstr "زیادکردن"
+
+msgid "common.active"
+msgstr "چالاک"
+
+msgid "common.activate"
+msgstr "چالاککردن"
+
+msgid "common.action"
+msgstr "کردار"
+
+msgid "common.acknowledged"
+msgstr "پێزانین"
+
+msgid "common.accepted"
+msgstr "پەسەندکراو"
+
+msgid "common.abstract"
+msgstr "پوختە"
+
+msgid "common.grid"
+msgstr "خانەخانە"
+
+msgid "common.list"
+msgstr "لیست"
+
+msgid "common.tasks"
+msgstr "ئەرکەکان"
+
+msgid "common.navigation.user"
+msgstr "ڕێنیشاندەری بەکارهێنەر"
+
+msgid "common.navigation.site"
+msgstr "ڕێنیشاندەری ماڵپەڕ"
+
+msgid "common.navigation.sidebar"
+msgstr "توڵی لا"
+
+msgid "common.allDownloads"
+msgstr "هەموو داگرتنەکان"
+
+msgid "announcement.view"
+msgstr "پیشاندانی ڕاگەیاندن"
+
+msgid "announcement.moreAnnouncements"
+msgstr "ڕاگەیاندنی زیاتر..."
+
+msgid "announcement.announcementsHome"
+msgstr "ڕاگەیاندنەکان"
+
+msgid "announcement.announcements"
+msgstr "ڕاگەیاندنەکان"
+
+msgid "about.siteMap"
+msgstr "نەخشەی ماڵپەڕ"
+
+msgid "about.policies"
+msgstr "ڕێوشوێنەکان"
+
+msgid "about.people"
+msgstr "خەڵک"
+
+msgid "about.other"
+msgstr "هیتر"
+
+msgid "about.contact.phone"
+msgstr "تەلەفۆن"
+
+msgid "about.contact.email"
+msgstr "ئیمێڵ"
+
+msgid "about.contact"
+msgstr "پەیوەندیکردن"
+
+msgid "about.aboutSite"
+msgstr "دەربارەی ماڵپەڕەکە"
+
+msgid "about.guidelines"
+msgstr "ڕێبەرییەکان"
+
+msgid "about.description"
+msgstr "باسکردن"
+
+msgid "common.currentStyleSheet"
+msgstr "پەڕەشێوازی ئێستا"
+
+msgid "common.publicKnowledgeProject"
+msgstr "پڕۆژەی زانیاری گشتی"
+
+msgid "common.alreadyAssigned"
+msgstr "پێسپێردراو"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"of a the and an or nor but is if then else when at from by on off for in out "
+"over to into with و أو من إلى في على عن كل إلا او الى هو هي هم اي أي كم"
+
+msgid "common.alphaList"
+msgstr ""
+"A B C D E F G H I J K L M N O P Q R S T U V W X Y Z أ ب  ت ث  ج ح خ د ذ ر ز "
+"س ش ص ض ط ظ ع غ ف ق ك ل م ن هـ و ي پ گ چ ۆ ە"
+
+msgid "common.addSelf"
+msgstr "زیادکردنی خودی"
+
+msgid "common.confirmDelete"
+msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی ئەم دانەیە؟ ئەم کردارە گەڕانەوەی تێدا نییە."
+
+msgid "common.navigation.siteContext"
+msgstr "ڕێنیشاندەری ماڵپەڕ"
+
+msgid "announcement.postedOn"
+msgstr "پێشنیاز کراوە لە {$postDate}"
+
+msgid "announcement.posted"
+msgstr "پێشنیازکراو"
+
+msgid "announcement.noneExist"
+msgstr "هیچ ڕاگەیاندنێک بڵاو نەکراوەتەوە."
+
+msgid "about.contact.supportContact"
+msgstr "ناونیشانی پەیوەندیی هاوکاریی تەکنیکی"
+
+msgid "about.contact.principalContact"
+msgstr "ناونیشانی پەیوەندیی سەرەکی"

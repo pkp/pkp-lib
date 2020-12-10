@@ -3,9 +3,9 @@
 /**
  * @file classes/notification/managerDelegate/PendingRevisionsNotificationManager.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PendingRevisionsNotificationManager
  * @ingroup managerDelegate
@@ -37,7 +37,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 	 * @copydoc PKPNotificationOperationManager::getNotificationUrl()
 	 */
 	public function getNotificationUrl($request, $notification) {
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($notification->getAssocId());
 
 		$stageData = $this->_getStageDataByType();
@@ -66,9 +66,9 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 		$stageId = $stageData['id'];
 		$submissionId = $notification->getAssocId();
 
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionId);
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 
 		import('lib.pkp.controllers.api.file.linkAction.AddRevisionLinkAction');
@@ -100,7 +100,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 		if ($stageData == null) return;
 		$expectedStageId = $stageData['id'];
 
-		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 		$pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($submissionId, $expectedStageId, SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS);
 		$removeNotifications = false;
 
@@ -118,7 +118,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 					NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS,
 					$context->getId()
 				);
-				if ($notificationFactory->wasEmpty()) {
+				if (!$notificationFactory->next()) {
 					// Create or update a pending revision task notification.
 					$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 					$notificationDao->build(
@@ -139,7 +139,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 
 		if ($removeNotifications) {
 			$context = $request->getContext();
-			$notificationDao = DAORegistry::getDAO('NotificationDAO');
+			$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 			$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, $userId, $this->getNotificationType(), $context->getId());
 			$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, $userId, NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
 		}
@@ -159,9 +159,9 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 
 		switch ($this->getNotificationType()) {
 			case NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS:
-				return array_key_exists(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, $stagesData) ? $stagesData[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] : null;
+				return $stagesData[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] ?? null;
 			case NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS:
-				return $stagesData[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW];
+				return $stagesData[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] ?? null;
 			default:
 				assert(false);
 		}

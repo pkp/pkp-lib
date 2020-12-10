@@ -1,0 +1,296 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:04+00:00\n"
+"Language: \n"
+
+msgid "admin.adminFunctions"
+msgstr "Administrativne funkcije"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Da li ste sigurni da želite trajno obrisati ovaj izvor autentifikacije?"
+
+msgid "admin.auth.create"
+msgstr "Kreirajte izvor autentifikacije"
+
+msgid "admin.auth.noneCreated"
+msgstr "Ni jedan izvor autentifikacije nije definisan."
+
+msgid "admin.authSources"
+msgstr "Izvori autentifikacije"
+
+msgid "admin.clearDataCache"
+msgstr "Brisanje keš memorije podataka"
+
+msgid "admin.clearTemplateCache"
+msgstr "Brisanje keš memorije šablona"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Vaš konfiguracioni fajl je uspešno ažurirana. Imajte na umu da ukoliko vaš sajt više ne radi ispravno, morate ručno podesiti konfiguraciju prilikom direktnog uređivanja <tt>config.inc.php</tt> fajla."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Da li ste sigurni da želite obrisati keš memoriju izrađenih šablona?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Da li ste sigurni da želite da sesije svih korisnika isteknu? Svi korisnici koji su trenutno prijavljeni u sistem će bit prisiljeni da se ponovno prijave (Vi takođe)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Sadržaj konfiguracionog fajla"
+
+msgid "admin.currentVersion"
+msgstr "Trenutna verzija"
+
+msgid "admin.dateInstalled"
+msgstr "Datum instalacije"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Sistem ne može automatski obaviti prepisivanje preko konfiguracionog fajla. Kako biste primenili konfiguracione izmene morate otvoriti fajl <tt>config.inc.php</tt> u prikladnom uređivaču teksta i zamieniti njegov sadržaj sa sadržajem teksta u polju ispod."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Prikaži novu konfiguraciju"
+
+msgid "admin.expireSessions"
+msgstr "Učini korisničke sesije nevažećima"
+
+msgid "admin.languages.confirmReload"
+msgstr "Da li ste sigurni da ponovno želite učitati ovaj prevod? To će obrisati sve izmene u prevodu koje su urađene u pojedinim časopisima (na primer, prilagođeni šabloni imejl pošte)."
+
+msgid "admin.languages.installedLocales"
+msgstr "Instalirane lokalizacije"
+
+msgid "admin.languages.installLanguages"
+msgstr "Podesi lokalizacije"
+
+msgid "admin.languages.installLocales"
+msgstr "Instaliraj"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instaliraj novu lokalizaciju"
+
+msgid "admin.languages.languageSettings"
+msgstr "Podešavanje jeyika"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Nema dodatnih prevoda na raspolaganju za instalaciju."
+
+msgid "admin.languages.reload"
+msgstr "Ponovno učitavanje lokalizacije"
+
+msgid "admin.languages.uninstall"
+msgstr "Brisanje lokalizacije"
+
+msgid "admin.phpInfo"
+msgstr "Dodatne informacije o PHP-u"
+
+msgid "admin.server.apacheVersion"
+msgstr "Verzija Apache-a"
+
+msgid "admin.server.dbDriver"
+msgstr "Tip baze podataka"
+
+msgid "admin.server.dbVersion"
+msgstr "Verzija servera baze podataka"
+
+msgid "admin.serverInformation"
+msgstr "Informacije o serveru"
+
+msgid "admin.server.phpVersion"
+msgstr "Verzija PHP-a"
+
+msgid "admin.server.platform"
+msgstr "Platforma OS-a"
+
+msgid "admin.settings.about"
+msgstr "Opis sajta"
+
+msgid "admin.settings.contactEmail"
+msgstr "Imejl glavnog kontakta"
+
+msgid "admin.settings.contactName"
+msgstr "Ime glavnog kontakta"
+
+msgid "admin.settings.introduction"
+msgstr "Uvod"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Minimalna dužina lozinke"
+
+msgid "admin.settings.oaiRegistration"
+msgstr "Registrujte sajt za indeksiranje (sakupljanje metapodataka)"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Jezik sajta"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Neispravan format stranice stila. Sistem prihvata samo .css format."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Stranica stila (CSS) sajta"
+
+msgid "admin.settings.siteTitle"
+msgstr "Naziv sajta"
+
+msgid "admin.siteAdmin"
+msgstr "Administracija sajta"
+
+msgid "admin.siteManagement"
+msgstr "Upravljanje sajtom"
+
+msgid "admin.siteSettings"
+msgstr "Podešavanje sajta"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Konfiguracioni fajl <tt>config.inc.php</tt> ne postoji, nije čitljiv ili je neispravan."
+
+msgid "admin.systemInformation"
+msgstr "Informacije o sistemu"
+
+msgid "admin.versionBuild"
+msgstr "Građa"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Proverite da li postoje nove verzije"
+
+msgid "admin.version.downloadPackage"
+msgstr "Preuzmite"
+
+msgid "admin.version.downloadPatch"
+msgstr "Preuzmite zakrpu"
+
+msgid "admin.versionHistory"
+msgstr "Prethodne verzije"
+
+msgid "admin.version.latest"
+msgstr "Poslednja verzija"
+
+msgid "admin.versionMajor"
+msgstr "Glavna"
+
+msgid "admin.versionMinor"
+msgstr "Sporedna"
+
+msgid "admin.version.moreInfo"
+msgstr "Više informacija"
+
+msgid "admin.versionRevision"
+msgstr "Revizija"
+
+msgid "admin.version.updateAvailable"
+msgstr "Ažurirana verzija je dostupna"
+
+msgid "admin.version.upToDate"
+msgstr "Imate poslednju verziju sistema"
+
+msgid "admin.version"
+msgstr "Verzija"
+
+msgid "admin.settings"
+msgstr "Podešavanja"
+
+msgid "admin.settings.siteTheme"
+msgstr "Šablon sajta"
+
+msgid "admin.siteSetup"
+msgstr "Podešavanje sajta"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Naziv podešavanja"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Vrednost podešavanja"
+
+msgid "admin.languages.cantDisable"
+msgstr "Ova lokalizacija je primarni jezik sajta i ne može biti obrisana dok ne odaberete novi primarni jezik."
+
+msgid "admin.languages.availableLocales"
+msgstr "Dostupne lokalizacije"
+
+msgid "admin.languages.installLocale"
+msgstr "Instaliraj lokalizaciju"
+
+msgid "admin.scheduledTask"
+msgstr "Planirani zadaci"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Proces zadatka je započeo."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Proces zadatka je stao."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Zadatak je proizveo log zapis."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Vaša {$softwareName} instalacija je automatski izvršila i završila ovaj zadatak, log fajl možete preuzeti i pogledati ovde: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Da li ste sigurni da želite da obrišete sve logove izvršenja planiranih zadataka?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Obriši logove izvršenja planiranih zadataka"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Podsetnik recenziranja"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Podsetnik isteka pretplate"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo sajtа"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Bazična putanja {$path} mora biti unutar javno dostupnog direktorijuma."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Direktorijum {$path} nije direktorijum ili nije čitljiv."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Fajl {$filename} ne može biti premešten iz {$currentFilePath} u {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Fajl {$filename} je obrađen i arhiviran."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Učitavač fajla"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Greška: ne mogu napraviti privremeni direktorijum {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Greška: fajl {$filePath} ne postoji ili mu se ne može pristupiti."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Greška: ne mogu kopirati fajl iz {$filePath} u {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Greška: ne mogu da obrišem fajl {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Upozorenje: fajl {$filePath} već postoji unutar direktorijuma statistike upotrebe."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Uspešno: {$filePath} у {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "\"{$utilPath}\" izvršavanje programa dalo je sledeću grešku: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Greška: ne mogu da izvršim \"{$utilPath}\".  Proverite vaše podešavanje {$utilVar} u config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Nema lokalizacija dostupnih za preuzimanje"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"Vaša instalacija je podešena da prati više od jedne statistike. Statistike korišćenja biće prikazane u više različitih konteksta.\n"
+"\t\tPostoje slučajevi gde je potrebno koristiti samo jednu statistiku, npr. prikazivanje složene liste najkorišćenijih predaja ili prilikom rangiranja rezultata pretrage. Molimo vas da podesite jednu od podešenih metrika kao primarnu."
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr "Iskopirajte pristupne log fajlove za apache, filtrirajući upise vezane za ovu instalaciju u direktorij za fajlove unutar UsageStatsPlugin status/stage direktorija. Morate obezbediti privilegije za čitanje i pristup apache log fajlovima. Ovaj alat će iskopirati samo one fajlove  koji nisu već u direktorijima  za usageStats (status, obrada, arhiviraj, odbij)."

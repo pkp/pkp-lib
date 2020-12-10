@@ -1,9 +1,9 @@
 {**
  * templates/controllers/grid/grid.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Grid HTML markup and construction
  *}
@@ -15,6 +15,9 @@
 
 <script>
 	$(function() {ldelim}
+		{foreach from=$gridConstants key=$constant item=$value}
+			$.pkp.cons.{$constant} = {$value};
+		{/foreach}
 		$('#{$gridId|escape:javascript}').pkpHandler(
 			'{$grid->getJSHandler()|escape:javascript}',
 			{ldelim}
@@ -29,9 +32,6 @@
 				features: {include file='controllers/grid/feature/featuresOptions.tpl' features=$features}
 			{rdelim}
 		);
-		{foreach from=$gridConstants key=$constant item=$value}
-			$.pkp.cons.{$constant} = {$value};
-		{/foreach}
 	{rdelim});
 </script>
 

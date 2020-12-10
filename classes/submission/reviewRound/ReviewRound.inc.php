@@ -6,9 +6,9 @@
 /**
  * @file classes/submission/reviewRound/ReviewRound.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewRound
  * @ingroup submission_reviewRound
@@ -135,7 +135,7 @@ class ReviewRound extends DataObject {
 		// submitted
 		if ($this->getStatus() == REVIEW_ROUND_STATUS_REVISIONS_REQUESTED || $this->getStatus() == REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
 			// get editor decisions
-			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 			$pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS);
 
 			if ($pendingRevisionDecision) {
@@ -150,7 +150,7 @@ class ReviewRound extends DataObject {
 		// submitted
 		if ($this->getStatus() == REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW || $this->getStatus() == REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED) {
 			// get editor decisions
-			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 			$pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), SUBMISSION_EDITOR_DECISION_RESUBMIT);
 
 			if ($pendingRevisionDecision) {
@@ -173,8 +173,8 @@ class ReviewRound extends DataObject {
 		}
 
 		// Determine the round status by looking at the recommendOnly editor assignment statuses
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 		$pendingRecommendations = false;
 		$recommendationsFinished = true;
 		$recommendationsReady = false;
@@ -205,7 +205,7 @@ class ReviewRound extends DataObject {
 		$anyIncompletedReview = false;
 		$anyUnreadReview = false;
 		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO');
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($this->getId());
 		foreach ($reviewAssignments as $reviewAssignment) {
 			assert(is_a($reviewAssignment, 'ReviewAssignment'));
@@ -280,7 +280,7 @@ class ReviewRound extends DataObject {
 			case REVIEW_ROUND_STATUS_REVIEWS_COMPLETED:
 				return 'editor.submission.roundStatus.reviewsCompleted';
 			case REVIEW_ROUND_STATUS_REVIEWS_OVERDUE:
-				return 'editor.submission.roundStatus.reviewOverdue';
+				return $isAuthor ? 'author.submission.roundStatus.reviewOverdue' : 'editor.submission.roundStatus.reviewOverdue';
 			case REVIEW_ROUND_STATUS_PENDING_RECOMMENDATIONS:
 				return 'editor.submission.roundStatus.pendingRecommendations';
 			case REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY:

@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
+"PO-Revision-Date: 2020-11-13 13:51+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/reader/"
+"ca_ES/>\n"
+"Language: ca_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "comments.anonymous"
+msgstr "Usuari/ària anònim"
+
+msgid "comments.anonymousNamed"
+msgstr "{$userName}"
+
+msgid "comments.body"
+msgstr "Cos"
+
+msgid "comments.titleRequired"
+msgstr "Cal que introduïu un títol de comentari."
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Si s'elimina aquest comentari, també s'eliminaran totes les respostes. Esteu segur/a que voleu fer aquesta acció?"
+
+msgid "comments.delete"
+msgstr "Suprimeix aquest comentari"
+
+msgid "comments.email"
+msgstr "Adreça electrònica"
+
+msgid "comments.emailReply"
+msgstr "Resposta per correu electrònic"
+
+msgid "comments.enterComment"
+msgstr "Introducció d’un comentari"
+
+msgid "comments.inResponseTo"
+msgstr "En resposta a <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Autor/a del comentari"
+
+msgid "comments.noComments"
+msgstr "No s’ha publicat cap comentari dels lectors/es."
+
+msgid "comments.nReplies"
+msgstr "({$num} respostes)"
+
+msgid "comments.oneReply"
+msgstr "(1 resposta)"
+
+msgid "comments.postAnonymously"
+msgstr "Publica aquest comentari de manera anònima"
+
+msgid "comments.postReply"
+msgstr "Publica la resposta"
+
+msgid "comments.readerComments"
+msgstr "Comentaris dels lectors/es"
+
+msgid "comments.readMore"
+msgstr "Llegiu-ne més"
+
+msgid "comments.replies"
+msgstr "Respostes"
+
+msgid "comments.title"
+msgstr "Títol"
+
+msgid "comments.viewAllComments"
+msgstr "Visualitza tots els comentaris"
+
+msgid "reader.fullText"
+msgstr "Text complet:"

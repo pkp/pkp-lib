@@ -3,9 +3,9 @@
 /**
  * @file classes/notification/NotificationSubscriptionSettingsDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NotificationSubscriptionSettingsDAO
  * @ingroup notification
@@ -18,6 +18,11 @@
 
 
 class NotificationSubscriptionSettingsDAO extends DAO {
+	/** @var string The setting which holds the notification status */
+	public const BLOCKED_NOTIFICATION_KEY = 'blocked_notification';
+
+	/** @var string The setting which holds the email notification status */
+	public const BLOCKED_EMAIL_NOTIFICATION_KEY = 'blocked_emailed_notification';
 
 	/**
 	 * Delete a notification setting by setting name
@@ -49,14 +54,10 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 			array((int) $userId, $settingName, (int) $contextId)
 		);
 
-		$settings = array();
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
-			$settings[] = (int) $row['setting_value'];
-			$result->MoveNext();
+		$settings = [];
+		foreach ($result as $row) {
+			$settings[] = (int) $row->setting_value;
 		}
-
-		$result->Close();
 		return $settings;
 	}
 
@@ -93,38 +94,30 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 	 * Gets a user id by an RSS token value
 	 * @param $token int
 	 * @param $contextId
-	 * @return int
+	 * @return int|null
 	 */
 	function getUserIdByRSSToken($token, $contextId) {
 		$result = $this->retrieve(
 			'SELECT user_id FROM notification_subscription_settings WHERE setting_value = ? AND setting_name = ? AND context = ?',
-			array($token, 'token', (int) $contextId)
+			[$token, 'token', (int) $contextId]
 		);
-
-		$row = $result->GetRowAssoc(false);
-		$userId = $row['user_id'];
-
-		$result->Close();
-		return $userId;
+		$row = $result->current();
+		return $row ? $row->user_id : null;
 	}
 
 	/**
 	 * Gets an RSS token for a user id
 	 * @param $userId int
 	 * @param $contextId int
-	 * @return int
+	 * @return int|null
 	 */
 	function getRSSTokenByUserId($userId, $contextId) {
 		$result = $this->retrieve(
 			'SELECT setting_value FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND context = ?',
-				array((int) $userId, 'token', (int) $contextId)
+			[(int) $userId, 'token', (int) $contextId]
 		);
-
-		$row = $result->GetRowAssoc(false);
-		$tokenId = $row['setting_value'];
-
-		$result->Close();
-		return $tokenId;
+		$row = $result->current();
+		return $row ? $row->setting_value : null;
 	}
 
 	/**
@@ -144,18 +137,17 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 				(setting_name, setting_value, user_id, context, setting_type)
 				VALUES
 				(?, ?, ?, ?, ?)',
-			array(
+			[
 				'token',
 				$token,
 				(int) $userId,
 				(int) $contextId,
 				'string'
-			)
+			]
 		);
 
 		return $token;
 	}
-
 }
 
 

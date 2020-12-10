@@ -1,0 +1,373 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
+"PO-Revision-Date: 2020-11-19 14:51+0000\n"
+"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/admin/nb_NO/>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.adminFunctions"
+msgstr "Administrative funksjoner"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Er du sikker på at du vil slette valideringskilden?"
+
+msgid "admin.auth.create"
+msgstr "Opprett valideringskilde"
+
+msgid "admin.auth.noneCreated"
+msgstr "Valideringskildene er ikke definert."
+
+msgid "admin.authSources"
+msgstr "Valideringskilder"
+
+msgid "admin.clearDataCache"
+msgstr "Tøm data-cacher"
+
+msgid "admin.clearTemplateCache"
+msgstr "Tøm mal-cache"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Konfigurasjonen ble oppdatert. Dersom nettstedet ikke lenger virker som det "
+"skal, må du kanskje ordne konfigurasjonen manuelt. Det gjør du ved å "
+"redigere <tt>config.inc.php</tt> direkte."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Er du sikker på at du vil tømme cachen med maler?"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Er du sikker på at du vil avbryte alle aktive brukersesjoner? Alle som er "
+"logget inn på systemet, vil måtte logge inn igjen (du også)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Innholdet i konfigurasjonsfilen"
+
+msgid "admin.currentVersion"
+msgstr "Nyeste versjon"
+
+msgid "admin.dateInstalled"
+msgstr "Installasjonsdato"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Nedenfor ser du innholdet i den oppdaterte konfigurasjonen din. For å "
+"iverksette endringene, må du åpne <tt>config.inc.php</tt> i et egnet "
+"tekstbehandlingsprogram og erstatte innholdet i den med innholdet i "
+"tekstfeltet nedenfor."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Vis ny konfigurasjon"
+
+msgid "admin.expireSessions"
+msgstr "Avbryt brukersesjoner"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Er du sikker på at du vil laste opp denne språkpakken på ny? Dette vil "
+"slette alle lokale tilpasninger på nåværende språkpakke, f.eks. på "
+"e-postmaler."
+
+msgid "admin.languages.installedLocales"
+msgstr "Installerte språkpakker"
+
+msgid "admin.languages.installLanguages"
+msgstr "Installer språkpakker"
+
+msgid "admin.languages.installLocales"
+msgstr "Installer"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Installer nye språkpakker"
+
+msgid "admin.languages.languageSettings"
+msgstr "Språkinnstillinger"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Ingen andre språkpakker er tilgjengelige for installasjon."
+
+msgid "admin.languages.reload"
+msgstr "Last opp språkpakke på nytt"
+
+msgid "admin.languages.uninstall"
+msgstr "Avinstaller språkpakke"
+
+msgid "admin.phpInfo"
+msgstr "Mer PHP-informasjon"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache-versjon"
+
+msgid "admin.server.dbDriver"
+msgstr "Databasedriver"
+
+msgid "admin.server.dbVersion"
+msgstr "Versjon av databaseserver"
+
+msgid "admin.serverInformationDescription"
+msgstr "Operativsystem og serverens programvareversjoner. Klikk på <span class=\"highlight\">Mer PHP-informasjon</span> for å se flere detaljer om denne serverens PHP-konfigurasjon."
+
+msgid "admin.serverInformation"
+msgstr "Serverinformasjon"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP-versjon"
+
+msgid "admin.server.platform"
+msgstr "OS-plattform"
+
+msgid "admin.settings.about"
+msgstr "Om nettstedet"
+
+msgid "admin.settings.contactEmail"
+msgstr "E-postadresse til kontaktperson"
+
+msgid "admin.settings.contactName"
+msgstr "Navn på kontaktperson"
+
+msgid "admin.settings.introduction"
+msgstr "Innledning"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Minste passordlengde (tegn)"
+
+msgid "admin.settings.passwordCharacters"
+msgstr "tegn"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Nettstedets språk"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Ugyldig filformat for stilarket. Gyldig filformatet: .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Nettstedets stilark (style sheet)"
+
+msgid "admin.settings.siteTitle"
+msgstr "Nettstedets tittel"
+
+msgid "admin.siteAdmin"
+msgstr "Nettstedsadministrasjon"
+
+msgid "admin.siteManagement"
+msgstr "Nettstedsadministrasjon"
+
+msgid "admin.siteSettings"
+msgstr "Nettstedets innstillinger"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"Konfigurasjonsfilen <tt>config.inc.php</tt> finnes ikke, kan ikke leses "
+"eller er ugyldig."
+
+msgid "admin.systemInformation"
+msgstr "Systeminformasjon"
+
+msgid "admin.versionBuild"
+msgstr "Versjon"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Se etter oppdateringer"
+
+msgid "admin.version.downloadPackage"
+msgstr "Last ned"
+
+msgid "admin.version.downloadPatch"
+msgstr "Last ned patch"
+
+msgid "admin.versionHistory"
+msgstr "Versjonshistorikk"
+
+msgid "admin.version.latest"
+msgstr "Siste versjon"
+
+msgid "admin.versionMajor"
+msgstr "Hoved"
+
+msgid "admin.versionMinor"
+msgstr "Under"
+
+msgid "admin.version.moreInfo"
+msgstr "Mer informasjon"
+
+msgid "admin.versionRevision"
+msgstr "Revidering"
+
+msgid "admin.version.updateAvailable"
+msgstr "En oppdatert versjon er tilgjengelig"
+
+msgid "admin.version.upToDate"
+msgstr "Systemet er oppdatert"
+
+msgid "admin.version"
+msgstr "Versjon"
+
+msgid "admin.settings"
+msgstr "Innstillinger"
+
+msgid "admin.settings.siteTheme"
+msgstr "Nettstedets tema"
+
+msgid "admin.siteSetup"
+msgstr "Nettstedets oppsett"
+
+msgid "admin.languages.download"
+msgstr "Last ned språkpakke"
+
+msgid "admin.languages.availableLocales"
+msgstr "Tilgjengelige språkpakker"
+
+msgid "admin.languages.installLocale"
+msgstr "Installer språkpakker"
+
+msgid "admin.scheduledTask"
+msgstr "Planlagt oppgave"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Oppgave startet."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Oppgave stanset."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Oppgaven ble ikke logget."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"{$softwareName} gjorde oppgaven automatisk. Du kan laste ned loggen her: "
+"{$url}"
+
+msgid "admin.settings.siteLogo"
+msgstr "Nettstedets logo"
+
+msgid "admin.error.executingUtil"
+msgstr ""
+"Feilmelding: «{$utilPath}» kan ikke utføres. Sjekk innstillingen til "
+"{$utilVar} i config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Ingen språkpakker er tilgjengelig for nedlasting."
+
+msgid "admin.error.utilExecutionProblem"
+msgstr ""
+"Utførelsen av «{$utilPath}»-programmet  ble returnert med feilmeldingen: "
+"{$output}"
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Gjennomført: «{$filePath}» til «{$destinationPath}»"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+"Varsel: filen «{$filePath}» finnes allerede i mappen med brukerstatisikk."
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Feilmelding: filen «{$tmpFilePath}» kan ikke slettes"
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr ""
+"Feilmelding: filen kan ikke kopieres fra «{$filePath}» til «{$tmpFilePath}»"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Feilmelding: Filen «{$filePath}» finnes ikke eller kan ikke vises."
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Feilmelding: kan ikke lage midlertidig mappe {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Kopier de(n) godkjente apacheloggfilen(e). Filtrer oppføringer som er "
+"relatert til installasjonen til mappen over nåværende filer i mappen med "
+"brukerstatistikk. Detta kan bare gjøres av brukere med tilgang til å lese "
+"apacheloggfiler.\n"
+"\n"
+"Verktøyet vil bare kopiere filer som ikke allerede er i mappene (stadie, "
+"behandling, arkiver, avvis).\n"
+"\n"
+"Bruk: {$scriptName} path/to/apache/log/file.log\n"
+"Bruk: (behandle alle filer i en mappe): {$scriptName} path/to/apache/"
+"directory\n"
+"\t"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Fillaster"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Filen {$filename} ble behandlet og arkivert."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"Filen {$filename} kunne ikke flyttes fra {$currentFilePath} til "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Mappen {$path} er ikke en mappe eller kan ikke leses."
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Katalogstien «{$path}» må være i den offentlige katalogen (public)."
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tInstalleringen din er konfigurert til å registrere mer enn ett mål på "
+"bruk.\n"
+"<br>Bruksstatistikken vil bli vist i flere sammenhenger. I noen tilfeller "
+"vil ett sett med bruksdata bli brukt, for eksempel til å vise en ordnet "
+"liste over de mest brukte artiklene eller til å rangere søkeresultater.\n"
+"<br>Velg ett av de konfigurerte målene som standard.\n"
+"\t"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Påminnelse om at abonnementet løper ut"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Påminnelse om fagfellevurdering"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publisér innleveringer som er planlagt for publisering"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Tøm loggen over utførte oppgaver"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Er du sikker på at du vil slette alle loggene over planlagte oppgaver?"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Er du sikker på om du vil endre primærspråk? Brukernes navn, som kreves "
+"under nettstedets primærspråk, vil hvor de mangler bli kopieret fra det "
+"eksisterende primærspråket."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Denne språkpakken er hovedspråket for nettstedet. Du kan ikke deaktivere "
+"hovedspråket før du velger en annen språkpakke."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr ""
+"Kan ikke legge til nye filer i språkpakken, vanligvis «registry/locales.xml»."
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Språkbeskrivelsen fra PKP-nettstedet kan ikke åpnes."
+
+msgid "admin.languages.downloadLocales"
+msgstr "Last ned språkpakker"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Er du sikker på at du vil slette <i>{$contextName}<i> og alt innholdet i "
+"den? Slettingen er permanent."
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Innstillingsverdier"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Innstillingsnavn"

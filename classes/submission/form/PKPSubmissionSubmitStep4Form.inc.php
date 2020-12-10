@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/form/PKPSubmissionSubmitStep4Form.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionSubmitStep4Form
  * @ingroup submission_form
@@ -30,8 +30,8 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 	 * Save changes to submission.
 	 * @return int the submission ID
 	 */
-	function execute() {
-		$submissionDao = Application::getSubmissionDAO();
+	function execute(...$functionArgs) {
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$request = Application::get()->getRequest();
 
 		// Set other submission data.
@@ -42,19 +42,19 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 			$this->submission->setSubmissionProgress(0);
 		}
 
-		parent::execute();
+		parent::execute(...$functionArgs);
 
 		// Save the submission.
 		$submissionDao->updateObject($this->submission);
 
 		// Assign the default stage participants.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$notifyUsers = array();
 
 		// Manager and assistant roles -- for each assigned to this
 		//  stage in setup, iff there is only one user for the group,
 		//  automatically assign the user to the stage.
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$submissionStageGroups = $userGroupDao->getUserGroupsByStage($this->submission->getContextId(), WORKFLOW_STAGE_ID_SUBMISSION);
 		while ($userGroup = $submissionStageGroups->next()) {
 			// Only handle manager and assistant roles
@@ -84,9 +84,9 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 
 		$notificationManager = new NotificationManager();
 
-		// Assign sub editors for that section
-		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
-		$subEditors = $subEditorsDao->getBySectionId($this->submission->getSectionId(), $this->submission->getContextId());
+		// Assign sub editors for sections
+		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /* @var $subEditorsDao SubEditorsDAO */
+		$subEditors = $subEditorsDao->getBySubmissionGroupId($this->submission->getSectionId(), ASSOC_TYPE_SECTION, $this->submission->getContextId());
 		foreach ($subEditors as $subEditor) {
 			$userGroups = $userGroupDao->getByUserId($subEditor->getId(), $this->submission->getContextId());
 			while ($userGroup = $userGroups->next()) {
@@ -95,6 +95,25 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 				// If we assign a stage assignment in the Submission stage to a sub editor, make note.
 				if ($userGroupDao->userGroupAssignedToStage($userGroup->getId(), WORKFLOW_STAGE_ID_SUBMISSION)) {
 					$notifyUsers[] = $subEditor->getId();
+				}
+			}
+		}
+
+		// Assign sub editors for categories
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
+		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /* @var $subEditorsDao SubEditorsDAO */
+		$categories = $categoryDao->getByPublicationId($this->submission->getCurrentPublication()->getId());
+		while ($category = $categories->next()) {
+			$subEditors = $subEditorsDao->getBySubmissionGroupId($category->getId(), ASSOC_TYPE_CATEGORY, $this->submission->getContextId());
+			foreach ($subEditors as $subEditor) {
+				$userGroups = $userGroupDao->getByUserId($subEditor->getId(), $this->submission->getContextId());
+				while ($userGroup = $userGroups->next()) {
+					if ($userGroup->getRoleId() != ROLE_ID_SUB_EDITOR) continue;
+					$stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $subEditor->getId(), $userGroup->getRecommendOnly());
+					// If we assign a stage assignment in the Submission stage to a sub editor, make note.
+					if ($userGroupDao->userGroupAssignedToStage($userGroup->getId(), WORKFLOW_STAGE_ID_SUBMISSION)) {
+						$notifyUsers[] = $subEditor->getId();
+					}
 				}
 			}
 		}

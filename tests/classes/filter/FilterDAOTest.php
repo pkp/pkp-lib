@@ -3,9 +3,9 @@
 /**
  * @file tests/classes/filter/FilterDAOTest.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FilterDAOTest
  * @ingroup tests_classes_filter
@@ -26,7 +26,7 @@ class FilterDAOTest extends DatabaseTestCase {
 		return array('filters', 'filter_settings', 'filter_groups');
 	}
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 
 		// Create a test filter group.
@@ -69,14 +69,16 @@ class FilterDAOTest extends DatabaseTestCase {
 
 		// Retrieve filter by class.
 		$filtersByClassFactory = $filterDao->getObjectsByClass('lib.pkp.tests.classes.filter.PersistableTestFilter', 9999);
-		self::assertTrue($filtersByClassFactory->getCount() == 1);
 		$filterByClass = $filtersByClassFactory->next();
+		$nonexistentSecondFilter = $filtersByClassFactory->next();
+		assert($filterByClass !== null && $nonexistentSecondFilter === null);
 		self::assertEquals($testFilter, $filterByClass);
 
 		// Retrieve filter by group and class.
 		$filtersByGroupAndClassFactory = $filterDao->getObjectsByGroupAndClass('test-filter-group', 'lib.pkp.tests.classes.filter.PersistableTestFilter', 9999);
-		self::assertTrue($filtersByGroupAndClassFactory->getCount() == 1);
 		$filterByGroupAndClass = $filtersByGroupAndClassFactory->next();
+		$nonexistentSecondFilter = $filtersByGroupAndClassFactory->next();
+		assert($filterByClass !== null && $nonexistentSecondFilter === null);
 		self::assertEquals($testFilter, $filterByGroupAndClass);
 
 		// Update filter instance.

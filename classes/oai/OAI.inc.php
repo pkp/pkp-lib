@@ -9,9 +9,9 @@
 /**
  * @file classes/oai/OAI.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OAI
  * @ingroup oai
@@ -157,16 +157,17 @@ abstract class OAI {
 	/**
 	 * Return set of OAI sets.
 	 * @param $offset int current set offset
+	 * @param $limit int Maximum number of sets to return
 	 * @param $total int output parameter, set to total number of sets
 	 */
-	function sets($offset, &$total) {
+	function sets($offset, $limit, &$total) {
 		return array();
 	}
 
 	/**
 	 * Retrieve a resumption token.
 	 * @param $tokenId string
-	 * @return OAIResumptionToken (or false, if token invalid)
+	 * @return OAIResumptionToken|false
 	 */
 	abstract function resumptionToken($tokenId);
 

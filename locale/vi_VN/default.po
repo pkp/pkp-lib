@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-26 06:45+0000\n"
+"Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
+"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"default/vi_VN/>\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "Prod-E"
+
+msgid "default.genres.styleSheet"
+msgstr "Biểu định kiểu HTML"
+
+msgid "default.genres.image"
+msgstr "Hình ảnh"
+
+msgid "default.genres.multimedia"
+msgstr "Đa phương tiện"
+
+msgid "default.genres.other"
+msgstr "Khác"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Đọc"
+
+msgid "default.groups.plural.reader"
+msgstr "Các bạn đọc"
+
+msgid "default.groups.name.reader"
+msgstr "Bạn đọc"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Trans"
+
+msgid "default.groups.plural.translator"
+msgstr "Các biên dịch viên"
+
+msgid "default.groups.name.translator"
+msgstr "Biên dịch viên"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.plural.author"
+msgstr "Các tác giả"
+
+msgid "default.groups.name.author"
+msgstr "Tác giả"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "LE"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Các Biên tập viên Trình bày"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Biên tập viên Trình bày"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.plural.indexer"
+msgstr "Người lập chỉ mục"
+
+msgid "default.groups.name.indexer"
+msgstr "Người lập chỉ mục"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FC"
+
+msgid "default.groups.plural.funding"
+msgstr "Các Điều phối viên tài trợ"
+
+msgid "default.groups.name.funding"
+msgstr "Điều phối viên tài trợ"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MS"
+
+msgid "default.groups.plural.marketing"
+msgstr "Các Điều phối viên tiếp thị và bán hàng"
+
+msgid "default.groups.name.marketing"
+msgstr "Điều phối viên tiếp thị và bán hàng"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Các Phản biện nội bộ"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Phản biện nội bộ"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Thiết kế"
+
+msgid "default.groups.plural.designer"
+msgstr "Các nhà thiết kế"
+
+msgid "default.groups.name.designer"
+msgstr "Nhà thiết kế"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "PR"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Những người đọc soát lỗi"
+
+msgid "default.groups.name.proofreader"
+msgstr "Người đọc soát lỗi"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Các Biên tập viên bản thảo"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Biên tập viên bản thảo"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Các biên tập viên sản xuất"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Biên tập viên sản xuất"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Quản trị viên trang web"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Quản trị trang web"

@@ -3,9 +3,9 @@
 /**
  * @file classes/notification/managerDelegate/EditorAssignmentNotificationManager.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorAssignmentNotificationManager
  * @ingroup managerDelegate
@@ -70,7 +70,7 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate {
 		$submissionId = $assocId;
 
 		// Check for an existing NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_...
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notificationFactory = $notificationDao->getByAssoc(
 			ASSOC_TYPE_SUBMISSION,
 			$submissionId,
@@ -80,15 +80,15 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate {
 		);
 
 		// Check for editor stage assignment.
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$editorAssigned = $stageAssignmentDao->editorAssignedToStage($submissionId, $this->_getStageIdByNotificationType());
 
 		// Decide if we have to create or delete a notification.
-		if ($editorAssigned && !$notificationFactory->wasEmpty()) {
+		$notification = $notificationFactory->next();
+		if ($editorAssigned && $notification) {
 			// Delete the notification.
-			$notification = $notificationFactory->next();
 			$notificationDao->deleteObject($notification);
-		} else if (!$editorAssigned && $notificationFactory->wasEmpty()) {
+		} else if (!$editorAssigned && !$notification) {
 			// Create a notification.
 			$this->createNotification(
 				$request, null, $notificationType, $context->getId(), ASSOC_TYPE_SUBMISSION,

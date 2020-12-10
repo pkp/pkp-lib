@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-04-21 15:38+0000\n"
+"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
+"Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"generic-acron/ku_IQ/>\n"
+"Language: ku_IQ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "ئەرکی خشتەی کارەکان دوبارە نوێ کرانەوە."
+
+msgid "plugins.generic.acron.reload"
+msgstr "دوبارەکردنەوەی ئەرکی خشتەی کار"
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Cron بە سەرکەوتویی دوبارە کرایەوە."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "گرێدانی Acron ناچالاک کرا."
+
+msgid "plugins.generic.acron.enabled"
+msgstr "گرێدانی Acron  چالاک کرا."
+
+msgid "plugins.generic.acron.description"
+msgstr ""
+"ئەم گرێدانە هەوڵ دەدات کە پاشکۆیەتی هەندێک فایل کەم بکاتەوە بۆ نمونە 'cron.'"
+
+msgid "plugins.generic.acron.name"
+msgstr "Acron گرێدانی"

@@ -2,9 +2,9 @@
 /**
  * @file classes/security/authorization/UserRolesRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserRolesRequiredPolicy
  * @ingroup security_authorization
@@ -45,11 +45,11 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 		}
 
 		// Get all user roles.
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		$userRoles = $roleDao->getByUserIdGroupedByContext($user->getId());
 
 		// Prepare an array with the context ids of the request.
-		$application = Application::getApplication();
+		$application = Application::get();
 		$contextDepth = $application->getContextDepth();
 		$router = $request->getRouter();
 		$roleContext = array();
@@ -74,7 +74,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 	function _getContextRoles($roleContext, $contextDepth, $userRoles) {
 		// Adapt the role context based on the passed role id.
 		$workingRoleContext = $roleContext;
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		$contextRoles = array();
 
 		// Check if user has site level or manager roles.

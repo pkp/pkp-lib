@@ -2,14 +2,15 @@
 <!DOCTYPE schema SYSTEM "../../dtd/xmlSchema.dtd">
 
 <!--
-	* xml/schema/navigationMenus.xml
-	*
-	* Copyright (c) 2014-2019 Simon Fraser University
-	* Copyright (c) 2000-2019 John Willinsky
-	* Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-	*
-	* NavigationMenus schema in XML.
-	-->
+  * xml/schema/navigationMenus.xml
+  *
+  * Copyright (c) 2014-2020 Simon Fraser University
+  * Copyright (c) 2000-2020 John Willinsky
+  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+  *
+  * NavigationMenus schema in XML.
+  * XML-BASED DESCRIPTORS ARE DEPRECATED AND SHOULD NOT BE EDITED.
+  -->
 
 <schema version="0.2">
 	<!--
@@ -75,7 +76,7 @@
 		<field name="setting_name" type="C2" size="255">
 			<NOTNULL />
 		</field>
-		<field name="setting_value" type="X"/>
+		<field name="setting_value" type="XL"/>
 		<field name="setting_type" type="C2" size="6">
 			<NOTNULL/>
 		</field>

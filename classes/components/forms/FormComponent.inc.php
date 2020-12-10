@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/FormComponent.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormComponent
  * @ingroup classes_controllers_form
@@ -13,7 +13,6 @@
  *  in the UI Library.
  */
 namespace PKP\components\forms;
-use PKP\components\forms;
 
 define('FIELD_POSITION_BEFORE', 'before');
 define('FIELD_POSITION_AFTER', 'after');
@@ -27,9 +26,6 @@ class FormComponent {
 
 	/** @var string Where the form should be submitted. */
 	public $action = '';
-
-	/** @var string The message to display when this form is successfully submitted */
-	public $successMessage = '';
 
 	/** @var array Key/value list of languages this form should support. Key = locale code. Value = locale name */
 	public $locales = [];
@@ -46,9 +42,6 @@ class FormComponent {
 	/** @var array List of error messages */
 	public $errors = [];
 
-	/** @var array List of translation strings required by this form */
-	public $i18n = [];
-
 	/**
 	 * Initialize the form with config parameters
 	 *
@@ -56,15 +49,12 @@ class FormComponent {
 	 * @param $method string
 	 * @param $action string
 	 * @param $locales array
-	 * @param $i18n array Optional.
 	 */
-	public function __construct($id, $method, $action, $successMessage, $locales, $i18n = []) {
+	public function __construct($id, $method, $action, $locales) {
 		$this->id = $id;
 		$this->action = $action;
 		$this->method = $method;
-		$this->successMessage = $successMessage;
 		$this->locales = $locales;
-		$this->i18n = $i18n;
 	}
 
 	/**
@@ -93,9 +83,9 @@ class FormComponent {
 	 * @return FormComponent
 	 */
 	public function removeField($fieldName) {
-		$this->fields = array_filter($this->fields, function($field) use ($fieldName) {
+		$this->fields = array_values(array_filter($this->fields, function($field) use ($fieldName) {
 			return $field->name !== $fieldName;
-		});
+		}));
 		return $this;
 	}
 
@@ -240,8 +230,8 @@ class FormComponent {
 	 */
 	public function getConfig() {
 
-		if (empty($this->id) || empty($this->method) || empty($this->action) || empty($this->successMessage) || empty($this->fields)) {
-			fatalError('FormComponent::getConfig() was called but one or more required property is missing: id, method, action, successMessage, fields.');
+		if (empty($this->id) || empty($this->method) || empty($this->action)) {
+			throw new Exception('FormComponent::getConfig() was called but one or more required property is missing: id, method, action.');
 		}
 
 		\HookRegistry::call('Form::config::before', $this);
@@ -265,24 +255,10 @@ class FormComponent {
 
 		$fieldsConfig = array_map([$this, 'getFieldConfig'], $this->fields);
 
-		$session = \Application::get()->getRequest()->getSession();
-		$csrfToken = $session ? $session->getCSRFToken() : '';
-
-		$this->i18n = array_merge([
-			'saving' => __('common.saving'),
-			'errors' => __('form.errors'),
-			'errorOne' => __('form.errorOne'),
-			'errorMany' => __('form.errorMany'),
-			'errorGoTo' => __('form.errorGoTo'),
-			'errorA11y' => __('form.errorA11y'),
-			'errorUnknown' => __('form.errorUnknown'),
-			'successMessage' => $this->successMessage,
-			'required' => __('common.required'),
-			'missingRequired' => __('validator.required'),
-			'help' => __('common.help'),
-			'multilingualLabel' => __('form.multilingualLabel'),
-			'multilingualProgress' => __('form.multilingualProgress'),
-		], $this->i18n);
+		$visibleLocales = [\AppLocale::getLocale()];
+		if (\AppLocale::getLocale() !== \AppLocale::getPrimaryLocale()) {
+			array_unshift($visibleLocales, \AppLocale::getPrimaryLocale());
+		}
 
 		$config = array(
 			'id' => $this->id,
@@ -292,11 +268,9 @@ class FormComponent {
 			'groups' => $this->groups,
 			'pages' => $this->pages,
 			'primaryLocale' => \AppLocale::getPrimaryLocale(),
-			'visibleLocales' => [\AppLocale::getLocale()],
-			'supportedFormLocales' => $this->locales,
-			'errors' => new \stdClass(),
-			'csrfToken' => $csrfToken,
-			'i18n' => $this->i18n,
+			'visibleLocales' => $visibleLocales,
+			'supportedFormLocales' => array_values($this->locales), // See #5690
+			'errors' => (object) [],
 		);
 
 		\HookRegistry::call('Form::config::after', array(&$config, $this));
@@ -312,11 +286,6 @@ class FormComponent {
 	 */
 	public function getFieldConfig($field) {
 		$config = $field->getConfig();
-
-		// Pass all field translations up to the form
-		if (!empty($field->i18n)) {
-			$this->i18n = array_merge($this->i18n, $field->i18n);
-		}
 
 		// Add a value property if the field does not include one
 		if (!array_key_exists('value', $config)) {

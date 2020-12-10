@@ -1,0 +1,2029 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-09-04 21:40+0000\n"
+"Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
+"Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"ro_RO/>\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "list.viewLess"
+msgstr "Ascunde detaliile despre {$name}"
+
+msgid "list.viewMore"
+msgstr "Arată mai multe detalii despre {$name}"
+
+msgid "notification.settingsDescription"
+msgstr ""
+"Selectați evenimentele despre care doriți să fiți notificat. Debifarea unui "
+"element va împiedica ca notificările despre  evenimentsă apară în sistem și, "
+"de asemenea, să vă fie trimise prin e-mail. Evenimentele verificate vor "
+"apărea în sistem și aveți o opțiune suplimentară pentru a primi sau nu "
+"aceeași notificare prin e-mail."
+
+msgid "navigation.about"
+msgstr "Despre revistă"
+
+msgid "common.readMoreWithTitle"
+msgstr "Citește mai multe despre {$title}"
+
+msgid "about.siteMap"
+msgstr "Harta sitului"
+
+msgid "about.policies"
+msgstr "Politici"
+
+msgid "about.people"
+msgstr "Persoane"
+
+msgid "about.other"
+msgstr "Alte"
+
+msgid "about.contact.supportContact"
+msgstr "Contact tehnic"
+
+msgid "about.contact.principalContact"
+msgstr "Contact principal"
+
+msgid "about.contact.phone"
+msgstr "Telefon"
+
+msgid "about.contact.email"
+msgstr "Email"
+
+msgid "about.contact"
+msgstr "Contact"
+
+msgid "about.aboutSite"
+msgstr "Despre acest site"
+
+msgid "about.guidelines"
+msgstr "Ghiduri"
+
+msgid "about.description"
+msgstr "Descriere"
+
+msgid "navigation.archives"
+msgstr "Arhivă"
+
+#, fuzzy
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>Asigurarea integrității revizuirii „în orb” pentru manuscrisele "
+"înregistrate, presupune luarea tuturor măsurilor pentru a împiedica ca "
+"identitățile revizorilor să fie cunoscute de autori și invers. Aceasta "
+"implică ca autorii, editorii și recenzorii (care încarcă documente ca parte "
+"a revizuirii lor) să verifice dacă au fost făcuți toți pașii în ceea "
+"referitori la curățirea de date personale a textului și a proprietăților "
+"fișierelor încărcare după cum urmează:</p>\n"
+"<ul><li>Autorii manuscrisului și-au șters numele din text, au înlocuit cu "
+"„Autor” inclusiv anul folosit în referințe și notele de subsol,etc.</li>\n"
+"<li>Autorii manuscrisului au eliminat informațiile personale din "
+"proprietățile fișierului, urmând pașii următori:\n"
+"<ul><li>Microsoft Word pentru Windows:\n"
+"<ul><li>Go to File</li>\n"
+"<li>Select Info</li>\n"
+"<li>Click pe Check for Issues</li>\n"
+"<li>Click pe Inspect Document</li>\n"
+"<li>În Document Inspector dialog box, bifați căsuțele pentru a alege tipul "
+"de conținut ascuns pe care doriți să îl inspectați.</li>\n"
+"<li>Click Remove All</li>\n"
+"<li>Click Close</li>\n"
+"<li>Salvați documentul</li></ul>\n"
+"<li>Microsoft Word for MacOS:\n"
+"<ul><li>Go to Tools</li>\n"
+"<li>Click Protect Document</li>\n"
+"<li>Select Remove personal information for this file on save</li>\n"
+"<li>Click OK and save the file</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Go to File</li>\n"
+"<li>Select Properties</li>\n"
+"<li>Remove any name in the author field</li>\n"
+"<li>Click OK</li>\n"
+"<li>Save the document</li></ul></li></ul>\n"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Informații pentru cititori"
+
+msgid "informationCenter.history.messageSent"
+msgstr "Notificare trimisă utilizatorilor."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Notă nouă postată."
+
+msgid "informationCenter.history.noItems"
+msgstr "Nu sunt înregistrate evenimente."
+
+msgid "informationCenter.pastHistory"
+msgstr "Revizii anterioare"
+
+msgid "informationCenter.currentHistory"
+msgstr "Revizia curentă"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Sigur ștergi această notă?"
+
+msgid "informationCenter.pastNotes"
+msgstr "Note anterioare de revizuire"
+
+msgid "informationCenter.noNotes"
+msgstr "Nu există note de afișat."
+
+msgid "informationCenter.addNote"
+msgstr "Adăugare notă"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Istoricul editorial"
+
+msgid "informationCenter.informationCenter"
+msgstr "Centru de informare"
+
+msgid "validator.localeKey"
+msgstr ""
+"Limbile trebuie specificate folosind codul local. Exemple: en_US, fr_CA, "
+"sr_RS @ chirilic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Acest câmp este multilingvistic. Pentru fiecare limbă acceptată trebuie "
+"furnizate valori separate."
+
+msgid "validator.locale"
+msgstr "Această limbă nu este acceptată."
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} limbă terminată"
+
+msgid "form.requirePrimaryLocale"
+msgstr "Trebuie să completați acest câmp în {$language}."
+
+msgid "form.formLanguage"
+msgstr "Forma limbii"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"Pentru a introduce informațiile de mai jos în limbi suplimentare, selectați "
+"mai întâi limba."
+
+msgid "form.disallowedLocales"
+msgstr "Doar următoarele limbi sunt permise: {$languages}."
+
+msgid "common.languages"
+msgstr "Limbă"
+
+msgid "common.language"
+msgstr "Limbă"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr ""
+"Validarea captcha pentru acest site web nu este configurată corect. Cheia "
+"secretă lipsește."
+
+msgid "common.notice"
+msgstr "Notă"
+
+msgid "common.error"
+msgstr "Eroare"
+
+msgid "common.warning"
+msgstr "Atenție"
+
+msgid "common.cancelled"
+msgstr "Anulat"
+
+msgid "common.cancel"
+msgstr "Anulare"
+
+msgid "common.between"
+msgstr "între"
+
+msgid "common.back"
+msgstr "Înapoi"
+
+msgid "common.available"
+msgstr "Disponibil"
+
+msgid "common.assigned.date"
+msgstr "Atribuit: {$dateAssigned}"
+
+msgid "common.assigned"
+msgstr "Atribuit"
+
+msgid "common.assign"
+msgstr "Atribuie"
+
+msgid "common.applyAction"
+msgstr "Aplică acțiunea"
+
+msgid "common.and"
+msgstr "și"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Descrieți această imagine pentru vizitatorii care vizionează situl în "
+"browser de tip text sau cu echipamente asistate. Exemplu: \"Editorul nostru "
+"vorbește la conferința PKP.\""
+
+msgid "common.altText"
+msgstr "Text alternativ"
+
+msgid "common.alreadyAssigned"
+msgstr "Atribuit"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"a unuia și este sau nu dar dacă este așa atunci astfel o formă de a fi sau "
+"nu peste sau în interior"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+msgid "common.all"
+msgstr "Toate"
+
+msgid "common.name"
+msgstr "Nume"
+
+msgid "common.addSelf"
+msgstr "Adaugă"
+
+msgid "common.add"
+msgstr "Adaugă"
+
+msgid "common.active"
+msgstr "Activ"
+
+msgid "common.activate"
+msgstr "Activare"
+
+msgid "common.action"
+msgstr "Acțiune"
+
+msgid "common.acknowledged"
+msgstr "Mulțumiri"
+
+msgid "common.accepted"
+msgstr "Acceptat"
+
+msgid "common.abstract"
+msgstr "Rezumat"
+
+msgid "common.confirmDelete"
+msgstr ""
+"Sigur doriți să ștergeți acest articol? Această acțiune nu poate fi anulată."
+
+msgid "common.grid"
+msgstr "Grilă"
+
+msgid "common.list"
+msgstr "Listă"
+
+msgid "common.tasks"
+msgstr "Sarcini"
+
+msgid "common.navigation.user"
+msgstr "Navigare utilizator"
+
+msgid "common.navigation.siteContext"
+msgstr "Navigare contextuală în site"
+
+msgid "common.navigation.site"
+msgstr "Navigare pe site"
+
+msgid "common.navigation.sidebar"
+msgstr "Bara laterală"
+
+msgid "common.allDownloads"
+msgstr "Toate descărcările"
+
+msgid "announcement.view"
+msgstr "Vezi anunțul"
+
+msgid "announcement.postedOn"
+msgstr "Postat în {$postDate}"
+
+msgid "announcement.posted"
+msgstr "Postat"
+
+msgid "announcement.noneExist"
+msgstr "Nu a fost publicat nici un anunț."
+
+msgid "announcement.moreAnnouncements"
+msgstr "Mai multe anunțuri..."
+
+msgid "announcement.announcementsHome"
+msgstr "Anunțuri"
+
+msgid "announcement.announcements"
+msgstr "Anunțuri"
+
+msgid "common.currentStyleSheet"
+msgstr "Fișier de stil curent"
+
+msgid "common.publicKnowledgeProject"
+msgstr "PKP"
+
+msgid "common.noItemsFound"
+msgstr "Nu a fost găsit nici un element."
+
+msgid "common.no"
+msgstr "Nu"
+
+msgid "common.none"
+msgstr "Nici una(ul)"
+
+msgid "common.noneAssigned"
+msgstr "Nici o atribuire"
+
+msgid "common.moreThanOnly"
+msgstr "Mai mult decât"
+
+msgid "common.moreThan"
+msgstr "{$value} sau mai mult"
+
+msgid "common.more"
+msgstr "Mai mult"
+
+msgid "common.month"
+msgstr "Luna"
+
+msgid "common.modify"
+msgstr "Modifică"
+
+msgid "common.minute"
+msgstr "Minut(e)"
+
+msgid "common.billingAddress"
+msgstr "Adresa de facturare (dacă diferă)"
+
+msgid "common.mailingAddress"
+msgstr "Adresă"
+
+msgid "common.manage"
+msgstr "Gestionează"
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.lessThanOnly"
+msgstr "Mai puțin decât"
+
+msgid "common.lessThan"
+msgstr "{$value} sau mai putin"
+
+msgid "common.less"
+msgstr "Mai puțin"
+
+msgid "common.lastActivity"
+msgstr "Ultima activitate a fost înregistrată în {$date}."
+
+msgid "common.keywords"
+msgstr "Cuvinte cheie"
+
+msgid "common.itemsPerPage"
+msgstr "Elemente pe pagină"
+
+msgid "common.inProgress"
+msgstr "În progres"
+
+msgid "common.initiate"
+msgstr "Începe"
+
+msgid "common.import"
+msgstr "Importă"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.hour"
+msgstr "Ora"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Logo-ul antetului paginii de start"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Acasă"
+
+msgid "common.height"
+msgstr "Înălțime"
+
+msgid "common.go"
+msgstr "Mergi"
+
+msgid "common.until"
+msgstr "Până când"
+
+msgid "common.fromWithValue"
+msgstr "Din: {$value}"
+
+msgid "common.from"
+msgstr "Din"
+
+msgid "common.filterRemove"
+msgstr "Elimină filtrul: {$filterTitle}"
+
+msgid "common.filterAdd"
+msgstr "Adaugă filtru: {$filterTitle}"
+
+msgid "common.filter"
+msgstr "Filtre"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"Actualizarea fișierelor de sistem se încarcă. Dacă nu apare mesajul de "
+"actualizare, este foarte probabil să nu fie acceptat de acest browser. Vă "
+"rugăm, contactați administrația pentru asistență."
+
+msgid "common.fileType"
+msgstr "Tip fișier"
+
+msgid "common.fileSize"
+msgstr "Mărime fișier"
+
+msgid "common.fileName"
+msgstr "Nume fișier"
+
+msgid "common.file"
+msgstr "Fișier"
+
+msgid "common.false"
+msgstr "Fals"
+
+msgid "common.fullscreenOff"
+msgstr "Dezactivare ecran complet"
+
+msgid "common.fullscreen"
+msgstr "Ecran complet"
+
+msgid "common.finish"
+msgstr "Finalizat"
+
+msgid "common.export"
+msgstr "Export"
+
+msgid "common.event"
+msgstr "Eveniment"
+
+msgid "common.error.framesRequired"
+msgstr ""
+"Această pagină necesită încadrare. <a href=\"{$url}\">Click here</a> pentru "
+"versiunea fără încadrare."
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "A apărut o eroare necunoscută la conectarea la baza de date."
+
+msgid "common.error.databaseError"
+msgstr "A apărut o eroare în baza de date:{$error}"
+
+msgid "common.enabled"
+msgstr "Permis"
+
+msgid "common.enable"
+msgstr "Permiteți"
+
+msgid "common.edit"
+msgstr "Editați"
+
+msgid "common.downloadPdf"
+msgstr "Descarcă PDF"
+
+msgid "common.download"
+msgstr "Descarcă"
+
+msgid "common.done"
+msgstr "Terminat"
+
+msgid "common.discipline"
+msgstr "Disciplina"
+
+msgid "common.disabled"
+msgstr "Dezactivat"
+
+msgid "common.disable"
+msgstr "Dezactivați"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pixeli"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; la {$dpi} DPI/PPI"
+
+msgid "common.description"
+msgstr "Descriere"
+
+msgid "common.designation"
+msgstr "Desemnare"
+
+msgid "common.deleteSelection"
+msgstr "Ștergeți selecția"
+
+msgid "common.deleting"
+msgstr "Ștergerea"
+
+msgid "common.delete"
+msgstr "Șterge"
+
+msgid "common.declined"
+msgstr "Refuzat"
+
+msgid "common.default"
+msgstr "Mod implicit"
+
+msgid "common.deactivate"
+msgstr "Dezactivați"
+
+msgid "common.day"
+msgstr "Ziua"
+
+msgid "common.dateHijri"
+msgstr "Calendar Hijri"
+
+msgid "common.dateUploaded"
+msgstr "Data încărcării"
+
+msgid "common.dateSubmitted"
+msgstr "Data depunerii"
+
+msgid "common.dateRequested"
+msgstr "Data solicitării"
+
+msgid "common.dateModified"
+msgstr "Data modificată"
+
+msgid "common.date"
+msgstr "Data"
+
+msgid "common.dateDecided"
+msgstr "Data decisă"
+
+msgid "common.dateCompleted"
+msgstr "Data completării"
+
+msgid "common.create"
+msgstr "Crează"
+
+msgid "common.country"
+msgstr "Țara"
+
+msgid "common.copy"
+msgstr "Copie"
+
+msgid "common.continue"
+msgstr "Continuă"
+
+msgid "common.contents"
+msgstr "Conținuturi"
+
+msgid "common.content"
+msgstr "Conținut"
+
+msgid "common.confirmed.date"
+msgstr "Confirmat: {$dateConfirmed}"
+
+msgid "common.confirm"
+msgstr "Confirm"
+
+msgid "common.completed.date"
+msgstr "Efectuat: {$dateCompleted}"
+
+msgid "common.completed"
+msgstr "Efectuat"
+
+msgid "common.complete"
+msgstr "Complet"
+
+msgid "common.closeWindow"
+msgstr "Fereastră închisă"
+
+msgid "common.closePanel"
+msgstr "Panou de închidere"
+
+msgid "common.close"
+msgstr "Închid"
+
+msgid "common.chooseOne"
+msgstr "Alege una"
+
+msgid "common.changesSaved"
+msgstr "Schimbările tale au fost salvate."
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tAceastă lucrare este licențiată în temeiul unui <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative "
+"Commons Attribution 3.0 License</a>.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tAceastă lucrare este licențiată în temeiul unui <a rel=\"license\" "
+"target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">"
+"Creative Commons Attribution 3.0  License</a>.\n"
+"\t"
+
+msgid "common.captchaField"
+msgstr "Validare"
+
+msgid "common.captchaField.description"
+msgstr "Vă rugăm să introduceți literele așa cum apar în imaginea de mai sus."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr ""
+"Nu ați trecut verificarea de validare folosită pentru a preveni trimiterea "
+"de spam."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"Trebuie să completați verificarea de validare folosită pentru a preveni "
+"trimiterea de spam."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr ""
+"Validarea captcha pentru acest site web nu este configurată corect. Cheia "
+"secretă este nevalidă."
+
+msgid "search.typeMethodApproach"
+msgstr "Tip (metodă/abordare)"
+
+msgid "navigation.tools.importExport"
+msgstr "Importă/Exportă"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "common.notApplicableShort"
+msgstr "N/A"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.metric"
+msgstr "Metric"
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Email de mulțumire trimis revizorului."
+
+msgid "notification.removedAuditor"
+msgstr "Auditorul a fost eliminat."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Previzualizarea imaginii selectate."
+
+msgid "common.uploadFailed"
+msgstr "Acest fișier nu poate fi încărcat ori rezuzuit."
+
+msgid "debug.notes"
+msgstr "Note:"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Revizuire marcată ca recunoscută. E-mail nu a fost trimis."
+
+msgid "notification.addedQuery"
+msgstr "S-a adăugat discuția"
+
+msgid "notification.addedAuditor"
+msgstr "Adăugare auditor."
+
+msgid "navigation.userManagement"
+msgstr "Gestionare utilizator"
+
+msgid "navigation.user"
+msgstr "Utilizator"
+
+msgid "navigation.userHome"
+msgstr "Acasă utilizator"
+
+msgid "navigation.system"
+msgstr "Sistem"
+
+msgid "navigation.submissions"
+msgstr "Manuscrise"
+
+msgid "navigation.stepNumber"
+msgstr "Pas {$step}"
+
+msgid "navigation.skip.nav"
+msgstr "Salt la meniul principal de navigare"
+
+msgid "navigation.skip.main"
+msgstr "Salt la conținutul principal"
+
+msgid "navigation.skip.announcements"
+msgstr "Sari peste anunțuri"
+
+msgid "navigation.skip.description"
+msgstr "Salt la linkurile de conținut"
+
+msgid "navigation.setup"
+msgstr "Configurare"
+
+msgid "navigation.settings"
+msgstr "Setări"
+
+msgid "navigation.register"
+msgstr "Înregistrare"
+
+msgid "navigation.search"
+msgstr "Caută"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Metrica disponibilă"
+
+msgid "defaultMetric.title"
+msgstr "Metrica implicită"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Lipsește cheia locală \"{$key}\"."
+
+msgid "debug.notes.localeLoad"
+msgstr "Încărcați fișierul local \"{$localeFile}\" din XML"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Încărcați lista locală \"{$localeList}\" din XML"
+
+msgid "debug.memoryUsage"
+msgstr "Folosirea memoriei"
+
+msgid "debug.executionTime"
+msgstr "Pagină generată în"
+
+msgid "debug.databaseQueries"
+msgstr "Numărul de interogări ale bazei de date"
+
+msgid "common.publicAccess"
+msgstr "Acces public"
+
+msgid "common.count"
+msgstr "Numără"
+
+msgid "common.plugins"
+msgstr "Pluginuri"
+
+msgid "common.loading"
+msgstr "Așteaptă"
+
+msgid "common.yes"
+msgstr "Da"
+
+msgid "common.year"
+msgstr "An"
+
+msgid "common.width"
+msgstr "Lățime"
+
+msgid "common.weeks"
+msgstr "Săptămâni"
+
+msgid "common.viewProfile"
+msgstr "Vizualizare profil"
+
+msgid "common.view"
+msgstr "Vizualizare"
+
+msgid "common.user"
+msgstr "Utilizator"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.upload.dragFile"
+msgstr "Trageți și plasați un fișier aici pentru a începe încărcarea"
+
+msgid "common.upload.changeFile"
+msgstr "Schimbă fișierul"
+
+msgid "common.upload.restore"
+msgstr "Restaurați originalul"
+
+msgid "common.upload.addFile"
+msgstr "Încărcați fișierul"
+
+msgid "common.up"
+msgstr "Sus"
+
+msgid "common.upload"
+msgstr "Incarcă"
+
+msgid "common.uploadedDate"
+msgstr "Data actualizării"
+
+msgid "common.updated"
+msgstr "Actualizat"
+
+msgid "common.untitled"
+msgstr "Fără titlu"
+
+msgid "common.unread"
+msgstr "Necitit"
+
+msgid "common.uninitiated"
+msgstr "Neinițiat"
+
+msgid "common.component"
+msgstr "Componenta"
+
+msgid "common.type"
+msgstr "Tip"
+
+msgid "common.true"
+msgstr "Adevărat"
+
+msgid "common.toWithValue"
+msgstr "Pentru: {$value}"
+
+msgid "common.top"
+msgstr "Top"
+
+msgid "common.title"
+msgstr "Titlu"
+
+msgid "common.suggest"
+msgstr "Sugestie"
+
+msgid "common.subtitle"
+msgstr "Subtitlu"
+
+msgid "common.submenu"
+msgstr "Submeniu"
+
+msgid "common.subjects"
+msgstr "Subiecte"
+
+msgid "common.subject"
+msgstr "Subiect"
+
+msgid "common.status"
+msgstr "Status"
+
+msgid "common.source"
+msgstr "Sursa"
+
+msgid "common.size"
+msgstr "Mărimea"
+
+msgid "common.sendEmail"
+msgstr "Trimiteți email"
+
+msgid "common.select"
+msgstr "Selectare"
+
+msgid "common.selectNone"
+msgstr "Neselectat"
+
+msgid "common.selectedPrefix"
+msgstr "Selectate:"
+
+msgid "common.selectAll"
+msgstr "Selectare toate"
+
+msgid "common.second"
+msgstr "În al doilea rând (s)"
+
+msgid "common.clearSearch"
+msgstr "Ștergeți fraza de căutare"
+
+msgid "common.searchQuery"
+msgstr "Căutare interogare"
+
+msgid "common.search"
+msgstr "Caută"
+
+msgid "common.saving"
+msgstr "Salvare"
+
+msgid "common.save"
+msgstr "Salvați"
+
+msgid "common.saveAndEmail"
+msgstr "Salvați și trimiteți email"
+
+msgid "common.saveAndContinue"
+msgstr "Salvați și continuați"
+
+msgid "common.reset"
+msgstr "Reset"
+
+msgid "common.required"
+msgstr "Necesar"
+
+msgid "common.requiredField"
+msgstr "* Reprezintă câmp obligatoriu"
+
+msgid "common.replaceFile"
+msgstr "Înlocuire fișier"
+
+msgid "common.replaced"
+msgstr "Înlocuit"
+
+msgid "common.removeSelection"
+msgstr "Eliminați selecția"
+
+msgid "common.removeItem"
+msgstr "Eliminați {$item}"
+
+msgid "common.remove"
+msgstr "Eliminați"
+
+msgid "common.remoteURL"
+msgstr "URL la distanță"
+
+msgid "common.remote"
+msgstr "La distanță"
+
+msgid "common.reminded.date"
+msgstr "Reamintire: {$dateReminded}"
+
+msgid "common.reminder"
+msgstr "Reamintire"
+
+msgid "common.related"
+msgstr "Legat de"
+
+msgid "common.refresh"
+msgstr "Reîmprospătare"
+
+msgid "common.record"
+msgstr "Înregistrare"
+
+msgid "navigation.viewFrontend"
+msgstr "Vizualizați site-ul"
+
+msgid "navigation.skip.footer"
+msgstr "Salt la subsolul site-ului"
+
+msgid "navigation.sitemap"
+msgstr "Harta site"
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"În prezent, nu aveți suficiente privilegii pentru a vizualiza trimiterea. Vă "
+"rugăm să vă editați profilul pentru a vă asigura că vi s-au acordat rolurile "
+"corespunzătoare în „Înregistrare ca ca”."
+
+msgid "navigation.access"
+msgstr "Utilizatori &amp; Roluri"
+
+msgid "dashboard.myQueue"
+msgstr "În așteptare"
+
+msgid "help.upALevel"
+msgstr "Un nivel mai sus"
+
+msgid "help.next"
+msgstr "Următor"
+
+msgid "help.previous"
+msgstr "Anterior"
+
+msgid "help.toc"
+msgstr "Cuprins"
+
+msgid "help.help"
+msgstr "Ajutor"
+
+msgid "common.readMore"
+msgstr "Citește mai mult"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.queue.long.active"
+msgstr "Toate manuscrisele active"
+
+msgid "common.quality"
+msgstr "Calitate"
+
+msgid "common.publisher"
+msgstr "Editor"
+
+msgid "common.preview"
+msgstr "Previzualizare"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Exemple: A,"
+
+msgid "common.prefix"
+msgstr "Prefix"
+
+msgid "common.pluginDisabled"
+msgstr "Pluginul \"{$pluginName}\" a fost dezactivat."
+
+msgid "common.pluginEnabled"
+msgstr "Plugi-ul \"{$pluginName}\" a fost activat."
+
+msgid "common.plugin"
+msgstr "Plugin"
+
+msgid "common.pageNumber"
+msgstr "Pagina {$pageNumber}"
+
+msgid "common.pagination.previous"
+msgstr "Pagina anterioară"
+
+msgid "common.pagination.next"
+msgstr "Pagina următoare"
+
+msgid "common.pagination.goToPage"
+msgstr "Mergeți la {$page}"
+
+msgid "common.pagination.label"
+msgstr "Vizualizați paginile adiționale"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} of {$total}"
+
+msgid "common.override"
+msgstr "Treceți peste"
+
+msgid "common.overdue"
+msgstr "Depășit"
+
+msgid "common.other"
+msgstr "Alte"
+
+msgid "common.or"
+msgstr "ori"
+
+msgid "common.originalFileName"
+msgstr "Numele original al fișierului"
+
+msgid "common.orderDown"
+msgstr "Coboară poziția {$itemTitle}"
+
+msgid "common.orderUp"
+msgstr "Crește poziția {$itemTitle}"
+
+msgid "common.order"
+msgstr "Ordin"
+
+msgid "common.options"
+msgstr "Opțiuni"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.on"
+msgstr "Închis"
+
+msgid "common.off"
+msgstr "Deschis"
+
+msgid "common.noMatches"
+msgstr "Nici-o potrivire"
+
+msgid "common.notified.date"
+msgstr "Notificat(ă): {$dateNotified}"
+
+msgid "common.notified"
+msgstr "Notificat(ă)"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Note (galben: aveți note noi; albastru: aveți note văzute; verde: fără note)"
+
+msgid "common.notes"
+msgstr "Note"
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"Fișierul ce l-ați încărcat nu poate fi găsit. Vă rugăm să îl încărcați din "
+"nou."
+
+msgid "common.note"
+msgstr "Notă"
+
+msgid "common.notAvailable"
+msgstr "Nu e disponibil"
+
+msgid "common.notApplicable"
+msgstr "Nu se aplică"
+
+msgid "common.noComments"
+msgstr "Fără comentarii"
+
+msgid "user.authorization.invalidPublication"
+msgstr "Publicare nevalidă."
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"Utilizatorul curent nu este autorizat să acceseze fișierul de trimitere "
+"specificat."
+
+msgid "notification.signedFile"
+msgstr "Fișier considerat."
+
+msgid "notification.type.reviewerComment"
+msgstr "Un revizor a comentat \"{$title}\"."
+
+msgid "notification.type.metadataModified"
+msgstr "Metadatele \"{$title}'s\" au fost modificate."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Revizuire înregistrată în {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Revizuire considerată în {$stage}."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Revizuire în așteptare."
+
+msgid "search.matchAll"
+msgstr "Potriviți toate categoriile"
+
+msgid "notification.reminderError"
+msgstr ""
+"A apărut o eroare la trimiterea parolei, asigurați-vă că ați introdus corect "
+"adresa dvs. de e-mail."
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"Un fișier revizuit a fost încărcat pentru a fi luat în considerare pentru "
+"editare în {$stage}."
+
+msgid "notification.type.allReviewsIn"
+msgstr "Toți recenzorii au răspuns și este nevoie de o decizie în {$stage}."
+
+msgid "notification.type.auditorRequest"
+msgstr "Cerere de audit pentru \"{$file}\""
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Revizuire în așteptare."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Anunț nou."
+
+msgid "notification.editStageParticipant"
+msgstr "Sarcina de etapă a fost modificată."
+
+msgid "notification.addedStageParticipant"
+msgstr "Utilizator adăugat ca participant la etapă."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Evaluatorul s-a reintegrat."
+
+msgid "notification.cancelledReviewer"
+msgstr "Evaluatorul a fost anulat."
+
+msgid "notification.removedReviewer"
+msgstr "Evaluatorul a fost eliminat."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} a fost desemnat să examineze acest manuscris și nu a trimis "
+"o notificare prin e-mail."
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName} a fost desemnat să examineze acest manuscris și a trimis o "
+"notificare prin e-mail."
+
+msgid "navigation.goBack"
+msgstr "Mergi înapoi"
+
+msgid "submission.task.responseDueDate"
+msgstr "Data limită de răspuns"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Data limită de răspuns"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Data limită de revizie"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Cererea editorului"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Revizuire program"
+
+msgid "dashboard.tasks"
+msgstr "Sarcini"
+
+msgid "grid.action.markRead"
+msgstr "Marcaj citit"
+
+msgid "grid.action.markNew"
+msgstr "Marcaj nou"
+
+msgid "grid.action.deleteNotification"
+msgstr "Ștergeți sarcina"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Citiți politica actuală de revizuire"
+
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
+msgstr "Asigurarea unei revizii în orb"
+
+msgid "context.path"
+msgstr "Cale"
+
+msgid "grid.action.downloadFile"
+msgstr "Descărcați acest fișier"
+
+msgid "search.title"
+msgstr "Titlu"
+
+msgid "search.titleIndex"
+msgstr "Navigator index titluri"
+
+msgid "search.subject"
+msgstr "Cuvinte cheie"
+
+msgid "search.searchResults"
+msgstr "Rezultatele căutării"
+
+msgid "search.SearchFor"
+msgstr "Caută pentru"
+
+msgid "search.operator.or"
+msgstr "ori"
+
+msgid "search.operator.not"
+msgstr "nu"
+
+msgid "search.operator.and"
+msgstr "și"
+
+msgid "search.noResults"
+msgstr "Fără rezultate"
+
+msgid "search.indexTermsLong"
+msgstr "Toate câmpurile indexului de termeni"
+
+msgid "search.indexTerms"
+msgstr "Termenii indexului"
+
+msgid "search.fullText"
+msgstr "Text complet"
+
+msgid "search.discipline"
+msgstr "Discipline"
+
+msgid "search.deleteFilter"
+msgstr "Șterge"
+
+msgid "search.dateTo"
+msgstr "Publicat înainte"
+
+msgid "search.dateFrom"
+msgstr "Publicat după"
+
+msgid "search.date"
+msgstr "Data publicării"
+
+msgid "search.coverage"
+msgstr "Acoperire"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} articole indexate"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "eroare"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "gata"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Curățire index"
+
+msgid "search.searchAgain"
+msgstr "Caută din nou"
+
+msgid "search.advancedSearchLess"
+msgstr "Ascundeți mai multe opțiuni de căutare"
+
+msgid "search.advancedSearchMore"
+msgstr "Mai multe opțiuni de căutare"
+
+msgid "search.advancedFilters"
+msgstr "Filtre avansate"
+
+msgid "search.abstract"
+msgstr "Rezumat"
+
+msgid "search.author"
+msgstr "De autor"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Trimiteți email de notificare către toți utilizatorii"
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Metadatele de înregistrare au fost salvate."
+
+msgid "notification.reminderSent"
+msgstr ""
+"A apărut o eroare la trimiterea parolei, asigurați-vă că ați introdus corect "
+"adresa dvs. de e-mail."
+
+msgid "notification.settings"
+msgstr "Setări notificare"
+
+msgid "notification.sentNotification"
+msgstr "Notificare trimisă."
+
+msgid "notification.notifications"
+msgstr "Notificări"
+
+msgid "notification.notification"
+msgstr "Notificare"
+
+msgid "notification.removedSubmission"
+msgstr "Înregistrare eliminată."
+
+msgid "notification.removedFile"
+msgstr "Fișier îndepărtat."
+
+msgid "notification.removedNote"
+msgstr "Notă ștearsă."
+
+msgid "notification.addedNote"
+msgstr "Notă postată."
+
+msgid "notification.noneExist"
+msgstr "Nu aveți notificări în acest moment."
+
+msgid "notification.email"
+msgstr "Nu-mi trimiteți un e-mail pentru aceste tipuri de notificări."
+
+msgid "notification.confirmSuccess"
+msgstr "Ați fost înregistrat cu succes."
+
+msgid "notification.confirmError"
+msgstr "A apărut o eroare la confirmarea abonamentului."
+
+msgid "notification.editedAuthor"
+msgstr "Autor editat."
+
+msgid "notification.addedAuthor"
+msgstr "Autor adăugat."
+
+msgid "notification.removedAnnouncement"
+msgstr "Anunțul a fost îndepărtat."
+
+msgid "notification.addedAnnouncement"
+msgstr "Anunțul a fost adăugat."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Tipul de anunț a fost îndepărtat."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Tipul de anunț editat."
+
+msgid "notification.addedAnnouncementType"
+msgstr "A fost adăugat tipul de anunț."
+
+msgid "notification.allow"
+msgstr "Activați aceste tipuri de notificări."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Examinați fișierele actualizate."
+
+msgid "navigation.publicMenu"
+msgstr "Meniu public"
+
+msgid "navigation.previousStep"
+msgstr "Pasul anterior"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.nextStep"
+msgstr "Pasul următor"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} din {$total} elemente"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} din {$total} elemente"
+
+msgid "navigation.infoForReaders"
+msgstr "Pentru cititori"
+
+msgid "navigation.home"
+msgstr "Acasă"
+
+msgid "navigation.data"
+msgstr "Data"
+
+msgid "navigation.dashboard"
+msgstr "Tablou de bord"
+
+msgid "navigation.browseByTitle"
+msgstr "De titlu"
+
+msgid "navigation.browseByAuthor"
+msgstr "De autor"
+
+msgid "navigation.browse"
+msgstr "Navigator"
+
+msgid "navigation.tools.statistics"
+msgstr "Statistici"
+
+msgid "navigation.tools"
+msgstr "Unelte"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Esti aici:"
+
+msgid "navigation.admin"
+msgstr "Administrare"
+
+msgid "locale.supported"
+msgstr "Locații acceptate"
+
+msgid "locale.primary"
+msgstr "Localizare primară"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Nu se pot face modificări privind acest participant"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Participant"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Permiteți acestei persoane să efectueze modificări asupra datelor "
+"articolului, cum ar fi titlul, rezumatul, metadatele și alte detalii despre "
+"publicație. Puteți revoca acest privilegiu dacă trimiterea a primit un "
+"control final și este gata de publicare."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Permisiuni"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Acest participant are voie să recomande doar o decizie editorială și va "
+"solicita unui editor autorizat să înregistreze deciziile editoriale."
+
+msgid "stageParticipants.options"
+msgstr "Privilegiile de atribuire"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Vă rugăm să vă asigurați că ați completat câmpul de mesaje și ați inclus pe "
+"altcineva decât dvs. în discuție."
+
+msgid "stageParticipants.notify.message"
+msgstr "Mesaj"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+"Alegeți un mesaj predefinit pe care să-l utilizați sau completați formularul "
+"de mai jos."
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Începeți o discuție cu {$userFullName}."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Începeți discuția"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Notificare trimisă utilizatorilor."
+
+msgid "icon.view.alt"
+msgstr "Vizualizare"
+
+msgid "icon.unchecked.alt"
+msgstr "Neverificat"
+
+msgid "icon.mail.alt"
+msgstr "Email"
+
+msgid "icon.letter.alt"
+msgstr "Scrisoare"
+
+msgid "icon.info.alt"
+msgstr "Info"
+
+msgid "icon.font_small.alt"
+msgstr "Mic"
+
+msgid "icon.font_medium.alt"
+msgstr "Mediu"
+
+msgid "icon.font_large.alt"
+msgstr "Lare"
+
+msgid "icon.folder.alt"
+msgstr "Director"
+
+msgid "icon.edit.alt"
+msgstr "Editați"
+
+msgid "icon.delete.alt"
+msgstr "Șterge"
+
+msgid "icon.comment.alt"
+msgstr "Comentariu"
+
+msgid "icon.checked.alt"
+msgstr "Verificat"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} în {$localeName}"
+
+msgid "form.invalidImage"
+msgstr ""
+"A fost încărcată o imagine invalidă. Formatele acceptate sunt .png, .gif, "
+"sau .jpg."
+
+msgid "form.submit"
+msgstr "Înregistrează"
+
+msgid "form.send"
+msgstr "Trimite"
+
+msgid "form.saveToUpload"
+msgstr "Folosiți Salvare pentru a încărca fișierul."
+
+msgid "form.resubmit"
+msgstr "Reînregistrați"
+
+msgid "form.requireId"
+msgstr "Trebuie să furnizați un ID valid."
+
+msgid "form.required"
+msgstr "(* Obligatoriu)"
+
+msgid "form.fileRequired"
+msgstr "Este necesară încărcarea fișierului."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Formularul nu a putut fi depus. Este posibil să fiți deconectat. Reîncărcați "
+"pagina și încercați din nou."
+
+msgid "form.postRequired"
+msgstr "Formularul nu a fost trimis corect."
+
+msgid "form.startsWith"
+msgstr "începe cu"
+
+msgid "form.missingRequired"
+msgstr "Acest câmp este obligatoriu."
+
+msgid "form.is"
+msgstr "este"
+
+msgid "form.contains"
+msgstr "conține"
+
+msgid "form.errorsOccurred"
+msgstr "Au apărut erori la procesarea acestui formular"
+
+msgid "form.errorUnknown"
+msgstr ""
+"A apărut o eroare neașteptată. Este posibil să fiți deconectat. Reîncărcați "
+"pagina și încercați din nou."
+
+msgid "form.errors"
+msgstr ""
+"Formularul nu a fost salvat deoarece {$count} erori au fost înregistrate. Vă "
+"rugăm să corectați aceste erori și încercați din nou."
+
+msgid "form.errorMany"
+msgstr "Vă rugăm să corectați {$count} erori."
+
+msgid "form.errorOne"
+msgstr "Vă rugăm să corectați o eroare."
+
+msgid "form.errorGoTo"
+msgstr "Treci la următoarea eroare"
+
+msgid "form.errorA11y"
+msgstr "Mergi la {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Nu mai puteți încărca fișiere."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Șterge fișier"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Sigur doriți să anulați această încărcare?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Încărcare anulată"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Anulați încărcarea"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Serverul a răspuns cu codul {{statusCode}}. Vă rugăm să contactați "
+"administratorul de sistem dacă această problemă persistă."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Fișierele de acest tip nu pot fi încărcate."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Fișierul este prea mare ({{filesize}}mb). Fișierele mai mari decât "
+"{{maxFilesize}}mb nu pot fi încărcate."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"Vă rugăm să utilizați formularul de retragere de mai jos pentru a încărca "
+"fișierele dvs."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Browserul dvs. nu acceptă încărcări de fișiere drag'n'drop."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Trage fișierele aici pentru a le încărca"
+
+msgid "form.disallowedProp"
+msgstr "Această proprietate nu este permisă."
+
+msgid "form.dataHasChanged"
+msgstr ""
+"Datele din acest formular au fost schimbate. Doriți să continuați fără a "
+"salva?"
+
+msgid "form.emailRequired"
+msgstr "Este necesară o adresă de email."
+
+msgid "form.confirmSubmit.title"
+msgstr "Confirmă"
+
+msgid "form.confirmSubmit"
+msgstr "Sigur doriți să trimiteți acest formular?"
+
+msgid "form.url.invalid"
+msgstr ""
+"Adresa URL specificată nu este validă. Verificați-o și încercați din nou."
+
+msgid "email.to"
+msgstr "Către"
+
+msgid "email.bodyRequired"
+msgstr "Vă rugăm să furnizați textul corpului de e-mail."
+
+msgid "email.subjectRequired"
+msgstr "Vă rugăm să furnizați un subiect de e-mail."
+
+msgid "email.subject"
+msgstr "Subiect"
+
+msgid "email.skip"
+msgstr "Sari peste email"
+
+msgid "email.send"
+msgstr "Trimiteți"
+
+msgid "email.senderEmail"
+msgstr "Email expeditor"
+
+msgid "email.senderName"
+msgstr "Nume expeditor"
+
+msgid "email.sender"
+msgstr "Expeditor"
+
+msgid "email.recipients"
+msgstr "Destinatari"
+
+msgid "email.recipient"
+msgstr "Destinatar"
+
+msgid "email.multipart"
+msgstr "Acesta este un mesaj în mai multe părți în format MIME."
+
+msgid "email.invalid"
+msgstr "Această adresă de email {$email} este invalidă."
+
+msgid "email.from"
+msgstr "De la"
+
+msgid "email.email"
+msgstr "Email"
+
+msgid "email.compose.error"
+msgstr ""
+"A apărut o problemă la trimiterea unui mesaj de e-mail. Încercați din nou "
+"mai târziu sau contactați administratorul de sistem."
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"Încercați să trimiteți un mesaj prea devreme după trimiterea ultimului "
+"mesaj. Vă rugăm să așteptați înainte de a trimite un alt mesaj."
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Mesajul pe care încercați să îl trimiteți are prea mulți destinatari."
+
+msgid "email.compose"
+msgstr "Trimiteți email"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.body"
+msgstr "Corp"
+
+msgid "email.bccSender"
+msgstr "Trimiteți o copie a acestui mesaj la adresa mea ({$address})"
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.attachments"
+msgstr "Atașamente"
+
+msgid "email.addToRecipient"
+msgstr "Adăugați destinatar"
+
+msgid "email.addCcRecipient"
+msgstr "Adăugați CC"
+
+msgid "email.addBccRecipient"
+msgstr "Adăugați BCC"
+
+msgid "email.addAttachment"
+msgstr "Adăugați un atașament"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Încărcați un fișier"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Încărcați revizia"
+
+msgid "navigation.login"
+msgstr "Autentificare"
+
+msgid "search.noKeywordError"
+msgstr "Potriviți toate categoriile."
+
+msgid "notification.editedAnnouncement"
+msgstr "Anunțul a fost editat."
+
+msgid "validator.same"
+msgstr "{$attribute} și {$other} trebuie să se potrivească."
+
+msgid "validator.required_without_all"
+msgstr ""
+"Acest câmp este obligatoriu când nici unul dintre {$values} nu este prezent."
+
+msgid "validator.required_without"
+msgstr "Acest câmp este obligatoriu când {$values} nu este prezent."
+
+msgid "validator.required_with_all"
+msgstr "Acest câmp este obligatoriu când {$values} este prezent."
+
+msgid "validator.required_with"
+msgstr "Acest câmp este obligatoriu când {$values} este prezent."
+
+msgid "validator.required_unless"
+msgstr "Acest câmp este obligatoriu dacă nu {$other} este în {$values}."
+
+msgid "validator.required_if"
+msgstr "Acest câmp este obligatoriu când {$other} este {$value}."
+
+msgid "validator.required"
+msgstr "Acest câmp este obligatoriu."
+
+msgid "validator.regex"
+msgstr "Acesta nu este formatat corect."
+
+msgid "validator.present"
+msgstr "Câmpul {$attribute} trebuie să fie prezent."
+
+msgid "validator.orcid"
+msgstr "Acesta nu este un ORCID valid."
+
+msgid "validator.numeric"
+msgstr "Acesta nu este un număr valid."
+
+msgid "validator.not_in"
+msgstr "{$attribute} atributul selectat este invalid."
+
+msgid "validator.min.array"
+msgstr "Acesta trebuie să aibă cel puțin {$min} elemente."
+
+msgid "validator.min.string"
+msgstr "Acesta trebuie să fie cel puțin {$min} caractere."
+
+msgid "validator.min.file"
+msgstr "Acesta trebuie să fie cel puțin {$min} kilobiți."
+
+msgid "validator.min.numeric"
+msgstr "Acesta trebuie să fie cel puțin {$min}."
+
+msgid "validator.mimes"
+msgstr "Acesta trebuie să fie un fișier de tip {$values}."
+
+msgid "validator.max.array"
+msgstr "Acesta nu poate avea mai mult de {$max} caractere."
+
+msgid "validator.max.string"
+msgstr "Acesta nu poate fi mai mare de {$max} caractere."
+
+msgid "validator.max.file"
+msgstr "Acesta nu poate fi mai mare de {$max} kilobiți."
+
+msgid "validator.max.numeric"
+msgstr "Acesta nu poate fi mai mare de {$max}."
+
+msgid "validator.json"
+msgstr "Acesta nu este un șir JSON valid."
+
+msgid "validator.issn"
+msgstr "Acesta nu este un ISSN valid."
+
+msgid "validator.ip"
+msgstr "Aceasta nu este o adresă IP validă."
+
+msgid "validator.integer"
+msgstr "Acesta nu este un număr întreg valid."
+
+msgid "validator.in"
+msgstr "{$attribute} selectat este invalid."
+
+msgid "validator.image"
+msgstr "Aceasta trebuie să fie o imagine."
+
+msgid "validator.filled"
+msgstr "Acest câmp este obligatoriu."
+
+msgid "validator.exists"
+msgstr "{$attribute} selectat este invalid."
+
+msgid "validator.email"
+msgstr "Aceasta nu este o adresă de email validă."
+
+msgid "validator.digits_between"
+msgstr "Acesta trebuie să fie între {$min} și {$max} digiți."
+
+msgid "validator.digits"
+msgstr "Acesta trebuie să fie de {$digits} digiți lungime."
+
+msgid "validator.size.file"
+msgstr "Aceasta trebuie să fie {$size} kilobiți."
+
+msgid "validator.size.numeric"
+msgstr "Aceasta trebuie să fie {$size}."
+
+msgid "validator.size.string"
+msgstr "Aceasta trebuie să fie {$size} caractere."
+
+msgid "validator.size.array"
+msgstr "Acesta trebuie să conțină {$size} elemente."
+
+msgid "validator.string"
+msgstr "Acesta nu este un șir valid."
+
+msgid "validator.unique"
+msgstr "{$attribute} a fost deja luat."
+
+msgid "validator.timezone"
+msgstr "Acesta nu este un fus orar valid."
+
+msgid "validator.url"
+msgstr "Acesta nu este un URL valid."
+
+msgid "validator.different"
+msgstr "{$attribute} și {$other} trebuie să difere neapărat."
+
+msgid "validator.date_format"
+msgstr "Acesta nu corespunde formatului {$format}."
+
+msgid "validator.date"
+msgstr "Aceasta nu este o dată valabilă."
+
+msgid "validator.currency"
+msgstr "Aceasta nu este o monedă valabilă."
+
+msgid "validator.confirmed"
+msgstr "Confirmarea pentru acest câmp nu se potrivește."
+
+msgid "validator.boolean"
+msgstr "Acest câmp trebuie să fie adevărat sau fals."
+
+msgid "validator.between.array"
+msgstr "Acesta trebuie să fie între {$min} și {$max} elemente."
+
+msgid "validator.between.string"
+msgstr "Acesta trebuie să fie între {$min} și {$max} caractere."
+
+msgid "validator.between.file"
+msgstr "Acesta trebuie să fie între {$min} și {$max} kilobiți."
+
+msgid "validator.between.numeric"
+msgstr "Aceasta trebuie să fie între {$min} și {$max}."
+
+msgid "validator.before"
+msgstr "Această dată trebuie să fie înainte {$date}."
+
+msgid "validator.array"
+msgstr "Acesta nu este un tablou valid."
+
+msgid "validator.alpha_num"
+msgstr "Acesta poate conține doar litere și numere."
+
+msgid "validator.alpha_dash"
+msgstr "Acest lucru nu poate conține decât litere, numere, liniuțe. etc."
+
+msgid "validator.alpha"
+msgstr "Aceasta poate conține doar litere."
+
+msgid "validator.after"
+msgstr "Această dată trebuie să fie după {$date}."
+
+msgid "validator.active_url"
+msgstr "Acesta nu este un URL valid."
+
+msgid "validator.accepted"
+msgstr "Vă rugăm să acceptați acest element .."
+
+msgid "notification.removedNavigationMenu"
+msgstr "Meniul de navigare a fost eliminat cu succes"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Meniul de navigare a fost actualizat cu succes"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Meniul de navigare a fost adăugat cu succes"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Elementul de meniu de navigare a fost adăugat cu succes"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Elementul de meniu de navigare a fost eliminat cu succes"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Elementul meniului de navigare a fost actualizat cu succes"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Acesta este o reamintire pentru a verifica starea de sănătate a jurnalului "
+"dvs. prin raportul editorial."
+
+msgid "notification.type.editorialReport"
+msgstr "Rezumatul raportului statistic."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Status Runda {$round}"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Editor de conținut în așteptare."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Alocați un editor de conținut folosind linkul Atribuie din lista "
+"Participanți."
+
+msgid "notification.type.queryAdded"
+msgstr "Discuția a fost adăugată."
+
+msgid "notification.type.queryActivity"
+msgstr "Activitate de discuție."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Utilizatorul curent nu este autorul trimiterii solicitate. Vă rugăm să "
+"verificați dacă sunteți autentificat cu contul de utilizator corect."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Reprezentare nevalidă."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Înregistrare nevalidă."

@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-20T15:57:55+00:00\n"
+"PO-Revision-Date: 2020-10-19 09:01+0000\n"
+"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/generic-acron/nb_NO/>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.acron.name"
+msgstr "Acron programtillegg"
+
+msgid "plugins.generic.acron.description"
+msgstr ""
+"Dette programtillegget reduserer avhengigheten av periodiske "
+"planleggingsverktøy, som «cron»."
+
+msgid "plugins.generic.acron.enabled"
+msgstr "Programtillegget Acron er slått på."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Programtillegget Acron er slått av."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Cron-fanen ble lastet på nytt."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Last opp planlagte oppgaver på nytt"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Planlagte oppgaver ble lastet opp på nytt."

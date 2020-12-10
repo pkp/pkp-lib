@@ -3,9 +3,9 @@
 /**
  * @file classes/db/SettingsDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SettingsDAO
  * @ingroup db
@@ -13,8 +13,7 @@
  * @brief Operations for retrieving and modifying settings.
  */
 
-class SettingsDAO extends DAO {
-
+abstract class SettingsDAO extends DAO {
 	/**
 	 * Retrieve (and newly cache) all settings.
 	 * @param $id int
@@ -28,14 +27,11 @@ class SettingsDAO extends DAO {
 			(int) $id
 		);
 
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
-			$value = $this->convertFromDB($row['setting_value'], $row['setting_type']);
-			if ($row['locale'] == '') $settings[$row['setting_name']] = $value;
-			else $settings[$row['setting_name']][$row['locale']] = $value;
-			$result->MoveNext();
+		foreach ($result as $row) {
+			$value = $this->convertFromDB($row->setting_value, $row->setting_type);
+			if ($row->locale == '') $settings[$row->setting_name] = $value;
+			else $settings[$row->setting_name][$row->locale] = $value;
 		}
-		$result->Close();
 
 		$cache = $this->_getCache($id);
 		if ($cache) $cache->setEntireCache($settings);
@@ -142,11 +138,7 @@ class SettingsDAO extends DAO {
 	function installSettings($id, $filename, $paramArray = array()) {
 		$xmlParser = new XMLParser();
 		$tree = $xmlParser->parse($filename);
-
-		if (!$tree) {
-			$xmlParser->destroy();
-			return false;
-		}
+		if (!$tree) return false;
 
 		foreach ($tree->getChildren() as $setting) {
 			$nameNode = $setting->getChildByName('name');
@@ -174,9 +166,6 @@ class SettingsDAO extends DAO {
 				);
 			}
 		}
-
-		$xmlParser->destroy();
-
 	}
 
 	/**
@@ -287,16 +276,12 @@ class SettingsDAO extends DAO {
 	 * Get the settings table name.
 	 * @return string
 	 */
-	protected function _getTableName() {
-		assert(false); // Must be implemented by subclasses
-	}
+	abstract protected function _getTableName();
 
 	/**
 	 * Get the primary key column name.
 	 */
-	protected function _getPrimaryKeyColumn() {
-		assert(false); // Must be implemented by subclasses
-	}
+	abstract protected function _getPrimaryKeyColumn();
 
 	/**
 	 * Get the cache name.

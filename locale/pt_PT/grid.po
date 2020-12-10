@@ -1,0 +1,675 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
+"PO-Revision-Date: 2020-02-04 23:10+0000\n"
+"Last-Translator: Carla Marques <carla.marques@sdum.uminho.pt>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/grid/pt_PT/>\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.noItems"
+msgstr "Sem Itens"
+
+msgid "grid.settings"
+msgstr "Configurações"
+
+msgid "grid.action.sort"
+msgstr "Ordenar"
+
+msgid "grid.action.addItem"
+msgstr "Adicionar Item"
+
+msgid "grid.action.delete"
+msgstr "Eliminar"
+
+msgid "grid.action.remove"
+msgstr "Remover"
+
+msgid "grid.action.edit"
+msgstr "Editar"
+
+msgid "grid.action.approve"
+msgstr "Aprovar"
+
+msgid "grid.action.decline"
+msgstr "Rejeitar"
+
+msgid "grid.action.moreInformation"
+msgstr "Mais Informação"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Restaurar Padrão"
+
+msgid "grid.columns.actions"
+msgstr "Acções"
+
+msgid "grid.columns.institution"
+msgstr "Instituição"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.sponsor.title"
+msgstr "Patrocinadores"
+
+msgid "grid.contributor.title"
+msgstr "Colaborador"
+
+msgid "grid.action.addAuthor"
+msgstr "Adicionar Autor"
+
+msgid "grid.reviewForm.title"
+msgstr "Formulários de Revisão"
+
+msgid "grid.artworkFile.caption"
+msgstr "Legenda"
+
+msgid "grid.artworkFile.credit"
+msgstr "Crédito"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Proprietário do Copyright"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Contacto (se não for autor/editor)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Termos de Permissão"
+
+msgid "grid.artworkFile.placement"
+msgstr "Colocação em submissão"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Ficheiros"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Livraria Submissão"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Livraria Editorial"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Livraria Revisão"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Livraria Produção"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Template da Livraria de Produção"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Checklist da Submissão"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Item da Checklist"
+
+msgid "author.users.contributor.name"
+msgstr "Nome"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Papel"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Contacto Principal"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Etapa Designação"
+
+msgid "grid.action.addContributor"
+msgstr "Adicionar Colaborador"
+
+msgid "grid.action.editContributor"
+msgstr "Editar Colaborador"
+
+msgid "grid.action.deleteContributor"
+msgstr "Eliminar Colaborador"
+
+msgid "grid.noAuditors"
+msgstr "Sem Auditores"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Este item é hospedado remotamente."
+
+msgid "grid.action.manageAccess"
+msgstr "Gerir Acesso"
+
+msgid "grid.action.addNote"
+msgstr "Adicionar Nota"
+
+msgid "grid.action.addQuery"
+msgstr "Adicionar discussão"
+
+msgid "grid.action.readQuery"
+msgstr "Ler discussão"
+
+msgid "grid.action.deleteQuery"
+msgstr "Eliminar discussão"
+
+msgid "grid.action.updateQuery"
+msgstr "Actualizar discussão"
+
+msgid "grid.action.addUser"
+msgstr "Adicionar Utilizador"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Remover este revisor"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Aprovar esta cópia para ser enviada para a próxima etapa"
+
+msgid "grid.action.reload"
+msgstr "Recarregar"
+
+msgid "grid.action.deleteFile"
+msgstr "Eliminar Ficheiro"
+
+msgid "grid.action.deleteMedia"
+msgstr "Eliminar Media"
+
+msgid "grid.action.editMedia"
+msgstr "Editar Media"
+
+msgid "grid.action.editSection"
+msgstr "Editar Secção"
+
+msgid "grid.action.export"
+msgstr "Exportar"
+
+msgid "grid.action.deleteSection"
+msgstr "Eliminar Secção"
+
+msgid "grid.action.editorialHistory"
+msgstr "Histórico Editorial"
+
+msgid "grid.action.disapprove"
+msgstr "Desaprovar"
+
+msgid "grid.action.setApproval"
+msgstr "Definir aprovação"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Tem certeza de que deseja restaurar os padrões?"
+
+msgid "grid.action.editAuthor"
+msgstr "Editar Autor"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Eliminar Autor"
+
+msgid "grid.action.addAuditor"
+msgstr "Adicionar um Auditor"
+
+msgid "grid.action.upgrade"
+msgstr "Actualizar"
+
+msgid "grid.action.order"
+msgstr "Ordenar"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Cancelar ordenação"
+
+msgid "grid.action.extendAll"
+msgstr "Expandir tudo"
+
+msgid "grid.action.collapse"
+msgstr "Colapsar"
+
+msgid "grid.action.collapseAll"
+msgstr "Colapsar tudo"
+
+msgid "grid.action.wizard"
+msgstr "Assistente de configurações"
+
+msgid "grid.action.moveItem"
+msgstr "Mover Item"
+
+msgid "grid.action.downloadAll"
+msgstr "Download todos os ficheiros como um arquivo"
+
+msgid "grid.action.readReview"
+msgstr "Ler esta revisão"
+
+msgid "grid.action.email"
+msgstr "Enviar e-mail"
+
+msgid "grid.action.addReviewer"
+msgstr "Adicionar um revisor"
+
+msgid "grid.action.addFile"
+msgstr "Adicionar um ficheiro"
+
+msgid "grid.action.editFile"
+msgstr "Editar um ficheiro"
+
+msgid "grid.action.selectFiles"
+msgstr "Seleccionar ficheiros para gerir"
+
+msgid "grid.action.requestRevisions"
+msgstr "Solicitar revisões para esta submissão"
+
+msgid "grid.action.accept"
+msgstr "Aceitar esta submissão"
+
+msgid "grid.action.internalReview"
+msgstr "Enviar esta submissão para revisão interna"
+
+msgid "grid.action.externalReview"
+msgstr "Enviar esta submissão para revisão externa"
+
+msgid "grid.action.sendToProduction"
+msgstr "Enviar esta submissão para produção"
+
+msgid "grid.action.settings"
+msgstr "Configurações"
+
+msgid "grid.action.importexport"
+msgstr "Importar ou exportar conteúdo ou dados do site"
+
+msgid "grid.action.orderItems"
+msgstr "Activar modo de pedido"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Editar este item da lista de verificação"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Eliminar este item da lista de verificação"
+
+msgid "grid.action.resetAll"
+msgstr "Repor todos os itens para valores padrão"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Adicionar um novo modelo de e-mail"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Editar este modelo de e-mail"
+
+msgid "grid.action.disableEmail"
+msgstr "Desactivar este modelo de e-mail"
+
+msgid "grid.action.resetEmail"
+msgstr "Restabelecer este modelo de e-mail para o padrão"
+
+msgid "grid.action.expandAll"
+msgstr "Expandir Tudo"
+
+msgid "grid.action.requestAccount"
+msgstr "Adicionar um participante"
+
+msgid "grid.action.expand"
+msgstr "Expandir"
+
+msgid "grid.action.notify"
+msgstr "Notificar este utilizador"
+
+msgid "grid.action.addUserGroup"
+msgstr "Adicionar um novo grupo de utilizadores"
+
+msgid "grid.action.editUserGroup"
+msgstr "Editar este grupo de utilizadores"
+
+msgid "grid.action.disable"
+msgstr "Desactivar"
+
+msgid "grid.action.details"
+msgstr "Ver este item"
+
+msgid "grid.action.enrolExisting"
+msgstr "Inscrever um utilizador existente como revisor"
+
+msgid "grid.action.selectCreate"
+msgstr "Criar um novo revisor"
+
+msgid "grid.action.search"
+msgstr "Pesquisa"
+
+msgid "grid.action.advancedSearch"
+msgstr "Pesquisa Avançada"
+
+msgid "grid.action.viewLibrary"
+msgstr "Ver Biblioteca Documentos"
+
+msgid "grid.action.viewMetadata"
+msgstr "Ver os metadados desta submissão"
+
+msgid "grid.action.sendReminder"
+msgstr "Enviar um lembrete de tarefa para este utilizador"
+
+msgid "grid.action.newRound"
+msgstr "Criar uma nova ronda"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Ver as diretrizes de revisão"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Ver a política de directrizes de interesses concorrentes"
+
+msgid "grid.action.thankReviewer"
+msgstr "Enviar uma mensagem de agradecimento a este revisor"
+
+msgid "grid.action.uploadFile"
+msgstr "Upload um ficheiro"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Adicionar um Tipo de Notícia"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Adicionar uma Notícia"
+
+msgid "grid.action.mergeUser"
+msgstr "Fundir Utilizador"
+
+msgid "grid.action.unassignUser"
+msgstr "Remover Utilizador"
+
+msgid "grid.action.history"
+msgstr "Consultar Histórico"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Esta revisão está concluída, mas pode desconsiderá-la"
+
+msgid "grid.action.enable"
+msgstr "Activar"
+
+msgid "grid.action.bookInfo"
+msgstr "Informação sobre Submissão"
+
+msgid "grid.action.logInAs"
+msgstr "Entrar como"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Exportar Todos os Utilizadores"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Tem certeza de que deseja exportar todos os utilizadores?"
+
+msgid "grid.action.activate"
+msgstr "Activar"
+
+msgid "grid.action.deactivate"
+msgstr "Desactivar"
+
+msgid "grid.action.copy"
+msgstr "Copiar"
+
+msgid "grid.action.preview"
+msgstr "Pré Visualizar"
+
+msgid "grid.action.install"
+msgstr "Instalar"
+
+msgid "grid.action.moreItems"
+msgstr "Carregar mais"
+
+msgid "grid.task.status.completed"
+msgstr "Esta tarefa está concluída"
+
+msgid "grid.task.status.new"
+msgstr "Verificado quando considerado"
+
+msgid "grid.task.status.uploaded"
+msgstr "O título da coluna indica quem carregou este ficheiro"
+
+msgid "grid.task.status.unfinished"
+msgstr "Tarefa por concluir"
+
+msgid "grid.task.status.reviewReady"
+msgstr "Esta revisão está pronta. Clique no ícone da nota para a esquerda para lê-la."
+
+msgid "grid.columns.auditor"
+msgstr "Auditor"
+
+msgid "grid.columns.locale"
+msgstr "Idioma"
+
+msgid "grid.action.addSponsor"
+msgstr "Adicionar Patrocinador"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Eliminar Patrocinador"
+
+msgid "grid.action.editSponsor"
+msgstr "Editar Patrocinador"
+
+msgid "grid.action.addSeries"
+msgstr "Adicionar Séries"
+
+msgid "grid.action.editSeries"
+msgstr "Editar Séries"
+
+msgid "grid.action.deleteSeries"
+msgstr "Eliminar Séries"
+
+msgid "grid.action.addCategory"
+msgstr "Adicionar Categoria"
+
+msgid "grid.action.editCategory"
+msgstr "Editar Categoria"
+
+msgid "grid.action.deleteCategory"
+msgstr "Eliminar Categoria"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Opções Resposta"
+
+msgid "grid.noFiles"
+msgstr "Nenhum Ficheiro"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Nas Listas de Navegação"
+
+msgid "grid.roles.currentRoles"
+msgstr "Papéis Actuais"
+
+msgid "grid.roles.add"
+msgstr "Criar um Novo Papel"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Atribuição da Etapa"
+
+msgid "grid.user.currentUsers"
+msgstr "Utilizadores Actuais"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Inscrição Actual"
+
+msgid "grid.user.allRoles"
+msgstr "Todos os Papéis"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Todos os Níveis Permissão"
+
+msgid "grid.user.add"
+msgstr "Adicionar Utilizador"
+
+msgid "grid.user.enroll"
+msgstr "Inscrever Utilizador"
+
+msgid "grid.user.edit"
+msgstr "Editar Utilizador"
+
+msgid "grid.user.email"
+msgstr "E-mail"
+
+msgid "grid.user.enable"
+msgstr "Activar"
+
+msgid "grid.user.disable"
+msgstr "Desactivar"
+
+msgid "grid.user.disableReason"
+msgstr "Razão para desactivar utilizador"
+
+msgid "grid.user.enableReason"
+msgstr "Razão para activar utilizador"
+
+msgid "grid.user.error"
+msgstr "Ocorreu um erro ao administrar este utilizador. Por favor, tente novamente."
+
+msgid "grid.user.errorEmail"
+msgstr "Ocorreu um erro ao enviar este e-mail. Certifique-se de que a configuração do servidor de e-mail está a funcionar e / ou entre em contacto com o administrador do sistema."
+
+msgid "grid.user.cannotAdminister"
+msgstr "Não tem permissões suficientes para administrar este utilizador. Para administrar um utilizador, deve ser administrador do site ou administrar todos os contextos em que este utilizador está inscrito."
+
+msgid "grid.user.authSource"
+msgstr "Fonte Autenticação"
+
+msgid "grid.user.mustProvideName"
+msgstr "Por favor, forneça pelo menos um apelido para o utilizador."
+
+msgid "grid.user.generatePassword"
+msgstr "Gerar Senha"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Gerar senha aleatória para este utilizador."
+
+msgid "grid.user.notifyUser"
+msgstr "Notificar Utilizador"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Enviar uma mensagem de boas-vindas."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Modificar Senha"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "O utilizador deve alterar a senha na próxima autenticação."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Exigir que o utilizador altere a sua senha na próxima vez que aceda ao site."
+
+msgid "grid.user.moreDetails"
+msgstr "Mais Detalhes do Utilizador"
+
+msgid "grid.user.lessDetails"
+msgstr "Menos Detalhes do Utilizador"
+
+msgid "grid.user.userDetails"
+msgstr "Detalhes Utilizador"
+
+msgid "grid.user.userRoles"
+msgstr "Papéis Utilizador"
+
+msgid "grid.user.userNoRoles"
+msgstr "Este utilizador não tem nenhum papel."
+
+msgid "grid.user.step1"
+msgstr "Passo #1: Preencher os detalhes do utilizador"
+
+msgid "grid.user.step2"
+msgstr "Passo #2: Associar Papéis do Utilizador a {$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "Adicionar Papéis"
+
+msgid "grid.user.addRole"
+msgstr "Adicionar Papel"
+
+msgid "grid.user.selectUser"
+msgstr "Seleccionar Papel"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Seleccionar um utilizador"
+
+msgid "grid.user.confirmLogInAs"
+msgstr "Entrar com a conta do utilizador? Todas as ações que executar serão atribuídas a esse utilizador."
+
+msgid "grid.user.mergeUsers"
+msgstr "Fundir Utilizadores"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Fundir Utilizador"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Fundir-se a este utilizador"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Todos os Utilizadores Inscritos"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr "Tem certeza de que deseja fundir a conta com o nome de utilizador \"{$oldUsername}\" na conta com o nome de utilizador\"{$newUsername}\"? A conta com o nome de utilizador \"{$oldUsername}\" não existirá depois. Esta ação não é reversível."
+
+msgid "grid.preparedEmails.title"
+msgstr "Modelos de E-mail"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Lista Actual"
+
+msgid "grid.plugin.allCategories"
+msgstr "Todas as Categorias"
+
+msgid "grid.plugin.disable"
+msgstr "Tem certeza que pretende desactivar este plugin?"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Correções de provas feitas. Pode ignorar esta tarefa"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Não Atribuir Etapa"
+
+msgid "grid.userGroup.allStages"
+msgstr "Todas as Etapas do Fluxo de Trabalho"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Lista de papéis atribuídos a"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Com o nível de permissão definido para"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "O papel {$userGroupName} é padrão e não pode ser removido."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr "Não é possível remover o papel {$userGroupName}. Actualmente, {$usersCount} utilizador(s) é/são atribuídos a este."
+
+msgid "grid.userGroup.removed"
+msgstr "{$userGroupName} papel removido."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "{$userGroupName} papel atribuído a {$stageName} etapa."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "{$userGroupName} papel não atribuído de {$stageName} etapa."
+
+msgid "grid.submission.itemTitle"
+msgstr "Autor; Título"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Inclur submissões incompletas não enviadas por um autor."
+
+msgid "grid.action.uninstall"
+msgstr "Desinstalar"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Adicionar Menu"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Adicionar Item"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Nenhum Item no Menu de Navegação"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Nenhum Menu de Navegação"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Selecione um tipo..."
+
+msgid "grid.action.newVersion"
+msgstr "Criar uma nova versão"
+
+msgid "grid.action.users"
+msgstr "Ver/Selecionar utilizadores"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Remover este grupo de utilizadores"

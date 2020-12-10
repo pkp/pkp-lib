@@ -3,9 +3,9 @@
 /**
  * @file controllers/tab/authorDashboard/AuthorDashboardTabHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AuthorDashboardTabHandler
  * @ingroup controllers_tab_authorDashboard
@@ -61,6 +61,14 @@ class AuthorDashboardTabHandler extends Handler {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$templateMgr->assign('submission', $submission);
 
+		// Check if current author can access CopyeditFilesGrid within copyedit stage
+		$canAccessCopyeditingStage = true;
+		$userAllowedStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+		if (!array_key_exists(WORKFLOW_STAGE_ID_EDITING, $userAllowedStages)) {
+			$canAccessCopyeditingStage = false;
+		}
+		$templateMgr->assign('canAccessCopyeditingStage', $canAccessCopyeditingStage);
+
 		// Import submission file to define file stages.
 		import('lib.pkp.classes.submission.SubmissionFile');
 
@@ -70,13 +78,13 @@ class AuthorDashboardTabHandler extends Handler {
 		$templateMgr->assign('lastReviewRoundNumber', $this->_getLastReviewRoundNumber($submission, $currentStage));
 
 		if (in_array($stageId, array(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW))) {
-			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-			$templateMgr->assign('reviewRounds', $reviewRoundDao->getBySubmissionId($submission->getId(), $stageId));
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
+			$templateMgr->assign('reviewRounds', $reviewRoundDao->getBySubmissionId($submission->getId(), $stageId)->toArray());
 		}
 
 		// If the submission is in or past the editorial stage,
 		// assign the editor's copyediting emails to the template
-		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 		$user = $request->getUser();
 
 		// Define the notification options.
@@ -112,7 +120,7 @@ class AuthorDashboardTabHandler extends Handler {
 	 * @return int Round number, 0 if none.
 	 */
 	protected function _getLastReviewRoundNumber($submission, $stageId) {
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$lastExternalReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 		if ($lastExternalReviewRound) {
 			return $lastExternalReviewRound->getRound();
@@ -135,7 +143,9 @@ class AuthorDashboardTabHandler extends Handler {
 				NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW => $submissionAssocTypeAndIdArray,
 				NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS => $submissionAssocTypeAndIdArray,
 				NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT => $submissionAssocTypeAndIdArray,
+				NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND => $submissionAssocTypeAndIdArray,
 				NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE => $submissionAssocTypeAndIdArray,
+				NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE => $submissionAssocTypeAndIdArray,
 				NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION => $submissionAssocTypeAndIdArray),
 			NOTIFICATION_LEVEL_TRIVIAL => array()
 		);

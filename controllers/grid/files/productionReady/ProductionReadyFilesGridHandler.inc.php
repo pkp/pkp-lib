@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/files/productionReady/ProductionReadyFilesGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ProductionReadyFilesGridHandler
  * @ingroup controllers_grid_files_productionready
@@ -24,7 +24,7 @@ class ProductionReadyFilesGridHandler extends FileListGridHandler {
 		parent::__construct(
 			new SubmissionFilesGridDataProvider(SUBMISSION_FILE_PRODUCTION_READY),
 			WORKFLOW_STAGE_ID_PRODUCTION,
-			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
+			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT|FILE_GRID_DOWNLOAD_ALL
 		);
 
 		$this->addRoleAssignment(
@@ -40,13 +40,7 @@ class ProductionReadyFilesGridHandler extends FileListGridHandler {
 				'deleteFile',
 			)
 		);
-	}
 
-	/**
-	 * @copydoc FileListGridHandler::initialize()
-	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
 		$this->setTitle('editor.submission.production.productionReadyFiles');
 	}
 }

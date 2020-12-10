@@ -2,9 +2,9 @@
 /**
  * @file classes/security/authorization/internal/UserAccessibleWorkflowStagePolicy.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserAccessibleWorkflowStagePolicy
  * @ingroup security_authorization_internal
@@ -31,6 +31,7 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy {
 	 *  for. One of WORKFLOW_TYPE_*.
 	 */
 	function __construct($stageId, $workflowType = null) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
 		parent::__construct('user.authorization.accessibleWorkflowStage');
 		$this->_stageId = $stageId;
 		if (!is_null($workflowType)) {

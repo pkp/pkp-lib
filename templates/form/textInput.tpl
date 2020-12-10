@@ -1,9 +1,9 @@
 {**
  * templates/form/textInput.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * form text input
  *}
@@ -52,7 +52,7 @@
 	</span>
 {else}
 	{* This is not a multilingual control or there is only one locale available *}
-	<input	type="{if $FBV_isPassword}password{elseif $FBV_isTypeURL}url{else}text{/if}"
+	<input	type="{if $FBV_isPassword}password{elseif $FBV_isTypeURL}url{elseif $FBV_isTypeSearch}search{elseif $FBV_isTypeEmail}email{elseif $FBV_isTypeTel}tel{else}text{/if}"
 		{$FBV_textInputParams}
 		class="field text{if $FBV_class} {$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}"
 		{if $FBV_disabled} disabled="disabled"{/if}

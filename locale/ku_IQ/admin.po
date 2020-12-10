@@ -1,0 +1,336 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-05-04 19:38+0000\n"
+"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
+"Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"ku_IQ/>\n"
+"Language: ku_IQ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.authSources"
+msgstr "سەرچاوەکانی باوەڕپێکردن"
+
+msgid "admin.auth.noneCreated"
+msgstr "هیچ سەرچاوەیەکی باوەڕپێکردن نەناسێندراوە."
+
+msgid "admin.auth.create"
+msgstr "داڕشتنی سەرچاوەی باوەڕپێکردن"
+
+msgid "admin.auth.confirmDelete"
+msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی تەواوی ئەم سەرچاوەی باوەڕپێکردنە؟"
+
+msgid "admin.adminFunctions"
+msgstr "ئەرکە کارگێڕییەکان"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "بەهای ڕێکخستن"
+
+msgid "admin.systemInfo.settingName"
+msgstr "ناوی ڕێکخستن"
+
+msgid "admin.clearTemplateCache"
+msgstr "قاڵبە لابەلاکان بسڕەوە"
+
+msgid "admin.clearDataCache"
+msgstr "داتا لابەلاکان بسڕەوە"
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"ئەمە زمانی سەرەکی پێگەکەیە)وێب سایەتەکە) یە  \n"
+"یا :ئەم زمانە زمانی سەرەکی پێگەکەیە، ناتوانی لەکاری بخەیت لەکاتێکدا زمانێکی "
+"ترت بە زمانی سەرەکی هەڵنەبژاردووە."
+
+msgid "admin.expireSessions"
+msgstr "کۆتایی هێنان بە کارپێکردنی بەکارهێنەران"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "پیشاندانی رێکخستنی نوێ"
+
+msgid "admin.dateInstalled"
+msgstr "رێککەوتی دامەزراندن"
+
+msgid "admin.currentVersion"
+msgstr "وێنەی بەردەست"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"ئایا دڵنیای کەدەتەوێ {$contextName}\" و هەموو ئەوانەی پەیوەستن پێوەی، "
+"بەتەواوی بسڕیتەوە؟"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "ناوەرۆکی فایلی زانیارییەکان"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"؟ ئایا تۆ دڵنیای کە دەتەوێت کۆتایی بەکارپێکردنی هەموو بەکارهێنەران بهێنیت لە "
+"کاتێکدا هەموو بەکارهێنەران  پێویستیانە جارێکی تر بچنەوە ناو پێگەکە (تەنانەت "
+"تۆش)."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr ""
+"ئایا دڵنیاییت کە دەتەوێ زانیارییەشاراوەکانت بەشێوەیەکی کۆکراوەیی بسڕیتەوە"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"فایلی زانیارییەکانی تایبەت بەخۆت بەسەرکەوتوویی نوێ کرایەوە، تکایە ئەگەر "
+"پێگەکەت بەشێوەیەکی دروست کارانەبوو، دەتوانی زانیارییەکان بەدەستکارییەوە \n"
+"  راستبکەیەوە بەشیوەیەکی راستەوخۆ لەسەر فایلەکە"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"ئایا تۆ لە گۆڕینی زمانی سەرەکی دڵنیایت؟ دەبێت ناوی بەکارهینەران بە زمانی "
+"سەرەکی بێت و ئەمەش لە زمانی ئێستاوە کۆپی لێ هەڵ دەگیرێت."
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"ناوەرۆکی نوێکردنەوەکانت لە خوارەوە پیشان دراوە. بۆ جێبەجێکردنی گۆڕانەکان تۆ "
+"دەبێت ئەم لینکە بکەیتەوە <tt>config.inc.php</tt>  و گۆڕانکاری لەو ناوەرۆکانە "
+"بکەیت کە پێویستە."
+
+msgid "admin.settings.contactEmail"
+msgstr "ئیمه‌یلی ناونیشانی په‌یوه‌ندیكردنی بنچینه‌یی"
+
+msgid "admin.settings.about"
+msgstr "ده‌رباره‌ی پێگه‌"
+
+msgid "admin.settings"
+msgstr "رێكخستنه‌كان"
+
+msgid "admin.server.platform"
+msgstr "سه‌كۆی سیسته‌می به‌كارخستن"
+
+msgid "admin.server.phpVersion"
+msgstr "ژماره‌ی وه‌شانی PHP"
+
+msgid "admin.serverInformation"
+msgstr "زانیارییه‌كانی سێرڤه‌ر"
+
+msgid "admin.server.dbDriver"
+msgstr "به‌كارخه‌ری بنكه‌ی زانیارییه‌كان"
+
+msgid "admin.server.apacheVersion"
+msgstr "ژماره‌ی وه‌شانی Apache"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "به‌بیرهێنانه‌وه‌ی به‌كۆۆتاهاتنی به‌شداریكردن"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "به‌بیرهێنانه‌وه‌ی پێداچونه‌وه‌"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "لابردنی زانیارییه‌كانی به‌به‌ڵگه‌كردنی ئه‌ركه‌ خشته‌كراوه‌كان"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"ئایا تۆ دڵنیایت كه‌ ده‌ته‌وێ هه‌موو زانیارییه‌كانی به‌به‌ڵگه‌كردنی ئه‌ركه‌ "
+"نه‌خشه‌بۆكراوه‌كان  بسڕیته‌وه‌؟"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "تۆمارێكی كار بۆ ئه‌ركه‌كه‌ پێشكه‌ش نه‌كرا."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "ئه‌ركه‌كه‌ وه‌ستا."
+
+msgid "admin.scheduledTask.startTime"
+msgstr "ئه‌ركه‌كه‌ ده‌ستی پێكرد."
+
+msgid "admin.scheduledTask"
+msgstr "ئه‌ركێكی خشته‌ بۆكراو"
+
+msgid "admin.phpInfo"
+msgstr "زانیاریی PHP  زێتر"
+
+msgid "admin.languages.uninstall"
+msgstr "هه‌ڵوه‌شاندنه‌وه‌ی دانانی زمان"
+
+msgid "admin.languages.reload"
+msgstr "دووباره‌ باركردنه‌وه‌ زمان"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "زمانی زێتر نییه‌ بۆ دانان"
+
+msgid "admin.languages.languageSettings"
+msgstr "رێكخستنه‌كانی زمان"
+
+msgid "admin.languages.installNewLocales"
+msgstr "داناننی زمانی تر"
+
+msgid "admin.languages.installLocale"
+msgstr "دامه‌زراندنی زمان"
+
+msgid "admin.languages.availableLocales"
+msgstr "زمانه‌ فه‌راهه‌مكراوه‌كان"
+
+msgid "admin.languages.installLanguages"
+msgstr "به‌ڕێوه‌بردنی زمانه‌كان"
+
+msgid "admin.settings.contactName"
+msgstr "ناوی کەسی پەیوەندیكردنی سەرەکی"
+
+msgid "admin.server.dbVersion"
+msgstr "وه‌شانی سێرڤه‌ری بنكه‌ی زانیارییه‌كان"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "بڵاوکردنەوەی توێژینەوە دانراوەکان بۆ بڵاوکردنەوە"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"جێگیرکردنی بەرنامەی {$softwareName} بە تۆماتیکی جێبەجێ کرا و تەواو بو، ئێستا "
+"تۆ دەتوانیت فایلەکە لێرە داببەزێنیت:  {$url}"
+
+msgid "admin.languages.installLocales"
+msgstr "دانان/دامه‌زراندن"
+
+msgid "admin.languages.installedLocales"
+msgstr "شوێنەکانی دابەزین"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"ئایا تۆ دڵنیایت لە دابەزاندنەوەی ئەم زمانە؟ ئەمە هەمو تایبەتمەندییەکانی زمان "
+"دەسڕێتەوە بۆ نمونە قاڵبە تایبەتییەکانی ئیمەیڵ."
+
+msgid "admin.settings.siteLanguage"
+msgstr "زمانی پێگه‌"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "كوررتترین تێپه‌ڕ وشه‌"
+
+msgid "admin.settings.introduction"
+msgstr "پێشه‌كی"
+
+msgid "admin.version.updateAvailable"
+msgstr "وه‌شانی نوێكراوه‌ به‌رده‌سته‌"
+
+msgid "admin.versionRevision"
+msgstr "پێداچونه‌وه‌"
+
+msgid "admin.version.moreInfo"
+msgstr "زانیاری زێتر"
+
+msgid "admin.versionMinor"
+msgstr "لاوه‌كی"
+
+msgid "admin.versionMajor"
+msgstr "سه‌ره‌كی"
+
+msgid "admin.version.latest"
+msgstr "وه‌شانی كۆتایی"
+
+msgid "admin.versionHistory"
+msgstr "رێككه‌وتی وه‌شان"
+
+msgid "admin.version.downloadPatch"
+msgstr "پاكێجی دابه‌زاندنی"
+
+msgid "admin.version.downloadPackage"
+msgstr "دابه‌زاندن"
+
+msgid "admin.version.checkForUpdates"
+msgstr "گه‌ڕان به‌ دوای نوێكردنه‌وه‌كان دا"
+
+msgid "admin.versionBuild"
+msgstr "بنیاتنان"
+
+msgid "admin.systemInformation"
+msgstr "زانیارییه‌كانی سیسته‌م"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"دۆسییه‌ی رێكخستنه‌كان <tt>config.inc.php</tt> بوونى نییه‌، يان "
+"ناخوێندرێته‌وه‌، یان راست نییه‌."
+
+msgid "admin.siteSetup"
+msgstr "دامه‌زراندنی پێگه‌"
+
+msgid "admin.siteSettings"
+msgstr "رێكخستنه‌كانی پێگه‌"
+
+msgid "admin.siteManagement"
+msgstr "به‌ڕێوه‌بردنی پێگه‌"
+
+msgid "admin.siteAdmin"
+msgstr "به‌ڕێوه‌بردنی پێگه‌"
+
+msgid "admin.settings.siteTheme"
+msgstr "جۆری پێگه‌"
+
+msgid "admin.settings.siteTitle"
+msgstr "ناونیشانی پێگه‌"
+
+msgid "admin.settings.siteLogo"
+msgstr "لۆگۆی پێگه‌"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "دۆسیه‌ی جۆره‌كانی پێگه‌"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr ""
+"داڕشته‌ی دۆسه‌ی جۆره‌كانی پێگه‌كه‌ ناڕاسته‌. دارشته‌ی په‌سه‌ند ئه‌مه‌یه‌.css."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "هه‌ڵگری دۆسیه‌كان"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "دۆسیه‌ی {$filename} چاره‌سه‌ر كراو پارێزراوه‌."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"ناتوانرێـت دۆسیه‌ی {$filename} له‌ {$currentFilePath} بگوێزرێته‌وه‌ بۆ "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "فۆڵده‌ری دۆسییه‌كان {$path}ڕێڕه‌وێكی دروست نیه‌ یان ناخوێندرێته‌وه‌."
+
+msgid "admin.version"
+msgstr "وه‌شان"
+
+msgid "admin.version.upToDate"
+msgstr "سیسته‌مه‌كه‌ت نوێترین وه‌شانه‌"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr ".هیچ شتێکی ناوەخۆ بەردەست نیە بۆ دابەزاندن"
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "سەرکەوت: لە {$filePath}بۆ {$destinationPath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+"ئاگاداری: فایلی {$filePath} پێشتر هەبووە لە ناو ئاماریی تۆمارکراوەی "
+"بەکارهاتوو"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "ڕەشبکەیتەوە{$tmpFilePath} هەڵە: ناتوانی فایلی"
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr ".{$tmpFilePath} بۆ  {$filePath}  هەڵە: ناتوانی فایل کۆپی بکەی لە"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr ".بونی نیە یان ناتوانی بچیتە ناوی {$filePath} هەڵە: فایلی"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "{$tmpDir}هەڵە: ناتوانیت فۆڵدەری کاتی درستت بکەیت"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "پێویستە لە ناو فایلی گشتی ئاراستە کراوبێت {$path}  ڕێگای سەرەکی"
+
+msgid "admin.error.executingUtil"
+msgstr ""
+"هەڵە: ببورە لە جێبەجێکردنی \"{$utilPath}\".  ئەم ڕێکخستنانە {$utilVar} "
+"وردبینی بکە لە فایلی.php."
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "جێبەجێکردنی بەرنامەی\"{$utilPath}\" ئەم کێشەیەی هەیە: {$output}"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tسیستەمەکەی تۆ لە پێوەرێک زیاتر لەخۆ دەگرێت. ئامارەکانی بەکارهێنەر بە "
+"چەند شێوەیەک پیشان دەدرێن.\n"
+"\t\tلە هەندێک کەیسدا تەنیا یەک ئامار دەبێت بەکار بهێندرێت، بۆ نمونە "
+"ڕیزبەندیکردنی لیستی پێشکەشکراوە زۆر بەکارهێندراوەکان یان\n"
+"\t\tئەنجامی گەڕانەکان. تکایە یەکێک لەم پێوەرانە بکە پێوەری سەرەکی.\n"
+"\t"

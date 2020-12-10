@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/files/FileDateGridColumn.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  * Borrowed from FileDateGridColumn.inc.php
  *
  * @class FileDateGridColumn
@@ -49,9 +49,9 @@ class FileDateGridColumn extends GridColumn {
 		$submissionFileData = $row->getData();
 		$submissionFile = $submissionFileData['submissionFile'];
 		assert(is_a($submissionFile, 'SubmissionFile'));
-		$mtimestamp = strtotime($submissionFile->getDateModified());
-		$dateFormatShort = \Config::getVar('general', 'date_format_long');
-		$date = strftime($dateFormatShort, $mtimestamp);
+		$mtimestamp = strtotime($submissionFile->getData('updatedAt'));
+		$dateFormatLong = \Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong();
+		$date = strftime($dateFormatLong, $mtimestamp);
 		// File age
 		$age = (int)floor((date('U') - $mtimestamp) / 86400);
 		switch( true ) {

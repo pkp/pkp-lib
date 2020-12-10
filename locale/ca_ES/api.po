@@ -1,0 +1,182 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"ca_ES/>\n"
+"Language: ca_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"L'arxiu que heu carregat no coincideix amb l'extensió de l'arxiu. Això pot "
+"succeir quan un arxiu s'ha reanomenat a un tipus d'arxiu incompatible, per "
+"exemple en canviar photo.png a photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "La imatge que heu carregat no és vàlida."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Només podeu carregar els següents tipus d'arxius: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Heu de retirar-la de publicació abans de poder eliminar aquesta publicació."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"No podeu modificar l'estat directament a través de l'API. Feu servir els "
+"terminals /publish i /unpublish."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "No podeu editar aquesta publicació perquè ja ha estat publicada."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "La publicació que voleu retirar no ha estat publicada."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "La publicació que voleu publicar ja està publicada."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "No s'ha trobat la plantilla de correu electrònic que heu sol·licitat."
+
+msgid "api.404.endpointNotFound"
+msgstr "No s'ha reconegut l'URL sol·licitada."
+
+msgid "api.404.resourceNotFound"
+msgstr "No s'ha trobat el recurs sol·licitat."
+
+msgid "api.403.unauthorized"
+msgstr "No esteu autoritzat per accedir al recurs sol·licitat."
+
+msgid "api.400.paramNotSupported"
+msgstr "El paràmetre {$param} no està suportat."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "El vocabulari {$vocab} no és compatible."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "La configuració regional {$locale} no és compatible."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"El tema actiu, {$themePluginPath}, no està habilitat i podria no instal·lar-"
+"se."
+
+msgid "api.files.400.config"
+msgstr ""
+"No s'ha pogut carregar l'arxiu a causa d'un error de configuració del "
+"servidor. Contacteu amb l'administrador/a de sistemes."
+
+msgid "api.files.400.fileSize"
+msgstr "Els arxius més grans que {$maxSize} no es poden carregar."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Un o més arxius no es poden carregar."
+
+msgid "api.files.400.noUpload"
+msgstr "No s'ha trobat cap arxiu per carregar en aquesta sol·licitud."
+
+msgid "api.submissions.unknownError"
+msgstr ""
+"Ha ocorregut un error inesperat. Torneu a carregar la pàgina i intenteu-ho "
+"de nou."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "El volum, el número o l'any sol·licitats no són vàlids."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"La vostra sol·licitud no s'ha pogut completar perquè li falta informació "
+"obligatòria."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Aquest terminal no està disponible des del context. S'hi ha d'accedir des de "
+"l'espai de noms (namespace) de tot el lloc."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "No teniu permís per eliminar aquesta tramesa."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"No podeu eliminar una tramesa que no estigui assignada en aquest context."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Només podeu veure les trameses retirades de publicació a les quals hagueu "
+"estat assignat."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"La vostra sol·licitud ha estat denegada. La causa podria ser que la vostra "
+"sessió hagi caducat. Proveu de recarregar la pàgina i torneu-ho a intentar."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"La vostra sol·licitud no és vàlida. L'ordenació de resultats ha de ser `desc`"
+" o `asc`."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"La vostra sol·licitud no és vàlida. L'interval cronològic ha de ser `dia` o "
+"`mes`."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "La data de finalització no pot ser posterior a ahir."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "La data d'inici no pot ser anterior a 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "La data d'inici no pot ser posterior a la data de finalització."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "La data ha de tenir el format AAAA-MM-DD."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "No teniu permís per editar aquesta publicació."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"No s'ha trobat el directori d'arxius públics o els arxius no poden guardar-"
+"s'hi. Contacteu amb el vostre administrador/a per resoldre aquest problema."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"No hi ha espai suficient en el vostre directori d'usuari/ària. L'arxiu que "
+"voleu carregar té {$fileUploadSize}kb i us queden {$dirSizeLeft}kb."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "No teniu permís per carregar arxius."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"No podeu modificar l'associació d'arxius sense passar un assocType i un "
+"assocId."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"No podeu enviar un correu electrònic als usuaris/àries en o més dels rols "
+"seleccionats."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"Heu d'indicar quins rols d'usuari/ària haurien de rebre aquest correu "
+"electrònic."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Heu de proporcionar l'assumpte del correu electrònic."
+
+msgid "api.emails.400.missingBody"
+msgstr "Heu d'incloure un correu electrònic perquè s'enviï."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "No s'ha trobat l'avís que heu sol·licitat."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "No és possible canviar la data en què es va crear."

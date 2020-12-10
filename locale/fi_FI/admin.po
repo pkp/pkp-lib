@@ -1,0 +1,312 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
+"PO-Revision-Date: 2020-10-14 12:50+0000\n"
+"Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
+"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"fi_FI/>\n"
+"Language: fi_FI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Asetuksen nimi"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Asetuksen arvo"
+
+msgid "admin.adminFunctions"
+msgstr "Ylläpitoon liittyvät toiminnot"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Haluatko varmasti poistaa tämän todentamislähteen pysyvästi?"
+
+msgid "admin.auth.create"
+msgstr "Luo todentamislähde"
+
+msgid "admin.auth.noneCreated"
+msgstr "Yhtään todentamislähdettä ei ole määritelty."
+
+msgid "admin.authSources"
+msgstr "Todentamislähteet"
+
+msgid "admin.clearDataCache"
+msgstr "Tyhjennä datavälimuistit"
+
+msgid "admin.clearTemplateCache"
+msgstr "Tyhjennä mallipohjien välimuisti"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Määritystiedostosi on päivitetty onnistuneesti. Huomioithan, että jos sivustosi ei enää toimi oikein, saatat joutua korjaamaan määrityksiä manuaalisesti muokkaamalla suoraan <tt>config.inc.php</tt>-tiedostoa."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Haluatko varmasti tyhjentää koostettujen mallipohjien välimuistin?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Haluatko varmasti päättää kaikki käyttäjien istunnot? Kaikkien käyttäjien, jotka ovat parhaillaan kirjautuneena järjestelmään, on pakko kirjautua uudelleen (myös sinun)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Määritystiedoston sisältö"
+
+msgid "admin.currentVersion"
+msgstr "Nykyinen versio"
+
+msgid "admin.dateInstalled"
+msgstr "Asennuspäivä"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Päivitetyn määrityksen sisältö näkyy alla. Ottaaksesi määritysmuutokset käyttöön avaa <tt>config.inc.php</tt> sopivassa tekstieditorissa ja korvaa sen sisältö alla olevan tekstikentän sisällöllä."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Näytä uusi määritys"
+
+msgid "admin.expireSessions"
+msgstr "Päätä käyttäjäistunnot"
+
+msgid "admin.languages.cantDisable"
+msgstr "Tämä kielialue on sivuston pääkieli. Et voi poistaa sitä käytöstä, ennen kuin valitset toisen ensisijainen kielialueen."
+
+msgid "admin.languages.confirmReload"
+msgstr "Haluatko varmasti ladata tämän kielialueen uudelleen? Tämä poistaa kaikki aiemmat kielialuekohtaiset tiedot, kuten mukautetut sähköpostipohjat."
+
+msgid "admin.languages.installedLocales"
+msgstr "Asennetut kielialueet"
+
+msgid "admin.languages.installLanguages"
+msgstr "Hallinnoi kielialueita"
+
+msgid "admin.languages.availableLocales"
+msgstr "Saatavilla olevat kielialueet"
+
+msgid "admin.languages.installLocale"
+msgstr "Asenna kielialue"
+
+msgid "admin.languages.installLocales"
+msgstr "Asenna"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Asentaa uusia kielialueita"
+
+msgid "admin.languages.languageSettings"
+msgstr "Kieliasetukset"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Muita kielialueita ei ole asennettavissa."
+
+msgid "admin.languages.reload"
+msgstr "Lataa kielialue uudelleen"
+
+msgid "admin.languages.uninstall"
+msgstr "Poista kielialue"
+
+msgid "admin.phpInfo"
+msgstr "Laajat PHP-tiedot"
+
+msgid "admin.scheduledTask"
+msgstr "Ajoitettu tehtävä"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Tehtäväprosessi alkoi."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Tehtäväprosessi päättyi."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Tehtävä ei tuottanut lokia."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "{$softwareName}-asennuksesi suoritti ja lopetti tämän tehtävän automaattisesti. Voit ladata lokitiedoston täällä: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Haluatko varmasti poistaa kaikki ajoitettujen tehtävien suorituslokit?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Poista ajoitettujen tehtävien suorituslokit"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Muistutus arvioinnista"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Muistutus tilauksen päättymisestä"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache-versio"
+
+msgid "admin.server.dbDriver"
+msgstr "Tietokantaohjain"
+
+msgid "admin.server.dbVersion"
+msgstr "Tietokantapalvelimen versio"
+
+msgid "admin.serverInformation"
+msgstr "Palvelimen tiedot"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP-versio"
+
+msgid "admin.server.platform"
+msgstr "Käyttöjärjestelmäalusta"
+
+msgid "admin.settings"
+msgstr "Asetukset"
+
+msgid "admin.settings.about"
+msgstr "Tietoa sivustosta"
+
+msgid "admin.settings.contactEmail"
+msgstr "Pääasiallisen yhteyshenkilön sähköposti"
+
+msgid "admin.settings.contactName"
+msgstr "Pääasiallinen yhteyshenkilön nimi"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tAsennuksesi on määritetty tallentamaan useita käytön mittareita. Käyttötilastot näytetään useassa yhteydessä. Joissain tapauksissa on käytettävä yksittäistä käyttötilastoa, esim. silloin, kun näytetään käytetyimpien käsikirjoitusten järjestetty lista tai asetettaessa hakutuloksia paremmuusjärjestykseen. Valitse yksi määritetyistä mittareista oletukseksi.\n"
+"\t"
+
+msgid "admin.settings.introduction"
+msgstr "Esittely"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Salasanan vähimmäispituus (merkkiä)"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Sivuston kieli"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Virheellinen sivuston tyylitiedoston muoto. Hyväksytty muoto on .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Sivuston tyylitiedosto"
+
+msgid "admin.settings.siteLogo"
+msgstr "Sivuston logo"
+
+msgid "admin.settings.siteTitle"
+msgstr "Sivuston nimi"
+
+msgid "admin.settings.siteTheme"
+msgstr "Sivuston teema"
+
+msgid "admin.siteAdmin"
+msgstr "Sivuston ylläpito"
+
+msgid "admin.siteManagement"
+msgstr "Sivuston hallinnointi"
+
+msgid "admin.siteSettings"
+msgstr "Sivuston asetukset"
+
+msgid "admin.siteSetup"
+msgstr "Sivuston asetukset"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Määritystiedostoa <tt>config.inc.php</tt> ei ole olemassa, ei voi lukea tai se on viallinen."
+
+msgid "admin.systemInformation"
+msgstr "Järjestelmätiedot"
+
+msgid "admin.versionBuild"
+msgstr "Koontiversio"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Tarkista päivitykset"
+
+msgid "admin.version.downloadPackage"
+msgstr "Lataa"
+
+msgid "admin.version.downloadPatch"
+msgstr "Lataa korjaustiedosto"
+
+msgid "admin.versionHistory"
+msgstr "Versiohistoria"
+
+msgid "admin.version.latest"
+msgstr "Viimeisin versio"
+
+msgid "admin.versionMajor"
+msgstr "Pääversio"
+
+msgid "admin.versionMinor"
+msgstr "Aliversio"
+
+msgid "admin.version.moreInfo"
+msgstr "Lisätietoja"
+
+msgid "admin.versionRevision"
+msgstr "Tarkistusversio"
+
+msgid "admin.version.updateAvailable"
+msgstr "Päivitetty versio on saatavilla"
+
+msgid "admin.version.upToDate"
+msgstr "Järjestelmäsi on ajan tasalla"
+
+msgid "admin.version"
+msgstr "Versio"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Peruspolun {$path} on oltava julkisten tiedostojen hakemistossa."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Kansio {$path} ei ole hakemisto tai se ei ole luettavissa."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Tiedostoa {$filename} ei voitu siirtää sijainnista {$currentFilePath} sijaintiin {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Tiedosto {$filename} käsiteltiin ja arkistoitiin."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Tiedostojen latausohjelma"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Kopioi suoritetut Apachen käyttölokitiedostot, tähän asennukseen liittyvät merkinnät suodattaen, nykyiseen tiedostohakemistoon UsageStatsPlugin-vaihehakemiston sisällä. Ajettava sellaisen käyttäjän toimesta, jolla on lukuoikeudet Apachen lokitiedostoihin. Tämä työkalu kopioi ainoastaan tiedostot, jotka eivät vielä ole usageStats tiedostojen latausohjelman hakemistoissa (vaihe, käsittely, arkisto, hylkää). Käyttö: {$scriptName} path/to/apache/log/file.log Käyttö (käsitellään kaikki hakemiston sisällä olevat tiedostot): {$scriptName} path/to/apache/directory\n"
+"\t"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Virhe: ei voi luoda väliaikaista kansiota {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Virhe: Tiedostoa {$filePath} ei ole olemassa tai sitä ei voi käyttää."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Virhe: tiedostoa ei voi kopioida sijainnista {$filePath} sijaintiin {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Virhe: tiedostoa {$tmpFilePath} ei voi poistaa"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Varoitus: tiedosto {$filePath} on jo käyttötilastohakemistossa."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Onnistui: {$filePath} sijaintiin {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "\"{$utilPath}\" ohjelman suoritus tuotti seuraavan virheen: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Virhe: ei voi suorittaa \"{$utilPath}\". Tarkista {$utilVar}-asetuksesi config.inc.php -tiedostosta."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Kielialueita ei ole ladattavissa."
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Haluatko varmasti pysyvästi poistaa {$contextName} ja kaikki siihen liittyvät sisällöt?"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Julkaise käsikirjoitukset, jotka on ajastettu julkaistavaksi"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Oletko varma, että haluat muuttaa sivuston pääasiallista kieltä? Käyttäjien "
+"nimet, jotka vaaditaan pääasiallisen kielen osalta, kopioidaan "
+"automaattisesti nykyisen kieliasetuksen mukaisista arvoista mikäli ne "
+"puuttuvat uudesta kielestä."

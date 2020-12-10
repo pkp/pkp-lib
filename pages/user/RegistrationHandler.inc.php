@@ -3,9 +3,9 @@
 /**
  * @file pages/user/RegistrationHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RegistrationHandler
  * @ingroup pages_user
@@ -77,7 +77,7 @@ class RegistrationHandler extends UserHandler {
 				'pageTitle' => 'user.login.registrationPendingValidation',
 				'messageTranslated' => __('user.login.accountNotValidated', array('email' => $regForm->getData('email'))),
 			));
-			return $templateMgr->fetch('frontend/pages/message.tpl');
+			return $templateMgr->display('frontend/pages/message.tpl');
 		}
 
 		$reason = null;
@@ -97,7 +97,7 @@ class RegistrationHandler extends UserHandler {
 				'backLink' => $request->url(null, 'login'),
 				'backLinkLabel' => 'user.login',
 			));
-			return $templateMgr->fetch('frontend/pages/error.tpl');
+			return $templateMgr->display('frontend/pages/error.tpl');
 		}
 
 		$source = $request->getUserVar('source');
@@ -128,7 +128,7 @@ class RegistrationHandler extends UserHandler {
 		$username = array_shift($args);
 		$accessKeyCode = array_shift($args);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getByUsername($username);
 		if (!$user) $request->redirect(null, 'login');
 

@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/navigationMenus/NavigationMenusGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenusGridHandler
  * @ingroup controllers_grid_navigationMenus
@@ -133,7 +133,7 @@ class NavigationMenusGridHandler extends GridHandler {
 			$contextId = $context->getId();
 		}
 
-		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $navigationMenuDao NavigationMenuDAO */
 		return $navigationMenuDao->getByContextId($contextId);
 	}
 
@@ -230,7 +230,7 @@ class NavigationMenusGridHandler extends GridHandler {
 		$navigationMenuId = (int) $request->getUserVar('navigationMenuId');
 		$context = $request->getContext();
 
-		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $navigationMenuDao NavigationMenuDAO */
 		$navigationMenu = $navigationMenuDao->getById($navigationMenuId, $context?$context->getId():CONTEXT_SITE);
 		if ($navigationMenu && $request->checkCSRF()) {
 			$navigationMenuDao->deleteObject($navigationMenu);

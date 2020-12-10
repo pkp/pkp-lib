@@ -1,0 +1,657 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:46+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:46+00:00\n"
+"Language: \n"
+
+msgid "grid.noItems"
+msgstr "هیچ موردی وجود ندارد"
+
+msgid "grid.settings"
+msgstr "تنظیمات"
+
+msgid "grid.noAuditors"
+msgstr "بدون حسابرس"
+
+msgid "grid.remotelyHostedItem"
+msgstr "این مورد از راه دور کنترل می‌شود"
+
+msgid "grid.action.manageAccess"
+msgstr "مدیریت دسترسی"
+
+msgid "grid.action.sort"
+msgstr "مرتب‌سازی"
+
+msgid "grid.action.addItem"
+msgstr "افزودن یک مورد"
+
+msgid "grid.action.addNote"
+msgstr "افزودن یادداشت"
+
+msgid "grid.action.addQuery"
+msgstr "افزودن گفتگو"
+
+msgid "grid.action.readQuery"
+msgstr "خواندن گفتگو"
+
+msgid "grid.action.deleteQuery"
+msgstr "حذف گفتگو"
+
+msgid "grid.action.updateQuery"
+msgstr "به‌روزرسانی گفتگو"
+
+msgid "grid.action.addUser"
+msgstr "افزودن کاربر"
+
+msgid "grid.action.unassignReviewer"
+msgstr "عدم انتساب این داور"
+
+msgid "grid.action.approveCopyedit"
+msgstr "این نسخه ویراستاری شده را تأیید کنید تا به مرحله بعد فرستاده شود."
+
+msgid "grid.action.reload"
+msgstr "بارگذاری مجدد"
+
+msgid "grid.action.delete"
+msgstr "حذف"
+
+msgid "grid.action.deleteFile"
+msgstr "حذف فایل"
+
+msgid "grid.action.deleteMedia"
+msgstr "حذف مدیا"
+
+msgid "grid.action.editMedia"
+msgstr "ویرایش مدیا"
+
+msgid "grid.action.editSection"
+msgstr "ویرایش نوع"
+
+msgid "grid.action.export"
+msgstr "برون دهی"
+
+msgid "grid.action.deleteSection"
+msgstr "حذف نوع"
+
+msgid "grid.action.editorialHistory"
+msgstr "تاریخچه پردازش مقاله"
+
+msgid "grid.action.remove"
+msgstr "حذف"
+
+msgid "grid.action.edit"
+msgstr "ویرایش"
+
+msgid "grid.action.approve"
+msgstr "تأیید"
+
+msgid "grid.action.disapprove"
+msgstr "عدم پذیرش"
+
+msgid "grid.action.setApproval"
+msgstr "تأیید کن"
+
+msgid "grid.action.moreInformation"
+msgstr "اطلاعات بیشتر"
+
+msgid "grid.action.restoreDefaults"
+msgstr "برگرداندن پیش‌فرض‌ها"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "آیا مطمئنید که می‌خواهید تنظیمات پیش‌فرض بازگردانده شود."
+
+msgid "grid.action.addAuthor"
+msgstr "افزودن نویسنده"
+
+msgid "grid.action.editAuthor"
+msgstr "ویرایش نویسنده"
+
+msgid "grid.action.deleteAuthor"
+msgstr "حذف نویسنده"
+
+msgid "grid.action.addAuditor"
+msgstr "افزودن حسابرس"
+
+msgid "grid.action.upgrade"
+msgstr "ارتقاء"
+
+msgid "grid.action.order"
+msgstr "مرتب‌سازی"
+
+msgid "grid.action.cancelOrdering"
+msgstr "انصراف"
+
+msgid "grid.action.extendAll"
+msgstr "بازکردن همه"
+
+msgid "grid.action.collapse"
+msgstr "جمع کردن"
+
+msgid "grid.action.collapseAll"
+msgstr "جمع کردن همه"
+
+msgid "grid.action.wizard"
+msgstr "تنظیمات مرحله به مرحله"
+
+msgid "grid.action.moveItem"
+msgstr "جابجایی موارد"
+
+msgid "grid.action.downloadAll"
+msgstr "دانلود همه فایل‌ها به صورت فشرده"
+
+msgid "grid.action.readReview"
+msgstr "خواندن این داوری"
+
+msgid "grid.action.email"
+msgstr "ارسال ایمیل"
+
+msgid "grid.action.addReviewer"
+msgstr "افزودن داور"
+
+msgid "grid.action.addFile"
+msgstr "آپلود فایل"
+
+msgid "grid.action.editFile"
+msgstr "ویرایش فایل"
+
+msgid "grid.action.selectFiles"
+msgstr "انتخاب فایل برای مدیریت"
+
+msgid "grid.action.requestRevisions"
+msgstr "درخواست اصلاحات برای این مقاله ارسالی"
+
+msgid "grid.action.accept"
+msgstr "پذیرش این مقاله"
+
+msgid "grid.action.decline"
+msgstr "رد این مقاله"
+
+msgid "grid.action.internalReview"
+msgstr "ارسال این مقاله به داور داخلی"
+
+msgid "grid.action.externalReview"
+msgstr "ارسال این مقاله به داور خارجی"
+
+msgid "grid.action.sendToProduction"
+msgstr "ارسال این مقاله به واحد انتشار"
+
+msgid "grid.action.settings"
+msgstr "تنظیمات"
+
+msgid "grid.action.importexport"
+msgstr "برون دهی با درون‌ریزی محتویات سایت"
+
+msgid "grid.action.orderItems"
+msgstr "فعال کردن مرتب‌سازی"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "ویرایش موارد این لیست"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "حذف این مورد از لیست"
+
+msgid "grid.action.resetAll"
+msgstr "بازگرداندن تمامی موارد به مقادیر پیش‌فرض خود"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "افزودن یک الگوی ایمیل"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "ویرایش این الگوی ایمیل"
+
+msgid "grid.action.disableEmail"
+msgstr "غیرفعال کردن این الگوی ایمیل"
+
+msgid "grid.action.resetEmail"
+msgstr "بازگرداندن این الگوی ایمیل به حالت پیش‌فرض"
+
+msgid "grid.action.expandAll"
+msgstr "بازکردن همه"
+
+msgid "grid.action.requestAccount"
+msgstr "افزودن یک همکار"
+
+msgid "grid.action.expand"
+msgstr "باز کردن"
+
+msgid "grid.action.notify"
+msgstr "اطلاع‌رسانی به این کاربر"
+
+msgid "grid.action.addUserGroup"
+msgstr "افزودن گروه کاربری جدید"
+
+msgid "grid.action.editUserGroup"
+msgstr "ویرایش این گروه کاربری"
+
+msgid "grid.action.disable"
+msgstr "غیرفعال کردن"
+
+msgid "grid.action.details"
+msgstr "مشاهده این مورد"
+
+msgid "grid.action.enrolExisting"
+msgstr "اعطای نقش داور به این کاربر"
+
+msgid "grid.action.selectCreate"
+msgstr "ایجاد داور جدید"
+
+msgid "grid.action.search"
+msgstr "جستجو"
+
+msgid "grid.action.advancedSearch"
+msgstr "جستجوی پیشرفته"
+
+msgid "grid.action.viewLibrary"
+msgstr "مشاهده کتابخانه اسناد"
+
+msgid "grid.action.viewMetadata"
+msgstr "مشاهده فراداده‌های این مقاله ارسالی"
+
+msgid "grid.action.sendReminder"
+msgstr "ارسال یادآوری وظیفه برای کاربر"
+
+msgid "grid.action.newRound"
+msgstr "ایجاد دور جدید"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "مشاهده دستورالعمل داوری"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "مشاهده دستورالعمل‌های مربوط به سیاست تضاد منافع در داوری"
+
+msgid "grid.action.thankReviewer"
+msgstr "ارسال پیام تشکر به داور"
+
+msgid "grid.action.uploadFile"
+msgstr "آپلود یک فایل"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "افزودن نوع اطلاعیه"
+
+msgid "grid.action.addAnnouncement"
+msgstr "افزودن اطلاعیه"
+
+msgid "grid.action.mergeUser"
+msgstr "ادغام کاربر"
+
+msgid "grid.action.unassignUser"
+msgstr "عدم انتساب کاربر"
+
+msgid "grid.action.history"
+msgstr "مشاهده تاریخچه"
+
+msgid "grid.action.unconsiderReview"
+msgstr "این داوری تکمیل شده است اما هنوز شما به آن رسیدگی نکرده‌اید"
+
+msgid "grid.action.enable"
+msgstr "فعال‌سازی"
+
+msgid "grid.action.bookInfo"
+msgstr "اطلاعات مقاله ارسالی"
+
+msgid "grid.action.logInAs"
+msgstr "ورود به عنوان"
+
+msgid "grid.action.exportAllUsers"
+msgstr "برون دهی تمامی کاربران"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "آیا مطمئنید که می‌خواهید تمامی کاربران را برون دهی نمایید؟"
+
+msgid "grid.action.activate"
+msgstr "فعال‌سازی"
+
+msgid "grid.action.deactivate"
+msgstr "غیرفعال‌سازی"
+
+msgid "grid.action.copy"
+msgstr "کپی"
+
+msgid "grid.action.preview"
+msgstr "پیش‌نمایش"
+
+msgid "grid.action.install"
+msgstr "نصب"
+
+msgid "grid.action.moreItems"
+msgstr "ادامه"
+
+msgid "grid.task.status.completed"
+msgstr "این وظیفه تکمیل شد."
+
+msgid "grid.task.status.new"
+msgstr "پس از رسیدگی تیک بخورد"
+
+msgid "grid.task.status.uploaded"
+msgstr "ستون عنوان مشخص کننده آن است که چه کسی این فایل را آپلود کرده است"
+
+msgid "grid.task.status.unfinished"
+msgstr "وظیفه تمام نشده است"
+
+msgid "grid.task.status.reviewReady"
+msgstr "داوری آماده است. آیکون یادداشت را به سمت چپ ببرید تا آن را مشاهده کنید."
+
+msgid "grid.columns.actions"
+msgstr "اقدامات"
+
+msgid "grid.columns.institution"
+msgstr "مؤسسه"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.auditor"
+msgstr "حسابرس"
+
+msgid "grid.columns.locale"
+msgstr "زبان"
+
+msgid "grid.sponsor.title"
+msgstr "حامی مالی"
+
+msgid "grid.action.addSponsor"
+msgstr "افزودن حامی مالی"
+
+msgid "grid.action.deleteSponsor"
+msgstr "حذف حامی مالی"
+
+msgid "grid.action.editSponsor"
+msgstr "ویرایش حامی مالی"
+
+msgid "grid.action.addSeries"
+msgstr "افزودن سری"
+
+msgid "grid.action.editSeries"
+msgstr "ویرایش سری"
+
+msgid "grid.action.deleteSeries"
+msgstr "حذف سری"
+
+msgid "grid.action.addCategory"
+msgstr "افزودن بخش"
+
+msgid "grid.action.editCategory"
+msgstr "ویرایش بخش"
+
+msgid "grid.action.deleteCategory"
+msgstr "حذف بخش"
+
+msgid "grid.contributor.title"
+msgstr "منبع حمایتی"
+
+msgid "grid.action.addContributor"
+msgstr "افزودن پدیدآورنده"
+
+msgid "grid.action.editContributor"
+msgstr "ویرایش پدیدآورنده"
+
+msgid "grid.action.deleteContributor"
+msgstr "حذف پدیدآورنده"
+
+msgid "grid.reviewForm.title"
+msgstr "فرم‌های داوری"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "گزینه‌های پاسخ"
+
+msgid "grid.noFiles"
+msgstr "هیچ فایلی وجود ندارد"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "فایل‌ها"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "کتابخانه مقالات ارسالی"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "کتابخانه سردبیری"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "کتابخانه داوری"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "کتابخانه انتشار"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "کتابخانه الگوهای انتشار"
+
+msgid "grid.submissionChecklist.title"
+msgstr "چک‌لیست مقاله ارسالی"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "موارد چک‌لیست"
+
+msgid "author.users.contributor.name"
+msgstr "نام"
+
+msgid "author.users.contributor.email"
+msgstr "ایمیل"
+
+msgid "author.users.contributor.role"
+msgstr "نقش"
+
+msgid "author.users.contributor.principalContact"
+msgstr "نویسنده مسئول"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "در لیست نویسندگان سایت قرار بگیرد"
+
+msgid "grid.roles.currentRoles"
+msgstr "نقش‌های کنونی"
+
+msgid "grid.roles.add"
+msgstr "ساختن نقش جدید"
+
+msgid "grid.roles.stageAssignment"
+msgstr "تخصیص مرحله"
+
+msgid "grid.user.currentUsers"
+msgstr "کاربران کنونی"
+
+msgid "grid.user.currentEnrollment"
+msgstr "نقش جاری"
+
+msgid "grid.user.allRoles"
+msgstr "تمامی نقش‌ها"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "تمامی سطوح دسترسی"
+
+msgid "grid.user.add"
+msgstr "افزودن کاربر"
+
+msgid "grid.user.enroll"
+msgstr "نقش دهی به کاربر"
+
+msgid "grid.user.edit"
+msgstr "ویرایش کاربر"
+
+msgid "grid.user.email"
+msgstr "ایمیل"
+
+msgid "grid.user.enable"
+msgstr "فعال کردن"
+
+msgid "grid.user.disable"
+msgstr "غیرفعال کردن"
+
+msgid "grid.user.disableReason"
+msgstr "دلیل غیرفعال کردن کاربر"
+
+msgid "grid.user.enableReason"
+msgstr "دلیل فعال کردن کاربر"
+
+msgid "grid.user.error"
+msgstr "در مدیریت این کاربر خطایی رخ داد. لطفاً دوباره تلاش کنید."
+
+msgid "grid.user.errorEmail"
+msgstr "در ارسال ایمیل خطایی رخ داد. مطمئن شوید که سرور ایمیلتان درست کار می‌کند. در صورت لزوم با مدیر سایت این موضوع را در میان بگذارید."
+
+msgid "grid.user.cannotAdminister"
+msgstr "شما مجوز کافی برای مدیریت این کاربر را ندارید. برای مدیریت کاربر باید دارای سطح دسترسی مدیر سایت باشید."
+
+msgid "grid.user.authSource"
+msgstr "منبع احراز هویت"
+
+msgid "grid.user.mustProvideName"
+msgstr "لطفاً حداقل برای این کاربر یک نام خانوادگی مشخص کنید"
+
+msgid "grid.user.generatePassword"
+msgstr "تولید رمز ورود"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "ایجاد رمز عبور تصادفی برای کاربر"
+
+msgid "grid.user.notifyUser"
+msgstr "اطلاع‌رسانی به کاربر"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "ارسال ایمیل خوش‌آمد گویی به کاربر"
+
+msgid "grid.user.mustChangePassword"
+msgstr "تغییر رمز ورود"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "شما باید در ورود بعدی به سیستم رمز ورود خود را عوض کنید"
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "درخواست از کاربر برای تعویض رمز عبور در ورود بعدی به سیستم"
+
+msgid "grid.user.moreDetails"
+msgstr "جزئیات بیشتر"
+
+msgid "grid.user.lessDetails"
+msgstr "جزئیات کمتر"
+
+msgid "grid.user.userDetails"
+msgstr "اطلاعات کاربر"
+
+msgid "grid.user.userRoles"
+msgstr "نقش‌های کاربر"
+
+msgid "grid.user.userNoRoles"
+msgstr "این کاربر هیچ نقشی ندارد."
+
+msgid "grid.user.step1"
+msgstr "مرحله اول: اطلاعات کاربر را وارد کنید"
+
+msgid "grid.user.step2"
+msgstr "مرحله دوم: به {$userFullName} نقش اعطا کنید."
+
+msgid "grid.user.addRoles"
+msgstr "افزودن نقش‌ها"
+
+msgid "grid.user.addRole"
+msgstr "افزودن نقش"
+
+msgid "grid.user.selectUser"
+msgstr "انتخاب کاربر"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "لطفاً یک کاربر انتخاب کنید."
+
+msgid "grid.user.confirmLogInAs"
+msgstr "آیا می‌خواهید به عنوان این کاربر وارد شوید؟ همه کارهایی که انجام می‌دهید به عنوان این کاربر ثبت خواهد شد"
+
+msgid "grid.user.mergeUsers"
+msgstr "ادغام کاربران"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "ادغام کاربر"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "ادغام با این کاربر"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "تمامی کاربران دارای نقش"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr "آیا مطمئنید که حساب کاربری «{$oldUsername}» را می‌خواهید با حساب کاربری «{$newUsername}» ادغام کنید؟ بعد از ادغام، حساب کاربری «{$oldUsername}» دیگر در دسترس نخواهد بود. عمل ادغام بازگشت ناپذیر است."
+
+msgid "grid.preparedEmails.title"
+msgstr "آماده‌سازی الگوهای متن ایمیل"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "لیست کنونی"
+
+msgid "grid.plugin.allCategories"
+msgstr "تمام بخش‌ها"
+
+msgid "grid.plugin.disable"
+msgstr "آیا مطمئنید که می‌خواهید این افزونه را غیرفعال کنید"
+
+msgid "grid.action.fileUnconsider"
+msgstr "تصحیح اصلاحات انجام شد. شما ممکن است این وظیفه را نادیده بگیرید"
+
+msgid "grid.artworkFile.caption"
+msgstr "عنوان"
+
+msgid "grid.artworkFile.credit"
+msgstr "اعتبار"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "دارنده امتیاز حق نشر"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "اطلاعات تماس"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "موارد مجوز"
+
+msgid "grid.artworkFile.placement"
+msgstr "موقعیت در مقاله ارسالی"
+
+msgid "grid.userGroup.assignStage"
+msgstr "تخصیص مرحله"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "لغو تخصیص مرحله"
+
+msgid "grid.userGroup.allStages"
+msgstr "تمام مراحل گردش کار"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "لیست نقش‌های انتساب داده شده به"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "با سطح دسترسی تنظیم شده "
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "نقش {$userGroupName}، نقش پیش‌فرض بوده و قابل حذف نمی‌باشد."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr "نقش {$userGroupName} قابل حذف نیست. هم اکنون به {$usersCount} کاربر این نقش انتساب داده شده است.."
+
+msgid "grid.userGroup.removed"
+msgstr "نقش {$userGroupName} حذف شد"
+
+msgid "grid.userGroup.assignedStage"
+msgstr "نقش {$userGroupName} به مرحله {$stageName} تخصیص داده شد."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "نقش {$userGroupName} از مرحله {$stageName} حذف شد."
+
+msgid "grid.submission.itemTitle"
+msgstr "نویسنده؛ عنوان"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "مقالات ناقص ارسالی نیز در نظر گرفته شود"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "افزودن منو"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "افزودن المان"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "بدون المان برای منوی گشت‌وگذار"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "بدون منوی گشت‌وگذار"

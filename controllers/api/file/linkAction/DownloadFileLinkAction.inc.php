@@ -2,9 +2,9 @@
 /**
  * @file controllers/api/file/linkAction/DownloadFileLinkAction.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DownloadFileLinkAction
  * @ingroup controllers_api_file_linkAction
@@ -25,26 +25,33 @@ class DownloadFileLinkAction extends FileLinkAction {
 	 *  link to.
 	 * @param $stageId int (optional)
 	 * @param $label string (optional) Label to use instead of filename
+	 * @param $fileId int (optional) Download a specific revision of a file
+	 * @param $filename string (optional) The filename to use for the file
 	 */
-	function __construct($request, $submissionFile, $stageId = null, $label = null) {
+	function __construct($request, $submissionFile, $stageId = null, $label = null, $fileId = null, $filename = null) {
 		// Instantiate the redirect action request.
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
 		$this->label = $label;
+		$actionArgs = $this->getActionArgs($submissionFile, $stageId);
+		if ($fileId) {
+			$actionArgs['fileId'] = $fileId;
+		}
+		if ($filename) {
+			$actionArgs['filename'] = $filename;
+		}
 		$redirectRequest = new PostAndRedirectAction(
 			$router->url(
 				$request, null, 'api.file.FileApiHandler', 'recordDownload',
-				null, $this->getActionArgs($submissionFile, $stageId)),
+				null, $actionArgs),
 			$router->url(
 				$request, null, 'api.file.FileApiHandler', 'downloadFile',
-				null, $this->getActionArgs($submissionFile, $stageId))
+				null, $actionArgs)
 		);
 
 		// Configure the file link action.
 		parent::__construct(
-			'downloadFile', $redirectRequest, htmlspecialchars($this->getLabel($submissionFile)),
-			$submissionFile->getDocumentType(),
-			$submissionFile->getFileId() . '-' . $submissionFile->getRevision()
+			'downloadFile', $redirectRequest, htmlspecialchars($this->getLabel($submissionFile))
 		);
 	}
 
@@ -55,7 +62,7 @@ class DownloadFileLinkAction extends FileLinkAction {
 	 */
 	function getLabel($submissionFile) {
 		if ($this->label !== null) return $this->label;
-		return $submissionFile->getFileLabel();
+		return $submissionFile->getLocalizedData('name');
 	}
 }
 

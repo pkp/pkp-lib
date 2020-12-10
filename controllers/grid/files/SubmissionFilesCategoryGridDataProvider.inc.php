@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/files/SubmissionFilesCategoryGridDataProvider.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFilesCategoryDataProvider
  * @ingroup controllers_grid_files_review
@@ -86,7 +86,6 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	 * @copydoc CategoryGridDataProvider::loadCategoryData()
 	 */
 	function loadCategoryData($request, $categoryDataElement, $filter = null, $reviewRound = null) {
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$dataProvider = $this->getDataProvider();
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $categoryDataElement;
@@ -96,27 +95,39 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 		// For review stages, get the revisions of the review round that user is currently accessing.
 		if ($stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
 			if (is_null($reviewRound) || $reviewRound->getStageId() != $stageId) {
-				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 				$reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 			}
-			$stageSubmissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound($reviewRound, $fileStage);
+			if ($reviewRound) {
+				$submissionFilesIterator = Services::get('submissionFile')->getMany([
+					'submissionIds' => [$submission->getId()],
+					'reviewRoundIds' => [$reviewRound->getId()],
+					'fileStages' => [$fileStage],
+				]);
+				$stageSubmissionFiles = iterator_to_array($submissionFilesIterator);
+			} else {
+				$stageSubmissionFiles = [];
+			}
 		} else {
 			// Filter the passed workflow stage files.
 			if (!$this->_submissionFiles) {
-				$this->_submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId());
+				$submissionFilesIterator = Services::get('submissionFile')->getMany([
+					'submissionIds' => [$submission->getId()],
+				]);
+				$this->_submissionFiles = iterator_to_array($submissionFilesIterator);
 			}
 			$submissionFiles = $this->_submissionFiles;
 			$stageSubmissionFiles = array();
 			foreach ($submissionFiles as $key => $submissionFile) {
-				if (in_array($submissionFile->getFileStage(), (array) $fileStage)) {
+				if (in_array($submissionFile->getData('fileStage'), (array) $fileStage)) {
 					$stageSubmissionFiles[$key] = $submissionFile;
-				} elseif ($submissionFile->getFileStage() == SUBMISSION_FILE_QUERY) {
+				} elseif ($submissionFile->getData('fileStage') == SUBMISSION_FILE_QUERY) {
 					// Determine the stage from the query.
-					if ($submissionFile->getAssocType()!=ASSOC_TYPE_NOTE) break;
-					$noteDao = DAORegistry::getDAO('NoteDAO');
-					$note = $noteDao->getById($submissionFile->getAssocId());
+					if ($submissionFile->getData('assocType')!=ASSOC_TYPE_NOTE) break;
+					$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
+					$note = $noteDao->getById($submissionFile->getData('assocId'));
 					assert($note && $note->getAssocType()==ASSOC_TYPE_QUERY);
-					$queryDao = DAORegistry::getDAO('QueryDAO');
+					$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 					$query = $queryDao->getById($note->getAssocId());
 					if ($query && $query->getStageId() == $stageId) $stageSubmissionFiles[$key] = $submissionFile;
 				}
@@ -188,6 +199,8 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 				return SUBMISSION_FILE_SUBMISSION;
 				break;
 			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
+				return SUBMISSION_FILE_INTERNAL_REVIEW_FILE;
+				break;
 			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
 				return SUBMISSION_FILE_REVIEW_FILE;
 				break;

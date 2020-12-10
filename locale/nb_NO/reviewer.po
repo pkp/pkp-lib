@@ -1,0 +1,128 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
+"PO-Revision-Date: 2020-10-19 09:01+0000\n"
+"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/reviewer/nb_NO/>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "Trinn 1: Forespørsel"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "Trinn 2: Retningslinjer"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "Trinn 3: Last ned og vurder"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "Trinn 4: Fullfør"
+
+msgid "reviewer.step1.request"
+msgstr "Forespørsel om fagfellevurdering"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+"Du har blitt pekt ut som en potensiell fagfelle av denne innleveringen. "
+"Under ser du en oversikt over innleveringen, samt arbeidsflyt for "
+"fagfellevurderingen. Vi håper du har anledning til å delta."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Se detaljer om innleveringen"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Fagfellens filer"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Avslå forespørsel om fagfellevurdering"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Du kan oppgi grunnen til at du avslår forespørselen i feltet under."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Aksepter forespørselen. Gå til Trinn 2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Gå til Trinn 3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Send inn fagfellevurdering"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Retningslinjer for fagfellevurderingen"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"Utgiverens retningslinjer krever at fagfeller er åpne om eventuelle "
+"interessekonflikter. Se gjennom disse retningslinjene."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Jeg har ingen interessekonflikter"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Jeg kan ha interessekonflikter (spesifiser under)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Interessekonflikter"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Retningslinjer for fagfellevurdering"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Utgiveren har ikke satt opp retningslinjer for fagfellene."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"Klikk på filnavnene under for å laste ned filene knyttet til denne "
+"innleveringen."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Skriv (eller lim) inn fagfellevurderingen i skjemaet under."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"Last opp filer du vil at redaktør og/eller forfatter skal konsultere, "
+"inkludert reviderte versjoner av filer med opprinnelig fagfellevurdering."
+
+msgid "reviewer.complete"
+msgstr "Fagfellevurdering sendt inn"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Er du sikker på at du vil sende inn fagfellevurderingen?"
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"Takk for at du fullførte fagfellevurderingen av denne innleveringen. "
+"Vurderingen din ble sendt inn. Vi takker for at du bidrar til å sikre "
+"kvaliteten på det vi publiserer. Om nødvendig, vil redaktøren kontakte deg "
+"for mer informasjon."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Om frister"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"Redaktøren ber om at du enten aksepterer eller avviser forespørselsen innen "
+"svarfristen, og at du fullfører fagfellevurderingen innen fristen for "
+"fagfellevurdering."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "For forfatter og redaktør"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Kun for redaktør"
+
+msgid "user.authorization.submissionReviewer"
+msgstr ""
+"Denne brukeren er ikke satt opp som fagfelle for det forespurte dokumentet."
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Lagre til senere"

@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-02-13T21:07:39+00:00\n"
+"PO-Revision-Date: 2020-02-13T21:07:39+00:00\n"
+"Language: \n"
+
+msgid "plugins.generic.acron.name"
+msgstr "Acron Plugin"
+
+msgid "plugins.generic.acron.reload"
+msgstr "Ütemezett feladatok újratöltése"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Ütemezett feladatok újratöltve."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Az Acron plugin ki lett kapcsolva."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Cron fül sikeresen újratöltve."
+
+msgid "plugins.generic.acron.description"
+msgstr "Ez a plugin megpróbálja csökkenteni a függést az olyan rendszeres ütmező alkalmazásoktól, mint pl. a \"cron\"."
+
+msgid "plugins.generic.acron.enabled"
+msgstr "Az Acron plugin bekapcsolva."

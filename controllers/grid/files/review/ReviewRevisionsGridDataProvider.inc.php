@@ -2,9 +2,9 @@
 /**
  * @file controllers/grid/files/review/ReviewRevisionsGridDataProvider.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewRevisionsGridDataProvider
  * @ingroup controllers_grid_files_review
@@ -22,7 +22,9 @@ class ReviewRevisionsGridDataProvider extends ReviewGridDataProvider {
 	 * Constructor
 	 */
 	function __construct() {
-		parent::__construct(SUBMISSION_FILE_REVIEW_REVISION);
+		$stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
+		$fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_REVISION : SUBMISSION_FILE_REVIEW_REVISION;
+		parent::__construct($fileStage);
 	}
 
 
@@ -35,10 +37,12 @@ class ReviewRevisionsGridDataProvider extends ReviewGridDataProvider {
 	function loadData($filter = array()) {
 		// Grab the files that are new (incoming) revisions
 		// of those currently assigned to the review round.
-		$reviewRound = $this->getReviewRound();
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound($reviewRound, $this->getFileStage());
-		return $this->prepareSubmissionFileData($submissionFiles, false, $filter);
+		$submissionFilesIterator = Services::get('submissionFile')->getMany([
+			'submissionIds' => [$this->getSubmission()->getId()],
+			'fileStages' => [$this->getFileStage()],
+			'reviewRoundIds' => [$this->getReviewRound()->getId()],
+		]);
+		return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), false, $filter);
 	}
 
 

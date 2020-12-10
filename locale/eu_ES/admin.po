@@ -1,0 +1,204 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:44+00:00\n"
+"Language: \n"
+
+msgid "admin.adminFunctions"
+msgstr "Funtzio administratiboak"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Ziur zaude betiko ezabatu nahi duzula autentifikazio-iturburu hau?"
+
+msgid "admin.auth.create"
+msgstr "Sortu autentifikazio-iturburua"
+
+msgid "admin.auth.noneCreated"
+msgstr "Ez da autentifikazio-iturbururik definitu."
+
+msgid "admin.authSources"
+msgstr "Autentifikazio-iturburuak"
+
+msgid "admin.clearDataCache"
+msgstr "Garbitu datu-cacheak"
+
+msgid "admin.clearTemplateCache"
+msgstr "Garbitu txantiloi-cachea"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Zure konfigurazio-fitxategia ondo eguneratu da. Kontuan izan, zure guneak ez badu ondo funtzionatzen, behar bada eskuz konpondu beharko duzula konfigurazioa, zuzenean <tt>config.inc.php</tt>editatuz."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Ziur zaude konpilatutako txantiloien cachea garbitu nahi duzula?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Ziur zaude erabiltzaile-saio guztiak iraungi nahi dituzula? Sisteman sartuta dauden erabiltzaile guztiak berriro sartzera behartuko dituzu (zeure burua barne)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Konfigurazio-fitxategiaren edukia"
+
+msgid "admin.currentVersion"
+msgstr "Uneko bertsioa"
+
+msgid "admin.dateInstalled"
+msgstr "Instalatze-data"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Zure konfigurazio eguneratua behean bistaratzen da. Konfigurazio-aldaketak aplikatzeko, testu-editore egoki batekin ireki beharko duzu <tt>config.inc.php</tt> eta bertako edukia aldatu beheko testu-eremuaren edukiarekin."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Bistaratu konfigurazio berria"
+
+msgid "admin.expireSessions"
+msgstr "Iraungi erabiltzaileen saioak"
+
+msgid "admin.languages.confirmReload"
+msgstr "Ziur zaude hizkuntza hau birkargatu nahi duzula? Hizkuntza horretan definitutako datu guztiak borratu egingo dira, esate baterako, posta elektronikoko txantiloi pertsonalizatuak."
+
+msgid "admin.languages.installedLocales"
+msgstr "Instalatutako hizkuntzak"
+
+msgid "admin.languages.installLanguages"
+msgstr "Kudeatu localeak"
+
+msgid "admin.languages.installLocales"
+msgstr "Instalatu"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instalatu hizkuntza gehiago"
+
+msgid "admin.languages.languageSettings"
+msgstr "Hizkuntza-ezarpenak"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Ez dago hizkuntza gehiago instalatzeko."
+
+msgid "admin.languages.reload"
+msgstr "Birkargatu hizkuntza"
+
+msgid "admin.languages.uninstall"
+msgstr "Desinstalatu hizkuntza"
+
+msgid "admin.phpInfo"
+msgstr "PHP informazio xehea"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache bertsioa"
+
+msgid "admin.server.dbDriver"
+msgstr "Datu-basearen kontrolatzailea"
+
+msgid "admin.server.dbVersion"
+msgstr "Datu-base zerbitzariaren bertsioa"
+
+msgid "admin.serverInformationDescription"
+msgstr "Oinarrizko sistema eragilearen eta zerbitzari-softwarearen bertsioak. Zerbitzari honen PHP konfigurazioaren xehetasunak ikusteko, egin klik <span class=\"highlight\">PHP Informazio xehean</span>."
+
+msgid "admin.serverInformation"
+msgstr "Zerbitzariari buruzko informazioa"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP bertsioa"
+
+msgid "admin.server.platform"
+msgstr "SE plataforma"
+
+msgid "admin.settings.about"
+msgstr "Guneari buruz"
+
+msgid "admin.settings.contactEmail"
+msgstr "Kontaktu nagusiaren helb. el."
+
+msgid "admin.settings.contactName"
+msgstr "Kontaktu nagusiaren izena"
+
+msgid "admin.settings.introduction"
+msgstr "Aurkezpenaa"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Pasahitzaren gutxieneko luzera"
+
+msgid "admin.settings.passwordCharacters"
+msgstr "karaktere"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Gunearen hizkuntza"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Gunearen estilo-orriaren formatua ez da baliozkoa: .css formatua izan behar du."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Gunearen estilo-orria"
+
+msgid "admin.settings.siteTitle"
+msgstr "Gunearen titulua"
+
+msgid "admin.siteAdmin"
+msgstr "Gune-administrazioa"
+
+msgid "admin.siteManagement"
+msgstr "Gunearen kudeaketa"
+
+msgid "admin.siteSettings"
+msgstr "Gunearen ezarpenak"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "<tt>config.inc.php</tt> konfigurazio-fitxategia ez dago, ezin da irakurri, edo ez da baliozkoa."
+
+msgid "admin.systemInformation"
+msgstr "Sistema-informazioa"
+
+msgid "admin.versionBuild"
+msgstr "Konpilazio-bertsioa"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Begiratu eguneratzerik dagoen"
+
+msgid "admin.version.downloadPackage"
+msgstr "Deskargatu"
+
+msgid "admin.version.downloadPatch"
+msgstr "Deskargatu adabakia"
+
+msgid "admin.versionHistory"
+msgstr "Bertsio-historia"
+
+msgid "admin.version.latest"
+msgstr "Azken bertsioa"
+
+msgid "admin.versionMajor"
+msgstr "Nagusia"
+
+msgid "admin.versionMinor"
+msgstr "Txikia"
+
+msgid "admin.version.moreInfo"
+msgstr "Informazio gehiago"
+
+msgid "admin.versionRevision"
+msgstr "Berrikuspena"
+
+msgid "admin.version.updateAvailable"
+msgstr "Bertsio eguneratu bat erabilgarri dago"
+
+msgid "admin.version.upToDate"
+msgstr "Zure sistema eguneratuta dago"
+
+msgid "admin.version"
+msgstr "Bertsioa"
+
+msgid "admin.settings"
+msgstr "Ezarpenak"
+
+msgid "admin.settings.siteTheme"
+msgstr "Gunearen gaia"
+
+msgid "admin.siteSetup"
+msgstr "Gunearen konfigurazioa"

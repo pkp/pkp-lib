@@ -1,9 +1,9 @@
 /**
  * closure-externs.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2010-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2010-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Import symbols into the closure compiler that are not defined
  * within the compiled files.
@@ -275,12 +275,6 @@ $.pkp.app = {
 	tinyMceContentFont: ''
 };
 
-$.pkp.locale = {
-	search_noKeywordError: '',
-	form_dataHasChanged: '',
-	common_close: ''
-};
-
 $.pkp.cons = {
 	WORKFLOW_STAGE_ID_SUBMISSION: 0,
 	WORKFLOW_STAGE_ID_INTERNAL_REVIEW: 0,
@@ -310,6 +304,11 @@ var _ = {
  * @type {Object}
  */
 var pkp = {
+	currentUser: {
+		id: 0,
+		csrfToken: '',
+		roles: []
+	},
 	eventBus: {
 		$emit: function(name, data) {},
 		$on: function(name, callback) {},

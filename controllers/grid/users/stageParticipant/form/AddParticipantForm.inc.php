@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/stageParticipant/form/AddParticipantForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AddParticipantForm
  * @ingroup controllers_grid_users_stageParticipant_form
@@ -21,12 +21,6 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 
 	/** @var $_assignmentId int Used for edit the assignment **/
 	var $_assignmentId;
-
-	/** @var $_isChangePermitMetadataAllowed bool true if permit_metadata_edit field is allowed to change  **/
-	var $_isChangePermitMetadataAllowed = false;
-
-	/** @var $_isChangeRecommentOnlyAllowed bool true if recommend_only field is allowed to change  **/
-	var $_isChangeRecommentOnlyAllowed = false;
 
 	/** @var $_managerGroupIds array Contains all manager group_ids  **/
 	var $_managerGroupIds;
@@ -74,29 +68,37 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	 * Initialize private attributes that need to be used through all functions.
 	 */
 	function initialize() {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		// assign all user group IDs with ROLE_ID_MANAGER or ROLE_ID_SUB_EDITOR
 		$this->_managerGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_MANAGER, $this->_contextId);
 		$subEditorGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_SUB_EDITOR, $this->_contextId);
 		$this->_possibleRecommendOnlyUserGroupIds = array_merge($this->_managerGroupIds, $subEditorGroupIds);
+	}
 
-		if ($this->_assignmentId) {
-			/** @var $stageAssignmentDao StageAssignmentDAO */
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+	/**
+	 * Determine whether the specified user group is potentially restricted from editing metadata.
+	 * @param $userGroupId int
+	 * @return boolean
+	 */
+	protected function _isChangePermitMetadataAllowed($userGroupId) {
+		return !in_array($userGroupId, $this->_managerGroupIds);
+	}
 
-			/** @var $stageAssignment StageAssignment */
-			$stageAssignment = $stageAssignmentDao->getById($this->_assignmentId);
-			$this->_isChangePermitMetadataAllowed = !in_array($stageAssignment->getUserGroupId(), $this->_managerGroupIds);
-			$this->_isChangeRecommentOnlyAllowed = in_array($stageAssignment->getUserGroupId(), $this->_possibleRecommendOnlyUserGroupIds);
-		}
+	/**
+	 * Determine whether the specified group is potentially required to make recommendations rather than decisions.
+	 * @param $userGroupId int
+	 * @return boolean
+	 */
+	protected function _isChangeRecommendOnlyAllowed($userGroupId) {
+		return in_array($userGroupId, $this->_possibleRecommendOnlyUserGroupIds);
 	}
 
 	/**
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $template = null, $display = false) {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getUserGroupsByStage(
 			$request->getContext()->getId(),
 			$this->getStageId()
@@ -110,38 +112,31 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		}
 
 		$templateMgr = TemplateManager::getManager($request);
-
-		// assign the user groups options
-		$templateMgr->assign('userGroupOptions', $userGroupOptions);
-		// assigned the first element as selected
 		$keys = array_keys($userGroupOptions);
-		$templateMgr->assign('selectedUserGroupId', array_shift($keys));
-
-		$templateMgr->assign('possibleRecommendOnlyUserGroupIds', $this->_possibleRecommendOnlyUserGroupIds);
-		// assign user group IDs with recommendOnly option set
-		$templateMgr->assign('recommendOnlyUserGroupIds', $userGroupDao->getRecommendOnlyGroupIds($request->getContext()->getId()));
-
-		$templateMgr->assign('notPossibleEditSubmissionMetadataPermissionChange', $this->_managerGroupIds);
-		$templateMgr->assign('permitMetadataEditUserGroupIds', $userGroupDao->getPermitMetadataEditGroupIds($request->getContext()->getId()));
-
-		// assign the vars required for the request
-		$templateMgr->assign('submissionId', $this->getSubmission()->getId());
-
-		$templateMgr->assign('userGroupId', '');
-		$templateMgr->assign('userIdSelected', '');
+		$templateMgr->assign(array(
+			'userGroupOptions' => $userGroupOptions,
+			'selectedUserGroupId' => array_shift($keys), // assign the first element as selected
+			'possibleRecommendOnlyUserGroupIds' => $this->_possibleRecommendOnlyUserGroupIds,
+			'recommendOnlyUserGroupIds' => $userGroupDao->getRecommendOnlyGroupIds($request->getContext()->getId()),
+			'notPossibleEditSubmissionMetadataPermissionChange' => $this->_managerGroupIds,
+			'permitMetadataEditUserGroupIds' => $userGroupDao->getPermitMetadataEditGroupIds($request->getContext()->getId()),
+			'submissionId' => $this->getSubmission()->getId(),
+			'userGroupId' => '',
+			'userIdSelected' => '',
+		));
 
 		if ($this->_assignmentId) {
 			/** @var $stageAssignmentDao StageAssignmentDAO */
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 
 			/** @var $stageAssignment StageAssignment */
 			$stageAssignment = $stageAssignmentDao->getById($this->_assignmentId);
 
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			/** @var $currentUser User */
 			$currentUser = $userDao->getById($stageAssignment->getUserId());
 
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 			/** @var $userGroup UserGroup */
 			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 
@@ -151,34 +146,34 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 				'currentUserGroup' => $userGroup->getLocalizedName(),
 				'userGroupId' => $stageAssignment->getUserGroupId(),
 				'userIdSelected' => $stageAssignment->getUserId(),
-				'currentAssignmentRecommentOnly' => $stageAssignment->getRecommendOnly(),
+				'currentAssignmentRecommendOnly' => $stageAssignment->getRecommendOnly(),
 				'currentAssignmentPermitMetadataEdit' => $stageAssignment->getCanChangeMetadata(),
-				'isChangePermitMetadataAllowed' => $this->_isChangePermitMetadataAllowed,
-				'isChangeRecommentOnlyAllowed' => $this->_isChangeRecommentOnlyAllowed,
+				'isChangePermitMetadataAllowed' => $this->_isChangePermitMetadataAllowed($userGroup->getId()),
+				'isChangeRecommendOnlyAllowed' => $this->_isChangeRecommendOnlyAllowed($userGroup->getId()),
 			));
 		}
 
 
 		// If submission is in review, add a list of reviewer Ids that should not be
-		// assigned as participants because they have blind peer reviews in progress
+		// assigned as participants because they have anonymous peer reviews in progress
 		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
-		$blindReviewerIds = array();
+		$anonymousReviewerIds = array();
 		if (in_array($this->getSubmission()->getStageId(), array(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW))) {
-			$blindReviewMethods = array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND);
-			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+			$anonymousReviewMethods = array(SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS);
+			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getSubmission()->getId());
-			$blindReviews = array_filter($reviewAssignments, function($reviewAssignment) use ($blindReviewMethods) {
-				return in_array($reviewAssignment->getReviewMethod(), $blindReviewMethods) && !$reviewAssignment->getDeclined();
+			$anonymousReviews = array_filter($reviewAssignments, function($reviewAssignment) use ($anonymousReviewMethods) {
+				return in_array($reviewAssignment->getReviewMethod(), $anonymousReviewMethods) && !$reviewAssignment->getDeclined();
 			});
-			$blindReviewerIds = array_map(function($reviewAssignment) {
+			$anonymousReviewerIds = array_map(function($reviewAssignment) {
 				return $reviewAssignment->getReviewerId();
-			}, $blindReviews);
+			}, $anonymousReviews);
 
 		}
 		$templateMgr->assign(array(
-			'blindReviewerIds' => array_values(array_unique($blindReviewerIds)),
-			'blindReviewerWarning' => __('editor.submission.addStageParticipant.form.reviewerWarning'),
-			'blindReviewerWarningOk' => __('common.ok'),
+			'anonymousReviewerIds' => array_values(array_unique($anonymousReviewerIds)),
+			'anonymousReviewerWarning' => __('editor.submission.addStageParticipant.form.reviewerWarning'),
+			'anonymousReviewerWarningOk' => __('common.ok'),
 		));
 
 		return parent::fetch($request, $template, $display);
@@ -214,15 +209,15 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	 * @see Form::execute()
 	 * @return array ($userGroupId, $userId)
 	 */
-	function execute() {
+	function execute(...$functionParams) {
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var $stageAssignmentDao StageAssignmentDAO */
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var $userGroupDao UserGroupDAO */
 
 		$submission = $this->getSubmission();
 		$userGroupId = (int) $this->getData('userGroupId');
 		$userId = (int) $this->getData('userId');
-		$recommendOnly = $this->getData('recommendOnly')?true:false;
-		$canChangeMetadata = $this->getData('canChangeMetadata')?true:false;
+		$recommendOnly = $this->_isChangeRecommendOnlyAllowed($userGroupId) ? (boolean) $this->getData('recommendOnly') : false;
+		$canChangeMetadata = $this->_isChangePermitMetadataAllowed($userGroupId) ? (boolean) $this->getData('canChangeMetadata') : true;
 
 		// sanity check
 		if ($userGroupDao->userGroupAssignedToStage($userGroupId, $this->getStageId())) {
@@ -233,14 +228,8 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 				$stageAssignment = $stageAssignmentDao->getById($this->_assignmentId);
 
 				if ($stageAssignment) {
-					if ($this->_isChangeRecommentOnlyAllowed) {
-						$stageAssignment->setRecommendOnly($recommendOnly);
-					}
-
-					if ($this->_isChangePermitMetadataAllowed) {
-						$stageAssignment->setCanChangeMetadata($canChangeMetadata);
-					}
-
+					$stageAssignment->setRecommendOnly($recommendOnly);
+					$stageAssignment->setCanChangeMetadata($canChangeMetadata);
 					$stageAssignmentDao->updateObject($stageAssignment);
 					$updated = true;
 				}
@@ -252,7 +241,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 			}
 		}
 
-		parent::execute();
+		parent::execute(...$functionParams);
 		return array($userGroupId, $userId, $stageAssignment->getId());
 	}
 

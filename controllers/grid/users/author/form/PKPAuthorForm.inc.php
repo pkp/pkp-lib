@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/author/form/PKPAuthorForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorForm
  * @ingroup controllers_grid_users_author_form
@@ -126,23 +126,22 @@ class PKPAuthorForm extends Form {
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $template = null, $display = false) {
-		$author = $this->getAuthor();
-
-		$templateMgr = TemplateManager::getManager($request);
-		$countryDao = DAORegistry::getDAO('CountryDAO');
-		$countries = $countryDao->getCountries();
-		$templateMgr->assign('countries', $countries);
-
-		$router = $request->getRouter();
-		$context = $router->getContext($request);
-
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$authorUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
-		$templateMgr->assign('authorUserGroups', $authorUserGroups);
-
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$authorUserGroups = $userGroupDao->getByRoleId($request->getContext()->getId(), ROLE_ID_AUTHOR);
 		$publication = $this->getPublication();
-		$templateMgr->assign('submissionId', $publication->getData('submissionId'));
-		$templateMgr->assign('publicationId', $publication->getId());
+		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+		$countries = array();
+		foreach ($isoCodes->getCountries() as $country) {
+			$countries[$country->getAlpha2()] = $country->getLocalName();
+		}
+		asort($countries);
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign(array(
+			'submissionId' => $publication->getData('submissionId'),
+			'publicationId' => $publication->getId(),
+			'countries' => $countries,
+			'authorUserGroups' => $authorUserGroups,
+		));
 
 		return parent::fetch($request, $template, $display);
 	}
@@ -173,8 +172,8 @@ class PKPAuthorForm extends Form {
 	 * Save author
 	 * @see Form::execute()
 	 */
-	function execute() {
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
+	function execute(...$functionParams) {
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
 		$publication = $this->getPublication();
 
 		$author = $this->getAuthor();
@@ -183,6 +182,7 @@ class PKPAuthorForm extends Form {
 			$this->_author = $authorDao->newDataObject();
 			$author = $this->getAuthor();
 			$author->setData('publicationId', $publication->getId());
+			$author->setData('seq', count($publication->getData('authors')));
 			$existingAuthor = false;
 		} else {
 			$existingAuthor = true;
@@ -202,7 +202,7 @@ class PKPAuthorForm extends Form {
 		$author->setIncludeInBrowse(($this->getData('includeInBrowse') ? true : false));
 
 		// in order to be able to use the hook
-		parent::execute();
+		parent::execute(...$functionParams);
 
 		if ($existingAuthor) {
 			$authorDao->updateObject($author);

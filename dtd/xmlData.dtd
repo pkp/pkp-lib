@@ -1,9 +1,9 @@
 <!--
   * dtd/xmlData.dtd
   *
-  * Copyright (c) 2014-2019 Simon Fraser University
-  * Copyright (c) 2014-2019 John Willinsky
-  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  * Copyright (c) 2014-2020 Simon Fraser University
+  * Copyright (c) 2014-2020 John Willinsky
+  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
   *
   * DTD describing database data and/or operations.
   -->
@@ -11,13 +11,9 @@
 <!ELEMENT data (table?, sql?)*>
 
 <!-- Table data -->
-<!ELEMENT table (field_default*, row*)+>
+<!ELEMENT table (row*)+>
 	<!ATTLIST table
 		name CDATA #REQUIRED>
-<!ELEMENT field_default (#PCDATA)>
-	<!ATTLIST field_default
-		name CDATA #REQUIRED
-		null (0|1) #IMPLIED>
 <!ELEMENT row (field+)>
 <!ELEMENT field (#PCDATA)>
 	<!ATTLIST field
@@ -25,8 +21,9 @@
 		null (0|1) #IMPLIED>
 
 <!-- Raw SQL -->
-<!ELEMENT sql (query|drop|rename)*>
+<!ELEMENT sql (query|drop|dropindex|rename)*>
 <!ELEMENT query (#PCDATA)>
+	<!-- The "driver" attribute can specify several drivers using comma separators. -->
 	<!ATTLIST query
 		driver CDATA #IMPLIED>
 
@@ -35,6 +32,11 @@
 	<!ATTLIST drop
 		table CDATA #REQUIRED
 		column CDATA #IMPLIED>
+<!ELEMENT dropindex EMPTY>
+	<!ATTLIST dropindex
+		table CDATA #REQUIRED
+		index CDATA #REQUIRED
+		ifexists CDATA #IMPLIED>
 <!ELEMENT rename EMPTY>
 	<!ATTLIST rename
 		table CDATA #REQUIRED

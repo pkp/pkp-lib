@@ -3,9 +3,9 @@
 /**
  * @file classes/tombstone/DataObjectTombstoneDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DataObjectTombstoneDAO
  * @ingroup tombstone
@@ -34,21 +34,17 @@ class DataObjectTombstoneDAO extends DAO {
 	 * @return DataObjectTombstone object
 	 */
 	function getById($tombstoneId, $assocType = null, $assocId = null) {
-		$params = array((int) $tombstoneId);
+		$params = [(int) $tombstoneId];
 		if ($assocId !== null && $assocType !== null) {
 			$params[] = (int) $assocType;
 			$params[] = (int) $assocId;
 		}
 		$result = $this->retrieve(
-			'SELECT DISTINCT * ' . $this->_getSelectTombstoneSql($assocType, $assocId), $params);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
+			'SELECT DISTINCT * ' . $this->_getSelectTombstoneSql($assocType, $assocId),
+			$params
+		);
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -56,15 +52,13 @@ class DataObjectTombstoneDAO extends DAO {
 	 * @param $dataObjectId int
 	 * @return DataObjectTombstone object
 	 */
-	function &getByDataObjectId($dataObjectId) {
+	function getByDataObjectId($dataObjectId) {
 		$result = $this->retrieve(
-			'SELECT * FROM data_object_tombstones WHERE data_object_id = ?', (int) $dataObjectId
+			'SELECT * FROM data_object_tombstones WHERE data_object_id = ?',
+			[(int) $dataObjectId]
 		);
 
-		$dataObjectTombstone = $this->_fromRow($result->GetRowAssoc(false));
-
-		$result->Close();
-		return $dataObjectTombstone;
+		return $this->_fromRow((array) $result->current());
 	}
 
 	/**
@@ -100,12 +94,11 @@ class DataObjectTombstoneDAO extends DAO {
 
 		assert(is_a($tombstone, 'DataObjectTombstone'));
 
-		$this->update(
+		if ($this->update(
 			'DELETE FROM data_object_tombstones WHERE tombstone_id = ?',
-			(int) $tombstoneId
-		);
-		if ($this->getAffectedRows()) {
-			$dataObjectTombstoneSettingsDao = DAORegistry::getDAO('DataObjectTombstoneSettingsDAO');
+			[(int) $tombstoneId]
+		)) {
+			$dataObjectTombstoneSettingsDao = DAORegistry::getDAO('DataObjectTombstoneSettingsDAO'); /* @var $dataObjectTombstoneSettingsDao DataObjectTombstoneSettingsDAO */
 			$settingsDeleted = $dataObjectTombstoneSettingsDao->deleteSettings($tombstoneId);
 			$setObjectsDeleted = $this->deleteOAISetObjects($tombstoneId);
 			if ($settingsDeleted && $setObjectsDeleted) {
@@ -121,7 +114,7 @@ class DataObjectTombstoneDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteByDataObjectId($dataObjectId) {
-		$dataObjectTombstone =& $this->getByDataObjectId($dataObjectId);
+		$dataObjectTombstone = $this->getByDataObjectId($dataObjectId);
 		return $this->deleteById($dataObjectTombstone->getId());
 	}
 
@@ -138,12 +131,12 @@ class DataObjectTombstoneDAO extends DAO {
 				(?, %s, ?, ?, ?)',
 				$this->datetimeToDB(date('Y-m-d H:i:s'))
 			),
-			array(
+			[
 				(int) $dataObjectTombstone->getDataObjectId(),
 				$dataObjectTombstone->getSetSpec(),
 				$dataObjectTombstone->getSetName(),
 				$dataObjectTombstone->getOAIIdentifier()
-			)
+			]
 		);
 
 		$dataObjectTombstone->setId($this->getInsertId());
@@ -157,7 +150,7 @@ class DataObjectTombstoneDAO extends DAO {
 	 * @param $dataObjectTombstone DataObjectTombstone
 	 * @return int dataObjectTombstone id
 	 */
-	function updateObject(&$dataObjectTombstone) {
+	function updateObject($dataObjectTombstone) {
 		$returner = $this->update(
 			sprintf('UPDATE	data_object_tombstones SET
 					data_object_id = ?,
@@ -168,13 +161,13 @@ class DataObjectTombstoneDAO extends DAO {
 					WHERE	tombstone_id = ?',
 				$this->datetimeToDB(date('Y-m-d H:i:s'))
 			),
-			array(
+			[
 				(int) $publicationFormatTombstone->getDataObjectId(),
 				$publicationFormatTombstone->getSetSpec(),
 				$publicationFormatTombstone->getSetName(),
 				$publicationFormatTombstone->getOAIIdentifier(),
 				(int) $publicationFormatTombstone->getId()
-			)
+			]
 		);
 
 		$this->updateOAISetObjects($dataObjectTombstone);
@@ -199,19 +192,16 @@ class DataObjectTombstoneDAO extends DAO {
 	 */
 	function &getSets($assocType, $assocId) {
 		$result = $this->retrieve(
-			'SELECT DISTINCT dot.set_spec, dot.set_name FROM data_object_tombstones dot
+			'SELECT DISTINCT dot.set_spec AS set_spec, dot.set_name AS set_name FROM data_object_tombstones dot
 			LEFT JOIN data_object_tombstone_oai_set_objects oso ON (dot.tombstone_id = oso.tombstone_id)
 			WHERE oso.assoc_type = ? AND oso.assoc_id = ?',
-			array((int) $assocType, (int) $assocId)
+			[(int) $assocType, (int) $assocId]
 		);
 
-		$returner = array();
-		while (!$result->EOF) {
-			$returner[$result->fields[0]] = $result->fields[1];
-			$result->MoveNext();
+		$returner = [];
+		foreach ($result as $row) {
+			$returner[$row->set_spec] = $row->set_name;
 		}
-
-		$result->Close();
 		return $returner;
 	}
 
@@ -224,15 +214,13 @@ class DataObjectTombstoneDAO extends DAO {
 	function getOAISetObjectsIds($tombstoneId) {
 		$result = $this->retrieve(
 			'SELECT * FROM data_object_tombstone_oai_set_objects WHERE tombstone_id = ?',
-			(int) $tombstoneId
+			[(int) $tombstoneId]
 		);
 
-		$oaiSetObjectsIds = array();
-		while ($row = $result->FetchRow()) {
-			$oaiSetObjectsIds[$row['assoc_type']] = $row['assoc_id'];
+		$oaiSetObjectsIds = [];
+		foreach ($result as $row) {
+			$oaiSetObjectsIds[$row->assoc_type] = $row->assoc_id;
 		}
-
-		$result->Close();
 		return $oaiSetObjectsIds;
 	}
 
@@ -241,12 +229,10 @@ class DataObjectTombstoneDAO extends DAO {
 	 * @param $tombstoneId int The related tombstone id.
 	 */
 	function deleteOAISetObjects($tombstoneId) {
-		$this->update(
+		return $this->update(
 			'DELETE FROM data_object_tombstone_oai_set_objects WHERE tombstone_id = ?',
-			(int) $tombstoneId
+			[(int) $tombstoneId]
 		);
-
-		return $this->getAffectedRows();
 	}
 
 	/**
@@ -259,11 +245,11 @@ class DataObjectTombstoneDAO extends DAO {
 					(tombstone_id, assoc_type, assoc_id)
 					VALUES
 					(?, ?, ?)',
-				array(
+				[
 					(int) $dataObjectTombstone->getId(),
 					(int) $assocType,
 					(int) $assocId
-				)
+				]
 			);
 		}
 	}
@@ -279,11 +265,11 @@ class DataObjectTombstoneDAO extends DAO {
 					assoc_type = ?,
 					assoc_id = ?
 					WHERE	tombstone_id = ?',
-				array(
+				[
 					(int) $assocType,
 					(int) $assocId,
 					(int) $dataObjectTombstone->getId()
-				)
+				]
 			);
 		}
 	}

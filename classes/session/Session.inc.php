@@ -8,9 +8,9 @@
 /**
  * @file classes/session/Session.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Session
  * @ingroup session
@@ -77,7 +77,7 @@ class Session extends DataObject {
 			$userId = null;
 
 		} else if ($userId != $this->getData('userId')) {
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$this->user = $userDao->getById($userId);
 			if (!isset($this->user)) {
 				$userId = null;

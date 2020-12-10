@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/queries/QueriesGridCellProvider.inc.php
  *
- * Copyright (c) 2016-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2016-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueriesGridCellProvider
  * @ingroup controllers_grid_queries
@@ -56,17 +56,19 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 		$headNote = $element->getHeadNote();
 		$user = $headNote?$headNote->getUser():null;
 		$notes = $element->getReplies(null, NOTE_ORDER_ID, SORT_DIRECTION_DESC);
+		$context = \Application::get()->getRequest()->getContext();
+		$datetimeFormatShort = $context->getLocalizedDateTimeFormatShort();
 
 		switch ($columnId) {
 			case 'replies':
 				return array('label' => max(0,$notes->getCount()-1));
 			case 'from':
-				return array('label' => ($user?$user->getUsername():'&mdash;') . '<br />' . ($headNote?strftime(Config::getVar('general','datetime_format_short'), strtotime($headNote->getDateCreated())):''));
+				return array('label' => ($user?$user->getUsername():'&mdash;') . '<br />' . ($headNote?strftime($datetimeFormatShort, strtotime($headNote->getDateCreated())):''));
 			case 'lastReply':
 				$latestReply = $notes->next();
 				if ($latestReply && $latestReply->getId() != $headNote->getId()) {
 					$repliedUser = $latestReply->getUser();
-					return array('label' => ($repliedUser?$repliedUser->getUsername():'&mdash;') . '<br />' . strftime(Config::getVar('general','datetime_format_short'), strtotime($latestReply->getDateCreated())));
+					return array('label' => ($repliedUser?$repliedUser->getUsername():'&mdash;') . '<br />' . strftime($datetimeFormatShort, strtotime($latestReply->getDateCreated())));
 				} else {
 					return array('label' => '-');
 				}

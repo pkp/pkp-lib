@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T11:06:22+00:00\n"
+"PO-Revision-Date: 2019-11-19T11:06:22+00:00\n"
+"Language: \n"
+
+msgid "plugins.generic.acron.name"
+msgstr "افزونه Acron"
+
+msgid "plugins.generic.acron.description"
+msgstr "این افزونه تلاش داد تا وابستگی سامانه به ابزارهای انجام فعالیت‌های زمان‌بندی شده مانند \"cron\" را کاهش دهد."
+
+msgid "plugins.generic.acron.enabled"
+msgstr "افزونه Acron فعال شد."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "افزونه Acron غیرفعال شد."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "تب Cron با موفقیت بارگذاری شد"
+
+msgid "plugins.generic.acron.reload"
+msgstr "بارگذاری وظایف زمان‌بندی شده"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "وظایف زمان‌بندی شده بارگذاری شد."

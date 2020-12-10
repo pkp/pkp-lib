@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-04T08:55:49-08:00\n"
+"PO-Revision-Date: 2020-07-28 15:47+0000\n"
+"Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
+"Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/submission/zh_Hans/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-04T08:55:49-08:00\n"
-"PO-Revision-Date: 2019-11-04T08:55:49-08:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "submission.abstractViews"
 msgstr "在要审查"
@@ -19,9 +22,6 @@ msgstr "已经接受的"
 
 msgid "submission.acknowledge"
 msgstr "致谢"
-
-msgid "submission.addSuppFile"
-msgstr "添加一个附件"
 
 msgid "submission.ask"
 msgstr "Ask"
@@ -203,9 +203,6 @@ msgstr "您确认将永久删除这个样稿?"
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "您确认将从样稿里删除这个图片?"
 
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "您确认将永久删除这个附件文件?"
-
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "删除这个样式."
 
@@ -263,14 +260,8 @@ msgstr "排版版本"
 msgid "submission.layout.newGalley"
 msgstr "创建新的样稿"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "上传新的附件"
-
 msgid "submission.layout.noStyleFile"
 msgstr "没有样式表文件被添加到这个样稿里."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "附件审查"
 
 msgid "submission.layout.viewingGalley"
 msgstr "预览投稿样稿"
@@ -433,9 +424,6 @@ msgstr "提交人"
 
 msgid "submission.summary"
 msgstr "摘要"
-
-msgid "submission.supplementaryFiles"
-msgstr "附件文件"
 
 msgid "submission.titleAndAbstract"
 msgstr "标题和摘要"
@@ -823,3 +811,69 @@ msgstr "审稿单"
 
 msgid "submission.reviewFormResponse"
 msgstr "审稿单答复"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "选择最能描述您对此提交内容的贡献的角色。"
+
+msgid "submission.submit.availableUserGroups"
+msgstr "提交为"
+
+msgid "submission.confirm.message"
+msgstr "您的提交已上传，可以发送了。 您可以返回以查看并调整您输入的任何信息，然后再继续。 准备就绪后，单击“完成提交”。"
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "新的评论已提交，编辑正在考虑中。"
+
+msgid "author.publicationNotFound"
+msgstr "找不到该作者的出版物。"
+
+msgid "author.editPublishedDisabled"
+msgstr "由于该出版物已经出版，因此无法对其进行编辑。"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "未分配"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "摘要"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "扩展元数据"
+
+msgid "submission.submit.whatNext.return"
+msgstr "返回您的仪表板"
+
+msgid "submission.submit.whatNext.create"
+msgstr "创建一个新的提交"
+
+msgid "submission.submit.whatNext.review"
+msgstr "审阅此提交"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "现在，您可以："
+
+msgid "submission.submit.whatNext"
+msgstr "接下来发生什么？"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "是的，我同意遵守版权声明的条款。"
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "确认版权声明"
+
+msgid "submission.submit.submissionComplete"
+msgstr "提交完成"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "您必须先阅读并确认您已完成以下要求，然后再继续。"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "提交要求"
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr "如果您希望自己编辑和发布此提交内容，请以以下任何一种角色提交：{$managerGroups}"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "是的，我希望就此提交与我们联系。"
+
+msgid "submission.submit.contactConsent"
+msgstr "通讯联系"

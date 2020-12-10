@@ -95,9 +95,6 @@ msgstr "Given Name"
 msgid "user.interests"
 msgstr "Reviewing interests"
 
-msgid "user.interests.description"
-msgstr "(Separate interests by pressing the enter or comma key)"
-
 msgid "user.gossip"
 msgstr "Editorial Notes"
 
@@ -183,7 +180,7 @@ msgid "user.logOut"
 msgstr "Logout"
 
 msgid "user.logOutAs"
-msgstr "Logout as"
+msgstr "Logout as {$username}"
 
 msgid "user.hello"
 msgstr "Hello, "
@@ -223,9 +220,6 @@ msgstr "A country is required."
 
 msgid "user.profile.form.emailRequired"
 msgstr "A valid email address is required."
-
-msgid "user.profile.form.affiliationRequired"
-msgstr "An affiliation is required."
 
 msgid "user.profile.form.givenNameRequired"
 msgstr "A given name is required."

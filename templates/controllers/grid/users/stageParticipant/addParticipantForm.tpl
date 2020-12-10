@@ -1,9 +1,9 @@
 {**
  * templates/controllers/grid/users/stageParticipant/addParticipantForm.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Form that holds the stage participants list
  *
@@ -19,9 +19,9 @@
 			{ldelim}
 				possibleRecommendOnlyUserGroupIds: {$possibleRecommendOnlyUserGroupIds|@json_encode},
 				recommendOnlyUserGroupIds: {$recommendOnlyUserGroupIds|@json_encode},
-				blindReviewerIds: {$blindReviewerIds|@json_encode},
-				blindReviewerWarning: {$blindReviewerWarning|@json_encode},
-				blindReviewerWarningOk: {$blindReviewerWarningOk|@json_encode},
+				anonymousReviewerIds: {$anonymousReviewerIds|@json_encode},
+				anonymousReviewerWarning: {$anonymousReviewerWarning|@json_encode},
+				anonymousReviewerWarningOk: {$anonymousReviewerWarningOk|@json_encode},
 				templateUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component='grid.users.stageParticipant.StageParticipantGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$submissionId escape=false},
 				notChangeMetadataEditPermissionRoles: {$notPossibleEditSubmissionMetadataPermissionChange|@json_encode},
 				permitMetadataEditUserGroupIds: {$permitMetadataEditUserGroupIds|@json_encode}
@@ -47,9 +47,9 @@
 				<b>{$currentUserName}</b> ({$currentUserGroup})
 			{/fbvFormSection}
 
-			{if $isChangeRecommentOnlyAllowed}
+			{if $isChangeRecommendOnlyAllowed}
 				{fbvFormSection title="stageParticipants.options" list="true" class="recommendOnlyWrapperNoJavascript"}
-					{fbvElement type="checkbox" name="recommendOnly" id="recommendOnly" label="stageParticipants.recommendOnly" checked=$currentAssignmentRecommentOnly}			
+					{fbvElement type="checkbox" name="recommendOnly" id="recommendOnly" label="stageParticipants.recommendOnly" checked=$currentAssignmentRecommendOnly}
 				{/fbvFormSection}
 			{/if}
 
@@ -59,7 +59,7 @@
 				{/fbvFormSection}
 			{/if}
 
-			{if !$isChangePermitMetadataAllowed && !$isChangeRecommentOnlyAllowed}
+			{if !$isChangePermitMetadataAllowed && !$isChangeRecommendOnlyAllowed}
 				{translate key="stageParticipants.noOptionsToHandle"}
 			{/if}
 		{else}

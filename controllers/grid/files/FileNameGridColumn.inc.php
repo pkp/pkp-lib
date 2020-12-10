@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/files/FileNameGridColumn.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileNameGridColumn
  * @ingroup controllers_grid_files
@@ -58,9 +58,8 @@ class FileNameGridColumn extends GridColumn {
 		$submissionFileData = $row->getData();
 		$submissionFile = $submissionFileData['submissionFile'];
 		assert(is_a($submissionFile, 'SubmissionFile'));
-		$id = $submissionFile->getFileId() . '-' . $submissionFile->getRevision();
-		$fileExtension = strtolower($submissionFile->getExtension());
-		return array('label' => '<span class="file_extension ' . $fileExtension . '">' . $id . '</span>');
+		$fileExtension = pathinfo(Services::get('file')->getPath($submissionFile->getData('fileId')), PATHINFO_EXTENSION);
+		return array('label' => '<span class="file_extension ' . $fileExtension . '">' . $submissionFile->getId() . '</span>');
 	}
 
 

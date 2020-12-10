@@ -3,9 +3,9 @@
 /**
  * @file classes/plugins/PluginGalleryDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginGalleryDAO
  * @ingroup plugins
@@ -15,7 +15,6 @@
  */
 
 import('lib.pkp.classes.plugins.GalleryPlugin');
-import('lib.pkp.classes.file.FileWrapper');
 
 define('PLUGIN_GALLERY_XML_URL', 'https://pkp.sfu.ca/ojs/xml/plugins.xml');
 
@@ -53,8 +52,9 @@ class PluginGalleryDAO extends DAO {
 	 */
 	private function _getDocument() {
 		$doc = new DOMDocument('1.0');
-		$gallery = FileWrapper::wrapper(PLUGIN_GALLERY_XML_URL);
-		$doc->loadXML($gallery->contents());
+		$client = Application::get()->getHttpClient();
+		$response = $client->request('GET', PLUGIN_GALLERY_XML_URL);
+		$doc->loadXML($response->getBody());
 		return $doc;
 	}
 

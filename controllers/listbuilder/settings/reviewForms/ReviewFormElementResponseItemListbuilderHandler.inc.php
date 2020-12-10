@@ -2,9 +2,9 @@
 /**
  * @file controllers/listbuilder/settings/reviewForms/ReviewFormElementResponseItemListbuilderHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormElementResponseItemListbuilderHandler
  * @ingroup controllers_listbuilder_settings_reviewForms
@@ -48,7 +48,7 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter = null) {
-		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 		$reviewFormElement = $reviewFormElementDao->getById($this->_reviewFormElementId);
 		$formattedResponses = array();
 		if ($reviewFormElement) {

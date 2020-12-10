@@ -1,0 +1,291 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:45+00:00\n"
+"Language: \n"
+
+msgid "user.affiliation"
+msgstr "Erakundea"
+
+msgid "user.affiliations"
+msgstr "Erakundeak"
+
+msgid "user.biography"
+msgstr "Biografia"
+
+msgid "user.biography.description"
+msgstr "(Adib., saila eta kargua)"
+
+msgid "user.changeMyPassword"
+msgstr "Aldatu nire pasahitza"
+
+msgid "user.changePassword"
+msgstr "Aldatu pasahitza"
+
+msgid "user.dateLastLogin"
+msgstr "Azken saio-hasiera"
+
+msgid "user.dateRegistered"
+msgstr "Erregistratze-data"
+
+msgid "user.editMyProfile"
+msgstr "Editatu nire profila"
+
+msgid "user.email"
+msgstr "Helb. el."
+
+msgid "user.interests"
+msgstr "Ebaluatzeko interesak"
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Zure kontua arrazoi honengatik desgaitu da: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Zure kontua desgaituta dago. Administratzaileak emango dizu informazio gehiago."
+
+msgid "user.login.accountNotValidated"
+msgstr "Zure helbide elektronikoa ez da balidatu ahal izan. Begiratu helbidea ondo dagoen, eta jarraitu emandako instrukzioak. Ez baduzu mezu elektronikorik jaso, gune-administratzaileari galdetzea komeniko da."
+
+msgid "user.login.activate"
+msgstr "Aktibatu kontua"
+
+msgid "user.login.activated"
+msgstr "Eskerrik asko kontua aktibatzeagatik. Kontua sortu zenuenean eman zenituen datuekin sartu ahal izango zara aurrerantzean."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "Pasahitz berri bat aukeratu behar duzu gune honetan saioa hasi ahal izateko.<br /><br />Pasahitz berria eskuratzeko, idatzi zure erabiltzaile-izena eta oraingo pasahitza behean."
+
+msgid "user.login.forgotPassword"
+msgstr "Pasahitza ahaztu zaizu?"
+
+msgid "user.login.loginError"
+msgstr "Erabiltzaile-izena edo pasahitza ez da baliozkoa. Saiatu berriro."
+
+msgid "user.login"
+msgstr "Hasi saioa"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "Berrespen bat bidali da zure helbide elektronikora. Jarraitu mezuan emandako azalpenak pasahitza berrezartzeko."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Sakatu duzun esteka iraungita dago edo ez da baliozkoa. Saiatu zure pasahitza berriro berrezartzen."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Ez dago helbide elektroniko hori duen erabiltzailerik."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "Pasahitz berri bat bidali da zure helbide elektronikora. Pasahitz berriarekin sartuko zara orain webgunean."
+
+msgid "user.login.registeredEmail"
+msgstr "Erabiltzaile erregistratuaren helbide elektronikoa"
+
+msgid "user.login.resetPassword"
+msgstr "Berrezarri pasahitza"
+
+msgid "user.logOut"
+msgstr "Amaitu saioa"
+
+msgid "user.mailingAddress"
+msgstr "Posta-helbidea"
+
+msgid "user.myAccount"
+msgstr "Nire kontua"
+
+msgid "user.name"
+msgstr "Izen-abizenak"
+
+msgid "user.password"
+msgstr "Pasahitza"
+
+msgid "user.repeatPassword"
+msgstr "Errepikatu pasahitza"
+
+msgid "user.phone"
+msgstr "Telefonoa"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Zure kontuaren pasahitza aldatzeko, idatzi zure oraingo pasahitza eta pasahitz berria behean."
+
+msgid "user.profile.editProfile"
+msgstr "Editatu profila"
+
+msgid "user.profile.form.emailRequired"
+msgstr "Baliozko helbide elektroniko bat eman behar da."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Pasahitz berria idatzi behar duzu."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Idatzi duzun uneko pasahitza ez da zuzena."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Zenbakia sarrera librekoa dela jakinarazteko mezua"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Pasahitza eman behar da."
+
+msgid "user.profile.form.profileImage"
+msgstr "Profil-irudia"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Zenbaki berria atera dela jakinarazteko mezua"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "Adierazitako URLa ez da baliozkoa. Begiratu URL helbidea ondo idatzita dagoen, eta saiatu berriro. (Aholkua: Gehitu http:// URLaren hasieran)."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Erabiltzaile-izena eman behar da."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Oraingo pasahitza mantentzeko, utzi hutsik pasahitzaren eremuak."
+
+msgid "user.profile.newPassword"
+msgstr "Pasahitz berria"
+
+msgid "user.profile.oldPassword"
+msgstr "Uneko pasahitza"
+
+msgid "user.profile"
+msgstr "Profila"
+
+msgid "user.profile.publicProfile"
+msgstr "Erabiltzailearen profila"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Errepikatu pasahitz berria"
+
+msgid "user.register.completeForm"
+msgstr "Aldizkari honetan erregistratzeko, inprimaki hau bete behar duzu."
+
+msgid "user.register.form.emailExists"
+msgstr "Hautatutako helbide elektronikoa beste erabiltzaile batena da."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Pasahitzak ez datoz bat."
+
+msgid "user.register.form.usernameExists"
+msgstr "Hautatutako erabiltzaile-izena beste erabiltzaile batena da."
+
+msgid "user.register.passwordLengthRestriction"
+msgstr "Pasahitzak {$length} karaktere izan behar ditu gutxienez."
+
+msgid "user.register.registerAs"
+msgstr "Erregistratu honela:"
+
+msgid "user.register"
+msgstr "Erregistratu"
+
+msgid "user.register.usernameRestriction"
+msgstr "Erabiltzaile-izenak letra minuskulak, zenbakiak, eta marratxoak/azpimarrak bakarrik eduki ditzake."
+
+msgid "user.role.reader"
+msgstr "Irakurlea"
+
+msgid "user.role.readers"
+msgstr "Irakurleak"
+
+msgid "user.role.reviewer"
+msgstr "Ebaluatzailea"
+
+msgid "user.role.reviewers"
+msgstr "Ebaluatzaileak"
+
+msgid "user.role.siteAdmin"
+msgstr "Gune-administratzailea"
+
+msgid "user.role.siteAdmins"
+msgstr "Gune-administratzaileak"
+
+msgid "user.roles"
+msgstr "Funtzioak"
+
+msgid "user.sendPassword"
+msgstr "Berrespena"
+
+msgid "user.sendPassword.description"
+msgstr "Bidal iezadazue berresteko mezu elektronikoa nire erabiltzaile-izen eta pasahitzarekin"
+
+msgid "user.signature"
+msgstr "Sinadura"
+
+msgid "user.title"
+msgstr "Titulua"
+
+msgid "user.url"
+msgstr "URLa"
+
+msgid "user.userHome"
+msgstr "Erabiltzailearen hasierako orria"
+
+msgid "user.username"
+msgstr "Erabiltzaile-izena"
+
+msgid "user.workingLanguages"
+msgstr "Laneko hizkuntzak"
+
+msgid "user.affiliation.description"
+msgstr "(Zure erakundea, adibidez, \"Simon Fraser University\")"
+
+msgid "user.gossip"
+msgstr "Ohar pribatuak"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Irudi-formatu profil baliogabea edo irudi handiegia. Formatu onartuak .gif, .jpg, eta .png dira, eta irudiak ezin du 150x150 pixeleko tamaina gainditu."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Helbide elektronikoaren eremuak ez datoz bat."
+
+msgid "user.authorization.accessDenied"
+msgstr "Sarbidea ukatuta."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Prozesua autentifikatzeko fitxa falta da edo ez da baliozkoa."
+
+msgid "user.authorization.contextRequired"
+msgstr "Ezin duzu eragiketa hori egin testuingururik gabe (prentsa, aldizkaria, kongresua, etab.)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Beharrezkoa da saioa hastea."
+
+msgid "user.authorization.privateOperation"
+msgstr "Egiten saiatu zaren eragiketa pribatua da edo ez da existitzen."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Sarbidea ukatu zaizu. Une honetan, orri honetarako sarbidea murriztuta dago."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Une honetako eginkizunak ez du eragiketa hori egiteko baimenik."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Eragiketa hori egin ahal izateko, baliozko erabiltzaile taldea ezarri behar duzu."
+
+msgid "user.group"
+msgstr "Erabiltzaile taldea"
+
+msgid "user.hello"
+msgstr "Kaixo,"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Beharrezkoa da herrialde bat."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Beharrezkoa da helbide elektroniko bat."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Zure pasahitz berria aurreko pasahitz berbera da."
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Beharrezkoa da erabiltzaile talde bat."
+
+msgid "user.accountInformation"
+msgstr "Kontuaren informazioa"
+
+msgid "user.authorization.managerRequired"
+msgstr "Mailari Prentsa Arduradun eginkizuna (adib., Prentsa edo Produkzio Editorea) duen erabiltzaile bat esleitu behar zaio, aurrera jarraitu aurretik."

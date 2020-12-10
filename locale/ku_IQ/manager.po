@@ -1,0 +1,545 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-04-25 17:38+0000\n"
+"Last-Translator: Ibrahim Abulrahman Ahmed <ibrahim.iskawayee@yahoo.com>\n"
+"Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
+"ku_IQ/>\n"
+"Language: ku_IQ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "manager.language.forms"
+msgstr "فۆڕمەکان"
+
+msgid "manager.language.submissions"
+msgstr "پێشکەشکردنەکان"
+
+msgid "manager.language.ui"
+msgstr "ڕوکاری بەکارهێنەر"
+
+msgid "manager.importExport"
+msgstr "هاوردەکردن/هەناردەکردنی داتا"
+
+msgid "manager.groups.title"
+msgstr "ناونیشان"
+
+msgid "manager.groups.membership.noUsers"
+msgstr "هیچ بەکارهێنەرێک نەدۆزرایەوە."
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "ئەم گروپە هیچ ئەندامێکی نییە."
+
+msgid "manager.groups.membership"
+msgstr "ئەندامبون"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی ئەم گروپی ئەندامبونە؟"
+
+msgid "manager.groups.membership.addMember"
+msgstr "ئەندامێک زیاد بکە"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "ناونیشانی گروپ داوا کراوە."
+
+msgid "manager.groups.editTitle"
+msgstr "گۆڕینی ناونیشان"
+
+msgid "manager.groups.createTitle"
+msgstr "ناونیشانێک دروست بکە"
+
+msgid "manager.groups.confirmDelete"
+msgstr "ئایا تۆ لە سڕینەوەی ئەم گروپە دڵنیایت؟"
+
+msgid "manager.files.uploadFile"
+msgstr "بارکردنی فایل"
+
+msgid "manager.files.uploadedFiles"
+msgstr "بارکردنی فایلەکان"
+
+msgid "manager.files.parentDir"
+msgstr "فەرهەنگی ڕەسەن"
+
+msgid "manager.files.indexOfDir"
+msgstr "پێنوێنی {$dir}"
+
+msgid "manager.files.emptyDir"
+msgstr "هیچ فایلێک لەناو ئەم فەرهەنگەدا بەردەست نییە."
+
+msgid "manager.files.createDir"
+msgstr "دروستکردنی فەرهەنگ"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"ئەم فایلە یان فەرهەنگە بسڕیتەوە؟ تێبینی ئەوە بکە کە فەرهەنگ پێش سڕینەوەی "
+"دەبێت بەتاڵ بێت."
+
+msgid "manager.filesBrowser"
+msgstr "پیشاندەری فایلەکان"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "بابەت: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "ناردن بۆ"
+
+msgid "manager.emails.sentFrom"
+msgstr "ناردن لە"
+
+msgid "manager.emails.resetToDefault"
+msgstr "هەڵوەشاندنەوە بۆ حاڵەتی یەکەمجار"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"ئەگەر ڕێکخستنی ئەم قاڵبە هەڵ بوەشێنیتەوە، هەمو زانیارییەکانی نامەکان بۆ "
+"حاڵەتی یەکەمجاری دەگەڕێتەوە و هەمو تایبەتمەندییەکان لەدەست دەچن. ئایا تۆ "
+"دەتەوێت ئەم کارە بکەیت؟"
+
+msgid "manager.emails.reset"
+msgstr "هەڵوەشاندنەوەی ڕێکخستن"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"ئەگەر تۆ هەمو قاڵبەکان هەڵ بوەشێنیتەوە، هەمو تایبەتمەندییە زیادکراوەکان بۆ "
+"قاڵبی ئیمەیڵەکان لەدەست دەچن. ئایا دەتەوێت ئەم کارە بکەیت؟"
+
+msgid "manager.emails.resetAll"
+msgstr "هەڵوەشاندنەوەی ڕێکخستنی هەمووان"
+
+msgid "manager.emails"
+msgstr "ئیمەیڵە ئامادەکراوەکان"
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "بۆ ئیمەیڵەکە بابەت داوا کراوە."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "بۆ ئیمەیڵەکە ناوەرۆک داوا کراوە."
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "ئیمەیڵ نابێت هیچ کلیلێکی وەک بۆشایی و پیتی تایبەت لەخۆ بگرێت."
+
+msgid "manager.emails.enable.message"
+msgstr ""
+"تۆ خەریکە ئەم ئیمەیڵە چالاک دەکەیت. ئایا دەتەوێت ئەم لەم کردارە بەردەوام بیت؟"
+
+msgid "manager.emails.enable"
+msgstr "چالاککردن"
+
+msgid "manager.emails.enabled"
+msgstr "چالاککردنی ئەم قاڵبی ئیمەیڵە"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "ئەو کلیلەی تۆ نوسیوتە، دوبارەیە."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "تۆ دەبێت ناسنامەیەکی کۆنتێکستەکە داخل بکەیت بۆ زیادکردنی قاڵبی ئیمەیڵ."
+
+msgid "manager.emails.emailTemplates"
+msgstr "قاڵبەکانی ئیمەیڵ"
+
+msgid "manager.emails.emailTemplate"
+msgstr "قاڵبی ئیمەیڵ"
+
+msgid "manager.emails.emailKeyExists"
+msgstr ""
+"ئیمەیڵێک بە هەمان کلیلەوە هەیە. کلیلەکانی هەر ئیمەیڵێک دەبێت دوبارە نەبن."
+
+msgid "manager.emails.emailKey.description"
+msgstr "کلیلی ئیمەیڵ دەبێت پیت، ژمارە یان ژێرخەت بێت."
+
+msgid "manager.emails.emailKey"
+msgstr "کلیلی ئیمەیڵ"
+
+msgid "manager.emails.editTestExample"
+msgstr "نمونەی ئەزمونکردنی قاڵبی ئیمەیڵ بگۆڕە"
+
+msgid "manager.emails.editEmail.success"
+msgstr "قاڵبی ئیمەیڵەکە بە سەرکەوتویی گۆڕدرا."
+
+msgid "manager.emails.editEmail"
+msgstr "گۆڕینی ئیمەیڵ"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"تۆ خەریکە ئەم قاڵبی ئیمەیڵە ناچالاک دەکەیت. ئەگەر سیستەمێکت هەبێت کە ئەم "
+"قاڵبە بەکار بهێنێت، چی دیکە نامێنێت. ئایا تۆ دڵنیایت لەو کارە؟"
+
+msgid "manager.emails.disable"
+msgstr "ناچالاککردن"
+
+msgid "manager.emails.details"
+msgstr "وردەکارییەکانی قاڵبەکە"
+
+msgid "manager.emails.data"
+msgstr "زانیاریی نامەکانی قاڵبەکە"
+
+msgid "manager.emails.customTemplate"
+msgstr "قاڵبی تایبەت"
+
+msgid "manager.emails.createEmail"
+msgstr "دروستکردنی ئیمەیڵ"
+
+msgid "manager.emails.addEmail.success"
+msgstr "ئەم قاڵبی ئیمەیڵە زیاد کرا."
+
+msgid "manager.emails.addEmail"
+msgstr "زیادکردنی قاڵب"
+
+msgid "manager.emails.confirmReset"
+msgstr "ئایا تۆ دڵنیایت لە هەڵوەشاندنەوەی ڕێکخستنەکانی قاڵبی ئەم ئیمەیڵە؟"
+
+msgid "manager.emails.confirmDelete"
+msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی قاڵبی ئەم ئیمەیڵە؟"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "زانیارییە بیرخەرەوەکانی هەڵسەنگاندن نوێ کرانەوە."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "ڕێکخستنی هەڵسەنگاندن نوێ کرایەوە."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "ڕێنماییەکانی هەڵسەنگاندن نوێ کرانەوە."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "ڕێنماییەکانی هەڵسەنگاندن"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "ڕێکخستنی ئیمەیڵ نوێ کرایەوە."
+
+msgid "manager.publication.emails"
+msgstr "ئیمەیڵەکان"
+
+msgid "manager.publication.productionStage"
+msgstr "بەرهەمهێنان"
+
+msgid "manager.publication.editorialStage"
+msgstr "گۆڕانکاریکردن"
+
+msgid "manager.publication.reviewStage"
+msgstr "هەڵسەنگاندن"
+
+msgid "manager.publication.submissionStage"
+msgstr "پێشکەشکردن"
+
+msgid "manager.announcementTypes.typeName"
+msgstr "جۆری ڕاگەیاندن"
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "هیچ جۆرێکی ڕاگەیاندن دروست نەکراوە."
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "ناوی جۆری ڕاگەیاندنەکە داوا کراوە."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "ناو"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "جۆرێکی ڕاگەیاندن بە هەمان ناوەوە بەردەستە."
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "خەزنی بکە و دانەیەکی دیکە دروست بکە"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "گۆڕانکاری"
+
+msgid "manager.announcementTypes.edit"
+msgstr "گۆڕینی جۆری ڕاگەیاندن"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "دروستکردن"
+
+msgid "manager.announcementTypes.create"
+msgstr "جۆرێکی نوێی ڕاگەیاندن دروست بکە"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"ئاگادارکردنەوە! هەمو ئاگادارکردنەوە هاوشێوەکان دەسڕدرێنەوە. ئایا تۆ دڵنیایت "
+"لە بەردەوامبون و سڕینەوەی ئەم جۆرەی ڕاگەیاندن؟"
+
+msgid "manager.announcementTypes"
+msgstr "جۆرەکانی ڕاگەیاندن"
+
+msgid "manager.announcements.type"
+msgstr "جۆر"
+
+msgid "manager.announcements.title"
+msgstr "ناونیشان"
+
+msgid "manager.announcements.noneCreated"
+msgstr "هیچ ڕاگەیاندنێکی دروست نەکراوە."
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "تکایە جۆرێکی ڕاگەیاندنی دروست دەستنیشان بکە."
+
+msgid "manager.announcements.form.typeId"
+msgstr "جۆر"
+
+msgid "manager.announcements.form.title"
+msgstr "ناونیشان"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "ناونیشانێکی ڕاگەیاندنەکە داوا کراوە."
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "خەزنکردن و دروستکردنی دانەیەکی دیکە"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "ناساندنێکی کورت"
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "ناسێنەرێکی کورتی ڕاگەیاندنەکە داوا کراوە."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "پوختەیەکی ناسێنەر بۆ ئەوەی لەگەڵ ناونیشانی ڕاگەیاندنەکە دەر بکەوێت."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "ناساندنی ڕاگەیاندنەکە داوا کراوە."
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "تێکستی تەواوی ڕاگەیاندنەکە."
+
+msgid "manager.announcements.form.description"
+msgstr "ناساندن"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "تکایە مانگ و/ یان ڕۆژ بۆ ساڵی بەسەرچونەکە دیاری بکە."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "تکایە ڕێککەوری بەسەرچونی کۆتایی ڕاگەیاندنەکە دیاری بکە."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "تکایە ساڵ و/ یان ڕۆژ بۆ مانگی بەسەرچونەکە دیاری بکە."
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"ڕاگەیاندنەکە هەتا ئەم ڕۆژە پیشانی خوێنەران دەدرێت. ئەم بۆشاییە بە چۆڵی جێ "
+"بهێڵە ئەگەر دەتەوێت ڕاگەیاندنەکە تا کاتێکی نادیار بەردەست بێت."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "ڕێککەوتی بەسەرچون"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "تکایە ساڵ و/ یان مانگ بۆ کاتی بەسەرچونەکە دیاری بکە."
+
+msgid "manager.announcements.editTitle"
+msgstr "گۆڕانکاری"
+
+msgid "manager.announcements.edit"
+msgstr "گۆڕینی ڕاگەیاندن"
+
+msgid "manager.announcements.datePublish"
+msgstr "بڵاوکراوە"
+
+msgid "manager.announcements.dateExpire"
+msgstr "کاتی بەسەرچون"
+
+msgid "manager.announcements.createTitle"
+msgstr "دروستکردن"
+
+msgid "manager.announcements.create"
+msgstr "ڕاگەیاندنێکی نوێ دروست بکە"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "ئایا تۆ دڵنیایت لە سڕینەوەی ئەم ڕاگەیاندنە بە تەواوی؟"
+
+msgid "manager.announcements"
+msgstr "ڕاگەیاندنەکان"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"فایلێکی وێنەیی داوا کراوە. تکایە دڵنیا بە کە فایلێکت هەڵ بژاردووە و بارت "
+"کردووە."
+
+msgid "manager.website.appearance"
+msgstr "دەرکەوتن"
+
+msgid "manager.website.information"
+msgstr "زانیاری"
+
+#, fuzzy
+msgid "manager.statistics.reports"
+msgstr "ڕاپۆرت دروستکەر"
+
+msgid "manager.statistics.region"
+msgstr "هەرێم"
+
+msgid "manager.statistics.city"
+msgstr "شار"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "هەڵسەنگاندنی ئارەزووبوون"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "بگەڕێ بە ناو"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "لە هەڵسەنگێنەران بگەڕێ بە ناو"
+
+msgid "manager.reviewerSearch.change"
+msgstr "گۆڕانکاری"
+
+msgid "manager.userSearch.searchByName"
+msgstr "لە بەکارهێنەرەکان بگەڕێ بە ناو"
+
+msgid "manager.readingTools"
+msgstr "ئامرازەکانی خوێندنەوە"
+
+msgid "manager.plugins"
+msgstr "سیستەمی گرێدانی تەواو کاری"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "گرێدانی بەڕێوەبردن"
+
+msgid "manager.plugins.enable"
+msgstr "چالاک"
+
+msgid "manager.plugins.disable"
+msgstr "ناچالاک"
+
+msgid "manager.people.userMustChangePassword"
+msgstr ""
+"بەکارهێنەر داوای لێدەکرێت کە ژمارەی نهێنی بگۆڕێت و  وە بۆ جاری داهاتو بچێتە "
+"ناوەوە"
+
+msgid "manager.plugins.action"
+msgstr "کردار"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "بەکارهێنەر بەسەرکەوتووی دروست کرا"
+
+msgid "manager.people.unenroll"
+msgstr "سڕینەوە تۆمارکردن"
+
+msgid "manager.people.signInAsUser"
+msgstr "بچۆ ناوی وەک بەکارهێنەر"
+
+msgid "manager.people.signInAs"
+msgstr "تۆماری بکە وەک"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "هەمباری بکە و یەکێکی تردروست بکە"
+
+msgid "manager.people.noneEnrolled"
+msgstr "هیچ  بەکارهێنەرێک  تۆمارنەکراوە"
+
+msgid "manager.people.remove"
+msgstr "سڕینەوە"
+
+msgid "manager.people"
+msgstr "خەڵک"
+
+msgid "manager.people.mergeUsers"
+msgstr "بەکارهێنەرەکان تێکەڵ بکە"
+
+msgid "manager.people.mergeUser"
+msgstr "بەکارهێنەر تێکەڵ بکە"
+
+msgid "manager.people.invalidUser"
+msgstr "ببور، داواکاری بەکارهێنەر بوونی نیە"
+
+msgid "manager.people.enrollUserAs"
+msgstr "تۆماری بەکارهێنەر بکە وەک"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr ""
+"بەکارهێنەر دەتوانرێت ڕابسپێردرێت بۆ یان لاببردرێت لە ڕۆڵێک لە هەرکاتێک بێت"
+
+msgid "manager.people.enrollSync"
+msgstr "تۆمارکردنی لەهەمان کاتدا"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "ڕۆڵی لە هەمان کات"
+
+msgid "manager.people.enrollSelected"
+msgstr "تۆماری بەکارهێنەرانی هەڵبژێردراو بکە"
+
+msgid "manager.people.enrollment"
+msgstr "خۆ تۆمارکردن"
+
+msgid "manager.people.enroll"
+msgstr "بەکارهێنەرە تۆمار بکە"
+
+msgid "manager.people.enable"
+msgstr "چالاکی بکە"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"ئەو بەکارهێنەرانە هەڵبژێرە کە ئارەزوو دەکەیت ئیمێڵیان بۆ بکەی ی بە "
+"دیاریکردنی ئەو  چوار گۆشەی تەنیشت ناوەکانیان"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "شوێنێک هەڵبژێرە"
+
+msgid "manager.people.emailUsers"
+msgstr "ئیمێڵ بکە بۆ بەکارهێنەرەکان"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "ئیمێڵی بەکارهێنەرەکان تۆماربکە وەک"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "هەڵبژاردنی ئێمێڵی بەکارهێنەرەکان"
+
+msgid "manager.people.editUser"
+msgstr "ڕێکخستنی بەکارهێنەر"
+
+msgid "manager.people.editProfile"
+msgstr "ڕێکخستنی کورتە ژیان نامە"
+
+msgid "manager.people.doNotEnroll"
+msgstr "بە بێ ڕۆڵ"
+
+msgid "manager.people.disable"
+msgstr "ناچالاکی بکە"
+
+msgid "manager.people.createUserSendNotify"
+msgstr ""
+"ئیمێڵێکی بەخێرهاتن بنێرە بۆ بەکارهێنەرەکە کە ناوی بەکارهێنەرە و ژمارەی نهێنی "
+"تێدابێت."
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "ژمارەی نهێنی بە هەڕەمەکی دروست بکە"
+
+msgid "manager.people.existingUserRequired"
+msgstr "بەکارهێنەری  کەهەژماری هەیە دەبێت بچێتە ناوەوە."
+
+msgid "manager.people.createUser"
+msgstr "بەکارهێنەرێکی نوێ دروست بکە"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "لەکارخستنی ئەو بەکارهێنەرە"
+
+msgid "manager.people.authSource"
+msgstr "سەرچاوەی ڕاستاندن"
+
+msgid "manager.payment.timestamp"
+msgstr "کاتی تۆمارکراو"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr ""
+"ناوەڕک: بەڕێوەبەر.زمان.دووبارە پڕکردنەوەی  ڕێکخستنەکان بەشێوەیەکی ئاسایی"
+
+msgid "manager.people.noMatchingUsers"
+msgstr "هیچ بەکارهێنەرێکی هاوشێوە بوونی نییە."
+
+msgid "manager.people.mustProvideName"
+msgstr "تکایە بەلایەنی کەمەوە یەکەمجار ناوی کۆتایی بۆ بەکارهێنەر بدە بەدەستەوە."
+
+msgid "manager.people.mustChooseRole"
+msgstr ""
+"تکایە ڕۆڵێک هەڵبژێرە لە سەرەوەی پەڕەکە پێش ئەوەی کرتە لە سەر \"تۆمارکردنی "
+"بەکارهێنەر\" بکەیت."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"هەموو شوێنەکان هەڵبژێرە بۆ پشتیوانیکردنیان لە سەر سایتەکە لە ڕێگای  لیستی "
+"هەڵبژاردنی زمانێکەوە بۆ ئەوە لە هەموو پەڕێک پیشانبدرێن. لیستەکە تەنها کاتێک "
+"دەردەکەوێت ئەگەر زیاتر لە شوێنێک هەڵبژێردرێت."
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr ""
+"ئەم سیستەمە بەشێوەیەکی ئارەزوومەندانە ڕێگە بە چەند زانیاریێکی گرنگی "
+"دیاریکراوە دەدات کە بە چەندین زمانی تر تۆماربکرێن و بخرێنە ناوییەوە. بۆ "
+"بەکارهێنانی ئەم تایبەتمەندییە، شوێنە جێگرەوەکان هەڵبژێرە پاشان لە ناو "
+"بژاردەکاندا کە لە خوارەوە بە لیست داندراون یەکێکیان هەڵبژێرە."

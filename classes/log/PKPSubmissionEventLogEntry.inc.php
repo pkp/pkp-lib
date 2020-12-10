@@ -3,9 +3,9 @@
 /**
  * @file classes/log/PKPSubmissionEventLogEntry.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionEventLogEntry
  * @ingroup log
@@ -58,11 +58,12 @@ define('SUBMISSION_LOG_REVIEW_CLEAR',			0x40000014);
 define('SUBMISSION_LOG_REVIEW_READY',		0x40000018);
 define('SUBMISSION_LOG_REVIEW_CONFIRMED',		0x40000019);
 
-// Deletion of the last revision of a file
-define('SUBMISSION_LOG_LAST_REVISION_DELETED', 	0x50000003);
-
 // Production events
 define('SUBMISSION_LOG_PROOFS_APPROVED',		0x50000008);
+
+// Deprecated events. Preserved for historical data.
+define('SUBMISSION_LOG_LAST_REVISION_DELETED', 	0x50000003); // uses submission.event.lastRevisionDeleted
+
 
 class PKPSubmissionEventLogEntry extends EventLogEntry {
 

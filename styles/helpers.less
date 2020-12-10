@@ -1,9 +1,9 @@
 /**
  * @file styles/helpers.less
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Helper classes
  *
@@ -12,141 +12,92 @@
 // Buttons
 .pkp_button {
 	display: inline-block;
-	padding: 7px @base;
-	vertical-align: middle;
-	background-color: #eee;
-	background-image: linear-gradient(#eee, #ddd);
-	border: 1px solid #ccc;
+	padding: 0 0.5em;
+	background: #fff;
+	border: @bg-border-light;
 	border-radius: @radius;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.6);
-	font-size: @font-tiny;
+	font-size: @font-sml;
+	line-height: 2rem;
 	font-weight: @bold;
-	line-height: @line-tiny;
-	color: @text-rgba;
-	text-shadow: 0 2px 0 rgba(255,255,255,0.6);
-	cursor: pointer;
+	color: @primary;
 	text-decoration: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	-webkit-appearance: none;
+	box-shadow: 0 1px 0 @bg-border-color-light;
+	cursor: pointer;
 
 	&:hover,
 	&:focus {
-		background-color: #fff;
-		background-image: linear-gradient(#fff, #ddd);
-		color: #000;
+		color: @primary;
+		border-color: @primary;
+		outline: 0;
 	}
 
 	&:active {
-		background-color: #ddd;
-		background-image: linear-gradient(#eee, #ccc);
+		box-shadow: 0 0 2px;
 	}
 
-	&[disabled] {
-		opacity: 0.5;
-		cursor: default;
+	&:disabled {
+		color: @text-disabled;
+
+		&:hover {
+			color: @text-disabled;
+			border-color: @bg-border-color-light;
+			cursor: not-allowed;
+		}
 	}
 }
 
 .pkp_button_primary {
-	&:extend(.pkp_button);
-	background-color: @primary;
-	background-image: linear-gradient( lighten( @primary, 10% ), @primary );
-	box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.4);
+	&:extend(.pkp_button all);
 	color: #fff;
-	text-shadow: 0 2px 0 rgba(0,0,0,0.2);
+	background: @primary;
 	border-color: @primary;
+	box-shadow: 0 1px 0 @primary;
 
 	&:hover,
 	&:focus {
-		text-decoration: none;
-		background-color: @primary-lift;
-		background-image: linear-gradient( lighten( @primary, 20% ), darken( @primary, 5% ) );
+		background: @primary-lift;
 		color: #fff;
 	}
 
-	&:active {
-		background-color: darken( @primary, 10% );
-		background-image: linear-gradient( lighten( @primary, 5% ), darken( @primary, 15% ) );
-	}
-
-	&[disabled] {
-		&:extend(.pkp_button[disabled]);
+	&:disabled,
+	&:disabled:hover {
+		&:extend(.pkp_button[disabled] all);
+		color: #fff;
+		background: @bg-dark;
+		border-color: @bg-dark;
+		box-shadow: 0 1px 0 @shade;
+		cursor: not-allowed;
 	}
 }
 
 .pkp_button_offset {
-	&:extend(.pkp_button);
-	background-color: @offset;
-	background-image: linear-gradient( lighten( @offset, 10% ), @offset );
-	box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.4);
-	color: #fff;
-	text-shadow: 0 2px 0 rgba(0,0,0,0.2);
-	border-color: @offset;
+	&:extend(.pkp_button all);
+	color: @no;
 
 	&:hover,
 	&:focus {
-		text-decoration: none;
-		background-color: darken( @offset, 5% );
-		background-image: linear-gradient( lighten( @offset, 20% ), darken( @offset, 5% ) );
+		border-color: @no;
+		color: @no;
+	}
+
+	&:disabled,
+	&:disabled:hover {
+		&:extend(.pkp_button[disabled] all);
 		color: #fff;
-	}
-
-	&:active {
-		background-color: darken( @offset, 10% );
-		background-image: linear-gradient( lighten( @offset, 5% ), darken( @offset, 15% ) );
-	}
-
-	&[disabled] {
-		&:extend(.pkp_button[disabled]);
+		background: @bg-dark;
+		border-color: @bg-dark;
+		box-shadow: 0 1px 0 @shade;
+		cursor: not-allowed;
 	}
 }
 
 .pkp_button_link {
-	display: inline-block;
-	padding: 7px @base;
-	vertical-align: middle;
-	font-size: @font-tiny;
-	font-weight: @bold;
-	line-height: @line-tiny;
-	color: @primary;
-	text-shadow: 0 2px 0 rgba(255,255,255,0.6);
-	cursor: pointer;
-	text-decoration: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	-webkit-appearance: none;
+	&:extend(.pkp_button all);
+	box-shadow: none;
+	border-color: transparent;
 
-	&:hover,
-	&:focus {
-		color: @primary-lift;
-	}
-
-	&:active {
-		color: @primary-shade;
-	}
-
-	&[disabled] {
-		opacity: 0.5;
-		cursor: default;
-	}
-}
-
-.pkp_button_link_offset {
-	&:extend(.pkp_button_link all);
-	color: @offset;
-
-	&:hover,
-	&:focus {
-		color: @offset-lift;
-	}
-
-	&:active {
-		color: @offset-shade;
+	&:disabled:hover {
+		border-color: transparent;
 	}
 }
 
@@ -156,8 +107,8 @@
 	&:after {
 		display: inline-block;
 		position: relative;
-		width: 20px;
-		height: 20px;
+		width: 1.25rem;
+		height: 1.25rem;
 		vertical-align: middle;
 		.animation( pkp_spin .6s linear infinite );
 		border-radius: 100%;
@@ -196,16 +147,16 @@
 	display: inline-block;
 	width: 0;
 	height: 0;
-	border: 4px solid transparent;
+	border: 0.25rem solid transparent;
 	vertical-align: middle;
 }
 
 .pkp_caret_down {
-	border-top: 6px solid;
+	border-top: 0.375rem solid;
 }
 
 .pkp_caret_right {
-	border-left: 6px solid;
+	border-left: 0.375rem solid;
 }
 
 // Screen-reader text
@@ -225,10 +176,10 @@
 		font-size: @font-base;
 		height: auto;
 		line-height: normal;
-		padding: @base;
+		padding: 1rem;
 		position: absolute;
-		left: @half;
-		top: @half;
+		left: 0.5rem;
+		top: 0.5rem;
 		text-decoration: none;
 		width: auto;
 		z-index: 100000;
@@ -252,7 +203,7 @@
 // A help link
 .pkp_help_link {
 	display: inline-block;
-	padding: 4px 0;
+	padding: 0.25rem 0;
 	font-size: @font-tiny;
 	line-height: @line-tiny;
 	font-weight: @bold;
@@ -260,6 +211,7 @@
 	border: none;
 	box-shadow: none;
 	color: @primary;
+	z-index: 3;
 
 	&:hover,
 	&:focus {
@@ -276,9 +228,9 @@
 // A small help link that attaches to a tab
 .pkp_help_tab {
 	position: absolute;
-	top: -@double;
-	right: @double;
-	padding: @half 1em;
+	top: -2rem;
+	right: 2rem;
+	padding: 0.5rem 1em;
 	background: @lift;
 	border-top-left-radius: @radius;
 	border-top-right-radius: @radius;
@@ -286,8 +238,10 @@
 
 .pkp_help_modal {
 	&:extend(.pkp_help_tab);
-	top: @double;
-	right: @double * 2;
+	top: 0.5rem;
+	padding: 0.5rem;
+	right: 3rem;
+	border: none;
 }
 
 // Summary of an uploaded file
@@ -299,7 +253,7 @@
 		&:extend(.pkp_form .section > .label);
 
 		.display {
-			line-height: @double;
+			line-height: 2rem;
 		}
 
 		.edit {
@@ -308,11 +262,11 @@
 	}
 
 	.details {
-		margin-top: @half;
+		margin-top: 0.5rem;
 		color: @text-light;
 
 		> span {
-			margin-left: @double;
+			margin-left: 2rem;
 
 			&:first-child {
 				margin-left: 0;
@@ -331,7 +285,7 @@
 	}
 
 	.print {
-		margin-left: @double;
+		margin-left: 2rem;
 
 		&:before {
 			.fa();

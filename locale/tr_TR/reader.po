@@ -1,0 +1,83 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
+"PO-Revision-Date: 2020-02-04 23:10+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/reader/"
+"tr/>\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "comments.anonymous"
+msgstr "Anonim Kullanıcı"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Yorum"
+
+msgid "comments.titleRequired"
+msgstr "Yorum başlığı gereklidir."
+
+msgid "comments.confirmDeleteChildren"
+msgstr ""
+"Bu yorum silindiğinde, varsa yoruma verilen cevaplar da silinecek. Bunu "
+"yapmak istediğinizden emin misiniz?"
+
+msgid "comments.delete"
+msgstr "Bu yorumu sil"
+
+msgid "comments.email"
+msgstr "Gönderen e-Posta"
+
+msgid "comments.emailReply"
+msgstr "Cevap e-Posta"
+
+msgid "comments.enterComment"
+msgstr "Yorum Ekle"
+
+msgid "comments.inResponseTo"
+msgstr "Şuna cevap olarak: <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Gönderen Adı"
+
+msgid "comments.noComments"
+msgstr "Henüz hiç okuyucu yorumu bulunmuyor."
+
+msgid "comments.nReplies"
+msgstr "({$num} cevap)"
+
+msgid "comments.oneReply"
+msgstr "(1 cevap)"
+
+msgid "comments.postAnonymously"
+msgstr "Bu yorumu isimsiz olarak gönder"
+
+msgid "comments.postReply"
+msgstr "Cevabı Gönder"
+
+msgid "comments.readerComments"
+msgstr "Okuyucu Yorumları"
+
+msgid "comments.readMore"
+msgstr "Devamını oku"
+
+msgid "comments.replies"
+msgstr "Cevaplar"
+
+msgid "comments.title"
+msgstr "Başlık"
+
+msgid "comments.viewAllComments"
+msgstr "Tüm yorumları göster"
+
+msgid "reader.fullText"
+msgstr "Tam Metin:"

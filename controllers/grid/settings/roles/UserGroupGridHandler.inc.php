@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/settings/roles/UserGroupGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserGroupGridHandler
  * @ingroup controllers_grid_settings
@@ -69,7 +69,7 @@ class UserGroupGridHandler extends GridHandler {
 			$this->addPolicy(new WorkflowStageRequiredPolicy($request->getUserVar('stageId')));
 		}
 
-		$userGroupRequiredOps = array_merge($workflowStageRequiredOps, array('editUserGroup', 'updateUserGroup', 'removeUserGroup'));
+		$userGroupRequiredOps = array_merge($workflowStageRequiredOps, array('editUserGroup', 'removeUserGroup'));
 		if (in_array($operation, $userGroupRequiredOps)) {
 			// Validate the user group object.
 			$userGroupId = $request->getUserVar('userGroupId');
@@ -194,7 +194,7 @@ class UserGroupGridHandler extends GridHandler {
 	*/
 	function renderFilter($request, $filterData = array()) {
 		// Get filter data.
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		$roleOptions = array(0 => 'grid.user.allPermissionLevels') + Application::getRoleNames(true);
 
 		// Reader roles are not important for stage assignments.
@@ -278,6 +278,8 @@ class UserGroupGridHandler extends GridHandler {
 
 		$userGroupForm->readInputData();
 		if($userGroupForm->validate()) {
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			$userGroupForm->execute();
 			$json = DAO::getDataChangedEvent();
 			$json->setGlobalEvent('userGroupUpdated');

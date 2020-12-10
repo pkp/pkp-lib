@@ -3,9 +3,9 @@
 /**
  * @file pages/management/ManagementHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManagementHandler
  * @ingroup pages_management
@@ -18,6 +18,10 @@ import('classes.handler.Handler');
 
 class ManagementHandler extends Handler {
 
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
+
+
 	//
 	// Overridden methods from Handler
 	//
@@ -29,6 +33,9 @@ class ManagementHandler extends Handler {
 
 		// Load manager locale components.
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_GRID);
+
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('pageComponent', 'SettingsPage');
 	}
 
 	/**
@@ -72,8 +79,8 @@ class ManagementHandler extends Handler {
 				$this->announcements($args, $request);
 				break;
 			default:
-				$request->getDispatcher()->handle404();
 				assert(false);
+				$request->getDispatcher()->handle404();
 		}
 	}
 
@@ -89,7 +96,7 @@ class ManagementHandler extends Handler {
 		$dispatcher = $request->getDispatcher();
 
 		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
-		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile/');
+		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
 		$supportedFormLocales = $context->getSupportedFormLocales();
 		$localeNames = AppLocale::getAllLocales();
@@ -100,32 +107,34 @@ class ManagementHandler extends Handler {
 		$contactForm = new PKP\components\forms\context\PKPContactForm($apiUrl, $locales, $context);
 		$mastheadForm = new APP\components\forms\context\MastheadForm($apiUrl, $locales, $context, $publicFileApiUrl);
 
-		$settingsData = [
+		$templateMgr->setState([
 			'components' => [
 				FORM_CONTACT => $contactForm->getConfig(),
 				FORM_MASTHEAD => $mastheadForm->getConfig(),
 			],
-		];
+		]);
 
-		$templateMgr->assign('settingsData', $settingsData);
+		// Interact with the beacon (if enabled) and determine if a new version exists
+		import('lib.pkp.classes.site.VersionCheck');
+		$latestVersion = VersionCheck::checkIfNewVersionExists();
 
 		// Display a warning message if there is a new version of OJS available
-		if (Config::getVar('general', 'show_upgrade_warning')) {
-			import('lib.pkp.classes.site.VersionCheck');
-			if ($latestVersion = VersionCheck::checkIfNewVersionExists()) {
-				$templateMgr->assign('newVersionAvailable', true);
-				$templateMgr->assign('latestVersion', $latestVersion);
-				$currentVersion = VersionCheck::getCurrentDBVersion();
-				$templateMgr->assign('currentVersion', $currentVersion->getVersionString());
+		if (Config::getVar('general', 'show_upgrade_warning') && $latestVersion) {
+			$currentVersion = VersionCheck::getCurrentDBVersion();
+			$templateMgr->assign([
+				'newVersionAvailable' =>  true,
+				'currentVersion' => $currentVersion->getVersionString()
+				'latestVersion' =>  $latestVersion,
+			]);
 
-				// Get contact information for site administrator
-				$roleDao = DAORegistry::getDAO('RoleDAO');
-				$siteAdmins = $roleDao->getUsersByRoleId(ROLE_ID_SITE_ADMIN);
-				$templateMgr->assign('siteAdmin', $siteAdmins->next());
-			}
+			// Get contact information for site administrator
+			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+			$siteAdmins = $roleDao->getUsersByRoleId(ROLE_ID_SITE_ADMIN);
+			$templateMgr->assign('siteAdmin', $siteAdmins->next());
 		}
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+		$templateMgr->assign('pageTitle', __('manager.setup'));
 		$templateMgr->display('management/context.tpl');
 	}
 
@@ -144,8 +153,7 @@ class ManagementHandler extends Handler {
 		$contextApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
 		$themeApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/theme');
 		$temporaryFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'temporaryFiles');
-		$contextUrl = $router->url($request, $context->getPath());
-		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile/');
+		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
 		import('classes.file.PublicFileManager');
 		$publicFileManager = new PublicFileManager();
@@ -163,9 +171,14 @@ class ManagementHandler extends Handler {
 		$informationForm = new \PKP\components\forms\context\PKPInformationForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
 		$listsForm = new \PKP\components\forms\context\PKPListsForm($contextApiUrl, $locales, $context);
 		$privacyForm = new \PKP\components\forms\context\PKPPrivacyForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
-		$themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $contextUrl, $context);
+		$themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $context);
+		$dateTimeForm = new \PKP\components\forms\context\PKPDateTimeForm($contextApiUrl, $locales, $context);
 
-		$settingsData = [
+		$templateMgr->setConstants([
+			'FORM_ANNOUNCEMENT_SETTINGS',
+		]);
+
+		$templateMgr->setState([
 			'components' => [
 				FORM_ANNOUNCEMENT_SETTINGS => $announcementSettingsForm->getConfig(),
 				FORM_APPEARANCE_ADVANCED => $appearanceAdvancedForm->getConfig(),
@@ -174,11 +187,16 @@ class ManagementHandler extends Handler {
 				FORM_LISTS => $listsForm->getConfig(),
 				FORM_PRIVACY => $privacyForm->getConfig(),
 				FORM_THEME => $themeForm->getConfig(),
+				FORM_DATE_TIME => $dateTimeForm->getConfig(),
 			],
-		];
+			'announcementsNavLink' => [
+				'name' => __('announcement.announcements'),
+				'url' => $router->url($request, null, 'management', 'settings', 'announcements'),
+				'isCurrent' => false,
+			],
+		]);
 
-		$templateMgr->assign('settingsData', $settingsData);
-
+		$templateMgr->assign('pageTitle', __('manager.website.title'));
 		$templateMgr->display('management/website.tpl');
 	}
 
@@ -212,7 +230,8 @@ class ManagementHandler extends Handler {
 		}, $supportedFormLocales);
 
 		$authorGuidelinesForm = new \PKP\components\forms\context\PKPAuthorGuidelinesForm($contextApiUrl, $locales, $context);
-		$metadataSettingsForm = new \PKP\components\forms\context\PKPMetadataSettingsForm($contextApiUrl, $context);
+		$metadataSettingsForm = new \APP\components\forms\context\MetadataSettingsForm($contextApiUrl, $context);
+		$disableSubmissionsForm = new \PKP\components\forms\context\PKPDisableSubmissionsForm($contextApiUrl, $locales, $context);
 		$emailSetupForm = new \PKP\components\forms\context\PKPEmailSetupForm($contextApiUrl, $locales, $context);
 		$reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
 		$reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($contextApiUrl, $locales, $context);
@@ -220,28 +239,28 @@ class ManagementHandler extends Handler {
 		$emailTemplatesListPanel = new \APP\components\listPanels\EmailTemplatesListPanel(
 			'emailTemplates',
 			__('manager.emails.emailTemplates'),
+			$locales,
 			[
 				'apiUrl' => $emailTemplatesApiUrl,
-				'count' => 100,
+				'count' => 200,
 				'items' => [],
 				'itemsMax' => 0,
 				'lazyLoad' => true,
 			]
 		);
 
-		$settingsData = [
+		$templateMgr->setState([
 			'components' => [
 				FORM_AUTHOR_GUIDELINES => $authorGuidelinesForm->getConfig(),
 				FORM_METADATA_SETTINGS => $metadataSettingsForm->getConfig(),
+				FORM_DISABLE_SUBMISSIONS => $disableSubmissionsForm->getConfig(),
 				FORM_EMAIL_SETUP => $emailSetupForm->getConfig(),
 				FORM_REVIEW_GUIDANCE => $reviewGuidanceForm->getConfig(),
 				FORM_REVIEW_SETUP => $reviewSetupForm->getConfig(),
 				'emailTemplates' => $emailTemplatesListPanel->getConfig(),
 			],
-		];
-		$templateMgr->assign('settingsData', $settingsData);
-
-		$templateMgr->display('management/workflow.tpl');
+		]);
+		$templateMgr->assign('pageTitle', __('manager.workflow.title'));
 	}
 
 	/**
@@ -269,16 +288,20 @@ class ManagementHandler extends Handler {
 
 		$licenseForm = new \APP\components\forms\context\LicenseForm($apiUrl, $locales, $context);
 		$searchIndexingForm = new \PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
-		$paymentSettingsForm = new \PKP\components\forms\context\PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
 
-		$settingsData = [
+		$paymentSettingsForm = new \PKP\components\forms\context\PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
+		$templateMgr->setConstants([
+			'FORM_PAYMENT_SETTINGS',
+		]);
+
+		$templateMgr->setState([
 			'components' => [
 				FORM_LICENSE => $licenseForm->getConfig(),
 				FORM_SEARCH_INDEXING => $searchIndexingForm->getConfig(),
 				FORM_PAYMENT_SETTINGS => $paymentSettingsForm->getConfig(),
 			],
-		];
-		$templateMgr->assign('settingsData', $settingsData);
+		]);
+		$templateMgr->assign('pageTitle', __('manager.distribution.title'));
 	}
 
 	/**
@@ -289,6 +312,52 @@ class ManagementHandler extends Handler {
 	function announcements($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
+
+		$apiUrl = $request->getDispatcher()->url($request, ROUTE_API, $request->getContext()->getPath(), 'announcements');
+
+		$supportedFormLocales = $request->getContext()->getSupportedFormLocales();
+		$localeNames = AppLocale::getAllLocales();
+		$locales = array_map(function($localeKey) use ($localeNames) {
+			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+		}, $supportedFormLocales);
+
+		$announcementForm = new \PKP\components\forms\announcement\PKPAnnouncementForm($apiUrl, $locales, $request->getContext());
+
+		$getParams = [
+			'contextIds' => $request->getContext()->getId(),
+			'count' => 30,
+		];
+		$announcementsIterator = Services::get('announcement')->getMany($getParams);
+		$itemsMax = Services::get('announcement')->getMax($getParams);
+		$items = [];
+		foreach ($announcementsIterator as $announcement) {
+			$items[] = Services::get('announcement')->getSummaryProperties($announcement, [
+				'request' => $request,
+				'announcementContext' => $request->getContext(),
+			]);
+		}
+
+		$announcementsListPanel = new \PKP\components\listPanels\PKPAnnouncementsListPanel(
+			'announcements',
+			__('manager.setup.announcements'),
+			[
+				'apiUrl' => $apiUrl,
+				'form' => $announcementForm,
+				'getParams' => $getParams,
+				'items' => $items,
+				'itemsMax' => $itemsMax,
+			]
+		);
+
+		$templateMgr->setState([
+			'components' => [
+				$announcementsListPanel->id => $announcementsListPanel->getConfig(),
+			],
+		]);
+
+		$templateMgr->assign([
+			'pageTitle' => __('manager.setup.announcements'),
+		]);
 
 		$templateMgr->display('management/announcements.tpl');
 	}
@@ -305,16 +374,30 @@ class ManagementHandler extends Handler {
 		$dispatcher = $request->getDispatcher();
 
 		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+		$notifyUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_email');
+		$progressUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_email/{queueId}');
+		$userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId());
 
 		$userAccessForm = new \APP\components\forms\context\UserAccessForm($apiUrl, $context);
+		$notifyUsersForm = new \PKP\components\forms\context\PKPNotifyUsersForm($notifyUrl, $userGroups);
 
-		$settingsData = [
+		$templateMgr->assign([
+			'pageComponent' => 'AccessPage',
+		]);
+
+		$templateMgr->setConstants([
+			'FORM_NOTIFY_USERS',
+		]);
+
+		$templateMgr->setState([
 			'components' => [
 				FORM_USER_ACCESS => $userAccessForm->getConfig(),
+				FORM_NOTIFY_USERS => $notifyUsersForm->getConfig(),
 			],
-		];
-		$templateMgr->assign('settingsData', $settingsData);
+			'progressUrl' => $progressUrl,
+		]);
 
+		$templateMgr->assign('pageTitle', __('navigation.access'));
 		$templateMgr->display('management/access.tpl');
 	}
 }

@@ -3,9 +3,9 @@
 /**
  * @file tests/classes/metadata/MetadataPropertyTest.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MetadataPropertyTest
  * @ingroup tests_classes_metadata
@@ -67,63 +67,63 @@ class MetadataPropertyTest extends PKPTestCase {
 	/**
 	 * Tests special error conditions while setting composite types
 	 * @covers MetadataProperty::__construct
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testCompositeWithoutParameter() {
+		$this->expectException(InvalidArgumentException::class);
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), METADATA_PROPERTY_TYPE_COMPOSITE, false, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 
 	/**
 	 * Tests special error conditions while setting composite types
 	 * @covers MetadataProperty::__construct
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testCompositeWithWrongParameter() {
+		$this->expectException(InvalidArgumentException::class);
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), array(METADATA_PROPERTY_TYPE_COMPOSITE => 'string'), false, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 
 	/**
 	 * Tests special error conditions while setting controlled vocab types
 	 * @covers MetadataProperty::__construct
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testControlledVocabWithoutParameter() {
+		$this->expectException(InvalidArgumentException::class);
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), METADATA_PROPERTY_TYPE_VOCABULARY);
 	}
 
 	/**
 	 * Tests special error conditions while setting controlled vocab types
 	 * @covers MetadataProperty::__construct
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testControlledVocabWithWrongParameter() {
+		$this->expectException(InvalidArgumentException::class);
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), array(METADATA_PROPERTY_TYPE_VOCABULARY => 0x002), false, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 
 	/**
 	 * Tests special error conditions while setting non-parameterized type
 	 * @covers MetadataProperty::__construct
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testNonParameterizedTypeWithParameter() {
+		$this->expectException(InvalidArgumentException::class);
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), array(METADATA_PROPERTY_TYPE_STRING => 0x002), false, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 
 	/**
 	 * Tests special error conditions while setting an unsupported type
 	 * @covers MetadataProperty::getSupportedTypes
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testSetUnsupportedType() {
+		$this->expectException(InvalidArgumentException::class);
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), 0x99999999, true, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 
 	/**
 	 * Tests special error conditions while setting an unsupported cardinality
 	 * @covers MetadataProperty::getSupportedCardinalities
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testSetUnsupportedCardinality() {
+		$this->expectException(InvalidArgumentException::class);
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), METADATA_PROPERTY_TYPE_COMPOSITE, true, 0x99999999);
 	}
 
@@ -156,11 +156,11 @@ class MetadataPropertyTest extends PKPTestCase {
 	public function testValidateControlledVocabulary() {
 		// Build a test vocabulary. (Assoc type and id are 0 to
 		// simulate a site-wide vocabulary).
-		$controlledVocabDao = DAORegistry::getDao('ControlledVocabDAO');
+		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
 		$testControlledVocab = $controlledVocabDao->_build('test-controlled-vocab', 0, 0);
 
 		// Make a vocabulary entry
-		$controlledVocabEntryDao = DAORegistry::getDao('ControlledVocabEntryDAO');
+		$controlledVocabEntryDao = DAORegistry::getDAO('ControlledVocabEntryDAO');
 		$testControlledVocabEntry = $controlledVocabEntryDao->newDataObject();
 		$testControlledVocabEntry->setName('testEntry', 'en_US');
 		$testControlledVocabEntry->setControlledVocabId($testControlledVocab->getId());

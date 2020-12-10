@@ -3,9 +3,9 @@
 /**
  * @file controllers/statistics/form/PKPReportGeneratorForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPReportGeneratorForm
  * @ingroup controllers_statistics_form
@@ -219,10 +219,10 @@ abstract class PKPReportGeneratorForm extends Form {
 	}
 
 	/**
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
-		parent::execute();
+	function execute(...$functionArgs) {
+		parent::execute(...$functionArgs);
 		$request = Application::get()->getRequest();
 		$router = $request->getRouter(); /* @var $router PageRouter */
 		$context = $router->getContext($request);
@@ -275,21 +275,22 @@ abstract class PKPReportGeneratorForm extends Form {
 				break;
 			case TIME_FILTER_OPTION_RANGE_DAY:
 			case TIME_FILTER_OPTION_RANGE_MONTH:
+				$dimension = STATISTICS_DIMENSION_MONTH;
+				$startDate = $startYear . $startMonth;
+				$endDate = $endYear . $endMonth;
+
 				if ($timeFilterOption == TIME_FILTER_OPTION_RANGE_DAY) {
-					$startDate = $startYear . $startMonth . $startDay;
-					$endDate = $endYear . $endMonth . $endDay;
-				} else {
-					$startDate = $startYear . $startMonth;
-					$endDate = $endYear . $endMonth;
+					$startDate .= $startDay;
+					$endDate .= $endDay;
+
+					$dimension = STATISTICS_DIMENSION_DAY;
 				}
 
-				if ($startTime == $endTime) {
-					// The start and end date are the same, there is no range defined
-					// only one specific date. Use the start time.
-					$filter[STATISTICS_DIMENSION_MONTH] = $startDate;
+				if ($startDate == $endDate) {
+					$filter[$dimension] = $startDate;
 				} else {
-					$filter[STATISTICS_DIMENSION_DAY]['from'] = $startDate;
-					$filter[STATISTICS_DIMENSION_DAY]['to'] = $endDate;
+					$filter[$dimension]['from'] = $startDate;
+					$filter[$dimension]['to'] = $endDate;
 				}
 				break;
 			default:

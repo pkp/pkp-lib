@@ -2,9 +2,9 @@
 /**
  * @file tests/classes/publication/PublicationTest.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PublicationTest
  * @ingroup tests_classes_publicatio
@@ -17,13 +17,13 @@ class PublicationTest extends PKPTestCase {
 	/**
 	 * @see PKPTestCase::setUp()
 	 */
-	protected function setUp() {
+	protected function setUp() : void {
 		$this->publication = DAORegistry::getDAO('PublicationDAO')->newDataObject();
 	}
 	/**
 	 * @see PKPTestCase::tearDown()
 	 */
-	protected function tearDown() {
+	protected function tearDown() : void {
 		unset($this->publication);
 	}
 	//

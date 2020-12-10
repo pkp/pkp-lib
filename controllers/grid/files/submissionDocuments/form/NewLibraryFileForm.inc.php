@@ -2,9 +2,9 @@
 /**
  * @file controllers/grid/files/submissionDocuments/form/NewLibraryFileForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileForm
  * @ingroup controllers_grid_files_submissionDocuments_form
@@ -49,19 +49,19 @@ class NewLibraryFileForm extends LibraryFileForm {
 	}
 
 	/**
-	 * Save the new library file.
+	 * @copydoc Form::execute()
 	 * @return $fileId int The new library file id.
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$userId = Application::get()->getRequest()->getUser()->getId();
 
 		// Fetch the temporary file storing the uploaded library file
-		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
+		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
 		$temporaryFile = $temporaryFileDao->getTemporaryFile(
 			$this->getData('temporaryFileId'),
 			$userId
 		);
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
 		$libraryFileManager = new LibraryFileManager($this->contextId);
 
 		// Convert the temporary file to a library file and store
@@ -78,6 +78,8 @@ class NewLibraryFileForm extends LibraryFileForm {
 		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 		$temporaryFileManager->deleteById($this->getData('temporaryFileId'), $userId);
+
+		parent::execute(...$functionArgs);
 
 		return $fileId;
 	}

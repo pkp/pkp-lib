@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/languages/form/InstallLanguageForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class InstallLanguageForm
  * @ingroup controllers_grid_languages_form
@@ -54,26 +54,6 @@ class InstallLanguageForm extends Form {
 			'notInstalledLocales' => $notInstalledLocales,
 		));
 
-		import('lib.pkp.classes.i18n.LanguageAction');
-		$languageAction = new LanguageAction();
-		if ($languageAction->isDownloadAvailable()) {
-			$downloadableLocales = $languageAction->getDownloadableLocales();
-			$downloadableLocaleLinks = array();
-
-			import('lib.pkp.classes.linkAction.request.AjaxAction');
-			$router = $request->getRouter();
-			foreach ($downloadableLocales as $locale => $name) {
-				$downloadableLocaleLinks[$locale] = new LinkAction($locale,
-					new AjaxAction($router->url($request, null, null, 'downloadLocale', array('locale' => $locale))),
-					$name . ' (' . $locale . ')');
-			}
-
-			$templateMgr->assign(array(
-				'downloadAvailable' => true,
-				'downloadableLocaleLinks' => $downloadableLocaleLinks,
-			));
-		}
-
 		return parent::fetch($request, $template, $display);
 	}
 
@@ -91,10 +71,12 @@ class InstallLanguageForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$site = $request->getSite();
 		$localesToInstall = $this->getData('localesToInstall');
+
+		parent::execute(...$functionArgs);
 
 		if (isset($localesToInstall) && is_array($localesToInstall)) {
 			$installedLocales = $site->getInstalledLocales();
@@ -111,7 +93,7 @@ class InstallLanguageForm extends Form {
 
 			$site->setInstalledLocales($installedLocales);
 			$site->setSupportedLocales($supportedLocales);
-			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 			$siteDao->updateObject($site);
 		}
 	}

@@ -1,20 +1,29 @@
 {**
  * templates/management/website.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * The website settings page.
  *}
-{include file="common/header.tpl" pageTitle="manager.website.title"}
+{extends file="layouts/backend.tpl"}
 
-{assign var="uuid" value=""|uniqid|escape}
-<div id="settings-context-{$uuid}">
-	<tabs>
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="manager.website.title"}
+	</h1>
+
+	{if $currentContext->getData('disableSubmissions')}
+		<notification>
+			{translate key="manager.setup.disableSubmissions.notAccepting"}
+		</notification>
+	{/if}
+
+	<tabs :track-history="true">
 		<tab id="appearance" label="{translate key="manager.website.appearance"}">
 			{help file="settings/website-settings" class="pkp_help_tab"}
-			<tabs is-side-tabs="true">
+			<tabs :is-side-tabs="true" :track-history="true">
 				<tab id="theme" label="{translate key="manager.setup.theme"}">
 					<theme-form
 						v-bind="components.{$smarty.const.FORM_THEME}"
@@ -38,7 +47,7 @@
 		</tab>
 		<tab id="setup" label="{translate key="navigation.setup"}">
 			{help file="settings/website-settings" section="setup" class="pkp_help_tab"}
-			<tabs is-side-tabs="true">
+			<tabs :is-side-tabs="true" :track-history="true">
 				<tab id="information" label="{translate key="manager.website.information"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_INFORMATION}"
@@ -73,12 +82,18 @@
 						@set="set"
 					/>
 				</tab>
+				<tab id="dateTime" label="{translate key="manager.setup.dateTime"}">
+					<date-time-form
+							v-bind="components.{$smarty.const.FORM_DATE_TIME}"
+							@set="set"
+					/>
+				</tab>
 				{call_hook name="Template::Settings::website::setup"}
 			</tabs>
 		</tab>
 		<tab id="plugins" label="{translate key="common.plugins"}">
 			{help file="settings/website-settings" section="plugins" class="pkp_help_tab"}
-			<tabs :options="{ useUrlFragment: false }">
+			<tabs :track-history="true">
 				<tab id="installedPlugins" label="{translate key="manager.plugins.installed"}">
 					{capture assign=pluginGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.plugins.SettingsPluginGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="pluginGridContainer" url=$pluginGridUrl}
@@ -92,9 +107,4 @@
 		</tab>
 		{call_hook name="Template::Settings::website"}
 	</tabs>
-</div>
-<script type="text/javascript">
-	pkp.registry.init('settings-context-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
-</script>
-
-{include file="common/footer.tpl"}
+{/block}

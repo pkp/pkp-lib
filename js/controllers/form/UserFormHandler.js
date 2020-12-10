@@ -1,9 +1,9 @@
 /**
  * @file js/controllers/form/UserFormHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserFormHandler
  * @ingroup js_controllers_form
@@ -92,11 +92,11 @@
 
 		// Fetch entered names
 		sitePrimaryLocale =
-				/** @type {string} */ $('[name="sitePrimaryLocale"]', $form).val();
-		givenName = /** @type {string} */ $('[name="givenName[' +
-				sitePrimaryLocale + ']"]', $form).val();
-		familyName = /** @type {string} */ $('[name="familyName[' +
-				sitePrimaryLocale + ']"]', $form).val();
+				/** @type {string} */ ($('[name="sitePrimaryLocale"]', $form).val());
+		givenName = /** @type {string} */ ($('[name="givenName[' +
+				sitePrimaryLocale + ']"]', $form).val());
+		familyName = /** @type {string} */ ($('[name="familyName[' +
+				sitePrimaryLocale + ']"]', $form).val());
 
 		// Replace dummy values in the URL with entered values
 		fetchUrl = this.fetchUsernameSuggestionUrl_.
@@ -146,5 +146,4 @@
 			$interestsElement.hide(300);
 		}
 	};
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

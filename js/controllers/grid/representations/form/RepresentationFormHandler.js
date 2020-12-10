@@ -4,9 +4,9 @@
 /**
  * @file js/controllers/grid/representations/form/RepresentationFormHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RepresentationFormHandler
  * @ingroup js_controllers_grid_representations_form
@@ -38,9 +38,11 @@
 		if (this.remoteRepresentation_) {
 			$('#remotelyHostedContent').prop('checked', true);
 			$('#remote').show(20);
+			$('#urlPathSection').hide();
 		} else {
 			$('#remotelyHostedContent').prop('checked', false);
-			$('#remote').hide(20);
+			$('#remote').hide();
+			$('#urlPathSection').show(20);
 		}
 
 		$('#remotelyHostedContent').change(this.callbackWrapper(this.toggleRemote_));
@@ -67,14 +69,16 @@
 		if ($('#remotelyHostedContent').prop('checked')) {
 			// show the remote URL input field
 			$('#remote').show(20);
+			$('#urlPathSection').hide();
+			$('input[id^="urlPath"]').val('');
 		} else {
 			// hide and clear the remote URL input field
 			$('#remote').hide(20);
 			$('input[id^="urlRemote"]').val('');
+			$('#urlPathSection').show(20);
 		}
 		return true;
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

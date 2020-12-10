@@ -5,9 +5,9 @@
 /**
  * @file js/controllers/modal/ModalHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ModalHandler
  * @ingroup js_controllers_modal
@@ -127,7 +127,7 @@
 
 		// Check for basic configuration requirements.
 		return typeof options === 'object' &&
-				(/** @type {{ buttons: Object }} */ options).buttons === undefined;
+				(/** @type {{ buttons: Object }} */ (options)).buttons === undefined;
 	};
 
 
@@ -166,14 +166,17 @@
 		var $modal = $('<div class="pkp_modal_panel"></div>');
 
 		// Title bar
-		if (this.options.title !== 'undefined') {
+		if (typeof(this.options.title) !== 'undefined') {
 			$modal.append('<div class="header">' + this.options.title + '</div>');
+		} else {
+			$modal.append('<div class="header">' + '</div>');
 		}
 
 		// Close button
 		if (this.options.canClose) {
 			$modal.append(
 					'<a href="#" class="close pkpModalCloseButton">' +
+					'<span :aria-hidden="true">×</span>' +
 					'<span class="pkp_screen_reader">' +
 					(/** @type {{ closeButtonText: string }} */ (this.options))
 					.closeButtonText + '</span></a>');
@@ -262,7 +265,7 @@
 					id = vueInstances[i];
 					if (typeof pkp.registry._instances[id] !== 'undefined') {
 						instance = /** @type {{ $destroy: Function }} */
-								pkp.registry._instances[id];
+								(pkp.registry._instances[id]);
 						instance.$destroy();
 					}
 				}
@@ -343,10 +346,12 @@
 			function(source, formId) {
 		if (this.options.closeOnFormSuccessId &&
 				this.options.closeOnFormSuccessId === formId) {
-			this.modalClose();
+			var self = this;
+			setTimeout(function() {
+				self.modalClose();
+			}, 1500);
 		}
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

@@ -1,0 +1,112 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:57+00:00\n"
+"PO-Revision-Date: 2020-11-27 16:28+0000\n"
+"Last-Translator: rl <biuro@fimagis.pl>\n"
+"Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
+"pl_PL/>\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Zapytanie"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Wytyczne"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Pobieranie i recenzja"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Finalizacja"
+
+msgid "reviewer.step1.request"
+msgstr "Prośba o wykonanie recenzji"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Zostałeś poproszony o wykonanie recenzji zgłoszonego tekstu. Poniżej znajdziesz opis zgłoszenia oraz harmonogram recenzji. Mamy nadzieję, że zaakceptujesz prośbę redakcji."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Wyświetl wszystkie szczegóły zgłoszonego tekstu"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Pliki recenzenta"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Odrzuć prośbę o wykonanie recenzji"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "W polu widocznym poniżej możesz podać powód swojej decyzji. Wiadomość zostanie przesłana do redaktora."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Zaakceptuj prośbę o wykonanie recenzji i przejdź do kroku #2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Przejdź do kroku #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Prześlij recenzję"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Wytyczne dla recenzenta"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Wydawca posiada określone zasady dotyczące konfliktu interesów. Zapoznaj się z tymi zasadami."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Brak konfliktu interesów"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Może wystąpić konflikt interesów (podaj szczegóły poniżej)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Konflikt interesów"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Wytyczne do recenzji"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Wydawca nie określił wytycznych do recenzji."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Kliknij na nazwy plików widoczne poniżej, aby pobrać pliki powiązane ze zgłoszeniem."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Napisz (lub wklej) swoją recenzję w formularzu poniżej."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Prześlij pliki do konsultacji z redaktorem i/lub z autorem, uwzględniając poprawione wersje oryginalnych plików recenzji."
+
+msgid "reviewer.complete"
+msgstr "Recenzja ukończona"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Czy na pewno przesłać recenzję?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Dziękujemy za ukończenie recenzji. Twoja recenzja została przesłana na platformę. Dziękujemy za wkład w budowanie jakości czasopisma. Redaktor może się z Tobą skontaktować w przypadku konieczności uzyskania dodatkowych informacji."
+
+msgid "reviewer.aboutDueDates"
+msgstr "O terminach"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "Redaktor prosi o zaakceptowanie lub odrzucenie prośby o wykonanie recenzji, a w przypadku akceptacji o jej wykonanie w podanym terminie."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Widoczne dla autora i redaktora"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Widoczne tylko do redaktora"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Bieżący użytkownik nie jest przydzielony jako recenzent do wskazanego dokumentu."
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Zapisz i wróć później"

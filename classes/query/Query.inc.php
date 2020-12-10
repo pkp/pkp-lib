@@ -3,9 +3,9 @@
 /**
  * @file classes/query/Query.inc.php
  *
- * Copyright (c) 2016-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2016-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Query
  * @ingroup submission
@@ -104,9 +104,7 @@ class Query extends DataObject {
 	 */
 	function getHeadNote() {
 		$notes = $this->getReplies(null, NOTE_ORDER_DATE_CREATED, SORT_DIRECTION_ASC, true);
-		$note = $notes->next();
-		$notes->close();
-		return $note;
+		return $notes->next();
 	}
 
 	/**
@@ -118,7 +116,7 @@ class Query extends DataObject {
 	 * @return DAOResultFactory
 	 */
 	function getReplies($userId = null, $sortBy = NOTE_ORDER_ID, $sortOrder = SORT_DIRECTION_ASC, $isAdmin = false) {
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		return $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $this->getId(), null, $sortBy, $sortOrder, $isAdmin);
 	}
 }

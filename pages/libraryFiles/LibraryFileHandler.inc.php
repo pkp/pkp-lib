@@ -2,9 +2,9 @@
 /**
  * @file pages/libraryFiles/LibraryFileHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LibraryFileHandler
  * @ingroup pages_libraryFiles
@@ -41,14 +41,13 @@ class LibraryFileHandler extends Handler {
 		import('classes.file.LibraryFileManager');
 		$context = $request->getContext();
 		$libraryFileManager = new LibraryFileManager($context->getId());
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
 
 		$publicFileId = $args[0];
 
 		$libraryFile = $libraryFileDao->getById($publicFileId, $context->getId());
 		if ($libraryFile && $libraryFile->getPublicAccess()) {
-			$filePath = $libraryFileManager->getBasePath() .  $libraryFile->getOriginalFileName();
-			$libraryFileManager->downloadByPath($filePath);
+			$libraryFileManager->downloadByPath($libraryFile->getFilePath());
 		} else {
 				header('HTTP/1.0 403 Forbidden');
 				echo '403 Forbidden<br>';
@@ -65,7 +64,7 @@ class LibraryFileHandler extends Handler {
 		import('classes.file.LibraryFileManager');
 		$context = $request->getContext();
 		$libraryFileManager = new LibraryFileManager($context->getId());
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
 		$libraryFile = $libraryFileDao->getById($request->getUserVar('libraryFileId'), $context->getId());
 		if ($libraryFile) {
 
@@ -82,14 +81,12 @@ class LibraryFileHandler extends Handler {
 
 				// Check for specific assignments.
 				$user = $request->getUser();
-				$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
+				$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /* @var $userStageAssignmentDao UserStageAssignmentDAO */
 				$assignedUsers = $userStageAssignmentDao->getUsersBySubmissionAndStageId($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION);
-				if (!$assignedUsers->wasEmpty()) {
-					while ($assignedUser = $assignedUsers->next()) {
-						if ($assignedUser->getId()  == $user->getId()) {
-							$allowedAccess = true;
-							break;
-						}
+				while ($assignedUser = $assignedUsers->next()) {
+					if ($assignedUser->getId()  == $user->getId()) {
+						$allowedAccess = true;
+						break;
 					}
 				}
 			} else {
@@ -97,8 +94,7 @@ class LibraryFileHandler extends Handler {
 			}
 
 			if ($allowedAccess) {
-				$filePath = $libraryFileManager->getBasePath() .  $libraryFile->getOriginalFileName();
-				$libraryFileManager->downloadByPath($filePath);
+				$libraryFileManager->downloadByPath($libraryFile->getFilePath());
 			} else {
 				header('HTTP/1.0 403 Forbidden');
 				echo '403 Forbidden<br>';

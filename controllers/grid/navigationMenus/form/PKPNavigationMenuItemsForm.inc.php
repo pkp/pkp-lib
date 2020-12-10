@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/navigationMenus/form/PKPNavigationMenuItemsForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNavigationMenuItemsForm
  * @ingroup controllers_grid_navigationMenus
@@ -111,7 +111,7 @@ class PKPNavigationMenuItemsForm extends Form {
 	 * Initialize form data from current navigation menu item.
 	 */
 	function initData() {
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 
 		if ($navigationMenuItem) {
@@ -128,6 +128,7 @@ class PKPNavigationMenuItemsForm extends Form {
 			$this->_data =  $formData;
 
 			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
+			$this->setData('remoteUrl', $navigationMenuItem->getRemoteUrl(null)); // Localized
 		}
 	}
 
@@ -135,22 +136,24 @@ class PKPNavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'path', 'content', 'title', 'url', 'menuItemType'));
+		$this->readUserVars(array('navigationMenuItemId', 'path', 'content', 'title', 'remoteUrl', 'menuItemType'));
 	}
 
 	/**
 	 * @copydoc Form::getLocaleFieldNames()
 	 */
 	function getLocaleFieldNames() {
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 		return $navigationMenuItemDao->getLocaleFieldNames();
 	}
 
 	/**
 	 * Save NavigationMenuItem.
 	 */
-	function execute() {
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
+
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 
 		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 		if (!$navigationMenuItem) {
@@ -183,7 +186,7 @@ class PKPNavigationMenuItemsForm extends Form {
 		$navigationMenuItem->setPath($this->getData('path'));
 		$navigationMenuItem->setContent($this->getData('content'), null); // Localized
 		$navigationMenuItem->setContextId($this->getContextId());
-		$navigationMenuItem->setUrl($this->getData('url'));
+		$navigationMenuItem->setRemoteUrl($this->getData('remoteUrl'), null); // Localized
 		$navigationMenuItem->setType($this->getData('menuItemType'));
 
 		// Update or insert navigation menu item
@@ -210,15 +213,18 @@ class PKPNavigationMenuItemsForm extends Form {
 					$this->addError('path', __('manager.navigationMenus.form.pathRegEx'));
 				}
 
-				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 
 				$navigationMenuItem = $navigationMenuItemDao->getByPath($this->_contextId, $this->getData('path'));
 				if (isset($navigationMenuItem) && $navigationMenuItem->getId() != $this->navigationMenuItemId) {
 					$this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
 				}
 			} elseif ($this->getData('menuItemType') == NMI_TYPE_REMOTE_URL) {
-				if(!filter_var($this->getData('url'), FILTER_VALIDATE_URL)) {
-					$this->addError('url', __('manager.navigationMenus.form.customUrlError'));
+				$remoteUrls = $this->getData('remoteUrl');
+				foreach ($remoteUrls as $remoteUrl) {
+					if(!filter_var($remoteUrl, FILTER_VALIDATE_URL)) {
+						$this->addError('remoteUrl', __('manager.navigationMenus.form.customUrlError'));
+					}
 				}
 			}
 		} else {

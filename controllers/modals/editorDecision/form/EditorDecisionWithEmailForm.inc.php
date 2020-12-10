@@ -3,9 +3,9 @@
 /**
  * @file controllers/modals/editorDecision/form/EditorDecisionWithEmailForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionWithEmailForm
  * @ingroup controllers_modals_editorDecision_form
@@ -116,7 +116,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$reviewsAvailable = false;
 			$submission = $this->getSubmission();
 			$reviewRound = $this->getReviewRound();
-			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
 			foreach ($reviewAssignments as $reviewAssignment) {
 				if ($reviewAssignment->getDateCompleted() != null) {
@@ -230,16 +230,16 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			$selectedAttachments = $this->getData('selectedAttachments');
 			if(is_array($selectedAttachments)) {
-				foreach ($selectedAttachments as $fileId) {
+				foreach ($selectedAttachments as $submissionFileId) {
 
 					// Retrieve the submission file.
-					$submissionFile = $submissionFileDao->getLatestRevision($fileId);
+					$submissionFile = Services::get('submissionFile')->get($submissionFileId);
 					assert(is_a($submissionFile, 'SubmissionFile'));
 
 					// Check the association information.
-					if($submissionFile->getAssocType() == ASSOC_TYPE_REVIEW_ASSIGNMENT) {
+					if($submissionFile->getData('assocType') == ASSOC_TYPE_REVIEW_ASSIGNMENT) {
 						// The review attachment has been uploaded by a reviewer.
-						$reviewAssignmentId = $submissionFile->getAssocId();
+						$reviewAssignmentId = $submissionFile->getData('assocId');
 						assert(is_numeric($reviewAssignmentId));
 					} else {
 						// The review attachment has been uploaded by the editor.
@@ -252,9 +252,10 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 					assert(!is_null($reviewIndex));
 
 					// Add the attachment to the email.
+					$path = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . Services::get('file')->getPath($submissionFile->getData('fileId'));
 					$email->addAttachment(
-						$submissionFile->getFilePath(),
-						PKPString::enumerateAlphabetically($reviewIndex).'-'.$submissionFile->getOriginalFileName()
+						$path,
+						PKPString::enumerateAlphabetically($reviewIndex).'-'.$submissionFile->getLocalizedData('name')
 					);
 
 					// Update submission file to set viewable as true, so author
@@ -278,10 +279,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 				$libraryFileManager = new LibraryFileManager($libraryFile->getContextId());
 
 				// Add the attachment to the email.
-				$email->addAttachment(
-					$libraryFileManager->getBasePath() .  $libraryFile->getOriginalFileName(),
-					$libraryFile->getOriginalFileName()
-				);
+				$email->addAttachment($libraryFile->getFilePath(), $libraryFile->getOriginalFileName());
 			}
 		}
 

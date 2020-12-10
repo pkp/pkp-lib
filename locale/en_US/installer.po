@@ -41,12 +41,6 @@ msgstr "Connection character set"
 msgid "installer.contentsOfConfigFile"
 msgstr "Contents of configuration file"
 
-msgid "installer.createDatabase"
-msgstr "Create new database"
-
-msgid "installer.createDatabaseInstructions"
-msgstr "To use this option your database system must support remote database creation and your user account must have the appropriate permissions to create new databases. If installation fails with this option selected, manually create the database on your server and run the installer again with this option disabled."
-
 msgid "installer.databaseDriver"
 msgstr "Database driver"
 
@@ -127,6 +121,9 @@ msgstr "The directory specified for uploaded files does not exist or is not writ
 
 msgid "installer.installParseDBFileError"
 msgstr "Error parsing the database installation file <tt>{$file}</tt>."
+
+msgid "installer.installMigrationError"
+msgstr "Error executing the migration class <tt>{$class}</tt>."
 
 msgid "installer.installParseEmailTemplatesFileError"
 msgstr "Error parsing the email template file <tt>{$file}</tt>."

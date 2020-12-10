@@ -3,9 +3,9 @@
 /**
  * @file classes/controllers/grid/CategoryGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CategoryGridHandler
  * @ingroup controllers_grid
@@ -151,7 +151,7 @@ class CategoryGridHandler extends GridHandler {
 	 * Get the number of elements inside the passed category element.
 	 * @param $categoryElement mixed
 	 * @param $request PKPRequest
-	 * @return int 
+	 * @return int
 	 */
 	function getCategoryItemsCount($categoryElement, $request) {
 		$data = $this->getGridCategoryDataElements($request, $categoryElement);

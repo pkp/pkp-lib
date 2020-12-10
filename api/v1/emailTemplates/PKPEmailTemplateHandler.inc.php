@@ -2,9 +2,9 @@
 /**
  * @file api/v1/contexts/PKPEmailTemplateHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEmailTemplateHandler
  * @ingroup api_v1_email_templates
@@ -94,20 +94,11 @@ class PKPEmailTemplateHandler extends APIHandler {
 	 */
 	public function getMany($slimRequest, $response, $args) {
 		$request = $this->getRequest();
-		$requestContext = $request->getContext();
-		$emailTemplateService = Services::get('emailTemplate');
 
-		$defaultParams = array(
-			'count' => 30,
-			'offset' => 0,
-		);
-
-		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
-
-		$allowedParams = array();
+		$allowedParams = [];
 
 		// Process query params to format incoming data as needed
-		foreach ($requestParams as $param => $val) {
+		foreach ($slimRequest->getQueryParams() as $param => $val) {
 			switch ($param) {
 				case 'isCustom':
 				case 'isEnabled':
@@ -116,7 +107,8 @@ class PKPEmailTemplateHandler extends APIHandler {
 
 				case 'fromRoleIds':
 				case 'toRoleIds':
-					if (is_string($val) && strpos($val, ',') > -1) {
+				case 'stageIds':
+					if (is_string($val)) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
 						$val = array($val);
@@ -125,14 +117,6 @@ class PKPEmailTemplateHandler extends APIHandler {
 					break;
 				case 'searchPhrase':
 					$allowedParams[$param] = trim($val);
-					break;
-
-				case 'count':
-					$allowedParams[$param] = min(100, (int) $val);
-					break;
-
-				case 'offset':
-					$allowedParams[$param] = (int) $val;
 					break;
 			}
 		}
@@ -143,17 +127,17 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$allowedParams['contextId'] = $request->getContext()->getId();
 
 		$items = array();
-		$emailTemplatesIterator = $emailTemplateService->getMany($allowedParams);
+		$emailTemplatesIterator = Services::get('emailTemplate')->getMany($allowedParams);
 		foreach ($emailTemplatesIterator as $emailTemplate) {
-			$items[] = $emailTemplateService->getSummaryProperties($emailTemplate, [
+			$items[] = Services::get('emailTemplate')->getSummaryProperties($emailTemplate, [
 				'slimRequest' => $slimRequest,
 				'request' => $request,
-				'supportedLocales' => $request->getContext()->getData('supportedLocales'),
+				'supportedLocales' => $request->getContext()->getData('supportedFormLocales'),
 			]);
 		}
 
 		$data = array(
-			'itemsMax' => $emailTemplateService->getMax($allowedParams),
+			'itemsMax' => Services::get('emailTemplate')->getMax($allowedParams),
 			'items' => $items,
 		);
 
@@ -172,17 +156,16 @@ class PKPEmailTemplateHandler extends APIHandler {
 	public function get($slimRequest, $response, $args) {
 		$request = $this->getRequest();
 
-		$emailTemplateService = Services::get('emailTemplate');
-		$emailTemplate = $emailTemplateService->getByKey($request->getContext()->getId(), $args['key']);
+		$emailTemplate = Services::get('emailTemplate')->getByKey($request->getContext()->getId(), $args['key']);
 
 		if (!$emailTemplate) {
 			return $response->withStatus(404)->withJsonError('api.emailTemplates.404.templateNotFound');
 		}
 
-		$data = $emailTemplateService->getFullProperties($emailTemplate, [
+		$data = Services::get('emailTemplate')->getFullProperties($emailTemplate, [
 			'slimRequest' => $slimRequest,
 			'request' => $request,
-			'supportedLocales' => $request->getContext()->getData('supportedLocales'),
+			'supportedLocales' => $request->getContext()->getData('supportedFormLocales'),
 		]);
 
 		return $response->withJson($data, 200);
@@ -208,22 +191,21 @@ class PKPEmailTemplateHandler extends APIHandler {
 		}
 
 		$primaryLocale = $requestContext->getData('primaryLocale');
-		$allowedLocales = $requestContext->getData('supportedLocales');
-		$emailTemplateService = Services::get('emailTemplate');
-		$errors = $emailTemplateService->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
+		$allowedLocales = $requestContext->getData('supportedFormLocales');
+		$errors = Services::get('emailTemplate')->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
 		if (!empty($errors)) {
 			return $response->withStatus(400)->withJson($errors);
 		}
 
 		$emailTemplate = Application::getContextDAO()->newDataObject();
-		$emailTemplate->_data = $params;
-		$emailTemplate = $emailTemplateService->add($emailTemplate, $request);
+		$emailTemplate->setAllData($params);
+		$emailTemplate = Services::get('emailTemplate')->add($emailTemplate, $request);
 
-		$data = $emailTemplateService->getFullProperties($emailTemplate, [
+		$data = Services::get('emailTemplate')->getFullProperties($emailTemplate, [
 			'slimRequest' => $slimRequest,
 			'request' => $request,
-			'supportedLocales' => $requestContext->getData('supportedLocales'),
+			'supportedLocales' => $requestContext->getData('supportedFormLocales'),
 		]);
 
 		return $response->withJson($data, 200);
@@ -242,8 +224,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$request = $this->getRequest();
 		$requestContext = $request->getContext();
 
-		$emailTemplateService = Services::get('emailTemplate');
-		$emailTemplate = $emailTemplateService->getByKey($requestContext->getId(), $args['key']);
+		$emailTemplate = Services::get('emailTemplate')->getByKey($requestContext->getId(), $args['key']);
 
 		if (!$emailTemplate) {
 			return $response->withStatus(404)->withJsonError('api.emailTemplates.404.templateNotFound');
@@ -263,10 +244,10 @@ class PKPEmailTemplateHandler extends APIHandler {
 			$params['contextId'] = $requestContext->getId();
 		}
 
-		$errors = $emailTemplateService->validate(
+		$errors = Services::get('emailTemplate')->validate(
 			VALIDATE_ACTION_EDIT,
 			$params,
-			$requestContext->getData('supportedLocales'),
+			$requestContext->getData('supportedFormLocales'),
 			$requestContext->getData('primaryLocale')
 		);
 
@@ -274,12 +255,12 @@ class PKPEmailTemplateHandler extends APIHandler {
 			return $response->withStatus(400)->withJson($errors);
 		}
 
-		$emailTemplate = $emailTemplateService->edit($emailTemplate, $params, $request);
+		$emailTemplate = Services::get('emailTemplate')->edit($emailTemplate, $params, $request);
 
-		$data = $emailTemplateService->getFullProperties($emailTemplate, [
+		$data = Services::get('emailTemplate')->getFullProperties($emailTemplate, [
 			'slimRequest' => $slimRequest,
 			'request' => $request,
-			'supportedLocales' => $requestContext->getData('supportedLocales'),
+			'supportedLocales' => $requestContext->getData('supportedFormLocales'),
 		]);
 
 		return $response->withJson($data, 200);
@@ -298,21 +279,20 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$request = $this->getRequest();
 		$requestContext = $request->getContext();
 
-		$emailTemplateService = Services::get('emailTemplate');
-		$emailTemplate = $emailTemplateService->getByKey($requestContext->getId(), $args['key']);
+		$emailTemplate = Services::get('emailTemplate')->getByKey($requestContext->getId(), $args['key']);
 
 		// Only custom email templates can be deleted, so return 404 if no id exists
 		if (!$emailTemplate || !$emailTemplate->getData('id')) {
 			return $response->withStatus(404)->withJsonError('api.emailTemplates.404.templateNotFound');
 		}
 
-		$emailTemplateProps = $emailTemplateService->getFullProperties($emailTemplate, [
+		$emailTemplateProps = Services::get('emailTemplate')->getFullProperties($emailTemplate, [
 			'slimRequest' => $slimRequest,
 			'request' => $request,
-			'supportedLocales' => $requestContext->getData('supportedLocales'),
+			'supportedLocales' => $requestContext->getData('supportedFormLocales'),
 		]);
 
-		$emailTemplateService->delete($emailTemplate);
+		Services::get('emailTemplate')->delete($emailTemplate);
 
 		return $response->withJson($emailTemplateProps, 200);
 	}

@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/FieldRichTextarea.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldRichTextarea
  * @ingroup classes_controllers_form
@@ -45,9 +45,6 @@ class FieldRichTextarea extends Field {
 	 */
 	public function __construct($name, $args = []) {
 		parent::__construct($name, $args);
-		$this->i18n = array_merge([
-			'wordCount' => __('publication.wordCount'),
-		], $this->i18n);
 	}
 
 	/**
@@ -72,6 +69,7 @@ class FieldRichTextarea extends Field {
 		}
 		if ($this->wordLimit) {
 			$config['wordLimit'] = $this->wordLimit;
+			$config['wordCountLabel'] = __('publication.wordCount');
 		}
 
 		return $config;

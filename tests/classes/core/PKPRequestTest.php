@@ -3,9 +3,9 @@
 /**
  * @file tests/classes/core/PKPRequestTest.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPRequestTest
  * @ingroup tests_classes_core
@@ -21,11 +21,14 @@ import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.core.PKPRequest');
 import('lib.pkp.classes.plugins.HookRegistry'); // This imports our mock HookRegistry implementation.
 
+/**
+ * @backupGlobals enabled
+ */
 class PKPRequestTest extends PKPTestCase {
 	protected $request;
 	private $getRemoteAddrTestConfigData;
 
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		HookRegistry::rememberCalledHooks();
 		$this->request = new PKPRequest();
@@ -34,7 +37,7 @@ class PKPRequestTest extends PKPTestCase {
 		$this->getRemoteAddrTestConfigData = Registry::get('configData');
 	}
 
-	public function tearDown() {
+	public function tearDown() : void {
 		HookRegistry::resetCalledHooks();
 
 		// Restore the config data after testTrustXForwardedFor tests

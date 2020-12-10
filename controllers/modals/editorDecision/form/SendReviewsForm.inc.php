@@ -3,9 +3,9 @@
 /**
  * @file controllers/modals/editorDecision/form/SendReviewsForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SendReviewsForm
  * @ingroup controllers_modals_editorDecision_form
@@ -49,7 +49,7 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 	 */
 	function initData($actionLabels = array()) {
 		$request = Application::get()->getRequest();
-		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
+		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getSubmission(), $this->getStageId(), $this->_getDecisions());
 
 		return parent::initData($actionLabels);
 	}
@@ -95,14 +95,14 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 
 		// Retrieve the submission.
 		$submission = $this->getSubmission();
 
 		// Get this form decision actions labels.
-		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
+		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), $this->_getDecisions());
 
 		// Record the decision.
 		$reviewRound = $this->getReviewRound();
@@ -111,6 +111,8 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 		import('lib.pkp.classes.submission.action.EditorAction');
 		$editorAction = new EditorAction();
 		$editorAction->recordDecision($request, $submission, $decision, $actionLabels, $reviewRound, $stageId);
+
+		parent::execute(...$functionArgs);
 
 		// Identify email key and status of round.
 		switch ($decision) {

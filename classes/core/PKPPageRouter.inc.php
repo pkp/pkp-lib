@@ -3,9 +3,9 @@
 /**
  * @file classes/core/PKPPageRouter.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPageRouter
  * @ingroup core
@@ -111,6 +111,21 @@ class PKPPageRouter extends PKPRouter {
 	 */
 	function getRequestedArgs($request) {
 		return $this->_getRequestedUrlParts(array('Core', 'getArgs'), $request);
+	}
+
+	/**
+	 * Get the anchor (#anchor) requested in the URL
+	 *
+	 * @para $request PKPRequest the request to be routed
+	 * @return string
+	 */
+	function getRequestedAnchor($request) {
+		$url = $request->getRequestUrl();
+		$parts = explode('#', $url);
+		if (count($parts) < 2) {
+			return '';
+		}
+		return $parts[1];
 	}
 
 
@@ -338,7 +353,7 @@ class PKPPageRouter extends PKPRouter {
 		//
 		// Anchor
 		//
-		$anchor = (empty($anchor) ? '' : '#'.rawurlencode($anchor));
+		$anchor = (empty($anchor) ? '' : '#'.preg_replace("/[^a-zA-Z0-9\-\_\/\.\~]/", '', $anchor));
 
 		//
 		// Assemble URL
@@ -400,29 +415,31 @@ class PKPPageRouter extends PKPRouter {
 	 * @param $request PKPRequest the request to be routed
 	 */
 	function getHomeUrl($request) {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$user = $request->getUser();
 		$userId = $user->getId();
 
 		if ($context = $this->getContext($request, 1)) {
 			// The user is in the context, see if they have zero or one roles only
 			$userGroups = $userGroupDao->getByUserId($userId, $context->getId());
-			if($userGroups->getCount() <= 1) {
-				$userGroup = $userGroups->next();
-				if (!$userGroup || $userGroup->getRoleId() == ROLE_ID_READER) return $request->url(null, 'index');
+			$firstUserGroup = $userGroups->next();
+			$secondUserGroup = $userGroups->next();
+			if (!$secondUserGroup) {
+				if (!$firstUserGroup || $firstUserGroup->getRoleId() == ROLE_ID_READER) return $request->url(null, 'index');
 			}
 			return $request->url(null, 'submissions');
 		} else {
 			// The user is at the site context, check to see if they are
 			// only registered in one place w/ one role
 			$userGroups = $userGroupDao->getByUserId($userId, CONTEXT_ID_NONE);
+			$firstUserGroup = $userGroups->next();
+			$secondUserGroup = $userGroups->next();
 
-			if($userGroups->getCount() == 1) {
+			if($firstUserGroup && !$secondUserGroup) {
 				$contextDao = Application::getContextDAO();
-				$userGroup = $userGroups->next();
-				$context = $contextDao->getById($userGroup->getContextId());
+				$context = $contextDao->getById($firstUserGroup->getContextId());
 				if (!isset($context)) $request->redirect('index', 'index');
-				if ($userGroup->getRoleId() == ROLE_ID_READER) $request->redirect(null, 'index');
+				if ($firstUserGroup->getRoleId() == ROLE_ID_READER) $request->redirect(null, 'index');
 			}
 			return $request->url('index', 'index');
 		}

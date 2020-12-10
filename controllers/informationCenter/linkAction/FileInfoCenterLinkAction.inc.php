@@ -2,9 +2,9 @@
 /**
  * @file controllers/informationCenter/linkAction/FileInfoCenterLinkAction.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileInfoCenterLinkAction
  * @ingroup controllers_informationCenter
@@ -45,7 +45,7 @@ class FileInfoCenterLinkAction extends FileLinkAction {
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$router = $request->getRouter();
 
-		$title = (isset($submissionFile)) ? implode(': ', array(__('informationCenter.informationCenter'), htmlspecialchars($submissionFile->getLocalizedName()))) : __('informationCenter.informationCenter');
+		$title = (isset($submissionFile)) ? implode(': ', array(__('informationCenter.informationCenter'), htmlspecialchars($submissionFile->getLocalizedData('name')))) : __('informationCenter.informationCenter');
 
 		$ajaxModal = new AjaxModal(
 			$router->url(

@@ -3,9 +3,9 @@
 /**
  * @file pages/authorDashboard/PKPAuthorDashboardHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorDashboardHandler
  * @ingroup pages_authorDashboard
@@ -18,6 +18,9 @@ import('classes.handler.Handler');
 import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_REVIEW_...
 
 abstract class PKPAuthorDashboardHandler extends Handler {
+
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
 
 	/**
 	 * Constructor
@@ -73,7 +76,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 	 * @return JSONMessage JSON object
 	 */
 	function readSubmissionEmail($args, $request) {
-		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 		$user = $request->getUser();
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$submissionEmailId = $request->getUserVar('submissionEmailId');
@@ -134,7 +137,8 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			$submissionContext = Services::get('context')->get($submission->getContextId());
 		}
 
-		$contextUserGroups = DAORegistry::getDAO('UserGroupDAO')->getByRoleId($submission->getData('contextId'), ROLE_ID_AUTHOR)->toArray();
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$contextUserGroups = $userGroupDao->getByRoleId($submission->getData('contextId'), ROLE_ID_AUTHOR)->toArray();
 		$workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
 
 		$stageNotifications = array();
@@ -150,26 +154,30 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		$uploadFileUrl = '';
 		if (in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
 			$fileStage = $this->_fileStageFromWorkflowStage($submission->getData('stageId'));
-			$lastReviewRound = DAORegistry::getDAO('ReviewRoundDAO')->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
+			$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
 			if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
-				$editorDecisions = DAORegistry::getDAO('EditDecisionDAO')->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getRound());
-				$lastDecision = array_last($editorDecisions)['decision'];
-				$revisionDecisions = [SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, SUBMISSION_EDITOR_DECISION_RESUBMIT];
-				if (!empty($editorDecisions) && in_array($lastDecision, $revisionDecisions)) {
-					$actionArgs['submissionId'] = $submission->getId();
-					$actionArgs['stageId'] = $submission->getData('stageId');
-					$actionArgs['uploaderRoles'] = ROLE_ID_AUTHOR;
-					$actionArgs['fileStage'] = $fileStage;
-					$actionArgs['reviewRoundId'] = $lastReviewRound->getId();
-					$uploadFileUrl = $request->getDispatcher()->url(
-						$request,
-						ROUTE_COMPONENT,
-						null,
-						'wizard.fileUpload.FileUploadWizardHandler',
-						'startWizard',
-						null,
-						$actionArgs
-					);
+				$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
+				$editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getRound());
+				if (!empty($editorDecisions)) {
+					$lastDecision = array_last($editorDecisions)['decision'];
+					$revisionDecisions = [SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, SUBMISSION_EDITOR_DECISION_RESUBMIT];
+					if (in_array($lastDecision, $revisionDecisions)) {
+						$actionArgs['submissionId'] = $submission->getId();
+						$actionArgs['stageId'] = $submission->getData('stageId');
+						$actionArgs['uploaderRoles'] = ROLE_ID_AUTHOR;
+						$actionArgs['fileStage'] = $fileStage;
+						$actionArgs['reviewRoundId'] = $lastReviewRound->getId();
+						$uploadFileUrl = $request->getDispatcher()->url(
+							$request,
+							ROUTE_COMPONENT,
+							null,
+							'wizard.fileUpload.FileUploadWizardHandler',
+							'startWizard',
+							null,
+							$actionArgs
+						);
+					}
 				}
 			}
 		}
@@ -178,7 +186,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		$localeNames = AppLocale::getAllLocales();
 		$locales = array_map(function($localeKey) use ($localeNames) {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-		}, $supportedFormLocales);		
+		}, $supportedFormLocales);
 
 		$latestPublication = $submission->getLatestPublication();
 
@@ -243,7 +251,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		foreach ($submission->getData('publications') as $publication) {
 			$publicationList[] = Services::get('publication')->getProperties(
 				$publication,
-				['id', 'datePublished', 'status'],
+				['id', 'datePublished', 'status', 'version'],
 				[
 					'context' => $submissionContext,
 					'submission' => $submission,
@@ -283,41 +291,41 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			$canEditPublication =  false;
 		}
 
-		$workflowData = [
+		// Check if current author can access ArticleGalleyGrid within production stage
+		$canAccessProductionStage = true;
+		$userAllowedStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+		if(!array_key_exists(WORKFLOW_STAGE_ID_PRODUCTION, $userAllowedStages)) {
+			$canAccessProductionStage = false;
+		}
+
+		$state = [
+			'canEditPublication' => $canEditPublication,
 			'components' => [
 				FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
 				FORM_CITATIONS => $citationsForm->getConfig(),
 			],
 			'contributorsGridUrl' => $contributorsGridUrl,
-			'csrfToken' => $request->getSession()->getCSRFToken(),
+			'currentPublication' => $currentPublicationProps,
 			'publicationFormIds' => [
 				FORM_TITLE_ABSTRACT,
 				FORM_CITATIONS,
 			],
-			'representationsGridUrl' => $this->_getRepresentationsGridUrl($request, $submission),
+			'representationsGridUrl' => $canAccessProductionStage ? $this->_getRepresentationsGridUrl($request, $submission) : '',
 			'submission' => $submissionProps,
 			'publicationList' => $publicationList,
-			'currentPublication' => $currentPublicationProps,
 			'workingPublication' => $workingPublicationProps,
 			'submissionApiUrl' => $submissionApiUrl,
+			'submissionLibraryLabel' => __('grid.libraryFiles.submission.title'),
 			'submissionLibraryUrl' => $submissionLibraryUrl,
 			'supportsReferences' => !!$submissionContext->getData('citations'),
+			'statusLabel' => __('semicolon', ['label' => __('common.status')]),
+			'uploadFileModalLabel' => __('editor.submissionReview.uploadFile'),
 			'uploadFileUrl' => $uploadFileUrl,
-			'canEditPublication' => $canEditPublication,
-			'i18n' => [
-				'publicationTabsLabel' => __('publication.version.details'),
-				'status' => __('semicolon', ['label' => __('common.status')]),
-				'submissionLibrary' => __('grid.libraryFiles.submission.title'),
-				'uploadFile' => __('common.upload.addFile'),
-				'uploadFileModal' => __('editor.submissionReview.uploadFile'),
-				'view' => __('common.view'),
-				'version' => __('semicolon', ['label' => __('admin.version')]),
-				'save' => __('common.save'),
-			],
+			'versionLabel' => __('semicolon', ['label' => __('admin.version')]),
 		];
 
 		// Add the metadata form if one or more metadata fields are enabled
-		$metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'supportingAgencies', 'type'];
+		$metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'agencies', 'type'];
 		$metadataEnabled = false;
 		foreach ($metadataFields as $metadataField) {
 			if ($submissionContext->getData($metadataField)) {
@@ -329,17 +337,23 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			$vocabSuggestionUrlBase =$request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
 			$metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
 			$templateMgr->setConstants(['FORM_METADATA']);
-			$workflowData['components'][FORM_METADATA] = $metadataForm->getConfig();
-			$workflowData['publicationFormIds'][] = FORM_METADATA;
+			$state['components'][FORM_METADATA] = $metadataForm->getConfig();
+			$state['publicationFormIds'][] = FORM_METADATA;
 		}
+
+		$templateMgr->setState($state);
 
 		$templateMgr->assign([
 			'metadataEnabled' => $metadataEnabled,
+			'pageComponent' => 'WorkflowPage',
+			'pageTitle' => join(__('common.titleSeparator'), [
+				$submission->getShortAuthorString(),
+				$submission->getLocalizedTitle()
+			]),
 			'submission' => $submission,
-			'workflowData' => $workflowData,
 			'workflowStages' => $workflowStages,
+			'canAccessProductionStage' => $canAccessProductionStage,
 		]);
-
 	}
 
 	/**

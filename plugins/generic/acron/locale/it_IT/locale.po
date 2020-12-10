@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T11:06:22+00:00\n"
+"PO-Revision-Date: 2020-08-04 07:48+0000\n"
+"Last-Translator: Lucia Steele <lucia.steele@aboutscience.eu>\n"
+"Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"generic-acron/it/>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.acron.name"
+msgstr "Plugin Acron"
+
+msgid "plugins.generic.acron.reload"
+msgstr "Ricarica i compiti programmati"
+
+msgid "plugins.generic.acron.enabled"
+msgstr "Il plugin Acron è stato abilitato."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Il plugin Acron è stato disabilitato."
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Azioni pianificate aggiornate."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Cron tab aggiornato correttamente."
+
+msgid "plugins.generic.acron.description"
+msgstr ""
+"Questo plugin cerca di limitare la dipendenza dell'applicazione da strumenti "
+"di pianificazione periodica come 'cron.'"

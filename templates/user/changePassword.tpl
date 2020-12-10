@@ -1,9 +1,9 @@
 {**
  * templates/user/changePassword.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Form to change a user's password.
  *}
@@ -34,11 +34,11 @@
 			{fbvElement type="text" password="true" id="password2" value=$oldPassword maxLength="32" label="user.profile.repeatNewPassword" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 
-		{fbvFormButtons submitText="common.save"}
-
 		<p>
 			{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
 			{translate key="user.privacyLink" privacyUrl=$privacyUrl}
 		</p>
+
+		{fbvFormButtons submitText="common.save"}
 	{/fbvFormArea}
 </form>

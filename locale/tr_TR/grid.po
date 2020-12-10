@@ -1,0 +1,678 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
+"PO-Revision-Date: 2020-06-20 11:39+0000\n"
+"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"tr_TR/>\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.noItems"
+msgstr "Öge Yok"
+
+msgid "grid.settings"
+msgstr "Ayarlar"
+
+msgid "grid.action.sort"
+msgstr "Sırala"
+
+msgid "grid.action.addItem"
+msgstr "Öge Ekle"
+
+msgid "grid.action.delete"
+msgstr "Sil"
+
+msgid "grid.action.remove"
+msgstr "Kaldır"
+
+msgid "grid.action.edit"
+msgstr "Düzenle"
+
+msgid "grid.action.approve"
+msgstr "Onayla"
+
+msgid "grid.action.decline"
+msgstr "Aday makaleyi Reddet"
+
+msgid "grid.action.moreInformation"
+msgstr "Daha Fazla Bilgi"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Varsayılan Ayarlara Dön"
+
+msgid "grid.columns.actions"
+msgstr "Eylemler"
+
+msgid "grid.columns.institution"
+msgstr "Kurum"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.sponsor.title"
+msgstr "Sponsor"
+
+msgid "grid.contributor.title"
+msgstr "Destek Kaynakları"
+
+msgid "grid.action.addAuthor"
+msgstr "Yazar Ekle"
+
+msgid "grid.reviewForm.title"
+msgstr "Değerlendirme Formları"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Dosyalar"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Gönderi Kütüphanesi"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Editör Kütüphanesi"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Değerlendirme Kütüphanesi"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Üretim Kütüphanesi"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Dizgi Şablon Kütüphanesi"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Gönderi Kontrol Listesi"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Kontrol Listesi Ögesi"
+
+msgid "author.users.contributor.name"
+msgstr "Ad"
+
+msgid "author.users.contributor.email"
+msgstr "E-posta"
+
+msgid "author.users.contributor.role"
+msgstr "Görev"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Birincil İletişim"
+
+msgid "grid.action.addUser"
+msgstr "Üye Ekle"
+
+msgid "grid.action.deleteFile"
+msgstr "Dosya Sil"
+
+msgid "grid.action.editAuthor"
+msgstr "Yazar Düzenle"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Yazar Sil"
+
+msgid "grid.action.addAuditor"
+msgstr "Denetçi Ekle"
+
+msgid "grid.action.upgrade"
+msgstr "Güncelle"
+
+msgid "grid.action.order"
+msgstr "Sırala"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Sıralamayı iptal et"
+
+msgid "grid.action.email"
+msgstr "E-posta gönder"
+
+msgid "grid.action.addReviewer"
+msgstr "Hakem ekle"
+
+msgid "grid.action.addFile"
+msgstr "Dosya ekle"
+
+msgid "grid.action.editFile"
+msgstr "Dosya düzenle"
+
+msgid "grid.action.selectFiles"
+msgstr "Yönetmek için dosyaları seç"
+
+msgid "grid.action.settings"
+msgstr "Ayarlar"
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"Bu e-posta gönderilirken bir hatayla karşılaşıldı. Lütfen e-posta sunucusu "
+"yapılandırmanızın çalıştığından emin olun ve / veya sistem yöneticinize "
+"başvurun."
+
+msgid "grid.action.deleteMedia"
+msgstr "Medya Sil"
+
+msgid "grid.action.editMedia"
+msgstr "Medya Düzelt"
+
+msgid "grid.action.extendAll"
+msgstr "Hepsini aç"
+
+msgid "grid.action.collapse"
+msgstr "Daralt"
+
+msgid "grid.action.collapseAll"
+msgstr "Tümünü daralt"
+
+msgid "grid.action.wizard"
+msgstr "Ayarlar sihirbazı"
+
+msgid "grid.action.moveItem"
+msgstr "Öge Taşı"
+
+msgid "grid.action.downloadAll"
+msgstr "Tüm dosyaları arşiv dosyası olarak indir"
+
+msgid "grid.action.readReview"
+msgstr "Değerlendirmeyi oku"
+
+msgid "grid.action.requestRevisions"
+msgstr "Aday makale için revizyon iste"
+
+msgid "grid.action.accept"
+msgstr "Aday makaleyi kabul et"
+
+msgid "grid.action.internalReview"
+msgstr "Aday makaleyi değerlendirmeye al"
+
+msgid "grid.action.externalReview"
+msgstr "Aday makaleyi değerlendirmeye gödner"
+
+msgid "grid.action.sendToProduction"
+msgstr "Aday makaleyi yayımlanma sürecine al"
+
+msgid "grid.action.importexport"
+msgstr "İçeriği veya site verisini içeri veya dışarı aktar"
+
+msgid "grid.action.orderItems"
+msgstr "Sıralama seçeneğini etkinleştir"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Kontrol listesini düzenle"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Kontrol listesini sil"
+
+msgid "grid.action.resetAll"
+msgstr "Tüm ögeleri varsayılan biçime döndür"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Yeni bir e-posta şablonu ekle"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Bu e-posta şablonunu düzenle"
+
+msgid "grid.action.disableEmail"
+msgstr "Bu e-posta şablonunu pasifleştir"
+
+msgid "grid.action.resetEmail"
+msgstr "Bu e-posta şablonunu varsayılan biçime döndür"
+
+msgid "grid.action.expandAll"
+msgstr "Tümünü Genişlet"
+
+msgid "grid.action.requestAccount"
+msgstr "Kişi Ekle"
+
+msgid "grid.action.expand"
+msgstr "Genişlet"
+
+msgid "grid.action.notify"
+msgstr "Kişiyi bilgilendir"
+
+msgid "grid.action.addUserGroup"
+msgstr "Yeni bir Üye Grubu Ekle"
+
+msgid "grid.action.editUserGroup"
+msgstr "Üye grubunu düzelt"
+
+msgid "grid.action.disable"
+msgstr "Pasifleştir"
+
+msgid "grid.action.details"
+msgstr "Ögeyi göster"
+
+msgid "grid.action.enrolExisting"
+msgstr "Var olan üyeyi hakem olarak yetkilendir"
+
+msgid "grid.action.selectCreate"
+msgstr "Yeni hakem oluştur"
+
+msgid "grid.action.advancedSearch"
+msgstr "Gelişmiş arama"
+
+msgid "grid.action.viewMetadata"
+msgstr "Aday Makale Üstverisini Göster"
+
+msgid "grid.action.sendReminder"
+msgstr "Kullanıcıya görev hatırlatması gönder"
+
+msgid "grid.action.newRound"
+msgstr "Yeni tur başlat"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Hakem rehberini göster"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Çıkar çatışması rehberleri politikasını görüntüle"
+
+msgid "grid.action.thankReviewer"
+msgstr "Bu hakeme teşekkür mesajı gönder"
+
+msgid "grid.action.uploadFile"
+msgstr "Dosya yükle"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Duyuru Türü Ekle"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Duyuru Ekle"
+
+msgid "grid.task.status.completed"
+msgstr "Bu görev tamamlandı"
+
+msgid "grid.task.status.new"
+msgstr "Bu yeni bir öge ve dikkat gerektirir"
+
+msgid "grid.task.status.uploaded"
+msgstr "Sütun başlığı bu dosyayı kimin yüklediğini gösterir"
+
+msgid "grid.columns.auditor"
+msgstr "Denetçi"
+
+msgid "grid.columns.locale"
+msgstr "Dil"
+
+msgid "grid.action.addSponsor"
+msgstr "Sponsor Ekle"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Sponsor Sil"
+
+msgid "grid.action.editSponsor"
+msgstr "Sponsor Düzelt"
+
+msgid "grid.action.addSeries"
+msgstr "Seri Ekle"
+
+msgid "grid.action.editSeries"
+msgstr "Serileri Düzelt"
+
+msgid "grid.action.deleteSeries"
+msgstr "Serileri Sil"
+
+msgid "grid.action.addCategory"
+msgstr "Kategori Ekle"
+
+msgid "grid.action.editCategory"
+msgstr "Kategori Düzelt"
+
+msgid "grid.action.deleteCategory"
+msgstr "Kategori Sil"
+
+msgid "grid.action.addContributor"
+msgstr "Katkıda Bulunan Kişi Ekle"
+
+msgid "grid.action.editContributor"
+msgstr "Katkıda Bulunan Kişi Düzelt"
+
+msgid "grid.action.deleteContributor"
+msgstr "Katkıda Bulunan Kişi Sil"
+
+msgid "grid.noFiles"
+msgstr "Dosya yok"
+
+msgid "grid.roles.currentRoles"
+msgstr "Güncel Görevler"
+
+msgid "grid.roles.add"
+msgstr "Görev Ekle"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Aşama Ataması"
+
+msgid "grid.user.currentUsers"
+msgstr "Güncel Üyeler"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Güncel Kayıtlar"
+
+msgid "grid.user.allRoles"
+msgstr "Tüm Görevler"
+
+msgid "grid.user.add"
+msgstr "Üye Ekle"
+
+msgid "grid.user.enroll"
+msgstr "Üye Kaydet"
+
+msgid "grid.user.edit"
+msgstr "Üye Düzelt"
+
+msgid "grid.user.email"
+msgstr "E-posta"
+
+msgid "grid.user.enable"
+msgstr "Etkinleştir"
+
+msgid "grid.user.disable"
+msgstr "Pasifleştir"
+
+msgid "grid.user.disableReason"
+msgstr "Üyeyi pasifleştirme nedeni"
+
+msgid "grid.user.enableReason"
+msgstr "Üyeyi etkinleştirme nedeni"
+
+msgid "grid.user.error"
+msgstr "Bu üyeyi düzenlerken bir hata oluştu. Lütfen tekrar deneyin."
+
+msgid "grid.user.cannotAdminister"
+msgstr "Bu üyeyi düzeltmek için gerekli yetkiye sahip değilsiniz."
+
+msgid "grid.user.authSource"
+msgstr "Yetkilendirme kaynağı"
+
+msgid "grid.user.mustProvideName"
+msgstr "Lütfen ilk üye için en az bir soyadını veriniz."
+
+msgid "grid.user.generatePassword"
+msgstr "Şifre Pluştur"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Bu üye için rastgele bir şifre oluştur."
+
+msgid "grid.user.notifyUser"
+msgstr "Üye Bilgilendir"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Üyeye hoş geldin mesajı gönder."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Şifre Değiştir"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Üyeye ilk girişte şifre değişikliğini zorunlu yap."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Üyeye sonraki girişte şifre değişikliğini zorunlu yap."
+
+msgid "grid.user.moreDetails"
+msgstr "Daha Fazla Üye Detayı"
+
+msgid "grid.user.lessDetails"
+msgstr "Daha Az Kullanıcı Detayı"
+
+msgid "grid.user.userDetails"
+msgstr "Üye Detayları"
+
+msgid "grid.user.userRoles"
+msgstr "Üye Rolleri"
+
+msgid "grid.user.userNoRoles"
+msgstr "Bu üyenin herhangi bir rolü yok."
+
+msgid "grid.user.step1"
+msgstr "Adım #1: Üye Detayını Doldur"
+
+msgid "grid.user.step2"
+msgstr "ADım #2: {$userFullName} adlı üyeye görev ekle"
+
+msgid "grid.user.addRoles"
+msgstr "Görev Ekle"
+
+msgid "grid.user.selectUser"
+msgstr "Üye Seç"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Lütfen bir üye seçiniz"
+
+msgid "grid.preparedEmails.title"
+msgstr "Hazırlanmış E-posta Şablonları"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Güncel Liste"
+
+msgid "grid.plugin.allCategories"
+msgstr "Tüm Kategoriler"
+
+msgid "grid.plugin.disable"
+msgstr "Bu eklentiyi pasifleştirmek istediğinizden emin misiniz?"
+
+msgid "grid.action.mergeUser"
+msgstr "Üye Birleştir"
+
+msgid "grid.action.unassignUser"
+msgstr "Atanmamış Üye"
+
+msgid "grid.action.history"
+msgstr "Geçmişi Göster"
+
+msgid "grid.task.status.unfinished"
+msgstr "Değerlendirme tamamlanmadı"
+
+msgid "grid.task.status.reviewReady"
+msgstr "Bu değerlendirme hazır.  Okumak için soldaki not simgesine tıklayınız."
+
+msgid "grid.noAuditors"
+msgstr "Denetçi Yok"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Bu öge uzakta barındırılıyor."
+
+msgid "grid.action.uninstall"
+msgstr "Kaldır"
+
+msgid "grid.action.manageAccess"
+msgstr "Erişimi Yönet"
+
+msgid "grid.action.addNote"
+msgstr "Not Ekle"
+
+msgid "grid.action.addQuery"
+msgstr "Tartışma ekle"
+
+msgid "grid.action.readQuery"
+msgstr "Tartışma oku"
+
+msgid "grid.action.deleteQuery"
+msgstr "Tartışma sil"
+
+msgid "grid.action.updateQuery"
+msgstr "Tartışma güncelle"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Bu hakemi iptal et"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Bu kopya dosyasını bir sonraki aşamaya göndermek için onaylayın"
+
+msgid "grid.action.reload"
+msgstr "Tekrar yükle"
+
+msgid "grid.action.editSection"
+msgstr "Bölümü Düzenle"
+
+msgid "grid.action.export"
+msgstr "Dışarı Aktar"
+
+msgid "grid.action.deleteSection"
+msgstr "Bölüm Sil"
+
+msgid "grid.action.editorialHistory"
+msgstr "Editöryal Geçmiş"
+
+msgid "grid.action.disapprove"
+msgstr "Onaylama"
+
+msgid "grid.action.setApproval"
+msgstr "Onayı Ayarla"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Varsayılan ayarları geri yüklemek istediğinizden emin misiniz?"
+
+msgid "grid.action.search"
+msgstr "Ara"
+
+msgid "grid.action.viewLibrary"
+msgstr "Doküman Kütüphanesini Görüntüle"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Düzeltmen düzeltmeleri yapıldı. Bu görevi değerlendiremezsiniz."
+
+msgid "grid.artworkFile.caption"
+msgstr "Alt yazı"
+
+msgid "grid.artworkFile.credit"
+msgstr "Kredi"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Telif Hakkı Sahibi"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "İletişim Bilgileri (yazar / yayıncı değilse)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "İzin Koşulları"
+
+msgid "grid.artworkFile.placement"
+msgstr "Gönderi yerleştirme"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Atama adımları"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Atanmamış adımlar"
+
+msgid "grid.userGroup.allStages"
+msgstr "Tüm İş Akışı Aşamaları"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Atanan rolleri listele"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "İzin seviyesi ile ayarlanmış"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "{$userGroupName} adlı rol varsayılandır ve kaldırılamaz."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr "{$userGroupName} rolü kaldırılamaz. Şu anda {$usersCount} kullanıcı/kullanıcıları buna atanmıştır."
+
+msgid "grid.userGroup.removed"
+msgstr "{$userGroupName} rolü kaldırıldı."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "{$userGroupName} rolü {$stageName} adımına atandı."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "{$userGroupName} rolü {$stageName} adımından kaldırıldı."
+
+msgid "grid.submission.itemTitle"
+msgstr "Yazar; Başlık"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Bir yazar tarafından gönderisi tamamlanmayan gönderileri dahil et."
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Menü Ekle"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Öğe Ekle"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Yönlendirme Menü Öğeleri Yok"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Yönlendirme Menüleri Yok"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Bir tür seç ..."
+
+msgid "grid.action.unconsiderReview"
+msgstr "Değerlendirme tamamlandı, bunu göz ardı edebilirsiniz"
+
+msgid "grid.action.enable"
+msgstr "Etkinleştir"
+
+msgid "grid.action.bookInfo"
+msgstr "Aday Makale Detay"
+
+msgid "grid.action.logInAs"
+msgstr "Gibi Giriş Yap"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Tüm Kullanıcıları Dışarı Aktar"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Tüm kullanıcıları dışarı aktarmak istediğinizden emin misiniz?"
+
+msgid "grid.action.activate"
+msgstr "Etkinleştir"
+
+msgid "grid.action.deactivate"
+msgstr "Pasifleştir"
+
+msgid "grid.action.copy"
+msgstr "Kopyala"
+
+msgid "grid.action.preview"
+msgstr "Ön İzleme"
+
+msgid "grid.action.install"
+msgstr "Yükle"
+
+msgid "grid.action.moreItems"
+msgstr "Daha fazla getir"
+
+msgid "grid.user.addRole"
+msgstr "Rol Ekle"
+
+msgid "grid.user.confirmLogInAs"
+msgstr "Bu kullanıcı olarak giriş yap? Yaptığınız tüm eylemler bu kullanıcı adıyla yapılacak."
+
+msgid "grid.user.mergeUsers"
+msgstr "Kullanıcıları Birleştir"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Kullanıcı Birleştir"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Bu Kullanıcıda Birleştir"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Tüm Kayıtlı Kullanıcılar"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Yanıt Seçenekleri"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Gözatma Listelerinde"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Tüm İzin Düzeyleri"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr "\"{$oldUsername}\" adlı kullanıcı hesabını \"{$newUsername}\" adlı kullanıcı adıyla birleştirmek istediğinizden emin misiniz? Daha sonra \"{$oldUsername}\" adlı kullanıcı adına erişim mümkün olmayacaktır. Bu eylem geri alınamaz."
+
+msgid "grid.action.newVersion"
+msgstr "Yeni versiyon oluştur"
+
+msgid "grid.action.users"
+msgstr "Kullanıcıları Göster/Seç"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Bu kullanıcı grubunu kaldır"

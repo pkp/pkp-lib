@@ -3,9 +3,9 @@
 /**
  * @file classes/install/Installer.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Installer
  * @ingroup install
@@ -29,7 +29,8 @@ import('lib.pkp.classes.site.Version');
 import('lib.pkp.classes.site.VersionDAO');
 import('lib.pkp.classes.config.ConfigParser');
 
-require_once './lib/pkp/lib/vendor/adodb/adodb-php/adodb-xmlschema.inc.php';
+use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Schema\Blueprint;
 
 class Installer {
 
@@ -47,9 +48,6 @@ class Installer {
 
 	/** @var Version version after installation */
 	var $newVersion;
-
-	/** @var ADOConnection database connection */
-	var $dbconn;
 
 	/** @var string default locale */
 	var $locale;
@@ -84,6 +82,8 @@ class Installer {
 	/** @var Logger logging object */
 	var $logger;
 
+	/** @var array List of migrations executed already */
+	var $migrations = [];
 
 	/**
 	 * Constructor.
@@ -129,20 +129,9 @@ class Installer {
 	 */
 	function preInstall() {
 		$this->log('pre-install');
-		if (!isset($this->dbconn)) {
-			// Connect to the database.
-			$conn = DBConnection::getInstance();
-			$this->dbconn = $conn->getDBConn();
-
-			if (!$conn->isConnected()) {
-				$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-				return false;
-			}
-		}
-
 		if (!isset($this->currentVersion)) {
 			// Retrieve the currently installed version
-			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 			$this->currentVersion = $versionDao->getCurrentVersion();
 		}
 
@@ -156,11 +145,10 @@ class Installer {
 
 		if (!isset($this->dataXMLParser)) {
 			$this->dataXMLParser = new DBDataXMLParser();
-			$this->dataXMLParser->setDBConn($this->dbconn);
 		}
 
 		$result = true;
-		HookRegistry::call('Installer::preInstall', array($this, &$result));
+		HookRegistry::call('Installer::preInstall', [$this, &$result]);
 
 		return $result;
 	}
@@ -233,7 +221,6 @@ class Installer {
 		$installTree = $xmlParser->parse($installPath);
 		if (!$installTree) {
 			// Error reading installation file
-			$xmlParser->destroy();
 			$this->setError(INSTALLER_ERROR_GENERAL, 'installer.installFileError');
 			return false;
 		}
@@ -247,7 +234,6 @@ class Installer {
 
 		// Parse descriptor
 		$this->parseInstallNodes($installTree);
-		$xmlParser->destroy();
 
 		$result = $this->getErrorType() == 0;
 
@@ -279,7 +265,7 @@ class Installer {
 	 */
 	function updateVersion() {
 		if ($this->newVersion->compare($this->currentVersion) > 0) {
-			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 			if (!$versionDao->insertVersion($this->newVersion)) {
 				return false;
 			}
@@ -306,6 +292,7 @@ class Installer {
 				case 'schema':
 				case 'data':
 				case 'code':
+				case 'migration':
 				case 'note':
 					$this->addInstallAction($node);
 					break;
@@ -364,7 +351,17 @@ class Installer {
 				$fileName = $action['file'];
 				$this->log(sprintf('schema: %s', $action['file']));
 
-				$schemaXMLParser = new adoSchema($this->dbconn);
+				require_once('lib/pkp/lib/vendor/adodb/adodb-php/adodb.inc.php');
+				require_once('./lib/pkp/lib/vendor/adodb/adodb-php/adodb-xmlschema.inc.php');
+				$dbconn = ADONewConnection(Config::getVar('database', 'driver'));
+				$port = Config::getVar('database', 'port');
+				$dbconn->Connect(
+					Config::getVar('database', 'host') . ($port ? ':' . $port : ''),
+					Config::getVar('database', 'username'),
+					Config::getVar('database', 'password'),
+					Config::getVar('database', 'name')
+				);
+				$schemaXMLParser = new adoSchema($dbconn);
 				$dict = $schemaXMLParser->dict;
 				$sql = $schemaXMLParser->parseSchema($fileName);
 				$schemaXMLParser->destroy();
@@ -397,6 +394,34 @@ class Installer {
 					return $this->executeSQL($sql);
 				}
 				break;
+			case 'migration':
+				assert(isset($action['attr']['class']));
+				$fullClassName = $action['attr']['class'];
+				import($fullClassName);
+				$shortClassName = substr($fullClassName, strrpos($fullClassName, '.')+1);
+				$this->log(sprintf('migration: %s', $shortClassName));
+				$migration = new $shortClassName();
+				try {
+					$migration->up();
+					$this->migrations[] = $migration;
+				} catch (Exception $e) {
+					// Log an error message
+					$this->setError(
+						INSTALLER_ERROR_DB,
+						Config::getVar('debug', 'show_stacktrace') ? (string) $e : $e->getMessage()
+					);
+
+					// Back out already-executed migrations.
+					while ($previousMigration = array_pop($this->migrations)) {
+						try {
+							$previousMigration->down();
+						} catch (PKP\install\DowngradeNotSupportedException $e) {
+							break;
+						}
+					}
+					return false;
+				}
+				return true;
 			case 'code':
 				$condition = isset($action['attr']['condition'])?$action['attr']['condition']:null;
 				$includeAction = true;
@@ -441,9 +466,10 @@ class Installer {
 				}
 			}
 		} else {
-			$this->dbconn->execute($sql);
-			if ($this->dbconn->errorNo() != 0) {
-				$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
+			try {
+				Capsule::affectingStatement($sql);
+			} catch (Exception $e) {
+				$this->setError(INSTALLER_ERROR_DB, $e->getMessage());
 				return false;
 			}
 		}
@@ -616,11 +642,16 @@ class Installer {
 	 * 		'locales' => 'en_US,fr_CA,...'
 	 */
 	function installEmailTemplate($installer, $attr) {
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), false, $attr['key']);
-		foreach (explode(',', $attr['locales']) as $locale) {
-			$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale), false, $attr['key']);
+		$locales = explode(',', $attr['locales']);
+		foreach ($locales as $locale) AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		// FIXME pkp/pkp-lib#6284 Remove after drop of support for upgrades from 3.2.0
+		if (!Capsule::schema()->hasColumn('email_templates_default', 'stage_id')) {
+			Capsule::schema()->table('email_templates_default', function (Blueprint $table) {
+				$table->bigInteger('stage_id')->nullable();
+			});
 		}
+		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), $locales, false, $attr['key']);
 		return true;
 	}
 
@@ -637,10 +668,7 @@ class Installer {
 		$tree = $xmlParser->parse($filterConfigFile);
 
 		// Validate the filter configuration.
-		if (!$tree) {
-			$xmlParser->destroy();
-			return false;
-		}
+		if (!$tree) return false;
 
 		// Get the filter helper.
 		if ($filterHelper === false) {
@@ -662,8 +690,6 @@ class Installer {
 			}
 		}
 
-		// Get rid of the parser.
-		$xmlParser->destroy();
 		return true;
 	}
 
@@ -675,21 +701,12 @@ class Installer {
 	 * @return boolean
 	 */
 	function columnExists($tableName, $columnName) {
-		$siteDao = DAORegistry::getDAO('SiteDAO');
-		$dataSource = $siteDao->getDataSource();
-		$dict = NewDataDictionary($dataSource);
-
+		$schema = Capsule::connection()->getDoctrineSchemaManager();
 		// Make sure the table exists
-		$tables = $dict->MetaTables('TABLES', false);
+		$tables = $schema->listTableNames();
 		if (!in_array($tableName, $tables)) return false;
 
-		// Check to see whether it contains the specified column.
-		// Oddly, MetaColumnNames doesn't appear to be available.
-		$columns = $dict->MetaColumns($tableName);
-		foreach ($columns as $column) {
-			if ($column->name == $columnName) return true;
-		}
-		return false;
+		return Capsule::schema()->hasColumn($tableName, $columnName);
 	}
 
 	/**
@@ -699,12 +716,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function tableExists($tableName) {
-		$siteDao = DAORegistry::getDAO('SiteDAO');
-		$dataSource = $siteDao->getDataSource();
-		$dict = NewDataDictionary($dataSource);
-
-		// Check whether the table exists.
-		$tables = $dict->MetaTables('TABLES', false);
+		$tables = Capsule::connection()->getDoctrineSchemaManager()->listTableNames();
 		return in_array($tableName, $tables);
 	}
 
@@ -714,7 +726,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function addPluginVersions() {
-		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		import('lib.pkp.classes.site.VersionCheck');
 		$fileManager = new FileManager();
 		$categories = PluginRegistry::getCategories();
@@ -765,7 +777,7 @@ class Installer {
 	 */
 	function installDefaultNavigationMenus() {
 		$contextDao = Application::getContextDAO();
-		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $navigationMenuDao NavigationMenuDAO */
 
 		$contexts = $contextDao->getAll();
 		while ($context = $contexts->next()) {
@@ -792,12 +804,12 @@ class Installer {
 	 * Migrate site locale settings to a serialized array in the database
 	 */
 	function migrateSiteLocales() {
-		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 
 		$result = $siteDao->retrieve('SELECT installed_locales, supported_locales FROM site');
 
 		$set = $params = [];
-		$row = $result->GetRowAssoc(false);
+		$row = (array) $result->current();
 		$type = 'array';
 		foreach ($row as $column => $value) {
 			if (!empty($value)) {
@@ -806,8 +818,6 @@ class Installer {
 			}
 		}
 		$siteDao->update('UPDATE site SET ' . join(',', $set), $params);
-
-		$result->Close();
 
 		return true;
 	}
@@ -819,7 +829,7 @@ class Installer {
 	 */
 	function migrateSidebarBlocks() {
 
-		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 		$site = $siteDao->getSite();
 
 		$plugins = PluginRegistry::loadCategory('blocks');
@@ -832,25 +842,21 @@ class Installer {
 			return "'" . preg_replace("/[^A-Za-z0-9]/", '', $name) . "'";
 		}, array_keys($plugins));
 
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		$result = $pluginSettingsDao->retrieve(
-			"SELECT plugin_name, context_id, setting_value FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames) . ') AND setting_name='context';"
+			'SELECT plugin_name, context_id, setting_value FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames) . ') AND setting_name=\'context\';'
 		);
 
 		$sidebarSettings = [];
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
-			if ($row['setting_value'] != 1) { // BLOCK_CONTEXT_SIDEBAR
-				$result->MoveNext();
+		foreach ($result as $row) {
+			if ($row->setting_value != 1) continue; // BLOCK_CONTEXT_SIDEBAR
+
+			$seq = $pluginSettingsDao->getSetting($row->context_id, $row->plugin_name, 'seq');
+			if (!isset($sidebarSettings[$row->context_id])) {
+				$sidebarSettings[$row->context_id] = [];
 			}
-			$seq = $pluginSettingsDao->getSetting($row['context_id'], $row['plugin_name'], 'seq');
-			if (!isset($sidebarSettings[$row['context_id']])) {
-				$sidebarSettings[$row['context_id']] = [];
-			}
-			$sidebarSettings[$row['context_id']][(int) $seq] = $row['plugin_name'];
-			$result->MoveNext();
+			$sidebarSettings[$row->context_id][(int) $seq] = $row->plugin_name;
 		}
-		$result->Close();
 
 		foreach ($sidebarSettings as $contextId => $contextSetting) {
 			// Order by sequence
@@ -862,14 +868,14 @@ class Installer {
 				$context->setData('sidebar', $contextSetting);
 				$contextDao->updateObject($context);
 			} else {
-				$siteDao = DAORegistry::getDAO('SiteDAO');
+				$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 				$site = $siteDao->getSite();
 				$site->setData('sidebar', $contextSetting);
 				$siteDao->updateObject($site);
 			}
 		}
 
-		$pluginSettingsDao->update('DELETE FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames ) . ') AND (setting_name="context" OR setting_name="seq");');
+		$pluginSettingsDao->update('DELETE FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames ) . ') AND (setting_name=\'context\' OR setting_name=\'seq\');');
 
 		return true;
 	}
@@ -896,12 +902,10 @@ class Installer {
 
 		$result = $contextDao->retrieve('SELECT ' . $contextDao->primaryKeyColumn . ' from ' . $contextDao->tableName);
 		$contextIds = [];
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
+		foreach ($result as $row) {
+			$row = (array) $row;
 			$contextIds[] = $row[$contextDao->primaryKeyColumn];
-			$result->MoveNext();
 		}
-		$result->Close();
 
 		foreach ($metadataSettings as $metadataSetting) {
 			foreach ($contextIds as $contextId) {
@@ -922,27 +926,24 @@ class Installer {
 					]
 				);
 				$value = METADATA_DISABLE;
-				while (!$result->EOF) {
-					$row = $result->getRowAssoc(false);
-					if ($row['setting_name'] === $metadataSetting . 'Required' && $row['setting_value']) {
+				foreach ($result as $row) {
+					if ($row->setting_name === $metadataSetting . 'Required' && $row->setting_value) {
 						$value = METADATA_REQUIRE;
-					} elseif ($row['setting_name'] === $metadataSetting . 'EnabledSubmission' && $row['setting_value'] && $value !== METADATA_REQUIRE) {
+					} elseif ($row->setting_name === $metadataSetting . 'EnabledSubmission' && $row->setting_value && $value !== METADATA_REQUIRE) {
 						$value = METADATA_REQUEST;
-					} elseif ($row['setting_name'] === $metadataSetting . 'EnabledWorkflow' && $row['setting_value'] && $value !== METADATA_REQUEST && $value !== METADATA_REQUIRE) {
+					} elseif ($row->setting_name === $metadataSetting . 'EnabledWorkflow' && $row->setting_value && $value !== METADATA_REQUEST && $value !== METADATA_REQUIRE) {
 						$value = METADATA_ENABLE;
 					}
-					$result->MoveNext();
 				}
-				$result->Close();
 
 				if ($value !== METADATA_DISABLE) {
 					$contextDao->update('
-						INSERT INTO ' . $contextDao->settingsTableName . ' SET
-							' . $contextDao->primaryKeyColumn . ' = ?,
-							locale = ?,
-							setting_name = ?,
-							setting_value = ?
-						',
+						INSERT INTO ' . $contextDao->settingsTableName . ' (
+							' . $contextDao->primaryKeyColumn . ',
+							locale,
+							setting_name,
+							setting_value
+						) VALUES (?, ?, ?, ?)',
 						[
 							$contextId,
 							'',
@@ -971,6 +972,74 @@ class Installer {
 			}
 		}
 
+		return true;
+	}
+
+	/**
+	 * Set the notification settings for journal managers and subeditors so
+	 * that they are opted out of the monthly stats email.
+	 */
+	public function setStatsEmailSettings() {
+		import('lib.pkp.classes.notification.PKPNotification'); // NOTIFICATION_TYPE_EDITORIAL_REPORT
+		$roleIds = [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR];
+
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
+		for ($contexts = Application::get()->getContextDAO()->getAll(true); $context = $contexts->next(); ) {
+			foreach ($roleIds as $roleId) {
+				for ($userGroups = $userGroupDao->getByRoleId($context->getId(), $roleId); $userGroup = $userGroups->next(); ) {
+					for ($users = $userGroupDao->getUsersById($userGroup->getId(), $context->getId()); $user = $users->next(); ) {
+						$notificationSubscriptionSettingsDao->update(
+							'INSERT INTO notification_subscription_settings
+								(setting_name, setting_value, user_id, context, setting_type)
+								VALUES
+								(?, ?, ?, ?, ?)',
+							array(
+								'blocked_emailed_notification',
+								NOTIFICATION_TYPE_EDITORIAL_REPORT,
+								$user->getId(),
+								$context->getId(),
+								'int'
+							)
+						);
+					}
+				}
+			}
+		}
+
+		return true;
+	}
+
+	/**
+	 * Fix library files, which were mistakenly named server-side using source filenames.
+	 * See https://github.com/pkp/pkp-lib/issues/5471
+	 * @return boolean
+	 */
+	public function fixLibraryFiles() {
+		import('classes.file.LibraryFileManager');
+		// Fetch all library files (no method currently in LibraryFileDAO for this)
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
+		$result = $libraryFileDao->retrieve('SELECT * FROM library_files');
+		$libraryFiles = new DAOResultFactory($result, $libraryFileDao, '_fromRow', array('id'));
+		$wrongFiles = array();
+		while ($libraryFile = $libraryFiles->next()) {
+			$libraryFileManager = new LibraryFileManager($libraryFile->getContextId());
+			$wrongFilePath = $libraryFileManager->getBasePath() .  $libraryFile->getOriginalFileName();
+			$rightFilePath = $libraryFile->getFilePath();
+
+			if (isset($wrongFiles[$wrongFilePath])) {
+				error_log('A potential collision was found between library files ' . $libraryFile->getId() . ' and ' . $wrongFiles[$wrongFilePath]->getId() . '. Please review the database entries and ensure that the associated files are correct.');
+			} else {
+				$wrongFiles[$wrongFilePath] = $libraryFile;
+			}
+
+			// For all files for which the "wrong" filename exists and the "right" filename doesn't,
+			// copy the "wrong" file over to the "right" one. This will leave the "wrong" file in
+			// place, and won't disambiguate cases for which files were clobbered.
+			if (file_exists($wrongFilePath) && !file_exists($rightFilePath)) {
+				$libraryFileManager->copyFile($wrongFilePath, $rightFilePath);
+			}
+		}
 		return true;
 	}
 }

@@ -3,9 +3,9 @@
 /**
  * @file pages/index/IndexHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class IndexHandler
  * @ingroup pages_index
@@ -26,8 +26,8 @@ class PKPIndexHandler extends Handler {
 		$enableAnnouncements = $context->getData('enableAnnouncements');
 		$numAnnouncementsHomepage = $context->getData('numAnnouncementsHomepage');
 		if ($enableAnnouncements && $numAnnouncementsHomepage) {
-			$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
-			$announcements =& $announcementDao->getNumAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $numAnnouncementsHomepage);
+			$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
+			$announcements = $announcementDao->getNumAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $numAnnouncementsHomepage);
 			$templateMgr->assign(array(
 				'announcements' => $announcements->toArray(),
 				'numAnnouncementsHomepage' => $numAnnouncementsHomepage,

@@ -1,0 +1,139 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-04-18 18:17+0000\n"
+"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
+"Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"ku_IQ/>\n"
+"Language: ku_IQ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "پیتی {$vocab} پاڵپشتیکراو نییە."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "زمانی {$locale} زمانێکی پاڵپشتیکراو نییە."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr "ڕوکاری ،{$themePluginPath}، چالاک نەکراوە و لەوانەیە دانەبەزێندرابێت."
+
+msgid "api.files.400.config"
+msgstr ""
+"فایلەکە بەهۆی کێشەی سێرڤەرەوە بار نەکرا. تکایە پەیوەندی بە بەڕێوەبەری "
+"پەڕەکەوە بکە."
+
+msgid "api.files.400.fileSize"
+msgstr "ئەگەر فایلێک قەبارەی لە {$maxSize} گەورەتر بێت، بار ناکرێت."
+
+msgid "api.files.400.uploadFailed"
+msgstr "یەک یان چەند فایلێک ناتواندرێت بار بکرێت."
+
+msgid "api.files.400.noUpload"
+msgstr "هیچ فایلێکی بارکراو بۆ ئەم داواکارییە نەدۆزرایەوە."
+
+msgid "api.submissions.unknownError"
+msgstr "هەڵەیەکی نامۆ ڕویدا. تکایە پەڕەکە نوێ بکەوە و دوبارە هەوڵ بدەوە."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "وەرز، ژمارە یان ساڵی داواکراو بەردەست نییە."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "داواکارییەکەت تەواو ناکرێت لەبەر کەمبونی زانیاری."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr "ئەم خاڵە بەردەست نییە. دەبێت لە site-wideەوە ببیندرێت."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "تۆ ڕێگاپێدراو نیت بۆ سڕینەوەی ئەم پێشکەشکراوە."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "تۆ ناتوانیت شتێک ڕەش بکەیتەوە کە بەم ئەرکدارکردنەوە پەیوەندیدار نییە."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"تۆ تەنیا دەتوانیت توێژینەوە بڵاونەکراوەکان ببینیت کە تۆ بۆیان ئەرکدار کراویت."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"داواکارییەکەت ڕەت کرایەوە. ئەمە لەوانەیە لەبەر ئەوە بیت کە داخلی هەژمارەکەت "
+"نیت. هەوڵی نوێکردنەوەی پەڕەکە بدە."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "داواکارییەکەت نادروست بو. ڕیزبەندییەکە دەبێت `desc` یان `asc` بێت."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr "داواکارییەکەت بەردەست نییە. ماوەکە دەبێت `day` or `month` بێت."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "کۆتاڕۆژ نابێت لە دوێنێ درەنگتر بێت."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "ڕۆژی دەستپێک نابێت پێش 2001-01-01 بێت."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "ڕۆژی دەستپێک نابێت لە دوای کۆتاڕۆژەوە بێت."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "ڕیزکردنی ڕێککەوت دەبێت YYYY-MM-DD بێت."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "تۆ ڕێگەپێدراو نیت بۆ گۆڕانکاریکردن لەم بڵاوکراوەیە."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"فەرهەنگیی فایلە گشتییەکان نەدۆزرایەوە و تۆ ناتوانیت فایلەکە خەزن بکەیت. "
+"تکایە پەیوەندی بە بەڕێوەبەرەوە بکە بۆ چارەسەرکردنی کێشەکە."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"تۆ شوێنی پێویستت نییە بۆ بارکردنی  {$fileUploadSize}kb و تەنیا {$dirSizeLeft}"
+"kbت ماوە."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "تۆ ڕێگەپێدراو نیت بۆ بارکردنی ئەم فایلە."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"ئەو فایلەی بارت کردووە لەگەڵ فایلەکان ناگونجێت. ئەمە لەوانەیە بەهۆی گۆڕینی "
+"ناو یان ناتەواوی فایلەکەوە بێت بۆ نمونە گۆڕینی photo.png بۆ photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "ئەو وێنەیەی تۆ بارت کردووە وێنەیەکی دروست نییە."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "تەنیا ئەم فایلانە ڕێگەپێدراون بۆ بارکردن: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "پێش ئەوەی ئەم بڵاوکراوەیە بسڕیتەوە، دەبێت بڵاوکراوەکە بشاریتەوە."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"تۆ ناتوانیت لە ڕێگای API حاڵەتەەکە بگۆڕیت. لە جیاتیی ئەمە ئەم ڕێچکەیە پەیڕەو "
+"بکە  /publish و /unpublish."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "ئەم توێژینەوەیە دەستکاری ناکرێت، چونکە بڵاو کراوەتەوە."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "ئەو توێژینەوەی تۆ دەتەوێت بڵاو نەبێتەوە، خۆی بڵاو نەکراوەتەوە."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "ئەو توێژینەوەی دەتەوێ بڵاوی بکەیتەوە، پێشتر بڵاو کراوەتەوە."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "ئەو قاڵبەی ئیمەیڵ کە داوات کردووە نەدۆزرایەوە."
+
+msgid "api.404.endpointNotFound"
+msgstr "لینکی داواکراو نەناسراوە."
+
+msgid "api.404.resourceNotFound"
+msgstr "سەرچاوەی داواکراو نەدۆزرایەوە."
+
+msgid "api.403.unauthorized"
+msgstr "ئەم سەرچاوەیە بۆ تۆ بەردەست نییە."
+
+msgid "api.400.paramNotSupported"
+msgstr "{$param} پاڵپشتی نەکراوە."

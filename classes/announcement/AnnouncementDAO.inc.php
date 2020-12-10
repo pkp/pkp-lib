@@ -3,9 +3,9 @@
 /**
  * @file classes/announcement/AnnouncementDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementDAO
  * @ingroup announcement
@@ -15,8 +15,32 @@
  */
 
 import('lib.pkp.classes.announcement.Announcement');
+import('lib.pkp.classes.db.SchemaDAO');
 
-class AnnouncementDAO extends DAO {
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+class AnnouncementDAO extends SchemaDAO {
+	/** @var string One of the SCHEMA_... constants */
+	var $schemaName = SCHEMA_ANNOUNCEMENT;
+
+	/** @var string The name of the primary table for this object */
+	var $tableName = 'announcements';
+
+	/** @var string The name of the settings table for this object */
+	var $settingsTableName = 'announcement_settings';
+
+	/** @var string The column name for the object id in primary and settings tables */
+	var $primaryKeyColumn = 'announcement_id';
+
+	/** @var array Maps schema properties for the primary table to their column names */
+	var $primaryTableColumns = [
+		'id' => 'announcement_id',
+		'assocId' => 'assoc_id',
+		'assocType' => 'assoc_type',
+		'typeId' => 'type_id',
+		'dateExpire' => 'date_expire',
+		'datePosted' => 'date_posted',
+	];
 
 	/**
 	 * Retrieve an announcement by announcement ID.
@@ -26,58 +50,13 @@ class AnnouncementDAO extends DAO {
 	 * @return Announcement
 	 */
 	function getById($announcementId, $assocType = null, $assocId = null) {
-		$params = array((int) $announcementId);
-		if ($assocType !== null) $params[] = (int) $assocType;
-		if ($assocId !== null) $params[] = (int) $assocId;
-		$result = $this->retrieve(
-			'SELECT	* FROM announcements WHERE announcement_id = ?' .
-			($assocType !== null?' AND assoc_type = ?':'') .
-			($assocId !== null?' AND assoc_id = ?':''),
-			$params
-		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		$query = Capsule::table($this->tableName)->where($this->primaryKeyColumn, '=', (int) $announcementId);
+		if ($assocType !== null) $query->where('assoc_type', '=', (int) $assocType);
+		if ($assocId !== null) $query->where('assoc_id', '=', (int) $assocType);
+		if ($result = $query->first()) {
+			return $this->_fromRow((array) $result);
 		}
-		$result->Close();
-		return $returner;
-	}
-
-	/**
-	 * Retrieve announcement Assoc ID by announcement ID.
-	 * @param $announcementId int
-	 * @return int
-	 */
-	function getAnnouncementAssocId($announcementId) {
-		$result = $this->retrieve(
-			'SELECT assoc_id FROM announcements WHERE announcement_id = ?',
-			(int) $announcementId
-		);
-
-		return isset($result->fields[0]) ? $result->fields[0] : 0;
-	}
-
-	/**
-	 * Retrieve announcement Assoc ID by announcement ID.
-	 * @param $announcementId int
-	 * @return int
-	 */
-	function getAnnouncementAssocType($announcementId) {
-		$result = $this->retrieve(
-			'SELECT assoc_type FROM announcements WHERE announcement_id = ?',
-			(int) $announcementId
-		);
-
-		return isset($result->fields[0]) ? $result->fields[0] : 0;
-	}
-
-	/**
-	 * Get the list of localized field names for this table
-	 * @return array
-	 */
-	function getLocaleFieldNames() {
-		return array('title', 'descriptionShort', 'description');
+		return null;
 	}
 
 	/**
@@ -89,115 +68,12 @@ class AnnouncementDAO extends DAO {
 	}
 
 	/**
-	 * Internal function to return an Announcement object from a row.
-	 * @param $row array
-	 * @return Announcement
-	 */
-	function _fromRow($row) {
-		$announcement = $this->newDataObject();
-		$announcement->setId($row['announcement_id']);
-		$announcement->setAssocType($row['assoc_type']);
-		$announcement->setAssocId($row['assoc_id']);
-		$announcement->setTypeId($row['type_id']);
-		$announcement->setDateExpire($this->datetimeFromDB($row['date_expire']));
-		$announcement->setDatePosted($this->datetimeFromDB($row['date_posted']));
-
-		$this->getDataObjectSettings('announcement_settings', 'announcement_id', $row['announcement_id'], $announcement);
-
-		return $announcement;
-	}
-
-	/**
-	 * Update the settings for this object
-	 * @param $announcement object
-	 */
-	function updateLocaleFields($announcement) {
-		$this->updateDataObjectSettings('announcement_settings', $announcement, array(
-			'announcement_id' => $announcement->getId()
-		));
-	}
-
-	/**
-	 * Insert a new Announcement.
-	 * @param $announcement Announcement
-	 * @return int
-	 */
-	function insertObject($announcement) {
-		$dateExpire = $announcement->getDateExpire();
-		$this->update(
-			sprintf('INSERT INTO announcements
-				(assoc_type, assoc_id, type_id, date_expire, date_posted)
-				VALUES
-				(?, ?, ?, %s, %s)',
-				!empty($dateExpire)?$this->datetimeToDB($dateExpire):'null', $this->datetimeToDB($announcement->getDatetimePosted())),
-			array(
-				(int) $announcement->getAssocType(),
-				(int) $announcement->getAssocId(),
-				(int) $announcement->getTypeId()
-			)
-		);
-		$announcement->setId($this->getInsertId());
-		$this->updateLocaleFields($announcement);
-		return $announcement->getId();
-	}
-
-	/**
-	 * Update an existing announcement.
-	 * @param $announcement Announcement
-	 * @return boolean
-	 */
-	function updateObject($announcement) {
-		$dateExpire = $announcement->getDateExpire();
-		$returner = $this->update(
-			sprintf('UPDATE announcements
-				SET
-					assoc_type = ?,
-					assoc_id = ?,
-					type_id = ?,
-					date_expire = %s
-				WHERE announcement_id = ?',
-				!empty($dateExpire)?$this->datetimeToDB($dateExpire):'null'),
-			array(
-				(int) $announcement->getAssocType(),
-				(int) $announcement->getAssocId(),
-				(int) $announcement->getTypeId(),
-				(int) $announcement->getId()
-			)
-		);
-		$this->updateLocaleFields($announcement);
-		return $returner;
-	}
-
-	/**
-	 * Delete an announcement.
-	 * @param $announcement Announcement
-	 * @return boolean
-	 */
-	function deleteObject($announcement) {
-		return $this->deleteById($announcement->getId());
-	}
-
-	/**
-	 * Delete an announcement by announcement ID.
-	 * @param $announcementId int
-	 * @return boolean
-	 */
-	function deleteById($announcementId) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
-		$notificationDao->deleteByAssoc(ASSOC_TYPE_ANNOUNCEMENT, $announcementId);
-
-		$this->update('DELETE FROM announcement_settings WHERE announcement_id = ?', (int) $announcementId);
-		return $this->update('DELETE FROM announcements WHERE announcement_id = ?', (int) $announcementId);
-	}
-
-	/**
 	 * Delete announcements by announcement type ID.
 	 * @param $typeId int Announcement type ID
 	 * @return boolean
 	 */
 	function deleteByTypeId($typeId) {
-		$announcements = $this->getByTypeId($typeId);
-		while ($announcement = $announcements->next()) {
+		foreach ($this->getByTypeId($typeId) as $announcement) {
 			$this->deleteObject($announcement);
 		}
 	}
@@ -219,36 +95,33 @@ class AnnouncementDAO extends DAO {
 	 * Retrieve an array of announcements matching a particular assoc ID.
 	 * @param $assocType int ASSOC_TYPE_...
 	 * @param $assocId int
-	 * @param $rangeInfo DBResultRange (optional)
-	 * @return object DAOResultFactory containing matching Announcements
+	 * @return Generator Matching Announcements
 	 */
-	function getByAssocId($assocType, $assocId, $rangeInfo = null) {
-		$result = $this->retrieveRange(
-			'SELECT *
-			FROM announcements
-			WHERE assoc_type = ? AND assoc_id = ?
-			ORDER BY date_posted DESC',
-			array((int) $assocType, (int) $assocId),
-			$rangeInfo
-		);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
+	function getByAssocId($assocType, $assocId) {
+		$result = Capsule::table($this->tableName)
+			->where('assoc_type', '=', (int) $assocType)
+			->where('assoc_id', '=', (int) $assocId)
+			->orderByDesc('date_posted')
+			->get();
+		foreach ($result as $row) {
+			yield $this->_fromRow((array) $row);
+		}
 	}
 
 	/**
 	 * Retrieve an array of announcements matching a particular type ID.
 	 * @param $typeId int
-	 * @param $rangeInfo DBResultRange (optional)
-	 * @return object DAOResultFactory containing matching Announcements
+	 * @return Generator Matching Announcements
 	 */
-	function getByTypeId($typeId, $rangeInfo = null) {
+	function getByTypeId($typeId) {
 		$result = $this->retrieveRange(
 			'SELECT * FROM announcements WHERE type_id = ? ORDER BY date_posted DESC',
-			(int) $typeId,
+			[(int) $typeId],
 			$rangeInfo
 		);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
+		foreach ($result as $row) {
+			yield $this->_fromRow((array) $row);
+		}
 	}
 
 	/**
@@ -266,7 +139,7 @@ class AnnouncementDAO extends DAO {
 			WHERE assoc_type = ?
 				AND assoc_id = ?
 			ORDER BY date_posted DESC LIMIT ?',
-			array((int) $assocType, (int) $assocId, (int) $numAnnouncements),
+			[(int) $assocType, (int) $assocId, (int) $numAnnouncements],
 			$rangeInfo
 		);
 
@@ -289,7 +162,7 @@ class AnnouncementDAO extends DAO {
 				AND (date_expire IS NULL OR DATE(date_expire) > DATE(NOW()))
 				AND (DATE(date_posted) <= DATE(NOW()))
 			ORDER BY date_posted DESC',
-			array((int) $assocType, (int) $assocId),
+			[(int) $assocType, (int) $assocId],
 			$rangeInfo
 		);
 
@@ -313,7 +186,7 @@ class AnnouncementDAO extends DAO {
 				AND (date_expire IS NULL OR DATE(date_expire) > DATE(NOW()))
 				AND (DATE(date_posted) <= DATE(NOW()))
 			ORDER BY date_posted DESC LIMIT ?',
-			array((int) $assocType, (int) $assocId, (int) $numAnnouncements),
+			[(int) $assocType, (int) $assocId, (int) $numAnnouncements],
 			$rangeInfo
 		);
 
@@ -333,15 +206,10 @@ class AnnouncementDAO extends DAO {
 			WHERE assoc_type = ?
 				AND assoc_id = ?
 			ORDER BY date_posted DESC LIMIT 1',
-			array((int) $assocType, (int) $assocId)
+			[(int) $assocType, (int) $assocId]
 		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**

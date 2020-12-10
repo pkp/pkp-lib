@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/context/PKPThemeForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPThemeForm
  * @ingroup classes_controllers_form
@@ -38,13 +38,11 @@ class PKPThemeForm extends FormComponent {
 	 *
 	 * @param $action string URL to submit the form to
 	 * @param $locales array Supported locales
-	 * @param $publicUrl string The URL to view the public site or context.
 	 * @param $context Context|null Journal/Press to change settings for, or null
 	 *  to change settings for the Site
 	 */
-	public function __construct($action, $locales, $publicUrl, $context = null) {
+	public function __construct($action, $locales, $context = null) {
 		$this->action = $action;
-		$this->successMessage = __('manager.setup.theme.success', ['url' => $publicUrl]);
 		$this->locales = $locales;
 
 		if (!empty($context)) {

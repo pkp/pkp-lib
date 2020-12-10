@@ -3,9 +3,9 @@
 /**
  * @file classes/log/SubmissionFileEventLogDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileEventLogDAO
  * @ingroup log
@@ -31,11 +31,11 @@ class SubmissionFileEventLogDAO extends EventLogDAO {
 
 	/**
 	 * Get event log entries by submission file ID.
-	 * @param $fileId int
+	 * @param $submissionFileId int
 	 * @return DAOResultFactory
 	 */
-	function getByFileId($fileId) {
-		return $this->getByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $fileId);
+	function getBySubmissionFileId($submissionFileId) {
+		return $this->getByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFileId);
 	}
 }
 

@@ -1,0 +1,2136 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-10-16 05:34+0000\n"
+"Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
+"Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/ro_RO/>\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} et al."
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Vă rugăm să introduceți un CODEN valid."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Vă rugăm să introduceți numele publicantului."
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Vă rugăm să introduceți o dată validă de publicare (format: AAA-LL-ZZ)."
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Vă rugăm să introduceți un titlu valid pentru publicație."
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Vă rugăm să introduceți un titlu valid pentru articol."
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr ""
+"Vă rugăm să introduceți emailul valid de înregistrare la PubMed (dacă aveți "
+"unul)."
+
+msgid "submission.email.confirmClearLog"
+msgstr ""
+"Sigur doriți să ștergeți jurnalul de e-mail pentru această înregistrare?"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Înapoi la jurnalul de e-mail"
+
+msgid "submission.editorial"
+msgstr "Editare conținut"
+
+msgid "submission.editMetadata"
+msgstr "Editare metadate"
+
+msgid "submission.editing"
+msgstr "Editare"
+
+msgid "submission.due"
+msgstr "Scadență"
+
+msgid "submission.dueDate"
+msgstr "Până la data"
+
+msgid "submission.downloads"
+msgstr "Descărcări"
+
+msgid "submission.done"
+msgstr "Finalizat"
+
+msgid "submission.coverage"
+msgstr "Informații acoperire"
+
+msgid "submission.queryNoteFiles"
+msgstr "Fișiere discuție"
+
+msgid "submission.copyediting"
+msgstr "editare conținut"
+
+msgid "submission.copyedited"
+msgstr "Editare conținut"
+
+msgid "submission.contributors"
+msgstr "Lista contributorilor"
+
+msgid "submission.complete"
+msgstr "Complet"
+
+msgid "submission.comments.subject"
+msgstr "Subiect"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Trimiteți revizorilor decizia editorială"
+
+msgid "submission.comments.review"
+msgstr "Revizie"
+
+msgid "submission.comments.noReviews"
+msgstr "Fără revizii"
+
+msgid "submission.comments.noComments"
+msgstr "Fără comentarii"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Revizor {$reviewerLetter}:"
+
+msgid "submission.comments.addReviews"
+msgstr "Adaugați revizori la email"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Importare Revizori"
+
+msgid "submission.comments.editComment"
+msgstr "Editare comentariu"
+
+msgid "submission.comments.corrections"
+msgstr "Corecturi"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Sunteți sigur că vreți să ștergeți acest comentariu?"
+
+msgid "submission.comments.comments"
+msgstr "Comentarii"
+
+msgid "submission.comments.addComment"
+msgstr "Adăugați comentariu"
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Extrageți și salvați referințele"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Următoarele referințe au fost extrase și vor fi legate de metadatele de "
+"trimitere."
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations"
+msgstr "Referințe extrase"
+
+msgid "submission.citations.description"
+msgstr ""
+"Introduceți fiecare referință pe o nouă linie, astfel încât să poată fi "
+"extrase și înregistrate separat."
+
+msgid "submission.citations"
+msgstr "Referințe"
+
+msgid "submission.changeFile"
+msgstr "Schimbă fișierul"
+
+msgid "submission.changeComments"
+msgstr "Schimbă în"
+
+msgid "submission.mySubmissions"
+msgstr "Autoriatul meu"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Manuscrise alocate"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Nealocate"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"Vă rugăm să vă asigurați că setați un tip de nume valid. Valorile acceptate "
+"sunt „personale”, „corporative” și „conferințe”."
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"Vă rugăm să introduceți doar caracterele inițiale ale titlului care ar "
+"trebui ignorate la sortarea titlului."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "O parte din titlu a fost ignorată în timpul sortării"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Vă rugăm să vă asigurați că setați un tip de titlu valid. Valorile acceptate "
+"sunt „prescurtate”, „traduse”, „alternative” și „uniforme”."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Tipul titlului"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Vă rugăm să vă asigurați că setați întotdeauna un tip de publicare. Valorile "
+"acceptate în prezent sunt carte (pentru cărți sau capitole de carte) și "
+"jurnal (pentru articole de jurnal). În caz contrar, formatarea de ieșire a "
+"citării nu va funcționa corect."
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Întoarcere al editarea înregistrării"
+
+msgid "submission.attachedFile"
+msgstr "Fișier atașat"
+
+msgid "submission.ask"
+msgstr "Întreb"
+
+msgid "submission.addSuppFile"
+msgstr "Adăugare fișiere suplimentare"
+
+msgid "submission.acknowledge"
+msgstr "Mulțumiri"
+
+msgid "submission.accepted"
+msgstr "Acceptat(ă)"
+
+msgid "submission.abstractViews"
+msgstr "Vizualizare abstract"
+
+msgid "submission.agencies"
+msgstr "Agenții"
+
+msgid "submission.additionalFiles"
+msgstr "Fișiere adiționale"
+
+msgid "submission.addFile"
+msgstr "Încărcare fișier"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} al(a) {$title}"
+
+msgid "submission.authorBiographies"
+msgstr "Biografii autori"
+
+msgid "submission.authorBiography"
+msgstr "Biografie autor"
+
+msgid "submission.authors"
+msgstr "Autori"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Înregistrare arhivată"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Rezumat"
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Tip nume"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Vă rugăm să introduceți un nume valid."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Nume parte"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Vă rugăm să introduceți un număr de parte valid."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Număr de parte"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Vă rugăm să introduceți subtitlu valid."
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Vă rugăm să introduceți un titlu valid."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Subtitlu"
+
+msgid "metadata.property.displayName.title"
+msgstr "Titlu"
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Tip publicație"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Vă rugăm să introduceți o adnotare validă."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Adnotare"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Vă rugăm să introduceți un comentariu valid."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Comentariu"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Vă rugăm să introduceți un link alternativ valid pentru publicație."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Link către publicație"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Vă rugăm să introduceți un cod PMID valid."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Vă rugăm să introduceți un SICI valid."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Vă rugăm să introduceți un ID personalizat de publicare valid."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "ID personalizat de publicare"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Vă rugăm să introduceți un cod DOI valid."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Vă rugăm să introduceți un cod eISSN valid."
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Vă rugăm să introduceți un cont ISSN valid pentru forma tipărită."
+
+msgid "metadata.property.displayName.issn"
+msgstr "ISSN versiune tipărită"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Vă rugăm să introduceți un cod ISBN valid (9 sau 13 cifre)."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Numele Publicantului"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Vă rugăm să introduceți o adresă validă."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Adresa publicantului"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Vă rugăm să introduceți numărul total de pagini."
+
+msgid "metadata.property.displayName.size"
+msgstr "Numărul de pagini"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Vă rugăm să introduceți numărul primei pagini."
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Vă rugăm să introduceți numărul ultimei pagini."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Ultima pagină"
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Prima pagină"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Vă rugăm să introduceți o instituție validă."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Instituția"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Vă rugăm să introduceți un sponsor valid pentru conferință."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Sponsor conferință"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Vă rugăm să introduceți in nume valid pentru conferință."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Nume conferință"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Vă rugăm să introduceți o locație validă pentru conferință."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Locația conferinței"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr ""
+"Vă rugăm să introduceți o dată validă pentru conferință (format: AAAA-LL-ZZ)."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Dată conferință"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Vă rugăm să introduceți un supliment valid."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Supliment"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Vă rugăm să introduceți o serie validă."
+
+msgid "metadata.property.displayName.series"
+msgstr "Serie"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Vă rugăm să introduceți o ediție validă."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Ediția"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Vă rugăm să introduceți un titlu de capitol valid."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Titlu capitol"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Vă rugăm să introduceți un identificator valid pentru sezon."
+
+msgid "metadata.property.displayName.season"
+msgstr "Sezon"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Vă rugăm să introduceți un număr valid."
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Vă rugăm să introduceți un volum valid."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Volum"
+
+msgid "metadata.property.displayName.issue"
+msgstr "Număr"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Vă rugăm să introduceți o dată de acces valabilă (format: AAAA-LL-ZZ)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Data acces"
+
+msgid "metadata.property.displayName.date"
+msgstr "Data publicării"
+
+msgid "metadata.property.displayName.source"
+msgstr "Titlul publicației"
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Titlul articolului"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"Pentru cele mai bune rezultate, editorii trebuie înscriși în următorul "
+"format: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Editori"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"Pentru cele mai bune rezultate, autorii trebuie înscriși în următorul format:"
+" Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.author"
+msgstr "Autori"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Eroare internă. O valoare nevalidă a fost postată pentru setarea „filtru "
+"opțional”. Vă rugăm să raportați acest lucru ca o eroare."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr ""
+"Nu folosiți în mod implicit (va fi în continuare disponibil pentru editor)"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Vă rugăm să introduceți o cheie validă WorldCat API."
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Vă rugăm să selectați unul dintre modulele de citare date."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Modul citare"
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "Cheie WorldCat API"
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "Email de înregistrare PubMed"
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "Cheie ISBNdb API"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"Vă rugăm să introduceți cheia API ISBNdb. Dacă nu aveți încă o cheie, puteți "
+"solicita una gratuit de la proiectul ISBNdb."
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Vă rugăm să introduceți un e-mail de înregistrare CrossRef valid. Puteți să "
+"vă înregistrați gratuit e-mailul pe site-ul web CrossRef."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "E-mail de înregistrare CrossRef"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Metadate extinse"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Reveniți la tabloul de bord"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Creați o nouă înregistrare"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Examinați acest manuscris"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Deocamdată, puteți să:"
+
+msgid "submission.submit.whatNext"
+msgstr "Ce se întâmplă în continuare?"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "Da, sunt de acord să respect termenii declarației de copyright."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Confirmă declarația de copyright"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "Vă mulțumim pentru interesul dvs. de a publica în {$contextName}."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Înregistrare completă"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"Trebuie să citiți și să confirmați că ați îndeplinit cerințele de mai jos "
+"înainte de a continua."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Cerințe de înregistrare"
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr ""
+"Înregistrați-vă cu oricare dintre următoarele roluri dacă doriți să puteți "
+"edita și publica această înregistrare: {$managerGroups}"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Da, aș dori să fiu contactat cu privire la această înregistrare."
+
+msgid "submission.submit.contactConsent"
+msgstr "Contact autor corespondent"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr ""
+"Selectați rolul care descrie cel mai bine contribuția dvs. la această "
+"înregistrare."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Depuneți ca"
+
+msgid "submission.confirm.message"
+msgstr ""
+"Înregistrarea dvs. a fost încărcată și este gata de a fi trimisă. Înainte de "
+"a continua, puteți reveni pentru a revizui și a ajusta oricare dintre "
+"informațiile introduse. Când sunteți gata, faceți clic pe „Finalizare "
+"înregistrare manuscris”."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Au fost trimise recenzii noi și sunt luate în considerare de editor."
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"Furnizați o listă formatată de referințe pentru lucrările citate în acest "
+"manuscris. Vă rugăm să separați referințele individuale cu o linie goală."
+
+msgid "author.publicationNotFound"
+msgstr "Publicația pentru acest autor nu a fost găsită."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Autorii acestei publicații nu pot fi editați, deoarece aceasta a fost deja "
+"publicată."
+
+msgid "submission.event.confirmClearLog"
+msgstr ""
+"Sigur doriți să ștergeți jurnalul de evenimente pentru această înregistrare "
+"de manuscris?"
+
+msgid "submission.event.backToEventLog"
+msgstr "Înapoi la jurnalul de evenimente"
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) a fost retras din {$userGroupName}."
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$name} ({$username}) a fost atribuit acestei cereri ca {$userGroupName}."
+
+msgid "submission.emailLog"
+msgstr "Jurnal de e-mail"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Ștergeți intrarea jurnalului"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Sigur doriți să ștergeți această intrare de jurnal de e-mail?"
+
+msgid "submission.list.currentStage"
+msgstr "Stadiul prezent este {$stage}."
+
+msgid "submission.list.activity"
+msgstr "Activitate"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Zile de la ultima activitate"
+
+msgid "submission.list.assignEditor"
+msgstr "Alocare editor"
+
+msgid "grid.category.categories"
+msgstr "Categorii"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Titlu (A-Z)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Data publicării (cea mai recentă întâi)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Titlu (Z-A)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Data publicării (cea mai veche prima)"
+
+msgid "category.coverImage"
+msgstr "Imagine de copertă"
+
+msgid "submission.submit.placement.categories"
+msgstr "Categorii"
+
+msgid "submission.currentCoverImage"
+msgstr "Imagine curentă"
+
+msgid "catalog.category.noItems"
+msgstr "Nu a fost publicat încă nimic în această categorie."
+
+msgid "catalog.category.subcategories"
+msgstr "Subcategorii"
+
+msgid "publication.citations.success"
+msgstr "Referințele au fost actualizate."
+
+msgid "publication.contributors"
+msgstr "Contributori"
+
+msgid "publication.createVersion"
+msgstr "Creați o versiune nouă"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Data trebuie să fie în format AAA-LL-DD, cum ar fi 2019-01-01."
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Identificatorul a fost actualizat."
+
+msgid "publication.publicationLicense"
+msgstr "Permisiuni"
+
+msgid "publication.publicationLicense.success"
+msgstr ""
+"Informațiile privind drepturile de autor și licența au fost actualizate."
+
+msgid "publication.event.versionCreated"
+msgstr "A fost creată o nouă versiune."
+
+msgid "publication.metadata.success"
+msgstr "Metadatele au fost actualizate."
+
+msgid "publication.publish.success"
+msgstr "Starea publicării a fost schimbată cu succes."
+
+msgid "publication.status.scheduled"
+msgstr "Planificat"
+
+msgid "publication.status.unpublished"
+msgstr "Nepublicat"
+
+msgid "publication.titleAbstract"
+msgstr "Titlu & Rezumat"
+
+msgid "publication.titleAbstract.success"
+msgstr "Titlul și rezumatul au fost actualizate."
+
+msgid "publication.unschedule"
+msgstr "Neprogramat(e)"
+
+msgid "publication.urlPath"
+msgstr "Calea URL-ului"
+
+msgid "publication.urlPath.description"
+msgstr "Utilizați opțional o adresă URL în loc de ID."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Calea URL nu poate fi un număr."
+
+msgid "publication.version.all"
+msgstr "Toate versiunile"
+
+msgid "publication.version.confirm"
+msgstr "Ești sigur că vrei să creezi o nouă versiune?"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Rezumatul este prea lung. Ar trebui să fie {$limit} cuvinte sau mai puțin. "
+"În prezent sunt {$count} cuvinte lungi."
+
+msgid "publication.wordCount"
+msgstr "Număr de cuvinte: {$count}/{$limit}"
+
+msgid "submission.permissions"
+msgstr "Permisiuni"
+
+msgid "grid.action.editMetadata"
+msgstr "Editare metadate"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Contributor sau sponsor"
+
+msgid "submission.supplementary.publisher"
+msgstr "Publicator"
+
+msgid "submission.supplementary.subject"
+msgstr "Subiect"
+
+msgid "submission.supplementary.creator"
+msgstr "Creatorul (sau proprietarul) fișierului"
+
+msgid "submission.supplementary"
+msgstr "Conținut suplimentar"
+
+msgid "submission.art"
+msgstr "Operă de artă"
+
+msgid "submission.document"
+msgstr "Document"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Încărcați fișierul revizuit"
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Încărcați un fișier de bibliotecă"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Categorie de documente de depunere"
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"Dacă trimiteți un volum editat, ar trebui să încărcați toate capitolele de "
+"volum individual, sub rolul dvs. de editor de volum."
+
+msgid "submission.upload.userGroup"
+msgstr "Încarc acest fișier în rolul meu de ..."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Aceasta nu este o revizuire a unui fișier existent"
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+"Dacă încărcați o revizuire a unui fișier existent, vă rugăm să indicați care "
+"este acel fișier."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Selectați fișierul pe care doriți să îl revizuiți."
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"Numele fișierului încărcat seamănă cu numele unui fișier încărcat anterior, "
+"\"{$revisedFileName}.\" Acest fișier trebuie să fie înlocuit \""
+"{$revisedFileName}\"? Dacă da, selectați fișierul de mai jos. În caz "
+"contrar, selectați \"Aceasta nu este o revizuire a unui fișier existent\" "
+"înainte de a începe."
+
+msgid "submission.upload.possibleRevision"
+msgstr "A fost detectată o posibilă dublură a reviziei"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Grup de utilizatori lipsă sau nevalid!"
+
+msgid "submission.upload.noGenre"
+msgstr "Componentă lipsă sau nevalidă!"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Trebuie să introduceți numele acestui fișier"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Confirmare"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Detalii revizie"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Încărcați fișierul manuscrisului"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Încărcați fișierul"
+
+msgid "submission.status.published"
+msgstr "Publicat"
+
+msgid "submission.status.declined"
+msgstr "Refuzat"
+
+msgid "submission.status.unassigned"
+msgstr "Neatribuit"
+
+msgid "submission.status.submission"
+msgstr "În așteptarea deciziei editorului"
+
+msgid "submission.status.review"
+msgstr "În revizie"
+
+msgid "submission.status.production"
+msgstr "În procesul de corectare"
+
+msgid "submission.status.editorial"
+msgstr "În Editare conținut"
+
+msgid "workflow.stage"
+msgstr "Stadiu"
+
+msgid "workflow.stage.any"
+msgstr "Orice stadiu"
+
+msgid "workflow.review.internalReview"
+msgstr "Revizie internă"
+
+msgid "submission.form.replaceExisting"
+msgstr "Înlocuiți fișierul existent?"
+
+msgid "submission.form.name"
+msgstr "Numele fișierului (ex., Manuscris; Tabelul 1)"
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Introduceți referințele."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Introduceți drepturile."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Introduceți sursa."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Introduceți tipul."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Introduceți informații acoperire."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Introduceți un cuvânt cheie."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Introduceți o disciplină."
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Revizuirea a fost inițiată"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Fișier de recomandări de revizuire"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Revizuirea a fost inițiată"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Fișierul de revizuire a fost actualizat"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Revizor neatribuit pentru manuscris"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "A fost trimisă evaluarea revizorului"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Revizor desemnat pentru manuscrisul înregistrat"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Termenul limită de revizuire a fost modificat"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Activitatea de revizuire a fost refuzată"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "A fost acceptată Activitatea de revuzuire"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Activitatea de revizie a fost acceptată de proxy"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Înregistrarea manuscrisului a fost actualizată"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Metadatele înregistrării manuscrisului au fost încărcate"
+
+#, fuzzy
+msgid "submission.event.fileRevised"
+msgstr ""
+"Revizia \"{$name}\" (file ID {$submissionFileId}) a fost încărcată."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Înregistrarea inițială de manuscris a fost încheiată."
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Ștergeți intrarea jurnalului"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Sigur doriți să ștergeți această intrare în jurnalul de evenimente?"
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "Fișierul \"{$title}\" a avut ultima revizuire eliminată de {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"Fișierul revizuit \"{$originalFileName}\" a fost șters din înregistrarea "
+"manuscrisului {$submissionId} de {$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"Fișierul revizuit \"{$originalFileName}\" wa fost încărcat pentru "
+"manuscrisul {$submissionId} de {$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"Fișierul \"{$originalFileName}\" a fost șters din înregistrarea "
+"manuscrisului {$submissionId} de {$username}."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"Fișierul \"{$originalFileName}\" a fost încărcat pentru înregistrarea "
+"manuscrisului {$submissionId} de {$username}."
+
+msgid "editor.submission.addAuditorError"
+msgstr ""
+"A apărut o eroare în încercarea de atribuire a auditorului. Vă rugăm să "
+"încercați din nou."
+
+msgid "submission.finalDraft"
+msgstr "Fișiere cu schițe (ciorne)"
+
+msgid "submission.submit.currentFile"
+msgstr "Fișier curent"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Fișiere revizie"
+
+msgid "submission.actionNeeded"
+msgstr "Are nevoie de acțiune"
+
+msgid "submission.noActionRequired"
+msgstr "Nu necesită nici o acțiune"
+
+msgid "submission.currentStage"
+msgstr "Starea curentă"
+
+msgid "submission.list.confirmDelete"
+msgstr "Ștergeți înregistrarea?"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Revizuire anulată"
+
+msgid "submission.list.reviewComplete"
+msgstr "Revizuire încărcată"
+
+msgid "submission.list.reviewDue"
+msgstr "Revizuire în așteptare"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Activitarea de revizuire"
+
+msgid "submission.list.responseDue"
+msgstr "Răspuns datorat"
+
+msgid "submission.list.empty"
+msgstr "Nu a fost găsită nicio trimitere."
+
+msgid "submission.list.infoCenter"
+msgstr "Jurnal de activități și note"
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"Înainte de a începe o discuție, trebuie să atribuiți cel puțin un "
+"participant la această înregistrare de manuscris."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Vi s-a atribuit un rol editorial pentru această trimitere. Doriți să "
+"accesați <a href=\"{$urlEditorialWorkflow}\">Fluxul de lucru al "
+"editorului</a>?"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Vi s-au atribuit mai multe roluri pentru această înregistrare de manuscris. "
+"Doriți să accesați <a href=\"{$urlAuthorWorkflow}\">Fluxul de lucru al "
+"autorului</a> sau <a href=\"{$urlEditorialWorkflow}\">Fluxul de lucru al "
+"editorului</a>?"
+
+msgid "submission.list.discussions"
+msgstr "Discuții deschise"
+
+msgid "submission.list.filesPrepared"
+msgstr "Fișiere pregătite"
+
+msgid "submission.list.galleysCreated"
+msgstr "Au fost create galeriile de producție"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Fișierele cu conținutul editat au fost înregistrate"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Revizii înregistrate"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Alocarea de revizori este finalizată"
+
+msgid "submission.list.viewSubmission"
+msgstr "Vizualizare înregistrare manuscris"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr ""
+"Această înregistrare de manuscris trebuie completată înainte ca un editor să "
+"o examineze."
+
+msgid "publication.urlPath.duplicate"
+msgstr "Calea URL a fost deja folosită și nu mai poate fi utilizată din nou."
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "Anterior: Notificarea autorului"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr ""
+"Selectați fișierele pe care doriți să le transmiteți la etapa {$stageName}."
+
+msgid "editor.submission.decision.nextButton"
+msgstr "Următorul: Selectați Fișiere pentru {$stageName}"
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Recomandări înregistrate"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Recomandă o decizie editorială pentru această prezentare."
+
+msgid "editor.submission.recommendation"
+msgstr "Recomandări"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Recomandări: {$recommendations}"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Recomandare: {$recommendation}"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Schimbare recomandare"
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Faceți Recomandare"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+"Alocați un editor pentru a activa deciziile editoriale pentru această etapă."
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Acest fișier de corectură nu va mai fi public pentru descărcare sau "
+"cumpărare. Vrei să îl  dezaprobi?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Aprobare corectură"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"Fișierul cu corectura trebuie verificat și aprobat pentru a fi disponibil. "
+"Vrei să o aprobi?"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Trimiteți la revizuire internă"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Acceptați și treceți peste revizie"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Trimiteți la producție"
+
+msgid "editor.submission.decision.decline"
+msgstr "Refuzați înregistrarea manuscrisului"
+
+msgid "editor.submission.decision.newRound"
+msgstr "Rundă nouă de revizie"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Reînregistrare manuscris revizie"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Solicitați revizuiri"
+
+msgid "editor.submission.decision.accept"
+msgstr "Acceptați înregistrarea manuscrisului"
+
+msgid "editor.submission.decision"
+msgstr "Decizie"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Sunteți sigur că doriți ca autorii acestui manuscris să poată edita "
+"metadatele manuscrisului în acea etapă?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Sunteți sigur că doriți ca autorii acestui manuscris să nu poată edita "
+"metadatele în acea etapă?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Permiteți editarea metadatelor"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Renunțați la editarea metadatelor"
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"Participantul ce l-ați selectat a fost desemnat să efectueze o examinare "
+"oarbă. Dacă îl atribuiți ca participant, acesta va avea acces la identitatea "
+"autorului. Sunteți încurajat să nu atribuiți acest participant decât dacă "
+"puteți asigura în mod independent integritatea procesului de evaluare."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr ""
+"Trebuie să selectați un utilizator pentru grupul de utilizatori specificat."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Trebuie să selectați un grup de utilizatori."
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+"Ești pe cale să elimini acest participant <strong>din toate etapele</strong>."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Eliminați participantul"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Utilizatorii sunt repartizați pe etape ale fluxului de lucru pe grupuri de "
+"utilizatori. Orice utilizator alocat acestei etape va fi automat atribuit "
+"altor etape cărora le-a fost atribuit grupul de utilizatori. Acest lucru "
+"este rezervat în mod obișnuit pentru editori, autori și traducători."
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Editați atribuirea"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Alocați participant"
+
+msgid "editor.submission.participant"
+msgstr "Participant"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Nicio atribuire"
+
+msgid "editor.submission.stageParticipants"
+msgstr "Participanți"
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Toate recomandările sunt incluse și este necesară o decizie."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Au fost prezentate noi recomandări editoriale."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "În așteptarea recomandărilor editorilor."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "O revizuire este în întârziere."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Toți recenzorii au răspuns și este necesară o decizie."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Au fost trimise recenzii noi."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Așteptați răspunsuri din partea recenzorilor."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "În așteptarea repartizării revizorilor."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Înregistrare de manuscris refuzată."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Înregistrare de manuscris acceptată."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Trimis la recenzie externă."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Manuscrisul a fost reînregistrat pentru o altă rundă de revizie."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr ""
+"Înregistrarea de manuscris trebuie să fie reînregistrată pentru o altă rundă "
+"de revizie."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Reviziile au fost încărcate."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Au fost solicitate revizuiri."
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Nu există fișiere pe care să le revizuiți în acest moment."
+
+msgid "submission.upload.proof"
+msgstr "Încărcați un fișier gata de publicare"
+
+msgid "submission.upload.productionReady"
+msgstr "Încărcați un fișier gata de producție"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"După examinarea fișierului atribuit, înregistrați orice comentariu pe "
+"fișierul de mai jos și / sau încărcați o copie adnotată a fișierului (sau a "
+"unui alt fișier)."
+
+msgid "submission.upload.uploadFiles"
+msgstr "Încărcați fișiere"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Încărcare fișier manuscris editat"
+
+msgid "submission.upload.finalDraft"
+msgstr "Încărcare fișier"
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Introduceți un subiect."
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Introduceți limba."
+
+msgid "submission.submit.addAuthor"
+msgstr "Adăugare contributor"
+
+msgid "submission.submit.contributorRole"
+msgstr "Rolul contributoului"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Autor corespondent, pentru corespondența editorială."
+
+msgid "submission.date.yyyymmdd"
+msgstr "AAAA-LL-ZZ"
+
+msgid "submission.date.mmdd"
+msgstr "LL-ZZ"
+
+msgid "submission.nameRequired"
+msgstr "Este necesar un nume pentru acest element."
+
+msgid "submission.fileDetails"
+msgstr "Detalii fișier"
+
+msgid "submission.artworkFileDetails"
+msgstr "Detalii fișier opera de artă"
+
+msgid "submission.loadMessage"
+msgstr "Vă rugăm să așteptați până  când fișierul dvs. este încărcat pe server."
+
+msgid "submission.uploadSuccessful"
+msgstr "Fișierul dvs. a fost încărcat."
+
+msgid "submission.views"
+msgstr "Vizualizați"
+
+msgid "submission.viewMetadata"
+msgstr "Vizualizați metadate"
+
+msgid "submission.createRemote"
+msgstr "Creați la distanță"
+
+msgid "submission.uploadFileTo"
+msgstr "Încărcați fișierul în"
+
+msgid "submission.underway"
+msgstr "In curs"
+
+msgid "submission.type.tip"
+msgstr ""
+"Tipul de fișier pentru înregistrări manuscrise este de obicei unul de "
+"„imagine”, „text” sau alte tipuri multimedia, inclusiv „software” sau "
+"„interactiv”.  Vă rugăm să-l alegeți pe cel mai relevant pentru "
+"înregistrarea dvs. Exemple pot fi găsite la <a target=\"_blank\" href=\""
+"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\""
+">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.titleAndAbstract"
+msgstr "Titlu și rezumat"
+
+msgid "submission.indexingInformation"
+msgstr "Informații de indexare"
+
+msgid "submission.currentAgencies"
+msgstr "Agenții actuale"
+
+msgid "submission.supportingAgencies"
+msgstr "Finanțatori"
+
+msgid "submission.supplementaryFiles"
+msgstr "Fișiere suplimentare"
+
+msgid "submission.summary"
+msgstr "Cuprins"
+
+msgid "submission.upload.query"
+msgstr "Încărcați un fișier de discuție"
+
+msgid "submission.upload.dependent"
+msgstr "Încărcați un fișier dependent"
+
+msgid "submission.manageDependentFiles"
+msgstr "Gestionați fișierele dependente"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Fișiere dependente"
+
+msgid "submission.submit.submissionFiles"
+msgstr "Fișiere înregistrare manuscris"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Sunt acceptate înregistrările de manuscrise în limba română sau engleză. "
+"Alegeți limba primară a înregistrării manuscrisului din selectorul de mai "
+"sus."
+
+msgid "submission.submit.submissionLocale"
+msgstr "Limba pentru înregistrare manuscris"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Adăugați informații suplimentare pentru înregistrarea dvs. de manuscris. "
+"Apăsați „enter” după fiecare termen."
+
+msgid "submission.submit.metadataForm"
+msgstr "Rafinări suplimentare"
+
+msgid "submission.submit.newFile"
+msgstr "Adaugă un alt fișier"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Includeți acest contribuitor în listele de navigare?"
+
+msgid "submission.submit.fileAdded"
+msgstr "Fișier adăugat"
+
+msgid "submission.submit.fileInformation"
+msgstr "Informații fișier"
+
+msgid "submission.submit.selectFile"
+msgstr "Selectare fișier"
+
+msgid "submission.submit.finishSubmission"
+msgstr "Finalizare înregistrare manuscris"
+
+msgid "submission.submitter"
+msgstr "Autor corespondent"
+
+msgid "submission.submissionReview"
+msgstr "Revizie înregistrată"
+
+msgid "submission.submissionManuscript"
+msgstr "Manuscris înregistrat"
+
+msgid "submission.submissionHistory"
+msgstr "Istoricul înregistrării de manuscris"
+
+msgid "submission.start"
+msgstr "Start"
+
+msgid "submission.submissionTitle"
+msgstr "Titlul manuscrisului:"
+
+msgid "submission.submission"
+msgstr "Înregistrare manuscris"
+
+msgid "submissions.submitted"
+msgstr "Manuscris înregistrat"
+
+msgid "submissions.submit"
+msgstr "Înregistrare manuscris"
+
+msgid "submission.source.tip"
+msgstr ""
+"Această înregistrare de manuscris este derivată dintr-o altă resursă? Dacă "
+"da, puteți introduce o adresă URL sau o descriere a resursei respective."
+
+msgid "submission.source"
+msgstr "Sursa"
+
+msgid "submissions.ruling"
+msgstr "Conducător"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Nu a fost alocat nici un editor pentru acest manuscris."
+
+msgid "submissions.queued"
+msgstr "În așteptare"
+
+msgid "submissions.queuedEditing"
+msgstr "În editare"
+
+msgid "submissions.noSubmissions"
+msgstr "Nici o înregistrare de manuscris"
+
+msgid "submissions.incomplete"
+msgstr "Incomplet"
+
+msgid "submissions.declined"
+msgstr "Refuzat"
+
+msgid "submissions.completed"
+msgstr "Complet"
+
+msgid "submission.saveMetadata"
+msgstr "Salvare metadate"
+
+msgid "submissions.archived"
+msgstr "Arhivat"
+
+msgid "submissions.active"
+msgstr "Activ"
+
+msgid "submission.rights.tip"
+msgstr ""
+"Dacă doriți, puteți introduce aici o scurtă declarație despre drepturile de "
+"acces deținute, sau treceți peste această notificare."
+
+msgid "submission.rights"
+msgstr "Drepturi"
+
+msgid "submission.reviewVersion"
+msgstr "Versiune revizie"
+
+msgid "submission.reviewed"
+msgstr "Revizuit"
+
+msgid "submission.review"
+msgstr "Revizuire"
+
+msgid "submission.reviewMetadata"
+msgstr "Revizuire Metadate"
+
+msgid "submission.restrictions"
+msgstr "Restricții"
+
+msgid "submission.response"
+msgstr "Răspuns"
+
+msgid "submission.request"
+msgstr "Cerere"
+
+msgid "submission.rejected"
+msgstr "Respins(ă)"
+
+msgid "submission.recommendation"
+msgstr "Recomandare: {$recommendation}"
+
+msgid "submission.production"
+msgstr "Producție"
+
+msgid "submission.peerReview"
+msgstr "Peer&nbsp;Revizie"
+
+msgid "submission.page.citations"
+msgstr "#{$id} Citări"
+
+msgid "submission.page.summary"
+msgstr "#{$id} Cuprins"
+
+msgid "submission.page.review"
+msgstr "#{$id} Revizie"
+
+msgid "submission.page.history"
+msgstr "#{$id} Istoric"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Editare"
+
+msgid "submission.originalFile"
+msgstr "Fișier original"
+
+msgid "submission.notes.viewNotes"
+msgstr "Vizualizare note"
+
+msgid "submission.notes.updateNote"
+msgstr "Actualizare notă"
+
+msgid "submission.notes"
+msgstr "Note de înregistrare manuscrise"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Eliminați fișierul încărcat"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Nu a fost înregistrată nicio notă"
+
+msgid "submission.notes.expandNotes"
+msgstr "Extindere note"
+
+msgid "submission.notes.editNote"
+msgstr "Editare notă"
+
+msgid "submission.notes.deleteNote"
+msgstr "Ștergere notă"
+
+msgid "submission.notes.createNewNote"
+msgstr "Creare notă nouă"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Ștergeți această notă de înregistrare manuscris?"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Eliminați toate notele de înregistrări manuscrise?"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Restrângeți notele"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Ștergeți toate notele"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Note"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Înapoi la Note de transmitere"
+
+msgid "submission.notes.attachedFile"
+msgstr "Fișier atașat"
+
+msgid "submission.notes.addNewNote"
+msgstr "Adăugați o notă nouă"
+
+msgid "submission.noReviewAssignments"
+msgstr "Fără misiuni de revizuire"
+
+msgid "submission.metadata"
+msgstr "Înregistrare Metadate"
+
+msgid "submission.layout.viewProof"
+msgstr "Vizualizare corectură"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Vizualizarea galeriei de înregistrări manuscrise"
+
+msgid "submission.layout.supplementaryFiles"
+msgstr "Revizuirea suplimentară a fișierelor"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Nu a fost adăugat nici un fișier de stil în această galerie."
+
+msgid "submission.layout.newSupplementaryFile"
+msgstr "Încărcare noi fișiere suplimentare"
+
+msgid "submission.layout.newGalley"
+msgstr "Crearea unei noi galerii"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Versiune machetă"
+
+msgid "submission.layout"
+msgstr "Machetă"
+
+msgid "submission.layout.layoutFile"
+msgstr "Fișiere machete"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Crearea inițială a Galeriilor"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Stil"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Fișier stil"
+
+msgid "submission.layout.galleys"
+msgstr "Galerii"
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Nicio imagine"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr ""
+"Vă rugăm să furnizați o adresă URL de la distanță validă (include http: //)."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "URL de la distanță"
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Este necesar un fișier de limbaj local pentru galerie."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Este necesară alegerea limbii pentru galerie."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Este necesară o etichetă de galerie."
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr ""
+"De obicei se folosește pentru a identifica formatul fișierului (de exemplu, "
+"PDF, HTML, etc.)."
+
+msgid "submission.layout.galleyLabel"
+msgstr "Eticheta Galerie"
+
+msgid "submission.layout.galleyImages"
+msgstr "Imagini"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "Fișiere de galerie HTML"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Format fișier galerie"
+
+msgid "submission.layout.editGalley"
+msgstr "Modificați galeria de machete (de aspect)"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Ștergeți această foaie de stil."
+
+msgid "submission.layout.confirmDeleteSupplementaryFile"
+msgstr "Sigur doriți să ștergeți definitiv acest fișier suplimentar?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Sigur doriți să eliminați această imagine din galerie?"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Sunteți sigur că doriți să ștergeți permanent această galerie?"
+
+msgid "submission.layout.addGalley"
+msgstr "Adăugați o galerie de machete (de aspect)"
+
+msgid "submission.lastModified"
+msgstr "Modificat ultima dată"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Notificare"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Afișează evenimente din versiunile anterioare"
+
+msgid "submission.informationCenter.history"
+msgstr "Istoric"
+
+msgid "submission.informationCenter.notes"
+msgstr "Note"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Metadate"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Informații înregistrare manuscrise"
+
+msgid "submission.publisherId.enable"
+msgstr "Activați pentru {$objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"ID-ul editorului de publicație poate fi utilizat pentru înregistrarea într-o "
+"bază de date externă. De exemplu, articolele exportate pentru depunerea "
+"către PubMed pot include ID-ul editorului publicației. Acest lucru nu ar "
+"trebui utilizat pentru DOI."
+
+msgid "submission.publisherId"
+msgstr "ID Editorului de Publicație"
+
+msgid "submission.identifiers"
+msgstr "Identificatori"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Aceasta este o versiune învechită publicată pe {$datePublished}.Citește aici "
+"<a href=\"{$urlRecentVersion}\">cea mai recentă versiune</a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Versiuni"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Actualizat în {$dateUpdated}"
+
+msgid "submission.initiated"
+msgstr "Iniţiat"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Descărcați citarea"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Mai multe formate de citare"
+
+msgid "submission.howToCite"
+msgstr "Cum cităm"
+
+msgid "submission.history.viewLog"
+msgstr "Vizualizare jurnal"
+
+msgid "submission.history.submissionNotes"
+msgstr "Note de înregistrare manuscrise"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Jurnal de evenimente"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Jurnal de e-mail"
+
+msgid "submission.history.recentLogEntries"
+msgstr "Înregistrări recente"
+
+msgid "submission.history.noLogEntries"
+msgstr "Fără înregistrări de jurnal."
+
+msgid "submission.history"
+msgstr "Istoric"
+
+msgid "submission.history.clearLog"
+msgstr "Curăță Jurnalul"
+
+msgid "submission.galley"
+msgstr "Galerie"
+
+msgid "submission.files.downloadAll"
+msgstr "Descărcați toate fișierele"
+
+msgid "submission.files"
+msgstr "Fișiere"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Autorii nu au voie să editeze metadatele atunci când sunt trimise în etapa "
+"{stage}."
+
+msgid "submission.event.viewEmail"
+msgstr "Vizualizare email"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Autorii sunt acum autorizați să editeze metadatele când manuscrisul este în "
+"etapa {stage}."
+
+msgid "submission.event.subjectPrefix"
+msgstr "A fost trimis un email:"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Fișierul de revizie a fost actualizat"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Revizuirea a fost retrimisă"
+
+msgid "submission.stageNotInitiated"
+msgstr "Etapa nu a fost inițiată."
+
+msgid "submission.description"
+msgstr "Descriere"
+
+msgid "submission.overview"
+msgstr "Prezentare generală a transmiterii"
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+"\"{$name}\" ({$username}) a aprobat corecturile pentru \"{$formatName}.\""
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) s-a deconectat la semnare \"{$file}.\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$name}\" ({$username}) a finalizat un audit și a încărcat \"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$name}\" ({$username})a fost eliminat ca auditor pentru fișierul \""
+"{$file}.\""
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$name}\" ({$username}) a fost adăugat ca auditor pentru fișierul\"{$file}."
+"\""
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Ați fost adăugat la o discuție intitulată \"{$queryTitle}\" privind "
+"manuscrisul \"{$submissionTitle}\"."
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"Există o nouă activitate în discuția intitulată \"{$queryTitle}\" privind "
+"manuscrisul\"{$submissionTitle}\"."
+
+msgid "submission.query.new"
+msgstr "{$creatorName} a început discuția: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} i-a răspuns lui {$noteTitle}: {$noteContents}"
+
+msgid "grid.action.openNoteForm"
+msgstr "Adăugați un nou răspuns la discuție"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Dacă părăsiți această discuție, nu veți mai fi înștiințat despre mesaje noi. "
+"Ați dori să părăsiți discuția?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Ieșiți din discuție"
+
+msgid "submission.query.addNote"
+msgstr "Adăugare mesaj"
+
+msgid "submission.query.closed"
+msgstr "Închis"
+
+msgid "submission.query.lastReply"
+msgstr "Ultimul răspuns"
+
+msgid "submission.query.from"
+msgstr "De la"
+
+msgid "submission.query.replies"
+msgstr "Răspunsuri"
+
+msgid "submission.query.messages"
+msgstr "Mesaje"
+
+msgid "submission.query.subject"
+msgstr "Subiect"
+
+msgid "submission.queries.editorial"
+msgstr "Discuții editare conținut"
+
+msgid "submission.queries.review"
+msgstr "Discuții revizuire"
+
+msgid "submission.queries.submission"
+msgstr "Discuții pre-revizuire"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative "
+"Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
+"Commons Attribution 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative "
+"Commons Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul "
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative "
+"Commons Attribution-NonCommercial 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul "
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4."
+"0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative "
+"Commons Attribution-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/"
+"88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative "
+"Commons Attribution 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4."
+"0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative "
+"Commons Attribution-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul "
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4."
+"0/88x31.png\" /></a><p>Această lucrare este licențiată în temeiul <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative "
+"Commons Attribution-NonCommercial 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>TAceastă lucrare este licențiată în "
+"temeiul <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-nd/4.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 "
+"International License</a>.</p>"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "Atribuire CC-Necomercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "Atribuire CC-necomercială 4.0"
+
+msgid "submission.licenseURL"
+msgstr "Licență URL"
+
+msgid "submission.licenseURLValid"
+msgstr ""
+"Vă rugăm să furnizați o adresă URL de la distanță validă (include http: //)."
+
+msgid "submission.copyrightStatement"
+msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.copyrightYear"
+msgstr "An Copyright"
+
+msgid "submission.copyrightOther"
+msgstr "Declarație de copyright"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Declarație de copyright personalizată"
+
+msgid "submission.copyrightHolder"
+msgstr "Titular de drepturi de autor"
+
+msgid "submission.copyright"
+msgstr "Drepturi de autor"
+
+msgid "submission.license"
+msgstr "Licență"
+
+msgid "submission.attachPermissions"
+msgstr "Atașați următoarele permisiuni la trimitere:"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Creați un nou element în formularul de revizie"
+
+msgid "submission.reviewFormResponse"
+msgstr "Formular de răspuns la revizie"
+
+msgid "submission.reviewForm"
+msgstr "Formular de revizie"
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"Un editor de producție trebuie să fie atribuit înainte de începerea "
+"procesului editorial. Vă rugăm să adăugați un editor de producție utilizând "
+"lista Participanți."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"Un editor de producție trebuie să fie atribuit înainte ca procesul de "
+"producție să poată fi inițiat. Vă rugăm să adăugați un editor de producție "
+"utilizând lista Participanți."
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Procesul de producție a început."
+
+msgid "grid.action.itemWorkflow"
+msgstr "Accesați fluxul de lucru al acestei înregistrări de manuscris"
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Această revizie este completă și revizorul a fost mulțumit pentru "
+"contribuția autorilor."
+
+msgid "submission.review.status.complete"
+msgstr "Această revizuire a fost finalizată."
+
+msgid "submission.review.status.received"
+msgstr "Evaluatorul și-a prezentat recenzia."
+
+msgid "submission.review.status.accepted"
+msgstr "Această revizie a fost acceptată."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Evaluatorul a ratat data scadenței reviziei."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Evaluatorul a ratat data scadenței răspunsului."
+
+msgid "submission.review.status.declined"
+msgstr "Evaluatorul a respins această solicitare de revizuire."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Așteptați un răspuns din partea revizorului."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} a finalizat revizuirea pentru runda {$round} de revizuire a "
+"manuscrisului {$submissionId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Editorul {$userName} a confirmat o revizie pentru runda {$round} pentru "
+"manuscrisul {$submissionId}."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"A fost inițiată runda {$round} de revizie ce va fi făcută de {$reviewerName} "
+"pentru manuscrisul {$submissionId}."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} a marcat runda {$round} de revizie pentru manuscrisul "
+"{$submissionId} ca „nu se ia în considerare”."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"Runda {$round} de revizie a {$reviewerName} pentru manuscrisul "
+"{$submissionId} a fost anulată."
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName}a fost repartizat pentru revizuirea manuscrisului "
+"{$submissionId} pentru runda de revizie {$round}."
+
+msgid "submission.productionReady"
+msgstr "Carte disponibilă"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Selectați fișierele de revizuire pentru a le partaja cu autorul(ii)"
+
+msgid "grid.reviewAttachments.title"
+msgstr "Atașamente revizori"
+
+msgid "notification.type.submissionNewVersion"
+msgstr "A fost creată o nouă versiune pentru înregistrarea de manuscris"
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Un editor trebuie să fie atribuit înainte de începerea revizuirii. Vă rugăm "
+"să adăugați un editor utilizând lista Participanți."
+
+msgid "notification.uploadedResponse"
+msgstr "Răspuns încărcat."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Înregistrare de manuscris refuzată."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "O nouă rundă de revizie a fost inițiată."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Reînregistrare manuscris pentru revizie."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Revizie necesară."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Procesul de revizuire a început."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Înregistrare de manuscris acceptată."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Ultima decizie de editor."
+
+msgid "notification.type.indexRequest"
+msgstr "Vi s-a solicitat să creați un index pentru \"{$title}\"."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Vi s-a solicitat să revizuiți conținutul machetat pentru \"{$title}\"."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Vi s-a solicitat să revizuiți conținutul editat pentru \"{$title}\"."
+
+msgid "notification.type.editorAssign"
+msgstr "Vi s-a atribuit un editor la înregistrarea manuscrisului \"{$title}\"."
+
+msgid "submission.documents"
+msgstr "Înregistrare documente"

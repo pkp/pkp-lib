@@ -2,16 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
+"PO-Revision-Date: 2020-09-19 15:49+0000\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
+"helene.vezina@umontreal.ca>\n"
+"Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"common/fr_CA/>\n"
+"Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: fr_CA\n"
-# localization file for fr_CA. Last revision 2019-10-22T03:27:11 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
+# localization file for fr_CA. Last revision 2019-10-22T03:27:11 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
 
@@ -147,7 +151,6 @@ msgstr "Texte alternatif"
 msgid "common.altTextInstructions"
 msgstr "Décrire cette image afin d'assurer l'accessibilité aux utilisateurs-trices de navigateurs textuels ou de dispositifs d'assistance. Par exemple : « Notre rédacteur prend la parole à la conférence PKP »."
 
-
 msgid "common.and"
 msgstr "et"
 
@@ -167,7 +170,7 @@ msgid "common.available"
 msgstr "Disponible"
 
 msgid "common.back"
-msgstr "Précédent-e"
+msgstr "Précédent"
 
 msgid "common.between"
 msgstr "entre"
@@ -207,21 +210,33 @@ msgstr "Validation"
 
 msgid "common.ccLicense"
 msgstr ""
-"<br /><br />\n"
-"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br/>\n"
-"\t\tCe travail est autorisé sous licence avec la <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Licence de paternité Creative Commons 3.0</a>."
+"\t\tCe travail est autorisé sous licence avec la <a rel=\"license\" target=\""
+"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Licence de "
+"paternité Creative Commons 3.0</a>.\n"
+"\t"
 
 msgid "common.ccLicense.rt"
 msgstr ""
-"<div class=\"rtBlock\">\n"
+"\n"
+"\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tCe travail est autorisé sous licence avec la <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Licence de paternité Creative Commons 3.0</a>.\n"
-"\t</div>"
+"\t\tCe travail est autorisé sous licence avec la <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Licence de "
+"paternité Creative Commons 3.0</a>.\n"
+"\t</div>\n"
+"\t"
 
 msgid "common.changesSaved"
 msgstr "Vos changements ont été enregistrés."
@@ -473,7 +488,7 @@ msgid "common.commaListSeparator"
 msgstr ", "
 
 msgid "common.semicolonListSeparator"
-msgstr " ; "
+msgstr "; "
 
 msgid "common.manage"
 msgstr "Gérer"
@@ -533,7 +548,9 @@ msgid "common.notes"
 msgstr "Notes"
 
 msgid "common.notes.tooltip"
-msgstr "Notes (jaune: contient de nouvelles notes ; bleu: contient des notes déjà lues ; gris: aucune note)"
+msgstr ""
+"Notes (jaune : contient de nouvelles notes ; bleu : contient des notes déjà "
+"lues ; gris : aucune note)"
 
 msgid "common.notified"
 msgstr "Notifié-e"
@@ -545,10 +562,10 @@ msgid "common.noMatches"
 msgstr "Aucune concordance"
 
 msgid "common.off"
-msgstr "Arrêté-e"
+msgstr "Arrêté"
 
 msgid "common.on"
-msgstr "Démarré-e"
+msgstr "Démarré"
 
 msgid "common.ok"
 msgstr "OK"
@@ -608,10 +625,10 @@ msgid "common.pluginDisabled"
 msgstr "Le plugiciel « {$pluginName} » a été désactivé."
 
 msgid "common.prefix"
-msgstr "Préfixe"
+msgstr "Article inital"
 
 msgid "common.prefixAndTitle.tip"
-msgstr "Si le titre du document commence par « un/une » ou  « le/la » (ou quelque chose de similaire concernant l'ordre alphabétique), mettre le mot dans Préfixe."
+msgstr "Exemples : Un/Une, Le/La"
 
 msgid "common.preview"
 msgstr "Aperçu"
@@ -629,7 +646,7 @@ msgid "common.range"
 msgstr "{$min}-{$max}"
 
 msgid "common.re"
-msgstr "RE:"
+msgstr "RE :"
 
 msgid "common.readMore"
 msgstr "En lire davantage"
@@ -765,6 +782,9 @@ msgstr "Élément"
 
 msgid "common.uninitiated"
 msgstr "Non-initié-e"
+
+msgid "common.unknownError"
+msgstr "Une erreur imprévue est survenue. Veuillez recharger la page et essayer à nouveau."
 
 msgid "common.unread"
 msgstr "Non lu-e"
@@ -1027,9 +1047,6 @@ msgstr "Veuillez corriger {$count} erreurs."
 msgid "form.errors"
 msgstr "Le formulaire n'a pas été enregistré car {$ count} erreurs ont été rencontrées. Veuillez corriger ces erreurs et réessayer."
 
-msgid "form.errorUnknown"
-msgstr "Une erreur inattendue est survenue. Vous avez peut-être été déconnecté-e. Veuillez recharger la page et essayer de nouveau."
-
 msgid "form.errorsOccurred"
 msgstr "Des erreurs se sont produites pendant le traitement du formulaire"
 
@@ -1044,9 +1061,6 @@ msgstr "contient"
 
 msgid "form.is"
 msgstr "est"
-
-msgid "form.missingRequired"
-msgstr "Ce champ est requis."
 
 msgid "form.startsWith"
 msgstr "commence par"
@@ -1097,10 +1111,10 @@ msgid "help.toc"
 msgstr "Table des matières"
 
 msgid "help.previous"
-msgstr "Précédent-e"
+msgstr "Précédent"
 
 msgid "help.next"
-msgstr "Suivant-e"
+msgstr "Suivant"
 
 msgid "help.upALevel"
 msgstr "Niveau supérieur"
@@ -1145,7 +1159,7 @@ msgid "icon.view.alt"
 msgstr "Afficher"
 
 msgid "informationCenter.informationCenter"
-msgstr "Centralisation des informations "
+msgstr "Centralisation des informations"
 
 msgid "informationCenter.editorialHistory"
 msgstr "Historique éditorial"
@@ -1172,7 +1186,7 @@ msgid "informationCenter.history.noItems"
 msgstr "Aucune activité n'a été enregistrée."
 
 msgid "informationCenter.history.notePosted"
-msgstr "Nouvelle note publiée."
+msgstr "Nouvelle note enregistrée."
 
 msgid "informationCenter.history.messageSent"
 msgstr "Avis envoyé aux utilisateurs-trices."
@@ -1204,6 +1218,7 @@ msgstr "Ce(cette) participant-e est uniquement autorisé-e à recommander une d�
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Autorisation de modifications aux métadonnées de la soumission."
 
+#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr "Autoriser cet utilisateur-trice à apporter des modifications aux métadonnées de la soumission."
 
@@ -1372,12 +1387,6 @@ msgstr "Type d'annoncé modifié."
 msgid "notification.removedAnnouncementType"
 msgstr "Type d'annonce supprimé."
 
-msgid "notification.addedAnnouncement"
-msgstr "Annonce ajoutée."
-
-msgid "notification.editedAnnouncement"
-msgstr "Annonce modifiée."
-
 msgid "notification.removedAnnouncement"
 msgstr "Annonce supprimée."
 
@@ -1498,9 +1507,6 @@ msgstr "Tous les termes des champs indexés"
 msgid "search.matchAll"
 msgstr "Dans toutes les catégories"
 
-msgid "search.noKeywordError"
-msgstr "Vous devez entrer au moins un mot-clé de recherche."
-
 msgid "search.noResults"
 msgstr "Aucun résultat"
 
@@ -1537,7 +1543,8 @@ msgstr "Télécharger ce fichier"
 msgid "context.path"
 msgstr "Chemin d'accès"
 
-msgid "review.ensuringBlindReview"
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
 msgstr "Assurer une évaluation anonyme"
 
 msgid "grid.action.showReviewPolicy"
@@ -1558,17 +1565,45 @@ msgstr "Tâches"
 msgid "dashboard.myQueue"
 msgstr "Mes soumissions"
 
-msgid "review.blindPeerReview"
+#, fuzzy
+msgid "review.anonymousPeerReview"
 msgstr ""
-"<p>Afin d'assurer l'intégrité de l'évaluation par les pairs en double-aveugle des soumissions envoyées à cette revue, tous les efforts possibles devraient être faits pour éviter de révéler l'identité des auteurs-es et des évaluateurs-trices. Pour ce faire, les auteurs-es, les rédacteurs-trices et les évaluateurs-trices (qui téléversent les documents dans le cadre de l'évaluation) doivent s'assurer de suivre les étapes suivantes en ce qui concerne les propriétés du texte et du fichier:</p>\n"
+"<p>Afin d'assurer l'intégrité de l'évaluation par les pairs en double-"
+"aveugle des soumissions envoyées à cette revue, tous les efforts possibles "
+"devraient être faits pour éviter de révéler l'identité des auteurs-es et des "
+"évaluateurs-trices. Cela implique que les auteurs-es, éditeurs-trices et "
+"évaluateurs-trices (qui téléversent des documents dans le cadre de leur "
+"évaluation) vérifient si les étapes suivantes ont été prises en ce qui "
+"concerne le texte et les propriétés du fichier :</p>\n"
+"<ul><li>Supprimer le nom de l'auteur-e du texte. Dans la bibliographie et "
+"dans les notes en bas de page, on utilise le mot  « Auteur-e » et l'année au "
+"lieu du nom de l'auteur-e, du titre de l'article, etc.</li>\n"
 "\n"
-"<ul><li>Supprimer le nom de l'auteur-e du texte. Dans la bibliographie et dans les notes en bas de page, on utilise le mot  « Auteur-e » et l'année au lieu du nom de l'auteur-e, du titre de l'article, etc.</li>\n"
+"<li>L'identification de l'auteur-e ne doit plus apparaître dans les "
+"propriétés du fichier. Pour se faire vous devez suivre les étapes suivantes :"
 "\n"
-"<li>En ce qui concerne les documents de type Microsoft Office, l'identification de l'auteur-e ne doit plus apparaître dans les propriétés du fichier (voir le menu principal Fichier dans Word). Vous devez cliquer: Fichier &gt; Enregistrer sous &gt; Outils (ou Options sur le Mac) &gt; Sécurité &gt; Éliminer les renseignements personnels des propriétés du fichier au moment de la sauvegarde &gt; Sauvegarder.</li>\n"
-"\n"
-"<li>Pour les fichiers PDF, le nom de l'auteur-e doit être enlevé des propriétés du document dans le menu Fichier, du menu principal d'Adobe Acrobat.</li>\n"
-"\n"
-"\t\t</ul>"
+"<ul><li>Microsoft Word pour Windows :\n"
+"<ul><li>Aller à « Fichier »</li>\n"
+"<li>Sélectionner « Inspecter le document »</li>\n"
+"<li>Cliquer sur « Vérifier l'absence de problèmes »</li>\n"
+"<li>Cliquer sur « Inspecter le document »</li>\n"
+"<li>Dans la boîte de dialogue de l'inspecteur de document, cocher les cases "
+"relatives au type de contenu masqué à inspecter.</li>\n"
+"<li>Cliquer « Tout supprimer »</li>\n"
+"<li>Cliquer sur « Fermer »</li>\n"
+"<li>Sauvegarder le document</li></ul>\n"
+"<li>Microsoft Word pour MacOS :\n"
+"<ul><li>Aller à « Outils »</li>\n"
+"<li>Cliquer sur « Protéger le document »</li>\n"
+"<li>Sélectionner « Retirer les renseignements personnels des propriétés du "
+"fichier au moment de la sauvegarde »</li>\n"
+"<li>Cliquer sur « OK » et sauvegarder le document</li></ul></li>\n"
+"<li>PDF :\n"
+"<ul><li>Aller à « Fichier »</li>\n"
+"<li>Sélectionner  « Propriétés »</li>\n"
+"<li>Supprimer tout nom du champ auteur</li>\n"
+"<li>Cliquer sur « OK » </li>\n"
+"<li>Sauvegarder le document</li></ul></li></ul>\n"
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Examiner le calendrier"
@@ -1619,7 +1654,7 @@ msgid "notification.type.reviewAssignmentUpdated"
 msgstr "Demande d'évaluation mise à jour."
 
 msgid "notification.type.auditorRequest"
-msgstr "Demande de vérification du fichier « {$file} »."
+msgstr "Demande de vérification du fichier « {$file} »"
 
 msgid "notification.type.allReviewsIn"
 msgstr "Toutes les évaluations ont été remises. Une décision est maintenant requise à l'étape {$stage}."
@@ -1673,13 +1708,13 @@ msgid "notification.type.awaitingCopyedits"
 msgstr "En attente des révisions."
 
 msgid "notification.type.roundStatusTitle"
-msgstr "Statut du cycle {$round} "
+msgstr "Statut du cycle {$round}"
 
 msgid "semicolon"
 msgstr "{$label} :"
 
 msgid "notification.editedNavigationMenuItem"
-msgstr "L'élément du menu de navigation a bien été mis à jour."
+msgstr "L'élément du menu de navigation a bien été mis à jour"
 
 msgid "notification.removedNavigationMenuItem"
 msgstr "L'élément du menu de navigation a bien été supprimé."
@@ -1712,7 +1747,7 @@ msgid "validator.after"
 msgstr "Cette date doit être ultérieure à {$date}."
 
 msgid "validator.alpha"
-msgstr "Cela ne peut contenir que des lettres.
+msgstr "Cela ne peut contenir que des lettres."
 
 msgid "validator.alpha_dash"
 msgstr "Cela ne peut contenir que des lettres, des chiffres, des tirets et des traits de soulignement."
@@ -1796,7 +1831,9 @@ msgid "validator.localeExpected"
 msgstr "Ce champ est multilingue. Des valeurs distinctes doivent être fournies pour chaque langue prise en charge."
 
 msgid "validator.localeKey"
-msgstr "Les langues doivent être spécifiées à l'aide du code du paramètre régional. Exemples: en_US, fr_CA, sr_RS@cyrillic."
+msgstr ""
+"Les langues doivent être spécifiées à l'aide du code du paramètre régional. "
+"Exemples : en_US, fr_CA, sr_RS@cyrillic."
 
 msgid "validator.max.numeric"
 msgstr "Cela ne peut pas être supérieur à {$max}."
@@ -1888,4 +1925,22 @@ msgstr "Le,La {$ attribut} est déjà pris-e."
 msgid "validator.url"
 msgstr "Ceci n'est pas un URL valide."
 
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Ceci est un rappel amical pour vous inciter à vérifier la bonne marche de "
+"votre revue via le rapport éditorial."
 
+msgid "notification.type.editorialReport"
+msgstr "Résumé du rapport de statistiques."
+
+msgid "common.override"
+msgstr "Outrepasser"
+
+msgid "navigation.skip.description"
+msgstr "Aller directement aux liens de contenu"
+
+msgid "common.moreThanOnly"
+msgstr "Plus que"
+
+msgid "common.lessThanOnly"
+msgstr "Moins que"

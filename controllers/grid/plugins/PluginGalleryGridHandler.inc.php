@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/settings/pluginGallery/PluginGalleryGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginGalleryGridHandler
  * @ingroup controllers_grid_settings_pluginGallery
@@ -120,9 +120,9 @@ class PluginGalleryGridHandler extends GridHandler {
 	 */
 	protected function loadData($request, $filter) {
 		// Get all plugins.
-		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
+		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO'); /* @var $pluginGalleryDao PluginGalleryDAO */
 		return $pluginGalleryDao->getNewestCompatible(
-			Application::getApplication(),
+			Application::get(),
 			$request->getUserVar('category'),
 			$request->getUserVar('pluginText')
 		);
@@ -231,6 +231,8 @@ class PluginGalleryGridHandler extends GridHandler {
 
 	/**
 	 * Upgrade a plugin
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
 	function upgradePlugin($args, $request) {
 		return $this->installPlugin($args, $request, true);
@@ -238,62 +240,69 @@ class PluginGalleryGridHandler extends GridHandler {
 
 	/**
 	 * Install or upgrade a plugin
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @param $isUpgrade boolean
 	 */
 	function installPlugin($args, $request, $isUpgrade = false) {
-		if (!$request->checkCSRF()) return new JSONMessage(false);
+		$redirectUrl = $request->getDispatcher()->url($request, ROUTE_PAGE, null, 'management', 'settings', array('website'), array('r' => uniqid()), 'plugins');
+		if (!$request->checkCSRF()) return $request->redirectUrlJson($redirectUrl);
 
 		$plugin = $this->_getSpecifiedPlugin($request);
 		$notificationMgr = new NotificationManager();
 		$user = $request->getUser();
-		$dispatcher = $request->getDispatcher();
 
 		// Download the file and ensure the MD5 sum
-		$fileManager = new FileManager();
 		$destPath = tempnam(sys_get_temp_dir(), 'plugin');
 
-		$wrapper = FileWrapper::wrapper($plugin->getReleasePackage());
-		while (true) {
-			$newWrapper = $wrapper->open();
-			if (is_a($newWrapper, 'FileWrapper')) {
-				// Follow a redirect
-				$wrapper = $newWrapper;
-			} elseif (!$newWrapper) {
-				fatalError('Unable to open plugin URL!');
-			} else {
-				// OK, we've found the end result
-				break;
-			}
+		// Download the plugin package.
+		try {
+			$client = Application::get()->getHttpClient();
+			$response = $client->request('GET', $plugin->getReleasePackage());
+			if (file_put_contents($destPath, $body->getContents())) throw new Exception('Unable to save plugin to local file!');
+		} catch (Exception $e) {
+			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => $e->getMessage()));
+			return $request->redirectUrlJson($redirectUrl);
 		}
 
-		if (!$wrapper->save($destPath)) fatalError('Unable to save plugin to local file!');
-		$wrapper->close();
-
-		if (md5_file($destPath) !== $plugin->getReleaseMD5()) fatalError('Incorrect MD5 checksum!');
+		// Verify the plugin checksum.
+		if (md5_file($destPath) !== $plugin->getReleaseMD5()) {
+			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => 'Incorrect MD5 checksum!'));
+			unlink($destPath);
+			return $request->redirectUrlJson($redirectUrl);
+		}
 
 		// Extract the plugin
 		import('lib.pkp.classes.plugins.PluginHelper');
 		$pluginHelper = new PluginHelper();
-		$errorMsg = null;
-		if (!($pluginDir = $pluginHelper->extractPlugin($destPath, $plugin->getProduct() . '-' . $plugin->getVersion(), $errorMsg))) {
-			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => $errorMsg));
+		try {
+			$pluginDir = $pluginHelper->extractPlugin($destPath, $plugin->getProduct() . '-' . $plugin->getVersion());
+		} catch (Exception $e) {
+			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => $e->getMessage()));
+			return $request->redirectUrlJson($redirectUrl);
+		} finally {
+			unlink($destPath);
 		}
 
-		// Install the plugin
-		if (!$isUpgrade) {
-			if (!($pluginVersion = $pluginHelper->installPlugin($pluginDir, $errorMsg))) {
-				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => $errorMsg));
+		// Install or upgrade the plugin
+		try {
+			if (!$isUpgrade) {
+				$pluginVersion = $pluginHelper->installPlugin($pluginDir);
+			} else {
+				$pluginVersion = $pluginHelper->upgradePlugin($plugin->getCategory(), $plugin->getProduct(), $pluginDir);
 			}
-		} else {
-			if (!($pluginVersion = $pluginHelper->upgradePlugin($plugin->getCategory(), $plugin->getProduct(), $pluginDir, $errorMsg))) {
-				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => $errorMsg));
-			}
-		}
 
-		if (!$errorMsg) {
+			// Notify of success.
 			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('manager.plugins.upgradeSuccessful', array('versionString' => $pluginVersion->getVersionString(false)))));
+		} catch (Exception $e) {
+			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => $e->getMessage()));
+			if (!$isUpgrade) {
+				import('lib.pkp.classes.file.TemporaryFileManager');
+				$temporaryFileManager = new TemporaryFileManager();
+				$temporaryFileManager->rmtree($pluginDir);
+			}
 		}
-
-		return $request->redirectUrlJson($dispatcher->url($request, ROUTE_PAGE, null, 'management', 'settings', array('website'), array('r' => uniqid()), 'plugins'));
+		return $request->redirectUrlJson($redirectUrl);
 	}
 
 	/**
@@ -303,8 +312,8 @@ class PluginGalleryGridHandler extends GridHandler {
 	 */
 	function _getSpecifiedPlugin($request) {
 		// Get all plugins.
-		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
-		$plugins = $pluginGalleryDao->getNewestCompatible(Application::getApplication());
+		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO'); /* @var $pluginGalleryDao PluginGalleryDAO */
+		$plugins = $pluginGalleryDao->getNewestCompatible(Application::get());
 
 		// Get specified plugin. Indexes into $plugins are 0-based
 		// but row IDs are 1-based; compensate.

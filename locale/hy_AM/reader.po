@@ -1,0 +1,80 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-09-16 06:49+0000\n"
+"Last-Translator: anau vpn <anauvpn@gmail.com>\n"
+"Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/reader/"
+"hy_AM/>\n"
+"Language: hy_AM\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "reader.fullText"
+msgstr "Ամբողջական տեքստ"
+
+msgid "comments.viewAllComments"
+msgstr "Տեսնել բոլոր մեկնաբանությունները"
+
+msgid "comments.title"
+msgstr "Վերնագիր"
+
+msgid "comments.replies"
+msgstr "Պատասխաններ"
+
+msgid "comments.readMore"
+msgstr "Կարդալ ավելին"
+
+msgid "comments.readerComments"
+msgstr "Կարդացողի մեկնաբանություն"
+
+msgid "comments.postReply"
+msgstr "Հրապարակման պատասխան"
+
+msgid "comments.postAnonymously"
+msgstr "Հրապարակել անանուն մեկնաբանություն"
+
+msgid "comments.oneReply"
+msgstr "(1 պատասխան)"
+
+msgid "comments.nReplies"
+msgstr "({$num} պատասխաններ)"
+
+msgid "comments.noComments"
+msgstr "Մեկնաբանություն չի հրապարակվել"
+
+msgid "comments.name"
+msgstr "Հրապարակողի անուն"
+
+msgid "comments.inResponseTo"
+msgstr "<a href=\"{$url}\">{$title}</a>ին ի պատասխան"
+
+msgid "comments.enterComment"
+msgstr "Մուտքագրել մեկնաբանությունը"
+
+msgid "comments.emailReply"
+msgstr "էլ. փոստով պատասխան"
+
+msgid "comments.email"
+msgstr "Հրապարակողի էլ. հասցեն"
+
+msgid "comments.delete"
+msgstr "Ջնջել մեկնաբանությունը"
+
+msgid "comments.confirmDeleteChildren"
+msgstr ""
+"Եթե ջնջեք այս մեկնաբանությունը, ապա կջնջեք նաև դրա պատասխանները: Դուք վստա՞հ "
+"եք, որ ցանկանում եք ջնջել:"
+
+msgid "comments.titleRequired"
+msgstr "Պահանջվում է մեկնաբանության վերնագիր:"
+
+msgid "comments.body"
+msgstr "հատված"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.anonymous"
+msgstr "Անանուն օգտագործող"

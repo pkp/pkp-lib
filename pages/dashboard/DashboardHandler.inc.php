@@ -2,9 +2,9 @@
 /**
  * @file pages/dashboard/DashboardHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DashboardHandler
  * @ingroup pages_dashboard
@@ -20,6 +20,10 @@ define('SUBMISSIONS_LIST_MY_QUEUE', 'myQueue');
 define('SUBMISSIONS_LIST_UNASSIGNED', 'unassigned');
 
 class DashboardHandler extends Handler {
+
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
+
 	/**
 	 * Constructor
 	 */
@@ -60,6 +64,9 @@ class DashboardHandler extends Handler {
 		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_submissions');
 		$lists = [];
 
+		$includeIssuesFilter = array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $userRoles);
+		$includeAssignedEditorsFilter = array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles);
+
 		// My Queue
 		$myQueueListPanel = new \APP\components\listPanels\SubmissionsListPanel(
 			SUBMISSIONS_LIST_MY_QUEUE,
@@ -68,10 +75,11 @@ class DashboardHandler extends Handler {
 				'apiUrl' => $apiUrl,
 				'getParams' => [
 					'status' => STATUS_QUEUED,
-					'assignedTo' => (int) $request->getUser()->getId(),
+					'assignedTo' => [(int) $request->getUser()->getId()],
 				],
-			]
-		);
+			'includeIssuesFilter' => $includeIssuesFilter,
+			'includeActiveSectionFiltersOnly' => true,
+		]);
 		$myQueueListPanel->set([
 			'items' => $myQueueListPanel->getItems($request),
 			'itemsMax' => $myQueueListPanel->getItemsMax()
@@ -91,6 +99,8 @@ class DashboardHandler extends Handler {
 						'assignedTo' => -1,
 					],
 					'lazyLoad' => true,
+					'includeIssuesFilter' => $includeIssuesFilter,
+					'includeActiveSectionFiltersOnly' => true,
 				]
 			);
 			$lists[$unassignedListPanel->id] = $unassignedListPanel->getConfig();
@@ -105,6 +115,8 @@ class DashboardHandler extends Handler {
 						'status' => STATUS_QUEUED,
 					],
 					'lazyLoad' => true,
+					'includeIssuesFilter' => $includeIssuesFilter,
+					'includeAssignedEditorsFilter' => $includeAssignedEditorsFilter,
 				]
 			);
 			$lists[$activeListPanel->id] = $activeListPanel->getConfig();
@@ -124,11 +136,16 @@ class DashboardHandler extends Handler {
 				'apiUrl' => $apiUrl,
 				'getParams' => $params,
 				'lazyLoad' => true,
+				'includeIssuesFilter' => $includeIssuesFilter,
+				'includeAssignedEditorsFilter' => $includeAssignedEditorsFilter,
 			]
 		);
 		$lists[$archivedListPanel->id] = $archivedListPanel->getConfig();
 
-		$templateMgr->assign('containerData', ['components' => $lists]);
+		$templateMgr->setState(['components' => $lists]);
+		$templateMgr->assign([
+			'pageTitle' => __('navigation.submissions'),
+		]);
 
 		return $templateMgr->display('dashboard/index.tpl');
 	}

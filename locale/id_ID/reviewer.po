@@ -1,0 +1,126 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-02-12 08:50+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reviewer/id/>\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.authorization.submissionReviewer"
+msgstr ""
+"Pengguna ini tidak ditugaskan sebagai mitra bestari untuk dokumen yang "
+"diminta."
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Hanya untuk penyunting"
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Untuk penulis dan penyunting"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"Editor menayakan apakah Anda menerima atau menolak review sebelum Batas "
+"Waktu Menanggapi dan menyelesaikan review sebelum Batas Waktu Mereview."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Tentang Batas Waktu"
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"Terima kasih telah menyelesaikan hasil review naskah ini. Hasil review Anda "
+"telah berhasil dikirim. Kami menyampaikan terima kasih atas kontribusi Anda "
+"akan kualitas artikel yang kami terbitkan; editor mungkin menghubungi Anda "
+"lagi untuk informasi lebih lanjut jika diperlukan."
+
+msgid "reviewer.confirmSubmit"
+msgstr "Yakin ingin menyerahkan hasil review ini?"
+
+msgid "reviewer.complete"
+msgstr "Hasil Review Diserahkan"
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"Unggah file yang ingin dikonsultasikan dengan editor dan/atau penulis, "
+"termasuk versi revisi dari file hasil review asli."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr ""
+"Maukkan (atau paste) hasil review Anda atas naskah ini ke dalam borang di "
+"bawah ini."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"Klik pada nama file di bawah ini untuk mengunduh file yang berhubungan "
+"dengan naskah ini."
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Penerbit ini belum memiliki pedoman bagi mitra bestari."
+
+msgid "reviewer.submission.guidelines"
+msgstr "Pedoman Review"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Competing Interest"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Saya mungkin memiliki competing interes (sebutkan di bawah ini)"
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Saya tidak punya competing interest"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"Penerbit ini menerapkan kebijakan untuk menyatakan competing interest dari "
+"mitra bestarinya. Silakan pelajari lebih lanjut kebijakannya."
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Pedoman Mitra Bestari"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Serahkan Hasil Review"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Lanjut ke Tahap #3"
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Terima Review, Lanjut ke Tahap #2"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr ""
+"Anda bisa memberi alasan kepada penyunting mengapa menolak review ini pada "
+"kolom di bawah ini."
+
+msgid "reviewer.submission.declineReview"
+msgstr "Tolak Permintaan Review"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "File Mitra Bestari"
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Lihat Rincian Semua Naskah Masuk"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+"Anda telah dipilih sebagai calon mitra bestari potensial untuk naskah "
+"berikut. Di bawah ini adalah ikhtisar pengajuan, serta jadwal reviewnya. "
+"Semoga Anda dapat berpartisipasi."
+
+msgid "reviewer.step1.request"
+msgstr "Ajukan review"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Penyelesaian"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Unduh & Review"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Pedoman"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Permintaan"

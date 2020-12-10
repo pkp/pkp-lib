@@ -1,9 +1,9 @@
 /**
  * @file js/classes/Handler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Handler
  * @ingroup js_classes
@@ -363,23 +363,24 @@
 	 *  false if an error occurred.
 	 */
 	$.pkp.classes.Handler.prototype.handleJson = function(jsonData) {
+		var key, eventData;
+
 		if (!jsonData) {
 			throw new Error('Server error: Server returned no or invalid data!');
 		}
 
 		if (jsonData.status === true) {
 			// Trigger events passed from the server
-			_.each((/** @type {{ events: Object }} */ jsonData).events,
-					function(event) {
-						/** @type {{isGlobalEvent: boolean}} */
-						var eventData = _.has(event, 'data') ? event.data : null;
-						if (!_.isNull(eventData) && eventData.isGlobalEvent) {
-							eventData.handler = this;
-							pkp.eventBus.$emit(event.name, eventData);
-						} else {
-							this.trigger(event.name, eventData);
-						}
-					}, this);
+			for (key in jsonData.events) {
+				eventData = jsonData.events[key].hasOwnProperty('data') ?
+						jsonData.events[key].data : null;
+				if (eventData !== null && eventData.isGlobalEvent) {
+					eventData.handler = this;
+					pkp.eventBus.$emit(jsonData.events[key].name, eventData);
+				} else {
+					this.trigger(jsonData.events[key].name, eventData);
+				}
+			}
 			return jsonData;
 		} else {
 			// If we got an error message then display it.
@@ -518,12 +519,15 @@
 	 * @param {Function} callback The function to fire when event is triggered
 	 */
 	$.pkp.classes.Handler.prototype.unbindGlobal = function(eventName, callback) {
-		var wrapper = this.callbackWrapper(callback);
+		var wrapper = this.callbackWrapper(callback),
+				globalEventListeners = [];
 		if (typeof this.globalEventListeners_[eventName] !== 'undefined') {
-			this.globalEventListeners = _.reject(this.globalEventListeners,
-					function(cb) {
-						return cb === wrapper;
-					});
+			this.globalEventListeners.forEach(function(callback) {
+				if (callback !== wrapper) {
+					globalEventListeners.push(callback);
+				}
+			});
+			this.globalEventListeners = globalEventListeners;
 		}
 		pkp.eventBus.$off(eventName, wrapper);
 	};
@@ -533,12 +537,13 @@
 	 * Unbind all global event listeners on this handler and any child handlers
 	 */
 	$.pkp.classes.Handler.prototype.unbindGlobalAll = function() {
+		var event, callback;
 		if (typeof this.globalEventListeners_ !== 'undefined') {
-			_.each(this.globalEventListeners_, function(callbacks, eventName) {
-				_.each(callbacks, function(callback) {
-					pkp.eventBus.$off(eventName, callback);
-				});
-			});
+			for (event in this.globalEventListeners_) {
+				for (callback in this.globalEventListeners_[event]) {
+					pkp.eventBus.$off(event, this.globalEventListeners_[event][callback]);
+				}
+			}
 		}
 		this.globalEventListeners = null;
 		this.unbindGlobalChildren();
@@ -549,7 +554,7 @@
 	 * Unbind all global event listeners on child handlers
 	 */
 	$.pkp.classes.Handler.prototype.unbindGlobalChildren = function() {
-		_.each(this.handlerChildren_, function(childHandler) {
+		this.handlerChildren_.forEach(function(childHandler) {
 			// Handler in legacy JS framework
 			if (typeof childHandler.unbindGlobalAll !== 'undefined') {
 				childHandler.unbindGlobalAll();
@@ -872,5 +877,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

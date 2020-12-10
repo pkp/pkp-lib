@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:46+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:46+00:00\n"
+"Language: \n"
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr "درخواست شما نادیده گرفته شد. شاید به دلیل آن است که ورود شما به سیستم منقشی شده است. لطفاً صفحه را از اول بارگذاری کرده و دوباره تلاش کنید"
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "شما تنها مجاز به دیدن مقالات چاپ نشده‌ای هستید که به شما انتساب داده شده است."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "شما نمی‌توانید مقاله ارسالی که به این محتوا منتسب نشده است را حذف کنید"
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "شما مجاز به حذف این مقاله ارسالی نیستید."
+
+msgid "api.404.resourceNotFound"
+msgstr "منابع درخواستی یافت نشد."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "به دلیل آنکه برخی از اطلاعات ضروری در دسترس نیست، درخواست شما قابل اجرا نمی‌باشد"
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "شماره، دوره و یا سال درخواستی معتبر نمی‌باشد"

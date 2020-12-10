@@ -2,17 +2,15 @@
 
 # @file tools/buildjs.sh
 #
-# Copyright (c) 2014-2019 Simon Fraser University
-# Copyright (c) 2010-2019 John Willinsky
-# Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+# Copyright (c) 2014-2020 Simon Fraser University
+# Copyright (c) 2010-2020 John Willinsky
+# Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
 #
 # Script to check and minimize JavaScript for distribution.
 #
 # Requirements:
 # - Requires Python/Closure Linter and Java/Closure Compiler, see
-#   <http://code.google.com/closure>. Please download the compiler.jar
-#   from there. Expects Closure's compiler.jar file in '~/bin'. If you want to put it
-#   into a different directory then please change the TOOL_PATH variable below.
+#   <http://code.google.com/closure>. Install this using npm.
 #   Please see the Closure Linter documentation for installation instructions
 #   of that tool.
 #
@@ -42,6 +40,7 @@ fi
 ### Configuration ###
 
 TOOL_PATH=~/bin
+CLOSURE_COMPILER_JAR=./node_modules/google-closure-compiler-java/compiler.jar
 
 JS_OUTPUT='js/pkp.min.js'
 
@@ -67,8 +66,8 @@ shift $((OPTIND-1))
 ### Start Processing ###
 echo >&2
 echo "Starting PKP JavaScript builder." >&2
-echo "Copyright (c) 2014-2019 Simon Fraser University" >&2
-echo "Copyright (c) 2010-2019 John Willinsky" >&2
+echo "Copyright (c) 2014-2020 Simon Fraser University" >&2
+echo "Copyright (c) 2010-2020 John Willinsky" >&2
 
 
 ### Checking Requirements ###
@@ -91,11 +90,10 @@ if [ ! -e "$TOOL_PATH/jslint4java.jar" ]; then
 	MISSING_REQUIREMENT='jslint4java'
 fi
 
-if [ ! -e "$TOOL_PATH/compiler.jar" ]; then
+if [ ! -e "$CLOSURE_COMPILER_JAR" ]; then
 	echo >&2
-	echo "Google Closure Compiler not found in '$TOOL_PATH'" >&2
-	echo "Please go to <https://developers.google.com/closure/compiler/>" >&2
-	echo "and download the tool. Then try again." >&2
+	echo "Google Closure Compiler not found in '$CLOSURE_COMPILER_JAR'" >&2
+	echo "Please run 'npm npm install --save google-closure-compiler' and try again." >&2
 	MISSING_REQUIREMENT='closure'
 fi
 
@@ -167,7 +165,7 @@ for JS_FILE in $LINT_FILES; do
 		# - We allow code without the 'use strict' pragma as we need the callee property
 		#   for our class framework implementation.
 		java -jar "$TOOL_PATH/jslint4java.jar" --white --forin --nomen --plusplus --continue \
-			--eqeq --sloppy --browser --predef jQuery,alert,tinyMCE,confirm,PNotify,plupload \
+			--eqeq --sloppy --browser --predef pkp,jQuery,alert,tinyMCE,confirm,plupload \
 			--regexp "$JS_FILE" | sed "s/^/${TAB}/"
 		echo "...processed!" >&2
 
@@ -189,7 +187,7 @@ LINT_FILES=`echo "$LINT_FILES" | sed "s%^%$WORKDIR/%" | tr '\n' ' ' | sed -$EXTE
 echo >> "$WORKDIR/.compile-warnings.out"
 echo "Compile (Check)..." >> "$WORKDIR/.compile-warnings.out"
 echo "Compile (Check)..." >&2
-java -jar "$TOOL_PATH/compiler.jar" --language_in=ECMASCRIPT5 --jscomp_warning visibility --warning_level VERBOSE \
+java -jar ${CLOSURE_COMPILER_JAR} --language_in=ECMASCRIPT5 --jscomp_warning visibility --warning_level DEFAULT \
 	$CLOSURE_EXTERNS $LINT_FILES --js_output_file /dev/null 2>&1 \
 	| sed "s/^/${TAB}/" >>"$WORKDIR/.compile-warnings.out"
 
@@ -219,7 +217,7 @@ echo "$COMPILE_FILES" | sed 's/^/.../' >&2
 COMPILE_FILES=`echo "$COMPILE_FILES" | tr '\n' ' ' | sed -$EXTENDED_REGEX_FLAG 's/ $//;s/(^| )/ --js /g'`
 
 # Run Closure - second pass to minify
-java -jar "$TOOL_PATH/compiler.jar" --language_in=ECMASCRIPT5 --jscomp_off checkTypes --warning_level VERBOSE $COMPILE_FILES \
+java -jar ${CLOSURE_COMPILER_JAR} --language_in=ECMASCRIPT5 --jscomp_off checkTypes --warning_level DEFAULT $COMPILE_FILES \
 	$CLOSURE_EXTERNS --js_output_file "$JS_OUTPUT" 2>&1
 echo >&2
 

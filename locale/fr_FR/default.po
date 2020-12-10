@@ -1,0 +1,141 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
+"PO-Revision-Date: 2020-08-04 07:48+0000\n"
+"Last-Translator: Paul Heckler <paul.d.heckler@gmail.com>\n"
+"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
+"fr/>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Administrateur du site"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Administrateurs du site"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Directeur de production"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Directeurs de production"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "DirProd"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Réviseur"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Réviseurs"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "RÉV"
+
+msgid "default.groups.name.proofreader"
+msgstr "Correcteur d’épreuves"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Correcteurs d’épreuves"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "CorEp"
+
+msgid "default.groups.name.designer"
+msgstr "Designer"
+
+msgid "default.groups.plural.designer"
+msgstr "Designers"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Design"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Rapporteur interne"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Rapporteurs internes"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "EvalInt"
+
+msgid "default.groups.name.marketing"
+msgstr "Coordonnateur des ventes et du marketing"
+
+msgid "default.groups.plural.marketing"
+msgstr "Coordonnateurs des ventes et du marketing"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "CVM"
+
+msgid "default.groups.name.funding"
+msgstr "Coordonnateur du financement"
+
+msgid "default.groups.plural.funding"
+msgstr "Coordonnateurs du financement"
+
+msgid "default.groups.abbrev.funding"
+msgstr "CF"
+
+msgid "default.groups.name.indexer"
+msgstr "Indexeur"
+
+msgid "default.groups.plural.indexer"
+msgstr "Indexeurs"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "Indx"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Responsable de la mise en page"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Responsables de la mise en page"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "RespMP"
+
+msgid "default.groups.name.author"
+msgstr "Auteur"
+
+msgid "default.groups.plural.author"
+msgstr "Auteurs"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.name.translator"
+msgstr "Traducteur"
+
+msgid "default.groups.plural.translator"
+msgstr "Traducteurs"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Trad"
+
+msgid "default.groups.name.reader"
+msgstr "Lecteur"
+
+msgid "default.groups.plural.reader"
+msgstr "Lecteurs"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Lect"
+
+msgid "default.genres.other"
+msgstr "Autre"
+
+msgid "default.genres.multimedia"
+msgstr "Multimédia"
+
+msgid "default.genres.image"
+msgstr "Image"
+
+msgid "default.genres.styleSheet"
+msgstr "Feuille de style HTML"

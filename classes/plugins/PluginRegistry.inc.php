@@ -3,9 +3,9 @@
 /**
  * @file classes/plugins/PluginRegistry.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginRegistry
  * @ingroup plugins
@@ -13,7 +13,6 @@
  *
  * @brief Registry class for managing plugins.
  */
-
 
 define('PLUGINS_PREFIX', 'plugins/');
 
@@ -29,9 +28,9 @@ class PluginRegistry {
 	 * @return array
 	 */
 	static function &getPlugins($category = null) {
-		$plugins =& Registry::get('plugins', true, array());
+		$plugins =& Registry::get('plugins', true, []); // Reference necessary
 		if ($category !== null) {
-			if (!isset($plugins[$category])) $plugins[$category] = array();
+			if (!isset($plugins[$category])) $plugins[$category] = [];
 			return $plugins[$category];
 		}
 		return $plugins;
@@ -39,10 +38,11 @@ class PluginRegistry {
 
 	/**
 	 * Get all plugins in a single array.
+	 * @return array
 	 */
-	static function &getAllPlugins() {
-		$plugins =& PluginRegistry::getPlugins();
-		$allPlugins = array();
+	static function getAllPlugins() {
+		$plugins =& self::getPlugins();
+		$allPlugins = [];
 		if (!empty($plugins)) foreach ($plugins as $list) {
 			if (is_array($list)) $allPlugins += $list;
 		}
@@ -63,7 +63,7 @@ class PluginRegistry {
 	 */
 	static function register($category, $plugin, $path, $mainContextId = null) {
 		$pluginName = $plugin->getName();
-		$plugins =& PluginRegistry::getPlugins();
+		$plugins =& self::getPlugins();
 
 		// Allow the plugin to register.
 		if (!$plugin->register($category, $path, $mainContextId)) return false;
@@ -72,7 +72,7 @@ class PluginRegistry {
 		if (isset($plugins[$category][$pluginName])) return false;
 
 		if (isset($plugins[$category])) $plugins[$category][$pluginName] = $plugin;
-		else $plugins[$category] = array($pluginName => $plugin);
+		else $plugins[$category] = [$pluginName => $plugin];
 		return true;
 	}
 
@@ -80,11 +80,11 @@ class PluginRegistry {
 	 * Get a plugin by name.
 	 * @param $category String category name
 	 * @param $name String plugin name
+	 * @return Plugin?
 	 */
 	static function getPlugin($category, $name) {
-		$plugins =& PluginRegistry::getPlugins();
-		$plugin = @$plugins[$category][$name];
-		return $plugin;
+		$plugins =& self::getPlugins();
+		return $plugins[$category][$name]??null;
 	}
 
 	/**
@@ -101,20 +101,19 @@ class PluginRegistry {
 	 * @return array Set of plugins, sorted in sequence.
 	 */
 	static function loadCategory ($category, $enabledOnly = false, $mainContextId = null) {
-		$plugins = array();
+		$plugins = [];
 		$categoryDir = PLUGINS_PREFIX . $category;
 		if (!is_dir($categoryDir)) return $plugins;
 
 		if ($enabledOnly && Config::getVar('general', 'installed')) {
 			// Get enabled plug-ins from the database.
-			$application = Application::getApplication();
+			$application = Application::get();
 			$products = $application->getEnabledProducts('plugins.'.$category, $mainContextId);
 			foreach ($products as $product) {
 				$file = $product->getProduct();
-				$plugin = PluginRegistry::_instantiatePlugin($category, $categoryDir, $file, $product->getProductClassname());
-				if ($plugin && is_object($plugin)) {
+				$plugin = self::_instantiatePlugin($category, $categoryDir, $file, $product->getProductClassname());
+				if ($plugin instanceof Plugin) {
 					$plugins[$plugin->getSeq()]["$categoryDir/$file"] = $plugin;
-					unset($plugin);
 				}
 			}
 		} else {
@@ -124,10 +123,9 @@ class PluginRegistry {
 			$handle = opendir($categoryDir);
 			while (($file = readdir($handle)) !== false) {
 				if ($file == '.' || $file == '..') continue;
-				$plugin = PluginRegistry::_instantiatePlugin($category, $categoryDir, $file);
+				$plugin = self::_instantiatePlugin($category, $categoryDir, $file);
 				if ($plugin && is_object($plugin)) {
 					$plugins[$plugin->getSeq()]["$categoryDir/$file"] = $plugin;
-					unset($plugin);
 				}
 			}
 			closedir($handle);
@@ -135,23 +133,23 @@ class PluginRegistry {
 
 		// Fire a hook prior to registering plugins for a category
 		// n.b.: this should not be used from a PKPPlugin::register() call to "jump categories"
-		HookRegistry::call('PluginRegistry::loadCategory', array(&$category, &$plugins));
+		HookRegistry::call('PluginRegistry::loadCategory', [&$category, &$plugins]);
 
 		// Register the plugins in sequence.
 		ksort($plugins);
 		foreach ($plugins as $seq => $junk1) {
 			foreach ($plugins[$seq] as $pluginPath => $junk2) {
-				PluginRegistry::register($category, $plugins[$seq][$pluginPath], $pluginPath, $mainContextId);
+				self::register($category, $plugins[$seq][$pluginPath], $pluginPath, $mainContextId);
 			}
 		}
 		unset($plugins);
 
 		// Return the list of successfully-registered plugins.
-		$plugins =& PluginRegistry::getPlugins($category);
+		$plugins =& self::getPlugins($category);
 
 		// Fire a hook after all plugins of a category have been loaded, so they
 		// are able to interact if required
-		HookRegistry::call('PluginRegistry::categoryLoaded::' . $category, array(&$plugins));
+		HookRegistry::call('PluginRegistry::categoryLoaded::' . $category, [&$plugins]);
 
 		// Sort the plugins by priority before returning.
 		uasort($plugins, function($a, $b) {
@@ -172,17 +170,16 @@ class PluginRegistry {
 	 *  request but sometimes there is no context in the request
 	 *  (e.g. when executing CLI commands). Then the main context
 	 *  can be given as an explicit ID.
-	 * @return object
+	 * @return Plugin?
 	 */
 	static function loadPlugin($category, $pathName, $mainContextId = null) {
 		$pluginPath = PLUGINS_PREFIX . $category . '/' . $pathName;
-		$plugin = null;
-		if (!file_exists($pluginPath . '/index.php')) return $plugin;
+		if (!is_dir($pluginPath) || !file_exists($pluginPath . '/index.php')) return null;
 
 		$plugin = @include("$pluginPath/index.php");
-		if ($plugin && is_object($plugin)) {
-			PluginRegistry::register($category, $plugin, $pluginPath, $mainContextId);
-		}
+		if (!is_object($plugin)) return null;
+
+		self::register($category, $plugin, $pluginPath, $mainContextId);
 		return $plugin;
 	}
 
@@ -197,9 +194,9 @@ class PluginRegistry {
 	 * @return array
 	 */
 	static function getCategories() {
-		$application = Application::getApplication();
+		$application = Application::get();
 		$categories = $application->getPluginCategories();
-		HookRegistry::call('PluginRegistry::getCategories', array(&$categories));
+		HookRegistry::call('PluginRegistry::getCategories', [&$categories]);
 		return $categories;
 	}
 
@@ -208,12 +205,12 @@ class PluginRegistry {
 	 * @param $enabledOnly boolean load only enabled plug-ins
 	 * @return array Set of all plugins
 	 */
-	static function &loadAllPlugins($enabledOnly = false) {
+	static function loadAllPlugins($enabledOnly = false) {
 		// Retrieve and register categories (order is significant).
-		foreach (PluginRegistry::getCategories() as $category) {
-			PluginRegistry::loadCategory($category, $enabledOnly);
+		foreach (self::getCategories() as $category) {
+			self::loadCategory($category, $enabledOnly);
 		}
-		return PluginRegistry::getAllPlugins();
+		return self::getAllPlugins();
 	}
 
 
@@ -229,22 +226,21 @@ class PluginRegistry {
 	 * @param $categoryDir string
 	 * @param $file string
 	 * @param $classToCheck string set null to maintain pre-2.3.x backwards compatibility
-	 * @return Plugin
+	 * @return Plugin?
 	 */
 	static function _instantiatePlugin($category, $categoryDir, $file, $classToCheck = null) {
-		if(!is_null($classToCheck) && !preg_match('/[a-zA-Z0-9]+/', $file)) fatalError('Invalid product name "'.$file.'"!');
+		if(!is_null($classToCheck) && !preg_match('/[a-zA-Z0-9]+/', $file)) throw new Exception('Invalid product name "'.$file.'"!');
 
 		$pluginPath = "$categoryDir/$file";
-		$plugin = null;
+		if (!is_dir($pluginPath)) return null;
 
 		// Try the plug-in wrapper first for backwards
 		// compatibility.
 		$pluginWrapper = "$pluginPath/index.php";
 		if (file_exists($pluginWrapper)) {
 			$plugin = include($pluginWrapper);
-			if ($classToCheck) {
-				assert(is_a($plugin, $classToCheck));
-			}
+			assert(is_a($plugin, $classToCheck ?: 'Plugin'));
+			return $plugin;
 		} else {
 			// Try the well-known plug-in class name next.
 			$pluginClassName = ucfirst($file).ucfirst($category).'Plugin';
@@ -253,17 +249,11 @@ class PluginRegistry {
 				// Try to instantiate the plug-in class.
 				$pluginPackage = 'plugins.'.$category.'.'.$file;
 				$plugin = instantiate($pluginPackage.'.'.$pluginClassName, $pluginClassName, $pluginPackage, 'register');
+				assert(is_a($plugin, $classToCheck ?: 'Plugin'));
+				return $plugin;
 			}
 		}
-
-		// Make sure that the plug-in inherits from the right class.
-		if (is_object($plugin)) {
-			assert(is_a($plugin, 'Plugin'));
-		} else {
-			assert(is_null($plugin));
-		}
-
-		return $plugin;
+		return null;
 	}
 }
 

@@ -3,9 +3,9 @@
 /**
  * @file classes/services/QueryBuilders/PKPSubmissionQueryBuilder.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionQueryBuilder
  * @ingroup query_builders
@@ -16,8 +16,9 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
+abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var int|string|null Context ID or '*' to get from all contexts */
 	protected $categoryIds = null;
@@ -40,14 +41,11 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 	/** @var array|null list of stage ids */
 	protected $stageIds = null;
 
-	/** @var int|null user ID */
-	protected $assigneeId = null;
+	/** @var int|array user IDs */
+	protected $assignedTo = [];
 
 	/** @var string|null search phrase */
 	protected $searchPhrase = null;
-
-	/** @var bool|null whether to return only a count of results */
-	protected $countOnly = null;
 
 	/** @var bool whether to return only incomplete results */
 	protected $isIncomplete = false;
@@ -57,6 +55,12 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 
 	/** @var int|null whether to return only submissions that have not been modified for last X days */
 	protected $daysInactive = null;
+
+	/** @var int|null whether to limit the number of results returned */
+	protected $limit = null;
+
+	/** @var int whether to offset the number of results returned. Use to return a second page of results. */
+	protected $offset = 0;
 
 	/**
 	 * Set context submissions filter
@@ -88,7 +92,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 		} elseif ($column === 'title') {
 			$this->orderColumn = Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
 		} elseif ($column === 'seq') {
-			$this->orderColumn = 'publication_seq.setting_value';
+			$this->orderColumn = 'po.seq';
 		} elseif ($column === ORDERBY_DATE_PUBLISHED) {
 			$this->orderColumn = 'po.date_published';
 		} else {
@@ -182,12 +186,13 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Limit results to a specific user's submissions
 	 *
-	 * @param int $assigneeId
+	 * @param int|array $assignedTo List of assigned user ids or -1 to
+	 *   get submissions with no user assigned.
 	 *
 	 * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
 	 */
-	public function assignedTo($assigneeId) {
-		$this->assigneeId = $assigneeId;
+	public function assignedTo($assignedTo) {
+		$this->assignedTo = $assignedTo;
 		return $this;
 	}
 
@@ -204,23 +209,55 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
-	 * Whether to return only a count of results
+	 * Set query limit
 	 *
-	 * @param bool $enable
+	 * @param int $count
 	 *
 	 * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
 	 */
-	public function countOnly($enable = true) {
-		$this->countOnly = $enable;
+	public function limitTo($count) {
+		$this->limit = $count;
 		return $this;
 	}
 
 	/**
-	 * Execute query builder
+	 * Set how many results to skip
 	 *
-	 * @return object Query object
+	 * @param int $offset
+	 *
+	 * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
 	 */
-	public function get() {
+	public function offsetBy($offset) {
+		$this->offset = $offset;
+		return $this;
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+	 */
+	public function getCount() {
+		return $this
+			->getQuery()
+			->select('s.submission_id')
+			->get()
+			->count();
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
+	 */
+	public function getIds() {
+		return $this
+			->getQuery()
+			->select('s.submission_id')
+			->pluck('s.submission_id')
+			->toArray();
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
+	 */
+	public function getQuery() {
 		$this->columns[] = 's.*';
 		$q = Capsule::table('submissions as s')
 					->orderBy($this->orderColumn, $this->orderDirection)
@@ -239,30 +276,28 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 		if (is_object($this->orderColumn) && $this->orderColumn->getValue() === 'COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)') {
 			$locale = \AppLocale::getLocale();
 			$this->columns[] = Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
-			$q->leftJoin('publications as publication_tlp', 's.submission_id', '=', 'publication_tlp.submission_id')
+			$q->leftJoin('publications as publication_tlp', 's.current_publication_id', '=', 'publication_tlp.publication_id')
 				->leftJoin('publication_settings as publication_tlps', 'publication_tlp.publication_id', '=', 'publication_tlps.publication_id')
 				->where('publication_tlps.setting_name', '=', 'title')
 				->where('publication_tlps.locale', '=', $locale);
-			$q->leftJoin('publications as publication_tlpl', 's.submission_id', '=', 'publication_tlpl.submission_id')
+			$q->leftJoin('publications as publication_tlpl', 's.current_publication_id', '=', 'publication_tlpl.publication_id')
 				->leftJoin('publication_settings as publication_tlpsl', 'publication_tlp.publication_id', '=', 'publication_tlpsl.publication_id')
 				->where('publication_tlpsl.setting_name', '=', 'title')
-				->where('publication_tlpsl.locale', '=', Capsule::raw('publication_tlpl.locale'));
+				->where('publication_tlpsl.locale', '=', Capsule::raw('s.locale'));
 			$q->groupBy(Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)'));
 		}
 
 		// order by publication sequence
-		if ($this->orderColumn === 'publication_seq.setting_value') {
-			$this->columns[] = 'publication_seq.setting_value';
-			$q->leftJoin('publications as publication_seqp', 's.submission_id', '=', 'publication_seqp.submission_id')
-				->leftJoin('publication_settings as publication_seqps', 'publication_seqp.publication_id', '=', 'publication_seqps.publication_id')
-				->where('publication_seqps.setting_name', '=', 'seq');
-			$q->groupBy('publication_seq.setting_value');
-		}
+		if ($this->orderColumn === 'po.seq') {
+			$this->columns[] = 'po.seq';
+			$q->leftJoin('publications as po', 's.current_publication_id', '=', 'po.publication_id');
+			$q->groupBy('po.seq');
 
 		// order by date of current version's publication
-		if ($this->orderColumn === 'po.date_published') {
+		} else if ($this->orderColumn === 'po.date_published') {
 			$this->columns[] = 'po.date_published';
 			$q->leftJoin('publications as po', 's.current_publication_id', '=', 'po.publication_id');
+			$q->groupBy('po.date_published');
 		}
 
 		// statuses
@@ -312,29 +347,29 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 			});
 		}
 
-		// assigned to
-		$isAssignedOnly = !is_null($this->assigneeId) && ($this->assigneeId !== -1);
+		// Assigned to
+		$isAssignedOnly = !empty($this->assignedTo) && $this->assignedTo !== -1;
 		if ($isAssignedOnly) {
-			$assigneeId = $this->assigneeId;
+			$assignedTo = $this->assignedTo;
 
 			// Stage assignments
-			$q->leftJoin('stage_assignments as sa', function($table) use ($assigneeId) {
+			$q->leftJoin('stage_assignments as sa', function($table) use ($assignedTo) {
 				$table->on('s.submission_id', '=', 'sa.submission_id');
-				$table->on('sa.user_id', '=', Capsule::raw((int) $assigneeId));
+				$table->whereIn('sa.user_id', $assignedTo);
 			});
 
 			// Review assignments
-			$q->leftJoin('review_assignments as ra', function($table) use ($assigneeId) {
+			$q->leftJoin('review_assignments as ra', function($table) use ($assignedTo) {
 				$table->on('s.submission_id', '=', 'ra.submission_id');
-				$table->on('ra.reviewer_id', '=', Capsule::raw((int) $assigneeId));
 				$table->on('ra.declined', '=', Capsule::raw((int) 0));
+				$table->whereIn('ra.reviewer_id', $assignedTo);
 			});
 
 			$q->where(function($q) {
 				$q->whereNotNull('sa.stage_assignment_id');
 				$q->orWhereNotNull('ra.review_id');
 			});
-		} elseif ($this->assigneeId === -1) {
+		} elseif ($this->assignedTo === -1) {
 			$sub = Capsule::table('stage_assignments')
 						->select(Capsule::raw('count(stage_assignments.stage_assignment_id)'))
 						->leftJoin('user_groups','stage_assignments.user_group_id','=','user_groups.user_group_id')
@@ -343,7 +378,8 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 
 			$q->whereNotNull('s.date_submitted')
 				->mergeBindings($sub)
-				->where(Capsule::raw('(' . $sub->toSql() . ')'),'=','0');
+				->where(Capsule::raw('(' . $sub->toSql() . ')'),'=','0')
+				->groupBy('s.date_submitted'); // postgres compatibility
 		}
 
 		// search phrase
@@ -369,12 +405,16 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 						->orWhere(function($q) use ($word, $isAssignedOnly) {
 							$q->where('aus.setting_name', IDENTITY_SETTING_FAMILYNAME);
 							$q->where(Capsule::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
+						})
+						->orWhere(function($q) use ($word, $isAssignedOnly) {
+							$q->where('aus.setting_name', 'orcid');
+							$q->where(Capsule::raw('lower(aus.setting_value)'), '=', "{$word}");
 						});
 						// Prevent reviewers from matching searches by author name
 						if ($isAssignedOnly) {
 							$q->whereNull('ra.reviewer_id');
 						}
-						if (ctype_digit($word)) {
+						if (ctype_digit((string) $word)) {
 							$q->orWhere('s.submission_id', '=', $word);
 						}
 					});
@@ -389,14 +429,18 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 				->whereIn('pc.category_id', $this->categoryIds);
 		}
 
+		// Limit and offset results for pagination
+		if (!is_null($this->limit)) {
+			$q->limit($this->limit);
+		}
+		if (!empty($this->offset)) {
+			$q->offset($this->offset);
+		}
+
 		// Add app-specific query statements
 		\HookRegistry::call('Submission::getMany::queryObject', array(&$q, $this));
 
-		if (!empty($this->countOnly)) {
-			$q->select(Capsule::raw('count(*) as submission_count'));
-		} else {
-			$q->distinct('s.*')->select($this->columns);
-		}
+		$q->select($this->columns);
 
 		return $q;
 	}

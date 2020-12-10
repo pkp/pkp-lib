@@ -1,0 +1,698 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-28 19:43+0000\n"
+"Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
+"Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"ro_RO/>\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.task.status.unfinished"
+msgstr "Activitate nefinalizată"
+
+msgid "grid.task.status.uploaded"
+msgstr "Titlul coloanei indică cine a încărcat acest fișier"
+
+msgid "grid.task.status.new"
+msgstr "Verificat atunci când se ia în considerare"
+
+msgid "grid.task.status.completed"
+msgstr "Această activitate este finalizată"
+
+msgid "grid.action.users"
+msgstr "Vizualizare/ Selectare utilizatori"
+
+msgid "grid.action.moreItems"
+msgstr "Încărcați mai mult"
+
+msgid "grid.action.install"
+msgstr "Instalare"
+
+msgid "grid.action.preview"
+msgstr "Previzualizare"
+
+msgid "grid.action.copy"
+msgstr "Copie"
+
+msgid "grid.action.deactivate"
+msgstr "Dezavtivare"
+
+msgid "grid.action.activate"
+msgstr "Activare"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Sigur doriți să exportați toți utilizatorii?"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Exportați toți utilizatorii"
+
+msgid "grid.action.logInAs"
+msgstr "Autentificare ca"
+
+msgid "grid.action.bookInfo"
+msgstr "Info înregistrare manuscris"
+
+msgid "grid.action.enable"
+msgstr "Activare"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Această revizie este completă, dar este posibil să nu fie acceptată"
+
+msgid "grid.action.history"
+msgstr "Vizualizare istoric"
+
+msgid "grid.action.unassignUser"
+msgstr "Utilizator neatribuit"
+
+msgid "grid.action.mergeUser"
+msgstr "Fuziune utilizator"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Adăugare anunț"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Adăugare tip de anunț"
+
+msgid "grid.action.uploadFile"
+msgstr "Încărcați un fișier"
+
+msgid "grid.action.thankReviewer"
+msgstr "Trimiteți un mesaj de mulțumire acestui revizor"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Vizualizați politica abordărilor pentru interese concurente"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Consultați ghidul de revizuire"
+
+msgid "grid.action.newRound"
+msgstr "Creați o nouă rundă"
+
+msgid "grid.action.sendReminder"
+msgstr "Trimiteți un memento de activitate către acest utilizator"
+
+msgid "grid.action.viewMetadata"
+msgstr "Vizualizare metadate pentru înregistrare manuscris"
+
+msgid "grid.action.viewLibrary"
+msgstr "Vizualizare bibliotecă de documente"
+
+msgid "grid.action.advancedSearch"
+msgstr "Căutare avansată"
+
+msgid "grid.action.search"
+msgstr "Căutare"
+
+msgid "grid.action.selectCreate"
+msgstr "Creați un nou revizor"
+
+msgid "grid.action.enrolExisting"
+msgstr "Înrolați un utilizator existent ca revizor"
+
+msgid "grid.action.details"
+msgstr "Vizualizați acest element"
+
+msgid "grid.action.disable"
+msgstr "Dezactivare"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Ștergeți acest grup de utilizatori"
+
+msgid "grid.action.editUserGroup"
+msgstr "Editați acest grup de utilizatori"
+
+msgid "grid.action.addUserGroup"
+msgstr "Adăugare grup nou de utilizatori"
+
+msgid "grid.action.notify"
+msgstr "Notificați acest utilizator"
+
+msgid "grid.action.expand"
+msgstr "Extindere"
+
+msgid "grid.action.requestAccount"
+msgstr "Adăugare participant"
+
+msgid "grid.action.expandAll"
+msgstr "Extindeți toate"
+
+msgid "grid.action.resetEmail"
+msgstr "Resetați această machetă de email la valorile implicite"
+
+msgid "grid.action.disableEmail"
+msgstr "Dezactivați această machetă de email"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Editați această machetă de email"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Adăugați o nouă machetă de email"
+
+msgid "grid.action.resetAll"
+msgstr "Resetați toate elementele la valorile inițiale"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Ștergeți acest element din lista de verificare"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Editare element din lista de verificare"
+
+msgid "grid.action.orderItems"
+msgstr "Activare mod de ordonare"
+
+msgid "grid.action.importexport"
+msgstr "Importă sau exportă conținut sau date despre site"
+
+msgid "grid.action.settings"
+msgstr "Setări"
+
+msgid "grid.action.sendToProduction"
+msgstr "Trimiteți acest manuscris la producție"
+
+msgid "grid.action.externalReview"
+msgstr "Trimiteți acest manuscris spre revizuire externă"
+
+msgid "grid.action.internalReview"
+msgstr "Trimiteți acest manuscris spre revizuire internă"
+
+msgid "grid.action.decline"
+msgstr "Refuzați această înregistrare de manuscris"
+
+msgid "grid.action.accept"
+msgstr "Acceptați această înregistrare de manuscris"
+
+msgid "grid.action.requestRevisions"
+msgstr "Solicitați revizii pentru manuscrisul înregistrat"
+
+msgid "grid.action.selectFiles"
+msgstr "Selectați fișierele de gestionat"
+
+msgid "grid.action.editFile"
+msgstr "Editare fișier"
+
+msgid "grid.action.addFile"
+msgstr "Adăugare fișier"
+
+msgid "grid.action.addReviewer"
+msgstr "Adăugare revizoe"
+
+msgid "grid.action.email"
+msgstr "Trimitere email"
+
+msgid "grid.action.readReview"
+msgstr "Citiți această recenzie"
+
+msgid "grid.action.downloadAll"
+msgstr "Descărcați toate fișierele ca arhivă"
+
+msgid "grid.action.moveItem"
+msgstr "Mutare element"
+
+msgid "grid.action.wizard"
+msgstr "Asistentul pentru setări"
+
+msgid "grid.action.collapseAll"
+msgstr "Restrângeți toate"
+
+msgid "grid.action.collapse"
+msgstr "Restrângeți"
+
+msgid "grid.action.extendAll"
+msgstr "Extindeți toate"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Anulare ordonare"
+
+msgid "grid.action.order"
+msgstr "Ordonare"
+
+msgid "grid.action.upgrade"
+msgstr "Actualizare"
+
+msgid "grid.action.addAuditor"
+msgstr "Adăugare editor"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Ștergere autor"
+
+msgid "grid.action.editAuthor"
+msgstr "Editare autor"
+
+msgid "grid.action.addAuthor"
+msgstr "Adăugare autor"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Sunteți sigur că doriți să reveniți la valorile implicite?"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Reveniți la valorile implicite"
+
+msgid "grid.action.moreInformation"
+msgstr "Mai multe informații"
+
+msgid "grid.action.setApproval"
+msgstr "Setare Aprobare"
+
+msgid "grid.action.disapprove"
+msgstr "Dezaprobare"
+
+msgid "grid.action.approve"
+msgstr "Aprobare"
+
+msgid "grid.action.edit"
+msgstr "Editare"
+
+msgid "grid.action.remove"
+msgstr "Eliminați"
+
+msgid "grid.action.editorialHistory"
+msgstr "Istoria editorială"
+
+msgid "grid.action.deleteSection"
+msgstr "Ștergere secțiune"
+
+msgid "grid.action.export"
+msgstr "Export"
+
+msgid "grid.action.editSection"
+msgstr "Editați secțiunea"
+
+msgid "grid.action.editMedia"
+msgstr "Editați fișierul media"
+
+msgid "grid.action.deleteMedia"
+msgstr "Ștergeți fișierul media"
+
+msgid "grid.action.deleteFile"
+msgstr "Ștergeți fișierul"
+
+msgid "grid.action.delete"
+msgstr "Ștergeți"
+
+msgid "grid.action.reload"
+msgstr "Reluați"
+
+msgid "grid.action.approveCopyedit"
+msgstr ""
+"Aprobați acest fișier cu conținutul editat pentru a-l trimite la următoarea "
+"etapă"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Dezactivați acest revizor"
+
+msgid "grid.action.addUser"
+msgstr "Adăugare utilizator"
+
+msgid "grid.action.updateQuery"
+msgstr "Actualizează discuția"
+
+msgid "grid.action.deleteQuery"
+msgstr "Ștergeți discuția"
+
+msgid "grid.action.readQuery"
+msgstr "Citiți discuția"
+
+msgid "grid.action.addQuery"
+msgstr "Adăugare discuție"
+
+msgid "grid.action.addNote"
+msgstr "Adăugare notă"
+
+msgid "grid.action.addItem"
+msgstr "Adăugare element"
+
+msgid "grid.action.sort"
+msgstr "Sortare"
+
+msgid "grid.action.manageAccess"
+msgstr "Gestionează acces"
+
+msgid "grid.action.uninstall"
+msgstr "Dezinstalare"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Acest element este găzduit de la distanță."
+
+msgid "grid.noAuditors"
+msgstr "Fără auditori"
+
+msgid "grid.settings"
+msgstr "Setări"
+
+msgid "grid.noItems"
+msgstr "Fără elemente"
+
+msgid "grid.artworkFile.credit"
+msgstr "Credit"
+
+msgid "grid.columns.auditor"
+msgstr "Auditor"
+
+msgid "grid.columns.actions"
+msgstr "Acțiuni"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Alegeți un tip ..."
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Fără meniuri de navigare"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Nu există elemente din meniul de navigare"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Adăugare element"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Adăugare meniu"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr ""
+"Includeți înregistrările incomplete de manuscrise care nu sunt trimise de un "
+"autor."
+
+msgid "grid.submission.itemTitle"
+msgstr "Autor; Titlu"
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "Rolul {$userGroupName} este neatribuit de la etapa {$stageName}."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "Rolul {$userGroupName} este alocat pentru etapa {$stageName}."
+
+msgid "grid.userGroup.removed"
+msgstr "{$userGroupName} a eliminat rolul."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"Nu se poate elimina rolul {$userGroupName}. În prezent, {$utilizatoriCount} "
+"utilizatori unt asociați acestuia."
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "Rolul {$userGroupName} este unul implicit și nu poate fi eliminat."
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Cu nivelul permisiunii setat pe"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Listă roluri atribuite pentru"
+
+msgid "grid.userGroup.allStages"
+msgstr "Toate etapele fluxului de lucru"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Retragerea atribuirii pentru etala"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Atribuirea etapei"
+
+msgid "grid.artworkFile.placement"
+msgstr "Plasare în Înregistrare manuscris"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Termeni ce sunt permiși"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Informații de contact (dacă nu, autor/editor de publicare)"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Proprietar de drepturi de autor"
+
+msgid "grid.artworkFile.caption"
+msgstr "Legendă"
+
+msgid "grid.action.fileUnconsider"
+msgstr ""
+"Corecturile au fost făcute. Puteți să nu luați în considerare această "
+"activitate"
+
+msgid "grid.plugin.disable"
+msgstr "Sigur doriți să dezactivați acest plugin?"
+
+msgid "grid.plugin.allCategories"
+msgstr "toate categoriile"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Lista curentă"
+
+msgid "grid.preparedEmails.title"
+msgstr "Șabloane de e-mail pregătite"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"Sunteți sigur că doriți să îmbinați contul cu numele de utilizator \""
+"{$oldUsername}\" în contul cu numele de utilizator \"{$newUsername}\"? "
+"Contul cu numele de utilizator \"{$oldUsername}\" nu va exista ulterior. "
+"Această acțiune nu este reversibilă."
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Toți utilizatorii înscriși"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Îmbinare pentru acest utilizator"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Îmbinare utilizator"
+
+msgid "grid.user.mergeUsers"
+msgstr "Îmbinare utilizatori"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"Vă conectați ca utilizator? Toate acțiunile pe care le efectuați vor fi "
+"atribuite acestui utilizator."
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Selectați un utilizator"
+
+msgid "grid.user.selectUser"
+msgstr "Selectare utilizator"
+
+msgid "grid.user.addRole"
+msgstr "Adăugați rol"
+
+msgid "grid.user.addRoles"
+msgstr "Adăugați roluri"
+
+msgid "grid.user.step2"
+msgstr "Pasul 2: Adăugarea rolurilor utilizatorului la {$userFullName}"
+
+msgid "grid.user.step1"
+msgstr "Pasul 1: Completați detaliile utilizatorului"
+
+msgid "grid.user.userNoRoles"
+msgstr "Acest utilizator nu are roluri."
+
+msgid "grid.user.userRoles"
+msgstr "Roluri utilizator"
+
+msgid "grid.user.userDetails"
+msgstr "Detalii despre utilizator"
+
+msgid "grid.user.lessDetails"
+msgstr "Mai puține detalii despre utilizator"
+
+msgid "grid.user.moreDetails"
+msgstr "Mai multe detalii despre utilizato"
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr ""
+"Solicitați utilizatorului să își schimbe parola la următoarea conectare."
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Utilizatorul trebuie să schimbe parola la logarea următoare."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Schimbați parola"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Trimiteți-i utilizatorului un e-mail de bun venit."
+
+msgid "grid.user.notifyUser"
+msgstr "Notifica Utilizatorul"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Generați o parolă aleatorie pentru acest utilizator."
+
+msgid "grid.user.generatePassword"
+msgstr "Generați parola"
+
+msgid "grid.user.mustProvideName"
+msgstr "Vă rugăm să furnizați cel puțin un nume pentru utilizator."
+
+msgid "grid.user.authSource"
+msgstr "Sursa de autentificare"
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"Nu aveți permisiuni suficiente pentru a administra acest utilizator. Pentru "
+"a administra un utilizator, trebuie să fți fie administrator de site, fie să "
+"administrați toate contextele în care acest utilizator este înscris."
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"A apărut o eroare la trimiterea acestui e-mail. Vă rugăm să vă asigurați că "
+"configurația serverului dvs. de email funcționează și / sau contactați "
+"administratorul de sistem."
+
+msgid "grid.user.error"
+msgstr ""
+"A apărut o eroare la administrarea acestui utilizator. Vă rugăm să încercați "
+"din nou."
+
+msgid "grid.user.enableReason"
+msgstr "Motivul pentru activarea utilizatorului"
+
+msgid "grid.user.disableReason"
+msgstr "Motiv pentru dezactivarea utilizatorului"
+
+msgid "grid.user.disable"
+msgstr "Dezactivare"
+
+msgid "grid.user.enable"
+msgstr "Activare"
+
+msgid "grid.user.email"
+msgstr "Email"
+
+msgid "grid.user.edit"
+msgstr "Editare utilizator"
+
+msgid "grid.user.enroll"
+msgstr "Înrolare utilizator"
+
+msgid "grid.user.add"
+msgstr "Adăugare utilizator"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Toate nivelurile de acces"
+
+msgid "grid.user.allRoles"
+msgstr "Toate rolurile"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Înrolare curentă"
+
+msgid "grid.user.currentUsers"
+msgstr "Utilizatori curenți"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Stadiul înregistrării manuscrisului"
+
+msgid "grid.roles.add"
+msgstr "Creare rol nou"
+
+msgid "grid.roles.currentRoles"
+msgstr "Roluri curente"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "În Listele de navigare"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Contact principal"
+
+msgid "author.users.contributor.role"
+msgstr "Rol"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.name"
+msgstr "Nume"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Element de listă de verificare"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Lista de verificare pentru înregistrările de manuscrise"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Biblioteca cu șabloane de producție"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Bibliotecă producție"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Bibliotecă  revizii"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Bibliotecă editorial"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Bibliotecă înregistrări manuscrise"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Fișiere"
+
+msgid "grid.noFiles"
+msgstr "Fără fișiere"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Opțiuni de răspuns"
+
+msgid "grid.reviewForm.title"
+msgstr "Formulare de revizie"
+
+msgid "grid.action.newVersion"
+msgstr "Creare versiune nouă"
+
+msgid "grid.action.deleteContributor"
+msgstr "Ștergere contributor"
+
+msgid "grid.action.editContributor"
+msgstr "Editare contributor"
+
+msgid "grid.action.addContributor"
+msgstr "Adăugare contributor"
+
+msgid "grid.contributor.title"
+msgstr "Surse de sprijin"
+
+msgid "grid.action.deleteCategory"
+msgstr "Ștergere categorie"
+
+msgid "grid.action.editCategory"
+msgstr "Editare categorie"
+
+msgid "grid.action.addCategory"
+msgstr "Adăugare categorie"
+
+msgid "grid.action.deleteSeries"
+msgstr "Ștergere serii"
+
+msgid "grid.action.editSeries"
+msgstr "Editare serii"
+
+msgid "grid.action.addSeries"
+msgstr "Adăugare sierii"
+
+msgid "grid.action.editSponsor"
+msgstr "Editare sponsor"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Ștergere sponsor"
+
+msgid "grid.action.addSponsor"
+msgstr "Adăugare sponsor"
+
+msgid "grid.sponsor.title"
+msgstr "Organizații sponsor"
+
+msgid "grid.columns.locale"
+msgstr "Limba folosită"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.institution"
+msgstr "Instituție"
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+"Această recenzie este gata. Faceți clic pe pictograma notei din stânga "
+"pentru a o citi."

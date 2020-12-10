@@ -9,9 +9,9 @@
 /**
  * @file classes/plugins/Plugin.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Plugin
  * @ingroup plugins
@@ -90,30 +90,27 @@ abstract class Plugin {
 	function register($category, $path, $mainContextId = null) {
 		$this->pluginPath = $path;
 		$this->pluginCategory = $category;
-		if ($this->getInstallSchemaFile()) {
-			HookRegistry::register ('Installer::postInstall', array($this, 'updateSchema'));
+		if ($this->getInstallMigration()) {
+			HookRegistry::register ('Installer::postInstall', [$this, 'updateSchema']);
 		}
 		if ($this->getInstallSitePluginSettingsFile()) {
-			HookRegistry::register ('Installer::postInstall', array($this, 'installSiteSettings'));
+			HookRegistry::register ('Installer::postInstall', [$this, 'installSiteSettings']);
 		}
 		if ($this->getInstallControlledVocabFiles()) {
-			HookRegistry::register ('Installer::postInstall', array($this, 'installControlledVocabs'));
+			HookRegistry::register ('Installer::postInstall', [$this, 'installControlledVocabs']);
 		}
 		if ($this->getInstallEmailTemplatesFile()) {
-			HookRegistry::register ('Installer::postInstall', array($this, 'installEmailTemplates'));
+			HookRegistry::register ('Installer::postInstall', [$this, 'installEmailTemplates']);
+			HookRegistry::register ('PKPLocale::installLocale', [$this, 'installLocale']);
 		}
 		if ($this->getInstallEmailTemplateDataFile()) {
-			HookRegistry::register ('Installer::postInstall', array($this, 'installEmailTemplateData'));
-			HookRegistry::register ('PKPLocale::installLocale', array($this, 'installLocale'));
-		}
-		if ($this->getInstallDataFile()) {
-			HookRegistry::register ('Installer::postInstall', array($this, 'installData'));
+			HookRegistry::register ('Installer::postInstall', [$this, 'installEmailTemplateData']);
 		}
 		if ($this->getContextSpecificPluginSettingsFile()) {
-			HookRegistry::register ('Context::add', array($this, 'installContextSpecificSettings'));
+			HookRegistry::register ('Context::add', [$this, 'installContextSpecificSettings']);
 		}
 
-		HookRegistry::register ('Installer::postInstall', array($this, 'installFilters'));
+		HookRegistry::register ('Installer::postInstall', [$this, 'installFilters']);
 
 		$this->_registerTemplateResource();
 		return true;
@@ -181,7 +178,7 @@ abstract class Plugin {
 	 * @return JSONMessage A JSON-encoded response
 	 */
 	function manage($args, $request) {
-		assert(false); // Unhandled case; this shouldn't happen.
+		throw new Exception('Unhandled management action!');
 	}
 
 	/**
@@ -200,22 +197,16 @@ abstract class Plugin {
 	//
 
 	/**
-	 * Get the filename of the ADODB schema for this plugin.
-	 * Subclasses using SQL tables should override this.
-	 *
-	 * @return string
+	 * @deprecated See https://github.com/pkp/pkp-lib/issues/2493
 	 */
-	function getInstallSchemaFile() {
-		return null;
+	final public function getInstallSchemaFile() {
 	}
 
 	/**
-	 * Get the filename of the install data for this plugin.
-	 * Subclasses using SQL tables should override this.
-	 *
-	 * @return string|array|null one or more data files to be installed.
+	 * Get the installation migration for this plugin.
+	 * @return Illuminate\Database\Migrations\Migration?
 	 */
-	function getInstallDataFile() {
+	function getInstallMigration() {
 		return null;
 	}
 
@@ -265,6 +256,8 @@ abstract class Plugin {
 	/**
 	 * Get the filename of the email template data for this plugin.
 	 * Subclasses using email templates should override this.
+	 * @deprecated Starting with OJS/OMP 3.2, localized content should be
+	 *  specified via getInstallEmailTemplatesFile(). (pkp/pkp-lib#5461)
 	 *
 	 * @return string
 	 */
@@ -334,8 +327,15 @@ abstract class Plugin {
 		}
 		$plugin = basename($pluginPath);
 		$category = basename(dirname($pluginPath));
+
+		$contextId = CONTEXT_SITE;
+		if (Config::getVar('general', 'installed')) {
+			$context = Application::get()->getRequest()->getContext();
+			if (is_a($context, 'Context')) $contextId = $context->getId();
+		}
+
 		// Slash characters (/) are not allowed in resource names, so use dashes (-) instead.
-		$resourceName = strtr(join('/', array(PLUGIN_TEMPLATE_RESOURCE_PREFIX, $pluginPath, $category, $plugin)),'/','-');
+		$resourceName = strtr(join('/', array(PLUGIN_TEMPLATE_RESOURCE_PREFIX, $contextId, $pluginPath, $category, $plugin)),'/','-');
 		return $resourceName . ($template!==null?":$template":'');
 	}
 
@@ -429,15 +429,13 @@ abstract class Plugin {
 	/**
 	 * Load locale data for this plugin.
 	 *
-	 * @param $locale string
+	 * @param $locale string|null
 	 * @return boolean
 	 */
 	function addLocaleData($locale = null) {
-		if ($locale == '') $locale = AppLocale::getLocale();
-		$localeFilenames = $this->getLocaleFilename($locale);
-		if ($localeFilenames) {
-			if (is_scalar($localeFilenames)) $localeFilenames = array($localeFilenames);
-			foreach($localeFilenames as $localeFilename) {
+		$locale = $locale ?? AppLocale::getLocale();
+		if ($localeFilenames = $this->getLocaleFilename($locale)) {
+			foreach((array) $localeFilenames as $localeFilename) {
 				AppLocale::registerLocaleFile($locale, $localeFilename);
 			}
 			return true;
@@ -461,7 +459,7 @@ abstract class Plugin {
 			$name,
 		);
 
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		return call_user_func_array(array(&$pluginSettingsDao, 'getSetting'), $arguments);
 	}
 
@@ -484,7 +482,7 @@ abstract class Plugin {
 			$type,
 		);
 
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		call_user_func_array(array(&$pluginSettingsDao, 'updateSetting'), $arguments);
 	}
 
@@ -498,65 +496,29 @@ abstract class Plugin {
 	}
 
 	/*
-	 * Protected helper methods (for internal use only, should not
+	 * Helper methods (for internal use only, should not
 	 * be used by custom plug-ins)
 	 *
 	 * NB: These methods may change without notice in the future!
 	 */
 	/**
 	 * Get the filename for the locale data for this plugin.
+	 * (Warning: This function is used by the custom locale plugin)
 	 *
 	 * @param $locale string
 	 * @return array The locale file names.
 	 */
-	function getLocaleFilename($locale) {
+	public function getLocaleFilename($locale) {
 		$masterLocale = MASTER_LOCALE;
 		$baseLocaleFilename = $this->getPluginPath() . "/locale/$locale/locale.po";
 		$baseMasterLocaleFilename = $this->getPluginPath() . "/locale/$masterLocale/locale.po";
 		$libPkpFilename = "lib/pkp/$baseLocaleFilename";
 		$masterLibPkpFilename = "lib/pkp/$baseMasterLocaleFilename";
-		$filenames = array();
-		if (file_exists($baseMasterLocaleFilename)) $filenames[] = $baseLocaleFilename;
-		if (file_exists($masterLibPkpFilename)) $filenames[] = $libPkpFilename;
 
-		// This compatibility code for XML file fallback will eventually be removed.
-		// See https://github.com/pkp/pkp-lib/issues/5090.
-		$baseMasterXmlLocaleFilename = preg_replace('/\.po$/', '.xml', $baseMasterLocaleFilename);
-		if (file_exists($baseMasterXmlLocaleFilename)) $filenames[] = preg_replace('/\.po$/', '.xml', $baseLocaleFilename);
-		$masterXmlLibPkpLocaleFilename = preg_replace('/\.po$/', '.xml', $baseMasterLocaleFilename);
-		if (file_exists($masterXmlLibPkpLocaleFilename)) $filenames[] = preg_replace('/\.po$/', '.xml', $libPkpFilename);
-
-		return $filenames;
-	}
-
-	/**
-	 * Callback used to install data files.
-	 *
-	 * @param $hookName string
-	 * @param $args array
-	 * @return boolean
-	 */
-	function installData($hookName, $args) {
-		$installer =& $args[0];
-		$result =& $args[1];
-
-		// Treat single and multiple data files uniformly.
-		$dataFiles = $this->getInstallDataFile();
-		if (is_scalar($dataFiles)) $dataFiles = array($dataFiles);
-
-		// Install all data files.
-		foreach($dataFiles as $dataFile) {
-			$sql = $installer->dataXMLParser->parseData($dataFile);
-			if ($sql) {
-				$result = $installer->executeSQL($sql);
-			} else {
-				AppLocale::requireComponents(LOCALE_COMPONENT_PKP_INSTALLER);
-				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), __('installer.installParseDBFileError')));
-				$result = false;
-			}
-			if (!$result) return false;
-		}
-		return false;
+		return array_filter([
+			file_exists($baseMasterLocaleFilename) ? $baseLocaleFilename : false,
+			file_exists($masterLibPkpFilename) ? $libPkpFilename : false,
+		]);
 	}
 
 	/**
@@ -568,7 +530,7 @@ abstract class Plugin {
 	 */
 	function installSiteSettings($hookName, $args) {
 		// All contexts are set to zero for site-wide plug-in settings
-		$application = Application::getApplication();
+		$application = Application::get();
 		$contextDepth = $application->getContextDepth();
 		if ($contextDepth >0) {
 			$arguments = array_fill(0, $contextDepth, 0);
@@ -577,7 +539,7 @@ abstract class Plugin {
 		}
 		$arguments[] = $this->getName();
 		$arguments[] = $this->getInstallSitePluginSettingsFile();
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		call_user_func_array(array(&$pluginSettingsDao, 'installSettings'), $arguments);
 
 		return false;
@@ -591,7 +553,7 @@ abstract class Plugin {
 	 */
 	function installControlledVocabs($hookName, $args) {
 		// All contexts are set to zero for site-wide plug-in settings
-		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
+		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO'); /* @var $controlledVocabDao ControlledVocabDAO */
 		foreach ($this->getInstallControlledVocabFiles() as $file) {
 			$controlledVocabDao->installXML($file);
 		}
@@ -607,7 +569,7 @@ abstract class Plugin {
 	 */
 	function installContextSpecificSettings($hookName, $args) {
 		$context = $args[0];
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		$pluginSettingsDao->installSettings($context->getId(), $this->getName(), $this->getContextSpecificPluginSettingsFile());
 		return false;
 	}
@@ -623,8 +585,16 @@ abstract class Plugin {
 		$installer =& $args[0]; /* @var $installer Installer */
 		$result =& $args[1];
 
+		// Load email template data as required from the locale files.
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-		$sql = $emailTemplateDao->installEmailTemplates($this->getInstallEmailTemplatesFile(), true, null, true);
+		$emailTemplateLocales = [];
+		foreach ($installer->installedLocales as $locale) {
+			$emailFile = $this->getPluginPath() . "/locale/$locale/emails.po";
+			if (!file_exists($emailFile)) continue;
+			AppLocale::registerLocaleFile($locale, $emailFile);
+			$emailTemplateLocales[] = $locale;
+		}
+		$sql = $emailTemplateDao->installEmailTemplates($this->getInstallEmailTemplatesFile(), $emailTemplateLocales, true, null, true);
 
 		if ($sql === false) {
 			// The template file seems to be invalid.
@@ -643,6 +613,7 @@ abstract class Plugin {
 
 	/**
 	 * Callback used to install email template data.
+	 * @deprecated Email template data should be installed via installEmailTemplates (pkp/pkp-lib#5461)
 	 *
 	 * @param $hookName string
 	 * @param $args array
@@ -652,15 +623,15 @@ abstract class Plugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		foreach ($installer->installedLocales as $locale) {
 			$filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
 			if (!file_exists($filename)) continue;
-			$sql = $emailTemplateDao->installEmailTemplateData($filename, true);
+			$sql = $emailTemplateDao->installEmailTemplateData($filename, $locale, true);
 			if ($sql) {
 				$result = $installer->executeSQL($sql);
 			} else {
-				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), __('installer.installParseEmailTemplatesFileError')));
+				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $filename, __('installer.installParseEmailTemplatesFileError')));
 				$result = false;
 			}
 		}
@@ -677,8 +648,17 @@ abstract class Plugin {
 	function installLocale($hookName, $args) {
 		$locale =& $args[0];
 		$filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-		$emailTemplateDao->installEmailTemplateData($filename);
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+
+		// Since pkp/pkp-lib#5461, there are two ways to specify localized email data in plugins.
+		// Install locale data specified in the old form. (Deprecated!)
+		if ($this->getInstallEmailTemplateDataFile()) $emailTemplateDao->installEmailTemplateData($filename, $locale);
+
+		// Install locale data specified in the new form.
+		if (file_exists($emailFile = $this->getPluginPath() . "/locale/$locale/emails.po")) {
+			AppLocale::registerLocaleFile($locale, $emailFile);
+			$emailTemplateDao->installEmailTemplateLocaleData($this->getInstallEmailTemplatesFile(), [$locale]);
+		}
 		return false;
 	}
 
@@ -725,12 +705,10 @@ abstract class Plugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		$schemaXMLParser = new adoSchema($installer->dbconn);
-		$sql = $schemaXMLParser->parseSchema($this->getInstallSchemaFile());
-		if ($sql) {
-			$result = $installer->executeSQL($sql);
-		} else {
-			$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallSchemaFile(), __('installer.installParseDBFileError')));
+		if ($migration = $this->getInstallMigration()) try {
+			$migration->up();
+		} catch (Exception $e) {
+			$installer->setError(INSTALLER_ERROR_DB, __('installer.installMigrationError', ['class' => get_class($migration)]));
 			$result = false;
 		}
 		return false;
@@ -761,7 +739,7 @@ abstract class Plugin {
 	 * @return Version
 	 */
 	function getCurrentVersion() {
-		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$pluginPath = $this->getPluginPath();
 		$product = basename($pluginPath);
 		$category = basename(dirname($pluginPath));

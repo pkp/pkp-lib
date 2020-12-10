@@ -1,34 +1,38 @@
 {**
  * templates/install/upgrade.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Upgrade form.
  *}
-{include file="common/header.tpl" pageTitle="installer.upgradeApplication"}
+{extends file="layouts/backend.tpl"}
 
-<div class="pkp_page_content pkp_page_upgrade">
-	{translate key="installer.upgradeInstructions" version=$version->getVersionString(false) baseUrl=$baseUrl}
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="installer.upgradeApplication"}
+	</h1>
 
-	<form class="pkp_form" method="post" action="{url op="installUpgrade"}">
-		{include file="common/formErrors.tpl"}
+	<div class="app__contentPanel">
+		{translate key="installer.upgradeInstructions" version=$version->getVersionString(false) baseUrl=$baseUrl}
 
-		{if $isInstallError}
-			<p>
-				<span class="pkp_form_error">{translate key="installer.installErrorsOccurred"}:</span>
-				<ul class="pkp_form_error_list">
-					<li>{if $dbErrorMsg}{translate key="common.error.databaseError" error=$dbErrorMsg}{else}{translate key=$errorMsg}{/if}</li>
-				</ul>
-			</p>
-		{/if}
+		<form class="pkp_form" method="post" action="{url op="installUpgrade"}">
+			{include file="common/formErrors.tpl"}
 
-		<div class="formButtons">
-			{fbvElement class="inline" type="submit" id="installButton" label="installer.upgradeApplication"}
-		</div>
+			{if $isInstallError}
+				<p>
+					<span class="pkp_form_error">{translate key="installer.installErrorsOccurred"}:</span>
+					<ul class="pkp_form_error_list">
+						<li>{if $dbErrorMsg}{translate key="common.error.databaseError" error=$dbErrorMsg}{else}{translate key=$errorMsg}{/if}</li>
+					</ul>
+				</p>
+			{/if}
 
-	</form>
-</div><!-- .pkp_page_upgrade -->
+			<div class="formButtons">
+				{fbvElement type="submit" id="installButton" label="installer.upgradeApplication"}
+			</div>
 
-{include file="common/footer.tpl"}
+		</form>
+	</div>
+{/block}

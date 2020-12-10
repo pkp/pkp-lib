@@ -1,22 +1,26 @@
 /**
  * @file styles/controllers/grid/plugins.less
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @ingroup pkp_controllers_grid
  *
  * @brief Classes for the plugin grid and gallery
  */
 
+#pluginGridContainer .gridRow.category {
+	background: @bg;
+}
+
 .pkp_plugin_details {
 	.pkp_helpers_clear;
 
 	.status {
 		float: right;
-		margin-left: @double;
-		margin-bottom: @double;
+		margin-left: 2rem;
+		margin-bottom: 2rem;
 		width: 40%;
 		border: @bg-border-light;
 		border-radius: @radius;
@@ -25,7 +29,7 @@
 
 		> * {
 			margin: 0;
-			padding: @base;
+			padding: 1rem;
 			border-bottom: @bg-border-light;
 
 			&:last-child {
@@ -74,24 +78,24 @@
 	}
 
 	.url {
-		margin-top: @base;
+		margin-top: 1rem;
 	}
 
 	.description,
 	.installation {
-		margin-top: @double;
+		margin-top: 2rem;
 	}
 
 	.author,
 	.url {
 		position: relative;
-		padding-left: @double;
+		padding-left: 2rem;
 
 		&:before {
 			.fa();
 			position: absolute;
 			top: 50%;
-			left: @base;
+			left: 1rem;
 			transform: translate(-50%, -50%);
 			color: @text-light-rgba;
 		}
@@ -111,7 +115,7 @@
 	}
 
 	.institution {
-		padding-left: @double;
+		padding-left: 2rem;
 		color: @text-light;
 	}
 

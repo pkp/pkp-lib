@@ -1,0 +1,189 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:50+00:00\n"
+"Language: \n"
+
+msgid "admin.adminFunctions"
+msgstr "Administrativne funkcije"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Jeste li sigurni da želite trajno obrisati ovaj izvor autentifikacije?"
+
+msgid "admin.auth.create"
+msgstr "Kreirajte izvor autentifikacije"
+
+msgid "admin.auth.noneCreated"
+msgstr "Niti jedan izvor autentifikacije nije definiran."
+
+msgid "admin.authSources"
+msgstr "Izvori autentifikacije"
+
+msgid "admin.clearDataCache"
+msgstr "Brisanje pričuvne memorije podataka"
+
+msgid "admin.clearTemplateCache"
+msgstr "Brisanje pričuvne memorije predloška"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Vaša konfiguracijska datoteka je uspješno ažurirana. Imajte na umu da ukoliko vaša stranica više ne radi ispravno, tada ćete morati ručno podesiti svoju konfiguraciju prilikom direktnog uređivanja <tt>config.inc.php</tt> datoteke."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Jeste li sigurni da želite obrisati pričuvnu memoriju izrađenih predložaka?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Jeste li sigurni da želite da sesije svih korisnika isteknu? Svi korisnici koji su trenutno prijavljeni u sustav bit će prisiljeni da se ponovno prijave (Vi također)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Sadržaj konfiguracijske datoteke"
+
+msgid "admin.currentVersion"
+msgstr "Trenutna verzija"
+
+msgid "admin.dateInstalled"
+msgstr "Datum instalacije"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Sustav ne može automatski obaviti prepisivanje preko konfiguracijske datoteke. Kako biste primjenili konfiguracijske izmjene morate otvoriti datoteku <tt>config.inc.php</tt> u prikladnom uređivaču teksta i zamijeniti njegov sadržaj sa sadržajem teksta u polju ispod."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Prikaži novu konfiguraciju"
+
+msgid "admin.expireSessions"
+msgstr "Učini korisničke sesije nevažećima"
+
+msgid "admin.languages.confirmReload"
+msgstr "Jeste li sigurni da ponovno želite učitati ovaj prijevod? To će obrisati sve izmjene u prijevodu koje su učinjene u pojedinim časopisima (na primjer, prilagođeni predlošci e-pošte)."
+
+msgid "admin.languages.installedLocales"
+msgstr "Instalirani prijevodi"
+
+msgid "admin.languages.installLanguages"
+msgstr "Postavi prijevode sustava"
+
+msgid "admin.languages.installLocales"
+msgstr "Instaliraj"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instalacija novih prijevoda"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Nema dodatnih prijevoda na raspolaganju za instalaciju."
+
+msgid "admin.languages.reload"
+msgstr "Ponovno učitavanje prijevoda"
+
+msgid "admin.languages.uninstall"
+msgstr "Deinstalacija prijevoda"
+
+msgid "admin.phpInfo"
+msgstr "Dodatne informacije o PHP instalaciji"
+
+msgid "admin.server.apacheVersion"
+msgstr "Verzija Apache-a"
+
+msgid "admin.server.dbDriver"
+msgstr "Tip baze podataka"
+
+msgid "admin.server.dbVersion"
+msgstr "Verzija poslužitelja baze podataka"
+
+msgid "admin.serverInformationDescription"
+msgstr "Osnovni operacijski sustav i verzije programske opreme poslužitelja. Kliknite na \"proširena  PHP informacija\" kako biste vidjeli dodatne detalje PHP konfiguracije ovoga poslužitelja."
+
+msgid "admin.serverInformation"
+msgstr "Informacije poslužitelja"
+
+msgid "admin.server.phpVersion"
+msgstr "Verzija PHP-a"
+
+msgid "admin.server.platform"
+msgstr "Platforma OS-a"
+
+msgid "admin.settings.about"
+msgstr "Opis stranice"
+
+msgid "admin.settings.contactEmail"
+msgstr "E-pošta glavnog kontakta"
+
+msgid "admin.settings.contactName"
+msgstr "Ime glavnog kontakta"
+
+msgid "admin.settings.introduction"
+msgstr "Uvod"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Minimalna duljina lozinke"
+
+msgid "admin.settings.passwordCharacters"
+msgstr "znakova"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Jezik stranice"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Neispravni style sheet format. Sustav prihvaća samo .css format."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Style sheet (CSS) mrežne stranice"
+
+msgid "admin.settings.siteTitle"
+msgstr "Naziv stranice"
+
+msgid "admin.siteManagement"
+msgstr "Upravljanje stranicom"
+
+msgid "admin.siteSettings"
+msgstr "Postavke stranice"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Konfiguracijska datoteka <tt>config.inc.php</tt> ne postoji, nije čitljiva ili je neispravna."
+
+msgid "admin.systemInformation"
+msgstr "Informacije o sustavu"
+
+msgid "admin.versionBuild"
+msgstr "Građa"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Provjerite postoje li nove verzije"
+
+msgid "admin.version.downloadPackage"
+msgstr "Preuzmite"
+
+msgid "admin.version.downloadPatch"
+msgstr "Preuzmite zakrpu"
+
+msgid "admin.versionHistory"
+msgstr "Prijašnje verzije"
+
+msgid "admin.version.latest"
+msgstr "Zadnja verzija"
+
+msgid "admin.versionMajor"
+msgstr "Glavna"
+
+msgid "admin.versionMinor"
+msgstr "Sporedna"
+
+msgid "admin.version.moreInfo"
+msgstr "Više informacija"
+
+msgid "admin.versionRevision"
+msgstr "Revizija"
+
+msgid "admin.version.updateAvailable"
+msgstr "Ažurirana verzija je dostupna"
+
+msgid "admin.version.upToDate"
+msgstr "Vaš sustav je ažuran"
+
+msgid "admin.version"
+msgstr "Verzija"

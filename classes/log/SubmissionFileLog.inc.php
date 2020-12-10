@@ -3,9 +3,9 @@
 /**
  * @file classes/log/SubmissionFileLog.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileLog
  * @ingroup log
@@ -27,18 +27,17 @@ class SubmissionFileLog extends SubmissionLog {
 	 */
 	static function logEvent($request, $submissionFile, $eventType, $messageKey, $params = array()) {
 		// Create a new entry object
-		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO');
+		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /* @var $submissionFileEventLogDao SubmissionFileEventLogDAO */
 		$entry = $submissionFileEventLogDao->newDataObject();
 
 		// Set implicit parts of the log entry
 		$entry->setDateLogged(Core::getCurrentDate());
-		$entry->setIPAddress($request->getRemoteAddr());
 
 		$user = $request->getUser();
 		if ($user) $entry->setUserId($user->getId());
 
 		$entry->setAssocType(ASSOC_TYPE_SUBMISSION_FILE);
-		$entry->setAssocId($submissionFile->getFileId());
+		$entry->setAssocId($submissionFile->getId());
 
 		// Set explicit parts of the log entry
 		$entry->setEventType($eventType);

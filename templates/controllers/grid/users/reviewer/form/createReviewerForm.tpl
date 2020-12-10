@@ -1,9 +1,9 @@
 {**
  * templates/controllers/grid/users/reviewer/createReviewerForm.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Create a reviewer and assign to a submission form.
  *
@@ -56,7 +56,7 @@
 	{/fbvFormSection}
 
 	{fbvFormSection title="user.email" required="true"}
-		{fbvElement type="text" id="email" required="true" value=$email maxlength="90" size=$fbvStyles.size.MEDIUM}
+		{fbvElement type="email" id="email" required="true" value=$email maxlength="90" size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
 
 	{fbvFormSection title="manager.reviewerSearch.interests" for="interests"}

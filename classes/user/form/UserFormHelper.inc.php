@@ -3,9 +3,9 @@
 /**
  * @file classes/user/form/UserFormHelper.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserFormHelper
  * @ingroup user_form
@@ -43,7 +43,7 @@ class UserFormHelper {
 
 		// Expose potential self-registration user groups to template
 		$authorUserGroups = $reviewerUserGroups = $readerUserGroups = array();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		foreach ($contexts as $context) {
 			if ($context->getData('disableUserReg')) continue;
 			$reviewerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_REVIEWER)->toArray();
@@ -63,7 +63,7 @@ class UserFormHelper {
 	 * @param $user User The current user
 	 */
 	function saveRoleContent($form, $user) {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$contextDao = Application::getContextDAO();
 		$contexts = $contextDao->getAll(true);
 		while ($context = $contexts->next()) {

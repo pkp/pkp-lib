@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/settings/roles/form/UserGroupForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserGroupForm
  * @ingroup controllers_grid_settings_roles_form
@@ -79,7 +79,7 @@ class UserGroupForm extends Form {
 	 * @copydoc Form::initData()
 	 */
 	function initData() {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroup = $userGroupDao->getById($this->getUserGroupId());
 		$stages = WorkflowStageDAO::getWorkflowStageTranslationKeys();
 		$this->setData('stages', $stages);
@@ -125,7 +125,7 @@ class UserGroupForm extends Form {
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		$templateMgr->assign('roleOptions', Application::getRoleNames(true));
 
 		// Users can't edit the role once user group is created.
@@ -158,11 +158,13 @@ class UserGroupForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
+
 		$request = Application::get()->getRequest();
 		$userGroupId = $this->getUserGroupId();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 
 		// Check if we are editing an existing user group or creating another one.
 		if ($userGroupId == null) {
@@ -226,7 +228,7 @@ class UserGroupForm extends Form {
 	 */
 	function _assignStagesToUserGroup($userGroupId, $userAssignedStages) {
 		$contextId = $this->getContextId();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		// Current existing workflow stages.
 		$stages = WorkflowStageDAO::getWorkflowStageTranslationKeys();

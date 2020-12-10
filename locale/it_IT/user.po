@@ -1,0 +1,455 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
+"PO-Revision-Date: 2020-05-07 16:02+0000\n"
+"Last-Translator: Weblate Admin <alec@smecher.bc.ca>\n"
+"Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/it/"
+">\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.affiliation"
+msgstr "Affiliazione"
+
+msgid "user.affiliations"
+msgstr "Affiliazioni"
+
+msgid "user.biography"
+msgstr "Note biografiche"
+
+msgid "user.changeMyPassword"
+msgstr "Modifica la mia password"
+
+msgid "user.changePassword"
+msgstr "Modifica password"
+
+msgid "user.dateLastLogin"
+msgstr "Ultimo login"
+
+msgid "user.dateRegistered"
+msgstr "Data di iscrizione"
+
+msgid "user.editMyProfile"
+msgstr "Modifica il mio profilo"
+
+msgid "user.email"
+msgstr "Email"
+
+msgid "user.interests"
+msgstr "Argomenti di interesse per le revisioni"
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Il tuo account è stato disattivato per la seguente ragione: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Il tuo account è stato disattivato. Contatta l'amministratore per maggiori informazioni."
+
+msgid "user.login.accountNotValidated"
+msgstr "Abbiamo mandato una mail di conferma a {$email}. Per favore controlla la tua email e segui le istruzioni fornite. Se non hai ricevuto una email,  potresti aver bisogno di contattare l'amministratore del sito per assistenza."
+
+msgid "user.login.activate"
+msgstr "Attiva l'account"
+
+msgid "user.login.activated"
+msgstr "Grazie per aver attivato il tuo account. Ora puoi effettuare il log in usando le credenziali  che hai fornito quando hai creato il tuo account."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "Devi scegliere una nuova password prima di entrare in questo sito.<br /><br />Inserisci sotto il tuo username e la tua password attuale e  la nuova password che vuoi utilizzare."
+
+msgid "user.login.forgotPassword"
+msgstr "Password dimenticata?"
+
+msgid "user.login.loginError"
+msgstr "Username o password non valida. Riprova."
+
+msgid "user.login"
+msgstr "Entra"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "La conferma è stata mandata al tuo indirizzo email. Si prega di seguire le istruzioni nella email per risettare la  password."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Il link utilizzato è scaduto o non è valido. Prova a rigenerare nuovamente la password."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Non esiste nessun utente con l'indirizzo email specificato."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "Una nuova password è stata inviata la tuo indirizzo email. Puoi fare il login con la tua nuova password."
+
+msgid "user.login.registeredEmail"
+msgstr "Email dell'utente registrato"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Ricordami"
+
+msgid "user.login.resetPassword"
+msgstr "Reimposta la password"
+
+msgid "user.logOut"
+msgstr "Esci"
+
+msgid "user.mailingAddress"
+msgstr "Indirizzo postale"
+
+msgid "user.myAccount"
+msgstr "Il mio account"
+
+msgid "user.name"
+msgstr "Nome"
+
+msgid "user.password"
+msgstr "Password"
+
+msgid "user.repeatPassword"
+msgstr "Ripeti la password"
+
+msgid "user.phone"
+msgstr "Telefono"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Per cambiare la password del tuo account, inserisci qui sotto la tua vecchia password e poi quella nuova."
+
+msgid "user.profile.editProfile"
+msgstr "Modifica il profilo"
+
+msgid "user.profile.form.emailRequired"
+msgstr "Inserire un indirizzo email valido."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Inserire la nuova password."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "La password inserita non è corretta."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Notifica email di nuove uscite open access"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Inserire la password."
+
+msgid "user.profile.form.profileImage"
+msgstr "Immagine del profilo"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Notifica email della pubblicazione di nuovi fascicoli"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "L'URL specificata non è valida. Per favore ricontrolla la URL e riprova. (Suggerimento: Prova aggiungendo http:// all'inizio della URL)"
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Inserisci una username."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Lascia il campo password vuoto per mantenere la password corrente."
+
+msgid "user.profile.newPassword"
+msgstr "Nuova password"
+
+msgid "user.profile.oldPassword"
+msgstr "Vecchia password"
+
+msgid "user.profile"
+msgstr "Profilo"
+
+msgid "user.profile.publicProfile"
+msgstr "Profilo utente"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Ripeti la nuova password"
+
+msgid "user.register.form.emailExists"
+msgstr "L'indirizzo email selezionato è  già in uso da un altro utente."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Le password non combaciano."
+
+msgid "user.register.form.usernameExists"
+msgstr "La username selezionata è già in uso da un altro utente."
+
+msgid "user.register.registerAs"
+msgstr "Registrati in {$contextName} come ..."
+
+msgid "user.register"
+msgstr "Registrazione"
+
+msgid "user.register.usernameRestriction"
+msgstr "La username deve contenere solo lettere minuscole, numeri, e trattini/underscores."
+
+msgid "user.role.reader"
+msgstr "Lettore"
+
+msgid "user.role.readers"
+msgstr "Lettori"
+
+msgid "user.role.reviewer"
+msgstr "Revisore"
+
+msgid "user.role.reviewers"
+msgstr "Revisori"
+
+msgid "user.role.siteAdmin"
+msgstr "Amministratore del sito"
+
+msgid "user.role.siteAdmins"
+msgstr "Amministratori del sito"
+
+msgid "user.roles"
+msgstr "Ruoli"
+
+msgid "user.sendPassword"
+msgstr "Conferma"
+
+msgid "user.sendPassword.description"
+msgstr "Inviami un'email di conferma con il mio nome utente e password"
+
+msgid "user.signature"
+msgstr "Firma"
+
+msgid "user.title"
+msgstr "Titolo"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.userHome"
+msgstr "Cruscotto"
+
+msgid "user.username"
+msgstr "Nome utente"
+
+msgid "user.workingLanguages"
+msgstr "Lingue conosciute"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Formato non valido o immagine troppo grande. I formati accettati sono .gif, .jpg, or .png, e le immagini devono essere grandi 150x150 pixel al massimo."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Le email inserite non corrispondono."
+
+msgid "user.affiliation.description"
+msgstr "(La tua istituzione, es. \"Università La Sapienza di Roma\")"
+
+msgid "user.gossip"
+msgstr "Note private"
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Il token di autenticazione è assente o non valido."
+
+msgid "user.authorization.contextRequired"
+msgstr "Non puoi eseguire questa operazione senza un contesto (editore, rivista, convegno, etc.)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Autenticazione necessaria."
+
+msgid "user.authorization.privateOperation"
+msgstr "L'operazione che hai cercato di effettuare è privata oppure non esiste."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Accesso negato. L'accesso a questo sito è ristretto."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Con il corrente ruolo non si ha accesso a questa operazione."
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"Devi selezionare un gruppo di utenti valido per accedere a questa operazione."
+
+msgid "user.hello"
+msgstr "Salve, "
+
+msgid "user.profile.form.countryRequired"
+msgstr "Inserire un Paese."
+
+msgid "user.authorization.accessDenied"
+msgstr "Accesso negato."
+
+msgid "user.accountInformation"
+msgstr "Informazioni account"
+
+msgid "user.authorization.managerRequired"
+msgstr "Prima di procedere è necessario assegnare un utente con ruolo di Manager di stampa (ad es. Editor di stampa o di produzione)."
+
+msgid "user.group"
+msgstr "Gruppo utenti"
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "E' obbligatorio un indirizzo di posta elettronica."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "La nuova password è identica alla vecchia."
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "E' obbligatorio un gruppo utenti."
+
+msgid "user.role.author"
+msgstr "Autore"
+
+msgid "user.role.author_s"
+msgstr "Autore/i"
+
+msgid "user.role.authors"
+msgstr "Autori"
+
+msgid "user.role.editor"
+msgstr "Editor"
+
+msgid "user.role.editors"
+msgstr "Editor"
+
+msgid "user.role.copyeditor"
+msgstr "Copyeditor"
+
+msgid "user.role.copyeditors"
+msgstr "Copyeditor"
+
+msgid "user.role.proofreader"
+msgstr "Correttore di bozze"
+
+msgid "user.role.proofreaders"
+msgstr "Correttori di bozze"
+
+msgid "user.role.layoutEditor"
+msgstr "Impaginatore"
+
+msgid "user.role.layoutEditors"
+msgstr "Impaginatori"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.profile.identity"
+msgstr "Identità"
+
+msgid "user.profile.contact"
+msgstr "Contatti"
+
+msgid "user.profile.public"
+msgstr "Pubblico"
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr ""
+"Non hai i permessi necessari per accedere a questa fase del flusso di lavoro."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Fase del flusso di lavoro non specificata."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Un plugin non è stato indicato ma è necessario."
+
+msgid "user.login.registrationComplete"
+msgstr "Registrazione completa"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Grazie per esserti registrati. Cosa vuoi fare ora ?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Vedi proposte"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Fai una nuova proposta"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Continua a guardare in giro"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "La registrazione aspetta la verifica"
+
+msgid "user.logOutAs"
+msgstr "Logout come"
+
+msgid "user.login.registerNewAccount"
+msgstr "Registrati"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"L'ORCID ID che hai specificato non è valido. Per favore includi un URI "
+"completo (ad es. \"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "Inserisci l'email collegato al tuo username e una email ti verrà inviata con le istruzioni su come fare una nuova password."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "Lo usename può contenere solo lettere minuscole, numeri, underscore e trattini e deve inziare con una lettera o un numero."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Selezionare  almeno un ruolo."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "La password deve essere lunga almeno {$length} caratteri."
+
+msgid "user.register.registrationCompleted"
+msgstr "Sei stato registrato correttamente. <a href=\"{$profileUrl}\">Clicca qui</a> per completare la tua registrazione."
+
+msgid "user.role.assistant"
+msgstr "Assistente"
+
+msgid "user.apiKey"
+msgstr "API key"
+
+msgid "user.apiKeyEnabled"
+msgstr "Permetti ad applicazioni esterne che usano l' API key di accedere a questo account"
+
+msgid "user.apiKey.generate"
+msgstr "Genera una nuova APi key"
+
+msgid "user.apiKey.generateWarning"
+msgstr "Attenzione: generare una nuova API key invalida quelle già esistenti per questo utente."
+
+msgid "user.apiKey.secretRequired"
+msgstr "Prima di creare un'API key, l'amministratore del sito deve aver inserito un valore segreto nel file di configurazione in \"api_key_secret\"."
+
+msgid "user.gossip.description"
+msgstr ""
+"Le note inserite in questa area saranno visibili agli amministratori, ai "
+"journal managers, e a tutti gli editor."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Non ti è stato assegnato un ruolo per questa proposta che ti permetta di fare questa operazione."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Non hai il permesso di accedere a questa revisione."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Non hai il permesso di accedere a questa discussione."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Devi accettare i termini dell'informativa sulla privacy."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Sì, dò il mio consenso che i miei dati vengano raccolti e registrati secondo "
+"questa <a href=\"{$privacyUrl}\" target=\"_blank\">Informativa sulla "
+"privacy</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Si, voglio ricevere gli annunci e notizie sulle nuove pubblicazioni."
+
+msgid "user.privacyLink"
+msgstr "I tuoi dati sono registrati in accordo con questa <a href=\"{$privacyUrl}\" target=\"_blank\">informativa sulla privacy</a>."
+
+msgid "user.givenName"
+msgstr "Nome"
+
+msgid "user.familyName"
+msgstr "Cognome"
+
+msgid "user.preferredPublicName"
+msgstr "Nome pubblico"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Come preferisci essere salutato ? Se desideri puoi aggiungere il tuo titolo, "
+"secondi nomi, suffissi, etc."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Un nome di persona è richiesto."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Puoi aggiungere un nome di famiglia per una lingua in cui mancano i nomi propri. Devi immettere un nome nel campo."

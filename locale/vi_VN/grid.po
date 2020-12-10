@@ -1,0 +1,687 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-26 06:45+0000\n"
+"Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
+"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"vi_VN/>\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Chọn một loại..."
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Không có menu điều hướng"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Không có mục nào trong menu điều hướng"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Thêm mục"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Thêm thực đơn"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Bao gồm các bài gửi không hoàn chỉnh không phải do tác giả gửi."
+
+msgid "grid.submission.itemTitle"
+msgstr "Tác giả; Tiêu đề"
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "Đã bỏ gán vai trò {$userGroupName} khỏi giai đoạn {$stageName}."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "Đã chỉ định vai trò {$userGroupName} cho giai đoạn {$stageName}."
+
+msgid "grid.userGroup.removed"
+msgstr "Đã xóa vai trò {$userGroupName}."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"Không thể xóa vai trò {$userGroupName}. Hiện tại vai trò này đã được chỉ "
+"định cho (những) người dùng {$usersCount} ."
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "Vai trò {$userGroupName} là một vai trò mặc định và không thể bị xóa."
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Với mức cho phép được đặt thành"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Những vai trò được giao cho"
+
+msgid "grid.userGroup.allStages"
+msgstr "Tất cả các giai đoạn quy trình làm việc"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Hủy chỉ định Giai đoạn"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Chỉ định Giai đoạn"
+
+msgid "grid.artworkFile.placement"
+msgstr "Vị trí trong gửi bài"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Các Điều khoản cho phép"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Thông tin liên hệ (nếu không phải là tác giả/nhà xuất bản)"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Chủ sở hữu bản quyền"
+
+msgid "grid.artworkFile.credit"
+msgstr "Tín dụng"
+
+msgid "grid.artworkFile.caption"
+msgstr "Chú thích"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Sửa chữa hiệu đính đã được thực hiện. Bạn có thể bỏ qua nhiệm vụ này"
+
+msgid "grid.plugin.disable"
+msgstr "Bạn có chắc chắn muốn tắt trình cắm này không?"
+
+msgid "grid.plugin.allCategories"
+msgstr "Tất cả Thể loại"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Danh sách hiện tại"
+
+msgid "grid.preparedEmails.title"
+msgstr "Các Mẫu Email Chuẩn bị"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"Bạn có chắc chắn muốn hợp nhất tài khoản với tên đăng nhập {$oldUsername} "
+"vào tài khoản với tên người dùng \"{$newUsername}\" không? Tài khoản với tên "
+"đăng nhập {$oldUsername} sẽ không tồn tại sau đó. Hành động này là không thể "
+"đảo ngược."
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Tất cả người dùng đã đăng ký"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Hợp nhất vào Người dùng này"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Hợp nhất người dùng"
+
+msgid "grid.user.mergeUsers"
+msgstr "Hợp nhất người dùng"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"Đăng nhập với tư cách người dùng này? Tất cả các hành động bạn thực hiện sẽ "
+"được quy cho người dùng này."
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Vui lòng chọn một người dùng"
+
+msgid "grid.user.selectUser"
+msgstr "Chọn người dùng"
+
+msgid "grid.user.addRole"
+msgstr "Thêm Vai trò"
+
+msgid "grid.user.addRoles"
+msgstr "Thêm Vai trò"
+
+msgid "grid.user.step2"
+msgstr "Bước #2: Thêm Vai trò Người dùng cho  {$userFullName}"
+
+msgid "grid.user.step1"
+msgstr "Bước #1: Điền Chi tiết Người dùng"
+
+msgid "grid.user.userNoRoles"
+msgstr "Người dùng này không có vai trò nào."
+
+msgid "grid.user.userRoles"
+msgstr "Vai trò Người dùng"
+
+msgid "grid.user.userDetails"
+msgstr "Chi tiết Người dùng"
+
+msgid "grid.user.lessDetails"
+msgstr "Rút gọn Chi tiết người dùng"
+
+msgid "grid.user.moreDetails"
+msgstr "Thêm Chi tiết Người dùng"
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr ""
+"Yêu cầu người dùng thay đổi mật khẩu của họ trong lần đăng nhập tiếp theo."
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Người dùng phải thay đổi mật khẩu trong lần đăng nhập tiếp theo."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Thay đổi mật khẩu"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Gửi cho người dùng một email chào mừng."
+
+msgid "grid.user.notifyUser"
+msgstr "Thông báo cho người dùng"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Tạo một mật khẩu ngẫu nhiên cho người dùng này."
+
+msgid "grid.user.generatePassword"
+msgstr "Tạo mật khẩu"
+
+msgid "grid.user.mustProvideName"
+msgstr "Đầu tiên, xin vui lòng cung cấp họ của người dùng."
+
+msgid "grid.user.authSource"
+msgstr "Nguồn xác thực"
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"Bạn không có đủ quyền để quản lý người dùng này. Để quản lý một người dùng, "
+"bạn phải là quản trị viên trang hoặc quản lý tất cả các ngữ cảnh mà người "
+"dùng này đã đăng ký."
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"Đã xảy ra lỗi khi gửi email này. Hãy đảm bảo rằng cấu hình máy chủ email của "
+"bạn đang hoạt động và / hoặc liên hệ với quản trị viên hệ thống của bạn."
+
+msgid "grid.user.error"
+msgstr "Đã xảy ra lỗi khi quản lý người dùng này. Vui lòng thử lại."
+
+msgid "grid.user.enableReason"
+msgstr "Lý do kích hoạt người dùng"
+
+msgid "grid.user.disableReason"
+msgstr "Lý do vô hiệu hóa người dùng"
+
+msgid "grid.user.disable"
+msgstr "Vô hiệu hóa"
+
+msgid "grid.user.enable"
+msgstr "Kích hoạt"
+
+msgid "grid.user.email"
+msgstr "E-mail"
+
+msgid "grid.user.edit"
+msgstr "Chỉnh sửa người dùng"
+
+msgid "grid.user.enroll"
+msgstr "Đăng ký người dùng"
+
+msgid "grid.user.add"
+msgstr "Thêm người dùng"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Tất cả mức cho phép"
+
+msgid "grid.user.allRoles"
+msgstr "Tất cả vài trò"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Đăng ký hiện tại"
+
+msgid "grid.user.currentUsers"
+msgstr "Các người dùng hiện tại"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Phân công Giai đoạn"
+
+msgid "grid.roles.add"
+msgstr "Tạo Vai trò Mới"
+
+msgid "grid.roles.currentRoles"
+msgstr "Các vai trò hiện tại"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Trong Danh sách Duyệt"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Liên hệ chính"
+
+msgid "author.users.contributor.role"
+msgstr "Vai trò"
+
+msgid "author.users.contributor.email"
+msgstr "Email"
+
+msgid "author.users.contributor.name"
+msgstr "Tên"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Mục kiểm tra"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Danh mục kiểm tra bài gửi"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Thư viện mẫu sản xuất"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Thư viện Sản xuất"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Thư viện Phản biện"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Thư viện Biên tập"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Thư viện Bài gửi"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Các tệp"
+
+msgid "grid.noFiles"
+msgstr "Không có tệp"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Tùy chọn phản hồi"
+
+msgid "grid.reviewForm.title"
+msgstr "Mẫu Phản biện"
+
+msgid "grid.action.newVersion"
+msgstr "Tạo một phiên bản mới"
+
+msgid "grid.action.deleteContributor"
+msgstr "Xóa người tham gia"
+
+msgid "grid.action.editContributor"
+msgstr "Chỉnh sửa người tham gia"
+
+msgid "grid.action.addContributor"
+msgstr "Thêm người tham gia"
+
+msgid "grid.contributor.title"
+msgstr "Nguồn Hỗ trợ"
+
+msgid "grid.action.deleteCategory"
+msgstr "Xóa thể loại"
+
+msgid "grid.action.editCategory"
+msgstr "Chỉnh sửa thể loại"
+
+msgid "grid.action.addCategory"
+msgstr "Thêm thể loại"
+
+msgid "grid.action.deleteSeries"
+msgstr "Xóa Loạt"
+
+msgid "grid.action.editSeries"
+msgstr "Chỉnh sửa loạt"
+
+msgid "grid.action.addSeries"
+msgstr "Thêm loạt"
+
+msgid "grid.action.editSponsor"
+msgstr "Chỉnh sửa nhà tài trợ"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Xoá nhà tài trợ"
+
+msgid "grid.action.addSponsor"
+msgstr "Thêm nhà tài trợ"
+
+msgid "grid.sponsor.title"
+msgstr "Tổ chức Tài trợ"
+
+msgid "grid.columns.locale"
+msgstr "Ngôn ngữ"
+
+msgid "grid.columns.auditor"
+msgstr "Giám sát viên"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.institution"
+msgstr "Tổ chức"
+
+msgid "grid.columns.actions"
+msgstr "Hoạt động"
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+"Đánh giá này đã sẵn sàng. Nhấp vào biểu tượng ghi chú ở bên trái để đọc nó."
+
+msgid "grid.task.status.unfinished"
+msgstr "Nhiệm vụ chưa hoàn thành"
+
+msgid "grid.task.status.uploaded"
+msgstr "Tiêu đề cột cho biết ai đã tải lên tệp này"
+
+msgid "grid.task.status.new"
+msgstr "Kiểm tra khi xem xét"
+
+msgid "grid.task.status.completed"
+msgstr "Nhiệm vụ này đã hoàn thành"
+
+msgid "grid.action.users"
+msgstr "Xem/lựa chọn người dùng"
+
+msgid "grid.action.moreItems"
+msgstr "Tải thêm"
+
+msgid "grid.action.install"
+msgstr "Cài đặt"
+
+msgid "grid.action.preview"
+msgstr "Xem trước"
+
+msgid "grid.action.copy"
+msgstr "Sao chép"
+
+msgid "grid.action.deactivate"
+msgstr "Hủy kích hoạt"
+
+msgid "grid.action.activate"
+msgstr "Kích hoạt"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Bạn có chắc chắn muốn xuất tất cả người dùng không?"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Xuất tất cả người dùng"
+
+msgid "grid.action.logInAs"
+msgstr "Đăng nhập với"
+
+msgid "grid.action.bookInfo"
+msgstr "Thông tin bài gửi"
+
+msgid "grid.action.enable"
+msgstr "Kích hoạt"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Bài đánh giá này đã hoàn tất, nhưng bạn có thể bỏ qua nó"
+
+msgid "grid.action.history"
+msgstr "Xem Lịch sử"
+
+msgid "grid.action.unassignUser"
+msgstr "Hủy phân công người dùng"
+
+msgid "grid.action.mergeUser"
+msgstr "Hợp nhất người dùng"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Thêm thông báo"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Thêm loại thông báo"
+
+msgid "grid.action.uploadFile"
+msgstr "Tải một tệp"
+
+msgid "grid.action.thankReviewer"
+msgstr "Gửi tin nhắn cảm ơn tới người đánh giá này"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Xem chính sách nguyên tắc về lợi ích cạnh tranh"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Xem hướng dẫn đánh giá"
+
+msgid "grid.action.newRound"
+msgstr "Tạo vòng mới"
+
+msgid "grid.action.sendReminder"
+msgstr "Gửi lời nhắc công việc cho người dùng này"
+
+msgid "grid.action.viewMetadata"
+msgstr "Xem siêu dữ liệu cho bài gửi này"
+
+msgid "grid.action.viewLibrary"
+msgstr "Xem Thư viện Tài liệu"
+
+msgid "grid.action.advancedSearch"
+msgstr "Tìm kiếm nâng cao"
+
+msgid "grid.action.search"
+msgstr "Tìm kiếm"
+
+msgid "grid.action.selectCreate"
+msgstr "Tạo một người phản biện mới"
+
+msgid "grid.action.enrolExisting"
+msgstr "Đăng ký Người dùng hiện tại làm Người phản biện"
+
+msgid "grid.action.details"
+msgstr "Xem mục này"
+
+msgid "grid.action.disable"
+msgstr "Vô hiệu hóa"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Loại bỏ nhóm người dùng này"
+
+msgid "grid.action.editUserGroup"
+msgstr "Chỉnh sửa nhóm người dùng này"
+
+msgid "grid.action.addUserGroup"
+msgstr "Thêm một nhóm người dùng"
+
+msgid "grid.action.notify"
+msgstr "Thông báo cho người dùng này"
+
+msgid "grid.action.expand"
+msgstr "Mở rộng"
+
+msgid "grid.action.requestAccount"
+msgstr "Thêm người tham gia"
+
+msgid "grid.action.expandAll"
+msgstr "Mở rộng tất cả"
+
+msgid "grid.action.resetEmail"
+msgstr "Đặt lại mẫu email này về mặc định"
+
+msgid "grid.action.disableEmail"
+msgstr "Tắt mẫu email này"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Chỉnh sửa mẫu email này"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Thêm một mẫu email mới"
+
+msgid "grid.action.resetAll"
+msgstr "Đặt lại tất cả các mục về giá trị mặc định"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Xóa mục danh sách kiểm tra này"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Chỉnh sửa mục danh sách kiểm tra này"
+
+msgid "grid.action.orderItems"
+msgstr "Bật chế độ sắp xếp"
+
+msgid "grid.action.importexport"
+msgstr "Nhập hoặc xuất nội dung hoặc dữ liệu trang web"
+
+msgid "grid.action.settings"
+msgstr "Cài đặt"
+
+msgid "grid.action.sendToProduction"
+msgstr "Gửi bài này sang sản xuất"
+
+msgid "grid.action.externalReview"
+msgstr "Gửi bài nộp này để đánh giá bên ngoài"
+
+msgid "grid.action.internalReview"
+msgstr "Gửi bài nộp này để xem xét nội bộ"
+
+msgid "grid.action.decline"
+msgstr "Từ chối bài gửi này"
+
+msgid "grid.action.accept"
+msgstr "Chấp nhận bài gửi này"
+
+msgid "grid.action.requestRevisions"
+msgstr "Yêu cầu sửa đổi cho bài gửi này"
+
+msgid "grid.action.selectFiles"
+msgstr "Chọn tệp để quản lý"
+
+msgid "grid.action.editFile"
+msgstr "Chỉnh sửa tệp"
+
+msgid "grid.action.addFile"
+msgstr "Thêm một tệp"
+
+msgid "grid.action.addReviewer"
+msgstr "Thêm một phản biện"
+
+msgid "grid.action.email"
+msgstr "Gửi email"
+
+msgid "grid.action.readReview"
+msgstr "Đọc đánh giá này"
+
+msgid "grid.action.downloadAll"
+msgstr "Tải xuống tất cả các tệp dưới dạng kho lưu trữ"
+
+msgid "grid.action.moveItem"
+msgstr "Di chuyển mục"
+
+msgid "grid.action.wizard"
+msgstr "Trình hướng dẫn cài đặt"
+
+msgid "grid.action.collapseAll"
+msgstr "Thu gọn tất cả"
+
+msgid "grid.action.collapse"
+msgstr "Thu gọn"
+
+msgid "grid.action.extendAll"
+msgstr "Mở rộng tất cả"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Hủy sắp xếp"
+
+msgid "grid.action.order"
+msgstr "Sắp xếp"
+
+msgid "grid.action.upgrade"
+msgstr "Nâng cấp"
+
+msgid "grid.action.addAuditor"
+msgstr "Thêm một dịch giả"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Xóa tác giả"
+
+msgid "grid.action.editAuthor"
+msgstr "Chỉnh sửa tác giả"
+
+msgid "grid.action.addAuthor"
+msgstr "Thêm tác giả"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Bạn có chắc chắn muốn khôi phục mặc định không?"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Khôi phục mặc định"
+
+msgid "grid.action.moreInformation"
+msgstr "Thêm thông tin"
+
+msgid "grid.action.setApproval"
+msgstr "Thiết lập phê duyệt"
+
+msgid "grid.action.disapprove"
+msgstr "Không phê duyệt"
+
+msgid "grid.action.approve"
+msgstr "Phê duyệt"
+
+msgid "grid.action.edit"
+msgstr "Chỉnh sửa"
+
+msgid "grid.action.remove"
+msgstr "Loại bỏ"
+
+msgid "grid.action.editorialHistory"
+msgstr "Lịch sử Biên tập"
+
+msgid "grid.action.deleteSection"
+msgstr "Xóa chuyên mục"
+
+msgid "grid.action.export"
+msgstr "Xuất"
+
+msgid "grid.action.editSection"
+msgstr "Chỉnh sửa chuyên mục"
+
+msgid "grid.action.editMedia"
+msgstr "Chỉnh sửa phương tiện"
+
+msgid "grid.action.deleteMedia"
+msgstr "Xóa phương tiện"
+
+msgid "grid.action.deleteFile"
+msgstr "Xóa tệp"
+
+msgid "grid.action.delete"
+msgstr "Xóa"
+
+msgid "grid.action.reload"
+msgstr "Tải lại"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Phê duyệt tệp đã biên tập này để gửi nó sang giai đoạn tiếp theo"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Bỏ chỉ định người phản biện này"
+
+msgid "grid.action.addUser"
+msgstr "Thêm người dùng"
+
+msgid "grid.action.updateQuery"
+msgstr "Cập nhật thảo luận"
+
+msgid "grid.action.deleteQuery"
+msgstr "Xóa thảo luận"
+
+msgid "grid.action.readQuery"
+msgstr "Đọc thảo luận"
+
+msgid "grid.action.addQuery"
+msgstr "Thêm thảo luận"
+
+msgid "grid.action.addNote"
+msgstr "Thêm ghi chú"
+
+msgid "grid.action.addItem"
+msgstr "Thêm mục"
+
+msgid "grid.action.sort"
+msgstr "Săp xếp"
+
+msgid "grid.action.manageAccess"
+msgstr "Quản lý truy cập"
+
+msgid "grid.action.uninstall"
+msgstr "Gỡ cài đặt"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Mục này được lưu trữ từ xa."
+
+msgid "grid.noAuditors"
+msgstr "Không có giám sát viên"
+
+msgid "grid.settings"
+msgstr "Cài đặt"
+
+msgid "grid.noItems"
+msgstr "Không có mục nào"

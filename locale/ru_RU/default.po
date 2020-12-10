@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:00+00:00\n"
+"Language: \n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Администратор сайта"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Администраторы сайта"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Выпускающий редактор"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Выпускающие редакторы"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ВыпРед"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Литературный редактор"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Литературные редакторы"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "ЛитРед"
+
+msgid "default.groups.name.proofreader"
+msgstr "Корректор"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Корректоры"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "Корр"
+
+msgid "default.groups.name.designer"
+msgstr "Дизайнер"
+
+msgid "default.groups.plural.designer"
+msgstr "Дизайнеры"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Дизайн"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Внутренний рецензент"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Внутренние рецензенты"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "ВнутрР"
+
+msgid "default.groups.name.marketing"
+msgstr "Координатор по маркетингу и продажам"
+
+msgid "default.groups.plural.marketing"
+msgstr "Координаторы по маркетингу и продажам"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "МиП"
+
+msgid "default.groups.name.funding"
+msgstr "Координатор по фондам"
+
+msgid "default.groups.plural.funding"
+msgstr "Координаторы по фондам"
+
+msgid "default.groups.abbrev.funding"
+msgstr "КФ"
+
+msgid "default.groups.name.indexer"
+msgstr "Индексатор"
+
+msgid "default.groups.plural.indexer"
+msgstr "Индексаторы"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "Инд"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Верстальщик"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Верстальщики"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "Верст"
+
+msgid "default.groups.name.author"
+msgstr "Автор"
+
+msgid "default.groups.plural.author"
+msgstr "Авторы"
+
+msgid "default.groups.abbrev.author"
+msgstr "Авт"
+
+msgid "default.groups.name.translator"
+msgstr "Переводчик"
+
+msgid "default.groups.plural.translator"
+msgstr "Переводчики"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Перев"
+
+msgid "default.groups.name.reader"
+msgstr "Читатель"
+
+msgid "default.groups.plural.reader"
+msgstr "Читатели"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Чит"
+
+msgid "default.genres.other"
+msgstr "Другое"
+
+msgid "default.genres.multimedia"
+msgstr "Мультимедиа"
+
+msgid "default.genres.image"
+msgstr "Изображение"
+
+msgid "default.genres.styleSheet"
+msgstr "Таблица стилей HTML"

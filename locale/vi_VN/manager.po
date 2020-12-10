@@ -1,0 +1,2244 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-28 19:44+0000\n"
+"Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
+"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/vi_VN/>\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Tên kiểu thông báo là bắt buộc."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Tên"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Một kiểu thông báo với tên này đã tồn tại."
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Lưu và tạo một cái khác"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Chỉnh sửa"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Chỉnh sửa kiểu thông báo"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Tạo"
+
+msgid "manager.announcementTypes.create"
+msgstr "Tạo kiểu thông báo"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Cảnh báo! Tất cả các thông báo có kiểu thông báo này cũng sẽ bị xóa. Bạn có "
+"chắc chắn muốn tiếp tục và xóa kiểu thông báo này không?"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Vui lòng chọn kiểu thông báo hợp lệ."
+
+msgid "manager.announcementTypes"
+msgstr "Các kiểu thông báo"
+
+msgid "manager.announcements.type"
+msgstr "Kiểu"
+
+msgid "manager.announcements.title"
+msgstr "TIêu đề"
+
+msgid "manager.announcements.noneCreated"
+msgstr "Không có thông báo nào được tạo."
+
+msgid "manager.announcements.form.typeId"
+msgstr "Kiểu"
+
+msgid "manager.announcements.form.title"
+msgstr "Tiêu đề"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Tiêu đề thông báo là bắt buộc."
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Lưu và tạo một cái khác"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Mô tả ngắn gọn"
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Mô tả thông báo ngắn gọn là bắt buộc."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Mô tả ngắn gọn xuất hiện cùng với tiêu đề thông báo."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Mô tả thông báo là bắt buộc."
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Toàn văn thông báo."
+
+msgid "manager.announcements.form.description"
+msgstr "Mô tả"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Vui lòng chọn một tháng hoặc ngày cho năm hết hạn."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Vui lòng chọn ngày hết hạn thông báo hợp lệ."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Vui lòng chọn một năm hoặc ngày cho tháng hết hạn."
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Thông báo sẽ được hiển thị cho độc giả cho đến ngày này. Để trống nếu thông "
+"báo sẽ được hiển thị vô thời hạn."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Ngày hết hạn"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Vui lòng chọn một năm hoặc tháng cho ngày hết hạn."
+
+msgid "manager.announcements.editTitle"
+msgstr "Sửa"
+
+msgid "manager.announcements.edit"
+msgstr "Chỉnh sửa thông báo"
+
+msgid "manager.announcements.datePublish"
+msgstr "Được phát hành"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Hết hạn"
+
+msgid "manager.announcements.createTitle"
+msgstr "Tạo"
+
+msgid "manager.announcements.create"
+msgstr "Tạo thông báo mới"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Bạn có chắc chắn muốn xóa vĩnh viễn thông báo này không?"
+
+msgid "manager.announcements"
+msgstr "Thông báo"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Một tệp hình ảnh là bắt buộc. Hãy đảm bảo rằng bạn đã chọn và tải lên một "
+"tệp."
+
+msgid "manager.website.appearance"
+msgstr "Xuất hiện"
+
+msgid "manager.website.information"
+msgstr "Thông tin"
+
+msgid "manager.language.submissions"
+msgstr "Bài gửi"
+
+msgid "manager.language.ui"
+msgstr "Giao diện người dùng"
+
+msgid "manager.importExport"
+msgstr "Nhập/Xuất dữ liệu"
+
+msgid "manager.groups.title"
+msgstr "Tiêu đề"
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Không có người dùng nào được tìm thấy."
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Nhóm này không có thành viên."
+
+msgid "manager.groups.membership"
+msgstr "Thành viên"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Bạn có chắc chắn muốn xóa tư cách thành viên nhóm này không?"
+
+msgid "manager.groups.membership.addMember"
+msgstr "Thêm thành viên"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Một tiêu đề nhóm là bắt buộc."
+
+msgid "manager.groups.editTitle"
+msgstr "Chỉnh sửa tiêu đề"
+
+msgid "manager.groups.createTitle"
+msgstr "Tạo tiêu đề"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Bạn có chắc chắn muốn xóa nhóm này không?"
+
+msgid "manager.files.uploadFile"
+msgstr "Tải tập tin"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Các tập tin đã tải lên"
+
+msgid "manager.files.parentDir"
+msgstr "Thư mục chính"
+
+msgid "manager.files.indexOfDir"
+msgstr "Chỉ mục của {$dir}"
+
+msgid "manager.files.emptyDir"
+msgstr "Không có tệp nào được tìm thấy trong thư mục này."
+
+msgid "manager.files.createDir"
+msgstr "Tạo thư mục"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"Xóa tệp hoặc thư mục này? Lưu ý rằng một thư mục phải trống trước khi nó có "
+"thể bị xóa."
+
+msgid "manager.filesBrowser"
+msgstr "Duyệt tệp"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Chủ đề: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Gửi đến"
+
+msgid "manager.emails.sentFrom"
+msgstr "Gửi từ"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Đặt thành mặc định"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Nếu bạn đặt lại mẫu này, tất cả dữ liệu tin nhắn sẽ được đặt lại về giá trị "
+"mặc định, làm mất tất cả các sửa đổi. Bạn có muốn xác nhận thao tác này "
+"không?"
+
+msgid "manager.emails.reset"
+msgstr "Đặt lại"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Nếu bạn đặt lại tất cả các mẫu, tất cả các sửa đổi đối với các mẫu email sẽ "
+"bị mất. Bạn có muốn xác nhận thao tác này không?"
+
+msgid "manager.emails.resetAll"
+msgstr "Đặt lại tất cả"
+
+msgid "manager.emails"
+msgstr "Email chuẩn bị trước"
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Một chủ đề là bắt buộc cho email."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Cần có phần nội dung cho email."
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"Khóa email duy nhất không chứa khoảng trắng hoặc ký tự đặc biệt là bắt buộc "
+"cho email."
+
+msgid "manager.emails.enable.message"
+msgstr "Bạn sắp kích hoạt email này. Bạn có muốn xác nhận thao tác này không?"
+
+msgid "manager.emails.enable"
+msgstr "Kích hoạt"
+
+msgid "manager.emails.enabled"
+msgstr "Kích hoạt mẫu email"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Khóa bạn cung cấp đã được sử dụng."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Bạn phải cung cấp ID ngữ cảnh khi thêm mẫu email."
+
+msgid "manager.emails.emailTemplates"
+msgstr "Mẫu email"
+
+msgid "manager.emails.emailTemplate"
+msgstr "Mẫu email"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "Đã tồn tại một email với khóa nhất định. Khóa email phải là duy nhất."
+
+msgid "manager.emails.emailKey.description"
+msgstr "Khóa email chỉ có thể chứa các chữ cái, số và dấu gạch dưới."
+
+msgid "manager.emails.emailKey"
+msgstr "Khóa email"
+
+msgid "manager.emails.editTestExample"
+msgstr "Chỉnh sửa ví dụ kiểm tra email"
+
+msgid "manager.emails.editEmail.success"
+msgstr "Mẫu email đã được sửa"
+
+msgid "manager.emails.editEmail"
+msgstr "Chỉnh sửa email"
+
+msgid "manager.emails.disable"
+msgstr "Vô hiệu hóa"
+
+msgid "manager.emails.details"
+msgstr "Chi tiết về mẫu email"
+
+msgid "manager.emails.data"
+msgstr "Dữ liệu tin nhắn mẫu"
+
+msgid "manager.emails.customTemplate"
+msgstr "Mẫu tùy chỉnh"
+
+msgid "manager.emails.createEmail"
+msgstr "Tạo Email"
+
+msgid "manager.emails.addEmail.success"
+msgstr "Mẫu email đã được thêm vào"
+
+msgid "manager.emails.addEmail"
+msgstr "Thêm mẫu"
+
+msgid "manager.emails.confirmReset"
+msgstr ""
+"Bạn có chắc chắn muốn đặt lại mẫu email này về các giá trị mặc định của nó "
+"không?"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Bạn có chắc chắn muốn xóa mẫu thư này không?"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Chi tiết nhắc nhở phản biện đã được cập nhật."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Cài đặt đánh giá đã được cập nhật."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Hướng dẫn phản biện đã được cập nhật."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Hướng dẫn người phản biện"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "Cài đặt email đã được cập nhật."
+
+msgid "manager.publication.emails"
+msgstr "E-mail"
+
+msgid "manager.publication.productionStage"
+msgstr "Sản xuất"
+
+msgid "manager.publication.editorialStage"
+msgstr "Ban biên tập"
+
+msgid "manager.publication.reviewStage"
+msgstr "Phản biện"
+
+msgid "manager.publication.submissionStage"
+msgstr "Bài gửi"
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Các kiểu thông báo"
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Không có thông báo nào được tạo."
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Gửi một bản sao đến địa chỉ email này"
+
+msgid "manager.setup.notifications"
+msgstr "Thông báo cho Tác giả"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr ""
+"Không thể tìm thấy tệp đã tải lên. Xin vui lòng thử tải lại nó một lần nữa."
+
+msgid "manager.setup.logo"
+msgstr "Logo"
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Ghi nhật ký và Kiểm tra"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Không thể tìm thấy khối {$name}. Hãy đảm bảo rằng plugin đã được cài đặt và "
+"kích hoạt."
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Thanh bên"
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Mô tả"
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr ""
+"Định dạng hình ảnh tiêu đề tiêu đề trang chủ không hợp lệ hoặc tải lên không "
+"thành công. Các định dạng được chấp nhận là .gif, .jpg hoặc .png."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr ""
+"Định dạng hình ảnh trang chủ không hợp lệ hoặc tải lên không thành công. Các "
+"định dạng được chấp nhận là .gif, .jpg hoặc .png."
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Tải lên hình ảnh để hiển thị nổi bật trên trang chủ."
+
+msgid "manager.setup.homepageImage"
+msgstr "Ảnh Trang chủ"
+
+msgid "manager.setup.groupType"
+msgstr "Nhóm loại tập tin"
+
+msgid "manager.setup.favicon"
+msgstr "Biểu tượng"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Đã xảy ra lỗi khi xóa mục này."
+
+msgid "manager.setup.competingInterests"
+msgstr "Lợi ích cạnh tranh"
+
+msgid "manager.setup.checklist"
+msgstr "Danh mục kiểm tra"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Các Hướng dẫn cho tác giả đã được cập nhật thành công."
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Các nguyên tắc được đề xuất bao gồm các tiêu chuẩn định dạng và thư mục cùng "
+"với các ví dụ về các định dạng trích dẫn phổ biến được sử dụng trong các bài "
+"gửi."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Hướng dẫn tác giả"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Yêu cầu tác giả đồng ý với thông báo bản quyền sau đây như một phần của quá "
+"trình gửi."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Thông báo Bản quyền"
+
+msgid "manager.setup.contact.success"
+msgstr "Các chi tiết liên hệ cho báo chí này đã được cập nhật."
+
+msgid "manager.setup.appearance.success"
+msgstr "Cài đặt giao diện đã được cập nhật."
+
+msgid "manager.setup.advanced"
+msgstr "Nâng cao"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Mọi thứ được nhập vào đây sẽ xuất hiện trên trang chủ của bạn."
+
+msgid "manager.setup.additionalContent"
+msgstr "Nội dung bổ sung"
+
+msgid "manager.affiliationAndSupport"
+msgstr "Nhà tài trợ"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Thu hẹp kết quả theo quốc gia, khu vực và/hoặc thành phố."
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "Theo vị trí địa lý"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Hoặc chọn phạm vi theo:"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Chọn phạm vi báo cáo"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Theo loại đối tượng và/hoặc id đối tượng"
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "Theo ngữ cảnh (tạp chí)"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr ""
+"Có thể sử dụng url sau để tạo báo cáo với cài đặt biểu mẫu hiện tại. Chỉ cần "
+"sao chép nó và mở nó trong trình duyệt của bạn. Bạn cũng có thể lưu trữ nó "
+"dưới dạng trình tạo url báo cáo tùy chỉnh trong dấu trang của mình."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "URL báo cáo"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Bạn phải chọn ít nhất một cột để tạo báo cáo."
+
+msgid "manager.statistics.reports.cities.label"
+msgstr ""
+"Một hoặc nhiều tên thành phố, được phân tách bằng dấu phẩy (ví dụ: Tên thành "
+"phố 1, Tên thành phố 2)"
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Sử dụng định dạng (Năm-Tháng-ngày)  YYYYMMDD."
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Sử dụng định dạng (Năm-Tháng) NNNNTT."
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Giảm dần"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Tăng dần"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Chiều"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Sắp xếp theo"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Tháng hiện tại"
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Ngày hôm qua"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr ""
+"Xác định một hoặc nhiều id đối tượng, được phân tách bằng dấu phẩy (ví dụ: "
+"1,2,3,4,5)."
+
+msgid "manager.statistics.reports.objectId"
+msgstr "Mã Đối tượng"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Loại đối tượng"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Không tìm thấy đối tượng trong cơ sở dữ liệu"
+
+msgid "manager.statistics.reports.filters"
+msgstr "Bộ lọc"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr ""
+"Xác định các cột sẽ được sử dụng để xây dựng báo cáo. Các cột bạn chọn ở đây "
+"không chỉ xác định dữ liệu nào sẽ được trình bày bên trong báo cáo mà còn "
+"xác định mức độ tổng hợp của thống kê. Ví dụ: nếu bạn chọn cột ID, Loại và "
+"Tháng, báo cáo sẽ tổng hợp tất cả các chế độ xem từ một đối tượng từ một "
+"tháng và sẽ trình bày dữ liệu đó trong một hàng. Nếu bạn chọn Ngày thay vì "
+"Tháng, mỗi đối tượng sẽ có một hàng cho mỗi ngày."
+
+msgid "manager.statistics.reports.columns"
+msgstr "Các cột (để tạo báo cáo)"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Ẩn Tuỳ chọn Nâng cao"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Tuỳ chọn Nâng cao"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Tạo báo cáo tùy chỉnh"
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Mẫu báo cáo mặc định"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr ""
+"Các mục in nghiêng và được đánh dấu * đại diện cho dữ liệu tùy chọn đối với "
+"cách thống kê đếm hiện tại trong hệ thống (loại số liệu). Bạn có thể có dữ "
+"liệu đó hoặc không, tùy thuộc vào cấu hình plugin thống kê của bạn."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Thống kê tổng hợp theo:"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"Hệ thống tạo báo cáo theo dõi các chi tiết liên quan đến việc sử dụng trang "
+"web và gửi trong một khoảng thời gian nhất định. Báo cáo được tạo ở định "
+"dạng CSV yêu cầu ứng dụng bảng tính để xem."
+
+#, fuzzy
+msgid "manager.statistics.reports"
+msgstr "Tạo Báo cáo"
+
+msgid "manager.statistics.region"
+msgstr "Khu vực"
+
+msgid "manager.statistics.city"
+msgstr "Thành phố"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\t{$contextObjectName} của bạn được định cấu hình để ghi lại nhiều chỉ số "
+"sử dụng. Số liệu thống kê sử dụng \n"
+"sẽ được hiển thị trong một số ngữ cảnh.\n"
+"\n"
+"Có những trường hợp phải sử dụng một thống kê sử dụng duy nhất, ví dụ: để "
+"hiển thị danh sách có thứ tự các bài nộp \n"
+"được sử dụng nhiều nhất hoặc để xếp hạng kết quả tìm kiếm. \n"
+"Vui lòng chọn một trong các chỉ số đã định cấu hình làm mặc định.\n"
+"\t"
+
+msgid "manager.statistics"
+msgstr "Thống kê &amp; Báo cáo"
+
+msgid "manager.roles"
+msgstr "Các Vai trò"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Sử dụng biểu mẫu bên dưới để đặt giá trị tối đa cho các cụm từ bạn muốn tìm "
+"kiếm. Biểu mẫu được điền trước với giá trị trung bình được tính toán của các "
+"trường đó."
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Lĩnh vực phản biện"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Tìm kiếm Theo tên"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Tìm kiếm Người phản biện Theo tên"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Thay đổi"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Bạn không thể xóa đại diện này vì họ được gán cho siêu dữ liệu thị trường "
+"cho một hoặc nhiều định dạng xuất bản cho lần gửi này."
+
+msgid "manager.userSearch.searchByName"
+msgstr "Tìm kiếm Người dùng Theo tên"
+
+msgid "manager.readingTools"
+msgstr "Các công cụ đọc"
+
+msgid "manager.plugins"
+msgstr "Các Trình cắm hệ thống"
+
+msgid "manager.plugins.sitePlugin"
+msgstr ""
+"Đây là một plugin trên toàn trang. Chỉ Quản trị viên trang web mới có thể "
+"quản lý plugin này."
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Trình cắm (plugin) Quản lý"
+
+msgid "manager.plugins.enable"
+msgstr "Kích hoạt"
+
+msgid "manager.plugins.disable"
+msgstr "Vô hiệu hoá"
+
+msgid "manager.plugins.action"
+msgstr "Hoạt động:"
+
+msgid "manager.people.userMustChangePassword"
+msgstr ""
+"Yêu cầu người dùng thay đổi mật khẩu của họ trong lần đăng nhập tiếp theo."
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Người dùng đã được tạo thành công."
+
+msgid "manager.people.unenroll"
+msgstr "Hủy đăng ký"
+
+msgid "manager.people.syncUsers"
+msgstr "Đồng bộ hóa đăng ký người dùng"
+
+msgid "manager.people.signInAsUser"
+msgstr "Đăng nhập với Người dùng"
+
+msgid "manager.people.signInAs"
+msgstr "Đăng nhập với"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Lưu và tạo một người dùng khác"
+
+msgid "manager.people.remove"
+msgstr "Loại bỏ"
+
+msgid "manager.people"
+msgstr "Mọi người"
+
+msgid "manager.people.noneEnrolled"
+msgstr "Không có người dùng đã đăng ký."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Không có người dùng phù hợp."
+
+msgid "manager.people.mustProvideName"
+msgstr "Đầu tiên, xin vui lòng cung cấp họ của người dùng."
+
+msgid "manager.people.mustChooseRole"
+msgstr ""
+"Vui lòng chọn một vai trò ở đầu trang trước khi nhấp vào \"Đăng ký người "
+"dùng\"."
+
+msgid "manager.people.mergeUsers"
+msgstr "Hợp nhất người dùng"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr ""
+"Bạn có chắc chắn muốn hợp nhất (các) tài khoản {$oldAccountCount} đã chọn "
+"vào tài khoản có tên người dùng \"{$newUsername}\" không? Các tài khoản "
+"{$oldAccountCount} đã chọn sẽ không tồn tại sau đó. Hành động này là không "
+"thể đảo ngược."
+
+msgid "manager.people.mergeUser"
+msgstr "Hợp nhất người dùng"
+
+msgid "manager.people.invalidUser"
+msgstr "Xin lỗi, người dùng được yêu cầu là không tồn tại."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Đăng ký người dùng với vai trò"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr ""
+"Người dùng có thể được chỉ định hoặc xóa bỏ một vai trò tại bất kỳ thời điểm "
+"nào."
+
+msgid "manager.people.enrollSync"
+msgstr "Đồng bộ hoá đăng ký"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Đồng bộ hóa vai trò"
+
+msgid "manager.people.enrollSelected"
+msgstr "Đăng ký những người dùng đã chọn"
+
+msgid "manager.people.enrollment"
+msgstr "Đăng ký"
+
+msgid "manager.people.enroll"
+msgstr "Đăng ký Người dùng"
+
+msgid "manager.people.enable"
+msgstr "Kích hoạt"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"Chọn những người dùng bạn muốn gửi email bằng cách chọn hộp bên cạnh tên của "
+"họ"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Chọn một ngôn ngữ"
+
+msgid "manager.people.emailUsers"
+msgstr "Gửi email cho người dùng"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Gửi email cho người dùng đã đăng ký là"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Gửi email đến những người dùng đã chọn"
+
+msgid "manager.people.editUser"
+msgstr "Chỉnh sửa Người dùng"
+
+msgid "manager.people.editProfile"
+msgstr "Chỉnh sửa hồ sơ"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Không có vai trò"
+
+msgid "manager.people.disable"
+msgstr "Vô hiệu hóa"
+
+msgid "manager.people.createUserSendNotify"
+msgstr ""
+"Gửi cho người dùng một email chào mừng có chứa tên người dùng và mật khẩu "
+"của họ."
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Tạo một mật khẩu ngẫu nhiên."
+
+msgid "manager.people.createUser"
+msgstr "Tạo Người dùng mới"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Hủy đăng ký người dùng này?"
+
+msgid "manager.people.authSource"
+msgstr "Nguồn xác thực"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Một người dùng hiện tại phải được nhập."
+
+msgid "manager.payment.timestamp"
+msgstr "Dấu thời gian"
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"Chọn tất cả các ngôn ngữ để hỗ trợ trên trang web thông qua menu chọn ngôn "
+"ngữ xuất hiện trên mỗi trang. Menu sẽ chỉ xuất hiện nếu nhiều ngôn ngữ được "
+"chọn."
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr ""
+"Hệ thống này tùy chọn cho phép một số thông tin quan trọng được nhập bằng "
+"một số ngôn ngữ bổ sung. Để sử dụng tính năng này, hãy chọn ngôn ngữ thay "
+"thế và chọn từ các tùy chọn được liệt kê bên dưới."
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Tải lại mặc định"
+
+msgid "manager.language.forms"
+msgstr "Hình thức"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Bạn sắp tắt mẫu email này. Nếu có các quy trình hệ thống sử dụng mẫu này, "
+"chúng sẽ không sử dụng nó nữa. Bạn có muốn xác nhận thao tác này không?"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Kích thước tệp được cung cấp \"{$expected}\" và kích thước tệp thực tế \""
+"{$actual}\" không khớp"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Không thể tạo tệp tạm thời {$dest} từ {$source}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Không xác định người tải lên {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Tác giả {$authorName} không có tên cụ thể trong ngôn ngữ của bài gửi, "
+"{$localeName}. Không thể nhập bài gửi nếu không có thông tin này."
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Nhóm người dùng không xác định {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Nội dung không được mã hóa dưới dạng {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Mã hóa không xác định {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Thể loại không xác định {$param}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Phần tử không xác định {$param}"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Đã xảy ra lỗi:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Các cảnh báo đã gặp:"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Lỗi xác thực:"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Yêu cầu tác giả cung cấp tài liệu tham khảo trước khi chấp nhận bài gửi của "
+"họ."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Yêu cầu tác giả cung cấp tài liệu tham khảo trong quá trình gửi bài."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Không yêu cầu tài liệu tham khảo từ tác giả trong quá trình gửi bài."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Bật siêu dữ liệu tài liệu tham khảo"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Thu thập tài liệu tham khảo của bài gửi trong một trường riêng biệt. Điều "
+"này có thể được yêu cầu để tuân thủ các dịch vụ theo dõi trích dẫn như "
+"Crossref."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Yêu cầu tác giả tiết lộ bất kỳ cơ quan hỗ trợ nào trước khi chấp nhận bài "
+"gửi của họ."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Yêu cầu tác giả tiết lộ bất kỳ cơ quan hỗ trợ nào trong quá trình gửi bài."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Không yêu cầu các cơ quan tài trợ từ tác giả trong quá trình gửi bài."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Bật siêu dữ liệu của các cơ quan tài trợ"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Các cơ quan hỗ trợ có thể chỉ ra nguồn tài trợ nghiên cứu hoặc hỗ trợ thể "
+"chế khác tạo điều kiện cho nghiên cứu."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr "Yêu cầu tác giả cung cấp các ngành trước khi chấp nhận bài gửi của họ."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Yêu cầu tác giả cung cấp các ngành trong quá trình gửi."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Không yêu cầu ngành từ tác giả trong quá trình gửi."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Bật siêu dữ liệu ngành"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr "Chuyên ngành là các loại hình nghiên cứu hoặc các nhánh kiến thức."
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Yêu cầu tác giả cung cấp loại trước khi chấp nhận bài gửi của họ."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Yêu cầu tác giả cung cấp loại trong quá trình gửi bài."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Không yêu cầu loại từ tác giả trong quá trình gửi bài."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Bật siêu dữ liệu loại"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Bản chất hoặc thể loại của nội dung chính của bài nộp. Loại thường là \"Văn "
+"bản\", nhưng cũng có thể là \"Tập dữ liệu\", \"Hình ảnh\" hoặc bất kỳ <a "
+"target = \"_ blank\" href=\"http://dublincore.org/documents/"
+"dcmi-type-vocabulary/#section-7-dcmi-type-words\"> Các loại Dublin Core </a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Yêu cầu tác giả cung cấp các chủ đề trước khi chấp nhận bài gửi của họ."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Yêu cầu tác giả cung cấp các chủ đề trong quá trình gửi."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Không yêu cầu các chủ đề từ tác giả trong quá trình gửi."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Bật siêu dữ liệu chủ đề"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Chủ đề sẽ là các từ khóa, cụm từ khóa hoặc mã phân loại mô tả một chủ đề của "
+"bài gửi."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Yêu cầu tác giả cung cấp URL nguồn trước khi chấp nhận nội dung bài gửi của "
+"họ."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Yêu cầu tác giả cung cấp URL nguồn trong quá trình gửi bài."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Không yêu cầu một URL nguồn từ tác giả trong quá trình gửi bài."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Bật siêu dữ liệu nguồn"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Nguồn có thể là một ID, chẳng hạn như DOI, của một tác phẩm hoặc tài nguyên "
+"khác mà bài gửi được bắt nguồn từ đó."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Yêu cầu tác giả tiết lộ bất kỳ quyền truy cập trước nào trước khi chấp nhận "
+"bài gửi của họ."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr "Yêu cầu tác giả tiết lộ bất kỳ quyền truy cập trước khi gửi bài."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Không yêu cầu tiết lộ quyền từ tác giả trong quá trình gửi bài."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Bật siêu dữ liệu quyền"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Bất kỳ quyền nào có được đối với bài gửi, có thể bao gồm Quyền sở hữu trí "
+"tuệ, Bản quyền và các Quyền sở hữu khác nhau."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Yêu cầu tác giả nhập ngôn ngữ của bài nộp trước khi chấp nhận bài gửi của họ."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Yêu cầu tác giả cho biết ngôn ngữ của bài gửi trong quá trình gửi bài."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Không yêu cầu ngôn ngữ của bài gửi từ tác giả trong quá trình gửi bài."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Bật siêu dữ liệu ngôn ngữ"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Ngôn ngữ chỉ ra ngôn ngữ chính của tác phẩm bằng mã ngôn ngữ, tiếng Anh/"
+"tiếng Việt (\"en\"/\"vi\") với mã quốc gia tùy chọn (\"en_US\"/\"vi_VN\")."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr "Yêu cầu tác giả đề xuất các từ khóa trước khi chấp nhận bài của họ."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Yêu cầu tác giả đề xuất từ khóa trong quá trình gửi bài."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Không yêu cầu từ khóa từ tác giả trong quá trình gửi bài."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Bật siêu dữ liệu từ khóa"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Từ khóa thường là các cụm từ một đến ba từ được sử dụng để chỉ ra các chủ đề "
+"chính của một bài gửi."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Yêu cầu tác giả đề xuất siêu dữ liệu về mức độ phù hợp trước khi chấp nhận "
+"bài gửi của họ."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Yêu cầu tác giả đề xuất siêu dữ liệu về mức độ phù hợp trong quá trình gửi."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Không yêu cầu siêu dữ liệu về phạm vi từ tác giả trong quá trình gửi."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Bật siêu dữ liệu về phạm vi"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Phạm vi bao phủ thường sẽ cho biết vị trí không gian của tác phẩm (tên địa "
+"điểm hoặc tọa độ địa lý), khoảng thời gian (nhãn khoảng thời gian, ngày hoặc "
+"phạm vi ngày) hoặc khu vực pháp lý (chẳng hạn như một thực thể hành chính "
+"được đặt tên)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Phạm vi"
+
+msgid "manager.setup.metadata.success"
+msgstr "Siêu dữ liệu bài gửi đã được cập nhật thành công."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Mẫu gửi bài"
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL đến trang web mô tả giấy phép, nếu có."
+
+msgid "manager.setup.competingInterests.required"
+msgstr ""
+"Yêu cầu tuyên bố về Quyền lợi cạnh tranh trong quá trình đánh giá ngang hàng."
+
+msgid "grid.action.createReviewForm"
+msgstr "Tạo một Biểu mẫu đánh giá mới"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Có thể xem được (dành cho tác giả)"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Hộp văn bản một dòng"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Hộp văn bản mở rộng"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Hộp văn bản đơn"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Bao gồm trong tin nhắn cho tác giả"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Người đánh giá bắt buộc phải hoàn thành mục"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Các nút radio (bạn chỉ có thể chọn một)"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Mô tả"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Mục"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Lựa chọn"
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Không có mục biểu mẫu nào được tạo."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Một câu hỏi được yêu cầu cho mục biểu mẫu."
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Một loại mục là bắt buộc cho mục biểu mẫu."
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Loại mục"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Chỉnh sửa mục biểu mẫu"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Hộp trổ xuống"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Tạo Mục mới"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Sao chép sang:"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Xác nhận xóa một mục biểu mẫu đã xuất bản ..."
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Chọn loại mục"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Hộp kiểm (bạn có thể chọn một hoặc nhiều)"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Thêm lựa chọn"
+
+msgid "manager.reviewFormElements"
+msgstr "Các mục của biểu mẫu"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Thay đổi loại mục của biểu mẫu ..."
+
+msgid "manager.reviewForms.title"
+msgstr "Tiêu đề"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Dữ liệu Biểu mẫu Đánh giá"
+
+msgid "manager.reviewForms.preview"
+msgstr "Xem trước biểu mẫu"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Không có biểu mẫu đánh giá nào được sử dụng."
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Không có biểu mẫu đánh giá nào được tạo."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Không có / biểu mẫu đánh giá tự do"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Biểu mẫu đánh giá ngang hàng được tạo ở đây sẽ được trình bày để người đánh "
+"giá hoàn thành, thay vì biểu mẫu mặc định bao gồm hai hộp văn bản mở, hộp "
+"văn bản đầu tiên \"dành cho tác giả và biên tập viên\" và hộp thứ hai \"dành "
+"cho biên tập viên\". Biểu mẫu đánh giá có thể được chỉ định cho một phần báo "
+"chí cụ thể và các biên tập viên sẽ có tùy chọn để chọn biểu mẫu nào sẽ sử "
+"dụng để chỉ định đánh giá. Trong mọi trường hợp, biên tập viên sẽ có tùy "
+"chọn bao gồm các đánh giá tương ứng với tác giả."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Đang phản biện"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Cần có tiêu đề cho biểu mẫu đánh giá."
+
+msgid "manager.reviewForms.edit"
+msgstr "Biểu mẫu đánh giá"
+
+msgid "manager.reviewForms.description"
+msgstr "Mô tả và Hướng dẫn"
+
+msgid "manager.reviewForms.create"
+msgstr "Tạo Biểu mẫu đánh giá"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Bạn có chắc chắn muốn xóa mẫu đánh giá này không?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Đã hoàn thành"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Bạn có chắc chắn muốn tạo một bản sao của biểu mẫu đánh giá này không?"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Bạn có chắc chắn muốn hủy kích hoạt biểu mẫu đánh giá này không? Nó sẽ không "
+"còn có sẵn cho việc đánh giá các bài mới."
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Bạn có chắc chắn muốn kích hoạt biểu mẫu đánh giá (phản biện) này không? Sau "
+"khi nó được chỉ định cho một bài đánh giá, bạn sẽ không thể hủy kích hoạt nó "
+"nữa."
+
+msgid "manager.reviewForms"
+msgstr "Các Biểu mẫu Phản biện"
+
+msgid "manager.distribution.title"
+msgstr "Cài đặt phân phối"
+
+msgid "manager.distribution"
+msgstr "Phân phối"
+
+msgid "manager.workflow.title"
+msgstr "Cài đặt quy trình làm việc"
+
+msgid "manager.workflow"
+msgstr "Quy trình làm việc"
+
+msgid "manager.website.title"
+msgstr "Cài đặt Trang web"
+
+msgid "manager.website"
+msgstr "Trang web"
+
+msgid "manager.users.roleRequired"
+msgstr "Bạn cần chọn ít nhất một vai trò được liên kết với người dùng này."
+
+msgid "manager.settings.wizard"
+msgstr "Trình hướng dẫn cài đặt"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Khóa chỉ có thể chứa các ký tự chữ và số, dấu gạch dưới và dấu gạch nối, "
+"đồng thời phải bắt đầu và kết thúc bằng ký tự chữ và số."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Khóa đã tồn tại."
+
+msgid "manager.setup.genres.key.description"
+msgstr "Một mã định danh tượng trưng ngắn tùy chọn cho thể loại này."
+
+msgid "manager.setup.genres.key"
+msgstr "Khóa"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Đánh dấu các tệp thuộc loại này là tệp bổ sung (ví dụ: không phải nội dung "
+"của bài gửi chính)"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Đánh dấu các tệp thuộc loại này là tệp phụ thuộc (ví dụ: không được liệt kê "
+"với nội dung đã xuất bản)"
+
+msgid "grid.action.restoreGenres"
+msgstr "Khôi phục các thành phần về cài đặt mặc định"
+
+msgid "grid.action.deleteGenre"
+msgstr "Xóa thành phần này"
+
+msgid "grid.action.editGenre"
+msgstr "Chỉnh sửa thành phần này"
+
+msgid "grid.action.addGenre"
+msgstr "Thêm một thành phần"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Chọn Tệp Thư viện để đính kèm"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p> Có thể truy cập tệp thư viện này để tải xuống, nếu \"Quyền truy cập công "
+"cộng\" được bật, tại: <blockquote>{$downloadUrl}</blockquote> </p>"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Khác"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Báo cáo"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Quyền"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Tiếp thị"
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Hợp đồng"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Yêu cầu loại tệp cho tệp thư viện này."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Cần có tên cho tệp thư viện này."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"Tệp thư viện là bắt buộc. Hãy đảm bảo rằng bạn đã chọn và tải lên một tệp."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Cho phép chỉnh sửa siêu dữ liệu bài gửi."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Bạn cần xác định một giai đoạn để chỉ định."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Bạn cần xác định cấp độ quyền của vai trò."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Bạn cần xác định một từ viết tắt vai trò duy nhất."
+
+msgid "settings.roles.uniqueName"
+msgstr "Bạn cần xác định một tên vai trò duy nhất."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Bạn cần xác định một từ viết tắt vai trò."
+
+msgid "settings.roles.nameRequired"
+msgstr "Bạn cần xác định một tên vai trò."
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Bạn sắp xóa vai trò này khỏi ngữ cảnh này. Thao tác này cũng sẽ xóa các cài "
+"đặt liên quan và tất cả các nhiệm vụ của người dùng cho vai trò này. Bạn có "
+"muốn tiếp tục?"
+
+msgid "settings.roles.from"
+msgstr "Mức cho phép"
+
+msgid "settings.roles.roleDetails"
+msgstr "Chi tiết về vai trò"
+
+msgid "settings.roles.stages"
+msgstr "Các giải đoạn"
+
+msgid "settings.roles.assignedStages"
+msgstr "Các giai đoạn được chỉ định"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Viết tắt"
+
+msgid "settings.roles.roleName"
+msgstr "Tên vai trò"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Vai trò này chỉ được phép đề xuất quyết định xem xét và sẽ yêu cầu một biên "
+"tập viên được ủy quyền ghi lại quyết định cuối cùng."
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Cho phép người dùng tự đăng ký"
+
+msgid "settings.roles.showTitles"
+msgstr "Hiển thị chức danh vai trò trong danh sách người tham gia"
+
+msgid "settings.roles.roleOptions"
+msgstr "Các tùy chọn Vai trò"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Tiền tệ"
+
+msgid "manager.paymentMethod.method"
+msgstr "Phương thức thanh toán"
+
+msgid "manager.paymentMethod.none"
+msgstr "Không có phương thức thanh toán nào được chọn"
+
+msgid "manager.paymentMethod.title"
+msgstr "Các phương thức thanh toán"
+
+msgid "manager.paymentMethod"
+msgstr "Thanh toán"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Thêm các thẻ HTML tùy chỉnh, còn được gọi là thẻ meta, mà bạn muốn chèn vào "
+"đầu mỗi trang. Tham khảo ý kiến cố vấn kỹ thuật trước khi thêm thẻ tại đây."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Các thẻ tùy chỉnh"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Nhập các điều khoản cấp phép công khai mà bạn muốn hiển thị cùng với tác "
+"phẩm đã xuất bản."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Các điều khoản giấy phép"
+
+msgid "manager.distribution.license.other"
+msgstr "URL giấy phép khác"
+
+msgid "manager.distribution.license.success"
+msgstr "Các chi tiết giấy phép đã được cập nhật. "
+
+msgid "manager.distribution.license"
+msgstr "Giấy phép"
+
+msgid "notification.editedUser"
+msgstr "Đã chỉnh sửa người dùng."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Đã lưu cài đặt ngôn ngữ."
+
+msgid "notification.localeReloaded"
+msgstr "Đã tải lại ngôn ngữ {$locale} cho {$contextName}."
+
+msgid "notification.localeUninstalled"
+msgstr "Đã gỡ cài đặt ngôn ngữ {$locale}."
+
+msgid "notification.localeInstalled"
+msgstr "Tất cả ngôn ngữ đã chọn đã được cài đặt và kích hoạt."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} được xác định là ngôn ngữ chính."
+
+msgid "notification.localeDisabled"
+msgstr "Ngôn ngữ bị tắt."
+
+msgid "notification.localeEnabled"
+msgstr "Đã bật ngôn ngữ."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml không tìm thấy trong thư mục plugin"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml trong thư mục plugin chứa dữ liệu không hợp lệ."
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Chọn tập tin plugin"
+
+msgid "manager.plugins.uploadError"
+msgstr "Lỗi khi tải tệp lên"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Đã nâng cấp thành công lên phiên bản {$versionString}"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Nâng cấp không thành công. {$errorString}"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Biểu mẫu này cho phép bạn nâng cấp một plugin. Hãy đảm bảo rằng plugin được "
+"nén dưới dạng tệp .tar.gz."
+
+msgid "manager.plugins.upgrade"
+msgstr "Nâng cấp Plugin"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr ""
+"Lệnh tar không khả dụng. Vui lòng cấu hình chính xác nó trong \"config.inc."
+"php\" của bạn."
+
+msgid "manager.plugins.settings"
+msgstr "Cài đặt"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"Plugin đã tồn tại nhưng mới hơn phiên bản đã cài đặt. Vui lòng nâng cấp thay "
+"thế"
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Plugin không tồn tại. Vui lòng cài đặt thay thế"
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"Phiên bản.xml trong plugin đã tải lên chứa tên plugin không khớp với tên của "
+"plugin đã nâng cấp."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Plugin đã tải lên không phù hợp với danh mục của plugin đã nâng cấp."
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+"Kho lưu trữ plugin đã tải lên không chứa thư mục tương ứng với tên plugin."
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Đã cài đặt thành công phiên bản {$versionNumber}"
+
+msgid "manager.plugins.installFailed"
+msgstr "Cài đặt bị lỗi. {$errorString}"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Không có sẵn"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Cập nhật"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Có thể được nâng cấp"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Mới hơn phiên bản có sẵn"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Plugin đã được cài đặt và cập nhật."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+"Plugin đã được cài đặt nhưng có thể được cập nhật lên phiên bản mới hơn."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "Plugin đã được cài đặt và mới hơn phiên bản có sẵn trong thư viện."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Hiện tại không có phiên bản tương thích của plugin này."
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Plugin vẫn chưa được cài đặt."
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Trạng thái"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Tóm lược"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Trang chủ"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} được phát hành vào {$date}"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Người bảo trì"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr ""
+"Plugin này được cung cấp bởi một trong những đối tác phát triển của chúng "
+"tôi."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Đối tác"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Plugin này đã được xem xét và phê duyệt bởi nhóm Dự án Tri thức Công cộng."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Đã đánh giá"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Plugin này được phát triển và duy trì bởi nhóm Dự án Tri thức Công cộng."
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Chính thức"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Bản phát hành tương thích mới nhất"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Cài đặt"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Tổng quát"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Thư viện Trình cắm"
+
+msgid "manager.plugins.installed"
+msgstr "Các trình cắm đã cài đặt"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Hãy đảm bảo rằng một tệp đã được chọn để tải lên."
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Biểu mẫu này cho phép bạn tải lên và cài đặt một plugin mới. Hãy đảm bảo "
+"rằng plugin được nén dưới dạng tệp .tar.gz."
+
+msgid "manager.plugins.upload"
+msgstr "Tải lên một plugin mới"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Vui lòng chọn một tệp trước"
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Plugin \"{$pluginName}\" không tồn tại"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Trang này cho phép Người quản lý xem xét và có khả năng định cấu hình các "
+"plugin hiện đã được cài đặt. Các plugin được chia thành các loại, theo chức "
+"năng của chúng. Các danh mục được liệt kê bên dưới và trong mỗi danh mục, "
+"tập hợp các plugin hiện tại của nó."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Đã xóa thành công plugin \"{$pluginName}\""
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"Không thể xóa plugin \"{$pluginName}\" khỏi hệ thống tệp. Đây có thể là một "
+"vấn đề về quyền. Hãy đảm bảo rằng máy chủ web có thể ghi vào thư mục plugin ("
+"bao gồm cả thư mục con) nhưng đừng quên bảo mật lại."
+
+msgid "manager.plugins.deleteDescription"
+msgstr ""
+"Bằng cách nhấp vào xóa, bạn sẽ xóa plugin khỏi hệ thống tệp của máy chủ."
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Bạn có chắc chắn muốn xóa plugin này khỏi hệ thống không?"
+
+msgid "grid.action.installPlugin"
+msgstr "Cài đặt hoặc nâng cấp plugin này"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Bạn có chắc chắn muốn nâng cấp plugin này không?"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Bạn có chắc chắn muốn cài đặt plugin này không?"
+
+msgid "manager.plugins.delete"
+msgstr "Xoá Trình cắm"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Trình cắm không được sao chép thành công. Đây có thể do vấn đề về quyền. Hãy "
+"đảm bảo rằng máy chủ web có thể ghi vào thư mục  trình cắm (plugin) (bao gồm "
+"cả thư mục con) nhưng đừng quên bảo mật lại sau khi cài đặt xong."
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Các trình cắm này triển khai hỗ trợ cho một số nhận dạng công khai."
+
+msgid "plugins.categories.pubIds"
+msgstr "Trình cắm mã định danh công khai"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Các trình cắm định dạng này thể hiện siêu dữ liệu trong giao tiếp OAI."
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Trình cắm Định dạng siêu dữ liệu OAI"
+
+msgid "plugins.categories.themes"
+msgstr "Các trình cắm Chủ đề"
+
+msgid "plugins.categories.themes.description"
+msgstr ""
+"Các trình cắm Chủ đề có thể được sử dụng để thay đổi giao diện của hệ thống."
+
+msgid "plugins.categories.reports"
+msgstr "Các trình cắm Báo cáo"
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+"Các Trình cắm Báo cáo được sử dụng để triển khai các loại báo cáo và trích "
+"xuất dữ liệu khác nhau."
+
+msgid "plugins.categories.paymethod"
+msgstr "Các trình cắm thanh toán"
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"Các plugin Phương thức thanh toán triển khai hỗ trợ cho các cách xử lý thanh "
+"toán trực tuyến khác nhau."
+
+msgid "plugins.categories.importexport"
+msgstr "Các trình cắm Nhập/Xuất dữ liệu"
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+"Trình cắm Nhập/Xuất có thể được sử dụng để chuyển nội dung đến các hệ thống "
+"khác hoặc từ các hệ thống khác đến."
+
+msgid "plugins.categories.generic"
+msgstr "Các trình cắm chung"
+
+msgid "plugins.categories.gateways"
+msgstr "Các trình cắm Cổng giao tiếp (Gateway)"
+
+msgid "plugins.categories.gateways.description"
+msgstr ""
+"Các plugin cổng giao tiếp (gateway) cung cấp dữ liệu trực tiếp cho các hệ "
+"thống bên ngoài."
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"Plugin khối tác vụ là các thành phần giao diện người dùng có thể cắm được, "
+"chẳng hạn như các công cụ thanh bên khác nhau."
+
+msgid "plugins.categories.blocks"
+msgstr "Plugin khối tác vụ"
+
+msgid "plugins.categories.auth"
+msgstr "Plugin ủy quyền"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Plugin siêu dữ liệu triển khai các tiêu chuẩn siêu dữ liệu bổ sung."
+
+msgid "plugins.categories.metadata"
+msgstr "Plugin siêu dữ liệu"
+
+msgid "manager.users"
+msgstr "Những người dùng"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Người dùng đã đăng ký"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} mới)"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Tùy chọn truy cập trang web"
+
+msgid "manager.setup.userAccess.success"
+msgstr "Chi tiết truy cập của người dùng cho ấn bản này đã được cập nhật."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Chủ đề bạn đã chọn chưa được cài đặt hoặc kích hoạt."
+
+msgid "manager.setup.theme.description"
+msgstr "Các chủ đề mới có thể được cài đặt từ tab Plugin ở đầu trang này."
+
+msgid "manager.setup.theme"
+msgstr "Chủ đề"
+
+msgid "manager.setup.theme.success"
+msgstr ""
+"Chủ đề đã được cập nhật. <a href=\"{$url}\" target=\"_blank\"> Xem ngay bây "
+"giờ </a>"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Người hỗ trợ kỹ thuật - người có thể hỗ trợ biên tập viên, tác giả và người "
+"đánh giá về bất kỳ vấn đề nào mà họ gặp phải khi gửi, chỉnh sửa, đánh giá "
+"hoặc xuất bản tài liệu."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Liên hệ hỗ trợ kỹ thuật"
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Các nhà phát triển web có kinh nghiệm có thể tải lên tệp CSS để tùy chỉnh "
+"thêm giao diện của trang web."
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Ví dụ: hiệp hội học giả, khoa đại học, hợp tác xã, v.v. Các nhà tài trợ được "
+"hiển thị công khai."
+
+msgid "manager.setup.sponsors.note"
+msgstr "Mô tả Mối quan hệ và Chính sách tài trợ"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Trình bày một liên kết đến <button type = \"button\"> Đảm bảo Phản biện kín "
+"</button> trong quá trình tải lên"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Chế độ phản biện mặc định"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Gửi lời nhắc qua email nếu phản biện không gửi đề xuất trong sau một số ngày "
+"sau ngày hết hạn đánh giá."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Nhắc nhở phản biện"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Gửi lời nhắc qua email nếu phản biện không phản hồi yêu cầu xem xét nhiều "
+"ngày sau ngày hết hạn phản hồi."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Lời nhắc phản hồi"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Các mặc định cho mỗi bài đánh giá có thể sửa đổi trong quá trình biên tập."
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Chưa bao giờ nhắc nhở"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Các tuần được phép để hoàn thành phản biện"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Số tuần để chấp nhận hoặc từ chối Yêu cầu phản biện."
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Thời hạn hoàn thành mặc định"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Thời hạn phản hồi mặc định"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Tuyên bố này sẽ xuất hiện trong quá trình đăng ký người dùng, gửi tác giả và "
+"trên trang Quyền riêng tư có sẵn công khai. Ở một số khu vực pháp lý, về mặt "
+"pháp lý, bạn được yêu cầu tiết lộ cách bạn xử lý dữ liệu người dùng trong "
+"chính sách bảo mật này."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Cam kết bảo mật"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Nhập chi tiết liên hệ, thường cho vị trí biên tập chính, quản lý biên tập "
+"hoặc vị trí nhân viên hành chính, có thể được hiển thị trên trang web có thể "
+"truy cập công khai của bạn."
+
+msgid "manager.setup.principalContact"
+msgstr "Liên lạc chính"
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Vạch ra chính sách và quy trình bình duyệt cho độc giả và tác giả. Mô tả này "
+"thường bao gồm số lượng người đánh giá thường được sử dụng để đánh giá một "
+"bài nộp, các tiêu chí mà người đánh giá được yêu cầu đánh giá các bài nộp, "
+"thời gian dự kiến cần thiết để tiến hành đánh giá và các nguyên tắc được sử "
+"dụng để chọn người đánh giá."
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Nhập bất kỳ hình ảnh, văn bản hoặc mã HTML nào bạn muốn xuất hiện ở cuối "
+"trang web của mình."
+
+msgid "manager.setup.pageFooter"
+msgstr "Chân trang"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"Định dạng hình ảnh biểu tượng thương hiệu (logo) tiêu đề trang không hợp lệ "
+"hoặc tải lên không thành công. Các định dạng được chấp nhận là .gif, .jpg "
+"hoặc .png."
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Nếu cung cấp quyền truy cập miễn phí ngay lập tức vào tất cả nội dung đã "
+"xuất bản, bạn có thể nhập mô tả về Chính sách truy cập mở của mình."
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Chính sách truy cập mở"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Các tác giả sẽ tự động được gửi một email xác nhận họ đã gửi. Bạn có thể có "
+"các bản sao của email này được gửi tới những địa chỉ sau:"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Nguồn tỷ lệ bàn từ chối"
+
+msgid "stats.name.declineRate"
+msgstr "Tỷ lệ từ chối"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Tỷ lệ chấp nhận"
+
+msgid "stats.name.daysToReject"
+msgstr "Ngày từ chối"
+
+msgid "stats.name.daysToAccept"
+msgstr "Ngày chấp nhận"
+
+msgid "stats.name.daysToDecision"
+msgstr "Số ngày đến quyết định biên tập đầu tiên"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Bài gửi bị từ chối"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Bài báo bị Từ chối (Sau khi nhận xét)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Đệ trình bị Từ chối (Bàn từ chối)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Bài gửi bị từ chối"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Bài gửi đã được chấp nhận"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Đã nhận bài"
+
+msgid "stats.userStatistics"
+msgstr "Thống kê sử dụng"
+
+msgid "stats.trends"
+msgstr "Xu hướng"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Tổng số trong Phạm vi ngày"
+
+msgid "stats.total"
+msgstr "Tổng số"
+
+msgid "stats.submissionsActive"
+msgstr "Các bài gửi đang xử lý"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Tìm kiếm theo tiêu đề, tác giả và ID"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Hằng tháng"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.fileViews"
+msgstr "Lượt xem tệp"
+
+msgid "stats.editorialActivity"
+msgstr "Hoạt động Biên tập"
+
+msgid "stats.descriptionForStat"
+msgstr "Mô tả cho {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Số ngày cần để hầu hết các bài gửi nhận được quyết định biên tập đầu tiên, "
+"chẳng hạn như từ chối bàn hoặc gửi để đánh giá (phản biện) tiếp. <br> <br> "
+"Những con số này cho thấy rằng 80% số bài gửi đi đến quyết định trong một số "
+"ngày nhất định. < br> <br> Thống kê này cố gắng mô tả thời điểm phần lớn các "
+"tác giả gửi đến tạp chí của bạn sẽ có thể nhận được một quyết định."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Tỷ lệ phần trăm cho phạm vi ngày đã chọn được tính cho các nội dung đã được "
+"gửi trong phạm vi ngày này và đã nhận được quyết định cuối cùng. <br> <br> "
+"Ví dụ: hãy xem xét trường hợp có mười lần gửi được thực hiện trong phạm vi "
+"ngày này. Bốn người đã được chấp nhận, bốn người bị từ chối và hai người vẫn "
+"đang chờ quyết định cuối cùng. <br> <br> Tỷ lệ chấp nhận sẽ là 50% (4 trong "
+"số 8 lần gửi) vì hai bài nộp chưa đi đến quyết định cuối cùng sẽ không được "
+"tính."
+
+msgid "stats.dateRange.untilDate"
+msgstr "Cho đến {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Đến"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Từ năm đến ngày"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Kể từ {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Năm ngoái"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Hai năm qua"
+
+msgid "stats.dateRange.last90Days"
+msgstr "90 ngày qua"
+
+msgid "stats.dateRange.last30Days"
+msgstr "30 ngày qua"
+
+msgid "stats.dateRange.last12Months"
+msgstr "12 tháng qua"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Ngày bắt đầu không được sớm hơn {$date}."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Ngày kết thúc không được muộn hơn {$date}."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Ngày bắt đầu phải trước ngày kết thúc."
+
+msgid "stats.dateRange.invalidDate"
+msgstr "Định dạng ngày không hợp lệ. Nhập từng ngày ở định dạng YYYY-MM-DD."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Nhập từng ngày ở định dạng YYYY-MM-DD. Ví dụ: nếu bạn muốn ngày cho ngày 15 "
+"tháng 1 năm 2019, hãy nhập 2019-01-15."
+
+msgid "stats.dateRange.from"
+msgstr "Từ"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Một trong những ngày đã nhập không tồn tại."
+
+msgid "stats.dateRange.customRange"
+msgstr "Phạm vi Tùy chỉnh"
+
+msgid "stats.dateRange.change"
+msgstr "Thay đổi phạm vi ngày"
+
+msgid "stats.dateRange.apply"
+msgstr "Áp dụng"
+
+msgid "stats.dateRange.allDates"
+msgstr "Tất cả các ngày"
+
+msgid "stats.dateRange"
+msgstr "Phạm vi ngày"
+
+msgid "stats.daily"
+msgstr "Hằng ngày"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/year)"
+
+msgid "stats.allUsers"
+msgstr "Tất cả người dùng"
+
+msgid "grid.category.categoryDetails"
+msgstr "Chi tiết về thể loại"
+
+msgid "grid.category.nameRequired"
+msgstr "Xin vui lòng nhập tên thể loại."
+
+msgid "grid.category.removeText"
+msgstr "Bạn có chắc chắn muốn xóa thể loại này không?"
+
+msgid "grid.category.parentCategory"
+msgstr "Thư mục chính"
+
+msgid "grid.category.description"
+msgstr "Mô tả"
+
+msgid "grid.category.pathExists"
+msgstr "Đường dẫn danh mục đã tồn tại. Vui lòng nhập một đường dẫn duy nhất."
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Đường dẫn thể loại chỉ được bao gồm các chữ cái và số."
+
+msgid "grid.category.urlWillBe"
+msgstr "Đường dẫn URL sẽ là: {$sampleUrl}"
+
+msgid "grid.category.path"
+msgstr "Đường dẫn"
+
+msgid "grid.category.name"
+msgstr "Tên"
+
+msgid "grid.category.edit"
+msgstr "Chỉnh sửa thể loại"
+
+msgid "grid.category.add"
+msgstr "Thêm thể loại"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Liên kết này sẽ chỉ được hiển thị nếu bạn đã nhập tuyên bố về quyền riêng tư "
+"trong Cài đặt > Luồng công việc > Bài gửi."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Liên kết đến trang hiển thị tuyên bố về quyền riêng tư của bạn."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Liên kết đến trang tìm kiếm."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Liên kết này sẽ chỉ được hiển thị nếu khách truy cập đã đăng nhập, thanh "
+"toán được bật trong Cài đặt > Phân phối > Thanh toán và đăng ký là bắt buộc "
+"trong Cài đặt > Phân phối > Truy cập."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Liên kết này sẽ chỉ được hiển thị nếu thanh toán được bật trong Cài đặt > "
+"Phân phối > Thanh toán."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Vui lòng chọn một loại menu điều hướng."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Liên kết này sẽ chỉ được hiển thị nếu bạn đã điền thông tin liên hệ trong "
+"Cài đặt > Liên hệ."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Liên kết đến một trang hiển thị thông tin liên hệ của bạn."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Liên kết này sẽ chỉ được hiển thị khi khách truy cập chưa đăng nhập."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Liên kết này sẽ chỉ được hiển thị khi khách truy cập đã đăng nhập."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Một liên kết sẽ đăng xuất người dùng."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Liên kết này sẽ chỉ được hiển thị cho người dùng quản trị."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Liên kết đến các công cụ quản trị trên toàn trang web."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Liên kết đến trang hồ sơ người dùng."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Liên kết đến bảng điều khiển biên tập."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Liên kết đến trang đăng ký người dùng."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Liên kết đến trang đăng nhập của người dùng."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Liên kết này sẽ chỉ được hiển thị nếu bạn đã bật thông báo trong Cài đặt > "
+"Trang web."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Liên kết đến trang hiển thị thông báo của bạn."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Liên kết đến kho lưu trữ các số xuất bản."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Liên kết đến Số hiện tại của bạn."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Liên kết đến trang hiển thị hướng dẫn gửi bài."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Liên kết này sẽ chỉ được hiển thị nếu bạn đã điền vào phần Nhóm biên tập "
+"trong Cài đặt> Nhật ký."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Liên kết đến một trang hiển thị nội dung giới thiệu về Ban biên tập trong "
+"Cài đặt > Tạp chí."
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Liên kết này sẽ chỉ được hiển thị nếu bạn đã điền vào phần Giới thiệu Tạp "
+"chí trong Cài đặt > Tạp chí."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Liên kết đến trang hiển thị nội dung Giới thiệu tạp chí trong Cài đặt > Tạp "
+"chí"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr ""
+"Liên kết đến bất kỳ URL nào trên trang web khác, ví dụ như "
+"https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "URL từ xa"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Tạo một trang tùy chỉnh trên trang web của bạn và liên kết đến trang đó từ "
+"menu điều hướng."
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Trang tùy chỉnh"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Chọn Loại menu điều hướng hoặc Menu điều hướng tùy chỉnh của riêng bạn"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Bắt buộc phải có tiêu đề."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Loại menu Điều hướng"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Khi một mục menu mở menu con, liên kết của nó không thể được theo dõi trên "
+"tất cả các thiết bị. Ví dụ: nếu bạn có mục \"Giới thiệu\" mở menu con có \""
+"Liên hệ\" và \"Nhóm biên tập\", liên kết \"Giới thiệu\" có thể không truy "
+"cập được trên tất cả các thiết bị. Trong menu mặc định, việc này được xử lý "
+"bằng cách tạo một mục menu thứ hai, \"Giới thiệu về Nhật ký\", xuất hiện "
+"trong menu con."
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "Tìm hiểu thêm về thời điểm hiển thị hoặc ẩn mục menu này."
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Phải cung cấp một URL"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Một menu điều hướng đã được chỉ định cho khu vực này."
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Chọn một khu vực điều hướng"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Khu vực điều hướng chủ đề đang hoạt động"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Các Mục Menu không được Chỉ định"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Các Mục Menu được Chỉ định"
+
+msgid "manager.navigationMenuItems"
+msgstr "Mục trong menu điều hướng"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Tiêu đề này đã tồn tại cho một menu điều hướng khác."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Đường dẫn này đã tồn tại cho một mục menu điều hướng khác."
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Trường đường dẫn phải chỉ chứa các ký tự chữ và số cộng với '.', '/', '-' và "
+"'_'."
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Nội dung"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p> Bạn có thể truy cập trang này tại: <blockquote> {$ pagesPath} "
+"</blockquote> ... trong đó%PATH% là đường dẫn đã nhập ở trên. <strong> Lưu ý:"
+" </strong> Không có hai trang nào có thể có cùng một đường dẫn. Việc sử dụng "
+"các đường dẫn được tích hợp sẵn trong hệ thống có thể khiến bạn mất quyền "
+"truy cập vào các chức năng quan trọng. </p>"
+
+msgid "manager.navigationMenus"
+msgstr "Điều hướng"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Đường dẫn"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Tiêu đề"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Tên người dùng \"{$username}\" và e-mail \"{$email}\" không khớp và cùng với "
+"một người dùng hiện có."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Người dùng đã nhập \"{$username}\" có mật khẩu thuần túy không hợp lệ. Người "
+"dùng chưa được nhập."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Không thể nhập mật khẩu \"{$username}\" của người dùng đã nhập. Mật khẩu mới "
+"được gửi đến email người dùng. Người dùng đã được nhập."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Người dùng đã nhập \"{$username}\" không có mật khẩu. Kiểm tra định dạng XML "
+"nhập của bạn. Người dùng chưa được nhập."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Lỗi Nhập/Xuất dữ liệu:"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Không thể nhập tệp bài gửi"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Bản sửa đổi \"{$reviseId}\" cho tệp gửi \"{$fileId}\" sẽ tạo một bản ghi "
+"trùng lặp"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Tỷ lệ Từ chối sau khi Phản biện"

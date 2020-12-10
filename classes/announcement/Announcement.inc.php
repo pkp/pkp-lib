@@ -8,9 +8,9 @@
 /**
  * @file classes/announcement/Announcement.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Announcement
  * @ingroup announcement
@@ -74,11 +74,12 @@ class Announcement extends DataObject {
 
 	/**
 	 * Get the announcement type name of the announcement.
-	 * @return string
+	 * @return string|null
 	 */
 	function getAnnouncementTypeName() {
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
-		return $announcementTypeDao->getAnnouncementTypeName($this->getData('typeId'));
+		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
+		$announcementType = $announcementTypeDao->getById($this->getData('typeId'));
+		return $announcementType ? $announcementType->getLocalizedTypeName() : null;
 	}
 
 	/**
@@ -95,12 +96,10 @@ class Announcement extends DataObject {
 	 */
 	function getLocalizedTitleFull() {
 		$typeName = $this->getAnnouncementTypeName();
-		$title = $this->getLocalizedTitle();
-
 		if (!empty($typeName)) {
-			return $typeName . ': ' . $title;
+			return $typeName . ': ' . $this->getLocalizedTitle();
 		} else {
-			return $title;
+			return $this->getLocalizedTitle();
 		}
 	}
 

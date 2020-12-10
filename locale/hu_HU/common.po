@@ -1,0 +1,1984 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
+"PO-Revision-Date: 2020-02-28 11:36+0000\n"
+"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"common/hu/>\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
+
+msgid "common.currentStyleSheet"
+msgstr "Aktuális stíluslap"
+
+msgid "about.description"
+msgstr "Leírás"
+
+msgid "about.guidelines"
+msgstr "Vezetők"
+
+msgid "about.aboutSite"
+msgstr "Információk"
+
+msgid "about.contact"
+msgstr "Kapcsolat"
+
+msgid "about.contact.email"
+msgstr "Email"
+
+msgid "about.contact.phone"
+msgstr "Telefon"
+
+msgid "about.contact.principalContact"
+msgstr "Fő kapcsolattartó"
+
+msgid "about.contact.supportContact"
+msgstr "Támogatási kapcsolattartó"
+
+msgid "about.other"
+msgstr "Egyéb"
+
+msgid "about.people"
+msgstr "Felhasználók"
+
+msgid "about.policies"
+msgstr "Irányelvek"
+
+msgid "about.siteMap"
+msgstr "Oldaltérkép"
+
+msgid "announcement.announcements"
+msgstr "Értesítések"
+
+msgid "announcement.announcementsHome"
+msgstr "Értesítések"
+
+msgid "announcement.moreAnnouncements"
+msgstr "További értesítések..."
+
+msgid "announcement.noneExist"
+msgstr "Nincsenek publikált értesítések."
+
+msgid "announcement.posted"
+msgstr "Közzétett"
+
+msgid "announcement.postedOn"
+msgstr "Közzététel ideje {$postDate}"
+
+msgid "announcement.view"
+msgstr "Értesítés megtekintése"
+
+msgid "common.allDownloads"
+msgstr "Összes letöltés"
+
+msgid "common.navigation.sidebar"
+msgstr "Oldalsáv"
+
+msgid "common.navigation.site"
+msgstr "Oldal navigáció"
+
+msgid "common.navigation.siteContext"
+msgstr "Oldalszintű navigáció"
+
+msgid "common.navigation.user"
+msgstr "Felhasználói navigáció"
+
+msgid "common.tasks"
+msgstr "Feladatok"
+
+msgid "common.list"
+msgstr "Lista"
+
+msgid "common.grid"
+msgstr "Háló"
+
+msgid "common.confirmDelete"
+msgstr "Biztos benne, hogy törölni akarja ezt a tételt? Később nem lehet visszavonni."
+
+msgid "common.abstract"
+msgstr "Absztrakt"
+
+msgid "common.accepted"
+msgstr "Elfogadott"
+
+msgid "common.acknowledged"
+msgstr "Elismert"
+
+msgid "common.action"
+msgstr "Művelet"
+
+msgid "common.activate"
+msgstr "Aktiválás"
+
+msgid "common.active"
+msgstr "Aktív"
+
+msgid "common.add"
+msgstr "Hozzáadás"
+
+msgid "common.addSelf"
+msgstr "Önmaga hozzáadása"
+
+msgid "common.name"
+msgstr "Név"
+
+msgid "common.all"
+msgstr "Összes"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+msgid "common.titleSmallWords"
+msgstr "of a the and an or nor but is if then else when at from by on off for in out over to into with"
+
+msgid "common.alreadyAssigned"
+msgstr "Kijelölt"
+
+msgid "common.altText"
+msgstr "Alternatív szöveg"
+
+msgid "common.altTextInstructions"
+msgstr "A keresőoptimalizálás javításához és a WCAG szabványhoz való igazodás miatt, kérjük szöveges információt is adjon a képhez, ami akkor fog megjelenni, ha a kép nem jelenik meg az oldal megtekintésekor egy szöveges böngészőben vagy más segédeszközökön. Például: \"A szerkesztőnk előadása a PKP#2015 konferencián.\""
+
+msgid "common.and"
+msgstr "és"
+
+msgid "common.applyAction"
+msgstr "Művelet alkalmazása"
+
+msgid "common.assign"
+msgstr "Hozzárendel"
+
+msgid "common.assigned"
+msgstr "Hozzárendelt"
+
+msgid "common.assigned.date"
+msgstr "Hozzárendelt: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "Elérhető"
+
+msgid "common.back"
+msgstr "Vissza"
+
+msgid "common.between"
+msgstr "között"
+
+msgid "common.cancel"
+msgstr "Mégsem"
+
+msgid "common.cancelled"
+msgstr "Törölt"
+
+msgid "common.warning"
+msgstr "Figyelmeztetés"
+
+msgid "common.error"
+msgstr "Hiba"
+
+msgid "common.notice"
+msgstr "Értesítés"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr "A captcha érvényesítés ehhez az oldalhoz nincs megfelelően konfigurálva. A titkos kulcs hiányzik."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr "A captcha érvényesítés ehhez az oldalhoz nincs megfelelően konfigurálva. A titkos kulcs érvénytelen."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Az ellenőrzésen át kell esnie, hogy kiszűrhetőek legyenek a spamrobotok a cikkek beküldésénél."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "Nem lett sikeres a spamrobotok kiszűrésére szolgáló ellenőrzés."
+
+msgid "common.captchaField.description"
+msgstr "Kérem, adja meg a képen szereplő betűket."
+
+msgid "common.captchaField"
+msgstr "Érvényesítés"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"http://creativecommons.org/licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br/>\n"
+"\t\tEz a mű ezzel a licensszel van ellátva <a rel=\"license\" target=\"_blank\" href=\"http://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  License</a>.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"http://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tEz a mű ezzel a licensszel van ellátva <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License</a>.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.changesSaved"
+msgstr "A változtatások elmentve."
+
+msgid "common.chooseOne"
+msgstr "Válasszon egyet"
+
+msgid "common.close"
+msgstr "Bezárás"
+
+msgid "common.closePanel"
+msgstr "Panel bezárása"
+
+msgid "common.closeWindow"
+msgstr "Ablak bezárása"
+
+msgid "common.complete"
+msgstr "Kész"
+
+msgid "common.completed"
+msgstr "Befejezett"
+
+msgid "common.completed.date"
+msgstr "Befejezett: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "Megerősít"
+
+msgid "common.confirmed.date"
+msgstr "Megerősítve: {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "Tartalom"
+
+msgid "common.contents"
+msgstr "Tartalmak"
+
+msgid "common.continue"
+msgstr "Folytatás"
+
+msgid "common.copy"
+msgstr "Másolás"
+
+msgid "common.country"
+msgstr "Ország"
+
+msgid "common.create"
+msgstr "Létrehoz"
+
+msgid "common.dateCompleted"
+msgstr "A dátum elkészült"
+
+msgid "common.date"
+msgstr "Dátum"
+
+msgid "common.dateModified"
+msgstr "Dátum módosítás"
+
+msgid "common.dateRequested"
+msgstr "Dátum bekérés"
+
+msgid "common.dateSubmitted"
+msgstr "Dátum jóváhagyás"
+
+msgid "common.dateUploaded"
+msgstr "Dátum feltöltés"
+
+msgid "common.dateHijri"
+msgstr "Hijri Naptár"
+
+msgid "common.day"
+msgstr "Nap"
+
+msgid "common.deactivate"
+msgstr "Újraaktiválás"
+
+msgid "common.default"
+msgstr "Alapértelmezett"
+
+msgid "common.declined"
+msgstr "Elutasított"
+
+msgid "common.delete"
+msgstr "Törlés"
+
+msgid "common.deleteSelection"
+msgstr "A kiválasztott törlése"
+
+msgid "common.designation"
+msgstr "Kijelöl"
+
+msgid "common.description"
+msgstr "Leírás"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pixels"
+
+msgid "common.disable"
+msgstr "Kikapcsolás"
+
+msgid "common.disabled"
+msgstr "Kikapcsolt"
+
+msgid "common.discipline"
+msgstr "Discipline_Tudományterület"
+
+msgid "common.done"
+msgstr "Kész"
+
+msgid "common.download"
+msgstr "Letöltés"
+
+msgid "common.downloadPdf"
+msgstr "PDF Letöltés"
+
+msgid "common.edit"
+msgstr "Szerkesztés"
+
+msgid "common.enable"
+msgstr "Engedélyezés"
+
+msgid "common.enabled"
+msgstr "Engedélyezett"
+
+msgid "common.error.databaseError"
+msgstr "Egy adatbázis hiba történt: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Ismeretlen adatbáziskapcsolati hiba történt."
+
+msgid "common.error.framesRequired"
+msgstr "Ez az oldal kereteket használ. <a href=\"{$url}\">Kattintson ide</a> a nem keretes verzióért."
+
+msgid "common.event"
+msgstr "Esemény"
+
+msgid "common.export"
+msgstr "Exportálás"
+
+msgid "common.finish"
+msgstr "Befejezés"
+
+msgid "common.fullscreen"
+msgstr "Teljes képernyő"
+
+msgid "common.fullscreenOff"
+msgstr "Teljes képernyő kikapcsolása"
+
+msgid "common.false"
+msgstr "Hibás"
+
+msgid "common.file"
+msgstr "Fájl"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "Fájlnév"
+
+msgid "common.fileSize"
+msgstr "Fájlméret"
+
+msgid "common.fileType"
+msgstr "Fájltípus"
+
+msgid "common.fileUploaderError"
+msgstr "A rendszer felfeltöltője épp töltődik. Ha nem jelenik meg, akkor a böngésző valószínűleg nem támogatja ezt a futási időt. Kérjük, lépjen kapcsolatba az adminisztrátorral."
+
+msgid "common.go"
+msgstr "Go"
+
+msgid "common.height"
+msgstr "Magasság"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Főoldal"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Oldal fejléc logo"
+
+msgid "common.hour"
+msgstr "Óra"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "Importálás"
+
+msgid "common.initiate"
+msgstr "Kérés küldése"
+
+msgid "common.inProgress"
+msgstr "Folyamatban"
+
+msgid "common.itemsPerPage"
+msgstr "Tételek száma oldalanként"
+
+msgid "common.favicon.altText"
+msgstr "Favicon"
+
+msgid "common.keywords"
+msgstr "Kulcsszavak"
+
+msgid "common.language"
+msgstr "Nyelv"
+
+msgid "common.languages"
+msgstr "Nyelvek"
+
+msgid "common.less"
+msgstr "Kevesebb"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.manage"
+msgstr "Szerkesztés"
+
+msgid "common.mailingAddress"
+msgstr "Levelezési cím"
+
+msgid "common.billingAddress"
+msgstr "Számlázási cím (ha eltérő)"
+
+msgid "common.minute"
+msgstr "Perc(ek)"
+
+msgid "common.modify"
+msgstr "Módosítás"
+
+msgid "common.month"
+msgstr "Hónap"
+
+msgid "common.more"
+msgstr "Tovább"
+
+msgid "common.noneAssigned"
+msgstr "Nincs hozzárendelés"
+
+msgid "common.none"
+msgstr "Semelyik"
+
+msgid "common.no"
+msgstr "Nem"
+
+msgid "common.noComments"
+msgstr "Nincs megjegyzés"
+
+msgid "common.notApplicable"
+msgstr "Nem alkalmazható"
+
+msgid "common.notApplicableShort"
+msgstr "N/A"
+
+msgid "common.notAvailable"
+msgstr "Nem elérhető"
+
+msgid "common.note"
+msgstr "Megjegyzés"
+
+msgid "common.notes"
+msgstr "Megjegyzések"
+
+msgid "common.notes.tooltip"
+msgstr "Megjegyzés (sárga: új megjegyzés; kék: megtekintett megjegyzések; szürke: nincs megjegyzés)"
+
+msgid "common.notified"
+msgstr "Értesítés"
+
+msgid "common.notified.date"
+msgstr "Értesítés: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Nincs találat"
+
+msgid "common.off"
+msgstr "Kikapcsol"
+
+msgid "common.on"
+msgstr "Bekapcsol"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.options"
+msgstr "Beállítások"
+
+msgid "common.order"
+msgstr "Sorrend"
+
+msgid "common.originalFileName"
+msgstr "Eredeti fájlnév"
+
+msgid "common.or"
+msgstr "vagy"
+
+msgid "common.other"
+msgstr "Egyéb"
+
+msgid "common.overdue"
+msgstr "Lejárt"
+
+msgid "common.pageNumber"
+msgstr "Oldal {$pageNumber}"
+
+msgid "common.pageHeaderLogo.altText"
+msgstr "Oldal fejléc logo"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "Bővítmény"
+
+msgid "common.pluginEnabled"
+msgstr "A bővítmény \"{$pluginName}\" engedélyezett."
+
+msgid "common.pluginDisabled"
+msgstr "A bővítmény \"{$pluginName}\" nem engedélyezett."
+
+msgid "common.prefix"
+msgstr "Előtag"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Példák: Egy, A"
+
+msgid "common.subtitle.tip"
+msgstr "Az esetleges alcím a kettőspont után jelenik meg (:), a főcím után."
+
+msgid "common.preview"
+msgstr "Előnézet"
+
+msgid "common.publisher"
+msgstr "Kiadó"
+
+msgid "common.quality"
+msgstr "Minőség"
+
+msgid "common.queue.long.active"
+msgstr "Minden aktív"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.readMore"
+msgstr "Tovább"
+
+msgid "common.readMoreWithTitle"
+msgstr "Tobb információ a {$title}"
+
+msgid "common.record"
+msgstr "Beállít"
+
+msgid "common.refresh"
+msgstr "Frissítés"
+
+msgid "common.related"
+msgstr "Összefüggő"
+
+msgid "common.reminder"
+msgstr "Emlékeztető"
+
+msgid "common.reminded.date"
+msgstr "Emlékeztető: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Távoli"
+
+msgid "common.remoteURL"
+msgstr "TávoliURL"
+
+msgid "common.remove"
+msgstr "Eltávolítás"
+
+msgid "common.removeSelection"
+msgstr "A kiválasztott eltávolítása"
+
+msgid "common.replaced"
+msgstr "Lecserélt"
+
+msgid "common.replaceFile"
+msgstr "Lecserélt fájl"
+
+msgid "common.requiredField"
+msgstr "* Kötelezően kitöltendő mező"
+
+msgid "common.required"
+msgstr "Kötelező"
+
+msgid "common.reset"
+msgstr "Visszaállítás"
+
+msgid "common.saveAndContinue"
+msgstr "Mentés és folytatás"
+
+msgid "common.saveAndEmail"
+msgstr "Mentés és email"
+
+msgid "common.save"
+msgstr "Mentés"
+
+msgid "common.search"
+msgstr "Keresés"
+
+msgid "common.searchQuery"
+msgstr "Keresési lekérdezés"
+
+msgid "common.second"
+msgstr "Másodperc(ek)"
+
+msgid "common.selectAll"
+msgstr "Az összes kijelölése"
+
+msgid "common.selectNone"
+msgstr "Egyik sem"
+
+msgid "common.select"
+msgstr "Kiválasztás"
+
+msgid "common.sendEmail"
+msgstr "Email küldés"
+
+msgid "common.size"
+msgstr "Méret"
+
+msgid "common.source"
+msgstr "Forrás"
+
+msgid "common.status"
+msgstr "Státusz"
+
+msgid "common.startTyping"
+msgstr "A beírás megkezdése"
+
+msgid "common.subject"
+msgstr "Tárgy"
+
+msgid "common.subjects"
+msgstr "Tárgyak"
+
+msgid "common.subtitle"
+msgstr "Alcím"
+
+msgid "common.suggest"
+msgstr "Javaslat"
+
+msgid "common.title"
+msgstr "Cím"
+
+msgid "common.top"
+msgstr "Fel"
+
+msgid "common.true"
+msgstr "Igaz"
+
+msgid "common.type"
+msgstr "Típus"
+
+msgid "common.component"
+msgstr "Összetevő"
+
+msgid "common.uninitiated"
+msgstr "Nem megkezdett"
+
+msgid "common.unknownError"
+msgstr "Váratlan hiba történt. Töltse be újra az oldalt, majd próbálja újra."
+
+msgid "common.unread"
+msgstr "Olvasatlan"
+
+msgid "common.untitled"
+msgstr "Névtelen"
+
+msgid "common.updated"
+msgstr "Frissített"
+
+msgid "common.uploadedDate"
+msgstr "Feltöltés dátuma"
+
+msgid "common.uploadedFile"
+msgstr "Feltöltött fájl"
+
+msgid "common.upload"
+msgstr "Feltölt"
+
+msgid "common.uploadFailed"
+msgstr "A fájlt nem lehet feltölteni vagy módosított."
+
+msgid "common.invalidFileType"
+msgstr "Nincs fájl feltöltve, vagy ismeretlen a fájl típusa!"
+
+msgid "common.homepageImage.altText"
+msgstr "Honlap kép"
+
+msgid "common.up"
+msgstr "Fel"
+
+msgid "common.upload.addFile"
+msgstr "Fájl feltöltés"
+
+msgid "common.upload.changeFile"
+msgstr "Fájlcsere"
+
+msgid "common.upload.dragFile"
+msgstr "Húzza ide a fájlt és kezdje meg a feltöltést"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Felhasználó"
+
+msgid "common.view"
+msgstr "Megtekintés"
+
+msgid "common.viewProfile"
+msgstr "Profil megtekintése"
+
+msgid "common.weeks"
+msgstr "hetek"
+
+msgid "common.width"
+msgstr "Szélesség"
+
+msgid "common.year"
+msgstr "Év"
+
+msgid "common.yes"
+msgstr "Igen"
+
+msgid "common.loading"
+msgstr "Töltődik"
+
+msgid "common.plugins"
+msgstr "Pluginok"
+
+msgid "common.metric"
+msgstr "Metric"
+
+msgid "common.count"
+msgstr "Számol"
+
+msgid "debug.databaseQueries"
+msgstr "Az adatbázis lekérdezések száma"
+
+msgid "debug.executionTime"
+msgstr "Az oldal legenerálva"
+
+msgid "debug.memoryUsage"
+msgstr "Memória használat"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Betöltött nyelvi lista \"{$localeList}\" XML-ből"
+
+msgid "debug.notes.localeLoad"
+msgstr "Betöltött nyelvi fájl \"{$localeFile}\" XML-ből"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Hiányzó nyelvi kulcs \"{$key}\"."
+
+msgid "debug.notes"
+msgstr "Megjegyzések:"
+
+msgid "defaultMetric.title"
+msgstr "Alapértelmezett Metric"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Elérhető Metrics"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Lektori fájl feltöltése"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Fájl feltöltés"
+
+msgid "email.addAttachment"
+msgstr "Csatolt fájl hozzáadása"
+
+msgid "email.addBccRecipient"
+msgstr "BCC hozzáadása"
+
+msgid "email.addCcRecipient"
+msgstr "CC hozzáadása"
+
+msgid "email.addToRecipient"
+msgstr "Címzett hozzáadása"
+
+msgid "email.attachments"
+msgstr "Csatolások"
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.bccSender"
+msgstr "Küldjön másolatot az e-mail címemre ({$address})"
+
+msgid "email.body"
+msgstr "Szövegtörzs"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.compose"
+msgstr "Email küldés"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Az üzenetet túl sok címzettnek próbálja elküldeni."
+
+msgid "email.compose.tooSoon"
+msgstr "Az utolsó üzenet elküldése óta túl hamar próbál új üzenetet küldeni. Kérem, várjon, amíg a másik üzenet elküldésre kerül."
+
+msgid "email.email"
+msgstr "Email"
+
+msgid "email.from"
+msgstr "Kitől"
+
+msgid "email.invalid"
+msgstr "Az e-mail cím érvénytelen: {$email}."
+
+msgid "email.multipart"
+msgstr "Ez egy többrészes üzenet MIME formátumban."
+
+msgid "email.recipient"
+msgstr "Címzett"
+
+msgid "email.recipients"
+msgstr "Címzettek"
+
+msgid "email.sender"
+msgstr "Küldő"
+
+msgid "email.senderName"
+msgstr "Küldő neve"
+
+msgid "email.senderEmail"
+msgstr "Küldő email címe"
+
+msgid "email.send"
+msgstr "Küldés"
+
+msgid "email.skip"
+msgstr "Email kihagyása"
+
+msgid "email.subject"
+msgstr "Tárgy"
+
+msgid "email.subjectRequired"
+msgstr "Kérem, adja meg az email tárgyát."
+
+msgid "email.bodyRequired"
+msgstr "Kérem, adja meg az email szövegét."
+
+msgid "email.to"
+msgstr "Kinek"
+
+msgid "form.url.invalid"
+msgstr "A megadott URL érvénytelen. Kérjük, ellenőrizze, és próbálja újra."
+
+msgid "form.confirmSubmit"
+msgstr "Biztos benne, hogy elküldi ezt az űrlapot?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Megerősítés"
+
+msgid "form.emailRequired"
+msgstr "Szükséges egy e-mail cím."
+
+msgid "form.dataHasChanged"
+msgstr "Az űrlapon az adatok megváltoztak. Mentés nélkül akarja folytatni?"
+
+msgid "form.errorsOccurred"
+msgstr "Hiba történt az űrlap feldolgozása közben"
+
+msgid "form.formLanguage.description"
+msgstr "Ahhoz, hogy más nyelven is megadhasson információt, először válasszon nyelvet."
+
+msgid "form.formLanguage"
+msgstr "Űrlap nyelv"
+
+msgid "form.contains"
+msgstr "tartalmaz"
+
+msgid "form.is"
+msgstr "is"
+
+msgid "form.startsWith"
+msgstr "kezdődik"
+
+msgid "form.postRequired"
+msgstr "Az űrlapot nem küldték be rendesen."
+
+msgid "form.csrfInvalid"
+msgstr "Az űrlap nem megfelelően benyújtott."
+
+msgid "form.fileRequired"
+msgstr "Szükséges a fájlfeltöltés."
+
+msgid "form.required"
+msgstr "(* Kötelező)"
+
+msgid "form.resubmit"
+msgstr "Újrabeküld"
+
+msgid "form.saveToUpload"
+msgstr "Használja a Mentést a fájl feltöltéséhez."
+
+msgid "form.send"
+msgstr "Küldés"
+
+msgid "form.submit"
+msgstr "Beküld"
+
+msgid "form.invalidImage"
+msgstr "Érvénytelen képet töltött fel. Az elfogadott formátumok .png, .gif, vagy .jpg."
+
+msgid "help.help"
+msgstr "Súgó"
+
+msgid "help.toc"
+msgstr "Tartalomjegyzék"
+
+msgid "help.previous"
+msgstr "Előző"
+
+msgid "help.next"
+msgstr "Következő"
+
+msgid "help.upALevel"
+msgstr "Egy szinttel feljebb"
+
+msgid "icon.checked.alt"
+msgstr "Ellenőrzött"
+
+msgid "icon.comment.alt"
+msgstr "Megjegyzés"
+
+msgid "icon.delete.alt"
+msgstr "Törlés"
+
+msgid "icon.edit.alt"
+msgstr "Szerkesztés"
+
+msgid "icon.folder.alt"
+msgstr "Mappa"
+
+msgid "icon.font_large.alt"
+msgstr "Nagy"
+
+msgid "icon.font_medium.alt"
+msgstr "Közepes"
+
+msgid "icon.font_small.alt"
+msgstr "Kicsi"
+
+msgid "icon.info.alt"
+msgstr "Info"
+
+msgid "icon.letter.alt"
+msgstr "Levél"
+
+msgid "icon.mail.alt"
+msgstr "Mail"
+
+msgid "icon.unchecked.alt"
+msgstr "Nem ellenőrzött"
+
+msgid "icon.view.alt"
+msgstr "Megtekintés"
+
+msgid "informationCenter.informationCenter"
+msgstr "Információs központ"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Szerkesztési történet"
+
+msgid "informationCenter.addNote"
+msgstr "Megjegyzés hozzáadása"
+
+msgid "informationCenter.noNotes"
+msgstr "Nincs megjeleníthető megjegyzés."
+
+msgid "informationCenter.currentNotes"
+msgstr "Az aktuális szakmai lektorálás megjegyzései"
+
+msgid "informationCenter.pastNotes"
+msgstr "A korábbi szakmai lektorálás megjegyzései"
+
+msgid "informationCenter.lastUpdated"
+msgstr "Utolsó frissítés"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Biztos benne, hogy törölni akarja ezt a megjegyzést?"
+
+msgid "informationCenter.currentHistory"
+msgstr "Aktuális szakmai lektorálás"
+
+msgid "informationCenter.pastHistory"
+msgstr "Korábbi szakmai lektorálások"
+
+msgid "informationCenter.history.noItems"
+msgstr "Nincs bejegyzett esemény."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Beküldött új megjegyzés."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Értesítés kiküldve a felhasználóknak."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Értesítés kiküldve a felhasználóknak."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "Válasszon egy sablonüzenetet vagy töltse ki az alábbi űrlapot."
+
+msgid "stageParticipants.notify.message"
+msgstr "Üzenet"
+
+msgid "stageParticipants.notify.warning"
+msgstr "Kérjük, győződjön meg róla, hogy kitöltötte az üzenet mezőt és kiválasztott legalább egy címzettet."
+
+msgid "locale.primary"
+msgstr "Elsődleges nyelv"
+
+msgid "locale.supported"
+msgstr "Támogatott nyelvek"
+
+msgid "navigation.access"
+msgstr "Felhasználók &amp; Szerepkörök"
+
+msgid "navigation.about"
+msgstr "Információk"
+
+msgid "navigation.admin"
+msgstr "Adminisztráció"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Jelenleg itt van:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Eszközök"
+
+msgid "navigation.tools.importExport"
+msgstr "Import/Export"
+
+msgid "navigation.tools.statistics"
+msgstr "Statisztikák"
+
+msgid "navigation.browse"
+msgstr "Böngészés"
+
+msgid "navigation.browseByAuthor"
+msgstr "Szerző szerint"
+
+msgid "navigation.browseByTitle"
+msgstr "Cím szerint"
+
+msgid "navigation.dashboard"
+msgstr "Vezérlőpult"
+
+msgid "navigation.data"
+msgstr "Adat"
+
+msgid "navigation.home"
+msgstr "Főoldal"
+
+msgid "navigation.infoForReaders"
+msgstr "Olvasóknak"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Információ az olvasóknak"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} a {$total} tételből"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} a {$total} tételből"
+
+msgid "navigation.login"
+msgstr "Bejelentkezés"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Következő lépés"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Előző lépés"
+
+msgid "navigation.publicMenu"
+msgstr "Nyilvános menü"
+
+msgid "navigation.register"
+msgstr "Regisztráció"
+
+msgid "navigation.search"
+msgstr "Keresés"
+
+msgid "navigation.settings"
+msgstr "Beállítások"
+
+msgid "navigation.setup"
+msgstr "Beállítás"
+
+msgid "navigation.sitemap"
+msgstr "Oldal térkép"
+
+msgid "navigation.skip.main"
+msgstr "Ugrás a fő tartalmi részhez"
+
+msgid "navigation.skip.nav"
+msgstr "Ugrás a főmenübe"
+
+msgid "navigation.skip.footer"
+msgstr "Ugrás az oldal lábrészéhez"
+
+msgid "navigation.stepNumber"
+msgstr "Lépés {$step}"
+
+msgid "navigation.submissions"
+msgstr "Beküldések"
+
+msgid "navigation.system"
+msgstr "Rendszer"
+
+msgid "navigation.userHome"
+msgstr "Felhasználói oldal"
+
+msgid "navigation.user"
+msgstr "Felhasználó"
+
+msgid "navigation.userManagement"
+msgstr "Felhasználó beállítások"
+
+msgid "navigation.viewFrontend"
+msgstr "Oldal megtekintése"
+
+msgid "notification.addedAuditor"
+msgstr "Hozzáadott ellenőr."
+
+msgid "notification.removedAuditor"
+msgstr "Eltávolított ellenőr."
+
+msgid "notification.addedQuery"
+msgstr "Párbeszéd hozzáadása"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Szakmai lektorálás jelölése elismertként.  Email nem ment."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Szakmai lektorálás fájljai frissültek."
+
+msgid "notification.allow"
+msgstr "Az ilyen típusú megjegyzések engedélyezése."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Értesítéstípus hozzáadása."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Értesítéstípus szerkesztése."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Értesítéstípus törölt."
+
+msgid "notification.removedAnnouncement"
+msgstr "Értesítés törölt."
+
+msgid "notification.addedAuthor"
+msgstr "Szerző hozzáadott."
+
+msgid "notification.editedAuthor"
+msgstr "Szerző szerkesztett."
+
+msgid "notification.confirmError"
+msgstr "Hiba történt a feliratkozás megerősítésekor."
+
+msgid "notification.confirmSuccess"
+msgstr "Sikeresen feliratkozott."
+
+msgid "notification.email"
+msgstr "Ne küldjön emailt az ilyen típusú figyelmeztetésekről."
+
+msgid "notification.location"
+msgstr "Tovább az URL-hez"
+
+msgid "notification.mailList"
+msgstr "Értesítési levelező lista"
+
+msgid "notification.mailList.emailInvalid"
+msgstr "Kérjük, érvényes email címet adjon meg."
+
+msgid "notification.mailList.privacyProtection"
+msgstr "Személyes adatok védelme"
+
+msgid "notification.mailList.protectedContent"
+msgstr "<a href=\"{$subscribeUrl}\">Feliratkozás</a> a védett tartalomra."
+
+msgid "notification.mailList.submit"
+msgstr "A cikk <a href=\"{$submitUrl}\">jóváhagyása</a>"
+
+msgid "notification.mailList.register"
+msgstr "Erre az oldalra regisztrálhat, hogy..."
+
+msgid "notification.mailList.review"
+msgstr "Részvétel a <a href=\"{$reviewUrl}\">szakértői értékelésben</a> process"
+
+msgid "notification.noneExist"
+msgstr "Jelenleg nincs értesítése."
+
+msgid "notification.addedNote"
+msgstr "Megjegyzés postázva."
+
+msgid "notification.removedNote"
+msgstr "megjegyzés törölve."
+
+msgid "notification.removedFile"
+msgstr "Törölt fájl."
+
+msgid "notification.removedSubmission"
+msgstr "Törölt beküldés."
+
+msgid "notification.notification"
+msgstr "Értesítés"
+
+msgid "notification.notifications"
+msgstr "Értesítések"
+
+msgid "notification.notificationsNew"
+msgstr "({$numNew} új)"
+
+msgid "notification.notificationsDescription"
+msgstr "Önnek {$unreadCount} olvasatlan értesítése és {$readCount} olvasott értesítése van.  <a href=\"{$settingsUrl}\">Kattintson ide</a> az értesítések beállításaihoz."
+
+msgid "notification.sentNotification"
+msgstr "Értesítés elküldve."
+
+msgid "notification.settings"
+msgstr "Értesítések beállításai"
+
+msgid "notification.settingsDescription"
+msgstr "Válassza ki azokat a rendszer eseményeket, amelyekről szeretne értesítést kapni. A pipa törlésével az esemény nem kerül be az értesítési csatornájába."
+
+msgid "notification.subscribe"
+msgstr "Feliratkozás"
+
+msgid "notification.subscribeError"
+msgstr "Ezzel az email címmel már feliratkozott értesítésekre."
+
+msgid "notification.subscribeSuccess"
+msgstr "Egy email ment a megadott címre. Kérem, kattintson a megerősítő linkre, hogy hozzáadhassa magát a levelező listához."
+
+msgid "notification.reminderError"
+msgstr "Hiba történt a jelszó elküldésekor, kérem, ellenőrizze, hogy a megadott email cím korrekt-e."
+
+msgid "notification.reminderSent"
+msgstr "Az új jelszava elküldésre került a megadott email címre."
+
+msgid "notification.unsubscribe"
+msgstr "Leiratkozás"
+
+msgid "notification.unsubscribeError"
+msgstr "Hiba történt a leiratkozás közben. Kérem, ellenőrizze, hogy a megfelelő URL-t használta-e, ami az értesítő emailben volt."
+
+msgid "notification.unsubscribeSuccess"
+msgstr "Sikeresen leiratkozott."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "A beküldés metaadata elmentve."
+
+msgid "search.author"
+msgstr "Szerző által"
+
+msgid "search.abstract"
+msgstr "Absztrakt"
+
+msgid "search.advancedFilters"
+msgstr "Bővített szűrök"
+
+msgid "search.advancedSearchMore"
+msgstr "További keresési beállítások"
+
+msgid "search.advancedSearchLess"
+msgstr "További keresési beállítások elrejtése"
+
+msgid "search.searchAgain"
+msgstr "Keresés ismét"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Index törlése"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "kész"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "hiba"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} cikkek indexeltek"
+
+msgid "search.coverage"
+msgstr "Lefedettség"
+
+msgid "search.date"
+msgstr "Publikációs dátum"
+
+msgid "search.dateFrom"
+msgstr "Publikált ez után"
+
+msgid "search.dateTo"
+msgstr "Publikált ez előtt"
+
+msgid "search.deleteFilter"
+msgstr "Törlés"
+
+msgid "search.discipline"
+msgstr "Témakör(ök)"
+
+msgid "search.fullText"
+msgstr "Teljes szöveg"
+
+msgid "search.indexTerms"
+msgstr "Indexelt kifejezések"
+
+msgid "search.indexTermsLong"
+msgstr "Minden index kifejezés mező"
+
+msgid "search.matchAll"
+msgstr "Az összes kategóriának megfelel"
+
+msgid "search.noResults"
+msgstr "Nincs eredmény"
+
+msgid "search.operator.and"
+msgstr "és"
+
+msgid "search.operator.not"
+msgstr "nem"
+
+msgid "search.operator.or"
+msgstr "vagy"
+
+msgid "search.SearchFor"
+msgstr "Keresés"
+
+msgid "search.searchResults"
+msgstr "Keresési eredmények"
+
+msgid "search.subject"
+msgstr "Kulcsszavak"
+
+msgid "search.titleIndex"
+msgstr "Böngészés a cím indexben"
+
+msgid "search.title"
+msgstr "Cím"
+
+msgid "search.typeMethodApproach"
+msgstr "Típus (módszer/megközelítés)"
+
+msgid "grid.action.downloadFile"
+msgstr "A fájl letöltése"
+
+msgid "context.path"
+msgstr "Útvonal"
+
+#, fuzzy
+msgid "review.ensuringAnonymousReview"
+msgstr "Vak szakmai lektorálás biztosítása"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Az aktuális szakmai lektorálás irányelveinek elolvasása"
+
+msgid "grid.action.deleteNotification"
+msgstr "Feladat törlése"
+
+msgid "grid.action.markNew"
+msgstr "Jelölés újként"
+
+msgid "grid.action.markRead"
+msgstr "Jelölés olvasottként"
+
+msgid "dashboard.tasks"
+msgstr "Feladatok"
+
+msgid "dashboard.myQueue"
+msgstr "Saját soraim"
+
+#, fuzzy
+msgid "review.anonymousPeerReview"
+msgstr ""
+"\n"
+"\t\t<p>A beadvány vak szakmai lektorálásának biztosítása érdekében mindent meg kell tenni, hogy a szerzők és a szakmai lektorok ne ismerjék egymást. Ez magában foglalja a szerzőket, szerkesztőket és a szakmai lektorokat (akik dokumentumokat töltenek fel a saját szakmai lektorálási munkafolyamatuk részeként),hogy ellenőrizzék az alábbi részeket a szövegben és a fájlbeállításokban:</p>\n"
+"\t\t<ul><li>A szerzőknek a ki kell törölniük a nevüket a dokumentum szövegéből, helyette a \"Szerző\" kifejezést kell használni, valamint évszámot a lábjegyzetekben és az irodalomjegyzékben a szerző neve és cikk címe, stb. helyett.</li>\n"
+"\t\t<li>A Microsoft Office dokumentumoknál a szerző azonosítást szintén el kell távolítani a fájl beállításaiból (lásd a Fájl menü alatt a Word programban), ha rákattint a következőkre, kezdve a Fájl menünél a Microsoft programban: \n"
+"\t\tFile &gt; Save As &gt; Tools (vagy Options Mac gépen) &gt; Security &gt; Remove personal information from file properties on save &gt; Save.</li>\n"
+"\t\t<li>PDF fájloknál a szerző nevét szintén el kell távolítani a dokumentum beállításainál a Fájl menü alatt az Adobe Acrobat főmenüjében.</li>\n"
+"\t\t</ul>\n"
+"\t"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Szakmai lektorálás ütemezése"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Szerkesztő kérésére"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Válasz határideje"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Szakmai lektorálás határideje"
+
+msgid "submission.task.responseDueDate"
+msgstr "Válasz határideje"
+
+msgid "navigation.goBack"
+msgstr "Vissza"
+
+msgid "notification.addedReviewer"
+msgstr "{$reviewerName} hozzáadva szakmai lektorként ehhez a kézirathoz és a felkérő e-mail el lett küldve."
+
+msgid "notification.removedReviewer"
+msgstr "Szakmai lektor eltávolítása."
+
+msgid "notification.addedStageParticipant"
+msgstr "Felhasználó hozzáadva, mint résztvevő ebben a szakaszban."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Új értesítés."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Szakmai lektorálás függőben."
+
+msgid "notification.type.auditorRequest"
+msgstr "Ellenőrzés kérése a \"{$file}\" fájlhoz"
+
+msgid "notification.type.allReviewsIn"
+msgstr "Az összes szakértői vélemény beérkezett, a döntést kell meghozni a {$stage} szakaszban."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "Átdolgozott fájl feltöltésre került a szerkesztő áttekintésére vár a {$stage} szakaszban."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Átdolgozások áttekintésre a {$stage} szakaszban."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Feltöltött átdolgozások a {$stage} szakaszban."
+
+msgid "notification.type.metadataModified"
+msgstr "Módosították a \"{$title}\" cím metaadatát."
+
+msgid "notification.type.reviewerComment"
+msgstr "Egy szakmai lektor megjegyzést tett a  \"{$title}\" címhez."
+
+msgid "notification.signedFile"
+msgstr "A fájl átnézett."
+
+msgid "user.authorization.submissionFile"
+msgstr "Az aktuális felhasználónak nincs hozzáférése a beküldött fájlhoz."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Érvénytelen beküldés."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Érvénytelen ábrázolás."
+
+msgid "navigation.archives"
+msgstr "Archívum"
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "Jelenleg nincs megfelelő jogosultsága, hogy megtekintse a beküldést. Kérjük módosítsa a profilt a \"Regisztráció mint\" alatt, ha már megkapta a megfelelő jogosultságot."
+
+msgid "user.authorization.submissionAuthor"
+msgstr "Az aktuális felhasználó nem a szerzője az adott beküldésnek. Kérjük, ellenőrizze, hogy a megfelelő felhasználói fiókkal jelentkezett-e be."
+
+msgid "notification.type.queryActivity"
+msgstr "Párbeszéd aktivitás."
+
+msgid "notification.type.queryAdded"
+msgstr "Hozzáadott párbeszédek."
+
+msgid "notification.type.assignCopyeditors"
+msgstr "Technikai szerkesztő hozzáadásához használja a Hozzáadás linket a Résztvevők listájában."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Technikai szerkesztésre vár."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "{$round} fordulói státusz"
+
+msgid "common.deleting"
+msgstr "Törlés folyamatban"
+
+msgid "common.from"
+msgstr "Ettől"
+
+msgid "common.until"
+msgstr "Eddig"
+
+msgid "common.saving"
+msgstr "Mentés folyamatban"
+
+msgid "stageParticipants.recommendOnly"
+msgstr "Ez a résztvevő csak ajánlhat egy szerkesztői döntést, de ehhez még egy arra jogosult szerkesztő is kell, aki rögzíti azt."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Küldjön értesítő e-mailt minden regisztrált felhasználónak"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Navigációs menü sikeresen hozzáadva"
+
+msgid "notification.editedNavigationMenu"
+msgstr "A navigációs menü sikeresen frissítve"
+
+msgid "notification.removedNavigationMenu"
+msgstr "A navigációs menü sikeresen törölve"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Navigációs menüelem sikeresen hozzáadva"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Navigációs menü sikeresen frissítve lett"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Navigációs menüelem sikeresen törölve"
+
+msgid "notification.addedReviewerNoEmail"
+msgstr "{$reviewerName} hozzá lett rendelve szakmai lektorként ehhez a kézirathoz és egy emlékeztető e-mail lett neki elküldve."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Köszönő e-mail elküldve a szakmai lektornak."
+
+msgid "stageParticipants.options"
+msgstr "Hozzárendelt jogosultságok"
+
+msgid "common.filter"
+msgstr "Szűrők"
+
+msgid "common.filterAdd"
+msgstr "Szűrő hozzáadása: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Szűrő törlése: {$filterTitle}"
+
+msgid "common.publicAccess"
+msgstr "Nyilvános elérés"
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Értekezés kezdeményezése"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Értekezés kezdeményezése {$userFullName} bevonásával."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "A lektorálási feladatkiosztás frissítésre került."
+
+msgid "common.lessThan"
+msgstr "{$value} vagy kevesebb"
+
+msgid "common.moreThan"
+msgstr "{$value} vagy több"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} a {$total}-ból/ből"
+
+msgid "common.pagination.label"
+msgstr "További oldalak megtekintése"
+
+msgid "common.pagination.goToPage"
+msgstr "{$page} oldal felkeresése"
+
+msgid "common.pagination.next"
+msgstr "Következő oldal"
+
+msgid "common.pagination.previous"
+msgstr "Előző oldal"
+
+msgid "common.clearSearch"
+msgstr "Keresőkifejezés törlése"
+
+msgid "email.compose.error"
+msgstr ""
+"Sikertelen email üzenet küldés. Próbálja meg később, vagy forduljon a "
+"rendszergazdához."
+
+msgid "list.viewMore"
+msgstr "Mutasson több részletet {$name}-ról/ről"
+
+msgid "list.viewLess"
+msgstr "Mutasson kevesebb részletet {$name}-ról/ről."
+
+msgid "common.dateDecided"
+msgstr "A dátum meghatározásra került"
+
+msgid "common.average"
+msgstr "Átlagos"
+
+msgid "common.lastActivity"
+msgstr "Utolsó tevékenység rögzítve: {$date}"
+
+msgid "notification.type.editorialReport"
+msgstr "Statisztikai riport összesítője. "
+
+msgid "validator.orcid"
+msgstr "Nem érvényes ORCID."
+
+msgid "validator.numeric"
+msgstr "Nem érvényes szám."
+
+msgid "validator.not_in"
+msgstr "A kiválasztott {$attribute} nem érvényes."
+
+msgid "validator.min.array"
+msgstr "Legalább {$min} tételt kell tartalmaznia."
+
+msgid "validator.min.string"
+msgstr "Legalább {$min} karakternek kell lennie."
+
+msgid "validator.min.file"
+msgstr "Legalább {$min} kilobyte-nak kell lennie."
+
+msgid "validator.min.numeric"
+msgstr "A minimum érték: {$min}."
+
+msgid "validator.mimes"
+msgstr "Az alábbi típusú filenak kell lennie: {$values}."
+
+msgid "validator.max.array"
+msgstr "Nem tartalmazhat többet, mint {$max} tétel."
+
+msgid "validator.max.string"
+msgstr "Nem lehet több mint {$max} karakter."
+
+msgid "validator.max.file"
+msgstr "Nem lehet nagyobb mint {$max} kilobyte."
+
+msgid "validator.max.numeric"
+msgstr "Nem lehet nagyobb mint {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"A \"locale code\" megadásával kell meghatározni a nyelveket. Például: en_US, "
+"fr_CA, sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Ez több nyelvű mező. Elkülönített értékeket kell megadni minden támogatott "
+"nyelvhez."
+
+msgid "validator.locale"
+msgstr "Nem támogatott nyelv."
+
+msgid "validator.json"
+msgstr "Nem érvényes JSON string."
+
+msgid "validator.issn"
+msgstr "Nem érvényes ISSN."
+
+msgid "validator.ip"
+msgstr "Nem érvényes IP cím."
+
+msgid "validator.integer"
+msgstr "Nem érvényes egész szám."
+
+msgid "validator.in"
+msgstr "A kiválasztott {$attribute} nem érvényes."
+
+msgid "validator.image"
+msgstr "Képnek kell lennie."
+
+msgid "validator.filled"
+msgstr "Kötelezően töltendő mező."
+
+msgid "validator.exists"
+msgstr "A kiválasztott {$attribute} nem érvényes."
+
+msgid "validator.email"
+msgstr "Nem valós email cím."
+
+msgid "validator.digits_between"
+msgstr "{$min} és {$max} számjegyek között kell lenie."
+
+msgid "validator.digits"
+msgstr "{$digits} számjegy hosszúságúnak kell lenie."
+
+msgid "validator.different"
+msgstr "A{$attribute} és {$other}-nak/nek eltérőnek kell lennie."
+
+msgid "validator.date_format"
+msgstr "Nem egyezik a {$format} formátummal."
+
+msgid "validator.date"
+msgstr "Nem megfelelő dátum."
+
+msgid "validator.currency"
+msgstr "Nem megfelelő pénznem."
+
+msgid "validator.confirmed"
+msgstr "Nem egyező megerősítő mező tartalom."
+
+msgid "validator.boolean"
+msgstr "A mező értékének igaznak vagy hamisnak kell lenie."
+
+msgid "validator.between.array"
+msgstr "{$min} és {$max} tétel között kell lenie."
+
+msgid "validator.between.string"
+msgstr "{$min} és {$max} karakter között kell lennie."
+
+msgid "validator.between.file"
+msgstr "{$min} és {$max} kilobyte között kell lennie."
+
+msgid "validator.between.numeric"
+msgstr "{$min} és {$max} között kell lennie."
+
+msgid "validator.before"
+msgstr "{$date} előtti dátumnak kell lennie."
+
+msgid "validator.array"
+msgstr "Nem érvényes tömb."
+
+msgid "validator.alpha_num"
+msgstr "Csak betűket és számokat tartlamazhat."
+
+msgid "validator.alpha_dash"
+msgstr "Betűket, számokat, kötőjelet és alávonást tartalmazhat."
+
+msgid "validator.alpha"
+msgstr "Csak betűket tartalmazhat."
+
+msgid "validator.after"
+msgstr "{$date} utáni dátumnak kell lennie."
+
+msgid "validator.active_url"
+msgstr "Nem megfelelő URL."
+
+msgid "validator.accepted"
+msgstr "Kérjük, fogadja el ..."
+
+msgid "notification.type.editorialReport.contents"
+msgstr "Kérjük, tekintse át folyóirata állapotát a szerkesztői riportban."
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Ez a résztvevő nem változtatható meg"
+
+msgid "validator.url"
+msgstr "Nem érvényes URL."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Hibás publikáció."
+
+msgid "navigation.skip.announcements"
+msgstr "Ugrás a bejelentésekhez"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Résztvevő"
+
+#, fuzzy
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Ez a személy szerkesztheti a cikk részleteit."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Engedélyek"
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Túl nagy fileméret ({{filesize}}mb). A {{maxFilesize}}mb-nál nagyobb "
+"fileokat nem lehet feltölteni."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Kérjük, használja alább a 'fallback form'-ot fileok feltöltéséhez."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"A szerver a {{statusCode}}  kóddal válaszolt. Kérjük, vegy fel a kapcsolatot "
+"a rendszergazdával."
+
+msgid "common.override"
+msgstr "Felülír"
+
+msgid "common.orderDown"
+msgstr "{$itemTitle} pozíciójának csökkentése"
+
+msgid "common.orderUp"
+msgstr "{$itemTitle} pozíciójának növelése"
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"A feltöltött file nem található. Kérjük, próbálja meg ismét a feltöltést."
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} nyelv kész"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} a {$localeName}-ban/ben"
+
+msgid "form.requireId"
+msgstr "Érvényes ID-t kell megadni."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Be kell fejelznie a mezőt {$language} nyelven."
+
+msgid "form.errors"
+msgstr ""
+"A form nem lett elmentve, mert {$count} hibát tartalmazott. Kérjük, javítsa "
+"ezeket és utána próbálja újra."
+
+msgid "form.errorMany"
+msgstr "{$count} hiba javítása szükséges."
+
+msgid "form.errorOne"
+msgstr "Képrjük, javítsa a hibát."
+
+msgid "form.errorGoTo"
+msgstr "Lépjen a következő hibára"
+
+msgid "form.errorA11y"
+msgstr "Ugrás az alábbi helyre: {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Több file nem tölthető fel."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "File eltávolítása"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Biztosan meg szeretné szakítani a  feltöltést?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Feltöltés megszakítva"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Feltöltés megszakítása"
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Ez a filetípus nem tölthető fel."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "A böngésző nem támogatja a drag'n'drop filefeltöltést."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Húzza ide a feltöltendő fileokat"
+
+msgid "form.disallowedProp"
+msgstr "Nem engedélyezett jellemző."
+
+msgid "form.disallowedLocales"
+msgstr "Az alábbi nyelvek engedélyezettek: {$languages}."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Kiválasztott kép megtekintése."
+
+msgid "common.upload.restore"
+msgstr "Eredeti visszaállítása"
+
+msgid "common.toWithValue"
+msgstr "ig: {$value}"
+
+msgid "common.submenu"
+msgstr "Almenü"
+
+msgid "common.selectedPrefix"
+msgstr "Kiválasztott:"
+
+msgid "common.removeItem"
+msgstr "{$item} eltávolítása"
+
+msgid "common.noItemsFound"
+msgstr "Nem találtunk tételt."
+
+msgid "common.fromWithValue"
+msgstr "Tól/től: {$value}"
+
+msgid "notification.cancelledReviewer"
+msgstr "Szakmai lektor lektorálása megszakítva."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Szakmai lektor ismételten felkérve."
+
+msgid "notification.editStageParticipant"
+msgstr "A szakasz hozzárendelés megváltozott."
+
+msgid "validator.unique"
+msgstr "A(z) {$attribute} már használatban van."
+
+msgid "validator.timezone"
+msgstr "Nem érvényes időzóna."
+
+msgid "validator.string"
+msgstr "Nem érvényes karakterlánc."
+
+msgid "validator.size.array"
+msgstr "Tartalmaznia kell {$size} elemet."
+
+msgid "validator.size.string"
+msgstr "{$size} karakternek kell lennie."
+
+msgid "validator.size.file"
+msgstr "{$size} kilobyte-nak kell lennie."
+
+msgid "validator.size.numeric"
+msgstr "Ekkorának kell lennie: {$size}"
+
+msgid "validator.same"
+msgstr "A {$attribute} és {$other}-nak/nek egyezni kell."
+
+msgid "validator.required_without_all"
+msgstr "Ez a mező szükséges, amikor egyik sincs jelen innen: {$values}"
+
+msgid "validator.required_without"
+msgstr "Ez a mező szükséges, amikor {$values} nincs jelen van."
+
+msgid "validator.required_with_all"
+msgstr "Ez a mező szükséges, amikor {$values} jelen van."
+
+msgid "validator.required_with"
+msgstr "Ez a mező szükséges, amikor {$values} jelen van."
+
+msgid "validator.required_unless"
+msgstr "Ez a mező szükséges, hacsak nem {$other} beleesik {$values}-be/be."
+
+msgid "validator.required_if"
+msgstr "Szükséges mező, amikor a {$other} = {$value}-val/vel."
+
+msgid "validator.required"
+msgstr "Szükséges mező."
+
+msgid "validator.regex"
+msgstr "Nem helyesen formázott."
+
+msgid "validator.present"
+msgstr "A {$attribute} mező szükséges."

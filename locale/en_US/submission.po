@@ -23,6 +23,9 @@ msgstr "Provide a formatted list of references for works cited in this submissio
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "New reviews have been submitted and are being considered by the editor."
 
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr "One or more reviewers missed their deadline. The editorial team has been notified and will take action to ensure reviews are completed. You do not need to take any action at this time. You will be notified when a decision has been made."
+
 msgid "submission.confirm.message"
 msgstr "Your submission has been uploaded and is ready to be sent. You may go back to review and adjust any of the information you have entered before continuing. When you are ready, click \"Finish Submission\"."
 
@@ -58,6 +61,18 @@ msgstr "Acknowledge the copyright statement"
 
 msgid "submission.submit.copyrightNoticeAgree"
 msgstr "Yes, I agree to abide by the terms of the copyright statement."
+
+msgid "submission.submit.genre.label"
+msgstr "What kind of file is this?"
+
+msgid "submission.submit.genre.description"
+msgstr "Choose the option that best describes this file."
+
+msgid "submission.submit.genre.error"
+msgstr "Please select the kind of file for each upload."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Are you sure you want to remove this file?"
 
 msgid "submission.submit.whatNext"
 msgstr "What Happens Next?"
@@ -392,11 +407,17 @@ msgstr "{$name}, {$affiliation}"
 msgid "submission.shortAuthor"
 msgstr "{$author} et al."
 
+msgid "submission.representationOfTitle"
+msgstr "{$representation} of {$title}"
+
 msgid "submission.mySubmissions"
 msgstr "My Authored"
 
 msgid "submission.addFile"
 msgstr "Upload File"
+
+msgid "submission.additionalFiles"
+msgstr "Additional Files"
 
 msgid "submission.agencies"
 msgstr "Agencies"
@@ -409,9 +430,6 @@ msgstr "Accepted"
 
 msgid "submission.acknowledge"
 msgstr "Acknowledge"
-
-msgid "submission.addSuppFile"
-msgstr "Add a Supplementary File"
 
 msgid "submission.ask"
 msgstr "Ask"
@@ -506,6 +524,9 @@ msgstr "Coverage Information"
 msgid "submission.done"
 msgstr "Done"
 
+msgid "submission.downloads"
+msgstr "Downloads"
+
 msgid "submission.dueDate"
 msgstr "Due Date"
 
@@ -558,7 +579,7 @@ msgid "submission.event.submissionSubmitted"
 msgstr "Initial submission completed."
 
 msgid "submission.event.fileRevised"
-msgstr "Revision \"{$name}\" (file ID {$fileId}-{$fileRevision}) was uploaded."
+msgstr "Revision \"{$name}\" was uploaded for file {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Submission metadata updated"
@@ -623,6 +644,9 @@ msgstr "Files"
 msgid "submission.files.downloadAll"
 msgstr "Download All Files"
 
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr "A record of the file uploader is saved when the file is created and can not be changed."
+
 msgid "submission.galley"
 msgstr "Galley"
 
@@ -669,7 +693,7 @@ msgid "submission.versions"
 msgstr "Versions"
 
 msgid "submission.versionIdentity"
-msgstr "{$datePublished} ({$versionId})"
+msgstr "{$datePublished} ({$version})"
 
 msgid "submission.outdatedVersion"
 msgstr "This is an outdated version published on {$datePublished}. Read the <a href=\"{$urlRecentVersion}\">most recent version</a>."
@@ -678,7 +702,13 @@ msgid "submission.identifiers"
 msgstr "Identifiers"
 
 msgid "submission.publisherId"
-msgstr "Public URL identifier"
+msgstr "Publisher ID"
+
+msgid "submission.publisherId.description"
+msgstr "The publisher ID may be used to record the ID from an external database. For example, items exported for deposit to PubMed may include the publisher ID. This should not be used for DOIs."
+
+msgid "submission.publisherId.enable"
+msgstr "Enable for {$objects}"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Submission Info"
@@ -709,9 +739,6 @@ msgstr "Are you sure you want to permanently delete this galley?"
 
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Are you sure you want to remove this image from the galley?"
-
-msgid "submission.layout.confirmDeleteSupplementaryFile"
-msgstr "Are you sure you want to permanently delete this supplementary file?"
 
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Delete this style sheet."
@@ -776,14 +803,8 @@ msgstr "Layout Version"
 msgid "submission.layout.newGalley"
 msgstr "Create New Galley"
 
-msgid "submission.layout.newSupplementaryFile"
-msgstr "Upload New Supplementary File"
-
 msgid "submission.layout.noStyleFile"
 msgstr "No style sheet file has been added to this galley."
-
-msgid "submission.layout.supplementaryFiles"
-msgstr "Supplementary File Review"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Viewing Submission Galley"
@@ -923,9 +944,6 @@ msgstr "Declined"
 msgid "submissions.incomplete"
 msgstr "Incomplete"
 
-msgid "submissions.inactive"
-msgstr "Inactive for {$days} days"
-
 msgid "submissions.noSubmissions"
 msgstr "No Submissions"
 
@@ -1013,6 +1031,12 @@ msgstr "Dependent Files"
 msgid "submission.manageDependentFiles"
 msgstr "Manage Dependent Files"
 
+msgid "submission.upload.instructions"
+msgstr "Upload any files the editorial team will need to evaluate your submission."
+
+msgid "submission.upload.percentComplete"
+msgstr "Uploading {$percent}% complete"
+
 msgid "submission.upload.dependent"
 msgstr "Upload a Dependent File"
 
@@ -1021,9 +1045,6 @@ msgstr "Upload a Discussion File"
 
 msgid "submission.summary"
 msgstr "Summary"
-
-msgid "submission.supplementaryFiles"
-msgstr "Supplementary Files"
 
 msgid "submission.supportingAgencies"
 msgstr "Supporting Agencies"
@@ -1148,9 +1169,6 @@ msgstr "Declined"
 msgid "submission.status.published"
 msgstr "Published"
 
-msgid "submission.status.scheduled"
-msgstr "Scheduled"
-
 msgid "submission.submit.uploadStep"
 msgstr "1. Upload File"
 
@@ -1204,9 +1222,6 @@ msgstr "Upload File"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Upload Copyedited File"
-
-msgid "submission.upload.fairCopy"
-msgstr "Upload Fair Copy"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Upload Files"
@@ -1299,7 +1314,7 @@ msgid "editor.submission.addStageParticipant.form.userRequired"
 msgstr "You must select a user for the specified user group."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
-msgstr "The participant you selected has been assigned to conduct a blind review. If you assign them as a participant, they will have access to the author's identity. You are encouraged not to assign this participant unless you can independently ensure the integrity of the peer review process."
+msgstr "The participant you selected has been assigned to conduct an anonymous review. If you assign them as a participant, they will have access to the author's identity. You are encouraged not to assign this participant unless you can independently ensure the integrity of the peer review process."
 
 msgid "editor.submission.removePermissionToEdit"
 msgstr "Disallow Edit Metadata"
@@ -1325,6 +1340,9 @@ msgstr "Request Revisions"
 msgid "editor.submission.decision.resubmit"
 msgstr "Resubmit for Review"
 
+msgid "editor.submission.decision.newRound"
+msgstr "New review round"
+
 msgid "editor.submission.decision.decline"
 msgstr "Decline Submission"
 
@@ -1345,6 +1363,9 @@ msgstr "Approve Proofs"
 
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "This file proof will no longer be publicly available for download or purchase. Do you want to disapprove it?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Revert Decline"
 
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Assign an editor to enable the editorial decisions for this stage."
@@ -1399,6 +1420,9 @@ msgstr "Draft Files"
 
 msgid "editor.submission.addAuditorError"
 msgstr "There was an error trying to assign the auditor. Please Try again."
+
+msgid "submission.event.fileEdited"
+msgstr "The metadata for file \"{$originalFileName}\" was edited by {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr "A file \"{$originalFileName}\" was uploaded for submission {$submissionId} by {$username}."
@@ -1469,14 +1493,26 @@ msgstr "Revision required."
 msgid "notification.type.editorDecisionResubmit"
 msgstr "Resubmit for review."
 
+msgid "notification.type.editorDecisionNewRound"
+msgstr "A new round of reviews was initiated."
+
 msgid "notification.type.editorDecisionDecline"
 msgstr "Submission declined."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Declined submission reactivated."
 
 msgid "notification.uploadedResponse"
 msgstr "Response uploaded."
 
 msgid "notification.type.editorAssignment"
 msgstr "An editor must be assigned before review is initiated. Please add editor using the Participants list."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "A new version of a submission was created"
+
+msgid "notification.type.revertDecline"
+msgstr "The decision to decline this submission was reverted."
 
 msgid "grid.reviewAttachments.title"
 msgstr "Reviewer's Attachments"
@@ -1592,6 +1628,12 @@ msgstr "Copyright"
 msgid "submission.copyrightHolder"
 msgstr "Copyright Holder"
 
+msgid "submission.copyrightHolder.other"
+msgstr "Custom copyright statement"
+
+msgid "submission.copyrightOther"
+msgstr "Copyright statement"
+
 msgid "submission.copyrightYear"
 msgstr "Copyright Year"
 
@@ -1641,22 +1683,22 @@ msgid "submission.license.cc.by-sa4.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>"
 
 msgid "submission.license.cc.by-nc-nd3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International License</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported License</a>.</p>"
 
 msgid "submission.license.cc.by-nc3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons Attribution-NonCommercial 3.0 International License</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons Attribution-NonCommercial 3.0 Unported License</a>.</p>"
 
 msgid "submission.license.cc.by-nc-sa3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International License</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>"
 
 msgid "submission.license.cc.by-nd3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons Attribution-NoDerivatives 3.0 International License</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
 
 msgid "submission.license.cc.by3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 International License</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 Unported License</a>.</p>"
 
 msgid "submission.license.cc.by-sa3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Attribution-ShareAlike 3.0 International License</a>.</p>"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>"
 
 msgid "submission.queries.submission"
 msgstr "Pre-Review Discussions"
@@ -1666,9 +1708,6 @@ msgstr "Review Discussions"
 
 msgid "submission.queries.editorial"
 msgstr "Copyediting Discussions"
-
-msgid "submission.queries.production"
-msgstr "Production Discussions"
 
 msgid "submission.query.subject"
 msgstr "Subject"
@@ -1725,13 +1764,13 @@ msgid "submission.list.empty"
 msgstr "No submissions found."
 
 msgid "submission.list.responseDue"
-msgstr "Response Due"
+msgstr "Response Due: {$date}"
 
 msgid "submission.list.reviewAssignment"
 msgstr "Review Assignment"
 
 msgid "submission.list.reviewDue"
-msgstr "Review Due"
+msgstr "Review Due: {$date}"
 
 msgid "submission.list.reviewComplete"
 msgstr "Review Submitted"
@@ -1775,6 +1814,12 @@ msgstr "This submission must be completed before an editor will review it."
 msgid "submission.list.currentStage"
 msgstr "Currently in the {$stage} stage."
 
+msgid "submission.list.activity"
+msgstr "Activity"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Days since last activity"
+
 msgid "submission.list.assignEditor"
 msgstr "Assign Editor"
 
@@ -1808,83 +1853,20 @@ msgstr "Nothing has been published in this category yet."
 msgid "catalog.category.subcategories"
 msgstr "Subcategories"
 
-msgid "submission.publication"
-msgstr "Publication"
-
-msgid "publication.citations.success"
-msgstr "The references have been updated."
-
 msgid "publication.contributors"
 msgstr "Contributors"
-
-msgid "publication.copyrightYearBasis.issueDescription"
-msgstr "The copyright year will be set automatically when this is published in an issue."
 
 msgid "publication.createVersion"
 msgstr "Create New Version"
 
-msgid "publication.datePublished"
-msgstr "Date Published"
-
 msgid "publication.datePublished.errorFormat"
 msgstr "The date must be in the format YYYY-MM-DD, such as 2019-01-01."
-
-msgid "publication.editDisabled"
-msgstr "This version has been published and can not be edited."
-
-msgid "publication.event.published"
-msgstr "The submission was published."
-
-msgid "publication.event.scheduled"
-msgstr "The submission was scheduled for publication."
-
-msgid "publication.event.unpublished"
-msgstr "The submission was unpublished."
 
 msgid "publication.event.versionCreated"
 msgstr "A new version was created."
 
-msgid "publication.event.versionPublished"
-msgstr "A new version was published."
-
-msgid "publication.event.versionScheduled"
-msgstr "A new version was scheduled for publication."
-
-msgid "publication.event.versionUnpublished"
-msgstr "A version was removed from publication."
-
-msgid "publication.invalidSubmission"
-msgstr "The submission for this publication could not be found."
-
-msgid "publication.metadata.success"
-msgstr "The metadata have been updated."
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "The identifiers have been updated."
-
 msgid "publication.publicationLicense"
 msgstr "Permissions & Disclosure"
-
-msgid "publication.publicationLicense.success"
-msgstr "The copyright and license information have been updated."
-
-msgid "publication.publish"
-msgstr "Publish"
-
-msgid "publication.publish.requirements"
-msgstr "The following requirements must be met before this can be published."
-
-msgid "publication.publish.success"
-msgstr "The publication status has been successfully changed."
-
-msgid "publication.required.declined"
-msgstr "A declined submission can not be published."
-
-msgid "publication.required.reviewStage"
-msgstr "The submission must be in the Copyediting or Production stages before it can be published."
-
-msgid "publication.status.published"
-msgstr "Published"
 
 msgid "publication.status.scheduled"
 msgstr "Scheduled"
@@ -1892,32 +1874,29 @@ msgstr "Scheduled"
 msgid "publication.status.unpublished"
 msgstr "Unpublished"
 
-msgid "publication.status.unscheduled"
-msgstr "Unscheduled"
-
 msgid "publication.titleAbstract"
 msgstr "Title & Abstract"
-
-msgid "publication.titleAbstract.success"
-msgstr "The title and abstract have been updated."
-
-msgid "publication.unpublish"
-msgstr "Unpublish"
-
-msgid "publication.unpublish.confirm"
-msgstr "Are you sure you don't want this to be published?"
 
 msgid "publication.unschedule"
 msgstr "Unschedule"
 
-msgid "publication.unschedule.confirm"
-msgstr "Are you sure you don't want this scheduled for publication?"
+msgid "publication.urlPath"
+msgstr "URL Path"
+
+msgid "publication.urlPath.description"
+msgstr "An optional path to use in the URL instead of the ID."
+
+msgid "publication.urlPath.duplicate"
+msgstr "The URL path has already been used and can not be used again."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "The URL path can not be a number."
 
 msgid "publication.version.all"
 msgstr "All Versions"
 
-msgid "publication.version.details"
-msgstr "Publication details for version {$version}"
+msgid "publication.version.confirm"
+msgstr "Are you sure you want to create a new version?"
 
 msgid "publication.wordCountLong"
 msgstr "The abstract is too long. It shoud be {$limit} words or less. It is currently {$count} words long."

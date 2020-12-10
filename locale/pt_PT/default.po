@@ -1,0 +1,141 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
+"PO-Revision-Date: 2020-02-04 23:10+0000\n"
+"Last-Translator: Carla Marques <carla.marques@sdum.uminho.pt>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/default/pt_PT/>\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Administrador Portal"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Administradores Portal"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Editor"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Editores"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "EDIT"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Editor Cópia"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Editores Cópia"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "EC"
+
+msgid "default.groups.name.proofreader"
+msgstr "Leitor Provas"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Leitores Provas"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "LP"
+
+msgid "default.groups.name.designer"
+msgstr "Designer"
+
+msgid "default.groups.plural.designer"
+msgstr "Designers"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Design"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Revisor Interno"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Revisores Internos"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "RI"
+
+msgid "default.groups.name.marketing"
+msgstr "Coordenador de marketing e vendas"
+
+msgid "default.groups.plural.marketing"
+msgstr "Coordenadores de marketing e vendas"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "CMV"
+
+msgid "default.groups.name.funding"
+msgstr "Coordenador de financiamento"
+
+msgid "default.groups.plural.funding"
+msgstr "Coordenadores de financiamento"
+
+msgid "default.groups.abbrev.funding"
+msgstr "CF"
+
+msgid "default.groups.name.indexer"
+msgstr "Indexador"
+
+msgid "default.groups.plural.indexer"
+msgstr "Indexadores"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Editor Layout"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Editores Layout"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "EL"
+
+msgid "default.groups.name.author"
+msgstr "Autor"
+
+msgid "default.groups.plural.author"
+msgstr "Autores"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.name.translator"
+msgstr "Tradutor"
+
+msgid "default.groups.plural.translator"
+msgstr "Tradutores"
+
+msgid "default.groups.abbrev.translator"
+msgstr "TRAD"
+
+msgid "default.groups.name.reader"
+msgstr "Leitor"
+
+msgid "default.groups.plural.reader"
+msgstr "Leitores"
+
+msgid "default.groups.abbrev.reader"
+msgstr "LEIT"
+
+msgid "default.genres.other"
+msgstr "Outro"
+
+msgid "default.genres.multimedia"
+msgstr "Multimédia"
+
+msgid "default.genres.image"
+msgstr "Imagem"
+
+msgid "default.genres.styleSheet"
+msgstr "Folha de estilos HTML"

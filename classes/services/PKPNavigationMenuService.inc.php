@@ -3,9 +3,9 @@
 /**
  * @file classes/services/PKPNavigationMenuService.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNavigationMenuService
  * @ingroup services
@@ -271,9 +271,9 @@ class PKPNavigationMenuService {
 					$user = $request->getUser();
 					$contextDao = \Application::getContextDAO();
 					$workingContexts = $contextDao->getAvailable($user?$user->getId():null);
-					if ($workingContexts && $workingContexts->getCount() == 1) {
-						$workingContext = $workingContexts->next();
-						$contextPath = $workingContext->getPath();
+					list($firstContext, $secondContext) = [$workingContexts->next(), $workingContexts->next()];
+					if ($firstContext && !$secondContext) {
+						$contextPath = $firstContext->getPath();
 					}
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
@@ -360,6 +360,9 @@ class PKPNavigationMenuService {
 						'privacy',
 						null
 					));
+					break;
+				case NMI_TYPE_REMOTE_URL:
+					$navigationMenuItem->setUrl($navigationMenuItem->getLocalizedRemoteUrl());
 					break;
 			}
 		}
@@ -580,6 +583,8 @@ class PKPNavigationMenuService {
 			\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
 			if ($localisedTitle = $nmi->getLocalizedTitle()) {
 				$nmi->setTitle($localisedTitle, \AppLocale::getLocale());
+			} elseif ($nmi->getTitleLocaleKey() === '{$loggedInUsername}') {
+				$nmi->setTitle($nmi->getTitleLocaleKey(), \AppLocale::getLocale());
 			} else {
 				$nmi->setTitle(__($nmi->getTitleLocaleKey()), \AppLocale::getLocale());
 			}

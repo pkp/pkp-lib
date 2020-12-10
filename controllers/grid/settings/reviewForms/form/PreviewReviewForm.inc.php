@@ -2,9 +2,9 @@
 /**
  * @file controllers/grid/settings/reviewForms/form/PKPPreviewReviewForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PreviewReviewForm
  * @ingroup controllers_grid_settings_reviewForms_form
@@ -55,13 +55,12 @@ class PreviewReviewForm extends Form {
 			// Get review form
 			$request = Application::get()->getRequest();
 			$context = $request->getContext();
-			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
-			$reviewForm = $reviewFormDao->getById($this->reviewFormId, Application::getContextAssocType(), $context->getId());
+			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
+			$reviewForm = $reviewFormDao->getById($this->reviewFormId, Application::getContextAssocType(), $context->getId()); /** @var ReviewForm $reviewForm  */
 
 			// Get review form elements
-			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($this->reviewFormId);
-			$count = count($reviewFormElements);
 
 			// Set data
 			$this->setData('title', $reviewForm->getLocalizedTitle(null));

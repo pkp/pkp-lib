@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:38+00:00\n"
+"Language: \n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "مدير الموقع"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "مدراء الموقع"
+
+msgid "default.groups.name.productionEditor"
+msgstr "محرر الإنتاج"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "محررو الإنتاج"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "مح إنتاج"
+
+msgid "default.groups.name.copyeditor"
+msgstr "مدقق"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "مدققون"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "مدق"
+
+msgid "default.groups.name.proofreader"
+msgstr "مصحح القراءة"
+
+msgid "default.groups.plural.proofreader"
+msgstr "مصححو القراءة"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "مص قر"
+
+msgid "default.groups.name.designer"
+msgstr "مصمم"
+
+msgid "default.groups.plural.designer"
+msgstr "مصممون"
+
+msgid "default.groups.abbrev.designer"
+msgstr "تصميم"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "محكم داخلي"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "محكمون داخليون"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "مح دخ"
+
+msgid "default.groups.name.marketing"
+msgstr "منسق تسويق ومبيعات"
+
+msgid "default.groups.plural.marketing"
+msgstr "منسقو تسويق ومبيعات"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "منسق تس بع"
+
+msgid "default.groups.name.funding"
+msgstr "منسق تمويل"
+
+msgid "default.groups.plural.funding"
+msgstr "منسقو تمويل"
+
+msgid "default.groups.abbrev.funding"
+msgstr "منسق تل"
+
+msgid "default.groups.name.indexer"
+msgstr "مفهرس"
+
+msgid "default.groups.plural.indexer"
+msgstr "مفهرسون"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "مفس"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "مصمم طباعي"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "مصممون طباعيون"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "مصم طع"
+
+msgid "default.groups.name.author"
+msgstr "مؤلف"
+
+msgid "default.groups.plural.author"
+msgstr "مؤلفون"
+
+msgid "default.groups.abbrev.author"
+msgstr "مؤ"
+
+msgid "default.groups.name.translator"
+msgstr "مترجم"
+
+msgid "default.groups.plural.translator"
+msgstr "مترجمون"
+
+msgid "default.groups.abbrev.translator"
+msgstr "متجم"
+
+msgid "default.groups.name.reader"
+msgstr "قارئ"
+
+msgid "default.groups.plural.reader"
+msgstr "قراء"
+
+msgid "default.groups.abbrev.reader"
+msgstr "قرء"
+
+msgid "default.genres.other"
+msgstr "الغير"
+
+msgid "default.genres.multimedia"
+msgstr "متعدد الوسائط"
+
+msgid "default.genres.image"
+msgstr "صورة"
+
+msgid "default.genres.styleSheet"
+msgstr "ملف أنماط HTML"

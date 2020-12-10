@@ -3,9 +3,9 @@
 /**
  * @file classes/webservice/WebService.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class WebService
  * @ingroup webservice
@@ -129,20 +129,16 @@ class WebService {
 		$url = $webServiceRequest->getUrl();
 		$postOptions = $webServiceRequest->getParams();
 
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $url);
+		$useProxySettings = $webServiceRequest->getUseProxySettings();
+
+		import('lib.pkp.classes.helpers.PKPCurlHelper');
+		$ch = PKPCurlHelper::getCurlObject($url, $useProxySettings);
+		
 		$headers = array('Accept: ' . $webServiceRequest->getAccept());
 		foreach($webServiceRequest->getHeaders() as $header => $content) {
 			$headers[] = $header . ': ' . $content;
 		}
-		$useProxySettings = $webServiceRequest->getUseProxySettings();
-		if ($useProxySettings && $httpProxyHost = Config::getVar('proxy', 'http_host')) {
-			curl_setopt($ch, CURLOPT_PROXY, $httpProxyHost);
-			curl_setopt($ch, CURLOPT_PROXYPORT, Config::getVar('proxy', 'http_port', '80'));
-			if ($username = Config::getVar('proxy', 'username')) {
-				curl_setopt($ch, CURLOPT_PROXYUSERPWD, $username . ':' . Config::getVar('proxy', 'password'));
-			}
-		}
+		
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		if ($usePut) {
@@ -205,19 +201,14 @@ class WebService {
 		}
 		$url = $url.$queryString;
 
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $url);
+		$useProxySettings = $webServiceRequest->getUseProxySettings();
+
+		import('lib.pkp.classes.helpers.PKPCurlHelper');
+		$ch = PKPCurlHelper::getCurlObject($url, $useProxySettings);
+
 		$headers = $this->_buildHeaders($webServiceRequest);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		$useProxySettings = $webServiceRequest->getUseProxySettings();
-		if ($useProxySettings && $httpProxyHost = Config::getVar('proxy', 'http_host')) {
-			curl_setopt($ch, CURLOPT_PROXY, $httpProxyHost);
-			curl_setopt($ch, CURLOPT_PROXYPORT, Config::getVar('proxy', 'http_port', '80'));
-			if ($username = Config::getVar('proxy', 'username')) {
-				curl_setopt($ch, CURLOPT_PROXYUSERPWD, $username . ':' . Config::getVar('proxy', 'password'));
-			}
-		}
 
 		// Set up basic authentication if required.
 		$this->_authenticateRequest($ch);
@@ -332,7 +323,6 @@ class WebService {
 		if (substr($url, 0, 6) == 'https:') {
 			$sslVersion = isset($this->_sslVersion) ? $this->_sslVersion : CURL_SSLVERSION_DEFAULT;
 			curl_setopt($ch, CURLOPT_SSLVERSION, $sslVersion);
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		}
 	}
 

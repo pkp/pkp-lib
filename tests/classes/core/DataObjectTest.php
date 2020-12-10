@@ -3,9 +3,9 @@
 /**
  * @file tests/classes/core/DataObjectTest.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DataObjectTest
  * @ingroup tests_classes_core
@@ -21,7 +21,7 @@ class DataObjectTest extends PKPTestCase {
 	/** @var DataObject */
 	protected $dataObject;
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 		$this->dataObject = new DataObject();
 	}
@@ -50,8 +50,8 @@ class DataObjectTest extends PKPTestCase {
 		self::assertEquals('testVal2_US', $this->dataObject->getData('testVar2', 'en_US'));
 
 		// Unset a few values
-		$this->dataObject->setData('testVar1', null);
-		$this->dataObject->setData('testVar2', null, 'en_US');
+		$this->dataObject->unsetData('testVar1');
+		$this->dataObject->unsetData('testVar2', 'en_US');
 		$expectedResult = array(
 			'testVar2' => array(
 				'de_DE' => 'testVal2_DE'
@@ -60,8 +60,8 @@ class DataObjectTest extends PKPTestCase {
 		self::assertEquals($expectedResult, $this->dataObject->getAllData());
 
 		// Make sure that un-setting a non-existent value doesn't hurt
-		$this->dataObject->setData('testVar1', null);
-		$this->dataObject->setData('testVar2', null, 'en_US');
+		$this->dataObject->unsetData('testVar1');
+		$this->dataObject->unsetData('testVar2', 'en_US');
 		self::assertEquals($expectedResult, $this->dataObject->getAllData());
 
 		// Make sure that getting a non-existent value doesn't hurt
@@ -69,8 +69,8 @@ class DataObjectTest extends PKPTestCase {
 		self::assertNull($this->dataObject->getData('testVar1', 'en_US'));
 		self::assertNull($this->dataObject->getData('testVar2', 'en_US'));
 
-		// Make sure that unsetting the last translation will also kill the variable
-		$this->dataObject->setData('testVar2', null, 'de_DE');
+		// Unsetting the whole translation set will kill the variable
+		$this->dataObject->unsetData('testVar2');
 		self::assertEquals(array(), $this->dataObject->getAllData());
 
 		// Test by-ref behaviour
@@ -111,9 +111,9 @@ class DataObjectTest extends PKPTestCase {
 		$result =& $this->dataObject->getAllData();
 		self::assertEquals($expectedResult, $result);
 
-		// Test by-ref
+		// Test assignment is not done by reference
 		$expectedResult = array('someOtherKey' => 'someOtherVal');
-		self::assertEquals($expectedResult, $result);
+		self::assertNotEquals($expectedResult, $result);
 	}
 
 	/**

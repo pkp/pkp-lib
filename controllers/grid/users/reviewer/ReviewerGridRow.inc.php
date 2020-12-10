@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/reviewer/ReviewerGridRow.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerGridRow
  * @ingroup controllers_grid_users_reviewer
@@ -47,10 +47,10 @@ class ReviewerGridRow extends GridRow {
 		$stageId = (int) $request->getUserVar('stageId');
 		$round = (int) $request->getUserVar('round');
 
-		// Authors can't perform any actions on blind reviews
+		// Authors can't perform any actions on anonymous reviews
 		$reviewAssignment = $this->getData();
-		$isReviewBlind = in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND));
-		if ($this->_isCurrentUserAssignedAuthor && $isReviewBlind) {
+		$isReviewAnonymous = in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS));
+		if ($this->_isCurrentUserAssignedAuthor && $isReviewAnonymous) {
 			return;
 		}
 
@@ -67,7 +67,7 @@ class ReviewerGridRow extends GridRow {
 			);
 
 			// read or upload a review
-			$submissionDao = Application::getSubmissionDAO();
+			$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 			$submission = $submissionDao->getById($submissionId);
 			if (!$reviewAssignment->getCancelled()) $this->addAction(
 				new LinkAction(
@@ -95,9 +95,9 @@ class ReviewerGridRow extends GridRow {
 				)
 			);
 
-			if (!$this->_isCurrentUserAssignedAuthor && !$reviewAssignment->getCancelled()) {
-				$this->addAction(
-					new LinkAction(
+			if (!$this->_isCurrentUserAssignedAuthor) {
+				if (!$reviewAssignment->getCancelled()) {
+					$this->addAction(new LinkAction(
 						'manageAccess',
 						new AjaxModal(
 							$router->url($request, null, null, 'editReview', null, $actionArgs),
@@ -106,12 +106,8 @@ class ReviewerGridRow extends GridRow {
 						),
 						__('common.edit'),
 						'edit'
-					)
-				);
-
-				// Only assign this action if the reviewer has not acknowledged yet.
-				if (!$reviewAssignment->getCancelled()) $this->addAction(
-					new LinkAction(
+					));
+					$this->addAction(new LinkAction(
 						'unassignReviewer',
 						new AjaxModal(
 							$router->url($request, null, null, 'unassignReviewer', null, $actionArgs),
@@ -120,9 +116,8 @@ class ReviewerGridRow extends GridRow {
 						),
 					$reviewAssignment->getDateConfirmed()?__('editor.review.cancelReviewer'):__('editor.review.unassignReviewer'),
 					'delete'
-					)
-				);
-				else $this->addAction(
+					));
+				} else $this->addAction(
 					new LinkAction(
 						'reinstateReviewer',
 						new AjaxModal(

@@ -2,9 +2,9 @@
 /**
  * @file controllers/api/file/linkAction/FileLinkAction.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileLinkAction
  * @ingroup controllers_api_file_linkAction
@@ -43,9 +43,8 @@ class FileLinkAction extends LinkAction {
 
 		// Create the action arguments array.
 		$args =  array(
-			'fileId' => $submissionFile->getFileId(),
-			'revision' => $submissionFile->getRevision(),
-			'submissionId' => $submissionFile->getSubmissionId()
+			'submissionFileId' => $submissionFile->getId(),
+			'submissionId' => $submissionFile->getData('submissionId')
 		);
 		if ($stageId) $args['stageId'] = $stageId;
 

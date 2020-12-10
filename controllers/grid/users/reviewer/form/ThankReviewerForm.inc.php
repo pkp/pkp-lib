@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/reviewer/form/ThankReviewerForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ThankReviewerForm
  * @ingroup controllers_grid_users_reviewer_form
@@ -50,7 +50,7 @@ class ThankReviewerForm extends Form {
 	 */
 	function initData() {
 		$request = Application::get()->getRequest();
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $request->getUser();
 		$context = $request->getContext();
 
@@ -58,7 +58,7 @@ class ThankReviewerForm extends Form {
 		$reviewerId = $reviewAssignment->getReviewerId();
 		$reviewer = $userDao->getById($reviewerId);
 
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
@@ -90,11 +90,11 @@ class ThankReviewerForm extends Form {
 	}
 
 	/**
-	 * Save review assignment
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
-		$userDao = DAORegistry::getDAO('UserDAO');
-		$submissionDao = Application::getSubmissionDAO();
+	function execute(...$functionArgs) {
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 
 		$reviewAssignment = $this->getReviewAssignment();
 		$reviewerId = $reviewAssignment->getReviewerId();
@@ -127,11 +127,13 @@ class ThankReviewerForm extends Form {
 		}
 
 		// update the ReviewAssignment with the acknowledged date
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignment->setDateAcknowledged(Core::getCurrentDate());
 		$reviewAssignment->stampModified();
 		$reviewAssignment->setUnconsidered(REVIEW_ASSIGNMENT_NOT_UNCONSIDERED);
 		$reviewAssignmentDao->updateObject($reviewAssignment);
+
+		parent::execute(...$functionArgs);
 	}
 }
 

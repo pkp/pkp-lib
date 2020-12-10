@@ -3,9 +3,9 @@
 /**
  * @file classes/file/PKPFile.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPFile
  * @ingroup file
@@ -103,12 +103,7 @@ class PKPFile extends DataObject {
 	 * @return string
 	 */
 	function getNiceFileSize() {
-		$niceFileSizeUnits = array('B', 'KB', 'MB', 'GB');
-		$size = $this->getData('fileSize');
-		for($i = 0; $i < 4 && $size > 1024; $i++) {
-			$size >>= 10;
-		}
-		return $size . $niceFileSizeUnits[$i];
+		return Services::get('file')->getNiceFileSize($this->getFileSize());
 	}
 
 

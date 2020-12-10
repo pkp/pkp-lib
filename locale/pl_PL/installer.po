@@ -1,0 +1,205 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-30T17:13:19+00:00\n"
+"PO-Revision-Date: 2020-11-29 09:51+0000\n"
+"Last-Translator: rl <biuro@fimagis.pl>\n"
+"Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/pl_PL/>\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "installer.additionalLocales"
+msgstr "Dodatkowe języki"
+
+msgid "installer.administratorAccount"
+msgstr "Konto administratora"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "To konto użytkownika dostanie uprawnienia nadrzędnego administratora strony. Dodatkowe konta użytkowników mogą zostać utworzone po instalacji."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"formError\">NIE</span>"
+
+msgid "installer.checkYes"
+msgstr "Tak"
+
+msgid "installer.clientCharset"
+msgstr "Kodowanie znaków (klient)"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Kodowanie znaków używane przez system do wysyłania oraz odbierania danych."
+
+msgid "installer.configFileError"
+msgstr "Plik konfiguracyjny <tt>config.inc.php</tt> nie istnieje lub nie jest przeznaczony do odczytu."
+
+msgid "installer.connectionCharset"
+msgstr "Kodowanie znaków (połączenie)"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Zawartość pliku konfiguracyjnego"
+
+msgid "installer.databaseCharset"
+msgstr "Kodowanie znaków (baza danych)"
+
+msgid "installer.databaseDriver"
+msgstr "Sterownik bazy danych"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong>Sterowniki wyświetlone w nawiasach wymagają rozszerzeń PHP, które "
+"nie są zainstalowane. Instalacja raczej na pewno nie powiedzie się jeśli je "
+"wybierzesz. </strong><br />Jakiekolwiek niewspierane sterowniki pokazane "
+"powyżej mają znaczenie jedynie szkoleniowe i raczej nie będą działały."
+
+msgid "installer.databaseHost"
+msgstr "Host"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Zostaw pole puste, jeżeli chcesz połączyć się lokalnie z wykorzystaniem gniazd. Nie jest to konieczne w przypadku MySQL, który wykorzystuje gniazda automatycznie po wpisaniu 'localhost'."
+
+msgid "installer.databaseName"
+msgstr "Nazwa bazy danych"
+
+msgid "installer.databasePassword"
+msgstr "Hasło"
+
+msgid "installer.databaseSettings"
+msgstr "Ustawienia bazy danych"
+
+msgid "installer.databaseUsername"
+msgstr "Użytkownik"
+
+msgid "installer.filesDir"
+msgstr "Folder deponowania"
+
+msgid "installer.fileSettings"
+msgstr "Ustawienia plików"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Kodowanie znaków jest wymagane."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Sterownik bazy danych jest wymagany."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Nazwa bazy danych jest wymagana."
+
+msgid "installer.form.emailRequired"
+msgstr "Poprawny adres e-mail administratora jest wymagany."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Folder deponowania jest wymagany."
+
+msgid "installer.form.localeRequired"
+msgstr "Wybór języka jest wymagany."
+
+msgid "installer.form.passwordRequired"
+msgstr "Hasło konta administratora jest wymagane."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Podane hasła nie są takie same."
+
+msgid "installer.form.separateMultiple"
+msgstr "Oddziel wiele wartości za pomocą przecinków"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Nazwa konta administratora może być złożona ze znaków alfanumerycznych, podkreśleń, oraz znaku minus (-). Ponadto, musi się zaczynać i kończyć znakiem alfanumerycznym."
+
+msgid "installer.form.usernameRequired"
+msgstr "Nazwa użytkownika dla konta administratora jest wymagana."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>UWAGA: Wersja PHP zainstalowana na serwerze nie spełnia minimalnych wymagań niezbędnych do zainstalowania systemu. Zaktualizuj PHP do nowszej wersji.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Podczas instalacji wystąpiły błędy"
+
+msgid "installer.installerSQLStatements"
+msgstr "Wyrażenia SQL dla instalacji"
+
+msgid "installer.installFileError"
+msgstr "Plik instalacyjny <tt>dbscripts/xml/install.xml</tt> nie istnieje."
+
+msgid "installer.installFilesDirError"
+msgstr "Folder deponowania nie istnieje lub nie jest przeznaczony do zapisu."
+
+msgid "installer.installParseDBFileError"
+msgstr "Błąd parsowania pliku bazy danych - <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Błąd parsowania pliku szablonów e-mail - <tt>{$file}</tt>."
+
+msgid "installer.locale"
+msgstr "Język"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Oznaczone tłumaczenia mogą być niekompletne."
+
+msgid "installer.localeSettings"
+msgstr "Ustawienia języka"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Unikatowy identyfikator wykorzystywany przez <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> do pobierania metadanych."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Identyfikator repozytoriów OAI"
+
+msgid "installer.publicFilesDirError"
+msgstr "Główny folder instalacji nie istnieje lub nie jest przeznaczony do zapisu."
+
+msgid "installer.releaseNotes"
+msgstr "Informacje o wydaniu"
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Błąd parsowania konfiguracji filtrów w pliku <tt>{$file}</tt>."
+
+msgid "installer.oaiSettings"
+msgstr "Ustawienia OAI"
+
+msgid "installer.beacon"
+msgstr "Sygnalizator"
+
+msgid "installer.beacon.enable"
+msgstr "Podaj unikatowy ID strony oraz bazowy adres OAI dla organizacji PKP wyłącznie do raportowania danych statystycznych."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Aktualizacja nie jest wspierana. Zobacz docs/UPGRADE-UNSUPPORTED w celu uzyskania szczegółowych informacji."
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Przed instalacją"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Następujące pliki i foldery muszą być zapisywalne:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> jest zapisywalny (opcjonalnie): "
+"{$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> jest zapisywalny: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> jest zapisywalny: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> jest zapisywalny: "
+"{$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> jest zapisywalny: "
+"{$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> jest zapisywalny: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. Katalog dla mediów (przesłanych plików) musi być utworzony oraz "
+"zapisywalny (zobacz \"Ustawienia plików\" poniżej).</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>Twoja instalacja PHP nie posiada skonfigurowanego modułu XSL. Włącz go lub skonfiguruj komendę xslt_command w swoim pliku konfiguracyjnym config.inc.php.</p>"
+
+msgid "installer.unsupportedPhpError"
+msgstr "Twoja wersja serwera PHP nie jest wspierana przez to oprogramowanie. Sprawdź wymagania instalacyjne w pliku docs/README."
+
+msgid "installer.installMigrationError"
+msgstr "Wystąpił błąd w trakcie migracji klas <tt>{$class}</tt>."

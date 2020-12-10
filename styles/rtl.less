@@ -1,9 +1,9 @@
 /**
  * styles/rtl.less
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Stylesheet for flipping content to RTL (e.g. for Arabic, Persian and Hebrew)
  *
@@ -13,133 +13,11 @@ body[dir="rtl"] {
 	direction: rtl;
 	unicode-bidi: embed;
 
-	// Site structure
-	.pkp_structure_head {
-		left: auto;
-		right: 0;
-	}
-
-	.pkp_nav_context {
-		float: right;
-	}
-
-	.pkp_nav_user {
-		float: left;
-	}
-
-	.pkp_structure_page {
-		margin-left: 0;
-		margin-right: 192px;
-	}
-
-	.pkp_structure_footer {
-		text-align: left;
-	}
-
-	// Global navigation elements
-	.pkp_nav_list {
-
-		ul {
-			left: auto;
-			right: -9999px;
-		}
-
-		a:hover,
-		a:focus,
-		[aria-expanded="true"] > a {
-
-			> ul {
-				left: auto;
-				right: 100%;
-			}
-		}
-
-		[aria-expanded="true"] > ul {
-			left: auto;
-			right: 100%;
-		}
-	}
-
-	.pkp_nav_context {
-
-		.pkp_current_context {
-			padding-right: @base;
-			padding-left: @double;
-		}
-
-		[aria-haspopup] .pkp_current_context:after {
-			right: auto;
-			left: @base;
-		}
-
-		.pkp_contexts {
-			left: 0;
-			right: -(192px * 2) - @double;
-		}
-
-		> [aria-expanded="true"] {
-
-			.pkp_contexts {
-				right: 0;
-			}
-		}
-	}
-
-	.pkp_nav_user {
-
-		> [aria-expanded="true"] > ul,
-		> [aria-expanded="true"] > ul {
-			right: auto;
-			left: 0;
-		}
-
-		.panel {
-			display: none;
-			position: absolute;
-			top: 0;
-			left: auto;
-			right: 100%;
-		}
-	}
-
-	// Tasks
-	.pkp_tasks .panel {
-		left: auto;
-		right: 100%;
-	}
-
-	#notificationsGrid thead {
-		left: auto;
-		right: -9999px;
-	}
-
 	// Help panel
 	.pkp_help_tab,
 	.pkp_help_modal {
 		right: auto;
-		left: @double;
-	}
-
-	.pkp_form {
-
-		[data-pkp-editable] {
-
-			[data-pkp-editable-view="input"],
-			[data-pkp-editable-view="input"] label:not(.error),
-			&.isEditing [data-pkp-editable-view="display"] {
-				position: absolute;
-				top: auto;
-				left: auto;
-				right: -9999px;
-			}
-
-			[data-pkp-editable-view="display"],
-			&.isEditing [data-pkp-editable-view="input"] {
-				position: relative;
-				top: auto;
-				right: auto;
-			}
-		}
+		left: 3rem;
 	}
 
 	.pkp_help_panel {
@@ -223,12 +101,7 @@ body[dir="rtl"] {
 	.pkp_form .inline {
 		float: right;
 		padding-right: inherit;
-		padding-left: @base;
-	}
-
-	.ui-pnotify {
-		right: auto;
-		left: 4px;
+		padding-left: 1rem;
 	}
 
 	// Grids
@@ -251,8 +124,8 @@ body[dir="rtl"] {
 
 		.has_extras td:first-child,
 		.row_controls td:first-child {
-			padding-left: @base;
-			padding-right: @double;
+			padding-left: 1rem;
+			padding-right: 2rem;
 		}
 
 		.show_extras,
@@ -260,6 +133,10 @@ body[dir="rtl"] {
 			left: auto;
 			right: 0;
 		}
+	}
 
+	// Submission workflow
+	.pkp_workflow_decisions {
+		padding-right: 0;
 	}
 }

@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/eventLog/EventLogGridRow.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EventLogGridRow
  * @ingroup controllers_grid_eventLog
@@ -53,29 +53,34 @@ class EventLogGridRow extends GridRow {
 		assert($logEntry != null && (is_a($logEntry, 'EventLogEntry') || is_a($logEntry, 'EmailLogEntry')));
 
 		if (is_a($logEntry, 'EventLogEntry')) {
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 			$params = $logEntry->getParams();
 
 			switch ($logEntry->getEventType()) {
 				case SUBMISSION_LOG_FILE_REVISION_UPLOAD:
 				case SUBMISSION_LOG_FILE_UPLOAD:
-					$submissionFile = $submissionFileDao->getRevision($params['fileId'], $params['fileRevision']);
+					$submissionFileId = $params['submissionFileId'];
+					$fileId = $params['fileId'];
+					$submissionFile = Services::get('submissionFile')->get($submissionFileId);
+					if (!$submissionFile) {
+						break;
+					}
+					$filename = $params['originalFileName'] ?? $submissionFile->getLocalizedData('name');
 					if ($submissionFile) {
-						$blindAuthor = false;
-						$maybeBlindAuthor = $this->_isCurrentUserAssignedAuthor && $submissionFile->getFileStage() === SUBMISSION_FILE_REVIEW_ATTACHMENT;
-						if ($maybeBlindAuthor && $submissionFile->getAssocType() === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
-							$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-							$reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getAssocId());
-							if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND))) {
-								$blindAuthor = true;
+						$anonymousAuthor = false;
+						$maybeAnonymousAuthor = $this->_isCurrentUserAssignedAuthor && $submissionFile->getData('fileStage') === SUBMISSION_FILE_REVIEW_ATTACHMENT;
+						if ($maybeAnonymousAuthor && $submissionFile->getData('assocType') === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
+							$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+							$reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
+							if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS))) {
+								$anonymousAuthor = true;
 							}
 						}
-						if (!$blindAuthor) {
-							$workflowStageId = $submissionFileDao->getWorkflowStageId($submissionFile);
+						if (!$anonymousAuthor) {
+							$workflowStageId = Services::get('submissionFile')->getWorkflowStageId($submissionFile);
 							// If a submission file is attached to a query that has been deleted, we cannot
 							// determine its stage. Don't present a download link in this case.
-							if ($workflowStageId || $submissionFile->getFileStage() != SUBMISSION_FILE_QUERY) {
-								$this->addAction(new DownloadFileLinkAction($request, $submissionFile, $submissionFileDao->getWorkflowStageId($submissionFile), __('common.download')));
+							if ($workflowStageId || $submissionFile->getData('fileStage') != SUBMISSION_FILE_QUERY) {
+								$this->addAction(new DownloadFileLinkAction($request, $submissionFile, $workflowStageId, __('common.download'), $fileId, $filename));
 							}
 						}
 					}

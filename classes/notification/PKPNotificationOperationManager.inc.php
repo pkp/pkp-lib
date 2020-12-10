@@ -3,9 +3,9 @@
 /**
  * @file classes/notification/PKPNotificationOperationManager.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationOperationManager
  * @ingroup notification
@@ -80,23 +80,6 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	// Notification manager operations.
 	//
 	/**
-	 * Construct a set of notifications and return them as a formatted string
-	 * @param $request PKPRequest
-	 * @param $userId int
-	 * @param $level int optional
-	 * @param $contextId int optional
-	 * @param $rangeInfo object optional
-	 * @param $notificationTemplate string optional Template to use for constructing an individual notification for display
-	 * @return object DAOResultFactory containing matching Notification objects
-	 */
-	public function getFormattedNotificationsForUser($request, $userId, $level = NOTIFICATION_LEVEL_NORMAL, $contextId = null, $rangeInfo = null, $notificationTemplate = 'notification/notification.tpl') {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
-		$notifications = $notificationDao->getByUserId($userId, $level, null, $contextId, $rangeInfo);
-
-		return $this->formatNotifications($request, $notifications, $notificationTemplate);
-	}
-
-	/**
 	 * Iterate through the localized params for a notification's locale key.
 	 *  For each parameter, return (in preferred order) a value for the user's current locale,
 	 *  a param for the journal's default locale, or the first value (in case the value
@@ -144,13 +127,14 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $level int
 	 * @param $params array
 	 * @param $suppressEmail boolean Whether or not to suppress the notification email.
+	 * @param $mailConfigurator callable Enables the customization of the Notification email
 	 * @return Notification object
 	 */
-	public function createNotification($request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false) {
+	public function createNotification($request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false, callable $mailConfigurator = null) {
 		$blockedNotifications = $this->getUserBlockedNotifications($userId, $contextId);
 
-		if(!in_array($notificationType, $blockedNotifications)) {
-			$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		if (!in_array($notificationType, $blockedNotifications)) {
+			$notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var $notificationDao NotificationDAO */
 			$notification = $notificationDao->newDataObject(); /** @var $notification Notification */
 			$notification->setUserId((int) $userId);
 			$notification->setType((int) $notificationType);
@@ -165,14 +149,14 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 			if ($notification->getLevel() != NOTIFICATION_LEVEL_TRIVIAL && !$suppressEmail) {
 				$notificationEmailSettings = $this->getUserBlockedEmailedNotifications($userId, $contextId);
 
-				if(!in_array($notificationType, $notificationEmailSettings)) {
-					$this->sendNotificationEmail($request, $notification);
+				if (!in_array($notificationType, $notificationEmailSettings)) {
+					$this->sendNotificationEmail($request, $notification, $contextId, $mailConfigurator);
 				}
 			}
 
 			if ($params) {
-				$notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO');
-				foreach($params as $name => $value) {
+				$notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDao NotificationSettingsDAO */
+				foreach ($params as $name => $value) {
 					$notificationSettingsDao->updateNotificationSetting($notificationId, $name, $value);
 				}
 			}
@@ -190,7 +174,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @return Notification object
 	 */
 	public function createTrivialNotification($userId, $notificationType = NOTIFICATION_TYPE_SUCCESS, $params = null) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notification = $notificationDao->newDataObject();
 		$notification->setUserId($userId);
 		$notification->setContextId(CONTEXT_ID_NONE);
@@ -200,8 +184,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		$notificationId = $notificationDao->insertObject($notification);
 
 		if ($params) {
-			$notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO');
-			foreach($params as $name => $value) {
+			$notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDao NotificationSettingsDAO */
+			foreach ($params as $name => $value) {
 				$notificationSettingsDao->updateNotificationSetting($notificationId, $name, $value);
 			}
 		}
@@ -214,7 +198,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param array $notifications
 	 */
 	public function deleteTrivialNotifications($notifications) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		foreach($notifications as $notification) {
 			// Delete only trivial notifications.
 			if($notification->getLevel() == NOTIFICATION_LEVEL_TRIVIAL) {
@@ -270,7 +254,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @return array
 	 */
 	protected function getUserBlockedNotifications($userId, $contextId) {
-		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
 		return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_notification', $userId, (int) $contextId);
 	}
 
@@ -279,7 +263,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @return array
 	 */
 	protected function getUserBlockedEmailedNotifications($userId, $contextId) {
-		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
 		return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $userId, (int) $contextId);
 	}
 
@@ -339,7 +323,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
 		// Set the date read if it isn't already set
 		if (!$notification->getDateRead()) {
-			$notificationDao = DAORegistry::getDAO('NotificationDAO');
+			$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 			$dateRead = $notificationDao->setDateRead($notification->getId(), Core::getCurrentDate());
 			$notification->setDateRead($dateRead);
 		}
@@ -367,15 +351,22 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * Send an email to a user regarding the notification
 	 * @param $request PKPRequest
 	 * @param $notification object Notification
+	 * @param $contextId ?int Context ID
+	 * @param $mailConfigurator callable If specified, must return a MailTemplate instance. A ready MailTemplate object will be provided as argument
 	 */
-	private function sendNotificationEmail($request, $notification) {
+	protected function sendNotificationEmail($request, $notification, ?int $contextId, callable $mailConfigurator = null) {
 		$userId = $notification->getUserId();
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getById($userId);
 		if ($user && !$user->getDisabled()) {
 			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 
 			$context = $request->getContext();
+			if ($contextId && (!$context || $context->getId() != $contextId)) {
+				$contextDao = Application::getContextDAO();
+				$context = $contextDao->getById($contextId);
+			}
+
 			$site = $request->getSite();
 			$mail = $this->getMailTemplate('NOTIFICATION');
 
@@ -391,7 +382,10 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 				'siteTitle' => $context?$context->getLocalizedName():$site->getLocalizedTitle()
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
-			if (!$mail->send()) {
+			if (is_callable($mailConfigurator)) {
+				$mail = $mailConfigurator($mail);
+			}
+			if (!$mail->send() && $request->getUser()) {
 				import('classes.notification.NotificationManager');
 				$notificationMgr = new NotificationManager();
 				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));

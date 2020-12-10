@@ -1,0 +1,303 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:55+00:00\n"
+"Language: \n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Naam van de instelling"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Waarde van de instelling"
+
+msgid "admin.adminFunctions"
+msgstr "Administratieve functies"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Weet u zeker dat u deze authenticatiebron wilt verwijderen?"
+
+msgid "admin.auth.create"
+msgstr "Creëer authenticatiebron"
+
+msgid "admin.auth.noneCreated"
+msgstr "Er zijn geen authenticatiebronnen gedefinieerd."
+
+msgid "admin.authSources"
+msgstr "Authenticatievoorzieningen"
+
+msgid "admin.clearDataCache"
+msgstr "Leeg data caches"
+
+msgid "admin.clearTemplateCache"
+msgstr "Leeg template cache"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Uw instellingenbestand is gewijzigd. Merk op dat u <tt>config.inc.php</tt> mogelijk met de hand moet aanpassen als uw site niet meer correct werkt."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Weet u zeker dat u de cache met  gecompileerde templates wilt legen?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Weet u seker dat u alle gebruikerssessies wilt laten verlopen? Alle gebruikes die momenteel ingelogd zijn zullen opnieuw in moeten inloggen (inclusief uzelf)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Inhoud van het instellingenbestand"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Weet u zeker dat u {$contextName} en alle inhoud wilt verwijderen?"
+
+msgid "admin.currentVersion"
+msgstr "Actuele versie"
+
+msgid "admin.dateInstalled"
+msgstr "Installatiedatum"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Uw gewijzigde instellingen worden hieronder getoond. Om uw wijzigingen te effectueren moet u <tt>config.inc.php</tt> openen in een geschikte teksteditor en de inhoud van het bestand vervangen door de inhoud van het tekstveld hieronder."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Bekijk nieuwe instellingen"
+
+msgid "admin.expireSessions"
+msgstr "Laat gebruikerssessies verlopen"
+
+msgid "admin.languages.cantDisable"
+msgstr "Deze taal is de hoofdtaal voor de website. Ze kan niet worden uitgeschakeld voor u een andere hoofdtaal selecteert."
+
+msgid "admin.languages.confirmReload"
+msgstr "Weet u zeker dat u deze taalbestanden opnieuw wilt laden? Eigen aanpassingen zoals in e-mail sjablonen zullen verloren gaan."
+
+msgid "admin.languages.installedLocales"
+msgstr "Geïnstalleerde talen"
+
+msgid "admin.languages.installLanguages"
+msgstr "Beheer talen"
+
+msgid "admin.languages.availableLocales"
+msgstr "Beschikbare talen"
+
+msgid "admin.languages.installLocale"
+msgstr "Installeer taalbestanden"
+
+msgid "admin.languages.installLocales"
+msgstr "Installeer"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Installeer nieuwe talen"
+
+msgid "admin.languages.languageSettings"
+msgstr "Taalinstellingen"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Er zijn geen bijkomende talen die geïnstalleerd kunnen worden."
+
+msgid "admin.languages.reload"
+msgstr "Taalbestanden opnieuw laden"
+
+msgid "admin.languages.uninstall"
+msgstr "De-installeer taal"
+
+msgid "admin.phpInfo"
+msgstr "Uitgebreide PHP informatie"
+
+msgid "admin.scheduledTask"
+msgstr "Geplande taak"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Geplande taak is gestart."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Geplande taak is gestopt."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "De taak heeft niets gelogd."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Uw {$softwareName} installatie heeft deze taak automatisch uitgevoerd en beëindigd, en u kan het logbestand hier downloaden: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Weet u zeker dat u alle logbestanden van geplande taken wil verwijderen?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Verwijder alle logbestanden van geplande taken"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Reviewherinnering"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Herinnering aan vervaldatum van het abonnement"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache versie"
+
+msgid "admin.server.dbDriver"
+msgstr "Database driver"
+
+msgid "admin.server.dbVersion"
+msgstr "Database server versie"
+
+msgid "admin.serverInformation"
+msgstr "Server informatie"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP versie"
+
+msgid "admin.server.platform"
+msgstr "Besturingssysteem"
+
+msgid "admin.settings"
+msgstr "Instelligen"
+
+msgid "admin.settings.about"
+msgstr "Over de site"
+
+msgid "admin.settings.contactEmail"
+msgstr "E-mailadres van de eerste contactpersoon"
+
+msgid "admin.settings.contactName"
+msgstr "Naam van de eerste contactpersoon"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"Uw OJS installatie is geconfigureerd voor meer dan een gebruiksmeting. Gebruiksstatistieken worden in verschillende contexten getoond.\n"
+"\t\tSoms wordt een enkele statistiek getoond, bv, om een lijst van meestgebruikte artikels te tonen of om\n"
+"\t\tzoekresultaten te wegen. Kies een van de methodes als standaard."
+
+msgid "admin.settings.introduction"
+msgstr "Introductie"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Minimale wachtwoordlengte"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Taal van de site"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Onjuist bestandstype voor site stylesheet. Geldig bestandstype is .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Site stylesheet"
+
+msgid "admin.settings.siteLogo"
+msgstr "Website logo"
+
+msgid "admin.settings.siteTitle"
+msgstr "Site titel"
+
+msgid "admin.settings.siteTheme"
+msgstr "Site thema"
+
+msgid "admin.siteAdmin"
+msgstr "Sitebeheer"
+
+msgid "admin.siteManagement"
+msgstr "Sitebeheer"
+
+msgid "admin.siteSettings"
+msgstr "Site instellingen"
+
+msgid "admin.siteSetup"
+msgstr "Site instellingen"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Het instellingenbestand <tt>config.inc.php</tt> bestaat niet, is niet leesbaar of is onbruikbaar."
+
+msgid "admin.systemInformation"
+msgstr "Systeeminformatie"
+
+msgid "admin.versionBuild"
+msgstr "Build"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Zoek naar updates"
+
+msgid "admin.version.downloadPackage"
+msgstr "Download"
+
+msgid "admin.version.downloadPatch"
+msgstr "Download update"
+
+msgid "admin.versionHistory"
+msgstr "Versiegeschiedenis"
+
+msgid "admin.version.latest"
+msgstr "Nieuwste versie"
+
+msgid "admin.versionMajor"
+msgstr "Majeur"
+
+msgid "admin.versionMinor"
+msgstr "Mineur"
+
+msgid "admin.version.moreInfo"
+msgstr "Meer Informatie"
+
+msgid "admin.versionRevision"
+msgstr "Revisie"
+
+msgid "admin.version.updateAvailable"
+msgstr "Er is een bijgewerkte versie beschikbaar"
+
+msgid "admin.version.upToDate"
+msgstr "Uw systeem is up-to-date"
+
+msgid "admin.version"
+msgstr "Versie"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Het basispad {$path} moet zich bevinden in een publiek toegankelijke folder."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Het opgegeven pad {$path} is geen folder of niet leesbaar."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Het bestand {$filename} kon niet worden verplaatst van {$currentFilePath} naar {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Het bestand {$filename} is verwerkt en gearchiveerd."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Uploader"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Kopieer de doorgegeven apache toegangslogbestanden, waaruit de meldingen werden gefilterd die betrekking hebben op deze installatie, naar de folder van de gebruiksstatistieken plugin. Moet worden uitgevoerd door een gebruiker met voldoende rechten om apache toegangslogbestanden te lezen.\n"
+"\n"
+"Deze tool zal uitsluitend bestanden kopiëren die nog niet aanwezig zijn in de folders van de gebruiksstatistieken plugin (voorbereiding, bewerking, archief, geweigerd).\n"
+"\n"
+"Gebruik: {$scriptName} pad/naar/apache/log/file.log\n"
+"Gebruik (om alle bestanden in een folder te verwerken): {$scriptName} pad/naar/apache/directory"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Fout: kan geen tijdelijke folder maken {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Fout: bestand {$filePath} bestaat niet of kan niet worden geopend."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Fout: kan bestand niet kopiëren van {$filePath} naar {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Fout: kan bestand {$tmpFilePath} niet verwijderen"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Waarschuwing: bestand {$filePath} bestaat al in de folder met gebruiksstatistieken."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Succes: {$filePath} naar {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "Het \"{$utilPath}\" programma eindigde met volgende fout: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Fout: kan \"{$utilPath}\" niet uitvoeren.  Controleer de instelling voor {$utilVar} in config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Er zijn geen taalbestanden om te downloaden."

@@ -3,9 +3,9 @@
 /**
  * @file classes/core/ArrayItemIterator.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ArrayItemIterator
  * @ingroup db
@@ -154,36 +154,15 @@ class ArrayItemIterator extends ItemIterator {
 	 * Convert this iterator to an array
 	 * @return array
 	 */
-	function &toArray() {
+	function toArray() {
 		return $this->theArray;
 	}
 
 	/**
 	 * Return this iterator as an associative array.
 	 */
-	function &toAssociativeArray() {
+	function toAssociativeArray() {
 		return $this->theArray;
-	}
-
-	/**
-	 * Determine whether or not the iterator is within bounds.
-	 * @return boolean
-	 */
-	function isInBounds() {
-		return ($this->getPageCount() >= $this->page);
-	}
-
-	/**
-	 * Get the range info representing the last page of results.
-	 * @return object DBResultRange
-	 */
-	function &getLastPageRangeInfo() {
-		import('lib.pkp.classes.db.DBResultRange');
-		$returner = new DBResultRange(
-			$this->itemsPerPage,
-			$this->getPageCount()
-		);
-		return $returner;
 	}
 
 	/**

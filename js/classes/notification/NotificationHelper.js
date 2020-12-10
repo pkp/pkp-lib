@@ -4,9 +4,9 @@
 /**
  * @file js/classes/notification/NotificationHelper.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NotificationHelper
  * @ingroup js_classes_notification
@@ -86,7 +86,7 @@
 		// data that were shown by the in place but no visible. In those
 		// cases, just bubble up again the event until it gets the right
 		// handler (the site handler).
-		if (triggerElement.content !== undefined) {
+		if (triggerElement !== undefined && triggerElement.content !== undefined) {
 			notificationsData = triggerElement;
 			handler.getHtmlElement().parent().trigger(
 					'notifyUser', [notificationsData]);
@@ -100,7 +100,8 @@
 		// handler show TRIVIAL notifications.
 		trivialAlreadyHandled = false;
 		if (!(handler instanceof $.pkp.controllers.SiteHandler)) {
-			if ($(triggerElement).parents('.pkp_controllers_grid').length > 0) {
+			if (triggerElement !== undefined &&
+					$(triggerElement).parents('.pkp_controllers_grid').length > 0) {
 				$handledElement.parent().trigger('notifyUser');
 				trivialAlreadyHandled = true;
 			}
@@ -137,8 +138,9 @@
 
 			// If the element that triggered the event is inside of
 			// this widget or is the widget...
-			if ($elementParentWidget.has(triggerElement[0]).length ||
-					$elementParentWidget[0] === triggerElement[0]) {
+			if (triggerElement !== undefined &&
+					($elementParentWidget.has(triggerElement[0]).length ||
+					$elementParentWidget[0] === triggerElement[0])) {
 
 				// If it is inside an accordion container, and this accordion container
 				// doesn't also contain the element that triggered the event, get other
@@ -175,5 +177,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

@@ -1,9 +1,9 @@
 {**
  * templates/controllers/wizard/fileUpload/form/fileUploadForm.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Files upload form.
  *
@@ -140,7 +140,7 @@
 				{rdelim},
 				$uploader: $('#{$pluploadControl}'),
 				uploaderOptions: {ldelim}
-					uploadUrl: {url|json_encode op="uploadFile" submissionId=$submissionId stageId=$stageId fileStage=$fileStage reviewRoundId=$reviewRoundId assocType=$assocType assocId=$assocId escape=false},
+					uploadUrl: {url|json_encode op="uploadFile" submissionId=$submissionId stageId=$stageId fileStage=$fileStage reviewRoundId=$reviewRoundId assocType=$assocType assocId=$assocId queryId=$queryId escape=false},
 					baseUrl: {$baseUrl|json_encode},
 					browse_button: '{$browseButtonId}'
 				{rdelim}

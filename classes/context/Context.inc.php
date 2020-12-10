@@ -3,9 +3,9 @@
 /**
  * @file classes/context/Context.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Context
  * @ingroup core
@@ -148,7 +148,7 @@ abstract class Context extends DataObject {
 	 * @return float
 	 */
 	function getSequence() {
-		return $this->getData('sequence');
+		return $this->getData('seq');
 	}
 
 	/**
@@ -156,7 +156,7 @@ abstract class Context extends DataObject {
 	 * @param $sequence float
 	 */
 	function setSequence($sequence) {
-		$this->setData('sequence', $sequence);
+		$this->setData('seq', $sequence);
 	}
 
 	/**
@@ -297,6 +297,101 @@ abstract class Context extends DataObject {
 	}
 
 	/**
+	 * Return date or/and time formats available for forms, fallback to the default if not set
+	 * @param $format string datetime property, e.g., dateFormatShort
+	 * @return array
+	 */
+	function getDateTimeFormats($format) {
+		$data = $this->getData($format) ?? [];
+		$fallbackConfigVar = strtolower(preg_replace('/([A-Z])/', '_$1', $format));
+		foreach ($this->getSupportedFormLocales() as $supportedLocale) {
+			if (!array_key_exists($supportedLocale, $data)) $data[$supportedLocale] = Config::getVar('general', $fallbackConfigVar);
+		}
+
+		return $data;
+	}
+
+	/**
+	 * Return localized short date format, fallback to the default if not set
+	 * @return string, see DateTime::format
+	 */
+	function getLocalizedDateFormatShort($locale = null) {
+		if (is_null($locale)) {
+			$locale = AppLocale::getLocale();
+		}
+		$localizedData = $this->getData('dateFormatShort', $locale);
+		if (empty($localizedData)) {
+			$localizedData = Config::getVar('general', 'date_format_short');
+		}
+
+		return $localizedData;
+	}
+
+	/**
+	 * Return localized long date format, fallback to the default if not set
+	 * @return string, see DateTime::format
+	 */
+	function getLocalizedDateFormatLong($locale = null) {
+		if (is_null($locale)) {
+			$locale = AppLocale::getLocale();
+		}
+		$localizedData = $this->getData('dateFormatLong', $locale);
+		if (empty($localizedData)) {
+			$localizedData = Config::getVar('general', 'date_format_long');
+		}
+
+		return $localizedData;
+	}
+
+	/**
+	 * Return localized time format, fallback to the default if not set
+	 * @return string, see DateTime::format
+	 */
+	function getLocalizedTimeFormat($locale = null) {
+		if (is_null($locale)) {
+			$locale = AppLocale::getLocale();
+		}
+		$localizedData = $this->getData('timeFormat', $locale);
+		if (empty($localizedData)) {
+			$localizedData = Config::getVar('general', 'time_format');
+		}
+
+		return $localizedData;
+	}
+
+	/**
+	 * Return localized short date & time format, fallback to the default if not set
+	 * @return string, see see DateTime::format
+	 */
+	function getLocalizedDateTimeFormatShort($locale = null) {
+		if (is_null($locale)) {
+			$locale = AppLocale::getLocale();
+		}
+		$localizedData = $this->getData('datetimeFormatShort', $locale);
+		if (empty($localizedData)) {
+			$localizedData = Config::getVar('general', 'datetime_format_short');
+		}
+
+		return $localizedData;
+	}
+
+	/**
+	 * Return localized long date & time format, fallback to the default if not set
+	 * @return string, see see DateTime::format
+	 */
+	function getLocalizedDateTimeFormatLong($locale = null) {
+		if (is_null($locale)) {
+			$locale = AppLocale::getLocale();
+		}
+		$localizedData = $this->getData('datetimeFormatLong', $locale);
+		if (empty($localizedData)) {
+			$localizedData = Config::getVar('general', 'datetime_format_long');
+		}
+
+		return $localizedData;
+	}
+
+	/**
 	 * Get the association type for this context.
 	 * @return int
 	 */
@@ -324,10 +419,10 @@ abstract class Context extends DataObject {
 	 * @param $value mixed
 	 * @param $type string optional
 	 * @param $isLocalized boolean optional
+	 * @deprecated 3.3.0.0
 	 */
 	function updateSetting($name, $value, $type = null, $isLocalized = false) {
-		$settingsDao = Application::getContextSettingsDAO();
-		return $settingsDao->updateSetting($this->getId(), $name, $value, $type, $isLocalized);
+		Services::get('context')->edit($this, [$name => $value], Application::get()->getRequest());
 	}
 
 	/**
@@ -335,7 +430,7 @@ abstract class Context extends DataObject {
 	 * @return int
 	 */
 	function getViews() {
-		$application = Application::getApplication();
+		$application = Application::get();
 		return $application->getPrimaryMetricByAssoc(Application::getContextAssocType(), $this->getId());
 	}
 
@@ -388,7 +483,7 @@ abstract class Context extends DataObject {
 				$defaultMetricType = $availableMetrics[0];
 			} else {
 				// Use the site-wide default metric.
-				$application = Application::getApplication();
+				$application = Application::get();
 				$defaultMetricType = $application->getDefaultMetricType();
 			}
 		} else {
@@ -416,7 +511,7 @@ abstract class Context extends DataObject {
 	function getMetrics($metricType = null, $columns = array(), $filter = array(), $orderBy = array(), $range = null) {
 		// Add a context filter and run the report.
 		$filter[STATISTICS_DIMENSION_CONTEXT_ID] = $this->getId();
-		$application = Application::getApplication();
+		$application = Application::get();
 		return $application->getMetrics($metricType, $columns, $filter, $orderBy, $range);
 	}
 }

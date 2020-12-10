@@ -3,9 +3,9 @@
 /**
  * @file pages/install/InstallHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class InstallHandler
  * @ingroup pages_install
@@ -18,6 +18,9 @@ import('lib.pkp.classes.install.form.UpgradeForm');
 import('classes.handler.Handler');
 
 class InstallHandler extends Handler {
+
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
 
 	/**
 	 * If no context is selected, list all.
@@ -35,6 +38,11 @@ class InstallHandler extends Handler {
 		if (($setLocale = $request->getUserVar('setLocale')) != null && AppLocale::isLocaleValid($setLocale)) {
 			$request->setCookieVar('currentLocale', $setLocale);
 		}
+
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign([
+			'pageTitle' => __('installer.appInstallation'),
+		]);
 
 		$installForm = new InstallForm($request);
 		$installForm->initData();
@@ -59,13 +67,20 @@ class InstallHandler extends Handler {
 	function install($args, $request) {
 		$this->validate(null, $request);
 		$this->setupTemplate($request);
+		$templateMgr = TemplateManager::getManager($request);
 
 		$installForm = new InstallForm($request);
 		$installForm->readInputData();
 
 		if ($installForm->validate()) {
+			$templateMgr->assign([
+				'pageTitle' => __('installer.installationComplete'),
+			]);
 			$installForm->execute();
 		} else {
+			$templateMgr->assign([
+				'pageTitle' => __('installer.appInstallation'),
+			]);
 			$errors = $installForm->getErrorsArray();
 			$error = array_shift($errors);
 			$installForm->installError($error, false);
@@ -85,6 +100,11 @@ class InstallHandler extends Handler {
 			$request->setCookieVar('currentLocale', $setLocale);
 		}
 
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign([
+			'pageTitle' => __('installer.upgradeApplication'),
+		]);
+
 		$installForm = new UpgradeForm($request);
 		$installForm->initData();
 		$installForm->display($request);
@@ -98,6 +118,10 @@ class InstallHandler extends Handler {
 	function installUpgrade($args, $request) {
 		$this->validate(null, $request);
 		$this->setupTemplate($request);
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign([
+			'pageTitle' => __('installer.upgradeApplication'),
+		]);
 
 		$installForm = new UpgradeForm($request);
 		$installForm->readInputData();

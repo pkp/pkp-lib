@@ -1,9 +1,9 @@
 /**
  * @file styles/controllers/grid/grid.less
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @ingroup pkp_controllers_grid
  *
@@ -12,10 +12,10 @@
 
 .pkp_controllers_grid {
 	position: relative;
-	margin-bottom: @double * 2;
 	font-size: @font-sml;
-	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 	border-radius: @radius;
+	background: @lift;
 
 	.header,
 	.footer {
@@ -25,8 +25,8 @@
 	// Header
 	.header {
 		position: relative;
-		background: @grid-border-color;
-		padding: 0 1em;
+		padding: 0 0.5rem 0 1rem;
+		border-bottom: @grid-border;
 		border-top-left-radius: @radius;
 		border-top-right-radius: @radius;
 
@@ -34,16 +34,16 @@
 			display: inline-block;
 			font-size: @font-base;
 			margin: 0;
-			padding-top: @half;
-			padding-bottom: @half;
+			padding-top: 0.5rem;
+			padding-bottom: 0.5rem;
+			line-height: 2rem;
 		}
 	}
 
 	// Footer
 	.footer {
-		background: @grid-border-color;
-		padding-left: 1em;
-		padding-right: 1em;
+		border-top: @grid-border;
+		padding: 0rem 0.5rem 0.5rem 1rem;
 	}
 
 	// Actions (header + footer )
@@ -51,8 +51,7 @@
 		display: inline-block;
 		float: right;
 		margin: 0;
-		padding: 0;
-		padding-top: 6px;
+		padding: 7px 0;
 		list-style: none;
 
 		li {
@@ -60,16 +59,7 @@
 		}
 
 		a {
-			position: relative;
-			top: 1px; // alignment to account for filter toggle offset
-			display: inline-block;
-			border-top: 2px solid transparent;
-			padding: 0 1em @half;
-			line-height: @double;
-			font-weight: @bold;
-			text-decoration: none;
-			background: transparent;
-			transition: all 0.3s ease;
+			&:extend(.pkp_button);
 		}
 	}
 
@@ -95,7 +85,7 @@
 
 	// Search filter
 	.filter {
-		padding: @base;
+		padding: 1rem;
 		font-size: @font-sml;
 
 		label {
@@ -105,7 +95,7 @@
 		}
 
 		.section {
-			margin-bottom: @half;
+			margin-bottom: 0.5rem;
 
 			&:last-child {
 				margin-bottom: 0;
@@ -115,15 +105,19 @@
 		.pkp_controllers_extrasOnDemand {
 
 			> a {
-				line-height: @double;
-				padding-left: @double + @base;
+				line-height: 2rem;
+				padding-left: 3rem;
 			}
 
 			> a .fa {
-				line-height: @double;
-				width: @double;
-				height: @double;
+				line-height: 2rem;
+				width: 2rem;
+				height: 2rem;
 			}
+		}
+
+		.pkp_spinner {
+			float: right;
 		}
 	}
 
@@ -139,14 +133,14 @@
 	}
 
 	// Content rows only
-	.gridRow {
+	.gridRow:not(:first-child) {
 		border-top: @grid-border;
 	}
 
 	th,
 	td {
-		padding-left: @base;
-		padding-right: @base;
+		padding-left: 1rem;
+		padding-right: 1rem;
 		vertical-align: top;
 	}
 
@@ -154,11 +148,11 @@
 		font-size: @font-tiny;
 		line-height: 16px;
 		color: @text-light-rgba;
-		background: @grid-border-color;
 
 		th {
-			padding-top: @half;
-			padding-bottom: @half;
+			box-shadow: inset 0 -1px 0 @grid-border-color;
+			padding-top: 0.5rem;
+			padding-bottom: 0.5rem;
 			font-weight: @normal;
 		}
 
@@ -171,14 +165,14 @@
 
 	td {
 		position: relative;
-		padding-top: @half;
-		padding-bottom: @half - 1;
+		padding-top: 0.5rem;
+		padding-bottom: calc(~"0.5rem - 1px");
 		line-height: @line-base;
 	}
 
 	// Empty row
 	.empty td {
-		padding: 8px 0;
+		padding: 0.5rem 0;
 		font-size: @font-sml;
 		font-style: italic;
 		line-height: @line-base;
@@ -190,15 +184,15 @@
 	// Expand/collapse row actions
 	.has_extras td:first-child,
 	.row_controls td:first-child {
-		padding-left: @double;
+		padding-left: 2rem;
 	}
 
 	.show_extras,
 	.hide_extras {
 		position: absolute;
-		top: @half; // matches td padding
+		top: 0.5rem; // matches td padding
 		left: 0;
-		width: @double;
+		width: 2rem;
 		height: @line-base; // matches td line-height
 		line-height: @line-base;
 		text-align: center;
@@ -248,15 +242,15 @@
 	}
 
 	.order_finish_controls {
-		padding: @base;
-		background: @grid-border-color;
+		padding: 0.5rem;
+		text-align: right;
 
 		.saveButton {
 			&:extend(.pkp_button all);
 		}
 
 		.cancelFormButton {
-			&:extend(.pkp_button_link_offset all);
+			&:extend(.pkp_button_offset all);
 		}
 	}
 
@@ -288,7 +282,7 @@
 		position: relative;
 		display: block;
 		margin: 0 -0.5em;
-		padding: 0 0.5em 0 @double;
+		padding: 0 0.5em 0 2rem;
 		line-height: @line-sml;
 
 		&:before {
@@ -393,7 +387,7 @@
 	// Actions inline with the row
 	.row_actions {
 		position: absolute;
-		top: @half;
+		top: 0.5rem;
 		right: 0;
 
 		> a {
@@ -464,7 +458,7 @@
 	// Pagination
 	.gridPaging {
 		.pkp_helpers_clear;
-		padding: @half @base;
+		padding: 0.5rem 1rem;
 		color: @text-light-rgba;
 		border-top: @grid-border;
 
@@ -493,15 +487,15 @@
 		position: relative;
 		color: @text-light-rgba;
 		text-align: center;
-		height: @double + @base;
-		line-height: @double + @base;
+		height: 3rem;
+		line-height: 3rem;
 		background: @grid-border-color;
 		border-bottom-right-radius: @radius;
 		border-bottom-left-radius: @radius;
 
 		.item_count {
 			position: absolute;
-			right: @base;
+			right: 1rem;
 		}
 
 		.pkp_linkaction_icon_more_items {
@@ -524,7 +518,7 @@
 			top: 0;
 			width: 100%;
 			background: @grid-border-color;
-			line-height: @double + @base;
+			line-height: 3rem;
 			opacity: 0;
 			transition: 0.3s opacity, 0.3s visibility;
 		}
@@ -545,9 +539,12 @@
 // Categorized grids
 .pkp_grid_category {
 
+	.gridRow:not(:first-child) {
+		border-top: none;
+	}
+
 	.gridRow.category,
 	.category_controls {
-		background: @grid-border-color;
 
 		.label {
 			font-weight: @bold;
@@ -575,9 +572,7 @@
 
 	// Headers aren't needed in file grids
 	thead {
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
+		&:extend(.pkp_screen_reader all);
 	}
 
 	.pkp_linkaction_downloadFile {
@@ -612,7 +607,7 @@
 
 /* Fix strange grid float issue when placed inside subtabs */
 .pkpTabs--side .pkpTab .pkp_controllers_grid .header {
-	max-height: 48px;
+	max-height: 3rem;
 }
 
 // TODO check if these styles can be removed
@@ -645,4 +640,9 @@
 		margin: 0;
 		height: 24px;
 	}
+}
+
+// Space between two grids
+div:not(:last-child) > .pkp_controllers_grid {
+	margin-bottom: 1rem;
 }

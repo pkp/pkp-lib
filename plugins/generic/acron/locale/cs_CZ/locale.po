@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T11:06:21+00:00\n"
+"PO-Revision-Date: 2019-11-19T11:06:21+00:00\n"
+"Language: \n"
+
+msgid "plugins.generic.acron.name"
+msgstr "Plugin Acron"
+
+msgid "plugins.generic.acron.enabled"
+msgstr "Plugin Acron byl povolen."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Plugin Acron byl zakázán."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Spustit naplánované úlohy"
+
+msgid "plugins.generic.acron.description"
+msgstr "Tento plugin se snaží omezit závislost aplikace na periodicky spouštěných nástrojích jako \"cron\"."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Tab cronu byl úspěšně znovu nahrán."
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Plánované úlohy byly znovu nahrány."

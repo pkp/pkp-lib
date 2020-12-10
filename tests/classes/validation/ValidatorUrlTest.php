@@ -3,9 +3,9 @@
 /**
  * @file tests/classes/validation/ValidatorUrlTest.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidatorUrlTest
  * @ingroup tests_classes_validation
@@ -32,7 +32,6 @@ class ValidatorUrlTest extends PKPTestCase {
 		self::assertFalse($validator->isValid('anything else'));
 		self::assertTrue($validator->isValid('http://189.63.74.2/'));
 		self::assertTrue($validator->isValid('http://257.63.74.2/'));
-		self::assertFalse($validator->isValid('http://189.63.74.2.7/'));
 	}
 }
 

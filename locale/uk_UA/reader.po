@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
+"PO-Revision-Date: 2020-04-18 18:17+0000\n"
+"Last-Translator: Fylypovych Georgii <red.ukr@gmail.com>\n"
+"Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reader/uk/>\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "comments.anonymous"
+msgstr "Гість"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Текст"
+
+msgid "comments.titleRequired"
+msgstr "Необхідно ввести тему коментаря."
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Видалення цього коментаря призведе до видалення всіх відповідей на нього. Ви впевнені, що хочете зробити це?"
+
+msgid "comments.delete"
+msgstr "Видалити цей коментар"
+
+msgid "comments.email"
+msgstr "Адреса відправника"
+
+msgid "comments.emailReply"
+msgstr "Відповісти листом"
+
+msgid "comments.enterComment"
+msgstr "Надіслати коментар"
+
+msgid "comments.inResponseTo"
+msgstr "З приводу <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Ім'я відправника"
+
+msgid "comments.noComments"
+msgstr "Немає коментарів читачів."
+
+msgid "comments.nReplies"
+msgstr "({$num} відповідей)"
+
+msgid "comments.oneReply"
+msgstr "(1 відповідь)"
+
+msgid "comments.postAnonymously"
+msgstr "Надіслати цей коментар анонімно"
+
+msgid "comments.postReply"
+msgstr "Надіслати відповідь"
+
+msgid "comments.readerComments"
+msgstr "Коментарі читачів"
+
+msgid "comments.readMore"
+msgstr "Читати далі"
+
+msgid "comments.replies"
+msgstr "Відповіді"
+
+msgid "comments.title"
+msgstr "Тема"
+
+msgid "comments.viewAllComments"
+msgstr "Дивитися всі коментарі"
+
+msgid "reader.fullText"
+msgstr "Повний текст:"

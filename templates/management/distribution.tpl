@@ -1,20 +1,29 @@
 {**
  * templates/management/distribution.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * The distribution settings page.
  *}
-{include file="common/header.tpl" pageTitle="manager.distribution.title"}
+{extends file="layouts/backend.tpl"}
 
-{assign var="uuid" value=""|uniqid|escape}
-<div id="settings-context-{$uuid}">
-	<tabs>
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="manager.distribution.title"}
+	</h1>
+
+	{if $currentContext->getData('disableSubmissions')}
+		<notification>
+			{translate key="manager.setup.disableSubmissions.notAccepting"}
+		</notification>
+	{/if}
+
+	<tabs :track-history="true">
 		<tab id="license" label="{translate key="submission.license"}">
 			{help file="settings/distribution-settings" class="pkp_help_tab"}
-			<license-form
+			<pkp-form
 				v-bind="components.{$smarty.const.FORM_LICENSE}"
 				@set="set"
 			/>
@@ -35,9 +44,4 @@
 		</tab>
 		{call_hook name="Template::Settings::distribution"}
 	</tabs>
-</div>
-<script type="text/javascript">
-	pkp.registry.init('settings-context-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
-</script>
-
-{include file="common/footer.tpl"}
+{/block}

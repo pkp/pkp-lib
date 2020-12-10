@@ -1,0 +1,372 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-10 14:28+0000\n"
+"Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
+"Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"ro_RO/>\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Nu există Fișiere de Limbă disponibile pentru descărcare."
+
+msgid "admin.error.executingUtil"
+msgstr ""
+"Eroare: nu se poate executa \"{$utilPath}\".  Verificați setarea {$utilVar} "
+"în config.inc.php."
+
+msgid "admin.error.utilExecutionProblem"
+msgstr ""
+"Execuția programului \"{$utilPath}\" a returnat următoarea eroare: {$output}"
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Succes: {$filePath} la {$destinationPath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+"Avertisment: fișierul {$filePath} există deja în directorul statisticilor de "
+"utilizare."
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Eroare: nu se poate șterge fișierul {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Eroare: nu se poate copia fișierul de la {$filePath} la {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Eroare: Fișierul {$filePath} nu există sau nu poate fi accesat."
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Eroare: nu se poate crea folderul temporar {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Copiați fișierele (jurnalele) de acces Apache trecute, filtrând intrările "
+"legate de această instalare,\n"
+"la directorul fișierelor curente, în directorul de stadiu UsageStatsPlugin. "
+"Trebuie executat de un utilizator căruia i se permite citirea fișierelor tip "
+"jurnal de acces Apache.\n"
+"\n"
+"Acest instrument va copia numai fișierele care nu se află deja în "
+"directoarele de încărcare a fișierelor usageStats (stadiu, procesare, "
+"arhivare, respingere).\n"
+"\n"
+"Utilizare: {$scriptName} path/to/apache/log/file.log\n"
+"Utilizare (procesarea tuturor fișierelor dintr-un director): {$scriptName} "
+"path/to/apache/directory\n"
+"\t"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Încărcător de fișiere"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Fișierul {$filename} a fost procesat și arhivat."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"Fișierul {$filename} nu a putut fi mutat de la {$currentFilePath} la "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Fișierul {$path} nu este un director sau nu poate fi citit."
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr ""
+"Calea de bază {$path} trebuie să se afle în directorul fișierelor publice."
+
+msgid "admin.version"
+msgstr "Versiune"
+
+msgid "admin.version.upToDate"
+msgstr "Sistemul dvs. este actualizat"
+
+msgid "admin.version.updateAvailable"
+msgstr "Este disponibilă o versiune actualizată"
+
+msgid "admin.versionRevision"
+msgstr "Revizuire"
+
+msgid "admin.version.moreInfo"
+msgstr "Mai multe informații"
+
+msgid "admin.versionMinor"
+msgstr "Minor"
+
+msgid "admin.versionMajor"
+msgstr "Major"
+
+msgid "admin.version.latest"
+msgstr "Ultima versiune"
+
+msgid "admin.versionHistory"
+msgstr "Istoric versiune"
+
+msgid "admin.version.downloadPatch"
+msgstr "Descărcare Cale"
+
+msgid "admin.version.downloadPackage"
+msgstr "Descărcare"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Verificare actualizări"
+
+msgid "admin.versionBuild"
+msgstr "Construiți"
+
+msgid "admin.systemInformation"
+msgstr "Informații Sistem"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"Fișierul de configurare <tt>config.inc.php</tt> nu există, nu este lizibil, "
+"sau nu este valid."
+
+msgid "admin.siteSetup"
+msgstr "Configurare Site"
+
+msgid "admin.siteSettings"
+msgstr "Setări Site"
+
+msgid "admin.siteManagement"
+msgstr "Management Site"
+
+msgid "admin.siteAdmin"
+msgstr "Administrator Site"
+
+msgid "admin.settings.siteTheme"
+msgstr "Temă Site"
+
+msgid "admin.settings.siteTitle"
+msgstr "Nume Site"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo Site"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Foaie Tip Site"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Format invalid al foii Tip Site. Formatul acceptat este .css."
+
+msgid "admin.settings.siteLanguage"
+msgstr "Limba site-ului"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Lungimea minimă a parolei (caractere)"
+
+msgid "admin.settings.introduction"
+msgstr "Introducere"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tInstalarea dvs. este configurată pentru înregistrarea mai multor sisteme "
+"de măsură. Statisticile vor fi afișate în mai multe contexte.\n"
+"\t\tExistă cazuri în care trebuie utilizat un singur sistem statistic, de "
+"ex. pentru a afișa o listă ordonată a celor mai utilizate înregistrări de "
+"manuscrise \n"
+"\t\tsau pentru a clasifica rezultatele căutării. Vă rugăm să selectați una "
+"din valorile configurate ca implicită.\n"
+"\t"
+
+msgid "admin.settings.contactName"
+msgstr "Numele principalei persoane de contact"
+
+msgid "admin.settings.contactEmail"
+msgstr "Adresa de e-mail a principalei persoane de contact"
+
+msgid "admin.settings.about"
+msgstr "Despre Site"
+
+msgid "admin.settings"
+msgstr "Setări"
+
+msgid "admin.server.platform"
+msgstr "Platformă OS"
+
+msgid "admin.server.phpVersion"
+msgstr "Versiune PHP"
+
+msgid "admin.serverInformation"
+msgstr "Informații server"
+
+msgid "admin.server.dbVersion"
+msgstr "Versiune server bază de date"
+
+msgid "admin.server.dbDriver"
+msgstr "Driver bază de date"
+
+msgid "admin.server.apacheVersion"
+msgstr "Versiune Apache"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Reamintire expirare abonament"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Reamintire revizie"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publicați înregistrările programate pentru tipărire"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Ștergeți jurnalele de executare a activităților programate"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Sunteți sigur că doriți să ștergeți toate jurnalele de executare a "
+"activităților programate?"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Inslatarea dumneavoastră {$softwareName} a fost executată automat și "
+"activitatea s-a încheiat. Puteți descărca fișierul jurnal aici:  {$url}"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Activitatea nu a generat însemnări în jurnal."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Procesul de lucru s-a încheiat."
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Procesul de lucru a început."
+
+msgid "admin.scheduledTask"
+msgstr "Planificarea activităților"
+
+msgid "admin.phpInfo"
+msgstr "Informații PHP extinse"
+
+msgid "admin.languages.uninstall"
+msgstr "Dezinstalare Fișiere de Limbă"
+
+msgid "admin.languages.reload"
+msgstr "Reîncărcare Fișiere de Limbă"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Nu sunt disponibile alte Fișiere de Limbă pentru instalare."
+
+msgid "admin.languages.languageSettings"
+msgstr "Setări Limbă"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instalare Fișeire de Limbă noi"
+
+msgid "admin.languages.installLocales"
+msgstr "Instalare"
+
+msgid "admin.languages.installLocale"
+msgstr "Instalare Fișiere de Limbă"
+
+msgid "admin.languages.availableLocales"
+msgstr "Fișiere de Limbă disponibile"
+
+msgid "admin.languages.installLanguages"
+msgstr "Gestionare Fișiere de Limbă"
+
+msgid "admin.languages.installedLocales"
+msgstr "Fișiere de Limbă instalate"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Sigur doriți să reîncărcați această limbă? Aceasta va șterge toate datele "
+"existente în funcție de regiune, cum ar fi șabloanele de e-mail "
+"personalizate."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Sigur doriți să schimbați limba principală a site-ului? Numele "
+"utilizatorilor, care sunt editate în limba principală a site-ului, vor fi "
+"copiate în directoarele în care lipsesc."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr ""
+"Nu se poate adăuga noul fișier în registrul Locale, de obicei \"registry/"
+"locales.xml\"."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Acest fișier încarcă limba principală a site-ului. Nu îl puteți dezactiva "
+"până nu alegeți o altă limbă."
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Descriptorul de limbă de pe site-ul web PKP nu se poate deschide."
+
+msgid "admin.languages.downloadLocales"
+msgstr "Descărcare fișiere"
+
+msgid "admin.languages.download"
+msgstr "Descărcare fișier"
+
+msgid "admin.expireSessions"
+msgstr "Încheiere sesiune de utilizator"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Afișează configurarea nouă"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Conținutul configurației actualizate este afișat mai jos. Pentru a aplica "
+"modificările de configurare, trebuie să deschideți <tt>config.inc.php</tt> "
+"într-un editor de text adecvat și să înlocuiți conținutul său cu conținutul "
+"câmpului de text de mai jos."
+
+msgid "admin.dateInstalled"
+msgstr "Data instalării"
+
+msgid "admin.currentVersion"
+msgstr "Versiune curentă"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Sigur doriți să ștergeți definitiv {$contextName} și tot conținutul său?"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Conținutul fișierului de configurare"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Sigur doriți să suspendați toate sesiunile de utilizator? Toți utilizatorii "
+"care sunt conectați în sistem vor fi nevoiți să se autentifice din nou ("
+"inclusiv dvs.)."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Sigur doriți să ștergeți memoria cache a șabloanelor realizate?"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Fișierul dvs. de configurare a fost actualizat cu succes. Vă rugăm să "
+"rețineți că, dacă site-ul dvs. nu mai funcționează corect, poate fi necesar "
+"să vă reparați manual configurația prin editarea directă "
+"<tt>config.inc.php</tt>."
+
+msgid "admin.clearTemplateCache"
+msgstr "Ștergeți memoria cache șablon"
+
+msgid "admin.clearDataCache"
+msgstr "Ștergeți cache-urile de date"
+
+msgid "admin.authSources"
+msgstr "Surse de autentificare"
+
+msgid "admin.auth.noneCreated"
+msgstr "Nu a fost definită nicio sursă de autentificare."
+
+msgid "admin.auth.create"
+msgstr "Creați o sursă de autentificare"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Sunteți sigur/ă că doriți să ștergeți definitiv sursa de autentificare?"
+
+msgid "admin.adminFunctions"
+msgstr "Funcții administrative"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Setare valoare"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Setare nume"

@@ -2,9 +2,9 @@
 /**
  * @file classes/security/authorization/internal/QueryRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryRequiredPolicy
  * @ingroup security_authorization_internal
@@ -37,7 +37,7 @@ class QueryRequiredPolicy extends DataObjectRequiredPolicy {
 		if (!$queryId) return AUTHORIZATION_DENY;
 
 		// Make sure the query belongs to the submission.
-		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		$query = $queryDao->getById($queryId);
 		if (!is_a($query, 'Query')) return AUTHORIZATION_DENY;
 		switch ($query->getAssocType()) {

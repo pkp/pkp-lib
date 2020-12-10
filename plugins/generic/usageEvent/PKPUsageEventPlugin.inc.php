@@ -3,9 +3,9 @@
 /**
  * @file plugins/generic/usageEvent/PKPUsageEventPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUsageEventPlugin
  * @ingroup plugins_generic_usageEvent
@@ -84,6 +84,20 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 		return true;
 	}
 
+	/**
+	 * @copydoc Plugin::getCanEnable()
+	 */
+	function getCanEnable() {
+		return false;
+	}
+
+	/**
+	 * @copydoc Plugin::getCanDisable()
+	 */
+	function getCanDisable() {
+		return false;
+	}
+
 
 	//
 	// Public methods.
@@ -154,7 +168,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 			return null;
 		}
 
-		$application = Application::getApplication();
+		$application = Application::get();
 		$request = $application->getRequest();
 		$router = $request->getRouter(); /* @var $router PageRouter */
 		$templateMgr = $args[0]; /* @var $templateMgr TemplateManager */
@@ -181,10 +195,14 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 			// HTML pages with no file downloads.
 			$docSize = 0;
 			$mimeType = 'text/html';
-		} else {
-			// Files.
+		} elseif (is_a($pubObject, 'IssueGalley')) {
 			$docSize = (int)$pubObject->getFileSize();
 			$mimeType = $pubObject->getFileType();
+		} else {
+			// Files.
+			$path = Services::get('file')->getPath($pubObject->getData('fileId'));
+			$docSize = Services::get('file')->fs->getSize($path);
+			$mimeType = Services::get('file')->fs->getMimetype($path);
 		}
 
 		$canonicalUrl = $router->url(

@@ -1,0 +1,227 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-26 06:45+0000\n"
+"Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
+"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/vi_VN/>\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"Phiên bản PHP của máy chủ của bạn không được phần mềm này hỗ trợ. Kiểm tra "
+"kỹ các yêu cầu cài đặt trong docs/README."
+
+msgid "installer.beacon.enable"
+msgstr ""
+"Cung cấp ID trang web duy nhất và URL cơ sở OAI cho PKP chỉ cho mục đích "
+"thống kê và cảnh báo bảo mật."
+
+msgid "installer.beacon"
+msgstr "Beacon (dẫn đường)"
+
+msgid "installer.configureXSLMessage"
+msgstr ""
+"<p> Cài đặt PHP của bạn chưa bật mô-đun XSL. Bật nó lên hoặc định cấu hình "
+"tham số xslt_command trong tệp config.inc.php của bạn. </p>"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p> 1. Các tệp và thư mục sau (và nội dung của chúng) phải có thể ghi "
+"được: </p>\n"
+"<ul>\n"
+"<li> <tt> config.inc.php </tt> có thể ghi (tùy chọn): {$ writeable_config} "
+"</li>\n"
+"<li> <tt> public / </tt> có thể ghi: {$ writeable_public} </li>\n"
+"<li> <tt> cache / </tt> có thể ghi: {$ writeable_cache} </li>\n"
+"<li> <tt> cache / t_cache / </tt> có thể ghi: {$ writeable_templates_cache} "
+"</li>\n"
+"<li> <tt> cache / t_compile / </tt> có thể ghi: {$ "
+"writeable_templates_compile} </li>\n"
+"<li> <tt> cache / _db </tt> có thể ghi được: {$ writeable_db_cache} </li>\n"
+"</ul>\n"
+"\n"
+"<p> 2. Thư mục để lưu trữ các tệp đã tải lên phải được tạo và có thể ghi "
+"được (xem \"Cài đặt tệp\" bên dưới). </p>\n"
+"\t"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Các bước cài đặt trước"
+
+msgid "installer.releaseNotes"
+msgstr "Ghi chú phát hành"
+
+msgid "installer.publicFilesDirError"
+msgstr "Thư mục tệp công khai không tồn tại hoặc không thể ghi."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Định danh kho lưu trữ"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+"Một số nhận dạng duy nhất được sử dụng để xác định các bản ghi siêu dữ liệu "
+"được lập chỉ mục từ trang web này bằng cách sử dụng Giao thức <a href=\""
+"https://www.openarchives.org/\" target=\"_blank\"> Sáng kiến lưu trữ mở </a> "
+"để thu thập siêu dữ liệu."
+
+msgid "installer.oaiSettings"
+msgstr "Cài đặt OAI"
+
+msgid "installer.localeSettings"
+msgstr "Cài đặt ngôn ngữ"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Các ngôn ngữ được đánh dấu có thể không đầy đủ."
+
+msgid "installer.locale"
+msgstr "Ngôn ngữ"
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"Nâng cấp không được hỗ trợ. Xem docs/UPGRADE-UNSUPPORTED để biết thêm chi "
+"tiết."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Lỗi phân tích cú pháp tệp cấu hình bộ lọc <tt> {$file} </tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Lỗi phân tích cú pháp tệp mẫu email <tt> {$file} </tt>."
+
+msgid "installer.installParseDBFileError"
+msgstr "Lỗi phân tích cú pháp tệp cài đặt cơ sở dữ liệu <tt> {$file} </tt>."
+
+msgid "installer.installFilesDirError"
+msgstr ""
+"Thư mục được chỉ định cho các tệp đã tải lên không tồn tại hoặc không thể "
+"ghi được."
+
+msgid "installer.installFileError"
+msgstr ""
+"Tệp cài đặt <tt> dbscripts/xml/install.xml </tt> không tồn tại hoặc không "
+"thể đọc được."
+
+msgid "installer.installerSQLStatements"
+msgstr "Câu lệnh SQL để cài đặt"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Đã xảy ra lỗi trong khi cài đặt"
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br/> <strong> CẢNH BÁO: Phiên bản PHP hiện tại của bạn không đáp ứng các "
+"yêu cầu tối thiểu để cài đặt. Bạn nên nâng cấp lên phiên bản PHP mới hơn. "
+"</strong>"
+
+msgid "installer.form.usernameRequired"
+msgstr "Tên người dùng cho tài khoản quản trị viên là bắt buộc."
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+"Tên người dùng quản trị viên chỉ có thể chứa các ký tự chữ và số, dấu gạch "
+"dưới và dấu gạch nối, đồng thời phải bắt đầu và kết thúc bằng ký tự chữ và "
+"số."
+
+msgid "installer.form.separateMultiple"
+msgstr "Phân tách nhiều giá trị bằng dấu phẩy"
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Mật khẩu quản trị viên không khớp."
+
+msgid "installer.form.passwordRequired"
+msgstr "Mật khẩu cho tài khoản quản trị viên là bắt buộc."
+
+msgid "installer.form.localeRequired"
+msgstr "Một ngôn ngữ phải được chọn."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Thư mục được sử dụng để lưu trữ các tệp đã tải lên là bắt buộc."
+
+msgid "installer.form.emailRequired"
+msgstr "Địa chỉ email hợp lệ cho tài khoản quản trị viên là bắt buộc."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Tên cơ sở dữ liệu là bắt buộc."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Một trình điều khiển cơ sở dữ liệu phải được chọn."
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Một bộ ký tự khách hàng phải được chọn."
+
+msgid "installer.fileSettings"
+msgstr "Cài đặt Tập tin"
+
+msgid "installer.filesDir"
+msgstr "Thư mục để tải lên"
+
+msgid "installer.databaseUsername"
+msgstr "Tên-người-dùng"
+
+msgid "installer.databaseSettings"
+msgstr "Cài đặt Cơ sở dữ liệu"
+
+msgid "installer.databasePassword"
+msgstr "Mật khẩu"
+
+msgid "installer.databaseName"
+msgstr "Tên cơ sở dữ liệu"
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+"Để trống tên máy chủ để kết nối bằng ổ cắm miền thay vì qua TCP / IP. Điều "
+"này là không cần thiết với MySQL, nó sẽ tự động sử dụng socket nếu \""
+"localhost\" được nhập, nhưng bắt buộc với một số máy chủ cơ sở dữ liệu khác "
+"như PostgreSQL."
+
+msgid "installer.databaseHost"
+msgstr "Máy chủ"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong> Trình điều khiển cơ sở dữ liệu được liệt kê trong dấu ngoặc dường "
+"như không được tải tiện ích mở rộng PHP bắt buộc và cài đặt có thể sẽ không "
+"thành công nếu được chọn. </strong> <br /> Mọi trình điều khiển cơ sở dữ "
+"liệu không được hỗ trợ được liệt kê ở trên chỉ được liệt kê cho mục đích học "
+"thuật và không có khả năng công việc."
+
+msgid "installer.databaseDriver"
+msgstr "Trình điều khiển cơ sở dữ liệu"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Nội dung của tệp cấu hình"
+
+msgid "installer.connectionCharset"
+msgstr "Bộ ký tự kết nối"
+
+msgid "installer.configFileError"
+msgstr ""
+"Tệp cấu hình <tt> config.inc.php </tt> không tồn tại hoặc không thể đọc được."
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Mã hóa sử dụng cho dữ liệu được gửi đến và nhận từ trình duyệt."
+
+msgid "installer.clientCharset"
+msgstr "Bộ ký tự khách hàng"
+
+msgid "installer.checkYes"
+msgstr "Đúng"
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">KHÔNG</span>"
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"Tài khoản người dùng này sẽ trở thành quản trị viên trang web và có toàn "
+"quyền truy cập vào hệ thống. Tài khoản người dùng bổ sung có thể được tạo "
+"sau khi cài đặt."
+
+msgid "installer.administratorAccount"
+msgstr "Tài khoản Quản trị viên"
+
+msgid "installer.additionalLocales"
+msgstr "Ngôn ngữ bổ sung"

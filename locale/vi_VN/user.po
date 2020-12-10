@@ -1,0 +1,503 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-17 17:48+0000\n"
+"Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
+"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"vi_VN/>\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.privacyLink"
+msgstr ""
+"Dữ liệu của bạn được lưu trữ theo <a href=\"{$privacyUrl}\" target=\"_blank\""
+"> tuyên bố về quyền riêng tư </a> của chúng tôi."
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Trước khi tạo khóa API, quản trị viên trang web của bạn phải đặt bí mật "
+"trong tệp cấu hình (\"api_key_secret\")."
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Việc tạo khóa API mới sẽ làm mất hiệu lực của mọi khóa hiện có cho người "
+"dùng này."
+
+msgid "user.apiKey.generate"
+msgstr "Tạo khóa API mới"
+
+msgid "user.apiKeyEnabled"
+msgstr "Bật các ứng dụng bên ngoài bằng khóa API để truy cập tài khoản này"
+
+msgid "user.apiKey"
+msgstr "Khóa API"
+
+msgid "user.profile.public"
+msgstr "Công khai"
+
+msgid "user.profile.contact"
+msgstr "Liên lạc"
+
+msgid "user.profile.identity"
+msgstr "Danh tính"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"iD ORCIDbạn đã chỉ định không hợp lệ. Vui lòng bao gồm URI đầy đủ (ví dụ: \""
+"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.orcid"
+msgstr "iD ORCID"
+
+msgid "user.workingLanguages"
+msgstr "Ngôn ngữ làm việc"
+
+msgid "user.username"
+msgstr "Tên người dùng (username)"
+
+msgid "user.userHome"
+msgstr "Trang chủ Người dùng"
+
+msgid "user.url"
+msgstr "URL Trang chủ"
+
+msgid "user.title"
+msgstr "Tiêu đề"
+
+msgid "user.signature"
+msgstr "Chữ ký"
+
+msgid "user.sendPassword.description"
+msgstr ""
+"Gửi cho tôi một email xác nhận bao gồm tên người dùng và mật khẩu của tôi"
+
+msgid "user.sendPassword"
+msgstr "Xác nhận"
+
+msgid "user.roles"
+msgstr "Các Vai trò"
+
+msgid "user.role.layoutEditors"
+msgstr "Các Biên tập viên Trình bày"
+
+msgid "user.role.layoutEditor"
+msgstr "Biên tập viên Trình bày"
+
+msgid "user.role.proofreaders"
+msgstr "Những người hiệu đính"
+
+msgid "user.role.proofreader"
+msgstr "Người hiệu đính"
+
+msgid "user.role.copyeditors"
+msgstr "Các Biên tập viên bản thảo"
+
+msgid "user.role.copyeditor"
+msgstr "Biên tập viên bản thảo"
+
+msgid "user.role.siteAdmins"
+msgstr "Quản trị trang web"
+
+msgid "user.role.siteAdmin"
+msgstr "Quản trị trang web"
+
+msgid "user.role.reviewers"
+msgstr "Những người phản biện"
+
+msgid "user.role.reviewer"
+msgstr "Người phản biện"
+
+msgid "user.role.readers"
+msgstr "Cho bạn đọc"
+
+msgid "user.role.reader"
+msgstr "Bạn đọc"
+
+msgid "user.role.editors"
+msgstr "Các biên tập viên"
+
+msgid "user.role.editor"
+msgstr "Biên tập viên"
+
+msgid "user.role.authors"
+msgstr "Các tác giả"
+
+msgid "user.role.author_s"
+msgstr "(Các) Tác giả"
+
+msgid "user.role.author"
+msgstr "Tác giả"
+
+msgid "user.role.assistant"
+msgstr "Trợ lý"
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Bạn đã đăng ký thành công. <a href=\"{$profileUrl}\"> Nhấp vào đây </a> để "
+"hoàn thành hồ sơ người dùng của bạn."
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"Tên người dùng chỉ được chứa các chữ cái thường, số và dấu gạch ngang/gạch "
+"dưới."
+
+msgid "user.register"
+msgstr "Đăng ký"
+
+msgid "user.register.registerAs"
+msgstr "Đăng ký trong {$contextName} với ..."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Mật khẩu phải có ít nhất {$length} ký tự."
+
+msgid "user.register.form.usernameExists"
+msgstr "Tên người dùng được chọn đã được người dùng khác sử dụng."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Phải chọn ít nhất một vai trò."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Tên người dùng chỉ được chứa các ký tự chữ và số viết thường, dấu gạch dưới "
+"và dấu gạch nối, đồng thời phải bắt đầu và kết thúc bằng ký tự chữ và số."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Các trường địa chỉ email không khớp."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Mật khẩu không trùng khớp."
+
+msgid "user.register.form.emailExists"
+msgstr "Địa chỉ email được chọn đã được người dùng khác sử dụng."
+
+msgid "user.register.form.emailConsent"
+msgstr "Có, tôi muốn được thông báo về các ấn phẩm và thông báo mới."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Có, tôi đồng ý thu thập và lưu trữ dữ liệu của mình theo <a href=\""
+"{$privacyUrl}\" target=\"_blank\"> tuyên bố về quyền riêng tư </a>."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Nhập địa chỉ email tài khoản của bạn vào bên dưới và một email sẽ được gửi "
+"kèm theo hướng dẫn về cách đặt lại mật khẩu của bạn."
+
+msgid "user.login.registerNewAccount"
+msgstr "Đăng ký"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Lặp lại mật khẩu mới"
+
+msgid "user.profile.publicProfile"
+msgstr "Hồ sơ người dùng"
+
+msgid "user.profile"
+msgstr "Hồ sơ"
+
+msgid "user.profile.oldPassword"
+msgstr "Mật khẩu hiện tại"
+
+msgid "user.profile.newPassword"
+msgstr "Mật khẩu mới"
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Để trống các trường mật khẩu để giữ mật khẩu hiện tại."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Bạn phải đồng ý với các điều khoản của tuyên bố bảo mật."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Yêu cầu tên đăng nhập (username) của người dùng."
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Một nhóm người dùng là bắt buộc."
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"URL được chỉ định không hợp lệ. Vui lòng kiểm tra lại URL và thử lại. (Gợi ý:"
+" Hãy thử thêm http:// vào đầu URL.)"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Thông báo xuất bản số mới qua email"
+
+msgid "user.profile.form.profileImage"
+msgstr "Ảnh hồ sơ cá nhân"
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Mật khẩu mới của bạn giống với mật khẩu cũ của bạn."
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Mật khẩu là bắt buộc."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Thông báo qua email về  số xuất bản truy cập mở"
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Mật khẩu hiện tại bạn đã nhập không chính xác."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Bạn phải nhập mật khẩu mới của mình."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Một địa chỉ gửi thư là bắt buộc."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Bạn đã thêm Họ nhưng chưa thêm Tên (của một ngôn ngữ). Vui lòng thêm Tên với "
+"ngôn ngữ này."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Một tên cụ thể là bắt buộc."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Một địa chỉ email hợp lệ là bặt buộc."
+
+msgid "user.profile.form.countryRequired"
+msgstr "Quốc gia là bắt buộc."
+
+msgid "user.profile.editProfile"
+msgstr "Chỉnh sửa hồ sơ"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"Nhập Mật khẩu hiện tại và Mật khẩu mới của bạn bên dưới để thay đổi mật khẩu "
+"cho tài khoản của bạn."
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Bạn muốn như thế nào về tên công khai của bạn? Lời chào, tên đệm và hậu tố "
+"có thể được thêm vào đây nếu bạn muốn."
+
+msgid "user.preferredPublicName"
+msgstr "Tên công khai ưa thích"
+
+msgid "user.phone"
+msgstr "Điện thoại"
+
+msgid "user.repeatPassword"
+msgstr "Lặp lại mật khẩu (password)"
+
+msgid "user.password"
+msgstr "Mật khấu (password)"
+
+msgid "user.name"
+msgstr "Tên"
+
+msgid "user.myAccount"
+msgstr "Tài khoản của tôi"
+
+msgid "user.mailingAddress"
+msgstr "Địa chỉ gửi thư"
+
+msgid "user.hello"
+msgstr "Xin chào, "
+
+msgid "user.logOutAs"
+msgstr "Đăng xuất với người dùng"
+
+msgid "user.logOut"
+msgstr "Đăng xuất"
+
+msgid "user.login.resetPassword"
+msgstr "Đặt lại mật khẩu"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Giữ tôi luôn đăng nhập"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Đăng ký đang chờ xác minh"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Tiếp tục duyệt"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Gửi một bài mới"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Xem các bài gửi"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Cảm ơn đã đăng ký! Bạn sẽ làm gì tiêp theo?"
+
+msgid "user.login.registrationComplete"
+msgstr "Hoàn thành đăng ký"
+
+msgid "user.login.registeredEmail"
+msgstr "Email của người dùng đã đăng ký"
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"Một mật khẩu mới đã được gửi đến địa chỉ email của bạn. Bây giờ bạn có thể "
+"đăng nhập vào trang web bằng mật khẩu mới của mình."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Không có người dùng nào tồn tại với địa chỉ email được chỉ định."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"Xin lỗi, liên kết bạn nhấp vào đã hết hạn hoặc không hợp lệ. Vui lòng thử "
+"đặt lại mật khẩu của bạn một lần nữa."
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"Một xác nhận đã được gửi đến địa chỉ email của bạn. Vui lòng làm theo hướng "
+"dẫn trong email để đặt lại mật khẩu của bạn."
+
+msgid "user.login"
+msgstr "Đăng nhập"
+
+msgid "user.login.loginError"
+msgstr ""
+"Sai username (tên tài khoản) hoặc password (mật khẩu). Vui lòng thử lại."
+
+msgid "user.login.forgotPassword"
+msgstr "Quên mật khẩu?"
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"Bạn phải chọn một mật khẩu mới trước khi có thể đăng nhập vào trang web này. "
+"<br /> <br /> Vui lòng nhập tên người dùng và mật khẩu hiện tại và mật khẩu "
+"mới của bạn vào bên dưới để thay đổi mật khẩu cho tài khoản của bạn."
+
+msgid "user.login.activated"
+msgstr ""
+"Cảm ơn bạn đã kích hoạt tài khoản của mình. Bây giờ bạn có thể đăng nhập "
+"bằng thông tin đăng nhập bạn đã cung cấp khi tạo tài khoản của mình."
+
+msgid "user.login.activate"
+msgstr "Kích hoạt tài khoản"
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"Chúng tôi đã gửi một email xác nhận cho bạn theo địa chỉ {$email}. Vui lòng "
+"làm theo hướng dẫn trong email đó để kích hoạt tài khoản mới của bạn. Nếu "
+"bạn không thấy email, vui lòng kiểm tra xem nó có bị đưa vào thư mục spam "
+"của bạn hay không."
+
+msgid "user.login.accountDisabled"
+msgstr ""
+"Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ với quản trị viên để "
+"biết thêm thông tin."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Tài khoản của bạn đã bị vô hiệu hóa vì lý do sau: {$reason}"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"Định dạng hình ảnh hồ sơ không hợp lệ hoặc hình ảnh quá lớn. Các định dạng "
+"được chấp nhận là .gif, .jpg hoặc .png và hình ảnh không được vượt quá "
+"150x150 pixel."
+
+msgid "user.familyName"
+msgstr "Họ"
+
+msgid "user.group"
+msgstr "Nhóm người dùng"
+
+msgid "user.gossip.description"
+msgstr ""
+"Ghi lại các ghi chú về người phản biện này mà bạn muốn hiển thị cho các quản "
+"trị viên, người quản lý và tất cả các biên tập viên khác. Ghi chú sẽ hiển "
+"thị trong phân công phản biện trong tương lai."
+
+msgid "user.gossip"
+msgstr "Ghi chú Biên tập"
+
+msgid "user.interests"
+msgstr "Lĩnh vực phản biện"
+
+msgid "user.givenName"
+msgstr "Tên"
+
+msgid "user.email"
+msgstr "E-mail"
+
+msgid "user.editMyProfile"
+msgstr "Chỉnh sửa Hồ sơ của tôi"
+
+msgid "user.dateRegistered"
+msgstr "Ngày đăng ký"
+
+msgid "user.dateLastLogin"
+msgstr "Đăng nhập lần cuối"
+
+msgid "user.changePassword"
+msgstr "Thay đổi mật khẩu"
+
+msgid "user.changeMyPassword"
+msgstr "Thay đổi mật khẩu của tôi"
+
+msgid "user.biography"
+msgstr "Báo cáo tiểu sử (ví dụ: phòng ban và cấp bậc)"
+
+msgid "user.authorization.submissionQuery"
+msgstr "Bạn không có quyền truy cập vào cuộc thảo luận này."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Bạn không có quyền truy cập để phân công phản biện này."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Một plugin không được chỉ định và là bắt buộc."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Một giai đoạn quy trình làm việc không được chỉ định."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr ""
+"Bạn hiện không có quyền truy cập vào giai đoạn đó của quy trình làm việc."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Người dùng có vai trò Người quản lý (tức là Biên tập viên sản xuất) phải "
+"được chỉ định vào giai đoạn trước khi bạn có thể tiếp tục."
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"Bạn phải thiết lập một nhóm người dùng hợp lệ để truy cập hoạt động này."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Bạn chưa được chỉ định cho bài nộp này với vai trò được phép truy cập vào "
+"hoạt động này."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Vai trò hiện tại không có quyền truy cập vào hoạt động này."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr ""
+"Bạn đã bị từ chối truy cập. Truy cập vào trang web này hiện đang bị hạn chế."
+
+msgid "user.authorization.privateOperation"
+msgstr "Thao tác bạn đã cố gắng truy cập là riêng tư hoặc không tồn tại."
+
+msgid "user.authorization.loginRequired"
+msgstr "Yêu cầu đăng nhập."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"Bạn không thể gọi thao tác này nếu không có ngữ cảnh (báo chí, tạp chí, hội "
+"nghị, v.v.)."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Mã thông báo xác thực quy trình bị thiếu hoặc không hợp lệ."
+
+msgid "user.authorization.accessDenied"
+msgstr "Quyền truy cập bị từ chối."
+
+msgid "user.affiliations"
+msgstr "Các liên kết (viện, trường ...)"
+
+msgid "user.affiliation.description"
+msgstr ""
+"(là viện, trường mỗi tác giả trực thuộc hoặc hợp tác, ví dụ \"Đại học Quốc "
+"Gia Hà Nội hay Viện Vật lý\")"
+
+msgid "user.affiliation"
+msgstr "Liên kết"
+
+msgid "user.accountInformation"
+msgstr "Thông tin tài khoản"

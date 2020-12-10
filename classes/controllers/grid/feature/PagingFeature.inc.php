@@ -3,9 +3,9 @@
 /**
  * @file classes/controllers/grid/feature/PagingFeature.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PagingFeature
  * @ingroup controllers_grid_feature
@@ -45,12 +45,12 @@ class PagingFeature extends GeneralPagingFeature {
 	function fetchUIElements($request, $grid) {
 		$options = $this->getOptions();
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign(array(
+		$templateMgr->assign([
 			'iterator' => $this->getItemIterator(),
 			'currentItemsPerPage' => $options['currentItemsPerPage'],
 			'grid' => $grid,
-		));
-		return array('pagingMarkup' => $templateMgr->fetch('controllers/grid/feature/gridPaging.tpl'));
+		]);
+		return ['pagingMarkup' => $templateMgr->fetch('controllers/grid/feature/gridPaging.tpl')];
 	}
 
 

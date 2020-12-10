@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/reviewer/form/ReviewerForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerForm
  * @ingroup controllers_grid_users_reviewer_form
@@ -147,17 +147,17 @@ class ReviewerForm extends Form {
 		}
 
 		// Get review assignment related data;
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignment = $reviewAssignmentDao->getReviewAssignment($reviewRound->getId(), $reviewerId, $reviewRound->getRound());
 
-		// Get the review method (open, blind, or double-blind)
+		// Get the review method (open, anonymous, or double-anonymous)
 		if (isset($reviewAssignment) && $reviewAssignment->getReviewMethod() != false) {
 			$reviewMethod = $reviewAssignment->getReviewMethod();
 			$reviewFormId = $reviewAssignment->getReviewFormId();
 		} else {
 			// Set default review method.
 			$reviewMethod = $context->getData('defaultReviewMode');
-			if (!$reviewMethod) $reviewMethod = SUBMISSION_REVIEW_METHOD_BLIND;
+			if (!$reviewMethod) $reviewMethod = SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
 
 			// If there is a section/series and it has a default
 			// review form designated, use it.
@@ -169,18 +169,18 @@ class ReviewerForm extends Form {
 
 		// Get the response/review due dates or else set defaults
 		if (isset($reviewAssignment) && $reviewAssignment->getDueDate() != null) {
-			$reviewDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime($reviewAssignment->getDueDate()));
+			$reviewDueDate = strtotime($reviewAssignment->getDueDate());
 		} else {
 			$numWeeks = (int) $context->getData('numWeeksPerReview');
 			if ($numWeeks<=0) $numWeeks=4;
-			$reviewDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime('+' . $numWeeks . ' week'));
+			$reviewDueDate = strtotime('+' . $numWeeks . ' week');
 		}
 		if (isset($reviewAssignment) && $reviewAssignment->getResponseDueDate() != null) {
-			$responseDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime($reviewAssignment->getResponseDueDate()));
+			$responseDueDate = strtotime($reviewAssignment->getResponseDueDate());
 		} else {
 			$numWeeks = (int) $context->getData('numWeeksPerResponse');
 			if ($numWeeks<=0) $numWeeks=3;
-			$responseDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime('+' . $numWeeks . ' week'));
+			$responseDueDate = strtotime('+' . $numWeeks . ' week');
 		}
 
 		// Get the currently selected reviewer selection type to show the correct tab if we're re-displaying the form
@@ -224,7 +224,7 @@ class ReviewerForm extends Form {
 		$context = $request->getContext();
 
 		// Get the review method options.
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewMethods = $reviewAssignmentDao->getReviewMethodsTranslationKeys();
 		$submission = $this->getSubmission();
 
@@ -232,7 +232,7 @@ class ReviewerForm extends Form {
 		$templateMgr->assign('reviewMethods', $reviewMethods);
 		$templateMgr->assign('reviewerActions', $this->getReviewerFormActions());
 
-		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
 		$reviewFormsIterator = $reviewFormDao->getActiveByAssocId(Application::getContextAssocType(), $context->getId());
 		$reviewForms = array();
 		while ($reviewForm = $reviewFormsIterator->next()) {
@@ -252,13 +252,13 @@ class ReviewerForm extends Form {
 
 		// Determine if the current user can use any custom templates defined.
 		$user = $request->getUser();
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 
-		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getContextId());
+		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getData('contextId'));
 		foreach ($userRoles as $userRole) {
 			if (in_array($userRole->getId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
 				$emailTemplatesIterator = Services::get('emailTemplate')->getMany([
-					'contextId' => $submission->getContextId(),
+					'contextId' => $submission->getData('contextId'),
 					'isCustom' => true,
 				]);
 				$customTemplateKeys = [];
@@ -319,7 +319,9 @@ class ReviewerForm extends Form {
 	/**
 	 * Save review assignment
 	 */
-	function execute() {
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
+
 		$submission = $this->getSubmission();
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
@@ -350,21 +352,26 @@ class ReviewerForm extends Form {
 
 		// Ensure that the review form ID is valid, if specified
 		$reviewFormId = (int) $this->getData('reviewFormId');
-		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
 		$reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
 		$reviewAssignment->setReviewFormId($reviewForm?$reviewFormId:null);
 
 		$reviewAssignmentDao->updateObject($reviewAssignment);
 
 		// Grant access for this review to all selected files.
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-		import('lib.pkp.classes.submission.SubmissionFile'); // File constants
-		$submissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound($currentReviewRound, SUBMISSION_FILE_REVIEW_FILE);
-		$selectedFiles = (array) $this->getData('selectedFiles');
-		$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO');
-		foreach ($submissionFiles as $submissionFile) {
-			if (in_array($submissionFile->getFileId(), $selectedFiles)) {
-				$reviewFilesDao->grant($reviewAssignment->getId(), $submissionFile->getFileId());
+		import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_
+		$submissionFilesIterator = Services::get('submissionFile')->getMany([
+			'submissionIds' => [$submission->getId()],
+			'reviewRoundIds' => [$currentReviewRound->getId()],
+			'fileStages' => [SUBMISSION_FILE_REVIEW_FILE],
+		]);
+		$selectedFiles = array_map(function($id) {
+			return (int) $id;
+		}, (array) $this->getData('selectedFiles'));
+		$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /* @var $reviewFilesDao ReviewFilesDAO */
+		foreach ($submissionFilesIterator as $submissionFile) {
+			if (in_array($submissionFile->getId(), $selectedFiles)) {
+				$reviewFilesDao->grant($reviewAssignment->getId(), $submissionFile->getId());
 			}
 		}
 

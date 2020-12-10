@@ -1,9 +1,9 @@
 {**
  * lib/pkp/templates/controllers/grid/settings/category/form/categoryForm.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Form to edit or create a category
  *}
@@ -71,6 +71,14 @@
 			{fbvFormSection}
 				{capture assign="altTitle"}{translate key="submission.currentCoverImage"}{/capture}
 				<img class="pkp_helpers_container_center" height="{$image.thumbnailHeight}" width="{$image.thumbnailWidth}" src="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="thumbnail" type="category" id=$categoryId}" alt="{$altTitle|escape}" />
+			{/fbvFormSection}
+		{/if}
+
+		{if count($availableSubeditors)}
+			{fbvFormSection list=true title="submissionGroup.assignedSubEditors"}
+				{foreach from=$availableSubeditors item="subEditor" key="id"}
+					{fbvElement type="checkbox" id="subEditors[]" value=$id checked=in_array($id, $assignedToCategory) label=$subEditor translate=false}
+				{/foreach}
 			{/fbvFormSection}
 		{/if}
 

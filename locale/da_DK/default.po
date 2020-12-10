@@ -1,0 +1,141 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
+"PO-Revision-Date: 2020-02-10 15:35+0000\n"
+"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
+"da/>\n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "default.genres.other"
+msgstr "Andet"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Websted-admin"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Websteds-admin'er"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Produktionsredaktør"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Produktionsredaktører"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ProdE"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Manuskriptredaktør"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Manuskriptredaktører"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE"
+
+msgid "default.groups.name.proofreader"
+msgstr "Korrekturlæser"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Korrekturlæsere"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "PR"
+
+msgid "default.groups.name.designer"
+msgstr "Designer"
+
+msgid "default.groups.plural.designer"
+msgstr "Designere"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Design"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Intern bedømmer"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Interne bedømmere"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
+
+msgid "default.groups.name.marketing"
+msgstr "Marketings- og salgskoordinator"
+
+msgid "default.groups.plural.marketing"
+msgstr "Marketings- og salgskoordinatorer"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MS"
+
+msgid "default.groups.name.funding"
+msgstr "Finansieringskoordinator"
+
+msgid "default.groups.plural.funding"
+msgstr "Finansieringskoordinatorer"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FC"
+
+msgid "default.groups.name.indexer"
+msgstr "Klassifikator"
+
+msgid "default.groups.plural.indexer"
+msgstr "Klassifikatorer"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Layoutredaktør"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Layoutredaktører"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "LE"
+
+msgid "default.groups.name.author"
+msgstr "Forfatter"
+
+msgid "default.groups.plural.author"
+msgstr "Forfattere"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.name.translator"
+msgstr "Oversætter"
+
+msgid "default.groups.plural.translator"
+msgstr "Oversættere"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Overs"
+
+msgid "default.groups.name.reader"
+msgstr "Læser"
+
+msgid "default.groups.plural.reader"
+msgstr "Læsere"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Læs"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedie"
+
+msgid "default.genres.image"
+msgstr "Billede"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML stylesheet"

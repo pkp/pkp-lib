@@ -15,7 +15,6 @@ session_cookie_name = OJSSID
 session_lifetime = 30
 scheduled_tasks = Off
 
-date_format_trunc = "%m-%d"
 date_format_short = "%Y-%m-%d"
 date_format_long = "%B %e, %Y"
 datetime_format_short = "%Y-%m-%d %I:%M %p"
@@ -82,7 +81,6 @@ display_errors = On
 [search]
 min_word_length = 3
 results_per_keyword = 500
-result_cache_hours = 1
 ; index[application/pdf] = "/usr/bin/pstotext %s"
 ; index[application/pdf] = "/usr/bin/pdftotext %s -"
 ; index[application/postscript] = "/usr/bin/pstotext %s"

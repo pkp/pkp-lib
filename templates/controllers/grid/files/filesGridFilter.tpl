@@ -1,9 +1,9 @@
 {**
  * templates/controllers/grid/files/filesGridFilter.tpl
  *
- * Copyright (c) 2016-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2016-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Filter template for submission file lists.
  *}
@@ -20,7 +20,7 @@
 	{csrf}
 	{fbvFormArea id="submissionFilesSearchFormArea"|concat:$filterData.gridId}
 		{fbvFormSection}
-			{fbvElement type="text" name="search" id="search"|concat:$filterData.gridId value=$filterSelectionData.search size=$fbvStyles.size.MEDIUM inline="true"}
+			{fbvElement type="search" name="search" id="search"|concat:$filterData.gridId value=$filterSelectionData.search size=$fbvStyles.size.MEDIUM inline="true"}
 			{fbvElement type="select" name="column" id="column"|concat:$filterData.gridId from=$filterData.columns selected=$filterSelectionData.column size=$fbvStyles.size.SMALL translate=false inline="true"}
 		{/fbvFormSection}
 		{fbvFormButtons hideCancel=true submitText="common.search"}

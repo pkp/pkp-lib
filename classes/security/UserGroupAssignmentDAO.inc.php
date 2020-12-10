@@ -3,9 +3,9 @@
 /**
  * @file classes/security/UserGroupAssignmentDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserGroupAssignmentDAO
  * @ingroup security
@@ -48,7 +48,7 @@ class UserGroupAssignmentDAO extends DAO {
 	 * @param $userGroupId int optional
 	 */
 	function deleteByUserId($userId, $userGroupId = null) {
-		$params = array((int) $userId);
+		$params = [(int) $userId];
 		if ($userGroupId) $params[] = (int) $userGroupId;
 
 		$this->update(
@@ -64,9 +64,7 @@ class UserGroupAssignmentDAO extends DAO {
 	 * @param int $userGroupId
 	 */
 	function deleteAssignmentsByUserGroupId($userGroupId) {
-		return $this->update('DELETE FROM user_user_groups
-							WHERE user_group_id = ?',
-						(int) $userGroupId);
+		return $this->update('DELETE FROM user_user_groups WHERE user_group_id = ?', [(int) $userGroupId]);
 	}
 
 	/**
@@ -75,7 +73,7 @@ class UserGroupAssignmentDAO extends DAO {
 	 * @param int $userId
 	 */
 	function deleteAssignmentsByContextId($contextId, $userId = null) {
-		$params = array((int) $contextId);
+		$params = [(int) $contextId];
 		if ($userId) $params[] = (int) $userId;
 		$result = $this->retrieve(
 			'SELECT	uug.user_group_id, uug.user_id
@@ -101,7 +99,7 @@ class UserGroupAssignmentDAO extends DAO {
 	 * @return Iterator UserGroup
 	 */
 	function getByUserId($userId, $contextId = null, $roleId = null) {
-		$params = array((int) $userId);
+		$params = [(int) $userId];
 		if ($contextId) $params[] = (int) $contextId;
 		if ($roleId) $params[] = (int) $roleId;
 
@@ -126,11 +124,11 @@ class UserGroupAssignmentDAO extends DAO {
 	function insertObject($userGroupAssignment) {
 		$this->replace(
 			'user_user_groups',
-			array(
+			[
 				'user_id' => (int) $userGroupAssignment->getUserId(),
 				'user_group_id' => (int) $userGroupAssignment->getUserGroupId(),
-			),
-			array('user_id', 'user_group_id')
+			],
+			['user_id', 'user_group_id']
 		);
 	}
 
@@ -138,10 +136,10 @@ class UserGroupAssignmentDAO extends DAO {
 	 * Remove an assignment
 	 * @param $userGroupAssignment
 	 */
-	function deleteAssignment(&$userGroupAssignment) {
+	function deleteAssignment($userGroupAssignment) {
 		$this->update(
 			'DELETE FROM user_user_groups WHERE user_id = ? AND user_group_id = ?',
-			array((int) $userGroupAssignment->getUserId(), (int) $userGroupAssignment->getUserGroupId())
+			[(int) $userGroupAssignment->getUserId(), (int) $userGroupAssignment->getUserGroupId()]
 		);
 	}
 }

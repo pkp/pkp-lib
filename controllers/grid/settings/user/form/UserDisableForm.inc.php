@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/settings/user/form/UserDisableForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserDisableForm
  * @ingroup controllers_grid_settings_user_form
@@ -41,7 +41,7 @@ class UserDisableForm extends Form {
 	 */
 	function initData() {
 		if ($this->_userId) {
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$user = $userDao->getById($this->_userId);
 
 			if ($user) {
@@ -78,10 +78,10 @@ class UserDisableForm extends Form {
 	}
 
 	/**
-	 * Enable/Disable the user
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
-		$userDao = DAORegistry::getDAO('UserDAO');
+	function execute(...$functionArgs) {
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getById($this->_userId);
 
 		if ($user) {
@@ -89,7 +89,7 @@ class UserDisableForm extends Form {
 			$user->setDisabledReason($this->getData('disableReason'));
 			$userDao->updateObject($user);
 		}
-
+		parent::execute(...$functionArgs);
 		return $user;
 	}
 }

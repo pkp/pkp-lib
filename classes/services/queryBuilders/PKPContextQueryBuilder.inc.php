@@ -2,9 +2,9 @@
 /**
  * @file classes/services/QueryBuilders/PKPContextQueryBuilder.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPContextQueryBuilder
  * @ingroup query_builders
@@ -15,13 +15,14 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-abstract class PKPContextQueryBuilder extends BaseQueryBuilder {
+abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var string The database name for this context: `journals` or `presses` */
 	protected $db;
 
-	/** @var string The database name for this context's settings: `journal_setttings` or `press_settings` */
+	/** @var string The database name for this context's settings: `journal_settings` or `press_settings` */
 	protected $dbSettings;
 
 	/** @var string The column name for a context ID: `journal_id` or `press_id` */
@@ -30,11 +31,11 @@ abstract class PKPContextQueryBuilder extends BaseQueryBuilder {
 	/** @var boolean enabled or disabled contexts */
 	protected $isEnabled = null;
 
+	/** @var integer Filter contexts by whether or not this user can access it when logged in */
+	protected $userId;
+
 	/** @var string search phrase */
 	protected $searchPhrase = null;
-
-	/** @var bool whether to return only a count of results */
-	protected $countOnly = null;
 
 	/**
 	 * Set isEnabled filter
@@ -45,6 +46,22 @@ abstract class PKPContextQueryBuilder extends BaseQueryBuilder {
 	 */
 	public function filterByIsEnabled($isEnabled) {
 		$this->isEnabled = $isEnabled;
+		return $this;
+	}
+
+	/**
+	 * Set userId filter
+	 *
+	 * The user id can access contexts where they are assigned to
+	 * a user group. If the context is disabled, they must be
+	 * assigned to ROLE_ID_MANAGER user group.
+	 *
+	 * @param $userId boolean
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPContextQueryBuilder
+	 */
+	public function filterByUserId($userId) {
+		$this->userId = $userId;
 		return $this;
 	}
 
@@ -61,23 +78,62 @@ abstract class PKPContextQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
-	 * Whether to return only a count of results
-	 *
-	 * @param $enable bool
-	 *
-	 * @return \PKP\Services\QueryBuilders\PKPContextQueryBuilder
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
 	 */
-	public function countOnly($enable = true) {
-		$this->countOnly = $enable;
-		return $this;
+	public function getCount() {
+		return $this
+			->getQuery()
+			->select('c.' . $this->dbIdColumn)
+			->get()
+			->count();
 	}
 
 	/**
-	 * Execute query builder
-	 *
-	 * @return object Query object
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
 	 */
-	public function get() {
+	public function getIds() {
+		return $this
+			->getQuery()
+			->select('c.' . $this->dbIdColumn)
+			->pluck('c.' . $this->dbIdColumn)
+			->toArray();
+	}
+
+	/**
+	 * Get the name and basic data for a set of contexts
+	 *
+	 * This returns data from the main table and the name
+	 * of the context in its primary locale.
+	 *
+	 * @return array
+	 */
+	public function getManySummary() {
+		return $this
+			->getQuery()
+			->select([
+				'c.' . $this->dbIdColumn . ' as id',
+				'c.enabled',
+				'cst.setting_value as name',
+				'c.path as urlPath',
+				'c.seq',
+			])
+			->leftJoin($this->dbSettings . ' as cst', function($q) {
+				$q->where('cst.' . $this->dbIdColumn, '=', Capsule::raw('c.' . $this->dbIdColumn))
+					->where('cst.setting_name', '=', 'name')
+					->where('cst.locale', '=', Capsule::raw('c.primary_locale'));
+			})
+			->groupBy([
+				'c.' . $this->dbIdColumn,
+				'cst.setting_value',
+			])
+			->get()
+			->toArray();
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
+	 */
+	public function getQuery() {
 		$this->columns[] = 'c.*';
 		$q = Capsule::table($this->db . ' as c')
 					->leftJoin($this->dbSettings . ' as cs', 'cs.' . $this->dbIdColumn, '=', 'c.' . $this->dbIdColumn)
@@ -87,6 +143,18 @@ abstract class PKPContextQueryBuilder extends BaseQueryBuilder {
 			$q->where('c.enabled', '=', 1);
 		} elseif ($this->isEnabled === false) {
 			$q->where('c.enabled', '!=', 1);
+		}
+
+		if (!empty($this->userId)) {
+			$q->leftJoin('user_groups as ug', 'ug.context_id', '=', 'c.' . $this->dbIdColumn)
+				->leftJoin('user_user_groups as uug', 'uug.user_group_id', '=', 'ug.user_group_id')
+				->where(function($q) {
+					$q->where('uug.user_id', '=', $this->userId)
+						->where(function($q) {
+							$q->where('ug.role_id', '=', ROLE_ID_MANAGER)
+								->orWhere('c.enabled', '=', 1);
+						});
+				});
 		}
 
 		// search phrase
@@ -119,11 +187,7 @@ abstract class PKPContextQueryBuilder extends BaseQueryBuilder {
 		// Add app-specific query statements
 		\HookRegistry::call('Context::getContexts::queryObject', array(&$q, $this));
 
-		if (!empty($this->countOnly)) {
-			$q->select(Capsule::raw('count(*) as context_count'));
-		} else {
-			$q->select($this->columns);
-		}
+		$q->select($this->columns);
 
 		return $q;
 	}

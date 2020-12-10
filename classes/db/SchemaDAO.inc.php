@@ -2,9 +2,9 @@
 /**
  * @file classes/db/SchemaDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SchemaDAO
  * @ingroup db
@@ -12,6 +12,8 @@
  * @brief A base class for DAOs which rely on a json-schema file to define
  *  the data object.
  */
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 import('lib.pkp.classes.db.DAO');
 import('classes.core.Services');
 
@@ -41,20 +43,16 @@ abstract class SchemaDAO extends DAO {
 	/**
 	 * Retrieve an object by ID
 	 * @param $objectId int
-	 * @return DataObject
+	 * @return DataObject?
 	 */
 	public function getById($objectId) {
 		$result = $this->retrieve(
 			'SELECT * FROM ' . $this->tableName . ' WHERE ' . $this->primaryKeyColumn . ' = ?',
-			(int) $objectId
+			[(int) $objectId]
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_fromRow($row):null;
 	}
 
 	/**
@@ -74,11 +72,8 @@ abstract class SchemaDAO extends DAO {
 			throw new Exception('Tried to insert ' . get_class($object) . ' without any properties for the ' . $this->tableName . ' table.');
 		}
 
-		$columnsList = join(', ', array_keys($primaryDbProps));
-		$bindList = join(', ', array_fill(0, count($primaryDbProps), '?'));
-		$this->update("INSERT INTO $this->tableName ($columnsList) VALUES ($bindList)", array_values($primaryDbProps));
-
-		$object->setId($this->getInsertId());
+		Capsule::table($this->tableName)->insert($primaryDbProps);
+		$object->setId(Capsule::getPdo()->lastInsertId());
 
 		// Add additional properties to settings table if they exist
 		if (count($sanitizedProps) !== count($primaryDbProps)) {
@@ -91,20 +86,20 @@ abstract class SchemaDAO extends DAO {
 				}
 				if (!empty($propSchema->multilingual)) {
 					foreach ($sanitizedProps[$propName] as $localeKey => $localeValue) {
-						$this->update("INSERT INTO $this->settingsTableName ($columnsList) VALUES ($bindList)", array(
+						$this->update("INSERT INTO $this->settingsTableName ($columnsList) VALUES ($bindList)", [
 							$object->getId(),
 							$localeKey,
 							$propName,
 							$this->convertToDB($localeValue, $schema->properties->{$propName}->type),
-						));
+						]);
 					}
 				} else {
-					$this->update("INSERT INTO $this->settingsTableName ($columnsList) VALUES ($bindList)", array(
+					$this->update("INSERT INTO $this->settingsTableName ($columnsList) VALUES ($bindList)", [
 						$object->getId(),
 						'',
 						$propName,
 						$this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type),
-					));
+					]);
 				}
 			}
 		}
@@ -137,7 +132,7 @@ abstract class SchemaDAO extends DAO {
 		$set = join('=?,', array_keys($primaryDbProps)) . '=?';
 		$this->update(
 			"UPDATE $this->tableName SET $set WHERE $this->primaryKeyColumn = ?",
-			array_merge(array_values($primaryDbProps), array($object->getId()))
+			array_merge(array_values($primaryDbProps), [$object->getId()])
 		);
 
 		$deleteSettings = [];
@@ -183,9 +178,9 @@ abstract class SchemaDAO extends DAO {
 			$deleteSettingNames = join(',', array_map(function($settingName) {
 				return "'$settingName'";
 			}, $deleteSettings));
-			$this->update("DELETE FROM $this->settingsTableName WHERE $this->primaryKeyColumn = ? AND setting_name in ($deleteSettingNames)", [
-				$object->getId(),
-			]);
+			$this->update("DELETE FROM $this->settingsTableName WHERE $this->primaryKeyColumn = ? AND setting_name in ($deleteSettingNames)",
+				[$object->getId()]
+			);
 		}
 	}
 
@@ -208,11 +203,11 @@ abstract class SchemaDAO extends DAO {
 	public function deleteById($objectId) {
 		$this->update(
 			"DELETE FROM $this->tableName WHERE $this->primaryKeyColumn = ?",
-			(int) $objectId
+			[(int) $objectId]
 		);
 		$this->update(
 			"DELETE FROM $this->settingsTableName WHERE $this->primaryKeyColumn = ?",
-			(int) $objectId
+			[(int) $objectId]
 		);
 	}
 
@@ -242,8 +237,8 @@ abstract class SchemaDAO extends DAO {
 			array($primaryRow[$this->primaryKeyColumn])
 		);
 
-		while (!$result->EOF) {
-			$settingRow = $result->getRowAssoc(false);
+		foreach ($result as $settingRow) {
+			$settingRow = (array) $settingRow;
 			if (!empty($schema->properties->{$settingRow['setting_name']})) {
 				$object->setData(
 					$settingRow['setting_name'],
@@ -254,18 +249,17 @@ abstract class SchemaDAO extends DAO {
 					empty($settingRow['locale']) ? null : $settingRow['locale']
 				);
 			}
-			$result->MoveNext();
 		}
 
 		return $object;
 	}
 
 	/**
-	 * Get the ID of the last inserted context.
+	 * Get the ID of the last inserted item.
 	 * @return int
 	 */
 	public function getInsertId() {
-		return $this->_getInsertId($this->tableName, $this->primaryKeyColumn);
+		return Capsule::getPdo()->lastInsertId();
 	}
 
 	/**
@@ -281,10 +275,16 @@ abstract class SchemaDAO extends DAO {
 		$primaryDbProps = [];
 		foreach ($this->primaryTableColumns as $propName => $columnName) {
 			if ($propName !== 'id' && array_key_exists($propName, $sanitizedProps)) {
-				$primaryDbProps[$columnName] = $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type);
+				// If the value is null and the prop is nullable, leave it null
+				if (is_null($sanitizedProps[$propName])
+						&& isset($schema->properties->{$propName}->validation)
+						&& in_array('nullable', $schema->properties->{$propName}->validation)) {
+					$primaryDbProps[$columnName] = null;
+
 				// Convert empty string values for DATETIME columns into null values
 				// because an empty string can not be saved to a DATETIME column
-				if ($primaryDbProps[$columnName] === ''
+				} elseif (array_key_exists($columnName, $sanitizedProps)
+						&& $sanitizedProps[$columnName] === ''
 						&& isset($schema->properties->{$propName}->validation)
 						&& (
 							in_array('date_format:Y-m-d H:i:s', $schema->properties->{$propName}->validation)
@@ -292,6 +292,8 @@ abstract class SchemaDAO extends DAO {
 						)
 				) {
 					$primaryDbProps[$columnName] = null;
+				} else {
+					$primaryDbProps[$columnName] = $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type);
 				}
 			}
 		}

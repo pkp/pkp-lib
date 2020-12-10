@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
+"PO-Revision-Date: 2020-06-04 18:39+0000\n"
+"Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
+"cs/>\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Požadavek"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Pokyny"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Stažení a vlastní recenze"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Ukončení"
+
+msgid "reviewer.step1.request"
+msgstr "Vyžádat recenzi"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Byl(a) jste vybrán(a) jako potenciální recenzent následujícího příspěvku. Níže je uveden přehled příspěvku a také časový rozvrh této recenze. Budeme rádi, když se budete moci zúčastnit."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Zobrazit všechny podrobnosti příspěvku"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Soubory recenzenta"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Odmítnout požadavek na recenzi¨"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "V následujícím poli můžete uvést důvody odmítnutí recenze."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Přijmout recenzi, pokračovat na Krok 2."
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Pokračovat na Krok 3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Odeslat recenzi"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Pokyny pro recenzenty"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Vydavatel časopisu má zásady pro zveřejňování konfliktu zájmů v případě recenzí. Ujistěte se prosím, že neporušujete tyto zásady."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Nejsem v konfliktu zájmů"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Mohu být v konfliktu zájmů (specifikujte, prosím, níže)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Konflikt zájmů"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Pokyny pro recenzenty"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Vydavatel nemá žádné pokyny pro recenzenty."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Klikněte na níže uvedené názvy souborů a stáhněte soubory spojené s tímto příspěvkem."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Vložte (nebo zkopírujte) vaši recenzi tohoto příspěvku do formuláře níže."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Nahrajte soubory, které chcete konzultovat s editorem a/nebo autorem, včetně revidovaných verzí původního souboru."
+
+msgid "reviewer.complete"
+msgstr "Recenze odeslána"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Jste si jisti, že chcete odeslat tuto recenzi?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Děkujeme, že jste dokončili recenzi tohoto příspěvku. Vaše recenze byla úspěšně odeslána. Oceňujeme váš přínos ke kvalitě našeho časopisu. Editor vás může znovu kontaktovat, pokud by potřeboval další informace."
+
+msgid "reviewer.aboutDueDates"
+msgstr "O termínech"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "Editor vás požádá, abyste buď schválili nebo odmítli recenzi před stanoveným datem a vlastní recenzi dokončili také do stanoveného data."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Pro autora a redaktora"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Pouze pro redaktora"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Současný uživatel není přiřazen jako recenzent pro požadovaný dokument."
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Uložit na později"

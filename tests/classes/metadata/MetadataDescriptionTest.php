@@ -3,9 +3,9 @@
 /**
  * @file tests/classes/metadata/MetadataDescriptionTest.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MetadataDescriptionTest
  * @ingroup tests_classes_metadata
@@ -56,7 +56,7 @@ class MetadataDescriptionTest extends PKPTestCase {
 			)
 		);
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 		$this->metadataDescription = new MetadataDescription('lib.pkp.tests.classes.metadata.TestSchema', ASSOC_TYPE_CITATION);
 	}

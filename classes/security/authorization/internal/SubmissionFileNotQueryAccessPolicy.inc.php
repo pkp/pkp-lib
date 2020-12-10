@@ -2,9 +2,9 @@
 /**
  * @file classes/security/authorization/internal/SubmissionFileNotQueryAccessPolicy.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileNotQueryAccessPolicy
  * @ingroup security_authorization_internal
@@ -29,11 +29,11 @@ class SubmissionFileNotQueryAccessPolicy extends SubmissionFileBaseAccessPolicy 
 		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
 
 		// Check if it's associated with a note.
-		if ($submissionFile->getAssocType() != ASSOC_TYPE_NOTE) return AUTHORIZATION_PERMIT;
+		if ($submissionFile->getData('assocType') != ASSOC_TYPE_NOTE) return AUTHORIZATION_PERMIT;
 
 		// Check if that note is associated with a query
-		$noteDao = DAORegistry::getDAO('NoteDAO');
-		$note = $noteDao->getById($submissionFile->getAssocId());
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
+		$note = $noteDao->getById($submissionFile->getData('assocId'));
 		if ($note->getAssocType() != ASSOC_TYPE_QUERY) return AUTHORIZATION_PERMIT;
 
 		return AUTHORIZATION_DENY;

@@ -1,9 +1,9 @@
 {**
  * templates/admin/editContext.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the form to add or edit a context
  *}
@@ -18,5 +18,5 @@
 	/>
 </div>
 <script type="text/javascript">
-	pkp.registry.init('editContext', 'SettingsContainer', {$containerData|json_encode});
+	pkp.registry.init('editContext', 'AddContextContainer', {$containerData|json_encode});
 </script>

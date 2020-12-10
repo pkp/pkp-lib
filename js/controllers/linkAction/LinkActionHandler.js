@@ -4,9 +4,9 @@
 /**
  * @file js/controllers/linkAction/LinkActionHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LinkActionHandler
  * @ingroup js_controllers_linkAction
@@ -50,7 +50,7 @@
 			// If none, the link action element id is
 			// not using the unique function, so we
 			// can consider it static.
-			this.staticId_ = /** @type {string} */ $handledElement.attr('id');
+			this.staticId_ = /** @type {string} */ ($handledElement.attr('id'));
 		}
 
 		// Instantiate the link action request.
@@ -254,7 +254,7 @@
 			// redirection.
 			this.trigger('redirectDataChangedToGrid', [eventData]);
 		}
-		this.trigger('notifyUser', [this.getHtmlElement()]);
+		this.trigger('notifyUser');
 	};
 
 
@@ -269,5 +269,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

@@ -2,9 +2,9 @@
 
 # @file tools/travis/install-linter.sh
 #
-# Copyright (c) 2014-2019 Simon Fraser University
-# Copyright (c) 2010-2019 John Willinsky
-# Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+# Copyright (c) 2014-2020 Simon Fraser University
+# Copyright (c) 2010-2020 John Willinsky
+# Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
 #
 # Script to install the JS linter.
 #
@@ -14,13 +14,6 @@ set -xe
 # Install python, linter, closure compiler stuff
 sudo pip install six
 sudo pip install https://github.com/google/closure-linter/zipball/master
-
-# FIXME: The Closure compiler was previously available here, but it disappeared.
-# It was temporarily added to the PKP repository instead.
-# wget -O compiler.zip "http://dl.google.com/closure-compiler/compiler-20130603.zip"
-# unzip compiler.zip compiler.jar
-# mv compiler.jar ~/bin/compiler.jar
-cp lib/pkp/tools/travis/compiler.jar ~/bin
 
 # Install jslint4java
 wget "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/jslint4java/jslint4java-2.0.2-dist.zip"

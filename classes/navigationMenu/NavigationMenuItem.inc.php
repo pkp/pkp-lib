@@ -3,9 +3,9 @@
 /**
  * @file classes/navigationMenu/NavigationMenuItem.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuItem
  * @ingroup navigationMenu
@@ -222,6 +222,31 @@ class NavigationMenuItem extends DataObject {
 	 */
 	function setTitleLocaleKey($titleLocaleKey) {
 		return $this->setData('titleLocaleKey', $titleLocaleKey);
+	}
+
+	/**
+	 * Get the remoteUrl of the navigation Menu.
+	 * @return string
+	 */
+	function getLocalizedRemoteUrl() {
+		return $this->getLocalizedData('remoteUrl');
+	}
+	
+	/**
+	 * Get the remoteUrl of the navigation menu item.
+	 * @param $locale string
+	 */
+	function getRemoteUrl($locale) {
+		return $this->getData('remoteUrl', $locale);
+	}
+	
+	/**
+	 * Set the remoteUrl of the navigation menu item.
+	 * @param $url string
+	 * @param $locale string
+	 */
+	function setRemoteUrl($url, $locale) {
+		$this->setData('remoteUrl', $url, $locale);
 	}
 }
 

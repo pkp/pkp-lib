@@ -1,0 +1,199 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
+"PO-Revision-Date: 2020-11-27 16:28+0000\n"
+"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/da_DK/>\n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "installer.additionalLocales"
+msgstr "Flere sprog"
+
+msgid "installer.administratorAccount"
+msgstr "Administratorkonto"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Denne brugerkonto bliver webstedsadministrator og vil få fuld adgang til systemet. Efter installationen kan der oprettes flere brugerkonti."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NEJ</span>"
+
+msgid "installer.checkYes"
+msgstr "Ja"
+
+msgid "installer.clientCharset"
+msgstr "Klienttegnsæt"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Den kode, som skal bruges til data, der sendes til og modtages fra browsere."
+
+msgid "installer.configFileError"
+msgstr "Konfigurationsfilen <tt>config.inc.php</tt> findes ikke eller kan ikke læses."
+
+msgid "installer.connectionCharset"
+msgstr "Forbindelsestegnsæt"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Konfigurationsfilens indhold"
+
+msgid "installer.databaseDriver"
+msgstr "Database-driver"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong> I de database-drivere, der er angivet i kantede parenteser, er den påkrævede PHP-udvidelse tilsyneladende ikke indlæst, og installationen vil sandsynligvis mislykkes, hvis den vælges.</strong><br />Eventuelle ikke-understøttede database-drivere, der er angivet ovenfor, er udelukkende angivet til akademiske formål og vil sandsynligvis ikke fungere."
+
+msgid "installer.databaseHost"
+msgstr "Vært"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Undlad at udfylde værtsnavnet, hvis du vil oprette forbindelse ved hjælp af domænesockets i stedet for via TCP/IP. Dette er ikke nødvendigt i forbindelse med MySQL, der automatisk bruger sockets, hvis \"localhost\" angives, men det er påkrævet i forbindelse med visse andre databaseservere, f.eks. PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Databasenavn"
+
+msgid "installer.databasePassword"
+msgstr "Adgangskode"
+
+msgid "installer.databaseSettings"
+msgstr "Databaseindstillinger"
+
+msgid "installer.databaseUsername"
+msgstr "Brugernavn"
+
+msgid "installer.filesDir"
+msgstr "Mappe til overførsler"
+
+msgid "installer.fileSettings"
+msgstr "Filindstillinger"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Der skal vælges et klienttegn."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Der skal vælges en databasedriver."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Databasenavnet er påkrævet."
+
+msgid "installer.form.emailRequired"
+msgstr "Der kræves en gyldig e-mail-adresse til administratorkontoen."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Der kræves en mappe, som skal bruges til lagring af overførte filer."
+
+msgid "installer.form.localeRequired"
+msgstr "Der skal vælges et sprog."
+
+msgid "installer.form.passwordRequired"
+msgstr "Der kræves en adgangskode til administratorkontoen."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Administratoradgangskoderne stemmer ikke overens."
+
+msgid "installer.form.separateMultiple"
+msgstr "Adskil flere værdier med kommaer"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Administratorbrugernavnet må kun indeholde alfanumeriske tegn, understregningstegn og bindestreger og skal begynde og slutte med et alfanumerisk tegn."
+
+msgid "installer.form.usernameRequired"
+msgstr "Der kræves et brugernavn til administratorkontoen."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>ADVARSEL! Din aktuelle version af PHP opfylder ikke minimumkravene til installation. Det anbefales at opgradere til en nyere version af PHP.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Der opstod fejl under installationen"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL-sætninger til installation"
+
+msgid "installer.installFileError"
+msgstr "Installationsfilen <tt>dbscripts/xml/install.xml</tt> findes ikke eller kan ikke læses."
+
+msgid "installer.installFilesDirError"
+msgstr "Den angivne mappe til overførte filer findes ikke eller er ikke skrivbar."
+
+msgid "installer.installParseDBFileError"
+msgstr "Der opstod en fejl under parsing af databaseinstallationsfilen <tt>{$file}</tt>."
+
+msgid "installer.locale"
+msgstr "Sprog"
+
+msgid "installer.localeSettings"
+msgstr "Sprogindstillinger"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Et entydigt id, som bruges til at identificere metadataposter, der er indekseret fra dette websted ved hjælp af <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> Protocol for Metadata Harvesting."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Repositorie-identifikator"
+
+msgid "installer.publicFilesDirError"
+msgstr "Den offentlige filmappe findes ikke eller er ikke skrivbar."
+
+msgid "installer.releaseNotes"
+msgstr "Produktbemærkninger"
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Fejl ved parsing af e-mail-skabelonfil <tt>{$file}</tt>."
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "De markerede sprog kan være ufuldstændige."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Fejl ved parsing af filter-konfigurationsfil <tt>{$file}</tt>."
+
+msgid "installer.oaiSettings"
+msgstr "OAI indstilling"
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"Opgradering ikke understøttet. Se detaljer under docs/UPGRADE-UNSUPPORTED."
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Præ-installationstrin"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Følgende filer og mapper (og deres indhold) skal gøres "
+"skrivbar:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> er skrivbar (ikke obligatorisk): "
+"{$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt>  er skrivbar: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt>  er skrivbar: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt>  er skrivbar: "
+"{$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt>  er skrivbar: "
+"{$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt>  er skrivbar: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. Der skal oprettes en mappe til uploadede filer og den skal gøres "
+"skrivbar (se \"Filindstillinger\" nedenfor).</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>XSL-modulet er ikke aktiveret på denne PHP-installation. Enten skal den aktiveres eller også skal xslt_command parameteret konfigureres i config.inc.php filen.</p>"
+
+msgid "installer.beacon"
+msgstr "Beacon"
+
+msgid "installer.beacon.enable"
+msgstr "Levér et unikt webside-id og OAI-basis-URL til PKP til brug for statistiske og sikkerhedsalarmmæssige formål."
+
+msgid "installer.unsupportedPhpError"
+msgstr "Din servers PHP-version er ikke understøttet af denne software. Dobbeltklik på installationskravene i docs/README."
+
+msgid "installer.installMigrationError"
+msgstr "Fejl ved udførelse af migreringsklassen <tt>{$class}</tt>."

@@ -2,9 +2,9 @@
 /**
  * @file classes/security/authorization/internal/SubmissionFileMatchesSubmissionPolicy.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileMatchesSubmissionPolicy
  * @ingroup security_authorization_internal
@@ -19,11 +19,10 @@ import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccess
 
 class SubmissionFileMatchesSubmissionPolicy extends SubmissionFileBaseAccessPolicy {
 	/**
-	 * Constructor
-	 * @param $request PKPRequest
+	 * @copydoc SubmissionFileBaseAccessPolicy
 	 */
-	function __construct($request, $fileIdAndRevision = null) {
-		parent::__construct($request, $fileIdAndRevision);
+	function __construct($request, $submissionFileId = null) {
+		parent::__construct($request, $submissionFileId);
 	}
 
 
@@ -43,8 +42,9 @@ class SubmissionFileMatchesSubmissionPolicy extends SubmissionFileBaseAccessPoli
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
 
+
 		// Check if the submission file belongs to the submission.
-		if ($submissionFile->getSubmissionId() == $submission->getId()) {
+		if ($submissionFile->getData('submissionId') == $submission->getId()) {
 			// We add this submission file to the context submission files array.
 			$submissionFilesArray = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILES);
 			if (is_null($submissionFilesArray)) {
@@ -53,7 +53,7 @@ class SubmissionFileMatchesSubmissionPolicy extends SubmissionFileBaseAccessPoli
 			array_push($submissionFilesArray, $submissionFile);
 			$this->addAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILES, $submissionFilesArray);
 
-			// Save the submission to the authorization context.
+			// Save the submission file to the authorization context.
 			$this->addAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile);
 			return AUTHORIZATION_PERMIT;
 		} else {

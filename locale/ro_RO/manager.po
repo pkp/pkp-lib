@@ -1,0 +1,2301 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-28 19:43+0000\n"
+"Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
+"Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/ro_RO/>\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Acest grup nu are membri."
+
+msgid "manager.groups.membership"
+msgstr "Apartenență"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Sigur doriți să ștergeți calitatea de membru al grupului?"
+
+msgid "manager.groups.membership.addMember"
+msgstr "Adăugați un membru"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Este necesar un titlu de grup."
+
+msgid "manager.groups.editTitle"
+msgstr "Editați titlul"
+
+msgid "manager.groups.createTitle"
+msgstr "Creați titlu"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Sigur doriți să ștergeți acest grup?"
+
+msgid "manager.files.uploadFile"
+msgstr "Încărcați fișierul"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Fișiere încărcate"
+
+msgid "manager.files.parentDir"
+msgstr "Director rădăcină"
+
+msgid "manager.files.indexOfDir"
+msgstr "Index de {$dir}"
+
+msgid "manager.files.emptyDir"
+msgstr "Nu a fost găsit niciun fișier în acest director."
+
+msgid "manager.files.createDir"
+msgstr "Creați un director"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"Ștergeți acest fișier sau director? Rețineți că un director trebuie să fie "
+"gol înainte de a putea fi șters."
+
+msgid "manager.filesBrowser"
+msgstr "Browser de fișiere"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Subiect: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Trimis la"
+
+msgid "manager.emails.sentFrom"
+msgstr "Trimis de la"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Resetare la valoarea implicită"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Dacă resetați acest șablon, toate datele mesajului vor fi resetate la "
+"valoarea implicită, pierzând toate modificările. Doriți să confirmați "
+"această operație?"
+
+msgid "manager.emails.reset"
+msgstr "Resetare"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Dacă resetați toate șabloanele, toate modificările aduse șabloanelor de e-"
+"mail vor fi pierdute. Doriți să confirmați această operație?"
+
+msgid "manager.emails.resetAll"
+msgstr "Resetează tot"
+
+msgid "manager.emails"
+msgstr "E-mailuri pregătite"
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Un subiect este necesar pentru e-mail."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Pentru e-mail este necesar un corp."
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"O cheie de e-mail unică care nu conține spații sau caractere speciale este "
+"necesară pentru e-mail."
+
+msgid "manager.emails.enable.message"
+msgstr ""
+"Ești pe cale să activezi acest e-mail.  Doriți să confirmați această "
+"operație?"
+
+msgid "manager.emails.enable"
+msgstr "Activare"
+
+msgid "manager.emails.enabled"
+msgstr "Activați acest șablon de e-mail"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Cheia pe care ați furnizat-o este deja folosită."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"La adăugarea unui șablon de e-mail trebuie să furnizați un ID de context."
+
+msgid "manager.emails.emailTemplates"
+msgstr "Modele de e-mail"
+
+msgid "manager.emails.emailTemplate"
+msgstr "Model de e-mail"
+
+msgid "manager.emails.emailKeyExists"
+msgstr ""
+"Există deja un e-mail cu cheia dată. Cheile de e-mail trebuie să fie unice."
+
+msgid "manager.emails.emailKey.description"
+msgstr "Cheia de e-mail nu poate conține decât litere, numere și underscores."
+
+msgid "manager.emails.emailKey"
+msgstr "Cheie de e-mail"
+
+msgid "manager.emails.editTestExample"
+msgstr "Editați exemplul de testare prin e-mail"
+
+msgid "manager.emails.editEmail.success"
+msgstr "Modelul de e-mail a fost modificat."
+
+msgid "manager.emails.editEmail"
+msgstr "Editați e-mailul"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Ești pe cale să dezactivezi acest șablon de e-mail. Dacă au existat procese "
+"de sistem care utilizează acest șablon, nu îl vor mai folosi. Doriți să "
+"confirmați această operație?"
+
+msgid "manager.emails.disable"
+msgstr "Dezactivați"
+
+msgid "manager.emails.details"
+msgstr "Detalii model"
+
+msgid "manager.emails.data"
+msgstr "Șablon Date Mesaj"
+
+msgid "manager.emails.customTemplate"
+msgstr "Șablon personalizat"
+
+msgid "manager.emails.createEmail"
+msgstr "Creați e-mail"
+
+msgid "manager.emails.addEmail.success"
+msgstr "Modelul de e-mail a fost adăugat."
+
+msgid "manager.emails.addEmail"
+msgstr "Adăugați șablon"
+
+msgid "manager.emails.confirmReset"
+msgstr "Sigur doriți să resetați acest șablon de e-mail la valorile implicite?"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Sigur doriți să ștergeți acest șablon de e-mail?"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Detaliile privind memento-ul de revizuire au fost actualizate."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Setările de revizuire au fost actualizate."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Ghidul pentru revizori a fost actualizat."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Ghid pentru revizori"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "Setările emailului au fost actualizate."
+
+msgid "manager.publication.emails"
+msgstr "Emailuri"
+
+msgid "manager.publication.productionStage"
+msgstr "Producție"
+
+msgid "manager.publication.editorialStage"
+msgstr "Editorial"
+
+msgid "manager.publication.reviewStage"
+msgstr "Revizuire"
+
+msgid "manager.publication.submissionStage"
+msgstr "Înregistrare manuscris"
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Tip anunț"
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Nu au fost create tipuri de anunțuri."
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Este necesar un nume pentru tipul de anunț."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Nume"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Există deja un tip de anunț cu acest nume."
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Salvare și creare alt anunț"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Editare"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Editare tip anunț"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Creați"
+
+msgid "manager.announcementTypes.create"
+msgstr "Creați un tip de anunț"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Avertizare! Toate anunțurile de acest tip vor fi șterse. Sigur doriți să "
+"continuați și să ștergeți acest tip de anunț?"
+
+msgid "manager.announcementTypes"
+msgstr "Tipuri anunțuri"
+
+msgid "manager.announcements.type"
+msgstr "Tip"
+
+msgid "manager.announcements.title"
+msgstr "Titlu"
+
+msgid "manager.announcements.noneCreated"
+msgstr "Nu au fost create anunțuri."
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Vă rugăm să selectați un tip de anunț valid."
+
+msgid "manager.announcements.form.typeId"
+msgstr "Tip"
+
+msgid "manager.announcements.form.title"
+msgstr "Titlu"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Este necesar un titlu de anunț."
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Salvați și creați un alt"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Scurtă descriere"
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Este necesară o scurtă descriere a anunțului."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "O scurtă descriere să apară împreună cu titlul anunțului."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Este necesară o descriere a anunțului."
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Textul complet al anunțului."
+
+msgid "manager.announcements.form.description"
+msgstr "Descriere"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Vă rugăm să selectați luna și ziua pe lângă anul de expirare."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Vă rugăm să selectați o dată valabilă de expirare a anunțurilor."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Vă rugăm să selectați anul și ziua pe lângă luna de expirare."
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Anunțul va fi afișat cititorilor până la această dată. Lăsați gol dacă "
+"anunțul trebuie afișat nelimitat."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Data expirării"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Vă rugăm să selectați anul și luna, pe lângă ziua de expirare."
+
+msgid "manager.announcements.editTitle"
+msgstr "Editare"
+
+msgid "manager.announcements.edit"
+msgstr "Editați anunțul"
+
+msgid "manager.announcements.datePublish"
+msgstr "Publicat"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Expirare"
+
+msgid "manager.announcements.createTitle"
+msgstr "Creați"
+
+msgid "manager.announcements.create"
+msgstr "Creați un nou anunț"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Sigur doriți să ștergeți definitiv acest anunț?"
+
+msgid "manager.announcements"
+msgstr "Anunțuri"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Este necesar un fișier imagine. Vă rugăm să vă asigurați că ați ales și "
+"încărcat un fișier."
+
+msgid "manager.website.appearance"
+msgstr "Aspect"
+
+msgid "manager.website.information"
+msgstr "Informații"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Marketing"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} new)"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Rata de respingere după revizuire"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Rata de respingere a biroului"
+
+msgid "stats.name.declineRate"
+msgstr "Rata de respingere"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Rata de acceptare"
+
+msgid "stats.name.daysToReject"
+msgstr "Zile pentru a respinge"
+
+msgid "stats.name.daysToAccept"
+msgstr "Zilele pentru a accepta"
+
+msgid "stats.name.daysToDecision"
+msgstr "Zile până la prima decizie editorială"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Manuscrise publicate"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Manuscrise refuzate (după revizie)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Manuscrise refuzate (respinse de birou)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Manuscrise refuzate"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Manuscrise acceptate"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Înregistrări manuscrise primite"
+
+msgid "stats.userStatistics"
+msgstr "Statistici utilizator"
+
+msgid "stats.trends"
+msgstr "Tendințe"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Total în intervalul de date"
+
+msgid "stats.total"
+msgstr "Total"
+
+msgid "stats.submissionsActive"
+msgstr "Procese de înregistrare manuscrise active"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Căutare după titlu, autor și ID"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Lunar"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.fileViews"
+msgstr "Vizualizări fișiere"
+
+msgid "stats.editorialActivity"
+msgstr "Activitate editorială"
+
+msgid "stats.descriptionForStat"
+msgstr "Descriere pentru {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Numărul de zile necesare pentru ca majoritatea manuscriselor să primească "
+"prima decizie editorială, cum ar fi respingerea biroului sau trimiterea spre "
+"revizuire.<br><br>Aceste cifre indică faptul că 80% dintre manuscrise ajung "
+"la decizie în numărul de zile dat.<br><br>Această statistică încearcă să "
+"descrie cam când majoritatea autorilor care înregistrează manuscrise la "
+"jurnalul dvs. se poate aștepta la o decizie."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Procentul pentru intervalul de date selectat este calculat pentru "
+"manuscrisele care au fost înregistrate în acest interval de date și au "
+"primit o decizie finală.<br><br>De exemplu, luați în considerare cazul în "
+"care au fost înregistrate zece manuscrise în acest interval de date. Patru "
+"au fost acceptate, patru au fost respinse și două sunt încă în așteptarea "
+"unei decizii finale.<br><br>Rata de acceptare va fi de 50% (4 din 8 "
+"trimiteri), deoarece cele două trimiteri care nu au ajuns la o decizie "
+"finală nu sunt luate în considerare."
+
+msgid "stats.dateRange.untilDate"
+msgstr "Înainte de {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "La"
+
+msgid "stats.dateRange.thisYear"
+msgstr "De la începutul anului"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Din {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Anul trecut"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Ultimii doi ani"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Ultimele 90 zile"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Ultimele 30 zile"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Ultimele 12 luni"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Data de începere nu poate fi mai anterioară {$date}."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Data de încheiere nu poate fi mai târziu de {$date}."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Data de începere trebuie să fie înainte de data de încheiere."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Formatul datei nu este valid. Introduceți fiecare dată în format AAAA-LL-ZZ."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Introduceți fiecare dată în format AAAA-LL-ZZ. De exemplu, dacă doriți data "
+"pentru 15 ianuarie 2019, introduceți 2019-01-15."
+
+msgid "stats.dateRange.from"
+msgstr "De la"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Una dintre datele introduse nu există."
+
+msgid "stats.dateRange.customRange"
+msgstr "Interval personalizat"
+
+msgid "stats.dateRange.change"
+msgstr "Schimbare interval de date"
+
+msgid "stats.dateRange.apply"
+msgstr "Aplică"
+
+msgid "stats.dateRange.allDates"
+msgstr "Toate datele"
+
+msgid "stats.dateRange"
+msgstr "Interval de date"
+
+msgid "stats.daily"
+msgstr "Zilnic"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/year)"
+
+msgid "stats.allUsers"
+msgstr "Toți utilizatorii"
+
+msgid "grid.category.categoryDetails"
+msgstr "Detalii despre categorie"
+
+msgid "grid.category.nameRequired"
+msgstr "Vă rugăm să introduceți un nume de categorie."
+
+msgid "grid.category.removeText"
+msgstr "Sigur doriți să eliminați această categorie?"
+
+msgid "grid.category.parentCategory"
+msgstr "Categorie rădăcină"
+
+msgid "grid.category.description"
+msgstr "Descriere"
+
+msgid "grid.category.pathExists"
+msgstr "Calea de categorie există deja. Vă rugăm să introduceți o cale unică."
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Calea de categorie trebuie să fie doar din litere și numere."
+
+msgid "grid.category.urlWillBe"
+msgstr "Adresa URL a categoriei va fi: {$sampleUrl}"
+
+msgid "grid.category.path"
+msgstr "Cale"
+
+msgid "grid.category.name"
+msgstr "Nume"
+
+msgid "grid.category.edit"
+msgstr "Editare categorie"
+
+msgid "grid.category.add"
+msgstr "Adăugare categorie"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Acest link va fi afișat numai dacă ați introdus o declarație de "
+"confidențialitate în Setări> Flux de lucru> Trimiteri."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Link către pagina care afișează declarația de confidențialitate."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Link către pagina de căutare."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Acest link va fi afișat numai dacă vizitatorul este conectat, plățile sunt "
+"activate în Setări> Distribuție> Plăți și abonamente sunt necesare în Setări>"
+" Distribuție> Acces."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Acest link va fi afișat numai dacă plățile sunt activate în Setări> "
+"Distribuție> Plăți."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Vă rugăm să selectați un tip de meniu de navigare."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Acest link va fi afișat numai dacă ați completat informațiile de contact din "
+"Setări> Contact."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Link către o pagină care afișează informațiile de contact."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Acest link va fi afișat numai atunci când vizitatorul nu este conectat."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Acest link va fi afișat numai atunci când vizitatorul este conectat."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Un link care va deconecta utilizatorul."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Acest link va fi afișat doar utilizatorilor cu rol administrativ."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Link către instrumente de administrare la nivel de site."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Link către pagina profilului de utilizator."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Link către tabloul de bord editorial."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Link către pagina de înregistrare a utilizatorilor."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Link către pagina de conectare a utilizatorului."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Acest link va fi afișat numai dacă ați activat anunțuri în Setări> Site Web."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Link către pagina care afișează anunțurile."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Link către numărul arhivat."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Link la numărul actual."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Link către pagina care afișează instrucțiuni de trimitere."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Acest link va fi afișat numai dacă ați completat secțiunea Echipa editorială "
+"din Setări> Jurnal."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Link către o pagină care afișează conținutul Masthead în Setări> Jurnal."
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Acest link va fi afișat numai dacă ați completat secțiunea Despre jurnal sub "
+"Setări> Jurnal."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Link către o pagină care afișează conținutul Despre jurnal în Setări> Jurnal"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Link către orice URL de pe un alt site, cum ar fi https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "URL de la distanță"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Creați o pagină personalizată pe site-ul dvs. și conectați-o la un meniu de "
+"navigare."
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Pagina personalizată"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Selectați un tip de meniu de navigare sau personalizați un nou meniu"
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Tip meniu de navigare"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Când un element de meniu deschide un submeniu, link-ul nu poate fi urmat pe "
+"toate dispozitivele. De exemplu, dacă aveți un articol „Despre” care "
+"deschide un submeniu cu „Contact” și „Echipa editorială”, este posibil ca "
+"legătura „Despre” să nu fie accesibilă pe toate dispozitivele. În meniul "
+"implicit, acest lucru este gestionat prin crearea unui al doilea element de "
+"meniu, „Despre jurnal”, care apare în submeniu."
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"Aflați mai multe despre momentul în care acest element de meniu va fi afișat "
+"sau ascuns."
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Trebuie să fie furnizată o adresă URL"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Un meniu de navigare este deja atribuit acestei zone."
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Selectați o zonă de navigare"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Zonele de navigare cu temă activă"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Elemente de meniu nealocate"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Elemente de meniu alocate"
+
+msgid "manager.navigationMenuItems"
+msgstr "Elemente de meniu de navigare"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Titlul este necesar"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Acest titlu există deja pentru un alt meniu de navigare."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Această cale există deja pentru un alt element de meniu de navigare."
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Câmpul de cale trebuie să conțină doar caractere alfanumerice plus '.', '/', "
+"'-', și '_'."
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Conținut"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Această pagină va fi accesibilă la: "
+"<blockquote>{$pagesPath}</blockquote>...unde% PATH% este calea introdusă mai "
+"sus. <strong>Note:</strong> Nici două pagini nu pot avea aceeași cale. "
+"Utilizarea căilor încorporate în sistem poate duce la pierderea accesului la "
+"funcții importante.</p>"
+
+msgid "manager.navigationMenus"
+msgstr "Navigare"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Cale"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Titlu"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Numele de utilizator \"{$username}\" și emalilul \"{$email}\" nu se "
+"potrivesc cu același utilizator existent."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Utilizatorul importat \"{$username}\" are o parolă simplă care nu este "
+"validă. Utilizatorul nu a fost importat."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Pentru utilizatorul importat \"{$username}\" parola nu a putut fi importată "
+"așa cum este. O nouă parolă a fost trimisă la e-mailul utilizatorului. "
+"Utilizatorul a fost importat."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Utilizatorul importat \"{$username}\" nu are parolă. Verificați formatul XML "
+"de import. Utilizatorul nu a fost importat."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Erori de import / export:"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Înregistrarea manuscrisului nu a putut fi importată"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Revizuirea \"{$revisionId}\" pentru manuscrisul \"{$fileId}\" ar crea o "
+"înregistrare dublă"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Dimensiunea de fișier furnizată \"{$expected}\" și dimensiunea efectivă a "
+"fișierelor \"{$actual}\" nu se potrivesc"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Fișierul temporar {$dest} nu a putut fi creat din {$source}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Încărcător necunoscut {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Autorul {$authorName} nu are un nume dat în limba de înregistrare a "
+"manuscrisului, {$localeName}. Înregistrarea manuscrisului nu poate fi "
+"importată fără aceste informații."
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Grup de utilizatori necunoscut {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Conținutul nu este codat ca {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Codificare necunoscută {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Gen necunoscut {$param}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Element necunoscut {$param}"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Au apărut erori:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Avertismente întâlnite:"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Erorile de validare:"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Solicitați autorului să sugereze referințe înainte de a accepta "
+"înregistrarea acestora."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr ""
+"Rugați autorul să furnizeze referințe  în timpul înregistrării manuscrisului."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr ""
+"Nu solicitați referințe de la autor în timpul înregistrării manuscrisului."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Activați metadatele referințelor"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Colectați referințele unei trimiteri într-un câmp separat. Acest lucru poate "
+"fi necesar pentru a respecta serviciile de urmărire a citărilor, precum "
+"Crossref."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Solicitați autorului să dezvăluie orice agenții de sprijin înainte de a "
+"accepta înregistrarea manuscrisului."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Rugați autorul să dezvăluie orice agenții de sprijin în timpul înregistrării "
+"manuscrisului."
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Alegeți tipul de element"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Casete de selectare (puteți bifa una sau mai multe)"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Adăugare selecție"
+
+msgid "manager.reviewFormElements"
+msgstr "Elemente formular"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Modificarea tipului de element din formular ..."
+
+msgid "manager.reviewForms.title"
+msgstr "Titlu"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Datele formularului de revizie"
+
+msgid "manager.reviewForms.preview"
+msgstr "Formular de previzualizare"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Nu au fost utilizate formulare de revizuire."
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Nu au fost create formulare de revizuire."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Niciuna / Formular de revizie gratuit"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Formularele de recenzie create aici vor fi prezentate revizorilor pentru a "
+"le completa, care în mod implicit constau din două căsuțe de text deschise, "
+"prima „pentru autor și editor” și a doua „pentru editor”. Formularele de "
+"revizuire pot fi desemnate pentru o anumită secțiune de jurnal, iar editorii "
+"vor avea opțiunea de a alege ce formular să folosească pentru atribuirea "
+"revizuirii. În toate cazurile, editorii vor avea opțiunea de a include "
+"reviziile în corespondență cu autorul."
+
+msgid "manager.reviewForms.inReview"
+msgstr "In revizie"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Este nevoie de un titlu pentru acest formular de revizie."
+
+msgid "manager.reviewForms.edit"
+msgstr "Formular de revizie"
+
+msgid "manager.reviewForms.description"
+msgstr "Descriere și instrucțiuni"
+
+msgid "manager.reviewForms.create"
+msgstr "Creare formular revizie"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Sigur ștergeți acest formular de revizie?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Complet"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Sigur doriți să creați o copie a acestui formular?"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Sigur doriți să dezactivați acest formular de revizuire? Acesta nu va mai fi "
+"disponibil pentru noi sarcini de revizuire."
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Sigur doriți să activați acest formular de revizuire? Odată ce a fost "
+"atribuit unei recenzii, nu îl veți mai putea dezactiva."
+
+msgid "manager.reviewForms"
+msgstr "Formulare de revizie"
+
+msgid "manager.distribution.title"
+msgstr "Setări distribuție"
+
+msgid "manager.distribution"
+msgstr "Distribuție"
+
+msgid "manager.workflow.title"
+msgstr "Setări flux de lucru"
+
+msgid "manager.workflow"
+msgstr "Flux de lucru"
+
+msgid "manager.website.title"
+msgstr "Setări site web"
+
+msgid "manager.website"
+msgstr "Website"
+
+msgid "manager.users.roleRequired"
+msgstr ""
+"Trebuie să selectați cel puțin un rol pentru a fi asociat cu acest "
+"utilizator."
+
+msgid "manager.settings.wizard"
+msgstr "Asistentul pentru setări"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Cheia poate conține doar caractere alfanumerice, underscore și cratime și "
+"trebuie să înceapă și să se încheie cu un caracter alfanumeric."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Cheia există deja."
+
+msgid "manager.setup.genres.key.description"
+msgstr "Un scurt identificator simbolic opțional pentru acest gen."
+
+msgid "manager.setup.genres.key"
+msgstr "Cheie"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Marcați fișiere de acest tip ca fișiere suplimentare (de exemplu, nu face "
+"parte din înregistrarea manuscrisului)"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Marcați fișierele de acest tip ca fișiere dependente (de exemplu, pentru a "
+"nu fi listate cu conținut publicat)"
+
+msgid "grid.action.restoreGenres"
+msgstr "Restabiliți componentele la setările implicite"
+
+msgid "grid.action.deleteGenre"
+msgstr "Ștergeți această componentă"
+
+msgid "grid.action.editGenre"
+msgstr "Editați componenta"
+
+msgid "grid.action.addGenre"
+msgstr "Adăugați componenta"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Selectați fișierele ce urmează să le atașați"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Acest fișier bibliotecă poate fi accesibil pentru descărcare, dacă \""
+"Accesul Public\" is activat, ca: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Alte"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Rapoarte"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Permisiuni"
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Contracte"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Este necesar un tip de fișier pentru acest fișier librărie."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Este necesar un nume pentru acest fișier librărie."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"Este necesar un fișier bibliotecă. Vă rugăm să vă asigurați că ați ales și "
+"încărcat un fișier."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Permiteți modificarea metadatelor de înregistrare manuscrise."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Trebuie să definiți o etapă pe care să o atribuiți."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Trebuie să definiți un nivel de acces pentru rol."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Trebuie să definiți o abreviere unică a rolului."
+
+msgid "settings.roles.uniqueName"
+msgstr "Trebuie să definiți un nume unic de rol."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Trebuie să definiți o abreviere a rolului."
+
+msgid "settings.roles.nameRequired"
+msgstr "Trebuie să definiți un nume de rol."
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Ești pe cale să elimini acest rol din acest context. Această operație va "
+"șterge, de asemenea, setările conexe și toate atribuțiile utilizatorilor "
+"pentru acest rol. Doriți să continuați?"
+
+msgid "settings.roles.from"
+msgstr "Nivel de acces"
+
+msgid "settings.roles.roleDetails"
+msgstr "Detalii rol"
+
+msgid "settings.roles.stages"
+msgstr "Stadii"
+
+msgid "settings.roles.assignedStages"
+msgstr "Etape atribuite"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Abreviere"
+
+msgid "settings.roles.roleName"
+msgstr "Nume rol"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Acest rol este permis pentru a recomanda o decizie de revizuire și va "
+"solicita unui editor autorizat să înregistreze o decizie finală."
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Permiteți auto-înregistrarea utilizatorului"
+
+msgid "settings.roles.showTitles"
+msgstr "Afișați titlul rolului în lista de contribuabili"
+
+msgid "settings.roles.roleOptions"
+msgstr "Opțiuni de rol"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Valuta"
+
+msgid "manager.paymentMethod.method"
+msgstr "Metoda de plată"
+
+msgid "manager.paymentMethod.none"
+msgstr "Nu a fost selectată nici o metodă de plată"
+
+msgid "manager.paymentMethod.title"
+msgstr "Metode de plată"
+
+msgid "manager.paymentMethod"
+msgstr "Plăți"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Adăugați etichete HTML personalizate, cunoscute și sub numele de meta tag-"
+"uri, pe care doriți să le introduceți în capul fiecărei pagini. Consultați "
+"un consilier tehnic înainte de a adăuga etichete aici."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Etichete personalizate"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Introduceți termenii de licență publici pe care doriți să îi afișați alături "
+"de lucrările publicate."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Termenii licenței"
+
+msgid "manager.distribution.license.other"
+msgstr "URL-ul altei licențe"
+
+msgid "manager.distribution.license.success"
+msgstr "Detaliile licenței au fost actualizate. "
+
+msgid "manager.distribution.license"
+msgstr "Licență"
+
+msgid "notification.editedUser"
+msgstr "Utilizator editat."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Setările de limbă au fost salvate."
+
+msgid "notification.localeReloaded"
+msgstr "{$locale} a fost reluată pentru {$contextName}."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} dezinstalată."
+
+msgid "notification.localeInstalled"
+msgstr "Toate limbile locale selectate sunt instalate și activate."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} definită ca limbă primară."
+
+msgid "notification.localeDisabled"
+msgstr "Fișierele lingvistice dezactivate."
+
+msgid "notification.localeEnabled"
+msgstr "Fișierele lingvistice activate."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml nu se găsește în directorul pluginului"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml din directorul plugin conține date nevalide."
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Selectați fișierul plugin"
+
+msgid "manager.plugins.uploadError"
+msgstr "Eroare la încărcarea fișierului"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Versiune actualizată cu succes {$versionString}"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Actualizare eșuată. {$errorString}"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Acest formular vă permite să actualizați un plugin.  Vă rugăm să vă "
+"asigurați că pluginul este comprimat ca fișier .tar.gz."
+
+msgid "manager.plugins.upgrade"
+msgstr "Upgrade Plugin"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr ""
+"Comanda tar nu este disponibilă. Vă rugăm să o configurați corect în dvs. \""
+"config.inc.php\"."
+
+msgid "manager.plugins.settings"
+msgstr "Setări"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"Pluginul există deja, dar este mai nou decât versiunea instalată.  Vă rugăm "
+"să faceți upgrade în schimb"
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Pluginul nu există.  Vă rugăm să instalați în schimb"
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"Versiunea.xml din pluginul încărcat conține un nume de plugin care nu se "
+"potrivește cu numele pluginului actualizat."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Pluginul încărcat nu se încadrează în categoria pluginului actualizat."
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+"Arhiva pluginului încărcat nu conține un folder care corespunde cu numele "
+"pluginului."
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Versiune instalată cu succes {$versionNumber}"
+
+msgid "manager.plugins.installFailed"
+msgstr "Instalare eșuată. {$errorString}"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Nu e disponibil"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "La zi"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Poate fi actualizat"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Versiunea mai nouă decât cea disponibilă"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Plugin deja instalat și actualizat."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Pluginul deja instalat, dar poate fi actualizat la o versiune mai nouă."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+"Pluginul este deja instalat și este mai nou decât versiunea disponibilă în "
+"galerie."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Momentan nu există o versiune compatibilă a acestui plugin."
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Pluginul nu a fost încă instalat."
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Statut"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Cuprins"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Pagina de pornire"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} lansată în {$date}"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Susținător"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr ""
+"Acest plugin este furnizat de unul dintre partenerii noștri de dezvoltare."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Partener"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "Acest plugin este revizuit și aprobat de echipa Public Project Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Revizuit"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Acest plugin este dezvoltat și întreținut de echipa Public Project Project."
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Oficial"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Cea mai recentă versiune compatibilă"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Instalare"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Prezentare generală"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Galerie de pluginuri"
+
+msgid "manager.plugins.installed"
+msgstr "Pluginuri instalate"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Vă rugăm să vă asigurați că un fișier a fost selectat pentru încărcare."
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Acest formular vă permite să încărcați și să instalați un nou plugin.  Vă "
+"rugăm să vă asigurați că pluginul este comprimat ca fișier .tar.gz."
+
+msgid "manager.plugins.upload"
+msgstr "Încărcați un nou plugin"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Vă rugăm să selectați mai întâi un fișier"
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Pluginul \"{$pluginName}\" nu există"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Această pagină permite Managerului să examineze și să configureze potențial "
+"pluginurile care sunt instalate în prezent. Plugin-urile sunt împărțite în "
+"categorii, în funcție de funcția lor. Categoriile sunt enumerate mai jos și "
+"în cadrul fiecărei categorii, setul actual de plugin-uri."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Pluginul \"{$pluginName}\" a fost șters cu succes"
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"Pluginul\"{$pluginName}\" nu a putut fi șters din sistemul de fișiere. "
+"Aceasta poate fi o problemă de permisiuni. Vă rugăm să vă asigurați că "
+"serverul web este capabil să scrie în directorul de pluginuri (inclusiv "
+"subdirectorii), dar nu uitați să îl securizați mai târziu."
+
+msgid "manager.plugins.deleteDescription"
+msgstr ""
+"Făcând clic pe ștergere, veți șterge pluginul din sistemul de fișiere al "
+"serverului."
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Sigur doriți să ștergeți acest plugin din sistem?"
+
+msgid "grid.action.installPlugin"
+msgstr "Instalați sau actualizați acest plugin"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Sigur doriți să actualizați acest plugin?"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Sigur doriți să instalați acest plugin?"
+
+msgid "manager.plugins.delete"
+msgstr "Ștergeți pluginul"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Pluginul nu a fost copiat cu succes. Aceasta poate fi o problemă de "
+"permisiuni. Vă rugăm să vă asigurați că serverul web este capabil să scrie "
+"în directorul de pluginuri (inclusiv subdirectoare), dar nu uitați să îl "
+"securizați din nou mai târziu."
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Aceste plugin-uri implementează suport pentru un identificator public."
+
+msgid "plugins.categories.pubIds"
+msgstr "Pluginuri de identificare public"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Aceste plugin-uri de format exprimă metadate în comunicațiile OAI."
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Pluginele de format de metadate OAI"
+
+msgid "plugins.categories.themes"
+msgstr "Plugin-uri cu temă"
+
+msgid "plugins.categories.themes.description"
+msgstr ""
+"Plugin-urile cu temă pot fi utilizate pentru a schimba aspectul sistemului."
+
+msgid "plugins.categories.reports"
+msgstr "Pluginuri de raport"
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+"Pluginurile de rapoarte sunt utilizate pentru a implementa diferite tipuri "
+"de rapoarte și extracte de date."
+
+msgid "plugins.categories.paymethod"
+msgstr "Pluginuri de plată"
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"Pluginurile Metoda de plată implementează suport pentru diferite moduri de "
+"procesare a plăților online."
+
+msgid "plugins.categories.importexport"
+msgstr "Instrumente de import / export"
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+"Plugin-urile Import / Export pot fi utilizate pentru a transfera conținut "
+"către și din alte sisteme."
+
+msgid "plugins.categories.generic"
+msgstr "Pluginuri generice"
+
+msgid "plugins.categories.gateways"
+msgstr "Pluginuri Gateway"
+
+msgid "plugins.categories.gateways.description"
+msgstr "Pluginele Gateway furnizează date live pentru sisteme externe."
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"Plugin-urile Block sunt componente UI conectabile, cum ar fi diferitele "
+"instrumente ale barei laterale."
+
+msgid "plugins.categories.blocks"
+msgstr "Plaginuri bloc"
+
+msgid "plugins.categories.auth"
+msgstr "Pluginuri de autorizare"
+
+msgid "plugins.categories.metadata.description"
+msgstr ""
+"Pluginele de metadate implementează standarde suplimentare de meta-date."
+
+msgid "plugins.categories.metadata"
+msgstr "Plugin-uri de metadate"
+
+msgid "manager.users"
+msgstr "Utilizatori"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Utilizatori înregistrați"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Opțiuni acces site"
+
+msgid "manager.setup.userAccess.success"
+msgstr "Detaliile de acces ale utilizatorului au fost actualizate."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Tema selectată nu este instalată sau activată."
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Temele noi pot fi instalate din fila Plugin-uri din partea de sus a acestei "
+"pagini."
+
+msgid "manager.setup.theme"
+msgstr "Tema"
+
+msgid "manager.setup.theme.success"
+msgstr ""
+"Tema a fost actualizată. <a href=\"{$url}\" target=\"_blank\">Vizualizează "
+"acum</a>"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"O persoană de contact care poate ajuta redactorii, autorii și revizorii cu "
+"probleme pe care le prezintă, editează, revizuiește sau publică materiale."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Contact asistență tehnică"
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Dezvoltatorii web experimentați pot încărca un fișier CSS pentru a "
+"personaliza în continuare aspectul site-ului."
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Exemple: asociații de specialiști, departamente universitare, cooperative, "
+"etc. Sponsorii sunt afișați public."
+
+msgid "manager.setup.sponsors.note"
+msgstr "Descrierea Politicii de sponsorizare"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Prezentați o legătură către <button type=\"button\">Asigurarea reviziei în "
+"orb</button> durata încărcării"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Modul de examinare implicit"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Trimiteți un memento prin e-mail dacă un recenzor nu a trimis o recomandare "
+"în acest sens după data scadenței revizuirii."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Memento revizuire"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Trimiteți un memento prin e-mail dacă un recenzor nu a răspuns la o cerere "
+"de revizuire, la multe zile după data scadenței răspunsului."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Memento răspuns"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Setările implicite pot fi modificate pentru fiecare revizuire în timpul "
+"procesului editorial."
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Nu îmi amintiți"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Săptămânile au fost permise pentru finalizarea revizuirii"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr ""
+"Număr de săptămâni pentru a accepta sau refuza o solicitare de revizuire."
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Termenul de completare implicit"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Termenul de răspuns implicit"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Această declarație va apărea în timpul înregistrării utilizatorului, a "
+"înregistrării manuscrisului și pe pagina de confidențialitate disponibilă "
+"publicului. În unele jurisdicții, vi se solicită în mod legal să dezvăluiți "
+"modul în care gestionați datele utilizatorului în această politică de "
+"confidențialitate."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Declarația de confidențialitate"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Introduceți datele de contact, de obicei pentru un redactor principal. "
+"Acestea pot fi afișate pe site-ul dvs. într-ul spațiu accesibil publicului."
+
+msgid "manager.setup.principalContact"
+msgstr "Contact principal"
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Prezentați politicile și procesele de revizuire pentru cititori și autori. "
+"Această descriere include adesea numărul de recenzori utilizați în mod "
+"obișnuit pentru a examina un manuscris, criteriile prin care recenzorii sunt "
+"rugați să judece observațiile, timpul preconizat necesar pentru efectuarea "
+"revizuirii și principiile utilizate pentru selectarea evaluatorilor."
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Introduceți orice imagine, text sau cod HTML pe care doriți să apară în "
+"partea de jos a site-ului."
+
+msgid "manager.setup.pageFooter"
+msgstr "Pagina de subsol"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"Formatul de imagine pentru logo este invalid, sau încărcarea a eșuat. "
+"Formate acceptate sunt .gif, .jpg sau .png."
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Dacă oferiți acces imediat gratuit la întregul conținut publicat, puteți "
+"introduce o descriere a politicii dvs. de acces deschis."
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Politica de acces liber"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Autorilor li se trimite automat un e-mail în care li se confirmă "
+"înregistrarea manuscrisului. Este posibil să aveți copii ale acestui e-mail "
+"trimise la următoarele:"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Trimiteți o copie la această adresă de e-mail"
+
+msgid "manager.setup.notifications"
+msgstr "Notificarea autorului cu privire la înregistrarea manuscrisului"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr ""
+"Fișierul pe care l-ați încărcat nu a putut fi găsit. Încercați să îl "
+"încărcați din nou."
+
+msgid "manager.setup.logo"
+msgstr "Logo"
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Înregistrare și audit"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Blocul {$nume} nu poate fi găsit. Vă rugăm să vă asigurați că pluginul este "
+"instalat și activat."
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Bara laterală"
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Descriere"
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr ""
+"Formatul sau încărcarea titlului paginii de pornire nevalide nu a reușit. "
+"Formate acceptate sunt .gif, .jpg sau .png."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr ""
+"Formatul de imagine sau încărcarea nevalidă a paginii de pornire nu au "
+"reușit. Formate acceptate sunt .gif, .jpg sau .png."
+
+msgid "manager.setup.homepageImage.description"
+msgstr ""
+"Încărcați o imagine pentru a fi afișată în mod vizibil pe pagina de pornire."
+
+msgid "manager.setup.homepageImage"
+msgstr "Imaginea Paginii de Pornire"
+
+msgid "manager.setup.groupType"
+msgstr "Gruparea pe tipuri de fișier"
+
+msgid "manager.setup.favicon"
+msgstr "Icon"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "A apărut o eroare la ștergerea acestui element."
+
+msgid "manager.setup.competingInterests"
+msgstr "Interese concurente"
+
+msgid "manager.setup.checklist"
+msgstr "Listă de verificare"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Recomandările pentru autori au fost actualizate cu succes."
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Recomandările includ standarde bibliografice și de formatare, alături de "
+"exemple de formate comune de citare care vor fi utilizate în manuscrise."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Ghid pentru autori"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Solicitați autorilor să accepte următoarea notificare privind drepturile de "
+"autor ca parte a procesului de înregistrare de manuscris."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Notificare privind drepturile de autor"
+
+msgid "manager.setup.contact.success"
+msgstr "Datele de contact pentru aceasta au fost actualizate."
+
+msgid "manager.setup.appearance.success"
+msgstr "Setările de aspect au fost actualizate."
+
+msgid "manager.setup.advanced"
+msgstr "Avansat"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Orice este introdus aici va apărea pe pagina dvs. de pornire."
+
+msgid "manager.setup.additionalContent"
+msgstr "Conținut suplimentar"
+
+msgid "manager.affiliationAndSupport"
+msgstr "Sponsor"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Rezultate restrânse după țară, regiune și / sau oraș."
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "După locația geografică"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Sau selectați intervalul după:"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Selectați intervalul de raport"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "După tipul obiectului și / sau ID-ul obiectului"
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "După context"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr ""
+"Următorul url poate fi utilizat pentru a genera raportul cu setările curente "
+"ale formularului. Doar copiați-l și deschideți-l în browser. Puteți, de "
+"asemenea, să îl stocați ca generator de url de raport personalizat în "
+"marcajele dvs."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "Raport URL"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Trebuie să selectați cel puțin o coloană pentru a genera raportul."
+
+msgid "manager.statistics.reports.cities.label"
+msgstr ""
+"Unul sau mai multe nume de oraș, separate prin virgulă (de exemplu, numele "
+"orașului 1, numele orașului 2)"
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Folosiți formatul AAAAMMZZ."
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Folosiți formatul AAAALL."
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Descendent"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Ascendent"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Direcţie"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Comandați prin"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Luna curentă"
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Ieri"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr ""
+"Definiți unul sau mai multe ID-uri de obiect, separate prin virgulă (de "
+"exemplu, 1,2,3,4,5)."
+
+msgid "manager.statistics.reports.objectId"
+msgstr "ID obiect"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Tip de obiect"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Obiect care nu se găsește în baza de date"
+
+msgid "manager.statistics.reports.filters"
+msgstr "Filtre"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr ""
+"Definiți coloanele care vor fi utilizate pentru a construi raportul. "
+"Coloanele pe care le selectați aici nu numai că definesc datele care vor fi "
+"prezentate în rapoarte, dar definesc și nivelul de agregare a statisticilor. "
+"De exemplu, dacă alegeți coloane ID, tip și lună, raportul va însuma toate "
+"vizualizările pentru un obiect dintr-o lună și va prezenta datele într-un "
+"rând. Dacă alegeți Ziua în loc de Lună, fiecare obiect va avea un rând "
+"pentru fiecare zi."
+
+msgid "manager.statistics.reports.columns"
+msgstr "Coloane"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Ascundeți opțiunile avansate"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Opțiuni avansate"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Generați raport personalizat"
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Șabloane de raport implicite"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr ""
+"Elementele cu caractere italice și marcate cu * reprezintă date care sunt "
+"opționale pentru modul curent de numărare a statisticilor în sistem (tip "
+"metric). Este posibil să aveți sau nu aceste date, în funcție de "
+"configurația pluginului dvs. responsabil de statistici."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Statistici generale:"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"Sistemul generează rapoarte care urmăresc detaliile asociate cu utilizarea "
+"site-ului și înregistrările de manuscrise într-o anumită perioadă de timp. "
+"Rapoartele sunt generate în format CSV, care necesită o aplicație de foi de "
+"calcul pentru vizualizare."
+
+#, fuzzy
+msgid "manager.statistics.reports"
+msgstr "Generator de raport"
+
+msgid "manager.statistics.region"
+msgstr "Regiune"
+
+msgid "manager.statistics.city"
+msgstr "Oraș"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\t{$contextObjectName} este configurat pentru a înregistra mai multe "
+"valori de utilizare. Statisticile de utilizare vor fi afișate în mai multe "
+"contexte.\n"
+"\t\tExistă cazuri în care trebuie utilizată o singură statistică, de ex. "
+"pentru a afișa o listă ordonată a celor mai utilizate înregistrări de "
+"manuscrise sau pentru a se clasifica\n"
+"\t\trezultatele căutării. Vă rugăm să selectați una dintre valorile "
+"configurate ca implicită.\n"
+"\t"
+
+msgid "manager.statistics"
+msgstr "Stats &amp; Rapoarte"
+
+msgid "manager.roles"
+msgstr "Roluri"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Utilizați formularul de mai jos pentru a seta valorile maxime pentru "
+"termenii pe care doriți să-i căutați. Formularul este pre-populat cu mediile "
+"calculate ale câmpurilor respective."
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Interesele revizorului"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Căutare după nume"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Căutați revizorii după nume"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Schimbă"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Nu puteți șterge acest reprezentant, deoarece acestuia i se atribuie "
+"metadatele pieței pentru unul sau mai multe formate de publicare pentru "
+"acest manuscris."
+
+msgid "manager.userSearch.searchByName"
+msgstr "Căutare utilizator după nume"
+
+msgid "manager.readingTools"
+msgstr "Instrumente de citit"
+
+msgid "manager.plugins"
+msgstr "Plugin-uri de sistem"
+
+msgid "manager.plugins.sitePlugin"
+msgstr ""
+"Acesta este un plugin la nivel de site. Doar administratorul site-ului poate "
+"gestiona acest plugin."
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Managementul pluginurilor"
+
+msgid "manager.plugins.enable"
+msgstr "Activare"
+
+msgid "manager.plugins.disable"
+msgstr "Dezactivare"
+
+msgid "manager.plugins.action"
+msgstr "Acțiune:"
+
+msgid "manager.people.userMustChangePassword"
+msgstr ""
+"Solicitați utilizatorului să își schimbe parola la următoarea conectare."
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Utilizatorul a fost creat cu succes."
+
+msgid "manager.people.unenroll"
+msgstr "Anulați înrolarea"
+
+msgid "manager.people.syncUsers"
+msgstr "Sincronizați înrolarea utilizatorului"
+
+msgid "manager.people.signInAsUser"
+msgstr "Autentificați-vă ca utilizator"
+
+msgid "manager.people.signInAs"
+msgstr "Autentificați-vă ca"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Salvați și creați un alt"
+
+msgid "manager.people.remove"
+msgstr "Eliminați"
+
+msgid "manager.people"
+msgstr "Persoane"
+
+msgid "manager.people.noneEnrolled"
+msgstr "Nici un utilizator înregistrat."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Fără utilizatori potriviți."
+
+msgid "manager.people.mustProvideName"
+msgstr "Vă rugăm să furnizați cel puțin un nume pentru utilizator."
+
+msgid "manager.people.mustChooseRole"
+msgstr ""
+"Vă rugăm să selectați un rol în partea de sus a paginii înainte de a face "
+"clic pe „Înrolare utilizator”."
+
+msgid "manager.people.mergeUsers"
+msgstr "Îmbinare utilizatori"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr ""
+"Sigur doriți să îmbinați conturile {$ oldAccountCount} selectate în cont cu "
+"numele de utilizator „{$ newUsername}”? Conturile selectate {$ "
+"oldAccountCount} nu vor exista ulterior. Această acțiune nu este reversibilă."
+
+msgid "manager.people.mergeUser"
+msgstr "Îmbinare utilizator"
+
+msgid "manager.people.invalidUser"
+msgstr "Ne pare rău, utilizatorul solicitat nu există."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Înrolare utilizator ca"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Utilizatorilor li se poate atribui sau elimina un rol în orice moment."
+
+msgid "manager.people.enrollSync"
+msgstr "Sincronizați înrolările"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Sincronizați rolul"
+
+msgid "manager.people.enrollSelected"
+msgstr "Înrolare utilizatori selectați"
+
+msgid "manager.people.enrollment"
+msgstr "Înrolare"
+
+msgid "manager.people.enroll"
+msgstr "Înrolare utilizator"
+
+msgid "manager.people.enable"
+msgstr "Activare"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"Selectați utilizatorii pe care doriți să le trimiteți e-mail bifând, "
+"casetele de lângă numele lor"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Selectare fișier de limbă"
+
+msgid "manager.people.emailUsers"
+msgstr "Email utilizatori"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Utilizatorii de e-mail s-au înscris ca"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Editare utilizatori selectați"
+
+msgid "manager.people.editUser"
+msgstr "Editare utilizator"
+
+msgid "manager.people.editProfile"
+msgstr "Editare profil"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Fără niciun rol"
+
+msgid "manager.people.disable"
+msgstr "Dezactivare"
+
+msgid "manager.people.createUserSendNotify"
+msgstr ""
+"Trimiteți utilizatorului un e-mail de bun venit care conține numele de "
+"utilizator și parola."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Nu solicitați agenții de sprijin de la autor în timpul înregistrării "
+"manuscrisului."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Activați metadatele agențiilor de sprijin"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Agențiile de sprijin pot indica sursa de finanțare a cercetării sau un alt "
+"sprijin instituțional care a facilitat cercetarea."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Solicitați autorului să sugereze discipline înainte de a accepta "
+"înregistrarea acestora."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr ""
+"Rugați autorul să furnizeze discipline în timpul înregistrării manuscrisului."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr ""
+"Nu solicitați discipline de la autor în timpul înregistrării manuscrisului."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Activați metadatele disciplinelor"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Disciplinele sunt tipuri de studiu sau ramuri ale cunoștințelor, așa cum "
+"sunt descrise de facultățile din universități și de societățile de învățate."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Solicitați autorului să sugereze tipul înainte de a accepta înregistrarea "
+"acestora."
+
+msgid "manager.setup.metadata.type.request"
+msgstr ""
+"Rugați autorul să furnizeze tipul în timpul înregistrării manuscrisului."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Nu solicitați tipul de la autor în timpul înregistrării manuscrisului."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Activați metadatele de tip"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Natura sau genul conținutului principal al transmiterii. Tipul este de "
+"obicei „Text”, dar poate fi, de asemenea, „Dataset”, „Image” sau oricare "
+"dintre <a target=\"_blank\" href=\"http://dublincore.org/documents/"
+"dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core types</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Solicitați autorului să sugereze subiecte înainte de a accepta înregistrarea "
+"acestora."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr ""
+"Rugați autorul să furnizeze subiecte în timpul înregistrării manuscrisului."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr ""
+"Nu solicitați subiecte de la autor în timpul înregistrării manuscrisului."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Activați metadatele de subiect"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Subiectele vor fi cuvinte cheie, expresii cheie sau coduri de clasificare "
+"care descriu un subiect al înregistrării manuscrisului."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Solicitați autorului să sugereze o sursă URL înainte de a accepta "
+"înregistrarea acestora."
+
+msgid "manager.setup.metadata.source.request"
+msgstr ""
+"Rugați autorul să furnizeze o adresă URL sursă în timpul înregistrării "
+"manuscrisului."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr ""
+"Nu solicitați sursa URL de la autor în timpul înregistrării manuscrisului."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Activați metadatele sursă"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Sursa poate fi un ID, cum ar fi un DOI, al unei alte lucrări sau resurse din "
+"care este derivat manuscrisul."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Solicitați autorului să dezvăluie orice drepturi de acces anterioare înainte "
+"de a accepta înregistrarea manuscrisului."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Rugați autorul să dezvăluie orice drepturi de acces anterioare în timpul "
+"înregistrării manuscrisului."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+"Nu solicitați divulgarea drepturilor de la autor în timpul înregistrării "
+"manuscrisului."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Activați metadatele drepturilor"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Orice drepturi deținute asupra manuscrisului, care pot include drepturi de "
+"proprietate intelectuală (DPI), drepturi de autor și diverse drepturi de "
+"proprietate."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Solicitați autorului să introducă limbile manuscrisului înainte de a accepta "
+"transmiterea."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Solicitați autorului să indice limbile transmiterii în timpul înregistrării "
+"de manuscris."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+"Nu solicitați limbile de trimitere de la autor în timpul înregistrării de "
+"manuscris."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Activați metadatele de limbă"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Limba selectată indică limba primară de lucru folosind un cod de limbă („en”)"
+" cu un cod de țară opțional („en_US”)."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Solicitați autorului să sugereze cuvintele cheie înainte de a accepta "
+"înregistrarea acestora."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr ""
+"Rugați autorul să sugereze cuvinte cheie în timpul înregistrării "
+"manuscrisului."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr ""
+"Nu solicitați cuvinte cheie de la autor în timpul înregistrării "
+"manuscrisului."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Activați metadatele pentru cuvinte cheie"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Cuvintele cheie sunt de obicei fraze de unu la trei cuvinte care sunt "
+"utilizate pentru a indica subiectele principale ale unei trimiteri."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Solicitați autorului să sugereze metadate de acoperire înainte de a accepta "
+"înregistrarea acestora."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Rugați autorul să sugereze metadate de acoperire în timpul înregistrării "
+"manuscrisului."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Nu cereți metadate de acoperire de la autor în timpul înregistrării unui "
+"manuscris."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Activați metadatele de acoperire"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Acoperirea va indica de obicei locația spațială a unei lucrări (un nume al "
+"locului sau coordonatele geografice), perioada temporală (o etichetă a "
+"perioadei, data sau intervalul de date) sau jurisdicția (cum ar fi o "
+"entitate administrativă numită)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Acoperire"
+
+msgid "manager.setup.metadata.success"
+msgstr "Metadatele înregistrării manuscrisului au fost actualizate cu succes."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Formular de înregistrare manuscris"
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL către o pagină web care descrie licența, dacă este disponibilă."
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Solicitați o declarație de interes competitiv în timpul evaluării."
+
+msgid "grid.action.createReviewForm"
+msgstr "Creați un nou formular de revizuire"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Vizibil (pentru autori)"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Caseta de text cu o singură linie"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Caseta de text extinsă"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Caseta de text cu un singur cuvânt"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Inclus în mesajul către autor"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Revizorii trebuie să completeze articolul"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Buton radio (puteți selecta doar unul)"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Descriere"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Element"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Selectare"
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Nu au fost create elemente de formular."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "O întrebare este necesară pentru elementul din formular."
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Un tip de element este necesar pentru formular."
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Tip element"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Editate element formular"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Casetă derulantă"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Creare element nou"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Copiază in:"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Confirmă ștergerea unui element de formular publicat ..."
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Generare parolă randomizat."
+
+msgid "manager.people.createUser"
+msgstr "Creare utilizator nou"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Anulați acest utilizator?"
+
+msgid "manager.people.authSource"
+msgstr "Sursa de autentificare"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Trebuie introdus un utilizator existent."
+
+msgid "manager.payment.timestamp"
+msgstr "Marcaj de timp"
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"Selectați toate fișierele de limbă acceptate pe site printr-un meniu de "
+"selectare a limbii pentru a apărea pe fiecare pagină. Meniul va apărea numai "
+"dacă sunt selectare mai multe regiuni locale."
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr ""
+"Acest sistem permite opțional să fie introduse anumite informații critice în "
+"mai multe limbi suplimentare. Pentru a utiliza această caracteristică, "
+"selectați fișiere de limbă alternative și alegeți dintre opțiunile enumerate "
+"mai jos."
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Reluați valorile implicite"
+
+msgid "manager.language.forms"
+msgstr "Formulare"
+
+msgid "manager.language.submissions"
+msgstr "Înregistrare manuscris"
+
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "manager.importExport"
+msgstr "Importă/Exportă date"
+
+msgid "manager.groups.title"
+msgstr "Titlu"
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Nu a fost găsit niciun utilizator."

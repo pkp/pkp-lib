@@ -1,9 +1,9 @@
 {**
  * templates/frontend/pages/submissions.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the page to view the editorial team.
  *
@@ -21,6 +21,8 @@
 	<div class="cmp_notification">
 		{if $sections|@count == 0}
 			{translate key="author.submit.notAccepting"}
+		{elseif $currentContext->getData('disableSubmissions')}
+			{translate key="manager.setup.disableSubmissions.notAccepting"}
 		{else}
 			{if $isUserLoggedIn}
 				{capture assign="newSubmission"}<a href="{url page="submission" op="wizard"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
@@ -38,12 +40,13 @@
 		<div class="submission_checklist">
 			<h2>
 				{translate key="about.submissionPreparationChecklist"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.submissionPreparationChecklist"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/submissionChecklist" sectionTitleKey="about.submissionPreparationChecklist"}
 			</h2>
 			{translate key="about.submissionPreparationChecklist.description"}
 			<ul>
 				{foreach from=$submissionChecklist item=checklistItem}
 					<li>
+						<span class="fa fa-check" aria-hidden="true"></span>
 						{$checklistItem.content|nl2br}
 					</li>
 				{/foreach}
@@ -55,7 +58,7 @@
 	<div class="author_guidelines" id="authorGuidelines">
 		<h2>
 			{translate key="about.authorGuidelines"}
-			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.authorGuidelines"}
+			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/authorGuidelines" sectionTitleKey="about.authorGuidelines"}
 		</h2>
 		{$currentContext->getLocalizedData('authorGuidelines')}
 	</div>
@@ -80,7 +83,7 @@
 		<div class="copyright_notice">
 			<h2>
 				{translate key="about.copyrightNotice"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="distribution" anchor="permissions" sectionTitleKey="about.copyrightNotice"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/authorGuidelines" sectionTitleKey="about.copyrightNotice"}
 			</h2>
 			{$currentContext->getLocalizedData('copyrightNotice')}
 		</div>
@@ -90,7 +93,7 @@
 	<div class="privacy_statement" id="privacyStatement">
 		<h2>
 			{translate key="about.privacyStatement"}
-			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.privacyStatement"}
+			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="setup/privacy" sectionTitleKey="about.privacyStatement"}
 		</h2>
 		{$currentContext->getLocalizedData('privacyStatement')}
 	</div>

@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/SubmissionLanguageDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionLanguageDAO
  * @ingroup submission
@@ -23,11 +23,12 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	/**
 	 * Build/fetch and return a controlled vocabulary for languages.
 	 * @param $publicationId int
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
 	 * @return ControlledVocab
 	 */
-	function build($publicationId) {
+	function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION) {
 		// may return an array of ControlledVocabs
-		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, ASSOC_TYPE_PUBLICATION, $publicationId);
+		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, $assocType, $publicationId);
 	}
 
 	/**
@@ -42,13 +43,14 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 * Get Languages for a submission.
 	 * @param $publicationId int
 	 * @param $locales array
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#6213
 	 * @return array
 	 */
-	function getLanguages($publicationId, $locales = []) {
+	function getLanguages($publicationId, $locales = [], $assocType = ASSOC_TYPE_PUBLICATION) {
 		$result = [];
 
-		$languages = $this->build($publicationId);
-		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO');
+		$languages = $this->build($publicationId, $assocType);
+		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO'); /* @var $submissionLanguageEntryDao SubmissionLanguageEntryDAO */
 		$submissionLanguages = $submissionLanguageEntryDao->getByControlledVocabId($languages->getId());
 		while ($languageEntry = $submissionLanguages->next()) {
 			$language = $languageEntry->getLanguage();
@@ -70,18 +72,12 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 * @return array
 	 */
 	function getAllUniqueLanguages() {
+		$result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [CONTROLLED_VOCAB_SUBMISSION_LANGUAGE]);
+
 		$languages = array();
-
-		$result = $this->retrieve(
-			'SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', CONTROLLED_VOCAB_SUBMISSION_LANGUAGE
-		);
-
-		while (!$result->EOF) {
-			$languages[] = $result->fields[0];
-			$result->MoveNext();
+		foreach ($result as $row) {
+			$languages[] = $row->setting_value;
 		}
-
-		$result->Close();
 		return $languages;
 	}
 
@@ -90,12 +86,13 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 * @param $languages array
 	 * @param $publicationId int
 	 * @param $deleteFirst boolean
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
 	 * @return int
 	 */
-	function insertLanguages($languages, $publicationId, $deleteFirst = true) {
-		$languageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
-		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO');
-		$currentLanguages = $this->build($publicationId);
+	function insertLanguages($languages, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION) {
+		$languageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /* @var $languageDao SubmissionLanguageDAO */
+		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO'); /* @var $submissionLanguageEntryDao SubmissionLanguageEntryDAO */
+		$currentLanguages = $this->build($publicationId, $assocType);
 
 		if ($deleteFirst) {
 			$existingEntries = $languageDao->enumerate($currentLanguages->getId(), CONTROLLED_VOCAB_SUBMISSION_LANGUAGE);
@@ -113,7 +110,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 					$i = 1;
 					foreach ($list as $language) {
 						$languageEntry = $submissionLanguageEntryDao->newDataObject();
-						$languageEntry->setControlledVocabId($currentLanguages->getID());
+						$languageEntry->setControlledVocabId($currentLanguages->getId());
 						$languageEntry->setLanguage(urldecode($language), $locale);
 						$languageEntry->setSequence($i);
 						$i++;

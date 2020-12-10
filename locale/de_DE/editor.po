@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
+"PO-Revision-Date: 2020-02-04 14:32+0000\n"
+"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
+"de/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:24-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.submissionLibrary"
 msgstr "Einreichungsbibliothek"
@@ -89,11 +92,13 @@ msgstr "E-Mail nicht an Autor/in schicken"
 msgid "editor.submissionReview.open"
 msgstr "Offen"
 
-msgid "editor.submissionReview.blind"
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
 msgstr "Blind"
 
-msgid "editor.submissionReview.doubleBlind"
-msgstr "Double-blind"
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Doppelblind"
 
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Zu begutachtende Dateien"
@@ -120,10 +125,14 @@ msgid "editor.review.newReviewRound"
 msgstr "Neue Begutachtungsrunde nötig"
 
 msgid "editor.review.NotifyAuthorRevisions"
-msgstr "Autor/in über Überarbeitungsbedarf informieren:"
+msgstr ""
+"Überarbeitungen werden keiner neuen Begutachtungsrunde durch Peer-Reviewer "
+"unterzogen."
 
 msgid "editor.review.NotifyAuthorResubmit"
-msgstr "Autor/in über Überarbeitungsbedarf und erneute Begutachtung informieren:"
+msgstr ""
+"Überarbeitungen werden einer neuen Begutachtungsrunde durch Peer-Reviewer "
+"unterzogen."
 
 msgid "editor.review.dateAccepted"
 msgstr "Datum der Annahme"
@@ -147,7 +156,7 @@ msgid "editor.review.thankReviewerError"
 msgstr "Fehler beim Versenden des Dankes an Gutachter/in"
 
 msgid "editor.review.skipEmail"
-msgstr "E-Mail nicht an Gutachter/in schicken"
+msgstr "E-Mail nicht an Gutachter/in schicken."
 
 msgid "editor.review.sendReminder"
 msgstr "Erinnerung senden"
@@ -359,12 +368,6 @@ msgstr "Die öffentliche Kennung '{$publicIdentifier}' darf keine Zahl sein."
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Das Muster {$pattern} ist für die Bildung der öffentlichen Kennung nicht zulässig."
 
-msgid "reviewer.list.count"
-msgstr "{$count} Gutachter/innen"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} von {$total} Gutachter/innen"
-
 msgid "reviewer.list.filterRating"
 msgstr "Mindestens bewertet"
 
@@ -401,6 +404,7 @@ msgstr "Noch nie zugewiesen"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Dieser Gutachterin/diesem Gutachter ist diese Einreichung bereits zur Begutachtung zugewiesen worden."
 
+#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr "Diese Gutachterin/dieser Gutachter ist gesperrt, weil sie eine Rolle zugewiesen bekommen haben, ind der sie die Identität der Autorin/des Autors einsehen dürfen. Eine blinde Begutachtung kann nicht garantiert werden. Möchten Sie diese Gutachterin bzw. diesen Gutachter dennoch freischalten?"
 
@@ -412,3 +416,56 @@ msgstr "Begutachtungsinteressen"
 
 msgid "reviewer.list.biography"
 msgstr "Biographie"
+
+msgid "reviewer.list.empty"
+msgstr "Es wurden keine Gutachter/innen gefunden."
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Begutachtungsanfragen zurückgezogen"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Es gab einen Fehler beim Wiedereinsetzen des/der Gutachter/in. Bitte "
+"versuchen Sie es erneut."
+
+msgid "editor.review.reviewerThanked"
+msgstr "Dem Gutachter gedankt"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Die Redaktion hat diese Anfrage nach einem Gutachten zurückgezogen."
+
+msgid "editor.review.requestCancelled"
+msgstr "Anfrage zurückgezogen"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Gutachter wiedereinsetzen"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Gutachter streichen"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Entscheidung ändern"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Beitrag akzeptiert für Begutachtung."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Zur Herstellung gesendet."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "In eine neue Begutachtungsrunde geschickt."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Beitrag veröffentlicht."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Beitrag akzeptiert."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Beitrag abgelehnt."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Entscheidung aufgezeichnet"
+
+msgid "editor.activityLog"
+msgstr "Aktivitätsprotokoll"

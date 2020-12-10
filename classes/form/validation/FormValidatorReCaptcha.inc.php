@@ -3,9 +3,9 @@
 /**
  * @file classes/form/validation/FormValidatorReCaptcha.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorReCaptcha
  * @ingroup form_validation
@@ -14,7 +14,7 @@
  */
 
 define('RECAPTCHA_RESPONSE_FIELD', 'g-recaptcha-response');
-define('RECAPTCHA_HOST', 'https://www.google.com');
+define('RECAPTCHA_HOST', 'https://www.recaptcha.net');
 define("RECAPTCHA_PATH", "/recaptcha/api/siteverify");
 
 class FormValidatorReCaptcha extends FormValidator {

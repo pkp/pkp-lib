@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
+"PO-Revision-Date: 2020-02-26 09:36+0000\n"
+"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
+"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/sv/>"
+"\n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr "Din förfrågan nekades. Detta kan bero på att din inloggning förfallit. Prova att ladda om sidan och försöka igen."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Du kan bara visa opublicerade bidrag som du själv blivit tilldelad."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Du kan inte radera ett bidrag som inte är kopplat till den här kontexten."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Du har inte behörighet att ta bort det här bidraget."
+
+msgid "api.404.resourceNotFound"
+msgstr "Den efterfrågade resursen kunde inte hittas."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "Din förfrågan kunde inte fullföljas eftersom det saknar nödvändig information."
+
+msgid "api.submissions.400.stageNotValid"
+msgstr "Din förfrågan kunde inte fullföljas eftersom ID:t för bidragssteget är ogiltigt."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Du kan inte ändra status direkt genom APIet. Använd istället /publish och /"
+"unpublish endpoints."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+"Du kan inte redigera denna publikation eftersom den redan är publicerad."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Publikationen du vill avpublicera är inte publicerad."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "E-postmeddelandemallen hittades ej."
+
+msgid "api.404.endpointNotFound"
+msgstr "URL:en kunde inte hittas."
+
+msgid "api.403.unauthorized"
+msgstr "Du har inte tillgång till den efterfrågade resursen."
+
+msgid "api.400.paramNotSupported"
+msgstr "{$param}-parametern stöds ej."

@@ -3,9 +3,9 @@
 /**
  * @file classes/task/ReviewReminder.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2013-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewReminder
  * @ingroup tasks
@@ -37,8 +37,8 @@ class ReviewReminder extends ScheduledTask {
 	 * 	REVIEW_REMIND_AUTO, REVIEW_REQUEST_REMIND_AUTO
 	 */
 	function sendReminder ($reviewAssignment, $submission, $context, $reminderType = REVIEW_REMIND_AUTO) {
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$reviewId = $reviewAssignment->getId();
 
 		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
@@ -74,14 +74,14 @@ class ReviewReminder extends ScheduledTask {
 			$reviewUrlArgs = array_merge($reviewUrlArgs, array('reviewId' => $reviewId, 'key' => $accessKey));
 		}
 
-		$application = Application::getApplication();
+		$application = Application::get();
 		$request = $application->getRequest();
 		$dispatcher = $application->getDispatcher();
 		$submissionReviewUrl = $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', null, $reviewUrlArgs);
 
 		// Format the review due date
 		$reviewDueDate = strtotime($reviewAssignment->getDateDue());
-		$dateFormatShort = Config::getVar('general', 'date_format_short');
+		$dateFormatShort = $context->getLocalizedDateFormatShort();
 		if ($reviewDueDate === -1 || $reviewDueDate === false) {
 			// Default to something human-readable if no date specified
 			$reviewDueDate = '_____';
@@ -127,8 +127,8 @@ class ReviewReminder extends ScheduledTask {
 		$submission = null;
 		$context = null;
 
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$submissionDao = Application::getSubmissionDAO();
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$contextDao = Application::getContextDAO();
 
 		$incompleteAssignments = $reviewAssignmentDao->getIncompleteReviewAssignments();

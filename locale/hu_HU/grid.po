@@ -1,0 +1,687 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
+"PO-Revision-Date: 2020-02-21 15:36+0000\n"
+"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"hu/>\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.noItems"
+msgstr "Nincsenek tételek"
+
+msgid "grid.settings"
+msgstr "Beállítások"
+
+msgid "grid.noAuditors"
+msgstr "Nincsenek ellenőrök"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Ez a tétel távoli elérésű."
+
+msgid "grid.action.manageAccess"
+msgstr "Hozzáférés menedzselése"
+
+msgid "grid.action.sort"
+msgstr "Rendezés"
+
+msgid "grid.action.addItem"
+msgstr "Tétel hozzáadása"
+
+msgid "grid.action.addNote"
+msgstr "Jegyzet hozzáadása"
+
+msgid "grid.action.addQuery"
+msgstr "Párbeszéd hozzáadása"
+
+msgid "grid.action.readQuery"
+msgstr "Párbeszéd olvasása"
+
+msgid "grid.action.deleteQuery"
+msgstr "Párbeszéd törlése"
+
+msgid "grid.action.updateQuery"
+msgstr "Párbeszéd frissítése"
+
+msgid "grid.action.addUser"
+msgstr "Felhasználó hozzáadása"
+
+msgid "grid.action.unassignReviewer"
+msgstr "E szakmai lektor hozzárendelésének megszüntetése"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Technikai szerkesztésen átesett fájl jóváhagyása a következő szakaszba küldéshez"
+
+msgid "grid.action.reload"
+msgstr "Újratöltés"
+
+msgid "grid.action.delete"
+msgstr "Törlés"
+
+msgid "grid.action.deleteFile"
+msgstr "Fájl törlése"
+
+msgid "grid.action.deleteMedia"
+msgstr "Média törlése"
+
+msgid "grid.action.editMedia"
+msgstr "Média szerkesztése"
+
+msgid "grid.action.editSection"
+msgstr "Rovat szerkesztése"
+
+msgid "grid.action.export"
+msgstr "Exportálás"
+
+msgid "grid.action.deleteSection"
+msgstr "Rovat törlése"
+
+msgid "grid.action.editorialHistory"
+msgstr "Szerkesztési történet"
+
+msgid "grid.action.remove"
+msgstr "Törlés"
+
+msgid "grid.action.edit"
+msgstr "Szerkesztés"
+
+msgid "grid.action.approve"
+msgstr "Jóváhagy"
+
+msgid "grid.action.disapprove"
+msgstr "Elvet"
+
+msgid "grid.action.setApproval"
+msgstr "Jóváhagyás beállítása"
+
+msgid "grid.action.moreInformation"
+msgstr "További információ"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Alapértelmezettek visszaállítása"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Biztosan visszaállítja az alapértelmezetteket?"
+
+msgid "grid.action.addAuthor"
+msgstr "Szerző hozzáadása"
+
+msgid "grid.action.editAuthor"
+msgstr "Szerző szerkesztése"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Szerző törlése"
+
+msgid "grid.action.addAuditor"
+msgstr "Ellenőrző hozzáadása"
+
+msgid "grid.action.upgrade"
+msgstr "Frissítés"
+
+msgid "grid.action.order"
+msgstr "Rendez"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Rendezés törlése"
+
+msgid "grid.action.extendAll"
+msgstr "Összes kibontása"
+
+msgid "grid.action.collapse"
+msgstr "Összehúzás"
+
+msgid "grid.action.collapseAll"
+msgstr "Összes összehúzása"
+
+msgid "grid.action.wizard"
+msgstr "Beállítás varázsló"
+
+msgid "grid.action.moveItem"
+msgstr "Tétel áthelyezése"
+
+msgid "grid.action.downloadAll"
+msgstr "Archívumként minden fájl letöltése"
+
+msgid "grid.action.readReview"
+msgstr "Lektori vélemény elolvasása"
+
+msgid "grid.action.email"
+msgstr "Email küldése"
+
+msgid "grid.action.addReviewer"
+msgstr "Szakmai lektor hozzáadása"
+
+msgid "grid.action.addFile"
+msgstr "Fájl hozzáadása"
+
+msgid "grid.action.editFile"
+msgstr "Fájl szerkesztése"
+
+msgid "grid.action.selectFiles"
+msgstr "Fájl kiválasztása kezeléshez"
+
+msgid "grid.action.requestRevisions"
+msgstr "Felülvizsgálat kérése ehhez a beküldött anyaghoz"
+
+msgid "grid.action.accept"
+msgstr "A beküldött anyag elfogadása"
+
+msgid "grid.action.decline"
+msgstr "A beküldött anyag elutasítása"
+
+msgid "grid.action.internalReview"
+msgstr "A beadvány belső szakmai lektorálásra küldése"
+
+msgid "grid.action.externalReview"
+msgstr "A beadvány külső szakmai lektorálásra küldése"
+
+msgid "grid.action.sendToProduction"
+msgstr "A beadvány megjelentetésre küldése"
+
+msgid "grid.action.settings"
+msgstr "Beállítások"
+
+msgid "grid.action.importexport"
+msgstr "Tartalom vagy oldal adat importálása vagy exportálása"
+
+msgid "grid.action.orderItems"
+msgstr "Rendelési mód engedélyezése"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "A listaelem szerkesztése"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "A kijelölt elem törlése"
+
+msgid "grid.action.resetAll"
+msgstr "Minden elem alapértelmezett értékének a visszaállítása"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Új email sablon létrehozása"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Email sablon szerkesztése"
+
+msgid "grid.action.disableEmail"
+msgstr "Email sablon kikapcsolása"
+
+msgid "grid.action.resetEmail"
+msgstr "Email sablonok visszaállítása alapértelmezettre"
+
+msgid "grid.action.expandAll"
+msgstr "Összes kibontása"
+
+msgid "grid.action.requestAccount"
+msgstr "Résztvevő hozzáadása"
+
+msgid "grid.action.expand"
+msgstr "Kiterjeszt"
+
+msgid "grid.action.notify"
+msgstr "Ennek a felhasználónak az értesítése"
+
+msgid "grid.action.addUserGroup"
+msgstr "Új felhasználói csoport létrehozása"
+
+msgid "grid.action.editUserGroup"
+msgstr "Felhasználói csoport szerkesztése"
+
+msgid "grid.action.disable"
+msgstr "Kikapcsolás"
+
+msgid "grid.action.details"
+msgstr "Tétel megtekintése"
+
+msgid "grid.action.enrolExisting"
+msgstr "Meglévő felhasználó besorolása szakmai lektornak"
+
+msgid "grid.action.selectCreate"
+msgstr "Új szakmai lektor létrehozása"
+
+msgid "grid.action.search"
+msgstr "Keresés"
+
+msgid "grid.action.advancedSearch"
+msgstr "Bővített keresés"
+
+msgid "grid.action.viewLibrary"
+msgstr "Dokumentum könyvtár megtekintése"
+
+msgid "grid.action.viewMetadata"
+msgstr "A benyújtott anyag metaadatainak megtekintése"
+
+msgid "grid.action.sendReminder"
+msgstr "Feladat emlékeztető küldése a felhasználónak"
+
+msgid "grid.action.newRound"
+msgstr "Új forduló készítése"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Szakmai lektorálás útmutatójának megtekintése"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Összeférhetetlenségi irányelv útmutatóinak megtekintése"
+
+msgid "grid.action.thankReviewer"
+msgstr "Köszönő üzenet küldése a szakmai lektornak"
+
+msgid "grid.action.uploadFile"
+msgstr "Fájl feltöltés"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Értesítéstípus létrehozása"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Értesítés létrehozása"
+
+msgid "grid.action.mergeUser"
+msgstr "Felhasználó összevonás"
+
+msgid "grid.action.unassignUser"
+msgstr "Felhasználó kiiratkoztatása"
+
+msgid "grid.action.history"
+msgstr "Történet megtekintése"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Ez egy kész lektori vélemény, de felülírhatja"
+
+msgid "grid.action.enable"
+msgstr "Engedélyez"
+
+msgid "grid.action.bookInfo"
+msgstr "Beküldési információ"
+
+msgid "grid.action.logInAs"
+msgstr "Bejelentkezés mint"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Minden felhasználó exportálása"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Biztosan minden felhasználót exportálni akar?"
+
+msgid "grid.action.activate"
+msgstr "Aktiválás"
+
+msgid "grid.action.deactivate"
+msgstr "Inaktiválás"
+
+msgid "grid.action.copy"
+msgstr "Másol"
+
+msgid "grid.action.preview"
+msgstr "Előnézet"
+
+msgid "grid.action.install"
+msgstr "Telepítés"
+
+msgid "grid.action.moreItems"
+msgstr "Továbbiak betöltése"
+
+msgid "grid.task.status.completed"
+msgstr "Ez egy kész feladat"
+
+msgid "grid.task.status.new"
+msgstr "Döntés utáni ellenőrzés"
+
+msgid "grid.task.status.uploaded"
+msgstr "Az oszlop címe jelzi, hogy ki töltötte fel a fájlt"
+
+msgid "grid.task.status.unfinished"
+msgstr "Befejezetlen feladat"
+
+msgid "grid.task.status.reviewReady"
+msgstr "Ez a lektorálás kész. Megtekintéshez kattintson balra a jegyzet ikonra."
+
+msgid "grid.columns.actions"
+msgstr "Műveletek"
+
+msgid "grid.columns.institution"
+msgstr "Intézmény"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.auditor"
+msgstr "Ellenőrző"
+
+msgid "grid.columns.locale"
+msgstr "Nyelv"
+
+msgid "grid.sponsor.title"
+msgstr "Szponzoráló szervezetek"
+
+msgid "grid.action.addSponsor"
+msgstr "Szponzor létrehozása"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Szponzor törlése"
+
+msgid "grid.action.editSponsor"
+msgstr "Szponzor szerkesztése"
+
+msgid "grid.action.addSeries"
+msgstr "Sorozat hozzáadása"
+
+msgid "grid.action.editSeries"
+msgstr "Sorozat szerkesztése"
+
+msgid "grid.action.deleteSeries"
+msgstr "Sorozat törlése"
+
+msgid "grid.action.addCategory"
+msgstr "Kategória létrehozása"
+
+msgid "grid.action.editCategory"
+msgstr "Kategória szerkesztése"
+
+msgid "grid.action.deleteCategory"
+msgstr "Kategória törlése"
+
+msgid "grid.contributor.title"
+msgstr "Támogatási források"
+
+msgid "grid.action.addContributor"
+msgstr "Közreműködő létrehozása"
+
+msgid "grid.action.editContributor"
+msgstr "Közreműködő szerkesztése"
+
+msgid "grid.action.deleteContributor"
+msgstr "Közreműködő törlése"
+
+msgid "grid.reviewForm.title"
+msgstr "Szakmai lektorálási űrlapok"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Válasz lehetőségek"
+
+msgid "grid.noFiles"
+msgstr "Nincsenek fájlok"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Fájlok"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Beküldések könyvtára"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Szerkesztési könyvtár"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Szakmai lektorálás könyvtár"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Termelési könyvtár"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Termelés sablon könyvtár"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Beküldési ellenőrzőlista"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Ellenőrzőlista tétel"
+
+msgid "author.users.contributor.name"
+msgstr "Név"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Szerepkör"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Elsődleges kapcsolattartó"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Böngészés listákban"
+
+msgid "grid.roles.currentRoles"
+msgstr "Aktuális szerepkörök"
+
+msgid "grid.roles.add"
+msgstr "Új szerepkör létrehozása"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Hozzárendelések oldala"
+
+msgid "grid.user.currentUsers"
+msgstr "Aktuális felhasználók"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Aktuális hozzárendelés"
+
+msgid "grid.user.allRoles"
+msgstr "Minden szerepkör"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Minden jogosultsági szint"
+
+msgid "grid.user.add"
+msgstr "Felhasználó létrehozása"
+
+msgid "grid.user.enroll"
+msgstr "Felhasználó szerepkörhöz rendelése"
+
+msgid "grid.user.edit"
+msgstr "Felhasználó szerkesztése"
+
+msgid "grid.user.email"
+msgstr "Email"
+
+msgid "grid.user.enable"
+msgstr "Engedélyez"
+
+msgid "grid.user.disable"
+msgstr "Kikapcsol"
+
+msgid "grid.user.disableReason"
+msgstr "A felhasználó kikapcsolásának indoka"
+
+msgid "grid.user.enableReason"
+msgstr "A felhasználó engedélyezésének indoka"
+
+msgid "grid.user.error"
+msgstr "Hiba keletkezett a felhasználó adminisztrálása közben. Próbálja újra."
+
+msgid "grid.user.errorEmail"
+msgstr "Hiba keletkezett az email küldése közben. Kérem, győzödjön meg, hogy az email szerver beállításai helyesek és/vagy lépjen kapcsolatba a rendszer adminisztrátorral."
+
+msgid "grid.user.cannotAdminister"
+msgstr "Nem rendelkezik a megfelelő engedélyekkel a felhasználó szerkesztésére. Ahhoz, hogy szerkessze a felhasználót adminisztrátori szerepkörrel kell rendelkeznie, vagy minden környezethez hozzá kell férnie, amelyekben ez a felhasználó szerepel."
+
+msgid "grid.user.authSource"
+msgstr "Hitelesítési forrás"
+
+msgid "grid.user.mustProvideName"
+msgstr "Kérem, először adjon meg vezetéknevet a felhasználónak."
+
+msgid "grid.user.generatePassword"
+msgstr "Jelszó létrehozása"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Véletlen jelszó létrehozása a felhasználónak."
+
+msgid "grid.user.notifyUser"
+msgstr "Felhasználó értesítése"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Üdvözlő levél küldése a felhasználónak."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Jelszó változtatása"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "A felhasználónak meg kell változtatnia a jelszavát a következő bejelentkezéskor."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "A felhasználó következő belépésekor meg kell változtatnia a jelszót."
+
+msgid "grid.user.moreDetails"
+msgstr "További információk a felhasználóról"
+
+msgid "grid.user.lessDetails"
+msgstr "Kevesebb információ a felhasználóról"
+
+msgid "grid.user.userDetails"
+msgstr "Részletek a felhasználókról"
+
+msgid "grid.user.userRoles"
+msgstr "Felhasználói szerepkörök"
+
+msgid "grid.user.userNoRoles"
+msgstr "Ennek a felhasználónak még nincs szerepköre."
+
+msgid "grid.user.step1"
+msgstr "Step #1: Töltse ki a részletes információkat a felhasználóról"
+
+msgid "grid.user.step2"
+msgstr "Step #2: Szerepkör hozzáadása a {$userFullName} felhasználóhoz"
+
+msgid "grid.user.addRoles"
+msgstr "Szerepkör létrehozása"
+
+msgid "grid.user.addRole"
+msgstr "Szerepkör hozzáadása"
+
+msgid "grid.user.selectUser"
+msgstr "Felhasználó kiválasztása"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Kérem, válasszon egy felhasználót"
+
+msgid "grid.user.confirmLogInAs"
+msgstr "Belép ennek a felhasználónak a nevében? Minden tevékenység, amit elvégez ennek a felhasználónak a nevéhez fog fűződni."
+
+msgid "grid.user.mergeUsers"
+msgstr "Felhasználók összevonása"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Felhasználó összevonása"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Összevonás ehhez a felhasználóhoz"
+
+msgid "grid.user.mergeUsers.into.description"
+msgstr "Most ki kell választania egy felhasználót, akihez hozzárendeli az előző felhasználó szerzeményeit, szerkesztési feladatait, stb."
+
+msgid "grid.user.mergeUsers.from.description"
+msgstr "Válasszon egy felhasználót, hogy összevonhassa egy másik felhasználóval (pl. amikor valakinek két felhasználói fiókja van). A fiók a művelet elvégzésével törlésre kerül, míg a beküldések, hozzárendelések, stb. átkerülnek a másik felhasználó fiókja alá."
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Minden beiratkozott felhasználó"
+
+msgid "grid.user.mergeUsers.mergeUserSelect.confirm"
+msgstr "Biztosan össze akarja vonni ezt a felhasználót egy másik felhasználóval? A másik felhasználót a következő képernyőn választhatja ki."
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr "Biztosan össze akarja vonni a \"{$oldUsername}\" fiókját a \"{$newUsername}\" felhasználó fiókjával? A művelet után a \"{$oldUsername}\" felhasználó már nem lesz többet elérhető. Ez a művelet nem vonható vissza."
+
+msgid "grid.user.mergeUsers.noneEnrolled"
+msgstr "Nincs felhasználó ezzel a szerepkörrel."
+
+msgid "grid.preparedEmails.title"
+msgstr "Meglévő email sablonok"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Aktuális lista"
+
+msgid "grid.plugin.allCategories"
+msgstr "Minden kategória"
+
+msgid "grid.plugin.disable"
+msgstr "Biztos benne, hogy kikapcsolja ezt a bővítményt?"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Korrektúrázási megjegyzések készültek. Figyelmen kívül hagyhatja."
+
+msgid "grid.artworkFile.caption"
+msgstr "Felirat"
+
+msgid "grid.artworkFile.credit"
+msgstr "Credit"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Copyright tulajdonos"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Kapcsolati információ (ha nem szerző/kiadó)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Engedélyezési feltételek"
+
+msgid "grid.artworkFile.placement"
+msgstr "Anyag elhelyezése"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Hozzárendelés szakaszhoz"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Törlés a szakaszból"
+
+msgid "grid.userGroup.allStages"
+msgstr "Minden munkafolyamat szakasz"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Hozzárendelt szerepkörök listázása"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Jogosultsági szint beállítása"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "A(z) {$userGroupName} szerepkör alapértelmezett és nem törölhető."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr "{$userGroupName} nem törölhető szerepkör. Jelenleg {$usersCount} felhasználó hozzárendelt."
+
+msgid "grid.userGroup.removed"
+msgstr "{$userGroupName} szerepkör eltávolítva."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "{$userGroupName} szerepkör hozzárendelt a(z) {$stageName} szakaszhoz."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "{$userGroupName} szerepkör eltávolítva a(z) {$stageName} szakaszból."
+
+msgid "grid.submission.itemTitle"
+msgstr "Szerző; Cím"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Tartalmazza azokat az megkezdett beküldéseket, amelyeket a szerző még nem véglegesített."
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Menü hozzáadása"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Elem hozzáadása"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Nincsenek navigációs menüelemek"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Nincsenek navigációs menük"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Válassz típust..."
+
+msgid "grid.action.uninstall"
+msgstr "Eltávolítás"
+
+msgid "grid.action.users"
+msgstr "Felhasználók megtekintése/kiválasztása "
+
+msgid "grid.action.newVersion"
+msgstr "Új verzió létrehozása"
+
+msgid "grid.action.removeUserGroup"
+msgstr "A felhasználói csoport eltávolítása"

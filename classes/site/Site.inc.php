@@ -8,9 +8,9 @@
 /**
  * @file classes/site/Site.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Site
  * @ingroup site
@@ -66,7 +66,8 @@ class Site extends DataObject {
 
 	/**
 	 * Get "localized" site page title (if applicable).
-	 * @return string
+	 * @return array|string
+	 * @deprecated 3.3.0
 	 */
 	function getLocalizedPageHeaderTitle() {
 		if ($this->getLocalizedData('pageHeaderTitleImage')) {

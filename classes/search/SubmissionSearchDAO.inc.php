@@ -3,9 +3,9 @@
 /**
  * @file classes/search/SubmissionSearchDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionSearchDAO
  * @ingroup search
@@ -22,17 +22,18 @@ class SubmissionSearchDAO extends DAO {
 	 * @return int the keyword ID
 	 */
 	function insertKeyword($keyword) {
-		static $submissionSearchKeywordIds = array();
+		static $submissionSearchKeywordIds = [];
 		if (isset($submissionSearchKeywordIds[$keyword])) return $submissionSearchKeywordIds[$keyword];
 		$result = $this->retrieve(
 			'SELECT keyword_id FROM submission_search_keyword_list WHERE keyword_text = ?',
-			$keyword
+			[$keyword]
 		);
-		if($result->RecordCount() == 0) {
-			$result->Close();
+		if ($row = $result->current()) {
+			$keywordId = $row->keyword_id;
+		} else {
 			if ($this->update(
 				'INSERT INTO submission_search_keyword_list (keyword_text) VALUES (?)',
-				$keyword,
+				[$keyword],
 				true,
 				false
 			)) {
@@ -40,9 +41,6 @@ class SubmissionSearchDAO extends DAO {
 			} else {
 				$keywordId = null; // Bug #2324
 			}
-		} else {
-			$keywordId = $result->fields[0];
-			$result->Close();
 		}
 
 		$submissionSearchKeywordIds[$keyword] = $keywordId;
@@ -58,7 +56,7 @@ class SubmissionSearchDAO extends DAO {
 	 */
 	function deleteSubmissionKeywords($submissionId, $type = null, $assocId = null) {
 		$sql = 'SELECT object_id FROM submission_search_objects WHERE submission_id = ?';
-		$params = array((int) $submissionId);
+		$params = [(int) $submissionId];
 
 		if (isset($type)) {
 			$sql .= ' AND type = ?';
@@ -71,13 +69,10 @@ class SubmissionSearchDAO extends DAO {
 		}
 
 		$result = $this->retrieve($sql, $params);
-		while (!$result->EOF) {
-			$objectId = $result->fields[0];
-			$this->update('DELETE FROM submission_search_object_keywords WHERE object_id = ?', $objectId);
-			$this->update('DELETE FROM submission_search_objects WHERE object_id = ?', $objectId);
-			$result->MoveNext();
+		foreach ($result as $row) {
+			$this->update('DELETE FROM submission_search_object_keywords WHERE object_id = ?', [$row->object_id]);
+			$this->update('DELETE FROM submission_search_objects WHERE object_id = ?', [$row->object_id]);
 		}
-		$result->Close();
 	}
 
 	/**
@@ -90,24 +85,21 @@ class SubmissionSearchDAO extends DAO {
 	function insertObject($submissionId, $type, $assocId, $keepExisting = false) {
 		$result = $this->retrieve(
 			'SELECT object_id FROM submission_search_objects WHERE submission_id = ? AND type = ? AND assoc_id = ?',
-			array((int) $submissionId, (int) $type, (int) $assocId)
+			[(int) $submissionId, (int) $type, (int) $assocId]
 		);
-		if ($result->RecordCount() == 0) {
-			$this->update(
-				'INSERT INTO submission_search_objects (submission_id, type, assoc_id) VALUES (?, ?, ?)',
-				array((int) $submissionId, (int) $type, (int) $assocId)
-			);
-			$objectId = $this->_getInsertId('submission_search_objects', 'object_id');
-
-		} else {
-			$objectId = $result->fields[0];
+		if ($row = $result->current()) {
 			$this->update(
 				'DELETE FROM submission_search_object_keywords WHERE object_id = ?',
-				(int) $objectId
+				[(int) $row->object_id]
 			);
+			return $row->object_id;
+		} else {
+			$this->update(
+				'INSERT INTO submission_search_objects (submission_id, type, assoc_id) VALUES (?, ?, ?)',
+				[(int) $submissionId, (int) $type, (int) $assocId]
+			);
+			return $this->_getInsertId('submission_search_objects', 'object_id');
 		}
-		$result->Close();
-		return $objectId;
 	}
 
 	/**
@@ -122,7 +114,7 @@ class SubmissionSearchDAO extends DAO {
 		if ($keywordId === null) return null; // Bug #2324
 		$this->update(
 			'INSERT INTO submission_search_object_keywords (object_id, keyword_id, pos) VALUES (?, ?, ?)',
-			array((int) $objectId, (int) $keywordId, (int) $position)
+			[(int) $objectId, (int) $keywordId, (int) $position]
 		);
 		return $keywordId;
 	}
@@ -134,9 +126,6 @@ class SubmissionSearchDAO extends DAO {
 		$this->update('DELETE FROM submission_search_object_keywords');
 		$this->update('DELETE FROM submission_search_objects');
 		$this->update('DELETE FROM submission_search_keyword_list');
-		$this->setCacheDir(Config::getVar('files', 'files_dir') . '/_db');
-		$dataSource = $this->getDataSource();
-		$dataSource->CacheFlush();
 	}
 }
 

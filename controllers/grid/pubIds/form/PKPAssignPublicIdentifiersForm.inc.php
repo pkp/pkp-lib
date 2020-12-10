@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/pubIds/form/PKPAssignPublicIdentifiersForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAssignPublicIdentifiersForm
  * @ingroup controllers_grid_pubIds_form
@@ -128,8 +128,8 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	 *  true if the pub id shall be saved here
 	 *  false if this form is integrated somewhere else, where the pub object will be updated.
 	 */
-	function execute($save = false) {
-		parent::execute();
+	function execute($save = false, ...$functionArgs) {
+		parent::execute($save, ...$functionArgs);
 
 		$pubObject = $this->getPubObject();
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();

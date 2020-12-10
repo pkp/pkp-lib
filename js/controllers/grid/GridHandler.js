@@ -4,9 +4,9 @@
 /**
  * @file js/controllers/grid/GridHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GridHandler
  * @ingroup js_controllers_grid
@@ -214,8 +214,8 @@
 	$.pkp.controllers.grid.GridHandler.prototype.getRowDataId =
 			function($gridRow) {
 		var rowDataId;
-		rowDataId = /** @type {string} */ $gridRow.attr('id').
-				slice(this.getRowIdPrefix().length);
+		rowDataId = /** @type {string} */ ($gridRow.attr('id').
+				slice(this.getRowIdPrefix().length));
 		return rowDataId;
 	};
 
@@ -762,7 +762,7 @@
 					this.insertOrReplaceElement(handledJsonData.content);
 				}
 
-				castJsonData = /** @type {{sequenceMap: Array}} */ handledJsonData;
+				castJsonData = /** @type {{sequenceMap: Array}} */ (handledJsonData);
 				this.resequenceRows(castJsonData.sequenceMap);
 			}
 		}
@@ -980,5 +980,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

@@ -3,9 +3,9 @@
 /**
  * @file classes/controllers/grid/GridDataProvider.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GridDataProvider
  * @ingroup classes_controllers_grid
@@ -77,7 +77,7 @@ class GridDataProvider {
 	 * @return PolicySet
 	 */
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {
-		assert(false);
+		throw new Exception('getRequestArgs called but not implemented!');
 	}
 
 	/**
@@ -87,7 +87,7 @@ class GridDataProvider {
 	 * @return array
 	 */
 	function getRequestArgs() {
-		assert(false);
+		throw new Exception('getRequestArgs called but not implemented!');
 	}
 
 	/**
@@ -97,8 +97,8 @@ class GridDataProvider {
 	 *  has been selected by the user then the array will be empty.
 	 * @return array
 	 */
-	function loadData($filter = array()) {
-		assert(false);
+	function loadData($filter = []) {
+		throw new Exception('getRequestArgs called but not implemented!');
 	}
 }
 

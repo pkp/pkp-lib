@@ -1,9 +1,9 @@
 /**
  * @file styles/controllers/informationCenter.less
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @ingroup pkp_controllers_informationCenter
  *
@@ -12,7 +12,7 @@
 .pkp_controllers_informationCenter {
 
 	.pkp_notes_list {
-		margin-bottom: @double;
+		margin-bottom: 2rem;
 
 		p:first-child {
 			margin-top: 0;
@@ -24,7 +24,7 @@
 	}
 
 	.note {
-		margin-bottom: @double;
+		margin-bottom: 2rem;
 		font-size: @font-sml;
 		line-height: @line-sml;
 
@@ -34,9 +34,9 @@
 
 		.details {
 			.pkp_helpers_clear;
-			margin-bottom: @base;
+			margin-bottom: 1rem;
 			border-bottom: @bg-border;
-			line-height: @double + @base - 1;
+			line-height: 3rem - 1;
 
 			.user {
 				margin-right: 0.5em;
@@ -52,7 +52,7 @@
 
 				> * {
 					display: inline-block;
-					margin-left: @base;
+					margin-left: 1rem;
 				}
 			}
 		}
@@ -71,6 +71,6 @@
 	}
 
 	.pkp_controllers_extrasOnDemand {
-		margin-bottom: @double;
+		margin-bottom: 2rem;
 	}
 }

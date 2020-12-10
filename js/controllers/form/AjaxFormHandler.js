@@ -1,9 +1,9 @@
 /**
  * @file js/controllers/form/AjaxFormHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AjaxFormHandler
  * @ingroup js_controllers_form
@@ -153,7 +153,7 @@
 
 		// Trigger the notify user event, passing this
 		// html element as data.
-		this.trigger('notifyUser', [this.getHtmlElement()]);
+		this.trigger('notifyUser');
 
 		// Hide the form spinner.
 		this.hideSpinner();
@@ -162,5 +162,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

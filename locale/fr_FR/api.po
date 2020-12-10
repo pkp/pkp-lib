@@ -1,0 +1,155 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
+"PO-Revision-Date: 2020-08-09 12:48+0000\n"
+"Last-Translator: Paul Heckler <paul.d.heckler@gmail.com>\n"
+"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/api/fr/>"
+"\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Vous ne pouvez voir que les soumissions non publiées qui vous ont été "
+"assignées."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr "Votre requête a été refusée. Peut-être que votre session a expiré. Essayez de recharger la page."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Vous ne pouvez pas supprimer une soumission hors de ce contexte."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Vous n'avez pas la permission de supprimer cette soumission."
+
+msgid "api.404.resourceNotFound"
+msgstr "La ressource demandée n'a pas été trouvée."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "La requête n'a pas pu être terminée par manque d'information."
+
+msgid "api.submissions.400.stageNotValid"
+msgstr "La requête n'a pu être finalisée car le submission stage ID est invalide."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Le volume requis n'est pas valide."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Le vocabulaire {$vocab} n'est pas supporté."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "La langue {$locale} n'est pas prise en charge."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Le thème actif, {$themePluginPath}, n'est pas activé et peut ne pas avoir "
+"été installé."
+
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"Le fichier n'a pas pu être téléversé en raison d'une erreur de configuration "
+"du serveur. Veuillez contacter l'administrateur ou l'administratrice du "
+"système."
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "Les fichiers plus gros que {$maxSize} ne peuvent pas être téléversés."
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "Un ou plusieurs fichiers n'ont pas pu être téléversés."
+
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "Aucun fichier à téléverser n'a pu être trouvé avec la requête."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Ce suffixe d'URL n'est pas disponible à partir d'un contexte. Il doit être "
+"accessible à partir de l'espace de nom du site."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Votre demande était invalide. Le « orderDirection » doit être « desc » ou « "
+"asc »."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Votre demande était invalide. Le « timelineInterval » doit être « day » ou « "
+"month »."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "La date de fin ne peut pas être ultérieure à hier."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "La date de début ne peut pas être antérieure au 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "La date de début ne peut pas être ultérieure à la date de fin."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "La date doit être au format AAAA-MM-JJ."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "vous n'avez pas l'autorisation de modifier cette publication."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Le répertoire des fichiers publics est introuvable ou encore les fichiers ne "
+"peuvent pas y être enregistrés. Veuillez contacter votre administrateur ou "
+"administratrice afin de résoudre ce problème."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Vous n'avez pas assez d'espace dans votre répertoire utilisateur. Le fichier "
+"que vous téléversez est de {$ fileUploadSize} ko alors qu'il ne vous reste "
+"que {$ dirSizeLeft} ko."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Vous n'avez pas l'autorisation de téléverser des fichiers."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Le fichier que vous avez téléversé ne correspond pas à l'extension du "
+"fichier. Cela peut se produire lorsqu'un fichier a été renommé en un type "
+"incompatible, par exemple en changeant photo.png en photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "L'image que vous avez téléversée n'est pas valide."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr ""
+"Vous ne pouvez téléverser que les types de fichiers suivants : {$ fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Vous devez dépublier cette publication avant de pouvoir la supprimer."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Vous ne pouvez pas modifier le statut directement via l'API. Utilisez plutôt "
+"les suffixes /publish et /unpublish."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+"Vous ne pouvez pas modifier cette publication car elle est déjà publiée."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "La publication que vous souhaitez dépublier n'est pas publiée."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "La publication que vous souhaitez publier est déjà publiée."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Le modèle de courriel que vous avez demandé n'a pas été trouvé."
+
+msgid "api.404.endpointNotFound"
+msgstr "l'URL demandé n'a pas été reconnu."
+
+msgid "api.403.unauthorized"
+msgstr "Vous n'avez pas l'autorisation d'accéder à la ressource demandée."
+
+msgid "api.400.paramNotSupported"
+msgstr "Le paramètre « {$param} » n'est pas supporté."

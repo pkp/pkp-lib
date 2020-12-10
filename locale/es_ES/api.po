@@ -1,0 +1,179 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"es_ES/>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "El vocabulario {$vocab} no está soportado."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "La configuración regional {$locale} no está soportada."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"El tema activo, {$themePluginPath}, no está habilitado y podría no "
+"instalarse."
+
+msgid "api.files.400.config"
+msgstr ""
+"No se pudo cargar el archivo debido a un error de configuración del "
+"servidor. Contacte con el administrador/a de sistemas."
+
+msgid "api.files.400.fileSize"
+msgstr "Los archivos más grandes que {$maxSize} no se pueden cargar."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Uno o más archivos no se han podido cargar."
+
+msgid "api.files.400.noUpload"
+msgstr ""
+"No se ha podido encontrar ningún archivo que cargar para esta solicitud."
+
+msgid "api.submissions.unknownError"
+msgstr ""
+"Ha sucedido un error inesperado. Vuelva a cargar la página e inténtelo de "
+"nuevo."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "El volumen, número o año solicitados no son válidos."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Su solicitud no se ha podido completar porque le falta información "
+"obligatoria."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "No tiene permiso para eliminar este envío."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "No puede eliminar un envío que no esté asignado a este contexto."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Solo puede ver envíos retirados de publicación a los que haya sido asignado."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Su solicitud ha sido denegada. Esto podría deberse a que su sesión ha "
+"expirado. Pruebe a recargar la página y vuelva a intentarlo."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Su solicitud no es válida. La ordenación de resultados debe ser `desc` o "
+"`asc`."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Su solicitud no es válida. El intervalo cronológico de tiempo debe ser `día` "
+"o `mes`."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "La fecha de finalización no puede ser posterior a ayer."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "La fecha de inicio no puede ser anterior a 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "La fecha de inicio no puede ser posterior a la fecha de finalización."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "La fecha debe estar en formato AAAA-MM-DD."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "No tiene permiso para editar esta publicación."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"El directorio de archivos públicos no se encontró o los archivos no pueden "
+"guardarse en él. Contacte con el administrador/a para resolver este problema."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"No hay suficiente espacio en su directorio de usuario/a. El archivo que "
+"quiere cargar tiene {$fileUploadSize}kb y le quedan {$dirSizeLeft}kb."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "No tiene permiso para cargar archivos."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"El archivo cargado no se corresponde con la extensión de archivo. Esto puede "
+"ocurrir cuando un archivo es renombrado a un tipo incompatible, por ejemplo "
+"al cambiar photo.png a photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "La imagen cargada no es válida."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Solo puede cargar los siguientes tipos de archivos: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Debe retirarlo de publicación antes de poder eliminarlo."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"No puede modificar el estado directamente a través de la API. En vez de eso, "
+"utilice los terminales /publish y /unpublish."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "No puede editar esta publicación porque ya ha sido publicada."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "La publicación que quiere retirar no ha sido publicada."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "La publicación que quiere publicar ya está publicada."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "No se encontró la plantilla de correo electrónico solicitada."
+
+msgid "api.404.endpointNotFound"
+msgstr "La URL solicitada no fue reconocida."
+
+msgid "api.404.resourceNotFound"
+msgstr "No se encontró el recurso solicitado."
+
+msgid "api.403.unauthorized"
+msgstr "No está autorizado para acceder al recurso solicitado."
+
+msgid "api.400.paramNotSupported"
+msgstr "El parámetro {$param} no está soportado."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Este terminal no está disponible desde el contexto. Se debe acceder a él "
+"desde el espacio de nombres (namespace) de todo el sitio."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"No puede enviar un correo electrónico a los usuarios/as en o más de los "
+"roles seleccionados."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"No puede modificar la asociación de archivos sin pasar un assocType y un "
+"assocId."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"Debe indicar qué roles de usuario/a deberían recibir este correo electrónico."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Debe proporcionar el asunto del correo electrónico."
+
+msgid "api.emails.400.missingBody"
+msgstr "Debe incluir un correo electrónico para enviarlo."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "No se ha encontrado el aviso solicitado."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "No es posible cambiar la fecha en que fue creado."

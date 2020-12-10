@@ -119,6 +119,9 @@ msgstr "Activate"
 msgid "common.active"
 msgstr "Active"
 
+msgid "common.inactive"
+msgstr "Inactive"
+
 msgid "common.add"
 msgstr "Add"
 
@@ -351,6 +354,9 @@ msgstr "Download PDF"
 msgid "common.edit"
 msgstr "Edit"
 
+msgid "common.editItem"
+msgstr "Edit {$name}"
+
 msgid "common.enable"
 msgstr "Enable"
 
@@ -471,6 +477,9 @@ msgstr "Less"
 msgid "common.lessThan"
 msgstr "{$value} or less"
 
+msgid "common.lessThanOnly"
+msgstr "Less than"
+
 msgid "common.commaListSeparator"
 msgstr ", "
 
@@ -500,6 +509,9 @@ msgstr "More"
 
 msgid "common.moreThan"
 msgstr "{$value} or more"
+
+msgid "common.moreThanOnly"
+msgstr "More than"
 
 msgid "common.noneAssigned"
 msgstr "None assigned"
@@ -578,6 +590,9 @@ msgstr "Other"
 
 msgid "common.overdue"
 msgstr "Overdue"
+
+msgid "common.override"
+msgstr "Override"
 
 msgid "common.pagination"
 msgstr "{$start}-{$end} of {$total}"
@@ -720,6 +735,9 @@ msgstr "Select None"
 msgid "common.select"
 msgstr "Select"
 
+msgid "common.selectWithName"
+msgstr "Select {$name}"
+
 msgid "common.sendEmail"
 msgstr "Send Email"
 
@@ -750,6 +768,9 @@ msgstr "Suggest"
 msgid "common.title"
 msgstr "Title"
 
+msgid "common.titleSeparator"
+msgstr " | "
+
 msgid "common.top"
 msgstr "Top"
 
@@ -767,6 +788,9 @@ msgstr "Component"
 
 msgid "common.uninitiated"
 msgstr "Uninitiated"
+
+msgid "common.unknownError"
+msgstr "An unexpected error has occurred. Please reload the page and try again."
 
 msgid "common.unread"
 msgstr "Unread"
@@ -789,6 +813,9 @@ msgstr "The file could not be uploaded or revised."
 msgid "common.up"
 msgstr "Up"
 
+msgid "common.addFile"
+msgstr "Add File"
+
 msgid "common.upload.addFile"
 msgstr "Upload File"
 
@@ -810,8 +837,14 @@ msgstr "URL"
 msgid "common.user"
 msgstr "User"
 
+msgid "common.user.nonexistent"
+msgstr "[Nonexistent user]"
+
 msgid "common.view"
 msgstr "View"
+
+msgid "common.viewWithName"
+msgstr "View {$name}"
 
 msgid "common.viewProfile"
 msgstr "View Profile"
@@ -1029,9 +1062,6 @@ msgstr "Please correct {$count} errors."
 msgid "form.errors"
 msgstr "The form was not saved because {$count} error(s) were encountered. Please correct these errors and try again."
 
-msgid "form.errorUnknown"
-msgstr "An unexpected error occurred. You may have been logged out. Please reload the page and try again."
-
 msgid "form.errorsOccurred"
 msgstr "Errors occurred processing this form"
 
@@ -1046,9 +1076,6 @@ msgstr "contains"
 
 msgid "form.is"
 msgstr "is"
-
-msgid "form.missingRequired"
-msgstr "This field is required."
 
 msgid "form.startsWith"
 msgstr "starts with"
@@ -1073,6 +1100,9 @@ msgstr "You must provide a valid ID."
 
 msgid "form.resubmit"
 msgstr "Resubmit"
+
+msgid "form.saved"
+msgstr "Saved"
 
 msgid "form.saveToUpload"
 msgstr "Use Save to upload file."
@@ -1207,7 +1237,7 @@ msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Permissions"
 
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Allow this person to edit the publication details."
+msgstr "Allow this person to make changes to the publication, such as the title, abstract, metadata and other publication details. You may wish to revoke this privilege if the submission has received a final check and is ready for publication."
 
 msgid "stageParticipants.selectedUser"
 msgstr "Participant"
@@ -1222,7 +1252,7 @@ msgid "locale.supported"
 msgstr "Supported locales"
 
 msgid "navigation.access"
-msgstr "Users &amp; Roles"
+msgstr "Users & Roles"
 
 msgid "navigation.about"
 msgstr "About"
@@ -1250,6 +1280,9 @@ msgstr "Statistics"
 
 msgid "navigation.browse"
 msgstr "Browse"
+
+msgid "navigation.backTo"
+msgstr "⟵ Back to {$page}"
 
 msgid "navigation.browseByAuthor"
 msgstr "By Author"
@@ -1310,6 +1343,9 @@ msgstr "Setup"
 
 msgid "navigation.sitemap"
 msgstr "Site Map"
+
+msgid "navigation.skip.description"
+msgstr "Jump to content links"
 
 msgid "navigation.skip.announcements"
 msgstr "Skip to announcements"
@@ -1374,12 +1410,6 @@ msgstr "Announcement type edited."
 msgid "notification.removedAnnouncementType"
 msgstr "Announcement type removed."
 
-msgid "notification.addedAnnouncement"
-msgstr "Announcement added."
-
-msgid "notification.editedAnnouncement"
-msgstr "Announcement edited."
-
 msgid "notification.removedAnnouncement"
 msgstr "Announcement removed."
 
@@ -1438,7 +1468,7 @@ msgid "notification.savedSubmissionMetadata"
 msgstr "Submission metadata saved."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Send notification email to all registered users"
+msgstr "Send an email about this to all registered users."
 
 msgid "search.author"
 msgstr "By Author"
@@ -1500,9 +1530,6 @@ msgstr "All index term fields"
 msgid "search.matchAll"
 msgstr "Match all categories"
 
-msgid "search.noKeywordError"
-msgstr "You must enter at least one search keyword."
-
 msgid "search.noResults"
 msgstr "No Results"
 
@@ -1520,6 +1547,12 @@ msgstr "Search for"
 
 msgid "search.searchResults"
 msgstr "Search Results"
+
+msgid "search.searchResults.foundSingle"
+msgstr "Found one item."
+
+msgid "search.searchResults.foundPlural"
+msgstr "Found {$count} items."
 
 msgid "search.subject"
 msgstr "Keyword(s)"
@@ -1539,8 +1572,8 @@ msgstr "Download this file"
 msgid "context.path"
 msgstr "Path"
 
-msgid "review.ensuringBlindReview"
-msgstr "Ensuring a Blind Review"
+msgid "review.ensuringAnonymousReview"
+msgstr "How to ensure all files are anonymized"
 
 msgid "grid.action.showReviewPolicy"
 msgstr "Read the current review policy"
@@ -1560,15 +1593,34 @@ msgstr "Tasks"
 msgid "dashboard.myQueue"
 msgstr "My Queue"
 
-msgid "review.blindPeerReview"
+msgid "review.anonymousPeerReview.title"
+msgstr "How to ensure all files are anonymized"
+
+msgid "review.anonymousPeerReview"
 msgstr ""
-"\n"
-"\t\t<p>To ensure the integrity of the blind peer-review for submission to this press, every effort should be made to prevent the identities of the authors and reviewers from being known to each other. This involves the authors, editors, and reviewers (who upload documents as part of their review) checking to see if the following steps have been taken with regard to the text and the file properties:</p>\n"
-"\t\t\t<ul><li>The authors of the document have deleted their names from the text, with \"Author\" and year used in the references and footnotes, instead of the authors' name, article title, etc.</li>\n"
-"\t\t\t<li>With Microsoft Office documents, author identification should also be removed from the properties for the file (see under File in Word), by clicking on the following, beginning with File on the main menu of the Microsoft application: File &gt; Save As &gt; Tools (or Options with a Mac) &gt; Security &gt; Remove personal information from file properties on save &gt; Save.</li>\n"
-"\t\t\t<li>With PDFs, the authors' names should also be removed from Document Properties found under File on Adobe Acrobat's main menu.</li>\n"
-"\t\t</ul>\n"
-"\t"
+"<p>To ensure the integrity of anonymous peer-review, every effort should be made to prevent the identities of the authors and reviewers from being known to each other. This involves the authors, editors, and reviewers (who upload documents as part of their review) checking to see if the following steps have been taken with regard to the text and the file properties:</p>\n"
+"<ul><li>The authors of the document have deleted their names from the text, with \"Author\" and year used in the references and footnotes, instead of the authors' name, article title, etc.</li>\n"
+"<li>The authors of the document have removed personal information from the file properties by taking the following steps:\n"
+"<ul><li>Microsoft Word for Windows:\n"
+"<ul><li>Go to File</li>\n"
+"<li>Select Info</li>\n"
+"<li>Click on Check for Issues</li>\n"
+"<li>Click on Inspect Document</li>\n"
+"<li>In the Document Inspector dialog box, select the check boxes to choose the type of hidden content that you want inspected.</li>\n"
+"<li>Click Remove All</li>\n"
+"<li>Click Close</li>\n"
+"<li>Save the document</li></ul>\n"
+"<li>Microsoft Word for MacOS:\n"
+"<ul><li>Go to Tools</li>\n"
+"<li>Click Protect Document</li>\n"
+"<li>Select Remove personal information for this file on save</li>\n"
+"<li>Click OK and save the file</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Go to File</li>\n"
+"<li>Select Properties</li>\n"
+"<li>Remove any name in the author field</li>\n"
+"<li>Click OK</li>\n"
+"<li>Save the document</li></ul></li></ul>\n"
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Review Schedule"
@@ -1642,6 +1694,9 @@ msgstr "A reviewer has commented on \"{$title}\"."
 msgid "notification.signedFile"
 msgstr "File considered."
 
+msgid "user.email"
+msgstr "Email address"
+
 msgid "user.authorization.submissionFile"
 msgstr "The current user is not authorized to access the specified submission file."
 
@@ -1654,11 +1709,26 @@ msgstr "Invalid submission."
 msgid "user.authorization.invalidRepresentation"
 msgstr "Invalid representation."
 
+msgid "user.authorization.invalidReviewRound"
+msgstr "Invalid review round."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Invalid discussion."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "You do not have access to this discussion message."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "You do not have access to this review assignment."
+
 msgid "user.authorization.authorRoleMissing"
 msgstr "You do not currently have sufficient privileges to view the submission. Please edit your profile to ensure that you have been granted the appropriate roles under \"Register As\"."
 
 msgid "user.authorization.submissionAuthor"
 msgstr "The current user is not the author of the requested submission. Please verify that you are logged in with the correct user account."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Privacy Options"
 
 msgid "notification.type.queryActivity"
 msgstr "Discussion activity."
@@ -1674,6 +1744,12 @@ msgstr "Awaiting Copyedits."
 
 msgid "notification.type.roundStatusTitle"
 msgstr "Round {$round} Status"
+
+msgid "notification.type.editorialReport"
+msgstr "Statistics report summary."
+
+msgid "notification.type.editorialReport.contents"
+msgstr "This is a kind reminder for you to check your journal's health through the editorial report."
 
 msgid "semicolon"
 msgstr "{$label}:"

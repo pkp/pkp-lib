@@ -8,9 +8,9 @@
 /**
  * @file classes/linkAction/LinkAction.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LinkAction
  * @ingroup linkAction
@@ -97,22 +97,6 @@ class LinkAction {
 	 */
 	function getToolTip() {
 		return $this->_toolTip;
-	}
-
-	/**
-	 * Get a title for display when a user hovers over the
-	 * link action.  Default to the regular title if it is set.
-	 * @return string
-	 */
-	function getHoverTitle() {
-		if ($this->getToolTip()) {
-			return $this->getToolTip();
-		} else {
-			// for the locale key, remove any unique ids from the id.
-			$id = preg_replace('/([^-]+)\-.+$/', '$1', $this->getId());
-			$title = __('grid.action.' . $id);
-			return $title;
-		}
 	}
 
 	/**

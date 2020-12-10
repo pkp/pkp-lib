@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/PKPAuthor.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthor
  * @ingroup submission
@@ -53,10 +53,21 @@ class PKPAuthor extends Identity {
 	}
 
 	/**
+	 * @copydoc Identity::getLocalizedGivenName()
+	 */
+	function getLocalizedGivenName($defaultLocale = null) {
+		if (!isset($defaultLocale)) $defaultLocale = $this->getSubmissionLocale();
+
+		return parent::getLocalizedGivenName($defaultLocale);
+	}
+
+	/**
 	 * @copydoc Identity::getLocalizedFamilyName()
 	 */
 	function getLocalizedFamilyName($defaultLocale = null) {
-		return parent::getLocalizedFamilyName($this->getSubmissionLocale());
+		if (!isset($defaultLocale)) $defaultLocale = $this->getSubmissionLocale();
+
+		return parent::getLocalizedFamilyName($defaultLocale);
 	}
 
 	/**
@@ -193,7 +204,7 @@ class PKPAuthor extends Identity {
 		//FIXME: should this be queried when fetching Author from DB? - see #5231.
 		static $userGroup; // Frequently we'll fetch the same one repeatedly
 		if (!$userGroup || $this->getUserGroupId() != $userGroup->getId()) {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 			$userGroup = $userGroupDao->getById($this->getUserGroupId());
 		}
 		return $userGroup;

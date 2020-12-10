@@ -3,9 +3,9 @@
 /**
  * @file classes/mail/EmailTemplateDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EmailTemplateDAO
  * @ingroup mail
@@ -17,6 +17,8 @@
 import('lib.pkp.classes.mail.EmailTemplate');
 import('lib.pkp.classes.db.SchemaDAO');
 import('classes.core.Services');
+
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 class EmailTemplateDAO extends SchemaDAO {
 	/** @copydoc SchemaDAO::$schemaName */
@@ -41,6 +43,7 @@ class EmailTemplateDAO extends SchemaDAO {
 		'canEdit' => 'can_edit',
 		'fromRoleId' => 'from_role_id',
 		'toRoleId' => 'to_role_id',
+		'stageId' => 'stage_id',
 	];
 
 	/**
@@ -63,6 +66,7 @@ class EmailTemplateDAO extends SchemaDAO {
 		unset($partialObject->_data['description']);
 		unset($partialObject->_data['fromRoleId']);
 		unset($partialObject->_data['toRoleId']);
+		unset($partialObject->_data['stageId']);
 
 		parent::insertObject($partialObject);
 	}
@@ -80,6 +84,7 @@ class EmailTemplateDAO extends SchemaDAO {
 		unset($partialObject->_data['description']);
 		unset($partialObject->_data['fromRoleId']);
 		unset($partialObject->_data['toRoleId']);
+		unset($partialObject->_data['stageId']);
 
 		parent::updateObject($partialObject);
 	}
@@ -99,8 +104,8 @@ class EmailTemplateDAO extends SchemaDAO {
 			[$emailTemplate->getData('key')]
 		);
 		$props = ['subject', 'body', 'description'];
-		while (!$result->EOF) {
-			$settingRow = $result->getRowAssoc(false);
+		foreach ($result as $settingRow) {
+			$settingRow = (array) $settingRow;
 			foreach ($props as $prop) {
 				// Don't allow default data to override custom template data
 				if ($emailTemplate->getData($prop, $settingRow['locale'])) {
@@ -115,9 +120,7 @@ class EmailTemplateDAO extends SchemaDAO {
 					$settingRow['locale']
 				);
 			}
-			$result->MoveNext();
 		}
-		$result->Close();
 
 		return $emailTemplate;
 	}
@@ -128,7 +131,7 @@ class EmailTemplateDAO extends SchemaDAO {
 	 */
 	function deleteEmailTemplatesByLocale($locale) {
 		$this->update(
-			'DELETE FROM email_templates_settings WHERE locale = ?', $locale
+			'DELETE FROM email_templates_settings WHERE locale = ?', [$locale]
 		);
 	}
 
@@ -138,7 +141,7 @@ class EmailTemplateDAO extends SchemaDAO {
 	 */
 	function deleteDefaultEmailTemplatesByLocale($locale) {
 		$this->update(
-			'DELETE FROM email_templates_default_data WHERE locale = ?', $locale
+			'DELETE FROM email_templates_default_data WHERE locale = ?', [$locale]
 		);
 	}
 
@@ -151,67 +154,126 @@ class EmailTemplateDAO extends SchemaDAO {
 	 */
 	function defaultTemplateIsInstalled($key) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*)
+			'SELECT COUNT(*) AS row_count
 				FROM email_templates_default
 				WHERE email_key = ?',
-			$key
+			[$key]
 		);
-		$returner = isset($result->fields[0]) && $result->fields[0] != 0;
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row && $row['row_count'];
 	}
 
+	/**
+	 * Get the main email template path and filename.
+	 * @return string
+	 */
 	function getMainEmailTemplatesFilename() {
 		return 'registry/emailTemplates.xml';
 	}
 
-	function getMainEmailTemplateDataFilename($locale = null) {
-		if ($locale !== null && !PKPLocale::isLocaleValid($locale)) return null;
-		if ($locale === null) $locale = '{$installedLocale}';
-		return "locale/$locale/emailTemplates.xml";
-	}
-
 	/**
 	 * Install email templates from an XML file.
-	 * NOTE: Uses qstr instead of ? bindings so that SQL can be fetched
+	 * NOTE: Uses PDO::quote instead of ? bindings so that SQL can be fetched
 	 * rather than executed.
 	 * @param $templatesFile string Filename to install
+	 * @param $locales List of locales to install data for
 	 * @param $returnSql boolean Whether or not to return SQL rather than
 	 * executing it
 	 * @param $emailKey string Optional name of single email key to install,
 	 * skipping others
 	 * @param $skipExisting boolean If true, do not install email templates
 	 * that already exist in the database
-	 * @param $emailKey string If specified, the key of the single template
-	 * to install (otherwise all are installed)
-	 * @return array
+	 * @return array|boolean
 	 */
-	function installEmailTemplates($templatesFile, $returnSql = false, $emailKey = null, $skipExisting = false) {
+	function installEmailTemplates($templatesFile, $locales = array(), $returnSql = false, $emailKey = null, $skipExisting = false) {
 		$xmlDao = new XMLDAO();
 		$sql = array();
 		$data = $xmlDao->parseStruct($templatesFile, array('email'));
+		$pdo = Capsule::connection()->getPdo();
 		if (!isset($data['email'])) return false;
 		foreach ($data['email'] as $entry) {
 			$attrs = $entry['attributes'];
 			if ($emailKey && $emailKey != $attrs['key']) continue;
 			if ($skipExisting && $this->defaultTemplateIsInstalled($attrs['key'])) continue;
-			$dataSource = $this->getDataSource();
-			$sql[] = 'DELETE FROM email_templates_default WHERE email_key = ' . $dataSource->qstr($attrs['key']);
+			$sql[] = 'DELETE FROM email_templates_default WHERE email_key = ' . $pdo->quote($attrs['key']);
 			if (!$returnSql) {
 				$this->update(array_shift($sql));
 			}
 			$sql[] = 'INSERT INTO email_templates_default
-				(email_key, can_disable, can_edit, from_role_id, to_role_id)
+				(email_key, can_disable, can_edit, from_role_id, to_role_id, stage_id)
 				VALUES
 				(' .
-				$dataSource->qstr($attrs['key']) . ', ' .
+				$pdo->quote($attrs['key']) . ', ' .
 				($attrs['can_disable']?1:0) . ', ' .
 				($attrs['can_edit']?1:0) . ', ' .
 				(isset($attrs['from_role_id'])?((int) $attrs['from_role_id']):'null') . ', ' .
-				(isset($attrs['to_role_id'])?((int) $attrs['to_role_id']):'null') .
+				(isset($attrs['to_role_id'])?((int) $attrs['to_role_id']):'null') . ', ' .
+				(isset($attrs['stage_id'])?((int) $attrs['stage_id']):'null') .
 				")";
 			if (!$returnSql) {
 				$this->update(array_shift($sql));
+			}
+
+			// Add localized data
+			$additionalQueries = $this->installEmailTemplateLocaleData($templatesFile, $locales, $returnSql, $attrs['key']);
+			if ($returnSql) $sql = array_merge($sql, $additionalQueries);
+		}
+		if ($returnSql) return $sql;
+		return true;
+	}
+
+	/**
+	 * Install email template contents from an XML file.
+	 * NOTE: Uses PDO::quote instead of ? bindings so that SQL can be fetched
+	 * rather than executed.
+	 * @param $templatesFile string Filename to install
+	 * @param $locales List of locales to install data for
+	 * @param $returnSql boolean Whether or not to return SQL rather than
+	 * executing it
+	 * @param $emailKey string Optional name of single email key to install,
+	 * skipping others
+	 * @return array|boolean
+	 */
+	function installEmailTemplateLocaleData($templatesFile, $locales = array(), $returnSql = false, $emailKey = null) {
+		$xmlDao = new XMLDAO();
+		$sql = array();
+		$data = $xmlDao->parseStruct($templatesFile, array('email'));
+		if (!isset($data['email'])) return false;
+
+		$pdo = Capsule::connection()->getPdo();
+		foreach ($data['email'] as $entry) {
+			$attrs = $entry['attributes'];
+			if ($emailKey && $emailKey != $attrs['key']) continue;
+
+			$subject = $attrs['subject']??null;
+			$body = $attrs['body']??null;
+			$description = $attrs['description']??null;
+			if ($subject && $body) foreach ($locales as $locale) {
+				$sql[] = 'DELETE FROM email_templates_default_data WHERE email_key = ' . $pdo->quote($attrs['key']) . ' AND locale = ' . $pdo->quote($locale);
+				if (!$returnSql) {
+					$this->update(array_shift($sql));
+				}
+
+				$keyNotFoundHandler = function($key) {
+					return null;
+				};
+				$translatedSubject = __($subject, [], $locale, $keyNotFoundHandler);
+				$translatedBody = __($body, [], $locale, $keyNotFoundHandler);
+				if ($translatedSubject !== null && $translatedBody !==  null) {
+					$sql[] = 'INSERT INTO email_templates_default_data
+						(email_key, locale, subject, body, description)
+						VALUES
+						(' .
+						$pdo->quote($attrs['key']) . ', ' .
+						$pdo->quote($locale) . ', ' .
+						$pdo->quote($translatedSubject) . ', ' .
+						$pdo->quote($translatedBody) . ', ' .
+						$pdo->quote(__($description, [], $locale)) .
+						")";
+					if (!$returnSql) {
+						$this->update(array_shift($sql));
+					}
+				}
 			}
 		}
 		if ($returnSql) return $sql;
@@ -220,26 +282,38 @@ class EmailTemplateDAO extends SchemaDAO {
 
 	/**
 	 * Install email template localized data from an XML file.
-	 * NOTE: Uses qstr instead of ? bindings so that SQL can be fetched
+	 * NOTE: Uses PDO::quote instead of ? bindings so that SQL can be fetched
 	 * rather than executed.
+	 * @deprecated Since OJS/OMP 3.2, this data should be supplied via the non-localized email template list and PO files. (pkp/pkp-lib#5461)
 	 * @param $templateDataFile string Filename to install
+	 * @param $locale string Locale of template(s) to install
 	 * @param $returnSql boolean Whether or not to return SQL rather than
 	 * executing it
 	 * @param $emailKey string If specified, the key of the single template
 	 * to install (otherwise all are installed)
-	 * @return array
+	 * @return array|boolean
 	 */
-	function installEmailTemplateData($templateDataFile, $returnSql = false, $emailKey = null) {
+	function installEmailTemplateData($templateDataFile, $locale, $returnSql = false, $emailKey = null) {
 		$xmlDao = new XMLDAO();
 		$sql = array();
 		$data = $xmlDao->parse($templateDataFile, array('email_texts', 'email_text', 'subject', 'body', 'description'));
 		if (!$data) return false;
-		$locale = $data->getAttribute('locale');
 
+		$pdo = Capsule::connection()->getPdo();
 		foreach ($data->getChildren() as $emailNode) {
+			$subject = $emailNode->getChildValue('subject');
+			$body = $emailNode->getChildValue('body');
+			$description = $emailNode->getChildValue('description');
+
+			// Translate variable contents
+			foreach (array(&$subject, &$body, &$description) as &$var) {
+				$var = preg_replace_callback('{{translate key="([^"]+)"}}', function($matches) {
+					return __($matches[1], array(), $locale);
+				}, $var);
+			}
+
 			if ($emailKey && $emailKey != $emailNode->getAttribute('key')) continue;
-			$dataSource = $this->getDataSource();
-			$sql[] = 'DELETE FROM email_templates_default_data WHERE email_key = ' . $dataSource->qstr($emailNode->getAttribute('key')) . ' AND locale = ' . $dataSource->qstr($locale);
+			$sql[] = 'DELETE FROM email_templates_default_data WHERE email_key = ' . $pdo->quote($emailNode->getAttribute('key')) . ' AND locale = ' . $pdo->quote($locale);
 			if (!$returnSql) {
 				$this->update(array_shift($sql));
 			}
@@ -248,11 +322,11 @@ class EmailTemplateDAO extends SchemaDAO {
 				(email_key, locale, subject, body, description)
 				VALUES
 				(' .
-				$dataSource->qstr($emailNode->getAttribute('key')) . ', ' .
-				$dataSource->qstr($locale) . ', ' .
-				$dataSource->qstr($emailNode->getChildValue('subject')) . ', ' .
-				$dataSource->qstr($emailNode->getChildValue('body')) . ', ' .
-				$dataSource->qstr($emailNode->getChildValue('description')) .
+				$pdo->quote($emailNode->getAttribute('key')) . ', ' .
+				$pdo->quote($locale) . ', ' .
+				$pdo->quote($subject) . ', ' .
+				$pdo->quote($body) . ', ' .
+				$pdo->quote($description) .
 				")";
 			if (!$returnSql) {
 				$this->update(array_shift($sql));

@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/stageParticipant/StageParticipantGridCellProvider.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DataObjectGridCellProvider
  * @ingroup controllers_grid_users_submissionContributor
@@ -33,7 +33,8 @@ class StageParticipantGridCellProvider extends DataObjectGridCellProvider {
 				$stageAssignment = $row->getData();
 				$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 				$user = $userDao->getById($stageAssignment->getUserId());
-				return array('label' => $user->getFullName());
+				assert($user);
+				return array('label' => $user?$user->getFullName():'');
 			default:
 				assert(false);
 		}

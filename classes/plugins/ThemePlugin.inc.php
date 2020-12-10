@@ -3,9 +3,9 @@
 /**
  * @file classes/plugins/ThemePlugin.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ThemePlugin
  * @ingroup plugins
@@ -64,7 +64,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 *
 	 * @var $_optionValues null|array;
 	 */
-	private $_optionValues = null;
+	protected $_optionValues = null;
 
 	/**
 	 * @copydoc Plugin::register
@@ -226,7 +226,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$args['style'] = substr($args['style'], (strlen(LESS_FILENAME_SUFFIX) * -1)) == LESS_FILENAME_SUFFIX ? $this->_getBaseDir($args['style']) : $this->_getBaseUrl($args['style']);
 		}
 
-		$style = array_merge($style, $args);
+		$style = array_merge_recursive($style, $args);
 	}
 
 	/**
@@ -415,7 +415,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			try {
 				$this->options[$name] = new $class($name, $args);
 			} catch (Exception $e) {
-				fatalError(sprintf(
+				throw new Exception(sprintf(
 					'The %s class was not found for the theme option, %s,  defined by %s or one of its parent themes.',
 					$type,
 					$name,
@@ -551,8 +551,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		$values = $pluginSettingsDAO->getPluginSettings($contextId, $this->getName());
 		foreach ($this->options as $optionName => $optionConfig) {
 			$value = isset($values[$optionName]) ? $values[$optionName] : null;
-			// Convert values stored in the db as strings into booleans and
-			// integers if the default value is a boolean or integer
+			// Convert values stored in the db to the type of the default value
 			if (!is_null($optionConfig->default)) {
 				switch (gettype($optionConfig->default)) {
 					case 'boolean':
@@ -560,6 +559,9 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 						break;
 					case 'integer':
 						$value = (int) $value;
+						break;
+					case 'array':
+						$value = $value === null ? [] : unserialize($value);
 						break;
 				}
 			}
@@ -621,7 +623,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$contextId = $context->getId();
 		}
 
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 
 		// Remove setting row for empty string values (but not all falsey values)
 		if ($value === '') {

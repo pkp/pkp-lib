@@ -1,0 +1,2023 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
+"PO-Revision-Date: 2020-11-27 16:28+0000\n"
+"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"da_DK/>\n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "about.aboutSite"
+msgstr "Om webstedet"
+
+msgid "about.contact"
+msgstr "Kontaktperson"
+
+msgid "about.contact.email"
+msgstr "E-mail"
+
+msgid "about.contact.phone"
+msgstr "Telefon"
+
+msgid "about.contact.principalContact"
+msgstr "Primær kontaktperson"
+
+msgid "about.contact.supportContact"
+msgstr "Kontaktperson for support"
+
+msgid "about.other"
+msgstr "Andet"
+
+msgid "about.people"
+msgstr "Personer"
+
+msgid "about.policies"
+msgstr "Politikker"
+
+msgid "about.siteMap"
+msgstr "Sitemap"
+
+msgid "announcement.announcements"
+msgstr "Meddelelser"
+
+msgid "announcement.announcementsHome"
+msgstr "Meddelelser"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Flere meddelelser..."
+
+msgid "announcement.noneExist"
+msgstr "Der er ikke publiceret nogen meddelelser."
+
+msgid "announcement.posted"
+msgstr "Sendt"
+
+msgid "announcement.view"
+msgstr "Vis meddelelse"
+
+msgid "common.copy"
+msgstr "Kopier"
+
+msgid "common.preview"
+msgstr "Vis"
+
+msgid "common.activate"
+msgstr "Aktivér"
+
+msgid "common.deactivate"
+msgstr "Deaktivér"
+
+msgid "common.action"
+msgstr "Handling"
+
+msgid "common.active"
+msgstr "Aktiv"
+
+msgid "common.add"
+msgstr "Tilføj"
+
+msgid "common.addSelf"
+msgstr "Tilføj selv"
+
+msgid "common.all"
+msgstr "Alle"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Æ Ø Å"
+
+msgid "common.alreadyAssigned"
+msgstr "Tildelt"
+
+msgid "common.altText"
+msgstr "Alternativ tekst"
+
+msgid "common.and"
+msgstr "og"
+
+msgid "common.applyAction"
+msgstr "Anvend handling"
+
+msgid "common.assign"
+msgstr "Tildel"
+
+msgid "common.assigned"
+msgstr "Tildelt"
+
+msgid "common.back"
+msgstr "Tilbage"
+
+msgid "common.between"
+msgstr "mellem"
+
+msgid "common.cancel"
+msgstr "Annuller"
+
+msgid "common.cancelled"
+msgstr "Annulleret"
+
+msgid "common.captchaField.description"
+msgstr "Angiv bogstaverne, som de er vist i billedet ovenfor."
+
+msgid "common.captchaField"
+msgstr "Validering"
+
+msgid "common.changesSaved"
+msgstr "Ændringerne er blevet gemt."
+
+msgid "common.chooseOne"
+msgstr "Vælg én"
+
+msgid "common.close"
+msgstr "Luk"
+
+msgid "common.closeWindow"
+msgstr "Luk vindue"
+
+msgid "common.complete"
+msgstr "Udfør"
+
+msgid "common.completed"
+msgstr "Fuldført"
+
+msgid "common.continue"
+msgstr "Fortsæt"
+
+msgid "common.country"
+msgstr "Land"
+
+msgid "common.create"
+msgstr "Opret"
+
+msgid "common.dateCompleted"
+msgstr "Fuldførelsesdato"
+
+msgid "common.date"
+msgstr "Dato"
+
+msgid "common.dateModified"
+msgstr "Ændringsdato"
+
+msgid "common.dateRequested"
+msgstr "Forespørgselsdato"
+
+msgid "common.dateSubmitted"
+msgstr "Afsendelsesdato"
+
+msgid "common.dateUploaded"
+msgstr "Overførselsdato"
+
+msgid "common.day"
+msgstr "Dag"
+
+msgid "common.default"
+msgstr "Standard"
+
+msgid "common.delete"
+msgstr "Slet"
+
+msgid "common.deleteSelection"
+msgstr "Slet markering"
+
+msgid "common.description"
+msgstr "Beskrivelse"
+
+msgid "common.disabled"
+msgstr "Deaktiveret"
+
+msgid "common.discipline"
+msgstr "Fagområde"
+
+msgid "common.done"
+msgstr "Udført"
+
+msgid "common.download"
+msgstr "Download"
+
+msgid "common.edit"
+msgstr "Redigér"
+
+msgid "common.enabled"
+msgstr "Aktiveret"
+
+msgid "common.error.databaseError"
+msgstr "Der opstod en databasefejl: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Der opstod en ukendt fejl ved databaseforbindelsen."
+
+msgid "common.error.framesRequired"
+msgstr "Denne side kræver rammer. <a href=\"{$url}\">Klik her</a> for at få vist en version uden rammer."
+
+msgid "common.event"
+msgstr "Hændelse"
+
+msgid "common.export"
+msgstr "Eksportér"
+
+msgid "common.file"
+msgstr "Fil"
+
+msgid "common.fileName"
+msgstr "Filnavn"
+
+msgid "common.fileSize"
+msgstr "Filstørrelse"
+
+msgid "common.fileType"
+msgstr "Filtype"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.height"
+msgstr "Højde"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Hjemmesidens header-logo"
+
+msgid "common.hour"
+msgstr "Time"
+
+msgid "common.id"
+msgstr "Id"
+
+msgid "common.import"
+msgstr "Importér"
+
+msgid "common.initiate"
+msgstr "Start"
+
+msgid "common.inProgress"
+msgstr "Igangværende"
+
+msgid "common.keywords"
+msgstr "Nøgleord"
+
+msgid "common.language"
+msgstr "Sprog"
+
+msgid "common.languages"
+msgstr "Sprog"
+
+msgid "common.mailingAddress"
+msgstr "Postadresse"
+
+msgid "common.minute"
+msgstr "Minut(ter)"
+
+msgid "common.modify"
+msgstr "Redigér"
+
+msgid "common.month"
+msgstr "Måned"
+
+msgid "common.noneAssigned"
+msgstr "Ingen er tilknyttet"
+
+msgid "common.none"
+msgstr "Ingen"
+
+msgid "common.no"
+msgstr "Nr."
+
+msgid "common.notApplicable"
+msgstr "Ikke anvendelig"
+
+msgid "common.notApplicableShort"
+msgstr "N/A"
+
+msgid "common.notAvailable"
+msgstr "Ikke tilgængelig"
+
+msgid "common.note"
+msgstr "Note"
+
+msgid "common.notes"
+msgstr "Noter"
+
+msgid "common.off"
+msgstr "Fra"
+
+msgid "common.on"
+msgstr "Til"
+
+msgid "common.options"
+msgstr "Indstillinger"
+
+msgid "common.order"
+msgstr "Rækkefølge"
+
+msgid "common.orderUp"
+msgstr "Hæv placering af {$itemTitle}"
+
+msgid "common.orderDown"
+msgstr "Sænk placering af {$itemTitle}"
+
+msgid "common.originalFileName"
+msgstr "Oprindeligt filnavn"
+
+msgid "common.or"
+msgstr "eller"
+
+msgid "common.other"
+msgstr "Andet"
+
+msgid "common.plugin"
+msgstr "Plugin"
+
+msgid "common.publisher"
+msgstr "Forlægger"
+
+msgid "common.record"
+msgstr "Post"
+
+msgid "common.related"
+msgstr "Relateret"
+
+msgid "common.remove"
+msgstr "Fjern"
+
+msgid "common.removeSelection"
+msgstr "Fjern markering"
+
+msgid "common.replaced"
+msgstr "Erstattet"
+
+msgid "common.replaceFile"
+msgstr "Erstat fil"
+
+msgid "common.requiredField"
+msgstr "* Angiver obligatorisk felt"
+
+msgid "common.required"
+msgstr "Obligatorisk"
+
+msgid "common.saveAndContinue"
+msgstr "Gem og fortsæt"
+
+msgid "common.saveAndEmail"
+msgstr "Gem og send e-mail"
+
+msgid "common.save"
+msgstr "Gem"
+
+msgid "common.search"
+msgstr "Søg"
+
+msgid "common.second"
+msgstr "Sekund(er)"
+
+msgid "common.selectAll"
+msgstr "Markér alt"
+
+msgid "common.selectNone"
+msgstr "Markér intet"
+
+msgid "common.select"
+msgstr "Markér"
+
+msgid "common.size"
+msgstr "Størrelse"
+
+msgid "common.source"
+msgstr "Kilde"
+
+msgid "common.status"
+msgstr "Status"
+
+msgid "common.subject"
+msgstr "Emne"
+
+msgid "common.suggest"
+msgstr "Foreslå"
+
+msgid "common.title"
+msgstr "Titel"
+
+msgid "common.top"
+msgstr "Øverst"
+
+msgid "common.type"
+msgstr "Type"
+
+msgid "common.uninitiated"
+msgstr "Ikke startet"
+
+msgid "common.unknownError"
+msgstr "En uventet fejl opstod. Genindlæs siden og prøv igen."
+
+msgid "common.untitled"
+msgstr "Ikke-navngivet"
+
+msgid "common.updated"
+msgstr "Opdateret"
+
+msgid "common.upload"
+msgstr "Overfør"
+
+msgid "common.up"
+msgstr "Op"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Bruger"
+
+msgid "common.view"
+msgstr "Vis"
+
+msgid "common.weeks"
+msgstr "uger"
+
+msgid "common.width"
+msgstr "Bredde"
+
+msgid "common.year"
+msgstr "År"
+
+msgid "common.yes"
+msgstr "Ja"
+
+msgid "debug.databaseQueries"
+msgstr "Antal databaseforespørgsler"
+
+msgid "debug.executionTime"
+msgstr "Side genereret i"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Sproglisten \"{$localeList}\" er indlæst fra XML"
+
+msgid "debug.notes.localeLoad"
+msgstr "Sprogfil \"{$localeFile}\" er indlæst fra XML"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Sprognøglen \"{$key}\" mangler."
+
+msgid "debug.notes"
+msgstr "Noter:"
+
+msgid "email.addAttachment"
+msgstr "Tilføj vedhæftet fil"
+
+msgid "email.addBccRecipient"
+msgstr "Tilføj BCC"
+
+msgid "email.addCcRecipient"
+msgstr "Tilføj CC"
+
+msgid "email.addToRecipient"
+msgstr "Tilføj modtager"
+
+msgid "email.attachments"
+msgstr "Vedhæftede filer"
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.bccSender"
+msgstr "Send en kopi af denne meddelelse til min adresse ({$address})"
+
+msgid "email.body"
+msgstr "Brødtekst"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.compose"
+msgstr "Send e-mail"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Den meddelelse, du forsøger at sende, har for mange modtagere."
+
+msgid "email.compose.tooSoon"
+msgstr "Du forsøger at sende en meddelelse for kort tid efter, at din seneste meddelelse blev sendt. Vent med at sende en anden meddelelse."
+
+msgid "email.email"
+msgstr "E-mail"
+
+msgid "email.from"
+msgstr "Fra"
+
+msgid "email.invalid"
+msgstr "E-mail-adressen {$email} er ugyldig."
+
+msgid "email.multipart"
+msgstr "Dette er en meddelelse i MIME-format, der består af flere dele."
+
+msgid "email.recipient"
+msgstr "Modtager"
+
+msgid "email.recipients"
+msgstr "Modtagere"
+
+msgid "email.sender"
+msgstr "Afsender"
+
+msgid "email.send"
+msgstr "Send"
+
+msgid "email.skip"
+msgstr "Spring e-mail over"
+
+msgid "email.subject"
+msgstr "Emne"
+
+msgid "email.to"
+msgstr "Til"
+
+msgid "form.contains"
+msgstr "indeholder"
+
+msgid "form.errorsOccurred"
+msgstr "Der opstod fejl under behandlingen af denne formular"
+
+msgid "form.formLanguage.description"
+msgstr "Hvis du vil angive oplysningerne nedenfor på et andet sprog, skal du først vælge det pågældende sprog."
+
+msgid "form.formLanguage"
+msgstr "Formularsprog"
+
+msgid "form.is"
+msgstr "er"
+
+msgid "form.postRequired"
+msgstr "Formularen blev ikke sendt korrekt."
+
+msgid "form.required"
+msgstr "(* Obligatorisk)"
+
+msgid "form.resubmit"
+msgstr "Send igen"
+
+msgid "form.saveToUpload"
+msgstr "Brug 'Gem' for at overføre filen."
+
+msgid "form.send"
+msgstr "Send"
+
+msgid "form.submit"
+msgstr "Fremsend"
+
+msgid "help.help"
+msgstr "Hjælp"
+
+msgid "help.toc"
+msgstr "Indholdsfortegnelse"
+
+msgid "help.upALevel"
+msgstr "Ét niveau op"
+
+msgid "icon.checked.alt"
+msgstr "Markeret"
+
+msgid "icon.comment.alt"
+msgstr "Kommentar"
+
+msgid "icon.delete.alt"
+msgstr "Slet"
+
+msgid "icon.edit.alt"
+msgstr "Redigér"
+
+msgid "icon.folder.alt"
+msgstr "Mappe"
+
+msgid "icon.font_large.alt"
+msgstr "Stor"
+
+msgid "icon.font_medium.alt"
+msgstr "Medium"
+
+msgid "icon.font_small.alt"
+msgstr "Lille"
+
+msgid "icon.info.alt"
+msgstr "Info"
+
+msgid "icon.letter.alt"
+msgstr "Brev"
+
+msgid "icon.mail.alt"
+msgstr "Post"
+
+msgid "icon.unchecked.alt"
+msgstr "Ikke markeret"
+
+msgid "icon.view.alt"
+msgstr "Vis"
+
+msgid "locale.primary"
+msgstr "Primært sprog"
+
+msgid "locale.supported"
+msgstr "Understøttede sprog"
+
+msgid "navigation.about"
+msgstr "Om"
+
+msgid "navigation.browse"
+msgstr "Browse"
+
+msgid "navigation.browseByTitle"
+msgstr "Efter titel"
+
+msgid "navigation.home"
+msgstr "Startside"
+
+msgid "navigation.infoForReaders"
+msgstr "Til læsere"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Oplysninger til læsere"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} af {$total} elementer"
+
+msgid "navigation.login"
+msgstr "Login"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Næste trin"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Forrige trin"
+
+msgid "navigation.register"
+msgstr "Registrér"
+
+msgid "navigation.search"
+msgstr "Søg"
+
+msgid "navigation.stepNumber"
+msgstr "Trin {$step}"
+
+msgid "navigation.userHome"
+msgstr "Brugerstartside"
+
+msgid "navigation.user"
+msgstr "Bruger"
+
+msgid "search.abstract"
+msgstr "Resumé"
+
+msgid "search.author"
+msgstr "Forfattere"
+
+msgid "search.coverage"
+msgstr "Dækning"
+
+msgid "search.date"
+msgstr "Publiceringsdato"
+
+msgid "search.dateFrom"
+msgstr "Publiceret efter"
+
+msgid "search.dateTo"
+msgstr "Publiceret før"
+
+msgid "search.discipline"
+msgstr "Fagområde(r)"
+
+msgid "search.fullText"
+msgstr "Fuldtekst"
+
+msgid "search.indexTerms"
+msgstr "Indekstermer"
+
+msgid "search.matchAll"
+msgstr "Find alle kategorier"
+
+msgid "search.noResults"
+msgstr "Ingen resultater"
+
+msgid "search.operator.and"
+msgstr "og"
+
+msgid "search.operator.not"
+msgstr "ikke"
+
+msgid "search.operator.or"
+msgstr "eller"
+
+msgid "search.searchResults"
+msgstr "Søgeresultater"
+
+msgid "search.subject"
+msgstr "Nøgleord"
+
+msgid "search.titleIndex"
+msgstr "Gennemse titelindeks"
+
+msgid "search.title"
+msgstr "Titel"
+
+msgid "search.typeMethodApproach"
+msgstr "Type (metode/fremgangsmåde)"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"  <a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"   <img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"  </a>\n"
+"  <br/>\n"
+"  Brug af dette værk skal ske i overensstemmelse med copyrightlicensen <a "
+"rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">Creative Commons Attribution 3.0  License</a>.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"  <br />\n"
+"  <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\">\n"
+"<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"  <br />\n"
+"  Brug af dette værk skal ske i overensstemmelse med copyrightlicensen<a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\""
+"_blank\">Creative Commons Attribution 3.0 License</a>.\n"
+" </div>\n"
+"\t"
+
+msgid "common.disable"
+msgstr "Deaktivér"
+
+msgid "common.enable"
+msgstr "Aktivér"
+
+msgid "common.fullscreen"
+msgstr "Fuldskærm"
+
+msgid "common.fullscreenOff"
+msgstr "Deaktivér fuldskærm"
+
+msgid "common.false"
+msgstr "Falsk"
+
+msgid "common.manage"
+msgstr "Administrér"
+
+msgid "common.noComments"
+msgstr "Ingen kommentarer"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.pluginEnabled"
+msgstr "\"{$pluginName}\"-plugin er aktiveret."
+
+msgid "common.pluginDisabled"
+msgstr "\"{$pluginName}\"-plugin er deaktiveret."
+
+msgid "common.re"
+msgstr "Sv:"
+
+msgid "common.refresh"
+msgstr "Opdatér"
+
+msgid "common.true"
+msgstr "Sandt"
+
+msgid "common.uploadFailed"
+msgstr "Filen kunne ikke uploades eller revideres."
+
+msgid "common.loading"
+msgstr "Indlæser"
+
+msgid "debug.memoryUsage"
+msgstr "Brug af hukommelse"
+
+msgid "form.startsWith"
+msgstr "begynder med"
+
+msgid "navigation.dashboard"
+msgstr "Betjeningspanel"
+
+msgid "notification.allow"
+msgstr "Aktivér denne type meddelelser."
+
+msgid "notification.confirmError"
+msgstr "Der opstod en fejl i forbindelse med bekræftelsen af dit abonnement."
+
+msgid "notification.confirmSuccess"
+msgstr "Din oprettelse som abonnent er gennemført."
+
+msgid "notification.noneExist"
+msgstr "Du har ingen nye meddelelser."
+
+msgid "notification.notification"
+msgstr "Meddelelse"
+
+msgid "notification.notifications"
+msgstr "Meddelelser"
+
+msgid "notification.settings"
+msgstr "Indstillinger for meddelelser"
+
+msgid "notification.settingsDescription"
+msgstr ""
+"Vælg de hændelser, du vil have besked om. Fjernelse af markering vil "
+"forhindre, at meddelelser om denne begivenhed vises i systemet ligesom der "
+"ikke vil blive sendt en e-mail til dig. Markerede begivenheder vises i "
+"systemet, og du har en ekstra mulighed for at modtage eller ikke modtage de "
+"samme meddelelser via e-mail."
+
+msgid "notification.reminderError"
+msgstr "Der opstod en fejl i forbindelse med afsendelsen af din adgangskode. Kontrollér, at du har indtastet din e-mail-adresse korrekt."
+
+msgid "notification.reminderSent"
+msgstr "Din nye adgangskode er blevet sendt til den e-mail-adresse, du har angivet."
+
+msgid "announcement.postedOn"
+msgstr "Sendt den {$postDate}"
+
+msgid "common.accepted"
+msgstr "Accepteret"
+
+msgid "common.acknowledged"
+msgstr "Anerkendt"
+
+msgid "common.titleSmallWords"
+msgstr "af en et den det eller men er hvis så ellers når fra af til fra for i ude over til ind med"
+
+msgid "common.warning"
+msgstr "Advarsel"
+
+msgid "common.confirm"
+msgstr "Bekræft"
+
+msgid "common.content"
+msgstr "Tilfreds"
+
+msgid "common.declined"
+msgstr "Afslået"
+
+msgid "common.finish"
+msgstr "Afslut"
+
+msgid "common.go"
+msgstr "Start"
+
+msgid "common.less"
+msgstr "Mindre"
+
+msgid "common.billingAddress"
+msgstr "Faktureringsadresse"
+
+msgid "common.more"
+msgstr "Mere"
+
+msgid "common.notified"
+msgstr "Meddelt"
+
+msgid "common.noMatches"
+msgstr "Ingen match"
+
+msgid "common.overdue"
+msgstr "Forsinket"
+
+msgid "common.reminder"
+msgstr "Påmindelse"
+
+msgid "common.remote"
+msgstr "Fjern"
+
+msgid "common.remoteURL"
+msgstr "EksternURL"
+
+msgid "common.reset"
+msgstr "Nulstil"
+
+msgid "common.unread"
+msgstr "Ulæst"
+
+msgid "common.plugins"
+msgstr "Plugins"
+
+msgid "email.subjectRequired"
+msgstr "Udfyld venligst e-mailens emnefelt."
+
+msgid "email.bodyRequired"
+msgstr "Indskriv tekst i e-mailens tekstfelt."
+
+msgid "form.confirmSubmit"
+msgstr "Er du sikker på, at du vil sende denne formular?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Bekræft"
+
+msgid "form.emailRequired"
+msgstr "En e-mail-adresse er påkrævet."
+
+msgid "form.dataHasChanged"
+msgstr "Dataene i denne formular er ændret. Fortsæt alligevel?"
+
+msgid "form.invalidImage"
+msgstr ""
+"Et ugyldigt billede blev uploadet. De accepterede formater er .png, .gif "
+"eller .jpg."
+
+msgid "navigation.access"
+msgstr "Brugere & roller"
+
+msgid "navigation.admin"
+msgstr "Administration"
+
+msgid "navigation.browseByAuthor"
+msgstr "Efter forfatter"
+
+msgid "navigation.data"
+msgstr "Data"
+
+msgid "navigation.publicMenu"
+msgstr "Offentlig menu"
+
+msgid "navigation.settings"
+msgstr "Indstillinger"
+
+msgid "navigation.setup"
+msgstr "Opsætning"
+
+msgid "navigation.sitemap"
+msgstr "Sitemap"
+
+msgid "navigation.submissions"
+msgstr "Indsendelser"
+
+msgid "navigation.system"
+msgstr "System"
+
+msgid "navigation.userManagement"
+msgstr "Brugeradministration"
+
+msgid "common.readMore"
+msgstr "Læs mere"
+
+msgid "navigation.archives"
+msgstr "Arkiver"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Startside"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "common.viewProfile"
+msgstr "Se profil"
+
+msgid "common.tasks"
+msgstr "Opgaver"
+
+msgid "navigation.tools"
+msgstr "Værktøjer"
+
+msgid "navigation.tools.importExport"
+msgstr "Importér/Eksportér"
+
+msgid "navigation.tools.statistics"
+msgstr "Statistikker"
+
+msgid "navigation.viewFrontend"
+msgstr "Se website"
+
+msgid "common.upload.addFile"
+msgstr "Upload fil"
+
+msgid "common.upload.changeFile"
+msgstr "Skift fil"
+
+msgid "common.upload.dragFile"
+msgstr "Træk og slip en fil hertil for at påbegynde upload"
+
+msgid "notification.type.allRevisionsIn"
+msgstr "En tilrettet fil er blevet uploadet til redaktionel overvejelse i  {$stage}."
+
+msgid "notification.type.metadataModified"
+msgstr "\"{$title}'s\" metadata er blevet ændret."
+
+msgid "notification.type.reviewerComment"
+msgstr "En bedømmer har kommenteret \"{$title}\"."
+
+msgid "notification.type.queryActivity"
+msgstr "Diskussionsaktivitet."
+
+msgid "notification.type.queryAdded"
+msgstr "Drøftelse tilføjet."
+
+msgid "grid.action.markNew"
+msgstr "Markér ny"
+
+msgid "grid.action.markRead"
+msgstr "Markér læst"
+
+msgid "dashboard.tasks"
+msgstr "Opgaver"
+
+msgid "dashboard.myQueue"
+msgstr "Min kø"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} af {$total} elementer"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Sådan sikrer du, at alle filer anonymiseres"
+
+msgid "common.prefix"
+msgstr "Præfiks"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Eksempler: A, The"
+
+msgid "common.subtitle"
+msgstr "Undertitel"
+
+msgid "common.abstract"
+msgstr "Resumé"
+
+msgid "common.uploadedDate"
+msgstr "Upload-tidspunkt"
+
+msgid "common.itemsPerPage"
+msgstr "Elementer pr. side"
+
+msgid "common.name"
+msgstr "Navn"
+
+msgid "common.designation"
+msgstr "Betegnelse"
+
+msgid "notification.type.reviewAssignment"
+msgstr "Under bedømmelse."
+
+msgid "informationCenter.editorialHistory"
+msgstr "Redaktionel historik"
+
+msgid "informationCenter.noNotes"
+msgstr "Der er ingen noter at fremvise."
+
+msgid "informationCenter.addNote"
+msgstr "Tilføj note"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "Vælg at bruge en forud formuleret besked eller udfyld nedenstående formular."
+
+msgid "stageParticipants.notify.message"
+msgstr "Besked"
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Status for runde {$round}"
+
+msgid "notification.addedStageParticipant"
+msgstr "Bruger tilføjet som deltager."
+
+msgid "search.advancedSearchMore"
+msgstr "Flere søgemuligheder"
+
+msgid "submission.task.responseDueDate"
+msgstr "Svar senest"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Upload bedømmelsesfil"
+
+msgid "notification.addedReviewer"
+msgstr "{$reviewerName} blev tilføjet som bedømmer på denne indsendelse og har fået besked via mail."
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Tidsplan for bedømmelse"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Redaktørs forespørgsel"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Svar senest"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Bedømmelsen er forfalden"
+
+msgid "navigation.goBack"
+msgstr "Tilbage"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Upload fil"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Afventer redigeret manuskript."
+
+msgid "common.confirmDelete"
+msgstr ""
+"Er du sikker på, at du vil slette dette element. Denne handling kan ikke "
+"fortrydes."
+
+msgid "informationCenter.informationCenter"
+msgstr "Informationscenter"
+
+msgid "informationCenter.pastNotes"
+msgstr "Tidligere revisionsnoter"
+
+msgid "notification.addedNote"
+msgstr "Note sendt."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Ny note afsendt."
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Er du sikker på, at du vil slette denne note?"
+
+msgid "informationCenter.currentHistory"
+msgstr "Aktuel revision"
+
+msgid "informationCenter.pastHistory"
+msgstr "Tidligere revisioner"
+
+msgid "informationCenter.history.noItems"
+msgstr "Ingen begivenheder er registreret."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Meddelelse sendt til brugere."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Meddelelse sendt til brugere."
+
+msgid "notification.removedFile"
+msgstr "Fjernet fil."
+
+msgid "notification.type.allReviewsIn"
+msgstr "Alle bedømmelser er modtaget og en afgørelse skal tages under: {$stage}."
+
+msgid "common.error"
+msgstr "Fejl"
+
+msgid "context.path"
+msgstr "Sti"
+
+msgid "help.previous"
+msgstr "Forrige"
+
+msgid "help.next"
+msgstr "Næste"
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Tilføj en manuskriptredaktør ved at klikke på linket 'Tildel' i feltet "
+"'Deltagere'."
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>Med henblik på at sikre integriteten i forbindelse med blind peer review "
+"af manuskripter til dette tidsskrift skal der gøres alt for at forhindre, at "
+"forfatternes og bedømmernes identiteter afsløres for hinanden. Dette "
+"indebærer, at forfatterne, redaktørerne og bedømmerne (der overfører "
+"dokumenter som en del af deres bedømmelse) kontrollerer, at følgende trin er "
+"udført med hensyn til teksten og filegenskaberne:</p>\n"
+"<ul><li>Dokumentets forfattere har slettet deres navne i teksten, og \""
+"Forfatter\" og år benyttes i referencerne og fodnoterne i stedet for "
+"forfatternes navne, artiklens titel osv..</li>\n"
+"<li>Forfatterne af dokumentet har fjernet personlige oplysninger fra "
+"filegenskaberne ved at tage følgende trin:\n"
+"<ul><li>Microsoft Word til Windows:\n"
+"<ul><li>Gå til Filer</li>\n"
+"<li>Vælg Oplysninger</li>\n"
+"<li>Klik på Undersøg dokument</li>\n"
+"<li>I dialogboksen Dokumentinspektion skal du markere afkrydsningsfelterne "
+"for at vælge den type skjult indhold, du vil inspicere.</li>\n"
+"<li>Undersøg</li>\n"
+"<li>Klik på Fjern alle</li>\n"
+"<li>Klik på Luk</li>\n"
+"<li>Gem dokumentet</li></ul>\n"
+"<li>Microsoft Word til MacOS:\n"
+"<ul><li>Gå til Funktioner</li>\n"
+"<li>Klik på Beskyt dokument</li>\n"
+"<li>Vælg Slet personlige oplysninger fra filen, når den gemmes</li>\n"
+"<li>Klik på OK, og gem filen</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Gå til fil</li>\n"
+"<li>Vælg Egenskaber</li>\n"
+"<li>Fjern ethvert navn i forfatterfeltet</li>\n"
+"<li>Klik på OK</li>\n"
+"<li>Gem dokumentet</li></ul></li>\n"
+"</ul>\n"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
+
+msgid "common.currentStyleSheet"
+msgstr "Gældende stylesheet"
+
+msgid "about.description"
+msgstr "Beskrivelse"
+
+msgid "about.guidelines"
+msgstr "Vejledninger"
+
+msgid "common.allDownloads"
+msgstr "Alle downloads"
+
+msgid "common.navigation.sidebar"
+msgstr "Sidemenu"
+
+msgid "common.navigation.site"
+msgstr "Websteds-navigation"
+
+msgid "common.navigation.siteContext"
+msgstr "Websteds kontekst-navigation"
+
+msgid "common.navigation.user"
+msgstr "Bruger-navigation"
+
+msgid "common.list"
+msgstr "Liste"
+
+msgid "common.grid"
+msgstr "Raster"
+
+msgid "common.assigned.date"
+msgstr "Tildelt: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "Tilgængelig"
+
+msgid "common.notice"
+msgstr "Meddelelse"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr "Denne hjemmesides captcha-validering er ikke konfigureret korrekt. Den hemmelige nøgle mangler."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr "Denne hjemmesides captcha-validering er ikke konfigureret korrekt. Den hemmelige nøgle mangler."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Færdiggør validerings-tjekket, der er indsat for at forhindre indsendelse af spam."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "Du fik ikke godkendt validerings-tjekket, der er indsat for at forhindre indsendelse af spam."
+
+msgid "common.closePanel"
+msgstr "Luk felt"
+
+msgid "common.completed.date"
+msgstr "Afsluttet: {$dateCompleted}"
+
+msgid "common.confirmed.date"
+msgstr "Bekræftet: {$dateConfirmed}"
+
+msgid "common.contents"
+msgstr "Indhold"
+
+msgid "common.dateHijri"
+msgstr "Den muslimske kalender - Hijri kalender"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&gange;{$height} pixels"
+
+msgid "common.fileUploaderError"
+msgstr "Filoverførslen er i gang. Hvis det ikke synes at være tilfældet, kan det skyldes at kørselstiden ikke understøttes af denne browser. Kontakt administrator for hjælp."
+
+msgid "common.notes.tooltip"
+msgstr "Noter (gul: har nye noter; blå: har gennemsete noter; grå: ingen noter)"
+
+msgid "common.pageNumber"
+msgstr "Side {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.quality"
+msgstr "Kvalitet"
+
+msgid "common.queue.long.active"
+msgstr "Alle aktive"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.notified.date"
+msgstr "Anmeldt: {$dateNotified}"
+
+msgid "common.readMoreWithTitle"
+msgstr "Læs mere om {$title}"
+
+msgid "common.reminded.date"
+msgstr "Påmindet: {$dateReminded}"
+
+msgid "common.searchQuery"
+msgstr "Søgeforespørgsel"
+
+msgid "common.sendEmail"
+msgstr "Send e-mail"
+
+msgid "common.subjects"
+msgstr "Emner"
+
+msgid "common.component"
+msgstr "Dele"
+
+msgid "common.metric"
+msgstr "Mål"
+
+msgid "common.count"
+msgstr "Antal"
+
+msgid "defaultMetric.title"
+msgstr "Standardmål"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Tilgængelige mål"
+
+msgid "email.senderName"
+msgstr "Afsenders navn"
+
+msgid "email.senderEmail"
+msgstr "Afsenders e-mail"
+
+msgid "form.url.invalid"
+msgstr "Den angivne URL er ugyldig. Tjek og prøv igen."
+
+msgid "form.fileRequired"
+msgstr "En fil skal uploades."
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Sørg for at du har udfyldt feltet til beskeder og valgt mindst én modtager "
+"udover dig selv."
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Du er her:"
+
+msgid "notification.addedAuditor"
+msgstr "Auditør tilføjet."
+
+msgid "notification.removedAuditor"
+msgstr "Auditør fjernet."
+
+msgid "notification.addedQuery"
+msgstr "Tilføjet indlæg"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Bedømmelse markeret som godkendt. E-mail er ikke sendt."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Bedømmelsesfiler opdateret."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Meddelelsestype tilføjet."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Meddelelsestype redigeret."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Meddelelsestype fjernet."
+
+msgid "notification.removedAnnouncement"
+msgstr "Meddelelse fjernet."
+
+msgid "notification.addedAuthor"
+msgstr "Forfatter tilføjet."
+
+msgid "notification.editedAuthor"
+msgstr "Forfatter redigeret."
+
+msgid "notification.removedNote"
+msgstr "Note slettet."
+
+msgid "notification.removedSubmission"
+msgstr "Fjernet indsendelse."
+
+msgid "notification.sentNotification"
+msgstr "Meddelelse sendt."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Indsendelses-metadata gemt."
+
+msgid "search.advancedFilters"
+msgstr "Avancerede filtre"
+
+msgid "search.advancedSearchLess"
+msgstr "Skjul flere søgemuligheder"
+
+msgid "search.searchAgain"
+msgstr "Søg igen"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Ryd indeks"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "færdig"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "fejl"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} artikler indekseret"
+
+msgid "search.deleteFilter"
+msgstr "Slet"
+
+msgid "search.indexTermsLong"
+msgstr "Alle indeksterm-felter"
+
+msgid "search.SearchFor"
+msgstr "Søg efter"
+
+msgid "grid.action.downloadFile"
+msgstr "Download denne fil"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Læs den gældende bedømmelsespraksis"
+
+msgid "grid.action.deleteNotification"
+msgstr "Slet opgave"
+
+msgid "notification.removedReviewer"
+msgstr "Bedømmer fjernet."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Ny meddelelse."
+
+msgid "notification.type.auditorRequest"
+msgstr "Revisionsanmodning til \"{$file}\""
+
+msgid "notification.type.pendingRevisions"
+msgstr "Overvej revisioner på  {$stage}."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Revisioner indsendt til {$stage}."
+
+msgid "notification.signedFile"
+msgstr "Fil taget under overvejelse."
+
+msgid "user.authorization.submissionFile"
+msgstr "Den aktuelle bruger er ikke bemyndiget til at få adgang til den angivne fil."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Ugyldig indsendelse."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Ugyldig repræsentation."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "Du har på nuværende tidspunkt ikke tilstrækkelig bemyndigelse til at se indsendelsen. Redigér din profil og sørg for, at du har fået tildelt de passende roller under \"Registrér som\"."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Den aktuelle bruger er ikke forfatter til den rekvirerede indsendelse. "
+"Kontrollér, at du er logget ind med den korrekte brugerkonto."
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "common.deleting"
+msgstr "Sletter"
+
+msgid "common.downloadPdf"
+msgstr "Download PDF"
+
+msgid "common.from"
+msgstr "Fra"
+
+msgid "common.until"
+msgstr "Indtil"
+
+msgid "common.saving"
+msgstr "Gemmer"
+
+msgid "stageParticipants.options"
+msgstr "Tildelingsrettigheder"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Denne deltager har kun tilladelse til anbefale en redaktionel beslutning . "
+"Det vil kræve en autoriseret redaktør for at registrere beslutninger."
+
+msgid "navigation.skip.main"
+msgstr "Spring til hovedindhold"
+
+msgid "navigation.skip.nav"
+msgstr "Spring til hovednavigations-menu"
+
+msgid "navigation.skip.footer"
+msgstr "Spring til bundtekst"
+
+msgid "notification.addedReviewerNoEmail"
+msgstr "{$reviewerName} blev tilføjet som bedømmer på denne indsendelse og har ikke fået besked via mail."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Tak, e-mail er nu sendt til bedømmer."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Send en e-mail om dette til alle registrerede brugere."
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Navigationsmenu-elementerne blev opdateret"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Navigationsmenu-elementerne blev fjernet"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Navigationsmenu-elementerne blev tilføjet"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Navigationsmenuen blev tilføjet"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Navigationsmenu blev opdateret"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Navigationsmenu blev fjernet"
+
+msgid "common.filter"
+msgstr "Filtre"
+
+msgid "common.filterAdd"
+msgstr "Tilføj filter: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Fjern filter: {$filterTitle}"
+
+msgid "common.lessThan"
+msgstr "{$value} eller mindre"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.moreThan"
+msgstr "{$value} eller mere"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} af {$total}"
+
+msgid "common.pagination.label"
+msgstr "Browse ekstra sider"
+
+msgid "common.clearSearch"
+msgstr "Fjern søgetermen"
+
+msgid "common.publicAccess"
+msgstr "Offentlig adgang"
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Påbegynd drøftelse"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Påbegynd en drøftelse mellem dig selv og {$userFullName}."
+
+msgid "notification.email"
+msgstr "Send mig ikke en e-mail i forbindelse med denne type meddelelser."
+
+msgid "list.viewMore"
+msgstr "Vis flere oplysninger om {$name}"
+
+msgid "list.viewLess"
+msgstr "Skjul flere oplysninger om {$name}"
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Bedømmelsestildeling opdateret."
+
+msgid "common.dateDecided"
+msgstr "Dato besluttet"
+
+msgid "email.compose.error"
+msgstr "Der opstod et problem med at sende en e-mail-besked. Prøv igen senere, eller kontakt din systemadministrator."
+
+msgid "common.pagination.previous"
+msgstr "Forrige side"
+
+msgid "common.pagination.goToPage"
+msgstr "Gå til {$page}"
+
+msgid "common.pagination.next"
+msgstr "Næste side"
+
+msgid "validator.url"
+msgstr "Dette er ikke en gyldig URL."
+
+msgid "validator.unique"
+msgstr "Denne {$attribute} er allerede taget."
+
+msgid "validator.timezone"
+msgstr "Dette er ikke en gyldig tidszone."
+
+msgid "validator.string"
+msgstr "Dette er ikke en gyldig streng."
+
+msgid "validator.size.array"
+msgstr "Dette skal indeholde {$size} elementer."
+
+msgid "validator.size.string"
+msgstr "Dette skal være {$size} tegn."
+
+msgid "validator.size.file"
+msgstr "Dette skal være {$size} kilobytes."
+
+msgid "validator.size.numeric"
+msgstr "Dette skal være {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} og {$other} skal matche."
+
+msgid "validator.required_without_all"
+msgstr "Dette felt er påkrævet når ingen af {$values} foreligger."
+
+msgid "validator.required_with_all"
+msgstr "Dette felt er gældende når {$values} foreligger."
+
+msgid "validator.required_without"
+msgstr "Dette felt er påkrævet når {$values} ikke foreligger."
+
+msgid "validator.required_with"
+msgstr "Dette felt er påkrævet når {$values} foreligger."
+
+msgid "validator.required_unless"
+msgstr "Dette felt er påkrævet medmindre {$other} er i {$values}."
+
+msgid "validator.required_if"
+msgstr "Dette felt er påkrævet når {$other} er {$value}."
+
+msgid "validator.required"
+msgstr "Dette felt er påkrævet."
+
+msgid "validator.regex"
+msgstr "Dette er ikke formateret korrekt."
+
+msgid "validator.present"
+msgstr "Feltet {$attribute} skal foreligge."
+
+msgid "validator.orcid"
+msgstr "Dette er ikke en gyldig ORCID."
+
+msgid "validator.numeric"
+msgstr "Dette er ikke et gyldigt nummer."
+
+msgid "validator.not_in"
+msgstr "Den valgte {$attribute} er ugyldig."
+
+msgid "validator.min.array"
+msgstr "Dette skal være mindst {$min} elementer."
+
+msgid "validator.min.string"
+msgstr "Dette skal være mindst {$min} tegn."
+
+msgid "validator.min.file"
+msgstr "Dette skal være mindst {$min} kilobytes."
+
+msgid "validator.min.numeric"
+msgstr "Dette skal være mindst {$min}."
+
+msgid "validator.mimes"
+msgstr "Dette skal være en fil af typen {$values}."
+
+msgid "validator.max.array"
+msgstr "Dette må ikke være større end {$max} elementer."
+
+msgid "validator.max.string"
+msgstr "Dette må ikke være større end {$max} tegn."
+
+msgid "validator.max.file"
+msgstr "Dette må ikke være større end {$max} kilobytes."
+
+msgid "validator.max.numeric"
+msgstr "Dette må ikke være større end {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Sprog skal specificeres vha. landekoden. Eksempler: en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Dette felt er flersproget. Der skal angives separate værdier for hvert "
+"understøttet sprog."
+
+msgid "validator.locale"
+msgstr "Dette sprog accepteres ikke."
+
+msgid "validator.json"
+msgstr "Dette er ikke en gyldig JSON-streng."
+
+msgid "validator.issn"
+msgstr "Dette er ikke et gyldigt ISSN."
+
+msgid "validator.ip"
+msgstr "Dette er ikke en gyldig IP-adresse."
+
+msgid "validator.integer"
+msgstr "Dette er ikke et gyldigt heltal."
+
+msgid "validator.in"
+msgstr "Det valgte {$attribute} er ugyldigt."
+
+msgid "validator.image"
+msgstr "Dette skal være et billede."
+
+msgid "validator.filled"
+msgstr "Dette felt er påkrævet."
+
+msgid "validator.exists"
+msgstr "Det valgte {$attribute} er ugyldigt."
+
+msgid "validator.email"
+msgstr "Dette er ikke en gyldig e-mail-adresse."
+
+msgid "validator.digits_between"
+msgstr "Dette skal være mellem {$min} og {$max} cifre."
+
+msgid "validator.digits"
+msgstr "Dette skal være {$digits} cifre langt."
+
+msgid "validator.different"
+msgstr "$attribute} og {$other} skal være forskellige."
+
+msgid "validator.date_format"
+msgstr "Dette matcher ikke formatet {$format}."
+
+msgid "validator.date"
+msgstr "Dette er ikke en gyldig dato."
+
+msgid "validator.currency"
+msgstr "Dette er ikke en gyldig valuta."
+
+msgid "validator.confirmed"
+msgstr "Bekræftelsen for dette felt matcher ikke."
+
+msgid "validator.boolean"
+msgstr "Dette felt skal være sandt eller falsk."
+
+msgid "validator.between.array"
+msgstr "Dette skal være mellem {$min} og {$max} elementer."
+
+msgid "validator.between.string"
+msgstr "Dette skal være mellem {$min} og {$max} tegn."
+
+msgid "validator.between.file"
+msgstr "Dette skal være mellem {$min} og {$max} kilobytes."
+
+msgid "validator.between.numeric"
+msgstr "Dette skal være mellem {$min} og {$max}."
+
+msgid "validator.before"
+msgstr "Denne dato skal være inden {$date}."
+
+msgid "validator.array"
+msgstr "Dette er ikke en gyldig array."
+
+msgid "validator.alpha_num"
+msgstr "Dette må kun indeholde bogstaver og tal."
+
+msgid "validator.alpha_dash"
+msgstr ""
+"Dette må kun indeholde bogstaver, tal, bindestreger og understregninger."
+
+msgid "validator.alpha"
+msgstr "Dette kan kun indeholde bogstaver."
+
+msgid "validator.after"
+msgstr "Denne dato skal være efter {$date}."
+
+msgid "validator.active_url"
+msgstr "Dette er ikke en gyldig URL."
+
+msgid "validator.accepted"
+msgstr "Acceptér dette element.."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Dette er en venlig påmindelse til dig om at kontrollere dit tidsskrifts "
+"tilstand via den redaktionelle rapport."
+
+msgid "notification.type.editorialReport"
+msgstr "Sammendrag af statistikrapport."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Ugyldig publikation."
+
+msgid "notification.editStageParticipant"
+msgstr "Trinnets opgave er blevet ændret."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Bedømmer genindsættes."
+
+msgid "notification.cancelledReviewer"
+msgstr "Bedømmer annulleret."
+
+msgid "navigation.skip.announcements"
+msgstr "Spring til meddelelser"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Der kan ikke foretages ændringer af denne deltager"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Deltager"
+
+#, fuzzy
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Tillad denne person at redigere publikationsoplysningerne."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Tilladelser"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} sprog afsluttet"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} på {$localeName}"
+
+msgid "form.requireId"
+msgstr "Du skal angive et gyldigt ID."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Du skal udfylde dette felt på {$language}."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Formularen kunne ikke indsendes. Du er muligvis blevet logget ud. Genindlæs "
+"siden , og prøv igen."
+
+msgid "form.errors"
+msgstr ""
+"Formularen blev ikke gemt, fordi der er fundet {$count} fejl. Ret disse "
+"fejl, og prøv igen."
+
+msgid "form.errorMany"
+msgstr "Ret {$count} fejl."
+
+msgid "form.errorOne"
+msgstr "Ret en fejl."
+
+msgid "form.errorGoTo"
+msgstr "Gå til næste fejl"
+
+msgid "form.errorA11y"
+msgstr "Gå til {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Du kan ikke uploade flere filer."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Fjern fil"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Er du sikker på, at du vil annullere dette upload?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Upload annulleret"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Annullér upload"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Server svarede med {{statusCode}}-kode. Kontakt systemadministratoren, hvis "
+"dette varer ved."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Filer af denne type kan ikke uploades."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Filen er for stor ({{filesize}}mb). Filer større end {{maxFilesize}}mb kan "
+"ikke uploades."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Brug reserve-formularen nedenfor til at uploade dine filer."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Din browser understøtter ikke upload af træk-og-slip-filer."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Slip filer her for at uploade"
+
+msgid "form.disallowedProp"
+msgstr "Denne egenskab er ikke tilladt."
+
+msgid "form.disallowedLocales"
+msgstr "Kun følgende sprog er tilladt: {$languages}."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Se det aktuelt valgte billede på forhånd."
+
+msgid "common.upload.restore"
+msgstr "Gendan original"
+
+msgid "common.toWithValue"
+msgstr "Til: {$value}"
+
+msgid "common.submenu"
+msgstr "Undermenu"
+
+msgid "common.selectedPrefix"
+msgstr "Valgte:"
+
+msgid "common.removeItem"
+msgstr "Fjern {$item}"
+
+msgid "common.noTemporaryFile"
+msgstr "Filen, du uploadede, blev ikke fundet. Prøv at uploade den igen."
+
+msgid "common.noItemsFound"
+msgstr "Der blev ikke fundet nogen elementer."
+
+msgid "common.lastActivity"
+msgstr "Sidste aktivitet registreret d. {$date}."
+
+msgid "common.fromWithValue"
+msgstr "Fra: {$value}"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Beskriv dette billede for besøgende, der ser webstedet i en browser, der kun "
+"er tekstbaseret eller er med hjælpemidler. Eksempel: \"Vores redaktør taler "
+"på PKP-konferencen.\""
+
+msgid "common.override"
+msgstr "Underkend"
+
+msgid "navigation.skip.description"
+msgstr "Gå til indholdslinks"
+
+msgid "common.moreThanOnly"
+msgstr "Mere end"
+
+msgid "common.lessThanOnly"
+msgstr "Mindre end"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Du har ikke adgang til denne bedømmelse."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Du har ikke adgang til denne drøftelsesmeddelelse."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Ugyldig drøftelse."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Ugyldig bedømmelsesrunde."
+
+msgid "user.email"
+msgstr "E-mail-adresse"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Sådan sikrer du, at alle filer anonymiseres"
+
+msgid "search.searchResults.foundPlural"
+msgstr "Fundet {$count} poster."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Fundet en post."
+
+msgid "navigation.backTo"
+msgstr "⟵ Tilbage til {$page}"
+
+msgid "form.saved"
+msgstr "Gemt"
+
+msgid "common.viewWithName"
+msgstr "Se {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Nonexistent user]"
+
+msgid "common.addFile"
+msgstr "Tilføj fil"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "Vælg {$name}"
+
+msgid "common.editItem"
+msgstr "Redigér {$name}"
+
+msgid "common.inactive"
+msgstr "Inaktiv"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Privatindstillinger"

@@ -3,9 +3,9 @@
 /**
  * @file classes/notification/managerDelegate/PKPEditingProductionStatusNotificationManager.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEditingProductionStatusNotificationManager
  * @ingroup classses_notification_managerDelegate
@@ -79,21 +79,23 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 
 		assert($assocType == ASSOC_TYPE_SUBMISSION);
 		$submissionId = $assocId;
-		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submission = $submissionDao->getById($submissionId);
 
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$editorStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submissionId, $submission->getStageId());
 
 		// Get the copyediting and production discussions
 		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
-		$editingQueries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_EDITING);
 		$productionQueries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_PRODUCTION);
+		$productionQuery = $productionQueries->next();
 
 		// Get the copyedited files
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		import('lib.pkp.classes.submission.SubmissionFile');
-		$copyeditedFiles = $submissionFileDao->getLatestRevisions($submissionId, SUBMISSION_FILE_COPYEDIT);
+		$countCopyeditedFiles = Services::get('submissionFile')->getCount([
+			'submissionIds' => [$submissionId],
+			'fileStages' => [SUBMISSION_FILE_COPYEDIT],
+		]);
 
 		// Get representations
 		$representationDao = Application::getRepresentationDAO();
@@ -109,12 +111,12 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 						$this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
 					} else {
 						// If there is a representation
-						if (!$representations->wasEmpty()) {
+						if (!$representations->next()) {
 							// Remove 'assign a production user' and 'awaiting representations' notification
 							$this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
 						} else {
 							// If a production user is assigned i.e. there is a production discussion
-							if (!$productionQueries->wasEmpty()) {
+							if ($productionQuery) {
 								if ($notificationType == NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS) {
 									// Add 'awaiting representations' notification
 									$this->_createNotification(
@@ -147,12 +149,13 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 					}
 					break;
 				case WORKFLOW_STAGE_ID_EDITING:
-					if (!empty($copyeditedFiles)) {
+					if ($countCopyeditedFiles) {
 						// Remove 'assign a copyeditor' and 'awaiting copyedits' notification
 						$this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
 					} else {
 						// If a copyeditor is assigned i.e. there is a copyediting discussion
-						if (!$editingQueries->wasEmpty()) {
+						$editingQueries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_EDITING);
+						if ($editingQueries->next()) {
 							if ($notificationType == NOTIFICATION_TYPE_AWAITING_COPYEDITS) {
 								// Add 'awaiting copyedits' notification
 								$this->_createNotification(
@@ -225,7 +228,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 			$notificationType,
 			$contextId
 		);
-		if ($notificationFactory->wasEmpty()) {
+		if (!$notificationFactory->next()) {
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createNotification(
 				$request,

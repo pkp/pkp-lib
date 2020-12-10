@@ -1,0 +1,144 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-30T17:12:45+00:00\n"
+"PO-Revision-Date: 2020-11-27 16:28+0000\n"
+"Last-Translator: rl <biuro@fimagis.pl>\n"
+"Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"pl_PL/>\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr "Zapytanie odrzucone. Być może czas logowania minął. Przeładuj stronę i spróbuj ponownie."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Możesz wyświetlić tylko nieopublikowane, zgłoszone teksty do których zostałeś przydzielony."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Nie możesz usunąć przesłanego tekstu, do którego nie zostałeś przydzielony(a) w tym kontekście."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Nie posiadasz uprawnień do usunięcia tego przesłanego tekstu."
+
+msgid "api.submissions.404.resourceNotFound"
+msgstr "Zasób nie został odnaleziony."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "Zapytanie nie mogło zostać spełnione, ponieważ brakuje wymaganych informacji."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Zapytanie o wolumen, numer lub rok jest niepoprawne."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parametr {$param} nie jest wspierany."
+
+msgid "api.403.unauthorized"
+msgstr "Brak uprawnień dostępu do zasobu."
+
+msgid "api.404.resourceNotFound"
+msgstr "Zasób nie został odnaleziony."
+
+msgid "api.404.endpointNotFound"
+msgstr "URL nie został rozpoznany."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Zapytanie nie jest poprawne. Dane powinny zostać wpisane w formacie YYYY-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Zapytanie nie jest poprawne. Data początkowa nie może być późniejsza niż data końcowa."
+
+msgid "api.stats.400.wrongTimeSegmentDaily"
+msgstr "Zapytanie nie jest poprawne. Funkcja \"codzienny\" może być używana razem z zakresem data (data początkowa i data końcowa) w okresie ostatnich 90 dni."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Nie możesz modyfikować statusu bezpośrednio poprzez API. Zamiast tej metody, "
+"użyj  endpointów /publish /unpublish."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr ""
+"Ten serwer przyjmuje pliki jedynie w następujących formatach: {$fileTypes}."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Nie masz zezwolenia na wgrywanie plików."
+
+msgid "api.files.400.noUpload"
+msgstr "Nie znaleźliśmy takiego pliku do wgrania."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Brak miejsca w katalogu użytkownika. Wgrywany plik ma {$fileUploadSize}kb a "
+"zostało Ci {$dirSizeLeft}kb."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Nie możesz edytować zgłoszenia już opublikowanego."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr ""
+"Wskazane zgłoszenie które chcesz zdjąć z publikacji jest już nieopublikowane."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Publiczny katalog plików nie został znaleziony lub nie można w nim "
+"zapisywać. Skontaktuj się z administratorem."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Nie mogliśmy wgrać jednego lub więcej z wybranych plików."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Wskazane zgłoszenie zostało już wcześniej opublikowane."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Musisz najpierw zdjąć artykuł z publikacji zanim go skasujesz na dobre."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Nie możesz zmodyfikować powiązania pliku bez przejścia przez assocType i "
+"assocId."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Nie znaleźliśmy takiego ogłoszenia pod tym linkiem."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Obrazek który chcesz przesłać jest nieprawidłowy."
+
+msgid "api.files.400.fileSize"
+msgstr "Pliki większe niż {$maxSize} nie mogą być wgrywane."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Nie znaleziono takiego szablonu."
+
+msgid "api.files.400.config"
+msgstr ""
+"Plik nie mógł zostać wgrany z powodu błędnej konfiguracji serwera. Proszę "
+"skontaktować się z administratorem."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Plik który próbujesz przesłać ma niepoprawne rozszerzenie. To może się "
+"zdarzyć kiedy plik miał uprzednio zmienianą nazwę np z obrazek.png na "
+"obrazek.jpg."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Zmiana czasu powstania tego obiektu jest niemożliwa."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Nie masz uprawnień do wysyłania wiadomości do jednej z wybranych grup "
+"użytkowników."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Wskazanie grupy odbiorców  jest niezbędne do wysłania wiadomości."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Email musi posiadać temat."
+
+msgid "api.emails.400.missingBody"
+msgstr "Treść jest wymagana aby wysłać wiadomość."

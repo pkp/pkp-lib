@@ -5,9 +5,9 @@
 /**
  * @file styles/controllers/extrasOnDemand.less
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @ingroup pkp_controllers_extrasOnDemand
  *
@@ -20,17 +20,17 @@
 	> a {
 		position: relative;
 		display: block;
-		padding: 0 @base 0 (@double + @double);
+		padding: 0 1rem 0 (4rem);
 		border: @bg-border;
-		line-height: @double + @base;
+		line-height: 3rem;
 		text-decoration: none;
 
 		.fa {
 			position: absolute;
 			top: 0;
 			left: 0;
-			line-height: @double + @base;
-			width: @double + @base;
+			line-height: 3rem;
+			width: 3rem;
 			text-align: center;
 			border-right: @bg-border;
 
@@ -42,7 +42,7 @@
 	}
 
 	> .container {
-		padding: 0 @base;
+		padding: 0 1rem;
 		max-height: 0;
 		transition: padding 0.3s;
 		overflow: hidden;
@@ -70,7 +70,7 @@
 		}
 
 		> .container {
-			padding: @base;
+			padding: 1rem;
 			max-height: none;
 			border: @bg-border;
 			border-top: none;

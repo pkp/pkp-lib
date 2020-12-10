@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/announcements/AnnouncementTypeGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementTypeGridHandler
  * @ingroup controllers_grid_announcements
@@ -110,7 +110,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 	 */
 	protected function loadData($request, $filter) {
 		$context = $request->getContext();
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 		return $announcementTypeDao->getByAssoc($context->getAssocType(), $context->getId());
 	}
 
@@ -202,7 +202,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 		$announcementTypeId = (int) $request->getUserVar('announcementTypeId');
 		$context = $request->getContext();
 
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 		$announcementType = $announcementTypeDao->getById($announcementTypeId, $context->getAssocType(), $context->getId());
 		if ($announcementType && $request->checkCSRF()) {
 			$announcementTypeDao->deleteObject($announcementType);

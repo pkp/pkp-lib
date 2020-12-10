@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-27T09:47:20-07:00\n"
+"PO-Revision-Date: 2020-07-20 18:12+0000\n"
+"Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
+"Language-Team: English (United States) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/manager/en_US/>\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:20-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:20-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "manager.website.information"
 msgstr "Information"
@@ -24,7 +27,7 @@ msgid "manager.announcements"
 msgstr "Announcements"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Are you sure you want to permanently delete this announcement?"
+msgstr "Are you sure you want to permanently delete the announcement {$title}?"
 
 msgid "manager.announcements.create"
 msgstr "Create New Announcement"
@@ -37,6 +40,9 @@ msgstr "Expiry"
 
 msgid "manager.announcements.datePublish"
 msgstr "Published"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Delete Announcement"
 
 msgid "manager.announcements.edit"
 msgstr "Edit Announcement"
@@ -63,7 +69,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Please select a month and/or day in addition to the expiry date year."
 
 msgid "manager.announcements.form.description"
-msgstr "Description"
+msgstr "Announcement"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "The full text of the announcement."
@@ -155,17 +161,8 @@ msgstr "Production"
 msgid "manager.publication.emails"
 msgstr "Emails"
 
-msgid "manager.publication.emailSetup.success"
-msgstr "The email settings have been updated."
-
 msgid "manager.publication.reviewerGuidance"
 msgstr "Reviewer Guidance"
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "Reviewer guidance has been updated."
-
-msgid "manager.publication.reviewSetup.success"
-msgstr "The review settings have been updated."
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "The review reminder details have been updated."
@@ -178,9 +175,6 @@ msgstr "Are you sure you want to reset this email template to its default values
 
 msgid "manager.emails.addEmail"
 msgstr "Add Template"
-
-msgid "manager.emails.addEmail.success"
-msgstr "The email template was added."
 
 msgid "manager.emails.createEmail"
 msgstr "Create Email"
@@ -202,9 +196,6 @@ msgstr "You are about to disable this email template.  If there were system proc
 
 msgid "manager.emails.editEmail"
 msgstr "Edit Email"
-
-msgid "manager.emails.editEmail.success"
-msgstr "The email template was modified."
 
 msgid "manager.emails.editTestExample"
 msgstr "Edit Email Test Example"
@@ -257,8 +248,14 @@ msgstr "Reset All"
 msgid "manager.emails.resetAll.message"
 msgstr "If you reset all templates, all modifications to the email templates will be lost.  Do you want to confirm this operation?"
 
+msgid "manager.emails.resetAll.complete"
+msgstr "The default email templates have been restored."
+
 msgid "manager.emails.reset"
 msgstr "Reset"
+
+msgid "manager.emails.resetComplete"
+msgstr "Email template was successfully reset."
 
 msgid "manager.emails.reset.message"
 msgstr "If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?"
@@ -274,6 +271,12 @@ msgstr "Sent To"
 
 msgid "manager.emails.subjectWithValue"
 msgstr "Subject: {$subject}"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Export to Excel/CSV"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Select the users to be exported to an Excel/CSV file."
 
 msgid "manager.filesBrowser"
 msgstr "Files Browser"
@@ -455,6 +458,9 @@ msgstr "Remove"
 msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Save and Create Another"
 
+msgid "manager.people.signedInAs"
+msgstr "You are currently logged in as {$username}"
+
 msgid "manager.people.signInAs"
 msgstr "Log In As"
 
@@ -536,7 +542,7 @@ msgid "manager.statistics.region"
 msgstr "Region"
 
 msgid "manager.statistics.reports"
-msgstr "Report Generator"
+msgstr "Reports"
 
 msgid "manager.statistics.reports.description"
 msgstr "The system generates reports that track the details associated with site usage and submissions over a given period of time. Reports are generated in CSV format which requires a spreadsheet application to view."
@@ -552,6 +558,9 @@ msgstr "Default report templates"
 
 msgid "manager.statistics.reports.generateReport"
 msgstr "Generate custom report"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Custom Report Generator"
 
 msgid "manager.statistics.reports.advancedOptions"
 msgstr "Advanced Options"
@@ -646,12 +655,6 @@ msgstr "Anything entered here will appear on your homepage."
 msgid "manager.setup.advanced"
 msgstr "Advanced"
 
-msgid "manager.setup.appearance.success"
-msgstr "The appearance settings have been updated."
-
-msgid "manager.setup.contact.success"
-msgstr "The contact details for this press have been updated."
-
 msgid "manager.setup.copyrightNotice"
 msgstr "Copyright Notice"
 
@@ -664,8 +667,8 @@ msgstr "Author Guidelines"
 msgid "manager.setup.authorGuidelines.description"
 msgstr "Recommended guidelines include bibliographic and formatting standards alongside examples of common citation formats to be used in submissions."
 
-msgid "manager.setup.authorGuidelines.success"
-msgstr "The author guidelines have been successfully updated."
+msgid "manager.setup.disableSubmissions"
+msgstr "Disable Submissions"
 
 msgid "manager.setup.checklist"
 msgstr "Checklist"
@@ -678,9 +681,6 @@ msgstr "There was an error when deleting this item."
 
 msgid "manager.setup.favicon"
 msgstr "Favicon"
-
-msgid "manager.setup.groupType"
-msgstr "File type grouping"
 
 msgid "manager.setup.homepageImage"
 msgstr "Homepage Image"
@@ -721,6 +721,30 @@ msgstr "Send a copy to this email address"
 msgid "manager.setup.notifications.description"
 msgstr "Authors are automatically sent an email acknowledging their submission. You may have copies of this email sent to the following:"
 
+msgid "manager.setup.notifyUsers"
+msgstr "Notify"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Select the users who should receive your email notification."
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Send a copy of this email to me at {$email}."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Send Email"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr "You are about to send an email to {$total} users. Are you sure you want to send this email?"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr "Sending the email. Please do not browse away until sending is complete."
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Email was successfully sent to all recipients."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Send another email"
+
 msgid "manager.setup.openAccessPolicy"
 msgstr "Open Access Policy"
 
@@ -747,6 +771,33 @@ msgstr "Enter contact details, typically for a principal editorship, managing ed
 
 msgid "manager.setup.privacyStatement"
 msgstr "Privacy Statement"
+
+msgid "manager.setup.dateTime"
+msgstr "Date & Time"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Date and Time Formats"
+
+msgid "manager.setup.dateTime.description"
+msgstr "Choose the preferred format for dates and times. A custom format can be entered using the special <a href='http://php.net/manual/en/function.strftime.php#refsect1-function.strftime-parameters'>format characters</a>."
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Date"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Date (Short)"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Time"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Date & Time"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Date & Time (Short)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Custom"
 
 msgid "manager.setup.privacyStatement.description"
 msgstr "This statement will appear during user registration, author submission, and on the publicly available Privacy page. In some jurisdictions, you are legally required to disclose how you handle user data in this privacy policy."
@@ -784,8 +835,8 @@ msgstr "Send an email reminder if a reviewer has not submitted a recommendation 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Default Review Mode"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
-msgstr "Present a link to <button type=\"button\">Ensuring a Blind Review</button> during upload"
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr "Present a link to <button type=\"button\">how to ensure all files are anonymized</button> during upload"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Sponsor Relationship and Policy Description"
@@ -802,9 +853,6 @@ msgstr "Technical Support Contact"
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr "A contact person who can assist editors, authors and reviewers with any problems they have submitting, editing, reviewing or publishing material."
 
-msgid "manager.setup.theme.success"
-msgstr "The theme has been updated. <a href=\"{$url}\" target=\"_blank\">View Now</a>"
-
 msgid "manager.setup.theme"
 msgstr "Theme"
 
@@ -814,8 +862,14 @@ msgstr "New themes may be installed from the Plugins tab at the top of this page
 msgid "manager.setup.theme.notFound"
 msgstr "The theme you selected is not installed or enabled."
 
-msgid "manager.setup.userAccess.success"
-msgstr "The user access details for this press have been updated."
+msgid "manager.sections.form.deactivateSection"
+msgstr "Deactivate this section and do not allow new submissions to be made to it."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Are you sure you wish to deactivate this section?"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Are you sure you wish to activate this section?"
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Site Access Options"
@@ -825,6 +879,9 @@ msgstr "{$count} ({$percentage}%)"
 
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} new)"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Registered users"
 
 msgid "manager.users"
 msgstr "Users"
@@ -1087,9 +1144,6 @@ msgstr "User edited."
 msgid "manager.distribution.license"
 msgstr "License"
 
-msgid "manager.distribution.license.success"
-msgstr "The licensing details have been updated. "
-
 msgid "manager.distribution.license.other"
 msgstr "Other license URL"
 
@@ -1216,11 +1270,14 @@ msgstr "Delete this Component"
 msgid "grid.action.restoreGenres"
 msgstr "Restore the components to the default settings"
 
+msgid "manager.setup.genres.label"
+msgstr "File Type"
+
 msgid "manager.setup.genres.dependent"
-msgstr "Mark files of this type as dependent files (e.g. not to be listed with published content)"
+msgstr "These are dependent files, such as images displayed by a HTML file, and will not be displayed with published content."
 
 msgid "manager.setup.genres.supplementary"
-msgstr "Mark files of this type as supplementary files (e.g. not primary submission content)"
+msgstr "These are supplementary files, such as data sets and research materials, and will be displayed separately from the main publication files."
 
 msgid "manager.setup.genres.key"
 msgstr "Key"
@@ -1233,6 +1290,12 @@ msgstr "The key already exists."
 
 msgid "manager.setup.genres.key.alphaNumeric"
 msgstr "The key can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "File Metadata"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr "Select the type of metadata that these files may receive. Document should be selected for the main publication files, such as the downloadable PDF, so that these files inherit their metadata from the publication. Otherwise, choose Supplementary Content for most file types. Artwork is appropriate for files which require distinct credit, caption and licensing metadata."
 
 msgid "manager.settings.wizard"
 msgstr "Settings Wizard"
@@ -1396,9 +1459,6 @@ msgstr "URL to a webpage describing the license, if available."
 msgid "manager.setup.metadata.submission"
 msgstr "Submission Form"
 
-msgid "manager.setup.metadata.success"
-msgstr "The submission metadata has been updated successfully."
-
 msgid "manager.setup.metadata.coverage"
 msgstr "Coverage"
 
@@ -1442,7 +1502,8 @@ msgid "manager.setup.metadata.languages.noRequest"
 msgstr "Do not request the submission's languages from the author during submission."
 
 msgid "manager.setup.metadata.languages.request"
-msgstr "Ask the author to indication the submission's languages during submission."
+msgstr ""
+"Ask the author to indicate the submission's languages during submission."
 
 msgid "manager.setup.metadata.languages.require"
 msgstr "Require the author to enter the submission's languages before accepting their submission."
@@ -1593,6 +1654,9 @@ msgstr "The revision \"{$revisionId}\" for submission file \"{$fileId}\" would c
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "The submission file could not be imported"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr "The submission file {$id} was skipped because it is attached to a record that will not be imported, such as a review assignment or discussion."
 
 msgid "plugins.importexport.user.importExportErrors"
 msgstr "Import/Export errors:"
@@ -1798,6 +1862,12 @@ msgstr "Please enter a category name."
 msgid "grid.category.categoryDetails"
 msgstr "Category Details"
 
+msgid "stats.allUsers"
+msgstr "All Users"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/year)"
+
 msgid "stats.daily"
 msgstr "Daily"
 
@@ -1846,14 +1916,39 @@ msgstr "Last 30 days"
 msgid "stats.dateRange.last90Days"
 msgstr "Last 90 days"
 
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Last two years"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Last year"
+
 msgid "stats.dateRange.sinceDate"
 msgstr "Since {$date}"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Year to date"
 
 msgid "stats.dateRange.to"
 msgstr "To"
 
 msgid "stats.dateRange.untilDate"
 msgstr "Until {$date}"
+
+msgid "stats.description.acceptRejectRate"
+msgstr "The percentage for the selected date range is calculated for submissions that were submitted during this date range and have received a final decision.<br><br>"
+"For example, consider the case where ten submissions were made during this date range. Four were accepted, four were rejected and two are still awaiting a final decision.<br><br>"
+"The acceptance rate will be 50% (4 of 8 submissions) because the two submissions that have not reached a final decision are not counted."
+
+msgid "stats.description.daysToDecision"
+msgstr "The number of days it takes for most submissions to receive the first editorial decision, such as desk rejection or send for review.<br><br>"
+"These figures indicate that 80% of submissions reach the decision within the given number of days.<br><br>"
+"This statistic attempts to describe when the majority of authors submitting to your journal can expect a decision."
+
+msgid "stats.descriptionForStat"
+msgstr "Description for {$stat}"
+
+msgid "stats.editorialActivity"
+msgstr "Editorial Activity"
 
 msgid "stats.fileViews"
 msgstr "File Views"
@@ -1870,5 +1965,56 @@ msgstr "PDF"
 msgid "stats.searchSubmissionDescription"
 msgstr "Search by title, author and ID"
 
+msgid "stats.submissionsActive"
+msgstr "Active Submissions"
+
 msgid "stats.total"
 msgstr "Total"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Total Within Date Range"
+
+msgid "stats.trends"
+msgstr "Trends"
+
+msgid "stats.userStatistics"
+msgstr "User Statistics"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Submissions Received"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Submissions Accepted"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Submissions Declined"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Submissions Declined (Desk Reject)"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Submissions Declined (After Review)"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Submissions Published"
+
+msgid "stats.name.daysToDecision"
+msgstr "Days to First Editorial Decision"
+
+msgid "stats.name.daysToAccept"
+msgstr "Days to Accept"
+
+msgid "stats.name.daysToReject"
+msgstr "Days to Reject"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Acceptance Rate"
+
+msgid "stats.name.declineRate"
+msgstr "Rejection Rate"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Desk Reject Rate"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "After Review Reject Rate"

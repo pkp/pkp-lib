@@ -3,9 +3,9 @@
 /**
  * @file classes/install/form/InstallForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class InstallForm
  * @ingroup install
@@ -147,7 +147,6 @@ class InstallForm extends MaintenanceForm {
 			'databaseUsername' => Application::getName(),
 			'databasePassword' => '',
 			'databaseName' => Application::getName(),
-			'createDatabase' => 1,
 			'oaiRepositoryId' => Application::getName() . '.' . $this->_request->getServerHost(),
 			'enableBeacon' => true,
 		);
@@ -172,7 +171,6 @@ class InstallForm extends MaintenanceForm {
 			'databaseUsername',
 			'databasePassword',
 			'databaseName',
-			'createDatabase',
 			'oaiRepositoryId',
 			'enableBeacon',
 		));
@@ -184,8 +182,12 @@ class InstallForm extends MaintenanceForm {
 
 	/**
 	 * Perform installation.
+	 * @param ...$functionArgs Function arguments
+	 * @return mixed
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
+		parent::execute(...$functionArgs);
+
 		$templateMgr = TemplateManager::getManager($this->_request);
 		$installer = new Install($this->_data);
 

@@ -1,17 +1,20 @@
 {**
  * templates/dashboard/index.tpl
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Dashboard index.
  *}
-{include file="common/header.tpl" pageTitle="navigation.submissions"}
+{extends file="layouts/backend.tpl"}
 
-{assign var="uuid" value=""|uniqid|escape}
-<div id="dashboard-{$uuid}">
-	<tabs>
+{block name="page"}
+	<h1 class="app__pageHeading">
+		{translate key="navigation.submissions"}
+	</h1>
+
+	<tabs :track-history="true">
 		<tab id="myQueue" label="{translate key="dashboard.myQueue"}" :badge="components.{$smarty.const.SUBMISSIONS_LIST_MY_QUEUE}.itemsMax">
 			{help file="submissions" class="pkp_help_tab"}
 			<submissions-list-panel
@@ -43,9 +46,4 @@
 			/>
 		</tab>
 	</tabs>
-</div>
-<script type="text/javascript">
-	pkp.registry.init('dashboard-{$uuid}', 'Container', {$containerData|json_encode});
-</script>
-
-{include file="common/footer.tpl"}
+{/block}

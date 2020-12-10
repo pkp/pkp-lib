@@ -3,9 +3,9 @@
 /**
  * @file controllers/informationCenter/form/NewNoteForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NewNoteForm
  * @ingroup informationCenter_form
@@ -66,7 +66,7 @@ class NewNoteForm extends Form {
 	 */
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$templateMgr->assign(array(
 			'notes' => $noteDao->getByAssoc($this->getAssocType(), $this->getAssocId()),
 			'submitNoteText' => $this->getSubmitNoteLocaleKey(),
@@ -88,11 +88,11 @@ class NewNoteForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$note = $noteDao->newDataObject();
 
 		$note->setUserId($user->getId());
@@ -100,6 +100,7 @@ class NewNoteForm extends Form {
 		$note->setAssocType($this->getAssocType());
 		$note->setAssocId($this->getAssocId());
 
+		parent::execute(...$functionArgs);
 		return $noteDao->insertObject($note);
 	}
 }

@@ -3,9 +3,9 @@
 /**
  * @file pages/user/ProfileHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ProfileHandler
  * @ingroup pages_user
@@ -17,6 +17,9 @@
 import('pages.user.UserHandler');
 
 class ProfileHandler extends UserHandler {
+
+	/** @copydoc PKPHandler::_isBackendPage */
+	var $_isBackendPage = true;
 
 	//
 	// Implement template methods from PKPHandler
@@ -51,10 +54,9 @@ class ProfileHandler extends UserHandler {
 			$user = $request->getUser();
 			$contextDao = Application::getContextDAO();
 			$workingContexts = $contextDao->getAvailable($user?$user->getId():null);
-			if ($workingContexts && $workingContexts->getCount() == 1) {
-				$workingContext = $workingContexts->next();
-				$contextPath = $workingContext->getPath();
-				$request->redirect($contextPath, 'user', 'profile', null, $args);
+			list($firstContext, $secondContext) = [$workingContexts->next(), $workingContexts->next()];
+			if ($firstContext && !$secondContext) {
+				$request->redirect($firstContext->getPath(), 'user', 'profile', null, $args);
 			}
 		}
 
@@ -67,6 +69,9 @@ class ProfileHandler extends UserHandler {
 		$this->setupTemplate($request);
 
 		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign([
+			'pageTitle' => __('user.profile'),
+		]);
 		$templateMgr->display('user/profile.tpl');
 	}
 }

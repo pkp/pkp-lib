@@ -2,9 +2,9 @@
 /**
  * @file classes/components/form/FieldOptions.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldOptions
  * @ingroup classes_controllers_form
@@ -29,12 +29,6 @@ class FieldOptions extends Field {
 	 * @copydoc Field::getConfig()
 	 */
 	public function getConfig() {
-		if ($this->isOrderable) {
-			$this->i18n = array_merge([
-				'orderUp' => __('common.orderUp'),
-				'orderDown' => __('common.orderDown'),
-			], $this->i18n);
-		}
 		$config = parent::getConfig();
 		$config['type'] = $this->type;
 		$config['isOrderable'] = $this->isOrderable;

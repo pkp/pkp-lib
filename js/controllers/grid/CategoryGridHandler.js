@@ -1,9 +1,9 @@
 /**
  * @file js/controllers/grid/CategoryGridHandler.js
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CategoryGridHandler
  * @ingroup js_controllers_grid
@@ -168,7 +168,7 @@
 		rowDataId = $gridRow.attr('id').
 				slice(this.getRowIdPrefix().length);
 		rowDataId = rowDataId.match('-row-(.*)');
-		return /** @type {string} */ $.trim(rowDataId[1]);
+		return /** @type {string} */ ($.trim(rowDataId[1]));
 	};
 
 
@@ -272,7 +272,7 @@
 
 		var fetchedAlready = false, elementIds,
 				// Hack to avoid closure compiler warnings on type difference
-				castElementId = /** @type {{parentElementId: number}} */ opt_elementId;
+				castElementId = /** @type {{parentElementId: number}} */ (opt_elementId);
 
 		if (opt_elementId !== undefined) {
 			// Check if we want to refresh a row inside a category.
@@ -408,5 +408,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

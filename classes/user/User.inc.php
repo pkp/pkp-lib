@@ -7,9 +7,9 @@
 /**
  * @file classes/user/User.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class User
  * @ingroup user
@@ -384,7 +384,7 @@ class User extends Identity {
 
 		if ($noCache || empty($this->_roles[$contextId])) {
 			import('lib.pkp.classes.security.RoleDAO');
-			$userRolesDao = DAORegistry::getDAO('RoleDAO');
+			$userRolesDao = DAORegistry::getDAO('RoleDAO'); /* @var $userRolesDao RoleDAO */
 			$this->setRoles($userRolesDao->getByUserId($this->getId(), $contextId), $contextId);
 		}
 
@@ -407,7 +407,7 @@ class User extends Identity {
 	 * @return array
 	 */
 	function getSettings($contextId = null) {
-		$userSettingsDao = DAORegistry::getDAO('UserSettingsDAO');
+		$userSettingsDao = DAORegistry::getDAO('UserSettingsDAO'); /* @var $userSettingsDao UserSettingsDAO */
 		return $userSettingsDao->getSettingsByContextId($this->getId(), $contextId);
 	}
 
@@ -418,7 +418,7 @@ class User extends Identity {
 	 * @return mixed
 	 */
 	function getSetting($name, $contextId = null) {
-		$userSettingsDao = DAORegistry::getDAO('UserSettingsDAO');
+		$userSettingsDao = DAORegistry::getDAO('UserSettingsDAO'); /* @var $userSettingsDao UserSettingsDAO */
 		return $userSettingsDao->getSetting($this->getId(), $name, $contextId);
 	}
 
@@ -430,7 +430,7 @@ class User extends Identity {
 	 * @param $contextId int optional
 	 */
 	function updateSetting($name, $value, $type = null, $contextId = null) {
-		$userSettingsDao = DAORegistry::getDAO('UserSettingsDAO');
+		$userSettingsDao = DAORegistry::getDAO('UserSettingsDAO'); /* @var $userSettingsDao UserSettingsDAO */
 		return $userSettingsDao->updateSetting($this->getId(), $name, $value, $type, $contextId);
 	}
 }

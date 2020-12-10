@@ -1,0 +1,159 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:45+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Locale gehiago"
+
+msgid "installer.administratorAccount"
+msgstr "Administratzailearen kontua"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Erabiltzaile-kontu hau gune-administratzaile bihurtuko da eta sistemarako sarbide osoa izango du. Erabiltzaile-kontu gehiago sortu ahal izango dira instalazioa egin ondoren."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">EZ</span>"
+
+msgid "installer.checkYes"
+msgstr "Bai"
+
+msgid "installer.clientCharset"
+msgstr "Bezeroaren karaktere-jokoa"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Arakatzaileetara bidaltzen eta arakatzaileetatik jasotzen diren datuetan erabiltzeko kodeketa."
+
+msgid "installer.configFileError"
+msgstr "<tt>config.inc.php</tt>konfigurazio-fitxategia ez dago edo ezin da irakurri."
+
+msgid "installer.connectionCharset"
+msgstr "Konexioko karaktere-jokoa"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Konfigurazio-fitxategiaren edukia"
+
+msgid "installer.databaseDriver"
+msgstr "Datu-basearen kontrolatzailea"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Kortxete artean dauden datu-base kontrolatzaileek ez du ematen behar den PHP hedapena kargatuta daukatenik eta, hautatzen badira, instalazioak huts egingo du segurutik.</strong><br />Goian zerrendatutako euskarri gabeko kontrolatzaileak xede akademikoetarako soilik zerrendatzen dira, normalean ez dute funtzionatuko."
+
+msgid "installer.databaseHost"
+msgstr "Ostalaria"
+
+msgid "installer.databaseHostInstructions"
+msgstr "TCP/IP bidez konektatu beharrean domeinuko socket-en bidez konektatzeko, utzi hutsik ostalari-izena. MySQL badaukazu ez da beharrezkoa izango, automatikoki erabiltzen dituelako socket-ak \"localhost\" sartzen denean, baina beste datu-base zerbitzari batzuekin (PostgreSQL eta horrelakoekin) beharrezkoa da."
+
+msgid "installer.databaseName"
+msgstr "Datu-basearen izena"
+
+msgid "installer.databasePassword"
+msgstr "Pasahitza"
+
+msgid "installer.databaseSettings"
+msgstr "Datu-basearen ezarpenak"
+
+msgid "installer.databaseUsername"
+msgstr "Erabiltzaile-izena"
+
+msgid "installer.encryption"
+msgstr "Pasahitza enkriptatzeko algoritmoa"
+
+msgid "installer.filesDir"
+msgstr "Kargak egiteko direktorioa"
+
+msgid "installer.fileSettings"
+msgstr "Fitxategi-ezarpenak"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Bezeroaren karaktere-joko bat hautatu behar da."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Datu-basearen kontrolatzailea hautatu behar da."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Datu-basearen izena eman behar da."
+
+msgid "installer.form.emailRequired"
+msgstr "Administratzaile-kontuaren helbide elektroniko baliozko bat eman behar da."
+
+msgid "installer.form.encryptionRequired"
+msgstr "Erabiltzaileen pasahitzak enkriptatzeko erabiliko den algoritmoa hautatu behar da."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Kargatutako fitxategiak gordetzeko direktorio bat zehaztu behar da."
+
+msgid "installer.form.localeRequired"
+msgstr "Locale bat hautatu behar da."
+
+msgid "installer.form.passwordRequired"
+msgstr "Administratzaile-kontuaren pasahitza eman behar da."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Administratzailearen pasahitzak ez datoz bat."
+
+msgid "installer.form.separateMultiple"
+msgstr "Balio bat baino gehiago direnean, bereizi koma bidez"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Administratzailearen erabiltzaile-izenean alfazenbakizko karaktereak, azpimarra eta marratxoak bakarrik onartzen dira, eta lehen karakterea eta azkena alfazenbakizkoak izan behar dira."
+
+msgid "installer.form.usernameRequired"
+msgstr "Administratzaile-kontuaren erabiltzaile-izena eman behar da."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>KONTUZ: Zure oraingo PHP bertsioak ez ditu betetzen instalazioa egiteko eskakizunak. PHP bertsio berriagora aldatzea gomendatzen dizugu.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Erroreak gertatu dira instalazioan"
+
+msgid "installer.installerSQLStatements"
+msgstr "Instalazioa egiteko SQL instrukzioak"
+
+msgid "installer.installFileError"
+msgstr "<tt>dbscripts/xml/install.xml</tt> instalazio-fitxategia ez dago edo ezin da irakurri."
+
+msgid "installer.installFilesDirError"
+msgstr "Fitxategiak kargatzeko zehaztutako direktorioa ez dago edo ez da idazgarria."
+
+msgid "installer.installParseDBFileError"
+msgstr "Errorea datu-basea instalatzeko <tt>{$file}</tt> fitxategia analizatzean."
+
+msgid "installer.locale"
+msgstr "Localea"
+
+msgid "installer.localeSettings"
+msgstr "Localearen ezarpenak"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Metadatuak Biltzeko <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> Protocol for Metadata Harvesting protokoloaren bidez gune honetan indexatutako metadatuen erregistroak identifikatzeko erabiltzen da identifikatzaile uniboko hau."
+
+msgid "installer.oaiRepositoryId"
+msgstr "OAI gordailu-identifikatzailea"
+
+msgid "installer.publicFilesDirError"
+msgstr "Fitxategi publikoen direktorioa ez dago edo ez da idazgarria."
+
+msgid "installer.releaseNotes"
+msgstr "Bertsio-oharrak"
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Errorea <tt>{$file}</tt> txantiloia analizatzean."
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Markatutako lokalak osatu gabe egon daitezke."
+
+msgid "installer.oaiSettings"
+msgstr "OAI ezarpenak"
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Errorea <tt>{$file}</tt> iragazki konfigurazio fitxategia analizatzean."

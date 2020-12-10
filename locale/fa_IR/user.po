@@ -1,0 +1,396 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:47+00:00\n"
+"Language: \n"
+
+msgid "user.accountInformation"
+msgstr "اطلاعات حساب کاربری"
+
+msgid "user.affiliation"
+msgstr "وابستگی"
+
+msgid "user.affiliation.description"
+msgstr "نام مؤسسه، مانند دانشگاه تهران"
+
+msgid "user.affiliations"
+msgstr "وابستگی ها"
+
+msgid "user.authorization.accessDenied"
+msgstr "دسترسی رد شد."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "اطلاعات مربوط به روند احراز هویت نامعتبر بوده یا موجود نیست."
+
+msgid "user.authorization.contextRequired"
+msgstr "بدون مشخص کردن یک محتوا امکان فراخوانی این عمل وجود ندارد (مجله، کنفرانس، کتاب و ...)."
+
+msgid "user.authorization.loginRequired"
+msgstr "نیازمند ورود به سیستم"
+
+msgid "user.authorization.privateOperation"
+msgstr "عملیاتی که مایل به دسترسی به آن هستید، خصوصی است و یا وجود ندارد."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "دسترسی شما رد شد. دسترسی به این وب‌سایت محدود شده است."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "نقش کاربر کنونی اجازه دسترسی به این عملیات ندارد."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "برای دسترسی به این عملیات باید عضو گروه کاربری معتبر باشید"
+
+msgid "user.authorization.managerRequired"
+msgstr "کاربری با دسترسی مدیر (برای مثال دبیر تولید) قبل از شروع باید به این مرحله انتساب یابد"
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "شما اجازه دسترسی به این مرحله از جریان کاری را ندارید."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "مراحل گردش کار مشخص نشده است."
+
+msgid "user.authorization.pluginRequired"
+msgstr "افزونه مشخص نشده است و الزامی است."
+
+msgid "user.biography"
+msgstr "رزومه علمی"
+
+msgid "user.changeMyPassword"
+msgstr "تغییر کلمه رمز ورود"
+
+msgid "user.changePassword"
+msgstr "تغییر رمز ورود"
+
+msgid "user.dateLastLogin"
+msgstr "تاریخ آخرین ورود"
+
+msgid "user.dateRegistered"
+msgstr "تاریخ ثبت‌نام"
+
+msgid "user.editMyProfile"
+msgstr "ویرایش پروفایل"
+
+msgid "user.email"
+msgstr "ایمیل"
+
+msgid "user.interests"
+msgstr "زمینه های داوری"
+
+msgid "user.gossip"
+msgstr "یادداشت خصوصی"
+
+msgid "user.group"
+msgstr "گروه کاربری"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "فرمت نامناسب تصویر پروفایل و یا تصویر بسیار بزرگ. فرمت‌های قابل قبول عبارتند از .gif, .jpg, or .png و اندازه تصویر نباید از ۱۵۰ × ۱۵۰ پیکسل بیشتر باشد."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "حساب شما به دلیل زیر غیرفعال شده است: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "حساب شما غیرفعال شده است. لطفا برای اطلاعات بیشتر با مدیر سایت تماس بگیرید"
+
+msgid "user.login.accountNotValidated"
+msgstr "یک لیمیل فعال سازی به آدرس {$email} ارسال شده است. لطفا ایمیل خود را چک کنید و دستوراتی که در ایمیلی که برایتان فرستاده ایم را دنبال کنید. چنانچه ایمیلی دریافت نکرده اید ممکن است لازم باشد که با مدیر سایت تماس بگیرید."
+
+msgid "user.login.activate"
+msgstr "فعال کردن حساب کاربری"
+
+msgid "user.login.activated"
+msgstr "از اینکه حساب خود را فعال کرده اید متشکریم. اکنون میتوانید با استفاده از نام کاربری و رمز ورود خود وارد شوید"
+
+msgid "user.login.changePasswordInstructions"
+msgstr "قبل از اینکه بتوانید کاملا وارد سایت شوید میبایست یک رمز عبور جدید برای خود انتخاب کنید. <br /><br />لطفا نام کاربری و رمز عبور جاری خود را وارد کرده و سپس رمز عبور جدیدی را دو بار وارد کنید."
+
+msgid "user.login.forgotPassword"
+msgstr "رمز عبور خود را فراموش کرده اید؟"
+
+msgid "user.login.loginError"
+msgstr "نام کاربری یا رمز عبور غلط است. لطفا از نو وارد کنید."
+
+msgid "user.login"
+msgstr "ورود"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "یک نامه تاییدیه به آدرس ایمیل شما ارسال شد.  لطفا دستورات مندرج در آن را بدقت اجرا کنید تا رمز عبورتان به روز شود."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "متأسفانه لینکی که شما بر روی آن کلیک کرده اید تاریخ آن منقضی شده است یا دیگر وجود ندارد. برای دریافت رمز عبور از نو اقدام کنید."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "هیچ کاربری با این ایمیل وجود ندارد."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "یک رمز عبور جدید به آدرس ایمیل شما ارسال گردید. با این رمز عبور جدید هم اکنون میتوانید وارد سایت شوید."
+
+msgid "user.login.registeredEmail"
+msgstr "ایمیل کاربر ثبت‌نام کرده"
+
+msgid "user.login.registrationComplete"
+msgstr " تکمیل ثبت‌نام"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr " ضمن تشکر از ثبت‌نام شما ، حال می توانید به قسمت های زیر مراجعه فرمایید: "
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "مشاهده مقالات ارسال شده "
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr " ارسال مقاله جدید "
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr " برگشت به صفحه اصلی"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "ثبت‌نام منتظر تایید است"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "به خاطر سپاری نام کاربری و رمز عبور"
+
+msgid "user.login.resetPassword"
+msgstr "باز نشانی رمز عبور"
+
+msgid "user.logOut"
+msgstr "خروج"
+
+msgid "user.logOutAs"
+msgstr "خروج از"
+
+msgid "user.hello"
+msgstr "سلام، "
+
+msgid "user.mailingAddress"
+msgstr "آدرس پستی"
+
+msgid "user.myAccount"
+msgstr "حساب کاربری من"
+
+msgid "user.name"
+msgstr "نام"
+
+msgid "user.password"
+msgstr "رمز ورود"
+
+msgid "user.repeatPassword"
+msgstr "تکرار رمز عبور"
+
+msgid "user.phone"
+msgstr "تلفن"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "برای تغییر رمز عبور، رمز عبور فعلی و جدید  را در قسمت های زیر وارد کنید"
+
+msgid "user.profile.editProfile"
+msgstr "ویرایش پروفایل"
+
+msgid "user.profile.form.countryRequired"
+msgstr "انتخاب کشور الزامی است"
+
+msgid "user.profile.form.emailRequired"
+msgstr "وارد کردن آدرس ایمیل معتبر الزامی است"
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "آدرس ایمیل الزامی است"
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "رمز عبور جدید را وارد کنید"
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "رمز عبور وارد شده صحیح نمی باشد"
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "اطلاع‌رسانی درباره شماره های دسترسی آزاد"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "وارد کردن رمزعبور الزامی است"
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "رمز ورودی جدید مشابه با رمز قبلی است"
+
+msgid "user.profile.form.profileImage"
+msgstr "تصویر پروفایل"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "اطلاع‌رسانی درباره انتشار شماره جدید"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "آدرس وارد شده بی‌اعتبار است. پس از بررسی دوباره امتحان کنید. (نکته: http:// را به ابتدای آدرس بیافزائید.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "وارد کردن گروه کاربری الزامی است."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "وارد کردن شناسه ی کاربری الزامی است"
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "برای حفظ رمز عبور فعلی قسمت مربوط به رمز عبور را خالی بگذارید"
+
+msgid "user.profile.newPassword"
+msgstr "رمز عبور جدید"
+
+msgid "user.profile.oldPassword"
+msgstr "رمز عبور فعلی"
+
+msgid "user.profile"
+msgstr "پروفایل"
+
+msgid "user.profile.publicProfile"
+msgstr "پروفایل کابر"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "تکرار رمز عبور جدید"
+
+msgid "user.login.registerNewAccount"
+msgstr "ثبت‌نام"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "لطفا ایمیلی را که با آن در این سامانه ثبت کرده اید را در کادر زیر وارد کنید"
+
+msgid "user.register.form.emailExists"
+msgstr "قبلا با آدرس ایمیل وارد شده، کاربری در این سامانه ثبت‌نام کرده است. (ممکن است قبلا ثبت‌نام کرده باشید!)"
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "رمز عبور با تکرار آن یکسان نیست"
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "فیلدهای حاوی آدرس ایمیل مطابقت ندارند"
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "نام کاربری فقط میتواند شامل حروف، اعداد، خط فاصله زیرین و خط فاصله باشد و میبایست با یک حرف یا عدد شروع و به یک حرف یا عدد ختم شود."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "حداقل یک گروه کاربری باید انتخاب شود."
+
+msgid "user.register.form.usernameExists"
+msgstr "نام کاربری انتخاب شده در سامانه موجود می باشد"
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "کلمه ی عبور باید حداقل دارای {$length} کاراکتر باشد"
+
+msgid "user.register.registerAs"
+msgstr "ثبت‌نام در {$contextName} به عنوان"
+
+msgid "user.register"
+msgstr "ثبت‌نام"
+
+msgid "user.register.usernameRestriction"
+msgstr "نام کاربری فقط میتواند دارای حروف کوچک، اعداد، خط فاصله و خط فاصله زیرین باشد."
+
+msgid "user.register.registrationCompleted"
+msgstr " ثبت‌نام شما انجام شد. برای مشاهده و تکمیل پروفایل خود بر روی این <a href=\"{$profileUrl}\">لینک</a> کلیک کنید."
+
+msgid "user.role.author"
+msgstr "نویسنده"
+
+msgid "user.role.author_s"
+msgstr "نویسنده(گان)"
+
+msgid "user.role.authors"
+msgstr "نویسندگان"
+
+msgid "user.role.editor"
+msgstr "دبیر"
+
+msgid "user.role.editors"
+msgstr "دبیران"
+
+msgid "user.role.reader"
+msgstr "خواننده"
+
+msgid "user.role.readers"
+msgstr "خوانندگان"
+
+msgid "user.role.reviewer"
+msgstr "داور"
+
+msgid "user.role.reviewers"
+msgstr "داوران"
+
+msgid "user.role.siteAdmin"
+msgstr "مدیر سایت"
+
+msgid "user.role.siteAdmins"
+msgstr "مدیر های سایت"
+
+msgid "user.role.copyeditor"
+msgstr "ویراستیار"
+
+msgid "user.role.copyeditors"
+msgstr "ویراستیاران"
+
+msgid "user.role.proofreader"
+msgstr "بازبین نهایی"
+
+msgid "user.role.proofreaders"
+msgstr "بازبینهای نهایی"
+
+msgid "user.role.layoutEditor"
+msgstr "صفحه‌آرا"
+
+msgid "user.role.layoutEditors"
+msgstr "صفحه‌آرا"
+
+msgid "user.roles"
+msgstr "نقش ها"
+
+msgid "user.sendPassword"
+msgstr "ارسال رمز ورود"
+
+msgid "user.sendPassword.description"
+msgstr "یک ایمیل تاییدیه برایم بفرست و در آن نام کاربری و رمز ورود مرا ذکر کن"
+
+msgid "user.signature"
+msgstr "امضا"
+
+msgid "user.title"
+msgstr "عنوان"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.userHome"
+msgstr "صفحه خانگی کاربر"
+
+msgid "user.username"
+msgstr "نام کاربری"
+
+msgid "user.workingLanguages"
+msgstr "زبان‌های کاربردی"
+
+msgid "user.orcid"
+msgstr "شناسه ی نویسندگان/پژوهشگران"
+
+msgid "user.orcid.orcidInvalid"
+msgstr "شناسه ORCID وارد شده معتبر نیست. لطفاً آدرس کامل را وارد کنید (برای مثال:\"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "مشخصات فردی"
+
+msgid "user.profile.contact"
+msgstr "اطلاعات تماس"
+
+msgid "user.profile.public"
+msgstr "مشخصات عمومی"
+
+msgid "user.apiKey"
+msgstr "کلید API"
+
+msgid "user.apiKeyEnabled"
+msgstr "فعال‌سازی امکان دسترسی نرم‌افزارهای خارجی به این حساب کاربری از طریق کلید API"
+
+msgid "user.apiKey.generate"
+msgstr "ایجاد یک کلید جدید API"
+
+msgid "user.apiKey.generateWarning"
+msgstr "ایجاد یک کلید جدید API باعث نامعتبر شدن کلیدهای قبلی ایجاد شده برای این کاربر خواهد شد."
+
+msgid "user.apiKey.secretRequired"
+msgstr "قبل از ایجاد کلید API، باید کد مخفی در فایل پیکربندی وارد شود (api_key_secret)"

@@ -1,0 +1,190 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:00+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Дополнительные языки"
+
+msgid "installer.administratorAccount"
+msgstr "Учетная запись администратора"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Этот пользователь станет администратором сайта и получит полный доступ к системе. Дополнительные учетные записи пользователей можно будет создать после завершения установки."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">НЕТ</span>"
+
+msgid "installer.checkYes"
+msgstr "Да"
+
+msgid "installer.clientCharset"
+msgstr "Кодировка клиента"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Кодировка, которая используется для обмена данными с браузерами."
+
+msgid "installer.configFileError"
+msgstr "Конфигурационный файл <tt>config.inc.php</tt> не существует или не доступен для чтения."
+
+msgid "installer.connectionCharset"
+msgstr "Кодировка для соединения с БД"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Содержимое конфигурационного файла"
+
+msgid "installer.databaseDriver"
+msgstr "Драйвер базы данных"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Для драйверов, приведенных в квадратных скобках, похоже не загруженны необходимые расширения PHP, и, в случае выбора одного из них, установка скорее всего закончится неудачно.</strong><br />Любые неподдерживаемые драйверы базы данных, указанные в приведенном выше списке, находятся там исключительно с информационными целями и скорее всего не будут работать."
+
+msgid "installer.databaseHost"
+msgstr "Хост"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Оставьте имя хоста пустым для соединения при помощи UNIX domain sockets вместо TCP/IP. Эта настройка не обязательна для MySQL, который будет автоматически использовать sockets, если введено «localhost», но может потребоваться для других СУБД, таких как PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Имя базы данных"
+
+msgid "installer.databasePassword"
+msgstr "Пароль"
+
+msgid "installer.databaseSettings"
+msgstr "Настройки базы данных"
+
+msgid "installer.databaseUsername"
+msgstr "Имя пользователя"
+
+msgid "installer.filesDir"
+msgstr "Каталог для загружаемых на сервер файлов"
+
+msgid "installer.fileSettings"
+msgstr "Настройки файлов"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Кодировка клиента должна быть выбрана."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Драйвер СУБД должен быть выбран."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Имя базы данных обязательно."
+
+msgid "installer.form.emailRequired"
+msgstr "Правильный адрес электронной почты для учетной записи администратора обязателен."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Каталог для хранения загруженных на сервер файлов обязателен."
+
+msgid "installer.form.localeRequired"
+msgstr "Язык должен быть выбран."
+
+msgid "installer.form.passwordRequired"
+msgstr "Пароль для учетной записи администратора обязателен."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Пароли администратора не соответствуют друг другу."
+
+msgid "installer.form.separateMultiple"
+msgstr "Несколько вводимых значений разделяйте запятыми"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Имя пользователя для учетной записи администратора может содержать только буквы, цифры, подчеркивания и дефисы; оно должно начинаться и заканчиваться буквой или цифрой."
+
+msgid "installer.form.usernameRequired"
+msgstr "Имя пользователя для учетной записи администратора обязательно."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>ПРЕДУПРЕЖДЕНИЕ: Ваша текущая версия PHP не соответствует минимальным требованиям для установки. Рекомендуется обновить PHP до более новой версии.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Во время установки произошли ошибки"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL-запросы для установки"
+
+msgid "installer.installFileError"
+msgstr "Файл установки <tt>dbscripts/xml/install.xml</tt> не существует или не доступен для чтения."
+
+msgid "installer.installFilesDirError"
+msgstr "Каталог, указанный в качестве каталога для хранения загруженных на сервер файлов, не существует или не доступен для записи."
+
+msgid "installer.installParseDBFileError"
+msgstr "Ошибка синтаксического разбора файла установки БД <tt>{$file}</tt>."
+
+msgid "installer.installMigrationError"
+msgstr "Ошибка выполнения класса миграции <tt>{$class}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Ошибка синтаксического разбора файла шаблонов писем электронной почты <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Ошибка синтаксического разбора файла конфигурации фильтров <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Обновление не поддерживается. Смотрите подробнее в docs/UPGRADE-UNSUPPORTED."
+
+msgid "installer.locale"
+msgstr "Язык"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Поддержка отмеченных языков может быть неполной."
+
+msgid "installer.localeSettings"
+msgstr "Настройки языка"
+
+msgid "installer.oaiSettings"
+msgstr "Настройки OAI"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Уникальный идентификатор используется для идентификации записей метаданных, проиндексированных с этого сайта, при использовании протокола сбора метаданных <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a>."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Идентификатор хранилища"
+
+msgid "installer.publicFilesDirError"
+msgstr "Каталог public для файлов не существует или не доступен для записи."
+
+msgid "installer.releaseNotes"
+msgstr "Примечания к выпуску"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Шаги подготовки к установке"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Следующие файлы и каталоги (и их содержимое) должно быть сделано доступным для записи:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> доступен для записи (не обязательно): {$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> доступен для записи: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> доступен для записи: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> доступен для записи: {$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> доступен для записи: {$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> доступен для записи: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. Каталог для хранения загруженных на сервер файлов должен быть создан и сделан доступным для записи(смотри «Настройки файлов» ниже).</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>В вашей инсталляции PHP не включен модуль XSL. Включите его или настройте параметр xslt_command в вашем файле config.inc.php.</p>"
+
+msgid "installer.beacon"
+msgstr "Маяк"
+
+msgid "installer.beacon.enable"
+msgstr "Задать уникальный ID сайта и базовый URL OAI для PKP, которые будут использоваться только для сбора статистики и предупреждений о безопасности."
+
+msgid "installer.unsupportedPhpError"
+msgstr "Версия PHP, установленная на вашем сервере, не поддерживается данным программным обеспечением. Сверьтесь еще раз с требованиями к установке в docs/README."

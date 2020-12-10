@@ -1,0 +1,739 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
+"PO-Revision-Date: 2020-02-12 08:50+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"id/>\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.noItems"
+msgstr "Tidak Ada Item"
+
+msgid "grid.settings"
+msgstr "Pengaturan"
+
+msgid "grid.action.sort"
+msgstr "Sortir"
+
+msgid "grid.action.addItem"
+msgstr "Tambah Item"
+
+msgid "grid.action.delete"
+msgstr "Hapus"
+
+msgid "grid.action.remove"
+msgstr "Hapus"
+
+msgid "grid.action.edit"
+msgstr "Edit"
+
+msgid "grid.action.approve"
+msgstr "Setujui"
+
+msgid "grid.action.approveForReview"
+msgstr "Serahkan ke Tahap Review"
+
+msgid "grid.action.approveForPub"
+msgstr "Setujui untuk Penerbitan"
+
+msgid "grid.action.decline"
+msgstr "Tolak"
+
+msgid "grid.action.moreInformation"
+msgstr "Lebih Banyak Informasi"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Simpan Kembali Default"
+
+msgid "grid.columns.actions"
+msgstr "Aksi"
+
+msgid "grid.columns.institution"
+msgstr "Institusi"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.sponsor.title"
+msgstr "Sponsor"
+
+msgid "grid.contributor.title"
+msgstr "Kontributor"
+
+msgid "grid.action.addAuthor"
+msgstr "Tambah Penulis"
+
+msgid "grid.reviewForm.title"
+msgstr "Form Review"
+
+msgid "grid.bookFileType.form.sortable"
+msgstr "Izinkan file tipe ini untuk dipilih berdasarkan komponen (contoh: berdasarkan bab)"
+
+msgid "grid.artworkFile.title"
+msgstr "Karya seni dengan izin"
+
+msgid "grid.artworkFile.file"
+msgstr "File"
+
+msgid "grid.artworkFile.form.title"
+msgstr "Tambah karya seni dengan izin"
+
+msgid "grid.artworkFile.form.metadata"
+msgstr "Metadata Karya seni"
+
+msgid "grid.artworkFile.caption"
+msgstr "Tulisan"
+
+msgid "grid.artworkFile.credit"
+msgstr "Kredit"
+
+msgid "grid.artworkFile.captionAndCredit"
+msgstr "Tulisan dan kredit (Jika tidak termasuk di File)"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Pemilik Hak Cipta"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Info Kontak (jika bukan Penulis/Penerbit)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Masa Izin"
+
+msgid "grid.artworkFile.permissionForm"
+msgstr "Form Izin"
+
+msgid "grid.artworkFile.type"
+msgstr "Tipe"
+
+msgid "grid.artworkFile.type.table"
+msgstr "Tabel"
+
+msgid "grid.artworkFile.type.figure"
+msgstr "Figur"
+
+msgid "grid.artworkFile.placement"
+msgstr "Penempatan di buku"
+
+msgid "grid.artworkFile.placementDetail"
+msgstr "Tabel/Fig. No."
+
+msgid "grid.artworkFile.contactAuthor"
+msgstr "Hubungi Penulis"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "File"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Perpustakaan Naskah"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Perpustakaan Editorial"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Perpustakaan Review"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Perpustakaan Produksi"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Perpustakaan Template Produksi"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Daftar Periksa Naskah"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Butir Daftar Periksa"
+
+msgid "author.users.contributor.name"
+msgstr "Nama"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Peran"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Kontak Utama"
+
+msgid "grid.reviewAttachments.title"
+msgstr "Lampiran Reviewer"
+
+msgid "grid.reviewAttachments.add"
+msgstr "Tambahkan lampiran ke review"
+
+msgid "grid.chapters.title"
+msgstr "Bab"
+
+msgid "grid.action.upgrade"
+msgstr "Tingkatkan (upgrade)"
+
+msgid "grid.action.addAuditor"
+msgstr "Tambah Auditor"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Hapus Penulis"
+
+msgid "grid.action.editAuthor"
+msgstr "Edit Penulis"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Anda yakin ingin kembali ke default?"
+
+msgid "grid.action.setApproval"
+msgstr "Tetapkan Persetujuan"
+
+msgid "grid.action.disapprove"
+msgstr "Tidak Disetujui"
+
+msgid "grid.action.editorialHistory"
+msgstr "Riwayat Editorial"
+
+msgid "grid.action.deleteSection"
+msgstr "Hapus Bagian"
+
+msgid "grid.action.export"
+msgstr "Ekspor"
+
+msgid "grid.action.editSection"
+msgstr "Sunting Bagian"
+
+msgid "grid.action.editMedia"
+msgstr "Sunting Media"
+
+msgid "grid.action.deleteMedia"
+msgstr "Hapus Media"
+
+msgid "grid.action.deleteFile"
+msgstr "Hapus File"
+
+msgid "grid.action.reload"
+msgstr "Muat Ulang"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Setujui file copyedit ini untuk dikirimkan ke tahap selanjutnya"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Batalkan penetapan peninjau ini"
+
+msgid "grid.action.addUser"
+msgstr "Tambah Pengguna"
+
+msgid "grid.action.updateQuery"
+msgstr "Perbarui diskusi"
+
+msgid "grid.action.deleteQuery"
+msgstr "Hapus diskusi"
+
+msgid "grid.action.readQuery"
+msgstr "Baca diskusi"
+
+msgid "grid.action.addQuery"
+msgstr "Tambahkan diskusi"
+
+msgid "grid.action.addNote"
+msgstr "Tambahkan Catatan"
+
+msgid "grid.action.manageAccess"
+msgstr "Kelola Akses"
+
+msgid "grid.action.uninstall"
+msgstr "Uninstal"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Butir ini di-host dari jarak jauh."
+
+msgid "grid.noAuditors"
+msgstr "Tidak Ada Auditor"
+
+msgid "grid.action.orderItems"
+msgstr "Aktifkan cara pengurutan"
+
+msgid "grid.action.importexport"
+msgstr "Impor atau ekspor konten atau data situs"
+
+msgid "grid.action.settings"
+msgstr "Pengaturan"
+
+msgid "grid.action.sendToProduction"
+msgstr "Kirim naskah ke tahap produksi"
+
+msgid "grid.action.externalReview"
+msgstr "Kirim naskah ini ke review eksternal"
+
+msgid "grid.action.internalReview"
+msgstr "Kirim naskah ini ke review internal"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Pilih tipe..."
+
+msgid "grid.action.accept"
+msgstr "Terima naskah ini"
+
+msgid "grid.action.requestRevisions"
+msgstr "Minta revisi naskah ini"
+
+msgid "grid.action.selectFiles"
+msgstr "Pilih file untuk dikelola"
+
+msgid "grid.action.editFile"
+msgstr "Edit file"
+
+msgid "grid.action.addFile"
+msgstr "Tambahkan file"
+
+msgid "grid.action.addReviewer"
+msgstr "Tambahkan mitra bestari"
+
+msgid "grid.action.email"
+msgstr "Kirim surel"
+
+msgid "grid.action.readReview"
+msgstr "Baca review ini"
+
+msgid "grid.action.downloadAll"
+msgstr "Unduh semua file sebagai arsip"
+
+msgid "grid.action.moveItem"
+msgstr "Pindahkan Butir"
+
+msgid "grid.action.wizard"
+msgstr "Pintasan Pengaturan"
+
+msgid "grid.action.collapseAll"
+msgstr "Sembunyikan semua"
+
+msgid "grid.action.collapse"
+msgstr "Sembunyikan"
+
+msgid "grid.action.extendAll"
+msgstr "Tampilkan semua"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Batalkan pengurutan"
+
+msgid "grid.action.order"
+msgstr "Urutkan"
+
+msgid "grid.user.disable"
+msgstr "Nonaktifkan"
+
+msgid "grid.user.enable"
+msgstr "Aktifkan"
+
+msgid "grid.user.email"
+msgstr "Surel"
+
+msgid "grid.user.edit"
+msgstr "Sunting Pengguna"
+
+msgid "grid.user.enroll"
+msgstr "Daftarkan Pengguna"
+
+msgid "grid.user.add"
+msgstr "Tambahkan Pengguna"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Semua Level Perizinan"
+
+msgid "grid.user.allRoles"
+msgstr "Semua Peran"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Pendaftaran Saat Ini"
+
+msgid "grid.user.currentUsers"
+msgstr "Pengguna Saat Ini"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Tahap Penugasan"
+
+msgid "grid.roles.add"
+msgstr "Buat Peran Baru"
+
+msgid "grid.roles.currentRoles"
+msgstr "Peran Sekarang"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Dalam Daftar Pencarian"
+
+msgid "grid.noFiles"
+msgstr "Tidak Ada File"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Pilihan Tanggapan"
+
+msgid "grid.action.newVersion"
+msgstr "Buat versi baru"
+
+msgid "grid.action.deleteContributor"
+msgstr "Hapus Kontributor"
+
+msgid "grid.action.editContributor"
+msgstr "Sunting Kontributor"
+
+msgid "grid.action.addContributor"
+msgstr "Tambahkan Kontributor"
+
+msgid "grid.action.deleteCategory"
+msgstr "Hapus Kategori"
+
+msgid "grid.action.editCategory"
+msgstr "Sunting Kategori"
+
+msgid "grid.action.addCategory"
+msgstr "Tambahkan Kategori"
+
+msgid "grid.action.deleteSeries"
+msgstr "Hapus Seri"
+
+msgid "grid.action.editSeries"
+msgstr "Sunting Seri"
+
+msgid "grid.action.addSeries"
+msgstr "Tambahkan Seri"
+
+msgid "grid.action.editSponsor"
+msgstr "Sunting Sponsor"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Hapus Sponsor"
+
+msgid "grid.action.addSponsor"
+msgstr "Tambahkan Sponsor"
+
+msgid "grid.columns.locale"
+msgstr "Bahasa"
+
+msgid "grid.columns.auditor"
+msgstr "Auditor"
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+"Review ini sudah siap. Klik ikon catatan untuk membacanya pada sebelah kiri."
+
+msgid "grid.task.status.unfinished"
+msgstr "Tugas belum selesai"
+
+msgid "grid.task.status.uploaded"
+msgstr "Judul kolon menandakan siapa yang mengunggah file ini"
+
+msgid "grid.task.status.new"
+msgstr "Centang jika dipertimbangkan"
+
+msgid "grid.task.status.completed"
+msgstr "Tugas ini telah selesai"
+
+msgid "grid.action.users"
+msgstr "Lihat/Pilih Pengguna"
+
+msgid "grid.action.moreItems"
+msgstr "Muat selengkapnya"
+
+msgid "grid.action.install"
+msgstr "Install"
+
+msgid "grid.action.preview"
+msgstr "Pratinjau"
+
+msgid "grid.action.copy"
+msgstr "Salin"
+
+msgid "grid.action.deactivate"
+msgstr "Deaktivasi"
+
+msgid "grid.action.activate"
+msgstr "Aktifkan"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Yakin ingin mengekspor semua pengguna?"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Ekspor Semua Pengguna"
+
+msgid "grid.action.logInAs"
+msgstr "Login Sebagai"
+
+msgid "grid.action.bookInfo"
+msgstr "Info Naskah"
+
+msgid "grid.action.enable"
+msgstr "Aktifkan"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Review ini rampung, tapi Anda bisa mengabaikannya"
+
+msgid "grid.action.history"
+msgstr "Lihat Riwayat"
+
+msgid "grid.action.unassignUser"
+msgstr "Batalkan Pengguna"
+
+msgid "grid.action.mergeUser"
+msgstr "Gabunggan pengguna"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Tambahkan Pengumuman"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Tambahkan Jenis Pengumuman"
+
+msgid "grid.action.uploadFile"
+msgstr "Unggah file"
+
+msgid "grid.action.thankReviewer"
+msgstr "Kirim ucapan terima kasih kepada mitra bestari ini"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Lihat kebijakan pedoman competing interest"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Lihat pedoman review"
+
+msgid "grid.action.newRound"
+msgstr "Buat ronde baru"
+
+msgid "grid.action.sendReminder"
+msgstr "Kirim pengingat tugas kepada pengguna ini"
+
+msgid "grid.action.viewMetadata"
+msgstr "Lihat metadata naskah ini"
+
+msgid "grid.action.viewLibrary"
+msgstr "Lihat Document Library"
+
+msgid "grid.action.advancedSearch"
+msgstr "Pencarian Lanjut"
+
+msgid "grid.action.search"
+msgstr "Cari"
+
+msgid "grid.action.selectCreate"
+msgstr "Daftarkan mitra bestari baru"
+
+msgid "grid.action.enrolExisting"
+msgstr "Pilih pengguna yang ada sebagai mitra bestari"
+
+msgid "grid.action.details"
+msgstr "Lihat item ini"
+
+msgid "grid.action.disable"
+msgstr "Nonaktifkan"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Hapus grup pengguna ini"
+
+msgid "grid.action.editUserGroup"
+msgstr "Sunting Grup Pengguna ini"
+
+msgid "grid.action.addUserGroup"
+msgstr "Tambahkan Grup Pengguna baru"
+
+msgid "grid.action.notify"
+msgstr "Beri tahu pengguna ini"
+
+msgid "grid.action.expand"
+msgstr "Perluas"
+
+msgid "grid.action.requestAccount"
+msgstr "Tambahkan partisipan"
+
+msgid "grid.action.expandAll"
+msgstr "Tampilkan Semua"
+
+msgid "grid.action.resetEmail"
+msgstr "Reset template surel ini ke bentuk awal"
+
+msgid "grid.action.disableEmail"
+msgstr "Nonaktifkan template surel ini"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Sunting template surel ini"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Tambahkan template surel baru"
+
+msgid "grid.action.resetAll"
+msgstr "Reset semua item ke nilai awal"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Hapus item ceklis ini"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Sunting bagian ceklis ini"
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"Terjadi kesalahan saat mengirim surel ini. Harap pastikan bahwa konfigurasi "
+"server surel Anda berfungsi dan/atau hubungi administrator sistem Anda."
+
+msgid "grid.user.error"
+msgstr "Terjadi kesalahan saat mengelola pengguna ini. Silakan coba lagi."
+
+msgid "grid.user.enableReason"
+msgstr "Alasan untuk mengaktifkan pengguna"
+
+msgid "grid.user.disableReason"
+msgstr "Alasan untuk menonaktifkan pengguna"
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Mengharuskan pengguna untuk mengubah kata sandi saat mereka masuk."
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Membuat kata sandi acak untuk pengguna ini."
+
+msgid "grid.user.generatePassword"
+msgstr "Membuat Kata Sandi"
+
+msgid "grid.user.mustProvideName"
+msgstr "Sediakan setidaknya nama belakang untuk pengguna."
+
+msgid "grid.user.authSource"
+msgstr "Sumber otentikasi"
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"Anda tidak memiliki izin untuk mengelola pengguna ini. Untuk mengelola "
+"pengguna, Anda harus menjadi administrator situs, atau mengelola semua "
+"konteks di mana pengguna ini terdaftar."
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "Peran {$userGroupName} adalah peran bawaan dan tidak bisa dihapus."
+
+msgid "grid.action.fileUnconsider"
+msgstr "Perbaikan telah dilakukan. Anda boleh mengabaikan tugas ini"
+
+msgid "grid.plugin.disable"
+msgstr "Yakin ingin menonaktifkan plugin ini?"
+
+msgid "grid.plugin.allCategories"
+msgstr "Semua Kategori"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Daftar Terkini"
+
+msgid "grid.preparedEmails.title"
+msgstr "Template Surel Tersedia"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"Yakin ingin menggabungkan akun dengan username \"{$oldUsername}\" ke dalam "
+"akun dengan username \"{$newUsername}\"? Akun dengan username \""
+"{$oldUsername}\" akan terhapus. Perubahan ini tidak dapat dipulihkan."
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Semua Pengguna Terdaftar"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Gabungkan ke Pengguna ini"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Gabungkan Pengguna"
+
+msgid "grid.user.mergeUsers"
+msgstr "Gabungkan Pengguna"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"Masuk sebagai pengguna ini? Semua tindakan yang Anda lakukan akan dikaitkan "
+"dengan pengguna ini."
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Silakan pilih satu pengguna"
+
+msgid "grid.user.selectUser"
+msgstr "Pilih Pengguna"
+
+msgid "grid.user.addRole"
+msgstr "Tambah Peran"
+
+msgid "grid.user.addRoles"
+msgstr "Tambah Peran"
+
+msgid "grid.user.step2"
+msgstr "Langkah #2: Tambahkan Peran Pengguna ke {$userFullName}"
+
+msgid "grid.user.step1"
+msgstr "Langkah #1: Isi Rincian Pengguna"
+
+msgid "grid.user.userNoRoles"
+msgstr "Pengguna ini belum punya peran."
+
+msgid "grid.user.userRoles"
+msgstr "Peran Pengguna"
+
+msgid "grid.user.userDetails"
+msgstr "Rincian Pengguna"
+
+msgid "grid.user.lessDetails"
+msgstr "Rincian Singkat Pengguna"
+
+msgid "grid.user.moreDetails"
+msgstr "Rincian Pengguna Selengkapnya"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Tidak Ada Menu Navigasi"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Tidak Ada Item Menu Navigasi"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Tambah Item"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Tambah Menu"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Sertakan naskah belum selesai diserahkan oleh penulis."
+
+msgid "grid.submission.itemTitle"
+msgstr "Penulis; Judul"
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "Peran {$userGroupName} telah dibatalkan dari tahap {$stageName}."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "Peran {$userGroupName} ditugaskan pada tahap {$stageName}."
+
+msgid "grid.userGroup.removed"
+msgstr "Peran {$userGroupName} telah dihapus."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"Tidak bisa menghapus peran {$userGroupName}. Pengguna {$usersCount} saat ini "
+"sedang ditugaskan pada hal terebut."
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Pengguna wajib mengubah password pada saat login berikutnya."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Ubah Password"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Kirim surel sambutan kepada pengguna."
+
+msgid "grid.user.notifyUser"
+msgstr "Beri Tahu Pengguna"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Dengan level izin ditentapkan pada"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Tampilkan peran yang diberi tugas"
+
+msgid "grid.userGroup.allStages"
+msgstr "Semua Tahapan Alur Kerja"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Batalkan tahapan"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Buat tahapan penugasan"

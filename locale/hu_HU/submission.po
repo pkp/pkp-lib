@@ -1,0 +1,2198 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
+"PO-Revision-Date: 2020-02-28 11:36+0000\n"
+"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/hu/>\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "author.submit.userGroupRequired"
+msgstr "Az Ön fiókja jelenleg nem teszi lehetővé, hogy szerzőként cikket küldjön be. Kérjük, ellenőrizze még egyszer a felhasználói fiókját; lehetősége van a megfelelő szerepkört beállítani, ha szerkeszti a profil adatait."
+
+msgid "author.submit.submissionCitations"
+msgstr "Adjon meg egy formázott hivatkozás listát a beküldött anyagban idézett munkákhoz. Kérjük, minden hivatkozást egy üres sorral válasszon el."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Új lektori véleményeket küldtek be, hogy a szerkesztő átnézhesse."
+
+msgid "submission.confirm.message"
+msgstr "A beküldendő fájl feltöltve és küldésre kész. Folytatás előtt visszaléphet további áttekintésre vagy módosításra. A befejezéshez kattintson a \"Beküldés befejezése\" gombra."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Beküldési előírások"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "El kell olvasnia és jelölnie kell, hogy teljesítette az előírásokat mielőtt folytatná."
+
+msgid "submission.submit.submissionComplete"
+msgstr "A kéziratot sikeresen benyújtotta"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "Köszönjük, hogy eredményei megjelentetésére {$contextName} folyóiratot választotta."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Szerzői jogi nyilatkozat elfogadása"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "A szerzői jogi irányelvek betartásának elfogadása."
+
+msgid "submission.submit.whatNext"
+msgstr "Következő lépések"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Jelenleg:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Áttekintheti a benyújtott kéziratot"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Újabb kéziratot küldhet be"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Visszatérhet a vezérlőpulthoz"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Külső metaadatok"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "CrossRef regisztrációs email"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr "Kérjük, adjon meg egy érvényes CrossRef regisztrációs emailt. Ingyenesen regisztrálhatja az email címét a CrossRef weboldalon."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API Key"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr "Kérjük, adja meg az ISBNdb API kulcsot. Ha még nincs ilyen kulcsa, akkor ingyenesen kérhet egyet az ISBNdb projekttől."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "PubMed regisztrációs email"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Kérjük, adjon meg egy érvényes PubMed regisztrációs emailt, ha van."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API kulcs"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Kérjük, adjon meg egy érvényes WorldCat API kulcsot, ha van."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Idézettségi modul"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Kérjük, válasszon ki egyet a megadott idézettségi modulok közül."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Ne használja alapértelmezetten (továbbra is eléhető lesz a szerkesztőnek)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr "Belső hiba. Nem érvényes értéket írt a választható szűrő listába. Kérjük, jelentse ezt a hibát."
+
+msgid "metadata.property.displayName.author"
+msgstr "Szerzők"
+
+msgid "metadata.property.validationMessage.author"
+msgstr "A legjob eredményhez a szerzőknek a következő formát kell használniuk: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Szerkesztők"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "A legjobb eredményhez a szerkesztőknek a következő formát kell használniuk: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Cikk/tanulmány cim"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Kérjük, adjon meg egy érvényes cikk/dolgozat címet."
+
+msgid "metadata.property.displayName.source"
+msgstr "Publikációs cím"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Kérjük, adjon meg egy érvényes publikációs címet."
+
+msgid "metadata.property.displayName.date"
+msgstr "Publikálási dátum"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Kérjük, adjon meg egy érvényes publikálási dátumot (formátum: ÉÉÉÉ-HH-NN)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Elérhetőségi dátum"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Kérjük, adjon meg egy érvényes elérhetőségi dátumot (formátum: ÉÉÉÉ-HH-NN)."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Szám"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Kérjük, adjon meg egy érvényes számot."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Kötet"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Kérjük, adjon meg egy érvényes kötetet."
+
+msgid "metadata.property.displayName.season"
+msgstr "Évad"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Kérjük, adjon meg egy érvényes évad azonosítót."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Fejezetcím"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Kérjük, adjon meg egy érvényes fejezetcímet."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Kiadás"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Kérjük adjon meg egy érvényes kiadást."
+
+msgid "metadata.property.displayName.series"
+msgstr "Sorozat"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Kérjük, adjon meg egy érvényes sorozatot."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Kiegészítés"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Kérjük, adjon meg egy érvényes kiegészítést."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Konferencia dátum"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Kérjük, adjon meg egy érvényes konferencia dátumot (formátum: ÉÉÉÉ-HH-NN)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Konferencia helyszín"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Kérjük, adjon meg egy érvényes konferencia helyszínt."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Konferencia neve"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Kérjük, adjon meg egy érvényes konferencia nevet."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Konferencia szponzor"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Kérjük, adjon meg egy érvényes konferencia szponzort."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Intézmény"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Kérjük, adjon meg egy érvényes intézményt."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Első oldal"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Kérjük, adjon meg egy érvényes kezdő oldalt (szám értéknek kell lennie)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Utolsó oldal"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Kérjük, adjon meg egy érvényes utolsó oldalt (szám értéknek kell lennie)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Oldalak száma"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Kérjük, adjon meg érvényes össz oldalszámot (szám értéknek kell lennie)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Kiadási hely"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Kérjük, adjon meg egy érvényes kiadási helyet."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Kiadó neve"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Kérjük, adja meg a kiadó nevét."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Kérjük, adjon meg egy érvényes ISBN számot (9 vagy 13 számjegy)."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Nyomtatott ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Kérjük, adjon meg egy érvényes nyomtatott ISSN számot."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Kérjük, adjon meg egy érvényes elektronikus eISSN."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Kérjük, adjon meg egy érvényes DOI számot."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Egyedi kiadási ID"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Kérjük, adjon meg egy érvényes egyedi kiadási ID számot."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Kérjük, adjon meg egy érvényes CODEN azonosítót."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Kérjük, adjon meg egy érvényes SICI azonosítót."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Kérjük, adjon meg egy érvényes PMID azonosítót."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Link a kiadáshoz"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Kérjük, adjon meg egy érvényes linket a kiadáshoz."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Megjegyzés"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Kérjük, adjon megjegyzést."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Jegyzet"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Kérjük, adjon meg jegyzetet."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Publikáció típus"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr "Kérjük, győződjön meg arról, hogy a publikáció típust mindig beállítsa. Jelenleg támogatott típus a könyv (könyvek vagy könyvfejezetek) és a folyóirat (folyóirat cikk). Különben az idézettség kimeneti formátuma nem lesz megfelelő."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Címtípus"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr "Kérjük, győződjön meg arról, hogy érvényes címtípust adott-e meg. Támogatott értékek a 'rövidített', 'fordítás', 'alternatív' és 'egységesített'."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "A címek egy részét figyelmen kívül hagyja rendezés során"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "Kérjük, azoknál a címeknél, amelyeket szeretne kihagyni a rendezésből, adja meg a cím kezdő karaktereit."
+
+msgid "metadata.property.displayName.title"
+msgstr "Cím"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Kérjük, adjon meg érvényes címet."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Alcím"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Kérjük, adjon meg érvényes alcímet."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Part Number"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Kérjük, adjon meg egy érvényes part number."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Part Name"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Kérjük, adjon meg egy érvényes part name."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Name Type"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr "Kérjük, győződjön meg, hogy érvényes névtípust állított be. Támogatott értékek a 'személyes', 'testületi' és 'konferencia'."
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Hozzárendelés nélkül"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Cikkeim"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Archívált beküldések"
+
+msgid "submission.authors"
+msgstr "Szerzők"
+
+msgid "submission.authorBiography"
+msgstr "Információk a szerzőről"
+
+msgid "submission.authorBiographies"
+msgstr "Szerző életrajzok"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} stb."
+
+msgid "submission.mySubmissions"
+msgstr "Saját művek"
+
+msgid "submission.addFile"
+msgstr "Fájl feltöltés"
+
+msgid "submission.agencies"
+msgstr "Ügynökségek"
+
+msgid "submission.abstractViews"
+msgstr "Absztrakt nézetek"
+
+msgid "submission.accepted"
+msgstr "Elfogadott"
+
+msgid "submission.acknowledge"
+msgstr "Visszajelzés, köszönet"
+
+msgid "submission.ask"
+msgstr "Kérdez"
+
+msgid "submission.attachedFile"
+msgstr "Csatolt fájlok"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Vissza a beköldött anyag szerkesztéséhez"
+
+msgid "submission.changeComments"
+msgstr "Változtatás"
+
+msgid "submission.changeFile"
+msgstr "Fájl cseréje"
+
+msgid "submission.citations"
+msgstr "Hivatkozások"
+
+msgid "submission.citations.editor.citationlist.approved"
+msgstr "Jóváhagyott"
+
+msgid "submission.citations.editor.citationlist.deleteCitationConfirmation"
+msgstr "Biztos benne, hogy törölni akarja az hivatkozást?"
+
+msgid "submission.citations.editor.citationlist.errorDeletingCitation"
+msgstr "Hiba lépett fel a hivatkozás törlése közben.  Kérjük, jelentse ezt a hibát."
+
+msgid "submission.citations.editor.citationlist.newCitation"
+msgstr "Új hivatkozás"
+
+msgid "submission.citations.editor.citationlist.notApproved"
+msgstr "Nem engedélyezett"
+
+msgid "submission.citations.editor.citationlist.title"
+msgstr "Hivatkozások szerkesztése"
+
+msgid "submission.citations.editor.clickToEdit"
+msgstr "Kattintson a szerkesztésre."
+
+msgid "submission.citations.editor.details.authorQuery"
+msgstr "Szerző megkérdezése"
+
+msgid "submission.citations.editor.details.authorQueryBody"
+msgstr "A szerzőnek szánt üzenet:"
+
+msgid "submission.citations.editor.details.authorQueryExplanation"
+msgstr "Kérhet a szerzőtől további információkat a hivatkozással kapcsolatban. A lenti küldés gombra kattintva emailben elküldheti az üzenetét a szerzőnek."
+
+msgid "submission.citations.editor.details.authorQuerySubject"
+msgstr "Tárgy:"
+
+msgid "submission.citations.editor.details.cannotSelectDefaultForLabel"
+msgstr "A mezőcímkét nem lehet kihagyni. Kérjük, törölje a mezőt, ha nincs rá szüksége."
+
+msgid "submission.citations.editor.details.checkInGoogleScholar"
+msgstr "Ellenőrzés a Google Scholarban"
+
+msgid "submission.citations.editor.details.changeFieldInfo"
+msgstr "Gépelje be az első néhány betűt a kiválasztáshoz..."
+
+msgid "submission.citations.editor.details.citationExportPreview"
+msgstr "Hivatkozás export előnézet"
+
+msgid "submission.citations.editor.details.citationImprovementResultsActive"
+msgstr "A belső hivatkozás szolgáltatás eredményei (kattintson a bezáráshoz)"
+
+msgid "submission.citations.editor.details.citationImprovementResultsInactive"
+msgstr "A belső hivatkozás szolgáltatás eredményei (kattintson a megnyitáshoz)"
+
+msgid "submission.citations.editor.details.citationServices"
+msgstr "Hivatkozás szolgáltatás"
+
+msgid "submission.citations.editor.details.clickToDismissMessage"
+msgstr "Rákattinthat az üzenet szövegére, hogy elutasítsa azt."
+
+msgid "submission.citations.editor.details.dataSaved"
+msgstr "A változtatásai mentésre kerültek."
+
+msgid "submission.citations.editor.details.editRawCitationDatabaseServices"
+msgstr "Válassza ki a hivatkozási adatbázis szolgáltatásokat:"
+
+msgid "submission.citations.editor.details.editRawCitationExpertSettingsActive"
+msgstr "Szakértői hivatkozás szerkesztési beállítások (kattintson a bezáráshoz)"
+
+msgid "submission.citations.editor.details.editRawCitationExpertSettingsInactive"
+msgstr "Szakértői hivatkozás szerkesztési beállítások (kattintson a megnyitáshoz)"
+
+msgid "submission.citations.editor.details.editRawCitationExtractionServices"
+msgstr "Válasszon hivatkozás kivonat készítő szolgáltatást:"
+
+msgid "submission.citations.editor.details.editRawCitationFilterValidationError"
+msgstr "Belső hiba: érvénytelen szűrő választás. Kérjük, jelentse a hibát."
+
+msgid "submission.citations.editor.details.explainImprovementOptions"
+msgstr "Ha az alapértelmezett beállításokkal nem kap megfelelő eredményt, akkor számos más lehetősége van javítani a hivatkozást. Gyakran segít, ha manuálisan szerkeszti a mezőket (pl. cím és szerző) majd próbálja ismét a hivatkozás szolgáltatást. Ha ez sem segít, akkor kereshet a Google Scholar adatbázisában vagy a szerzőtől is kérhet részletesebb információt."
+
+msgid "submission.citations.editor.details.googleScholar"
+msgstr "Google Scholar"
+
+msgid "submission.citations.editor.details.googleScholarExplanation"
+msgstr "Ha az odaillő idézet nem található meg egyetlen kapcsolt hivatkozás szolgáltatásban sem, akkor még megkeresheti a Google Scholarban. Sajnos a Google Scholar nem nyújt mezőalapú interfészt az adatokhoz, így azok nem íródnak vissza automatikusan az idézettség kezelőbe. Manuálisan kimásolhatja, és beillesztheti a talált információt a Google találati oldalról a saját felületére."
+
+msgid "submission.citations.editor.details.manualEditing"
+msgstr "Kézi szerkesztés"
+
+msgid "submission.citations.editor.details.messages"
+msgstr "Kérjük, ügyeljen (az üzenetre való kattintással visszautasítja azt)"
+
+msgid "submission.citations.editor.details.newFieldInfo"
+msgstr "...kattintson ide egy új mező létrehozásához..."
+
+msgid "submission.citations.editor.details.queryCitation"
+msgstr "Újra lekeresés az idézettség szolgáltatásokban"
+
+msgid "submission.citations.editor.details.queryGoogleScholar"
+msgstr "Keresés a Google Scholar felületén"
+
+msgid "submission.citations.editor.details.processRawCitation"
+msgstr "Folyamat"
+
+msgid "submission.citations.editor.details.processRawCitationGoAhead"
+msgstr "Lépjen tovább"
+
+msgid "submission.citations.editor.details.processRawCitationTitle"
+msgstr "Eredeti idézet megváltoztatása"
+
+msgid "submission.citations.editor.details.processRawCitationWarning"
+msgstr "Meg fogja változtatni az eredeti idézet szövegét. Ha így tesz, minden mező lecserélődik az újból legenerált értékekre. Ez törölni fogja a korábban már kézileg megváltoztatott értékeket."
+
+msgid "submission.citations.editor.details.saveAndApprove"
+msgstr "Mentés és jóváhagyás"
+
+msgid "submission.citations.editor.details.saveAndRevokeApproval"
+msgstr "Jóváhagyás visszavonása"
+
+msgid "submission.citations.editor.details.sendAuthorQuery"
+msgstr "Üzenet küldése"
+
+msgid "submission.citations.editor.details.sendAuthorQuerySuccess"
+msgstr "Üzenet elküldve!"
+
+msgid "submission.citations.editor.details.sourceResultsUse"
+msgstr "Használ"
+
+msgid "submission.citations.editor.details.sourceResultsUseAll"
+msgstr "Mindet használ"
+
+msgid "submission.citations.editor.details.sourceResultsUseAllExplanation"
+msgstr "Kattintson az összes megtalált mező átviteléhez ebből a forrásból a saját mezőlistába."
+
+msgid "submission.citations.editor.details.sourceResultsUseExplanation"
+msgstr "Kattintson ennek a mezőnek a saját mezőbe történő átviteléhez"
+
+msgid "submission.citations.editor.details.rawCitation"
+msgstr "Eredeti idézetszöveg"
+
+msgid "submission.citations.editor.details.rawCitationRequired"
+msgstr "Egy idézetszöveg megadása kötelező"
+
+msgid "submission.citations.editor.details.unsavedChanges"
+msgstr "Az idézet nem mentett adatot tartalmaz. Kérem, kattintson a \"Mentés\" gombra, hogy megtartsa a változtatásokat vagy a \"Mégsem\" gombra, hogy elvesse azokat."
+
+msgid "submission.citations.editor.details.dontShowMessageAgain"
+msgstr "Ne mutassa ezt az üzenetet megint."
+
+msgid "submission.citations.editor.edit"
+msgstr "Idézetek szerkesztése"
+
+msgid "submission.citations.editor.export"
+msgstr "Idézetek exportálása"
+
+msgid "submission.citations.editor.export.exportDescription"
+msgstr "<a id=\"markForExport\" href=\"\">Kattintson ide</a> az összes legenerált tétel kijelöléséhez. Ezután kimásolhatja és beillesztheti a saját dokumentumába."
+
+msgid "submission.citations.editor.export.filterSelectionDescription"
+msgstr "Kérjük, válasszon egyet a következő export beállítási lehetőségek közül."
+
+msgid "submission.citations.editor.export.filterSelectionError"
+msgstr "nem választott a kimeneti beállítások közül egyet sem."
+
+msgid "submission.citations.editor.export.foundUnapprovedCitationsMessage"
+msgstr "<p>Még nem hagyta jóvá az összes idézetet. Kérjük, menjen a <strong>Idézetek szerkesztése</strong> fülre és győződjön meg róla, hogy jóváhagyta az összes idézetet, mielőtt megpróbálja exportálni őket. A jóváhagyott idézetek balra sötétkék sávban jelennek meg.</p>"
+
+msgid "submission.citations.editor.export.noExportOutput"
+msgstr "A(z) '{$filterName}' kimeneti szűrőnél hiba állt elő. Kérjük, a fájlt jelentse hibában."
+
+msgid "submission.citations.editor.export.pleaseSelectXmlFilter"
+msgstr "XML kimeneti beállítások:"
+
+msgid "submission.citations.editor.export.pleaseSelectPlaintextFilter"
+msgstr "Idézet stílus kimenet (csak kísérlet!):"
+
+msgid "submission.citations.editor.introduction"
+msgstr "Bevezetés"
+
+msgid "submission.citations.editor.introduction.introductionMessage"
+msgstr ""
+"<h4>Üdvözöljük az idézettség jelölő szolgáltatásban!</h4>\n"
+"\t<p>Ezzel a szolgáltatással NLM 2.3 vagy 3.0 XML formátumú exportra jelölheti a szerző által megadott idézeteket, vagy egyéb lehetőségként szövegalapú kimenetként. Ez az eszköz először megpróbálja automatikusan kivonatolni és felismerni az idézetet, de bármikor közbeavatkozhat, és szerkesztheti a kapott eredményt.</p>\n"
+"\t<ul>\n"
+"\t\t<li><p><strong>A segéd konfigurálása</strong></p>\n"
+"\t\t<p>Az idézettség jelölő segédet a folyóirat menedzser állítja be a <a href=\"{$citationSetupUrl}\">folyóirat beállítások 3.7: Idézettség jelölő segéd</a> részben. Különféle hivatkozás idézet kivonatoló és ellenőrző eszközt lehet hozzáadni, beállítani és törölni. Bővebb információért lépjen kapcsolatba a folyóirat menedzser.</p></li>\n"
+"\t\t<li><p><strong>Navigáció a segéd kezelőfelületén</strong></p>\n"
+"\t\t<p>A <strong>Bevezetés</strong>, az <strong>Idézetek szerkesztése</strong> és az <strong>Idézetek exportálása</strong> fülek közötti váltáshoz kattintson a fül címére. Az idézetek felületének megnagyításához kattintson a <strong>Teljes képernyő</strong> gombra. A normál méretű ablakhoz visszatérni a <strong>Teljes képernyő kikapcsolása</strong> gombbal lehet. Ennek a bevezető lapnak az eltávolításához kattintson az alábbi gombra.</p></li>\n"
+"\t\t<li><p><strong>Idézetek kérése</strong></p>\n"
+"\t\t<p>Ha az idézet jelölő segédben a folyóirat menedzser beállítja, akkor a szerzőknek az anyagaik feltöltése mellett a hivatkozásjegyzéket is meg kell adniuk. Ezt a jegyzéket a beküldött cikktől elkülönítve kell megadniuk. Az anyag beküldése után a szerzők bármikor módosíthatják a hivatkozás jegyzéküket, ha szerkesztik a beküldött anyag metaadatát; megjegyzendő, hogy ez a módosítás felülírja azokat a módosításokat, amiket ez az eszköz végzett az idézeteken.</p></li>\n"
+"\t\t<li><p><strong>Idézetek szerkesztése</strong></p>\n"
+"\t\t<p>Az idézettség jelölő asszisztens megpróbálja beazonosítani és egyesével megjeleníteni a szerző által megadott hivatkozás listát. Számos külső adatbázisban módszeresen leellenőrizheti valamennyi idézetet; a nem megfelelő idézeteket szerkesztheti és hozzáadhat új információt; jóváhagyhatja vagy törölheti az idézeteket; és új idézetet adhat hozzá.</p>\n"
+"\t\t<p>Végül minden hivatkozást jóvá kell hagyni mielőtt axportálja.</p></li>\n"
+"\t\t<li><p><strong>Idézetek exportálása</strong></p>\n"
+"\t\t<p>Az idézeteket XML vagy szöveges formában lehet exportálni. Az XML export lehetőségek közé jelenleg a következők tartoznak <a href=\"http://dtd.nlm.nih.gov/publishing/\">NLM Journal Publishing</a> 2.3 és 3.0 <a href=\"http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist\">ref-list XML</a>. Ezek közül valamelyik kiválasztásával egy XML kódolt hivatkozás lista részlet készíthető, ami vágólapra másolható és beilleszthető egy NLM XML formátumba.</p>\n"
+"\t\t<p>Kísérleti szöveges exportok közé tartozik az ABNT, APA, MLA és a Vancouver hivatkozás export formátum. Ezek a lehetőségek egy szövegalapú kimenetet biztosítanak, amelyek bemásolhatók egy szövegalapú hasáblevonatba (például a Microsoft Word vagy OpenOffice; Adobe InDesign; stb.). Mindegyik idézet tartalmaz egy beágyazott linket, amellyel automatikusan megtalálható az idézet Google Scholar adatbázisban.</p></li>\n"
+"\t</ul>"
+
+msgid "submission.citations.editor.loadMessage"
+msgstr "Kérjük, várjon az idézettség jelölő asszisztens betöltődésére."
+
+msgid "submission.citations.editor.pleaseImportCitationsFirst"
+msgstr "<p>Nincs idézettség ehhez a cikkhez.</p><p>Kérjük, lépjen a cikk <a href=\"{$articleMetadataUrl}\">metaadat oldalára</a> és adja meg a hivatkozás listát vagy gépeljen be egyet vagy használja a tétel hozzáadása gombot a manuális hozzáadáshoz.</p>"
+
+msgid "submission.citations.editor.pleaseSelect"
+msgstr "Kérjük válasszon..."
+
+msgid "submission.citations.editor.unprocessedCitations"
+msgstr "A cikk idézetei még folyamatban vannak a szerveren. Az aktuális hivatkozási lista csak a már feldolgozott tételeket tartalmazza. Kattintson a frissítés gombra, hogy lássa a feldolgozás alatt lévő tételeket."
+
+msgid "submission.citations.editor.unprocessedCitationsButton"
+msgstr "Hivatkozási lista frissítése"
+
+msgid "submission.citations.editor.unprocessedCitationsButtonTitle"
+msgstr "Kattintson a hivatkozási lista frissítéséhez."
+
+msgid "submission.citations.filter.invalidMetadata"
+msgstr "Hiba történt a {$filterName}: Az egyik adatelem olyan adatforrással tért vissza (pl. egy webes szolgáltatás), amelyik nem felel meg a belső metaadat formátumnak. Ezért az adatforrások eredményei elutasításra kerültek. Kérjük, jelentse ezt a hibát."
+
+msgid "submission.citations.filter.noResultFromFilterError"
+msgstr "Néhány idézettségi szolgáltatás nem adott eredményt. Megpróbálhatja az idézet mezők manuális szerkesztését, majd ismét lefuttatni az idézettség szolgáltatást a jobb eredmény érdekében. Ha ez sem segít, akkor az idézet nem létezik egyetlen csatlakoztatott adatbázisban sem."
+
+msgid "submission.citations.filter.unsupportedPublicationType"
+msgstr "Nem támogatott vagy hiányzó publikációs típus. Kérjük, szerkessze kézzel az idézetet és adja meg publikáció típusát (engedélyezett típusok 'könyv', 'folyóirat', 'tézis' és 'konferencia kiadvány')."
+
+msgid "submission.citations.filter.webserviceError"
+msgstr "A(z) {$filterName} webszolgáltatás hívása hibát adott vissza az alábbi URL címen: {$webserviceUrl}. Lehet, hogy a webszolgáltatás átmenetileg nem érhető el. A működő szolgálásokkal tud dolgozni és mentse el az eredményeket. Később újrapróbálhatja. Ha a hiba továbbra is fennáll, akkor kérje a menedzser segítségét, hogy kapcsolja ki ezt a szolgáltatást és küldjön egy hibajelzést."
+
+msgid "submission.citations.filter.webserviceResultTransformationError"
+msgstr "Hiba történt {$filterName}: Az átalakított XML eredmények (pl. webszolgáltatásokról) kinyerése a mezőalapú metaadat formátumba meghíúsult. Az ok valószínűleg az, hogy a webes szolgáltatás érvénytelen vagy hiányos adatokkal tért vissza. Kérjük, jelentse ezt a hibát."
+
+msgid "submission.citations.metadata.changeWarning"
+msgstr "Biztos benne, hogy frissíteni akarja ezt az idézettség listát? Ha rákattint az OK gombra, minden módosítás, amit a szerkesztők készítettek felülíródik. Ha nem biztos benne, hogy a hivatkozási listát meg kell változtatnia, akkor lépjen kapcsolatba a benyújtott anyag felelős szerkesztőjével."
+
+msgid "submission.comments.addComment"
+msgstr "Megjegyzés hozzáadása"
+
+msgid "submission.comments.comments"
+msgstr "Megjegyzések"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Biztos benne, hogy törölni akarja ezt a megjegyzést?"
+
+msgid "submission.comments.corrections"
+msgstr "Helyesbítések"
+
+msgid "submission.comments.editComment"
+msgstr "Megjegyzés szerkesztése"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Szakértői értékelés importálása"
+
+msgid "submission.comments.addReviews"
+msgstr "Lektori vélemény hozzáadása az emailhez"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Szakmai lektor {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Nincsenek megjegyzések"
+
+msgid "submission.comments.noReviews"
+msgstr "Nincsenek lektori vélemények"
+
+msgid "submission.comments.review"
+msgstr "Lektorálás"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Szerkesztői döntés elküldése a szakmai lektoroknak"
+
+msgid "submission.comments.subject"
+msgstr "Tárgy"
+
+msgid "submission.complete"
+msgstr "Teljes"
+
+msgid "submission.contributors"
+msgstr "Közreműködők listája"
+
+msgid "submission.copyedited"
+msgstr "Megszerkesztett"
+
+msgid "submission.copyediting"
+msgstr "Technikai szerkesztés"
+
+msgid "submission.queryNoteFiles"
+msgstr "Párbeszéd fájlok"
+
+msgid "submission.coverage"
+msgstr "Lefedettségi információk"
+
+msgid "submission.done"
+msgstr "Kész"
+
+msgid "submission.dueDate"
+msgstr "Dátumtól"
+
+msgid "submission.due"
+msgstr "Esedékesség"
+
+msgid "submission.editing"
+msgstr "Szerkesztés"
+
+msgid "submission.editMetadata"
+msgstr "Metaadat szerkesztése"
+
+msgid "submission.editorial"
+msgstr "Technikai szerkesztés"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Vissza az email naplóhoz"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Biztos benne, hogy törölni akarja ennek a beküldött anyagnak az emailnaplóit?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Biztos benne, hogy törölni akarja ezt az emailnapló bejegyzést?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Naplóbejegyzés törlése"
+
+msgid "submission.emailLog"
+msgstr "Email log"
+
+msgid "submission.event.backToEventLog"
+msgstr "Vissza az esemény naplóhoz"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Biztos benne, hogy törölni akarja ennek a beküldött anyagnak az eseménynaplóit?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Biztos benne, hogy törölni akarja ezt az eseménynapló bejegyzést?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Naplóbejegyzés törlése"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Eredeti fájl beküldése kész."
+
+msgid "submission.event.fileUploaded"
+msgstr "\"{$originalFileName}\" fájlt feltöltötte a {$username} felhasználó {$submissionId} azonosítóval."
+
+#, fuzzy
+msgid "submission.event.fileRevised"
+msgstr "Lektori vélemény \"{$name}\" (file ID {$submissionFileId}) feltöltve."
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Beküldés metaadatai frissítve"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Benyújtott fájl frissítve"
+
+msgid "submission.event.participantAdded"
+msgstr "{$name} ({$username}) ehhez a beküldéshez mint {$userGroupName} lett hozzárendelve."
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Lektori vélemény hozzárendelése elfogadva a proxy által"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Lektori vélemény hozzárendelése elfogadva"
+
+msgid "submission.event.reviewer.reviewCancelled"
+msgstr "Lektori vélemény hozzárendelésének törlése"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Lektori vélemény hozzárendelés visszautasítva"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "A szakmai lektorálás esedékességi dátumának módosítása"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Szakmai lektor hozzárendelése a benyújtott anyaghoz"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Benyújtott lektori értékelés"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Szakmai lektor cikkhez hozzárendelésének törlése"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Véleményt tartalmazó fájl frissítése"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Szakmai lektorálás hozzárendelése megkezdődött"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Lektori javaslatok fájlja"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Lektori vélemény hozzárendelése újraindult"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Szakmai lektorálás újra benyújtva"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Szakmai Lektori által véleményezett fájl frissült"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Email elküldve:"
+
+msgid "submission.event.viewEmail"
+msgstr "Email megtekintése"
+
+msgid "submission.files"
+msgstr "Fájlok"
+
+msgid "submission.files.downloadAll"
+msgstr "Összes fájl letöltése"
+
+msgid "submission.galley"
+msgstr "Megjelentetési formátum"
+
+msgid "submission.history.clearLog"
+msgstr "Napló törlése"
+
+msgid "submission.history"
+msgstr "Történet"
+
+msgid "submission.history.noLogEntries"
+msgstr "Nincs naplóbejegyzés."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Friss bejegyzések"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Email napló"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Esemény napló"
+
+msgid "submission.history.submissionNotes"
+msgstr "Beküldött anyag megjegyzései"
+
+msgid "submission.history.viewLog"
+msgstr "Napló megtekintése"
+
+msgid "submission.howToCite"
+msgstr "Hogyan kell idézni"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Idézet formátumok"
+
+msgid "submission.indexing"
+msgstr "Indexelés"
+
+msgid "submission.initiated"
+msgstr "Megkezdett"
+
+msgid "submission.identifiers"
+msgstr "Azonosítók"
+
+msgid "submission.publisherId"
+msgstr "Kiadó azonosító"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Beküldési információ"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Metaadat"
+
+msgid "submission.informationCenter.notes"
+msgstr "Jegyzetek"
+
+msgid "submission.informationCenter.history"
+msgstr "Történet"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Korábbi verziók eseményeinek megjelenítése"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Értesítés"
+
+msgid "submission.lastModified"
+msgstr "Utolsó módosítás"
+
+msgid "submission.layout.addGalley"
+msgstr "Tördelési formátum hozzáadása"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Biztos benne, hogy véglegesen törölni szeretné ezt a formátumot?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Biztos benne, hogy törölni szeretné ezt a képet a tördelt változatból?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Ennek a stíluslapnak a törlése."
+
+msgid "submission.layout.editGalley"
+msgstr "Tördelt formátum szerkesztése"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Megjelentetési formátum"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML formátumú fájlok"
+
+msgid "submission.layout.galleyImages"
+msgstr "Képek"
+
+msgid "submission.layout.galleyLabel"
+msgstr "Megjelentetési formátum címke (legfeljebb 32 karakter)"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Jellemzően használt fájl formátum azonosítók (pl. PDF, HTML, stb.)."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Egy formátumcímke kötelező."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Egy formátum nyelv kötelező."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "A formátum nyelvi környezetét meg kell adni."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Távoli URL"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Kérjük, adjon meg egy érvényes távoli URL-t (tartalmazza az alábbit: http://)."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Nincsenek képek"
+
+msgid "submission.layout.galleys"
+msgstr "Formátumok"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Stílus fájl"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Stílus"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Kezdeti formátum létrehozása"
+
+msgid "submission.layout.layoutFile"
+msgstr "Elrendezés fájl"
+
+msgid "submission.layout"
+msgstr "Tördelés"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Elrendezés verzió"
+
+msgid "submission.layout.newGalley"
+msgstr "Újformátum létrehozása"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Nincs stíluslap fájl hozzárendelve ehhez a formátumhoz."
+
+msgid "submission.layout.viewingGalley"
+msgstr "Benyújtott anyagok megtekintése"
+
+msgid "submission.layout.viewProof"
+msgstr "Korrektúra megtekintése"
+
+msgid "submission.metadata"
+msgstr "Beküldött anyag metaadata"
+
+msgid "submission.noReviewAssignments"
+msgstr "Nincsenek ellenőrzési feladatok"
+
+msgid "submission.notes.addNewNote"
+msgstr "Új megjegyzés hozzáadása"
+
+msgid "submission.notes.attachedFile"
+msgstr "Fájlcsatolás"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Vissza a beküldött anyag megjegyzéseihez"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Megjegyzések"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Az összes megjegyzés törlése"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Megjegyzések összevonása"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Törli a beküldött anyaghoz tartozó összes megjegyzést?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Eltávolítja ezt a megjegyzést?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Új megjegyzés készítése"
+
+msgid "submission.notes.deleteNote"
+msgstr "Megjegyzés törlése"
+
+msgid "submission.notes.editNote"
+msgstr "Megjegyzés szerkesztése"
+
+msgid "submission.notes.expandNotes"
+msgstr "Megjegyzések kibontása"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Nincsenek megjegyzések a beküldött anyaghoz"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Feltöltött fájl eltávolítása"
+
+msgid "submission.notes"
+msgstr "Beküldési megjegyzések"
+
+msgid "submission.notes.updateNote"
+msgstr "Megjegyzés frissítése"
+
+msgid "submission.notes.viewNotes"
+msgstr "Megjegyzések megtekintése"
+
+msgid "submission.originalFile"
+msgstr "Eredeti fájl"
+
+msgid "submission.page.editing"
+msgstr "#{$id} szerkesztése"
+
+msgid "submission.page.history"
+msgstr "#{$id} történet"
+
+msgid "submission.page.review"
+msgstr "#{$id} lektori vélemény"
+
+msgid "submission.page.summary"
+msgstr "#{$id} összegzés"
+
+msgid "submission.page.citations"
+msgstr "#{$id} idézetek"
+
+msgid "submission.peerReview"
+msgstr "Lektori&nbsp;vélemény"
+
+msgid "submission.production"
+msgstr "Előállítás"
+
+msgid "submission.recommendation"
+msgstr "Javaslat: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Visszautasított"
+
+msgid "submission.request"
+msgstr "Kérés"
+
+msgid "submission.response"
+msgstr "Válasz"
+
+msgid "submission.restrictions"
+msgstr "Korlátozások"
+
+msgid "submission.reviewMetadata"
+msgstr "Lektorálási metaadat"
+
+msgid "submission.review"
+msgstr "Szakmai lektorálás"
+
+msgid "submission.reviewed"
+msgstr "Szakmailag lektorált"
+
+msgid "submission.reviewVersion"
+msgstr "Lektorálás verzió"
+
+msgid "submission.rights"
+msgstr "Jogok"
+
+msgid "submission.rights.tip"
+msgstr "Ha szeretne, megadhat egy rövid leírást, hogy a cikk jogai kit illetnek meg."
+
+msgid "submissions.active"
+msgstr "Aktív"
+
+msgid "submissions.archived"
+msgstr "Archívált"
+
+msgid "submission.saveMetadata"
+msgstr "Metaadat mentése"
+
+msgid "submissions.completed"
+msgstr "Befejezett"
+
+msgid "submissions.declined"
+msgstr "Elutasított"
+
+msgid "submissions.incomplete"
+msgstr "Befejezetlen"
+
+msgid "submissions.noSubmissions"
+msgstr "Nincs beküldött anyag"
+
+msgid "submissions.queuedEditing"
+msgstr "Szerkesztésen"
+
+msgid "submissions.queued"
+msgstr "Sorban álló"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Hozzárendelésre várakozik."
+
+msgid "submissions.ruling"
+msgstr "Döntés"
+
+msgid "submission.source"
+msgstr "Forrás"
+
+msgid "submission.source.tip"
+msgstr "Ez a benyújtott anyag más forrásból származik? Ha igen, adja meg az URL-t vagy a forrás leírását."
+
+msgid "submissions.submit"
+msgstr "Benyújt"
+
+msgid "submissions.submitted"
+msgstr "Benyújtott"
+
+msgid "submission.submission"
+msgstr "Beküldés"
+
+msgid "submission.submissionTitle"
+msgstr "A benyújtás címe:"
+
+msgid "submission.start"
+msgstr "Kezdés"
+
+msgid "submission.submissionHistory"
+msgstr "Benyújtási történet"
+
+msgid "submission.submissionManuscript"
+msgstr "Benyújtási kézirat"
+
+msgid "submission.submissionReview"
+msgstr "Benyújtott anyag felülvizsgálata"
+
+msgid "submission.submitter"
+msgstr "Beküldő"
+
+msgid "submission.submit.finishSubmission"
+msgstr "Beküldés befejezése"
+
+msgid "submission.submit.selectFile"
+msgstr "Fájl kiválasztása"
+
+msgid "submission.submit.fileInformation"
+msgstr "Fájl információ"
+
+msgid "submission.submit.fileAdded"
+msgstr "Fájl hozzáadva"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "A közreműködő legyen benne a böngészhető listákban?"
+
+msgid "submission.submit.newFile"
+msgstr "Másik fájl hozzáadása"
+
+msgid "submission.submit.metadataForm"
+msgstr "További finomítások"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "További információk hozzáadása a beküldött anyaghoz. Mindegyik után nyomjon entert."
+
+msgid "submission.submit.submissionLocale"
+msgstr "A beküldött anyag nyelve"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Ez a folyóirat többnyelvű cikkeket is fogad. Válassza ki a beküldés elsődleges nyelvét a legördülő listából."
+
+msgid "submission.submit.submissionFiles"
+msgstr "Beküldött fájlok"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Függőben lévő fájlok"
+
+msgid "submission.manageDependentFiles"
+msgstr "Függőben lévő fájlok adminisztrálása"
+
+msgid "submission.upload.dependent"
+msgstr "Függőben lévő fájl feltöltése"
+
+msgid "submission.upload.query"
+msgstr "Párbeszéd fájl feltöltése"
+
+msgid "submission.summary"
+msgstr "Összegzés"
+
+msgid "submission.supportingAgencies"
+msgstr "Támogató ügynökségek"
+
+msgid "submission.currentAgencies"
+msgstr "Jelenlegi ügynökségek"
+
+msgid "submission.indexingInformation"
+msgstr "Indexelési információ"
+
+msgid "submission.titleAndAbstract"
+msgstr "Cím és absztrakt"
+
+msgid "submission.type.tip"
+msgstr "Ez a beküldési típus rendszerint 'kép', 'szöveg', vagy más multimádia típus beleértve a 'szoftver' vagy 'interaktív' típust is. Kérjük, válassza ki a cikkéhez a legrelevánsabbat.  Példákat itt talál <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.underway"
+msgstr "Folyamatban"
+
+msgid "submission.uploadFileTo"
+msgstr "Fájl feltöltése ide"
+
+msgid "submission.createRemote"
+msgstr "Távoli elérés létrehozása"
+
+msgid "submission.viewMetadata"
+msgstr "Metaadat megtekintése"
+
+msgid "submission.views"
+msgstr "Nézetek"
+
+msgid "submission.uploadSuccessful"
+msgstr "A fájl feltöltődött."
+
+msgid "submission.loadMessage"
+msgstr "Kérem, várjon, amíg a fájl feltöltődik a szerverre."
+
+msgid "submission.artworkFileDetails"
+msgstr "Artwork fájl részletek"
+
+msgid "submission.fileDetails"
+msgstr "Fájl részletek"
+
+msgid "submission.nameRequired"
+msgstr "Meg kell adnia egy nevet a tételhez."
+
+msgid "submission.date.mmdd"
+msgstr "HH-NN"
+
+msgid "submission.date.yyyymmdd"
+msgstr "ÉÉÉÉ-HH-NN"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Fő kapcsolattartó a szerkesztőségi levelezésnél."
+
+msgid "submission.submit.contributorRole"
+msgstr "Közreműködői szerepkörök"
+
+msgid "submission.submit.addAuthor"
+msgstr "Közreműködő hozzáadása"
+
+msgid "submission.form.name"
+msgstr "A fájl neve (pl., Kézirat; Tálázat 1)"
+
+msgid "submission.form.replaceExisting"
+msgstr "Kicseréli a meglévő fájlt?"
+
+msgid "workflow.review.internalReview"
+msgstr "Belső lektorálás"
+
+msgid "workflow.stage.any"
+msgstr "Bármelyik szakasz"
+
+msgid "workflow.stage"
+msgstr "Szakasz"
+
+msgid "submission.status.editorial"
+msgstr "Technikai szerkesztés alatt"
+
+msgid "submission.status.production"
+msgstr "Korrektúrázás alatt"
+
+msgid "submission.status.review"
+msgstr "Lektorálás alatt"
+
+msgid "submission.status.submission"
+msgstr "Szerkesztői döntésre várakozik"
+
+msgid "submission.status.unassigned"
+msgstr "Hozzárendelés nélkül"
+
+msgid "submission.status.declined"
+msgstr "Visszautasított"
+
+msgid "submission.status.published"
+msgstr "Megjelentetett"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Fájl feltöltése"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Kiegészítő fájl feltöltése"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Feltöltött fájl adatai"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Jóváhagyás"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Meg kell adni egy nevet ehhez a fájlhoz"
+
+msgid "submission.upload.noGenre"
+msgstr "Hiányzó vagy érvénytelen összetevő!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Hiányzó vagy érvénytelen felhasználó csoport!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "Lehetséges duplikáció vagy ismétlés található"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr "A feltöltött fájl neve hasonlít egy korábban feltöltött fájl nevéhez, \"{$revisedFileName}.\" Lecseréli a fájlt \"{$revisedFileName}\"? Ha igen, válassza ki a fájlt az alábbiak közül. Egyébként pedig, válassza \"Ez a fájl nem egy javított változata egy korábbinak\" a folytatás előtt."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Kérjük, válassza ki azt a fájlt, amit szeretne felülvizsgálni."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "Ha egy meglévő fájl átdolgozott verzióját tölti fel, akkor kérjük, válassza ki, hogy melyik az a fájl."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Ez a fájl nem egy javított változata egy korábbinak"
+
+msgid "submission.upload.userGroup"
+msgstr "A fájl feltöltése az alábbi szerepkörömmel..."
+
+msgid "submission.upload.userGroupDescription"
+msgstr "Amennyiben egy szerkesztett kötethez tölt fel, akkor kötetszerkesztői szerepkörben fel kell töltenie az összes fejezetét a kötetnek."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Egy könyvtár fájl feltöltése"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Feltöltött dokumentum kategória"
+
+msgid "submission.upload.finalDraft"
+msgstr "Fájl feltöltése"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Megszerkesztett fájl feltöltése"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Fájlok feltöltése"
+
+msgid "submission.upload.response.description"
+msgstr "A hozzárendelt fájl lektori véleményezése után megjegyzéseket rögzíthet a fájl alatt, és/vagy feltölthet egy szakmai lektorálással kiegészített változatot (vagy másik fájlt)."
+
+msgid "submission.upload.productionReady"
+msgstr "Megjelentetésre kész fájl feltöltése"
+
+msgid "submission.upload.proof"
+msgstr "Korrektúrázott megjelentetésre kész fájl feltöltése"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Jelenleg nincs felülvizsgálandó fájl Önnek."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Felülvizsgálat szükséges."
+
+msgid "editor.submission.roundStatus.resubmitted"
+msgstr "A javított cikk újrabeküldésre került a szakmai lektoráláshoz."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Külső szakmai lektorálásra küldés."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "A benyújtás elfogadva."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "A benyújtás elutasítva."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Várakozás szakmai lektor kiválasztására."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Szakmai lektor véleményére vár."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Új szakmai lektori véleményeket töltöttek fel."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Szakmai lektorálások készen vannak."
+
+msgid "editor.submission.stageParticipants"
+msgstr "Résztvevők"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Nincs hozzárendelés"
+
+msgid "editor.submission.participant"
+msgstr "Résztvevő"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Résztvevő hozzáadása"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr "A felhasználók hozzá lettek rendelve a munkfolyamat szakaszainak felhasználói csoportjához. Bérmelyik felhasználó hozzárendelése ehhez a szakaszhoz azt eredményezi, hogy az összes többi szakaszhoz automatikusan hozzárendelődik. Ez a szerkesztők, szerzők és fordítók számára van így."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Résztvevő eltávolítása"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "El szeretné távolítani a résztvevőt <strong>minden</strong> szakaszból. Ha a felhasználónak függőben lévő feladatai vannak, akkor is eltávolításra kerül."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Ki kell választania egy felhasználói csoportot."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Ki kell választania egy felhasználót a megadott csoportból."
+
+msgid "editor.submission.decision"
+msgstr "Döntés"
+
+msgid "editor.submission.decision.accept"
+msgstr "Beküldött anyag elfogadása"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Felülvizsgálat kérése"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Újra lektorálásra küldés"
+
+msgid "editor.submission.decision.decline"
+msgstr "Beküldött anyag elutasítása"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Megjelentetésre küldés"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Belső szakmai lektorálásra küldés"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr "A korrektúrázott fájl oldalon jóvá kell hagynia, hogy elérhető legyen. Jóvá hagyja?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Korrektúrázások jóváhagyása"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr "Ez a korrektúrázott fájl nem lesz nyilvánosan letölthető vagy beszerezhető. Szeretné elutasítani?"
+
+msgid "submission.currentStage"
+msgstr "Aktuális szakasz"
+
+msgid "submission.noActionRequired"
+msgstr "Nincs teendő"
+
+msgid "submission.actionNeeded"
+msgstr "Elintézendő feladatok vannak"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Szakmai lektorálási fájlok"
+
+msgid "submission.submit.currentFile"
+msgstr "Aktuális fájl"
+
+msgid "submission.finalDraft"
+msgstr "Vázlat fájlok"
+
+msgid "editor.submission.addAuditorError"
+msgstr "Hiba történt az ellenőrző hozzárendelésekor. Kérjük, próbálja meg újra."
+
+msgid "submission.event.fileDeleted"
+msgstr "\"{$originalFileName}\" fájlt törölte a {$username} felhasználó {$submissionId} azonosítóval."
+
+msgid "submission.event.revisionUploaded"
+msgstr "A file revision \"{$originalFileName}\" was uploaded for submission {$submissionId} by {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr "\"{$originalFileName}\" átdolgozott fájlt töltött fel a {$username} felhasználó {$submissionId} azonosítóval."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "A file \"{$title}\" fájl utolsó átdolgozott változatát a {$username} felhasználó eltávolította."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr "\"{$name}\" ({$username}) felhasználó ellenőrzőként hozzáadásra került a \"{$file} fájlhoz.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr "\"{$name}\" ({$username}) felhasználó a \"{$file}\" fájl ellenőrzői szerepköréből eltávolításra került."
+
+msgid "submission.event.fileAuditUploaded"
+msgstr "\"{$name}\" ({$username}) felhasználó befejezte az ellenőrzést és feltöltötte a \"{$file}\" fájlt."
+
+msgid "submission.event.signoffSignoff"
+msgstr ""
+"\"{$name}\" ({$username}) has signed off on the signoff for \"{$file}.\""
+
+msgid "submission.event.proofsApproved"
+msgstr "\"{$name}\" ({$username}) felhasználó jóváhagyta a \"{$formatName}\" korrektúráját."
+
+msgid "submission.overview"
+msgstr "Benyújtás áttekintése"
+
+msgid "submission.description"
+msgstr "Leírás"
+
+msgid "submission.stageNotInitiated"
+msgstr "Szakasz nem megkezdett."
+
+msgid "submission.documents"
+msgstr "Beküldési dokumentumok"
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Kérjük, hogy ellenőrizze a(z) \"{$title}\" című cikk tördelt változatát."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Kérjük, hogy ellenőrizze a(z) \"{$title}\" című cikk kefelevonatát."
+
+msgid "notification.type.indexRequest"
+msgstr "Kérjük, hogy készítse el a(z) \"{$title}\" című cikk indexét."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Legutóbbi szerkesztői döntés."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Beküldés elfogadva."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Külső szakmai lektori munka megkezdődött."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Átdolgozás szükséges."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Újbóli felülvizsgálat."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Beküldés visszautasítása."
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "A megjelentetési eljárás megkezdődött."
+
+msgid "notification.uploadedResponse"
+msgstr "Válasz feltöltve."
+
+msgid "notification.type.editorAssignment"
+msgstr "A  szakmai lektorálás megkezdése előtt szerkesztő hozzárendelése szükséges. Szerkesztő hozzáadásához használja a Résztvevők listáját."
+
+msgid "grid.reviewAttachments.title"
+msgstr "Szakmai lektori mellékletek"
+
+msgid "submission.productionReady"
+msgstr "Könyv elérhető"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Átdolgozott fájl feltöltése"
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"A beküldött {$submissionId} azonosítójú cikkhez {$reviewerName} lett szakmai "
+"lektorálásra hozzárendelve a {$round}. lektorálási körben."
+
+msgid "submission.document"
+msgstr "Dokumentum"
+
+msgid "submission.art"
+msgstr "Illusztráció"
+
+msgid "submission.supplementary"
+msgstr "Kiegészítő tartalom"
+
+msgid "submission.supplementary.creator"
+msgstr "A fájl készítője (vagy tulajdonosa)"
+
+msgid "submission.supplementary.subject"
+msgstr "Tárgy"
+
+msgid "submission.supplementary.publisher"
+msgstr "Kiadó"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Közreműködő vagy szponzoráló ügynökség"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Ugrás a beküldött anyag munkafolyamatához"
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr "Egy megjelentetési szerkesztőt hozzá kell rendelni a cikkhez, mielőtt megkezdi a publikálási eljárást. Kérjük, adjon hozzá megjelentetési szerkesztőt a fenti Résztvevők linket használva."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr "Egy megjelentetési szerkesztőt hozzá kell rendelni a cikkhez, mielőtt megkezdi a szerkesztési munkát. Kérjük, adjon hozzá megjelentetési szerkesztőt a fenti Résztvevők linket használva."
+
+msgid "submission.reviewForm"
+msgstr "Szakmai lektorálási űrlap"
+
+msgid "submission.reviewFormResponse"
+msgstr "Szakmai lektorálási űrlap válasz"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Új mező készítése a szakmai lektorálási űrlaphoz"
+
+msgid "grid.action.editMetadata"
+msgstr "Metaadat szerkesztése"
+
+msgid "submission.permissions"
+msgstr "Engedélyek"
+
+msgid "submission.attachPermissions"
+msgstr "A következő engedélyeket csatolja a beadványhoz:"
+
+msgid "submission.license"
+msgstr "License"
+
+msgid "submission.copyright"
+msgstr "Copyright"
+
+msgid "submission.copyrightHolder"
+msgstr "Copyright jogok birtokosa"
+
+msgid "submission.copyrightYear"
+msgstr "Copyright Év"
+
+msgid "submission.copyrightStatement"
+msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "Kérjük, adjon egy érvényes URL-t (tartalmazza a http://)."
+
+msgid "submission.licenseURL"
+msgstr "Licenc URL"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.queries.submission"
+msgstr "Szakmai lektorálást megelőző megbeszélések"
+
+msgid "submission.queries.review"
+msgstr "Lektorálási megbeszélések"
+
+msgid "submission.queries.editorial"
+msgstr "Technikai szerkesztéssel kapcsolatos megbeszélések"
+
+msgid "submission.query.subject"
+msgstr "Tárgy"
+
+msgid "submission.query.messages"
+msgstr "Üzenetek"
+
+msgid "submission.query.replies"
+msgstr "Válaszok"
+
+msgid "submission.query.from"
+msgstr "Kitől"
+
+msgid "submission.query.lastReply"
+msgstr "Utolsó válasz"
+
+msgid "submission.query.closed"
+msgstr "Lezárva"
+
+msgid "submission.query.addNote"
+msgstr "Üzenet hozzáadása"
+
+msgid "grid.action.openNoteForm"
+msgstr "Válasz hozzáadása a megbeszéléshez"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} válaszolt {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} elindított egy párbeszédet: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr "Új üzenet érkezett \"{$queryTitle}\" címmel a \"{$submissionTitle}\" című benyújtott anyaghoz."
+
+msgid "submission.query.new.contents"
+msgstr "Felvették a \"{$submissionTitle}\" című beküldött anyag \"{$queryTitle}\" című párbeszédjébe."
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) eltávolítva mint {$userGroupName}."
+
+msgid "submission.list.filesPrepared"
+msgstr "Fájlok elkészítve"
+
+msgid "submission.list.discussions"
+msgstr "Vita indítása"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Ezt a benyújtást be kell fejezni, mielőtt egy szerkesztő átnézi."
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Technikai szerkesztői fájlok beküldve"
+
+msgid "submission.list.galleysCreated"
+msgstr "Megjelentetési kefelenyomatok elkészítve"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Módosítások benyújtva"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Hozzárendelt lektori vélemények elkészültek"
+
+msgid "submission.list.clearSearch"
+msgstr "Keresőkifejezés törlése"
+
+msgid "submission.list.itemOrdererUp"
+msgstr "{$itemTitle} pozíciójának növelése"
+
+msgid "submission.list.itemOrdererDown"
+msgstr "{$itemTitle} pozíciójának csökkentése"
+
+msgid "submission.list.filterRemove"
+msgstr "Szűrő törlése: {$filterTitle}"
+
+msgid "submission.query.noParticipantOptions"
+msgstr "Hozzá kell rendelni legalább egy résztvevőt ehhez a kézirathoz, mielőtt vitát indítana róla."
+
+msgid "submission.list.infoCenter"
+msgstr "Aktivitás napló és megjegyzések"
+
+msgid "submission.list.count"
+msgstr "{$count} benyújtás"
+
+msgid "submission.list.filter"
+msgstr "Szűrők"
+
+msgid "submission.list.viewSubmission"
+msgstr "Beküldés megtekintése"
+
+msgid "submission.list.confirmDelete"
+msgstr "Beküldés törlése?"
+
+msgid "submission.list.reviewDue"
+msgstr "Szakmai lektorálás határideje"
+
+msgid "submission.list.responseDue"
+msgstr "Válasz határidő"
+
+msgid "submission.list.itemsOfTotal"
+msgstr "{$count} ennyi {$total} benyújtásból"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Idézés letöltése"
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Felülvizsgálat elküldve."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "A szakmai lektorálás határideje lejárt."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Várakozás a szerkesztőktől származó javaslatokra."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Új szerkesztőségi javaslatok elküldve."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Minden javaslat beérkezett, döntés szükséges."
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Elfogadás, és a lektorlálás kihagyása"
+
+msgid "submission.review.status.thanked"
+msgstr "Ez a lektori vélemény kész, és a szakmai lektornak meg lett köszönve az együttműködése."
+
+msgid "submission.review.status.received"
+msgstr "A szakmai lektor elküldte a véleményét."
+
+msgid "submission.review.status.complete"
+msgstr "Ez a szakmai lektorálás elkészült."
+
+msgid "grid.reviewAttachments.send.title"
+msgstr ""
+"Válassza ki a szakmai lektorálási fájlokat, amelyeket megosztana a "
+"szerző(kkel)vel"
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Válaszra várva a szakmai lektortól."
+
+msgid "submission.review.status.declined"
+msgstr "A szakmai lektor visszautasította a lektori felkérést."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "A szakmai lektor lekéste a válaszadási határidőt."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "A szakmai lektor lekéste a lektorálási határidőt."
+
+msgid "submission.review.status.accepted"
+msgstr "A szakmai lektorálás elfogadva."
+
+msgid "notification.type.editorAssign"
+msgstr "Szerkesztőként lett hozzárendelve a következő beküldéshez: \"{$title}\""
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "Rendeljen hozzá egy szerkesztőt, úgy hogy szerkesztőségi döntésre lehetősége legyen ebben a szakaszban."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Javaslat tétel"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Javaslat változtatása"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Javaslat: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Javaslatok: {$recommendations}"
+
+msgid "editor.submission.recommendation"
+msgstr "Javaslat"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Javasoljon egy szerkesztőségi döntést ehhez a beküldéshez."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Rögzített javaslatok"
+
+msgid "editor.submission.decision.nextButton"
+msgstr "Következő: Válasszon fájlt ehhez: {$stageName}"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr "Válassza ki a fájlokat amelyeket továbbítana ehhez a {$stageName} szakaszhoz."
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "Előző: Szerző értesítése"
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr "Szerkesztői szerepben lettél hozzárendelve ehhez a beküldéshez. A szerkesztői munkafolymatot elérheted <a href=\"{$urlEditorialWorkflow}\">itt</a>."
+
+msgid "submission.list.reviewComplete"
+msgstr "Szakmai lektorálásra beadva"
+
+msgid "grid.category.categories"
+msgstr "Kategóriák"
+
+msgid "category.coverImage"
+msgstr "Borítókép"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Cím (A-Z)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Cím (Z-A)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Publikáció dátuma (legrégebbi a lista elején)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Publikáció dátuma (legfrissebb a lista elején)"
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Beküldés mint"
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr ""
+"Beküldés az alábbi szerepben. Ha szeretné maga szerkeszteni és publikálni a "
+"beadványt, válassza a {$managerGroups} opciót."
+
+msgid "submission.citations.description"
+msgstr "Minden hivatkozást új sorba írjon be, hogy az másolható maradjon."
+
+msgid "catalog.category.noItems"
+msgstr "Ebben a kategóriában még nincs cikk publikálva."
+
+msgid "submission.list.assignEditor"
+msgstr "Szerkesztő hozzárendelése"
+
+msgid "submission.submit.placement.categories"
+msgstr "Kategóriák"
+
+msgid "submission.list.currentStage"
+msgstr "Jelenlegi állapota: {$stage}."
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr "Ehhez  beküldéshez több szerepkörben került hozzárendelésre. Válassza ki, melyben szeretne dolgozni:  <a href=\"{$urlAuthorWorkflow}\">Szerzői munkafolyamat</a><br><a href=\"{$urlEditorialWorkflow}\">Szerkesztői munkafolyamat</a>"
+
+msgid "submission.currentCoverImage"
+msgstr "Jelenlegi kép"
+
+msgid "catalog.category.subcategories"
+msgstr "Alkategóriák"
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "A beküldés újabb lektorálásához annak ismételt benyújtása szükséges."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Beküldés került újra benyújtásra egy ismételt lektorálási körhöz."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Kérjük, adja meg a szakterületet."
+
+msgid "submission.submit.form.agenciesRequired"
+msgstr "Kérjük, adjon meg egy támogató szervezetet. "
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Kérjük, adja meg a megjelenési adatokat."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Kérjük, adja meg a típust."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Kérjük, adja meg a forrást."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Kérjük, adja meg a felhasználási jogokat."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Kérjük, adja meg a hivatkozásokat."
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Kérjük, adja meg a nyelvet."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Kérjük, adjon meg tárgyat."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Kérjük, adjon meg kulcsszót."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} a {$submissionId} beküldés {$round}. körű lektorálását nem "
+"végiggoldoltnak jelölte meg."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"Az Ön által kiválasztott résztvevő vak lektorálásra lett megjelölve.  Ha "
+"résztvevőként rendeli hozzá, akkor megismerheti a szerző személyét. Kérjük, "
+"ezt gondolja végig."
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr ""
+"Válassza ki a szerepet, amely leginkább jellemzi hozzájárulását ehhez a "
+"beküldéshez."
+
+msgid "submission.submit.contactConsent"
+msgstr "Kapcsolattartó"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Felvehetik velem a kapcsolatot ezzel a beküldéssel kapcsolatban."
+
+msgid "submission.parsedCitations"
+msgstr "Listázott hivatkozások"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Hivatkozások listázása és mentése"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Az alábbi hivatkozások listázásra kerültek és csatoljuk a beküldés "
+"metaadatához."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Kivonat"
+
+msgid "log.review.reviewConfirmed"
+msgstr "{$userName} szerkesztőként megerősítette a(z) {$submissionId} beküldés szakmai lektorálását a {$round} számú lektorálási körben."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} megtette a(z) {$submissionId} beküldés szakmai lektorálását "
+"a {$round}. számú lektorálási körben."
+
+msgid "publication.datePublished.errorFormat"
+msgstr ""
+"A dátumnak az alábbi formátumban kell lennie: YYYY-MM-DD, például 2019-01-01."
+
+msgid "publication.createVersion"
+msgstr "Új verzió létrehozása"
+
+msgid "publication.contributors"
+msgstr "Közreműködők"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Szakmai lektorálás megszakítva"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Szakmai lektorálási hozzárendelés"
+
+msgid "submission.list.empty"
+msgstr "Nem találtunk beküldést."
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Ha elhagyja a konzultációt, az új üzenetekről már nem kap értesítést. "
+"Szeretné elhagyni a konzultációt?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Kilépés a konzultációból"
+
+#, fuzzy
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Ez a mű a <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Attribution-ShareAlike 3.0 Unported License</a> szerint került "
+"licencelésre.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Ez a mű a <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
+"3.0 Unported License</a> szerint került licencelésre.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Ez a mű a <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"Attribution-NoDerivatives 3.0 Unported License</a> szerint került "
+"licencelésre.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
+"Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International "
+"License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Ez a mű a <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Attribution-NonCommercial 3.0 Unported License</a> szerint került "
+"licencelésre.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
+"Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International "
+"License</a>.</p>"
+
+msgid "submission.copyrightOther"
+msgstr "Copyright irányelvek"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Egyéni copyright irányelvek"
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"{$reviewerName} általi lektorálás {$round}-ik köre a(z) {$submissionId} "
+"beküldéshez újraindításra került."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"{$reviewerName} általi lektorálás {$round}-ik köre a(z) {$submissionId} "
+"beküldéshez törlésre került."
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Biztosan szeretné, hogy a szerzők szerkeszthessék a beküldés metaadatait "
+"ebben a fázisban?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Biztosan nem szeretné, hogy a szerzők szerkeszthessék a beküldés metaadatait "
+"ebben a fázisban?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Metaadatok szerkesztésének engedélyezése"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Metaadatok szerkesztési lehetőségének visszavonása"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Hozzárendelés szerkesztáse"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Ez egy régi verzió, publikálva: {$datePublished}. Legfrissebb verzió <a href="
+"\"{$urlRecentVersion}\">elolvasása</a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Verziók"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Frissítve ekkor: {$dateUpdated}"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"A szerzők nem módosíthatják a metaadatokat, amikor a beküldés a(z) {stage} "
+"fázisban van."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"A szerzők módosíthatják a metaadatokat, amikor a beküldés a(z) {stage} "
+"fázisban van."
+
+msgid "author.publicationNotFound"
+msgstr "A szerző cikke nem található."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"A cikk szerzőit nem lehet szerkeszteni, mert az már publikálásra került."
+
+msgid "submission.publisherId.description"
+msgstr ""
+"A kiadó ID arra is használható, hogy ide mentsünk egy külső adatbázisból "
+"származó ID-t. DOI-hoz ne használjuk."
+
+msgid "publication.wordCount"
+msgstr "Szavak száma: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Az absztrakt túl hosszú.  {$limit} vagy kevesebb szóból kell állnia. "
+"Jelenleg {$count} szó hosszú."
+
+msgid "publication.version.confirm"
+msgstr "Biztosan új verziót szeretne létrehozni?"
+
+msgid "publication.version.all"
+msgstr "Minden verzió"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Az URL útvonal nem tartalmazhat számot."
+
+msgid "publication.urlPath.duplicate"
+msgstr "Ez az URL útvonal már használatban van."
+
+msgid "publication.urlPath.description"
+msgstr "Az ID helyett opcionális útvonal használata az URL-ben."
+
+msgid "publication.urlPath"
+msgstr "URL útvonal"
+
+msgid "publication.unschedule"
+msgstr "Ütemezés visszavonása"
+
+msgid "publication.titleAbstract"
+msgstr "Cím & Absztrakt"
+
+msgid "publication.status.unpublished"
+msgstr "Publikálásból visszavonva"
+
+msgid "publication.status.scheduled"
+msgstr "Publikálásra ütemezve"
+
+msgid "publication.publicationLicense"
+msgstr "Engedélyek & Közzététel"
+
+msgid "publication.event.versionCreated"
+msgstr "Új verzió lett létrehozva."
+
+msgid "submission.publisherId.enable"
+msgstr "Engedélyezés a(z) {$objects} számára"

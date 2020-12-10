@@ -2,9 +2,9 @@
 /**
  * @file controllers/grid/files/review/LimitReviewFilesGridHandler.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LimitReviewFilesGridHandler
  * @ingroup controllers_grid_files_review
@@ -21,10 +21,12 @@ class LimitReviewFilesGridHandler extends SelectableFileListGridHandler {
 	 * Constructor
 	 */
 	function __construct() {
+		$stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
+		$fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE;
 		import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
 		// Pass in null stageId to be set in initialize from request var.
 		parent::__construct(
-			new ReviewGridDataProvider(SUBMISSION_FILE_REVIEW_FILE),
+			new ReviewGridDataProvider($fileStage),
 			null,
 			FILE_GRID_VIEW_NOTES
 		);
@@ -68,8 +70,8 @@ class LimitReviewFilesGridHandler extends SelectableFileListGridHandler {
 			$submissionFile = $gridDataElement['submissionFile'];
 			// A review assignment was specified in the request; preset the
 			// checkboxes to the currently available set of files.
-			$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO');
-			return $reviewFilesDao->check($reviewAssignment->getId(), $submissionFile->getFileId());
+			$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /* @var $reviewFilesDao ReviewFilesDAO */
+			return $reviewFilesDao->check($reviewAssignment->getId(), $submissionFile->getId());
 		} else {
 			// No review assignment specified; default to all files available.
 			return true;

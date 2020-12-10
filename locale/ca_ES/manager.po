@@ -1,0 +1,2402 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
+"ca_ES/>\n"
+"Language: ca_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "manager.website.information"
+msgstr "Informació"
+
+msgid "manager.website.appearance"
+msgstr "Aparença"
+
+msgid "manager.website.imageFileRequired"
+msgstr "Heu d'introduir un fitxer d'imatge. Comproveu que hàgiu seleccionat un fitxer carregat."
+
+msgid "manager.announcements"
+msgstr "Avisos"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Segur que voleu suprimir de manera permanent l'avís {$title}?"
+
+msgid "manager.announcements.create"
+msgstr "Crea un avís nou"
+
+msgid "manager.announcements.createTitle"
+msgstr "Crea"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Venciment"
+
+msgid "manager.announcements.datePublish"
+msgstr "Publicat"
+
+msgid "manager.announcements.edit"
+msgstr "Edita l’avís"
+
+msgid "manager.announcements.editTitle"
+msgstr "Edita"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Seleccioneu un any i/o un mes a més del dia per a la data de venciment."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Data de venciment"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "L'avís es mostrarà als lectors/ores fins a aquesta data. Deixeu aquest camp en blanc si voleu que l'avís es mostri indefinidament."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Seleccioneu un any i/o un dia a més del mes per a la data de venciment."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Seleccioneu una data vàlida per al venciment de l’avís."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Seleccioneu un mes i/o un dia a més de l’any per a la data de venciment."
+
+msgid "manager.announcements.form.description"
+msgstr "Avís"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Text complet de l’avís."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Heu d’introduir una descripció per a l’avís."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Descripció breu que es mostrarà juntament amb el títol de l’avís."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Heu d’introduir una descripció breu per a l’avís."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Descripció breu"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Desa’l i crea’n un altre"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Heu d’introduir un títol per a l’avís."
+
+msgid "manager.announcements.form.title"
+msgstr "Títol"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Tipus"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Seleccioneu un tipus d’avís vàlid."
+
+msgid "manager.announcements.noneCreated"
+msgstr "No s’ha creat cap avís."
+
+msgid "manager.announcements.title"
+msgstr "Títol"
+
+msgid "manager.announcements.type"
+msgstr "Tipus"
+
+msgid "manager.announcementTypes"
+msgstr "Tipus d’avís"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Advertiment! Tots els avisos pertanyents a aquest tipus d'avís també s'eliminaran. Esteu segur/a que voleu eliminar aquest avís de manera permanent?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Crea un tipus d’avís"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Crea"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Edita el tipus d’avís"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Edita"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Desa’l i crea’n un altre"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Ja existeix un tipus d’avís amb aquest nom."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Nom"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Cal que introduïu un nom per al tipus d’avís."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "No s’ha creat cap tipus d’avís."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Tipus d’avís"
+
+msgid "manager.publication.submissionStage"
+msgstr "Tramesa"
+
+msgid "manager.publication.reviewStage"
+msgstr "Revisió"
+
+msgid "manager.publication.editorialStage"
+msgstr "Editorial"
+
+msgid "manager.publication.productionStage"
+msgstr "Producció"
+
+msgid "manager.publication.emails"
+msgstr "Correus electrònics"
+
+msgid "manager.publication.libraryDescription"
+msgstr "Aquests fitxers s'han preparat per utilitzar-los com a plantilles i guies i formen part dels <span class=\"pkp_help_title\">Documents enviats</span>."
+
+msgid "manager.emails.confirmDelete"
+msgstr "Esteu segur/a que voleu suprimir aquesta plantilla de missatge de correu electrònic?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Esteu segur/a que voleu reiniciar aquesta plantilla de missatge de correu electrònic als seus valors predeterminats?"
+
+msgid "manager.emails.createEmail"
+msgstr "Crea un missatge de correu electrònic"
+
+msgid "manager.emails.data"
+msgstr "Dades de plantilla de correu electrònic"
+
+msgid "manager.emails.details"
+msgstr "Detalls de plantilla"
+
+msgid "manager.emails.disable"
+msgstr "Inhabilita"
+
+msgid "manager.emails.disable.message"
+msgstr "Ara es desactivarà aquesta plantilla de missatge de correu electrònic.  Els processos del sistema que facin servir aquesta plantilla ho deixaran de fer.  Voleu confirmar aquesta operació?"
+
+msgid "manager.emails.editEmail"
+msgstr "Edita el missatge de correu electrònic"
+
+msgid "manager.emails.editTestExample"
+msgstr "Edita l’exemple de missatge de correu electrònic de prova"
+
+msgid "manager.emails.emailKey"
+msgstr "Clau per al missatge de correu electrònic"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "Ja existeix un missatge de correu electrònic amb la clau indicada. Les claus de correu electrònic han de ser úniques."
+
+msgid "manager.emails.emailTemplate"
+msgstr "Plantilla de missatge de correu electrònic"
+
+msgid "manager.emails.enabled"
+msgstr "Habilita aquesta plantilla de missatge de correu electrònic"
+
+msgid "manager.emails.enable"
+msgstr "Habilita"
+
+msgid "manager.emails.enable.message"
+msgstr "Ara s'activarà aquest correu electrònic.  Voleu confirmar aquesta operació?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "Heu d'introduir-hi una clau per al missatge de correu electrònic que no contingui espais ni caràcters especials."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Heu d’introduir un cos per al missatge de correu electrònic."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Heu d’introduir un assumpte per al missatge de correu electrònic."
+
+msgid "manager.emails"
+msgstr "Plantilles de missatges de correu electrònic"
+
+msgid "manager.emails.resetAll.message"
+msgstr "Si restabliu totes les plantilles, es perdran totes les modificacions fetes a les plantilles de missatge de correu electrònic.  Voleu confirmar aquesta operació?"
+
+msgid "manager.emails.reset"
+msgstr "Reinicia"
+
+msgid "manager.emails.reset.message"
+msgstr "Si restabliu aquesta plantilla, totes les dades del missatge es restabliran als valors per defecte i es perdran totes les modificacions.  Voleu confirmar aquesta operació?"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Reinicia als valors predeterminats"
+
+msgid "manager.filesBrowser"
+msgstr "Navegador de fitxers"
+
+msgid "manager.files.confirmDelete"
+msgstr "Voleu eliminar aquest fitxer o directori? Per poder eliminar un directori cal que estigui buit."
+
+msgid "manager.files.createDir"
+msgstr "Crea un directori"
+
+msgid "manager.files.emptyDir"
+msgstr "No s’ha trobat cap fitxer en aquest directori."
+
+msgid "manager.files.indexOfDir"
+msgstr "Índex de {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "Directori principal"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Fitxers penjats"
+
+msgid "manager.files.uploadFile"
+msgstr "Puja un fitxer"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Esteu segur/a que voleu suprimir aquest grup?"
+
+msgid "manager.groups.createTitle"
+msgstr "Crea un títol"
+
+msgid "manager.groups.editTitle"
+msgstr "Edita el títol"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Heu d’introduir un títol de grup."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Afegeix un membre"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Esteu segur/a que voleu suprimir aquest membre del grup?"
+
+msgid "manager.groups.membership"
+msgstr "Membres"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Aquest grup no té cap membre."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "No s’ha trobat cap usuari/usuària."
+
+msgid "manager.groups.title"
+msgstr "Títol"
+
+msgid "manager.importExport"
+msgstr "Importació i exportació de dades"
+
+msgid "manager.language.ui"
+msgstr "Interfície d’usuari"
+
+msgid "manager.language.submissions"
+msgstr "Trameses"
+
+msgid "manager.language.forms"
+msgstr "Formularis"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Torna a carregar els valors predeterminats"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "Aquest sistema permet introduir determinades informacions crítiques en diverses llengües addicionals. Per utilitzar aquesta característica, seleccioneu configuracions regionals alternatives i trieu alguna de les opcions que es mostren a continuació."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Seleccioneu totes les configuracions regionals que seran compatibles amb el lloc web mitjançant un menú de selecció de llengua que apareixerà a totes les pàgines. Aquest menú només es mostrarà si heu seleccionat més d'una configuració regional."
+
+msgid "manager.navigation"
+msgstr "Navegació"
+
+msgid "manager.payment.timestamp"
+msgstr "Data i hora"
+
+msgid "manager.people.authSource"
+msgstr "Font d’autenticació"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Voleu donar de baixa aquest usuari/usuària?"
+
+msgid "manager.people.createUser"
+msgstr "Crea un usuari/usuària nou"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Genera una contrasenya aleatòria."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Envia a l’usuari/usuària un missatge de correu electrònic de benvinguda amb el seu nom d’usuari i la seva contrasenya."
+
+msgid "manager.people.disable"
+msgstr "Inhabilita"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Sense cap rol"
+
+msgid "manager.people.editProfile"
+msgstr "Edició del perfil"
+
+msgid "manager.people.editUser"
+msgstr "Edita l’usuari/usuària"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Envia un missatge de correu electrònic als usuaris/usuàries seleccionats"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Envia un missatge de correu electrònic als usuaris/usuàries donats d’alta com a"
+
+msgid "manager.people.emailUsers"
+msgstr "Envia un missatge de correu electrònic als usuaris/usuàries"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Selecciona una configuració regional"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"Seleccioneu els usuaris/usuàries als quals voleu enviar un missatge de "
+"correu electrònic activant les caselles de selecció que hi ha al costat dels "
+"seus noms"
+
+msgid "manager.people.enable"
+msgstr "Habilita"
+
+msgid "manager.people.enroll"
+msgstr "Dóna d’alta l’usuari/usuària"
+
+msgid "manager.people.enrollment"
+msgstr "Altes"
+
+msgid "manager.people.enrollSelected"
+msgstr "Dóna d’alta els usuaris/usuàries seleccionats"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Sincronitza el rol"
+
+msgid "manager.people.enrollSync"
+msgstr "Sincronització d’altes"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Podeu assignar i desassignar rols als usuaris/usuàries en qualsevol moment."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Dóna d’alta l’usuari/usuària com a"
+
+msgid "manager.people.invalidUser"
+msgstr "L’usuari/usuària sol·licitat no existeix."
+
+msgid "manager.people.mergeUser"
+msgstr "Fusiona l’usuari/usuària"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Esteu segur/a que voleu fusionar els comptes seleccionats amb nom d'usuari «{$oldAccountCount}» amb el compte amb nom d'usuari «{$newUsername}»?  Si ho feu, els comptes seleccionats amb nom d'usuari {$oldAccountCount} deixaran d'existir. Aquesta acció és irreversible."
+
+msgid "manager.people.mergeUsers"
+msgstr "Fusió d’usuaris/usuàries"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Seleccioneu un rol a la part superior de la pàgina abans de fer clic a «Assigneu un rol a l'usuari/ària»."
+
+msgid "manager.people.mustProvideName"
+msgstr "Indiqueu un cognom per a l’usuari/usuària com a mínim."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "No s’han trobat usuaris/usuàries."
+
+msgid "manager.people.noneEnrolled"
+msgstr "No hi ha cap usuari/usuària donat d’alta."
+
+msgid "manager.people"
+msgstr "Persones"
+
+msgid "manager.people.remove"
+msgstr "Suprimeix"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Desa’l i crea’n un altre"
+
+msgid "manager.people.signInAs"
+msgstr "Inicia la sessió com a"
+
+msgid "manager.people.signInAsUser"
+msgstr "Inicia la sessió com a usuari/usuària"
+
+msgid "manager.people.syncUsers"
+msgstr "Sincronització de les altes d’usuari/usuària"
+
+msgid "manager.people.unenroll"
+msgstr "Dóna de baixa"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "L’usuari/usuària s’ha creat amb èxit."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Demana a l’usuari/usuària que canviï la contrasenya quan torni a iniciar la sessió."
+
+msgid "manager.plugins.action"
+msgstr "Acció:"
+
+msgid "manager.plugins.disable"
+msgstr "Inhabilita"
+
+msgid "manager.plugins.enable"
+msgstr "Habilita"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Administració dels connectors"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Aquest mòdul s'utilitza a tot el lloc web. Només l'administrador/a del lloc web pot administrar aquest mòdul."
+
+msgid "manager.plugins"
+msgstr "Connectors del sistema"
+
+msgid "manager.readingTools"
+msgstr "Eines de lectura"
+
+msgid "manager.reviewerSearch.advancedSearch"
+msgstr "Cerca avançada de revisor/a"
+
+msgid "manager.reviewerSearch.advancedSearch.short"
+msgstr "Cerca avançada"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Cerca un revisor/a pel nom"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Cerca per nom"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Interessos de revisió"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr "Utilitzeu el formulari següent per establir els valors màxims per als termes que voleu cercar.  El formulari està precompletat amb les mitjanes calculades de cada camp."
+
+msgid "manager.roles"
+msgstr "Rols"
+
+msgid "manager.statistics"
+msgstr "Estadístiques i informes"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tEl vostre {$contextObjectName} està configurat per registrar més d'una analítica web. Les estadístiques d'ús es mostraran en diversos contextos.\n"
+"\t\tHi ha casos en què heu d'utilitzar una sola estadística d'ús, p. ex., per mostrar una llista ordenada de les tramses més utilitzades o per classificar\n"
+"\t\tels resultats de la cerca. Seleccioneu una de les analítiques configurades com a analítica per defecte.\n"
+"\t"
+
+msgid "manager.statistics.city"
+msgstr "Ciutat"
+
+msgid "manager.statistics.region"
+msgstr "Província"
+
+#, fuzzy
+msgid "manager.statistics.reports"
+msgstr "Generador d’informes"
+
+msgid "manager.statistics.reports.description"
+msgstr "El sistema genera informes que fan un seguiment dels detalls relacionats amb l'ús del lloc i de les comunicacions durant un període determinat de temps. Els informes es generen en format CSV. Aquest format es pot visualitzar amb una aplicació de full de càlcul."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Agrupa les estadístiques per:"
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Plantilles d'informe predeterminades"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Genera un informe personalitzat"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Opcions avançades"
+
+msgid "manager.statistics.reports.advancedOptions.label"
+msgstr "Personalitzeu les opcions relacionades amb les columnes, els filtres i la distribució del contingut. Si canvieu alguna d'aquestes opcions, és possible que la plantilla de l'informe no es generi de la forma esperada."
+
+msgid "manager.statistics.reports.columns"
+msgstr "Columnes"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr "Indiqueu el nombre de columnes que voleu que tingui l'informe. El nombre de columnes que seleccioneu no només determina quina informació s'inclourà als informes mateixos, sinó que també indica el nivell d'agrupació de les estadístiques. Per exemple, si trieu les columnes Identificació, Tipus i Mes, l'informe sumarà totes les visualitzacions d'un objecte en un mes i mostrarà aquesta dada en una sola fila. Si trieu la columna Dia en lloc de la columna Mes, cada objecte tindrà una fila per dia."
+
+msgid "manager.statistics.reports.filters"
+msgstr "Filtres"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Tipus d'objecte"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "Id. de l'objecte"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr "Indiqueu la identificació d'un o més objectes, separats per una coma (p. ex. 1,2,3,4,5)."
+
+msgid "manager.statistics.reports.today"
+msgstr "Avui"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Mes actual"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Ordena per"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Direcció"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Ascendent"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Descendent"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Feu servir el format AAAAMM."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Feu servir el format AAAAMMDD."
+
+msgid "manager.statistics.reports.cities.label"
+msgstr "El nom d'una o més ciutats, separats per una coma (p. ex. Nom de la ciutat 1,Nom de la ciutat 2)"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Cal que seleccioneu com a mínim una columna per generar l'informe."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "URL de l'informe"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr "Podeu utilitzar l'URL següent per generar l'informe a partir de la configuració d'aquest formulari. Només l'heu de copiar, enganxar-lo a la barra del navegador i prémer la tecla d'introducció. Podeu desar l'URL que genera el vostre informe personalitzat a favorits."
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "Per context"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Per tipus d'objecte i/o identificador de l'objecte"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Selecciona l'interval de l'informe"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "O bé selecciona l'interval per:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "Per geolocalització"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Redueix els resultats per país, regió i/o ciutat."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Patrocinadors"
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Directrius per a l’autor/a"
+
+msgid "manager.setup.competingInterests"
+msgstr "Conflicte d’interessos"
+
+msgid "manager.setup.favicon"
+msgstr "Icona de web"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Nombre de setmanes per acceptar o rebutjar una sol·licitud de revisió."
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Temps permès per completar les revisions (setmanes)"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "No m'ho recordis"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Enviar un recordatori per correu electrònic si el revisor/a no ha respost a "
+"una sol·licitud de revisió diversos dies després de la data límit de "
+"resposta."
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Enviar un recordatori per correu electrònic si el revisor/a no ha emès una "
+"recomanació diversos dies després de la data límit de revisió."
+
+msgid "manager.setup.dependentGenre"
+msgstr "Gèneres dependents"
+
+msgid "manager.setup.sponsors"
+msgstr "Organitzacions patrocinadores"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Relació amb els patrocinadors i descripció de polítiques"
+
+msgid "manager.setup.contributors.note"
+msgstr "Podeu afegir una nota per descriure la política i la relació que heu establert amb les vostres fonts de finançament, que apareixerà amb la llista de Fonts de finançament a la vostra pàgina d'Informació personal."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr "Podeu carregar un fitxer de full d'estil en cascada (CSS) addicional per canviar l'aparença."
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "S’ha produït un error en suprimir aquest element."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "Ha fallat la càrrega de la imatge per a la capçalera de la pàgina inicial, o bé el format no és vàlid. Els formats acceptats són .gif, .jpg i .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "Ha fallat la càrrega de la imatge del títol per a la capçalera de la pàgina inicial, o bé el format no és vàlid. Els formats acceptats són .gif, .jpg i .png."
+
+msgid "manager.setup.theme"
+msgstr "Tema"
+
+msgid "manager.setup.theme.description"
+msgstr "Trieu un tema d'entre els mòduls de tema disponibles."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Registre i control"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Ha fallat la càrrega de la imatge utilitzada com a logotip per a la capçalera de la pàgina, o bé el format no és vàlid. Els formats acceptats són .gif, .jpg i .png."
+
+msgid "manager.setup.pageHeaderTitleImageInvalid"
+msgstr "Ha fallat la càrrega de la imatge del títol per a la capçalera de la pàgina inicial, o bé el format no és vàlid. Els formats acceptats són .gif, .jpg i .png."
+
+msgid "manager.setup.selectOne"
+msgstr "Seleccioneu una de les opcions següents:"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Opcions d'accés del lloc"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} nou)"
+
+msgid "manager.users"
+msgstr "Usuaris/usuàries"
+
+msgid "plugins.categories.metadata"
+msgstr "Mòduls de metadades"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Els mòduls de metadades implementen estàndards addicionals de metadades."
+
+msgid "plugins.categories.auth"
+msgstr "Connectors d’autorització"
+
+msgid "plugins.categories.blocks"
+msgstr "Connectors de bloc"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Els connectors de bloc són components connectables de la interfície d’usuari/usuària, com ara les eines de les barres laterals."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Els connectors de passarel·la proporcionen dades actives als sistemes externs."
+
+msgid "plugins.categories.gateways"
+msgstr "Connectors de passarel·la"
+
+msgid "plugins.categories.generic"
+msgstr "Connectors genèrics"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Podeu utilitzar els connectors d’importació i exportació per a transferir continguts a altres sistemes i des d’altres sistemes."
+
+msgid "plugins.categories.importexport"
+msgstr "Connectors d’importació i exportació"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Els connectors de mètode de pagament us proporcionen diversos sistemes per a processar els pagaments en línia."
+
+msgid "plugins.categories.paymethod"
+msgstr "Connectors de pagament"
+
+msgid "plugins.categories.reports.description"
+msgstr "Els connectors per a informes implementen diversos tipus d’informes i extractes de dades per a administradors/es de conferències."
+
+msgid "plugins.categories.reports"
+msgstr "Connectors per a informes"
+
+msgid "plugins.categories.themes.description"
+msgstr "Podeu utilitzar els connectors de tema per a canviar l’aparença del sistema."
+
+msgid "plugins.categories.themes"
+msgstr "Connectors de tema"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Mòduls de format de metadades OAI"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Aquests mòduls de format expressen metadades en les comunicacions OAI."
+
+msgid "plugins.categories.pubIds"
+msgstr "Mòduls d'identificació pública"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Aquests mòduls implementen la compatibilitat amb identificadors públics."
+
+msgid "manager.plugins.copyError"
+msgstr "El mòdul no s'ha copiat correctament. És possible que es tracti d'un problema de permisos. Comproveu que el servidor web pot escriure al directori de mòduls (inclosos els subdirectoris), però recordeu de tornar a protegir-lo més endavant."
+
+msgid "manager.plugins.delete"
+msgstr "Elimina"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Esteu segur/a que voleu eliminar aquest mòdul del sistema?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "Fent clic a Elimina, elimineu el mòdul del sistema de fitxers del servidor."
+
+msgid "manager.plugins.deleteError"
+msgstr "El mòdul «{$pluginName}» no es pot eliminar del sistema de fitxers. És possible que es tracti d'un problema de permisos. Comproveu que el servidor web pot escriure al directori de mòduls (inclosos els subdirectoris), però recordeu de tornar a protegir-lo més endavant."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "S'ha eliminat el mòdul «{$pluginName}» correctament"
+
+msgid "manager.plugins.description"
+msgstr "Des d'aquesta pàgina l'administrador/a de la revista pot revisar i configurar els mòduls que hi ha instal·lats. Els mòduls es divideixen en categories, segons la seva funció. A continuació hi ha la llista de les categories i, dins de cadascuna, hi ha els grups de mòduls que s'hi inclouen."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "El mòdul «{$pluginName}» no existeix"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Primer seleccioneu un fitxer"
+
+msgid "manager.plugins.install"
+msgstr "Instal·la un mòdul nou"
+
+msgid "manager.plugins.installDescription"
+msgstr "Aquest formulari us permet carregar i instal·lar un mòdul nou.  Comproveu que el mòdul estigui comprimit com a fitxer .tar.gz."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+"Mòdul ja instal·lat i és una versió més recent que la que hi ha disponible a "
+"la galeria."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Mòdul ja instal·lat, però podeu actualitzar-lo a una versió més recent."
+
+msgid "manager.plugins.installFailed"
+msgstr "S'ha produït un error durant la instal·lació {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "La versió {$versionNumber} s'ha instal·lat correctament"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "El fitxer de mòduls que heu carregat no conté cap carpeta que es correspongui amb el nom del mòdul."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "El mòdul que heu carregat no correspon a la categoria del mòdul actualitzat."
+
+msgid "manager.plugins.wrongName"
+msgstr "L’arxiu version.xml del mòdul actualitzat conté el nom d'un mòdul que no correspon al nom del mòdul actualitzat."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "El mòdul no existeix.  Instal·leu-lo"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr "El mòdul ja existeix, però aquesta versió és més nova que la que teniu instal·lada.  Actualitzeu-lo"
+
+msgid "manager.plugins.settings"
+msgstr "Configuració"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr "L'ordre tar no està disponible. Configureu-la correctament al fitxer «config.inc.php»."
+
+msgid "manager.plugins.upgrade"
+msgstr "Actualitza"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr "Aquest formulari us permet actualitzar un mòdul.  Comproveu que el mòdul estigui comprimit com a fitxer .tar.gz."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "S'ha produït un error durant l'actualització. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Actualització correcta a la versió {$versionString}"
+
+msgid "manager.plugins.uploadError"
+msgstr "Hi ha hagut un error durant la càrrega del fitxer"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Seleccioneu el fitxer del mòdul"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "El fitxer version.xml del directori de mòduls conté dades invàlides."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "No s’ha trobat l'arxiu version.xml al directori de mòduls"
+
+msgid "notification.localeEnabled"
+msgstr "S'ha activat la configuració regional."
+
+msgid "notification.localeDisabled"
+msgstr "S'ha desactivat la configuració regional."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "S'ha establert {$locale} com a configuració regional principal."
+
+msgid "notification.localeInstalled"
+msgstr "Totes les configuracions regionals seleccionades s'han instal·lat i activat."
+
+msgid "notification.localeUninstalled"
+msgstr "S'ha desinstal·lat la configuració regional {$locale}."
+
+msgid "notification.localeReloaded"
+msgstr "S'ha actualitzat la configuració regional {$locale}."
+
+msgid "notification.localeSettingsSaved"
+msgstr "S'han desat els paràmetres de configuració regional."
+
+msgid "notification.editedUser"
+msgstr "Usuari/ària editat."
+
+msgid "manager.paymentMethod"
+msgstr "Pagaments"
+
+msgid "manager.paymentMethod.title"
+msgstr "Mètodes de pagament"
+
+msgid "manager.paymentMethod.description"
+msgstr "Trieu un mètode de pagament de la llista.  S'actualitzarà la secció següent."
+
+msgid "manager.paymentMethod.none"
+msgstr "No s'ha seleccionat cap mètode de pagament"
+
+msgid "manager.paymentMethod.method"
+msgstr "Mètode de pagament"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Moneda"
+
+msgid "settings.roles.roleOptions"
+msgstr "Opcions de rol"
+
+msgid "settings.roles.showTitles"
+msgstr "Mostra el títol del rol a la llista de contribuïdors"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Permetre l'autoregistre d'usuaris/àries"
+
+msgid "settings.roles.roleName"
+msgstr "Nom del rol"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Abreviació"
+
+msgid "settings.roles.assignedStages"
+msgstr "Fases assignades"
+
+msgid "settings.roles.stages"
+msgstr "Fases"
+
+msgid "settings.roles.roleDetails"
+msgstr "Detalls del rol"
+
+msgid "settings.roles.from"
+msgstr "Nivell de permisos"
+
+msgid "settings.roles.removeText"
+msgstr "Ara s'eliminarà el rol d'aquest context. Aquesta operació també eliminarà les configuracions relacionades i tots les assignacions del usuaris a aquest rol. Voleu continuar?"
+
+msgid "settings.roles.nameRequired"
+msgstr "Heu d'establir el nom del rol."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Heu d'establir l'abreviatura del rol."
+
+msgid "settings.roles.uniqueName"
+msgstr "Heu d'establir un nom únic per al rol."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Heu d'establir una abreviatura única per al rol."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Heu d'establir un nivell de permisos per al rol."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Heu d'establir una fase per assignar."
+
+msgid "grid.content.navigation.footer"
+msgstr "Peu de pàgina"
+
+msgid "grid.content.navigation.footer.noneExist"
+msgstr "No hi ha cap peu de pàgina."
+
+msgid "grid.content.navigation.footer.addCategory"
+msgstr "Afegeix categoria"
+
+msgid "grid.action.deleteFooterCategory"
+msgstr "Elimina la categoria del peu de pàgina"
+
+msgid "grid.content.navigation.footer.FooterLink"
+msgstr "Enllaços al peu de pàgina"
+
+msgid "grid.content.navigation.footer.editCategory"
+msgstr "Edita categoria"
+
+msgid "grid.content.navigation.footer.deleteCategory"
+msgstr "Esborra categoria"
+
+msgid "grid.content.navigation.footer.deleteCategoryConfirm"
+msgstr "Esteu segurs que voleu suprimir aquesta categoria? Aquesta acció no es pot desfer. També s'eliminaran els enllaços a aquesta categoria."
+
+msgid "grid.content.navigation.footer.titleRequired"
+msgstr "Cal que introduïu un títol."
+
+msgid "grid.content.navigation.footer.descriptionRequired"
+msgstr "Heu d'introduir-hi una descripció."
+
+msgid "grid.content.navigation.footer.pathRequired"
+msgstr "Heu d'introduir-hi una ruta única."
+
+msgid "grid.content.navigation.footer.pathInUse"
+msgstr "Ja hi ha una altra categoria que utilitza aquesta ruta."
+
+msgid "grid.action.addFooterCategoryLink"
+msgstr "Afegeix una nova categoria de peu de pàgina"
+
+msgid "grid.action.editFooterCategory"
+msgstr "Edita la categoria del peu de pàgina"
+
+msgid "grid.content.navigation.socialMedia"
+msgstr "Mitjans socials"
+
+msgid "grid.content.navigation.socialMedia.platform"
+msgstr "Plataforma"
+
+msgid "grid.content.navigation.socialMedia.code"
+msgstr "Bloc de codi social per compartir"
+
+msgid "grid.content.navigation.socialMedia.platformRequired"
+msgstr "Heu d'introduir un títol per a la plataforma (Facebook, Google+, etc.)."
+
+msgid "grid.content.navigation.socialMedia.codeRequired"
+msgstr "Heu d'introduir el codi que voleu que s'utilitzi per mostrar aquesta xarxa social."
+
+msgid "grid.content.navigation.socialMedia.addSocialLink"
+msgstr "Afegeix un enllaç al mitjà social"
+
+msgid "grid.content.navigation.socialMedia.includeInCatalog"
+msgstr "Vols que s'utilitzi per a cada element publicat en el catàleg?"
+
+msgid "grid.content.navigation.socialMedia.inCatalog"
+msgstr "S'ha utilitzat al catàleg"
+
+msgid "grid.action.addMedia"
+msgstr "Afegeix un tipus de mitjà social"
+
+msgid "notification.addedFooterCategory"
+msgstr "S'ha afegit la categoria."
+
+msgid "notification.editedFooterCategory"
+msgstr "S'ha editat la categoria."
+
+msgid "notification.removedFooterCategory"
+msgstr "S'ha eliminat la categoria."
+
+msgid "notification.addedSocialMedia"
+msgstr "S'ha afegit la xarxa social."
+
+msgid "notification.editedSocialMedia"
+msgstr "S'ha editat la xarxa social."
+
+msgid "notification.removedSocialMedia"
+msgstr "S'ha eliminat la xarxa social."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "Heu d'introduir-hi un fitxer de biblioteca. Comproveu que hàgiu seleccionat un fitxer carregat."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Heu d'introduir un nom per al fitxer de biblioteca."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Heu d'introduir un tipus de fitxer per al fitxer de biblioteca."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Contractes"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Màrqueting"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Permisos"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Informes"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Altres"
+
+msgid "grid.action.addGenre"
+msgstr "Afegeix un gènere"
+
+msgid "grid.action.editGenre"
+msgstr "Edita aquest gènere"
+
+msgid "grid.action.deleteGenre"
+msgstr "Elimina aquest gènere"
+
+msgid "grid.action.restoreGenres"
+msgstr "Restableix els gèneres a la configuració per defecte"
+
+msgid "manager.settings.wizard"
+msgstr "Assistent de configuració"
+
+msgid "manager.users.roleRequired"
+msgstr "Heu d'associar com a mínim un rol a aquest usuari."
+
+msgid "manager.website"
+msgstr "Lloc web"
+
+msgid "manager.website.title"
+msgstr "Configuració del lloc web"
+
+msgid "manager.workflow"
+msgstr "Circuit de treball"
+
+msgid "manager.workflow.title"
+msgstr "Configuració del circuit de treball"
+
+msgid "manager.distribution"
+msgstr "Distribució"
+
+msgid "manager.distribution.title"
+msgstr "Configuració de la distribució"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Taxa de rebuig després de revisió"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Taxa de rebuig abans de revisió"
+
+msgid "stats.name.declineRate"
+msgstr "Taxa de rebuig"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Taxa d'acceptació"
+
+msgid "stats.name.daysToReject"
+msgstr "Dies fins al rebuig"
+
+msgid "stats.name.daysToAccept"
+msgstr "Dies fins a l'acceptació"
+
+msgid "stats.name.daysToDecision"
+msgstr "Dies fins a la primera decisió editorial"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Trameses publicades"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Trameses rebutjades (després de revisió)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Trameses rebutjades (abans de revisió)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Trameses rebutjades"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Trameses acceptades"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Trameses rebudes"
+
+msgid "stats.userStatistics"
+msgstr "Estadístiques d'usuari/ària"
+
+msgid "stats.trends"
+msgstr "Tendències"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Total dins del rang de dates"
+
+msgid "stats.total"
+msgstr "Total"
+
+msgid "stats.submissionsActive"
+msgstr "Trameses actives"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Cercar per títol, autor/a i ID"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Mensualment"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.fileViews"
+msgstr "Visualitzacions d'arxiu"
+
+msgid "stats.editorialActivity"
+msgstr "Activitat editorial"
+
+msgid "stats.descriptionForStat"
+msgstr "Descripció per a {$stat}"
+
+msgid "stats.dateRange.untilDate"
+msgstr "Fins a {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Fins a"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Any actual"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Des de {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Últim any"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Últims dos anys"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Últims 90 dies"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Últims 30 dies"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Últims 12 mesos"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "La data d'inici no hauria de ser anterior a {$date}."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "La data de finalització no hauria de ser posterior a {$date}."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "La data d'inici ha de ser anterior a la data de finalització."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"El format de la data no és vàlid. Introduïu les dates en format AAAA-MM-DD."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Introduïu cada data en format AAAA-MM-DD. Per exemple, per indicar la data "
+"15 de gener de 2019 poseu 2019-01-15."
+
+msgid "stats.dateRange.from"
+msgstr "Des de"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Una de les dates introduïdes no existeix."
+
+msgid "stats.dateRange.customRange"
+msgstr "Rang personalitzat"
+
+msgid "stats.dateRange.change"
+msgstr "Canviar el rang de dates"
+
+msgid "stats.dateRange.apply"
+msgstr "Aplicar"
+
+msgid "stats.dateRange.allDates"
+msgstr "Totes les dates"
+
+msgid "stats.dateRange"
+msgstr "Rang de dates"
+
+msgid "stats.daily"
+msgstr "Diàriament"
+
+msgid "stats.allUsers"
+msgstr "Tots els usuaris/àries"
+
+msgid "grid.category.categoryDetails"
+msgstr "Detalls de la categoria"
+
+msgid "grid.category.nameRequired"
+msgstr "Introduïu un nom de la categoria."
+
+msgid "grid.category.removeText"
+msgstr "Segur que voleu eliminar aquesta categoria?"
+
+msgid "grid.category.parentCategory"
+msgstr "Categoria mare"
+
+msgid "grid.category.description"
+msgstr "Descripció"
+
+msgid "grid.category.pathExists"
+msgstr "La ruta de la categoria ja existeix. Introduïu una ruta única."
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "La ruta de la categoria ha de tenir només lletres i números."
+
+msgid "grid.category.urlWillBe"
+msgstr "L'URL de la categoria serà: {$sampleUrl}"
+
+msgid "grid.category.path"
+msgstr "Ruta"
+
+msgid "grid.category.name"
+msgstr "Nom"
+
+msgid "grid.category.edit"
+msgstr "Editar categoria"
+
+msgid "grid.category.add"
+msgstr "Afegir categoria"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Aquest enllaç només es mostrarà si heu introduït una declaració de "
+"privacitat a Configuració > Flux de treball > Trameses."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Enllaç a la pàgina que mostra la declaració de privacitat."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Enllaç a la pàgina de cerca."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Aquest enllaç només es mostrarà si l'usuari/ària ha iniciat la sessió, si "
+"els pagaments s'han activat a Configuració > Distribució > Pagaments i si "
+"les subscripcions són obligatòries a Configuració > Distribució > Accés."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Aquest enllaç només es mostrarà si l'opció de pagaments s'ha activat a "
+"Configuració > Distribució > Pagaments."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Seleccioneu un tipus de menú de navegació."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Aquest enllaç només es mostrarà si heu completat la informació de contacte "
+"que hi ha a Configuració > Contacte."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Enllaç a una pàgina que mostri la informació de contacte."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr ""
+"Aquest enllaç només es mostrarà quan l'usuari/ària NO hagi iniciat la sessió."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr ""
+"Aquest enllaç només es mostrarà quan l'usuari/ària hagi iniciat la sessió."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Enllaç per tancar la sessió de l'usuari/ària."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Aquest enllaç només es mostrarà als usuaris/àries administradors."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Enllaç a les eines d'administració globals del lloc."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Enllaç a la pàgina de perfil d'usuari/ària."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Enllaç al panell editorial."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Enllaç a la pàgina de registre d'usuari/ària."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Enllaç a la pàgina d'inici de sessió."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Aquest enllaç només es mostrarà si heu activat els avisos a Configuració > "
+"Lloc web."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Enllaç a la pàgina que mostra els avisos."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Enllaç a l'arxiu de números anteriors."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Enllaç al número actual."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Enllaç a la pàgina que mostra les instruccions de tramesa."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Aquest enllaç només es mostrarà si heu completat la secció d'equip editorial "
+"que hi ha a Configuració > Revista."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Enllaç a un pàgina que mostri el contingut de la capçalera a Configuració > "
+"Revista."
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Aquest enllaç només es mostrarà si heu completat la secció \"Quant a la "
+"revista\" que hi ha a Configuració > Revista."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Enllaç a una pàgina que mostri el contingut de \"Quant a la revista\" a "
+"Configuració > Revista"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr ""
+"Enllaç a qualsevol URL d'un altre lloc, com per exemple https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "URL remota"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Crear una pàgina personalitzada en el vostre lloc i enllaçar-la des del menú "
+"de navegació."
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Pàgina personalitzada"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr ""
+"Seleccioneu un tipus de menú de navegació o personalitzeu-ne un al vostre "
+"gust"
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Tipus de menú de navegació"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Quan un element del menú obre un submenú, aquest enllaç podria no funcionar "
+"en tots els dispositius. Per exemple, si existeix un element \"Quant a\" que "
+"obre uns submenús \"Contacte\" i \"Equip editorial\", l'enllaç \"Quant a\" "
+"podria no ser accessible en tots els dispositius. En el menú predeterminat "
+"se soluciona creant un segon element del menú, \"Quant a la revista\", que "
+"apareix en el submenú."
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"Més informació sobre quan es mostrarà o ocultarà aquest element del menú."
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Heu de proporcionar una URL"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Ja s'ha assignat un menú de navegació a aquesta àrea."
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Seleccioneu una àrea de navegació"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Àrees de navegació de tema actives"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Elements del menú no assignats"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Elements del menú assignats"
+
+msgid "manager.navigationMenuItems"
+msgstr "Elements del menú de navegació"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "El títol és obligatori"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Aquest títol ja existeix per a un altre menú de navegació."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Aquesta ruta ja existeix per a un altre element del menú de navegació."
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"El camp de la ruta només pot contenir caràcters alfanumèrics i '.', '/', '-"
+"', i '_'."
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Contingut"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Aquesta pàgina serà accessible a <blockquote>{$pagesPath}</blockquote>... "
+"on %PATH% és la ruta introduida anteriorment. <strong>Nota:</strong> Dues "
+"pàgines diferents no poden tenir la mateixa ruta. Utilitzar rutes "
+"construïdes dins del sistema podria provocar que perdéssiu l'accés a "
+"funcions importants.</p>"
+
+msgid "manager.navigationMenus"
+msgstr "Menú de navegació"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Ruta"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Títol"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"L'usuari/ària \"{$username}\" i el correu electrònic \"{$email}\" no "
+"coincideixen amb el mateix usuari/ària ja existent."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"L'usuari/ària importat \"{$username}\" té una contrasenya en text pla que no "
+"és válida. L'usuari/ària no s'ha importat."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"La contrasenya de l'usuari/ària importat \"{$username}\" no s'ha pogut "
+"importar tal qual. S'ha enviat una nova contrasenya al correu electrònic de "
+"l'usuari/ària. L'usuari/ària s'ha importat."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"L'usuari/ària importat \"{$username}\" no té contrasenya. Reviseu el format "
+"d'importació XML. L'usuari/ària no s'ha importat."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Errors d'importació/exportació:"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "L'arxiu de tramesa no s'ha pogut importar"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"La revisió \"{$revisionId}\" de l'arxiu \"{$fileId}\" crearia un registre "
+"duplicat"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"La mida de l'arxiu proporcionat \"{$expected}\" i la mida actual \"{$actual}"
+"\" no coincideixen"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "L'arxiu temporal {$dest} no es pot crear des de {$source}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Carregador {$param} desconegut"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"L'autor/a {$authorName} no té el nom en l'idioma {$localeName} de la "
+"tramesa. La tramesa no es pot importar sense aquesta informació."
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Grup d'usuari desconegut {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "El contingut no està codificat com a {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Codificació desconeguda {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Gènere desconegut {$param}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Element desconegut {$param}"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Errors trobats:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Alertes trobades:"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Errors de validació:"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Sol·licitar a l'autor/a que proporcioni referències abans d'acceptar la seva "
+"tramesa."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Sol·licitar a l'autor/a que proporcioni referències durant la tramesa."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "No sol·licitar referències a l'autor/a durant la tramesa."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Habilitar metadades de referències"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Recopilar les referències de la tramesa en un camp separat. Això pot ser "
+"necessari per ajustar-se a serveis de rastreig de citacions com Crossref."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Sol·licitar a l'autor/a que declari les agències de finançament abans "
+"d'acceptar la seva tramesa."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Sol·licitar a l'autor/a que declari les agències de finançament durant la "
+"tramesa."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "No sol·licitar agències de finançament a l'autor/a durant la tramesa."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Habilitar metadades d'agències de finançament"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Les agències de finançament poden indicar la font dels fons de recerca o "
+"altres suports institucionals que hagin facilitat la recerca."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Sol·licitar a l'autor/a que proporcioni disciplines abans d'acceptar la seva "
+"tramesa."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Sol·licitar a l'autor/a que proporcioni disciplines durant la tramesa."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "No sol·licitar disciplines a l'autor/a durant la tramesa."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Habilitar metadades de disciplines"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Les disciplines són tipus d'estudis o branques de coneixement tal com són "
+"descrites per facultats universitàries o societats acadèmiques."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Sol·licitar a l'autor/a que proporcioni la tipologia abans d'acceptar la "
+"seva tramesa."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Sol·licitar a l'autor/a que proporcioni la tipologia durant la tramesa."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "No sol·licitar la tipologia a l'autor/a durant la tramesa."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Habilitar metadades de tipologia"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"La naturalesa o el gènere del contingut principal de la tramesa. La "
+"tipologia normalment és \"Text\", però també podria ser \"Conjunt de dades\""
+", \"Imatge\" o qualsevol de les <a target=\"_blank\" href=\""
+"http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-"
+"vocabulary\">tipologies Dublin Core</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Sol·licitar a l'autor/a que proporcioni matèries abans d'acceptar la seva "
+"tramesa."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Sol·licitar a l'autor/a que proporcioni matèries durant la tramesa."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "No sol·licitar matèries a l'autor/a durant la tramesa."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Habilitar les metadades de matèria"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Les matèries seran paraules clau, frases clau o codis de classificació que "
+"descriguin el tema de la tramesa."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Sol·licitar a l'autor/a que proporcioni una font URL abans d'acceptar la "
+"seva tramesa."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Sol·licitar a l'autor/a que proporcioni una font URL durant la tramesa."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "No sol·licitar una font URL a l'autor/a durant la tramesa."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Habilitar les metadades de font"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"La font pot ser una ID, com per exemple DOI, o un altre treball o recurs "
+"dels quals es derivi la tramesa."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Sol·licitar a l'autor/a que declari qualsevol dret d'accés previ abans "
+"d'acceptar la seva tramesa."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Sol·licitar a l'autor/a que declari qualsevol dret d'accés previ durant la "
+"tramesa."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "No sol·licitar una declaració de drets a l'autor/a durant la tramesa."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Habilitar les metadades de drets"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Qualsevol dret sobre la tramesa, que pot incloure drets de propietat intel·"
+"lectual (DPI), drets d'autor i diversos drets de propietat."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Sol·licitar a l'autor que introdueixi els idiomes de la tramesa abans "
+"d'acceptar la seva tramesa."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Sol·licitar a l'autor/a que indiqui els idiomes de la tramesa durant la "
+"tramesa."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "No sol·licitar els idiomes de la tramesa a l'autor/a durant la tramesa."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Habilitar les metadades d'idioma"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"L'idioma indica que l'idioma principal de l'obra utilitza un codi d'idioma ("
+"\"en\") amb un codi opcional de país (\"en_US\")."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Sol·licitar als autors/es que proposin paraules clau abans d'acceptar la "
+"seva tramesa."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Sol·licitar als autors/es que proposin paraules clau durant la tramesa."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "No sol·licitar paraules clau als autors/es durant la tramesa."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Habilitar les metadades de paraules clau"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Les paraules clau normalment són termes d'entre una i tres paraules que es "
+"fan servir per indicar els temes principals de la tramesa."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Sol·licitar a l'autor/a que proposi metadades de cobertura abans d'acceptar "
+"la seva tramesa."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Sol·licitar a l'autor/a que proposi metadades de cobertura durant la tramesa."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "No sol·licitar metadades de cobertura a l'autor/a durant la tramesa."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Habilitar les metadades de cobertura"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"La cobertura normalment indica una localització espacial de treball (el nom "
+"d'un lloc o les coordinades geogràfiques), un període temporal (una etiqueta "
+"de període, una data o un rang de dates) o una jurisdicció (com per exemple "
+"una entitat administrativa)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Cobertura"
+
+msgid "manager.setup.metadata.success"
+msgstr "Les metadades de la tramesa s'han actualitzat correctament."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Formulari de tramesa"
+
+msgid "manager.setup.licenseURLDescription"
+msgstr ""
+"URL a la pàgina web amb la descripció de la llicència, si està disponible."
+
+msgid "manager.setup.competingInterests.required"
+msgstr ""
+"Sol·licitar una declaració de conflictes d'interès durant l'avaluació "
+"d'experts."
+
+msgid "grid.action.createReviewForm"
+msgstr "Crear un nou formulari de revisió"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Visible (per a autors/es)"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Quadre de text de línia única"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Quadre de text ampliat"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Quadre de text de paraula única"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Inclòs en el missatge a l'autor/a"
+
+msgid "manager.reviewFormElements.required"
+msgstr "És necessari que els revisors/es completin l'element"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Botons d'opció (només podeu triar-ne un)"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Descripció"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Element"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Selecció"
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "No s'ha creat cap element del formulari."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "És necessària una pregunta per a l'element del formulari."
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "És necessari un tipus d'element per a aquest element del formulari."
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Tipus d'element"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Editar element de formulari"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Menú desplegable"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Crear un element nou"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Còpia a:"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Confirmeu l'eliminació d'un element de formulari ja publicat..."
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Escolliu el tipus d'element"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Caselles de selecció (podeu triar-ne una o vàries)"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Afegir selecció"
+
+msgid "manager.reviewFormElements"
+msgstr "Elements del formulari"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Canviant el tipus d'element del formulari..."
+
+msgid "manager.reviewForms.title"
+msgstr "Títol"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Dades del formulari de revisió"
+
+msgid "manager.reviewForms.preview"
+msgstr "Previsualitzar el formulari"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "No s'ha utilitzat cap formulari de revisió."
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "No s'ha creat cap formulari de revisió."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Cap / Revisió de formulari lliure"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Els formularis d'avaluació per experts que s'hagin creat aquí es presentaran "
+"als revisors/es perquè els completin en lloc del formulari predeterminat, "
+"que consisteix en dos quadres de text lliure, el primer per a \"autor/a i "
+"editor/a\" i el segon per a l'\"editor\". Els formularis de revisió poden "
+"assignar-se a una secció editorial concreta i els editors/es podran triar "
+"quin formulari utilitzar quan assignin la revisió. En tots els casos, els "
+"editors/es tindran l'opció d'incloure les revisions en la correspondència "
+"amb l'autor/a."
+
+msgid "manager.reviewForms.inReview"
+msgstr "En revisió"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "El formulari de revisió necessita un títol."
+
+msgid "manager.reviewForms.edit"
+msgstr "Formulari de revisió"
+
+msgid "manager.reviewForms.description"
+msgstr "Descripció i instruccions"
+
+msgid "manager.reviewForms.create"
+msgstr "Crear un formulari de revisió"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Segur que voleu eliminar aquest formulari de revisió?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Completat"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Segur que voleu crear una còpia d'aquest formulari de revisió?"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Segur que voleu desactivar aquest formulari de revisió? Si ho feu ja no "
+"estarà disponible per a noves assignacions de revisió."
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Segur que voleu activar aquest formulari de revisió? Un cop assignat a una "
+"revisió ja no podreu desactivar-lo."
+
+msgid "manager.reviewForms"
+msgstr "Formularis de revisió"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"La contrasenya només pot contenir caràcters alfanumèrics, guions i guions "
+"baixos, i ha de començar i acabar amb un caràcter alfanumèric."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "La contrasenya ja existeix."
+
+msgid "manager.setup.genres.key.description"
+msgstr "Un identificador simbòlic curt per a aquest gènere."
+
+msgid "manager.setup.genres.key"
+msgstr "Contrasenya"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Seleccioneu els arxius de biblioteca per adjuntar"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Aquest arxiu de biblioteca podrà descarregar-se si s'ha activat l'\"accés "
+"públic\" a <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Permetre l'edició de metadades de tramesa."
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Aquest rol només pot recomanar una decisió de revisió i necessita que un "
+"editor/a autoritzat registri una decisió final."
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Afegir etiquetes HTML personalitzades, també conegudes com a metaetiquetes, "
+"que voleu que s'insereixin a la capçalera de cada pàgina. Consulteu-ho amb "
+"un assessor tècnic abans d'afegir les etiquetes."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Etiquetes personalitzades"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Introduïu els termes de llicència pública que voleu mostrar en les obres "
+"publicades."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Termes de la llicència"
+
+msgid "manager.distribution.license.other"
+msgstr "URL d'una altra llicència"
+
+msgid "manager.distribution.license.success"
+msgstr "S'han actualitzat els detalls de llicència. "
+
+msgid "manager.distribution.license"
+msgstr "Llicència"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "No disponible"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Actualitzat"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Pot actualitzar-se"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Més recent que la versió disponible"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "El mòdul ja ha estat instal·lat i actualitzat."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Actualment no hi ha disponible cap versió compatible d'aquest mòdul."
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "El mòdul encara no s'ha instal·lat."
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Estat"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Sumari"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Pàgina d'inici"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} publicada el {$date}"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Mantenidor/a"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Aquest mòdul el proporciona un dels nostres socis desenvolupadors."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Soci"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Aquest mòdul ha estat revisat i aprovat per l'equip de Public Knowledge "
+"Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Revisat"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Aquest mòdul el desenvolupa i el manté l'equip de Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Oficial"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Última versió compatible"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Instal·lació"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Vista general"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Galeria de mòduls"
+
+msgid "manager.plugins.installed"
+msgstr "Mòduls instal·lats"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Assegureu-vos que heu seleccionat un arxiu per carregar."
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Aquest formulari us permet carregar i instal·lar un mòdul nou. Assegureu-vos "
+"que el mòdul està comprimit com a arxiu .tar.gz."
+
+msgid "manager.plugins.upload"
+msgstr "Carregar un mòdul nou"
+
+msgid "grid.action.installPlugin"
+msgstr "Instal·lar o actualitzar aquest mòdul"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Segur que voleu actualitzar aquest mòdul?"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Segur que voleu instal·lar aquest mòdul?"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Usuaris/àries registrats"
+
+msgid "manager.setup.theme.notFound"
+msgstr "El tema que heu seleccionat no està instal·lat o habilitat."
+
+msgid "manager.setup.theme.success"
+msgstr ""
+"S'ha actualitzat el tema. <a href=\"{$url}\" target=\"_blank\">Veure'l "
+"ara</a>"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Una persona de contacte que pot donar assistència a editors/es, autors/es i "
+"revisors/es amb problemes a l'hora d'enviar, editar, revisar o publicar "
+"material."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Contacte de suport tècnic"
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Exemples: associacions acadèmiques, departaments universitaris, "
+"cooperatives, etc. Els patrocinadors es mostren públicament."
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Mostrar un enllaç per <button type=\"button\">garantir que tots els arxius "
+"s'han anonimitzat</button> durant la càrrega"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Mode de revisió predeterminat"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Recordatori de revisió"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Recordatori de resposta"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Els elements predeterminats es poden modificar per a cada revisió durant el "
+"procés editorial."
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Data límit de finalització predeterminada"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Data límit de resposta predeterminada"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Aquesta declaració apareixerà durant el registre d'usuari/ària i la tramesa "
+"de l'autor/a, i també en la pàgina de privacitat disponible públicament. En "
+"algunes jurisdiccions és obligatori que mostreu com tracteu les dades dels "
+"usuaris/àries en aquesta declaració de privacitat."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Declaració de privacitat"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Introduïu els detalls de contacte habituals per a la direcció editorial, per "
+"a la direcció administrativa o per al personal administratiu, els quals es "
+"mostraran en la part accessible públicament del lloc web."
+
+msgid "manager.setup.principalContact"
+msgstr "Contacte principal"
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Resumiu la política d'avaluació d'experts i els processos per a lectors/es i "
+"autors/es. Sovint aquesta descripció inclou el nombre de revisors/es "
+"involucrats habitualment en la revisió d'una tramesa, els criteris pels "
+"quals es regeixen per avaluar-les, el temps previst per dur-les a terme i "
+"els principis utilitzats per seleccionar revisors/es."
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Introduïu qualsevol imatge, text o codi HTML que vulgueu que aparegui al peu "
+"del lloc web."
+
+msgid "manager.setup.pageFooter"
+msgstr "Peu de pàgina"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Si oferiu accés lliure immediat a tot el contingut publicat hauríeu "
+"d'introduir una descripció de la vostra política d'accés obert."
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Política d'accés obert"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"S'envia automàticament un correu electrònic als autors/es per agrair-los la "
+"seva tramesa. S'hauria d'haver enviat còpies d'aquest correu  a les persones "
+"següents:"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Enviar una còpia a aquesta adreça de correu electrònic"
+
+msgid "manager.setup.notifications"
+msgstr "Notificació de la tramesa de l'autor/a"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "L'arxiu que heu carregat no s'ha trobat. Intenteu carregar-lo de nou."
+
+msgid "manager.setup.logo"
+msgstr "Logo"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"El bloc {$name} no s'ha pogut trobar. Assegureu-vos que el mòdul està instal·"
+"lat i habilitat."
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Barra lateral"
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Descripcions"
+
+msgid "manager.setup.homepageImage.description"
+msgstr ""
+"Carregueu una imatge per mostrar-la de manera destacada a la pàgina d'inici."
+
+msgid "manager.setup.homepageImage"
+msgstr "Imatge de la pàgina d'inici"
+
+msgid "manager.setup.checklist"
+msgstr "Llista de comprovació"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Les directrius per a autors/es s'han actualitzat correctament."
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Les directrius recomanades inclouen estàndards de format i bibliografia "
+"juntament amb exemples de formats de citació habituals per utilitzar-se a "
+"les trameses."
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Demanar que els autors/es acceptin el següent avís de drets d'autor com a "
+"part del procés de tramesa."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Avís de drets d'autor"
+
+msgid "manager.setup.appearance.success"
+msgstr "S'ha actualitzat la configuració d'aparença."
+
+msgid "manager.setup.advanced"
+msgstr "Avançat"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Tot el que introduïu aquí apareixerà a la pàgina d'inici."
+
+msgid "manager.setup.additionalContent"
+msgstr "Contingut addicional"
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Ahir"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "No s'ha trobat l'objecte a la base de dades"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Ocultar les opcions avançades"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr ""
+"Els elements en cursiva i marcats amb un asterisc (*) són dades opcionals "
+"per a l'actual sistema de recompte estadístic del sistema (tipus mètric). "
+"Podeu tenir dades o no, en funció de la configuració del mòdul "
+"d'estadístiques."
+
+msgid "manager.reviewerSearch.change"
+msgstr "Canviar"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"No podeu eliminar aquest representant perquè està assignat a les metadades "
+"de mercat per a un o més formats de publicació d'aquesta tramesa."
+
+msgid "manager.userSearch.searchByName"
+msgstr "Cercar usuari/ària per nom"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Heu d'introduir un usuari/ària ja existent."
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Assumpte: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Enviat a"
+
+msgid "manager.emails.sentFrom"
+msgstr "Enviat des de"
+
+msgid "manager.emails.resetAll"
+msgstr "Reiniciar-ho tot"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "La contrasenya que heu introduït ja està en ús."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"Heu de proporcionar una ID de context quan afegiu una plantilla de correu "
+"electrònic."
+
+msgid "manager.emails.emailTemplates"
+msgstr "Plantilles de correu electrònic"
+
+msgid "manager.emails.emailKey.description"
+msgstr ""
+"La contrasenya de correu electrònic només pot contenir lletres, números i "
+"guions baixos."
+
+msgid "manager.emails.editEmail.success"
+msgstr "S'ha modificat la plantilla de correu electrònic."
+
+msgid "manager.emails.customTemplate"
+msgstr "Plantilla personalitzada"
+
+msgid "manager.emails.addEmail.success"
+msgstr "S'ha afegit la plantilla de correu electrònic."
+
+msgid "manager.emails.addEmail"
+msgstr "Afegir plantilla"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "S'han actualitzat els detalls de recordatori de revisió."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "S'ha actualitzat la configuració de revisió."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "S'ha actualitzat la guia per a revisors/es."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Guia per a revisors/es"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "S'ha actualitzat la configuració de correu electrònic."
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"El nombre de dies que la majoria de trameses triguen a rebre la primera "
+"decisió editorial, com rebutjar-les immediatament o enviar-les a "
+"revisió.<br><br>Aquestes xifres indiquen que el 80% de les trameses "
+"assoleixen una decisió dins del període de dies seleccionat.<br><br>Aquesta "
+"estadística intenta descriure el termini en què la majoria dels autors/es "
+"que facin una tramesa a la revista rebran una decisió."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"El tant per cent per al rang de dates seleccionat es calcula per a trameses "
+"que van ser enviades durant aquest rang de dates i que van rebre una decisió "
+"final.<br><br>Posem per cas, per exemple, que es van fer deu trameses durant "
+"aquest rang de dates: quatre van ser acceptades, quatre rebutjades i dues "
+"encara esperen una decisió final.<br><br>La taxa d'acceptació serà del 50% ("
+"4 de 8 trameses) perquè les dues trameses que no han obtingut una decisió "
+"final no es comptabilitzen."
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/any)"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"L'arxiu de l'enviament {$id} s'ha omès perquè està adjunt a un registre que "
+"no s'importarà, com una assignació de revisió o una discussió."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Seleccioneu el tipus de metadades per a aquests arxius. Hauríeu de "
+"seleccionar \"document\" per als arxius de publicació principals, com els "
+"PDF descarregables, de manera que aquests arxius reben les metadades des de "
+"la publicació. Si no escolliu \"contingut addicional\" per a la majoria de "
+"la resta d'arxius. \"Material gràfic\" és apropiat per a arxius que "
+"requereixin crèdits diferents, per a peus de foto i per a metadades de "
+"llicència."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Metadades de l'arxiu"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Aquests són arxius addicionals, com conjunts de dades i materials "
+"d'investigació, i es mostraran per separat dels arxius de publicació "
+"principals."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Aquests són arxius subordinats, com imatges mostrades per un arxiu HTML, i "
+"no es mostraran amb el contingut publicat."
+
+msgid "manager.setup.genres.label"
+msgstr "Tipus d'arxiu"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Segur que voleu activar aquesta secció?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Segur que voleu desactivar aquesta secció?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "Desactivar aquesta secció i no permetre que s'hi facin noves trameses."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Personalitzat"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Data i hora (curtes)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Data i hora"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Hora"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Data (curta)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Data"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Trieu el format preferit per a les dates i les hores. Podeu introduir un "
+"format personalitzat mitjançant els <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>caràcters de "
+"format</a> especials."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formats de data i hora"
+
+msgid "manager.setup.dateTime"
+msgstr "Data i hora"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Enviar un altre correu electrònic"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "El correu electrònic s'ha enviat correctament a tots els destinataris."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Enviant correu electrònic. No sortiu de la pàgina fins que l'enviament "
+"s'hagi completat."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Esteu a punt d'enviar un correu electrònic a {$total} usuaris/àries. Segur "
+"que voleu enviar-lo?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Enviar correu electrònic"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Enviar-me una còpia d'aquest correu electrònic a {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr ""
+"Seleccioneu els usuaris/àries que haurien de rebre la vostra notificació de "
+"correu electrònic."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Notificar"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Deshabilitar trameses"
+
+msgid "manager.people.signedInAs"
+msgstr "Actualment esteu connectat com a {$username}"
+
+msgid "manager.emails.resetComplete"
+msgstr "Plantilla de correu electrònic reiniciada correctament."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "S'han restaurat les plantilles de correu electrònic predeterminades."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Eliminar avís"

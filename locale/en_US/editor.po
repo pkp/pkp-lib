@@ -122,11 +122,11 @@ msgstr "Do not send an email notification"
 msgid "editor.submissionReview.open"
 msgstr "Open"
 
-msgid "editor.submissionReview.blind"
-msgstr "Blind"
+msgid "editor.submissionReview.anonymous"
+msgstr "Anonymous Reviewer/Disclosed Author"
 
-msgid "editor.submissionReview.doubleBlind"
-msgstr "Double-blind"
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Anonymous Reviewer/Anonymous Author"
 
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Files To Be Reviewed"
@@ -398,17 +398,14 @@ msgstr "Approve this proof to indicate proofreading is complete and the file is 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
 msgstr "Revoke approval for this proof to indicate proofreading is no longer complete and the file is not ready to be published."
 
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Are you sure you want to reverse the decision to decline this submission?"
+
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "The public identifier '{$publicIdentifier}' must not be a number."
 
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "The pattern {$pattern} is not allowed for the public identifier."
-
-msgid "reviewer.list.count"
-msgstr "{$count} reviewers"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} of {$total} reviewers"
 
 msgid "reviewer.list.filterRating"
 msgstr "Rated at least"
@@ -450,7 +447,7 @@ msgid "reviewer.list.currentlyAssigned"
 msgstr "This reviewer has already been assigned to review this submission."
 
 msgid "reviewer.list.warnOnAssign"
-msgstr "This reviewer is locked because they have been assigned a role which allows them to view the author's identity. Blind peer review can not be guaranteed. Would you like to unlock this reviewer anyway?"
+msgstr "This reviewer is locked because they have been assigned a role which allows them to view the author's identity. Anonymous peer review can not be guaranteed. Would you like to unlock this reviewer anyway?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Unlock"

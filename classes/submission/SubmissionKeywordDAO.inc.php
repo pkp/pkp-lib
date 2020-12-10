@@ -3,9 +3,9 @@
 /**
  * @file classes/submission/SubmissionKeywordDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionKeywordDAO
  * @ingroup submission
@@ -23,11 +23,12 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	/**
 	 * Build/fetch and return a controlled vocabulary for keywords.
 	 * @param $publicationId int
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
 	 * @return ControlledVocab
 	 */
-	function build($publicationId) {
+	function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION) {
 		// may return an array of ControlledVocabs
-		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_KEYWORD, ASSOC_TYPE_PUBLICATION, $publicationId);
+		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $assocType, $publicationId);
 	}
 
 	/**
@@ -42,13 +43,14 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	 * Get keywords for a submission.
 	 * @param $publicationId int
 	 * @param $locales array
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#6213
 	 * @return array
 	 */
-	function getKeywords($publicationId, $locales = []) {
+	function getKeywords($publicationId, $locales = [], $assocType = ASSOC_TYPE_PUBLICATION) {
 		$result = [];
 
-		$keywords = $this->build($publicationId);
-		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+		$keywords = $this->build($publicationId, $assocType);
+		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /* @var $submissionKeywordEntryDao SubmissionKeywordEntryDAO */
 		$submissionKeywords = $submissionKeywordEntryDao->getByControlledVocabId($keywords->getId());
 		while ($keywordEntry = $submissionKeywords->next()) {
 			$keyword = $keywordEntry->getKeyword();
@@ -70,18 +72,12 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	 * @return array
 	 */
 	function getAllUniqueKeywords() {
-		$keywords = array();
+		$result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [CONTROLLED_VOCAB_SUBMISSION_KEYWORD]);
 
-		$result = $this->retrieve(
-			'SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', CONTROLLED_VOCAB_SUBMISSION_KEYWORD
-		);
-
-		while (!$result->EOF) {
-			$keywords[] = $result->fields[0];
-			$result->MoveNext();
+		$keywords = [];
+		foreach ($result as $row) {
+			$keywords[] = $row->setting_value;
 		}
-
-		$result->Close();
 		return $keywords;
 	}
 
@@ -90,16 +86,17 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	 * @param $keywords array
 	 * @param $publicationId int
 	 * @param $deleteFirst boolean
+	 * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
 	 * @return int
 	 */
-	function insertKeywords($keywords, $publicationId, $deleteFirst = true) {
-		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+	function insertKeywords($keywords, $publicationId, $deleteFirst = true, $assocType = ASSOC_TYPE_PUBLICATION) {
+		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $keywordDao SubmissionKeywordDAO */
+		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /* @var $submissionKeywordEntryDao SubmissionKeywordEntryDAO */
 
 		if ($deleteFirst) {
 			$currentKeywords = $this->deleteByPublicationId($publicationId);
 		} else {
-			$currentKeywords = $this->build($publicationId);
+			$currentKeywords = $this->build($publicationId, $assocType);
 		}
 		if (is_array($keywords)) { // localized, array of arrays
 
@@ -109,7 +106,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 					$i = 1;
 					foreach ($list as $keyword) {
 						$keywordEntry = $submissionKeywordEntryDao->newDataObject();
-						$keywordEntry->setControlledVocabId($currentKeywords->getID());
+						$keywordEntry->setControlledVocabId($currentKeywords->getId());
 						$keywordEntry->setKeyword(urldecode($keyword), $locale);
 						$keywordEntry->setSequence($i);
 						$i++;
@@ -127,8 +124,8 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	 * @return int|array Controlled Vocab
 	 */
 	public function deleteByPublicationId($publicationId) {
-		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $keywordDao SubmissionKeywordDAO */
+		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /* @var $submissionKeywordEntryDao SubmissionKeywordEntryDAO */
 		$currentKeywords = $this->build($publicationId);
 
 		$existingEntries = $keywordDao->enumerate($currentKeywords->getId(), CONTROLLED_VOCAB_SUBMISSION_KEYWORD);

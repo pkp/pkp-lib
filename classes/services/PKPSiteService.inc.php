@@ -2,9 +2,9 @@
 /**
  * @file classes/services/PKPSiteService.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSiteService
  * @ingroup services
@@ -18,6 +18,7 @@ use \Application;
 use \DAORegistry;
 use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
+use \PKP\Services\interfaces\EntityWriteInterface;
 
 class PKPSiteService implements EntityPropertyInterface {
 
@@ -91,20 +92,21 @@ class PKPSiteService implements EntityPropertyInterface {
 			]
 		);
 
+		// Check required fields
+		\ValidatorFactory::required(
+			$validator,
+			VALIDATE_ACTION_EDIT,
+			$schemaService->getRequiredProps(SCHEMA_PUBLICATION),
+			$schemaService->getMultilingualProps(SCHEMA_PUBLICATION),
+			$allowedLocales,
+			$primaryLocale
+		);
+
 		// Check for input from disallowed locales
 		\ValidatorFactory::allowedLocales(
 			$validator,
 			$schemaService->getMultilingualProps(SCHEMA_SITE),
 			$allowedLocales
-		);
-
-		// Don't allow an empty value for the primary locale for some fields
-		\ValidatorFactory::requirePrimaryLocale(
-			$validator,
-			['title', 'contactName', 'contactEmail'],
-			$props,
-			$allowedLocales,
-			$primaryLocale
 		);
 
 		// If a new file has been uploaded, check that the temporary file exists and
@@ -170,7 +172,7 @@ class PKPSiteService implements EntityPropertyInterface {
 	 * @return Site
 	 */
 	public function edit($site, $params, $request) {
-		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 
 		// Move uploaded files into place and update the params
 		$userId = $request->getUser() ? $request->getUser()->getId() : null;
@@ -190,7 +192,7 @@ class PKPSiteService implements EntityPropertyInterface {
 		$newSite = $siteDao->newDataObject();
 		$newSite->_data = array_merge($site->_data, $params);
 
-		\HookRegistry::call('Site::edit', array($newSite, $site, $params, $request));
+		\HookRegistry::call('Site::edit', array(&$newSite, $site, $params, $request));
 
 		$siteDao->updateObject($newSite);
 		$newSite = $siteDao->getSite();
@@ -273,20 +275,12 @@ class PKPSiteService implements EntityPropertyInterface {
 			return null;
 		}
 
-		// Get uploaded file to move
-		if ($isImage) {
-			if (empty($value['temporaryFileId'])) {
-				return $value; // nothing to upload
-			}
-			$temporaryFileId = (int) $value['temporaryFileId'];
-		} else {
-			if (!ctype_digit($value)) {
-				return $value; // nothing to upload
-			}
-			$temporaryFileId = (int) $value;
+		// Check if there is something to upload
+		if (empty($value['temporaryFileId'])) {
+			return $value;
 		}
 
-		$temporaryFile = $temporaryFileManager->getFile($temporaryFileId, $userId);
+		$temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $userId);
 		$fileName = $this->moveTemporaryFile($site, $temporaryFile, $settingName, $userId, $localeKey);
 
 		if ($fileName) {
@@ -307,7 +301,11 @@ class PKPSiteService implements EntityPropertyInterface {
 					'altText' => $altText,
 				];
 			} else {
-				return $fileName;
+				return [
+					'originalFilename' => $temporaryFile->getOriginalFileName(),
+					'uploadName' => $fileName,
+					'dateUploaded' => \Core::getCurrentDate(),
+				];
 			}
 		}
 

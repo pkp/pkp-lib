@@ -6,9 +6,9 @@
 /**
  * @file lib/pkp/classes/statistics/PKPMetricsDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPMetricsDAO
  * @ingroup lib_pkp_classes_statistics
@@ -131,6 +131,10 @@ class PKPMetricsDAO extends DAO {
 				$currentClause =& $whereClause; // Reference required.
 			}
 
+			if (is_object($values)) {
+				$values = (array) $values;
+			}
+
 			if (is_array($values) && isset($values['from'])) {
 				// Range filter: The value is a hashed array with from/to entries.
 				if (!isset($values['to'])) return $nullVar;
@@ -195,7 +199,10 @@ class PKPMetricsDAO extends DAO {
 		else $result = $this->retrieve($sql, $params);
 
 		// Return the report.
-		$returner = $result->GetAll();
+		$returner = [];
+		foreach ($result as $row) {
+			$returner[] = (array) $row;
+		}
 		return $returner;
 	}
 
@@ -209,15 +216,12 @@ class PKPMetricsDAO extends DAO {
 	 * @return array
 	 */
 	function getLoadId($assocType, $assocId, $metricType) {
-		$params = array($assocType, $assocId, $metricType);
-		$result = $this->retrieve('SELECT load_id FROM metrics WHERE assoc_type = ? AND assoc_id = ? AND metric_type = ? GROUP BY load_id', $params);
+		$result = $this->retrieve('SELECT load_id FROM metrics WHERE assoc_type = ? AND assoc_id = ? AND metric_type = ? GROUP BY load_id', [$assocType, $assocId, $metricType]);
 
-		$loadIds = array();
-		while (!$result->EOF) {
-			$row = $result->FetchRow();
-			$loadIds[] = $row['load_id'];
+		$loadIds = [];
+		foreach ($result as $row) {
+			$loadIds[] = $row->load_id;
 		}
-
 		return $loadIds;
 	}
 
@@ -228,13 +232,8 @@ class PKPMetricsDAO extends DAO {
 	 * @return boolean
 	 */
 	function hasRecord($metricType) {
-		$result = $this->retrieve('SELECT load_id FROM metrics WHERE metric_type = ? LIMIT 1', array($metricType));
-		$row = $result->GetRowAssoc();
-		if ($row) {
-			return true;
-		} else {
-			return false;
-		}
+		$result = $this->retrieve('SELECT load_id FROM metrics WHERE metric_type = ? LIMIT 1', [$metricType]);
+		return (boolean) $result->current();
 	}
 
 	/**
@@ -243,7 +242,7 @@ class PKPMetricsDAO extends DAO {
 	 * @param $loadId string
 	 */
 	function purgeLoadBatch($loadId) {
-		$this->update('DELETE FROM metrics WHERE load_id = ?', $loadId); // Not a number.
+		$this->update('DELETE FROM metrics WHERE load_id = ?', [$loadId]); // Not a number.
 	}
 
 	/**
@@ -253,7 +252,7 @@ class PKPMetricsDAO extends DAO {
 	 * @param $toDate string
 	 */
 	function purgeRecords($metricType, $toDate) {
-		$this->update('DELETE FROM metrics WHERE metric_type = ? AND day IS NOT NULL AND day <= ?', array($metricType, $toDate));
+		$this->update('DELETE FROM metrics WHERE metric_type = ? AND day IS NOT NULL AND day <= ?', [$metricType, $toDate]);
 	}
 
 	/**
@@ -266,7 +265,7 @@ class PKPMetricsDAO extends DAO {
 		$recordToStore = array();
 
 		// Required dimensions.
-		$requiredDimensions = array('load_id', 'assoc_type', 'assoc_id', 'metric_type');
+		$requiredDimensions = ['load_id', 'assoc_type', 'assoc_id', 'metric_type'];
 		foreach ($requiredDimensions as $requiredDimension) {
 			if (!isset($record[$requiredDimension])) {
 				throw new Exception('Cannot load record: missing dimension "' . $requiredDimension . '".');
@@ -350,13 +349,12 @@ class PKPMetricsDAO extends DAO {
 		switch($assocType) {
 			case ASSOC_TYPE_SUBMISSION_FILE:
 			case ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER:
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-				$submissionFile = $submissionFileDao->getLatestRevision($assocId);
+				$submissionFile = Services::get('submissionFile')->get($assocId);
 				if ($submissionFile) {
 					$isFile = true;
-					$submissionId = $submissionFile->getSubmissionId();
-					if ($submissionFile->getAssocType() == ASSOC_TYPE_REPRESENTATION) {
-						$representationId = $submissionFile->getAssocId();
+					$submissionId = $submissionFile->getData('submissionId');
+					if ($submissionFile->getData('assocType') == ASSOC_TYPE_REPRESENTATION) {
+						$representationId = $submissionFile->getData('assocId');
 					} else {
 						throw new Exception('Cannot load record: submission file is not associated with a representation object.');
 					}
@@ -380,7 +378,7 @@ class PKPMetricsDAO extends DAO {
 				// Don't break but go on to retrieve the submission.
 			case ASSOC_TYPE_SUBMISSION:
 				if (!$isFile && !$isRepresentation) $submissionId = $assocId;
-				$submissionDao = Application::getSubmissionDAO(); /* @var $submissionDao SubmissionDAO */
+				$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 				$submission = $submissionDao->getById($submissionId);
 				if ($submission) {
 					$contextId = $submission->getContextId();

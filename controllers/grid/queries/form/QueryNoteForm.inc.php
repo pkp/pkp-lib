@@ -3,9 +3,9 @@
 /**
  * @file controllers/grid/users/queries/form/QueryNoteForm.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNoteForm
  * @ingroup controllers_grid_users_queries_form
@@ -42,7 +42,7 @@ class QueryNoteForm extends Form {
 
 		if ($noteId === null) {
 			// Create a new (placeholder) note.
-			$noteDao = DAORegistry::getDAO('NoteDAO');
+			$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 			$note = $noteDao->newDataObject();
 			$note->setAssocType(ASSOC_TYPE_QUERY);
 			$note->setAssocId($query->getId());
@@ -107,12 +107,12 @@ class QueryNoteForm extends Form {
 	 * @copydoc Form::execute()
 	 * @return Note The created note object.
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
 		// Create a new note.
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$note = $noteDao->getById($this->_noteId);
 		$note->setUserId($request->getUser()->getId());
 		$note->setContents($this->getData('comment'));
@@ -125,13 +125,13 @@ class QueryNoteForm extends Form {
 			if ($user->getId() != $headNote->getUserId()) {
 				// Re-open the query.
 				$query->setIsClosed(false);
-				$queryDao = DAORegistry::getDAO('QueryDAO');
+				$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 				$queryDao->updateObject($query);
 			}
 		}
 
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
-		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 
 		// Always include current user to query participants
 		if (!in_array($user->getId(), $queryDao->getParticipantIds($query->getId()))) {
@@ -161,6 +161,8 @@ class QueryNoteForm extends Form {
 				NOTIFICATION_LEVEL_TASK
 			);
 		}
+
+		parent::execute(...$functionArgs);
 
 		return $note;
 	}

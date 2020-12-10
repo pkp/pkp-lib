@@ -3,9 +3,9 @@
 /**
  * @file classes/file/TemporaryFileDAO.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TemporaryFileDAO
  * @ingroup file
@@ -23,22 +23,16 @@ class TemporaryFileDAO extends DAO {
 	 * Retrieve a temporary file by ID.
 	 * @param $fileId int
 	 * @param $userId int
-	 * @return TemporaryFile
+	 * @return TemporaryFile?
 	 */
 	function getTemporaryFile($fileId, $userId) {
-		$result = $this->retrieveLimit(
+		$result = $this->retrieve(
 			'SELECT t.* FROM temporary_files t WHERE t.file_id = ? and t.user_id = ?',
-			array((int) $fileId, (int) $userId),
-			1
+			[(int) $fileId, (int) $userId]
 		);
 
-		$returner = null;
-		if (isset($result) && $result->RecordCount() != 0) {
-			$returner = $this->_returnTemporaryFileFromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
+		$row = (array) $result->current();
+		return $row?$this->_returnTemporaryFileFromRow($row):null;
 	}
 
 	/**
@@ -129,10 +123,7 @@ class TemporaryFileDAO extends DAO {
 	 * @param $userId int
 	 */
 	function deleteTemporaryFileById($fileId, $userId) {
-		return $this->update(
-			'DELETE FROM temporary_files WHERE file_id = ? AND user_id = ?',
-			array((int) $fileId, (int) $userId)
-		);
+		return $this->update('DELETE FROM temporary_files WHERE file_id = ? AND user_id = ?', [(int) $fileId, (int) $userId]);
 	}
 
 	/**
@@ -140,28 +131,21 @@ class TemporaryFileDAO extends DAO {
 	 * @param $userId int
 	 */
 	function deleteByUserId($userId) {
-		return $this->update(
-			'DELETE FROM temporary_files WHERE user_id = ?',
-			(int) $userId
-		);
+		return $this->update('DELETE FROM temporary_files WHERE user_id = ?', [(int) $userId]);
 	}
 
-	function &getExpiredFiles() {
+	/**
+	 * Get all expired temorary files.
+	 * @return array
+	 */
+	function getExpiredFiles() {
 		// Files older than one day can be cleaned up.
 		$expiryThresholdTimestamp = time() - (60 * 60 * 24);
-
 		$temporaryFiles = array();
-
-		$result = $this->retrieve(
-			'SELECT * FROM temporary_files WHERE date_uploaded < ' . $this->datetimeToDB($expiryThresholdTimestamp)
-		);
-
-		while (!$result->EOF) {
-			$temporaryFiles[] = $this->_returnTemporaryFileFromRow($result->GetRowAssoc(false));
-			$result->MoveNext();
+		$result = $this->retrieve('SELECT * FROM temporary_files WHERE date_uploaded < ' . $this->datetimeToDB($expiryThresholdTimestamp));
+		foreach ($result as $row) {
+			$temporaryFiles[] = $this->_returnTemporaryFileFromRow((array) $row);
 		}
-
-		$result->Close();
 		return $temporaryFiles;
 	}
 
@@ -173,5 +157,4 @@ class TemporaryFileDAO extends DAO {
 		return $this->_getInsertId('temporary_files', 'file_id');
 	}
 }
-
 

@@ -10,9 +10,9 @@
 /**
  * @file classes/submission/PKPSubmission.inc.php
  *
- * Copyright (c) 2014-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2000-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmission
  * @ingroup submission
@@ -45,15 +45,15 @@ abstract class PKPSubmission extends DataObject {
 	}
 
 	/**
-	 * Return the "best" article ID -- If a public article ID is set,
+	 * Return the "best" article ID -- If a urlPath is set,
 	 * use it; otherwise use the internal article Id.
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
 	function getBestId() {
-		$publicArticleId = $this->getStoredPubId('publisher-id');
-		if (!empty($publicArticleId)) return $publicArticleId;
-		return $this->getId();
+		return $this->getCurrentPublication()->getData('urlPath')
+			? $this->getCurrentPublication()->getData('urlPath')
+			: $this->getId();
 	}
 
 	/**
@@ -164,7 +164,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @copydoc DataObject::getDAO()
 	 */
 	function getDAO() {
-		return Application::get()->getSubmissionDAO();
+		return DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 	}
 
 	//
@@ -221,19 +221,39 @@ abstract class PKPSubmission extends DataObject {
 	}
 
 	/**
-	 * Get a piece of data for this object, localized to the current
-	 * locale of the current publication if possible.
-	 * @param $key string
-	 * @param $preferredLocale string
-	 * @param $returnLocale string Optional reference to string receiving return value's locale
+	 * Get localized data for this object.
+	 *
+	 * It selects the locale in the following order:
+	 * - $preferredLocale
+	 * - the user's current locale
+	 * - the submission's primary locale
+	 * - the first locale we find data for
+	 *
+	 * @param string $key
+	 * @param string $preferredLocale
 	 * @return mixed
-	 * @deprecated 3.2.0.0
 	 */
-	function &getLocalizedData($key, $preferredLocale = null) {
-		$publication = $this->getCurrentPublication();
-		if ($publication) {
-			return $publication->getLocalizedData($key, $preferredLocale);
+	public function getLocalizedData($key, $preferredLocale = null) {
+		// 1. Preferred locale
+		if ($preferredLocale && $this->getData($key, $preferredLocale)) {
+			return $this->getData($key, $preferredLocale);
 		}
+		// 2. User's current locale
+		if (!empty($this->getData($key, AppLocale::getLocale()))) {
+			return $this->getData($key, AppLocale::getLocale());
+		}
+		// 3. Submission's primary locale
+		if (!empty($this->getData($key, $this->getData('locale')))) {
+			return $this->getData($key, $this->getData('locale'));
+		}
+		// 4. The first locale we can find data for
+		$data = $this->getData($key, null);
+		foreach ((array) $data as $value) {
+			if (!empty($value)) {
+				return $value;
+			}
+		}
+
 		return null;
 	}
 
@@ -330,7 +350,7 @@ abstract class PKPSubmission extends DataObject {
 		if (!$publication) {
 			return '';
 		}
-		return $publication->getData('licenseURL');
+		return $publication->getData('licenseUrl');
 	}
 
 	/**
@@ -341,7 +361,7 @@ abstract class PKPSubmission extends DataObject {
 	function setLicenseURL($licenseURL) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
-			$publication->setData('licenseURL', $licenseURL);
+			$publication->setData('licenseUrl', $licenseURL);
 		}
 	}
 
@@ -375,7 +395,8 @@ abstract class PKPSubmission extends DataObject {
 			return $author->getData('userGroupId');
 		}, $this->getAuthors());
 		$userGroups = array_map(function($userGroupId) {
-			return DAORegistry::getDAO('UserGroupDAO')->getbyId($userGroupId);
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+			return $userGroupDao->getbyId($userGroupId);
 		}, array_unique($userGroupIds));
 
 		return $publication->getAuthorString($userGroups);
@@ -422,7 +443,7 @@ abstract class PKPSubmission extends DataObject {
 			return [];
 		}
 		$authors = $publication->getData('authors');
-		if (empty(!$authors)) {
+		if (empty($authors)) {
 			return [];
 		}
 		if ($onlyIncludeInBrowse) {
@@ -450,11 +471,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @deprecated 3.2.0.0
 	 */
 	function getLocale() {
-		$publication = $this->getCurrentPublication();
-		if (!$publication) {
-			return '';
-		}
-		return $publication->getData('locale');
+		return $this->getData('locale');
 	}
 
 	/**
@@ -463,10 +480,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @deprecated 3.2.0.0
 	 */
 	function setLocale($locale) {
-		$publication = $this->getCurrentPublication();
-		if ($publication) {
-			$publication->setData('locale', $locale);
-		}
+		$this->setData('locale', $locale);
 	}
 
 	/**
@@ -1197,4 +1211,13 @@ abstract class PKPSubmission extends DataObject {
 		$publication = $this->getCurrentPublication();
 		return $publication && $publication->isCCLicense();
 	}
+
+	/**
+         * Get views of the submission.
+         * @return int
+         */
+        function getViews() {
+                $application = Application::getApplication();
+                return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION, $this->getId());
+        }
 }

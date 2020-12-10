@@ -97,8 +97,6 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 			}
 		}
 
-		throw new Exception('PKPPublication Exception');
-
 		$publication = Services::get('publication')->edit($publication, array(), Application::get()->getRequest());
 
 		return $publication;

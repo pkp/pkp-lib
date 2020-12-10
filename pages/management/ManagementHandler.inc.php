@@ -118,7 +118,7 @@ class ManagementHandler extends Handler {
 			$currentVersion = VersionCheck::getCurrentDBVersion();
 			$templateMgr->assign([
 				'newVersionAvailable' =>  true,
-				'currentVersion' => $currentVersion->getVersionString()
+				'currentVersion' => $currentVersion->getVersionString(),
 				'latestVersion' =>  $latestVersion,
 			]);
 

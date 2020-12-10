@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:39+00:00\n"
-"PO-Revision-Date: 2020-11-29 09:51+0000\n"
+"PO-Revision-Date: 2020-12-10 15:07+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/pl_PL/>\n"
@@ -2098,3 +2098,12 @@ msgstr "Został utworzona nowa wersja zgłoszenia"
 
 msgid "notification.type.editorDecisionNewRound"
 msgstr "Zainicjowano nową rundę recenzji."
+
+msgid "notification.type.revertDecline"
+msgstr "Decyzja o odrzuceniu tego zgłoszenia została zniesiona."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Zgłoszenie przywrócone do kolejki."
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Przywróć"

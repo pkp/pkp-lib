@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2020-10-14 12:50+0000\n"
+"PO-Revision-Date: 2020-12-12 08:52+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fi_FI/>\n"
@@ -508,9 +508,10 @@ msgstr "Poista lokimerkintä"
 msgid "submission.event.submissionSubmitted"
 msgstr "Käsikirjoituksen ensimmäinen lähetys suoritettu."
 
-#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Korjaus \"{$name}\" (tiedoston tunniste {$submissionFileId}) ladattiin."
+msgstr ""
+"Korjattu tiedostoversio \"{$name}\" ladattiin tiedostolle "
+"{$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Käsikirjoituksen metatiedot päivitetty"
@@ -981,7 +982,7 @@ msgid "submission.loadMessage"
 msgstr "Odota, kunnes tiedosto on ladattu palvelimelle."
 
 msgid "submission.artworkFileDetails"
-msgstr "Kuvamateriaalitiedoston tiedot"
+msgstr "Teostiedoston tiedot"
 
 msgid "submission.fileDetails"
 msgstr "Tiedoston tiedot"
@@ -1308,7 +1309,7 @@ msgid "submission.document"
 msgstr "Asiakirja"
 
 msgid "submission.art"
-msgstr "Kuvamateriaali"
+msgstr "Teos"
 
 msgid "submission.supplementary"
 msgstr "Lisäsisältö"
@@ -1497,10 +1498,10 @@ msgid "submission.list.viewSubmission"
 msgstr "Katso käsikirjoitusta"
 
 msgid "submission.list.responseDue"
-msgstr "Vastausaika umpeutuu"
+msgstr "Vastausaika umpeutuu {$date}"
 
 msgid "submission.list.reviewDue"
-msgstr "Arviointiaika umpeutuu"
+msgstr "Arviointiaika umpeutuu {$date}"
 
 msgid "submission.query.noParticipantOptions"
 msgstr "Käsikirjoitukseen pitää lisätä vähintään yksi osallistuja ennen keskustelun aloittamista."
@@ -1650,7 +1651,9 @@ msgid "submission.list.reviewComplete"
 msgstr "Arvio lähetetty"
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
-msgstr "Valitsemasi käyttäjä tekee käsikirjoituksessa sokkoarviointia. Mikäli lisäät hänet osallistujaksi, käyttäjä näkee kirjoittajan nimen."
+msgstr ""
+"Valitsemasi käyttäjä tekee käsikirjoituksessa anonyymia arviointia. Mikäli "
+"lisäät hänet osallistujaksi, käyttäjä näkee kirjoittajan nimen."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Käytä roolia"
@@ -1953,3 +1956,47 @@ msgstr "{$datePublished} — Päivitetty {$dateUpdated}"
 
 msgid "submission.representationOfTitle"
 msgstr "{$representation} - {$title}"
+
+msgid "notification.type.revertDecline"
+msgstr "Päätös hylätä tämä käsikirjoitus peruttiin."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Hylätty käsikirjoitus palautettu."
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"Käyttäjä {$username} muokkasi tiedoston  \"{$originalFileName}\" "
+"kuvailutietoja."
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Peru hylkäys"
+
+msgid "submission.upload.percentComplete"
+msgstr "Ladataan {$percent}% valmiina"
+
+msgid "submission.upload.instructions"
+msgstr "Lataa kaikki käsikirjoitukseesi käsittelyyn tarvittavat tiedostot."
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Tiedoston lataaja tallennetaan, kun tiedosto siirretään ja sitä ei voi "
+"muuttaa."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Oletko varma, että haluat poistaa tämän tiedoston?"
+
+msgid "submission.submit.genre.error"
+msgstr "Ole hyvä ja valitse tiedoston tyyppi jokaiselle ladatulle tiedostolle."
+
+msgid "submission.submit.genre.description"
+msgstr "Valitse vaihtoehto, joka kuvaa tiedostoa parhaiten."
+
+msgid "submission.submit.genre.label"
+msgstr "Millainen tiedosto tämä on?"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Yhden tai useamman arvioijan arvio on myöhässä. Toimittajat pyrkivät "
+"keräämään puuttuvat arviot mahdollisimman nopeasti. Sinun ei tässä vaiheessa "
+"tarvitse ryhtyä mihinkään toimenpiteisiin. Sinulle ilmoitetaan heti, kun "
+"arviot ovat valmiina ja toimittaja tekee päätöksen käsikirjoituksesi suhteen."

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2020-10-14 12:50+0000\n"
+"PO-Revision-Date: 2020-12-12 08:52+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/fi_FI/>\n"
@@ -183,3 +183,6 @@ msgstr "Anna yksilöivä sivuston tunniste ja OAI:n perus-URL-osoite PKP:lle ain
 
 msgid "installer.unsupportedPhpError"
 msgstr "Tämä ohjelmisto ei tue palvelimesi PHP-versiota. Tarkista vaatimukset docs/README-tiedostosta."
+
+msgid "installer.installMigrationError"
+msgstr "Virhe suoritettaessa käännösluokkaa  <tt>{$class}</tt>."

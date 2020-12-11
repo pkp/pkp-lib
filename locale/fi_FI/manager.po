@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2020-10-19 09:01+0000\n"
+"PO-Revision-Date: 2020-12-12 08:52+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi_FI/>\n"
@@ -27,7 +27,7 @@ msgid "manager.announcements"
 msgstr "Ilmoitukset"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Haluatko varmasti poistaa tämän ilmoituksen pysyvästi?"
+msgstr "Haluatko varmasti poistaa ilmoituksen {$title} pysyvästi?"
 
 msgid "manager.announcements.create"
 msgstr "Luo uusi ilmoitus"
@@ -66,7 +66,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Valitse kuukausi ja/tai päivä voimassaolon päättymisvuoden lisäksi."
 
 msgid "manager.announcements.form.description"
-msgstr "Kuvaus"
+msgstr "Ilmoitus"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Ilmoituksen koko teksti."
@@ -1582,11 +1582,10 @@ msgstr "Lisenssi"
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Rekisteröityneet käyttäjät"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Tarjoa ladatessa linkki <button type=\"button\">Varmista "
-"sokkoarviointi</button>"
+"Näytä tiedostojen latauksen yhteydessä linkki <button type=\"button\">"
+"Varmista tiedostojen anonymiteetti</button>"
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Arvioinnin oletusmuoto"
@@ -1918,7 +1917,7 @@ msgid "stats.name.declinedDeskRate"
 msgstr "Arviointia edeltävä hylkäysaste"
 
 msgid "stats.name.declineRate"
-msgstr "Hylkäysaste"
+msgstr "Hylkäysprosentti"
 
 msgid "stats.name.acceptanceRate"
 msgstr "Hyväksymisaste"
@@ -2024,3 +2023,128 @@ msgstr ""
 "(dataset), kuva (Image) tai jokin <a target=\"_blank\" href=\""
 "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#section-7\""
 ">Dublin Coren tyyppisanastosta</a>."
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Käsikirjoituksen tiedosto {$id} ohitettiin, koska se on liitetty tietueeseen "
+"jota ei viedä, kuten arviointipyyntö tai keskustelu."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Valitse minkä tyyppisiä kuvailutietoja tiedostoihin liittyen voi täyttää. "
+"Asiakirja on oikea valinta varsinaisille kokotekstitiedostoille, kuten "
+"julkaistut PDF-artikkelit, jotka saavat kuvailutietonsa koko "
+"käsikirjoituksen kuvailutiedoista. Muussa tapauksessa lisäsisältö sopii "
+"useimmille tiedostotyypeille. Teos sopii tiedostoille, joihin tarvitsee "
+"liittää tarkat tekijänoikeuteen ja lisensointiin liittyvät tiedot, kuten "
+"taideteokset, äänitteet ja valokuvat."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Tiedoston kuvailutiedot"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Nämä ovat liitetiedostoja, kuten tietoaineistoja tai tutkimusaineistoja, "
+"jotka näytetään erillään julkaistusta kokotekstistä."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Nämä ovat avustavia tiedostoja, kuten kuvia HTML-tiedostossa, eikä niitä "
+"näytetä yksinään julkaistuna sisältönä."
+
+msgid "manager.setup.genres.label"
+msgstr "Tiedostotyyppi"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Oletko varma, että haluat ottaa osaston käyttöön?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Oletko varma, että haluat ottaa osaston pois käytöstä?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Ota tämä osasto pois käytöstä äläkä salli uusien käsikirjoitusten "
+"lähettämistä siihen."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Mukautettu"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Päivämäärä ja aika (lyhyt)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Päivämäärä ja aika"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Aika"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Päivämäärä (lyhyt)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Päivämäärä"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Valitse haluttu muoto päivämäärille ja ajoille. Mukautetun muodon voi antaa "
+"käyttämällä ohjelmointikielessä määriteltyjä <a href='http://php.net/manual/"
+"en/function.strftime.php#refsect1-function.strftime-"
+"parameters'>muuttujia</a>."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Päivämäärän ja ajan muotoilu"
+
+msgid "manager.setup.dateTime"
+msgstr "Päivämäärä ja aika"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Lähetä uusi sähköposti"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Sähköposti lähetettiin onnistuneesti kaikille vastaanottajille."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Sähköpostia lähetetään. Älä siirry tältä sivulta pois ennen kuin lähetys on "
+"valmis."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Olet lähettämässä sähköpostin {$total} käyttäjälle. Oletko varma, että "
+"haluat lähettää sähköpostin?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Lähetä sähköposti"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Lähetä kopio minulle sähköpostiosoitteeseen {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Valitse käyttäjät joille haluat lähettää sähköposti-ilmoituksen."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Ilmoita"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Ota käsikirjoitusten lähetys pois päältä"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Mukautettu raportti -työkalu"
+
+msgid "manager.people.signedInAs"
+msgstr "Olet kirjautuneena tunnuksella {$username}"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Valitse Excel/CSV-tiedostoon vietävät käyttäjät."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Vie Excel/CSV-muotoon"
+
+msgid "manager.emails.resetComplete"
+msgstr "Sähköpostipohja tallennettiin onnistuneesti."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Alkuperäiset sähköpostipohjat palautettu."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Poista ilmoitus"

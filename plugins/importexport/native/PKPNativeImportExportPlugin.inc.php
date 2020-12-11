@@ -77,7 +77,8 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		$context = $this->getDeployment()->getContext();
 		$user = $this->getDeployment()->getUser();
 
-		switch (array_shift($args)) {
+		$opType = array_shift($args);
+		switch ($opType) {
 			case 'index':
 			case '':
 				$apiUrl = $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'submissions');
@@ -138,6 +139,14 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 				$temporaryFilePath = $this->getImportedFilePath($request->getUserVar('temporaryFileId'), $this->getDeployment()->getUser());
 				list ($filter, $xmlString) = $this->getImportFilter($temporaryFilePath);
 				$result = $this->getImportTemplateResult($filter, $xmlString, $this->getDeployment(), $templateMgr);
+
+				return array($result, true);
+			case 'exportSubmissions':
+				$submissionIds = (array) $request->getUserVar('selectedSubmissions');
+
+				$this->getExportSubmissionsDeployment($submissionIds, $this->getDeployment());
+
+				$result = $this->getExportTemplateResult($this->getDeployment(), $templateMgr, 'submissions');
 
 				return array($result, true);
 			// case 'exportSubmissions':

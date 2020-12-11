@@ -19,13 +19,17 @@ import('lib.pkp.classes.plugins.ImportExportPlugin');
 class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 	var $_childDeployment = null;
+
 	/**
 	 * @copydoc Plugin::register()
 	 */
 	function register($category, $path, $mainContextId = null) {
 		$success = parent::register($category, $path, $mainContextId);
-		$this->addLocaleData();
-		$this->import('NativeImportExportDeployment');
+		if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) return $success;
+		if ($success && $this->getEnabled()) {
+			$this->addLocaleData();
+			$this->import('NativeImportExportDeployment');
+		}
 		return $success;
 	}
 
@@ -200,7 +204,9 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		}
 	}
 
-	function getExportSubmissionsDeployment($filter, $submissionIds, &$deployment, $opts = array()) {
+	function getExportSubmissionsDeployment($submissionIds, &$deployment, $opts = array()) {
+		$filter = $this->getExportFilter('exportSubmissions');
+
 		$submissions = array();
 		foreach ($submissionIds as $submissionId) {
 			/** @var $submissionService APP\Services\SubmissionService */
@@ -398,18 +404,18 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		$fileManager->deleteByPath($exportFileName);
 	}
 
-	function getImportFilter($xmlFile) {
-		$filter = 'native-xml=>issue';
-		// is this articles import:
-		$xmlString = file_get_contents($xmlFile);
-		$document = new DOMDocument();
-		$document->loadXml($xmlString);
-		if (in_array($document->documentElement->tagName, array('article', 'articles'))) {
-			$filter = 'native-xml=>article';
-		}
+	// function getImportFilter($xmlFile) {
+	// 	$filter = 'native-xml=>issue';
+	// 	// is this articles import:
+	// 	$xmlString = file_get_contents($xmlFile);
+	// 	$document = new DOMDocument();
+	// 	$document->loadXml($xmlString);
+	// 	if (in_array($document->documentElement->tagName, array('article', 'articles'))) {
+	// 		$filter = 'native-xml=>article';
+	// 	}
 
-		return array($filter, $xmlString);
-	}
+	// 	return array($filter, $xmlString);
+	// }
 
 	/**
 	 * @copydoc PKPImportExportPlugin::usage
@@ -651,6 +657,14 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 	public function getDeployment() {
 		return $this->_childDeployment;
+	}
+
+	function getImportFilter($xmlFile) {
+		return false;
+	}
+
+	function getExportFilter($exportType) {
+		return false;
 	}
 }
 

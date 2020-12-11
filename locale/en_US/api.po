@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-27T09:47:20-07:00\n"
+"PO-Revision-Date: 2020-12-12 08:51+0000\n"
+"Last-Translator: Weblate Admin <alec@smecher.bc.ca>\n"
+"Language-Team: English (United States) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/api/en_US/>\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:20-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:20-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "The {$param} parameter is not supported."
@@ -39,7 +42,9 @@ msgid "api.emails.400.missingUserGroups"
 msgstr "You must indicate the user roles that should receive this email."
 
 msgid "api.emails.403.notAllowedUserGroup"
-msgstr "You are not allowed to send an email to users in or more of the selected roles."
+msgstr ""
+"You are not allowed to send an email to users in one or more of the selected "
+"roles."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "The email template you requested was not found."
@@ -91,98 +96,3 @@ msgstr "The public files directory was not found or files can not be saved to it
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr "You can not modify the file association without passing an assocType and assocId."
-
-msgid "api.submissionFiles.400.noFileStageId"
-
-msgid "api.submissionFiles.400.badDependentFileAssocType"
-msgstr "A file from this file stage can not be a dependent file."
-
-msgid "api.submissionFiles.400.badNoteAssocType"
-msgstr "You can not associated a file from this file stage a discussion note."
-
-msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
-msgstr "You can not associated a file from this file stage with a review assignment."
-
-msgid "api.submissionFiles.400.badReviewRoundAssocType"
-msgstr "You can not associated a file from this file stage with a review round."
-
-msgid "api.submissionFiles.400.missingReviewRoundAssocType"
-msgstr "You must provide a valid review round in order to upload to this file stage by including assocType and assocId properties."
-
-msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
-msgstr "The review round for this file is not part of the specified submission stage."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageId"
-msgstr "You are not authorized to access files from this stage."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
-msgstr "You are not authorized to add or edit files from this stage."
-
-msgid "api.submissionFiles.403.unauthorizedReviewRound"
-msgstr "You are not authorized to access files from this review round."
-
-msgid "api.submissions.403.userCantEdit"
-msgstr "You are not allowed to edit this publication."
-
-msgid "api.stats.400.wrongDateFormat"
-msgstr "The date must be in the format YYYY-MM-DD."
-
-msgid "api.stats.400.wrongDateRange"
-msgstr "The start date can not be later than the end date."
-
-msgid "api.stats.400.earlyDateRange"
-msgstr "The start date can not be earlier than 2001-01-01."
-
-msgid "api.stats.400.lateDateRange"
-msgstr "The end date can not be later than yesterday."
-
-msgid "api.stats.400.wrongTimelineInterval"
-msgstr "Your request was not valid. The timelineInterval must be `day` or `month`."
-
-msgid "api.stats.400.invalidOrderDirection"
-msgstr "Your request was not valid. The orderDirection must be `desc` or `asc`."
-
-msgid "api.submissions.403.csrfTokenFailure"
-msgstr "Your request was denied. This may be because your login has expired. Try reloading the page and trying again."
-
-msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
-msgstr "You can only view unpublished submissions to which you have been assigned."
-
-msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "You can not delete a submission that is not assigned to this context."
-
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "You do not have permission to delete this submission."
-
-msgid "api.submissions.404.siteWideEndpoint"
-msgstr "This endpoint is not available from a context. It must be accessed from the site-wide namespace."
-
-msgid "api.submissions.400.missingRequired"
-msgstr "Your request could not be fulfilled because it is missing required information."
-
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "The requested volume, number or year is not valid."
-
-msgid "api.submissions.files.403.cantChangeSubmission"
-msgstr "You can not change the submission that this file is assigned to."
-
-msgid "api.submissions.files.400.submissionsDidNotMatch"
-msgstr "The file that you requested is not part of this submission."
-
-msgid "api.submissions.files.400.sameFileStage"
-msgstr "The file is already added to this stage."
-
-msgid "api.submissions.files.400.invalidFileStage"
-msgstr "The file stage is not valid."
-
-msgid "api.submissions.files.400.noParams"
-msgstr "No changes could be found in the request to edit this file."
-
-msgid "api.themes.404.themeUnavailable"
-msgstr "The active theme, {$themePluginPath}, is not enabled and may not be installed."
-
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "The {$locale} locale is not supported."
-
-msgid "api.vocabs.400.vocabNotSupported"
-msgstr "The {$vocab} vocab is not supported."

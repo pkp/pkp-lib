@@ -2035,7 +2035,10 @@ msgid "plugins.importexport.native.export.download.results"
 msgstr "Download Exported File"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr "The export completed succesfully. Download the exported file from the button bellow."
+msgstr "The export completed successfully."
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Download the exported file from the button bellow."
 
 msgid "plugins.importexport.native.common.any"
 msgstr "Generic Items"

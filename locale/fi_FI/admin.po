@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-10-20 11:50+0000\n"
+"PO-Revision-Date: 2020-12-12 22:52+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/ops/admin/fi_FI/"
 ">\n"
@@ -13,3 +13,52 @@ msgstr ""
 
 msgid "admin.hostedContexts"
 msgstr "Ylläpidetyt palvelimet"
+
+msgid "admin.contexts.contextDescription"
+msgstr "Palvelimen kuvaus"
+
+msgid "admin.contexts.form.pathExists"
+msgstr "Valittu polku on jo toisen palvelimen käytössä."
+
+msgid "admin.contexts.form.pathAlphaNumeric"
+msgstr ""
+"Polku voi sisältää vain aakkosnumeerisia merkkejä, alaviivoja ja "
+"yhdysmerkkejä, ja sen täytyy alkaa ja päättyä aakkosnumeeriseen merkkiin."
+
+msgid "admin.contexts.create"
+msgstr "Luo palvelin"
+
+msgid "admin.systemConfiguration"
+msgstr "OPS:n määritys"
+
+msgid "admin.languages.localeInstalled"
+msgstr "{$locale} kielialue asennettu."
+
+msgid "admin.languages.installNewLocalesInstructions"
+msgstr ""
+"Valitse mitä tahansa lisäkielialueita asentaaksesi tuen tässä "
+"järjestelmässä. Kielialueet täytyy asentaa ennen kuin ylläpidetyt palvelimet "
+"voivat käyttää niitä. Katso OPS:n ohjeista tietoja siitä, kuinka uusille "
+"kielille lisätään tuki."
+
+msgid "admin.languages.confirmUninstall"
+msgstr ""
+"Haluatko varmasti poistaa tämän kielialueen? Se saattaa vaikuttaa "
+"palvelimiin, joilla on tämä kielialue käytössä."
+
+msgid "admin.locale.maybeIncomplete"
+msgstr "Merkityt kielialueet saattavat olla vaillinaisia."
+
+msgid "admin.languages.confirmDisable"
+msgstr ""
+"Haluatko varmasti poistaa tämän kielialueen käytöstä? Se saattaa "
+"vahingoittaa muita ylläpidettyjä palvelimia, joilla on tämä kielialue "
+"käytössä."
+
+msgid "admin.settings.redirectInstructions"
+msgstr ""
+"Pyynnöt pääsivustolle uudelleenohjataan tähän palvelimeen. Tämä saattaa olla "
+"hyödyllinen toiminto, jos sivustolla ylläpidetään vain yhtä palvelinta."
+
+msgid "admin.settings.redirect"
+msgstr "Palvelimen uudelleenohjaus"

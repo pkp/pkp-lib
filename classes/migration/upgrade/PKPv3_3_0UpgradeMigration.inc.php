@@ -250,6 +250,12 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 	private function _migrateSubmissionFiles() {
 		import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_ constants
 
+		// Add partial index (DBMS-specific)
+		switch (Capsule::connection()->getDriverName()) {
+			case 'mysql': Capsule::connection()->unprepared('CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name(50), setting_value(150))'); break;
+			case 'pgsql': Capsule::connection()->unprepared("CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name, setting_value) WHERE setting_name IN ('fileId', 'submissionId')"); break;
+		}
+
 		// Create a new table to track files in file storage
 		Capsule::schema()->create('files', function (Blueprint $table) {
 			$table->bigIncrements('file_id');
@@ -277,17 +283,21 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		import('lib.pkp.classes.file.FileManager');
 		$fileManager = new FileManager();
 		$rows = Capsule::table('submission_files')
+			->join('submissions', 'submission_files.submission_id', '=', 'submissions.submission_id')
 			->orderBy('file_id')
 			->orderBy('revision')
 			->get([
+				'context_id',
 				'file_id',
 				'revision',
-				'submission_id',
+				'submission_files.submission_id',
 				'genre_id',
 				'file_stage',
 				'date_uploaded',
 				'original_file_name'
 			]);
+		$fileService = Services::get('file');
+		$submissionFileService = Services::get('submissionFile');
 		foreach ($rows as $row) {
 			// Reproduces the removed method SubmissionFile::_generateFileName()
 			// genre is %s because it can be blank with review attachments
@@ -301,14 +311,13 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 				date('Ymd', strtotime($row->date_uploaded)),
 				strtolower_codesafe($fileManager->parseFileExtension($row->original_file_name))
 			);
-			$contextId = Capsule::table('submissions')->where('submission_id', '=', $row->submission_id)->first()->context_id;
 			$path = sprintf(
 				'%s/%s/%s',
-				Services::get('submissionFile')->getSubmissionDir($contextId, $row->submission_id),
+				$submissionFileService->getSubmissionDir($row->context_id, $row->submission_id),
 				$this->_fileStageToPath($row->file_stage),
 				$filename
 			);
-			if (!Services::get('file')->fs->has($path)) {
+			if ($fileService->fs->has($path)) {
 				error_log("A submission file was expected but not found at $path.");
 			}
 			$newFileId = Capsule::table('files')->insertGetId(['path' => $path], 'file_id');
@@ -499,6 +508,8 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			SUBMISSION_FILE_REVIEW_ATTACHMENT => 'submission/review/attachment',
 			SUBMISSION_FILE_REVIEW_REVISION => 'submission/review/revision',
 			SUBMISSION_FILE_FINAL => 'submission/final',
+			7 /* SUBMISSION_FILE_FAIR_COPY */ => 'submission/fairCopy',
+			8 /* SUBMISSION_FILE_EDITOR */ => 'submission/editor',
 			SUBMISSION_FILE_COPYEDIT => 'submission/copyedit',
 			SUBMISSION_FILE_DEPENDENT => 'submission/proof',
 			SUBMISSION_FILE_PROOF => 'submission/proof',

@@ -229,14 +229,10 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	 * @param $entity PKPPublication
 	 */
 	function addAuthors($doc, $entityNode, $entity) {
-		$filterDao = DAORegistry::getDAO('FilterDAO'); /** @var $filterDao FilterDAO */
-		$nativeExportFilters = $filterDao->getObjectsByGroup('author=>native-xml');
-		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
-		$exportFilter = array_shift($nativeExportFilters);
-		$exportFilter->setDeployment($this->getDeployment());
+		$currentFilter = NativeImportExportFilter::getFilter('author=>native-xml', $this->getDeployment());
 
 		$authors = $entity->getData('authors');
-		$authorsDoc = $exportFilter->execute($authors);
+		$authorsDoc = $currentFilter->execute($authors);
 		if ($authorsDoc->documentElement instanceof DOMElement) {
 			$clone = $doc->importNode($authorsDoc->documentElement, true);
 			$entityNode->appendChild($clone);
@@ -250,16 +246,12 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	 * @param $entity Publication
 	 */
 	function addRepresentations($doc, $entityNode, $entity) {
-		$filterDao = DAORegistry::getDAO('FilterDAO'); /** @var $filterDao FilterDAO */
-		$nativeExportFilters = $filterDao->getObjectsByGroup($this->getRepresentationExportFilterGroupName());
-		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
-		$exportFilter = array_shift($nativeExportFilters);
-		$exportFilter->setDeployment($this->getDeployment());
+		$currentFilter = NativeImportExportFilter::getFilter($this->getRepresentationExportFilterGroupName(), $this->getDeployment());
 
 		$representationDao = Application::getRepresentationDAO();
 		$representations = $representationDao->getByPublicationId($entity->getId());
 		while ($representation = $representations->next()) {
-			$representationDoc = $exportFilter->execute($representation);
+			$representationDoc = $currentFilter->execute($representation);
 			$clone = $doc->importNode($representationDoc->documentElement, true);
 			$entityNode->appendChild($clone);
 		}

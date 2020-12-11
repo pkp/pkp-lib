@@ -165,7 +165,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$importFilter = $this->getImportFilter($n->tagName);
 		assert(isset($importFilter)); // There should be a filter
 
-		$importFilter->setDeployment($this->getDeployment());
 		$submissionFileDoc = new DOMDocument();
 		$submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
 		return $importFilter->execute($submissionFileDoc);
@@ -180,7 +179,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$importFilter = $this->getImportFilter($n->tagName);
 		assert(isset($importFilter)); // There should be a filter
 
-		$importFilter->setDeployment($this->getDeployment());
 		$submissionFileDoc = new DOMDocument();
 		$submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
 		return $importFilter->execute($submissionFileDoc);

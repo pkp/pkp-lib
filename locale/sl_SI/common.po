@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2020-06-08 14:06+0000\n"
+"PO-Revision-Date: 2020-12-14 10:13+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"common/sl/>\n"
+"common/sl_SI/>\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1070,7 +1070,7 @@ msgid "locale.supported"
 msgstr "Podprti jeziki"
 
 msgid "navigation.access"
-msgstr "Uporabniki &amp; Vloge"
+msgstr "Uporabniki & Vloge"
 
 msgid "navigation.about"
 msgstr "O reviji"
@@ -1277,7 +1277,7 @@ msgid "notification.savedSubmissionMetadata"
 msgstr "Metapodatki prispevka so bili shranjeni."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Pošlji email obvestilo vsem registriranim uporabnikom"
+msgstr "Pošlji email obvestilo vsem registriranim uporabnikom."
 
 msgid "search.author"
 msgstr "Po avtorju"
@@ -1375,9 +1375,8 @@ msgstr "Prenesi datoteko"
 msgid "context.path"
 msgstr "Pot"
 
-#, fuzzy
 msgid "review.ensuringAnonymousReview"
-msgstr "Zagotavljanje slepe recenzije"
+msgstr "Kako zagotoviti, da bodo vse datoteke anonimizirane"
 
 msgid "grid.action.showReviewPolicy"
 msgstr "Preberite recenzijsko politiko"
@@ -1397,17 +1396,16 @@ msgstr "Naloge"
 msgid "dashboard.myQueue"
 msgstr "Dodeljeno meni"
 
-#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
-"<p>Da bi zagotovili dvojno slepo recenzijo, je potrbno, da vsi sodelujoči "
+"<p>Da bi zagotovili dvojno slepo recenzijo, je potrebno, da vsi sodelujoči "
 "storijo vse, da se prepreči razkritje identitete med avtorji in recenzenti. "
 "To se tiče predvsem avtorjev, recenzentov in urednikov, ki morajo obvezno "
 "pred nalaganjem datoteke v sistem preveriti, da izpolnjijo spodnje pogoje "
 "glede vsebine in lastnosti datoteke:</p>\n"
-"\t\t\t<ul><li>Avtorji odstranijo iz besedila svoje ime oziorma ga zamenjajo "
+"\t\t\t<ul><li>Avtorji odstranijo iz besedila svoje ime oziroma ga zamenjajo "
 "z \"Avtor\".</li>\n"
-"\t\t\t<li>V Word datotekah je odstranjean identita iz lastnosti datoteke: "
+"\t\t\t<li>V Word datotekah je odstranjena identita iz lastnosti datoteke: "
 "Datoteka -> Shrani kot -> Orodja (ali Nastavitve na Mac-u) -> Zaščita -> "
 "Odstrani osebne podatke ob shranjevanju -> Shrani.</li>\n"
 "\t\t\t<li>V PDF dokumentih je iz lastnosti datoteke odstranjeno ime avtorja: "
@@ -1788,9 +1786,11 @@ msgstr "Pri tem sodelujočem spremembe niso možne"
 msgid "stageParticipants.selectedUser"
 msgstr "Sodelujoči"
 
-#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Dovolite tej osebi, da spreminja podrobnosti objave."
+msgstr ""
+"Dovolite tej osebi, da spreminja podrobnosti prispevka, kot je naslov, "
+"izvleček, metapodatki in ostale podrobnosti. Te pravice boste morda želeli "
+"preklicati, ko bo prispevek dokončno preverjen in pripravljen za objavo."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Dovoljenja"
@@ -1926,3 +1926,57 @@ msgstr "Več kot"
 
 msgid "common.lessThanOnly"
 msgstr "Manj kot"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Nastavitve zasebnosti"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Nimate pravice za dostop do te recenzijske zadolžitve."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Nimate pravice dostopati do sporočila te diskusije."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Neveljavna diskusija."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Neveljaven krog recenzije."
+
+msgid "user.email"
+msgstr "Email naslov"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Kako zagotoviti, da so vse datoteke anonimizirane"
+
+msgid "search.searchResults.foundPlural"
+msgstr "Najdeno {$count} rezultatov."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Najden en rezultat."
+
+msgid "navigation.backTo"
+msgstr "⟵ Nazaj na {$page}"
+
+msgid "form.saved"
+msgstr "Shranjeno"
+
+msgid "common.viewWithName"
+msgstr "Poglej {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Neobstoječ uporabnik]"
+
+msgid "common.addFile"
+msgstr "Dodaj datoteko"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "Izberi {$name}"
+
+msgid "common.editItem"
+msgstr "Uredi {$name}"
+
+msgid "common.inactive"
+msgstr "Neaktiven"

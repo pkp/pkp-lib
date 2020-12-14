@@ -276,6 +276,9 @@ msgstr "Отметить рецензию как не рассмотренную
 msgid "editor.review.readConfirmation"
 msgstr "Прочитав рецензию, нажмите «Подтвердить», чтобы показать, что процесс рецензирования может продолжаться дальше. Если рецензент отправил рецензию каким-то другим образом, вы можете загрузить файл ниже и нажать «Подтвердить», чтобы продолжить."
 
+msgid "editor.submission.schedulePublication"
+msgstr "Запланировать для публикации"
+
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Файлы для литературного редактирования"
 
@@ -410,9 +413,6 @@ msgstr "Открытый идентификатор «{$publicIdentifier}» не
 
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Шаблон «{$pattern}» не разрешен для открытого идентификатора."
-
-msgid "editor.submission.schedulePublication"
-msgstr "Запланировать для публикации"
 
 msgid "reviewer.list.filterRating"
 msgstr "Рейтинг не менее"

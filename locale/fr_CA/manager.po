@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-10-02 21:49+0000\n"
+"PO-Revision-Date: 2020-12-15 09:58+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
 "helene.vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -29,7 +29,9 @@ msgid "manager.announcements"
 msgstr "Annonces"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Êtes-vous certain-e de vouloir supprimer cette annonce de façon permanente ?"
+msgstr ""
+"Êtes-vous certain-e de vouloir supprimer l'annonce {$title} de façon "
+"permanente ?"
 
 msgid "manager.announcements.create"
 msgstr "Créer une nouvelle annonce"
@@ -68,7 +70,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Veuillez choisir un mois et/ou un jour en plus de l'année d'échéance."
 
 msgid "manager.announcements.form.description"
-msgstr "Description"
+msgstr "Annonce"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Le texte complet de l'annonce."
@@ -780,9 +782,10 @@ msgstr "Politique en matière de commandites"
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Mode d'évaluation par défaut"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
-msgstr "Afficher un lien <button type=\"button\">Assurer une évaluation à l'aveugle</button> lors du téléversement"
+msgstr ""
+"Afficher un lien <button type=\"button\">Comment s'assurer que tous les "
+"fichiers sont anonymisés</button> lors du téléversement"
 
 msgid "manager.setup.sponsors.description"
 msgstr "Exemples : associations ou sociétés savantes, départements universitaires, coopératives, etc. Les organismes subventionnaires sont affichés publiquement."
@@ -2010,3 +2013,20 @@ msgstr "Obliger l'auteur-e à fournir des sujets avant d'accepter sa soumission.
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/année)"
+
+msgid "manager.export.usersToCsv.description"
+msgstr ""
+"Sélectionner les utilisateurs-trices devant être exportés-es dans un fichier "
+"Excel/CSV."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Exporter en format Excel/CSV"
+
+msgid "manager.emails.resetComplete"
+msgstr "Le modèle de courriel a été réinitialisé avec succès."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Les modèles de courriels par défaut ont été réinitialisés."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Supprimer l'annonce"

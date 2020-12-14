@@ -160,7 +160,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 				$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 				$editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getRound());
 				if (!empty($editorDecisions)) {
-					$lastDecision = array_last($editorDecisions)['decision'];
+					$lastDecision = end($editorDecisions)['decision'];
 					$revisionDecisions = [SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, SUBMISSION_EDITOR_DECISION_RESUBMIT];
 					if (in_array($lastDecision, $revisionDecisions)) {
 						$actionArgs['submissionId'] = $submission->getId();

@@ -22,6 +22,9 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 	var $_childDeployment = null;
 	var $cliDeployment = null;
 
+	var $result = null;
+	var $isResultManaged = false;
+
 	/**
 	 * @copydoc Plugin::register()
 	 */
@@ -76,8 +79,10 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		$templateMgr = TemplateManager::getManager($request);
 		parent::display($args, $request);
 
-		$context = $this->getDeployment()->getContext();
-		$user = $this->getDeployment()->getUser();
+		$context = $request->getContext();
+		$user = $request->getUser();
+		$deployment = $this->getAppSpecificDeployment($context, null);
+		$this->setDeployment($deployment);
 
 		$opType = array_shift($args);
 		switch ($opType) {
@@ -108,7 +113,8 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 				$templateMgr->display($this->getTemplateResource('index.tpl'));
 
-				return array(null, true);
+				$this->isResultManaged = true;
+				break;
 			case 'uploadImportXML':
 				import('lib.pkp.classes.file.TemporaryFileManager');
 				$temporaryFileManager = new TemporaryFileManager();
@@ -122,7 +128,11 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 					$json = new JSONMessage(false, __('common.uploadFailed'));
 				}
 				header('Content-Type: application/json');
-				return array ($json->getString(), true);
+
+				$this->result = $json->getString();
+				$this->isResultManaged = true;
+
+				break;
 			case 'importBounce':
 				$tab = $this->getBounceTab($request,
 					__('plugins.importexport.native.results'),
@@ -136,13 +146,20 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 						'exportSubmissions',
 						array('selectedSubmissions' => $request->getUserVar('selectedSubmissions'))
 				);
-				return array($tab, true);
+
+				$this->result = $tab;
+				$this->isResultManaged = true;
+
+				break;
 			case 'import':
 				$temporaryFilePath = $this->getImportedFilePath($request->getUserVar('temporaryFileId'), $this->getDeployment()->getUser());
 				list ($filter, $xmlString) = $this->getImportFilter($temporaryFilePath);
 				$result = $this->getImportTemplateResult($filter, $xmlString, $this->getDeployment(), $templateMgr);
 
-				return array($result, true);
+				$this->result = $result;
+				$this->isResultManaged = true;
+
+				break;
 			case 'exportSubmissions':
 				$submissionIds = (array) $request->getUserVar('selectedSubmissions');
 
@@ -150,12 +167,17 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 				$result = $this->getExportTemplateResult($this->getDeployment(), $templateMgr, 'submissions');
 
-				return array($result, true);
+				$this->result = $result;
+				$this->isResultManaged = true;
+
+				break;
 			case 'downloadExportFile':
 				$downloadPath = $request->getUserVar('downloadFilePath');
 				$this->downloadExportedFile($downloadPath);
 
-				return array(null, true);
+				$this->isResultManaged = true;
+
+				break;
 		}
 	}
 
@@ -287,6 +309,23 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 	}
 
 	/**
+	 * Get the XML for a set of submissions.
+	 * @param $submissionIds array Array of submission IDs
+	 * @param $context Context
+	 * @param $user User|null
+	 * @param $opts array
+	 * @return string XML contents representing the supplied submission IDs.
+	 */
+	function exportSubmissions($submissionIds, $context, $user, $opts = array()) {
+		$appSpecificDeployment = $this->getAppSpecificDeployment($context, null);
+		$this->setDeployment($appSpecificDeployment);
+
+		$this->getExportSubmissionsDeployment($submissionIds, $appSpecificDeployment, $opts);
+
+		return $this->exportResultXML($appSpecificDeployment);
+	}
+
+	/**
 	 * @copydoc PKPImportExportPlugin::usage
 	 */
 	function usage($scriptName) {
@@ -390,7 +429,6 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 		}
 	}
-
 
 	function echoCLIError($errorMessage, $c = null) {
 		if (!isset($c)) $c = new Color();

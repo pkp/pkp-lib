@@ -93,6 +93,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		}
 
 		$submission = Services::get('submission')->get($submission->getId());
+
 		$deployment->addImportedRootEntity(ASSOC_TYPE_SUBMISSION, $submission);
 
 		return $submission;

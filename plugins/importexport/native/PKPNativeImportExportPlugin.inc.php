@@ -144,7 +144,7 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 			case 'exportSubmissions':
 				$submissionIds = (array) $request->getUserVar('selectedSubmissions');
 
-				$this->getExportSubmissionsDeployment($submissionIds, $this->getDeployment());
+				$this->getExportSubmissionsDeployment($submissionIds, $this->_childDeployment);
 
 				$result = $this->getExportTemplateResult($this->getDeployment(), $templateMgr, 'submissions');
 

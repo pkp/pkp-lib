@@ -87,7 +87,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				}
 			}
 			if (!isset($genresByContextId[$context->getId()][$genreName])) {
-				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownGenre', array('param' => $genreName)));
+				$deployment->addError(ASSOC_TYPE_SUBMISSION_FILE, $submission->getId(), __('plugins.importexport.common.error.unknownGenre', array('param' => $genreName)));
 				$errorOccured = true;
 			} else {
 				$genre = $genresByContextId[$context->getId()][$genreName];

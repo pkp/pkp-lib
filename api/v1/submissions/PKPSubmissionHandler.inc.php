@@ -51,6 +51,13 @@ class PKPSubmissionHandler extends APIHandler {
 		'deletePublication',
 	];
 
+	/** @var array Roles that can access a submission's production stage */
+	public $productionStageAccessRoles = [
+		ROLE_ID_MANAGER,
+		ROLE_ID_SUB_EDITOR,
+		ROLE_ID_ASSISTANT
+	];
+
 	/**
 	 * Constructor
 	 */
@@ -165,7 +172,7 @@ class PKPSubmissionHandler extends APIHandler {
 
 		if (in_array($routeName, $this->requiresProductionStageAccess)) {
 			import('lib.pkp.classes.security.authorization.StageRolePolicy');
-			$this->addPolicy(new StageRolePolicy([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], WORKFLOW_STAGE_ID_PRODUCTION, false));
+			$this->addPolicy(new StageRolePolicy($this->productionStageAccessRoles, WORKFLOW_STAGE_ID_PRODUCTION, false));
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);

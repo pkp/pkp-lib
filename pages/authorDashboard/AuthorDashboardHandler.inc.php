@@ -63,13 +63,18 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler {
 
 		$templateMgr->setConstants([
 			'FORM_ID_RELATION',
+			'FORM_PUBLISH',
 		]);
 
 		$components = $templateMgr->getState('components');
 		$components[FORM_ID_RELATION] = $relationForm->getConfig();
 
+		$publicationFormIds = $templateMgr->getState('publicationFormIds');
+		$publicationFormIds[] = FORM_PUBLISH;
+
 		$templateMgr->setState([
 			'components' => $components,
+			'publicationFormIds' => $publicationFormIds,
 			'publishLabel' => __('publication.publish'),
 			'publishUrl' => $publishUrl,
 			'unpublishConfirmLabel' => __('publication.unpublish.confirm'),

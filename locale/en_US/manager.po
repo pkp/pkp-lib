@@ -18,13 +18,13 @@ msgid "manager.distribution.copyrightYearBasis.description"
 msgstr "Choose how a default copyright date is selected for an preprint . This default can be overridden on a case-by-case basis."
 
 msgid "manager.distribution.copyrightYearBasis.submission"
-msgstr "Use the preprint's publication date"
+msgstr "Use the preprint's posted date"
 
 msgid "manager.distribution.publishingMode"
-msgstr "Publishing Mode"
+msgstr "Posting Mode"
 
 msgid "manager.distribution.publishingMode.none"
-msgstr "OPS will not be used to publish the server's contents online."
+msgstr "OPS will not be used to post the server's contents online."
 
 msgid "manager.distribution.publishingMode.openAccess"
 msgstr "The server will provide open access to its contents."
@@ -57,7 +57,7 @@ msgid "manager.sections.confirmDelete"
 msgstr "Are you sure you want to permanently delete this section?"
 
 msgid "manager.sections.alertDelete"
-msgstr "Before this section can be deleted, you must move preprints published within it into other section."
+msgstr "Before this section can be deleted, you must move preprints posted within it into other section."
 
 msgid "manager.sections.create"
 msgstr "Create Section"
@@ -75,7 +75,7 @@ msgid "manager.setup.form.section.pathRequired"
 msgstr "An URL path is required for the section"
 
 msgid "manager.sections.identifyType"
-msgstr "Identify items published in this section as a(n)"
+msgstr "Identify items posted in this section as a(n)"
 
 msgid "manager.sections.identifyTypeExamples"
 msgstr "(For example etc.)"
@@ -240,7 +240,7 @@ msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Submission Preparation Checklist"
 
 msgid "manager.setup.disableSubmissions.description"
-msgstr "Prevent users from submitting new articles to the server. Submissions can be disabled for individual server sections on the <a href="{$url}">server sections</a> settings page."
+msgstr "Prevent users from submitting new preprints to the server. Submissions can be disabled for individual server sections on the <a href="{$url}">server sections</a> settings page."
 
 msgid "manager.setup.disableSubmissions.notAccepting"
 msgstr "This server is not accepting submissions at this time. Visit the workflow settings to allow submissions."
@@ -276,10 +276,10 @@ msgid "manager.statistics.statistics.count.revise"
 msgstr "Resubmit"
 
 msgid "manager.statistics.statistics.daysToPublication"
-msgstr "Days to publication"
+msgstr "Days to preprint being posted"
 
 msgid "manager.statistics.statistics.itemsPublished"
-msgstr "Items published"
+msgstr "Items posted"
 
 msgid "manager.statistics.statistics.makePublic"
 msgstr "Check items to be made available to readers in About the Server."
@@ -318,7 +318,7 @@ msgid "manager.setup.resetPermissions.confirm"
 msgstr "Are you sure you wish to reset permissions data for all preprints? This action can not be undone."
 
 msgid "manager.setup.resetPermissions.description"
-msgstr "Remove the copyright statement and license information for every published preprint, reverting them to the server's current default settings. This will permanently remove all prior copyright and licensing information attached to preprints. In some cases, you may not be legally permitted to re-license work that has been published under a different license. Please take caution when using this tool and consult legal expertise if you are unsure what rights you hold over the preprints published in your server."
+msgstr "Remove the copyright statement and license information for every posted preprint, reverting them to the server's current default settings. This will permanently remove all prior copyright and licensing information attached to preprints. In some cases, you may not be legally permitted to re-license work that has been posted under a different license. Please take caution when using this tool and consult legal expertise if you are unsure what rights you hold over the preprints posted in your server."
 
 msgid "manager.setup.resetPermissions.success"
 msgstr "Preprint permissions were successfully reset."

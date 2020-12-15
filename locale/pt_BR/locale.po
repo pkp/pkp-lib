@@ -78,6 +78,7 @@ msgstr ""
 msgid "about.aboutThisPublishingSystem.altText"
 msgstr "Editorial e Processo de Publicação OPS"
 
+#, fuzzy
 msgid "about.aboutThisPublishingSystem"
 msgstr ""
 "Mais informações sobre o sistema de publicação, plataforma e fluxo por OPS/"
@@ -205,6 +206,7 @@ msgstr "Popularidade (de todos os tempos)"
 msgid "search.results.orderBy.journal"
 msgstr "Título do Servidor"
 
+#, fuzzy
 msgid "search.results.orderBy.date"
 msgstr "Data de Publicação"
 

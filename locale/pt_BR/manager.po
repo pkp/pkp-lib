@@ -45,6 +45,7 @@ msgstr ""
 msgid "manager.statistics.statistics.itemsPublished"
 msgstr "Itens postados"
 
+#, fuzzy
 msgid "manager.statistics.statistics.daysToPublication"
 msgstr "Dias até a publicação"
 
@@ -292,6 +293,7 @@ msgstr "Política de série"
 msgid "manager.sections.identifyTypeExamples"
 msgstr "(Por exemplo, etc.)"
 
+#, fuzzy
 msgid "manager.sections.identifyType"
 msgstr "Identifique os artigos postados nesta série como um"
 
@@ -355,12 +357,15 @@ msgstr "UI"
 msgid "manager.distribution.publishingMode.openAccess"
 msgstr "O servidor fornecerá acesso aberto aos seus conteúdos."
 
+#, fuzzy
 msgid "manager.distribution.publishingMode.none"
 msgstr "OPS não será utilizado para publicar os conteúdos do servidos online."
 
+#, fuzzy
 msgid "manager.distribution.publishingMode"
 msgstr "Modo de publicação"
 
+#, fuzzy
 msgid "manager.distribution.copyrightYearBasis.submission"
 msgstr "Use a data de publicação do preprint"
 

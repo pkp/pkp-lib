@@ -26,6 +26,7 @@ class SubmissionHandler extends PKPSubmissionHandler {
 	public function __construct() {
 		$this->requiresSubmissionAccess[] = 'relatePublication';
 		$this->requiresProductionStageAccess[] = 'relatePublication';
+		$this->productionStageAccessRoles[] = ROLE_ID_AUTHOR;
 		parent::__construct();
 	}
 

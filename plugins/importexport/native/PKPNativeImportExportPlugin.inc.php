@@ -140,10 +140,18 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 				break;
 			case 'importBounce':
+				$tempFileId = $request->getUserVar('temporaryFileId');
+
+				if (empty($tempFileId)) {
+					$this->result = new JSONMessage(false);
+					$this->isResultManaged = true;
+					break;
+				}
+
 				$tab = $this->getBounceTab($request,
 					__('plugins.importexport.native.results'),
 					'import',
-					array('temporaryFileId' => $request->getUserVar('temporaryFileId'))
+					array('temporaryFileId' => $tempFileId)
 				);
 
 				$this->result = $tab;

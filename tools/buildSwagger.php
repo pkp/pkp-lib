@@ -72,19 +72,22 @@ class buildSwagger extends CommandLineTool {
 				$editDefinition = $summaryDefinition = $readDefinition = ['type' => 'object', 'properties' => []];
 				$entitySchema = \Services::get('schema')->get($definition, true);
 				foreach ($entitySchema->properties as $propName => $propSchema) {
-
-					// Skip prop schemas with a `$ref`. They are already set up for the
-					// API docs but have no been converted to use SchemaDAO yet.
-					if (!empty($propSchema->{'$ref'})) {
-						continue;
-					}
-
 					$editPropSchema = clone $propSchema;
 					$readPropSchema = clone $propSchema;
 					$summaryPropSchema = clone $propSchema;
 
 					// Special handling to catch readOnly, writeOnly and apiSummary props in objects
-					if ($propSchema->type === 'object') {
+					if (!empty($propSchema->{'$ref'})) {
+						if (empty($propSchema->readOnly)) {
+							$editPropSchema->properties = $propSchema;
+						}
+						if (empty($propSchema->writeOnly)) {
+							$readPropSchema->properties = $propSchema;
+						}
+						if (!empty($propSchema->apiSummary)) {
+							$summaryPropSchema->properties = $propSchema;
+						}
+					} elseif ($propSchema->type === 'object') {
 						$subPropsEdit = $subPropsRead = $subPropsSummary = [];
 						foreach ($propSchema->properties as $subPropName => $subPropSchema) {
 							if (empty($subPropSchema->readOnly)) {

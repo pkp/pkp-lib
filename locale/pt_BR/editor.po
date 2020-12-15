@@ -11,6 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "editor.publication.authorPublishRequirements"
 msgstr "O autor não preenche os seguintes requisitos de publicação:"
 

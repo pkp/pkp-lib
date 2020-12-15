@@ -11,6 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "api.publications.403.submissionsDidNotMatch"
 msgstr "A publicação solicitada não é parte desta submissão."
 

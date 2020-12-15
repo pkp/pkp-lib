@@ -84,6 +84,7 @@ msgstr ""
 "estarão disponíveis para nenhum outro propósito nem para nenhuma outra "
 "parte.</p>"
 
+#, fuzzy
 msgid "default.contextSettings.forLibrarians"
 msgstr ""
 "Encorajamos aos bibliotecários de pesquisa a incluir este servidor entre "
@@ -102,6 +103,7 @@ msgstr ""
 "submeter ou, se já estão registrados, podem simplesmente <a href=\""
 "{$indexUrl}/index/log in\"> logar </a> e começar o processo."
 
+#, fuzzy
 msgid "default.contextSettings.forReaders"
 msgstr ""
 "Encorajamos os leitores a se registrar no serviço de notificação de "

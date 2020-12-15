@@ -11,6 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "default.contextSettings.forLibrarians"
 msgstr ""
 "Alentamos a los bibliotecarios de investigación a enumerar este servidor "
@@ -101,6 +102,7 @@ msgstr ""
 "o, si ya está registrado, pueden simplemente <a href=\"{$ indexUrl}/index/"
 "log in\">iniciar sesión </a> y comenzar el proceso."
 
+#, fuzzy
 msgid "default.contextSettings.forReaders"
 msgstr ""
 "Alentamos a los lectores a registrarse en el servicio de notificaciones de "

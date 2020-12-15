@@ -17,6 +17,7 @@ msgstr ""
 "preimpresión, galerada o archivo). Elija identificadores únicos dentro de su "
 "servidor."
 
+#, fuzzy
 msgid "editor.publication.authorPublishRequirements"
 msgstr "El autor no cumple los siguientes requisitos de publicación:"
 

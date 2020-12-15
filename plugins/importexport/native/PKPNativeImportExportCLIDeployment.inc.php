@@ -12,7 +12,6 @@
  *
  * @brief Native XML import/export plugin
  */
-use Colors\Color;
 
 class PKPNativeImportExportCLIDeployment {
 

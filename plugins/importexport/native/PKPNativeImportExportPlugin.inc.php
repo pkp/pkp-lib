@@ -12,18 +12,24 @@
  *
  * @brief Native XML import/export plugin
  */
-use Colors\Color;
 
 import('lib.pkp.classes.plugins.ImportExportPlugin');
-import('lib.pkp.plugins.importxport.PKPNativeImportExportCLIDeployment');
+import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIDeployment');
+import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIToolKit');
 
-class PKPNativeImportExportPlugin extends ImportExportPlugin {
+abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 	var $_childDeployment = null;
 	var $cliDeployment = null;
 
 	var $result = null;
 	var $isResultManaged = false;
+
+	var $cliToolkit;
+
+	function __construct() {
+		$cliToolkit = new PKPNativeImportExportCLIToolKit();
+	}
 
 	/**
 	 * @copydoc Plugin::register()
@@ -81,7 +87,7 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 		$context = $request->getContext();
 		$user = $request->getUser();
-		$deployment = $this->getAppSpecificDeployment($context, null);
+		$deployment = $this->getAppSpecificDeployment($context, $user);
 		$this->setDeployment($deployment);
 
 		$opType = array_shift($args);
@@ -139,7 +145,10 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 					'import',
 					array('temporaryFileId' => $request->getUserVar('temporaryFileId'))
 				);
-				return array($tab, true);
+
+				$this->result = $tab;
+				$this->isResultManaged = true;
+				break;
 			case 'exportSubmissionsBounce':
 				$tab = $this->getBounceTab($request,
 					__('plugins.importexport.native.export.submissions.results'),
@@ -152,7 +161,7 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 				break;
 			case 'import':
-				$temporaryFilePath = $this->getImportedFilePath($request->getUserVar('temporaryFileId'), $this->getDeployment()->getUser());
+				$temporaryFilePath = $this->getImportedFilePath($request->getUserVar('temporaryFileId'), $user);
 				list ($filter, $xmlString) = $this->getImportFilter($temporaryFilePath);
 				$result = $this->getImportTemplateResult($filter, $xmlString, $this->getDeployment(), $templateMgr);
 
@@ -286,13 +295,11 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 	 * @param $fileContent string
 	 * @param $context Context
 	 */
-	function writeExportedFile($filename, $fileContent, $context) {
+	function downloadExportedFile($exportFileName) {
 		import('lib.pkp.classes.file.FileManager');
 		$fileManager = new FileManager();
-		$exportFileName = $this->getExportFileName($this->getExportPath(), $filename, $context, '.xml');
-		$fileManager->writeFile($exportFileName, $fileContent);
-
-		return $exportFileName;
+		$fileManager->downloadByPath($exportFileName);
+		$fileManager->deleteByPath($exportFileName);
 	}
 
 	/**
@@ -301,11 +308,13 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 	 * @param $fileContent string
 	 * @param $context Context
 	 */
-	function downloadExportedFile($exportFileName) {
+	function writeExportedFile($filename, $fileContent, $context) {
 		import('lib.pkp.classes.file.FileManager');
 		$fileManager = new FileManager();
-		$fileManager->downloadByPath($exportFileName);
-		$fileManager->deleteByPath($exportFileName);
+		$exportFileName = $this->getExportFileName($this->getExportPath(), $filename, $context, '.xml');
+		$fileManager->writeFile($exportFileName, $fileContent);
+
+		return $exportFileName;
 	}
 
 	/**
@@ -352,7 +361,7 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 		if (!$context) {
 			if ($contextPath != '') {
-				$this->echoCLIError(__('plugins.importexport.common.error.unknownJournal', array('contextPath' => $contextPath)));
+				$this->cliToolkit->echoCLIError(__('plugins.importexport.common.error.unknownJournal', array('contextPath' => $contextPath)));
 			}
 			$this->usage($scriptName);
 			return true;
@@ -373,14 +382,14 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 				if (!$user) {
 					if ($userName != '') {
-						$this->echoCLIError(__('plugins.importexport.native.error.unknownUser', array('userName' => $userName)));
+						$this->cliToolkit->echoCLIError(__('plugins.importexport.native.error.unknownUser', array('userName' => $userName)));
 					}
 					$this->usage($scriptName);
 					return true;
 				}
 
 				if (!file_exists($xmlFile)) {
-					$this->echoCLIError(__('plugins.importexport.common.export.error.inputFileNotReadable', array('param' => $xmlFile)));
+					$this->cliToolkit->echoCLIError(__('plugins.importexport.common.export.error.inputFileNotReadable', array('param' => $xmlFile)));
 
 					$this->usage($scriptName);
 					return true;
@@ -394,15 +403,15 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 				$deployment->import($filter, $xmlString);
 
-				$this->getCLIImportResult($deployment);
-				$this->getCLIProblems($deployment);
+				$this->cliToolkit->getCLIImportResult($deployment);
+				$this->cliToolkit->getCLIProblems($deployment);
 				return true;
 			case 'export':
 				$deployment = $this->getDeployment(); /** @var $deployment PKPNativeImportExportDeployment */
 
 				$outputDir = dirname($xmlFile);
 				if (!is_writable($outputDir) || (file_exists($xmlFile) && !is_writable($xmlFile))) {
-					$this->echoCLIError(__('plugins.importexport.common.export.error.outputFileNotWritable', array('param' => $xmlFile)));
+					$this->cliToolkit->echoCLIError(__('plugins.importexport.common.export.error.outputFileNotWritable', array('param' => $xmlFile)));
 
 					$this->usage($scriptName);
 					return true;
@@ -410,111 +419,26 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 				if ($cliDeployment->xmlFile != '') {
 					switch ($cliDeployment->exportEntity) {
-						case 'submission':
-						case 'submissions':
+						case $deployment->getSubmissionNodeName():
+						case $deployment->getSubmissionsNodeName():
 							$this->getExportSubmissionsDeployment(
 								$cliDeployment->args,
 								$deployment,
 								$cliDeployment->opts
 							);
 
-							$this->getCLIExportResult($deployment, $xmlFile);
-							$this->getCLIProblems($deployment);
+							$this->cliToolkit->getCLIExportResult($deployment, $xmlFile);
+							$this->cliToolkit->getCLIProblems($deployment);
 							return true;
 						default:
 							return false;
 					}
 				}
-
-
+				return true;
 		}
 	}
 
-	function echoCLIError($errorMessage, $c = null) {
-		if (!isset($c)) $c = new Color();
 
-		echo $c(__('plugins.importexport.common.cliError'))->white()->bold()->highlight('red') . PHP_EOL;
-		echo $c($errorMessage)->red()->bold() . PHP_EOL;
-	}
-
-	function getCLIExportResult($deployment, $xmlFile) {
-		$c = new Color();
-
-		$result = $deployment->processResult;
-		$foundErrors = $deployment->isProcessFailed();
-
-		if (!$foundErrors) {
-			$xml = $result->saveXml();
-			file_put_contents($xmlFile, $xml);
-			echo $c(__('plugins.importexport.native.export.completed'))->green()->bold() . PHP_EOL . PHP_EOL;
-		} else {
-			echo $c(__('plugins.importexport.native.processFailed'))->red()->bold() . PHP_EOL . PHP_EOL;
-		}
-	}
-
-	function getCLIImportResult($deployment) {
-		$c = new Color();
-
-		$result = $deployment->processResult;
-		$foundErrors = $deployment->isProcessFailed();
-		$importedRootObjects = $deployment->getImportedRootEntitiesWithNames();
-
-		if (!$foundErrors) {
-			echo $c(__('plugins.importexport.native.importComplete'))->green()->bold() . PHP_EOL . PHP_EOL;
-
-			foreach ($importedRootObjects as $contentItemName => $contentItemArrays) {
-				echo $c($contentItemName)->white()->bold()->highlight('black') . PHP_EOL;
-				foreach ($contentItemArrays as $contentItemArray) {
-					foreach ($contentItemArray as $contentItem) {
-						echo $c('-' . $contentItemName)->white()->bold() . PHP_EOL;
-					}
-				}
-			}
-		} else {
-			echo $c(__('plugins.importexport.native.processFailed'))->red()->bold() . PHP_EOL . PHP_EOL;
-		}
-	}
-
-	function getCLIProblems($deployment) {
-		$result = $deployment->processResult;
-		$problems = $deployment->getWarningsAndErrors();
-		$foundErrors = $deployment->isProcessFailed();
-
-		$warnings = array();
-		if (array_key_exists('warnings', $problems)) {
-			$warnings = $problems['warnings'];
-		}
-
-		$errors = array();
-		if (array_key_exists('errors', $problems)) {
-			$errors = $problems['errors'];
-		}
-
-		// Are there any import warnings? Display them.
-		$this->displayCLIIssues($warnings, __('plugins.importexport.common.warningsEncountered'));
-		$this->displayCLIIssues($errors, __('plugins.importexport.common.errorsOccured'));
-	}
-
-	function displayCLIIssues($relatedIssues, $title) {
-		$c = new Color();
-
-		if(count($relatedIssues) > 0) {
-			echo $c($title)->black()->bold()->highlight('light_gray') . PHP_EOL;
-			$i = 0;
-			foreach($relatedIssues as $relatedTypeName => $allRelatedTypes) {
-				foreach($allRelatedTypes as $thisTypeId => $thisTypeIds) {
-					if(count($thisTypeIds) > 0) {
-						echo ++$i . '.' . $relatedTypeName . PHP_EOL;
-						foreach($thisTypeIds as $idRelatedItems) {
-							foreach($idRelatedItems as $relatedItemMessage) {
-								echo '- ' . $relatedItemMessage . PHP_EOL;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
 
 	public function setDeployment($deployment) {
 		$this->_childDeployment = $deployment;
@@ -524,17 +448,11 @@ class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		return $this->_childDeployment;
 	}
 
-	function getImportFilter($xmlFile) {
-		return false;
-	}
+	abstract public function getImportFilter($xmlFile);
 
-	function getExportFilter($exportType) {
-		return false;
-	}
+	abstract public function getExportFilter($exportType);
 
-	function getAppSpecificDeployment($context, $user) {
-		return false;
-	}
+	abstract public function getAppSpecificDeployment($context, $user);
 }
 
 

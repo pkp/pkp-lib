@@ -420,13 +420,20 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 	}
 
 	/**
+	 * Load necessary locales for CLI
+	 */
+	function loadCLILocales() {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION);
+	}
+
+	/**
 	 * @see PKPImportExportPlugin::executeCLI()
 	 */
 	function executeCLI($scriptName, &$args) {
+		$this->loadCLILocales();
+
 		$cliDeployment = new PKPNativeImportExportCLIDeployment($scriptName, $args);
 		$this->cliDeployment = $cliDeployment;
-
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION);
 
 		$contextDao = Application::getContextDAO(); /** @var $contextDao ContextDAO */
 		$userDao = DAORegistry::getDAO('UserDAO'); /** @var $userDao UserDAO */

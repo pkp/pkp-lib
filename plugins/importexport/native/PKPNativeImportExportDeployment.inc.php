@@ -151,6 +151,8 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 	 */
 	function export($rootFilter, $exportObjects, $opts = null) {
 		try {
+			$this->setExportRootEntities($exportObjects);
+
 			$currentFilter = NativeImportExportFilter::getFilter($rootFilter, $this, $opts);
 
 			$currentFilter->setOpts($opts);

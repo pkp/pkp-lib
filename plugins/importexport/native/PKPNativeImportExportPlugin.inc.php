@@ -276,12 +276,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		$problems = $deployment->getWarningsAndErrors();
 		$foundErrors = $deployment->isProcessFailed();
 
-		if ($foundErrors) {
-			$templateMgr->assign('validationErrors', $deployment->getXMLValidationErrors());
-
-			$templateMgr->assign('errorsAndWarnings', $problems);
-			$templateMgr->assign('errorsFound', $foundErrors);
-		} else {
+		if (!$foundErrors) {
 			$exportXml = $result->saveXml();
 
 			if ($exportXml) {
@@ -289,6 +284,11 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 				$templateMgr->assign('exportPath', $path);
 			}
 		}
+
+		$templateMgr->assign('validationErrors', $deployment->getXMLValidationErrors());
+
+		$templateMgr->assign('errorsAndWarnings', $problems);
+		$templateMgr->assign('errorsFound', $foundErrors);
 
 		// Display the results
 		$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplateResource('resultsExport.tpl')));

@@ -225,7 +225,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			$submissionFile = Services::get('submissionFile')->edit($submissionFile, ['fileId' => $currentFileId], $request);
 		}
 
-		$deployment->setSubmissionFileDBId($node->getAttribute('id'), $submissionFile->getId());
+		$deployment->setSubmissionFileDBId($submissionFileId, $submissionFile->getId());
 
 		return $submissionFile;
 	}

@@ -52,6 +52,7 @@ class PKPImportExportDeployment {
 	var $_baseImportPath = '';
 
 	var $_importedRootEntities;
+	var $_exportRootEntities;
 
 	/**
 	 * Constructor
@@ -400,7 +401,7 @@ class PKPImportExportDeployment {
 	}
 
 	/**
-	 * Add the processed object ID.
+	 * Add the imported root entities.
 	 * @param $assocType integer ASSOC_TYPE_...
 	 * @param $assocId integer
 	 */
@@ -408,12 +409,32 @@ class PKPImportExportDeployment {
 		$this->_importedRootEntities[$assocType][] = $entity;
 	}
 
+	/**
+	 * Get the imported root entities.
+	 * @param $assocType integer ASSOC_TYPE_...
+	 */
 	function getImportedRootEntities($assocType) {
 		if (array_key_exists($assocType, $this->_importedRootEntities)) {
 			return $this->_importedRootEntities[$assocType];
 		}
 
 		return null;
+	}
+
+	/**
+	 * Set export root entities
+	 * @param $exportRootEntities array
+	 */
+	function setExportRootEntities($exportRootEntities) {
+		$this->_exportRootEntities = $exportRootEntities;
+	}
+
+	/**
+	 * Get export root entities
+	 * @return array
+	 */
+	function getExportRootEntities() {
+		return $this->_exportRootEntities;
 	}
 }
 

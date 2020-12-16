@@ -259,7 +259,8 @@ class PluginGalleryGridHandler extends GridHandler {
 		try {
 			$client = Application::get()->getHttpClient();
 			$response = $client->request('GET', $plugin->getReleasePackage());
-			if (file_put_contents($destPath, $body->getContents())) throw new Exception('Unable to save plugin to local file!');
+			$body = $response->getBody();
+			if (!file_put_contents($destPath, $body->getContents())) throw new Exception('Unable to save plugin to local file!');
 		} catch (Exception $e) {
 			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => $e->getMessage()));
 			return $request->redirectUrlJson($redirectUrl);

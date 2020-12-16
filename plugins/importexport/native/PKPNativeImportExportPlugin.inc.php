@@ -17,6 +17,8 @@ import('lib.pkp.classes.plugins.ImportExportPlugin');
 import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIDeployment');
 import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIToolKit');
 
+define('ASSOC_TYPE_NONE', -1000);
+
 abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 	/**

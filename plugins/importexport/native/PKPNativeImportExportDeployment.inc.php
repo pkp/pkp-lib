@@ -131,12 +131,12 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 
 			$this->processResult = $result;
 		} catch (\Error $e) {
-			$this->addError(ASSOC_TYPE_ANY, 0, $e->getMessage());
+			$this->addError(ASSOC_TYPE_NONE, 0, $e->getMessage());
 			$dbConnection->rollBack();
 
 			$this->processFailed = true;
 		} catch (\Exception $e) {
-			$this->addError(ASSOC_TYPE_ANY, 0, $e->getMessage());
+			$this->addError(ASSOC_TYPE_NONE, 0, $e->getMessage());
 			$dbConnection->rollBack();
 
 			$this->processFailed = true;
@@ -166,11 +166,11 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 
 			$this->processResult = $result;
 		} catch (\Error $e) {
-			$this->addError(ASSOC_TYPE_ANY, 0, $e->getMessage());
+			$this->addError(ASSOC_TYPE_NONE, 0, $e->getMessage());
 
 			$this->processFailed = true;
 		} catch (Exception $e) {
-			$this->addError(ASSOC_TYPE_ANY, 0, $e->getMessage());
+			$this->addError(ASSOC_TYPE_NONE, 0, $e->getMessage());
 
 			$this->processFailed = true;
 		}
@@ -192,7 +192,7 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 	protected function getObjectTypesArray() {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
 		$objectTypes = array(
-			ASSOC_TYPE_ANY => __('plugins.importexport.native.common.any'),
+			ASSOC_TYPE_NONE => __('plugins.importexport.native.common.any'),
 			ASSOC_TYPE_SUBMISSION => __('submission.submission'),
 		);
 

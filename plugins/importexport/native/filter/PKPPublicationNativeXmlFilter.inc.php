@@ -84,7 +84,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 		$isPublished = $entity->getData('status') === STATUS_PUBLISHED;
 		$isPublished ? $entityNode->setAttribute('seq', (int) $entity->getData('seq')) : $entityNode->setAttribute('seq', '0');
 
-		$entityLanguages = $entity->getData('languages');
+		$entityLanguages = $entity->getData('language');
 		if ($entityLanguages) {
 			$entityNode->setAttribute('language', $entityLanguages);
 		}

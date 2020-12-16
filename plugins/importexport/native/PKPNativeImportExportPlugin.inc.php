@@ -49,6 +49,12 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 	 */
 	var $cliToolkit;
 
+	/**
+	 *
+	 * @var string
+	 */
+	var $opType;
+
 	function __construct() {
 		$this->cliToolkit = new PKPNativeImportExportCLIToolKit();
 	}
@@ -110,8 +116,8 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		$deployment = $this->getAppSpecificDeployment($context, $user);
 		$this->setDeployment($deployment);
 
-		$opType = array_shift($args);
-		switch ($opType) {
+		$this->opType = array_shift($args);
+		switch ($this->opType) {
 			case 'index':
 			case '':
 				$apiUrl = $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'submissions');

@@ -71,7 +71,9 @@ class PKPNativeImportExportCLIDeployment {
 
 	function __construct($scriptName, $args) {
 		$this->scriptName = $scriptName;
-		$this->$args = $args;
+		$this->args = $args;
+
+		$this->parseCLI();
 	}
 
 	/**

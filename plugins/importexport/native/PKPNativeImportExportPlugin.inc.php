@@ -50,7 +50,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 	var $cliToolkit;
 
 	function __construct() {
-		$cliToolkit = new PKPNativeImportExportCLIToolKit();
+		$this->cliToolkit = new PKPNativeImportExportCLIToolKit();
 	}
 
 	/**
@@ -420,7 +420,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION);
 
-		$contextDao = DAORegistry::getDAO('ContextDAO'); /** @var $contextDao ContextDAO */
+		$contextDao = Application::getContextDAO(); /** @var $contextDao ContextDAO */
 		$userDao = DAORegistry::getDAO('UserDAO'); /** @var $userDao UserDAO */
 
 		$contextPath = $cliDeployment->contextPath;

@@ -172,6 +172,27 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	}
 
 	/**
+	 * @see Filter::process()
+	 * @param $document DOMDocument|string
+	 * @return array Array of imported documents
+	 */
+	function &process(&$document) {
+		$importedObjects =& parent::process($document);
+
+		// Index imported content
+		$articleSearchIndex = Application::getSubmissionSearchIndex();
+		foreach ($importedObjects as $submission) {
+			assert(is_a($submission, 'Submission'));
+			$articleSearchIndex->submissionMetadataChanged($submission);
+			$articleSearchIndex->submissionFilesChanged($submission);
+		}
+
+		$articleSearchIndex->submissionChangesFinished();
+
+		return $importedObjects;
+	}
+
+	/**
 	 * Parse a submission publication and add it to the submission.
 	 * @param $n DOMElement
 	 * @param $submission Submission

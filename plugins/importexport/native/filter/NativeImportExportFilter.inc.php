@@ -16,7 +16,7 @@
 import('lib.pkp.classes.filter.PersistableFilter');
 
 class NativeImportExportFilter extends PersistableFilter {
-	/** @var NativeImportExportDeployment */
+	/** @var PKPNativeImportExportDeployment */
 	var $_deployment;
 
 	/**
@@ -41,12 +41,19 @@ class NativeImportExportFilter extends PersistableFilter {
 
 	/**
 	 * Get the import/export deployment
-	 * @return NativeImportExportDeployment
+	 * @return PKPNativeImportExportDeployment
 	 */
 	function getDeployment() {
 		return $this->_deployment;
 	}
 
+	/**
+	 * Static method that gets the filter object given its name
+	 * @param $filter string
+	 * @param $deployment PKPImportExportDeployment
+	 * @param $opts array
+	 * @return Filter
+	 */
 	static function getFilter($filter, $deployment, $opts = null) {
 		$filterDao = DAORegistry::getDAO('FilterDAO'); /** @var $filterDao FilterDAO */
 		$filters = $filterDao->getObjectsByGroup($filter);

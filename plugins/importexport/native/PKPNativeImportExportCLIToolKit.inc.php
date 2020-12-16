@@ -1,66 +1,87 @@
 <?php
 
 /**
- * @file plugins/importexport/native/PKPCLIDeployment.inc.php
+ * @file plugins/importexport/native/PKPNativeImportExportCLIToolKit.inc.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class NativeImportExportPlugin
+ * @class PKPNativeImportExportCLIToolKit
  * @ingroup plugins_importexport_native
  *
- * @brief Native XML import/export plugin
+ * @brief CLI Toolkit class
  */
 use Colors\Color;
 
 class PKPNativeImportExportCLIToolKit {
 
-	function echoCLIError($errorMessage, $c = null) {
-		if (!isset($c)) $c = new Color();
+	/**
+	 * Coloring CLI output object
+	 * @var Color
+	 */
+	var $c = null;
 
-		echo $c(__('plugins.importexport.common.cliError'))->white()->bold()->highlight('red') . PHP_EOL;
-		echo $c($errorMessage)->red()->bold() . PHP_EOL;
+	function __construct() {
+		$this->c = new Color();
 	}
 
-	function getCLIExportResult($deployment, $xmlFile) {
-		$c = new Color();
+	/**
+	 * Echo a CLI Error Message
+	 * @param $errorMessage string
+	 */
+	function echoCLIError($errorMessage) {
+		echo $this->c(__('plugins.importexport.common.cliError'))->white()->bold()->highlight('red') . PHP_EOL;
+		echo $this->c($errorMessage)->red()->bold() . PHP_EOL;
+	}
 
+	/**
+	 * Echo export results
+	 * @param $deployment PKPNativeImportExportDeployment
+	 * @param $xmlFile string
+	 */
+	function getCLIExportResult($deployment, $xmlFile) {
 		$result = $deployment->processResult;
 		$foundErrors = $deployment->isProcessFailed();
 
 		if (!$foundErrors) {
 			$xml = $result->saveXml();
 			file_put_contents($xmlFile, $xml);
-			echo $c(__('plugins.importexport.native.export.completed'))->green()->bold() . PHP_EOL . PHP_EOL;
+			echo $this->c(__('plugins.importexport.native.export.completed'))->green()->bold() . PHP_EOL . PHP_EOL;
 		} else {
-			echo $c(__('plugins.importexport.native.processFailed'))->red()->bold() . PHP_EOL . PHP_EOL;
+			echo $this->c(__('plugins.importexport.native.processFailed'))->red()->bold() . PHP_EOL . PHP_EOL;
 		}
 	}
 
+	/**
+	 * Echo import results
+	 * @param $deployment PKPNativeImportExportDeployment
+	 */
 	function getCLIImportResult($deployment) {
-		$c = new Color();
-
 		$result = $deployment->processResult;
 		$foundErrors = $deployment->isProcessFailed();
 		$importedRootObjects = $deployment->getImportedRootEntitiesWithNames();
 
 		if (!$foundErrors) {
-			echo $c(__('plugins.importexport.native.importComplete'))->green()->bold() . PHP_EOL . PHP_EOL;
+			echo $this->c(__('plugins.importexport.native.importComplete'))->green()->bold() . PHP_EOL . PHP_EOL;
 
 			foreach ($importedRootObjects as $contentItemName => $contentItemArrays) {
-				echo $c($contentItemName)->white()->bold()->highlight('black') . PHP_EOL;
+				echo $this->c($contentItemName)->white()->bold()->highlight('black') . PHP_EOL;
 				foreach ($contentItemArrays as $contentItemArray) {
 					foreach ($contentItemArray as $contentItem) {
-						echo $c('-' . $contentItemName)->white()->bold() . PHP_EOL;
+						echo $this->c('-' . $contentItemName)->white()->bold() . PHP_EOL;
 					}
 				}
 			}
 		} else {
-			echo $c(__('plugins.importexport.native.processFailed'))->red()->bold() . PHP_EOL . PHP_EOL;
+			echo $this->c(__('plugins.importexport.native.processFailed'))->red()->bold() . PHP_EOL . PHP_EOL;
 		}
 	}
 
+	/**
+	 * Echo import/export possible warnings and errors
+	 * @param $deployment PKPNativeImportExportDeployment
+	 */
 	function getCLIProblems($deployment) {
 		$result = $deployment->processResult;
 		$problems = $deployment->getWarningsAndErrors();
@@ -81,11 +102,14 @@ class PKPNativeImportExportCLIToolKit {
 		$this->displayCLIIssues($errors, __('plugins.importexport.common.errorsOccured'));
 	}
 
+	/**
+	 * Echo import/export possible warnings and errors
+	 * @param $relatedIssues array
+	 * @param $title string
+	 */
 	function displayCLIIssues($relatedIssues, $title) {
-		$c = new Color();
-
 		if(count($relatedIssues) > 0) {
-			echo $c($title)->black()->bold()->highlight('light_gray') . PHP_EOL;
+			echo $this->c($title)->black()->bold()->highlight('light_gray') . PHP_EOL;
 			$i = 0;
 			foreach($relatedIssues as $relatedTypeName => $allRelatedTypes) {
 				foreach($allRelatedTypes as $thisTypeId => $thisTypeIds) {

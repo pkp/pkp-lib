@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file plugins/importexport/native/NativeImportExportPlugin.inc.php
+ * @file plugins/importexport/native/PKPNativeImportExportPlugin.inc.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class NativeImportExportPlugin
+ * @class PKPNativeImportExportPlugin
  * @ingroup plugins_importexport_native
  *
  * @brief Native XML import/export plugin
@@ -19,12 +19,34 @@ import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIToolKit');
 
 abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
+	/**
+	 * The deployment that processes import/export operations
+	 * @var PKPNativeImportExportDeployment
+	 */
 	var $_childDeployment = null;
+
+	/**
+	 * CLI Deployment for import/export operations
+	 * @var PKPNativeImportExportCLIDeployment
+	 */
 	var $cliDeployment = null;
 
+	/**
+	 * Display operation result
+	 * @var string
+	 */
 	var $result = null;
+
+	/**
+	 * Indication that the parent code has managed the display operation
+	 * @var bool
+	 */
 	var $isResultManaged = false;
 
+	/**
+	 * The helper for CLI import/export operations
+	 * @var PKPNativeImportExportCLIToolKit
+	 */
 	var $cliToolkit;
 
 	function __construct() {
@@ -77,9 +99,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 	}
 
 	/**
-	 * Display the plugin.
-	 * @param $args array
-	 * @param $request PKPRequest
+	 * @see ImportExportPlugin::display()
 	 */
 	function display($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -198,6 +218,12 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		}
 	}
 
+	/**
+	 * Get the submissions and proceed to the export
+	 * @param $submissionIds array Array of submissions to export
+	 * @param $deployment PKPNativeImportExportDeployment
+	 * @param $opts array
+	 */
 	function getExportSubmissionsDeployment($submissionIds, &$deployment, $opts = array()) {
 		$filter = $this->getExportFilter('exportSubmissions');
 
@@ -213,6 +239,11 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		$deployment->export($filter, $submissions, $opts);
 	}
 
+	/**
+	 * Save the export result as an XML
+	 * @param $deployment PKPNativeImportExportDeployment
+	 * @return string
+	 */
 	function exportResultXML($deployment) {
 		$result = $deployment->processResult;
 		$foundErrors = $deployment->isProcessFailed();
@@ -225,6 +256,13 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		return $xml;
 	}
 
+	/**
+	 * Gets template result for the export process
+	 * @param $deployment PKPNativeImportExportDeployment
+	 * @param $templateMgr PKPTemplateManager
+	 * @param $exportFileName string
+	 * @return string
+	 */
 	function getExportTemplateResult($deployment, $templateMgr, $exportFileName) {
 		$result = $deployment->processResult;
 		$problems = $deployment->getWarningsAndErrors();
@@ -250,6 +288,14 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		return $json->getString();
 	}
 
+	/**
+	 * Gets template result for the import process
+	 * @param $filter string
+	 * @param $xmlString string
+	 * @param $deployment PKPNativeImportExportDeployment
+	 * @param $templateMgr PKPTemplateManager
+	 * @return string
+	 */
 	function getImportTemplateResult($filter, $xmlString, $deployment, $templateMgr) {
 		$deployment->import($filter, $xmlString);
 
@@ -270,6 +316,12 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		return $json->getString();
 	}
 
+	/**
+	 * Gets the imported file path
+	 * @param $temporaryFileId int
+	 * @param $user User
+	 * @return string
+	 */
 	function getImportedFilePath($temporaryFileId, $user) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
@@ -286,6 +338,14 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		return $temporaryFilePath;
 	}
 
+	/**
+	 * Gets a tab to display after the import/export operation is over
+	 * @param $request PKPRequest
+	 * @param $title string
+	 * @param $bounceUrl string
+	 * @param $bounceParameterArray array
+	 * @return string
+	 */
 	function getBounceTab($request, $title, $bounceUrl, $bounceParameterArray) {
 		if (!$request->checkCSRF()) throw new Exception('CSRF mismatch!');
 		$json = new JSONMessage(true);
@@ -298,10 +358,8 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 	}
 
 	/**
-	 * Create anf download file given it's name and content
-	 * @param $filename string
-	 * @param $fileContent string
-	 * @param $context Context
+	 * Download file given it's name
+	 * @param $exportFileName string
 	 */
 	function downloadExportedFile($exportFileName) {
 		import('lib.pkp.classes.file.FileManager');
@@ -311,10 +369,11 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 	}
 
 	/**
-	 * Create anf download file given it's name and content
+	 * Create file given it's name and content
 	 * @param $filename string
 	 * @param $fileContent string
 	 * @param $context Context
+	 * @return string
 	 */
 	function writeExportedFile($filename, $fileContent, $context) {
 		import('lib.pkp.classes.file.FileManager');
@@ -446,20 +505,40 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		}
 	}
 
-
-
+	/**
+	 * Set the deployment that processes import/export operations
+	 */
 	public function setDeployment($deployment) {
 		$this->_childDeployment = $deployment;
 	}
 
+	/**
+	 * Get the deployment that processes import/export operations
+	 */
 	public function getDeployment() {
 		return $this->_childDeployment;
 	}
 
+	/**
+	 * Define the appropriate import filter given the imported XML file path
+	 * @param $xmlFile string
+	 * @return array Containing the filter and the xmlString of the imported file
+	 */
 	abstract public function getImportFilter($xmlFile);
 
+	/**
+	 * Define the appropriate export filter given the export operation
+	 * @param $exportType string
+	 * @return string
+	 */
 	abstract public function getExportFilter($exportType);
 
+	/**
+	 * Get the application specific deployment object
+	 * @param $context Context
+	 * @param $user User
+	 * @return NativeImportExportDeployment
+	 */
 	abstract public function getAppSpecificDeployment($context, $user);
 }
 

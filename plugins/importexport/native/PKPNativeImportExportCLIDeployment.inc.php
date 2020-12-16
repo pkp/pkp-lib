@@ -1,32 +1,72 @@
 <?php
 
 /**
- * @file plugins/importexport/native/PKPCLIDeployment.inc.php
+ * @file plugins/importexport/native/PKPNativeImportExportCLIDeployment.inc.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class NativeImportExportPlugin
+ * @class PKPNativeImportExportCLIDeployment
  * @ingroup plugins_importexport_native
  *
- * @brief Native XML import/export plugin
+ * @brief CLI Deployment for Import/Export operations
  */
 
 class PKPNativeImportExportCLIDeployment {
 
+	/**
+	 * The import/export script name
+	 * @var string
+	 */
 	var $scriptName;
+
+	/**
+	 * The import/export arguments
+	 * @var array
+	 */
 	var $args;
 
+	/**
+	 * The import/export additional directives
+	 * @var array
+	 */
 	public $opts;
+
+	/**
+	 * The import/export command
+	 * @var string
+	 */
 	public $command;
 
+	/**
+	 * The import/export xml file name
+	 * @var string
+	 */
 	public $xmlFile;
 
+	/**
+	 * The import/export operation context path
+	 * @var string
+	 */
 	public $contextPath;
+
+	/**
+	 * The import/export operation user name
+	 * @var string
+	 */
 	public $userName;
+
+	/**
+	 * The export entity
+	 * @var string
+	 */
 	public $exportEntity;
 
+	/**
+	 * Any remaining arguments that have not being processed
+	 * @var array
+	 */
 	public $remainingArgs;
 
 	function __construct($scriptName, $args) {
@@ -34,6 +74,9 @@ class PKPNativeImportExportCLIDeployment {
 		$this->$args = $args;
 	}
 
+	/**
+	 * Parse CLI Command to populate the Deployment's variables
+	 */
 	function parseCLI() {
 		$this->opts = $this->parseOpts($this->args, ['no-embed', 'use-file-urls']);
 		$this->command = array_shift($this->args);

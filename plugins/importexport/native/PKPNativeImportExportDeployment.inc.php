@@ -1,7 +1,4 @@
 <?php
-/**
- * @defgroup plugins_importexport_native Native import/export plugin
- */
 
 /**
  * @file plugins/importexport/native/PKPNativeImportExportDeployment.inc.php
@@ -24,8 +21,22 @@ import('lib.pkp.plugins.importexport.native.filter.NativeImportExportFilter');
 
 class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 
+	/**
+	 * Array of possible validation errors
+	 * @var array
+	 */
 	var $xmlValidationErrors = array();
+
+	/**
+	 * Indicator that the import/export process has failed
+	 * @var bool
+	 */
 	var $processFailed = false;
+
+	/**
+	 * The import/export process result
+	 * @var mixed
+	 */
 	var $processResult = null;
 
 	/**
@@ -94,6 +105,11 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 		);
 	}
 
+	/**
+	 * Wraps the import process
+	 * @param $rootFilter string
+	 * @param $importXml string
+	 */
 	function import($rootFilter, $importXml) {
 		$dbConnection = Capsule::connection();
 		try {
@@ -127,6 +143,12 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 		}
 	}
 
+	/**
+	 * Wraps the export process
+	 * @param $rootFilter string
+	 * @param $exportObjects array
+	 * @param $opts array
+	 */
 	function export($rootFilter, $exportObjects, $opts = null) {
 		try {
 			$currentFilter = NativeImportExportFilter::getFilter($rootFilter, $this, $opts);
@@ -154,6 +176,10 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 		}
 	}
 
+	/**
+	 * Getter method for XMLValidation Errors
+	 * @return array
+	 */
 	function getXMLValidationErrors() {
 		return $this->xmlValidationErrors;
 	}
@@ -166,8 +192,8 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 	protected function getObjectTypesArray() {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
 		$objectTypes = array(
-				ASSOC_TYPE_ANY => __('plugins.importexport.native.common.any'),
-				ASSOC_TYPE_SUBMISSION => __('submission.submission'),
+			ASSOC_TYPE_ANY => __('plugins.importexport.native.common.any'),
+			ASSOC_TYPE_SUBMISSION => __('submission.submission'),
 		);
 
 		return $objectTypes;
@@ -192,6 +218,10 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 		}
 	}
 
+	/**
+	 * Get possible Warnings and Errors from the import/export process
+	 * @return array
+	 */
 	function getWarningsAndErrors() {
 		$problems = array();
 		$objectTypes = $this->getObjectTypesArray();
@@ -210,6 +240,10 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 		return $problems;
 	}
 
+	/**
+	 * Get import entities with their names
+	 * @return array
+	 */
 	function getImportedRootEntitiesWithNames() {
 		$rootEntities = array();
 		$objectTypes = $this->getObjectTypesArray();
@@ -223,6 +257,10 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 		return $rootEntities;
 	}
 
+	/**
+	 * Returns an indication that the import/export process has failed
+	 * @return bool
+	 */
 	function isProcessFailed() {
 		if ($this->processFailed || count($this->xmlValidationErrors) > 0) {
 			return true;

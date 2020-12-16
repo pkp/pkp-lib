@@ -484,7 +484,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	 *
 	 * @param $context Context The context to restore default values for
 	 * @param $request Request
-	 * @param $locale string Locale key to restore defaults for. Example: `en__US`
+	 * @param $locale string Locale key to restore defaults for. Example: `en_US`
 	 */
 	public function restoreLocaleDefaults($context, $request, $locale) {
 		\AppLocale::reloadLocale($locale);
@@ -493,9 +493,10 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		// Specify values needed to render default locale strings
 		$localeParams = array(
 			'indexUrl' => $request->getIndexUrl(),
-			'journalPath' => $context->getData('urlPath'),
+			'contextPath' => $context->getData('urlPath'),
+			'journalPath' => $context->getData('urlPath'), // DEPRECATED
 			'primaryLocale' => $context->getData('primaryLocale'),
-			'journalName' => $context->getData('name', $locale),
+			'journalName' => $context->getData('name', $locale), // DEPRECATED
 			'contextName' => $context->getData('name', $locale),
 			'contextUrl' => $request->getDispatcher()->url(
 				$request,

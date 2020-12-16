@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2020-03-04 09:36+0000\n"
-"Last-Translator: Sergei Yukhimets <y_s_n@mail.ru>\n"
+"PO-Revision-Date: 2020-12-18 16:52+0000\n"
+"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/ru/>\n"
+"submission/ru_RU/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1898,3 +1898,12 @@ msgstr "Аннотация слишком длинная. Она должна б
 
 msgid "publication.wordCount"
 msgstr "Число слов: {$count}/{$limit}"
+
+msgid "notification.type.revertDecline"
+msgstr "Решение об отклонении этого материала было отменено."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Отклонение материала было отменено."
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Отменить отклонение материала"

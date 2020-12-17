@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-11-24 02:51+0000\n"
+"PO-Revision-Date: 2020-12-18 16:52+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
 "helene.vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -553,9 +553,9 @@ msgstr "Supprimer l'entrée du registre"
 msgid "submission.event.submissionSubmitted"
 msgstr "Soumission initiale complétée."
 
-#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "La révision « {$name} » (# Fichier {$submissionFileId}) a été téléversée."
+msgstr ""
+"La révision « {$name} » a été téléversée pour le fichier {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Métadonnées de la soumission mises à jour"
@@ -1982,3 +1982,15 @@ msgstr "Fichiers supplémentaires"
 
 msgid "submission.representationOfTitle"
 msgstr "{$representation} de {$title}"
+
+msgid "submission.submit.removeConfirm"
+msgstr "Êtes-vous certain-e de vouloir retirer ce fichier ?"
+
+msgid "submission.submit.genre.error"
+msgstr "Veuillez sélectionner le type de fichier pour chaque téléversement."
+
+msgid "submission.submit.genre.description"
+msgstr "Choisir l'option qui décrit le mieux ce fichier."
+
+msgid "submission.submit.genre.label"
+msgstr "Quel type de fichier est-ce ?"

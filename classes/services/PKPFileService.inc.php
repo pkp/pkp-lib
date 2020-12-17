@@ -68,8 +68,8 @@ class PKPFileService {
 	/**
 	 * Add a file
 	 *
-	 * @param string $from
-	 * @param string $to
+	 * @param string $from absolute path to file
+	 * @param string $to relative path in file dir
 	 * @return int file id
 	 */
 	public function add($from, $to) {

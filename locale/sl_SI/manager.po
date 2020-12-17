@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2020-06-08 14:06+0000\n"
+"PO-Revision-Date: 2020-12-14 10:13+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"manager/sl/>\n"
+"manager/sl_SI/>\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgid "manager.announcements"
 msgstr "Obvestila"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Ste prepričani, da hočete trajno zbrisati to obvestilo?"
+msgstr "Ste prepričani, da hočete trajno zbrisati obvestilo {$title}?"
 
 msgid "manager.announcements.create"
 msgstr "Ustvari novo obvestilo"
@@ -67,7 +67,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Prosim izberite mesec in/ali dan poleg leta preteka."
 
 msgid "manager.announcements.form.description"
-msgstr "Opis"
+msgstr "Obvestilo"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Celotno besedilo obvestila."
@@ -719,11 +719,10 @@ msgstr "Pošlji opomnik, če recenzent ni oddal recenzentsko priporočilo po nas
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Privzeti roki za recenzijo"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Prikaži povezavo do <button type=\"button\">Zagotavljanje dvojne slepe "
-"recenzije</button> med postopkom nalaganja datotek"
+"Prikaži povezavo do <button type=\"button\">kako zagotoviti, da bodo vse "
+"datoteke anonimizirane</button> med postopkom nalaganja datotek"
 
 msgid "manager.setup.searchEngineIndexing.sitemap"
 msgstr "Zemljevid strani"
@@ -1870,7 +1869,7 @@ msgstr ""
 "Zahtevaj od avtorjev, da navedejo jezik prispevka pred sprejetjem prispevka."
 
 msgid "manager.setup.metadata.languages.request"
-msgstr "Zahtevaj od avtorjev, da navedejo jezik prispevka med oddajo prispevka."
+msgstr "Zahtevaj od avtorja, da navede jezik prispevka med oddajo prispevka."
 
 msgid "manager.setup.metadata.languages.noRequest"
 msgstr ""
@@ -2041,3 +2040,125 @@ msgstr "Email nastavitve so bile posodobljene."
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/year)"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Datoteka {$id} je bila preskočena, ker je dodana zapisu, ki ne bo uvožen, "
+"kot recimo zahteva za recenzijo ali diskusija."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Izberite tip metapodatkov, ki jih te datoteke lahko prejmejo. Dokument je "
+"potrebno izbrati iz glavnih dokumentov prispevka, kot je PDF, da lahko "
+"datoteke podedujejo metapodakte od publikacije. V nasprotnem primeru "
+"izberite Dodatne vsebine za najbolj pogoste tipe datotek. Umetniško delo je "
+"primerno za datoteke, ki zahtevajo podatke o zaslugah, napisih in "
+"licenciranju."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Metapodatki datoteke"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"To so dodatne datoeke, kot so podatki in raziskovalni podatki,  in bodo "
+"prikazane posebej poleg glavnih datotek prispevka."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"To so odvisne datoteke, kot so slike prikazane v HTML datoteki, in ne bodo "
+"prikazane kot objavljena vsebina."
+
+msgid "manager.setup.genres.label"
+msgstr "Tip datoteke"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Ste prepričani, da želite aktivirati to rubriko?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Ste prepričani, da želite deaktivirati to rubriko?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "Deaktivirajte to rubriko in ne dovolite oddajo novih prispevkov vanjo."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Po meri"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Datum & čas (kratko)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Datum & čas"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Čas"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Datum (kratek)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Datum"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Izberite željeni format datuma in časa. Format po meri lahko definirate z "
+"uporabo posebnih <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>znakov za "
+"format</a>."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formati datuma in časa"
+
+msgid "manager.setup.dateTime"
+msgstr "Datum & čas"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Pošlji nov email"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Email je bil uspešno poslal vsem prejemnikom."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Pošiljanje emailov. Prosimo pustite spletno stran pri miru dokler se "
+"pošiljanje ne zaključi."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Email boste poslali {$total} uporabnikom. Ste prepričani, da želite poslati "
+"ta email?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Pošlji email"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Pošlji mi kopijo emaila na {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Izberi uporabnike, ki bi morali dobiti vaše email obvestilo."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Obvesti"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Onemogoči oddajo prispevkov"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Pripravi poročilo po meri"
+
+msgid "manager.people.signedInAs"
+msgstr "Prijavljeni ste kot {$username}"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Izberite uporabnike za izvoz v Excel/CSV datoteko."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Izvoz v Excel/CSV"
+
+msgid "manager.emails.resetComplete"
+msgstr "Email predloga je bila uspešno ponastavljena."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Privzete email predloge so bile ponastavljene."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Zbriši obvestilo"

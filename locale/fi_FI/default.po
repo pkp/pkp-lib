@@ -1,0 +1,80 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-12-12 22:52+0000\n"
+"Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
+"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/ops/default/"
+"fi_FI/>\n"
+"Language: fi_FI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br/"
+">________________________________________________________________________<br/"
+"><a href=\"{$contextUrl}\">{$contextName}</a>"
+
+msgid "default.genres.sourceTexts"
+msgstr "Lähdetekstit"
+
+msgid "default.genres.dataSet"
+msgstr "Tietoaineisto"
+
+msgid "default.genres.dataAnalysis"
+msgstr "Data-analyysi"
+
+msgid "default.genres.transcripts"
+msgstr "Transkriptiot"
+
+msgid "default.genres.researchResults"
+msgstr "Tutkimustulokset"
+
+msgid "default.genres.researchMaterials"
+msgstr "Tutkimusaineisto"
+
+msgid "default.genres.researchInstrument"
+msgstr "Tutkimusväline"
+
+msgid "default.groups.abbrev.sectionEditor"
+msgstr "MOD"
+
+msgid "default.groups.plural.sectionEditor"
+msgstr "Moderaattorit"
+
+msgid "default.groups.name.sectionEditor"
+msgstr "Moderaattori"
+
+msgid "default.contextSettings.openAccessPolicy"
+msgstr ""
+"Tämä palvelimen sisällöt ovat välittömästi avoimesti saatavilla noudattaen "
+"periaatetta, jonka mukaan tutkimuksen tekeminen vapaasti saatavilla olevaksi "
+"suurelle yleisölle tukee suurempaa globaalia tiedonvaihtoa."
+
+msgid "default.contextSettings.privacyStatement"
+msgstr ""
+"<p>Tälle palvelimelle annettuja nimiä ja sähköpostiosoitteita käytetään "
+"yksinomaan tämän palvelimen tarkoituksiin, eikä niitä luovuteta mihinkään "
+"muuhun tarkoitukseen tai muille osapuolille.</p>"
+
+msgid "default.contextSettings.checklist.bibliographicRequirements"
+msgstr ""
+"Teksti noudattaa kirjoittajan ohjeissa määriteltyjä stilistisiä ja "
+"bibliografisia vaatimuksia."
+
+msgid "default.contextSettings.checklist.submissionAppearance"
+msgstr ""
+"Tekstin riviväli on yksi; kirjasinkoko on 12; tekstissä käytetään kursiivia, "
+"ei alleviivausta (paitsi URL-osoitteissa); ja kaikki kuvat, kuviot ja "
+"taulukot on sijoitettu ensisijaisesti sopiviin kohtiin tekstin lomaan, ei "
+"tekstin loppuun."
+
+msgid "default.contextSettings.checklist.addressesLinked"
+msgstr "Lähteiden URL-osoitteet on annettu, mikäli ne ovat saatavilla."
+
+msgid "default.contextSettings.checklist.fileFormat"
+msgstr ""
+"Käsikirjoitustiedosto on OpenOffice-, Microsoft Word- tai RTF-asiakirjan "
+"tiedostomuodossa."

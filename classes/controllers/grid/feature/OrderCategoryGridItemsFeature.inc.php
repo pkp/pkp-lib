@@ -150,7 +150,8 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature {
 				}
 
 				unset($rowsData[0]); // remove the first element, it is always the parent category ID
-				$firstSeqValue = $grid->getDataElementInCategorySequence($categoryId, reset($gridRowElements));
+				$gridRowElement = reset($gridRowElements);
+				$firstSeqValue = $grid->getDataElementInCategorySequence($categoryId, $gridRowElement);
 				foreach ($gridRowElements as $rowId => $element) {
 					$newSequence = array_search($rowId, $rowsData);
 					$currentSequence = $grid->getDataElementInCategorySequence($categoryId, $element);

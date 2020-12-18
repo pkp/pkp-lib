@@ -28,6 +28,30 @@ class LibraryFileHandler extends Handler {
 		$this->_callingHandler = $callingHandler;
 	}
 
+	/**
+	 * Download a library public file.
+	 * @param $args array
+	 * @param $request Request
+	 * @param $inline boolean Default to force download
+	 */
+	function _publicFileResponse($args, $request, $inline = false) {
+		import('classes.file.LibraryFileManager');
+		$context = $request->getContext();
+		$libraryFileManager = new LibraryFileManager($context->getId());
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
+
+		$publicFileId = $args[0];
+
+		$libraryFile = $libraryFileDao->getById($publicFileId, $context->getId());
+		if ($libraryFile && $libraryFile->getPublicAccess()) {
+			$libraryFileManager->downloadByPath($libraryFile->getFilePath(), null, $inline);
+		} else {
+				header('HTTP/1.0 403 Forbidden');
+				echo '403 Forbidden<br>';
+				return;
+		}
+	}
+
 	//
 	// Public handler methods
 	//
@@ -38,21 +62,16 @@ class LibraryFileHandler extends Handler {
 	 * @param $request Request
 	 */
 	function downloadPublic($args, $request) {
-		import('classes.file.LibraryFileManager');
-		$context = $request->getContext();
-		$libraryFileManager = new LibraryFileManager($context->getId());
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
+		$this->_publicFileResponse($args, $request, false);
+	}
 
-		$publicFileId = $args[0];
-
-		$libraryFile = $libraryFileDao->getById($publicFileId, $context->getId());
-		if ($libraryFile && $libraryFile->getPublicAccess()) {
-			$libraryFileManager->downloadByPath($libraryFile->getFilePath());
-		} else {
-				header('HTTP/1.0 403 Forbidden');
-				echo '403 Forbidden<br>';
-				return;
-		}
+	/**
+	 * View a library public file.
+	 * @param $args array
+	 * @param $request Request
+	 */
+	function viewPublic($args, $request) {
+		$this->_publicFileResponse($args, $request, true);
 	}
 
 	/**

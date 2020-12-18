@@ -1000,7 +1000,7 @@ msgstr "Selectați fișierele ce urmează să le atașați"
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
 "<p>Acest fișier bibliotecă poate fi accesibil pentru descărcare, dacă \""
-"Accesul Public\" is activat, ca: <blockquote>{$downloadUrl}</blockquote></p>"
+"Accesul Public\" is activat, ca: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.category.other"
 msgstr "Alte"

@@ -1487,7 +1487,7 @@ msgid "manager.setup.searchEngineIndexing.sitemapDescription"
 msgstr "XML mapa stránek je dostupná pro vyhledávací servery na tomto odkazu: <a href=\"{$path}\" target=\"_blank\">{$path}</a>"
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Tento soubor knihovny může být dostupný pro stažení, pokud je  umožněn \"Veřejný přístup\" na odkazu: <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Tento soubor knihovny může být dostupný pro stažení, pokud je  umožněn \"Veřejný přístup\" na odkazu: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Vyberte soubory z knihovny k připojení"

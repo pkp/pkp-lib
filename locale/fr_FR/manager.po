@@ -1461,7 +1461,7 @@ msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
 msgstr "Ce lien sera seulement affiché si vous avez rempli la section \"Bloc-générique\" dans Paramètres>Revue."
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Ce fichier sera accessible si l'accès public est activé à cette URL : <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Ce fichier sera accessible si l'accès public est activé à cette URL : <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Sélectionner le fichier de bibliothèque à envoyer"

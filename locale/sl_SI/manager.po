@@ -1105,7 +1105,7 @@ msgid "settings.libraryFiles.category.other"
 msgstr "Ostalo"
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Ta datoteka v knjižnici je lahko javno dostopan za prenos, če je omogočen \"Javni dostop\" preko: <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Ta datoteka v knjižnici je lahko javno dostopan za prenos, če je omogočen \"Javni dostop\" preko: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Pripnite datoteke iz knjižnice"

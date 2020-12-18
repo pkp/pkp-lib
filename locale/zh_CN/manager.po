@@ -1265,7 +1265,7 @@ msgstr "选择要附加的库文件"
 
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
-"<p>如果启用了“公共访问”，则可以下载该库文件，网址为：<blockquote> {$downloadUrl} </blockquote> </p>"
+"<p>如果启用了“公共访问”，则可以下载该库文件，网址为：<blockquote> {$downloadUrl} <br /> {$viewUrl} </blockquote> </p>"
 
 msgid "settings.libraryFiles.category.other"
 msgstr "其他"

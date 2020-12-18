@@ -1507,7 +1507,7 @@ msgstr ""
 "editor autorizado registre una decisión final."
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Este archivo de biblioteca podrá descargarse si se ha activado el \"acceso público\" en <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Este archivo de biblioteca podrá descargarse si se ha activado el \"acceso público\" en <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Seleccionar los archivos de biblioteca para adjuntar"

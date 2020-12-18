@@ -1515,7 +1515,7 @@ msgstr ""
 "siden 'Kontaktperson' under Indstillinger > Tidsskrift > Kontaktperson."
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Denne biblioteksfil kan være tilgængelig til download, hvis \"Offentlig adgang\" er aktiveret, på: <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Denne biblioteksfil kan være tilgængelig til download, hvis \"Offentlig adgang\" er aktiveret, på: <blockquote>{$downloadUrl}<br>{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Vælg biblioteksfiler, der skal vedhæftes"

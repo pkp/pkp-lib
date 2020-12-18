@@ -1084,7 +1084,7 @@ msgid "settings.libraryFiles.category.other"
 msgstr "Övrigt"
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Om \"Publik tillgång\" aktiveras kan den här biblioteksfilen bli tillgänglig för nedladdning på: <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Om \"Publik tillgång\" aktiveras kan den här biblioteksfilen bli tillgänglig för nedladdning på: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Välj biblioteksfiler att bifoga"

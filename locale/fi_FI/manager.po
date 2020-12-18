@@ -1410,7 +1410,7 @@ msgid "settings.roles.recommendOnly"
 msgstr "Tällä roolilla voi tehdä vain toimituksellisia suosituksia. Suosituksen vahvistamiseen vaaditaan varsinainen toimittaja."
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Jos \"Julkinen saatavuus\" on valittuna, tiedosto on ladattavissa osoitteesta: <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Jos \"Julkinen saatavuus\" on valittuna, tiedosto on ladattavissa osoitteesta: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Valitse liitettävät tiedostot"

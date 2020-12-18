@@ -1278,7 +1278,7 @@ msgid "settings.roles.recommendOnly"
 msgstr "Este papel só tem permissão para recomendar uma decisão e irá necessitar de um editor autorizado para registar a decisão final."
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Este ficheiro de biblioteca pode ser acessível para download, se o \"Acesso Público\" estiver ativo, em: <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Este ficheiro de biblioteca pode ser acessível para download, se o \"Acesso Público\" estiver ativo, em: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Selecione Ficheiros da Biblioteca para anexar"

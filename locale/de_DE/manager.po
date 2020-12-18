@@ -1091,7 +1091,7 @@ msgid "settings.libraryFiles.category.other"
 msgstr "Anderes"
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Diese Bibliotheksdatei kann zum Download bereitgestellt werden, wenn \"Öffentlicher Zugang\" unter <blockquote>{$downloadUrl}</blockquote> aktiviert ist.</p>"
+msgstr "<p>Diese Bibliotheksdatei kann zum Download bereitgestellt werden, wenn \"Öffentlicher Zugang\" unter <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote> aktiviert ist.</p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Wählen Sie Bibliotheksdateien aus, um sie anzuhängen.to attach"

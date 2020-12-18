@@ -2016,7 +2016,7 @@ msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
 "<p>Este arquivo da biblioteca pode ser acessível para download, caso \""
 "Acesso Público\" estiver habilitado, em: "
-"<blockquote>{$downloadUrl}</blockquote></p>"
+"<blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.roles.permitMetadataEdit"
 msgstr "Permitir edição dos metadados da submissão."

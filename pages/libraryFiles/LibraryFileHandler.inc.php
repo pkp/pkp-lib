@@ -28,16 +28,13 @@ class LibraryFileHandler extends Handler {
 		$this->_callingHandler = $callingHandler;
 	}
 
-	//
-	// Public handler methods
-	//
-
 	/**
 	 * Download a library public file.
 	 * @param $args array
 	 * @param $request Request
+	 * @param $inline boolean Default to force download
 	 */
-	function downloadPublic($args, $request) {
+	function _publicFileResponse($args, $request, $inline = false) {
 		import('classes.file.LibraryFileManager');
 		$context = $request->getContext();
 		$libraryFileManager = new LibraryFileManager($context->getId());
@@ -48,12 +45,34 @@ class LibraryFileHandler extends Handler {
 		$libraryFile = $libraryFileDao->getById($publicFileId, $context->getId());
 		if ($libraryFile && $libraryFile->getPublicAccess()) {
 			$filePath = $libraryFileManager->getBasePath() .  $libraryFile->getOriginalFileName();
-			$libraryFileManager->downloadByPath($filePath);
+			$libraryFileManager->downloadByPath($filePath, null, $inline);
 		} else {
 				header('HTTP/1.0 403 Forbidden');
 				echo '403 Forbidden<br>';
 				return;
 		}
+	}
+
+	//
+	// Public handler methods
+	//
+
+	/**
+	 * Download a library public file.
+	 * @param $args array
+	 * @param $request Request
+	 */
+	function downloadPublic($args, $request) {
+		$this->_publicFileResponse($args, $request, false);
+	}
+
+	/**
+	 * View a library public file.
+	 * @param $args array
+	 * @param $request Request
+	 */
+	function viewPublic($args, $request) {
+		$this->_publicFileResponse($args, $request, true);
 	}
 
 	/**

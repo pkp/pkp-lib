@@ -51,7 +51,8 @@
 		{fbvElement type="checkbox" id="publicAccess" value="1" checked=false label=$enablePublicAccess translate=false}
 		<p>
 			{capture assign=downloadUrl}{url router=$smarty.const.ROUTE_PAGE page="libraryFiles" op="downloadPublic" path="id"}{/capture}
-			{translate key="settings.libraryFiles.public.viewInstructions" downloadUrl=$downloadUrl}
+			{capture assign=viewUrl}{url router=$smarty.const.ROUTE_PAGE page="libraryFiles" op="viewPublic" path=$libraryFile->getId()}{/capture}
+			{translate key="settings.libraryFiles.public.viewInstructions" downloadUrl=$downloadUrl viewUrl=$viewUrl}
 		</p>
 	{/fbvFormSection}
 

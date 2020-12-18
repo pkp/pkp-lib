@@ -1196,7 +1196,7 @@ msgid "settings.libraryFiles.category.other"
 msgstr "Autre"
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Ce fichier peut être accessible pour téléchargement, si « Accès public » est activé pour :<blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Ce fichier peut être accessible pour téléchargement, si « Accès public » est activé pour :<blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Sélectionner le(s) fichier(s) de la bibliothèque à joindre"

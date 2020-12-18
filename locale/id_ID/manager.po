@@ -1000,7 +1000,7 @@ msgstr "Pilih Library File yang akan dilampirkan"
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
 "<p>Library file ini dapat diunduh, jika \"Akses Publik\" diaktifkan, pada: "
-"<blockquote>{$downloadUrl}</blockquote> </p>"
+"<blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote> </p>"
 
 msgid "settings.libraryFiles.category.other"
 msgstr "Lainnya"

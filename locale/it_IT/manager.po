@@ -1509,7 +1509,7 @@ msgid "manager.setup.searchEngineIndexing.sitemapDescription"
 msgstr "Una sitemap in XML è disponibile per essere inviata ai motori di riceca nel path <a href=\"{$path}\" target=\"_blank\">{$path}</a>."
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Questo file  di supporto può essere scaricato se l' \"Accesso pubblico\" è stato abilitato. Il link è:  <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Questo file  di supporto può essere scaricato se l' \"Accesso pubblico\" è stato abilitato. Il link è:  <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Seleziona un file da usare come supporto per aggiungerlo"

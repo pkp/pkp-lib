@@ -1151,7 +1151,7 @@ msgid "settings.libraryFiles.category.other"
 msgstr "Overige"
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Dit bibliotheekbestand kan worden beschikbaar gesteld voor downloaden, door \"Publieke toegang\" in te schakelen, op <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Dit bibliotheekbestand kan worden beschikbaar gesteld voor downloaden, door \"Publieke toegang\" in te schakelen, op <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Selecteer bibliotheekbestanden"

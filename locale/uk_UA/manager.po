@@ -1154,7 +1154,7 @@ msgid "settings.libraryFiles.category.other"
 msgstr "Інше"
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Цей файл бібліотеки буде доступний для завантаження, якщо увімкнено \"Публічний доступ\" за адресою: <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Цей файл бібліотеки буде доступний для завантаження, якщо увімкнено \"Публічний доступ\" за адресою: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Оберіть файли бібліотеки, які потрібно додати"

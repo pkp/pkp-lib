@@ -1206,7 +1206,7 @@ msgid "settings.libraryFiles.category.other"
 msgstr "Другое"
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Если включен «Открытый доступ», этот файл библиотеки может быть доступен для скачивания по адресу: <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Если включен «Открытый доступ», этот файл библиотеки может быть доступен для скачивания по адресу: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Выберите файлы библиотеки для присоединения"

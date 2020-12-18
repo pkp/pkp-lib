@@ -1129,7 +1129,7 @@ msgid "settings.roles.roleIdRequired"
 msgstr "Bir rol izin düzeyi tanımlamanız gerekir."
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Bu kütüphane dosyası, \"Herkese Açık Erişim\" seçeneği ile şu adresten erişilip indirilebilir: <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Bu kütüphane dosyası, \"Herkese Açık Erişim\" seçeneği ile şu adresten erişilip indirilebilir: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Eklenecek Kütüphane Dosyalarını Seç"

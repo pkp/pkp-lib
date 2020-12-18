@@ -1205,7 +1205,7 @@ msgid "settings.libraryFiles.category.other"
 msgstr "Other"
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>This library file can be accessible for download, if \"Public Access\" is enabled, at: <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>This library file can be accessible for download, if \"Public Access\" is enabled, at: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Select Library Files to attach"

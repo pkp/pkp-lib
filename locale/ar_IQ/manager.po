@@ -1210,7 +1210,7 @@ msgid "settings.libraryFiles.category.other"
 msgstr "غيرها"
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>ملف المكتبة هذا يمكن إتاحته للتنزيل فيما لو تم تمكين \"الوصول المفتوح\"، عند: <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>ملف المكتبة هذا يمكن إتاحته للتنزيل فيما لو تم تمكين \"الوصول المفتوح\"، عند: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "إختر ملفات المكتبة لربطها"

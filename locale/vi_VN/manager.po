@@ -1248,7 +1248,7 @@ msgstr "Chọn Tệp Thư viện để đính kèm"
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
 "<p> Có thể truy cập tệp thư viện này để tải xuống, nếu \"Quyền truy cập công "
-"cộng\" được bật, tại: <blockquote>{$downloadUrl}</blockquote> </p>"
+"cộng\" được bật, tại: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote> </p>"
 
 msgid "settings.libraryFiles.category.other"
 msgstr "Khác"

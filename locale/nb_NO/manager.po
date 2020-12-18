@@ -1689,7 +1689,7 @@ msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
 "<p>Denne biblioteksfilen kan gjøres tilgjengelig for nedlasting, hvis \""
 "Offentlig adgang\" er aktivert på: "
-"<blockquote>{$downloadUrl}</blockquote></p>"
+"<blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "manager.setup.genres.key"
 msgstr "Nøkkel"

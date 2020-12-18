@@ -1739,7 +1739,7 @@ msgstr ""
 "tartalmazhat. Alfanumerikus karakterrel kell kezdődnie és végződnie."
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Ha a ’Nyilvános elérés’ opciót bekapcsoljuk, az állomány letölthetővé válik a az alábbi linken: <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr "<p>Ha a ’Nyilvános elérés’ opciót bekapcsoljuk, az állomány letölthetővé válik a az alábbi linken: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Csatolható megjelentetési dokumentumok kiválasztása"

@@ -1898,7 +1898,7 @@ msgstr "Seleccioneu els arxius de biblioteca per adjuntar"
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
 "<p>Aquest arxiu de biblioteca podrà descarregar-se si s'ha activat l'\"accés "
-"públic\" a <blockquote>{$downloadUrl}</blockquote></p>"
+"públic\" a <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>"
 
 msgid "settings.roles.permitMetadataEdit"
 msgstr "Permetre l'edició de metadades de tramesa."

@@ -497,7 +497,7 @@
 	<message key="manager.navigationMenus.contact.conditionalWarning"><![CDATA[Dette link vil kun blive vist, hvis du har udfyldt informationsfelterne på siden Kontaktperson under Indstillinger > Tidsskrift > Kontaktperson]]></message>
 	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
 	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Et XML-sitemap er tilgængelig til indsendelse til søgemaskiner på <a href="{$path}" target="_blank">{$path}</a>]]></message>
-	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Denne biblioteksfil kan være tilgængelig til download, hvis "Offentlig adgang" er aktiveret, på: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Denne biblioteksfil kan være tilgængelig til download, hvis "Offentlig adgang" er aktiveret, på: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>]]></message>
 	<message key="settings.libraryFiles.public.selectLibraryFiles">Vælg biblioteksfiler, der skal vedhæftes</message>
 	<message key="manager.setup.genres.key">Nøgle</message>
 	<message key="manager.setup.genres.key.description">En valgfri kort symbolsk identifikator for denne genre.</message>

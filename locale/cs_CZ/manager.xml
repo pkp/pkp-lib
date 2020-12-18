@@ -512,6 +512,6 @@ výsledků vyhledávání. Zvolte jednu z nakonfigurovaných metrik jako výchoz
 	<message key="manager.navigationMenus.privacyStatement.conditionalWarning"><![CDATA[Tento odkaz se zobrazí pouze pokud jste vložili prohlášení o soukromí v Nastavení > Workflow > Příspěvek]]></message>
 	<message key="manager.setup.searchEngineIndexing.sitemap">Mapa stránek</message>
 	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[XML mapa stránek je dostupná pro vyhledávací servery na tomto odkazu: <a href="{$path}" target="_blank">{$path}</a>]]></message>
-	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Tento soubor knihovny může být dostupný pro stažení, pokud je  umožněn "Veřejný přístup" na odkazu: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Tento soubor knihovny může být dostupný pro stažení, pokud je  umožněn "Veřejný přístup" na odkazu: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>]]></message>
 	<message key="settings.libraryFiles.public.selectLibraryFiles">Vyberte soubory z knihovny k připojení</message>
 </locale>

@@ -506,7 +506,7 @@
 	<message key="manager.navigationMenus.search.description">Link alla pagina di ricerca</message>
 	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
 	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Una sitemap in XML è disponibile per essere inviata ai motori di riceca nel path <a href="{$path}" target="_blank">{$path}</a>.]]></message>
-	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Questo file  di supporto può essere scaricato se l' "Accesso pubblico" è stato abilitato. Il link è:  <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Questo file  di supporto può essere scaricato se l' "Accesso pubblico" è stato abilitato. Il link è:  <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>]]></message>
 	<message key="settings.libraryFiles.public.selectLibraryFiles">Seleziona un file da usare come supporto per aggiungerlo</message>
 	<message key="manager.navigationMenus.form.typeMissing">Per favore seleziona un tipo menu di navigazione.</message>
 	<message key="manager.navigationMenus.subscriptions.conditionalWarning"><![CDATA[Questo link viene visualizzato solo se i pagamenti sono abilititati in Impostazioni > Distribuzione > Pagamenti]]></message>

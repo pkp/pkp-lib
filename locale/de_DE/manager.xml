@@ -396,7 +396,7 @@
 	<message key="settings.libraryFiles.category.permissions">Rechte</message>
 	<message key="settings.libraryFiles.category.reports">Berichte</message>
 	<message key="settings.libraryFiles.category.other">Anderes</message>
-	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Diese Bibliotheksdatei kann zum Download bereitgestellt werden, wenn "Öffentlicher Zugang" unter <blockquote>{$downloadUrl}</blockquote> aktiviert ist.</p>]]></message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Diese Bibliotheksdatei kann zum Download bereitgestellt werden, wenn "Öffentlicher Zugang" unter <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote> aktiviert ist.</p>]]></message>
 	<message key="settings.libraryFiles.public.selectLibraryFiles">Wählen Sie Bibliotheksdateien aus, um sie anzuhängen.to attach</message>
 
 	<!--  Genre grid settings -->

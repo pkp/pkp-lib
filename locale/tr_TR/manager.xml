@@ -391,7 +391,7 @@
 	<message key="manager.setup.favicon">Geçersiz favori ikonu biçimi. Kabul edilen biçimler: .ico, .png ve .gif.</message>
 	<message key="manager.setup.groupType">Dosya türü gruplaması</message>
 	<message key="settings.roles.roleIdRequired">Bir rol izin düzeyi tanımlamanız gerekir.</message>
-	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Bu kütüphane dosyası, "Herkese Açık Erişim" seçeneği ile şu adresten erişilip indirilebilir: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Bu kütüphane dosyası, "Herkese Açık Erişim" seçeneği ile şu adresten erişilip indirilebilir: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>]]></message>
 	<message key="settings.libraryFiles.public.selectLibraryFiles">Eklenecek Kütüphane Dosyalarını Seç</message>
 	<message key="grid.action.addGenre">Bir Bileşen ekle</message>
 	<message key="grid.action.editGenre">Bu Bileşeni Düzenle</message>

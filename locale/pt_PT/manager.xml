@@ -447,7 +447,7 @@
 	<message key="manager.plugins.pluginGallery.certifications.reviewed.description">Este plugin foi reviso e aprovado pela equipa do Public Knowledge Project.</message>
 	<message key="manager.plugins.pluginGallery.certifications.partner.description">Este plugin é providenciado por um dos nossos parceiros.</message>
 	<message key="settings.roles.recommendOnly">Este papel só tem permissão para recomendar uma decisão e irá necessitar de um editor autorizado para registar a decisão final.</message>
-	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Este ficheiro de biblioteca pode ser acessível para download, se o "Acesso Público" estiver ativo, em: <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Este ficheiro de biblioteca pode ser acessível para download, se o "Acesso Público" estiver ativo, em: <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>]]></message>
 	<message key="settings.libraryFiles.public.selectLibraryFiles">Selecione Ficheiros da Biblioteca para anexar</message>
 	<message key="manager.setup.genres.key">Chave</message>
 	<message key="manager.setup.genres.key.description">Um identificador curto e simbólico para este tipo.</message>

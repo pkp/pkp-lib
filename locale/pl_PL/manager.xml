@@ -506,7 +506,7 @@
 	<message key="manager.navigationMenus.contact.conditionalWarning"><![CDATA[Link będzie wyświetlany w przypadku wypełnienia danych do kontaktu na stronie Ustawienia > Kontakt.]]></message>
 	<message key="manager.setup.searchEngineIndexing.sitemap">Mapa strony</message>
 	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Mapa strony w formacie XML jest dostępna dla wyszukiwarek internetowych pod adresem <a href="{$path}" target="_blank">{$path}</a>]]></message>
-	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Ten plik z biblioteką może być dostępny do pobrania, jeżeli ustawiono "Public Access": <blockquote>{$downloadUrl}</blockquote></p>]]></message>
+	<message key="settings.libraryFiles.public.viewInstructions"><![CDATA[<p>Ten plik z biblioteką może być dostępny do pobrania, jeżeli ustawiono "Public Access": <blockquote>{$downloadUrl}<br />{$viewUrl}</blockquote></p>]]></message>
 	<message key="settings.libraryFiles.public.selectLibraryFiles">Wybierz pliki biblioteki do załączenia</message>
 	<message key="manager.setup.genres.key">Klucz</message>
 	<message key="manager.setup.genres.key.description">Dodatkowy krótki identyfikator dla tego rodzaju.</message>

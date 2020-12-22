@@ -194,9 +194,11 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 					$filteredPlugins[$plugin->getName()] = $plugin;
 				}
 			}
+			ksort($filteredPlugins);
 			return $filteredPlugins;
 		}
 
+		ksort($notHiddenPlugins);
 		return $notHiddenPlugins;
 	}
 

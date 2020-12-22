@@ -110,6 +110,11 @@
 			"apiSummary": true,
 			"readOnly": true
 		},
+		"file": {
+			"type": "string",
+			"format": "binary",
+			"writeOnly": true
+		},
 		"fileStage": {
 			"type": "integer",
 			"apiSummary": true,

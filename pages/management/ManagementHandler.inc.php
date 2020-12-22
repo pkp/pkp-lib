@@ -321,7 +321,7 @@ class ManagementHandler extends Handler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $supportedFormLocales);
 
-		$announcementForm = new \PKP\components\forms\announcement\PKPAnnouncementForm($apiUrl, $locales, $request->getContext());
+		$announcementForm = new \APP\components\forms\announcement\announcementForm($apiUrl, $locales, $request->getContext());
 
 		$getParams = [
 			'contextIds' => $request->getContext()->getId(),

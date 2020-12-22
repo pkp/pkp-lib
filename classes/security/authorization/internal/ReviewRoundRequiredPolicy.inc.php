@@ -46,7 +46,7 @@ class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy {
 		// Ensure that the review round actually belongs to the
 		// authorized submission.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		if ($reviewRound->getSubmissionId() != $submission->getId()) AUTHORIZATION_DENY;
+		if ($reviewRound->getSubmissionId() != $submission->getId()) return AUTHORIZATION_DENY;
 
 		// Ensure that the review round is for this workflow stage
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);

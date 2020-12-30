@@ -237,8 +237,8 @@ class NavigationMenuItemDAO extends DAO {
 	function deleteById($navigationMenuItemId) {
 		$this->unCacheRelatedNavigationMenus($navigationMenuItemId);
 
-		$this->update('DELETE FROM navigation_menu_item_settings WHERE navigation_menu_item_id = ?', (int) $navigationMenuItemId);
-		$this->update('DELETE FROM navigation_menu_items WHERE navigation_menu_item_id = ?', (int) $navigationMenuItemId);
+		$this->update('DELETE FROM navigation_menu_item_settings WHERE navigation_menu_item_id = ?', [(int) $navigationMenuItemId]);
+		$this->update('DELETE FROM navigation_menu_items WHERE navigation_menu_item_id = ?', [(int) $navigationMenuItemId]);
 
 		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO'); /* @var $navigationMenuItemAssignmentDao NavigationMenuItemAssignmentDAO */
 		$navigationMenuItemAssignmentDao->deleteByMenuItemId($navigationMenuItemId);

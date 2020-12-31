@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2020-12-29 10:52+0000\n"
+"PO-Revision-Date: 2020-12-31 13:24+0000\n"
 "Last-Translator: Kazimir Hrastek <kazimir3385@gmail.com>\n"
 "Language-Team: Bosnian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bs_BA/>\n"
@@ -291,3 +291,27 @@ msgstr "Vrijednost postavke"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Naziv postavke"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr ""
+"Izvršenje programa \"{$utilPath}\" vratilo je sljedeću grešku: {$output}"
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Uspjeh: {$filePath} do {$destinationPath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+"Upozorenje: datoteka {$filePath} već postoji unutar direktorija statistike "
+"upotrebe."
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Greška: nije moguće izbrisati datoteku {$tmpFilePath}"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Osnovna putanja {$path} mora biti unutar direktorija javnih datoteka."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Učitavač datoteka"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Datoteka {$filename} je obrađena i arhivirana."

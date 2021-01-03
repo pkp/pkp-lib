@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2020-07-23 05:47+0000\n"
+"PO-Revision-Date: 2021-01-03 17:40+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/cs/>\n"
+"submission/cs_CZ/>\n"
 "Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -801,7 +801,7 @@ msgid "metadata.property.validationMessage.subTitle"
 msgstr "Zadejte, prosím, platný název podtitulku."
 
 msgid "metadata.property.displayName.partNumber"
-msgstr "Část č."
+msgstr "Část číslo"
 
 msgid "metadata.property.validationMessage.partNumber"
 msgstr "Zadejte, prosím, platné číslo části."
@@ -963,7 +963,7 @@ msgid "submission.contributors"
 msgstr "Seznam autorů"
 
 msgid "submission.copyedited"
-msgstr "Probíhá redakční zpracování"
+msgstr "Soubory po redakčním zpracování"
 
 msgid "submission.copyediting"
 msgstr "Redakční úpravy"
@@ -983,9 +983,8 @@ msgstr "Úvodní odeslání zakončeno."
 msgid "submission.event.fileUploaded"
 msgstr "Soubor \"{$originalFileName}\" byl nahrán pro příspěvek {$submissionId} uživatelem {$username}."
 
-#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Oprava \"{$name}\" (file ID {$submissionFileId}) byla nahrána."
+msgstr "Revize \"{$name}\" souboru {$submissionFileId}) byla nahrána."
 
 msgid "submission.event.participantAdded"
 msgstr "Uživatel {$name}  ({$username}) byl přiřazen k příspěvku jako {$userGroupName}."
@@ -1222,13 +1221,13 @@ msgid "submission.actionNeeded"
 msgstr "Je třeba akce"
 
 msgid "reviewer.submission.reviewFiles"
-msgstr "Soubory recenzí"
+msgstr "Soubory pro recenzi"
 
 msgid "submission.submit.currentFile"
 msgstr "Aktuální soubor"
 
 msgid "submission.finalDraft"
-msgstr "Soubory návrhů"
+msgstr "Soubory před redakční úpravou"
 
 msgid "editor.submission.addAuditorError"
 msgstr "Při přiřazování posuzovatele došlo k chybě. Zkuste to, prosím, ještě jednou."
@@ -1528,10 +1527,10 @@ msgid "submission.list.infoCenter"
 msgstr "Záznam aktivit a poznámek"
 
 msgid "submission.list.responseDue"
-msgstr "Očekává se odpověď"
+msgstr "Je třeba odpovědět do: {$date}"
 
 msgid "submission.list.reviewDue"
-msgstr "Očekává se recenze"
+msgstr "Recenzi je třeba odevzdat do: {$date}"
 
 msgid "submission.list.confirmDelete"
 msgstr "Smazat příspěvek?"
@@ -1645,7 +1644,11 @@ msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Příspěvek byl znovu nahrán pro další kolo recenzí."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
-msgstr "Účastník, kterého jste vybrali, byl přidělen k provedení slepé recenze. Pokud jej vyberete jako účastníka, bude mít přístup k identitě autora. Doporučuje se, abyste tomuto účastníka nepřidělili, abyste zajistili integritu procesu peer review."
+msgstr ""
+"Účastník, kterého jste vybrali, byl přidělen k provedení anonymní recenze. "
+"Pokud jej vyberete jako účastníka, bude mít přístup k identitě autora. "
+"Doporučuje se, abyste tomuto účastníka nepřidělili, abyste zajistili "
+"integritu procesu peer review."
 
 msgid "submission.query.participantTitle"
 msgstr "{$fullName}, {$userGroup}"
@@ -1951,3 +1954,45 @@ msgstr "{$representation} z {$title}"
 
 msgid "notification.type.submissionNewVersion"
 msgstr "Byla vytvořena nová verze příspěvku"
+
+msgid "notification.type.revertDecline"
+msgstr "Rozhodnutí odmítnout tento příspěvek bylo vráceno."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Zamítnutý příspěvek byl znovu aktivován."
+
+msgid "submission.event.fileEdited"
+msgstr "Metadata souboru \"{$originalFileName}\" editoval {$username}."
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Vrátit zamítnutí"
+
+msgid "submission.upload.percentComplete"
+msgstr "Nahrávání je z {$percent} % hotovo"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Nahrajte všechny soubory, které redakční tým bude potřebovat k vyhodnocení "
+"vašeho příspěvku."
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Záznam nahrávače souborů se uloží při vytvoření souboru a nelze jej změnit."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Opravdu chcete tento soubor odstranit?"
+
+msgid "submission.submit.genre.error"
+msgstr "Vyberte typ souboru pro každé nahrání."
+
+msgid "submission.submit.genre.description"
+msgstr "Vyberte možnost, která nejlépe vystihuje tento soubor."
+
+msgid "submission.submit.genre.label"
+msgstr "O jaký druh souboru se jedná?"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Jeden nebo více recenzentů zmeškalo termín. Redakční tým byl upozorněn a "
+"přijme opatření, aby zajistil dokončení recenzí. V tuto chvíli nemusíte "
+"podnikat žádné kroky. Až bude učiněno rozhodnutí, budete upozorněni."

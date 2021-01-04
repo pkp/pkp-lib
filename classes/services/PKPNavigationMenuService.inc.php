@@ -182,7 +182,7 @@ class PKPNavigationMenuService {
 				case NMI_TYPE_USER_LOGOUT:
 					if ($isUserLoggedInAs) {
 						$userName = $request->getUser() ? ' ' . $request->getUser()->getUserName() : '';
-						$navigationMenuItem->setTitle(__('user.logOutAs') . $userName, \AppLocale::getLocale());
+						$navigationMenuItem->setTitle(__('user.logOutAs', ['username' => $userName]), \AppLocale::getLocale());
 					}
 					break;
 				case NMI_TYPE_USER_DASHBOARD:

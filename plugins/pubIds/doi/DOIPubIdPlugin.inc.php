@@ -377,11 +377,9 @@ class DOIPubIdPlugin extends PubIdPlugin {
 				'separator' => '/',
 				'submissionId' => $form->publication->getData('submissionId'),
 				'publicationId' => $form->publication->getId(),
-				'i18n' => [
-					'assignId' => __('plugins.pubIds.doi.editor.doi.assignDoi'),
-					'clearId' => __('plugins.pubIds.doi.editor.clearObjectsDoi'),
-					'missingParts' => __('plugins.pubIds.doi.editor.missingParts'),
-				]
+				'assignIdLabel' => __('plugins.pubIds.doi.editor.doi.assignDoi'),
+				'clearIdLabel' => __('plugins.pubIds.doi.editor.clearObjectsDoi'),
+				'missingPartsLabel' => __('plugins.pubIds.doi.editor.missingParts'),
 			];
 			if ($form->publication->getData('pub-id::publisher-id')) {
 				$fieldData['publisherId'] = $form->publication->getData('pub-id::publisher-id');

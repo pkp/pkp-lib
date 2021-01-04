@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2020-09-30 13:49+0000\n"
+"PO-Revision-Date: 2020-12-29 10:52+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
@@ -18,7 +18,7 @@ msgid "manager.announcements"
 msgstr "Notícias"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Deseja realmente eliminar permanentemente esta notícia?"
+msgstr "Deseja realmente eliminar permanentemente a notícia {$title}?"
 
 msgid "manager.announcements.create"
 msgstr "Criar nova notícia"
@@ -54,7 +54,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Escolha o mês e/ou dia além do ano de expiração."
 
 msgid "manager.announcements.form.description"
-msgstr "Corpo da Notícia"
+msgstr "Notícia"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "O texto completo da notícia."
@@ -1476,11 +1476,10 @@ msgstr ""
 msgid "manager.publication.reviewerGuidance"
 msgstr "Orientações para o Revisor"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Apresentar link <button type=\"button\">Garantindo uma Revisão Cega</button> "
-"durante a transferência"
+"Apresentar link para<button type=\"button\">Garantir Revisão Cega em todos "
+"os ficheiros</button> durante a transferência"
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Modo de Revisão Padrão"
@@ -2021,3 +2020,125 @@ msgstr "Não solicitar as referências aos autores durante a submissão."
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/year)"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"O ficheiro de submissão  {$id} foi saltado porque está anexado a um registo "
+"que não será importado, tal como uma designação de revisão ou discussão."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Selecione o tipo de metadados que estes ficheiros deverão ter. Os documentos "
+"são escolhidos dos ficheiros de publicação principais, tais como PDFs "
+"descarregáveis, para que os ficheiros herdem os seus metadados da "
+"publicação. De outra forma, escolhda Conteúdos Suplementares para a maioria "
+"dos tipos de ficheiros. Obra de arte é apropriada para ficheiros que peçam "
+"metadados de crédito, legenda e licença distintos."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Metadados do Ficheiro"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Estes ficheiros são suplementares, tais como conjuntos de dados e materiais "
+"de investigação, e serão disponibilizados em separado dos ficheiros "
+"publicados."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Estes ficheiros são dependentes, tal como imagens de um ficheiro HTML, e não "
+"serão disponibilizadas com o conteúdo publicado."
+
+msgid "manager.setup.genres.label"
+msgstr "Tipo de ficheiro"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Deseja realmente desativar esta secção?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Deseja realmente desativar esta secção?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "Desativar esta secção e não permitir que enviem novas submissões."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Personalizar"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Data e Hora (pequena)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Data e Hora"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Hora"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Data (pequena)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Data"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Escolha os formatos de data e hora preferidos. Pode inserir um formato "
+"personalizado utilizando os <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>caracteres "
+"especiais de formato</a>."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formatos de Data e Hora"
+
+msgid "manager.setup.dateTime"
+msgstr "Data e Hora"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Enviar outro e-mail"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "O e-mail foi enviado com sucesso para todos os destinatário."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr "A enviar e-mail. Não feche o browser antes do envio estar concluído."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Está prestes a enviar um e-mail para {$total} utilizadores. Deseja realmente "
+"enviar este e-mail?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Enviar E-mail"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Enviar uma cópia deste e-mail para o meu e-mail {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Selecionar utilizadores que irão receber a notificação de e-mail."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Notificar"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Desativar Submissões"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Gerador de Relatórios Personalizados"
+
+msgid "manager.people.signedInAs"
+msgstr "Tem acesso como {$username}"
+
+msgid "manager.export.usersToCsv.description"
+msgstr ""
+"Selecionar utilizadores para serem exportados para um ficheiro Excel/CSV."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Exportar para Excel/CSV"
+
+msgid "manager.emails.resetComplete"
+msgstr "O e-mail padrão foi reiniciado com sucesso."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "O e-mail padrão foi restaurado."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Eliminar Notícia"

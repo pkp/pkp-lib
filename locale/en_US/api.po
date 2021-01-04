@@ -96,3 +96,12 @@ msgstr "The public files directory was not found or files can not be saved to it
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr "You can not modify the file association without passing an assocType and assocId."
+
+msgid "api.api_key_secret.should.be.filled"
+msgstr "api_key_secret should be filled"
+
+msgid "api.invalid_token_signature"
+msgstr "Could not verify token authenticity. Try again later."
+
+msgid "api.api_token.should.be.filled"
+msgstr "api_token should be filled"

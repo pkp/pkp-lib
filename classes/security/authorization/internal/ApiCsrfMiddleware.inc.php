@@ -28,24 +28,46 @@ class ApiCsrfMiddleware {
 		$this->_handler = $handler;
 	}
 
-	/**
-	 * Middleware invokable function
-	 *
-	 * @param SlimRequest $slimRequest request
-	 * @param SlimResponse $response response
-	 * @param callable $next Next middleware
-	 * @return SlimResponse
-	 */
-	public function __invoke($slimRequest, $response, $next) {
-		if ($this->_isCSRFRequired($slimRequest) && !$this->_isCSRFValid($slimRequest)) {
-			return $response->withJson([
-				'error' => 'form.csrfInvalid',
-				'errorMessage' => __('form.csrfInvalid'),
-			], 403);
-		}
-		$response = $next($slimRequest, $response);
-		return $response;
-	}
+    /**
+     * Middleware invokable function
+     *
+     * @param SlimRequest $slimRequest request
+     * @param SlimResponse $response response
+     * @param callable $next Next middleware
+     *
+     * @return SlimResponse
+     */
+    public function __invoke(
+        $slimRequest,
+        $response,
+        $next
+    ) {
+        if (!$this->tokenFilled()) {
+            return $response->withJson([
+               'error' => 'api.api_token.should.be.filled',
+               'errorMessage' => __('api.api_token.should.be.filled'),
+            ], 403);
+        }
+
+        if ($this->_isCSRFRequired($slimRequest) && !$this->_isCSRFValid($slimRequest)) {
+            return $response->withJson([
+                'error' => 'form.csrfInvalid',
+                'errorMessage' => __('form.csrfInvalid'),
+            ], 403);
+        }
+        $response = $next($slimRequest, $response);
+        return $response;
+    }
+
+    /**
+     * Check if the api token it's filled.
+     *
+     * @return bool
+     */
+    protected function tokenFilled(): bool
+    {
+        return $this->_handler->getApiToken() !== null;
+    }
 
 	/**
 	 * Check if a CSRF token is required
@@ -55,7 +77,7 @@ class ApiCsrfMiddleware {
 	 */
 	protected function _isCSRFRequired($slimRequest) {
 		if ($this->_handler->getApiToken()) {
-			return false;
+			return true;
 		}
 		$server = $slimRequest->getServerParams();
 		return !empty($server['REQUEST_METHOD']) && in_array($server['REQUEST_METHOD'], ['POST', 'PUT', 'DELETE']);

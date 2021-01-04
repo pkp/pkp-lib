@@ -15,6 +15,8 @@
 
 use \Firebase\JWT\JWT;
 
+use Firebase\JWT\SignatureInvalidException;
+
 class ApiTokenDecodingMiddleware {
 	/** @var APIHandler $handler Reference to api handler */
 	protected $_handler = null;
@@ -35,31 +37,62 @@ class ApiTokenDecodingMiddleware {
 	 * @return boolean|string
 	 */
 	protected function _decode($slimRequest) {
-		$secret = Config::getVar('security', 'api_key_secret', '');
-		if ($secret !== '' && !is_null($jwt = $slimRequest->getQueryParam('apiToken'))) {
-			try {
-				$apiToken = JWT::decode($jwt, $secret, array('HS256'));
-				$this->_handler->setApiToken($apiToken);
-				return true;
-			} catch (Exception $e) {
-				// If JWT decoding fails, it throws an
-				// 'UnexpectedValueException'.  If JSON decoding fails
-				// (of the JWT payload), it throws a 'DomainException'.
-				if (is_a($e, 'UnexpectedValueException') || is_a($e, 'DomainException')) {
-					$request = $this->_handler->getRequest();
-					$router = $request->getRouter();
-					$result = $router->handleAuthorizationFailure($request, $e->getMessage());
-					switch(1) {
-						case is_string($result): return $result;
-						case is_a($result, 'JSONMessage'): return $result->getString();
-						default:
-							assert(false);
-							return null;
-					}
-				}
-				throw $e;
-			}
-		}
+        $secret = Config::getVar('security', 'api_key_secret', '');
+
+        if ($secret === '') {
+            $request = $this->_handler->getRequest();
+            return $request->getRouter()
+                ->handleAuthorizationFailure(
+                    $request,
+                    'api.api_key_secret.should.be.filled'
+                );
+        }
+
+        if ($secret !== '' && !is_null($jwt = $slimRequest->getQueryParam('apiToken'))) {
+            try {
+                $apiToken = JWT::decode($jwt, $secret, ['HS256']);
+                $this->_handler->setApiToken($apiToken);
+                return true;
+            } catch (Exception $e) {
+                /**
+                 * If JWT decoding fails, it throws an 'UnexpectedValueException'.
+                 * If JSON decoding fails (of the JWT payload), it throws a 'DomainException'.
+                 * If token couldn't verified, it throws a 'SignatureInvalidException'.
+                 */
+                if (is_a($e, SignatureInvalidException::class)) {
+                    $request = $this->_handler->getRequest();
+                    return $request->getRouter()
+                        ->handleAuthorizationFailure(
+                            $request,
+                            'api.invalid_token_signature'
+                        );
+                }
+
+                if (is_a($e, 'UnexpectedValueException') ||
+                    is_a($e, 'DomainException')
+                ) {
+                    $request = $this->_handler->getRequest();
+                    $result = $request->getRouter()
+                        ->handleAuthorizationFailure(
+                            $request,
+                            $e->getMessage()
+                        );
+
+                    if (is_string($result)) {
+                        return $result;
+                    }
+
+                    if (is_a($result, 'JSONMessage')) {
+                        return $result->getString();
+                    }
+
+                    assert(false);
+                    return null;
+                }
+
+                throw $e;
+            }
+        }
 		// If we do not have a token, it's for the authentication logic
 		// to decide if that's a problem.
 		return true;

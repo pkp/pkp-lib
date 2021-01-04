@@ -113,6 +113,8 @@ class Dispatcher {
 		// configuration error.
 		if (is_null($router)) fatalError('None of the configured routers supports this request.');
 
+		AppLocale::initialize($request);
+
 		// Can we serve a cached response?
 		if ($router->isCacheable($request)) {
 			$this->_requestCallbackHack =& $request;
@@ -128,7 +130,6 @@ class Dispatcher {
 			}
 		}
 
-		AppLocale::initialize($request);
 		PluginRegistry::loadCategory('generic', true);
 		PluginRegistry::loadCategory('pubIds', true);
 

@@ -45,8 +45,8 @@
 		@closed="setFocusToRef('exportButton')"
 	>
 		<modal-content
-			closeLabel="Close"
-			modalName="export"
+			close-label="common.close"
+			modal-name="export"
 			title="{translate key="manager.export.usersToCsv.label"}"
 		>
 			<pkp-form v-bind="components.usersReportForm" @set="set" @success="loadExport" />

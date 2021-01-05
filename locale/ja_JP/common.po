@@ -1,2 +1,343 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2021-01-05 08:20+0000\n"
+"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
+"Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"ja_JP/>\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "common.downloadPdf"
+msgstr "PDFダウンロード"
+
+msgid "common.download"
+msgstr "ダウンロード"
+
+msgid "common.done"
+msgstr "完了"
+
+msgid "common.discipline"
+msgstr "分野"
+
+msgid "common.disabled"
+msgstr "無効"
+
+msgid "common.disable"
+msgstr "無効化"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} ピクセル"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+
+msgid "common.description"
+msgstr "記述"
+
+msgid "common.designation"
+msgstr "名称"
+
+msgid "common.deleteSelection"
+msgstr "選択範囲の削除"
+
+msgid "common.deleting"
+msgstr "削除中"
+
+msgid "common.delete"
+msgstr "削除"
+
+msgid "common.declined"
+msgstr "拒否"
+
+msgid "common.default"
+msgstr "デフォルト"
+
+msgid "common.deactivate"
+msgstr "無効化"
+
+msgid "common.day"
+msgstr "日"
+
+msgid "common.dateHijri"
+msgstr "ヒジュラ暦"
+
+msgid "common.dateUploaded"
+msgstr "アップロード日"
+
+msgid "common.dateSubmitted"
+msgstr "投稿日"
+
+msgid "common.dateRequested"
+msgstr "依頼日"
+
+msgid "common.dateModified"
+msgstr "更新日"
+
+msgid "common.date"
+msgstr "日付"
+
+msgid "common.dateDecided"
+msgstr "判断日"
+
+msgid "common.dateCompleted"
+msgstr "完了日"
+
+msgid "common.create"
+msgstr "作成"
+
+msgid "common.country"
+msgstr "国"
+
+msgid "common.copy"
+msgstr "コピー"
+
+msgid "common.continue"
+msgstr "続く"
+
+msgid "common.contents"
+msgstr "コンテンツ"
+
+msgid "common.content"
+msgstr "コンテンツ"
+
+msgid "common.confirmed.date"
+msgstr "確認日: {$dateConfirmed}"
+
+msgid "common.confirm"
+msgstr "確認"
+
+msgid "common.completed.date"
+msgstr "完了日: {$dateCompleted}"
+
+msgid "common.completed"
+msgstr "完了した"
+
+msgid "common.complete"
+msgstr "完了"
+
+msgid "common.closeWindow"
+msgstr "ウィンドウを閉じる"
+
+msgid "common.closePanel"
+msgstr "パネルを閉じる"
+
+msgid "common.close"
+msgstr "閉じる"
+
+msgid "common.chooseOne"
+msgstr "1つ選択してください"
+
+msgid "common.changesSaved"
+msgstr "保存しました。"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tこの資料のライセンスは <a rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 "
+"License</a> です。\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tこの資料のライセンスは <a rel=\"license\" target=\"_blank\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
+"3.0  License</a> です。\n"
+"\t"
+
+msgid "common.captchaField"
+msgstr "検証"
+
+msgid "common.captchaField.description"
+msgstr "上の図に表示されている文字を入力してください。"
+
+msgid "common.notice"
+msgstr "注記"
+
+msgid "common.error"
+msgstr "エラー"
+
+msgid "common.warning"
+msgstr "注意"
+
+msgid "common.cancelled"
+msgstr "取り消された"
+
+msgid "common.cancel"
+msgstr "取消"
+
+msgid "common.between"
+msgstr "～"
+
+msgid "common.back"
+msgstr "戻る"
+
+msgid "common.available"
+msgstr "利用可能"
+
+msgid "common.assigned.date"
+msgstr "任命日: {$dateAssigned}"
+
+msgid "common.assigned"
+msgstr "任命日"
+
+msgid "common.assign"
+msgstr "任命日"
+
+msgid "common.applyAction"
+msgstr "処理実行"
+
+msgid "common.and"
+msgstr "および"
+
+msgid "common.altTextInstructions"
+msgstr "テキストベースのブラウザや読み上げブラウザを使用するユーザにも分かるように、画像の説明文を指定してください。"
+
+msgid "common.altText"
+msgstr "代替テキスト"
+
+msgid "common.alreadyAssigned"
+msgstr "任命済"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+msgid "common.all"
+msgstr "すべて"
+
+#, fuzzy
+msgid "common.name"
+msgstr "名前"
+
+msgid "common.addSelf"
+msgstr "自分を任命"
+
+msgid "common.add"
+msgstr "追加"
+
+msgid "common.active"
+msgstr "アクティブ"
+
+msgid "common.activate"
+msgstr "有効化"
+
+msgid "common.action"
+msgstr "処理"
+
+msgid "common.acknowledged"
+msgstr "確認済み"
+
+msgid "common.accepted"
+msgstr "受領"
+
+msgid "common.grid"
+msgstr "グリッド"
+
+msgid "common.navigation.user"
+msgstr "ユーザーナビゲーション"
+
+msgid "common.navigation.siteContext"
+msgstr "サイトコンテキストナビゲーション"
+
+msgid "common.navigation.site"
+msgstr "サイトナビゲーション"
+
+msgid "common.abstract"
+msgstr "要旨"
+
+msgid "common.confirmDelete"
+msgstr "このアイテムを削除してもよいですか。元に戻すことはできません。"
+
+msgid "common.list"
+msgstr "リスト"
+
+msgid "common.tasks"
+msgstr "タスク"
+
+msgid "common.navigation.sidebar"
+msgstr "サイドバー"
+
+msgid "common.allDownloads"
+msgstr "すべてのダウンロード"
+
+msgid "announcement.view"
+msgstr "お知らせを閲覧"
+
+msgid "announcement.postedOn"
+msgstr "{$postDate}に投稿"
+
+msgid "announcement.posted"
+msgstr "投稿済"
+
+msgid "announcement.noneExist"
+msgstr "お知らせはありません。"
+
+msgid "announcement.moreAnnouncements"
+msgstr "その他のお知らせ..."
+
+msgid "announcement.announcementsHome"
+msgstr "お知らせ"
+
+msgid "announcement.announcements"
+msgstr "お知らせ"
+
+msgid "about.siteMap"
+msgstr "サイトマップ"
+
+msgid "about.policies"
+msgstr "ポリシー"
+
+msgid "about.people"
+msgstr "組織"
+
+msgid "about.other"
+msgstr "その他"
+
+msgid "about.contact.supportContact"
+msgstr "技術支援担当者"
+
+msgid "about.contact.principalContact"
+msgstr "連絡責任者"
+
+msgid "about.contact.phone"
+msgstr "電話"
+
+msgid "about.contact.email"
+msgstr "メールアドレス"
+
+msgid "about.contact"
+msgstr "連絡先"
+
+msgid "about.aboutSite"
+msgstr "このサイトについて"
+
+msgid "about.guidelines"
+msgstr "ガイドライン"
+
+msgid "about.description"
+msgstr "記述"
+
+msgid "common.currentStyleSheet"
+msgstr "現在のスタイルシート"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"

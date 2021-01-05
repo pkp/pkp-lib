@@ -1,2 +1,101 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2021-01-06 13:52+0000\n"
+"Last-Translator: Kazimir Hrastek <kazimir3385@gmail.com>\n"
+"Language-Team: Bosnian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"bs_BA/>\n"
+"Language: bs_BA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Ne možete modifikovati pridruživanje datoteke bez dodavanja assocType i "
+"assocId."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Direktorij javnih datoteka nije pronađen ili datoteke nije moguće spremiti u "
+"njega. Molimo vas kontaktirajte svog administratora da biste riješili ovaj "
+"problem."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Nemate dovoljno prostora u korisničkom imeniku. Datoteka koju prenosite ima "
+"{$fileUploadSize}kb, a preostalo vam je {$dirSizeLeft}kb."
+
+msgid "api.404.resourceNotFound"
+msgstr ""
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr ""
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr ""
+
+msgid "api.emails.400.missingSubject"
+msgstr ""
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr ""
+
+msgid "api.files.400.noUpload"
+msgstr ""
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr ""
+
+msgid "api.files.400.fileSize"
+msgstr ""
+
+msgid "api.403.unauthorized"
+msgstr ""
+
+msgid "api.publication.403.alreadyPublished"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr ""
+
+msgid "api.400.paramNotSupported"
+msgstr ""
+
+msgid "api.files.400.config"
+msgstr ""
+
+msgid "api.files.400.uploadFailed"
+msgstr ""
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr ""
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+
+msgid "api.404.endpointNotFound"
+msgstr ""
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr ""
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr ""

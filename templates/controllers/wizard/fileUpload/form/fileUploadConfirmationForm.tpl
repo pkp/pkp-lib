@@ -32,6 +32,10 @@
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="uploadFormNotification"}
 	{csrf}
 	{fbvFormArea id="file"}
+		{if $assocType && $assocId}
+			<input type="hidden" name="assocType" value="{$assocType|escape}" />
+			<input type="hidden" name="assocId" value="{$assocId|escape}" />
+		{/if}
 		<div id="possibleRevision" class="pkp_controllers_grid_files_possibleRevision" style="display:none;">
 			<div id="revisionWarningText">
 				{fbvFormSection title="submission.upload.possibleRevision"}

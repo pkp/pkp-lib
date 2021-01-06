@@ -73,6 +73,19 @@
 					</span>
 				</label>
 			</div>
+
+			{* recaptcha spam blocker *}
+			{if $recaptchaPublicKey}
+				<fieldset class="recaptcha_wrapper">
+					<div class="fields">
+						<div class="recaptcha">
+							<div class="g-recaptcha" data-sitekey="{$recaptchaPublicKey|escape}">
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			{/if}
+
 			<div class="buttons">
 				<button class="submit" type="submit">
 					{translate key="user.login"}

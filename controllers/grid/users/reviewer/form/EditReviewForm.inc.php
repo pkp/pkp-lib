@@ -114,7 +114,10 @@ class EditReviewForm extends Form {
 		// Get the list of available files for this review.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		import('lib.pkp.classes.submission.SubmissionFile'); // File constants
-		$submissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound($this->_reviewRound, SUBMISSION_FILE_REVIEW_FILE);
+		$submissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound(
+			$this->_reviewRound,
+			$this->_reviewRound->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE
+		);
 		$selectedFiles = (array) $this->getData('selectedFiles');
 
 		// Revoke all, then grant selected.

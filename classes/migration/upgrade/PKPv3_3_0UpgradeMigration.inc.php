@@ -260,6 +260,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		Capsule::schema()->create('files', function (Blueprint $table) {
 			$table->bigIncrements('file_id');
 			$table->string('path', 255);
+			$table->string('mimetype', 255);
 		});
 
 		// Create a new table to track submission file revisions
@@ -292,6 +293,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 				'revision',
 				'submission_files.submission_id',
 				'genre_id',
+				'file_type',
 				'file_stage',
 				'date_uploaded',
 				'original_file_name'
@@ -320,7 +322,10 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			if ($fileService->fs->has($path)) {
 				error_log("A submission file was expected but not found at $path.");
 			}
-			$newFileId = Capsule::table('files')->insertGetId(['path' => $path], 'file_id');
+			$newFileId = Capsule::table('files')->insertGetId([
+				'path' => $path,
+				'mimetype' => $row->file_type,
+			], 'file_id');
 			Capsule::table('submission_files')
 				->where('file_id', $row->file_id)
 				->where('revision', $row->revision)

@@ -25,6 +25,7 @@ class FilesMigration extends Migration {
 		Capsule::schema()->create('files', function (Blueprint $table) {
 			$table->bigIncrements('file_id');
 			$table->string('path', 255);
+			$table->string('mimetype', 255);
 		});
 	}
 

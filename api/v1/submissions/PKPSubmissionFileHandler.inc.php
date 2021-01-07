@@ -194,15 +194,13 @@ class PKPSubmissionFileHandler extends APIHandler {
 
 		$items = [];
 		$filesIterator = Services::get('submissionFile')->getMany($params);
-		if (count($filesIterator)) {
-			$propertyArgs = [
-				'request' => $request,
-				'slimRequest' => $slimRequest,
-				'submission' => $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION),
-			];
-			foreach ($filesIterator as $file) {
-				$items[] = Services::get('submissionFile')->getSummaryProperties($file, $propertyArgs);
-			}
+		$propertyArgs = [
+			'request' => $request,
+			'slimRequest' => $slimRequest,
+			'submission' => $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION),
+		];
+		foreach ($filesIterator as $file) {
+			$items[] = Services::get('submissionFile')->getSummaryProperties($file, $propertyArgs);
 		}
 
 		$data = [

@@ -182,11 +182,11 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			}
 		}
 
-		$supportedFormLocales = $submissionContext->getSupportedFormLocales();
+		$supportedSubmissionLocales = $submissionContext->getSupportedSubmissionLocales();
 		$localeNames = AppLocale::getAllLocales();
 		$locales = array_map(function($localeKey) use ($localeNames) {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-		}, $supportedFormLocales);
+		}, $supportedSubmissionLocales);
 
 		$latestPublication = $submission->getLatestPublication();
 

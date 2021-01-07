@@ -67,7 +67,7 @@ class ArticleGalleyForm extends Form {
 		$templateMgr = TemplateManager::getManager($request);
 		if ($this->_articleGalley) {
 			$articleGalleyFile = $this->_articleGalley->getFile();
-			$filepath = Services::get('file')->getPath($articleGalleyFile->getData('fileId'));
+			$filepath = $articleGalleyFile->getData('path');
 			$templateMgr->assign(array(
 				'representationId' => $this->_articleGalley->getId(),
 				'articleGalley' => $this->_articleGalley,

@@ -63,13 +63,12 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 	 * @copydoc SchemaDAO::getById
 	 */
 	public function getById($objectId) {
-		$result = $this->retrieve(
-			'SELECT * FROM ' . $this->tableName . ' as sf'
-			. ' LEFT JOIN submissions as s ON (s.submission_id = sf.submission_id)'
-			. ' WHERE ' . $this->primaryKeyColumn . ' = ?',
-			[(int) $objectId]
-		);
-		$row = $result->current();
+		$row = Capsule::table($this->tableName . ' as sf')
+			->leftJoin('submissions as s', 's.submission_id', '=', 'sf.submission_id')
+			->leftJoin('files as f', 'f.file_id', '=', 'sf.file_id')
+			->where($this->primaryKeyColumn, '=', (int) $objectId)
+			->select(['sf.*', 'f.*', 's.locale as locale'])
+			->first();
 		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
@@ -79,6 +78,8 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 	public function _fromRow($primaryRow) {
 		$submissionFile = parent::_fromRow($primaryRow);
 		$submissionFile->setData('locale', $primaryRow['locale']);
+		$submissionFile->setData('path', $primaryRow['path']);
+		$submissionFile->setData('mimetype', $primaryRow['mimetype']);
 
 		return $submissionFile;
 	}
@@ -154,6 +155,21 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 			->delete();
 
 		parent::deleteById($submissionFileId);
+	}
+
+	/**
+	 * Get the files for each revision of a submission file
+	 *
+	 * @param int $submissionFileId
+	 * @return Illuminate\Support\Collection
+	 */
+	public function getRevisions($submissionFileId) {
+		return Capsule::table('submission_file_revisions as sfr')
+			->leftJoin('files as f', 'f.file_id', '=', 'sfr.file_id')
+			->where('submission_file_id', '=', $submissionFileId)
+			->orderBy('revision_id', 'desc')
+			->select(['f.file_id as fileId', 'f.path', 'f.mimetype'])
+			->get();
 	}
 
 

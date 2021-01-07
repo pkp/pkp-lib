@@ -67,7 +67,7 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm {
 
 		$templateMgr = TemplateManager::getManager($request);
 
-		$templateMgr->setState([
+		$state = [
 			'components' => [
 				'submissionFiles' => [
 					'addFileLabel' => __('common.addFile'),
@@ -120,12 +120,15 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm {
 					'uploadProgressLabel' => __('submission.upload.percentComplete'),
 				],
 			],
-		]);
+		];
 
 		// Temporary workaround that allows state to be passed to a
 		// page fragment retrieved by $templateMgr->fetch(). This
 		// should not be done under normal circumstances!
-		$templateMgr->assignState($templateMgr->_state);
+		//
+		// This should be removed when the submission wizard is updated to
+		// make use of the new forms powered by Vue.js.
+		$templateMgr->assign(['state' => $state]);
 
 		return parent::fetch($request, $template, $display);
 	}

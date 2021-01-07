@@ -229,18 +229,4 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface {
 
 		return $q;
 	}
-
-	/**
-	 * Get the file ids for each revision of a submission file
-	 *
-	 * @param int $submissionFileId
-	 * @return array
-	 */
-	public function getRevisionFileIds($submissionFileId) {
-		return Capsule::table('submission_file_revisions')
-			->where('submission_file_id', '=', $submissionFileId)
-			->orderBy('revision_id', 'desc')
-			->pluck('file_id')
-			->toArray();
-	}
 }

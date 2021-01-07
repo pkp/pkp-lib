@@ -183,20 +183,11 @@
 					"path": {
 						"type": "string"
 					},
-					"size": {
-						"type": "string"
-					},
 					"url": {
 						"type": "string"
 					}
 				}
 			}
-		},
-		"size": {
-			"type": "string",
-			"apiSummary": true,
-			"readOnly": true,
-			"description": "The size of this file in bytes."
 		},
 		"sourceSubmissionFileId": {
 			"type": "integer",

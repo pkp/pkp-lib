@@ -241,4 +241,19 @@ class PKPFileService {
 		}
 		return $size . $niceFileSizeUnits[$i];
 	}
+
+	/**
+	 * Get path of a given file
+	 *
+	 * @param int $id
+	 * @return string
+	 */
+	public function getPath($id) {
+		$file = $this->get($id);
+		if (!$file) {
+			throw new Exception("Unable to locate file $id.");
+		}
+
+		return $file->path;
+	}
 }

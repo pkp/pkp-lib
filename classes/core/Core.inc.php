@@ -329,6 +329,13 @@ class Core {
 			}
 		}
 
+		// If we still have no base URL, this may be a situation where we have an install with some customized URLs, and some not.
+		// Return the default base URL.
+
+		if (!$baseUrl) {
+			$baseUrl = Config::getVar('general', 'base_url');
+		}
+
 		return array($baseUrl, $contextPath);
 	}
 

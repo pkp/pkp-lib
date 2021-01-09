@@ -23,14 +23,8 @@ msgstr "Requirements"
 msgid "plugins.importexport.crossref.requirements.satisfied"
 msgstr "All plugin requirements are satisfied."
 
-msgid "plugins.importexport.crossref.error.publisherNotConfigured"
-msgstr "A journal publisher has not been configured! You must add a publisher institution on the <a href=\"{$journalSettingsUrl}\" target=\"_blank\">Journal Settings Page</a>."
-
-msgid "plugins.importexport.crossref.error.issnNotConfigured"
-msgstr "A journal ISSN has not been configured! You must add an ISSN on the <a href=\"{$journalSettingsUrl}\" target=\"_blank\">Journal Settings Page</a>."
-
 msgid "plugins.importexport.crossref.error.noDOIContentObjects"
-msgstr "Articles are not selected for DOI assignment in the DOI public identifier plugin, so there is no deposit or export possibility in this plugin."
+msgstr "Preprints are not selected for DOI assignment in the DOI public identifier plugin, so there is no deposit or export possibility in this plugin."
 
 msgid "plugins.importexport.crossref.settings.depositorIntro"
 msgstr "The following items are required for a successful CrossRef deposit."
@@ -48,7 +42,7 @@ msgid "plugins.importexport.crossref.settings.form.depositorEmailRequired"
 msgstr "Please enter the depositor email."
 
 msgid "plugins.importexport.crossref.registrationIntro"
-msgstr "If you would like to use this plugin to register Digital Object Identifiers (DOIs) directly with CrossRef you will need a username and password (available from <a href=\"http://www.crossref.org\" target=\"_blank\">CrossRef</a>) in order to do so. If you do not have your own username and password you can still export into the CrossRef XML format, but you cannot register your DOIs with CrossRef from within OJS."
+msgstr "If you would like to use this plugin to register Digital Object Identifiers (DOIs) directly with CrossRef you will need a username and password (available from <a href=\"http://www.crossref.org\" target=\"_blank\">CrossRef</a>) in order to do so. If you do not have your own username and password you can still export into the CrossRef XML format, but you cannot register your DOIs with CrossRef from within OMP."
 
 msgid "plugins.importexport.crossref.settings.form.username"
 msgstr "Username"
@@ -57,7 +51,7 @@ msgid "plugins.importexport.crossref.settings.form.usernameRequired"
 msgstr "Please enter the username you got from CrossRef."
 
 msgid "plugins.importexport.crossref.settings.form.automaticRegistration.description"
-msgstr "OJS will deposit assigned DOIs automatically to CrossRef. Please note that this may take a short amount of time after publication to process  (e.g. depending on your cronjob configuration). You can check for all unregistered DOIs."
+msgstr "OMP will deposit assigned DOIs automatically to CrossRef. Please note that this may take a short amount of time after publication to process  (e.g. depending on your cronjob configuration). You can check for all unregistered DOIs."
 
 msgid "plugins.importexport.crossref.settings.form.testMode.description"
 msgstr "Use the CrossRef test API (testing environment) for the DOI deposit. Please do not forget to remove this option for the production."
@@ -105,8 +99,8 @@ msgstr "CrossRef automatic registration task"
 msgid "plugins.importexport.crossref.cliUsage"
 msgstr ""
 "Usage:\n"
-"{$scriptName} {$pluginName} export [xmlFileName] [journal_path] articles objectId1 [objectId2] ...\n"
-"{$scriptName} {$pluginName} register [journal_path] articles objectId1 [objectId2] ...\n"
+"{$scriptName} {$pluginName} export [xmlFileName] [server_path] articles objectId1 [objectId2] ...\n"
+"{$scriptName} {$pluginName} register [server_path] articles objectId1 [objectId2] ...\n"
 ""
 
 msgid "plugins.importexport.crossref.register.error.mdsError"

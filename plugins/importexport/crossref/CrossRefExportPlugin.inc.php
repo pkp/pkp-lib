@@ -134,7 +134,7 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 		if ($response->getStatusCode() != 200) {
 			return __('plugins.importexport.common.register.error.mdsError', array('param' => 'No response from server.'));
 		}
-		return $result;
+
 		return (string) $response->getBody();
 	}
 

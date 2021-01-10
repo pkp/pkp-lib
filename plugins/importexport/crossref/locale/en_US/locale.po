@@ -51,7 +51,7 @@ msgid "plugins.importexport.crossref.settings.form.usernameRequired"
 msgstr "Please enter the username you got from CrossRef."
 
 msgid "plugins.importexport.crossref.settings.form.automaticRegistration.description"
-msgstr "OMP will deposit assigned DOIs automatically to CrossRef. Please note that this may take a short amount of time after publication to process  (e.g. depending on your cronjob configuration). You can check for all unregistered DOIs."
+msgstr "OPS will deposit assigned DOIs automatically to CrossRef. Please note that this may take a short amount of time after publication to process  (e.g. depending on your cronjob configuration). You can check for all unregistered DOIs."
 
 msgid "plugins.importexport.crossref.settings.form.testMode.description"
 msgstr "Use the CrossRef test API (testing environment) for the DOI deposit. Please do not forget to remove this option for the production."

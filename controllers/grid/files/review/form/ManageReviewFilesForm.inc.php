@@ -85,10 +85,7 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm {
 	 * @param $fileStage int SUBMISSION_FILE_...
 	 */
 	function execute($stageSubmissionFiles, $fileStage = null) {
-		parent::execute(
-			$stageSubmissionFiles,
-			$this->getReviewRound()->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE
-		);
+		parent::execute($stageSubmissionFiles, SUBMISSION_FILE_REVIEW_FILE);
 	}
 
 	/**

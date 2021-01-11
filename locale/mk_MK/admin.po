@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-10 05:52+0000\n"
-"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
+"PO-Revision-Date: 2021-01-11 17:22+0000\n"
+"Last-Translator: Blagoja Grozdanovski <blagoja.grozdanovski@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/admin/"
 "mk_MK/>\n"
 "Language: mk_MK\n"
@@ -50,3 +50,14 @@ msgstr "Серверско пренасочување"
 
 msgid "admin.hostedContexts"
 msgstr "Хостирани Сервери"
+
+msgid "admin.contexts.contextDescription"
+msgstr "Опис на серверот"
+
+msgid "admin.contexts.form.pathExists"
+msgstr "Патеката што ја дадовте е веќе во употреба од друг сервер."
+
+msgid "admin.contexts.form.pathAlphaNumeric"
+msgstr ""
+"Патеката може да вклучува само букви, броеви и знаци _ и -. Мора да започне "
+"и да заврши со буква или број."

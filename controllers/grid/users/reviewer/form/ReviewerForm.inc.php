@@ -363,7 +363,7 @@ class ReviewerForm extends Form {
 		$submissionFilesIterator = Services::get('submissionFile')->getMany([
 			'submissionIds' => [$submission->getId()],
 			'reviewRoundIds' => [$currentReviewRound->getId()],
-			'fileStages' => [SUBMISSION_FILE_REVIEW_FILE],
+			'fileStages' => [$stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE],
 		]);
 		$selectedFiles = array_map(function($id) {
 			return (int) $id;

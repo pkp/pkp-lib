@@ -155,7 +155,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 				} elseif ($reviewRound) {
 					// Retrieve the submission files for the given review round.
 					$submissionFilesIterator = Services::get('submissionFile')->getMany([
-						'reviewRoundIds' => [(int) $reviewRound],
+						'reviewRoundIds' => [(int) $reviewRound->getId()],
 						'submissionIds' => [(int) $this->getData('submissionId')],
 					]);
 					$this->_submissionFiles = iterator_to_array($submissionFilesIterator);

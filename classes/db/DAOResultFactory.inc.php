@@ -150,8 +150,12 @@ class DAOResultFactory extends ItemIterator {
 		return !$this->records->valid();
 	}
 
+	/**
+	 * Return true iff the result list was empty.
+	 * @return boolean
+	 */
 	function wasEmpty() {
-		if ($this->sql === null) throw new Exception('DAOResultFactory instances do not support wasEmpty (DAO ' . get_class($this->dao) . ')!');
+		return $this->getCount() === 0;
 	}
 
 	/**

@@ -105,3 +105,33 @@ msgstr "The public files directory was not found or files can not be saved to it
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr "You can not modify the file association without passing an assocType and assocId."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "You can not associate a file from this file stage with another submission file."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "You can not associate a file from this file stage with discussion note."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "You can not associate a file from this file stage with a review assignment."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "You can not associate a file from this file stage with a review round."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "You must specify a review round when requesting files in a review stage."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "You must provide a file stage."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "The review round you provided is not part of this submission."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "You are not allowed to access these files."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "You are not allowed to add and edit these files."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "You are not allowed to access files in this review round."

@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2019-12-13 22:04+0000\n"
+"PO-Revision-Date: 2020-12-18 16:52+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
-"ru/>\n"
+"ru_RU/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1974,3 +1974,54 @@ msgstr "Доля отклоненных сразу"
 
 msgid "stats.name.declinedReviewRate"
 msgstr "Доля отклоненных после рецензии"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Вы уверены, что хотите включить этот раздел?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Вы уверены, что хотите отключить этот раздел?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "Отключить этот раздел и запретить отправку новых материалов в него."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Отправить ещё одно письмо"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Письмо было успешно отправлено всем получателям по электронной почте."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Отправляем письмо. Пожалуйста, не переходите на другие страницы, пока "
+"отправка не завершится."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Вы собираетесь отправить письмо электронной почтой {$total} пользователям. "
+"Вы уверены, что хотите отправить это письмо?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Отправить письмо"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Отправить копию этого письма мне на адрес {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr ""
+"Выберите пользователей, которые должны получить Ваше уведомление электронной "
+"почтой."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Уведомить"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Отключить отправку материалов"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Генератор пользовательских отчетов"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Выберите пользователей для экспорта в файл Excel/CSV."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Экспорт в Excel/CSV"

@@ -14,6 +14,7 @@
 
 namespace PKP\Services;
 
+use \Application;
 use \Config;
 use \Exception;
 use \HookRegistry;
@@ -53,16 +54,17 @@ class PKPFileService {
 	}
 
 	/**
-	 * Get a file path by its id
+	 * Get a file by its id
 	 *
 	 * @param int $id
-	 * @return string
+	 * @return stdObject
 	 */
-	public function getPath($id) {
+	public function get($id) {
 		$file = Capsule::table('files')
 			->where('file_id', '=', $id)
+			->select(['file_id as id', 'path', 'mimetype'])
 			->first();
-		return $file ? $file->path : '';
+		return $file;
 	}
 
 	/**
@@ -83,7 +85,10 @@ class PKPFileService {
 		if (is_resource($stream)) {
 			fclose($stream);
 		}
-		return Capsule::table('files')->insertGetId(['path' => $to], 'file_id');
+		return Capsule::table('files')->insertGetId([
+			'path' => $to,
+			'mimetype' => $this->fs->getMimetype($to),
+		], 'file_id');
 	}
 
 	/**
@@ -93,15 +98,16 @@ class PKPFileService {
 	 * @return File
 	 */
 	public function delete($id) {
-		$path = $this->getPath($id);
-		if (!$path) {
+		$file = $this->get($id);
+		if (!$file) {
 			throw new Exception("Unable to locate file $id.");
 		}
+		$path = $file->path;
 		if (!$this->fs->delete($path)) {
 			throw new Exception("Unable to delete file $id at $path.");
 		}
 		Capsule::table('files')
-			->where('file_id', '=', $id)
+			->where('file_id', '=', $file->id)
 			->delete();
 	}
 
@@ -111,23 +117,17 @@ class PKPFileService {
 	 * This method sends a HTTP response and ends the request handling.
 	 * No code will run after this method is called.
 	 *
-	 * @param int|string $idOrPath The id or path to the file
+	 * @param string $path The path to the file
 	 * @param string $filename Filename to give to the downloaded file
 	 * @param boolean $inline Whether to stream the file to the browser
 	 */
-	public function download($idOrPath, $filename, $inline = false) {
-
-		if (is_int($idOrPath)) {
-			$path = $this->getPath($idOrPath);
-		} else {
-			$path = $idOrPath;
-		}
+	public function download($path, $filename, $inline = false) {
 
 		if (!$this->fs->has($path)) {
-			throw new Exception('File download failed because no file was found at ' . $path);
+			Application::get()->getRequest()->getDispatcher()->handle404();
 		}
 
-		if (HookRegistry::call('File::download', [$idOrPath, &$filename, $inline])) {
+		if (HookRegistry::call('File::download', [$path, &$filename, $inline])) {
 			return;
 		}
 

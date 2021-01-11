@@ -92,7 +92,8 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy {
 						foreach ($decisions as $decision) {
 							if ($decision['decision'] == SUBMISSION_EDITOR_DECISION_ACCEPT
 									|| $decision['decision'] == SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS
-									|| $decision['decision'] == SUBMISSION_EDITOR_DECISION_NEW_ROUND) {
+									|| $decision['decision'] == SUBMISSION_EDITOR_DECISION_NEW_ROUND
+									|| $decision['decision'] == SUBMISSION_EDITOR_DECISION_RESUBMIT) {
 								$assignedFileStages[] = $this->_fileStage;
 								break;
 							}

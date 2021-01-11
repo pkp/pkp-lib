@@ -252,7 +252,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 					assert(!is_null($reviewIndex));
 
 					// Add the attachment to the email.
-					$path = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . Services::get('file')->getPath($submissionFile->getData('fileId'));
+					$path = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $submissionFile->getData('path');
 					$email->addAttachment(
 						$path,
 						PKPString::enumerateAlphabetically($reviewIndex).'-'.$submissionFile->getLocalizedData('name')

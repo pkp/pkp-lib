@@ -119,7 +119,7 @@ class EditReviewForm extends Form {
 		$submissionFilesIterator = Services::get('submissionFile')->getMany([
 			'submissionIds' => [$this->_reviewAssignment->getSubmissionId()],
 			'reviewRoundIds' => [$this->_reviewRound->getId()],
-			'fileStages' => [SUBMISSION_FILE_REVIEW_FILE],
+			'fileStages' => [$this->_reviewRound->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE],
 		]);
 		$selectedFiles = array_map(function($id) {
 			return (int) $id;

@@ -126,14 +126,13 @@ class SubmissionFilesMetadataForm extends Form {
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$reviewRound = $this->getReviewRound();
-		$filepath = Services::get('file')->getPath($this->getSubmissionFile()->getData('fileId'));
 		$genre = DAORegistry::getDAO('GenreDAO')->getById($this->getSubmissionFile()->getData('genreId'), $request->getContext()->getId());
 
 		$templateMgr->assign(array(
 			'submissionFile' => $this->getSubmissionFile(),
 			'stageId' => $this->getStageId(),
 			'reviewRoundId' => $reviewRound?$reviewRound->getId():null,
-			'supportsDependentFiles' => Services::get('submissionFile')->supportsDependentFiles($this->getSubmissionFile(), $filepath),
+			'supportsDependentFiles' => Services::get('submissionFile')->supportsDependentFiles($this->getSubmissionFile()),
 			'genre' => $genre,
 		));
 		return parent::fetch($request, $template, $display);

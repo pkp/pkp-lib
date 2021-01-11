@@ -1210,29 +1210,6 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * DO NOT USE. Assign the state data to the template
-	 *
-	 * This method is a temporary workaround and should not be used
-	 * to pass state to the template. It is only used during submission
-	 * as a temporary method to initialize a Vue.js component inside
-	 * of a tab template.
-	 *
-	 * This can lead to a separate Vue instance embedded inside of the
-	 * main app's Vue instance. The instances can not talk to each other.
-	 *
-	 * This should be removed when the submission wizard is updated to
-	 * make use of the new forms powered by Vue.js.
-	 *
-	 * @deprecated 3.3
-	 * @param [type] $state
-	 * @return void
-	 */
-	function assignState($state) {
-		$this->assign('state', $this->_state);
-	}
-
-
-	/**
 	 * Clear template compile and cache directories.
 	 */
 	function clearTemplateCache() {
@@ -1960,9 +1937,7 @@ class PKPTemplateManager extends Smarty {
 
 		$hasEmbeddedStyle = false;
 		foreach ($embeddedFiles as $embeddedFile) {
-			$path = Services::get('file')->getPath($embeddedFile->getData('fileId'));
-			$mimetype = Services::get('file')->fs->getMimetype($path);
-			if ($mimetype === 'text/css') {
+			if ($embeddedFile->getData('mimetype') === 'text/css') {
 				$hasEmbeddedStyle = true;
 				break;
 			}

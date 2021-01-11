@@ -39,16 +39,16 @@ class ApiTokenDecodingMiddleware {
 	protected function _decode($slimRequest) {
 		$secret = Config::getVar('security', 'api_key_secret', '');
 
-		if ($secret === '') {
+		if (!$secret) {
 			$request = $this->_handler->getRequest();
 			return $request->getRouter()
 				->handleAuthorizationFailure(
 					$request,
-					'api.api_key_secret.should.be.filled'
+					'api.500.apiSecretKeyMissing'
 				);
 		}
 
-		if ($secret !== '' && !is_null($jwt = $slimRequest->getQueryParam('apiToken'))) {
+		if ($secret && !is_null($jwt = $slimRequest->getQueryParam('apiToken'))) {
 			try {
 				$apiToken = JWT::decode($jwt, $secret, ['HS256']);
 				$this->_handler->setApiToken($apiToken);
@@ -64,7 +64,7 @@ class ApiTokenDecodingMiddleware {
 					return $request->getRouter()
 						->handleAuthorizationFailure(
 							$request,
-							'api.invalid_token_signature'
+							'api.400.invalidApiToken'
 						);
 				}
 
@@ -72,22 +72,14 @@ class ApiTokenDecodingMiddleware {
 					is_a($e, 'DomainException')
 				) {
 					$request = $this->_handler->getRequest();
-					$result = $request->getRouter()
+					return $request->getRouter()
 						->handleAuthorizationFailure(
 							$request,
-							$e->getMessage()
+							'api.400.tokenCouldNotBeDecoded',
+							[
+								'error' => $e->getMessage()
+							]
 						);
-
-					if (is_string($result)) {
-						return $result;
-					}
-
-					if (is_a($result, 'JSONMessage')) {
-						return $result->getString();
-					}
-
-					assert(false);
-					return null;
 				}
 
 				throw $e;

@@ -34,7 +34,6 @@ class ApiCsrfMiddleware {
 	 * @param SlimRequest $slimRequest request
 	 * @param SlimResponse $response response
 	 * @param callable $next Next middleware
-	 *
 	 * @return SlimResponse
 	 */
 	public function __invoke(
@@ -42,13 +41,6 @@ class ApiCsrfMiddleware {
 		$response,
 		$next
 	) {
-		if (!$this->tokenFilled()) {
-			return $response->withJson([
-				'error' => 'api.api_token.should.be.filled',
-				'errorMessage' => __('api.api_token.should.be.filled'),
-			], 403);
-		}
-
 		if ($this->_isCSRFRequired($slimRequest) && !$this->_isCSRFValid($slimRequest)) {
 			return $response->withJson([
 				'error' => 'form.csrfInvalid',
@@ -57,16 +49,6 @@ class ApiCsrfMiddleware {
 		}
 		$response = $next($slimRequest, $response);
 		return $response;
-	}
-
-	/**
-	 * Check if the api token it's filled.
-	 *
-	 * @return bool
-	 */
-	protected function tokenFilled(): bool
-	{
-		return $this->_handler->getApiToken() !== null;
 	}
 
 	/**

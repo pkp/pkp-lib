@@ -15,6 +15,9 @@
 		{translate key="installer.appInstallation"}
 	</h1>
 
+	{translate key="installer.updatingInstructions" upgradeUrl=$upgradeUrl}
+		<br />
+
 	<div class="app__contentPanel">
 
 		{capture assign="writable_config"}{if is_writeable('config.inc.php')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}

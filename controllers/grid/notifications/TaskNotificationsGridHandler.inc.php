@@ -37,7 +37,14 @@ class TaskNotificationsGridHandler extends NotificationsGridHandler {
 
 		// Get all level task notifications.
 		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-		return $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TASK)->toArray();
+		$notifications = $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TASK)->toArray();
+
+		// Checkbox selection requires the array keys match the notification id
+		$notificationsForRow = [];
+		foreach ($notifications as $notification) {
+			$notificationsForRow[$notification->getId()] = $notification;
+		}
+		return $notificationsForRow;
 	}
 }
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-11 17:22+0000\n"
+"PO-Revision-Date: 2021-01-13 10:39+0000\n"
 "Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "emails/pt_BR/>\n"
@@ -143,7 +143,6 @@ msgstr ""
 msgid "emails.notification.subject"
 msgstr "Nova notificação de {$siteTitle}"
 
-#, fuzzy
 msgid "emails.postedAck.body"
 msgstr ""
 "{$authorName}:<br />\n"

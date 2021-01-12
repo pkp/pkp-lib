@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-16 01:35+0000\n"
-"Last-Translator: Lilian Nassi Calo <calolilian@gmail.com>\n"
+"PO-Revision-Date: 2021-01-13 10:39+0000\n"
+"Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "author/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -12,13 +12,13 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "author.submit.proceedToPublish"
-msgstr "Prossiga para publicação"
+msgstr "Prossiga para postagem"
 
 msgid "author.submit.authorCanPublish"
 msgstr ""
 "O servidor foi notificado sobre sua submissão e você recebeu uma confirmação "
-"por e-mail. <b>Todos os requisitos para publicação foram atendidos e você "
-"pode continuar a revisar e publicar seu preprint</b>."
+"por e-mail. <b>Todos os requisitos para postagem foram atendidos e você pode "
+"seguir à revisão e postagem de seu preprint</b>."
 
 #, fuzzy
 msgid "author.submit.publishRequirements"

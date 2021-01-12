@@ -319,7 +319,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 				$this->_fileStageToPath($row->file_stage),
 				$filename
 			);
-			if ($fileService->fs->has($path)) {
+			if (!$fileService->fs->has($path)) {
 				error_log("A submission file was expected but not found at $path.");
 			}
 			$newFileId = Capsule::table('files')->insertGetId([

@@ -15,8 +15,10 @@
 		{translate key="installer.appInstallation"}
 	</h1>
 
-	{translate key="installer.updatingInstructions" upgradeUrl=$upgradeUrl}
-		<br />
+	<notification>
+		{translate key="installer.updatingInstructions" upgradeUrl=$upgradeUrl}
+	</notification>
+	<br />
 
 	<div class="app__contentPanel">
 

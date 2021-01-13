@@ -42,9 +42,7 @@ msgid "api.emails.400.missingUserGroups"
 msgstr "You must indicate the user roles that should receive this email."
 
 msgid "api.emails.403.notAllowedUserGroup"
-msgstr ""
-"You are not allowed to send an email to users in one or more of the selected "
-"roles."
+msgstr "You are not allowed to send an email to users in one or more of the selected roles."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "The email template you requested was not found."
@@ -94,6 +92,24 @@ msgstr "You do not have enough space in your user directory. The file you are up
 msgid "api.publicFiles.500.badFilesDir"
 msgstr "The public files directory was not found or files can not be saved to it. Please contact your administrator to resolve this issue."
 
+msgid "api.stats.400.wrongDateFormat"
+msgstr "The date must be in the format YYYY-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "The start date can not be later than the end date."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "The start date can not be earlier than 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "The end date can not be later than yesterday."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr "Your request was not valid. The timelineInterval must be `day` or `month`."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Your request was not valid. The orderDirection must be `desc` or `asc`."
+
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr "You can not modify the file association without passing an assocType and assocId."
 
@@ -115,6 +131,9 @@ msgstr "You must specify a review round when requesting files in a review stage.
 msgid "api.submissionFiles.400.noFileStageId"
 msgstr "You must provide a file stage."
 
+msgid "api.submissionsFiles.400.noParams"
+msgstr "No changes could be found in the request to edit this file."
+
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr "The review round you provided is not part of this submission."
 
@@ -126,3 +145,33 @@ msgstr "You are not allowed to add and edit these files."
 
 msgid "api.submissionFiles.403.unauthorizedReviewRound"
 msgstr "You are not allowed to access files in this review round."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "Your request could not be fulfilled because it is missing required information."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "The requested volume, number or year is not valid."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr "Your request was denied. This may be because your login has expired. Try reloading the page and trying again."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "You can not delete a submission that is not assigned to this context."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "You can only view unpublished submissions to which you have been assigned."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "You do not have permission to delete this submission."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "You are not allowed to edit this publication."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr "This endpoint is not available from a context. It must be accessed from the site-wide namespace."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr "The active theme, {$themePluginPath}, is not enabled and may not be installed."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "The {$locale} locale is not supported."

@@ -355,7 +355,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 		unset($params['submissionId'], $params['fileId'], $params['uploaderUserId']);
 
 		if (empty($params) && empty($_FILES['file'])) {
-			return $response->withStatus(400)->withJsonError('api.submissions.files.400.noParams');
+			return $response->withStatus(400)->withJsonError('api.submissionsFiles.400.noParams');
 		}
 
 		$primaryLocale = $request->getContext()->getPrimaryLocale();

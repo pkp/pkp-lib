@@ -393,9 +393,6 @@ msgstr "Public Announcements"
 msgid "notification.type.editorAssignmentTask"
 msgstr "A new preprint has been submitted to which a moderator needs to be assigned."
 
-msgid "notification.type.assignProductionUser"
-msgstr "Assign a user to create galleys using the Assign link in the Participants list."
-
 msgid "notification.type.awaitingRepresentations"
 msgstr "Awaiting Galleys."
 

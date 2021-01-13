@@ -306,7 +306,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->updateNotification(
 				$request,
-				array(NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER, NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS),
+				array(NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS),
 				null,
 				ASSOC_TYPE_SUBMISSION,
 				$this->getSubmission()->getId()
@@ -388,7 +388,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 				$notificationMgr = new NotificationManager();
 				$notificationMgr->updateNotification(
 					$request,
-					array(NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER, NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS),
+					array(NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS),
 					null,
 					ASSOC_TYPE_SUBMISSION,
 					$this->getSubmission()->getId()

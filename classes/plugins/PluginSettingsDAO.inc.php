@@ -191,7 +191,7 @@ class PluginSettingsDAO extends DAO {
 	 */
 	function deleteByContextId($contextId) {
 		return $this->update(
-			'DELETE FROM plugin_settings WHERE context_id = ?', (int) $contextId
+			'DELETE FROM plugin_settings WHERE context_id = ?', [(int) $contextId]
 		);
 	}
 

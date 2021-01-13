@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-13 10:39+0000\n"
+"PO-Revision-Date: 2021-01-14 11:00+0000\n"
 "Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/pt_BR/>\n"
@@ -154,3 +154,21 @@ msgstr ""
 #, fuzzy
 msgid "publication.inactiveSection"
 msgstr "{$section} (Inativo)"
+
+msgid "publication.event.scheduled"
+msgstr "A submissão foi agendada para postagem."
+
+msgid "publication.event.published"
+msgstr "A submissão foi postada."
+
+msgid "publication.editDisabled"
+msgstr "Esta versão foi postada e não pode ser editada."
+
+msgid "publication.datePublished"
+msgstr "Data de postagem"
+
+msgid "submission.publications"
+msgstr "Preprints"
+
+msgid "submission.publication"
+msgstr "Preprint"

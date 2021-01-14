@@ -39,6 +39,11 @@ class ApiTokenDecodingMiddleware {
 		if ($secret !== '' && !is_null($jwt = $slimRequest->getQueryParam('apiToken'))) {
 			try {
 				$apiToken = JWT::decode($jwt, $secret, array('HS256'));
+				// Compatibility with old API keys
+				// https://github.com/pkp/pkp-lib/issues/6462
+				if (substr($apiToken, 0, 2) === '""') {
+					$apiToken = json_decode($apiToken);
+				}
 				$this->_handler->setApiToken($apiToken);
 				return true;
 			} catch (Exception $e) {

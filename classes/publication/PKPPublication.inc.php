@@ -25,27 +25,32 @@ class PKPPublication extends DataObject {
 	 * - the publication's primary locale
 	 * - the first locale we find data for
 	 *
-	 * @param string $key
-	 * @param string $preferredLocale
+	 * @param $key string
+	 * @param $preferredLocale string
+	 * @param $selectedLocale Optional reference to receive locale used for return value.
 	 * @return mixed
 	 */
-	public function getLocalizedData($key, $preferredLocale = null) {
+	public function getLocalizedData($key, $preferredLocale = null, &$selectedLocale = null) {
 		// 1. Preferred locale
 		if ($preferredLocale && $this->getData($key, $preferredLocale)) {
+			$selectedLocale = $preferredLocale;
 			return $this->getData($key, $preferredLocale);
 		}
 		// 2. User's current locale
 		if (!empty($this->getData($key, AppLocale::getLocale()))) {
+			$selectedLocale = AppLocale::getLocale();
 			return $this->getData($key, AppLocale::getLocale());
 		}
 		// 3. Publication's primary locale
 		if (!empty($this->getData($key, $this->getData('locale')))) {
+			$selectedLocale = $this->getData('locale');
 			return $this->getData($key, $this->getData('locale'));
 		}
 		// 4. The first locale we can find data for
 		$data = $this->getData($key, null);
-		foreach ((array) $data as $value) {
+		foreach ((array) $data as $locale => $value) {
 			if (!empty($value)) {
+				$selectedLocale = $locale;
 				return $value;
 			}
 		}
@@ -94,8 +99,9 @@ class PKPPublication extends DataObject {
 	 * @return string
 	 */
 	public function getLocalizedTitle($preferredLocale = null) {
-		$prefix = $this->getLocalizedData('prefix', $preferredLocale);
-		$title = $this->getLocalizedData('title', $preferredLocale);
+		$usedLocale = null;
+		$title = $this->getLocalizedData('title', $preferredLocale, $usedLocale);
+		$prefix = $this->getData('prefix', $usedLocale);
 		if ($prefix) {
 			return $prefix . ' ' . $title;
 		}

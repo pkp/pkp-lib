@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-12 08:50+0000\n"
+"PO-Revision-Date: 2021-01-14 11:00+0000\n"
 "Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "id/>\n"
@@ -143,3 +143,69 @@ msgstr "Anda tidak berwenang mengakses sumber yang Anda diminta."
 
 msgid "api.400.paramNotSupported"
 msgstr "Parameter {$param} tidak didukung."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Anda tidak diizinkan untuk mengakses file dalam putaran review ini."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Anda tidak diizinkan untuk menambah dan mengedit file-file ini."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Anda tidak berhak mengakses file ini."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Putaran review yang Anda berikan bukan bagian dari naskah ini."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "Tidak ada perubahan ditemukan pada permintaan mengedit file ini."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Anda harus memberikan file stage."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "Tentukanlah putaran review ketika meminta file dalam tahap review."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"Anda tidak dapat mengasosiasikan file dari tahap file ini dengan putaran "
+"review."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Anda tidak dapat mengasosiasikan file dari tahap file ini dengan penugasan "
+"review."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"Anda tidak dapat mengasosiasikan file dari tahap file ini dengan catatan "
+"diskusi."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Anda tidak dapat mengasosiasikan file dari tahap file ini dengan file naskah "
+"lain."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Anda tidak dapat mengubah asosiasi file tanpa memberikan assocType dan "
+"assocId."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Anda tidak diijinkan mengirim surel ke pengguna dengan satu atau peran yang "
+"dipilih."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Indikasikan peran pengguna yang harus menerima surel ini."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Subjek email wajib diisi."
+
+msgid "api.emails.400.missingBody"
+msgstr "Anda harus mencantumkan surel yang akan dikirimi."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Pengumuman yang Anda minta tidak ditemukan."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Tidak dapat mengubah waktu pembuatannya."

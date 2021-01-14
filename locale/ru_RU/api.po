@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2020-12-18 16:52+0000\n"
+"PO-Revision-Date: 2021-01-08 17:52+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ru_RU/>\n"
@@ -98,3 +98,37 @@ msgstr "Вы должны задать тему письма."
 
 msgid "api.emails.400.missingBody"
 msgstr "Вы должны добавить текст письма для отправки."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "У Вас нет прав на доступ к файлам на этом этапе рецензирования."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "У Вас нет прав на добавление и редактирование этих файлов."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "У Вас нет прав для доступа к этим файлам."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+"Указанный Вами раунд рецензирования не является частью этого отправленного "
+"материала."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Вы должны указать этап, на котором находится файл."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Вы должны указать раунд рецензирования при запросе файлов на этапе "
+"рецензирования."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Вы не можете связать файл с этого этапа с раундом рецензирования."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Вы не можете связать файл с этого этапа с назначением на рецензию."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Вы не можете связать файл с этого этапа с заметкой в обсуждении."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Вы не можете связать файл с этого этапа с другим файлом отправки."

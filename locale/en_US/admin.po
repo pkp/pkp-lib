@@ -50,3 +50,5 @@ msgstr "The path you provided is already in use by another server."
 msgid "admin.contexts.contextDescription"
 msgstr "Server description"
 
+msgid "admin.contexts.enableContextInstructions"
+msgstr "Enable this preprint server to appear publicly on the site"

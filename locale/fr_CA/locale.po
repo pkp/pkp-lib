@@ -329,6 +329,7 @@ msgstr ""
 "<p>2. Un répertoire pour stocker les fichiers téléversés doit être créé et "
 "accessible en écriture (voir  « Paramètres des fichiers » ci-dessous).</p>"
 
+#, fuzzy
 msgid "installer.installationInstructions"
 msgstr ""
 "<h4>Version {$version} d'OPS</h4>\n"

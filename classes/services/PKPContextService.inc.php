@@ -262,6 +262,36 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			}
 		});
 
+		// Ensure that the primary locale is one of the supported locales
+		$validator->after(function($validator) use ($action, $props, $allowedLocales) {
+			if (isset($props['primaryLocale']) && !$validator->errors()->get('primaryLocale')) {
+				// Check against a new supported locales prop
+				if (isset($props['supportedLocales'])) {
+					$newSupportedLocales = (array) $props['supportedLocales'];
+					if (!in_array($props['primaryLocale'], $newSupportedLocales)) {
+						$validator->errors()->add('primaryLocale', __('admin.contexts.form.primaryLocaleNotSupported'));
+					}
+				// Or check against the $allowedLocales
+				} elseif (!in_array($props['primaryLocale'], $allowedLocales)) {
+					$validator->errors()->add('primaryLocale', __('admin.contexts.form.primaryLocaleNotSupported'));
+				}
+			}
+		});
+
+		// Ensure that the supported locales are supported by the site
+		$validator->after(function($validator) use ($action, $props) {
+			$siteSupportedLocales = Application::get()->getRequest()->getSite()->getData('supportedLocales');
+			$localeProps = ['supportedLocales', 'supportedFormLocales', 'supportedSubmissionLocales'];
+			foreach ($localeProps as $localeProp) {
+				if (isset($props[$localeProp]) && !$validator->errors()->get($localeProp)) {
+					$unsupportedLocales = array_diff($props[$localeProp], $siteSupportedLocales);
+					if (!empty($unsupportedLocales)) {
+						$validator->errors()->add($localeProp, __('api.contexts.400.localesNotSupported', ['locales' => join(__('common.commaListSeparator'), $unsupportedLocales)]));
+					}
+				}
+			}
+		});
+
 		// If a new file has been uploaded, check that the temporary file exists and
 		// the current user owns it
 		$user = Application::get()->getRequest()->getUser();

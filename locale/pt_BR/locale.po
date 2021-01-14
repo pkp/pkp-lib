@@ -11,6 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "installer.installationInstructions"
 msgstr ""
 "<h4>OPS Versão {$version}</h4><p>Obrigada por baixar o <strong>Open Preprint "

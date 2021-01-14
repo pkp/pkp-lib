@@ -38,7 +38,6 @@
 
 		this.bind('redirectRequested', this.redirectToUrl);
 		this.bind('notifyUser', this.fetchNotificationHandler_);
-		this.bind('updateHeader', this.updateHeaderHandler_);
 		this.bind('callWhenClickOutside', this.callWhenClickOutsideHandler_);
 		this.bind('mousedown', this.mouseDownHandler_);
 
@@ -460,20 +459,6 @@
 			dataType: 'json',
 			async: false
 		});
-	};
-
-
-	/**
-	 * Fetch the header (e.g. on header configuration change).
-	 * @private
-	 * @param {HTMLElement} sourceElement The element that issued the
-	 *  update header event.
-	 * @param {Event} event The "fetch header" event.
-	 */
-	$.pkp.controllers.SiteHandler.prototype.updateHeaderHandler_ =
-			function(sourceElement, event) {
-		var handler = $.pkp.classes.Handler.getHandler($('#navigationUserWrapper'));
-		handler.reload();
 	};
 
 

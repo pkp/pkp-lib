@@ -279,10 +279,10 @@ class GenreDAO extends DAO {
 	function deleteByContextId($contextId) {
 		$genres = $this->getByContextId($contextId);
 		while ($genre = $genres->next()) {
-			$this->update('DELETE FROM genre_settings WHERE genre_id = ?', (int) $genre->getId());
+			$this->update('DELETE FROM genre_settings WHERE genre_id = ?', [(int) $genre->getId()]);
 		}
 		$this->update(
-			'DELETE FROM genres WHERE context_id = ?', (int) $contextId
+			'DELETE FROM genres WHERE context_id = ?', [(int) $contextId]
 		);
 	}
 

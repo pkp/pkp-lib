@@ -14,6 +14,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Er du sikker på, at du vil slette denne indsendelse permanent?"
+
 msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Anonym bedømmer/Anonym forfatter"
 

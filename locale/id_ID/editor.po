@@ -14,6 +14,9 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Anda yakin ingin menghapus naskah ini secara permanen?"
+
 msgid "editor.review.rateReviewer"
 msgstr "Peringkat peninjau"
 

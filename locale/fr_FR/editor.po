@@ -14,6 +14,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "editor.submissionArchive.confirmDelete"
+msgstr ""
+"Êtes-vous certain de vouloir supprimer définitivement cette soumission ?"
+
 msgid "editor.submissionLibrary.description"
 msgstr "Télécharger les documents qui concernent la révision et la publication de cette soumission. Des modèles ont été créés pour plusieurs de ces documents. Il suffit de cliquer sur <em>Visionner la bibliothèque de documents</em>."
 

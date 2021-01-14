@@ -11,6 +11,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Дали сте сигурни дека сакате трајно да го избришете овој поднесок?"
+
 msgid "editor.submission.workflowDecision.submission"
 msgstr "Одлуката е забележана"
 

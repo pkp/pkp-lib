@@ -14,6 +14,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "¿Está seguro/a de que desea eliminar este envío de forma permanente?"
+
 msgid "editor.review.notInitiated"
 msgstr "El proceso de revisión todavía no se ha iniciado."
 

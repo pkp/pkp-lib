@@ -16,6 +16,9 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 # localization file for fr_CA. Last revision 2019-10-22T04:44:40 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Êtes-vous certain-e de vouloir supprimer définitivement cette soumission ?"
+
 msgid "editor.activityLog"
 msgstr "Journal d'événements"
 

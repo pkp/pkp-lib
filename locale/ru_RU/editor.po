@@ -15,6 +15,9 @@ msgstr ""
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Вы уверены, что хотите навсегда удалить этот материал?"
+
 msgid "editor.activityLog"
 msgstr "Журнал активности"
 

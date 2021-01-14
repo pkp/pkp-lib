@@ -15,6 +15,9 @@ msgstr ""
 "n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Ste prepričani, da želite za vedno zbrisati ta prispevek?"
+
 msgid "editor.submissionLibrary"
 msgstr "Knjižnica prispevka"
 

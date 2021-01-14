@@ -465,3 +465,6 @@ msgstr "تعذر العثور على محكمين"
 
 msgid "editor.submission.revertDeclineDescription"
 msgstr "هل أنت متأكد من رعبتك في التراجع عن قرارك بشأن رفض طلب التقديم هذا؟"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "هل أنت متأكد من رغبتك في حذف طلب النشر هذا نهائياً؟"

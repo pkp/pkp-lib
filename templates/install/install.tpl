@@ -15,6 +15,12 @@
 		{translate key="installer.appInstallation"}
 	</h1>
 
+	{capture assign="upgradeUrl"}{url page="install" op="upgrade"}{/capture}
+	<notification>
+		{translate key="installer.updatingInstructions" upgradeUrl=$upgradeUrl}
+	</notification>
+	<br />
+
 	<div class="app__contentPanel">
 
 		{capture assign="writable_config"}{if is_writeable('config.inc.php')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
@@ -34,7 +40,6 @@
 				$('#installForm').pkpHandler('$.pkp.controllers.form.FormHandler');
 			{rdelim});
 		</script>
-		{capture assign="upgradeUrl"}{url page="install" op="upgrade"}{/capture}
 		<form class="pkp_form" method="post" id="installForm" action="{url op="install"}">
 			<input type="hidden" name="installing" value="0" />
 

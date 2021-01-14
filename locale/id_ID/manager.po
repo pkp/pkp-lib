@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2020-03-05 12:26+0000\n"
-"Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
+"PO-Revision-Date: 2021-01-14 11:00+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/id/>\n"
 "Language: id_ID\n"
@@ -18,7 +18,7 @@ msgid "manager.announcements"
 msgstr "Pengumuman"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Apakah Anda yakin ingin menghapus pengumuman ini secara permanen?"
+msgstr "Apakah Anda yakin ingin menghapus pengumuman {$title} secara permanen?"
 
 msgid "manager.announcements.create"
 msgstr "Buat Pengumuman Baru"
@@ -54,7 +54,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Pilih bulan dan/atau hari di samping tahun tanggal masa berakhir."
 
 msgid "manager.announcements.form.description"
-msgstr "Deskripsi"
+msgstr "Pengumuman"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Teks lengkap pengumuman."
@@ -645,8 +645,8 @@ msgstr ""
 
 msgid "manager.setup.metadata.languages.request"
 msgstr ""
-"Minta penulis untuk mencantumkan bahasa yang digunakan dalam naskah saat "
-"menyerahkannya."
+"Minta penulis untuk mencantumkan bahasa yang digunakan naskah saat "
+"mengirimnya ke jurnal."
 
 msgid "manager.setup.metadata.languages.noRequest"
 msgstr ""
@@ -1386,11 +1386,10 @@ msgstr ""
 msgid "manager.setup.sponsors.note"
 msgstr "Hubungan Sponsor dan Uraian Kebijakan"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Tampilkan tautan ke <button type=\"button\">Pastikan Blind Review</button>  "
-"selama proses unggah"
+"Tampilkan tautan ke <button type=\"button\">bagaimana memastikan semua file "
+"tetap anomim</button>  selama proses unggah"
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Cara Mereview Bawaan"
@@ -2175,3 +2174,127 @@ msgstr "Semua Pengguna"
 
 msgid "grid.category.categoryDetails"
 msgstr "Rincian kategori"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Pembuat Laporan Kastem"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/tahun)"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"File naskah {$id} telah diloncati karena dilampirkan ke rekaman yang tidak "
+"akan diimpor, seperti tugas review atau diskusi."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Pilih jenis metadata yang dapat diterima file ini. Dokumen harus dipilih "
+"untuk file publikasi utama, seperti PDF yang dapat diunduh, sehingga file "
+"ini mewarisi metadatanya dari publikasi. Jika tidak, pilih Konten Pendukung "
+"untuk sebagian besar jenis file. Untuk jenis karya seni cocok dipilih untuk "
+"file yang memerlukan kredit, teks, dan metadata lisensi yang berbeda."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Metadata File"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Ini adalah file tambahan, seperti data set dan bahan penelitian, dan akan "
+"ditampilkan secara terpisah dari file publikasi utama."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Ini adalah file dependen, seperti gambar yang ditampilkan melalui file HTML, "
+"dan tidak akan ditampilkan dengan konten yang diterbitkan."
+
+msgid "manager.setup.genres.label"
+msgstr "Tipe File"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Yakin ingin mengaktifkan bagian ini?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Yakin ingin menonaktifkan bagian ini?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Nonaktifkan bagian ini dan jangan izinkan pengiriman baru untuk seksi ini."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Ubah"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Tanggal & Waktu (Singkat)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Tanggal & Waktu"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Waktu"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Tanggal (Singkat)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Tanggal"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Pilih format yang disukai untuk tanggal dan waktu. Format kustom dapat "
+"dimasukkan menggunakan karakter <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>format "
+"khusus</a>."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Format Tanggal dan Waktu"
+
+msgid "manager.setup.dateTime"
+msgstr "Tanggal & Waktu"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Kirim surel lain"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Surel berhasil dikirim ke semua penerima."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Mengirim email. Harap jangan buka halaman lain sebelum pengiriman selesai."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Anda akan mengirim email ke {$total} pengguna. Apakah Anda yakin ingin "
+"mengirim email ini?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Kirim Surel"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Kirim salinan surel ini ke saya pada {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Pilih user yang akan menerima pemberitahuan surel Anda."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Beri tahu"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Nonaktifkan pengiriman naskah"
+
+msgid "manager.people.signedInAs"
+msgstr "Anda login sebagai {$username} saat ini"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Pilih user untuk diekspor ke file Ecel/CSV."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Ekspor ke Excel/CSV"
+
+msgid "manager.emails.resetComplete"
+msgstr "Template surel telah berhasil direst."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Template surel bawaan telah dipulihkan."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Hapus Pengumuman"

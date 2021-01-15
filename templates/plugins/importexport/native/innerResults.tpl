@@ -18,7 +18,7 @@
 	{foreach from=$errorsAndWarnings.$key item=allRelatedTypes key=relatedTypeName}
 		{foreach from=$allRelatedTypes item=thisTypeIds key=thisTypeId}
 			{if $thisTypeIds|@count > 0}
-				<p>{$relatedTypeName} {if $thisTypeId > 0} (Id: {$thisTypeId}) {/if}</p>
+				<p>{$relatedTypeName|escape} {if $thisTypeId > 0} {translate key='plugins.importexport.common.id' id=$thisTypeId} {/if}</p>
 				<ul>
 					{foreach from=$thisTypeIds item=idRelatedItems}
 						{foreach from=$idRelatedItems item=relatedItemMessage}

@@ -1625,6 +1625,9 @@ msgstr "Warnings encountered:"
 msgid "plugins.importexport.common.errorsOccured"
 msgstr "Errors occured:"
 
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
 msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Unknown element {$param}"
 

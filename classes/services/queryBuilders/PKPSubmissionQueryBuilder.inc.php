@@ -362,6 +362,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 			$q->leftJoin('review_assignments as ra', function($table) use ($assignedTo) {
 				$table->on('s.submission_id', '=', 'ra.submission_id');
 				$table->on('ra.declined', '=', Capsule::raw((int) 0));
+				$table->on('ra.cancelled', '=', Capsule::raw((int) 0));
 				$table->whereIn('ra.reviewer_id', $assignedTo);
 			});
 

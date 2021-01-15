@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-11-17 22:51+0000\n"
+"PO-Revision-Date: 2021-01-15 08:16+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
@@ -166,7 +166,7 @@ msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Целиот текст на објавата."
 
 msgid "manager.announcements.form.description"
-msgstr "Опис"
+msgstr "Известување"
 
 msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Ве молиме изберете месец и / или ден  годината од крајниот рок."
@@ -207,7 +207,8 @@ msgid "manager.announcements.create"
 msgstr "Создадете нова објава"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Дали сте сигурни дека сакате трајно да ја избришете оваа објава?"
+msgstr ""
+"Дали сте сигурни дека сакате трајно да ја избришете оваа објава {$title}?"
 
 msgid "manager.announcements"
 msgstr "Известувања"
@@ -1345,3 +1346,9 @@ msgstr "Деталите за лиценцата се ажурирани. "
 
 msgid "manager.distribution.license"
 msgstr "Лиценца"
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Стандардните обрасци за е-пошта се обновени."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Избриши известување"

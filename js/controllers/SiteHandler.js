@@ -135,9 +135,6 @@
 			var contentCSS = $.pkp.app.tinyMceContentCSS,
 					tinymceParams,
 					tinymceParamDefaults;
-			if ($.pkp.app.cdnEnabled) {
-				contentCSS = contentCSS + ', ' + $.pkp.app.tinyMceContentFont;
-			}
 
 			tinymceParamDefaults = {
 				width: '100%',

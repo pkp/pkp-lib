@@ -35,8 +35,8 @@ define('STYLE_SEQUENCE_NORMAL', 10);
 define('STYLE_SEQUENCE_LATE', 15);
 define('STYLE_SEQUENCE_LAST', 20);
 
-define('CDN_JQUERY_VERSION', '3.5.1');
-define('CDN_JQUERY_UI_VERSION', '1.12.1');
+define('CDN_JQUERY_VERSION', '3.5.1'); // @deprecated 3.3
+define('CDN_JQUERY_UI_VERSION', '1.12.1'); // @deprecated 3.3
 
 define('CSS_FILENAME_SUFFIX', 'css');
 
@@ -676,7 +676,6 @@ class PKPTemplateManager extends Smarty {
 		import('lib.pkp.classes.security.Role');
 
 		$app_data = [
-			'cdnEnabled' => Config::getVar('general', 'enable_cdn'),
 			'currentLocale' => AppLocale::getLocale(),
 			'primaryLocale' => AppLocale::getPrimaryLocale(),
 			'baseUrl' => $this->_request->getBaseUrl(),
@@ -685,7 +684,6 @@ class PKPTemplateManager extends Smarty {
 			'pathInfoEnabled' => Config::getVar('general', 'disable_path_info') ? false : true,
 			'restfulUrlsEnabled' => Config::getVar('general', 'restful_urls') ? true : false,
 			'tinyMceContentCSS' => $this->_request->getBaseUrl() . '/plugins/generic/tinymce/styles/content.css',
-			'tinyMceContentFont' => Config::getVar('general', 'enable_cdn') ? $this->_request->getBaseUrl() .  '/plugins/generic/tinymce/styles/content-font.css' : '',
 		];
 
 		// Add an array of rtl languages (right-to-left)
@@ -813,16 +811,9 @@ class PKPTemplateManager extends Smarty {
 
 		// Register the jQuery script
 		$min = Config::getVar('general', 'enable_minified') ? '.min' : '';
-		if (Config::getVar('general', 'enable_cdn')) {
-			$jquery = '//ajax.googleapis.com/ajax/libs/jquery/' . CDN_JQUERY_VERSION . '/jquery' . $min . '.js';
-			$jqueryUI = '//ajax.googleapis.com/ajax/libs/jqueryui/' . CDN_JQUERY_UI_VERSION . '/jquery-ui' . $min . '.js';
-		} else {
-			$jquery = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js';
-			$jqueryUI = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
-		}
 		$this->addJavaScript(
 			'jquery',
-			$jquery,
+			$request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js',
 			[
 				'priority' => STYLE_SEQUENCE_CORE,
 				'contexts' => 'backend',
@@ -830,40 +821,21 @@ class PKPTemplateManager extends Smarty {
 		);
 		$this->addJavaScript(
 			'jqueryUI',
-			$jqueryUI,
+			$request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js',
 			[
 				'priority' => STYLE_SEQUENCE_CORE,
 				'contexts' => 'backend',
 			]
 		);
 
-		// Load Noto Sans font from Google Font CDN
-		// To load extended latin or other character sets, see:
-		// https://www.google.com/fonts#UsePlace:use/Collection:Noto+Sans
-		if (Config::getVar('general', 'enable_cdn')) {
-			$this->addStyleSheet(
-				'pkpLibNotoSans',
-				'//fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic',
-				[
-					'priority' => STYLE_SEQUENCE_CORE,
-					'contexts' => 'backend',
-				]
-			);
-		}
-
 		// Register the pkp-lib JS library
 		$this->registerJSLibraryData();
 		$this->registerJSLibrary();
 
 		// FontAwesome - http://fontawesome.io/
-		if (Config::getVar('general', 'enable_cdn')) {
-			$url = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css';
-		} else {
-			$url = $request->getBaseUrl() . '/lib/pkp/styles/fontawesome/fontawesome.css';
-		}
 		$this->addStyleSheet(
 			'fontAwesome',
-			$url,
+			$request->getBaseUrl() . '/lib/pkp/styles/fontawesome/fontawesome.css',
 			[
 				'priority' => STYLE_SEQUENCE_CORE,
 				'contexts' => 'backend',

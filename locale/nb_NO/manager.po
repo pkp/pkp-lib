@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2020-11-05 09:08+0000\n"
+"PO-Revision-Date: 2021-01-16 19:53+0000\n"
 "Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -18,7 +18,7 @@ msgid "manager.announcements"
 msgstr "Oppslagstavle"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Er du sikker på at du vil slette oppslaget for alltid?"
+msgstr "Er du sikker på at du for alltid vil slette oppslaget: {title}?"
 
 msgid "manager.announcements.create"
 msgstr "Nytt oppslag"
@@ -56,7 +56,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Velg måned og/eller dag, i tillegg til år."
 
 msgid "manager.announcements.form.description"
-msgstr "Beskrivelse"
+msgstr "Oppslag"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Hele oppslagsteksten."
@@ -965,13 +965,13 @@ msgstr "Gjenopprett komponentene til standardinnstillingene"
 
 msgid "manager.setup.genres.dependent"
 msgstr ""
-"Merk denne type filer som avhengige filer (f.eks. som ikke skal bli listet "
-"med publisert innhold)"
+"Disse er underordnede filer som vises av en HTML-fil og vil ikke bli vist "
+"for seg selv."
 
 msgid "manager.setup.genres.supplementary"
 msgstr ""
-"Merk denne type filer som tilleggsfiler (f.eks. som ikke er hovedinnholdet i "
-"innleveringen)"
+"Dette er tilleggsfiler som f.eks datasett og forskingsverktøy, og vil bli "
+"vist separat fra de primære publiserte filene."
 
 msgid "manager.settings.wizard"
 msgstr "Veiviser"
@@ -2232,3 +2232,120 @@ msgstr "Du må oppgi en URL"
 
 msgid "manager.navigationMenus.form.url"
 msgstr "URL"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Innleveringsfilen {$id} ble utelatt fordi den er knyttet til en oppføring "
+"som ikke skal importeres, som for eksempel et vurderingsoppdrag eller en "
+"diskusjon."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Velg typen metadata som kan knyttes til disse filene. Du bør velge "
+"'Dokument' for de viktigste publikasjonsfilene, for eksempel en nedlastbar "
+"PDF, slik at disse filene kan hente metadataene fra publikasjonen. Ellers "
+"velger du 'Tilleggsinnhold' for de fleste filtyper. Illustrasjoner er egnet "
+"for filer som krever separat kilde, bildetekst og lisensmetadata."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Fil-metadata"
+
+msgid "manager.setup.genres.label"
+msgstr "Filtype"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Er du sikker på at du vil aktivere denne seksjonen?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Er du sikker på at du vil deaktivere denne seksjonen?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "Deaktivér denne seksjonen og ikke tillat nye innleveringer til den."
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Vis en lenke til <button type=\"button\">hvordan sikre anonymisering av "
+"filer</button> ved opplasting"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Brukerdefinert"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Dato og tid (kort)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Dato og tid"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formater for dato og tid"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Tid"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Dato (Kort)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Dato"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Velg det foretrukne formatet for dato og tid. Et brukerdefinert format kan "
+"også angis  ved å benytte følgende <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-"
+"parameters'>formateringsparametre</a>."
+
+msgid "manager.setup.dateTime"
+msgstr "Dato og tid"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Send en til e-post"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-post ble sendt til alle mottakerne."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Sender e-post. Vent til sendingen er fullført før du navigerer vekk, fra "
+"eller lukker nettsiden."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Du skal til å sende en e-post til {total} brukere. Er du sikker på at du vil "
+"sende denne e-posten?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Send e-post"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Send en kopi av denne e-posten til meg på {email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Velg de brukerne som skal motta din e-postbeskjed."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Varsle"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Deaktiver innleveringer"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Brukerdefinert rapportgenerator"
+
+msgid "manager.people.signedInAs"
+msgstr "Du er for øyeblikket logget inn som {$username}"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Velg brukerne som skal eksporteres til en Excel/CSV-fil."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Eksportér til Excel/CSV"
+
+msgid "manager.emails.resetComplete"
+msgstr "E-postmalen har blitt tilbakestilt."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Standard-e-postene har blitt gjenopprettet."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Slett oppslag"

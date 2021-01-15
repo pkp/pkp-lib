@@ -1221,6 +1221,10 @@ abstract class PKPSubmission extends DataObject {
 			return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION, $this->getId());
 	}
 
+	/**
+	 * Display the object in Import/Export results
+	 * @return string A string that Identifies the object
+	 */
 	function getUIDisplayString() {
 		return $this->getId() . ' - ' . $this->getLocalizedTitle();
 	}

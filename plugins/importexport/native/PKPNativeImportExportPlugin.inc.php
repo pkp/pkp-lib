@@ -291,7 +291,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		$templateMgr->assign('errorsFound', $foundErrors);
 
 		// Display the results
-		$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplateResource('resultsExport.tpl')));
+		$json = new JSONMessage(true, $templateMgr->fetch($this->getPluginPath() . '/resultsExport.tpl'));
 		header('Content-Type: application/json');
 		return $json->getString();
 	}
@@ -319,7 +319,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 		$templateMgr->assign('importedRootObjects', $deployment->getImportedRootEntitiesWithNames());
 
 		// Display the results
-		$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplateResource('resultsImport.tpl')));
+		$json = new JSONMessage(true, $templateMgr->fetch($this->getPluginPath() . '/resultsImport.tpl'));
 		header('Content-Type: application/json');
 		return $json->getString();
 	}

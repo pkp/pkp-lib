@@ -250,6 +250,9 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 	private function _migrateSubmissionFiles() {
 		import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_ constants
 
+		// Delete submission_files entries that correspond to nonexistent submissions
+		Capsule::connection()->unprepared('DELETE FROM submission_files WHERE submission_id IN (SELECT sf.submission_id FROM submission_files sf LEFT JOIN submissions s ON sf.submission_id = s.submission_id WHERE s.submission_id IS NULL)');
+
 		// Add partial index (DBMS-specific)
 		switch (Capsule::connection()->getDriverName()) {
 			case 'mysql': Capsule::connection()->unprepared('CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name(50), setting_value(150))'); break;

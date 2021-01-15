@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-05 08:20+0000\n"
+"PO-Revision-Date: 2021-01-16 19:53+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ja_JP/>\n"
@@ -341,3 +341,45 @@ msgstr "現在のスタイルシート"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
+
+msgid "common.languages"
+msgstr "言語"
+
+msgid "common.language"
+msgstr "言語"
+
+msgid "common.readMore"
+msgstr "もっと読む"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "common.search"
+msgstr "検索"
+
+msgid "navigation.search"
+msgstr "検索"
+
+msgid "navigation.register"
+msgstr "登録"
+
+msgid "common.homepageNavigationLabel"
+msgstr "ホーム"
+
+msgid "navigation.archives"
+msgstr "アーカイブ"
+
+msgid "navigation.admin"
+msgstr "管理"
+
+msgid "navigation.about"
+msgstr "このサイト/雑誌について"
+
+msgid "navigation.login"
+msgstr "ログイン"
+
+msgid "navigation.infoForReaders.long"
+msgstr "読者の皆さまへ"
+
+msgid "navigation.infoForReaders"
+msgstr "読者の皆さまへ"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-06-07 04:39+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2021-01-15 21:13+0000\n"
+"Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "admin/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -62,3 +62,8 @@ msgstr "Redirecionamento de servidor"
 
 msgid "admin.hostedContexts"
 msgstr "Servidores hospedados"
+
+#, fuzzy
+msgid "admin.contexts.enableContextInstructions"
+msgstr ""
+"Permita que esse servidor de preprints seja listado publicamente neste site."

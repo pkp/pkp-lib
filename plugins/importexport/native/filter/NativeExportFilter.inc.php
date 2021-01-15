@@ -22,14 +22,6 @@ class NativeExportFilter extends NativeImportExportFilter {
 	var $opts = array();
 
 	/**
-	 * Constructor
-	 * @param $filterGroup FilterGroup
-	 */
-	function __construct($filterGroup) {
-		parent::__construct($filterGroup);
-	}
-
-	/**
 	 * Set no validation option
 	 * @param $noValidation boolean
 	 */

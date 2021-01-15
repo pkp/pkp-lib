@@ -57,10 +57,15 @@ class NativeImportExportFilter extends PersistableFilter {
 	static function getFilter($filter, $deployment, $opts = null) {
 		$filterDao = DAORegistry::getDAO('FilterDAO'); /** @var $filterDao FilterDAO */
 		$filters = $filterDao->getObjectsByGroup($filter);
-		assert(count($filters)==1); // Assert only a single serialization filter
 
-		if (count($filters)!=1) {
-			throw new Exception('Wrong configuration regarding filters');
+		if (count($filters) != 1) {
+			throw new Exception(
+				__('plugins.importexport.native.common.error.filter.configuration.count',
+				array(
+					'filterName' => $filter,
+					'filterCount' => count($filters)
+				)
+			));
 		}
 
 		$currentFilter = array_shift($filters);

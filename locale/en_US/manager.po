@@ -2045,3 +2045,6 @@ msgstr "Download the exported file from the button bellow."
 
 msgid "plugins.importexport.native.common.any"
 msgstr "Generic Items"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr "Wrong filter configuration [{$filterName}]: {$filterCount} occurrences. Should be only one."

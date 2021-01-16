@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-15 08:16+0000\n"
+"PO-Revision-Date: 2021-01-16 19:53+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
@@ -567,7 +567,6 @@ msgstr ""
 msgid "manager.setup.sponsors.note"
 msgstr "Спонзорски односи и опис на политика"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Презентирајте ја врската до<button type=\"button\">Обезбедување на слепи "
@@ -1266,7 +1265,7 @@ msgid "settings.roles.abbrevRequired"
 msgstr "Мора да дефинирате кратенка за улогата."
 
 msgid "settings.roles.nameRequired"
-msgstr "Мора да дефинирате име на улогата"
+msgstr "Мора да дефинирате име на улогата."
 
 msgid "settings.roles.removeText"
 msgstr ""

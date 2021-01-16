@@ -467,6 +467,3 @@ msgstr "Биография"
 
 msgid "reviewer.list.empty"
 msgstr "Рецензенты не найдены"
-
-msgid "editor.submission.revertDeclineDescription"
-msgstr "Вы уверены, что хотите отменить решение об отклонении этого материала?"

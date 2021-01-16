@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2021-01-16 19:53+0000\n"
-"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -1351,3 +1351,142 @@ msgstr "Стандардните обрасци за е-пошта се обно
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Избриши известување"
+
+msgid "manager.setup.genres.label"
+msgstr "Тип на фајл"
+
+msgid "grid.action.restoreGenres"
+msgstr "Врати ги компонентите во предодредено подесување"
+
+msgid "grid.action.deleteGenre"
+msgstr "Исфрли ја оваа компонента"
+
+msgid "grid.action.editGenre"
+msgstr "Поправи ја оваа компонента"
+
+msgid "grid.action.addGenre"
+msgstr "Додади компонента"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Избери библиотечен фајл за прикачување"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Овој библиотечен фајл мое да биде достапен за симнување, ако \"Public "
+"Access\" е овозможен, на: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Друго"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Извештаи"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Дозволи"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Маркетинг"
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Контакти"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Потребен е тип на фајл за овој библиотечен фајл."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Потребно е име за овој библиотечен фајл."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"Потребен е фајл за библиотека. Молам забележи дека ти избра и внесе фајл."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Овозможи корекција на поднесените метаподатоци."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Потребно е да го дефинирате стадиумот за назначување."
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Сигурен ли сте дека сакате да ја активирате оваа секција?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Сигурен ли сте дека сакате да ја деактивирате оваа секција?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Деактивирај ја оваа секција и не дозволувај да биде внесен нов поднесок."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Избрано"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Дата и време (кратко)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Дата и време"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Време"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Дата (кратко)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Дата"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Избери посакуван формат за дати и за времиња.  Избраниот формат може да се "
+"внесе со користење на специјален  <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>формат на "
+"карактери</a>."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Фирмати за дата и за време"
+
+msgid "manager.setup.dateTime"
+msgstr "Дата и време"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Испрати друг имејл"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Имејлот беше успешно испратен до сите примачи."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr "Испраќање имејл. Волам не листај пред да се комплетира испраќањето."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Треба да испратите и-мејл кон  {$total} корисници. Сигурен ли сте дека "
+"сакате да го испратите овој имејл?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Испрати имејл"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Испрати копија од овој имејл за мане на {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Избери корисници кои кои треба да примат имејл нотификација."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Забележи"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Оневозможи поднесок"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Генератор на избран извештај"
+
+msgid "manager.people.signedInAs"
+msgstr "Сега сте логиран како  {$username}"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Избери корисници кои ќе бидат испратени во Excel/CSV фајл."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Испрати во Excel/CSV"
+
+msgid "manager.emails.resetComplete"
+msgstr "Образецот за имејл е успешно ресетиран."

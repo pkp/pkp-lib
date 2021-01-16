@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-10-21 11:37+0000\n"
+"PO-Revision-Date: 2021-01-16 19:53+0000\n"
 "Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk_MK/>\n"
@@ -227,3 +227,28 @@ msgstr "Внесете важечки додаток."
 
 msgid "metadata.property.displayName.supplement"
 msgstr "Додаток"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Внесете валидно има на конференција."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Име на конференцијата"
+
+msgid "submission.submit.removeConfirm"
+msgstr "Дали сте сигурни дека сакате да ја отстраните оваа датотека?"
+
+msgid "submission.submit.genre.error"
+msgstr "Изберете вид на датотека за секое поставување."
+
+msgid "submission.submit.genre.description"
+msgstr "Изберете ја опцијата што најдобро ја опишува оваа датотека."
+
+msgid "submission.submit.genre.label"
+msgstr "Каков фајл е ова?"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Еден или повеќе рецензенти го пропуштија рокот. Редакцискиот тим е известен "
+"и ќе преземе мерки за да се осигурат дека прегледите се завршени. Во овој "
+"момент не треба да преземате ништо. Ќе бидете известени кога ќе биде "
+"донесена одлука."

@@ -1217,8 +1217,8 @@ abstract class PKPSubmission extends DataObject {
 	 * @return int
 	 */
 	function getViews() {
-			$application = Application::getApplication();
-			return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION, $this->getId());
+		$application = Application::getApplication();
+		return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION, $this->getId());
 	}
 
 	/**

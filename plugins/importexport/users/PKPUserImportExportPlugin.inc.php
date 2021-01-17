@@ -254,6 +254,27 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 
 		return $filter;
 	}
+
+	/**
+	 * @see ImportExportPlugin::getImportFilter
+	 */
+	function getImportFilter($xmlFile) {
+		throw new MethodNotImplementedException();
+	}
+
+	/**
+	 * @see ImportExportPlugin::getExportFilter
+	 */
+	function getExportFilter($exportType) {
+		throw new MethodNotImplementedException();
+	}
+
+	/**
+	 * @see ImportExportPlugin::getAppSpecificDeployment
+	 */
+	function getAppSpecificDeployment($context, $user) {
+		throw new MethodNotImplementedException();
+	}
 }
 
 

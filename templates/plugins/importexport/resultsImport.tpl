@@ -25,8 +25,8 @@
 	</ul>
 {/if}
 
-{include file='core:plugins/importexport/native/innerResults.tpl' key='warnings' errorsAndWarnings=$errorsAndWarnings}
-{include file='core:plugins/importexport/native/innerResults.tpl' key='errors' errorsAndWarnings=$errorsAndWarnings}
+{include file='core:plugins/importexport/innerResults.tpl' key='warnings' errorsAndWarnings=$errorsAndWarnings}
+{include file='core:plugins/importexport/innerResults.tpl' key='errors' errorsAndWarnings=$errorsAndWarnings}
 
 {if $validationErrors}
 	<h2>{translate key="plugins.importexport.common.validationErrors"}</h2>

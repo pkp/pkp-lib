@@ -13,11 +13,11 @@
 	{translate key="plugins.importexport.native.importComplete"}
 	<ul>
 		{foreach from=$importedRootObjects item=contentItemArrays key=contentItemName}
-			<b>{$contentItemName}</b>
+			<b>{$contentItemName|escape}</b>
 			{foreach from=$contentItemArrays item=contentItemArray}
 				{foreach from=$contentItemArray item=contentItem}
 					<li>
-						{$contentItem->getUIDisplayString()}
+						{$contentItem->getUIDisplayString()|escape}
 					</li>
 				{/foreach}
 			{/foreach}

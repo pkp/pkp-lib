@@ -81,8 +81,11 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 		if ($primaryContactId = $entity->getData('primaryContactId')) $entityNode->setAttribute('primary_contact_id', $primaryContactId);
 		$entityNode->setAttribute('url_path', $entity->getData('urlPath'));
 
-		$isPublished = $entity->getData('status') === STATUS_PUBLISHED;
-		$isPublished ? $entityNode->setAttribute('seq', (int) $entity->getData('seq')) : $entityNode->setAttribute('seq', '0');
+		if ($entity->getData('status') === STATUS_PUBLISHED) {
+			$entityNode->setAttribute('seq', (int) $entity->getData('seq'));
+		} else {
+			$entityNode->setAttribute('seq', '0');
+		}
 
 		$entityLanguages = $entity->getData('language');
 		if ($entityLanguages) {

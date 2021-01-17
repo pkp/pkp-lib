@@ -439,7 +439,9 @@ class Filter extends DataObject {
 			// We have no valid input so return
 			// an empty output (see unset statement
 			// above).
-			return $this->_output;
+			$typeofInput = gettype($input);
+			throw new Exception("Filter ({$this->getDisplayName()}) supports input {$this->getInputType()->_typeName} - {$typeofInput} given");
+			//return $this->_output;
 		}
 
 		// Save a reference to the last valid input

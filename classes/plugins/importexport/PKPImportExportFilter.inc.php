@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/NativeImportExportFilter.inc.php
+ * @file classes/plugins/importexport/PKPImportExportFilter.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class NativeImportExportFilter
+ * @class PKPImportExportFilter
  * @ingroup plugins_importexport_native
  *
- * @brief Base class that converts between Native XML documents and DataObjects
+ * @brief Base helper class for import/export filters
  */
 
 import('lib.pkp.classes.filter.PersistableFilter');
 
-class NativeImportExportFilter extends PersistableFilter {
+class PKPImportExportFilter extends PersistableFilter {
 	/** @var PKPNativeImportExportDeployment */
 	var $_deployment;
 

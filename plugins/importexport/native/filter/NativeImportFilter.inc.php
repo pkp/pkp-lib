@@ -13,9 +13,9 @@
  * @brief Base class that converts a Native XML document to a DataObject
  */
 
-import('lib.pkp.plugins.importexport.native.filter.NativeImportExportFilter');
+import('lib.pkp.classes.plugins.importexport.PKPImportExportFilter');
 
-class NativeImportFilter extends NativeImportExportFilter {
+class NativeImportFilter extends PKPImportExportFilter {
 	//
 	// Implement template methods from Filter
 	//
@@ -95,7 +95,7 @@ class NativeImportFilter extends NativeImportExportFilter {
 		$articleGalleyDoc->appendChild($articleGalleyDoc->importNode($n, true));
 		$importFilter = null;
 		if ($filter) {
-			$importFilter = NativeImportExportFilter::getFilter($filter, $this->getDeployment());
+			$importFilter = PKPImportExportFilter::getFilter($filter, $this->getDeployment());
 		} elseif (method_exists($this,'getImportFilter')) {
 			$importFilter = $this->getImportFilter($n->tagName);
 		} else {

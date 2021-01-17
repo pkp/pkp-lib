@@ -139,7 +139,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 				continue;
 			}
 
-			$currentFilter = NativeImportExportFilter::getFilter(get_class($submissionFile) . '=>native-xml', $this->getDeployment(), $this->opts);
+			$currentFilter = PKPImportExportFilter::getFilter(get_class($submissionFile) . '=>native-xml', $this->getDeployment(), $this->opts);
 			$submissionFileDoc = $currentFilter->execute($submissionFile, true);
 
 			$clone = $doc->importNode($submissionFileDoc->documentElement, true);
@@ -154,7 +154,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	 * @param $submission Submission
 	 */
 	function addPublications($doc, $submissionNode, $submission) {
-		$currentFilter = NativeImportExportFilter::getFilter('publication=>native-xml', $this->getDeployment());
+		$currentFilter = PKPImportExportFilter::getFilter('publication=>native-xml', $this->getDeployment());
 
 		$publications = (array) $submission->getData('publications');
 		foreach ($publications as $publication) {

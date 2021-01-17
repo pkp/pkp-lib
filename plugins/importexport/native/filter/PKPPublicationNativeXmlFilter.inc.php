@@ -229,7 +229,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	 * @param $entity PKPPublication
 	 */
 	function addAuthors($doc, $entityNode, $entity) {
-		$currentFilter = NativeImportExportFilter::getFilter('author=>native-xml', $this->getDeployment());
+		$currentFilter = PKPImportExportFilter::getFilter('author=>native-xml', $this->getDeployment());
 
 		$authors = $entity->getData('authors');
 		$authorsDoc = $currentFilter->execute($authors);
@@ -246,7 +246,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	 * @param $entity Publication
 	 */
 	function addRepresentations($doc, $entityNode, $entity) {
-		$currentFilter = NativeImportExportFilter::getFilter($this->getRepresentationExportFilterGroupName(), $this->getDeployment());
+		$currentFilter = PKPImportExportFilter::getFilter($this->getRepresentationExportFilterGroupName(), $this->getDeployment());
 
 		$representationDao = Application::getRepresentationDAO();
 		$representations = $representationDao->getByPublicationId($entity->getId());

@@ -280,6 +280,10 @@ class PKPImportExportDeployment {
 	function setUser($user) {
 		$registeredUser = Registry::get('user', true, null);
 		if (!isset($registeredUser)) {
+			/**
+			 * This is used in order to reconcile with possible $request->getUser()
+			 * used inside import processes, when the import is done by CLI tool.
+			 */
 			Registry::set('user', $user);
 		}
 

@@ -67,13 +67,13 @@ class ArticleGalleyForm extends Form {
 		$templateMgr = TemplateManager::getManager($request);
 		if ($this->_articleGalley) {
 			$articleGalleyFile = $this->_articleGalley->getFile();
-			$filepath = $articleGalleyFile->getData('path');
-			$templateMgr->assign(array(
+			$filepath = $articleGalleyFile ? $articleGalleyFile->getData('path') : null;
+			$templateMgr->assign([
 				'representationId' => $this->_articleGalley->getId(),
 				'articleGalley' => $this->_articleGalley,
 				'articleGalleyFile' => $articleGalleyFile,
-				'supportsDependentFiles' => Services::get('submissionFile')->supportsDependentFiles($articleGalleyFile, $filepath),
-			));
+				'supportsDependentFiles' => $articleGalleyFile ? Services::get('submissionFile')->supportsDependentFiles($articleGalleyFile, $filepath) : null,
+			]);
 		}
 		$context = $request->getContext();
 		$templateMgr->assign(array(

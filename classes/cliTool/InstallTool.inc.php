@@ -25,14 +25,6 @@ class InstallTool extends CommandLineTool {
 	var $params;
 
 	/**
-	 * Constructor.
-	 * @param $argv array command-line arguments
-	 */
-	function __construct($argv = array()) {
-		parent::__construct($argv);
-	}
-
-	/**
 	 * Print command usage information.
 	 */
 	function usage() {

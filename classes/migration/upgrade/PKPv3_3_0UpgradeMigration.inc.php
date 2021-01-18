@@ -250,8 +250,12 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 	private function _migrateSubmissionFiles() {
 		import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_ constants
 
-		// Delete submission_files entries that correspond to nonexistent submissions
-		Capsule::connection()->unprepared('DELETE FROM submission_files WHERE submission_id IN (SELECT sf.submission_id FROM submission_files sf LEFT JOIN submissions s ON sf.submission_id = s.submission_id WHERE s.submission_id IS NULL)');
+		// pkp/pkp-lib#6616 Delete submission_files entries that correspond to nonexistent submissions
+		$orphanedIds = Capsule::table('submission_files AS sf')->leftJoin('submissions AS s', 'sf.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->pluck('sf.submission_id', 'sf.file_id');
+		foreach ($orphanedIds as $fileId => $submissionId) {
+			error_log("Removing orphaned submission_files entry ID $fileId with submission_id $submissionId");
+			Capsule::table('submission_files')->where('file_id', '=', $fileId)->delete();
+		}
 
 		// Add partial index (DBMS-specific)
 		switch (Capsule::connection()->getDriverName()) {

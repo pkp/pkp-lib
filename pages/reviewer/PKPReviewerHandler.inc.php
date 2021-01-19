@@ -92,7 +92,6 @@ class PKPReviewerHandler extends Handler {
 	function saveStep($args, $request) {
 		$step = (int)$request->getUserVar('step');
 		if ($step<1 || $step>3) fatalError('Invalid step!');
-		$saveFormButton = (bool)$request->getUserVar('saveFormButton');
 
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
 		if ($reviewAssignment->getDateCompleted()) fatalError('Review already completed!');
@@ -105,7 +104,7 @@ class PKPReviewerHandler extends Handler {
 		$reviewerForm->readInputData();
 
 		// Save the available form data, but do not submit
-		if ($saveFormButton) {
+		if ($request->getUserVar('isSave')) {
 			$reviewerForm->saveForLater();
 			$notificationMgr = new NotificationManager();
 			$user = $request->getUser();

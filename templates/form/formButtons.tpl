@@ -28,12 +28,12 @@
 				dialogText="$FBV_confirmSubmit"}
 	{/if}
 
-	{fbvElement type="submit" class="{if $FBV_saveText}pkp_button_primary{/if} submitFormButton" id=$submitButtonId label=$FBV_submitText translate=$FBV_translate disabled=$FBV_submitDisabled}
+	{fbvElement type="submit" class="{if $FBV_saveText}pkp_button_primary{/if} submitFormButton" name="submitFormButton" id=$submitButtonId label=$FBV_submitText translate=$FBV_translate disabled=$FBV_submitDisabled}
 
 	{* Save button *}
 	{if $FBV_saveText}
 		{assign var=saveButtonId value="saveFormButton"|concat:"-"|uniqid}
-		{fbvElement type="submit" class="saveFormButton" name="saveFormButton" id=$saveButtonId value=$FBV_saveValue label=$FBV_saveText disabled=$FBV_submitDisabled}
+		{fbvElement type="submit" class="saveFormButton" name="saveFormButton" id=$saveButtonId label=$FBV_saveText disabled=$FBV_submitDisabled}
 	{/if}
 
 	{* Loading indicator *}

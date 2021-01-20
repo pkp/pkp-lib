@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-20 11:59+0000\n"
+"PO-Revision-Date: 2021-01-21 09:44+0000\n"
 "Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
@@ -1517,3 +1517,451 @@ msgid "manager.setup.genres.dependent"
 msgstr ""
 "Овие се зависни датотеки, како слики кои ги прикажува HTML датотека, и нема "
 "да бидат прикажани заедно со објавената содржина."
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Назначени елементи на мени"
+
+msgid "manager.navigationMenuItems"
+msgstr "Елементи на навигациското мени"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Насловот е задолжителен"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Овој наслов веќе постои за друг елемент на навигациското мени."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Оваа патека веќе постои за друг елемент на навигациското мени."
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Полето за патека мора да содржи само алфанумерички знаци плус  '.', '/', '-"
+"', и '_'."
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Содржина"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Оваа страница ќе биде достапна на: <blockquote>{$pagesPath}</blockquote>"
+"...каде што %PATH% е погоре внесената патека. <strong>Забелешка:</strong> "
+"Две страници не можат да имаат иста патека. Користење на патеки вградени во "
+"системот може да доведе до губиток на пристап до важни функции.</p>"
+
+msgid "manager.navigationMenus"
+msgstr "Навигација"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Патека"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Наслов"
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Импортираниот корисник \"{$username}\" има едноставна лозинка која не е "
+"важечка. Корисникот не беше импортиран."
+
+#, fuzzy
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Задржани се било какви права над поднесокот, што може да вклучува права на "
+"интелектуална сопственост (IPR), авторски права и разни права на сопственост."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Лозинката на импортираниот корисник \"{$username}\" не може да се импортира "
+"како што е. Нова лозинка се испраќа на корисничкиот и-меил. Корисникот беше "
+"импортиран."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Импортираниот корисник \"{$username}\" нема лозинка. Проверете го вашиот XML "
+"формат за импортирање. Корисникот не беше импортиран."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Импортирај/Експортирај грешки:"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Поднесокот {$id} беше прескокнат бидејќи е прикачен на запис кој нема да "
+"биде импортиран, како што се задача за рецензија или дискусија."
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Поднесокот не можеше да се импортира"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Промената \"{$revisionId}\" на поднесокот \"{$fileId}\" би создала дуплиран "
+"запис"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Доставената големина на датотека \"{$expected}\" и вистинската големина на "
+"датотека \"{$actual}\" не се совпаѓаат"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Не може да биде содадена привремена датотека {$dest} од {$source}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Непознат поставувач {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Авторот {$authorName} нема име на јазикот на поднесокот, {$localeName}. "
+"Поднесокот не може да биде импортиран без оваа информација."
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Непозната корисничка група {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Содржината не е шифрирана како {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Непознато шифрирање {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Непознат жанр {$param}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Непознат елемент {$param}"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Настанати грешки:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Предупредувања:"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Грешки при проверка:"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Барајте авторот да достави референци пред да биде прифатен нивниот поднесок."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "За време на поднесувањето, прашајте го авторот да достави референци."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "За време на поднесувањето, не барајте референци од авторот."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Овозможи метаподатоци за референци"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Соберете ги референците на поднесокот во посебно поле. Ова може да биде "
+"потребно за да се усогласат со услугите за следење на цитати, како што е "
+"Crossref."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Барајте авторот да достави дисциплини пред да биде прифатен нивниот поднесок."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "За време на поднесувањето, прашајте го авторот да достави дисциплини."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "За време на поднесувањето, не барајте дисциплини од авторот."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Овозможи метаподатоци за дисциплини"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Дисциплини се типови на студии или гранки на знаење, опишани од "
+"универзитетски факултети и научни друштва."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Барајте авторот да го достави типот пред да биде прифатен нивниот поднесок."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "За време на поднесувањето, прашајте го авторот да го достави типот."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "За време на поднесувањето, не барајте тип од авторот."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Овозможете метаподатоци за тип"
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Барајте авторот да достави ставки пред да биде прифатен нивниот поднесок."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "За време на поднесувањето, прашајте го авторот да достави ставки."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "За време на поднесувањето, не барајте ставки од авторот."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Овозможете метаподатоци за ставки"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Ставките ќе бидат клучни зборови, клучни фрази или кодови за класификација "
+"кои ја опишуваат темата на поднесокот."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Барајте авторот да достави изворна URL-адреса пред да биде прифатен нивниот "
+"поднесок."
+
+msgid "manager.setup.metadata.source.request"
+msgstr ""
+"За време на поднесувањето, прашајте го авторот да достави изворна URL-адреса."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr ""
+"За време на поднесувањето, не барајте ја изворната URL-адреса од авторот."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Овозможи изворни метаподатоци"
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Барај авторот да открие било кави права за претходен пристап пред да биде "
+"прифатен нивниот поднесок."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"За време на поднесувањето, прашајте го авторот да открие било какви права за "
+"претходен пристап."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Не барајте откривање на права од авторот за време на поднесувањето."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Овозможи метаподатоци за права"
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Барај авторот да ги внесе јазиците на поднесокот пред да биде прифатен "
+"нивниот поднесок."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"За време на поднесувањето, прашајте го авторот да ги посочи јазиците на "
+"поднесокот."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"За време на поднесувањето, не барајте метаподатоци за покриеност од авторот."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+"За време на поднесувањето, не ги барајте јазиците на поднесокот од авторот."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Овозможи метаподатоци за јазик"
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Барај авторот да предложи клучни зборови пред да биде прифатен нивниот "
+"поднесок."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr ""
+"За време на поднесувањето, прашајте го авторот да предложи клучни зборови."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "За време на поднесувањето, не барајте клучни зборови од авторот."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Овозможи метаподатоци за клучни зборови"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Клучни зборови вообичаено се фрази од еден до три збора кои се користат за "
+"да се навестат главните теми на разговор на поднесокот."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Барај авторот да предложи метаподатоци за покриеност пред да биде прифатен "
+"нивниот поднесок."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"За време на поднесувањето, прашајте го авторот да предложи метаподатоци за "
+"покриеност."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Овозможи метаподатоци за покриеност"
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Покриеност"
+
+msgid "manager.setup.metadata.submission"
+msgstr "Формулар за поднесување"
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL-адреса на веб-страница која ја опишува лиценцата, доколку достапна."
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Побарај изјава за судир на интереси за време на отворената рецензија."
+
+msgid "grid.action.createReviewForm"
+msgstr "Создади нов формулар за рецензија"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Може да се види (за автори)"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Кутија за текст со една линија"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Продолжена кутија за текст"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Кутија за текст со еден збор"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Вклучено во пораката до авторот"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Рецензенти потребни да го завршат елементот"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Радио копчиња (може да изберете само едно)"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Опис"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Елемент"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Избор"
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Не се создадени елементи на формуларот."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Потребно е прашање за елеметот на формулар."
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Потребен е тип на елемент за елементот на формулар."
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Тип на елемент"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Уреди елемент на формулар"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Опаѓачко мени"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Создади нов елемент"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Копирај до:"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Потврдете бришење на објавен елемент на формулар..."
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Иберете тип на елемент"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Поле за избирање (може да изберете едно или повеќе)"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Додај избор"
+
+msgid "manager.reviewFormElements"
+msgstr "Елементи на формуларот"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Се менува типот на елемент на формуларот..."
+
+msgid "manager.reviewForms.title"
+msgstr "Наслов"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Прегледај податоци на формуларот"
+
+msgid "manager.reviewForms.preview"
+msgstr "Преглед на формулар"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Нема искористени формулари за рецензија."
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Нема создадени формулари за рецензија."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Се рецензира"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Неопходен е наслов за формуларот за рецензија."
+
+msgid "manager.reviewForms.edit"
+msgstr "Формулар за рецензија"
+
+msgid "manager.reviewForms.description"
+msgstr "Опис и инструкции"
+
+msgid "manager.reviewForms.create"
+msgstr "Создади формулар за рецензија"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr ""
+"Дали сте сигурни дека сакате да го избришете овој формулар за рецензија?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Завршено"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr ""
+"Дали сте сигурни дека сакате да направите копија на овој формулар за "
+"рецензија?"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Дали сте сигурни дека сакате да го деактивирате овој формулар за рецензија? "
+"Повеќе нема да биде достапен за нови назначувања за рецензија."
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Дали сте сигурни дека сакате да го активирате овој формулар за рецензија? "
+"Откако ќе биде доделен на рецензија повеќе нема да можете да го деактивирате."
+
+msgid "manager.reviewForms"
+msgstr "Формулари за рецензија"
+
+msgid "manager.distribution.title"
+msgstr "Поставки на распределба"
+
+msgid "manager.distribution"
+msgstr "Распределба"
+
+msgid "manager.workflow.title"
+msgstr "Поставки на работен тек"
+
+msgid "manager.workflow"
+msgstr "Работен тек"
+
+msgid "manager.website.title"
+msgstr "Поставки на веб-страница"
+
+msgid "manager.website"
+msgstr "Веб-страница"
+
+msgid "manager.users.roleRequired"
+msgstr ""
+"Мора да изберете барем една улога која ќе биде поврзана со овој корисник."
+
+msgid "manager.settings.wizard"
+msgstr "Волшебник за поставки"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Изберете го типот на метаподтоци кои овие датотеки може да ги добијат. За "
+"главните датотеки за објавување треба да се одбере Документ, како PDF што "
+"може да се преземе, така што овие датотеки ќе ги наследат нивните "
+"метаподатоци од објавените.  Инаку, изберете Дополнителна содржина за "
+"повеќето типови датотеки.\n"
+"Илустрација е соодветно за датотеки кои имаат потреба за посебни "
+"метаподатоци за кредитирање, наслови и лиценцирање."

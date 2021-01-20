@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-16 19:53+0000\n"
-"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"PO-Revision-Date: 2021-01-20 11:59+0000\n"
+"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -1490,3 +1490,30 @@ msgstr "Испрати во Excel/CSV"
 
 msgid "manager.emails.resetComplete"
 msgstr "Образецот за имејл е успешно ресетиран."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Метаподатоци на датотеката"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Клучот може да содржи само алфанумерички знаци, подвлеки и цртички, и мора "
+"да започне и да заврши со алфанумерички знак."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Клучот веќе постои."
+
+msgid "manager.setup.genres.key.description"
+msgstr "Незадолжителен краток симболичен идентификатор за овој жанр."
+
+msgid "manager.setup.genres.key"
+msgstr "Клуч"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Овие се додатни датотеки, како множества на податоци и истражувачки "
+"материјали, и ќе бидат прикажани одделно од главните датотеки за објавување."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Овие се зависни датотеки, како слики кои ги прикажува HTML датотека, и нема "
+"да бидат прикажани заедно со објавената содржина."

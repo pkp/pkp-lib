@@ -19,7 +19,8 @@
 		"danielstjules/stringy": "3.*",
 		"adodb/adodb-php": "dev-v5.20.14-mods",
 		"gettext/gettext": "^4.6",
-		"sokil/php-isocodes": "^3.0"
+		"sokil/php-isocodes": "^3.0",
+		"cweagans/composer-patches": "^1.7"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~8",
@@ -37,5 +38,12 @@
 			"type": "vcs",
 			"url": "https://github.com/asmecher/ADOdb"
 		}
-	]
+	],
+	"extra": {
+		"patches": {
+			"illuminate/database": {
+				"Patch Laravel binding array issue": "lib/laravel-binding-6632.diff"
+			}
+		}
+	}
 }

@@ -139,13 +139,17 @@ class APIRouter extends PKPRouter {
 	/**
 	 * @copydoc PKPRouter::handleAuthorizationFailure()
 	 */
-	function handleAuthorizationFailure($request, $authorizationMessage) {
+	function handleAuthorizationFailure(
+		$request,
+		$authorizationMessage,
+		array $messageParams = []
+	) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
 		http_response_code('403');
 		header('Content-Type: application/json');
 		echo json_encode([
 			'error' => $authorizationMessage,
-			'errorMessage' => __($authorizationMessage),
+			'errorMessage' => __($authorizationMessage, $messageParams),
 		]);
 		exit;
 	}

@@ -182,7 +182,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	 * @param $user User The user who will be notified
 	 * @return PKPNotification The notification instance
 	 */
-	public function notify(User $user) : PKPNotification
+	public function notify(User $user) : ?PKPNotification
 	{
 		return parent::createNotification(
 			$this->_request,

@@ -145,7 +145,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $params array
 	 * @param $suppressEmail boolean Whether or not to suppress the notification email.
 	 * @param $mailConfigurator callable Enables the customization of the Notification email
-	 * @return Notification object
+	 * @return Notification object|null
 	 */
 	public function createNotification($request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false, callable $mailConfigurator = null) {
 		$blockedNotifications = $this->getUserBlockedNotifications($userId, $contextId);

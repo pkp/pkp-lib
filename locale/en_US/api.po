@@ -41,6 +41,9 @@ msgstr "You do not have permission to delete this server."
 msgid "api.contexts.404.contextNotFound"
 msgstr "The server you requested was not found."
 
+msgid "api.emails.403.disabled"
+msgstr "The email notification feature has not been enabled for this server."
+
 msgid "api.emailTemplates.403.notAllowedChangeContext"
 msgstr "You do not have permission to move this email template to another server."
 

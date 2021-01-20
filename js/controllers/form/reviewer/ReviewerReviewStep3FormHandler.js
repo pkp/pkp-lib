@@ -40,6 +40,8 @@
 				this.updateCommentsRequired_));
 		$formElement.find('[type^=\'submit\']').click(this.callbackWrapper(
 				this.updateRecommendationRequired_));
+		$formElement.find('[type^=\'submit\']').click(this.callbackWrapper(
+				this.updateSaveOrSubmit_));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.reviewer.ReviewerReviewStep3FormHandler,
@@ -102,6 +104,33 @@
 			// There's something in the files grid; the comments
 			// field is optional.
 			$commentsElement.removeAttr('required');
+		}
+		return true;
+	};
+
+
+	/**
+	 * Internal callback called before form validation to ensure the
+	 * proper handling of the save vs. submit button, using a hidden
+	 * field.
+	 *
+	 * @param {HTMLElement} submitButton The submit button.
+	 * @param {Event} event The event that triggered the
+	 *  submit button.
+	 * @return {boolean} true.
+	 * @private
+	 */
+	$.pkp.controllers.form.reviewer.ReviewerReviewStep3FormHandler.
+			prototype.updateSaveOrSubmit_ = function(submitButton, event) {
+
+		var $formElement = this.getHtmlElement();
+		switch ($(submitButton).attr('name')) {
+			case 'submitFormButton':
+				$formElement.find('input[name="isSave"]').val('0');
+				break;
+			case 'saveFormButton':
+				$formElement.find('input[name="isSave"]').val('1');
+				break;
 		}
 		return true;
 	};

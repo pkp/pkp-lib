@@ -32,6 +32,7 @@ class UpgradeTool extends CommandLineTool {
 	 * @param $argv array command-line arguments
 	 */
 	function __construct($argv = array()) {
+		Application::get()->initializeDatabaseConnection();
 		parent::__construct($argv);
 
 		if (!isset($this->argv[0]) || !in_array($this->argv[0], array('check', 'latest', 'upgrade', 'download'))) {

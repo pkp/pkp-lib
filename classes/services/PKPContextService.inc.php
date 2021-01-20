@@ -304,6 +304,17 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			}
 		});
 
+		// Only allow admins to modify which user groups are disabled for bulk emails
+		if (!empty($props['disableBulkEmailUserGroups'])) {
+			$user = Application::get()->getRequest()->getUser();
+			$validator->after(function($validator) use ($user) {
+			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+				if (!$roleDao->userHasRole(CONTEXT_ID_NONE, $user->getId(), ROLE_ID_SITE_ADMIN)) {
+					$validator->errors()->add('disableBulkEmailUserGroups', __('admin.settings.disableBulkEmailRoles.adminOnly'));
+				}
+			});
+		}
+
 		if ($validator->fails()) {
 			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_CONTEXT), $allowedLocales);
 		}

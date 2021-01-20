@@ -54,6 +54,14 @@
 					{load_url_in_div id="navigationMenuItemsGridContainer" url=$navigationMenuItemsGridUrl}
 				</tab>
 				{/if}
+				{if $componentAvailability['bulkEmails']}
+				<tab id="bulkEmails" label="{translate key="admin.settings.enableBulkEmails.label"}">
+					<pkp-form
+						v-bind="components.{$smarty.const.FORM_SITE_BULK_EMAILS}"
+						@set="set"
+					/>
+				</tab>
+				{/if}
 				{call_hook name="Template::Settings::admin::setup"}
 			</tabs>
 		</tab>

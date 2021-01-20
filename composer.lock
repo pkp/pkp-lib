@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6dd5e412cf269dc2dc7d475e558fd715",
+    "content-hash": "d1d3e10b9b8257e2c0e17a1e39d88228",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -1340,16 +1340,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v7.29.3",
+            "version": "v7.30.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "93f6d565a07045baa0e4b941ae1f733cd5984d65"
+                "reference": "28481951106e75cf8c5a8b24100059fa327df1ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/93f6d565a07045baa0e4b941ae1f733cd5984d65",
-                "reference": "93f6d565a07045baa0e4b941ae1f733cd5984d65",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/28481951106e75cf8c5a8b24100059fa327df1ef",
+                "reference": "28481951106e75cf8c5a8b24100059fa327df1ef",
                 "shasum": ""
             },
             "require": {
@@ -1421,7 +1421,7 @@
                 "illuminate/view": "self.version"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "^3.0",
+                "aws/aws-sdk-php": "^3.155",
                 "doctrine/dbal": "^2.6",
                 "filp/whoops": "^2.8",
                 "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
@@ -1435,7 +1435,7 @@
                 "symfony/cache": "^5.0"
             },
             "suggest": {
-                "aws/aws-sdk-php": "Required to use the SQS queue driver, DynamoDb failed job storage and SES mail driver (^3.0).",
+                "aws/aws-sdk-php": "Required to use the SQS queue driver, DynamoDb failed job storage and SES mail driver (^3.155).",
                 "doctrine/dbal": "Required to rename columns and drop SQLite columns (^2.6).",
                 "ext-ftp": "Required to use the Flysystem FTP driver.",
                 "ext-gd": "Required to use Illuminate\\Http\\Testing\\FileFactory::image().",
@@ -1467,6 +1467,9 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "7.x-dev"
+                },
+                "patches_applied": {
+                    "Inhibit __ Laravel helper": "lib/laravel-helper-4017.diff"
                 }
             },
             "autoload": {
@@ -1494,7 +1497,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-11-03T14:12:58+00:00"
+            "time": "2021-01-15T15:38:30+00:00"
         },
         {
             "name": "league/commonmark",

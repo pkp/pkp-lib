@@ -34,13 +34,17 @@ class PKPNotifyUsersForm extends FormComponent {
 	 * Constructor
 	 *
 	 * @param string $action URL to submit the form to
+	 * @param Context $context Journal, press or preprint server
 	 * @param DAOResultFactory $userGroups Allowed user groups
 	 */
-	public function __construct($action, $userGroups) {
+	public function __construct($action, $context, $userGroups) {
 		$this->action = $action;
 
 		$userGroupOptions = [];
 		while ($userGroup = $userGroups->next()) {
+			if (in_array($userGroup->getId(), (array) $context->getData('disableBulkEmailUserGroups'))) {
+				continue;
+			}
 			$userGroupOptions[] = [
 				'value' => $userGroup->getId(),
 				'label' => $userGroup->getLocalizedData('name'),

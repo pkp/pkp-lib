@@ -23,6 +23,7 @@
 			{capture assign=rolesUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.roles.UserGroupGridHandler" op="fetchGrid" escape=false}{/capture}
 			{load_url_in_div id="roleGridContainer" url=$rolesUrl}
 		</tab>
+		{if $enableBulkEmails}
 		<tab id="notify" label="{translate key="manager.setup.notifyUsers"}">
 			<div v-if="queueId" role="alert">
 				<p v-if="completedJobs < totalJobs">
@@ -43,6 +44,7 @@
 				@set="set"
 			/>
 		</tab>
+		{/if}
 		<tab id="access" label="{translate key="manager.siteAccessOptions.siteAccessOptions"}">
 		{help file="users-and-roles" section="site-access" class="pkp_help_tab"}
 			<pkp-form

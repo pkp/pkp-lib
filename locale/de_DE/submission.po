@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2020-07-31 13:56+0000\n"
+"PO-Revision-Date: 2021-01-20 11:59+0000\n"
 "Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/de/>\n"
+"submission/de_DE/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -552,9 +552,9 @@ msgstr "Eintrag löschen"
 msgid "submission.event.submissionSubmitted"
 msgstr "Ersteinreichung abgeschlossen."
 
-#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Revisionsdatei \"{$name}\" (Datei-ID {$submissionFileId}) wurde hochgeladen."
+msgstr ""
+"Die Revision \"{$name}\" für Datei {$submissionFileId} wurde hochgeladen."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadaten des Beitrags aktualisiert"
@@ -1955,3 +1955,27 @@ msgstr "Zusätzliche Dateien"
 
 msgid "submission.representationOfTitle"
 msgstr "{$representation} von {$title}"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Eine Aufzeichnung des Dateiuploads wird gespeichert, wenn die Datei angelegt "
+"wird, und kann nicht geändert werden."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Sind Sie sicher, dass diese Datei entfernt werden soll?"
+
+msgid "submission.submit.genre.error"
+msgstr "Bitte wählen Sie die Art der Datei für jeden Upload."
+
+msgid "submission.submit.genre.description"
+msgstr "Wählen Sie die Option, die die Datei am besten beschreibt."
+
+msgid "submission.submit.genre.label"
+msgstr "Welche Art von Datei ist dies?"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Eine/r oder mehrere Gutachter/innen haben die Frist verpaßt. Die Redaktion "
+"wurde benachrichtigt und wird sicherstellen, dass die Begutachtung "
+"abgeschlossen wird. Sie müssen nichts weiter tun. Sie werden benachrichtigt, "
+"sobald eine Entscheidung getroffen wurde."

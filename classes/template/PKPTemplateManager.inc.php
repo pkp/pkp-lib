@@ -35,9 +35,6 @@ define('STYLE_SEQUENCE_NORMAL', 10);
 define('STYLE_SEQUENCE_LATE', 15);
 define('STYLE_SEQUENCE_LAST', 20);
 
-define('CDN_JQUERY_VERSION', '3.5.1'); // @deprecated 3.3
-define('CDN_JQUERY_UI_VERSION', '1.12.1'); // @deprecated 3.3
-
 define('CSS_FILENAME_SUFFIX', 'css');
 
 define('PAGE_WIDTH_NARROW', 'narrow');

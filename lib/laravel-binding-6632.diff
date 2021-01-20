@@ -1,0 +1,38 @@
+diff --git a/src/Illuminate/Database/Query/Builder.php b/src/Illuminate/Database/Query/Builder.php
+index 0d4c7c3ae16..83416d83be0 100755
+--- a/src/Illuminate/Database/Query/Builder.php
+@@ -546,7 +546,7 @@
+         );
+ 
+         if (! $value instanceof Expression) {
+-            $this->addBinding($value, 'where');
++            $this->addBinding(is_array($value) ? head($value) : $value, 'where');
+         }
+ 
+         return $this;
+@@ -908,7 +908,7 @@
+ 
+         $this->wheres[] = compact('column', 'type', 'boolean', 'not');
+ 
+-        $this->addBinding($values, 'where');
++        $this->addBinding(array_slice($values, 0, 2), 'where');
+ 
+         return $this;
+     }
+@@ -1096,6 +1096,7 @@
+         $this->wheres[] = compact('column', 'type', 'boolean', 'operator', 'value');
+ 
+         if (! $value instanceof Expression) {
++            $value = is_array($value) ? head($value) : $value;
+             $this->addBinding($value, 'where');
+         }
+ 
+@@ -1357,7 +1358,7 @@
+         $this->havings[] = compact('type', 'column', 'operator', 'value', 'boolean');
+ 
+         if (! $value instanceof Expression) {
+-            $this->addBinding($value, 'having');
++            $this->addBinding(is_array($value) ? head($value) : $value, 'having');
+         }
+ 
+         return $this;

@@ -15,7 +15,8 @@
 		"pimple/pimple": "3.*",
 		"illuminate/database": "5.*",
 		"firebase/php-jwt": "5.*",
-		"danielstjules/stringy": "3.*"
+		"danielstjules/stringy": "3.*",
+		"cweagans/composer-patches": "^1.7"
 	},
 	"require-dev": {
 		"phpunit/phpunit-selenium": "1.4.2",
@@ -26,6 +27,13 @@
 		"vendor-dir": "lib/vendor",
 		"platform": {
 			"php": "7.1.0"
+		}
+	},
+	"extra": {
+		"patches": {
+			"illuminate/database": {
+				"Patch Laravel binding array issue": "lib/laravel-binding-6632.diff"
+			}
 		}
 	}
 }

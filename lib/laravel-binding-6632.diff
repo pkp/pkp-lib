@@ -1,6 +1,6 @@
-diff -u -r -N /home/asmecher/git/distrib/ojs/ojs-3.1.1/lib/pkp/lib/vendor/illuminate/database/Illuminate/Database/Query/Builder.php lib/vendor/illuminate/database/Illuminate/Database/Query/Builder.php
---- /home/asmecher/git/distrib/ojs/ojs-3.1.1/lib/pkp/lib/vendor/illuminate/database/Illuminate/Database/Query/Builder.php	2014-05-31 18:57:51.000000000 -0700
-+++ lib/vendor/illuminate/database/Illuminate/Database/Query/Builder.php	2021-01-20 14:42:53.721641186 -0800
+diff --git a/src/Illuminate/Database/Query/Builder.php b/src/Illuminate/Database/Query/Builder.php
+index 0d4c7c3ae16..83416d83be0 100755
+--- a/src/Illuminate/Database/Query/Builder.php
 @@ -398,7 +398,7 @@
  
  		if ( ! $value instanceof Expression)

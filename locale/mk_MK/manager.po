@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-21 15:55+0000\n"
+"PO-Revision-Date: 2021-01-21 18:00+0000\n"
 "Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
@@ -2037,3 +2037,9 @@ msgid "manager.navigationMenus.about.description"
 msgstr ""
 "Поврзете се до веб-страница која ја прикажува содржината на За списанието во "
 "Поставки > Списание"
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Поврзете се до корисничката страница за регистрација."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Поврзете се до корисничката страница за најава."

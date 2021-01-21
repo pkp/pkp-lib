@@ -272,7 +272,6 @@ plupload.Uploader.prototype.bind = function(eventName, f) {};
 $.pkp.app = {
 	baseUrl: '',
 	tinyMceContentCSS: '',
-	tinyMceContentFont: ''
 };
 
 $.pkp.cons = {

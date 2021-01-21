@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-21 09:44+0000\n"
-"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
+"PO-Revision-Date: 2021-01-21 12:53+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -1562,7 +1562,6 @@ msgstr ""
 "Импортираниот корисник \"{$username}\" има едноставна лозинка која не е "
 "важечка. Корисникот не беше импортиран."
 
-#, fuzzy
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Задржани се било какви права над поднесокот, што може да вклучува права на "

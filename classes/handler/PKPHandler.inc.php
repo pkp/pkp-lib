@@ -139,8 +139,13 @@ class PKPHandler {
 	}
 
 	/**
-	 * Retrieve authorized context objects from the
-	 * decision manager.
+	 * Retrieve authorized context objects from the decision manager.
+	 * 
+	 * Gets an object that was previously stored using the same assoc type.
+	 * The authorization policies populate these -- when an object is fetched
+	 * and checked for permission in the policy class, it's then chucked into
+	 * the authorized context for later retrieval by code that needs it.
+	 * 
 	 * @param $assocType integer any of the ASSOC_TYPE_* constants
 	 * @return mixed
 	 */

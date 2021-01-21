@@ -554,7 +554,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			->get();
 		foreach ($rows as $row) {
 			$updateBlocks = false;
-			$blocks = json_decode($row->setting_value);
+			$blocks = unserialize($row->setting_value);
 			foreach ($blocks as $key => $block) {
 				$newBlock = strtolower_codesafe($block);
 				if ($block !== $newBlock) {
@@ -567,7 +567,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 					->where('plugin_name', 'customblockmanagerplugin')
 					->where('setting_name', 'blocks')
 					->where('context_id', $row->context_id)
-					->update(['setting_value' => $blocks]);
+					->update(['setting_value' => serialize($blocks)]);
 			}
 		}
 	}
@@ -595,13 +595,13 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 				->where($contextDao->primaryKeyColumn, $row->context_id)
 				->first()
 				->primary_locale;
-			$blocks = json_decode($row->setting_value);
+			$blocks = unserialize($row->setting_value);
 			foreach ($blocks as $block) {
 				$newRows[] = [
 					'plugin_name' => $block,
 					'context_id' => $row->context_id,
 					'setting_name' => 'blockTitle',
-					'setting_value' => json_encode([$locale => $block]),
+					'setting_value' => serialize([$locale => $block]),
 					'setting_type' => 'object',
 				];
 			}

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-11 17:22+0000\n"
-"Last-Translator: Blagoja Grozdanovski <blagoja.grozdanovski@gmail.com>\n"
+"PO-Revision-Date: 2021-01-21 10:30+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/api/"
 "mk_MK/>\n"
 "Language: mk_MK\n"
@@ -54,3 +54,6 @@ msgstr "Не можете да го промените серверот на п�
 
 msgid "api.announcements.400.contextsNotMatched"
 msgstr "Огласот што го побаравте не е дел од овој сервер."
+
+msgid "api.emails.403.disabled"
+msgstr "Можноста за имејл нотификација не е овозможена на овој сервер."

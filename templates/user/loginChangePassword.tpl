@@ -54,7 +54,7 @@
 				</p>
 
 				<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
-				{fbvFormButtons}
+				{fbvFormButtons hideCancel=true}
 			{/fbvFormArea}
 		</form>
 	</div>

@@ -20,7 +20,7 @@ use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilderInterface {
 
-	/** @var int|string|null Context ID or '*' to get from all contexts */
+	/** @var int|string|null Context ID or CONTEXT_ID_ALL to get from all contexts */
 	protected $categoryIds = null;
 
 	/** @var int|null Context ID */
@@ -263,11 +263,11 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder implements Ent
 					->groupBy('s.submission_id');
 
 		// context
-		// Never permit a query without a context_id clause unless the '*' wildcard
+		// Never permit a query without a context_id clause unless the CONTEXT_ID_ALL wildcard
 		// has been set explicitely.
 		if (is_null($this->contextId)) {
 			$q->where('s.context_id', '=', CONTEXT_ID_NONE);
-		} elseif ($this->contextId !== '*') {
+		} elseif ($this->contextId !== CONTEXT_ID_ALL) {
 			$q->where('s.context_id', '=' , $this->contextId);
 		}
 

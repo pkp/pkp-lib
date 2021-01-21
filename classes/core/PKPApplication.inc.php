@@ -24,7 +24,7 @@ define('API_VERSION', 'v1');
 
 define('CONTEXT_SITE', 0);
 define('CONTEXT_ID_NONE', 0);
-define('CONTEXT_ID_ALL', '*');
+define('CONTEXT_ID_ALL', '_');
 define('REVIEW_ROUND_NONE', 0);
 
 define('ASSOC_TYPE_PRODUCTION_ASSIGNMENT',	0x0000202);

@@ -127,13 +127,15 @@ class PKPSubmissionFileHandler extends APIHandler {
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		$stageAssignments = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 
+		$allowedFileStages = [];
+
 		// Managers can access files for submissions they are not assigned to
 		if (empty($stageAssignments)) {
 			if (!in_array(ROLE_ID_MANAGER, $userRoles)) {
 				return $response->withStatus(403)->withJsonError('api.403.unauthorized');
 			}
 			// @see PKPSubmissionFileService::getAssignedFileStages() for excluded file stages
-			$params['fileStages'] = [
+			$allowedFileStages = [
 				SUBMISSION_FILE_SUBMISSION,
 				SUBMISSION_FILE_REVIEW_FILE,
 				SUBMISSION_FILE_FINAL,
@@ -150,13 +152,14 @@ class PKPSubmissionFileHandler extends APIHandler {
 		// @see PKPSubmissionFileService::getAssignedFileStages() for excluded file stages
 		} else {
 			$allowedFileStages = Services::get('submissionFile')->getAssignedFileStages($stageAssignments, SUBMISSION_FILE_ACCESS_READ);
-			if (empty($params['fileStages'])) {
-				$params['fileStages'] = $allowedFileStages;
-			} else {
-				foreach ($params['fileStages'] as $fileStage) {
-					if (!in_array($fileStage, $allowedFileStages)) {
-						return $response->withStatus(403)->withJsonError('api.submissionFiles.403.unauthorizedFileStageId');
-					}
+		}
+
+		if (empty($params['fileStages'])) {
+			$params['fileStages'] = $allowedFileStages;
+		} else {
+			foreach ($params['fileStages'] as $fileStage) {
+				if (!in_array($fileStage, $allowedFileStages)) {
+					return $response->withStatus(403)->withJsonError('api.submissionFiles.403.unauthorizedFileStageId');
 				}
 			}
 		}

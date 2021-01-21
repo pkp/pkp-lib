@@ -272,6 +272,7 @@ class LoginHandler extends Handler {
 	 * @param $args array first argument may contain user's username
 	 */
 	function changePassword($args, $request) {
+		$this->_isBackendPage = true;
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->setupBackendPage();
@@ -292,6 +293,7 @@ class LoginHandler extends Handler {
 	 * Save user's new password.
 	 */
 	function savePassword($args, $request) {
+		$this->_isBackendPage = true;
 		$this->setupTemplate($request);
 
 		import('lib.pkp.classes.user.form.LoginChangePasswordForm');

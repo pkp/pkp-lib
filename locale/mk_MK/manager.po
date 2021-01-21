@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-21 12:53+0000\n"
+"PO-Revision-Date: 2021-01-21 15:55+0000\n"
 "Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
@@ -2005,3 +2005,35 @@ msgstr "Области за навигација на активна тема"
 
 msgid "manager.navigationMenus.unassignedMenuItems"
 msgstr "Неназначени елементи на мени"
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Овој линк ќе биде прикажан само доколку ги имате овозможено известувањата во "
+"Поставки > Веб-страница."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Поврзете се до страницата која ги прикажува вашите известувања."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Поврзете се до вашата архива со изданија."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Поврзете се до вашето тековно издание."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Поврзете се до страницата која ги прикажува упатствата за поднесување."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Овој линк ќе биде прикажан само доколку ја имате пополнето секцијата "
+"Уреднички тим во Поставки > Списание."
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Овој линк ќе биде прикажан само доколку ја имате пополнето секцијата За "
+"списанието во Поставки > Списание."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Поврзете се до веб-страница која ја прикажува содржината на За списанието во "
+"Поставки > Списание"

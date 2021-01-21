@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2021-01-21 12:53+0000\n"
-"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -1964,3 +1964,44 @@ msgstr ""
 "повеќето типови датотеки.\n"
 "Илустрација е соодветно за датотеки кои имаат потреба за посебни "
 "метаподатоци за кредитирање, наслови и лиценцирање."
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr ""
+"Поврзете се до било која УРЛ-адреса на друга веб-страница, како "
+"https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Оддалечена УРЛ-адреса"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Создадете сопствена страница на вашата веб-страница и поврзете се до неа "
+"преку навигациското мени."
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Сопствена страница"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Одберете Тип навигациско мени или Сопствен за да направите свое"
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Тип навигациско мени"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"Дознајте повеќе кога овој елемент на менито ќе биде прикажан или скриен."
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Мора да се обезбеди URL-адреса"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Оваа област веќе има назначено навигациско мени."
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Изберете област за навигација"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Области за навигација на активна тема"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Неназначени елементи на мени"

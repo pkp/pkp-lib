@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2021-01-22 17:16+0000\n"
-"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -2047,17 +2047,14 @@ msgstr "Поврзете се до корисничката страница з�
 msgid "stats.name.submissionsDeclinedDeskReject"
 msgstr "Одбиени поднесоци (одбиени од дескот)"
 
-#, fuzzy
 msgid "stats.name.daysToReject"
-msgstr "Days to Reject"
+msgstr "Денови до отфрлање"
 
-#, fuzzy
 msgid "stats.name.daysToAccept"
-msgstr "Days to Accept"
+msgstr "Денови до прифаќање"
 
-#, fuzzy
 msgid "stats.trends"
-msgstr "Trends"
+msgstr "Трендови"
 
 msgid "stats.dateRange.thisYear"
 msgstr "Година до дата"
@@ -2169,13 +2166,11 @@ msgstr "Последни 30 дена"
 msgid "stats.dateRange.last12Months"
 msgstr "Последни 12 месеци"
 
-#, fuzzy
 msgid "stats.dateRange.invalidDate"
 msgstr ""
 "Форматот на датумот не е валиден. Внесете го секој датум во формат YYYY-MM-"
 "DD."
 
-#, fuzzy
 msgid "stats.dateRange.instructions"
 msgstr ""
 "Внесете го секој датум како YYYY-MM-DD. На пример, доколку ви е потребен "

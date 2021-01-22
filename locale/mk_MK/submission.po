@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-22 19:52+0000\n"
-"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"PO-Revision-Date: 2021-01-23 14:53+0000\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -1247,10 +1247,9 @@ msgstr "Потрбрн е јазик на отисок."
 msgid "submission.layout.galleyLabelRequired"
 msgstr "Потребна е ознака на отисок."
 
-#, fuzzy
 msgid "submission.layout.galleyLabelInstructions"
 msgstr ""
-"Типично се користи да идентификува типот на датотека (пр. ПДФ, ХТМЛ, итн.)."
+"Типично се користи да идентификува типот на датотека (пр. PDF, HTML, итн.)."
 
 msgid "submission.layout.galleyLabel"
 msgstr "Ознака на отисок"

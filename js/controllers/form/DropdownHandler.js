@@ -50,9 +50,6 @@
 
 		// Load the list of submissions.
 		this.loadOptions_();
-
-		// React to the management grid modal being closed.
-		this.bind('containerReloadRequested', this.containerReloadHandler_);
 	};
 
 	$.pkp.classes.Helper.inherits(
@@ -156,29 +153,5 @@
 		}
 
 		this.trigger('dropDownOptionSet');
-	};
-
-
-	/**
-	 * Handle the containerReloadRequested events triggered by the management
-	 * grids for categories or series.
-	 * @private
-	 *
-	 * @param {$.pkp.controllers.form.FormHandler} sourceElement The element
-	 *  that triggered the event.
-	 * @param {Event} event The event.
-	 */
-	$.pkp.controllers.form.DropdownHandler.prototype.containerReloadHandler_ =
-			function(sourceElement, event) {
-
-		// prune the list before reloading the items.
-		var $container = this.getHtmlElement(),
-				$select = $container.find('select');
-
-		this.currentKey_ = /** @type {string} */ ($select.find('option:selected')
-				.attr('value'));
-
-		$select.find('option[value!="0"]').remove();
-		this.loadOptions_();
 	};
 }(jQuery));

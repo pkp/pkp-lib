@@ -65,7 +65,6 @@
 		// the element that opened the modal.
 		this.publishEvent('redirectRequested');
 		this.publishEvent('dataChanged');
-		this.publishEvent('containerReloadRequested');
 		this.publishEvent('updateHeader');
 		this.publishEvent('gridRefreshRequested');
 

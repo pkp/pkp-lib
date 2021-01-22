@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-21 18:00+0000\n"
+"PO-Revision-Date: 2021-01-22 13:30+0000\n"
 "Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
@@ -2043,3 +2043,259 @@ msgstr "Поврзете се до корисничката страница з�
 
 msgid "manager.navigationMenus.login.description"
 msgstr "Поврзете се до корисничката страница за најава."
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Одбиени поднесоци (одбиени од дескот)"
+
+#, fuzzy
+msgid "stats.name.daysToReject"
+msgstr "Days to Reject"
+
+#, fuzzy
+msgid "stats.name.daysToAccept"
+msgstr "Days to Accept"
+
+#, fuzzy
+msgid "stats.trends"
+msgstr "Trends"
+
+#, fuzzy
+msgid "stats.dateRange.thisYear"
+msgstr "Year to date"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Почетниот датум не може да биде пред {$date}."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Крајниот датум не може да биде по {$date}."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Почетниот датум мора да биде пред крајниот датум."
+
+#, fuzzy
+msgid "grid.category.parentCategory"
+msgstr "Parent Category"
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Поврзете се до уредничката контролна табла."
+
+#, fuzzy
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr "Link to a page displaying the Masthead content in Settings > Journal."
+
+msgid "manager.navigationMenus.form.url"
+msgstr "УРЛ-адреса"
+
+#, fuzzy
+msgid "manager.reviewForms.noneChosen"
+msgstr "None / Free Form Review"
+
+msgid "stats.name.declineRate"
+msgstr "Стапка на одбивање"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Стапка на прифаќање"
+
+msgid "stats.name.daysToDecision"
+msgstr "Денови до прва уредничка одлука"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Објавени поднесоци"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Одбиени поднесоци (по рецензија)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Одбиени поднесоци"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Прифатени поднесоци"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Добиени поднесоци"
+
+msgid "stats.userStatistics"
+msgstr "Статистички податоци за корисник"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Вкупно во опсег на датуми"
+
+msgid "stats.total"
+msgstr "Вкупно"
+
+msgid "stats.submissionsActive"
+msgstr "Активни поднесоци"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Пребарај според наслов, автор и ИД"
+
+msgid "stats.pdf"
+msgstr "ПДФ"
+
+msgid "stats.monthly"
+msgstr "Месечно"
+
+msgid "stats.html"
+msgstr "ХТМЛ"
+
+msgid "stats.fileViews"
+msgstr "Прегледи на датотека"
+
+msgid "stats.editorialActivity"
+msgstr "Уредничка активност"
+
+msgid "stats.descriptionForStat"
+msgstr "Опис за {$stat}"
+
+msgid "stats.dateRange.untilDate"
+msgstr "До {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "До"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Од {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Минатата година"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Последни две години"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Последни 90 дена"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Последни 30 дена"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Последни 12 месеци"
+
+#, fuzzy
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Форматот на датумот не е валиден. Внесете го секој датум во формат YYYY-MM-"
+"DD."
+
+#, fuzzy
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Внесете го секој датум како YYYY-MM-DD. На пример, доколку ви е потребен "
+"датумот за 15 Јануари, 2019, внесете 2019-01-15."
+
+msgid "stats.dateRange.from"
+msgstr "Од"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Еден од внесените датуми не постои."
+
+msgid "stats.dateRange.customRange"
+msgstr "Сопствен опсег"
+
+msgid "stats.dateRange.change"
+msgstr "Сменете го опсегот на датуми"
+
+msgid "stats.dateRange.apply"
+msgstr "Поднеси"
+
+msgid "stats.dateRange.allDates"
+msgstr "Сите датуми"
+
+msgid "stats.dateRange"
+msgstr "Опсег на датуми"
+
+msgid "stats.daily"
+msgstr "Дневно"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/year)"
+
+msgid "stats.allUsers"
+msgstr "Сите корисници"
+
+msgid "grid.category.categoryDetails"
+msgstr "Детали на категорија"
+
+msgid "grid.category.nameRequired"
+msgstr "Ве молиме внесете име на категоријата."
+
+msgid "grid.category.removeText"
+msgstr "Дали сте сигурни дека сакате да ја отстраните оваа категорија?"
+
+msgid "grid.category.description"
+msgstr "Опис"
+
+msgid "grid.category.pathExists"
+msgstr ""
+"Патеката на категоријата веќе постои. Ве молиме внесете уникатна патека."
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Патеката на категоријата мора да содржи само букви и броеви."
+
+msgid "grid.category.urlWillBe"
+msgstr "УРЛ-адресата на категоријата ќе биде: {$sampleUrl}"
+
+msgid "grid.category.path"
+msgstr "Патека"
+
+msgid "grid.category.name"
+msgstr "Име"
+
+msgid "grid.category.edit"
+msgstr "Изменете категорија"
+
+msgid "grid.category.add"
+msgstr "Додајте категорија"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Овој линк ќе биде прикажан само ако имате внесено изјава за приватност во "
+"Поставки > Тек на работа > Поднесоци."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr ""
+"Поврзете се до страницата која ја прикажува вашата изјава за приватност."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Поврзете се до страницата за пребарување."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Овој линк ќе биде прикажан само ако посетителот е најавен, наплатите се "
+"овозможени во Поставки > Дистрибуција > Наплати и претплатите се "
+"задолжителни во Поставки > Дистрибуција > Пристап."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Овој линк ќе биде прикажан само ако се овозможени наплати во Поставки > "
+"Дистрибуција > Наплати."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Ве молиме да одберете тип навигациско мени."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Овој линк ќе биде прикажан само доколку ги имате пополнето информациите за "
+"контак во Поставки > Контакт."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr ""
+"Поврзете се до страницата на која се прикажани вашите контакт информации."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Овој линк ќе биде прикажан само кога посетителот нема да биде најавен."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Овој линк ќе биде прикажан само кога посетителот ќе биде најавен."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Линк кој ќе го одјави корисникот."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Овој линк ќе биде прикажан само на административни корисници."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Поврзете се до административните алатки на целата веб-страница."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Поврзете се до корисничката профилна страница."

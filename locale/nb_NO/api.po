@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-16 19:53+0000\n"
-"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"PO-Revision-Date: 2021-01-22 13:30+0000\n"
+"Last-Translator: FRITT, University of Oslo Library <fritt-"
+"info@journals.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -82,10 +83,10 @@ msgid "api.stats.400.earlyDateRange"
 msgstr "Startdatoen kan ikke være tidligere enn 2001-01-01."
 
 msgid "api.stats.400.wrongDateRange"
-msgstr "Startdatoen kan ikke være senere enn sluttdatoen."
+msgstr "Startdato kan ikke være senere enn sluttdato."
 
 msgid "api.stats.400.wrongDateFormat"
-msgstr "Datoen skal være i formatet ÅÅÅÅ-MM-DD."
+msgstr "Datoen må være på formatet YYYY-MM-DD."
 
 msgid "api.submissions.403.userCantEdit"
 msgstr "Du har ikke tillatelse til å redigere denne publikasjonen."
@@ -137,16 +138,16 @@ msgid "api.emailTemplates.404.templateNotFound"
 msgstr "E-postmalen du ba om, ble ikke funnet."
 
 msgid "api.404.endpointNotFound"
-msgstr "Den angitte URL-en ble ikke gjenkjent."
+msgstr "Den forespurte URL-en ble ikke gjenkjent."
 
 msgid "api.404.resourceNotFound"
-msgstr "Den ønskede ressursen blev ikke funnet."
+msgstr "Den forespurte ressursen ble ikke funnet."
 
 msgid "api.403.unauthorized"
-msgstr "Du har ikke tilgang til den ønskede ressursen."
+msgstr "Du er ikke autorisert for adgang til den forespurte ressursen."
 
 msgid "api.400.paramNotSupported"
-msgstr "Parameteren {$param} støttes ikke."
+msgstr "Parameteret {$param} er ikke støttet."
 
 msgid "api.submissionFiles.403.unauthorizedReviewRound"
 msgstr "Du har ikke tilgang til filer som er tilknyttet denne vurderingsrunden."

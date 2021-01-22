@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2021-01-22 19:52+0000\n"
-"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
+"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -565,7 +565,6 @@ msgstr "Прикачи датотека"
 msgid "submission.representationOfTitle"
 msgstr "{$representation} на {$title}"
 
-#, fuzzy
 msgid "submission.shortAuthor"
 msgstr "{$author} et al."
 
@@ -593,7 +592,6 @@ msgstr "Недоделени"
 msgid "metadata.property.displayName.abstract"
 msgstr "Апстракт"
 
-#, fuzzy
 msgid "metadata.property.validationMessage.name-type"
 msgstr ""
 "Ве молиме, проверете дали поставивте валиден тип на име. Поддржани вредности "
@@ -626,7 +624,6 @@ msgstr "Ве молиме внесете валиден наслов."
 msgid "metadata.property.displayName.title"
 msgstr "Наслов"
 
-#, fuzzy
 msgid "metadata.property.validationMessage.nonSort"
 msgstr ""
 "Ве молиме внесете ги само почетните букви на насловот кој треба да биде "
@@ -671,27 +668,21 @@ msgstr "Ве молиме внесете валиден алтернативен
 msgid "metadata.property.displayName.uri"
 msgstr "Линк до Издание"
 
-#, fuzzy
 msgid "metadata.property.validationMessage.pmid"
 msgstr "Ве молиме внесете валиден PMID."
 
-#, fuzzy
 msgid "metadata.property.displayName.pmid"
 msgstr "PMID"
 
-#, fuzzy
 msgid "metadata.property.validationMessage.sici"
 msgstr "Ве молиме внесете валиден SICI."
 
-#, fuzzy
 msgid "metadata.property.displayName.sici"
 msgstr "SICI"
 
-#, fuzzy
 msgid "metadata.property.validationMessage.coden"
 msgstr "Ве молиме внесете валиден CODEN."
 
-#, fuzzy
 msgid "metadata.property.displayName.coden"
 msgstr "CODEN"
 
@@ -707,27 +698,21 @@ msgstr "Ве молиме внесете валиден ДОИ."
 msgid "metadata.property.displayName.doi"
 msgstr "ДОИ"
 
-#, fuzzy
 msgid "metadata.property.validationMessage.eissn"
 msgstr "Ве молиме внесете валиден eISSN."
 
-#, fuzzy
 msgid "metadata.property.displayName.eissn"
 msgstr "eISSN"
 
-#, fuzzy
 msgid "metadata.property.validationMessage.issn"
-msgstr "Ве молиме внесете валиден Print ISSN."
+msgstr "Ве молиме внесете валиден ISSN на печатена верзија."
 
-#, fuzzy
 msgid "metadata.property.displayName.issn"
-msgstr "Print ISSN"
+msgstr "ISSN на печатена верзија"
 
-#, fuzzy
 msgid "metadata.property.validationMessage.isbn"
 msgstr "Ве молиме внесете валиден ISBN (9 или 13 броеви)."
 
-#, fuzzy
 msgid "metadata.property.displayName.isbn"
 msgstr "ISBN"
 

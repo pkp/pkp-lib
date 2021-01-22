@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-22 15:53+0000\n"
-"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"PO-Revision-Date: 2021-01-22 17:16+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -2059,9 +2059,8 @@ msgstr "Days to Accept"
 msgid "stats.trends"
 msgstr "Trends"
 
-#, fuzzy
 msgid "stats.dateRange.thisYear"
-msgstr "Year to date"
+msgstr "Година до дата"
 
 msgid "stats.dateRange.invalidStartDateMin"
 msgstr "Почетниот датум не може да биде пред {$date}."
@@ -2072,16 +2071,16 @@ msgstr "Крајниот датум не може да биде по {$date}."
 msgid "stats.dateRange.invalidDateRange"
 msgstr "Почетниот датум мора да биде пред крајниот датум."
 
-#, fuzzy
 msgid "grid.category.parentCategory"
-msgstr "Parent Category"
+msgstr "Родителска категорија"
 
 msgid "manager.navigationMenus.dashboard.description"
 msgstr "Поврзете се до уредничката контролна табла."
 
-#, fuzzy
 msgid "manager.navigationMenus.editorialTeam.description"
-msgstr "Link to a page displaying the Masthead content in Settings > Journal."
+msgstr ""
+"Линк до страницата која ја прикажува Главната содржина во Подесување > "
+"Списание."
 
 msgid "manager.navigationMenus.form.url"
 msgstr "УРЛ-адреса"
@@ -2341,3 +2340,48 @@ msgstr ""
 
 msgid "manager.setup.metadata.agencies.enable"
 msgstr "Овозможете метаподатоци  за поддршка за агенции"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Се зема бројот на денови за најголемиот број поднесоци за да се добие првата "
+"одлуак на уредникот, како што е одбивање или праќање за рецензија. <br><br> "
+"Овие податоци укажуваат дека 80% од поднесоците достигнуваат одлука во "
+"дадениот број денови.<br><br> Оваа статистика се обидува да опише кога "
+"најголемиот број автори кога може да очекуваат одлука за нивните поднесоци."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Процентот на избраните граници на дата се пресметуваат од поднесувањето кое "
+"било поднесено за време на овие граници од датата и примиле конечна "
+"одлука.<br><br> На пример, да земеме случај каде биле направени десет "
+"поднесоци во таа временска граница. Четири биле прифатени, четири виле "
+"одбиени, а два сеуште чекаат конечна одлука.<br><br> Процентот на рифаќање "
+"ќе биде 50% (4 од 8 поднесоци) бидејќи двата поднесоци за кои нема конечна "
+"одлука не се бројат."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Кога на менито ќе се отвори подмени, неговиот линк може да се следи на сите "
+"апарати. На пример, ако има \"Во врска со\" податоците кои се отвораат во "
+"подменито со \"Контакт\" и \"Уредувачки тим\", менито \"Во врска со\" може "
+"да биде пребарувани од сите апарати. Во предодреденото мени, ова се "
+"остварува со користење на секундарно мени, \"За списанието\", кое се јавува "
+"во подменито."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Корисничкото име \"{$username}\" и и-мејлот \"{$email}\" не одговараат еден "
+"на друг и на постоечкиот корисник."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Барај од авторот да се огради од било какви поддржувачки агенции пред "
+"прифаќањето на поднесокот."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Барај од авторот да се огради од поддржувачки агенции за време на "
+"поднесувањето."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Не барај поддржувачки агенции од авторот за време на поднесувањето."

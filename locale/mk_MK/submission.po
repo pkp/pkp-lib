@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-16 19:53+0000\n"
-"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"PO-Revision-Date: 2021-01-22 13:30+0000\n"
+"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -252,3 +252,528 @@ msgstr ""
 "и ќе преземе мерки за да се осигурат дека прегледите се завршени. Во овој "
 "момент не треба да преземате ништо. Ќе бидете известени кога ќе биде "
 "донесена одлука."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Верзии"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Ажурирано на {$dateUpdated}"
+
+msgid "submission.initiated"
+msgstr "Започнато"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Превземи цитат"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Повеќе формати на цитирање"
+
+msgid "submission.howToCite"
+msgstr "Како да се цитира"
+
+msgid "submission.history.viewLog"
+msgstr "Прегледај ја евиденцијата"
+
+msgid "submission.history.submissionNotes"
+msgstr "Забелешки за поднесокот"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Евиденција на настан"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Евиденција на и-меил"
+
+msgid "submission.history.recentLogEntries"
+msgstr "Неодамнешни записи"
+
+msgid "submission.history.noLogEntries"
+msgstr "Нема записи во евиденцијата."
+
+msgid "submission.history"
+msgstr "Историја"
+
+msgid "submission.history.clearLog"
+msgstr "Избриши евиденција"
+
+msgid "submission.galley"
+msgstr "Отисок на труд"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Зачуван е запис за поставувачот на датотеката кога датотеката е создадена и "
+"не може да се промени."
+
+msgid "submission.files.downloadAll"
+msgstr "Превземи ги сите датотеки"
+
+msgid "submission.files"
+msgstr "Датотеки"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"На авторите сега не им е дозволено да ги променат метаподатоците кога "
+"поднесокот е во фаза на {stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"На авторите сега им е дозволено да ги променат метаподатоците кога "
+"поднесокот е во фаза на {stage}."
+
+msgid "submission.event.viewEmail"
+msgstr "Прегледај и-меил"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Испратен е и-меил:"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Датотеката со измени на рецензентот е ажурирана"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Рецензијата е повторно поднесена"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Повторно е започнато назначувањето на рецензенти"
+
+#, fuzzy
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Review recommendation file"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Започнато е назначувањето на рецензенти"
+
+#, fuzzy
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Review file updated"
+
+#, fuzzy
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Reviewer unassigned from submission"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Поднесена е оценката на рецензентот"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Назначен е рецензент на поднесокот"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Изменет е крајниот рок на рецензијата"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Назначувањето на рецензент е одбиено"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Назначувањето на рецензент е прифатено"
+
+#, fuzzy
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Review assignment accepted by proxy"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Датотеката на поднесокот е ажурирана"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Метаподатоците на поднесокот се ажурирани"
+
+msgid "submission.event.fileRevised"
+msgstr ""
+"Исправката \"{$name}\" беше прикачена за датотеката {$submissionFileId}."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Првобитниот поднесок е завршен."
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Избриши запис во евиденција"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr ""
+"Дали сте сигурни дека сакате да го избришете овој запис во евиденцијата на "
+"настан?"
+
+msgid "submission.event.confirmClearLog"
+msgstr ""
+"Дали сте сигурни дека сакате да ја избришете евиденцијата на настан за овој "
+"поднесок?"
+
+msgid "submission.event.backToEventLog"
+msgstr "Назад кон евиденција на настан"
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) е отстранет/а како {$userGroupName}."
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$name} ({$username}) е назначен/а на овој поднесок како {$userGroupName}."
+
+msgid "submission.emailLog"
+msgstr "Евиденција за и-меил"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Избришете запис во евиденцијата"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr ""
+"Дали сте сигурни дека сакате да го избришете овој запис во свиденцијата за "
+"и-меил?"
+
+msgid "submission.email.confirmClearLog"
+msgstr ""
+"Дали сте сигурни дека сакате да ја избришете евиденцијата за и-меил на овој "
+"поднесок?"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Назад кон евиденција за и-меил"
+
+#, fuzzy
+msgid "submission.editorial"
+msgstr "Copyediting"
+
+msgid "submission.editMetadata"
+msgstr "Измени метаподатоци"
+
+msgid "submission.editing"
+msgstr "Уредување"
+
+msgid "submission.due"
+msgstr "Доспева"
+
+msgid "submission.dueDate"
+msgstr "Краен датум"
+
+msgid "submission.downloads"
+msgstr "Преземања"
+
+msgid "submission.done"
+msgstr "Готово"
+
+msgid "submission.coverage"
+msgstr "Информации за покриеност"
+
+#, fuzzy
+msgid "submission.queryNoteFiles"
+msgstr "Discussion Files"
+
+#, fuzzy
+msgid "submission.copyediting"
+msgstr "Copyediting"
+
+msgid "submission.copyedited"
+msgstr "Уредено"
+
+msgid "submission.contributors"
+msgstr "Листа на учесници"
+
+msgid "submission.complete"
+msgstr "Завршен"
+
+msgid "submission.comments.subject"
+msgstr "Предмет"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Испрати ја одлуката за уредување на рецензентите"
+
+msgid "submission.comments.review"
+msgstr "Рецензија"
+
+msgid "submission.comments.noReviews"
+msgstr "Нема рецензии"
+
+msgid "submission.comments.noComments"
+msgstr "Нема коментари"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Рецензент {$reviewerLetter}:"
+
+msgid "submission.comments.addReviews"
+msgstr "Додај рецензии во и-меил"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Импортирај отворени рецензии"
+
+msgid "submission.comments.editComment"
+msgstr "Измени коментар"
+
+msgid "submission.comments.corrections"
+msgstr "Поправки"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Дали сте сигурни дека сакате да го избришете овој коментар?"
+
+msgid "submission.comments.comments"
+msgstr "Коментари"
+
+msgid "submission.comments.addComment"
+msgstr "Додај коментар"
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Отпакувј и зачувај референци"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Следните референци беа отпакувани и ќе бидат поврзани со метаподатоците на "
+"поднесокот."
+
+msgid "submission.parsedCitations.DOI"
+msgstr "ДОИ"
+
+msgid "submission.parsedCitations"
+msgstr "Отпакувани референци"
+
+msgid "submission.citations.description"
+msgstr ""
+"Внеси ја секоја референца во нов ред како би можеле да бидат одделно "
+"отпакувани и запишани."
+
+msgid "submission.citations"
+msgstr "Референци"
+
+msgid "submission.changeFile"
+msgstr "Смени датотека"
+
+msgid "submission.changeComments"
+msgstr "Смени во"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Назад кон уредување на поднесок"
+
+msgid "submission.attachedFile"
+msgstr "Приложена датотека"
+
+msgid "submission.ask"
+msgstr "Прашај"
+
+msgid "submission.acknowledge"
+msgstr "Признај"
+
+msgid "submission.accepted"
+msgstr "Прифатени"
+
+msgid "submission.abstractViews"
+msgstr "Прегледи на апстракт"
+
+msgid "submission.agencies"
+msgstr "Агенции"
+
+msgid "submission.additionalFiles"
+msgstr "Дополнителни датотеки"
+
+msgid "submission.addFile"
+msgstr "Прикачи датотека"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} на {$title}"
+
+#, fuzzy
+msgid "submission.shortAuthor"
+msgstr "{$author} et al."
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.authorBiographies"
+msgstr "Биографии на авторите"
+
+msgid "submission.authorBiography"
+msgstr "Биографија на авторот"
+
+msgid "submission.authors"
+msgstr "Автори"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Архивирани поднесоци"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Доделени на мене"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Недоделени"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Апстракт"
+
+#, fuzzy
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"Ве молиме, проверете дали поставивте валиден тип на име. Поддржани вредности "
+"се ‚лични‘, ‚корпоративни‘ и ‚конференциски‘."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Тип на име"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Ве молиме внесете валидно име на дел."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Име на дел"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Ве молиме внесете валиден број на дел."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Број на дел"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Ве молиме внесете валиден поднаслов."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Поднаслов"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Ве молиме внесете валиден наслов."
+
+msgid "metadata.property.displayName.title"
+msgstr "Наслов"
+
+#, fuzzy
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"Ве молиме внесете ги само почетните букви на насловот кој треба да биде "
+"игнориран при сортирање на насловите."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Дел од насловот беше игнориран при сортирање"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Ве молиме, проверете дали поставувате валиден тип на наслов. Поддржани "
+"вредности се ‚скратен‘, ‚преведен‘, ‚алтернативен‘ и ‚едноличен‘."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Тип на наслов"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Ве молиме, проверете дали секогаш поставувате тип на публикација. Моментално "
+"поддржани вредности се книга (за книги или поглавја во книги) и списание (за "
+"трудови во списанија). Инаку, форматирањето на излезот за цитат нема да "
+"работи правилно."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Тип на издание"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Ве молиме внесете валидна забелешка."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Забелешка"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Ве молиме внесете валиден коментар."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Коментар"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Ве молиме внесете валиден алтернативен линк до издание."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Линк до Издание"
+
+#, fuzzy
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Ве молиме внесете валиден PMID."
+
+#, fuzzy
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+#, fuzzy
+msgid "metadata.property.validationMessage.sici"
+msgstr "Ве молиме внесете валиден SICI."
+
+#, fuzzy
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+#, fuzzy
+msgid "metadata.property.validationMessage.coden"
+msgstr "Ве молиме внесете валиден CODEN."
+
+#, fuzzy
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Ве молиме внесете валидно сопствено ИД на издавач."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Сопствено ИД на издавач"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Ве молиме внесете валиден ДОИ."
+
+msgid "metadata.property.displayName.doi"
+msgstr "ДОИ"
+
+#, fuzzy
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Ве молиме внесете валиден eISSN."
+
+#, fuzzy
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+#, fuzzy
+msgid "metadata.property.validationMessage.issn"
+msgstr "Ве молиме внесете валиден Print ISSN."
+
+#, fuzzy
+msgid "metadata.property.displayName.issn"
+msgstr "Print ISSN"
+
+#, fuzzy
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Ве молиме внесете валиден ISBN (9 или 13 броеви)."
+
+#, fuzzy
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Ве молиме внесете валидно име на издавач."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Име на издавач"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Ве молиме внесете валидна локација на издавач."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Локација на издавач"
+
+msgid "metadata.property.validationMessage.size"
+msgstr ""
+"Ве молиме внесете валиден вкупен број на страници (мора д биде целобројна "
+"вредност)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Број на страници"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr ""
+"Ве молиме весете валидна последна страница (мора да биде целобројна "
+"вредност)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Последна страница"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr ""
+"Ве молиме внесете валидна прва страница (мора да биде целобројна вредност)."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Прва страница"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Ве молиме внесете валидна институција."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Институција"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Ве молиме внесете валиден спонзор на конференција."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Спонзор на конференција"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2021-01-22 19:52+0000\n"
-"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -337,20 +337,17 @@ msgstr "Рецензијата е повторно поднесена"
 msgid "submission.event.reviewer.reviewReinitiated"
 msgstr "Повторно е започнато назначувањето на рецензенти"
 
-#, fuzzy
 msgid "submission.event.reviewer.reviewRecommendation"
-msgstr "Review recommendation file"
+msgstr "Рецензирај препорачан фајл"
 
 msgid "submission.event.reviewer.reviewInitiated"
 msgstr "Започнато е назначувањето на рецензенти"
 
-#, fuzzy
 msgid "submission.event.reviewer.reviewFile"
-msgstr "Review file updated"
+msgstr "Обновен е рецензентскиот фајл"
 
-#, fuzzy
 msgid "submission.event.reviewer.reviewerUnassigned"
-msgstr "Reviewer unassigned from submission"
+msgstr "Рецензентот е одназначен од поднесокот"
 
 msgid "submission.event.reviewer.reviewerRated"
 msgstr "Поднесена е оценката на рецензентот"
@@ -367,9 +364,8 @@ msgstr "Назначувањето на рецензент е одбиено"
 msgid "submission.event.reviewer.reviewAccepted"
 msgstr "Назначувањето на рецензент е прифатено"
 
-#, fuzzy
 msgid "submission.event.reviewer.reviewAcceptedByProxy"
-msgstr "Review assignment accepted by proxy"
+msgstr "Рецензентското назначување е прифатено со прокси"
 
 msgid "submission.event.general.suppFileUpdated"
 msgstr "Датотеката на поднесокот е ажурирана"
@@ -426,9 +422,8 @@ msgstr ""
 msgid "submission.email.backToEmailLog"
 msgstr "Назад кон евиденција за и-меил"
 
-#, fuzzy
 msgid "submission.editorial"
-msgstr "Copyediting"
+msgstr "Техничко уредување"
 
 msgid "submission.editMetadata"
 msgstr "Измени метаподатоци"
@@ -451,13 +446,11 @@ msgstr "Готово"
 msgid "submission.coverage"
 msgstr "Информации за покриеност"
 
-#, fuzzy
 msgid "submission.queryNoteFiles"
-msgstr "Discussion Files"
+msgstr "Дискусирачки фајлови"
 
-#, fuzzy
 msgid "submission.copyediting"
-msgstr "Copyediting"
+msgstr "Техничко уредување"
 
 msgid "submission.copyedited"
 msgstr "Уредено"
@@ -1329,3 +1322,6 @@ msgid "submission.outdatedVersion"
 msgstr ""
 "Ова е застарена верзија објавена на {$datePublished}. Прочитајте ја <a href="
 "\"{$urlRecentVersion}\">најновата верзија</a>."
+
+msgid "submission.mySubmissions"
+msgstr "Мое авторство"

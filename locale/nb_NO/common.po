@@ -3,8 +3,9 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2021-01-16 19:53+0000\n"
-"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"PO-Revision-Date: 2021-01-22 13:30+0000\n"
+"Last-Translator: FRITT, University of Oslo Library <fritt-"
+"info@journals.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -1219,13 +1220,13 @@ msgid "validator.active_url"
 msgstr "Dette er ikke en gyldig URL."
 
 msgid "validator.accepted"
-msgstr "Akseptér dette elementet.."
+msgstr "Aksepter dette elementet.."
 
 msgid "list.viewLess"
-msgstr "Skjul ekstra detaljer om {$name}"
+msgstr "Skjul detaljer om {$name}"
 
 msgid "list.viewMore"
-msgstr "Vis ekstra detaljer om {$name}"
+msgstr "Vis flere detaljer om {$name}"
 
 msgid "notification.removedNavigationMenu"
 msgstr "Navigasjonsmenyen ble fjernet"
@@ -1549,7 +1550,7 @@ msgid "stageParticipants.noOptionsToHandle"
 msgstr "Ingen endringer kan gjøres på denne deltakeren"
 
 msgid "stageParticipants.selectedUser"
-msgstr "Deltager"
+msgstr "Deltaker"
 
 msgid "stageParticipants.canChangeMetadata"
 msgstr ""
@@ -1689,8 +1690,8 @@ msgstr "Avbryt opplasting"
 
 msgid "form.dropzone.dictResponseError"
 msgstr ""
-"Serveren svartee med {{statusCode}}-kode. Kontakt systemadministratoren, "
-"hvis dette vedvarer."
+"Serveren svarte med {{statusCode}}-kode. Kontakt systemadministratoren hvis "
+"dette vedvarer."
 
 msgid "form.dropzone.dictInvalidFileType"
 msgstr "Filer av denne typen kan ikke lastes opp."
@@ -1726,8 +1727,8 @@ msgstr "Avsender"
 
 msgid "email.compose.error"
 msgstr ""
-"Sending av epost feilet. Prøv igjen senere eller kontakt "
-"systemadministratoren."
+"Det oppstod et problem ved sending av epost. Prøv igjen senere, eller "
+"kontakt din systemadministrator."
 
 msgid "editor.submissionReview.uploadAttachment"
 msgstr "Last opp"
@@ -1742,7 +1743,7 @@ msgid "defaultMetric.title"
 msgstr "Standardverdi"
 
 msgid "common.publicAccess"
-msgstr "Synlig for alle"
+msgstr "Offentlig tilgang"
 
 msgid "common.count"
 msgstr "Antall"
@@ -1801,7 +1802,7 @@ msgid "common.selectedPrefix"
 msgstr "Valgte:"
 
 msgid "common.clearSearch"
-msgstr "Nullstill søk"
+msgstr "Nullstill søkefrasen"
 
 msgid "common.searchQuery"
 msgstr "Søkeord"
@@ -1816,7 +1817,7 @@ msgid "common.reminded.date"
 msgstr "Påminnet: {$dateReminded}"
 
 msgid "common.readMoreWithTitle"
-msgstr "Les mer om «{$title}»"
+msgstr "Les mer om {$title}"
 
 msgid "common.readMore"
 msgstr "Les mer"
@@ -1917,10 +1918,10 @@ msgid "common.filterRemove"
 msgstr "Fjern filter: {$filterTitle}"
 
 msgid "common.filterAdd"
-msgstr "Legg till filter: {$filterTitle}"
+msgstr "Legg til filter: {$filterTitle}"
 
 msgid "common.filter"
-msgstr "Filter"
+msgstr "Filtre"
 
 msgid "common.fileUploaderError"
 msgstr ""
@@ -2128,7 +2129,7 @@ msgid "common.selectWithName"
 msgstr "Velg {$name}"
 
 msgid "common.editItem"
-msgstr "Redigér {$name}"
+msgstr "Rediger {$name}"
 
 msgid "common.inactive"
 msgstr "Inaktiv"

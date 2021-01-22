@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-14 17:31+0000\n"
+"PO-Revision-Date: 2021-01-23 17:53+0000\n"
 "Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/pt_BR/>\n"
@@ -179,13 +179,12 @@ msgstr "Discussões"
 msgid "publication.version.details"
 msgstr "Detalhes da versão {$version}"
 
-#, fuzzy
 msgid "publication.unpublish.confirm"
-msgstr "Você tem certeza que não gostaria que isso seja postado?"
+msgstr "Você tem certeza que não quer que isso seja postado?"
 
 #, fuzzy
 msgid "publication.unschedule.confirm"
-msgstr "Você tem certeza que não gostaria que isso seja agendado para postagem?"
+msgstr "Você tem certeza que não quer que isso seja agendado para postagem?"
 
 #, fuzzy
 msgid "publication.required.reviewStage"
@@ -207,3 +206,24 @@ msgstr "Uma nova versão foi agendada para postagem."
 
 msgid "publication.event.versionPublished"
 msgstr "Uma nova versão foi postada."
+
+#, fuzzy
+msgid "submission.license.description"
+msgstr ""
+"A licença será  configurada automaticamente para <a href='{$licenseUrl}' "
+"target='_blank'>{$licenseName}</a> quando esse manuscrito for postado."
+
+msgid "publication.publish.requirements"
+msgstr ""
+"Os seguinte requerimentos precisam ser cumpridos para que esse manuscrito "
+"possa ser postado."
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"O ano de copyright será configurado automaticamente com base na data de "
+"postagem."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"O ano de copyright será configurado automaticamente quando o manuscrito for "
+"postado."

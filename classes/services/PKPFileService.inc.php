@@ -85,9 +85,25 @@ class PKPFileService {
 		if (is_resource($stream)) {
 			fclose($stream);
 		}
+		$mimetype = $this->fs->getMimetype($to);
+
+		// Check and override ambiguous mime types based on file extension
+		$pathinfo = pathinfo($to);
+		if (array_key_exists('extension', $pathinfo)) {
+			$extension = $pathinfo['extension'];
+			$checkAmbiguous = strtolower($extension . ':' . $mimetype);
+			if (array_key_exists($checkAmbiguous, $extensionsMap = \PKPString::getAmbiguousExtensionsMap())) {
+				$mimetype = $extensionsMap[$checkAmbiguous];
+			}
+		}
+
+		if (array_key_exists($mimetype, $mimetypesMap = \PKPString::getAmbiguousExtensionsMap())) {
+			$mimetype = $mimetypesMap[$mimetype];
+		}
+
 		return Capsule::table('files')->insertGetId([
 			'path' => $to,
-			'mimetype' => $this->fs->getMimetype($to),
+			'mimetype' => $mimetype,
 		], 'file_id');
 	}
 

@@ -20,9 +20,6 @@ msgstr "The {$param} parameter is not supported."
 msgid "api.400.invalidApiToken"
 msgstr "The API token could not be validated. This may indicate an error in the API token or that the API token is no longer valid."
 
-msgid "api.401.forgottenApiToken"
-msgstr "The API token should be send."
-
 msgid "api.400.tokenCouldNotBeDecoded"
 msgstr "The apiToken could not be decoded because of the following error: {$error}"
 

@@ -37,6 +37,15 @@ class ApiTokenDecodingMiddleware {
 	 * @return boolean|string
 	 */
 	protected function _decode($slimRequest) {
+		$jwt = $slimRequest->getQueryParam('apiToken');
+		if (!$jwt) {
+			/**
+			 * If we don't have a token, it's for the authentication logic to handle if it's a problem.
+			 */
+
+			 return true;
+		}
+
 		$secret = Config::getVar('security', 'api_key_secret', '');
 		if (!$secret) {
 			$request = $this->_handler->getRequest();
@@ -47,48 +56,48 @@ class ApiTokenDecodingMiddleware {
 				);
 		}
 
-		if ($secret && !is_null($jwt = $slimRequest->getQueryParam('apiToken'))) {
-			try {
-				$apiToken = JWT::decode($jwt, $secret, ['HS256']);
-				// Compatibility with old API keys
-				// https://github.com/pkp/pkp-lib/issues/6462
-				if (substr($apiToken, 0, 2) === '""') {
-					$apiToken = json_decode($apiToken);
-				}
-				$this->_handler->setApiToken($apiToken);
-
-				return true;
-			} catch (Exception $e) {
-				/**
-				 * If JWT decoding fails, it throws an 'UnexpectedValueException'.
-				 * If JSON decoding fails (of the JWT payload), it throws a 'DomainException'.
-				 * If token couldn't verified, it throws a 'SignatureInvalidException'.
-				 */
-				if (is_a($e, SignatureInvalidException::class)) {
-					$request = $this->_handler->getRequest();
-					return $request->getRouter()
-						->handleAuthorizationFailure(
-							$request,
-							'api.400.invalidApiToken'
-						);
-				}
-
-				if (is_a($e, 'UnexpectedValueException') ||
-					is_a($e, 'DomainException')
-				) {
-					$request = $this->_handler->getRequest();
-					return $request->getRouter()
-						->handleAuthorizationFailure(
-							$request,
-							'api.400.tokenCouldNotBeDecoded',
-							[
-								'error' => $e->getMessage()
-							]
-						);
-				}
-
-				throw $e;
+		try {
+			$apiToken = JWT::decode($jwt, $secret, ['HS256']);
+			/**
+			 * Compatibility with old API keys
+			 * @link https://github.com/pkp/pkp-lib/issues/6462
+			 */
+			if (substr($apiToken, 0, 2) === '""') {
+				$apiToken = json_decode($apiToken);
 			}
+			$this->_handler->setApiToken($apiToken);
+
+			return true;
+		} catch (Exception $e) {
+			/**
+			 * If JWT decoding fails, it throws an 'UnexpectedValueException'.
+			 * If JSON decoding fails (of the JWT payload), it throws a 'DomainException'.
+			 * If token couldn't verified, it throws a 'SignatureInvalidException'.
+			 */
+			if (is_a($e, SignatureInvalidException::class)) {
+				$request = $this->_handler->getRequest();
+				return $request->getRouter()
+					->handleAuthorizationFailure(
+						$request,
+						'api.400.invalidApiToken'
+					);
+			}
+
+			if (is_a($e, 'UnexpectedValueException') ||
+				is_a($e, 'DomainException')
+			) {
+				$request = $this->_handler->getRequest();
+				return $request->getRouter()
+					->handleAuthorizationFailure(
+						$request,
+						'api.400.tokenCouldNotBeDecoded',
+						[
+							'error' => $e->getMessage()
+						]
+					);
+			}
+
+			throw $e;
 		}
 		// If we do not have a token, it's for the authentication logic
 		// to decide if that's a problem.

@@ -33,7 +33,6 @@
 		}
 
 		this.bind('refreshForm', this.refreshFormHandler_);
-		this.publishEvent('containerReloadRequested');
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.AjaxFormHandler,
@@ -136,13 +135,6 @@
 					this.enableFormControls();
 				}
 			} else {
-				if (/** @type {{reloadContainer: Object}} */ (
-						processedJsonData).reloadContainer !== undefined) {
-					this.trigger('dataChanged');
-					this.trigger('containerReloadRequested', [processedJsonData]);
-					return processedJsonData.status;
-				}
-
 				// Redisplay the form.
 				this.replaceWith(processedJsonData.content);
 			}

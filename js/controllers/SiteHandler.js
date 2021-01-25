@@ -38,6 +38,7 @@
 
 		this.bind('redirectRequested', this.redirectToUrl);
 		this.bind('notifyUser', this.fetchNotificationHandler_);
+		this.bind('reloadTab', this.reloadTabHandler_);
 		this.bind('callWhenClickOutside', this.callWhenClickOutsideHandler_);
 		this.bind('mousedown', this.mouseDownHandler_);
 
@@ -456,6 +457,22 @@
 			dataType: 'json',
 			async: false
 		});
+	};
+
+
+	/**
+	 * Reload a tab.
+	 * @private
+	 * @param {HTMLElement} sourceElement The element that issued the
+	 *  "reloadTab" event.
+	 * @param {Event} event The "reload tab" event.
+	 * @param {Object} jsonData The JSON content representing the
+	 *  reload request.
+	 */
+	$.pkp.controllers.SiteHandler.prototype.reloadTabHandler_ =
+			function(sourceElement, event, jsonData) {
+
+		$(jsonData.tabsSelector).tabs('load', jsonData.tabSelector);
 	};
 
 

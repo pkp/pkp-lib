@@ -896,7 +896,8 @@ class PKPTemplateManager extends Smarty {
 				$notificationsCount = count($notificationDao->getByUserId($request->getUser()->getId(), NOTIFICATION_LEVEL_TRIVIAL)->toArray());
 
 				// Load context switcher
-				if (in_array(ROLE_ID_SITE_ADMIN, $this->get_template_vars('userRoles'))) {
+				$isAdmin = in_array(ROLE_ID_SITE_ADMIN, $this->get_template_vars('userRoles'));
+				if ($isAdmin) {
 					$args = [];
 				} else {
 					$args = ['userId' => $request->getUser()->getId()];
@@ -907,11 +908,19 @@ class PKPTemplateManager extends Smarty {
 						return $context->id !== $request->getContext()->getId();
 					});
 				}
-				$requestedPage = $router->getRequestedPage($request);
+				// Admins should switch to the same page on another context where possible
+				$requestedOp = $request->getRequestedOp() === 'index' ? null : $request->getRequestedOp();
+				$isSwitchable = $isAdmin && in_array($request->getRequestedPage(), [
+					'submissions',
+					'manageIssues',
+					'management',
+					'payment',
+					'stats',
+				]);
 				foreach ($availableContexts as $availableContext) {
 					// Site admins redirected to the same page. Everyone else to submission lists
-					if ($requestedPage !== 'admin' && in_array(ROLE_ID_SITE_ADMIN, $this->get_template_vars('userRoles'))) {
-						$availableContext->url = $dispatcher->url($request, ROUTE_PAGE, $availableContext->urlPath, $request->getRequestedPage(), $request->getRequestedOp(), $request->getRequestedArgs($request));
+					if ($isSwitchable) {
+						$availableContext->url = $dispatcher->url($request, ROUTE_PAGE, $availableContext->urlPath, $request->getRequestedPage(), $requestedOp, $request->getRequestedArgs($request));
 					} else {
 						$availableContext->url = $dispatcher->url($request, ROUTE_PAGE, $availableContext->urlPath, 'submissions');
 					}

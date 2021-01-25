@@ -342,7 +342,11 @@ class PKPRouter {
 	 * @param $authorizationMessage string a translation key with the authorization
 	 *  failure message.
 	 */
-	function handleAuthorizationFailure($request, $authorizationMessage) {
+	function handleAuthorizationFailure(
+		$request,
+		$authorizationMessage,
+		array $messageParams = []
+	) {
 		// Must be implemented by sub-classes.
 		assert(false);
 	}

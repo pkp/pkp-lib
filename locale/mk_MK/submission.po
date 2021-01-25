@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-25 10:41+0000\n"
+"PO-Revision-Date: 2021-01-25 11:22+0000\n"
 "Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk_MK/>\n"
@@ -1372,3 +1372,147 @@ msgid "submission.upload.userGroupDescription"
 msgstr ""
 "Доколку поднесувате уреден том, треба посебно да ги прикачите сите поглавја "
 "на томот, согласно со вашата улога како уредник на том."
+
+msgid "editor.submission.decision.nextButton"
+msgstr "Следно: Изберете датотеки за {$stageName}"
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Зачувани препораки"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Препорачајте уредничка одлука за овој поднесок."
+
+msgid "editor.submission.recommendation"
+msgstr "Препорака"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Препораки: {$recommendations}"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Препорака: {$recommendation}"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Сменете препорака"
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Направете препораки"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "Назначете уредник за да ги овозможите уредничките одлуки за оваа фаза."
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Поврати одбивање"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Испрати до Интерна рецензија"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Прифати и прескокни ја рецензијата"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Испрати на обработка"
+
+msgid "editor.submission.decision.decline"
+msgstr "Одбиј поднесок"
+
+msgid "editor.submission.decision.newRound"
+msgstr "Нова рунда на рецензија"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Повторно поднеси за рецензија"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Побарај корекции"
+
+msgid "editor.submission.decision.accept"
+msgstr "Прифати поднесок"
+
+msgid "editor.submission.decision"
+msgstr "Одлука"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Дали сте сигурни дека сакате авторите на овој поднесок да бидат овозможени "
+"да прават промени на метаподатоците на поднесокот во оваа фаза?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Дали сте сигурни дека сакате авторите на овој поднесок да бидат оневозможени "
+"да прават промени на метаподатоците на поднесокот во оваа фаза?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Дозволете промена на метаподатоци"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Забранете промена на метаподатоци"
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"Учесникот што го избравте е доделен да изврши анонимна рецензија. Ако го "
+"доделите како учесник, ќе има пристап до идентитетот на авторот. Ви "
+"препорачуваме да не го доделувате овој учесник, освен ако не можете "
+"самостојно да го осигурате интегритетот на процесот на отворена рецензија."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Мора да изберете корисник за посочената корисничка група."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Мора да изберете корисничка група."
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "Овој учесник ќе го отстраните од <strong>сите</strong> фази."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Отстрани учесник"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Корисниците се распоредени во фази од работниот тек според групи на "
+"корисници. Секој корисник доделен на оваа фаза автоматски ќе биде доделен на "
+"останатите фази на кои е доделена нивната корисничка група. Ова вообичаено е "
+"резервирано за уредници, автори и преведувачи."
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Измени ја задачата"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Нема назначени"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Назначи учесник"
+
+msgid "editor.submission.participant"
+msgstr "Учесник"
+
+msgid "editor.submission.stageParticipants"
+msgstr "Учесници"
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Пристигнати се сите препораки и потребна е одлука."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Поднесени се нови препораки за уредување."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Во исчекување на препораките од уредниците."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Изминат е рокот на една рецензија."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Сите рецензенти имаат одговорено и потребна е одлука."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Поднесени се нови рецензии."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Во исчекување на одговори од рецензентите."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Во исчекување да бидат назначени рецензенти."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Поднесокот е одбиен."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Поднесокот е прифатен."

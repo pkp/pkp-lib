@@ -56,7 +56,6 @@ lib/pkp/js/controllers/RevealMoreHandler.js
 lib/pkp/js/controllers/NotificationHandler.js
 lib/pkp/js/controllers/HelpPanelHandler.js
 lib/pkp/js/controllers/form/FormHandler.js
-lib/pkp/js/controllers/form/DropdownHandler.js
 lib/pkp/js/controllers/form/AjaxFormHandler.js
 lib/pkp/js/controllers/form/ClientFormHandler.js
 lib/pkp/js/controllers/form/ToggleFormHandler.js
@@ -85,7 +84,6 @@ lib/pkp/js/controllers/wizard/WizardHandler.js
 lib/pkp/js/controllers/grid/queries/ReadQueryHandler.js
 lib/pkp/js/controllers/wizard/fileUpload/FileUploadWizardHandler.js
 lib/pkp/js/controllers/wizard/fileUpload/form/FileUploadFormHandler.js
-lib/pkp/js/controllers/wizard/fileUpload/form/RevisionConfirmationHandler.js
 lib/pkp/js/controllers/grid/navigationMenus/form/NavigationMenuFormHandler.js
 lib/pkp/js/controllers/grid/navigationMenus/form/NavigationMenuItemsFormHandler.js
 lib/pkp/js/controllers/grid/representations/form/RepresentationFormHandler.js

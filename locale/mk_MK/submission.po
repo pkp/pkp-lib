@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-25 11:22+0000\n"
+"PO-Revision-Date: 2021-01-25 12:31+0000\n"
 "Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk_MK/>\n"
@@ -1516,3 +1516,443 @@ msgstr "Поднесокот е одбиен."
 
 msgid "editor.submission.roundStatus.accepted"
 msgstr "Поднесокот е прифатен."
+
+msgid "submission.query.addNote"
+msgstr "Додај порака"
+
+msgid "submission.query.closed"
+msgstr "Затворено"
+
+msgid "submission.query.lastReply"
+msgstr "Последен одговор"
+
+msgid "submission.query.from"
+msgstr "Од"
+
+msgid "submission.query.replies"
+msgstr "Одговори"
+
+msgid "submission.query.messages"
+msgstr "Пораки"
+
+msgid "submission.query.subject"
+msgstr "Предмет"
+
+msgid "submission.queries.editorial"
+msgstr "Дискусии за уредување"
+
+msgid "submission.queries.review"
+msgstr "Дискусии за рецензија"
+
+msgid "submission.queries.submission"
+msgstr "Дискусии пред рецензија"
+
+#, fuzzy
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Attribution-ShareAlike 3.0 Unported License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
+"3.0 Unported License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
+"Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported "
+"License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Attribution-NonCommercial 3.0 Unported License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
+"Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported "
+"License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4."
+"0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons "
+"Attribution-ShareAlike 4.0 International License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/"
+"88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution "
+"4.0 International License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4."
+"0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons "
+"Attribution-NoDerivatives 4.0 International License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">"
+"Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International "
+"License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4."
+"0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons "
+"Attribution-NonCommercial 4.0 International License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">"
+"Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International "
+"License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+#, fuzzy
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+#, fuzzy
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.licenseURL"
+msgstr "УРЛ-адреса на дозвола"
+
+#, fuzzy
+msgid "submission.copyrightStatement"
+msgstr "Авторско право(c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.copyrightYear"
+msgstr "Година на авторско право"
+
+msgid "submission.copyrightOther"
+msgstr "Изјава за авторско право"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Сопствена изјава за авторско право"
+
+msgid "submission.copyrightHolder"
+msgstr "Носител на авторско право"
+
+msgid "submission.copyright"
+msgstr "Авторско право"
+
+msgid "submission.license"
+msgstr "Дозвола"
+
+msgid "submission.attachPermissions"
+msgstr "Прикачете ги следните одобренија на поднесокот:"
+
+msgid "submission.permissions"
+msgstr "Одобренија"
+
+msgid "grid.action.editMetadata"
+msgstr "Променете метаподатоци"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Создадете нов елемент на формуларот за рецензија"
+
+msgid "submission.reviewFormResponse"
+msgstr "Одговор на формулар за рецензија"
+
+msgid "submission.reviewForm"
+msgstr "Формулар за рецензија"
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"Мора да биде назначен уредник за обработка пред да бида започнат процесот на "
+"уредување. Ве молиме да додадете уредник за обработка преку листата на "
+"учесници."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"Мора да биде назначен уредник за обработка пред да бида започнат процесот на "
+"обработка. Ве молиме да додадете уредник за обработка преку листата на "
+"учесници."
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Започнат е процесот на обработка."
+
+msgid "grid.action.itemWorkflow"
+msgstr "Одете кон текот на работа на овој поднесок"
+
+msgid "submission.supplementary.publisher"
+msgstr "Издавач"
+
+msgid "submission.supplementary.subject"
+msgstr "Предмет"
+
+msgid "submission.supplementary.creator"
+msgstr "Творец (или сопственик) на датотека"
+
+msgid "submission.supplementary"
+msgstr "Дополнителна содржина"
+
+msgid "submission.art"
+msgstr "Илустрација"
+
+msgid "submission.document"
+msgstr "Документ"
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Оваа рецензија е завршена и на рецензентот им е испратена благодарност за "
+"нивниот придонес."
+
+msgid "submission.review.status.complete"
+msgstr "Оваа рецензија е завршена."
+
+msgid "submission.review.status.received"
+msgstr "Рецензентот ја достави нивната рецензија."
+
+msgid "submission.review.status.accepted"
+msgstr "Рецензијата беше прифатена."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Рецензентот го пропушти крајниот рок за рецензија."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Рецензентот го пропушти крајниот рок за одговор."
+
+msgid "submission.review.status.declined"
+msgstr "Рецензентот го одби ова барање за рецензирање."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Во исчекување на одговор од рецензентот."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} ја заврши рецензијата за {$round} рунда на рецензија за "
+"поднесокот {$submissionId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Уредникот {$userName} потврди рецензија за {$round} рунда на рецензија за "
+"поднесокот {$submissionId}."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"{$round} рунда на рецензија од страна на {$reviewerName} за поднесокот "
+"{$submissionId} беше повторно започната."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} ја означи {$round} рунда на рецензија за поднесокот "
+"{$submissionId} како занемарена."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"{$round} рунда на рецензија од страна на {$reviewerName} за поднесокот "
+"{$submissionId} е расчистена."
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName} беше назначен да го рецензира поднесокот {$submissionId} за "
+"{$round} рунда на рецензија."
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Прикачете ја рецензираната датотека"
+
+msgid "submission.productionReady"
+msgstr "Достапна е книгата"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Изберете рецензирани датотеки да ги споделите со авторот(ите)"
+
+msgid "grid.reviewAttachments.title"
+msgstr "Прилози на рецензентот"
+
+msgid "notification.type.revertDecline"
+msgstr "Повратена е одлуката да се одбие овој поднесок."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Создадена е нова верзија на поднесокот"
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Мора да биде назначен уредник пред да биде започната рецензијата. Ве молиме "
+"да додадете уредник преку листата на учесници."
+
+msgid "notification.uploadedResponse"
+msgstr "Прикачен е одговор."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Одбиениот поднесок е повторно активиран."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Поднесокот е одбиен."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Започната е нова рунда на рецензии."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Поднеси повторно за рецензија."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Потребна е корекција."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Започнат е процесот на надворешна рецензија."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Поднесокот е прифатен."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Најнова одлука на уредникот."
+
+msgid "notification.type.editorAssign"
+msgstr "Назначени сте како уредник на поднесокот \"{$title}\"."
+
+msgid "submission.documents"
+msgstr "Документи на поднесувањето"
+
+msgid "submission.stageNotInitiated"
+msgstr "Не е започната фазата."
+
+msgid "submission.description"
+msgstr "Опис"
+
+msgid "submission.overview"
+msgstr "Преглед на поднесувањето"
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$name}\" ({$username}) ја заврши ревизијата и го прикачи \"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$name}\" ({$username}) беше отстранет/а како ревизор за датотеката \""
+"{$file}.\""
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$name}\" ({$username}) беше додаден/а како ревизор за датотеката \""
+"{$file}.\""
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr ""
+"Последната корекција на датотеката \"{$title}\" беше отстранета од страна на "
+"{$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"Корегираната датотека \"{$originalFileName}\" за поднесокот {$submissionId} "
+"беше избришана од стана на {$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"Корегираната датотека \"{$originalFileName}\" беше прикачена за поднесокот "
+"{$submissionId} од страна на {$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"Датотеката \"{$originalFileName}\" за поднесувањето {$submissionId} беше "
+"избришана од страна на {$username}."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"Датотеката \"{$originalFileName}\" беше прикачена за поднесокот "
+"{$submissionId} од страна на {$username}."
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"Метаподатоците на датотеката \"{$originalFileName}\" беа изменти од страна "
+"на {$username}."
+
+msgid "editor.submission.addAuditorError"
+msgstr ""
+"Настана грешка при доделување на авторот. Ве молиме обидете се повторно."
+
+msgid "submission.finalDraft"
+msgstr "Нацрт датотеки"
+
+msgid "submission.submit.currentFile"
+msgstr "Тековна датотека"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Рецензирани датотеки"
+
+msgid "submission.actionNeeded"
+msgstr "Потребно е дејство"
+
+msgid "submission.noActionRequired"
+msgstr "Не е потребно дејство"
+
+msgid "submission.currentStage"
+msgstr "Тековна фаза"
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "Претходно: Известување на авторот"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr ""
+"Изберете ги датотеките кои би сакале да ги препратите до фазата на "
+"{$stageName}."

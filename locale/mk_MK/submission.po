@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-25 12:31+0000\n"
+"PO-Revision-Date: 2021-01-25 20:02+0000\n"
 "Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk_MK/>\n"
@@ -756,9 +756,8 @@ msgstr "Ве молиме внесете валиден спонзор на ко
 msgid "metadata.property.displayName.conf-sponsor"
 msgstr "Спонзор на конференција"
 
-#, fuzzy
 msgid "submission.upload.userGroup"
-msgstr "Upload this file in my role as..."
+msgstr "Прикачи ја оваа датотека преку мојата улога како..."
 
 msgid "submission.upload.uploadNewFile"
 msgstr "Ова не е промена на веќе постоечка датотека"
@@ -852,9 +851,8 @@ msgstr "Ве молиме внесете го изворот."
 msgid "submission.submit.form.typeRequired"
 msgstr "Ве молиме внесете го типот."
 
-#, fuzzy
 msgid "submission.submit.form.coverageRequired"
-msgstr "Please enter the coverage information."
+msgstr "Ве молиме внесете ги информациите за покриеност."
 
 msgid "submission.submit.form.keywordsRequired"
 msgstr "Ве молиме внесете клучен збор."
@@ -988,7 +986,6 @@ msgstr "Дополнителни подобрувања"
 msgid "submission.submit.newFile"
 msgstr "Додај уште една датотека"
 
-#, fuzzy
 msgid "submission.submit.includeInBrowse"
 msgstr "Вклучи го овој соработник во листите за преглед?"
 
@@ -1031,11 +1028,10 @@ msgstr "Поднесено"
 msgid "submissions.submit"
 msgstr "Поднеси"
 
-#, fuzzy
 msgid "submission.source.tip"
 msgstr ""
-"Is this submission derived from another resource? If so, you may enter a URL "
-"or description of that resource."
+"Дали овој поднесок е изведен од друг извор? Доколку е така, можете да "
+"внесете УРЛ-адреса или опис на тој извор."
 
 msgid "submission.source"
 msgstr "Извор"
@@ -1081,9 +1077,8 @@ msgstr ""
 msgid "submission.rights"
 msgstr "Права"
 
-#, fuzzy
 msgid "submission.reviewVersion"
-msgstr "Review Version"
+msgstr "Прегледај верзија"
 
 msgid "submission.reviewed"
 msgstr "Рецензирано"
@@ -1091,9 +1086,8 @@ msgstr "Рецензирано"
 msgid "submission.review"
 msgstr "Рецензија"
 
-#, fuzzy
 msgid "submission.reviewMetadata"
-msgstr "Review Metadata"
+msgstr "Прегледај метаподатоци"
 
 msgid "submission.restrictions"
 msgstr "Ограничувања"
@@ -1149,9 +1143,8 @@ msgstr "Отстрани ја поднесената датотека"
 msgid "submission.notes.noSubmissionNotes"
 msgstr "Нема забелешки за поднесокот"
 
-#, fuzzy
 msgid "submission.notes.expandNotes"
-msgstr "Expand Notes"
+msgstr "Отвори забелешки"
 
 msgid "submission.notes.editNote"
 msgstr "Промени забелешка"
@@ -1168,9 +1161,8 @@ msgstr "Избриши ја оваа забелешка за поднесоко�
 msgid "submission.notes.confirmDeleteAll"
 msgstr "Избриши ги сите забелешки за поднесокот?"
 
-#, fuzzy
 msgid "submission.notes.collapseNotes"
-msgstr "Collapse Notes"
+msgstr "Скриј забелешки"
 
 msgid "submission.notes.clearAllNotes"
 msgstr "Избриши ги сите забелешки"
@@ -1181,9 +1173,8 @@ msgstr "Забелешки"
 msgid "submission.notes.backToSubmissionNotes"
 msgstr "Назад кон забелешки за поднесок"
 
-#, fuzzy
 msgid "submission.notes.attachedFile"
-msgstr "File Attachment"
+msgstr "Датотека во прилог"
 
 msgid "submission.notes.addNewNote"
 msgstr "Додај нова забелешка"
@@ -1199,7 +1190,7 @@ msgstr "Прегледај отисок"
 
 #, fuzzy
 msgid "submission.layout.noStyleFile"
-msgstr "No style sheet file has been added to this galley."
+msgstr "Нема додадено style sheet дадтотека на овој отисок."
 
 msgid "submission.layout.newGalley"
 msgstr "Создади нов отисок на труд"
@@ -1221,7 +1212,7 @@ msgstr "Стил"
 
 #, fuzzy
 msgid "submission.layout.galleyStylesheet"
-msgstr "Stylesheet File"
+msgstr "Stylesheet датотека"
 
 msgid "submission.layout.galleys"
 msgstr "Отисоци на труд"
@@ -1239,7 +1230,7 @@ msgstr "Remote URL"
 
 #, fuzzy
 msgid "submission.layout.galleyLocaleRequired"
-msgstr "A galley locale is required."
+msgstr "Потребно е galley locale."
 
 msgid "submission.layout.galleyLanguageRequired"
 msgstr "Потрбрн е јазик на отисок."
@@ -1269,7 +1260,7 @@ msgstr "Изменете отисок на распоред на труд"
 
 #, fuzzy
 msgid "submission.layout.deleteGalleyStylesheet"
-msgstr "Delete this style sheet."
+msgstr "Избришете го овој style sheet."
 
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Дали сте сигурни дека сакате да ја избришете оваа слика од отисокот?"
@@ -1956,3 +1947,241 @@ msgid "editor.submission.decision.selectFiles"
 msgstr ""
 "Изберете ги датотеките кои би сакале да ги препратите до фазата на "
 "{$stageName}."
+
+#, fuzzy
+msgid "submission.licenseURLValid"
+msgstr "Please provide a valid remote URL (include http://)."
+
+msgid "submission.supplementary.sponsor"
+msgstr "Соработник или спонзорска агенција"
+
+#, fuzzy
+msgid "notification.type.indexRequest"
+msgstr "You have been asked to create an index for \"{$title}\"."
+
+#, fuzzy
+msgid "notification.type.layouteditorRequest"
+msgstr "You have been asked to review layouts for \"{$title}\"."
+
+#, fuzzy
+msgid "notification.type.copyeditorRequest"
+msgstr "You have been asked to review copyedits for \"{$title}\"."
+
+msgid "submission.event.proofsApproved"
+msgstr "\"{$name}\" ({$username}) ги одобри отисоците за \"{$formatName}.\""
+
+#, fuzzy
+msgid "submission.event.signoffSignoff"
+msgstr ""
+"\"{$name}\" ({$username}) has signed off on the signoff for \"{$file}.\""
+
+#, fuzzy
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Ова file proof нема повеќе да биде јавно достапно за превземање или набавка. "
+"Дали сакате да го оспорите?"
+
+#, fuzzy
+msgid "editor.submission.decision.approveProofs"
+msgstr "Одобри Proofs"
+
+#, fuzzy
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"Page proof file мора да биде означено како одобрено за да биде достапно. "
+"Дали сакате да го одобрите?"
+
+#, fuzzy
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Прикачи Library File"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Преглед на отисок на поднесокот"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Апстрактот е премногу долг. Треба да има {$limit} или помалку зборови. "
+"Моментално има {$count} зборови."
+
+msgid "publication.version.confirm"
+msgstr "Дали сте сигурни дека сакате да создадете нова верзија?"
+
+msgid "publication.version.all"
+msgstr "Сите верзии"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "УРЛ патеката не може да биде број."
+
+msgid "publication.urlPath.duplicate"
+msgstr "УРЛ патеката е веќе искористена и не може повторно да се користи."
+
+msgid "publication.urlPath.description"
+msgstr ""
+"Дополнителна патека која може да се искористи во УРЛ-адресата наместо ИД."
+
+msgid "publication.urlPath"
+msgstr "УРЛ патека"
+
+msgid "publication.unschedule"
+msgstr "Откажи"
+
+msgid "publication.titleAbstract"
+msgstr "Наслов и Апстракт"
+
+msgid "publication.status.unpublished"
+msgstr "Необјавено"
+
+msgid "publication.status.scheduled"
+msgstr "Закажано"
+
+msgid "publication.publicationLicense"
+msgstr "Дозволи и обелоденување"
+
+msgid "publication.event.versionCreated"
+msgstr "Беше создадена нова верзија."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Датумот мора да биде во вид на YYYY-MM-DD, како што е 2019-01-01."
+
+msgid "publication.createVersion"
+msgstr "Создади нова верзија"
+
+msgid "publication.contributors"
+msgstr "Соработници"
+
+msgid "catalog.category.subcategories"
+msgstr "Подкатегории"
+
+msgid "catalog.category.noItems"
+msgstr "Нема објави во оваа категорија досега."
+
+msgid "submission.currentCoverImage"
+msgstr "Тековна слика"
+
+msgid "submission.submit.placement.categories"
+msgstr "Категории"
+
+msgid "category.coverImage"
+msgstr "Насловна слика"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Датум на објава (најнов прво)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Датум на објава (најстар прво)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Наслов (Ш-А)"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Наслов (А-Ш)"
+
+msgid "grid.category.categories"
+msgstr "Категории"
+
+msgid "submission.list.assignEditor"
+msgstr "Назначи уредник"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Денови од последната активност"
+
+msgid "submission.list.activity"
+msgstr "Активност"
+
+msgid "submission.list.currentStage"
+msgstr "Моментално во фаза на {$stage}."
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Ова поднесување мора да биде завршено пред да го прегледа уредник."
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Назначени сте со уредничка улога за овој поднесок. Дали би сакале да "
+"пристапите кон <a href=\"{$urlEditorialWorkflow}\">Уреднички тек на "
+"работа</a>?"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Назначени сте на повеќе улоги за овој поднесок. Дали би сакале да пристапите "
+"кон <a href=\"{$urlAuthorWorkflow}\">Тек на работа на авторот</a>  или до <a "
+"href=\"{$urlEditorialWorkflow}\">Уреднички тек на работа</a>?"
+
+msgid "submission.list.discussions"
+msgstr "Отвори дискусии"
+
+msgid "submission.list.filesPrepared"
+msgstr "Датотеките се подготвени"
+
+msgid "submission.list.galleysCreated"
+msgstr "Создадени се отисоци за обработка"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Поднесени се уредени датотеки"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Поднесени се корекции"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Завршени се назначените рецензии"
+
+msgid "submission.list.viewSubmission"
+msgstr "Прегледајте го поднесокот"
+
+msgid "submission.list.confirmDelete"
+msgstr "Избришете го поднесокот?"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Рецензијата е откажана"
+
+msgid "submission.list.reviewComplete"
+msgstr "Поднесена рецензија"
+
+msgid "submission.list.reviewDue"
+msgstr "Рок за рецензија: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Прегледајте ја задачата"
+
+msgid "submission.list.responseDue"
+msgstr "Рок за одговор: {$date}"
+
+msgid "submission.list.empty"
+msgstr "Не се пронајдени поднесоци."
+
+msgid "submission.list.infoCenter"
+msgstr "Евиденција за активност и Забелешки"
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"Мора да назначите барем еден учесник на овој поднесок пред да започнете "
+"дискусија."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Бевте додадени на дискусијата наречена \"{$queryTitle}\" во врска со "
+"поднесокот \"{$submissionTitle}\"."
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"Има нова активност дискусијата наречена \"{$queryTitle}\" во врска со "
+"поднесокот \"{$submissionTitle}\"."
+
+msgid "submission.query.new"
+msgstr "{$creatorName} започна дискусија: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} одговори на {$noteTitle}: {$noteContents}"
+
+msgid "grid.action.openNoteForm"
+msgstr "Додадете нова порака во дискусијата"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Доколку ја напуштите оваа дискусија нема повеќе да бидете известени за нови "
+"пораки. Дали сакате да ја напуштитте дискусијата?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Напуштете ја дискусијата"

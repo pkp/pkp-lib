@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-22 13:30+0000\n"
+"PO-Revision-Date: 2021-01-25 10:41+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "gl_ES/>\n"
@@ -209,3 +209,73 @@ msgstr "Valor de configuración"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Nome da configuración"
+
+msgid "admin.versionHistory"
+msgstr "Historial de versións"
+
+msgid "admin.version.downloadPatch"
+msgstr "Descargar parche"
+
+msgid "admin.version.downloadPackage"
+msgstr "Descargar"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Buscar actualizacións"
+
+msgid "admin.versionBuild"
+msgstr "Crear"
+
+msgid "admin.systemInformation"
+msgstr "Información do sistema"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"O arquivo de configuración <tt>config.inc.php</tt> non existe, non se pode "
+"ler ou non é válido."
+
+msgid "admin.siteSetup"
+msgstr "Configuración do sitio"
+
+msgid "admin.siteSettings"
+msgstr "Configuración do sitio"
+
+msgid "admin.siteManagement"
+msgstr "Xestión do sitio"
+
+msgid "admin.siteAdmin"
+msgstr "Administración do sitio"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema do sitio"
+
+msgid "admin.settings.siteTitle"
+msgstr "Título"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo do sitio"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Folla de estilo do sitio"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr ""
+"Non é válido o formato da folla de estilo do sitio. O formato axeitado é "
+".css."
+
+msgid "admin.settings.siteLanguage"
+msgstr "Idioma"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Só un administrador pode modificar esta configuración."
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Desactivar os roles"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Restrinxir correos electrónicos masivos"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Lonxitude mínima do contrasinal"
+
+msgid "admin.settings.introduction"
+msgstr "Introdución"

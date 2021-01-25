@@ -186,9 +186,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 
 		switch ($type) {
 			case NOTIFICATION_TYPE_FORM_ERROR:
-				$templateMgr = TemplateManager::getManager($request);
-				$templateMgr->assign('errors', $content);
-				return $templateMgr->fetch('controllers/notification/formErrorNotificationContent.tpl');
+				return join(' ', $content);
 			case NOTIFICATION_TYPE_ERROR:
 				if (!is_array($content)) return $content;
 

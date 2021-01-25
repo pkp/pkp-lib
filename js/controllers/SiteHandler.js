@@ -472,7 +472,7 @@
 	$.pkp.controllers.SiteHandler.prototype.reloadTabHandler_ =
 			function(sourceElement, event, jsonData) {
 
-		$(jsonData.tabsLocator).tabs('load', jsonData.tabLocator);
+		$(jsonData.tabsSelector).tabs('load', jsonData.tabSelector);
 	};
 
 

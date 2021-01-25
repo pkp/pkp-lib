@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-23 14:53+0000\n"
-"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"PO-Revision-Date: 2021-01-25 10:41+0000\n"
+"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -1324,3 +1324,51 @@ msgstr ""
 
 msgid "submission.mySubmissions"
 msgstr "Мое авторство"
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Испратен за надворешна рецензија."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Поднесокот беше повторно поднесен за уште една рунда на рецензија."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr ""
+"Поднесокот мора повторно да биде поднесен за уште една рунда на рецензија."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Корекциите се поднесени."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Потребни се корекции."
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Немате датотеки за рецензија во моментов."
+
+msgid "submission.upload.proof"
+msgstr "Прикачи датотека спремна за објава"
+
+msgid "submission.upload.productionReady"
+msgstr "Прикачи датотека спремна за обработка"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"Откако ќе го рецензирате назначениот труд, зачувајте ги коментарите за "
+"трудот подолу, и/или прикачете коментирана копија на датотеката (или друга "
+"датотека)."
+
+msgid "submission.upload.uploadFiles"
+msgstr "Прикачи датотеки"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Прикачи уредена датотека"
+
+msgid "submission.upload.finalDraft"
+msgstr "Прикачи датотека"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Категорија на документи за поднесување"
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"Доколку поднесувате уреден том, треба посебно да ги прикачите сите поглавја "
+"на томот, согласно со вашата улога како уредник на том."

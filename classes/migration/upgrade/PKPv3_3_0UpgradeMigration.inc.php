@@ -484,6 +484,21 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		Capsule::schema()->table('review_files', function (Blueprint $table) {
 			$table->renameColumn('file_id', 'submission_file_id');
 		});
+
+		// pkp/pkp-lib#6616 Delete review_files entries that correspond to nonexistent submission_files
+		$orphanedIds = Capsule::table('review_files AS rf')
+			->leftJoin('submission_files AS sf', 'rf.submission_file_id', '=', 'sf.submission_file_id')
+			->whereNull('sf.submission_file_id')
+			->whereNotNull('rf.submission_file_id')
+			->pluck('rf.submission_file_id', 'rf.review_id');
+		foreach ($orphanedIds as $reviewId => $submissionFileId) {
+			error_log("Removing orphaned review_files entry with review_id ID $reviewId and submission_file_id $submissionFileId");
+			Capsule::table('review_files')
+				->where('submission_file_id', '=', $submissionFileId)
+				->where('review_id', '=', $reviewId)
+				->delete();
+		}
+
 		Capsule::schema()->table('review_files', function (Blueprint $table) {
 			$table->bigInteger('submission_file_id')->nullable(false)->unsigned()->change();
 			$table->dropIndex('review_files_pkey');

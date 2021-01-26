@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-25 20:02+0000\n"
+"PO-Revision-Date: 2021-01-26 14:05+0000\n"
 "Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk_MK/>\n"
@@ -820,9 +820,8 @@ msgstr "Во рецензија"
 msgid "submission.status.production"
 msgstr "Во лекторирање"
 
-#, fuzzy
 msgid "submission.status.editorial"
-msgstr "In Copyediting"
+msgstr "Во уредување"
 
 msgid "workflow.stage"
 msgstr "Фаза"
@@ -875,13 +874,11 @@ msgstr "Улога на соработник"
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Главен контакт за уреднички допис."
 
-#, fuzzy
 msgid "submission.date.yyyymmdd"
-msgstr "YYYY-MM-DD"
+msgstr "ГГГГ-ММ-ДД"
 
-#, fuzzy
 msgid "submission.date.mmdd"
-msgstr "MM-DD"
+msgstr "ММ-ДД"
 
 msgid "submission.nameRequired"
 msgstr "Потребно е име за овој елемент."
@@ -904,9 +901,8 @@ msgstr "Прегледи"
 msgid "submission.viewMetadata"
 msgstr "Прегледај метаподатоци"
 
-#, fuzzy
 msgid "submission.createRemote"
-msgstr "Create remote"
+msgstr "Создади оддалеку"
 
 msgid "submission.uploadFileTo"
 msgstr "Прикачи датотека на"
@@ -929,13 +925,11 @@ msgstr "Наслов и апстракт"
 msgid "submission.indexingInformation"
 msgstr "Информации за индексирање"
 
-#, fuzzy
 msgid "submission.currentAgencies"
-msgstr "Current Agencies"
+msgstr "Тековни агенции"
 
-#, fuzzy
 msgid "submission.supportingAgencies"
-msgstr "Supporting Agencies"
+msgstr "Агенции за поддршка"
 
 msgid "submission.summary"
 msgstr "Кратка содржина"
@@ -943,9 +937,8 @@ msgstr "Кратка содржина"
 msgid "submission.upload.query"
 msgstr "Прикачи датотека за дискусија"
 
-#, fuzzy
 msgid "submission.upload.dependent"
-msgstr "Upload a Dependent File"
+msgstr "Прикачете зависна датотека"
 
 msgid "submission.upload.percentComplete"
 msgstr "Прикачувањето е {$percent}% готово"
@@ -955,13 +948,11 @@ msgstr ""
 "Прикачи ги сите датотеки кои ќе бидат потребни уредничкиот тим да го оцени "
 "вашиот поднесок."
 
-#, fuzzy
 msgid "submission.manageDependentFiles"
-msgstr "Manage Dependent Files"
+msgstr "Раководете со зависни датотеки"
 
-#, fuzzy
 msgid "submission.submit.dependentFiles"
-msgstr "Dependent Files"
+msgstr "Зависни датотеки"
 
 msgid "submission.submit.submissionFiles"
 msgstr "Датотеки на поднесокот"
@@ -974,7 +965,6 @@ msgstr ""
 msgid "submission.submit.submissionLocale"
 msgstr "Јазик на поднесокот"
 
-#, fuzzy
 msgid "submission.submit.metadataForm.tip"
 msgstr ""
 "Додајте дополнителни информации за вашиот поднесок. Притиснете 'enter' после "
@@ -1188,9 +1178,8 @@ msgstr "Метаподатоци на поднесок"
 msgid "submission.layout.viewProof"
 msgstr "Прегледај отисок"
 
-#, fuzzy
 msgid "submission.layout.noStyleFile"
-msgstr "Нема додадено style sheet дадтотека на овој отисок."
+msgstr "Нема додадено style sheet датотека на овој отисок."
 
 msgid "submission.layout.newGalley"
 msgstr "Создади нов отисок на труд"
@@ -1210,7 +1199,6 @@ msgstr "Првобитно создавање на отисок на труд"
 msgid "submission.layout.galleyStyle"
 msgstr "Стил"
 
-#, fuzzy
 msgid "submission.layout.galleyStylesheet"
 msgstr "Stylesheet датотека"
 
@@ -1220,17 +1208,15 @@ msgstr "Отисоци на труд"
 msgid "submission.layout.galleyNoImages"
 msgstr "Нема слики"
 
-#, fuzzy
 msgid "submission.layout.galleyRemoteURLValid"
-msgstr "Please provide a valid remote URL (include http://)."
+msgstr ""
+"Ве молиме да обезбедите важечка оддалечена УРЛ-адреса (вклучете http://)."
 
-#, fuzzy
 msgid "submission.layout.galleyRemoteURL"
-msgstr "Remote URL"
+msgstr "Оддалечена УРЛ-адреса"
 
-#, fuzzy
 msgid "submission.layout.galleyLocaleRequired"
-msgstr "Потребно е galley locale."
+msgstr "Потребен е локал на отисок."
 
 msgid "submission.layout.galleyLanguageRequired"
 msgstr "Потрбрн е јазик на отисок."
@@ -1251,14 +1237,12 @@ msgstr "Слики"
 msgid "submission.layout.galleyHTMLData"
 msgstr "ХТМЛ датотеки на отисок"
 
-#, fuzzy
 msgid "submission.layout.galleyFormat"
-msgstr "Galley Format"
+msgstr "Формат на отисок"
 
 msgid "submission.layout.editGalley"
 msgstr "Изменете отисок на распоред на труд"
 
-#, fuzzy
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Избришете го овој style sheet."
 
@@ -1295,12 +1279,11 @@ msgstr "Информации за поднесокот"
 msgid "submission.publisherId.enable"
 msgstr "Овозможи за {$objects}"
 
-#, fuzzy
 msgid "submission.publisherId.description"
 msgstr ""
-"The publisher ID may be used to record the ID from an external database. For "
-"example, items exported for deposit to PubMed may include the publisher ID. "
-"This should not be used for DOIs."
+"ИД на издавачот може да се користи за да се сними ИД од екстерна датабаза. "
+"На пример, експортирани елеманти за депонирање на PubMed може да го "
+"вклучуваат и ИД на издавачот. Ова не треба да се користи за ДОИ."
 
 msgid "submission.publisherId"
 msgstr "ИД на издавач"
@@ -1677,7 +1660,6 @@ msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
 msgid "submission.licenseURL"
 msgstr "УРЛ-адреса на дозвола"
 
-#, fuzzy
 msgid "submission.copyrightStatement"
 msgstr "Авторско право(c) {$copyrightYear} {$copyrightHolder}"
 
@@ -1948,24 +1930,22 @@ msgstr ""
 "Изберете ги датотеките кои би сакале да ги препратите до фазата на "
 "{$stageName}."
 
-#, fuzzy
 msgid "submission.licenseURLValid"
-msgstr "Please provide a valid remote URL (include http://)."
+msgstr ""
+"Ве молиме да доставите важечка оддалечена УРЛ-адреса (вклучете http://)."
 
 msgid "submission.supplementary.sponsor"
 msgstr "Соработник или спонзорска агенција"
 
-#, fuzzy
 msgid "notification.type.indexRequest"
-msgstr "You have been asked to create an index for \"{$title}\"."
+msgstr "Бевте замолени да создадете список за \"{$title}\"."
 
-#, fuzzy
 msgid "notification.type.layouteditorRequest"
-msgstr "You have been asked to review layouts for \"{$title}\"."
+msgstr ""
+"Бевте замолени да ги рецензирате документите за распоред за \"{$title}\"."
 
-#, fuzzy
 msgid "notification.type.copyeditorRequest"
-msgstr "You have been asked to review copyedits for \"{$title}\"."
+msgstr "Бевте замолени да ги рецензирате уредените документи за \"{$title}\"."
 
 msgid "submission.event.proofsApproved"
 msgstr "\"{$name}\" ({$username}) ги одобри отисоците за \"{$formatName}.\""
@@ -1993,7 +1973,7 @@ msgstr ""
 
 #, fuzzy
 msgid "submission.upload.uploadLibraryFile"
-msgstr "Прикачи Library File"
+msgstr "Прикачи Library датотека"
 
 msgid "submission.layout.viewingGalley"
 msgstr "Преглед на отисок на поднесокот"

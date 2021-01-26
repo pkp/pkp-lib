@@ -1,0 +1,1 @@
+The FontAwesome font is distributed under the terms of the [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).

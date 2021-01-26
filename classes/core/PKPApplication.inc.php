@@ -293,7 +293,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		$application = Application::get();
 		$userAgent = $application->getName() . '/';
 		if (Config::getVar('general', 'installed') && !defined('RUNNING_UPGRADE')) {
-			$currentVersion = $application->getCurrentVersion();
+			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$currentVersion = $versionDao->getCurrentVersion();
 			$userAgent .= $currentVersion->getVersionString();
 		} else {
 			$userAgent .= '?';

@@ -19,15 +19,6 @@ class PKPImportExportFilter extends PersistableFilter {
 	/** @var PKPNativeImportExportDeployment */
 	var $_deployment;
 
-	/**
-	 * Constructor
-	 * @param $filterGroup FilterGroup
-	 */
-	function __construct($filterGroup) {
-		parent::__construct($filterGroup);
-	}
-
-
 	//
 	// Deployment management
 	//
@@ -54,7 +45,7 @@ class PKPImportExportFilter extends PersistableFilter {
 	 * @param $opts array
 	 * @return Filter
 	 */
-	static function getFilter($filter, $deployment, $opts = null) {
+	static function getFilter($filter, $deployment, $opts = array()) {
 		$filterDao = DAORegistry::getDAO('FilterDAO'); /** @var $filterDao FilterDAO */
 		$filters = $filterDao->getObjectsByGroup($filter);
 

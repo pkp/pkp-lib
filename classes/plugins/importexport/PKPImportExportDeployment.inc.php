@@ -73,7 +73,10 @@ class PKPImportExportDeployment {
 	/** @var string Base path for the import source */
 	var $_baseImportPath = '';
 
+	/** @var array A list of imported root elements to display to the user after the import is complete */
 	var $_importedRootEntities;
+
+	/** @var array A list of exported root elements to display to the user after the export is complete */
 	var $_exportRootEntities;
 
 	/**
@@ -488,12 +491,7 @@ class PKPImportExportDeployment {
 			$dbConnection->commit();
 
 			$this->processResult = $result;
-		} catch (\Error $e) {
-			$this->addError(ASSOC_TYPE_NONE, 0, $e->getMessage());
-			$dbConnection->rollBack();
-
-			$this->processFailed = true;
-		} catch (\Exception $e) {
+		} catch (Error | Exception $e) {
 			$this->addError(ASSOC_TYPE_NONE, 0, $e->getMessage());
 			$dbConnection->rollBack();
 
@@ -507,7 +505,7 @@ class PKPImportExportDeployment {
 	 * @param $exportObjects array
 	 * @param $opts array
 	 */
-	function export($rootFilter, $exportObjects, $opts = null) {
+	function export($rootFilter, $exportObjects, $opts = array()) {
 		try {
 			$this->setExportRootEntities($exportObjects);
 
@@ -528,11 +526,7 @@ class PKPImportExportDeployment {
 			}
 
 			$this->processResult = $result;
-		} catch (\Error $e) {
-			$this->addError(ASSOC_TYPE_NONE, 0, $e->getMessage());
-
-			$this->processFailed = true;
-		} catch (Exception $e) {
+		} catch (Error | Exception $e) {
 			$this->addError(ASSOC_TYPE_NONE, 0, $e->getMessage());
 
 			$this->processFailed = true;
@@ -552,7 +546,7 @@ class PKPImportExportDeployment {
 	 * respective names as array values.
 	 * @return array
 	 */
-	protected function getObjectTypesArray() {
+	protected function getObjectTypes() {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
 		$objectTypes = array(
 			ASSOC_TYPE_NONE => __('plugins.importexport.native.common.any'),
@@ -568,7 +562,7 @@ class PKPImportExportDeployment {
 	* @return mixed string or array
 	*/
 	function getObjectTypeString($assocType = null) {
-		$objectTypes = $this->getObjectTypesArray();
+		$objectTypes = $this->getObjectTypes();
 
 		if (is_null($assocType)) {
 			return $objectTypes;
@@ -587,7 +581,7 @@ class PKPImportExportDeployment {
 	 */
 	function getWarningsAndErrors() {
 		$problems = array();
-		$objectTypes = $this->getObjectTypesArray();
+		$objectTypes = $this->getObjectTypes();
 		foreach ($objectTypes as $assocType => $name) {
 			$foundWarnings = $this->getProcessedObjectsWarnings($assocType);
 			if (!empty($foundWarnings)) {
@@ -609,7 +603,7 @@ class PKPImportExportDeployment {
 	 */
 	function getImportedRootEntitiesWithNames() {
 		$rootEntities = array();
-		$objectTypes = $this->getObjectTypesArray();
+		$objectTypes = $this->getObjectTypes();
 		foreach ($objectTypes as $assocType => $name) {
 			$entities = $this->getImportedRootEntities($assocType);
 			if (!empty($entities)) {

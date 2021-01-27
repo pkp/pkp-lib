@@ -19,10 +19,8 @@
 	</h1>
 
 	<div class="cmp_notification">
-		{if $sections|@count == 0}
+		{if $sections|@count == 0 || $currentContext->getData('disableSubmissions')}
 			{translate key="author.submit.notAccepting"}
-		{elseif $currentContext->getData('disableSubmissions')}
-			{translate key="manager.setup.disableSubmissions.notAccepting"}
 		{else}
 			{if $isUserLoggedIn}
 				{capture assign="newSubmission"}<a href="{url page="submission" op="wizard"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}

@@ -90,7 +90,7 @@ class AboutContextHandler extends Handler {
 		$sections = $sectionDao->getByContextId($context->getId(), null, !$canSubmitAll)->toArray();
 
 		// for author.submit.notAccepting
-		if (count($sections) == 0) {
+		if (count($sections) == 0 || $context->getData('disableSubmissions')) {
 			AppLocale::requireComponents(LOCALE_COMPONENT_APP_AUTHOR);
 		}
 

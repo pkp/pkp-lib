@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2021-01-16 19:53+0000\n"
+"PO-Revision-Date: 2021-01-28 15:01+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ru_RU/>\n"
@@ -194,3 +194,19 @@ msgstr "Дата начала не может быть позже даты ок�
 
 msgid "api.stats.400.wrongDateFormat"
 msgstr "Дата должна быть в формате ГГГГ-ММ-ДД."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Не поддерживаются следующие языки: {$locales}."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"Токен API нельзя использовать для доступа к этому сайту, так как "
+"администратор сайта не настроил секретный ключ."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Токен API не удаётся декодировать из-за следующей ошибки: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Токен API не удаётся проверить. Это может говорить об ошибке в токене API "
+"или о том, что данный токен API больше недействителен."

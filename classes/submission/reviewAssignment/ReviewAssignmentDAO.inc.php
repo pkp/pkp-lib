@@ -103,7 +103,6 @@ class ReviewAssignmentDAO extends DAO {
 		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
-
 	/**
 	 * Retrieve a review assignment by review assignment id.
 	 * @param $reviewId int
@@ -185,6 +184,24 @@ class ReviewAssignmentDAO extends DAO {
 
 		$query .= $orderBy;
 
+		return $this->_getReviewAssignmentsArray($query, $queryParams);
+	}
+
+	/**
+	 * Retrieve all review assignments by submission and reviewer.
+	 * @param $submissionId int
+	 * @param $reviewerId int
+	 * @param $stageId int optional
+	 * @return array
+	 */
+	function getBySubmissionReviewer($submissionId, $reviewerId, $stageId = null) {
+		$query = $this->_getSelectQuery() .
+			' WHERE	r.submission_id = ? AND r.reviewer_id = ?';
+		$queryParams = [(int) $submissionId, (int) $reviewerId];
+		if ($stageId != null) {
+			$query .= ' AND r.stage_id = ?';
+			$queryParams[] = (int) $stageId;
+		}
 		return $this->_getReviewAssignmentsArray($query, $queryParams);
 	}
 

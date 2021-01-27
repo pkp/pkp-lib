@@ -15,60 +15,36 @@
 
 class PKPNativeImportExportCLIDeployment {
 
-	/**
-	 * The import/export script name
-	 * @var string
-	 */
-	var $scriptName;
+	/** @var string The import/export script name */
+	private $scriptName;
 
-	/**
-	 * The import/export arguments
-	 * @var array
-	 */
-	var $args;
+	/** @var array The import/export arguments */
+	private $args;
 
-	/**
-	 * The import/export additional directives
-	 * @var array
-	 */
+	/** @var array The import/export additional directives */
 	public $opts;
 
-	/**
-	 * The import/export command
-	 * @var string
-	 */
+	/** @var string The import/export command */
 	public $command;
 
-	/**
-	 * The import/export xml file name
-	 * @var string
-	 */
+	/** @var string The import/export xml file name */
 	public $xmlFile;
 
-	/**
-	 * The import/export operation context path
-	 * @var string
-	 */
+	/** @var string The import/export operation context path */
 	public $contextPath;
 
-	/**
-	 * The import/export operation user name
-	 * @var string
-	 */
+	/** @var string The import/export operation user name */
 	public $userName;
 
-	/**
-	 * The export entity
-	 * @var string
-	 */
+	/** @var string The export entity */
 	public $exportEntity;
 
-	/**
-	 * Any remaining arguments that have not being processed
-	 * @var array
-	 */
+	/** @var array Any remaining arguments that have not being processed */
 	public $remainingArgs;
 
+	/**
+	 * Constructor
+	 */
 	function __construct($scriptName, $args) {
 		$this->scriptName = $scriptName;
 		$this->args = $args;
@@ -92,6 +68,8 @@ class PKPNativeImportExportCLIDeployment {
 			case 'export':
 				$this->exportEntity = array_shift($this->args);
 				break;
+			default:
+				throw new BadMethodCallException('Unknown command ' . $this->command);
 		}
 
 		$this->remainingArgs = $this->args;

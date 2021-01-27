@@ -20,35 +20,20 @@ import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIToolKit');
 define('ASSOC_TYPE_NONE', -1000);
 
 abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
-	/**
-	 * CLI Deployment for import/export operations
-	 * @var PKPNativeImportExportCLIDeployment
-	 */
-	var $cliDeployment = null;
+	/** @var PKPNativeImportExportCLIDeployment CLI Deployment for import/export operations */
+	private $cliDeployment = null;
 
-	/**
-	 * Display operation result
-	 * @var string
-	 */
-	var $result = null;
+	/** @var string Display operation result */
+	private $result = null;
 
-	/**
-	 * Indication that the parent code has managed the display operation
-	 * @var bool
-	 */
-	var $isResultManaged = false;
+	/** @var bool Indication that the parent code has managed the display operation */
+	private $isResultManaged = false;
 
-	/**
-	 * The helper for CLI import/export operations
-	 * @var PKPNativeImportExportCLIToolKit
-	 */
-	var $cliToolkit;
+	/** @var PKPNativeImportExportCLIToolKit The helper for CLI import/export operations */
+	private $cliToolkit;
 
-	/**
-	 *
-	 * @var string Operation type for display method
-	 */
-	var $opType;
+	/** @var string Operation type for display method */
+	private $opType;
 
 	/**
 	 * Constructor

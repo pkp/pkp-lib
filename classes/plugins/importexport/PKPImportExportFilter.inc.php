@@ -17,7 +17,7 @@ import('lib.pkp.classes.filter.PersistableFilter');
 
 class PKPImportExportFilter extends PersistableFilter {
 	/** @var PKPNativeImportExportDeployment */
-	var $_deployment;
+	private $_deployment;
 
 	//
 	// Deployment management

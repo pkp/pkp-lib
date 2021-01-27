@@ -26,58 +26,58 @@ class PKPImportExportDeployment {
 	 * Array of possible validation errors
 	 * @var array
 	 */
-	var $xmlValidationErrors = array();
+	private $xmlValidationErrors = array();
 
 	/**
 	 * Indicator that the import/export process has failed
 	 * @var bool
 	 */
-	var $processFailed = false;
+	private $processFailed = false;
 
 	/**
 	 * The import/export process result
 	 * @var mixed
 	 */
-	var $processResult = null;
+	private $processResult = null;
 
 	/** @var Context The current import/export context */
-	var $_context;
+	private $_context;
 
 	/** @var User The current import/export user */
-	var $_user;
+	private $_user;
 
 	/** @var Submission The current import/export submission */
-	var $_submission;
+	private $_submission;
 
 	/** @var PKPPublication The current import/export publication */
-	var $_publication;
+	private $_publication;
 
 	/** @var array The processed import objects IDs */
-	var $_processedObjectsIds = array();
+	private $_processedObjectsIds = array();
 
 	/** @var array Warnings keyed by object IDs */
-	var $_processedObjectsErrors = array();
+	private $_processedObjectsErrors = array();
 
 	/** @var array Errors keyed by object IDs */
-	var $_processedObjectsWarnings = array();
+	private $_processedObjectsWarnings = array();
 
 	/** @var array Connection between the file from the XML import file and the new IDs after they are imported */
-	var $_fileDBIds;
+	private $_fileDBIds;
 
 	/** @var array Connection between the submission file IDs from the XML import file and the new IDs after they are imported */
-	var $_submissionFileDBIds;
+	private $_submissionFileDBIds;
 
 	/** @var array Connection between the author id from the XML import file and the DB file IDs */
-	var $_authorDBIds;
+	private $_authorDBIds;
 
 	/** @var string Base path for the import source */
-	var $_baseImportPath = '';
+	private $_baseImportPath = '';
 
 	/** @var array A list of imported root elements to display to the user after the import is complete */
-	var $_importedRootEntities;
+	private $_importedRootEntities;
 
 	/** @var array A list of exported root elements to display to the user after the export is complete */
-	var $_exportRootEntities;
+	private $_exportRootEntities;
 
 	/**
 	 * Constructor

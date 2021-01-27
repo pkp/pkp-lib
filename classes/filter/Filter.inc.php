@@ -431,17 +431,17 @@ class Filter extends DataObject {
 		// Check the runtime environment
 		if (!$this->isCompatibleWithRuntimeEnvironment()) {
 			// Missing installation requirements.
-			fatalError('Trying to run a transformation that is not supported in your installation environment.');
+			fatalError(__('filter.error.missingRequirements'));
 		}
 
 		// Validate the filter input
 		if (!$this->supportsAsInput($input)) {
-			// We have no valid input so return
-			// an empty output (see unset statement
-			// above).
-			$typeofInput = gettype($input);
-			throw new Exception("Filter ({$this->getDisplayName()}) supports input {$this->getInputType()->_typeName} - {$typeofInput} given");
-			//return $this->_output;
+			// An exception is thrown if the input is not supported.
+			throw new Exception(__('filter.input.error.notSupported', [
+				'displayName' => $this->getDisplayName(),
+				'inputTypeName' => $this->getInputType()->_typeName,
+				'typeofInput' => gettype($input)
+			]));
 		}
 
 		// Save a reference to the last valid input

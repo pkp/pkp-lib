@@ -3,8 +3,10 @@
 	"description": "A journal or press.",
 	"type": "object",
 	"required": [
-		"urlPath",
-		"name"
+		"name",
+		"primaryLocale",
+		"supportedLocales",
+		"urlPath"
 	],
 	"properties": {
 		"_href": {

@@ -164,6 +164,33 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			$table->unsignedInteger('created_at');
 			$table->index(['queue', 'reserved_at']);
 		});
+
+		// pkp/pkp-lib#6594 Clear context defaults installed for unused languages
+		$settingsWithDefaults = [
+			'authorInformation',
+			'librarianInformation',
+			'openAccessPolicy',
+			'privacyStatement',
+			'readerInformation',
+			'submissionChecklist',
+			'clockssLicense',
+			'lockssLicense',
+		];
+		$rows = Capsule::table('journal_settings as js')
+			->join('journals as j', 'j.journal_id', '=', 'js.journal_id')
+			->where('js.setting_name', '=', 'supportedFormLocales')
+			->select(['js.journal_id as id', 'js.setting_value as locales'])
+			->get();
+		foreach ($rows as $row) {
+			// account for some locale settings stored as assoc arrays
+			$locales = empty($row->locales)	? [] : json_decode($row->locales, true);
+			$locales = array_values($locales);
+			Capsule::table('journal_settings as js')
+				->where('js.journal_id', '=', $row->id)
+				->whereIn('js.setting_name', $settingsWithDefaults)
+				->whereNotIn('js.locale', $locales)
+				->delete();
+		}
 	}
 
 	/**

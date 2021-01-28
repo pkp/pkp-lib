@@ -3,8 +3,9 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2020-11-05 09:08+0000\n"
-"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"PO-Revision-Date: 2021-01-26 14:05+0000\n"
+"Last-Translator: FRITT, University of Oslo Library <fritt-"
+"info@journals.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -18,7 +19,7 @@ msgid "manager.announcements"
 msgstr "Oppslagstavle"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Er du sikker på at du vil slette oppslaget for alltid?"
+msgstr "Er du sikker på at du vil permanent slette oppslaget {$title}?"
 
 msgid "manager.announcements.create"
 msgstr "Nytt oppslag"
@@ -56,7 +57,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Velg måned og/eller dag, i tillegg til år."
 
 msgid "manager.announcements.form.description"
-msgstr "Beskrivelse"
+msgstr "Oppslag"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Hele oppslagsteksten."
@@ -151,7 +152,7 @@ msgid "manager.emails.editEmail"
 msgstr "Rediger e-post"
 
 msgid "manager.emails.editTestExample"
-msgstr "Endre eksempel på e-posttest"
+msgstr "Rediger eksempel på e-posttest"
 
 msgid "manager.emails.emailKey"
 msgstr "E-postnøkkel"
@@ -345,7 +346,7 @@ msgid "manager.people.mustChooseRole"
 msgstr "Velg en rolle (øverst på siden) før du klikker «Legg til bruker»."
 
 msgid "manager.people.mustProvideName"
-msgstr "Vennligst før inn minst et etternavn for denne brukeren før du går videre."
+msgstr "Før inn minst ett etternavn for denne brukeren før du går videre."
 
 msgid "manager.people.noMatchingUsers"
 msgstr "Ingen treff."
@@ -482,7 +483,7 @@ msgid "plugins.categories.themes"
 msgstr "Tema"
 
 msgid "manager.emails.form.emailKeyRequired"
-msgstr "E-posten må ha en unik e-postnøkkel."
+msgstr "E-posten må ha en unik e-postnøkkel, uten mellomrom eller spesialtegn."
 
 msgid "manager.reviewerSearch.searchByName"
 msgstr "Søk opp fagfelle etter navn"
@@ -551,7 +552,7 @@ msgstr "Velg elementtype"
 msgid "manager.reviewFormElements.confirmDelete"
 msgstr ""
 "Er du sikker på at du vil slette dette elementet? Det er i et publisert "
-"vurderingsskjema…"
+"vurderingsskjema..."
 
 msgid "manager.reviewFormElements.copyTo"
 msgstr "Kopi til:"
@@ -686,7 +687,7 @@ msgid "manager.reviewerSearch.change"
 msgstr "Endre"
 
 msgid "manager.reviewerSearch.interests"
-msgstr "Faglige interresser"
+msgstr "Faglige interesser"
 
 msgid "manager.reviewerSearch.form.instructions"
 msgstr ""
@@ -844,7 +845,7 @@ msgid "manager.setup.copyrightNotice.description"
 msgstr "Krev at forfatterne aksepterer opphavsrettsnotisen."
 
 msgid "manager.setup.authorGuidelines"
-msgstr "Forfatterinstruks"
+msgstr "Retningslinjer for forfattere"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr ""
@@ -965,16 +966,16 @@ msgstr "Gjenopprett komponentene til standardinnstillingene"
 
 msgid "manager.setup.genres.dependent"
 msgstr ""
-"Merk denne type filer som avhengige filer (f.eks. som ikke skal bli listet "
-"med publisert innhold)"
+"Disse er underordnede filer som vises av en HTML-fil og vil ikke bli vist "
+"for seg selv."
 
 msgid "manager.setup.genres.supplementary"
 msgstr ""
-"Merk denne type filer som tilleggsfiler (f.eks. som ikke er hovedinnholdet i "
-"innleveringen)"
+"Dette er tilleggsfiler som f.eks datasett og forskingsverktøy, og vil bli "
+"vist separat fra de primære publiserte filene."
 
 msgid "manager.settings.wizard"
-msgstr "Veiviser"
+msgstr "Innstillingsguide"
 
 msgid "manager.users.roleRequired"
 msgstr "Du må velge minst en rolle for å bli knyttet til denne brukeren."
@@ -1130,7 +1131,7 @@ msgid "manager.paymentMethod.none"
 msgstr "Ingen betalingsmåte valgt"
 
 msgid "manager.paymentMethod.method"
-msgstr "Betalingsmåte"
+msgstr "Betalingsmetode"
 
 msgid "manager.paymentMethod.currency"
 msgstr "Valuta"
@@ -1220,7 +1221,7 @@ msgid "manager.plugins.pluginGallery.certifications.official"
 msgstr "Offisiell"
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
-msgstr "Vurdert"
+msgstr "Gjennomgått"
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Partner"
@@ -1229,7 +1230,7 @@ msgid "manager.plugins.pluginGallery.maintainer"
 msgstr "Vedlikeholder"
 
 msgid "manager.plugins.pluginGallery.version"
-msgstr "Versjon: {$version}"
+msgstr "v{$version} gjort tilgjengelig på {$date}"
 
 msgid "manager.plugins.pluginGallery.date"
 msgstr "Versjonsdato: {$date}"
@@ -1329,7 +1330,7 @@ msgstr ""
 "tilgjengelige nettstedet ditt."
 
 msgid "manager.setup.privacyStatement"
-msgstr "Personvernerklæring"
+msgstr "Erklæring om personvern"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
 msgstr ""
@@ -1407,26 +1408,26 @@ msgstr "Tittel"
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr ""
-"Brukernavnet \"{$username}\" og e-posten \"{$email}\" samsvarer ikke med en "
-"og samme eksisterende bruker."
+"Brukernavnet \"{$username}\" og e-posten \"{$email}\" stemmer ikke overens "
+"med en og samme eksisterende bruker."
 
 msgid "plugins.importexport.user.error.plainPasswordNotValid"
 msgstr ""
-"Den importerte brukeren \"{$username}\" har et ukryptert passord som ikke er "
+"Den importerte brukeren \"{$username}\" har et svakt passord som ikke er "
 "gyldig. Brukeren er ikke importert."
 
 msgid "plugins.importexport.user.error.passwordHasBeenChanged"
 msgstr ""
-"Det importerte brukerpassordet \"{$username}\" kunne ikke importeres som det "
-"er. Et nytt passord er sendt til brukerens e-post. Brukeren er importert."
+"Den importerte brukeren \"{$username}\" sitt passord kunne ikke importeres. "
+"Et nytt passord er sendt til brukeren på epost. Brukeren er importert."
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
 msgstr ""
-"Den importerte brukeren \"{$username}\" har ikke noe passord. Sjekk import-"
-"XML-formatet ditt. Brukeren er ikke importert."
+"Den importerte brukeren \"{$username}\" har ikke passord. Sjekk XML formatet "
+"i importenfilen din. Brukeren er ikke importert."
 
 msgid "plugins.importexport.user.importExportErrors"
-msgstr "Import/eksportfeil:"
+msgstr "Import-/eksportfeil:"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "Filen kunne ikke importeres"
@@ -1452,8 +1453,9 @@ msgstr "Ukjent opplaster {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
-"Forfatteren {$authorName} har ikke et gitt fornavn på innleveringsspråket, "
-"{$localeName}. Innleveringen kan ikke importeres uten denne opplysningen."
+"Forfatteren {$authorName} er ikke registrert med fornavn i innleveringens "
+"språk, {$localeName}. Innleveringen kan ikke importeres uten denne "
+"informasjonen."
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr "Ukjent brukergruppe {$param}"
@@ -1523,7 +1525,7 @@ msgid "manager.setup.metadata.disciplines.noRequest"
 msgstr "Krev ikke angivelse av disipliner fra forfatteren under innleveringen."
 
 msgid "manager.setup.metadata.disciplines.enable"
-msgstr "Aktivér metadata i forbindelse med disipliner"
+msgstr "Aktiver metadata i forbindelse med disipliner"
 
 msgid "manager.setup.metadata.disciplines.description"
 msgstr ""
@@ -1540,7 +1542,7 @@ msgid "manager.setup.metadata.type.noRequest"
 msgstr "Krev ikke type-metadata fra forfatteren under innleveringen."
 
 msgid "manager.setup.metadata.type.enable"
-msgstr "Aktivér metadata i forbindelse med typer"
+msgstr "Aktiver metadata i forbindelse med typer"
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
@@ -1560,7 +1562,7 @@ msgid "manager.setup.metadata.subjects.noRequest"
 msgstr "Krev ikke emner fra forfatteren under innlevering."
 
 msgid "manager.setup.metadata.subjects.enable"
-msgstr "Aktivér emne-metadata"
+msgstr "Aktiver emne-metadata"
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
@@ -1577,7 +1579,7 @@ msgid "manager.setup.metadata.source.noRequest"
 msgstr "Ikke krev en kilde-URL fra forfatteren under innleveringen."
 
 msgid "manager.setup.metadata.source.enable"
-msgstr "Aktivér metadata i forbindelse med kilde"
+msgstr "Aktiver metadata i forbindelse med kilde"
 
 msgid "manager.setup.metadata.source.description"
 msgstr ""
@@ -1597,7 +1599,7 @@ msgid "manager.setup.metadata.rights.noRequest"
 msgstr "Ikke krev rettighetsopplysninger fra forfatteren under innleveringen."
 
 msgid "manager.setup.metadata.rights.enable"
-msgstr "Aktivér metadata i forbindelse med rettigheter"
+msgstr "Aktiver metadata i forbindelse med rettigheter"
 
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
@@ -1616,7 +1618,7 @@ msgid "manager.setup.metadata.languages.noRequest"
 msgstr "Ikke krev at forfatteren angir språk på innleveringen."
 
 msgid "manager.setup.metadata.languages.enable"
-msgstr "Aktivér språkmetadata"
+msgstr "Aktiver språkmetadata"
 
 msgid "manager.setup.metadata.languages.description"
 msgstr ""
@@ -1634,7 +1636,7 @@ msgid "manager.setup.metadata.keywords.noRequest"
 msgstr "Ikke krev nøkkelord fra forfatteren i forbindelse med innlevering."
 
 msgid "manager.setup.metadata.keywords.enable"
-msgstr "Aktivér metadata i forbindelse med nøkkelord"
+msgstr "Aktiver metadata i forbindelse med nøkkelord"
 
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
@@ -1657,7 +1659,7 @@ msgstr ""
 "innleveringen."
 
 msgid "manager.setup.metadata.coverage.enable"
-msgstr "Aktivér metadata i tilknytning til dekningsområde"
+msgstr "Aktiver metadata i tilknytning til dekningsområde"
 
 msgid "manager.setup.metadata.coverage.description"
 msgstr ""
@@ -1677,14 +1679,14 @@ msgstr "Beskrivelse"
 
 msgid "manager.setup.genres.key.alphaNumeric"
 msgstr ""
-"Nøkkelen kan kun inneholde alfanumeriske tegn, understreker og bindestreker, "
-"og skal begynne og slutte med et alfanumerisk tegn."
+"Nøkkelen kan kun inneholde alfanumeriske karakterer, understreking, og "
+"bindestrek, og må begynne og slutte med en alfanumerisk karakter."
 
 msgid "manager.setup.genres.key.exists"
 msgstr "Nøkkelen eksisterer allerede."
 
 msgid "manager.setup.genres.key.description"
-msgstr "En kort symbolsk identifikator for denne genren (valgfri)."
+msgstr "En valgfri symbolsk identifikator for denne sjangeren."
 
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
@@ -1696,7 +1698,7 @@ msgid "manager.setup.genres.key"
 msgstr "Nøkkel"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Velg bibliotekfiler som skal vedlegges"
+msgstr "Velg bibliotekfiler som skal legges ved"
 
 msgid "settings.roles.permitMetadataEdit"
 msgstr "Tillat redigering av innleveringens metadata."
@@ -1772,7 +1774,7 @@ msgid "manager.setup.reviewOptions.reminders.response"
 msgstr "Svarpåminnelse"
 
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "Standardfrist for fulføring"
+msgstr "Standardfrist for fullføring"
 
 msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
 msgstr "Standard svarfrist"
@@ -1863,7 +1865,7 @@ msgid "manager.publication.reviewerGuidance.success"
 msgstr "Fagfelleveiledning har blitt oppdatert."
 
 msgid "manager.publication.reviewerGuidance"
-msgstr "Fagfelleveiledning"
+msgstr "Veiledning for fagfeller"
 
 msgid "manager.publication.emailSetup.success"
 msgstr "E-postinstillningene har blitt oppdatert."
@@ -1905,7 +1907,7 @@ msgid "stats.name.declinedDeskRate"
 msgstr "Avvisningsprosent før vurdering / gjennomgang"
 
 msgid "stats.name.declineRate"
-msgstr "Avvisningprosent"
+msgstr "Avvisningsprosent"
 
 msgid "stats.name.acceptanceRate"
 msgstr "Akseptprosent"
@@ -1929,7 +1931,7 @@ msgid "stats.name.submissionsDeclinedDeskReject"
 msgstr "Avviste innleveringer (før vurdering)"
 
 msgid "stats.name.submissionsDeclined"
-msgstr "Avviste innleveriner"
+msgstr "Avviste innleveringer"
 
 msgid "stats.name.submissionsAccepted"
 msgstr "Aksepterte innleveringer"
@@ -1941,25 +1943,25 @@ msgid "stats.userStatistics"
 msgstr "Brukerstatistikk"
 
 msgid "stats.trends"
-msgstr "Tendens"
+msgstr "Trender"
 
 msgid "stats.totalWithinDateRange"
 msgstr "Totalt innenfor datoperioden"
 
 msgid "stats.total"
-msgstr "Totalt"
+msgstr "Total"
 
 msgid "stats.submissionsActive"
 msgstr "Aktive innleveringer"
 
 msgid "stats.searchSubmissionDescription"
-msgstr "Søk etter tittel, forfatter og ID"
+msgstr "Søk på tittel, forfatter og ID"
 
 msgid "stats.pdf"
 msgstr "PDF"
 
 msgid "stats.monthly"
-msgstr "Månedsvis"
+msgstr "Månedlig"
 
 msgid "stats.html"
 msgstr "HTML"
@@ -1994,7 +1996,7 @@ msgstr ""
 "beslutning ikke teller."
 
 msgid "stats.dateRange.untilDate"
-msgstr "Fram til {$date} Siste 30 dager"
+msgstr "Til {$date}"
 
 msgid "stats.dateRange.to"
 msgstr "Til"
@@ -2021,13 +2023,13 @@ msgid "stats.dateRange.last12Months"
 msgstr "Siste 12 måneder"
 
 msgid "stats.dateRange.invalidStartDateMin"
-msgstr "Startdatoen kan ikke være før {$date}."
+msgstr "Startdato kan ikke være tidligere enn {$date}."
 
 msgid "stats.dateRange.invalidEndDateMax"
-msgstr "Sluttdatoen kan ikke være senere enn {$date}."
+msgstr "Sluttdato kan ikke være senere enn {$date}."
 
 msgid "stats.dateRange.invalidDateRange"
-msgstr "Startdatoen må være før sluttdatoen."
+msgstr "Startdato må være før sluttdato."
 
 msgid "stats.dateRange.invalidDate"
 msgstr "Datoformatet er ikke gyldig. Skriv inn hver dato i formatet ÅÅÅÅ-MM-DD."
@@ -2065,13 +2067,13 @@ msgid "stats.allUsers"
 msgstr "Alle brukere"
 
 msgid "grid.category.categoryDetails"
-msgstr "Kategorioplysninger"
+msgstr "Detaljer for kategori"
 
 msgid "grid.category.nameRequired"
-msgstr "Tast inn et kategorinavn."
+msgstr "Legg til kategorinavn."
 
 msgid "grid.category.removeText"
-msgstr "Er du sikker på at du vil fjerne denne kategorien?"
+msgstr "Er du sikker på at du ønsker å fjerne denne kategorien?"
 
 msgid "grid.category.parentCategory"
 msgstr "Hovedkategori"
@@ -2080,13 +2082,13 @@ msgid "grid.category.description"
 msgstr "Beskrivelse"
 
 msgid "grid.category.pathExists"
-msgstr "Kategoristien eksisterer allerede. Tast inn en unik sti."
+msgstr "Denne stien eksisterer allerede. Lag en unik sti."
 
 msgid "grid.category.pathAlphaNumeric"
-msgstr "Kategoristien må kun bestå av bokstaver og tall."
+msgstr "Kategoriens sti må bestå av kun bokstaver og tall."
 
 msgid "grid.category.urlWillBe"
-msgstr "Kategoriens URL vil være: {$sampleUrl}"
+msgstr "Kategoriens URL vil bli: {$sampleUrl}"
 
 msgid "grid.category.path"
 msgstr "Sti"
@@ -2095,35 +2097,35 @@ msgid "grid.category.name"
 msgstr "Navn"
 
 msgid "grid.category.edit"
-msgstr "Redigér kategori"
+msgstr "Rediger kategori"
 
 msgid "grid.category.add"
 msgstr "Legg til kategori"
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr ""
-"Denne lenken vises bare hvis du har satt inn en personvernerklæring under "
+"Lenken vil kun vises dersom du har lagt til en personvernerklæring under "
 "Innstillinger > Arbeidsflyt > Innlevering."
 
 msgid "manager.navigationMenus.privacyStatement.description"
-msgstr "Lenke til siden som viser personvernerklæringen din."
+msgstr "Lenke til siden som viser personvernerklæringen."
 
 msgid "manager.navigationMenus.search.description"
-msgstr "Lenke til søkeside."
+msgstr "Lenke til søkesiden."
 
 msgid "manager.navigationMenus.subscriptions.conditionalWarning"
 msgstr ""
-"Denne lenken vises bare hvis betalinger er aktivert under Innstillinger > "
-"Distribusjon > Betaling."
+"Denne lenken vil kun vises dersom betalinger er aktivert under Innstillinger "
+"> Distribusjon > Betalinger."
 
 msgid "manager.navigationMenus.login.description"
 msgstr "Lenke til siden der brukere logger inn."
 
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
 msgstr ""
-"Denne lenken vil bare vises når en gjest er logget inn, betalinger er "
-"aktivert under Innstillinger > Distribusjon > Betalinger, og abbonementer "
-"kreves under Innstillinger > Distribusjon > Tilgang."
+"Denne lenken vil kun vises dersom den besøkende er pålogget, og betalinger "
+"er aktivert under Innstillinger > Distribusjon > Betalinger. Abonnement må "
+"være påkrevd under Innstillinger > Distribusjon > Tilgang."
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
 msgstr ""
@@ -2156,7 +2158,7 @@ msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr "Lær mer om når dette menyelementet vil bli vist eller skjult."
 
 msgid "manager.navigationMenus.form.typeMissing"
-msgstr "Velg en navigasjonsmenytype."
+msgstr "Velg en type navigasjonsmeny."
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
 msgstr ""
@@ -2232,3 +2234,120 @@ msgstr "Du må oppgi en URL"
 
 msgid "manager.navigationMenus.form.url"
 msgstr "URL"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Innleveringsfilen {$id} ble utelatt fordi den er knyttet til en oppføring "
+"som ikke skal importeres, som for eksempel et vurderingsoppdrag eller en "
+"diskusjon."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Velg typen metadata som kan knyttes til disse filene. Du bør velge "
+"'Dokument' for de viktigste publikasjonsfilene, for eksempel en nedlastbar "
+"PDF, slik at disse filene kan hente metadataene fra publikasjonen. Ellers "
+"velger du 'Tilleggsinnhold' for de fleste filtyper. Illustrasjoner er egnet "
+"for filer som krever separat kilde, bildetekst og lisensmetadata."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Fil-metadata"
+
+msgid "manager.setup.genres.label"
+msgstr "Filtype"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Er du sikker på at du vil aktivere denne seksjonen?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Er du sikker på at du vil deaktivere denne seksjonen?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "Deaktiver denne seksjonen og ikke tillat nye innleveringer til den."
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Vis en lenke til <button type=\"button\">hvordan sikre anonymisering av "
+"filer</button> ved opplasting"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Brukerdefinert"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Dato og tid (kort)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Dato og tid"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formater for dato og tid"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Tid"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Dato (Kort)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Dato"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Velg det foretrukne formatet for dato og tid. Et brukerdefinert format kan "
+"også angis  ved å benytte følgende <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-"
+"parameters'>formateringsparametre</a>."
+
+msgid "manager.setup.dateTime"
+msgstr "Dato og tid"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Send en til e-post"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-post ble sendt til alle mottakerne."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Sender e-post. Vent til sendingen er fullført før du navigerer vekk, eller "
+"lukker nettsiden."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Du skal til å sende en e-post til {total} brukere. Er du sikker på at du vil "
+"sende denne e-posten?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Send e-post"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Send en kopi av denne e-posten til meg på {email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Velg de brukerne som skal motta din e-postbeskjed."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Varsle"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Deaktiver innleveringer"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Brukerdefinert rapportgenerator"
+
+msgid "manager.people.signedInAs"
+msgstr "Du er for øyeblikket logget inn som {$username}"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Velg brukerne som skal eksporteres til en Excel/CSV-fil."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Eksporter til Excel/CSV"
+
+msgid "manager.emails.resetComplete"
+msgstr "E-postmalen har blitt tilbakestilt."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Standard-e-postene har blitt gjenopprettet."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Slett oppslag"

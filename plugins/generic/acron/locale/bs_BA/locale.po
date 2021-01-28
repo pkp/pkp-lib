@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-01-21 07:32+0000\n"
+"Last-Translator: Kazimir Hrastek <kazimir3385@gmail.com>\n"
+"Language-Team: Bosnian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"generic-acron/bs_BA/>\n"
+"Language: bs_BA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Ponovo su učitani planirani zadaci."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Ponovo učitajte planirane zadatke"
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Kartica Cron je uspješno ponovo učitana."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Dodatak Acron je onemogućen."
+
+msgid "plugins.generic.acron.enabled"
+msgstr "Dodatak Acron je omogućen."
+
+msgid "plugins.generic.acron.description"
+msgstr ""
+"Ovaj dodatak pokušava smanjiti ovisnost aplikacije o alatima za periodično "
+"raspoređivanje kao što je 'cron.'"
+
+msgid "plugins.generic.acron.name"
+msgstr "Acron dodatak"

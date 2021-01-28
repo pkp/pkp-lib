@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2020-02-06 08:35+0000\n"
+"PO-Revision-Date: 2021-01-21 15:55+0000\n"
 "Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
-"Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/api/de/>"
-"\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"de_DE/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -146,3 +146,75 @@ msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Der Stats kann nicht direkt durch die API geändert werden. Bitte nutzen Sie "
 "die /publish und /unpubish endpoints."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Es ist nicht möglich die Zeit zu ändern, zu der dies erzeugt wurde."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Sie dürfen nicht auf Dateien in dieser Begutachtungsrunde  zugreifen."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Sie dürfen diese Dateien nicht hinzufügen und bearbeiten."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Der Zugriff auf diese Dateien ist Ihnen nicht erlaubt."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+"Die von Ihnen genannte Begutachtungsrunde ist nicht Teil dieser Einreichung."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+"In der Anfrage zum Bearbeiten dieser Datei konnten keine Änderungen gefunden "
+"werden."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Sie müssen eine Dateistufe angeben."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Sie müssen eine Begutachtungsrunde angeben, wenn Sie Dateien der "
+"Begutachtungsstufe anfordern."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"Sie können eine Datei aus dieser Dateistufe nicht mit einer "
+"Begutachtungsrunde verknüpfen."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Sie können eine Datei aus dieser Dateistufe nicht mit einer "
+"Gutachtenzuordnung verknüpfen."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"Sie können eine Datei aus dieser Dateistufe nicht mit einer Diskussionsnotiz "
+"verknüpfen."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Sie können eine Datei aus dieser Dateistufe nicht mit einer anderen "
+"Einreichungsdatei verknüpfen."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Sie können den Dateizusammenhang nicht ändern, ohne assocType und assocId "
+"anzugeben."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Ihnen ist nicht gestattet eine E-Mail an Nutzer mit einer oder mehreren der "
+"ausgewählten Rollen zu senden."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"Sie müssen die Nutzerrolen angeben, welche diese E-Mail erhalten sollen."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Sie müssen einen Betreff für die E-Mail angeben."
+
+msgid "api.emails.400.missingBody"
+msgstr "Sie müssen eine zu sendende E-Mail anfügen."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Die Mitteilung, die Sie angefragt haben, wurde nicht gefunden."

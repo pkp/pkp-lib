@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-14 14:47+0000\n"
+"PO-Revision-Date: 2021-01-28 15:01+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "tr_TR/>\n"
@@ -199,3 +199,19 @@ msgid "api.submissionFiles.400.badDependentFileAssocType"
 msgstr ""
 "Bu aşamasındaki bir dosyayı başka bir makale dosyasıyla "
 "ilişkilendiremezsiniz."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Ayarlar desteklenmez: {$locales}."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"Yönetici tarafından gizli bir anahtar yapılandırmadığından, API anahtar bu "
+"siteye erişmek için kullanılamaz."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "apiToken hata nedeniyle kodu çözümleyemedi: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API anahtarı doğrulanamadı. Bu, API anahtarı hatalı olduğunu veya geçerli "
+"olmadığını gösterir."

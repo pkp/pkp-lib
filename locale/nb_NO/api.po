@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-11-05 09:45+0000\n"
-"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"PO-Revision-Date: 2021-01-22 13:30+0000\n"
+"Last-Translator: FRITT, University of Oslo Library <fritt-"
+"info@journals.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -82,10 +83,10 @@ msgid "api.stats.400.earlyDateRange"
 msgstr "Startdatoen kan ikke være tidligere enn 2001-01-01."
 
 msgid "api.stats.400.wrongDateRange"
-msgstr "Startdatoen kan ikke være senere enn sluttdatoen."
+msgstr "Startdato kan ikke være senere enn sluttdato."
 
 msgid "api.stats.400.wrongDateFormat"
-msgstr "Datoen skal være i formatet ÅÅÅÅ-MM-DD."
+msgstr "Datoen må være på formatet YYYY-MM-DD."
 
 msgid "api.submissions.403.userCantEdit"
 msgstr "Du har ikke tillatelse til å redigere denne publikasjonen."
@@ -137,13 +138,91 @@ msgid "api.emailTemplates.404.templateNotFound"
 msgstr "E-postmalen du ba om, ble ikke funnet."
 
 msgid "api.404.endpointNotFound"
-msgstr "Den angitte URL-en ble ikke gjenkjent."
+msgstr "Den forespurte URL-en ble ikke gjenkjent."
 
 msgid "api.404.resourceNotFound"
-msgstr "Den ønskede ressursen blev ikke funnet."
+msgstr "Den forespurte ressursen ble ikke funnet."
 
 msgid "api.403.unauthorized"
-msgstr "Du har ikke tilgang til den ønskede ressursen."
+msgstr "Du er ikke autorisert for adgang til den forespurte ressursen."
 
 msgid "api.400.paramNotSupported"
-msgstr "Parameteren {$param} støttes ikke."
+msgstr "Parameteret {$param} er ikke støttet."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Du har ikke tilgang til filer som er tilknyttet denne vurderingsrunden."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Du har ikke tilgang til å redigere disse filene."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Du har ikke tilgang til disse filene."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Den vurderingsrunden du har oppgitt hører ikke til denne innleveringen."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+"Ingen endringer kunne bli funnet i forespørselen om å redigere denne filen."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Du må angi et filstadie."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Du må angi en vurderingsrude når du spør etter filer i vurderingsstadiet."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"Du kan ikke knytte en fil fra dette filstadiet med en "
+"fagfellevurderingsrunde."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Du kan ikke knytte en fil fra dette filstadiet til et "
+"fagfellevurderingsoppdrag."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Du kan ikke knytte en fil fra dette filstadiet til et diskusjonsnotat."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Du kan ikke knytte en fil fra dette stadiet til en annen innleveringsfil."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Du kan ikke endre filtilknytningen uten å sende en assocType og associd."
+
+msgid "api.files.400.config"
+msgstr ""
+"Filen kunne ikke lastes opp på grunn av en serverkonfigurasjonsfeil. Kontakt "
+"systemadministratoren."
+
+msgid "api.files.400.fileSize"
+msgstr "Filer som er større enn {$maxSize} kan ikke lastes opp."
+
+msgid "api.files.400.uploadFailed"
+msgstr "En eller flere filer kunne ikke lastes opp."
+
+msgid "api.files.400.noUpload"
+msgstr "Ingen av filene som skal lastes opp kunne bli funnet med forespørselen."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Du har ikke tilgang til å sende en e-post til brukere i en eller flere av de "
+"valgte rollene."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Du må angi brukerrollene som skal motta denne e-posten."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Du må oppgi et emne til e-posten."
+
+msgid "api.emails.400.missingBody"
+msgstr "Du må oppgi en e-post som skal sendes."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Oppslaget du søkte etter ble ikke funnet."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Det er ikke mulig å endre tidspunkt for når dette ble opprettet."

@@ -3,8 +3,9 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2020-10-19 09:01+0000\n"
-"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"PO-Revision-Date: 2021-01-22 13:30+0000\n"
+"Last-Translator: FRITT, University of Oslo Library <fritt-"
+"info@journals.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/editor/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -18,7 +19,7 @@ msgid "editor.submissionArchive.confirmDelete"
 msgstr "Er du sikker på at du vil slette denne innleveringen for alltid?"
 
 msgid "editor.review.rateReviewer"
-msgstr "Vurdering av fagfelle"
+msgstr "Fagfellerangering"
 
 msgid "editor.submissionReview.sendEmail.editors"
 msgstr "Send en beskjed via e-post til redaktøren(e): {$editorNames}"
@@ -97,12 +98,12 @@ msgid "editor.review.mustSelect"
 msgstr "Du må velge en fagfelle"
 
 msgid "editor.review.reviewerRating.none"
-msgstr "Ingen vurdering"
+msgstr "Ingen rangering"
 
 msgid "editor.review.rateReviewer.description"
 msgstr ""
-"Intern vurdering av kvaliteten på fagfellevurderingen. Denne vurderingen "
-"blir ikke delt med fagfellen."
+"Ranger kvaliteten på den gjennomførte fagfellevurderingen. Denne rangeringen "
+"vil ikke bli delt med fagfellen."
 
 msgid "editor.review.reviewerComments"
 msgstr "Fagfellens kommentarer"
@@ -132,13 +133,13 @@ msgid "editor.review.requestCancelled.tooltip"
 msgstr "Redaktøren har avbrutt denne vurderingsforespørselen."
 
 msgid "editor.review.requestDeclined.tooltip"
-msgstr "Fagfellen har avvist denne forespørslen om vurdering."
+msgstr "Fagfellen avslo dette fagfellevurderingsoppdraget."
 
 msgid "editor.review.requestCancelled"
 msgstr "Forespørsel avbrutt"
 
 msgid "editor.review.requestDeclined"
-msgstr "Forespørsel avvist"
+msgstr "Forespørsel avslått"
 
 msgid "editor.review.requestAccepted"
 msgstr "Forespørsel akseptert"
@@ -207,22 +208,21 @@ msgstr "Lås opp"
 
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
-"Denne fagfellen er låst fordi vedkommende har en rolle som gir tilgang til å "
-"se forfatterens identitet. Anonym fagfellevurdering kan ikke garanteres. Vil "
-"du allikevel låse opp for denne fagfellen?"
+"Denne fagfellen er låst fordi de er tildelt en rolle som lar dem se "
+"forfatters identitet. Blind fagfellevurdering kan dermed ikke garanteres. "
+"Vil du låse opp denne fagfellen likevel?"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr ""
-"Denne fagfellen har allerede fått i oppgave å vurdere denne innleveringen."
+msgstr "Denne fagfellen er allerede oppnevnt til å vurdere dette bidraget."
 
 msgid "reviewer.list.neverAssigned"
-msgstr "Aldri tildelt fagfellevurderingsoppdrag"
+msgstr "Aldri oppnevnt"
 
 msgid "reviewer.list.averageCompletion"
-msgstr "Gjennomsnittlig tid brukt på fagfellevurderingsoppdrag"
+msgstr "Gjennomsnittlig antall dager på ferdigstilling av fagfelleoppdrag"
 
 msgid "reviewer.list.daysSinceLastAssignmentDescription"
-msgstr "Dager siden tildeling av forrige fagfellevurderingsoppdrag"
+msgstr "Dager siden siste fagfelleoppdrag"
 
 msgid "reviewer.list.daySinceLastAssignment"
 msgstr "I går"
@@ -231,25 +231,25 @@ msgid "reviewer.list.daysSinceLastAssignment"
 msgstr "{$days} dager siden"
 
 msgid "reviewer.list.reviewerRating"
-msgstr "Vurdering av fagfelle: {$rating}"
+msgstr "Fagfellerangering: {$rating}"
 
 msgid "reviewer.list.cancelledReviews"
 msgstr "Avbrutte vurderingsoppdrag"
 
 msgid "reviewer.list.declinedReviews"
-msgstr "Avviste fagfellevurderingsoppdrag"
+msgstr "Avslåtte fagfelleoppdrag"
 
 msgid "reviewer.list.completedReviews"
-msgstr "Fullførte fagfellevurderingsoppdrag"
+msgstr "Ferdige fagfelleoppdrag"
 
 msgid "reviewer.list.activeReviewsDescription"
-msgstr "Aktive, pågående fagfellevurderingsoppdrag"
+msgstr "Aktive fagfelleoppdrag for øyeblikket"
 
 msgid "reviewer.list.activeReviews"
 msgstr "{$count} aktive"
 
 msgid "reviewer.list.filterRating"
-msgstr "Vurdert til minst"
+msgstr "Rangert minst"
 
 msgid "reviewer.list.itemsOfTotal"
 msgstr "{$count} av {$total} fagfeller"
@@ -490,7 +490,7 @@ msgid "editor.submission.workflowDecision.submission.production"
 msgstr "Sendt til produksjon."
 
 msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Sendt til en ny vurdering."
+msgstr "Sendt til en ny runde med vurdering."
 
 msgid "editor.submission.workflowDecision.submission.published"
 msgstr "Innlevering publisert."
@@ -505,4 +505,15 @@ msgid "editor.submission.workflowDecision.submission"
 msgstr "Beslutning registrert"
 
 msgid "editor.activityLog"
-msgstr "Aktivitetsloggen"
+msgstr "Aktivitetslog"
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
+"Er du sikker på at du ønsker å endre beslutningen om å avvise denne "
+"innleveringen?"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Anonym fagfelle/Anonym forfatter"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "Anonym fagfelle/Vist forfatternavn"

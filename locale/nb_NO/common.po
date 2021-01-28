@@ -3,8 +3,9 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2020-10-19 09:01+0000\n"
-"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"PO-Revision-Date: 2021-01-22 13:30+0000\n"
+"Last-Translator: FRITT, University of Oslo Library <fritt-"
+"info@journals.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -1219,13 +1220,13 @@ msgid "validator.active_url"
 msgstr "Dette er ikke en gyldig URL."
 
 msgid "validator.accepted"
-msgstr "Akseptér dette elementet.."
+msgstr "Aksepter dette elementet.."
 
 msgid "list.viewLess"
-msgstr "Skjul ekstra detaljer om {$name}"
+msgstr "Skjul detaljer om {$name}"
 
 msgid "list.viewMore"
-msgstr "Vis ekstra detaljer om {$name}"
+msgstr "Vis flere detaljer om {$name}"
 
 msgid "notification.removedNavigationMenu"
 msgstr "Navigasjonsmenyen ble fjernet"
@@ -1444,7 +1445,7 @@ msgid "search.advancedFilters"
 msgstr "Avanserte filtre"
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Send e-post med varsel til alle registrerte brukere"
+msgstr "Send en e-post med varsel til alle registrerte brukere."
 
 msgid "notification.savedSubmissionMetadata"
 msgstr "Metadata ble lagret."
@@ -1549,7 +1550,7 @@ msgid "stageParticipants.noOptionsToHandle"
 msgstr "Ingen endringer kan gjøres på denne deltakeren"
 
 msgid "stageParticipants.selectedUser"
-msgstr "Deltager"
+msgstr "Deltaker"
 
 msgid "stageParticipants.canChangeMetadata"
 msgstr ""
@@ -1689,8 +1690,8 @@ msgstr "Avbryt opplasting"
 
 msgid "form.dropzone.dictResponseError"
 msgstr ""
-"Serveren svartee med {{statusCode}}-kode. Kontakt systemadministratoren, "
-"hvis dette vedvarer."
+"Serveren svarte med {{statusCode}}-kode. Kontakt systemadministratoren hvis "
+"dette vedvarer."
 
 msgid "form.dropzone.dictInvalidFileType"
 msgstr "Filer av denne typen kan ikke lastes opp."
@@ -1726,8 +1727,8 @@ msgstr "Avsender"
 
 msgid "email.compose.error"
 msgstr ""
-"Sending av epost feilet. Prøv igjen senere eller kontakt "
-"systemadministratoren."
+"Det oppstod et problem ved sending av epost. Prøv igjen senere, eller "
+"kontakt din systemadministrator."
 
 msgid "editor.submissionReview.uploadAttachment"
 msgstr "Last opp"
@@ -1742,7 +1743,7 @@ msgid "defaultMetric.title"
 msgstr "Standardverdi"
 
 msgid "common.publicAccess"
-msgstr "Synlig for alle"
+msgstr "Offentlig tilgang"
 
 msgid "common.count"
 msgstr "Antall"
@@ -1801,7 +1802,7 @@ msgid "common.selectedPrefix"
 msgstr "Valgte:"
 
 msgid "common.clearSearch"
-msgstr "Nullstill søk"
+msgstr "Nullstill søkefrasen"
 
 msgid "common.searchQuery"
 msgstr "Søkeord"
@@ -1816,7 +1817,7 @@ msgid "common.reminded.date"
 msgstr "Påminnet: {$dateReminded}"
 
 msgid "common.readMoreWithTitle"
-msgstr "Les mer om «{$title}»"
+msgstr "Les mer om {$title}"
 
 msgid "common.readMore"
 msgstr "Les mer"
@@ -1917,10 +1918,10 @@ msgid "common.filterRemove"
 msgstr "Fjern filter: {$filterTitle}"
 
 msgid "common.filterAdd"
-msgstr "Legg till filter: {$filterTitle}"
+msgstr "Legg til filter: {$filterTitle}"
 
 msgid "common.filter"
-msgstr "Filter"
+msgstr "Filtre"
 
 msgid "common.fileUploaderError"
 msgstr ""
@@ -2038,3 +2039,97 @@ msgstr "Gjeldende stilark"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Personverninnstillinger"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Du har ikke tilgang til dette vurderingsoppdraget."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Du har ikke tilgang til denne diskusjonsmeldingen."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Ugyldig diskusjon."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Ugyldig vurderingsrunde."
+
+msgid "user.email"
+msgstr "E-post"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>For å sikre integriteten til anonym fagfellevurdering, bør alt gjøres for "
+"å forhindre at identiteten til forfatterne og anmeldere blir kjent for "
+"hverandre. Dette involverer forfattere, redaktører og korrekturlesere (som "
+"laster opp dokumenter som en del av gjennomgangen), for å se om følgende "
+"trinn er tatt med hensyn til teksten og filegenskapene: </p>\n"
+"<ul> <li> Forfatterne av dokumentet har erstattet navnene sine fra teksten, "
+"med \"Forfatter\" og årstall brukt i referanser og fotnoter, i stedet for "
+"forfatterens navn, artikkeltittel osv. </li>\n"
+"<li> Forfatterne av dokumentet har fjernet personlig informasjon fra "
+"filegenskapene ved å gjøre følgende:\n"
+"<ul> <li> Microsoft Word for Windows:\n"
+"<ul> <li> Gå til fil </li>\n"
+"<li> Velg Info </li>\n"
+"<li> Klikk på Se etter problemer </li>\n"
+"<li> Klikk på Inspiser dokument </li>\n"
+"<li> I dialogboksen Document Inspector velger du avmerkingsboksene for å "
+"velge typen skjult innhold du vil inspisere. </li>\n"
+"<li> Klikk Fjern alle </li>\n"
+"<li> Klikk på Lukk </li>\n"
+"<li> Lagre dokumentet </li> </ul>\n"
+"<li> Microsoft Word for MacOS:\n"
+"<ul> <li> Gå til Verktøy </li>\n"
+"<li> Klikk på Beskytt dokument </li>\n"
+"<li> Velg Fjern personlig informasjon for denne filen ved lagring </li>\n"
+"<li> Klikk OK og lagre filen </li> </ul> </li>\n"
+"<li> PDF:\n"
+"<ul> <li> Gå til fil </li>\n"
+"<li> Velg Egenskaper </li>\n"
+"<li> Fjern ethvert navn i forfatterfeltet </li>\n"
+"<li> Klikk OK </li>\n"
+"<li> Lagre dokumentet </li> </ul> </li> </ul>\n"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Hvordan sikre at alle filer er anonymisert"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Hvordan sikre at alle filer er anonymisert"
+
+msgid "search.searchResults.foundPlural"
+msgstr "Fant {$count} poster."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Fant en post."
+
+msgid "navigation.backTo"
+msgstr "⟵ Tilbage til {$page}"
+
+msgid "form.saved"
+msgstr "Lagret"
+
+msgid "common.viewWithName"
+msgstr "Se {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Bruker finnes ikke]"
+
+msgid "common.addFile"
+msgstr "Legg til fil"
+
+msgid "common.unknownError"
+msgstr "En uventet feil oppstod. Last siden på nytt og prøv igjen."
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "Velg {$name}"
+
+msgid "common.editItem"
+msgstr "Rediger {$name}"
+
+msgid "common.inactive"
+msgstr "Inaktiv"

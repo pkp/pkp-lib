@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-01-11 17:22+0000\n"
+"Last-Translator: Blagoja Grozdanovski <blagoja.grozdanovski@gmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/author/"
+"mk_MK/>\n"
+"Language: mk_MK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "author.submit.proceedToPublish"
+msgstr "Продолжете со објавување"
+
+msgid "author.submit.authorCanPublish"
+msgstr ""
+"Серверот е известен за вашето доставување и ви е испратена потврда за е-"
+"пошта по е-пошта. <b> Сите барања за објавување се исполнети и може да "
+"продолжите да го прегледувате и објавувате вашиот предпечаток </b>."
+
+msgid "author.submit.publishRequirements"
+msgstr ""
+"Серверот е известен за вашето доставување и ви е испратена потврда за е-"
+"пошта по е-пошта. Откако модераторот ќе го разгледа поднесокот, тој ќе го "
+"објави вашиот предпечаток или ќе ве контактира. Може да објавувате и сами "
+"откако ќе се исполнат следниве услови:"
+
+msgid "author.submit.authorCanNotPublish"
+msgstr ""
+"Авторите на овој сервер не можат сами да објавуваат. Серверот е известен за "
+"вашето доставување и ви е испратена потврда за е-пошта по е-пошта. Откако "
+"модераторот ќе го разгледа поднесокот, тој ќе го објави вашиот предпечаток "
+"или ќе ве контактира."
+
+msgid "author.submit.form.abstractRequired"
+msgstr "Ве молиме, внесете го апстрактот од вашиот препечаток."
+
+msgid "author.submit.languageInstructions"
+msgstr ""
+"Англиски=en; Француски=fr; Шпански=es. <a href=\"http://www.loc.gov/"
+"standards/iso639-2/php/code_list.php\" target=\"_blank\">Additional "
+"codes</a>."
+
+msgid "author.submit.form.sectionRequired"
+msgstr "Ве молиме, изберете соодветен дел од серверот за овој поднесок."
+
+msgid "submission.submit.coverNote"
+msgstr "Коментари за модераторот"
+
+msgid "author.submit.journalSectionDescription"
+msgstr "Отпечатоците мора да бидат доставени до еден од деловите на серверот."
+
+msgid "author.submit.journalSection"
+msgstr "Дел за сервер"
+
+msgid "author.submit.notAccepting"
+msgstr "Овој сервер не прифаќа поднесоци во овој момент."
+
+msgid "submission.submit.cancelSubmission"
+msgstr ""
+"Овој поднесок можете да го завршите на подоцнежен датум со избирање Активни "
+"поднесоци од домот на авторот."
+
+msgid "author.submit.nextSteps"
+msgstr "Следни чекори"
+
+msgid "author.submit.confirmation"
+msgstr "Потврда"
+
+msgid "author.submit.metadata"
+msgstr "Внесете метаподатоци"
+
+msgid "author.submit.upload"
+msgstr "Испратете го поднесокот"
+
+msgid "author.submit.start"
+msgstr "Започнете"
+
+msgid "author.submit.startHereLink"
+msgstr ""
+"<a href=\"{$submitUrl}\" class=\"action\"> Кликнете овде </a> за да отидете "
+"во чекор еден од процесот на доставување во пет чекори."
+
+msgid "author.competingInterests"
+msgstr ""
+"Интереси во конкуренција \n"
+"<a target=\"_new\" class=\"action\" href=\"{$competingInterestGuidelinesUrl}"
+"\">CI Policy</a>"
+
+msgid "author.submit"
+msgstr "Нов поднесок"

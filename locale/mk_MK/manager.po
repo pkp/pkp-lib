@@ -1,0 +1,380 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-01-14 11:01+0000\n"
+"Last-Translator: Blagoja Grozdanovski <blagoja.grozdanovski@gmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/manager/"
+"mk_MK/>\n"
+"Language: mk_MK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "manager.statistics.reports.filters.byObject.description"
+msgstr ""
+"Тесни резултати според типот на објектот (сервер, препечаток, типови на "
+"датотеки) и / или според еден или повеќе идентитет (и) на објектот."
+
+msgid "manager.statistics.reports.defaultReport.journalIndexPageViews"
+msgstr "Прегледи на главната страница на серверот"
+
+msgid "manager.statistics.reports.defaultReport.articleAbstract"
+msgstr "Отпечатете ги апстрактните прегледи на страниците"
+
+msgid "manager.statistics.reports.defaultReport.articleDownloads"
+msgstr "Преземање преземања на датотеки"
+
+msgid "manager.statistics.statistics.registeredReaders"
+msgstr "Регистрирани читатели"
+
+msgid "manager.statistics.statistics.numSubmissions"
+msgstr "Вкупно поднесоци"
+
+msgid "manager.statistics.statistics.note"
+msgstr ""
+"Забелешка: Процентите за испратени од рецензирани оценки може да не се "
+"додадат до 100%, бидејќи предметите што се повторно испратени се прифаќаат, "
+"одбиваат или се уште се во тек."
+
+msgid "manager.statistics.statistics.makePublic"
+msgstr ""
+"Проверете ги предметите што ќе им бидат достапни на читателите во About the "
+"Server."
+
+msgid "manager.statistics.statistics.itemsPublished"
+msgstr "Предметите се објавени"
+
+msgid "manager.statistics.statistics.daysToPublication"
+msgstr "Денови дур поднесокот да се објави"
+
+msgid "manager.statistics.statistics.count.revise"
+msgstr "Повторно испрати"
+
+msgid "manager.statistics.statistics.count.decline"
+msgstr "Одбиј"
+
+msgid "manager.statistics.statistics.count.accept"
+msgstr "Прифати"
+
+msgid "manager.statistics.statistics.articleViews"
+msgstr "Број на прегледи на печатени печати (само за автори)"
+
+msgid "manager.statistics.statistics"
+msgstr "Статистика на серверот"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\t\tВашиот сервер е конфигуриран да снима повеќе од една метрика на "
+"употреба. Статистиката за употреба ќе биде прикажана во неколку контексти. "
+"Постојат случаи кога мора да се користи статистика за една употреба, на пр. "
+"за да прикажете нарачана листа на најкористени претпечатоци или да ги "
+"рангирате резултатите од пребарувањето. Изберете една од конфигурираните "
+"метрики како стандардна."
+
+msgid "manager.setup.userRegistration"
+msgstr "Регистрација на корисник"
+
+msgid "manager.setup.enableOai.description"
+msgstr ""
+"Обезбедете метаподатоци на услуги за индексирање на трети лица преку <a href="
+"\"https://www.openarchives.org/\">Open Archives Initiative</a>."
+
+msgid "manager.setup.enableOai"
+msgstr "Овозможете OAI"
+
+msgid "manager.setup.disableSubmissions.notAccepting"
+msgstr ""
+"Овој сервер не прифаќа поднесоци во овој момент. Посетете ги поставките за "
+"работниот тек за да дозволите поднесување."
+
+msgid "manager.setup.disableSubmissions.description"
+msgstr ""
+"Спречете ги корисниците да испраќаат нови отпечатоци до серверот. Пријавите "
+"може да бидат оневозможени за одделни делови на серверот на страницата за "
+"поставки за<a href=\"{$url}\">server sections</a>."
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Список за подготовка на поднесување"
+
+msgid "manager.setup.sponsoringOrganization"
+msgstr "Спонзорска организација"
+
+msgid "manager.setup.siteAccess.viewContent"
+msgstr "Погледнете ја содржината за печатење"
+
+msgid "manager.setup.siteAccess.view"
+msgstr "Пристап до страницата"
+
+msgid "manager.setup.searchDescription.description"
+msgstr ""
+"Обезбедете краток опис (50-300 карактери) на серверот што пребарувачите "
+"можат да ги прикажат кога го наведуваат серверот во резултатите од "
+"пребарувањето."
+
+msgid "manager.setup.searchEngineIndexing.description"
+msgstr ""
+"Помогнете им на пребарувачите како Google да ја откријат и прикажат вашата "
+"страница. Ве охрабруваме да ја доставите вашата на <a href=\"{$sitemapUrl}\" "
+"target=\"_blank\">sitemap</a>."
+
+msgid "manager.setup.searchEngineIndexing"
+msgstr "Индексирање на пребарувањето"
+
+msgid "manager.setup.restrictSiteAccess"
+msgstr ""
+"Корисниците мора да бидат регистрирани и да се најават за да ја видат "
+"страницата на серверот."
+
+msgid "manager.setup.restrictArticleAccess"
+msgstr ""
+"Корисниците мора да бидат регистрирани и да се најават за да ја видат "
+"содржината со отворен пристап."
+
+msgid "manager.setup.numPageLinks.description"
+msgstr ""
+"Ограничете го бројот на врски за прикажување на следните страници во "
+"списокот."
+
+msgid "manager.setup.numPageLinks"
+msgstr "Врски со страници"
+
+msgid "manager.setup.lists"
+msgstr "Списоци"
+
+msgid "manager.setup.keyInfo.description"
+msgstr ""
+"Обезбедете опис на вашиот сервер и идентификувајте ги менаџерите за печатење "
+"и другите членови на тимот на сервери за печатење."
+
+msgid "manager.setup.keyInfo"
+msgstr "Клучни информации"
+
+msgid "manager.setup.contextTitle"
+msgstr "Наслов на серверот"
+
+msgid "manager.setup.serverThumbnail.description"
+msgstr ""
+"Мало лого или претстава на серверот што може да се користи во списоците на "
+"сервери."
+
+msgid "manager.setup.serverThumbnail"
+msgstr "Сликичка за сервер"
+
+msgid "manager.setup.contextInitials"
+msgstr "Иницијали на серверот"
+
+msgid "manager.setup.contextAbout.description"
+msgstr ""
+"Вклучете какви било информации за вашиот сервер што може да бидат од интерес "
+"за читателите или авторите. Ова може да вклучува ваша политика за отворен "
+"пристап, фокус и обем на серверот, политики за умереност и проверка, "
+"известување за авторски права, обелоденување на спонзорството, историја на "
+"серверот и изјава за приватност."
+
+msgid "manager.setup.contextAbout"
+msgstr "За серверот"
+
+msgid "manager.setup.contextSummary"
+msgstr "Резиме на сервер"
+
+msgid "manager.setup.journalAbbreviation"
+msgstr "Кратенка на серверот"
+
+msgid "manager.setup.itemsPerPage.description"
+msgstr ""
+"Ограничете го бројот на ставки (на пример, поднесоци, корисници или задачи "
+"за уредување) за да ги прикажете во списокот пред да ги прикажете следните "
+"ставки на друга страница."
+
+msgid "manager.setup.itemsPerPage"
+msgstr "Предмети по страница"
+
+msgid "manager.setup.information.forReaders"
+msgstr "За читатели"
+
+msgid "manager.setup.information.forLibrarians"
+msgstr "За библиотекари"
+
+msgid "manager.setup.information.forAuthors"
+msgstr "За автори"
+
+msgid "manager.setup.information.description"
+msgstr ""
+"Кратки описи на серверот за библиотекари и потенцијални автори и читатели. "
+"Овие се достапни во страничната лента на страницата кога е додаден блокот со "
+"информации."
+
+msgid "manager.setup.information"
+msgstr "Информациja"
+
+msgid "manager.setup.identity"
+msgstr "Идентитет на сервер за печатење"
+
+msgid "manager.setup.enableUserRegistration"
+msgstr "Посетителите можат да регистрираат корисничка сметка со серверот."
+
+msgid "manager.setup.numAnnouncementsHomepage.description"
+msgstr ""
+"Колку објави треба да се прикажат на почетната страница. Оставете го ова "
+"празно за да не се прикажува ниту еден."
+
+msgid "manager.setup.numAnnouncementsHomepage"
+msgstr "Прикажи на почетната страница"
+
+msgid "manager.setup.enableAnnouncements.description"
+msgstr ""
+"Објавите може да бидат објавени за да ги информираат читателите за новостите "
+"и настаните на серверот. Објавените соопштенија ќе се појават на страницата "
+"Огласи."
+
+msgid "manager.setup.enableAnnouncements.enable"
+msgstr "Овозможете соопштенија"
+
+msgid "manager.setup.emailSignature.description"
+msgstr ""
+"Подготвените е-пошти што системот ги испраќа во име на серверот ќе го "
+"додадат следниов потпис на крајот."
+
+msgid "manager.setup.emailSignature"
+msgstr "Потпис"
+
+msgid "manager.setup.emailBounceAddress.disabled"
+msgstr ""
+"За да испратите пораки што не може да се достават до адреса за отскокнување, "
+"администраторот на страницата мора да ја овозможи опцијата "
+"<code>allow_envelope_sender</code> во датотеката за конфигурација на "
+"страницата. Може да биде потребна конфигурација на серверот, како што е "
+"наведено во документацијата на OPS."
+
+msgid "manager.setup.emailBounceAddress.description"
+msgstr ""
+"Било кои е-пораки што не може да се достават, ќе резултираат со порака за "
+"грешка на оваа адреса."
+
+msgid "manager.setup.emailBounceAddress"
+msgstr "Адреса за отскокнување"
+
+msgid "manager.setup.disableUserRegistration"
+msgstr "Менаџерот за сервер ќе ги регистрира сите кориснички сметки."
+
+msgid "manager.setup.authorScreening"
+msgstr "Приклучоци за скринирање на автори"
+
+msgid "manager.setup.announcementsIntroduction.description"
+msgstr ""
+"Внесете какви било информации што сакате да се појават на вашата страница за "
+"соопштенија."
+
+msgid "manager.setup.announcementsIntroduction"
+msgstr "Вовед"
+
+msgid "manager.setup.announcements"
+msgstr "Објави"
+
+msgid "manager.setup.useStyleSheet"
+msgstr "Лист со стил на сервер"
+
+msgid "manager.setup.editorialTeam"
+msgstr "Тим за сервер за печатење"
+
+msgid "manager.setup.masthead"
+msgstr "Мајстор"
+
+msgid "manager.setup"
+msgstr "Поставки на серверот"
+
+msgid "manager.sections.wordCountInstructions"
+msgstr ""
+"Ограничете го апстрактниот број на зборови за овој дел (0 без ограничување)"
+
+msgid "manager.sections.wordCount"
+msgstr "Број на зборови"
+
+msgid "manager.sections.submissionIndexing"
+msgstr "Нема да бидат вклучени во индексирањето на серверот"
+
+msgid "manager.sections.policy"
+msgstr "Политика на дел"
+
+msgid "manager.sections.identifyTypeExamples"
+msgstr "(На пример итн.)"
+
+msgid "manager.sections.identifyType"
+msgstr "Идентификувајте ги ставките објавени во овој дел како (n)"
+
+msgid "manager.setup.form.section.pathRequired"
+msgstr "Потребна е патека за URL за делот"
+
+msgid "manager.sections.form.abbrevRequired"
+msgstr "Потребен е скратен наслов за делот"
+
+msgid "manager.sections.confirmDeactivateSection.error"
+msgstr ""
+"Барем еден дел мора да биде активен. Посетете ги поставките за работниот тек "
+"за да ги оневозможите сите поднесоци до овој сервер."
+
+msgid "manager.sections.editorRestriction"
+msgstr "Предметите можат да ги достават само менаџерите и модераторите."
+
+msgid "manager.sections.create"
+msgstr "Креирај дел"
+
+msgid "manager.sections.alertDelete"
+msgstr ""
+"Пред да се избрише овој дел, мора да преместите отпечатоци објавени во него "
+"во друг дел."
+
+msgid "manager.sections.confirmDelete"
+msgstr "Дали сте сигурни дека сакате трајно да го избришете овој дел?"
+
+msgid "manager.section.noSectionEditors"
+msgstr ""
+"Сè уште нема модератори. Додадете ја оваа улога на најмалку еден корисник "
+"преку Management > Settings > Users &amp; Улоги прво."
+
+msgid "manager.sections.abstractsNotRequired"
+msgstr "Не бара апстракти"
+
+msgid "manager.people.confirmRemove"
+msgstr ""
+"Да се отстрани овој корисник од овој сервер? Ова дејство ќе го отпише "
+"корисникот од сите улоги во овој сервер."
+
+msgid "manager.people.allUsers"
+msgstr "Сите запишани корисници"
+
+msgid "manager.language.confirmDefaultSettingsOverwrite"
+msgstr ""
+"Ова ќе ги замени сите поставки за серверот специфични за локацијата што ги "
+"имавте за оваа локација"
+
+msgid "manager.language.forms"
+msgstr "Формулари"
+
+msgid "manager.language.submissions"
+msgstr "Поднесоци"
+
+msgid "manager.language.ui"
+msgstr "УИ"
+
+msgid "manager.distribution.publishingMode.openAccess"
+msgstr "Серверот ќе обезбеди отворен пристап до неговата содржина."
+
+msgid "manager.distribution.publishingMode.none"
+msgstr ""
+"OPS нема да се користи за објавување на содржината на серверот на Интернет."
+
+msgid "manager.distribution.publishingMode"
+msgstr "Режим на објавување"
+
+msgid "manager.distribution.copyrightYearBasis.submission"
+msgstr "Користете го датумот за објавување на предпечатот"
+
+msgid "manager.distribution.copyrightYearBasis.description"
+msgstr ""
+"Изберете како е избран стандардниот датум за авторско право за печатење. Ова "
+"стандардно може да се замени од случај до случај."
+
+msgid "manager.distribution.access"
+msgstr "Пристап"

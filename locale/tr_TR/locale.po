@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-12-19 09:52+0000\n"
+"PO-Revision-Date: 2021-01-14 17:31+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/ops/locale/"
 "tr_TR/>\n"
@@ -353,3 +353,8 @@ msgstr "Yazara göre"
 
 msgid "common.software"
 msgstr "Açık Ön Baskı Sistemleri"
+
+msgid "installer.updatingInstructions"
+msgstr ""
+"Mevcut bir OPS kurulumunu yükseltiyorsanız, devam etmek için burayı <a href="
+"\"{$upgradeUrl}\">tıklayın</a>."

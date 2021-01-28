@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-01-11 17:22+0000\n"
+"Last-Translator: Blagoja Grozdanovski <blagoja.grozdanovski@gmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/editor/"
+"mk_MK/>\n"
+"Language: mk_MK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "editor.submission.postPreprint"
+msgstr "Објавете го препечатениот отпис"
+
+msgid "editor.submissions.assignedTo"
+msgstr "Доделено на модератор"
+
+msgid "editor.publication.authorPublishRequirements"
+msgstr "Авторот не ги исполнува следниве услови за објавување:"
+
+msgid "editor.article.coverImage"
+msgstr "Насловна слика"
+
+msgid "editor.publicIdentificationExistsForTheSameType"
+msgstr ""
+"Јавниот идентификатор „{$publicIdentifier}“ веќе постои за друг објект од "
+"ист тип. Ве молиме, изберете уникатни идентификатори за објекти од ист тип "
+"во вашиот сервер."
+
+msgid "editor.submission.proof.manageProofFilesDescription"
+msgstr ""
+"Сите датотеки што веќе се поставени во која било фаза на поднесување, може "
+"да се додадат во списокот Лекторирање со проверка на изборното поле Вклучи "
+"подолу и кликнување на Пребарување: ќе бидат наведени сите достапни датотеки "
+"и може да бидат избрани за вклучување."
+
+msgid "grid.action.addGalley"
+msgstr "Додадете отисок на труд"
+
+msgid "editor.publicIdentificationExists"
+msgstr ""
+"Јавниот идентификатор „{$publicIdentifier}“ веќе постои за друг објект ("
+"предпечат, отисок на труд или датотека). Ве молиме изберете единствени "
+"идентификатори во вашиот сервер."

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-12 16:48+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2021-01-23 17:53+0000\n"
+"Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -47,15 +47,15 @@ msgid "preprint.entry"
 msgstr "Inserção de preprint"
 
 msgid "publication.invalidSection"
-msgstr "A seção desta publicação não pode ser encontrada."
+msgstr "A seção desta versão não pôde ser encontrada."
 
 msgid "galley.publicationNotFound"
-msgstr "A publicação da composição final não pode ser encontrada."
+msgstr "A versão da composição final não pode ser encontrada."
 
 msgid "galley.editPublishedDisabled"
 msgstr ""
-"As composições finais desta publicação não podem ser editadas porque já "
-"foram publicadas."
+"As composições finais desta versão não podem ser editadas pois já foram "
+"postadas."
 
 msgid "catalog.category.heading"
 msgstr "Todos os itens"
@@ -139,3 +139,91 @@ msgstr "Submeto na minha função de..."
 
 msgid "submission.submit.title"
 msgstr "Submeter um preprint"
+
+msgid "submission.status.scheduled"
+msgstr "Agendado"
+
+msgid "publication.status.published"
+msgstr "Postado"
+
+msgid "author.submit.authorsCanNotPublish"
+msgstr ""
+"Não é possível postar seu próprio preprint. O preprint deve ser aprovado e "
+"postado por um moderador."
+
+#, fuzzy
+msgid "publication.inactiveSection"
+msgstr "{$section} (Inativo)"
+
+msgid "publication.event.scheduled"
+msgstr "A submissão foi agendada para postagem."
+
+msgid "publication.event.published"
+msgstr "A submissão foi postada."
+
+msgid "publication.editDisabled"
+msgstr "Esta versão foi postada e não pode ser editada."
+
+msgid "publication.datePublished"
+msgstr "Data de postagem"
+
+msgid "submission.publications"
+msgstr "Preprints"
+
+msgid "submission.publication"
+msgstr "Preprint"
+
+msgid "submission.queries.production"
+msgstr "Discussões"
+
+msgid "publication.version.details"
+msgstr "Detalhes da versão {$version}"
+
+msgid "publication.unpublish.confirm"
+msgstr "Você tem certeza que não quer que isso seja postado?"
+
+#, fuzzy
+msgid "publication.unschedule.confirm"
+msgstr "Você tem certeza que não quer que isso seja agendado para postagem?"
+
+#, fuzzy
+msgid "publication.required.reviewStage"
+msgstr ""
+"A submissão deve estar no estágio de Produção antes que possa ser postada."
+
+#, fuzzy
+msgid "publication.required.declined"
+msgstr "Uma submissão rejeitada não pode ser postada."
+
+msgid "publication.publish"
+msgstr "Postar"
+
+msgid "publication.invalidSubmission"
+msgstr "A submissão para este preprint não pôde ser encontrada."
+
+msgid "publication.event.versionScheduled"
+msgstr "Uma nova versão foi agendada para postagem."
+
+msgid "publication.event.versionPublished"
+msgstr "Uma nova versão foi postada."
+
+#, fuzzy
+msgid "submission.license.description"
+msgstr ""
+"A licença será  configurada automaticamente para <a href='{$licenseUrl}' "
+"target='_blank'>{$licenseName}</a> quando esse manuscrito for postado."
+
+msgid "publication.publish.requirements"
+msgstr ""
+"Os seguinte requerimentos precisam ser cumpridos para que esse manuscrito "
+"possa ser postado."
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"O ano de copyright será configurado automaticamente com base na data de "
+"postagem."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"O ano de copyright será configurado automaticamente quando o manuscrito for "
+"postado."

@@ -21,19 +21,19 @@ define('ASSOC_TYPE_NONE', -1000);
 
 abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 	/** @var PKPNativeImportExportCLIDeployment CLI Deployment for import/export operations */
-	private $cliDeployment = null;
+	protected $cliDeployment = null;
 
 	/** @var string Display operation result */
-	private $result = null;
+	protected $result = null;
 
 	/** @var bool Indication that the parent code has managed the display operation */
-	private $isResultManaged = false;
+	protected $isResultManaged = false;
 
 	/** @var PKPNativeImportExportCLIToolKit The helper for CLI import/export operations */
-	private $cliToolkit;
+	protected $cliToolkit;
 
 	/** @var string Operation type for display method */
-	private $opType;
+	protected $opType;
 
 	/**
 	 * Constructor

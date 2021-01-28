@@ -22,23 +22,14 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 import('lib.pkp.classes.plugins.importexport.PKPImportExportFilter');
 
 class PKPImportExportDeployment {
-/**
-	 * Array of possible validation errors
-	 * @var array
-	 */
+	/** @var array Array of possible validation errors */
 	private $xmlValidationErrors = array();
 
-	/**
-	 * Indicator that the import/export process has failed
-	 * @var bool
-	 */
+	/** @var bool Indicator that the import/export process has failed */
 	private $processFailed = false;
 
-	/**
-	 * The import/export process result
-	 * @var mixed
-	 */
-	private $processResult = null;
+	/** @var mixed The import/export process result */
+	public $processResult = null;
 
 	/** @var Context The current import/export context */
 	private $_context;

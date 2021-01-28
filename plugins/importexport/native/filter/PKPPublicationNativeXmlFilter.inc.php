@@ -83,9 +83,13 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 
 		if ($entity->getData('status') === STATUS_PUBLISHED) {
 			$entityNode->setAttribute('seq', (int) $entity->getData('seq'));
-			$entityNode->setAttribute('access_status', $entity->getData('accessStatus'));
 		} else {
 			$entityNode->setAttribute('seq', '0');
+		}
+
+		if ($entity->getData('accessStatus')) {
+			$entityNode->setAttribute('access_status', $entity->getData('accessStatus'));
+		} else {
 			$entityNode->setAttribute('access_status', '0');
 		}
 

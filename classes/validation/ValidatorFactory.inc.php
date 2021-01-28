@@ -282,11 +282,11 @@ class ValidatorFactory {
 						}
 					} else {
 						if (isset($props[$requiredProp]) && array_key_exists($primaryLocale, $props[$requiredProp]) && self::isEmpty($props[$requiredProp][$primaryLocale])) {
-							if (count($allowedLocales) === 1) {
-								$validator->errors()->add($requiredProp, __('validator.required'));
-							} else {
-								$validator->errors()->add($requiredProp . '.' . $primaryLocale, __('form.requirePrimaryLocale', array('language' => $primaryLocaleName)));
+							$message = __('validator.required');
+							if (count($allowedLocales) > 1) {
+								$message = __('form.requirePrimaryLocale', array('language' => $primaryLocaleName));
 							}
+							$validator->errors()->add($requiredProp . '.' . $primaryLocale, $message);
 						}
 					}
 
@@ -306,7 +306,9 @@ class ValidatorFactory {
 	 * @param $value string
 	 */
 	static private function isEmpty($value) {
-		return $value == '';
+		return is_string($value)
+			? trim($value) == ''
+			: $value == '';
 	}
 
 	/**

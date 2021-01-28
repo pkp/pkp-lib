@@ -262,6 +262,13 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			}
 		});
 
+		// Ensure that a urlPath is not 0, because this will cause router problems
+		$validator->after(function($validator) use ($props) {
+			if (isset($props['urlPath']) && !$validator->errors()->get('urlPath') && $props['urlPath'] == '0') {
+				$validator->errors()->add('urlPath', __('admin.contexts.form.pathRequired'));
+			}
+		});
+
 		// Ensure that the primary locale is one of the supported locales
 		$validator->after(function($validator) use ($action, $props, $allowedLocales) {
 			if (isset($props['primaryLocale']) && !$validator->errors()->get('primaryLocale')) {

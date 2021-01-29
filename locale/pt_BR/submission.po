@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2021-01-30 01:47+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -181,7 +181,6 @@ msgstr "Detalhes da versão {$version}"
 msgid "publication.unpublish.confirm"
 msgstr "Você tem certeza que não quer que isso seja postado?"
 
-#, fuzzy
 msgid "publication.unschedule.confirm"
 msgstr "Você tem certeza que não quer que isso seja agendado para postagem?"
 
@@ -232,3 +231,14 @@ msgstr "A submissão foi retirada."
 
 msgid "publication.status.unscheduled"
 msgstr "Não postado"
+
+msgid "publication.unpublish"
+msgstr "Retirar"
+
+msgid "submission.copyrightOther.description"
+msgstr "Designar copyright para submissões postadas ao seguinte partido."
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Copyright será designado automaticamente a {$copyright} quando isto for "
+"postado."

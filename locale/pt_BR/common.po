@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2021-01-29 13:38+0000\n"
+"PO-Revision-Date: 2021-01-29 13:47+0000\n"
 "Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_BR/>\n"
@@ -2030,3 +2030,21 @@ msgstr "{$count} itens foram encontrados."
 
 msgid "review.anonymousPeerReview.title"
 msgstr "Como garantir o anonimato de todos os arquivos"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Opções de Privacidade"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Você não tem acesso a esta designação de avaliação."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Você não tem acesso a esta mensagem da discussão."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Discussão inválida."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Rodada de avaliação inválida."
+
+msgid "user.email"
+msgstr "Endereço de email"

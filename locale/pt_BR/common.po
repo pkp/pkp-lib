@@ -2027,3 +2027,6 @@ msgstr "Um item foi encontrado."
 
 msgid "search.searchResults.foundPlural"
 msgstr "{$count} itens foram encontrados."
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Como garantir o anonimato de todos os arquivos"

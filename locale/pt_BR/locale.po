@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-10-13 13:50+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2021-01-30 01:47+0000\n"
+"Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "locale/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -67,13 +67,15 @@ msgstr ""
 "apoiado e distribuído gratuitamente pelo <a href=\"http://pkp.sfu.ca/\">"
 "Public Knowledge Project</a> sob Licença Pública Geral GNU."
 
-#, fuzzy
 msgid "about.aboutOJSJournal"
 msgstr ""
 "Este servidor utiliza Open Preprint Systems {$ojsVersion}, que é um software "
-"de gerenciamento e publicação de servidor de código aberto desenvolvido, "
-"apoiado e distribuído gratuitamente pelo <a href=\"http://pkp.sfu.ca/\">"
-"Public Knowledge Project</a> sob Licença Pública Geral GNU."
+"de gerenciamento e publicação de servidor de preprints em código aberto "
+"desenvolvido, apoiado e distribuído gratuitamente pelo Public Knowledge "
+"Project sob a Licença Pública Geral GNU. Visite o site do PKP para <a href=\""
+"http://pkp.sfu.ca/\">aprender mais sobre o software</a>. Por favor, <a href="
+"\"{$contactUrl}\">contate o servidor</a> diretamente com questões sobre o "
+"servidor e submissão de preprints."
 
 #, fuzzy
 msgid "about.aboutThisPublishingSystem.altText"
@@ -275,7 +277,7 @@ msgid "common.publication"
 msgstr "Preprint"
 
 msgid "section.emptySection"
-msgstr "Nada foi postado ainda nesta série."
+msgstr "Nada foi postado ainda nesta seção."
 
 #, fuzzy
 msgid "section.pathDescription"
@@ -319,7 +321,7 @@ msgid "navigation.browseByAuthor"
 msgstr "Pelo Autor"
 
 msgid "common.software"
-msgstr "Sistemas Abertos de Preprints"
+msgstr "Open Preprint Systems"
 
 msgid "context.select"
 msgstr "Alternar para outro servidor:"
@@ -363,3 +365,14 @@ msgstr "URL de conteúdo hospedado remotamente"
 
 msgid "article.pageTitle"
 msgstr "Visualização do {$title}"
+
+msgid "installer.updatingInstructions"
+msgstr ""
+"Se você está fazendo o upgrade de uma instalação existente do OPS, <a href=\""
+"{$upgradeUrl}\">clique aqui</a> para proceder."
+
+msgid "about.aboutSoftware"
+msgstr "Sobre o Open Preprint Systems"
+
+msgid "user.authorization.representationNotFound"
+msgstr "A prova solicitada não pôde ser encontrada."

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2021-01-26 14:05+0000\n"
+"PO-Revision-Date: 2021-01-29 12:17+0000\n"
 "Last-Translator: FRITT, University of Oslo Library <fritt-"
 "info@journals.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
@@ -1871,10 +1871,10 @@ msgid "manager.publication.emailSetup.success"
 msgstr "E-postinstillningene har blitt oppdatert."
 
 msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr "Menyelementer som ikke er tildelt"
+msgstr "Ubrukte menyelementer"
 
 msgid "manager.navigationMenus.assignedMenuItems"
-msgstr "Tildelte menyelementer"
+msgstr "Brukte menyelementer"
 
 msgid "manager.navigationMenuItems"
 msgstr "Elementer på navigasjonsmenyen"
@@ -1892,10 +1892,10 @@ msgid "manager.navigationMenus.form.menuAssigned"
 msgstr "En navigasjonsmeny er allerede tildelt dette området."
 
 msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
-msgstr "Velg et navigasjonsfelt"
+msgstr "Velg et navigasjonsområde"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
-msgstr "Aktive navigasjonsfelttema"
+msgstr "Navigasjonsområder for aktive tema"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/year)"
@@ -2187,7 +2187,7 @@ msgid "manager.navigationMenus.profile.description"
 msgstr "Lenke til brukerprofilsiden."
 
 msgid "manager.navigationMenus.dashboard.description"
-msgstr "Lenke til den redaksjonens navigasjonsmeny."
+msgstr "Lenke til redaksjonens navigasjonsmeny."
 
 msgid "manager.navigationMenus.register.description"
 msgstr "Lenke til siden der brukere registreres."

@@ -1,12 +1,13 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023.
 # cicilia conceiçao de maria <ccmaria@uem.br>, 2022.
+# Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
 "PO-Revision-Date: 2023-02-17 03:48+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_BR/>\n"
 "Language: pt_BR\n"

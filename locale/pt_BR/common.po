@@ -1864,7 +1864,7 @@ msgid "notification.cancelledReviewer"
 msgstr "Avaliador cancelado."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Enviar e-mail de notificação para todos os usuários registrados"
+msgstr "Enviar e-mail para todos os usuários registrados."
 
 msgid "notification.reviewerThankedEmail"
 msgstr "E-mail de agradecimento enviado ao avaliador."
@@ -2022,3 +2022,6 @@ msgstr "Inativo"
 
 msgid "navigation.backTo"
 msgstr "⟵ Voltar para {$page}"
+
+msgid "search.searchResults.foundSingle"
+msgstr "Um item foi encontrado."

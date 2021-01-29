@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2021-01-16 19:53+0000\n"
+"PO-Revision-Date: 2021-01-30 01:41+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "sl_SI/>\n"
@@ -202,3 +202,19 @@ msgstr "Končni datum ne sme biti starejši od včerajšnjega."
 
 msgid "api.stats.400.earlyDateRange"
 msgstr "Začetni datum ne sme biti pred 1.1.2001."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Naslednji jeziki niso podprti:  {$locales}."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"API žeton ne more biti uporabljen za dostop do tega spletišča, ker "
+"administrator spletišča ni nastavil skritega ključa."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "API žeton ne more biti dekodiran zaradi naslednje napake: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API žeton ne more biti preverjen. To lahko pomeni napako v API žetonu ali da "
+"API žeton ni več veljaven."

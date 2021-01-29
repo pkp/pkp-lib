@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2020-11-05 07:22+0000\n"
-"Last-Translator: Luiz Borges <luizbgomide@gmail.com>\n"
+"PO-Revision-Date: 2021-01-29 13:30+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1166,11 +1166,8 @@ msgstr "Submissão inicial concluída."
 msgid "submission.event.fileUploaded"
 msgstr "Um arquivo \"{$originalFileName}\" foi carregado para a submissão {$submissionId} por {$username}."
 
-#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr ""
-"Avaliação \"{$name}\" (ID do arquivo {$submissionFileId}) foi "
-"carregada."
+msgstr "Revisão \"{$name}\" do arquivo {$submissionFileId} foi carregada."
 
 msgid "submission.files.downloadAll"
 msgstr "Baixar Todos os Arquivos"
@@ -2292,3 +2289,35 @@ msgstr "Arquivos adicionais"
 
 msgid "submission.representationOfTitle"
 msgstr "{$representation} de {$title}"
+
+msgid "submission.upload.percentComplete"
+msgstr "Transferindo {$percent}% completo"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Transfira quaisquer arquivos que a equipe editorial precisará para avaliar a "
+"sua submissão."
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Um registro do carregador de arquivos é salvo quando o arquivo é criado e "
+"não pode ser alterado."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Tem certeza que deseja remover este arquivo?"
+
+msgid "submission.submit.genre.error"
+msgstr "Por favor escolha o tipo de arquivo para cada transferência."
+
+msgid "submission.submit.genre.description"
+msgstr "Escolha a opção que melhor descreva este arquivo."
+
+msgid "submission.submit.genre.label"
+msgstr "Que tipo de arquivo é esse?"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Um ou mais avaliadores perderam o prazo. A equipe editorial foi notificada e "
+"tomará as ações necessárias para garantir que os pareceres sejam enviados. "
+"Você não precisa fazer nenhuma ação neste momento. Você será notificado "
+"quando uma decisão for tomada."

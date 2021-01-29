@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-23 17:53+0000\n"
-"Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
+"PO-Revision-Date: 2021-01-29 14:08+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "admin/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -63,12 +63,10 @@ msgstr "Redirecionamento de servidor"
 msgid "admin.hostedContexts"
 msgstr "Servidores hospedados"
 
-#, fuzzy
 msgid "admin.contexts.enableContextInstructions"
 msgstr ""
-"Permita que esse servidor de preprints seja listado publicamente neste site."
+"Permita que esse servidor de preprints seja listado publicamente neste site"
 
-#, fuzzy
 msgid "admin.settings.disableBulkEmailRoles.contextDisabled"
 msgstr ""
 "A funcionalidade de envio de e-mails em massa foi desabilitada para esse "
@@ -100,3 +98,6 @@ msgstr ""
 "essa funcionalidade podem ser habilitadas para cada servidor nas "
 "configurações na lista de <a href=\"{$hostedContextsUrl}\">Servidores "
 "Hospedados</a>."
+
+msgid "admin.contexts.form.primaryLocaleNotSupported"
+msgstr "O idioma principal deve ser um dos idiomas mantidos pelo servidor."

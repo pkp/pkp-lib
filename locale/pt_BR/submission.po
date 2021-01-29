@@ -2332,3 +2332,6 @@ msgstr ""
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Reverter Rejeição"
+
+msgid "notification.type.revertDecline"
+msgstr "A decisão de recusar esta submissão foi revertida."

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-18 19:53+0000\n"
+"PO-Revision-Date: 2021-01-31 11:53+0000\n"
 "Last-Translator: Kazimir Hrastek <kazimir3385@gmail.com>\n"
 "Language-Team: Bosnian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "bs_BA/>\n"
@@ -180,3 +180,19 @@ msgstr "Datum početka ne može biti kasniji od datuma završetka."
 
 msgid "api.stats.400.wrongDateFormat"
 msgstr "Datum mora biti u formatu YYYY-MM-DD."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Sljedeće lokalizacije nisu podržane: {$locales}."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"API token se ne može koristiti za pristup ovoj web stranici jer "
+"administrator web stranice nije konfigurisao tajni ključ."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Api token nije moguće dekodirati zbog sljedeće greške: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API token nije mogao biti provjeren. To može značiti grešku u API tokenu ili "
+"da API token više nije važeći."

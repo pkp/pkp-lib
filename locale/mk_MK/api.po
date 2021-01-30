@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-26 10:17+0000\n"
-"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
+"PO-Revision-Date: 2021-01-31 11:53+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "mk_MK/>\n"
 "Language: mk_MK\n"
@@ -237,7 +237,6 @@ msgstr ""
 "АПИ токенот не може да се користи за пристап до оваа веб-страница бидејќи "
 "администраторот на страницата нема конфигурирано таен клуч."
 
-#, fuzzy
 msgid "api.400.tokenCouldNotBeDecoded"
 msgstr "apiToken не можеше да се декодира заради следната грешка: {$error}"
 
@@ -245,3 +244,6 @@ msgid "api.400.invalidApiToken"
 msgstr ""
 "АПИ токенот не можеше да се потврди. Ова може да укажува кон грешка во АПИ "
 "токенот или дека АПИ токенот не е повеќе важечки."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Следните локализации не се поддржани: {$locales}."

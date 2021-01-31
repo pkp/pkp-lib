@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2020-08-09 12:48+0000\n"
+"PO-Revision-Date: 2021-02-01 13:53+0000\n"
 "Last-Translator: Paul Heckler <paul.d.heckler@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
-"fr/>\n"
+"fr_FR/>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -84,13 +84,13 @@ msgstr "Ne pas envoyer un courriel à l'auteur"
 msgid "editor.submissionReview.open"
 msgstr "Évaluation ouverte"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
-msgstr "Évaluation à l'aveugle"
+msgstr ""
+"Évaluateur ou évaluatrice anonyme/ Identité de l'auteur ou de l'autrice "
+"divulguée"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Évaluation en double aveugle"
+msgstr "Évaluateur ou évaluatrice anonyme / auteur ou autrice anonyme"
 
 msgid "editor.review.skipEmail"
 msgstr "Ne pas envoyer un courriel au rapporteur."
@@ -541,3 +541,14 @@ msgstr "Décision enregistrée"
 
 msgid "editor.activityLog"
 msgstr "Journal d'activité"
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Voulez-vous vraiment annuler la décision de refuser cette soumission ?"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Une personne sélectionnée n'est pas assignée à cette étape."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Une discussion ne peut pas être crée avec les personnes sélectionnées car "
+"cela affecterait l'anonymat du processus d'évaluation."

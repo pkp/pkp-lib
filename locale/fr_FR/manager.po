@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2020-08-14 13:48+0000\n"
+"PO-Revision-Date: 2021-02-01 13:53+0000\n"
 "Last-Translator: Paul Heckler <paul.d.heckler@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
-"fr/>\n"
+"fr_FR/>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgid "manager.announcements"
 msgstr "Annonces"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Voulez-vous vraiment supprimer cette annonce de façon permanente ?"
+msgstr "Voulez-vous vraiment supprimer l'annonce {$title} de façon permanente ?"
 
 msgid "manager.announcements.create"
 msgstr "Créer une nouvelle annonce"
@@ -54,7 +54,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Veuillez choisir un mois et/ou un jour en plus de l'année d'expiration."
 
 msgid "manager.announcements.form.description"
-msgstr "Description"
+msgstr "Annonce"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Le texte intégral de l'annonce."
@@ -2075,11 +2075,10 @@ msgstr ""
 "Le thème a été mis à jour. <a href=\"{$url}\" target=\"_blank\">Visualisez "
 "maintenant</a>"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Afficher un lien <button type=\"button\">Assurer une évaluation à "
-"l'aveugle</button> lors du téléversement"
+"Afficher un lien <button type=\"button\">Comment s'assurer que l'ensemble "
+"des fichiers sont anonymisés</button> lors du téléversement"
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Mode d'évaluation par défaut"
@@ -2185,3 +2184,133 @@ msgstr "Conseils d'évaluation"
 
 msgid "manager.publication.emailSetup.success"
 msgstr "Les paramètres de courriels ont été mis à jour."
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Le fichier de soumission {$id} a été ignoré car il est rattaché à une notice "
+"qui ne sera pas importée, par exemple une assignation d'évaluation ou une "
+"discussion."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Sélectionner le type de métadonnées que ces fichiers peuvent présenter. Le  "
+"type « Document » doit être sélectionné pour les fichiers de publication "
+"principaux, tels que le PDF téléchargeable, afin que ces fichiers héritent "
+"leurs métadonnées depuis la publication. Sinon, choisir « Contenu "
+"supplémentaire » pour la plupart des types de fichiers. Le type « "
+"illustration » convient aux fichiers qui nécessitent des métadonnées "
+"distinctes d'attribution de crédits, de légende et de licence."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Métadonnées du fichier"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Il s'agit de fichiers complémentaires, comme des ensemble des données et du "
+"matériel de recherche, qui seront affichés séparément des fichiers "
+"principaux de la publication."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Il s'agit de fichiers dépendants, comme des images affichées par un fichier "
+"HTML, qui ne seront pas affichés avec le contenu publié."
+
+msgid "manager.setup.genres.label"
+msgstr "Type de fichier"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Voulez-vous vraiment désactiver cette rubrique ?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Voulez-vous vraiment désactiver cette rubrique ?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Désactiver cette rubrique et ne pas y autoriser de nouvelles soumissions."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Personnalisé"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Date & heure (court)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Date & heure"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Heure"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Date (court)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Date"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Choisir le format désiré pour les dates et heures. Un format personnalisé "
+"peut être entré en utilisant des <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>caractères "
+"spéciaux </a> de format."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formats des dates et heures"
+
+msgid "manager.setup.dateTime"
+msgstr "Date & heure"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Envoyer un autre courriel"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Le courriel a bien été envoyé à tous les destinataires."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Envoi du courriel. Veuillez ne pas quitter cette page jusqu'à ce que l'envoi "
+"soit terminé."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Vous êtes sur le point d'envoyer un courriel à {$total} utilisateurs et "
+"utilisatrices. Voulez-vous vraiment envoyer ce courriel ?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Envoyer un courriel"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "M'envoyer une copie de ce courriel à {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr ""
+"Sélectionnez les utilisateurs ou utilisatrices qui doivent recevoir votre "
+"courriel de notification."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Notifier"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Désactiver les soumissions"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Générateur de rapport personnalisé"
+
+msgid "manager.people.signedInAs"
+msgstr "Vous êtes actuellement connecté(e) en tant que  {$username}"
+
+msgid "manager.export.usersToCsv.description"
+msgstr ""
+"Sélectionner les utilisateurs et utilisatrices à exporter dans un fichier "
+"Excel/CSV."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Exporter au format Excel/CSV"
+
+msgid "manager.emails.resetComplete"
+msgstr "Le modèle de courriel a été réinitialisé avec succès."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Les modèles de courriels par défaut ont été réinitialisés."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Supprimer l'annonce"

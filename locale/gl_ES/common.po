@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-01 13:53+0000\n"
+"PO-Revision-Date: 2021-02-01 16:23+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "gl_ES/>\n"
@@ -1034,3 +1034,43 @@ msgstr "Folla de estilos actual"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Cancelar a carga"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"O servidor respondeu có código {{statusCode}}. Póñase en contacto co "
+"administrador do sistema se este problema persiste."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Este tipo de arquivos non se poden cargar."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"O ficheiro é demasiado grande ({{filesize}}mb). Non se poden cargar "
+"ficheiros de máis de {{maxFilesize}}mb."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"Utiliza o formulario alternativo de debaixo para cargar os teus arquivos."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"O seu navegador non admite a carga de ficheiros mediante \"arrastrar e "
+"soltar\"."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Solte aquí os ficheiros para cargar"
+
+msgid "form.disallowedProp"
+msgstr "Esta propiedade non está permitida."
+
+msgid "form.disallowedLocales"
+msgstr "Só se permiten os seguintes idiomas: {$languages}."
+
+msgid "form.dataHasChanged"
+msgstr "Os datos deste formulario cambiaron. Queres continuar sen gardar?"
+
+msgid "form.emailRequired"
+msgstr "É necesario un enderezo de correo electrónico."

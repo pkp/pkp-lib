@@ -25,11 +25,7 @@ class ArticleSearchDAO extends SubmissionSearchDAO {
 	 * @return array of results (associative arrays)
 	 */
 	function getPhraseResults($journal, $phrase, $publishedFrom = null, $publishedTo = null, $type = null, $limit = 500, $cacheHours = 24) {
-		import('lib.pkp.classes.db.DBRowIterator');
-		if (empty($phrase)) {
-			$results = false;
-			return new DBRowIterator($results);
-		}
+		if (empty($phrase)) return array();
 
 		$sqlFrom = '';
 		$sqlWhere = '';
@@ -67,7 +63,7 @@ class ArticleSearchDAO extends SubmissionSearchDAO {
 		}
 
 		import('lib.pkp.classes.submission.PKPSubmission'); // STATUS_PUBLISHED
-		$result = $this->retrieveCached(
+		$result = $this->retrieve(
 			'SELECT
 				o.submission_id,
 				MAX(s.context_id) AS journal_id,

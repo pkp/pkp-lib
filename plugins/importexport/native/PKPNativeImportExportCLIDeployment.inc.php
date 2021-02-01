@@ -19,7 +19,7 @@ class PKPNativeImportExportCLIDeployment {
 	private $scriptName;
 
 	/** @var array The import/export arguments */
-	private $args;
+	public $args;
 
 	/** @var array The import/export additional directives */
 	public $opts;
@@ -38,9 +38,6 @@ class PKPNativeImportExportCLIDeployment {
 
 	/** @var string The export entity */
 	public $exportEntity;
-
-	/** @var array Any remaining arguments that have not being processed */
-	public $remainingArgs;
 
 	/**
 	 * Constructor
@@ -71,8 +68,6 @@ class PKPNativeImportExportCLIDeployment {
 			default:
 				throw new BadMethodCallException('Unknown command ' . $this->command);
 		}
-
-		$this->remainingArgs = $this->args;
 	}
 
 	/**

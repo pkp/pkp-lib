@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-26 14:05+0000\n"
-"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
+"PO-Revision-Date: 2021-02-01 16:23+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -1971,7 +1971,6 @@ msgstr ""
 "Page proof file мора да биде означено како одобрено за да биде достапно. "
 "Дали сакате да го одобрите?"
 
-#, fuzzy
 msgid "submission.upload.uploadLibraryFile"
 msgstr "Прикачи Library датотека"
 

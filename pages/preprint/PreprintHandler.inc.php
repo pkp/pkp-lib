@@ -169,6 +169,7 @@ class PreprintHandler extends Handler {
 		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
 		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 		$publicationCategories = $categoryDao->getByPublicationId($publication->getId())->toArray();
+		$categories = [];
 		foreach ($publicationCategories as $category) {
 			$title = $category->getLocalizedTitle();
 			if ($category->getParentId()) {

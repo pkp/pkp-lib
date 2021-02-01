@@ -549,7 +549,7 @@ class FileManager {
 	 */
 	function parseFileExtension($fileName) {
 		$fileParts = explode('.', $fileName);
-		if (is_array($fileParts)) {
+		if (is_array($fileParts) && count($fileParts) > 1) {
 			$fileExtension = $fileParts[count($fileParts) - 1];
 		}
 

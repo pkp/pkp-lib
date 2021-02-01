@@ -97,10 +97,6 @@ class PKPFileService {
 			}
 		}
 
-		if (array_key_exists($mimetype, $mimetypesMap = \PKPString::getAmbiguousExtensionsMap())) {
-			$mimetype = $mimetypesMap[$mimetype];
-		}
-
 		return Capsule::table('files')->insertGetId([
 			'path' => $to,
 			'mimetype' => $mimetype,

@@ -176,19 +176,30 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			'clockssLicense',
 			'lockssLicense',
 		];
-		$rows = Capsule::table('journal_settings as js')
-			->join('journals as j', 'j.journal_id', '=', 'js.journal_id')
+		$contextDao = Application::getContextDAO();
+		$tableName = $contextDao->tableName;
+		$settingsTableName = $contextDao->settingsTableName;
+		$primaryKeyColumn = $contextDao->primaryKeyColumn;
+		$rows = Capsule::table($settingsTableName . ' as js')
+			->join($tableName . ' as j', 'j.' . $primaryKeyColumn, '=', 'js.' . $primaryKeyColumn)
 			->where('js.setting_name', '=', 'supportedFormLocales')
-			->select(['js.journal_id as id', 'js.setting_value as locales'])
+			->select(['js.' . $primaryKeyColumn . ' as id', 'js.setting_value as locales'])
 			->get();
 		foreach ($rows as $row) {
 			// account for some locale settings stored as assoc arrays
-			$locales = empty($row->locales)	? [] : json_decode($row->locales, true);
+			$locales = $row->locales;
+			if (empty($locales)) {
+				$locales = [];
+			} elseif (@unserialize($locales) !== false ) {
+				$locales = unserialize($locales);
+			} else {
+				$locales = json_decode($locales, true);
+			}
 			$locales = array_values($locales);
-			Capsule::table('journal_settings as js')
-				->where('js.journal_id', '=', $row->id)
-				->whereIn('js.setting_name', $settingsWithDefaults)
-				->whereNotIn('js.locale', $locales)
+			Capsule::table($settingsTableName)
+				->where($primaryKeyColumn, '=', $row->id)
+				->whereIn('setting_name', $settingsWithDefaults)
+				->whereNotIn('locale', $locales)
 				->delete();
 		}
 	}

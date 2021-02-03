@@ -103,7 +103,21 @@ class LanguageGridHandler extends GridHandler {
 						$key = array_search($locale, $supportedSubmissionLocales);
 						if ($key !== false) unset($supportedSubmissionLocales[$key]);
 						$supportedSubmissionLocales = array_values($supportedSubmissionLocales);
+						if ($supportedSubmissionLocales == []) {
+							return new JSONMessage(false, __('notification.localeSettingsCannotBeSaved.emptyFormsOption'));
+						}
 						$context = $contextService->edit($context, ['supportedSubmissionLocales' => $supportedSubmissionLocales], $request);
+					}
+
+					if ($settingName == 'supportedSubmissionLocales') {
+						// If someone tried to disable all submissions checkboxes, we should display an error message.
+						$supportedSubmissionLocales = (array) $context->getData('supportedSubmissionLocales');
+						$key = array_search($locale, $supportedSubmissionLocales);
+						if ($key !== false) unset($supportedSubmissionLocales[$key]);
+						$supportedSubmissionLocales = array_values($supportedSubmissionLocales);
+						if ($supportedSubmissionLocales == []) {
+							return new JSONMessage(false, __('notification.localeSettingsCannotBeSaved.emptySubmissionsOption'));
+						}
 					}
 				}
 			}

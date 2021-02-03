@@ -176,7 +176,7 @@ class EditDecisionDAO extends DAO {
 		]);
 
 		foreach ($submissionFilesIterator as $submissionFile) {
-			if ($submissionFile->getData('uploadedAt') > $decision['dateDecided']) {
+			if ($submissionFile->getData('updatedAt') > $decision['dateDecided']) {
 				$sentRevisions = true;
 				break;
 			}

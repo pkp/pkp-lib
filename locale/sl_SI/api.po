@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2020-12-14 10:13+0000\n"
+"PO-Revision-Date: 2021-01-30 01:41+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "sl_SI/>\n"
@@ -138,3 +138,83 @@ msgstr "Časa, ko je bil ustvarjen, ni mogoče spremeniti."
 
 msgid "api.400.paramNotSupported"
 msgstr "Parameter {$param} ni podprt."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Nimate pravic za dostop do datotek v tem krogu recenzije."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Nimate dovoljenja za dodajanje ali spreminjanje teh datotek."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Nimate dovoljenja za dostopanje to teh datotek."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Določeni recenzijski krog ni del tega prispevka."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Določiti morate fazo datoteke."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Da določite datoteke iz recenzijske faze, morate določiti krog recenzije."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Datoteko iz te faze ne morete povezati s tem recenzijskim krogom."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Datoteko iz te faze ne morete povezati z recenzentsko zadolžitvijo."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Datoteke iz te faze ne morete povezati z diskusijo."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Datoteke iz te faze ni mogoče povezati z drugo oddano datoteko."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Jezik {$locale} ni podprt."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr "Aktivna tema, {$themePluginPath}, ni vključena ali ni nameščena."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Ta  končna točka ni na voljo iz konteksta. Dostop je možen le iz \"site-wide "
+"namespace-a\"."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Nimate pravice za urejanje te publikacije."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+"Najdenih ni bilo nobenih sprememb v zahtevi za spreminjanje te datoteke."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Zahteva je neveljavna. Vrednost orderDirection mora bit `desc` ali `asc`."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Zahteva je neveljavna. Vrednost  timelineInterval mora biti `day` ali "
+"`month`."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Končni datum ne sme biti starejši od včerajšnjega."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Začetni datum ne sme biti pred 1.1.2001."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Naslednji jeziki niso podprti:  {$locales}."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"API žeton ne more biti uporabljen za dostop do tega spletišča, ker "
+"administrator spletišča ni nastavil skritega ključa."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "API žeton ne more biti dekodiran zaradi naslednje napake: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API žeton ne more biti preverjen. To lahko pomeni napako v API žetonu ali da "
+"API žeton ni več veljaven."

@@ -1,0 +1,370 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-01-26 14:05+0000\n"
+"Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
+"Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"gl_ES/>\n"
+"Language: gl_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tConfigurouse a súa instalación para rexistrar máis dunha métrica de uso. "
+"Amosaranse as estatísticas de uso en varios contextos.\n"
+"\t\tNalgúns casos utilizarase unha soa estatística de uso, p. ex., para "
+"amosar unha listaxe ordeada dos envíos máis utilizados ou para clasificar "
+"resultados de procura. Seleccione unha das medidas configuradas como "
+"predeterminadas.\n"
+"\t"
+
+msgid "admin.settings.contactName"
+msgstr "Nome do contacto principal"
+
+msgid "admin.settings.contactEmail"
+msgstr "Correo electrónico do contacto principal"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Correos masivos"
+
+msgid "admin.settings.about"
+msgstr "Descrición do sitio"
+
+msgid "admin.settings"
+msgstr "Axustes"
+
+msgid "admin.server.platform"
+msgstr "Plataforma SO"
+
+msgid "admin.server.phpVersion"
+msgstr "Versión PHP"
+
+msgid "admin.serverInformation"
+msgstr "Información do servidor"
+
+msgid "admin.server.dbVersion"
+msgstr "Versión do servidor da bases de datos"
+
+msgid "admin.server.dbDriver"
+msgstr "Controlador da base de datos"
+
+msgid "admin.server.apacheVersion"
+msgstr "Versión do Apache"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Recordatorio de caducidade da subscrición"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Recordatorio de revisión"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publicar os envíos programados para a súa publicación"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Limpar o rexistro de execución de tarefas programadas"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Estás seguro/a de que queres eliminar todos os rexistros de execución das "
+"tarefas programadas?"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"A súa instalación de {$softwareName} executou e finalizou automáticamente "
+"esta tarefa e  pode descargar o ficheiro de rexistro aquí: {$url}"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "A tarefa non xenerou ningún rexistro."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Tarefa detida."
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Iniciouse a tarefa."
+
+msgid "admin.scheduledTask"
+msgstr "Tarefa programada"
+
+msgid "admin.phpInfo"
+msgstr "Información PHP ampliada"
+
+msgid "admin.languages.uninstall"
+msgstr "Desinstalar ficheiro de idiomas"
+
+msgid "admin.languages.reload"
+msgstr "Volver a cargar ficheiros de idiomas"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Non existen arquivos locais adicionais dispoñibles para a instalación."
+
+msgid "admin.languages.languageSettings"
+msgstr "Configuración do idioma"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instalar novos ficheiros de idioma"
+
+msgid "admin.languages.installLocales"
+msgstr "Instalar"
+
+msgid "admin.languages.installLocale"
+msgstr "Instalar configuración rexional"
+
+msgid "admin.languages.availableLocales"
+msgstr "Idiomas dispoñibles"
+
+msgid "admin.languages.installLanguages"
+msgstr "Xestionar ficheiros de idioma"
+
+msgid "admin.languages.installedLocales"
+msgstr "Ficheiros de idioma instalados"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Estás seguro/a de que queres volver a cargar esta configuración rexional? "
+"Esta opción borrará os datos da configuración específica existentes, como os "
+"dos modelos de correo electrónico persoalizados."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Estás seguro/a de que queres cambiar o idioma principal do sitio? Os nomes "
+"de usuario/a, que son necesarios no idioma principal do sitio, copiaranse "
+"dende o idioma principal actual onde non existan."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"A configuración rexional é o idioma principal do sitio. Non se pode "
+"deshabilitar ata que elixa outra configuración rexional principal."
+
+msgid "admin.expireSessions"
+msgstr "Caducidade das sesións"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Amosar a nova configuración"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Os contidos da súa configuración actualizada amósanse a continuación. Para "
+"aplicar os cambios da configuración debe abrir <tt>config.inc.php</tt> nun "
+"editor de texto axeitado e substituir o contido polos contidos do campo de "
+"texto que aparecen a continuación."
+
+msgid "admin.dateInstalled"
+msgstr "Data de instalación"
+
+msgid "admin.currentVersion"
+msgstr "Versión actual"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Estás seguro/a de querer eliminar permanentemente {$contextName} e todo o "
+"seu contido?"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Contidos do arquivo de configuración"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Estás seguro/a de desexar que todas as sesións dos/as usuarios/as caduquen? "
+"Todas as persoas que actualmente estean rexistradas no sistema estarán "
+"obrigadas a iniciar sesión de novo (vostede incluído)."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Estás seguro/a de querer eliminar a caché dos modelos confeccionados?"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"O arquivo de configuración actualizouse con éxito. É posíbel que, si o seu "
+"sitio xa non funciona correctamente, teña que amañar a configuración de "
+"xeito manual mediante a edición de <tt>config.inc.php</tt> directamente."
+
+msgid "admin.clearTemplateCache"
+msgstr "Borrar a caché do modelo"
+
+msgid "admin.clearDataCache"
+msgstr "Borrar a caché de datos"
+
+msgid "admin.authSources"
+msgstr "Fontes de autenticación"
+
+msgid "admin.auth.noneCreated"
+msgstr "Non se definiu ningunha fonte de autenticación."
+
+msgid "admin.auth.create"
+msgstr "Crear fonte de autenticación"
+
+msgid "admin.auth.confirmDelete"
+msgstr ""
+"Estás seguro/a de querer eliminar esta fonte de autenticación "
+"definitivamente?"
+
+msgid "admin.adminFunctions"
+msgstr "Funcións administrativas"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Valor de configuración"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Nome da configuración"
+
+msgid "admin.versionHistory"
+msgstr "Historial de versións"
+
+msgid "admin.version.downloadPatch"
+msgstr "Descargar parche"
+
+msgid "admin.version.downloadPackage"
+msgstr "Descargar"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Buscar actualizacións"
+
+msgid "admin.versionBuild"
+msgstr "Crear"
+
+msgid "admin.systemInformation"
+msgstr "Información do sistema"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"O arquivo de configuración <tt>config.inc.php</tt> non existe, non se pode "
+"ler ou non é válido."
+
+msgid "admin.siteSetup"
+msgstr "Configuración do sitio"
+
+msgid "admin.siteSettings"
+msgstr "Configuración do sitio"
+
+msgid "admin.siteManagement"
+msgstr "Xestión do sitio"
+
+msgid "admin.siteAdmin"
+msgstr "Administración do sitio"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema do sitio"
+
+msgid "admin.settings.siteTitle"
+msgstr "Título"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo do sitio"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Folla de estilo do sitio"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr ""
+"Non é válido o formato da folla de estilo do sitio. O formato axeitado é "
+".css."
+
+msgid "admin.settings.siteLanguage"
+msgstr "Idioma"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Só un administrador pode modificar esta configuración."
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Desactivar os roles"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Restrinxir correos electrónicos masivos"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Lonxitude mínima do contrasinal"
+
+msgid "admin.settings.introduction"
+msgstr "Introdución"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Non hai traducións dispoñibels para descargar."
+
+msgid "admin.error.executingUtil"
+msgstr ""
+"Error: non se pode executar \"{$utilPath}\". Comprobe a súa configuración "
+"{$utilVar} en config.inc.php."
+
+msgid "admin.error.utilExecutionProblem"
+msgstr ""
+"A execución do programa \"{$utilPath}\" produciu o seguinte erro: {$output}"
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "A operación realizouse con éxito: {$filePath} a {$destinationPath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+"Aviso: o arquivo {$filePath} xa existe no cartafol de estatísticas de uso."
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Error: non se pode eliminar o arquivo {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Error: no se pode copiar o arquivo de {$filePath} a {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Error: o arquivo {$filePath} non existe ou non se pode acceder a él."
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Error: no se pode crear o cartafol temporal {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Copie o arquivo ou os arquivos de acceso de rexistro do apache e filtre as "
+"entradas relacionadas con esta instalación no cartafol de archivo actual, "
+"dentro do directorio de fase UsageStatsPlugin. Debe executalo un usuario/a "
+"que teña os permisos necesarios para a lectura de arquivos de acceso de "
+"rexistro do apache.\n"
+"\n"
+"A ferramenta só copiará arquivos que ainda non estean nos cartafoles de "
+"carga de arquivo usageStats (fase, procesamento, arquivo, rexeitar).\n"
+"\n"
+"Uso: {$scriptName} ruta/a/apache/log/file.log\n"
+"Uso (procesamento de todos os arquivos dentro de un cartafol): {$scriptName} "
+"ruta/a/apache/directorio\n"
+"\t"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Cargador de arquivos"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "O arquivo {$filename} procesouse e gardouse."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"O arquivo {$filename} non se puido mover de {$currentFilePath} a "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "O cartafol {$path} non é un directorio ou non se pode ler."
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr ""
+"A ruta base {$path} deberá estar dentro do cartafol de arquivos públicos."
+
+msgid "admin.version"
+msgstr "Versión"
+
+msgid "admin.version.upToDate"
+msgstr "O seu sistema está actualizado"
+
+msgid "admin.version.updateAvailable"
+msgstr "Hai unha nova versión dispoñibel"
+
+msgid "admin.versionRevision"
+msgstr "Revisión"
+
+msgid "admin.version.moreInfo"
+msgstr "Máis información"
+
+msgid "admin.versionMinor"
+msgstr "Secundario"
+
+msgid "admin.versionMajor"
+msgstr "Principal"
+
+msgid "admin.version.latest"
+msgstr "Última versión"

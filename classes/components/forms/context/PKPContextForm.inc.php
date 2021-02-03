@@ -2,8 +2,8 @@
 /**
  * @file classes/components/form/context/PKPContextForm.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPContextForm
@@ -13,6 +13,7 @@
  */
 namespace PKP\components\forms\context;
 use \PKP\components\forms\FormComponent;
+use \PKP\components\forms\FieldOptions;
 use \PKP\components\forms\FieldText;
 use \PKP\components\forms\FieldRichTextarea;
 
@@ -64,5 +65,28 @@ class PKPContextForm extends FormComponent {
 				'prefix' => $baseUrl . '/',
 				'size' => 'large',
 			]));
+
+		if (!$context) {
+			$localeOptions = [];
+			foreach ($locales as $locale) {
+				$localeOptions[] = [
+					'value' => $locale['key'],
+					'label' => $locale['label'],
+				];
+			}
+			$this->addField(new FieldOptions('supportedLocales', [
+					'label' => __('common.languages'),
+					'isRequired' => true,
+					'value' => [],
+					'options' => $localeOptions,
+				]))
+				->addField(new FieldOptions('primaryLocale', [
+					'label' => __('locale.primary'),
+					'type' => 'radio',
+					'isRequired' => true,
+					'value' => null,
+					'options' => $localeOptions,
+				]));
+		}
 	}
 }

@@ -3,8 +3,8 @@
 /**
  * @file classes/services/QueryBuilders/PKPSubmissionQueryBuilder.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionQueryBuilder
@@ -20,7 +20,7 @@ use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface {
 
-	/** @var int|string|null Context ID or '*' to get from all contexts */
+	/** @var int|string|null Context ID or CONTEXT_ID_ALL to get from all contexts */
 	protected $categoryIds = null;
 
 	/** @var int|null Context ID */
@@ -264,11 +264,11 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 					->groupBy('s.submission_id');
 
 		// context
-		// Never permit a query without a context_id clause unless the '*' wildcard
+		// Never permit a query without a context_id clause unless the CONTEXT_ID_ALL wildcard
 		// has been set explicitely.
 		if (is_null($this->contextId)) {
 			$q->where('s.context_id', '=', CONTEXT_ID_NONE);
-		} elseif ($this->contextId !== '*') {
+		} elseif ($this->contextId !== CONTEXT_ID_ALL) {
 			$q->where('s.context_id', '=' , $this->contextId);
 		}
 
@@ -362,6 +362,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 			$q->leftJoin('review_assignments as ra', function($table) use ($assignedTo) {
 				$table->on('s.submission_id', '=', 'ra.submission_id');
 				$table->on('ra.declined', '=', Capsule::raw((int) 0));
+				$table->on('ra.cancelled', '=', Capsule::raw((int) 0));
 				$table->whereIn('ra.reviewer_id', $assignedTo);
 			});
 

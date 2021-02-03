@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/GenreDAO.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GenreDAO
@@ -279,10 +279,10 @@ class GenreDAO extends DAO {
 	function deleteByContextId($contextId) {
 		$genres = $this->getByContextId($contextId);
 		while ($genre = $genres->next()) {
-			$this->update('DELETE FROM genre_settings WHERE genre_id = ?', (int) $genre->getId());
+			$this->update('DELETE FROM genre_settings WHERE genre_id = ?', [(int) $genre->getId()]);
 		}
 		$this->update(
-			'DELETE FROM genres WHERE context_id = ?', (int) $contextId
+			'DELETE FROM genres WHERE context_id = ?', [(int) $contextId]
 		);
 	}
 

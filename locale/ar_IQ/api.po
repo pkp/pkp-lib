@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2020-12-18 16:52+0000\n"
+"PO-Revision-Date: 2021-01-29 12:17+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ar_IQ/>\n"
@@ -148,3 +148,52 @@ msgstr "تعذر العثور على الإعلان الذي طلبته."
 
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "ليس من الممكن تغيير  وقت إنشائه."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "ليس مسموحاً لك بالوصول إلى هذه الملفات في جولة التحكيم هذه."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "ليس مسموحاً لك بإضافة تلك الملفات وتحريرها."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "ليس مسموحاً لك بالوصول إلى هذه الملفات."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "جولة التحكيم التي قدمتها ليست جزءاً من طلب التقديم هذا."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "ينبغي عليك توفير مخزن للملفات."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "ينبغي عليك تحديد جولة التحكيم عند إلتماس الملفات في مرحلة التحكيم."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "لا يمكنك ربط ملف من مخزون الملفات هذا مع جولة تحكيم."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "لا يمكنك ربط ملف من مخزون الملفات هذا مع مهمة تحكيم."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "لا يمكنك ربط ملف من مخزون الملفات هذا مع ملاحظة مناقشة."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "لا يمكنك ربط ملف من مخزون الملفات هذا مع ملف طلب تقديم آخر."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "تعذر العثور في الطلب على تغييرات من شأنها تعديل هذا الملف."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "اللغات الآتية غير مدعومة: {$locales}."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"لا يمكن استعمال ترميز واجهة برمجة التطبيق للوصول إلى هذا الموقع لأن مشرف "
+"الموقع لم يقم بتعريف مفتاح السر."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "تعذر فك شفرة ترميز واجهة برمجة التطبيق بسبب الخطأ الآتي: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"تعذر التحقق من ترميز واجهة برمجة التطبيق. قد يشير هذا إلى خطأ في ترميز واجهة "
+"برمجة التطبيق أو أنه لم يعد صالحاً."

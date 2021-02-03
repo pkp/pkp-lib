@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2020-03-07 03:23+0000\n"
-"Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
+"PO-Revision-Date: 2021-01-14 11:00+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/id/>\n"
 "Language: id_ID\n"
@@ -1015,7 +1015,7 @@ msgid "navigation.admin"
 msgstr "Administrasi"
 
 msgid "navigation.access"
-msgstr "Pengguna &amp; Peran"
+msgstr "Pengguna & Peran"
 
 msgid "stageParticipants.noOptionsToHandle"
 msgstr "Tidak boleh mengubah partisipan ini"
@@ -1917,15 +1917,14 @@ msgstr "Permintaan Penyunting"
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Review Jadwal"
 
-#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Untuk memastikan integritas blind peer-review untuk diserahkan kepada "
 "jurnal ini, setiap upaya harus dilakukan untuk mencegah identitas penulis "
 "dan mitra bestari agar tidak saling mengetahui. Ini melibatkan penulis, "
 "editor, dan mitra bestari (yang mengunggah dokumen sebagai bagian dari "
-"eeview mereka) memeriksa untuk melihat apakah langkah-langkah berikut telah "
-"diambil berkaitan dengan teks dan properti file:</p>\n"
+"telaahnya) memastikan apakah langkah-langkah berikut telah diambil berkaitan "
+"dengan teks dan properti file:</p>\n"
 "<ul><li>Penulis dokumen telah menghapus nama mereka dari teks, dengan \""
 "Penulis\" dan tahun yang digunakan dalam referensi dan catatan kaki, alih-"
 "alih nama penulis, judul artikel, dll.</li>\n"
@@ -1934,7 +1933,7 @@ msgstr ""
 "<ul><li>Microsoft Word for Windows:\n"
 "<ul><li>Pilih File</li>\n"
 "<li>Pilih Info</li>\n"
-"<li>Klik pada Periksa Masalah</li>\n"
+"<li>Klik pada Check for Issues</li>\n"
 "<li>Klik Periksa Dokumen</li>\n"
 "<li>Pada kotak dialog Pemeriksa Dokumen, centang kotak untuk memeriksa jenis "
 "file tersembunyi yang ingin Anda periksa.</li>\n"
@@ -1971,9 +1970,8 @@ msgstr "Hapus Tugas"
 msgid "grid.action.showReviewPolicy"
 msgstr "Baca kebijakan review terbaru"
 
-#, fuzzy
 msgid "review.ensuringAnonymousReview"
-msgstr "Pastikan Blind Review"
+msgstr "Bagaimana memastikan semua file anonim"
 
 msgid "context.path"
 msgstr "Alamat"
@@ -2015,4 +2013,67 @@ msgid "search.advancedFilters"
 msgstr "Filter lanjutan"
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Kirim surel pemberitahuan kepada semua pengguna terdaftar"
+msgstr "Kirim sebuah surel tentang ini kepada semua pengguna terdaftar."
+
+msgid "common.user.nonexistent"
+msgstr "[user yang tidak ada]"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Opsi Privasi"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Anda tidak berhak mengakses penugasan review ini."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Anda tidak berhak mengakses pesan diskusi ini."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Diskusi tidak valid."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Ronde review tidak valid."
+
+msgid "user.email"
+msgstr "Alamat Surel"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Bagimana memastikan semua file anonim"
+
+msgid "search.searchResults.foundPlural"
+msgstr "Ditemukan {$count} file."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Ditemika satu file."
+
+msgid "navigation.skip.description"
+msgstr "Buka tautan konten"
+
+msgid "navigation.backTo"
+msgstr "⟵ Kembali ke {$page}"
+
+msgid "form.saved"
+msgstr "Tersimpan"
+
+msgid "common.viewWithName"
+msgstr "Lihat {$name}"
+
+msgid "common.addFile"
+msgstr "Tambah File"
+
+msgid "common.selectWithName"
+msgstr "Pilih {$name}"
+
+msgid "common.moreThanOnly"
+msgstr "Lebih dari"
+
+msgid "common.lessThanOnly"
+msgstr "Kuran dari"
+
+msgid "common.editItem"
+msgstr "Sunting {$name}"
+
+msgid "common.inactive"
+msgstr "Tidak Aktif"

@@ -14,6 +14,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Esteu segur/a que voleu suprimir permanentment aquesta tramesa?"
+
 msgid "editor.submissionLibrary.description"
 msgstr "Carregueu documents que pertanyin a la revisió i publicació d'aquesta tramesa. Les plantilles per a molts d'aquests documents les podeu trobar fent clic a <em>Veure la biblioteca de documents</em>."
 

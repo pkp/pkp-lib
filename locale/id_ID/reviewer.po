@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-12 08:50+0000\n"
+"PO-Revision-Date: 2021-01-14 11:00+0000\n"
 "Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/id/>\n"
@@ -124,3 +124,6 @@ msgstr "2. Pedoman"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Permintaan"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Simpan untuk Nanti"

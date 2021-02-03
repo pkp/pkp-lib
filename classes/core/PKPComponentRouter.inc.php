@@ -3,8 +3,8 @@
 /**
  * @file classes/core/PKPComponentRouter.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPComponentRouter
@@ -350,13 +350,17 @@ class PKPComponentRouter extends PKPRouter {
 	/**
 	 * @copydoc PKPRouter::handleAuthorizationFailure()
 	 */
-	function handleAuthorizationFailure($request, $authorizationMessage) {
+	function handleAuthorizationFailure(
+		$request,
+		$authorizationMessage,
+		array $messageParams = []
+	) {
 		// Translate the authorization error message.
 		if (defined('LOCALE_COMPONENT_APP_COMMON')) {
 			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 		}
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
-		$translatedAuthorizationMessage = __($authorizationMessage);
+		$translatedAuthorizationMessage = __($authorizationMessage, $messageParams);
 
 		// Add the router name and operation if show_stacktrace is enabled.
 		if (Config::getVar('debug', 'show_stacktrace')) {

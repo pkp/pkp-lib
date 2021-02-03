@@ -3,8 +3,8 @@
 /**
  * @file pages/management/ManagementHandler.inc.php
  *
- * Copyright (c) 2013-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2013-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManagementHandler
@@ -379,10 +379,12 @@ class ManagementHandler extends Handler {
 		$userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId());
 
 		$userAccessForm = new \APP\components\forms\context\UserAccessForm($apiUrl, $context);
-		$notifyUsersForm = new \PKP\components\forms\context\PKPNotifyUsersForm($notifyUrl, $userGroups);
+		$notifyUsersForm = new \PKP\components\forms\context\PKPNotifyUsersForm($notifyUrl, $context, $userGroups);
 
 		$templateMgr->assign([
 			'pageComponent' => 'AccessPage',
+			'pageTitle' => __('navigation.access'),
+			'enableBulkEmails' => in_array($context->getId(), (array) $request->getSite()->getData('enableBulkEmails')),
 		]);
 
 		$templateMgr->setConstants([
@@ -397,7 +399,6 @@ class ManagementHandler extends Handler {
 			'progressUrl' => $progressUrl,
 		]);
 
-		$templateMgr->assign('pageTitle', __('navigation.access'));
 		$templateMgr->display('management/access.tpl');
 	}
 }

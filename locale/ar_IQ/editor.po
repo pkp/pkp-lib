@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2020-12-18 16:52+0000\n"
+"PO-Revision-Date: 2021-01-29 12:17+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ar_IQ/>\n"
@@ -465,3 +465,14 @@ msgstr "تعذر العثور على محكمين"
 
 msgid "editor.submission.revertDeclineDescription"
 msgstr "هل أنت متأكد من رعبتك في التراجع عن قرارك بشأن رفض طلب التقديم هذا؟"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "هل أنت متأكد من رغبتك في حذف طلب النشر هذا نهائياً؟"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "المشارك المحدد غير مُعيَّن إلى هذه المرحلة."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"لا يمكن إنشاء المناقشة مع المشاركين المحددين لأن ذلك سيؤثر على سرية عملية "
+"التحكيم."

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/queries/form/QueryForm.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryForm
@@ -231,7 +231,7 @@ class QueryForm extends Form {
 				}
 
 				// if current user is editor, add all reviewers
-				if ($user->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE) ||
+				if ($user->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE) || $user->hasRole([ROLE_ID_MANAGER], $context->getId()) ||
 						array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $assignedRoles)) {
 					foreach ($reviewAssignments as $reviewAssignment) {
 						$includeUsers[] = $reviewAssignment->getReviewerId();
@@ -321,6 +321,93 @@ class QueryForm extends Form {
 			'comment',
 			'users',
 		));
+	}
+
+	/**
+	 * @copydoc Form::validate()
+	 */
+	function validate($callHooks = true) {
+		// Display error if anonymity is impacted in a review stage:
+		// 1) several blind reviewers are selected, or
+		// 2) a blind reviewer and another participant (other than editor or assistant) are selected.
+		// Editors and assistants are ignored, they can see everything.
+		// Also admin and manager, if they are creating the discussion, are ignored -- they can see everything.
+		// In other stages validate that participants are assigned to that stage.
+		$query = $this->getQuery();
+		// Queryies only support ASSOC_TYPE_SUBMISSION so far (see above)
+		if ($query->getAssocType() == ASSOC_TYPE_SUBMISSION) {
+			$request = Application::get()->getRequest();
+			$user = $request->getUser();
+			$context = $request->getContext();
+			$submissionId = $query->getAssocId();
+			$stageId = $query->getStageId();
+
+			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+
+			// get the selected participants
+			$newParticipantIds = (array) $this->getData('users');
+			$participantsToConsider = $blindReviewerCount = 0;
+			foreach ($newParticipantIds as $participantId) {
+				// get participant roles in this workflow stage
+				$assignedRoles = [];
+				$usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submissionId, $stageId, null, $participantId);
+				while ($usersAssignment = $usersAssignments->next()) {
+					$userGroup = $userGroupDao->getById($usersAssignment->getUserGroupId());
+					$assignedRoles[] = $userGroup->getRoleId();
+				}
+
+				if ($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
+					// validate the anonymity
+					// get participant review assignemnts
+					$reviewAssignments = $reviewAssignmentDao->getBySubmissionReviewer($submissionId, $participantId, $stageId);
+					// if participant has no role in this stage and is not a reviewer
+					if (empty($assignedRoles) && empty($reviewAssignments)) {
+						// if participant is current user and the user has admin or manager role, ignore participant
+						if (($participantId == $user->getId()) && ($user->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE) || $user->hasRole([ROLE_ID_MANAGER], $context->getId()))) {
+							continue;
+						} else {
+							$this->addError('users', __('editor.discussion.errorNotStageParticipant'));
+							$this->addErrorField('users');
+							break;
+						}
+					}
+					// is participant a blind reviewer
+					$blindReviewer = false;
+					foreach($reviewAssignments as $reviewAssignment) {
+						if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN) {
+							$blindReviewerCount++;
+							$blindReviewer = true;
+							break;
+						}
+					}
+					// if participant is not a blind reviewer and has a role different than editor or assistant
+					if (!$blindReviewer && !array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], $assignedRoles)) {
+						$participantsToConsider++;
+					}
+					// if anonymity is impacted, display error
+					if (($blindReviewerCount > 1) || ($blindReviewerCount > 0 && $participantsToConsider > 0)) {
+						$this->addError('users', __('editor.discussion.errorAnonymousParticipants'));
+						$this->addErrorField('users');
+						break;
+					}
+				} else {
+					// if participant has no role/assignment in the current stage
+					if (empty($assignedRoles)) {
+						// if participant is current user and the user has admin or manager role, ignore participant
+						if (($participantId == $user->getId()) && ($user->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE) || $user->hasRole([ROLE_ID_MANAGER], $context->getId()))) {
+							continue;
+						} else {
+							$this->addError('users', __('editor.discussion.errorNotStageParticipant'));
+							$this->addErrorField('users');
+							break;
+						}
+					}
+				}
+			}
+		}
+		return parent::validate($callHooks);
 	}
 
 	/**

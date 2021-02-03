@@ -3,8 +3,8 @@
 /**
  * @file classes/notification/PKPNotificationManager.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationManager
@@ -186,9 +186,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 
 		switch ($type) {
 			case NOTIFICATION_TYPE_FORM_ERROR:
-				$templateMgr = TemplateManager::getManager($request);
-				$templateMgr->assign('errors', $content);
-				return $templateMgr->fetch('controllers/notification/formErrorNotificationContent.tpl');
+				return join(' ', $content);
 			case NOTIFICATION_TYPE_ERROR:
 				if (!is_array($content)) return $content;
 

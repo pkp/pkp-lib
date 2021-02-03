@@ -3,8 +3,8 @@
 /**
  * @file pages/admin/AdminHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AdminHandler
@@ -168,9 +168,12 @@ class AdminHandler extends Handler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $supportedLocales);
 
+		$contexts = Services::get('context')->getManySummary();
+
 		$siteAppearanceForm = new \PKP\components\forms\site\PKPSiteAppearanceForm($apiUrl, $locales, $site, $baseUrl, $temporaryFileApiUrl);
 		$siteConfigForm = new \PKP\components\forms\site\PKPSiteConfigForm($apiUrl, $locales, $site);
 		$siteInformationForm = new \PKP\components\forms\site\PKPSiteInformationForm($apiUrl, $locales, $site);
+		$siteBulkEmailsForm = new \PKP\components\forms\site\PKPSiteBulkEmailsForm($apiUrl, $site, $contexts);
 		$themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales);
 
 		$templateMgr = TemplateManager::getManager($request);
@@ -180,6 +183,7 @@ class AdminHandler extends Handler {
 				FORM_SITE_APPEARANCE => $siteAppearanceForm->getConfig(),
 				FORM_SITE_CONFIG => $siteConfigForm->getConfig(),
 				FORM_SITE_INFO => $siteInformationForm->getConfig(),
+				FORM_SITE_BULK_EMAILS => $siteBulkEmailsForm->getConfig(),
 				FORM_THEME => $themeForm->getConfig(),
 			],
 		]);
@@ -208,6 +212,7 @@ class AdminHandler extends Handler {
 		$tabsSingleContextAvailability = [
 			'siteSetup',
 			'languages',
+			'bulkEmails',
 		];
 
 		$tabs = [
@@ -218,6 +223,7 @@ class AdminHandler extends Handler {
 			'siteInfo',
 			'languages',
 			'navigationMenus',
+			'bulkEmails',
 			'siteTheme',
 			'siteAppearanceSetup',
 		];
@@ -273,14 +279,23 @@ class AdminHandler extends Handler {
 		$themeForm = new PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $context);
 		$indexingForm = new PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
 
+		$components = [
+			FORM_CONTEXT => $contextForm->getConfig(),
+			FORM_SEARCH_INDEXING => $indexingForm->getConfig(),
+			FORM_THEME => $themeForm->getConfig(),
+		];
+
+		$bulkEmailsEnabled = in_array($context->getId(), (array) $request->getSite()->getData('enableBulkEmails'));
+		if ($bulkEmailsEnabled) {
+			$userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId());
+			$restrictBulkEmailsForm = new PKP\components\forms\context\PKPRestrictBulkEmailsForm($apiUrl, $context, $userGroups);
+			$components[$restrictBulkEmailsForm->id] = $restrictBulkEmailsForm->getConfig();
+		}
+
 		$templateMgr = TemplateManager::getManager($request);
 
 		$templateMgr->setState([
-			'components' => [
-				FORM_CONTEXT => $contextForm->getConfig(),
-				FORM_SEARCH_INDEXING => $indexingForm->getConfig(),
-				FORM_THEME => $themeForm->getConfig(),
-			],
+			'components' => $components,
 		]);
 
 		$breadcrumbs = $templateMgr->get_template_vars('breadcrumbs');
@@ -296,6 +311,7 @@ class AdminHandler extends Handler {
 
 		$templateMgr->assign([
 			'breadcrumbs' => $breadcrumbs,
+			'bulkEmailsEnabled' => $bulkEmailsEnabled,
 			'editContext' => $context,
 			'pageTitle' => __('manager.settings.wizard'),
 		]);

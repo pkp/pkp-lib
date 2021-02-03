@@ -3,8 +3,8 @@
 /**
  * @file classes/search/SubmissionSearch.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionSearch
@@ -22,6 +22,7 @@ define('SUBMISSION_SEARCH_TITLE',		0x00000002);
 define('SUBMISSION_SEARCH_ABSTRACT',		0x00000004);
 define('SUBMISSION_SEARCH_DISCIPLINE',		0x00000008);
 define('SUBMISSION_SEARCH_SUBJECT',		0x00000010);
+define('SUBMISSION_SEARCH_KEYWORD',  	0x00000011);
 define('SUBMISSION_SEARCH_TYPE',		0x00000020);
 define('SUBMISSION_SEARCH_COVERAGE',		0x00000040);
 define('SUBMISSION_SEARCH_GALLEY_FILE',		0x00000080);

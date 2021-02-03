@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/upgrade/PKPv3_3_0UpgradeMigration.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionsMigration
@@ -164,6 +164,33 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			$table->unsignedInteger('created_at');
 			$table->index(['queue', 'reserved_at']);
 		});
+
+		// pkp/pkp-lib#6594 Clear context defaults installed for unused languages
+		$settingsWithDefaults = [
+			'authorInformation',
+			'librarianInformation',
+			'openAccessPolicy',
+			'privacyStatement',
+			'readerInformation',
+			'submissionChecklist',
+			'clockssLicense',
+			'lockssLicense',
+		];
+		$rows = Capsule::table('journal_settings as js')
+			->join('journals as j', 'j.journal_id', '=', 'js.journal_id')
+			->where('js.setting_name', '=', 'supportedFormLocales')
+			->select(['js.journal_id as id', 'js.setting_value as locales'])
+			->get();
+		foreach ($rows as $row) {
+			// account for some locale settings stored as assoc arrays
+			$locales = empty($row->locales)	? [] : json_decode($row->locales, true);
+			$locales = array_values($locales);
+			Capsule::table('journal_settings as js')
+				->where('js.journal_id', '=', $row->id)
+				->whereIn('js.setting_name', $settingsWithDefaults)
+				->whereNotIn('js.locale', $locales)
+				->delete();
+		}
 	}
 
 	/**
@@ -250,6 +277,13 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 	private function _migrateSubmissionFiles() {
 		import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_ constants
 
+		// pkp/pkp-lib#6616 Delete submission_files entries that correspond to nonexistent submissions
+		$orphanedIds = Capsule::table('submission_files AS sf')->leftJoin('submissions AS s', 'sf.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->pluck('sf.submission_id', 'sf.file_id');
+		foreach ($orphanedIds as $fileId => $submissionId) {
+			error_log("Removing orphaned submission_files entry ID $fileId with submission_id $submissionId");
+			Capsule::table('submission_files')->where('file_id', '=', $fileId)->delete();
+		}
+
 		// Add partial index (DBMS-specific)
 		switch (Capsule::connection()->getDriverName()) {
 			case 'mysql': Capsule::connection()->unprepared('CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name(50), setting_value(150))'); break;
@@ -319,7 +353,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 				$this->_fileStageToPath($row->file_stage),
 				$filename
 			);
-			if ($fileService->fs->has($path)) {
+			if (!$fileService->fs->has($path)) {
 				error_log("A submission file was expected but not found at $path.");
 			}
 			$newFileId = Capsule::table('files')->insertGetId([
@@ -477,6 +511,21 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		Capsule::schema()->table('review_files', function (Blueprint $table) {
 			$table->renameColumn('file_id', 'submission_file_id');
 		});
+
+		// pkp/pkp-lib#6616 Delete review_files entries that correspond to nonexistent submission_files
+		$orphanedIds = Capsule::table('review_files AS rf')
+			->leftJoin('submission_files AS sf', 'rf.submission_file_id', '=', 'sf.submission_file_id')
+			->whereNull('sf.submission_file_id')
+			->whereNotNull('rf.submission_file_id')
+			->pluck('rf.submission_file_id', 'rf.review_id');
+		foreach ($orphanedIds as $reviewId => $submissionFileId) {
+			error_log("Removing orphaned review_files entry with review_id ID $reviewId and submission_file_id $submissionFileId");
+			Capsule::table('review_files')
+				->where('submission_file_id', '=', $submissionFileId)
+				->where('review_id', '=', $reviewId)
+				->delete();
+		}
+
 		Capsule::schema()->table('review_files', function (Blueprint $table) {
 			$table->bigInteger('submission_file_id')->nullable(false)->unsigned()->change();
 			$table->dropIndex('review_files_pkey');
@@ -547,7 +596,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			->get();
 		foreach ($rows as $row) {
 			$updateBlocks = false;
-			$blocks = json_decode($row->setting_value);
+			$blocks = unserialize($row->setting_value);
 			foreach ($blocks as $key => $block) {
 				$newBlock = strtolower_codesafe($block);
 				if ($block !== $newBlock) {
@@ -560,7 +609,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 					->where('plugin_name', 'customblockmanagerplugin')
 					->where('setting_name', 'blocks')
 					->where('context_id', $row->context_id)
-					->update(['setting_value' => $blocks]);
+					->update(['setting_value' => serialize($blocks)]);
 			}
 		}
 	}
@@ -588,13 +637,13 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 				->where($contextDao->primaryKeyColumn, $row->context_id)
 				->first()
 				->primary_locale;
-			$blocks = json_decode($row->setting_value);
+			$blocks = unserialize($row->setting_value);
 			foreach ($blocks as $block) {
 				$newRows[] = [
 					'plugin_name' => $block,
 					'context_id' => $row->context_id,
 					'setting_name' => 'blockTitle',
-					'setting_value' => json_encode([$locale => $block]),
+					'setting_value' => serialize([$locale => $block]),
 					'setting_type' => 'object',
 				];
 			}

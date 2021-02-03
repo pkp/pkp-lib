@@ -1,8 +1,8 @@
 {**
  * templates/admin/contextSettings.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Admin page for configuring high-level details about a context.
@@ -18,7 +18,7 @@
 
 	<tabs :track-history="true">
 		<tab id="setup" label="{translate key="manager.setup"}">
-			<tabs :track-history="true">
+			<tabs :is-side-tabs="true" :track-history="true">
 				<tab id="context" label="{translate key="context.context"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_CONTEXT}"
@@ -40,6 +40,17 @@
 						v-bind="components.{$smarty.const.FORM_SEARCH_INDEXING}"
 						@set="set"
 					/>
+				</tab>
+				<tab id="restrictBulkEmails" label="{translate key="admin.settings.restrictBulkEmails"}">
+					{if $bulkEmailsEnabled}
+						<pkp-form
+							v-bind="components.{$smarty.const.FORM_RESTRICT_BULK_EMAILS}"
+							@set="set"
+						/>
+					{else}
+						{capture assign="siteSettingsUrl"}{url router=$smarty.const.ROUTE_PAGE page="admin" op="settings" anchor="setup/bulkEmails"}{/capture}
+						<p>{translate key="admin.settings.disableBulkEmailRoles.contextDisabled" siteSettingsUrl=$siteSettingsUrl}</p>
+					{/if}
 				</tab>
 				{call_hook name="Template::Settings::admin::contextSettings::setup"}
 			</tabs>

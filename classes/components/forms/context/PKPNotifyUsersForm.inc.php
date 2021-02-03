@@ -2,8 +2,8 @@
 /**
  * @file classes/components/form/context/PKPNotifyUsersForm.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNotifyUsersForm
@@ -34,13 +34,17 @@ class PKPNotifyUsersForm extends FormComponent {
 	 * Constructor
 	 *
 	 * @param string $action URL to submit the form to
+	 * @param Context $context Journal, press or preprint server
 	 * @param DAOResultFactory $userGroups Allowed user groups
 	 */
-	public function __construct($action, $userGroups) {
+	public function __construct($action, $context, $userGroups) {
 		$this->action = $action;
 
 		$userGroupOptions = [];
 		while ($userGroup = $userGroups->next()) {
+			if (in_array($userGroup->getId(), (array) $context->getData('disableBulkEmailUserGroups'))) {
+				continue;
+			}
 			$userGroupOptions[] = [
 				'value' => $userGroup->getId(),
 				'label' => $userGroup->getLocalizedData('name'),

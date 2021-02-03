@@ -3,8 +3,8 @@
 /**
  * @file pages/workflow/PKPWorkflowHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class WorkflowHandler
@@ -365,7 +365,7 @@ abstract class PKPWorkflowHandler extends Handler {
 				break;
 			}
 		}
-		if ($metadataEnabled || in_array('publication', $submissionContext->getData('enablePublisherId'))) {
+		if ($metadataEnabled || in_array('publication', (array) $submissionContext->getData('enablePublisherId'))) {
 			$vocabSuggestionUrlBase =$request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
 			$metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
 			$templateMgr->setConstants(['FORM_METADATA']);

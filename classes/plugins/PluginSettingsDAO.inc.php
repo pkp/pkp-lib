@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/PluginSettingsDAO.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginSettingsDAO
@@ -191,7 +191,7 @@ class PluginSettingsDAO extends DAO {
 	 */
 	function deleteByContextId($contextId) {
 		return $this->update(
-			'DELETE FROM plugin_settings WHERE context_id = ?', (int) $contextId
+			'DELETE FROM plugin_settings WHERE context_id = ?', [(int) $contextId]
 		);
 	}
 

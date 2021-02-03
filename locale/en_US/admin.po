@@ -164,6 +164,9 @@ msgstr "Settings"
 msgid "admin.settings.about"
 msgstr "About the Site"
 
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Bulk Emails"
+
 msgid "admin.settings.contactEmail"
 msgstr "Email of principal contact"
 
@@ -183,6 +186,15 @@ msgstr "Introduction"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "Minimum password length (characters)"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Restrict Bulk Emails"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Disable Roles"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Only an administrator is allowed to modify this setting."
 
 msgid "admin.settings.siteLanguage"
 msgstr "Site language"

@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2020-06-23 05:39+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2021-01-30 01:41+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1320,9 +1320,8 @@ msgstr "Baixar este arquivo"
 msgid "context.path"
 msgstr "Caminho"
 
-#, fuzzy
 msgid "review.ensuringAnonymousReview"
-msgstr "Garantindo o Blind Review"
+msgstr "Como garantir o anonimato de todos os arquivos"
 
 msgid "grid.action.showReviewPolicy"
 msgstr "Leia a política de avaliação atual"
@@ -1345,18 +1344,17 @@ msgstr "Tarefas"
 msgid "dashboard.myQueue"
 msgstr "Fila"
 
-#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
-"<p>Para garantir a integridade da avaliação por pares cega para a submissão "
-"a esta editora, todo esforço deve ser feito para evitar que as identidades "
-"dos autores e avaliadores sejam conhecidas um ao outro. Isto envolve os "
-"autores , editores e avaliadores( que carregam documentos como parte de sua "
-"avaliação) verificando se as seguintes medidas foram tomadas em relação ao "
-"texto e as propriedades do arquivo :</p>\n"
+"<p>Para garantir a integridade da avaliação por pares anônima, todo esforço "
+"deve ser feito para evitar que as identidades dos autores e avaliadores "
+"sejam reveladas um ao outro. Isto envolve os autores , editores e "
+"avaliadores (que carregam documentos no sistema como parte de sua avaliação) "
+"certificando-se que as seguintes medidas foram tomadas em relação ao texto e "
+"às propriedades do arquivo :</p>\n"
 "\t\t\t<ul><li>Os autores do documento devem excluir seus nomes do texto, com "
-"o literal \" Autor\" e ano usada nas referências e notas de rodapé, em vez "
-"do nome dos autores, título do artigo, etc</li>\n"
+"o literal \"Autor\" e ano usada nas referências e notas de rodapé, em vez do "
+"nome dos autores, título do artigo, etc.</li>\n"
 "\t\t\t<li>Em documentos do Microsoft Office , a identificação do autor deve "
 "igualmente ser removidos das propriedades do arquivo (ver no menu Arquivo no "
 "Word), clicando sobre o seguinte, começando com Arquivo no menu principal do "
@@ -1864,7 +1862,7 @@ msgid "notification.cancelledReviewer"
 msgstr "Avaliador cancelado."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Enviar e-mail de notificação para todos os usuários registrados"
+msgstr "Enviar e-mail sobre isso para todos os usuários registrados."
 
 msgid "notification.reviewerThankedEmail"
 msgstr "E-mail de agradecimento enviado ao avaliador."
@@ -1995,3 +1993,57 @@ msgstr "Mais que"
 
 msgid "common.lessThanOnly"
 msgstr "Menor que"
+
+msgid "form.saved"
+msgstr "Salvo"
+
+msgid "common.viewWithName"
+msgstr "Visualizar {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Usuário não existente]"
+
+msgid "common.addFile"
+msgstr "Adicionar Arquivo"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "Selecionar {$name}"
+
+msgid "common.editItem"
+msgstr "Editar {$name}"
+
+msgid "common.inactive"
+msgstr "Inativo"
+
+msgid "navigation.backTo"
+msgstr "⟵ Voltar para {$page}"
+
+msgid "search.searchResults.foundSingle"
+msgstr "Um item foi encontrado."
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} itens foram encontrados."
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Como garantir o anonimato de todos os arquivos"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Opções de Privacidade"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Você não tem acesso a esta designação de avaliação."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Você não tem acesso a esta mensagem da discussão."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Discussão inválida."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Rodada de avaliação inválida."
+
+msgid "user.email"
+msgstr "Endereço de email"

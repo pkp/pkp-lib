@@ -12,6 +12,9 @@ msgstr ""
 "20)) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Sunteți sigur că doriți să ștergeți definitiv această înregistrare?"
+
 msgid "reviewer.list.activeReviews"
 msgstr "{$count} active"
 

@@ -1,0 +1,219 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-01-27 14:28+0000\n"
+"Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
+"Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"gl_ES/>\n"
+"Language: gl_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.emails.400.missingSubject"
+msgstr "Debe cubrir o asunto do correo electrónico."
+
+msgid "api.emails.400.missingBody"
+msgstr "Debe incluir un correo electrónico para envialo."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Non se atopou o aviso solicitado."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"A chave API non se pode utilizar para acceder a este sitio porque o "
+"administrador do sitio non configurou unha chave segreda."
+
+msgid "api.404.endpointNotFound"
+msgstr "A URL solicitada non foi recoñecida."
+
+msgid "api.404.resourceNotFound"
+msgstr "Non se atopou o recurso solicitado."
+
+msgid "api.403.unauthorized"
+msgstr "Non ten autorización para acceder ao recurso solicitado."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "No é posibel cambiar a data na que foi creado."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "A chave API non se puido descodificar polo seguinte erro: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Non se puido validar a chave API. Isto pode indicar un erro na chave API ou "
+"que a chave API xa non é válida."
+
+msgid "api.400.paramNotSupported"
+msgstr "O parámetro {$param} non está soportado."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "A configuración rexional {$locale} non está soportada."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"O tema activo, {$themePluginPath}, non está habilitado e podería non "
+"instalarse."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Este terminal non está dispoñible desde un contexto. Debe accederse a él "
+"desde o espazo de nomes (namespace) de todo o sitio."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Non tes permiso para editar esta publicación."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Non tes permiso para eliminar este envío."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Só podes ver os envíos non publicados aos que foras asignado."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Non podes eliminar un envío que non estea asignado a este contexto."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"A túa solicitude foi denegada. Pode ser que a túa sesión caducara. Tenta "
+"volver cargar a páxina e téntao de novo."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "O volume, número ou ano solicitados non son válidos."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"A túa solicitude non se puido cumprir porque falta información requirida."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Non tes permiso para acceder a ficheiros nesta rolda de revisión."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Non tes permiso para engadir e editar estes arquivos."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Non tes permiso para acceder a estes arquivos."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "A rolda de revisión que proporcionou non forma parte deste envío."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "Non se atoparon cambios na solicitude de edición deste arquivo."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Debes proporcionar unha fase de arquivo."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Debes especificar unha rolda de revisión cando solicites arquivos nunha fase "
+"de revisión."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Non podes asociar un arquivo desta fase cunha rolda de revisión."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Non podes asociar un arquivo desta fase cunha tarefa de revisión."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Non podes asociar un arquivo desta fase con outro arquivo de envío."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Non podes asociar un arquivo desta fase cunha nota de discusión."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Non pode modificar a asociación de arquivos sin pasar un assocType e un "
+"assocId."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"A súa solicitude non é válida. A ordeación dos resultados debe ser `desc` ou "
+"`asc`."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"A súa solicitude non é válida. O intervalo cronolóxico de tempo debe ser "
+"`día` ou `mes`."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "A data de finalización non pode ser posterior a onte."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "A data de inicio non pode ser anterior a 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "A data de inicio non pode ser posterior á data de finalización."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "A data debe estar no formato AAAA-MM-DD."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"O cartafol de arquivos públicos non se atopou ou os arquivos non poden "
+"gardarse nel. Contacte có administrador/a pra resolver este problema."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Non hai suficiente espazo no seu cartafol de usuario/a. O arquivo que quere "
+"cargar ten {$fileUploadSize}kb e quédanlle {$dirSizeLeft}kb."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Non ten permiso para cargar arquivos."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"O arquivo cargado non se corresponde coa extensión do arquivo. Isto pode "
+"ocurrir cando un arquivo é renomeado a un tipo incompatible, por exemplo al "
+"cambiar .png a .jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "A imaxe cargada non é válida."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "So se poden cargar os seguintes tipos de arquivos: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Debe retiralo da publicación antes de poder eliminalo."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Non pode modificar o estado directamente a través da API. En vez diso, "
+"utilice os terminais /publish e /unpublish."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Non pode editar esta publicación porque xa foi publicada."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "A publicación que quere retirar aínda non foi publicada."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "A publicación que quere publicar xa está publicada."
+
+msgid "api.files.400.config"
+msgstr ""
+"Non se puido cargar o arquivo debido a un erro de configuración do servidor. "
+"Contacte co administrador/a do sistema."
+
+msgid "api.files.400.fileSize"
+msgstr "Os arquivos máis grandes de {$maxSize} non se poden cargar."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Un ou máis arquivos no se puideron cargar."
+
+msgid "api.files.400.noUpload"
+msgstr "Non se atopou ningún arquivo que cargar para esta solicitude."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Non se atopou o modelo de correo electrónico solicitado."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Non está permitido enviar un correo electrónico a usuarios/as nun ou máis "
+"dos roles seleccionados."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"Debe indicar que roles de usuario deben recibir este correo electrónico."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Os seguintes idiomas non están soportados: {$locales}."

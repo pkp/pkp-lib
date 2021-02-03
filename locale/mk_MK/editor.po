@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-04 07:48+0000\n"
-"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"PO-Revision-Date: 2021-01-31 11:53+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -10,6 +10,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Дали сте сигурни дека сакате трајно да го избришете овој поднесок?"
 
 msgid "editor.submission.workflowDecision.submission"
 msgstr "Одлуката е забележана"
@@ -485,11 +488,9 @@ msgstr "Затвори го селектриањњето фајлови"
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Фајлови за рецензирање"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Двојно слепо"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
 msgstr "Слепо"
 
@@ -504,3 +505,16 @@ msgstr "Испрати имејл соопштение до уредник(ци)
 
 msgid "editor.submissionReview.sendEmail"
 msgstr "Испрати имелј соопштение до автор(и): {$authorName}"
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
+"Дали сте сигурни дека сакате да ја смените одлуката за одбивање на овој "
+"поднесок?"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Избраниот учесник не е назначен во оваа стапка."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Не може да биде создадена дискусија со избраните учесници бидејќи тоа ќе "
+"влијае врз анонимноста на рецензентскиот процес."

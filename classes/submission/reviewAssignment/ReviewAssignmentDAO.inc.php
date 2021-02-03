@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/reviewAssignment/ReviewAssignmentDAO.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewAssignmentDAO
@@ -103,7 +103,6 @@ class ReviewAssignmentDAO extends DAO {
 		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
-
 	/**
 	 * Retrieve a review assignment by review assignment id.
 	 * @param $reviewId int
@@ -185,6 +184,24 @@ class ReviewAssignmentDAO extends DAO {
 
 		$query .= $orderBy;
 
+		return $this->_getReviewAssignmentsArray($query, $queryParams);
+	}
+
+	/**
+	 * Retrieve all review assignments by submission and reviewer.
+	 * @param $submissionId int
+	 * @param $reviewerId int
+	 * @param $stageId int optional
+	 * @return array
+	 */
+	function getBySubmissionReviewer($submissionId, $reviewerId, $stageId = null) {
+		$query = $this->_getSelectQuery() .
+			' WHERE	r.submission_id = ? AND r.reviewer_id = ?';
+		$queryParams = [(int) $submissionId, (int) $reviewerId];
+		if ($stageId != null) {
+			$query .= ' AND r.stage_id = ?';
+			$queryParams[] = (int) $stageId;
+		}
 		return $this->_getReviewAssignmentsArray($query, $queryParams);
 	}
 

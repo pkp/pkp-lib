@@ -1,8 +1,8 @@
 {**
  * templates/management/access.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief The users, roles and site access settings page.
@@ -23,6 +23,7 @@
 			{capture assign=rolesUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.roles.UserGroupGridHandler" op="fetchGrid" escape=false}{/capture}
 			{load_url_in_div id="roleGridContainer" url=$rolesUrl}
 		</tab>
+		{if $enableBulkEmails}
 		<tab id="notify" label="{translate key="manager.setup.notifyUsers"}">
 			<div v-if="queueId" role="alert">
 				<p v-if="completedJobs < totalJobs">
@@ -43,6 +44,7 @@
 				@set="set"
 			/>
 		</tab>
+		{/if}
 		<tab id="access" label="{translate key="manager.siteAccessOptions.siteAccessOptions"}">
 		{help file="users-and-roles" section="site-access" class="pkp_help_tab"}
 			<pkp-form

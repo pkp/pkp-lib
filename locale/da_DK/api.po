@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-11-27 10:51+0000\n"
+"PO-Revision-Date: 2021-01-28 15:01+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "da_DK/>\n"
@@ -170,3 +170,57 @@ msgstr "Den meddelelse, du søgte efter, blev ikke fundet."
 
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "Det er ikke muligt at ændre det tidspunkt, hvor det blev oprettet."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Du har ikke adgang til filer tilknyttet denne bedømmelsesrunde."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Du har ikke tilladelse til at redigere disse filer."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Du har ikke adgang til disse filer."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+"Den bedømmelsesrunde, du har angivet, er ikke en del af denne indsendelse."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Du skal angive et trin."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Du skal angive en bedømmelsesrunde, når du anmoder om filer på et "
+"bedømmelsestrin."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Du kan ikke knytte en fil fra dette trin til en bedømmelsesrunde."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Du kan ikke knytte en fil fra dette trin til en bedømmelsesstildeling."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"Du kan ikke knytte en fil fra dette trin til en diskussions-/drøftelses-"
+"notat."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Du kan ikke knytte en fil fra dette trin til en anden indsendelsesfil."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "Der er ingen ændringer i anmodningen om at redigere denne fil."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"API-token kan ikke bruges til at få adgang til dette websted, fordi "
+"webstedsadministratoren ikke har konfigureret en hemmelig nøgle."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "ApiToken kunne ikke afkodes på grund af følgende fejl: {$ error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API-token kunne ikke valideres. Dette kan indikere en fejl i API-token, "
+"eller at API-token ikke længere er gyldigt."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Følgende sprog understøttes ikke: {$locales}."

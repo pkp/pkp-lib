@@ -3,8 +3,8 @@
 /**
  * @file api/v1/_email/PKPEmailHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEmailHandler
@@ -78,6 +78,10 @@ class PKPEmailHandler extends APIHandler {
 		$context = $this->getRequest()->getContext();
 		$contextId = $context->getId();
 
+		if (!in_array($contextId, (array) $this->getRequest()->getSite()->getData('enableBulkEmails'))) {
+			return $response->withStatus(403)->withJsonError('api.emails.403.disabled');
+		}
+
 		$requestParams = $slimRequest->getParsedBody();
 
 		$params = [];
@@ -120,10 +124,11 @@ class PKPEmailHandler extends APIHandler {
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		foreach ($params['userGroupIds'] as $userGroupId) {
-			if (!$userGroupDao->contextHasGroup($contextId, $userGroupId)) {
+			if (!$userGroupDao->contextHasGroup($contextId, $userGroupId)
+					|| in_array($userGroupId, (array) $context->getData('disableBulkEmailUserGroups'))) {
 				return $response->withJson([
 						'userGroupIds' => [__('api.emails.403.notAllowedUserGroup')],
-					], 403);
+					], 400);
 			}
 		}
 
@@ -197,7 +202,7 @@ class PKPEmailHandler extends APIHandler {
 		if (!$countRunning && $countPending) {
 			$laravelContainer = Registry::get('laravelContainer');
 			$worker = new Illuminate\Queue\Worker(
-			$laravelContainer['queue'],
+				$laravelContainer['queue'],
 				$laravelContainer['events'],
 				$laravelContainer['exception.handler'],
 				function() {

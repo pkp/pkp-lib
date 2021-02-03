@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/notifications/TaskNotificationsGridHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TaskNotificationsGridHandler
@@ -37,7 +37,14 @@ class TaskNotificationsGridHandler extends NotificationsGridHandler {
 
 		// Get all level task notifications.
 		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-		return $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TASK)->toArray();
+		$notifications = $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TASK)->toArray();
+
+		// Checkbox selection requires the array keys match the notification id
+		$notificationsForRow = [];
+		foreach ($notifications as $notification) {
+			$notificationsForRow[$notification->getId()] = $notification;
+		}
+		return $notificationsForRow;
 	}
 }
 

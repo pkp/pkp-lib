@@ -183,7 +183,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			->get();
 		foreach ($rows as $row) {
 			// account for some locale settings stored as assoc arrays
-			$locales = empty($row->locales)	? [] : json_decode($row->locales, true);
+			$locales = empty($row->locales)	? [] : (array) json_decode($row->locales, true);
 			$locales = array_values($locales);
 			Capsule::table('journal_settings as js')
 				->where('js.journal_id', '=', $row->id)

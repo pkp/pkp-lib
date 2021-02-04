@@ -104,7 +104,7 @@ class LanguageGridHandler extends GridHandler {
 						if ($key !== false) unset($supportedSubmissionLocales[$key]);
 						$supportedSubmissionLocales = array_values($supportedSubmissionLocales);
 						if ($supportedSubmissionLocales == []) {
-							return new JSONMessage(false, __('notification.localeSettingsCannotBeSaved.emptyFormsOption'));
+							return new JSONMessage(false, __('notification.localeSettingsCannotBeSaved'));
 						}
 						$context = $contextService->edit($context, ['supportedSubmissionLocales' => $supportedSubmissionLocales], $request);
 					}
@@ -116,7 +116,7 @@ class LanguageGridHandler extends GridHandler {
 						if ($key !== false) unset($supportedSubmissionLocales[$key]);
 						$supportedSubmissionLocales = array_values($supportedSubmissionLocales);
 						if ($supportedSubmissionLocales == []) {
-							return new JSONMessage(false, __('notification.localeSettingsCannotBeSaved.emptySubmissionsOption'));
+							return new JSONMessage(false, __('notification.localeSettingsCannotBeSaved'));
 						}
 					}
 				}

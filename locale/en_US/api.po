@@ -44,6 +44,9 @@ msgstr "The announcement you requested was not found."
 msgid "api.contexts.400.localesNotSupported"
 msgstr "The following locales are not supported: {$locales}."
 
+msgid "api.contexts.400.localeSettingsCannotBeSaved"
+msgstr "The language setting could not be saved. At least one language must be enabled for each option"
+
 msgid "api.emails.400.missingBody"
 msgstr "You must include an email to be sent."
 

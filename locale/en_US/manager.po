@@ -1138,11 +1138,8 @@ msgstr "{$locale} locale reloaded for {$contextName}."
 msgid "notification.localeSettingsSaved"
 msgstr "Locale settings saved."
 
-msgid "notification.localeSettingsCannotBeSaved.emptyFormsOption"
-msgstr "Locale settings cannot be saved. Select at least one language at Forms"
-
-msgid "notification.localeSettingsCannotBeSaved.emptySubmissionsOption"
-msgstr "Locale settings cannot be saved. Select at least one language at Submissions"
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr "The language setting could not be saved. At least one language must be enabled for each option"
 
 msgid "notification.editedUser"
 msgstr "User edited."

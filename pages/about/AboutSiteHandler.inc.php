@@ -41,7 +41,7 @@ class AboutSiteHandler extends Handler {
 				ROUTE_PAGE,
 				null,
 				'about',
-				'contact',
+				'contact'
 			),
 		]);
 

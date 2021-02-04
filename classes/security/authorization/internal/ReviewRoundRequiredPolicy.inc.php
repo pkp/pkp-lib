@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/ReviewRoundRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewRoundRequiredPolicy
@@ -56,7 +56,7 @@ class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy {
 		// Ensure that the review round actually belongs to the
 		// authorized submission.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		if ($reviewRound->getSubmissionId() != $submission->getId()) AUTHORIZATION_DENY;
+		if ($reviewRound->getSubmissionId() != $submission->getId()) return AUTHORIZATION_DENY;
 
 		// Ensure that the review round is for this workflow stage
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);

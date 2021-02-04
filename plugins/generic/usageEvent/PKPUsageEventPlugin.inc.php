@@ -3,8 +3,8 @@
 /**
  * @file plugins/generic/usageEvent/PKPUsageEventPlugin.inc.php
  *
- * Copyright (c) 2013-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2013-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUsageEventPlugin
@@ -193,16 +193,13 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 		$htmlPageAssocTypes = $this->getHtmlPageAssocTypes();
 		if (in_array($assocType, $htmlPageAssocTypes)) {
 			// HTML pages with no file downloads.
-			$docSize = 0;
 			$mimeType = 'text/html';
 		} elseif (is_a($pubObject, 'IssueGalley')) {
-			$docSize = (int)$pubObject->getFileSize();
 			$mimeType = $pubObject->getFileType();
 		} else {
 			// Files.
-			$path = Services::get('file')->getPath($pubObject->getData('fileId'));
-			$docSize = Services::get('file')->fs->getSize($path);
-			$mimeType = Services::get('file')->fs->getMimetype($path);
+			$path = $pubObject->getData('path');
+			$mimeType = $pubObject->getData('mimetype');
 		}
 
 		$canonicalUrl = $router->url(
@@ -316,7 +313,6 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 		* %t: request time => $time
 		* %r: query => derived objects: $pubObject, $assocType, $canonicalUrl, $identifiers, $serviceUri, $classification
 		* %s: status => not supported (always 200 in our case)
-		* %b: response size => $docSize
 		*
 		* 2) other common parameters
 		* %O: bytes sent => not supported (cannot be reliably determined from within PHP)
@@ -333,7 +329,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 		// Collect all information into an array.
 		$usageEvent = compact(
 			'time', 'pubObject', 'assocType', 'canonicalUrl', 'mimeType',
-			'identifiers', 'docSize', 'downloadSuccess', 'serviceUri',
+			'identifiers', 'downloadSuccess', 'serviceUri',
 			'ip', 'host', 'user', 'roles', 'userAgent', 'referrer',
 			'classification'
 		);

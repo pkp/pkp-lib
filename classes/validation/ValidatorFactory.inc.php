@@ -2,8 +2,8 @@
 /**
  * @file classes/validation/ValidatorFactory.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidatorFactory
@@ -282,11 +282,11 @@ class ValidatorFactory {
 						}
 					} else {
 						if (isset($props[$requiredProp]) && array_key_exists($primaryLocale, $props[$requiredProp]) && self::isEmpty($props[$requiredProp][$primaryLocale])) {
-							if (count($allowedLocales) === 1) {
-								$validator->errors()->add($requiredProp, __('validator.required'));
-							} else {
-								$validator->errors()->add($requiredProp . '.' . $primaryLocale, __('form.requirePrimaryLocale', array('language' => $primaryLocaleName)));
+							$message = __('validator.required');
+							if (count($allowedLocales) > 1) {
+								$message = __('form.requirePrimaryLocale', array('language' => $primaryLocaleName));
 							}
+							$validator->errors()->add($requiredProp . '.' . $primaryLocale, $message);
 						}
 					}
 
@@ -306,7 +306,9 @@ class ValidatorFactory {
 	 * @param $value string
 	 */
 	static private function isEmpty($value) {
-		return $value == '';
+		return is_string($value)
+			? trim($value) == ''
+			: $value == '';
 	}
 
 	/**

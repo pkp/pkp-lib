@@ -8,8 +8,8 @@
 /**
  * @file classes/template/PKPTemplateManager.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TemplateManager
@@ -34,9 +34,6 @@ define('STYLE_SEQUENCE_CORE', 0);
 define('STYLE_SEQUENCE_NORMAL', 10);
 define('STYLE_SEQUENCE_LATE', 15);
 define('STYLE_SEQUENCE_LAST', 20);
-
-define('CDN_JQUERY_VERSION', '3.5.1');
-define('CDN_JQUERY_UI_VERSION', '1.12.1');
 
 define('CSS_FILENAME_SUFFIX', 'css');
 
@@ -199,14 +196,23 @@ class PKPTemplateManager extends Smarty {
 			}
 
 			// Register recaptcha on relevant pages
-			if (Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_register')) {
-				$this->addJavaScript(
-					'recaptcha',
-					'https://www.recaptcha.net/recaptcha/api.js?hl=' . substr(AppLocale::getLocale(),0,2),
-					[
-						'contexts' => ['frontend-user-register', 'frontend-user-registerUser'],
-					]
-				);
+			if (Config::getVar('captcha', 'recaptcha')) {
+				$contexts = [];
+				if (Config::getVar('captcha', 'captcha_on_register')) {
+					array_push($contexts, 'frontend-user-register', 'frontend-user-registerUser');
+				}
+				if (Config::getVar('captcha', 'captcha_on_login')) {
+					array_push($contexts, 'frontend-login-index', 'frontend-login-signIn');
+				}
+				if (count($contexts)) {
+					$this->addJavaScript(
+						'recaptcha',
+						'https://www.google.com/recaptcha/api.js?hl=' . substr(AppLocale::getLocale(), 0, 2),
+						[
+							'contexts' => $contexts,
+						]
+					);
+				}
 			}
 
 			// Register meta tags
@@ -676,7 +682,6 @@ class PKPTemplateManager extends Smarty {
 		import('lib.pkp.classes.security.Role');
 
 		$app_data = [
-			'cdnEnabled' => Config::getVar('general', 'enable_cdn'),
 			'currentLocale' => AppLocale::getLocale(),
 			'primaryLocale' => AppLocale::getPrimaryLocale(),
 			'baseUrl' => $this->_request->getBaseUrl(),
@@ -685,7 +690,6 @@ class PKPTemplateManager extends Smarty {
 			'pathInfoEnabled' => Config::getVar('general', 'disable_path_info') ? false : true,
 			'restfulUrlsEnabled' => Config::getVar('general', 'restful_urls') ? true : false,
 			'tinyMceContentCSS' => $this->_request->getBaseUrl() . '/plugins/generic/tinymce/styles/content.css',
-			'tinyMceContentFont' => Config::getVar('general', 'enable_cdn') ? $this->_request->getBaseUrl() .  '/plugins/generic/tinymce/styles/content-font.css' : '',
 		];
 
 		// Add an array of rtl languages (right-to-left)
@@ -813,16 +817,9 @@ class PKPTemplateManager extends Smarty {
 
 		// Register the jQuery script
 		$min = Config::getVar('general', 'enable_minified') ? '.min' : '';
-		if (Config::getVar('general', 'enable_cdn')) {
-			$jquery = '//ajax.googleapis.com/ajax/libs/jquery/' . CDN_JQUERY_VERSION . '/jquery' . $min . '.js';
-			$jqueryUI = '//ajax.googleapis.com/ajax/libs/jqueryui/' . CDN_JQUERY_UI_VERSION . '/jquery-ui' . $min . '.js';
-		} else {
-			$jquery = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js';
-			$jqueryUI = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
-		}
 		$this->addJavaScript(
 			'jquery',
-			$jquery,
+			$request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js',
 			[
 				'priority' => STYLE_SEQUENCE_CORE,
 				'contexts' => 'backend',
@@ -830,40 +827,21 @@ class PKPTemplateManager extends Smarty {
 		);
 		$this->addJavaScript(
 			'jqueryUI',
-			$jqueryUI,
+			$request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js',
 			[
 				'priority' => STYLE_SEQUENCE_CORE,
 				'contexts' => 'backend',
 			]
 		);
 
-		// Load Noto Sans font from Google Font CDN
-		// To load extended latin or other character sets, see:
-		// https://www.google.com/fonts#UsePlace:use/Collection:Noto+Sans
-		if (Config::getVar('general', 'enable_cdn')) {
-			$this->addStyleSheet(
-				'pkpLibNotoSans',
-				'//fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic',
-				[
-					'priority' => STYLE_SEQUENCE_CORE,
-					'contexts' => 'backend',
-				]
-			);
-		}
-
 		// Register the pkp-lib JS library
 		$this->registerJSLibraryData();
 		$this->registerJSLibrary();
 
 		// FontAwesome - http://fontawesome.io/
-		if (Config::getVar('general', 'enable_cdn')) {
-			$url = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css';
-		} else {
-			$url = $request->getBaseUrl() . '/lib/pkp/styles/fontawesome/fontawesome.css';
-		}
 		$this->addStyleSheet(
 			'fontAwesome',
-			$url,
+			$request->getBaseUrl() . '/lib/pkp/styles/fontawesome/fontawesome.css',
 			[
 				'priority' => STYLE_SEQUENCE_CORE,
 				'contexts' => 'backend',
@@ -927,7 +905,8 @@ class PKPTemplateManager extends Smarty {
 				$notificationsCount = count($notificationDao->getByUserId($request->getUser()->getId(), NOTIFICATION_LEVEL_TRIVIAL)->toArray());
 
 				// Load context switcher
-				if (in_array(ROLE_ID_SITE_ADMIN, $this->get_template_vars('userRoles'))) {
+				$isAdmin = in_array(ROLE_ID_SITE_ADMIN, $this->get_template_vars('userRoles'));
+				if ($isAdmin) {
 					$args = [];
 				} else {
 					$args = ['userId' => $request->getUser()->getId()];
@@ -938,11 +917,19 @@ class PKPTemplateManager extends Smarty {
 						return $context->id !== $request->getContext()->getId();
 					});
 				}
-				$requestedPage = $router->getRequestedPage($request);
+				// Admins should switch to the same page on another context where possible
+				$requestedOp = $request->getRequestedOp() === 'index' ? null : $request->getRequestedOp();
+				$isSwitchable = $isAdmin && in_array($request->getRequestedPage(), [
+					'submissions',
+					'manageIssues',
+					'management',
+					'payment',
+					'stats',
+				]);
 				foreach ($availableContexts as $availableContext) {
 					// Site admins redirected to the same page. Everyone else to submission lists
-					if ($requestedPage !== 'admin' && in_array(ROLE_ID_SITE_ADMIN, $this->get_template_vars('userRoles'))) {
-						$availableContext->url = $dispatcher->url($request, ROUTE_PAGE, $availableContext->urlPath, $request->getRequestedPage(), $request->getRequestedOp(), $request->getRequestedArgs($request));
+					if ($isSwitchable) {
+						$availableContext->url = $dispatcher->url($request, ROUTE_PAGE, $availableContext->urlPath, $request->getRequestedPage(), $requestedOp, $request->getRequestedArgs($request));
 					} else {
 						$availableContext->url = $dispatcher->url($request, ROUTE_PAGE, $availableContext->urlPath, 'submissions');
 					}
@@ -1208,29 +1195,6 @@ class PKPTemplateManager extends Smarty {
 		// Actually display the template.
 		parent::display($template, $cache_id, $compile_id, $parent);
 	}
-
-	/**
-	 * DO NOT USE. Assign the state data to the template
-	 *
-	 * This method is a temporary workaround and should not be used
-	 * to pass state to the template. It is only used during submission
-	 * as a temporary method to initialize a Vue.js component inside
-	 * of a tab template.
-	 *
-	 * This can lead to a separate Vue instance embedded inside of the
-	 * main app's Vue instance. The instances can not talk to each other.
-	 *
-	 * This should be removed when the submission wizard is updated to
-	 * make use of the new forms powered by Vue.js.
-	 *
-	 * @deprecated 3.3
-	 * @param [type] $state
-	 * @return void
-	 */
-	function assignState($state) {
-		$this->assign('state', $this->_state);
-	}
-
 
 	/**
 	 * Clear template compile and cache directories.
@@ -1960,9 +1924,7 @@ class PKPTemplateManager extends Smarty {
 
 		$hasEmbeddedStyle = false;
 		foreach ($embeddedFiles as $embeddedFile) {
-			$path = Services::get('file')->getPath($embeddedFile->getData('fileId'));
-			$mimetype = Services::get('file')->fs->getMimetype($path);
-			if ($mimetype === 'text/css') {
+			if ($embeddedFile->getData('mimetype') === 'text/css') {
 				$hasEmbeddedStyle = true;
 				break;
 			}

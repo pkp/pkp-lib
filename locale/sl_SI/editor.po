@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2020-01-18 18:35+0000\n"
+"PO-Revision-Date: 2021-01-30 01:41+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"editor/sl/>\n"
+"editor/sl_SI/>\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,6 +14,9 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 3.9.1\n"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Ste prepričani, da želite za vedno zbrisati ta prispevek?"
 
 msgid "editor.submissionLibrary"
 msgstr "Knjižnica prispevka"
@@ -93,13 +96,11 @@ msgstr "Ne pošlji email obvestila"
 msgid "editor.submissionReview.open"
 msgstr "Odpri"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
-msgstr "Slepa"
+msgstr "Anonimen recenzent/znan avtor"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Dvojno slepa"
+msgstr "Anonimen rezenzent/anonimen avtor"
 
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Datoteke za recenzijo"
@@ -466,3 +467,15 @@ msgstr "Odločitev je zabeležena"
 
 msgid "editor.activityLog"
 msgstr "Zapis aktivnosti"
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
+"Ste prepričani, da želite spremeniti odločitev o zavrnitvi tega prispevka?"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Izbrani udeleženec ni dodeljen v to fazo."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Diskusija z izbranim udeležencem ne more biti ustvarjena, ker bi ogrozila "
+"anonimnost recenzijskega procesa."

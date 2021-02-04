@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2020-07-31 13:56+0000\n"
+"PO-Revision-Date: 2021-01-21 15:55+0000\n"
 "Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
-"de/>\n"
+"de_DE/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,8 @@ msgid "manager.announcements"
 msgstr "Mitteilungen"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Sind Sie sicher dass Sie diese Mitteilung endgültig löschen möchten?"
+msgstr ""
+"Sind Sie sicher, dass Sie die Mitteilung {$title} endgültig löschen möchten?"
 
 msgid "manager.announcements.create"
 msgstr "Neue Mitteilung erstellen"
@@ -66,7 +67,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Bitte wählen Sie einen Monat und/oder einen Tag zum Auslaufjahr."
 
 msgid "manager.announcements.form.description"
-msgstr "Beschreibung"
+msgstr "Mitteilung"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Vollständiger Text der Mitteilung."
@@ -1094,7 +1095,7 @@ msgid "settings.libraryFiles.public.viewInstructions"
 msgstr "<p>Diese Bibliotheksdatei kann zum Download bereitgestellt werden, wenn \"Öffentlicher Zugang\" unter <blockquote>{$downloadUrl}</blockquote> aktiviert ist.</p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Wählen Sie Bibliotheksdateien aus, um sie anzuhängen.to attach"
+msgstr "Wählen Sie Bibliotheksdateien aus, um sie anzuhängen"
 
 msgid "grid.action.addGenre"
 msgstr "Ein Genre hinzufügen"
@@ -1689,10 +1690,9 @@ msgstr "Registrierte Nutzer/innen"
 msgid "manager.setup.theme.notFound"
 msgstr "Das ausgewählte Theme ist nicht installiert oder nicht aktiviert."
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Einen Link zum <button type=\"button\">Blinde Begutachtung "
+"Einen Link zum <button type=\"button\">Anonyme Begutachtung "
 "sicherstellen</button> -Knopf während des Hochladens zur Verfügung stellen"
 
 msgid "manager.setup.reviewOptions.reviewMode"
@@ -2044,3 +2044,132 @@ msgstr ""
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/Jahr)"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Die Einreichungsdatei {$id} wurde übersprungen, weil sie an einen Datensatz "
+"angehängt ist, der nicht importiert wird, z. B. eine Begutachtung oder eine "
+"Diskussion."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Wählen Sie die Art der Metadaten, die diese Dateien erhalten können. Für die "
+"Hauptdateien der Publikation, z. B. das herunterladbare PDF, sollte Dokument "
+"ausgewählt werden, damit diese Dateien ihre Metadaten von der Publikation "
+"erben. Wählen Sie andernfalls für die meisten Dateitypen Ergänzende Inhalte. "
+"Artwork ist für Dateien geeignet, die eindeutige Metadaten für Credits, "
+"Bildunterschriften und Lizenzierung benötigen."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Dateimetadaten"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Dies sind Zusatzdateien, wie z. B. Datensätze und Forschungsmaterialien, die "
+"getrennt von den Hauptveröffentlichungsdateien angezeigt werden."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Dies sind abhängige Dateien, wie z. B. Bilder, die von einer HTML-Datei "
+"angezeigt werden, und werden nicht mit veröffentlichten Inhalten angezeigt."
+
+msgid "manager.setup.genres.label"
+msgstr "Dateityp"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Sind Sie sicher, dass Sie diese Sektion aktivieren wollen?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Sind Sie sicher, dass Sie diese Sektion deaktivieren wollen?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Diese Sektion deaktivieren und  keine neuen Einreichungen zu dieser Sektion "
+"zulassen."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "benutzerdefiniert"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Datum & Uhrzeit (kurz)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Datum & Uhrzeit"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Uhrzeit"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Datum (kurz)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Datum"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Wählen Sie das bevorzugte Format für Datum und Uhrzeit. Ein "
+"benutzerdefiniertes Format kann mit speziellen <a href='http://php.net/"
+"manual/en/function.strftime.php#refsect1-function.strftime-parameters'>"
+"format characters</a> eingegeben werden."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Datums- und Uhrzeitformate"
+
+msgid "manager.setup.dateTime"
+msgstr "Datum & Uhrzeit"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Weitere E-Mail senden"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-Mail wurde erfolgreich an alle Empfänger gesendet."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Versenden der E-Mail. Bitte blättern Sie nicht weg, bis das Senden "
+"abgeschlossen ist."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Sie sind im Begriff, eine E-Mail an {$total} Benutzer zu senden. Sind Sie "
+"sicher, dass Sie diese E-Mail senden möchten?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "E-Mail abschicken"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Sende eine Kopie dieser E-Mail an mich unter {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr ""
+"Wählen Sie die Benutzer aus, die Ihre E-Mail-Benachrichtigung erhalten "
+"sollen."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Benachrichtigen"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Einreichungen deaktivieren"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Benutzerdefinierte Berichterstellung"
+
+msgid "manager.people.signedInAs"
+msgstr "Sie sind derzeit als {$Benutzername} angemeldet"
+
+msgid "manager.export.usersToCsv.description"
+msgstr ""
+"Wählen Sie die Benutzer aus, die in eine Excel/CSV-Datei exportiert werden "
+"sollen."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Export nach Excel/CSV"
+
+msgid "manager.emails.resetComplete"
+msgstr "Die E-Mail-Vorlage wurde erfolgreich zurückgesetzt."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Die Standard-E-Mail-Vorlagen wurden wiederhergestellt."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Mitteilung löschen"

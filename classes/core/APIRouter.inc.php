@@ -3,8 +3,8 @@
 /**
  * @file classes/core/APIRouter.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class APIRouter
@@ -139,13 +139,17 @@ class APIRouter extends PKPRouter {
 	/**
 	 * @copydoc PKPRouter::handleAuthorizationFailure()
 	 */
-	function handleAuthorizationFailure($request, $authorizationMessage) {
+	function handleAuthorizationFailure(
+		$request,
+		$authorizationMessage,
+		array $messageParams = []
+	) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
 		http_response_code('403');
 		header('Content-Type: application/json');
 		echo json_encode([
 			'error' => $authorizationMessage,
-			'errorMessage' => __($authorizationMessage),
+			'errorMessage' => __($authorizationMessage, $messageParams),
 		]);
 		exit;
 	}

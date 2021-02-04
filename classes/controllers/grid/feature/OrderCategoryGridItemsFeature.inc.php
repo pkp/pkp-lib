@@ -3,8 +3,8 @@
 /**
  * @file classes/controllers/grid/feature/OrderCategoryGridItemsFeature.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OrderCategoryGridItemsFeature
@@ -150,7 +150,8 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature {
 				}
 
 				unset($rowsData[0]); // remove the first element, it is always the parent category ID
-				$firstSeqValue = $grid->getDataElementInCategorySequence($categoryId, reset($gridRowElements));
+				$gridRowElement = reset($gridRowElements);
+				$firstSeqValue = $grid->getDataElementInCategorySequence($categoryId, $gridRowElement);
 				foreach ($gridRowElements as $rowId => $element) {
 					$newSequence = array_search($rowId, $rowsData);
 					$currentSequence = $grid->getDataElementInCategorySequence($categoryId, $element);

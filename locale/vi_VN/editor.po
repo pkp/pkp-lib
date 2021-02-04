@@ -11,6 +11,9 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Bạn có chắc chắn muốn xóa vĩnh viễn bài này?"
+
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Khi đánh giá này đã được đọc, hãy nhấn \"Xác nhận\" để cho biết rằng quá "

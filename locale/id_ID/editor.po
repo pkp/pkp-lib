@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2020-02-12 06:38+0000\n"
+"PO-Revision-Date: 2021-01-14 11:00+0000\n"
 "Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/id/>\n"
@@ -13,6 +13,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Anda yakin ingin menghapus naskah ini secara permanen?"
 
 msgid "editor.review.rateReviewer"
 msgstr "Peringkat peninjau"
@@ -248,13 +251,11 @@ msgstr "Tutup Pilihan File"
 msgid "editor.submissionReview.restrictFiles"
 msgstr "File Yang Akan Di-review"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Tertutup-Ganda"
+msgstr "Reviewer Anonim/Penulis Anonim"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
-msgstr "Tertutup"
+msgstr "Reviewer Anonim/Penulis Terbuka"
 
 msgid "editor.submissionReview.open"
 msgstr "Terbuka"
@@ -496,3 +497,6 @@ msgstr ""
 
 msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
 msgstr "Jangan buat diskusi tentang review."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Yakin ingin membatalkan keputusan untuk menolak naskah ini?"

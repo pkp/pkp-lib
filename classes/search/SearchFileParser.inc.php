@@ -9,8 +9,8 @@
 /**
  * @file classes/search/SearchFileParser.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SearchFileParser
@@ -98,10 +98,8 @@ class SearchFileParser {
 	 * @return SearchFileParser
 	 */
 	static function fromFile($submissionFile) {
-		$path = Services::get('file')->getPath($submissionFile->getData('fileId'));
-		$mimetype = Services::get('file')->fs->getMimetype($path);
-		$fullPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $path;
-		return SearchFileParser::fromFileType($mimetype, $fullPath);
+		$fullPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $submissionFile->getData('path');
+		return SearchFileParser::fromFileType($submissionFile->getData('mimetype'), $fullPath);
 	}
 
 	/**

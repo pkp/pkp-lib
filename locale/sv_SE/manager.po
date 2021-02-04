@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2020-06-04 18:39+0000\n"
-"Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
+"PO-Revision-Date: 2020-12-18 16:52+0000\n"
+"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
-"sv/>\n"
+"sv_SE/>\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgid "manager.announcements"
 msgstr "Meddelanden"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Är du säker på att du vill ta bort meddelandet permanent?"
+msgstr "Är det säker på att du vill ta bort meddelandet {$title} permanent?"
 
 msgid "manager.announcements.create"
 msgstr "Skapa nytt meddelande"
@@ -66,7 +66,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Utöver år, välj även månad och/eller dag för förfallande."
 
 msgid "manager.announcements.form.description"
-msgstr "Beskrivning"
+msgstr "Meddelande"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Hela meddelandet."
@@ -1891,7 +1891,7 @@ msgstr "Det tema som du valde är inte installerat eller aktiverat."
 #, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Visa länken <button type=\"button\">Garanterar anonym granskning</button> "
+"Visa länken <button type=\"button\">Garantera anonym granskning</button> "
 "under uppladdning"
 
 msgid "manager.setup.reviewOptions.reviewMode"
@@ -1993,3 +1993,117 @@ msgid "manager.setup.metadata.type.require"
 msgstr ""
 "Kräv att författaren ska ange metadata om bidragets typ innan bidraget "
 "accepteras."
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Hoppade över filen {$id}, eftersom den hör till en post som inte kommer "
+"importeras, t.ex. ett granskningsuppdrag eller en diskussion."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Filens metadata"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Detta är bilagor, t.ex. dataset och forskningsmaterial. De kommer visas vid "
+"sidan om de huvudsakliga filerna för publikationen."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Detta är underordnade filer, t.ex. bilder som visas i en HTML-fil. De kommer "
+"inte visas för sig."
+
+msgid "manager.setup.genres.label"
+msgstr "Filtyp"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Är du säker på att du vill aktivera denna sektion?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Är du säker på att du vill avaktivera sektionen?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Avaktivera denna sektion och förbjud att nya bidrag skickas in till den."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Anpassat"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Datum & tid (kort)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Datum & tid"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Tid"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Datum (kort)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Datum"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Välj format för tid och datum. Ett anpassat format kan anges genom att "
+"använda  <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>specialtecken "
+"för format</a>."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Datum- och tidformat"
+
+msgid "manager.setup.dateTime"
+msgstr "Tid & Datum"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Skicka ytterligare ett e-postmeddelande"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-postmeddelande har skickats till samtliga mottagare."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Skickar e-postmeddelande. Stanna kvar på sidan tills den är färdig med att "
+"skicka."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Du kommer skicka e-post till {$total} användare. Är du säker på att du vill "
+"skicka?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Skicka e-post"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Skicka en kopia av detta meddelande till {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Välj vilka användare som ska få era e-postmeddelanden."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Meddela användare"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Inaktivera bidrag"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Anpassad rapport"
+
+msgid "manager.people.signedInAs"
+msgstr "Du är inloggad som {$username}"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Välj vilka användare som ska exporteras till Excel/CSV."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Exportera till Excel/CSV"
+
+msgid "manager.emails.resetComplete"
+msgstr "E-postmallen har återställts."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Default e-postmall har återställts."
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Ta bort meddelande"

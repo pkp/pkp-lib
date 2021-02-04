@@ -3,8 +3,8 @@
 /**
  * @file pages/authorDashboard/PKPAuthorDashboardHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorDashboardHandler
@@ -160,7 +160,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 				$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 				$editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getRound());
 				if (!empty($editorDecisions)) {
-					$lastDecision = array_last($editorDecisions)['decision'];
+					$lastDecision = end($editorDecisions)['decision'];
 					$revisionDecisions = [SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, SUBMISSION_EDITOR_DECISION_RESUBMIT];
 					if (in_array($lastDecision, $revisionDecisions)) {
 						$actionArgs['submissionId'] = $submission->getId();
@@ -182,11 +182,11 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			}
 		}
 
-		$supportedFormLocales = $submissionContext->getSupportedFormLocales();
+		$supportedSubmissionLocales = $submissionContext->getSupportedSubmissionLocales();
 		$localeNames = AppLocale::getAllLocales();
 		$locales = array_map(function($localeKey) use ($localeNames) {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-		}, $supportedFormLocales);
+		}, $supportedSubmissionLocales);
 
 		$latestPublication = $submission->getLatestPublication();
 

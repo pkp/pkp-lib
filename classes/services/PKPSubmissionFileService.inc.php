@@ -2,8 +2,8 @@
 /**
  * @file classes/services/PKPSubmissionFileService.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionFileService
@@ -55,8 +55,9 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 		$submissionFileQO = $this
 			->getQueryBuilder($args)
 			->getQuery()
-			->leftJoin('submissions as s', 's.submission_id', '=', 'sf.submission_id')
-			->select(['sf.*', 's.locale as locale']);
+			->join('submissions as s', 's.submission_id', '=', 'sf.submission_id')
+			->join('files as f', 'f.file_id', '=', 'sf.file_id')
+			->select(['sf.*', 'f.*', 's.locale as locale']);
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		$result = $submissionFileDao->retrieve($submissionFileQO->toSql(), $submissionFileQO->getBindings());
 		$queryResults = new DAOResultFactory($result, $submissionFileDao, '_fromRow');
@@ -69,17 +70,6 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 	 */
 	public function getMax($args = null) {
 		return $this->getCount($args);
-	}
-
-	/**
-	 * Get the file ids for each revision of a submission file
-	 *
-	 * @param int $submissionFileId
-	 * @return array
-	 */
-	public function getRevisionFileIds($submissionFileId) {
-		$q = new PKPSubmissionFileQueryBuilder();
-		return $q->getRevisionFileIds($submissionFileId);
 	}
 
 	/**
@@ -126,8 +116,6 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 		$request = $args['request'];
 		$submission = $args['submission'];
 		$dispatcher = $request->getDispatcher();
-		$path = Services::get('file')->getPath($submissionFile->getData('fileId'));
-		$mimetype = Services::get('file')->fs->getMimeType($path);
 
 		$values = [];
 
@@ -156,30 +144,20 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 					$values[$prop] = $dependentFiles;
 					break;
 				case 'documentType':
-					$values[$prop] = Services::get('file')->getDocumentType($mimetype);
-					break;
-				case 'mimetype':
-					$values[$prop] = $mimetype;
-					break;
-				case 'path':
-					$values[$prop] = $path;
+					$values[$prop] = Services::get('file')->getDocumentType($submissionFile->getData('mimetype'));
 					break;
 				case 'revisions':
-					$revisions = [];
-					$qb = new PKPSubmissionFileQueryBuilder();
-					$revisionFileIds = $qb->getRevisionFileIds($submissionFile->getId());
-					foreach ($revisionFileIds as $revisionFileId) {
-						if ($revisionFileId === $submissionFile->getData('fileId')) {
+					$files = [];
+					$revisions = DAORegistry::getDAO('SubmissionFileDAO')->getRevisions($submissionFile->getId());
+					foreach ($revisions as $revision) {
+						if ($revision->fileId === $submissionFile->getData('fileId')) {
 							continue;
 						}
-						$revisionPath = Services::get('file')->getPath($revisionFileId);
-						$mimetype = Services::get('file')->fs->getMimeType($revisionPath);
-						$revisions[] = [
-							'documentType' => Services::get('file')->getDocumentType($mimetype),
-							'fileId' => $revisionFileId,
-							'mimetype' => $mimetype,
-							'path' => $revisionPath,
-							'size' => Services::get('file')->fs->getSize($revisionPath),
+						$files[] = [
+							'documentType' => Services::get('file')->getDocumentType($revision->mimetype),
+							'fileId' => $revision->fileId,
+							'mimetype' => $revision->mimetype,
+							'path' => $revision->path,
 							'url' => $dispatcher->url(
 								$request,
 								ROUTE_COMPONENT,
@@ -188,7 +166,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 								'downloadFile',
 								null,
 								[
-									'fileId' => $revisionFileId,
+									'fileId' => $revision->fileId,
 									'submissionFileId' => $submissionFile->getId(),
 									'submissionId' => $submissionFile->getData('submissionId'),
 									'stageId' => $this->getWorkflowStageId($submissionFile),
@@ -196,10 +174,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 							),
 						];
 					}
-					$values[$prop] = $revisions;
-					break;
-				case 'size':
-					$values[$prop] = Services::get('file')->fs->getSize($path);
+					$values[$prop] = $files;
 					break;
 				case 'url':
 					$values[$prop] = $dispatcher->url(
@@ -589,20 +564,20 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 				break;
 		}
 
-		// Get all revision file ids before they are deleted in SubmissionFileDAO::deleteObject
-		$revisionFileIds = $this->getRevisionFileIds($submissionFile->getId());
+		// Get all revision files before they are deleted in SubmissionFileDAO::deleteObject
+		$revisions = $submissionFileDao->getRevisions($submissionFile->getId());
 
 		// Delete the submission file
 		$submissionFileDao->deleteObject($submissionFile);
 
 		// Delete all files not referenced by other files
-		foreach ($revisionFileIds as $fileId) {
+		foreach ($revisions as $revision) {
 			$countFileShares = $this->getCount([
-				'fileIds' => [$fileId],
+				'fileIds' => [$revision->fileId],
 				'includeDependentFiles' => true,
 			]);
 			if (!$countFileShares) {
-				Services::get('file')->delete($fileId);
+				Services::get('file')->delete($revision->fileId);
 			}
 		}
 
@@ -804,12 +779,10 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 	 * Check if a submission file supports dependent files
 	 *
 	 * @param SubmissionFile $submissionFile
-	 * @param string $path
 	 * @return boolean
 	 */
-	public function supportsDependentFiles($submissionFile, $path) {
+	public function supportsDependentFiles($submissionFile) {
 		$fileStage = $submissionFile->getData('fileStage');
-		$mimetype = Services::get('file')->fs->getMimeType($path);
 		$excludedFileStages = [
 			SUBMISSION_FILE_DEPENDENT,
 			SUBMISSION_FILE_QUERY,
@@ -820,9 +793,9 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 			'text/xml',
 		];
 
-		$result = !in_array($fileStage, $excludedFileStages) && in_array($mimetype, $allowedMimetypes);
+		$result = !in_array($fileStage, $excludedFileStages) && in_array($submissionFile->getData('mimetype'), $allowedMimetypes);
 
-		HookRegistry::call('SubmissionFile::supportsDependentFiles', [&$result, $submissionFile, $path]);
+		HookRegistry::call('SubmissionFile::supportsDependentFiles', [&$result, $submissionFile]);
 
 		return $result;
 	}

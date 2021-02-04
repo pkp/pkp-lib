@@ -3,8 +3,8 @@
 /**
  * @file classes/handler/PKPHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @package core
@@ -139,8 +139,13 @@ class PKPHandler {
 	}
 
 	/**
-	 * Retrieve authorized context objects from the
-	 * decision manager.
+	 * Retrieve authorized context objects from the decision manager.
+	 * 
+	 * Gets an object that was previously stored using the same assoc type.
+	 * The authorization policies populate these -- when an object is fetched
+	 * and checked for permission in the policy class, it's then chucked into
+	 * the authorized context for later retrieval by code that needs it.
+	 * 
 	 * @param $assocType integer any of the ASSOC_TYPE_* constants
 	 * @return mixed
 	 */
@@ -170,7 +175,9 @@ class PKPHandler {
 	 * @return string
 	 */
 	function getLastAuthorizationMessage() {
-		assert(is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager'));
+		if (!is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager')) {
+			return '';
+		}
 		$authorizationMessages = $this->_authorizationDecisionManager->getAuthorizationMessages();
 		return end($authorizationMessages);
 	}

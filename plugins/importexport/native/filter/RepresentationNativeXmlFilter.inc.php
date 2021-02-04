@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/RepresentationNativeXmlFilter.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RepresentationNativeXmlFilter
@@ -76,7 +76,8 @@ class RepresentationNativeXmlFilter extends NativeExportFilter {
 		$representationNode = $doc->createElementNS($deployment->getNamespace(), $deployment->getRepresentationNodeName());
 
 		$representationNode->setAttribute('locale', $representation->getData('locale'));
-
+		$representationNode->setAttribute('url_path', $representation->getData('urlPath'));
+		
 		$this->addIdentifiers($doc, $representationNode, $representation);
 
 		// Add metadata

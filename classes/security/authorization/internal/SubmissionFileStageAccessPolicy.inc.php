@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/SubmissionFileStageAccessPolicy.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileStageAccessPolicy
@@ -92,7 +92,8 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy {
 						foreach ($decisions as $decision) {
 							if ($decision['decision'] == SUBMISSION_EDITOR_DECISION_ACCEPT
 									|| $decision['decision'] == SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS
-									|| $decision['decision'] == SUBMISSION_EDITOR_DECISION_NEW_ROUND) {
+									|| $decision['decision'] == SUBMISSION_EDITOR_DECISION_NEW_ROUND
+									|| $decision['decision'] == SUBMISSION_EDITOR_DECISION_RESUBMIT) {
 								$assignedFileStages[] = $this->_fileStage;
 								break;
 							}

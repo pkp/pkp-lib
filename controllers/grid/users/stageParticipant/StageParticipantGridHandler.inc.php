@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/stageParticipant/StageParticipantGridHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class StageParticipantGridHandler
@@ -137,9 +137,9 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 					new RedirectAction(
 						$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signOutAsUser', null, array('redirectUrl' => $redirectUrl))
 					),
-					__('user.logOutAs').' '. $user->getUsername(),
+					__('user.logOutAs', ['username' => $user->getUsername()]),
 					null,
-					__('user.logOutAs')
+					__('user.logOutAs', ['username' => $user->getUsername()])
 				)
 			);
 		}

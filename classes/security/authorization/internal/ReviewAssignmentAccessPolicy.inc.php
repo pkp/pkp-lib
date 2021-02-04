@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/ReviewAssignmentAccessPolicy.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewAssignmentAccessPolicy
@@ -22,17 +22,17 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy {
 	var $_request;
 
 	/** @var bool */
-	var $_permitDeclinedOrCancelled;
+	var $_permitDeclined;
 
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
-	 * @param $permitDeclinedOrCancelled bool True if declined or cancelled reviews are acceptable.
+	 * @param $permitDeclined bool True if declined or cancelled reviews are acceptable.
 	 */
-	function __construct($request, $permitDeclinedOrCancelled = false) {
+	function __construct($request, $permitDeclined = false) {
 		parent::__construct('user.authorization.submissionReviewer');
 		$this->_request = $request;
-		$this->_permitDeclinedOrCancelled = $permitDeclinedOrCancelled;
+		$this->_permitDeclined = $permitDeclined;
 	}
 
 	//
@@ -57,8 +57,11 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy {
 		// Ensure a valid review assignment was fetched from the database
 		if (!is_a($reviewAssignment, 'ReviewAssignment')) return AUTHORIZATION_DENY;
 
-		// Ensure that the assignment isn't declined or cancelled, unless that's permitted
-		if (!$this->_permitDeclinedOrCancelled && ($reviewAssignment->getDeclined())) return AUTHORIZATION_DENY;
+		// If the assignment has been cancelled, deny access.
+		if ($reviewAssignment->getCancelled()) return AUTHORIZATION_DENY;
+
+		// Ensure that the assignment isn't declined, unless that's permitted
+		if (!$this->_permitDeclined && $reviewAssignment->getDeclined()) return AUTHORIZATION_DENY;
 
 		// Save the review assignment to the authorization context.
 		$this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);

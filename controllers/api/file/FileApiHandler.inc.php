@@ -6,8 +6,8 @@
 /**
  * @file controllers/api/file/FileApiHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileApiHandler
@@ -77,13 +77,18 @@ class FileApiHandler extends Handler {
 	function downloadFile($args, $request) {
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 		$fileId = $request->getUserVar('fileId') ?? $submissionFile->getData('fileId');
-		$validFileIds = Services::get('submissionFile')->getRevisionFileIds($submissionFile->getId());
-		if (!in_array($fileId, $validFileIds)) {
+		$revisions = DAORegistry::getDAO('SubmissionFileDAO')->getRevisions($submissionFile->getId());
+		$file = null;
+		foreach ($revisions as $revision) {
+			if ($revision->fileId == $fileId) {
+				$file = $revision;
+			}
+		}
+		if (!$file) {
 			throw new Exception('File ' . $fileId . ' is not a revision of submission file ' . $submissionFile->getId());
 		}
-		$path = Services::get('file')->getPath((int) $fileId);
-		if (!Services::get('file')->fs->has($path)) {
-			throw new Exception('File ' . $fileId . ' at ' . $path . ' does not exist or can not be read.');
+		if (!Services::get('file')->fs->has($file->path)) {
+			$request->getDispatcher()->handle404();
 		}
 
 		$filename = $request->getUserVar('filename') ?? $submissionFile->getLocalizedData('name');
@@ -106,9 +111,9 @@ class FileApiHandler extends Handler {
 			);
 		}
 
-		$filename = Services::get('file')->formatFilename($path, $filename);
+		$filename = Services::get('file')->formatFilename($file->path, $filename);
 
-		Services::get('file')->download($path, $filename);
+		Services::get('file')->download($file->path, $filename);
 	}
 
 	/**
@@ -133,7 +138,7 @@ class FileApiHandler extends Handler {
 
 		$files = [];
 		foreach ($submissionFiles as $submissionFile) {
-			$path = Services::get('file')->getPath($submissionFile->getData('fileId'));
+			$path = $submissionFile->getData('path');
 			$files[$path] = Services::get('file')->formatFilename($path, $submissionFile->getLocalizedData('name'));
 		}
 

@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2020-08-25 18:31+0000\n"
-"Last-Translator: Hannu Toivonen <hannu.toivonen@helsinki.fi>\n"
+"PO-Revision-Date: 2020-12-12 08:52+0000\n"
+"Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "fi_FI/>\n"
 "Language: fi_FI\n"
@@ -13,6 +13,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Haluatko varmasti poistaa tämän käsikirjoituksen pysyvästi?"
 
 msgid "editor.submissionLibrary"
 msgstr "Liitekirjasto"
@@ -86,13 +89,11 @@ msgstr "Älä lähetä kirjoittajalle sähköpostia"
 msgid "editor.submissionReview.open"
 msgstr "Avoin"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
-msgstr "Sokko"
+msgstr "Anonyymi arvioija/Tunnistettu kirjoittaja"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Kaksoissokko"
+msgstr "Anonyymi arvioija/anonyymi kirjoittaja"
 
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Arvioitavat tiedostot"
@@ -340,7 +341,6 @@ msgstr "Tallenna toimituksellinen suositus"
 msgid "editor.submissionReview.recordRecommendation.notifyEditors"
 msgstr "Ilmoita toimittajille"
 
-
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
 msgstr "Luo keskustelu tästä suosituksesta."
 
@@ -464,3 +464,6 @@ msgstr "Tapahtumaloki"
 
 msgid "editor.submission.workflowDecision.submission.declined"
 msgstr "Käsikirjoitus hylätty."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Oletko varma, että haluat perua päätöksen hylätä tämä käsikirjoitus?"

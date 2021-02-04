@@ -30,6 +30,13 @@
 				"nullable"
 			]
 		},
+		"enableBulkEmails": {
+			"type": "array",
+			"description": "Which hosted journals, presses or preprint servers are allowed to send bulk emails.",
+			"items": {
+				"type": "integer"
+			}
+		},
 		"installedLocales": {
 			"type": "array",
 			"items": {

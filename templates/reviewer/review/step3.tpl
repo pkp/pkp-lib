@@ -1,8 +1,8 @@
 {**
  * templates/reviewer/review/step3.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Show the step 3 review page
@@ -17,6 +17,7 @@
 </script>
 
 <form class="pkp_form" id="reviewStep3Form" method="post" action="{url op="saveStep" path=$submission->getId() step="3"}">
+	<input type="hidden" name="isSave" />{* @see ReviewerReviewStep3FormHandler.js *}
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewStep3FormNotification"}
 
@@ -63,7 +64,7 @@
 	{$additionalFormFields}
 
 	{capture assign="cancelUrl"}{url page="reviewer" op="submission" path=$submission->getId() step=2 escape=false}{/capture}
-	{fbvFormButtons submitText="reviewer.submission.submitReview" confirmSubmit="reviewer.confirmSubmit" saveText="reviewer.submission.saveReviewForLater" saveValue="1" cancelText="navigation.goBack" cancelUrl=$cancelUrl cancelUrlTarget="_self" submitDisabled=$reviewIsClosed}
+	{fbvFormButtons submitText="reviewer.submission.submitReview" confirmSubmit="reviewer.confirmSubmit" saveText="reviewer.submission.saveReviewForLater" cancelText="navigation.goBack" cancelUrl=$cancelUrl cancelUrlTarget="_self" submitDisabled=$reviewIsClosed}
 {/fbvFormArea}
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>

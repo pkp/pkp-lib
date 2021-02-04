@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/editorDecision/form/EditorDecisionWithEmailForm.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionWithEmailForm
@@ -252,7 +252,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 					assert(!is_null($reviewIndex));
 
 					// Add the attachment to the email.
-					$path = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . Services::get('file')->getPath($submissionFile->getData('fileId'));
+					$path = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $submissionFile->getData('path');
 					$email->addAttachment(
 						$path,
 						PKPString::enumerateAlphabetically($reviewIndex).'-'.$submissionFile->getLocalizedData('name')

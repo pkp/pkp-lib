@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2020-02-04 23:10+0000\n"
-"Last-Translator: Carla Marques <carla.marques@sdum.uminho.pt>\n"
+"PO-Revision-Date: 2021-01-28 15:01+0000\n"
+"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/editor/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -13,6 +13,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Deseja realmente eliminar esta submissão?"
 
 msgid "editor.submissionLibrary"
 msgstr "Biblioteca Submissão"
@@ -86,13 +89,11 @@ msgstr "Não envie o e-mail do autor"
 msgid "editor.submissionReview.open"
 msgstr "Abrir"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
-msgstr "Cega"
+msgstr "Revisor Anónimo/Autor conhecido"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Duplamente cega"
+msgstr "Revisor Anónimo/Autor Anónimo"
 
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Ficheiros a serem revistos"
@@ -463,3 +464,14 @@ msgstr "Decisão registada"
 
 msgid "editor.activityLog"
 msgstr "Histórico de Atividade"
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Deseja reverter a decisão de recusar esta submissão?"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Um participante selecionado não se encontra designado a esta etapa."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Não pode ser criada uma discussão entre os participantes selecionados porque "
+"isso iria comprometer o anonimato do processo de revisão."

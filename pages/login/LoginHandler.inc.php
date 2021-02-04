@@ -3,8 +3,8 @@
 /**
  * @file pages/login/LoginHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LoginHandler
@@ -64,6 +64,11 @@ class LoginHandler extends Handler {
 		}
 		$templateMgr->assign('loginUrl', $loginUrl);
 
+		$isCaptchaEnabled = Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_login');
+		if ($isCaptchaEnabled) {
+			$templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
+		}
+
 		$templateMgr->display('frontend/pages/userLogin.tpl');
 	}
 
@@ -89,47 +94,65 @@ class LoginHandler extends Handler {
 	 */
 	function signIn($args, $request) {
 		$this->setupTemplate($request);
-		if (Validation::isLoggedIn()) $this->sendHome($request);
+		$templateMgr = TemplateManager::getManager($request);
 
+		if (Validation::isLoggedIn()) {
+			$this->sendHome($request);
+		}
 		if (Config::getVar('security', 'force_login_ssl') && $request->getProtocol() != 'https') {
 			// Force SSL connections for login
 			$request->redirectSSL();
 		}
 
-		$user = Validation::login($request->getUserVar('username'), $request->getUserVar('password'), $reason, $request->getUserVar('remember') == null ? false : true);
-		if ($user !== false) {
+		$error = null;
+		$isCaptchaEnabled = Config::getVar('captcha', 'captcha_on_login') && Config::getVar('captcha', 'recaptcha');
+		if ($isCaptchaEnabled) {
+			$templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
+			try {
+				import('lib.pkp.classes.form.validation.FormValidatorReCaptcha');
+				FormValidatorReCaptcha::validateResponse($request->getUserVar('g-recaptcha-response'), $request->getRemoteAddr(), $request->getServerHost());
+			}
+			catch (Exception $exception) {
+				$error = 'common.captcha.error.missing-input-response';
+			}
+		}
+
+		$reason = null;
+		$user = $error ? false : Validation::login($request->getUserVar('username'), $request->getUserVar('password'), $reason, !!$request->getUserVar('remember'));
+		if ($user) {
 			if ($user->getMustChangePassword()) {
 				// User must change their password in order to log in
 				Validation::logout();
 				$request->redirect(null, null, 'changePassword', $user->getUsername());
-
-			} else {
-				$source = $request->getUserVar('source');
-				$redirectNonSsl = Config::getVar('security', 'force_login_ssl') && !Config::getVar('security', 'force_ssl');
-				if (preg_match('#^/\w#', $source) === 1) {
-					$request->redirectUrl($source);
-				}
-				if ($redirectNonSsl) {
-					$request->redirectNonSSL();
-				} else {
-					$this->_redirectAfterLogin($request);
-				}
 			}
-
-		} else {
-			$sessionManager = SessionManager::getManager();
-			$session = $sessionManager->getUserSession();
-			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->assign(array(
-				'username' => $request->getUserVar('username'),
-				'remember' => $request->getUserVar('remember'),
-				'source' => $request->getUserVar('source'),
-				'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
-				'error' => $reason===null?'user.login.loginError':($reason===''?'user.login.accountDisabled':'user.login.accountDisabledWithReason'),
-				'reason' => $reason,
-			));
-			$templateMgr->display('frontend/pages/userLogin.tpl');
+			$source = $request->getUserVar('source');
+			if (preg_match('#^/\w#', $source) === 1) {
+				$request->redirectUrl($source);
+			}
+			$redirectNonSsl = Config::getVar('security', 'force_login_ssl') && !Config::getVar('security', 'force_ssl');
+			if ($redirectNonSsl) {
+				$request->redirectNonSSL();
+			}
+			$this->_redirectAfterLogin($request);
 		}
+
+		if ($reason) {
+			$error = 'user.login.accountDisabledWithReason';
+		} elseif ($reason !== null) {
+			$error = 'user.login.accountDisabled';
+		}
+		$error = $error ?? 'user.login.loginError';
+
+		
+		$templateMgr->assign([
+			'username' => $request->getUserVar('username'),
+			'remember' => $request->getUserVar('remember'),
+			'source' => $request->getUserVar('source'),
+			'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
+			'error' => $error,
+			'reason' => $reason,
+		]);
+		$templateMgr->display('frontend/pages/userLogin.tpl');
 	}
 
 	/**
@@ -272,6 +295,7 @@ class LoginHandler extends Handler {
 	 * @param $args array first argument may contain user's username
 	 */
 	function changePassword($args, $request) {
+		$this->_isBackendPage = true;
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->setupBackendPage();
@@ -292,6 +316,7 @@ class LoginHandler extends Handler {
 	 * Save user's new password.
 	 */
 	function savePassword($args, $request) {
+		$this->_isBackendPage = true;
 		$this->setupTemplate($request);
 
 		import('lib.pkp.classes.user.form.LoginChangePasswordForm');
@@ -419,5 +444,3 @@ class LoginHandler extends Handler {
 		parent::setupTemplate($request);
 	}
 }
-
-

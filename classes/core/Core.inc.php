@@ -8,8 +8,8 @@
 /**
  * @file classes/core/Core.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Core
@@ -327,6 +327,13 @@ class Core {
 					break;
 				}
 			}
+		}
+
+		// If we still have no base URL, this may be a situation where we have an install with some customized URLs, and some not.
+		// Return the default base URL.
+
+		if (!$baseUrl) {
+			$baseUrl = Config::getVar('general', 'base_url');
 		}
 
 		return array($baseUrl, $contextPath);

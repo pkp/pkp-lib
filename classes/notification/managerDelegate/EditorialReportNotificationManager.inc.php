@@ -2,8 +2,8 @@
 /**
  * @file classes/notification/managerDelegate/EditorialReportNotificationManager.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorialReportNotificationManager
@@ -205,7 +205,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	 * @param $user User The user who will be notified
 	 * @return PKPNotification The notification instance
 	 */
-	public function notify(User $user) : PKPNotification
+	public function notify(User $user) : ?PKPNotification
 	{
 		return parent::createNotification(
 			$this->_request,

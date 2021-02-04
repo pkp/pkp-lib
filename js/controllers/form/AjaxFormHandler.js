@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/form/AjaxFormHandler.js
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AjaxFormHandler
@@ -33,7 +33,6 @@
 		}
 
 		this.bind('refreshForm', this.refreshFormHandler_);
-		this.publishEvent('containerReloadRequested');
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.AjaxFormHandler,
@@ -136,13 +135,6 @@
 					this.enableFormControls();
 				}
 			} else {
-				if (/** @type {{reloadContainer: Object}} */ (
-						processedJsonData).reloadContainer !== undefined) {
-					this.trigger('dataChanged');
-					this.trigger('containerReloadRequested', [processedJsonData]);
-					return processedJsonData.status;
-				}
-
 				// Redisplay the form.
 				this.replaceWith(processedJsonData.content);
 			}

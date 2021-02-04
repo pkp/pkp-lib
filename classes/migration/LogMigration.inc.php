@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/LogMigration.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LogMigration
@@ -44,6 +44,12 @@ class LogMigration extends Migration {
 			$table->index(['log_id'], 'event_log_settings_log_id');
 			$table->unique(['log_id', 'setting_name'], 'event_log_settings_pkey');
 		});
+
+		// Add partial index (DBMS-specific)
+		switch (Capsule::connection()->getDriverName()) {
+			case 'mysql': Capsule::connection()->unprepared('CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name(50), setting_value(150))'); break;
+			case 'pgsql': Capsule::connection()->unprepared("CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name, setting_value) WHERE setting_name IN ('fileId', 'submissionId')"); break;
+		}
 
 		// A log of all emails sent out related to an object.
 		Capsule::schema()->create('email_log', function (Blueprint $table) {

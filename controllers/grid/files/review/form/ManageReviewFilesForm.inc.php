@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/review/form/ManageReviewFilesForm.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManageReviewFilesForm
@@ -85,7 +85,10 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm {
 	 * @param $fileStage int SUBMISSION_FILE_...
 	 */
 	function execute($stageSubmissionFiles, $fileStage = null) {
-		parent::execute($stageSubmissionFiles, SUBMISSION_FILE_REVIEW_FILE);
+		parent::execute(
+			$stageSubmissionFiles,
+			$this->getReviewRound()->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE
+		);
 	}
 
 	/**

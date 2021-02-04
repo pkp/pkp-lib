@@ -3,8 +3,8 @@
 /**
  * @file controllers/wizard/fileUpload/form/PKPSubmissionFilesUploadBaseForm.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionFilesUploadBaseForm
@@ -155,7 +155,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 				} elseif ($reviewRound) {
 					// Retrieve the submission files for the given review round.
 					$submissionFilesIterator = Services::get('submissionFile')->getMany([
-						'reviewRoundIds' => [(int) $reviewRound],
+						'reviewRoundIds' => [(int) $reviewRound->getId()],
 						'submissionIds' => [(int) $this->getData('submissionId')],
 					]);
 					$this->_submissionFiles = iterator_to_array($submissionFilesIterator);

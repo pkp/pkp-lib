@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/SubmissionFileNativeXmlFilter.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileNativeXmlFilter
@@ -134,14 +134,13 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$this->addIdentifiers($doc, $submissionFileNode, $submissionFile);
 
 		// Create the revision nodes
-		$fileIds = Services::get('submissionFile')->getRevisionFileIds($submissionFile->getId());
-		foreach ($fileIds as $fileId) {
-			$path = Services::get('file')->getPath($fileId);
-			$localPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $path;
+		$revisions = DAORegistry::getDAO('SubmissionFileDAO')->getRevisions($submissionFile->getId());
+		foreach ($revisions as $revision) {
+			$localPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $revision->path;
 			$revisionNode = $doc->createElementNS($deployment->getNamespace(), 'file');
-			$revisionNode->setAttribute('id', $fileId);
+			$revisionNode->setAttribute('id', $revision->fileId);
 			$revisionNode->setAttribute('filesize', filesize($localPath));
-			$revisionNode->setAttribute('extension', pathinfo($path, PATHINFO_EXTENSION));
+			$revisionNode->setAttribute('extension', pathinfo($revision->path, PATHINFO_EXTENSION));
 
 			if (array_key_exists('no-embed', $this->opts)) {
 				$hrefNode = $doc->createElementNS($deployment->getNamespace(), 'href');
@@ -157,9 +156,9 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 					$url = $dispatcher->url($request, ROUTE_COMPONENT, $context->getPath(), "api.file.FileApiHandler", "downloadFile", null, $params);
 					$hrefNode->setAttribute('src', $url);
 				} else {
-					$hrefNode->setAttribute('src', $path);
+					$hrefNode->setAttribute('src', $revision->path);
 				}
-				$hrefNode->setAttribute('mime_type', Services::get('file')->fs->getMimetype($path));
+				$hrefNode->setAttribute('mime_type', $revision->mimetype);
 				$revisionNode->appendChild($hrefNode);
 			} else {
 				$embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($localPath)));

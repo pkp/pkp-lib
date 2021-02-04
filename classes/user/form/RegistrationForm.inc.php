@@ -6,8 +6,8 @@
 /**
  * @file classes/user/form/RegistrationForm.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RegistrationForm
@@ -87,15 +87,9 @@ class RegistrationForm extends Form {
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$site = $request->getSite();
-		$context = $request->getContext();
 
 		if ($this->captchaEnabled) {
-			$publicKey = Config::getVar('captcha', 'recaptcha_public_key');
-			$reCaptchaHtml = '<div class="g-recaptcha" data-sitekey="' . $publicKey . '"></div>';
-			$templateMgr->assign(array(
-				'reCaptchaHtml' => $reCaptchaHtml,
-				'captchaEnabled' => true,
-			));
+			$templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
 		}
 
 		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
@@ -110,12 +104,12 @@ class RegistrationForm extends Form {
 		$userFormHelper = new UserFormHelper();
 		$userFormHelper->assignRoleContent($templateMgr, $request);
 
-		$templateMgr->assign(array(
+		$templateMgr->assign([
 			'source' =>$request->getUserVar('source'),
 			'minPasswordLength' => $site->getMinPasswordLength(),
 			'enableSiteWidePrivacyStatement' => Config::getVar('general', 'sitewide_privacy_statement'),
 			'siteWidePrivacyStatement' => $site->getData('privacyStatement'),
-		));
+		]);
 
 		return parent::fetch($request, $template, $display);
 	}

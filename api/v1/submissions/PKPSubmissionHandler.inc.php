@@ -3,8 +3,8 @@
 /**
  * @file api/v1/submissions/PKPSubmissionHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionHandler
@@ -49,6 +49,13 @@ class PKPSubmissionHandler extends APIHandler {
 		'publishPublication',
 		'unpublishPublication',
 		'deletePublication',
+	];
+
+	/** @var array Roles that can access a submission's production stage */
+	public $productionStageAccessRoles = [
+		ROLE_ID_MANAGER,
+		ROLE_ID_SUB_EDITOR,
+		ROLE_ID_ASSISTANT
 	];
 
 	/**
@@ -165,7 +172,7 @@ class PKPSubmissionHandler extends APIHandler {
 
 		if (in_array($routeName, $this->requiresProductionStageAccess)) {
 			import('lib.pkp.classes.security.authorization.StageRolePolicy');
-			$this->addPolicy(new StageRolePolicy([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], WORKFLOW_STAGE_ID_PRODUCTION, false));
+			$this->addPolicy(new StageRolePolicy($this->productionStageAccessRoles, WORKFLOW_STAGE_ID_PRODUCTION, false));
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);

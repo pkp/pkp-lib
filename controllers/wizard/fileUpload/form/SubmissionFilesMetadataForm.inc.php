@@ -3,8 +3,8 @@
 /**
  * @file controllers/wizard/fileUpload/form/SubmissionFilesMetadataForm.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFilesMetadataForm
@@ -126,14 +126,13 @@ class SubmissionFilesMetadataForm extends Form {
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$reviewRound = $this->getReviewRound();
-		$filepath = Services::get('file')->getPath($this->getSubmissionFile()->getData('fileId'));
 		$genre = DAORegistry::getDAO('GenreDAO')->getById($this->getSubmissionFile()->getData('genreId'), $request->getContext()->getId());
 
 		$templateMgr->assign(array(
 			'submissionFile' => $this->getSubmissionFile(),
 			'stageId' => $this->getStageId(),
 			'reviewRoundId' => $reviewRound?$reviewRound->getId():null,
-			'supportsDependentFiles' => Services::get('submissionFile')->supportsDependentFiles($this->getSubmissionFile(), $filepath),
+			'supportsDependentFiles' => Services::get('submissionFile')->supportsDependentFiles($this->getSubmissionFile()),
 			'genre' => $genre,
 		));
 		return parent::fetch($request, $template, $display);

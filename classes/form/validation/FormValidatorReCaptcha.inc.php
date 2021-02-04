@@ -3,8 +3,8 @@
 /**
  * @file classes/form/validation/FormValidatorReCaptcha.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorReCaptcha
@@ -13,29 +13,30 @@
  * @brief Form validation check reCaptcha values.
  */
 
-define('RECAPTCHA_RESPONSE_FIELD', 'g-recaptcha-response');
-define('RECAPTCHA_HOST', 'https://www.recaptcha.net');
-define("RECAPTCHA_PATH", "/recaptcha/api/siteverify");
+import ('lib.pkp.classes.form.validation.FormValidator');
 
 class FormValidatorReCaptcha extends FormValidator {
+	/** @var string The response field containing the reCaptcha response */
+	private const RECAPTCHA_RESPONSE_FIELD = 'g-recaptcha-response';
+	/** @var string The request URL */
+	private const RECAPTCHA_URL = 'https://www.google.com/recaptcha/api/siteverify';
 	/** @var string The initiating IP address of the user */
-	var $_userIp;
+	private $_userIp;
 	/** @var string The hostname to expect in the validation response */
-	var $_hostname;
+	private $_hostname;
 
 	/**
 	 * Constructor.
 	 * @param $form object
 	 * @param $userIp string IP address of user request
 	 * @param $message string Key of message to display on mismatch
-	 * @param $hostname string Hostname to expect in validation response
+	 * @param $hostname ?string Hostname to expect in validation response
 	 */
-	function __construct(&$form, $userIp, $message, $hostname = '') {
-		parent::__construct($form, RECAPTCHA_RESPONSE_FIELD, FORM_VALIDATOR_REQUIRED_VALUE, $message);
+	public function __construct(Form $form, string $userIp, string $message, ?string $hostname = null) {
+		parent::__construct($form, self::RECAPTCHA_RESPONSE_FIELD, FORM_VALIDATOR_REQUIRED_VALUE, $message);
 		$this->_userIp = $userIp;
 		$this->_hostname = $hostname;
 	}
-
 
 	//
 	// Public methods
@@ -45,70 +46,72 @@ class FormValidatorReCaptcha extends FormValidator {
 	 * Determine whether or not the form meets this ReCaptcha constraint.
 	 * @return boolean
 	 */
-	function isValid() {
+	public function isValid() : bool {
+		$form = $this->getForm();
+		try {
+			$this->validateResponse($form->getData(self::RECAPTCHA_RESPONSE_FIELD), $this->_userIp, $this->_hostname);
+			return true;
+		}
+		catch (Exception $exception) {
+			$this->_message = 'common.captcha.error.missing-input-response';
+			return false;
+		}
+	}
+
+	/**
+	 * Validates the reCaptcha response
+	 * @param ?string $response The reCaptcha response
+	 * @param ?string $ip The user IP address (defaults to null)
+	 * @param ?string $hostname The application hostname (defaults to null)
+	 * @throws Exception Throws in case the validation fails
+	 */
+	public static function validateResponse(?string $response, ?string $ip = null, ?string $hostname = null) : void {
+		if (!empty($ip) && !filter_var($ip, FILTER_VALIDATE_IP)) {
+			throw new InvalidArgumentException('Invalid IP address.');
+		}
+
+		if (empty($response)) {
+			throw new InvalidArgumentException('The reCaptcha user response is required.');
+		}
 
 		$privateKey = Config::getVar('captcha', 'recaptcha_private_key');
-		if (is_null($privateKey) || empty($privateKey)) {
-			return false;
+		if (empty($privateKey)) {
+			throw new Exception('The reCaptcha is not configured correctly, the secret key is missing.');
 		}
 
-		if (is_null($this->_userIp) || empty($this->_userIp)) {
-			return false;
-		}
-
-		$form =& $this->getForm();
-
-		// Request response from recaptcha api
-		$requestOptions = array(
-			'http' => array(
-				'header' => "Content-Type: application/x-www-form-urlencoded;\r\n",
-				'method' => 'POST',
-				'content' => http_build_query(array(
-					'secret' => $privateKey,
-					'response' => $form->getData(RECAPTCHA_RESPONSE_FIELD),
-					'remoteip' => $this->_userIp,
-				)),
-			),
+		$httpClient = Application::get()->getHttpClient();
+		$response = $httpClient->request(
+			'POST',
+			self::RECAPTCHA_URL,
+			[
+				'multipart' => [
+					['name' => 'secret', 'contents' => $privateKey],
+					['name' => 'response', 'contents' => $response],
+					['name' => 'remoteip', 'contents' => $ip]
+				]
+			]
 		);
 
-		$proxySettings = array(
-			'host' => Config::getVar('proxy', 'http_host'),
-			'port' => Config::getVar('proxy', 'http_port'),
-			'user' => Config::getVar('proxy', 'proxy_username'),
-			'pass' => Config::getVar('proxy', 'proxy_password'),
-		);
-		if (!empty($proxySettings['host'])) {
-			$requestOptions['http']['proxy'] = $proxySettings['host'] . ((!empty($proxySettings['port'])) ? ':'.$proxySettings['port'] : '');
-			$requestOptions['http']['request_fulluri'] = true;
-			if (!empty($proxySettings['user'])) {
-				$requestOptions['http']['header'] .= 'Proxy-Authorization: Basic ' . base64_encode($proxySettings['user'].':'.$proxySettings['pass']);
-			}
+		$response = json_decode($response->getBody(), true);
+		if (Config::getVar('captcha', 'recaptcha_enforce_hostname') && ($response['hostname'] ?? null) != $hostname) {
+			throw new Exception('The hostname validation of the reCaptcha response failed.');
 		}
 
-		$requestContext = stream_context_create($requestOptions);
-		$response = file_get_contents(RECAPTCHA_HOST . RECAPTCHA_PATH, false, $requestContext);
-		if ($response === false) {
-			return false;
-		}
+		$errorMap = [
+			'missing-input-secret' => 'The secret parameter is missing.',
+			'invalid-input-secret' => 'The secret parameter is invalid or malformed.',
+			'missing-input-response' => 'The response parameter is missing.',
+			'invalid-input-response' => 'The response parameter is invalid or malformed.',
+			'bad-request' => 'The request is invalid or malformed.',
+			'timeout-or-duplicate' => 'The response is no longer valid: either is too old or has been used previously.'
+		];
 
-		$response = json_decode($response, true);
-
-		// Unrecognizable response from Google server
-		if (isset($response['success']) && $response['success'] === true) {
-			if (Config::getVar('captcha', 'recaptcha_enforce_hostname') && $response['hostname'] !== $this->_hostname) {
-				$this->_message = 'common.captcha.error.invalid-input-response';
-				return false;
+		if (!($response['success'] ?? false)) {
+			$errors = [];
+			foreach ($response['error-codes'] ?? [] as $error) {
+				$errors[] = $errorMap[$error] ?? $error;
 			}
-			return true;
-		} else {
-			if (isset($response['error-codes']) && is_array($response['error-codes'])) {
-				$this->_message = 'common.captcha.error.' . $response['error-codes'][0];
-			}
-			return false;
+			throw new Exception(implode("\n", $errors) ?: 'The reCaptcha validation failed.');
 		}
-
 	}
 }
-
-
-

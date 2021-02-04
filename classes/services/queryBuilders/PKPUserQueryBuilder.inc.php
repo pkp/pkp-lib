@@ -2,8 +2,8 @@
 /**
  * @file classes/services/QueryBuilders/PKPUserQueryBuilder.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUserQueryBuilder
@@ -475,11 +475,11 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 			});
 
 		// context
-		// Never permit a query without a context_id clause unless the '*' wildcard
+		// Never permit a query without a context_id clause unless the CONTEXT_ID_ALL wildcard
 		// has been set explicitely.
 		if (is_null($this->contextId)) {
 			$q->where('ug.context_id', '=', CONTEXT_ID_NONE);
-		} elseif ($this->contextId !== '*') {
+		} elseif ($this->contextId !== CONTEXT_ID_ALL) {
 			$q->where('ug.context_id', '=' , $this->contextId);
 		}
 

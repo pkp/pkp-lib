@@ -1,8 +1,8 @@
 {**
  * templates/admin/settings.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Administration settings page.
@@ -52,6 +52,14 @@
 					{load_url_in_div id="navigationMenuGridContainer" url=$navigationMenusGridUrl}
 					{capture assign=navigationMenuItemsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="navigationMenuItemsGridContainer" url=$navigationMenuItemsGridUrl}
+				</tab>
+				{/if}
+				{if $componentAvailability['bulkEmails']}
+				<tab id="bulkEmails" label="{translate key="admin.settings.enableBulkEmails.label"}">
+					<pkp-form
+						v-bind="components.{$smarty.const.FORM_SITE_BULK_EMAILS}"
+						@set="set"
+					/>
 				</tab>
 				{/if}
 				{call_hook name="Template::Settings::admin::setup"}

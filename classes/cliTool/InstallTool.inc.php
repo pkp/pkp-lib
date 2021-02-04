@@ -3,8 +3,8 @@
 /**
  * @file classes/cliTool/InstallTool.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class installTool
@@ -23,14 +23,6 @@ class InstallTool extends CommandLineTool {
 
 	/** @var array installation parameters */
 	var $params;
-
-	/**
-	 * Constructor.
-	 * @param $argv array command-line arguments
-	 */
-	function __construct($argv = array()) {
-		parent::__construct($argv);
-	}
 
 	/**
 	 * Print command usage information.

@@ -2,8 +2,8 @@
 /**
  * @file classes/services/QueryBuilders/PKPSubmissionFileQueryBuilder.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionFileQueryBuilder
@@ -228,19 +228,5 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface {
 		\HookRegistry::call('SubmissionFile::getMany::queryObject', array(&$q, $this));
 
 		return $q;
-	}
-
-	/**
-	 * Get the file ids for each revision of a submission file
-	 *
-	 * @param int $submissionFileId
-	 * @return array
-	 */
-	public function getRevisionFileIds($submissionFileId) {
-		return Capsule::table('submission_file_revisions')
-			->where('submission_file_id', '=', $submissionFileId)
-			->orderBy('revision_id', 'desc')
-			->pluck('file_id')
-			->toArray();
 	}
 }

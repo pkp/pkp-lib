@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-03 06:09+0000\n"
+"PO-Revision-Date: 2021-01-27 14:28+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs_CZ/"
 ">\n"
@@ -149,3 +149,94 @@ msgid "api.publicFiles.413.noDirSpace"
 msgstr ""
 "Nemáte dostatek prostoru v uživatelské knihovně. Nahráváte soubor s "
 "velikostí {$fileUploadSize}kb a v knihovně vám zbývá {$dirSizeLeft}kb."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr "Přidružení souboru nemůžete upravit bez předání assocType a assocId."
+
+msgid "api.files.400.config"
+msgstr ""
+"Soubor se nepodařilo nahrát kvůli chybě konfigurace serveru. Obraťte se na "
+"správce systému."
+
+msgid "api.files.400.fileSize"
+msgstr "Soubory větší, než {$maxSize} nemohou být nahrány."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Nebylo možné nahrát jeden, nebo více souborů."
+
+msgid "api.files.400.noUpload"
+msgstr "S požadavkem nebyl nalezen žádný soubor k nahrání."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Nemáte oprávnění odeslat email uživatelům s jednou, nebo více vybranými "
+"rolemi."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Musíte uvést uživatelské role, které mají dostat tento email."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Musíte uvést předmět emailu."
+
+msgid "api.emails.400.missingBody"
+msgstr "Musíte zahrnout email, který má být odeslán."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Požadované oznámení nebylo nalezeno."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Není možné změnit čas, kdy bylo toto vytvořeno."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Nemáte oprávnění k přístupu k souborům tohoto recenzního kola."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Nemáte oprávnění přidávat a upravovat tyto soubory."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Nemáte oprávnění  k přístupu k tomuto souboru."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Recenzní kolo, které jste zadali není součástí tohoto příspěvku."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Musíte zadat fázi souboru."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "Při žádosti o soubory v recenzím kole musíte určit recenzní kolo."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"Soubor z této fáze zpracování souborů nemůžete přidružit k recenznímu kolu."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Soubor z této fáze zpracování souborů nemůžete přidružit k zadání recenze."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"Soubor z této fáze zpracování souborů nemůžete přidružit k diskusní poznámce."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Soubor z této fáze zpracování souborů nemůžete přidružit k jinému souboru "
+"příspěvku."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "V požadavku na úpravu tohoto souboru nebyly nalezeny žádné změny."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"Token API nelze použít pro přístup k tomuto webu, protože správce webu "
+"nenakonfiguroval tajný klíč."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Api token nelze dekódovat z důvodu následující chyby: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Token API se nepodařilo ověřit. To může znamenat chybu v tokenu API nebo to, "
+"že token API již není platný."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Následující lokalizace nejsou podporovány:  {$locales}."

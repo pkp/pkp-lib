@@ -3,8 +3,8 @@
 /**
  * @file classes/tombstone/DataObjectTombstoneDAO.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DataObjectTombstoneDAO
@@ -57,8 +57,8 @@ class DataObjectTombstoneDAO extends DAO {
 			'SELECT * FROM data_object_tombstones WHERE data_object_id = ?',
 			[(int) $dataObjectId]
 		);
-
-		return $this->_fromRow((array) $result->current());
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
 
 	/**
@@ -111,11 +111,12 @@ class DataObjectTombstoneDAO extends DAO {
 	/**
 	 * Delete DataObjectTombstone by data object id.
 	 * @param $dataObjectId int
-	 * @return boolean
 	 */
 	function deleteByDataObjectId($dataObjectId) {
 		$dataObjectTombstone = $this->getByDataObjectId($dataObjectId);
-		return $this->deleteById($dataObjectTombstone->getId());
+		if ($dataObjectTombstone) {
+			$this->deleteById($dataObjectTombstone->getId());
+		}
 	}
 
 	/**

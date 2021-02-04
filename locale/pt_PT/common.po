@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2020-09-30 13:49+0000\n"
+"PO-Revision-Date: 2020-12-24 16:52+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_PT/>\n"
@@ -1209,7 +1209,7 @@ msgstr ""
 "destinatário além de si próprio."
 
 msgid "navigation.access"
-msgstr "Utilizadores &amp; Papéis"
+msgstr "Utilizadores & Papéis"
 
 msgid "navigation.admin"
 msgstr "Administração"
@@ -1367,9 +1367,8 @@ msgstr "Transferir este ficheiro"
 msgid "context.path"
 msgstr "Caminho"
 
-#, fuzzy
 msgid "review.ensuringAnonymousReview"
-msgstr "Assegurar Revisão Cega"
+msgstr "Como assegurar Revisão Cega"
 
 msgid "grid.action.showReviewPolicy"
 msgstr "Ler a atual política de revisão"
@@ -1389,7 +1388,6 @@ msgstr "Tarefas"
 msgid "dashboard.myQueue"
 msgstr "Minha Fila"
 
-#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Para assegurar a integridade da revisão por pares cega das submissões a "
@@ -1589,7 +1587,7 @@ msgid "notification.reviewerThankedEmail"
 msgstr "Email de agradecimento enviado ao revisor."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Enviar email de notificação a todos os utilizadores registados"
+msgstr "Enviar email sobre isto a todos os utilizadores registados."
 
 msgid "notification.addedReviewerNoEmail"
 msgstr "{$reviewerName} foi indicado para rever esta submissão mas não foi enviado um email de notificação."
@@ -1993,3 +1991,60 @@ msgstr "Mais que"
 
 msgid "common.lessThanOnly"
 msgstr "Menor que"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Opções de Privacidade"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Não tem permissões de acesso a esta designação de revisão."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Não tem permissão de acesso a esta mensagem de discussão."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Discussão inválida."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Ronda de revisão inválida."
+
+msgid "user.email"
+msgstr "Endereço de e-mail"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Como Assegurar Revisão Cega"
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} itens encontrados."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Um item encontrado."
+
+msgid "navigation.backTo"
+msgstr "⟵ Voltar a {$page}"
+
+msgid "form.saved"
+msgstr "Guardado"
+
+msgid "common.viewWithName"
+msgstr "Ver {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Nonexistent user]"
+
+msgid "common.addFile"
+msgstr "Adicionar Ficheiro"
+
+msgid "common.unknownError"
+msgstr "Ocorreu um erro inesperado. Atualize a página e tente de novo."
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "Selecionar {$name}"
+
+msgid "common.editItem"
+msgstr "Editar {$name}"
+
+msgid "common.inactive"
+msgstr "Inativo"

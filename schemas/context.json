@@ -3,8 +3,10 @@
 	"description": "A journal or press.",
 	"type": "object",
 	"required": [
-		"urlPath",
-		"name"
+		"name",
+		"primaryLocale",
+		"supportedLocales",
+		"urlPath"
 	],
 	"properties": {
 		"_href": {
@@ -198,6 +200,13 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"disableBulkEmailUserGroups": {
+			"type": "array",
+			"description": "User groups that a manager will be prevented from sending bulk email to using the notify feature. Only the admin may edit this property.",
+			"items": {
+				"type": "integer"
+			}
 		},
 		"disableUserReg": {
 			"type": "boolean",

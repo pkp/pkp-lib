@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"PO-Revision-Date: 2020-12-18 16:52+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar_IQ/>\n"
@@ -1907,3 +1907,12 @@ msgstr "لطفاً، إختر نوع الملف لكل عملية رفع."
 
 msgid "submission.submit.genre.description"
 msgstr "حدد الخيار الأنسب لوصف هذا الملف."
+
+msgid "notification.type.revertDecline"
+msgstr "قرار رفض طلب التقديم هذا تم التراجع عنه."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "طلب التقديم المرفوض أعيد تنشيطه."
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "التراجع عن الرفض"

@@ -3,8 +3,8 @@
 /**
  * @file api/v1/submissions/PKPSubmissionFileHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionHandler
@@ -127,13 +127,15 @@ class PKPSubmissionFileHandler extends APIHandler {
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		$stageAssignments = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 
+		$allowedFileStages = [];
+
 		// Managers can access files for submissions they are not assigned to
 		if (empty($stageAssignments)) {
 			if (!in_array(ROLE_ID_MANAGER, $userRoles)) {
 				return $response->withStatus(403)->withJsonError('api.403.unauthorized');
 			}
 			// @see PKPSubmissionFileService::getAssignedFileStages() for excluded file stages
-			$params['fileStages'] = [
+			$allowedFileStages = [
 				SUBMISSION_FILE_SUBMISSION,
 				SUBMISSION_FILE_REVIEW_FILE,
 				SUBMISSION_FILE_FINAL,
@@ -150,13 +152,14 @@ class PKPSubmissionFileHandler extends APIHandler {
 		// @see PKPSubmissionFileService::getAssignedFileStages() for excluded file stages
 		} else {
 			$allowedFileStages = Services::get('submissionFile')->getAssignedFileStages($stageAssignments, SUBMISSION_FILE_ACCESS_READ);
-			if (empty($params['fileStages'])) {
-				$params['fileStages'] = $allowedFileStages;
-			} else {
-				foreach ($params['fileStages'] as $fileStage) {
-					if (!in_array($fileStage, $allowedFileStages)) {
-						return $response->withStatus(403)->withJsonError('api.submissionFiles.403.unauthorizedFileStageId');
-					}
+		}
+
+		if (empty($params['fileStages'])) {
+			$params['fileStages'] = $allowedFileStages;
+		} else {
+			foreach ($params['fileStages'] as $fileStage) {
+				if (!in_array($fileStage, $allowedFileStages)) {
+					return $response->withStatus(403)->withJsonError('api.submissionFiles.403.unauthorizedFileStageId');
 				}
 			}
 		}
@@ -194,15 +197,13 @@ class PKPSubmissionFileHandler extends APIHandler {
 
 		$items = [];
 		$filesIterator = Services::get('submissionFile')->getMany($params);
-		if (count($filesIterator)) {
-			$propertyArgs = [
-				'request' => $request,
-				'slimRequest' => $slimRequest,
-				'submission' => $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION),
-			];
-			foreach ($filesIterator as $file) {
-				$items[] = Services::get('submissionFile')->getSummaryProperties($file, $propertyArgs);
-			}
+		$propertyArgs = [
+			'request' => $request,
+			'slimRequest' => $slimRequest,
+			'submission' => $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION),
+		];
+		foreach ($filesIterator as $file) {
+			$items[] = Services::get('submissionFile')->getSummaryProperties($file, $propertyArgs);
 		}
 
 		$data = [
@@ -357,7 +358,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 		unset($params['submissionId'], $params['fileId'], $params['uploaderUserId']);
 
 		if (empty($params) && empty($_FILES['file'])) {
-			return $response->withStatus(400)->withJsonError('api.submissions.files.400.noParams');
+			return $response->withStatus(400)->withJsonError('api.submissionsFiles.400.noParams');
 		}
 
 		$primaryLocale = $request->getContext()->getPrimaryLocale();

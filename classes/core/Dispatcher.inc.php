@@ -3,8 +3,8 @@
 /**
  * @file classes/core/Dispatcher.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Dispatcher
@@ -113,6 +113,8 @@ class Dispatcher {
 		// configuration error.
 		if (is_null($router)) fatalError('None of the configured routers supports this request.');
 
+		AppLocale::initialize($request);
+
 		// Can we serve a cached response?
 		if ($router->isCacheable($request)) {
 			$this->_requestCallbackHack =& $request;
@@ -128,7 +130,6 @@ class Dispatcher {
 			}
 		}
 
-		AppLocale::initialize($request);
 		PluginRegistry::loadCategory('generic', true);
 		PluginRegistry::loadCategory('pubIds', true);
 

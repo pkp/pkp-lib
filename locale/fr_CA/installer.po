@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-01-07 10:13+0000\n"
+"PO-Revision-Date: 2020-12-15 09:58+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
 "helene.vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -199,3 +199,8 @@ msgstr "Procure un identifiant unique de site et un URL de base pour le protocol
 
 msgid "installer.unsupportedPhpError"
 msgstr "La version PHP de votre serveur n'est pas supportée par ce logiciel. Vérifiez les conditions d'installation dans docs/README."
+
+msgid "installer.installMigrationError"
+msgstr ""
+"Une erreur s'est produite lors de l'exécution de la classe de migration "
+"<tt>{$class}</tt>."

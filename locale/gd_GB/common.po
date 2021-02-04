@@ -1,0 +1,1007 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-01-26 10:17+0000\n"
+"Last-Translator: Michael Bauer <fios@igaidhlig.net>\n"
+"Language-Team: Gaelic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"gd_GB/>\n"
+"Language: gd_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
+"(n > 2 && n < 20) ? 2 : 3;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "common.languages"
+msgstr "Cànain"
+
+msgid "common.language"
+msgstr "Cànan"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
+
+msgid "about.description"
+msgstr "Tuairisgeul"
+
+msgid "about.guidelines"
+msgstr "Treòirean"
+
+msgid "about.aboutSite"
+msgstr "Mun làrach"
+
+msgid "about.contact"
+msgstr "Neach-conaltraidh"
+
+msgid "about.contact.email"
+msgstr "Post-d"
+
+msgid "about.contact.phone"
+msgstr "Fòn"
+
+msgid "about.contact.principalContact"
+msgstr "Prìomh neach-conaltraidh"
+
+msgid "about.contact.supportContact"
+msgstr "Neach-conaltraidh taice"
+
+msgid "about.people"
+msgstr "Daoine"
+
+msgid "about.policies"
+msgstr "Poileasaidhean"
+
+msgid "announcement.announcements"
+msgstr "Fiosan-naidheachd"
+
+msgid "announcement.announcementsHome"
+msgstr "Fiosan-naidheachd"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Barrachd fhiosan-naidheachd…"
+
+msgid "announcement.noneExist"
+msgstr "Cha deach fios-naidheachd sam bith fhoillseachadh."
+
+msgid "announcement.posted"
+msgstr "Air a phostadh"
+
+msgid "announcement.postedOn"
+msgstr "Air a phostadh {$postDate}"
+
+msgid "announcement.view"
+msgstr "Seall am fios-naidheachd"
+
+msgid "common.allDownloads"
+msgstr "Gach luchdadh a-nuas"
+
+msgid "common.navigation.sidebar"
+msgstr "Bàr-taoibh"
+
+msgid "common.navigation.site"
+msgstr "Seòladaireachd na làraich"
+
+msgid "common.navigation.user"
+msgstr "Seòladaireachd nan cleachdaichean"
+
+msgid "common.tasks"
+msgstr "Saothraichean"
+
+msgid "common.list"
+msgstr "Liosta"
+
+msgid "common.grid"
+msgstr "Griod"
+
+msgid "common.abstract"
+msgstr "Geàrr-chunntas"
+
+msgid "common.accepted"
+msgstr "Air gabhail ris"
+
+msgid "common.acknowledged"
+msgstr "Air aideachadh"
+
+msgid "common.action"
+msgstr "Gnìomh"
+
+msgid "common.activate"
+msgstr "Cuir an gnìomh"
+
+msgid "common.active"
+msgstr "Gnìomhach"
+
+msgid "common.inactive"
+msgstr "Na thàmh"
+
+msgid "common.add"
+msgstr "Cuir ris"
+
+msgid "common.name"
+msgstr "Ainm"
+
+msgid "common.all"
+msgstr "Na h-uile"
+
+msgid "common.alphaList"
+msgstr "A À B C D E È F G H I Ì J K L M N O Ò P Q R S T U Ù V W X Y Z"
+
+msgid "common.subtitle"
+msgstr "Fo-thiotal"
+
+msgid "common.suggest"
+msgstr "Mol"
+
+msgid "common.title"
+msgstr "Tiotal"
+
+msgid "common.top"
+msgstr "Bàrr"
+
+msgid "common.true"
+msgstr "True"
+
+msgid "common.type"
+msgstr "Seòrsa"
+
+msgid "common.component"
+msgstr "Co-phàirt"
+
+msgid "common.uninitiated"
+msgstr "Gun tòiseachadh"
+
+msgid "common.unread"
+msgstr "Gun leughadh"
+
+msgid "common.untitled"
+msgstr "Gun tiotal"
+
+msgid "common.updated"
+msgstr "Air ùrachadh"
+
+msgid "common.uploadedDate"
+msgstr "Chaidh a luchdadh suas"
+
+msgid "common.upload"
+msgstr "Luchdaich suas"
+
+msgid "common.uploadFailed"
+msgstr "Cha b’ urrainn dhuinn am faidhle a luchdadh suas no a sgrùdadh."
+
+msgid "common.up"
+msgstr "Suas"
+
+msgid "common.addFile"
+msgstr "Cuir faidhle ris"
+
+msgid "common.upload.addFile"
+msgstr "Luchdaich suas faidhle"
+
+msgid "common.upload.restore"
+msgstr "Aisig am fear tùsail"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Ro-shealladh dhen dealbh a thagh thu."
+
+msgid "common.upload.changeFile"
+msgstr "Atharraich am faidhle"
+
+msgid "common.upload.dragFile"
+msgstr ""
+"Slaod faidhle an seo is leig às e airson tòiseachadh air a luchdadh suas"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Cleachdaiche"
+
+msgid "common.user.nonexistent"
+msgstr "[Chan eil an cleachdaiche seo ann]"
+
+msgid "common.view"
+msgstr "Sealladh"
+
+msgid "common.viewWithName"
+msgstr "Seall {$name}"
+
+msgid "common.viewProfile"
+msgstr "Seall a’ phròifil"
+
+msgid "common.weeks"
+msgstr "seachdain(ean)"
+
+msgid "common.width"
+msgstr "Leud"
+
+msgid "common.year"
+msgstr "Bliadhna"
+
+msgid "common.yes"
+msgstr "Tha"
+
+msgid "debug.notes"
+msgstr "An aire:"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Luchdaich suas faidhle airson lèirmheas"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Luchdaich suas faidhle"
+
+msgid "email.addAttachment"
+msgstr "Cuir ceanglachan ris"
+
+msgid "email.addBccRecipient"
+msgstr "Cuir BCC ris"
+
+msgid "email.addCcRecipient"
+msgstr "Cuir CC ris"
+
+msgid "email.addToRecipient"
+msgstr "Cuir faightear ris"
+
+msgid "email.attachments"
+msgstr "Ceanglachain"
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.bccSender"
+msgstr ""
+"Cuir lethbhreac dhen teachdaireachd seo gun t-seòladh agam fhìn ({$address})"
+
+msgid "email.body"
+msgstr "Bodhaig"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.compose"
+msgstr "Cuir post-d"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Tha thu a’ cur na teachdaireachd seo gu cus dhaoine."
+
+msgid "email.email"
+msgstr "Post-d"
+
+msgid "email.invalid"
+msgstr "Chan eil an seòladh puist-d {$email} dligheach."
+
+msgid "email.multipart"
+msgstr "Seo teachdaireachd ioma-phàirteach san fhòrmat MIME."
+
+msgid "email.recipient"
+msgstr "Faightear"
+
+msgid "email.recipients"
+msgstr "Faightearan"
+
+msgid "email.sender"
+msgstr "Seòladair"
+
+msgid "email.senderName"
+msgstr "Ainm an t-seòladair"
+
+msgid "email.senderEmail"
+msgstr "Post-d an t-seòladair"
+
+msgid "email.send"
+msgstr "Cuir"
+
+msgid "email.subject"
+msgstr "Cuspair"
+
+msgid "email.subjectRequired"
+msgstr "Cuir rudeigin ann mar chuspair a’ phuist-d."
+
+msgid "email.bodyRequired"
+msgstr "Cuir rudeigin ann mar bhodhaig teacsa a’ phuist-d."
+
+msgid "email.to"
+msgstr "Gu"
+
+msgid "form.confirmSubmit"
+msgstr "A bheil thu cinnteach gu bheil thu airson am foirm seo a chur?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Dearbh"
+
+msgid "form.emailRequired"
+msgstr "Tha feum air seòladh puist-d."
+
+msgid "form.disallowedProp"
+msgstr "Chan eil an roghainn seo ceadaichte."
+
+msgid "common.unknownError"
+msgstr ""
+"Thachair mearachd ris nach robh dùil. Ath-luchdaich an duilleag is feuch ris "
+"a-rithist."
+
+msgid "common.toWithValue"
+msgstr "Gu: {$value}"
+
+msgid "common.titleSeparator"
+msgstr "|"
+
+msgid "common.confirmDelete"
+msgstr ""
+"A bheil thu cinnteach gu bheil thu airson an nì seo a sguabadh às? Cha ghabh "
+"seo a neo-dhèanamh."
+
+msgid "about.siteMap"
+msgstr "Mapa na làraich"
+
+msgid "about.other"
+msgstr "Eile"
+
+#, fuzzy
+msgid "email.compose.tooSoon"
+msgstr " "
+
+#, fuzzy
+msgid "email.compose.error"
+msgstr " "
+
+#, fuzzy
+msgid "email.from"
+msgstr "O"
+
+#, fuzzy
+msgid "form.url.invalid"
+msgstr " "
+
+#, fuzzy
+msgid "form.dataHasChanged"
+msgstr " "
+
+#, fuzzy
+msgid "form.disallowedLocales"
+msgstr " "
+
+#, fuzzy
+msgid "form.dropzone.dictFileTooBig"
+msgstr " "
+
+#, fuzzy
+msgid "form.dropzone.dictResponseError"
+msgstr " "
+
+#, fuzzy
+msgid "form.errorA11y"
+msgstr " "
+
+#, fuzzy
+msgid "form.errors"
+msgstr " "
+
+#, fuzzy
+msgid "form.csrfInvalid"
+msgstr "  "
+
+#, fuzzy
+msgid "form.invalidImage"
+msgstr " "
+
+#, fuzzy
+msgid "validator.localeExpected"
+msgstr " "
+
+#, fuzzy
+msgid "validator.localeKey"
+msgstr " "
+
+#, fuzzy
+msgid "common.altTextInstructions"
+msgstr "  "
+
+#, fuzzy
+msgid "common.assigned.date"
+msgstr " "
+
+#, fuzzy
+msgid "common.captcha.error.missing-input-secret"
+msgstr " "
+
+#, fuzzy
+msgid "common.captcha.error.invalid-input-secret"
+msgstr " "
+
+#, fuzzy
+msgid "common.completed.date"
+msgstr " "
+
+#, fuzzy
+msgid "common.confirmed.date"
+msgstr " "
+
+#, fuzzy
+msgid "common.edit"
+msgstr "Deasaich"
+
+#, fuzzy
+msgid "common.error.databaseError"
+msgstr " "
+
+#, fuzzy
+msgid "common.fileUploaderError"
+msgstr "  "
+
+msgid "common.filter"
+msgstr "Criathragan"
+
+msgid "common.filterAdd"
+msgstr "Cuir criathrag ris: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Falamhaich a’ chriathrag: {$filterTitle}"
+
+msgid "common.from"
+msgstr "O"
+
+msgid "common.fromWithValue"
+msgstr "O: {$value}"
+
+msgid "common.until"
+msgstr "Gu"
+
+msgid "common.go"
+msgstr "Siuthad"
+
+msgid "common.height"
+msgstr "Àirde"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Dhachaigh"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Suaicheantas bann-cinn na duilleige-dachaigh"
+
+msgid "common.hour"
+msgstr "Uair a thìde"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "Ion-phortaich"
+
+msgid "common.initiate"
+msgstr "Cuir a dhol"
+
+msgid "common.inProgress"
+msgstr "A’ dol air adhart"
+
+msgid "common.itemsPerPage"
+msgstr "Nithean air gach duilleag"
+
+msgid "common.keywords"
+msgstr "Faclan-luirg"
+
+msgid "common.lastActivity"
+msgstr "A’ ghnìomhachd mu dheireadh {$date}."
+
+msgid "common.less"
+msgstr "Nas lugha"
+
+msgid "common.lessThan"
+msgstr "{$value} no nas lugha"
+
+msgid "common.lessThanOnly"
+msgstr "A tha nas lugha na"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "Stiùirich"
+
+msgid "common.mailingAddress"
+msgstr "Seòladh puist"
+
+msgid "common.billingAddress"
+msgstr "An seòladh bileachaidh (ma tha seo eadar-dhealaichte)"
+
+msgid "common.minute"
+msgstr "mionaid(ean)"
+
+msgid "common.modify"
+msgstr "Atharraich"
+
+msgid "common.month"
+msgstr "Mìos"
+
+msgid "common.more"
+msgstr "Barrachd"
+
+msgid "common.moreThan"
+msgstr "{$value} no barrachd"
+
+msgid "common.moreThanOnly"
+msgstr "Barrachd air"
+
+msgid "common.noneAssigned"
+msgstr "Cha deach gin iomruineadh"
+
+msgid "common.none"
+msgstr "Chan eil gin"
+
+msgid "common.no"
+msgstr "Chan eil"
+
+msgid "common.noItemsFound"
+msgstr "Cha deach nì sam bith a lorg."
+
+msgid "common.noComments"
+msgstr "Gun bheachdan"
+
+msgid "common.notApplicable"
+msgstr "Chan eil seo buailteach"
+
+msgid "common.notApplicableShort"
+msgstr "N/A"
+
+msgid "common.notAvailable"
+msgstr "Chan eil seo ri fhaighinn"
+
+msgid "common.note"
+msgstr "An aire"
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"Cha b’ urrainn dhuinn am faidhle a luchdaich thu suas a lorg. Feuch is "
+"luchdaich suas e a-rithist."
+
+msgid "common.notes"
+msgstr "Nòtaichean"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Nòtaichean (buidhe: tha nòtaichean ùra ann; gorm: tha nòtaichean ann air an "
+"deach coimhead; liath: gun nòtaichean)"
+
+msgid "common.notified"
+msgstr "Air fios a chur"
+
+msgid "common.notified.date"
+msgstr "Air fios a chur: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Chan eil maids sam bith ann"
+
+msgid "common.off"
+msgstr "Dheth"
+
+msgid "common.on"
+msgstr "Air"
+
+msgid "common.ok"
+msgstr "Ceart ma-thà"
+
+msgid "common.options"
+msgstr "Roghainnean"
+
+msgid "common.order"
+msgstr "Òrdugh"
+
+msgid "common.orderUp"
+msgstr "Àrdaich ionad {$itemTitle}"
+
+msgid "common.orderDown"
+msgstr "Lùghdaich ionad {$itemTitle}"
+
+msgid "common.originalFileName"
+msgstr "Ainm an fhaidhle tùsail"
+
+msgid "common.or"
+msgstr "no"
+
+msgid "common.other"
+msgstr "Eile"
+
+msgid "common.overdue"
+msgstr "Fadalach"
+
+msgid "common.override"
+msgstr "Tar-àithn"
+
+msgid "common.pagination"
+msgstr "{$start}–{$end} à {$total}"
+
+msgid "common.pagination.label"
+msgstr "Seall an còrr dhe na duilleagan"
+
+msgid "common.pagination.goToPage"
+msgstr "Tadhail air {$page}"
+
+msgid "common.pagination.next"
+msgstr "An ath-dhuilleag"
+
+msgid "common.pagination.previous"
+msgstr "An duilleag roimhe"
+
+msgid "common.pageNumber"
+msgstr "Duilleag {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "Plugan"
+
+msgid "common.pluginEnabled"
+msgstr "Chaidh am plugan “{$pluginName}” a chur an comas."
+
+msgid "common.pluginDisabled"
+msgstr "Chaidh am plugan “{$pluginName}” a chur à comas."
+
+msgid "common.prefix"
+msgstr "Ro-leasachan"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Mar eisimpleir: An, Am"
+
+msgid "common.preview"
+msgstr "Ro-shealladh"
+
+msgid "common.publisher"
+msgstr "Foillsichear"
+
+msgid "common.quality"
+msgstr "Càileachd"
+
+msgid "common.queue.long.active"
+msgstr "Gach aon a tha gnìomhach"
+
+msgid "common.range"
+msgstr "{$min}‑{$max}"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.readMore"
+msgstr "Leugh an còrr"
+
+msgid "common.readMoreWithTitle"
+msgstr "Leugh barrachd mu dheidhinn {$title}"
+
+msgid "common.record"
+msgstr "Clàr"
+
+msgid "common.refresh"
+msgstr "Ath-nuadhaich"
+
+msgid "common.related"
+msgstr "Co-cheangailte"
+
+msgid "common.reminder"
+msgstr "Cuimhneachan"
+
+msgid "common.reminded.date"
+msgstr "Cuimhneachan: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Cèin"
+
+msgid "common.remoteURL"
+msgstr "An URL cèin"
+
+msgid "common.remove"
+msgstr "Thoir air falbh"
+
+msgid "common.removeItem"
+msgstr "Thoir {$item} air falbh"
+
+msgid "common.removeSelection"
+msgstr "Thoir na thagh mi air falbh"
+
+msgid "common.replaced"
+msgstr "Chaidh rud a chur na àite"
+
+msgid "common.replaceFile"
+msgstr "Cuir an àite an fhaidhle"
+
+msgid "common.requiredField"
+msgstr "* Tha seo a’ comharradh raon riatanach"
+
+msgid "common.required"
+msgstr "Riatanach"
+
+msgid "common.reset"
+msgstr "Ath-shuidhich"
+
+msgid "common.saveAndContinue"
+msgstr "Sàbhail agus lean air adhart"
+
+msgid "common.saveAndEmail"
+msgstr "Sàbhail is cuir air a’ phost-d"
+
+msgid "common.save"
+msgstr "Sàbhail"
+
+msgid "common.saving"
+msgstr "Ga shàbhaladh"
+
+msgid "common.search"
+msgstr "Lorg"
+
+msgid "common.searchQuery"
+msgstr "Ceist luirg"
+
+msgid "common.clearSearch"
+msgstr "Falamhaich an abairt-luirg"
+
+msgid "common.second"
+msgstr "diog(an)"
+
+msgid "common.selectAll"
+msgstr "Tagh na h-uile"
+
+msgid "common.selectedPrefix"
+msgstr "Air a thaghadh:"
+
+msgid "common.selectNone"
+msgstr "Na tagh gin"
+
+msgid "common.select"
+msgstr "Tagh"
+
+msgid "common.selectWithName"
+msgstr "Tagh {$name}"
+
+msgid "common.sendEmail"
+msgstr "Cuir post-d"
+
+msgid "common.size"
+msgstr "Meud"
+
+msgid "common.source"
+msgstr "An tùs"
+
+msgid "common.status"
+msgstr "Staid"
+
+msgid "common.subject"
+msgstr "Cuspair"
+
+msgid "common.subjects"
+msgstr "Cuspairean"
+
+msgid "common.submenu"
+msgstr "Fo-chlàr-taice"
+
+msgid "icon.comment.alt"
+msgstr "Beachd"
+
+msgid "icon.delete.alt"
+msgstr "Sguab às"
+
+msgid "icon.edit.alt"
+msgstr "Deasaich"
+
+msgid "icon.folder.alt"
+msgstr "Pasgan"
+
+msgid "icon.font_large.alt"
+msgstr "Mòr"
+
+msgid "icon.font_medium.alt"
+msgstr "Meadhanach"
+
+msgid "icon.font_small.alt"
+msgstr "Beag"
+
+msgid "icon.info.alt"
+msgstr "Fiosrachadh"
+
+msgid "icon.letter.alt"
+msgstr "Litir"
+
+msgid "icon.mail.alt"
+msgstr "Post"
+
+msgid "icon.unchecked.alt"
+msgstr "Gun chromag"
+
+msgid "icon.view.alt"
+msgstr "Sealladh"
+
+msgid "informationCenter.informationCenter"
+msgstr "An t-ionad-fiosrachaidh"
+
+#, fuzzy
+msgid "stageParticipants.canChangeMetadata"
+msgstr " "
+
+#, fuzzy
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Cha b’ urrainn dad atharrachadh air a’ chom-pàirtiche"
+
+msgid "locale.primary"
+msgstr "Am prìomh chànan"
+
+msgid "locale.supported"
+msgstr "Cànain ris a bheil taic"
+
+msgid "navigation.about"
+msgstr "Mu dhèidhinn"
+
+msgid "navigation.admin"
+msgstr "Ball sgioba rianachd LibreOffice"
+
+msgid "navigation.archives"
+msgstr "Na tasg-lannan"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Tha thu an-seo:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Innealan"
+
+msgid "navigation.tools.importExport"
+msgstr "Ion-phortaich/às-phortaich"
+
+msgid "navigation.tools.statistics"
+msgstr "Stats"
+
+msgid "navigation.browse"
+msgstr "Rùraich"
+
+msgid "navigation.backTo"
+msgstr "⟵ Air ais gu {$page}"
+
+msgid "navigation.browseByAuthor"
+msgstr "A rèir ùghdair"
+
+msgid "navigation.browseByTitle"
+msgstr "A-rèir tiotail"
+
+msgid "navigation.dashboard"
+msgstr "Deas-bhòrd"
+
+msgid "navigation.data"
+msgstr "Dàta"
+
+msgid "navigation.home"
+msgstr "Dhachaigh"
+
+msgid "navigation.infoForReaders"
+msgstr "Dhan luchd-leughaidh"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Fiosrachadh dhan luchd-leughaidh"
+
+msgid "navigation.items"
+msgstr "{$from} – {$to} à {$total} uile gu lèir"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} à {$total} uile gu lèir"
+
+msgid "navigation.login"
+msgstr "Clàraich a-steach"
+
+msgid "navigation.nextStep"
+msgstr "An ath-cheum"
+
+msgid "navigation.previousStep"
+msgstr "An ceum roimhe"
+
+msgid "navigation.publicMenu"
+msgstr "An clàr-taice poblach"
+
+msgid "navigation.register"
+msgstr "Clàraich"
+
+msgid "navigation.search"
+msgstr "Lorg"
+
+msgid "navigation.settings"
+msgstr "Roghainnean"
+
+msgid "navigation.setup"
+msgstr "Suidheachadh"
+
+msgid "navigation.sitemap"
+msgstr "Mapa na làraich"
+
+msgid "navigation.skip.description"
+msgstr "Geàrr leum gu na ceanglaichean susbaint"
+
+#, fuzzy
+msgid "notification.reviewAcknowledged"
+msgstr " "
+
+#, fuzzy
+msgid "notification.settingsDescription"
+msgstr "  "
+
+msgid "search.matchAll"
+msgstr "Maidsich gach roinn-seòrsa"
+
+msgid "search.noResults"
+msgstr "Gun toradh"
+
+msgid "search.operator.and"
+msgstr "agus"
+
+msgid "search.operator.not"
+msgstr "chan e"
+
+msgid "search.operator.or"
+msgstr "no"
+
+msgid "search.SearchFor"
+msgstr "Lorg airson"
+
+msgid "search.searchResults"
+msgstr "Toraidhean luirg"
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"Chaidh faidhle ath-dheasaichte a luchdadh suas airson lèirmheas ann an "
+"{$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Lèirmheasan ri ath-sgrùdadh ann an {$stage}."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Chaidh na lèirmheasan a shìneadh air adhart gu {$stage}."
+
+msgid "notification.type.metadataModified"
+msgstr "Chaidh am meata-dàta aig “{$title}” atharrachadh."
+
+msgid "notification.type.reviewerComment"
+msgstr "Thug lèirmheasaiche seachad beachd air “{$title}”."
+
+msgid "user.email"
+msgstr "Seòladh puist-d"
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"Chan eil cead aig a’ chleachdaiche làithreach am faidhle tagraidh ud "
+"inntrigeadh."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Foillseachadh mì-dhligheach."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Tagradh mì-dhligheach."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Cuairt lèirmheis mhì-dhligheach."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Deasbad mì-dhligheach."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Chan eil cead agad air teachdaireachd an deasbaid seo."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Chan eil cead agad air an obair lèirmheis seo."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Chan eil ceadan gu leòr agad an tagradh fhaicinn. Deasaich a’ phròifil agad "
+"is dèan cinnteach gun deach na dreuchdan iomchaidh iomruineadh dhut fo “"
+"Clàraich mar”."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Chan e an cleachdaiche làithreach ùghdar an tagraidh a chaidh iarraidh. Dèan "
+"cinnteach gun do chlàraich thu a-steach air a’ chunntas cheart."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Roghainnean prìobhaideachd"
+
+msgid "notification.type.queryActivity"
+msgstr "Gnìomhachd dheasbadan."
+
+msgid "notification.type.queryAdded"
+msgstr "Chaidh an deasbad a chur ris."

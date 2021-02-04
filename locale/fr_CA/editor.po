@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-09-19 15:49+0000\n"
+"PO-Revision-Date: 2020-12-18 16:52+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
 "helene.vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -16,6 +16,9 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 # localization file for fr_CA. Last revision 2019-10-22T04:44:40 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Êtes-vous certain-e de vouloir supprimer définitivement cette soumission ?"
+
 msgid "editor.activityLog"
 msgstr "Journal d'événements"
 
@@ -130,13 +133,11 @@ msgstr "Ne pas envoyer de courriel d'avis"
 msgid "editor.submissionReview.open"
 msgstr "Évaluation ouverte"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
-msgstr "Évaluation en simple l'aveugle"
+msgstr "Évaluateur-trice anonyme / Identité de l'auteur-e divulguée"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Évaluation en double aveugle"
+msgstr "Évaluateur-trice anonyme / Auteur-e anonyme"
 
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Fichiers devant être évalués"
@@ -472,3 +473,6 @@ msgstr "Biographie"
 
 msgid "reviewer.list.empty"
 msgstr "Aucun-e évaluateur-trice n'a été trouvé-e"
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Voulez-vous vraiment annuler la décision de refuser cette soumission ?"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-04 11:53+0000\n"
+"PO-Revision-Date: 2021-02-05 14:53+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "gl_ES/>\n"
@@ -363,3 +363,148 @@ msgstr "Rexistro de actividade"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Seguro que queres eliminar permanentemente este envío?"
+
+msgid "reviewer.list.empty"
+msgstr "Non se atoparon revisores/as"
+
+msgid "reviewer.list.biography"
+msgstr "Biografía"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Intereses de revisión"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Desbloquear"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Este revisor/a está bloqueado porque se lle asignou un rol que lle permite "
+"ver a identidade do autor. Non se pode garantir a revisión anónima por "
+"pares. Desexa desbloquear este revisor de tódolos xeitos?"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Este revisor/a xa foi asignado para revisar este envío."
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Nunca asignado"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Media de días para completar a revisión"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Días dende a última revisión asignada"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Onte"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "Hai {$days} días"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Evaluación do revisor/a: {$rating}"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Solicitudes de revisión canceladas"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Peticións de revisión rexeitadas"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Revisións completadas"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Revisións activas actualmente asignadas"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} activos"
+
+msgid "reviewer.list.filterRating"
+msgstr "Evaluado como mínimo"
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "O padrón {$pattern} non está permitido para o identificador público."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "O identificador público \"{$publicIdentifier}\" non debe ser un número."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Seguro que queres reverter a decisión de rexeitar este envío?"
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Revogar a aprobación desta proba para indicar que a revisión xa non está "
+"completa e o arquivo non está listo para ser publicado."
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Aceptar esta proba para indicar que a revisión finalizou e o arquivo está "
+"listo para ser publicado."
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Revogar a aprobación da proba"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Aceptar a proba"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Revisor/a seleccionado"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr ""
+"Pódense adxuntar arquivos para incluílos nesta discusión na seguinte lista."
+
+msgid "grid.action.editQuery"
+msgstr "Editar discusión"
+
+msgid "submission.queries.attachedFiles"
+msgstr "Arquivos adxuntos"
+
+msgid "submission.queries.messageRequired"
+msgstr "É necesaria unha mensaxe de discusión."
+
+msgid "submission.queries.subjectRequired"
+msgstr "É necesario un tema de discusión."
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Non seleccionaches ningún arquivo para que o revisase o revisor."
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Non se seleccionou ningún arquivo"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Aviso: o cambio do formulario de revisión afectará ás respostas que os "
+"revisores fixeron usando este formulario. Seguro que desexas continuar?"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Escoller un formulario de revisión"
+
+msgid "editor.article.reviewForms"
+msgstr "Formularios de revisión"
+
+msgid "editor.submission.createNewRound"
+msgstr "Crear unha nova rolda de revisión"
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Está a piques de crear unha nova rolda de revisión para este envío. A "
+"continuación móstranse os arquivos que non se usaron noutras roldas de "
+"revisión."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Non crear unha discusión de revisión."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Crea unha discusión sobre esta recomendación."
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Non enviar correo electrónico aos editores/as."
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Notificar aos editores/as"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Rexistrar a recomendación editorial"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Rexistrar a decisión editorial"

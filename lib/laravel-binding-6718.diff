@@ -1,0 +1,80 @@
+diff -u -r -N a/src/Illuminate/Database/Query/Builder.php b/src/Illuminate/Database/Query/Builder.php
+--- a/src/Illuminate/Database/Query/Builder.php	2021-01-20 14:42:53.721641186 -0800
++++ b/src/Illuminate/Database/Query/Builder.php	2021-02-04 15:20:57.506670288 -0800
+@@ -398,7 +398,7 @@
+ 
+ 		if ( ! $value instanceof Expression)
+ 		{
+-			$this->bindings[] = is_array($value) ? head($value) : $value;
++			$this->bindings[] = $this->scalarValue($value);
+ 		}
+ 
+ 		return $this;
+@@ -477,7 +477,7 @@
+ 
+ 		$this->wheres[] = compact('column', 'type', 'boolean', 'not');
+ 
+-		$this->bindings = array_merge($this->bindings, array_slice($values, 0, 2));
++		$this->bindings = array_merge($this->bindings, array_slice(self::flatten($values), 0, 2));
+ 
+ 		return $this;
+ 	}
+@@ -846,7 +846,7 @@
+ 	{
+ 		$this->wheres[] = compact('column', 'type', 'boolean', 'operator', 'value');
+ 
+-		$value = is_array($value) ? head($value) : $value;
++		$value = $this->scalarValue($value);
+ 		$this->bindings[] = $value;
+ 
+ 		return $this;
+@@ -942,7 +942,7 @@
+ 
+ 		$this->havings[] = compact('type', 'column', 'operator', 'value');
+ 
+-		$this->bindings[] = is_array($value) ? head($value) : $value;
++		$this->bindings[] = $this->scalarValue($value);
+ 
+ 		return $this;
+ 	}
+@@ -1994,4 +1994,40 @@
+ 		throw new \BadMethodCallException("Call to undefined method {$className}::{$method}()");
+ 	}
+ 
++	/**
++	 * Returns scalar type value from an unknown type of input.
++	 *
++	 * @param  mixed  $value
++	 * @return mixed
++	 */
++	protected function scalarValue($value)
++	{
++		return is_array($value) ? head(self::flatten($value)) : $value;
++	}
++
++	/**
++	 * Flatten a multi-dimensional array into a single level. (Ported from Arr::flatten)
++	 *
++	 * @param  array  $array
++	 * @param  int  $depth
++	 * @return array
++	 */
++	public static function flatten($array, $depth = INF)
++	{
++		$result = [];
++
++		foreach ($array as $item) {
++			$item = $item instanceof Collection ? $item->all() : $item;
++
++			if (! is_array($item)) {
++				$result[] = $item;
++			} elseif ($depth === 1) {
++				$result = array_merge($result, array_values($item));
++			} else {
++				$result = array_merge($result, static::flatten($item, $depth - 1));
++			}
++		}
++
++		return $result;
++	}
+ }

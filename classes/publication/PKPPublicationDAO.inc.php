@@ -338,7 +338,7 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 				(int) $contextId
 			)
 		);
-		
+
 		$returner = null;
 		if ($result->RecordCount() != 0) {
 			$returner = $this->_fromRow($result->GetRowAssoc(false));
@@ -354,28 +354,16 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * @param $contextId int optional
 	 * @return array Publication.
 	 */
-	function getBySetting($settingName, $settingValue, $contextId = null) {
-		$params = array($settingName, $settingValue);
-		
-		$sql = 'SELECT p.*
-		FROM publication_settings ps
-		LEFT JOIN publications p ON p.publication_id = ps.publication_id
-		LEFT JOIN submissions s ON p.submission_id = s.submission_id and s.current_publication_id = p.publication_id
-		WHERE ps.setting_name = ? and ps.setting_value = ?';
+	public function getIdsBySetting($settingName, $settingValue, $contextId) {
+		$q = Capsule::table('publications as p')
+			->join('publication_settings as ps', 'p.publication_id', '=', 'ps.publication_id')
+			->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
+			->where('ps.setting_name', '=', $settingName)
+			->where('ps.setting_value', '=', $settingValue)
+			->where('s.context_id', '=', (int) $contextId);
 
-		if ($contextId) {
-			$params[] = (int) $contextId;
-			$sql .= ' AND p.context_id = ?';
-		}
-
-		$result = $this->retrieve($sql, $params);
-
-		$publications = array();
-		while (!$result->EOF) {
-			$publications[] = $this->_fromRow($result->GetRowAssoc(false));
-			$result->MoveNext();
-		}
-		$result->Close();
-		return $publications;
+		return $q->select('p.publication_id')
+			->pluck('p.publication_id')
+			->toArray();
 	}
 }

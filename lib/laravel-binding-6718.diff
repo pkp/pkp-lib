@@ -1,0 +1,57 @@
+diff -r -u a/src/Illuminate/Database/Query/Builder.php b/src/Illuminate/Database/Query/Builder.php
+--- a/src/Illuminate/Database/Query/Builder.php
++++ b/src/Illuminate/Database/Query/Builder.php
+@@ -546,7 +546,7 @@
+         );
+ 
+         if (! $value instanceof Expression) {
+-            $this->addBinding(is_array($value) ? head($value) : $value, 'where');
++            $this->addBinding($this->scalarValue($value), 'where');
+         }
+ 
+         return $this;
+@@ -908,7 +908,7 @@
+ 
+         $this->wheres[] = compact('column', 'type', 'boolean', 'not');
+ 
+-        $this->addBinding(array_slice($values, 0, 2), 'where');
++        $this->addBinding(array_slice(Arr::flatten($values), 0, 2), 'where');
+ 
+         return $this;
+     }
+@@ -1096,7 +1096,7 @@
+         $this->wheres[] = compact('column', 'type', 'boolean', 'operator', 'value');
+ 
+         if (! $value instanceof Expression) {
+-            $value = is_array($value) ? head($value) : $value;
++            $value = $this->scalarValue($value);
+             $this->addBinding($value, 'where');
+         }
+ 
+@@ -1358,7 +1358,7 @@
+         $this->havings[] = compact('type', 'column', 'operator', 'value', 'boolean');
+ 
+         if (! $value instanceof Expression) {
+-            $this->addBinding(is_array($value) ? head($value) : $value, 'having');
++            $this->addBinding($this->scalarValue($value), 'having');
+         }
+ 
+         return $this;
+@@ -2389,6 +2389,17 @@
+     }
+ 
+     /**
++     * Returns scalar type value from an unknown type of input.
++     *
++     * @param  mixed  $value
++     * @return mixed
++     */
++    protected function scalarValue($value)
++    {
++        return is_array($value) ? head(Arr::flatten($value)) : $value;
++    }
++
++    /**
+      * Get the database connection instance.
+      *
+      * @return \Illuminate\Database\ConnectionInterface

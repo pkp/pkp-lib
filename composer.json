@@ -42,7 +42,8 @@
 	"extra": {
 		"patches": {
 			"illuminate/database": {
-				"Patch Laravel binding array issue": "lib/laravel-binding-6632.diff"
+				"Patch Laravel binding array issue": "lib/laravel-binding-6632.diff",
+				"Patch Laravel binding array issue v2": "lib/laravel-binding-6718.diff"
 			}
 		}
 	}

@@ -1,0 +1,111 @@
+diff -r -u a/src/Illuminate/Database/Query/Builder.php b/src/Illuminate/Database/Query/Builder.php
+--- a/src/Illuminate/Database/Query/Builder.php
++++ b/src/Illuminate/Database/Query/Builder.php
+@@ -293,6 +293,17 @@
+     }
+ 
+     /**
++     * Returns scalar type value from an unknown type of input.
++     *
++     * @param  mixed  $value
++     * @return mixed
++     */
++    protected function scalarValue($value)
++    {
++        return is_array($value) ? head(Arr::flatten($value)) : $value;
++    }
++
++    /**
+      * Creates a subquery and parse it.
+      *
+      * @param  \Closure|\Illuminate\Database\Query\Builder|string $query
+@@ -658,7 +669,7 @@
+         );
+ 
+         if (! $value instanceof Expression) {
+-            $this->addBinding(is_array($value) ? head($value) : $value, 'where');
++            $this->addBinding($this->scalarValue($value), 'where');
+         }
+ 
+         return $this;
+@@ -1050,7 +1061,7 @@
+ 
+         $this->wheres[] = compact('type', 'column', 'values', 'boolean', 'not');
+ 
+-        $this->addBinding(array_slice($this->cleanBindings($values), 0, 2), 'where');
++        $this->addBinding(array_slice($this->cleanBindings(Arr::flatten($values)), 0, 2), 'where');
+ 
+         return $this;
+     }
+@@ -1118,7 +1129,7 @@
+             $value, $operator, func_num_args() === 2
+         );
+ 
+-        $value = is_array($value) ? head($value) : $value;
++	$value = $this->scalarValue($value);
+ 
+         if ($value instanceof DateTimeInterface) {
+             $value = $value->format('Y-m-d');
+@@ -1159,7 +1170,7 @@
+             $value, $operator, func_num_args() === 2
+         );
+ 
+-        $value = is_array($value) ? head($value) : $value;
++	$value = $this->scalarValue($value);
+ 
+         if ($value instanceof DateTimeInterface) {
+             $value = $value->format('H:i:s');
+@@ -1200,7 +1211,7 @@
+             $value, $operator, func_num_args() === 2
+         );
+ 
+-        $value = is_array($value) ? head($value) : $value;
++	$value = $this->scalarValue($value);
+ 
+         if ($value instanceof DateTimeInterface) {
+             $value = $value->format('d');
+@@ -1245,7 +1256,7 @@
+             $value, $operator, func_num_args() === 2
+         );
+ 
+-        $value = is_array($value) ? head($value) : $value;
++	$value = $this->scalarValue($value);
+ 
+         if ($value instanceof DateTimeInterface) {
+             $value = $value->format('m');
+@@ -1290,7 +1301,7 @@
+             $value, $operator, func_num_args() === 2
+         );
+ 
+-        $value = is_array($value) ? head($value) : $value;
++	$value = $this->scalarValue($value);
+ 
+         if ($value instanceof DateTimeInterface) {
+             $value = $value->format('Y');
+@@ -1598,7 +1609,7 @@
+         $this->wheres[] = compact('type', 'column', 'operator', 'value', 'boolean');
+ 
+         if (! $value instanceof Expression) {
+-            $this->addBinding((int) $value);
++            $this->addBinding((int) $this->scalarValue($value));
+         }
+ 
+         return $this;
+@@ -1731,7 +1742,7 @@
+         $this->havings[] = compact('type', 'column', 'operator', 'value', 'boolean');
+ 
+         if (! $value instanceof Expression) {
+-            $this->addBinding(is_array($value) ? head($value) : $value, 'having');
++            $this->addBinding($this->scalarValue($value), 'having');
+         }
+ 
+         return $this;
+@@ -1769,7 +1780,7 @@
+ 
+         $this->havings[] = compact('type', 'column', 'values', 'boolean', 'not');
+ 
+-        $this->addBinding($this->cleanBindings($values), 'having');
++	$this->addBinding(array_slice($this->cleanBindings(Arr::flatten($values)), 0, 2), 'having');
+ 
+         return $this;
+     }

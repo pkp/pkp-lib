@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-02-04 11:53+0000\n"
+"Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
+"Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"default/gl_ES/>\n"
+"Language: gl_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "default.genres.styleSheet"
+msgstr "Folla de estilo HTML"
+
+msgid "default.genres.image"
+msgstr "Imaxe"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedia"
+
+msgid "default.genres.other"
+msgstr "Outro"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Lect"
+
+msgid "default.groups.plural.reader"
+msgstr "Lectores/as"
+
+msgid "default.groups.name.reader"
+msgstr "Lector/a"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Trad"
+
+msgid "default.groups.plural.translator"
+msgstr "Tradutores/as"
+
+msgid "default.groups.name.translator"
+msgstr "Tradutor/a"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.plural.author"
+msgstr "Autores/as"
+
+msgid "default.groups.name.author"
+msgstr "Autor/a"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "MAQ"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Maquetadores/as"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Maquetador/a"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "DOC"
+
+msgid "default.groups.plural.indexer"
+msgstr "Documentalistas"
+
+msgid "default.groups.name.indexer"
+msgstr "Documentalista"
+
+msgid "default.groups.abbrev.funding"
+msgstr "CF"
+
+msgid "default.groups.plural.funding"
+msgstr "Coordinadores/as de financiación"
+
+msgid "default.groups.name.funding"
+msgstr "Coordinador/a de financiación"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MV"
+
+msgid "default.groups.plural.marketing"
+msgstr "Coordinadores/as de Marketing e ventas"
+
+msgid "default.groups.name.marketing"
+msgstr "Coordinador/a de marketing e ventas"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "RI"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Revisores/as internos"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Revisor/a interno"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Deseño"
+
+msgid "default.groups.plural.designer"
+msgstr "Deseñadores/as"
+
+msgid "default.groups.name.designer"
+msgstr "Deseñador/a"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "CP"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Correctores/as de probas"
+
+msgid "default.groups.name.proofreader"
+msgstr "Corrector/a de probas"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Correctores/as de estilo"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Corrector/a de estilo"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "CoProd"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Coordinadores/as de produción"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Coordinador/a de produción"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Administradores/as do sitio"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Administrador/a do sitio"

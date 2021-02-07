@@ -215,6 +215,9 @@ msgstr "Email Template"
 msgid "manager.emails.emailTemplates"
 msgstr "Email Templates"
 
+msgid "manager.emails.otherTemplates"
+msgstr "Other Templates"
+
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "You must provide a context ID when adding an email template."
 

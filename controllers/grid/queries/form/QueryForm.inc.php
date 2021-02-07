@@ -170,6 +170,7 @@ class QueryForm extends Form {
 				'subject' => $headNote?$headNote->getTitle():null,
 				'comment' => $headNote?$headNote->getContents():null,
 				'userIds' => $queryDao->getParticipantIds($query->getId()),
+				'template' => null,
 			);
 		} else {
 			// set intial defaults for queries.
@@ -198,12 +199,42 @@ class QueryForm extends Form {
 			'noteId' => $headNote->getId(),
 			'actionArgs' => $actionArgs,
 			'csrfToken' => $request->getSession()->getCSRFToken(),
+			'stageId' => $this->getStageId(),
+			'assocId' => $query->getAssocId(),
+			'assocType' => $query->getAssocType(),
 		));
 
 		// Queryies only support ASSOC_TYPE_SUBMISSION so far
 		if ($query->getAssocType() == ASSOC_TYPE_SUBMISSION) {
+			/** @var Submission */
+			$submission = Services::get('submission')->get($query->getAssocId());
 
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+			// All stages can select the default template
+			$templateKeys = [];
+			// Determine if the current user can use any custom templates defined.
+			$user = $request->getUser();
+			if (Services::get('user')->userHasRole($user->getId(), [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], $context->getId())) {
+				$emailTemplates = Services::get('emailTemplate')->getMany([
+					'contextId' => $context->getId(),
+					'isCustom' => true,
+				]);
+				$templateKeys[] = 'NOTIFICATION_CENTER_DEFAULT';
+				foreach ($emailTemplates as $emailTemplate) {
+					$templateKeys[] = $emailTemplate->getData('key');
+				}
+			}
+
+			import('lib.pkp.classes.mail.SubmissionMailTemplate');
+			$templates = [];
+			foreach ($templateKeys as $templateKey) {
+				$mailTemplate = new SubmissionMailTemplate($submission, $templateKey);
+				$mailTemplate->assignParams([]);
+				$mailTemplate->replaceParams();
+				$templates[$templateKey] = $mailTemplate->getSubject();
+			}
+			$templateMgr->assign('templates', $templates);
+
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
 
 			// Get currently selected participants in the query
 			$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
@@ -218,8 +249,7 @@ class QueryForm extends Form {
 			if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
 
 				// Get all review assignments for current submission
-				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-				$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($query->getAssocId());
+				$reviewAssignments = Services::get('submission')->getReviewAssignments($submission);
 
 				// Get current users roles
 				$assignedRoles = [];
@@ -320,6 +350,7 @@ class QueryForm extends Form {
 			'subject',
 			'comment',
 			'users',
+			'template',
 		));
 	}
 

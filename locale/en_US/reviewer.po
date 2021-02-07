@@ -104,5 +104,11 @@ msgstr "For author and editor"
 msgid "submission.comments.cannotShareWithAuthor"
 msgstr "For editor only"
 
+msgid "submission.comments.sendCopyToReviewers"
+msgstr "Send a copy of this email notification by BCC to the following reviewers."
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Send to Reviewers"
+
 msgid "user.authorization.submissionReviewer"
 msgstr "The current user is not assigned as a reviewer for the requested document."

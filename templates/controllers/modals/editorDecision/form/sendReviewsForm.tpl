@@ -80,6 +80,11 @@
 				</a>
 			{/fbvFormSection}
 		{/if}
+
+		{include file="controllers/modals/editorDecision/form/bccReviewers.tpl"
+			reviewers=$reviewers
+			selected=$bccReviewers
+		}
 	</div>
 
 	{** Some decisions can be made before review is initiated (i.e. no attachments). **}

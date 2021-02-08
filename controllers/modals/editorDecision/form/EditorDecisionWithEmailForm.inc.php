@@ -233,14 +233,14 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			/** @var ReviewAssignment $reviewAssignment */
 			foreach ($reviewAssignments as $reviewAssignment) {
 				if (in_array($reviewAssignment->getStatus(), [REVIEW_ASSIGNMENT_STATUS_COMPLETE, REVIEW_ASSIGNMENT_STATUS_RECEIVED, REVIEW_ASSIGNMENT_STATUS_THANKED])) {
-					$reviewers[$reviewAssignment->getReviewerId()] = 0;
+					$reviewers[] = $reviewAssignment->getReviewerId();
 				}
 			}
 
 			$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-			foreach (array_intersect(array_keys($reviewers), (array) $this->getData('bccReviewers')) as $reviewerId) {
+			foreach (array_intersect($reviewers, (array) $this->getData('bccReviewers')) as $reviewerId) {
 				$user = $userDao->getById($reviewerId);
-				if ($user) {
+				if ($user && !$user->getDisabled()) {
 					$email->addBcc($user->getEmail(), $user->getFullName());
 				}
 			}

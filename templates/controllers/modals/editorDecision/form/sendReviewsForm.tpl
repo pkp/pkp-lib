@@ -81,17 +81,10 @@
 			{/fbvFormSection}
 		{/if}
 
-		{* Button to send a copy of the email by BCC to the selected reviewers *}
-		{if count($reviewers)}
-			{fbvFormSection title="submission.comments.sendToReviewers"}
-				<span class="description">{translate key="submission.comments.sendCopyToReviewers"}</span>
-				<ul class="checkbox_and_radiobutton">
-					{foreach from=$reviewers item="name" key="id"}
-						{fbvElement type="checkbox" id="bccReviewers[]" value=$id checked=in_array($id, $bccReviewers) label=$name translate=false}
-					{/foreach}
-				</ul>
-			{/fbvFormSection}
-		{/if}
+		{include file="controllers/modals/editorDecision/form/bccReviewers.tpl"
+			reviewers=$reviewers
+			selected=$bccReviewers
+		}
 	</div>
 
 	{** Some decisions can be made before review is initiated (i.e. no attachments). **}

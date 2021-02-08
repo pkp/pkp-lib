@@ -299,20 +299,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			}
 		});
 
-		// Ensure supported locales for forms and submission aren't empty
-		$validator->after(function ($validator) use ($action, $props) {
-			$siteSupportedLocales = Application::get()->getRequest()->getSite()->getData('supportedSubmissionLocales');
-			$localeProps = ['supportedFormLocales', 'supportedSubmissionLocales'];
-			foreach ($localeProps as $localeProp) {
-				if (isset($props[$localeProp]) && !$validator->errors()->get($localeProp)) {
-					$choosedLocales = array_diff($props[$localeProp], $siteSupportedLocales);
-					if ($choosedLocales === []) {
-						$validator->errors()->add($localeProp, __('api.contexts.400.localeSettingsCannotBeSaved'));
-					}
-				}
-			}
-		});
-
 		// If a new file has been uploaded, check that the temporary file exists and
 		// the current user owns it
 		$user = Application::get()->getRequest()->getUser();

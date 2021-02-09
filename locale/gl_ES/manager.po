@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-09 08:42+0000\n"
+"PO-Revision-Date: 2021-02-09 08:43+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/gl_ES/>\n"
@@ -1002,3 +1002,7 @@ msgstr "Opcións de acceso ao sitio"
 
 msgid "manager.sections.confirmActivateSection"
 msgstr "Estás seguro de que desexas activar esta sección?"
+
+#, fuzzy
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"

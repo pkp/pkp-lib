@@ -993,3 +993,6 @@ msgstr ""
 
 msgid "manager.sections.form.deactivateSection"
 msgstr "Desactive esta sección e non permita que se lle fagan novas entregas."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Seguro que desexas desactivar esta sección?"

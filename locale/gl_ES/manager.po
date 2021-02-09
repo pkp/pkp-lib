@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-09 08:38+0000\n"
+"PO-Revision-Date: 2021-02-09 08:40+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/gl_ES/>\n"
@@ -965,3 +965,28 @@ msgstr "Data e hora"
 
 msgid "manager.setup.privacyStatement"
 msgstr "Declaración de privacidade"
+
+msgid "manager.setup.theme.notFound"
+msgstr "O tema que seleccionou non está instalado ou habilitado."
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Pódense instalar novos temas desde a lapela Complementos na parte superior "
+"desta páxina."
+
+msgid "manager.setup.theme"
+msgstr "Tema"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Unha persoa de contacto que pode axudar aos editores, autores e revisores "
+"con calquera problema que teñan ao enviar, editar, revisar ou publicar "
+"material."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Contacto de soporte técnico"
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Podes cargar un arquivo CSS para personalizar aínda máis o aspecto do sitio "
+"web."

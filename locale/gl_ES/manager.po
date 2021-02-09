@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-08 17:42+0000\n"
+"PO-Revision-Date: 2021-02-09 08:38+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/gl_ES/>\n"
@@ -872,3 +872,96 @@ msgstr "Apariencia"
 
 msgid "manager.website.information"
 msgstr "Información"
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Exemplos: asociacións académicas, departamentos universitarios, "
+"cooperativas, etc. Os patrocinadores amósanse publicamente."
+
+msgid "manager.setup.sponsors.note"
+msgstr "Relación cos patrocinadores e descrición da política"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Presente unha ligazón a <button type = \"button\">como asegurar que todos os "
+"arquivos sexan anónimos</button> durante a carga"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Modo de revisión predeterminado"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Envía un recordatorio por correo electrónico se un revisor/a non enviou "
+"ningunha recomendación días despois da data de vencemento da revisión."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Recordatorio de revisión"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Envía un recordatorio por correo electrónico se un revisor/a non respondeu a "
+"unha solicitude de revisión varios días despois da data de vencemento da "
+"resposta."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Recordatorio de resposta"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Os valores predeterminados poden modificarse para cada revisión durante o "
+"proceso editorial."
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Non lembrar máis"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Semanas permitidas para completar a revisión"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Número de semanas para aceptar ou rexeitar unha solicitude de revisión."
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Prazo de finalización por defecto"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Prazo de resposta por defecto"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Esta declaración aparecerá durante o rexistro do usuario/a, o envío do autor "
+"e na páxina de privacidade. Nalgunhas xurisdicións, está obrigado legalmente "
+"a explicar como manexa os datos do usuario/a nesta política de privacidade."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Personalizado"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Data e hora (curtas)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Data e hora"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Hora"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Data (curta)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Data"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Escolla o formato preferido para datas e horas. Pódese introducir un formato "
+"personalizado empregando os <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>caracteres "
+"especiais do formato</a>."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formatos de data e hora"
+
+msgid "manager.setup.dateTime"
+msgstr "Data e hora"
+
+msgid "manager.setup.privacyStatement"
+msgstr "Declaración de privacidade"

@@ -525,11 +525,14 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 
 		// pkp/pkp-lib#6616 Delete review_files entries that correspond to nonexistent submission_files
 		$orphanedIds = Capsule::table('review_files AS rf')
+			->select('rf.submission_file_id', 'rf.review_id')
 			->leftJoin('submission_files AS sf', 'rf.submission_file_id', '=', 'sf.submission_file_id')
 			->whereNull('sf.submission_file_id')
 			->whereNotNull('rf.submission_file_id')
-			->pluck('rf.submission_file_id', 'rf.review_id');
-		foreach ($orphanedIds as $reviewId => $submissionFileId) {
+			->get();
+		foreach ($orphanedIds as $orphanedId) {
+			$reviewId = $orphanedId->{'review_id'};
+			$submissionFileId = $orphanedId->{'submission_file_id'};
 			error_log("Removing orphaned review_files entry with review_id ID $reviewId and submission_file_id $submissionFileId");
 			Capsule::table('review_files')
 				->where('submission_file_id', '=', $submissionFileId)

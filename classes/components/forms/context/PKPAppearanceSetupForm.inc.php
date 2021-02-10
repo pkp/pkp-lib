@@ -50,12 +50,14 @@ class PKPAppearanceSetupForm extends FormComponent {
 		$plugins = \PluginRegistry::loadCategory('blocks', true);
 
 		foreach ($currentBlocks as $plugin) {
-			$enabledOptions[] = [
-				'value' => $plugin,
-				'label' => $plugins[$plugin]->getDisplayName(),
-			];
-
+			if ($plugins[$plugin]) {
+				$enabledOptions[] = [
+					'value' => $plugin,
+					'label' => $plugins[$plugin]->getDisplayName(),
+				];
+			}
 		}
+
 		foreach ($plugins as $pluginName => $plugin) {
 			if (!in_array($pluginName, $currentBlocks)) {
 				$disabledOptions[] = [

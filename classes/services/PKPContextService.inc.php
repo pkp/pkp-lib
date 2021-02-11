@@ -529,7 +529,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		$supportedSubmissionLocales = $getCurrentPropValue('supportedSubmissionLocales');
 
 		$params['supportedFormLocales'] = array_intersect($supportedLocales, $supportedFormLocales);
-		$params['supportedSubmissionLocales'] = array_intersect($supportedLocales, $supportedFormLocales);
+		$params['supportedSubmissionLocales'] = array_intersect($supportedLocales, $supportedSubmissionLocales);
 
 		$newContext = $contextDao->newDataObject();
 		$newContext->_data = array_merge($context->_data, $params);

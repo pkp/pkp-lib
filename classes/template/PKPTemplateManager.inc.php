@@ -94,7 +94,7 @@ class PKPTemplateManager extends Smarty {
 		$this->registerResource('app', new PKPTemplateResource(['templates', $coreTemplateDir]));
 		$this->default_resource_type = 'app';
 
-		$this->error_reporting = E_ALL & ~E_NOTICE;
+		$this->error_reporting = E_ALL & ~E_NOTICE & ~E_WARNING;
 	}
 
 	/**

@@ -299,6 +299,37 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			}
 		});
 
+		// Ensure that the form and submission locales are available for the site
+		$validator->after(function($validator) use ($action, $props) {
+			$getCurrentPropValue = function($prop) use ($props) {
+				if (isset($props[$prop])) {
+					return $props[$prop];
+				}
+
+				$context = Application::get()->getRequest()->getContext();
+				if (isset($props['id']) && $context->getId() !== $props['id']) {
+					$context = $this->get($props['id']);
+				}
+
+				return $context->getData($prop);
+			};
+
+			$supportedLocales = $getCurrentPropValue('supportedLocales');
+			$supportedFormLocales = $getCurrentPropValue('supportedFormLocales');
+			$supportedSubmissionLocales = $getCurrentPropValue('supportedSubmissionLocales');
+
+			$unsupportedFormLocales = array_diff($supportedFormLocales, $supportedLocales);
+			$unsupportedSubmissionLocales = array_diff($supportedSubmissionLocales, $supportedLocales);
+
+			if ($unsupportedFormLocales !== [] && !$validator->errors()->has('supportedFormLocales')) {
+				$validator->errors()->add('supportedFormLocales', __('api.contexts.400.localesNotSupported', ['locales' => join(__('common.commaListSeparator'), $unsupportedFormLocales)]));
+			}
+
+			if ($unsupportedSubmissionLocales !== [] && !$validator->errors()->has('supportedSubmissionLocales')) {
+				$validator->errors()->add('supportedSubmissionLocales', __('api.contexts.400.localesNotSupported', ['locales' => join(__('common.commaListSeparator'), $unsupportedSubmissionLocales)]));
+			}
+		});
+
 		// If a new file has been uploaded, check that the temporary file exists and
 		// the current user owns it
 		$user = Application::get()->getRequest()->getUser();
@@ -484,6 +515,21 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		if (array_key_exists('styleSheet', $params)) {
 			$params['styleSheet'] = $this->_saveFileParam($context, $params['styleSheet'], 'styleSheet', $userId);
 		}
+
+		$getCurrentPropValue = function($prop) use ($props, $context) {
+			if (isset($props[$prop])) {
+				return $props[$prop];
+			}
+
+			return $context->getData($prop);
+		};
+
+		$supportedLocales = $getCurrentPropValue('supportedLocales');
+		$supportedFormLocales = $getCurrentPropValue('supportedFormLocales');
+		$supportedSubmissionLocales = $getCurrentPropValue('supportedSubmissionLocales');
+
+		$params['supportedFormLocales'] = array_intersect($supportedLocales, $supportedFormLocales);
+		$params['supportedSubmissionLocales'] = array_intersect($supportedLocales, $supportedFormLocales);
 
 		$newContext = $contextDao->newDataObject();
 		$newContext->_data = array_merge($context->_data, $params);

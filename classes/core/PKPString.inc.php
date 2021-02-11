@@ -59,7 +59,6 @@ class PKPString {
 			// Set up required ini settings for mbstring
 			// FIXME Do any other mbstring settings need to be set?
 			mb_internal_encoding($clientCharset);
-			mb_substitute_character('63');		// question mark
 		}
 
 		// Define modifier to be used in regexp_* routines

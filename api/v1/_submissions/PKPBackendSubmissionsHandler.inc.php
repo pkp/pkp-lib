@@ -42,7 +42,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 			),
 			'DELETE' => array(
 				array(
-					'pattern' => "{$rootPattern}/{submissionId}",
+					'pattern' => "{$rootPattern}/{submissionId:\d+}",
 					'handler' => array($this, 'delete'),
 					'roles' => array(
 						ROLE_ID_SITE_ADMIN,

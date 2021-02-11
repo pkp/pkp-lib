@@ -32,7 +32,7 @@ class PKPAnnouncementHandler extends APIHandler {
 					'roles' => [ROLE_ID_MANAGER],
 				],
 				[
-					'pattern' => $this->getEndpointPattern() . '/{announcementId}',
+					'pattern' => $this->getEndpointPattern() . '/{announcementId:\d+}',
 					'handler' => [$this, 'get'],
 					'roles' => [ROLE_ID_MANAGER],
 				],
@@ -46,14 +46,14 @@ class PKPAnnouncementHandler extends APIHandler {
 			],
 			'PUT' => [
 				[
-					'pattern' => $this->getEndpointPattern() . '/{announcementId}',
+					'pattern' => $this->getEndpointPattern() . '/{announcementId:\d+}',
 					'handler' => [$this, 'edit'],
 					'roles' => [ROLE_ID_MANAGER],
 				],
 			],
 			'DELETE' => array(
 				array(
-					'pattern' => $this->getEndpointPattern() . '/{announcementId}',
+					'pattern' => $this->getEndpointPattern() . '/{announcementId:\d+}',
 					'handler' => array($this, 'delete'),
 					'roles' => array(ROLE_ID_MANAGER),
 				),

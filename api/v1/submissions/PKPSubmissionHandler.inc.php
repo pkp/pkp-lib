@@ -71,27 +71,27 @@ class PKPSubmissionHandler extends APIHandler {
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
 				],
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}',
 					'handler' => [$this, 'get'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
 				],
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/participants',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/participants',
 					'handler' => [$this, 'getParticipants'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
 				],
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/participants/{stageId}',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/participants/{stageId:\d+}',
 					'handler' => [$this, 'getParticipants'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
 				],
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications',
 					'handler' => [$this, 'getPublications'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
 				],
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}',
 					'handler' => [$this, 'getPublication'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
 				],
@@ -103,46 +103,46 @@ class PKPSubmissionHandler extends APIHandler {
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
 				],
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications',
 					'handler' => [$this, 'addPublication'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
 				],
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}/version',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/version',
 					'handler' => [$this, 'versionPublication'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
 				],
 			],
 			'PUT' => [
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}',
 					'handler' => [$this, 'edit'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
 				],
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}',
 					'handler' => [$this, 'editPublication'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
 				],
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}/publish',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/publish',
 					'handler' => [$this, 'publishPublication'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
 				],
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}/unpublish',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/unpublish',
 					'handler' => [$this, 'unpublishPublication'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
 				],
 			],
 			'DELETE' => [
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}',
 					'handler' => [$this, 'delete'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
 				],
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}',
 					'handler' => [$this, 'deletePublication'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
 				],

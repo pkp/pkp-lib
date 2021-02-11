@@ -299,16 +299,16 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			}
 		});
 
-		// Ensure that the form and submission locales are available for the site
+		// Ensure that the form and submission locales are available for the context
 		$validator->after(function($validator) use ($action, $props) {
-			$getCurrentPropValue = function($prop) use ($props) {
+			$context = Application::get()->getRequest()->getContext();
+			if (isset($props['id']) && $context->getId() !== $props['id']) {
+				$context = $this->get($props['id']);
+			}
+
+			$getCurrentPropValue = function($prop) use ($props, $context) {
 				if (isset($props[$prop])) {
 					return $props[$prop];
-				}
-
-				$context = Application::get()->getRequest()->getContext();
-				if (isset($props['id']) && $context->getId() !== $props['id']) {
-					$context = $this->get($props['id']);
 				}
 
 				return $context->getData($prop);
@@ -321,11 +321,17 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			$unsupportedFormLocales = array_diff($supportedFormLocales, $supportedLocales);
 			$unsupportedSubmissionLocales = array_diff($supportedSubmissionLocales, $supportedLocales);
 
-			if ($unsupportedFormLocales !== [] && !$validator->errors()->has('supportedFormLocales')) {
+			if (isset($props['supportedFormLocales'])
+				&& $unsupportedFormLocales !== []
+				&& !$validator->errors()->has('supportedFormLocales')
+			) {
 				$validator->errors()->add('supportedFormLocales', __('api.contexts.400.localesNotSupported', ['locales' => join(__('common.commaListSeparator'), $unsupportedFormLocales)]));
 			}
 
-			if ($unsupportedSubmissionLocales !== [] && !$validator->errors()->has('supportedSubmissionLocales')) {
+			if (isset($props['supportedSubmissionLocales'])
+				&& $unsupportedSubmissionLocales !== []
+				&& !$validator->errors()->has('supportedSubmissionLocales')
+			) {
 				$validator->errors()->add('supportedSubmissionLocales', __('api.contexts.400.localesNotSupported', ['locales' => join(__('common.commaListSeparator'), $unsupportedSubmissionLocales)]));
 			}
 		});
@@ -516,9 +522,9 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			$params['styleSheet'] = $this->_saveFileParam($context, $params['styleSheet'], 'styleSheet', $userId);
 		}
 
-		$getCurrentPropValue = function($prop) use ($props, $context) {
-			if (isset($props[$prop])) {
-				return $props[$prop];
+		$getCurrentPropValue = function($prop) use ($params, $context) {
+			if (isset($params[$prop])) {
+				return $params[$prop];
 			}
 
 			return $context->getData($prop);
@@ -528,6 +534,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		$supportedFormLocales = $getCurrentPropValue('supportedFormLocales');
 		$supportedSubmissionLocales = $getCurrentPropValue('supportedSubmissionLocales');
 
+		// Update the form and submission locales to remove any unsupported locales
 		$params['supportedFormLocales'] = array_intersect($supportedLocales, $supportedFormLocales);
 		$params['supportedSubmissionLocales'] = array_intersect($supportedLocales, $supportedSubmissionLocales);
 

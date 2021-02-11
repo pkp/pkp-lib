@@ -240,7 +240,7 @@ class PluginSettingsDAO extends DAO {
 	 * @param $paramArray array Optional parameters for variable replacement in settings
 	 */
 	function installSettings($contextId, $pluginName, $filename, $paramArray = array()) {
-		$xmlParser = new XMLParser();
+		$xmlParser = new PKPXMLParser();
 		$tree = $xmlParser->parse($filename);
 
 		if (!$tree) return false;

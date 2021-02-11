@@ -14,7 +14,7 @@
  * See dbscripts/xml/dtd/xmldata.dtd for the XML schema used.
  */
 
-import('lib.pkp.classes.xml.XMLParser');
+import('lib.pkp.classes.xml.PKPXMLParser');
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Database\Schema\Blueprint;
@@ -37,7 +37,7 @@ class DBDataXMLParser {
 	 */
 	function parseData($file) {
 		$this->sql = array();
-		$parser = new XMLParser();
+		$parser = new PKPXMLParser();
 		$tree = $parser->parse($file);
 		if (!$tree) return array();
 

@@ -240,7 +240,7 @@ class ControlledVocabDAO extends DAO {
 		$controlledVocabs = array();
 		$controlledVocabEntryDao = $this->getEntryDAO();
 		$controlledVocabEntrySettingsDao = $controlledVocabEntryDao->getSettingsDAO();
-		$parser = new XMLParser();
+		$parser = new PKPXMLParser();
 		$tree = $parser->parse($filename);
 		foreach ($tree->getChildren() as $controlledVocabNode) {
 			assert($controlledVocabNode->getName() == 'controlled_vocab');

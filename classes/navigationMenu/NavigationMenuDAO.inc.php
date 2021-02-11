@@ -194,7 +194,7 @@ class NavigationMenuDAO extends DAO {
 	 * @return boolean true === success
 	 */
 	function installSettings($contextId, $filename) {
-		$xmlParser = new XMLParser();
+		$xmlParser = new PKPXMLParser();
 		$tree = $xmlParser->parse($filename);
 
 		if ($contextId == CONTEXT_ID_NONE) {

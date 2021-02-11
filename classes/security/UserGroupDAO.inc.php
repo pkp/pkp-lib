@@ -676,7 +676,7 @@ class UserGroupDAO extends DAO {
 	 * @return boolean true === success
 	 */
 	function installSettings($contextId, $filename) {
-		$xmlParser = new XMLParser();
+		$xmlParser = new PKPXMLParser();
 		$tree = $xmlParser->parse($filename);
 
 		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */

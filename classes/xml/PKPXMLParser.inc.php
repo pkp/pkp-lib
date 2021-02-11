@@ -6,13 +6,13 @@
  */
 
 /**
- * @file classes/xml/XMLParser.inc.php
+ * @file classes/xml/PKPXMLParser.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class XMLParser
+ * @class PKPXMLParser
  * @ingroup xml
  *
  * @brief Generic class for parsing an XML document into a data structure.
@@ -25,7 +25,7 @@ define('XML_PARSER_TARGET_ENCODING', Config::getVar('i18n', 'client_charset'));
 
 import('lib.pkp.classes.xml.XMLParserDOMHandler');
 
-class XMLParser {
+class PKPXMLParser {
 	/** @var object instance of XMLParserHandler */
 	var $handler;
 
@@ -45,7 +45,7 @@ class XMLParser {
 
 		if (!isset($this->handler)) {
 			// Use default handler for parsing
-			$handler = new XMLParserDOMHandler();
+			$handler = new PKPXMLParserDOMHandler();
 			$this->setHandler($handler);
 		}
 
@@ -225,14 +225,14 @@ class XMLParser {
 }
 
 /**
- * Interface for handler class used by XMLParser.
+ * Interface for handler class used by PKPXMLParser.
  * All XML parser handler classes must implement these methods.
  */
 class XMLParserHandler {
 
 	/**
 	 * Callback function to act as the start element handler.
-	 * @param $parser XMLParser
+	 * @param $parser PKPXMLParser
 	 * @param $tag string
 	 * @param $attributes array
 	 */
@@ -241,7 +241,7 @@ class XMLParserHandler {
 
 	/**
 	 * Callback function to act as the end element handler.
-	 * @param $parser XMLParser
+	 * @param $parser PKPXMLParser
 	 * @param $tag string
 	 */
 	function endElement($parser, $tag) {
@@ -249,7 +249,7 @@ class XMLParserHandler {
 
 	/**
 	 * Callback function to act as the character data handler.
-	 * @param $parser XMLParser
+	 * @param $parser PKPXMLParser
 	 * @param $data string
 	 */
 	function characterData($parser, $data) {
@@ -271,3 +271,6 @@ class XMLParserHandler {
 	function destroy() {
 	}
 }
+
+// For PHP < 8.x, this class used to be called XMLParser. Alias for compatibility when possible.
+if (!class_exists('XMLParser')) class_alias('PKPXMLParser', 'XMLParser');

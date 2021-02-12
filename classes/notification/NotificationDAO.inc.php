@@ -247,7 +247,7 @@ class NotificationDAO extends DAO {
 	 * @param $level int
 	 * @return int
 	 */
-	function getNotificationCount($read = true, $userId, $contextId = null, $level = NOTIFICATION_LEVEL_NORMAL) {
+	function getNotificationCount($read = true, $userId = null, $contextId = null, $level = NOTIFICATION_LEVEL_NORMAL) {
 		$params = array((int) $userId, (int) $level);
 		if ($contextId) $params[] = (int) $contextId;
 

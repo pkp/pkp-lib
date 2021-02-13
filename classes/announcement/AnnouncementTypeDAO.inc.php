@@ -167,7 +167,7 @@ class AnnouncementTypeDAO extends DAO {
 			[(int) $assocType, (int) $assocId]
 		);
 		foreach ($result as $row) {
-			yield $this->_fromRow((array) $row);
+			yield $row->type_id => $this->_fromRow((array) $row);
 		}
 	}
 

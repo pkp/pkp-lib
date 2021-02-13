@@ -55,6 +55,10 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			// pkp/pkp-lib#5865 Change announcement expiry format in database
 			$table->date('date_expire')->change();
 		});
+		Capsule::schema()->table('announcement_settings', function (Blueprint $table) {
+			// pkp/pkp-lib#6748 Change announcement setting type to permit nulls
+			$table->string('setting_type', 6)->nullable()->change();
+		});
 
 		// Transitional: The stage_id column may have already been added by the ADODB schema toolset
 		if (!Capsule::schema()->hasColumn('email_templates_default', 'stage_id')) {

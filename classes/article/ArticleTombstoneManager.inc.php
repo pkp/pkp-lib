@@ -21,17 +21,17 @@ class ArticleTombstoneManager {
 	function __construct() {
 	}
 
-	function insertArticleTombstone(&$article, &$journal) {
+	function insertArticleTombstone(&$article, &$server) {
 		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
 		$tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO'); /* @var $tombstoneDao DataObjectTombstoneDAO */
 		// delete article tombstone -- to ensure that there aren't more than one tombstone for this article
 		$tombstoneDao->deleteByDataObjectId($article->getId());
 		// insert article tombstone
 		$section = $sectionDao->getById($article->getSectionId());
-		$setSpec = urlencode($journal->getPath()) . ':' . urlencode($section->getLocalizedAbbrev());
+		$setSpec = urlencode($server->getPath()) . ':' . urlencode($section->getLocalizedAbbrev());
 		$oaiIdentifier = 'oai:' . Config::getVar('oai', 'repository_id') . ':' . 'article/' . $article->getId();
 		$OAISetObjectsIds = array(
-			ASSOC_TYPE_JOURNAL => $journal->getId(),
+			ASSOC_TYPE_JOURNAL => $server->getId(),
 			ASSOC_TYPE_SECTION => $section->getId(),
 		);
 
@@ -44,7 +44,7 @@ class ArticleTombstoneManager {
 		$articleTombstone->setOAISetObjectsIds($OAISetObjectsIds);
 		$tombstoneDao->insertObject($articleTombstone);
 
-		if (HookRegistry::call('ArticleTombstoneManager::insertArticleTombstone', array(&$articleTombstone, &$article, &$journal))) return;
+		if (HookRegistry::call('ArticleTombstoneManager::insertArticleTombstone', array(&$articleTombstone, &$article, &$server))) return;
 	}
 }
 

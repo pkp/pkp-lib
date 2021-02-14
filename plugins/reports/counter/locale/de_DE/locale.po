@@ -45,13 +45,13 @@ msgid "plugins.reports.counter.1a.xml"
 msgstr "XML-Version"
 
 msgid "plugins.reports.counter.1a.description"
-msgstr "COUNTER Journal Report 1 (R3): Volltext-Zugriffe nach Monat und Zeitschrift"
+msgstr "COUNTER Server Report 1 (R3): Volltext-Zugriffe nach Monat und Zeitschrift"
 
 msgid "plugins.reports.counter.1a.title"
 msgstr "Volltext-Zugriffe nach Monat und Zeitschrift"
 
 msgid "plugins.reports.counter.1a.title1"
-msgstr "Journal Report 1 (R3)"
+msgstr "Server Report 1 (R3)"
 
 msgid "plugins.reports.counter.1a.title2"
 msgstr "Zahl erfolgreicher Volltext-Zugriffe nach Monat und Zeitschrift (Jahr {$year})"
@@ -80,7 +80,7 @@ msgstr "YTD-HTML"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "YTD-PDF"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Gesamtsumme für alle Zeitschriften"
 
 msgid "plugins.reports.counter.1a.anonymous"

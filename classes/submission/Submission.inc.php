@@ -95,21 +95,21 @@ class Submission extends PKPSubmission {
 	}
 
 	/**
-	 * Get ID of journal.
+	 * Get ID of server.
 	 * @deprecated 3.2.0.0
 	 * @return int
 	 */
-	function getJournalId() {
+	function getServerId() {
 		return $this->getData('contextId');
 	}
 
 	/**
-	 * Set ID of journal.
+	 * Set ID of server.
 	 * @deprecated 3.2.0.0
-	 * @param $journalId int
+	 * @param $serverId int
 	 */
-	function setJournalId($journalId) {
-		return $this->setData('contextId', $journalId);
+	function setServerId($serverId) {
+		return $this->setData('contextId', $serverId);
 	}
 
 	/**

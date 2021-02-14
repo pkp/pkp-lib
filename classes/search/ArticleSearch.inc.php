@@ -88,12 +88,12 @@ class ArticleSearch extends SubmissionSearch {
 					}
 					break;
 
-				case 'journalTitle':
-					if (!isset($contextTitles[$data['journal_id']])) {
-						$context = $contextDao->getById($data['journal_id']);
-						$contextTitles[$data['journal_id']] = $context->getLocalizedName();
+				case 'serverTitle':
+					if (!isset($contextTitles[$data['server_id']])) {
+						$context = $contextDao->getById($data['server_id']);
+						$contextTitles[$data['server_id']] = $context->getLocalizedName();
 					}
-					$orderKey = $contextTitles[$data['journal_id']];
+					$orderKey = $contextTitles[$data['server_id']];
 					break;
 
 				case 'publicationDate':
@@ -146,7 +146,7 @@ class ArticleSearch extends SubmissionSearch {
 	function getSearchFilters($request) {
 		$searchFilters = array(
 			'query' => $request->getUserVar('query'),
-			'searchJournal' => $request->getUserVar('searchJournal'),
+			'searchServer' => $request->getUserVar('searchServer'),
 			'abstract' => $request->getUserVar('abstract'),
 			'authors' => $request->getUserVar('authors'),
 			'title' => $request->getUserVar('title'),
@@ -181,19 +181,19 @@ class ArticleSearch extends SubmissionSearch {
 		$siteSearch = !((boolean)$context);
 		if ($siteSearch) {
 			$contextDao = Application::getContextDAO();
-			if (!empty($searchFilters['searchJournal'])) {
-				$context = $contextDao->getById($searchFilters['searchJournal']);
-			} elseif (array_key_exists('journalTitle', $request->getUserVars())) {
+			if (!empty($searchFilters['searchServer'])) {
+				$context = $contextDao->getById($searchFilters['searchServer']);
+			} elseif (array_key_exists('serverTitle', $request->getUserVars())) {
 				$contexts = $contextDao->getAll(true);
 				while ($context = $contexts->next()) {
 					if (in_array(
-						$request->getUserVar('journalTitle'),
+						$request->getUserVar('serverTitle'),
 						(array) $context->getTitle(null)
 					)) break;
 				}
 			}
 		}
-		$searchFilters['searchJournal'] = $context;
+		$searchFilters['searchServer'] = $context;
 		$searchFilters['siteSearch'] = $siteSearch;
 
 		return $searchFilters;
@@ -226,7 +226,7 @@ class ArticleSearch extends SubmissionSearch {
 	 * @param $results array
 	 * @param $user User optional (if availability information is desired)
 	 * @return array An array with the articles, published submissions,
-	 * journal, section.
+	 * server, section.
 	 */
 	function formatResults($results, $user = null) {
 		$contextDao = Application::getContextDAO();
@@ -264,7 +264,7 @@ class ArticleSearch extends SubmissionSearch {
 				$returner[] = array(
 					'article' => $article,
 					'publishedSubmission' => $publishedSubmissionCache[$articleId],
-					'journal' => $contextCache[$contextId],
+					'server' => $contextCache[$contextId],
 					'section' => $sectionCache[$sectionId]
 				);
 			}
@@ -334,10 +334,10 @@ class ArticleSearch extends SubmissionSearch {
 			$resultSetOrderingOptions['popularityMonth'] = __('search.results.orderBy.popularityMonth');
 		}
 
-		// Only show the "journal title" option if we have several journals.
+		// Only show the "server title" option if we have several servers.
 		$context = $request->getContext();
 		if (!$context) {
-			$resultSetOrderingOptions['journalTitle'] = __('search.results.orderBy.journal');
+			$resultSetOrderingOptions['serverTitle'] = __('search.results.orderBy.server');
 		}
 
 		// Let plugins mangle the search ordering options.

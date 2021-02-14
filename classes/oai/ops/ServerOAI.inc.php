@@ -1,33 +1,33 @@
 <?php
 
 /**
- * @file classes/oai/ops/JournalOAI.inc.php
+ * @file classes/oai/ops/ServerOAI.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class JournalOAI
+ * @class ServerOAI
  * @ingroup oai
  * @see OAIDAO
  *
  * @brief ops-specific OAI interface.
- * Designed to support both a site-wide and journal-specific OAI interface
+ * Designed to support both a site-wide and server-specific OAI interface
  * (based on where the request is directed).
  */
 
 import('lib.pkp.classes.oai.OAI');
 import('classes.oai.ops.OAIDAO');
 
-class JournalOAI extends OAI {
+class ServerOAI extends OAI {
 	/** @var Site associated site object */
 	var $site;
 
-	/** @var Journal associated journal object */
-	var $journal;
+	/** @var Server associated server object */
+	var $server;
 
-	/** @var int|null Journal ID; null if no journal */
-	var $journalId;
+	/** @var int|null Server ID; null if no server */
+	var $serverId;
 
 	/** @var OAIDAO DAO for retrieving OAI records/tokens from database */
 	var $dao;
@@ -41,8 +41,8 @@ class JournalOAI extends OAI {
 
 		$request = Application::get()->getRequest();
 		$this->site = $request->getSite();
-		$this->journal = $request->getJournal();
-		$this->journalId = isset($this->journal) ? $this->journal->getId() : null;
+		$this->server = $request->getServer();
+		$this->serverId = isset($this->server) ? $this->server->getId() : null;
 		$this->dao = DAORegistry::getDAO('OAIDAO');
 		$this->dao->setOAI($this);
 	}
@@ -52,7 +52,7 @@ class JournalOAI extends OAI {
 	 * @return array
 	 */
 	function getNonPathInfoParams() {
-		return array('journal', 'page');
+		return array('server', 'page');
 	}
 
 	/**
@@ -79,23 +79,23 @@ class JournalOAI extends OAI {
 	}
 
 	/**
-	 * Get the journal ID and section ID corresponding to a set specifier.
+	 * Get the server ID and section ID corresponding to a set specifier.
 	 * @return int
 	 */
-	function setSpecToSectionId($setSpec, $journalId = null) {
+	function setSpecToSectionId($setSpec, $serverId = null) {
 		$tmpArray = preg_split('/:/', $setSpec);
 		if (count($tmpArray) == 1) {
-			list($journalSpec) = $tmpArray;
-			$journalSpec = urldecode($journalSpec);
+			list($serverSpec) = $tmpArray;
+			$serverSpec = urldecode($serverSpec);
 			$sectionSpec = null;
 		} else if (count($tmpArray) == 2) {
-			list($journalSpec, $sectionSpec) = $tmpArray;
-			$journalSpec = urldecode($journalSpec);
+			list($serverSpec, $sectionSpec) = $tmpArray;
+			$serverSpec = urldecode($serverSpec);
 			$sectionSpec = urldecode($sectionSpec);
 		} else {
 			return array(0, 0);
 		}
-		return $this->dao->getSetJournalSectionId($journalSpec, $sectionSpec, $this->journalId);
+		return $this->dao->getSetServerSectionId($serverSpec, $sectionSpec, $this->serverId);
 	}
 
 
@@ -109,9 +109,9 @@ class JournalOAI extends OAI {
 	function repositoryInfo() {
 		$info = new OAIRepository();
 
-		if (isset($this->journal)) {
-			$info->repositoryName = $this->journal->getLocalizedName();
-			$info->adminEmail = $this->journal->getData('contactEmail');
+		if (isset($this->server)) {
+			$info->repositoryName = $this->server->getLocalizedName();
+			$info->adminEmail = $this->server->getData('contactEmail');
 
 		} else {
 			$info->repositoryName = $this->site->getLocalizedTitle();
@@ -119,7 +119,7 @@ class JournalOAI extends OAI {
 		}
 
 		$info->sampleIdentifier = $this->articleIdToIdentifier(1);
-		$info->earliestDatestamp = $this->dao->getEarliestDatestamp(array($this->journalId));
+		$info->earliestDatestamp = $this->dao->getEarliestDatestamp(array($this->serverId));
 
 		$info->toolkitTitle = 'Open Preprint Systems';
 		$versionDao = DAORegistry::getDAO('VersionDAO');
@@ -144,7 +144,7 @@ class JournalOAI extends OAI {
 		$recordExists = false;
 		$articleId = $this->identifierToArticleId($identifier);
 		if ($articleId) {
-			$recordExists = $this->dao->recordExists($articleId, array($this->journalId));
+			$recordExists = $this->dao->recordExists($articleId, array($this->serverId));
 		}
 		return $recordExists;
 	}
@@ -155,7 +155,7 @@ class JournalOAI extends OAI {
 	function record($identifier) {
 		$articleId = $this->identifierToArticleId($identifier);
 		if ($articleId) {
-			$record = $this->dao->getRecord($articleId, array($this->journalId));
+			$record = $this->dao->getRecord($articleId, array($this->serverId));
 		}
 		if (!isset($record)) {
 			$record = false;
@@ -168,14 +168,14 @@ class JournalOAI extends OAI {
 	 */
 	function records($metadataPrefix, $from, $until, $set, $offset, $limit, &$total) {
 		$records = null;
-		if (!HookRegistry::call('JournalOAI::records', array($this, $from, $until, $set, $offset, $limit, &$total, &$records))) {
+		if (!HookRegistry::call('ServerOAI::records', array($this, $from, $until, $set, $offset, $limit, &$total, &$records))) {
 			$sectionId = null;
 			if (isset($set)) {
-				list($journalId, $sectionId) = $this->setSpecToSectionId($set);
+				list($serverId, $sectionId) = $this->setSpecToSectionId($set);
 			} else {
-				$journalId = $this->journalId;
+				$serverId = $this->serverId;
 			}
-			$records = $this->dao->getRecords(array($journalId, $sectionId), $from, $until, $set, $offset, $limit, $total);
+			$records = $this->dao->getRecords(array($serverId, $sectionId), $from, $until, $set, $offset, $limit, $total);
 		}
 		return $records;
 	}
@@ -185,14 +185,14 @@ class JournalOAI extends OAI {
 	 */
 	function identifiers($metadataPrefix, $from, $until, $set, $offset, $limit, &$total) {
 		$records = null;
-		if (!HookRegistry::call('JournalOAI::identifiers', array($this, $from, $until, $set, $offset, $limit, &$total, &$records))) {
+		if (!HookRegistry::call('ServerOAI::identifiers', array($this, $from, $until, $set, $offset, $limit, &$total, &$records))) {
 			$sectionId = null;
 			if (isset($set)) {
-				list($journalId, $sectionId) = $this->setSpecToSectionId($set);
+				list($serverId, $sectionId) = $this->setSpecToSectionId($set);
 			} else {
-				$journalId = $this->journalId;
+				$serverId = $this->serverId;
 			}
-			$records = $this->dao->getIdentifiers(array($journalId, $sectionId), $from, $until, $set, $offset, $limit, $total);
+			$records = $this->dao->getIdentifiers(array($serverId, $sectionId), $from, $until, $set, $offset, $limit, $total);
 		}
 		return $records;
 	}
@@ -202,8 +202,8 @@ class JournalOAI extends OAI {
 	 */
 	function sets($offset, $limit, &$total) {
 		$sets = null;
-		if (!HookRegistry::call('JournalOAI::sets', array($this, $offset, $limit, &$total, &$sets))) {
-			$sets = $this->dao->getJournalSets($this->journalId, $offset, $limit, $total);
+		if (!HookRegistry::call('ServerOAI::sets', array($this, $offset, $limit, &$total, &$sets))) {
+			$sets = $this->dao->getServerSets($this->serverId, $offset, $limit, $total);
 		}
 		return $sets;
 	}

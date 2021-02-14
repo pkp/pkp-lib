@@ -225,21 +225,21 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 	}
 
 	/**
-	 * Rebuild the search index for one or all journals.
+	 * Rebuild the search index for one or all servers.
 	 * @param $log boolean Whether to display status information
 	 *  to stdout.
-	 * @param $journal Journal If given the user wishes to
-	 *  re-index only one journal. Not all search implementations
+	 * @param $server Server If given the user wishes to
+	 *  re-index only one server. Not all search implementations
 	 *  may be able to do so. Most notably: The default SQL
-	 *  implementation does not support journal-specific re-indexing
-	 *  as index data is not partitioned by journal.
+	 *  implementation does not support server-specific re-indexing
+	 *  as index data is not partitioned by server.
 	 * @param $switches array Optional index administration switches.
 	 */
-	public function rebuildIndex($log = false, $journal = null, $switches = array()) {
+	public function rebuildIndex($log = false, $server = null, $switches = array()) {
 		// Check whether a search plug-in jumps in.
 		$hookResult = HookRegistry::call(
 			'ArticleSearchIndex::rebuildIndex',
-			array($log, $journal, $switches)
+			array($log, $server, $switches)
 		);
 
 		// If no search plug-in is activated then fall back to the
@@ -248,9 +248,9 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 
 			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 
-			// Check that no journal was given as we do
-			// not support journal-specific re-indexing.
-			if (is_a($journal, 'Journal')) die(__('search.cli.rebuildIndex.indexingByJournalNotSupported') . "\n");
+			// Check that no server was given as we do
+			// not support server-specific re-indexing.
+			if (is_a($server, 'Server')) die(__('search.cli.rebuildIndex.indexingByServerNotSupported') . "\n");
 
 			// Clear index
 			if ($log) echo __('search.cli.rebuildIndex.clearingIndex') . ' ... ';
@@ -259,15 +259,15 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 			if ($log) echo __('search.cli.rebuildIndex.done') . "\n";
 
 			// Build index
-			$journalDao = DAORegistry::getDAO('JournalDAO'); /* @var $journalDao JournalDAO */
+			$serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
 
-			$journals = $journalDao->getAll();
-			while ($journal = $journals->next()) {
+			$servers = $serverDao->getAll();
+			while ($server = $servers->next()) {
 				$numIndexed = 0;
 
-				if ($log) echo __('search.cli.rebuildIndex.indexing', array('journalName' => $journal->getLocalizedName())) . ' ... ';
+				if ($log) echo __('search.cli.rebuildIndex.indexing', array('serverName' => $server->getLocalizedName())) . ' ... ';
 
-				$submissionsIterator = Services::get('submission')->getMany(['contextId' => $journal->getId()]);
+				$submissionsIterator = Services::get('submission')->getMany(['contextId' => $server->getId()]);
 				foreach ($submissionsIterator as $submission) {
 					if ($submission->getSubmissionProgress() == 0) { // Not incomplete
 						$this->submissionMetadataChanged($submission);

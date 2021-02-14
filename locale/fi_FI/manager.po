@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "manager.statistics.reports.defaultReport.journalIndexPageViews"
+msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
 msgstr "Palvelimen pääsivun katselukerrat"
 
 msgid "manager.statistics.statistics.registeredReaders"
@@ -127,7 +127,7 @@ msgstr "Tietoa palvelimesta"
 msgid "manager.setup.contextSummary"
 msgstr "Palvelimen yhteenveto"
 
-msgid "manager.setup.journalAbbreviation"
+msgid "manager.setup.serverAbbreviation"
 msgstr "Palvelimen lyhenne"
 
 msgid "manager.setup.itemsPerPage.description"

@@ -25,7 +25,7 @@ msgstr "Valitse tälle käsikirjoitukselle sopiva palvelimen osasto."
 msgid "submission.submit.coverNote"
 msgstr "Kommentit moderaattorille"
 
-msgid "author.submit.journalSection"
+msgid "author.submit.serverSection"
 msgstr "Palvelimen osasto"
 
 msgid "author.submit.notAccepting"

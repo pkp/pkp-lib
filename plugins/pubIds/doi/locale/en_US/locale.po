@@ -95,13 +95,13 @@ msgstr "If you change your DOI configuration, DOIs that have already been assign
 msgid "plugins.pubIds.doi.manager.settings.doiReassign.confirm"
 msgstr "Are you sure you wish to delete all existing DOIs?"
 
-msgid "plugins.pubIds.doi.manager.settings.doiAssignJournalWide"
+msgid "plugins.pubIds.doi.manager.settings.doiAssignServerWide"
 msgstr "Assign DOIs"
 
-msgid "plugins.pubIds.doi.manager.settings.doiAssignJournalWide.description"
+msgid "plugins.pubIds.doi.manager.settings.doiAssignServerWide.description"
 msgstr "Assign DOIs to all published server objects that have not been assigned DOIs. This action can not be used with the individual suffix configuration. If you have modified the DOI configuration above, please save your changes before initiating this action. Assigning DOIs may take a long time, depending on the number of published objects in the server."
 
-msgid "plugins.pubIds.doi.manager.settings.doiAssignJournalWide.confirm"
+msgid "plugins.pubIds.doi.manager.settings.doiAssignServerWide.confirm"
 msgstr "Are you sure you wish to assign DOIs to all published objects that have not been assigned DOIs?"
 
 msgid "plugins.pubIds.doi.editor.doi"

@@ -16,7 +16,7 @@ msgstr ""
 "Restrinja os resultados por tipo de objeto (servidor, preprint, tipo de "
 "arquivo) e/ou por um ou mais identificadores de objeto."
 
-msgid "manager.statistics.reports.defaultReport.journalIndexPageViews"
+msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
 msgstr "Número de visualizações da página principal do servidor"
 
 msgid "manager.statistics.reports.defaultReport.articleAbstract"
@@ -168,7 +168,7 @@ msgstr "Sobre o servidor"
 msgid "manager.setup.contextSummary"
 msgstr "Resumo do servidor"
 
-msgid "manager.setup.journalAbbreviation"
+msgid "manager.setup.serverAbbreviation"
 msgstr "Abreviatura do servidor"
 
 msgid "manager.setup.itemsPerPage.description"

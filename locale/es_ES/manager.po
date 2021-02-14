@@ -16,7 +16,7 @@ msgstr ""
 "Restrinja los resultados por tipo de objeto (servidor, preimpresión, tipos "
 "de archivo) y/o por uno o más identificadores de objeto."
 
-msgid "manager.statistics.reports.defaultReport.journalIndexPageViews"
+msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
 msgstr "Vistas de la página principal del servidor"
 
 msgid "manager.statistics.reports.defaultReport.articleAbstract"
@@ -173,7 +173,7 @@ msgstr "Sobre el servidor"
 msgid "manager.setup.contextSummary"
 msgstr "Resumen del servidor"
 
-msgid "manager.setup.journalAbbreviation"
+msgid "manager.setup.serverAbbreviation"
 msgstr "Abreviatura del servidor"
 
 msgid "manager.setup.itemsPerPage.description"

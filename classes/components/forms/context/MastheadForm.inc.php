@@ -24,7 +24,7 @@ class MastheadForm extends PKPMastheadForm {
 		parent::__construct($action, $locales, $context, $imageUploadUrl);
 
 		$this->addField(new FieldText('abbreviation', [
-				'label' => __('manager.setup.journalAbbreviation'),
+				'label' => __('manager.setup.serverAbbreviation'),
 				'isMultilingual' => true,
 				'groupId' => 'identity',
 				'value' => $context->getData('abbreviation'),

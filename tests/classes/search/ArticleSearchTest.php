@@ -38,7 +38,7 @@ class ArticleSearchTest extends PKPTestCase {
 		$mockedDaos = parent::getMockedDAOs();
 		$mockedDaos += array(
 			'ArticleSearchDAO', 'SubmissionDAO',
-			'JournalDAO', 'SectionDAO'
+			'ServerDAO', 'SectionDAO'
 		);
 		return $mockedDaos;
 	}
@@ -53,7 +53,7 @@ class ArticleSearchTest extends PKPTestCase {
 		// Prepare the mock environment for this test.
 		$this->registerMockArticleSearchDAO();
 		$this->registerMockSubmissionDAO();
-		$this->registerMockJournalDAO();
+		$this->registerMockServerDAO();
 		$this->registerMockSectionDAO();
 
 		$request = Application::get()->getRequest();
@@ -85,12 +85,12 @@ class ArticleSearchTest extends PKPTestCase {
 		HookRegistry::clear('SubmissionSearch::retrieveResults');
 
 		// Test a simple search with a mock database back-end.
-		$journal = new Journal();
+		$server = new Server();
 		$keywords = array(null => 'test');
 		$articleSearch = new ArticleSearch();
 		$error = '';
 		$request = Application::get()->getRequest();
-		$searchResult = $articleSearch->retrieveResults($request, $journal, $keywords, $error);
+		$searchResult = $articleSearch->retrieveResults($request, $server, $keywords, $error);
 
 		// Test whether the result from the mocked DAOs is being returned.
 		self::assertInstanceOf('ItemIterator', $searchResult);
@@ -101,7 +101,7 @@ class ArticleSearchTest extends PKPTestCase {
 
 		$this->registerMockArticleSearchDAO(); // This is necessary to instantiate a fresh iterator.
 		$keywords = array(null => 'test');
-		$searchResult = $articleSearch->retrieveResults($request, $journal, $keywords, $error);
+		$searchResult = $articleSearch->retrieveResults($request, $server, $keywords, $error);
 		self::assertTrue($searchResult->eof());
 	}
 
@@ -133,10 +133,10 @@ class ArticleSearchTest extends PKPTestCase {
 
 		foreach($testCases as $testCase) {
 			// Test a simple search with the simulated callback.
-			$journal = new Journal();
+			$server = new Server();
 			$keywords = $testCase;
 			$articleSearch = new ArticleSearch();
-			$searchResult = $articleSearch->retrieveResults($request, $journal, $keywords, $error, $testFromDate, $testToDate);
+			$searchResult = $articleSearch->retrieveResults($request, $server, $keywords, $error, $testFromDate, $testToDate);
 
 			// Check the parameters passed into the callback.
 			$expectedPage = 1;
@@ -144,7 +144,7 @@ class ArticleSearchTest extends PKPTestCase {
 			$expectedTotalResults = 3;
 			$expectedError = '';
 			$expectedParams = array(
-				$journal, $testCase, $testFromDate, $testToDate,
+				$server, $testCase, $testFromDate, $testToDate,
 				$expectedPage, $expectedItemsPerPage, $expectedTotalResults,
 				$expectedError
 			);
@@ -201,7 +201,7 @@ class ArticleSearchTest extends PKPTestCase {
 	 *
 	 * @see SubmissionDAO::getArticle()
 	 */
-	public function callbackGetArticle($articleId, $journalId = null, $useCache = false) {
+	public function callbackGetArticle($articleId, $serverId = null, $useCache = false) {
 		// Create an article instance with the correct id.
 		$article = new Submission();
 		$article->setId($articleId);
@@ -226,7 +226,7 @@ class ArticleSearchTest extends PKPTestCase {
 		$searchResult = array(
 			SUBMISSION_SEARCH_TEST_DEFAULT_ARTICLE => array(
 				'count' => 3,
-				'journal_id' => 2,
+				'server_id' => 2,
 				'publicationDate' => '2013-05-01 20:30:00'
 			)
 		);
@@ -263,25 +263,25 @@ class ArticleSearchTest extends PKPTestCase {
 	}
 
 	/**
-	 * Mock and register an JournalDAO as a test
+	 * Mock and register an ServerDAO as a test
 	 * back end for the ArticleSearch class.
 	 */
-	private function registerMockJournalDAO() {
-		// Mock a JournalDAO.
-		$journalDAO = $this->getMockBuilder(JournalDAO::class)
+	private function registerMockServerDAO() {
+		// Mock a ServerDAO.
+		$serverDAO = $this->getMockBuilder(ServerDAO::class)
 			->setMethods(array('getById'))
 			->getMock();
 
-		// Mock a journal.
-		$journal = new Journal();
+		// Mock a server.
+		$server = new Server();
 
 		// Mock the getById() method.
-		$journalDAO->expects($this->any())
+		$serverDAO->expects($this->any())
 		           ->method('getById')
-		           ->will($this->returnValue($journal));
+		           ->will($this->returnValue($server));
 
 		// Register the mock DAO.
-		DAORegistry::registerDAO('JournalDAO', $journalDAO);
+		DAORegistry::registerDAO('ServerDAO', $serverDAO);
 	}
 
 	/**

@@ -25,7 +25,7 @@ class ContextForm extends PKPContextForm {
 		parent::__construct($action, $locales, $baseUrl, $context);
 
 		$this->addField(new FieldText('abbreviation', [
-				'label' => __('manager.setup.journalAbbreviation'),
+				'label' => __('manager.setup.serverAbbreviation'),
 				'isMultilingual' => true,
 				'value' => $context ? $context->getData('abbreviation') : null,
 			]), [FIELD_POSITION_AFTER, 'acronym'])

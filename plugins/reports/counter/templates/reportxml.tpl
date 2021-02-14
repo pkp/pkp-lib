@@ -13,7 +13,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.niso.org/schemas/counter http://www.niso.org/schemas/sushi/counter3_0.xsd">
 {/if}
-  <Report xmlns="http://www.niso.org/schemas/counter" ID="JR1" Version="3" Title="Journal Report 1" Created="{$smarty.now|date_format:"%Y-%m-%dT%H:%M:%SZ"}">
+  <Report xmlns="http://www.niso.org/schemas/counter" ID="JR1" Version="3" Title="Server Report 1" Created="{$smarty.now|date_format:"%Y-%m-%dT%H:%M:%SZ"}">
     <Vendor>
       <Name>{$vendorName|escape:"html"}</Name>
       <ID>ID0</ID>
@@ -23,23 +23,23 @@
       <Name>{$reqUserName|escape:"html"}</Name>
       <ID>{$reqUserId|escape:"html"}</ID>
 
-      {foreach from=$journalsArray key=journalkey item=journal}
+      {foreach from=$serversArray key=serverkey item=server}
 
       <ReportItems>
         <ItemIdentifier>
           <Type>Print_ISSN</Type>
-          <Value>{$journal.printIssn|escape:"html"}</Value>
+          <Value>{$server.printIssn|escape:"html"}</Value>
         </ItemIdentifier>
         <ItemIdentifier>
           <Type>Online_ISSN</Type>
-          <Value>{$journal.onlineIssn|escape:"html"}</Value>
+          <Value>{$server.onlineIssn|escape:"html"}</Value>
         </ItemIdentifier>
         <ItemPlatform>Open Preprint Systems</ItemPlatform>
-        <ItemPublisher>{$journal.publisherInstitution|escape:"html"}</ItemPublisher>
-        <ItemName>{$journal.journalTitle|escape:"html"}</ItemName>
-        <ItemDataType>Journal</ItemDataType>
+        <ItemPublisher>{$server.publisherInstitution|escape:"html"}</ItemPublisher>
+        <ItemName>{$server.serverTitle|escape:"html"}</ItemName>
+        <ItemDataType>Server</ItemDataType>
 
-        {foreach from=$journal.entries key=key item=requests}
+        {foreach from=$server.entries key=key item=requests}
 
         <ItemPerformance>
           <Period>

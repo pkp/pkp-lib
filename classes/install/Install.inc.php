@@ -48,7 +48,7 @@ class Install extends PKPInstall {
 	 */
 	function getCreateDirectories() {
 		$directories = parent::getCreateDirectories();
-		$directories[] = 'journals';
+		$directories[] = 'servers';
 		return $directories;
 	}
 }

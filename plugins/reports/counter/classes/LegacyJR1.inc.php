@@ -52,7 +52,7 @@ class LegacyJR1 {
 	 * @param $useLegacyStats boolean Use the old counter plugin data.
 	 */
 	function _report($request, $year, $useLegacyStats) {
-		$journal = $request->getContext();
+		$server = $request->getContext();
 		list($begin, $end) = $this->_getLimitDates($year);
 
 		header('content-type: text/comma-separated-values');
@@ -86,7 +86,7 @@ class LegacyJR1 {
 		// Display the totals first
 		$totals = $this->_getMonthlyTotalRange($begin, $end, $useLegacyStats);
 		$cols = array(
-			__('plugins.reports.counter.1a.totalForAllJournals'),
+			__('plugins.reports.counter.1a.totalForAllServers'),
 			'-', // Publisher
 			'', // Platform
 			'-',
@@ -96,22 +96,22 @@ class LegacyJR1 {
 		fputcsv($fp, $cols);
 
 		// Get statistics from the log.
-		$journalDao = DAORegistry::getDAO('JournalDAO'); /* @var $journalDao JournalDAO */
-		$journalIds = $this->_getJournalIds($useLegacyStats);
-		foreach ($journalIds as $journalId) {
-			$journal = $journalDao->getById($journalId);
-			if (!$journal) continue;
-			$entries = $this->_getMonthlyLogRange($journalId, $begin, $end, $useLegacyStats);
+		$serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
+		$serverIds = $this->_getServerIds($useLegacyStats);
+		foreach ($serverIds as $serverId) {
+			$server = $serverDao->getById($serverId);
+			if (!$server) continue;
+			$entries = $this->_getMonthlyLogRange($serverId, $begin, $end, $useLegacyStats);
 			$cols = array(
-				$journal->getLocalizedName(),
-				$journal->getData('publisherInstitution'),
+				$server->getLocalizedName(),
+				$server->getData('publisherInstitution'),
 				__('common.software'), // Platform
-				$journal->getData('printIssn'),
-				$journal->getData('onlineIssn')
+				$server->getData('printIssn'),
+				$server->getData('onlineIssn')
 			);
 			$this->_formColumns($cols, $entries);
 			fputcsv($fp, $cols);
-			unset($journal, $entry);
+			unset($server, $entry);
 		}
 
 		fclose($fp);
@@ -159,19 +159,19 @@ class LegacyJR1 {
 	 * @param $useLegacyStats boolean
 	 */
 	function _assignTemplateCounterXML($request, $templateManager, $begin, $end='', $useLegacyStats) {
-		$journal = $request->getContext();
+		$server = $request->getContext();
 
-		$journalDao = DAORegistry::getDAO('JournalDAO'); /* @var $journalDao JournalDAO */
-		$journalIds = $this->_getJournalIds($useLegacyStats);
+		$serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
+		$serverIds = $this->_getServerIds($useLegacyStats);
 
 		$site = $request->getSite();
-		$availableContexts = $journalDao->getAvailable();
+		$availableContexts = $serverDao->getAvailable();
 		if ($availableContexts->getCount() > 1) {
 			$vendorName = $site->getLocalizedTitle();
 		} else {
-			$vendorName =  $journal->getData('publisherInstitution');
+			$vendorName =  $server->getData('publisherInstitution');
 			if (empty($vendorName)) {
-				$vendorName = $journal->getLocalizedName();
+				$vendorName = $server->getLocalizedName();
 			}
 		}
 
@@ -179,16 +179,16 @@ class LegacyJR1 {
 
 		$i=0;
 
-		foreach ($journalIds as $journalId) {
-			$journal = $journalDao->getById($journalId);
-			if (!$journal) continue;
-			$entries = $this->_getMonthlyLogRange($journalId, $begin, $end, $useLegacyStats);
+		foreach ($serverIds as $serverId) {
+			$server = $serverDao->getById($serverId);
+			if (!$server) continue;
+			$entries = $this->_getMonthlyLogRange($serverId, $begin, $end, $useLegacyStats);
 
-			$journalsArray[$i]['entries'] = $this->_arrangeEntries($entries);
-			$journalsArray[$i]['journalTitle'] = $journal->getLocalizedName();
-			$journalsArray[$i]['publisherInstitution'] = $journal->getData('publisherInstitution');
-			$journalsArray[$i]['printIssn'] = $journal->getData('printIssn');
-			$journalsArray[$i]['onlineIssn'] = $journal->getData('onlineIssn');
+			$serversArray[$i]['entries'] = $this->_arrangeEntries($entries);
+			$serversArray[$i]['serverTitle'] = $server->getLocalizedName();
+			$serversArray[$i]['publisherInstitution'] = $server->getData('publisherInstitution');
+			$serversArray[$i]['printIssn'] = $server->getData('printIssn');
+			$serversArray[$i]['onlineIssn'] = $server->getData('onlineIssn');
 			$i++;
 		}
 
@@ -203,7 +203,7 @@ class LegacyJR1 {
 			$templateManager->assign('reqUserId', '');
 		}
 
-		$templateManager->assign('journalsArray', $journalsArray);
+		$templateManager->assign('serversArray', $serversArray);
 
 		$templateManager->assign('vendorName', $vendorName);
 		$templateManager->assign('base_url', $base_url);
@@ -272,11 +272,11 @@ class LegacyJR1 {
 	}
 
 	/**
-	 * Get the valid journal IDs for which log entries exist in the DB.
+	 * Get the valid server IDs for which log entries exist in the DB.
 	 * @param $useLegacyStats boolean Use the old counter plugin data.
 	 * @return array
 	 */
-	function _getJournalIds($useLegacyStats = false) {
+	function _getServerIds($useLegacyStats = false) {
 		$metricsDao = DAORegistry::getDAO('MetricsDAO'); /* @var $metricsDao MetricsDAO */
 		if ($useLegacyStats) {
 			$results = $metricsDao->getMetrics(OPS_METRIC_TYPE_LEGACY_COUNTER, array(STATISTICS_DIMENSION_ASSOC_ID));
@@ -286,22 +286,22 @@ class LegacyJR1 {
 			$results = $metricsDao->getMetrics(METRIC_TYPE_COUNTER, array(STATISTICS_DIMENSION_CONTEXT_ID), $filter);
 			$fieldId = STATISTICS_DIMENSION_CONTEXT_ID;
 		}
-		$journalIds = array();
+		$serverIds = array();
 		foreach($results as $record) {
-			$journalIds[] = $record[$fieldId];
+			$serverIds[] = $record[$fieldId];
 		}
-		return $journalIds;
+		return $serverIds;
 	}
 
 	/**
 	 * Retrieve a monthly log entry range.
-	 * @param $journalId int
+	 * @param $serverId int
 	 * @param $begin
 	 * @param $end
 	 * @param $useLegacyStats boolean Use the old counter plugin data.
 	 * @return 2D array
 	 */
-	function _getMonthlyLogRange($journalId = null, $begin, $end, $useLegacyStats = false) {
+	function _getMonthlyLogRange($serverId = null, $begin, $end, $useLegacyStats = false) {
 		$begin = date('Ym', strtotime($begin));
 		$end = date('Ym', strtotime($end));
 
@@ -320,9 +320,9 @@ class LegacyJR1 {
 			$filter[STATISTICS_DIMENSION_ASSOC_TYPE] = ASSOC_TYPE_SUBMISSION_FILE;
 		}
 
-		if ($journalId) {
+		if ($serverId) {
 			$columns[] = $dimension;
-			$filter[$dimension] = $journalId;
+			$filter[$dimension] = $serverId;
 		}
 
 		$results = $metricsDao->getMetrics($metricType, $columns, $filter);

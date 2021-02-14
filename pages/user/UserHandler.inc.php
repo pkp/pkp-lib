@@ -18,13 +18,13 @@ import('lib.pkp.pages.user.PKPUserHandler');
 class UserHandler extends PKPUserHandler {
 
 	/**
-	 * Determine if the journal's setup has been sufficiently completed.
-	 * @param $journal Object
+	 * Determine if the server's setup has been sufficiently completed.
+	 * @param $server Object
 	 * @return boolean True iff setup is incomplete
 	 */
-	function _checkIncompleteSetup($journal) {
-		if($journal->getLocalizedAcronym() == '' || $journal->getData('contactEmail') == '' ||
-		   $journal->getData('contactName') == '' || $journal->getLocalizedData('abbreviation') == '') {
+	function _checkIncompleteSetup($server) {
+		if($server->getLocalizedAcronym() == '' || $server->getData('contactEmail') == '' ||
+		   $server->getData('contactName') == '' || $server->getLocalizedData('abbreviation') == '') {
 			return true;
 		} else return false;
 	}

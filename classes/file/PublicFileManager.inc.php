@@ -10,7 +10,7 @@
  * @class PublicFileManager
  * @ingroup file
  *
- * @brief Wrapper class for uploading files to a site/journal's public directory.
+ * @brief Wrapper class for uploading files to a site/server's public directory.
  */
 
 import('lib.pkp.classes.file.PKPPublicFileManager');
@@ -20,7 +20,7 @@ class PublicFileManager extends PKPPublicFileManager {
 	 * @copydoc PKPPublicFileManager::getContextFilesPath()
 	 */
 	public function getContextFilesPath($contextId) {
-		return Config::getVar('files', 'public_files_dir') . '/journals/' . (int) $contextId;
+		return Config::getVar('files', 'public_files_dir') . '/servers/' . (int) $contextId;
 	}
 }
 

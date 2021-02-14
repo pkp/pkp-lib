@@ -10,7 +10,7 @@
  * @class DOISettingsForm
  * @ingroup plugins_pubIds_doi
  *
- * @brief Form for journal managers to setup DOI plugin
+ * @brief Form for server managers to setup DOI plugin
  */
 
 
@@ -86,16 +86,16 @@ class DOISettingsForm extends Form {
 			__('plugins.pubIds.doi.manager.settings.doiReassign'),
 			'delete'
 		));
-		$this->setData('assignJournalWidePubIdsLinkAction', new LinkAction(
+		$this->setData('assignServerWidePubIdsLinkAction', new LinkAction(
 			'assignDOIs',
 			new RemoteActionConfirmationModal(
 				$request->getSession(),
-				__('plugins.pubIds.doi.manager.settings.doiAssignJournalWide.confirm'),
-				__('plugins.pubIds.doi.manager.settings.doiAssignJournalWide'),
+				__('plugins.pubIds.doi.manager.settings.doiAssignServerWide.confirm'),
+				__('plugins.pubIds.doi.manager.settings.doiAssignServerWide'),
 				$request->url(null, null, 'manage', null, array('verb' => 'assignPubIds', 'plugin' => $plugin->getName(), 'category' => 'pubIds')),
 				'modal_confirm'
 			),
-			__('plugins.pubIds.doi.manager.settings.doiAssignJournalWide'),
+			__('plugins.pubIds.doi.manager.settings.doiAssignServerWide'),
 			'advance'
 		));
 		$this->setData('pluginName', $plugin->getName());

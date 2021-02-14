@@ -45,13 +45,13 @@ msgid "plugins.reports.counter.1a.xml"
 msgstr "Wersja XML"
 
 msgid "plugins.reports.counter.1a.description"
-msgstr "COUNTER Journal Report 1 (R3): Zapytania o pełne teksty artykułów w danym miesiącu i czasopiśmie"
+msgstr "COUNTER Server Report 1 (R3): Zapytania o pełne teksty artykułów w danym miesiącu i czasopiśmie"
 
 msgid "plugins.reports.counter.1a.title"
-msgstr "Journal Report 1 (R3): Zapytania o pełne teksty artykułów w danym miesiącu i czasopiśmie"
+msgstr "Server Report 1 (R3): Zapytania o pełne teksty artykułów w danym miesiącu i czasopiśmie"
 
 msgid "plugins.reports.counter.1a.title1"
-msgstr "Journal Report 1 (R3)"
+msgstr "Server Report 1 (R3)"
 
 msgid "plugins.reports.counter.1a.title2"
 msgstr "Liczba zapytań o pełne teksty artykułów na miesiąc i w danym czasopiśmie (Year {$year})"
@@ -80,7 +80,7 @@ msgstr "YTD HTML"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "YTD PDF"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Łącznie dla wszystkich czasopism"
 
 msgid "plugins.reports.counter.1a.anonymous"

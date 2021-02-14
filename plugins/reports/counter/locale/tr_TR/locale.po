@@ -59,7 +59,7 @@ msgstr "Bu Güne Kadar Yıllık HTML"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "Bu Güne Kadar Yıllık PDF"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Tüm dergiler için toplam"
 
 msgid "plugins.reports.counter.1a.anonymous"

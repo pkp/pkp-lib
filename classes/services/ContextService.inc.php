@@ -16,7 +16,7 @@ namespace APP\Services;
 
 class ContextService extends \PKP\Services\PKPContextService {
 	/** @copydoc \PKP\Services\PKPContextService::$contextsFileDirName */
-	var $contextsFileDirName = 'journals';
+	var $contextsFileDirName = 'servers';
 
 	/**
 	 * Initialize hooks for extending PKPContextService
@@ -39,7 +39,7 @@ class ContextService extends \PKP\Services\PKPContextService {
 	 *
 	 * @param $hookName string
 	 * @param $args array [
-	 *		@option Journal The new context
+	 *		@option Server The new context
 	 *		@option Request
  	 * ]
 	 */
@@ -63,12 +63,12 @@ class ContextService extends \PKP\Services\PKPContextService {
 	}
 
 	/**
-	 * Update journal-specific settings when a context is edited
+	 * Update server-specific settings when a context is edited
 	 *
 	 * @param $hookName string
 	 * @param $args array [
-	 *		@option Journal The new context
-	 *		@option Journal The current context
+	 *		@option Server The new context
+	 *		@option Server The current context
 	 *		@option array The params to edit
 	 *		@option Request
 	 * ]
@@ -78,7 +78,7 @@ class ContextService extends \PKP\Services\PKPContextService {
 		$params = $args[2];
 		$request = $args[3];
 
-		// Move an uploaded journal thumbnail and set the updated data
+		// Move an uploaded server thumbnail and set the updated data
 		if (!empty($params['serverThumbnail'])) {
 			$supportedLocales = $newContext->getSupportedFormLocales();
 			foreach ($supportedLocales as $localeKey) {
@@ -103,7 +103,7 @@ class ContextService extends \PKP\Services\PKPContextService {
 	 *
 	 * @param $hookName string
 	 * @param $args array [
-	 *		@option Journal The new context
+	 *		@option Server The new context
 	 *		@option Request
  	 * ]
 	 */
@@ -111,7 +111,7 @@ class ContextService extends \PKP\Services\PKPContextService {
 		$context = $args[0];
 
 		$sectionDao = \DAORegistry::getDAO('SectionDAO');
-		$sectionDao->deleteByJournalId($context->getId());
+		$sectionDao->deleteByServerId($context->getId());
 
 		$submissionDao = \DAORegistry::getDAO('SubmissionDAO');
 		$submissionDao->deleteByContextId($context->getId());
@@ -126,7 +126,7 @@ class ContextService extends \PKP\Services\PKPContextService {
 	 *
 	 * @param $hookName string
 	 * @param $args array [
-	 *		@option Journal The new context
+	 *		@option Server The new context
 	 *		@option Request
 	 * ]
 	 */
@@ -139,7 +139,7 @@ class ContextService extends \PKP\Services\PKPContextService {
 			return;
 		}
 
-		// If a journal thumbnail is passed, check that the temporary file exists
+		// If a server thumbnail is passed, check that the temporary file exists
 		// and the current user owns it
 		$user = \Application::get()->getRequest()->getUser();
 		$userId = $user ? $user->getId() : null;

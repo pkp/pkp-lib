@@ -50,7 +50,7 @@ msgstr "HTML del último año"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "PDF del último año"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Total para todas las revistas"
 
 msgid "plugins.reports.counter.legacyStats"

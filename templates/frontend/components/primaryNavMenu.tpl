@@ -17,7 +17,7 @@
 		</li>
 	{/if}
 
-	{if $currentJournal}
+	{if $currentServer}
 
 		<li>
 			<a href="{url router=PKPApplication::ROUTE_PAGE page="about"}">
@@ -29,7 +29,7 @@
 						{translate key="about.aboutContext"}
 					</a>
 				</li>
-				{if $currentJournal->getLocalizedData('editorialTeam')}
+				{if $currentServer->getLocalizedData('editorialTeam')}
 					<li>
 						<a href="{url router=PKPApplication::ROUTE_PAGE page="about" op="editorialTeam"}">
 							{translate key="about.editorialTeam"}
@@ -41,7 +41,7 @@
 						{translate key="about.submissions"}
 					</a>
 				</li>
-				{if $currentJournal->getData('mailingAddress') || $currentJournal->getData('contactName')}
+				{if $currentServer->getData('mailingAddress') || $currentServer->getData('contactName')}
 					<li>
 						<a href="{url router=PKPApplication::ROUTE_PAGE page="about" op="contact"}">
 							{translate key="about.contact"}

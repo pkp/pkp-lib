@@ -21,18 +21,18 @@ import('lib.pkp.classes.submission.PKPAuthorDAO');
 class AuthorDAO extends PKPAuthorDAO {
 
 	/**
-	 * Retrieve all published authors for a journal by the first letter of the family name.
-	 * Authors will be sorted by (family, given). Note that if journalId is null,
-	 * alphabetized authors for all enabled journals are returned.
-	 * If authors have the same given names, first names and affiliations in all journal locales,
+	 * Retrieve all published authors for a server by the first letter of the family name.
+	 * Authors will be sorted by (family, given). Note that if serverId is null,
+	 * alphabetized authors for all enabled servers are returned.
+	 * If authors have the same given names, first names and affiliations in all server locales,
 	 * as well as country and email (otional), they are considered to be the same.
-	 * @param $journalId int Optional journal ID to restrict results to
+	 * @param $serverId int Optional server ID to restrict results to
 	 * @param $initial An initial a family name must begin with, "-" for authors with no family names
 	 * @param $rangeInfo Range information
 	 * @param $includeEmail Whether or not to include the email in the select distinct
 	 * @return DAOResultFactory Authors ordered by last name, given name
 	 */
-	function getAuthorsAlphabetizedByJournal($journalId = null, $initial = null, $rangeInfo = null, $includeEmail = false) {
+	function getAuthorsAlphabetizedByServer($serverId = null, $initial = null, $rangeInfo = null, $includeEmail = false) {
 		$locale = AppLocale::getLocale();
 		$params = [
 			IDENTITY_SETTING_GIVENNAME, $locale,
@@ -40,13 +40,13 @@ class AuthorDAO extends PKPAuthorDAO {
 			IDENTITY_SETTING_FAMILYNAME, $locale,
 			IDENTITY_SETTING_FAMILYNAME,
 		];
-		if (isset($journalId)) $params[] = $journalId;
+		if (isset($serverId)) $params[] = $serverId;
 
 		$supportedLocales = [];
-		if ($journalId !== null) {
-			$journalDao = DAORegistry::getDAO('JournalDAO'); /* @var $journalDao JournalDAO */
-			$journal = $journalDao->getById($journalId);
-			$supportedLocales = $journal->getSupportedLocales();
+		if ($serverId !== null) {
+			$serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
+			$server = $serverDao->getById($serverId);
+			$supportedLocales = $server->getSupportedLocales();
 		} else {
 			$site = Application::get()->getRequest()->getSite();
 			$supportedLocales = $site->getSupportedLocales();
@@ -114,11 +114,11 @@ class AuthorDAO extends PKPAuthorDAO {
 					JOIN publications pp ON (pp.publication_id = aa.publication_id)
 					LEFT JOIN publication_settings ppss ON (ppss.publication_id = pp.publication_id)
 					JOIN submissions ss ON (ss.submission_id = pp.submission_id AND ss.current_publication_id = pp.publication_id AND ss.status = ' . STATUS_PUBLISHED . ')
-					JOIN journals j ON (ss.context_id = j.journal_id)
+					JOIN servers j ON (ss.context_id = j.server_id)
 					LEFT JOIN author_settings ac ON (ac.author_id = aa.author_id AND ac.setting_name = \'country\')
 					' . $sqlJoinAuthorSettings . '
 					WHERE j.enabled = 1
-					' . (isset($journalId) ? ' AND j.journal_id = ?' : '')
+					' . (isset($serverId) ? ' AND j.server_id = ?' : '')
 					. $initialSql . '
 					GROUP BY names
 				) as t1 ON (t1.author_id = a.author_id)

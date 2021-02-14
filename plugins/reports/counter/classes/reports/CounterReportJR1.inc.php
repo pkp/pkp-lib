@@ -9,7 +9,7 @@
  * @class CounterReportJR1
  * @ingroup plugins_reports_counter
  *
- * @brief Journal Report 1
+ * @brief Server Report 1
  */
 
 import('plugins.reports.counter.classes.CounterReport');
@@ -67,23 +67,23 @@ class CounterReportJR1 extends CounterReport {
 		}
 		// Metric type is ops::counter
 		$metricType = METRIC_TYPE_COUNTER;
-		// Ordering must be by Journal (ReportItem), and by Month (ItemPerformance) for JR1
+		// Ordering must be by Server (ReportItem), and by Month (ItemPerformance) for JR1
 		$validOrder = array(STATISTICS_DIMENSION_CONTEXT_ID => STATISTICS_ORDER_DESC, STATISTICS_DIMENSION_MONTH => STATISTICS_ORDER_ASC);
 		// TODO: range
 		$results = $metricsDao->getMetrics($metricType, $defaultColumns, $validFilters, $validOrder);
 		$reportItems = array();
 		if ($results) {
-			// We'll create a new Report Item with these Metrics on a journal change
+			// We'll create a new Report Item with these Metrics on a server change
 			$metrics = array();
 			// We'll create a new Metric with these Performance Counters on a period change
 			$counters = array();
 			$lastPeriod = 0;
-			$lastJournal = 0;
+			$lastServer = 0;
 			foreach ($results as $rs) {
 				// Identify the type of request
 				$metricTypeKey = $this->getKeyForFiletype($rs[STATISTICS_DIMENSION_FILE_TYPE]);
 				// Period changes or greater trigger a new ItemPerformace metric
-				if ($lastPeriod != $rs[STATISTICS_DIMENSION_MONTH] || $lastJournal != $rs[STATISTICS_DIMENSION_CONTEXT_ID]) {
+				if ($lastPeriod != $rs[STATISTICS_DIMENSION_MONTH] || $lastServer != $rs[STATISTICS_DIMENSION_CONTEXT_ID]) {
 					if ($lastPeriod != 0) {
 						$metrics[] = $this->createMetricByMonth($lastPeriod, $counters);
 						$counters = array();
@@ -91,10 +91,10 @@ class CounterReportJR1 extends CounterReport {
 				}
 				$lastPeriod = $rs[STATISTICS_DIMENSION_MONTH];
 				$counters[] = new COUNTER\PerformanceCounter($metricTypeKey, $rs[STATISTICS_METRIC]);
-				// Journal changes trigger a new ReportItem
-				if ($lastJournal != $rs[STATISTICS_DIMENSION_CONTEXT_ID]) {
-					if ($lastJournal != 0 && $metrics) {
-						$item = $this->_createReportItem($lastJournal, $metrics);
+				// Server changes trigger a new ReportItem
+				if ($lastServer != $rs[STATISTICS_DIMENSION_CONTEXT_ID]) {
+					if ($lastServer != 0 && $metrics) {
+						$item = $this->_createReportItem($lastServer, $metrics);
 						if ($item) {
 							$reportItems[] = $item;
 						} else {
@@ -103,14 +103,14 @@ class CounterReportJR1 extends CounterReport {
 						$metrics = array();
 					}
 				}
-				$lastJournal = $rs[STATISTICS_DIMENSION_CONTEXT_ID];
+				$lastServer = $rs[STATISTICS_DIMENSION_CONTEXT_ID];
 			}
 			// Capture the last unprocessed ItemPerformance and ReportItem entries, if applicable
 			if ($counters) {
 				$metrics[] = $this->createMetricByMonth($lastPeriod, $counters);
 			}
 			if ($metrics) {
-				$item = $this->_createReportItem($lastJournal, $metrics);
+				$item = $this->_createReportItem($lastServer, $metrics);
 				if ($item) {
 					$reportItems[] = $item;
 				} else {
@@ -124,32 +124,32 @@ class CounterReportJR1 extends CounterReport {
 	}
 
 	/**
-	 * Given a journalId and an array of COUNTER\Metrics, return a COUNTER\ReportItems
-	 * @param int $journalId
+	 * Given a serverId and an array of COUNTER\Metrics, return a COUNTER\ReportItems
+	 * @param int $serverId
 	 * @param array $metrics COUNTER\Metric array
 	 * @return mixed COUNTER\ReportItems or false
 	 */
-	private function _createReportItem($journalId, $metrics) {
-		$journalDao = DAORegistry::getDAO('JournalDAO'); /* @var $journalDao JournalDAO */
-		$journal = $journalDao->getById($journalId);
-		if (!$journal) {
+	private function _createReportItem($serverId, $metrics) {
+		$serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
+		$server = $serverDao->getById($serverId);
+		if (!$server) {
 			return false;
 		}
-		$journalName = $journal->getLocalizedName();
-		$journalPubIds = array();
+		$serverName = $server->getLocalizedName();
+		$serverPubIds = array();
 		foreach (array('print', 'online') as $issnType) {
-			if ($journal->getData($issnType.'Issn')) {
+			if ($server->getData($issnType.'Issn')) {
 				try {
-					$journalPubIds[] = new COUNTER\Identifier(ucfirst($issnType).'_ISSN', $journal->getData($issnType.'Issn'));
+					$serverPubIds[] = new COUNTER\Identifier(ucfirst($issnType).'_ISSN', $server->getData($issnType.'Issn'));
 				} catch (Exception $ex) {
 					// Just ignore it
 				}
 			}
 		}
-		$journalPubIds[] = new COUNTER\Identifier(COUNTER_LITERAL_PROPRIETARY, $journal->getPath());
+		$serverPubIds[] = new COUNTER\Identifier(COUNTER_LITERAL_PROPRIETARY, $server->getPath());
 		$reportItem = array();
 		try {
-			$reportItem = new COUNTER\ReportItems(__('common.software'), $journalName, COUNTER_LITERAL_JOURNAL, $metrics, NULL, $journalPubIds);
+			$reportItem = new COUNTER\ReportItems(__('common.software'), $serverName, COUNTER_LITERAL_JOURNAL, $metrics, NULL, $serverPubIds);
 		} catch (Exception $e) {
 			$this->setError($e, COUNTER_EXCEPTION_ERROR | COUNTER_EXCEPTION_INTERNAL);
 		}

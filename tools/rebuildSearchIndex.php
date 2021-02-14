@@ -21,7 +21,7 @@ class rebuildSearchIndex extends CommandLineTool {
 	 */
 	public function usage() {
 		echo "Script to rebuild article search index\n"
-			. "Usage: {$this->scriptName} [options] [journal_path]\n\n"
+			. "Usage: {$this->scriptName} [options] [server_path]\n\n"
 			. "options: The standard index implementation does\n"
 			. "         not support any options. For other\n"
 			. "         implementations please see the corresponding\n"
@@ -30,7 +30,7 @@ class rebuildSearchIndex extends CommandLineTool {
 	}
 
 	/**
-	 * Rebuild the search index for all articles in all journals.
+	 * Rebuild the search index for all articles in all servers.
 	 */
 	public function execute() {
 		// Check whether we have (optional) switches.
@@ -39,24 +39,24 @@ class rebuildSearchIndex extends CommandLineTool {
 			$switches[] = array_shift($this->argv);
 		}
 
-		// If we have another argument that this must be a journal path.
-		$journal = null;
+		// If we have another argument that this must be a server path.
+		$server = null;
 		if (count($this->argv)) {
-			$journalPath = array_shift($this->argv);
-			$journalDao = DAORegistry::getDAO('JournalDAO'); /* @var $journalDao JournalDAO */
-			$journal = $journalDao->getByPath($journalPath);
-			if (!$journal) {
-				die (__('search.cli.rebuildIndex.unknownJournal', array('journalPath' => $journalPath)). "\n");
+			$serverPath = array_shift($this->argv);
+			$serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
+			$server = $serverDao->getByPath($serverPath);
+			if (!$server) {
+				die (__('search.cli.rebuildIndex.unknownServer', array('serverPath' => $serverPath)). "\n");
 			}
 		}
 
 		// Register a router hook so that we can construct
-		// useful URLs to journal content.
+		// useful URLs to server content.
 		HookRegistry::register('Request::getBaseUrl', array($this, 'callbackBaseUrl'));
 
 		// Let the search implementation re-build the index.
 		$articleSearchIndex = Application::getSubmissionSearchIndex();
-		$articleSearchIndex->rebuildIndex(true, $journal, $switches);
+		$articleSearchIndex->rebuildIndex(true, $server, $switches);
 	}
 
 	/**

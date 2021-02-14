@@ -50,7 +50,7 @@ msgstr "YTD HTML"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "YTD PDF"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Total for alle tidsskrifter"
 
 msgid "plugins.reports.counter.legacyStats"

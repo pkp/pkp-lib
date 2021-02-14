@@ -85,7 +85,7 @@ msgstr ""
 "молиме, контактирајте ја страницата директно со прашања во врска со "
 "нејзините сервери и поднесоците на претходните отпечатоци."
 
-msgid "about.aboutOPSJournal"
+msgid "about.aboutOPSServer"
 msgstr ""
 "Овој сервер користи Отворени системи за печатење {$opsVersion}, што е "
 "софтвер за управување со сервери за печатење со отворен извор развиен, "
@@ -162,10 +162,10 @@ msgstr "Архива - Страница {$pageNumber}"
 msgid "archive.archives"
 msgstr "Архиви"
 
-msgid "site.noJournals"
+msgid "site.noServers"
 msgstr "Нема достапни сервери."
 
-msgid "site.journalView"
+msgid "site.serverView"
 msgstr "Погледнете го серверот"
 
 msgid "search.authorDetails"
@@ -225,7 +225,7 @@ msgstr "Популарност (минатиот месец)"
 msgid "search.results.orderBy.popularityAll"
 msgstr "Популарност (цело време)"
 
-msgid "search.results.orderBy.journal"
+msgid "search.results.orderBy.server"
 msgstr "Наслов на серверот"
 
 msgid "search.results.orderBy.date"

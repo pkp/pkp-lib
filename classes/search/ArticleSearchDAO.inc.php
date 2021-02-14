@@ -24,7 +24,7 @@ class ArticleSearchDAO extends SubmissionSearchDAO {
 	 * @param $keywordId int
 	 * @return array of results (associative arrays)
 	 */
-	function getPhraseResults($journal, $phrase, $publishedFrom = null, $publishedTo = null, $type = null, $limit = 500, $cacheHours = 24) {
+	function getPhraseResults($server, $phrase, $publishedFrom = null, $publishedTo = null, $type = null, $limit = 500, $cacheHours = 24) {
 		if (empty($phrase)) return array();
 
 		$sqlFrom = '';
@@ -57,16 +57,16 @@ class ArticleSearchDAO extends SubmissionSearchDAO {
 			$sqlWhere .= ' AND p.date_published <= ' . $this->datetimeToDB($publishedTo);
 		}
 
-		if (!empty($journal)) {
+		if (!empty($server)) {
 			$sqlWhere .= ' AND s.context_id = ?';
-			$params[] = $journal->getId();
+			$params[] = $server->getId();
 		}
 
 		import('lib.pkp.classes.submission.PKPSubmission'); // STATUS_PUBLISHED
 		$result = $this->retrieve(
 			'SELECT
 				o.submission_id,
-				MAX(s.context_id) AS journal_id,
+				MAX(s.context_id) AS server_id,
 				MAX(p.date_published) AS s_pub,
 				COUNT(*) AS count
 			FROM
@@ -88,7 +88,7 @@ class ArticleSearchDAO extends SubmissionSearchDAO {
 		foreach ($result as $row) {
 			$returner[$row->submission_id] = [
 				'count' => $row->count,
-				'journal_id' => $row->journal_id,
+				'server_id' => $row->server_id,
 				'publicationDate' => $this->datetimeFromDB($row->s_pub)
 			];
 		}

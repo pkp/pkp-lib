@@ -35,7 +35,7 @@ msgstr "Vrijeme"
 msgid "plugins.reports.counter.entry.site"
 msgstr "Stranica"
 
-msgid "plugins.reports.counter.entry.journal"
+msgid "plugins.reports.counter.entry.server"
 msgstr "Časopis"
 
 msgid "plugins.reports.counter.entry.user"
@@ -89,5 +89,5 @@ msgstr "HTML-ova od početka godine"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "PDF-ova od početka godine"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Ukupno za sve časopise"

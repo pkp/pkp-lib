@@ -27,7 +27,7 @@ define('COUNTER_CLASS_PREFIX', 'CounterReport');
 
 // COUNTER as of yet is not internationalized and requires English constants
 define('COUNTER_LITERAL_ARTICLE', 'Article');
-define('COUNTER_LITERAL_JOURNAL', 'Journal');
+define('COUNTER_LITERAL_JOURNAL', 'Server');
 define('COUNTER_LITERAL_PROPRIETARY', 'Proprietary');
 
 class CounterReport {
@@ -136,14 +136,14 @@ class CounterReport {
 	 */
 	protected function filterForContext($filters) {
 		$request = Application::get()->getRequest();
-		$journal = $request->getContext();
-		$journalId = $journal ? $journal->getId() : '';
-		// If the request context is at the journal level, the dimension context id must be that same journal id
-		if ($journalId) {
-			if (isset($filters[STATISTICS_DIMENSION_CONTEXT_ID]) && $filters[STATISTICS_DIMENSION_CONTEXT_ID] != $journalId) {
+		$server = $request->getContext();
+		$serverId = $server ? $server->getId() : '';
+		// If the request context is at the server level, the dimension context id must be that same server id
+		if ($serverId) {
+			if (isset($filters[STATISTICS_DIMENSION_CONTEXT_ID]) && $filters[STATISTICS_DIMENSION_CONTEXT_ID] != $serverId) {
 				$this->setError(new Exception(__('plugins.reports.counter.generic.exception.filter'), COUNTER_EXCEPTION_WARNING | COUNTER_EXCEPTION_BAD_FILTERS));
 			}
-			$filters[STATISTICS_DIMENSION_CONTEXT_ID] = $journalId;
+			$filters[STATISTICS_DIMENSION_CONTEXT_ID] = $serverId;
 		}
 		return $filters;
 	}

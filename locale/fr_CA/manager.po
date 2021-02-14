@@ -60,7 +60,7 @@ msgstr "À propos du serveur"
 msgid "manager.setup.contextSummary"
 msgstr "Résumé du serveur"
 
-msgid "manager.setup.journalAbbreviation"
+msgid "manager.setup.serverAbbreviation"
 msgstr "Titre court du serveur"
 
 msgid "manager.setup.itemsPerPage.description"

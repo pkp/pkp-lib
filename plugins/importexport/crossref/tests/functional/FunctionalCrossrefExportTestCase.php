@@ -28,21 +28,21 @@ class FunctionalCrossrefExportTest extends FunctionalImportExportBaseTestCase {
 	 * EXAMPLES:
 	 *   publishing object | CrossRef XPath
 	 *   ==================|=====================================================
-	 *   issue             | body/journal/journal_issue/doi_data/{doi|resource}
-	 *   article           | body/journal/journal_article/doi_data/{doi|resource}
+	 *   issue             | body/server/server_issue/doi_data/{doi|resource}
+	 *   article           | body/server/server_article/doi_data/{doi|resource}
 	 *                     |   component/{titles|doi_data/{doi|resource}}
 	 */
 	public function testDoi() {
 		$export = $this->getXpathOnExport('CrossRefExportPlugin/exportArticle/1');
 		$export->registerNamespace('cr', 'http://www.crossref.org/schema/4.3.0');
 
-		$basePath = '/cr:doi_batch/cr:body/cr:journal';
+		$basePath = '/cr:doi_batch/cr:body/cr:server';
 		$testCases = array(
-			'cr:journal_issue/cr:doi_data/cr:doi' => '10.1234/t.v1i1',
-			'cr:journal_issue/cr:doi_data/cr:resource' => $this->baseUrl . '/index.php/test/issue/view/1',
-			'cr:journal_article/cr:doi_data/cr:doi' => '10.1234/t.v1i1.1',
-			'cr:journal_article/cr:doi_data/cr:resource' => $this->baseUrl . '/index.php/test/article/view/1',
-			'cr:journal_article/cr:component_list/cr:component/cr:doi_data/cr:doi' => '10.1234/t.v1i1.1.s1',
+			'cr:server_issue/cr:doi_data/cr:doi' => '10.1234/t.v1i1',
+			'cr:server_issue/cr:doi_data/cr:resource' => $this->baseUrl . '/index.php/test/issue/view/1',
+			'cr:server_article/cr:doi_data/cr:doi' => '10.1234/t.v1i1.1',
+			'cr:server_article/cr:doi_data/cr:resource' => $this->baseUrl . '/index.php/test/article/view/1',
+			'cr:server_article/cr:component_list/cr:component/cr:doi_data/cr:doi' => '10.1234/t.v1i1.1.s1',
 		);
 		foreach($testCases as $xPath => $expectedDoi) {
 			self::assertEquals(

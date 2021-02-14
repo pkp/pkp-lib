@@ -50,7 +50,7 @@ msgstr "Cumulatif annuel - HTML"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "Cumulatif annuel - PDF"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Total pour toutes les revues"
 
 msgid "plugins.reports.counter.legacyStats"

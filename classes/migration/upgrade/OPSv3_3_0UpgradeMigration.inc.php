@@ -22,7 +22,7 @@ class OPSv3_3_0UpgradeMigration extends Migration {
 	 * @return void
 	 */
 	public function up() {
-		Capsule::schema()->table('journal_settings', function (Blueprint $table) {
+		Capsule::schema()->table('server_settings', function (Blueprint $table) {
 			// pkp/pkp-lib#6096 DB field type TEXT is cutting off long content
 			$table->mediumText('setting_value')->nullable()->change();
 		});
@@ -46,7 +46,7 @@ class OPSv3_3_0UpgradeMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->table('journal_settings', function (Blueprint $table) {
+		Capsule::schema()->table('server_settings', function (Blueprint $table) {
 			// pkp/pkp-lib#6096 DB field type TEXT is cutting off long content
 			$table->text('setting_value')->nullable()->change();
 		});
@@ -59,7 +59,7 @@ class OPSv3_3_0UpgradeMigration extends Migration {
 	private function _settingsAsJSON() {
 
 		// Convert settings where type can be retrieved from schema.json
-		$schemaDAOs = ['SiteDAO', 'AnnouncementDAO', 'AuthorDAO', 'ArticleGalleyDAO', 'JournalDAO', 'EmailTemplateDAO', 'PublicationDAO', 'SubmissionDAO'];
+		$schemaDAOs = ['SiteDAO', 'AnnouncementDAO', 'AuthorDAO', 'ArticleGalleyDAO', 'ServerDAO', 'EmailTemplateDAO', 'PublicationDAO', 'SubmissionDAO'];
 		$processedTables = [];
 		foreach ($schemaDAOs as $daoName) {
 			$dao = DAORegistry::getDAO($daoName);

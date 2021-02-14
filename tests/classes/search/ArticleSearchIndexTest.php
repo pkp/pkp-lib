@@ -31,7 +31,7 @@ class ArticleSearchIndexTest extends PKPTestCase {
 	protected function getMockedDAOs() {
 		$mockedDaos = parent::getMockedDAOs();
 		$mockedDaos += array(
-			'ArticleSearchDAO', 'JournalDAO',
+			'ArticleSearchDAO', 'ServerDAO',
 			'ArticleGalleyDAO'
 		);
 		return $mockedDaos;
@@ -124,7 +124,7 @@ class ArticleSearchIndexTest extends PKPTestCase {
 	public function testRebuildIndex() {
 		// Prepare the mock environment for this test.
 		$this->registerMockArticleSearchDAO($this->atLeastOnce(), $this->never());
-		$this->registerMockJournalDAO();
+		$this->registerMockServerDAO();
 
 		// Make sure that no hook is being called.
 		HookRegistry::clear('ArticleSearchIndex::rebuildIndex');
@@ -355,26 +355,26 @@ class ArticleSearchIndexTest extends PKPTestCase {
 	}
 
 	/**
-	 * Mock and register a JournalDAO as a test
+	 * Mock and register a ServerDAO as a test
 	 * back end for the ArticleSearchIndex class.
 	 */
-	private function registerMockJournalDAO() {
-		// Mock a JournalDAO.
-		$journalDao = $this->getMockBuilder(JournalDAO::class)
+	private function registerMockServerDAO() {
+		// Mock a ServerDAO.
+		$serverDao = $this->getMockBuilder(ServerDAO::class)
 			->setMethods(array('getAll'))
 			->getMock();
 
 		// Mock an empty result set.
-		$journals = array();
-		$journalsIterator = new ArrayItemIterator($journals);
+		$servers = array();
+		$serversIterator = new ArrayItemIterator($servers);
 
 		// Mock the getById() method.
-		$journalDao->expects($this->any())
+		$serverDao->expects($this->any())
 		           ->method('getAll')
-		           ->will($this->returnValue($journalsIterator));
+		           ->will($this->returnValue($serversIterator));
 
 		// Register the mock DAO.
-		DAORegistry::registerDAO('JournalDAO', $journalDao);
+		DAORegistry::registerDAO('ServerDAO', $serverDao);
 	}
 
 	/**

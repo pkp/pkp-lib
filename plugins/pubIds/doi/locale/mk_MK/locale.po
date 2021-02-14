@@ -83,12 +83,12 @@ msgstr "ДОИ мора да започне со {$prefix}."
 msgid "plugins.pubIds.doi.editor.doi"
 msgstr "ДОИ"
 
-msgid "plugins.pubIds.doi.manager.settings.doiAssignJournalWide.confirm"
+msgid "plugins.pubIds.doi.manager.settings.doiAssignServerWide.confirm"
 msgstr ""
 "Дали сте сигурни дека сакате да доделите ДОИ на сите објавени објекти на кои "
 "не им се доделени ДОИ?"
 
-msgid "plugins.pubIds.doi.manager.settings.doiAssignJournalWide.description"
+msgid "plugins.pubIds.doi.manager.settings.doiAssignServerWide.description"
 msgstr ""
 "Доделете ДОИ на сите објавени објекти на серверот на кои не им се доделени "
 "ДОИ. Ова дејство не може да се користи со индивидуална конфигурација на "
@@ -96,7 +96,7 @@ msgstr ""
 "пред да започнете со оваа акција. Доделувањето ДОИ може да трае долго, во "
 "зависност од бројот на објавени објекти во серверот."
 
-msgid "plugins.pubIds.doi.manager.settings.doiAssignJournalWide"
+msgid "plugins.pubIds.doi.manager.settings.doiAssignServerWide"
 msgstr "Доделете ДОИ"
 
 msgid "plugins.pubIds.doi.manager.settings.doiReassign.confirm"

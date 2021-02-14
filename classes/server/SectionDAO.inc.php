@@ -1,20 +1,20 @@
 <?php
 
 /**
- * @file classes/journal/SectionDAO.inc.php
+ * @file classes/server/SectionDAO.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SectionDAO
- * @ingroup journal
+ * @ingroup server
  * @see Section
  *
  * @brief Operations for retrieving and modifying Section objects.
  */
 
-import ('classes.journal.Section');
+import ('classes.server.Section');
 import ('lib.pkp.classes.context.PKPSectionDAO');
 
 class SectionDAO extends PKPSectionDAO {
@@ -35,7 +35,7 @@ class SectionDAO extends PKPSectionDAO {
 	 * @return string
 	 */
 	protected function _getContextIdColumnName() {
-		return 'journal_id';
+		return 'server_id';
 	}
 
 	function _cacheMiss($cache, $id) {
@@ -55,23 +55,23 @@ class SectionDAO extends PKPSectionDAO {
 	/**
 	 * Retrieve a section by ID.
 	 * @param $sectionId int
-	 * @param $journalId int Journal ID optional
+	 * @param $serverId int Server ID optional
 	 * @param $useCache boolean optional
 	 * @return Section|null
 	 */
-	function getById($sectionId, $journalId = null, $useCache = false) {
+	function getById($sectionId, $serverId = null, $useCache = false) {
 		if ($useCache) {
 			$cache = $this->_getCache();
 			$returner = $cache->get($sectionId);
-			if ($returner && $journalId != null && $journalId != $returner->getJournalId()) $returner = null;
+			if ($returner && $serverId != null && $serverId != $returner->getServerId()) $returner = null;
 			return $returner;
 		}
 
 		$sql = 'SELECT * FROM sections WHERE section_id = ?';
 		$params = [(int) $sectionId];
-		if ($journalId !== null) {
-			$sql .= ' AND journal_id = ?';
-			$params[] = (int) $journalId;
+		if ($serverId !== null) {
+			$sql .= ' AND server_id = ?';
+			$params[] = (int) $serverId;
 		}
 		$result = $this->retrieve($sql, $params);
 		$row = $result->current();
@@ -81,12 +81,12 @@ class SectionDAO extends PKPSectionDAO {
 	/**
 	 * Retrieve a section by abbreviation.
 	 * @param $sectionAbbrev string
-	 * @param $journalId int Journal ID
+	 * @param $serverId int Server ID
 	 * @param $locale string optional
 	 * @return Section
 	 */
-	function getByAbbrev($sectionAbbrev, $journalId, $locale = null) {
-		$params = ['abbrev', $sectionAbbrev, (int) $journalId];
+	function getByAbbrev($sectionAbbrev, $serverId, $locale = null) {
+		$params = ['abbrev', $sectionAbbrev, (int) $serverId];
 		if ($locale !== null) $params[] = $locale;
 
 		$result = $this->retrieve(
@@ -95,7 +95,7 @@ class SectionDAO extends PKPSectionDAO {
 			WHERE	l.section_id = s.section_id AND
 				l.setting_name = ? AND
 				l.setting_value = ? AND
-				s.journal_id = ?' .
+				s.server_id = ?' .
 				($locale!==null?' AND l.locale = ?':''),
 			$params
 		);
@@ -106,12 +106,12 @@ class SectionDAO extends PKPSectionDAO {
 	/**
 	 * Retrieve a section by title.
 	 * @param $sectionTitle string
-	 * @param $journalId int Journal ID
+	 * @param $serverId int Server ID
 	 * @param $locale string optional
 	 * @return Section
 	 */
-	function getByTitle($sectionTitle, $journalId, $locale = null) {
-		$params = ['title', $sectionTitle, (int) $journalId];
+	function getByTitle($sectionTitle, $serverId, $locale = null) {
+		$params = ['title', $sectionTitle, (int) $serverId];
 		if ($locale !== null) $params[] = $locale;
 
 		$result = $this->retrieve(
@@ -120,7 +120,7 @@ class SectionDAO extends PKPSectionDAO {
 			WHERE	l.section_id = s.section_id AND
 				l.setting_name = ? AND
 				l.setting_value = ? AND
-				s.journal_id = ?' .
+				s.server_id = ?' .
 				($locale !== null?' AND l.locale = ?':''),
 			$params
 		);
@@ -161,7 +161,7 @@ class SectionDAO extends PKPSectionDAO {
 		$section = parent::_fromRow($row);
 
 		$section->setId($row['section_id']);
-		$section->setJournalId($row['journal_id']);
+		$section->setServerId($row['server_id']);
 		$section->setMetaIndexed($row['meta_indexed']);
 		$section->setMetaReviewed($row['meta_reviewed']);
 		$section->setAbstractsNotRequired($row['abstracts_not_required']);
@@ -219,11 +219,11 @@ class SectionDAO extends PKPSectionDAO {
 	function insertObject($section) {
 		$this->update(
 			'INSERT INTO sections
-				(journal_id, review_form_id, seq, meta_indexed, meta_reviewed, abstracts_not_required, editor_restricted, hide_title, hide_author, is_inactive, abstract_word_count)
+				(server_id, review_form_id, seq, meta_indexed, meta_reviewed, abstracts_not_required, editor_restricted, hide_title, hide_author, is_inactive, abstract_word_count)
 				VALUES
 				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 			[
-				(int)$section->getJournalId(),
+				(int)$section->getServerId(),
 				(int)$section->getReviewFormId(),
 				(float) $section->getSequence(),
 				$section->getMetaIndexed() ? 1 : 0,
@@ -297,25 +297,25 @@ class SectionDAO extends PKPSectionDAO {
 	}
 
 	/**
-	 * Delete sections by journal ID
+	 * Delete sections by server ID
 	 * NOTE: This does not delete dependent entries EXCEPT from subeditor_submission_group. It is intended
-	 * to be called only when deleting a journal.
-	 * @param $journalId int Journal ID
+	 * to be called only when deleting a server.
+	 * @param $serverId int Server ID
 	 */
-	function deleteByJournalId($journalId) {
-		$this->deleteByContextId($journalId);
+	function deleteByServerId($serverId) {
+		$this->deleteByContextId($serverId);
 	}
 
 	/**
 	 * Retrieve an array associating all section editor IDs with
 	 * arrays containing the sections they edit.
-	 * @param $journalId int Journal ID
+	 * @param $serverId int Server ID
 	 * @return array editorId => array(sections they edit)
 	 */
-	function getEditorSections($journalId) {
+	function getEditorSections($serverId) {
 		$result = $this->retrieve(
-			'SELECT s.*, se.user_id AS editor_id FROM subeditor_submission_group ssg, sections s WHERE ssg.assoc_id = s.section_id AND ssg.assoc_type = ? AND s.journal_id = ssg.context_id AND s.journal_id = ?',
-			[(int) ASSOC_TYPE_SECTION, (int) $journalId]
+			'SELECT s.*, se.user_id AS editor_id FROM subeditor_submission_group ssg, sections s WHERE ssg.assoc_id = s.section_id AND ssg.assoc_type = ? AND s.server_id = ssg.context_id AND s.server_id = ?',
+			[(int) ASSOC_TYPE_SECTION, (int) $serverId]
 		);
 
 		$returner = [];
@@ -331,28 +331,28 @@ class SectionDAO extends PKPSectionDAO {
 	}
 
 	/**
-	 * Retrieve all sections for a journal.
-	 * @param $journalId int Journal ID
+	 * Retrieve all sections for a server.
+	 * @param $serverId int Server ID
 	 * @param $rangeInfo DBResultRange optional
 	 * @return DAOResultFactory containing Sections ordered by sequence
 	 */
-	function getByJournalId($journalId, $rangeInfo = null) {
-		return $this->getByContextId($journalId, $rangeInfo);
+	function getByServerId($serverId, $rangeInfo = null) {
+		return $this->getByContextId($serverId, $rangeInfo);
 	}
 
 	/**
-	 * Retrieve all sections for a journal.
-	 * @param $journalId int Journal ID
+	 * Retrieve all sections for a server.
+	 * @param $serverId int Server ID
 	 * @param $rangeInfo DBResultRange optional
 	 * @param $submittableOnly boolean optional. Whether to return only sections
 	 *  that can be submitted to by anyone.
 	 * @return DAOResultFactory containing Sections ordered by sequence
 	 */
-	 function getByContextId($journalId, $rangeInfo = null, $submittableOnly = false) {
+	 function getByContextId($serverId, $rangeInfo = null, $submittableOnly = false) {
 		 return new DAOResultFactory(
 			 $this->retrieveRange(
-				'SELECT * FROM sections WHERE journal_id = ? ' . ($submittableOnly ? ' AND editor_restricted = 0' : '') . ' ORDER BY seq',
-				[(int) $journalId],
+				'SELECT * FROM sections WHERE server_id = ? ' . ($submittableOnly ? ' AND editor_restricted = 0' : '') . ' ORDER BY seq',
+				[(int) $serverId],
 				$rangeInfo
 			),
 			$this,
@@ -363,12 +363,12 @@ class SectionDAO extends PKPSectionDAO {
 	/**
 	 * Retrieve all sections.
 	 * @param $rangeInfo DBResultRange optional
-	 * @return DAOResultFactory containing Sections ordered by journal ID and sequence
+	 * @return DAOResultFactory containing Sections ordered by server ID and sequence
 	 */
 	function getAll($rangeInfo = null) {
 		return new DAOResultFactory(
 			$this->retrieveRange(
-				'SELECT * FROM sections ORDER BY journal_id, seq',
+				'SELECT * FROM sections ORDER BY server_id, seq',
 				[], $rangeInfo
 			),
 			$this,
@@ -377,14 +377,14 @@ class SectionDAO extends PKPSectionDAO {
 	}
 
 	/**
-	 * Retrieve all empty (without articles) section ids for a journal.
-	 * @param $journalId int Journal ID
+	 * Retrieve all empty (without articles) section ids for a server.
+	 * @param $serverId int Server ID
 	 * @return array
 	 */
-	function getEmptyByJournalId($journalId) {
+	function getEmptyByServerId($serverId) {
 		$result = $this->retrieve(
-			'SELECT s.section_id AS section_id FROM sections s LEFT JOIN submissions a ON (a.section_id = s.section_id) WHERE a.section_id IS NULL AND s.journal_id = ?',
-			[(int) $journalId]
+			'SELECT s.section_id AS section_id FROM sections s LEFT JOIN submissions a ON (a.section_id = s.section_id) WHERE a.section_id IS NULL AND s.server_id = ?',
+			[(int) $serverId]
 		);
 
 		$returner = [];
@@ -395,13 +395,13 @@ class SectionDAO extends PKPSectionDAO {
 	/**
 	 * Check if a section exists with the specified ID.
 	 * @param $sectionId int Section ID
-	 * @param $journalId int Journal ID
+	 * @param $serverId int Server ID
 	 * @return boolean
 	 */
-	function sectionExists($sectionId, $journalId) {
+	function sectionExists($sectionId, $serverId) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*) AS row_count FROM sections WHERE section_id = ? AND journal_id = ?',
-			[(int) $sectionId, (int) $journalId]
+			'SELECT COUNT(*) AS row_count FROM sections WHERE section_id = ? AND server_id = ?',
+			[(int) $sectionId, (int) $serverId]
 		);
 		$row = $result->current();
 		return $row ? $row->row_count == 1 : false;
@@ -409,12 +409,12 @@ class SectionDAO extends PKPSectionDAO {
 
 	/**
 	 * Sequentially renumber sections in their sequence order.
-	 * @param $journalId int Journal ID
+	 * @param $serverId int Server ID
 	 */
-	function resequenceSections($journalId) {
+	function resequenceSections($serverId) {
 		$result = $this->retrieve(
-			'SELECT section_id FROM sections WHERE journal_id = ? ORDER BY seq',
-			[(int) $journalId]
+			'SELECT section_id FROM sections WHERE server_id = ? ORDER BY seq',
+			[(int) $serverId]
 		);
 
 		$i=0;

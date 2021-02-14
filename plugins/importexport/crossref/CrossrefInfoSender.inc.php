@@ -50,20 +50,20 @@ class CrossrefInfoSender extends ScheduledTask {
 		if (!$this->_plugin) return false;
 
 		$plugin = $this->_plugin;
-		$journals = $this->_getJournals();
+		$servers = $this->_getServers();
 
-		foreach ($journals as $journal) {
+		foreach ($servers as $server) {
 			$notify = false;
 
-			$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $journal->getId());
+			$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $server->getId());
 			$doiPubIdPlugin = $pubIdPlugins['doipubidplugin'];
 
-			if ($doiPubIdPlugin->getSetting($journal->getId(), 'enablePublicationDoi')) {
+			if ($doiPubIdPlugin->getSetting($server->getId(), 'enablePublicationDoi')) {
 				// Get unregistered articles
-				$unregisteredArticles = $plugin->getUnregisteredArticles($journal);
+				$unregisteredArticles = $plugin->getUnregisteredArticles($server);
 				// If there are articles to be deposited
 				if (count($unregisteredArticles)) {
-					$this->_registerObjects($unregisteredArticles, 'article=>crossref-xml', $journal, 'articles');
+					$this->_registerObjects($unregisteredArticles, 'article=>crossref-xml', $server, 'articles');
 				}
 			}
 		}
@@ -71,35 +71,35 @@ class CrossrefInfoSender extends ScheduledTask {
 	}
 
 	/**
-	 * Get all journals that meet the requirements to have
+	 * Get all servers that meet the requirements to have
 	 * their articles or issues DOIs sent to Crossref.
 	 * @return array
 	 */
-	function _getJournals() {
+	function _getServers() {
 		$plugin = $this->_plugin;
-		$contextDao = Application::getContextDAO(); /* @var $contextDao JournalDAO */
-		$journalFactory = $contextDao->getAll(true);
+		$contextDao = Application::getContextDAO(); /* @var $contextDao ServerDAO */
+		$serverFactory = $contextDao->getAll(true);
 
-		$journals = array();
-		while($journal = $journalFactory->next()) {
-			$journalId = $journal->getId();
-			if (!$plugin->getSetting($journalId, 'username') || !$plugin->getSetting($journalId, 'password') || !$plugin->getSetting($journalId, 'automaticRegistration')) continue;
+		$servers = array();
+		while($server = $serverFactory->next()) {
+			$serverId = $server->getId();
+			if (!$plugin->getSetting($serverId, 'username') || !$plugin->getSetting($serverId, 'password') || !$plugin->getSetting($serverId, 'automaticRegistration')) continue;
 
 			$doiPrefix = null;
-			$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $journalId);
+			$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $serverId);
 			if (isset($pubIdPlugins['doipubidplugin'])) {
 				$doiPubIdPlugin = $pubIdPlugins['doipubidplugin'];
-				if (!$doiPubIdPlugin->getSetting($journalId, 'enabled')) continue;
-				$doiPrefix = $doiPubIdPlugin->getSetting($journalId, 'doiPrefix');
+				if (!$doiPubIdPlugin->getSetting($serverId, 'enabled')) continue;
+				$doiPrefix = $doiPubIdPlugin->getSetting($serverId, 'doiPrefix');
 			}
 
 			if ($doiPrefix) {
-				$journals[] = $journal;
+				$servers[] = $server;
 			} else {
-				$this->addExecutionLogEntry(__('plugins.importexport.common.senderTask.warning.noDOIprefix', array('path' => $journal->getPath())), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
+				$this->addExecutionLogEntry(__('plugins.importexport.common.senderTask.warning.noDOIprefix', array('path' => $server->getPath())), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
 			}
 		}
-		return $journals;
+		return $servers;
 	}
 
 	/**
@@ -107,10 +107,10 @@ class CrossrefInfoSender extends ScheduledTask {
 	 * Register objects
 	 * @param $objects array
 	 * @param $filter string
-	 * @param $journal Journal
+	 * @param $server Server
 	 * @param $objectsFileNamePart string
 	 */
-	function _registerObjects($objects, $filter, $journal, $objectsFileNamePart) {
+	function _registerObjects($objects, $filter, $server, $objectsFileNamePart) {
 		$plugin = $this->_plugin;
 		import('lib.pkp.classes.file.FileManager');
 		$fileManager = new FileManager();
@@ -121,14 +121,14 @@ class CrossrefInfoSender extends ScheduledTask {
 		// the export and filter to work.
 		foreach ($objects as $object) {
 			// export XML
-			$exportXml = $plugin->exportXML(array($object), $filter, $journal);
+			$exportXml = $plugin->exportXML(array($object), $filter, $server);
 			// Write the XML to a file.
 			// export file name example: crossref-20160723-160036-articles-1-1.xml
 			$objectsFileNamePartId = $objectsFileNamePart . '-' . $object->getId();
-			$exportFileName = $plugin->getExportFileName($plugin->getExportPath(), $objectsFileNamePartId, $journal, '.xml');
+			$exportFileName = $plugin->getExportFileName($plugin->getExportPath(), $objectsFileNamePartId, $server, '.xml');
 			$fileManager->writeFile($exportFileName, $exportXml);
 			// Deposit the XML file.
-			$result = $plugin->depositXML($object, $journal, $exportFileName);
+			$result = $plugin->depositXML($object, $server, $exportFileName);
 			if ($result !== true) {
 				$this->_addLogEntry($result);
 			}

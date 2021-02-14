@@ -61,7 +61,7 @@ class CounterReportAR1 extends CounterReport {
 		} elseif ($filters[STATISTICS_DIMENSION_ASSOC_TYPE] != ASSOC_TYPE_SUBMISSION_FILE) {
 			$this->setError(new Exception(__('plugins.reports.counter.exception.filter'), COUNTER_EXCEPTION_ERROR | COUNTER_EXCEPTION_BAD_FILTERS));
 		}
-		// AR1 could be filtered to the Journal, Issue, or Article level
+		// AR1 could be filtered to the Server, Issue, or Article level
 		foreach ($filters as $key => $filter) {
 			switch ($key) {
 				case STATISTICS_DIMENSION_CONTEXT_ID:
@@ -77,7 +77,7 @@ class CounterReportAR1 extends CounterReport {
 		}
 		// Metric type is ops::counter
 		$metricType = METRIC_TYPE_COUNTER;
-		// Ordering must be by Journal (ReportItem), and by Month (ItemPerformance) for JR1
+		// Ordering must be by Server (ReportItem), and by Month (ItemPerformance) for JR1
 		$validOrder = array(STATISTICS_DIMENSION_SUBMISSION_ID => STATISTICS_ORDER_DESC, STATISTICS_DIMENSION_MONTH => STATISTICS_ORDER_ASC);
 		// TODO: range
 		$results = $metricsDao->getMetrics($metricType, $defaultColumns, $validFilters, $validOrder);
@@ -130,25 +130,25 @@ class CounterReportAR1 extends CounterReport {
 			return false;
 		}
 		$title = $article->getLocalizedTitle();
-		$journalId = $article->getContextId();
-		$journalDao = DAORegistry::getDAO('JournalDAO'); /* @var $journalDao JournalDAO */
-		$journal = $journalDao->getById($journalId);
-		if (!$journal) {
+		$serverId = $article->getContextId();
+		$serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
+		$server = $serverDao->getById($serverId);
+		if (!$server) {
 			return false;
 		}
-		$journalName = $journal->getLocalizedName();
-		$journalPubIds = array();
+		$serverName = $server->getLocalizedName();
+		$serverPubIds = array();
 		foreach (array('print', 'online') as $issnType) {
-			if ($journal->getData($issnType.'Issn')) {
+			if ($server->getData($issnType.'Issn')) {
 				try {
-					$journalPubIds[] = new COUNTER\Identifier(ucfirst($issnType).'_ISSN', $journal->getData($issnType.'Issn'));
+					$serverPubIds[] = new COUNTER\Identifier(ucfirst($issnType).'_ISSN', $server->getData($issnType.'Issn'));
 				} catch (Exception $ex) {
 					// Just ignore it
 				}
 			}
 		}
-		$journalPubIds[] = new COUNTER\Identifier(COUNTER_LITERAL_PROPRIETARY, $journal->getPath());
-		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $journalId);
+		$serverPubIds[] = new COUNTER\Identifier(COUNTER_LITERAL_PROPRIETARY, $server->getPath());
+		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $serverId);
 		$articlePubIds = array();
 		$articlePubIds[] = new COUNTER\Identifier(COUNTER_LITERAL_PROPRIETARY, (string) $submissionId);
 		foreach ($pubIdPlugins as $pubIdPlugin) {
@@ -173,7 +173,7 @@ class CounterReportAR1 extends CounterReport {
 				$title,
 				COUNTER_LITERAL_ARTICLE,
 				$metrics,
-				new COUNTER\ParentItem($journalName, COUNTER_LITERAL_JOURNAL, $journalPubIds),
+				new COUNTER\ParentItem($serverName, COUNTER_LITERAL_JOURNAL, $serverPubIds),
 				$articlePubIds
 			);
 		} catch (Exception $e) {

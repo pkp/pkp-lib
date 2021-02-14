@@ -35,8 +35,8 @@ msgstr "Timestamp"
 msgid "plugins.reports.counter.entry.site"
 msgstr "Site"
 
-msgid "plugins.reports.counter.entry.journal"
-msgstr "Journal"
+msgid "plugins.reports.counter.entry.server"
+msgstr "Server"
 
 msgid "plugins.reports.counter.entry.user"
 msgstr "User"
@@ -57,13 +57,13 @@ msgid "plugins.reports.counter.entry.value"
 msgstr "Value"
 
 msgid "plugins.reports.counter.1a.title"
-msgstr "Journal Report 1 (R3): Full-Text Article Requests by Month and Journal"
+msgstr "Server Report 1 (R3): Full-Text Article Requests by Month and Server"
 
 msgid "plugins.reports.counter.1a.title1"
-msgstr "Journal Report 1 (R3)"
+msgstr "Server Report 1 (R3)"
 
 msgid "plugins.reports.counter.1a.title2"
-msgstr "Number of Successful Full-Text Article Requests by Month and Journal (Year {$year})"
+msgstr "Number of Successful Full-Text Article Requests by Month and Server (Year {$year})"
 
 msgid "plugins.reports.counter.1a.dateRun"
 msgstr "Date run:"
@@ -89,5 +89,5 @@ msgstr "YTD HTML"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "YTD PDF"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
-msgstr "Total for all journals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
+msgstr "Total for all servers"

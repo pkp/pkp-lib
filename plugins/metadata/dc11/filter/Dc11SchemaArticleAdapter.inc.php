@@ -62,8 +62,8 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 		// contains cached entities and avoids extra database access if this
 		// adapter is called from an OAI context.
 		$oaiDao = DAORegistry::getDAO('OAIDAO'); /* @var $oaiDao OAIDAO */
-		$journal = $oaiDao->getJournal($submission->getData('contextId'));
-		$section = $oaiDao->getSection($submission->getSectionId());
+		$server = $oaiDao->getServer($article->getData('contextId'));
+		$section = $oaiDao->getSection($article->getSectionId());
 
 		$dc11Description = $this->instantiateMetadataDescription();
 
@@ -90,11 +90,11 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 		$this->_addLocalizedElements($dc11Description, 'dc:description', $submission->getAbstract(null));
 
 		// Publisher
-		$publisherInstitution = $journal->getData('publisherInstitution');
+		$publisherInstitution = $server->getData('publisherInstitution');
 		if (!empty($publisherInstitution)) {
-			$publishers = array($journal->getPrimaryLocale() => $publisherInstitution);
+			$publishers = array($server->getPrimaryLocale() => $publisherInstitution);
 		} else {
-			$publishers = $journal->getName(null); // Default
+			$publishers = $server->getName(null); // Default
 		}
 		$this->_addLocalizedElements($dc11Description, 'dc:publisher', $publishers);
 
@@ -125,8 +125,8 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 
 		// Identifier: URL
 		$request = Application::get()->getRequest();
-		$includeUrls = $journal->getSetting('publishingMode') != PUBLISHING_MODE_NONE;
-		$dc11Description->addStatement('dc:identifier', $request->url($journal->getPath(), 'preprint', 'view', [$submission->getBestId()]));
+		$includeUrls = $server->getSetting('publishingMode') != PUBLISHING_MODE_NONE;
+		$dc11Description->addStatement('dc:identifier', $request->url($server->getPath(), 'preprint', 'view', [$submission->getBestId()]));
 
 		// Get galleys and supp files.
 		$galleys = array();
@@ -150,12 +150,12 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 		// Relation
 		// full text URLs
 		if ($includeUrls) foreach ($galleys as $galley) {
-			$relation = $request->url($journal->getPath(), 'article', 'view', [$submission->getBestId(), $galley->getBestGalleyId()]);
+			$relation = $request->url($server->getPath(), 'article', 'view', [$submission->getBestId(), $galley->getBestGalleyId()]);
 			$dc11Description->addStatement('dc:relation', $relation);
 		}
 
 		// Public identifiers
-		$pubIdPlugins = (array) PluginRegistry::loadCategory('pubIds', true, $journal->getId());
+		$pubIdPlugins = (array) PluginRegistry::loadCategory('pubIds', true, $server->getId());
 		foreach ($pubIdPlugins as $pubIdPlugin) {
 			if ($pubArticleId = $submission->getStoredPubId($pubIdPlugin->getPubIdType())) {
 				$dc11Description->addStatement('dc:identifier', $pubArticleId);
@@ -178,7 +178,7 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 		}
 		if ($licenseUrl = $submission->getLicenseURL()) $dc11Description->addStatement('dc:rights', $licenseUrl);
 
-		HookRegistry::call('Dc11SchemaArticleAdapter::extractMetadataFromDataObject', array($this, $submission, $journal, &$dc11Description));
+		HookRegistry::call('Dc11SchemaArticleAdapter::extractMetadataFromDataObject', array($this, $submission, $server, &$dc11Description));
 
 		return $dc11Description;
 	}

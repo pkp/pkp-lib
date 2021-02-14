@@ -71,14 +71,14 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * @param $settingName string
 	 * @param $settingValue mixed
 	 * @param $publicationId int optional
-	 * @param $journalId int optional
+	 * @param $serverId int optional
 	 * @return DAOResultFactory The factory for galleys identified by setting.
 	 */
-	function getGalleysBySetting($settingName, $settingValue, $publicationId = null, $journalId = null) {
+	function getGalleysBySetting($settingName, $settingValue, $publicationId = null, $serverId = null) {
 		$params = [$settingName];
 		if (!is_null($settingValue)) $params[] = (string) $settingValue;
 		if ($publicationId) $params[] = (int) $publicationId;
-		if ($journalId) $params[] = (int) $journalId;
+		if ($serverId) $params[] = (int) $serverId;
 		return new DAOResultFactory(
 			$this->retrieve(
 				'SELECT  g.*
@@ -90,7 +90,7 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 					'INNER JOIN publication_galley_settings gs ON g.galley_id = gs.galley_id WHERE gs.setting_name = ? AND gs.setting_value = ?'
 				) .
 				($publicationId ? ' AND g.publication_id = ?' : '') .
-				($journalId ? ' AND s.context_id = ?' : '') .
+				($serverId ? ' AND s.context_id = ?' : '') .
 				' ORDER BY s.context_id, g.galley_id',
 				$params
 			),
@@ -123,11 +123,11 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	}
 
 	/**
-	 * Retrieve all galleys of a journal.
-	 * @param $journalId int
+	 * Retrieve all galleys of a server.
+	 * @param $serverId int
 	 * @return DAOResultFactory
 	 */
-	function getByContextId($journalId) {
+	function getByContextId($serverId) {
 		$result = $this->retrieve(
 			'SELECT	sf.*, g.*
 			FROM	publication_galleys g
@@ -135,7 +135,7 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 				LEFT JOIN submissions s ON (s.submission_id = p.submission_id)
 				LEFT JOIN submission_files sf ON (g.submission_file_id = sf.submission_file_id)
 			WHERE	s.context_id = ?',
-			[(int) $journalId]
+			[(int) $serverId]
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');

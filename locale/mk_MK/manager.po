@@ -16,7 +16,7 @@ msgstr ""
 "Тесни резултати според типот на објектот (сервер, препечаток, типови на "
 "датотеки) и / или според еден или повеќе идентитет (и) на објектот."
 
-msgid "manager.statistics.reports.defaultReport.journalIndexPageViews"
+msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
 msgstr "Прегледи на главната страница на серверот"
 
 msgid "manager.statistics.reports.defaultReport.articleAbstract"
@@ -178,7 +178,7 @@ msgstr "За серверот"
 msgid "manager.setup.contextSummary"
 msgstr "Резиме на сервер"
 
-msgid "manager.setup.journalAbbreviation"
+msgid "manager.setup.serverAbbreviation"
 msgstr "Кратенка на серверот"
 
 msgid "manager.setup.itemsPerPage.description"

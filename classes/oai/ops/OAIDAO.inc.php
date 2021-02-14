@@ -19,12 +19,12 @@ import('lib.pkp.classes.oai.PKPOAIDAO');
 class OAIDAO extends PKPOAIDAO {
 
  	/** Helper DAOs */
- 	var $journalDao;
+ 	var $serverDao;
  	var $sectionDao;
 	var $articleGalleyDao;
  	var $authorDao;
 
- 	var $journalCache;
+ 	var $serverCache;
 	var $sectionCache;
 
  	/**
@@ -32,12 +32,12 @@ class OAIDAO extends PKPOAIDAO {
 	 */
 	function __construct() {
 		parent::__construct();
-		$this->journalDao = DAORegistry::getDAO('JournalDAO');
+		$this->serverDao = DAORegistry::getDAO('ServerDAO');
 		$this->sectionDao = DAORegistry::getDAO('SectionDAO');
 		$this->articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
 		$this->authorDao = DAORegistry::getDAO('AuthorDAO');
 
-		$this->journalCache = array();
+		$this->serverCache = array();
 		$this->sectionCache = array();
 	}
 
@@ -48,19 +48,19 @@ class OAIDAO extends PKPOAIDAO {
 	}
 
 	/**
-	 * Cached function to get a journal
-	 * @param $journalId int
+	 * Cached function to get a server
+	 * @param $serverId int
 	 * @return object
 	 */
-	function &getJournal($journalId) {
-		if (!isset($this->journalCache[$journalId])) {
-			$this->journalCache[$journalId] = $this->journalDao->getById($journalId);
+	function &getServer($serverId) {
+		if (!isset($this->serverCache[$serverId])) {
+			$this->serverCache[$serverId] = $this->serverDao->getById($serverId);
 		}
-		return $this->journalCache[$journalId];
+		return $this->serverCache[$serverId];
 	}
 
 	/**
-	 * Cached function to get a journal section
+	 * Cached function to get a server section
 	 * @param $sectionId int
 	 * @return object
 	 */
@@ -76,31 +76,31 @@ class OAIDAO extends PKPOAIDAO {
 	// Sets
 	//
 	/**
-	 * Return hierarchy of OAI sets (journals plus journal sections).
-	 * @param $journalId int
+	 * Return hierarchy of OAI sets (servers plus server sections).
+	 * @param $serverId int
 	 * @param $offset int
 	 * @param $total int
 	 * @return array OAISet
 	 */
-	function &getJournalSets($journalId, $offset, $limit, &$total) {
-		if (isset($journalId)) {
-			$journals = array($this->journalDao->getById($journalId));
+	function &getServerSets($serverId, $offset, $limit, &$total) {
+		if (isset($serverId)) {
+			$servers = array($this->serverDao->getById($serverId));
 		} else {
-			$journals = $this->journalDao->getAll(true);
-			$journals = $journals->toArray();
+			$servers = $this->serverDao->getAll(true);
+			$servers = $servers->toArray();
 		}
 
 		// FIXME Set descriptions
 		$sets = array();
-		foreach ($journals as $journal) {
-			$title = $journal->getLocalizedName();
-			$abbrev = $journal->getPath();
+		foreach ($servers as $server) {
+			$title = $server->getLocalizedName();
+			$abbrev = $server->getPath();
 			array_push($sets, new OAISet(urlencode($abbrev), $title, ''));
 
 			$tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO');
-			$articleTombstoneSets = $tombstoneDao->getSets(ASSOC_TYPE_JOURNAL, $journal->getId());
+			$articleTombstoneSets = $tombstoneDao->getSets(ASSOC_TYPE_JOURNAL, $server->getId());
 
-			$sections = $this->sectionDao->getByJournalId($journal->getId());
+			$sections = $this->sectionDao->getByServerId($server->getId());
 			foreach ($sections->toArray() as $section) {
 				if (array_key_exists(urlencode($abbrev) . ':' . urlencode($section->getLocalizedAbbrev()), $articleTombstoneSets)) {
 					unset($articleTombstoneSets[urlencode($abbrev) . ':' . urlencode($section->getLocalizedAbbrev())]);
@@ -112,7 +112,7 @@ class OAIDAO extends PKPOAIDAO {
 			}
 		}
 
-		HookRegistry::call('OAIDAO::getJournalSets', array($this, $journalId, $offset, $limit, $total, &$sets));
+		HookRegistry::call('OAIDAO::getServerSets', array($this, $serverId, $offset, $limit, $total, &$sets));
 
 		$total = count($sets);
 		$sets = array_slice($sets, $offset, $limit);
@@ -121,23 +121,23 @@ class OAIDAO extends PKPOAIDAO {
 	}
 
 	/**
-	 * Return the journal ID and section ID corresponding to a journal/section pairing.
-	 * @param $journalSpec string
+	 * Return the server ID and section ID corresponding to a server/section pairing.
+	 * @param $serverSpec string
 	 * @param $sectionSpec string
-	 * @param $restrictJournalId int
+	 * @param $restrictServerId int
 	 * @return array (int, int)
 	 */
-	function getSetJournalSectionId($journalSpec, $sectionSpec, $restrictJournalId = null) {
-		$journal =& $this->journalDao->getByPath($journalSpec);
-		if (!isset($journal) || (isset($restrictJournalId) && $journal->getId() != $restrictJournalId)) {
+	function getSetServerSectionId($serverSpec, $sectionSpec, $restrictServerId = null) {
+		$server =& $this->serverDao->getByPath($serverSpec);
+		if (!isset($server) || (isset($restrictServerId) && $server->getId() != $restrictServerId)) {
 			return array(0, 0);
 		}
 
-		$journalId = $journal->getId();
+		$serverId = $server->getId();
 		$sectionId = null;
 
 		if (isset($sectionSpec)) {
-			$section = $this->sectionDao->getByAbbrev($sectionSpec, $journal->getId());
+			$section = $this->sectionDao->getByAbbrev($sectionSpec, $server->getId());
 			if (isset($section)) {
 				$sectionId = $section->getId();
 			} else {
@@ -145,7 +145,7 @@ class OAIDAO extends PKPOAIDAO {
 			}
 		}
 
-		return array($journalId, $sectionId);
+		return array($serverId, $sectionId);
 	}
 
 	//
@@ -155,19 +155,19 @@ class OAIDAO extends PKPOAIDAO {
 	 * @see lib/pkp/classes/oai/PKPOAIDAO::setOAIData()
 	 */
 	function setOAIData($record, $row, $isRecord = true) {
-		$journal = $this->getJournal($row['journal_id']);
+		$server = $this->getServer($row['server_id']);
 		$section = $this->getSection($row['section_id']);
 		$articleId = $row['submission_id'];
 
 		$record->identifier = $this->oai->articleIdToIdentifier($articleId);
-		$record->sets = array(urlencode($journal->getPath()) . ':' . urlencode($section->getLocalizedAbbrev()));
+		$record->sets = array(urlencode($server->getPath()) . ':' . urlencode($section->getLocalizedAbbrev()));
 
 		if ($isRecord) {
 			$submission = Services::get('submission')->get($articleId);
 			$galleys = $this->articleGalleyDao->getByPublicationId($submission->getCurrentPublication()->getId())->toArray();
 
 			$record->setData('article', $submission);
-			$record->setData('journal', $journal);
+			$record->setData('server', $server);
 			$record->setData('section', $section);
 			$record->setData('galleys', $galleys);
 		}
@@ -186,15 +186,15 @@ class OAIDAO extends PKPOAIDAO {
 	 * @param $orderBy string UNFILTERED
 	 * @return Iterable
 	 */
-	function _getRecordsRecordSet($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'journal_id, submission_id') {
-		$journalId = array_shift($setIds);
+	function _getRecordsRecordSet($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'server_id, submission_id') {
+		$serverId = array_shift($setIds);
 		$sectionId = array_shift($setIds);
 
 		$params = array('enableOai', (int) STATUS_PUBLISHED);
-		if (isset($journalId)) $params[] = (int) $journalId;
+		if (isset($serverId)) $params[] = (int) $serverId;
 		if (isset($sectionId)) $params[] = (int) $sectionId;
 		if ($submissionId) $params[] = (int) $submissionId;
-		if (isset($journalId)) $params[] = (int) $journalId;
+		if (isset($serverId)) $params[] = (int) $serverId;
 		if (isset($sectionId)) $params[] = (int) $sectionId;
 		if (isset($set)) {
 			$params[] = $set;
@@ -204,7 +204,7 @@ class OAIDAO extends PKPOAIDAO {
 		$result = $this->retrieve(
 			'SELECT	a.last_modified AS last_modified,
 				a.submission_id AS submission_id,
-				j.journal_id AS journal_id,
+				j.server_id AS server_id,
 				s.section_id AS section_id,
 				NULL AS tombstone_id,
 				NULL AS set_spec,
@@ -213,10 +213,10 @@ class OAIDAO extends PKPOAIDAO {
 				submissions a
 				JOIN publications p ON (a.current_publication_id = p.publication_id)
 				JOIN sections s ON (s.section_id = p.section_id)
-				JOIN journals j ON (j.journal_id = a.context_id)
-				JOIN journal_settings jsoai ON (jsoai.journal_id = j.journal_id AND jsoai.setting_name=? AND jsoai.setting_value=\'1\')
+				JOIN servers j ON (j.server_id = a.context_id)
+				JOIN server_settings jsoai ON (jsoai.server_id = j.server_id AND jsoai.setting_name=? AND jsoai.setting_value=\'1\')
 			WHERE	p.date_published IS NOT NULL AND j.enabled = 1 AND a.status = ?
-				' . (isset($journalId) ?' AND j.journal_id = ?':'') . '
+				' . (isset($serverId) ?' AND j.server_id = ?':'') . '
 				' . (isset($sectionId) ?' AND p.section_id = ?':'') . '
 				' . ($from?' AND a.last_modified >= ' . $this->datetimeToDB($from):'') . '
 				' . ($until?' AND a.last_modified <= ' . $this->datetimeToDB($until):'') . '
@@ -224,13 +224,13 @@ class OAIDAO extends PKPOAIDAO {
 			UNION
 			SELECT	dot.date_deleted AS last_modified,
 				dot.data_object_id AS submission_id,
-				' . (isset($journalId) ? 'tsoj.assoc_id' : 'NULL') . ' AS assoc_id,' . '
+				' . (isset($serverId) ? 'tsoj.assoc_id' : 'NULL') . ' AS assoc_id,' . '
 				' . (isset($sectionId)? 'tsos.assoc_id' : 'NULL') . ' AS section_id,
 				dot.tombstone_id,
 				dot.set_spec,
 				dot.oai_identifier
 			FROM	data_object_tombstones dot' . '
-				' . (isset($journalId) ? 'JOIN data_object_tombstone_oai_set_objects tsoj ON (tsoj.tombstone_id = dot.tombstone_id AND tsoj.assoc_type = ' . ASSOC_TYPE_JOURNAL . ' AND tsoj.assoc_id = ?)' : '') . '
+				' . (isset($serverId) ? 'JOIN data_object_tombstone_oai_set_objects tsoj ON (tsoj.tombstone_id = dot.tombstone_id AND tsoj.assoc_type = ' . ASSOC_TYPE_JOURNAL . ' AND tsoj.assoc_id = ?)' : '') . '
 				' . (isset($sectionId)? 'JOIN data_object_tombstone_oai_set_objects tsos ON (tsos.tombstone_id = dot.tombstone_id AND tsos.assoc_type = ' . ASSOC_TYPE_SECTION . ' AND tsos.assoc_id = ?)' : '') . '
 			WHERE	1=1
 				' . (isset($set)?' AND (dot.set_spec = ? OR dot.set_spec LIKE ?)':'') . '

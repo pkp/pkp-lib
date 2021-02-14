@@ -224,7 +224,7 @@ class DOIPubIdPlugin extends PubIdPlugin {
 		$citationData = $args[0];
 		$article = $args[2];
 		#$issue = $args[3];
-		$journal = $args[4];
+		$server = $args[4];
 
 		if (!$this->getPubId($article)) {
 			return;

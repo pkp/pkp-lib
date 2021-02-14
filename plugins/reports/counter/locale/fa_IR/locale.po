@@ -80,7 +80,7 @@ msgstr "HTML از اول سال"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "PDF از اول سال"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "مجموع برای تمامی مجلات"
 
 msgid "plugins.reports.counter.1a.anonymous"

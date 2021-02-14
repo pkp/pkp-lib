@@ -40,7 +40,7 @@ class TemplateManager extends PKPTemplateManager {
 			$publicFileManager = new PublicFileManager();
 			$siteFilesDir = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();
 			$this->assign('sitePublicFilesDir', $siteFilesDir);
-			$this->assign('publicFilesDir', $siteFilesDir); // May be overridden by journal
+			$this->assign('publicFilesDir', $siteFilesDir); // May be overridden by server
 
 			if ($site->getData('styleSheet')) {
 				$this->addStyleSheet(
@@ -66,7 +66,7 @@ class TemplateManager extends PKPTemplateManager {
 			if (isset($context)) {
 
 				$this->assign([
-					'currentJournal' => $context,
+					'currentServer' => $context,
 					'siteTitle' => $context->getLocalizedName(),
 					'publicFilesDir' => $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId()),
 					'primaryLocale' => $context->getPrimaryLocale(),

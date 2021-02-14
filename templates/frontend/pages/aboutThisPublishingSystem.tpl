@@ -7,9 +7,9 @@
  *
  * @brief Display the page to view details about the OPS software.
  *
- * @uses $currentContext Journal The journal currently being viewed
+ * @uses $currentContext Server The server currently being viewed
  * @uses $appVersion string Current version of OPS
- * @uses $contactUrl string URL to the journal's contact page
+ * @uses $contactUrl string URL to the server's contact page
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.aboutSoftware"}
 
@@ -21,7 +21,7 @@
 
 	<p>
 		{if $currentContext}
-			{translate key="about.aboutOPSJournal" opsVersion=$appVersion contactUrl=$contactUrl}
+			{translate key="about.aboutOPSServer" opsVersion=$appVersion contactUrl=$contactUrl}
 		{else}
 			{translate key="about.aboutOPSSite" opsVersion=$appVersion}
 		{/if}

@@ -9,7 +9,7 @@
  * @class AccessForm
  * @ingroup classes_controllers_form
  *
- * @brief A preset form for configuring the terms under which a journal will
+ * @brief A preset form for configuring the terms under which a server will
  *  allow access to its published content.
  */
 namespace APP\components\forms\context;
@@ -31,7 +31,7 @@ class AccessForm extends FormComponent {
 	 *
 	 * @param $action string URL to submit the form to
 	 * @param $locales array Supported locales
-	 * @param $context Context Journal, Server or Press to change settings for
+	 * @param $context Context Server, Server or Press to change settings for
 	 */
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;

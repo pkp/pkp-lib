@@ -79,13 +79,13 @@ allow_url_fopen = Off
 ; Base URL override settings: Entries like the following examples can
 ; be used to override the base URLs used by OPS. If you want to use a
 ; proxy to rewrite URLs to OPS, configure your proxy's URL here.
-; Syntax: base_url[journal_path] = http://www.myUrl.com
-; To override URLs that aren't part of a particular journal, use a
-; journal_path of "index".
+; Syntax: base_url[server_path] = http://www.myUrl.com
+; To override URLs that aren't part of a particular server, use a
+; server_path of "index".
 ; Examples:
 ; base_url[index] = http://www.myUrl.com
-; base_url[myJournal] = http://www.myUrl.com/myJournal
-; base_url[myOtherJournal] = http://myOtherJournal.myUrl.com
+; base_url[myServer] = http://www.myUrl.com/myServer
+; base_url[myOtherServer] = http://myOtherServer.myUrl.com
 
 ; Generate RESTful URLs using mod_rewrite.  This requires the
 ; rewrite directive to be enabled in your .htaccess or httpd.conf.
@@ -104,7 +104,7 @@ trust_x_forwarded_for = Off
 ; and 10. The more your connection bandwidth allows the better.
 citation_checking_max_processes = 3
 
-; Display a message on the site admin and journal manager user home pages if there is an upgrade available
+; Display a message on the site admin and server manager user home pages if there is an upgrade available
 show_upgrade_warning = On
 
 ; Set the following parameter to off if you want to work with the uncompiled (non-minified) JavaScript
@@ -116,9 +116,9 @@ enable_minified = Off
 enable_beacon = On
 
 ; Set this to "On" if you would like to only have a single, site-wide Privacy
-; Statement, rather than a separate Privacy Statement for each journal. Setting
+; Statement, rather than a separate Privacy Statement for each server. Setting
 ; this to "Off" will allow you to enter a site-wide Privacy Statement as well
-; as separate Privacy Statements for each journal.
+; as separate Privacy Statements for each server.
 sitewide_privacy_statement = Off
 
 
@@ -166,10 +166,10 @@ memcache_port = 11211
 ; these pages will be cached in local flat files for the number of hours
 ; specified in the web_cache_hours option. This will cut down on server
 ; overhead for many requests, but should be used with caution because:
-; 1) Things like journal metadata changes will not be reflected in cached
+; 1) Things like server metadata changes will not be reflected in cached
 ;    data until the cache expires or is cleared, and
 ; 2) This caching WILL NOT RESPECT DOMAIN-BASED SUBSCRIPTIONS.
-; However, for situations like hosting high-volume open access journals, it's
+; However, for situations like hosting high-volume open access servers, it's
 ; an easy way of decreasing server load.
 ;
 ; When using web_cache, configure a tool to periodically clear out cache files
@@ -429,10 +429,10 @@ oai_max_records = 100
 
 [interface]
 
-; Number of items to display per page; can be overridden on a per-journal basis
+; Number of items to display per page; can be overridden on a per-server basis
 items_per_page = 25
 
-; Number of page links to display; can be overridden on a per-journal basis
+; Number of page links to display; can be overridden on a per-server basis
 page_links = 10
 
 

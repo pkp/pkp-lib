@@ -80,7 +80,7 @@ msgstr "HTML з початку року"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "PDF з початку року"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Всього по всіх журналах"
 
 msgid "plugins.reports.counter.1a.anonymous"

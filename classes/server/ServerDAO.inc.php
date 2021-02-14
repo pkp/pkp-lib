@@ -1,42 +1,42 @@
 <?php
 
 /**
- * @file classes/journal/JournalDAO.inc.php
+ * @file classes/server/ServerDAO.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class JournalDAO
- * @ingroup journal
- * @see Journal
+ * @class ServerDAO
+ * @ingroup server
+ * @see Server
  *
- * @brief Operations for retrieving and modifying Journal objects.
+ * @brief Operations for retrieving and modifying Server objects.
  */
 
 import('lib.pkp.classes.context.ContextDAO');
-import('classes.journal.Journal');
+import('classes.server.Server');
 import('lib.pkp.classes.metadata.MetadataTypeDescription');
 
 define('JOURNAL_FIELD_TITLE', 1);
 define('JOURNAL_FIELD_SEQUENCE', 2);
 
-class JournalDAO extends ContextDAO {
+class ServerDAO extends ContextDAO {
 	/** @copydoc SchemaDAO::$schemaName */
 	var $schemaName = 'context';
 
 	/** @copydoc SchemaDAO::$tableName */
-	var $tableName = 'journals';
+	var $tableName = 'servers';
 
 	/** @copydoc SchemaDAO::$settingsTableName */
-	var $settingsTableName = 'journal_settings';
+	var $settingsTableName = 'server_settings';
 
 	/** @copydoc SchemaDAO::$primaryKeyColumn */
-	var $primaryKeyColumn = 'journal_id';
+	var $primaryKeyColumn = 'server_id';
 
 	/** @var array Maps schema properties for the primary table to their column names */
 	var $primaryTableColumns = [
-		'id' => 'journal_id',
+		'id' => 'server_id',
 		'urlPath' => 'path',
 		'enabled' => 'enabled',
 		'seq' => 'seq',
@@ -49,41 +49,41 @@ class JournalDAO extends ContextDAO {
 	 * @return DataObject
 	 */
 	public function newDataObject() {
-		return new Journal();
+		return new Server();
 	}
 
 	/**
-	 * Retrieve the IDs and titles of all journals in an associative array.
+	 * Retrieve the IDs and titles of all servers in an associative array.
 	 * @return array
 	 */
 	function getTitles($enabledOnly = false) {
-		$journals = array();
-		$journalIterator = $this->getAll($enabledOnly);
-		while ($journal = $journalIterator->next()) {
-			$journals[$journal->getId()] = $journal->getLocalizedName();
+		$servers = array();
+		$serverIterator = $this->getAll($enabledOnly);
+		while ($server = $serverIterator->next()) {
+			$servers[$server->getId()] = $server->getLocalizedName();
 		}
-		return $journals;
+		return $servers;
 	}
 
 	/**
-	 * Delete the public IDs of all publishing objects in a journal.
-	 * @param $journalId int
+	 * Delete the public IDs of all publishing objects in a server.
+	 * @param $serverId int
 	 * @param $pubIdType string One of the NLM pub-id-type values or
 	 * 'other::something' if not part of the official NLM list
 	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
 	 */
-	function deleteAllPubIds($journalId, $pubIdType) {
+	function deleteAllPubIds($serverId, $pubIdType) {
 		$pubObjectDaos = ['PublicationDAO', 'ArticleGalleyDAO', 'SubmissionFileDAO'];
 		foreach($pubObjectDaos as $daoName) {
 			$dao = DAORegistry::getDAO($daoName);
-			$dao->deleteAllPubIds($journalId, $pubIdType);
+			$dao->deleteAllPubIds($serverId, $pubIdType);
 		}
 	}
 
 	/**
 	 * Check whether the given public ID exists for any publishing
-	 * object in a journal.
-	 * @param $journalId int
+	 * object in a server.
+	 * @param $serverId int
 	 * @param $pubIdType string One of the NLM pub-id-type values or
 	 * 'other::something' if not part of the official NLM list
 	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
@@ -94,7 +94,7 @@ class JournalDAO extends ContextDAO {
 	 * @param $forSameType boolean Whether only the same objects should be considered.
 	 * @return boolean
 	 */
-	function anyPubIdExists($journalId, $pubIdType, $pubId,
+	function anyPubIdExists($serverId, $pubIdType, $pubId,
 			$assocType = ASSOC_TYPE_ANY, $assocId = 0, $forSameType = false) {
 
 		$pubObjectDaos = [
@@ -105,7 +105,7 @@ class JournalDAO extends ContextDAO {
 		if ($forSameType) {
 			$dao = $pubObjectDaos[$assocType];
 			$excludedId = $assocId;
-			if ($dao->pubIdExists($pubIdType, $pubId, $excludedId, $journalId)) return true;
+			if ($dao->pubIdExists($pubIdType, $pubId, $excludedId, $serverId)) return true;
 			return false;
 		}
 		foreach($pubObjectDaos as $daoAssocType => $dao) {
@@ -114,7 +114,7 @@ class JournalDAO extends ContextDAO {
 			} else {
 				$excludedId = 0;
 			}
-			if ($dao->pubIdExists($pubIdType, $pubId, $excludedId, $journalId)) return true;
+			if ($dao->pubIdExists($pubIdType, $pubId, $excludedId, $serverId)) return true;
 		}
 		return false;
 	}

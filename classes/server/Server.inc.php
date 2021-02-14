@@ -1,23 +1,23 @@
 <?php
 
 /**
- * @defgroup journal Journal
+ * @defgroup server Server
  * Extensions to the pkp-lib "context" concept to specialize it for use in OPS
- * in representing Journal objects and journal-specific concerns.
+ * in representing Server objects and server-specific concerns.
  */
 
 /**
- * @file classes/journal/Journal.inc.php
+ * @file classes/server/Server.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class Journal
- * @ingroup journal
- * @see JournalDAO
+ * @class Server
+ * @ingroup server
+ * @see ServerDAO
  *
- * @brief Describes basic journal properties.
+ * @brief Describes basic server properties.
  */
 
 
@@ -26,10 +26,10 @@ define('PUBLISHING_MODE_NONE', 2);
 
 import('lib.pkp.classes.context.Context');
 
-class Journal extends Context {
+class Server extends Context {
 
 	/**
-	 * Get "localized" journal page title (if applicable).
+	 * Get "localized" server page title (if applicable).
 	 * @return string|null
 	 * @deprecated 3.3.0, use getLocalizedData() instead
 	 */
@@ -44,7 +44,7 @@ class Journal extends Context {
 	}
 
 	/**
-	 * Get "localized" journal page logo (if applicable).
+	 * Get "localized" server page logo (if applicable).
 	 * @return array|null
 	 * @deprecated 3.3.0, use getLocalizedData() instead
 	 */
@@ -72,7 +72,7 @@ class Journal extends Context {
 	 * @copydoc DataObject::getDAO()
 	 */
 	function getDAO() {
-		return DAORegistry::getDAO('JournalDAO');
+		return DAORegistry::getDAO('ServerDAO');
 	}
 
 
@@ -80,12 +80,12 @@ class Journal extends Context {
 	// Statistics API
 	//
 	/**
-	 * Return all metric types supported by this journal.
+	 * Return all metric types supported by this server.
 	 *
 	 * @return array An array of strings of supported metric type identifiers.
 	 */
 	function getMetricTypes($withDisplayNames = false) {
-		// Retrieve report plugins enabled for this journal.
+		// Retrieve report plugins enabled for this server.
 		$reportPlugins = PluginRegistry::loadCategory('reports', true, $this->getId());
 
 		// Run through all report plugins and retrieve all supported metrics.
@@ -105,8 +105,8 @@ class Journal extends Context {
 	}
 
 	/**
-	 * Returns the currently configured default metric type for this journal.
-	 * If no specific metric type has been set for this journal then the
+	 * Returns the currently configured default metric type for this server.
+	 * If no specific metric type has been set for this server then the
 	 * site-wide default metric type will be returned.
 	 *
 	 * @return null|string A metric type identifier or null if no default metric
@@ -133,7 +133,7 @@ class Journal extends Context {
 	}
 
 	/**
-	 * Retrieve a statistics report pre-filtered on this journal.
+	 * Retrieve a statistics report pre-filtered on this server.
 	 *
 	 * @see <http://pkp.sfu.ca/wiki/index.php/OPSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
 	 * for a full specification of the input and output format of this method.
@@ -145,10 +145,10 @@ class Journal extends Context {
 	 * @param $range null|DBResultRange paging specification
 	 *
 	 * @return null|array The selected data as a simple tabular
-	 *  result set or null if metrics are not supported by this journal.
+	 *  result set or null if metrics are not supported by this server.
 	 */
 	function getMetrics($metricType = null, $columns = array(), $filter = array(), $orderBy = array(), $range = null) {
-		// Add a journal filter and run the report.
+		// Add a server filter and run the report.
 		$filter[STATISTICS_DIMENSION_CONTEXT_ID] = $this->getId();
 		$application = Application::get();
 		return $application->getMetrics($metricType, $columns, $filter, $orderBy, $range);

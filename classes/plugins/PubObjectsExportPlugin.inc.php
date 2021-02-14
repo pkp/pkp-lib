@@ -510,12 +510,12 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin {
 		$contextPath = array_shift($args);
 		$objectType = array_shift($args);
 
-		$contextDao = DAORegistry::getDAO('JournalDAO');
+		$contextDao = DAORegistry::getDAO('ServerDAO');
 		$context = $contextDao->getByPath($contextPath);
 		if (!$context) {
 			if ($contextPath != '') {
 				echo __('plugins.importexport.common.cliError') . "\n";
-				echo __('plugins.importexport.common.error.unknownJournal', array('journalPath' => $contextPath)) . "\n\n";
+				echo __('plugins.importexport.common.error.unknownServer', array('serverPath' => $contextPath)) . "\n\n";
 			}
 			$this->usage($scriptName);
 			return;

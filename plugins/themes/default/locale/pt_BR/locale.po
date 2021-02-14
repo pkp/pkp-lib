@@ -64,7 +64,7 @@ msgstr ""
 msgid "plugins.themes.default.option.useHomepageImageAsHeader.label"
 msgstr "Imagem de fundo do cabeçalho"
 
-msgid "plugins.themes.default.option.showDescriptionInJournalIndex.option"
+msgid "plugins.themes.default.option.showDescriptionInServerIndex.option"
 msgstr "Mostre o resumo do periódico na página inicial."
 
 msgid "plugins.themes.default.option.showDescriptionInServerIndex.option"

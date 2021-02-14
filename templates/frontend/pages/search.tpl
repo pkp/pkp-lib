@@ -98,7 +98,7 @@
 	<ul class="search_results">
 		{iterate from=results item=result}
 			<li>
-				{include file="frontend/objects/preprint_summary.tpl" preprint=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true heading="h3"}
+				{include file="frontend/objects/preprint_summary.tpl" preprint=$result.publishedSubmission server=$result.server showDatePublished=true hideGalleys=true heading="h3"}
 			</li>
 		{/iterate}
 	</ul>
@@ -117,7 +117,7 @@
 	{else}
 		<div class="cmp_pagination">
 			{page_info iterator=$results}
-			{page_links anchor="results" iterator=$results name="search" query=$query searchJournal=$searchJournal authors=$authors dateFromMonth=$dateFromMonth dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateToMonth=$dateToMonth dateToDay=$dateToDay dateToYear=$dateToYear}
+			{page_links anchor="results" iterator=$results name="search" query=$query searchServer=$searchServer authors=$authors dateFromMonth=$dateFromMonth dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateToMonth=$dateToMonth dateToDay=$dateToDay dateToYear=$dateToYear}
 		</div>
 	{/if}
 

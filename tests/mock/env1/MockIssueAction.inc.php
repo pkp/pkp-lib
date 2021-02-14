@@ -16,21 +16,21 @@ class IssueAction {
 	/**
 	 * @copydoc IssueAction::subscriptionRequired()
 	 */
-	function subscriptionRequired($issue, $journal) {
+	function subscriptionRequired($issue, $server) {
 		return false;
 	}
 
 	/**
 	 * @copydoc IssueAction::subscribedUser()
 	 */
-	function subscribedUser($user, $journal, $issueId = null, $articleId = null) {
+	function subscribedUser($user, $server, $issueId = null, $articleId = null) {
 		return false;
 	}
 
 	/**
 	 * @copydoc IssueAction::subscribedDomain()
 	 */
-	function subscribedDomain($request, $journal, $issueId = null, $articleId = null) {
+	function subscribedDomain($request, $server, $issueId = null, $articleId = null) {
 		return false;
 	}
 }

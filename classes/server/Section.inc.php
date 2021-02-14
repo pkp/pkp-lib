@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file classes/journal/Section.inc.php
+ * @file classes/server/Section.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Section
- * @ingroup journal
+ * @ingroup server
  * @see SectionDAO
  *
  * @brief Describes basic section properties.
@@ -19,7 +19,7 @@ import('lib.pkp.classes.context.PKPSection');
 class Section extends PKPSection {
 
 	/**
-	 * Get localized abbreviation of journal section.
+	 * Get localized abbreviation of server section.
 	 * @return string
 	 */
 	function getLocalizedAbbrev() {
@@ -39,19 +39,19 @@ class Section extends PKPSection {
 	//
 
 	/**
-	 * Get ID of journal.
+	 * Get ID of server.
 	 * @return int
 	 */
-	function getJournalId() {
+	function getServerId() {
 		return $this->getContextId();
 	}
 
 	/**
-	 * Set ID of journal.
-	 * @param $journalId int
+	 * Set ID of server.
+	 * @param $serverId int
 	 */
-	function setJournalId($journalId) {
-		return $this->setContextId($journalId);
+	function setServerId($serverId) {
+		return $this->setContextId($serverId);
 	}
 
 	/**

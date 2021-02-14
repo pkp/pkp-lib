@@ -67,7 +67,7 @@ msgstr ""
 "apoiado e distribuído gratuitamente pelo <a href=\"http://pkp.sfu.ca/\">"
 "Public Knowledge Project</a> sob Licença Pública Geral GNU."
 
-msgid "about.aboutOPSJournal"
+msgid "about.aboutOPSServer"
 msgstr ""
 "Este servidor utiliza Open Preprint Systems {$opsVersion}, que é um software "
 "de gerenciamento e publicação de servidor de preprints em código aberto "
@@ -146,10 +146,10 @@ msgstr "Arquivos - Página {$pageNumber}"
 msgid "archive.archives"
 msgstr "Arquivos"
 
-msgid "site.noJournals"
+msgid "site.noServers"
 msgstr "Não há servidores disponíveis."
 
-msgid "site.journalView"
+msgid "site.serverView"
 msgstr "Exibir Servidor"
 
 msgid "search.authorDetails"
@@ -206,7 +206,7 @@ msgstr "Popularidade (Último Mês)"
 msgid "search.results.orderBy.popularityAll"
 msgstr "Popularidade (de todos os tempos)"
 
-msgid "search.results.orderBy.journal"
+msgid "search.results.orderBy.server"
 msgstr "Título do Servidor"
 
 #, fuzzy

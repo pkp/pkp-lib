@@ -17,17 +17,17 @@
 <ul>
 {foreach from=$submissions item=article}
 	{assign var=sectionId value=$article->getCurrentPublication()->getData('sectionId')}
-	{assign var=journalId value=$article->getData('contextId')}
-	{assign var=journal value=$journals[$journalId]}
+	{assign var=serverId value=$article->getData('contextId')}
+	{assign var=server value=$servers[$serverId]}
 	{assign var=section value=$sections[$sectionId]}
-	{if $section && $journal}
+	{if $section && $server}
 	<li>
 		<em>{$section->getLocalizedTitle()|escape}</em><br />
 		{$article->getLocalizedTitle()|strip_unsafe_html}<br/>
-		<a href="{url journal=$journal->getPath() page="article" op="view" path=$article->getBestId()}" class="file">{if $article->getCurrentPublication()->getData('abstract')}{translate key="article.abstract"}{else}{translate key="article.details"}{/if}</a>
+		<a href="{url server=$server->getPath() page="article" op="view" path=$article->getBestId()}" class="file">{if $article->getCurrentPublication()->getData('abstract')}{translate key="article.abstract"}{else}{translate key="article.details"}{/if}</a>
 		{if ($article->getCurrentPublication()->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN)}
 		{foreach from=$article->getGalleys() item=galley name=galleyList}
-			&nbsp;<a href="{url journal=$journal->getPath() page="article" op="view" path=$article->getBestId()|to_array:$galley->getBestGalleyId()}" class="file">{$galley->getGalleyLabel()|escape}</a>
+			&nbsp;<a href="{url server=$server->getPath() page="article" op="view" path=$article->getBestId()|to_array:$galley->getBestGalleyId()}" class="file">{$galley->getGalleyLabel()|escape}</a>
 		{/foreach}
 		{/if}
 	</li>

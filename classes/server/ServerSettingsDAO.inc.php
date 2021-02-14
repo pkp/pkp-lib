@@ -1,41 +1,41 @@
 <?php
 
 /**
- * @file classes/journal/JournalSettingsDAO.inc.php
+ * @file classes/server/ServerSettingsDAO.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class JournalSettingsDAO
- * @ingroup journal
+ * @class ServerSettingsDAO
+ * @ingroup server
  *
- * @brief Operations for retrieving and modifying journal settings.
+ * @brief Operations for retrieving and modifying server settings.
  */
 
 import('lib.pkp.classes.db.SettingsDAO');
 
-class JournalSettingsDAO extends SettingsDAO {
+class ServerSettingsDAO extends SettingsDAO {
 	/**
 	 * Get the settings table name.
 	 * @return string
 	 */
 	protected function _getTableName() {
-		return 'journal_settings';
+		return 'server_settings';
 	}
 
 	/**
 	 * Get the primary key column name.
 	 */
 	protected function _getPrimaryKeyColumn() {
-		return 'journal_id';
+		return 'server_id';
 	}
 
 	/**
 	 * Get the cache name.
 	 */
 	protected function _getCacheName() {
-		return 'journalSettings';
+		return 'serverSettings';
 	}
 }
 

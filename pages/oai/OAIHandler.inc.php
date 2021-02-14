@@ -15,7 +15,7 @@
 
 define('SESSION_DISABLE_INIT', 1); // FIXME?
 
-import('classes.oai.ops.JournalOAI');
+import('classes.oai.ops.ServerOAI');
 import('classes.handler.Handler');
 
 use \Firebase\JWT\JWT;
@@ -31,8 +31,8 @@ class OAIHandler extends Handler {
 
 		PluginRegistry::loadCategory('oaiMetadataFormats', true);
 
-		$oai = new JournalOAI(new OAIConfig($request->url(null, 'oai'), Config::getVar('oai', 'repository_id')));
-		if (!$request->getJournal() && $request->getRequestedJournalPath() != 'index') {
+		$oai = new ServerOAI(new OAIConfig($request->url(null, 'oai'), Config::getVar('oai', 'repository_id')));
+		if (!$request->getServer() && $request->getRequestedServerPath() != 'index') {
 			$dispatcher = $request->getDispatcher();
 			return $dispatcher->handle404();
 		}

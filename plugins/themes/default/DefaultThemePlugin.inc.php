@@ -191,7 +191,7 @@ class DefaultThemePlugin extends ThemePlugin {
 	}
 
 	/**
-	 * Get the name of the settings file to be installed on new journal
+	 * Get the name of the settings file to be installed on new server
 	 * creation.
 	 * @return string
 	 */

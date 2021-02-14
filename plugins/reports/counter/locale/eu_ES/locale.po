@@ -53,5 +53,5 @@ msgstr "HTML"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "PDF"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Aldizkari guztien totala"

@@ -50,7 +50,7 @@ msgstr "HTML de l'any en curs"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "PDF de l'any en curs"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Total per a totes les revistes"
 
 msgid "plugins.reports.counter.legacyStats"

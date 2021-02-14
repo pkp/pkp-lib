@@ -20,20 +20,20 @@ class IndexHandler extends PKPIndexHandler {
 	// Public handler operations
 	//
 	/**
-	 * If no journal is selected, display list of journals.
-	 * Otherwise, display the index page for the selected journal.
+	 * If no server is selected, display list of servers.
+	 * Otherwise, display the index page for the selected server.
 	 * @param $args array
 	 * @param $request Request
 	 */
 	function index($args, $request) {
 		$this->validate(null, $request);
-		$journal = $request->getJournal();
+		$server = $request->getServer();
 
-		if (!$journal) {
-			$journal = $this->getTargetContext($request, $hasNoContexts);
-			if ($journal) {
-				// There's a target context but no journal in the current request. Redirect.
-				$request->redirect($journal->getPath());
+		if (!$server) {
+			$server = $this->getTargetContext($request, $hasNoContexts);
+			if ($server) {
+				// There's a target context but no server in the current request. Redirect.
+				$request->redirect($server->getPath());
 			}
 			if ($hasNoContexts && Validation::isSiteAdmin()) {
 				// No contexts created, and this is the admin.
@@ -44,21 +44,21 @@ class IndexHandler extends PKPIndexHandler {
 		$this->setupTemplate($request);
 		$router = $request->getRouter();
 		$templateMgr = TemplateManager::getManager($request);
-		if ($journal) {
+		if ($server) {
 
 			// OPS: sections
 			$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
-			$sections = $sectionDao->getByContextId($journal->getId());
+			$sections = $sectionDao->getByContextId($server->getId());
 
 			// OPS: categories
 			$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
-			$categories = $categoryDao->getByContextId($journal->getId());			
+			$categories = $categoryDao->getByContextId($server->getId());			
 
 			// Latest preprints
 			import('classes.submission.Submission');
 			$submissionService = Services::get('submission');
 			$params = array(
-				'contextId' => $journal->getId(),
+				'contextId' => $server->getId(),
 				'count' => '10',
 				'orderBy' => 'datePublished',
 				'status' => STATUS_PUBLISHED,
@@ -67,32 +67,32 @@ class IndexHandler extends PKPIndexHandler {
 
 			// Assign header and content for home page
 			$templateMgr->assign(array(
-				'additionalHomeContent' => $journal->getLocalizedData('additionalHomeContent'),
-				'homepageImage' => $journal->getLocalizedData('homepageImage'),
-				'homepageImageAltText' => $journal->getLocalizedData('homepageImageAltText'),
-				'journalDescription' => $journal->getLocalizedData('description'),
+				'additionalHomeContent' => $server->getLocalizedData('additionalHomeContent'),
+				'homepageImage' => $server->getLocalizedData('homepageImage'),
+				'homepageImageAltText' => $server->getLocalizedData('homepageImageAltText'),
+				'serverDescription' => $server->getLocalizedData('description'),
 				'sections' => $sections,
 				'categories' => $categories,
 				'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true),
 				'publishedSubmissions' => $publishedSubmissions,
 			));
 
-			$this->_setupAnnouncements($journal, $templateMgr);
+			$this->_setupAnnouncements($server, $templateMgr);
 
-			$templateMgr->display('frontend/pages/indexJournal.tpl');
+			$templateMgr->display('frontend/pages/indexServer.tpl');
 		} else {
-			$journalDao = DAORegistry::getDAO('JournalDAO'); /* @var $journalDao JournalDAO */
+			$serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
 			$site = $request->getSite();
 
-			if ($site->getRedirect() && ($journal = $journalDao->getById($site->getRedirect())) != null) {
-				$request->redirect($journal->getPath());
+			if ($site->getRedirect() && ($server = $serverDao->getById($site->getRedirect())) != null) {
+				$request->redirect($server->getPath());
 			}
 
 			$templateMgr->assign(array(
 				'pageTitleTranslated' => $site->getLocalizedTitle(),
 				'about' => $site->getLocalizedAbout(),
-				'journalFilesPath' => $request->getBaseUrl() . '/' . Config::getVar('files', 'public_files_dir') . '/journals/',
-				'journals' => $journalDao->getAll(true),
+				'serverFilesPath' => $request->getBaseUrl() . '/' . Config::getVar('files', 'public_files_dir') . '/servers/',
+				'servers' => $serverDao->getAll(true),
 				'site' => $site,
 			));
 			$templateMgr->setCacheability(CACHEABILITY_PUBLIC);

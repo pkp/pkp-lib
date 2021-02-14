@@ -122,10 +122,10 @@ msgid "publication.relation.none"
 msgstr "Preprint has not been submitted for publication"
 
 msgid "publication.relation.submitted"
-msgstr "Preprint has been submitted for publication in journal"
+msgstr "Preprint has been submitted for publication in server"
 
 msgid "publication.relation.published"
-msgstr "Preprint has been published in a journal as an article"
+msgstr "Preprint has been published in a server as an article"
 
 msgid "publication.relation.vorDoi"
 msgstr "DOI of the published article"

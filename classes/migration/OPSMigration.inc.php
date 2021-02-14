@@ -22,31 +22,31 @@ class OPSMigration extends Migration {
          * @return void
          */
         public function up() {
-		// Journals and basic journal settings.
-		Capsule::schema()->create('journals', function (Blueprint $table) {
-			$table->bigInteger('journal_id')->autoIncrement();
+		// Servers and basic server settings.
+		Capsule::schema()->create('servers', function (Blueprint $table) {
+			$table->bigInteger('server_id')->autoIncrement();
 			$table->string('path', 32);
-			$table->float('seq', 8, 2)->default(0)->comment('Used to order lists of journals');
+			$table->float('seq', 8, 2)->default(0)->comment('Used to order lists of servers');
 			$table->string('primary_locale', 14);
-			$table->tinyInteger('enabled')->default(1)->comment('Controls whether or not the journal is considered "live" and will appear on the website. (Note that disabled journals may still be accessible, but only if the user knows the URL.)');
-			$table->unique(['path'], 'journals_path');
+			$table->tinyInteger('enabled')->default(1)->comment('Controls whether or not the server is considered "live" and will appear on the website. (Note that disabled servers may still be accessible, but only if the user knows the URL.)');
+			$table->unique(['path'], 'servers_path');
 		});
 
-		// Journal settings.
-		Capsule::schema()->create('journal_settings', function (Blueprint $table) {
-			$table->bigInteger('journal_id');
+		// Server settings.
+		Capsule::schema()->create('server_settings', function (Blueprint $table) {
+			$table->bigInteger('server_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
 			$table->text('setting_value')->nullable();
 			$table->string('setting_type', 6)->nullable();
-			$table->index(['journal_id'], 'journal_settings_journal_id');
-			$table->unique(['journal_id', 'locale', 'setting_name'], 'journal_settings_pkey');
+			$table->index(['server_id'], 'server_settings_server_id');
+			$table->unique(['server_id', 'locale', 'setting_name'], 'server_settings_pkey');
 		});
 
-		// Journal sections.
+		// Server sections.
 		Capsule::schema()->create('sections', function (Blueprint $table) {
 			$table->bigInteger('section_id')->autoIncrement();
-			$table->bigInteger('journal_id');
+			$table->bigInteger('server_id');
 			$table->bigInteger('review_form_id')->nullable();
 			$table->float('seq', 8, 2)->default(0);
 			$table->tinyInteger('editor_restricted')->default(0);
@@ -57,7 +57,7 @@ class OPSMigration extends Migration {
 			$table->tinyInteger('hide_author')->default(0);
 			$table->tinyInteger('is_inactive')->default(0);
 			$table->bigInteger('abstract_word_count')->nullable();
-			$table->index(['journal_id'], 'sections_journal_id');
+			$table->index(['server_id'], 'sections_server_id');
 		});
 
 		// Section-specific settings
@@ -71,17 +71,17 @@ class OPSMigration extends Migration {
 			$table->unique(['section_id', 'locale', 'setting_name'], 'section_settings_pkey');
 		});
 
-		// Archived, removed from TOC, unscheduled or unpublished journal articles.
+		// Archived, removed from TOC, unscheduled or unpublished server articles.
 		Capsule::schema()->create('submission_tombstones', function (Blueprint $table) {
 			$table->bigInteger('tombstone_id')->autoIncrement();
 			$table->bigInteger('submission_id');
 			$table->datetime('date_deleted');
-			$table->bigInteger('journal_id');
+			$table->bigInteger('server_id');
 			$table->bigInteger('section_id');
 			$table->string('set_spec', 255);
 			$table->string('set_name', 255);
 			$table->string('oai_identifier', 255);
-			$table->index(['journal_id'], 'submission_tombstones_journal_id');
+			$table->index(['server_id'], 'submission_tombstones_server_id');
 			$table->index(['submission_id'], 'submission_tombstones_submission_id');
 		});
 
@@ -142,8 +142,8 @@ class OPSMigration extends Migration {
 	 */
 	public function down() {
 		Capsule::schema()->drop('completed_payments');
-		Capsule::schema()->drop('journals');
-		Capsule::schema()->drop('journal_settings');
+		Capsule::schema()->drop('servers');
+		Capsule::schema()->drop('server_settings');
 		Capsule::schema()->drop('sections');
 		Capsule::schema()->drop('section_settings');
 		Capsule::schema()->drop('submission_tombstones');

@@ -46,7 +46,7 @@ class ArticleGalleyForm extends Form {
 		$this->addCheck(new FormValidatorCSRF($this));
 
 		// Ensure a locale is provided and valid
-		$journal = $request->getJournal();
+		$server = $request->getServer();
 		$this->addCheck(
 			new FormValidator(
 				$this,
@@ -54,8 +54,8 @@ class ArticleGalleyForm extends Form {
 				'required',
 				'editor.submissions.galleyLocaleRequired'
 			),
-			function($galleyLocale) use ($journal) {
-				return in_array($galleyLocale, $journal->getSupportedSubmissionLocaleNames());
+			function($galleyLocale) use ($server) {
+				return in_array($galleyLocale, $server->getSupportedSubmissionLocaleNames());
 			}
 		);
 	}

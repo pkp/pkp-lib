@@ -35,7 +35,7 @@ class PublishForm extends FormComponent {
 	 *
 	 * @param $action string URL to submit the form to
 	 * @param $publication Publication The publication to change settings for
-	 * @param $submissionContext \Context journal or press
+	 * @param $submissionContext \Context server or press
 	 * @param $requirementErrors array A list of pre-publication requirements that are not met.
 	 */
 	public function __construct($action, $publication, $submissionContext, $requirementErrors) {

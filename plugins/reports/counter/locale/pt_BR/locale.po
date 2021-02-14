@@ -80,7 +80,7 @@ msgstr "HTML YTD"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "PDF YTD"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Total para todas as revistas"
 
 msgid "plugins.reports.counter.1a.anonymous"

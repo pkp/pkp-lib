@@ -10,7 +10,7 @@
  * @class CrossRefSettingsForm
  * @ingroup plugins_importexport_crossref
  *
- * @brief Form for journal managers to setup CrossRef plugin
+ * @brief Form for server managers to setup CrossRef plugin
  */
 
 

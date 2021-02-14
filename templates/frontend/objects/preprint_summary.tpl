@@ -27,7 +27,7 @@
 <div class="obj_article_summary">
 	{if $preprint->getCurrentPublication()->getLocalizedData('coverImage')}
 		<div class="cover">
-			<a {if $journal}href="{url journal=$journal->getPath() page="preprint" op="view" path=$preprintPath}"{else}href="{url page="preprint" op="view" path=$preprintPath}"{/if} class="file">
+			<a {if $server}href="{url server=$server->getPath() page="preprint" op="view" path=$preprintPath}"{else}href="{url page="preprint" op="view" path=$preprintPath}"{/if} class="file">
 				{assign var="coverImage" value=$preprint->getCurrentPublication()->getLocalizedData('coverImage')}
 				<img
 					src="{$preprint->getCurrentPublication()->getLocalizedCoverImageUrl($preprint->getData('contextId'))|escape}"
@@ -38,7 +38,7 @@
 	{/if}
 
 	<{$heading} class="title">
-		<a id="preprint-{$preprint->getId()}" {if $journal}href="{url journal=$journal->getPath() page="preprint" op="view" path=$preprintPath}"{else}href="{url page="preprint" op="view" path=$preprintPath}"{/if}>
+		<a id="preprint-{$preprint->getId()}" {if $server}href="{url server=$server->getPath() page="preprint" op="view" path=$preprintPath}"{else}href="{url page="preprint" op="view" path=$preprintPath}"{/if}>
 			{$preprint->getLocalizedTitle()|strip_unsafe_html}
 			{if $preprint->getLocalizedSubtitle()}
 				<span class="subtitle">
@@ -62,7 +62,7 @@
 			{/if}
 			{assign var=pubId value=$preprint->getCurrentPublication()->getStoredPubId($pubIdPlugin->getPubIdType())}
 			{if $pubId}
-				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentServer->getId(), $pubId)|escape}
 				<div class="doi">
 						{capture assign=translatedDOI}{translate key="plugins.pubIds.doi.readerDisplayName"}{/capture}
 						{translate key="semicolon" label=$translatedDOI}

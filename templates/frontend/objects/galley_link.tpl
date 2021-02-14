@@ -13,14 +13,14 @@
  * @uses $publication Publication Optionally the publication (version) to which this galley is attached
  * @uses $isSupplementary bool Is this a supplementary file?
  * @uses $hasAccess bool Can this user access galleys for this context?
- * @uses $currentJournal Journal The current journal context
- * @uses $journalOverride Journal An optional argument to override the current
- *       journal with a specific context
+ * @uses $currentServer Server The current server context
+ * @uses $serverOverride Server An optional argument to override the current
+ *       server with a specific context
  *}
 
-{* Override the $currentJournal context if desired *}
-{if $journalOverride}
-	{assign var="currentJournal" value=$journalOverride}
+{* Override the $currentServer context if desired *}
+{if $serverOverride}
+	{assign var="currentServer" value=$serverOverride}
 {/if}
 
 {* Determine galley type and URL op *}

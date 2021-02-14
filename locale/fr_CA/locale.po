@@ -27,7 +27,7 @@ msgid "submission.layout.galleyPublicIdentificationExists"
 msgstr "L'identification publique de cette épreuve existe déjà."
 
 #, fuzzy
-msgid "about.aboutOPSJournal"
+msgid "about.aboutOPSServer"
 msgstr ""
 "Ce serveur utilise Open Preprint Systems {$opsVersion}, un logiciel de "
 "gestion et d'édition de serveurs à code source libre développé, pris en "
@@ -102,10 +102,10 @@ msgstr "Archives - Page {$pageNumber}"
 msgid "archive.archives"
 msgstr "Archives"
 
-msgid "site.noJournals"
+msgid "site.noServers"
 msgstr "Aucun serveur n'est disponible."
 
-msgid "site.journalView"
+msgid "site.serverView"
 msgstr "Afficher le serveur"
 
 msgid "search.authorDetails"
@@ -168,7 +168,7 @@ msgstr "Popularité (Mois dernier)"
 msgid "search.results.orderBy.popularityAll"
 msgstr "Popularité (de tous les temps)"
 
-msgid "search.results.orderBy.journal"
+msgid "search.results.orderBy.server"
 msgstr "Titre du serveur"
 
 #, fuzzy

@@ -140,7 +140,7 @@ msgstr "Author"
 msgid "search.results.orderBy.date"
 msgstr "Posted Date"
 
-msgid "search.results.orderBy.journal"
+msgid "search.results.orderBy.server"
 msgstr "Server Title"
 
 msgid "search.results.orderBy.popularityAll"
@@ -196,10 +196,10 @@ msgstr "Browse Author Index"
 msgid "search.authorDetails"
 msgstr "Author Details"
 
-msgid "site.journalView"
+msgid "site.serverView"
 msgstr "View Server"
 
-msgid "site.noJournals"
+msgid "site.noServers"
 msgstr "There are no servers available."
 
 msgid "archive.archives"
@@ -265,7 +265,7 @@ msgstr "OPS Screening and Posting Process"
 msgid "about.aboutSoftware"
 msgstr "About Open Preprint Systems"
 
-msgid "about.aboutOPSJournal"
+msgid "about.aboutOPSServer"
 msgstr "This server uses Open Preprint Systems {$opsVersion}, which is open source preprint server management software developed, supported, and freely distributed by the Public Knowledge Project under the GNU General Public License. Visit PKP's website to <a href=\"http://pkp.sfu.ca/\">learn more about the software</a>. Please <a href=\"{$contactUrl}\">contact the server</a> directly with questions about the server and submission of preprints."
 
 msgid "about.aboutOPSSite"
@@ -415,9 +415,9 @@ msgid "user.profile.form.hideOtherContexts"
 msgstr "Hide other servers"
 
 msgid "search.cli.rebuildIndex.indexing"
-msgstr "Indexing "{$journalName}""
+msgstr "Indexing "{$serverName}""
 
-msgid "search.cli.rebuildIndex.indexingByJournalNotSupported"
+msgid "search.cli.rebuildIndex.indexingByServerNotSupported"
 msgstr "This search implementation does not allow per-server re-indexing."
 
 msgid "catalog.sortBy"

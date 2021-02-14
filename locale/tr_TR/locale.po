@@ -81,7 +81,7 @@ msgstr ""
 "Lütfen sunucu ve ön baskıların gönderilmesi ile ilgili sorularınız için "
 "doğrudan <a href=\"{$contactUrl}\">sunucuyla</a> iletişime geçin."
 
-msgid "about.aboutOPSJournal"
+msgid "about.aboutOPSServer"
 msgstr ""
 "Bu sunucu, GNU Genel Kamu Lisansı altında Public Knowledge Project "
 "tarafından geliştirilen, desteklenen ve ücretsiz olarak dağıtılan açık "
@@ -166,10 +166,10 @@ msgstr "Arşiv - Sayfa {$pageNumber}"
 msgid "archive.archives"
 msgstr "Arşiv"
 
-msgid "site.noJournals"
+msgid "site.noServers"
 msgstr "Kullanılabilir sunucu yok."
 
-msgid "site.journalView"
+msgid "site.serverView"
 msgstr "Sunucuyu Görüntüle"
 
 msgid "search.authorDetails"
@@ -228,7 +228,7 @@ msgstr "Popülerlik (Son Bir Ay)"
 msgid "search.results.orderBy.popularityAll"
 msgstr "Popülerlik (Tüm Zamanlar)"
 
-msgid "search.results.orderBy.journal"
+msgid "search.results.orderBy.server"
 msgstr "Sunucu Adı"
 
 msgid "search.results.orderBy.date"

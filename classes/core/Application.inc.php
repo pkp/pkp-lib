@@ -35,7 +35,7 @@ class Application extends PKPApplication {
 	/**
 	 * Get the "context depth" of this application, i.e. the number of
 	 * parts of the URL after index.php that represent the context of
-	 * the current request (e.g. Journal [1], or Conference and
+	 * the current request (e.g. Server [1], or Conference and
 	 * Scheduled Conference [2]).
 	 * @return int
 	 */
@@ -48,7 +48,7 @@ class Application extends PKPApplication {
 	 * @return array
 	 */
 	public function getContextList() {
-		return array('journal');
+		return array('server');
 	}
 
 	/**
@@ -86,12 +86,12 @@ class Application extends PKPApplication {
 			'ArticleGalleyDAO' => 'classes.article.ArticleGalleyDAO',
 			'ArticleSearchDAO' => 'classes.search.ArticleSearchDAO',
 			'AuthorDAO' => 'classes.article.AuthorDAO',
-			'JournalDAO' => 'classes.journal.JournalDAO',
-			'JournalSettingsDAO' => 'classes.journal.JournalSettingsDAO',
+			'ServerDAO' => 'classes.server.ServerDAO',
+			'ServerSettingsDAO' => 'classes.server.ServerSettingsDAO',
 			'MetricsDAO' => 'classes.statistics.MetricsDAO',
 			'OAIDAO' => 'classes.oai.ops.OAIDAO',
 			'PublishedSubmissionDAO' => 'classes.article.PublishedSubmissionDAO',
-			'SectionDAO' => 'classes.journal.SectionDAO',
+			'SectionDAO' => 'classes.server.SectionDAO',
 		));
 	}
 
@@ -125,7 +125,7 @@ class Application extends PKPApplication {
 	 * @return ContextDAO
 	 */
 	public static function getContextDAO() {
-		return DAORegistry::getDAO('JournalDAO');
+		return DAORegistry::getDAO('ServerDAO');
 	}
 
 	/**
@@ -182,7 +182,7 @@ class Application extends PKPApplication {
 	 * Get the file directory array map used by the application.
 	 */
 	public static function getFileDirectories() {
-		return array('context' => '/journals/', 'submission' => '/articles/');
+		return array('context' => '/servers/', 'submission' => '/articles/');
 	}
 
 }

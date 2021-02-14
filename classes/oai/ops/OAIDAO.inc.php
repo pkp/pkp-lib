@@ -98,7 +98,7 @@ class OAIDAO extends PKPOAIDAO {
 			array_push($sets, new OAISet(urlencode($abbrev), $title, ''));
 
 			$tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO');
-			$articleTombstoneSets = $tombstoneDao->getSets(ASSOC_TYPE_JOURNAL, $server->getId());
+			$articleTombstoneSets = $tombstoneDao->getSets(ASSOC_TYPE_SERVER, $server->getId());
 
 			$sections = $this->sectionDao->getByServerId($server->getId());
 			foreach ($sections->toArray() as $section) {
@@ -230,7 +230,7 @@ class OAIDAO extends PKPOAIDAO {
 				dot.set_spec,
 				dot.oai_identifier
 			FROM	data_object_tombstones dot' . '
-				' . (isset($serverId) ? 'JOIN data_object_tombstone_oai_set_objects tsoj ON (tsoj.tombstone_id = dot.tombstone_id AND tsoj.assoc_type = ' . ASSOC_TYPE_JOURNAL . ' AND tsoj.assoc_id = ?)' : '') . '
+				' . (isset($serverId) ? 'JOIN data_object_tombstone_oai_set_objects tsoj ON (tsoj.tombstone_id = dot.tombstone_id AND tsoj.assoc_type = ' . ASSOC_TYPE_SERVER . ' AND tsoj.assoc_id = ?)' : '') . '
 				' . (isset($sectionId)? 'JOIN data_object_tombstone_oai_set_objects tsos ON (tsos.tombstone_id = dot.tombstone_id AND tsos.assoc_type = ' . ASSOC_TYPE_SECTION . ' AND tsos.assoc_id = ?)' : '') . '
 			WHERE	1=1
 				' . (isset($set)?' AND (dot.set_spec = ? OR dot.set_spec LIKE ?)':'') . '

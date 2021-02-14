@@ -72,7 +72,7 @@ describe('Data suite tests', function() {
 		cy.get('div').contains('Provide a brief description');
 		cy.get('label[for="searchIndexing-searchDescription-control-en_US"] ~ button.tooltipButton').click();
 
-		// OJS-specific tasks
+		// OPS-specific tasks
 		cy.get('button[id="context-button"]').click();
 		cy.get('input[name="abbreviation-en_US"]').type('publicknowledge', {delay: 0});
 		cy.get('div[id=context]').find('button').contains('Save').click();

@@ -65,7 +65,7 @@ class Server extends Context {
 	 * @return int
 	 */
 	public function getAssocType() {
-		return ASSOC_TYPE_JOURNAL;
+		return ASSOC_TYPE_SERVER;
 	}
 
 	/**

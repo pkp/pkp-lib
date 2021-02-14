@@ -7,7 +7,7 @@
 # Copyright (c) 2003-2021 John Willinsky
 # Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
 #
-# Script to create an OJS package for distribution.
+# Script to create an OPS package for distribution.
 #
 # Usage: buildpkg.sh <version> [<tag>]
 #

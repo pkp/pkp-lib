@@ -22,9 +22,9 @@ define('REQUIRES_XSL', false);
 define('ASSOC_TYPE_ARTICLE',		ASSOC_TYPE_SUBMISSION); // DEPRECATED but needed by filter framework
 define('ASSOC_TYPE_GALLEY',		ASSOC_TYPE_REPRESENTATION);
 
-define('ASSOC_TYPE_JOURNAL',		0x0000100);
+define('ASSOC_TYPE_SERVER',		0x0000100);
 
-define('CONTEXT_JOURNAL', 1);
+define('CONTEXT_SERVER', 1);
 
 define('LANGUAGE_PACK_DESCRIPTOR_URL', 'http://pkp.sfu.ca/ops/xml/%s/locales.xml');
 define('LANGUAGE_PACK_TAR_URL', 'http://pkp.sfu.ca/ops/xml/%s/%s.tar.gz');
@@ -175,7 +175,7 @@ class Application extends PKPApplication {
 	 * @return int ASSOC_TYPE_...
 	 */
 	public static function getContextAssocType() {
-		return ASSOC_TYPE_JOURNAL;
+		return ASSOC_TYPE_SERVER;
 	}
 
 	/**

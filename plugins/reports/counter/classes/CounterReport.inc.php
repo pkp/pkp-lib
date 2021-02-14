@@ -27,7 +27,7 @@ define('COUNTER_CLASS_PREFIX', 'CounterReport');
 
 // COUNTER as of yet is not internationalized and requires English constants
 define('COUNTER_LITERAL_ARTICLE', 'Article');
-define('COUNTER_LITERAL_JOURNAL', 'Server');
+define('COUNTER_LITERAL_SERVER', 'Server');
 define('COUNTER_LITERAL_PROPRIETARY', 'Proprietary');
 
 class CounterReport {

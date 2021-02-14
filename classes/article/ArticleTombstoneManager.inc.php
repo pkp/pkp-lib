@@ -31,7 +31,7 @@ class ArticleTombstoneManager {
 		$setSpec = urlencode($server->getPath()) . ':' . urlencode($section->getLocalizedAbbrev());
 		$oaiIdentifier = 'oai:' . Config::getVar('oai', 'repository_id') . ':' . 'article/' . $article->getId();
 		$OAISetObjectsIds = array(
-			ASSOC_TYPE_JOURNAL => $server->getId(),
+			ASSOC_TYPE_SERVER => $server->getId(),
 			ASSOC_TYPE_SECTION => $section->getId(),
 		);
 

@@ -173,7 +173,7 @@ class CounterReportAR1 extends CounterReport {
 				$title,
 				COUNTER_LITERAL_ARTICLE,
 				$metrics,
-				new COUNTER\ParentItem($serverName, COUNTER_LITERAL_JOURNAL, $serverPubIds),
+				new COUNTER\ParentItem($serverName, COUNTER_LITERAL_SERVER, $serverPubIds),
 				$articlePubIds
 			);
 		} catch (Exception $e) {

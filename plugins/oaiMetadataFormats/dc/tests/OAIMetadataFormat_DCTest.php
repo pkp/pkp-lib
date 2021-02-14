@@ -53,14 +53,14 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 		//
 		// Create test data.
 		//
-		$journalId = 1;
+		$serverId = 1;
 
 		// Enable the DOI plugin.
 		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
-		$pluginSettingsDao->updateSetting($journalId, 'doipubidplugin', 'enabled', 1);
-		$pluginSettingsDao->updateSetting($journalId, 'doipubidplugin', 'enableIssueDoi', 1);
-		$pluginSettingsDao->updateSetting($journalId, 'doipubidplugin', 'enablePublicationDoi', 1);
-		$pluginSettingsDao->updateSetting($journalId, 'doipubidplugin', 'enableRepresentationyDoi', 1);
+		$pluginSettingsDao->updateSetting($serverId, 'doipubidplugin', 'enabled', 1);
+		$pluginSettingsDao->updateSetting($serverId, 'doipubidplugin', 'enableIssueDoi', 1);
+		$pluginSettingsDao->updateSetting($serverId, 'doipubidplugin', 'enablePublicationDoi', 1);
+		$pluginSettingsDao->updateSetting($serverId, 'doipubidplugin', 'enableRepresentationyDoi', 1);
 
 		// Author
 		import('classes.article.Author');
@@ -79,7 +79,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 		        ->method('getBestId')
 		        ->will($this->returnValue(9));
 		$article->setId(9);
-		$article->setJournalId($journalId);
+		$article->setServerId($serverId);
 		$author->setSubmissionId($article->getId());
 		$article->setPages(15);
 		$article->setType('art-type', 'en_US');
@@ -99,20 +99,20 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 		$galley->setStoredPubId('doi', 'galley-doi');
 		$galleys = array($galley);
 
-		// Journal
-		import('classes.journal.Journal');
-		$journal = $this->getMockBuilder(Journal::class)
+		// Server
+		import('classes.server.Server');
+		$server = $this->getMockBuilder(Server::class)
 			->setMethods(array('getSetting'))
 			->getMock();
-		$journal->expects($this->any())
+		$server->expects($this->any())
 		        ->method('getSetting') // includes getTitle()
-		        ->will($this->returnCallback(array($this, 'getJournalSetting')));
-		$journal->setPrimaryLocale('en_US');
-		$journal->setPath('journal-path');
-		$journal->setId($journalId);
+		        ->will($this->returnCallback(array($this, 'getServerSetting')));
+		$server->setPrimaryLocale('en_US');
+		$server->setPath('server-path');
+		$server->setId($serverId);
 
 		// Section
-		import('classes.journal.Section');
+		import('classes.server.Section');
 		$section = new Section();
 		$section->setIdentifyType('section-identify-type', 'en_US');
 
@@ -127,7 +127,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 		$issue->setId(96);
 		$issue->setDatePublished('2010-11-05');
 		$issue->setStoredPubId('doi', 'issue-doi');
-		$issue->setJournalId($journalId);
+		$issue->setServerId($serverId);
 
 
 		//
@@ -173,11 +173,11 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 		// Create a mocked OAIDAO that returns our test data.
 		import('classes.oai.ops.OAIDAO');
 		$oaiDao = $this->getMockBuilder(OAIDAO::class)
-			->setMethods(array('getJournal', 'getSection', 'getIssue'))
+			->setMethods(array('getServer', 'getSection', 'getIssue'))
 			->getMock();
 		$oaiDao->expects($this->any())
-		       ->method('getJournal')
-		       ->will($this->returnValue($journal));
+		       ->method('getServer')
+		       ->will($this->returnValue($server));
 		$oaiDao->expects($this->any())
 		       ->method('getSection')
 		       ->will($this->returnValue($section));
@@ -205,7 +205,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 		$record = new OAIRecord();
 		$record->setData('article', $article);
 		$record->setData('galleys', $galleys);
-		$record->setData('journal', $journal);
+		$record->setData('server', $server);
 		$record->setData('section', $section);
 		$record->setData('issue', $issue);
 
@@ -224,19 +224,19 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 	// Public helper methods
 	//
 	/**
-	 * Callback for journal settings.
+	 * Callback for server settings.
 	 * @param $settingName string
 	 */
-	function getJournalSetting($settingName) {
+	function getServerSetting($settingName) {
 		switch ($settingName) {
 			case 'name':
-				return array('en_US' => 'journal-title');
+				return array('en_US' => 'server-title');
 
 			case 'licenseTerms':
-				return array('en_US' => 'journal-copyright');
+				return array('en_US' => 'server-copyright');
 
 			case 'publisherInstitution':
-				return array('journal-publisher');
+				return array('server-publisher');
 
 			case 'onlineIssn':
 				return 'onlineIssn';
@@ -245,7 +245,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 				return null;
 
 			default:
-				self::fail('Required journal setting is not necessary for the purpose of this test.');
+				self::fail('Required server setting is not necessary for the purpose of this test.');
 		}
 	}
 

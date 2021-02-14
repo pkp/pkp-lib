@@ -18,8 +18,8 @@ import('lib.pkp.classes.context.ContextDAO');
 import('classes.server.Server');
 import('lib.pkp.classes.metadata.MetadataTypeDescription');
 
-define('JOURNAL_FIELD_TITLE', 1);
-define('JOURNAL_FIELD_SEQUENCE', 2);
+define('SERVER_FIELD_TITLE', 1);
+define('SERVER_FIELD_SEQUENCE', 2);
 
 class ServerDAO extends ContextDAO {
 	/** @copydoc SchemaDAO::$schemaName */

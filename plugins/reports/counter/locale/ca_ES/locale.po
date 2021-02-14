@@ -18,13 +18,13 @@ msgid "plugins.reports.counter"
 msgstr "Estadístiques de COUNTER"
 
 msgid "plugins.reports.counter.1a.title"
-msgstr "Informe de la revista 1 (R3): Sol·licituds d'articles de text complet per mes i revista"
+msgstr "Informe de la revista 1 (R3): Sol·licituds d'preprints de text complet per mes i revista"
 
 msgid "plugins.reports.counter.1a.title1"
 msgstr "Informe de la revista 1 (R3):"
 
 msgid "plugins.reports.counter.1a.title2"
-msgstr "Nombre de sol·licituds amb èxit d'articles de text complet per mes i revista (any {$year})"
+msgstr "Nombre de sol·licituds amb èxit d'preprints de text complet per mes i revista (any {$year})"
 
 msgid "plugins.reports.counter.1a.dateRun"
 msgstr "Data d'execució:"

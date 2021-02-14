@@ -24,7 +24,7 @@ class ContextService extends \PKP\Services\PKPContextService {
 	public function __construct() {
 		$this->installFileDirs = array(
 			\Config::getVar('files', 'files_dir') . '/%s/%d',
-			\Config::getVar('files', 'files_dir'). '/%s/%d/articles',
+			\Config::getVar('files', 'files_dir'). '/%s/%d/preprints',
 			\Config::getVar('files', 'public_files_dir') . '/%s/%d',
 		);
 

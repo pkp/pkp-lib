@@ -82,7 +82,7 @@ class PublicationService extends PKPPublicationService {
 						$request,
 						\PKPApplication::ROUTE_PAGE,
 						$submissionContext->getData('urlPath'),
-						'article',
+						'preprint',
 						'view',
 						[$submission->getBestId(), 'version', $publication->getId()]
 					);
@@ -288,8 +288,8 @@ class PublicationService extends PKPPublicationService {
 		// Send preprint posted acknowledgement email when the first version is published
 		if ($newPublication->getData('version') == 1) {
 
-			import('classes.mail.ArticleMailTemplate');
-			$mail = new \ArticleMailTemplate($submission, 'POSTED_ACK', null, null, false);
+			import('classes.mail.PreprintMailTemplate');
+			$mail = new \PreprintMailTemplate($submission, 'POSTED_ACK', null, null, false);
 
 			if ($mail->isEnabled()) {
 

@@ -178,7 +178,7 @@ msgstr "Date de publication"
 msgid "search.results.orderBy.author"
 msgstr "Auteur-e"
 
-msgid "search.results.orderBy.article"
+msgid "search.results.orderBy.preprint"
 msgstr "Titre de la prépublication"
 
 msgid "search.results.orderBy"
@@ -234,10 +234,10 @@ msgstr "Recherche de prépublications"
 msgid "submissions.published"
 msgstr "Publié-e"
 
-msgid "article.abstract"
+msgid "preprint.abstract"
 msgstr "Résumé"
 
-msgid "article.details"
+msgid "preprint.details"
 msgstr "Renseignements"
 
 msgid "publication.version"

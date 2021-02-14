@@ -156,7 +156,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin {
 					$filter = $this->getSubmissionFilter();
 					$objectsFileNamePart = 'preprints';
 				} elseif (!empty($selectedRepresentations)) {
-					$objects = $this->getArticleGalleys($selectedRepresentations);
+					$objects = $this->getPreprintGalleys($selectedRepresentations);
 					$filter = $this->getRepresentationFilter();
 					$objectsFileNamePart = 'galleys';
 				}
@@ -193,7 +193,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin {
 			// Get the XML
 			$exportXml = $this->exportXML($objects, $filter, $context, $noValidation);
 			// Write the XML to a file.
-			// export file name example: crossref-20160723-160036-articles-1.xml
+			// export file name example: crossref-20160723-160036-preprints-1.xml
 			import('lib.pkp.classes.file.FileManager');
 			$fileManager = new FileManager();
 			$exportFileName = $this->getExportFileName($this->getExportPath(), $objectsFileNamePart, $context, '.xml');
@@ -374,7 +374,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin {
 
 	/**
 	 * Update the given object.
-	 * @param $object Submission|ArticleGalley
+	 * @param $object Submission|PreprintGalley
 	 */
 	protected function updateObject($object) {
 		// Register a hook for the required additional
@@ -444,14 +444,14 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin {
 	}
 
 	/**
-	 * Retrieve all unregistered articles.
+	 * Retrieve all unregistered preprints.
 	 * @param $context Context
 	 * @return array
 	 */
-	function getUnregisteredArticles($context) {
+	function getUnregisteredPreprints($context) {
 		// Retrieve all published submissions that have not yet been registered.
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$articles = $submissionDao->getExportable(
+		$preprints = $submissionDao->getExportable(
 			$context->getId(),
 			null,
 			null,
@@ -460,7 +460,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin {
 			EXPORT_STATUS_NOT_DEPOSITED,
 			null
 		);
-		return $articles->toArray();
+		return $preprints->toArray();
 	}
 	/**
 	 * Check whether we are in test mode.
@@ -535,13 +535,13 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin {
 		}
 
 		switch ($objectType) {
-			case 'articles':
+			case 'preprints':
 				$objects = $this->getPublishedSubmissions($args, $context);
 				$filter = $this->getSubmissionFilter();
 				$objectsFileNamePart = 'preprints';
 				break;
 			case 'galleys':
-				$objects = $this->getArticleGalleys($args);
+				$objects = $this->getPreprintGalleys($args);
 				$filter = $this->getRepresentationFilter();
 				$objectsFileNamePart = 'galleys';
 				break;
@@ -621,16 +621,16 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin {
 	}
 
 	/**
-	 * Get article galleys from gallley IDs.
+	 * Get preprint galleys from gallley IDs.
 	 * @param $galleyIds array
 	 * @return array
 	 */
-	function getArticleGalleys($galleyIds) {
+	function getPreprintGalleys($galleyIds) {
 		$galleys = array();
-		$articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
+		$preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO');
 		foreach ($galleyIds as $galleyId) {
-			$articleGalley = $articleGalleyDao->getById($galleyId);
-			if ($articleGalley) $galleys[] = $articleGalley;
+			$preprintGalley = $preprintGalleyDao->getById($galleyId);
+			if ($preprintGalley) $galleys[] = $preprintGalley;
 		}
 		return $galleys;
 	}

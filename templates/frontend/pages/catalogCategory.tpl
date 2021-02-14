@@ -27,8 +27,8 @@
 		{$category->getLocalizedTitle()|escape}
 	</h1>
 
-	{* Count of articles in this category *}
-	<div class="article_count">
+	{* Count of preprints in this category *}
+	<div class="preprint_count">
 		{translate key="catalog.browseTitles" numTitles=$total}
 	</div>
 
@@ -71,7 +71,7 @@
 	{if empty($publishedSubmissions)}
 		<p>{translate key="catalog.category.noItems"}</p>
 	{else}
-		<ul class="cmp_article_list articles">
+		<ul class="cmp_preprint_list preprints">
 			{foreach from=$publishedSubmissions item=preprint}
 				<li>
 					{include file="frontend/objects/preprint_summary.tpl" preprint=$preprint hideGalleys=true heading="h3"}

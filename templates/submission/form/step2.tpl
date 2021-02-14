@@ -18,7 +18,7 @@
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="submitStep2FormNotification"}
 
-	{capture assign=representationsGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.articleGalleys.ArticleGalleyGridHandler" op="fetchGrid" submissionId=$submissionId params=$requestArgs escape=false}{/capture}
+	{capture assign=representationsGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.preprintGalleys.PreprintGalleyGridHandler" op="fetchGrid" submissionId=$submissionId params=$requestArgs escape=false}{/capture}
 	{load_url_in_div id="formatsGridContainer"|uniqid url=$representationsGridUrl}
 
 	{fbvFormButtons id="step2Buttons" submitText="common.saveAndContinue"}

@@ -19,10 +19,10 @@ msgstr ""
 msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
 msgstr "Vistas de la página principal del servidor"
 
-msgid "manager.statistics.reports.defaultReport.articleAbstract"
+msgid "manager.statistics.reports.defaultReport.preprintAbstract"
 msgstr "Vistas de página de resumen de preprints"
 
-msgid "manager.statistics.reports.defaultReport.articleDownloads"
+msgid "manager.statistics.reports.defaultReport.preprintDownloads"
 msgstr "Descargas de archivos de preprints"
 
 msgid "manager.statistics.statistics.registeredReaders"
@@ -58,7 +58,7 @@ msgstr "Disminución"
 msgid "manager.statistics.statistics.count.accept"
 msgstr "Aceptar"
 
-msgid "manager.statistics.statistics.articleViews"
+msgid "manager.statistics.statistics.preprintViews"
 msgstr "Conteo de vistas de preprint (solo para autores)"
 
 msgid "manager.statistics.statistics"
@@ -117,7 +117,7 @@ msgstr ""
 "Los usuarios deben estar registrados e iniciar sesión para ver el contenido "
 "de acceso abierto."
 
-msgid "manager.setup.restrictArticleAccess"
+msgid "manager.setup.restrictPreprintAccess"
 msgstr ""
 "Los usuarios deben estar registrados e iniciar sesión para ver el contenido "
 "de acceso abierto."

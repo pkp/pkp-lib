@@ -24,7 +24,7 @@
 	{assign var="showAuthor" value=true}
 {/if}
 
-<div class="obj_article_summary">
+<div class="obj_preprint_summary">
 	{if $preprint->getCurrentPublication()->getLocalizedData('coverImage')}
 		<div class="cover">
 			<a {if $server}href="{url server=$server->getPath() page="preprint" op="view" path=$preprintPath}"{else}href="{url page="preprint" op="view" path=$preprintPath}"{/if} class="file">

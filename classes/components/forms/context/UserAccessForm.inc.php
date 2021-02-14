@@ -23,11 +23,11 @@ class UserAccessForm extends PKPUserAccessForm {
 	public function __construct($action, $context) {
 		parent::__construct($action, $context);
 
-		$this->addField(new FieldOptions('restrictArticleAccess', [
+		$this->addField(new FieldOptions('restrictPreprintAccess', [
 				'label' => __('manager.setup.siteAccess.viewContent'),
-				'value' => (bool) $context->getData('restrictArticleAccess'),
+				'value' => (bool) $context->getData('restrictPreprintAccess'),
 				'options' => [
-					['value' => true, 'label' => __('manager.setup.restrictArticleAccess')],
+					['value' => true, 'label' => __('manager.setup.restrictPreprintAccess')],
 				],
 			]), [FIELD_POSITION_AFTER, 'restrictSiteAccess']);
 	}

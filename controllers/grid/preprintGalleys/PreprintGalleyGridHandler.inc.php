@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file controllers/grid/articleGalleys/ArticleGalleyGridHandler.inc.php
+ * @file controllers/grid/preprintGalleys/PreprintGalleyGridHandler.inc.php
  *
  * Copyright (c) 2016-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ArticleGalleyGridHandler
- * @ingroup controllers_grid_articleGalleys
+ * @class PreprintGalleyGridHandler
+ * @ingroup controllers_grid_preprintGalleys
  *
- * @brief Handle article galley grid requests.
+ * @brief Handle preprint galley grid requests.
  */
 
 // import grid base classes
@@ -19,7 +19,7 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
-class ArticleGalleyGridHandler extends GridHandler {
+class PreprintGalleyGridHandler extends GridHandler {
 
 	/** @var PKPRequest */
 	var $_request;
@@ -56,7 +56,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 
 	/**
 	 * Get the authorized galley.
-	 * @return ArticleGalley
+	 * @return PreprintGalley
 	 */
 	function getGalley() {
 		return $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
@@ -70,7 +70,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 	 * @see GridHandler::getJSHandler()
 	 */
 	public function getJSHandler() {
-		return '$.pkp.controllers.grid.articleGalleys.ArticleGalleyGridHandler';
+		return '$.pkp.controllers.grid.preprintGalleys.PreprintGalleyGridHandler';
 	}
 
 	/**
@@ -108,8 +108,8 @@ class ArticleGalleyGridHandler extends GridHandler {
 			LOCALE_COMPONENT_APP_EDITOR
 		);
 
-		import('controllers.grid.articleGalleys.ArticleGalleyGridCellProvider');
-		$cellProvider = new ArticleGalleyGridCellProvider($this->getSubmission(), $this->getPublication(), $this->canEdit());
+		import('controllers.grid.preprintGalleys.PreprintGalleyGridCellProvider');
+		$cellProvider = new PreprintGalleyGridCellProvider($this->getSubmission(), $this->getPublication(), $this->canEdit());
 
 		// Columns
 		$this->addColumn(new GridColumn(
@@ -162,7 +162,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 	 * @copydoc GridHandler::setDataElementSequence()
 	 */
 	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
-		$galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
+		$galleyDao = DAORegistry::getDAO('PreprintGalleyDAO');
 		$galley = $galleyDao->getById($rowId);
 		$galley->setSequence($newSequence);
 		$galleyDao->updateObject($galley);
@@ -173,11 +173,11 @@ class ArticleGalleyGridHandler extends GridHandler {
 	//
 	/**
 	 * @copydoc GridHandler::getRowInstance()
-	 * @return ArticleGalleyGridRow
+	 * @return PreprintGalleyGridRow
 	 */
 	function getRowInstance() {
-		import('controllers.grid.articleGalleys.ArticleGalleyGridRow');
-		return new ArticleGalleyGridRow(
+		import('controllers.grid.preprintGalleys.PreprintGalleyGridRow');
+		return new PreprintGalleyGridRow(
 			$this->getSubmission(),
 			$this->getPublication(),
 			$this->canEdit()
@@ -203,7 +203,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 		$galleyIterator = Services::get('galley')->getMany([
 			'publicationIds' => [$this->getPublication()->getId()],
 		]);
-		// ArticleGalleyGridRow::initialize expects the array
+		// PreprintGalleyGridRow::initialize expects the array
 		// key to match the galley id
 		$galleys = [];
 		foreach ($galleyIterator as $galley) {
@@ -216,7 +216,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 	// Public Galley Grid Actions
 	//
 	/**
-	 * Edit article galley pub ids
+	 * Edit preprint galley pub ids
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
@@ -231,7 +231,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Update article galley pub ids
+	 * Update preprint galley pub ids
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
@@ -275,8 +275,8 @@ class ArticleGalleyGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function addGalley($args, $request) {
-		import('controllers.grid.articleGalleys.form.ArticleGalleyForm');
-		$galleyForm = new ArticleGalleyForm(
+		import('controllers.grid.preprintGalleys.form.PreprintGalleyForm');
+		$galleyForm = new PreprintGalleyForm(
 			$request,
 			$this->getSubmission(),
 			$this->getPublication()
@@ -344,7 +344,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 		if ($publisherIdEnabled || $pubIdsEnabled) {
 			$templateMgr->assign('enableIdentifiers', true);
 		}
-		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/articleGalleys/editFormat.tpl'));
+		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/preprintGalleys/editFormat.tpl'));
 	}
 
 	/**
@@ -355,8 +355,8 @@ class ArticleGalleyGridHandler extends GridHandler {
 	 */
 	function editGalleyTab($args, $request) {
 		// Form handling
-		import('controllers.grid.articleGalleys.form.ArticleGalleyForm');
-		$galleyForm = new ArticleGalleyForm(
+		import('controllers.grid.preprintGalleys.form.PreprintGalleyForm');
+		$galleyForm = new PreprintGalleyForm(
 			$request,
 			$this->getSubmission(),
 			$this->getPublication(),
@@ -375,8 +375,8 @@ class ArticleGalleyGridHandler extends GridHandler {
 	function updateGalley($args, $request) {
 		$galley = $this->getGalley();
 
-		import('controllers.grid.articleGalleys.form.ArticleGalleyForm');
-		$galleyForm = new ArticleGalleyForm($request, $this->getSubmission(), $this->getPublication(), $galley);
+		import('controllers.grid.preprintGalleys.form.PreprintGalleyForm');
+		$galleyForm = new PreprintGalleyForm($request, $this->getSubmission(), $this->getPublication(), $galley);
 		$galleyForm->readInputData();
 
 		if ($galleyForm->validate()) {

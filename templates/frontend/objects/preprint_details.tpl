@@ -5,7 +5,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @brief View of an Preprint which displays all details about the article.
+ * @brief View of an Preprint which displays all details about the preprint.
  *  Expected to be primary object on the page.
  *
  * Many servers will want to add custom data to this object, either through
@@ -51,8 +51,8 @@
  *
  * @uses $preprint Preprint This preprint
  * @uses $publication Publication The publication being displayed
- * @uses $firstPublication Publication The first published version of this article
- * @uses $currentPublication Publication The most recently published version of this article
+ * @uses $firstPublication Publication The first published version of this preprint
+ * @uses $currentPublication Publication The most recently published version of this preprint
  * @uses $section Section The server section this preprint is assigned to
  * @uses $categories array Category titles and paths the preprint is assigned to
  * @uses $primaryGalleys array List of preprint galleys that are not supplementary or dependent
@@ -64,7 +64,7 @@
  *   included with published submissions.
  * @uses $ccLicenseBadge string An image and text with details about the license
  *}
-<article class="obj_article_details">
+<preprint class="obj_preprint_details">
 
 	{* Notification that this is an old version *}
 	{if $currentPublication->getId() !== $publication->getId()}
@@ -116,7 +116,7 @@
 		<div class="main_entry">
 			{if $publication->getData('authors')}
 				<section class="item authors">
-					<h2 class="pkp_screen_reader">{translate key="article.authors"}</h2>
+					<h2 class="pkp_screen_reader">{translate key="preprint.authors"}</h2>
 					<ul class="versions authors">
 					{foreach from=$publication->getData('authors') item=author}
 						<li>
@@ -456,4 +456,4 @@
 		</div><!-- .entry_details -->
 	</div><!-- .row -->
 
-</article>
+</preprint>

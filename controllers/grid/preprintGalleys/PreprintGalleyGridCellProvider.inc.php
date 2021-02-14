@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @file controllers/grid/articleGalleys/ArticleGalleyGridCellProvider.inc.php
+ * @file controllers/grid/preprintGalleys/PreprintGalleyGridCellProvider.inc.php
  *
  * Copyright (c) 2016-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ArticleGalleyGridCellProvider
- * @ingroup controllers_grid_articleGalleys
+ * @class PreprintGalleyGridCellProvider
+ * @ingroup controllers_grid_preprintGalleys
  *
- * @brief Base class for a cell provider for article galleys.
+ * @brief Base class for a cell provider for preprint galleys.
  */
 
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
-class ArticleGalleyGridCellProvider extends DataObjectGridCellProvider {
+class PreprintGalleyGridCellProvider extends DataObjectGridCellProvider {
 
 	/** @var Submission **/
 	var $_submission;

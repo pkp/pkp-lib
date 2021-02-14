@@ -9,7 +9,7 @@
 
 About
 -----
-This plugin for OPS 3 provides an import/export plugin to generate metadata information for articles 
+This plugin for OPS 3 provides an import/export plugin to generate metadata information for preprints 
 and issues for indexing in CrossRef. Details on the XML format and data requirements is available at: 
 http://www.crossref.org/schema
 

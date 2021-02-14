@@ -287,7 +287,7 @@ class SectionDAO extends PKPSectionDAO {
 		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
 		$subEditorsDao->deleteBySubmissionGroupId($sectionId, ASSOC_TYPE_SECTION, $contextId);
 
-		// Remove articles from this section
+		// Remove preprints from this section
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 		$submissionDao->removeSubmissionsFromSection($sectionId);
 
@@ -377,7 +377,7 @@ class SectionDAO extends PKPSectionDAO {
 	}
 
 	/**
-	 * Retrieve all empty (without articles) section ids for a server.
+	 * Retrieve all empty (without preprints) section ids for a server.
 	 * @param $serverId int Server ID
 	 * @return array
 	 */

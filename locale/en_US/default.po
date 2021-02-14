@@ -23,7 +23,7 @@ msgstr "preprints"
 msgid "section.default.policy"
 msgstr ""
 
-msgid "default.genres.article"
+msgid "default.genres.preprint"
 msgstr "Preprint Text"
 
 msgid "default.contextSettings.checklist.notPreviouslyPublished"

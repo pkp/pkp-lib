@@ -146,7 +146,7 @@ abstract class PubIdPlugin extends PKPPubIdPlugin {
 				}
 
 				if ($submission) {
-					// %a - article id
+					// %a - preprint id
 					$pubIdSuffix = PKPString::regexp_replace('/%a/', $submission->getId(), $pubIdSuffix);
 				}
 

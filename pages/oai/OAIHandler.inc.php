@@ -50,7 +50,7 @@ class OAIHandler extends Handler {
 			$request->redirect(null, 'index');
 		}
 
-		// Permit the use of the Authorization header and an API key for access to unpublished content (article URLs)
+		// Permit the use of the Authorization header and an API key for access to unpublished content (preprint URLs)
 		if ($header = array_search('Authorization', array_flip(getallheaders()))) {
 			list($bearer, $jwt) = explode(' ', $header);
 			if (strcasecmp($bearer, 'Bearer') == 0) {

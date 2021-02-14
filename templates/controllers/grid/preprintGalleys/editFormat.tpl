@@ -1,5 +1,5 @@
 {**
- * templates/controllers/grid/articleGalleys/editFormat.tpl
+ * templates/controllers/grid/preprintGalleys/editFormat.tpl
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -10,10 +10,10 @@
 <script type="text/javascript">
 	// Attach the JS file tab handler.
 	$(function() {ldelim}
-		$('#editArticleGalleyMetadataTabs').pkpHandler('$.pkp.controllers.TabHandler');
+		$('#editPreprintGalleyMetadataTabs').pkpHandler('$.pkp.controllers.TabHandler');
 	{rdelim});
 </script>
-<div id="editArticleGalleyMetadataTabs">
+<div id="editPreprintGalleyMetadataTabs">
 	<ul>
 		<li><a href="{url router=PKPApplication::ROUTE_COMPONENT op="editGalleyTab" submissionId=$submissionId publicationId=$publicationId representationId=$representationId}">{translate key="grid.action.editMetadata"}</a></li>
 		{if $enableIdentifiers}

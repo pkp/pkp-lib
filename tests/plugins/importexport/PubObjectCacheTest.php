@@ -19,8 +19,8 @@
 
 import('lib.pkp.tests.PKPTestCase');
 import('classes/issue/Issue');
-import('classes/article/Submission');
-import('classes/article/ArticleGalley');
+import('classes/preprint/Submission');
+import('classes/preprint/PreprintGalley');
 import('plugins.importexport.medra.classes.PubObjectCache');
 
 class PubObjectCacheTest extends PKPTestCase {
@@ -45,24 +45,24 @@ class PubObjectCacheTest extends PKPTestCase {
 	/**
 	 * @covers PubObjectCache
 	 */
-	public function testAddArticle() {
+	public function testAddPreprint() {
 		$nullVar = null;
 		$cache = new PubObjectCache();
 
-		$article = new Submission();
-		$article->setId('2');
-		$article->setIssueId('1');
+		$preprint = new Submission();
+		$preprint->setId('2');
+		$preprint->setIssueId('1');
 
-		self::assertFalse($cache->isCached('articles', $article->getId()));
-		self::assertFalse($cache->isCached('articlesByIssue', $article->getCurrentPublication()->getData('issueId')));
-		self::assertFalse($cache->isCached('articlesByIssue', $article->getCurrentPublication()->getData('issueId'), $article->getId()));
-		$cache->add($article, $nullVar);
-		self::assertTrue($cache->isCached('articles', $article->getId()));
-		self::assertFalse($cache->isCached('articlesByIssue', $article->getCurrentPublication()->getData('issueId')));
-		self::assertTrue($cache->isCached('articlesByIssue', $article->getCurrentPublication()->getData('issueId'), $article->getId()));
+		self::assertFalse($cache->isCached('preprints', $preprint->getId()));
+		self::assertFalse($cache->isCached('preprintsByIssue', $preprint->getCurrentPublication()->getData('issueId')));
+		self::assertFalse($cache->isCached('preprintsByIssue', $preprint->getCurrentPublication()->getData('issueId'), $preprint->getId()));
+		$cache->add($preprint, $nullVar);
+		self::assertTrue($cache->isCached('preprints', $preprint->getId()));
+		self::assertFalse($cache->isCached('preprintsByIssue', $preprint->getCurrentPublication()->getData('issueId')));
+		self::assertTrue($cache->isCached('preprintsByIssue', $preprint->getCurrentPublication()->getData('issueId'), $preprint->getId()));
 
-		$retrievedArticle = $cache->get('articles', $article->getId());
-		self::assertEquals($article, $retrievedArticle);
+		$retrievedPreprint = $cache->get('preprints', $preprint->getId());
+		self::assertEquals($preprint, $retrievedPreprint);
 	}
 
 
@@ -73,35 +73,35 @@ class PubObjectCacheTest extends PKPTestCase {
 		$nullVar = null;
 		$cache = new PubObjectCache();
 
-		$article = new Submission();
-		$article->setId('2');
-		$article->setIssueId('1');
+		$preprint = new Submission();
+		$preprint->setId('2');
+		$preprint->setIssueId('1');
 
-		$articleGalley = new ArticleGalley();
-		$articleGalley->setId('3');
-		$articleGalley->setSubmissionId($article->getId());
+		$preprintGalley = new PreprintGalley();
+		$preprintGalley->setId('3');
+		$preprintGalley->setSubmissionId($preprint->getId());
 
-		self::assertFalse($cache->isCached('galleys', $articleGalley->getId()));
-		self::assertFalse($cache->isCached('galleysByArticle', $article->getId()));
-		self::assertFalse($cache->isCached('galleysByArticle', $article->getId(), $articleGalley->getId()));
-		self::assertFalse($cache->isCached('galleysByIssue', $article->getCurrentPublication()->getData('issueId')));
-		self::assertFalse($cache->isCached('galleysByIssue', $article->getCurrentPublication()->getData('issueId'), $articleGalley->getId()));
-		$cache->add($articleGalley, $article);
-		self::assertTrue($cache->isCached('galleys', $articleGalley->getId()));
-		self::assertFalse($cache->isCached('galleysByArticle', $article->getId()));
-		self::assertTrue($cache->isCached('galleysByArticle', $article->getId(), $articleGalley->getId()));
-		self::assertFalse($cache->isCached('galleysByIssue', $article->getCurrentPublication()->getData('issueId')));
-		self::assertTrue($cache->isCached('galleysByIssue', $article->getCurrentPublication()->getData('issueId'), $articleGalley->getId()));
+		self::assertFalse($cache->isCached('galleys', $preprintGalley->getId()));
+		self::assertFalse($cache->isCached('galleysByPreprint', $preprint->getId()));
+		self::assertFalse($cache->isCached('galleysByPreprint', $preprint->getId(), $preprintGalley->getId()));
+		self::assertFalse($cache->isCached('galleysByIssue', $preprint->getCurrentPublication()->getData('issueId')));
+		self::assertFalse($cache->isCached('galleysByIssue', $preprint->getCurrentPublication()->getData('issueId'), $preprintGalley->getId()));
+		$cache->add($preprintGalley, $preprint);
+		self::assertTrue($cache->isCached('galleys', $preprintGalley->getId()));
+		self::assertFalse($cache->isCached('galleysByPreprint', $preprint->getId()));
+		self::assertTrue($cache->isCached('galleysByPreprint', $preprint->getId(), $preprintGalley->getId()));
+		self::assertFalse($cache->isCached('galleysByIssue', $preprint->getCurrentPublication()->getData('issueId')));
+		self::assertTrue($cache->isCached('galleysByIssue', $preprint->getCurrentPublication()->getData('issueId'), $preprintGalley->getId()));
 
-		$retrievedArticleGalley1 = $cache->get('galleys', $articleGalley->getId());
-		self::assertEquals($articleGalley, $retrievedArticleGalley1);
+		$retrievedPreprintGalley1 = $cache->get('galleys', $preprintGalley->getId());
+		self::assertEquals($preprintGalley, $retrievedPreprintGalley1);
 
-		$retrievedArticleGalley2 = $cache->get('galleysByIssue', $article->getCurrentPublication()->getData('issueId'), $articleGalley->getId());
-		self::assertEquals($retrievedArticleGalley1, $retrievedArticleGalley2);
+		$retrievedPreprintGalley2 = $cache->get('galleysByIssue', $preprint->getCurrentPublication()->getData('issueId'), $preprintGalley->getId());
+		self::assertEquals($retrievedPreprintGalley1, $retrievedPreprintGalley2);
 
-		$cache->markComplete('galleysByArticle', $article->getId());
-		self::assertTrue($cache->isCached('galleysByArticle', $article->getId()));
-		self::assertFalse($cache->isCached('galleysByIssue', $article->getCurrentPublication()->getData('issueId')));
+		$cache->markComplete('galleysByPreprint', $preprint->getId());
+		self::assertTrue($cache->isCached('galleysByPreprint', $preprint->getId()));
+		self::assertFalse($cache->isCached('galleysByIssue', $preprint->getCurrentPublication()->getData('issueId')));
 	}
 
 	/**
@@ -111,34 +111,34 @@ class PubObjectCacheTest extends PKPTestCase {
 		$nullVar = null;
 		$cache = new PubObjectCache();
 
-		$article = new Submission();
-		$article->setId('2');
-		$article->setIssueId('1');
+		$preprint = new Submission();
+		$preprint->setId('2');
+		$preprint->setIssueId('1');
 
-		$articleGalley1 = new ArticleGalley();
-		$articleGalley1->setId('3');
-		$articleGalley1->setSubmissionId($article->getId());
+		$preprintGalley1 = new PreprintGalley();
+		$preprintGalley1->setId('3');
+		$preprintGalley1->setSubmissionId($preprint->getId());
 
-		$articleGalley2 = new ArticleGalley();
-		$articleGalley2->setId('4');
-		$articleGalley2->setSubmissionId($article->getId());
+		$preprintGalley2 = new PreprintGalley();
+		$preprintGalley2->setId('4');
+		$preprintGalley2->setSubmissionId($preprint->getId());
 
 		// Add galleys in the wrong order.
-		$cache->add($articleGalley2, $article);
-		$cache->add($articleGalley1, $article);
+		$cache->add($preprintGalley2, $preprint);
+		$cache->add($preprintGalley1, $preprint);
 
-		$cache->markComplete('galleysByArticle', $article->getId());
+		$cache->markComplete('galleysByPreprint', $preprint->getId());
 
 		// Retrieve them in the right order.
-		$retrievedGalleys = $cache->get('galleysByArticle', $article->getId());
+		$retrievedGalleys = $cache->get('galleysByPreprint', $preprint->getId());
 		$expectedGalleys = array(
-			3 => $articleGalley1,
-			4 => $articleGalley2
+			3 => $preprintGalley1,
+			4 => $preprintGalley2
 		);
 		self::assertEquals($expectedGalleys, $retrievedGalleys);
 
 		// And they should still be cached.
-		self::assertTrue($cache->isCached('galleysByArticle', $article->getId()));
+		self::assertTrue($cache->isCached('galleysByPreprint', $preprint->getId()));
 	}
 }
 

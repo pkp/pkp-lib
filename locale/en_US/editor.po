@@ -23,7 +23,7 @@ msgstr "Any files that have already been uploaded to any submission stage can be
 msgid "editor.publicIdentificationExistsForTheSameType"
 msgstr "The public identifier '{$publicIdentifier}' already exists for another object of the same type. Please choose unique identifiers for the objects of the same type within your server."
 
-msgid "editor.article.coverImage"
+msgid "editor.preprint.coverImage"
 msgstr "Cover Image"
 
 msgid "editor.publication.authorPublishRequirements"

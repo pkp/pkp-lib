@@ -56,20 +56,20 @@ class ServerOAI extends OAI {
 	}
 
 	/**
-	 * Convert article ID to OAI identifier.
-	 * @param $articleId int
+	 * Convert preprint ID to OAI identifier.
+	 * @param $preprintId int
 	 * @return string
 	 */
-	function articleIdToIdentifier($articleId) {
-		return 'oai:' . $this->config->repositoryId . ':' . 'preprint/' . $articleId;
+	function preprintIdToIdentifier($preprintId) {
+		return 'oai:' . $this->config->repositoryId . ':' . 'preprint/' . $preprintId;
 	}
 
 	/**
-	 * Convert OAI identifier to article ID.
+	 * Convert OAI identifier to preprint ID.
 	 * @param $identifier string
 	 * @return int
 	 */
-	function identifierToArticleId($identifier) {
+	function identifierToPreprintId($identifier) {
 		$prefix = 'oai:' . $this->config->repositoryId . ':' . 'preprint/';
 		if (strstr($identifier, $prefix)) {
 			return (int) str_replace($prefix, '', $identifier);
@@ -118,7 +118,7 @@ class ServerOAI extends OAI {
 			$info->adminEmail = $this->site->getLocalizedContactEmail();
 		}
 
-		$info->sampleIdentifier = $this->articleIdToIdentifier(1);
+		$info->sampleIdentifier = $this->preprintIdToIdentifier(1);
 		$info->earliestDatestamp = $this->dao->getEarliestDatestamp(array($this->serverId));
 
 		$info->toolkitTitle = 'Open Preprint Systems';
@@ -134,7 +134,7 @@ class ServerOAI extends OAI {
 	 * @copydoc OAI::validIdentifier()
 	 */
 	function validIdentifier($identifier) {
-		return $this->identifierToArticleId($identifier) !== false;
+		return $this->identifierToPreprintId($identifier) !== false;
 	}
 
 	/**
@@ -142,9 +142,9 @@ class ServerOAI extends OAI {
 	 */
 	function identifierExists($identifier) {
 		$recordExists = false;
-		$articleId = $this->identifierToArticleId($identifier);
-		if ($articleId) {
-			$recordExists = $this->dao->recordExists($articleId, array($this->serverId));
+		$preprintId = $this->identifierToPreprintId($identifier);
+		if ($preprintId) {
+			$recordExists = $this->dao->recordExists($preprintId, array($this->serverId));
 		}
 		return $recordExists;
 	}
@@ -153,9 +153,9 @@ class ServerOAI extends OAI {
 	 * @copydoc OAI::record()
 	 */
 	function record($identifier) {
-		$articleId = $this->identifierToArticleId($identifier);
-		if ($articleId) {
-			$record = $this->dao->getRecord($articleId, array($this->serverId));
+		$preprintId = $this->identifierToPreprintId($identifier);
+		if ($preprintId) {
+			$record = $this->dao->getRecord($preprintId, array($this->serverId));
 		}
 		if (!isset($record)) {
 			$record = false;

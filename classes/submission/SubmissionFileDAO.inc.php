@@ -24,7 +24,7 @@ class SubmissionFileDAO extends PKPSubmissionFileDAO {
 		parent::insertObject($submissionFile);
 
 		if ($submissionFile->getData('assocType') === ASSOC_TYPE_REPRESENTATION) {
-			$galleyDao = DAORegistry::getDAO('ArticleGalleyDAO'); /* @var $galleyDao ArticleGalleyDAO */
+			$galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $galleyDao PreprintGalleyDAO */
 			$galley = $galleyDao->getById($submissionFile->getData('assocId'));
 			if (!$galley) {
 				throw new Exception('Galley not found when adding submission file.');

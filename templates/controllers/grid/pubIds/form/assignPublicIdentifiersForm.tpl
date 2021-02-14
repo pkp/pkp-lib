@@ -17,7 +17,7 @@
 		);
 	{rdelim});
 </script>		
-{if $pubObject instanceof Article}
+{if $pubObject instanceof Preprint}
 	<form class="pkp_form" id="assignPublicIdentifierForm" method="post" action="{url router=PKPApplication::ROUTE_COMPONENT component="tab.issueEntry.IssueEntryTabHandler" op="assignPubIds" escape=false}">
 		<input type="hidden" name="submissionId" value="{$pubObject->getId()|escape}" />
 		<input type="hidden" name="stageId" value="{$formParams.stageId|escape}" />

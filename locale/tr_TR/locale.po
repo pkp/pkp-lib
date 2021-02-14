@@ -237,7 +237,7 @@ msgstr "Yayın Tarihi"
 msgid "search.results.orderBy.author"
 msgstr "Yazar"
 
-msgid "search.results.orderBy.article"
+msgid "search.results.orderBy.preprint"
 msgstr "Ön Baskı Başlık"
 
 msgid "search.results.orderBy"
@@ -291,13 +291,13 @@ msgstr "Ön Baskı Arama"
 msgid "submissions.published"
 msgstr "Gönderildi"
 
-msgid "article.pageTitle"
+msgid "preprint.pageTitle"
 msgstr "{$title} görünümü"
 
-msgid "article.abstract"
+msgid "preprint.abstract"
 msgstr "Öz"
 
-msgid "article.details"
+msgid "preprint.details"
 msgstr "Detaylar"
 
 msgid "publication.version"

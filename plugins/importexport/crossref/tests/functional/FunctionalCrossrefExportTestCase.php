@@ -18,9 +18,9 @@ import('lib.pkp.tests.functional.plugins.importexport.FunctionalImportExportBase
 class FunctionalCrossrefExportTest extends FunctionalImportExportBaseTestCase {
 
 	/**
-	 * SCENARIO OUTLINE: Export article into CrossRef deposit format XML files
+	 * SCENARIO OUTLINE: Export preprint into CrossRef deposit format XML files
 	 *   GIVEN a DOI has been assigned for a given {publishing object}
-	 *    WHEN I export the corresponding article in CrossRef deposit format
+	 *    WHEN I export the corresponding preprint in CrossRef deposit format
 	 *    THEN the object's DOI data (ID and URL) will be accessible in the
 	 *         XML file at the correct {CrossRef XPath}. DOIs will not be exported
 	 *         for galleys.
@@ -29,20 +29,20 @@ class FunctionalCrossrefExportTest extends FunctionalImportExportBaseTestCase {
 	 *   publishing object | CrossRef XPath
 	 *   ==================|=====================================================
 	 *   issue             | body/server/server_issue/doi_data/{doi|resource}
-	 *   article           | body/server/server_article/doi_data/{doi|resource}
+	 *   preprint           | body/server/server_preprint/doi_data/{doi|resource}
 	 *                     |   component/{titles|doi_data/{doi|resource}}
 	 */
 	public function testDoi() {
-		$export = $this->getXpathOnExport('CrossRefExportPlugin/exportArticle/1');
+		$export = $this->getXpathOnExport('CrossRefExportPlugin/exportPreprint/1');
 		$export->registerNamespace('cr', 'http://www.crossref.org/schema/4.3.0');
 
 		$basePath = '/cr:doi_batch/cr:body/cr:server';
 		$testCases = array(
 			'cr:server_issue/cr:doi_data/cr:doi' => '10.1234/t.v1i1',
 			'cr:server_issue/cr:doi_data/cr:resource' => $this->baseUrl . '/index.php/test/issue/view/1',
-			'cr:server_article/cr:doi_data/cr:doi' => '10.1234/t.v1i1.1',
-			'cr:server_article/cr:doi_data/cr:resource' => $this->baseUrl . '/index.php/test/article/view/1',
-			'cr:server_article/cr:component_list/cr:component/cr:doi_data/cr:doi' => '10.1234/t.v1i1.1.s1',
+			'cr:server_preprint/cr:doi_data/cr:doi' => '10.1234/t.v1i1.1',
+			'cr:server_preprint/cr:doi_data/cr:resource' => $this->baseUrl . '/index.php/test/preprint/view/1',
+			'cr:server_preprint/cr:component_list/cr:component/cr:doi_data/cr:doi' => '10.1234/t.v1i1.1.s1',
 		);
 		foreach($testCases as $xPath => $expectedDoi) {
 			self::assertEquals(

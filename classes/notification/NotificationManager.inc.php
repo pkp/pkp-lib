@@ -39,17 +39,17 @@ class NotificationManager extends PKPNotificationManager {
 	}
 
 	/**
-	 * Helper function to get an article title from a notification's associated object
+	 * Helper function to get an preprint title from a notification's associated object
 	 * @param $notification
 	 * @return string
 	 */
-	function _getArticleTitle($notification) {
+	function _getPreprintTitle($notification) {
 		assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION);
 		assert(is_numeric($notification->getAssocId()));
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$article = $submissionDao->getById($notification->getAssocId());
-		if (!$article) return null;
-		return $article->getLocalizedTitle();
+		$preprint = $submissionDao->getById($notification->getAssocId());
+		if (!$preprint) return null;
+		return $preprint->getLocalizedTitle();
 	}
 
 	/**

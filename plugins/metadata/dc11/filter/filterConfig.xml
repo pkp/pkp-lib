@@ -12,19 +12,19 @@
   -->
 <filterConfig>
 	<filterGroups>
-		<!-- DC 1.1 article adapters -->
+		<!-- DC 1.1 preprint adapters -->
 		<filterGroup
-			symbolic="article=>dc11"
-			displayName="plugins.metadata.dc11.articleAdapter.displayName"
-			description="plugins.metadata.dc11.articleAdapter.description"
+			symbolic="preprint=>dc11"
+			displayName="plugins.metadata.dc11.preprintAdapter.displayName"
+			description="plugins.metadata.dc11.preprintAdapter.description"
 			inputType="class::classes.submission.Submission"
-			outputType="metadata::plugins.metadata.dc11.schema.Dc11Schema(ARTICLE)" />
+			outputType="metadata::plugins.metadata.dc11.schema.Dc11Schema(PREPRINT)" />
 	</filterGroups>
 	<filters>
-		<!-- DC 1.1 article adapters -->
+		<!-- DC 1.1 preprint adapters -->
 		<filter
-			inGroup="article=>dc11"
-			class="plugins.metadata.dc11.filter.Dc11SchemaArticleAdapter"
+			inGroup="preprint=>dc11"
+			class="plugins.metadata.dc11.filter.Dc11SchemaPreprintAdapter"
 			isTemplate="0" />
 	</filters>
 </filterConfig>

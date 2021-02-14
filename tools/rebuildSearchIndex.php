@@ -10,7 +10,7 @@
  * @class rebuildSearchIndex
  * @ingroup tools
  *
- * @brief CLI tool to rebuild the article keyword search database.
+ * @brief CLI tool to rebuild the preprint keyword search database.
  */
 
 require(dirname(__FILE__) . '/bootstrap.inc.php');
@@ -20,7 +20,7 @@ class rebuildSearchIndex extends CommandLineTool {
 	 * Print command usage information.
 	 */
 	public function usage() {
-		echo "Script to rebuild article search index\n"
+		echo "Script to rebuild preprint search index\n"
 			. "Usage: {$this->scriptName} [options] [server_path]\n\n"
 			. "options: The standard index implementation does\n"
 			. "         not support any options. For other\n"
@@ -30,7 +30,7 @@ class rebuildSearchIndex extends CommandLineTool {
 	}
 
 	/**
-	 * Rebuild the search index for all articles in all servers.
+	 * Rebuild the search index for all preprints in all servers.
 	 */
 	public function execute() {
 		// Check whether we have (optional) switches.
@@ -55,8 +55,8 @@ class rebuildSearchIndex extends CommandLineTool {
 		HookRegistry::register('Request::getBaseUrl', array($this, 'callbackBaseUrl'));
 
 		// Let the search implementation re-build the index.
-		$articleSearchIndex = Application::getSubmissionSearchIndex();
-		$articleSearchIndex->rebuildIndex(true, $server, $switches);
+		$preprintSearchIndex = Application::getSubmissionSearchIndex();
+		$preprintSearchIndex->rebuildIndex(true, $server, $switches);
 	}
 
 	/**

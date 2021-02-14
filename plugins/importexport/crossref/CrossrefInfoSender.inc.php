@@ -59,11 +59,11 @@ class CrossrefInfoSender extends ScheduledTask {
 			$doiPubIdPlugin = $pubIdPlugins['doipubidplugin'];
 
 			if ($doiPubIdPlugin->getSetting($server->getId(), 'enablePublicationDoi')) {
-				// Get unregistered articles
-				$unregisteredArticles = $plugin->getUnregisteredArticles($server);
-				// If there are articles to be deposited
-				if (count($unregisteredArticles)) {
-					$this->_registerObjects($unregisteredArticles, 'article=>crossref-xml', $server, 'articles');
+				// Get unregistered preprints
+				$unregisteredPreprints = $plugin->getUnregisteredPreprints($server);
+				// If there are preprints to be deposited
+				if (count($unregisteredPreprints)) {
+					$this->_registerObjects($unregisteredPreprints, 'preprint=>crossref-xml', $server, 'preprints');
 				}
 			}
 		}
@@ -72,7 +72,7 @@ class CrossrefInfoSender extends ScheduledTask {
 
 	/**
 	 * Get all servers that meet the requirements to have
-	 * their articles or issues DOIs sent to Crossref.
+	 * their preprints or issues DOIs sent to Crossref.
 	 * @return array
 	 */
 	function _getServers() {
@@ -123,7 +123,7 @@ class CrossrefInfoSender extends ScheduledTask {
 			// export XML
 			$exportXml = $plugin->exportXML(array($object), $filter, $server);
 			// Write the XML to a file.
-			// export file name example: crossref-20160723-160036-articles-1-1.xml
+			// export file name example: crossref-20160723-160036-preprints-1-1.xml
 			$objectsFileNamePartId = $objectsFileNamePart . '-' . $object->getId();
 			$exportFileName = $plugin->getExportFileName($plugin->getExportPath(), $objectsFileNamePartId, $server, '.xml');
 			$fileManager->writeFile($exportFileName, $exportXml);

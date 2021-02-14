@@ -14,7 +14,7 @@
 		{$pageTitle}
 	</h1>
 
-{if !empty($configurationErrors) || !$exportArticles}
+{if !empty($configurationErrors) || !$exportPreprints}
 	{assign var="allowExport" value=false}
 {else}
 	{assign var="allowExport" value=true}
@@ -30,7 +30,7 @@
 	<ul>
 		<li><a href="#settings-tab">{translate key="plugins.importexport.common.settings"}</a></li>
 		{if $allowExport}
-			<li><a href="#exportSubmissions-tab">{translate key="plugins.importexport.common.export.articles"}</a></li>
+			<li><a href="#exportSubmissions-tab">{translate key="plugins.importexport.common.export.preprints"}</a></li>
 		{/if}
 	</ul>
 	<div id="settings-tab">
@@ -43,7 +43,7 @@
 						{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=crossrefConfigurationErrors notificationStyleClass="notifyWarning" notificationTitle="plugins.importexport.common.missingRequirements"|translate notificationContents="plugins.importexport.common.error.pluginNotConfigured"|translate}
 					{/if}
 				{/foreach}
-				{if !$exportArticles}
+				{if !$exportPreprints}
 					{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=crossrefConfigurationErrors notificationStyleClass="notifyWarning" notificationTitle="plugins.importexport.common.missingRequirements"|translate notificationContents="plugins.importexport.crossref.error.noDOIContentObjects"|translate}
 				{/if}
 			</div>

@@ -1,30 +1,30 @@
 <?php
 
 /**
- * @file tests/classes/search/ArticleSearchTest.php
+ * @file tests/classes/search/PreprintSearchTest.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ArticleSearchTest
+ * @class PreprintSearchTest
  * @ingroup tests_classes_search
- * @see ArticleSearch
+ * @see PreprintSearch
  *
- * @brief Test class for the ArticleSearch class
+ * @brief Test class for the PreprintSearch class
  */
 
 require_mock_env('env1');
 
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.core.ArrayItemIterator');
-import('classes.search.ArticleSearch');
+import('classes.search.PreprintSearch');
 import('lib.pkp.classes.core.PKPRouter');
 
-define('SUBMISSION_SEARCH_TEST_DEFAULT_ARTICLE', 1);
-define('SUBMISSION_SEARCH_TEST_ARTICLE_FROM_PLUGIN', 2);
+define('SUBMISSION_SEARCH_TEST_DEFAULT_PREPRINT', 1);
+define('SUBMISSION_SEARCH_TEST_PREPRINT_FROM_PLUGIN', 2);
 
-class ArticleSearchTest extends PKPTestCase {
+class PreprintSearchTest extends PKPTestCase {
 	/** @var array */
 	private $_retrieveResultsParams;
 
@@ -37,7 +37,7 @@ class ArticleSearchTest extends PKPTestCase {
 	protected function getMockedDAOs() {
 		$mockedDaos = parent::getMockedDAOs();
 		$mockedDaos += array(
-			'ArticleSearchDAO', 'SubmissionDAO',
+			'PreprintSearchDAO', 'SubmissionDAO',
 			'ServerDAO', 'SectionDAO'
 		);
 		return $mockedDaos;
@@ -51,7 +51,7 @@ class ArticleSearchTest extends PKPTestCase {
 		HookRegistry::rememberCalledHooks();
 
 		// Prepare the mock environment for this test.
-		$this->registerMockArticleSearchDAO();
+		$this->registerMockPreprintSearchDAO();
 		$this->registerMockSubmissionDAO();
 		$this->registerMockServerDAO();
 		$this->registerMockSectionDAO();
@@ -76,7 +76,7 @@ class ArticleSearchTest extends PKPTestCase {
 	// Unit tests
 	//
 	/**
-	 * @covers ArticleSearch
+	 * @covers PreprintSearch
 	 */
 	public function testRetrieveResults() {
 		$this->markTestSkipped(); // Temporarily disabled!
@@ -87,26 +87,26 @@ class ArticleSearchTest extends PKPTestCase {
 		// Test a simple search with a mock database back-end.
 		$server = new Server();
 		$keywords = array(null => 'test');
-		$articleSearch = new ArticleSearch();
+		$preprintSearch = new PreprintSearch();
 		$error = '';
 		$request = Application::get()->getRequest();
-		$searchResult = $articleSearch->retrieveResults($request, $server, $keywords, $error);
+		$searchResult = $preprintSearch->retrieveResults($request, $server, $keywords, $error);
 
 		// Test whether the result from the mocked DAOs is being returned.
 		self::assertInstanceOf('ItemIterator', $searchResult);
 		$firstResult = $searchResult->next();
-		self::assertArrayHasKey('article', $firstResult);
-		self::assertEquals(SUBMISSION_SEARCH_TEST_DEFAULT_ARTICLE, $firstResult['article']->getId());
+		self::assertArrayHasKey('preprint', $firstResult);
+		self::assertEquals(SUBMISSION_SEARCH_TEST_DEFAULT_PREPRINT, $firstResult['preprint']->getId());
 		self::assertEquals('', $error);
 
-		$this->registerMockArticleSearchDAO(); // This is necessary to instantiate a fresh iterator.
+		$this->registerMockPreprintSearchDAO(); // This is necessary to instantiate a fresh iterator.
 		$keywords = array(null => 'test');
-		$searchResult = $articleSearch->retrieveResults($request, $server, $keywords, $error);
+		$searchResult = $preprintSearch->retrieveResults($request, $server, $keywords, $error);
 		self::assertTrue($searchResult->eof());
 	}
 
 	/**
-	 * @covers ArticleSearch
+	 * @covers PreprintSearch
 	 */
 	public function testRetrieveResultsViaPluginHook() {
 		$this->markTestSkipped(); // Temporarily disabled!
@@ -135,8 +135,8 @@ class ArticleSearchTest extends PKPTestCase {
 			// Test a simple search with the simulated callback.
 			$server = new Server();
 			$keywords = $testCase;
-			$articleSearch = new ArticleSearch();
-			$searchResult = $articleSearch->retrieveResults($request, $server, $keywords, $error, $testFromDate, $testToDate);
+			$preprintSearch = new PreprintSearch();
+			$searchResult = $preprintSearch->retrieveResults($request, $server, $keywords, $error, $testFromDate, $testToDate);
 
 			// Check the parameters passed into the callback.
 			$expectedPage = 1;
@@ -163,8 +163,8 @@ class ArticleSearchTest extends PKPTestCase {
 
 			// Test the search result.
 			$firstResult = $searchResult->next();
-			self::assertArrayHasKey('article', $firstResult);
-			self::assertEquals(SUBMISSION_SEARCH_TEST_ARTICLE_FROM_PLUGIN, $firstResult['article']->getId());
+			self::assertArrayHasKey('preprint', $firstResult);
+			self::assertEquals(SUBMISSION_SEARCH_TEST_PREPRINT_FROM_PLUGIN, $firstResult['preprint']->getId());
 			self::assertEquals('', $error);
 		}
 
@@ -190,22 +190,22 @@ class ArticleSearchTest extends PKPTestCase {
 
 		// Mock a result set and return it.
 		$results = array(
-			3 => SUBMISSION_SEARCH_TEST_ARTICLE_FROM_PLUGIN
+			3 => SUBMISSION_SEARCH_TEST_PREPRINT_FROM_PLUGIN
 		);
 		return $results;
 	}
 
 	/**
-	 * Callback dealing with SubmissionDAO::getArticle()
+	 * Callback dealing with SubmissionDAO::getPreprint()
 	 * calls via our mock SubmissionDAO.
 	 *
-	 * @see SubmissionDAO::getArticle()
+	 * @see SubmissionDAO::getPreprint()
 	 */
-	public function callbackGetArticle($articleId, $serverId = null, $useCache = false) {
-		// Create an article instance with the correct id.
-		$article = new Submission();
-		$article->setId($articleId);
-		return $article;
+	public function callbackGetPreprint($preprintId, $serverId = null, $useCache = false) {
+		// Create an preprint instance with the correct id.
+		$preprint = new Submission();
+		$preprint->setId($preprintId);
+		return $preprint;
 	}
 
 
@@ -213,18 +213,18 @@ class ArticleSearchTest extends PKPTestCase {
 	// Private helper methods
 	//
 	/**
-	 * Mock and register an ArticleSearchDAO as a test
-	 * back end for the ArticleSearch class.
+	 * Mock and register an PreprintSearchDAO as a test
+	 * back end for the PreprintSearch class.
 	 */
-	private function registerMockArticleSearchDAO() {
-		// Mock an ArticleSearchDAO.
-		$articleSearchDAO = $this->getMockBuilder(ArticleSearchDAO::class)
+	private function registerMockPreprintSearchDAO() {
+		// Mock an PreprintSearchDAO.
+		$preprintSearchDAO = $this->getMockBuilder(PreprintSearchDAO::class)
 			->setMethods(array('getPhraseResults'))
 			->getMock();
 
 		// Mock a result set.
 		$searchResult = array(
-			SUBMISSION_SEARCH_TEST_DEFAULT_ARTICLE => array(
+			SUBMISSION_SEARCH_TEST_DEFAULT_PREPRINT => array(
 				'count' => 3,
 				'server_id' => 2,
 				'publicationDate' => '2013-05-01 20:30:00'
@@ -232,31 +232,31 @@ class ArticleSearchTest extends PKPTestCase {
 		);
 
 		// Mock the getPhraseResults() method.
-		$articleSearchDAO->expects($this->any())
+		$preprintSearchDAO->expects($this->any())
 		                 ->method('getPhraseResults')
 		                 ->will($this->returnValue($searchResult));
 
 		// Register the mock DAO.
-		DAORegistry::registerDAO('ArticleSearchDAO', $articleSearchDAO);
+		DAORegistry::registerDAO('PreprintSearchDAO', $preprintSearchDAO);
 	}
 
 	/**
 	 * Mock and register an SubmissionDAO as a test
-	 * back end for the ArticleSearch class.
+	 * back end for the PreprintSearch class.
 	 */
 	private function registerMockSubmissionDAO() {
 		// Mock an SubmissionDAO.
 		$submissionDao = $this->getMockBuilder(SubmissionDAO::class)
-			->setMethods(array('getArticle'))
+			->setMethods(array('getPreprint'))
 			->getMock();
 
-		// Mock an article.
-		$article = new Submission();
+		// Mock an preprint.
+		$preprint = new Submission();
 
-		// Mock the getArticle() method.
+		// Mock the getPreprint() method.
 		$submissionDao->expects($this->any())
-		           ->method('getArticle')
-		           ->will($this->returnCallback(array($this, 'callbackGetArticle')));
+		           ->method('getPreprint')
+		           ->will($this->returnCallback(array($this, 'callbackGetPreprint')));
 
 		// Register the mock DAO.
 		DAORegistry::registerDAO('SubmissionDAO', $submissionDao);
@@ -264,7 +264,7 @@ class ArticleSearchTest extends PKPTestCase {
 
 	/**
 	 * Mock and register an ServerDAO as a test
-	 * back end for the ArticleSearch class.
+	 * back end for the PreprintSearch class.
 	 */
 	private function registerMockServerDAO() {
 		// Mock a ServerDAO.
@@ -286,7 +286,7 @@ class ArticleSearchTest extends PKPTestCase {
 
 	/**
 	 * Mock and register an SectionDAO as a test
-	 * back end for the ArticleSearch class.
+	 * back end for the PreprintSearch class.
 	 */
 	private function registerMockSectionDAO() {
 		// Mock a SectionDAO.

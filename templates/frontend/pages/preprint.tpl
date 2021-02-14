@@ -18,7 +18,7 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$preprint->getLocalizedTitle()|escape}
 
-<div class="page page_article">
+<div class="page page_preprint">
 	{if $section}
 		{include file="frontend/components/breadcrumbs_preprint.tpl" currentTitle=$section->getLocalizedTitle()}
 	{else}

@@ -31,7 +31,7 @@
 	{* Latest preprints *}
 	<section class="homepage_latest_preprints">
 		<h2>{translate key="index.latestPreprints"}</h2>
-		<ul class="cmp_article_list articles">
+		<ul class="cmp_preprint_list preprints">
 			{foreach from=$publishedSubmissions item="preprint"}
 				<li>
 					{include file="frontend/objects/preprint_summary.tpl" heading="h3"}
@@ -64,7 +64,7 @@
 					{include file="frontend/objects/announcement_summary.tpl" heading="h3"}
 					<div class="more">
 				{else}
-					<article class="obj_announcement_summary">
+					<preprint class="obj_announcement_summary">
 						<h4>
 							<a href="{url router=PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
 								{$announcement->getLocalizedTitle()|escape}
@@ -73,7 +73,7 @@
 						<div class="date">
 							{$announcement->getDatePosted()|date_format:$dateFormatShort}
 						</div>
-					</article>
+					</preprint>
 				{/if}
 			{/foreach}
 			</div><!-- .more -->

@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @file controllers/grid/articleGalleys/ArticleGalleyGridRow.inc.php
+ * @file controllers/grid/preprintGalleys/PreprintGalleyGridRow.inc.php
  *
  * Copyright (c) 2016-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ArticleGalleyGridRow
- * @ingroup controllers_grid_articleGalleys
+ * @class PreprintGalleyGridRow
+ * @ingroup controllers_grid_preprintGalleys
  *
- * @brief Representation of an article galley grid row.
+ * @brief Representation of an preprint galley grid row.
  */
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-class ArticleGalleyGridRow extends GridRow {
+class PreprintGalleyGridRow extends GridRow {
 	/** @var Submission **/
 	var $_submission;
 

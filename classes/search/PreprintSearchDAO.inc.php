@@ -1,23 +1,23 @@
 <?php
 
 /**
- * @file classes/search/ArticleSearchDAO.inc.php
+ * @file classes/search/PreprintSearchDAO.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ArticleSearchDAO
+ * @class PreprintSearchDAO
  * @ingroup search
- * @see ArticleSearch
+ * @see PreprintSearch
  *
- * @brief DAO class for article search index.
+ * @brief DAO class for preprint search index.
  */
 
-import('classes.search.ArticleSearch');
+import('classes.search.PreprintSearch');
 import('lib.pkp.classes.search.SubmissionSearchDAO');
 
-class ArticleSearchDAO extends SubmissionSearchDAO {
+class PreprintSearchDAO extends SubmissionSearchDAO {
 	/**
 	 * Retrieve the top results for a phrases with the given
 	 * limit (default 500 results).

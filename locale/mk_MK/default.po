@@ -116,7 +116,7 @@ msgstr ""
 msgid "default.contextSettings.checklist.notPreviouslyPublished"
 msgstr "Поднесокот не е претходно објавен."
 
-msgid "default.genres.article"
+msgid "default.genres.preprint"
 msgstr "Текст за печатење"
 
 msgid "section.default.path"

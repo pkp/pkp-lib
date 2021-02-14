@@ -13,7 +13,7 @@
  * @brief Form to notify a user regarding a file
  */
 
-import('classes.mail.ArticleMailTemplate');
+import('classes.mail.PreprintMailTemplate');
 import('lib.pkp.controllers.grid.users.stageParticipant.form.PKPStageParticipantNotifyForm');
 
 class StageParticipantNotifyForm extends PKPStageParticipantNotifyForm {
@@ -44,9 +44,9 @@ class StageParticipantNotifyForm extends PKPStageParticipantNotifyForm {
 	 */
 	protected function _getMailTemplate($submission, $templateKey, $includeSignature = true) {
 		if ($includeSignature)
-			return new ArticleMailTemplate($submission, $templateKey);
+			return new PreprintMailTemplate($submission, $templateKey);
 		else
-			return new ArticleMailTemplate($submission, $templateKey, null, null, null, false);
+			return new PreprintMailTemplate($submission, $templateKey, null, null, null, false);
 	}
 }
 

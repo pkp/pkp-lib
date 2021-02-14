@@ -17,7 +17,7 @@ msgstr "Osoitettu moderaattorille"
 msgid "editor.publication.authorPublishRequirements"
 msgstr "Kirjoittaja ei täytä seuraavia julkaisemista koskevia vaatimuksia:"
 
-msgid "editor.article.coverImage"
+msgid "editor.preprint.coverImage"
 msgstr "Kansikuva"
 
 msgid "editor.publicIdentificationExistsForTheSameType"

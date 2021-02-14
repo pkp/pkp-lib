@@ -42,7 +42,7 @@ class PubIdExportRepresentationsListGridCellProvider extends DataObjectGridCellP
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		$galley = $row->getData();
 		$columnId = $column->getId();
-		assert(is_a($galley, 'ArticleGalley') && !empty($columnId));
+		assert(is_a($galley, 'PreprintGalley') && !empty($columnId));
 
 		$publication = Services::get('publication')->get($galley->getData('publicationId'));
 		$submission = Services::get('submission')->get($publication->getData('submissionId'));
@@ -94,7 +94,7 @@ class PubIdExportRepresentationsListGridCellProvider extends DataObjectGridCellP
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$submissionGalley = $row->getData();
 		$columnId = $column->getId();
-		assert(is_a($submissionGalley, 'ArticleGAlley') && !empty($columnId));
+		assert(is_a($submissionGalley, 'PreprintGAlley') && !empty($columnId));
 
 		switch ($columnId) {
 			case 'id':

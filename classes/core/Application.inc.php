@@ -19,7 +19,7 @@ import('lib.pkp.classes.core.PKPApplication');
 
 define('REQUIRES_XSL', false);
 
-define('ASSOC_TYPE_ARTICLE',		ASSOC_TYPE_SUBMISSION); // DEPRECATED but needed by filter framework
+define('ASSOC_TYPE_PREPRINT',		ASSOC_TYPE_SUBMISSION); // DEPRECATED but needed by filter framework
 define('ASSOC_TYPE_GALLEY',		ASSOC_TYPE_REPRESENTATION);
 
 define('ASSOC_TYPE_SERVER',		0x0000100);
@@ -83,14 +83,14 @@ class Application extends PKPApplication {
 	public function getDAOMap() {
 		return array_merge(parent::getDAOMap(), array(
 			'SubmissionDAO' => 'classes.submission.SubmissionDAO',
-			'ArticleGalleyDAO' => 'classes.article.ArticleGalleyDAO',
-			'ArticleSearchDAO' => 'classes.search.ArticleSearchDAO',
-			'AuthorDAO' => 'classes.article.AuthorDAO',
+			'PreprintGalleyDAO' => 'classes.preprint.PreprintGalleyDAO',
+			'PreprintSearchDAO' => 'classes.search.PreprintSearchDAO',
+			'AuthorDAO' => 'classes.preprint.AuthorDAO',
 			'ServerDAO' => 'classes.server.ServerDAO',
 			'ServerSettingsDAO' => 'classes.server.ServerSettingsDAO',
 			'MetricsDAO' => 'classes.statistics.MetricsDAO',
 			'OAIDAO' => 'classes.oai.ops.OAIDAO',
-			'PublishedSubmissionDAO' => 'classes.article.PublishedSubmissionDAO',
+			'PublishedSubmissionDAO' => 'classes.preprint.PublishedSubmissionDAO',
 			'SectionDAO' => 'classes.server.SectionDAO',
 		));
 	}
@@ -141,22 +141,22 @@ class Application extends PKPApplication {
 	 * @return RepresentationDAO
 	 */
 	public static function getRepresentationDAO() {
-		return DAORegistry::getDAO('ArticleGalleyDAO');
+		return DAORegistry::getDAO('PreprintGalleyDAO');
 	}
 
 	/**
 	 * Get a SubmissionSearchIndex instance.
 	 */
 	public static function getSubmissionSearchIndex() {
-		import('classes.search.ArticleSearchIndex');
-		return new ArticleSearchIndex();
+		import('classes.search.PreprintSearchIndex');
+		return new PreprintSearchIndex();
 	}
 
 	/**
 	 * Get a SubmissionSearchDAO instance.
 	 */
 	public static function getSubmissionSearchDAO() {
-		return DAORegistry::getDAO('ArticleSearchDAO');
+		return DAORegistry::getDAO('PreprintSearchDAO');
 	}
 
 	/**
@@ -182,7 +182,7 @@ class Application extends PKPApplication {
 	 * Get the file directory array map used by the application.
 	 */
 	public static function getFileDirectories() {
-		return array('context' => '/servers/', 'submission' => '/articles/');
+		return array('context' => '/servers/', 'submission' => '/preprints/');
 	}
 
 }

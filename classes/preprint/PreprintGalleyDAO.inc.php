@@ -1,24 +1,24 @@
 <?php
 
 /**
- * @file classes/article/ArticleGalleyDAO.inc.php
+ * @file classes/preprint/PreprintGalleyDAO.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ArticleGalleyDAO
- * @ingroup article
- * @see ArticleGalley
+ * @class PreprintGalleyDAO
+ * @ingroup preprint
+ * @see PreprintGalley
  *
- * @brief Operations for retrieving and modifying ArticleGalley objects.
+ * @brief Operations for retrieving and modifying PreprintGalley objects.
  */
 
-import('classes.article.ArticleGalley');
+import('classes.preprint.PreprintGalley');
 import('lib.pkp.classes.db.SchemaDAO');
 import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
 
-class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
+class PreprintGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	/** @copydoc SchemaDAO::$schemaName */
 	public $schemaName = SCHEMA_GALLEY;
 
@@ -46,10 +46,10 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 
 	/**
 	 * Return a new data object.
-	 * @return ArticleGalley
+	 * @return PreprintGalley
 	 */
 	function newDataObject() {
-		return new ArticleGalley();
+		return new PreprintGalley();
 	}
 
 	/**
@@ -59,7 +59,7 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
 	 * @param $pubId string
 	 * @param $publicationId int
-	 * @return ArticleGalley|null
+	 * @return PreprintGalley|null
 	 */
 	function getGalleyByPubId($pubIdType, $pubId, $publicationId = null) {
 		$galleyFactory = $this->getGalleysBySetting('pub-id::'.$pubIdType, $pubId, $publicationId);
@@ -162,7 +162,7 @@ class ArticleGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * internal galley ID; urlPath takes precedence.
 	 * @param $galleyId string
 	 * @param $publicationId int
-	 * @return ArticleGalley object
+	 * @return PreprintGalley object
 	 */
 	function getByBestGalleyId($galleyId, $publicationId) {
 		$result = $this->retrieve(

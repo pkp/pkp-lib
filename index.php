@@ -24,7 +24,7 @@
  * - Action classes, which are used by the Page classes to perform non-trivial
  *   processing of user requests;
  * - Model classes, which implement PHP objects representing the system's
- *   various entities, such as Users, Articles, and Servers;
+ *   various entities, such as Users, Preprints, and Servers;
  * - Data Access Objects (DAOs), which generally provide (amongst others)
  *   update, create, and delete functions for their associated Model classes,
  *   are responsible for all database interaction;

@@ -15,19 +15,19 @@
 <div id="authorDetails">
 <h3>{$authorName|escape}{if $affiliation}, {$affiliation|escape}{/if}{if $country}, {$country|escape}{/if}</h3>
 <ul>
-{foreach from=$submissions item=article}
-	{assign var=sectionId value=$article->getCurrentPublication()->getData('sectionId')}
-	{assign var=serverId value=$article->getData('contextId')}
+{foreach from=$submissions item=preprint}
+	{assign var=sectionId value=$preprint->getCurrentPublication()->getData('sectionId')}
+	{assign var=serverId value=$preprint->getData('contextId')}
 	{assign var=server value=$servers[$serverId]}
 	{assign var=section value=$sections[$sectionId]}
 	{if $section && $server}
 	<li>
 		<em>{$section->getLocalizedTitle()|escape}</em><br />
-		{$article->getLocalizedTitle()|strip_unsafe_html}<br/>
-		<a href="{url server=$server->getPath() page="article" op="view" path=$article->getBestId()}" class="file">{if $article->getCurrentPublication()->getData('abstract')}{translate key="article.abstract"}{else}{translate key="article.details"}{/if}</a>
-		{if ($article->getCurrentPublication()->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN)}
-		{foreach from=$article->getGalleys() item=galley name=galleyList}
-			&nbsp;<a href="{url server=$server->getPath() page="article" op="view" path=$article->getBestId()|to_array:$galley->getBestGalleyId()}" class="file">{$galley->getGalleyLabel()|escape}</a>
+		{$preprint->getLocalizedTitle()|strip_unsafe_html}<br/>
+		<a href="{url server=$server->getPath() page="preprint" op="view" path=$preprint->getBestId()}" class="file">{if $preprint->getCurrentPublication()->getData('abstract')}{translate key="preprint.abstract"}{else}{translate key="preprint.details"}{/if}</a>
+		{if ($preprint->getCurrentPublication()->getData('accessStatus') == $smarty.const.PREPRINT_ACCESS_OPEN)}
+		{foreach from=$preprint->getGalleys() item=galley name=galleyList}
+			&nbsp;<a href="{url server=$server->getPath() page="preprint" op="view" path=$preprint->getBestId()|to_array:$galley->getBestGalleyId()}" class="file">{$galley->getGalleyLabel()|escape}</a>
 		{/foreach}
 		{/if}
 	</li>

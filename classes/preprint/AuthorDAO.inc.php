@@ -1,20 +1,20 @@
 <?php
 
 /**
- * @file classes/article/AuthorDAO.inc.php
+ * @file classes/preprint/AuthorDAO.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AuthorDAO
- * @ingroup article
+ * @ingroup preprint
  * @see Author
  *
  * @brief Operations for retrieving and modifying Author objects.
  */
 
-import('classes.article.Author');
+import('classes.preprint.Author');
 import('classes.submission.Submission');
 import('lib.pkp.classes.submission.PKPAuthorDAO');
 

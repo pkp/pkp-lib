@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @file plugins/metadata/dc11/filter/Dc11SchemaArticleAdapter.inc.php
+ * @file plugins/metadata/dc11/filter/Dc11SchemaPreprintAdapter.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class Dc11SchemaArticleAdapter
+ * @class Dc11SchemaPreprintAdapter
  * @ingroup plugins_metadata_dc11_filter
- * @see Article
+ * @see Preprint
  * @see PKPDc11Schema
  *
  * @brief Abstract base class for meta-data adapters that
@@ -20,7 +20,7 @@
 
 import('lib.pkp.classes.metadata.MetadataDataObjectAdapter');
 
-class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
+class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter {
 	//
 	// Implement template methods from Filter
 	//
@@ -28,7 +28,7 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'plugins.metadata.dc11.filter.Dc11SchemaArticleAdapter';
+		return 'plugins.metadata.dc11.filter.Dc11SchemaPreprintAdapter';
 	}
 
 
@@ -38,7 +38,7 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 	/**
 	 * @see MetadataDataObjectAdapter::injectMetadataIntoDataObject()
 	 * @param $metadataDescription MetadataDescription
-	 * @param $targetDataObject Article
+	 * @param $targetDataObject Preprint
 	 */
 	function &injectMetadataIntoDataObject(&$metadataDescription, &$targetDataObject) {
 		// Not implemented
@@ -55,15 +55,15 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_SUBMISSION);
 
-		// Retrieve data that belongs to the article.
+		// Retrieve data that belongs to the preprint.
 		// FIXME: Retrieve this data from the respective entity DAOs rather than
 		// from the OAIDAO once we've migrated all OAI providers to the
 		// meta-data framework. We're using the OAIDAO here because it
 		// contains cached entities and avoids extra database access if this
 		// adapter is called from an OAI context.
 		$oaiDao = DAORegistry::getDAO('OAIDAO'); /* @var $oaiDao OAIDAO */
-		$server = $oaiDao->getServer($article->getData('contextId'));
-		$section = $oaiDao->getSection($article->getSectionId());
+		$server = $oaiDao->getServer($preprint->getData('contextId'));
+		$section = $oaiDao->getSection($preprint->getSectionId());
 
 		$dc11Description = $this->instantiateMetadataDescription();
 
@@ -72,6 +72,7 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 
 		// Creator
 		$authors = $submission->getAuthors();
+
 		foreach($authors as $author) {
 			$dc11Description->addStatement('dc:creator', $author->getFullName(false, true));
 		}
@@ -116,8 +117,9 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 		$dc11Description->addStatement('dc:type', $driverVersion, METADATA_DESCRIPTION_UNKNOWN_LOCALE);
 
 		// Format
-			$articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO'); /* @var $articleGalleyDao ArticleGalleyDAO */
-			$galleys = $articleGalleyDao->getByPublicationId($submission->getCurrentPublication()->getId());
+			$preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $preprintGalleyDao PreprintGalleyDAO */
+			$galleys = $preprintGalleyDao->getByPublicationId($submission->getCurrentPublication()->getId());
+
 			$formats = array();
 			while ($galley = $galleys->next()) {
 				$dc11Description->addStatement('dc:format', $galley->getFileType());
@@ -130,8 +132,8 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 
 		// Get galleys and supp files.
 		$galleys = array();
-		$articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO'); /* @var $articleGalleyDao ArticleGalleyDAO */
-		$galleys = $articleGalleyDao->getByPublicationId($submission->getCurrentPublication()->getId())->toArray();
+		$preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $preprintGalleyDao PreprintGalleyDAO */
+		$galleys = $preprintGalleyDao->getByPublicationId($submission->getCurrentPublication()->getId())->toArray();
 
 		// Language
 		$locales = array();
@@ -145,20 +147,21 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 		$submissionLanguage = $submission->getLanguage();
 		if (empty($locales) && !empty($submissionLanguage)) {
 			$dc11Description->addStatement('dc:language', strip_tags($submissionLanguage));
+
 		}
 
 		// Relation
 		// full text URLs
 		if ($includeUrls) foreach ($galleys as $galley) {
-			$relation = $request->url($server->getPath(), 'article', 'view', [$submission->getBestId(), $galley->getBestGalleyId()]);
+			$relation = $request->url($server->getPath(), 'preprint', 'view', [$submission->getBestId(), $galley->getBestGalleyId()]);
 			$dc11Description->addStatement('dc:relation', $relation);
 		}
 
 		// Public identifiers
 		$pubIdPlugins = (array) PluginRegistry::loadCategory('pubIds', true, $server->getId());
 		foreach ($pubIdPlugins as $pubIdPlugin) {
-			if ($pubArticleId = $submission->getStoredPubId($pubIdPlugin->getPubIdType())) {
-				$dc11Description->addStatement('dc:identifier', $pubArticleId);
+			if ($pubPreprintId = $submission->getStoredPubId($pubIdPlugin->getPubIdType())) {
+				$dc11Description->addStatement('dc:identifier', $pubPreprintId);
 			}
 			foreach ($galleys as $galley) {
 				if ($pubGalleyId = $galley->getStoredPubId($pubIdPlugin->getPubIdType())) {
@@ -178,7 +181,7 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 		}
 		if ($licenseUrl = $submission->getLicenseURL()) $dc11Description->addStatement('dc:rights', $licenseUrl);
 
-		HookRegistry::call('Dc11SchemaArticleAdapter::extractMetadataFromDataObject', array($this, $submission, $server, &$dc11Description));
+		HookRegistry::call('Dc11SchemaPreprintAdapter::extractMetadataFromDataObject', array($this, $submission, $server, &$dc11Description));
 
 		return $dc11Description;
 	}

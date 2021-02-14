@@ -1,24 +1,24 @@
 <?php
 
 /**
- * @file classes/mail/ArticleMailTemplate.inc.php
+ * @file classes/mail/PreprintMailTemplate.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ArticleMailTemplate
+ * @class PreprintMailTemplate
  * @ingroup mail
  *
- * @brief Subclass of SubmissionMailTemplate for sending emails related to articles.
+ * @brief Subclass of SubmissionMailTemplate for sending emails related to preprints.
  *
- * This allows for article-specific functionality like logging, etc.
+ * This allows for preprint-specific functionality like logging, etc.
  */
 
 import('lib.pkp.classes.mail.SubmissionMailTemplate');
 import('lib.pkp.classes.log.SubmissionEmailLogEntry'); // Bring in log constants
 
-class ArticleMailTemplate extends SubmissionMailTemplate {
+class PreprintMailTemplate extends SubmissionMailTemplate {
 	/**
 	 * @copydoc SubmissionMailTemplate::assignParams()
 	 */

@@ -45,16 +45,16 @@ msgid "plugins.reports.counter.1a.xml"
 msgstr "XML version"
 
 msgid "plugins.reports.counter.1a.description"
-msgstr "COUNTER Server Report 1 (R3): Full-Text Article Requests by Month and Server"
+msgstr "COUNTER Server Report 1 (R3): Full-Text Preprint Requests by Month and Server"
 
 msgid "plugins.reports.counter.1a.title"
-msgstr "Server Report 1 (R3): Full-Text Article Requests by Month and Server"
+msgstr "Server Report 1 (R3): Full-Text Preprint Requests by Month and Server"
 
 msgid "plugins.reports.counter.1a.title1"
 msgstr "Server Report 1 (R3)"
 
 msgid "plugins.reports.counter.1a.title2"
-msgstr "Number of Successful Full-Text Article Requests by Month and Server (Year {$year})"
+msgstr "Number of Successful Full-Text Preprint Requests by Month and Server (Year {$year})"
 
 msgid "plugins.reports.counter.1a.dateRun"
 msgstr "Date run:"

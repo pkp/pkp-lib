@@ -24,17 +24,17 @@ class PubObjectCache {
 	//
 	/**
 	 * Add a publishing object to the cache.
-	 * @param $object Submission|ArticleGalley
+	 * @param $object Submission|PreprintGalley
 	 * @param $parent Submission|null Only required when adding a galley.
 	 */
 	function add($object, $parent) {
 		if (is_a($object, 'Submission')) {
-			$this->_insertInternally($object, 'articles', $object->getId());
+			$this->_insertInternally($object, 'preprints', $object->getId());
 		}
-		if (is_a($object, 'ArticleGalley')) {
+		if (is_a($object, 'PreprintGalley')) {
 			assert(is_a($parent, 'Submission'));
 			$this->_insertInternally($object, 'galleys', $object->getId());
-			$this->_insertInternally($object, 'galleysByArticle', $object->getData('submissionId'), $object->getId());
+			$this->_insertInternally($object, 'galleysByPreprint', $object->getData('submissionId'), $object->getId());
 		}
 		if (is_a($object, 'Genre')) {
 			$this->_insertInternally($object, 'genres', $object->getId());

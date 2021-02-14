@@ -234,7 +234,7 @@ msgstr "Датум на објавување"
 msgid "search.results.orderBy.author"
 msgstr "Автор"
 
-msgid "search.results.orderBy.article"
+msgid "search.results.orderBy.preprint"
 msgstr "Наслов на отпечаток"
 
 msgid "search.results.orderBy"
@@ -288,13 +288,13 @@ msgstr "Пребарување на отпечатоци"
 msgid "submissions.published"
 msgstr "Објавено"
 
-msgid "article.pageTitle"
+msgid "preprint.pageTitle"
 msgstr "Поглед на {$title}"
 
-msgid "article.abstract"
+msgid "preprint.abstract"
 msgstr "Апстракт"
 
-msgid "article.details"
+msgid "preprint.details"
 msgstr "Детали"
 
 msgid "publication.version"

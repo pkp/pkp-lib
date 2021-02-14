@@ -15,7 +15,7 @@
  *
  */
 
-import('classes.search.ArticleSearch');
+import('classes.search.PreprintSearch');
 import('classes.file.PublicFileManager');
 import('lib.pkp.classes.template.PKPTemplateManager');
 

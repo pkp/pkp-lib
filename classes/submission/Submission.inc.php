@@ -2,7 +2,7 @@
 
 /**
  * @defgroup submission Submission
- * Articles, OMP's extension of the generic Submission class in lib-pkp, are
+ * Preprints, OMP's extension of the generic Submission class in lib-pkp, are
  * implemented here.
  */
 
@@ -17,7 +17,7 @@
  * @ingroup submission
  * @see SubmissionDAO
  *
- * @brief Article class.
+ * @brief Preprint class.
  */
 
 // Author display in ToC
@@ -25,8 +25,8 @@ define ('AUTHOR_TOC_DEFAULT', 0);
 define ('AUTHOR_TOC_HIDE', 1);
 define ('AUTHOR_TOC_SHOW', 2);
 
-// Article access constants -- see Publication::getData('accessStatus')
-define('ARTICLE_ACCESS_OPEN', 1);
+// Preprint access constants -- see Publication::getData('accessStatus')
+define('PREPRINT_ACCESS_OPEN', 1);
 
 import('lib.pkp.classes.submission.PKPSubmission');
 
@@ -90,7 +90,7 @@ class Submission extends PKPSubmission {
 	 * @deprecated 3.2.0.0
 	 * @return string
 	 */
-	function getBestArticleId() {
+	function getBestPreprintId() {
 		return parent::getBestId();
 	}
 
@@ -113,7 +113,7 @@ class Submission extends PKPSubmission {
 	}
 
 	/**
-	 * Get ID of article's section.
+	 * Get ID of preprint's section.
 	 * @return int
 	 */
 	function getSectionId() {
@@ -125,7 +125,7 @@ class Submission extends PKPSubmission {
 	}
 
 	/**
-	 * Set ID of article's section.
+	 * Set ID of preprint's section.
 	 * @param $sectionId int
 	 */
 	function setSectionId($sectionId) {
@@ -208,8 +208,8 @@ class Submission extends PKPSubmission {
 	}
 
 	/**
-	 * Get the galleys for an article.
-	 * @return array ArticleGalley
+	 * Get the galleys for an preprint.
+	 * @return array PreprintGalley
 	 * @deprecated 3.2.0.0
 	 */
 	function getGalleys() {
@@ -222,8 +222,8 @@ class Submission extends PKPSubmission {
 	}
 
 	/**
-	 * Get the localized galleys for an article.
-	 * @return array ArticleGalley
+	 * Get the localized galleys for an preprint.
+	 * @return array PreprintGalley
 	 * @deprecated 3.2.0.0
 	 */
 	function getLocalizedGalleys() {
@@ -236,7 +236,7 @@ class Submission extends PKPSubmission {
 				}
 			}
 			if (!empty($galleys)) {
-				HookRegistry::call('ArticleGalleyDAO::getLocalizedGalleysByArticle', array(&$galleys));
+				HookRegistry::call('PreprintGalleyDAO::getLocalizedGalleysByPreprint', array(&$galleys));
 				return $galleys;
 			}
 		}

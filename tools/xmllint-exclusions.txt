@@ -8,7 +8,7 @@
 ./lib/pkp/js/lib
 ./plugins/generic/citationStyleLanguage/lib/vendor
 ./plugins/generic/lucene/embedded
-./plugins/generic/lucene/tests/classes/test-article.xml
+./plugins/generic/lucene/tests/classes/test-preprint.xml
 ./plugins/oaiMetadataFormats/dc/tests/expectedResult.xml
 ./plugins/generic/lensGalley/tests/functional/sample.xml
 ./plugins/generic/lensGalley/tests/functional/issue.xml

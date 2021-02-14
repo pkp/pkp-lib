@@ -232,7 +232,7 @@ msgstr "Fecha de publicación"
 msgid "search.results.orderBy.author"
 msgstr "Autor"
 
-msgid "search.results.orderBy.article"
+msgid "search.results.orderBy.preprint"
 msgstr "Título de preprint"
 
 msgid "search.results.orderBy"
@@ -277,10 +277,10 @@ msgstr "Búsqueda de preprint"
 msgid "submissions.published"
 msgstr "Postado"
 
-msgid "article.abstract"
+msgid "preprint.abstract"
 msgstr "Resumen"
 
-msgid "article.details"
+msgid "preprint.details"
 msgstr "Detalles"
 
 msgid "publication.version"
@@ -363,5 +363,5 @@ msgstr "Categorías"
 msgid "submission.layout.galley.remoteURL"
 msgstr "URL de contenido alojado de forma remota"
 
-msgid "article.pageTitle"
+msgid "preprint.pageTitle"
 msgstr "Vista de {$title}"

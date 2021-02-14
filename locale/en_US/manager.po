@@ -212,7 +212,7 @@ msgstr "Page links"
 msgid "manager.setup.numPageLinks.description"
 msgstr "Limit the number of links to display to subsequent pages in a list."
 
-msgid "manager.setup.restrictArticleAccess"
+msgid "manager.setup.restrictPreprintAccess"
 msgstr "Users must be registered and log in to view open access content."
 
 msgid "manager.setup.restrictSiteAccess"
@@ -263,7 +263,7 @@ msgstr ""
 msgid "manager.statistics.statistics"
 msgstr "Server Statistics"
 
-msgid "manager.statistics.statistics.articleViews"
+msgid "manager.statistics.statistics.preprintViews"
 msgstr "Preprint View Counts (for Authors only)"
 
 msgid "manager.statistics.statistics.count.accept"
@@ -293,10 +293,10 @@ msgstr "Total submissions"
 msgid "manager.statistics.statistics.registeredReaders"
 msgstr "Registered readers"
 
-msgid "manager.statistics.reports.defaultReport.articleDownloads"
+msgid "manager.statistics.reports.defaultReport.preprintDownloads"
 msgstr "Preprint file downloads"
 
-msgid "manager.statistics.reports.defaultReport.articleAbstract"
+msgid "manager.statistics.reports.defaultReport.preprintAbstract"
 msgstr "Preprint abstract page views"
 
 msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
@@ -335,7 +335,7 @@ msgstr "Settings"
 msgid "plugins.importexport.common.settings.DOIPluginSettings"
 msgstr "DOI Plugin Settings"
 
-msgid "plugins.importexport.common.export.articles"
+msgid "plugins.importexport.common.export.preprints"
 msgstr "Preprints"
 
 msgid "plugins.importexport.common.missingRequirements"

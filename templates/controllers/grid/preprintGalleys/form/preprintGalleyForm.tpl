@@ -1,5 +1,5 @@
 {**
- * templates/editor/issues/articleGalleyForm.tpl
+ * templates/editor/issues/preprintGalleyForm.tpl
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -15,14 +15,14 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#articleGalleyForm').pkpHandler('$.pkp.controllers.grid.representations.form.RepresentationFormHandler',
+		$('#preprintGalleyForm').pkpHandler('$.pkp.controllers.grid.representations.form.RepresentationFormHandler',
 			{ldelim}
 				remoteRepresentation: {$remoteRepresentation|json_encode}
 			{rdelim}
 		);
 	{rdelim});
 </script>
-<form class="pkp_form" id="articleGalleyForm" method="post" action="{url op="updateGalley" submissionId=$submissionId publicationId=$publicationId representationId=$representationId}">
+<form class="pkp_form" id="preprintGalleyForm" method="post" action="{url op="updateGalley" submissionId=$submissionId publicationId=$publicationId representationId=$representationId}">
 	{csrf}
 	{fbvFormArea id="galley"}
 		{fbvFormSection title="submission.layout.galleyLabel" required=true}
@@ -43,7 +43,7 @@
 	{/fbvFormArea}
 
 	{if $supportsDependentFiles}
-		{capture assign=dependentFilesGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.files.dependent.DependentFilesGridHandler" op="fetchGrid" submissionId=$submissionId submissionFile=$articleGalleyFile->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_PRODUCTION escape=false}{/capture}
+		{capture assign=dependentFilesGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.files.dependent.DependentFilesGridHandler" op="fetchGrid" submissionId=$submissionId submissionFile=$preprintGalleyFile->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_PRODUCTION escape=false}{/capture}
 		{load_url_in_div id="dependentFilesGridDiv" url=$dependentFilesGridUrl}
 	{/if}
 

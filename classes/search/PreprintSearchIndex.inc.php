@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @file classes/search/ArticleSearchIndex.inc.php
+ * @file classes/search/PreprintSearchIndex.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ArticleSearchIndex
+ * @class PreprintSearchIndex
  * @ingroup search
  *
- * @brief Class to maintain the article search index.
+ * @brief Class to maintain the preprint search index.
  */
 
 import('lib.pkp.classes.search.SubmissionSearchIndex');
 
-class ArticleSearchIndex extends SubmissionSearchIndex {
+class PreprintSearchIndex extends SubmissionSearchIndex {
 
 	/**
 	 * @copydoc SubmissionSearchIndex::submissionMetadataChanged()
@@ -23,7 +23,7 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 	public function submissionMetadataChanged($submission) {
 		// Check whether a search plug-in jumps in.
 		$hookResult = HookRegistry::call(
-			'ArticleSearchIndex::articleMetadataChanged',
+			'PreprintSearchIndex::preprintMetadataChanged',
 			array($submission)
 		);
 
@@ -47,7 +47,7 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 		}
 
 		// Update search index
-		import('classes.search.ArticleSearch');
+		import('classes.search.PreprintSearch');
 		$submissionId = $submission->getId();
 		$this->_updateTextIndex($submissionId, SUBMISSION_SEARCH_AUTHOR, $authorText);
 		$this->_updateTextIndex($submissionId, SUBMISSION_SEARCH_TITLE, $publication->getFullTitles());
@@ -63,30 +63,30 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 
 	/**
 	 * Delete keywords from the search index.
-	 * @param $articleId int
+	 * @param $preprintId int
 	 * @param $type int optional
 	 * @param $assocId int optional
 	 */
-	public function deleteTextIndex($articleId, $type = null, $assocId = null) {
-		$searchDao = DAORegistry::getDAO('ArticleSearchDAO');
-		return $searchDao->deleteSubmissionKeywords($articleId, $type, $assocId);
+	public function deleteTextIndex($preprintId, $type = null, $assocId = null) {
+		$searchDao = DAORegistry::getDAO('PreprintSearchDAO');
+		return $searchDao->deleteSubmissionKeywords($preprintId, $type, $assocId);
 	}
 
 	/**
-	 * Signal to the indexing back-end that an article file changed.
+	 * Signal to the indexing back-end that an preprint file changed.
 	 *
-	 * @see ArticleSearchIndex::submissionMetadataChanged() above for more
+	 * @see PreprintSearchIndex::submissionMetadataChanged() above for more
 	 * comments.
 	 *
-	 * @param $articleId int
+	 * @param $preprintId int
 	 * @param $type int
 	 * @param $submissionFile SubmissionFile
 	 */
-	public function submissionFileChanged($articleId, $type, $submissionFile) {
+	public function submissionFileChanged($preprintId, $type, $submissionFile) {
 		// Check whether a search plug-in jumps in.
 		$hookResult = HookRegistry::call(
-			'ArticleSearchIndex::submissionFileChanged',
-			array($articleId, $type, $submissionFile->getId())
+			'PreprintSearchIndex::submissionFileChanged',
+			array($preprintId, $type, $submissionFile->getId())
 		);
 
 		// If no search plug-in is activated then fall back to the
@@ -95,8 +95,8 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 			$parser = SearchFileParser::fromFile($submissionFile);
 
 			if (isset($parser) && $parser->open()) {
-				$searchDao = DAORegistry::getDAO('ArticleSearchDAO');
-				$objectId = $searchDao->insertObject($articleId, $type, $submissionFile->getId());
+				$searchDao = DAORegistry::getDAO('PreprintSearchDAO');
+				$objectId = $searchDao->insertObject($preprintId, $type, $submissionFile->getId());
 
 				$position = 0;
 				while(($text = $parser->read()) !== false) {
@@ -112,24 +112,24 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 	 * @param $submission Submission
 	 */
 	public function clearSubmissionFiles($submission) {
-		$searchDao = DAORegistry::getDAO('ArticleSearchDAO');
+		$searchDao = DAORegistry::getDAO('PreprintSearchDAO');
 		$searchDao->deleteSubmissionKeywords($submission->getId(), SUBMISSION_SEARCH_GALLEY_FILE);
 	}
 
 	/**
 	 * Signal to the indexing back-end that all files (supplementary
-	 * and galley) assigned to an article changed and must be re-indexed.
+	 * and galley) assigned to an preprint changed and must be re-indexed.
 	 *
-	 * @see ArticleSearchIndex::submissionMetadataChanged() above for more
+	 * @see PreprintSearchIndex::submissionMetadataChanged() above for more
 	 * comments.
 	 *
-	 * @param $article Article
+	 * @param $preprint Preprint
 	 */
-	public function submissionFilesChanged($article) {
+	public function submissionFilesChanged($preprint) {
 		// Check whether a search plug-in jumps in.
 		$hookResult = HookRegistry::call(
-			'ArticleSearchIndex::submissionFilesChanged',
-			array($article)
+			'PreprintSearchIndex::submissionFilesChanged',
+			array($preprint)
 		);
 
 		// If no search plug-in is activated then fall back to the
@@ -137,20 +137,20 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 		if ($hookResult === false || is_null($hookResult)) {
 			import('lib.pkp.classes.submission.SubmissionFile'); // Constants
 			$submissionFilesIterator = Services::get('submissionFile')->getMany([
-				'submissionIds' => [$article->getId()],
+				'submissionIds' => [$preprint->getId()],
 				'fileStages' => [SUBMISSION_FILE_PROOF],
 			]);
 			foreach ($submissionFilesIterator as $submissionFile) {
-				$this->submissionFileChanged($article->getId(), SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile);
+				$this->submissionFileChanged($preprint->getId(), SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile);
 				$dependentFilesIterator = Services::get('submissionFile')->getMany([
 					'assocTypes' => [ASSOC_TYPE_SUBMISSION_FILE],
 					'assocIds' => [$submissionFile->getId()],
-					'submissionIds' => [$article->getId()],
+					'submissionIds' => [$preprint->getId()],
 					'fileStages' => [SUBMISSION_FILE_DEPENDENT],
 					'includeDependentFiles' => true,
 				]);
 				foreach ($dependentFilesIterator as $dependentFile) {
-					$this->submissionFileChanged($article->getId(), SUBMISSION_SEARCH_SUPPLEMENTARY_FILE, $dependentFile);
+					$this->submissionFileChanged($preprint->getId(), SUBMISSION_SEARCH_SUPPLEMENTARY_FILE, $dependentFile);
 				}
 			}
 		}
@@ -159,25 +159,25 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 	/**
 	 * Signal to the indexing back-end that a file was deleted.
 	 *
-	 * @see ArticleSearchIndex::submissionMetadataChanged() above for more
+	 * @see PreprintSearchIndex::submissionMetadataChanged() above for more
 	 * comments.
 	 *
-	 * @param $articleId int
+	 * @param $preprintId int
 	 * @param $type int optional
 	 * @param $assocId int optional
 	 */
-	public function submissionFileDeleted($articleId, $type = null, $assocId = null) {
+	public function submissionFileDeleted($preprintId, $type = null, $assocId = null) {
 		// Check whether a search plug-in jumps in.
 		$hookResult = HookRegistry::call(
-			'ArticleSearchIndex::submissionFileDeleted',
-			array($articleId, $type, $assocId)
+			'PreprintSearchIndex::submissionFileDeleted',
+			array($preprintId, $type, $assocId)
 		);
 
 		// If no search plug-in is activated then fall back to the
 		// default database search implementation.
 		if ($hookResult === false || is_null($hookResult)) {
-			$searchDao = DAORegistry::getDAO('ArticleSearchDAO'); /* @var $searchDao ArticleSearchDAO */
-			return $searchDao->deleteSubmissionKeywords($articleId, $type, $assocId);
+			$searchDao = DAORegistry::getDAO('PreprintSearchDAO'); /* @var $searchDao PreprintSearchDAO */
+			return $searchDao->deleteSubmissionKeywords($preprintId, $type, $assocId);
 		}
 	}
 
@@ -185,21 +185,21 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 	 * Signal to the indexing back-end that the metadata of
 	 * a supplementary file changed.
 	 *
-	 * @see ArticleSearchIndex::submissionMetadataChanged() above for more
+	 * @see PreprintSearchIndex::submissionMetadataChanged() above for more
 	 * comments.
 	 *
-	 * @param $articleId integer
+	 * @param $preprintId integer
 	 */
-	public function articleDeleted($articleId) {
+	public function preprintDeleted($preprintId) {
 		// Trigger a hook to let the indexing back-end know that
-		// an article was deleted.
+		// an preprint was deleted.
 		HookRegistry::call(
-			'ArticleSearchIndex::articleDeleted',
-			array($articleId)
+			'PreprintSearchIndex::preprintDeleted',
+			array($preprintId)
 		);
 
 		// The default indexing back-end does nothing when an
-		// article is deleted (FIXME?).
+		// preprint is deleted (FIXME?).
 	}
 
 	/**
@@ -209,7 +209,7 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 		// Trigger a hook to let the indexing back-end know that
 		// the index may be updated.
 		HookRegistry::call(
-			'ArticleSearchIndex::articleChangesFinished'
+			'PreprintSearchIndex::preprintChangesFinished'
 		);
 
 		// The default indexing back-end works completely synchronously
@@ -219,8 +219,8 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 	/**
 	 * @copydoc SubmissionSearchIndex::submissionChangesFinished()
 	 */
-	public function articleChangesFinished() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated call to articleChangesFinished. Use submissionChangesFinished instead.');
+	public function preprintChangesFinished() {
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated call to preprintChangesFinished. Use submissionChangesFinished instead.');
 		$this->submissionChangesFinished();
 	}
 
@@ -238,7 +238,7 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 	public function rebuildIndex($log = false, $server = null, $switches = array()) {
 		// Check whether a search plug-in jumps in.
 		$hookResult = HookRegistry::call(
-			'ArticleSearchIndex::rebuildIndex',
+			'PreprintSearchIndex::rebuildIndex',
 			array($log, $server, $switches)
 		);
 
@@ -254,7 +254,7 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 
 			// Clear index
 			if ($log) echo __('search.cli.rebuildIndex.clearingIndex') . ' ... ';
-			$searchDao = DAORegistry::getDAO('ArticleSearchDAO');
+			$searchDao = DAORegistry::getDAO('PreprintSearchDAO');
 			$searchDao->clearIndex();
 			if ($log) echo __('search.cli.rebuildIndex.done') . "\n";
 
@@ -293,7 +293,7 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 	 * @param $position int
 	 */
 	protected function _indexObjectKeywords($objectId, $text, &$position) {
-		$searchDao = DAORegistry::getDAO('ArticleSearchDAO');
+		$searchDao = DAORegistry::getDAO('PreprintSearchDAO');
 		$keywords = $this->filterKeywords($text);
 		for ($i = 0, $count = count($keywords); $i < $count; $i++) {
 			if ($searchDao->insertObjectKeyword($objectId, $keywords[$i], $position) !== null) {
@@ -304,14 +304,14 @@ class ArticleSearchIndex extends SubmissionSearchIndex {
 
 	/**
 	 * Add a block of text to the search index.
-	 * @param $articleId int
+	 * @param $preprintId int
 	 * @param $type int
 	 * @param $text string
 	 * @param $assocId int optional
 	 */
-	protected function _updateTextIndex($articleId, $type, $text, $assocId = null) {
-		$searchDao = DAORegistry::getDAO('ArticleSearchDAO');
-		$objectId = $searchDao->insertObject($articleId, $type, $assocId);
+	protected function _updateTextIndex($preprintId, $type, $text, $assocId = null) {
+		$searchDao = DAORegistry::getDAO('PreprintSearchDAO');
+		$objectId = $searchDao->insertObject($preprintId, $type, $assocId);
 		$position = 0;
 		$this->_indexObjectKeywords($objectId, $text, $position);
 	}

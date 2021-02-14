@@ -58,7 +58,7 @@ class PubIdExportRepresentationsListGridHandler extends GridHandler {
 		$context = $request->getContext();
 
 		// Basic grid configuration.
-		$this->setTitle('plugins.importexport.common.export.articles');
+		$this->setTitle('plugins.importexport.common.export.preprints');
 
 		// Load submission-specific translations.
 		AppLocale::requireComponents(
@@ -211,7 +211,7 @@ class PubIdExportRepresentationsListGridHandler extends GridHandler {
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter) {
-		$articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
+		$preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO');
 		$context = $request->getContext();
 		list($search, $column, $statusId) = $this->getFilterValues($filter);
 		$title = $author = null;
@@ -224,7 +224,7 @@ class PubIdExportRepresentationsListGridHandler extends GridHandler {
 		if ($statusId) {
 			$pubIdStatusSettingName = $this->_plugin->getDepositStatusSettingName();
 		}
-		return $articleGalleyDao->getExportable(
+		return $preprintGalleyDao->getExportable(
 			$context->getId(),
 			$this->_plugin->getPubIdType(),
 			$title,

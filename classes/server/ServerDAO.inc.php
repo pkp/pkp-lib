@@ -73,7 +73,7 @@ class ServerDAO extends ContextDAO {
 	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
 	 */
 	function deleteAllPubIds($serverId, $pubIdType) {
-		$pubObjectDaos = ['PublicationDAO', 'ArticleGalleyDAO', 'SubmissionFileDAO'];
+		$pubObjectDaos = ['PublicationDAO', 'PreprintGalleyDAO', 'SubmissionFileDAO'];
 		foreach($pubObjectDaos as $daoName) {
 			$dao = DAORegistry::getDAO($daoName);
 			$dao->deleteAllPubIds($serverId, $pubIdType);

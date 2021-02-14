@@ -83,7 +83,7 @@ msgstr ""
 "Käyttäjien tulee olla rekisteröityneitä ja sisäänkirjautuneita katsellakseen "
 "palvelimen sivustoa."
 
-msgid "manager.setup.restrictArticleAccess"
+msgid "manager.setup.restrictPreprintAccess"
 msgstr ""
 "Käyttäjien tulee olla rekisteröityneitä ja sisäänkirjautuneita katsellakseen "
 "avoimesti saatavilla olevaa sisältöä."

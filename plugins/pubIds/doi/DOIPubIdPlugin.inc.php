@@ -222,11 +222,11 @@ class DOIPubIdPlugin extends PubIdPlugin {
 	 */
 	public function getCitationData($hookname, $args) {
 		$citationData = $args[0];
-		$article = $args[2];
+		$preprint = $args[2];
 		#$issue = $args[3];
 		$server = $args[4];
 
-		if (!$this->getPubId($article)) {
+		if (!$this->getPubId($preprint)) {
 			return;
 		}
 
@@ -324,7 +324,7 @@ class DOIPubIdPlugin extends PubIdPlugin {
 		$props = $args[2];
 
 		// DOIs are already added to property values for Publications and Galleys
-		if (get_class($object) === 'Publication' || get_class($object) === 'ArticleGalley') {
+		if (get_class($object) === 'Publication' || get_class($object) === 'PreprintGalley') {
 			return;
 		}
 

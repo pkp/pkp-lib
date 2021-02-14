@@ -109,8 +109,8 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 		// return that message
 		$submissionId = $request->getUserVar('submissionId');
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO');
-		$article = $submissionDao->getById($submissionId);
-		$failedMsg = $article->getData($this->getFailedMsgSettingName());
+		$preprint = $submissionDao->getById($submissionId);
+		$failedMsg = $preprint->getData($this->getFailedMsgSettingName());
 		if (!empty($failedMsg)) {
 			return $failedMsg;
 		}
@@ -196,10 +196,10 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 		if ($request->getUserVar(EXPORT_ACTION_DEPOSIT)) {
 			assert($filter != null);
 			// Errors occured will be accessible via the status link
-			// thus do not display all errors notifications (for every article),
+			// thus do not display all errors notifications (for every preprint),
 			// just one general.
 			// Warnings occured when the registration was successfull will however be
-			// displayed for each article.
+			// displayed for each preprint.
 			$errorsOccured = false;
 			// The new Crossref deposit API expects one request per object.
 			// On contrary the export supports bulk/batch object export, thus
@@ -210,7 +210,7 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 				// Get the XML
 				$exportXml = $this->exportXML(array($object), $filter, $context, $noValidation);
 				// Write the XML to a file.
-				// export file name example: crossref-20160723-160036-articles-1-1.xml
+				// export file name example: crossref-20160723-160036-preprints-1-1.xml
 				$objectsFileNamePart = $objectsFileNamePart . '-' . $object->getId();
 				$exportFileName = $this->getExportFileName($this->getExportPath(), $objectsFileNamePart, $context, '.xml');
 				$fileManager->writeFile($exportFileName, $exportXml);
@@ -486,10 +486,10 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 				$fileManager = new FileManager();
 				$resultErrors = array();
 				// Errors occured will be accessible via the status link
-				// thus do not display all errors notifications (for every article),
+				// thus do not display all errors notifications (for every preprint),
 				// just one general.
 				// Warnings occured when the registration was successfull will however be
-				// displayed for each article.
+				// displayed for each preprint.
 				$errorsOccured = false;
 				// The new Crossref deposit API expects one request per object.
 				// On contrary the export supports bulk/batch object export, thus
@@ -500,7 +500,7 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 					// Get the XML
 					$exportXml = $this->exportXML(array($object), $filter, $context);
 					// Write the XML to a file.
-					// export file name example: crossref-20160723-160036-articles-1-1.xml
+					// export file name example: crossref-20160723-160036-preprints-1-1.xml
 					$objectsFileNamePartId = $objectsFileNamePart . '-' . $object->getId();
 					$exportFileName = $this->getExportFileName($this->getExportPath(), $objectsFileNamePartId, $context, '.xml');
 					$fileManager->writeFile($exportFileName, $exportXml);

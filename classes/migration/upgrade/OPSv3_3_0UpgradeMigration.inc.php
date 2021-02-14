@@ -59,7 +59,7 @@ class OPSv3_3_0UpgradeMigration extends Migration {
 	private function _settingsAsJSON() {
 
 		// Convert settings where type can be retrieved from schema.json
-		$schemaDAOs = ['SiteDAO', 'AnnouncementDAO', 'AuthorDAO', 'ArticleGalleyDAO', 'ServerDAO', 'EmailTemplateDAO', 'PublicationDAO', 'SubmissionDAO'];
+		$schemaDAOs = ['SiteDAO', 'AnnouncementDAO', 'AuthorDAO', 'PreprintGalleyDAO', 'ServerDAO', 'EmailTemplateDAO', 'PublicationDAO', 'SubmissionDAO'];
 		$processedTables = [];
 		foreach ($schemaDAOs as $daoName) {
 			$dao = DAORegistry::getDAO($daoName);

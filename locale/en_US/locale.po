@@ -71,13 +71,13 @@ msgstr "Preprints"
 msgid "publication.version"
 msgstr "Version {$version}"
 
-msgid "article.details"
+msgid "preprint.details"
 msgstr "Details"
 
-msgid "article.abstract"
+msgid "preprint.abstract"
 msgstr "Abstract"
 
-msgid "article.pageTitle"
+msgid "preprint.pageTitle"
 msgstr "View of {$title}"
 
 msgid "submissions.published"
@@ -131,7 +131,7 @@ msgstr "Preprint submitted"
 msgid "search.results.orderBy"
 msgstr "Order results by"
 
-msgid "search.results.orderBy.article"
+msgid "search.results.orderBy.preprint"
 msgstr "Preprint Title"
 
 msgid "search.results.orderBy.author"

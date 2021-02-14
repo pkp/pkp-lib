@@ -23,14 +23,14 @@ class IssueAction {
 	/**
 	 * @copydoc IssueAction::subscribedUser()
 	 */
-	function subscribedUser($user, $server, $issueId = null, $articleId = null) {
+	function subscribedUser($user, $server, $issueId = null, $preprintId = null) {
 		return false;
 	}
 
 	/**
 	 * @copydoc IssueAction::subscribedDomain()
 	 */
-	function subscribedDomain($request, $server, $issueId = null, $articleId = null) {
+	function subscribedDomain($request, $server, $issueId = null, $preprintId = null) {
 		return false;
 	}
 }

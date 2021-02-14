@@ -30,8 +30,8 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
 	 */
 	public function get($galleyId) {
-		$articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO'); /* @var $articleGalleyDao ArticleGalleyDAO */
-		return $articleGalleyDao->getById($galleyId);
+		$preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $preprintGalleyDao PreprintGalleyDAO */
+		return $preprintGalleyDao->getById($galleyId);
 	}
 
 	/**
@@ -59,7 +59,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
 	 */
 	public function getMany($args = []) {
 		$galleyQO = $this->getQueryBuilder($args)->getQuery();
-		$galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
+		$galleyDao = DAORegistry::getDAO('PreprintGalleyDAO');
 		$result = $galleyDao->retrieveRange($galleyQO->toSql(), $galleyQO->getBindings());
 		$queryResults = new DAOResultFactory($result, $galleyDao, '_fromRow');
 
@@ -128,7 +128,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
 							$request,
 							\PKPApplication::ROUTE_PAGE,
 							$context->getPath(),
-							'article',
+							'preprint',
 							'view',
 							[
 								$submission->getBestId(),
@@ -237,8 +237,8 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::add()
 	 */
 	public function add($galley, $request) {
-		$articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO'); /* @var $articleGalleyDao ArticleGalleyDAO */
-		$galleyId = $articleGalleyDao->insertObject($galley);
+		$preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $preprintGalleyDao PreprintGalleyDAO */
+		$galleyId = $preprintGalleyDao->insertObject($galley);
 		$galley = $this->get($galleyId);
 
 		\HookRegistry::call('Galley::add', array(&$galley, $request));
@@ -250,7 +250,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::edit()
 	 */
 	public function edit($galley, $params, $request) {
-		$galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
+		$galleyDao = DAORegistry::getDAO('PreprintGalleyDAO');
 
 		$newGalley = $galleyDao->newDataObject();
 		$newGalley->_data = array_merge($galley->_data, $params);
@@ -269,8 +269,8 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
 	public function delete($galley) {
 		\HookRegistry::call('Galley::delete::before', [&$galley]);
 
-		$articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO'); /* @var $articleGalleyDao ArticleGalleyDAO */
-		$articleGalleyDao->deleteObject($galley);
+		$preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $preprintGalleyDao PreprintGalleyDAO */
+		$preprintGalleyDao->deleteObject($galley);
 
 		// Delete related submission files
 		$submissionFilesIterator = Services::get('submissionFile')->getMany([

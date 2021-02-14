@@ -17,7 +17,7 @@ require(dirname(__FILE__) . '/bootstrap.inc.php');
 
 class SubmissionDeletionTool extends CommandLineTool {
 
-	var $articleIds;
+	var $preprintIds;
 
 	/**
 	 * Constructor.
@@ -47,13 +47,13 @@ class SubmissionDeletionTool extends CommandLineTool {
 	 */
 	function execute() {
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO');
-		foreach($this->parameters as $articleId) {
-			$article = $submissionDao->getById($articleId);
-			if(!isset($article)) {
-				printf("Error: Skipping $articleId. Unknown submission.\n");
+		foreach($this->parameters as $preprintId) {
+			$preprint = $submissionDao->getById($preprintId);
+			if(!isset($preprint)) {
+				printf("Error: Skipping $preprintId. Unknown submission.\n");
 				continue;
 			}
-			$submissionDao->deleteById($articleId);
+			$submissionDao->deleteById($preprintId);
 		}
 	}
 }

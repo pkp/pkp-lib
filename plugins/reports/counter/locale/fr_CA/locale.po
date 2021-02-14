@@ -84,7 +84,7 @@ msgid "plugins.reports.counter.1a.xml"
 msgstr "Version de la spécification du XML"
 
 msgid "plugins.reports.counter.1a.description"
-msgstr "Rapport COUNTER de revue 1 (R3): Requête sur des articles en plein texte par mois et par revue"
+msgstr "Rapport COUNTER de revue 1 (R3): Requête sur des preprints en plein texte par mois et par revue"
 
 msgid "plugins.reports.counter.1a.anonymous"
 msgstr "anonyme"

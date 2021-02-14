@@ -26,7 +26,7 @@ define('COUNTER_EXCEPTION_INTERNAL', 256);
 define('COUNTER_CLASS_PREFIX', 'CounterReport');
 
 // COUNTER as of yet is not internationalized and requires English constants
-define('COUNTER_LITERAL_ARTICLE', 'Article');
+define('COUNTER_LITERAL_PREPRINT', 'Preprint');
 define('COUNTER_LITERAL_SERVER', 'Server');
 define('COUNTER_LITERAL_PROPRIETARY', 'Proprietary');
 

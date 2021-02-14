@@ -1,23 +1,23 @@
 <?php
 
 /**
- * @file classes/search/ArticleSearch.inc.php
+ * @file classes/search/PreprintSearch.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ArticleSearch
+ * @class PreprintSearch
  * @ingroup search
- * @see ArticleSearchDAO
+ * @see PreprintSearchDAO
  *
- * @brief Class for retrieving article search results.
+ * @brief Class for retrieving preprint search results.
  *
  */
 
 import('lib.pkp.classes.search.SubmissionSearch');
 
-class ArticleSearch extends SubmissionSearch {
+class PreprintSearch extends SubmissionSearch {
 	/**
 	 * See SubmissionSearch::getSparseArray()
 	 */
@@ -202,7 +202,7 @@ class ArticleSearch extends SubmissionSearch {
 	/**
 	 * Load the keywords array from a given search filter.
 	 * @param $searchFilters array Search filters as returned from
-	 *  ArticleSearch::getSearchFilters()
+	 *  PreprintSearch::getSearchFilters()
 	 * @return array Keyword array as required by SubmissionSearch::retrieveResults()
 	 */
 	function getKeywordsFromSearchFilters($searchFilters) {
@@ -225,7 +225,7 @@ class ArticleSearch extends SubmissionSearch {
 	 *
 	 * @param $results array
 	 * @param $user User optional (if availability information is desired)
-	 * @return array An array with the articles, published submissions,
+	 * @return array An array with the preprints, published submissions,
 	 * server, section.
 	 */
 	function formatResults($results, $user = null) {
@@ -233,37 +233,37 @@ class ArticleSearch extends SubmissionSearch {
 		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
 
 		$publishedSubmissionCache = array();
-		$articleCache = array();
+		$preprintCache = array();
 		$contextCache = array();
 		$sectionCache = array();
 
 		$returner = array();
-		foreach ($results as $articleId) {
-			// Get the article, storing in cache if necessary.
-			if (!isset($articleCache[$articleId])) {
-				$submission = Services::get('submission')->get($articleId);
-				$publishedSubmissionCache[$articleId] = $submission;
-				$articleCache[$articleId] = $submission;
+		foreach ($results as $preprintId) {
+			// Get the preprint, storing in cache if necessary.
+			if (!isset($preprintCache[$preprintId])) {
+				$submission = Services::get('submission')->get($preprintId);
+				$publishedSubmissionCache[$preprintId] = $submission;
+				$preprintCache[$preprintId] = $submission;
 			}
-			$article = $articleCache[$articleId];
-			$publishedSubmission = $publishedSubmissionCache[$articleId];
+			$preprint = $preprintCache[$preprintId];
+			$publishedSubmission = $publishedSubmissionCache[$preprintId];
 
-			if ($publishedSubmission && $article) {
-				$sectionId = $article->getSectionId();
+			if ($publishedSubmission && $preprint) {
+				$sectionId = $preprint->getSectionId();
 				if (!isset($sectionCache[$sectionId])) {
 					$sectionCache[$sectionId] = $sectionDao->getById($sectionId);
 				}
 
 				// Get the context, storing in cache if necessary.
-				$contextId = $article->getData('contextId');
+				$contextId = $preprint->getData('contextId');
 				if (!isset($contextCache[$contextId])) {
 					$contextCache[$contextId] = $contextDao->getById($contextId);
 				}
 
 				// Store the retrieved objects in the result array.
 				$returner[] = array(
-					'article' => $article,
-					'publishedSubmission' => $publishedSubmissionCache[$articleId],
+					'preprint' => $preprint,
+					'publishedSubmission' => $publishedSubmissionCache[$preprintId],
 					'server' => $contextCache[$contextId],
 					'section' => $sectionCache[$sectionId]
 				);
@@ -281,17 +281,17 @@ class ArticleSearch extends SubmissionSearch {
 	function getSimilarityTerms($submissionId) {
 		// Check whether a search plugin provides terms for a similarity search.
 		$searchTerms = array();
-		$result = HookRegistry::call('ArticleSearch::getSimilarityTerms', array($submissionId, &$searchTerms));
+		$result = HookRegistry::call('PreprintSearch::getSimilarityTerms', array($submissionId, &$searchTerms));
 
 		// If no plugin implements the hook then use the subject keywords
 		// of the submission for a similarity search.
 		if ($result === false) {
-			// Retrieve the article.
-			$article = Services::get('submission')->get($submissionId);
-			if ($article->getData('status') === STATUS_PUBLISHED) {
+			// Retrieve the preprint.
+			$preprint = Services::get('submission')->get($submissionId);
+			if ($preprint->getData('status') === STATUS_PUBLISHED) {
 				// Retrieve keywords (if any).
 				$submissionSubjectDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-				$allSearchTerms = array_filter($submissionSubjectDao->getKeywords($article->getId(), array(AppLocale::getLocale(), $article->getLocale(), AppLocale::getPrimaryLocale())));
+				$allSearchTerms = array_filter($submissionSubjectDao->getKeywords($preprint->getId(), array(AppLocale::getLocale(), $preprint->getLocale(), AppLocale::getPrimaryLocale())));
 				foreach ($allSearchTerms as $locale => $localeSearchTerms) {
 					$searchTerms += $localeSearchTerms;
 				}
@@ -323,7 +323,7 @@ class ArticleSearch extends SubmissionSearch {
 			'score' => __('search.results.orderBy.relevance'),
 			'authors' => __('search.results.orderBy.author'),
 			'publicationDate' => __('search.results.orderBy.date'),
-			'title' => __('search.results.orderBy.article')
+			'title' => __('search.results.orderBy.preprint')
 		);
 
 		// Only show the "popularity" options if we have a default metric.
@@ -364,7 +364,7 @@ class ArticleSearch extends SubmissionSearch {
 	 * See SubmissionSearch::getSearchDao()
 	 */
 	protected function getSearchDao() {
-		return DAORegistry::getDAO('ArticleSearchDAO');
+		return DAORegistry::getDAO('PreprintSearchDAO');
 	}
 }
 

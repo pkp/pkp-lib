@@ -21,7 +21,7 @@ class OAIDAO extends PKPOAIDAO {
  	/** Helper DAOs */
  	var $serverDao;
  	var $sectionDao;
-	var $articleGalleyDao;
+	var $preprintGalleyDao;
  	var $authorDao;
 
  	var $serverCache;
@@ -34,7 +34,7 @@ class OAIDAO extends PKPOAIDAO {
 		parent::__construct();
 		$this->serverDao = DAORegistry::getDAO('ServerDAO');
 		$this->sectionDao = DAORegistry::getDAO('SectionDAO');
-		$this->articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
+		$this->preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO');
 		$this->authorDao = DAORegistry::getDAO('AuthorDAO');
 
 		$this->serverCache = array();
@@ -98,17 +98,17 @@ class OAIDAO extends PKPOAIDAO {
 			array_push($sets, new OAISet(urlencode($abbrev), $title, ''));
 
 			$tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO');
-			$articleTombstoneSets = $tombstoneDao->getSets(ASSOC_TYPE_SERVER, $server->getId());
+			$preprintTombstoneSets = $tombstoneDao->getSets(ASSOC_TYPE_SERVER, $server->getId());
 
 			$sections = $this->sectionDao->getByServerId($server->getId());
 			foreach ($sections->toArray() as $section) {
-				if (array_key_exists(urlencode($abbrev) . ':' . urlencode($section->getLocalizedAbbrev()), $articleTombstoneSets)) {
-					unset($articleTombstoneSets[urlencode($abbrev) . ':' . urlencode($section->getLocalizedAbbrev())]);
+				if (array_key_exists(urlencode($abbrev) . ':' . urlencode($section->getLocalizedAbbrev()), $preprintTombstoneSets)) {
+					unset($preprintTombstoneSets[urlencode($abbrev) . ':' . urlencode($section->getLocalizedAbbrev())]);
 				}
 				array_push($sets, new OAISet(urlencode($abbrev) . ':' . urlencode($section->getLocalizedAbbrev()), $section->getLocalizedTitle(), ''));
 			}
-			foreach ($articleTombstoneSets as $articleTombstoneSetSpec => $articleTombstoneSetName) {
-				array_push($sets, new OAISet($articleTombstoneSetSpec, $articleTombstoneSetName, ''));
+			foreach ($preprintTombstoneSets as $preprintTombstoneSetSpec => $preprintTombstoneSetName) {
+				array_push($sets, new OAISet($preprintTombstoneSetSpec, $preprintTombstoneSetName, ''));
 			}
 		}
 
@@ -157,16 +157,16 @@ class OAIDAO extends PKPOAIDAO {
 	function setOAIData($record, $row, $isRecord = true) {
 		$server = $this->getServer($row['server_id']);
 		$section = $this->getSection($row['section_id']);
-		$articleId = $row['submission_id'];
+		$preprintId = $row['submission_id'];
 
-		$record->identifier = $this->oai->articleIdToIdentifier($articleId);
+		$record->identifier = $this->oai->preprintIdToIdentifier($preprintId);
 		$record->sets = array(urlencode($server->getPath()) . ':' . urlencode($section->getLocalizedAbbrev()));
 
 		if ($isRecord) {
-			$submission = Services::get('submission')->get($articleId);
-			$galleys = $this->articleGalleyDao->getByPublicationId($submission->getCurrentPublication()->getId())->toArray();
+			$submission = Services::get('submission')->get($preprintId);
+			$galleys = $this->preprintGalleyDao->getByPublicationId($submission->getCurrentPublication()->getId())->toArray();
 
-			$record->setData('article', $submission);
+			$record->setData('preprint', $submission);
 			$record->setData('server', $server);
 			$record->setData('section', $section);
 			$record->setData('galleys', $galleys);

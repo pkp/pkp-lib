@@ -1,22 +1,22 @@
 <?php
 
 /**
- * @file classes/article/ArticleGalley.inc.php
+ * @file classes/preprint/PreprintGalley.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ArticleGalley
- * @ingroup article
- * @see ArticleGalleyDAO
+ * @class PreprintGalley
+ * @ingroup preprint
+ * @see PreprintGalleyDAO
  *
- * @brief A galley is a final presentation version of the full-text of an article.
+ * @brief A galley is a final presentation version of the full-text of an preprint.
  */
 
 import('lib.pkp.classes.submission.Representation');
 
-class ArticleGalley extends Representation {
+class PreprintGalley extends Representation {
 	/** @var SubmissionFile */
 	var $_submissionFile;
 
@@ -71,8 +71,8 @@ class ArticleGalley extends Representation {
 	}
 
 	/**
-	 * Return the "best" article ID -- If a public article ID is set,
-	 * use it; otherwise use the internal article Id.
+	 * Return the "best" preprint ID -- If a public preprint ID is set,
+	 * use it; otherwise use the internal preprint Id.
 	 * @return string
 	 */
 	function getBestGalleyId() {

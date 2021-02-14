@@ -19,10 +19,10 @@ msgstr ""
 msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
 msgstr "Прегледи на главната страница на серверот"
 
-msgid "manager.statistics.reports.defaultReport.articleAbstract"
+msgid "manager.statistics.reports.defaultReport.preprintAbstract"
 msgstr "Отпечатете ги апстрактните прегледи на страниците"
 
-msgid "manager.statistics.reports.defaultReport.articleDownloads"
+msgid "manager.statistics.reports.defaultReport.preprintDownloads"
 msgstr "Преземање преземања на датотеки"
 
 msgid "manager.statistics.statistics.registeredReaders"
@@ -57,7 +57,7 @@ msgstr "Одбиј"
 msgid "manager.statistics.statistics.count.accept"
 msgstr "Прифати"
 
-msgid "manager.statistics.statistics.articleViews"
+msgid "manager.statistics.statistics.preprintViews"
 msgstr "Број на прегледи на печатени печати (само за автори)"
 
 msgid "manager.statistics.statistics"
@@ -126,7 +126,7 @@ msgstr ""
 "Корисниците мора да бидат регистрирани и да се најават за да ја видат "
 "страницата на серверот."
 
-msgid "manager.setup.restrictArticleAccess"
+msgid "manager.setup.restrictPreprintAccess"
 msgstr ""
 "Корисниците мора да бидат регистрирани и да се најават за да ја видат "
 "содржината со отворен пристап."

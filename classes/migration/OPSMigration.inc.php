@@ -71,7 +71,7 @@ class OPSMigration extends Migration {
 			$table->unique(['section_id', 'locale', 'setting_name'], 'section_settings_pkey');
 		});
 
-		// Archived, removed from TOC, unscheduled or unpublished server articles.
+		// Archived, removed from TOC, unscheduled or unpublished server preprints.
 		Capsule::schema()->create('submission_tombstones', function (Blueprint $table) {
 			$table->bigInteger('tombstone_id')->autoIncrement();
 			$table->bigInteger('submission_id');

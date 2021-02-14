@@ -47,7 +47,7 @@ msgstr "Sesija #{$sessionNumber}"
 msgid "plugins.reports.counter.entry.type"
 msgstr "Tip"
 
-msgid "plugins.reports.counter.entry.type.article"
+msgid "plugins.reports.counter.entry.type.preprint"
 msgstr "Članak"
 
 msgid "plugins.reports.counter.entry.type.search"

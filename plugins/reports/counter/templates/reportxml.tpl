@@ -34,7 +34,7 @@
           <Type>Online_ISSN</Type>
           <Value>{$journal.onlineIssn|escape:"html"}</Value>
         </ItemIdentifier>
-        <ItemPlatform>Open Journal Systems</ItemPlatform>
+        <ItemPlatform>Open Preprint Systems</ItemPlatform>
         <ItemPublisher>{$journal.publisherInstitution|escape:"html"}</ItemPublisher>
         <ItemName>{$journal.journalTitle|escape:"html"}</ItemName>
         <ItemDataType>Journal</ItemDataType>

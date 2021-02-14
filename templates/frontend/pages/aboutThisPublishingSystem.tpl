@@ -5,10 +5,10 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @brief Display the page to view details about the OJS software.
+ * @brief Display the page to view details about the OPS software.
  *
  * @uses $currentContext Journal The journal currently being viewed
- * @uses $appVersion string Current version of OJS
+ * @uses $appVersion string Current version of OPS
  * @uses $contactUrl string URL to the journal's contact page
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.aboutSoftware"}
@@ -21,9 +21,9 @@
 
 	<p>
 		{if $currentContext}
-			{translate key="about.aboutOJSJournal" ojsVersion=$appVersion contactUrl=$contactUrl}
+			{translate key="about.aboutOPSJournal" opsVersion=$appVersion contactUrl=$contactUrl}
 		{else}
-			{translate key="about.aboutOJSSite" ojsVersion=$appVersion}
+			{translate key="about.aboutOPSSite" opsVersion=$appVersion}
 		{/if}
 	</p>
 

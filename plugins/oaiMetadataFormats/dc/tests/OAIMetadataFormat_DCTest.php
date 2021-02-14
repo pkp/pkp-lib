@@ -171,7 +171,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 		DAORegistry::registerDAO('AuthorDAO', $authorDao);
 
 		// Create a mocked OAIDAO that returns our test data.
-		import('classes.oai.ojs.OAIDAO');
+		import('classes.oai.ops.OAIDAO');
 		$oaiDao = $this->getMockBuilder(OAIDAO::class)
 			->setMethods(array('getJournal', 'getSection', 'getIssue'))
 			->getMock();

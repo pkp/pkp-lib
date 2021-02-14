@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/oai/ojs/JournalOAI.inc.php
+ * @file classes/oai/ops/JournalOAI.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -11,13 +11,13 @@
  * @ingroup oai
  * @see OAIDAO
  *
- * @brief OPS-specific OAI interface.
+ * @brief ops-specific OAI interface.
  * Designed to support both a site-wide and journal-specific OAI interface
  * (based on where the request is directed).
  */
 
 import('lib.pkp.classes.oai.OAI');
-import('classes.oai.ojs.OAIDAO');
+import('classes.oai.ops.OAIDAO');
 
 class JournalOAI extends OAI {
 	/** @var Site associated site object */
@@ -121,11 +121,11 @@ class JournalOAI extends OAI {
 		$info->sampleIdentifier = $this->articleIdToIdentifier(1);
 		$info->earliestDatestamp = $this->dao->getEarliestDatestamp(array($this->journalId));
 
-		$info->toolkitTitle = 'Open Journal Systems';
+		$info->toolkitTitle = 'Open Preprint Systems';
 		$versionDao = DAORegistry::getDAO('VersionDAO');
 		$currentVersion = $versionDao->getCurrentVersion();
 		$info->toolkitVersion = $currentVersion->getVersionString();
-		$info->toolkitURL = 'http://pkp.sfu.ca/ojs/';
+		$info->toolkitURL = 'http://pkp.sfu.ca/ops/';
 
 		return $info;
 	}

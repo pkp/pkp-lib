@@ -13,7 +13,7 @@
  * @brief Counter report plugin
  */
 
-define('OPS_METRIC_TYPE_LEGACY_COUNTER', 'ojs::legacyCounterPlugin');
+define('OPS_METRIC_TYPE_LEGACY_COUNTER', 'ops::legacyCounterPlugin');
 
 define('COUNTER_CLASS_SUFFIX', '.inc.php');
 

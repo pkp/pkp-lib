@@ -26,8 +26,8 @@ define('ASSOC_TYPE_JOURNAL',		0x0000100);
 
 define('CONTEXT_JOURNAL', 1);
 
-define('LANGUAGE_PACK_DESCRIPTOR_URL', 'http://pkp.sfu.ca/ojs/xml/%s/locales.xml');
-define('LANGUAGE_PACK_TAR_URL', 'http://pkp.sfu.ca/ojs/xml/%s/%s.tar.gz');
+define('LANGUAGE_PACK_DESCRIPTOR_URL', 'http://pkp.sfu.ca/ops/xml/%s/locales.xml');
+define('LANGUAGE_PACK_TAR_URL', 'http://pkp.sfu.ca/ops/xml/%s/%s.tar.gz');
 
 define('METRIC_TYPE_COUNTER', 'ops::counter');
 
@@ -89,7 +89,7 @@ class Application extends PKPApplication {
 			'JournalDAO' => 'classes.journal.JournalDAO',
 			'JournalSettingsDAO' => 'classes.journal.JournalSettingsDAO',
 			'MetricsDAO' => 'classes.statistics.MetricsDAO',
-			'OAIDAO' => 'classes.oai.ojs.OAIDAO',
+			'OAIDAO' => 'classes.oai.ops.OAIDAO',
 			'PublishedSubmissionDAO' => 'classes.article.PublishedSubmissionDAO',
 			'SectionDAO' => 'classes.journal.SectionDAO',
 		));

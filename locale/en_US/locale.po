@@ -266,10 +266,10 @@ msgid "about.aboutSoftware"
 msgstr "About Open Preprint Systems"
 
 msgid "about.aboutOPSJournal"
-msgstr "This server uses Open Preprint Systems {$ojsVersion}, which is open source preprint server management software developed, supported, and freely distributed by the Public Knowledge Project under the GNU General Public License. Visit PKP's website to <a href=\"http://pkp.sfu.ca/\">learn more about the software</a>. Please <a href=\"{$contactUrl}\">contact the server</a> directly with questions about the server and submission of preprints."
+msgstr "This server uses Open Preprint Systems {$opsVersion}, which is open source preprint server management software developed, supported, and freely distributed by the Public Knowledge Project under the GNU General Public License. Visit PKP's website to <a href=\"http://pkp.sfu.ca/\">learn more about the software</a>. Please <a href=\"{$contactUrl}\">contact the server</a> directly with questions about the server and submission of preprints."
 
 msgid "about.aboutOPSSite"
-msgstr "This site uses Open Preprint Systems {$ojsVersion}, which is open source preprint server management software developed, supported, and freely distributed by the Public Knowledge Project under the GNU General Public License. Visit PKP's website to <a href=\"http://pkp.sfu.ca/\">learn more about the software</a>. Please contact the site directly with questions about its servers and submissions of preprints."
+msgstr "This site uses Open Preprint Systems {$opsVersion}, which is open source preprint server management software developed, supported, and freely distributed by the Public Knowledge Project under the GNU General Public License. Visit PKP's website to <a href=\"http://pkp.sfu.ca/\">learn more about the software</a>. Please contact the site directly with questions about its servers and submissions of preprints."
 
 msgid "help.goToEditPage"
 msgstr "Edit {$sectionTitle}"

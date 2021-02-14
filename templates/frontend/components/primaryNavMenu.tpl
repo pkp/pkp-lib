@@ -5,7 +5,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * Primary navigation menu list for OJS
+ * Primary navigation menu list for OPS
  *}
 <ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list">
 

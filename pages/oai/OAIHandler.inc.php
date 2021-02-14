@@ -15,7 +15,7 @@
 
 define('SESSION_DISABLE_INIT', 1); // FIXME?
 
-import('classes.oai.ojs.JournalOAI');
+import('classes.oai.ops.JournalOAI');
 import('classes.handler.Handler');
 
 use \Firebase\JWT\JWT;

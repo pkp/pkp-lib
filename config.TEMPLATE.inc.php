@@ -29,7 +29,7 @@
 installed = Off
 
 ; The canonical URL to the OPS installation (excluding the trailing slash)
-base_url = "http://pkp.sfu.ca/ojs"
+base_url = "http://pkp.sfu.ca/ops"
 
 ; Enable strict mode. This will more aggressively cause errors/warnings when
 ; deprecated behaviour exists in the codebase.
@@ -130,9 +130,9 @@ sitewide_privacy_statement = Off
 
 driver = mysqli
 host = localhost
-username = ojs
-password = ojs
-name = ojs
+username = ops
+password = ops
+name = ops
 
 ; Set the non-standard port and/or socket, if used
 ; port = 3306
@@ -174,7 +174,7 @@ memcache_port = 11211
 ;
 ; When using web_cache, configure a tool to periodically clear out cache files
 ; such as CRON. For example, configure it to run the following command:
-; find .../ojs/cache -maxdepth 1 -name wc-\*.html -mtime +1 -exec rm "{}" ";"
+; find .../ops/cache -maxdepth 1 -name wc-\*.html -mtime +1 -exec rm "{}" ";"
 web_cache = Off
 web_cache_hours = 1
 
@@ -418,7 +418,7 @@ result_cache_hours = 1
 oai = On
 
 ; OAI Repository identifier
-repository_id = ojs.pkp.sfu.ca
+repository_id = ops.pkp.sfu.ca
 
 ; Maximum number of records per request to serve via OAI
 oai_max_records = 100

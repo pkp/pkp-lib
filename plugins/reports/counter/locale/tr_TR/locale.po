@@ -90,4 +90,4 @@ msgid "plugins.reports.counter.1a.introduction"
 msgstr "Bu bağlantılar, eski Sürüm 3.0'a dayanarak COUNTER tabanlı raporlar oluşturur. Bu rapor sitede tüm dergileri kapsar. Mümkünse en son sürümü kullanın."
 
 msgid "plugins.reports.counter.legacyStats"
-msgstr "Aşağıdaki bağlantılar, COUNTER destekli olmayan eski eklenti verilerini kullanarak eski raporlar oluşturur. Yeni OJS COUNTER metrik tipini kullanarak mevcut COUNTER raporları oluşturmak istiyorsanız, yukarıdaki bağlantıları kullanın."
+msgstr "Aşağıdaki bağlantılar, COUNTER destekli olmayan eski eklenti verilerini kullanarak eski raporlar oluşturur. Yeni OPS COUNTER metrik tipini kullanarak mevcut COUNTER raporları oluşturmak istiyorsanız, yukarıdaki bağlantıları kullanın."

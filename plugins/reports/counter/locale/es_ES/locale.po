@@ -54,7 +54,7 @@ msgid "plugins.reports.counter.1a.totalForAllJournals"
 msgstr "Total para todas las revistas"
 
 msgid "plugins.reports.counter.legacyStats"
-msgstr "Los siguientes enlaces generan informes mediante datos antiguos del módulo COUNTER. Si desea generar informes COUNTER mediante el nuevo tipo de métrica COUNTER de OJS, utilice los siguientes enlaces."
+msgstr "Los siguientes enlaces generan informes mediante datos antiguos del módulo COUNTER. Si desea generar informes COUNTER mediante el nuevo tipo de métrica COUNTER de OPS, utilice los siguientes enlaces."
 
 msgid "plugins.reports.counter.1a.xml"
 msgstr "versión XML"

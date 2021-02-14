@@ -11,7 +11,7 @@
 ; Copyright (c) 2003-2021 John Willinsky
 ; Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
 ;
-; OJS Configuration settings.
+; OPS Configuration settings.
 ; Rename config.TEMPLATE.inc.php to config.inc.php to use.
 ;
 ;
@@ -28,7 +28,7 @@
 ; (This is generally done automatically by the installer)
 installed = Off
 
-; The canonical URL to the OJS installation (excluding the trailing slash)
+; The canonical URL to the OPS installation (excluding the trailing slash)
 base_url = "http://pkp.sfu.ca/ojs"
 
 ; Enable strict mode. This will more aggressively cause errors/warnings when
@@ -36,7 +36,7 @@ base_url = "http://pkp.sfu.ca/ojs"
 strict = Off
 
 ; Session cookie name
-session_cookie_name = OJSSID
+session_cookie_name = OPSSID
 
 ; Session cookie path; if not specified, defaults to the detected base path
 ; session_cookie_path = /
@@ -77,8 +77,8 @@ disable_path_info = Off
 allow_url_fopen = Off
 
 ; Base URL override settings: Entries like the following examples can
-; be used to override the base URLs used by OJS. If you want to use a
-; proxy to rewrite URLs to OJS, configure your proxy's URL here.
+; be used to override the base URLs used by OPS. If you want to use a
+; proxy to rewrite URLs to OPS, configure your proxy's URL here.
 ; Syntax: base_url[journal_path] = http://www.myUrl.com
 ; To override URLs that aren't part of a particular journal, use a
 ; journal_path of "index".
@@ -208,7 +208,7 @@ files_dir = files
 
 ; Path to the directory to store public uploaded files
 ; (This directory should be web-accessible and the specified path
-; should be relative to the base OJS directory)
+; should be relative to the base OPS directory)
 ; Windows users should use forward slashes
 public_files_dir = public
 
@@ -357,7 +357,7 @@ allowed_html = "a[href|target|title],em,strong,cite,code,ul,ol,li[class],dl,dt,d
 ; dmarc_compliant_from_displayname = '%n via %s'
 
 ; Amount of time required between attempts to send non-editorial emails
-; in seconds. This can be used to help prevent email relaying via OJS.
+; in seconds. This can be used to help prevent email relaying via OPS.
 time_between_emails = 3600
 
 ; Maximum number of recipients that can be included in a single email

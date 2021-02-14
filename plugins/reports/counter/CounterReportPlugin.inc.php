@@ -13,7 +13,7 @@
  * @brief Counter report plugin
  */
 
-define('OJS_METRIC_TYPE_LEGACY_COUNTER', 'ojs::legacyCounterPlugin');
+define('OPS_METRIC_TYPE_LEGACY_COUNTER', 'ojs::legacyCounterPlugin');
 
 define('COUNTER_CLASS_SUFFIX', '.inc.php');
 
@@ -231,7 +231,7 @@ class CounterReportPlugin extends ReportPlugin {
 	*/
 	function _getYears($useLegacyStats = false) {
 		if ($useLegacyStats) {
-			$metricType = OJS_METRIC_TYPE_LEGACY_COUNTER;
+			$metricType = OPS_METRIC_TYPE_LEGACY_COUNTER;
 			$filter = array();
 		} else {
 			$metricType = METRIC_TYPE_COUNTER;

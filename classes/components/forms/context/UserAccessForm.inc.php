@@ -9,7 +9,7 @@
  * @class UserAccessForm
  * @ingroup classes_controllers_form
  *
- * @brief Add OJS-specific fields to the users and roles access settings form.
+ * @brief Add OPS-specific fields to the users and roles access settings form.
  */
 namespace APP\components\forms\context;
 use \PKP\components\forms\context\PKPUserAccessForm;

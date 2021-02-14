@@ -11,7 +11,7 @@
  * @ingroup oai_ojs
  * @see OAI
  *
- * @brief DAO operations for the OJS OAI interface.
+ * @brief DAO operations for the OPS OAI interface.
  */
 
 import('lib.pkp.classes.oai.PKPOAIDAO');

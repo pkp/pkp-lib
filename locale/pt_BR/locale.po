@@ -60,14 +60,14 @@ msgid "help.goToEditPage"
 msgstr "Editar{$sectionTitle}"
 
 #, fuzzy
-msgid "about.aboutOJSSite"
+msgid "about.aboutOPSSite"
 msgstr ""
 "Este site utiliza Open Preprint Systems {$ojsVersion}, que é um software de "
 "gerenciamento e publicação de servidor de código aberto desenvolvido, "
 "apoiado e distribuído gratuitamente pelo <a href=\"http://pkp.sfu.ca/\">"
 "Public Knowledge Project</a> sob Licença Pública Geral GNU."
 
-msgid "about.aboutOJSJournal"
+msgid "about.aboutOPSJournal"
 msgstr ""
 "Este servidor utiliza Open Preprint Systems {$ojsVersion}, que é um software "
 "de gerenciamento e publicação de servidor de preprints em código aberto "

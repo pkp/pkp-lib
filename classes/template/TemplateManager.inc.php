@@ -80,7 +80,7 @@ class TemplateManager extends PKPTemplateManager {
 				// Get a link to the settings page for the current context.
 				// This allows us to reduce template duplication by using this
 				// variable in templates/common/header.tpl, instead of
-				// reproducing a lot of OMP/OJS-specific logic there.
+				// reproducing a lot of OMP/OPS-specific logic there.
 				$dispatcher = $request->getDispatcher();
 				$this->assign([
 					'contextSettingsUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'management', 'settings', 'context'),

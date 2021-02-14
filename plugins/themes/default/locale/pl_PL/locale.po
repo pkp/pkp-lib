@@ -15,7 +15,7 @@ msgid "plugins.themes.default.name"
 msgstr "Domyślny motyw"
 
 msgid "plugins.themes.default.description"
-msgstr "Motyw domyślny OJS3."
+msgstr "Motyw domyślny OPS3."
 
 msgid "plugins.themes.default.option.typography.label"
 msgstr "Typografia"

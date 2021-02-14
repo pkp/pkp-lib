@@ -2,7 +2,7 @@
 
 /**
  * @defgroup journal Journal
- * Extensions to the pkp-lib "context" concept to specialize it for use in OJS
+ * Extensions to the pkp-lib "context" concept to specialize it for use in OPS
  * in representing Journal objects and journal-specific concerns.
  */
 
@@ -135,7 +135,7 @@ class Journal extends Context {
 	/**
 	 * Retrieve a statistics report pre-filtered on this journal.
 	 *
-	 * @see <http://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
+	 * @see <http://pkp.sfu.ca/wiki/index.php/OPSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
 	 * for a full specification of the input and output format of this method.
 	 *
 	 * @param $metricType null|integer|array metrics selection

@@ -80,7 +80,7 @@ msgid "help.goToEditPage"
 msgstr "Editar {$sectionTitle}"
 
 #, fuzzy
-msgid "about.aboutOJSSite"
+msgid "about.aboutOPSSite"
 msgstr ""
 "Este sitio utiliza Open Preprint Systems {$ojsVersion}, que es un software "
 "de gestión y publicación de servidores de código abierto desarrollado, "
@@ -88,7 +88,7 @@ msgstr ""
 "Public Knowledge Project</a> bajo la Licencia Pública General de GNU."
 
 #, fuzzy
-msgid "about.aboutOJSJournal"
+msgid "about.aboutOPSJournal"
 msgstr ""
 "Este servidor utiliza Open Preprint Systems {$ojsVersion}, que es un "
 "software de gestión y publicación de servidores de código abierto "

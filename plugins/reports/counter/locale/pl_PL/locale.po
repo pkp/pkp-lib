@@ -87,7 +87,7 @@ msgid "plugins.reports.counter.1a.anonymous"
 msgstr "anonimowy"
 
 msgid "plugins.reports.counter.legacyStats"
-msgstr "Poniższe linki generują przestarzałe raporty wykorzystując dane ze starej wtyczki, która nie jest gotowym COUNTER. Jeżeli chcesz wygenerować raporty za pomocą aktualnego COUNTER wykorzystaj typ metryki OJS COUNTER, użyj powyższych linków."
+msgstr "Poniższe linki generują przestarzałe raporty wykorzystując dane ze starej wtyczki, która nie jest gotowym COUNTER. Jeżeli chcesz wygenerować raporty za pomocą aktualnego COUNTER wykorzystaj typ metryki OPS COUNTER, użyj powyższych linków."
 
 msgid "plugins.reports.counter.allCustomers"
 msgstr "Wszyscy klienci"

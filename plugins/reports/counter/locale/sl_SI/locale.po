@@ -87,7 +87,7 @@ msgid "plugins.reports.counter.1a.anonymous"
 msgstr "anonimno"
 
 msgid "plugins.reports.counter.legacyStats"
-msgstr "Povezave spodaj generirajo zastarela poročila na osnovi podatkov zastarelega vtičnika, ki ne ustreza COUNTER zahtegvam. Če želite pripraviti trenutna COUNTER poročila z uporabo novih OJS COUNTER tipov metrik, uporabite povezave zgoraj."
+msgstr "Povezave spodaj generirajo zastarela poročila na osnovi podatkov zastarelega vtičnika, ki ne ustreza COUNTER zahtegvam. Če želite pripraviti trenutna COUNTER poročila z uporabo novih OPS COUNTER tipov metrik, uporabite povezave zgoraj."
 
 msgid "plugins.reports.counter.allCustomers"
 msgstr "Vsi obiskovalci"

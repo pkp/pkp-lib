@@ -18,7 +18,7 @@ msgid "plugins.themes.default.name"
 msgstr "Tema Predefinido"
 
 msgid "plugins.themes.default.description"
-msgstr "Este é o tema predefinido do sistema OJS."
+msgstr "Este é o tema predefinido do sistema OPS."
 
 msgid "plugins.themes.default.option.typography.label"
 msgstr "Tipografia"

@@ -54,4 +54,4 @@ msgid "plugins.reports.counter.1a.totalForAllJournals"
 msgstr "Σύνολο για όλα τα περιοδικά"
 
 msgid "plugins.reports.counter.legacyStats"
-msgstr "Οι παρακάτω σύνδεσμοι παράγουν αναφορές με τη χρήση του παλιού COUNTER plugin. Αν θέλετε να δημιουργήσετε COUNTER αναφορές με τη χρήση του νέου OJS COUNTER μετρικού συστήματος, χρησιμοποιείστε τους παραπάνω συνδέσμους."
+msgstr "Οι παρακάτω σύνδεσμοι παράγουν αναφορές με τη χρήση του παλιού COUNTER plugin. Αν θέλετε να δημιουργήσετε COUNTER αναφορές με τη χρήση του νέου OPS COUNTER μετρικού συστήματος, χρησιμοποιείστε τους παραπάνω συνδέσμους."

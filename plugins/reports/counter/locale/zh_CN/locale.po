@@ -54,4 +54,4 @@ msgid "plugins.reports.counter.1a.totalForAllJournals"
 msgstr "总计所有期刊"
 
 msgid "plugins.reports.counter.legacyStats"
-msgstr "下面的链接产生的报告使用的是旧的COUNTER插件数据。如果你希望生成的COUNTER报告使用的是新的OJS COUNTER度量标准，请使用上面的链接。"
+msgstr "下面的链接产生的报告使用的是旧的COUNTER插件数据。如果你希望生成的COUNTER报告使用的是新的OPS COUNTER度量标准，请使用上面的链接。"

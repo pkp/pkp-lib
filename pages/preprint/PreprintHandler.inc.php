@@ -293,7 +293,7 @@ class PreprintHandler extends Handler {
 
 	/**
 	 * Download an preprint file
-	 * For deprecated OJS 2.x URLs; see https://github.com/pkp/pkp-lib/issues/1541
+	 * For deprecated OPS 2.x URLs; see https://github.com/pkp/pkp-lib/issues/1541
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */

@@ -87,7 +87,7 @@ msgid "plugins.reports.counter.1a.anonymous"
 msgstr "anonym"
 
 msgid "plugins.reports.counter.legacyStats"
-msgstr "Die Links unten erzeugen veraltete Berichte auf Basis der alten Plugin-Daten. Wenn Sie aktuelle COUNTER-reife Berichte mit der neuen OJS-COUNTER-Metrik erzeugen wollen, benutzen Sie die Links oben."
+msgstr "Die Links unten erzeugen veraltete Berichte auf Basis der alten Plugin-Daten. Wenn Sie aktuelle COUNTER-reife Berichte mit der neuen OPS-COUNTER-Metrik erzeugen wollen, benutzen Sie die Links oben."
 
 msgid "plugins.reports.counter.allCustomers"
 msgstr "Alle Kund/innen"

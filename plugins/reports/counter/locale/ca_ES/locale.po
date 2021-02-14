@@ -54,7 +54,7 @@ msgid "plugins.reports.counter.1a.totalForAllJournals"
 msgstr "Total per a totes les revistes"
 
 msgid "plugins.reports.counter.legacyStats"
-msgstr "Els enllaços següents generen informes utilitzant dades de l'antic mòdul COUNTER. Si voleu generar informes COUNTER utilitzant la nova mètrica OJS COUNTER, utilitzeu els enllaços superiors."
+msgstr "Els enllaços següents generen informes utilitzant dades de l'antic mòdul COUNTER. Si voleu generar informes COUNTER utilitzant la nova mètrica OPS COUNTER, utilitzeu els enllaços superiors."
 
 msgid "plugins.reports.counter.release"
 msgstr "Llançament de COUNTER"

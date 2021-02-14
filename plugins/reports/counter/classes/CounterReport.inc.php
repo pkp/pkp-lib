@@ -97,7 +97,7 @@ class CounterReport {
 	}
 
 	/*
-	 * Convert an OJS metrics request to COUNTER ReportItems
+	 * Convert an OPS metrics request to COUNTER ReportItems
 	 * Abstract method must be implemented by subclass
 	 * @param $columns string|array column (aggregation level) selection
 	 * @param $filters array report-level filter selection
@@ -119,7 +119,7 @@ class CounterReport {
 	}
 
 	/**
-	 * Set an errors condition; Proper Exception handling is deferred until the OJS 3.0 Release
+	 * Set an errors condition; Proper Exception handling is deferred until the OPS 3.0 Release
 	 * @param $error Exception
 	 */
 	function setError($error) {

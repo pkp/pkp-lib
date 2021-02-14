@@ -24,7 +24,7 @@ class CounterReportJR1 extends CounterReport {
 	}
 
 	/*
-	 * Convert an OJS metrics request to COUNTER ReportItems
+	 * Convert an OPS metrics request to COUNTER ReportItems
 	 * @param $columns string|array column (aggregation level) selection
 	 * @param $filters array report-level filter selection
 	 * @param $orderBy array order criteria

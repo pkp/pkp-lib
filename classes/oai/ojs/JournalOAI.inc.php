@@ -11,7 +11,7 @@
  * @ingroup oai
  * @see OAIDAO
  *
- * @brief OJS-specific OAI interface.
+ * @brief OPS-specific OAI interface.
  * Designed to support both a site-wide and journal-specific OAI interface
  * (based on where the request is directed).
  */

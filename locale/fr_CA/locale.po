@@ -16,7 +16,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "about.aboutOJSSite"
+msgid "about.aboutOPSSite"
 msgstr ""
 "Ce site utilise Open Preprint Systems {$ojsVersion}, un logiciel de gestion "
 "et d'édition de serveurs à code source libre développé, pris en charge et "
@@ -27,7 +27,7 @@ msgid "submission.layout.galleyPublicIdentificationExists"
 msgstr "L'identification publique de cette épreuve existe déjà."
 
 #, fuzzy
-msgid "about.aboutOJSJournal"
+msgid "about.aboutOPSJournal"
 msgstr ""
 "Ce serveur utilise Open Preprint Systems {$ojsVersion}, un logiciel de "
 "gestion et d'édition de serveurs à code source libre développé, pris en "

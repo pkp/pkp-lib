@@ -201,7 +201,7 @@ class DefaultThemePlugin extends ThemePlugin {
 
 	/**
 	 * Get the name of the settings file to be installed site-wide when
-	 * OJS is installed.
+	 * OPS is installed.
 	 * @return string
 	 */
 	function getInstallSitePluginSettingsFile() {

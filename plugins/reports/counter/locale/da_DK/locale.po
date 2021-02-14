@@ -54,7 +54,7 @@ msgid "plugins.reports.counter.1a.totalForAllJournals"
 msgstr "Total for alle tidsskrifter"
 
 msgid "plugins.reports.counter.legacyStats"
-msgstr "Linkene nedenfor genererer rapporter baseret på de gamle COUNTER plug-in data. Anvend linkene ovenfor, hvis du ønsker at generere en COUNTER rapport, der bygger på de nye OJS COUNTER-metriske typer."
+msgstr "Linkene nedenfor genererer rapporter baseret på de gamle COUNTER plug-in data. Anvend linkene ovenfor, hvis du ønsker at generere en COUNTER rapport, der bygger på de nye OPS COUNTER-metriske typer."
 
 msgid "plugins.reports.counter.release"
 msgstr "COUNTER Release"

@@ -279,7 +279,7 @@ class LegacyJR1 {
 	function _getJournalIds($useLegacyStats = false) {
 		$metricsDao = DAORegistry::getDAO('MetricsDAO'); /* @var $metricsDao MetricsDAO */
 		if ($useLegacyStats) {
-			$results = $metricsDao->getMetrics(OJS_METRIC_TYPE_LEGACY_COUNTER, array(STATISTICS_DIMENSION_ASSOC_ID));
+			$results = $metricsDao->getMetrics(OPS_METRIC_TYPE_LEGACY_COUNTER, array(STATISTICS_DIMENSION_ASSOC_ID));
 			$fieldId = STATISTICS_DIMENSION_ASSOC_ID;
 		} else {
 			$filter = array(STATISTICS_DIMENSION_ASSOC_TYPE => ASSOC_TYPE_SUBMISSION_FILE);
@@ -313,7 +313,7 @@ class LegacyJR1 {
 
 		if ($useLegacyStats) {
 			$dimension = STATISTICS_DIMENSION_ASSOC_ID;
-			$metricType = OJS_METRIC_TYPE_LEGACY_COUNTER;
+			$metricType = OPS_METRIC_TYPE_LEGACY_COUNTER;
 		} else {
 			$dimension = STATISTICS_DIMENSION_CONTEXT_ID;
 			$metricType = METRIC_TYPE_COUNTER;

@@ -10,14 +10,14 @@
  * @class installTool
  * @ingroup tools
  *
- * @brief CLI tool for installing OJS.
+ * @brief CLI tool for installing OPS.
  */
 
 require(dirname(__FILE__) . '/bootstrap.inc.php');
 
 import('lib.pkp.classes.cliTool.InstallTool');
 
-class OJSInstallTool extends InstallTool {
+class OPSInstallTool extends InstallTool {
 	/**
 	 * Constructor.
 	 * @param $argv array command-line arguments
@@ -44,7 +44,7 @@ class OJSInstallTool extends InstallTool {
 
 }
 
-$tool = new OJSInstallTool(isset($argv) ? $argv : array());
+$tool = new OPSInstallTool(isset($argv) ? $argv : array());
 $tool->execute();
 
 

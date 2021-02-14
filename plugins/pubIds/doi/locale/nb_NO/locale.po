@@ -71,7 +71,7 @@ msgstr "DOI"
 msgid "plugins.pubIds.doi.description"
 msgstr ""
 "Dette programtillegget tilordner digitale objektidentifikatorer (DOI) til "
-"preprints og oppsett i OJS."
+"preprints og oppsett i OPS."
 
 msgid "plugins.pubIds.doi.displayName"
 msgstr "DOI"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-13 12:53+0000\n"
+"PO-Revision-Date: 2021-02-15 20:54+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/gl_ES/>\n"
@@ -1962,3 +1962,154 @@ msgstr "Non se puido atopar a publicación deste autor/a."
 msgid "author.editPublishedDisabled"
 msgstr ""
 "Non se poden editar os autores/as desta publicación porque xa se publicou."
+
+msgid "publication.wordCount"
+msgstr "Contador de palabras: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"O resumo é demasiado longo. Debería ter {$limit} palabras ou menos. "
+"Actualmente ten {$count} palabras."
+
+msgid "publication.version.confirm"
+msgstr "Seguro/a que queres crear unha nova versión?"
+
+msgid "publication.version.all"
+msgstr "Todas as versións"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "A ruta URL non pode ser un número."
+
+msgid "publication.urlPath.duplicate"
+msgstr "A ruta URL xa se usou e non se pode volver a usar."
+
+msgid "publication.urlPath.description"
+msgstr "Unha ruta opcional para usar no URL no canto do ID."
+
+msgid "publication.urlPath"
+msgstr "Ruta URL"
+
+msgid "publication.unschedule"
+msgstr "Desprogramar"
+
+msgid "publication.titleAbstract"
+msgstr "Título e resumo"
+
+msgid "publication.status.unpublished"
+msgstr "Retirado da publicación"
+
+msgid "publication.status.scheduled"
+msgstr "Programado"
+
+msgid "publication.publicationLicense"
+msgstr "Permisos e divulgación"
+
+msgid "publication.event.versionCreated"
+msgstr "Creouse unha nova versión."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "A data debe ter o formato AAAA-MM-DD."
+
+msgid "publication.createVersion"
+msgstr "Crear unha nova versión"
+
+msgid "publication.contributors"
+msgstr "Colaboradores/as"
+
+msgid "catalog.category.subcategories"
+msgstr "Subcategorías"
+
+msgid "catalog.category.noItems"
+msgstr "Aínda non se publicou nada nesta categoría."
+
+msgid "submission.currentCoverImage"
+msgstr "Imaxe actual"
+
+msgid "submission.submit.placement.categories"
+msgstr "Categorías"
+
+msgid "category.coverImage"
+msgstr "Imaxe da cuberta"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Data de publicación (a máis nova primeiro)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Data de publicación (a máis antiga primeiro)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Título (Z-A)"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Título (A-Z)"
+
+msgid "grid.category.categories"
+msgstr "Categorías"
+
+msgid "submission.list.assignEditor"
+msgstr "Asignar Editor"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Días dende a última actividade"
+
+msgid "submission.list.activity"
+msgstr "Actividade"
+
+msgid "submission.list.currentStage"
+msgstr "Actualmente na fase de {$stage}."
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Este envío debe completarse antes de que un editor/a o revise."
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Asignáronlle un rol editorial para este envío. Queres acceder ao <a href=\""
+"{$urlEditorialWorkflow}\">fluxo de traballo Editorial</a>?"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Asignaronlle varias funcións para este envío. Queres acceder ao <a href=\""
+"{$urlAuthorWorkflow}\">fluxo de traballo do autor</a> ou ao <a href=\""
+"$urlEditorialWorkflow}\"> fluxo de traballo editorial </a>?"
+
+msgid "submission.list.discussions"
+msgstr "Discusións abertas"
+
+msgid "submission.list.filesPrepared"
+msgstr "Arquivos preparados"
+
+msgid "submission.list.galleysCreated"
+msgstr "Galeradas de produción creadas"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Arquivos corrixidos enviados"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Revisións enviadas"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Completáronse as revisións asignadas"
+
+msgid "submission.list.viewSubmission"
+msgstr "Ver envío"
+
+msgid "submission.list.confirmDelete"
+msgstr "Eliminar o envío?"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Revisión cancelada"
+
+msgid "submission.list.reviewComplete"
+msgstr "Revisión enviada"
+
+msgid "submission.list.reviewDue"
+msgstr "Prazo de revisión: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Asignación de revisión"
+
+msgid "submission.list.responseDue"
+msgstr "Prazo de resposta: {$date}"
+
+msgid "submission.list.empty"
+msgstr "Non se atoparon envíos."

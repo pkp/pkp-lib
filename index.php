@@ -7,7 +7,7 @@
  * generated automatically from the OPS source code.
  *
  * The design of Open %Preprint Systems, which is based on 
- * Open Server Systems (OJS), is heavily structured for maintainability, 
+ * Open Journal Systems (OJS), is heavily structured for maintainability, 
  * flexibility and robustness. Those familiar with Sun's Enterprise Java Beans
  * technology or the Model-View-Controller (MVC) pattern will note similarities.
  *

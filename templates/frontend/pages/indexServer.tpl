@@ -64,7 +64,7 @@
 					{include file="frontend/objects/announcement_summary.tpl" heading="h3"}
 					<div class="more">
 				{else}
-					<preprint class="obj_announcement_summary">
+					<article class="obj_announcement_summary">
 						<h4>
 							<a href="{url router=PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
 								{$announcement->getLocalizedTitle()|escape}
@@ -73,7 +73,7 @@
 						<div class="date">
 							{$announcement->getDatePosted()|date_format:$dateFormatShort}
 						</div>
-					</preprint>
+					</article>
 				{/if}
 			{/foreach}
 			</div><!-- .more -->

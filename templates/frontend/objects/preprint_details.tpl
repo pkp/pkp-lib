@@ -64,7 +64,7 @@
  *   included with published submissions.
  * @uses $ccLicenseBadge string An image and text with details about the license
  *}
-<preprint class="obj_preprint_details">
+<article class="obj_preprint_details">
 
 	{* Notification that this is an old version *}
 	{if $currentPublication->getId() !== $publication->getId()}
@@ -456,4 +456,4 @@
 		</div><!-- .entry_details -->
 	</div><!-- .row -->
 
-</preprint>
+</article>

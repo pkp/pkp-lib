@@ -31,7 +31,7 @@ class AccessForm extends FormComponent {
 	 *
 	 * @param $action string URL to submit the form to
 	 * @param $locales array Supported locales
-	 * @param $context Context Server, Server or Press to change settings for
+	 * @param $context Context Journal, Server or Press to change settings for
 	 */
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;

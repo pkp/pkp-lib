@@ -33,7 +33,7 @@
 		},
 		"relationStatus": {
 			"type": "integer",
-			"description": "Whether this preprint is submitted or published in a server.",
+			"description": "Whether this preprint is submitted or published in a journal.",
 			"apiSummary": true,
 			"default": 1,
 			"validation": [

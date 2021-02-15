@@ -1,2 +1,65 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2021-02-15 20:54+0000\n"
+"Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
+"Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"gl_ES/>\n"
+"Language: gl_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Actualmente non tes acceso a esa fase do proceso."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Un usuario cun rol de xestor/a (p. ex. xefe de produción) debe ser asignado "
+"á fase antes de que poida continuar."
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"Ten que establecer un grupo de usuarios/as válido para acceder a esta "
+"operación."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"O rol que ten asignado neste envío non lle permite o acceso a esta operación."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "O rol actual non ten acceso a esta operación."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr ""
+"Denegóuselle o acceso. O acceso a este sitio está restrinxido actualmente."
+
+msgid "user.authorization.privateOperation"
+msgstr "A operación á que tentou acceder é privada ou non existe."
+
+msgid "user.authorization.loginRequired"
+msgstr "É necesario iniciar sesión."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"Non podes chamar a esta operación sen un contexto (prensa, diario, "
+"conferencia, etc.)."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "A clave do proceso de autenticación non se atopou ou non é válida."
+
+msgid "user.authorization.accessDenied"
+msgstr "Acceso denegado."
+
+msgid "user.affiliations"
+msgstr "Afiliacións"
+
+msgid "user.affiliation.description"
+msgstr "(A túa institución, por ex. \"Real Academia Galega\")"
+
+msgid "user.affiliation"
+msgstr "Afiliación"
+
+msgid "user.accountInformation"
+msgstr "Información da conta"

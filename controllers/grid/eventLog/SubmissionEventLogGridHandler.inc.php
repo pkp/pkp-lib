@@ -209,22 +209,40 @@ class SubmissionEventLogGridHandler extends GridHandler {
 	function viewEmail($args, $request) {
 		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 		$emailLogEntry = $submissionEmailLogDao->getById((int) $args['emailLogEntryId']);
-		return new JSONMessage(true, $this->_formatEmail($emailLogEntry));
+		return new JSONMessage(true, $this->_formatEmail($emailLogEntry, $request));
 	}
 
 	/**
 	 * Format the contents of the email
 	 * @param $emailLogEntry EmailLogEntry
+	 * @param $request PKPRequest
 	 * @return string Formatted email
 	 */
-	function _formatEmail($emailLogEntry) {
+	function _formatEmail($emailLogEntry, $request) {
 		assert(is_a($emailLogEntry, 'EmailLogEntry'));
 
-		$text = array();
-		$text[] = __('email.from') . ': ' . htmlspecialchars($emailLogEntry->getFrom());
-		$text[] =  __('email.to') . ': ' . htmlspecialchars($emailLogEntry->getRecipients());
-		$text[] =  __('email.subject') . ': ' . htmlspecialchars($emailLogEntry->getSubject());
-		$text[] = $emailLogEntry->getBody();
+		$text = [
+			__('email.from') . ': ' . htmlspecialchars($emailLogEntry->getFrom()),
+			__('email.to') . ': ' . htmlspecialchars($emailLogEntry->getRecipients()),
+			__('email.subject') . ': ' . htmlspecialchars($emailLogEntry->getSubject()),
+			$emailLogEntry->getBody(),
+		];
+
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$attachments = $submissionFileDao->getLatestRevisionsByAssocId(ASSOC_TYPE_SUBMISSION_EMAIL_LOG_ENTRY, $emailLogEntry->getId());
+		$dispatcher = PKPApplication::get()->getDispatcher();
+		foreach ($attachments as $submissionFile) {
+			$downloadUrl = $dispatcher->url(
+				$request, ROUTE_COMPONENT, null, 'api.file.FileApiHandler', 'downloadFile', null, [
+					'fileId' => $submissionFile->getId(),
+					'revision' => $submissionFile->getRevision(),
+					'submissionId' => $submissionFile->getSubmissionId(),
+					'stageId' => $submissionFileDao->getWorkflowStageId($submissionFile),
+				]
+			);
+			$text[] = "<a href=\"$downloadUrl\">" . htmlspecialchars($submissionFile->getOriginalFileName()) . "</a>";
+
+		}
 
 		return nl2br(PKPString::stripUnsafeHtml(implode(PHP_EOL . PHP_EOL, $text)));
 	}

@@ -14,7 +14,7 @@
  * @brief Class for inserting/accessing email log entries.
  */
 
-
+use Illuminate\Database\Capsule\Manager as Capsule;
 import ('lib.pkp.classes.log.EmailLogEntry');
 
 class EmailLogDAO extends DAO {
@@ -46,6 +46,15 @@ class EmailLogDAO extends DAO {
 
 		$result->Close();
 		return $returner;
+	}
+
+	/**
+	 * Get the list of user IDs associated with a log entry.
+	 * @param int $emailLogId The log entry ID
+	 * @return Collection
+	 */
+	public function getUserIds($emailLogId) {
+		return Capsule::table('email_log_users')->where('email_log_id', '=', $emailLogId)->pluck('user_id');
 	}
 
 	/**

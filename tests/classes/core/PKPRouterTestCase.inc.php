@@ -88,7 +88,8 @@ class PKPRouterTestCase extends PKPTestCase {
 	public function testGetRequestedContextPathWithInvalidLevel() {
 		// Context depth = 1 but we try to access context level 2
 		$this->_setUpMockEnvironment(self::PATHINFO_ENABLED, 1, array('oneContext'));
-		$this->expectError();
+		if (version_compare(phpversion(), '8.0.0', '<')) $this->expectError();
+		else $this->expectException(AssertionError::class);
 		$this->router->getRequestedContextPath($this->request, 2);
 	}
 

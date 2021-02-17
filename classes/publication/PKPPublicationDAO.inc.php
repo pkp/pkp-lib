@@ -317,41 +317,10 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	}
 
 	/**
-	 * Retrieve Publication by pubId
-	 * @param $pubIdType string One of the NLM pub-id-type values or
-	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-	 * @param $pubId string
-	 * @param $contextId int
-	 * @return Publication|null
-	 */
-	public function getByPubId($pubIdType, $pubId, $contextId) {
-		$result = $this->retrieve(
-			'SELECT p.*
-			FROM publication_settings ps
-			LEFT JOIN publications p ON p.publication_id = ps.publication_id
-			LEFT JOIN submissions s ON p.submission_id = s.submission_id and s.current_publication_id = p.publication_id
-			WHERE ps.setting_name = ? and ps.setting_value = ? AND s.context_id = ?',
-			array(
-				'pub-id::' . $pubIdType,
-				$pubId,
-				(int) $contextId
-			)
-		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
-	}
-
-	/**
-	 * Find publication by querying settings.
+	 * Find publication ids by querying settings.
 	 * @param $settingName string
 	 * @param $settingValue mixed
-	 * @param $contextId int optional
+	 * @param $contextId int
 	 * @return array Publication.
 	 */
 	public function getIdsBySetting($settingName, $settingValue, $contextId) {

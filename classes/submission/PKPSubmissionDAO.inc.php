@@ -315,11 +315,11 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 	}
 
 	/**
-	 * Find submission by querying settings.
+	 * Find submission ids by querying settings.
 	 * @param $settingName string
 	 * @param $settingValue mixed
-	 * @param $contextId int optional
-	 * @return array Publication.
+	 * @param $contextId int
+	 * @return array Submission.
 	 */
 	public function getIdsBySetting($settingName, $settingValue, $contextId) {
 		$q = Capsule::table('submissions as s')

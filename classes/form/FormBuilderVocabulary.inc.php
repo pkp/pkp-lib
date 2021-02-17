@@ -162,7 +162,7 @@ class FormBuilderVocabulary {
 				'FBV_translate' => isset($params['translate']) ? $params['translate'] : true,
 			));
 
-			$class = $params['class'];
+			$class = $params['class'] ?? null;
 
 			// Check if we are using the Form class and if there are any errors
 			if (isset($form) && !empty($form->formSectionErrors)) {

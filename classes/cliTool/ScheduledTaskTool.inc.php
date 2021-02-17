@@ -71,7 +71,7 @@ class ScheduledTaskTool extends CommandLineTool {
 	 * @param $file string
 	 */
 	function parseTasks($file) {
-		$xmlParser = new XMLParser();
+		$xmlParser = new PKPXMLParser();
 		$tree = $xmlParser->parse($file);
 
 		if (!$tree) {

@@ -94,7 +94,7 @@ class PKPTemplateManager extends Smarty {
 		$this->registerResource('app', new PKPTemplateResource(['templates', $coreTemplateDir]));
 		$this->default_resource_type = 'app';
 
-		$this->error_reporting = E_ALL & ~E_NOTICE;
+		$this->error_reporting = E_ALL & ~E_NOTICE & ~E_WARNING;
 	}
 
 	/**
@@ -2018,7 +2018,7 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function smartyLoadNavigationMenuArea($params, $smarty) {
 		$areaName = $params['name'];
-		$declaredMenuTemplatePath = $params['path'];
+		$declaredMenuTemplatePath = $params['path'] ?? null;
 		$currentContext = $this->_request->getContext();
 		$contextId = CONTEXT_ID_NONE;
 		if ($currentContext) {
@@ -2059,8 +2059,8 @@ class PKPTemplateManager extends Smarty {
 		$this->assign([
 			'navigationMenu' => $navigationMenu,
 			'id' => $params['id'],
-			'ulClass' => $params['ulClass'],
-			'liClass' => $params['liClass'],
+			'ulClass' => $params['ulClass'] ?? null,
+			'liClass' => $params['liClass'] ?? null,
 		]);
 
 		return $this->fetch($menuTemplatePath);

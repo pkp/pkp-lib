@@ -14,41 +14,41 @@
  */
 
 
-import('lib.pkp.classes.xml.XMLParser');
+import('lib.pkp.classes.xml.PKPXMLParser');
 
 class XMLDAO {
 
 	/**
 	 * Parse an XML file and return data in an object.
-	 * @see xml.XMLParser::parse()
+	 * @see PKPXMLParser::parse()
 	 * @param $file string
 	 */
 	function parse($file) {
-		$parser = new XMLParser();
+		$parser = new PKPXMLParser();
 		return $parser->parse($file);
 	}
 
 	/**
 	 * Parse an XML file with the specified handler and return data in an object.
-	 * @see xml.XMLParser::parse()
+	 * @see PKPXMLParser::parse()
 	 * @param $file string
 	 * @param $handler reference to the handler to use with the parser.
 	 */
 	function parseWithHandler($file, $handler) {
-		$parser = new XMLParser();
+		$parser = new PKPXMLParser();
 		$parser->setHandler($handler);
 		return $parser->parse($file);
 	}
 
 	/**
 	 * Parse an XML file and return data in an array.
-	 * @see xml.XMLParser::parseStruct()
+	 * @see PKPXMLParser::parseStruct()
 	 * @param $file string
 	 * @param $tagsToMatch array
 	 * @return array?
 	 */
 	function parseStruct($file, $tagsToMatch = array()) {
-		$parser = new XMLParser();
+		$parser = new PKPXMLParser();
 		return $parser->parseStruct($file, $tagsToMatch);
 	}
 }

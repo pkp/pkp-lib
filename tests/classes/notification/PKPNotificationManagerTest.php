@@ -299,7 +299,7 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		                 ->with($this->equalTo($userEmail), $this->equalTo($userFullName));
 		$mailTemplateMock->expects($this->any())
 		                 ->method('assignParams')
-		                 ->with($this->logicalAnd($this->contains($notificationContents), $this->contains($contextTitle)));
+		                 ->with($this->logicalAnd($this->containsEqual($notificationContents), $this->containsEqual($contextTitle)));
 		$mailTemplateMock->expects($this->once())
 		                 ->method('send')
 			         ->will($this->returnValue(true));

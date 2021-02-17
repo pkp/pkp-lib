@@ -20,6 +20,11 @@
 
 define('MAIL_WRAP', 76);
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\OAuth;
+use League\OAuth2\Client\Provider\Google;
+
 class Mail extends DataObject {
 	/** @var array List of key => value private parameters for this message */
 	var $privateParams;
@@ -482,9 +487,24 @@ class Mail extends DataObject {
 			$mailer->Host = Config::getVar('email', 'smtp_server');
 			if (($s = Config::getVar('email', 'smtp_username')) != '') {
 				$mailer->SMTPAuth = true;
-				$mailer->Username = Config::getVar('email', 'smtp_username');
-				$mailer->Password = Config::getVar('email', 'smtp_password');
+				$mailer->Username = Config::getVar('email', 'smtp_username', '');
+				$mailer->Password = Config::getVar('email', 'smtp_password', '');
 			}
+			switch (strtolower(Config::getVar('email', 'smtp_oauth_provider'))) {
+				case 'google': $mailer->setOAuth(new OAuth([
+					'provider' => new Google([
+						'clientId' => Config::getVar('email', 'smtp_oauth_clientid'),
+						'clientSecret' => Config::getVar('email', 'smtp_oauth_clientsecret'),
+					]),
+					'clientId' => Config::getVar('email', 'smtp_oauth_clientid'),
+					'clientSecret' => Config::getVar('email', 'smtp_oauth_clientsecret'),
+					'refreshToken' => Config::getVar('email', 'smtp_oauth_refreshtoken'),
+					'userName' => Config::getVar('email', 'smtp_oauth_email'),
+				]));
+				case null: break; // No configured provider
+				default: throw new Exception('Unknown smtp_oauth_provider in config.inc.php!');
+			}
+			$mailer->AuthType = Config::getVar('email', 'smtp_authtype', '');
 			if (Config::getVar('debug', 'show_stacktrace')) {
 				// debug level 3 represents client and server interaction, plus initial connection debugging
 				$mailer->SMTPDebug = 3;

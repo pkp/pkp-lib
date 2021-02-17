@@ -47,11 +47,11 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 
 	/**
 	 * @see MetadataDataObjectAdapter::extractMetadataFromDataObject()
-	 * @param $article Article
+	 * @param $submission Submission
 	 * @return MetadataDescription
 	 */
-	function &extractMetadataFromDataObject(&$article) {
-		assert(is_a($article, 'Article'));
+	function &extractMetadataFromDataObject(&$submission) {
+		assert(is_a($submission, 'Submission'));
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_SUBMISSION);
 
@@ -62,16 +62,16 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 		// contains cached entities and avoids extra database access if this
 		// adapter is called from an OAI context.
 		$oaiDao = DAORegistry::getDAO('OAIDAO'); /* @var $oaiDao OAIDAO */
-		$journal = $oaiDao->getJournal($article->getData('contextId'));
-		$section = $oaiDao->getSection($article->getSectionId());
+		$journal = $oaiDao->getJournal($submission->getData('contextId'));
+		$section = $oaiDao->getSection($submission->getSectionId());
 
 		$dc11Description = $this->instantiateMetadataDescription();
 
 		// Title
-		$this->_addLocalizedElements($dc11Description, 'dc:title', $article->getFullTitle(null));
+		$this->_addLocalizedElements($dc11Description, 'dc:title', $submission->getFullTitle(null));
 
 		// Creator
-		$authors = $article->getAuthors();
+		$authors = $submission->getAuthors();
 		foreach($authors as $author) {
 			$dc11Description->addStatement('dc:creator', $author->getFullName(false, true));
 		}
@@ -81,13 +81,13 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 		$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
 		$supportedLocales = array_keys(AppLocale::getSupportedFormLocales());
 		$subjects = array_merge_recursive(
-			(array) $submissionKeywordDao->getKeywords($article->getCurrentPublication()->getId(), $supportedLocales),
-			(array) $submissionSubjectDao->getSubjects($article->getCurrentPublication()->getId(), $supportedLocales)
+			(array) $submissionKeywordDao->getKeywords($submission->getCurrentPublication()->getId(), $supportedLocales),
+			(array) $submissionSubjectDao->getSubjects($submission->getCurrentPublication()->getId(), $supportedLocales)
 		);
 		$this->_addLocalizedElements($dc11Description, 'dc:subject', $subjects);
 
 		// Description
-		$this->_addLocalizedElements($dc11Description, 'dc:description', $article->getAbstract(null));
+		$this->_addLocalizedElements($dc11Description, 'dc:description', $submission->getAbstract(null));
 
 		// Publisher
 		$publisherInstitution = $journal->getData('publisherInstitution');
@@ -99,7 +99,7 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 		$this->_addLocalizedElements($dc11Description, 'dc:publisher', $publishers);
 
 		// Contributor
-		$contributors = (array) $article->getSponsor(null);
+		$contributors = (array) $submission->getSponsor(null);
 		foreach ($contributors as $locale => $contributor) {
 			$contributors[$locale] = array_map('trim', explode(';', $contributor));
 		}
@@ -107,8 +107,7 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 
 
 		// Date
-		if (is_a($article, 'Submission')) {
-			if ($article->getDatePublished()) $dc11Description->addStatement('dc:date', date('Y-m-d', strtotime($article->getDatePublished())));		}
+		if ($submission->getDatePublished()) $dc11Description->addStatement('dc:date', date('Y-m-d', strtotime($submission->getDatePublished())));
 
 		// Type
 		$driverType = 'info:eu-repo/semantics/preprint';
@@ -117,56 +116,48 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 		$dc11Description->addStatement('dc:type', $driverVersion, METADATA_DESCRIPTION_UNKNOWN_LOCALE);
 
 		// Format
-		if (is_a($article, 'Submission')) {
 			$articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO'); /* @var $articleGalleyDao ArticleGalleyDAO */
-			$galleys = $articleGalleyDao->getByPublicationId($article->getCurrentPublication()->getId());
+			$galleys = $articleGalleyDao->getByPublicationId($submission->getCurrentPublication()->getId());
 			$formats = array();
 			while ($galley = $galleys->next()) {
 				$dc11Description->addStatement('dc:format', $galley->getFileType());
 			}
-		}
 
 		// Identifier: URL
 		$request = Application::get()->getRequest();
 		$includeUrls = $journal->getSetting('publishingMode') != PUBLISHING_MODE_NONE;
-		if (is_a($article, 'Submission')) {
-			$dc11Description->addStatement('dc:identifier', $request->url($journal->getPath(), 'preprint', 'view', array($article->getBestId())));
-		}
+		$dc11Description->addStatement('dc:identifier', $request->url($journal->getPath(), 'preprint', 'view', [$submission->getBestId()]));
 
 		// Get galleys and supp files.
 		$galleys = array();
-		if (is_a($article, 'Submission')) {
-			$articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO'); /* @var $articleGalleyDao ArticleGalleyDAO */
-			$galleys = $articleGalleyDao->getByPublicationId($article->getCurrentPublication()->getId())->toArray();
-		}
+		$articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO'); /* @var $articleGalleyDao ArticleGalleyDAO */
+		$galleys = $articleGalleyDao->getByPublicationId($submission->getCurrentPublication()->getId())->toArray();
 
 		// Language
 		$locales = array();
-		if (is_a($article, 'Submission')) {
-			foreach ($galleys as $galley) {
-				$galleyLocale = $galley->getLocale();
-				if(!is_null($galleyLocale) && !in_array($galleyLocale, $locales)) {
-					$locales[] = $galleyLocale;
-					$dc11Description->addStatement('dc:language', AppLocale::getIso3FromLocale($galleyLocale));
-				}
+		foreach ($galleys as $galley) {
+			$galleyLocale = $galley->getLocale();
+			if(!is_null($galleyLocale) && !in_array($galleyLocale, $locales)) {
+				$locales[] = $galleyLocale;
+				$dc11Description->addStatement('dc:language', AppLocale::getIso3FromLocale($galleyLocale));
 			}
 		}
-		$articleLanguage = $article->getLanguage();
-		if (empty($locales) && !empty($articleLanguage)) {
-			$dc11Description->addStatement('dc:language', strip_tags($articleLanguage));
+		$submissionLanguage = $submission->getLanguage();
+		if (empty($locales) && !empty($submissionLanguage)) {
+			$dc11Description->addStatement('dc:language', strip_tags($submissionLanguage));
 		}
 
 		// Relation
 		// full text URLs
 		if ($includeUrls) foreach ($galleys as $galley) {
-			$relation = $request->url($journal->getPath(), 'article', 'view', array($article->getBestId(), $galley->getBestGalleyId()));
+			$relation = $request->url($journal->getPath(), 'article', 'view', [$submission->getBestId(), $galley->getBestGalleyId()]);
 			$dc11Description->addStatement('dc:relation', $relation);
 		}
 
 		// Public identifiers
 		$pubIdPlugins = (array) PluginRegistry::loadCategory('pubIds', true, $journal->getId());
 		foreach ($pubIdPlugins as $pubIdPlugin) {
-			if ($pubArticleId = $article->getStoredPubId($pubIdPlugin->getPubIdType())) {
+			if ($pubArticleId = $submission->getStoredPubId($pubIdPlugin->getPubIdType())) {
 				$dc11Description->addStatement('dc:identifier', $pubArticleId);
 			}
 			foreach ($galleys as $galley) {
@@ -177,17 +168,17 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 		}
 
 		// Coverage
-		$this->_addLocalizedElements($dc11Description, 'dc:coverage', (array) $article->getCoverage(null));
+		$this->_addLocalizedElements($dc11Description, 'dc:coverage', (array) $submission->getCoverage(null));
 
 		// Rights: Add both copyright statement and license
-		$copyrightHolder = $article->getLocalizedCopyrightHolder();
-		$copyrightYear = $article->getCopyrightYear();
+		$copyrightHolder = $submission->getLocalizedCopyrightHolder();
+		$copyrightYear = $submission->getCopyrightYear();
 		if (!empty($copyrightHolder) && !empty($copyrightYear)) {
 			$dc11Description->addStatement('dc:rights', __('submission.copyrightStatement', array('copyrightHolder' => $copyrightHolder, 'copyrightYear' => $copyrightYear)));
 		}
-		if ($licenseUrl = $article->getLicenseURL()) $dc11Description->addStatement('dc:rights', $licenseUrl);
+		if ($licenseUrl = $submission->getLicenseURL()) $dc11Description->addStatement('dc:rights', $licenseUrl);
 
-		HookRegistry::call('Dc11SchemaArticleAdapter::extractMetadataFromDataObject', array($this, $article, $journal, &$dc11Description));
+		HookRegistry::call('Dc11SchemaArticleAdapter::extractMetadataFromDataObject', array($this, $submission, $journal, &$dc11Description));
 
 		return $dc11Description;
 	}

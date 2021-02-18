@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-18 19:53+0000\n"
+"PO-Revision-Date: 2021-02-17 09:54+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ja_JP/>\n"
@@ -915,3 +915,339 @@ msgstr ""
 
 msgid "common.inactive"
 msgstr "非アクティブ"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "定義済みメッセージを選択するか、以下のフォームに入力してください。"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "{$userFullName}とのディスカッションを開始します。"
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "ディスカッションを開始"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "ユーザーに通知が送信されました。"
+
+msgid "informationCenter.history.messageSent"
+msgstr "ユーザーに通知が送信されました。"
+
+msgid "informationCenter.history.notePosted"
+msgstr "新しい注記が追加されました。"
+
+msgid "informationCenter.history.noItems"
+msgstr "ログに記録されたイベントはありません。"
+
+msgid "informationCenter.pastHistory"
+msgstr "以前の改訂"
+
+msgid "informationCenter.currentHistory"
+msgstr "現行改訂"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "この注記を削除してもよろしいですか？"
+
+msgid "informationCenter.pastNotes"
+msgstr "以前の改訂の注記"
+
+msgid "informationCenter.noNotes"
+msgstr "表示できる注記がありません。"
+
+msgid "informationCenter.addNote"
+msgstr "注記追加"
+
+msgid "informationCenter.editorialHistory"
+msgstr "編集歴"
+
+msgid "informationCenter.informationCenter"
+msgstr "インフォメーションセンター"
+
+msgid "help.next"
+msgstr "次へ"
+
+msgid "help.previous"
+msgstr "前へ"
+
+msgid "form.multilingualProgress"
+msgstr "{$total}言語の{$count}は完了"
+
+msgid "form.multilingualLabel"
+msgstr "{$localeName}での{$label}"
+
+msgid "form.invalidImage"
+msgstr "無効な画像ファイルがアップロードされました。使用可能な形式は.png、.gif、.jpgです。"
+
+msgid "form.requireId"
+msgstr "有効なIDを指定する必要があります。"
+
+msgid "form.requirePrimaryLocale"
+msgstr "このフィールドは {$language}で入力する必要があります。"
+
+msgid "form.fileRequired"
+msgstr "ファイルのアップロードが必要です。"
+
+msgid "form.csrfInvalid"
+msgstr "フォームの送信が失敗しました。ログアウトされた可能性があります。 ページを再読み込みして、もう一度やり直してください。"
+
+msgid "form.startsWith"
+msgstr "で始まる"
+
+msgid "form.errors"
+msgstr "{$count} 個のエラーが発生したため、フォームは保存されませんでした。 これらのエラーを修正して、もう一度やり直してください。"
+
+msgid "form.errorMany"
+msgstr "エラーを{$count}個修正してください。"
+
+msgid "form.errorOne"
+msgstr "エラーを 1 個修正してください。"
+
+msgid "form.errorGoTo"
+msgstr "次のエラーへ"
+
+msgid "form.errorA11y"
+msgstr "{$fieldLabel}に移動: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "これ以上ファイルをアップロードすることはできません。"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "ファイルを削除"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "このアップロードをキャンセルしてもよろしいですか？"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "アップロードがキャンセルされました"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "アップロードをキャンセル"
+
+msgid "form.dropzone.dictResponseError"
+msgstr "サーバーは  {{statusCode}}コードで応答しました。 この問題が解決しない場合は、システム管理者にお問い合わせください。"
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "このタイプのファイルはアップロードできません。"
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr "ファイルが大きすぎます ({{filesize}}MB)。{{maxFilesize}}MB を超えるファイルはアップロードできません。"
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "ファイルをアップロードするには、以下のフォールバックフォームを使用してください。"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "お使いのブラウザでは、ファイルのドラッグとドロップアップロードはサポートされていません。"
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "ここにファイルをドロップしてアップロードします"
+
+msgid "form.disallowedProp"
+msgstr "このプロパティは使用できません。"
+
+msgid "form.disallowedLocales"
+msgstr "次の言語のみが許可されています: {$languages}。"
+
+msgid "form.dataHasChanged"
+msgstr "このフォームのデータが変更されました。 保存せずに続行しますか？"
+
+msgid "form.emailRequired"
+msgstr "メールアドレスは必須です。"
+
+msgid "form.confirmSubmit.title"
+msgstr "確認"
+
+msgid "form.confirmSubmit"
+msgstr "このフォームを送信してもよろしいですか？"
+
+msgid "form.url.invalid"
+msgstr "指定された URL は無効です。 確認して、もう一度やり直してください。"
+
+msgid "email.bodyRequired"
+msgstr "メールの本文を入力してください。"
+
+msgid "email.subjectRequired"
+msgstr "メールの件名を入力してください。"
+
+msgid "email.compose.error"
+msgstr "メールメッセージの送信中に問題が発生しました。 しばらくしてから再試行するか、システム管理者にお問い合わせください。"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "ファイルのアップロード"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "査読ファイルのアップロード"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "使用可能なメトリック"
+
+msgid "defaultMetric.title"
+msgstr "デフォルトのメトリック"
+
+msgid "common.publicAccess"
+msgstr "公共アクセス"
+
+msgid "common.count"
+msgstr "カウント"
+
+msgid "common.metric"
+msgstr "メトリック"
+
+msgid "common.user.nonexistent"
+msgstr "[Nonexistent user]"
+
+msgid "common.upload.dragFile"
+msgstr "ここにファイルをドラッグアンドドロップしてアップロードを開始します"
+
+msgid "common.upload.changeFile"
+msgstr "ファイルを変更"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "現在選択されている画像のプレビューを表示します。"
+
+msgid "common.upload.restore"
+msgstr "元に戻す"
+
+msgid "common.uploadFailed"
+msgstr "このファイルはアップロードできませんでした。再度試して，問題が解消されない場合は管理者に連絡してください。"
+
+msgid "common.unread"
+msgstr "未読"
+
+msgid "common.unknownError"
+msgstr "予期しないエラーが発生しました。 ページを再読み込みして、もう一度やり直してください。"
+
+msgid "common.true"
+msgstr "正"
+
+msgid "common.toWithValue"
+msgstr "宛先: {$value}"
+
+msgid "common.submenu"
+msgstr "サブメニュー"
+
+msgid "common.selectedPrefix"
+msgstr "選択中:"
+
+msgid "common.clearSearch"
+msgstr "検索語を消去"
+
+msgid "common.searchQuery"
+msgstr "検索クエリ"
+
+msgid "common.reset"
+msgstr "リセット"
+
+msgid "common.remoteURL"
+msgstr "リモートURL"
+
+msgid "common.remote"
+msgstr "リモート"
+
+msgid "common.refresh"
+msgstr "再読込"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.queue.long.active"
+msgstr "処理中の投稿物"
+
+msgid "common.quality"
+msgstr "クオリティー"
+
+msgid "common.preview"
+msgstr "プレビュー"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "例(英語の場合): A、The"
+
+msgid "common.prefix"
+msgstr "接頭語"
+
+msgid "common.pluginDisabled"
+msgstr "\"{$pluginName}\" は無効です。"
+
+msgid "common.pluginEnabled"
+msgstr "\"{$pluginName}\" は有効です。"
+
+msgid "common.pageNumber"
+msgstr "{$pageNumber}ページ"
+
+msgid "common.pagination.previous"
+msgstr "前のページ"
+
+msgid "common.pagination.next"
+msgstr "次のページ"
+
+msgid "common.pagination.goToPage"
+msgstr "{$page}に移動"
+
+msgid "common.pagination.label"
+msgstr "他のページを見る"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end}合計{$total}項目"
+
+msgid "common.overdue"
+msgstr "延滞"
+
+msgid "common.other"
+msgstr "その他"
+
+msgid "common.orderDown"
+msgstr "{$itemTitle}の順位を下げる"
+
+msgid "common.orderUp"
+msgstr "{$itemTitle}の順位を上げる"
+
+msgid "common.notes.tooltip"
+msgstr "注記 (黄色: 新規注記あり、青:  閲覧された注記、グレー: 注記なし)"
+
+msgid "common.noTemporaryFile"
+msgstr "アップロードしたファイルが見つかりませんでした。もう一度アップロードしてみてください。"
+
+msgid "common.noItemsFound"
+msgstr "アイテムは見つかりませんでした。"
+
+msgid "common.moreThanOnly"
+msgstr "よりも"
+
+msgid "common.moreThan"
+msgstr "{$value} 以上"
+
+msgid "common.more"
+msgstr "もっと"
+
+msgid "common.manage"
+msgstr "管理"
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.commaListSeparator"
+msgstr "、 "
+
+msgid "common.lessThanOnly"
+msgstr "未満"
+
+msgid "common.lessThan"
+msgstr "{$value}以下"
+
+msgid "common.less"
+msgstr "未満"
+
+msgid "common.lastActivity"
+msgstr "最近活動記録日: {$date}"
+
+msgid "common.itemsPerPage"
+msgstr "ページごとの要素"
+
+msgid "common.until"
+msgstr "まで"
+
+msgid "common.fromWithValue"
+msgstr "{$value} から"
+
+msgid "common.from"
+msgstr "から"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "スパム送信を防ぐための検証チェックを完了する必要があります。"

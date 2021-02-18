@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-09 08:43+0000\n"
+"PO-Revision-Date: 2021-02-10 21:53+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/gl_ES/>\n"
@@ -1003,6 +1003,1339 @@ msgstr "Opcións de acceso ao sitio"
 msgid "manager.sections.confirmActivateSection"
 msgstr "Estás seguro de que desexas activar esta sección?"
 
-#, fuzzy
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} ({$percentage}%)"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Taxa de rexeitamento despois da revisión"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Taxa de rexeitamento antes da revisión"
+
+msgid "stats.name.declineRate"
+msgstr "Taxa de rexeitamento"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Taxa de aceptación"
+
+msgid "stats.name.daysToReject"
+msgstr "Días ata o rexeitamento"
+
+msgid "stats.name.daysToAccept"
+msgstr "Días ata a aceptación"
+
+msgid "stats.name.daysToDecision"
+msgstr "Días ata a primeira decisión editorial"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Envíos publicados"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Envíos rexeitados (despois da revisión)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Envíos rexeitados (antes da revisión)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Envíos rexeitados"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Envíos aceptados"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Envíos recibidos"
+
+msgid "stats.userStatistics"
+msgstr "Estatísticas do usuario/a"
+
+msgid "stats.trends"
+msgstr "Tendencias"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Total no rango de datas"
+
+msgid "stats.total"
+msgstr "Total"
+
+msgid "stats.submissionsActive"
+msgstr "Envíos activos"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Buscar por título, autor e identificación"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Mensualmente"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.fileViews"
+msgstr "Visualizacións do arquivo"
+
+msgid "stats.editorialActivity"
+msgstr "Actividade editorial"
+
+msgid "stats.descriptionForStat"
+msgstr "Descrición para {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"O número de días que tarda a maioría dos envíos en recibir a primeira "
+"decisión editorial, como o rexeitamento ou o envío a revisión. <br> <br> "
+"Estas cifras indican que o 80% dos envíos alcanzan a decisión dentro do "
+"número de días indicado. < br> <br> Esta estatística intenta describir o "
+"prazo no que a maioría dos autores que envían á súa revista poden esperar "
+"unha decisión."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"A porcentaxe para o intervalo de datas seleccionado calcúlase para os envíos "
+"enviados durante este intervalo de datas e que recibiron unha decisión "
+"final. <br> <br> Por exemplo, considere o caso no que se fixeron dez envíos "
+"durante este intervalo de datas. Catro foron aceptados, catro foron "
+"rexeitados e dous aínda están á espera dunha decisión final. <br> <br> A "
+"taxa de aceptación será do 50% (4 de 8 presentacións) porque as dúas "
+"presentacións que non alcanzaron unha decisión final non se contabilizan."
+
+msgid "stats.dateRange.untilDate"
+msgstr "Ata {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Ata"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Ano actual"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Desde {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Último ano"
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Ligazón á páxina de avisos."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Ligazón ao arquivo dos números anteriores."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Ligazón ao número actual."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Ligazón á páxina que mostra as instrucións de envío."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Esta ligazón só se amosará se cubriu a sección Equipo editorial en "
+"Configuración > Revista."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Ligazón a unha páxina que mostra o contido da cabeceira Configuración > "
+"Revista."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Ligazón a unha páxina que mostra o contido de \"Acerca da revista\" en "
+"Configuración > Revista"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Cando un elemento do menú abre un submenú, a súa ligazón pode non seguirse "
+"en todos os dispositivos. Por exemplo, se tes un elemento \"Acerca de\" que "
+"abre un submenú con \"Contacto\" e \"Equipo editorial\", é posible que a "
+"ligazón \"Acerca de\" non estea dispoñible en todos os dispositivos. No menú "
+"predeterminado, corríxese creando un segundo elemento de menú, \"Acerca da "
+"revista\", que aparece no submenú."
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Esta ligazón só se amosará se completou a sección \"Acerca da revista\" en "
+"Configuración > Revista."
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Ligazón a calquera URL doutro sitio, como https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "URL remota"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Crea unha páxina personalizada no teu sitio e enlázaa desde un menú de "
+"navegación."
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Páxina personalizada"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr ""
+"Seleccione un tipo de menú de navegación ou \"Personalizado\" para facer o "
+"seu"
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Tipo de menú de navegación"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"Máis información sobre cando se amosará ou ocultará este elemento do menú."
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Débese proporcionar un URL"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "A esta área xa está asignado un menú de navegación."
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Seleccione unha área de navegación"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Áreas de navegación do tema activas"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Elementos do menú non asignados"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Elementos do menú asignados"
+
+msgid "manager.navigationMenuItems"
+msgstr "Elementos do menú de navegación"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "O título é obrigatorio"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Este título xa existe para outro menú de navegación."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Esta ruta xa existe para outro elemento do menú de navegación."
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"O campo da ruta debe conter só caracteres alfanuméricos máis '.', '/', '-' e "
+"'_'."
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Contido"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Esta páxina será accesible en: <blockquote>{$pagesPath}</blockquote>... "
+"onde %PATH% é a ruta introducida anteriormente. <strong>Nota:</strong> Non "
+"hai dúas páxinas que poidan ter a mesma ruta. O uso de rutas integradas no "
+"sistema pode facer que perdas o acceso a funcións importantes.</p>"
+
+msgid "manager.navigationMenus"
+msgstr "Menús de navegación"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Ruta"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Título"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"O nome de usuario/a \"{$username}\" e o correo electrónico \"{$email}\" non "
+"coinciden co mesmo usuario/a existente."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"O usuario/a importado \"{$username}\" ten un contrasinal sinxelo que non é "
+"válido. O usuario/a non foi importado."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Non se puido importar o contrasinal do usuario/a \"{$username}\" tal como "
+"está. Enviouse un novo contrasinal ao correo electrónico do usuario/a. O "
+"usuario/a foi importado."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"O usuario importado \"{$username}\" non ten contrasinal. Comprobe o formato "
+"XML de importación. O usuario non foi importado."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Erros de importación/exportación:"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"O ficheiro de envío {$id} foi omitido porque está adxunto a un rexistro que "
+"non se importará, como unha tarefa de revisión ou un debate."
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Non se puido importar o arquivo de envío"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"A revisión \"{$revisionId}\" para o arquivo \"{$fileId}\" crearía un "
+"rexistro duplicado"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"O tamaño do arquivo fornecido \"{$expected}\" e o tamaño real do arquivo \""
+"{$actual}\" non coinciden"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Non se puido crear o arquivo temporal {$dest} desde {$source}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Cargador {$param} descoñecido"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"O autor {$authorName} non ten un nome no idioma do envío, {$localeName}. O "
+"envío non se pode importar sen esta información."
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Grupo de usuarios {$param} descoñecido"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "O contido non está codificado como {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Codificación descoñecida {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Xénero descoñecido {$param}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Elemento descoñecido {$param}"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Erros atopados:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Avisos atopados:"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Erros de validación:"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Esixirlle ao autor/a que proporcione as referencias antes de aceptar o seu "
+"envío."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Pedirlle ao autor/a que proporcione as referencias durante o envío."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Non solicitar as referencias ao autor/a durante o envío."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Habilitar os metadatos de referencias"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Recoller as referencias dun envío nun campo separado. Pode que sexa "
+"necesario para cumprir cos servizos de rastrexo de citas como Crossref."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Esixirlle ao autor/a que declare as axencias de apoio antes de aceptar o seu "
+"envío."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr "Pedirlle ao autor/a que declare as axencias de apoio durante o envío."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Non solicitar ao autor/a as axencias de apoio durante o envío."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Habilitar os metadatos das axencias de apoio"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"As axencias de apoio poden indicar a fonte de financiamento da investigación "
+"ou outro soporte institucional que facilitou a investigación."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Esixirlle ao autor/a que proporcione as disciplinas antes de aceptar o seu "
+"envío."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Pedirlle ao autor/a que proporcione as disciplinas durante o envío."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Non solicitar disciplinas ao autor durante o envío."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Habilitar metadatos de disciplinas"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"As disciplinas son tipos de estudo ou ramas do coñecemento como describen as "
+"facultades universitarias e as sociedades académicas."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Esixirlle ao autor/a que proporcione o tipo antes de aceptar o seu envío."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Pedirlle ao autor/a que proporcione o tipo durante o envío."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Non solicite o tipo ao autor/a durante o envío."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Habilitar metadatos de tipoloxía"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"A natureza ou o xénero do contido principal do envío. O tipo adoita ser \""
+"Texto\", pero tamén pode ser \"Conxunto de datos\", \"Imaxe\" ou calquera "
+"dos <a target = \"_ blank\" href = \"http://dublincore.org/documents/"
+"dcmi-type-vocabulary/# section-7-dcmi-type-vocabulary \">tipos de Dublin "
+"Core</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Esixir ao autor que forneza materias antes de aceptar o seu envío."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Pedirlle ao autor/a que proporcione as materias durante o envío."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Non solicitar materias ao autor/a durante o envío."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Habilitar os metadatos de materia"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"As materias serán palabras clave, frases clave ou códigos de clasificación "
+"que describen o tema do envío."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Esixirlle ao autor/a que proporcione unha fonte URL antes de aceptar o seu "
+"envío."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Pedirlle ao autor que proporcione unha fonte URL durante o envío."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Non solicitar ao autor/a unha fonte URL durante o envío."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Habilitar os metadatos da fonte"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"A fonte pode ser un ID, como un DOI, doutro traballo ou recurso do que se "
+"deriva o envío."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Esixir ao autor/a unha declaración dos dereitos de acceso previos antes de "
+"aceptar o seu envío."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Pedirlle ao autor que declare os dereitos de acceso previos durante o envío."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Non solicite ao autor unha declaración dos dereitos durante o envío."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Habilitar os metadatos de dereitos"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Calquera dereito sobre o envío, que pode incluír Dereitos de Propiedade "
+"Intelectual (DPI), Dereitos de Autor e diferentes Dereitos de Propiedade."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr "Esixirlle ao autor que introduza os idiomas do envío antes de aceptalo."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Pedirlle ao autor que indique os idiomas durante o envío."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Non solicite ao autor os idiomas durante o envío."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Habilitar os metadatos do idioma"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"O idioma indica o idioma principal da obra empregando un código de idioma (\""
+"en\") cun código de país opcional (\"en_US\")."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr "Esixir ao autor que suxira palabras clave antes de aceptar a seu envío."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Solicitar ao autor/a que suxira palabras clave durante o envío."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Non solicitar palabras clave ao autor/a durante o envío."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Habilitar os metadatos de palabras clave"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"As palabras clave normalmente son de unha a tres palabras que se usan para "
+"indicar os temas principais dun envío."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Esixe ao autor/a que suxira metadatos de cobertura antes de aceptar o seu "
+"envío."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr "Pídelle ao autor/a que suxira metadatos de cobertura durante o envío."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Non solicite ao autor/a metadatos de cobertura durante o envío."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Habilitar os metadatos de cobertura"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"A cobertura indicará normalmente a situación espacial dunha obra (un nome de "
+"lugar ou coordenadas xeográficas), o período temporal (unha etiqueta de "
+"período, data ou intervalo de datas) ou a xurisdición (como unha entidade "
+"administrativa)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Cobertura"
+
+msgid "manager.setup.metadata.submission"
+msgstr "Formulario de envío"
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL da páxina web que describe a licenza, se está dispoñible."
+
+msgid "manager.setup.competingInterests.required"
+msgstr ""
+"Solicita unha declaración de conflito de intereses durante a revisión por "
+"pares."
+
+msgid "grid.action.createReviewForm"
+msgstr "Crear un novo formulario de revisión"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Visible (para os autores/as)"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Cadro de texto dunha liña"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Cadro de texto extendido"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Cadro de texto dunha palabra"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Incluído na mensaxe ao autor/a"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Os revisores/as deben completar o elemento"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Botóns de opción (só podes escoller un)"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Descrición"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Elemento"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Selección"
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Non se crearon elementos do formulario."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "É necesaria unha pregunta para o elemento do formulario."
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "É necesario un tipo de elemento para o elemento do formulario."
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Tipo de elemento"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Editar elemento do formulario"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Caixa despregable"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Crear un elemento novo"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Copiar a:"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Confirma a eliminación dun elemento do formulario publicado..."
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Escolla o tipo de elemento"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Caixas de verificación (pode escoller unha ou máis)"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Engadir selección"
+
+msgid "manager.reviewFormElements"
+msgstr "Elementos do formulario"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Cambiando o tipo de elemento do formulario..."
+
+msgid "manager.reviewForms.title"
+msgstr "Título"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Datos do formulario de revisión"
+
+msgid "manager.reviewForms.preview"
+msgstr "Previsualizar o formulario"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Non se empregaron formularios de revisión."
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Non se crearon formularios de revisión."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Ningunha / Revisión de formulario libre"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Os formularios de revisión por pares creados aquí presentaranse aos "
+"revisores para completalos, no canto do formulario predeterminado que consta "
+"de dous cadros de texto abertos, o primeiro para \"autor/a e editor/a\" e o "
+"segundo \"para editor/a\". Os formularios de revisión pódense asignar para "
+"unha sección editorial específica e os editores terán a opción de escoller o "
+"formulario que se usará para asignar a revisión. En todos os casos, os "
+"editores terán a opción de incluír as revisións na correspondencia co autor/"
+"a."
+
+msgid "manager.reviewForms.inReview"
+msgstr "En revisión"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "O formulario de revisión precisa dun título."
+
+msgid "manager.reviewForms.edit"
+msgstr "Formulario de revisión"
+
+msgid "manager.reviewForms.description"
+msgstr "Descrición e instrucións"
+
+msgid "manager.reviewForms.create"
+msgstr "Crear formulario de revisión"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Estás seguro de que desexas eliminar este formulario de revisión?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Completado"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Seguro que desexas crear unha copia deste formulario de revisión?"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Estás seguro/a de que desexas deshabilitar este formulario de revisión? Xa "
+"non estará dispoñible para novas tarefas de revisión."
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Seguro que desexas habilitar este formulario de revisión? Unha vez asignado "
+"a unha revisión, xa non poderás desactivalo."
+
+msgid "manager.reviewForms"
+msgstr "Formularios de revisión"
+
+msgid "manager.distribution.title"
+msgstr "Axustes da distribución"
+
+msgid "manager.distribution"
+msgstr "Distribución"
+
+msgid "manager.workflow.title"
+msgstr "Configuración do fluxo de traballo"
+
+msgid "manager.workflow"
+msgstr "Fluxo de traballo"
+
+msgid "manager.website.title"
+msgstr "Axustes do sitio web"
+
+msgid "manager.website"
+msgstr "Sitio web"
+
+msgid "manager.users.roleRequired"
+msgstr "Debes seleccionar polo menos un rol para asocialo a este usuario."
+
+msgid "manager.settings.wizard"
+msgstr "Asistente de axustes"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Seleccione o tipo de metadatos de estes arquivos. Debe seleccionarse \""
+"Documento\" para os arquivos de publicación principais, como o PDF "
+"descargable, para que estes ficheiros herdan os seus metadatos da "
+"publicación. Se non, elixe \"Contido adicional\" para a maioría dos tipos de "
+"arquivo. \"Material gráfico\" é apropiado para arquivos que requiren "
+"metadatos de crédito, subtítulos e licenzas distintos."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Metadatos do arquivo"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"A chave só pode conter caracteres alfanuméricos, guións baixos e guións e "
+"debe comezar e rematar cun carácter alfanumérico."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "A chave xa existe."
+
+msgid "manager.setup.genres.key.description"
+msgstr "Un identificador simbólico curto para este xénero."
+
+msgid "manager.setup.genres.key"
+msgstr "Contrasinal"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Trátase de arquivos complementarios, como conxuntos de datos e materiais de "
+"investigación, e amosaranse por separado dos arquivos de publicación "
+"principais."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Trátase de arquivos dependentes, como as imaxes mostradas por un arquivo "
+"HTML, e non se amosarán co contido publicado."
+
+msgid "manager.setup.genres.label"
+msgstr "Tipo de arquivo"
+
+msgid "grid.action.restoreGenres"
+msgstr "Restaurar todos os xéneros á configuración predeterminada"
+
+msgid "grid.action.deleteGenre"
+msgstr "Eliminar este xénero"
+
+msgid "grid.action.editGenre"
+msgstr "Editar este xénero"
+
+msgid "grid.action.addGenre"
+msgstr "Engadir un compoñente"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Seleccione os arquivos da biblioteca para anexar"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Este arquivo de biblioteca pode ser descargado, se está habilitado \""
+"Acceso público\", en: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Outro"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Informes"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Permisos"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Márketing"
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Contratos"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "É necesario un tipo de arquivo para este arquivo de biblioteca."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "É necesario un nome para este arquivo de biblioteca."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"É necesario un arquivo de biblioteca. Asegúrese de que escolleu e cargou un "
+"arquivo."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Permitir a edición de metadatos de envío."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Debe definir unha fase á que asignar."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Debes definir un nivel de permisos do rol."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Debes definir unha abreviatura do rol única."
+
+msgid "settings.roles.uniqueName"
+msgstr "Debes definir un nome de rol único."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Debes definir unha abreviatura do rol."
+
+msgid "settings.roles.nameRequired"
+msgstr "Debes definir un nome do rol."
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Estás a piques de eliminar este rol deste contexto. Esta operación tamén "
+"eliminará a configuración relacionada e todas as asignacións dos usuarios a "
+"este rol. Queres continuar?"
+
+msgid "settings.roles.from"
+msgstr "Nivel de permisos"
+
+msgid "settings.roles.roleDetails"
+msgstr "Detalles do rol"
+
+msgid "settings.roles.stages"
+msgstr "Fases"
+
+msgid "settings.roles.assignedStages"
+msgstr "Fases asignadas"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Abreviatura"
+
+msgid "settings.roles.roleName"
+msgstr "Nome do rol"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Este rol só se pode recomendar unha decisión de revisión e requirirá un "
+"editor autorizado para que rexistre unha decisión final."
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Permitir o autorrexistro do usuario/a"
+
+msgid "settings.roles.showTitles"
+msgstr "Mostrar o título do rol na lista de colaboradores"
+
+msgid "settings.roles.roleOptions"
+msgstr "Opcións de rol"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Moeda"
+
+msgid "manager.paymentMethod.method"
+msgstr "Forma de pagamento"
+
+msgid "manager.paymentMethod.none"
+msgstr "Non se seleccionou ningún método de pago"
+
+msgid "manager.paymentMethod.title"
+msgstr "Formas de pagamento"
+
+msgid "manager.paymentMethod"
+msgstr "Pagamentos"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Engade etiquetas HTML personalizadas, tamén coñecidas como metaetiquetas, "
+"que che gustaría inserir na cabeceira de cada páxina. Consulte cun asesor "
+"técnico antes de engadir etiquetas aquí."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Etiquetas personalizadas"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Insira os termos de licenza pública que desexa amosar xunto cos traballos "
+"publicados."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Termos da licenza"
+
+msgid "manager.distribution.license.other"
+msgstr "URL de outra licenza"
+
+msgid "manager.distribution.license"
+msgstr "Licenza"
+
+msgid "notification.editedUser"
+msgstr "Usuario/a editado."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Opcións de idioma gardadas."
+
+msgid "notification.localeReloaded"
+msgstr "{$locale} idioma recargado para {$contextName}."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} Idioma desinstalado."
+
+msgid "notification.localeInstalled"
+msgstr "Instaláronse e activáronse todos os idiomas seleccionados."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} definido como idioma principal."
+
+msgid "notification.localeDisabled"
+msgstr "Configuración local deshabilitada."
+
+msgid "notification.localeEnabled"
+msgstr "Configuración local habilitada."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "O arquivo version.xml non se atopou no cartafol do complemento"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr ""
+"O arquivo version.xml no cartafol do complemento contén datos non válidos."
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Selecciona un arquivo de complemento"
+
+msgid "manager.plugins.uploadError"
+msgstr "Erro ao cargar o arquivo"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Actualizouse correctamente á versión {$versionString}"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Fallou a actualización. {$errorString}"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Este formulario permítelle actualizar un complemento. Asegúrese de que o "
+"complemento está comprimido como un arquivo .tar.gz."
+
+msgid "manager.plugins.upgrade"
+msgstr "Actualizar complemento"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr ""
+"O comando tar non está dispoñible. Configúrao correctamente no \"config.inc."
+"php\"."
+
+msgid "manager.plugins.settings"
+msgstr "Axustes"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"O complemento xa existe, pero é máis recente que a versión instalada. "
+"Actualizao"
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "O complemento non existe. Instalao no seu lugar"
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"O arquivo versión.xml do complemento cargado contén un nome que non se "
+"axusta ao nome do complemento actualizado."
+
+msgid "manager.plugins.wrongCategory"
+msgstr ""
+"O complemento cargado non se axusta á categoría do complemento actualizado."
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+"O complemento cargado non contén un cartafol que corresponda ao nome do "
+"complemento."
+
+msgid "manager.plugins.installSuccessful"
+msgstr "A versión {$versionNumber} instalouse correctamente"
+
+msgid "manager.plugins.installFailed"
+msgstr "Fallou a instalación. {$errorString}"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Non dispoñibel"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Actualizado"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Pode ser actualizado"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Máis recente que a versión dispoñible"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "O complemento xa está instalado e actualizado."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+"O complemento xa está instalado, pero pódese actualizar a unha versión máis "
+"recente."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+"O complemento xa está instalado e é máis recente que a versión dispoñible na "
+"galería."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr ""
+"Actualmente non hai dispoñible ningunha versión compatible deste complemento."
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "O complemento aínda non se instalou."
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Estado"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Resumo"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Páxina de inicio"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} lanzada o {$date}"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Mantedor"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr ""
+"Este complemento é subministrado por un dos nosos socios de desenvolvemento."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Socio"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Este complemento foi revisado e aprobado polo equipo do Public Knowledge "
+"Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Revisado"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Este complemento é desenvolvido e mantido polo equipo do Public Knowledge "
+"Project."
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Oficial"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Última versión compatibel"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Instalación"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Vista xeral"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Galería de complementos"
+
+msgid "manager.plugins.installed"
+msgstr "Complementos instalados"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Asegúrese de que seleccionou un arquivo para cargar."
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Este formulario permítelle cargar e instalar un novo complemento. Asegúrese "
+"de que o complemento está comprimido como un arquivo .tar.gz."
+
+msgid "manager.plugins.upload"
+msgstr "Cargar un novo complemento"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Seleccione primeiro un arquivo"
+
+msgid "manager.plugins.doesNotExist"
+msgstr "O complemento \"{$pluginName}\" non existe"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Esta páxina permite ao xestor revisar e configurar os complementos que están "
+"instalados actualmente. Os complementos divídense en categorías, segundo a "
+"súa función. As categorías están listadas a continuación e dentro de cada "
+"categoría o seu conxunto de complementos actual."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Eliminouse correctamente o complemento \"{$pluginName}\""
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"Non se puido eliminar o complemento \"{$pluginName}\" do sistema de "
+"arquivos. Pode ser un problema de permisos. Asegúrese de que o servidor web "
+"pode escribir no cartafol de complementos (incluídos subcartafoles) pero non "
+"esqueza protexelo de novo unha vez rematado."
+
+msgid "manager.plugins.deleteDescription"
+msgstr ""
+"Ao premer en eliminar, eliminarase o complemento do sistema de arquivos do "
+"servidor."
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Estás seguro/a de que desexas eliminar este complemento do sistema?"
+
+msgid "grid.action.installPlugin"
+msgstr "Instala ou actualiza este complemento"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Estás seguro/a de que desexas actualizar este complemento?"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Estás seguro/a de que desexas instalar este complemento?"
+
+msgid "manager.plugins.delete"
+msgstr "Eliminar complemento"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"O complemento non se copiou correctamente. Pode ser un problema de permisos. "
+"Asegúrese de que o servidor web pode escribir no cartafol de complementos ("
+"incluídos subcartafoles) pero non esqueza protexelo de novo unha vez "
+"rematado."
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Estes complementos implementan soporte para un identificador público."
+
+msgid "plugins.categories.pubIds"
+msgstr "Complementos de Identificador Público"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Estes complementos de formato expresan metadatos nas comunicacións OAI."
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Complementos de formato de metadatos OAI"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Últimos dous anos"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Últimos 90 días"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Últimos 30 días"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Últimos 12 meses"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "A data de inicio pode non ser anterior a {$date}."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "A data de finalización non pode ser posterior a {$date}."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "A data de inicio debe ser anterior á data de finalización."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"O formato da data non é válido. Introduza as datas co formato AAAA-MM-DD."
+
+msgid "stats.dateRange.instructions"
+msgstr "Introduza cada data no formato AAAA-MM-DD."
+
+msgid "stats.dateRange.from"
+msgstr "Desde"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Unha das datas introducidas non existe."
+
+msgid "stats.dateRange.customRange"
+msgstr "Rango personalizado"
+
+msgid "stats.dateRange.change"
+msgstr "Cambiar o rango das datas"
+
+msgid "stats.dateRange.apply"
+msgstr "Aplicar"
+
+msgid "stats.dateRange.allDates"
+msgstr "Todas as datas"
+
+msgid "stats.dateRange"
+msgstr "Rango de datas"
+
+msgid "stats.daily"
+msgstr "Diariamente"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/ano)"
+
+msgid "stats.allUsers"
+msgstr "Todos os usuarios/as"
+
+msgid "grid.category.categoryDetails"
+msgstr "Detalles da categoría"
+
+msgid "grid.category.nameRequired"
+msgstr "Insira un nome de categoría."
+
+msgid "grid.category.removeText"
+msgstr "Seguro que desexas eliminar esta categoría?"
+
+msgid "grid.category.parentCategory"
+msgstr "Categoría pai"
+
+msgid "grid.category.description"
+msgstr "Descrición"
+
+msgid "grid.category.pathExists"
+msgstr "A ruta da categoría xa existe. Insira unha ruta única."
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "A ruta da categoría debe consistir só en letras e números."
+
+msgid "grid.category.urlWillBe"
+msgstr "O URL da categoría será: {$sampleUrl}"
+
+msgid "grid.category.path"
+msgstr "Ruta"
+
+msgid "grid.category.name"
+msgstr "Nome"
+
+msgid "grid.category.edit"
+msgstr "Editar categoría"
+
+msgid "grid.category.add"
+msgstr "engadir categoría"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Esta ligazón só se amosará se introduciu unha declaración de privacidade en "
+"Configuración > Fluxo de traballo > Envíos."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Ligazón á páxina que mostra a declaración de privacidade."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Ligazón á páxina de procura."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Esta ligazón só se amosará se o usuario iniciou sesión, os pagos están "
+"habilitados en Configuración > Distribución > Pagos e as subscricións son "
+"necesarias en Configuración > Distribución > Acceso."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Esta ligazón só se amosará se os pagos están habilitados en Configuración > "
+"Distribución > Pagamentos."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Seleccione un tipo de menú de navegación."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Esta ligazón só se amosará se encheu a información de contacto en "
+"Configuración > Contacto."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Ligazón á páxina de información de contacto."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Esta ligazón só se amosará si o visitante non iniciou sesión."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Esta ligazón só se amosará cando o usuario/a inicie sesión."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Ligazón que pechará a sesión do ususario/a."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Esta ligazón só se amosará aos usuarios/as administradores/as."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Ligazón ás ferramentas de administración do sitio."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Ligazón á páxina do perfil do ususario/a."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Ligazón ao panel editorial."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Ligazón á páxina de rexistro."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Ligazón á páxina de inicio de sesión."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Esta ligazón só se amosará se habilitou os avisos en Configuración> Sitio "
+"web."
+
+msgid "plugins.categories.themes"
+msgstr "Complementos de Tema"
+
+msgid "plugins.categories.themes.description"
+msgstr ""
+"Os complementos de temas pódense usar para cambiar a aparencia do sistema."
+
+msgid "plugins.categories.reports"
+msgstr "Complementos de Informe"
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+"Os complementos de informe úsanse para implementar varios tipos de informes "
+"e extractos de datos."
+
+msgid "plugins.categories.paymethod"
+msgstr "Complementos de Pago"
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"Os complementos de Métodos de pagamento implementan soporte para varias "
+"formas de procesar os pagos en liña."
+
+msgid "plugins.categories.importexport"
+msgstr "Complementos de Importación/Exportación"
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+"Os complementos de importación/exportación pódense usar para transferir "
+"contido a e desde outros sistemas."
+
+msgid "plugins.categories.generic"
+msgstr "Complementos xenéricos"
+
+msgid "plugins.categories.gateways"
+msgstr "Complementos de pasarela"
+
+msgid "plugins.categories.gateways.description"
+msgstr ""
+"Os complementos de pasarela proporcionan datos en directo a sistemas "
+"externos."
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"Os complementos de bloque son compoñentes de interface de usuario "
+"conectables, como as distintas ferramentas da barra lateral."
+
+msgid "plugins.categories.blocks"
+msgstr "Complementos de Bloque"
+
+msgid "plugins.categories.auth"
+msgstr "Complementos de autorización"
+
+msgid "plugins.categories.metadata.description"
+msgstr ""
+"Os complementos de metadatos implementan estándares adicionais de metadatos."
+
+msgid "plugins.categories.metadata"
+msgstr "Complementos de metadatos"
+
+msgid "manager.users"
+msgstr "Usuarios/as"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Usuarios/as rexistrados"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} novo)"

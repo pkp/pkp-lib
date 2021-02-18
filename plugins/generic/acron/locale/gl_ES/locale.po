@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-02-05 14:53+0000\n"
+"Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
+"Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"generic-acron/gl_ES/>\n"
+"Language: gl_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "As tarefas programadas volveron cargarse."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Recargar as tarefas programadas"
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "A pestana Cron volveuse a cargar."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "O complemento Acron está desabilitado."
+
+msgid "plugins.generic.acron.enabled"
+msgstr "O complemento Acron está habilitado."
+
+msgid "plugins.generic.acron.description"
+msgstr ""
+"Este complemento tenta reducir a dependencia da aplicación de ferramentas de "
+"programación periódicas como \"cron\"."
+
+msgid "plugins.generic.acron.name"
+msgstr "Módulo Acron"

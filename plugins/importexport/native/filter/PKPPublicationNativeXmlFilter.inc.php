@@ -94,7 +94,12 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 		}
 
 		$this->addMetadata($doc, $entityNode, $entity);
-		$this->addAuthors($doc, $entityNode, $entity);
+
+		$authors = $entity->getData('authors');
+		if ($authors && count($authors) > 0) {
+			$this->addAuthors($doc, $entityNode, $entity);
+		}
+
 		$this->addRepresentations($doc, $entityNode, $entity);
 
 		$citationsListNode = $this->createCitationsNode($doc, $deployment, $entity);

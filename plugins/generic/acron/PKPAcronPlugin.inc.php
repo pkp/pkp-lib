@@ -268,7 +268,7 @@ class PKPAcronPlugin extends GenericPlugin {
 	 * save the result object in database.
 	 */
 	function _parseCrontab() {
-		$xmlParser = new XMLParser();
+		$xmlParser = new PKPXMLParser();
 
 		$taskFilesPath = array();
 

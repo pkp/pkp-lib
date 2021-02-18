@@ -69,7 +69,7 @@ class ManageSubmissionFilesForm extends Form {
 	 * that is currently being used by a grid inside this form.
 	 * @param $fileStage int SUBMISSION_FILE_...
 	 */
-	function execute($stageSubmissionFiles, $fileStage = null) {
+	function execute($stageSubmissionFiles = null, $fileStage = null, ...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$selectedFiles = (array)$this->getData('selectedFiles');
 		$submissionFilesIterator = Services::get('submissionFile')->getMany([
@@ -98,6 +98,8 @@ class ManageSubmissionFilesForm extends Form {
 				$submissionFile = $this->importFile($submissionFile, $fileStage);
 			}
 		}
+
+		parent::execute($stageSubmissionFiles = null, $fileStage = null, ...$functionArgs);
 	}
 
 	/**

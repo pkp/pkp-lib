@@ -45,17 +45,17 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 					'roles' => $roles
 				),
 				array(
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}',
 					'handler' => array($this, 'get'),
 					'roles' => $roles
 				),
 				array(
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/abstract',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/abstract',
 					'handler' => array($this, 'getAbstract'),
 					'roles' => $roles
 				),
 				array(
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/galley',
+					'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/galley',
 					'handler' => array($this, 'getGalley'),
 					'roles' => $roles
 				),

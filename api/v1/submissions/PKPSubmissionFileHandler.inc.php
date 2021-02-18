@@ -23,7 +23,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 	 * Constructor
 	 */
 	public function __construct() {
-		$this->_handlerPath = 'submissions/{submissionId}/files';
+		$this->_handlerPath = 'submissions/{submissionId:\d+}/files';
 		$this->_endpoints = [
 			'GET' => [
 				[
@@ -32,7 +32,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
 				],
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionFileId}',
+					'pattern' => $this->getEndpointPattern() . '/{submissionFileId:\d+}',
 					'handler' => [$this, 'get'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
 				],
@@ -46,14 +46,14 @@ class PKPSubmissionFileHandler extends APIHandler {
 			],
 			'PUT' => [
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionFileId}',
+					'pattern' => $this->getEndpointPattern() . '/{submissionFileId:\d+}',
 					'handler' => [$this, 'edit'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
 				],
 			],
 			'DELETE' => [
 				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionFileId}',
+					'pattern' => $this->getEndpointPattern() . '/{submissionFileId:\d+}',
 					'handler' => [$this, 'delete'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
 				],

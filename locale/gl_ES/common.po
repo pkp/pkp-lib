@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-01 16:23+0000\n"
+"PO-Revision-Date: 2021-02-04 11:53+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "gl_ES/>\n"
@@ -1074,3 +1074,985 @@ msgstr "Os datos deste formulario cambiaron. Queres continuar sen gardar?"
 
 msgid "form.emailRequired"
 msgstr "É necesario un enderezo de correo electrónico."
+
+msgid "validator.url"
+msgstr "Este non é un URL válido."
+
+msgid "validator.unique"
+msgstr "{$attribute} xa está en uso."
+
+msgid "validator.timezone"
+msgstr "Esta non é unha zona horaria válida."
+
+msgid "validator.string"
+msgstr "Esta cadea non é válida."
+
+msgid "validator.size.array"
+msgstr "Isto debe conter {$size} elementos."
+
+msgid "validator.size.string"
+msgstr "Isto debe ter {$size} caracteres."
+
+msgid "validator.size.file"
+msgstr "Isto debe ter {$size} kilobytes."
+
+msgid "validator.size.numeric"
+msgstr "Isto debe ser de {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} e {$other} deben coincidir."
+
+msgid "validator.required_without_all"
+msgstr "Este campo é obrigatorio cando non hai ningún dos {$values}."
+
+msgid "validator.required_without"
+msgstr "Este campo é obrigatorio cando non está presente {$values}."
+
+msgid "validator.required_with_all"
+msgstr "Este campo é obrigatorio cando está presente {$values}."
+
+msgid "validator.required_with"
+msgstr "Este campo é obrigatorio cando está presente {$values}."
+
+msgid "validator.required_unless"
+msgstr "Este campo é obrigatorio a menos que {$other} estea en {$values}."
+
+msgid "validator.required_if"
+msgstr "Este campo é obrigatorio cando {$other} é {$value}."
+
+msgid "validator.required"
+msgstr "Este campo é obrigatorio."
+
+msgid "validator.regex"
+msgstr "Isto non está formatado correctamente."
+
+msgid "validator.present"
+msgstr "O campo {$attribute} debe estar presente."
+
+msgid "validator.orcid"
+msgstr "Este ORCID non é válido."
+
+msgid "validator.numeric"
+msgstr "Este número non é válido."
+
+msgid "validator.not_in"
+msgstr "O {$atributo} seleccionado non é válido."
+
+msgid "validator.min.array"
+msgstr "Isto debe ter polo menos {$min} elementos."
+
+msgid "validator.min.string"
+msgstr "Isto debe ter polo menos {$min} caracteres."
+
+msgid "validator.min.file"
+msgstr "Isto debe ter como mínimo {$min} kilobytes."
+
+msgid "validator.min.numeric"
+msgstr "Isto debe ser como mínimo de {$min}."
+
+msgid "validator.mimes"
+msgstr "Este arquivo debe ser do tipo {$values}."
+
+msgid "validator.max.array"
+msgstr "Isto non debe ter máis de {$max} elementos."
+
+msgid "validator.max.string"
+msgstr "Isto non pode ter máis de {$max} caracteres."
+
+msgid "validator.max.file"
+msgstr "Isto non pode ser maior de {$max} kilobytes."
+
+msgid "validator.max.numeric"
+msgstr "Isto non pode ser maior que {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Os idiomas deben especificarse usando o código local. Exemplos: en_US, "
+"fr_CA, sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Este campo é multilingüe. Débense proporcionar valores independentes para "
+"cada idioma compatible."
+
+msgid "validator.locale"
+msgstr "Este idioma non está aceptado."
+
+msgid "validator.json"
+msgstr "Esta cadea JSON non é válida."
+
+msgid "validator.issn"
+msgstr "Este ISSN non é válido."
+
+msgid "validator.ip"
+msgstr "Este non é un enderezo IP válido."
+
+msgid "validator.integer"
+msgstr "Este non é un número enteiro válido."
+
+msgid "validator.in"
+msgstr "O {$attribute} seleccionado non é válido."
+
+msgid "validator.image"
+msgstr "Isto debe ser unha imaxe."
+
+msgid "validator.filled"
+msgstr "Este campo é obrigatorio."
+
+msgid "validator.exists"
+msgstr "O {$attribute} seleccionado non é válido."
+
+msgid "validator.email"
+msgstr "Este non é un enderezo de correo electrónico válido."
+
+msgid "validator.digits_between"
+msgstr "Isto debe ter entre {$min} e {$max} díxitos."
+
+msgid "validator.digits"
+msgstr "Isto debe ter {$díxitos} díxitos."
+
+msgid "validator.different"
+msgstr "{$attribute} e {$other} deben ser diferentes."
+
+msgid "validator.date_format"
+msgstr "Isto non coincide co formato {$format}."
+
+msgid "validator.date"
+msgstr "Esta non é unha data válida."
+
+msgid "validator.currency"
+msgstr "Esta non é unha moeda válida."
+
+msgid "validator.confirmed"
+msgstr "A confirmación deste campo non coincide."
+
+msgid "validator.boolean"
+msgstr "Este campo debe ser verdadeiro ou falso."
+
+msgid "validator.between.array"
+msgstr "Debe ter entre {$min} e {$max} elementos."
+
+msgid "validator.between.string"
+msgstr "Debe estar entre {$min} e {$max} caracteres."
+
+msgid "validator.between.file"
+msgstr "Isto debe estar entre {$min} e {$max} kilobytes."
+
+msgid "validator.between.numeric"
+msgstr "Isto debe estar entre {$min} e {$max}."
+
+msgid "validator.before"
+msgstr "A data debe ser anterior a {$date}."
+
+msgid "validator.array"
+msgstr "Esta non é unha matriz válida."
+
+msgid "validator.alpha_num"
+msgstr "Isto só pode conter letras e números."
+
+msgid "validator.alpha_dash"
+msgstr "Isto só pode conter letras, números, guións e guións baixos."
+
+msgid "validator.alpha"
+msgstr "Isto só pode conter letras."
+
+msgid "validator.after"
+msgstr "Esta data debe ser posterior a {$date}."
+
+msgid "validator.active_url"
+msgstr "Esta URL non é válida."
+
+msgid "validator.accepted"
+msgstr "Acepta este elemento."
+
+msgid "list.viewLess"
+msgstr "Agochar os detalles ampliados sobre {$name}"
+
+msgid "list.viewMore"
+msgstr "Amosar máis detalles sobre {$name}"
+
+msgid "notification.removedNavigationMenu"
+msgstr "O menú de navegación eliminouse correctamente"
+
+msgid "notification.editedNavigationMenu"
+msgstr "O menú de navegación actualizouse correctamente"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Engadiuse correctamente o menú de navegación"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Engadiuse correctamente o elemento do menú de navegación"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Eliminouse correctamente o elemento do menú de navegación"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "O elemento do menú de navegación actualizouse correctamente"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Este é un recordatorio para que poida comprobar a saúde da súa publicación a "
+"través do informe editorial."
+
+msgid "notification.type.editorialReport"
+msgstr "Resumo do informe de estatísticas."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Estado da rolda {$round}"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Agardando correccións."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Asignar un corrector/a co uso da ligazón Engadir na lista de participantes."
+
+msgid "notification.type.queryAdded"
+msgstr "Engadiuse unha conversa."
+
+msgid "notification.type.queryActivity"
+msgstr "Actividade da conversa."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Opcións de privacidade"
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"O usuario actual non é o autor do envío solicitado. Verifique que se iniciou "
+"sesión coa conta de usuario correcta."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Actualmente non tes privilexios suficientes para ver o envío. Edite o seu "
+"perfil para asegurarse de que se lle concederon as funcións axeitadas en \""
+"Rexistrarse como\"."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Non tes acceso a esta asignación da revisión."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Non tes acceso a esta mensaxe da discusión."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Discusión non válida."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Rolda de revisión non válida."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Representación inválida."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Envío non válido."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Publicación non válida."
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"O usuario actual non está autorizado a acceder ao arquivo de envío "
+"especificado."
+
+msgid "user.email"
+msgstr "Enderezo de correo electrónico"
+
+msgid "notification.signedFile"
+msgstr "Arquivo examinado."
+
+msgid "notification.type.reviewerComment"
+msgstr "Un revisor comentou sobre \"{$title}\"."
+
+msgid "notification.type.metadataModified"
+msgstr "Modificáronse os metadatos de \"{$title}\"."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Revisións enviadas a {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Revisións a ter en conta en {$stage}."
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"Cargouse un arquivo revisado para a súa consideración editorial en {$stage}."
+
+msgid "notification.type.allReviewsIn"
+msgstr "Todos os revisores responderon e é necesaria unha decisión en {$stage}."
+
+msgid "notification.type.auditorRequest"
+msgstr "Solicitude de auditoría de \"{$file}\""
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Actualizouse a asignación da revisión."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Tes unha revisión pendente."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Novo aviso."
+
+msgid "notification.editStageParticipant"
+msgstr "Cambiouse a asignación da fase."
+
+msgid "notification.addedStageParticipant"
+msgstr "Usuario engadido como participante da fase."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Revisor/a restablecido."
+
+msgid "notification.cancelledReviewer"
+msgstr "Revisor/a cancelado."
+
+msgid "notification.removedReviewer"
+msgstr "Revisor/a eliminado."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} foi asignado para revisar este envío e non se lle enviou "
+"unha notificación por correo electrónico."
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName} foi asignado para revisar este envío e enviouselle unha "
+"notificación por correo electrónico."
+
+msgid "navigation.goBack"
+msgstr "Voltar"
+
+msgid "submission.task.responseDueDate"
+msgstr "Data límite da resposta"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Data límite da revisión"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Data límite da resposta"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Petición do editor/a"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Planificación da revisión"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>Para garantir a integridade das revisións por pares anónimas, débese "
+"facer todo o posible para evitar que os autores e revisores se coñezan entre "
+"si. \n"
+"Isto implica que os autores, editores e revisores (que cargan documentos "
+"como parte da súa revisión) comproben que se seguiron os seguintes pasos no "
+"que respecta ao texto e ás propiedades do arquivo:</p>\n"
+"<ul><li>Os autores do documento eliminaron os seus nomes do texto, con \""
+"Autor\" e o ano empregados nas referencias e notas ao pé de páxina, en lugar "
+"do nome dos autores, o título do artigo, etc.</li>\n"
+"<li>Os autores/as do documento eliminaron a información persoal das "
+"propiedades do arquivo seguindo estes pasos:\n"
+"<ul><li>Microsoft Word para Windows:\n"
+"<ul><li>Ir a \"Arquivo\"</li>\n"
+"<li>Seleccionar \"Información\"</li>\n"
+"<li>Premer en \"Comprobar si hai problemas\"</li>\n"
+"<li>Premer en \"Inspeccionar documento\"</li>\n"
+"<li>No cadro de diálogo de \"Inspeccionar documento\", seleccionar as "
+"casillas para elixir o tipo de contido oculto que desexe inspeccionar.</li>\n"
+"<li>Premer en \"Quitar todo\"</li>\n"
+"<li>Premer en \"Pechar\"</li>\n"
+"<li>Gardar o documento</li></ul>\n"
+"<li>Microsoft Word para MacOS:\n"
+"<ul><li>Ir a \"Ferramientas\"</li>\n"
+"<li>Premer en \"Protexer documento\"</li>\n"
+"<li>Seleccionar \"Eliminar información persol do archivo ao gardalo\"</li>\n"
+"<li>Premer en OK e gardar o arquivo</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Ir a \"Arquivo\"</li>\n"
+"<li>Seleccionar \"Propiedades\"</li>\n"
+"<li>Eliminar calquera nome do campo \"autor/a\"</li>\n"
+"<li>Premer en OK</li>\n"
+"<li>Gardar o documento</li></ul></li></ul>\n"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Como garantir que todos os arquivos sexan anonimizados"
+
+msgid "dashboard.myQueue"
+msgstr "A miña listaxe"
+
+msgid "dashboard.tasks"
+msgstr "Tarefas"
+
+msgid "grid.action.markRead"
+msgstr "Marcar como lido"
+
+msgid "grid.action.markNew"
+msgstr "Marcar como novo"
+
+msgid "grid.action.deleteNotification"
+msgstr "Eliminar tarefa"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Ler a política de revisión actual"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Como garantir que todos os arquivos sexan anonimizados"
+
+msgid "context.path"
+msgstr "Ruta"
+
+msgid "grid.action.downloadFile"
+msgstr "Descargar este arquivo"
+
+msgid "search.typeMethodApproach"
+msgstr "Tipo (método/enfoque)"
+
+msgid "search.title"
+msgstr "Título"
+
+msgid "search.titleIndex"
+msgstr "Explorar o índice de títulos"
+
+msgid "search.subject"
+msgstr "Palabra(s) chave"
+
+msgid "search.searchResults.foundPlural"
+msgstr "Atopados {$count} elementos."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Atopouse un elemento."
+
+msgid "search.searchResults"
+msgstr "Procurar resultados"
+
+msgid "search.SearchFor"
+msgstr "Procurar"
+
+msgid "search.operator.or"
+msgstr "ou"
+
+msgid "search.operator.not"
+msgstr "non"
+
+msgid "search.operator.and"
+msgstr "e"
+
+msgid "search.noResults"
+msgstr "Non hai resultados"
+
+msgid "search.matchAll"
+msgstr "Coincide en todas as categorías"
+
+msgid "search.indexTermsLong"
+msgstr "Todos os campos de termos do índice"
+
+msgid "search.indexTerms"
+msgstr "Termos do índice"
+
+msgid "search.fullText"
+msgstr "Texto completo"
+
+msgid "search.discipline"
+msgstr "Disciplina(s)"
+
+msgid "search.deleteFilter"
+msgstr "Eliminar"
+
+msgid "search.dateTo"
+msgstr "Publicado antes"
+
+msgid "search.dateFrom"
+msgstr "Publicado despois"
+
+msgid "search.date"
+msgstr "Data de publicación"
+
+msgid "search.coverage"
+msgstr "Cobertura"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} artigos indexados"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "erro"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "feito"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Restablecer o índice"
+
+msgid "search.searchAgain"
+msgstr "Procurar de novo"
+
+msgid "search.advancedSearchLess"
+msgstr "Agochar máis opcións de busca"
+
+msgid "search.advancedSearchMore"
+msgstr "Máis opcións de busca"
+
+msgid "search.advancedFilters"
+msgstr "Filtros avanzados"
+
+msgid "search.abstract"
+msgstr "Resumo"
+
+msgid "search.author"
+msgstr "Autores/as"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr ""
+"Envía un correo electrónico acerca disto a todos os usuarios rexistrados."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Gardáronse os metadatos do envío."
+
+msgid "notification.reminderSent"
+msgstr ""
+"O teu novo contrasinal enviouse ao enderezo de correo electrónico indicado."
+
+msgid "notification.reminderError"
+msgstr ""
+"Produciuse un erro ao enviar o seu contrasinal. Asegúrate de que inseriches "
+"correctamente o teu enderezo de correo electrónico."
+
+msgid "notification.settingsDescription"
+msgstr ""
+"Selecciona os eventos do sistema dos que queres ser notificado. Ao desmarcar "
+"un elemento, evitará que as notificacións do evento aparezan no sistema e "
+"tamén se che envíen por correo electrónico. Os eventos marcados aparecerán "
+"no sistema e tes unha opción adicional para recibir ou non a mesma "
+"notificación por correo electrónico."
+
+msgid "notification.settings"
+msgstr "Configuración das notificacións"
+
+msgid "notification.sentNotification"
+msgstr "Notificación enviada."
+
+msgid "notification.notifications"
+msgstr "Notificacións"
+
+msgid "notification.notification"
+msgstr "Notificación"
+
+msgid "notification.removedSubmission"
+msgstr "Envío eliminado."
+
+msgid "notification.removedFile"
+msgstr "Arquivo eliminado."
+
+msgid "notification.removedNote"
+msgstr "Nota eliminada."
+
+msgid "notification.addedNote"
+msgstr "Nota publicada."
+
+msgid "notification.noneExist"
+msgstr "Non tes notificacións neste momento."
+
+msgid "notification.email"
+msgstr "Non me envíes un correo electrónico con este tipo de notificacións."
+
+msgid "notification.confirmSuccess"
+msgstr "Subscribícheste correctamente."
+
+msgid "notification.confirmError"
+msgstr "Produciuse un erro ao confirmar a túa subscrición."
+
+msgid "notification.editedAuthor"
+msgstr "Autor/a editado."
+
+msgid "notification.addedAuthor"
+msgstr "Autor/a engadido."
+
+msgid "notification.removedAnnouncement"
+msgstr "Aviso eliminado."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Eliminado o tipo de aviso."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Editado o tipo de aviso."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Engadido o tipo de aviso."
+
+msgid "notification.allow"
+msgstr "Activa este tipo de notificacións."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Actualizáronse os arquivos de revisión."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Correo electrónico de agradecemento enviado ao revisor/a."
+
+msgid "notification.reviewAcknowledged"
+msgstr "Revisar os marcados como confirmados. Correo electrónico non enviado."
+
+msgid "notification.addedQuery"
+msgstr "Engadido debate"
+
+msgid "notification.removedAuditor"
+msgstr "Eliminado o auditor/a."
+
+msgid "notification.addedAuditor"
+msgstr "Engadido o auditor/a."
+
+msgid "navigation.viewFrontend"
+msgstr "Ver o sitio"
+
+msgid "navigation.userManagement"
+msgstr "Xestión do usuario/a"
+
+msgid "navigation.user"
+msgstr "Usuario/a"
+
+msgid "navigation.userHome"
+msgstr "Inicio"
+
+msgid "navigation.system"
+msgstr "Sistema"
+
+msgid "navigation.submissions"
+msgstr "Envíos"
+
+msgid "navigation.stepNumber"
+msgstr "Paso {$step}"
+
+msgid "navigation.skip.footer"
+msgstr "Ir ao pé de páxina do sitio"
+
+msgid "navigation.skip.nav"
+msgstr "Ir ao menú de navegación principal"
+
+msgid "navigation.skip.main"
+msgstr "Ir ao contido principal"
+
+msgid "navigation.skip.announcements"
+msgstr "Saltar aos avisos"
+
+msgid "navigation.skip.description"
+msgstr "Ir ás ligazóns de contido"
+
+msgid "navigation.sitemap"
+msgstr "Mapa do sitio"
+
+msgid "navigation.setup"
+msgstr "Configuración"
+
+msgid "navigation.settings"
+msgstr "Axustes"
+
+msgid "navigation.search"
+msgstr "Procurar"
+
+msgid "navigation.register"
+msgstr "Rexistrarse"
+
+msgid "navigation.publicMenu"
+msgstr "Menú público"
+
+msgid "navigation.previousStep"
+msgstr "Paso anterior"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.nextStep"
+msgstr "Seguinte paso"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.login"
+msgstr "Entrar"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} de {$total} elementos"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} de {$total} elementos"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Información para os lectores/as"
+
+msgid "navigation.infoForReaders"
+msgstr "Para os lectores/as"
+
+msgid "navigation.home"
+msgstr "Inicio"
+
+msgid "navigation.data"
+msgstr "Datos"
+
+msgid "navigation.dashboard"
+msgstr "Panel de control"
+
+msgid "navigation.browseByTitle"
+msgstr "Polo título"
+
+msgid "navigation.browseByAuthor"
+msgstr "Polo autor/a"
+
+msgid "navigation.backTo"
+msgstr "⟵ Voltar a {$page}"
+
+msgid "navigation.browse"
+msgstr "Navegar"
+
+msgid "navigation.tools.statistics"
+msgstr "Estatísticas"
+
+msgid "navigation.tools.importExport"
+msgstr "Importar/exportar"
+
+msgid "navigation.tools"
+msgstr "Ferramentas"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Estás aquí:"
+
+msgid "navigation.archives"
+msgstr "Arquivos"
+
+msgid "navigation.admin"
+msgstr "Administración"
+
+msgid "navigation.about"
+msgstr "Acerca de"
+
+msgid "navigation.access"
+msgstr "Usuarios/as e roles"
+
+msgid "locale.supported"
+msgstr "Idiomas soportados"
+
+msgid "locale.primary"
+msgstr "Idioma primario"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Non se poden facer cambios neste participante"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Participante"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Permitir a esta persoa facer cambios na publicación, como o título, o "
+"resumo, os metadatos e outros detalles da publicación. Pode que desexe "
+"revocar este privilexio se o envío recibiu unha comprobación final e está "
+"listo para a súa publicación."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Permisos"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Este participante só pode recomendar unha decisión editorial e requirirá dun "
+"editor/a autorizado para que rexistre as decisións editoriais."
+
+msgid "stageParticipants.options"
+msgstr "Asignación de privilexios"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Asegúrate de cubrir o campo da mensaxe e de incluír na discusión a alguén "
+"que non sexas ti."
+
+msgid "stageParticipants.notify.message"
+msgstr "Mensaxe"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+"Elixe unha mensaxe predefinida para usar ou enche o seguinte formulario."
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Comeza unha discusión entre ti e {$userFullName}."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Comezar unha discusión"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Notificación enviada aos usuarios."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Notificación enviada aos usuarios/as."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Publicouse unha nova nota."
+
+msgid "informationCenter.history.noItems"
+msgstr "Non hai eventos rexistrados."
+
+msgid "informationCenter.pastHistory"
+msgstr "Revisións anteriores"
+
+msgid "informationCenter.currentHistory"
+msgstr "Revisión actual"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Seguro que desexas eliminar esta nota?"
+
+msgid "informationCenter.pastNotes"
+msgstr "Notas anteriores"
+
+msgid "informationCenter.noNotes"
+msgstr "Non hai notas para amosar."
+
+msgid "informationCenter.addNote"
+msgstr "Engadir nota"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Historial de publicacións"
+
+msgid "informationCenter.informationCenter"
+msgstr "Centro de información"
+
+msgid "icon.view.alt"
+msgstr "Ver"
+
+msgid "icon.unchecked.alt"
+msgstr "Non marcado"
+
+msgid "icon.mail.alt"
+msgstr "Correo"
+
+msgid "icon.letter.alt"
+msgstr "Letra"
+
+msgid "icon.info.alt"
+msgstr "Información"
+
+msgid "icon.font_small.alt"
+msgstr "Pequena"
+
+msgid "icon.font_medium.alt"
+msgstr "Mediana"
+
+msgid "icon.font_large.alt"
+msgstr "Grande"
+
+msgid "icon.folder.alt"
+msgstr "Cartafol"
+
+msgid "icon.edit.alt"
+msgstr "Editar"
+
+msgid "icon.delete.alt"
+msgstr "Eliminar"
+
+msgid "icon.comment.alt"
+msgstr "Comentario"
+
+msgid "icon.checked.alt"
+msgstr "Marcado"
+
+msgid "help.upALevel"
+msgstr "Subir de nivel"
+
+msgid "help.next"
+msgstr "Seguinte"
+
+msgid "help.previous"
+msgstr "Anterior"
+
+msgid "help.toc"
+msgstr "Taboa de contidos"
+
+msgid "help.help"
+msgstr "Axuda"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} idiomas completados"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} en {$localeName}"
+
+msgid "form.invalidImage"
+msgstr ""
+"Cargouse unha imaxe non válida. Os formatos aceptados son .png, .gif ou .jpg."
+
+msgid "form.submit"
+msgstr "Enviar"
+
+msgid "form.send"
+msgstr "Enviar"
+
+msgid "form.saveToUpload"
+msgstr "Use Gardar para cargar o arquivo."
+
+msgid "form.saved"
+msgstr "Gardado"
+
+msgid "form.resubmit"
+msgstr "Reenviar"
+
+msgid "form.requireId"
+msgstr "Debe proporcionar unha identificación válida."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Debe encher este campo en {$language}."
+
+msgid "form.required"
+msgstr "(* Obrigatorio)"
+
+msgid "form.fileRequired"
+msgstr "É necesario cargar un arquivo."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Non se puido enviar o formulario. É posible que foras desconectado. Recarga "
+"a páxina e téntao de novo."
+
+msgid "form.postRequired"
+msgstr "O formulario non se enviou correctamente."
+
+msgid "form.startsWith"
+msgstr "comeza con"
+
+msgid "form.is"
+msgstr "é"
+
+msgid "form.contains"
+msgstr "contén"
+
+msgid "form.formLanguage"
+msgstr "Idioma do formulario"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"Para inserir a información seguinte en idiomas adicionais, primeiro "
+"seleccione o idioma."
+
+msgid "form.errorsOccurred"
+msgstr "Producíronse erros ao procesar este formulario"
+
+msgid "form.errors"
+msgstr ""
+"O formulario non se gardou porque se atoparon {$ count} erros. Corrixe estes "
+"erros e téntao de novo."
+
+msgid "form.errorMany"
+msgstr "Corrixa {$count} erros."
+
+msgid "form.errorOne"
+msgstr "Corrixa un erro."
+
+msgid "form.errorGoTo"
+msgstr "Pasar ao seguinte erro"
+
+msgid "form.errorA11y"
+msgstr "Ir a {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Non podes cargar máis arquivos."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Eliminar arquivo"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Seguro que queres cancelar esta carga?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Carga cancelada"

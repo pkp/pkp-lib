@@ -104,7 +104,7 @@ class AnnouncementDAO extends SchemaDAO {
 			->orderByDesc('date_posted')
 			->get();
 		foreach ($result as $row) {
-			yield $this->_fromRow((array) $row);
+			yield $row->announcement_id => $this->_fromRow((array) $row);
 		}
 	}
 
@@ -120,7 +120,7 @@ class AnnouncementDAO extends SchemaDAO {
 			$rangeInfo
 		);
 		foreach ($result as $row) {
-			yield $this->_fromRow((array) $row);
+			yield $row->announcement_id => $this->_fromRow((array) $row);
 		}
 	}
 

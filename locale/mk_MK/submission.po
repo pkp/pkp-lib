@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-01 16:23+0000\n"
+"PO-Revision-Date: 2021-02-10 21:53+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk_MK/>\n"
@@ -1521,109 +1521,97 @@ msgstr "Дискусии за рецензија"
 msgid "submission.queries.submission"
 msgstr "Дискусии пред рецензија"
 
-#, fuzzy
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
-"0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href="
-"\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"0/88x31.png\" /></a><p>Овој труд е лиценциран како <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
 "Attribution-ShareAlike 3.0 Unported License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
-"88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\""
+"88x31.png\" /></a><p>Овој труд е лиценциран како <a rel=\"license\" href=\""
 "https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
 "3.0 Unported License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nd3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
-"0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href="
-"\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"0/88x31.png\" /></a><p>Овој труд е лиценциран како <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
 "Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc-sa3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
 "\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-sa/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\""
+"by-nc-sa/3.0/88x31.png\" /></a><p>Овој труд е лиценциран како <a rel=\""
 "license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
 "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported "
 "License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
-"0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href="
-"\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"0/88x31.png\" /></a><p>Овој труд е лиценциран како <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
 "Attribution-NonCommercial 3.0 Unported License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc-nd3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
 "\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-nd/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\""
+"by-nc-nd/3.0/88x31.png\" /></a><p>Овој труд е лиценциран како <a rel=\""
 "license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
 "Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported "
 "License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-sa4.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4."
-"0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href="
-"\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons "
+"0/88x31.png\" /></a><p>Овој труд е лиценциран како <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons "
 "Attribution-ShareAlike 4.0 International License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by4.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/"
-"88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\""
+"88x31.png\" /></a><p>Овој труд е лиценциран како <a rel=\"license\" href=\""
 "https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution "
 "4.0 International License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nd4.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4."
-"0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href="
-"\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons "
+"0/88x31.png\" /></a><p>Овој труд е лиценциран како <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons "
 "Attribution-NoDerivatives 4.0 International License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc-sa4.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
 "\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-sa/4.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\""
+"by-nc-sa/4.0/88x31.png\" /></a><p>Овој труд е лиценциран како <a rel=\""
 "license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">"
 "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International "
 "License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc4.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><"
 "img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4."
-"0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href="
-"\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons "
+"0/88x31.png\" /></a><p>Овој труд е лиценциран под <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons "
 "Attribution-NonCommercial 4.0 International License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc-nd4.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
@@ -1633,29 +1621,23 @@ msgstr ""
 "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International "
 "License</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-sa4"
-msgstr "CC Attribution-ShareAlike 4.0"
+msgstr "Лиценца CC Attribution-ShareAlike 4.0"
 
-#, fuzzy
 msgid "submission.license.cc.by4"
-msgstr "CC Attribution 4.0"
+msgstr "Лиценца CC Attribution 4.0"
 
-#, fuzzy
 msgid "submission.license.cc.by-nd4"
-msgstr "CC Attribution-NoDerivatives 4.0"
+msgstr "Лиценца CC Attribution-NoDerivatives 4.0"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc-sa4"
-msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+msgstr "Лиценца CC Attribution-NonCommercial-ShareAlike 4.0"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc4"
-msgstr "CC Attribution-NonCommercial 4.0"
+msgstr "Лиценца CC Attribution-NonCommercial 4.0"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc-nd4"
-msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+msgstr "Лиценца CC Attribution-NonCommercial-NoDerivatives 4.0"
 
 msgid "submission.licenseURL"
 msgstr "УРЛ-адреса на дозвола"
@@ -1950,26 +1932,21 @@ msgstr "Бевте замолени да ги рецензирате уреде�
 msgid "submission.event.proofsApproved"
 msgstr "\"{$name}\" ({$username}) ги одобри отисоците за \"{$formatName}.\""
 
-#, fuzzy
 msgid "submission.event.signoffSignoff"
-msgstr ""
-"\"{$name}\" ({$username}) has signed off on the signoff for \"{$file}.\""
+msgstr "\"{$name}\" ({$username}) се одзапиша за одзапипување од \"{$file}.\""
 
-#, fuzzy
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr ""
-"Ова file proof нема повеќе да биде јавно достапно за превземање или набавка. "
-"Дали сакате да го оспорите?"
+"Ова пробна копија нема повеќе да биде јавно достапно за превземање или "
+"набавка. Дали сакате да го оспорите?"
 
-#, fuzzy
 msgid "editor.submission.decision.approveProofs"
-msgstr "Одобри Proofs"
+msgstr "Одобри пробна копија"
 
-#, fuzzy
 msgid "editor.submission.decision.approveProofsDescription"
 msgstr ""
-"Page proof file мора да биде означено како одобрено за да биде достапно. "
-"Дали сакате да го одобрите?"
+"Фајлот со отисок на страницата мора да биде означен како одобрен за да биде "
+"достапен. Дали сакате да го одобрите?"
 
 msgid "submission.upload.uploadLibraryFile"
 msgstr "Прикачи Library датотека"

@@ -55,6 +55,10 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			// pkp/pkp-lib#5865 Change announcement expiry format in database
 			$table->date('date_expire')->change();
 		});
+		Capsule::schema()->table('announcement_settings', function (Blueprint $table) {
+			// pkp/pkp-lib#6748 Change announcement setting type to permit nulls
+			$table->string('setting_type', 6)->nullable()->change();
+		});
 
 		// Transitional: The stage_id column may have already been added by the ADODB schema toolset
 		if (!Capsule::schema()->hasColumn('email_templates_default', 'stage_id')) {
@@ -176,19 +180,30 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			'clockssLicense',
 			'lockssLicense',
 		];
-		$rows = Capsule::table('journal_settings as js')
-			->join('journals as j', 'j.journal_id', '=', 'js.journal_id')
+		$contextDao = Application::getContextDAO();
+		$tableName = $contextDao->tableName;
+		$settingsTableName = $contextDao->settingsTableName;
+		$primaryKeyColumn = $contextDao->primaryKeyColumn;
+		$rows = Capsule::table($settingsTableName . ' as js')
+			->join($tableName . ' as j', 'j.' . $primaryKeyColumn, '=', 'js.' . $primaryKeyColumn)
 			->where('js.setting_name', '=', 'supportedFormLocales')
-			->select(['js.journal_id as id', 'js.setting_value as locales'])
+			->select(['js.' . $primaryKeyColumn . ' as id', 'js.setting_value as locales'])
 			->get();
 		foreach ($rows as $row) {
 			// account for some locale settings stored as assoc arrays
-			$locales = empty($row->locales)	? [] : json_decode($row->locales, true);
+			$locales = $row->locales;
+			if (empty($locales)) {
+				$locales = [];
+			} elseif (@unserialize($locales) !== false ) {
+				$locales = unserialize($locales);
+			} else {
+				$locales = json_decode($locales, true);
+			}
 			$locales = array_values($locales);
-			Capsule::table('journal_settings as js')
-				->where('js.journal_id', '=', $row->id)
-				->whereIn('js.setting_name', $settingsWithDefaults)
-				->whereNotIn('js.locale', $locales)
+			Capsule::table($settingsTableName)
+				->where($primaryKeyColumn, '=', $row->id)
+				->whereIn('setting_name', $settingsWithDefaults)
+				->whereNotIn('locale', $locales)
 				->delete();
 		}
 	}
@@ -514,11 +529,14 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 
 		// pkp/pkp-lib#6616 Delete review_files entries that correspond to nonexistent submission_files
 		$orphanedIds = Capsule::table('review_files AS rf')
+			->select('rf.submission_file_id', 'rf.review_id')
 			->leftJoin('submission_files AS sf', 'rf.submission_file_id', '=', 'sf.submission_file_id')
 			->whereNull('sf.submission_file_id')
 			->whereNotNull('rf.submission_file_id')
-			->pluck('rf.submission_file_id', 'rf.review_id');
-		foreach ($orphanedIds as $reviewId => $submissionFileId) {
+			->get();
+		foreach ($orphanedIds as $orphanedId) {
+			$reviewId = $orphanedId->{'review_id'};
+			$submissionFileId = $orphanedId->{'submission_file_id'};
 			error_log("Removing orphaned review_files entry with review_id ID $reviewId and submission_file_id $submissionFileId");
 			Capsule::table('review_files')
 				->where('submission_file_id', '=', $submissionFileId)

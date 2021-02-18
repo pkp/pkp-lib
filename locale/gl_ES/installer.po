@@ -1,0 +1,237 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-02-07 12:53+0000\n"
+"Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
+"Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/gl_ES/>\n"
+"Language: gl_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"Este software non admite a versión PHP do teu servidor. Comprobe os "
+"requisitos de instalación en docs/README."
+
+msgid "installer.beacon.enable"
+msgstr ""
+"Proporcione un ID único e un URL de base de OAI a PKP só con fins de "
+"estatísticas e alertas de seguridade."
+
+msgid "installer.beacon"
+msgstr "Beacon"
+
+msgid "installer.configureXSLMessage"
+msgstr ""
+"<p>A súa instalación de PHP non ten o módulo XSL activado. Habilíteo ou "
+"configura o parámetro xslt_command no teu ficheiro config.inc.php. </p>"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Os seguintes arquivos e cartafois (e o seu contido) deben ter "
+"permisos de escrituras:</p>\n"
+"<ul>\n"
+"<li> <tt> config.inc.php </tt>é editable (opcional): {$writable_config} </li>"
+"\n"
+"<li> <tt> public / </tt> é editable: {$writable_public} </li>\n"
+"<li> <tt> cache / </tt> é editable: {$writable_cache} </li>\n"
+"<li> <tt> cache / t_cache / </tt> é editable: {$writable_templates_cache} "
+"</li>\n"
+"<li> <tt> cache / t_compile / </tt> é editable: {$writable_templates_compile}"
+" </li>\n"
+"<li> <tt> cache / _db </tt> é editable: {$writable_db_cache} </li>\n"
+"</ul>\n"
+"\n"
+"<p>2. Débese crear un cartafol para almacenar os arquivos cargados e que "
+"teña permisos de escritura (consulte \"Configuración do arquivo\" a "
+"continuación). </p>\n"
+"\t"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Pasos para a preinstalación"
+
+msgid "installer.releaseNotes"
+msgstr "Notas de lanzamento"
+
+msgid "installer.publicFilesDirError"
+msgstr ""
+"O cartafol de arquivos públicos non existe ou non ten permisos de escritura."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Identificador do repositorio OAI"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+"Un identificador único usado para identificar rexistros de metadatos "
+"indexados neste sitio mediante o protocolo <a href=\""
+"https://www.openarchives.org/\" target=\"_blank\">Open Archives "
+"Initiative</a> para a recolección de metadatos."
+
+msgid "installer.oaiSettings"
+msgstr "Configuración OAI"
+
+msgid "installer.localeSettings"
+msgstr "Configuración de idiomas"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Os idiomas marcados poden estar incompletos."
+
+msgid "installer.locale"
+msgstr "Configuración rexional"
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"A actualización non é compatible. Vexa docs/UPGRADE-UNSOPPORTED para máis "
+"detalles."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Erro ao analizar o arquivo de configuración do filtro <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr ""
+"Erro ao analizar o arquivo do modelo de correo electrónico <tt>{$file}</tt>."
+
+msgid "installer.installMigrationError"
+msgstr "Erro ao executar a clase de migración <tt>{$class}</tt>."
+
+msgid "installer.installParseDBFileError"
+msgstr "Erro ao analizar o archivo de instalación <tt>{$file}</tt>."
+
+msgid "installer.installFilesDirError"
+msgstr ""
+"O cartafol especificado para os arquivos cargados non existe ou non ten "
+"permisos de escritura."
+
+msgid "installer.installFileError"
+msgstr ""
+"O arquivo de instalación <tt>dbscripts/xml/install.xml</tt> non existe ou "
+"non se pode ler."
+
+msgid "installer.installerSQLStatements"
+msgstr "Sentenzas SQL para a instalación"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Producíronse erros durante a instalación"
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br /><strong>AVISO: a versión actual de PHP non cumpre os requisitos "
+"mínimos para a instalación. Recoméndase actualizar a unha versión máis "
+"recente de PHP.</strong>"
+
+msgid "installer.form.usernameRequired"
+msgstr "É necesario un nome de usuario/a para a conta de administrador/a."
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+"O nome de usuario do administrador só pode conter caracteres alfanuméricos, "
+"guións baixos e guións e debe comezar e rematar cun carácter alfanumérico."
+
+msgid "installer.form.separateMultiple"
+msgstr "Separa varios valores con comas"
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Os contrasinais do administrador non coinciden."
+
+msgid "installer.form.passwordRequired"
+msgstr "É necesario un contrasinal para a conta de administrador."
+
+msgid "installer.form.localeRequired"
+msgstr "Debes seleccionar un idioma."
+
+msgid "installer.form.filesDirRequired"
+msgstr ""
+"É necesario o cartafol que se empregará para almacenar os arquivos cargados."
+
+msgid "installer.form.emailRequired"
+msgstr ""
+"É necesario un enderezo de correo electrónico válido para a conta de "
+"administrador."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "O nome da base de datos é obrigatorio."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Débese seleccionar un controlador de base de datos."
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Débese seleccionar un conxunto de caracteres do cliente."
+
+msgid "installer.fileSettings"
+msgstr "Configuración de arquivos"
+
+msgid "installer.filesDir"
+msgstr "Cartafol para cargar documentos"
+
+msgid "installer.databaseUsername"
+msgstr "Nome de usuario/a"
+
+msgid "installer.databaseSettings"
+msgstr "Configuración da base de datos"
+
+msgid "installer.databasePassword"
+msgstr "Contrasinal"
+
+msgid "installer.databaseName"
+msgstr "Nome da base de datos"
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+"Deixe o nome do servidor en branco para conectarse usando sockets de dominio "
+"en lugar de por TCP/IP. Isto non é necesario con MySQL, que empregará "
+"automaticamente sockets se se introduce \"localhost\", pero é necesario con "
+"outros servidores de bases de datos como PostgreSQL."
+
+msgid "installer.databaseHost"
+msgstr "Servidor"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong>Os controladores de base de datos que aparecen entre parénteses non "
+"parecen ter a extensión PHP requirida e é probable que a instalación falle "
+"se se selecciona.</strong><br />Os controladores de base de datos non "
+"compatibles listados anteriormente amósanse só con fins académicos e é "
+"probable que non funcionen."
+
+msgid "installer.databaseDriver"
+msgstr "Controlador da base de datos"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Contido do arquivo de configuración"
+
+msgid "installer.connectionCharset"
+msgstr "Conxunto de caracteres da conexión"
+
+msgid "installer.configFileError"
+msgstr ""
+"O arquivo de configuración <tt>config.inc.php</tt> non existe ou non é "
+"lexible."
+
+msgid "installer.clientCharsetInstructions"
+msgstr ""
+"A codificación usada para os datos enviados e recibidos dos navegadores."
+
+msgid "installer.clientCharset"
+msgstr "Conxunto de caracteres do cliente"
+
+msgid "installer.checkYes"
+msgstr "Sí"
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NON</span>"
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"Esta conta de usuario/a converterase no administrador/a do sitio e terá "
+"acceso completo ao sistema. Pódense crear contas de usuario adicionais "
+"despois da instalación."
+
+msgid "installer.administratorAccount"
+msgstr "Conta do administrador"
+
+msgid "installer.additionalLocales"
+msgstr "Idiomas adicionais"

@@ -20,12 +20,6 @@ msgstr ""
 "que las bibliotecas alojen a los miembros de su facultad (ver <a href=\""
 "http://pkp.sfu.ca\"> Proyecto de conocimiento público </a>)."
 
-msgid "default.contextSettings.emailSignature"
-msgstr ""
-"<br/"
-">________________________________________________________________________<br/"
-"><a href=\"{$contextUrl}\">{$contextName}</a>"
-
 msgid "default.genres.sourceTexts"
 msgstr "Textos fuente"
 

@@ -54,12 +54,6 @@ msgstr "PRE"
 msgid "section.default.title"
 msgstr "Pré-prints"
 
-msgid "default.contextSettings.emailSignature"
-msgstr ""
-"<br/"
-">________________________________________________________________________<br/"
-"><a href=\"{$contextUrl}\">{$contextName}</a>"
-
 msgid "default.genres.sourceTexts"
 msgstr "Textos fonte"
 

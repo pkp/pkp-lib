@@ -267,18 +267,10 @@ class PKPNavigationMenuService {
 					));
 					break;
 				case NMI_TYPE_ADMINISTRATION:
-					$contextPath = 'index';
-					$user = $request->getUser();
-					$contextDao = \Application::getContextDAO();
-					$workingContexts = $contextDao->getAvailable($user?$user->getId():null);
-					list($firstContext, $secondContext) = [$workingContexts->next(), $workingContexts->next()];
-					if ($firstContext && !$secondContext) {
-						$contextPath = $firstContext->getPath();
-					}
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
 						ROUTE_PAGE,
-						$contextPath,
+						'index',
 						'admin',
 						'index',
 						null

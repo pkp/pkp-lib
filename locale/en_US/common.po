@@ -1757,6 +1757,18 @@ msgstr "Navigation menu was succesfully updated"
 msgid "notification.removedNavigationMenu"
 msgstr "Navigation menu was succesfully removed"
 
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr "User: <b>{$username}</b>. Select the types of email notifications that you want to unsubscribed from. ({$contextName}). <br /> Notification settings are accessible at {$profileNotificationUrl}."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr "The user <b>{$username}</b> has successfully unsubscribed from the selected email notifications. ({$contextName}). <br /> Notification settings are accessible at {$profileNotificationUrl}."
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr "The user <b>{$username}</b> could not unsubscribed from the selected email notifications. ({$contextName}). <br /> Notification settings are accessible at {$profileNotificationUrl}."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Unsubscribe"
+
 msgid "list.viewMore"
 msgstr "Show more details about {$name}"
 

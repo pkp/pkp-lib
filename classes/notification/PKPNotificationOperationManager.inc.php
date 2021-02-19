@@ -16,6 +16,7 @@
  * Subclasses can implement specific information.
  */
 
+use \Firebase\JWT\JWT;
 
 import('classes.notification.Notification');
 import('lib.pkp.classes.notification.INotificationInfoProvider');
@@ -376,11 +377,30 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 				$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 			}
 
-			$mail->assignParams(array(
+			$emailParams = array(
 				'notificationContents' => $this->getNotificationContents($request, $notification),
 				'url' => $this->getNotificationUrl($request, $notification),
-				'siteTitle' => $context?$context->getLocalizedName():$site->getLocalizedTitle()
-			));
+				'siteTitle' => $context?$context->getLocalizedName():$site->getLocalizedTitle(),
+			);
+
+			$notificationManager = new NotificationManager();
+			if (array_key_exists($notification->getType(), $notificationManager->getNotificationSettingsMap())) {
+				$unsubscribeUrl = $this->getUnsubscribeNotificationUrl($request, $notification);
+
+				$unsubscribeLink = '<br /><a href=\'' . $unsubscribeUrl . '\'>' . __('notification.unsubscribeNotifications') . '</a>';
+				$emailParams = array_merge(array(
+					'unsubscribeLink' => $unsubscribeLink,
+				), $emailParams);
+			} else {
+				// Clear unsubscribe params that are not yet assigned
+				$body = $mail->getBody();
+				$body = str_replace('{$unsubscribeLink}', '', $body);
+
+				$mail->setBody($body);
+			}
+
+			$mail->assignParams($emailParams);
+
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
 			if (is_callable($mailConfigurator)) {
 				$mail = $mailConfigurator($mail);
@@ -391,6 +411,69 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
 			}
 		}
+	}
+
+	/**
+	 * Creates and returns a unique string for the given notification, that will be encoded and validated against.
+	 * @param $notification Notification
+	 * @return string
+	 */
+	function createUnsubscribeUniqueKey($notification) {
+		$uniqueKey = 'unsubscribe' . '-' . $notification->getContextId() . '-' . $notification->getUserId() . '-' . $notification->getId();
+
+		return $uniqueKey;
+	}
+
+	/**
+	 * Creates and returns an encoded token that will be used to validate an unsubscribe url.
+	 * @param $notification Notification
+	 * @return string
+	 */
+	function createUnsubscribeToken($notification) {
+		$encodeString = $this->createUnsubscribeUniqueKey($notification);
+
+		$secret = Config::getVar('security', 'signed_page_key_secret', '');
+		$jwt = '';
+		if ($secret !== '') {
+			$jwt = JWT::encode(json_encode($encodeString), $secret, 'HS256');
+		}
+
+		return $jwt;
+	}
+
+	/**
+	 * The given notification is validated against the requested token.
+	 * @param $token string
+	 * @param $notification Notification
+	 * @return bool
+	 */
+	function validateUnsubscribeToken($token, $notification) {
+		$encodeString = $this->createUnsubscribeUniqueKey($notification);
+
+		$secret = Config::getVar('security', 'signed_page_key_secret', '');
+		$jwt = '';
+		if ($secret !== '') {
+			$jwt = json_decode(JWT::decode($token, $secret, array('HS256')));
+		}
+
+		if ($jwt == $encodeString) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Returns the unsubscribe url for the given notification.
+	 * @param $request PKPRequest
+	 * @param $notification Notification
+	 * @return string
+	 */
+	function getUnsubscribeNotificationUrl($request, $notification) {
+		$dispatcher = $request->getDispatcher();
+		$unsubscribeUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'Notification', 'unsubscribeForm', null, array('validate' => $this->createUnsubscribeToken($notification), 'id' => $notification->getId()));
+
+		return $unsubscribeUrl;
 	}
 }
 

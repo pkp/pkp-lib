@@ -319,8 +319,11 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			$supportedSubmissionLocales = $getCurrentPropValue('supportedSubmissionLocales');
 
 			$unsupportedFormLocales = array_diff($supportedFormLocales, $supportedLocales);
-			$unsupportedSubmissionLocales = array_diff($supportedSubmissionLocales, $supportedLocales);
 
+			/**
+			 * If any of the selected form locales is not in the supported list, add an error.
+			 * There's will be only one error output for the form locales per request.
+			 */
 			if (isset($props['supportedFormLocales'])
 				&& $unsupportedFormLocales !== []
 				&& !$validator->errors()->has('supportedFormLocales')
@@ -328,6 +331,12 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 				$validator->errors()->add('supportedFormLocales', __('api.contexts.400.localesNotSupported', ['locales' => join(__('common.commaListSeparator'), $unsupportedFormLocales)]));
 			}
 
+			$unsupportedSubmissionLocales = array_diff($supportedSubmissionLocales, $supportedLocales);
+
+			/**
+			 * If any of the selected submission locales is not in the supported list, add an error.
+			 * There's will be only one error output for the submissions locales per request
+			 */
 			if (isset($props['supportedSubmissionLocales'])
 				&& $unsupportedSubmissionLocales !== []
 				&& !$validator->errors()->has('supportedSubmissionLocales')

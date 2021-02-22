@@ -40,8 +40,6 @@ class PKPSiteInformationForm extends FormComponent {
 				'label' => __('admin.settings.about'),
 				'isMultilingual' => true,
 				'value' => $site->getData('about'),
-				'toolbar' => 'bold italic | link | blockquote bullist numlist',
-				'plugins' => 'link,lists',
 			]))
 			->addField(new FieldText('contactName', [
 				'label' => __('admin.settings.contactName'),

@@ -301,6 +301,11 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
 		// Ensure that the form and submission locales are available for the context
 		$validator->after(function($validator) use ($action, $props) {
+			// If someone it's trying to add a new journal, we will skip this validation scenario
+			if ($action === VALIDATE_ACTION_ADD) {
+				return;
+			}
+
 			$context = Application::get()->getRequest()->getContext();
 			if (isset($props['id']) && $context->getId() !== $props['id']) {
 				$context = $this->get($props['id']);

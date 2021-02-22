@@ -36,7 +36,7 @@
 							{translate key="common.required"}
 						</span>
 					</span>
-					<input type="email" name="email" id="email" value="{$email|escape}" required aria-required="true">
+					<input type="email" name="email" id="email" value="{$email|escape}" required aria-required="true" autocomplete="email">
 				</label>
 			</div>
 			<div class="buttons">

@@ -120,11 +120,11 @@ class NotificationHandler extends Handler {
 		$user = $userDao->getById($userId);
 		$context = $contextDao->getById($contextId);
 
-		$templateMgr->assign(array(
+		$templateMgr->assign([
 			'contextName' => $context->getLocalizedName(),
 			'userEmail' => $user->getEmail(),
 			'unsubscribeResult' => $unsubscribeResult,
-		));
+		]);
 
 		$templateMgr->display('notification/unsubscribeNotificationsResult.tpl');
 	}

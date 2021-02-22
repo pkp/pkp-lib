@@ -162,8 +162,8 @@ class PKPNotificationSettingsForm extends Form {
 		}
 
 		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
-		$notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings('blocked_notification', $blockedNotifications, $userId, $contextId);
-		$notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings('blocked_emailed_notification', $emailSettings, $userId, $contextId);
+		$notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings(BLOCKED_NOTIFICATION_KEY, $blockedNotifications, $userId, $contextId);
+		$notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings(BLOCKED_EMAIL_NOTIFICATION_KEY, $emailSettings, $userId, $contextId);
 
 		return true;
 	}

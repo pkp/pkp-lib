@@ -75,13 +75,13 @@ class PKPNotificationsUnsubscribeForm extends Form {
 
 		$templateMgr = TemplateManager::getManager($request);
 
-		$templateMgr->assign(array(
+		$templateMgr->assign([
 			'contextName' => $context->getLocalizedName(),
 			'userEmail' => $user->getEmail(),
 			'emailSettings' => $emailSettings,
 			'validationToken' => $this->_validationToken,
 			'notificationId' => $this->_notification->getId(),
-		));
+		]);
 
 		return parent::fetch($request, $template, $display);
 	}
@@ -89,7 +89,7 @@ class PKPNotificationsUnsubscribeForm extends Form {
 	/**
 	 * @copydoc Form::execute
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$emailSettings = array();
 		foreach($this->getNotificationSettingsMap() as $settingId => $notificationSetting) {
 			// Get notifications that the user wants to be notified of by email

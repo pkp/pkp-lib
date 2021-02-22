@@ -349,7 +349,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 * @return array
 	 */
 	protected function getNotificationSettingsMap() {
-		return array(
+		return [
 			NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => array('settingName' => 'notificationSubmissionSubmitted',
 				'emailSettingName' => 'emailNotificationSubmissionSubmitted',
 				'settingKey' => 'notification.type.submissionSubmitted'),
@@ -371,7 +371,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 			NOTIFICATION_TYPE_NEW_ANNOUNCEMENT => array('settingName' => 'notificationNewAnnouncement',
 				'emailSettingName' => 'emailNotificationNewAnnouncement',
 				'settingKey' => 'notification.type.newAnnouncement'),
-		);
+		];
 	}
 
 	//

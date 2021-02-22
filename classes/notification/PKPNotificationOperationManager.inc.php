@@ -377,20 +377,20 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 				$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 			}
 
-			$emailParams = array(
+			$emailParams = [
 				'notificationContents' => $this->getNotificationContents($request, $notification),
 				'url' => $this->getNotificationUrl($request, $notification),
 				'siteTitle' => $context?$context->getLocalizedName():$site->getLocalizedTitle(),
-			);
+			];
 
 			$notificationManager = new NotificationManager();
 			if (array_key_exists($notification->getType(), $notificationManager->getNotificationSettingsMap())) {
 				$unsubscribeUrl = $this->getUnsubscribeNotificationUrl($request, $notification);
 
 				$unsubscribeLink = '<br /><a href=\'' . $unsubscribeUrl . '\'>' . __('notification.unsubscribeNotifications') . '</a>';
-				$emailParams = array_merge(array(
+				$emailParams = array_merge([
 					'unsubscribeLink' => $unsubscribeLink,
-				), $emailParams);
+				], $emailParams);
 			} else {
 				// Clear unsubscribe params that are not yet assigned
 				$body = $mail->getBody();

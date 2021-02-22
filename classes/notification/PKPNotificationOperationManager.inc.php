@@ -256,7 +256,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 */
 	protected function getUserBlockedNotifications($userId, $contextId) {
 		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
-		return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_notification', $userId, (int) $contextId);
+		return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(BLOCKED_NOTIFICATION_KEY, $userId, (int) $contextId);
 	}
 
 	/**
@@ -265,7 +265,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 */
 	protected function getUserBlockedEmailedNotifications($userId, $contextId) {
 		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
-		return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $userId, (int) $contextId);
+		return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(BLOCKED_EMAIL_NOTIFICATION_KEY, $userId, (int) $contextId);
 	}
 
 	/**

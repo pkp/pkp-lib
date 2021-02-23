@@ -127,22 +127,24 @@ class PKPFileService {
 	 * This method sends a HTTP response and ends the request handling.
 	 * No code will run after this method is called.
 	 *
-	 * @param string $path The path to the file
+	 * @param int $fileId File ID
 	 * @param string $filename Filename to give to the downloaded file
 	 * @param boolean $inline Whether to stream the file to the browser
 	 */
-	public function download($path, $filename, $inline = false) {
+	public function download($fileId, $filename, $inline = false) {
+		$file = $this->get($fileId);
+		$dispatcher = Application::get()->getRequest()->getDispatcher();
+		if (!$file) $dispatcher->handle404();
 
-		if (!$this->fs->has($path)) {
-			Application::get()->getRequest()->getDispatcher()->handle404();
-		}
+		$path = $file->path;
+		if (!$this->fs->has($path)) $dispatcher->handle404();
 
-		if (HookRegistry::call('File::download', [$path, &$filename, $inline])) {
+		if (HookRegistry::call('File::download', [$file, &$filename, $inline])) {
 			return;
 		}
 
 		// Stream the file to the end user.
-		$mimetype = $this->fs->getMimetype($path) ?? 'application/octet-stream';
+		$mimetype = $file->mimetype ?? 'application/octet-stream';
 		$filesize = $this->fs->getSize($path);
 		header("Content-Type: $mimetype");
 		header("Content-Length: $filesize");

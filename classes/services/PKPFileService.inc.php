@@ -117,14 +117,27 @@ class PKPFileService {
 	 * This method sends a HTTP response and ends the request handling.
 	 * No code will run after this method is called.
 	 *
-	 * @param string $path The path to the file
+	 * @param string|int $pathOrFileId The path to the file or file ID
 	 * @param string $filename Filename to give to the downloaded file
 	 * @param boolean $inline Whether to stream the file to the browser
 	 */
-	public function download($path, $filename, $inline = false) {
+	public function download($pathOrFileId, $filename, $inline = false) {
+
+		$dispatcher = Application::get()->getRequest()->getDispatcher();
+
+		if (is_int($pathOrFileId)) {
+			// Is the file ID
+			$fileId = $pathOrFileId;
+			$file = $this->get($fileId);
+			if (!$file) $dispatcher->handle404();
+			$path = $file->path;
+		} else {
+			// Is the path to the file; compatibility fix, see pkp/pkp-lib#6663
+			$path = $pathOrFileId;
+		}
 
 		if (!$this->fs->has($path)) {
-			Application::get()->getRequest()->getDispatcher()->handle404();
+			$dispatcher->handle404();
 		}
 
 		if (HookRegistry::call('File::download', [$path, &$filename, $inline])) {
@@ -132,7 +145,7 @@ class PKPFileService {
 		}
 
 		// Stream the file to the end user.
-		$mimetype = $this->fs->getMimetype($path) ?? 'application/octet-stream';
+		$mimetype = $file->mimetype ?? $this->fs->getMimetype($path) ?? 'application/octet-stream';
 		$filesize = $this->fs->getSize($path);
 		header("Content-Type: $mimetype");
 		header("Content-Length: $filesize");

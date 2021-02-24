@@ -49,36 +49,8 @@ class PKPNotificationSettingsForm extends Form {
 	 * @return array
 	 */
 	protected function getNotificationSettingsMap() {
-		$result = array(
-			NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => array('settingName' => 'notificationSubmissionSubmitted',
-				'emailSettingName' => 'emailNotificationSubmissionSubmitted',
-				'settingKey' => 'notification.type.submissionSubmitted'),
-			NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => array('settingName' => 'notificationEditorAssignmentRequired',
-				'emailSettingName' => 'emailNotificationEditorAssignmentRequired',
-				'settingKey' => 'notification.type.editorAssignmentTask'),
-			NOTIFICATION_TYPE_METADATA_MODIFIED => array('settingName' => 'notificationMetadataModified',
-				'emailSettingName' => 'emailNotificationMetadataModified',
-				'settingKey' => 'notification.type.metadataModified'),
-			NOTIFICATION_TYPE_REVIEWER_COMMENT => array('settingName' => 'notificationReviewerComment',
-				'emailSettingName' => 'emailNotificationReviewerComment',
-				'settingKey' => 'notification.type.reviewerComment'),
-			NOTIFICATION_TYPE_NEW_QUERY => array('settingName' => 'notificationNewQuery',
-				'emailSettingName' => 'emailNotificationNewQuery',
-				'settingKey' => 'notification.type.queryAdded'),
-			NOTIFICATION_TYPE_QUERY_ACTIVITY => array('settingName' => 'notificationQueryActivity',
-				'emailSettingName' => 'emailNotificationQueryActivity',
-				'settingKey' => 'notification.type.queryActivity'),
-			NOTIFICATION_TYPE_NEW_ANNOUNCEMENT => array('settingName' => 'notificationNewAnnouncement',
-				'emailSettingName' => 'emailNotificationNewAnnouncement',
-				'settingKey' => 'notification.type.newAnnouncement'),
-			NOTIFICATION_TYPE_EDITORIAL_REPORT => array('settingName' => 'notificationEditorialReport',
-				'emailSettingName' => 'emailNotificationEditorialReport',
-				'settingKey' => 'notification.type.editorialReport')
-		);
-
-		HookRegistry::call(strtolower_codesafe(get_class($this) . '::getNotificationSettingsMap'), array($this, &$result));
-
-		return $result;
+		$notificationManager = new NotificationManager();
+		return $notificationManager->getNotificationSettingsMap();
 	}
 
 	/**

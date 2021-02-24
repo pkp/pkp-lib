@@ -371,6 +371,9 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 			NOTIFICATION_TYPE_NEW_ANNOUNCEMENT => array('settingName' => 'notificationNewAnnouncement',
 				'emailSettingName' => 'emailNotificationNewAnnouncement',
 				'settingKey' => 'notification.type.newAnnouncement'),
+			NOTIFICATION_TYPE_EDITORIAL_REPORT => array('settingName' => 'notificationEditorialReport',
+				'emailSettingName' => 'emailNotificationEditorialReport',
+				'settingKey' => 'notification.type.editorialReport')
 		];
 	}
 

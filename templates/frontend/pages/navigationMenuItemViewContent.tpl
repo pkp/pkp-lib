@@ -11,9 +11,9 @@
 
 {include file="frontend/components/breadcrumbs.tpl" currentTitle=$title}
 
-<h1 class="page_title">{$title|escape}</h1>
 <div class="page">
-    {$content}
+	<h1 class="page_title">{$title|escape}</h1>
+	{$content}
 </div>
 
 {include file="frontend/components/footer.tpl"}

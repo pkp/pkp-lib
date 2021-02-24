@@ -432,7 +432,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	function createUnsubscribeToken($notification) {
 		$encodeString = $this->createUnsubscribeUniqueKey($notification);
 
-		$secret = Config::getVar('security', 'signed_page_key_secret', '');
+		$secret = Config::getVar('security', 'api_key_secret', '');
 		$jwt = '';
 		if ($secret !== '') {
 			$jwt = JWT::encode(json_encode($encodeString), $secret, 'HS256');
@@ -450,7 +450,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	function validateUnsubscribeToken($token, $notification) {
 		$encodeString = $this->createUnsubscribeUniqueKey($notification);
 
-		$secret = Config::getVar('security', 'signed_page_key_secret', '');
+		$secret = Config::getVar('security', 'api_key_secret', '');
 		$jwt = '';
 		if ($secret !== '') {
 			$jwt = json_decode(JWT::decode($token, $secret, array('HS256')));

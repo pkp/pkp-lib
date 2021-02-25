@@ -762,6 +762,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			case SUBMISSION_FILE_REVIEW_FILE:
 			case SUBMISSION_FILE_REVIEW_ATTACHMENT:
 			case SUBMISSION_FILE_REVIEW_REVISION:
+			case SUBMISSION_FILE_ATTACHMENT:
 				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 				$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
 				return $reviewRound->getStageId();
@@ -854,6 +855,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			// Authors can only write revision files under specific conditions
 			if ($action === SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
 				$allowedFileStageIds[] = SUBMISSION_FILE_REVIEW_REVISION;
+				$allowedFileStageIds[] = SUBMISSION_FILE_ATTACHMENT;
 			}
 			// Authors can never access review files
 			if ($hasEditorialAssignment) {

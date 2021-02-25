@@ -19,6 +19,9 @@ import('lib.pkp.classes.mail.Mail');
 define('MAIL_ERROR_INVALID_EMAIL', 0x000001);
 
 class MailTemplate extends Mail {
+	/** @var Submission The submission this message relates to */
+	var $submission;
+
 	/** @var object The context this message relates to */
 	var $context;
 
@@ -51,8 +54,9 @@ class MailTemplate extends Mail {
 	 * @param $emailKey string unique identifier for the template
 	 * @param $locale string locale of the template
 	 * @param $includeSignature boolean optional
+	 * @param $submission Submission optional
 	 */
-	function __construct($emailKey = null, $locale = null, $context = null, $includeSignature = true) {
+	function __construct($emailKey = null, $locale = null, $context = null, $includeSignature = true, $submission = null) {
 		parent::__construct();
 		$this->emailKey = isset($emailKey) ? $emailKey : null;
 
@@ -68,6 +72,8 @@ class MailTemplate extends Mail {
 		$this->bccSender = $request->getUserVar('bccSender');
 
 		$this->addressFieldsEnabled = true;
+
+		$this->submission = $submission;
 
 		if (isset($this->emailKey)) {
 			$emailTemplate = Services::get('emailTemplate')->getByKey($context ? $context->getId() : CONTEXT_SITE, $this->emailKey);
@@ -101,6 +107,10 @@ class MailTemplate extends Mail {
 
 		if ($context) {
 			$this->setSubject('[' . $context->getLocalizedAcronym() . '] ' . $this->getSubject());
+		}
+
+		if ($submission && $context->getData('subjectSubmissionIdDisplay')) {
+			$this->setSubject($this->getSubject() . ' ' . $context->getData('subjectSubmissionIdDisplay'));
 		}
 
 		$this->context = $context;
@@ -163,6 +173,12 @@ class MailTemplate extends Mail {
 			$params = array_merge(array(
 				'senderEmail' => $user->getEmail(),
 				'senderName' => $user->getFullName(),
+			), $params);
+		}
+
+		if (isset($this->submission)) {
+			$params = array_merge(array(
+				'submissionId' => $this->submission->getId(),
 			), $params);
 		}
 
@@ -231,6 +247,9 @@ class MailTemplate extends Mail {
 
 			$subject = str_replace('{$' . $key . '}', $value, $subject);
 		}
+
+		$this->replaceUnassignedKeys($subject);
+
 		$this->setSubject($subject);
 		$this->setBody($body);
 	}
@@ -295,6 +314,25 @@ class MailTemplate extends Mail {
 		$value = "<a href='$value' class='$key-style-class'>$value</a>";
 
 		$targetString = str_replace('{$' . $key . '}', $value, $targetString);
+
+		return $targetString;
+	}
+
+	/**
+	 * Replace unassigned keys with the given value.
+	 * @param $targetString string The string that contains the original {$key}s template variables
+	 * @param $replaceValue string The value to replace remaining (unassigned) keys
+	 * @return string the $targetString replaced appropriately
+	 */
+	function replaceUnassignedKeys($targetString, $replaceValue = '') {
+		// We need to find if {$key} pattern is in string.
+		preg_match_all('/{\$[a-zA-Z0-9_]*}/', $targetString, $matches, PREG_SET_ORDER|PREG_OFFSET_CAPTURE);
+
+		if ($matches) {
+			foreach($matches as $keyMatch) {
+				$targetString = substr_replace($targetString, $replaceValue, $keyMatch[1], strlen($keyMatch[0]));
+			}
+		}
 
 		return $targetString;
 	}

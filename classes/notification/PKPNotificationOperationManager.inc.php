@@ -150,7 +150,12 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 				$notificationEmailSettings = $this->getUserBlockedEmailedNotifications($userId, $contextId);
 
 				if (!in_array($notificationType, $notificationEmailSettings)) {
-					$this->sendNotificationEmail($request, $notification, $contextId, $mailConfigurator);
+					$submissionId = null;
+					if ($assocType == ASSOC_TYPE_SUBMISSION) {
+						$submissionId = $assocId;
+					}
+
+					$this->sendNotificationEmail($request, $notification, $contextId, $mailConfigurator, $submissionId);
 				}
 			}
 
@@ -270,12 +275,13 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	/**
 	 * Get a template mail instance.
 	 * @param $emailKey string
+	 * @param $submission Submission
 	 * @return MailTemplate
 	 * @see MailTemplate
 	 */
-	protected function getMailTemplate($emailKey = null) {
+	protected function getMailTemplate($emailKey = null, $submission = null) {
 		import('lib.pkp.classes.mail.MailTemplate');
-		return new MailTemplate($emailKey, null, null, false);
+		return new MailTemplate($emailKey, null, null, false, $submission);
 	}
 
 	/**
@@ -354,7 +360,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $contextId ?int Context ID
 	 * @param $mailConfigurator callable If specified, must return a MailTemplate instance. A ready MailTemplate object will be provided as argument
 	 */
-	protected function sendNotificationEmail($request, $notification, ?int $contextId, callable $mailConfigurator = null) {
+	protected function sendNotificationEmail($request, $notification, ?int $contextId, callable $mailConfigurator = null, $submissionId = null) {
 		$userId = $notification->getUserId();
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getById($userId);
@@ -367,8 +373,13 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 				$context = $contextDao->getById($contextId);
 			}
 
+			$submission = null;
+			if ($submissionId) {
+				$submission = Services::get('submission')->get($submissionId);
+			}
+
 			$site = $request->getSite();
-			$mail = $this->getMailTemplate('NOTIFICATION');
+			$mail = $this->getMailTemplate('NOTIFICATION', $submission);
 
 			if ($context) {
 				$mail->setReplyTo($context->getContactEmail(), $context->getContactName());

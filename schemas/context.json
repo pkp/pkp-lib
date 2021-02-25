@@ -236,6 +236,13 @@
 				"nullable"
 			]
 		},
+		"subjectSubmissionIdDisplay": {
+			"type": "string",
+			"default": "[{$submissionId}]",
+			"validation": [
+				"nullable"
+			]
+		},
 		"enableAnnouncements": {
 			"type": "boolean",
 			"validation": [

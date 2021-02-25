@@ -116,8 +116,7 @@ class AnnouncementDAO extends SchemaDAO {
 	function getByTypeId($typeId) {
 		$result = $this->retrieveRange(
 			'SELECT * FROM announcements WHERE type_id = ? ORDER BY date_posted DESC',
-			[(int) $typeId],
-			$rangeInfo
+			[(int) $typeId]
 		);
 		foreach ($result as $row) {
 			yield $row->announcement_id => $this->_fromRow((array) $row);

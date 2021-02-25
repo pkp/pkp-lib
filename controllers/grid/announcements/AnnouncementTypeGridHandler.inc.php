@@ -212,7 +212,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 			$user = $request->getUser();
 			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedAnnouncementType')));
 
-			return DAO::getDataChangedEvent($announcementTypeId);
+			return DAO::getDataChangedEvent();
 		}
 
 		return new JSONMessage(false);

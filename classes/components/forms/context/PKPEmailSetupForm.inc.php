@@ -47,6 +47,9 @@ class PKPEmailSetupForm extends FormComponent {
 					'contextName' => $context->getLocalizedName(),
 					'senderName' => __('email.senderName'),
 					'senderEmail' => __('email.senderEmail'),
+					'mailingAddress' => htmlspecialchars(nl2br($context->getData('mailingAddress'))),
+					'contactEmail' => htmlspecialchars($context->getData('contactEmail')),
+					'contactName' => htmlspecialchars($context->getData('contactName')),
 				]
 			]));
 

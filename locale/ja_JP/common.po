@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-19 08:54+0000\n"
+"PO-Revision-Date: 2021-02-26 20:54+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ja_JP/>\n"
@@ -1588,10 +1588,10 @@ msgid "notification.type.newAnnouncement"
 msgstr "新しいお知らせ。"
 
 msgid "notification.editStageParticipant"
-msgstr "ステージの割当が変更されました。"
+msgstr "段階の割当が変更されました。"
 
 msgid "notification.addedStageParticipant"
-msgstr "ユーザーがステージ参加者として追加されました。"
+msgstr "ユーザーが段階参加者として追加されました。"
 
 msgid "notification.reinstatedReviewer"
 msgstr "査読者が回復されました。"

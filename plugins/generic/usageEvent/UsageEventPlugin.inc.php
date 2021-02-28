@@ -65,7 +65,13 @@ class UsageEventPlugin extends PKPUsageEventPlugin {
 					// or preprint. With more than 1 is related with other objects
 					// that we are not interested in or that are counted using a
 					// different hook.
-					if ($op == 'view' && count($args) > 1) break;
+					// If the operation is 'view' and the arguments count > 1
+					// the arguments must be: $submissionId/version/$publicationId.
+					if ($op == 'view' && count($args) > 1) {
+						if ($args[1] !== 'version') break;
+						else if (count($args) != 3) break;
+						$publicationId = (int) $args[2];
+					}
 
 					$journal = $templateMgr->getTemplateVars('currentContext');
 					$submission = $templateMgr->getTemplateVars('preprint');
@@ -84,6 +90,11 @@ class UsageEventPlugin extends PKPUsageEventPlugin {
 						$assocType = ASSOC_TYPE_SUBMISSION;
 						$canonicalUrlParams = array($pubObject->getId());
 						$idParams = array('m' . $pubObject->getId());
+						if (isset($publicationId)) {
+							// no need to check if the publication exists (for the submisison),
+							// 404 would be returned and the usage event would not be there
+							$canonicalUrlParams = array($pubObject->getId(), 'version', $publicationId);
+						}
 					}
 
 					$downloadSuccess = true;

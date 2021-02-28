@@ -182,7 +182,7 @@ class Application extends PKPApplication {
 	 * Get the file directory array map used by the application.
 	 */
 	public static function getFileDirectories() {
-		return array('context' => '/servers/', 'submission' => '/preprints/');
+		return array('context' => '/contexts/', 'submission' => '/submissions/');
 	}
 
 }

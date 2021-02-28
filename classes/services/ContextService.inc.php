@@ -16,7 +16,7 @@ namespace APP\Services;
 
 class ContextService extends \PKP\Services\PKPContextService {
 	/** @copydoc \PKP\Services\PKPContextService::$contextsFileDirName */
-	var $contextsFileDirName = 'servers';
+	var $contextsFileDirName = 'contexts';
 
 	/**
 	 * Initialize hooks for extending PKPContextService
@@ -24,7 +24,7 @@ class ContextService extends \PKP\Services\PKPContextService {
 	public function __construct() {
 		$this->installFileDirs = array(
 			\Config::getVar('files', 'files_dir') . '/%s/%d',
-			\Config::getVar('files', 'files_dir'). '/%s/%d/preprints',
+			\Config::getVar('files', 'files_dir'). '/%s/%d/submissions',
 			\Config::getVar('files', 'public_files_dir') . '/%s/%d',
 		);
 

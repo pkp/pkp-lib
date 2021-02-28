@@ -91,7 +91,7 @@ class IndexHandler extends PKPIndexHandler {
 			$templateMgr->assign(array(
 				'pageTitleTranslated' => $site->getLocalizedTitle(),
 				'about' => $site->getLocalizedAbout(),
-				'serverFilesPath' => $request->getBaseUrl() . '/' . Config::getVar('files', 'public_files_dir') . '/servers/',
+				'serverFilesPath' => $request->getBaseUrl() . '/' . Config::getVar('files', 'public_files_dir') . '/contexts/',
 				'servers' => $serverDao->getAll(true),
 				'site' => $site,
 			));

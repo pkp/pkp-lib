@@ -55,15 +55,15 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_SUBMISSION);
 
-		// Retrieve data that belongs to the preprint.
+		// Retrieve data that belongs to the submission.
 		// FIXME: Retrieve this data from the respective entity DAOs rather than
 		// from the OAIDAO once we've migrated all OAI providers to the
 		// meta-data framework. We're using the OAIDAO here because it
 		// contains cached entities and avoids extra database access if this
 		// adapter is called from an OAI context.
 		$oaiDao = DAORegistry::getDAO('OAIDAO'); /* @var $oaiDao OAIDAO */
-		$server = $oaiDao->getServer($preprint->getData('contextId'));
-		$section = $oaiDao->getSection($preprint->getSectionId());
+		$server = $oaiDao->getServer($submission->getData('contextId'));
+		$section = $oaiDao->getSection($submission->getSectionId());
 
 		$dc11Description = $this->instantiateMetadataDescription();
 
@@ -113,7 +113,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter {
 		// Type
 		$driverType = 'info:eu-repo/semantics/preprint';
 		$dc11Description->addStatement('dc:type', $driverType, METADATA_DESCRIPTION_UNKNOWN_LOCALE);
-		$driverVersion = 'info:eu-repo/semantics/publishedVersion';
+		$driverVersion = 'info:eu-repo/semantics/draft';
 		$dc11Description->addStatement('dc:type', $driverVersion, METADATA_DESCRIPTION_UNKNOWN_LOCALE);
 
 		// Format

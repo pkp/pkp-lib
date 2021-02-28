@@ -13,6 +13,7 @@
  *
  * @brief Operations for retrieving and modifying Submission objects.
  */
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 import('lib.pkp.classes.submission.PKPSubmission');
 import('lib.pkp.classes.db.SchemaDAO');
@@ -311,5 +312,24 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 	function getSortDirection($sortOption) {
 		list($sortBy, $sortDir) = explode("-", $sortOption);
 		return $sortDir;
+	}
+
+	/**
+	 * Find submission ids by querying settings.
+	 * @param $settingName string
+	 * @param $settingValue mixed
+	 * @param $contextId int
+	 * @return array Submission.
+	 */
+	public function getIdsBySetting($settingName, $settingValue, $contextId) {
+		$q = Capsule::table('submissions as s')
+			->join('submission_settings as ss', 's.submission_id', '=', 'ss.submission_id')
+			->where('ss.setting_name', '=', $settingName)
+			->where('ss.setting_value', '=', $settingValue)
+			->where('s.context_id', '=', (int) $contextId);
+
+		return $q->select('s.submission_id')
+			->pluck('s.submission_id')
+			->toArray();
 	}
 }

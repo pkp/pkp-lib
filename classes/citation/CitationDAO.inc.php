@@ -73,6 +73,8 @@ class CitationDAO extends DAO {
 		assert(is_numeric($publicationId));
 		$publicationId = (int) $publicationId;
 
+		$existingCitations = $this->getByPublicationId($publicationId)->toAssociativeArray();
+
 		// Remove existing citations.
 		$this->deleteByPublicationId($publicationId);
 
@@ -82,6 +84,7 @@ class CitationDAO extends DAO {
 		$citationStrings = $citationTokenizer->execute($rawCitationList);
 
 		// Instantiate and persist citations
+		$importedCitations = array();
 		if (is_array($citationStrings)) foreach($citationStrings as $seq => $citationString) {
 			if (!empty(trim($citationString))) {
 				$citation = new Citation($citationString);
@@ -89,9 +92,14 @@ class CitationDAO extends DAO {
 				$citation->setData('publicationId', $publicationId);
 				// Set the counter
 				$citation->setSequence($seq+1);
+
 				$this->insertObject($citation);
+
+				$importedCitations[] = $citation;
 			}
 		}
+
+		HookRegistry::call('CitationDAO::afterImportCitations', [$publicationId, $existingCitations, $importedCitations]);
 	}
 
 	/**

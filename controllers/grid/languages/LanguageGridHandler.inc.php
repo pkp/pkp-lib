@@ -78,7 +78,6 @@ class LanguageGridHandler extends GridHandler {
 		$permittedSettings = array('supportedFormLocales', 'supportedSubmissionLocales', 'supportedLocales');
 		if (in_array($settingName, $permittedSettings) && $locale) {
 			$currentSettingValue = (array) $context->getData($settingName);
-			// dd($currentSettingValue);
 			if (AppLocale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
 				if ($settingValue) {
 					array_push($currentSettingValue, $locale);

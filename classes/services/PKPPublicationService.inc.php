@@ -527,10 +527,12 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$newPublication = $this->get($newPublication->getId());
 
 		// Parse the citations
-		if (array_key_exists('citationsRaw', $params)) {
-			$citationDao = DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
+		if (array_key_exists('citationsRaw', $params) && $publication->getData('citationsRaw') != $newPublication->getData('citationsRaw')) {
+			$citationDao = DAORegistry::getDAO('CitationDAO'); /** @var $citationDao \CitationDAO */
 			$citationDao->importCitations($newPublication->getId(), $newPublication->getData('citationsRaw'));
 		}
+
+		$submission = Services::get('submission')->get($newPublication->getData('submissionId'));
 
 		// Log an event when publication data is updated
 		import('lib.pkp.classes.log.SubmissionLog');

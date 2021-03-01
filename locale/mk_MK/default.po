@@ -14,12 +14,6 @@ msgstr ""
 msgid "section.default.policy"
 msgstr " "
 
-msgid "default.contextSettings.emailSignature"
-msgstr ""
-"<br/"
-">________________________________________________________________________<br/"
-"><a href=\"{$contextUrl}\">{$contextName}</a>"
-
 msgid "default.genres.sourceTexts"
 msgstr "Изворни текстови"
 

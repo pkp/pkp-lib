@@ -157,7 +157,7 @@ class PKPFileUploadWizardHandler extends Handler {
 			$this->addPolicy(new SubmissionFileStageAccessPolicy($fileStage, SUBMISSION_FILE_ACCESS_MODIFY, 'user.authorization.accessDenied'));
 
 			// Additional checks before uploading to a review file stage
-			if (in_array($fileStage, [SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_REVIEW_FILE])
+			if (in_array($fileStage, [SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_ATTACHMENT])
 					|| $assocType === ASSOC_TYPE_REVIEW_ROUND) {
 				import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
 				$this->addPolicy(new ReviewRoundRequiredPolicy($request, $args));

@@ -623,6 +623,7 @@ class PKPSubmissionHandler extends APIHandler {
 	 */
 	public function versionPublication($slimRequest, $response, $args) {
 		$request = $this->getRequest();
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION); // notification.type.submissionNewVersion
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$publication = Services::get('publication')->get((int) $args['publicationId']);
 

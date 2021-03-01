@@ -299,57 +299,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			}
 		});
 
-		// Ensure that the form and submission locales are available for the context
-		$validator->after(function($validator) use ($action, $props) {
-			// If someone it's trying to add a new journal, we will skip this validation scenario
-			if ($action === VALIDATE_ACTION_ADD) {
-				return;
-			}
-
-			$context = Application::get()->getRequest()->getContext();
-			if (isset($props['id']) && $context->getId() !== $props['id']) {
-				$context = $this->get($props['id']);
-			}
-
-			$getCurrentPropValue = function($prop) use ($props, $context) {
-				if (isset($props[$prop])) {
-					return $props[$prop];
-				}
-
-				return $context->getData($prop);
-			};
-
-			$supportedLocales = $getCurrentPropValue('supportedLocales');
-			$supportedFormLocales = $getCurrentPropValue('supportedFormLocales');
-			$supportedSubmissionLocales = $getCurrentPropValue('supportedSubmissionLocales');
-
-			$unsupportedFormLocales = array_diff($supportedFormLocales, $supportedLocales);
-
-			/**
-			 * If any of the selected form locales is not in the supported list, add an error.
-			 * There's will be only one error output for the form locales per request.
-			 */
-			if (isset($props['supportedFormLocales'])
-				&& $unsupportedFormLocales !== []
-				&& !$validator->errors()->has('supportedFormLocales')
-			) {
-				$validator->errors()->add('supportedFormLocales', __('api.contexts.400.localesNotSupported', ['locales' => join(__('common.commaListSeparator'), $unsupportedFormLocales)]));
-			}
-
-			$unsupportedSubmissionLocales = array_diff($supportedSubmissionLocales, $supportedLocales);
-
-			/**
-			 * If any of the selected submission locales is not in the supported list, add an error.
-			 * There's will be only one error output for the submissions locales per request
-			 */
-			if (isset($props['supportedSubmissionLocales'])
-				&& $unsupportedSubmissionLocales !== []
-				&& !$validator->errors()->has('supportedSubmissionLocales')
-			) {
-				$validator->errors()->add('supportedSubmissionLocales', __('api.contexts.400.localesNotSupported', ['locales' => join(__('common.commaListSeparator'), $unsupportedSubmissionLocales)]));
-			}
-		});
-
 		// If a new file has been uploaded, check that the temporary file exists and
 		// the current user owns it
 		$user = Application::get()->getRequest()->getUser();
@@ -532,25 +481,10 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 				$params[$fileUploadParam][$localeKey] = $this->_saveFileParam($context, $params[$fileUploadParam][$localeKey], $fileUploadParam, $userId, $localeKey, true);
 			}
 		}
+
 		if (array_key_exists('styleSheet', $params)) {
 			$params['styleSheet'] = $this->_saveFileParam($context, $params['styleSheet'], 'styleSheet', $userId);
 		}
-
-		$getCurrentPropValue = function($prop) use ($params, $context) {
-			if (isset($params[$prop])) {
-				return $params[$prop];
-			}
-
-			return $context->getData($prop);
-		};
-
-		$supportedLocales = $getCurrentPropValue('supportedLocales');
-		$supportedFormLocales = $getCurrentPropValue('supportedFormLocales');
-		$supportedSubmissionLocales = $getCurrentPropValue('supportedSubmissionLocales');
-
-		// Update the form and submission locales to remove any unsupported locales
-		$params['supportedFormLocales'] = array_intersect($supportedLocales, $supportedFormLocales);
-		$params['supportedSubmissionLocales'] = array_intersect($supportedLocales, $supportedSubmissionLocales);
 
 		$newContext = $contextDao->newDataObject();
 		$newContext->_data = array_merge($context->_data, $params);

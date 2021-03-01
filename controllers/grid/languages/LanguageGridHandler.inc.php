@@ -78,6 +78,7 @@ class LanguageGridHandler extends GridHandler {
 		$permittedSettings = array('supportedFormLocales', 'supportedSubmissionLocales', 'supportedLocales');
 		if (in_array($settingName, $permittedSettings) && $locale) {
 			$currentSettingValue = (array) $context->getData($settingName);
+			// dd($currentSettingValue);
 			if (AppLocale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
 				if ($settingValue) {
 					array_push($currentSettingValue, $locale);
@@ -97,6 +98,11 @@ class LanguageGridHandler extends GridHandler {
 				} else {
 					$key = array_search($locale, $currentSettingValue);
 					if ($key !== false) unset($currentSettingValue[$key]);
+
+					if ($currentSettingValue === []) {
+						return new JSONMessage(false, __('notification.localeSettingsCannotBeSaved'));
+					}
+
 					if ($settingName == 'supportedFormLocales') {
 						// if a form locale is disabled, disable it form submission locales as well
 						$supportedSubmissionLocales = (array) $context->getData('supportedSubmissionLocales');

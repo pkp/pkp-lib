@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-26 20:54+0000\n"
+"PO-Revision-Date: 2021-03-01 11:30+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/ja_JP/>\n"
@@ -132,7 +132,7 @@ msgid "default.groups.name.productionEditor"
 msgstr "制作編集者"
 
 msgid "default.groups.plural.siteAdmin"
-msgstr "サイトアドミン"
+msgstr "サイト管理者"
 
 msgid "default.groups.name.siteAdmin"
-msgstr "サイトアドミン"
+msgstr "サイト管理者"

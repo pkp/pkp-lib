@@ -655,6 +655,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 			// Authors can only write revision files under specific conditions
 			if ($action === SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
 				$allowedFileStages[] = SUBMISSION_FILE_REVIEW_REVISION;
+				$allowedFileStages[] = SUBMISSION_FILE_ATTACHMENT;
 			}
 			// Authors can never access review files
 			if ($hasEditorialAssignment) {
@@ -761,6 +762,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 			case SUBMISSION_FILE_INTERNAL_REVIEW_FILE:
 			case SUBMISSION_FILE_REVIEW_ATTACHMENT:
 			case SUBMISSION_FILE_REVIEW_REVISION:
+			case SUBMISSION_FILE_ATTACHMENT:
 			case SUBMISSION_FILE_INTERNAL_REVIEW_REVISION:
 				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 				$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getId());

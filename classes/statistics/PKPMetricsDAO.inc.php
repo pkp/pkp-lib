@@ -275,8 +275,9 @@ class PKPMetricsDAO extends DAO {
 		$assocType = $recordToStore['assoc_type'] = (int)$recordToStore['assoc_type'];
 		$assocId = $recordToStore['assoc_id'] = (int)$recordToStore['assoc_id'];
 
+		$initialRepresentationId = isset($record['representation_id']) ? $record['representation_id'] : null;
 		list($contextId, $pkpSectionId, $assocObjType,
-			$assocObjId, $submissionId, $representationId) = $this->foreignKeyLookup($assocType, $assocId, $record['representation_id']);
+			$assocObjId, $submissionId, $representationId) = $this->foreignKeyLookup($assocType, $assocId, $initialRepresentationId);
 
 		$recordToStore['context_id'] = $contextId;
 		$recordToStore['pkp_section_id'] = $pkpSectionId;
@@ -355,7 +356,9 @@ class PKPMetricsDAO extends DAO {
 					$isFile = true;
 					$submissionId = $submissionFile->getData('submissionId');
 					if ($submissionFile->getData('assocType') == ASSOC_TYPE_REPRESENTATION) {
-						assert(!is_null($representationId));
+						if (is_null($representationId)) {
+							throw new Exception('Cannot load record: the representation ID is missing for the submission file.');
+						}
 					} else {
 						throw new Exception('Cannot load record: submission file is not associated with a representation object.');
 					}
@@ -367,7 +370,6 @@ class PKPMetricsDAO extends DAO {
 				if (!$isFile) $representationId = $assocId;
 				$representationDao = Application::getRepresentationDAO(); /* @var $representationDao RepresentationDAO */
 				$representation = $representationDao->getById($representationId); /* @var $representation Representation */
-
 				if ($representation) {
 					if (!$isFile) $isRepresentation = true;
 

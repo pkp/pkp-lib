@@ -59,13 +59,6 @@ class PKPv3_4_0UpgradeMigration extends Migration {
 			// No reviewer can be assigned twice on the same review round.
 			$table->unique(['review_round_id', 'reviewer_id'], 'review_assignment_reviewer_round_unique');
 		});
-
-		// pkp/pkp-lib#4904: additional column in the table usage_stats_temporary_records
-        if (Capsule::schema()->hasTable('usage_stats_temporary_records') && !Capsule::schema()->hasColumn('usage_stats_temporary_records', 'representation_id')) {
-			Capsule::schema()->table('usage_stats_temporary_records', function(Blueprint $table) {
-				$table->bigInteger('representation_id')->nullable()->default(NULL);
-			});
-		}
 	}
 
 	/**

@@ -276,7 +276,7 @@ class PKPMetricsDAO extends DAO {
 		$assocId = $recordToStore['assoc_id'] = (int)$recordToStore['assoc_id'];
 
 		list($contextId, $pkpSectionId, $assocObjType,
-			$assocObjId, $submissionId, $representationId) = $this->foreignKeyLookup($assocType, $assocId);
+			$assocObjId, $submissionId, $representationId) = $this->foreignKeyLookup($assocType, $assocId, $record['representation_id']);
 
 		$recordToStore['context_id'] = $contextId;
 		$recordToStore['pkp_section_id'] = $pkpSectionId;
@@ -336,12 +336,13 @@ class PKPMetricsDAO extends DAO {
 	 * Foreign key lookup for the published object dimension.
 	 * @param $assocType int
 	 * @param $assocId int
+	 * @param $representationId int, optional
 	 * @return array Values must be foreign keys relative to the
 	 * context, pkp section, associated object (type and id), submission
 	 * and representation.
 	 */
-	protected function foreignKeyLookup($assocType, $assocId) {
-		$contextId = $sectionId = $submissionId = $assocObjectType = $assocObjectId = $representationId = null;
+	protected function foreignKeyLookup($assocType, $assocId, $representationId = null) {
+		$contextId = $sectionId = $submissionId = $assocObjectType = $assocObjectId = null;
 
 		$isFile = false;
 		$isRepresentation = false;
@@ -354,7 +355,7 @@ class PKPMetricsDAO extends DAO {
 					$isFile = true;
 					$submissionId = $submissionFile->getData('submissionId');
 					if ($submissionFile->getData('assocType') == ASSOC_TYPE_REPRESENTATION) {
-						$representationId = $submissionFile->getData('assocId');
+						assert(!is_null($representationId));
 					} else {
 						throw new Exception('Cannot load record: submission file is not associated with a representation object.');
 					}
@@ -366,6 +367,7 @@ class PKPMetricsDAO extends DAO {
 				if (!$isFile) $representationId = $assocId;
 				$representationDao = Application::getRepresentationDAO(); /* @var $representationDao RepresentationDAO */
 				$representation = $representationDao->getById($representationId); /* @var $representation Representation */
+
 				if ($representation) {
 					if (!$isFile) $isRepresentation = true;
 

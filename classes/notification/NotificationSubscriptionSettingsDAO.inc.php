@@ -16,15 +16,12 @@
  *  delivered to them.
  */
 
-define('BLOCKED_NOTIFICATION_KEY', 'blocked_notification');
-define('BLOCKED_EMAIL_NOTIFICATION_KEY', 'blocked_emailed_notification');
-
 class NotificationSubscriptionSettingsDAO extends DAO {
 	/** @var string The setting which holds the notification status */
-	// public const BLOCKED_NOTIFICATION_KEY = 'blocked_notification';
+	public const BLOCKED_NOTIFICATION_KEY = 'blocked_notification';
 
 	/** @var string The setting which holds the email notification status */
-	// public const BLOCKED_EMAIL_NOTIFICATION_KEY = 'blocked_emailed_notification';
+	public const BLOCKED_EMAIL_NOTIFICATION_KEY = 'blocked_emailed_notification';
 
 	/**
 	 * Delete a notification setting by setting name

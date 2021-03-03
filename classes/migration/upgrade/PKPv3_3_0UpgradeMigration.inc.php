@@ -124,15 +124,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		Capsule::schema()->table('submissions', function (Blueprint $table) {
 			$table->string('locale', 14)->nullable();
 		});
-		$currentPublicationIds = Capsule::table('submissions')->pluck('current_publication_id');
-		$submissionLocales = Capsule::table('publications')
-			->whereIn('publication_id', $currentPublicationIds)
-			->pluck('locale', 'submission_id');
-		foreach ($submissionLocales as $submissionId => $locale) {
-			Capsule::table('submissions as s')
-				->where('s.submission_id', '=', $submissionId)
-				->update(['locale' => $locale]);
-		}
+		Capsule::connection()->unprepared('UPDATE submissions s SET locale=(SELECT locale FROM publications WHERE publication_id = s.current_publication_id)');
 		Capsule::schema()->table('publications', function (Blueprint $table) {
 			$table->dropColumn('locale');
 		});
@@ -384,16 +376,16 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 				'file_id' => $newFileId,
 			]);
 
-			// Update revision data in event logs
-			$eventLogIds = Capsule::table('event_log_settings')
-				->where('setting_name', '=', 'fileId')
-				->where('setting_value', '=', $row->file_id)
-				->pluck('log_id');
-			Capsule::table('event_log_settings')
-				->whereIn('log_id', $eventLogIds)
-				->where('setting_name', 'fileRevision')
-				->where('setting_value', '=', $row->revision)
-				->update(['setting_value' => $newFileId]);
+		}
+		// Set submission event log file IDs to the new IDs where necessary.
+		switch (Capsule::connection()->getDriverName()) {
+			case 'mysql':
+				Capsule::connection()->unprepared("UPDATE event_log_settings elsr JOIN event_log_settings elsf ON (elsr.log_id = elsf.log_id AND elsf.setting_name='fileId') JOIN submission_files sf ON (sf.revision = elsr.setting_value AND sf.file_id = elsf.setting_value) SET elsr.setting_value = sf.new_file_id WHERE elsr.setting_name='fileRevision'");
+				break;
+			case 'pgsql':
+				Capsule::connection()->unprepared("UPDATE event_log_settings elsr SET setting_value = sf.new_file_id FROM event_log_settings elsf, submission_files sf WHERE elsr.log_id = elsf.log_id AND elsf.setting_name='fileId' AND sf.revision = elsr.setting_value::INTEGER AND sf.file_id = elsf.setting_value::INTEGER AND elsr.setting_name='fileRevision'");
+				break;
+			default: throw new Exception('Unknown database type!');
 		}
 
 		// Collect rows that will be deleted because they are old revisions

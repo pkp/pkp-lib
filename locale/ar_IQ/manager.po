@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2020-12-07 11:19+0000\n"
+"PO-Revision-Date: 2021-03-03 20:34+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -2043,3 +2043,6 @@ msgstr "إختر المستخدمين المطلوب تصديرهم إلى مل�
 
 msgid "manager.export.usersToCsv.label"
 msgstr "التصدير إلى Excel/CSV"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr "تعذر حفظ إعداد اللغة. لا بد من تمكين لغة واحدة على الأقل لكل خيار"

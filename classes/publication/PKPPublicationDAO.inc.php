@@ -335,4 +335,19 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 			->pluck('p.publication_id')
 			->toArray();
 	}
+
+	/**
+	 * Check if the publication ID exists.
+	 * @param $publicationId int
+	 * @param $submissionId int, optional
+	 * @return boolean
+	 */
+	function exists($publicationId, $submissionId = null) {
+		$q = Capsule::table('publications');
+		$q->where('publication_id', '=', $publicationId);
+		if ($submissionId) {
+			$q->where('submission_id', '=', $submissionId);
+		}
+		return $q->exists();
+	}
 }

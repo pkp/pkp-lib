@@ -66,6 +66,18 @@ class DashboardHandler extends Handler {
 
 		$includeIssuesFilter = array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $userRoles);
 		$includeAssignedEditorsFilter = array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles);
+		$includeCategoriesFilter = array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $userRoles);
+
+		// Get all available categories
+		$categories = [];
+		$categoryDao = \DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
+		$categoryIterator = $categoryDao->getByContextId($context->getId())->toAssociativeArray();
+		foreach ($categoryIterator as $category) {
+			$categories[] = array(
+				'id' => $category->getId(),
+				'title' => $category->getLocalizedTitle(),
+			);
+		}
 
 		// My Queue
 		$myQueueListPanel = new \APP\components\listPanels\SubmissionsListPanel(
@@ -78,7 +90,9 @@ class DashboardHandler extends Handler {
 					'assignedTo' => [(int) $request->getUser()->getId()],
 				],
 			'includeIssuesFilter' => $includeIssuesFilter,
+			'includeCategoriesFilter' => $includeCategoriesFilter,
 			'includeActiveSectionFiltersOnly' => true,
+			'categories' => $categories,
 		]);
 		$myQueueListPanel->set([
 			'items' => $myQueueListPanel->getItems($request),
@@ -100,7 +114,9 @@ class DashboardHandler extends Handler {
 					],
 					'lazyLoad' => true,
 					'includeIssuesFilter' => $includeIssuesFilter,
+					'includeCategoriesFilter' => $includeCategoriesFilter,
 					'includeActiveSectionFiltersOnly' => true,
+					'categories' => $categories,
 				]
 			);
 			$lists[$unassignedListPanel->id] = $unassignedListPanel->getConfig();
@@ -116,7 +132,9 @@ class DashboardHandler extends Handler {
 					],
 					'lazyLoad' => true,
 					'includeIssuesFilter' => $includeIssuesFilter,
+					'includeCategoriesFilter' => $includeCategoriesFilter,
 					'includeAssignedEditorsFilter' => $includeAssignedEditorsFilter,
+					'categories' => $categories,
 				]
 			);
 			$lists[$activeListPanel->id] = $activeListPanel->getConfig();
@@ -137,7 +155,9 @@ class DashboardHandler extends Handler {
 				'getParams' => $params,
 				'lazyLoad' => true,
 				'includeIssuesFilter' => $includeIssuesFilter,
+				'includeCategoriesFilter' => $includeCategoriesFilter,
 				'includeAssignedEditorsFilter' => $includeAssignedEditorsFilter,
+				'categories' => $categories,
 			]
 		);
 		$lists[$archivedListPanel->id] = $archivedListPanel->getConfig();

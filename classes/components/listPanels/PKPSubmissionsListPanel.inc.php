@@ -41,6 +41,12 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 	/** @var boolean Whether to show assigned to editors filter */
 	public $includeAssignedEditorsFilter = false;
 
+	/** @var boolean Whether to show categories filter */
+	public $includeCategoriesFilter = false;
+
+	/** @var array List of all available categories */
+	public $categories = [];
+
 	/**
 	 * @copydoc ListPanel::getConfig()
 	 */
@@ -123,9 +129,16 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 						'filterType' => 'pkp-filter-slider',
 					]
 				]
-			],
-			$this->getCategoryFilters()
+			]
 		];
+
+		if ($this->includeCategoriesFilter) {
+			$categoryFilter = array();
+			$categoryFilter = $this->getCategoryFilters($this->categories);
+			if ($categoryFilter) {
+				$config['filters'][] = $categoryFilter;
+			}
+		}
 
 		if ($this->includeAssignedEditorsFilter) {
 			$assignedEditorsField = new FieldSelectUsers('assignedTo', [
@@ -267,22 +280,13 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 	/**
 	 * Compile the categories for passing as filters
 	 *
+	 * @param $categories array
 	 * @return array
 	 */
-	public function getCategoryFilters() {
+	public function getCategoryFilters($categories = array()) {
 		$request = \Application::get()->getRequest();
 		$context = $request->getContext();
 
-		$categories = [];
-		$categoryDao = \DAORegistry::getDAO('CategoryDAO')
-		; /* @var $categoryDao CategoryDAO */
-		$categoryIterator = $categoryDao->getByContextId($context->getId())->toAssociativeArray();
-		foreach ($categoryIterator as $category) {
-			$categories[] = array(
-				'id' => $category->getId(),
-				'title' => $category->getLocalizedTitle(),
-			);
-		}
 		if ($categories) {
 			// Use an autosuggest field if the list of categories is too long
 			if (count($categories) > 5) {

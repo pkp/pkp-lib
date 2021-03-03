@@ -388,36 +388,10 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			default: throw new Exception('Unknown database type!');
 		}
 
-		// Collect rows that will be deleted because they are old revisions
-		// They are identified by the new_file_id column, which is the only unique
-		// column on the table at this point.
-		$newFileIdsToDelete = [];
-
-		// Get all the unique file_ids. For each one, determine the latest revision
-		// in order to keep it in the table. The others will be flagged for removal
-		$revisionRowFileIds = Capsule::table('submission_files')
-			->groupBy('file_id')
-			->pluck('file_id');
-		foreach ($revisionRowFileIds as $revisionRowFileId) {
-			$submissionFileRows = Capsule::table('submission_files')
-				->where('file_id', '=', $revisionRowFileId)
-				->orderBy('revision', 'desc')
-				->get([
-					'file_id',
-					'new_file_id',
-				]);
-			$latestFileId = $submissionFileRows[0]->new_file_id;
-			foreach ($submissionFileRows as $submissionFileRow) {
-				if ($submissionFileRow->new_file_id !== $latestFileId) {
-					$newFileIdsToDelete[] = $submissionFileRow->new_file_id;
-				}
-			}
-		}
-
-		// Delete the rows for old revisions
-		Capsule::table('submission_files')
-			->whereIn('new_file_id', $newFileIdsToDelete)
-			->delete();
+		// Delete rows that represent old revisions. They are identified by the
+		// new_file_id column, which is the only unique column on the table at this
+		// point.
+		Capsule::connection()->unprepared('DELETE FROM submission_files WHERE new_file_id IN (SELECT sf.new_file_id FROM submission_files sf JOIN submission_files newer ON sf.file_id = newer.file_id AND newer.revision > sf.revision)');
 
 		// Remove all review round files that point to file ids
 		// that don't exist, so that the foreign key can be set

@@ -474,6 +474,19 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			->where('setting_name', 'fileRevision')
 			->update(['setting_name' => 'fileId']);
 
+		// Update file name of dependent files, see: pkp/pkp-lib#6801
+		Capsule::table('submission_files')
+			->select('file_id', 'original_file_name')
+			->where('file_stage' , '=', SUBMISSION_FILE_DEPENDENT)
+			->chunkById(1000, function ($dependentFiles) {
+				foreach ($dependentFiles as $dependentFile) {
+					Capsule::table('submission_file_settings')
+						->where('file_id', '=', $dependentFile->file_id)
+						->where('setting_name', '=', 'name')
+						->update(['setting_value' => $dependentFile->original_file_name]);
+				}
+			}, 'file_id');
+
 		// Restructure submission_files and submission_file_settings tables
 		Capsule::schema()->table('submission_files', function (Blueprint $table) {
 			$table->bigInteger('file_id')->nullable(false)->unsigned()->change();

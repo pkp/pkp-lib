@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-15 08:16+0000\n"
-"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"PO-Revision-Date: 2021-03-04 18:17+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -2116,3 +2116,34 @@ msgstr "Уреди {$name}"
 
 msgid "common.inactive"
 msgstr "Неактивен"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Одзачлени се"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Има неочекувана грешка и не можеме да ве одзачлениме од имејл адресата "
+"{$email}. Можете да се одзачлените од нотификацијата на имејли во вашиот <a "
+"href=\"{$profileNotificationUrl}\">кориснички профил </a> или да не "
+"контактирата директно за помош."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"Имејл адресата {$email} успешно е одзачленета. Повеќе нема да ви ги праќаме "
+"тие мејли.Можете да презачлените кон нотификацијата за имејли во секое време "
+"од вашиот <a href=\"{$profileNotificationUrl}\">кориснички профил</a>."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Може да се презачлените за нотификација на имејли во било кое време од  <a "
+"href=\"{$profileNotificationUrl}\">кориснички профил</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Изберете кои имејли не сакате да ги примате на {$email} од {$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Не мое да ве одзачлениме"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Бевте одзачленет"

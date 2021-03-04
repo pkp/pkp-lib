@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-22 17:16+0000\n"
-"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"PO-Revision-Date: 2021-03-04 18:17+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -2380,3 +2380,8 @@ msgstr ""
 
 msgid "manager.setup.metadata.agencies.noRequest"
 msgstr "Не барај поддржувачки агенции од авторот за време на поднесувањето."
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Подесувањето на јазик не може да се сними. Моранајмалку еден јазик мора да "
+"биде овозможен за секоја опција"

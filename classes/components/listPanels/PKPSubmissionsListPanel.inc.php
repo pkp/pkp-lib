@@ -16,6 +16,7 @@ namespace PKP\components\listPanels;
 
 use PKP\components\listPanels\ListPanel;
 use PKP\components\forms\FieldSelectUsers;
+use PKP\components\forms\FieldAutosuggestPreset;
 
 import('lib.pkp.classes.submission.PKPSubmission');
 import('classes.core.Services');
@@ -39,6 +40,12 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 
 	/** @var boolean Whether to show assigned to editors filter */
 	public $includeAssignedEditorsFilter = false;
+
+	/** @var boolean Whether to show categories filter */
+	public $includeCategoriesFilter = false;
+
+	/** @var array List of all available categories */
+	public $categories = [];
 
 	/**
 	 * @copydoc ListPanel::getConfig()
@@ -124,6 +131,14 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 				]
 			]
 		];
+
+		if ($this->includeCategoriesFilter) {
+			$categoryFilter = array();
+			$categoryFilter = $this->getCategoryFilters($this->categories);
+			if ($categoryFilter) {
+				$config['filters'][] = $categoryFilter;
+			}
+		}
 
 		if ($this->includeAssignedEditorsFilter) {
 			$assignedEditorsField = new FieldSelectUsers('assignedTo', [
@@ -260,5 +275,57 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			),
 			$this->getParams
 		);
+	}
+
+	/**
+	 * Compile the categories for passing as filters
+	 *
+	 * @param $categories array
+	 * @return array
+	 */
+	public function getCategoryFilters($categories = array()) {
+		$request = \Application::get()->getRequest();
+		$context = $request->getContext();
+
+		if ($categories) {
+			// Use an autosuggest field if the list of categories is too long
+			if (count($categories) > 5) {
+				$autosuggestField = new FieldAutosuggestPreset('categoryIds', [
+					'label' => __('category.category'),
+					'value' => [],
+					'options' => array_map(function($category) {
+						return [
+							'value' => (int) $category['id'],
+							'label' => $category['title'],
+						];
+					}, $categories),
+				]);
+				return [
+					'filters' => [
+						[
+							'title' => __('category.category'),
+							'param' => 'categoryIds',
+							'filterType' => 'pkp-filter-autosuggest',
+							'component' => 'field-autosuggest-preset',
+							'value' => [],
+							'autosuggestProps' => $autosuggestField->getConfig(),
+						]
+					],
+				];
+			}
+
+			return [
+				'heading' => __('category.category'),
+				'filters' => array_map(function($category) {
+					return [
+						'param' => 'categoryIds',
+						'value' => (int) $category['id'],
+						'title' => $category['title'],
+					];
+				}, $categories),
+			];
+		}
+
+		return [];
 	}
 }

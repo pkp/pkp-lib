@@ -89,7 +89,7 @@ class NotificationHandler extends Handler {
 			import('lib.pkp.classes.notification.form.PKPNotificationsUnsubscribeForm');
 
 			$notificationsUnsubscribeForm = new PKPNotificationsUnsubscribeForm($notification, $validationToken);
-			$notificationsUnsubscribeForm->display();
+			$notificationsUnsubscribeForm->display($request);
 			return;
 		}
 

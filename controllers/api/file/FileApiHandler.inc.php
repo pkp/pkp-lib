@@ -112,7 +112,7 @@ class FileApiHandler extends Handler {
 		}
 
 		$filename = Services::get('file')->formatFilename($file->path, $filename);
-		Services::get('file')->download($submissionFile->getData('fileId'), $filename);
+		Services::get('file')->download((int) $fileId, $filename);
 	}
 
 	/**

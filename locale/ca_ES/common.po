@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"PO-Revision-Date: 2021-03-04 17:09+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ca_ES/>\n"
@@ -30,7 +30,7 @@ msgid "about.aboutSite"
 msgstr "Quant al lloc web"
 
 msgid "about.contact"
-msgstr "Contacte de la revista"
+msgstr "Contacte"
 
 msgid "about.contact.email"
 msgstr "Adreça electrònica"
@@ -609,10 +609,10 @@ msgid "common.status"
 msgstr "Estat"
 
 msgid "common.subject"
-msgstr "Matèria"
+msgstr "Assumpte"
 
 msgid "common.subjects"
-msgstr "Temes"
+msgstr "Assumptes"
 
 msgid "common.subtitle"
 msgstr "Subtítol"
@@ -789,10 +789,10 @@ msgid "email.skip"
 msgstr "Omet el missatge de correu electrònic"
 
 msgid "email.subject"
-msgstr "Matèria"
+msgstr "Assumpte"
 
 msgid "email.subjectRequired"
-msgstr "Proporcioneu un assumpte pel correu electrònic."
+msgstr "Proporcioneu l'assumpte del correu electrònic."
 
 msgid "email.bodyRequired"
 msgstr "Escriviu el cos del correu electrònic."
@@ -1791,7 +1791,7 @@ msgstr "L'element del menú de navegació s'ha actualitzat correctament"
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
-"Això és un amable recordatori perquè comproveu la salut de la vostra revista "
+"Us recordem amablement que comproveu la salut de la vostra revista "
 "mitjançant l'informe editorial."
 
 msgid "notification.type.editorialReport"
@@ -2092,3 +2092,37 @@ msgstr "Editar {$name}"
 
 msgid "common.inactive"
 msgstr "Inactiu"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Donar de baixa"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"S'ha produït un error inesperat i no podem donar de baixa l'adreça de correu "
+"electrònic {$email}. Podeu cancel·lar totes les notificacions per correu "
+"electrònic des del vostre <a href=\"{$profileNotificationUrl}\">perfil d'"
+"usuari/ària</a> o contactar-nos directament si necessiteu ajuda."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"S'ha donat de baixa correctament l'adreça de correu electrònic {$email}. No "
+"us tornarem a enviar aquests correus. Podeu tornar-vos a inscriure a les "
+"notificacions per correu electrònic en qualsevol moment des del vostre <a "
+"href=\"{$profileNotificationUrl}\">perfil d'usuari/ària</a>."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Podeu donar-vos de baixa de les notificacions per correu electrònic en "
+"qualsevol moment des del vostre <a href=\"{$profileNotificationUrl}\">perfil "
+"d'usuari/ària</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Seleccioneu els correus electrònics de {$contextName} que ja no voleu rebre "
+"més a {$email}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "No podem donar-vos de baixa"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Heu estat donat de baixa"

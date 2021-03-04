@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-04 17:09+0000\n"
+"PO-Revision-Date: 2021-03-04 18:17+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ca_ES/>\n"
@@ -206,3 +206,34 @@ msgid "api.400.invalidApiToken"
 msgstr ""
 "No s'ha pogut validar la API token. Això podria indicar un error en la API "
 "token o que aquesta ja no és válida."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "No teniu permís per accedir als arxius en aquesta ronda de revisió."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "No teniu permís per afegir i editar aquests arxius."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "No teniu permís per accedir a aquests arxius."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+"La ronda de revisió que heu proporcionat no forma part d'aquesta tramesa."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "No s'han pogut trobar canvis en la sol·licitud per editar aquest arxiu."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Heu de proporcionar una fase d'arxiu."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Heu d'especificar una ronda de revisió quan reclameu arxius en una fase de "
+"revisió."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "No podeu associar un arxiu des d'aquesta fase amb una ronda de revisió."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"No podeu associar un arxiu des d'aquesta fase amb una assignació de revisió."

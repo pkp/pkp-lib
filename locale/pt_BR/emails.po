@@ -130,6 +130,7 @@ msgstr ""
 "O e-mail é enviado aos usuários registrados que selecionaram para receber "
 "este tipo de notificação por e-mail."
 
+#, fuzzy
 msgid "emails.notification.body"
 msgstr ""
 "Você tem uma nova notificação de {$siteTitle}:<br />\n"

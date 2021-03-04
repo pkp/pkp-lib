@@ -69,6 +69,96 @@ class NotificationHandler extends Handler {
 	}
 
 	/**
+	 * Notification Unsubscribe handler
+	 * @param $args array
+	 * @param $request Request
+	 */
+	function unsubscribe($args, $request) {
+		$validationToken = $request->getUserVar('validate');
+		$notificationId = $request->getUserVar('id');
+
+		$notification = $this->_validateUnsubscribeRequest($validationToken, $notificationId);
+
+		// Show the form on a get request
+		if (!$request->isPost()) {
+			$validationToken = $request->getUserVar('validate');
+			$notificationId = $request->getUserVar('id');
+
+			$notification = $this->_validateUnsubscribeRequest($validationToken, $notificationId);
+
+			import('lib.pkp.classes.notification.form.PKPNotificationsUnsubscribeForm');
+
+			$notificationsUnsubscribeForm = new PKPNotificationsUnsubscribeForm($notification, $validationToken);
+			$notificationsUnsubscribeForm->display($request);
+			return;
+		}
+
+		// Otherwise process the result
+		$this->setupTemplate($request);
+
+		import('lib.pkp.classes.notification.form.PKPNotificationsUnsubscribeForm');
+
+		$notificationsUnsubscribeForm = new PKPNotificationsUnsubscribeForm($notification, $validationToken);
+
+		$notificationsUnsubscribeForm->readInputData();
+
+		$templateMgr = TemplateManager::getManager($request);
+
+		$unsubscribeResult = false;
+		if ($notificationsUnsubscribeForm->validate()) {
+			$notificationsUnsubscribeForm->execute();
+
+			$unsubscribeResult = true;
+		}
+
+		$userId = $notification->getUserId();
+		$contextId = $notification->getContextId();
+
+		$contextDao = Application::getContextDAO();
+		$userDao = DAORegistry::getDAO('UserDAO');
+
+		$user = $userDao->getById($userId);
+		$context = $contextDao->getById($contextId);
+
+		$templateMgr->assign([
+			'contextName' => $context->getLocalizedName(),
+			'userEmail' => $user->getEmail(),
+			'unsubscribeResult' => $unsubscribeResult,
+		]);
+
+		$templateMgr->display('notification/unsubscribeNotificationsResult.tpl');
+	}
+
+	/**
+	 * Performs all unsubscribe validation token validations
+	 * @param $validationToken string
+	 * @param $notificationId int
+	 * @return Notification
+	 */
+	function _validateUnsubscribeRequest($validationToken, $notificationId) {
+		if ($validationToken == null || $notificationId == null) {
+			$this->getDispatcher()->handle404();
+		}
+
+		/** @var $notificationDao NotificationDAO */
+		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		/** @var $notification Notification */
+		$notification = $notificationDao->getById($notificationId);
+
+		if (!isset($notification) || $notification->getId() == null) {
+			$this->getDispatcher()->handle404();
+		}
+
+		$notificationManager = new NotificationManager();
+
+		if (!$notificationManager->validateUnsubscribeToken($validationToken, $notification)) {
+			$this->getDispatcher()->handle404();
+		}
+
+		return $notification;
+	}
+
+	/**
 	 * Get the notifications using options.
 	 * @param $notificationOptions Array
 	 * @param $contextId int

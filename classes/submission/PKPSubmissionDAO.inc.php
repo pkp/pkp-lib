@@ -332,4 +332,19 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 			->pluck('s.submission_id')
 			->toArray();
 	}
+
+	/**
+	 * Check if the submission ID exists.
+	 * @param $submissionId int
+	 * @param $contextId int, optional
+	 * @return boolean
+	 */
+	function exists($submissionId, $contextId = null) {
+		$q = Capsule::table('submissions');
+		$q->where('submission_id', '=', $submissionId);
+		if ($contextId) {
+			$q->where('context_id', '=', $contextId);
+		}
+		return $q->exists();
+	}
 }

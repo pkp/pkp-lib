@@ -16,9 +16,9 @@
  *
  */
 
-
 switch ($op) {
 	case 'fetchNotification':
+	case 'unsubscribe':
 		define('HANDLER_CLASS', 'NotificationHandler');
 		import('lib.pkp.pages.notification.NotificationHandler');
 		break;

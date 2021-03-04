@@ -1757,6 +1757,27 @@ msgstr "Navigation menu was succesfully updated"
 msgid "notification.removedNavigationMenu"
 msgstr "Navigation menu was succesfully removed"
 
+msgid "notification.unsubscribeNotifications.success"
+msgstr "You have been unsubscribed"
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "We could not unsubscribe you"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr "Select the emails that you no longer wish to receive at {$email} from {$contextName}."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr "You can resubscribe to email notifications at any time from your <a href=\"{$profileNotificationUrl}\">user profile</a>."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr "The email address {$email} has been successfully unsubscribed. We'll no longer send you those emails. You can resubscribe to email notifications at any time from your <a href=\"{$profileNotificationUrl}\">user profile</a>."
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr "There was an unexpected error and we could not unsubscribe the email address {$email}. You can unsubscribe from all email notifications in your <a href=\"{$profileNotificationUrl}\">user profile</a> or contact us directly for help."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Unsubscribe"
+
 msgid "list.viewMore"
 msgstr "Show more details about {$name}"
 

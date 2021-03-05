@@ -119,7 +119,8 @@ class LocaleFile {
 	 */
 	static function &load($filename) {
 		$localeData = [];
-		foreach (Gettext\Translations::fromPoFile($filename) as $translation) {
+		$loader = new Gettext\Loader\PoLoader();
+		foreach ($loader->loadFile($filename) as $translation) {
 			$localeData[$translation->getOriginal()] = $translation->getTranslation();
 		}
 		return $localeData;

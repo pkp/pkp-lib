@@ -147,7 +147,6 @@
 				forced_root_block: 'p',
 				paste_auto_cleanup_on_paste: true,
 				apply_source_formatting: false,
-				theme: 'modern',
 				toolbar: 'copy paste | bold italic underline | link unlink ' +
 						'code fullscreen | image | pkpTags',
 				richToolbar: 'copy paste | bold italic underline | bullist numlist | ' +
@@ -330,9 +329,9 @@
 			var target = e.target, $container = $(target.editorContainer);
 			if (target.plugins.fullscreen) {
 				if (target.plugins.fullscreen.isFullscreen()) {
-					$container.find('.mce-toolbar[role=\'menubar\']').show();
+					$container.find('.tox-menubar').show();
 				} else {
-					$container.find('.mce-toolbar[role=\'menubar\']').hide();
+					$container.find('.tox-menubar').hide();
 				}
 			}
 		});

@@ -23,12 +23,14 @@ describe('Data suite tests', function() {
 		cy.get('div[id=context-acronym-error-en_US]').find('span').contains('This field is required.');
 		cy.get('div[id=context-urlPath-error]').find('span').contains('This field is required.');
 		cy.get('div[id=context-primaryLocale-error]').find('span').contains('This field is required.');
+		cy.get('div[id=context-country-error]').find('span').contains('This field is required.');
 		cy.get('input[name="name-en_US"]').type(Cypress.env('contextTitles')['en_US'], {delay: 0});
 		cy.get('input[name=acronym-en_US]').type('JPK', {delay: 0});
 		cy.get('span').contains('Enable this preprint server').siblings('input').check();
 		cy.get('input[name="supportedLocales"][value="en_US').check();
 		cy.get('input[name="supportedLocales"][value="fr_CA').check();
 		cy.get('input[name="primaryLocale"][value="en_US').check();
+		cy.get('select[id=context-country-control]').select('Iceland');
 
 		// Test invalid path characters
 		cy.get('input[name=urlPath]').type('public&-)knowledge', {delay: 0});

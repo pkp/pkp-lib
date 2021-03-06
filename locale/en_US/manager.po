@@ -188,6 +188,9 @@ msgstr "Include any information about your server which may be of interest to re
 msgid "manager.setup.contextInitials"
 msgstr "Server initials"
 
+msgid "manager.setup.selectCountry"
+msgstr "Select the country where this server is located, or the country of the mailing address for the server or publisher."
+
 msgid "manager.setup.serverThumbnail"
 msgstr "Server thumbnail"
 

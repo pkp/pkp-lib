@@ -1826,6 +1826,9 @@ msgstr "This field must be true or false."
 msgid "validator.confirmed"
 msgstr "The confirmation for this field does not match."
 
+msgid "validator.country"
+msgstr "This is not a valid country."
+
 msgid "validator.currency"
 msgstr "This is not a valid currency."
 

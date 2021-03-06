@@ -16,8 +16,10 @@ namespace PKP\components\forms\context;
 
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRichTextarea;
+use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
+use Sokil\IsoCodes\IsoCodesFactory;
 
 define('FORM_CONTEXT', 'context');
 
@@ -43,6 +45,18 @@ class PKPContextForm extends FormComponent
         $this->locales = $locales;
         $this->method = $context ? 'PUT' : 'POST';
 
+        $isoCodes = new IsoCodesFactory();
+        $countries = [];
+        foreach ($isoCodes->getCountries() as $country) {
+            $countries[] = [
+                'value' => $country->getAlpha2(),
+                'label' => $country->getLocalName()
+            ];
+        }
+        usort($countries, function ($a, $b) {
+            return strcmp($a['label'], $b['label']);
+        });
+
         $this->addField(new FieldText('name', [
             'label' => __('manager.setup.contextTitle'),
             'isRequired' => true,
@@ -56,6 +70,12 @@ class PKPContextForm extends FormComponent
                 'isMultilingual' => true,
                 'groupId' => 'identity',
                 'value' => $context ? $context->getData('acronym') : null,
+            ]))
+            ->addField(new FieldSelect('country', [
+                'label' => __('common.country'),
+                'description' => __('manager.setup.selectCountry'),
+                'options' => $countries,
+                'value' => $context ? $context->getData('country') : null,
             ]))
             ->addField(new FieldRichTextarea('description', [
                 'label' => __('admin.contexts.contextDescription'),

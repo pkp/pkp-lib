@@ -22,8 +22,9 @@ use Illuminate\Translation\Translator;
 
 use Illuminate\Validation\Factory;
 use PKP\file\TemporaryFileManager;
-
 use PKP\Services\Interfaces\EntityWriteInterface;
+
+use Sokil\IsoCodes\IsoCodesFactory;
 
 class ValidatorFactory
 {
@@ -124,9 +125,16 @@ class ValidatorFactory
 
         // Add custom validation rule for currency
         $validation->extend('currency', function ($attribute, $value, $parameters, $validator) {
-            $isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+            $isoCodes = new IsoCodesFactory();
             $currency = $isoCodes->getCurrencies()->getByLetterCode($value);
             return isset($currency);
+        });
+
+        // Add custom validation rule for country
+        $validation->extend('country', function ($attribute, $value, $parameters, $validator) {
+            $isoCodes = new IsoCodesFactory();
+            $country = $isoCodes->getCountries()->getByAlpha2($value);
+            return isset($country);
         });
 
         $validator = $validation->make($props, $rules, self::getMessages($messages));
@@ -164,6 +172,7 @@ class ValidatorFactory
                 ],
                 'boolean' => __('validator.boolean'),
                 'confirmed' => __('validator.confirmed'),
+                'country' => __('validator.country'),
                 'currency' => __('validator.currency'),
                 'date' => __('validator.date'),
                 'date_format' => __('validator.date_format'),

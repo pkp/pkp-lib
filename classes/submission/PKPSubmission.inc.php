@@ -22,18 +22,18 @@
  * scholarly submission.
  */
 
-// Submission status constants
-define('STATUS_QUEUED', 1);
-define('STATUS_PUBLISHED', 3);
-define('STATUS_DECLINED', 4);
-define('STATUS_SCHEDULED', 5);
-
-// License settings (internal use only)
-define ('PERMISSIONS_FIELD_LICENSE_URL', 1);
-define ('PERMISSIONS_FIELD_COPYRIGHT_HOLDER', 2);
-define ('PERMISSIONS_FIELD_COPYRIGHT_YEAR', 3);
-
 abstract class PKPSubmission extends DataObject {
+	// Submission status constants
+	const STATUS_QUEUED=1;
+	const STATUS_PUBLISHED=3;
+	const STATUS_DECLINED=4;
+	const STATUS_SCHEDULED=5;
+
+	// License settings (internal use only)
+	const PERMISSIONS_FIELD_LICENSE_URL=1;
+	const PERMISSIONS_FIELD_COPYRIGHT_HOLDER=2;
+	const PERMISSIONS_FIELD_COPYRIGHT_YEAR=3;
+
 	/**
 	 * Constructor.
 	 */
@@ -1220,4 +1220,15 @@ abstract class PKPSubmission extends DataObject {
                 $application = Application::getApplication();
                 return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION, $this->getId());
         }
+}
+
+// Expose global constants unless operating in strict mode.
+if (!Config::getVar('general', 'strict')) {
+	define('STATUS_QUEUED', PKPSubmission::STATUS_QUEUED);
+	define('STATUS_PUBLISHED', PKPSubmission::STATUS_PUBLISHED);
+	define('STATUS_DECLINED', PKPSubmission::STATUS_DECLINED);
+	define('STATUS_SCHEDULED', PKPSubmission::STATUS_SCHEDULED);
+	define('PERMISSIONS_FIELD_LICENSE_URL', PKPSubmission::PERMISSIONS_FIELD_LICENSE_URL);
+	define('PERMISSIONS_FIELD_COPYRIGHT_HOLDER', PKPSubmission::PERMISSIONS_FIELD_COPYRIGHT_HOLDER);
+	define('PERMISSIONS_FIELD_COPYRIGHT_YEAR', PKPSubmission::PERMISSIONS_FIELD_COPYRIGHT_YEAR);
 }

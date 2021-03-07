@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-26 20:54+0000\n"
+"PO-Revision-Date: 2021-03-08 12:54+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ja_JP/>\n"
@@ -1693,7 +1693,7 @@ msgid "search.noResults"
 msgstr "該当なし"
 
 msgid "search.matchAll"
-msgstr "すべてのカテゴリにマッチ"
+msgstr "すべてのカテゴリーにマッチ"
 
 msgid "search.indexTermsLong"
 msgstr "インデックス用語フィールドの全て"
@@ -1972,3 +1972,31 @@ msgstr "メイン コンテンツにスキップ"
 
 msgid "navigation.skip.announcements"
 msgstr "お知らせにスキップ"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "登録解除"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"予期しないエラーが発生しました。メールアドレス {$email}を登録解除できませんでした。 <a href=\""
+"{$profileNotificationUrl}\"> ユーザープロファイル </a> "
+"のすべてのメール通知の購読を解除するか、弊社に直接お問い合わせください。"
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"メールアドレス  {$email}  は正常に登録解除されました。 これらのメールは送信されなくなります。 <a href=\""
+"{$profileNotificationUrl}\"> ユーザープロファイル </a> からいつでもメール通知に再サブスクライブできます。"
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"<a href=\"{$profileNotificationUrl}\"> ユーザープロファイル </a> "
+"からいつでもメール通知に再サブスクライブできます。"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr "{$contextName} から {$email} で受信したくない電子メールを選択してください。"
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "購読を解除できませんでした"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "購読サービスを停止しました"

@@ -43,7 +43,7 @@ class PKPRestrictBulkEmailsForm extends FormComponent {
 		}
 
 		$request = \Application::get()->getRequest();
-		$siteSettingsUrl = $request->getDispatcher()->url($request, ROUTE_PAGE, null, 'admin', 'settings', null, null, 'setup/bulkEmails');
+		$siteSettingsUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'admin', 'settings', null, null, 'setup/bulkEmails');
 
 		$this->addField(new FieldOptions('disableBulkEmailUserGroups', [
 			'label' => __('admin.settings.disableBulkEmailRoles.label'),

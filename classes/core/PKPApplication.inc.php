@@ -14,14 +14,6 @@
  *
  */
 
-define('PHP_REQUIRED_VERSION', '7.3.0');
-
-define('ROUTE_COMPONENT', 'component');
-define('ROUTE_PAGE', 'page');
-define('ROUTE_API', 'api');
-
-define('API_VERSION', 'v1');
-
 define('CONTEXT_SITE', 0);
 define('CONTEXT_ID_NONE', 0);
 define('CONTEXT_ID_ALL', '_');
@@ -63,10 +55,6 @@ define('WORKFLOW_STAGE_PATH_INTERNAL_REVIEW', 'internalReview');
 define('WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW', 'externalReview');
 define('WORKFLOW_STAGE_PATH_EDITING', 'editorial');
 define('WORKFLOW_STAGE_PATH_PRODUCTION', 'production');
-
-// Constant used to distinguish between editorial and author workflows
-define('WORKFLOW_TYPE_EDITORIAL', 'editorial');
-define('WORKFLOW_TYPE_AUTHOR', 'author');
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
@@ -115,6 +103,18 @@ interface iPKPApplicationInfoProvider {
 }
 
 abstract class PKPApplication implements iPKPApplicationInfoProvider {
+	public const PHP_REQUIRED_VERSION = '7.3.0';
+
+	// Constant used to distinguish between editorial and author workflows
+	public const WORKFLOW_TYPE_EDITORIAL = 'editorial';
+	public const WORKFLOW_TYPE_AUTHOR = 'author';
+
+	public const API_VERSION = 'v1';
+
+	public const ROUTE_COMPONENT = 'component';
+	public const ROUTE_PAGE = 'page';
+	public const ROUTE_API = 'api';
+
 	var $enabledProducts = array();
 	var $allProducts;
 
@@ -130,6 +130,17 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		import('lib.pkp.classes.core.Registry');
 
 		import('lib.pkp.classes.config.Config');
+		define('PKP_STRICT_MODE', (boolean) Config::getVar('general', 'strict'));
+
+		// If not in strict mode, globally expose constants on this class.
+		if (!PKP_STRICT_MODE) foreach ([
+			'WORKFLOW_TYPE_EDITORIAL', 'WORKFLOW_TYPE_AUTHOR', 'PHP_REQUIRED_VERSION',
+			'API_VERSION',
+			'ROUTE_COMPONENT', 'ROUTE_PAGE', 'ROUTE_API',
+		] as $constantName) {
+			define($constantName, constant('self::' . $constantName));
+		}
+
 
 		// Load Composer autoloader
 		require_once('lib/pkp/lib/vendor/autoload.php');
@@ -346,9 +357,9 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			$dispatcher->setApplication(PKPApplication::get());
 
 			// Inject router configuration
-			$dispatcher->addRouterName('lib.pkp.classes.core.APIRouter', ROUTE_API);
-			$dispatcher->addRouterName('lib.pkp.classes.core.PKPComponentRouter', ROUTE_COMPONENT);
-			$dispatcher->addRouterName('classes.core.PageRouter', ROUTE_PAGE);
+			$dispatcher->addRouterName('lib.pkp.classes.core.APIRouter', self::ROUTE_API);
+			$dispatcher->addRouterName('lib.pkp.classes.core.PKPComponentRouter', self::ROUTE_COMPONENT);
+			$dispatcher->addRouterName('classes.core.PageRouter', self::ROUTE_PAGE);
 		}
 
 		return $dispatcher;
@@ -805,8 +816,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 */
 	public static function getWorkflowTypeRoles() {
 		return array(
-			WORKFLOW_TYPE_EDITORIAL => array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
-			WORKFLOW_TYPE_AUTHOR => array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR),
+			self::WORKFLOW_TYPE_EDITORIAL => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+			self::WORKFLOW_TYPE_AUTHOR => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR],
 		);
 	}
 

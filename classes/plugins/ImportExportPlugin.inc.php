@@ -44,7 +44,7 @@ abstract class ImportExportPlugin extends Plugin {
 				new LinkAction(
 					'settings',
 					new RedirectAction($dispatcher->url(
-						$request, ROUTE_PAGE,
+						$request, PKPApplication::ROUTE_PAGE,
 						null, 'management', 'importexport', array('plugin', $this->getName())
 					)),
 					__('manager.importExport'),
@@ -89,7 +89,7 @@ abstract class ImportExportPlugin extends Plugin {
 	 */
 	function pluginUrl($params, $smarty) {
 		$dispatcher = $this->_request->getDispatcher();
-		return $dispatcher->url($this->_request, ROUTE_PAGE, null, 'management', 'importexport', array_merge(array('plugin', $this->getName(), isset($params['path'])?$params['path']:array())));
+		return $dispatcher->url($this->_request, PKPApplication::ROUTE_PAGE, null, 'management', 'importexport', array_merge(array('plugin', $this->getName(), isset($params['path'])?$params['path']:array())));
 	}
 
 	/**

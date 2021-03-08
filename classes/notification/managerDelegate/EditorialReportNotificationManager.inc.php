@@ -85,8 +85,8 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 			'totalSubmissions' => Services::get('editorialStats')->countSubmissionsReceived(['contextIds' => [$this->_context->getId()]]),
 			'month' => $this->_getLocalizedMonthName($dateStart, $locale),
 			'year' => $dateStart->format('Y'),
-			'editorialStatsLink' => $dispatcher->url($this->_request, ROUTE_PAGE, $this->_context->getPath(), 'stats', 'editorial'),
-			'publicationStatsLink' => $dispatcher->url($this->_request, ROUTE_PAGE, $this->_context->getPath(), 'stats', 'publications')
+			'editorialStatsLink' => $dispatcher->url($this->_request, PKPApplication::ROUTE_PAGE, $this->_context->getPath(), 'stats', 'editorial'),
+			'publicationStatsLink' => $dispatcher->url($this->_request, PKPApplication::ROUTE_PAGE, $this->_context->getPath(), 'stats', 'publications')
 		];
 
 		$this->_userRolesOverview = Services::get('user')->getRolesOverview(['contextId' => $this->_context->getId()]);
@@ -181,7 +181,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	public function getNotificationUrl($request, $notification) {
 		$application = Application::get();
 		$context = $application->getContextDAO()->getById($notification->getContextId());
-		return $application->getDispatcher()->url($this->_request, ROUTE_PAGE, $context->getPath(), 'stats', 'editorial');
+		return $application->getDispatcher()->url($this->_request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'stats', 'editorial');
 	}
 
 	/**

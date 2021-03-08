@@ -79,7 +79,7 @@ class PKPReviewerGridHandler extends GridHandler {
 
 			// Get the stage access policy
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-			$workflowStageAccessPolicy = new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId, WORKFLOW_TYPE_EDITORIAL);
+			$workflowStageAccessPolicy = new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId, PKPApplication::WORKFLOW_TYPE_EDITORIAL);
 
 			// Add policy to ensure there is a review round id.
 			import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
@@ -873,10 +873,10 @@ class PKPReviewerGridHandler extends GridHandler {
 		$context = $request->getContext();
 
 		$template->assignParams(array(
-			'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath()),
+			'contextUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath()),
 			'editorialContactSignature' => $user->getContactSignature(),
 			'signatureFullName' => $user->getFullname(),
-			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
+			'passwordResetUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
 			'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
 			'abstractTermIfEnabled' => ($this->getSubmission()->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
 		));

@@ -154,9 +154,9 @@ class AdminHandler extends Handler {
 		$site = $request->getSite();
 		$dispatcher = $request->getDispatcher();
 
-		$apiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'site');
-		$themeApiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'site/theme');
-		$temporaryFileApiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'temporaryFiles');
+		$apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, CONTEXT_ID_ALL, 'site');
+		$themeApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, CONTEXT_ID_ALL, 'site/theme');
+		$temporaryFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, CONTEXT_ID_ALL, 'temporaryFiles');
 
 		import('classes.file.PublicFileManager');
 		$publicFileManager = new PublicFileManager();
@@ -265,8 +265,8 @@ class AdminHandler extends Handler {
 			$request->getDispatcher()->handle404();
 		}
 
-		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
-		$themeApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/theme');
+		$apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+		$themeApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/theme');
 		$sitemapUrl = $router->url($request, $context->getPath(), 'sitemap');
 
 		$supportedFormLocales = $context->getSupportedFormLocales();

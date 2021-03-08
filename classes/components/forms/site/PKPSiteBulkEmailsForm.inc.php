@@ -35,7 +35,7 @@ class PKPSiteBulkEmailsForm extends FormComponent {
 		$this->action = $action;
 
 		$request = \Application::get()->getRequest();
-		$hostedContextsUrl = $request->getDispatcher()->url($request, ROUTE_PAGE, null, 'admin', 'contexts');
+		$hostedContextsUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'admin', 'contexts');
 
 		$options = [];
 		foreach ($contexts as $context) {

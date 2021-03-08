@@ -133,7 +133,7 @@ abstract class ReportPlugin extends Plugin {
 				new LinkAction(
 					'settings',
 					new RedirectAction($dispatcher->url(
-						$request, ROUTE_PAGE,
+						$request, PKPApplication::ROUTE_PAGE,
 						null, 'management', 'tools', 'report', array('pluginName' => $this->getName())
 					)),
 					__('manager.statistics.reports'),

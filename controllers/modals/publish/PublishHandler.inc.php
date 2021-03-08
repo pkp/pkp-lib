@@ -83,7 +83,7 @@ class PublishHandler extends Handler {
 		$allowedLocales = $submissionContext->getSupportedSubmissionLocales();
 		$errors = Services::get('publication')->validatePublish($this->publication, $this->submission, $allowedLocales, $primaryLocale);
 
-		$publicationApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getPath(), 'submissions/' . $this->submission->getId() . '/publications/' . $this->publication->getId() . '/publish');
+		$publicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getPath(), 'submissions/' . $this->submission->getId() . '/publications/' . $this->publication->getId() . '/publish');
 
 		$publishForm = new APP\components\forms\publication\PublishForm($publicationApiUrl, $this->publication, $submissionContext, $errors);
 

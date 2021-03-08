@@ -113,10 +113,10 @@ class InstallForm extends MaintenanceForm {
 			'maxFileUploadSize' => get_cfg_var('upload_max_filesize'),
 			'databaseDriverOptions' => $this->checkDBDrivers(),
 			'supportsMBString' => PKPString::hasMBString() ? __('common.yes') : __('common.no'),
-			'phpIsSupportedVersion' => version_compare(PHP_REQUIRED_VERSION, PHP_VERSION) != 1,
+			'phpIsSupportedVersion' => version_compare(PKPApplication::PHP_REQUIRED_VERSION, PHP_VERSION) != 1,
 			'xslEnabled' => XSLTransformer::checkSupport(),
 			'xslRequired' => REQUIRES_XSL,
-			'phpRequiredVersion' => PHP_REQUIRED_VERSION,
+			'phpRequiredVersion' => PKPApplication::PHP_REQUIRED_VERSION,
 			'phpVersion' => PHP_VERSION,
 		));
 

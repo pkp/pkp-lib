@@ -31,7 +31,7 @@ class SubmissionLibraryLinkAction extends LinkAction {
 			'editorialHistory',
 			new AjaxModal(
 				$dispatcher->url(
-					$request, ROUTE_COMPONENT, null,
+					$request, PKPApplication::ROUTE_COMPONENT, null,
 					'modals.documentLibrary.DocumentLibraryHandler',
 					'documentLibrary',
 					null,

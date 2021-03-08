@@ -68,8 +68,8 @@ class ThankReviewerForm extends Form {
 		$email->assignParams(array(
 			'reviewerName' => $reviewer->getFullName(),
 			'reviewerUserName' => $reviewer->getUsername(),
-			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), array('confirm' => Validation::generatePasswordResetHash($reviewer->getId()))),
-			'submissionReviewUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'reviewer', 'submission', null, array('submissionId' => $reviewAssignment->getSubmissionId()))
+			'passwordResetUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), array('confirm' => Validation::generatePasswordResetHash($reviewer->getId()))),
+			'submissionReviewUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'reviewer', 'submission', null, array('submissionId' => $reviewAssignment->getSubmissionId()))
 		));
 		$email->replaceParams();
 
@@ -115,7 +115,7 @@ class ThankReviewerForm extends Form {
 			$user = $request->getUser();
 			$email->assignParams(array(
 				'reviewerName' => $reviewer->getFullName(),
-				'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath()),
+				'contextUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath()),
 				'editorialContactSignature' => $user->getContactSignature(),
 				'signatureFullName' => $user->getFullname(),
 			));

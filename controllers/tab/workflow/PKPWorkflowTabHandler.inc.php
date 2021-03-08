@@ -40,7 +40,7 @@ abstract class PKPWorkflowTabHandler extends Handler {
 	function authorize($request, &$args, $roleAssignments) {
 		// Authorize stage id.
 		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_identifyStageId($request), WORKFLOW_TYPE_EDITORIAL));
+		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_identifyStageId($request), PKPApplication::WORKFLOW_TYPE_EDITORIAL));
 
 		return parent::authorize($request, $args, $roleAssignments);
 	}
@@ -102,7 +102,7 @@ abstract class PKPWorkflowTabHandler extends Handler {
 						'newRound',
 						new AjaxModal(
 							$dispatcher->url(
-								$request, ROUTE_COMPONENT, null,
+								$request, PKPApplication::ROUTE_COMPONENT, null,
 								'modals.editorDecision.EditorDecisionHandler',
 								'newReviewRound', null, array(
 									'submissionId' => $submission->getId(),

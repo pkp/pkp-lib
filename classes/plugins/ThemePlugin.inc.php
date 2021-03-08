@@ -742,7 +742,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			if ($dispatcher && substr($data['style'], (strlen(LESS_FILENAME_SUFFIX) * -1)) == LESS_FILENAME_SUFFIX) {
 				$styles = $dispatcher->url(
 					$request,
-					ROUTE_COMPONENT,
+					PKPApplication::ROUTE_COMPONENT,
 					null,
 					'page.PageHandler',
 					'css',

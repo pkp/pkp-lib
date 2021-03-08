@@ -44,7 +44,7 @@ class SubmissionInfoCenterLinkAction extends LinkAction {
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$ajaxModal = new AjaxModal(
 			$dispatcher->url(
-				$request, ROUTE_COMPONENT, null,
+				$request, PKPApplication::ROUTE_COMPONENT, null,
 				'informationCenter.SubmissionInformationCenterHandler',
 				'viewInformationCenter',
 				null,

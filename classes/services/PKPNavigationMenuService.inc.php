@@ -199,7 +199,7 @@ class PKPNavigationMenuService {
 				case NMI_TYPE_ANNOUNCEMENTS:
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
-						ROUTE_PAGE,
+						PKPApplication::ROUTE_PAGE,
 						null,
 						'announcement',
 						null,
@@ -209,7 +209,7 @@ class PKPNavigationMenuService {
 				case NMI_TYPE_ABOUT:
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
-						ROUTE_PAGE,
+						PKPApplication::ROUTE_PAGE,
 						null,
 						'about',
 						null,
@@ -219,7 +219,7 @@ class PKPNavigationMenuService {
 				case NMI_TYPE_SUBMISSIONS:
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
-						ROUTE_PAGE,
+						PKPApplication::ROUTE_PAGE,
 						null,
 						'about',
 						'submissions',
@@ -229,7 +229,7 @@ class PKPNavigationMenuService {
 				case NMI_TYPE_EDITORIAL_TEAM:
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
-						ROUTE_PAGE,
+						PKPApplication::ROUTE_PAGE,
 						null,
 						'about',
 						'editorialTeam',
@@ -239,7 +239,7 @@ class PKPNavigationMenuService {
 				case NMI_TYPE_CONTACT:
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
-						ROUTE_PAGE,
+						PKPApplication::ROUTE_PAGE,
 						null,
 						'about',
 						'contact',
@@ -249,7 +249,7 @@ class PKPNavigationMenuService {
 				case NMI_TYPE_USER_LOGOUT:
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
-						ROUTE_PAGE,
+						PKPApplication::ROUTE_PAGE,
 						null,
 						'login',
 						$isUserLoggedInAs ? 'signOutAsUser' : 'signOut',
@@ -259,7 +259,7 @@ class PKPNavigationMenuService {
 				case NMI_TYPE_USER_PROFILE:
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
-						ROUTE_PAGE,
+						PKPApplication::ROUTE_PAGE,
 						null,
 						'user',
 						'profile',
@@ -269,7 +269,7 @@ class PKPNavigationMenuService {
 				case NMI_TYPE_ADMINISTRATION:
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
-						ROUTE_PAGE,
+						PKPApplication::ROUTE_PAGE,
 						'index',
 						'admin',
 						'index',
@@ -280,7 +280,7 @@ class PKPNavigationMenuService {
 					if ($currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), $contextId) || $currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE)) {
 						$navigationMenuItem->setUrl($dispatcher->url(
 							$request,
-							ROUTE_PAGE,
+							PKPApplication::ROUTE_PAGE,
 							null,
 							'submissions',
 							null,
@@ -289,7 +289,7 @@ class PKPNavigationMenuService {
 					} else {
 						$navigationMenuItem->setUrl($dispatcher->url(
 							$request,
-							ROUTE_PAGE,
+							PKPApplication::ROUTE_PAGE,
 							null,
 							'user',
 							'profile',
@@ -301,7 +301,7 @@ class PKPNavigationMenuService {
 				case NMI_TYPE_USER_REGISTER:
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
-						ROUTE_PAGE,
+						PKPApplication::ROUTE_PAGE,
 						null,
 						'user',
 						'register',
@@ -311,7 +311,7 @@ class PKPNavigationMenuService {
 				case NMI_TYPE_USER_LOGIN:
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
-						ROUTE_PAGE,
+						PKPApplication::ROUTE_PAGE,
 						null,
 						'login',
 						null,
@@ -325,7 +325,7 @@ class PKPNavigationMenuService {
 						$op = array_shift($path);
 						$navigationMenuItem->setUrl($dispatcher->url(
 							$request,
-							ROUTE_PAGE,
+							PKPApplication::ROUTE_PAGE,
 							null,
 							$page,
 							$op,
@@ -336,7 +336,7 @@ class PKPNavigationMenuService {
 				case NMI_TYPE_SEARCH:
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
-						ROUTE_PAGE,
+						PKPApplication::ROUTE_PAGE,
 						null,
 						'search',
 						'search',
@@ -346,7 +346,7 @@ class PKPNavigationMenuService {
 				case NMI_TYPE_PRIVACY:
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
-						ROUTE_PAGE,
+						PKPApplication::ROUTE_PAGE,
 						null,
 						'about',
 						'privacy',

@@ -159,7 +159,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 					}
 					$values[$prop] = $args['request']->getDispatcher()->url(
 						$args['request'],
-						ROUTE_API,
+						PKPApplication::ROUTE_API,
 						$context->getData('urlPath'),
 						'emailTemplates/' . $emailTemplate->getData('key')
 					);

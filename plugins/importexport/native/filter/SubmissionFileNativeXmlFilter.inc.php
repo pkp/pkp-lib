@@ -153,7 +153,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 						"submissionId" => $submissionFile->getData('submissionId'),
 						"stageId" => $stageId,
 					];
-					$url = $dispatcher->url($request, ROUTE_COMPONENT, $context->getPath(), "api.file.FileApiHandler", "downloadFile", null, $params);
+					$url = $dispatcher->url($request, PKPApplication::ROUTE_COMPONENT, $context->getPath(), "api.file.FileApiHandler", "downloadFile", null, $params);
 					$hrefNode->setAttribute('src', $url);
 				} else {
 					$hrefNode->setAttribute('src', $revision->path);

@@ -64,7 +64,7 @@ class PKPAnnouncementsListPanel extends ListPanel {
 				'itemsMax' => $this->itemsMax,
 				'urlBase' => $request->getDispatcher()->url(
 					$request,
-					ROUTE_PAGE,
+					PKPApplication::ROUTE_PAGE,
 					$request->getContext()->getPath(),
 					'announcement',
 					'view',

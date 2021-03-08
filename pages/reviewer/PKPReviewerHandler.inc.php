@@ -175,7 +175,7 @@ class PKPReviewerHandler extends Handler {
 		$reviewerAction->confirmReview($request, $reviewAssignment, $submission, 1, $declineReviewMessage);
 
 		$dispatcher = $request->getDispatcher();
-		return $request->redirectUrlJson($dispatcher->url($request, ROUTE_PAGE, null, 'index'));
+		return $request->redirectUrlJson($dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'index'));
 	}
 
 	/**

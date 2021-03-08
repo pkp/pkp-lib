@@ -38,7 +38,7 @@ class AboutSiteHandler extends Handler {
 			'appVersion' => $version->getVersionString(false),
 			'contactUrl' => $request->getDispatcher()->url(
 				Application::get()->getRequest(),
-				ROUTE_PAGE,
+				PKPApplication::ROUTE_PAGE,
 				null,
 				'about',
 				'contact'

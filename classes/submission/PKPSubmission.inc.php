@@ -1223,7 +1223,7 @@ abstract class PKPSubmission extends DataObject {
 }
 
 // Expose global constants unless operating in strict mode.
-if (!Config::getVar('general', 'strict')) {
+if (!PKP_STRICT_MODE) {
 	define('STATUS_QUEUED', PKPSubmission::STATUS_QUEUED);
 	define('STATUS_PUBLISHED', PKPSubmission::STATUS_PUBLISHED);
 	define('STATUS_DECLINED', PKPSubmission::STATUS_DECLINED);

@@ -155,7 +155,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 				case '_href':
 					$values[$prop] = $dispatcher->url(
 						$request,
-						ROUTE_API,
+						PKPApplication::ROUTE_API,
 						$submissionContext->getData('urlPath'),
 						'submissions/' . $publication->getData('submissionId') . '/publications/' . $publication->getId()
 					);

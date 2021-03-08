@@ -80,7 +80,7 @@ class SubmissionEventLogGridHandler extends GridHandler {
 		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 
 		import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
-		$this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request, WORKFLOW_TYPE_EDITORIAL));
+		$this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request, PKPApplication::WORKFLOW_TYPE_EDITORIAL));
 
 		$success = parent::authorize($request, $args, $roleAssignments);
 

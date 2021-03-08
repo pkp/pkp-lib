@@ -124,7 +124,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			$user = $request->getUser();
 			$redirectUrl = $dispatcher->url(
 				$request,
-				ROUTE_PAGE,
+				PKPApplication::ROUTE_PAGE,
 				null,
 				'workflow',
 				'access',
@@ -135,7 +135,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 				new LinkAction(
 					'signOutAsUser',
 					new RedirectAction(
-						$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signOutAsUser', null, array('redirectUrl' => $redirectUrl))
+						$dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signOutAsUser', null, array('redirectUrl' => $redirectUrl))
 					),
 					__('user.logOutAs', ['username' => $user->getUsername()]),
 					null,

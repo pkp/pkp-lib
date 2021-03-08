@@ -14,14 +14,14 @@
 		$('#navigationMenuItemsForm').pkpHandler(
 			'$.pkp.controllers.grid.navigationMenus.form.NavigationMenuItemsFormHandler',
 			{ldelim}
-				previewUrl: {url|json_encode router=$smarty.const.ROUTE_PAGE page="navigationMenu" op="preview"},
+				previewUrl: {url|json_encode router=PKPApplication::ROUTE_PAGE page="navigationMenu" op="preview"},
 				itemTypeDescriptions: {$navigationMenuItemTypeDescriptions},
 				itemTypeConditionalWarnings: {$navigationMenuItemTypeConditionalWarnings}
 			{rdelim});
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="navigationMenuItemsForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" op="updateNavigationMenuItem"}">
+<form class="pkp_form" id="navigationMenuItemsForm" method="post" action="{url router=PKPApplication::ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" op="updateNavigationMenuItem"}">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="navigationMenuItemFormNotification"}
 	{fbvFormArea id="navigationMenuItemInfo"}

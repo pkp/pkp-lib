@@ -57,7 +57,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 			case NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER:
 			case NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS:
 				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
-				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
+				return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
 			default:
 				assert(false);
 		}

@@ -68,7 +68,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 
 		$email = new SubmissionMailTemplate($submission, $emailKeys[$this->getDecision()]);
 
-		$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId());
+		$submissionUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId());
 		$email->assignParams(array(
 			'authorName' => $submission->getAuthorString(),
 			'submissionUrl' => $submissionUrl,
@@ -290,7 +290,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$context = $request->getContext();
 			$user = $request->getUser();
 			$email->assignParams(array(
-				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
+				'submissionUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
 				'contextName' => $context->getLocalizedName(),
 				'authorName' => $submission->getAuthorString(),
 				'editorialContactSignature' => $user->getContactSignature(),

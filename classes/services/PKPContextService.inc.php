@@ -159,7 +159,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 				case 'url':
 					$values[$prop] = $dispatcher->url(
 						$request,
-						ROUTE_PAGE,
+						PKPApplication::ROUTE_PAGE,
 						$context->getPath()
 					);
 					break;
@@ -169,7 +169,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 						$route = $slimRequest->getAttribute('route');
 						$values[$prop] = $dispatcher->url(
 							$args['request'],
-							ROUTE_API,
+							PKPApplication::ROUTE_API,
 							$context->getData('urlPath'),
 							'contexts/' . $context->getId()
 						);
@@ -384,7 +384,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			'contextPath' => $context->getData('urlPath'),
 			'contextUrl' => $request->getDispatcher()->url(
 				$request,
-				ROUTE_PAGE,
+				PKPApplication::ROUTE_PAGE,
 				$context->getPath()
 			),
 		);
@@ -566,7 +566,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			'contextName' => $context->getData('name', $locale),
 			'contextUrl' => $request->getDispatcher()->url(
 				$request,
-				ROUTE_PAGE,
+				PKPApplication::ROUTE_PAGE,
 				$context->getPath()
 			),
 		);

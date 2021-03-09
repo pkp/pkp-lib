@@ -154,6 +154,9 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		for ($childNode = $node->firstChild; $childNode !== null; $childNode=$childNode->nextSibling) {
 			if (is_a($childNode, 'DOMElement')) {
 				switch ($childNode->tagName) {
+					case 'id':
+						$this->parseIdentifier($childNode, $submissionFile);
+						break;
 					case 'creator':
 					case 'description':
 					case 'name':

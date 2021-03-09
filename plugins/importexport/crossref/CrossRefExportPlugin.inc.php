@@ -88,7 +88,7 @@ class CrossRefExportPlugin extends DOIPubIdExportPlugin {
 					'failureMessage',
 					new AjaxModal(
 						$dispatcher->url(
-							$request, ROUTE_COMPONENT, null,
+							$request, PKPApplication::ROUTE_COMPONENT, null,
 							'grid.settings.plugins.settingsPluginGridHandler',
 							'manage', null, array('plugin' => 'CrossRefExportPlugin', 'category' => 'importexport', 'verb' => 'statusMessage',
 							'batchId' => $pubObject->getData($this->getDepositBatchIdSettingName()), 'submissionId' => $pubObject->getId())

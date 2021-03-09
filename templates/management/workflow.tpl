@@ -37,11 +37,11 @@
 					/>
 				</tab>
 				<tab id="components" label="{translate key="grid.genres.title.short"}">
-					{capture assign=genresUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.genre.GenreGridHandler" op="fetchGrid" escape=false}{/capture}
+					{capture assign=genresUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.genre.GenreGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="genresGridContainer" url=$genresUrl}
 				</tab>
 				<tab id="submissionChecklist" label="{translate key="manager.setup.checklist"}">
-					{capture assign=submissionChecklistGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.submissionChecklist.SubmissionChecklistGridHandler" op="fetchGrid" escape=false}{/capture}
+					{capture assign=submissionChecklistGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.submissionChecklist.SubmissionChecklistGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="submissionChecklistGridContainer" url=$submissionChecklistGridUrl}
 				</tab>
 				<tab id="authorGuidelines" label="{translate key="manager.setup.authorGuidelines"}">
@@ -61,7 +61,7 @@
 		</tab>
 		<tab id="library" label="{translate key="manager.publication.library"}">
 			{help file="settings" section="workflow-library" class="pkp_help_tab"}
-			{capture assign=libraryGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.library.LibraryFileAdminGridHandler" op="fetchGrid" canEdit=true escape=false}{/capture}
+			{capture assign=libraryGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.library.LibraryFileAdminGridHandler" op="fetchGrid" canEdit=true escape=false}{/capture}
 			{load_url_in_div id="libraryGridDiv" url=$libraryGridUrl}
 		</tab>
 		<tab id="emails" label="{translate key="manager.publication.emails"}">
@@ -78,7 +78,7 @@
 						v-bind="components.emailTemplates"
 						@set="set"
 					/>
-					{capture assign=preparedEmailsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.preparedEmails.preparedEmailsGridHandler" op="fetchGrid" escape=false}{/capture}
+					{capture assign=preparedEmailsGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.preparedEmails.preparedEmailsGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="preparedEmailsGridDiv" url=$preparedEmailsGridUrl}
 				</tab>
 				{call_hook name="Template::Settings::workflow::emails"}

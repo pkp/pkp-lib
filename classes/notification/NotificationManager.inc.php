@@ -32,7 +32,7 @@ class NotificationManager extends PKPNotificationManager {
 			case NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
 				$contextDao = Application::getContextDAO();
 				$context = $contextDao->getById($notification->getContextId());
-				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->getAssocId());
+				return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->getAssocId());
 			default:
 				return parent::getNotificationUrl($request, $notification);
 		}

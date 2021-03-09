@@ -18,7 +18,7 @@
 	{rdelim});
 </script>
 {if $pubObject instanceof Article}
-	<form class="pkp_form" id="publicIdentifiersForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT op="updateIdentifiers"}">
+	<form class="pkp_form" id="publicIdentifiersForm" method="post" action="{url router=PKPApplication::ROUTE_COMPONENT op="updateIdentifiers"}">
 		{include file="controllers/notification/inPlaceNotification.tpl" notificationId="publicationIdentifiersFormFieldsNotification"}
 		<input type="hidden" name="submissionId" value="{$pubObject->getId()|escape}" />
 		<input type="hidden" name="stageId" value="{$stageId|escape}" />

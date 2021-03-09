@@ -83,7 +83,7 @@ class TemplateManager extends PKPTemplateManager {
 				// reproducing a lot of OMP/OJS-specific logic there.
 				$dispatcher = $request->getDispatcher();
 				$this->assign([
-					'contextSettingsUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'management', 'settings', 'context'),
+					'contextSettingsUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'management', 'settings', 'context'),
 					'pageFooter' => $context->getLocalizedData('pageFooter')
 				]);
 			} else {

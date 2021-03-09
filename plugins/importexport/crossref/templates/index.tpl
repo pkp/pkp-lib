@@ -49,7 +49,7 @@
 			</div>
 		{/if}
 
-		{capture assign=crossrefSettingsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.plugins.settingsPluginGridHandler" op="manage" plugin="CrossRefExportPlugin" category="importexport" verb="index" escape=false}{/capture}
+		{capture assign=crossrefSettingsGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.plugins.settingsPluginGridHandler" op="manage" plugin="CrossRefExportPlugin" category="importexport" verb="index" escape=false}{/capture}
 		{load_url_in_div id="crossrefSettingsGridContainer" url=$crossrefSettingsGridUrl}
 	</div>
 
@@ -65,7 +65,7 @@
 				{csrf}
 				<input type="hidden" name="tab" value="exportSubmissions-tab" />
 				{fbvFormArea id="submissionsXmlForm"}
-					{capture assign=submissionsListGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.pubIds.PubIdExportSubmissionsListGridHandler" op="fetchGrid" plugin="crossref" category="importexport" escape=false}{/capture}
+					{capture assign=submissionsListGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.pubIds.PubIdExportSubmissionsListGridHandler" op="fetchGrid" plugin="crossref" category="importexport" escape=false}{/capture}
 					{load_url_in_div id="submissionsListGridContainer" url=$submissionsListGridUrl}
 					{fbvFormSection list="true"}
 						{fbvElement type="checkbox" id="validation" label="plugins.importexport.crossref.settings.form.validation" checked=$validation|default:false}

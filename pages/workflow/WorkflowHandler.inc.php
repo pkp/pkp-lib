@@ -62,9 +62,9 @@ class WorkflowHandler extends PKPWorkflowHandler {
 
 		$latestPublication = $submission->getLatestPublication();
 
-		$latestPublicationApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
-		$temporaryFileApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getPath(), 'temporaryFiles');
-		$relatePublicationApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId()) . '/relate';
+		$latestPublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
+		$temporaryFileApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getPath(), 'temporaryFiles');
+		$relatePublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId()) . '/relate';
 
 		import('classes.file.PublicFileManager');
 		$publicFileManager = new PublicFileManager();
@@ -144,7 +144,7 @@ class WorkflowHandler extends PKPWorkflowHandler {
 	protected function _getRepresentationsGridUrl($request, $submission) {
 		return $request->getDispatcher()->url(
 			$request,
-			ROUTE_COMPONENT,
+			PKPApplication::ROUTE_COMPONENT,
 			null,
 			'grid.articleGalleys.ArticleGalleyGridHandler',
 			'fetchGrid',

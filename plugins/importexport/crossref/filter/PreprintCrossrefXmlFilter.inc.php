@@ -221,7 +221,7 @@ class PreprintCrossrefXmlFilter extends NativeExportFilter {
 		}
 
 		// DOI data
-		$postedContentNode->appendChild($this->createDOIDataNode($doc, $publication->getStoredPubId('doi'), $request->getDispatcher()->url($request, ROUTE_PAGE, null, 'preprint', 'view', [$submission->getBestId(), 'version', $publication->getId()], null, null, true)));
+		$postedContentNode->appendChild($this->createDOIDataNode($doc, $publication->getStoredPubId('doi'), $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'preprint', 'view', [$submission->getBestId(), 'version', $publication->getId()], null, null, true)));
 
 		return $postedContentNode;
 	}

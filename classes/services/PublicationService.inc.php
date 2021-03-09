@@ -80,7 +80,7 @@ class PublicationService extends PKPPublicationService {
 				case 'urlPublished':
 					$values[$prop] = $dispatcher->url(
 						$request,
-						ROUTE_PAGE,
+						PKPApplication::ROUTE_PAGE,
 						$submissionContext->getData('urlPath'),
 						'article',
 						'view',
@@ -303,7 +303,7 @@ class PublicationService extends PKPPublicationService {
 					'authorName' => $user->getFullName(),
 					'authorUsername' => $user->getUsername(),
 					'editorialContactSignature' => $context->getData('contactName'),
-					'publicationUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getData('urlPath'), 'preprint', 'view', $submission->getBestId(), null, null, true),
+					'publicationUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getData('urlPath'), 'preprint', 'view', $submission->getBestId(), null, null, true),
 				));
 
 				if (!$mail->send($request)) {

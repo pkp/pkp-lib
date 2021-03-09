@@ -40,11 +40,11 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler {
 		}, $supportedFormLocales);
 
 		$latestPublication = $submission->getLatestPublication();
-		$relatePublicationApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId()) . '/relate';
+		$relatePublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId()) . '/relate';
 
 		$publishUrl = $request->getDispatcher()->url(
 			$request,
-			ROUTE_COMPONENT,
+			PKPApplication::ROUTE_COMPONENT,
 			null,
 			'modals.publish.OPSPublishHandler',
 			'publish',
@@ -92,7 +92,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler {
 	protected function _getRepresentationsGridUrl($request, $submission) {
 		return $request->getDispatcher()->url(
 			$request,
-			ROUTE_COMPONENT,
+			PKPApplication::ROUTE_COMPONENT,
 			null,
 			'grid.articleGalleys.ArticleGalleyGridHandler',
 			'fetchGrid',

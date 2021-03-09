@@ -15,7 +15,7 @@
 
 	<p>{translate key="notification.unsubscribeNotifications.pageMessage" contextName=$contextName email=$userEmail}
 
-	<form class="cmp_form" id="unsubscribeNotificationForm" method="post" action="{url router=$smarty.const.ROUTE_PAGE page="notification" op="unsubscribe"}">
+	<form class="cmp_form" id="unsubscribeNotificationForm" method="post" action="{url router=PKPApplication::ROUTE_PAGE page="notification" op="unsubscribe"}">
 		{csrf}
 
 		<input type="hidden" name="validate" value="{$validationToken|escape}" />

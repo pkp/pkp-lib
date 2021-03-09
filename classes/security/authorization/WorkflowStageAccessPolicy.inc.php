@@ -25,7 +25,7 @@ class WorkflowStageAccessPolicy extends ContextPolicy {
 	 * @param $submissionParameterName string
 	 * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
 	 * @param $workflowType string|null Which workflow the stage access must be granted
-	 *  for. One of WORKFLOW_TYPE_*.
+	 *  for. One of PKPApplication::WORKFLOW_TYPE_*.
 	 */
 	function __construct($request, &$args, $roleAssignments, $submissionParameterName, $stageId, $workflowType = null) {
 		parent::__construct($request);

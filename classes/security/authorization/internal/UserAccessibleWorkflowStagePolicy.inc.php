@@ -20,7 +20,7 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy {
 	/** @var int */
 	var $_stageId;
 
-	/** @var string Workflow type. One of WORKFLOW_TYPE_... **/
+	/** @var string Workflow type. One of PKPApplication::WORKFLOW_TYPE_... **/
 	var $_workflowType;
 
 	/**
@@ -28,7 +28,7 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy {
 	 * @param $stageId The one that will be checked against accessible
 	 * user workflow stages.
 	 * @param $workflowType string Which workflow the stage access must be granted
-	 *  for. One of WORKFLOW_TYPE_*.
+	 *  for. One of PKPApplication::WORKFLOW_TYPE_*.
 	 */
 	function __construct($stageId, $workflowType = null) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);

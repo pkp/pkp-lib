@@ -46,7 +46,7 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate {
 	public function getNotificationUrl($request, $notification) {
 		return $request->getDispatcher()->url(
 			$request,
-			ROUTE_PAGE,
+			PKPApplication::ROUTE_PAGE,
 			$request->getContext()->getData('path'),
 			'announcement',
 			'view',
@@ -126,7 +126,7 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate {
 			'announcement' => $this->_announcement->getLocalizedDescription(),
 			'url' => Application::get()->getRequest()->getDispatcher()->url(
 				Application::get()->getRequest(),
-				ROUTE_PAGE,
+				PKPApplication::ROUTE_PAGE,
 				Application::get()->getRequest()->getContext()->getData('path'),
 				'announcement',
 				'view',

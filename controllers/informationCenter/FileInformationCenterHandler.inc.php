@@ -173,7 +173,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		$dispatcher = $request->getDispatcher();
 		return $templateMgr->fetchAjax(
 			'eventLogGrid',
-			$dispatcher->url($request, ROUTE_COMPONENT, null, 'grid.eventLog.SubmissionFileEventLogGridHandler', 'fetchGrid', null, $this->_getLinkParams())
+			$dispatcher->url($request, PKPApplication::ROUTE_COMPONENT, null, 'grid.eventLog.SubmissionFileEventLogGridHandler', 'fetchGrid', null, $this->_getLinkParams())
 		);
 	}
 

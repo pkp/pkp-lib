@@ -282,7 +282,7 @@ class ReviewFormGridHandler extends GridHandler {
 		return $templateMgr->fetchAjax(
 			'reviewFormElementsGridContainer',
 			$dispatcher->url(
-				$request, ROUTE_COMPONENT, null,
+				$request, PKPApplication::ROUTE_COMPONENT, null,
 				'grid.settings.reviewForms.ReviewFormElementsGridHandler', 'fetchGrid', null,
 				array('reviewFormId' => (int) $request->getUserVar('reviewFormId'))
 			)

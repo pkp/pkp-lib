@@ -794,7 +794,7 @@ class Installer {
 	 * @return boolean Success/failure
 	 */
 	function checkPhpVersion() {
-		if (version_compare(PHP_REQUIRED_VERSION, PHP_VERSION) != 1) return true;
+		if (version_compare(PKPApplication::PHP_REQUIRED_VERSION, PHP_VERSION) != 1) return true;
 
 		$this->setError(INSTALLER_ERROR_GENERAL, 'installer.unsupportedPhpError');
 		return false;

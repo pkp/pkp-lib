@@ -61,7 +61,7 @@ class DashboardHandler extends Handler {
 
 		$currentUser = $request->getUser();
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_submissions');
+		$apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_submissions');
 		$lists = [];
 
 		$includeIssuesFilter = array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $userRoles);

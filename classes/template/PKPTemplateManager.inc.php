@@ -861,7 +861,7 @@ class PKPTemplateManager extends Smarty {
 		// The legacy stylesheet for the backend
 		$this->addStyleSheet(
 			'pkpLib',
-			$dispatcher->url($request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'),
+			$dispatcher->url($request, PKPApplication::ROUTE_COMPONENT, null, 'page.PageHandler', 'css'),
 			[
 				'priority' => STYLE_SEQUENCE_CORE,
 				'contexts' => 'backend',
@@ -898,7 +898,7 @@ class PKPTemplateManager extends Smarty {
 				$unreadTasksCount = (int) $notificationDao->getNotificationCount(false, $request->getUser()->getId(), null, NOTIFICATION_LEVEL_TASK);
 
 				// Get a URL to load the tasks grid
-				$tasksUrl = $request->getDispatcher()->url($request, ROUTE_COMPONENT, null, 'page.PageHandler', 'tasks');
+				$tasksUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_COMPONENT, null, 'page.PageHandler', 'tasks');
 
 				// Load system notifications in SiteHandler.js
 				$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
@@ -929,9 +929,9 @@ class PKPTemplateManager extends Smarty {
 				foreach ($availableContexts as $availableContext) {
 					// Site admins redirected to the same page. Everyone else to submission lists
 					if ($isSwitchable) {
-						$availableContext->url = $dispatcher->url($request, ROUTE_PAGE, $availableContext->urlPath, $request->getRequestedPage(), $requestedOp, $request->getRequestedArgs($request));
+						$availableContext->url = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $availableContext->urlPath, $request->getRequestedPage(), $requestedOp, $request->getRequestedArgs($request));
 					} else {
-						$availableContext->url = $dispatcher->url($request, ROUTE_PAGE, $availableContext->urlPath, 'submissions');
+						$availableContext->url = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $availableContext->urlPath, 'submissions');
 					}
 				}
 
@@ -1582,9 +1582,9 @@ class PKPTemplateManager extends Smarty {
 		// Set the default router
 		if (is_null($router)) {
 			if (is_a($this->_request->getRouter(), 'PKPComponentRouter')) {
-				$router = ROUTE_COMPONENT;
+				$router = PKPApplication::ROUTE_COMPONENT;
 			} else {
-				$router = ROUTE_PAGE;
+				$router = PKPApplication::ROUTE_PAGE;
 			}
 		}
 
@@ -1595,11 +1595,11 @@ class PKPTemplateManager extends Smarty {
 
 		// Identify the handler
 		switch($router) {
-			case ROUTE_PAGE:
+			case PKPApplication::ROUTE_PAGE:
 				$handler = $page;
 				break;
 
-			case ROUTE_COMPONENT:
+			case PKPApplication::ROUTE_COMPONENT:
 				$handler = $component;
 				break;
 

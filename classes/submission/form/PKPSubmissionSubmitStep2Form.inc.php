@@ -47,7 +47,7 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm {
 		if ($this->submission) {
 			$fileUploadApiUrl = $request->getDispatcher()->url(
 				$request,
-				ROUTE_API,
+				PKPApplication::ROUTE_API,
 				$request->getContext()->getPath(),
 				'submissions/' . $this->submission->getId() . '/files'
 			);

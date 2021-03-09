@@ -50,7 +50,7 @@ class BaseAddFileLinkAction extends LinkAction {
 		import('lib.pkp.classes.linkAction.request.WizardModal');
 		$modal = new WizardModal(
 			$dispatcher->url(
-				$request, ROUTE_COMPONENT, null,
+				$request, PKPApplication::ROUTE_COMPONENT, null,
 				'wizard.fileUpload.FileUploadWizardHandler', 'startWizard',
 				null, $actionArgs
 			),

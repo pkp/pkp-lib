@@ -101,7 +101,7 @@ class RecommendationForm extends Form {
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
 		$user = $request->getUser();
-		$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', array($submission->getId(), $this->getStageId()));
+		$submissionUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'workflow', 'index', array($submission->getId(), $this->getStageId()));
 		$emailParams = array(
 			'editors' => $editorsStr,
 			'submissionUrl' => $submissionUrl,
@@ -195,7 +195,7 @@ class RecommendationForm extends Form {
 			$email->setEventType(SUBMISSION_EMAIL_EDITOR_RECOMMEND_NOTIFY);
 
 			$dispatcher = $router->getDispatcher();
-			$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', array($submission->getId(), $this->getStageId()));
+			$submissionUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'workflow', 'index', array($submission->getId(), $this->getStageId()));
 			$email->assignParams(array(
 				'editors' => $this->getData('editors'),
 				'editorialContactSignature' => $user->getContactSignature(),

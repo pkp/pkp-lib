@@ -170,7 +170,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 						$actionArgs['reviewRoundId'] = $lastReviewRound->getId();
 						$uploadFileUrl = $request->getDispatcher()->url(
 							$request,
-							ROUTE_COMPONENT,
+							PKPApplication::ROUTE_COMPONENT,
 							null,
 							'wizard.fileUpload.FileUploadWizardHandler',
 							'startWizard',
@@ -190,12 +190,12 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 
 		$latestPublication = $submission->getLatestPublication();
 
-		$submissionApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId());
-		$latestPublicationApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
+		$submissionApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId());
+		$latestPublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
 
 		$contributorsGridUrl = $request->getDispatcher()->url(
 			$request,
-			ROUTE_COMPONENT,
+			PKPApplication::ROUTE_COMPONENT,
 			null,
 			'grid.users.author.AuthorGridHandler',
 			'fetchGrid',
@@ -208,7 +208,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 
 		$submissionLibraryUrl = $request->getDispatcher()->url(
 			$request,
-			ROUTE_COMPONENT,
+			PKPApplication::ROUTE_COMPONENT,
 			null,
 			'modals.documentLibrary.DocumentLibraryHandler',
 			'documentLibrary',
@@ -334,7 +334,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			}
 		}
 		if ($metadataEnabled) {
-			$vocabSuggestionUrlBase =$request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
+			$vocabSuggestionUrlBase =$request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
 			$metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
 			$templateMgr->setConstants(['FORM_METADATA']);
 			$state['components'][FORM_METADATA] = $metadataForm->getConfig();

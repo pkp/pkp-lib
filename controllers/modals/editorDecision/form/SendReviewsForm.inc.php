@@ -79,7 +79,7 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 		foreach (array($revisionsEmail, $resubmitEmail) as &$email) {
 			$email->assignParams(array(
 				'authorName' => $submission->getAuthorString(),
-				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
+				'submissionUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
 			));
 			$email->replaceParams();
 		}

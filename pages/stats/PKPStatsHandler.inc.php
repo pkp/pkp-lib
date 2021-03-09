@@ -144,10 +144,10 @@ class PKPStatsHandler extends Handler {
 		}
 
 		$statsComponent = new \PKP\components\PKPStatsEditorialPage(
-			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/editorial'),
+			$dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'stats/editorial'),
 			[
 				'activeByStage' => $activeByStage,
-				'averagesApiUrl' => $dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/editorial/averages'),
+				'averagesApiUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'stats/editorial/averages'),
 				'dateStart' => $dateStart,
 				'dateEnd' => $dateEnd,
 				'dateRangeOptions' => [
@@ -240,7 +240,7 @@ class PKPStatsHandler extends Handler {
 		]);
 
 		$statsComponent = new \PKP\components\PKPStatsPublicationPage(
-			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/publications'),
+			$dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'stats/publications'),
 			[
 				'timeline' => $timeline,
 				'timelineInterval' => STATISTICS_DIMENSION_DAY,
@@ -339,7 +339,7 @@ class PKPStatsHandler extends Handler {
 
 		// The POST handler is here merely to serve a redirection URL to the Vue component
 		if ($request->isPost()) {
-			echo $dispatcher->url($request, ROUTE_API, $context->getPath(), 'users/report', null, null, $request->getUserVars());
+			echo $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'users/report', null, null, $request->getUserVars());
 			exit;
 		}
 
@@ -347,7 +347,7 @@ class PKPStatsHandler extends Handler {
 		$this->setupTemplate($request);
 
 		$context = $request->getContext();
-		$selfUrl = $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'stats', 'users');
+		$selfUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'stats', 'users');
 		$reportForm = new PKP\components\forms\statistics\users\ReportForm($selfUrl, $context);
 
 		$templateMgr->setState([

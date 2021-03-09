@@ -45,12 +45,12 @@ abstract class PKPWorkflowHandler extends Handler {
 			// Otherwise it will build an authorized object with all accessible
 			// workflow stages and authorize user operation access.
 			import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
-			$this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request, WORKFLOW_TYPE_EDITORIAL));
+			$this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request, PKPApplication::WORKFLOW_TYPE_EDITORIAL));
 
 			$this->markRoleAssignmentsChecked();
 		} else {
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->identifyStageId($request, $args), WORKFLOW_TYPE_EDITORIAL));
+			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->identifyStageId($request, $args), PKPApplication::WORKFLOW_TYPE_EDITORIAL));
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);
@@ -72,7 +72,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		$currentStageId = $submission->getStageId();
 		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 		$workflowRoles = Application::getWorkflowTypeRoles();
-		$editorialWorkflowRoles = $workflowRoles[WORKFLOW_TYPE_EDITORIAL];
+		$editorialWorkflowRoles = $workflowRoles[PKPApplication::WORKFLOW_TYPE_EDITORIAL];
 
 		// Get the closest workflow stage that user has an assignment.
 		$workingStageId = null;
@@ -119,7 +119,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 
 		$workflowRoles = Application::getWorkflowTypeRoles();
-		$editorialWorkflowRoles = $workflowRoles[WORKFLOW_TYPE_EDITORIAL];
+		$editorialWorkflowRoles = $workflowRoles[PKPApplication::WORKFLOW_TYPE_EDITORIAL];
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$result = $userGroupDao->getByContextId($submission->getData('contextId'));
@@ -196,12 +196,12 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		$latestPublication = $submission->getLatestPublication();
 
-		$submissionApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId());
-		$latestPublicationApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
+		$submissionApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId());
+		$latestPublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
 
 		$contributorsGridUrl = $request->getDispatcher()->url(
 			$request,
-			ROUTE_COMPONENT,
+			PKPApplication::ROUTE_COMPONENT,
 			null,
 			'grid.users.author.AuthorGridHandler',
 			'fetchGrid',
@@ -214,7 +214,7 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		$editorialHistoryUrl = $request->getDispatcher()->url(
 			$request,
-			ROUTE_COMPONENT,
+			PKPApplication::ROUTE_COMPONENT,
 			null,
 			'informationCenter.SubmissionInformationCenterHandler',
 			'viewInformationCenter',
@@ -224,7 +224,7 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		$submissionLibraryUrl = $request->getDispatcher()->url(
 			$request,
-			ROUTE_COMPONENT,
+			PKPApplication::ROUTE_COMPONENT,
 			null,
 			'modals.documentLibrary.DocumentLibraryHandler',
 			'documentLibrary',
@@ -234,7 +234,7 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		$publishUrl = $request->getDispatcher()->url(
 			$request,
-			ROUTE_COMPONENT,
+			PKPApplication::ROUTE_COMPONENT,
 			null,
 			'modals.publish.PublishHandler',
 			'publish',
@@ -366,7 +366,7 @@ abstract class PKPWorkflowHandler extends Handler {
 			}
 		}
 		if ($metadataEnabled || in_array('publication', (array) $submissionContext->getData('enablePublisherId'))) {
-			$vocabSuggestionUrlBase =$request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
+			$vocabSuggestionUrlBase =$request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
 			$metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
 			$templateMgr->setConstants(['FORM_METADATA']);
 			$state['components'][FORM_METADATA] = $metadataForm->getConfig();
@@ -567,7 +567,7 @@ abstract class PKPWorkflowHandler extends Handler {
 							'recommendation',
 							new AjaxModal(
 								$dispatcher->url(
-									$request, ROUTE_COMPONENT, null,
+									$request, PKPApplication::ROUTE_COMPONENT, null,
 									'modals.editorDecision.EditorDecisionHandler',
 									'sendRecommendation', null, $actionArgs
 								),
@@ -612,7 +612,7 @@ abstract class PKPWorkflowHandler extends Handler {
 					$action['name'],
 					new AjaxModal(
 						$dispatcher->url(
-							$request, ROUTE_COMPONENT, null,
+							$request, PKPApplication::ROUTE_COMPONENT, null,
 							'modals.editorDecision.EditorDecisionHandler',
 							$action['operation'], null, $actionArgs
 						),

@@ -28,7 +28,7 @@ class EditFileLinkAction extends FileLinkAction {
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$modal = new AjaxModal(
 			$dispatcher->url(
-				$request, ROUTE_COMPONENT, null,
+				$request, PKPApplication::ROUTE_COMPONENT, null,
 				'api.file.ManageFileApiHandler',
 				'editMetadata', null,
 				$this->getActionArgs($submissionFile, $stageId)

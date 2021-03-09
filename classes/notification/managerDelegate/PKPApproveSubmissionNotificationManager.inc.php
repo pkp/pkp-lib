@@ -31,7 +31,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 	function getNotificationUrl($request, $notification) {
 		$dispatcher = Application::get()->getDispatcher();
 		$context = $request->getContext();
-		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
+		return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
 	}
 
 	/**

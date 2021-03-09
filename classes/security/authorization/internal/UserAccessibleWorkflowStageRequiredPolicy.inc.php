@@ -20,14 +20,14 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 	/** @var PKPRequest */
 	var $_request;
 
-	/** @var string Workflow type. One of WORKFLOW_TYPE_... **/
+	/** @var string Workflow type. One of PKPApplication::WORKFLOW_TYPE_... **/
 	var $_workflowType;
 
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
 	 * @param $workflowType string Which workflow the stage access must be granted
-	 *  for. One of WORKFLOW_TYPE_*.
+	 *  for. One of PKPApplication::WORKFLOW_TYPE_*.
 	 */
 	function __construct($request, $workflowType = null) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);

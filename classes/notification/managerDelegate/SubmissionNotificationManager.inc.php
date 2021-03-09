@@ -62,12 +62,12 @@ class SubmissionNotificationManager extends NotificationManagerDelegate {
 				$contextDao = Application::getContextDAO();
 				$context = $contextDao->getById($notification->getContextId());
 				
-				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'submission', $notification->getAssocId());
+				return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'submission', $notification->getAssocId());
 			case NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
 				$contextDao = Application::getContextDAO();
 				$context = $contextDao->getById($notification->getContextId());
 				
-				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->getAssocId());
+				return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->getAssocId());
 			default:
 				assert(false);
 		}

@@ -470,7 +470,7 @@ class Filter extends DataObject {
 	 */
 	static function supportedRuntimeEnvironmentSettings() {
 		static $runtimeEnvironmentSettings = array(
-			'phpVersionMin' => PHP_REQUIRED_VERSION,
+			'phpVersionMin' => PKPApplication::PHP_REQUIRED_VERSION,
 			'phpVersionMax' => null,
 			'phpExtensions' => array(),
 			'externalPrograms' => array()

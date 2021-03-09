@@ -96,7 +96,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 			[
 				'apiUrl' => $request->getDispatcher()->url(
 					$request,
-					ROUTE_API,
+					PKPApplication::ROUTE_API,
 					$submissionContext->getPath(),
 					'users/reviewers'
 				),

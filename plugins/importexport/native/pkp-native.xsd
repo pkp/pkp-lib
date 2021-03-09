@@ -85,6 +85,7 @@
 
 	<complexType name="submission_file">
 		<sequence>
+			<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded" />
 			<element name="creator" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="description" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />

@@ -349,7 +349,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 * Get all subscribable notification types along with names and their setting type values
 	 * @return array
 	 */
-	protected function getNotificationSettingsMap() {
+	public function getNotificationSettingsMap() {
 		return [
 			NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => array('settingName' => 'notificationSubmissionSubmitted',
 				'emailSettingName' => 'emailNotificationSubmissionSubmitted',

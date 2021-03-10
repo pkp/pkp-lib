@@ -49,13 +49,6 @@ define('ASSOC_TYPE_ACCESSIBLE_FILE_STAGES',    0x010000d);
 // Constant used in UsageStats for submission files that are not full texts
 define('ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER', 0x0000213);
 
-// FIXME: these were defined in userGroup. they need to be moved somewhere with classes that do mapping.
-define('WORKFLOW_STAGE_PATH_SUBMISSION', 'submission');
-define('WORKFLOW_STAGE_PATH_INTERNAL_REVIEW', 'internalReview');
-define('WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW', 'externalReview');
-define('WORKFLOW_STAGE_PATH_EDITING', 'editorial');
-define('WORKFLOW_STAGE_PATH_PRODUCTION', 'production');
-
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 interface iPKPApplicationInfoProvider {

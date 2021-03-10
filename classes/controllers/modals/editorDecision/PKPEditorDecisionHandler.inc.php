@@ -94,9 +94,10 @@ class PKPEditorDecisionHandler extends Handler {
 	 */
 	function saveExternalReview($args, $request) {
 		assert($this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE) == WORKFLOW_STAGE_ID_SUBMISSION);
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /* @var $workflowStageDao WorkflowStageDAO */
 		return $this->_saveEditorDecision(
 			$args, $request, 'InitiateExternalReviewForm',
-			WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW,
+			$workflowStageDao->WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW,
 			SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW
 		);
 	}

@@ -14,6 +14,7 @@
  * @brief Any class with an associated DAO should extend this class.
  */
 
+namespace PKP\core;
 
 class DataObject {
 	/** @var array Array of object data */
@@ -51,7 +52,7 @@ class DataObject {
 	 * @return mixed
 	 */
 	public function getLocalizedData($key, $preferredLocale = null) {
-		$localePrecedence = AppLocale::getLocalePrecedence();
+		$localePrecedence = \AppLocale::getLocalePrecedence();
 		foreach ($localePrecedence as $locale) {
 			$value =& $this->getData($key, $locale);
 			if (!empty($value)) return $value;
@@ -471,3 +472,6 @@ class DataObject {
 	}
 }
 
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\DataObject', '\DataObject');
+}

@@ -122,7 +122,7 @@ class SubmissionService extends \PKP\Services\PKPSubmissionService {
 				case 'urlPublished':
 					$values[$prop] = $dispatcher->url(
 						$request,
-						PKPApplication::ROUTE_PAGE,
+						\PKPApplication::ROUTE_PAGE,
 						$context->getPath(),
 						'preprint',
 						'view',

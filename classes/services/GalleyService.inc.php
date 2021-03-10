@@ -114,7 +114,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
 					if (is_a($galley, 'IssueGalley')) {
 						$values[$prop] = $dispatcher->url(
 							$request,
-							PKPApplication::ROUTE_PAGE,
+							\PKPApplication::ROUTE_PAGE,
 							$context->getPath(),
 							'issue',
 							'view',
@@ -126,7 +126,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
 					} else {
 						$values[$prop] = $dispatcher->url(
 							$request,
-							PKPApplication::ROUTE_PAGE,
+							\PKPApplication::ROUTE_PAGE,
 							$context->getPath(),
 							'article',
 							'view',

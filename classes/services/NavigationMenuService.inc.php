@@ -83,7 +83,7 @@ class NavigationMenuService extends \PKP\Services\PKPNavigationMenuService {
 				case NMI_TYPE_ARCHIVES:
 					$navigationMenuItem->setUrl($dispatcher->url(
 						$request,
-						PKPApplication::ROUTE_PAGE,
+						\PKPApplication::ROUTE_PAGE,
 						null,
 						'preprints',
 						null,

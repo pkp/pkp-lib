@@ -158,7 +158,7 @@ class PKPTemplateManager extends Smarty {
 			if (!empty($favicon)) {
 				$publicFileManager = new PublicFileManager();
 				$faviconDir = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($currentContext->getId());
-				$this->addHeader('favicon', '<link rel="icon" href="' . $faviconDir . '/' . $favicon['uploadName'] . '">');
+				$this->addHeader('favicon', '<link rel="icon" href="' . $faviconDir . '/' . $favicon['uploadName'] . '">', ['contexts' => ['frontend', 'backend']]);
 			}
 		}
 

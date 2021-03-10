@@ -1223,12 +1223,9 @@ abstract class PKPSubmission extends DataObject {
 }
 
 // Expose global constants unless operating in strict mode.
-if (!PKP_STRICT_MODE) {
-	define('STATUS_QUEUED', PKPSubmission::STATUS_QUEUED);
-	define('STATUS_PUBLISHED', PKPSubmission::STATUS_PUBLISHED);
-	define('STATUS_DECLINED', PKPSubmission::STATUS_DECLINED);
-	define('STATUS_SCHEDULED', PKPSubmission::STATUS_SCHEDULED);
-	define('PERMISSIONS_FIELD_LICENSE_URL', PKPSubmission::PERMISSIONS_FIELD_LICENSE_URL);
-	define('PERMISSIONS_FIELD_COPYRIGHT_HOLDER', PKPSubmission::PERMISSIONS_FIELD_COPYRIGHT_HOLDER);
-	define('PERMISSIONS_FIELD_COPYRIGHT_YEAR', PKPSubmission::PERMISSIONS_FIELD_COPYRIGHT_YEAR);
+if (!PKP_STRICT_MODE) foreach ([
+	'STATUS_QUEUED', 'STATUS_PUBLISHED', 'STATUS_DECLINED', 'STATUS_SCHEDULED',
+	'PERMISSIONS_FIELD_LICENSE_URL', 'PERMISSIONS_FIELD_COPYRIGHT_HOLDER', 'PERMISSIONS_FIELD_COPYRIGHT_YEAR'
+] as $constantName) {
+	if (!defined($constantName)) define($constantName, constant('PKPSubmission::' . $constantName));
 }

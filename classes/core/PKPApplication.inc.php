@@ -130,7 +130,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		import('lib.pkp.classes.core.Registry');
 
 		import('lib.pkp.classes.config.Config');
-		define('PKP_STRICT_MODE', (boolean) Config::getVar('general', 'strict'));
+		if (!defined('PKP_STRICT_MODE')) define('PKP_STRICT_MODE', (boolean) Config::getVar('general', 'strict'));
 
 		// If not in strict mode, globally expose constants on this class.
 		if (!PKP_STRICT_MODE) foreach ([
@@ -138,7 +138,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'API_VERSION',
 			'ROUTE_COMPONENT', 'ROUTE_PAGE', 'ROUTE_API',
 		] as $constantName) {
-			define($constantName, constant('self::' . $constantName));
+			if (!defined($constantName)) define($constantName, constant('self::' . $constantName));
 		}
 
 

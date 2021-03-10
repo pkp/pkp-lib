@@ -97,7 +97,7 @@ class PKPEditorDecisionHandler extends Handler {
 		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /* @var $workflowStageDao WorkflowStageDAO */
 		return $this->_saveEditorDecision(
 			$args, $request, 'InitiateExternalReviewForm',
-			$workflowStageDao->WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW,
+			$workflowStageDao::WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW,
 			SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW
 		);
 	}

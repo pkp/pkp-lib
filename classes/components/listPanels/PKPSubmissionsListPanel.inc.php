@@ -70,7 +70,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 
 		$config['addUrl'] = $request->getDispatcher()->url(
 			$request,
-			PKPApplication::ROUTE_PAGE,
+			\PKPApplication::ROUTE_PAGE,
 			null,
 			'submission',
 			'wizard'
@@ -79,7 +79,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 		// URL to view info center for a submission
 		$config['infoUrl'] = $request->getDispatcher()->url(
 			$request,
-			PKPApplication::ROUTE_COMPONENT,
+			\PKPApplication::ROUTE_COMPONENT,
 			null,
 			'informationCenter.SubmissionInformationCenterHandler',
 			'viewInformationCenter',
@@ -90,7 +90,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 		// URL to assign a participant
 		$config['assignParticipantUrl'] = $request->getDispatcher()->url(
 			$request,
-			PKPApplication::ROUTE_COMPONENT,
+			\PKPApplication::ROUTE_COMPONENT,
 			null,
 			'grid.users.stageParticipant.StageParticipantGridHandler',
 			'addParticipant',
@@ -146,7 +146,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 				'value' => [],
 				'apiUrl' => $request->getDispatcher()->url(
 					$request,
-					PKPApplication::ROUTE_API,
+					\PKPApplication::ROUTE_API,
 					$context->getPath(),
 					'users',
 					null,

@@ -37,7 +37,7 @@ class PKPDisableSubmissionsForm extends FormComponent {
 
 		$url = \Application::get()->getRequest()->getDispatcher()->url(
 				\Application::get()->getRequest(),
-				PKPApplication::ROUTE_PAGE,
+				\PKPApplication::ROUTE_PAGE,
 				null,
 				'management',
 				'settings',

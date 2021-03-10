@@ -124,7 +124,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 				case '_href':
 					$values[$prop] = $dispatcher->url(
 						$request,
-						PKPApplication::ROUTE_API,
+						\PKPApplication::ROUTE_API,
 						$announcementContext->getData('urlPath'),
 						'announcements/' . $announcement->getId()
 					);

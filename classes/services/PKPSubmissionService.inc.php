@@ -185,7 +185,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 				case '_href':
 					$values[$prop] = $dispatcher->url(
 						$request,
-						PKPApplication::ROUTE_API,
+						\PKPApplication::ROUTE_API,
 						$submissionContext->getData('urlPath'),
 						'submissions/' . $submission->getId()
 					);
@@ -223,7 +223,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 				case 'urlAuthorWorkflow':
 					$values[$prop] = $dispatcher->url(
 						$request,
-						PKPApplication::ROUTE_PAGE,
+						\PKPApplication::ROUTE_PAGE,
 						$submissionContext->getData('urlPath'),
 						'authorDashboard',
 						'submission',
@@ -233,7 +233,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 				case 'urlEditorialWorkflow':
 					$values[$prop] = $dispatcher->url(
 						$request,
-						PKPApplication::ROUTE_PAGE,
+						\PKPApplication::ROUTE_PAGE,
 						$submissionContext->getData('urlPath'),
 						'workflow',
 						'access',
@@ -579,7 +579,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 				$user->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE))) {
 			return $dispatcher->url(
 				$request,
-				PKPApplication::ROUTE_PAGE,
+				\PKPApplication::ROUTE_PAGE,
 				$submissionContext->getPath(),
 				'submission',
 				'wizard',
@@ -592,7 +592,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		if ($authorDashboard) {
 			return $dispatcher->url(
 				$request,
-				PKPApplication::ROUTE_PAGE,
+				\PKPApplication::ROUTE_PAGE,
 				$submissionContext->getPath(),
 				'authorDashboard',
 				'submission',
@@ -606,7 +606,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		if ($reviewAssignment) {
 			return $dispatcher->url(
 				$request,
-				PKPApplication::ROUTE_PAGE,
+				\PKPApplication::ROUTE_PAGE,
 				$submissionContext->getPath(),
 				'reviewer',
 				'submission',
@@ -618,7 +618,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		// it, they'll be blocked there.
 		return $dispatcher->url(
 			$request,
-			PKPApplication::ROUTE_PAGE,
+			\PKPApplication::ROUTE_PAGE,
 			$submissionContext->getPath(),
 			'workflow',
 			'access',

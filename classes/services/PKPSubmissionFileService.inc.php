@@ -124,7 +124,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 				case '_href':
 					$values[$prop] = $dispatcher->url(
 						$request,
-						PKPApplication::ROUTE_API,
+						\PKPApplication::ROUTE_API,
 						$request->getContext()->getData('urlPath'),
 						'submissions/' . $submission->getId() . '/files/' . $submissionFile->getId()
 					);
@@ -160,7 +160,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 							'path' => $revision->path,
 							'url' => $dispatcher->url(
 								$request,
-								PKPApplication::ROUTE_COMPONENT,
+								\PKPApplication::ROUTE_COMPONENT,
 								$request->getContext()->getData('urlPath'),
 								'api.file.FileApiHandler',
 								'downloadFile',
@@ -179,7 +179,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 				case 'url':
 					$values[$prop] = $dispatcher->url(
 						$request,
-						PKPApplication::ROUTE_COMPONENT,
+						\PKPApplication::ROUTE_COMPONENT,
 						$request->getContext()->getData('urlPath'),
 						'api.file.FileApiHandler',
 						'downloadFile',
@@ -423,7 +423,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 					'editorialContactSignature' => $context->getData('contactName'),
 					'submissionUrl' => $request->getDispatcher()->url(
 						$request,
-						PKPApplication::ROUTE_PAGE,
+						\PKPApplication::ROUTE_PAGE,
 						null,
 						'workflow',
 						'index',

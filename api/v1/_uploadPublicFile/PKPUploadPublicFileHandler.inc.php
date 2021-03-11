@@ -155,7 +155,7 @@ class PKPUploadPublicFileHandler extends APIHandler {
 		}
 
 		// Save the file
-		$destinationPath = $siteDir . '/images/' . $request->getUser()->getUsername() . '/' . $filename;
+		$destinationPath = $this->_getFilename($siteDir . '/images/' . $request->getUser()->getUsername() . '/' . $filename, $fileManager);
 		$success = $fileManager->uploadFile('file', $destinationPath);
 
 		if ($success === false) {
@@ -181,7 +181,7 @@ class PKPUploadPublicFileHandler extends APIHandler {
 			'url' => $request->getBaseUrl() . '/' .
 					Config::getVar('files', 'public_files_dir') . '/site/images/' .
 					$request->getUser()->getUsername() . '/' .
-					$filename,
+					pathinfo($destinationPath, PATHINFO_BASENAME),
 		]));
 	}
 
@@ -196,5 +196,25 @@ class PKPUploadPublicFileHandler extends APIHandler {
 	 */
 	public function getOptions($slimRequest, $response, $args) {
 		return $this->getResponse($response);
+	}
+
+	/**
+	 * A recursive function to get a filename that will not overwrite an
+	 * existing file
+	 *
+	 * @param string $path Preferred filename
+	 * @param FileManager $fileManager
+	 * @return string
+	 */
+	private function _getFilename($path, $fileManager) {
+		if ($fileManager->fileExists($path)) {
+			$pathParts = pathinfo($path);
+			$filename = $pathParts['filename'] . '-' . md5(microtime()) . '.' . $pathParts['extension'];
+			if (strlen($filename > 255)) {
+				$filename = substr($filename, -255, 255);
+			}
+			return $this->_getFilename($pathParts['dirname'] . '/' . $filename, $fileManager);
+		}
+		return $path;
 	}
 }

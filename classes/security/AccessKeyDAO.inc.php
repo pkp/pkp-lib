@@ -24,7 +24,7 @@ class AccessKeyDAO extends DAO {
 	 * @param $accessKeyId int
 	 * @return AccessKey
 	 */
-	function &getAccessKey($accessKeyId) {
+	function getAccessKey($accessKeyId) {
 		$result = $this->retrieve(
 			sprintf(
 				'SELECT * FROM access_keys WHERE access_key_id = ? AND expiry_date > %s',
@@ -42,7 +42,7 @@ class AccessKeyDAO extends DAO {
 	 * @param $userId int
 	 * @return AccessKey
 	 */
-	function &getAccessKeyByUserId($context, $userId) {
+	function getAccessKeyByUserId($context, $userId) {
 		$result = $this->retrieve(
 			sprintf(
 				'SELECT * FROM access_keys WHERE context = ? AND user_id = ? AND expiry_date > %s',
@@ -62,7 +62,7 @@ class AccessKeyDAO extends DAO {
 	 * @param $assocId int
 	 * @return AccessKey
 	 */
-	function &getAccessKeyByKeyHash($context, $userId, $keyHash, $assocId = null) {
+	function getAccessKeyByKeyHash($context, $userId, $keyHash, $assocId = null) {
 		$paramArray = array($context, $keyHash, (int) $userId);
 		if (isset($assocId)) $paramArray[] = (int) $assocId;
 		$result = $this->retrieve(
@@ -89,7 +89,7 @@ class AccessKeyDAO extends DAO {
 	 * @param $row array
 	 * @return AccessKey
 	 */
-	function &_returnAccessKeyFromRow($row) {
+	function _returnAccessKeyFromRow($row) {
 		$accessKey = $this->newDataObject();
 		$accessKey->setId($row['access_key_id']);
 		$accessKey->setKeyHash($row['key_hash']);

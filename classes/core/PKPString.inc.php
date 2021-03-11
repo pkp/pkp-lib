@@ -60,16 +60,6 @@ class PKPString {
 			// FIXME Do any other mbstring settings need to be set?
 			mb_internal_encoding($clientCharset);
 		}
-
-		// Define modifier to be used in regexp_* routines
-		// FIXME Should non-UTF-8 encodings be supported with mbstring?
-		if (!defined('PCRE_UTF8')) {
-			if ($clientCharset == 'utf-8' && self::hasPCREUTF8()) {
-				define('PCRE_UTF8', 'u');
-			} else {
-				define('PCRE_UTF8', '');
-			}
-		}
 	}
 
 	/**
@@ -99,20 +89,6 @@ class PKPString {
 			);
 		}
 		return $hasMBString;
-	}
-
-	/**
-	 * Check if server supports the PCRE_UTF8 modifier.
-	 * @return boolean True iff the server supports the PCRE_UTF8 modifier.
-	 */
-	static function hasPCREUTF8() {
-		// The PCRE_UTF8 modifier is only supported on PHP >= 4.1.0 (*nix) or PHP >= 4.2.3 (win32)
-		// Evil check to see if PCRE_UTF8 is supported
-		if (@preg_match('//u', '')) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	//
@@ -232,7 +208,7 @@ class PKPString {
 	 * @return array
 	 */
 	static function regexp_grep($pattern, $input) {
-		return preg_grep($pattern . PCRE_UTF8, $input);
+		return preg_grep($pattern . 'u', $input);
 	}
 
 	/**
@@ -242,7 +218,7 @@ class PKPString {
 	 * @return int
 	 */
 	static function regexp_match($pattern, $subject) {
-		return preg_match($pattern . PCRE_UTF8, $subject);
+		return preg_match($pattern . 'u', $subject);
 	}
 
 	/**
@@ -253,7 +229,7 @@ class PKPString {
 	 * @return int|boolean Returns 1 if the pattern matches given subject, 0 if it does not, or FALSE if an error occurred.
 	 */
 	static function regexp_match_get($pattern, $subject, &$matches) {
-		return preg_match($pattern . PCRE_UTF8, $subject, $matches);
+		return preg_match($pattern . 'u', $subject, $matches);
 	}
 
 	/**
@@ -264,7 +240,7 @@ class PKPString {
 	 * @return int|boolean Returns number of full matches of given subject, or FALSE if an error occurred.
 	 */
 	static function regexp_match_all($pattern, $subject, &$matches) {
-		return preg_match_all($pattern . PCRE_UTF8, $subject, $matches);
+		return preg_match_all($pattern . 'u', $subject, $matches);
 	}
 
 	/**
@@ -276,7 +252,7 @@ class PKPString {
 	 * @return mixed
 	 */
 	static function regexp_replace($pattern, $replacement, $subject, $limit = -1) {
-		return preg_replace($pattern . PCRE_UTF8, $replacement, $subject, $limit);
+		return preg_replace($pattern . 'u', $replacement, $subject, $limit);
 	}
 
 	/**
@@ -288,7 +264,7 @@ class PKPString {
 	 * @return mixed
 	 */
 	static function regexp_replace_callback($pattern, $callback, $subject, $limit = -1) {
-		return preg_replace_callback($pattern . PCRE_UTF8, $callback, $subject, $limit);
+		return preg_replace_callback($pattern . 'u', $callback, $subject, $limit);
 	}
 
 	/**
@@ -299,7 +275,7 @@ class PKPString {
 	 * @return array Resulting string segments
 	 */
 	static function regexp_split($pattern, $subject, $limit = -1) {
-		return preg_split($pattern . PCRE_UTF8, $subject, $limit);
+		return preg_split($pattern . 'u', $subject, $limit);
 	}
 
 	/**

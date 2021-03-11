@@ -138,6 +138,18 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		// Load Composer autoloader
 		require_once('lib/pkp/lib/vendor/autoload.php');
 
+		// Register custom autoloader functions for namespaces
+		spl_autoload_register(function($class) {
+			$prefix = 'PKP\\';
+			$rootPath = BASE_SYS_DIR . "/lib/pkp/classes";
+			customAutoload($rootPath, $prefix, $class);
+		});
+		spl_autoload_register(function($class) {
+			$prefix = 'APP\\';
+			$rootPath = BASE_SYS_DIR . "/classes";
+			customAutoload($rootPath, $prefix, $class);
+		});
+
 		ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
 		if (!defined('SESSION_DISABLE_INIT') && !Config::getVar('general', 'installed')) {
 			define('SESSION_DISABLE_INIT', true);
@@ -171,18 +183,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		Registry::set('system.debug.notes', $notes);
 
 		if (Config::getVar('general', 'installed')) $this->initializeLaravelContainer();
-
-		// Register custom autoloader functions for namespaces
-		spl_autoload_register(function($class) {
-			$prefix = 'PKP\\';
-			$rootPath = BASE_SYS_DIR . "/lib/pkp/classes";
-			customAutoload($rootPath, $prefix, $class);
-		});
-		spl_autoload_register(function($class) {
-			$prefix = 'APP\\';
-			$rootPath = BASE_SYS_DIR . "/classes";
-			customAutoload($rootPath, $prefix, $class);
-		});
 	}
 
 	/**

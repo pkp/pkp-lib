@@ -33,7 +33,7 @@ define('NMI_TYPE_USER_LOGIN',	'NMI_TYPE_USER_LOGIN');
 define('NMI_TYPE_SEARCH',	'NMI_TYPE_SEARCH');
 define('NMI_TYPE_PRIVACY',	'NMI_TYPE_PRIVACY');
 
-class NavigationMenuItem extends DataObject {
+class NavigationMenuItem extends \PKP\core\DataObject {
 	/** @var $navigationMenuItems array The navigationMenuItems underneath this navigationMenuItem */
 	var $navigationMenuItems = array();
 

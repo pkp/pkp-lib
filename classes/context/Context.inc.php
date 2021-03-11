@@ -20,7 +20,7 @@
  define('METADATA_REQUEST', 'request');
  define('METADATA_REQUIRE', 'require');
 
-abstract class Context extends DataObject {
+abstract class Context extends \PKP\core\DataObject {
 
 	/**
 	 * Get the localized name of the context

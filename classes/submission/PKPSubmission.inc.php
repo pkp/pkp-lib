@@ -22,7 +22,7 @@
  * scholarly submission.
  */
 
-abstract class PKPSubmission extends DataObject {
+abstract class PKPSubmission extends \PKP\core\DataObject {
 	// Submission status constants
 	const STATUS_QUEUED=1;
 	const STATUS_PUBLISHED=3;
@@ -161,7 +161,7 @@ abstract class PKPSubmission extends DataObject {
 	}
 
 	/**
-	 * @copydoc DataObject::getDAO()
+	 * @copydoc \PKP\core\DataObject::getDAO()
 	 */
 	public function getDAO() {
 		return DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */

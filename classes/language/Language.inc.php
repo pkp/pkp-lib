@@ -21,7 +21,7 @@
  *
  */
 
-class Language extends DataObject {
+class Language extends \PKP\core\DataObject {
 
 	//
 	// Get/set methods

@@ -60,7 +60,7 @@ class DataObjectGridCellProvider extends GridCellProvider {
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element = $row->getData();
 		$columnId = $column->getId();
-		assert(is_a($element, 'DataObject') && !empty($columnId));
+		assert($element instanceof \PKP\core\DataObject && !empty($columnId));
 
 		$data = $element->getData($columnId);
 		// For localized fields, $data will be an array; otherwise,

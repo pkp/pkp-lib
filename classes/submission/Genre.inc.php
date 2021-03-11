@@ -18,7 +18,7 @@ define('GENRE_CATEGORY_DOCUMENT', 1);
 define('GENRE_CATEGORY_ARTWORK', 2);
 define('GENRE_CATEGORY_SUPPLEMENTARY', 3);
 
-class Genre extends DataObject {
+class Genre extends \PKP\core\DataObject {
 
 	/**
 	 * Get ID of context.

@@ -21,7 +21,7 @@ class AnnouncementTypeDAO extends DAO {
 
 	/**
 	 * Generate a new data object.
-	 * @return DataObject
+	 * @return \PKP\core\DataObject
 	 */
 	function newDataObject() {
 		return new AnnouncementType();

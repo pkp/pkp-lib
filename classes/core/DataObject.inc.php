@@ -215,9 +215,9 @@ class DataObject {
 	 * Note: Data in the target object will be overwritten. We do not
 	 * clone the target object before we upcast.
 	 *
-	 * @param $targetObject DataObject The object to cast to.
+	 * @param $targetObject \PKP\core\DataObject The object to cast to.
 	 *
-	 * @return DataObject The upcast target object.
+	 * @return \PKP\core\DataObject The upcast target object.
 	 */
 	public function upcastTo($targetObject) {
 		// Copy data from the source to the target.

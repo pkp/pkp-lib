@@ -21,7 +21,7 @@
  *
  */
 
-class ReviewForm extends DataObject {
+class ReviewForm extends \PKP\core\DataObject {
 
 	/**
 	 * Get localized title.

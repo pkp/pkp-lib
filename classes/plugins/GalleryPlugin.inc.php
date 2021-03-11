@@ -19,7 +19,7 @@ define('PLUGIN_GALLERY_STATE_UPGRADABLE', 1);
 define('PLUGIN_GALLERY_STATE_CURRENT', 2);
 define('PLUGIN_GALLERY_STATE_NEWER', 3);
 
-class GalleryPlugin extends DataObject {
+class GalleryPlugin extends \PKP\core\DataObject {
 
 	/**
 	 * Get the localized name of the plugin

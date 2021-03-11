@@ -419,7 +419,7 @@ class PKPSchemaService {
 	 * ['contextName' => 'Journal of Public Knowledge']
 	 *
 	 * @param $schemaName string One of the SCHEMA_... constants
-	 * @param $object DataObject The object to be modified
+	 * @param $object \PKP\core\DataObject The object to be modified
 	 * @param $supportedLocales array List of locale keys that shoud receive
 	 *  default content. Example: ['en_US', 'fr_CA']
 	 * @param $primaryLocale string Example: `en_US`

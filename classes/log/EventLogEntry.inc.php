@@ -18,7 +18,7 @@
 define('SUBMISSION_LOG_NOTE_POSTED',			0x01000000);
 define('SUBMISSION_LOG_MESSAGE_SENT',			0x01000001);
 
-class EventLogEntry extends DataObject {
+class EventLogEntry extends \PKP\core\DataObject {
 
 	//
 	// Get/set methods

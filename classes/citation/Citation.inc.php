@@ -17,9 +17,7 @@
  * @brief Class representing a citation (bibliographic reference)
  */
 
-import('lib.pkp.classes.core.DataObject');
-
-class Citation extends DataObject {
+class Citation extends \PKP\core\DataObject {
 	/**
 	 * Constructor.
 	 * @param $rawCitation string an unparsed citation string

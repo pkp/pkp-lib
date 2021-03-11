@@ -15,7 +15,7 @@
  */
 
 
-class ReviewAssignment extends DataObject {
+class ReviewAssignment extends \PKP\core\DataObject {
 	public const SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT = 1;
 	public const SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS = 2;
 	public const SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE = 3;

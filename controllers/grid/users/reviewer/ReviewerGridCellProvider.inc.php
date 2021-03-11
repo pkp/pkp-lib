@@ -45,7 +45,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 	function getCellState($row, $column) {
 		$reviewAssignment = $row->getData();
 		$columnId = $column->getId();
-		assert(is_a($reviewAssignment, 'DataObject') && !empty($columnId));
+		assert($reviewAssignment instanceof \PKP\core\DataObject && !empty($columnId));
 		switch ($columnId) {
 			case 'name':
 			case 'method':
@@ -66,7 +66,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element = $row->getData();
 		$columnId = $column->getId();
-		assert(is_a($element, 'DataObject') && !empty($columnId));
+		assert($element instanceof \PKP\core\DataObject && !empty($columnId));
 		switch ($columnId) {
 			case 'name':
 				$isReviewAnonymous = in_array($element->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS));

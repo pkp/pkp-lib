@@ -21,7 +21,7 @@
  *
  */
 
-class Currency extends DataObject {
+class Currency extends \PKP\core\DataObject {
 
 	//
 	// Get/set methods

@@ -252,7 +252,7 @@ class CompositeFilter extends PersistableFilter {
 	// Overridden methods from DataObject
 	//
 	/**
-	 * @see DataObject::getData()
+	 * @see \PKP\core\DataObject::getData()
 	 */
 	function &getData($key, $locale = null) {
 		// Directly read local settings.
@@ -265,7 +265,7 @@ class CompositeFilter extends PersistableFilter {
 	}
 
 	/**
-	 * @see DataObject::setData()
+	 * @see \PKP\core\DataObject::setData()
 	 */
 	function setData($key, $value, $locale = null) {
 		// Directly write internal settings.
@@ -286,7 +286,7 @@ class CompositeFilter extends PersistableFilter {
 	}
 
 	/**
-	 * @see DataObject::hasData()
+	 * @see \PKP\core\DataObject::hasData()
 	 */
 	function hasData($key, $locale = null) {
 		// Internal settings will only be checked locally.

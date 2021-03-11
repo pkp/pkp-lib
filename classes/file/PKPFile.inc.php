@@ -13,7 +13,7 @@
  * @brief Base PKP file class.
  */
 
-class PKPFile extends DataObject {
+class PKPFile extends \PKP\core\DataObject {
 
 	//
 	// Get/set methods

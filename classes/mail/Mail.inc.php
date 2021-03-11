@@ -25,7 +25,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\OAuth;
 use League\OAuth2\Client\Provider\Google;
 
-class Mail extends DataObject {
+class Mail extends \PKP\core\DataObject {
 	/** @var array List of key => value private parameters for this message */
 	var $privateParams;
 

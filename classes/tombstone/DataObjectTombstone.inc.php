@@ -13,7 +13,7 @@
  * @brief Base class for data object tombstones.
  */
 
-class DataObjectTombstone extends DataObject {
+class DataObjectTombstone extends \PKP\core\DataObject {
 
 	/**
 	 * get data object id

@@ -14,7 +14,7 @@
  * @brief Basic class describing an announcement type.
  */
 
-class AnnouncementType extends DataObject {
+class AnnouncementType extends \PKP\core\DataObject {
 
 	//
 	// Get/set methods

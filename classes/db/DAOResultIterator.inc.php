@@ -18,7 +18,7 @@ class DAOResultIterator implements Iterator, Countable {
 	/** @var DAOResultFactory */
 	var $_resultFactory;
 
-	/** @var DataObject Current return value data object. */
+	/** @var \PKP\core\DataObject Current return value data object. */
 	var $_current = null;
 
 	/** @var $_i int 0-based index of current data object. */

@@ -22,7 +22,7 @@ define('LIBRARY_FILE_TYPE_OTHER',	0x00005);
 
 import('lib.pkp.classes.file.FileManager');
 
-class LibraryFile extends DataObject {
+class LibraryFile extends \PKP\core\DataObject {
 
 	/**
 	 * Return absolute path to the file on the host filesystem.

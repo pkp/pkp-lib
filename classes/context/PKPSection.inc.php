@@ -13,7 +13,7 @@
  * @brief Describes basic section properties.
  */
 
-class PKPSection extends DataObject {
+class PKPSection extends \PKP\core\DataObject {
 
 	/**
 	 * Get ID of context.

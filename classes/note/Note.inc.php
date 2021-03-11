@@ -14,7 +14,7 @@
  */
 
 
-class Note extends DataObject {
+class Note extends \PKP\core\DataObject {
 
 	/**
 	 * get user id of the note's author

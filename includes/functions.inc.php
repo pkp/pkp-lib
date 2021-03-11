@@ -342,7 +342,6 @@ function customAutoload($rootPath, $prefix, $class) {
 
 	$subParts = join('/', $parts);
 	$filePath = "{$rootPath}/{$subParts}/{$className}.inc.php";
-
 	if (is_file($filePath)) {
 		require_once($filePath);
 	}

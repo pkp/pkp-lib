@@ -14,7 +14,7 @@
  * @brief Describes basic Category properties.
  */
 
-class Category extends DataObject {
+class Category extends \PKP\core\DataObject {
 	/**
 	 * Get ID of context.
 	 * @return int

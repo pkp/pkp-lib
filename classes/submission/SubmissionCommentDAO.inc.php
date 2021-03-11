@@ -102,7 +102,7 @@ class SubmissionCommentDAO extends DAO {
 	}
 
 	/**
-	 * Construct a new DataObject.
+	 * Construct a new \PKP\core\DataObject.
 	 * @return DataObject
 	 */
 	function newDataObject() {

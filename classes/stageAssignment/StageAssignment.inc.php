@@ -20,7 +20,7 @@
  * @brief Basic class describing a Stage Assignment.
  */
 
-class StageAssignment extends DataObject {
+class StageAssignment extends \PKP\core\DataObject {
 
 	//
 	// Get/set methods

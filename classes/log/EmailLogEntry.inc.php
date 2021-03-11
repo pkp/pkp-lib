@@ -15,7 +15,7 @@
  */
 
 
-class EmailLogEntry extends DataObject {
+class EmailLogEntry extends \PKP\core\DataObject {
 
 	//
 	// Get/set methods

@@ -32,7 +32,7 @@ class AuthorizationPolicyTest extends PKPTestCase {
 
 		// Test authorized context objects.
 		self::assertFalse($policy->hasAuthorizedContextObject(ASSOC_TYPE_USER_GROUP));
-		$someContextObject = new DataObject();
+		$someContextObject = new \PKP\core\DataObject();
 		$someContextObject->setData('test1', 'test1');
 		$policy->addAuthorizedContextObject(ASSOC_TYPE_USER_GROUP, $someContextObject);
 		self::assertTrue($policy->hasAuthorizedContextObject(ASSOC_TYPE_USER_GROUP));
@@ -40,7 +40,7 @@ class AuthorizationPolicyTest extends PKPTestCase {
 		self::assertEquals(array(ASSOC_TYPE_USER_GROUP => $someContextObject), $policy->getAuthorizedContext());
 
 		// Test authorized context.
-		$someOtherContextObject = new DataObject();
+		$someOtherContextObject = new \PKP\core\DataObject();
 		$someOtherContextObject->setData('test2', 'test2');
 		$authorizedContext = array(ASSOC_TYPE_USER_GROUP => $someOtherContextObject);
 		$policy->setAuthorizedContext($authorizedContext);

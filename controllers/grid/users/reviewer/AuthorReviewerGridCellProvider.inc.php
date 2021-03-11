@@ -32,7 +32,7 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider {
 	function getCellState($row, $column) {
 		$reviewAssignment = $row->getData();
 		$columnId = $column->getId();
-		assert(is_a($reviewAssignment, 'DataObject') && !empty($columnId));
+		assert($reviewAssignment instanceof \PKP\core\DataObject && !empty($columnId));
 		switch ($columnId) {
 			case 'name':
 			case 'method':
@@ -53,7 +53,7 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider {
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element = $row->getData();
 		$columnId = $column->getId();
-		assert(is_a($element, 'DataObject') && !empty($columnId));
+		assert($element instanceof \PKP\core\DataObject && !empty($columnId));
 		switch ($columnId) {
 			case 'name':
 				return array('label' => $element->getReviewerFullName());

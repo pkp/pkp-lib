@@ -24,7 +24,7 @@ define('ROLE_ID_ASSISTANT',		0x00001001);
 define('ROLE_ID_READER',		0x00100000);
 define('ROLE_ID_SUBSCRIPTION_MANAGER',	0x00200000);
 
-class Role extends DataObject {
+class Role extends \PKP\core\DataObject {
 	/**
 	 * Constructor.
 	 * @param $roleId for this role.  Default to null for backwards

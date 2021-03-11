@@ -21,7 +21,6 @@
 
 import('lib.pkp.classes.db.DAOResultFactory');
 import('lib.pkp.classes.db.DBResultRange');
-import('lib.pkp.classes.core.DataObject');
 
 define('SORT_DIRECTION_ASC', 0x00001);
 define('SORT_DIRECTION_DESC', 0x00002);
@@ -473,7 +472,7 @@ class DAO {
 	 * data object.
 	 * @param $tableName string Settings table name
 	 * @param $idFieldName string Name of ID column
-	 * @param $dataObject DataObject Object in which to store retrieved values
+	 * @param $dataObject \PKP\core\DataObject Object in which to store retrieved values
 	 */
 	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject) {
 		if ($idFieldName !== null) {

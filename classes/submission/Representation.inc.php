@@ -13,9 +13,7 @@
  * @brief A submission's representation (Publication Format, Galley, ...)
  */
 
-import('lib.pkp.classes.core.DataObject');
-
-class Representation extends DataObject {
+class Representation extends \PKP\core\DataObject {
 	/**
 	 * Constructor.
 	 */
@@ -136,7 +134,7 @@ class Representation extends DataObject {
 	}
 
 	/**
-	 * @copydoc DataObject::getDAO()
+	 * @copydoc \PKP\core\DataObject::getDAO()
 	 */
 	function getDAO() {
 		return Application::getRepresentationDAO();

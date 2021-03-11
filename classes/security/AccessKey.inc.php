@@ -19,7 +19,7 @@
  * @brief AccessKey class.
  */
 
-class AccessKey extends DataObject {
+class AccessKey extends \PKP\core\DataObject {
 
 	//
 	// Get/set methods

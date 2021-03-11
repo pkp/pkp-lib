@@ -16,7 +16,7 @@
  *  including it's position and if it's nested within another NavigationMenuItem
  */
 
-class NavigationMenuItemAssignment extends DataObject {
+class NavigationMenuItemAssignment extends \PKP\core\DataObject {
 	/** @var $navigationMenuItem NavigationMenuItem The object this assignment refers to */
 	var $navigationMenuItem = null;
 

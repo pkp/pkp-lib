@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2021-01-03 17:40+0000\n"
+"PO-Revision-Date: 2021-03-12 19:38+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "cs_CZ/>\n"
@@ -109,3 +109,11 @@ msgstr "Současný uživatel není přiřazen jako recenzent pro požadovaný do
 
 msgid "reviewer.submission.saveReviewForLater"
 msgstr "Uložit na později"
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Poslat recenzentům"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+"Poslat kopii tohoto emailového upozornění jako skrytou kopii následujícím "
+"recenzentům."

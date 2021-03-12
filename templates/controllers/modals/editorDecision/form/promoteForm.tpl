@@ -60,6 +60,11 @@
 					</a>
 				{/fbvFormSection}
 			{/if}
+
+			{include file="controllers/modals/editorDecision/form/bccReviewers.tpl"
+				reviewers=$reviewers
+				selected=$bccReviewers
+			}
 		</div>
 
 		{if $decisionData.paymentType}

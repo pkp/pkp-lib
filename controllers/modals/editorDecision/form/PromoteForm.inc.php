@@ -22,10 +22,10 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 
 	/**
 	 * Constructor.
-	 * @param $submission Submission
-	 * @param $decision int
-	 * @param $stageId int
-	 * @param $reviewRound ReviewRound
+	 * @param Submission $submission
+	 * @param int $decision
+	 * @param int $stageId
+	 * @param ReviewRound $reviewRound
 	 */
 	function __construct($submission, $decision, $stageId, $reviewRound = null) {
 		if (!in_array($decision, $this->_getDecisions())) {
@@ -50,11 +50,10 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	/**
 	 * @copydoc EditorDecisionWithEmailForm::initData()
 	 */
-	function initData($actionLabels = array()) {
+	function initData($actionLabels = []) {
 		$request = Application::get()->getRequest();
 		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getSubmission(), $this->getStageId(), $this->_getDecisions());
 
-		$submission = $this->getSubmission();
 		$this->setData('stageId', $this->getStageId());
 
 		// If payments are enabled for this stage/form, default to requiring them
@@ -67,7 +66,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('requestPayment'));
+		$this->readUserVars(['requestPayment']);
 		parent::readInputData();
 	}
 
@@ -182,9 +181,9 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 
 				// Notify any authors that this needs payment.
 				$notificationMgr = new NotificationManager();
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
 				$stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null);
-				$userIds = array();
+				$userIds = [];
 				while ($stageAssignment = $stageAssignments->next()) {
 					if (!in_array($stageAssignment->getUserId(), $userIds)) {
 						$notificationMgr->createNotification($request, $stageAssignment->getUserId(), NOTIFICATION_TYPE_PAYMENT_REQUIRED,
@@ -204,11 +203,11 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	 * @return array
 	 */
 	function _getDecisions() {
-		return array(
+		return [
 			SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW,
 			SUBMISSION_EDITOR_DECISION_ACCEPT,
 			SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION
-		);
+		];
 	}
 }
 

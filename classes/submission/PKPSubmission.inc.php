@@ -51,9 +51,9 @@ abstract class PKPSubmission extends DataObject {
 	 * @deprecated 3.2.0.0
 	 */
 	function getBestId() {
-		return $this->getCurrentPublication()->getData('urlPath')
-			? $this->getCurrentPublication()->getData('urlPath')
-			: $this->getId();
+		$currentPublication = $this->getCurrentPublication();
+		if (!$currentPublication) return $this->getId();
+		return $currentPublication->getData('urlPath') ?? $this->getId();
 	}
 
 	/**

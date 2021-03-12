@@ -36,6 +36,9 @@ class OPSv3_3_0UpgradeMigration extends Migration {
 		// Delete the old MODS34 filters
 		Capsule::statement("DELETE FROM filters WHERE class_name='plugins.metadata.mods34.filter.Mods34SchemaArticleAdapter'");
 		Capsule::statement("DELETE FROM filter_groups WHERE symbolic IN ('article=>mods34', 'mods34=>article')");
+
+		// pkp/pkp-lib#6807 Make sure all submission last modification dates are set
+		Capsule::statement('UPDATE submissions SET last_modified = NOW() WHERE last_modified IS NULL');
 	}
 
 	/**

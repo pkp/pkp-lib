@@ -98,8 +98,12 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 		]);
 
 		// Get representations
-		$representationDao = Application::getRepresentationDAO();
-		$representations = $representationDao->getByPublicationId($submission->getLatestPublication()->getId());
+		if ($latestPublication = $submission->getLatestPublication()) {
+			$representationDao = Application::getRepresentationDAO(); /* @var $representationDao RepresentationDAO */
+			$representations = $representationDao->getByPublicationId($latestPublication->getId())->toArray();
+		} else {
+			$representations = [];
+		}
 
 		$notificationType = $this->getNotificationType();
 
@@ -111,10 +115,11 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 						$this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
 					} else {
 						// If there is a representation
-						if (!$representations->next()) {
+						if (count($representations)) {
 							// Remove 'assign a production user' and 'awaiting representations' notification
 							$this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
 						} else {
+							// Remove 'assign a production user' and 'awaiting representations' notification
 							// If a production user is assigned i.e. there is a production discussion
 							if ($productionQuery) {
 								if ($notificationType == NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS) {

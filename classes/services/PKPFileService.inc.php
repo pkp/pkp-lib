@@ -113,7 +113,7 @@ class PKPFileService {
 			throw new Exception("Unable to locate file $id.");
 		}
 		$path = $file->path;
-		if (!$this->fs->delete($path)) {
+		if ($this->fs->has($path) && !$this->fs->delete($path)) {
 			throw new Exception("Unable to delete file $id at $path.");
 		}
 		Capsule::table('files')

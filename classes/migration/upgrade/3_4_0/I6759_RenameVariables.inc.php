@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/OPSv3_4_0UpgradeMigration.inc.php
+ * @file classes/migration/upgrade/3_4_0/I6759_RenameVariables.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -16,7 +16,7 @@ use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-class OPSv3_4_0UpgradeMigration extends Migration {
+class I6759_RenameVariables extends Migration {
 	/**
 	 * Run the migrations.
 	 * @return void

@@ -61,10 +61,12 @@
 				{/fbvFormSection}
 			{/if}
 
-			{include file="controllers/modals/editorDecision/form/bccReviewers.tpl"
-				reviewers=$reviewers
-				selected=$bccReviewers
-			}
+			{if isset($reviewers)}
+				{include file="controllers/modals/editorDecision/form/bccReviewers.tpl"
+					reviewers=$reviewers
+					selected=$bccReviewers
+				}
+			{/if}
 		</div>
 
 		{if $decisionData.paymentType}

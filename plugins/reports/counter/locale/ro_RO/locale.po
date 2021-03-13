@@ -53,5 +53,5 @@ msgstr "HTML YTD"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "PDF YTD"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Totalul pentru reviste"

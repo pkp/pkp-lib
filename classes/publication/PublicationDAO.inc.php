@@ -11,7 +11,7 @@
  * @ingroup core
  * @see DAO
  *
- * @brief Add OJS-specific functions for PKPPublicationDAO
+ * @brief Add OPS-specific functions for PKPPublicationDAO
  */
 import('lib.pkp.classes.publication.PKPPublicationDAO');
 

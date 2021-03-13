@@ -24,26 +24,26 @@ class SitemapHandler extends PKPSitemapHandler {
 		$doc = parent::_createContextSitemap($request);
 		$root = $doc->documentElement;
 
-		$journal = $request->getJournal();
-		$journalId = $journal->getId();
+		$server = $request->getServer();
+		$serverId = $server->getId();
 
 		// Search
-		$root->appendChild($this->_createUrlTree($doc, $request->url($journal->getPath(), 'search')));
+		$root->appendChild($this->_createUrlTree($doc, $request->url($server->getPath(), 'search')));
 
 		// Preprints
 		import('classes.submission.Submission'); // Import status constants
 		$submissionIds = Services::get('submission')->getIds([
 			'status' => STATUS_PUBLISHED,
-			'contextId' => $journal->getId(),
+			'contextId' => $server->getId(),
 		]);
 		foreach ($submissionIds as $submissionId) {
-			$root->appendChild($this->_createUrlTree($doc, $request->url($journal->getPath(), 'preprint', 'view', array($submissionId))));
+			$root->appendChild($this->_createUrlTree($doc, $request->url($server->getPath(), 'preprint', 'view', array($submissionId))));
 		}
 
 		$doc->appendChild($root);
 
 		// Enable plugins to change the sitemap
-		HookRegistry::call('SitemapHandler::createJournalSitemap', array(&$doc));
+		HookRegistry::call('SitemapHandler::createServerSitemap', array(&$doc));
 
 		return $doc;
 	}

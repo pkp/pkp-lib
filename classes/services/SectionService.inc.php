@@ -110,14 +110,14 @@ class SectionService implements EntityPropertyInterface {
 	 * validate or sanitize this section.
 	 *
 	 * @param $section Section
-	 * @param $context Journal
+	 * @param $context Server
 	 * @return Section
 	 */
 	public function addSection($section, $context) {
 		$sectionDao = \DAORegistry::getDAO('SectionDAO'); /* $sectionDao SectionDAO */
 
 		// Don't allow sections to be added to any other context
-		$section->setJournalId($context->getId());
+		$section->setServerId($context->getId());
 
 		$sectionDao->insertObject($section);
 

@@ -1,0 +1,135 @@
+/**
+ * @file styles/objects/preprint_summary.less
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Styles applying to a summary view of an preprint for lists
+ * @link templates/frontend/objects/preprint_details.tpl
+ */
+.obj_preprint_summary {
+	.pkp_helpers_clear();
+	margin-bottom: 2em;
+
+	.cover {
+		display: block;
+		margin-bottom: @double;
+
+		img {
+			display: block;
+			max-height: 250px;
+			width: auto;
+		}
+	}
+
+	> .title {
+		font-family: @font-heading;
+		font-size: @font-bump;
+		line-height: @line-bump;
+		font-weight: @bold;
+		border-bottom: none;
+		margin: 0;
+
+		a {
+			text-decoration: none;
+		}
+	}
+
+	.subtitle {
+		display: block;
+		margin-top: 0.25em;
+		margin-bottom: 0.25em;
+		font-weight: @normal;
+		color: @text-light;
+	}
+
+	.doi {
+		color: @text-light;
+		margin-top: @base;
+	}
+
+	.meta {
+		position: relative;
+		padding-top: @half;
+		font-size: @font-sml;
+		line-height: @double;
+
+		.authors{
+			font-size: @font-base;
+		}
+
+		.details{
+			color: @text-light;
+			margin-top: @base;
+	
+			.details_divider{
+				color: @text-light;
+				margin-left: 0.5em;
+				margin-right: 0.5em;		
+			}
+		}
+	}
+
+	.keywords{
+		margin-top: @base;
+		.keyword_links {
+			&:extend(.pkp_unstyled_list);
+
+			li {
+				display: inline-block;
+				margin: 0 0.5em 0.5em 0;
+				border: 1px solid;
+				border-radius: 1.2em;
+				padding-left: 1em;
+				padding-right: 1em;
+				color: @text;				
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+	.galleys_links {
+		&:extend(.pkp_unstyled_list);
+		margin-top: @base;
+
+		li {
+			display: inline-block;
+			margin-right: 0.5em;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	@media(min-width: @screen-tablet) {
+
+		.authors {
+			padding-right: 5em;
+		}
+
+		.cover {
+			float: right;
+			width: 25%;
+			height: auto;
+			max-height: none;
+			margin-right: @double;
+		}
+	}
+
+	@media(min-width: @screen-desktop) {
+
+		.cover {
+			margin-right: @triple;
+			margin-bottom: @triple;
+
+			img {
+				max-height: none;
+			}
+		}
+	}
+}

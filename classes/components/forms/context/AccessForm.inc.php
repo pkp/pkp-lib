@@ -9,7 +9,7 @@
  * @class AccessForm
  * @ingroup classes_controllers_form
  *
- * @brief A preset form for configuring the terms under which a journal will
+ * @brief A preset form for configuring the terms under which a server will
  *  allow access to its published content.
  */
 namespace APP\components\forms\context;

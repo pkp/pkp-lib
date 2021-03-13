@@ -15,7 +15,7 @@
  *
  */
 
-import('classes.search.ArticleSearch');
+import('classes.search.PreprintSearch');
 import('classes.file.PublicFileManager');
 import('lib.pkp.classes.template.PKPTemplateManager');
 
@@ -40,7 +40,7 @@ class TemplateManager extends PKPTemplateManager {
 			$publicFileManager = new PublicFileManager();
 			$siteFilesDir = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();
 			$this->assign('sitePublicFilesDir', $siteFilesDir);
-			$this->assign('publicFilesDir', $siteFilesDir); // May be overridden by journal
+			$this->assign('publicFilesDir', $siteFilesDir); // May be overridden by server
 
 			if ($site->getData('styleSheet')) {
 				$this->addStyleSheet(
@@ -66,7 +66,7 @@ class TemplateManager extends PKPTemplateManager {
 			if (isset($context)) {
 
 				$this->assign([
-					'currentJournal' => $context,
+					'currentServer' => $context,
 					'siteTitle' => $context->getLocalizedName(),
 					'publicFilesDir' => $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId()),
 					'primaryLocale' => $context->getPrimaryLocale(),
@@ -80,7 +80,7 @@ class TemplateManager extends PKPTemplateManager {
 				// Get a link to the settings page for the current context.
 				// This allows us to reduce template duplication by using this
 				// variable in templates/common/header.tpl, instead of
-				// reproducing a lot of OMP/OJS-specific logic there.
+				// reproducing a lot of OMP/OPS-specific logic there.
 				$dispatcher = $request->getDispatcher();
 				$this->assign([
 					'contextSettingsUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'management', 'settings', 'context'),

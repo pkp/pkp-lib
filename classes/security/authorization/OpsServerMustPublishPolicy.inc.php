@@ -26,7 +26,7 @@ class OpsServerMustPublishPolicy extends AuthorizationPolicy {
 	 * @param $roleAssignments array
 	 */
 	function __construct($request) {
-		parent::__construct('user.authorization.journalDoesNotPublish');
+		parent::__construct('user.authorization.serverDoesNotPublish');
 		$this->_context = $request->getContext();
 	}
 

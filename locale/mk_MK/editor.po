@@ -20,7 +20,7 @@ msgstr "Доделено на модератор"
 msgid "editor.publication.authorPublishRequirements"
 msgstr "Авторот не ги исполнува следниве услови за објавување:"
 
-msgid "editor.article.coverImage"
+msgid "editor.preprint.coverImage"
 msgstr "Насловна слика"
 
 msgid "editor.publicIdentificationExistsForTheSameType"

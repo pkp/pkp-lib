@@ -19,15 +19,15 @@ import('lib.pkp.classes.core.PKPApplication');
 
 define('REQUIRES_XSL', false);
 
-define('ASSOC_TYPE_ARTICLE',		ASSOC_TYPE_SUBMISSION); // DEPRECATED but needed by filter framework
+define('ASSOC_TYPE_PREPRINT',		ASSOC_TYPE_SUBMISSION); // DEPRECATED but needed by filter framework
 define('ASSOC_TYPE_GALLEY',		ASSOC_TYPE_REPRESENTATION);
 
-define('ASSOC_TYPE_JOURNAL',		0x0000100);
+define('ASSOC_TYPE_SERVER',		0x0000100);
 
-define('CONTEXT_JOURNAL', 1);
+define('CONTEXT_SERVER', 1);
 
-define('LANGUAGE_PACK_DESCRIPTOR_URL', 'http://pkp.sfu.ca/ojs/xml/%s/locales.xml');
-define('LANGUAGE_PACK_TAR_URL', 'http://pkp.sfu.ca/ojs/xml/%s/%s.tar.gz');
+define('LANGUAGE_PACK_DESCRIPTOR_URL', 'http://pkp.sfu.ca/ops/xml/%s/locales.xml');
+define('LANGUAGE_PACK_TAR_URL', 'http://pkp.sfu.ca/ops/xml/%s/%s.tar.gz');
 
 define('METRIC_TYPE_COUNTER', 'ops::counter');
 
@@ -35,7 +35,7 @@ class Application extends PKPApplication {
 	/**
 	 * Get the "context depth" of this application, i.e. the number of
 	 * parts of the URL after index.php that represent the context of
-	 * the current request (e.g. Journal [1], or Conference and
+	 * the current request (e.g. Server [1], or Conference and
 	 * Scheduled Conference [2]).
 	 * @return int
 	 */
@@ -48,7 +48,7 @@ class Application extends PKPApplication {
 	 * @return array
 	 */
 	public function getContextList() {
-		return array('journal');
+		return array('server');
 	}
 
 	/**
@@ -83,15 +83,15 @@ class Application extends PKPApplication {
 	public function getDAOMap() {
 		return array_merge(parent::getDAOMap(), array(
 			'SubmissionDAO' => 'classes.submission.SubmissionDAO',
-			'ArticleGalleyDAO' => 'classes.article.ArticleGalleyDAO',
-			'ArticleSearchDAO' => 'classes.search.ArticleSearchDAO',
-			'AuthorDAO' => 'classes.article.AuthorDAO',
-			'JournalDAO' => 'classes.journal.JournalDAO',
-			'JournalSettingsDAO' => 'classes.journal.JournalSettingsDAO',
+			'PreprintGalleyDAO' => 'classes.preprint.PreprintGalleyDAO',
+			'PreprintSearchDAO' => 'classes.search.PreprintSearchDAO',
+			'AuthorDAO' => 'classes.preprint.AuthorDAO',
+			'ServerDAO' => 'classes.server.ServerDAO',
+			'ServerSettingsDAO' => 'classes.server.ServerSettingsDAO',
 			'MetricsDAO' => 'classes.statistics.MetricsDAO',
-			'OAIDAO' => 'classes.oai.ojs.OAIDAO',
-			'PublishedSubmissionDAO' => 'classes.article.PublishedSubmissionDAO',
-			'SectionDAO' => 'classes.journal.SectionDAO',
+			'OAIDAO' => 'classes.oai.ops.OAIDAO',
+			'PublishedSubmissionDAO' => 'classes.preprint.PublishedSubmissionDAO',
+			'SectionDAO' => 'classes.server.SectionDAO',
 		));
 	}
 
@@ -125,7 +125,7 @@ class Application extends PKPApplication {
 	 * @return ContextDAO
 	 */
 	public static function getContextDAO() {
-		return DAORegistry::getDAO('JournalDAO');
+		return DAORegistry::getDAO('ServerDAO');
 	}
 
 	/**
@@ -141,22 +141,22 @@ class Application extends PKPApplication {
 	 * @return RepresentationDAO
 	 */
 	public static function getRepresentationDAO() {
-		return DAORegistry::getDAO('ArticleGalleyDAO');
+		return DAORegistry::getDAO('PreprintGalleyDAO');
 	}
 
 	/**
 	 * Get a SubmissionSearchIndex instance.
 	 */
 	public static function getSubmissionSearchIndex() {
-		import('classes.search.ArticleSearchIndex');
-		return new ArticleSearchIndex();
+		import('classes.search.PreprintSearchIndex');
+		return new PreprintSearchIndex();
 	}
 
 	/**
 	 * Get a SubmissionSearchDAO instance.
 	 */
 	public static function getSubmissionSearchDAO() {
-		return DAORegistry::getDAO('ArticleSearchDAO');
+		return DAORegistry::getDAO('PreprintSearchDAO');
 	}
 
 	/**
@@ -175,14 +175,14 @@ class Application extends PKPApplication {
 	 * @return int ASSOC_TYPE_...
 	 */
 	public static function getContextAssocType() {
-		return ASSOC_TYPE_JOURNAL;
+		return ASSOC_TYPE_SERVER;
 	}
 
 	/**
 	 * Get the file directory array map used by the application.
 	 */
 	public static function getFileDirectories() {
-		return array('context' => '/journals/', 'submission' => '/articles/');
+		return array('context' => '/contexts/', 'submission' => '/submissions/');
 	}
 
 }

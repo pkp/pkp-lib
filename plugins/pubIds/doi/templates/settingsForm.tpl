@@ -68,10 +68,10 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 	{if ($enablePublicationDoi || $enableRepresentationDoi) && $doiPrefix && $doiSuffix && $doiSuffix != 'customId' }
-		{fbvFormArea id="doiAssignJournalWideFormArea" title="plugins.pubIds.doi.manager.settings.doiAssignJournalWide"}
+		{fbvFormArea id="doiAssignServerWideFormArea" title="plugins.pubIds.doi.manager.settings.doiAssignServerWide"}
 			{fbvFormSection}
-				<div class="instruct">{translate key="plugins.pubIds.doi.manager.settings.doiAssignJournalWide.description"}</div>
-				{include file="linkAction/linkAction.tpl" action=$assignJournalWidePubIdsLinkAction contextId="doiSettingsForm"}
+				<div class="instruct">{translate key="plugins.pubIds.doi.manager.settings.doiAssignServerWide.description"}</div>
+				{include file="linkAction/linkAction.tpl" action=$assignServerWidePubIdsLinkAction contextId="doiSettingsForm"}
 			{/fbvFormSection}
 		{/fbvFormArea}
 	{/if}

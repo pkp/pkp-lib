@@ -60,7 +60,7 @@ msgid "plugins.importexport.crossref.settings.form.validation"
 msgstr "Validate XML. Use this option for the XML download for the manual DOI registration."
 
 msgid "plugins.importexport.crossref.issues.description"
-msgstr "Note: Only issues (and not their articles) will be considered for export/registration here."
+msgstr "Note: Only issues (and not their preprints) will be considered for export/registration here."
 
 msgid "plugins.importexport.crossref.status.failed"
 msgstr "Failed"
@@ -99,8 +99,8 @@ msgstr "CrossRef automatic registration task"
 msgid "plugins.importexport.crossref.cliUsage"
 msgstr ""
 "Usage:\n"
-"{$scriptName} {$pluginName} export [xmlFileName] [server_path] articles objectId1 [objectId2] ...\n"
-"{$scriptName} {$pluginName} register [server_path] articles objectId1 [objectId2] ...\n"
+"{$scriptName} {$pluginName} export [xmlFileName] [server_path] preprints objectId1 [objectId2] ...\n"
+"{$scriptName} {$pluginName} register [server_path] preprints objectId1 [objectId2] ...\n"
 ""
 
 msgid "plugins.importexport.crossref.register.error.mdsError"
@@ -112,5 +112,5 @@ msgstr "Registration was successful but the following warning occurred: '{$param
 msgid "plugins.importexport.crossref.export.error.issueNotFound"
 msgstr "No issue matched the specified issue ID \"{$issueId}\"."
 
-msgid "plugins.importexport.crossref.export.error.articleNotFound"
-msgstr "No article matched the specified article ID \"{$articleId}\"."
+msgid "plugins.importexport.crossref.export.error.preprintNotFound"
+msgstr "No preprint matched the specified preprint ID \"{$preprintId}\"."

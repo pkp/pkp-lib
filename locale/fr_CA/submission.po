@@ -114,7 +114,7 @@ msgid "submission.upload.selectComponent"
 msgstr "Sélectionner l'élément de la prépublication"
 
 msgid "submission.submit.userGroupDescription"
-msgstr "Choisir le rôle sous lequel vous soumettez votre article."
+msgstr "Choisir le rôle sous lequel vous soumettez votre preprint."
 
 msgid "submission.submit.userGroup"
 msgstr "Soumettre en tant que (rôle)..."

@@ -42,15 +42,15 @@ class SubmissionFileService extends \PKP\Services\PKPSubmissionFileService {
 
 		// Remove galley associations and update search index
 		if ($submissionFile->getData('assocType') == ASSOC_TYPE_REPRESENTATION) {
-			$galleyDao = DAORegistry::getDAO('ArticleGalleyDAO'); /* @var $galleyDao ArticleGalleyDAO */
+			$galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $galleyDao PreprintGalleyDAO */
 			$galley = $galleyDao->getById($submissionFile->getData('assocId'));
 			if ($galley && $galley->getData('submissionFileId') == $submissionFile->getId()) {
 				$galley->_data['submissionFileId'] = null; // Work around pkp/pkp-lib#5740
 				$galleyDao->updateObject($galley);
 			}
 			import('lib.pkp.classes.search.SubmissionSearch');
-			$articleSearchIndex = Application::getSubmissionSearchIndex();
-			$articleSearchIndex->deleteTextIndex($submissionFile->getData('submissionId'), SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile->getId());
+			$preprintSearchIndex = Application::getSubmissionSearchIndex();
+			$preprintSearchIndex->deleteTextIndex($submissionFile->getData('submissionId'), SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile->getId());
 		}
 	}
 

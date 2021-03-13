@@ -18,23 +18,23 @@
 		</div>
 	{/if}
 
-	<div class="journals">
+	<div class="servers">
 		<h2>
 			{translate key="context.contexts"}
 		</h2>
-		{if !$journals|@count}
-			{translate key="site.noJournals"}
+		{if !$servers|@count}
+			{translate key="site.noServers"}
 		{else}
 			<ul>
-				{foreach from=$journals item=journal}
-					{capture assign="url"}{url journal=$journal->getPath()}{/capture}
-					{assign var="thumb" value=$journal->getLocalizedData('serverThumbnail')}
-					{assign var="description" value=$journal->getLocalizedDescription()}
+				{foreach from=$servers item=server}
+					{capture assign="url"}{url server=$server->getPath()}{/capture}
+					{assign var="thumb" value=$server->getLocalizedData('serverThumbnail')}
+					{assign var="description" value=$server->getLocalizedDescription()}
 					<li{if $thumb} class="has_thumb"{/if}>
 						{if $thumb}
 							<div class="thumb">
 								<a href="{$url|escape}">
-									<img src="{$journalFilesPath}{$journal->getId()}/{$thumb.uploadName|escape:"url"}"{if $thumb.altText} alt="{$thumb.altText|escape|default:''}"{/if}>
+									<img src="{$serverFilesPath}{$server->getId()}/{$thumb.uploadName|escape:"url"}"{if $thumb.altText} alt="{$thumb.altText|escape|default:''}"{/if}>
 								</a>
 							</div>
 						{/if}
@@ -42,7 +42,7 @@
 						<div class="body">
 							<h3>
 								<a href="{$url|escape}" rel="bookmark">
-									{$journal->getLocalizedName()}
+									{$server->getLocalizedName()}
 								</a>
 							</h3>
 							{if $description}
@@ -53,7 +53,7 @@
 							<ul class="links">
 								<li class="view">
 									<a href="{$url|escape}">
-										{translate key="site.journalView"}
+										{translate key="site.serverView"}
 									</a>
 								</li>
 							</ul>

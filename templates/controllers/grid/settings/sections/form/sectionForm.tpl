@@ -5,7 +5,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * Section form under journal management.
+ * Section form under server management.
  *}
 
 <script type="text/javascript">

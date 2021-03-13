@@ -146,7 +146,7 @@ class WorkflowHandler extends PKPWorkflowHandler {
 			$request,
 			PKPApplication::ROUTE_COMPONENT,
 			null,
-			'grid.articleGalleys.ArticleGalleyGridHandler',
+			'grid.preprintGalleys.PreprintGalleyGridHandler',
 			'fetchGrid',
 			null,
 			[

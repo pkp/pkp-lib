@@ -129,7 +129,7 @@ msgstr ""
 msgid "default.contextSettings.checklist.notPreviouslyPublished"
 msgstr "A submissão não foi postada anteriormente."
 
-msgid "default.genres.article"
+msgid "default.genres.preprint"
 msgstr "Texto de preprint"
 
 msgid "section.default.path"

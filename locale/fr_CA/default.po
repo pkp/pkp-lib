@@ -27,7 +27,7 @@ msgstr ""
 "par un autre serveur. Si ce n'est pas le cas, fournir une explication dans "
 "le champ « Commentaires au,à la rédacteur-trice »."
 
-msgid "default.genres.article"
+msgid "default.genres.preprint"
 msgstr "Texte de la prépublication"
 
 msgid "section.default.path"

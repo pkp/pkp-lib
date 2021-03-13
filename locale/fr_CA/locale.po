@@ -16,9 +16,9 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "about.aboutOJSSite"
+msgid "about.aboutOPSSite"
 msgstr ""
-"Ce site utilise Open Preprint Systems {$ojsVersion}, un logiciel de gestion "
+"Ce site utilise Open Preprint Systems {$opsVersion}, un logiciel de gestion "
 "et d'édition de serveurs à code source libre développé, pris en charge et "
 "distribué librement par le <a href=\"http://pkp.sfu.ca/\">Public Knowledge "
 "Project</a> sous la license publique générale GNU."
@@ -27,9 +27,9 @@ msgid "submission.layout.galleyPublicIdentificationExists"
 msgstr "L'identification publique de cette épreuve existe déjà."
 
 #, fuzzy
-msgid "about.aboutOJSJournal"
+msgid "about.aboutOPSServer"
 msgstr ""
-"Ce serveur utilise Open Preprint Systems {$ojsVersion}, un logiciel de "
+"Ce serveur utilise Open Preprint Systems {$opsVersion}, un logiciel de "
 "gestion et d'édition de serveurs à code source libre développé, pris en "
 "charge et distribué librement par le <a href=\"http://pkp.sfu.ca/\">Public "
 "Knowledge Project</a> sous la license publique générale GNU."
@@ -102,10 +102,10 @@ msgstr "Archives - Page {$pageNumber}"
 msgid "archive.archives"
 msgstr "Archives"
 
-msgid "site.noJournals"
+msgid "site.noServers"
 msgstr "Aucun serveur n'est disponible."
 
-msgid "site.journalView"
+msgid "site.serverView"
 msgstr "Afficher le serveur"
 
 msgid "search.authorDetails"
@@ -168,7 +168,7 @@ msgstr "Popularité (Mois dernier)"
 msgid "search.results.orderBy.popularityAll"
 msgstr "Popularité (de tous les temps)"
 
-msgid "search.results.orderBy.journal"
+msgid "search.results.orderBy.server"
 msgstr "Titre du serveur"
 
 #, fuzzy
@@ -178,7 +178,7 @@ msgstr "Date de publication"
 msgid "search.results.orderBy.author"
 msgstr "Auteur-e"
 
-msgid "search.results.orderBy.article"
+msgid "search.results.orderBy.preprint"
 msgstr "Titre de la prépublication"
 
 msgid "search.results.orderBy"
@@ -234,10 +234,10 @@ msgstr "Recherche de prépublications"
 msgid "submissions.published"
 msgstr "Publié-e"
 
-msgid "article.abstract"
+msgid "preprint.abstract"
 msgstr "Résumé"
 
-msgid "article.details"
+msgid "preprint.details"
 msgstr "Renseignements"
 
 msgid "publication.version"
@@ -340,7 +340,7 @@ msgstr ""
 "plus sur le Public Knowledge Project et ses projets de logiciels, veuillez "
 "visiter le <a href=\"http://pkp.sfu.ca/\" target=\"_blank\">site Web de "
 "PKP</a>. Si vous avez des rapports de bogues ou des demandes de soutien "
-"technique concernant Open Journal Systems, voir le <a href=\""
+"technique concernant Open Preprint Systems, voir le <a href=\""
 "http://forum.pkp.sfu.ca\" target=\"_blank\">forum de soutien</a> ou visiter "
 "le <a href=\"https://github.com/pkp/pkp-lib#issues\" target=\"_blank\">"
 "système de rapports de bogues</a>en ligne de PKP. Bien que le forum de "

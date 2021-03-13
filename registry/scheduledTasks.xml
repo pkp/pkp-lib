@@ -28,7 +28,7 @@
 
 <scheduled_tasks>
 	<task class="lib.pkp.classes.task.StatisticsReport">
-		<descr>Send automated statistics reports to journal managers and editors.</descr>
+		<descr>Send automated statistics reports to server managers and editors.</descr>
 		<frequency day="1"/>
 	</task>
 </scheduled_tasks>

@@ -11,7 +11,7 @@
  * @ingroup plugins_metadata_dc11_schema
  * @see PKPDc11Schema
  *
- * @brief OJS-specific implementation of the Dc11Schema.
+ * @brief OPS-specific implementation of the Dc11Schema.
  */
 
 

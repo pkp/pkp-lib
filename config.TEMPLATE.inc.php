@@ -11,7 +11,7 @@
 ; Copyright (c) 2003-2021 John Willinsky
 ; Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
 ;
-; OJS Configuration settings.
+; OPS Configuration settings.
 ; Rename config.TEMPLATE.inc.php to config.inc.php to use.
 ;
 ;
@@ -28,15 +28,15 @@
 ; (This is generally done automatically by the installer)
 installed = Off
 
-; The canonical URL to the OJS installation (excluding the trailing slash)
-base_url = "http://pkp.sfu.ca/ojs"
+; The canonical URL to the OPS installation (excluding the trailing slash)
+base_url = "http://pkp.sfu.ca/ops"
 
 ; Enable strict mode. This will more aggressively cause errors/warnings when
 ; deprecated behaviour exists in the codebase.
 strict = Off
 
 ; Session cookie name
-session_cookie_name = OJSSID
+session_cookie_name = OPSSID
 
 ; Session cookie path; if not specified, defaults to the detected base path
 ; session_cookie_path = /
@@ -77,15 +77,15 @@ disable_path_info = Off
 allow_url_fopen = Off
 
 ; Base URL override settings: Entries like the following examples can
-; be used to override the base URLs used by OJS. If you want to use a
-; proxy to rewrite URLs to OJS, configure your proxy's URL here.
-; Syntax: base_url[journal_path] = http://www.myUrl.com
-; To override URLs that aren't part of a particular journal, use a
-; journal_path of "index".
+; be used to override the base URLs used by OPS. If you want to use a
+; proxy to rewrite URLs to OPS, configure your proxy's URL here.
+; Syntax: base_url[server_path] = http://www.myUrl.com
+; To override URLs that aren't part of a particular server, use a
+; server_path of "index".
 ; Examples:
 ; base_url[index] = http://www.myUrl.com
-; base_url[myJournal] = http://www.myUrl.com/myJournal
-; base_url[myOtherJournal] = http://myOtherJournal.myUrl.com
+; base_url[myServer] = http://www.myUrl.com/myServer
+; base_url[myOtherServer] = http://myOtherServer.myUrl.com
 
 ; Generate RESTful URLs using mod_rewrite.  This requires the
 ; rewrite directive to be enabled in your .htaccess or httpd.conf.
@@ -104,7 +104,7 @@ trust_x_forwarded_for = Off
 ; and 10. The more your connection bandwidth allows the better.
 citation_checking_max_processes = 3
 
-; Display a message on the site admin and journal manager user home pages if there is an upgrade available
+; Display a message on the site admin and server manager user home pages if there is an upgrade available
 show_upgrade_warning = On
 
 ; Set the following parameter to off if you want to work with the uncompiled (non-minified) JavaScript
@@ -116,9 +116,9 @@ enable_minified = Off
 enable_beacon = On
 
 ; Set this to "On" if you would like to only have a single, site-wide Privacy
-; Statement, rather than a separate Privacy Statement for each journal. Setting
+; Statement, rather than a separate Privacy Statement for each server. Setting
 ; this to "Off" will allow you to enter a site-wide Privacy Statement as well
-; as separate Privacy Statements for each journal.
+; as separate Privacy Statements for each server.
 sitewide_privacy_statement = Off
 
 
@@ -130,9 +130,9 @@ sitewide_privacy_statement = Off
 
 driver = mysqli
 host = localhost
-username = ojs
-password = ojs
-name = ojs
+username = ops
+password = ops
+name = ops
 
 ; Set the non-standard port and/or socket, if used
 ; port = 3306
@@ -166,15 +166,15 @@ memcache_port = 11211
 ; these pages will be cached in local flat files for the number of hours
 ; specified in the web_cache_hours option. This will cut down on server
 ; overhead for many requests, but should be used with caution because:
-; 1) Things like journal metadata changes will not be reflected in cached
+; 1) Things like server metadata changes will not be reflected in cached
 ;    data until the cache expires or is cleared, and
 ; 2) This caching WILL NOT RESPECT DOMAIN-BASED SUBSCRIPTIONS.
-; However, for situations like hosting high-volume open access journals, it's
+; However, for situations like hosting high-volume open access servers, it's
 ; an easy way of decreasing server load.
 ;
 ; When using web_cache, configure a tool to periodically clear out cache files
 ; such as CRON. For example, configure it to run the following command:
-; find .../ojs/cache -maxdepth 1 -name wc-\*.html -mtime +1 -exec rm "{}" ";"
+; find .../ops/cache -maxdepth 1 -name wc-\*.html -mtime +1 -exec rm "{}" ";"
 web_cache = Off
 web_cache_hours = 1
 
@@ -208,7 +208,7 @@ files_dir = files
 
 ; Path to the directory to store public uploaded files
 ; (This directory should be web-accessible and the specified path
-; should be relative to the base OJS directory)
+; should be relative to the base OPS directory)
 ; Windows users should use forward slashes
 public_files_dir = public
 
@@ -357,7 +357,7 @@ allowed_html = "a[href|target|title],em,strong,cite,code,ul,ol,li[class],dl,dt,d
 ; dmarc_compliant_from_displayname = '%n via %s'
 
 ; Amount of time required between attempts to send non-editorial emails
-; in seconds. This can be used to help prevent email relaying via OJS.
+; in seconds. This can be used to help prevent email relaying via OPS.
 time_between_emails = 3600
 
 ; Maximum number of recipients that can be included in a single email
@@ -418,7 +418,7 @@ result_cache_hours = 1
 oai = On
 
 ; OAI Repository identifier
-repository_id = ojs.pkp.sfu.ca
+repository_id = ops.pkp.sfu.ca
 
 ; Maximum number of records per request to serve via OAI
 oai_max_records = 100
@@ -429,10 +429,10 @@ oai_max_records = 100
 
 [interface]
 
-; Number of items to display per page; can be overridden on a per-journal basis
+; Number of items to display per page; can be overridden on a per-server basis
 items_per_page = 25
 
-; Number of page links to display; can be overridden on a per-journal basis
+; Number of page links to display; can be overridden on a per-server basis
 page_links = 10
 
 

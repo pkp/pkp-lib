@@ -12,4 +12,4 @@ msgstr ""
 "Language: \n"
 
 msgid "plugins.reports.counter.ar1.title"
-msgstr "Article Report 1"
+msgstr "Preprint Report 1"

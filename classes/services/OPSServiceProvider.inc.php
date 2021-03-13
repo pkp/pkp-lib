@@ -10,7 +10,7 @@
  * @class OPSServiceProvider
  * @ingroup services
  *
- * @brief Utility class to package all OJS services
+ * @brief Utility class to package all OPS services
  */
 
 namespace APP\Services;

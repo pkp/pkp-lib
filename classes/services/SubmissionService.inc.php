@@ -156,13 +156,13 @@ class SubmissionService extends \PKP\Services\PKPSubmissionService {
 			if (empty($bySections[$sectionId])) {
 				$section = \Application::get()->getSectionDao()->getById($sectionId);
 				$bySections[$sectionId] = [
-					'articles' => [],
+					'preprints' => [],
 					'title' => $section->getData('hideTitle') ? '' : $section->getLocalizedData('title'),
 					'abstractsNotRequired' => $section->getData('abstractsNotRequired'),
 					'hideAuthor' => $section->getData('hideAuthor'),
 				];
 			}
-			$bySections[$sectionId]['articles'][] = $submission;
+			$bySections[$sectionId]['preprints'][] = $submission;
 		}
 
 		return $bySections;

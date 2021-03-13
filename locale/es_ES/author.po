@@ -55,11 +55,11 @@ msgid "submission.submit.coverNote"
 msgstr "Comentarios para el Editor"
 
 #, fuzzy
-msgid "author.submit.journalSectionDescription"
+msgid "author.submit.serverSectionDescription"
 msgstr "Los preprints deben enviarse a una de las series del servidor."
 
 #, fuzzy
-msgid "author.submit.journalSection"
+msgid "author.submit.serverSection"
 msgstr "Serie del servidor"
 
 msgid "author.submit.notAccepting"

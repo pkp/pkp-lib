@@ -10,7 +10,7 @@
  */
 import PkpLoad from '../lib/pkp/js/load.js';
 
-// Import controllers used by OJS
+// Import controllers used by OPS
 import Container from '@/components/Container/Container.vue';
 import Page from '@/components/Container/Page.vue';
 import AccessPage from '@/components/Container/AccessPage.vue';

@@ -9,7 +9,7 @@
  * @class AR1
  * @ingroup plugins_reports_counter
  *
- * @brief Article Report 1
+ * @brief Preprint Report 1
  */
 
 import('plugins.reports.counter.classes.CounterReport');
@@ -24,7 +24,7 @@ class CounterReportAR1 extends CounterReport {
 	}
 
 	/*
-	 * Convert an OJS metrics request to a COUNTER ReportItem
+	 * Convert an OPS metrics request to a COUNTER ReportItem
 	 * @param $columns string|array column (aggregation level) selection
 	 * @param $filters array report-level filter selection
 	 * @param $orderBy array order criteria
@@ -61,7 +61,7 @@ class CounterReportAR1 extends CounterReport {
 		} elseif ($filters[STATISTICS_DIMENSION_ASSOC_TYPE] != ASSOC_TYPE_SUBMISSION_FILE) {
 			$this->setError(new Exception(__('plugins.reports.counter.exception.filter'), COUNTER_EXCEPTION_ERROR | COUNTER_EXCEPTION_BAD_FILTERS));
 		}
-		// AR1 could be filtered to the Journal, Issue, or Article level
+		// AR1 could be filtered to the Server, Issue, or Preprint level
 		foreach ($filters as $key => $filter) {
 			switch ($key) {
 				case STATISTICS_DIMENSION_CONTEXT_ID:
@@ -75,22 +75,22 @@ class CounterReportAR1 extends CounterReport {
 		if (array_keys($filters)) {
 			$this->setError(new Exception(__('plugins.reports.counter.exception.filter'), COUNTER_EXCEPTION_WARNING | COUNTER_EXCEPTION_BAD_FILTERS));
 		}
-		// Metric type is ojs::counter
+		// Metric type is ops::counter
 		$metricType = METRIC_TYPE_COUNTER;
-		// Ordering must be by Journal (ReportItem), and by Month (ItemPerformance) for JR1
+		// Ordering must be by Server (ReportItem), and by Month (ItemPerformance) for JR1
 		$validOrder = array(STATISTICS_DIMENSION_SUBMISSION_ID => STATISTICS_ORDER_DESC, STATISTICS_DIMENSION_MONTH => STATISTICS_ORDER_ASC);
 		// TODO: range
 		$results = $metricsDao->getMetrics($metricType, $defaultColumns, $validFilters, $validOrder);
 		$reportItems = array();
 		if ($results) {
-			// We'll create a new Report Item with these Metrics on a article change
+			// We'll create a new Report Item with these Metrics on a preprint change
 			$metrics = array();
-			$lastArticle = 0;
+			$lastPreprint = 0;
 			foreach ($results as $rs) {
-				// Article changes trigger a new ReportItem
-				if ($lastArticle != $rs[STATISTICS_DIMENSION_SUBMISSION_ID]) {
-					if ($lastArticle != 0 && $metrics) {
-						$item = $this->_createReportItem($lastArticle, $metrics);
+				// Preprint changes trigger a new ReportItem
+				if ($lastPreprint != $rs[STATISTICS_DIMENSION_SUBMISSION_ID]) {
+					if ($lastPreprint != 0 && $metrics) {
+						$item = $this->_createReportItem($lastPreprint, $metrics);
 						if ($item) {
 							$reportItems[] = $item;
 						} else {
@@ -100,11 +100,11 @@ class CounterReportAR1 extends CounterReport {
 					}
 				}
 				$metrics[] = $this->createMetricByMonth($rs[STATISTICS_DIMENSION_MONTH], array(new COUNTER\PerformanceCounter('ft_total', $rs[STATISTICS_METRIC])));
-				$lastArticle = $rs[STATISTICS_DIMENSION_SUBMISSION_ID];
+				$lastPreprint = $rs[STATISTICS_DIMENSION_SUBMISSION_ID];
 			}
 			// Capture the last unprocessed ItemPerformance and ReportItem entries, if applicable
 			if ($metrics) {
-				$item = $this->_createReportItem($lastArticle, $metrics);
+				$item = $this->_createReportItem($lastPreprint, $metrics);
 				if ($item) {
 					$reportItems[] = $item;
 				} else {
@@ -125,39 +125,39 @@ class CounterReportAR1 extends CounterReport {
 	 */
 	private function _createReportItem($submissionId, $metrics) {
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO');
-		$article = $submissionDao->getById($submissionId);
-		if (!$article) {
+		$preprint = $submissionDao->getById($submissionId);
+		if (!$preprint) {
 			return false;
 		}
-		$title = $article->getLocalizedTitle();
-		$journalId = $article->getContextId();
-		$journalDao = DAORegistry::getDAO('JournalDAO'); /* @var $journalDao JournalDAO */
-		$journal = $journalDao->getById($journalId);
-		if (!$journal) {
+		$title = $preprint->getLocalizedTitle();
+		$serverId = $preprint->getContextId();
+		$serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
+		$server = $serverDao->getById($serverId);
+		if (!$server) {
 			return false;
 		}
-		$journalName = $journal->getLocalizedName();
-		$journalPubIds = array();
+		$serverName = $server->getLocalizedName();
+		$serverPubIds = array();
 		foreach (array('print', 'online') as $issnType) {
-			if ($journal->getData($issnType.'Issn')) {
+			if ($server->getData($issnType.'Issn')) {
 				try {
-					$journalPubIds[] = new COUNTER\Identifier(ucfirst($issnType).'_ISSN', $journal->getData($issnType.'Issn'));
+					$serverPubIds[] = new COUNTER\Identifier(ucfirst($issnType).'_ISSN', $server->getData($issnType.'Issn'));
 				} catch (Exception $ex) {
 					// Just ignore it
 				}
 			}
 		}
-		$journalPubIds[] = new COUNTER\Identifier(COUNTER_LITERAL_PROPRIETARY, $journal->getPath());
-		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $journalId);
-		$articlePubIds = array();
-		$articlePubIds[] = new COUNTER\Identifier(COUNTER_LITERAL_PROPRIETARY, (string) $submissionId);
+		$serverPubIds[] = new COUNTER\Identifier(COUNTER_LITERAL_PROPRIETARY, $server->getPath());
+		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $serverId);
+		$preprintPubIds = array();
+		$preprintPubIds[] = new COUNTER\Identifier(COUNTER_LITERAL_PROPRIETARY, (string) $submissionId);
 		foreach ($pubIdPlugins as $pubIdPlugin) {
-			$pubId = $article->getStoredPubId($pubIdPlugin->getPubIdType(), true);
+			$pubId = $preprint->getStoredPubId($pubIdPlugin->getPubIdType(), true);
 			if ($pubId) {
 				switch ($pubIdPlugin->getPubIdType()) {
 					case 'doi':
 						try {
-							$articlePubIds[] = new COUNTER\Identifier(strtoupper($pubIdPlugin->getPubIdType()), $pubId);
+							$preprintPubIds[] = new COUNTER\Identifier(strtoupper($pubIdPlugin->getPubIdType()), $pubId);
 						} catch (Exception $ex) {
 							// Just ignore it
 						}
@@ -171,10 +171,10 @@ class CounterReportAR1 extends CounterReport {
 			$reportItem = new COUNTER\ReportItems(
 				__('common.software'),
 				$title,
-				COUNTER_LITERAL_ARTICLE,
+				COUNTER_LITERAL_PREPRINT,
 				$metrics,
-				new COUNTER\ParentItem($journalName, COUNTER_LITERAL_JOURNAL, $journalPubIds),
-				$articlePubIds
+				new COUNTER\ParentItem($serverName, COUNTER_LITERAL_SERVER, $serverPubIds),
+				$preprintPubIds
 			);
 		} catch (Exception $e) {
 			$this->setError($e, COUNTER_EXCEPTION_ERROR | COUNTER_EXCEPTION_INTERNAL);

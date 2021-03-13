@@ -36,7 +36,7 @@
 
 
 	{if $preprints|@count}
-		<ul class="cmp_article_list">
+		<ul class="cmp_preprint_list">
 			{foreach from=$preprints item=preprint}
 				<li>
 					{* TODO remove section=null workaround *}

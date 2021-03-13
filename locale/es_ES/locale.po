@@ -80,17 +80,17 @@ msgid "help.goToEditPage"
 msgstr "Editar {$sectionTitle}"
 
 #, fuzzy
-msgid "about.aboutOJSSite"
+msgid "about.aboutOPSSite"
 msgstr ""
-"Este sitio utiliza Open Preprint Systems {$ojsVersion}, que es un software "
+"Este sitio utiliza Open Preprint Systems {$opsVersion}, que es un software "
 "de gestión y publicación de servidores de código abierto desarrollado, "
 "respaldado y distribuido libremente por el <a href=\"http://pkp.sfu.ca/\">"
 "Public Knowledge Project</a> bajo la Licencia Pública General de GNU."
 
 #, fuzzy
-msgid "about.aboutOJSJournal"
+msgid "about.aboutOPSServer"
 msgstr ""
-"Este servidor utiliza Open Preprint Systems {$ojsVersion}, que es un "
+"Este servidor utiliza Open Preprint Systems {$opsVersion}, que es un "
 "software de gestión y publicación de servidores de código abierto "
 "desarrollado, soportado y distribuido libremente por el <a href=\""
 "http://pkp.sfu.ca/\">Public Knowledge Projec </a> bajo la Licencia Pública "
@@ -165,10 +165,10 @@ msgstr "Archivos - Página {$pageNumber}"
 msgid "archive.archives"
 msgstr "Archivos"
 
-msgid "site.noJournals"
+msgid "site.noServers"
 msgstr "No hay servidores disponibles."
 
-msgid "site.journalView"
+msgid "site.serverView"
 msgstr "Ver servidor"
 
 msgid "search.authorDetails"
@@ -222,7 +222,7 @@ msgstr "Relevancia"
 msgid "search.results.orderBy.popularityMonth"
 msgstr "Popularidad (último mes)"
 
-msgid "search.results.orderBy.journal"
+msgid "search.results.orderBy.server"
 msgstr "Título del servidor"
 
 #, fuzzy
@@ -232,7 +232,7 @@ msgstr "Fecha de publicación"
 msgid "search.results.orderBy.author"
 msgstr "Autor"
 
-msgid "search.results.orderBy.article"
+msgid "search.results.orderBy.preprint"
 msgstr "Título de preprint"
 
 msgid "search.results.orderBy"
@@ -277,10 +277,10 @@ msgstr "Búsqueda de preprint"
 msgid "submissions.published"
 msgstr "Postado"
 
-msgid "article.abstract"
+msgid "preprint.abstract"
 msgstr "Resumen"
 
-msgid "article.details"
+msgid "preprint.details"
 msgstr "Detalles"
 
 msgid "publication.version"
@@ -363,5 +363,5 @@ msgstr "Categorías"
 msgid "submission.layout.galley.remoteURL"
 msgstr "URL de contenido alojado de forma remota"
 
-msgid "article.pageTitle"
+msgid "preprint.pageTitle"
 msgstr "Vista de {$title}"

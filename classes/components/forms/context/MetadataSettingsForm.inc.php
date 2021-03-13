@@ -9,7 +9,7 @@
  * @class MetadataSettingsForm
  * @ingroup classes_controllers_form
  *
- * @brief Add OJS-specific fields to the masthead form.
+ * @brief Add OPS-specific fields to the masthead form.
  */
 namespace APP\components\forms\context;
 use \PKP\components\forms\context\PKPMetadataSettingsForm;

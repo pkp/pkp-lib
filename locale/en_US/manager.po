@@ -173,7 +173,7 @@ msgstr "Items per page"
 msgid "manager.setup.itemsPerPage.description"
 msgstr "Limit the number of items (for example, submissions, users, or editing assignments) to show in a list before showing subsequent items in another page."
 
-msgid "manager.setup.journalAbbreviation"
+msgid "manager.setup.serverAbbreviation"
 msgstr "Server Abbreviation"
 
 msgid "manager.setup.contextSummary"
@@ -212,7 +212,7 @@ msgstr "Page links"
 msgid "manager.setup.numPageLinks.description"
 msgstr "Limit the number of links to display to subsequent pages in a list."
 
-msgid "manager.setup.restrictArticleAccess"
+msgid "manager.setup.restrictPreprintAccess"
 msgstr "Users must be registered and log in to view open access content."
 
 msgid "manager.setup.restrictSiteAccess"
@@ -263,7 +263,7 @@ msgstr ""
 msgid "manager.statistics.statistics"
 msgstr "Server Statistics"
 
-msgid "manager.statistics.statistics.articleViews"
+msgid "manager.statistics.statistics.preprintViews"
 msgstr "Preprint View Counts (for Authors only)"
 
 msgid "manager.statistics.statistics.count.accept"
@@ -293,13 +293,13 @@ msgstr "Total submissions"
 msgid "manager.statistics.statistics.registeredReaders"
 msgstr "Registered readers"
 
-msgid "manager.statistics.reports.defaultReport.articleDownloads"
+msgid "manager.statistics.reports.defaultReport.preprintDownloads"
 msgstr "Preprint file downloads"
 
-msgid "manager.statistics.reports.defaultReport.articleAbstract"
+msgid "manager.statistics.reports.defaultReport.preprintAbstract"
 msgstr "Preprint abstract page views"
 
-msgid "manager.statistics.reports.defaultReport.journalIndexPageViews"
+msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
 msgstr "Server main page views"
 
 msgid "manager.statistics.reports.filters.byObject.description"
@@ -335,7 +335,7 @@ msgstr "Settings"
 msgid "plugins.importexport.common.settings.DOIPluginSettings"
 msgstr "DOI Plugin Settings"
 
-msgid "plugins.importexport.common.export.articles"
+msgid "plugins.importexport.common.export.preprints"
 msgstr "Preprints"
 
 msgid "plugins.importexport.common.missingRequirements"
@@ -404,8 +404,8 @@ msgstr "DOI prefix is missing for the server with the path {$path}."
 msgid "plugins.importexport.common.cliError"
 msgstr "ERROR:"
 
-msgid "plugins.importexport.common.error.unknownJournal"
-msgstr "The specified server path, "{$journalPath}", does not exist."
+msgid "plugins.importexport.common.error.unknownServer"
+msgstr "The specified server path, "{$serverPath}", does not exist."
 
 msgid "plugins.importexport.common.error.unknownObjects"
 msgstr "The specified objects could not be found."

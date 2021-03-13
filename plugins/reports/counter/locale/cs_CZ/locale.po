@@ -50,8 +50,8 @@ msgstr "YTD HTML"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "YTD PDF"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Celkem pro všechny časopisy"
 
 msgid "plugins.reports.counter.legacyStats"
-msgstr "Odkazy níže generují zprávy využití pomocí starého pluginu počítání přístupů. Pokud chcete počty generovat pomocí nového OJS počítadla, použijte odkazy výše."
+msgstr "Odkazy níže generují zprávy využití pomocí starého pluginu počítání přístupů. Pokud chcete počty generovat pomocí nového OPS počítadla, použijte odkazy výše."

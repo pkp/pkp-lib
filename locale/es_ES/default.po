@@ -134,7 +134,7 @@ msgstr ""
 "consideración (o se ha proporcionado una explicación en Comentarios al "
 "Editor)."
 
-msgid "default.genres.article"
+msgid "default.genres.preprint"
 msgstr "texto preprint"
 
 msgid "section.default.path"

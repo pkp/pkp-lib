@@ -80,14 +80,14 @@ msgstr "HTML YTD"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "PDF YTD"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Total para todas as revistas"
 
 msgid "plugins.reports.counter.1a.anonymous"
 msgstr "anônimo"
 
 msgid "plugins.reports.counter.legacyStats"
-msgstr "Os links a seguir geram relatórios usando dados antigos do plugin, não preparados para o COUNTER. Caso deseje relatórios COUNTER atuais com a nova métrica COUNTER do OJS, use os links anteriores."
+msgstr "Os links a seguir geram relatórios usando dados antigos do plugin, não preparados para o COUNTER. Caso deseje relatórios COUNTER atuais com a nova métrica COUNTER do OPS, use os links anteriores."
 
 msgid "plugins.reports.counter.allCustomers"
 msgstr "Todos os consumidores"

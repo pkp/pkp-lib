@@ -39,10 +39,10 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form {
 		$submission = $this->submission;
 
 		// Send author notification email
-		import('classes.mail.ArticleMailTemplate');
+		import('classes.mail.PreprintMailTemplate');
 
-		$mail = new ArticleMailTemplate($submission, 'SUBMISSION_ACK', null, null, false);
-		$authorMail = new ArticleMailTemplate($submission, 'SUBMISSION_ACK_NOT_USER', null, null, false);
+		$mail = new PreprintMailTemplate($submission, 'SUBMISSION_ACK', null, null, false);
+		$authorMail = new PreprintMailTemplate($submission, 'SUBMISSION_ACK_NOT_USER', null, null, false);
 
 		$router = $request->getRouter();
 		if ($mail->isEnabled()) {

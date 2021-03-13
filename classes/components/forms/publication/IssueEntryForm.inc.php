@@ -79,7 +79,7 @@ class IssueEntryForm extends FormComponent {
 		}
 
 		$this->addField(new FieldUploadImage('coverImage', [
-				'label' => __('editor.article.coverImage'),
+				'label' => __('editor.preprint.coverImage'),
 				'value' => $publication->getData('coverImage'),
 				'isMultilingual' => true,
 				'baseUrl' => $baseUrl,

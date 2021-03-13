@@ -38,7 +38,7 @@
 
 	{* List preprints *}
 	{else}
-		<ul class="cmp_article_list articles">
+		<ul class="cmp_preprint_list preprints">
 			{foreach from=$publishedSubmissions item="preprint"}
 				<li>
 					{include file="frontend/objects/preprint_summary.tpl"}

@@ -73,15 +73,15 @@ class UsageEventPlugin extends PKPUsageEventPlugin {
 						$publicationId = (int) $args[2];
 					}
 
-					$journal = $templateMgr->getTemplateVars('currentContext');
+					$server = $templateMgr->getTemplateVars('currentContext');
 					$submission = $templateMgr->getTemplateVars('preprint');
 
 					// No published objects, no usage event.
-					if (!$journal && !$submission) break;
+					if (!$server && !$submission) break;
 
-					if ($journal) {
-						$pubObject = $journal;
-						$assocType = ASSOC_TYPE_JOURNAL;
+					if ($server) {
+						$pubObject = $server;
+						$assocType = ASSOC_TYPE_SERVER;
 						$canonicalUrlOp = '';
 					}
 
@@ -130,7 +130,7 @@ class UsageEventPlugin extends PKPUsageEventPlugin {
 	 */
 	protected function getHtmlPageAssocTypes() {
 		return array(
-			ASSOC_TYPE_JOURNAL,
+			ASSOC_TYPE_SERVER,
 			ASSOC_TYPE_SUBMISSION,
 		);
 	}

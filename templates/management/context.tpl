@@ -5,7 +5,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * The journal settings page.
+ * The server settings page.
  *}
 {extends file="layouts/backend.tpl"}
 
@@ -28,26 +28,26 @@
 
 	<tabs :track-history="true">
 		<tab id="masthead" label="{translate key="manager.setup.masthead"}">
-			{help file="settings/journal-settings" class="pkp_help_tab"}
+			{help file="settings/server-settings" class="pkp_help_tab"}
 			<pkp-form
 				v-bind="components.{$smarty.const.FORM_MASTHEAD}"
 				@set="set"
 			/>
 		</tab>
 		<tab id="contact" label="{translate key="about.contact"}">
-			{help file="settings/journal-settings" section="contact" class="pkp_help_tab"}
+			{help file="settings/server-settings" section="contact" class="pkp_help_tab"}
 			<pkp-form
 				v-bind="components.{$smarty.const.FORM_CONTACT}"
 				@set="set"
 			/>
 		</tab>
 		<tab id="sections" label="{translate key="section.sections"}">
-			{help file="settings/journal-settings" section="sections" class="pkp_help_tab"}
+			{help file="settings/server-settings" section="sections" class="pkp_help_tab"}
 			{capture assign=sectionsGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.sections.SectionGridHandler" op="fetchGrid" escape=false}{/capture}
 			{load_url_in_div id="sectionsGridContainer" url=$sectionsGridUrl}
 		</tab>
 		<tab id="categories" label="{translate key="grid.category.categories"}">
-			{help file="settings/journal-settings" section="categories" class="pkp_help_tab"}
+			{help file="settings/server-settings" section="categories" class="pkp_help_tab"}
 			{capture assign=categoriesUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.category.CategoryCategoryGridHandler" op="fetchGrid" escape=false}{/capture}
 			{load_url_in_div id="categoriesContainer" url=$categoriesUrl}
 		</tab>

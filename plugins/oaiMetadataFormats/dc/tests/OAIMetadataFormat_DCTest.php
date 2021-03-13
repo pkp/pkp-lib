@@ -33,7 +33,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 	 * @see PKPTestCase::getMockedDAOs()
 	 */
 	protected function getMockedDAOs() {
-		return array('AuthorDAO', 'OAIDAO', 'ArticleGalleyDAO');
+		return array('AuthorDAO', 'OAIDAO', 'PreprintGalleyDAO');
 	}
 
 	/**
@@ -45,7 +45,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 
 	/**
 	 * @covers OAIMetadataFormat_DC
-	 * @covers Dc11SchemaArticleAdapter
+	 * @covers Dc11SchemaPreprintAdapter
 	 */
 	public function testToXml() {
 		$this->markTestSkipped('Skipped because of weird class interaction with ControlledVocabDAO.');
@@ -53,66 +53,66 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 		//
 		// Create test data.
 		//
-		$journalId = 1;
+		$serverId = 1;
 
 		// Enable the DOI plugin.
 		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
-		$pluginSettingsDao->updateSetting($journalId, 'doipubidplugin', 'enabled', 1);
-		$pluginSettingsDao->updateSetting($journalId, 'doipubidplugin', 'enableIssueDoi', 1);
-		$pluginSettingsDao->updateSetting($journalId, 'doipubidplugin', 'enablePublicationDoi', 1);
-		$pluginSettingsDao->updateSetting($journalId, 'doipubidplugin', 'enableRepresentationyDoi', 1);
+		$pluginSettingsDao->updateSetting($serverId, 'doipubidplugin', 'enabled', 1);
+		$pluginSettingsDao->updateSetting($serverId, 'doipubidplugin', 'enableIssueDoi', 1);
+		$pluginSettingsDao->updateSetting($serverId, 'doipubidplugin', 'enablePublicationDoi', 1);
+		$pluginSettingsDao->updateSetting($serverId, 'doipubidplugin', 'enableRepresentationyDoi', 1);
 
 		// Author
-		import('classes.article.Author');
+		import('classes.preprint.Author');
 		$author = new Author();
 		$author->setGivenName('author-firstname', 'en_US');
 		$author->setFamilyName('author-lastname', 'en_US');
 		$author->setAffiliation('author-affiliation', 'en_US');
 		$author->setEmail('someone@example.com');
 
-		// Article
+		// Preprint
 		import('classes.submission.Submission');
-		$article = $this->getMockBuilder(Submission::class)
+		$preprint = $this->getMockBuilder(Submission::class)
 			->setMethods(array('getBestId'))
 			->getMock();
-		$article->expects($this->any())
+		$preprint->expects($this->any())
 		        ->method('getBestId')
 		        ->will($this->returnValue(9));
-		$article->setId(9);
-		$article->setJournalId($journalId);
-		$author->setSubmissionId($article->getId());
-		$article->setPages(15);
-		$article->setType('art-type', 'en_US');
-		$article->setTitle('article-title-en', 'en_US');
-		$article->setTitle('article-title-de', 'de_DE');
-		$article->setDiscipline('article-discipline', 'en_US');
-		$article->setSubject('article-subject', 'en_US');
-		$article->setAbstract('article-abstract', 'en_US');
-		$article->setSponsor('article-sponsor', 'en_US');
-		$article->setStoredPubId('doi', 'article-doi');
-		$article->setLanguage('en_US');
+		$preprint->setId(9);
+		$preprint->setServerId($serverId);
+		$author->setSubmissionId($preprint->getId());
+		$preprint->setPages(15);
+		$preprint->setType('art-type', 'en_US');
+		$preprint->setTitle('preprint-title-en', 'en_US');
+		$preprint->setTitle('preprint-title-de', 'de_DE');
+		$preprint->setDiscipline('preprint-discipline', 'en_US');
+		$preprint->setSubject('preprint-subject', 'en_US');
+		$preprint->setAbstract('preprint-abstract', 'en_US');
+		$preprint->setSponsor('preprint-sponsor', 'en_US');
+		$preprint->setStoredPubId('doi', 'preprint-doi');
+		$preprint->setLanguage('en_US');
 
 		// Galleys
-		import('classes.article.ArticleGalley');
-		$galley = new ArticleGalley();
+		import('classes.preprint.PreprintGalley');
+		$galley = new PreprintGalley();
 		$galley->setId(98);
 		$galley->setStoredPubId('doi', 'galley-doi');
 		$galleys = array($galley);
 
-		// Journal
-		import('classes.journal.Journal');
-		$journal = $this->getMockBuilder(Journal::class)
+		// Server
+		import('classes.server.Server');
+		$server = $this->getMockBuilder(Server::class)
 			->setMethods(array('getSetting'))
 			->getMock();
-		$journal->expects($this->any())
+		$server->expects($this->any())
 		        ->method('getSetting') // includes getTitle()
-		        ->will($this->returnCallback(array($this, 'getJournalSetting')));
-		$journal->setPrimaryLocale('en_US');
-		$journal->setPath('journal-path');
-		$journal->setId($journalId);
+		        ->will($this->returnCallback(array($this, 'getServerSetting')));
+		$server->setPrimaryLocale('en_US');
+		$server->setPath('server-path');
+		$server->setId($serverId);
 
 		// Section
-		import('classes.journal.Section');
+		import('classes.server.Section');
 		$section = new Section();
 		$section->setIdentifyType('section-identify-type', 'en_US');
 
@@ -127,7 +127,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 		$issue->setId(96);
 		$issue->setDatePublished('2010-11-05');
 		$issue->setStoredPubId('doi', 'issue-doi');
-		$issue->setJournalId($journalId);
+		$issue->setServerId($serverId);
 
 
 		//
@@ -161,7 +161,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 		//
 
 		// Create a mocked AuthorDAO that returns our test author.
-		import('classes.article.AuthorDAO');
+		import('classes.preprint.AuthorDAO');
 		$authorDao = $this->getMockBuilder(AuthorDAO::class)
 			->setMethods(array('getBySubmissionId'))
 			->getMock();
@@ -171,13 +171,13 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 		DAORegistry::registerDAO('AuthorDAO', $authorDao);
 
 		// Create a mocked OAIDAO that returns our test data.
-		import('classes.oai.ojs.OAIDAO');
+		import('classes.oai.ops.OAIDAO');
 		$oaiDao = $this->getMockBuilder(OAIDAO::class)
-			->setMethods(array('getJournal', 'getSection', 'getIssue'))
+			->setMethods(array('getServer', 'getSection', 'getIssue'))
 			->getMock();
 		$oaiDao->expects($this->any())
-		       ->method('getJournal')
-		       ->will($this->returnValue($journal));
+		       ->method('getServer')
+		       ->will($this->returnValue($server));
 		$oaiDao->expects($this->any())
 		       ->method('getSection')
 		       ->will($this->returnValue($section));
@@ -186,16 +186,16 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 		       ->will($this->returnValue($issue));
 		DAORegistry::registerDAO('OAIDAO', $oaiDao);
 
-		// Create a mocked ArticleGalleyDAO that returns our test data.
-		import('classes.article.ArticleGalleyDAO');
-		$articleGalleyDao = $this->getMockBuilder(ArticleGalleyDAO::class)
+		// Create a mocked PreprintGalleyDAO that returns our test data.
+		import('classes.preprint.PreprintGalleyDAO');
+		$preprintGalleyDao = $this->getMockBuilder(PreprintGalleyDAO::class)
 			->setMethods(array('getBySubmissionId'))
 			->getMock();
-		$articleGalleyDao->expects($this->any())
+		$preprintGalleyDao->expects($this->any())
 		                 ->method('getBySubmissionId')
 		                 ->will($this->returnValue($galleys));
-		DAORegistry::registerDAO('ArticleGalleyDAO', $articleGalleyDao);
-		// FIXME: ArticleGalleyDAO::getBySubmissionId returns iterator; array expected here. Fix expectations.
+		DAORegistry::registerDAO('PreprintGalleyDAO', $preprintGalleyDao);
+		// FIXME: PreprintGalleyDAO::getBySubmissionId returns iterator; array expected here. Fix expectations.
 
 		//
 		// Test
@@ -203,9 +203,9 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 
 		// OAI record
 		$record = new OAIRecord();
-		$record->setData('article', $article);
+		$record->setData('preprint', $preprint);
 		$record->setData('galleys', $galleys);
-		$record->setData('journal', $journal);
+		$record->setData('server', $server);
 		$record->setData('section', $section);
 		$record->setData('issue', $issue);
 
@@ -224,19 +224,19 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 	// Public helper methods
 	//
 	/**
-	 * Callback for journal settings.
+	 * Callback for server settings.
 	 * @param $settingName string
 	 */
-	function getJournalSetting($settingName) {
+	function getServerSetting($settingName) {
 		switch ($settingName) {
 			case 'name':
-				return array('en_US' => 'journal-title');
+				return array('en_US' => 'server-title');
 
 			case 'licenseTerms':
-				return array('en_US' => 'journal-copyright');
+				return array('en_US' => 'server-copyright');
 
 			case 'publisherInstitution':
-				return array('journal-publisher');
+				return array('server-publisher');
 
 			case 'onlineIssn':
 				return 'onlineIssn';
@@ -245,7 +245,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase {
 				return null;
 
 			default:
-				self::fail('Required journal setting is not necessary for the purpose of this test.');
+				self::fail('Required server setting is not necessary for the purpose of this test.');
 		}
 	}
 

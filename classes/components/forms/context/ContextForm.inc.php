@@ -9,7 +9,7 @@
  * @class ContextForm
  * @ingroup classes_controllers_form
  *
- * @brief Add OJS-specific fields to the context add/edit form.
+ * @brief Add OPS-specific fields to the context add/edit form.
  */
 namespace APP\components\forms\context;
 use \PKP\components\forms\context\PKPContextForm;
@@ -25,7 +25,7 @@ class ContextForm extends PKPContextForm {
 		parent::__construct($action, $locales, $baseUrl, $context);
 
 		$this->addField(new FieldText('abbreviation', [
-				'label' => __('manager.setup.journalAbbreviation'),
+				'label' => __('manager.setup.serverAbbreviation'),
 				'isMultilingual' => true,
 				'value' => $context ? $context->getData('abbreviation') : null,
 			]), [FIELD_POSITION_AFTER, 'acronym'])

@@ -37,7 +37,7 @@ class SectionGridHandler extends SetupGridHandler {
 	 */
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
-		$journal = $request->getJournal();
+		$server = $request->getServer();
 
 		// FIXME are these all required?
 		AppLocale::requireComponents(
@@ -53,12 +53,12 @@ class SectionGridHandler extends SetupGridHandler {
 		// Elements to be displayed in the grid
 		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
 		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
-		$sectionIterator = $sectionDao->getByJournalId($journal->getId());
+		$sectionIterator = $sectionDao->getByServerId($server->getId());
 
 		$gridData = array();
 		while ($section = $sectionIterator->next()) {
 			// Get the section editors data for the row
-			$assignedSubEditors = $subEditorsDao->getBySubmissionGroupId($section->getId(), ASSOC_TYPE_SECTION, $journal->getId());
+			$assignedSubEditors = $subEditorsDao->getBySubmissionGroupId($section->getId(), ASSOC_TYPE_SECTION, $server->getId());
 			if(empty($assignedSubEditors)) {
 				$editorsString = __('common.none');
 			} else {
@@ -159,8 +159,8 @@ class SectionGridHandler extends SetupGridHandler {
 	 */
 	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
 		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
-		$journal = $request->getJournal();
-		$section = $sectionDao->getById($rowId, $journal->getId());
+		$server = $request->getServer();
+		$section = $sectionDao->getById($rowId, $server->getId());
 		$section->setSequence($newSequence);
 		$sectionDao->updateObject($section);
 	}
@@ -225,12 +225,12 @@ class SectionGridHandler extends SetupGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteSection($args, $request) {
-		$journal = $request->getJournal();
+		$server = $request->getServer();
 
 		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
 		$section = $sectionDao->getById(
 			$request->getUserVar('sectionId'),
-			$journal->getId()
+			$server->getId()
 		);
 
 		if (!$request->checkCSRF()) {
@@ -243,14 +243,14 @@ class SectionGridHandler extends SetupGridHandler {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$checkSubmissions = $submissionDao->retrieve('SELECT p.publication_id FROM publications p JOIN submissions s ON (s.submission_id = p.submission_id) WHERE p.section_id = ? AND s.context_id = ?', array((int) $request->getUserVar('sectionId'), (int) $journal->getId()));
+		$checkSubmissions = $submissionDao->retrieve('SELECT p.publication_id FROM publications p JOIN submissions s ON (s.submission_id = p.submission_id) WHERE p.section_id = ? AND s.context_id = ?', array((int) $request->getUserVar('sectionId'), (int) $server->getId()));
 
 		if ($checkSubmissions->numRows() > 0) {
 			return new JSONMessage(false, __('manager.sections.alertDelete'));
 		}
 
 		// Validate if it can be deleted
-		$sectionsIterator = $sectionDao->getByContextId($journal->getId(),null,false);
+		$sectionsIterator = $sectionDao->getByContextId($server->getId(),null,false);
 		$activeSectionsCount = (!$section->getIsInactive()) ? -1 : 0;
 		while ($checkSection = $sectionsIterator->next()) {
 			if (!$checkSection->getIsInactive()) {

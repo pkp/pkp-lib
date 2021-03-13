@@ -16,7 +16,7 @@ msgstr ""
 msgid "editor.publication.authorPublishRequirements"
 msgstr "L'auteur-e ne remplit pas les conditions de publication suivantes :"
 
-msgid "editor.article.coverImage"
+msgid "editor.preprint.coverImage"
 msgstr "Image de la page couverture"
 
 msgid "editor.publicIdentificationExistsForTheSameType"

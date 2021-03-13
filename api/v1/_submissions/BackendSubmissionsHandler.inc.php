@@ -27,7 +27,7 @@ class BackendSubmissionsHandler extends PKPBackendSubmissionsHandler {
 	}
 
 	/**
-	 * Add ojs-specific parameters to the getMany request
+	 * Add ops-specific parameters to the getMany request
 	 *
 	 * @param $hookName string
 	 * @param $args array [

@@ -34,7 +34,7 @@ class SectionForm extends PKPSectionForm {
 		$this->addCheck(new FormValidatorLocale($this, 'title', 'required', 'manager.setup.form.section.nameRequired'));
 		$this->addCheck(new FormValidatorLocale($this, 'abbrev', 'required', 'manager.sections.form.abbrevRequired'));
 		$this->addCheck(new FormValidator($this, 'path', 'required', 'manager.setup.form.section.pathRequired'));
-		$journal = $request->getJournal();
+		$server = $request->getServer();
 	}
 
 	/**
@@ -42,12 +42,12 @@ class SectionForm extends PKPSectionForm {
 	 */
 	function initData() {
 		$request = Application::get()->getRequest();
-		$journal = $request->getJournal();
+		$server = $request->getServer();
 
 		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
 		$sectionId = $this->getSectionId();
 		if ($sectionId) {
-			$section = $sectionDao->getById($sectionId, $journal->getId());
+			$section = $sectionDao->getById($sectionId, $server->getId());
 		}
 
 		if (isset($section)) {
@@ -141,15 +141,15 @@ class SectionForm extends PKPSectionForm {
 	function execute(...$functionArgs) {
 		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
 		$request = Application::get()->getRequest();
-		$journal = $request->getJournal();
+		$server = $request->getServer();
 
 		// Get or create the section object
 		if ($this->getSectionId()) {
-			$section = $sectionDao->getById($this->getSectionId(), $journal->getId());
+			$section = $sectionDao->getById($this->getSectionId(), $server->getId());
 		} else {
-			import('classes.journal.Section');
+			import('classes.server.Section');
 			$section = $sectionDao->newDataObject();
-			$section->setJournalId($journal->getId());
+			$section->setServerId($server->getId());
 		}
 
 		// Populate/update the section object from the form
@@ -171,7 +171,7 @@ class SectionForm extends PKPSectionForm {
 		} else {
 			$section->setSequence(REALLY_BIG_NUMBER);
 			$this->setSectionId($sectionDao->insertObject($section));
-			$sectionDao->resequenceSections($journal->getId());
+			$sectionDao->resequenceSections($server->getId());
 		}
 
 		return parent::execute(...$functionArgs);

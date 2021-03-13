@@ -16,13 +16,13 @@ msgstr ""
 "Restrinja los resultados por tipo de objeto (servidor, preimpresión, tipos "
 "de archivo) y/o por uno o más identificadores de objeto."
 
-msgid "manager.statistics.reports.defaultReport.journalIndexPageViews"
+msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
 msgstr "Vistas de la página principal del servidor"
 
-msgid "manager.statistics.reports.defaultReport.articleAbstract"
+msgid "manager.statistics.reports.defaultReport.preprintAbstract"
 msgstr "Vistas de página de resumen de preprints"
 
-msgid "manager.statistics.reports.defaultReport.articleDownloads"
+msgid "manager.statistics.reports.defaultReport.preprintDownloads"
 msgstr "Descargas de archivos de preprints"
 
 msgid "manager.statistics.statistics.registeredReaders"
@@ -58,7 +58,7 @@ msgstr "Disminución"
 msgid "manager.statistics.statistics.count.accept"
 msgstr "Aceptar"
 
-msgid "manager.statistics.statistics.articleViews"
+msgid "manager.statistics.statistics.preprintViews"
 msgstr "Conteo de vistas de preprint (solo para autores)"
 
 msgid "manager.statistics.statistics"
@@ -117,7 +117,7 @@ msgstr ""
 "Los usuarios deben estar registrados e iniciar sesión para ver el contenido "
 "de acceso abierto."
 
-msgid "manager.setup.restrictArticleAccess"
+msgid "manager.setup.restrictPreprintAccess"
 msgstr ""
 "Los usuarios deben estar registrados e iniciar sesión para ver el contenido "
 "de acceso abierto."
@@ -173,7 +173,7 @@ msgstr "Sobre el servidor"
 msgid "manager.setup.contextSummary"
 msgstr "Resumen del servidor"
 
-msgid "manager.setup.journalAbbreviation"
+msgid "manager.setup.serverAbbreviation"
 msgstr "Abreviatura del servidor"
 
 msgid "manager.setup.itemsPerPage.description"

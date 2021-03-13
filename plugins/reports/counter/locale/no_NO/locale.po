@@ -50,7 +50,7 @@ msgstr "HIÅ HTML"
 msgid "plugins.reports.counter.1a.ytdPdf"
 msgstr "HIÅ PDF"
 
-msgid "plugins.reports.counter.1a.totalForAllJournals"
+msgid "plugins.reports.counter.1a.totalForAllServers"
 msgstr "Totalt for alle tidsskrift"
 
 msgid "plugins.reports.counter.migrate"

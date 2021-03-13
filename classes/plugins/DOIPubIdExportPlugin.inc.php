@@ -41,7 +41,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin {
 					$doiPlugin = $pubIdPlugins['doipubidplugin'];
 					$doiPrefix = $doiPlugin->getSetting($context->getId(), $doiPlugin->getPrefixFieldName());
 					$templateMgr->assign(array(
-						'exportArticles' => $doiPlugin->getSetting($context->getId(), 'enablePublicationDoi'),
+						'exportPreprints' => $doiPlugin->getSetting($context->getId(), 'enablePublicationDoi'),
 						'exportRepresentations' => $doiPlugin->getSetting($context->getId(), 'enableRepresentationDoi'),
 					));
 				}
@@ -89,7 +89,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin {
 	 * when several DOI registration plug-ins
 	 * are active at the same time.
 	 * @param $context Context
-	 * @param $object Submission|ArticleGalley
+	 * @param $object Submission|PreprintGalley
 	 * @param $testPrefix string
 	 */
 	function saveRegisteredDoi($context, $object, $testPrefix = '10.1234') {
@@ -113,14 +113,14 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin {
 	}
 
 	/**
-	 * Retrieve all unregistered articles.
+	 * Retrieve all unregistered preprints.
 	 * @param $context Context
 	 * @return array
 	 */
-	function getUnregisteredArticles($context) {
+	function getUnregisteredPreprints($context) {
 		// Retrieve all published submissions that have not yet been registered.
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$articles = $submissionDao->getExportable(
+		$preprints = $submissionDao->getExportable(
 			$context->getId(),
 			$this->getPubIdType(),
 			null,
@@ -129,7 +129,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin {
 			null,
 			null
 		);
-		return $articles->toArray();
+		return $preprints->toArray();
 	}
 
 	/**
@@ -139,7 +139,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin {
 	 */
 	function getUnregisteredGalleys($context) {
 		// Retrieve all galleys that have not yet been registered.
-		$galleyDao = DAORegistry::getDAO('ArticleGalleyDAO'); /* @var $galleyDao ArticleGalleyDAO */
+		$galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $galleyDao PreprintGalleyDAO */
 		$galleys = $galleyDao->getExportable(
 			$context?$context->getId():null,
 			$this->getPubIdType(),
@@ -169,16 +169,16 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin {
 	}
 
 	/**
-	 * Get article galleys with a DOI assigned from gallley IDs.
+	 * Get preprint galleys with a DOI assigned from gallley IDs.
 	 * @param $galleyIds array
 	 * @return array
 	 */
-	function getArticleGalleys($galleyIds) {
+	function getPreprintGalleys($galleyIds) {
 		$galleys = array();
-		$articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
+		$preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO');
 		foreach ($galleyIds as $galleyId) {
-			$articleGalley = $articleGalleyDao->getById($galleyId);
-			if ($articleGalley && $articleGalley->getStoredPubId('doi')) $galleys[] = $articleGalley;
+			$preprintGalley = $preprintGalleyDao->getById($galleyId);
+			if ($preprintGalley && $preprintGalley->getStoredPubId('doi')) $galleys[] = $preprintGalley;
 		}
 		return $galleys;
 	}

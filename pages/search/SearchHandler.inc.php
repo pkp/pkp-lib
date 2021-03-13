@@ -13,7 +13,7 @@
  * @brief Handle site index requests.
  */
 
-import('classes.search.ArticleSearch');
+import('classes.search.PreprintSearch');
 import('classes.handler.Handler');
 
 class SearchHandler extends Handler {
@@ -46,10 +46,10 @@ class SearchHandler extends Handler {
 	 * @param $searchFilters array
 	 */
 	function _assignSearchFilters($request, &$templateMgr, $searchFilters) {
-		// Get the journal id (if any).
-		$journal =& $searchFilters['searchJournal'];
-		$journalId = ($journal ? $journal->getId() : null);
-		$searchFilters['searchJournal'] = $journalId;
+		// Get the server id (if any).
+		$server =& $searchFilters['searchServer'];
+		$serverId = ($server ? $server->getId() : null);
+		$searchFilters['searchServer'] = $serverId;
 
 		// Assign all filters except for dates which need special treatment.
 		$templateSearchFilters = array();
@@ -90,7 +90,7 @@ class SearchHandler extends Handler {
 		}
 
 		// Assign the year range.
-		$yearRange = Services::get('publication')->getDateBoundaries(['contextIds' => $journalId]);
+		$yearRange = Services::get('publication')->getDateBoundaries(['contextIds' => $serverId]);
 		$yearStart = substr($yearRange[0], 0, 4);
 		$yearEnd = substr($yearRange[1], 0, 4);
 		$templateMgr->assign(array(
@@ -108,17 +108,17 @@ class SearchHandler extends Handler {
 		$this->validate(null, $request);
 
 		// Get and transform active filters.
-		$articleSearch = new ArticleSearch();
-		$searchFilters = $articleSearch->getSearchFilters($request);
-		$keywords = $articleSearch->getKeywordsFromSearchFilters($searchFilters);
+		$preprintSearch = new PreprintSearch();
+		$searchFilters = $preprintSearch->getSearchFilters($request);
+		$keywords = $preprintSearch->getKeywordsFromSearchFilters($searchFilters);
 
 		// Get the range info.
 		$rangeInfo = $this->getRangeInfo($request, 'search');
 
 		// Retrieve results.
 		$error = '';
-		$results = $articleSearch->retrieveResults(
-			$request, $searchFilters['searchJournal'], $keywords, $error,
+		$results = $preprintSearch->retrieveResults(
+			$request, $searchFilters['searchServer'], $keywords, $error,
 			$searchFilters['fromDate'], $searchFilters['toDate'],
 			$rangeInfo
 		);
@@ -129,13 +129,13 @@ class SearchHandler extends Handler {
 		$templateMgr->setCacheability(CACHEABILITY_NO_STORE);
 
 		// Result set ordering options.
-		$orderByOptions = $articleSearch->getResultSetOrderingOptions($request);
+		$orderByOptions = $preprintSearch->getResultSetOrderingOptions($request);
 		$templateMgr->assign('searchResultOrderOptions', $orderByOptions);
-		$orderDirOptions = $articleSearch->getResultSetOrderingDirectionOptions();
+		$orderDirOptions = $preprintSearch->getResultSetOrderingDirectionOptions();
 		$templateMgr->assign('searchResultOrderDirOptions', $orderDirOptions);
 
 		// Result set ordering selection.
-		list($orderBy, $orderDir) = $articleSearch->getResultSetOrdering($request);
+		list($orderBy, $orderDir) = $preprintSearch->getResultSetOrdering($request);
 		$templateMgr->assign('orderBy', $orderBy);
 		$templateMgr->assign('orderDir', $orderDir);
 
@@ -151,7 +151,7 @@ class SearchHandler extends Handler {
 
 	/**
 	 * Redirect to a search query that shows documents
-	 * similar to the one identified by an article id in the
+	 * similar to the one identified by an preprint id in the
 	 * request.
 	 * @param $args array
 	 * @param $request Request
@@ -159,16 +159,16 @@ class SearchHandler extends Handler {
 	function similarDocuments($args, &$request) {
 		$this->validate(null, $request);
 
-		// Retrieve the (mandatory) ID of the article that
+		// Retrieve the (mandatory) ID of the preprint that
 		// we want similar documents for.
-		$articleId = $request->getUserVar('articleId');
-		if (!is_numeric($articleId)) {
+		$preprintId = $request->getUserVar('preprintId');
+		if (!is_numeric($preprintId)) {
 			$request->redirect(null, 'search');
 		}
 
 		// Check whether a search plugin provides terms for a similarity search.
-		$articleSearch = new ArticleSearch();
-		$searchTerms = $articleSearch->getSimilarityTerms($articleId);
+		$preprintSearch = new PreprintSearch();
+		$searchTerms = $preprintSearch->getSimilarityTerms($preprintId);
 
 		// Redirect to a search query with the identified search terms (if any).
 		if (empty($searchTerms)) {
@@ -188,7 +188,7 @@ class SearchHandler extends Handler {
 		$this->validate(null, $request);
 		$this->setupTemplate($request);
 
-		$journal = $request->getJournal();
+		$server = $request->getServer();
 		$user = $request->getUser();
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
@@ -202,7 +202,7 @@ class SearchHandler extends Handler {
 			$country = $request->getUserVar('country');
 
 			$authorRecords = iterator_to_array(Services::get('author')->getMany([
-				'contextIds' => $journal?[$journal->getId()]:[],
+				'contextIds' => $server?[$server->getId()]:[],
 				'givenName' => $givenName,
 				'familyName' => $familyName,
 				'affiliation' => $affiliation,
@@ -218,23 +218,23 @@ class SearchHandler extends Handler {
 				return Services::get('submission')->get($submissionId);
 			}, array_unique($submissionIds));
 
-			// Load information associated with each article.
-			$journals = array();
+			// Load information associated with each preprint.
+			$servers = array();
 			$sections = array();
 
 			$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
-			$journalDao = DAORegistry::getDAO('JournalDAO'); /* @var $journalDao JournalDAO */
+			$serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
 
-			foreach ($submissions as $article) {
-				$articleId = $article->getId();
-				$sectionId = $article->getSectionId();
-				$journalId = $article->getData('contextId');
+			foreach ($submissions as $preprint) {
+				$preprintId = $preprint->getId();
+				$sectionId = $preprint->getSectionId();
+				$serverId = $preprint->getData('contextId');
 
-				if (!isset($journals[$journalId])) {
-					$journals[$journalId] = $journalDao->getById($journalId);
+				if (!isset($servers[$serverId])) {
+					$servers[$serverId] = $serverDao->getById($serverId);
 				}
 				if (!isset($sections[$sectionId])) {
-					$sections[$sectionId] = $sectionDao->getById($sectionId, $journalId, true);
+					$sections[$sectionId] = $sectionDao->getById($sectionId, $serverId, true);
 				}
 			}
 
@@ -246,7 +246,7 @@ class SearchHandler extends Handler {
 			$templateMgr->assign(array(
 				'submissions' => $submissions,
 				'sections' => $sections,
-				'journals' => $journals,
+				'servers' => $servers,
 				'givenName' => $givenName,
 				'familyName' => $familyName,
 				'affiliation' => $affiliation,
@@ -264,8 +264,8 @@ class SearchHandler extends Handler {
 			$searchInitial = $request->getUserVar('searchInitial');
 			$rangeInfo = $this->getRangeInfo($request, 'authors');
 
-			$authors = $authorDao->getAuthorsAlphabetizedByJournal(
-				isset($journal)?$journal->getId():null,
+			$authors = $authorDao->getAuthorsAlphabetizedByServer(
+				isset($server)?$server->getId():null,
 				$searchInitial,
 				$rangeInfo
 			);
@@ -287,8 +287,8 @@ class SearchHandler extends Handler {
 	function setupTemplate($request) {
 		parent::setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
-		$journal = $request->getJournal();
-		if (!$journal || !$journal->getData('restrictSiteAccess')) {
+		$server = $request->getServer();
+		if (!$server || !$server->getData('restrictSiteAccess')) {
 			$templateMgr->setCacheability(CACHEABILITY_PUBLIC);
 		}
 	}

@@ -85,12 +85,12 @@ msgstr "O DOI deve começar com  {$prefix}."
 msgid "plugins.pubIds.doi.editor.doi"
 msgstr "DOI"
 
-msgid "plugins.pubIds.doi.manager.settings.doiAssignJournalWide.confirm"
+msgid "plugins.pubIds.doi.manager.settings.doiAssignServerWide.confirm"
 msgstr ""
 "Está seguro de que deseja atribuir DOI a todos os objetos postados aos quais "
 "não lhes tenha sido atribuído DOIs?"
 
-msgid "plugins.pubIds.doi.manager.settings.doiAssignJournalWide.description"
+msgid "plugins.pubIds.doi.manager.settings.doiAssignServerWide.description"
 msgstr ""
 "Atribua DOIs a todos os objetos publicados do servidor que não tiveram DOI "
 "atribuídos. Esta ação não pode ser usada com a configuração de sufixo "
@@ -98,7 +98,7 @@ msgstr ""
 "alterações antes de iniciar esta ação. A atribuição de DOIs pode demorar "
 "muito tempo, dependendo do número de objetos postados no servidor."
 
-msgid "plugins.pubIds.doi.manager.settings.doiAssignJournalWide"
+msgid "plugins.pubIds.doi.manager.settings.doiAssignServerWide"
 msgstr "Atribuir DOI"
 
 msgid "plugins.pubIds.doi.manager.settings.doiReassign.confirm"

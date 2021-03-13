@@ -5,10 +5,10 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @brief View of an Preprint which displays all details about the article.
+ * @brief View of an Preprint which displays all details about the preprint.
  *  Expected to be primary object on the page.
  *
- * Many journals will want to add custom data to this object, either through
+ * Many servers will want to add custom data to this object, either through
  * plugins which attach to hooks on the page or by editing the template
  * themselves. In order to facilitate this, a flexible layout markup pattern has
  * been implemented. If followed, plugins and other content can provide markup
@@ -51,9 +51,9 @@
  *
  * @uses $preprint Preprint This preprint
  * @uses $publication Publication The publication being displayed
- * @uses $firstPublication Publication The first published version of this article
- * @uses $currentPublication Publication The most recently published version of this article
- * @uses $section Section The journal section this preprint is assigned to
+ * @uses $firstPublication Publication The first published version of this preprint
+ * @uses $currentPublication Publication The most recently published version of this preprint
+ * @uses $section Section The server section this preprint is assigned to
  * @uses $categories array Category titles and paths the preprint is assigned to
  * @uses $primaryGalleys array List of preprint galleys that are not supplementary or dependent
  * @uses $supplementaryGalleys array List of preprint galleys that are supplementary
@@ -64,7 +64,7 @@
  *   included with published submissions.
  * @uses $ccLicenseBadge string An image and text with details about the license
  *}
-<article class="obj_article_details">
+<article class="obj_preprint_details">
 
 	{* Notification that this is an old version *}
 	{if $currentPublication->getId() !== $publication->getId()}
@@ -116,7 +116,7 @@
 		<div class="main_entry">
 			{if $publication->getData('authors')}
 				<section class="item authors">
-					<h2 class="pkp_screen_reader">{translate key="article.authors"}</h2>
+					<h2 class="pkp_screen_reader">{translate key="preprint.authors"}</h2>
 					<ul class="versions authors">
 					{foreach from=$publication->getData('authors') item=author}
 						<li>
@@ -149,7 +149,7 @@
 				{/if}
 				{assign var=pubId value=$publication->getStoredPubId($pubIdPlugin->getPubIdType())}
 				{if $pubId}
-					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentServer->getId(), $pubId)|escape}
 					<section class="item doi">
 						<h2 class="label">
 							{capture assign=translatedDOI}{translate key="plugins.pubIds.doi.readerDisplayName"}{/capture}
@@ -413,9 +413,9 @@
 							{$pubIdPlugin->getPubIdDisplayType()|escape}
 						</h2>
 						<div class="value">
-							{if $pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-								<a id="pub-id::{$pubIdPlugin->getPubIdType()|escape}" href="{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}">
-									{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+							{if $pubIdPlugin->getResolvingURL($currentServer->getId(), $pubId)|escape}
+								<a id="pub-id::{$pubIdPlugin->getPubIdType()|escape}" href="{$pubIdPlugin->getResolvingURL($currentServer->getId(), $pubId)|escape}">
+									{$pubIdPlugin->getResolvingURL($currentServer->getId(), $pubId)|escape}
 								</a>
 							{else}
 								{$pubId|escape}

@@ -9,7 +9,7 @@
  * @class ContextHandler
  * @ingroup api_v1_contexts
  *
- * @brief Handle API requests for contexts (journals/presses).
+ * @brief Handle API requests for contexts (servers/presses).
  */
 import('lib.pkp.api.v1.contexts.PKPContextHandler');
 class ContextHandler extends PKPContextHandler { }

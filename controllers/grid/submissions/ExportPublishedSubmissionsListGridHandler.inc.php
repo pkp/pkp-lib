@@ -57,7 +57,7 @@ class ExportPublishedSubmissionsListGridHandler extends GridHandler {
 		$context = $request->getContext();
 
 		// Basic grid configuration.
-		$this->setTitle('plugins.importexport.common.export.articles');
+		$this->setTitle('plugins.importexport.common.export.preprints');
 
 		// Load submission-specific translations.
 		AppLocale::requireComponents(

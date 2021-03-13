@@ -9,7 +9,7 @@
  * @class MastheadForm
  * @ingroup classes_controllers_form
  *
- * @brief Add OJS-specific fields to the masthead form.
+ * @brief Add OPS-specific fields to the masthead form.
  */
 namespace APP\components\forms\context;
 use \PKP\components\forms\context\PKPMastheadForm;
@@ -24,7 +24,7 @@ class MastheadForm extends PKPMastheadForm {
 		parent::__construct($action, $locales, $context, $imageUploadUrl);
 
 		$this->addField(new FieldText('abbreviation', [
-				'label' => __('manager.setup.journalAbbreviation'),
+				'label' => __('manager.setup.serverAbbreviation'),
 				'isMultilingual' => true,
 				'groupId' => 'identity',
 				'value' => $context->getData('abbreviation'),

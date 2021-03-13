@@ -9,7 +9,7 @@
  * @class UserAccessForm
  * @ingroup classes_controllers_form
  *
- * @brief Add OJS-specific fields to the users and roles access settings form.
+ * @brief Add OPS-specific fields to the users and roles access settings form.
  */
 namespace APP\components\forms\context;
 use \PKP\components\forms\context\PKPUserAccessForm;
@@ -23,11 +23,11 @@ class UserAccessForm extends PKPUserAccessForm {
 	public function __construct($action, $context) {
 		parent::__construct($action, $context);
 
-		$this->addField(new FieldOptions('restrictArticleAccess', [
+		$this->addField(new FieldOptions('restrictPreprintAccess', [
 				'label' => __('manager.setup.siteAccess.viewContent'),
-				'value' => (bool) $context->getData('restrictArticleAccess'),
+				'value' => (bool) $context->getData('restrictPreprintAccess'),
 				'options' => [
-					['value' => true, 'label' => __('manager.setup.restrictArticleAccess')],
+					['value' => true, 'label' => __('manager.setup.restrictPreprintAccess')],
 				],
 			]), [FIELD_POSITION_AFTER, 'restrictSiteAccess']);
 	}

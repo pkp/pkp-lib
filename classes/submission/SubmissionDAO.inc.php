@@ -11,7 +11,7 @@
  * @ingroup submission
  * @see Submission
  *
- * @brief Operations for retrieving and modifying Article objects.
+ * @brief Operations for retrieving and modifying Preprint objects.
  */
 
 import('classes.submission.Submission');
@@ -32,21 +32,21 @@ class SubmissionDAO extends PKPSubmissionDAO {
 	 */
 	function deleteById($submissionId) {
 		$publicationIds = Services::get('publication')->getIds(['submissionIds' => $submissionId]);
-		$articleGalleyDao = DAORegistry::getDAO('ArticleGalleyDAO'); /* @var $articleGalleyDao ArticleGalleyDAO */
+		$preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $preprintGalleyDao PreprintGalleyDAO */
 
 		foreach ($publicationIds as $publicationId) {
-			$galleys = $articleGalleyDao->getByPublicationId($publicationId)->toArray();
+			$galleys = $preprintGalleyDao->getByPublicationId($publicationId)->toArray();
 			foreach ($galleys as $galley) {
-				$articleGalleyDao->deleteById($galley->getId());
+				$preprintGalleyDao->deleteById($galley->getId());
 			}
 		}
 
-		$articleSearchDao = DAORegistry::getDAO('ArticleSearchDAO'); /* @var $articleSearchDao ArticleSearchDAO */
-		$articleSearchDao->deleteSubmissionKeywords($submissionId);
+		$preprintSearchDao = DAORegistry::getDAO('PreprintSearchDAO'); /* @var $preprintSearchDao PreprintSearchDAO */
+		$preprintSearchDao->deleteSubmissionKeywords($submissionId);
 
-		$articleSearchIndex = Application::getSubmissionSearchIndex();
-		$articleSearchIndex->articleDeleted($submissionId);
-		$articleSearchIndex->submissionChangesFinished();
+		$preprintSearchIndex = Application::getSubmissionSearchIndex();
+		$preprintSearchIndex->preprintDeleted($submissionId);
+		$preprintSearchIndex->submissionChangesFinished();
 
 		parent::deleteById($submissionId);
 
@@ -54,21 +54,21 @@ class SubmissionDAO extends PKPSubmissionDAO {
 	}
 
 	/**
-	 * Change the status of the article
-	 * @param $articleId int
+	 * Change the status of the preprint
+	 * @param $preprintId int
 	 * @param $status int
 	 */
-	function changeStatus($articleId, $status) {
+	function changeStatus($preprintId, $status) {
 		$this->update(
 			'UPDATE submissions SET status = ? WHERE submission_id = ?',
-			[(int) $status, (int) $articleId]
+			[(int) $status, (int) $preprintId]
 		);
 
 		$this->flushCache();
 	}
 
 	/**
-	 * Removes articles from a section by section ID
+	 * Removes preprints from a section by section ID
 	 * @param $sectionId int
 	 */
 	function removeSubmissionsFromSection($sectionId) {

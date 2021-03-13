@@ -113,7 +113,7 @@ class CategoryDAO extends DAO {
 			'SELECT COUNT(*) AS row_count FROM categories WHERE path = ?', [$path]
 		);
 		$row = $result->current();
-		return $row ? (boolean) $result->row_count : false;
+		return $row ? (boolean) $row->row_count : false;
 	}
 
 	/**

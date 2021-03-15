@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2020-09-30 13:49+0000\n"
-"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"PO-Revision-Date: 2021-03-15 17:47+0000\n"
+"Last-Translator: José Carvalho <josekarvalho@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/reviewer/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -112,3 +112,11 @@ msgstr "O utilizador actual não foi designado como revisor para o artigo solici
 
 msgid "reviewer.submission.saveReviewForLater"
 msgstr "Guardar para mais tarde"
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Enviar para Revisores"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+"Enviar uma cópia deste email de notificação em BCC para os seguintes "
+"revisores."

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-04 11:53+0000\n"
+"PO-Revision-Date: 2021-03-15 17:47+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "gl_ES/>\n"
@@ -2056,3 +2056,38 @@ msgstr "Seguro que queres cancelar esta carga?"
 
 msgid "form.dropzone.dictUploadCanceled"
 msgstr "Carga cancelada"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Dar de baixa"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Produciuse un erro inesperado e non puidemos dar de baixao enderezo de "
+"correo electrónico {$email}. Podes cancelar a subscrición a todas as "
+"notificacións por correo electrónico no teu <a href=\""
+"{$profileNotificationUrl}\">perfil de usuario</a> ou contactar connosco "
+"directamente para obter axuda."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"O enderezo de correo electrónico {$email} cancelouse correctamente. Xa non "
+"che enviaremos eses correos electrónicos. Podes volver a subscribirte as "
+"notificacións por correo electrónico en calquera momento desde o teu <a href="
+"\"{$profileNotificationUrl}\">perfil de usuario</a>."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Podes volver a subscribirte as notificacións por correo electrónico en "
+"calquera momento desde o teu <a href=\"{$profileNotificationUrl}\">perfil de "
+"usuario</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Selecciona os correos electrónicos que xa non desexas recibir en {$email} de "
+"{$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Non puidemos cancelar a túa subscrición"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Fuches dado de baixa"

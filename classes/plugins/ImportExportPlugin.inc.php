@@ -213,7 +213,9 @@ abstract class ImportExportPlugin extends Plugin {
 			$submissionService = Services::get('submission');
 			$submission = $submissionService->get($submissionId);
 
-			if ($submission) $submissions[] = $submission;
+			if ($submission && $submission->getData('contextId') !== $deployment->getContext()->getId()) {
+				$submissions[] = $submission;
+			}
 		}
 
 		$deployment->export($filter, $submissions, $opts);

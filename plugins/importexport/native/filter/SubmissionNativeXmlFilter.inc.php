@@ -159,9 +159,15 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$publications = (array) $submission->getData('publications');
 		foreach ($publications as $publication) {
 			$publicationDoc = $currentFilter->execute($publication);
-			if ($publicationDoc->documentElement instanceof DOMElement) {
+
+			if ($publicationDoc && $publicationDoc->documentElement instanceof DOMElement) {
 				$clone = $doc->importNode($publicationDoc->documentElement, true);
 				$submissionNode->appendChild($clone);
+			} else {
+				$deployment = $this->getDeployment();
+				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.publication.exportFailed'));
+
+				throw new Exception(__('plugins.importexport.publication.exportFailed'));
 			}
 		}
 	}

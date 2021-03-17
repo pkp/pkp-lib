@@ -1226,7 +1226,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string A string that Identifies the object
 	 */
 	function getUIDisplayString() {
-		return $this->getId() . ' - ' . $this->getLocalizedTitle();
+		return __('plugins.importexport.submission.cli.display', ['submissionId' => $this->getId(), 'submissionTitle' => $this->getLocalizedTitle()]);
 	}
 }
 

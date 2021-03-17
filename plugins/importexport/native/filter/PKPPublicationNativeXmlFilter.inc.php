@@ -242,9 +242,15 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 
 		$authors = $entity->getData('authors');
 		$authorsDoc = $currentFilter->execute($authors);
-		if ($authorsDoc->documentElement instanceof DOMElement) {
+
+		if ($authorsDoc && $authorsDoc->documentElement instanceof DOMElement) {
 			$clone = $doc->importNode($authorsDoc->documentElement, true);
 			$entityNode->appendChild($clone);
+		} else {
+			$deployment = $this->getDeployment();
+			$deployment->addError(ASSOC_TYPE_PUBLICATION, $entity->getId(), __('plugins.importexport.author.exportFailed'));
+
+			throw new Exception(__('plugins.importexport.author.exportFailed'));
 		}
 	}
 

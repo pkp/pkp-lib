@@ -2051,3 +2051,12 @@ msgstr "ERROR:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "The specified journal path, \"{$contextPath}\", does not exist."
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Process failed to parse authors"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Process failed to parse publications"

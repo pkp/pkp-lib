@@ -16,9 +16,10 @@
 		// Attach the handler.
 		$(function() {ldelim}
 			$('#queryForm').pkpHandler(
-				'$.pkp.controllers.form.CancelActionAjaxFormHandler',
+				'$.pkp.controllers.grid.queries.QueryFormHandler',
 				{ldelim}
-					cancelUrl: {if $isNew}'{url|escape:javascript op="deleteQuery" queryId=$queryId csrfToken=$csrfToken params=$actionArgs escape=false}'{else}null{/if}
+					cancelUrl: {if $isNew}'{url|escape:javascript op="deleteQuery" queryId=$queryId csrfToken=$csrfToken params=$actionArgs escape=false}'{else}null{/if},
+					templateUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component='grid.queries.QueriesGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$assocId escape=false},
 				{rdelim}
 			);
 		{rdelim});
@@ -34,6 +35,14 @@
 				{fbvElement type="checkbox" id="users[]" value=$id checked=in_array($id, $assignedParticipants) label=$participant translate=false}
 			{/foreach}
 		{/fbvFormSection}
+
+		{if count($templates)}
+			{fbvFormArea id="queryTemplateArea"}
+				{fbvFormSection title="stageParticipants.notify.chooseMessage" for="template" size=$fbvStyles.size.medium}
+					{fbvElement type="select" from=$templates translate=false id="template" selected=$template defaultValue="" defaultLabel=""}
+				{/fbvFormSection}
+			{/fbvFormArea}
+		{/if}
 
 		{fbvFormArea id="queryContentsArea"}
 			{fbvFormSection title="common.subject" for="subject" required="true"}

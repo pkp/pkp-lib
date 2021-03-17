@@ -2400,3 +2400,9 @@ msgstr "S'han restaurat les plantilles de correu electrònic predeterminades."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Eliminar avís"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "La ruta de revista especificada, \"{$contextPath}\", no existeix."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERROR:"

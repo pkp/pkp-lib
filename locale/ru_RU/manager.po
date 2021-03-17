@@ -2057,3 +2057,9 @@ msgstr "Выберите пользователей для экспорта в �
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Экспорт в Excel/CSV"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ОШИБКА:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Указанный путь журнала «{$contextPath}» не существует."

@@ -16,10 +16,7 @@
 import('lib.pkp.classes.plugins.Plugin');
 
 abstract class ImportExportPlugin extends Plugin {
-	/**
-	 * The deployment that processes import/export operations
-	 * @var PKPImportExportDeployment
-	 */
+	/** @var PKPImportExportDeployment The deployment that processes import/export operations */
 	var $_childDeployment = null;
 
 	/** @var Request Request made available for plugin URL generation */
@@ -207,7 +204,7 @@ abstract class ImportExportPlugin extends Plugin {
 	 * @param $deployment PKPNativeImportExportDeployment
 	 * @param $opts array
 	 */
-	function getExportSubmissionsDeployment($submissionIds, &$deployment, $opts = array()) {
+	function getExportSubmissionsDeployment($submissionIds, $deployment, $opts = array()) {
 		$filter = $this->getExportFilter('exportSubmissions');
 
 		$submissions = array();

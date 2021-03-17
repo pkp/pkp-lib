@@ -2176,3 +2176,9 @@ msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
 "<p>Αυτό το αρχείο μπορεί να είναι προσπελάσιμο αν έχει ενεργοποιηθεί η \""
 "Δημόσια Πρόσβαση\", στο <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ΣΦΑΛΜΑ:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Η καθορισμένη διαδρομή περιοδικού, \"{$contextPath}\", δεν υπάρχει."

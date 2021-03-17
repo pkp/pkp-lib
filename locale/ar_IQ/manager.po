@@ -2043,3 +2043,9 @@ msgstr "إختر المستخدمين المطلوب تصديرهم إلى مل�
 
 msgid "manager.export.usersToCsv.label"
 msgstr "التصدير إلى Excel/CSV"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "خطأ:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "المسار المخصص للمجلة، \"{$contextPath}\"، غير موجود."

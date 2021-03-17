@@ -2299,3 +2299,9 @@ msgstr "Titlu"
 
 msgid "manager.groups.membership.noUsers"
 msgstr "Nu a fost găsit niciun utilizator."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "EROARE:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Calea jurnalului specificat,\"{$contextPath}\", nu există."

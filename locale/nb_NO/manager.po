@@ -2235,6 +2235,7 @@ msgstr "Du må oppgi en URL"
 msgid "manager.navigationMenus.form.url"
 msgstr "URL"
 
+<<<<<<< HEAD
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
 "Innleveringsfilen {$id} ble utelatt fordi den er knyttet til en oppføring "
@@ -2351,3 +2352,10 @@ msgstr "Standard-e-postene har blitt gjenopprettet."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Slett oppslag"
+=======
+msgid "plugins.importexport.common.cliError"
+msgstr "FEIL:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Den spesifiserte tidsskriftsstien \"{$contextPath}\" eksisterer ikke."
+>>>>>>> e5521e7ef1 (pkp/pkp-lib#6490 Several review fixes)

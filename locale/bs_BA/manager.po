@@ -520,3 +520,9 @@ msgstr "Pregled obrasca"
 
 msgid "manager.reviewForms.title"
 msgstr "Naslov"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Navedena putanja časopisa, \"{$contextPath}\", ne postoji."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "GREŠKA:"

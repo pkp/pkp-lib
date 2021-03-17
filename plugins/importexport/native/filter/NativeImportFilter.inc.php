@@ -90,19 +90,24 @@ class NativeImportFilter extends PKPImportExportFilter {
 		return array($element->getAttribute('locale'), $element->textContent);
 	}
 
+	/**
+	 * Import node to a given parent node
+	 * @param $n DOMElement The parent node
+	 * @param $filter string The filter to execute it's import function
+	 */
 	function importWithXMLNode($n, $filter = null) {
-		$articleGalleyDoc = new DOMDocument();
-		$articleGalleyDoc->appendChild($articleGalleyDoc->importNode($n, true));
+		$doc = new DOMDocument();
+		$doc->appendChild($doc->importNode($n, true));
 		$importFilter = null;
 		if ($filter) {
 			$importFilter = PKPImportExportFilter::getFilter($filter, $this->getDeployment());
-		} elseif (method_exists($this,'getImportFilter')) {
+		} elseif (method_exists($this, 'getImportFilter')) {
 			$importFilter = $this->getImportFilter($n->tagName);
 		} else {
-			throw new Exception('Could not import XML Node');
+			throw new Exception(__('filter.import.error.couldNotImportNode'));
 		}
 
-		return $importFilter->execute($articleGalleyDoc);
+		return $importFilter->execute($doc);
 	}
 }
 

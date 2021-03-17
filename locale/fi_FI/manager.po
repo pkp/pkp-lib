@@ -2148,3 +2148,9 @@ msgstr "Alkuperäiset sähköpostipohjat palautettu."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Poista ilmoitus"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "VIRHE:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Annettua lehden polkua, \"{$contextPath}\", ei löydy."

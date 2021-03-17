@@ -2162,3 +2162,9 @@ msgstr "Privzete email predloge so bile ponastavljene."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Zbriši obvestilo"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "NAPAKA:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Podana pot revije, \"{$contextPath}\", ne obstaja."

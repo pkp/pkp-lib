@@ -2205,3 +2205,9 @@ msgstr "Excel/CSV olarak dışarı aktarılacak kullanıcıları seçin."
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Excel/CSV olarak Dışarı Aktar"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "HATA:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Belirtilen günlük yolu \"{$contextPath}\" mevcut değil."

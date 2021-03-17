@@ -2107,3 +2107,9 @@ msgstr "Default e-postmall har återställts."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Ta bort meddelande"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "FEL:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Sökvägen för tidskriften, \"{$contextPath}\", existerar inte."

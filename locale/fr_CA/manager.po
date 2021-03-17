@@ -2143,3 +2143,9 @@ msgstr "Générateur de rapports personnalisés"
 
 msgid "manager.people.signedInAs"
 msgstr "Vous êtes actuellement connecté-e en tant que {$username}"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERREUR :"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Le chemin « {$contextPath} » de la revue n'existe pas."

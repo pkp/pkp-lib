@@ -2031,9 +2031,6 @@ msgstr "The process failed. Check bellow for errors/warnings."
 msgid "plugins.importexport.native.export.submissions.results"
 msgstr "Export Submissions Results"
 
-msgid "plugins.importexport.native.export.issues.results"
-msgstr "Export Issues Results"
-
 msgid "plugins.importexport.native.export.download.results"
 msgstr "Download Exported File"
 
@@ -2048,3 +2045,9 @@ msgstr "Generic Items"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr "Wrong filter configuration [{$filterName}]: {$filterCount} occurrences. Should be only one."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERROR:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "The specified journal path, \"{$contextPath}\", does not exist."

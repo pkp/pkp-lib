@@ -2049,3 +2049,9 @@ msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Надіслати повідомлення з нагадуванням, якщо рецензент не завантажив рецензію "
 "протягом вказаної кількості днів після кінцевого терміну відповіді."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ПОМИЛКА:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Вказаний шлях журналу \"{$contextPath}\" не існує."

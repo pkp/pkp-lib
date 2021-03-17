@@ -2234,3 +2234,9 @@ msgstr "Udvælg de brugere, der skal eksporteres til en Excel/CSV-fil."
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Eksportér til Excel/CSV"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "FEJL:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Den angivne tidsskriftssti, \"{$contextPath}\", findes ikke."

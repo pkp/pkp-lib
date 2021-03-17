@@ -46,10 +46,13 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 	/**
 	 *
-	 * @var string
+	 * @var string Operation type for display method
 	 */
 	var $opType;
 
+	/**
+	 * Constructor
+	 */
 	function __construct() {
 		$this->cliToolkit = new PKPNativeImportExportCLIToolKit();
 	}
@@ -270,7 +273,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 		if (!$context) {
 			if ($contextPath != '') {
-				$this->cliToolkit->echoCLIError(__('plugins.importexport.common.error.unknownJournal', array('contextPath' => $contextPath)));
+				$this->cliToolkit->echoCLIError(__('plugins.importexport.common.error.unknownContext', array('contextPath' => $contextPath)));
 			}
 			$this->usage($scriptName);
 			return true;

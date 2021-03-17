@@ -2166,3 +2166,9 @@ msgstr "Výchozí e-mailové šablony byly obnoveny."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Smazat oznámení"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "CHYBA:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Vybraná adresa časopisu  \"{$contextPath}\" neexistuje."

@@ -2142,3 +2142,9 @@ msgstr "O e-mail padrão foi restaurado."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Eliminar Notícia"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERRO:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "O caminho \"{$contextPath}\" da revista indicado não existe."

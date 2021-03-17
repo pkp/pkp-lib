@@ -44,8 +44,6 @@
 			this.templateUrl_ = options.templateUrl;
 		}
 
-		this.textSubject_ = null;
-
 		// Attach form elements events.
 		$form.find('#template').change(
 			this.callbackWrapper(this.selectTemplateHandler_));
@@ -83,7 +81,6 @@
 		var $form = this.getHtmlElement();
 		var template = $form.find('[name="template"]');
 		$form.find('[name="subject"]').val(template.find('option:selected').text());
-		this.textSubject_
 		$.post(this.templateUrl_, template.serialize(),
 				this.callbackWrapper(this.updateTemplate), 'json');
 	};

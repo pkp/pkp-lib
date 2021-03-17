@@ -90,9 +90,9 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			return $mailTemplate->getSubject();
 		};
 
-		$templates = array_map($templateKeyToSubject, $templateKeys);
+		$templates = array_combine($templateKeys, array_map($templateKeyToSubject, $templateKeys));
 		if (count($customTemplateKeys)) {
-			$templates[__('manager.emails.otherTemplates')] = array_map($templateKeyToSubject, $customTemplateKeys);
+			$templates[__('manager.emails.otherTemplates')] = array_combine($customTemplateKeys, array_map($templateKeyToSubject, $customTemplateKeys));
 		}
 
 		$templateMgr = TemplateManager::getManager($request);

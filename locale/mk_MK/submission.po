@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-14 11:01+0000\n"
-"Last-Translator: Blagoja Grozdanovski <blagoja.grozdanovski@gmail.com>\n"
+"PO-Revision-Date: 2021-03-16 10:54+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -113,13 +113,13 @@ msgstr ""
 "Сите барања се исполнети. Дали сте сигурни дека сакате да го објавите ова?"
 
 msgid "publication.relation.vorDoi"
-msgstr "ДОИ на објавениот напис"
+msgstr "ДОИ на објавениот предпечаток"
 
 msgid "publication.relation.published"
-msgstr "Печатењето е објавено во списание како напис"
+msgstr "Предпечатокот е објавен во списание како предпечаток"
 
 msgid "publication.relation.submitted"
-msgstr "Отпечатокот е доставен за објавување во дневник"
+msgstr "Отпечатокот е доставен за објавување во сервер"
 
 msgid "publication.relation.none"
 msgstr "Отпечатокот не е доставен за објавување"

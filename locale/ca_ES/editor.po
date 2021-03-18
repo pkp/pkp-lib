@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"PO-Revision-Date: 2021-03-04 17:09+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ca_ES/>\n"
@@ -539,3 +539,14 @@ msgstr "Decisió enregistrada"
 
 msgid "editor.activityLog"
 msgstr "Registre d'activitat"
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Segur que voleu revertir la decisió de rebutjar la tramesa?"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Un dels participants seleccionats no està assignat a aquesta fase."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"No es pot crear una discussió amb els participants seleccionats perquè "
+"afectaria l'anonimat del procés de revisió."

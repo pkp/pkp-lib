@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-07-29 21:33+0000\n"
-"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"PO-Revision-Date: 2021-03-10 15:53+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"default/mk/>\n"
-"Language: mk\n"
+"default/mk_MK/>\n"
+"Language: mk_MK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "default.groups.abbrev.marketing"
-msgstr "MS"
+msgstr "МП"
 
 msgid "default.groups.plural.marketing"
 msgstr "Координатори на маркетинг и продажба"
@@ -21,7 +21,7 @@ msgid "default.groups.name.marketing"
 msgstr "Координатор на маркетинг и продажба"
 
 msgid "default.groups.abbrev.internalReviewer"
-msgstr "IR"
+msgstr "ВР"
 
 msgid "default.groups.plural.internalReviewer"
 msgstr "Интерни рецензенти"
@@ -39,7 +39,7 @@ msgid "default.groups.name.designer"
 msgstr "Дизајнер"
 
 msgid "default.groups.abbrev.proofreader"
-msgstr "PR"
+msgstr "ПР"
 
 msgid "default.groups.plural.proofreader"
 msgstr "Коректори"
@@ -48,16 +48,16 @@ msgid "default.groups.name.proofreader"
 msgstr "Коректор"
 
 msgid "default.groups.abbrev.copyeditor"
-msgstr "CE"
+msgstr "КЕ"
 
 msgid "default.groups.plural.copyeditor"
-msgstr "Лектори"
+msgstr "Технички уредници"
 
 msgid "default.groups.name.copyeditor"
-msgstr "Лектор"
+msgstr "Технички уредник"
 
 msgid "default.groups.abbrev.productionEditor"
-msgstr "ProdE"
+msgstr "ПродЕ"
 
 msgid "default.groups.plural.productionEditor"
 msgstr "Уредници на продукција"
@@ -69,10 +69,10 @@ msgid "default.groups.plural.siteAdmin"
 msgstr "Администратори на сајтот"
 
 msgid "default.groups.name.siteAdmin"
-msgstr "Администратор на сјатот"
+msgstr "Администратор на сајтот"
 
 msgid "default.genres.styleSheet"
-msgstr "HTML Stylesheet"
+msgstr "ХТМЛ стилизер"
 
 msgid "default.genres.image"
 msgstr "Слика"
@@ -84,7 +84,7 @@ msgid "default.genres.other"
 msgstr "Друго"
 
 msgid "default.groups.abbrev.reader"
-msgstr "Read"
+msgstr "Читај"
 
 msgid "default.groups.plural.reader"
 msgstr "Читатели"
@@ -93,7 +93,7 @@ msgid "default.groups.name.reader"
 msgstr "Читател"
 
 msgid "default.groups.abbrev.translator"
-msgstr "Trans"
+msgstr "Прев"
 
 msgid "default.groups.plural.translator"
 msgstr "Преведувачи"
@@ -102,7 +102,7 @@ msgid "default.groups.name.translator"
 msgstr "Преведувач"
 
 msgid "default.groups.abbrev.author"
-msgstr "AU"
+msgstr "АВ"
 
 msgid "default.groups.plural.author"
 msgstr "Автори"
@@ -111,7 +111,7 @@ msgid "default.groups.name.author"
 msgstr "Автор"
 
 msgid "default.groups.abbrev.layoutEditor"
-msgstr "LE"
+msgstr "ЛУ"
 
 msgid "default.groups.plural.layoutEditor"
 msgstr "Графички уредници"
@@ -120,19 +120,25 @@ msgid "default.groups.name.layoutEditor"
 msgstr "Графички уредник"
 
 msgid "default.groups.abbrev.indexer"
-msgstr "IND"
+msgstr "ИНД"
 
 msgid "default.groups.plural.indexer"
-msgstr "Координатор за индексирање"
+msgstr "Индексери"
 
 msgid "default.groups.name.indexer"
-msgstr "Координатор за индексирање"
+msgstr "Индексер"
 
 msgid "default.groups.abbrev.funding"
-msgstr "FC"
+msgstr "ФК"
 
 msgid "default.groups.plural.funding"
 msgstr "Координатори за финансии"
 
 msgid "default.groups.name.funding"
 msgstr "Координатор за финансирање"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br/><hr /><br/><p><a href=\"{$contextUrl}\""
+">{$contextName}</a></p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\""
+"mailto: {$contactEmail}\">{$contactEmail}</a></p>"

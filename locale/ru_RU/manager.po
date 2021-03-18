@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2020-12-18 16:52+0000\n"
+"PO-Revision-Date: 2021-03-12 18:08+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ru_RU/>\n"
@@ -2057,3 +2057,8 @@ msgstr "Выберите пользователей для экспорта в �
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Экспорт в Excel/CSV"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Настройки языка не удаётся сохранить. Хотя бы один язык должен быть включен "
+"для каждого параметра"

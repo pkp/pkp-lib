@@ -515,13 +515,11 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function fetchTemplateBody($args, $request) {
-		$templateId = $request->getUserVar('template');
+		$templateKey = $request->getUserVar('template');
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$template = new SubmissionMailTemplate($this->getSubmission(), $templateId);
+		$template = new SubmissionMailTemplate($this->getSubmission(), $templateKey);
 		if ($template) {
 			$user = $request->getUser();
-			$dispatcher = $request->getDispatcher();
-			$context = $request->getContext();
 			$template->assignParams(array(
 				'editorialContactSignature' => $user->getContactSignature(),
 				'signatureFullName' => $user->getFullname(),
@@ -534,7 +532,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 				true,
 				array(
 					'body' => $template->getBody(),
-					'variables' => $notifyForm->getEmailVariableNames($templateId),
+					'variables' => $notifyForm->getEmailVariableNames($templateKey),
 				)
 			);
 		}

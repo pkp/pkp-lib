@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2020-12-14 10:13+0000\n"
+"PO-Revision-Date: 2021-03-12 18:08+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sl_SI/>\n"
@@ -1980,3 +1980,34 @@ msgstr "Uredi {$name}"
 
 msgid "common.inactive"
 msgstr "Neaktiven"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Odjavi"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Prišlo je do nepričakovane napake in email naslova {$email} ni bilo mogoče "
+"odjaviti. Lahko se odjavite od vseh email obvestil v vašem <a href=\""
+"{$profileNotificationUrl}\">uporabniškem profilu</a> ali se obrnete direktno "
+"na nas za pomoč."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"Email naslov {$email} je bil uspešno odjavljen. Ne bomo vam več pošiljali "
+"tem emailov. Kadarkoli se lahko ponovno prijavite na email obvestila v vašem "
+"<a href=\"{$profileNotificationUrl}\">uporabniškem profilu</a>."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Na email obvestila se lahko ponovno kadarkoli prijavite v vašem <a href=\""
+"{$profileNotificationUrl}\">uporabniškem profilu</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Izberite emaile, ki jih ne želite več dobivati za {$email} od {$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Ni vas bilo mogoče odjaviti"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Ste uspešno odjavljeni"

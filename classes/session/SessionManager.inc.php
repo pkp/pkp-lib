@@ -193,7 +193,8 @@ class SessionManager {
 	 * @return boolean
 	 */
 	function destroy($sessionId) {
-		return (boolean) $this->sessionDao->deleteById($sessionId);
+		$this->sessionDao->deleteById($sessionId);
+		return true;
 	}
 
 	/**

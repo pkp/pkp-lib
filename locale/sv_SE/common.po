@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2021-02-23 11:52+0000\n"
+"PO-Revision-Date: 2021-03-24 12:55+0000\n"
 "Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "sv_SE/>\n"
@@ -1991,3 +1991,33 @@ msgstr "Redigera {$name}"
 
 msgid "common.inactive"
 msgstr "Inaktiv"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Avaktivera"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Ett oväntat fel uppstod och vi kunde inte avaktivera notifieringarna för e-"
+"posten {$email}. Du kan avaktivera  samtliga notifieringar i din <a href=\""
+"{$profileNotificationUrl}\">användarprofil</a> eller kontakta oss för att få "
+"hjälp."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"Notifieringar till e-postadressen  {$email}  har avslutats. Du kan när som "
+"helst återaktivera  notifieringar per e-post från <a href=\""
+"{$profileNotificationUrl}\">användarprofil</a>."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Du kan när som helst återaktivera notifieringar per e-post från  <a href=\""
+"{$profileNotificationUrl}\">användarprofil</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr "Välj vilka mejl du inte längre vill få på {$email} från {$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Vi kunde inte avsluta notifieringarna"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Du kommer inte längre att få notifieringar"

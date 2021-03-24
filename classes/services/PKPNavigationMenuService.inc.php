@@ -339,7 +339,7 @@ class PKPNavigationMenuService {
 						ROUTE_PAGE,
 						null,
 						'search',
-						'search',
+						null,
 						null
 					));
 					break;

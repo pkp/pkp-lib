@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2021-03-04 17:09+0000\n"
+"PO-Revision-Date: 2021-03-25 08:29+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ca_ES/>\n"
@@ -2414,3 +2414,6 @@ msgstr "Seleccioneu els usuaris/àries que s'han d'exportar a l'arxiu Excel/CSV.
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Exportar a Excel/CSV"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Altres plantilles"

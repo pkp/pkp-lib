@@ -1,0 +1,38 @@
+diff -u -r -N /home/asmecher/git/distrib/ojs/ojs-3.1.1/lib/pkp/lib/vendor/illuminate/database/Illuminate/Database/Query/Builder.php lib/vendor/illuminate/database/Illuminate/Database/Query/Builder.php
+--- /home/asmecher/git/distrib/ojs/ojs-3.1.1/lib/pkp/lib/vendor/illuminate/database/Illuminate/Database/Query/Builder.php	2014-05-31 18:57:51.000000000 -0700
++++ lib/vendor/illuminate/database/Illuminate/Database/Query/Builder.php	2021-01-20 14:42:53.721641186 -0800
+@@ -398,7 +398,7 @@
+ 
+ 		if ( ! $value instanceof Expression)
+ 		{
+-			$this->bindings[] = $value;
++			$this->bindings[] = is_array($value) ? head($value) : $value;
+ 		}
+ 
+ 		return $this;
+@@ -477,7 +477,7 @@
+ 
+ 		$this->wheres[] = compact('column', 'type', 'boolean', 'not');
+ 
+-		$this->bindings = array_merge($this->bindings, $values);
++		$this->bindings = array_merge($this->bindings, array_slice($values, 0, 2));
+ 
+ 		return $this;
+ 	}
+@@ -846,6 +846,7 @@
+ 	{
+ 		$this->wheres[] = compact('column', 'type', 'boolean', 'operator', 'value');
+ 
++		$value = is_array($value) ? head($value) : $value;
+ 		$this->bindings[] = $value;
+ 
+ 		return $this;
+@@ -941,7 +942,7 @@
+ 
+ 		$this->havings[] = compact('type', 'column', 'operator', 'value');
+ 
+-		$this->bindings[] = $value;
++		$this->bindings[] = is_array($value) ? head($value) : $value;
+ 
+ 		return $this;
+ 	}

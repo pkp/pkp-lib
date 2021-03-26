@@ -9,7 +9,8 @@
 		"moxiecode/plupload": "v2.1.x",
 		"tinymce/tinymce": "4.1.7",
 		"ircmaxell/password-compat": "v1.0.4",
-		"michelf/php-markdown": "1.5.0"
+		"michelf/php-markdown": "1.5.0",
+		"cweagans/composer-patches": "^1.7"
 	},
 	"require-dev": {
 		"phpunit/phpunit-selenium": "1.4.2"
@@ -17,5 +18,12 @@
 	"config": {
 		"component-dir": "lib/components",
 		"vendor-dir": "lib/vendor"
+	},
+	"extra": {
+		"patches": {
+			"illuminate/database": {
+				"Patch Laravel binding array issue": "lib/laravel-binding-6632.diff"
+			}
+		}
 	}
 }

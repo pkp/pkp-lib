@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-10 21:53+0000\n"
-"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"PO-Revision-Date: 2021-03-26 14:55+0000\n"
+"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -1612,6 +1612,7 @@ msgstr ""
 "https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons "
 "Attribution-NonCommercial 4.0 International License</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by-nc-nd4.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"

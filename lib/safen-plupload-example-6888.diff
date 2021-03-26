@@ -1,0 +1,12 @@
+--- examples/upload.php	2021-03-26 13:50:38.346011053 -0700
++++ examples/upload.php	2021-03-26 13:51:20.236255082 -0700
+@@ -13,7 +13,8 @@
+ #!! this file is just an example, it doesn't incorporate any security checks and 
+ #!! is not recommended to be used in production environment as it is. Be sure to 
+ #!! revise it and customize to your needs.
+-
++#!! The exit() statement below makes sure this script is not exposed accidentally.
++exit();
+ 
+ // Make sure file is not cached (as it happens for example on iOS devices)
+ header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");

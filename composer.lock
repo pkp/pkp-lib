@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36975c527e01f69bd27eacb9f7eed697",
+    "content-hash": "02094f7e73d258620479846359c8d332",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -1921,16 +1921,16 @@
         },
         {
             "name": "moxiecode/plupload",
-            "version": "v2.3.6",
+            "version": "v2.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moxiecode/plupload.git",
-                "reference": "0f37b16e6cecdc0cda1c1ba470aaeef1dc01f26a"
+                "reference": "0070f0a34df5e6b31048a5697cef8cbecdd4f3b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moxiecode/plupload/zipball/0f37b16e6cecdc0cda1c1ba470aaeef1dc01f26a",
-                "reference": "0f37b16e6cecdc0cda1c1ba470aaeef1dc01f26a",
+                "url": "https://api.github.com/repos/moxiecode/plupload/zipball/0070f0a34df5e6b31048a5697cef8cbecdd4f3b9",
+                "reference": "0070f0a34df5e6b31048a5697cef8cbecdd4f3b9",
                 "shasum": ""
             },
             "type": "library",
@@ -1953,7 +1953,7 @@
                 "multi-runtime",
                 "plupload"
             ],
-            "time": "2017-11-03T06:46:59+00:00"
+            "time": "2021-03-29T08:18:41+00:00"
         },
         {
             "name": "nesbot/carbon",

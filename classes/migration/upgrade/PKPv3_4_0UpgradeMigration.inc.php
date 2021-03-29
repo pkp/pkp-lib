@@ -14,7 +14,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class PKPv3_4_0UpgradeMigration extends Migration {
 	/**
@@ -23,35 +24,35 @@ class PKPv3_4_0UpgradeMigration extends Migration {
 	 */
 	public function up() {
 		// pkp/pkp-lib#6093: Delete review_assignment entries that correspond to nonexistent submissions.
-		$orphanedIds = Capsule::table('review_assignments AS ra')->leftJoin('submissions AS s', 'ra.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->pluck('ra.submission_id', 'ra.review_id');
+		$orphanedIds = DB::table('review_assignments AS ra')->leftJoin('submissions AS s', 'ra.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->pluck('ra.submission_id', 'ra.review_id');
 		foreach ($orphanedIds as $reviewId => $submissionId) {
 			error_log("Removing orphaned review_assignments entry ID $reviewId with submission_id $submissionId");
-			Capsule::table('review_assignments')->where('review_id', '=', $reviewId)->delete();
+			DB::table('review_assignments')->where('review_id', '=', $reviewId)->delete();
 		}
 
 		// pkp/pkp-lib#6093: Delete review_assignment entries that correspond to nonexistent reviewers.
-		$orphanedIds = Capsule::table('review_assignments AS ra')->leftJoin('users AS u', 'ra.reviewer_id', '=', 'u.user_id')->whereNull('u.user_id')->pluck('ra.reviewer_id', 'ra.review_id');
+		$orphanedIds = DB::table('review_assignments AS ra')->leftJoin('users AS u', 'ra.reviewer_id', '=', 'u.user_id')->whereNull('u.user_id')->pluck('ra.reviewer_id', 'ra.review_id');
 		foreach ($orphanedIds as $reviewId => $userId) {
 			error_log("Removing orphaned review_assignments entry ID $reviewId with reviewer_id $userId");
-			Capsule::table('review_assignments')->where('review_id', '=', $reviewId)->delete();
+			DB::table('review_assignments')->where('review_id', '=', $reviewId)->delete();
 		}
 
 		// pkp/pkp-lib#6093: Delete review_assignment entries that correspond to nonexistent review rounds.
-		$orphanedIds = Capsule::table('review_assignments AS ra')->leftJoin('review_rounds AS rr', 'ra.review_round_id', '=', 'rr.review_round_id')->whereNull('rr.review_round_id')->pluck('ra.review_round_id', 'ra.review_id');
+		$orphanedIds = DB::table('review_assignments AS ra')->leftJoin('review_rounds AS rr', 'ra.review_round_id', '=', 'rr.review_round_id')->whereNull('rr.review_round_id')->pluck('ra.review_round_id', 'ra.review_id');
 		foreach ($orphanedIds as $reviewId => $reviewRoundId) {
 			error_log("Removing orphaned review_assignments entry ID $reviewId with review_round_id $reviewRoundId");
-			Capsule::table('review_assignments')->where('review_id', '=', $reviewId)->delete();
+			DB::table('review_assignments')->where('review_id', '=', $reviewId)->delete();
 		}
 
 		// pkp/pkp-lib#6093: Delete review_assignment entries that correspond to nonexistent review forms.
-		$orphanedIds = Capsule::table('review_assignments AS ra')->leftJoin('review_forms AS rf', 'ra.review_form_id', '=', 'rf.review_form_id')->whereNull('rf.review_form_id')->whereNotNull('ra.review_form_id')->pluck('ra.review_form_id', 'ra.review_id');
+		$orphanedIds = DB::table('review_assignments AS ra')->leftJoin('review_forms AS rf', 'ra.review_form_id', '=', 'rf.review_form_id')->whereNull('rf.review_form_id')->whereNotNull('ra.review_form_id')->pluck('ra.review_form_id', 'ra.review_id');
 		foreach ($orphanedIds as $reviewId => $reviewFormId) {
 			error_log("Using default review form for review with ID $reviewId which refers to nonexistent review_form_id $reviewFormId");
-			Capsule::table('review_assignments')->where('review_id', '=', $reviewId)->update(['review_form_id' => null]);
+			DB::table('review_assignments')->where('review_id', '=', $reviewId)->update(['review_form_id' => null]);
 		}
 
 		// pkp/pkp-lib#6093: Set up foreign key constraints
-		Capsule::schema()->table('review_assignments', function (Blueprint $table) {
+		Schema::table('review_assignments', function (Blueprint $table) {
 			$table->foreign('submission_id')->references('submission_id')->on('submissions');
 			$table->foreign('reviewer_id')->references('user_id')->on('users');
 			$table->foreign('review_round_id')->references('review_round_id')->on('review_rounds');
@@ -66,13 +67,13 @@ class PKPv3_4_0UpgradeMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->table('review_assignments', function (Blueprint $table) {
+		Schema::table('review_assignments', function (Blueprint $table) {
 			$table->dropForeign(['reviewer_id']);
 			$table->dropForeign(['submission_id']);
 			$table->dropForeign(['review_round_id']);
 			$table->dropForeign(['review_form_id']);
 		});
-		Capsule::schema()->table('review_assignments', function (Blueprint $table) {
+		Schema::table('review_assignments', function (Blueprint $table) {
 			$table->dropUnique('review_assignment_reviewer_round_unique');
 		});
 	}

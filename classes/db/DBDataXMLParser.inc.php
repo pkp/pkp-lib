@@ -16,7 +16,8 @@
 
 import('lib.pkp.classes.xml.PKPXMLParser');
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Schema\Blueprint;
 
 class DBDataXMLParser {
@@ -41,7 +42,7 @@ class DBDataXMLParser {
 		$tree = $parser->parse($file);
 		if (!$tree) return array();
 
-		$allTables = Capsule::connection()->getDoctrineSchemaManager()->listTableNames();
+		$allTables = DB::connection()->getDoctrineSchemaManager()->listTableNames();
 
 		foreach ($tree->getChildren() as $type) switch($type->getName()) {
 			case 'table':
@@ -81,14 +82,14 @@ class DBDataXMLParser {
 						$table = $child->getAttribute('table');
 						$column = $child->getAttribute('column');
 						if ($column) {
-							$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table, $column) {
-								Capsule::schema()->table($table, function (Blueprint $table) use ($column) {
+							$this->sql = array_merge($this->sql, array_column(DB::pretend(function() use ($table, $column) {
+								Schema::table($table, function (Blueprint $table) use ($column) {
 									$table->dropColumn('column');
 								});
 							}), 'query'));
 						} else {
-							$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table) {
-								Capsule::schema()->drop($table);
+							$this->sql = array_merge($this->sql, array_column(DB::pretend(function() use ($table) {
+								Schema::drop($table);
 							}), 'query'));
 						}
 						break;
@@ -98,15 +99,15 @@ class DBDataXMLParser {
 						$to = $child->getAttribute('to');
 						if ($column) {
 							// Rename a column.
-							$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table, $column, $to) {
-								Capsule::schema()->table($table, function (Blueprint $table) use ($column, $to) {
+							$this->sql = array_merge($this->sql, array_column(DB::pretend(function() use ($table, $column, $to) {
+								Schema::table($table, function (Blueprint $table) use ($column, $to) {
 									$table->renameColumn($column, $to);
 								});
 							}), 'query'));
 						} else {
 							// Rename the table.
-							$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table, $to) {
-								Capsule::schema()->rename($table, $to);
+							$this->sql = array_merge($this->sql, array_column(DB::pretend(function() use ($table, $to) {
+								Schema::rename($table, $to);
 							}), 'query'));
 						}
 						break;
@@ -117,10 +118,10 @@ class DBDataXMLParser {
 							throw new Exception('dropindex called without table or index');
 						}
 
-						$schemaManager = Capsule::connection()->getDoctrineSchemaManager();
+						$schemaManager = DB::connection()->getDoctrineSchemaManager();
 						if ($child->getAttribute('ifexists') && !in_array($index, array_keys($schemaManager->listTableIndexes($table)))) break;
-						$this->sql = array_merge($this->sql, array_column(Capsule::pretend(function() use ($table, $index) {
-							Capsule::schema()->table($table, function (Blueprint $table) use ($index) {
+						$this->sql = array_merge($this->sql, array_column(DB::pretend(function() use ($table, $index) {
+							Schema::table($table, function (Blueprint $table) use ($index) {
 								$table->dropIndex($index);
 							});
 						}), 'query'));
@@ -148,7 +149,7 @@ class DBDataXMLParser {
 		$this->errorMsg = null;
 		foreach ($this->sql as $stmt) {
 			try {
-				Capsule::statement($stmt);
+				DB::statement($stmt);
 			} catch (Exception $e) {
 				if (!$continueOnError) throw $e;
 			}
@@ -170,7 +171,7 @@ class DBDataXMLParser {
 	 * @return string
 	 */
 	function quoteString($str) {
-		return Capsule::connection()->getPdo()->quote($str);
+		return DB::connection()->getPdo()->quote($str);
 	}
 
 

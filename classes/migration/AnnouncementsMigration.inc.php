@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema as Schema;
 
 class AnnouncementsMigration extends Migration {
 	/**
@@ -23,7 +23,7 @@ class AnnouncementsMigration extends Migration {
 	 */
 	public function up() {
 		// Announcement types.
-		Capsule::schema()->create('announcement_types', function (Blueprint $table) {
+		Schema::create('announcement_types', function (Blueprint $table) {
 			$table->bigInteger('type_id')->autoIncrement();
 			$table->smallInteger('assoc_type');
 			$table->bigInteger('assoc_id');
@@ -31,7 +31,7 @@ class AnnouncementsMigration extends Migration {
 		});
 
 		// Locale-specific announcement type data
-		Capsule::schema()->create('announcement_type_settings', function (Blueprint $table) {
+		Schema::create('announcement_type_settings', function (Blueprint $table) {
 			$table->bigInteger('type_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -42,7 +42,7 @@ class AnnouncementsMigration extends Migration {
 		});
 
 		// Announcements.
-		Capsule::schema()->create('announcements', function (Blueprint $table) {
+		Schema::create('announcements', function (Blueprint $table) {
 			$table->bigInteger('announcement_id')->autoIncrement();
 			//  NOT NULL not included for upgrade purposes
 			$table->smallInteger('assoc_type')->nullable();
@@ -54,7 +54,7 @@ class AnnouncementsMigration extends Migration {
 		});
 
 		// Locale-specific announcement data
-		Capsule::schema()->create('announcement_settings', function (Blueprint $table) {
+		Schema::create('announcement_settings', function (Blueprint $table) {
 			$table->bigInteger('announcement_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -70,9 +70,9 @@ class AnnouncementsMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('announcement_types');
-		Capsule::schema()->drop('announcement_type_settings');
-		Capsule::schema()->drop('announcements');
-		Capsule::schema()->drop('announcement_settings');
+		Schema::drop('announcement_types');
+		Schema::drop('announcement_type_settings');
+		Schema::drop('announcements');
+		Schema::drop('announcement_settings');
 	}
 }

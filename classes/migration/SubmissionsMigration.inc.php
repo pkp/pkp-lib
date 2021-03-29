@@ -14,7 +14,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class SubmissionsMigration extends Migration {
         /**
@@ -23,7 +24,7 @@ class SubmissionsMigration extends Migration {
          */
         public function up() {
 		// Submissions
-		Capsule::schema()->create('submissions', function (Blueprint $table) {
+		Schema::create('submissions', function (Blueprint $table) {
 			$table->bigInteger('submission_id')->autoIncrement();
 			$table->bigInteger('context_id');
 			$table->bigInteger('current_publication_id')->nullable();
@@ -44,7 +45,7 @@ class SubmissionsMigration extends Migration {
 		});
 
 		// Submission metadata
-		Capsule::schema()->create('submission_settings', function (Blueprint $table) {
+		Schema::create('submission_settings', function (Blueprint $table) {
 			$table->bigInteger('submission_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -54,7 +55,7 @@ class SubmissionsMigration extends Migration {
 		});
 
 		// publication metadata
-		Capsule::schema()->create('publication_settings', function (Blueprint $table) {
+		Schema::create('publication_settings', function (Blueprint $table) {
 			$table->bigInteger('publication_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -63,13 +64,13 @@ class SubmissionsMigration extends Migration {
 			$table->unique(['publication_id', 'locale', 'setting_name'], 'publication_settings_pkey');
 		});
 		// Add partial index (DBMS-specific)
-		switch (Capsule::connection()->getDriverName()) {
-			case 'mysql': Capsule::connection()->unprepared('CREATE INDEX publication_settings_name_value ON publication_settings (setting_name(50), setting_value(150))'); break;
-			case 'pgsql': Capsule::connection()->unprepared("CREATE INDEX publication_settings_name_value ON publication_settings (setting_name, setting_value) WHERE setting_name IN ('indexingState', 'medra::registeredDoi', 'datacite::registeredDoi', 'pub-id::publisher-id')"); break;
+		switch (DB::connection()->getDriverName()) {
+			case 'mysql': DB::unprepared('CREATE INDEX publication_settings_name_value ON publication_settings (setting_name(50), setting_value(150))'); break;
+			case 'pgsql': DB::unprepared("CREATE INDEX publication_settings_name_value ON publication_settings (setting_name, setting_value) WHERE setting_name IN ('indexingState', 'medra::registeredDoi', 'datacite::registeredDoi', 'pub-id::publisher-id')"); break;
 		}
 
 		// Authors for submissions.
-		Capsule::schema()->create('authors', function (Blueprint $table) {
+		Schema::create('authors', function (Blueprint $table) {
 			$table->bigInteger('author_id')->autoIncrement();
 			$table->string('email', 90);
 			$table->smallInteger('include_in_browse')->default(1);
@@ -80,7 +81,7 @@ class SubmissionsMigration extends Migration {
 		});
 
 		// Language dependent author metadata.
-		Capsule::schema()->create('author_settings', function (Blueprint $table) {
+		Schema::create('author_settings', function (Blueprint $table) {
 			$table->bigInteger('author_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -90,7 +91,7 @@ class SubmissionsMigration extends Migration {
 		});
 
 		// Editor decisions.
-		Capsule::schema()->create('edit_decisions', function (Blueprint $table) {
+		Schema::create('edit_decisions', function (Blueprint $table) {
 			$table->bigInteger('edit_decision_id')->autoIncrement();
 			$table->bigInteger('submission_id');
 			$table->bigInteger('review_round_id');
@@ -104,7 +105,7 @@ class SubmissionsMigration extends Migration {
 		});
 
 		// Comments posted on submissions
-		Capsule::schema()->create('submission_comments', function (Blueprint $table) {
+		Schema::create('submission_comments', function (Blueprint $table) {
 			$table->bigInteger('comment_id')->autoIncrement();
 			$table->bigInteger('comment_type')->nullable();
 			$table->bigInteger('role_id');
@@ -120,7 +121,7 @@ class SubmissionsMigration extends Migration {
 		});
 
 		// Assignments of sub editors to submission groups.
-		Capsule::schema()->create('subeditor_submission_group', function (Blueprint $table) {
+		Schema::create('subeditor_submission_group', function (Blueprint $table) {
 			$table->bigInteger('context_id');
 			$table->bigInteger('assoc_id');
 			$table->bigInteger('assoc_type');
@@ -132,7 +133,7 @@ class SubmissionsMigration extends Migration {
 		});
 
 		// queries posted on submission workflow
-		Capsule::schema()->create('queries', function (Blueprint $table) {
+		Schema::create('queries', function (Blueprint $table) {
 			$table->bigInteger('query_id')->autoIncrement();
 			$table->bigInteger('assoc_type');
 			$table->bigInteger('assoc_id');
@@ -145,21 +146,21 @@ class SubmissionsMigration extends Migration {
 		});
 
 		// queries posted on submission workflow
-		Capsule::schema()->create('query_participants', function (Blueprint $table) {
+		Schema::create('query_participants', function (Blueprint $table) {
 			$table->bigInteger('query_id');
 			$table->bigInteger('user_id');
 			$table->unique(['query_id', 'user_id'], 'query_participants_pkey');
 		});
 
 		// List of all keywords.
-		Capsule::schema()->create('submission_search_keyword_list', function (Blueprint $table) {
+		Schema::create('submission_search_keyword_list', function (Blueprint $table) {
 			$table->bigInteger('keyword_id')->autoIncrement();
 			$table->string('keyword_text', 60);
 			$table->unique(['keyword_text'], 'submission_search_keyword_text');
 		});
 
 		// Indexed objects.
-		Capsule::schema()->create('submission_search_objects', function (Blueprint $table) {
+		Schema::create('submission_search_objects', function (Blueprint $table) {
 			$table->bigInteger('object_id')->autoIncrement();
 			$table->bigInteger('submission_id');
 			$table->integer('type')->comment('Type of item. E.g., abstract, fulltext, etc.');
@@ -168,7 +169,7 @@ class SubmissionsMigration extends Migration {
 		});
 
 		// Keyword occurrences for each indexed object.
-		Capsule::schema()->create('submission_search_object_keywords', function (Blueprint $table) {
+		Schema::create('submission_search_object_keywords', function (Blueprint $table) {
 			$table->bigInteger('object_id');
 			$table->bigInteger('keyword_id');
 			$table->integer('pos')->comment('Word position of the keyword in the object.');
@@ -182,18 +183,18 @@ class SubmissionsMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('submission_search_object_keywords');
-		Capsule::schema()->drop('submission_search_objects');
-		Capsule::schema()->drop('submission_search_keyword_list');
-		Capsule::schema()->drop('query_participants');
-		Capsule::schema()->drop('queries');
-		Capsule::schema()->drop('subeditor_submission_group');
-		Capsule::schema()->drop('submission_comments');
-		Capsule::schema()->drop('edit_decisions');
-		Capsule::schema()->drop('author_settings');
-		Capsule::schema()->drop('authors');
-		Capsule::schema()->drop('publication_settings');
-		Capsule::schema()->drop('submission_settings');
-		Capsule::schema()->drop('submissions');
+		Schema::drop('submission_search_object_keywords');
+		Schema::drop('submission_search_objects');
+		Schema::drop('submission_search_keyword_list');
+		Schema::drop('query_participants');
+		Schema::drop('queries');
+		Schema::drop('subeditor_submission_group');
+		Schema::drop('submission_comments');
+		Schema::drop('edit_decisions');
+		Schema::drop('author_settings');
+		Schema::drop('authors');
+		Schema::drop('publication_settings');
+		Schema::drop('submission_settings');
+		Schema::drop('submissions');
 	}
 }

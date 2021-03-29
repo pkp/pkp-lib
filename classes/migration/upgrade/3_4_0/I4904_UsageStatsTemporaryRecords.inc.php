@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class I4904_UsageStatsTemporaryRecords extends Migration {
 	/**
@@ -23,8 +23,8 @@ class I4904_UsageStatsTemporaryRecords extends Migration {
 	 */
 	public function up() {
 		// pkp/pkp-lib#4904: additional column in the table usage_stats_temporary_records
-		if (Capsule::schema()->hasTable('usage_stats_temporary_records') && !Capsule::schema()->hasColumn('usage_stats_temporary_records', 'representation_id')) {
-			Capsule::schema()->table('usage_stats_temporary_records', function(Blueprint $table) {
+		if (Schema::hasTable('usage_stats_temporary_records') && !Schema::hasColumn('usage_stats_temporary_records', 'representation_id')) {
+			Schema::table('usage_stats_temporary_records', function(Blueprint $table) {
 				$table->bigInteger('representation_id')->nullable()->default(NULL);
 			});
 		}

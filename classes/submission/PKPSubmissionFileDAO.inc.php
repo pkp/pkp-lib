@@ -13,7 +13,7 @@
  *
  * @brief Operations for retrieving and modifying submission files
  */
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 
 import('lib.pkp.classes.db.SchemaDAO');
 import('lib.pkp.classes.submission.Genre'); // GENRE_CATEGORY_... constants
@@ -63,7 +63,7 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 	 * @copydoc SchemaDAO::getById
 	 */
 	public function getById($objectId) {
-		$row = Capsule::table($this->tableName . ' as sf')
+		$row = DB::table($this->tableName . ' as sf')
 			->leftJoin('submissions as s', 's.submission_id', '=', 'sf.submission_id')
 			->leftJoin('files as f', 'f.file_id', '=', 'sf.file_id')
 			->where($this->primaryKeyColumn, '=', (int) $objectId)
@@ -90,7 +90,7 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 	public function insertObject($submissionFile) {
 		parent::insertObject($submissionFile);
 
-		Capsule::table('submission_file_revisions')->insert([
+		DB::table('submission_file_revisions')->insert([
 			'submission_file_id' => $submissionFile->getId(),
 			'file_id' => $submissionFile->getData('fileId'),
 		]);
@@ -108,7 +108,7 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 			if (!$reviewRound) {
 				throw new Exception('Review round not found for adding submission file.');
 			}
-			Capsule::table('review_round_files')->insert([
+			DB::table('review_round_files')->insert([
 				'submission_id' => $submissionFile->getData('submissionId'),
 				'review_round_id' => $reviewRound->getId(),
 				'stage_id' => $reviewRound->getStageId(),
@@ -125,13 +125,13 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 	public function updateObject($submissionFile)	{
 		parent::updateObject($submissionFile);
 
-		$hasFileId = Capsule::table('submission_file_revisions')
+		$hasFileId = DB::table('submission_file_revisions')
 			->where('submission_file_id', '=', $submissionFile->getId())
 			->where('file_id', '=', $submissionFile->getData('fileId'))
 			->exists();
 
 		if (!$hasFileId) {
-			Capsule::table('submission_file_revisions')->insert([
+			DB::table('submission_file_revisions')->insert([
 				'submission_file_id' => $submissionFile->getId(),
 				'file_id' => $submissionFile->getData('fileId'),
 			]);
@@ -142,15 +142,15 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 	 * @copydoc SchemaDAO::deleteById()
 	 */
 	public function deleteById($submissionFileId) {
-		Capsule::table('submission_file_revisions')
+		DB::table('submission_file_revisions')
 			->where('submission_file_id', '=', $submissionFileId)
 			->delete();
 
-		Capsule::table('review_round_files')
+		DB::table('review_round_files')
 			->where('submission_file_id', '=', $submissionFileId)
 			->delete();
 
-		Capsule::table('review_files')
+		DB::table('review_files')
 			->where('submission_file_id', '=', $submissionFileId)
 			->delete();
 
@@ -164,7 +164,7 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 	 * @return Illuminate\Support\Collection
 	 */
 	public function getRevisions($submissionFileId) {
-		return Capsule::table('submission_file_revisions as sfr')
+		return DB::table('submission_file_revisions as sfr')
 			->leftJoin('files as f', 'f.file_id', '=', 'sfr.file_id')
 			->where('submission_file_id', '=', $submissionFileId)
 			->orderBy('revision_id', 'desc')
@@ -191,7 +191,7 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 			return null;
 		}
 
-		$submissionFileId = Capsule::table('submission_files as sf')
+		$submissionFileId = DB::table('submission_files as sf')
 			->leftJoin('submission_file_settings as sfs', 'sfs.submission_file_id', '=' , 'sf.submission_file_id')
 			->where('sf.submission_id', '=', $submissionId)
 			->where(function($q) use ($pubIdType, $pubId) {

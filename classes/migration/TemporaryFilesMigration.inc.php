@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class TemporaryFilesMigration extends Migration {
         /**
@@ -23,7 +23,7 @@ class TemporaryFilesMigration extends Migration {
          */
         public function up() {
 		// Temporary file storage
-		Capsule::schema()->create('temporary_files', function (Blueprint $table) {
+		Schema::create('temporary_files', function (Blueprint $table) {
 			$table->bigInteger('file_id')->autoIncrement();
 			$table->bigInteger('user_id');
 			$table->string('file_name', 90);
@@ -40,6 +40,6 @@ class TemporaryFilesMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('temporary_files');
+		Schema::drop('temporary_files');
 	}
 }

@@ -16,7 +16,7 @@
 
 import('classes.notification.Notification');
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 
 class NotificationDAO extends DAO {
 
@@ -52,7 +52,7 @@ class NotificationDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
 	function getByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $type = null, $contextId = null) {
-		$result = Capsule::table('notifications')
+		$result = DB::table('notifications')
 			->where('user_id', '=', (int) $userId)
 			->where('level', '=', (int) $level)
 			->get();

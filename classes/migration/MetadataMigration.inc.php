@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class MetadataMigration extends Migration {
         /**
@@ -23,7 +23,7 @@ class MetadataMigration extends Migration {
          */
         public function up() {
 		// Citations
-		Capsule::schema()->create('citations', function (Blueprint $table) {
+		Schema::create('citations', function (Blueprint $table) {
 			$table->bigInteger('citation_id')->autoIncrement();
 			$table->bigInteger('publication_id')->default(0);
 			$table->text('raw_citation');
@@ -33,7 +33,7 @@ class MetadataMigration extends Migration {
 		});
 
 		// Citation settings
-		Capsule::schema()->create('citation_settings', function (Blueprint $table) {
+		Schema::create('citation_settings', function (Blueprint $table) {
 			$table->bigInteger('citation_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -44,7 +44,7 @@ class MetadataMigration extends Migration {
 		});
 
 		// Metadata Descriptions
-		Capsule::schema()->create('metadata_descriptions', function (Blueprint $table) {
+		Schema::create('metadata_descriptions', function (Blueprint $table) {
 			$table->bigInteger('metadata_description_id')->autoIncrement();
 			$table->bigInteger('assoc_type')->default(0);
 			$table->bigInteger('assoc_id')->default(0);
@@ -56,7 +56,7 @@ class MetadataMigration extends Migration {
 		});
 
 		// Metadata Description Settings
-		Capsule::schema()->create('metadata_description_settings', function (Blueprint $table) {
+		Schema::create('metadata_description_settings', function (Blueprint $table) {
 			$table->bigInteger('metadata_description_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -67,7 +67,7 @@ class MetadataMigration extends Migration {
 		});
 
 		// Filter groups
-		Capsule::schema()->create('filter_groups', function (Blueprint $table) {
+		Schema::create('filter_groups', function (Blueprint $table) {
 			$table->bigInteger('filter_group_id')->autoIncrement();
 			$table->string('symbolic', 255)->nullable();
 			$table->string('display_name', 255)->nullable();
@@ -78,7 +78,7 @@ class MetadataMigration extends Migration {
 		});
 
 		// Configured filter instances (transformations)
-		Capsule::schema()->create('filters', function (Blueprint $table) {
+		Schema::create('filters', function (Blueprint $table) {
 			$table->bigInteger('filter_id')->autoIncrement();
 			$table->bigInteger('filter_group_id')->default(0);
 			$table->bigInteger('context_id')->default(0);
@@ -90,7 +90,7 @@ class MetadataMigration extends Migration {
 		});
 
 		// Filter Settings
-		Capsule::schema()->create('filter_settings', function (Blueprint $table) {
+		Schema::create('filter_settings', function (Blueprint $table) {
 			$table->bigInteger('filter_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -106,12 +106,12 @@ class MetadataMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('filter_settings');
-		Capsule::schema()->drop('filters');
-		Capsule::schema()->drop('filter_groups');
-		Capsule::schema()->drop('metadata_description_settings');
-		Capsule::schema()->drop('metadata_descriptions');
-		Capsule::schema()->drop('citation_settings');
-		Capsule::schema()->drop('citations');
+		Schema::drop('filter_settings');
+		Schema::drop('filters');
+		Schema::drop('filter_groups');
+		Schema::drop('metadata_description_settings');
+		Schema::drop('metadata_descriptions');
+		Schema::drop('citation_settings');
+		Schema::drop('citations');
 	}
 }

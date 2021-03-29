@@ -17,7 +17,7 @@
 import('lib.pkp.classes.announcement.Announcement');
 import('lib.pkp.classes.db.SchemaDAO');
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 
 class AnnouncementDAO extends SchemaDAO {
 	/** @var string One of the SCHEMA_... constants */
@@ -50,7 +50,7 @@ class AnnouncementDAO extends SchemaDAO {
 	 * @return Announcement
 	 */
 	function getById($announcementId, $assocType = null, $assocId = null) {
-		$query = Capsule::table($this->tableName)->where($this->primaryKeyColumn, '=', (int) $announcementId);
+		$query = DB::table($this->tableName)->where($this->primaryKeyColumn, '=', (int) $announcementId);
 		if ($assocType !== null) $query->where('assoc_type', '=', (int) $assocType);
 		if ($assocId !== null) $query->where('assoc_id', '=', (int) $assocType);
 		if ($result = $query->first()) {
@@ -98,7 +98,7 @@ class AnnouncementDAO extends SchemaDAO {
 	 * @return Generator Matching Announcements
 	 */
 	function getByAssocId($assocType, $assocId) {
-		$result = Capsule::table($this->tableName)
+		$result = DB::table($this->tableName)
 			->where('assoc_type', '=', (int) $assocType)
 			->where('assoc_id', '=', (int) $assocId)
 			->orderByDesc('date_posted')

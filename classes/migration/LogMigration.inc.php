@@ -14,7 +14,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class LogMigration extends Migration {
         /**
@@ -23,7 +24,7 @@ class LogMigration extends Migration {
          */
         public function up() {
 		// A log of all events associated with an object.
-		Capsule::schema()->create('event_log', function (Blueprint $table) {
+		Schema::create('event_log', function (Blueprint $table) {
 			$table->bigInteger('log_id')->autoIncrement();
 			$table->bigInteger('assoc_type');
 			$table->bigInteger('assoc_id');
@@ -36,7 +37,7 @@ class LogMigration extends Migration {
 		});
 
 		// Event log associative data
-		Capsule::schema()->create('event_log_settings', function (Blueprint $table) {
+		Schema::create('event_log_settings', function (Blueprint $table) {
 			$table->bigInteger('log_id');
 			$table->string('setting_name', 255);
 			$table->text('setting_value')->nullable();
@@ -46,13 +47,13 @@ class LogMigration extends Migration {
 		});
 
 		// Add partial index (DBMS-specific)
-		switch (Capsule::connection()->getDriverName()) {
-			case 'mysql': Capsule::connection()->unprepared('CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name(50), setting_value(150))'); break;
-			case 'pgsql': Capsule::connection()->unprepared("CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name, setting_value) WHERE setting_name IN ('fileId', 'submissionId')"); break;
+		switch (DB::connection()->getDriverName()) {
+			case 'mysql': DB::unprepared('CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name(50), setting_value(150))'); break;
+			case 'pgsql': DB::unprepared("CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name, setting_value) WHERE setting_name IN ('fileId', 'submissionId')"); break;
 		}
 
 		// A log of all emails sent out related to an object.
-		Capsule::schema()->create('email_log', function (Blueprint $table) {
+		Schema::create('email_log', function (Blueprint $table) {
 			$table->bigInteger('log_id')->autoIncrement();
 			$table->bigInteger('assoc_type');
 			$table->bigInteger('assoc_id');
@@ -69,7 +70,7 @@ class LogMigration extends Migration {
 		});
 
 		// Associations for email logs within a user.
-		Capsule::schema()->create('email_log_users', function (Blueprint $table) {
+		Schema::create('email_log_users', function (Blueprint $table) {
 			$table->bigInteger('email_log_id');
 			$table->bigInteger('user_id');
 			$table->unique(['email_log_id', 'user_id'], 'email_log_user_id');
@@ -81,9 +82,9 @@ class LogMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('email_log_users');
-		Capsule::schema()->drop('email_log');
-		Capsule::schema()->drop('event_log_settings');
-		Capsule::schema()->drop('event_log');
+		Schema::drop('email_log_users');
+		Schema::drop('email_log');
+		Schema::drop('event_log_settings');
+		Schema::drop('event_log');
 	}
 }

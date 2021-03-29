@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class ViewsMigration extends Migration {
         /**
@@ -23,7 +23,7 @@ class ViewsMigration extends Migration {
          */
         public function up() {
 		// Tracking of views for various types of objects such as files, reviews, etc
-		Capsule::schema()->create('item_views', function (Blueprint $table) {
+		Schema::create('item_views', function (Blueprint $table) {
 			$table->bigInteger('assoc_type');
 			$table->bigInteger('assoc_id');
 			$table->bigInteger('user_id')->nullable();
@@ -37,6 +37,6 @@ class ViewsMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('item_views');
+		Schema::drop('item_views');
 	}
 }

@@ -14,7 +14,7 @@
 
 namespace PKP\Services\QueryBuilders;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface {
@@ -118,9 +118,9 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface {
 				'c.seq',
 			])
 			->leftJoin($this->dbSettings . ' as cst', function($q) {
-				$q->where('cst.' . $this->dbIdColumn, '=', Capsule::raw('c.' . $this->dbIdColumn))
+				$q->where('cst.' . $this->dbIdColumn, '=', DB::raw('c.' . $this->dbIdColumn))
 					->where('cst.setting_name', '=', 'name')
-					->where('cst.locale', '=', Capsule::raw('c.primary_locale'));
+					->where('cst.locale', '=', DB::raw('c.primary_locale'));
 			})
 			->groupBy([
 				'c.' . $this->dbIdColumn,
@@ -135,7 +135,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface {
 	 */
 	public function getQuery() {
 		$this->columns[] = 'c.*';
-		$q = Capsule::table($this->db . ' as c')
+		$q = DB::table($this->db . ' as c')
 					->leftJoin($this->dbSettings . ' as cs', 'cs.' . $this->dbIdColumn, '=', 'c.' . $this->dbIdColumn)
 					->groupBy('c.' . $this->dbIdColumn);
 

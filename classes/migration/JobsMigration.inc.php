@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class JobsMigration extends Migration {
         /**
@@ -22,7 +22,7 @@ class JobsMigration extends Migration {
          * @return void
          */
         public function up() {
-		Capsule::schema()->create('jobs', function (Blueprint $table) {
+		Schema::create('jobs', function (Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->string('queue');
 			$table->longText('payload');
@@ -40,6 +40,6 @@ class JobsMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('jobs');
+		Schema::drop('jobs');
 	}
 }

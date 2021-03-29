@@ -13,7 +13,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class SubmissionFilesMigration extends Migration {
         /**
@@ -22,7 +22,7 @@ class SubmissionFilesMigration extends Migration {
          */
         public function up() {
 		// Files associated with submission. Includes submission files, etc.
-		Capsule::schema()->create('submission_files', function (Blueprint $table) {
+		Schema::create('submission_files', function (Blueprint $table) {
 			$table->bigIncrements('submission_file_id');
 			$table->bigInteger('submission_id');
 			$table->bigInteger('file_id')->nullable(false)->unsigned();
@@ -44,7 +44,7 @@ class SubmissionFilesMigration extends Migration {
 		});
 
 		// Article supplementary file metadata.
-		Capsule::schema()->create('submission_file_settings', function (Blueprint $table) {
+		Schema::create('submission_file_settings', function (Blueprint $table) {
 			$table->bigInteger('submission_file_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -55,7 +55,7 @@ class SubmissionFilesMigration extends Migration {
 		});
 
 		// Submission file revisions
-		Capsule::schema()->create('submission_file_revisions', function (Blueprint $table) {
+		Schema::create('submission_file_revisions', function (Blueprint $table) {
 			$table->bigIncrements('revision_id');
 			$table->bigInteger('submission_file_id')->unsigned();
 			$table->bigInteger('file_id')->unsigned();
@@ -69,8 +69,8 @@ class SubmissionFilesMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('submission_file_revisions');
-		Capsule::schema()->drop('submission_file_settings');
-		Capsule::schema()->drop('submission_files');
+		Schema::drop('submission_file_revisions');
+		Schema::drop('submission_file_settings');
+		Schema::drop('submission_files');
 	}
 }

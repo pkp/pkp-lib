@@ -13,8 +13,8 @@
  * @brief Handle API requests for announcement operations.
  *
  */
-use \Illuminate\Queue\Capsule\Manager as Queue;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Queue as Queue;
+use Illuminate\Support\Facades\DB;
 use \Psr\Http\Message\ServerRequestInterface;
 
 import('lib.pkp.classes.handler.APIHandler');
@@ -171,7 +171,7 @@ class PKPEmailHandler extends APIHandler {
 					$mail->setBody($body);
 					$mail->send();
 				}
-			}, [], $queueId, 'persistent');
+			}, [], $queueId);
 		}
 
 		return $response->withJson([
@@ -189,7 +189,7 @@ class PKPEmailHandler extends APIHandler {
 	 * @return APIResponse
 	 */
 	public function process(ServerRequestInterface $slimRequest, APIResponse $response, array $args) {
-		$countRunning = Capsule::table('jobs')
+		$countRunning = DB::table('jobs')
 			->where('queue', $args['queueId'])
 			->whereNotNull('reserved_at')
 			->count();
@@ -210,7 +210,7 @@ class PKPEmailHandler extends APIHandler {
 				}
 			);
 			$options = new Illuminate\Queue\WorkerOptions();
-			$worker->runNextJob('persistent', $args['queueId'], $options);
+			$worker->runNextJob('database', $args['queueId'], $options);
 
 			// Update count of pending jobs
 			$countPending = $this->countPending($args['queueId']);
@@ -228,7 +228,7 @@ class PKPEmailHandler extends APIHandler {
 	 * @return int
 	 */
 	protected function countPending(string $queueId) : int {
-		return Capsule::table('jobs')
+		return DB::table('jobs')
 			->where('queue', $queueId)
 			->count();
 	}

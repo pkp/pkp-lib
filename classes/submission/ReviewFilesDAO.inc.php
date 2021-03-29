@@ -13,7 +13,7 @@
  * @brief Operations for managing review round / submission file associations.
  * These control which files are available for download by reviewers during review.
  */
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 
 class ReviewFilesDAO extends DAO {
 
@@ -62,7 +62,7 @@ class ReviewFilesDAO extends DAO {
 	 * @return boolean
 	 */
 	function check($reviewId, $submissionFileId) {
-		return Capsule::table('review_files')
+		return DB::table('review_files')
 			->where('review_id', (int) $reviewId)
 			->where('submission_file_id', (int) $submissionFileId)
 			->exists();

@@ -14,7 +14,7 @@
 
 namespace PKP\Services\QueryBuilders;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_ constants
@@ -179,7 +179,7 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface {
 	 * @return object Query object
 	 */
 	public function getQuery() {
-		$q = Capsule::table('submission_files as sf');
+		$q = DB::table('submission_files as sf');
 
 		if (!empty($this->submissionIds)) {
 			$q->whereIn('sf.submission_id', $this->submissionIds);

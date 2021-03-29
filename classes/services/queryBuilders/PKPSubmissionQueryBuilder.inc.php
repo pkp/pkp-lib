@@ -15,7 +15,7 @@
 
 namespace PKP\Services\QueryBuilders;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB as DB;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface {
@@ -90,7 +90,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 		} elseif ($column === 'dateLastActivity') {
 			$this->orderColumn = 's.date_last_activity';
 		} elseif ($column === 'title') {
-			$this->orderColumn = Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
+			$this->orderColumn = DB::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
 		} elseif ($column === 'seq') {
 			$this->orderColumn = 'po.seq';
 		} elseif ($column === ORDERBY_DATE_PUBLISHED) {
@@ -259,7 +259,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 	 */
 	public function getQuery() {
 		$this->columns[] = 's.*';
-		$q = Capsule::table('submissions as s')
+		$q = DB::table('submissions as s')
 					->orderBy($this->orderColumn, $this->orderDirection)
 					->groupBy('s.submission_id');
 
@@ -275,7 +275,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 		// order by title
 		if (is_object($this->orderColumn) && $this->orderColumn->getValue() === 'COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)') {
 			$locale = \AppLocale::getLocale();
-			$this->columns[] = Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
+			$this->columns[] = DB::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
 			$q->leftJoin('publications as publication_tlp', 's.current_publication_id', '=', 'publication_tlp.publication_id')
 				->leftJoin('publication_settings as publication_tlps', 'publication_tlp.publication_id', '=', 'publication_tlps.publication_id')
 				->where('publication_tlps.setting_name', '=', 'title')
@@ -283,8 +283,8 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 			$q->leftJoin('publications as publication_tlpl', 's.current_publication_id', '=', 'publication_tlpl.publication_id')
 				->leftJoin('publication_settings as publication_tlpsl', 'publication_tlp.publication_id', '=', 'publication_tlpsl.publication_id')
 				->where('publication_tlpsl.setting_name', '=', 'title')
-				->where('publication_tlpsl.locale', '=', Capsule::raw('s.locale'));
-			$q->groupBy(Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)'));
+				->where('publication_tlpsl.locale', '=', DB::raw('s.locale'));
+			$q->groupBy(DB::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)'));
 		}
 
 		// order by publication sequence
@@ -361,8 +361,8 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 			// Review assignments
 			$q->leftJoin('review_assignments as ra', function($table) use ($assignedTo) {
 				$table->on('s.submission_id', '=', 'ra.submission_id');
-				$table->on('ra.declined', '=', Capsule::raw((int) 0));
-				$table->on('ra.cancelled', '=', Capsule::raw((int) 0));
+				$table->on('ra.declined', '=', DB::raw((int) 0));
+				$table->on('ra.cancelled', '=', DB::raw((int) 0));
 				$table->whereIn('ra.reviewer_id', $assignedTo);
 			});
 
@@ -371,15 +371,15 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 				$q->orWhereNotNull('ra.review_id');
 			});
 		} elseif ($this->assignedTo === -1) {
-			$sub = Capsule::table('stage_assignments')
-						->select(Capsule::raw('count(stage_assignments.stage_assignment_id)'))
+			$sub = DB::table('stage_assignments')
+						->select(DB::raw('count(stage_assignments.stage_assignment_id)'))
 						->leftJoin('user_groups','stage_assignments.user_group_id','=','user_groups.user_group_id')
-						->where('stage_assignments.submission_id', '=', Capsule::raw('s.submission_id'))
+						->where('stage_assignments.submission_id', '=', DB::raw('s.submission_id'))
 						->whereIn('user_groups.role_id', array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR));
 
 			$q->whereNotNull('s.date_submitted')
 				->mergeBindings($sub)
-				->where(Capsule::raw('(' . $sub->toSql() . ')'),'=','0')
+				->where(DB::raw('(' . $sub->toSql() . ')'),'=','0')
 				->groupBy('s.date_submitted'); // postgres compatibility
 		}
 
@@ -397,19 +397,19 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 					$q->where(function($q) use ($word, $isAssignedOnly)  {
 						$q->where(function($q) use ($word) {
 							$q->where('ps.setting_name', 'title');
-							$q->where(Capsule::raw('lower(ps.setting_value)'), 'LIKE', "%{$word}%");
+							$q->where(DB::raw('lower(ps.setting_value)'), 'LIKE', "%{$word}%");
 						})
 						->orWhere(function($q) use ($word) {
 							$q->where('aus.setting_name', IDENTITY_SETTING_GIVENNAME);
-							$q->where(Capsule::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
+							$q->where(DB::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
 						})
 						->orWhere(function($q) use ($word, $isAssignedOnly) {
 							$q->where('aus.setting_name', IDENTITY_SETTING_FAMILYNAME);
-							$q->where(Capsule::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
+							$q->where(DB::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
 						})
 						->orWhere(function($q) use ($word, $isAssignedOnly) {
 							$q->where('aus.setting_name', 'orcid');
-							$q->where(Capsule::raw('lower(aus.setting_value)'), '=', "{$word}");
+							$q->where(DB::raw('lower(aus.setting_value)'), '=', "{$word}");
 						});
 						// Prevent reviewers from matching searches by author name
 						if ($isAssignedOnly) {

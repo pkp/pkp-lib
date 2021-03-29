@@ -20,7 +20,7 @@ use \Exception;
 use \HookRegistry;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 
 class PKPFileService {
 
@@ -60,7 +60,7 @@ class PKPFileService {
 	 * @return stdObject
 	 */
 	public function get($id) {
-		$file = Capsule::table('files')
+		$file = DB::table('files')
 			->where('file_id', '=', $id)
 			->select(['file_id as id', 'path', 'mimetype'])
 			->first();
@@ -95,7 +95,7 @@ class PKPFileService {
 			}
 		}
 
-		return Capsule::table('files')->insertGetId([
+		return DB::table('files')->insertGetId([
 			'path' => $to,
 			'mimetype' => $mimetype,
 		], 'file_id');
@@ -116,7 +116,7 @@ class PKPFileService {
 		if ($this->fs->has($path) && !$this->fs->delete($path)) {
 			throw new Exception("Unable to delete file $id at $path.");
 		}
-		Capsule::table('files')
+		DB::table('files')
 			->where('file_id', '=', $file->id)
 			->delete();
 	}

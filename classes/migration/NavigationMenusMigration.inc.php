@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class NavigationMenusMigration extends Migration {
         /**
@@ -23,7 +23,7 @@ class NavigationMenusMigration extends Migration {
          */
         public function up() {
 		// NavigationMenus
-		Capsule::schema()->create('navigation_menus', function (Blueprint $table) {
+		Schema::create('navigation_menus', function (Blueprint $table) {
 			$table->bigInteger('navigation_menu_id')->autoIncrement();
 			$table->bigInteger('context_id');
 			$table->string('area_name', 255)->default('')->nullable();
@@ -31,7 +31,7 @@ class NavigationMenusMigration extends Migration {
 		});
 
 		// NavigationMenuItems
-		Capsule::schema()->create('navigation_menu_items', function (Blueprint $table) {
+		Schema::create('navigation_menu_items', function (Blueprint $table) {
 			$table->bigInteger('navigation_menu_item_id')->autoIncrement();
 			$table->bigInteger('context_id');
 			$table->string('path', 255)->default('')->nullable();
@@ -39,7 +39,7 @@ class NavigationMenusMigration extends Migration {
 		});
 
 		// Locale-specific navigation menu item data
-		Capsule::schema()->create('navigation_menu_item_settings', function (Blueprint $table) {
+		Schema::create('navigation_menu_item_settings', function (Blueprint $table) {
 			$table->bigInteger('navigation_menu_item_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -50,7 +50,7 @@ class NavigationMenusMigration extends Migration {
 		});
 
 		// NavigationMenuItemAssignments which assign menu items to a menu and describe nested menu structure.
-		Capsule::schema()->create('navigation_menu_item_assignments', function (Blueprint $table) {
+		Schema::create('navigation_menu_item_assignments', function (Blueprint $table) {
 			$table->bigInteger('navigation_menu_item_assignment_id')->autoIncrement();
 			$table->bigInteger('navigation_menu_id');
 			$table->bigInteger('navigation_menu_item_id');
@@ -59,7 +59,7 @@ class NavigationMenusMigration extends Migration {
 		});
 
 		// Locale-specific navigation menu item assignments data
-		Capsule::schema()->create('navigation_menu_item_assignment_settings', function (Blueprint $table) {
+		Schema::create('navigation_menu_item_assignment_settings', function (Blueprint $table) {
 			$table->bigInteger('navigation_menu_item_assignment_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -75,10 +75,10 @@ class NavigationMenusMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('navigation_menu_item_assignment_settings');
-		Capsule::schema()->drop('navigation_menu_item_assignments');
-		Capsule::schema()->drop('navigation_menu_item_settings');
-		Capsule::schema()->drop('navigation_menu_items');
-		Capsule::schema()->drop('navigation_menus');
+		Schema::drop('navigation_menu_item_assignment_settings');
+		Schema::drop('navigation_menu_item_assignments');
+		Schema::drop('navigation_menu_item_settings');
+		Schema::drop('navigation_menu_items');
+		Schema::drop('navigation_menus');
 	}
 }

@@ -26,7 +26,7 @@ import('lib.pkp.classes.core.DataObject');
 define('SORT_DIRECTION_ASC', 0x00001);
 define('SORT_DIRECTION_DESC', 0x00002);
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 
 class DAO {
 	/**
@@ -47,7 +47,7 @@ class DAO {
 	 * Execute a SELECT SQL statement.
 	 * @param $sql string the SQL statement
 	 * @param $params array parameters for the SQL statement
-	 * @return Illuminate\Support\LazyCollection
+	 * @return Generator
 	 */
 	function retrieve($sql, $params = [], $callHooks = true) {
 		if ($callHooks === true) {
@@ -62,7 +62,7 @@ class DAO {
 			}
 		}
 
-		return Capsule::cursor(Capsule::raw($sql), $params);
+		return DB::connection()->cursor(DB::raw($sql)->getValue(), $params);
 	}
 
 	/**
@@ -70,7 +70,7 @@ class DAO {
 	 * @param $sql string the SQL statement
 	 * @param $params array parameters for the SQL statement
 	 * @param $dbResultRange DBResultRange object describing the desired range
-	 * @return Illuminate\Support\LazyCollection
+	 * @return Generator
 	 */
 	function retrieveRange($sql, $params = [], $dbResultRange = null, $callHooks = true) {
 		if ($callHooks === true) {
@@ -91,7 +91,7 @@ class DAO {
 			$sql .= ' OFFSET ' . $offset;
 		}
 
-		return Capsule::cursor(Capsule::raw($sql), $params);
+		return DB::connection()->cursor(DB::raw($sql), $params);
 	}
 
 	/**
@@ -135,7 +135,7 @@ class DAO {
 			}
 		}
 
-		return Capsule::affectingStatement($sql, $params);
+		return DB::affectingStatement($sql, $params);
 	}
 
 	/**
@@ -146,7 +146,7 @@ class DAO {
 	 * @return int @see ADODB::Replace
 	 */
 	function replace($table, $arrFields, $keyCols) {
-		$queryBuilder = new \Staudenmeir\LaravelUpsert\Query\Builder(Capsule::connection());
+		$queryBuilder = new \Staudenmeir\LaravelUpsert\Query\Builder(DB::connection());
 		return $queryBuilder->from($table)->upsert($arrFields, $keyCols);
 	}
 
@@ -155,7 +155,7 @@ class DAO {
 	 * @return int
 	 */
 	protected function _getInsertId() {
-		return Capsule::getPdo()->lastInsertId();
+		return DB::connection()->getPdo()->lastInsertId();
 	}
 
 	/**

@@ -13,7 +13,7 @@
  *
  * @brief Operations for retrieving and modifying publication objects.
  */
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 
 import('lib.pkp.classes.db.SchemaDAO');
 import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
@@ -52,7 +52,7 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 		$publication = parent::_fromRow($primaryRow);
 
 		// Set the primary locale from the submission
-		$locale = Capsule::table('submissions as s')
+		$locale = DB::table('submissions as s')
 			->where('s.submission_id', '=', $publication->getData('submissionId'))
 			->value('locale');
 		$publication->setData('locale', $locale);
@@ -280,7 +280,7 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
 	 */
 	public function deleteAllPubIds($contextId, $pubIdType) {
-		switch (Capsule::connection()->getDriverName()) {
+		switch (DB::connection()->getDriverName()) {
 			case 'mysql':
 				$this->update(
 					'DELETE ps FROM publication_settings ps
@@ -324,7 +324,7 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * @return array Publication.
 	 */
 	public function getIdsBySetting($settingName, $settingValue, $contextId) {
-		$q = Capsule::table('publications as p')
+		$q = DB::table('publications as p')
 			->join('publication_settings as ps', 'p.publication_id', '=', 'ps.publication_id')
 			->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
 			->where('ps.setting_name', '=', $settingName)
@@ -343,7 +343,7 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * @return boolean
 	 */
 	function exists($publicationId, $submissionId = null) {
-		$q = Capsule::table('publications');
+		$q = DB::table('publications');
 		$q->where('publication_id', '=', $publicationId);
 		if ($submissionId) {
 			$q->where('submission_id', '=', $submissionId);

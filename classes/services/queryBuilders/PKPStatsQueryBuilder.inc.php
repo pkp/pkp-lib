@@ -16,7 +16,7 @@
 
 namespace PKP\Services\QueryBuilders;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 
 class PKPStatsQueryBuilder {
 
@@ -163,7 +163,7 @@ class PKPStatsQueryBuilder {
 		$q = $this->_getObject();
 
 		$q->select(array_merge(
-			[Capsule::raw('SUM(metric) as metric')],
+			[DB::raw('SUM(metric) as metric')],
 			$groupBy
 		));
 
@@ -182,7 +182,7 @@ class PKPStatsQueryBuilder {
 	 */
 	public function getTimeline($date) {
 		$q = $this->_getObject();
-		$q->select(Capsule::raw('SUM(metric) as metric'));
+		$q->select(DB::raw('SUM(metric) as metric'));
 		if (strlen($date) === 10) {
 			$q->where(STATISTICS_DIMENSION_DAY, '=', str_replace('-', '', $date));
 		} else {
@@ -213,7 +213,7 @@ class PKPStatsQueryBuilder {
 	 * @return QueryObject
 	 */
 	protected function _getObject() {
-		$q = Capsule::table('metrics');
+		$q = DB::table('metrics');
 
 		if (!empty($this->contextIds)) {
 			$q->whereIn(STATISTICS_DIMENSION_CONTEXT_ID, $this->contextIds);

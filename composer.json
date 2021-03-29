@@ -46,9 +46,6 @@
 		"patches": {
 			"laravel/framework": {
 				"Inhibit __ Laravel helper": "lib/laravel-helper-4017.diff"
-			},
-			"moxiecode/plupload": {
-				"Make plupload example safe": "lib/safen-plupload-example-6888.diff"
 			}
 		}
 	}

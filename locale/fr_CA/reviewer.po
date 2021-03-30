@@ -3,9 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-06-04 18:39+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -111,3 +110,10 @@ msgstr "L'utilisateur-trice actuel-elle n'est pas assigné-e en tant qu'évaluat
 
 msgid "reviewer.submission.saveReviewForLater"
 msgstr "Sauvegarder pour plus tard"
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Envoyer aux évaluateur.trice.s"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+"Envoyer une copie en Cci de ce courriel aux évaluateur.trice.s suivant.e.s."

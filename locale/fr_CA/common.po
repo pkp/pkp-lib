@@ -3,9 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-12-18 16:52+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -1235,7 +1234,7 @@ msgid "locale.supported"
 msgstr "Paramètres régionaux pris en charge"
 
 msgid "navigation.access"
-msgstr "Utilisateurs-trices &amp; Rôles"
+msgstr "Utilisateurs-trices et rôles"
 
 msgid "navigation.about"
 msgstr "À propos"
@@ -1997,3 +1996,36 @@ msgstr "Modifier {$name}"
 
 msgid "common.inactive"
 msgstr "Inactif-ve"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Se désabonner"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Une erreur imprévue nous a empêché de désabonner l'adresse {$email}. Vous "
+"pouvez vous désabonner de toute notification par courriel en allant dans "
+"votre <a href=\"{$profileNotificationUrl}\">profil</a> ou en communiquant "
+"directement avec nous afin d'obtenir de l'assistance."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"L'adresse {$email} a été désabonnée. Nous ne vous enverrons plus ces "
+"courriels. Vous pouvez vous réabonner aux notifications par courriel en tout "
+"temps en allant dans votre <a href=\"{$profileNotificationUrl}\">profil</a>."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Vous pouvez vous réabonner aux notifications par courriel en tout temps en "
+"allant dans votre <a href=\"{$profileNotificationUrl}\">profil</a>."
+
+#, fuzzy
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Veuillez choisir les courriels que vous ne désirez plus recevoir à {$email} "
+"de {$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Nous n'avons pas pu vous désabonner"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Vous avez été désabonné.e"

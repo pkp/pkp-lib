@@ -1,2 +1,321 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
+"Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/ka_GE/>\n"
+"Language: ka_GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "manager.website.information"
+msgstr "ინფორმაცია"
+
+msgid "manager.website.appearance"
+msgstr "იერსახე"
+
+msgid "manager.announcements"
+msgstr "განცხადებები"
+
+msgid "manager.announcements.createTitle"
+msgstr "შექმნა"
+
+msgid "manager.announcements.datePublish"
+msgstr "გამოქვეყნებული"
+
+msgid "manager.announcements.editTitle"
+msgstr "ჩასწორება"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "მოკლე აღწერა"
+
+msgid "manager.announcements.form.title"
+msgstr "სათაური"
+
+msgid "manager.announcements.form.typeId"
+msgstr "ტიპი"
+
+msgid "manager.announcements.title"
+msgstr "სათაური"
+
+msgid "manager.announcements.type"
+msgstr "ტიპი"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "შექმნა"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "ჩასწორება"
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "სახელი"
+
+msgid "manager.paymentMethod"
+msgstr "გადახდები"
+
+msgid "manager.paymentMethod.method"
+msgstr "გადახდის მეთოდი"
+
+msgid "manager.paymentMethod.currency"
+msgstr "ვალუტა"
+
+msgid "manager.publication.reviewStage"
+msgstr "გამოხმაურება"
+
+msgid "manager.publication.emails"
+msgstr "ელფოსტა"
+
+msgid "manager.emails.disable"
+msgstr "გამორთვა"
+
+msgid "manager.emails.enable"
+msgstr "ჩართვა"
+
+msgid "manager.emails.reset"
+msgstr "ჩამოყრა"
+
+msgid "manager.files.uploadFile"
+msgstr "ფაილი"
+
+msgid "manager.groups.membership"
+msgstr "წევრობა"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "ამ ჯგუფს არ ჰყავს მომხმარებლები"
+
+msgid "manager.groups.title"
+msgstr "სათაური"
+
+msgid "manager.language.ui"
+msgstr "ინტერფეისი"
+
+msgid "manager.language.submissions"
+msgstr "გაგზავნილი მასალები"
+
+msgid "manager.language.forms"
+msgstr "ფორმები"
+
+msgid "manager.payment.timestamp"
+msgstr "დროის ნიშნული"
+
+msgid "manager.people.disable"
+msgstr "გამორთვა"
+
+msgid "manager.people.editProfile"
+msgstr "პროფილის ჩასწორება"
+
+msgid "manager.people.editUser"
+msgstr "მომხმარებლის ჩასწორება"
+
+msgid "manager.people.enable"
+msgstr "ჩართვა"
+
+msgid "manager.people"
+msgstr "მომხმარებლები"
+
+msgid "manager.people.remove"
+msgstr "წაშლა"
+
+msgid "manager.plugins.disable"
+msgstr "გამორთვა"
+
+msgid "manager.plugins.enable"
+msgstr "ჩართვა"
+
+msgid "manager.readingTools"
+msgstr "მკითხველის ხელსაწყოები"
+
+msgid "manager.reviewerSearch.change"
+msgstr "შეცვლა"
+
+msgid "manager.roles"
+msgstr "როლები"
+
+msgid "manager.statistics.city"
+msgstr "ქალაქი"
+
+msgid "manager.statistics.region"
+msgstr "რეგიონი"
+
+msgid "manager.statistics.reports"
+msgstr "ანგარიშგებები"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "დამატებითი პარამეტრები"
+
+msgid "manager.statistics.reports.columns"
+msgstr "სვეტები"
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "გუშინ"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "დახარისხება"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "მიმართულება"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "ზრდადობით"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "კლებადობით"
+
+msgid "manager.setup.advanced"
+msgstr "დამატებით"
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "აღწერა"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "გვერდითი პანელი"
+
+msgid "manager.setup.logo"
+msgstr "ლოგო"
+
+msgid "manager.setup.notifyUsers"
+msgstr "შეტყობინება"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "ელფოსტის გაგზავნა"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "თარიღი"
+
+msgid "manager.setup.dateTime.time"
+msgstr "დრო"
+
+msgid "stats.dateRange.allDates"
+msgstr "ყველა თარიღი"
+
+msgid "stats.dateRange.apply"
+msgstr "მისადაგება"
+
+msgid "stats.dateRange.customRange"
+msgstr "დროის შერჩევა"
+
+msgid "stats.dateRange.from"
+msgstr "საწყისი"
+
+msgid "stats.dateRange.to"
+msgstr "საბოლოო"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "ყოველთვიურად"
+
+msgid "stats.total"
+msgstr "ჯამი"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "მორგებული"
+
+msgid "manager.setup.theme"
+msgstr "თემა"
+
+msgid "manager.users"
+msgstr "წევრები"
+
+msgid "manager.plugins.delete"
+msgstr "პლაგინის წაშლა"
+
+msgid "manager.plugins.installed"
+msgstr "დაყენებული პლაგინები"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "მიმოხილვა"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "ინსტალაცია"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "განხილული"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "მთავარი"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "ანონსი"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "სტატუსი"
+
+msgid "manager.plugins.settings"
+msgstr "პარამეტრები"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "წვდომის უფლებები"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "ანგარიშგებები"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "სხვა"
+
+msgid "manager.setup.genres.label"
+msgstr "ფაილის ტიპი"
+
+msgid "manager.setup.genres.key"
+msgstr "გასაღები"
+
+msgid "manager.website"
+msgstr "ვებ-საიტი"
+
+msgid "manager.reviewForms.completed"
+msgstr "დასრულდა"
+
+msgid "manager.reviewForms.title"
+msgstr "სათაური"
+
+msgid "manager.reviewFormElements.question"
+msgstr "ელემენტი"
+
+msgid "manager.reviewFormElements.description"
+msgstr "აღწერა"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "სათაური"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "მდებარეობა"
+
+msgid "manager.navigationMenus"
+msgstr "ნავიგაცია"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "შიგთავსი"
+
+msgid "manager.navigationMenuItems"
+msgstr "ნავიგაციის მენიუს ელემენტები"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL-მისამართი"
+
+msgid "grid.category.add"
+msgstr "კატეგორიის დამატება"
+
+msgid "grid.category.edit"
+msgstr "კატეგორიის ჩასწორება"
+
+msgid "grid.category.name"
+msgstr "სახელი"
+
+msgid "grid.category.path"
+msgstr "მდებარეობა"
+
+msgid "grid.category.description"
+msgstr "აღწერა"
+
+msgid "grid.category.parentCategory"
+msgstr "მშობელი კატეგორია"
+
+msgid "stats.allUsers"
+msgstr "ყველა მომხმარებელი"
+
+msgid "stats.daily"
+msgstr "ყოველდღიური"

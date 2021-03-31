@@ -1,2 +1,156 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
+"Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"ka_GE/>\n"
+"Language: ka_GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.settings"
+msgstr "პარამეტრები"
+
+msgid "grid.action.sort"
+msgstr "დალაგება"
+
+msgid "grid.action.addUser"
+msgstr "მომხმარებლის დამატება"
+
+msgid "grid.action.reload"
+msgstr "ხელმეორედ"
+
+msgid "grid.action.delete"
+msgstr "წაშლა"
+
+msgid "grid.action.editMedia"
+msgstr "მედიის ჩასწორება"
+
+msgid "grid.action.export"
+msgstr "ექსპორტი"
+
+msgid "grid.action.remove"
+msgstr "წაშლა"
+
+msgid "grid.action.edit"
+msgstr "ჩასწორება"
+
+msgid "grid.action.approve"
+msgstr "დადასტურება"
+
+msgid "grid.action.order"
+msgstr "დალაგება"
+
+msgid "grid.action.collapse"
+msgstr "შეკუმშვა"
+
+msgid "grid.action.settings"
+msgstr "პარამეტრები"
+
+msgid "grid.action.expandAll"
+msgstr "ყველას გახსნა"
+
+msgid "grid.action.expand"
+msgstr "გაშლა"
+
+msgid "grid.action.disable"
+msgstr "გამორთვა"
+
+msgid "grid.action.search"
+msgstr "ძებნა"
+
+msgid "grid.action.advancedSearch"
+msgstr "ფართო ძებნა"
+
+msgid "grid.action.uploadFile"
+msgstr "ფაილის ატვირთა"
+
+msgid "grid.action.enable"
+msgstr "ჩართვა"
+
+msgid "grid.action.activate"
+msgstr "გააქტიურება"
+
+msgid "grid.action.deactivate"
+msgstr "გამორთვა"
+
+msgid "grid.action.copy"
+msgstr "კოპირება"
+
+msgid "grid.action.preview"
+msgstr "გადახედვა"
+
+msgid "grid.action.install"
+msgstr "ვერ ყენდება"
+
+msgid "grid.action.moreItems"
+msgstr "მეტის ჩატვირთვა"
+
+msgid "grid.columns.actions"
+msgstr "მოქმედებები"
+
+msgid "grid.columns.institution"
+msgstr "დაწესებულება"
+
+msgid "grid.columns.url"
+msgstr "URL-მისამართი"
+
+msgid "grid.columns.locale"
+msgstr "ენის კოდი"
+
+msgid "grid.action.addCategory"
+msgstr "კატეგორიის დამატება"
+
+msgid "grid.action.editCategory"
+msgstr "კატეგორიის ჩასწორება"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "ფაილები"
+
+msgid "author.users.contributor.name"
+msgstr "სახელი"
+
+msgid "author.users.contributor.email"
+msgstr "ელფოსტა"
+
+msgid "author.users.contributor.role"
+msgstr "როლი"
+
+msgid "grid.user.add"
+msgstr "მომხმარებლის დამატება"
+
+msgid "grid.user.edit"
+msgstr "მომხმარებლის ჩასწორება"
+
+msgid "grid.user.email"
+msgstr "ელფოსტა"
+
+msgid "grid.user.enable"
+msgstr "ჩართვა"
+
+msgid "grid.user.disable"
+msgstr "გამორთვა"
+
+msgid "grid.user.generatePassword"
+msgstr "პაროლის შექმნა"
+
+msgid "grid.user.mustChangePassword"
+msgstr "პაროლის შეცვლა"
+
+msgid "grid.user.userDetails"
+msgstr "მომხმარებელი დეტალები"
+
+msgid "grid.user.userRoles"
+msgstr "მომხმარებლის როლები"
+
+msgid "grid.plugin.allCategories"
+msgstr "ყველა კატეგორია"
+
+msgid "grid.artworkFile.caption"
+msgstr "წარწერა"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "ელემენტის დამატება"

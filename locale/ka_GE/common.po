@@ -1,2 +1,600 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
+"Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"ka_GE/>\n"
+"Language: ka_GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "კონფიდენციალურობის პარამეტრი"
+
+msgid "user.email"
+msgstr "ელფოსტის მისამართი"
+
+msgid "navigation.goBack"
+msgstr "უკან გადასვლა"
+
+msgid "validator.required"
+msgstr "ეს ველი სავალდებულოა."
+
+msgid "validator.filled"
+msgstr "ეს ველი სავალდებულოა."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "გაუქმება"
+
+msgid "context.path"
+msgstr "მდებარეობა"
+
+msgid "search.title"
+msgstr "სათაური"
+
+msgid "search.searchResults"
+msgstr "ძებნის შედეგები"
+
+msgid "search.SearchFor"
+msgstr "მოძებნე"
+
+msgid "search.operator.or"
+msgstr "ან"
+
+msgid "search.operator.and"
+msgstr "და"
+
+msgid "search.noResults"
+msgstr "შედეგი არ არის"
+
+msgid "search.deleteFilter"
+msgstr "წაშლა"
+
+msgid "notification.notifications"
+msgstr "შეტყობინებები"
+
+msgid "notification.notification"
+msgstr "შეტყობინება"
+
+msgid "navigation.viewFrontend"
+msgstr "საიტის ნახვა"
+
+msgid "navigation.userManagement"
+msgstr "მომხმარებლების მართვა"
+
+msgid "navigation.user"
+msgstr "მომხმარებელი"
+
+msgid "navigation.submissions"
+msgstr "გაგზავნილი მასალები"
+
+msgid "navigation.skip.main"
+msgstr "გადასვლა ძირითად შიგთავსზე"
+
+msgid "navigation.setup"
+msgstr "ინსტალაცია"
+
+msgid "navigation.settings"
+msgstr "პარამეტრები"
+
+msgid "navigation.search"
+msgstr "ძებნა"
+
+msgid "navigation.register"
+msgstr "რეგისტრაცია"
+
+msgid "navigation.nextStep"
+msgstr "შემდეგი ბიჯი"
+
+msgid "navigation.login"
+msgstr "შესვლა"
+
+msgid "navigation.home"
+msgstr "საწყისი"
+
+msgid "navigation.data"
+msgstr "მონაცემები"
+
+msgid "navigation.dashboard"
+msgstr "კონსოლი"
+
+msgid "navigation.browse"
+msgstr "დათვალიერება"
+
+msgid "navigation.tools"
+msgstr "ხელსაწყოები"
+
+msgid "navigation.archives"
+msgstr "არქივები"
+
+msgid "navigation.admin"
+msgstr "ადმინისტრირება"
+
+msgid "navigation.about"
+msgstr "შესახებ"
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "წვდომის უფლებები"
+
+msgid "stageParticipants.notify.message"
+msgstr "წერილი"
+
+msgid "icon.view.alt"
+msgstr "ნახვა"
+
+msgid "icon.unchecked.alt"
+msgstr "გადაუმოწმებელი"
+
+msgid "icon.letter.alt"
+msgstr "სიმბოლო"
+
+msgid "icon.info.alt"
+msgstr "ინფორმაცია"
+
+msgid "icon.font_small.alt"
+msgstr "პატარა"
+
+msgid "icon.font_medium.alt"
+msgstr "საშუალო"
+
+msgid "icon.font_large.alt"
+msgstr "დიდი"
+
+msgid "icon.edit.alt"
+msgstr "ჩასწორება"
+
+msgid "icon.delete.alt"
+msgstr "წაშლა"
+
+msgid "icon.comment.alt"
+msgstr "კომენტარი"
+
+msgid "help.next"
+msgstr "შემდეგი"
+
+msgid "help.previous"
+msgstr "წინა"
+
+msgid "help.toc"
+msgstr "თავფურცელი"
+
+msgid "help.help"
+msgstr "დახმარება"
+
+msgid "form.submit"
+msgstr "გაგზავნა"
+
+msgid "form.send"
+msgstr "გაგზავნა"
+
+msgid "form.saved"
+msgstr "შენახულია"
+
+msgid "form.confirmSubmit.title"
+msgstr "დადასტურება"
+
+msgid "email.to"
+msgstr "მიმღები"
+
+msgid "email.subject"
+msgstr "თემა"
+
+msgid "email.send"
+msgstr "გაგზავნა"
+
+msgid "email.from"
+msgstr "გამგზავნი"
+
+msgid "email.email"
+msgstr "ელფოსტა"
+
+msgid "email.compose"
+msgstr "ელფოსტის გაგზავნა"
+
+msgid "email.body"
+msgstr "ძირითადი ნაწილი"
+
+msgid "email.attachments"
+msgstr "დანართები"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "ფაილის ატვირთვა"
+
+msgid "debug.notes"
+msgstr "შენიშვნები:"
+
+msgid "common.count"
+msgstr "რაოდენობა"
+
+msgid "common.plugins"
+msgstr "პლაგინები"
+
+msgid "common.loading"
+msgstr "ჩატვირთვა"
+
+msgid "common.yes"
+msgstr "დიახ"
+
+msgid "common.year"
+msgstr "წელი"
+
+msgid "common.width"
+msgstr "სიგანე"
+
+msgid "common.weeks"
+msgstr "კვირები"
+
+msgid "common.viewProfile"
+msgstr "პროფილის ნახვა"
+
+msgid "common.view"
+msgstr "ნახვა"
+
+msgid "common.user"
+msgstr "მომხმარებელი"
+
+msgid "common.url"
+msgstr "URL-მისამართი"
+
+msgid "common.upload.addFile"
+msgstr "ფაილი"
+
+msgid "common.up"
+msgstr "ზემოთ"
+
+msgid "common.upload"
+msgstr "ატვირთვა"
+
+msgid "common.updated"
+msgstr "განახლებული"
+
+msgid "common.untitled"
+msgstr "უსათაურო"
+
+msgid "common.unread"
+msgstr "წაუკითხავი"
+
+msgid "common.component"
+msgstr "კომპონენტი"
+
+msgid "common.type"
+msgstr "ტიპი"
+
+msgid "common.true"
+msgstr "ჭეშმარიტი"
+
+msgid "common.top"
+msgstr "ზემოთ"
+
+msgid "common.title"
+msgstr "სათაური"
+
+msgid "common.submenu"
+msgstr "ქვემენიუ"
+
+msgid "common.subject"
+msgstr "თემა"
+
+msgid "common.status"
+msgstr "სტატუსი"
+
+msgid "common.source"
+msgstr "წყარო"
+
+msgid "common.size"
+msgstr "ზომა"
+
+msgid "common.sendEmail"
+msgstr "ელფოსტის გაგზავნა"
+
+msgid "common.select"
+msgstr "მონიშვნა"
+
+msgid "common.selectAll"
+msgstr "ყველას მონიშვნა"
+
+msgid "common.search"
+msgstr "ძებნა"
+
+msgid "common.saving"
+msgstr "შენახვა"
+
+msgid "common.save"
+msgstr "დამახსოვრება"
+
+msgid "common.reset"
+msgstr "ჩამოყრა"
+
+msgid "common.required"
+msgstr "სავალდებულო"
+
+msgid "common.remove"
+msgstr "წაშლა"
+
+msgid "common.related"
+msgstr "მსგავსი"
+
+msgid "common.refresh"
+msgstr "განახლება"
+
+msgid "common.readMore"
+msgstr "დაწვრილებით"
+
+msgid "common.preview"
+msgstr "გადახედვა"
+
+msgid "common.prefix"
+msgstr "პრეფიქსი"
+
+msgid "common.plugin"
+msgstr "პლაგინი"
+
+msgid "common.pagination.previous"
+msgstr "წინა გვერდი"
+
+msgid "common.pagination.next"
+msgstr "შემდეგი გვერდი"
+
+msgid "common.other"
+msgstr "სხვა"
+
+msgid "common.or"
+msgstr "ან"
+
+msgid "common.order"
+msgstr "დალაგება"
+
+msgid "common.options"
+msgstr "პარამეტრები"
+
+msgid "common.ok"
+msgstr "კარგი"
+
+msgid "common.off"
+msgstr "გამორთვა"
+
+msgid "common.notes"
+msgstr "შენიშვნები"
+
+msgid "common.note"
+msgstr "შენიშვნა"
+
+msgid "common.notAvailable"
+msgstr "მიუწვდომელი"
+
+msgid "common.notApplicableShort"
+msgstr "არ არის"
+
+msgid "common.noComments"
+msgstr "კომენტარები ჯერ არ არის"
+
+msgid "common.noItemsFound"
+msgstr "ელემენტები ვერ მოიძებნა."
+
+msgid "common.no"
+msgstr "არა"
+
+msgid "common.none"
+msgstr "არაფერი"
+
+msgid "common.more"
+msgstr "მეტი პარამეტრი"
+
+msgid "common.month"
+msgstr "თვე"
+
+msgid "common.manage"
+msgstr "მართვა"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.less"
+msgstr "ნაკლები"
+
+msgid "common.languages"
+msgstr "ენები"
+
+msgid "common.language"
+msgstr "ენა"
+
+msgid "common.keywords"
+msgstr "საკვანძო სიტყვები"
+
+msgid "common.import"
+msgstr "იმპორტი"
+
+msgid "common.id"
+msgstr "იდენტიფიკატორი"
+
+msgid "common.hour"
+msgstr "საათი"
+
+msgid "common.homepageNavigationLabel"
+msgstr "საწყისი"
+
+msgid "common.height"
+msgstr "სიმაღლე"
+
+msgid "common.fileType"
+msgstr "ფაილის ტიპი"
+
+msgid "common.file"
+msgstr "ფაილი"
+
+msgid "common.false"
+msgstr "მცდარი"
+
+msgid "common.fullscreen"
+msgstr "მთელ ეკრანზე"
+
+msgid "common.finish"
+msgstr "დასრულება"
+
+msgid "common.export"
+msgstr "ექსპორტი"
+
+msgid "common.event"
+msgstr "ღონისძიება"
+
+msgid "common.enabled"
+msgstr "ჩართული"
+
+msgid "common.enable"
+msgstr "ჩართვა"
+
+msgid "common.edit"
+msgstr "ჩასწორება"
+
+msgid "common.download"
+msgstr "ჩამოტვირთვა"
+
+msgid "common.done"
+msgstr "მზადაა"
+
+msgid "common.disabled"
+msgstr "გამორთული"
+
+msgid "common.disable"
+msgstr "გამორთვა"
+
+msgid "common.description"
+msgstr "აღწერა"
+
+msgid "common.delete"
+msgstr "წაშლა"
+
+msgid "common.declined"
+msgstr "უარყოფილია"
+
+msgid "common.default"
+msgstr "ნაგულისხმევი"
+
+msgid "common.deactivate"
+msgstr "გამორთვა"
+
+msgid "common.day"
+msgstr "დღე"
+
+msgid "common.date"
+msgstr "თარიღი"
+
+msgid "common.create"
+msgstr "შექმნა"
+
+msgid "common.country"
+msgstr "ქვეყანა"
+
+msgid "common.copy"
+msgstr "კოპირება"
+
+msgid "common.continue"
+msgstr "გაგრძელება"
+
+msgid "common.content"
+msgstr "შიგთავსი"
+
+msgid "common.confirm"
+msgstr "დადასტურება"
+
+msgid "common.completed"
+msgstr "შესრულდა"
+
+msgid "common.complete"
+msgstr "დასრულებულია"
+
+msgid "common.close"
+msgstr "დახურვა"
+
+msgid "common.changesSaved"
+msgstr "თქვენი ცვლილებები დამახსოვრებულია."
+
+msgid "common.notice"
+msgstr "შენიშვნა"
+
+msgid "common.error"
+msgstr "შეცდომა"
+
+msgid "common.warning"
+msgstr "გაფრთხილება"
+
+msgid "common.cancelled"
+msgstr "გაუქმებული"
+
+msgid "common.cancel"
+msgstr "გაუქმება"
+
+msgid "common.back"
+msgstr "უკან"
+
+msgid "common.available"
+msgstr "ხელმისაწვდომი"
+
+msgid "common.and"
+msgstr "და"
+
+msgid "common.all"
+msgstr "ყველა"
+
+msgid "common.name"
+msgstr "სახელი"
+
+msgid "common.add"
+msgstr "დამატება"
+
+msgid "common.inactive"
+msgstr "არააქტიური"
+
+msgid "common.active"
+msgstr "აქტიური"
+
+msgid "common.activate"
+msgstr "გააქტიურება"
+
+msgid "common.action"
+msgstr "მოქმედება"
+
+msgid "common.accepted"
+msgstr "მიღებულია"
+
+msgid "common.grid"
+msgstr "ცხრილი"
+
+msgid "common.list"
+msgstr "სია"
+
+msgid "common.navigation.sidebar"
+msgstr "გვერდითი პანელი"
+
+msgid "announcement.posted"
+msgstr "გამოქვეყნებულია"
+
+msgid "announcement.announcementsHome"
+msgstr "განცხადებები"
+
+msgid "announcement.announcements"
+msgstr "განცხადებები"
+
+msgid "about.policies"
+msgstr "პოლიტიკები"
+
+msgid "about.people"
+msgstr "მომხმარებლები"
+
+msgid "about.other"
+msgstr "სხვა"
+
+msgid "about.contact.phone"
+msgstr "ტელეფონი"
+
+msgid "about.contact.email"
+msgstr "ელფოსტა"
+
+msgid "about.contact"
+msgstr "კონტაქტი"
+
+msgid "about.description"
+msgstr "აღწერა"

@@ -1,2 +1,105 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
+"Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"ka_GE/>\n"
+"Language: ka_GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.accountInformation"
+msgstr "ანგარიშის დეტალები"
+
+msgid "user.changePassword"
+msgstr "პაროლის შეცვლა"
+
+msgid "user.editMyProfile"
+msgstr "ჩემი პროფილის ჩასწორება"
+
+msgid "user.email"
+msgstr "ელფოსტა"
+
+msgid "user.group"
+msgstr "მომხმარებელთა ჯგუფები"
+
+msgid "user.login.forgotPassword"
+msgstr "დაგავიწყდათ პაროლი?"
+
+msgid "user.login"
+msgstr "შესვლა"
+
+msgid "user.login.resetPassword"
+msgstr "პაროლის ჩამოყრა"
+
+msgid "user.logOut"
+msgstr "გამოსვლა"
+
+msgid "user.myAccount"
+msgstr "ჩემი ანგარიში"
+
+msgid "user.name"
+msgstr "სახელი"
+
+msgid "user.password"
+msgstr "პაროლი"
+
+msgid "user.phone"
+msgstr "ტელეფონი"
+
+msgid "user.profile.editProfile"
+msgstr "პროფილის ჩასწორება"
+
+msgid "user.profile.form.emailRequired"
+msgstr "აუცილებელია ელფოსტის სწორი მისამართი."
+
+msgid "user.profile.newPassword"
+msgstr "ახალი პაროლი"
+
+msgid "user.profile"
+msgstr "პროფილი"
+
+msgid "user.profile.publicProfile"
+msgstr "მომხმარებლის პროფილი"
+
+msgid "user.login.registerNewAccount"
+msgstr "რეგისტრაცია"
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "პაროლები არ ემთხვევა."
+
+msgid "user.register"
+msgstr "რეგისტრაცია"
+
+msgid "user.role.author"
+msgstr "ავტორი"
+
+msgid "user.role.authors"
+msgstr "ავტორები"
+
+msgid "user.role.editor"
+msgstr "რედაქტორი"
+
+msgid "user.role.reviewer"
+msgstr "მიმომხილველი"
+
+msgid "user.roles"
+msgstr "როლები"
+
+msgid "user.sendPassword"
+msgstr "დადასტურება"
+
+msgid "user.title"
+msgstr "სათაური"
+
+msgid "user.username"
+msgstr "მომხმარებლის სახელი"
+
+msgid "user.profile.contact"
+msgstr "კონტაქტი"
+
+msgid "user.profile.public"
+msgstr "საჯარო"

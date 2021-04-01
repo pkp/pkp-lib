@@ -403,7 +403,7 @@ class ReviewAssignmentDAO extends DAO {
 				(int) $reviewAssignment->getDeclined(),
 				(int) $reviewAssignment->getCancelled(),
 				$reviewAssignment->getQuality(),
-				$reviewAssignment->getReminderWasAutomatic(),
+				$reviewAssignment->getReminderWasAutomatic() ? 1 : 0,
 				$reviewAssignment->getReviewFormId(),
 				(int) $reviewAssignment->getReviewRoundId(),
 				(int) $reviewAssignment->getUnconsidered(),

@@ -60,6 +60,8 @@ class ReviewerAction {
 				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
 			}
 
+			$reviewAssignment->setDateReminded(null);
+			$reviewAssignment->setReminderWasAutomatic(0);
 			$reviewAssignment->setDeclined($decline);
 			$reviewAssignment->setDateConfirmed(Core::getCurrentDate());
 			$reviewAssignment->stampModified();

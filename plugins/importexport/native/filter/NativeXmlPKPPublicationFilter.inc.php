@@ -190,7 +190,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 				// "update" advice not supported yet.
 				assert(!$advice || $advice == 'ignore');
 
-				if ($element->textContent == $submission->getData('currentPublicationId')) {
+				if ($element->textContent == $deployment->getSubmissionCurrentPublication($submission->getId())) {
 					$submission->setData('currentPublicationId', $publication->getId());
 				}
 

@@ -51,6 +51,9 @@ class PKPImportExportDeployment {
 	/** @var string Base path for the import source */
 	var $_baseImportPath = '';
 
+	/** @var array List of imported submission current publication */
+	var $_submissionCurrentPublications = array();
+
 	/**
 	 * Constructor
 	 * @param $context Context
@@ -389,6 +392,24 @@ class PKPImportExportDeployment {
 	 */
 	function getImportPath() {
 		return $this->_baseImportPath;
+	}
+
+	/**
+	 * Add the submission's current publication id
+	 * @param $submissionId int The submissionId
+	 * @param $currentPublicationId int The currentPublicationId
+	 */
+	function addSubmissionCurrentPublication($submissionId, $currentPublicationId) {
+		$this->_submissionCurrentPublications[$submissionId] = $currentPublicationId;
+	}
+
+	/**
+	 * Get the directory location for the import source
+	 * @param $submissionId int The submissionId
+	 * @return int The imported currentPublicationId
+	 */
+	function getSubmissionCurrentPublication($submissionId) {
+		return $this->_submissionCurrentPublications[$submissionId];
 	}
 }
 

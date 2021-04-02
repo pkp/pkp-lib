@@ -68,18 +68,21 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 
 		$deployment = $this->getDeployment();
 
+		$hasErrors = false;
+		$currentErrors = $deployment->getProcessedObjectsErrors(ASSOC_TYPE_SUBMISSION);
+		if (!empty($currentErrors)) {
+			$hasErrors = true;
+		}
+
 		// Index imported content
-		$articleSearchIndex = Application::getSubmissionSearchIndex();
-		foreach ($importedObjects as $submission) {
-			$publication = $submission->getCurrentPublication();
-			if (!isset($publication)) {
-				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(),  __('plugins.importexport.common.error.currentPublicationNullOrMissing'));
-			} else {
+		if (!$hasErrors) {
+			$articleSearchIndex = Application::getSubmissionSearchIndex();
+			foreach ($importedObjects as $submission) {
 				$articleSearchIndex->submissionMetadataChanged($submission);
 				$articleSearchIndex->submissionFilesChanged($submission);
-
-				$articleSearchIndex->submissionChangesFinished();
 			}
+
+			$articleSearchIndex->submissionChangesFinished();
 		}
 
 		return $importedObjects;
@@ -104,13 +107,15 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 
 		import('lib.pkp.classes.workflow.WorkflowStageDAO');
 		$submission->setData('stageId', WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
-		$submission->setData('currentPublicationId', $node->getAttribute('current_publication_id'));
+		$submission->setData('currentPublicationId', 0);
 
 		// Handle any additional attributes etc.
 		$submission = $this->populateObject($submission, $node);
 
 		$submission = Services::get('submission')->add($submission, Application::get()->getRequest());
+
 		$deployment->setSubmission($submission);
+		$deployment->addSubmissionCurrentPublication($submission->getId(), $node->getAttribute('current_publication_id'));
 
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
 			if (is_a($n, 'DOMElement')) {
@@ -119,6 +124,11 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		}
 
 		$submission = Services::get('submission')->get($submission->getId());
+
+		$publication = $submission->getCurrentPublication();
+		if (!isset($publication)) {
+			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(),  __('plugins.importexport.common.error.currentPublicationNullOrMissing'));
+		}
 
 		return $submission;
 	}

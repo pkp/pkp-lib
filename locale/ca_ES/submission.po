@@ -1936,7 +1936,7 @@ msgstr "Carregueu un arxiu de discussió"
 msgid "submission.submit.submissionLocaleDescription"
 msgstr ""
 "S'accepten trameses en diversos idiomes. Trieu l'idioma principal de la "
-"tramesa des del menú desplegable que hi ha a sota."
+"tramesa des del menú desplegable que hi ha a sobre."
 
 msgid "submission.submissionTitle"
 msgstr "Títol de la tramesa:"

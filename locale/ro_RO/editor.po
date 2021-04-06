@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-26 06:45+0000\n"
+"PO-Revision-Date: 2021-04-06 14:32+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ro_RO/>\n"
@@ -174,7 +174,7 @@ msgid "editor.submission.production.productionReadyFiles"
 msgstr "Fișiere pregătite pentru producție"
 
 msgid "editor.review.emailReviewer"
-msgstr "Email reviyor"
+msgstr "Email revizor"
 
 msgid "editor.review.noReviewFilesUploaded.details"
 msgstr "Nu ați încărcat niciun fișier de recenzie."

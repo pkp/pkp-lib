@@ -1503,7 +1503,7 @@ msgid "submission.howToCite.citationFormats"
 msgstr "Más formatos de cita"
 
 msgid "submission.submit.submissionLocaleDescription"
-msgstr "Se aceptan envíos en varios idiomas. Elija el idioma principal del envío desde el menú desplegable de abajo."
+msgstr "Se aceptan envíos en varios idiomas. Elija el idioma principal del envío desde el menú desplegable de arriba."
 
 msgid "submission.upload.proof"
 msgstr "Subir un archivo listo para publicación"

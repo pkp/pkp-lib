@@ -112,7 +112,8 @@
 					{if $currentContext->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN}
 						{assign var="hasPreprintAccess" value=1}
 					{/if}
-					{include file="frontend/objects/galley_link.tpl" parent=$preprint labelledBy="preprint-{$preprint->getId()}" hasAccess=$hasPreprintAccess}
+					{assign var="id" value="preprint-{$preprint->getId()}-galley-{$galley->getId()}"}
+					{include file="frontend/objects/galley_link.tpl" parent=$preprint id=$id labelledBy="{$id} preprint-{$preprint->getId()}" hasAccess=$hasPreprintAccess}
 				</li>
 			{/foreach}
 		</ul>

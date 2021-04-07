@@ -309,10 +309,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 				'http' => Config::getVar('proxy', 'http_proxy', null),
 				'https' => Config::getVar('proxy', 'https_proxy', null),
 			],
-			'defaults' => [
-				'headers' => [
-					'User-Agent' => $userAgent,
-				],
+			'headers' => [
+				'User-Agent' => $userAgent,
 			],
 		]);
 	}

@@ -94,7 +94,7 @@ class CommandLineTool {
 	}
 
 	private function checkArgsForUsername() {
-		$usernameKeyPos = array_search('--username', $this->argv);
+		$usernameKeyPos = array_search('--user_name', $this->argv);
 		if ($usernameKeyPos) {
 			$usernamePos = $usernameKeyPos + 1;
 			if (count($this->argv) >= $usernamePos + 1) {

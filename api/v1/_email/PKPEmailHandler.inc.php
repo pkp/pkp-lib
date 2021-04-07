@@ -200,7 +200,7 @@ class PKPEmailHandler extends APIHandler {
 		// prevent long-running jobs from running simultaneously
 		// and piling onto the server like a DDOS attack.
 		if (!$countRunning && $countPending) {
-			$laravelContainer = Registry::get('laravelContainer');
+			$laravelContainer = PKPContainer::getInstance();
 			$worker = new Illuminate\Queue\Worker(
 				$laravelContainer['queue'],
 				$laravelContainer['events'],

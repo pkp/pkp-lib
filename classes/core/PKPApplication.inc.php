@@ -198,8 +198,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		// Initialize Laravel's container and set it globally
 		import('lib.pkp.classes.core.PKPContainer');
 		$laravelContainer = new PKPContainer();
-
-		Registry::set('laravelContainer', $laravelContainer);
 		$laravelContainer->registerConfiguredProviders();
 
 		if (Config::getVar('database', 'debug')) \Illuminate\Support\Facades\DB ::listen(function($query) {

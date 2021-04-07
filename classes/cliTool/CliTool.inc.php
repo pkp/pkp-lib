@@ -85,8 +85,7 @@ class CommandLineTool {
 		$this->checkArgsForUsername();
 
 		if (isset($this->argv[0]) && $this->argv[0] == '-h') {
-			$this->usage();
-			exit(0);
+			$this->exitWithUsageMessage();
 		}
 	}
 
@@ -95,6 +94,10 @@ class CommandLineTool {
 
 	private function checkArgsForUsername() {
 		$usernameKeyPos = array_search('--user_name', $this->argv);
+		if (!$usernameKeyPos) {
+			$usernameKeyPos = array_search('-u', $this->argv);
+		}
+
 		if ($usernameKeyPos) {
 			$usernamePos = $usernameKeyPos + 1;
 			if (count($this->argv) >= $usernamePos + 1) {
@@ -112,9 +115,7 @@ class CommandLineTool {
 
 			$user = $userDao->getByUsername($this->username);
 
-			if ($user) {
-				$this->user = $user;
-			}
+			$this->setUser($user);
 		}
 
 		if (!$this->user) {
@@ -124,11 +125,19 @@ class CommandLineTool {
 			if (count($adminGroups)) {
 				$groupUsers = $userGroupDao->getUsersById($adminGroups[0])->toArray();
 
-				$this->setUser($groupUsers[0]);
+				if (count($groupUsers) > 0) {
+					$this->setUser($groupUsers[0]);
+				} else {
+					$this->exitWithUsageMessage();
+				}
 			}
 		}
 	}
 
+	/**
+	 * Sets the user for the CLI Tool
+	 * @param $user User The user to set as the execution user of this CLI command
+	 */
 	function setUser($user) {
 		$registeredUser = Registry::get('user', true, null);
 		if (!isset($registeredUser)) {
@@ -137,12 +146,20 @@ class CommandLineTool {
 			 * used inside import processes, when the import is done by CLI tool.
 			 */
 			if ($user) {
-
+				Registry::set('user', $user);
+				$this->user = $user;
 			}
-			Registry::set('user', $user);
+		} else {
+			$this->user = $registeredUser;
 		}
+	}
 
-		$this->user = $user;
+	/**
+	 * Exit the CLI tool if an error occurs
+	 */
+	function exitWithUsageMessage() {
+		$this->usage();
+		exit(0);
 	}
 
 }

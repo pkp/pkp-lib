@@ -207,5 +207,6 @@ msgstr "Procure un identifiant unique de site et un URL pour le protocole OAI po
 msgid "installer.unsupportedPhpError"
 msgstr "La version de PHP n'est pas supportée. Lire docs/README."
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Erreur lors de l'exécution de la classe de migration <tt>{$class}</tt>."

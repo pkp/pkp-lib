@@ -190,5 +190,6 @@ msgstr "Vnesite enolični identifikator spletišča, ki bo hkrati osnova za OAI 
 msgid "installer.unsupportedPhpError"
 msgstr "Vaš strežnik ima nameščeno verzijo PHP, ki ni podprta. Preverite zahtevane pogoje za namestitev v docs/README."
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Napaka pri izvajanju migracijskega razreda <tt>{$class}</tt>."

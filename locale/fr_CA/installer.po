@@ -200,6 +200,7 @@ msgstr "Procure un identifiant unique de site et un URL de base pour le protocol
 msgid "installer.unsupportedPhpError"
 msgstr "La version PHP de votre serveur n'est pas supportée par ce logiciel. Vérifiez les conditions d'installation dans docs/README."
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr ""
 "Une erreur s'est produite lors de l'exécution de la classe de migration "

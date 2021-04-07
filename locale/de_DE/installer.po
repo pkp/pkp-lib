@@ -189,5 +189,6 @@ msgstr "Eine eindeutige Identifikation und die OAI base URL an PKP übermitteln 
 msgid "installer.unsupportedPhpError"
 msgstr "Die PHP-Version Ihres Servers wird nicht von dieser Software unterstützt. Bitte überprüfen Sie die Installationsanforderungen in docs/README."
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Fehler beim Ausführen der migration-Klasse <tt>{$class}</tt>."

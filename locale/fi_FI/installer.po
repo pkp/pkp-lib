@@ -184,5 +184,6 @@ msgstr "Anna yksilöivä sivuston tunniste ja OAI:n perus-URL-osoite PKP:lle ain
 msgid "installer.unsupportedPhpError"
 msgstr "Tämä ohjelmisto ei tue palvelimesi PHP-versiota. Tarkista vaatimukset docs/README-tiedostosta."
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Virhe suoritettaessa käännösluokkaa  <tt>{$class}</tt>."

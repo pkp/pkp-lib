@@ -708,7 +708,7 @@ abstract class Plugin {
 		if ($migration = $this->getInstallMigration()) try {
 			$migration->up();
 		} catch (Exception $e) {
-			$installer->setError(INSTALLER_ERROR_DB, __('installer.installMigrationError', ['class' => get_class($migration)]));
+			$installer->setError(INSTALLER_ERROR_DB, __('installer.installMigrationError', ['class' => get_class($migration), 'message' => $e->getMessage()]));
 			$result = false;
 		}
 		return false;

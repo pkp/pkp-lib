@@ -109,7 +109,7 @@ class LanguageGridHandler extends GridHandler {
 			}
 		}
 
-		$context = $contextService->edit($context, [$settingName => $currentSettingValue], $request);
+		$context = $contextService->edit($context, [$settingName => array_values(array_unique($currentSettingValue))], $request);
 
 		$notificationManager = new NotificationManager();
 		$user = $request->getUser();

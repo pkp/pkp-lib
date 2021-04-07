@@ -53,6 +53,12 @@ class CommandLineTool {
 	/** @vary array Command-line arguments */
 	var $argv;
 
+	/** @var string the username provided */
+	var $username;
+
+	/** @var User the user provided */
+	var $user;
+
 	function __construct($argv = array()) {
 		// Initialize the request object with a page router
 		$application = Application::get();
@@ -76,6 +82,8 @@ class CommandLineTool {
 
 		$this->scriptName = isset($this->argv[0]) ? array_shift($this->argv) : '';
 
+		$this->checkArgsForUsername();
+
 		if (isset($this->argv[0]) && $this->argv[0] == '-h') {
 			$this->usage();
 			exit(0);
@@ -83,6 +91,58 @@ class CommandLineTool {
 	}
 
 	function usage() {
+	}
+
+	private function checkArgsForUsername() {
+		$usernameKeyPos = array_search('--username', $this->argv);
+		if ($usernameKeyPos) {
+			$usernamePos = $usernameKeyPos + 1;
+			if (count($this->argv) >= $usernamePos + 1) {
+				$this->username = $this->argv[$usernamePos];
+
+				unset($this->argv[$usernamePos]);
+			}
+
+			unset($this->argv[$usernameKeyPos]);
+		}
+
+		$userDao = DAORegistry::getDAO('UserDAO'); /** @var $userDao UserDAO */
+
+		if ($this->username) {
+
+			$user = $userDao->getByUsername($this->username);
+
+			if ($user) {
+				$this->user = $user;
+			}
+		}
+
+		if (!$this->user) {
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var $userGroupDao UserGroupDAO */
+			$adminGroups = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_SITE_ADMIN);
+
+			if (count($adminGroups)) {
+				$groupUsers = $userGroupDao->getUsersById($adminGroups[0])->toArray();
+
+				$this->setUser($groupUsers[0]);
+			}
+		}
+	}
+
+	function setUser($user) {
+		$registeredUser = Registry::get('user', true, null);
+		if (!isset($registeredUser)) {
+			/**
+			 * This is used in order to reconcile with possible $request->getUser()
+			 * used inside import processes, when the import is done by CLI tool.
+			 */
+			if ($user) {
+
+			}
+			Registry::set('user', $user);
+		}
+
+		$this->user = $user;
 	}
 
 }

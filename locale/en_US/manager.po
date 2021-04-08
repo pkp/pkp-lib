@@ -721,6 +721,27 @@ msgstr "Notification of Author Submission"
 msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Send a copy to this email address"
 
+msgid "manager.setup.submissionsNotifications"
+msgstr "Notifications"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Notify Primary Contact"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Yes, send a copy to {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "No"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Notify Anyone"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr "A copy of the submission acknowledgement email will be sent to any of the email addresses entered here. Separate multiple email addresses with a comma. Example: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "One or more of these email addresses is not valid."
+
 msgid "manager.setup.notifications.description"
 msgstr "Authors are automatically sent an email acknowledging their submission. You may have copies of this email sent to the following:"
 

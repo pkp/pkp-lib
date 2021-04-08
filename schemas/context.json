@@ -229,6 +229,22 @@
 				"nullable"
 			]
 		},
+		"copySubmissionAckPrimaryContact": {
+			"type": "boolean",
+			"default": false,
+			"description": "A copy of the submission acknowledgement email will be sent to this context's primary contact when true.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"copySubmissionAckAddress": {
+			"type": "string",
+			"default": "",
+			"description": "A copy of the submission acknowledgement email will be sent to any of the email addresses entered here. Separate multiple email addresses with a comma. Example: one@example.com,two@example.com",
+			"validation": [
+				"nullable"
+			]
+		},
 		"emailSignature": {
 			"type": "string",
 			"defaultLocaleKey": "default.contextSettings.emailSignature",

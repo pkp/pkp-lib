@@ -37,21 +37,32 @@ class PKPEmailSetupForm extends FormComponent {
 		$this->action = $action;
 		$this->locales = $locales;
 
-		$canEnvelopeSender = \Config::getVar('email', 'allow_envelope_sender');
-
 		$this->addField(new FieldRichTextarea('emailSignature', [
-				'label' => __('manager.setup.emailSignature'),
-				'tooltip' => __('manager.setup.emailSignature.description'),
-				'value' => $context->getData('emailSignature'),
-				'preparedContent' => [
-					'contextName' => $context->getLocalizedName(),
-					'senderName' => __('email.senderName'),
-					'senderEmail' => __('email.senderEmail'),
-					'mailingAddress' => htmlspecialchars(nl2br($context->getData('mailingAddress'))),
-					'contactEmail' => htmlspecialchars($context->getData('contactEmail')),
-					'contactName' => htmlspecialchars($context->getData('contactName')),
-				]
-			]));
+			'label' => __('manager.setup.emailSignature'),
+			'tooltip' => __('manager.setup.emailSignature.description'),
+			'value' => $context->getData('emailSignature'),
+			'preparedContent' => [
+				'contextName' => $context->getLocalizedName(),
+				'senderName' => __('email.senderName'),
+				'senderEmail' => __('email.senderEmail'),
+				'mailingAddress' => htmlspecialchars(nl2br($context->getData('mailingAddress'))),
+				'contactEmail' => htmlspecialchars($context->getData('contactEmail')),
+				'contactName' => htmlspecialchars($context->getData('contactName')),
+			]
+		]));
+
+		$this->buildEnveloperSenderField($context);
+	}
+
+	/**
+	 * Build the enveloper sender field
+	 *
+	 * @param $context Context Journal or Press to change settings for
+	 *
+	 * @return void
+	 */
+	protected function buildEnveloperSenderField($context) {
+		$canEnvelopeSender = \Config::getVar('email', 'allow_envelope_sender');
 
 		if ($canEnvelopeSender) {
 			$this->addField(new FieldText('envelopeSender', [
@@ -59,11 +70,12 @@ class PKPEmailSetupForm extends FormComponent {
 				'tooltip' => __('manager.setup.emailBounceAddress.description'),
 				'value' => $context->getData('envelopeSender'),
 			]));
-		} else {
-			$this->addField(new FieldHTML('envelopeSender', [
-				'label' => __('manager.setup.emailBounceAddress'),
-				'description' => __('manager.setup.emailBounceAddress.disabled'),
-			]));
+			return;
 		}
+
+		$this->addField(new FieldHTML('envelopeSender', [
+			'label' => __('manager.setup.emailBounceAddress'),
+			'description' => __('manager.setup.emailBounceAddress.disabled'),
+		]));
 	}
 }

@@ -229,5 +229,6 @@ msgstr "Администраторски налог"
 msgid "installer.additionalLocales"
 msgstr "Додатна локализација"
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Грешка при извршување на класата за миграција <tt> {$class} </tt>."

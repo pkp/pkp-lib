@@ -123,7 +123,7 @@ msgid "installer.installParseDBFileError"
 msgstr "Error parsing the database installation file <tt>{$file}</tt>."
 
 msgid "installer.installMigrationError"
-msgstr "Error executing the migration class <tt>{$class}</tt>."
+msgstr "An exception was thrown when executing the migration class <tt>{$class}</tt>. The exception was {$message}."
 
 msgid "installer.installParseEmailTemplatesFileError"
 msgstr "Error parsing the email template file <tt>{$file}</tt>."

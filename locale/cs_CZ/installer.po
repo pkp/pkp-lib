@@ -197,5 +197,6 @@ msgstr "Verze PHP vašeho serveru není podporována tímto software. Zkontroluj
 msgid "installer.miscSettings"
 msgstr "Různá nastavení"
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Chyba při provádění migrace třídy <tt>{$class}</tt>."

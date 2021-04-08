@@ -195,5 +195,6 @@ msgstr "Yalnızca istatistik ve güvenlik uyarıları için PKP'ye tekil bir sit
 msgid "installer.unsupportedUpgradeError"
 msgstr "Yükseltme desteklenmiyor. Ayrıntılar için docs/UPGRADE-UNSUPPORTED dokümanına bakınız."
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "<tt>{$class}</tt>'ı taşıma sınıf hatası."

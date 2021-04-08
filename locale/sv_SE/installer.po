@@ -192,5 +192,6 @@ msgstr "Den här programvaran stödjer inte PHP-versionen på din server. Dubbel
 msgid "installer.miscSettings"
 msgstr "Diverse inställningar"
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Fel vid körning av migreringsklassen <tt>{$class}</tt>."

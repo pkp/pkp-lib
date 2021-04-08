@@ -192,5 +192,6 @@ msgstr "Este software no soporta la versión PHP de su servidor. Vuelva a compro
 msgid "installer.miscSettings"
 msgstr "Configuración adicional"
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Error al ejecutar la clase de migración <tt>{$class}</tt>."

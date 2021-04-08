@@ -85,6 +85,7 @@ msgstr "フィルター設定ファイル <tt>{$file}</tt> のパースエラー
 msgid "installer.installParseEmailTemplatesFileError"
 msgstr "メールテンプレートファイル <tt>{$file}</tt> のパースエラー。"
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "<tt>{$class}</tt>マイグレーションクラスの実行エラーが発生します。"
 

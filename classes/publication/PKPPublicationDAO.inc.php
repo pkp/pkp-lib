@@ -270,7 +270,7 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 				AND ps.setting_name= ?',
 			[
 				$pubObjectId,
-				'pubid::' . $pubIdType,
+				'pub-id::' . $pubIdType,
 			]
 		);
 		$this->flushCache();

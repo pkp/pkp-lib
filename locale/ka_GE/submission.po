@@ -1,2 +1,216 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
+"Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/ka_GE/>\n"
+"Language: ka_GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "metadata.property.displayName.author"
+msgstr "ავტორები"
+
+msgid "submission.source"
+msgstr "წყარო"
+
+msgid "submissions.submit"
+msgstr "გაგზავნა"
+
+msgid "submission.start"
+msgstr "დასაწყისი"
+
+msgid "submission.submitter"
+msgstr "დამმატებელი"
+
+msgid "submission.summary"
+msgstr "ანონსი"
+
+msgid "metadata.property.displayName.edition"
+msgstr "გამოცემა"
+
+msgid "metadata.property.displayName.institution"
+msgstr "დაწესებულება"
+
+msgid "metadata.property.displayName.fpage"
+msgstr "პირველი გვერდი"
+
+msgid "metadata.property.displayName.comment"
+msgstr "კომენტარი"
+
+msgid "metadata.property.displayName.annotation"
+msgstr "ანოტაცია"
+
+msgid "metadata.property.displayName.title"
+msgstr "სათაური"
+
+msgid "submission.authors"
+msgstr "ავტორები"
+
+msgid "submission.addFile"
+msgstr "ფაილის ატვირთვა"
+
+msgid "submission.accepted"
+msgstr "მიღებული"
+
+msgid "submission.comments.addComment"
+msgstr "კომენტარის დამატება"
+
+msgid "submission.comments.comments"
+msgstr "კომენტარები"
+
+msgid "submission.comments.editComment"
+msgstr "კომენტარის ჩასწორება"
+
+msgid "submission.comments.noComments"
+msgstr "კომენტარები ჯერ არ არის"
+
+msgid "submission.comments.noReviews"
+msgstr "შეფასებები არ არის"
+
+msgid "submission.comments.review"
+msgstr "გამოხმაურება"
+
+msgid "submission.comments.subject"
+msgstr "თემა"
+
+msgid "submission.complete"
+msgstr "დასრულებულია"
+
+msgid "submission.done"
+msgstr "მზადაა"
+
+msgid "submission.downloads"
+msgstr "ჩამოტვირთვები"
+
+msgid "submission.due"
+msgstr "ვადა"
+
+msgid "submission.files"
+msgstr "ფაილები"
+
+msgid "submission.history"
+msgstr "ისტორია"
+
+msgid "submission.informationCenter.metadata"
+msgstr "მეტა-მონაცემები"
+
+msgid "submission.informationCenter.notes"
+msgstr "შენიშვნები"
+
+msgid "submission.informationCenter.history"
+msgstr "ისტორია"
+
+msgid "submission.stageParticipants.notify"
+msgstr "შეტყობინება"
+
+msgid "submission.layout.galleyImages"
+msgstr "სურათები"
+
+msgid "submission.query.subject"
+msgstr "თემა"
+
+msgid "submission.query.messages"
+msgstr "მესიჯები"
+
+msgid "submission.query.replies"
+msgstr "პასუხები"
+
+msgid "submission.query.from"
+msgstr "გამგზავნი"
+
+msgid "submission.query.closed"
+msgstr "დახურული"
+
+msgid "submission.query.addNote"
+msgstr "შეტყობინების დამატება"
+
+msgid "submission.list.activity"
+msgstr "აქტიურობა"
+
+msgid "grid.category.categories"
+msgstr "კატეგორიები"
+
+msgid "category.coverImage"
+msgstr "ყდის სურათი"
+
+msgid "submission.submit.placement.categories"
+msgstr "კატეგორიები"
+
+msgid "catalog.category.subcategories"
+msgstr "ქვეკატეგორიები"
+
+msgid "publication.contributors"
+msgstr "მონაწილეები"
+
+msgid "publication.status.scheduled"
+msgstr "დაგეგმილი"
+
+msgid "publication.status.unpublished"
+msgstr "გამოუქვეყნებელი"
+
+msgid "submission.layout.galleyStyle"
+msgstr "სტილი"
+
+msgid "submission.layout"
+msgstr "განლაგება"
+
+msgid "submission.notes.breadcrumb"
+msgstr "შენიშვნები"
+
+msgid "submission.rejected"
+msgstr "უარყოფილია"
+
+msgid "submission.request"
+msgstr "მოთხოვნა"
+
+msgid "submission.response"
+msgstr "რეაგირება"
+
+msgid "submission.review"
+msgstr "გამოხმაურება"
+
+msgid "submission.reviewed"
+msgstr "განხილული"
+
+msgid "submissions.active"
+msgstr "აქტიური"
+
+msgid "submissions.archived"
+msgstr "შეტანილია არქივში"
+
+msgid "submissions.completed"
+msgstr "დასრულდა"
+
+msgid "submissions.declined"
+msgstr "უარყოფილია"
+
+msgid "submission.views"
+msgstr "ნახვები"
+
+msgid "submission.status.declined"
+msgstr "უარყოფილია"
+
+msgid "submission.status.published"
+msgstr "გამოქვეყნებული"
+
+msgid "submission.upload.finalDraft"
+msgstr "ფაილის ატვირთვა"
+
+msgid "submission.description"
+msgstr "აღწერა"
+
+msgid "submission.document"
+msgstr "დოკუმენტი"
+
+msgid "submission.supplementary.subject"
+msgstr "თემა"
+
+msgid "submission.permissions"
+msgstr "წვდომის უფლებები"
+
+msgid "submission.copyright"
+msgstr "საავტორო უფლება"

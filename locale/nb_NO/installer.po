@@ -228,5 +228,6 @@ msgstr ""
 msgid "installer.preInstallationInstructionsTitle"
 msgstr "Steg før installasjon"
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Feil ved utførelse av migreringsklassen <tt>{$class}</tt>."

@@ -190,5 +190,6 @@ msgstr "زود الموقع برمز تعريفي فريد ورابط أساسي
 msgid "installer.unsupportedPhpError"
 msgstr "إن نسخة PHP التي يعمل بها ملقمك لا يدعمها هذا النظام. أعد التحقق من متطلبات التنصيب الواردة في الملف docs/README."
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "وقع خطأ عند تنفيذ صنف الانتقال <tt>{$class}</tt>."

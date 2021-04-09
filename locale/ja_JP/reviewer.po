@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-03 20:34+0000\n"
+"PO-Revision-Date: 2021-03-25 08:29+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/ja_JP/>\n"
@@ -108,3 +108,9 @@ msgstr "2. ガイドライン"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. 依頼"
+
+msgid "submission.comments.sendToReviewers"
+msgstr "査読者に送信"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr "BCC でこのメール通知のコピーを下記の査読者に送信します。"

@@ -1,2 +1,48 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
+"Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"ka_GE/>\n"
+"Language: ka_GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.languages.installLocales"
+msgstr "დაყენება"
+
+msgid "admin.languages.languageSettings"
+msgstr "ენის პარამეტრები"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP ვერსია"
+
+msgid "admin.settings"
+msgstr "პარამეტრები"
+
+msgid "admin.settings.introduction"
+msgstr "გაცნობითი ხასიათის შესავალი"
+
+msgid "admin.settings.siteTitle"
+msgstr "საიტის სახელი"
+
+msgid "admin.versionBuild"
+msgstr "ანაწყობი"
+
+msgid "admin.version.downloadPackage"
+msgstr "ჩამოტვირთვა"
+
+msgid "admin.versionMajor"
+msgstr "ძირითადი"
+
+msgid "admin.versionMinor"
+msgstr "მცირე"
+
+msgid "admin.versionRevision"
+msgstr "ვერსია"
+
+msgid "admin.version"
+msgstr "ვერსია"

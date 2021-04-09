@@ -203,5 +203,6 @@ msgstr ""
 "Aquest programari no és compatible amb la versió PHP del vostre servidor. "
 "Torneu a comprovar els requisits d'instal·lació a docs/README."
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Error en executar la classe de migració <tt>{$class}</tt>."

@@ -95,6 +95,7 @@ msgid "installer.installParseEmailTemplatesFileError"
 msgstr ""
 "Erro ao analizar o arquivo do modelo de correo electrónico <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Erro ao executar a clase de migración <tt>{$class}</tt>."
 

@@ -3,9 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:55-07:00\n"
-"PO-Revision-Date: 2020-07-14 20:40+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -323,3 +322,15 @@ msgstr ""
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Il n'y a pas de paramètre régional disponible pour l'installation."
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Désactiver pour les rôles suivants"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Seul un gestionnaire de revue peut modifier ce paramètre."
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Restriction des courriels en lot"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Courriels en lot"

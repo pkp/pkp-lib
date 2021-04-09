@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-26 06:45+0000\n"
+"PO-Revision-Date: 2021-04-06 14:45+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ro_RO/>\n"
@@ -174,7 +174,7 @@ msgid "editor.submission.production.productionReadyFiles"
 msgstr "Fișiere pregătite pentru producție"
 
 msgid "editor.review.emailReviewer"
-msgstr "Email reviyor"
+msgstr "Email revizor"
 
 msgid "editor.review.noReviewFilesUploaded.details"
 msgstr "Nu ați încărcat niciun fișier de recenzie."
@@ -386,13 +386,11 @@ msgstr "Închideți fișierul selectat"
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Fișiere ce trebuie revizuite"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Dublu-orb"
+msgstr "Revizor anonim/Autor anonim"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
-msgstr "Orb"
+msgstr "Recenzor anonim / Autor dezvăluit"
 
 msgid "editor.submissionReview.open"
 msgstr "Deschis"
@@ -510,3 +508,14 @@ msgstr "Bibliotecă"
 
 msgid "editor.activityLog"
 msgstr "Jurnalul de activitate"
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Sigur doriți să reveniți asupra deciziei de a refuza acest manuscris?"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Un participant selectat nu este alocat acestei etape."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Nu poate fi creată o discuție cu participanții selectați, deoarece ar avea "
+"un impact asupra anonimatului procesului de revizuire."

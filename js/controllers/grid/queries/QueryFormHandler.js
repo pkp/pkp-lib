@@ -46,7 +46,7 @@
 
 		// Attach form elements events.
 		$form.find('#template').change(
-			this.callbackWrapper(this.selectTemplateHandler_));
+				this.callbackWrapper(this.selectTemplateHandler_));
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.grid.queries.
 			QueryFormHandler, $.pkp.controllers.form.CancelActionAjaxFormHandler);
@@ -78,8 +78,8 @@
 	$.pkp.controllers.grid.queries.
 			QueryFormHandler.prototype.selectTemplateHandler_ =
 					function(sourceElement, event) {
-		var $form = this.getHtmlElement();
-		var template = $form.find('[name="template"]');
+		var $form = this.getHtmlElement(),
+				template = $form.find('[name="template"]');
 		$form.find('[name="subject"]').val(template.find('option:selected').text());
 		$.post(this.templateUrl_, template.serialize(),
 				this.callbackWrapper(this.updateTemplate), 'json');

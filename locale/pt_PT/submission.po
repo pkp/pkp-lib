@@ -1497,7 +1497,7 @@ msgid "submission.query.activity.contents"
 msgstr "Há uma nova discussão com o título \"{$queryTitle}\" relativa à submission \"{$submissionTitle}\"."
 
 msgid "submission.query.new.contents"
-msgstr "Foi adicionado à discussão entitulada \"{$queryTitle}\" relativa à submissão \"{$submissionTitle}\"."
+msgstr "Foi adicionado à discussão intitulada \"{$queryTitle}\" relativa à submissão \"{$submissionTitle}\"."
 
 msgid "submission.citations.description"
 msgstr "Introduza cada referência numa nova linha de forma a que possam ser recolhidas."

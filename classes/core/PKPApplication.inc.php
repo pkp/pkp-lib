@@ -200,8 +200,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		$laravelContainer = new PKPContainer();
 		$laravelContainer->registerConfiguredProviders();
 
-		if (Config::getVar('database', 'debug')) \Illuminate\Support\Facades\DB ::listen(function($query) {
-			error_log("Database query\n$query->sql\n" . json_encode($query->bindings));//\n Bindings: " . print_r($query->bindings, true));
+		if (Config::getVar('database', 'debug')) \Illuminate\Support\Facades\DB::listen(function($query) {
+			error_log("Database query\n$query->sql\n" . json_encode($query->bindings));
 		});
 	}
 

@@ -65,7 +65,7 @@ class LanguageGridHandler extends GridHandler {
 		$availableLocales = $this->getGridDataElements($request);
 		$context = $request->getContext();
 
-		$permittedSettings = array('supportedFormLocales', 'supportedSubmissionLocales', 'supportedLocales');
+		$permittedSettings = array('supportedFormLocales', 'supportedSubmissionLocales', 'supportedLocales','supportedMailLocales');
 		if (in_array($settingName, $permittedSettings) && $locale) {
 			$currentSettingValue = (array) $context->getSetting($settingName);
 			if (AppLocale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
@@ -209,6 +209,16 @@ class LanguageGridHandler extends GridHandler {
 				$cellProvider
 			)
 		);
+		
+		$this->addColumn(
+			new GridColumn(
+				'mailLocale',
+				'manager.language.mails',
+				null,
+				'controllers/grid/common/cell/selectStatusCell.tpl',
+				$cellProvider
+			)
+		);
 	}
 
 	/**
@@ -223,7 +233,7 @@ class LanguageGridHandler extends GridHandler {
 
 		if (is_array($data)) {
 			foreach ($data as $locale => $localeData) {
-				foreach (array('supportedFormLocales', 'supportedSubmissionLocales', 'supportedLocales') as $name) {
+				foreach (array('supportedFormLocales', 'supportedSubmissionLocales', 'supportedLocales','supportedMailLocales') as $name) {
 					$data[$locale][$name] = in_array($locale, (array) $context->getSetting($name));
 				}
 			}

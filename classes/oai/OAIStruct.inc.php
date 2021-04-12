@@ -36,7 +36,7 @@ class OAIConfig {
 	var $tokenLifetime = 86400;
 
 	/** @var int maximum identifiers returned per request */
-	var $maxIdentifiers = 500;
+	var $maxIdentifiers;
 
 	/** @var int maximum records returned per request */
 	var $maxRecords;
@@ -54,6 +54,9 @@ class OAIConfig {
 
 		$this->maxRecords = Config::getVar('oai', 'oai_max_records');
 		if (!$this->maxRecords) $this->maxRecords = 100;
+		
+		$this->maxIdentifiers = Config::getVar('oai', 'oai_max_identifiers');
+		if (!$this->maxIdentifiers) $this->maxIdentifiers = 500;		
 	}
 }
 

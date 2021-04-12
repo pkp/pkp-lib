@@ -38,11 +38,17 @@ class SessionManager {
 		ini_set('session.name', Config::getVar('general', 'session_cookie_name')); // Cookie name
 		ini_set('session.cookie_lifetime', 0);
 		ini_set('session.cookie_path', Config::getVar('general', 'session_cookie_path', $request->getBasePath() . '/'));
-		ini_set('session.cookie_domain', $request->getServerHost(null, false));
 		ini_set('session.gc_probability', 1);
 		ini_set('session.gc_maxlifetime', 60 * 60);
 		ini_set('session.auto_start', 1);
 		ini_set('session.cache_limiter', 'none');
+
+		$cookieDomain = $request->getServerHost(null, false);
+		$siteBaseUrlHost = parse_url(Config::getVar('general', 'base_url'), PHP_URL_HOST);
+		if (strtolower(substr($cookieDomain, -1 - strlen($siteBaseUrlHost))) == '.'.strtolower($siteBaseUrlHost)) {
+			$cookieDomain = $siteBaseUrlHost;
+		}
+		ini_set('session.cookie_domain', $cookieDomain);
 
 		session_set_save_handler(
 			array($this, 'open'),
@@ -61,14 +67,6 @@ class SessionManager {
 		$ip = $request->getRemoteAddr();
 		$userAgent = $request->getUserAgent();
 		$now = time();
-
-		// Check if the session is tied to the parent domain
-		if (isset($this->userSession) && $this->userSession->getDomain() && $this->userSession->getDomain() != $request->getServerHost(null, false)) {
-			// if current host contains . and the session domain (is a subdomain of the session domain), adjust the session's domain parameter to the parent
-			if (strtolower(substr($request->getServerHost(null, false), -1 - strlen($this->userSession->getDomain()))) == '.'.strtolower($this->userSession->getDomain())) {
-				ini_set('session.cookie_domain', $this->userSession->getDomain());
-			}
-		}
 
 		if (!isset($this->userSession) || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() != $ip) || $this->userSession->getUserAgent() != substr($userAgent, 0, 255)) {
 			if (isset($this->userSession)) {

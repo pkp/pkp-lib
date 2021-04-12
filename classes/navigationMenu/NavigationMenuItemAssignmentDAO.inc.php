@@ -180,6 +180,9 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 			)
 		);
 		$this->updateLocaleFields($navigationMenuItemAssignment);
+
+		$this->unCacheRelatedNavigationMenus($navigationMenuItemAssignment->getId());
+
 		return $returner;
 	}
 
@@ -210,6 +213,9 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 
 		$assignment->setId($this->getInsertId());
 		$this->updateLocaleFields($assignment);
+
+		$this->unCacheRelatedNavigationMenus($assignment->getId());
+
 		return $assignment->getId();
 	}
 
@@ -256,6 +262,8 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteById($navigationMenuItemAssignmentId) {
+		$this->unCacheRelatedNavigationMenus($navigationMenuItemAssignmentId);
+
 		$this->update('DELETE FROM navigation_menu_item_assignment_settings WHERE navigation_menu_item_assignment_id = ?', (int) $navigationMenuItemAssignmentId);
 		$this->update('DELETE FROM navigation_menu_item_assignments WHERE navigation_menu_item_assignment_id = ?', (int) $navigationMenuItemAssignmentId);
 	}
@@ -284,6 +292,19 @@ class NavigationMenuItemAssignmentDAO extends DAO {
 		$this->updateDataObjectSettings('navigation_menu_item_assignment_settings', $navigationMenuItemAssignment, array(
 			'navigation_menu_item_assignment_id' => $navigationMenuItemAssignment->getId()
 		));
+	}
+
+	/**
+	 * Uncache the related NMs to the NMIA with $id
+	 * @param mixed $id
+	 */
+	function unCacheRelatedNavigationMenus($id) {
+		$navigationMenuItemAssignment = $this->getById($id);
+		if ($navigationMenuItemAssignment) {
+			$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+			$cache = $navigationMenuDao->getCache($navigationMenuItemAssignment->getMenuId());
+			if ($cache) $cache->flush();
+		}
 	}
 }
 

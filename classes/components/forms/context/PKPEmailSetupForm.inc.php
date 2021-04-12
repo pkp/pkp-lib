@@ -65,5 +65,11 @@ class PKPEmailSetupForm extends FormComponent {
 				'description' => __('manager.setup.emailBounceAddress.disabled'),
 			]));
 		}
+
+		$this->addField(new FieldText('subjectSubmissionIdDisplay', [
+			'label' => __('manager.setup.subjectSubmissionIdDisplay'),
+			'tooltip' => __('manager.setup.subjectSubmissionIdDisplay.description'),
+			'value' => $context->getData('subjectSubmissionIdDisplay'),
+		]));
 	}
 }

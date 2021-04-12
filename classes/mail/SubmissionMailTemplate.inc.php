@@ -19,7 +19,7 @@ import('lib.pkp.classes.mail.MailTemplate');
 
 class SubmissionMailTemplate extends MailTemplate {
 
-	/** @var object the associated submission */
+	/** @var Submission the associated submission */
 	var $submission;
 
 	/** @var object the associated context */
@@ -38,7 +38,7 @@ class SubmissionMailTemplate extends MailTemplate {
 	 * @see MailTemplate::MailTemplate()
 	 */
 	function __construct($submission, $emailKey = null, $locale = null, $context = null, $includeSignature = true) {
-		parent::__construct($emailKey, $locale, $context, $includeSignature);
+		parent::__construct($emailKey, $locale, $context, $includeSignature, $submission);
 		$this->submission = $submission;
 	}
 
@@ -52,7 +52,6 @@ class SubmissionMailTemplate extends MailTemplate {
 		parent::assignParams(array_merge(
 			array(
 				'submissionTitle' => strip_tags($submission->getLocalizedFullTitle()),
-				'submissionId' => $submission->getId(),
 				'submissionAbstract' => PKPString::stripUnsafeHtml($submission->getLocalizedAbstract()),
 				'authorString' => strip_tags($submission->getAuthorString()),
 			),

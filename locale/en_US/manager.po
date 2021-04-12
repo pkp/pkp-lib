@@ -2024,3 +2024,9 @@ msgstr "Desk Reject Rate"
 
 msgid "stats.name.declinedReviewRate"
 msgstr "After Review Reject Rate"
+
+msgid "manager.setup.subjectSubmissionIdDisplay"
+msgstr "Submission ID display on email subjects"
+
+msgid "manager.setup.subjectSubmissionIdDisplay.description"
+msgstr "Use {$submissionId} to add to the end of each email subject that is refering to a submission"

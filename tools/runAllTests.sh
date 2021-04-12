@@ -121,7 +121,7 @@ if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_PLUGINS" -eq 1 \) ]; then
 	if [ \( "$DO_COVERAGE" -eq 1 \) ]; then
 		REPORT_SWITCH="--coverage-php $REPORT_TMP/coverage-APP_PLUGINS.php"
 	fi
-	find plugins -name tests -maxdepth 3 -type d -exec $phpunit $DEBUG $TEST_CONF2 -v $REPORT_SWITCH "{}" ";"
+	find plugins -maxdepth 3 -name tests -type d -print0 | xargs -0 -n 1 $phpunit $DEBUG $TEST_CONF2 -v $REPORT_SWITCH
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_FUNCTIONAL" -eq 1 \) ]; then

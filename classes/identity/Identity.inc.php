@@ -17,7 +17,9 @@
  *
  * @brief Basic class providing common functionality for users and authors in the system.
  */
-
+define('IDENTITY_SETTING_FIRSTNAME', 'firstName');
+define('IDENTITY_SETTING_MIDDLENAME', 'middleName');
+define('IDENTITY_SETTING_LASTNAME', 'lastName');
 class Identity extends DataObject {
 
 	/**
@@ -29,9 +31,9 @@ class Identity extends DataObject {
 	 */
 	function getFullName($lastFirst = false) {
 		$salutation = $this->getData('salutation');
-		$firstName = $this->getData('firstName');
-		$middleName = $this->getData('middleName');
-		$lastName = $this->getData('lastName');
+		$firstName = $this->getLocalizedFirstName();
+		$middleName = $this->getLocalizedMiddleName();
+		$lastName = $this->getLocalizedLastName();
 		$suffix = $this->getData('suffix');
 		if ($lastFirst) {
 			return "$lastName, " . ($salutation != ''?"$salutation ":'') . $firstName . ($middleName != ''?" $middleName":'');
@@ -44,51 +46,57 @@ class Identity extends DataObject {
 	/**
 	 * Get first name.
 	 * @return string
+	 * @param $locale string
 	 */
-	function getFirstName() {
-		return $this->getData('firstName');
+	function getFirstName($locale = null) {
+		return $this->getData(IDENTITY_SETTING_FIRSTNAME,$locale);
 	}
 
 	/**
 	 * Set first name.
 	 * @param $firstName string
+	 * @param $locale string
 	 */
-	function setFirstName($firstName) {
-		$this->setData('firstName', $firstName);
-	}
+        function setFirstName($firstName, $locale = null) {
+                $this->setData(IDENTITY_SETTING_FIRSTNAME, $firstName, $locale);
+        }
 
 
 	/**
 	 * Get middle name.
 	 * @return string
+	 * @param $locale string
 	 */
-	function getMiddleName() {
-		return $this->getData('middleName');
+	function getMiddleName($locale = null) {
+		return $this->getData(IDENTITY_SETTING_MIDDLENAME,$locale);
 	}
 
 	/**
 	 * Set middle name.
 	 * @param $middleName string
+	 * @param $locale string
 	 */
-	function setMiddleName($middleName) {
-		$this->setData('middleName', $middleName);
-	}
+        function setMiddleName($middleName, $locale = null) {
+                $this->setData(IDENTITY_SETTING_MIDDLENAME, $middleName, $locale);
+        }
 
 	/**
 	 * Get last name.
+	 * @param $locale string
 	 * @return string
 	 */
-	function getLastName() {
-		return $this->getData('lastName');
+	function getLastName($locale = null) {
+		return $this->getData(IDENTITY_SETTING_LASTNAME,$locale);
 	}
 
 	/**
 	 * Set last name.
 	 * @param $lastName string
+	 * @param $locale string
 	 */
-	function setLastName($lastName) {
-		$this->setData('lastName', $lastName);
-	}
+        function setLastName($lastName, $locale = null) {
+                $this->setData(IDENTITY_SETTING_LASTNAME, $lastName, $locale);
+        }
 
 	/**
 	 * Get initials.
@@ -97,7 +105,7 @@ class Identity extends DataObject {
 	function getInitials() {
 		$initials = $this->getData('initials');
 		if (!$initials) {
-			$initials = PKPString::substr($this->getFirstName(), 0, 1) . PKPString::substr($this->getLastName(), 0, 1);
+			$initials = PKPString::substr($this->getLocalizedFirstName(), 0, 1) . PKPString::substr($this->getLocalizedLastName(), 0, 1);
 		}
 		return $initials;
 	}
@@ -269,6 +277,30 @@ class Identity extends DataObject {
 	function setBiography($biography, $locale) {
 		$this->setData('biography', $biography, $locale);
 	}
+	 
+	/**
+         * Get the localized firstName for this author
+         * @return string
+         */
+        function getLocalizedFirstName() {
+                return $this->getLocalizedData(IDENTITY_SETTING_FIRSTNAME);
+        }
+	
+	/**
+         * Get the localized middleName for this author
+         * @return string
+         */
+        function getLocalizedMiddleName() {
+                return $this->getLocalizedData(IDENTITY_SETTING_MIDDLENAME);
+        }
+	
+	/**
+         * Get the localized lastName for this author
+         * @return string
+         */
+        function getLocalizedLastName() {
+                return $this->getLocalizedData(IDENTITY_SETTING_LASTNAME);
+        }
 }
 
 ?>

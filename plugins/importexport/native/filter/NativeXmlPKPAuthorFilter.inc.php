@@ -90,9 +90,21 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 
 		// Handle metadata in subelements
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) switch($n->tagName) {
-			case 'firstname': $author->setFirstName($n->textContent); break;
-			case 'middlename': $author->setMiddleName($n->textContent); break;
-			case 'lastname': $author->setLastName($n->textContent); break;
+			case 'firstname':
+				$locale = $n->getAttribute('locale');
+				if (empty($locale)) $locale = $submission->getLocale();
+				$author->setFirstName($n->textContent, $locale);
+				break;
+			case 'middlename':
+				$locale = $n->getAttribute('locale');
+				if (empty($locale)) $locale = $submission->getLocale();
+				$author->setMiddleName($n->textContent, $locale);
+				break;
+			case 'lastname':
+				$locale = $n->getAttribute('locale');
+				if (empty($locale)) $locale = $submission->getLocale();
+				$author->setLastName($n->textContent, $locale);
+				break;
 			case 'affiliation':
 				$locale = $n->getAttribute('locale');
 				if (empty($locale)) $locale = $submission->getLocale();

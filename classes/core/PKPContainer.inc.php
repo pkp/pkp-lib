@@ -29,8 +29,6 @@ class PKPContainer extends Container {
 		$this->instance(Container::class, $this);
 
 		Facade::setFacadeApplication($this);
-		// Load main settings, this should be done before registering services, e.g., it's used by Database Service
-		$this->loadConfiguration();
 	}
 
 	/**
@@ -38,6 +36,9 @@ class PKPContainer extends Container {
 	 * @brief Register used service providers within the container
 	 */
 	public function registerConfiguredProviders() {
+		// Load main settings, this should be done before registering services, e.g., it's used by Database Service
+		$this->loadConfiguration();
+
 		$this->register(new PKPEventServiceProvider($this));
 		$this->register(new Illuminate\Database\DatabaseServiceProvider($this));
 		$this->register(new Illuminate\Bus\BusServiceProvider($this));

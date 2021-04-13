@@ -127,7 +127,7 @@ class PKPContainer extends Container {
 		];
 
 		// Queue connection
-		$items['queue']['default'] = 'sync';
+		$items['queue']['default'] = 'database';
 		$items['queue']['connections']['sync']['driver'] = 'sync';
 		$items['queue']['connections']['database'] = [
 			'driver' => 'database',

@@ -37,7 +37,7 @@ abstract class PKPSubmission extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function __construct() {
+	public function __construct() {
 		// Switch on meta-data adapter support.
 		$this->setHasLoadableAdapters(true);
 
@@ -50,7 +50,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getBestId() {
+	public function getBestId() {
 		$currentPublication = $this->getCurrentPublication();
 		if (!$currentPublication) return $this->getId();
 		return $currentPublication->getData('urlPath') ?? $this->getId();
@@ -138,7 +138,7 @@ abstract class PKPSubmission extends DataObject {
 	 * Get a map for status constant to locale key.
 	 * @return array
 	 */
-	function &getStatusMap() {
+	public function &getStatusMap() {
 		static $statusMap;
 		if (!isset($statusMap)) {
 			$statusMap = array(
@@ -155,7 +155,7 @@ abstract class PKPSubmission extends DataObject {
 	 * Get a locale key for the paper's current status.
 	 * @return string
 	 */
-	function getStatusKey() {
+	public function getStatusKey() {
 		$statusMap =& $this->getStatusMap();
 		return $statusMap[$this->getData('status')];
 	}
@@ -163,7 +163,7 @@ abstract class PKPSubmission extends DataObject {
 	/**
 	 * @copydoc DataObject::getDAO()
 	 */
-	function getDAO() {
+	public function getDAO() {
 		return DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 	}
 
@@ -174,7 +174,7 @@ abstract class PKPSubmission extends DataObject {
 	 * Get section id.
 	 * @return int
 	 */
-	abstract function getSectionId();
+	abstract public function getSectionId();
 
 	/**
 	 * Get the value of a license field from the containing context.
@@ -182,7 +182,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $field PERMISSIONS_FIELD_...
 	 * @return string|null
 	 */
-	abstract function _getContextLicenseFieldValue($locale, $field);
+	abstract public function _getContextLicenseFieldValue($locale, $field);
 
 	//
 	// Deprecated methods
@@ -194,7 +194,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string Localized copyright holder.
 	 * @deprecated 3.2.0.0
 	 */
-	function getLocalizedCopyrightHolder($preferredLocale = null) {
+	public function getLocalizedCopyrightHolder($preferredLocale = null) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -207,7 +207,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return int
 	 * @deprecated 3.2.0.0
 	 */
-	function getContextId() {
+	public function getContextId() {
 		return $this->getData('contextId');
 	}
 
@@ -216,7 +216,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $contextId int
 	 * @deprecated 3.2.0.0
 	 */
-	function setContextId($contextId) {
+	public function setContextId($contextId) {
 		$this->setData('contextId', $contextId);
 	}
 
@@ -265,7 +265,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return int
 	 * @deprecated 3.2.0.0
 	 */
-	function getStoredPubId($pubIdType) {
+	public function getStoredPubId($pubIdType) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -281,7 +281,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $pubId string
 	 * @deprecated 3.2.0.0
 	 */
-	function setStoredPubId($pubIdType, $pubId) {
+	public function setStoredPubId($pubIdType, $pubId) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$this->setData('pub-id::'.$pubIdType, $pubId);
@@ -294,7 +294,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getCopyrightHolder($locale) {
+	public function getCopyrightHolder($locale) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -308,7 +308,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $locale string locale
 	 * @deprecated 3.2.0.0
 	 */
-	function setCopyrightHolder($copyrightHolder, $locale) {
+	public function setCopyrightHolder($copyrightHolder, $locale) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('copyrightHolder', $copyrightHolder, $locale);
@@ -320,7 +320,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getCopyrightYear() {
+	public function getCopyrightYear() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -333,7 +333,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $copyrightYear string Copyright holder
 	 * @deprecated 3.2.0.0
 	 */
-	function setCopyrightYear($copyrightYear) {
+	public function setCopyrightYear($copyrightYear) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('copyrightYear', $copyrightYear);
@@ -345,7 +345,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getLicenseURL() {
+	public function getLicenseURL() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -358,7 +358,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $license string License of submission content
 	 * @deprecated 3.2.0.0
 	 */
-	function setLicenseURL($licenseURL) {
+	public function setLicenseURL($licenseURL) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('licenseUrl', $licenseURL);
@@ -370,7 +370,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $hideAuthor int AUTHOR_TOC_...
 	 * @deprecated 3.2.0.0
 	 */
-	function setHideAuthor($hideAuthor) {
+	public function setHideAuthor($hideAuthor) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('hideAuthor', $hideAuthor);
@@ -384,8 +384,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-
-	function getAuthorString($preferred = true, $familyOnly = false) {
+	public function getAuthorString($preferred = true, $familyOnly = false) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -407,7 +406,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getShortAuthorString() {
+	public function getShortAuthorString() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -420,7 +419,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return array
 	 * @deprecated 3.2.0.0
 	 */
-	function getAuthorEmails() {
+	public function getAuthorEmails() {
 		$authors = $this->getAuthors();
 
 		import('lib.pkp.classes.mail.Mail');
@@ -437,7 +436,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return array Authors
 	 * @deprecated 3.2.0.0
 	 */
-	function getAuthors($onlyIncludeInBrowse = false) {
+	public function getAuthors($onlyIncludeInBrowse = false) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return [];
@@ -457,7 +456,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return Author|null
 	 * @deprecated 3.2.0.0
 	 */
-	function getPrimaryAuthor() {
+	public function getPrimaryAuthor() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return null;
@@ -470,7 +469,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getLocale() {
+	public function getLocale() {
 		return $this->getData('locale');
 	}
 
@@ -479,7 +478,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $locale string
 	 * @deprecated 3.2.0.0
 	 */
-	function setLocale($locale) {
+	public function setLocale($locale) {
 		$this->setData('locale', $locale);
 	}
 
@@ -490,7 +489,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getLocalizedTitle($preferredLocale = null, $includePrefix = true) {
+	public function getLocalizedTitle($preferredLocale = null, $includePrefix = true) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -505,7 +504,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string|array
 	 * @deprecated 3.2.0.0
 	 */
-	function getTitle($locale, $includePrefix = true) {
+	public function getTitle($locale, $includePrefix = true) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return $locale ? '' : [];
@@ -525,7 +524,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $locale
 	 * @deprecated 3.2.0.0
 	 */
-	function setTitle($title, $locale) {
+	public function setTitle($title, $locale) {
 		$this->setData('title', $title, $locale);
 	}
 
@@ -534,7 +533,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getLocalizedSubtitle() {
+	public function getLocalizedSubtitle() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -548,7 +547,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getSubtitle($locale) {
+	public function getSubtitle($locale) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -562,7 +561,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $locale string
 	 * @deprecated 3.2.0.0
 	 */
-	function setSubtitle($subtitle, $locale) {
+	public function setSubtitle($subtitle, $locale) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$this->setData('subtitle', $subtitle, $locale);
@@ -575,7 +574,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getLocalizedFullTitle() {
+	public function getLocalizedFullTitle() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -590,7 +589,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getFullTitle($locale) {
+	public function getFullTitle($locale) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return $locale ? '' : [];
@@ -606,7 +605,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getLocalizedPrefix() {
+	public function getLocalizedPrefix() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -620,7 +619,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getPrefix($locale) {
+	public function getPrefix($locale) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return $locale ? '' : [];
@@ -634,7 +633,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $locale
 	 * @deprecated 3.2.0.0
 	 */
-	function setPrefix($prefix, $locale) {
+	public function setPrefix($prefix, $locale) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('prefix', $prefix, $locale);
@@ -646,7 +645,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getLocalizedAbstract() {
+	public function getLocalizedAbstract() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -660,7 +659,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getAbstract($locale) {
+	public function getAbstract($locale) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return $locale ? '' : [];
@@ -674,7 +673,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $locale
 	 * @deprecated 3.2.0.0
 	 */
-	function setAbstract($abstract, $locale) {
+	public function setAbstract($abstract, $locale) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('abstract', $abstract, $locale);
@@ -686,7 +685,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getLocalizedDiscipline() {
+	public function getLocalizedDiscipline() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -700,7 +699,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getDiscipline($locale) {
+	public function getDiscipline($locale) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return $locale ? '' : [];
@@ -714,7 +713,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $locale
 	 * @deprecated 3.2.0.0
 	 */
-	function setDiscipline($discipline, $locale) {
+	public function setDiscipline($discipline, $locale) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('discipline', $discipline, $locale);
@@ -726,7 +725,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getLocalizedSubject() {
+	public function getLocalizedSubject() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -740,7 +739,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getSubject($locale) {
+	public function getSubject($locale) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return $locale ? '' : [];
@@ -754,7 +753,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $locale
 	 * @deprecated 3.2.0.0
 	 */
-	function setSubject($subject, $locale) {
+	public function setSubject($subject, $locale) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('subjects', $subject, $locale);
@@ -766,7 +765,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getLocalizedCoverage() {
+	public function getLocalizedCoverage() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -780,7 +779,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getCoverage($locale) {
+	public function getCoverage($locale) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return $locale ? '' : [];
@@ -794,7 +793,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $locale
 	 * @deprecated 3.2.0.0
 	 */
-	function setCoverage($coverage, $locale) {
+	public function setCoverage($coverage, $locale) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('coverage', $coverage, $locale);
@@ -806,7 +805,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getLocalizedType() {
+	public function getLocalizedType() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -820,7 +819,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getType($locale) {
+	public function getType($locale) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return $locale ? '' : [];
@@ -834,7 +833,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $locale
 	 * @deprecated 3.2.0.0
 	 */
-	function setType($type, $locale) {
+	public function setType($type, $locale) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('type', $type, $locale);
@@ -847,7 +846,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getRights($locale) {
+	public function getRights($locale) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return $locale ? '' : [];
@@ -861,7 +860,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $locale
 	 * @deprecated 3.2.0.0
 	 */
-	function setRights($rights, $locale) {
+	public function setRights($rights, $locale) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('rights', $rights, $locale);
@@ -874,7 +873,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getSource($locale) {
+	public function getSource($locale) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return $locale ? '' : [];
@@ -888,7 +887,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $locale
 	 * @deprecated 3.2.0.0
 	 */
-	function setSource($source, $locale) {
+	public function setSource($source, $locale) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('source', $source, $locale);
@@ -900,7 +899,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getLanguage() {
+	public function getLanguage() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -913,7 +912,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $language string
 	 * @deprecated 3.2.0.0
 	 */
-	function setLanguage($language) {
+	public function setLanguage($language) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('languages', $language);
@@ -925,7 +924,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getLocalizedSponsor() {
+	public function getLocalizedSponsor() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -939,7 +938,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getSponsor($locale) {
+	public function getSponsor($locale) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return $locale ? '' : [];
@@ -953,7 +952,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $locale
 	 * @deprecated 3.2.0.0
 	 */
-	function setSponsor($sponsor, $locale) {
+	public function setSponsor($sponsor, $locale) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('sponsor', $sponsor, $locale);
@@ -966,7 +965,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getCopyrightNotice($locale) {
+	public function getCopyrightNotice($locale) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return $locale ? '' : [];
@@ -980,7 +979,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $locale string
 	 * @deprecated 3.2.0.0
 	 */
-	function setCopyrightNotice($copyrightNotice, $locale) {
+	public function setCopyrightNotice($copyrightNotice, $locale) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('copyrightNotice', $copyrightNotice, $locale);
@@ -992,7 +991,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getCitations() {
+	public function getCitations() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -1005,7 +1004,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $citations string
 	 * @deprecated 3.2.0.0
 	 */
-	function setCitations($citations) {
+	public function setCitations($citations) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('citationsRaw', $citations);
@@ -1017,7 +1016,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return date
 	 * @deprecated 3.2.0.0
 	 */
-	function getDateSubmitted() {
+	public function getDateSubmitted() {
 		return $this->getData('dateSubmitted');
 	}
 
@@ -1026,7 +1025,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $dateSubmitted date
 	 * @deprecated 3.2.0.0
 	 */
-	function setDateSubmitted($dateSubmitted) {
+	public function setDateSubmitted($dateSubmitted) {
 		$this->setData('dateSubmitted', $dateSubmitted);
 	}
 
@@ -1035,7 +1034,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return date
 	 * @deprecated 3.2.0.0
 	 */
-	function getDateStatusModified() {
+	public function getDateStatusModified() {
 		return $this->getData('dateLastActivity');
 	}
 
@@ -1044,7 +1043,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $dateModified date
 	 * @deprecated 3.2.0.0
 	 */
-	function setDateStatusModified($dateModified) {
+	public function setDateStatusModified($dateModified) {
 		$this->setData('dateLastActivity', $dateModified);
 	}
 
@@ -1053,7 +1052,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return date
 	 * @deprecated 3.2.0.0
 	 */
-	function getLastModified() {
+	public function getLastModified() {
 		return $this->getData('lastModified');
 	}
 
@@ -1062,7 +1061,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $dateModified date
 	 * @deprecated 3.2.0.0
 	 */
-	function setLastModified($dateModified) {
+	public function setLastModified($dateModified) {
 		$this->setData('lastModified', $dateModified);
 	}
 
@@ -1071,7 +1070,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return int
 	 * @deprecated 3.2.0.0
 	 */
-	function getStatus() {
+	public function getStatus() {
 		return $this->getData('status');
 	}
 
@@ -1080,7 +1079,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $status int
 	 * @deprecated 3.2.0.0
 	 */
-	function setStatus($status) {
+	public function setStatus($status) {
 		$this->setData('status', $status);
 	}
 
@@ -1089,7 +1088,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return int
 	 * @deprecated 3.2.0.0
 	 */
-	function getSubmissionProgress() {
+	public function getSubmissionProgress() {
 		return $this->getData('submissionProgress');
 	}
 
@@ -1098,7 +1097,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $submissionProgress int
 	 * @deprecated 3.2.0.0
 	 */
-	function setSubmissionProgress($submissionProgress) {
+	public function setSubmissionProgress($submissionProgress) {
 		$this->setData('submissionProgress', $submissionProgress);
 	}
 
@@ -1107,7 +1106,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getPages() {
+	public function getPages() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -1120,7 +1119,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getStartingPage() {
+	public function getStartingPage() {
 		$publication = $this->getCurrentPublication();
 		return $publication ? $publication->getStartingPage() : '';
 	}
@@ -1130,7 +1129,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
-	function getEndingPage() {
+	public function getEndingPage() {
 		$publication = $this->getCurrentPublication();
 		return $publication ? $publication->getEndingPage() : '';
 	}
@@ -1141,7 +1140,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return array
 	 * @deprecated 3.2.0.0
 	 */
-	function getPageArray() {
+	public function getPageArray() {
 		$publication = $this->getCurrentPublication();
 		return $publication ? $publication->getPageArray() : '';
 	}
@@ -1151,7 +1150,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $pages string
 	 * @deprecated 3.2.0.0
 	 */
-	function setPages($pages) {
+	public function setPages($pages) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('pages', $pages);
@@ -1163,7 +1162,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return int
 	 * @deprecated 3.2.0.0
 	 */
-	function getStageId() {
+	public function getStageId() {
 		return $this->getData('stageId');
 	}
 
@@ -1172,7 +1171,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $stageId int
 	 * @deprecated 3.2.0.0
 	 */
-	function setStageId($stageId) {
+	public function setStageId($stageId) {
 		$this->setData('stageId', $stageId);
 	}
 
@@ -1181,7 +1180,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @return date
 	 * @deprecated 3.2.0.0
 	 */
-	function getDatePublished() {
+	public function getDatePublished() {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
@@ -1194,7 +1193,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @param $datePublished date
 	 * @deprecated 3.2.0.0
 	 */
-	function setDatePublished($datePublished) {
+	public function setDatePublished($datePublished) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
 			$publication->setData('datePublished', $datePublished);
@@ -1207,19 +1206,19 @@ abstract class PKPSubmission extends DataObject {
 	 * @return boolean
 	 * @deprecated 3.2.0.0
 	 */
-	function isCCLicense() {
+	public function isCCLicense() {
 		$publication = $this->getCurrentPublication();
 		return $publication && $publication->isCCLicense();
 	}
 
 	/**
-         * Get views of the submission.
-         * @return int
-         */
-        function getViews() {
-                $application = Application::getApplication();
-                return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION, $this->getId());
-        }
+	 * Get views of the submission.
+	 * @return int
+	 */
+	function getViews() {
+		$application = Application::getApplication();
+		return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION, $this->getId());
+	}
 }
 
 // Expose global constants unless operating in strict mode.

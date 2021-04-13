@@ -27,6 +27,25 @@ class PKPContainer extends Container {
 		static::setInstance($this);
 		$this->instance('app', $this);
 		$this->instance(Container::class, $this);
+		$this->singleton(Illuminate\Contracts\Debug\ExceptionHandler::class, function () {
+			return new class implements Illuminate\Contracts\Debug\ExceptionHandler {
+				public function shouldReport(Throwable $e) {
+					return true;
+				}
+
+				public function report(Throwable $e) {
+					error_log((string) $e);
+				}
+
+				public function render($request, Throwable $e) {
+					return null;
+				}
+
+				public function renderForConsole($output, Throwable $e) {
+					echo (string) $e;
+				}
+			};
+		});
 
 		Facade::setFacadeApplication($this);
 	}

@@ -201,16 +201,8 @@ class PKPEmailHandler extends APIHandler {
 		// and piling onto the server like a DDOS attack.
 		if (!$countRunning && $countPending) {
 			$laravelContainer = PKPContainer::getInstance();
-			$worker = new Illuminate\Queue\Worker(
-				$laravelContainer['queue'],
-				$laravelContainer['events'],
-				$laravelContainer['exception.handler'],
-				function() {
-					return false; // is not down for maintenance
-				}
-			);
 			$options = new Illuminate\Queue\WorkerOptions();
-			$worker->runNextJob('database', $args['queueId'], $options);
+			$laravelContainer['queue.worker']->runNextJob('database', $args['queueId'], $options);
 
 			// Update count of pending jobs
 			$countPending = $this->countPending($args['queueId']);

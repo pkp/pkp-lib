@@ -33,7 +33,7 @@ class UpgradeForm extends MaintenanceForm {
 
 		define('RUNNING_UPGRADE', 1);
 		$templateMgr = TemplateManager::getManager($this->_request);
-		Application::get()->initializeDatabaseConnection();
+		Application::get()->initializeLaravelContainer();
 		$installer = new Upgrade($this->_data);
 
 		// FIXME Use logger?

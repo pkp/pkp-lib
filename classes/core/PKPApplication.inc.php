@@ -170,7 +170,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		$notes = array();
 		Registry::set('system.debug.notes', $notes);
 
-		if (Config::getVar('general', 'installed')) $this->initializeDatabaseConnection();
+		if (Config::getVar('general', 'installed')) $this->initializeLaravelContainer();
 
 		// Register custom autoloader functions for namespaces
 		spl_autoload_register(function($class) {
@@ -186,14 +186,14 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	}
 
 	/**
-	 * Initialize the database connection (and related systems)
+	 * Initialize Laravel container and register service providers
 	 */
-	public function initializeDatabaseConnection() {
+	public function initializeLaravelContainer() {
 		// Ensure multiple calls to this function don't cause trouble
-		static $databaseConnectionInitialized = false;
-		if ($databaseConnectionInitialized) return;
+		static $containerInitialized = false;
+		if ($containerInitialized) return;
 
-		$databaseConnectionInitialized = true;
+		$containerInitialized = true;
 
 		// Initialize Laravel's container and set it globally
 		import('lib.pkp.classes.core.PKPContainer');

@@ -147,10 +147,11 @@ class PKPFileService {
 		// Stream the file to the end user.
 		$mimetype = $file->mimetype ?? $this->fs->getMimetype($path) ?? 'application/octet-stream';
 		$filesize = $this->fs->getSize($path);
+		$encodedFilename = urlencode($filename);
 		header("Content-Type: $mimetype");
 		header("Content-Length: $filesize");
 		header('Accept-Ranges: none');
-		header('Content-Disposition: ' . ($inline ? 'inline' : 'attachment') . "; filename=\"$filename\"");
+		header('Content-Disposition: ' . ($inline ? 'inline' : 'attachment') . "; filename*=UTF-8''\"$encodedFilename\"");
 		header('Cache-Control: private'); // Workarounds for IE weirdness
 		header('Pragma: public');
 
@@ -166,8 +167,8 @@ class PKPFileService {
 	 * @return string
 	 */
 	public function formatFilename($path, $filename) {
-		$extension = \Stringy\Stringy::create(pathinfo($path, PATHINFO_EXTENSION))->toLowerCase();
-		$newFilename = \Stringy\Stringy::create($filename)->toLowerCase()->dasherize()->regexReplace('[^a-z0-9\-\_.]', '');
+		$extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+		$newFilename = $filename;
 		if (!empty($extension) && substr($newFilename, (strlen($extension) * -1)) != $extension) {
 			$newFilename .= '.' . $extension;
 		}

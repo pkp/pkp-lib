@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * @file classes/core/PKPContainer.inc.php
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PKPContainer
+ * @ingroup core
+ *
+ * @brief Bootstraps Laravel services, application-level parts and creates bindings
+ */
+
 import('lib.pkp.classes.core.PKPEventServiceProvider');
 
 use Illuminate\Container\Container;
@@ -136,6 +149,6 @@ class PKPContainer extends Container {
 			'retry_after' => 90,
 		];
 
-		$this->instance('config', $config = new Repository($items)); // create instance and bind to use globally
+		$this->instance('config', new Repository($items)); // create instance and bind to use globally
 	}
 }

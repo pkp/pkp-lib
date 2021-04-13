@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * @file classes/core/PKPEventServiceProvider.inc.php
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PKPEventServiceProvider
+ * @ingroup core
+ *
+ * @brief Registers Events Service Provider and boots data on events and their listeners
+ */
+
 use Illuminate\Support\Facades\Event;
 use Illuminate\Events\EventServiceProvider;
 
@@ -26,23 +39,18 @@ class PKPEventServiceProvider extends EventServiceProvider {
 	}
 
 	/**
-	 * Get the discovered events and listeners for the application.
-	 * TODO handle cached events
+	 * Get the discovered events and listeners for the application
 	 * @return array
 	 */
-	public function getEvents()
-	{
+	public function getEvents() {
 		return $this->listens();
-
 	}
 
 	/**
-	 * Get the events and handlers.
-	 *
+	 * Get the events and handlers
 	 * @return array
 	 */
-	public function listens()
-	{
+	public function listens() {
 		return $this->listen;
 	}
 

@@ -14,40 +14,40 @@
  * @brief Describes review assignment properties.
  */
 
-define('SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT', 1);
-define('SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS', 2);
-define('SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE', 3);
-define('SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE', 4);
-define('SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE', 5);
-define('SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS', 6);
-
-define('SUBMISSION_REVIEWER_RATING_VERY_GOOD', 5);
-define('SUBMISSION_REVIEWER_RATING_GOOD', 4);
-define('SUBMISSION_REVIEWER_RATING_AVERAGE', 3);
-define('SUBMISSION_REVIEWER_RATING_POOR', 2);
-define('SUBMISSION_REVIEWER_RATING_VERY_POOR', 1);
-
-define('SUBMISSION_REVIEW_METHOD_ANONYMOUS', 1);
-define('SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS', 2);
-define('SUBMISSION_REVIEW_METHOD_OPEN', 3);
-
-// A review is "unconsidered" when it is confirmed by an editor and then that
-// confirmation is later revoked.
-define('REVIEW_ASSIGNMENT_NOT_UNCONSIDERED', 0); // Has never been unconsidered
-define('REVIEW_ASSIGNMENT_UNCONSIDERED', 1); // Has been unconsindered and is awaiting re-confirmation by an editor
-define('REVIEW_ASSIGNMENT_UNCONSIDERED_READ', 2); // Has been reconfirmed by an editor
-
-define('REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE', 0); // request has been sent but reviewer has not responded
-define('REVIEW_ASSIGNMENT_STATUS_DECLINED', 1); // reviewer declined review request
-define('REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE', 4); // review not responded within due date
-define('REVIEW_ASSIGNMENT_STATUS_ACCEPTED', 5); // reviewer has agreed to the review
-define('REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE', 6); // review not submitted within due date
-define('REVIEW_ASSIGNMENT_STATUS_RECEIVED', 7); // review has been submitted
-define('REVIEW_ASSIGNMENT_STATUS_COMPLETE', 8); // review has been confirmed by an editor
-define('REVIEW_ASSIGNMENT_STATUS_THANKED', 9); // reviewer has been thanked
-define('REVIEW_ASSIGNMENT_STATUS_CANCELLED', 10); // reviewer cancelled review request
 
 class ReviewAssignment extends DataObject {
+	public const SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT = 1;
+	public const SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS = 2;
+	public const SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE = 3;
+	public const SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE = 4;
+	public const SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE = 5;
+	public const SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS = 6;
+
+	public const SUBMISSION_REVIEWER_RATING_VERY_GOOD = 5;
+	public const SUBMISSION_REVIEWER_RATING_GOOD = 4;
+	public const SUBMISSION_REVIEWER_RATING_AVERAGE = 3;
+	public const SUBMISSION_REVIEWER_RATING_POOR = 2;
+	public const SUBMISSION_REVIEWER_RATING_VERY_POOR = 1;
+
+	public const SUBMISSION_REVIEW_METHOD_ANONYMOUS = 1;
+	public const SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS = 2;
+	public const SUBMISSION_REVIEW_METHOD_OPEN = 3;
+
+	// A review is "unconsidered" when it is confirmed by an editor and then that
+	// confirmation is later revoked.
+	public const REVIEW_ASSIGNMENT_NOT_UNCONSIDERED = 0; // Has never been unconsidered
+	public const REVIEW_ASSIGNMENT_UNCONSIDERED = 1; // Has been unconsindered and is awaiting re-confirmation by an editor
+	public const REVIEW_ASSIGNMENT_UNCONSIDERED_READ = 2; // Has been reconfirmed by an editor
+
+	public const REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE = 0; // request has been sent but reviewer has not responded
+	public const REVIEW_ASSIGNMENT_STATUS_DECLINED = 1; // reviewer declined review request
+	public const REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE = 4; // review not responded within due date
+	public const REVIEW_ASSIGNMENT_STATUS_ACCEPTED = 5; // reviewer has agreed to the review
+	public const REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE = 6; // review not submitted within due date
+	public const REVIEW_ASSIGNMENT_STATUS_RECEIVED = 7; // review has been submitted
+	public const REVIEW_ASSIGNMENT_STATUS_COMPLETE = 8; // review has been confirmed by an editor
+	public const REVIEW_ASSIGNMENT_STATUS_THANKED = 9; // reviewer has been thanked
+	public const REVIEW_ASSIGNMENT_STATUS_CANCELLED = 10; // reviewer cancelled review request
 
 	//
 	// Get/set methods
@@ -481,8 +481,8 @@ class ReviewAssignment extends DataObject {
 	 * @return int REVIEW_ASSIGNMENT_STATUS_...
 	 */
 	function getStatus() {
-		if ($this->getDeclined()) return REVIEW_ASSIGNMENT_STATUS_DECLINED;
-		if ($this->getCancelled()) return REVIEW_ASSIGNMENT_STATUS_CANCELLED;
+		if ($this->getDeclined()) return self::REVIEW_ASSIGNMENT_STATUS_DECLINED;
+		if ($this->getCancelled()) return self::REVIEW_ASSIGNMENT_STATUS_CANCELLED;
 
 		if (!$this->getDateCompleted()) {
 			$dueTimes = array_map(function($dateTime) {
@@ -496,32 +496,32 @@ class ReviewAssignment extends DataObject {
 			$reviewDueTime = $dueTimes[1];
 			if (!$this->getDateConfirmed()){ // no response
 				if($responseDueTime < time()) { // response overdue
-					return REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE;
+					return self::REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE;
 				} elseif ($reviewDueTime < strtotime('tomorrow')) { // review overdue but not response
-					return REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE;
+					return self::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE;
 				} else { // response not due yet
-					return REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE;
+					return self::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE;
 				}
 			} else { // response given
 				if ($reviewDueTime < strtotime('tomorrow')) { // review due
-					return REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE;
+					return self::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE;
 				} else {
-					return REVIEW_ASSIGNMENT_STATUS_ACCEPTED;
+					return self::REVIEW_ASSIGNMENT_STATUS_ACCEPTED;
 				}
 			}
 		} elseif ($this->getDateAcknowledged()) { // reviewer thanked...
-			if ($this->getUnconsidered() == REVIEW_ASSIGNMENT_UNCONSIDERED) { // ...but review later unconsidered
-				return REVIEW_ASSIGNMENT_STATUS_RECEIVED;
+			if ($this->getUnconsidered() == self::REVIEW_ASSIGNMENT_UNCONSIDERED) { // ...but review later unconsidered
+				return self::REVIEW_ASSIGNMENT_STATUS_RECEIVED;
 			}
-			return REVIEW_ASSIGNMENT_STATUS_THANKED;
+			return self::REVIEW_ASSIGNMENT_STATUS_THANKED;
 		} elseif ($this->getDateCompleted()) { // review submitted...
-			if ($this->getUnconsidered() != REVIEW_ASSIGNMENT_UNCONSIDERED && $this->isRead()) { // ...and confirmed by an editor
-				return REVIEW_ASSIGNMENT_STATUS_COMPLETE;
+			if ($this->getUnconsidered() != self::REVIEW_ASSIGNMENT_UNCONSIDERED && $this->isRead()) { // ...and confirmed by an editor
+				return self::REVIEW_ASSIGNMENT_STATUS_COMPLETE;
 			}
-			return REVIEW_ASSIGNMENT_STATUS_RECEIVED;
+			return self::REVIEW_ASSIGNMENT_STATUS_RECEIVED;
 		}
 
-		return REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE;
+		return self::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE;
 	}
 
 	/**
@@ -584,23 +584,23 @@ class ReviewAssignment extends DataObject {
 		}
 
 		switch ($status) {
-			case REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
+			case self::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
 				return 'submission.review.status.awaitingResponse';
-			case REVIEW_ASSIGNMENT_STATUS_CANCELLED:
+			case self::REVIEW_ASSIGNMENT_STATUS_CANCELLED:
 				return 'common.cancelled';
-			case REVIEW_ASSIGNMENT_STATUS_DECLINED:
+			case self::REVIEW_ASSIGNMENT_STATUS_DECLINED:
 				return 'submission.review.status.declined';
-			case REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
+			case self::REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
 				return 'submission.review.status.responseOverdue';
-			case REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
+			case self::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
 				return 'submission.review.status.reviewOverdue';
-			case REVIEW_ASSIGNMENT_STATUS_ACCEPTED:
+			case self::REVIEW_ASSIGNMENT_STATUS_ACCEPTED:
 				return 'submission.review.status.accepted';
-			case REVIEW_ASSIGNMENT_STATUS_RECEIVED:
+			case self::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
 				return 'submission.review.status.received';
-			case REVIEW_ASSIGNMENT_STATUS_COMPLETE:
+			case self::REVIEW_ASSIGNMENT_STATUS_COMPLETE:
 				return 'submission.review.status.complete';
-			case REVIEW_ASSIGNMENT_STATUS_THANKED:
+			case self::REVIEW_ASSIGNMENT_STATUS_THANKED:
 				return 'submission.review.status.thanked';
 		}
 
@@ -623,11 +623,11 @@ class ReviewAssignment extends DataObject {
 		}
 
 		switch ($method) {
-			case SUBMISSION_REVIEW_METHOD_OPEN:
+			case self::SUBMISSION_REVIEW_METHOD_OPEN:
 				return 'editor.submissionReview.open';
-			case SUBMISSION_REVIEW_METHOD_ANONYMOUS:
+			case self::SUBMISSION_REVIEW_METHOD_ANONYMOUS:
 				return 'editor.submissionReview.anonymous';
-			case SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS:
+			case self::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS:
 				return 'editor.submissionReview.doubleAnonymous';
 		}
 
@@ -659,12 +659,12 @@ class ReviewAssignment extends DataObject {
 
 		static $reviewerRecommendationOptions = array(
 				'' => 'common.chooseOne',
-				SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT => 'reviewer.article.decision.accept',
-				SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS => 'reviewer.article.decision.pendingRevisions',
-				SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE => 'reviewer.article.decision.resubmitHere',
-				SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE => 'reviewer.article.decision.resubmitElsewhere',
-				SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE => 'reviewer.article.decision.decline',
-				SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS => 'reviewer.article.decision.seeComments'
+				self::SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT => 'reviewer.article.decision.accept',
+				self::SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS => 'reviewer.article.decision.pendingRevisions',
+				self::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE => 'reviewer.article.decision.resubmitHere',
+				self::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE => 'reviewer.article.decision.resubmitElsewhere',
+				self::SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE => 'reviewer.article.decision.decline',
+				self::SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS => 'reviewer.article.decision.seeComments'
 		);
 		return $reviewerRecommendationOptions;
 	}
@@ -681,4 +681,35 @@ class ReviewAssignment extends DataObject {
 			return '';
 		}
 	}
+}
+
+if (!PKP_STRICT_MODE) foreach ([
+	'SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT',
+	'SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS',
+	'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE',
+	'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE',
+	'SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE',
+	'SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS',
+	'SUBMISSION_REVIEWER_RATING_VERY_GOOD',
+	'SUBMISSION_REVIEWER_RATING_GOOD',
+	'SUBMISSION_REVIEWER_RATING_AVERAGE',
+	'SUBMISSION_REVIEWER_RATING_POOR',
+	'SUBMISSION_REVIEWER_RATING_VERY_POOR',
+	'SUBMISSION_REVIEW_METHOD_ANONYMOUS',
+	'SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS',
+	'SUBMISSION_REVIEW_METHOD_OPEN',
+	'REVIEW_ASSIGNMENT_NOT_UNCONSIDERED',
+	'REVIEW_ASSIGNMENT_UNCONSIDERED',
+	'REVIEW_ASSIGNMENT_UNCONSIDERED_READ',
+	'REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE',
+	'REVIEW_ASSIGNMENT_STATUS_DECLINED',
+	'REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE',
+	'REVIEW_ASSIGNMENT_STATUS_ACCEPTED',
+	'REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE',
+	'REVIEW_ASSIGNMENT_STATUS_RECEIVED',
+	'REVIEW_ASSIGNMENT_STATUS_COMPLETE',
+	'REVIEW_ASSIGNMENT_STATUS_THANKED',
+	'REVIEW_ASSIGNMENT_STATUS_CANCELLED',
+] as $constantName) {
+	if (!defined($constantName)) define($constantName, constant('ReviewAssignment::' . $constantName));
 }

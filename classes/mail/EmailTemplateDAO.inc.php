@@ -189,7 +189,7 @@ class EmailTemplateDAO extends SchemaDAO {
 		$xmlDao = new XMLDAO();
 		$sql = array();
 		$data = $xmlDao->parseStruct($templatesFile, array('email'));
-		$pdo = DB::connection()->getPdo();
+		$pdo = DB::getPdo();
 		if (!isset($data['email'])) return false;
 		foreach ($data['email'] as $entry) {
 			$attrs = $entry['attributes'];
@@ -240,7 +240,7 @@ class EmailTemplateDAO extends SchemaDAO {
 		$data = $xmlDao->parseStruct($templatesFile, array('email'));
 		if (!isset($data['email'])) return false;
 
-		$pdo = DB::connection()->getPdo();
+		$pdo = DB::getPdo();
 		foreach ($data['email'] as $entry) {
 			$attrs = $entry['attributes'];
 			if ($emailKey && $emailKey != $attrs['key']) continue;
@@ -299,7 +299,7 @@ class EmailTemplateDAO extends SchemaDAO {
 		$data = $xmlDao->parse($templateDataFile, array('email_texts', 'email_text', 'subject', 'body', 'description'));
 		if (!$data) return false;
 
-		$pdo = DB::connection()->getPdo();
+		$pdo = DB::getPdo();
 		foreach ($data->getChildren() as $emailNode) {
 			$subject = $emailNode->getChildValue('subject');
 			$body = $emailNode->getChildValue('body');

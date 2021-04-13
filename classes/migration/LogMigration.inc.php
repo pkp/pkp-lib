@@ -47,7 +47,7 @@ class LogMigration extends Migration {
 		});
 
 		// Add partial index (DBMS-specific)
-		switch (DB::connection()->getDriverName()) {
+		switch (DB::getDriverName()) {
 			case 'mysql': DB::unprepared('CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name(50), setting_value(150))'); break;
 			case 'pgsql': DB::unprepared("CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name, setting_value) WHERE setting_name IN ('fileId', 'submissionId')"); break;
 		}

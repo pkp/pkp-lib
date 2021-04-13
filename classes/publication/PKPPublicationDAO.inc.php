@@ -280,7 +280,7 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
 	 */
 	public function deleteAllPubIds($contextId, $pubIdType) {
-		switch (DB::connection()->getDriverName()) {
+		switch (DB::getDriverName()) {
 			case 'mysql':
 				$this->update(
 					'DELETE ps FROM publication_settings ps

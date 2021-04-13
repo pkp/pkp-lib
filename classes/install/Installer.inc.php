@@ -702,7 +702,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function columnExists($tableName, $columnName) {
-		$schema = DB::connection()->getDoctrineSchemaManager();
+		$schema = DB::getDoctrineSchemaManager();
 		// Make sure the table exists
 		$tables = $schema->listTableNames();
 		if (!in_array($tableName, $tables)) return false;
@@ -717,7 +717,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function tableExists($tableName) {
-		$tables = DB::connection()->getDoctrineSchemaManager()->listTableNames();
+		$tables = DB::getDoctrineSchemaManager()->listTableNames();
 		return in_array($tableName, $tables);
 	}
 

@@ -71,7 +71,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 
 		// pkp/pkp-lib#6301: Indexes may be missing that affect search performance.
 		// (These are added for 3.2.1-2 so may or may not be present for this upgrade code.)
-		$schemaManager = DB::connection()->getDoctrineSchemaManager();
+		$schemaManager = DB::getDoctrineSchemaManager();
 		if (!in_array('submissions_publication_id', array_keys($schemaManager->listTableIndexes('submissions')))) {
 			Schema::table('submissions', function (Blueprint $table) {
 				$table->index(['submission_id'], 'submissions_publication_id');
@@ -301,7 +301,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		}
 
 		// Add partial index (DBMS-specific)
-		switch (DB::connection()->getDriverName()) {
+		switch (DB::getDriverName()) {
 			case 'mysql': DB::unprepared('CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name(50), setting_value(150))'); break;
 			case 'pgsql': DB::unprepared("CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name, setting_value) WHERE setting_name IN ('fileId', 'submissionId')"); break;
 		}
@@ -509,7 +509,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			$table->primary('submission_file_id');
 		});
 		//  pkp/pkp-lib#5804
-		$schemaManager = DB::connection()->getDoctrineSchemaManager();
+		$schemaManager = DB::getDoctrineSchemaManager();
 		if (!in_array('submission_files_stage_assoc', array_keys($schemaManager->listTableIndexes('submission_files')))) {
 			Schema::table('submission_files', function (Blueprint $table) {
 				$table->index(['file_stage', 'assoc_type', 'assoc_id'], 'submission_files_stage_assoc');

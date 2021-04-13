@@ -337,7 +337,7 @@ class AdminHandler extends Handler {
 
 		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$versionHistory = $versionDao->getVersionHistory();
-		$pdo = DB::connection()->getPDO();
+		$pdo = DB::getPDO();
 
 		$serverInfo = [
 			'admin.server.platform' => PHP_OS,

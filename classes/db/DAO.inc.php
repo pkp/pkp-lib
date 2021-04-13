@@ -62,7 +62,7 @@ class DAO {
 			}
 		}
 
-		return DB::connection()->cursor(DB::raw($sql)->getValue(), $params);
+		return DB::cursor(DB::raw($sql)->getValue(), $params);
 	}
 
 	/**
@@ -91,7 +91,7 @@ class DAO {
 			$sql .= ' OFFSET ' . $offset;
 		}
 
-		return DB::connection()->cursor(DB::raw($sql), $params);
+		return DB::cursor(DB::raw($sql), $params);
 	}
 
 	/**
@@ -155,7 +155,7 @@ class DAO {
 	 * @return int
 	 */
 	protected function _getInsertId() {
-		return DB::connection()->getPdo()->lastInsertId();
+		return DB::getPdo()->lastInsertId();
 	}
 
 	/**

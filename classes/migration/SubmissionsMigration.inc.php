@@ -64,7 +64,7 @@ class SubmissionsMigration extends Migration {
 			$table->unique(['publication_id', 'locale', 'setting_name'], 'publication_settings_pkey');
 		});
 		// Add partial index (DBMS-specific)
-		switch (DB::connection()->getDriverName()) {
+		switch (DB::getDriverName()) {
 			case 'mysql': DB::unprepared('CREATE INDEX publication_settings_name_value ON publication_settings (setting_name(50), setting_value(150))'); break;
 			case 'pgsql': DB::unprepared("CREATE INDEX publication_settings_name_value ON publication_settings (setting_name, setting_value) WHERE setting_name IN ('indexingState', 'medra::registeredDoi', 'datacite::registeredDoi', 'pub-id::publisher-id')"); break;
 		}

@@ -73,7 +73,7 @@ abstract class SchemaDAO extends DAO {
 		}
 
 		DB::table($this->tableName)->insert($primaryDbProps);
-		$object->setId(DB::connection()->getPdo()->lastInsertId());
+		$object->setId(DB::getPdo()->lastInsertId());
 
 		// Add additional properties to settings table if they exist
 		if (count($sanitizedProps) !== count($primaryDbProps)) {
@@ -259,7 +259,7 @@ abstract class SchemaDAO extends DAO {
 	 * @return int
 	 */
 	public function getInsertId() {
-		return DB::connection()->getPdo()->lastInsertId();
+		return DB::getPdo()->lastInsertId();
 	}
 
 	/**

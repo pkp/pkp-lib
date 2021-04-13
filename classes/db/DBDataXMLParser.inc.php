@@ -42,7 +42,7 @@ class DBDataXMLParser {
 		$tree = $parser->parse($file);
 		if (!$tree) return array();
 
-		$allTables = DB::connection()->getDoctrineSchemaManager()->listTableNames();
+		$allTables = DB::getDoctrineSchemaManager()->listTableNames();
 
 		foreach ($tree->getChildren() as $type) switch($type->getName()) {
 			case 'table':
@@ -118,7 +118,7 @@ class DBDataXMLParser {
 							throw new Exception('dropindex called without table or index');
 						}
 
-						$schemaManager = DB::connection()->getDoctrineSchemaManager();
+						$schemaManager = DB::getDoctrineSchemaManager();
 						if ($child->getAttribute('ifexists') && !in_array($index, array_keys($schemaManager->listTableIndexes($table)))) break;
 						$this->sql = array_merge($this->sql, array_column(DB::pretend(function() use ($table, $index) {
 							Schema::table($table, function (Blueprint $table) use ($index) {
@@ -171,7 +171,7 @@ class DBDataXMLParser {
 	 * @return string
 	 */
 	function quoteString($str) {
-		return DB::connection()->getPdo()->quote($str);
+		return DB::getPdo()->quote($str);
 	}
 
 

@@ -14,8 +14,7 @@
  * @brief Class for DAO relating reviewers to submissions.
  */
 
-
-import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
+use \PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewAssignmentDAO extends DAO {
 	var $userDao;

@@ -19,7 +19,7 @@ class ReviewerReviewForm extends Form {
 	/** @var ReviewerSubmission current submission */
 	var $_reviewerSubmission;
 
-	/** @var ReviewAssignment */
+	/** @var \PKP\submission\reviewAssignment\ReviewAssignment */
 	var $_reviewAssignment;
 
 	/** @var int the current step */
@@ -58,7 +58,7 @@ class ReviewerReviewForm extends Form {
 
 	/**
 	 * Get the review assignment.
-	 * @return ReviewAssignment
+	 * @return \PKP\submission\reviewAssignment\ReviewAssignment
 	 */
 	function getReviewAssignment() {
 		return $this->_reviewAssignment;

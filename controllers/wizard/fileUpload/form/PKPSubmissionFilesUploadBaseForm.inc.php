@@ -62,7 +62,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		} else if ($assocType == ASSOC_TYPE_REVIEW_ASSIGNMENT && !$reviewRound) {
 			// Get the review assignment object.
 			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-			$reviewAssignment = $reviewAssignmentDao->getById((int) $assocId); /* @var $reviewAssignment ReviewAssignment */
+			$reviewAssignment = $reviewAssignmentDao->getById((int) $assocId); /* @var $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment */
 			if ($reviewAssignment->getDateCompleted()) fatalError('Review already completed!');
 
 			// Get the review round object.

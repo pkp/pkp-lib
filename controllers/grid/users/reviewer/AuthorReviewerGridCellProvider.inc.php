@@ -146,7 +146,7 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider {
 	 * Only works with some states.
 	 *
 	 * @param string $statusKey Locale key for status text
-	 * @param ReviewAssignment $reviewAssignment
+	 * @param \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment
 	 * @return string
 	 */
 	function _getStatusWithRecommendation($statusKey, $reviewAssignment) {

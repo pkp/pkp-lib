@@ -156,10 +156,12 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 
 		// If submission is in review, add a list of reviewer Ids that should not be
 		// assigned as participants because they have anonymous peer reviews in progress
-		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
 		$anonymousReviewerIds = array();
 		if (in_array($this->getSubmission()->getStageId(), array(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW))) {
-			$anonymousReviewMethods = array(SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS);
+			$anonymousReviewMethods = [
+				\PKP\submission\reviewAssignment\ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS,
+				\PKP\submission\reviewAssignment\ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS
+			];
 			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getSubmission()->getId());
 			$anonymousReviews = array_filter($reviewAssignments, function($reviewAssignment) use ($anonymousReviewMethods) {

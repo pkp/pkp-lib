@@ -67,8 +67,7 @@ class ReviewsMigration extends Migration {
 
 			$table->smallInteger('stage_id');
 
-			import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment'); // for constant
-			$table->smallInteger('review_method')->default(SUBMISSION_REVIEW_METHOD_ANONYMOUS);
+			$table->smallInteger('review_method')->default(\PKP\submission\reviewAssignment\ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS);
 
 			$table->smallInteger('round')->default(1);
 			$table->smallInteger('step')->default(1);

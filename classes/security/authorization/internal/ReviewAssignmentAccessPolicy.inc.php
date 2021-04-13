@@ -55,7 +55,7 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy {
 		$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
 
 		// Ensure a valid review assignment was fetched from the database
-		if (!is_a($reviewAssignment, 'ReviewAssignment')) return AUTHORIZATION_DENY;
+		if (!($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment)) return AUTHORIZATION_DENY;
 
 		// If the assignment has been cancelled, deny access.
 		if ($reviewAssignment->getCancelled()) return AUTHORIZATION_DENY;

@@ -208,7 +208,7 @@ class ReviewRound extends \PKP\core\DataObject {
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($this->getId());
 		foreach ($reviewAssignments as $reviewAssignment) {
-			assert(is_a($reviewAssignment, 'ReviewAssignment'));
+			assert($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment);
 
 			$assignmentStatus = $reviewAssignment->getStatus();
 

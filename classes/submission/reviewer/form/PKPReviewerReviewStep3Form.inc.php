@@ -81,7 +81,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm {
 		$templateMgr->assign(array(
 			'reviewAssignment' => $reviewAssignment,
 			'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
-			'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
+			'reviewerRecommendationOptions' => \PKP\submission\reviewAssignment\ReviewAssignment::getReviewerRecommendationOptions(),
 		));
 
 		if ($reviewAssignment->getReviewFormId()) {

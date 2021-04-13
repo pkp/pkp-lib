@@ -99,7 +99,7 @@ class PKPReviewerHandler extends Handler {
 		$step = (int)$request->getUserVar('step');
 		if ($step<1 || $step>3) fatalError('Invalid step!');
 
-		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
+		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment */
 		if ($reviewAssignment->getDateCompleted()) fatalError('Review already completed!');
 
 		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /* @var $reviewerSubmissionDao ReviewerSubmissionDAO */
@@ -138,7 +138,7 @@ class PKPReviewerHandler extends Handler {
 	 * @return JSONMessage JSON object
 	 */
 	function showDeclineReview($args, $request) {
-		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
+		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment */
 
 		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /* @var $reviewerSubmissionDao ReviewerSubmissionDAO */
 		$reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
@@ -163,7 +163,7 @@ class PKPReviewerHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function saveDeclineReview($args, $request) {
-		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
+		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment */
 		if ($reviewAssignment->getDateCompleted()) fatalError('Review already completed!');
 
 		$reviewId = (int) $reviewAssignment->getId();
@@ -199,7 +199,7 @@ class PKPReviewerHandler extends Handler {
 	 * @param $step int current step
 	 * @param $request PKPRequest
 	 * @param $reviewerSubmission ReviewerSubmission
-	 * @param $reviewAssignment ReviewAssignment
+	 * @param $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment
 	 */
 	public function getReviewForm($step, $request, $reviewerSubmission, $reviewAssignment) {
 	    switch ($step) {
@@ -219,7 +219,7 @@ class PKPReviewerHandler extends Handler {
 	// Private helper methods
 	//
 	function _retrieveStep() {
-		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
+		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment */
 		$reviewId = (int) $reviewAssignment->getId();
 		assert(!empty($reviewId));
 		return $reviewId;

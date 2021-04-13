@@ -121,7 +121,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
 
 			$reviewers = [];
-			/** @var ReviewAssignment $reviewAssignment */
+			/** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
 			foreach ($reviewAssignments as $reviewAssignment) {
 				if ($reviewAssignment->getDateCompleted() != null) {
 					$reviewsAvailable = true;
@@ -230,7 +230,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 
 			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
 			$reviewers = [];
-			/** @var ReviewAssignment $reviewAssignment */
+			/** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
 			foreach ($reviewAssignments as $reviewAssignment) {
 				if (in_array($reviewAssignment->getStatus(), [REVIEW_ASSIGNMENT_STATUS_COMPLETE, REVIEW_ASSIGNMENT_STATUS_RECEIVED, REVIEW_ASSIGNMENT_STATUS_THANKED])) {
 					$reviewers[] = $reviewAssignment->getReviewerId();

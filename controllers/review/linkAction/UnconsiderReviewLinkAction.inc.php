@@ -23,7 +23,7 @@ class UnconsiderReviewLinkAction extends LinkAction {
 	/**
 	 * Constructor
 	 * @param $request Request
-	 * @param $reviewAssignment ReviewAssignment the review assignment
+	 * @param $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment The review assignment
 	 * to show information about.
 	 * @param $submission Submission The reviewed submission.
 	 */

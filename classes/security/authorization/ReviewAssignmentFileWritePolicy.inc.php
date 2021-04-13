@@ -59,7 +59,7 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy {
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $noteDao ReviewAssignmentDAO */
 		$reviewAssignment = $reviewAssignmentDao->getById($this->_reviewAssignmentId);
 
-		if (!is_a($reviewAssignment, 'ReviewAssignment')) {
+		if (!($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment)) {
 			return AUTHORIZATION_DENY;
 		}
 

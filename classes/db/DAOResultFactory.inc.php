@@ -109,12 +109,12 @@ class DAOResultFactory extends ItemIterator {
 	function nextWithKey($idField = null) {
 		$result = $this->next();
 		if($idField) {
-			assert(is_a($result, 'DataObject'));
+			assert($result instanceof \PKP\core\DataObject);
 			$key = $result->getData($idField);
 		} elseif (empty($this->idFields)) {
 			$key = null;
 		} else {
-			assert(is_a($result, 'DataObject') && is_array($this->idFields));
+			assert($result instanceof \PKP\core\DataObject && is_array($this->idFields));
 			$key = '';
 			foreach($this->idFields as $idField) {
 				assert(!is_null($result->getData($idField)));

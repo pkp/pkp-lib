@@ -22,7 +22,7 @@
 define('IDENTITY_SETTING_GIVENNAME', 'givenName');
 define('IDENTITY_SETTING_FAMILYNAME', 'familyName');
 
-class Identity extends DataObject {
+class Identity extends \PKP\core\DataObject {
 
 	/**
 	 * Get a piece of data for this object, localized to the current

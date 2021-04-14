@@ -14,7 +14,7 @@
  * @brief Describes basic email template properties.
  */
 
-class EmailTemplate extends DataObject {
+class EmailTemplate extends \PKP\core\DataObject {
 
 	//
 	// Get/set methods

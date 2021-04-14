@@ -19,7 +19,7 @@
  * @brief Maintains user state information from one request to the next.
  */
 
-class Session extends DataObject {
+class Session extends \PKP\core\DataObject {
 
 	/** The User object associated with this session */
 	var $user;

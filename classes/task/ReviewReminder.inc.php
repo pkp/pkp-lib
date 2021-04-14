@@ -30,7 +30,7 @@ class ReviewReminder extends ScheduledTask {
 
 	/**
 	 * Send the automatic review reminder to the reviewer.
-	 * @param $reviewAssignment ReviewAssignment
+	 * @param $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment
 	 * @param $submission Submission
 	 * @param $context Context
 	 * @param $reminderType string

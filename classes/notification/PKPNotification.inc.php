@@ -85,7 +85,7 @@ define('NOTIFICATION_TYPE_EDITORIAL_REPORT', 0x100002A);
 
 define('NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION', 0x100002B);
 
-class PKPNotification extends DataObject {
+class PKPNotification extends \PKP\core\DataObject {
 
 	/**
 	 * get user id associated with this notification

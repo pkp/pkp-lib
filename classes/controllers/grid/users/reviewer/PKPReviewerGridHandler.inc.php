@@ -550,7 +550,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 */
 	function reviewRead($args, $request) {
 		// Retrieve review assignment.
-		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
+		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment */
 
 		// Rate the reviewer's performance on this assignment
 		$quality = $request->getUserVar('quality');
@@ -656,7 +656,7 @@ class PKPReviewerGridHandler extends GridHandler {
 				SUBMISSION_REVIEWER_RATING_POOR => str_repeat($starHtml, SUBMISSION_REVIEWER_RATING_POOR),
 				SUBMISSION_REVIEWER_RATING_VERY_POOR => str_repeat($starHtml, SUBMISSION_REVIEWER_RATING_VERY_POOR),
 			),
-			'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
+			'reviewerRecommendationOptions' => \PKP\submission\reviewAssignment\ReviewAssignment::getReviewerRecommendationOptions(),
 		));
 
 		if ($reviewAssignment->getReviewFormId()) {

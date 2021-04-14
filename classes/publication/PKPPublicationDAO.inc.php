@@ -37,7 +37,7 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	public $controlledVocabProps = ['disciplines', 'keywords', 'languages', 'subjects', 'supportingAgencies'];
 
 	/**
-	 * Create a new DataObject of the appropriate class
+	 * Create a new \PKP\core\DataObject of the appropriate class
 	 *
 	 * @return DataObject
 	 */

@@ -14,6 +14,7 @@
  * @brief Any class with an associated DAO should extend this class.
  */
 
+namespace PKP\core;
 
 class DataObject {
 	/** @var array Array of object data */
@@ -51,7 +52,7 @@ class DataObject {
 	 * @return mixed
 	 */
 	public function getLocalizedData($key, $preferredLocale = null) {
-		$localePrecedence = AppLocale::getLocalePrecedence();
+		$localePrecedence = \AppLocale::getLocalePrecedence();
 		foreach ($localePrecedence as $locale) {
 			$value =& $this->getData($key, $locale);
 			if (!empty($value)) return $value;
@@ -214,9 +215,9 @@ class DataObject {
 	 * Note: Data in the target object will be overwritten. We do not
 	 * clone the target object before we upcast.
 	 *
-	 * @param $targetObject DataObject The object to cast to.
+	 * @param $targetObject \PKP\core\DataObject The object to cast to.
 	 *
-	 * @return DataObject The upcast target object.
+	 * @return \PKP\core\DataObject The upcast target object.
 	 */
 	public function upcastTo($targetObject) {
 		// Copy data from the source to the target.
@@ -307,7 +308,7 @@ class DataObject {
 	public function getSupportedExtractionAdapters() {
 		// Load meta-data adapters from the database.
 		if ($this->getHasLoadableAdapters() && !$this->_extractionAdaptersLoaded) {
-			$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+			$filterDao = \DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 			$loadedAdapters = $filterDao->getObjectsByTypeDescription('class::%', 'metadata::%', $this);
 			foreach($loadedAdapters as $loadedAdapter) {
 				$this->addSupportedMetadataAdapter($loadedAdapter);
@@ -327,7 +328,7 @@ class DataObject {
 	public function getSupportedInjectionAdapters() {
 		// Load meta-data adapters from the database.
 		if ($this->getHasLoadableAdapters() && !$this->_injectionAdaptersLoaded) {
-			$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+			$filterDao = \DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 			$loadedAdapters = $filterDao->getObjectsByTypeDescription('metadata::%', 'class::%', $this, false);
 			foreach($loadedAdapters as $loadedAdapter) {
 				$this->addSupportedMetadataAdapter($loadedAdapter);
@@ -471,3 +472,6 @@ class DataObject {
 	}
 }
 
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\DataObject', '\DataObject');
+}

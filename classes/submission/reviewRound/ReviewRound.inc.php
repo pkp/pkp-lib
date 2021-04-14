@@ -45,7 +45,7 @@ define('REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED', 14); // All assigned rec
 // at least one revision file has been uploaded.
 define('REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED', 15);
 
-class ReviewRound extends DataObject {
+class ReviewRound extends \PKP\core\DataObject {
 
 	//
 	// Get/set methods
@@ -208,7 +208,7 @@ class ReviewRound extends DataObject {
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($this->getId());
 		foreach ($reviewAssignments as $reviewAssignment) {
-			assert(is_a($reviewAssignment, 'ReviewAssignment'));
+			assert($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment);
 
 			$assignmentStatus = $reviewAssignment->getStatus();
 

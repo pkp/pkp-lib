@@ -14,8 +14,7 @@
  * @brief Class for DAO relating reviewers to submissions.
  */
 
-
-import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
+use \PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewAssignmentDAO extends DAO {
 	var $userDao;
@@ -47,7 +46,7 @@ class ReviewAssignmentDAO extends DAO {
 	 * @return array
 	 */
 	function getOpenReviewsByReviewRoundId($reviewRoundId) {
-		$params = array((int)$reviewRoundId, SUBMISSION_REVIEW_METHOD_OPEN);
+		$params = array((int)$reviewRoundId, ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN);
 		$query = $this->_getSelectQuery() .
 			' WHERE r.review_round_id = ? AND r.review_method = ? AND r.date_confirmed IS NOT NULL AND r.declined <> 1 ORDER BY review_id';
 		return $this->_getReviewAssignmentsArray($query, $params);
@@ -560,9 +559,9 @@ class ReviewAssignmentDAO extends DAO {
 	function getReviewMethodsTranslationKeys() {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 		return array(
-			SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS => 'editor.submissionReview.doubleAnonymous',
-			SUBMISSION_REVIEW_METHOD_ANONYMOUS => 'editor.submissionReview.anonymous',
-			SUBMISSION_REVIEW_METHOD_OPEN => 'editor.submissionReview.open',
+			ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS => 'editor.submissionReview.doubleAnonymous',
+			ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS => 'editor.submissionReview.anonymous',
+			ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN => 'editor.submissionReview.open',
 		);
 	}
 

@@ -61,7 +61,7 @@ class AnnouncementDAO extends SchemaDAO {
 
 	/**
 	 * Get a new data object.
-	 * @return DataObject
+	 * @return \PKP\core\DataObject
 	 */
 	function newDataObject() {
 		return new Announcement();

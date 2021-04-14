@@ -15,7 +15,7 @@
  */
 
 
-class ControlledVocabEntry extends DataObject {
+class ControlledVocabEntry extends \PKP\core\DataObject {
 
 	//
 	// Get/set methods

@@ -56,7 +56,7 @@ class PersistableFilter extends Filter {
 	 * additional optional constructor arguments must make these
 	 * also accessible via setters if they are required to fully
 	 * parameterize the transformation. Filter parameters must be
-	 * stored as data in the underlying DataObject.
+	 * stored as data in the underlying \PKP\core\DataObject.
 	 *
 	 * This is necessary as the FilterDAO does not support
 	 * constructor configuration. Filter parameters will be

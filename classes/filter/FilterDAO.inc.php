@@ -56,7 +56,7 @@ class FilterDAO extends DAO {
 	 * @param $filterClassName string
 	 * @param $filterGroupSymbolic string
 	 * @param $settings array key-value pairs that can be directly written
-	 *  via DataObject::setData().
+	 *  via \PKP\core\DataObject::setData().
 	 * @param $asTemplate boolean
 	 * @param $contextId integer the context the filter should be installed into
 	 * @param $subFilters array sub-filters (only allowed when the filter is a CompositeFilter)

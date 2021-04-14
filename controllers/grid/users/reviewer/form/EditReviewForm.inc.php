@@ -14,6 +14,8 @@
  * reviewer after the assignment has taken place.
  */
 
+use \PKP\submission\reviewAssignment\ReviewAssignment;
+
 import('lib.pkp.classes.form.Form');
 
 class EditReviewForm extends Form {
@@ -29,7 +31,7 @@ class EditReviewForm extends Form {
 	 */
 	function __construct($reviewAssignment) {
 		$this->_reviewAssignment = $reviewAssignment;
-		assert(is_a($this->_reviewAssignment, 'ReviewAssignment'));
+		assert($this->_reviewAssignment instanceof ReviewAssignment);
 
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$this->_reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());

@@ -41,7 +41,7 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element = $row->getData();
 		$columnId = $column->getId();
-		assert(is_a($element, 'DataObject') && !empty($columnId));
+		assert($element instanceof \PKP\core\DataObject && !empty($columnId));
 		$user = $element->getUser();
 		$datetimeFormatShort = \Application::get()->getRequest()->getContext()->getLocalizedDateTimeFormatShort();
 

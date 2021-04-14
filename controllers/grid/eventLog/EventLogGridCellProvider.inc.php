@@ -43,7 +43,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider {
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element = $row->getData();
 		$columnId = $column->getId();
-		assert(is_a($element, 'DataObject') && !empty($columnId));
+		assert($element instanceof \PKP\core\DataObject && !empty($columnId));
 		switch ($columnId) {
 			case 'date':
 				return array('label' => is_a($element, 'EventLogEntry') ? $element->getDateLogged() : $element->getDateSent());

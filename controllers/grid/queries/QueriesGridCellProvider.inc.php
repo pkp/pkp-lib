@@ -51,7 +51,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element = $row->getData();
 		$columnId = $column->getId();
-		assert(is_a($element, 'DataObject') && !empty($columnId));
+		assert($element instanceof \PKP\core\DataObject && !empty($columnId));
 
 		$headNote = $element->getHeadNote();
 		$user = $headNote?$headNote->getUser():null;

@@ -17,6 +17,7 @@ use \PKP\components\forms\FormComponent;
 use \PKP\components\forms\FieldHTML;
 use \PKP\components\forms\FieldOptions;
 use \PKP\components\forms\FieldText;
+use \PKP\submission\reviewAssignment\ReviewAssignment;
 
 define('FORM_REVIEW_SETUP', 'reviewSetup');
 
@@ -38,17 +39,14 @@ class PKPReviewSetupForm extends FormComponent {
 		$this->action = $action;
 		$this->locales = $locales;
 
-		// Load SUBMISSION_REVIEW_METHOD_... constants
-		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
-
 		$this->addField(new FieldOptions('defaultReviewMode', [
 				'label' => __('manager.setup.reviewOptions.reviewMode'),
 				'type' => 'radio',
 				'value' => $context->getData('defaultReviewMode'),
 				'options' => [
-					['value' => SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS, 'label' => __('editor.submissionReview.doubleAnonymous')],
-					['value' => SUBMISSION_REVIEW_METHOD_ANONYMOUS, 'label' => __('editor.submissionReview.anonymous')],
-					['value' => SUBMISSION_REVIEW_METHOD_OPEN, 'label' => __('editor.submissionReview.open')],
+					['value' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS, 'label' => __('editor.submissionReview.doubleAnonymous')],
+					['value' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, 'label' => __('editor.submissionReview.anonymous')],
+					['value' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN, 'label' => __('editor.submissionReview.open')],
 				],
 			]))
 			->addField(new FieldOptions('restrictReviewerFileAccess', [

@@ -21,7 +21,7 @@ define('COMMENT_TYPE_COPYEDIT', 0x03);
 define('COMMENT_TYPE_LAYOUT', 0x04);
 define('COMMENT_TYPE_PROOFREAD', 0x05);
 
-class SubmissionComment extends DataObject {
+class SubmissionComment extends \PKP\core\DataObject {
 
 	/**
 	 * get comment type

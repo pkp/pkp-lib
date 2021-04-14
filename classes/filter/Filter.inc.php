@@ -72,10 +72,9 @@
  *    stem) to access the index
  */
 
-import('lib.pkp.classes.core.DataObject');
 import('lib.pkp.classes.filter.TypeDescriptionFactory');
 
-class Filter extends DataObject {
+class Filter extends \PKP\core\DataObject {
 	/** @var TypeDescription */
 	var $_inputType;
 

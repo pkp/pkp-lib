@@ -30,10 +30,10 @@ define('SUBMISSION_FILE_QUERY', 18);
 define('SUBMISSION_FILE_INTERNAL_REVIEW_FILE', 19);
 define('SUBMISSION_FILE_INTERNAL_REVIEW_REVISION', 20);
 
-class SubmissionFile extends DataObject {
+class SubmissionFile extends \PKP\core\DataObject {
 
 	/**
-	 * @copydoc DataObject::getDAO()
+	 * @copydoc \PKP\core\DataObject::getDAO()
 	 */
 	function getDAO() {
 		return DAORegistry::getDAO('SubmissionFileDAO');

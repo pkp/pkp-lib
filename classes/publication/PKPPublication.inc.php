@@ -14,7 +14,7 @@
  * @brief Base class for Publication.
  */
 
-class PKPPublication extends DataObject {
+class PKPPublication extends \PKP\core\DataObject {
 
 	/**
 	 * Get localized data for this object.

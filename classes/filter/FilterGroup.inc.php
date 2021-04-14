@@ -39,10 +39,7 @@
  * contributions to certain filter groups (e.g. citation parsers).
  */
 
-
-import('lib.pkp.classes.core.DataObject');
-
-class FilterGroup extends DataObject {
+class FilterGroup extends \PKP\core\DataObject {
 
 	//
 	// Setters and Getters

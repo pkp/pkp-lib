@@ -17,7 +17,7 @@
  * @brief Basic class describing an controlled vocab.
  */
 
-class ControlledVocab extends DataObject {
+class ControlledVocab extends \PKP\core\DataObject {
 
 	//
 	// Get/set methods

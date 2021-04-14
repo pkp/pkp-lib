@@ -17,7 +17,7 @@
 // Bring in role constants.
 import('lib.pkp.classes.security.Role');
 
-class UserGroup extends DataObject {
+class UserGroup extends \PKP\core\DataObject {
 
 	/**
 	 * Get the role ID

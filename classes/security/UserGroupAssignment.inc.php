@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.security.UserGroup');
 
-class UserGroupAssignment extends DataObject {
+class UserGroupAssignment extends \PKP\core\DataObject {
 	/** @var the UserGroup object associated with this assignment **/
 	var $userGroup;
 

@@ -51,7 +51,7 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 	];
 
 	/**
-	 * Create a new DataObject of the appropriate class
+	 * Create a new \PKP\core\DataObject of the appropriate class
 	 *
 	 * @return DataObject
 	 */

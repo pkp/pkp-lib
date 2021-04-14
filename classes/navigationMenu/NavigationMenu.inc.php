@@ -14,7 +14,7 @@
  * @brief Class describing a NavigationMenu.
  */
 
-class NavigationMenu extends DataObject {
+class NavigationMenu extends \PKP\core\DataObject {
 	/** @var $menuTree array Hierarchical array of NavigationMenuItems */
 	var $menuTree = null;
 

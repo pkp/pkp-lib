@@ -20,7 +20,7 @@
  */
 
 
-class Site extends DataObject {
+class Site extends \PKP\core\DataObject {
 
 	/**
 	 * Return associative array of all locales supported by the site.

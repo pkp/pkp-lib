@@ -46,7 +46,7 @@ class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy {
 
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignment = $reviewAssignmentDao->getById($reviewId);
-		if (!is_a($reviewAssignment, 'ReviewAssignment')) return AUTHORIZATION_DENY;
+		if (!($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment)) return AUTHORIZATION_DENY;
 
 		// If reviewMethods is defined, check that the assignment uses the defined method(s) 
 		if ($this->_reviewMethods) {

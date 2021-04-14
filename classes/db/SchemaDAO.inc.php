@@ -34,16 +34,16 @@ abstract class SchemaDAO extends DAO {
 	var $primaryTableColumns = array();
 
 	/**
-	 * Create a new DataObject of the appropriate class
+	 * Create a new \PKP\core\DataObject of the appropriate class
 	 *
-	 * @return DataObject
+	 * @return \PKP\core\DataObject
 	 */
 	abstract public function newDataObject();
 
 	/**
 	 * Retrieve an object by ID
 	 * @param $objectId int
-	 * @return DataObject?
+	 * @return \PKP\core\DataObject?
 	 */
 	public function getById($objectId) {
 		$result = $this->retrieve(
@@ -58,7 +58,7 @@ abstract class SchemaDAO extends DAO {
 	/**
 	 * Insert a new object
 	 *
-	 * @param DataObject $object The object to insert into the database
+	 * @param \PKP\core\DataObject $object The object to insert into the database
 	 * @return int The new object's id
 	 */
 	public function insertObject($object) {
@@ -120,7 +120,7 @@ abstract class SchemaDAO extends DAO {
 	 *
 	 * To delete a value for a locale key, a null value must be passed.
 	 *
-	 * @param $object DataObject The object to insert into the database
+	 * @param $object \PKP\core\DataObject The object to insert into the database
 	 */
 	public function updateObject($object) {
 		$schemaService = Services::get('schema');
@@ -189,7 +189,7 @@ abstract class SchemaDAO extends DAO {
 	 *
 	 * A wrapper function for SchemaDAO::deleteObjectById().
 	 *
-	 * @param $object DataObject The object to insert into the database
+	 * @param $object \PKP\core\DataObject The object to insert into the database
 	 */
 	public function deleteObject($object) {
 		$this->deleteById($object->getId());
@@ -212,7 +212,7 @@ abstract class SchemaDAO extends DAO {
 	}
 
 	/**
-	 * Return a DataObject from a result row
+	 * Return a \PKP\core\DataObject from a result row
 	 *
 	 * @param $primaryRow array The result row from the primary table lookup
 	 * @return DataObject

@@ -15,7 +15,7 @@
  */
 
 
-class Version extends DataObject {
+class Version extends \PKP\core\DataObject {
 	/**
 	 * Constructor.
 	 */

@@ -15,7 +15,7 @@
  *
  */
 
-class ReviewFormResponse extends DataObject {
+class ReviewFormResponse extends \PKP\core\DataObject {
 
 	//
 	// Get/set methods

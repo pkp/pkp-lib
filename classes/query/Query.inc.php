@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.note.NoteDAO'); // Constants
 
-class Query extends DataObject {
+class Query extends \PKP\core\DataObject {
 
 	/**
 	 * Get query assoc type

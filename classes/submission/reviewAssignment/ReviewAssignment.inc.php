@@ -250,7 +250,7 @@ class ReviewAssignment extends \PKP\core\DataObject {
 	 * Stamp the date of the last modification to the current time.
 	 */
 	function stampModified() {
-		return $this->setLastModified(Core::getCurrentDate());
+		return $this->setLastModified(\Core::getCurrentDate());
 	}
 
 	/**

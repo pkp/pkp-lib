@@ -18,6 +18,8 @@
 
 import('classes.statistics.StatisticsHelper'); //STATISTICS_DIMENSION_
 
+use \PKP\core\PKPApplication;
+
 class PKPMetricsDAO extends DAO {
 
 	/**
@@ -349,13 +351,13 @@ class PKPMetricsDAO extends DAO {
 		$isRepresentation = false;
 
 		switch($assocType) {
-			case ASSOC_TYPE_SUBMISSION_FILE:
-			case ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER:
+			case PKPApplication::ASSOC_TYPE_SUBMISSION_FILE:
+			case PKPApplication::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER:
 				$submissionFile = Services::get('submissionFile')->get($assocId);
 				if ($submissionFile) {
 					$isFile = true;
 					$submissionId = $submissionFile->getData('submissionId');
-					if ($submissionFile->getData('assocType') == ASSOC_TYPE_REPRESENTATION) {
+					if ($submissionFile->getData('assocType') == PKPApplication::ASSOC_TYPE_REPRESENTATION) {
 						if (is_null($representationId)) {
 							throw new Exception('Cannot load record: the representation ID is missing for the submission file.');
 						}
@@ -366,7 +368,7 @@ class PKPMetricsDAO extends DAO {
 					throw new Exception('Cannot load record: invalid submission file id.');
 				}
 				// Don't break but go on to retrieve the representation.
-			case ASSOC_TYPE_REPRESENTATION:
+			case PKPApplication::ASSOC_TYPE_REPRESENTATION:
 				if (!$isFile) $representationId = $assocId;
 				$representationDao = Application::getRepresentationDAO(); /* @var $representationDao RepresentationDAO */
 				$representation = $representationDao->getById($representationId); /* @var $representation Representation */
@@ -380,7 +382,7 @@ class PKPMetricsDAO extends DAO {
 					throw new Exception('Cannot load record: invalid representation id.');
 				}
 				// Don't break but go on to retrieve the submission.
-			case ASSOC_TYPE_SUBMISSION:
+			case PKPApplication::ASSOC_TYPE_SUBMISSION:
 				if (!$isFile && !$isRepresentation) $submissionId = $assocId;
 				$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
 				$submission = $submissionDao->getById($submissionId);
@@ -393,7 +395,7 @@ class PKPMetricsDAO extends DAO {
 				}
 				list($assocObjectType, $assocObjectId) = $this->getAssocObjectInfo($submissionId, $contextId);
 				break;
-			case ASSOC_TYPE_SECTION:
+			case PKPApplication::ASSOC_TYPE_SECTION:
 				$sectionDao = Application::getSectionDAO();
 				$section = $sectionDao->getById($assocId); /* @var $section PKPSection */
 				if ($section) {

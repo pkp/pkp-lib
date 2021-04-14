@@ -26,7 +26,8 @@
 
 
 import('lib.pkp.classes.install.Installer');
-import('classes.core.Services');
+
+use \APP\core\Services;
 
 use Illuminate\Config\Repository;
 

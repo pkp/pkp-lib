@@ -16,6 +16,8 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.admin.context.ContextGridRow');
 
+use \APP\core\Services;
+
 class ContextGridHandler extends GridHandler {
 	/**
 	 * Constructor
@@ -192,7 +194,6 @@ class ContextGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function editContext($args, $request) {
-		import('classes.core.Services');
 		$contextService = Services::get('context');
 		$context = null;
 
@@ -253,7 +254,6 @@ class ContextGridHandler extends GridHandler {
 			return new JSONMessage(false);
 		}
 
-		import('classes.core.Services');
 		$contextService = Services::get('context');
 
 		$context = $contextService->get((int) $request->getUserVar('rowId'));

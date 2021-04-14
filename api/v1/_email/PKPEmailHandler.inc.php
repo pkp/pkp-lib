@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\DB;
 use \Psr\Http\Message\ServerRequestInterface;
 
 import('lib.pkp.classes.handler.APIHandler');
-import('classes.core.Services');
+
+use \APP\core\Services;
 
 class PKPEmailHandler extends APIHandler {
 

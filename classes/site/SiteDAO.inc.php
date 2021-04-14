@@ -14,7 +14,8 @@
  * @brief Operations for retrieving and modifying the Site object.
  */
 import('lib.pkp.classes.site.Site');
-import('classes.core.Services');
+
+use \APP\core\Services;
 
 class SiteDAO extends DAO {
 

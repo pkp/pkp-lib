@@ -12,10 +12,12 @@
  * @brief A base class for DAOs which rely on a json-schema file to define
  *  the data object.
  */
+
 use Illuminate\Support\Facades\DB;
 
+use \APP\core\Services;
+
 import('lib.pkp.classes.db.DAO');
-import('classes.core.Services');
 
 abstract class SchemaDAO extends DAO {
 	/** @var string One of the SCHEMA_... constants */

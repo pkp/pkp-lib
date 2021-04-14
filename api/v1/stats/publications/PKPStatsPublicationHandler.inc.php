@@ -15,9 +15,10 @@
  */
 
 import('lib.pkp.classes.handler.APIHandler');
-import('classes.core.Services');
 import('classes.statistics.StatisticsHelper');
 import('lib.pkp.classes.submission.PKPSubmission'); // import STATUS_ constants
+
+use \APP\core\Services;
 
 abstract class PKPStatsPublicationHandler extends APIHandler {
 

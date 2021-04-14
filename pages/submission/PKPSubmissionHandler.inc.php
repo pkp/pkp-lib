@@ -16,6 +16,8 @@
 import('classes.handler.Handler');
 import('lib.pkp.classes.core.JSONMessage');
 
+use \APP\core\Services;
+
 abstract class PKPSubmissionHandler extends Handler {
 
 	/** @copydoc PKPHandler::_isBackendPage */
@@ -135,7 +137,6 @@ abstract class PKPSubmissionHandler extends Handler {
 			$templateMgr->assign('context', $context);
 
 			// Retrieve the correct url for author review his submission.
-			import('classes.core.Services');
 			$reviewSubmissionUrl = Services::get('submission')->getWorkflowUrlByUserRoles($submission);
 			$router = $request->getRouter();
 			$dispatcher = $router->getDispatcher();

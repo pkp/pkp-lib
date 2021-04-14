@@ -17,6 +17,8 @@ import('classes.handler.Handler');
 
 use Illuminate\Support\Facades\DB;
 
+use \APP\core\Services;
+
 class AdminHandler extends Handler {
 
 	/** @copydoc PKPHandler::_isBackendPage */
@@ -257,7 +259,6 @@ class AdminHandler extends Handler {
 			$request->getDispatcher()->handle404();
 		}
 
-		import('classes.core.Services');
 		$contextService = Services::get('context');
 		$context = $contextService->get((int) $args[0]);
 

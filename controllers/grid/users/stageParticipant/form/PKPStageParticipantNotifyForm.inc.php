@@ -14,7 +14,8 @@
  */
 
 import('lib.pkp.classes.form.Form');
-import('classes.core.Services');
+
+use \APP\core\Services;
 
 abstract class PKPStageParticipantNotifyForm extends Form {
 	/** @var int The file/submission ID this form is for */
@@ -157,7 +158,6 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			$email->addRecipient($user->getEmail(), $user->getFullName());
 			$email->setBody($this->getData('message'));
 
-			import('classes.core.Services');
 			$submissionUrl = Services::get('submission')->getWorkflowUrlByUserRoles($submission, $user->getId());
 
 			// Parameters for various emails

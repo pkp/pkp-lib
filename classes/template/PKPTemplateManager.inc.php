@@ -44,6 +44,8 @@ define('PAGE_WIDTH_FULL', 'full');
 
 import('lib.pkp.classes.template.PKPTemplateResource');
 
+use \APP\core\Services;
+
 class PKPTemplateManager extends Smarty {
 	/** @var array of URLs to stylesheets */
 	private $_styleSheets = [];
@@ -248,7 +250,6 @@ class PKPTemplateManager extends Smarty {
 			}
 
 			// Register Navigation Menus
-			import('classes.core.Services');
 			$nmService = Services::get('navigationMenu');
 
 			if (Config::getVar('general', 'installed')) {
@@ -2060,7 +2061,6 @@ class PKPTemplateManager extends Smarty {
 		$navigationMenus = $navigationMenuDao->getByArea($contextId, $areaName)->toArray();
 		if (isset($navigationMenus[0])) {
 			$navigationMenu = $navigationMenus[0];
-			import('classes.core.Services');
 			Services::get('navigationMenu')->getMenuTree($navigationMenu);
 		}
 

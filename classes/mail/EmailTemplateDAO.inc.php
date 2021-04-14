@@ -16,7 +16,8 @@
 
 import('lib.pkp.classes.mail.EmailTemplate');
 import('lib.pkp.classes.db.SchemaDAO');
-import('classes.core.Services');
+
+use \APP\core\Services;
 
 use Illuminate\Support\Facades\DB;
 

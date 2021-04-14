@@ -14,8 +14,9 @@
  * @brief Form for manager to create/edit NavigationMenus.
  */
 
-
 import('lib.pkp.classes.form.Form');
+
+use \APP\core\Services;
 
 class NavigationMenuForm extends Form {
 	/** @var int Context ID */
@@ -89,11 +90,9 @@ class NavigationMenuForm extends Form {
 		});
 
 		foreach ($unassignedItems as $unassignedItem) {
-			import('classes.core.Services');
 			Services::get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $unassignedItem);
 		}
 
-		import('classes.core.Services');
 		$navigationMenuItemTypes = Services::get('navigationMenu')->getMenuItemTypes();
 
 		$typeConditionalWarnings = array();
@@ -127,7 +126,6 @@ class NavigationMenuForm extends Form {
 			$navigationMenu = $navigationMenusDao->getById($this->_navigationMenuId);
 
 			if ($navigationMenu != null) {
-				import('classes.core.Services');
 				Services::get('navigationMenu')->getMenuTree($navigationMenu);
 
 				$this->_data = array(

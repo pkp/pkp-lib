@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class RolesAndUserGroupsMigration extends Migration {
         /**
@@ -23,7 +23,7 @@ class RolesAndUserGroupsMigration extends Migration {
          */
         public function up() {
 		// User groups for a context.
-		Capsule::schema()->create('user_groups', function (Blueprint $table) {
+		Schema::create('user_groups', function (Blueprint $table) {
 			$table->bigInteger('user_group_id')->autoIncrement();
 			$table->bigInteger('context_id');
 			$table->bigInteger('role_id');
@@ -37,7 +37,7 @@ class RolesAndUserGroupsMigration extends Migration {
 		});
 
 		// User Group-specific settings
-		Capsule::schema()->create('user_group_settings', function (Blueprint $table) {
+		Schema::create('user_group_settings', function (Blueprint $table) {
 			$table->bigInteger('user_group_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -47,7 +47,7 @@ class RolesAndUserGroupsMigration extends Migration {
 		});
 
 		// User group assignments (mapping of user to user groups)
-		Capsule::schema()->create('user_user_groups', function (Blueprint $table) {
+		Schema::create('user_user_groups', function (Blueprint $table) {
 			$table->bigInteger('user_group_id');
 			$table->bigInteger('user_id');
 			$table->index(['user_group_id'], 'user_user_groups_user_group_id');
@@ -56,7 +56,7 @@ class RolesAndUserGroupsMigration extends Migration {
 		});
 
 		// User groups assignments to stages in the workflow
-		Capsule::schema()->create('user_group_stage', function (Blueprint $table) {
+		Schema::create('user_group_stage', function (Blueprint $table) {
 			$table->bigInteger('context_id');
 			$table->bigInteger('user_group_id');
 			$table->bigInteger('stage_id');
@@ -67,7 +67,7 @@ class RolesAndUserGroupsMigration extends Migration {
 		});
 
 		// Stage Assignments
-		Capsule::schema()->create('stage_assignments', function (Blueprint $table) {
+		Schema::create('stage_assignments', function (Blueprint $table) {
 			$table->bigInteger('stage_assignment_id')->autoIncrement();
 			$table->bigInteger('submission_id');
 			$table->bigInteger('user_group_id');
@@ -87,10 +87,10 @@ class RolesAndUserGroupsMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('stage_assignments');
-		Capsule::schema()->drop('user_group_stage');
-		Capsule::schema()->drop('user_user_groups');
-		Capsule::schema()->drop('user_group_settings');
-		Capsule::schema()->drop('user_groups');
+		Schema::drop('stage_assignments');
+		Schema::drop('user_group_stage');
+		Schema::drop('user_user_groups');
+		Schema::drop('user_group_settings');
+		Schema::drop('user_groups');
 	}
 }

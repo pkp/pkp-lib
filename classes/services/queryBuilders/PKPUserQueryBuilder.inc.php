@@ -14,7 +14,7 @@
 
 namespace PKP\Services\QueryBuilders;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
@@ -448,9 +448,9 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 		$primaryLocale = $site->getPrimaryLocale();
 
 		$this->columns = ['u.*'];
-		$this->columns[] = Capsule::raw('COALESCE(ugl.setting_value, ugpl.setting_value) AS user_given');
-		$this->columns[] = Capsule::raw('CASE WHEN ugl.setting_value <> \'\' THEN ufl.setting_value ELSE ufpl.setting_value END AS user_family');
-		$q = Capsule::table('users as u')
+		$this->columns[] = DB::raw('COALESCE(ugl.setting_value, ugpl.setting_value) AS user_given');
+		$this->columns[] = DB::raw('CASE WHEN ugl.setting_value <> \'\' THEN ufl.setting_value ELSE ufpl.setting_value END AS user_family');
+		$q = DB::table('users as u')
 			->leftJoin('user_user_groups as uug', 'uug.user_id', '=', 'u.user_id')
 			->leftJoin('user_groups as ug', 'ug.user_group_id', '=', 'uug.user_group_id')
 			->leftJoin('user_settings as ugl', function ($join) use ($locale) {
@@ -518,7 +518,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 
 			$q->leftJoin('stage_assignments as sa', function($table) use ($submissionId) {
 				$table->on('u.user_id', '=', 'sa.user_id');
-				$table->on('sa.submission_id', '=', Capsule::raw((int) $submissionId));
+				$table->on('sa.submission_id', '=', DB::raw((int) $submissionId));
 			});
 
 			$q->whereNotNull('sa.stage_assignment_id');
@@ -527,7 +527,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 				$stageId = $this->assignedToSubmissionStageId;
 
 				$q->leftJoin('user_group_stage as ugs', 'sa.user_group_id', '=', 'ugs.user_group_id');
-				$q->where('ugs.stage_id', '=', Capsule::raw((int) $stageId));
+				$q->where('ugs.stage_id', '=', DB::raw((int) $stageId));
 			}
 		}
 
@@ -545,7 +545,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 		// review stage id
 		if (!is_null($this->reviewStageId)) {
 			$q->leftJoin('user_group_stage as ugs', 'uug.user_group_id', '=', 'ugs.user_group_id');
-			$q->where('ugs.stage_id', '=', Capsule::raw((int) $this->reviewStageId));
+			$q->where('ugs.stage_id', '=', DB::raw((int) $this->reviewStageId));
 		}
 
 		// search phrase
@@ -558,29 +558,29 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 				foreach ($words as $word) {
 					$word = strtolower(addcslashes($word, '%_'));
 					$q->where(function($q) use ($word) {
-						$q->where(Capsule::raw('lower(u.username)'), 'LIKE', "%{$word}%")
-							->orWhere(Capsule::raw('lower(u.email)'), 'LIKE', "%{$word}%")
+						$q->where(DB::raw('lower(u.username)'), 'LIKE', "%{$word}%")
+							->orWhere(DB::raw('lower(u.email)'), 'LIKE', "%{$word}%")
 							->orWhere(function($q) use ($word) {
 								$q->where('us.setting_name', IDENTITY_SETTING_GIVENNAME);
-								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
+								$q->where(DB::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
 							})
 							->orWhere(function($q) use ($word) {
 								$q->where('us.setting_name', IDENTITY_SETTING_FAMILYNAME);
-								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
+								$q->where(DB::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
 							})
 							->orWhere(function($q) use ($word) {
 								$q->where('us.setting_name', 'affiliation');
-								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
+								$q->where(DB::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
 							})
 							->orWhere(function($q) use ($word) {
 								$q->where('us.setting_name', 'biography');
-								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
+								$q->where(DB::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
 							})
 							->orWhere(function($q) use ($word) {
 								$q->where('us.setting_name', 'orcid');
-								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
+								$q->where(DB::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
 							})
-							->orWhere(Capsule::raw('lower(cves.setting_value)'), 'LIKE', "%{$word}%");
+							->orWhere(DB::raw('lower(cves.setting_value)'), 'LIKE', "%{$word}%");
 					});
 				}
 			}
@@ -589,11 +589,11 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 		// reviewer data
 		if (!empty($this->getReviewerData)) {
 			$q->leftJoin('review_assignments as ra', 'u.user_id', '=', 'ra.reviewer_id');
-			$this->columns[] = Capsule::raw('MAX(ra.date_assigned) as last_assigned');
-			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as incomplete_count');
-			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NOT NULL AND ra.declined <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as complete_count');
-			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.declined = 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as declined_count');
-			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.cancelled = 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as cancelled_count');
+			$this->columns[] = DB::raw('MAX(ra.date_assigned) as last_assigned');
+			$this->columns[] = DB::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as incomplete_count');
+			$this->columns[] = DB::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NOT NULL AND ra.declined <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as complete_count');
+			$this->columns[] = DB::raw('(SELECT SUM(CASE WHEN ra.declined = 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as declined_count');
+			$this->columns[] = DB::raw('(SELECT SUM(CASE WHEN ra.cancelled = 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as cancelled_count');
 			switch (\Config::getVar('database', 'driver')) {
 				case 'mysql':
 				case 'mysqli':
@@ -602,8 +602,8 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 				default:
 					$dateDiffClause = 'DATE_PART(\'day\', ra.date_completed - ra.date_notified)';
 			}
-			$this->columns[] = Capsule::raw('AVG(' . $dateDiffClause . ') as average_time');
-			$this->columns[] = Capsule::raw('(SELECT AVG(ra.quality) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.quality IS NOT NULL) as reviewer_rating');
+			$this->columns[] = DB::raw('AVG(' . $dateDiffClause . ') as average_time');
+			$this->columns[] = DB::raw('(SELECT AVG(ra.quality) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.quality IS NOT NULL) as reviewer_rating');
 
 			// reviewer rating
 			if (!empty($this->reviewerRating)) {
@@ -614,9 +614,9 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 			if (!empty($this->reviewsCompleted)) {
 				$doneMin = is_array($this->reviewsCompleted) ? $this->reviewsCompleted[0] : $this->reviewsCompleted;
 				$subqueryStatement = '(SELECT SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id)';
-				$q->having(Capsule::raw($subqueryStatement), '>=', $doneMin);
+				$q->having(DB::raw($subqueryStatement), '>=', $doneMin);
 				if (is_array($this->reviewsCompleted) && !empty($this->reviewsCompleted[1])) {
-					$q->having(Capsule::raw($subqueryStatement), '<=', $this->reviewsCompleted[1]);
+					$q->having(DB::raw($subqueryStatement), '<=', $this->reviewsCompleted[1]);
 				}
 			}
 
@@ -624,9 +624,9 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 			if (!empty($this->reviewsActive)) {
 				$activeMin = is_array($this->reviewsActive) ? $this->reviewsActive[0] : $this->reviewsActive;
 				$subqueryStatement = '(SELECT SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id)';
-				$q->having(Capsule::raw($subqueryStatement), '>=', $activeMin);
+				$q->having(DB::raw($subqueryStatement), '>=', $activeMin);
 				if (is_array($this->reviewsActive) && !empty($this->reviewsActive[1])) {
-					$q->having(Capsule::raw($subqueryStatement), '<=', $this->reviewsActive[1]);
+					$q->having(DB::raw($subqueryStatement), '<=', $this->reviewsActive[1]);
 				}
 			}
 
@@ -671,8 +671,8 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 
 			$q->leftJoin('subeditor_submission_group as ssg', function($table) use ($sectionId) {
 				$table->on('u.user_id', '=', 'ssg.user_id');
-				$table->on('ssg.assoc_type', '=', Capsule::raw((int) ASSOC_TYPE_SECTION));
-				$table->on('ssg.assoc_id', '=', Capsule::raw((int) $sectionId));
+				$table->on('ssg.assoc_type', '=', DB::raw((int) ASSOC_TYPE_SECTION));
+				$table->on('ssg.assoc_id', '=', DB::raw((int) $sectionId));
 			});
 
 			$q->whereNotNull('ssg.assoc_id');
@@ -684,8 +684,8 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 
 			$q->leftJoin('subeditor_submission_group as ssg', function($table) use ($categoryId) {
 				$table->on('u.user_id', '=', 'ssg.user_id');
-				$table->on('ssg.assoc_type', '=', Capsule::raw((int) ASSOC_TYPE_CATEGORY));
-				$table->on('ssg.assoc_id', '=', Capsule::raw((int) $categoryId));
+				$table->on('ssg.assoc_type', '=', DB::raw((int) ASSOC_TYPE_CATEGORY));
+				$table->on('ssg.assoc_id', '=', DB::raw((int) $categoryId));
 			});
 
 			$q->whereNotNull('ssg.assoc_id');

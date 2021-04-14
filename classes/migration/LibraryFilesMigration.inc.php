@@ -14,7 +14,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class LibraryFilesMigration extends Migration {
         /**
@@ -23,7 +24,7 @@ class LibraryFilesMigration extends Migration {
          */
         public function up() {
 		// Library files for a context
-		Capsule::schema()->create('library_files', function (Blueprint $table) {
+		Schema::create('library_files', function (Blueprint $table) {
 			$table->bigInteger('file_id')->autoIncrement();
 			$table->bigInteger('context_id');
 			$table->string('file_name', 255);
@@ -40,7 +41,7 @@ class LibraryFilesMigration extends Migration {
 		});
 
 		// Library file metadata.
-		Capsule::schema()->create('library_file_settings', function (Blueprint $table) {
+		Schema::create('library_file_settings', function (Blueprint $table) {
 			$table->bigInteger('file_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -56,7 +57,7 @@ class LibraryFilesMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('library_file_settings');
-		Capsule::schema()->drop('library_files');
+		Schema::drop('library_file_settings');
+		Schema::drop('libraryR_files');
 	}
 }

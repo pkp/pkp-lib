@@ -13,7 +13,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class FilesMigration extends Migration {
 	/**
@@ -22,7 +22,7 @@ class FilesMigration extends Migration {
 	 */
 	public function up() {
 		// Create a new table to track files in file storage
-		Capsule::schema()->create('files', function (Blueprint $table) {
+		Schema::create('files', function (Blueprint $table) {
 			$table->bigIncrements('file_id');
 			$table->string('path', 255);
 			$table->string('mimetype', 255);
@@ -34,6 +34,6 @@ class FilesMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('files');
+		Schema::drop('files');
 	}
 }

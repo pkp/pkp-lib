@@ -15,7 +15,7 @@
 
 import('classes.handler.Handler');
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 
 class AdminHandler extends Handler {
 
@@ -337,7 +337,7 @@ class AdminHandler extends Handler {
 
 		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$versionHistory = $versionDao->getVersionHistory();
-		$pdo = Capsule::getPDO();
+		$pdo = DB::getPDO();
 
 		$serverInfo = [
 			'admin.server.platform' => PHP_OS,

@@ -13,7 +13,7 @@
  *
  * @brief Operations for retrieving and modifying Submission objects.
  */
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 
 import('lib.pkp.classes.submission.PKPSubmission');
 import('lib.pkp.classes.db.SchemaDAO');
@@ -322,7 +322,7 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 	 * @return array Submission.
 	 */
 	public function getIdsBySetting($settingName, $settingValue, $contextId) {
-		$q = Capsule::table('submissions as s')
+		$q = DB::table('submissions as s')
 			->join('submission_settings as ss', 's.submission_id', '=', 'ss.submission_id')
 			->where('ss.setting_name', '=', $settingName)
 			->where('ss.setting_value', '=', $settingValue)
@@ -340,7 +340,7 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 	 * @return boolean
 	 */
 	function exists($submissionId, $contextId = null) {
-		$q = Capsule::table('submissions');
+		$q = DB::table('submissions');
 		$q->where('submission_id', '=', $submissionId);
 		if ($contextId) {
 			$q->where('context_id', '=', $contextId);

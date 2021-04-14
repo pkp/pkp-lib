@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class CommonMigration extends Migration {
         /**
@@ -23,7 +23,7 @@ class CommonMigration extends Migration {
          */
         public function up() {
 		// Describes the installation and upgrade version history for the application and all installed plugins.
-		Capsule::schema()->create('versions', function (Blueprint $table) {
+		Schema::create('versions', function (Blueprint $table) {
 			$table->integer('major')->default(0)->comment('Major component of version number, e.g. the 2 in OJS 2.3.8-0');
 			$table->integer('minor')->default(0)->comment('Minor component of version number, e.g. the 3 in OJS 2.3.8-0');
 			$table->integer('revision')->default(0)->comment('Revision component of version number, e.g. the 8 in OJS 2.3.8-0');
@@ -39,7 +39,7 @@ class CommonMigration extends Migration {
 		});
 
 		// Common site settings.
-		Capsule::schema()->create('site', function (Blueprint $table) {
+		Schema::create('site', function (Blueprint $table) {
 			$table->bigInteger('redirect')->default(0)->comment('If not 0, redirect to the specified journal/conference/... site.');
 			$table->string('primary_locale', 14)->comment('Primary locale for the site.');
 			$table->smallInteger('min_password_length')->default(6);
@@ -49,7 +49,7 @@ class CommonMigration extends Migration {
 		});
 
 		// Site settings.
-		Capsule::schema()->create('site_settings', function (Blueprint $table) {
+		Schema::create('site_settings', function (Blueprint $table) {
 			$table->string('setting_name', 255);
 			$table->string('locale', 14)->default('');
 			$table->text('setting_value')->nullable();
@@ -57,7 +57,7 @@ class CommonMigration extends Migration {
 		});
 
 		// User authentication sources.
-		Capsule::schema()->create('auth_sources', function (Blueprint $table) {
+		Schema::create('auth_sources', function (Blueprint $table) {
 			$table->bigInteger('auth_id')->autoIncrement();
 			$table->string('title', 60);
 			$table->string('plugin', 32);
@@ -66,7 +66,7 @@ class CommonMigration extends Migration {
 		});
 
 		// User authentication credentials and profile data.
-		Capsule::schema()->create('users', function (Blueprint $table) {
+		Schema::create('users', function (Blueprint $table) {
 			$table->bigInteger('user_id')->autoIncrement();
 			$table->string('username', 32);
 			$table->string('password', 255);
@@ -93,7 +93,7 @@ class CommonMigration extends Migration {
 		});
 
 		// Locale-specific user data
-		Capsule::schema()->create('user_settings', function (Blueprint $table) {
+		Schema::create('user_settings', function (Blueprint $table) {
 			$table->bigInteger('user_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -107,7 +107,7 @@ class CommonMigration extends Migration {
 		});
 
 		// Browser/user sessions and session data.
-		Capsule::schema()->create('sessions', function (Blueprint $table) {
+		Schema::create('sessions', function (Blueprint $table) {
 			$table->string('session_id', 128);
 			$table->bigInteger('user_id')->nullable();
 			$table->string('ip_address', 39);
@@ -122,7 +122,7 @@ class CommonMigration extends Migration {
 		});
 
 		// Access keys are used to provide pseudo-login functionality for security-minimal tasks. Passkeys can be emailed directly to users, who can use them for a limited time in lieu of standard username and password.
-		Capsule::schema()->create('access_keys', function (Blueprint $table) {
+		Schema::create('access_keys', function (Blueprint $table) {
 			$table->bigInteger('access_key_id')->autoIncrement();
 			$table->string('context', 40);
 			$table->string('key_hash', 40);
@@ -133,7 +133,7 @@ class CommonMigration extends Migration {
 		});
 
 		// Stores notifications for users as created by the system after certain operations.
-		Capsule::schema()->create('notifications', function (Blueprint $table) {
+		Schema::create('notifications', function (Blueprint $table) {
 			$table->bigInteger('notification_id')->autoIncrement();
 			$table->bigInteger('context_id');
 			$table->bigInteger('user_id')->nullable();
@@ -150,7 +150,7 @@ class CommonMigration extends Migration {
 		});
 
 		// Stores metadata for specific notifications
-		Capsule::schema()->create('notification_settings', function (Blueprint $table) {
+		Schema::create('notification_settings', function (Blueprint $table) {
 			$table->bigInteger('notification_id');
 			$table->string('locale', 14)->nullable();
 			$table->string('setting_name', 64);
@@ -160,7 +160,7 @@ class CommonMigration extends Migration {
 		});
 
 		// Stores user preferences on what notifications should be blocked and/or emailed to them
-		Capsule::schema()->create('notification_subscription_settings', function (Blueprint $table) {
+		Schema::create('notification_subscription_settings', function (Blueprint $table) {
 			$table->bigInteger('setting_id')->autoIncrement();
 			$table->string('setting_name', 64);
 			$table->text('setting_value');
@@ -170,7 +170,7 @@ class CommonMigration extends Migration {
 		});
 
 		// Stores subscriptions to the notification mailing list
-		Capsule::schema()->create('notification_mail_list', function (Blueprint $table) {
+		Schema::create('notification_mail_list', function (Blueprint $table) {
 			$table->bigInteger('notification_mail_list_id')->autoIncrement();
 			$table->string('email', 90);
 			$table->smallInteger('confirmed')->default(0);
@@ -180,7 +180,7 @@ class CommonMigration extends Migration {
 		});
 
 		// Default email templates.
-		Capsule::schema()->create('email_templates_default', function (Blueprint $table) {
+		Schema::create('email_templates_default', function (Blueprint $table) {
 			$table->bigInteger('email_id')->autoIncrement();
 			$table->string('email_key', 64)->comment('Unique identifier for this email.');
 			$table->smallInteger('can_disable')->default(0);
@@ -192,7 +192,7 @@ class CommonMigration extends Migration {
 		});
 
 		// Default data for email templates.
-		Capsule::schema()->create('email_templates_default_data', function (Blueprint $table) {
+		Schema::create('email_templates_default_data', function (Blueprint $table) {
 			$table->string('email_key', 64)->comment('Unique identifier for this email.');
 			$table->string('locale', 14)->default('en_US');
 			$table->string('subject', 120);
@@ -202,7 +202,7 @@ class CommonMigration extends Migration {
 		});
 
 		// Templates for emails.
-		Capsule::schema()->create('email_templates', function (Blueprint $table) {
+		Schema::create('email_templates', function (Blueprint $table) {
 			$table->bigInteger('email_id')->autoIncrement();
 			$table->string('email_key', 64)->comment('Unique identifier for this email.');
 			$table->bigInteger('context_id');
@@ -210,7 +210,7 @@ class CommonMigration extends Migration {
 			$table->unique(['email_key', 'context_id'], 'email_templates_email_key');
 		});
 
-		Capsule::schema()->create('email_templates_settings', function (Blueprint $table) {
+		Schema::create('email_templates_settings', function (Blueprint $table) {
 			$table->bigInteger('email_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -220,7 +220,7 @@ class CommonMigration extends Migration {
 		});
 
 		// Resumption tokens for the OAI protocol interface.
-		Capsule::schema()->create('oai_resumption_tokens', function (Blueprint $table) {
+		Schema::create('oai_resumption_tokens', function (Blueprint $table) {
 			$table->string('token', 32);
 			$table->bigInteger('expire');
 			$table->integer('record_offset');
@@ -229,7 +229,7 @@ class CommonMigration extends Migration {
 		});
 
 		// Plugin settings.
-		Capsule::schema()->create('plugin_settings', function (Blueprint $table) {
+		Schema::create('plugin_settings', function (Blueprint $table) {
 			$table->string('plugin_name', 80);
 			$table->bigInteger('context_id');
 			$table->string('setting_name', 80);
@@ -246,23 +246,23 @@ class CommonMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('plugin_settings');
-		Capsule::schema()->drop('oai_resumption_tokens');
-		Capsule::schema()->drop('email_templates_settings');
-		Capsule::schema()->drop('email_templates');
-		Capsule::schema()->drop('email_templates_default_data');
-		Capsule::schema()->drop('email_templates_default');
-		Capsule::schema()->drop('notification_mail_list');
-		Capsule::schema()->drop('notification_subscription_settings');
-		Capsule::schema()->drop('notification_settings');
-		Capsule::schema()->drop('notifications');
-		Capsule::schema()->drop('access_keys');
-		Capsule::schema()->drop('sessions');
-		Capsule::schema()->drop('user_settings');
-		Capsule::schema()->drop('users');
-		Capsule::schema()->drop('auth_sources');
-		Capsule::schema()->drop('site_settings');
-		Capsule::schema()->drop('site');
-		Capsule::schema()->drop('versions');
+		Schema::drop('plugin_settings');
+		Schema::drop('oai_resumption_tokens');
+		Schema::drop('email_templates_settings');
+		Schema::drop('email_templates');
+		Schema::drop('email_templates_default_data');
+		Schema::drop('email_templates_default');
+		Schema::drop('notification_mail_list');
+		Schema::drop('notification_subscription_settings');
+		Schema::drop('notification_settings');
+		Schema::drop('notifications');
+		Schema::drop('access_keys');
+		Schema::drop('sessions');
+		Schema::drop('user_settings');
+		Schema::drop('users');
+		Schema::drop('auth_sources');
+		Schema::drop('site_settings');
+		Schema::drop('site');
+		Schema::drop('versions');
 	}
 }

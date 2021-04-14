@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class GenresMigration extends Migration {
         /**
@@ -23,7 +23,7 @@ class GenresMigration extends Migration {
          */
         public function up() {
 		// A context's submission file genres.
-		Capsule::schema()->create('genres', function (Blueprint $table) {
+		Schema::create('genres', function (Blueprint $table) {
 			$table->bigInteger('genre_id')->autoIncrement();
 			$table->bigInteger('context_id');
 			$table->bigInteger('seq');
@@ -38,7 +38,7 @@ class GenresMigration extends Migration {
 		});
 
 		// Genre settings
-		Capsule::schema()->create('genre_settings', function (Blueprint $table) {
+		Schema::create('genre_settings', function (Blueprint $table) {
 			$table->bigInteger('genre_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -55,7 +55,7 @@ class GenresMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('genre_settings');
-		Capsule::schema()->drop('genres');
+		Schema::drop('genre_settings');
+		Schema::drop('genres');
 	}
 }

@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class TombstoneMigration extends Migration {
         /**
@@ -23,7 +23,7 @@ class TombstoneMigration extends Migration {
          */
         public function up() {
 		// Unnavailable data object tombstones.
-		Capsule::schema()->create('data_object_tombstones', function (Blueprint $table) {
+		Schema::create('data_object_tombstones', function (Blueprint $table) {
 			$table->bigInteger('tombstone_id')->autoIncrement();
 			$table->bigInteger('data_object_id');
 			$table->datetime('date_deleted');
@@ -34,7 +34,7 @@ class TombstoneMigration extends Migration {
 		});
 
 		// Data object tombstone settings.
-		Capsule::schema()->create('data_object_tombstone_settings', function (Blueprint $table) {
+		Schema::create('data_object_tombstone_settings', function (Blueprint $table) {
 			$table->bigInteger('tombstone_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -45,7 +45,7 @@ class TombstoneMigration extends Migration {
 		});
 
 		// Objects that are part of a data object tombstone OAI set.
-		Capsule::schema()->create('data_object_tombstone_oai_set_objects', function (Blueprint $table) {
+		Schema::create('data_object_tombstone_oai_set_objects', function (Blueprint $table) {
 			$table->bigInteger('object_id')->autoIncrement();
 			$table->bigInteger('tombstone_id');
 			$table->bigInteger('assoc_type');
@@ -59,8 +59,8 @@ class TombstoneMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('data_object_tombstone_oai_set_objects');
-		Capsule::schema()->drop('data_object_tombstone_settings');
-		Capsule::schema()->drop('data_object_tombstones');
+		Schema::drop('data_object_tombstone_oai_set_objects');
+		Schema::drop('data_object_tombstone_settings');
+		Schema::drop('data_object_tombstones');
 	}
 }

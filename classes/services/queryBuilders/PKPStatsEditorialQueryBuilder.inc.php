@@ -16,7 +16,7 @@
 
 namespace PKP\Services\QueryBuilders;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 
 abstract class PKPStatsEditorialQueryBuilder {
 
@@ -150,7 +150,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 			$q->where('s.status', '!=', STATUS_DECLINED);
 		}
 
-		$q->select(Capsule::raw('COUNT(DISTINCT s.submission_id) as count'));
+		$q->select(DB::raw('COUNT(DISTINCT s.submission_id) as count'));
 
 		return $q->get()->first()->count;
 	}
@@ -198,7 +198,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 			$q->leftJoin('publications as p', function($q) {
 				$q->where('p.publication_id', function($q) {
 					$q->from('publications as p2')
-						->where('p2.submission_id', '=', Capsule::raw('s.submission_id'))
+						->where('p2.submission_id', '=', DB::raw('s.submission_id'))
 						->where('p2.status', '=', STATUS_PUBLISHED)
 						->orderBy('p2.date_published', 'ASC')
 						->limit(1)
@@ -229,7 +229,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 	public function getDaysToDecisions($decisions) {
 		$q = $this->_getDaysToDecisionsObject($decisions);
 		$dateDiff = $this->_dateDiff('ed.date_decided', 's.date_submitted');
-		$q->select(Capsule::raw($dateDiff . ' as time'));
+		$q->select(DB::raw($dateDiff . ' as time'));
 		return $q->pluck('time')->toArray();
 	}
 
@@ -247,7 +247,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 	public function getAverageDaysToDecisions($decisions) {
 		$q = $this->_getDaysToDecisionsObject($decisions);
 		$dateDiff = $this->_dateDiff('ed.date_decided', 's.date_submitted');
-		$q->select(Capsule::raw('AVG(' . $dateDiff . ') as average'));
+		$q->select(DB::raw('AVG(' . $dateDiff . ') as average'));
 		return $q->get()->first()->average;
 	}
 
@@ -277,7 +277,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 			->leftJoin('publications as p', function($q) {
 				$q->where('p.publication_id', function($q) {
 					$q->from('publications as p2')
-						->where('p2.submission_id', '=', Capsule::raw('s.submission_id'))
+						->where('p2.submission_id', '=', DB::raw('s.submission_id'))
 						->where('p2.status', '=', STATUS_PUBLISHED)
 						->orderBy('p2.date_published', 'ASC')
 						->limit(1)
@@ -324,7 +324,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 	 * @return QueryObject
 	 */
 	protected function _getObject() {
-		$q = Capsule::table('submissions as s');
+		$q = DB::table('submissions as s');
 		if (!empty($this->contextIds)) {
 			$q->whereIn('s.context_id', $this->contextIds);
 		}
@@ -343,7 +343,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 		$q->leftJoin('publications as pi', function($q) {
 					$q->where('pi.publication_id', function($q) {
 						$q->from('publications as pi2')
-							->where('pi2.submission_id', '=', Capsule::raw('s.submission_id'))
+							->where('pi2.submission_id', '=', DB::raw('s.submission_id'))
 							->where('pi2.status', '=', STATUS_PUBLISHED)
 							->orderBy('pi2.date_published', 'ASC')
 							->limit(1)
@@ -352,7 +352,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 				})
 				->where(function($q) {
 					$q->whereNull('pi.date_published')
-						->orWhere('s.date_submitted', '<', Capsule::raw('pi.date_published'));
+						->orWhere('s.date_submitted', '<', DB::raw('pi.date_published'));
 				});
 
 		\HookRegistry::call('Stats::editorial::queryObject', array(&$q, $this));
@@ -377,7 +377,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 		$q->leftJoin('edit_decisions as ed', function($q) use ($decisions) {
 			$q->where('ed.edit_decision_id', function($q) use ($decisions) {
 				$q->from('edit_decisions as ed2')
-					->where('ed2.submission_id', '=', Capsule::raw('s.submission_id'));
+					->where('ed2.submission_id', '=', DB::raw('s.submission_id'));
 				if (!empty($decisions)) {
 					$q->whereIn('ed2.decision', $decisions);
 				}

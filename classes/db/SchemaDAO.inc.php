@@ -12,7 +12,7 @@
  * @brief A base class for DAOs which rely on a json-schema file to define
  *  the data object.
  */
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 
 import('lib.pkp.classes.db.DAO');
 import('classes.core.Services');
@@ -72,8 +72,8 @@ abstract class SchemaDAO extends DAO {
 			throw new Exception('Tried to insert ' . get_class($object) . ' without any properties for the ' . $this->tableName . ' table.');
 		}
 
-		Capsule::table($this->tableName)->insert($primaryDbProps);
-		$object->setId(Capsule::getPdo()->lastInsertId());
+		DB::table($this->tableName)->insert($primaryDbProps);
+		$object->setId(DB::getPdo()->lastInsertId());
 
 		// Add additional properties to settings table if they exist
 		if (count($sanitizedProps) !== count($primaryDbProps)) {
@@ -259,7 +259,7 @@ abstract class SchemaDAO extends DAO {
 	 * @return int
 	 */
 	public function getInsertId() {
-		return Capsule::getPdo()->lastInsertId();
+		return DB::getPdo()->lastInsertId();
 	}
 
 	/**

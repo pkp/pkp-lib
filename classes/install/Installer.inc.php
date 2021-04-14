@@ -29,7 +29,8 @@ import('lib.pkp.classes.site.Version');
 import('lib.pkp.classes.site.VersionDAO');
 import('lib.pkp.classes.config.ConfigParser');
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Schema\Blueprint;
 
 class Installer {
@@ -467,7 +468,7 @@ class Installer {
 			}
 		} else {
 			try {
-				Capsule::affectingStatement($sql);
+				DB::affectingStatement($sql);
 			} catch (Exception $e) {
 				$this->setError(INSTALLER_ERROR_DB, $e->getMessage());
 				return false;
@@ -646,8 +647,8 @@ class Installer {
 		foreach ($locales as $locale) AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		// FIXME pkp/pkp-lib#6284 Remove after drop of support for upgrades from 3.2.0
-		if (!Capsule::schema()->hasColumn('email_templates_default', 'stage_id')) {
-			Capsule::schema()->table('email_templates_default', function (Blueprint $table) {
+		if (!Schema::hasColumn('email_templates_default', 'stage_id')) {
+			Schema::table('email_templates_default', function (Blueprint $table) {
 				$table->bigInteger('stage_id')->nullable();
 			});
 		}
@@ -701,12 +702,12 @@ class Installer {
 	 * @return boolean
 	 */
 	function columnExists($tableName, $columnName) {
-		$schema = Capsule::connection()->getDoctrineSchemaManager();
+		$schema = DB::getDoctrineSchemaManager();
 		// Make sure the table exists
 		$tables = $schema->listTableNames();
 		if (!in_array($tableName, $tables)) return false;
 
-		return Capsule::schema()->hasColumn($tableName, $columnName);
+		return Schema::hasColumn($tableName, $columnName);
 	}
 
 	/**
@@ -716,7 +717,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function tableExists($tableName) {
-		$tables = Capsule::connection()->getDoctrineSchemaManager()->listTableNames();
+		$tables = DB::getDoctrineSchemaManager()->listTableNames();
 		return in_array($tableName, $tables);
 	}
 

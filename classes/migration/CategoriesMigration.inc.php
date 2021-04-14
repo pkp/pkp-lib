@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class CategoriesMigration extends Migration {
         /**
@@ -23,7 +23,7 @@ class CategoriesMigration extends Migration {
          */
         public function up() {
 		// Permits the organization of content into categories.
-		Capsule::schema()->create('categories', function (Blueprint $table) {
+		Schema::create('categories', function (Blueprint $table) {
 			$table->bigInteger('category_id')->autoIncrement();
 			$table->bigInteger('context_id');
 			$table->bigInteger('parent_id');
@@ -35,7 +35,7 @@ class CategoriesMigration extends Migration {
 		});
 
 		// Category-specific settings
-		Capsule::schema()->create('category_settings', function (Blueprint $table) {
+		Schema::create('category_settings', function (Blueprint $table) {
 			$table->bigInteger('category_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -45,7 +45,7 @@ class CategoriesMigration extends Migration {
 		});
 
 		// Associations for categories and publications.
-		Capsule::schema()->create('publication_categories', function (Blueprint $table) {
+		Schema::create('publication_categories', function (Blueprint $table) {
 			$table->bigInteger('publication_id');
 			$table->bigInteger('category_id');
 			$table->unique(['publication_id', 'category_id'], 'publication_categories_id');
@@ -58,8 +58,8 @@ class CategoriesMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('categories');
-		Capsule::schema()->drop('category_settings');
-		Capsule::schema()->drop('publication_categories');
+		Schema::drop('categories');
+		Schema::drop('category_settings');
+		Schema::drop('publication_categories');
 	}
 }

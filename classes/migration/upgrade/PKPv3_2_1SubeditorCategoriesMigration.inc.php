@@ -14,7 +14,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class PKPv3_2_1SubeditorCategoriesMigration extends Migration {
 	/**
@@ -23,8 +24,8 @@ class PKPv3_2_1SubeditorCategoriesMigration extends Migration {
 	 */
 	public function up() {
 		// Schema changes
-		Capsule::schema()->rename('section_editors', 'subeditor_submission_group');
-		Capsule::schema()->table('subeditor_submission_group', function (Blueprint $table) {
+		Schema::rename('section_editors', 'subeditor_submission_group');
+		Schema::table('subeditor_submission_group', function (Blueprint $table) {
 			// Change section_id to assoc_type/assoc_id
 			$table->bigInteger('assoc_type');
 			$table->renameColumn('section_id', 'assoc_id');
@@ -43,7 +44,7 @@ class PKPv3_2_1SubeditorCategoriesMigration extends Migration {
 		});
 
 		// Populate the assoc_type data in the newly created column
-		Capsule::table('subeditor_submission_group')->update(['assoc_type' => ASSOC_TYPE_SECTION]);
+		DB::table('subeditor_submission_group')->update(['assoc_type' => ASSOC_TYPE_SECTION]);
 	}
 
 	/**

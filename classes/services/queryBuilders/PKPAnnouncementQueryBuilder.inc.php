@@ -14,7 +14,7 @@
 
 namespace PKP\Services\QueryBuilders;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 class PKPAnnouncementQueryBuilder implements EntityQueryBuilderInterface {
@@ -91,7 +91,7 @@ class PKPAnnouncementQueryBuilder implements EntityQueryBuilderInterface {
 	 */
 	public function getQuery() {
 		$this->columns = ['a.*'];
-		$q = Capsule::table('announcements as a');
+		$q = DB::table('announcements as a');
 
 		if (!empty($this->contextIds)) {
 			$q->whereIn('a.assoc_id', $this->contextIds);
@@ -111,15 +111,15 @@ class PKPAnnouncementQueryBuilder implements EntityQueryBuilderInterface {
 					$q->where(function($q) use ($word)  {
 						$q->where(function($q) use ($word) {
 							$q->where('as.setting_name', 'title');
-							$q->where(Capsule::raw('lower(as.setting_value)'), 'LIKE', "%{$word}%");
+							$q->where(DB::raw('lower(as.setting_value)'), 'LIKE', "%{$word}%");
 						})
 						->orWhere(function($q) use ($word) {
 							$q->where('as.setting_name', 'descriptionShort');
-							$q->where(Capsule::raw('lower(as.setting_value)'), 'LIKE', "%{$word}%");
+							$q->where(DB::raw('lower(as.setting_value)'), 'LIKE', "%{$word}%");
 						})
 						->orWhere(function($q) use ($word) {
 							$q->where('as.setting_name', 'description');
-							$q->where(Capsule::raw('lower(as.setting_value)'), 'LIKE', "%{$word}%");
+							$q->where(DB::raw('lower(as.setting_value)'), 'LIKE', "%{$word}%");
 						});
 					});
 				}

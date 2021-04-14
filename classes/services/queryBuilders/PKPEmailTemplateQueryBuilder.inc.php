@@ -14,7 +14,7 @@
 
 namespace PKP\Services\QueryBuilders;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
@@ -175,7 +175,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 	 */
 	public function getCount() {
 		$compiledQuery = $this->getCompiledQuery();
-		return Capsule::table(Capsule::raw('(' . $compiledQuery[0] . ') as email_template_count'))
+		return DB::table(DB::raw('(' . $compiledQuery[0] . ') as email_template_count'))
 			->setBindings($compiledQuery[1])
 			->count();
 	}
@@ -257,13 +257,13 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 		$this->columns = [
 			'etd.can_disable',
 			'etd.can_edit',
-			Capsule::raw('COALESCE(etd.email_key, et.email_key) as email_key'),
+			DB::raw('COALESCE(etd.email_key, et.email_key) as email_key'),
 			'etd.from_role_id',
 			'etd.to_role_id',
 			'etd.stage_id',
 			'et.email_id',
 			'et.context_id',
-			Capsule::raw('COALESCE(et.enabled, 1) as enabled'),
+			DB::raw('COALESCE(et.enabled, 1) as enabled'),
 		];
 	}
 
@@ -274,7 +274,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 	 * @return QueryObject
 	 */
 	protected function getDefault() {
-		$q = Capsule::table('email_templates_default as etd')
+		$q = DB::table('email_templates_default as etd')
 			->orderBy('email_key', 'asc')
 			->groupBy('etd.email_key')
 			->groupBy('etd.can_disable')
@@ -288,7 +288,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 			$contextId = $this->contextId;
 			$q->leftJoin('email_templates as et', function ($table) use ($contextId) {
 				$table->on('etd.email_key', '=', 'et.email_key')
-					->on('et.context_id', '=', Capsule::raw((int) $contextId));
+					->on('et.context_id', '=', DB::raw((int) $contextId));
 			});
 		} else {
 			$q->leftJoin('email_templates as et', 'etd.email_key', '=', 'et.email_key');
@@ -344,19 +344,19 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 				foreach ($words as $word) {
 					$word = strtolower(addcslashes($word, '%_'));
 					$q->where(function($q) use ($word) {
-						$q->where(Capsule::raw('lower(et.email_key)'), 'LIKE', "%{$word}%")
+						$q->where(DB::raw('lower(et.email_key)'), 'LIKE', "%{$word}%")
 							->orWhere(function($q) use ($word) {
 								$q->where('ets.setting_name', 'subject');
-								$q->where(Capsule::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
+								$q->where(DB::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
 							})
 							->orWhere(function($q) use ($word) {
 								$q->where('ets.setting_name', 'body');
-								$q->where(Capsule::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
+								$q->where(DB::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
 							})
-							->orWhere(Capsule::raw('lower(etd.email_key)'), 'LIKE', "%{$word}%")
-							->orWhere(Capsule::raw('lower(etddata.subject)'), 'LIKE', "%{$word}%")
-							->orWhere(Capsule::raw('lower(etddata.body)'), 'LIKE', "%{$word}%")
-							->orWhere(Capsule::raw('lower(etddata.description)'), 'LIKE', "%{$word}%");
+							->orWhere(DB::raw('lower(etd.email_key)'), 'LIKE', "%{$word}%")
+							->orWhere(DB::raw('lower(etddata.subject)'), 'LIKE', "%{$word}%")
+							->orWhere(DB::raw('lower(etddata.body)'), 'LIKE', "%{$word}%")
+							->orWhere(DB::raw('lower(etddata.description)'), 'LIKE', "%{$word}%");
 					});
 				}
 			}
@@ -391,7 +391,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 	 * @return QueryObject
 	 */
 	protected function getCustom() {
-		$q = Capsule::table('email_templates as et')
+		$q = DB::table('email_templates as et')
 			->leftJoin('email_templates_default as etd', 'etd.email_key', '=', 'et.email_key');
 
 		if (!is_null($this->contextId)) {
@@ -420,14 +420,14 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 				foreach ($words as $word) {
 					$word = strtolower(addcslashes($word, '%_'));
 					$q->where(function ($q) use ($word) {
-						$q->where(Capsule::raw('lower(et.email_key)'), 'LIKE', "%{$word}%")
+						$q->where(DB::raw('lower(et.email_key)'), 'LIKE', "%{$word}%")
 							->orWhere(function($q) use ($word) {
 								$q->where('ets.setting_name', 'subject');
-								$q->where(Capsule::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
+								$q->where(DB::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
 							})
 							->orWhere(function($q) use ($word) {
 								$q->where('ets.setting_name', 'body');
-								$q->where(Capsule::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
+								$q->where(DB::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
 							});
 					});
 				}

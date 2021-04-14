@@ -28,7 +28,7 @@
 import('lib.pkp.classes.install.Installer');
 import('classes.core.Services');
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Config\Repository;
 
 class PKPInstall extends Installer {
 
@@ -77,18 +77,24 @@ class PKPInstall extends Installer {
 			$driver = 'mysql';
 		}
 
-		$capsule = new Capsule;
+		$items['database']['default'] = $driver;
+		$items['database']['connections'][$driver] = [
+			'driver'    => $driver,
+			'host'      => $this->getParam('databaseHost'),
+			'database'  => $this->getParam('databaseName'),
+			'username'  => $this->getParam('databaseUsername'),
+			'password'  => $this->getParam('databasePassword'),
+			'charset'   => $connectionCharset == 'latin1'?'latin1':'utf8',
+			'collation' => 'utf8_general_ci',
+		];
+
 		try {
-			$capsule->addConnection([
-				'driver'    => $driver,
-				'host'      => $this->getParam('databaseHost'),
-				'database'  => $this->getParam('databaseName'),
-				'username'  => $this->getParam('databaseUsername'),
-				'password'  => $this->getParam('databasePassword'),
-				'charset'   => $connectionCharset == 'latin1'?'latin1':'utf8',
-				'collation' => 'utf8_general_ci',
-			]);
-			$capsule->setAsGlobal();
+			// Register database and related services in the container
+			import('lib.pkp.classes.core.PKPContainer');
+			$laravelContainer = PKPContainer::getInstance();
+			$laravelContainer->instance('config', new Repository($items));
+			$laravelContainer->register(new Illuminate\Events\EventServiceProvider($laravelContainer));
+			$laravelContainer->register(new Illuminate\Database\DatabaseServiceProvider($laravelContainer));
 		} catch (Exception $e) {
 			$this->setError(INSTALLER_ERROR_DB, $e->getMessage());
 			return false;

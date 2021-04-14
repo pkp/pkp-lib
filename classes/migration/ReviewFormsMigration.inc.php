@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class ReviewFormsMigration extends Migration {
         /**
@@ -23,7 +23,7 @@ class ReviewFormsMigration extends Migration {
          */
         public function up() {
 		// Review forms.
-		Capsule::schema()->create('review_forms', function (Blueprint $table) {
+		Schema::create('review_forms', function (Blueprint $table) {
 			$table->bigInteger('review_form_id')->autoIncrement();
 			$table->bigInteger('assoc_type');
 			$table->bigInteger('assoc_id');
@@ -32,7 +32,7 @@ class ReviewFormsMigration extends Migration {
 		});
 
 		// Review form settings
-		Capsule::schema()->create('review_form_settings', function (Blueprint $table) {
+		Schema::create('review_form_settings', function (Blueprint $table) {
 			$table->bigInteger('review_form_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -43,7 +43,7 @@ class ReviewFormsMigration extends Migration {
 		});
 
 		// Review form elements.
-		Capsule::schema()->create('review_form_elements', function (Blueprint $table) {
+		Schema::create('review_form_elements', function (Blueprint $table) {
 			$table->bigInteger('review_form_element_id')->autoIncrement();
 			$table->bigInteger('review_form_id');
 			$table->float('seq', 8, 2)->nullable();
@@ -54,7 +54,7 @@ class ReviewFormsMigration extends Migration {
 		});
 
 		// Review form element settings
-		Capsule::schema()->create('review_form_element_settings', function (Blueprint $table) {
+		Schema::create('review_form_element_settings', function (Blueprint $table) {
 			$table->bigInteger('review_form_element_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -65,7 +65,7 @@ class ReviewFormsMigration extends Migration {
 		});
 
 		// Review form responses.
-		Capsule::schema()->create('review_form_responses', function (Blueprint $table) {
+		Schema::create('review_form_responses', function (Blueprint $table) {
 			$table->bigInteger('review_form_element_id');
 			$table->bigInteger('review_id');
 			$table->string('response_type', 6)->nullable();
@@ -79,10 +79,10 @@ class ReviewFormsMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('review_form_responses');
-		Capsule::schema()->drop('review_form_element_settings');
-		Capsule::schema()->drop('review_form_elements');
-		Capsule::schema()->drop('review_form_settings');
-		Capsule::schema()->drop('review_forms');
+		Schema::drop('review_form_responses');
+		Schema::drop('review_form_element_settings');
+		Schema::drop('review_form_elements');
+		Schema::drop('review_form_settings');
+		Schema::drop('review_forms');
 	}
 }

@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class MetricsMigration extends Migration {
         /**
@@ -23,7 +23,7 @@ class MetricsMigration extends Migration {
          */
         public function up() {
 		// OLAP statistics data table.
-		Capsule::schema()->create('metrics', function (Blueprint $table) {
+		Schema::create('metrics', function (Blueprint $table) {
 			$table->string('load_id', 255);
 			$table->bigInteger('context_id');
 			$table->bigInteger('pkp_section_id')->nullable();
@@ -53,6 +53,6 @@ class MetricsMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('metrics');
+		Schema::drop('metrics');
 	}
 }

@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class ControlledVocabMigration extends Migration {
         /**
@@ -23,7 +23,7 @@ class ControlledVocabMigration extends Migration {
          */
         public function up() {
 		// Controlled vocabularies
-		Capsule::schema()->create('controlled_vocabs', function (Blueprint $table) {
+		Schema::create('controlled_vocabs', function (Blueprint $table) {
 			$table->bigInteger('controlled_vocab_id')->autoIncrement();
 			$table->string('symbolic', 64);
 			$table->bigInteger('assoc_type')->default(0);
@@ -32,7 +32,7 @@ class ControlledVocabMigration extends Migration {
 		});
 
 		// Controlled vocabulary entries
-		Capsule::schema()->create('controlled_vocab_entries', function (Blueprint $table) {
+		Schema::create('controlled_vocab_entries', function (Blueprint $table) {
 			$table->bigInteger('controlled_vocab_entry_id')->autoIncrement();
 			$table->bigInteger('controlled_vocab_id');
 			$table->float('seq', 8, 2)->nullable();
@@ -40,7 +40,7 @@ class ControlledVocabMigration extends Migration {
 		});
 
 		// Controlled vocabulary entry settings
-		Capsule::schema()->create('controlled_vocab_entry_settings', function (Blueprint $table) {
+		Schema::create('controlled_vocab_entry_settings', function (Blueprint $table) {
 			$table->bigInteger('controlled_vocab_entry_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -51,7 +51,7 @@ class ControlledVocabMigration extends Migration {
 		});
 
 		// Reviewer Interests Associative Table
-		Capsule::schema()->create('user_interests', function (Blueprint $table) {
+		Schema::create('user_interests', function (Blueprint $table) {
 			$table->bigInteger('user_id');
 			$table->bigInteger('controlled_vocab_entry_id');
 			$table->unique(['user_id', 'controlled_vocab_entry_id'], 'u_e_pkey');
@@ -64,9 +64,9 @@ class ControlledVocabMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('user_interests');
-		Capsule::schema()->drop('controlled_vocab_entry_settings');
-		Capsule::schema()->drop('controlled_vocab_entries');
-		Capsule::schema()->drop('controlled_vocabs');
+		Schema::drop('user_interests');
+		Schema::drop('controlled_vocab_entry_settings');
+		Schema::drop('controlled_vocab_entries');
+		Schema::drop('controlled_vocabs');
 	}
 }

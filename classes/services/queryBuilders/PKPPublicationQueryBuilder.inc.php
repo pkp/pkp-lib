@@ -14,7 +14,7 @@
 
 namespace PKP\Services\QueryBuilders;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface {
@@ -105,7 +105,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface {
 	 */
 	public function getQuery($applyOrder = true) {
 		$this->columns = ['*'];
-		$q = Capsule::table('publications as p');
+		$q = DB::table('publications as p');
 
 		if (!empty($this->contextIds)) {
 			$q->leftJoin('submissions as s', 's.submission_id', '=', 'p.submission_id')
@@ -145,7 +145,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface {
 	public function getDateBoundaries() {
 		return $this->getQuery(false)
 			->select([
-				Capsule::raw('MIN(p.date_published) AS min_date_published, MAX(p.date_published) AS max_date_published')
+				DB::raw('MIN(p.date_published) AS min_date_published, MAX(p.date_published) AS max_date_published')
 			]);
 	}
 
@@ -154,10 +154,10 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface {
 	 *
 	 * @param string $urlPath
 	 * @param int $contextId
-	 * @return Illuminate\Database\Query\Builder
+	 * @return \Illuminate\Database\Query\Builder
 	 */
 	public function getQueryByUrlPath($urlPath, $contextId) {
-		return Capsule::table('publications as p')
+		return DB::table('publications as p')
 			->leftJoin('submissions as s', 's.submission_id', '=', 'p.submission_id')
 			->where('s.context_id', '=', $contextId)
 			->where('p.url_path', '=', $urlPath);
@@ -181,7 +181,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface {
 	 * @return boolean
 	 */
 	public function isDuplicateUrlPath($urlPath, $submissionId, $contextId) {
-		return (bool) Capsule::table('publications as p')
+		return (bool) DB::table('publications as p')
 			->leftJoin('submissions as s', 's.submission_id', '=', 'p.submission_id')
 			->where('url_path', '=' , $urlPath)
 			->where('p.submission_id', '!=', $submissionId)

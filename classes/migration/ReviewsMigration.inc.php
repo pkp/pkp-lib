@@ -14,7 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class ReviewsMigration extends Migration {
         /**
@@ -23,7 +23,7 @@ class ReviewsMigration extends Migration {
          */
         public function up() {
 		// Review rounds.
-		Capsule::schema()->create('review_rounds', function (Blueprint $table) {
+		Schema::create('review_rounds', function (Blueprint $table) {
 			$table->bigInteger('review_round_id')->autoIncrement();
 			$table->bigInteger('submission_id');
 			$table->bigInteger('stage_id')->nullable();
@@ -35,7 +35,7 @@ class ReviewsMigration extends Migration {
 		});
 
 		// Reviewing assignments.
-		Capsule::schema()->create('review_assignments', function (Blueprint $table) {
+		Schema::create('review_assignments', function (Blueprint $table) {
 			$table->bigInteger('review_id')->autoIncrement();
 
 			$table->bigInteger('submission_id');
@@ -86,7 +86,7 @@ class ReviewsMigration extends Migration {
 		});
 
 		// Submission Files for each review round
-		Capsule::schema()->create('review_round_files', function (Blueprint $table) {
+		Schema::create('review_round_files', function (Blueprint $table) {
 			$table->bigInteger('submission_id');
 			$table->bigInteger('review_round_id');
 			$table->smallInteger('stage_id');
@@ -97,7 +97,7 @@ class ReviewsMigration extends Migration {
 		});
 
 		// Associates reviewable submission files with reviews
-		Capsule::schema()->create('review_files', function (Blueprint $table) {
+		Schema::create('review_files', function (Blueprint $table) {
 			$table->bigInteger('review_id');
 			$table->bigInteger('submission_file_id')->nullable(false)->unsigned();
 			$table->index(['review_id'], 'review_files_review_id');
@@ -111,9 +111,9 @@ class ReviewsMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('review_assignments');
-		Capsule::schema()->drop('review_files');
-		Capsule::schema()->drop('review_round_files');
-		Capsule::schema()->drop('review_rounds');
+		Schema::drop('review_assignments');
+		Schema::drop('review_files');
+		Schema::drop('review_round_files');
+		Schema::drop('review_rounds');
 	}
 }

@@ -14,7 +14,7 @@
 
 namespace PKP\Services\QueryBuilders;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\DB;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface {
@@ -121,7 +121,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface {
 	 */
 	public function getQuery() {
 		$this->columns = ['*', 's.locale AS submission_locale'];
-		$q = Capsule::table('authors as a');
+		$q = DB::table('authors as a');
 		$q->leftJoin('publications as p', 'a.publication_id', '=', 'p.publication_id');
 		$q->leftJoin('submissions as s', 'p.submission_id', '=', 's.submission_id');
 

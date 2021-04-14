@@ -15,23 +15,30 @@
  *
  */
 
-import('lib.pkp.classes.core.PKPApplication');
+namespace APP\core;
+
+use PKP\core\PKPApplication;
 
 define('REQUIRES_XSL', false);
 
-define('ASSOC_TYPE_PREPRINT',		ASSOC_TYPE_SUBMISSION); // DEPRECATED but needed by filter framework
-define('ASSOC_TYPE_GALLEY',		ASSOC_TYPE_REPRESENTATION);
+define('ASSOC_TYPE_PREPRINT', PKPApplication::ASSOC_TYPE_SUBMISSION); // DEPRECATED but needed by filter framework
+define('ASSOC_TYPE_GALLEY', PKPApplication::ASSOC_TYPE_REPRESENTATION);
 
 define('ASSOC_TYPE_SERVER',		0x0000100);
-
-define('CONTEXT_SERVER', 1);
-
-define('LANGUAGE_PACK_DESCRIPTOR_URL', 'http://pkp.sfu.ca/ops/xml/%s/locales.xml');
-define('LANGUAGE_PACK_TAR_URL', 'http://pkp.sfu.ca/ops/xml/%s/%s.tar.gz');
 
 define('METRIC_TYPE_COUNTER', 'ops::counter');
 
 class Application extends PKPApplication {
+	/**
+	 * Constructor
+	 */
+	function __construct() {
+		parent::__construct();
+		if (!PKP_STRICT_MODE) {
+			class_alias('\APP\core\Application', '\Application');
+		}
+	}
+
 	/**
 	 * Get the "context depth" of this application, i.e. the number of
 	 * parts of the URL after index.php that represent the context of
@@ -125,7 +132,7 @@ class Application extends PKPApplication {
 	 * @return ContextDAO
 	 */
 	public static function getContextDAO() {
-		return DAORegistry::getDAO('ServerDAO');
+		return \DAORegistry::getDAO('ServerDAO');
 	}
 
 	/**
@@ -133,7 +140,7 @@ class Application extends PKPApplication {
 	 * @return SectionDAO
 	 */
 	public static function getSectionDAO() {
-		return DAORegistry::getDAO('SectionDAO');
+		return \DAORegistry::getDAO('SectionDAO');
 	}
 
 	/**
@@ -141,7 +148,7 @@ class Application extends PKPApplication {
 	 * @return RepresentationDAO
 	 */
 	public static function getRepresentationDAO() {
-		return DAORegistry::getDAO('PreprintGalleyDAO');
+		return \DAORegistry::getDAO('PreprintGalleyDAO');
 	}
 
 	/**
@@ -149,14 +156,14 @@ class Application extends PKPApplication {
 	 */
 	public static function getSubmissionSearchIndex() {
 		import('classes.search.PreprintSearchIndex');
-		return new PreprintSearchIndex();
+		return new \PreprintSearchIndex();
 	}
 
 	/**
 	 * Get a SubmissionSearchDAO instance.
 	 */
 	public static function getSubmissionSearchDAO() {
-		return DAORegistry::getDAO('PreprintSearchDAO');
+		return \DAORegistry::getDAO('PreprintSearchDAO');
 	}
 
 	/**

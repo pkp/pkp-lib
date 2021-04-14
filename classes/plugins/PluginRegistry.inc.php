@@ -16,6 +16,8 @@
 
 define('PLUGINS_PREFIX', 'plugins/');
 
+use \APP\core\Application;
+
 class PluginRegistry {
 	//
 	// Public methods

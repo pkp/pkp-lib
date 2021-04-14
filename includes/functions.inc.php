@@ -312,6 +312,15 @@ function ucfirst_codesafe($str) {
 }
 
 /**
+ * @copydoc Core::cleanFileVar
+ * Warning: Call this function from Core class. It is only exposed here to make
+ * it available early in bootstrapping.
+ */
+function cleanFileVar($var) {
+	return preg_replace('/[^\w\-]/u', '', $var);
+}
+
+/**
  * Helper function to define custom autoloader 
  * @param string $rootPath
  * @param string $prefix
@@ -333,9 +342,9 @@ function customAutoload($rootPath, $prefix, $class) {
 		return;
 	}
 
-	$className = Core::cleanFileVar(array_pop($parts));
+	$className = cleanFileVar(array_pop($parts));
 	$parts = array_map(function($part) {
-		$part = Core::cleanFileVar($part);
+		$part = cleanFileVar($part);
 		if (strlen($part)>1) $part[0] = strtolower_codesafe($part[0]); // pkp/pkp-lib#5731
 		return $part;
 	}, $parts);

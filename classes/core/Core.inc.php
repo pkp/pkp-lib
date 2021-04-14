@@ -18,9 +18,10 @@
  * @brief Class containing system-wide functions.
  */
 
-
 define('PKP_LIB_PATH', 'lib' . DIRECTORY_SEPARATOR . 'pkp');
 define('COUNTER_USER_AGENTS_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'counterBots' .  DIRECTORY_SEPARATOR . 'generated' . DIRECTORY_SEPARATOR . 'COUNTER_Robots_list.txt');
+
+use \APP\core\Application;
 
 class Core {
 
@@ -49,7 +50,7 @@ class Core {
 	 * @return string
 	 */
 	static function cleanFileVar($var) {
-		return PKPString::regexp_replace('/[^\w\-]/', '', $var);
+		return cleanFileVar($var);
 	}
 
 	/**

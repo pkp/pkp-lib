@@ -14,6 +14,7 @@
  * @brief Basic class describing a controlled vocab.
  */
 
+namespace PKP\controlledVocab;
 
 class ControlledVocabEntry extends \PKP\core\DataObject {
 
@@ -25,7 +26,7 @@ class ControlledVocabEntry extends \PKP\core\DataObject {
 	 * Get the ID of the controlled vocab.
 	 * @return int
 	 */
-	function getControlledVocabId() {
+	public function getControlledVocabId() {
 		return $this->getData('controlledVocabId');
 	}
 
@@ -33,7 +34,7 @@ class ControlledVocabEntry extends \PKP\core\DataObject {
 	 * Set the ID of the controlled vocab.
 	 * @param $controlledVocabId int
 	 */
-	function setControlledVocabId($controlledVocabId) {
+	public function setControlledVocabId($controlledVocabId) {
 		$this->setData('controlledVocabId', $controlledVocabId);
 	}
 
@@ -41,7 +42,7 @@ class ControlledVocabEntry extends \PKP\core\DataObject {
 	 * Get sequence number.
 	 * @return float
 	 */
-	function getSequence() {
+	public function getSequence() {
 		return $this->getData('sequence');
 	}
 
@@ -49,7 +50,7 @@ class ControlledVocabEntry extends \PKP\core\DataObject {
 	 * Set sequence number.
 	 * @param $sequence float
 	 */
-	function setSequence($sequence) {
+	public function setSequence($sequence) {
 		$this->setData('sequence', $sequence);
 	}
 
@@ -57,7 +58,7 @@ class ControlledVocabEntry extends \PKP\core\DataObject {
 	 * Get the localized name.
 	 * @return string
 	 */
-	function getLocalizedName() {
+	public function getLocalizedName() {
 		return $this->getLocalizedData('name');
 	}
 
@@ -66,7 +67,7 @@ class ControlledVocabEntry extends \PKP\core\DataObject {
 	 * @param $locale string
 	 * @return string
 	 */
-	function getName($locale) {
+	public function getName($locale) {
 		return $this->getData('name', $locale);
 	}
 
@@ -75,9 +76,11 @@ class ControlledVocabEntry extends \PKP\core\DataObject {
 	 * @param $name string
 	 * @param $locale string
 	 */
-	function setName($name, $locale) {
+	public function setName($name, $locale) {
 		$this->setData('name', $name, $locale);
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\controlledVocab\ControlledVocabEntry', '\ControlledVocabEntry');
+}

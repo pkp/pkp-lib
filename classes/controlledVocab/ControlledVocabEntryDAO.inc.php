@@ -14,7 +14,7 @@
  * @brief Operations for retrieving and modifying ControlledVocabEntry objects
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocabEntry');
+use \PKP\controlledVocab\ControlledVocabEntry;
 
 class ControlledVocabEntryDAO extends DAO {
 
@@ -83,7 +83,7 @@ class ControlledVocabEntryDAO extends DAO {
 	}
 
 	/**
-	 * Internal function to return an ControlledVocabEntry object from a
+	 * Internal function to return a ControlledVocabEntry object from a
 	 * row.
 	 * @param $row array
 	 * @return ControlledVocabEntry

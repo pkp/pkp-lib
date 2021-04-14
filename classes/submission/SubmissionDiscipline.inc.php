@@ -14,10 +14,7 @@
  * @brief Basic class describing a submission discipline
  */
 
-
-import('lib.pkp.classes.controlledVocab.ControlledVocabEntry');
-
-class SubmissionDiscipline extends ControlledVocabEntry {
+class SubmissionDiscipline extends \PKP\controlledVocab\ControlledVocabEntry {
 	//
 	// Get/set methods
 	//

@@ -14,10 +14,7 @@
  * @brief Basic class describing a reviewer interest
  */
 
-
-import('lib.pkp.classes.controlledVocab.ControlledVocabEntry');
-
-class InterestEntry extends ControlledVocabEntry {
+class InterestEntry extends \PKP\controlledVocab\ControlledVocabEntry {
 	//
 	// Get/set methods
 	//

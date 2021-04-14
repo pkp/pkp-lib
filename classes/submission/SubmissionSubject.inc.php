@@ -14,9 +14,7 @@
  * @brief Basic class describing a submission subject
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocabEntry');
-
-class SubmissionSubject extends ControlledVocabEntry {
+class SubmissionSubject extends \PKP\controlledVocab\ControlledVocabEntry {
 	//
 	// Get/set methods
 	//
@@ -39,7 +37,7 @@ class SubmissionSubject extends ControlledVocabEntry {
 	}
 
 	/**
-	 * @copydoc ControlledVocabEntry::getLocaleMetadataFieldNames()
+	 * @copydoc \PKP\controlledVocab\ControlledVocabEntry::getLocaleMetadataFieldNames()
 	 */
 	function getLocaleMetadataFieldNames() {
 		return array('submissionSubject');

@@ -14,9 +14,7 @@
  * @brief Basic class describing a submission keyword
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocabEntry');
-
-class SubmissionKeyword extends ControlledVocabEntry {
+class SubmissionKeyword extends \PKP\controlledVocab\ControlledVocabEntry {
 	//
 	// Get/set methods
 	//

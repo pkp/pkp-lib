@@ -14,9 +14,7 @@
  * @brief Basic class describing a submission agency
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocabEntry');
-
-class SubmissionAgency extends ControlledVocabEntry {
+class SubmissionAgency extends \PKP\controlledVocab\ControlledVocabEntry {
 	//
 	// Get/set methods
 	//

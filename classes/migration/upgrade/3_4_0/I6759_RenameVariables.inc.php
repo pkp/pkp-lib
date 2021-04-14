@@ -14,7 +14,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class I6759_RenameVariables extends Migration {
 	/**
@@ -22,7 +23,7 @@ class I6759_RenameVariables extends Migration {
 	 * @return void
 	 */
 	public function up() {
-		
+
 		// pkp/pkp-lib#6759 rename folders
 		$this->_renameFolders();
 
@@ -50,8 +51,8 @@ class I6759_RenameVariables extends Migration {
 	 */
 	private function _updateTablesWithReference() {
 
-		Capsule::schema()->rename('journals', 'servers');
-		Capsule::schema()->table('servers', function (Blueprint $table) {
+		Schema::rename('journals', 'servers');
+		Schema::table('servers', function (Blueprint $table) {
 			$table->dropIndex('journals_path');
 			$table->renameColumn('journal_id', 'server_id');
 			$table->float('seq', 8, 2)->comment('Used to order lists of servers')->change();
@@ -59,8 +60,8 @@ class I6759_RenameVariables extends Migration {
 			$table->unique(['path'], 'servers_path');
 		});
 
-		Capsule::schema()->rename('journal_settings', 'server_settings');
-		Capsule::schema()->table('server_settings', function (Blueprint $table) {
+		Schema::rename('journal_settings', 'server_settings');
+		Schema::table('server_settings', function (Blueprint $table) {
 			$table->dropIndex('journal_settings_journal_id');
 			$table->dropIndex('journal_settings_pkey');
 			$table->renameColumn('journal_id', 'server_id');
@@ -68,13 +69,13 @@ class I6759_RenameVariables extends Migration {
 			$table->unique(['server_id', 'locale', 'setting_name'], 'server_settings_pkey');
 		});
 
-		Capsule::schema()->table('sections', function (Blueprint $table) {
+		Schema::table('sections', function (Blueprint $table) {
 			$table->dropIndex('sections_journal_id');
 			$table->renameColumn('journal_id', 'server_id');
 			$table->index(['server_id'], 'sections_server_id');
 		});
 
-		Capsule::schema()->table('submission_tombstones', function (Blueprint $table) {
+		Schema::table('submission_tombstones', function (Blueprint $table) {
 			$table->dropIndex('submission_tombstones_journal_id');
 			$table->renameColumn('journal_id', 'server_id');
 			$table->index(['server_id'], 'submission_tombstones_server_id');
@@ -88,12 +89,12 @@ class I6759_RenameVariables extends Migration {
 	 * @brief rename values pkp/pkp-lib#6759
 	 */
 	private function _updateValuesWithReference() {
-		Capsule::statement("UPDATE filters SET class_name = 'plugins.importexport.crossref.filter.PreprintCrossrefXmlFilter', display_name = 'Crossref XML preprint export' WHERE class_name = 'plugins.importexport.crossref.filter.ArticleCrossrefXmlFilter'");
-		Capsule::statement("UPDATE filters SET class_name = 'plugins.metadata.dc11.filter.Dc11SchemaPreprintAdapter' WHERE class_name = 'plugins.metadata.dc11.filter.Dc11SchemaArticleAdapter'");
-		Capsule::statement("UPDATE filter_groups SET symbolic = 'preprint=>dc11', display_name = 'plugins.metadata.dc11.preprintAdapter.displayName', description = 'plugins.metadata.dc11.preprintAdapter.description', input_type = 'class::classes.submission.Submission', output_type = 'metadata::plugins.metadata.dc11.schema.Dc11Schema(PREPRINT)' WHERE symbolic = 'article=>dc11'");
-		Capsule::statement("UPDATE filter_groups SET symbolic = 'preprint=>crossref-xml', input_type = 'class::classes.submission.Submission[]', output_type = 'xml::schema(https://www.crossref.org/schemas/crossref4.4.0.xsd)' WHERE symbolic = 'article=>crossref-xml'");
-		Capsule::statement("UPDATE files SET path = REPLACE(path,'journals/','contexts/')");
-		Capsule::statement("UPDATE files SET path = REPLACE(path,'/articles/','/submissions/')");
+		DB::statement("UPDATE filters SET class_name = 'plugins.importexport.crossref.filter.PreprintCrossrefXmlFilter', display_name = 'Crossref XML preprint export' WHERE class_name = 'plugins.importexport.crossref.filter.ArticleCrossrefXmlFilter'");
+		DB::statement("UPDATE filters SET class_name = 'plugins.metadata.dc11.filter.Dc11SchemaPreprintAdapter' WHERE class_name = 'plugins.metadata.dc11.filter.Dc11SchemaArticleAdapter'");
+		DB::statement("UPDATE filter_groups SET symbolic = 'preprint=>dc11', display_name = 'plugins.metadata.dc11.preprintAdapter.displayName', description = 'plugins.metadata.dc11.preprintAdapter.description', input_type = 'class::classes.submission.Submission', output_type = 'metadata::plugins.metadata.dc11.schema.Dc11Schema(PREPRINT)' WHERE symbolic = 'article=>dc11'");
+		DB::statement("UPDATE filter_groups SET symbolic = 'preprint=>crossref-xml', input_type = 'class::classes.submission.Submission[]', output_type = 'xml::schema(https://www.crossref.org/schemas/crossref4.4.0.xsd)' WHERE symbolic = 'article=>crossref-xml'");
+		DB::statement("UPDATE files SET path = REPLACE(path,'journals/','contexts/')");
+		DB::statement("UPDATE files SET path = REPLACE(path,'/articles/','/submissions/')");
 	}
 
 
@@ -107,7 +108,7 @@ class I6759_RenameVariables extends Migration {
 		$contextDao = Application::getContextDAO();
 		$contexts = $contextDao->getAll(true)->toArray();
 		foreach ($contexts as $context) {
-			
+
 			// Move library files folder to journals folder
 			$oldFolder = $filesDir . '/contexts/' . $context->getId() . '/library/';
 			if (is_dir($oldFolder)){
@@ -137,5 +138,5 @@ class I6759_RenameVariables extends Migration {
 		rename($publicFilesDir . '/journals/', $publicFilesDir . '/contexts/');
 
 	}
-	
+
 }

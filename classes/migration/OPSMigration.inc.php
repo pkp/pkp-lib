@@ -14,7 +14,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class OPSMigration extends Migration {
         /**
@@ -23,7 +24,7 @@ class OPSMigration extends Migration {
          */
         public function up() {
 		// Servers and basic server settings.
-		Capsule::schema()->create('servers', function (Blueprint $table) {
+		Schema::create('servers', function (Blueprint $table) {
 			$table->bigInteger('server_id')->autoIncrement();
 			$table->string('path', 32);
 			$table->float('seq', 8, 2)->default(0)->comment('Used to order lists of servers');
@@ -33,7 +34,7 @@ class OPSMigration extends Migration {
 		});
 
 		// Server settings.
-		Capsule::schema()->create('server_settings', function (Blueprint $table) {
+		Schema::create('server_settings', function (Blueprint $table) {
 			$table->bigInteger('server_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -44,7 +45,7 @@ class OPSMigration extends Migration {
 		});
 
 		// Server sections.
-		Capsule::schema()->create('sections', function (Blueprint $table) {
+		Schema::create('sections', function (Blueprint $table) {
 			$table->bigInteger('section_id')->autoIncrement();
 			$table->bigInteger('server_id');
 			$table->bigInteger('review_form_id')->nullable();
@@ -61,7 +62,7 @@ class OPSMigration extends Migration {
 		});
 
 		// Section-specific settings
-		Capsule::schema()->create('section_settings', function (Blueprint $table) {
+		Schema::create('section_settings', function (Blueprint $table) {
 			$table->bigInteger('section_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -72,7 +73,7 @@ class OPSMigration extends Migration {
 		});
 
 		// Archived, removed from TOC, unscheduled or unpublished server preprints.
-		Capsule::schema()->create('submission_tombstones', function (Blueprint $table) {
+		Schema::create('submission_tombstones', function (Blueprint $table) {
 			$table->bigInteger('tombstone_id')->autoIncrement();
 			$table->bigInteger('submission_id');
 			$table->datetime('date_deleted');
@@ -86,7 +87,7 @@ class OPSMigration extends Migration {
 		});
 
 		// Publications
-		Capsule::schema()->create('publications', function (Blueprint $table) {
+		Schema::create('publications', function (Blueprint $table) {
 			$table->bigInteger('publication_id')->autoIncrement();
 			$table->bigInteger('access_status')->default(0)->nullable();
 			$table->date('date_published')->nullable();
@@ -105,7 +106,7 @@ class OPSMigration extends Migration {
 		});
 
 		// Publication galleys
-		Capsule::schema()->create('publication_galleys', function (Blueprint $table) {
+		Schema::create('publication_galleys', function (Blueprint $table) {
 			$table->bigInteger('galley_id')->autoIncrement();
 			$table->string('locale', 14)->nullable();
 			$table->bigInteger('publication_id');
@@ -121,7 +122,7 @@ class OPSMigration extends Migration {
 		});
 
 		// Galley metadata.
-		Capsule::schema()->create('publication_galley_settings', function (Blueprint $table) {
+		Schema::create('publication_galley_settings', function (Blueprint $table) {
 			$table->bigInteger('galley_id');
 			$table->string('locale', 14)->default('');
 			$table->string('setting_name', 255);
@@ -130,9 +131,9 @@ class OPSMigration extends Migration {
 			$table->unique(['galley_id', 'locale', 'setting_name'], 'publication_galley_settings_pkey');
 		});
 		// Add partial index (DBMS-specific)
-		switch (Capsule::connection()->getDriverName()) {
-			case 'mysql': Capsule::connection()->unprepared('CREATE INDEX publication_galley_settings_name_value ON publication_galley_settings (setting_name(50), setting_value(150))'); break;
-			case 'pgsql': Capsule::connection()->unprepared('CREATE INDEX publication_galley_settings_name_value ON publication_galley_settings (setting_name, setting_value)'); break;
+		switch (DB::getDriverName()) {
+			case 'mysql': DB::unprepared('CREATE INDEX publication_galley_settings_name_value ON publication_galley_settings (setting_name(50), setting_value(150))'); break;
+			case 'pgsql': DB::unprepared('CREATE INDEX publication_galley_settings_name_value ON publication_galley_settings (setting_name, setting_value)'); break;
 		}
 	}
 
@@ -141,14 +142,14 @@ class OPSMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->drop('completed_payments');
-		Capsule::schema()->drop('servers');
-		Capsule::schema()->drop('server_settings');
-		Capsule::schema()->drop('sections');
-		Capsule::schema()->drop('section_settings');
-		Capsule::schema()->drop('submission_tombstones');
-		Capsule::schema()->drop('publications');
-		Capsule::schema()->drop('publication_galleys');
-		Capsule::schema()->drop('publication_galley_settings');
+		Schema::drop('completed_payments');
+		Schema::drop('servers');
+		Schema::drop('server_settings');
+		Schema::drop('sections');
+		Schema::drop('section_settings');
+		Schema::drop('submission_tombstones');
+		Schema::drop('publications');
+		Schema::drop('publication_galleys');
+		Schema::drop('publication_galley_settings');
 	}
 }

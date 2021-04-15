@@ -16,8 +16,6 @@
 
 namespace PKP\core;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
-
 use \Config;
 use \Core;
 use \Registry;
@@ -25,6 +23,9 @@ use \PKPContainer;
 use \Dispatcher;
 use \Request;
 use \DAORegistry;
+use \PluginRegistry;
+use \StatisticsHelper;
+use \PKPString;
 
 interface iPKPApplicationInfoProvider {
 	/**
@@ -183,7 +184,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			define('SESSION_DISABLE_INIT', true);
 		}
 
-		\Registry::set('application', $this);
+		Registry::set('application', $this);
 
 		import('lib.pkp.classes.db.DAORegistry');
 		import('lib.pkp.classes.db.XMLDAO');
@@ -202,7 +203,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 
 		import('classes.i18n.AppLocale');
 
-		\PKPString::init();
+		PKPString::init();
 
 		$microTime = Core::microtime();
 		Registry::set('system.debug.startTime', $microTime);

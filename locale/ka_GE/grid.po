@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"PO-Revision-Date: 2021-04-15 15:55+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "ka_GE/>\n"
@@ -154,3 +154,222 @@ msgstr "წარწერა"
 
 msgid "grid.action.addNavigationMenuItem"
 msgstr "ელემენტის დამატება"
+
+msgid "grid.action.manageAccess"
+msgstr "წვდომის მართვა"
+
+msgid "grid.action.addItem"
+msgstr "ელემენტის დამატება"
+
+msgid "grid.action.addNote"
+msgstr "შენიშვნის დამატება"
+
+msgid "grid.action.addQuery"
+msgstr "განხილვის დამატება"
+
+msgid "grid.action.readQuery"
+msgstr "განხილვის წაკითხვა"
+
+msgid "grid.action.deleteQuery"
+msgstr "დისკუსიის წაშლა"
+
+msgid "grid.action.approveCopyedit"
+msgstr ""
+"ამ ლიტერატურულად ჩასწორებული ფაილის დამტკიცება, შემდეგ ეტაპზე გაგზავნის "
+"მიზნით"
+
+msgid "grid.action.deleteFile"
+msgstr "ფაილის წაშლა"
+
+msgid "grid.action.deleteMedia"
+msgstr "მედიას წაშლა"
+
+msgid "grid.action.editSection"
+msgstr "სექციის ჩასწორება"
+
+msgid "grid.action.deleteSection"
+msgstr "სექციის წაშლა"
+
+msgid "grid.action.editorialHistory"
+msgstr "ჩასწორების ისტორია"
+
+msgid "grid.action.disapprove"
+msgstr "უარყოფა"
+
+msgid "grid.action.moreInformation"
+msgstr "Მეტი ინფორმაცია"
+
+msgid "grid.action.addAuthor"
+msgstr "ავტორის დამატება"
+
+msgid "grid.action.editAuthor"
+msgstr "ავტორის ჩასწორება"
+
+msgid "grid.action.deleteAuthor"
+msgstr "ავტორის წაშლა"
+
+msgid "grid.action.addAuditor"
+msgstr "აუდიტორის დანიშვნა"
+
+msgid "grid.action.cancelOrdering"
+msgstr "თანმიმდევრობის გაუქმება"
+
+msgid "grid.action.extendAll"
+msgstr "ყველას გაშლა"
+
+msgid "grid.action.collapseAll"
+msgstr "ყველას აკეცვა"
+
+msgid "grid.action.moveItem"
+msgstr "ელემენტის გადაადგილება"
+
+msgid "grid.action.downloadAll"
+msgstr "ყველა ფაილის არქივად ჩამოტვირთვა"
+
+msgid "grid.action.readReview"
+msgstr "ამ მიმოხილვის წაკითხვა"
+
+msgid "grid.action.email"
+msgstr "ელფოსტის გაგზავნა"
+
+msgid "grid.action.addReviewer"
+msgstr "რეცენზენტის დამატება"
+
+msgid "grid.action.addFile"
+msgstr "ფაილის დამატება"
+
+msgid "grid.action.editFile"
+msgstr "ფაილის ჩასწორება"
+
+msgid "grid.action.requestRevisions"
+msgstr "მოითხოვეთ შესწორებები ამ წარდგენისთვის"
+
+msgid "grid.action.accept"
+msgstr "მასალის მიღება"
+
+msgid "grid.action.decline"
+msgstr "ამ შენატანის გაუქმება"
+
+msgid "grid.action.internalReview"
+msgstr "ამ წარდგენის გაგზავნა შიდა განხილვაზე"
+
+msgid "grid.action.externalReview"
+msgstr "ამ წარდგენის გაგზავნა გარე განხილვაზე"
+
+msgid "grid.action.importexport"
+msgstr "შიგთავსის, ან საიტის მონაცემების იმპორტი ან ექსპორტი"
+
+msgid "grid.action.orderItems"
+msgstr "წვდომადობის რეჟიმის ჩართვა"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "ამ სიის ელემენტის ჩასწორება"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "ამ სიის ელემენტის წაშლა"
+
+msgid "grid.action.resetAll"
+msgstr "ყველა ელემენტის გადაყენება ნაგულისხმევი მნიშვნელობებით"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "ელფოსტის ახალი შაბლონის დამატება"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "ელფოსტის ამ შაბლონის ჩასწორება"
+
+msgid "grid.action.disableEmail"
+msgstr "ელფოსტის ამ შაბლონის გამორთვა"
+
+msgid "grid.action.resetEmail"
+msgstr "ამ ელფოსტის შაბლონის გადაყენება ნაგულისხმევად"
+
+msgid "grid.action.requestAccount"
+msgstr "მონაწილის დამატება"
+
+msgid "grid.action.notify"
+msgstr "შეტყობინება მომხმარებელს"
+
+msgid "grid.action.addUserGroup"
+msgstr "მომხმარებელთა ახალი ჯგუფის დამატება"
+
+msgid "grid.action.editUserGroup"
+msgstr "ამ მომხმარებელთა ჯგუფის ჩასწორება"
+
+msgid "grid.action.removeUserGroup"
+msgstr "ამ მომხმარებელთა ჯგუფის წაშლა"
+
+msgid "grid.action.details"
+msgstr "ამ ელემენტის ნახვა"
+
+msgid "grid.action.enrolExisting"
+msgstr "არსებულ მომხმარებლის რეცენზენტად დანიშვნა"
+
+msgid "grid.action.newRound"
+msgstr "ახალი რაუნდის შექმნა"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "განცხადების ტიპის დამატება"
+
+msgid "grid.action.addAnnouncement"
+msgstr "განცხადების დამატება"
+
+msgid "grid.action.mergeUser"
+msgstr "მომხმარებლის გაერთიანება"
+
+msgid "grid.action.history"
+msgstr "ნახვის ისტორია"
+
+msgid "grid.action.bookInfo"
+msgstr "წარდგენის ინფორმაცია"
+
+msgid "grid.action.logInAs"
+msgstr "შესვლა, როგორც"
+
+msgid "grid.action.exportAllUsers"
+msgstr "ყველა მომხმარებლის ექსპორტი"
+
+msgid "grid.action.addSponsor"
+msgstr "სპონსორის დამატება"
+
+msgid "grid.action.deleteSponsor"
+msgstr "სპონსორის წაშლა"
+
+msgid "grid.action.editSponsor"
+msgstr "სპონსორის ჩასწორება"
+
+msgid "grid.action.addSeries"
+msgstr "სერიების დამატება"
+
+msgid "grid.action.editSeries"
+msgstr "სერიების ჩასწორება"
+
+msgid "grid.action.deleteSeries"
+msgstr "სერიების წაშლა"
+
+msgid "grid.action.deleteCategory"
+msgstr "კატეგორიის წაშლა"
+
+msgid "grid.action.addContributor"
+msgstr "წევრის დამატება"
+
+msgid "grid.action.editContributor"
+msgstr "წევრის ჩასწორება"
+
+msgid "grid.action.deleteContributor"
+msgstr "წევრის წაშლა"
+
+msgid "grid.action.newVersion"
+msgstr "ახალი ვერსიის შექმნა"
+
+msgid "author.users.contributor.principalContact"
+msgstr "ძირითადი კონტაქტი"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "სიების დათვალიერება"
+
+msgid "grid.action.fileUnconsider"
+msgstr ""
+"გაკეთდა დამადასტურებელი კორექტივები. თქვენ შეიძლება არ განიხილოთ ეს ამოცანა"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "მენიუს დამატება"

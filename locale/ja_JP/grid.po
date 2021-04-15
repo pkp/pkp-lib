@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-08 12:54+0000\n"
+"PO-Revision-Date: 2021-04-15 15:55+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "ja_JP/>\n"
@@ -310,7 +310,7 @@ msgid "grid.action.editSeries"
 msgstr "シリーズを編集"
 
 msgid "grid.action.addSeries"
-msgstr "シーリーズの追加"
+msgstr "シリーズの追加"
 
 msgid "grid.action.editSponsor"
 msgstr "スポンサーを編集"

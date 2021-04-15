@@ -13,9 +13,11 @@
 		cy.get('.ui-tabs-anchor').contains('Submission').eq(0).click();
 		cy.get('#submissionFilesGridDiv .show_extras').eq(0).click();
 		cy.get('[id^="component-grid-files-submission"]').contains('Edit').eq(0).click();
+		cy.wait(3000);
 		cy.get('[name="name[en_US]"').clear().type('edição-£$L<->/4/ch 丹尼爾 a دانيال1d line \\n break.pdf');
 		cy.get('[name="name[fr_CA]"').clear().type('edição-£$L<->/4/ch 丹尼爾 a دانيال1d line \\n break.pdf');
 		cy.get('[id^="submitFormButton"]').contains('Save').click();
+		cy.get('.pkp_modal').should('not.exist');
 
 		cy.request('GET', 'index.php/publicknowledge/$$$call$$$/api/file/file-api/download-file?submissionFileId=1&submissionId=1&stageId=1')
 			.then((response) => {

@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.linkAction.request.ConfirmationModal');
 
+use \PKP\core\JSONMessage;
+
 class JsEventConfirmationModal extends ConfirmationModal {
 	/** @var string The name of the event to be generated when this modal is confirmed */
 	var $_event;

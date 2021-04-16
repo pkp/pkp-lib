@@ -17,7 +17,8 @@ import('lib.pkp.classes.handler.PKPHandler');
 
 use \Slim\App;
 import('lib.pkp.classes.core.APIResponse');
-import('classes.core.Services');
+
+use \APP\core\Services;
 
 class APIHandler extends PKPHandler {
 	protected $_app;

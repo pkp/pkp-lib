@@ -16,6 +16,8 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.announcements.form.AnnouncementTypeForm');
 
+use \PKP\core\JSONMessage;
+
 class AnnouncementTypeGridHandler extends GridHandler {
 	/**
 	 * Constructor

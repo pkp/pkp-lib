@@ -14,9 +14,11 @@
 
 import('lib.pkp.classes.handler.APIHandler');
 
+use \PKP\services\PKPSchemaService;
+
 class PKPSiteHandler extends APIHandler {
 	/** @var string One of the SCHEMA_... constants */
-	public $schemaName = SCHEMA_SITE;
+	public $schemaName = PKPSchemaService::SCHEMA_SITE;
 
 	/**
 	 * @copydoc APIHandler::__construct()
@@ -138,7 +140,7 @@ class PKPSiteHandler extends APIHandler {
 		$site = $request->getSite();
 		$siteService = Services::get('site');
 
-		$params = $this->convertStringsToSchema(SCHEMA_SITE, $slimRequest->getParsedBody());
+		$params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SITE, $slimRequest->getParsedBody());
 
 		$errors = $siteService->validate($params, $site->getSupportedLocales(), $site->getPrimaryLocale());
 

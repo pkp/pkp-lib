@@ -14,8 +14,9 @@
  * @brief Operations for retrieving and modifying Session objects.
  */
 
+namespace PKP\session;
 
-import('lib.pkp.classes.session.Session');
+use \PKP\db\DAO;
 
 class SessionDAO extends DAO {
 
@@ -171,4 +172,6 @@ class SessionDAO extends DAO {
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\session\SessionDAO', '\SessionDAO');
+}

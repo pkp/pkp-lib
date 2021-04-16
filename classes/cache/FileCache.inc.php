@@ -18,8 +18,9 @@
  * @brief Provides caching based on machine-generated PHP code on the filesystem.
  */
 
+namespace PKP\cache;
 
-import('lib.pkp.classes.cache.GenericCache');
+use \PKP\config\Config;
 
 class FileCache extends GenericCache {
 	/**

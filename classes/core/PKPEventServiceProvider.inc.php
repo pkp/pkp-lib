@@ -13,6 +13,8 @@
  * @brief Registers Events Service Provider and boots data on events and their listeners
  */
 
+namespace PKP\core;
+
 use Illuminate\Support\Facades\Event;
 use Illuminate\Events\EventServiceProvider;
 
@@ -72,3 +74,8 @@ class PKPEventServiceProvider extends EventServiceProvider {
 		}
 	}
 }
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\PKPEventServiceProvider', '\PKPEventServiceProvider');
+}
+

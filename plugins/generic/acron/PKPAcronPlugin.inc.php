@@ -18,6 +18,8 @@
 import('lib.pkp.classes.plugins.GenericPlugin');
 import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 
+use \PKP\xml\XMLNode;
+
 // TODO: Error handling. If a scheduled task encounters an error...?
 
 class PKPAcronPlugin extends GenericPlugin {

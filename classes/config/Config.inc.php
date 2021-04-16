@@ -18,11 +18,12 @@
  * @brief Config class for accessing configuration parameters.
  */
 
+namespace PKP\config;
+
+use \PKP\core\Registry;
 
 /** The path to the default configuration file */
-define('CONFIG_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'config.inc.php');
-
-import('lib.pkp.classes.config.ConfigParser');
+define('CONFIG_FILE', \PKP\core\Core::getBaseDir() . DIRECTORY_SEPARATOR . 'config.inc.php');
 
 class Config {
 	/**

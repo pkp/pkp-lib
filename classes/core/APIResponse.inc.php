@@ -11,6 +11,9 @@
  *
  * @brief Extends the Response class in the Slim microframework.
  */
+
+namespace PKP\core;
+
 use Slim\Http\Response;
 
 class APIResponse extends Response {
@@ -30,4 +33,8 @@ class APIResponse extends Response {
 			)
 		);
 	}
+}
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\APIResponse', '\APIResponse');
 }

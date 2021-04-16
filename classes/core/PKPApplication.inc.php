@@ -14,42 +14,19 @@
  *
  */
 
-define('CONTEXT_SITE', 0);
-define('CONTEXT_ID_NONE', 0);
-define('CONTEXT_ID_ALL', '_');
-define('REVIEW_ROUND_NONE', 0);
+namespace PKP\core;
 
-define('ASSOC_TYPE_PRODUCTION_ASSIGNMENT',	0x0000202);
-define('ASSOC_TYPE_SUBMISSION_FILE',		0x0000203);
-define('ASSOC_TYPE_REVIEW_RESPONSE',		0x0000204);
-define('ASSOC_TYPE_REVIEW_ASSIGNMENT',		0x0000205);
-define('ASSOC_TYPE_SUBMISSION_EMAIL_LOG_ENTRY',	0x0000206);
-define('ASSOC_TYPE_WORKFLOW_STAGE',		0x0000207);
-define('ASSOC_TYPE_NOTE',			0x0000208);
-define('ASSOC_TYPE_REPRESENTATION',		0x0000209);
-define('ASSOC_TYPE_ANNOUNCEMENT',		0x000020A);
-define('ASSOC_TYPE_REVIEW_ROUND',		0x000020B);
-define('ASSOC_TYPE_SUBMISSION_FILES',		0x000020F);
-define('ASSOC_TYPE_PLUGIN',			0x0000211);
-define('ASSOC_TYPE_SECTION',			0x0000212);
-define('ASSOC_TYPE_CATEGORY',			0x000020D);
-define('ASSOC_TYPE_USER',			0x0001000); // This value used because of bug #6068
-define('ASSOC_TYPE_USER_GROUP',			0x0100002);
-define('ASSOC_TYPE_CITATION',			0x0100003);
-define('ASSOC_TYPE_AUTHOR',			0x0100004);
-define('ASSOC_TYPE_EDITOR',			0x0100005);
-define('ASSOC_TYPE_USER_ROLES',			0x0100007);
-define('ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES',	0x0100008);
-define('ASSOC_TYPE_SUBMISSION',			0x0100009);
-define('ASSOC_TYPE_QUERY',			0x010000a);
-define('ASSOC_TYPE_QUEUED_PAYMENT',		0x010000b);
-define('ASSOC_TYPE_PUBLICATION', 0x010000c);
-define('ASSOC_TYPE_ACCESSIBLE_FILE_STAGES',    0x010000d);
-
-// Constant used in UsageStats for submission files that are not full texts
-define('ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER', 0x0000213);
-
-use Illuminate\Database\Capsule\Manager as Capsule;
+use \PKP\config\Config;
+use \PKP\core\Core;
+use \PKP\core\PKPContainer;
+use \PKP\core\Dispatcher;
+use \APP\core\Request;
+use \PKP\db\DAORegistry;
+use \PKP\plugins\PluginRegistry;
+use \PKP\core\PKPString;
+use \APP\i18n\AppLocale;
+use \APP\core\Application;
+use \StatisticsHelper;
 
 interface iPKPApplicationInfoProvider {
 	/**
@@ -108,6 +85,41 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	public const ROUTE_PAGE = 'page';
 	public const ROUTE_API = 'api';
 
+	public const CONTEXT_SITE = 0;
+	public const CONTEXT_ID_NONE = 0;
+	public const CONTEXT_ID_ALL = '_';
+	public const REVIEW_ROUND_NONE = 0;
+
+	public const ASSOC_TYPE_PRODUCTION_ASSIGNMENT =	0x0000202;
+	public const ASSOC_TYPE_SUBMISSION_FILE = 0x0000203;
+	public const ASSOC_TYPE_REVIEW_RESPONSE = 0x0000204;
+	public const ASSOC_TYPE_REVIEW_ASSIGNMENT = 0x0000205;
+	public const ASSOC_TYPE_SUBMISSION_EMAIL_LOG_ENTRY = 0x0000206;
+	public const ASSOC_TYPE_WORKFLOW_STAGE = 0x0000207;
+	public const ASSOC_TYPE_NOTE = 0x0000208;
+	public const ASSOC_TYPE_REPRESENTATION = 0x0000209;
+	public const ASSOC_TYPE_ANNOUNCEMENT = 0x000020A;
+	public const ASSOC_TYPE_REVIEW_ROUND = 0x000020B;
+	public const ASSOC_TYPE_SUBMISSION_FILES = 0x000020F;
+	public const ASSOC_TYPE_PLUGIN = 0x0000211;
+	public const ASSOC_TYPE_SECTION = 0x0000212;
+	public const ASSOC_TYPE_CATEGORY = 0x000020D;
+	public const ASSOC_TYPE_USER = 0x0001000; // This value used because of bug #6068
+	public const ASSOC_TYPE_USER_GROUP = 0x0100002;
+	public const ASSOC_TYPE_CITATION = 0x0100003;
+	public const ASSOC_TYPE_AUTHOR = 0x0100004;
+	public const ASSOC_TYPE_EDITOR = 0x0100005;
+	public const ASSOC_TYPE_USER_ROLES = 0x0100007;
+	public const ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES = 0x0100008;
+	public const ASSOC_TYPE_SUBMISSION = 0x0100009;
+	public const ASSOC_TYPE_QUERY = 0x010000a;
+	public const ASSOC_TYPE_QUEUED_PAYMENT = 0x010000b;
+	public const ASSOC_TYPE_PUBLICATION = 0x010000c;
+	public const ASSOC_TYPE_ACCESSIBLE_FILE_STAGES = 0x010000d;
+
+	// Constant used in UsageStats for submission files that are not full texts
+	public const ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER = 0x0000213;
+
 	var $enabledProducts = array();
 	var $allProducts;
 
@@ -118,37 +130,56 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		// Seed random number generator
 		mt_srand(((double) microtime()) * 1000000);
 
-		import('lib.pkp.classes.core.Core');
-		import('lib.pkp.classes.core.PKPString');
-		import('lib.pkp.classes.core.Registry');
-
-		import('lib.pkp.classes.config.Config');
-		if (!defined('PKP_STRICT_MODE')) define('PKP_STRICT_MODE', (boolean) Config::getVar('general', 'strict'));
-
-		// If not in strict mode, globally expose constants on this class.
-		if (!PKP_STRICT_MODE) foreach ([
-			'WORKFLOW_TYPE_EDITORIAL', 'WORKFLOW_TYPE_AUTHOR', 'PHP_REQUIRED_VERSION',
-			'API_VERSION',
-			'ROUTE_COMPONENT', 'ROUTE_PAGE', 'ROUTE_API',
-		] as $constantName) {
-			if (!defined($constantName)) define($constantName, constant('self::' . $constantName));
+		if (!defined('PKP_STRICT_MODE')) {
+			define('PKP_STRICT_MODE', (boolean) Config::getVar('general', 'strict'));
+			class_alias('\PKP\config\Config', '\Config');
+			class_alias('\PKP\core\Registry', '\Registry');
+			class_alias('\PKP\core\Core', '\Core');
+			class_alias('\PKP\cache\CacheManager', '\CacheManager');
 		}
 
+		// If not in strict mode, globally expose constants on this class.
+		if (!PKP_STRICT_MODE) {
+			foreach ([
+				'WORKFLOW_TYPE_EDITORIAL', 'WORKFLOW_TYPE_AUTHOR', 'PHP_REQUIRED_VERSION',
+				'API_VERSION',
+				'ROUTE_COMPONENT', 'ROUTE_PAGE', 'ROUTE_API',
+				'CONTEXT_SITE', 'CONTEXT_ID_NONE', 'CONTEXT_ID_ALL', 'REVIEW_ROUND_NONE',
+
+				'ASSOC_TYPE_PRODUCTION_ASSIGNMENT',
+				'ASSOC_TYPE_SUBMISSION_FILE',
+				'ASSOC_TYPE_REVIEW_RESPONSE',
+				'ASSOC_TYPE_REVIEW_ASSIGNMENT',
+				'ASSOC_TYPE_SUBMISSION_EMAIL_LOG_ENTRY',
+				'ASSOC_TYPE_WORKFLOW_STAGE',
+				'ASSOC_TYPE_NOTE',
+				'ASSOC_TYPE_REPRESENTATION',
+				'ASSOC_TYPE_ANNOUNCEMENT',
+				'ASSOC_TYPE_REVIEW_ROUND',
+				'ASSOC_TYPE_SUBMISSION_FILES',
+				'ASSOC_TYPE_PLUGIN',
+				'ASSOC_TYPE_SECTION',
+				'ASSOC_TYPE_CATEGORY',
+				'ASSOC_TYPE_USER',
+				'ASSOC_TYPE_USER_GROUP',
+				'ASSOC_TYPE_CITATION',
+				'ASSOC_TYPE_AUTHOR',
+				'ASSOC_TYPE_EDITOR',
+				'ASSOC_TYPE_USER_ROLES',
+				'ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES',
+				'ASSOC_TYPE_SUBMISSION',
+				'ASSOC_TYPE_QUERY',
+				'ASSOC_TYPE_QUEUED_PAYMENT',
+				'ASSOC_TYPE_PUBLICATION',
+				'ASSOC_TYPE_ACCESSIBLE_FILE_STAGES',
+			] as $constantName) {
+				if (!defined($constantName)) define($constantName, constant('self::' . $constantName));
+			}
+			if (!class_exists('\PKPApplication')) class_alias('\PKP\core\PKPApplication', '\PKPApplication');
+		}
 
 		// Load Composer autoloader
 		require_once('lib/pkp/lib/vendor/autoload.php');
-
-		// Register custom autoloader functions for namespaces
-		spl_autoload_register(function($class) {
-			$prefix = 'PKP\\';
-			$rootPath = BASE_SYS_DIR . "/lib/pkp/classes";
-			customAutoload($rootPath, $prefix, $class);
-		});
-		spl_autoload_register(function($class) {
-			$prefix = 'APP\\';
-			$rootPath = BASE_SYS_DIR . "/classes";
-			customAutoload($rootPath, $prefix, $class);
-		});
 
 		ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
 		if (!defined('SESSION_DISABLE_INIT') && !Config::getVar('general', 'installed')) {
@@ -157,22 +188,11 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 
 		Registry::set('application', $this);
 
-		import('lib.pkp.classes.db.DAORegistry');
-		import('lib.pkp.classes.db.XMLDAO');
-
-		import('lib.pkp.classes.cache.CacheManager');
-
 		import('lib.pkp.classes.security.RoleDAO');
 		import('lib.pkp.classes.security.Validation');
-		import('lib.pkp.classes.session.SessionManager');
 		import('classes.template.TemplateManager');
 		import('classes.notification.NotificationManager');
 		import('lib.pkp.classes.statistics.PKPStatisticsHelper');
-
-		import('lib.pkp.classes.plugins.PluginRegistry');
-		import('lib.pkp.classes.plugins.HookRegistry');
-
-		import('classes.i18n.AppLocale');
 
 		PKPString::init();
 
@@ -196,7 +216,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		$containerInitialized = true;
 
 		// Initialize Laravel's container and set it globally
-		import('lib.pkp.classes.core.PKPContainer');
 		$laravelContainer = new PKPContainer();
 		$laravelContainer->registerConfiguredProviders();
 
@@ -255,8 +274,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		$request =& Registry::get('request', true, null); // Ref req'd
 
 		if (is_null($request)) {
-			import('classes.core.Request');
-
 			// Implicitly set request by ref in the registry
 			$request = new Request();
 		}
@@ -271,8 +288,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	public function getDispatcher() {
 		$dispatcher =& Registry::get('dispatcher', true, null); // Ref req'd
 		if (is_null($dispatcher)) {
-			import('lib.pkp.classes.core.Dispatcher');
-
 			// Implicitly set dispatcher by ref in the registry
 			$dispatcher = new Dispatcher();
 

@@ -15,6 +15,8 @@
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
+use \PKP\core\JSONMessage;
+
 class EditorReviewFilesGridHandler extends FileListGridHandler {
 
 	/**

@@ -13,8 +13,9 @@
  * @brief Mock implementation of the Request class
  */
 
+namespace APP\core;
 
-import('lib.pkp.classes.core.PKPRequest');
+use \PKP\core\PKPRequest;
 
 class Request extends PKPRequest {
 	private static $_requestMethod;
@@ -28,3 +29,6 @@ class Request extends PKPRequest {
 	}
 }
 
+if (!PKP_STRICT_MODE) {
+	class_alias('\APP\core\Request', '\Request');
+}

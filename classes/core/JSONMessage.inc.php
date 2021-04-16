@@ -14,6 +14,7 @@
  *
  */
 
+namespace PKP\core;
 
 class JSONMessage {
 	/** @var string The status of an event (e.g. false if form validation fails). */
@@ -185,4 +186,7 @@ class JSONMessage {
 	}
 }
 
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\JSONMessage', '\JSONMessage');
+}
 

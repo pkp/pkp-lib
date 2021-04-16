@@ -14,8 +14,9 @@
  */
 
 import('classes.handler.Handler');
-import('lib.pkp.classes.core.JSONMessage');
 import('classes.log.SubmissionEventLogEntry');
+
+use \PKP\core\JSONMessage;
 
 abstract class InformationCenterHandler extends Handler {
 	/** @var Submission */

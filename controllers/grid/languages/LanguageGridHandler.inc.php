@@ -17,6 +17,9 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.languages.LanguageGridRow');
 import('lib.pkp.controllers.grid.languages.LanguageGridCellProvider');
 
+use \APP\core\Services;
+use \PKP\core\JSONMessage;
+
 class LanguageGridHandler extends GridHandler {
 	/**
 	 * Constructor
@@ -72,7 +75,6 @@ class LanguageGridHandler extends GridHandler {
 		$availableLocales = $this->getGridDataElements($request);
 		$context = $request->getContext();
 
-		import('classes.core.Services');
 		$contextService = Services::get('context');
 
 		$permittedSettings = array('supportedFormLocales', 'supportedSubmissionLocales', 'supportedLocales');

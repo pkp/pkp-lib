@@ -14,8 +14,7 @@
  * @brief Provides caching based on APC's variable store.
  */
 
-
-import('lib.pkp.classes.cache.GenericCache');
+namespace PKP\cache;
 
 class apc_false {};
 
@@ -50,7 +49,7 @@ class APCCache extends GenericCache {
 		$key = INDEX_FILE_LOCATION . ':'. $this->getContext() . ':' . $this->getCacheId() . ':' . $id;
 		$returner = unserialize(apc_fetch($key));
 		if ($returner === false) return $this->cacheMiss;
-		if (get_class($returner) === 'apc_false') $returner = false;
+		if ($returner instanceof apc_false) $returner = false;
 		return $returner;
 	}
 

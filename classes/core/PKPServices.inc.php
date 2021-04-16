@@ -14,6 +14,8 @@
  * @brief Pimple Dependency Injection Container.
  */
 
+namespace PKP\core;
+
 abstract class PKPServices {
 
 	/** @var Pimple\Container Pimple Dependency Injection Container */
@@ -25,7 +27,7 @@ abstract class PKPServices {
 	 * private constructor
 	 */
 	private function __construct() {
-		$this->container = new Pimple\Container();
+		$this->container = new \Pimple\Container();
 		$this->init();
 	}
 
@@ -38,7 +40,7 @@ abstract class PKPServices {
 	 * A static method to register a service
 	 * @param string $service
 	 */
-	public static function register(Pimple\ServiceProviderInterface $service) {
+	public static function register(\Pimple\ServiceProviderInterface $service) {
 		self::_instance()->container->register($service);
 	}
 
@@ -55,7 +57,7 @@ abstract class PKPServices {
 	 */
 	private static function _instance() {
 		if (is_null(self::$instance)) {
-			self::$instance = new Services();
+			self::$instance = new \app\core\Services();
 		}
 
 		return self::$instance;
@@ -68,5 +70,9 @@ abstract class PKPServices {
 	private function _getFromContainer($service) {
 		return $this->container[$service];
 	}
-
 }
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\PKPServices', '\PKPServices');
+}
+

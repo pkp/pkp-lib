@@ -26,7 +26,9 @@
 
 
 import('lib.pkp.classes.install.Installer');
-import('classes.core.Services');
+
+use \APP\core\Services;
+use \PKP\services\PKPSchemaService;
 
 use Illuminate\Config\Repository;
 
@@ -258,7 +260,7 @@ class PKPInstall extends Installer {
 
 		// Install default site settings
 		$schemaService = Services::get('schema');
-		$site = $schemaService->setDefaults(SCHEMA_SITE, $site, $site->getSupportedLocales(), $site->getPrimaryLocale());
+		$site = $schemaService->setDefaults(PKPSchemaService::SCHEMA_SITE, $site, $site->getSupportedLocales(), $site->getPrimaryLocale());
 		$site->setData('contactEmail', $this->getParam('adminEmail'), $site->getPrimaryLocale());
 		$siteDao->updateObject($site);
 

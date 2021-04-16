@@ -13,6 +13,13 @@
  * @brief Class providing operations associated with HTTP requests.
  */
 
+namespace PKP\core;
+
+use \PKP\plugins\HookRegistry;
+use \PKP\core\JSONMessage;
+use \PKP\config\Config;
+use \PKP\db\DAORegistry;
+use \PKP\session\SessionManager;
 
 class PKPRequest {
 	//
@@ -104,7 +111,6 @@ class PKPRequest {
 	 * @return JSONMessage
 	 */
 	function redirectUrlJson($url) {
-		import('lib.pkp.classes.core.JSONMessage');
 		$json = new JSONMessage(true);
 		$json->setEvent('redirectRequested', $url);
 		return $json;
@@ -761,3 +767,8 @@ class PKPRequest {
 		return $returner;
 	}
 }
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\PKPRequest', '\PKPRequest');
+}
+

@@ -16,7 +16,8 @@
 
 import('lib.pkp.classes.handler.APIHandler');
 import('lib.pkp.classes.submission.PKPSubmission');
-import('classes.core.Services');
+
+use \APP\core\Services;
 
 abstract class PKPBackendSubmissionsHandler extends APIHandler {
 

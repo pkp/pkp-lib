@@ -24,6 +24,9 @@ import('lib.pkp.tests.PKPTestHelper');
 
 use PHPUnit\Framework\TestCase;
 
+use \PKP\config\Config;
+use \PKP\db\DAORegistry;
+
 abstract class PKPTestCase extends TestCase {
 	private
 		$daoBackup = array(),

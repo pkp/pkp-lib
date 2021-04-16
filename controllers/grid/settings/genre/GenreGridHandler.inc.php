@@ -17,6 +17,8 @@ import('lib.pkp.controllers.grid.settings.SetupGridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.controllers.grid.settings.genre.GenreGridRow');
 
+use \PKP\core\JSONMessage;
+
 class GenreGridHandler extends SetupGridHandler {
 	/**
 	 * Constructor

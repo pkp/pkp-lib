@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
 
+use \PKP\core\JSONMessage;
+
 class SetupGridHandler extends GridHandler {
 	/**
 	 * Constructor

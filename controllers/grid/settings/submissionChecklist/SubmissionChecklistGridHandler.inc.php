@@ -16,6 +16,8 @@
 import('lib.pkp.controllers.grid.settings.SetupGridHandler');
 import('lib.pkp.controllers.grid.settings.submissionChecklist.SubmissionChecklistGridRow');
 
+use \PKP\core\JSONMessage;
+
 class SubmissionChecklistGridHandler extends SetupGridHandler {
 
 	/**

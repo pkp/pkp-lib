@@ -46,14 +46,13 @@ import('lib.pkp.classes.linkAction.LinkAction');
 import('lib.pkp.classes.controllers.grid.GridColumn');
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-// Import JSON class for use with all AJAX requests.
-import('lib.pkp.classes.core.JSONMessage');
-
 // Grid specific action positions.
 define('GRID_ACTION_POSITION_DEFAULT', 'default');
 define('GRID_ACTION_POSITION_ABOVE', 'above');
 define('GRID_ACTION_POSITION_LASTCOL', 'lastcol');
 define('GRID_ACTION_POSITION_BELOW', 'below');
+
+use \PKP\core\JSONMessage;
 
 class GridHandler extends PKPHandler {
 

@@ -15,6 +15,9 @@
 
 import('lib.pkp.controllers.grid.languages.LanguageGridHandler');
 
+use \APP\core\Services;
+use \PKP\core\JSONMessage;
+
 class ManageLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * Constructor
@@ -93,7 +96,6 @@ class ManageLanguageGridHandler extends LanguageGridHandler {
 			return new JSONMessage(false);
 		}
 
-		import('classes.core.Services');
 		$context = Services::get('context')->restoreLocaleDefaults($context, $request, $locale);
 
 		$notificationManager = new NotificationManager();

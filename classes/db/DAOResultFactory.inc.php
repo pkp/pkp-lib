@@ -14,13 +14,14 @@
  * objects from DAOs.
  */
 
+namespace PKP\db;
 
-import('lib.pkp.classes.core.ItemIterator');
-import('lib.pkp.classes.db.DAOResultIterator');
+use \PKP\core\ItemIterator;
+use \PKP\db\DAOResultIterator;
 
 use Illuminate\Support\Enumerable;
 
-class DAOResultFactory extends ItemIterator {
+class DAOResultFactory extends \PKP\core\ItemIterator {
 	/** @var DAO The DAO used to create objects */
 	var $dao;
 
@@ -84,12 +85,12 @@ class DAOResultFactory extends ItemIterator {
 		$functionName = $this->functionName;
 		$dao = $this->dao;
 
-		if ($this->records instanceof Generator) {
+		if ($this->records instanceof \Generator) {
 			$row = (array) $this->records->current();
 			$this->records->next();
 		} elseif ($this->records instanceof Enumerable) {
 			$row = (array) $this->records->shift();
-		} else throw new Exception('Unsupported record set type (' . join(', ', class_implements($this->records)) . ')');
+		} else throw new \Exception('Unsupported record set type (' . join(', ', class_implements($this->records)) . ')');
 		if (!$row) return null;
 		return $dao->$functionName($row);
 	}
@@ -98,7 +99,7 @@ class DAOResultFactory extends ItemIterator {
 	 * @copydoc ItemIterator::count()
 	 */
 	function getCount() {
-		if ($this->sql === null) throw new Exception('DAOResultFactory instances cannot be counted unless supplied in constructor (DAO ' . get_class($this->dao) . ')!');
+		if ($this->sql === null) throw new \Exception('DAOResultFactory instances cannot be counted unless supplied in constructor (DAO ' . get_class($this->dao) . ')!');
 		return $this->dao->countRecords($this->sql, $this->params);
 	}
 
@@ -185,4 +186,8 @@ class DAOResultFactory extends ItemIterator {
 		while ($row = $this->next()) $returner[$row->getData($idField)] = $row;
 		return $returner;
 	}
+}
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\db\DAOResultFactory', '\DAOResultFactory');
 }

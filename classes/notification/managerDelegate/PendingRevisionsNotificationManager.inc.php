@@ -16,6 +16,8 @@
 import('lib.pkp.classes.notification.NotificationManagerDelegate');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
+use \APP\core\Services;
+
 class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 
 	/**
@@ -43,7 +45,6 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 		$stageData = $this->_getStageDataByType();
 		$operation = $stageData['path'];
 
-		import('classes.core.Services');
 		return Services::get('submission')->getWorkflowUrlByUserRoles($submission, $notification->getUserId(), $stageData['path']);
 	}
 

@@ -17,9 +17,10 @@
  * context-level API requests.
  */
 
-import('lib.pkp.classes.core.PKPRouter');
-import('classes.core.Request');
-import('classes.handler.Handler');
+namespace PKP\core;
+
+use \PKP\config\Config;
+use \PKP\session\SessionManager;
 
 class APIRouter extends PKPRouter {
 
@@ -202,4 +203,8 @@ class APIRouter extends PKPRouter {
 
 		return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
 	}
+}
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\APIRouter', '\APIRouter');
 }

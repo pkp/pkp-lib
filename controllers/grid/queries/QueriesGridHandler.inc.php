@@ -19,6 +19,8 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
+use \PKP\core\JSONMessage;
+
 class QueriesGridHandler extends GridHandler {
 
 	/** @var integer WORKFLOW_STAGE_ID_... */

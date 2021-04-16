@@ -15,6 +15,8 @@
 
 import('classes.handler.Handler');
 
+use \APP\core\Services;
+
 class NavigationMenuItemHandler extends Handler {
 
 	/** @var NavigationMenuItem The nmi to view */
@@ -64,7 +66,6 @@ class NavigationMenuItemHandler extends Handler {
 		$navigationMenuItem->setContent((array) $request->getUserVar('content'), null);
 		$navigationMenuItem->setTitle((array) $request->getUserVar('title'), null);
 
-		import('classes.core.Services');
 		Services::get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
 
 		$templateMgr->assign('title', $navigationMenuItem->getLocalizedTitle());

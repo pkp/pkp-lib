@@ -13,8 +13,7 @@
  * @brief Provides paging and iteration for arrays.
  */
 
-
-import('lib.pkp.classes.core.ItemIterator');
+namespace PKP\core;
 
 class ArrayItemIterator extends ItemIterator {
 	/** @var array The array of contents of this iterator. */
@@ -187,4 +186,6 @@ class ArrayItemIterator extends ItemIterator {
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\ArrayItemIterator', '\ArrayItemIterator');
+}

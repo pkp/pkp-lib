@@ -15,14 +15,18 @@
  */
 
 import('lib.pkp.classes.mail.EmailTemplate');
-import('lib.pkp.classes.db.SchemaDAO');
-import('classes.core.Services');
+
+use \PKP\services\PKPSchemaService;
+
+use \APP\core\Services;
+use \PKP\db\XMLDAO;
+use \PKP\db\SchemaDAO;
 
 use Illuminate\Support\Facades\DB;
 
 class EmailTemplateDAO extends SchemaDAO {
 	/** @copydoc SchemaDAO::$schemaName */
-	var $schemaName = SCHEMA_EMAIL_TEMPLATE;
+	var $schemaName = PKPSchemaService::SCHEMA_EMAIL_TEMPLATE;
 
 	/** @copydoc SchemaDAO::$tableName */
 	var $tableName = 'email_templates';

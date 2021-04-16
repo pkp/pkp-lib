@@ -27,7 +27,6 @@ define('INSTALLER_DEFAULT_LOCALE', 'en_US');
 import('lib.pkp.classes.db.DBDataXMLParser');
 import('lib.pkp.classes.site.Version');
 import('lib.pkp.classes.site.VersionDAO');
-import('lib.pkp.classes.config.ConfigParser');
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
@@ -485,7 +484,7 @@ class Installer {
 	 */
 	function updateConfig($configParams) {
 		// Update config file
-		$configParser = new ConfigParser();
+		$configParser = new \PKP\config\ConfigParser();
 		if (!$configParser->updateConfig(Config::getConfigFileName(), $configParams)) {
 			// Error reading config file
 			$this->setError(INSTALLER_ERROR_GENERAL, 'installer.configFileError');

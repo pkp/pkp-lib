@@ -14,8 +14,9 @@
  * @brief Maintains a static list of DAO objects so each DAO is instantiated only once.
  */
 
+namespace PKP\db;
 
-import('lib.pkp.classes.db.DAO');
+use \PKP\core\Registry;
 
 class DAORegistry {
 
@@ -57,7 +58,7 @@ class DAORegistry {
 		$daos =& DAORegistry::getDAOs();
 		if (!isset($daos[$name])) {
 			// Import the required DAO class.
-			$application = Application::get();
+			$application = \APP\core\Application::get();
 			$className = $application->getQualifiedDAOName($name);
 			if (!$className) {
 				fatalError('Unrecognized DAO ' . $name . '!');
@@ -71,4 +72,6 @@ class DAORegistry {
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\db\DAORegistry', '\DAORegistry');
+}

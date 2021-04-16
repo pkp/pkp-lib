@@ -31,7 +31,7 @@ class PKPRequestTest extends PKPTestCase {
 	public function setUp() : void {
 		parent::setUp();
 		HookRegistry::rememberCalledHooks();
-		$this->request = new PKPRequest();
+		$this->request = new Request();
 
 		// Save the config data for testTrustXForwardedFor tests
 		$this->getRemoteAddrTestConfigData = Registry::get('configData');

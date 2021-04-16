@@ -44,6 +44,8 @@ import('lib.pkp.classes.form.validation.FormValidatorLocaleUrl');
 import('lib.pkp.classes.form.validation.FormValidatorISSN');
 import('lib.pkp.classes.form.validation.FormValidatorORCID');
 
+use \APP\i18n\AppLocale;
+
 class Form {
 
 	/** The template file containing the HTML form */

@@ -25,6 +25,9 @@ define('REVIEWER_SELECT_ADVANCED_SEARCH',		0x00000001);
 define('REVIEWER_SELECT_CREATE',			0x00000002);
 define('REVIEWER_SELECT_ENROLL_EXISTING',		0x00000003);
 
+use \APP\core\Services;
+use \PKP\core\JSONMessage;
+
 class PKPReviewerGridHandler extends GridHandler {
 
 	/** @var Submission */
@@ -831,7 +834,6 @@ class PKPReviewerGridHandler extends GridHandler {
 
 		// Check that the current user is specifically allowed to access gossip for
 		// this user
-		import('classes.core.Services');
 		$canCurrentUserGossip = Services::get('user')->canCurrentUserGossip($user->getId());
 		if (!$canCurrentUserGossip) {
 			return new JSONMessage(false, __('user.authorization.roleBasedAccessDenied'));

@@ -16,6 +16,8 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuForm');
 
+use \PKP\core\JSONMessage;
+
 class NavigationMenusGridHandler extends GridHandler {
 	/**
 	 * Constructor

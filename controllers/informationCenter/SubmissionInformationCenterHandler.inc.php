@@ -14,8 +14,9 @@
  */
 
 import('lib.pkp.controllers.informationCenter.InformationCenterHandler');
-import('lib.pkp.classes.core.JSONMessage');
 import('classes.log.SubmissionEventLogEntry');
+
+use \PKP\core\JSONMessage;
 
 class SubmissionInformationCenterHandler extends InformationCenterHandler {
 

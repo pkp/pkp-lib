@@ -14,8 +14,8 @@
  * @brief Operations for retrieving and modifying NavigationMenu objects.
  */
 
-
 import('lib.pkp.classes.navigationMenu.NavigationMenu');
+use \APP\core\Services;
 
 class NavigationMenuDAO extends DAO {
 	/**
@@ -292,7 +292,6 @@ class NavigationMenuDAO extends DAO {
 	function _cacheMiss($cache, $id) {
 		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
 		$navigationMenu = $navigationMenuDao->GetById($cache->getCacheId());
-		import('classes.core.Services');
 		Services::get('navigationMenu')->getMenuTree($navigationMenu);
 
 		return $navigationMenu;

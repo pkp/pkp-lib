@@ -14,16 +14,18 @@
 
 namespace PKP\Services;
 
-use \Application;
-use \Core;
-use \DAOResultFactory;
-use \DAORegistry;
-use \HookRegistry;
-use \Services;
+use \PKP\core\Core;
+use \PKP\db\DAOResultFactory;
+use \PKP\db\DAORegistry;
+use \PKP\plugins\HookRegistry;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
 use \PKP\Services\QueryBuilders\PKPSubmissionFileQueryBuilder;
+use \PKP\services\PKPSchemaService;
+
+use \APP\core\Services;
+use \APP\core\Application;
 
 class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
 
@@ -197,7 +199,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 			}
 		}
 
-		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_SUBMISSION_FILE, $values, $request->getContext()->getSupportedFormLocales());
+		$values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $values, $request->getContext()->getSupportedFormLocales());
 
 		HookRegistry::call('SubmissionFile::getProperties', [&$values, $submissionFile, $props, $args]);
 
@@ -210,7 +212,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
 	 */
 	public function getSummaryProperties($submissionFile, $args = null) {
-		$props = Services::get('schema')->getSummaryProps(SCHEMA_SUBMISSION_FILE);
+		$props = Services::get('schema')->getSummaryProps(PKPSchemaService::SCHEMA_SUBMISSION_FILE);
 
 		return $this->getProperties($submissionFile, $props, $args);
 	}
@@ -219,7 +221,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
 	 */
 	public function getFullProperties($submissionFile, $args = null) {
-		$props = Services::get('schema')->getFullProps(SCHEMA_SUBMISSION_FILE);
+		$props = Services::get('schema')->getFullProps(PKPSchemaService::SCHEMA_SUBMISSION_FILE);
 
 		return $this->getProperties($submissionFile, $props, $args);
 	}
@@ -237,21 +239,21 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 		import('lib.pkp.classes.validation.ValidatorFactory');
 		$validator = \ValidatorFactory::make(
 			$props,
-			$schemaService->getValidationRules(SCHEMA_SUBMISSION_FILE, $allowedLocales)
+			$schemaService->getValidationRules(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $allowedLocales)
 		);
 
 		// Check required fields if we're adding a context
 		\ValidatorFactory::required(
 			$validator,
 			$action,
-			$schemaService->getRequiredProps(SCHEMA_SUBMISSION_FILE),
-			$schemaService->getMultilingualProps(SCHEMA_SUBMISSION_FILE),
+			$schemaService->getRequiredProps(PKPSchemaService::SCHEMA_SUBMISSION_FILE),
+			$schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_SUBMISSION_FILE),
 			$allowedLocales,
 			$primaryLocale
 		);
 
 		// Check for input from disallowed locales
-		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_SUBMISSION_FILE), $allowedLocales);
+		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_SUBMISSION_FILE), $allowedLocales);
 
 		// Do not allow the uploaderUserId or createdAt properties to be modified
 		if ($action === VALIDATE_ACTION_EDIT) {
@@ -285,7 +287,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 		}
 
 		if ($validator->fails()) {
-			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_SUBMISSION_FILE), $allowedLocales);
+			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_SUBMISSION_FILE), $allowedLocales);
 		}
 
 		HookRegistry::call('SubmissionFile::validate', array(&$errors, $action, $props, $allowedLocales, $primaryLocale));

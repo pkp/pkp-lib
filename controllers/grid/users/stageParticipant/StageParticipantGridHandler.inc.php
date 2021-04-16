@@ -23,6 +23,8 @@ import('classes.log.SubmissionEventLogEntry'); // App-specific.
 
 import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
+use \PKP\core\JSONMessage;
+
 class StageParticipantGridHandler extends CategoryGridHandler {
 	/**
 	 * Constructor

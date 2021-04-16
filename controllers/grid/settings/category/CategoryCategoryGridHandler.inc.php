@@ -23,6 +23,8 @@ import('lib.pkp.controllers.grid.settings.category.CategoryGridCategoryRow');
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
+use \PKP\core\JSONMessage;
+
 class CategoryCategoryGridHandler extends CategoryGridHandler {
 	var $_contextId;
 

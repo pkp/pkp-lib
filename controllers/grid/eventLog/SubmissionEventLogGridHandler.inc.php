@@ -24,6 +24,8 @@ import('lib.pkp.controllers.grid.eventLog.EventLogGridRow');
 import('lib.pkp.classes.controllers.grid.DateGridCellProvider');
 import('lib.pkp.controllers.grid.eventLog.EventLogGridCellProvider');
 
+use \PKP\core\JSONMessage;
+
 class SubmissionEventLogGridHandler extends GridHandler {
 	/** @var Submission */
 	var $_submission;

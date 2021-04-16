@@ -18,8 +18,9 @@
 
 // Import the base handler.
 import('classes.handler.Handler');
-import('lib.pkp.classes.core.JSONMessage');
 import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
+
+use \PKP\core\JSONMessage;
 
 class FileApiHandler extends Handler {
 

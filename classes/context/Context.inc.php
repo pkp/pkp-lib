@@ -13,12 +13,18 @@
  * @brief Basic class describing a context.
  */
 
- // Constant used to distinguish whether metadata is enabled and whether it
- // should be requested or required during submission
- define('METADATA_DISABLE', 0);
- define('METADATA_ENABLE', 'enable');
- define('METADATA_REQUEST', 'request');
- define('METADATA_REQUIRE', 'require');
+namespace PKP\context;
+
+use \APP\core\Application;
+use \APP\i18n\AppLocale;
+use \PKP\config\Config;
+
+// Constant used to distinguish whether metadata is enabled and whether it
+// should be requested or required during submission
+define('METADATA_DISABLE', 0);
+define('METADATA_ENABLE', 'enable');
+define('METADATA_REQUEST', 'request');
+define('METADATA_REQUIRE', 'require');
 
 abstract class Context extends \PKP\core\DataObject {
 
@@ -514,4 +520,8 @@ abstract class Context extends \PKP\core\DataObject {
 		$application = Application::get();
 		return $application->getMetrics($metricType, $columns, $filter, $orderBy, $range);
 	}
+}
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\context\Context', '\Context');
 }

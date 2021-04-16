@@ -14,6 +14,7 @@
  *
  */
 
+namespace PKP\core;
 
 /*
  * Perl-compatibile regular expression (PCRE) constants:
@@ -42,6 +43,10 @@ define('PCRE_URI', '(?:([a-z][-+.a-z0-9]*):)?' .						// Scheme
 // Two different types of camel case: one for class names and one for method names
 define ('CAMEL_CASE_HEAD_UP', 0x01);
 define ('CAMEL_CASE_HEAD_DOWN', 0x02);
+
+use \Stringy\Stringy;
+
+use \PKP\config\Config;
 
 class PKPString {
 	/**
@@ -101,7 +106,7 @@ class PKPString {
 	 * @return int String length
 	 */
 	static function strlen($string) {
-		return Stringy\Stringy::create($string)->length();
+		return Stringy::create($string)->length();
 	}
 
 	/**
@@ -112,7 +117,7 @@ class PKPString {
 	 * @return int Position of needle within haystack
 	 */
 	static function strpos($haystack, $needle, $offset = 0) {
-		return Stringy\Stringy::create($haystack)->indexOf($needle, $offset);
+		return Stringy::create($haystack)->indexOf($needle, $offset);
 	}
 
 	/**
@@ -122,7 +127,7 @@ class PKPString {
 	 * @return int Last index of Needle in Haystack
 	 */
 	static function strrpos($haystack, $needle) {
-		return Stringy\Stringy::create($haystack)->indexOfLast($needle);
+		return Stringy::create($haystack)->indexOfLast($needle);
 	}
 
 	/**
@@ -133,7 +138,7 @@ class PKPString {
 	 * @return string Substring of $string
 	 */
 	static function substr($string, $start, $length = null) {
-		return (string) Stringy\Stringy::create($string)->substr($start, $length);
+		return (string) Stringy::create($string)->substr($start, $length);
 	}
 
 	/**
@@ -142,7 +147,7 @@ class PKPString {
 	 * @return string Lower case version of input string
 	 */
 	static function strtolower($string) {
-		return (string) Stringy\Stringy::create($string)->toLowerCase();
+		return (string) Stringy::create($string)->toLowerCase();
 	}
 
 	/**
@@ -151,7 +156,7 @@ class PKPString {
 	 * @return string Upper case version of input string
 	 */
 	static function strtoupper($string) {
-		return (string) Stringy\Stringy::create($string)->toUpperCase();
+		return (string) Stringy::create($string)->toUpperCase();
 	}
 
 	/**
@@ -160,7 +165,7 @@ class PKPString {
 	 * @return string ucfirst version of input string
 	 */
 	static function ucfirst($string) {
-		return (string) Stringy\Stringy::create($string)->upperCaseFirst();
+		return (string) Stringy::create($string)->upperCaseFirst();
 	}
 
 	/**
@@ -170,7 +175,7 @@ class PKPString {
 	 * @return int Count of number of times $needle appeared in $haystack
 	 */
 	static function substr_count($haystack, $needle) {
-		return Stringy\Stringy::create($haystack)->countSubstring($needle);
+		return Stringy::create($haystack)->countSubstring($needle);
 	}
 
 	/**
@@ -361,12 +366,12 @@ class PKPString {
 	static function stripUnsafeHtml($input) {
 		static $purifier;
 		if (!isset($purifier)) {
-			$config = HTMLPurifier_Config::createDefault();
+			$config = \HTMLPurifier_Config::createDefault();
 			$config->set('Core.Encoding', Config::getVar('i18n', 'client_charset'));
 			$config->set('HTML.Doctype', 'HTML 4.01 Transitional');
 			$config->set('HTML.Allowed', Config::getVar('security', 'allowed_html'));
 			$config->set('Cache.SerializerPath', 'cache');
-			$purifier = new HTMLPurifier($config);
+			$purifier = new \HTMLPurifier($config);
 		}
 		return $purifier->purify($input);
 	}
@@ -561,3 +566,8 @@ class PKPString {
 		return $datepickerFormat;
 	}
 }
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\PKPString', '\PKPString');
+}
+

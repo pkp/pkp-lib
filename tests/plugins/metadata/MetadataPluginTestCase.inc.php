@@ -21,6 +21,9 @@
 import('lib.pkp.tests.plugins.PluginTestCase');
 import('lib.pkp.classes.plugins.MetadataPlugin');
 
+use \PKP\db\DAORegistry;
+use \PKP\plugins\PluginRegistry;
+
 class MetadataPluginTestCase extends PluginTestCase {
 	/**
 	 * @copydoc DatabaseTestCase::getAffectedTables()

@@ -12,6 +12,7 @@
  * @brief Class that describes a runtime environment.
  */
 
+namespace PKP\core;
 
 class RuntimeEnvironment {
 	/** @var string */
@@ -99,5 +100,9 @@ class RuntimeEnvironment {
 		// Compatibility check was successful
 		return true;
 	}
+}
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\RuntimeEnvironment', '\RuntimeEnvironment');
 }
 

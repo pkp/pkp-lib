@@ -13,8 +13,9 @@
  * @brief Form for managers to create/edit navigationMenuItems.
  */
 
-
 import('lib.pkp.classes.form.Form');
+
+use \APP\core\Services;
 
 class PKPNavigationMenuItemsForm extends Form {
 	/** @var $navigationMenuItemId int the ID of the navigationMenuItem */
@@ -73,7 +74,6 @@ class PKPNavigationMenuItemsForm extends Form {
 			'supportPhone' => __('plugins.generic.tinymce.variables.supportContactPhone', array('value' => $context->getData('supportPhone'))),
 			'supportEmail' => __('plugins.generic.tinymce.variables.supportContactEmail', array('value' => $context->getData('supportEmail'))),
 		));
-		import('classes.core.Services');
 		$types = Services::get('navigationMenu')->getMenuItemTypes();
 
 		$typeTitles = array(0 => __('grid.navigationMenus.navigationMenu.selectType'));

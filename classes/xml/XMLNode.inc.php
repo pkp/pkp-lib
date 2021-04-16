@@ -14,6 +14,7 @@
  * This handler parses an XML document into a tree structure of XMLNode objects.
  */
 
+namespace PKP\xml;
 
 class XMLNode {
 
@@ -237,4 +238,6 @@ class XMLNode {
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\xml\XMLNode', '\XMLNode');
+}

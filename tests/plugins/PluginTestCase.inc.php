@@ -23,6 +23,9 @@ require_mock_env('env2');
 import('lib.pkp.tests.DatabaseTestCase');
 import('lib.pkp.classes.plugins.Plugin');
 
+use \PKP\core\Registry;
+use \APP\core\Request;
+
 class PluginTestCase extends DatabaseTestCase {
 	/**
 	 * @copydoc DatabaseTestCase::getAffectedTables()

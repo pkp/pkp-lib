@@ -21,6 +21,8 @@ use \Firebase\JWT\JWT;
 import('classes.notification.Notification');
 import('lib.pkp.classes.notification.INotificationInfoProvider');
 
+use \APP\i18n\AppLocale;
+
 abstract class PKPNotificationOperationManager implements INotificationInfoProvider {
 
 	//

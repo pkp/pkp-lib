@@ -14,16 +14,18 @@
 
 namespace PKP\Services;
 
-use \Application;
-use \DAOResultFactory;
-use \DAORegistry;
-use \DBResultRange;
-use \HookRegistry;
-use \Services;
+use \PKP\db\DAOResultFactory;
+use \PKP\db\DAORegistry;
+use \PKP\db\DBResultRange;
+use \PKP\plugins\HookRegistry;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
 use \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder;
+use \PKP\services\PKPSchemaService;
+
+use \APP\core\Application;
+use \APP\core\Services;
 
 define('EMAIL_TEMPLATE_STAGE_DEFAULT', 0);
 
@@ -171,7 +173,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		}
 
 		if ($args['supportedLocales']) {
-			$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_EMAIL_TEMPLATE, $values, $args['supportedLocales']);
+			$values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE, $values, $args['supportedLocales']);
 		}
 
 		HookRegistry::call('EmailTemplate::getProperties', array(&$values, $emailTemplate, $props, $args));
@@ -185,7 +187,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
 	 */
 	public function getSummaryProperties($emailTemplate, $args = null) {
-		$props = Services::get('schema')->getSummaryProps(SCHEMA_EMAIL_TEMPLATE);
+		$props = Services::get('schema')->getSummaryProps(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE);
 
 		return $this->getProperties($emailTemplate, $props, $args);
 	}
@@ -194,7 +196,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
 	 */
 	public function getFullProperties($emailTemplate, $args = null) {
-		$props = Services::get('schema')->getFullProps(SCHEMA_EMAIL_TEMPLATE);
+		$props = Services::get('schema')->getFullProps(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE);
 
 		return $this->getProperties($emailTemplate, $props, $args);
 	}
@@ -208,7 +210,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		import('lib.pkp.classes.validation.ValidatorFactory');
 		$validator = \ValidatorFactory::make(
 			$props,
-			$schemaService->getValidationRules(SCHEMA_EMAIL_TEMPLATE, $allowedLocales)
+			$schemaService->getValidationRules(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE, $allowedLocales)
 		);
 
 		\AppLocale::requireComponents(
@@ -220,8 +222,8 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		\ValidatorFactory::required(
 			$validator,
 			$action,
-			$schemaService->getRequiredProps(SCHEMA_EMAIL_TEMPLATE),
-			$schemaService->getMultilingualProps(SCHEMA_EMAIL_TEMPLATE),
+			$schemaService->getRequiredProps(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE),
+			$schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE),
 			$allowedLocales,
 			$primaryLocale
 		);
@@ -248,10 +250,10 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		}
 
 		// Check for input from disallowed locales
-		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_EMAIL_TEMPLATE), $allowedLocales);
+		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE), $allowedLocales);
 
 		if ($validator->fails()) {
-			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_EMAIL_TEMPLATE), $allowedLocales);
+			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE), $allowedLocales);
 		}
 
 		HookRegistry::call('EmailTemplate::validate', array(&$errors, $action, $props, $allowedLocales, $primaryLocale));

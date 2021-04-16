@@ -17,6 +17,8 @@ import('lib.pkp.classes.controllers.grid.CategoryGridHandler');
 import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
 import('lib.pkp.controllers.grid.plugins.PluginGalleryGridHandler');
 
+use \PKP\core\JSONMessage;
+
 abstract class PluginGridHandler extends CategoryGridHandler {
 	/**
 	 * Constructor

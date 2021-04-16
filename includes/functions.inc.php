@@ -164,7 +164,6 @@ function checkPhpVersion($version) {
  */
 function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expectedPackages = null, $expectedMethods = null, $constructorArg = null) {
 	$errorFlag = false;
-
 	// Validate the class name
 	if (!preg_match('/^[a-zA-Z0-9_.]+$/', $fullyQualifiedClassName)) {
 		return $errorFlag;
@@ -312,6 +311,15 @@ function ucfirst_codesafe($str) {
 }
 
 /**
+ * @copydoc Core::cleanFileVar
+ * Warning: Call this function from Core class. It is only exposed here to make
+ * it available early in bootstrapping.
+ */
+function cleanFileVar($var) {
+	return preg_replace('/[^\w\-]/u', '', $var);
+}
+
+/**
  * Helper function to define custom autoloader 
  * @param string $rootPath
  * @param string $prefix
@@ -333,9 +341,9 @@ function customAutoload($rootPath, $prefix, $class) {
 		return;
 	}
 
-	$className = Core::cleanFileVar(array_pop($parts));
+	$className = cleanFileVar(array_pop($parts));
 	$parts = array_map(function($part) {
-		$part = Core::cleanFileVar($part);
+		$part = cleanFileVar($part);
 		if (strlen($part)>1) $part[0] = strtolower_codesafe($part[0]); // pkp/pkp-lib#5731
 		return $part;
 	}, $parts);
@@ -345,5 +353,26 @@ function customAutoload($rootPath, $prefix, $class) {
 	if (is_file($filePath)) {
 		require_once($filePath);
 	}
+}
+
+/**
+ * Wrapper around PKPLocale::translate().
+ *
+ * Enables us to work with translated strings everywhere without
+ * introducing a lot of duplicate code and without getting
+ * blisters on our fingers.
+ *
+ * This is similar to WordPress' solution for translation, see
+ * <http://codex.wordpress.org/Translating_WordPress>.
+ *
+ * @see PKPLocale::translate()
+ *
+ * @param $key string
+ * @param $params array named substitution parameters
+ * @param $locale string the locale to use
+ * @return string
+ */
+function __($key, $params = array(), $locale = null, $missingKeyHandler = array('\PKP\i18n\PKPLocale', 'addOctothorpes')) {
+	return \APP\i18n\AppLocale::translate($key, $params, $locale, $missingKeyHandler);
 }
 

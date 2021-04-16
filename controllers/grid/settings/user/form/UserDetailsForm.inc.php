@@ -15,6 +15,8 @@
 
 import('lib.pkp.controllers.grid.settings.user.form.UserForm');
 
+use \APP\core\Services;
+
 class UserDetailsForm extends UserForm {
 
 	/** @var User */
@@ -122,7 +124,6 @@ class UserDetailsForm extends UserForm {
 				'interests' => $interestManager->getInterestsForUser($user),
 				'userLocales' => $user->getLocales(),
 			);
-			import('classes.core.Services');
 			$userService = Services::get('user');
 			$data['canCurrentUserGossip'] = $userService->canCurrentUserGossip($user->getId());
 			if ($data['canCurrentUserGossip']) {
@@ -268,7 +269,6 @@ class UserDetailsForm extends UserForm {
 		$this->user->setMustChangePassword($this->getData('mustChangePassword') ? 1 : 0);
 		$this->user->setAuthId((int) $this->getData('authId'));
 		// Users can never view/edit their own gossip fields
-		import('classes.core.Services');
 		$userService = Services::get('user');
 		if ($userService->canCurrentUserGossip($this->user->getId())) {
 			$this->user->setGossip($this->getData('gossip'));

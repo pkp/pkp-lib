@@ -102,7 +102,7 @@ abstract class PolicyTestCase extends PKPTestCase {
 	 */
 	protected function getMockRequest($requestedOp, $context = null, $user = null) {
 		// Mock a request to the permitted operation.
-		$request = new PKPRequest();
+		$request = new Request();
 
 		$this->setContextObjects($context);
 

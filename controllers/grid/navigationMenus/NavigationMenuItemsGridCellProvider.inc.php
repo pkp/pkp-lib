@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
+use \APP\core\Services;
+
 class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 	/**
 	 * @copydoc GridCellProvider::getCellActions()
@@ -39,7 +41,6 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 		switch ($columnId) {
 			case 'title':
 				$templateMgr = TemplateManager::getManager(Application::get()->getRequest());
-				import('classes.core.Services');
 				Services::get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
 
 				return array('label' => $navigationMenuItem->getLocalizedTitle());

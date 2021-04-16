@@ -21,8 +21,10 @@
 
 require_mock_env('env1');
 
+import('classes.i18n.AppLocale'); // This will import our mock AppLocale class
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.i18n.PKPLocale');
+
+use \APP\i18n\AppLocale;
 
 class PKPLocaleTest extends PKPTestCase {
 	/**

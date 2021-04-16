@@ -14,8 +14,7 @@
  * @brief Provides caching based on XCache's variable store.
  */
 
-
-import('lib.pkp.classes.cache.GenericCache');
+namespace PKP\cache;
 
 class XCacheCache extends GenericCache {
 	/**

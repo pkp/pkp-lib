@@ -17,9 +17,9 @@
  * @brief Handle requests for profile tab operations.
  */
 
-
 import('classes.handler.Handler');
-import('lib.pkp.classes.core.JSONMessage');
+
+use \PKP\core\JSONMessage;
 
 class ProfileTabHandler extends Handler {
 

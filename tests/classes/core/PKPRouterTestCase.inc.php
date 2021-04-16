@@ -14,13 +14,10 @@
  * @brief Base tests class for PKPRouter tests.
  */
 
-
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.core.PKPRouter');
-import('lib.pkp.classes.core.PKPRequest');
 import('lib.pkp.classes.plugins.HookRegistry'); // This imports a mock HookRegistry implementation.
-import('classes.core.Application');
-import('lib.pkp.classes.db.DAORegistry');
+
+use \PKP\core\PKPRouter;
 
 /**
  * @backupGlobals enabled
@@ -68,7 +65,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	 * @covers PKPRouter::supports
 	 */
 	public function testSupports() {
-		$this->request = new PKPRequest();
+		$this->request = new Request();
 		self::assertTrue($this->router->supports($this->request));
 	}
 
@@ -77,7 +74,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	 */
 	public function testIsCacheable() {
 		$this->markTestSkipped(); // Not currently working
-		$this->request = new PKPRequest();
+		$this->request = new Request();
 		self::assertFalse($this->router->isCacheable($this->request));
 	}
 

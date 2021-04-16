@@ -15,6 +15,8 @@
 
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
 
+use \PKP\core\JSONMessage;
+
 class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler {
 	/**
 	 * Constructor

@@ -18,6 +18,8 @@ import('lib.pkp.pages.management.ManagementHandler');
 
 define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 
+use \PKP\core\JSONMessage;
+
 class PKPToolsHandler extends ManagementHandler {
 
 	/** @copydoc PKPHandler::_isBackendPage */

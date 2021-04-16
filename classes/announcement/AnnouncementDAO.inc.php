@@ -19,9 +19,11 @@ import('lib.pkp.classes.db.SchemaDAO');
 
 use Illuminate\Support\Facades\DB;
 
+use \PKP\services\PKPSchemaService;
+
 class AnnouncementDAO extends SchemaDAO {
 	/** @var string One of the SCHEMA_... constants */
-	var $schemaName = SCHEMA_ANNOUNCEMENT;
+	var $schemaName = PKPSchemaService::SCHEMA_ANNOUNCEMENT;
 
 	/** @var string The name of the primary table for this object */
 	var $tableName = 'announcements';

@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.plugins.ImportExportPlugin');
 
+use \PKP\core\JSONMessage;
+
 abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 
 	/**

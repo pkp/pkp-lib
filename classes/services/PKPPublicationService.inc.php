@@ -14,20 +14,19 @@
 
 namespace PKP\Services;
 
-use Application;
-use \Core;
-use \DAOResultFactory;
-use \DAORegistry;
-use \DBResultRange;
-use HookRegistry;
-use \Services;
-use SubmissionLog;
+use \PKP\core\Core;
+use \PKP\db\DAOResultFactory;
+use \PKP\db\DAORegistry;
+use \PKP\db\DBResultRange;
+use \PKP\plugins\HookRegistry;
+use \SubmissionLog;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
 use \PKP\Services\QueryBuilders\PKPPublicationQueryBuilder;
 
-import('lib.pkp.classes.db.DBResultRange');
+use \APP\core\Application;
+use \APP\core\Services;
 
 class PKPPublicationService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
 
@@ -217,7 +216,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			}
 		}
 
-		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_PUBLICATION, $values, $submissionContext->getSupportedSubmissionLocales());
+		$values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_PUBLICATION, $values, $submissionContext->getSupportedSubmissionLocales());
 
 		HookRegistry::call('Publication::getProperties', [&$values, $publication, $props, $args]);
 
@@ -230,7 +229,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
 	 */
 	public function getSummaryProperties($publication, $args = null) {
-		$props = Services::get('schema')->getSummaryProps(SCHEMA_PUBLICATION);
+		$props = Services::get('schema')->getSummaryProps(PKPSchemaService::SCHEMA_PUBLICATION);
 
 		return $this->getProperties($publication, $props, $args);
 	}
@@ -239,7 +238,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
 	 */
 	public function getFullProperties($publication, $args = null) {
-		$props = Services::get('schema')->getFullProps(SCHEMA_PUBLICATION);
+		$props = Services::get('schema')->getFullProps(PKPSchemaService::SCHEMA_PUBLICATION);
 
 		return $this->getProperties($publication, $props, $args);
 	}
@@ -271,7 +270,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		import('lib.pkp.classes.validation.ValidatorFactory');
 		$validator = \ValidatorFactory::make(
 			$props,
-			$schemaService->getValidationRules(SCHEMA_PUBLICATION, $allowedLocales),
+			$schemaService->getValidationRules(PKPSchemaService::SCHEMA_PUBLICATION, $allowedLocales),
 			[
 				'locale.regex' => __('validator.localeKey'),
 				'datePublished.date_format' => __('publication.datePublished.errorFormat'),
@@ -283,14 +282,14 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		\ValidatorFactory::required(
 			$validator,
 			$action,
-			$schemaService->getRequiredProps(SCHEMA_PUBLICATION),
-			$schemaService->getMultilingualProps(SCHEMA_PUBLICATION),
+			$schemaService->getRequiredProps(PKPSchemaService::SCHEMA_PUBLICATION),
+			$schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_PUBLICATION),
 			$allowedLocales,
 			$primaryLocale
 		);
 
 		// Check for input from disallowed locales
-		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_PUBLICATION), $allowedLocales);
+		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_PUBLICATION), $allowedLocales);
 
 		// The submissionId must match an existing submission
 		if (isset($props['submissionId'])) {
@@ -351,7 +350,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		);
 
 		if ($validator->fails()) {
-			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_PUBLICATION), $allowedLocales);
+			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_PUBLICATION), $allowedLocales);
 		}
 
 		HookRegistry::call('Publication::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);

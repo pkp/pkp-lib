@@ -21,6 +21,8 @@ import('lib.pkp.classes.workflow.WorkflowStageDAO');
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
+use \PKP\core\JSONMessage;
+
 class UserGroupGridHandler extends GridHandler {
 
 	/** @var integer Context id. */

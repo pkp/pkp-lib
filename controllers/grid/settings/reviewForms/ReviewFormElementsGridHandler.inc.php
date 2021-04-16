@@ -17,6 +17,8 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.settings.reviewForms.ReviewFormElementGridRow');
 import('lib.pkp.controllers.grid.settings.reviewForms.form.ReviewFormElementForm');
 
+use \PKP\core\JSONMessage;
+
 class ReviewFormElementsGridHandler extends GridHandler {
 	/** @var int Review form ID */
 	var $reviewFormId;

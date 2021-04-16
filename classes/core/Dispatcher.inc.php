@@ -13,6 +13,15 @@
  * @brief Class dispatching HTTP requests to handlers.
  */
 
+namespace PKP\core;
+
+use \PKP\config\Config;
+use \PKP\plugins\PluginRegistry;
+use \PKP\plugins\HookRegistry;
+use \PKP\services\PKPSchemaService;
+
+use \APP\core\Services;
+use \APP\i18n\AppLocale;
 
 class Dispatcher {
 	/** @var PKPApplication */
@@ -137,8 +146,7 @@ class Dispatcher {
 
 		// Reload the context after generic plugins have loaded so that changes to
 		// the context schema can take place
-		import('classes.core.Services');
-		$contextSchema = \Services::get('schema')->get(SCHEMA_CONTEXT, true);
+		$contextSchema = Services::get('schema')->get(PKPSchemaService::SCHEMA_CONTEXT, true);
 		$request->getRouter()->getContext($request, 1, true);
 
 		$router->route($request);
@@ -257,4 +265,7 @@ class Dispatcher {
 	}
 }
 
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\Dispatcher', '\Dispatcher');
+}
 

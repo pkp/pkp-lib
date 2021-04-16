@@ -17,6 +17,8 @@
 import('classes.install.Install');
 import('lib.pkp.classes.install.form.MaintenanceForm');
 
+use \APP\i18n\AppLocale;
+
 class InstallForm extends MaintenanceForm {
 
 	/** @var array locales supported by this system */

@@ -19,7 +19,8 @@ use PKP\components\forms\FieldSelectUsers;
 use PKP\components\forms\FieldAutosuggestPreset;
 
 import('lib.pkp.classes.submission.PKPSubmission');
-import('classes.core.Services');
+
+use \APP\core\Services;
 
 abstract class PKPSubmissionsListPanel extends ListPanel {
 

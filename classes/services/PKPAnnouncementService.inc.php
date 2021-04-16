@@ -14,16 +14,16 @@
 
 namespace PKP\Services;
 
-use \Core;
-use \DAOResultFactory;
-use \DAORegistry;
-use \Services;
+use \PKP\core\Core;
+use \PKP\db\DAOResultFactory;
+use \PKP\db\DAORegistry;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
-use PKP\Services\QueryBuilders\PKPAnnouncementQueryBuilder;
+use \PKP\Services\QueryBuilders\PKPAnnouncementQueryBuilder;
+use \PKP\services\PKPSchemaService;
 
-import('lib.pkp.classes.db.DBResultRange');
+use \APP\core\Services;
 
 class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
 
@@ -135,7 +135,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 			}
 		}
 
-		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_ANNOUNCEMENT, $values, $announcementContext->getSupportedFormLocales());
+		$values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $values, $announcementContext->getSupportedFormLocales());
 
 		\HookRegistry::call('Announcement::getProperties', [&$values, $announcement, $props, $args]);
 
@@ -148,7 +148,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
 	 */
 	public function getSummaryProperties($announcement, $args = null) {
-		$props = Services::get('schema')->getSummaryProps(SCHEMA_ANNOUNCEMENT);
+		$props = Services::get('schema')->getSummaryProps(PKPSchemaService::SCHEMA_ANNOUNCEMENT);
 
 		return $this->getProperties($announcement, $props, $args);
 	}
@@ -157,7 +157,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
 	 */
 	public function getFullProperties($announcement, $args = null) {
-		$props = Services::get('schema')->getFullProps(SCHEMA_ANNOUNCEMENT);
+		$props = Services::get('schema')->getFullProps(PKPSchemaService::SCHEMA_ANNOUNCEMENT);
 
 		return $this->getProperties($announcement, $props, $args);
 	}
@@ -175,7 +175,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 		import('lib.pkp.classes.validation.ValidatorFactory');
 		$validator = \ValidatorFactory::make(
 			$props,
-			$schemaService->getValidationRules(SCHEMA_ANNOUNCEMENT, $allowedLocales),
+			$schemaService->getValidationRules(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $allowedLocales),
 			[
 				'dateExpire.date_format' => __('stats.dateRange.invalidDate'),
 			]
@@ -185,17 +185,17 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 		\ValidatorFactory::required(
 			$validator,
 			$action,
-			$schemaService->getRequiredProps(SCHEMA_ANNOUNCEMENT),
-			$schemaService->getMultilingualProps(SCHEMA_ANNOUNCEMENT),
+			$schemaService->getRequiredProps(PKPSchemaService::SCHEMA_ANNOUNCEMENT),
+			$schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_ANNOUNCEMENT),
 			$allowedLocales,
 			$primaryLocale
 		);
 
 		// Check for input from disallowed locales
-		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_ANNOUNCEMENT), $allowedLocales);
+		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_ANNOUNCEMENT), $allowedLocales);
 
 		if ($validator->fails()) {
-			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_ANNOUNCEMENT), $allowedLocales);
+			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_ANNOUNCEMENT), $allowedLocales);
 		}
 
 		\HookRegistry::call('Announcement::validate', array(&$errors, $action, $props, $allowedLocales, $primaryLocale));

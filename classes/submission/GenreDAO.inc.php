@@ -15,7 +15,10 @@
  */
 
 import('lib.pkp.classes.submission.Genre');
-import('lib.pkp.classes.db.DAO');
+
+use \PKP\db\DAO;
+use \PKP\db\XMLDAO;
+use \PKP\db\DAOResultFactory;
 
 class GenreDAO extends DAO {
 

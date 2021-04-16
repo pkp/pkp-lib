@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
+use \APP\core\Services;
+
 class ReviewerGridRow extends GridRow {
 
 	/** @var boolean Is the current user assigned as an author to this submission */
@@ -168,7 +170,6 @@ class ReviewerGridRow extends GridRow {
 			}
 
 			// Add gossip action when appropriate
-			import('classes.core.Services');
 			$canCurrentUserGossip = Services::get('user')->canCurrentUserGossip($reviewAssignment->getReviewerId());
 			if ($canCurrentUserGossip) {
 				$this->addAction(

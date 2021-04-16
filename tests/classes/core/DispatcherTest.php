@@ -61,7 +61,7 @@ class DispatcherTest extends PKPTestCase {
 		$this->dispatcher = $mockApplication->getDispatcher(); // this also adds the component router
 		$this->dispatcher->addRouterName('lib.pkp.classes.core.PKPPageRouter', 'page');
 
-		$this->request = new PKPRequest();
+		$this->request = new Request();
 	}
 
 	/**

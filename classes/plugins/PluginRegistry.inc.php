@@ -14,7 +14,13 @@
  * @brief Registry class for managing plugins.
  */
 
+namespace PKP\plugins;
+
 define('PLUGINS_PREFIX', 'plugins/');
+
+use \APP\core\Application;
+use \PKP\core\Registry;
+use \PKP\config\Config;
 
 class PluginRegistry {
 	//
@@ -112,7 +118,7 @@ class PluginRegistry {
 			foreach ($products as $product) {
 				$file = $product->getProduct();
 				$plugin = self::_instantiatePlugin($category, $categoryDir, $file, $product->getProductClassname());
-				if ($plugin instanceof Plugin) {
+				if ($plugin instanceof \Plugin) {
 					$plugins[$plugin->getSeq()]["$categoryDir/$file"] = $plugin;
 				}
 			}
@@ -257,3 +263,6 @@ class PluginRegistry {
 	}
 }
 
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\plugins\PluginRegistry', '\PluginRegistry');
+}

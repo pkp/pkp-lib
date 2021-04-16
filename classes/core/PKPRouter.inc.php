@@ -53,6 +53,11 @@
  *       is possible but deprecated.
  */
 
+namespace PKP\core;
+
+use \PKP\plugins\HookRegistry;
+use \PKP\db\DAORegistry;
+use \PKP\config\Config;
 
 class PKPRouter {
 	//
@@ -631,3 +636,8 @@ class PKPRouter {
 		return $this->_flippedContextList[$contextName] + 1;
 	}
 }
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\PKPRouter', '\PKPRouter');
+}
+

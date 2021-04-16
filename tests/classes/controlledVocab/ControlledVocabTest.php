@@ -16,6 +16,8 @@
 
 import('lib.pkp.tests.DatabaseTestCase');
 
+use \PKP\db\DAORegistry;
+
 class ControlledVocabTest extends DatabaseTestCase {
 	/**
 	 * Test parsing controlled vocab data from an XML descriptor.

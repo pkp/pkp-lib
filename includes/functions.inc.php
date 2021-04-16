@@ -373,6 +373,6 @@ function customAutoload($rootPath, $prefix, $class) {
  * @return string
  */
 function __($key, $params = array(), $locale = null, $missingKeyHandler = array('\PKP\i18n\PKPLocale', 'addOctothorpes')) {
-	return AppLocale::translate($key, $params, $locale, $missingKeyHandler);
+	return \APP\i18n\AppLocale::translate($key, $params, $locale, $missingKeyHandler);
 }
 

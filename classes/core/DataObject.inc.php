@@ -16,6 +16,8 @@
 
 namespace PKP\core;
 
+use \APP\i18n\AppLocale;
+
 class DataObject {
 	/** @var array Array of object data */
 	var $_data = array();
@@ -52,7 +54,7 @@ class DataObject {
 	 * @return mixed
 	 */
 	public function getLocalizedData($key, $preferredLocale = null) {
-		$localePrecedence = \AppLocale::getLocalePrecedence();
+		$localePrecedence = AppLocale::getLocalePrecedence();
 		foreach ($localePrecedence as $locale) {
 			$value =& $this->getData($key, $locale);
 			if (!empty($value)) return $value;

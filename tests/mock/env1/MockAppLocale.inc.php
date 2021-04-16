@@ -13,12 +13,15 @@
  * @brief Mock implementation of the Locale class
  */
 
-define('LOCALE_REGISTRY_FILE', 'lib/pkp/tests/registry/locales.xml');
+namespace APP\i18n;
+
+use \PKP\i18n\PKPLocale;
+
 define('LOCALE_ENCODING', 'utf-8');
 
-import('lib.pkp.classes.i18n.PKPLocale');
-
 class AppLocale extends PKPLocale {
+	public const LOCALE_REGISTRY_FILE =  'lib/pkp/tests/registry/locales.xml';
+
 	static
 		$primaryLocale = 'en_US',
 		$supportedLocales = array('en_US' => 'English/America'),
@@ -134,3 +137,6 @@ class AppLocale extends PKPLocale {
 	}
 }
 
+if (!PKP_STRICT_MODE) {
+	class_alias('\APP\i18n\AppLocale', '\AppLocale');
+}

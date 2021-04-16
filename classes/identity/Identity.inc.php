@@ -22,6 +22,8 @@
 define('IDENTITY_SETTING_GIVENNAME', 'givenName');
 define('IDENTITY_SETTING_FAMILYNAME', 'familyName');
 
+use \APP\i18n\AppLocale;
+
 class Identity extends \PKP\core\DataObject {
 
 	/**

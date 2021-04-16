@@ -23,6 +23,7 @@ use \PKP\plugins\HookRegistry;
 use \PKP\session\SessionManager;
 use \PKP\db\DAORegistry;
 use \APP\core\Application;
+use \APP\i18n\AppLocale;
 use \Validation;
 
 class PKPPageRouter extends PKPRouter {

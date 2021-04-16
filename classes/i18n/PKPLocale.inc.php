@@ -76,10 +76,10 @@ define('LOCALE_COMPONENT_APP_EMAIL',		0x00000108);
 
 use \Illuminate\Support\Facades\DB;
 
+// (Let PHPUnit tests define this first if necessary)
 class PKPLocale {
 	public const MASTER_LOCALE = 'en_US';
-	public const LOCALE_REGISTRY_FILE =  'registry/locales.xml';
-
+	public const LOCALE_REGISTRY_FILE = 'registry/locales.xml';
 
 	static $request;
 
@@ -133,7 +133,7 @@ class PKPLocale {
 				// If the locale is specified in the URL, allow
 				// it to override. (Necessary when locale is
 				// being set, as cookie will not yet be re-set)
-				$locale = self::$request->getUserVar('setLocale');
+				$locale = AppLocale::$request->getUserVar('setLocale');
 				if (empty($locale) || !in_array($locale, array_keys(AppLocale::getSupportedLocales()))) $locale = self::$request->getCookieVar('currentLocale');
 			} else {
 				$sessionManager = SessionManager::getManager();
@@ -849,12 +849,12 @@ class PKPLocale {
 			$cacheManager = CacheManager::getManager();
 			$cache = $cacheManager->getFileCache(
 				'locale', 'list',
-				array('AppLocale', '_allLocalesCacheMiss')
+				array('\APP\i18n\AppLocale', '_allLocalesCacheMiss')
 			);
 
 			// Check to see if the data is outdated
 			$cacheTime = $cache->getCacheTime();
-			if ($cacheTime !== null && $cacheTime < filemtime(self::LOCALE_REGISTRY_FILE)) {
+			if ($cacheTime !== null && $cacheTime < filemtime(AppLocale::LOCALE_REGISTRY_FILE)) {
 				$cache->flush();
 			}
 		}
@@ -871,10 +871,10 @@ class PKPLocale {
 		if ($allLocales === null) {
 			// Add a locale load to the debug notes.
 			$notes =& Registry::get('system.debug.notes');
-			$notes[] = array('debug.notes.localeListLoad', array('localeList' => self::LOCALE_REGISTRY_FILE));
+			$notes[] = array('debug.notes.localeListLoad', array('localeList' => AppLocale::LOCALE_REGISTRY_FILE));
 
 			// Reload locale registry file
-			$allLocales = AppLocale::loadLocaleList(self::LOCALE_REGISTRY_FILE);
+			$allLocales = AppLocale::loadLocaleList(AppLocale::LOCALE_REGISTRY_FILE);
 			asort($allLocales);
 			$cache->setEntireCache($allLocales);
 		}
@@ -912,9 +912,6 @@ class PKPLocale {
 
 if (!PKP_STRICT_MODE) {
 	class_alias('\PKP\i18n\PKPLocale', '\PKPLocale');
-	foreach ([
-		'MASTER_LOCALE', 'LOCALE_REGISTRY_FILE',
-	] as $constantName) {
-		if (!defined($constantName)) define($constantName, constant('PKPLocale::' . $constantName));
-	}
+	// REGISTRY_LOCALE_FILE excluded because of PHPUnit interaction.
+	define('MASTER_LOCALE', PKPLocale::MASTER_LOCALE);
 }

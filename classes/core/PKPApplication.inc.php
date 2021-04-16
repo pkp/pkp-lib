@@ -175,7 +175,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			] as $constantName) {
 				if (!defined($constantName)) define($constantName, constant('self::' . $constantName));
 			}
-			class_alias('\PKP\core\PKPApplication', '\PKPApplication');
+			if (!class_exists('\PKPApplication')) class_alias('\PKP\core\PKPApplication', '\PKPApplication');
 		}
 
 		// Load Composer autoloader

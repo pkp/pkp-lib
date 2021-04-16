@@ -13,6 +13,8 @@
  * @brief Class to represent a form validation check for localized fields.
  */
 
+use \APP\i18n\AppLocale;
+
 class FormValidatorLocale extends FormValidator {
 	/** @var string Symbolic name of the locale to require */
 	var $_requiredLocale;

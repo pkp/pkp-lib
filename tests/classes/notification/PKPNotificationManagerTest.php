@@ -19,6 +19,8 @@ import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.notification.PKPNotificationManager');
 import('lib.pkp.classes.mail.MailTemplate');
 
+use \PKP\db\DAORegistry;
+
 define('NOTIFICATION_ID', 1);
 
 class PKPNotificationManagerTest extends PKPTestCase {

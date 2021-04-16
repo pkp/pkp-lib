@@ -46,6 +46,7 @@ import('lib.pkp.classes.template.PKPTemplateResource');
 
 use \APP\core\Services;
 use \PKP\core\JSONMessage;
+use \PKP\plugins\PluginRegistry;
 
 class PKPTemplateManager extends Smarty {
 	/** @var array of URLs to stylesheets */

@@ -43,6 +43,7 @@
  *  <lazy-load>1</lazy-load>
  */
 
+use \APP\i18n\AppLocale;
 
 // Define the well-known file name for filter configuration data.
 define('PLUGIN_FILTER_DATAFILE', 'filterConfig.xml');

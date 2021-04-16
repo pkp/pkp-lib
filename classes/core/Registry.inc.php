@@ -34,7 +34,7 @@ class Registry {
 	 * @return mixed
 	 */
 	static function &get($key, $createIfEmpty = false, $createWithDefault = null) {
-		$registry =& Registry::_getRegistry();
+		$registry =& self::_getRegistry();
 
 		$result = null;
 		if (isset($registry[$key])) $result =& $registry[$key];

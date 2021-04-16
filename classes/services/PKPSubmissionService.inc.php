@@ -20,7 +20,7 @@ use \Illuminate\Database\Capsule\Manager as Capsule;
 use \PKP\core\Core;
 use \PKP\db\DBResultRange;
 use \PKP\db\DAOResultFactory;
-use \PKP\plugins\DAORegistry;
+use \PKP\db\DAORegistry;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;

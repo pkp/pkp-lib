@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying server settings.
  */
 
-import('lib.pkp.classes.db.SettingsDAO');
+use \PKP\db\SettingsDAO;
 
 class ServerSettingsDAO extends SettingsDAO {
 	/**

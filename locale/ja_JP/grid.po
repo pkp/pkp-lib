@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-15 15:55+0000\n"
+"PO-Revision-Date: 2021-04-16 05:46+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "ja_JP/>\n"
@@ -628,7 +628,7 @@ msgid "grid.action.reload"
 msgstr "再ロード"
 
 msgid "grid.action.approveCopyedit"
-msgstr "次のステージに送信するため、この原稿整理ファイルを承認する"
+msgstr "次の段階に送信するため、この原稿整理ファイルを承認する"
 
 msgid "grid.action.unassignReviewer"
 msgstr "この査読者を割り当て解除"

@@ -15,6 +15,8 @@
 import('lib.pkp.classes.db.DBDataXMLParser');
 import('lib.pkp.classes.form.Form');
 
+use \PKP\core\JSONMessage;
+
 class PreviewReviewForm extends Form {
 
 	/** The ID of the review form being edited */

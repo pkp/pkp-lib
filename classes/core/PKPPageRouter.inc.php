@@ -13,10 +13,17 @@
  * @brief Class mapping an HTTP request to a handler or context.
  */
 
+namespace PKP\core;
+
 define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
 define('ROUTER_DEFAULT_OP', 'index');
 
-import('lib.pkp.classes.core.PKPRouter');
+use \PKP\config\Config;
+use \PKP\plugins\HookRegistry;
+use \PKP\session\SessionManager;
+use \PKP\db\DAORegistry;
+use \APP\core\Application;
+use \Validation;
 
 class PKPPageRouter extends PKPRouter {
 	/** @var array pages that don't need an installed system to be displayed */
@@ -479,4 +486,7 @@ class PKPPageRouter extends PKPRouter {
 	}
 }
 
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\PKPPageRouter', '\PKPPageRouter');
+}
 

@@ -15,6 +15,8 @@
 // import grid base classes
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
 
+use \PKP\core\JSONMessage;
+
 class ManageReviewFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler {
 
 	/** @var array */

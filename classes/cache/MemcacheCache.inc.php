@@ -14,8 +14,7 @@
  * @brief Provides caching based on Memcache.
  */
 
-
-import('lib.pkp.classes.cache.GenericCache');
+namespace PKP\cache;
 
 // WARNING: This cache MUST be loaded in batch, or else many cache
 // misses will result.
@@ -89,12 +88,8 @@ class MemcacheCache extends GenericCache {
 		if ($this->connection->getResultCode() == Memcached::RES_NOTFOUND) {
 			return $this->cacheMiss;
 		}
-		switch (get_class($result)) {
-			case 'memcache_false':
-				$result = false;
-			case 'memcache_null':
-				$result = null;
-		}
+		if ($result instanceof memcache_false) $result = false;
+		if ($result instanceof memcache_null) $result = null;
 		return $result;
 	}
 

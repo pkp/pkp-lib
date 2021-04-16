@@ -14,6 +14,7 @@
  * providing specific implementations.
  */
 
+namespace PKP\core;
 
 class ItemIterator {
 	/**
@@ -101,4 +102,8 @@ class ItemIterator {
 	function toArray() {
 		return array();
 	}
+}
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\ItemIterator', '\ItemIterator');
 }

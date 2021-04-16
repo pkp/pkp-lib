@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use \PKP\core\JSONMessage;
+
 class ReviewFormForm extends Form {
 
 	/** The ID of the review form being edited, if any */

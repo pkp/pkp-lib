@@ -19,13 +19,18 @@
  * @brief Operations for retrieving and modifying objects from a database.
  */
 
+namespace PKP\db;
+
 import('lib.pkp.classes.db.DAOResultFactory');
-import('lib.pkp.classes.db.DBResultRange');
 
 define('SORT_DIRECTION_ASC', 0x00001);
 define('SORT_DIRECTION_DESC', 0x00002);
 
-use Illuminate\Support\Facades\DB;
+use \Illuminate\Support\Facades\DB;
+
+use \PKP\plugins\HookRegistry;
+use \PKP\core\JSONMessage;
+use \PKP\cache\CacheManager;
 
 class DAO {
 	/**
@@ -538,7 +543,6 @@ class DAO {
 
 		// Create and render the JSON message with the
 		// event to be triggered on the client side.
-		import('lib.pkp.classes.core.JSONMessage');
 		$json = new JSONMessage(true, $content);
 		$json->setEvent('dataChanged', $eventData);
 		return $json;
@@ -580,4 +584,8 @@ class DAO {
 			return null;
 		}
 	}
+}
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\db\DAO', '\DAO');
 }

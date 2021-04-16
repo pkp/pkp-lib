@@ -18,20 +18,24 @@
  * @brief Provides methods for loading locale data and translating strings identified by unique keys
  */
 
+namespace PKP\i18n;
 
-import('lib.pkp.classes.i18n.LocaleFile');
+use \APP\i18n\AppLocale;
+use \PKP\config\Config;
+use \PKP\session\SessionManager;
+use \PKP\core\Registry;
+use \PKP\plugins\HookRegistry;
+use \PKP\plugins\PluginRegistry;
+use \PKP\db\DAORegistry;
+use \PKP\db\XMLDAO;
+use \PKP\cache\CacheManager;
 
-if (!defined('LOCALE_REGISTRY_FILE')) {
-	define('LOCALE_REGISTRY_FILE', 'registry/locales.xml');
-}
 if (!defined('LOCALE_DEFAULT')) {
 	define('LOCALE_DEFAULT', Config::getVar('i18n', 'locale'));
 }
 if (!defined('LOCALE_ENCODING')) {
 	define('LOCALE_ENCODING', Config::getVar('i18n', 'client_charset'));
 }
-
-define('MASTER_LOCALE', 'en_US');
 
 // Error types for locale checking.
 // Note: Cannot use numeric symbols for the constants below because
@@ -70,9 +74,13 @@ define('LOCALE_COMPONENT_APP_DEFAULT',		0x00000106);
 define('LOCALE_COMPONENT_APP_API',		0x00000107);
 define('LOCALE_COMPONENT_APP_EMAIL',		0x00000108);
 
-use Illuminate\Support\Facades\DB;
+use \Illuminate\Support\Facades\DB;
 
 class PKPLocale {
+	public const MASTER_LOCALE = 'en_US';
+	public const LOCALE_REGISTRY_FILE =  'registry/locales.xml';
+
+
 	static $request;
 
 	/**
@@ -303,7 +311,7 @@ class PKPLocale {
 		if (Config::getVar('general', 'installed')) {
 			// Set the time zone for DB
 			// Get the offset from UTC
-			$now = new DateTime();
+			$now = new \DateTime();
 			$mins = $now->getOffset() / 60;
 			$sgn = ($mins < 0 ? -1 : 1);
 			$mins = abs($mins);
@@ -846,7 +854,7 @@ class PKPLocale {
 
 			// Check to see if the data is outdated
 			$cacheTime = $cache->getCacheTime();
-			if ($cacheTime !== null && $cacheTime < filemtime(LOCALE_REGISTRY_FILE)) {
+			if ($cacheTime !== null && $cacheTime < filemtime(self::LOCALE_REGISTRY_FILE)) {
 				$cache->flush();
 			}
 		}
@@ -863,10 +871,10 @@ class PKPLocale {
 		if ($allLocales === null) {
 			// Add a locale load to the debug notes.
 			$notes =& Registry::get('system.debug.notes');
-			$notes[] = array('debug.notes.localeListLoad', array('localeList' => LOCALE_REGISTRY_FILE));
+			$notes[] = array('debug.notes.localeListLoad', array('localeList' => self::LOCALE_REGISTRY_FILE));
 
 			// Reload locale registry file
-			$allLocales = AppLocale::loadLocaleList(LOCALE_REGISTRY_FILE);
+			$allLocales = AppLocale::loadLocaleList(self::LOCALE_REGISTRY_FILE);
 			asort($allLocales);
 			$cache->setEntireCache($allLocales);
 		}
@@ -902,24 +910,11 @@ class PKPLocale {
 	}
 }
 
-/**
- * Wrapper around PKPLocale::translate().
- *
- * Enables us to work with translated strings everywhere without
- * introducing a lot of duplicate code and without getting
- * blisters on our fingers.
- *
- * This is similar to WordPress' solution for translation, see
- * <http://codex.wordpress.org/Translating_WordPress>.
- *
- * @see PKPLocale::translate()
- *
- * @param $key string
- * @param $params array named substitution parameters
- * @param $locale string the locale to use
- * @return string
- */
-function __($key, $params = array(), $locale = null, $missingKeyHandler = array('PKPLocale', 'addOctothorpes')) {
-	return AppLocale::translate($key, $params, $locale, $missingKeyHandler);
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\i18n\PKPLocale', '\PKPLocale');
+	foreach ([
+		'MASTER_LOCALE', 'LOCALE_REGISTRY_FILE',
+	] as $constantName) {
+		if (!defined($constantName)) define($constantName, constant('PKPLocale::' . $constantName));
+	}
 }
-

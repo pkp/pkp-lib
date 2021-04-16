@@ -15,7 +15,8 @@
 
 // Import the base Handler.
 import('classes.handler.Handler');
-import('lib.pkp.classes.core.JSONMessage');
+
+use \PKP\core\JSONMessage;
 
 class PKPReviewRoundTabHandler extends Handler {
 

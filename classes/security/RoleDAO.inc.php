@@ -13,6 +13,8 @@
  * @brief Operations for retrieving and modifying Role objects.
  */
 
+use \PKP\db\DAO;
+
 import('lib.pkp.classes.security.Role');
 import('lib.pkp.classes.security.UserGroupAssignment');
 

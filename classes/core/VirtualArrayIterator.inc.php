@@ -14,8 +14,7 @@
  * the current "page" is available, but are much bigger in entirety.
  */
 
-
-import('lib.pkp.classes.core.ItemIterator');
+namespace PKP\core;
 
 class VirtualArrayIterator extends ItemIterator {
 	/** @var array The array of contents of this iterator. */
@@ -185,4 +184,7 @@ class VirtualArrayIterator extends ItemIterator {
 	}
 }
 
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\VirtualArrayIterator', '\VirtualArrayIterator');
+}
 

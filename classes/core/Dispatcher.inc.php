@@ -13,7 +13,13 @@
  * @brief Class dispatching HTTP requests to handlers.
  */
 
+namespace PKP\core;
+
 use \APP\core\Services;
+use \APP\i18n\AppLocale;
+use \PKP\config\Config;
+use \PKP\plugins\PluginRegistry;
+use \PKP\plugins\HookRegistry;
 
 class Dispatcher {
 	/** @var PKPApplication */
@@ -257,4 +263,7 @@ class Dispatcher {
 	}
 }
 
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\Dispatcher', '\Dispatcher');
+}
 

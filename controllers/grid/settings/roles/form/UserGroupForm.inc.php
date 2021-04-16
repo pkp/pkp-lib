@@ -16,6 +16,8 @@
 import('lib.pkp.classes.form.Form');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
+use \PKP\core\JSONMessage;
+
 class UserGroupForm extends Form {
 
 	/** @var Id of the user group being edited */
@@ -86,7 +88,6 @@ class UserGroupForm extends Form {
 		$this->setData('assignedStages', array()); // sensible default
 
 		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
-		import('lib.pkp.classes.core.JSONMessage');
 		$jsonMessage = new JSONMessage();
 		$jsonMessage->setContent($roleDao->getForbiddenStages());
 		$this->setData('roleForbiddenStagesJSON', $jsonMessage->getString());

@@ -14,8 +14,9 @@
  */
 
 import('classes.handler.Handler');
-import('lib.pkp.classes.core.JSONMessage');
 import('classes.statistics.StatisticsHelper');
+
+use \PKP\core\JSONMessage;
 
 class ReportGeneratorHandler extends Handler {
 	/**
@@ -93,8 +94,6 @@ class ReportGeneratorHandler extends Handler {
 		$this->validate();
 
 		$issueId = (int) $request->getUserVar('issueId');
-		import('lib.pkp.classes.core.JSONMessage');
-
 		if (!$issueId) {
 			return new JSONMessage(false);
 		} else {
@@ -122,8 +121,6 @@ class ReportGeneratorHandler extends Handler {
 		$this->validate();
 
 		$countryId = (string) $request->getUserVar('countryId');
-		import('lib.pkp.classes.core.JSONMessage');
-
 		if ($countryId) {
 			$statsHelper = new StatisticsHelper();
 			$geoLocationTool = $statsHelper->getGeoLocationTool();

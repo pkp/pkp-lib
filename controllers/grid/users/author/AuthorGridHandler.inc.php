@@ -21,6 +21,8 @@ import('lib.pkp.controllers.grid.users.author.AuthorGridRow');
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
+use \PKP\core\JSONMessage;
+
 class AuthorGridHandler extends GridHandler {
 	/** @var boolean */
 	var $_readOnly;

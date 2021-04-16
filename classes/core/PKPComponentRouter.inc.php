@@ -44,6 +44,7 @@
  *  and request validation.
  */
 
+namespace PKP\core;
 
 // The string to be found in the URL to mark this request as a component request
 define('COMPONENT_ROUTER_PATHINFO_MARKER', '$$$call$$$');
@@ -62,6 +63,11 @@ define ('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
 
 import('lib.pkp.classes.core.PKPRouter');
 import('classes.core.Request');
+
+use \PKP\core\JSONMessage;
+use \PKP\plugins\HookRegistry;
+use \APP\i18n\AppLocale;
+use \PKP\config\Config;
 
 class PKPComponentRouter extends PKPRouter {
 	//
@@ -370,7 +376,6 @@ class PKPComponentRouter extends PKPRouter {
 			$translatedAuthorizationMessage .= ' ['.$url.$queryString.']';
 		}
 		// Return a JSON error message.
-		import('lib.pkp.classes.core.JSONMessage');
 		return new JSONMessage(false, $translatedAuthorizationMessage);
 	}
 
@@ -498,5 +503,9 @@ class PKPComponentRouter extends PKPRouter {
 
 		return $rpcServiceEndpointParts;
 	}
+}
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\PKPComponentRouter', '\PKPComponentRouter');
 }
 

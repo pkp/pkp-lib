@@ -13,6 +13,9 @@
  * @brief Abstraction of a locale file
  */
 
+namespace PKP\i18n;
+
+use \PKP\cache\CacheManager;
 
 class LocaleFile {
 	/** @var object Cache of this locale file */
@@ -52,7 +55,7 @@ class LocaleFile {
 			$cacheTime = $this->cache->getCacheTime();
 			if ($cacheTime === null || $cacheTime < filemtime($this->filename)) {
 				// This cache is out of date; flush it.
-				$this->cache->setEntireCache(LocaleFile::load($this->filename));
+				$this->cache->setEntireCache(self::load($this->filename));
 			}
 		}
 		return $this->cache;
@@ -119,7 +122,7 @@ class LocaleFile {
 	 */
 	static function &load($filename) {
 		$localeData = [];
-		$loader = new Gettext\Loader\PoLoader();
+		$loader = new \Gettext\Loader\PoLoader();
 		foreach ($loader->loadFile($filename) as $translation) {
 			$localeData[$translation->getOriginal()] = $translation->getTranslation();
 		}
@@ -163,8 +166,8 @@ class LocaleFile {
 			return $errors;
 		}
 
-		$localeContents = LocaleFile::load($this->filename);
-		$referenceContents = LocaleFile::load($referenceLocaleFile->filename);
+		$localeContents = self::load($this->filename);
+		$referenceContents = self::load($referenceLocaleFile->filename);
 
 		foreach ($referenceContents as $key => $referenceValue) {
 			if (!isset($localeContents[$key])) {
@@ -209,4 +212,6 @@ class LocaleFile {
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\i18n\LocaleFile', '\LocaleFile');
+}

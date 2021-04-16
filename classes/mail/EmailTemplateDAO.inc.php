@@ -15,9 +15,10 @@
  */
 
 import('lib.pkp.classes.mail.EmailTemplate');
-import('lib.pkp.classes.db.SchemaDAO');
 
 use \APP\core\Services;
+use \PKP\db\XMLDAO;
+use \PKP\db\SchemaDAO;
 
 use Illuminate\Support\Facades\DB;
 

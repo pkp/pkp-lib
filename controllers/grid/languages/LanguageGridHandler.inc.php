@@ -18,6 +18,7 @@ import('lib.pkp.controllers.grid.languages.LanguageGridRow');
 import('lib.pkp.controllers.grid.languages.LanguageGridCellProvider');
 
 use \APP\core\Services;
+use \PKP\core\JSONMessage;
 
 class LanguageGridHandler extends GridHandler {
 	/**

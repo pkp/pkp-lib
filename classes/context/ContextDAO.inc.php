@@ -13,7 +13,11 @@
  *
  * @brief Operations for retrieving and modifying context objects.
  */
-import('lib.pkp.classes.db.SchemaDAO');
+
+namespace PKP\context;
+
+use \PKP\db\SchemaDAO;
+use \PKP\db\DAOResultFactory;
 
 abstract class ContextDAO extends SchemaDAO {
 	/**
@@ -150,4 +154,8 @@ abstract class ContextDAO extends SchemaDAO {
 			$i+=2;
 		}
 	}
+}
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\context\ContextDAO', '\ContextDAO');
 }

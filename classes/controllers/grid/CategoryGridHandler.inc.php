@@ -20,6 +20,8 @@ import('lib.pkp.classes.controllers.grid.GridCategoryRow');
 // empty category constant
 define('GRID_CATEGORY_NONE', 'NONE');
 
+use \PKP\core\JSONMessage;
+
 class CategoryGridHandler extends GridHandler {
 
 	/** @var string empty category row locale key */

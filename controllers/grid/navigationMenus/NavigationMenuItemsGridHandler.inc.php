@@ -17,6 +17,8 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
 
+use \PKP\core\JSONMessage;
+
 class NavigationMenuItemsGridHandler extends GridHandler {
 
 	/**

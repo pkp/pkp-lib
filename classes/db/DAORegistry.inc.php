@@ -14,8 +14,9 @@
  * @brief Maintains a static list of DAO objects so each DAO is instantiated only once.
  */
 
+namespace PKP\db;
 
-import('lib.pkp.classes.db.DAO');
+use \PKP\core\Registry;
 
 class DAORegistry {
 
@@ -71,4 +72,6 @@ class DAORegistry {
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\db\DAORegistry', '\DAORegistry');
+}

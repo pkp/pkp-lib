@@ -15,7 +15,8 @@
 
 // Import the base Handler.
 import('pages.authorDashboard.AuthorDashboardHandler');
-import('lib.pkp.classes.core.JSONMessage');
+
+use \PKP\core\JSONMessage;
 
 class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler {
 

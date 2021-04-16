@@ -13,8 +13,9 @@
  * @brief Operations for retrieving and modifying objects from an XML data source.
  */
 
+namespace PKP\db;
 
-import('lib.pkp.classes.xml.PKPXMLParser');
+use \PKP\xml\PKPXMLParser;
 
 class XMLDAO {
 
@@ -53,4 +54,6 @@ class XMLDAO {
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\db\XMLDAO', '\XMLDAO');
+}

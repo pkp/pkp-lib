@@ -16,6 +16,8 @@
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
+use \PKP\core\JSONMessage;
+
 class QueryNoteFilesGridHandler extends FileListGridHandler {
 	/**
 	 * Constructor

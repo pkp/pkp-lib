@@ -20,6 +20,8 @@
 namespace PKP\components\forms\context;
 use \PKP\components\forms\FormComponent;
 use \PKP\components\forms\FieldSelect;
+use \APP\core\Application;
+use \PKP\plugins\PluginRegistry;
 
 define('FORM_THEME', 'theme');
 
@@ -49,12 +51,12 @@ class PKPThemeForm extends FormComponent {
 			$activeTheme = $context->getData('themePluginPath');
 			$contextId = $context->getId();
 		} else {
-			$activeTheme = \Application::get()->getRequest()->getSite()->getData('themePluginPath');
+			$activeTheme = Application::get()->getRequest()->getSite()->getData('themePluginPath');
 			$contextId = CONTEXT_ID_NONE;
 		}
 
 		$themes = $themeOptions = [];
-		$plugins = \PluginRegistry::loadCategory('themes', true);
+		$plugins = PluginRegistry::loadCategory('themes', true);
 		foreach ($plugins as $plugin) {
 			$themes[] = [
 				'value' => $plugin->getDirName(),

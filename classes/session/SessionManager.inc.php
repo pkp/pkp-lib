@@ -13,6 +13,12 @@
  * @brief Implements PHP methods for a custom session storage handler (see http://php.net/session).
  */
 
+namespace PKP\session;
+
+use \PKP\core\Registry;
+use \PKP\db\DAORegistry;
+use \PKP\config\Config;
+
 class SessionManager {
 
 	/** @var object The DAO for accessing Session objects */
@@ -265,4 +271,6 @@ class SessionManager {
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\session\SessionManager', '\SessionManager');
+}

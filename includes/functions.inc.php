@@ -164,7 +164,6 @@ function checkPhpVersion($version) {
  */
 function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expectedPackages = null, $expectedMethods = null, $constructorArg = null) {
 	$errorFlag = false;
-
 	// Validate the class name
 	if (!preg_match('/^[a-zA-Z0-9_.]+$/', $fullyQualifiedClassName)) {
 		return $errorFlag;
@@ -354,5 +353,26 @@ function customAutoload($rootPath, $prefix, $class) {
 	if (is_file($filePath)) {
 		require_once($filePath);
 	}
+}
+
+/**
+ * Wrapper around PKPLocale::translate().
+ *
+ * Enables us to work with translated strings everywhere without
+ * introducing a lot of duplicate code and without getting
+ * blisters on our fingers.
+ *
+ * This is similar to WordPress' solution for translation, see
+ * <http://codex.wordpress.org/Translating_WordPress>.
+ *
+ * @see PKPLocale::translate()
+ *
+ * @param $key string
+ * @param $params array named substitution parameters
+ * @param $locale string the locale to use
+ * @return string
+ */
+function __($key, $params = array(), $locale = null, $missingKeyHandler = array('\PKP\i18n\PKPLocale', 'addOctothorpes')) {
+	return AppLocale::translate($key, $params, $locale, $missingKeyHandler);
 }
 

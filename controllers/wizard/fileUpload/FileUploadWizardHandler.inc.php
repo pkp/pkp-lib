@@ -17,8 +17,7 @@
 // Import the base handler.
 import('classes.handler.Handler');
 
-// Import JSON class for use with all AJAX requests.
-import('lib.pkp.classes.core.JSONMessage');
+use \PKP\core\JSONMessage;
 
 class FileUploadWizardHandler extends Handler {
 	/** @var integer */

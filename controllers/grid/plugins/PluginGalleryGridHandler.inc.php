@@ -21,6 +21,8 @@ import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
  */
 define('PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE', 'all');
 
+use \PKP\core\JSONMessage;
+
 class PluginGalleryGridHandler extends GridHandler {
 	/**
 	 * Constructor

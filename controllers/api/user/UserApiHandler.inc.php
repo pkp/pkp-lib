@@ -19,8 +19,7 @@
 // import the base Handler
 import('lib.pkp.classes.handler.PKPHandler');
 
-// import JSON class for API responses
-import('lib.pkp.classes.core.JSONMessage');
+use \PKP\core\JSONMessage;
 
 class UserApiHandler extends PKPHandler {
 

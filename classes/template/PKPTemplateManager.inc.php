@@ -45,6 +45,7 @@ define('PAGE_WIDTH_FULL', 'full');
 import('lib.pkp.classes.template.PKPTemplateResource');
 
 use \APP\core\Services;
+use \PKP\core\JSONMessage;
 
 class PKPTemplateManager extends Smarty {
 	/** @var array of URLs to stylesheets */
@@ -1124,7 +1125,6 @@ class PKPTemplateManager extends Smarty {
 	 * @return JSONMessage JSON object
 	 */
 	function fetchJson($template, $status = true) {
-		import('lib.pkp.classes.core.JSONMessage');
 		return new JSONMessage($status, $this->fetch($template));
 	}
 

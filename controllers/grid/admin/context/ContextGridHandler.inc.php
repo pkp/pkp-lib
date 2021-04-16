@@ -17,6 +17,7 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.admin.context.ContextGridRow');
 
 use \APP\core\Services;
+use \PKP\core\JSONMessage;
 
 class ContextGridHandler extends GridHandler {
 	/**

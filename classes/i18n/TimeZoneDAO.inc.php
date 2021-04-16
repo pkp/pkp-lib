@@ -14,6 +14,12 @@
  *
  */
 
+namespace PKP\i18n;
+
+use \PKP\core\Registry;
+use \PKP\cache\CacheManager;
+use \PKP\db\DAO;
+use \PKP\db\XMLDAO;
 
 class TimeZoneDAO extends DAO {
 	var $cache;
@@ -78,4 +84,6 @@ class TimeZoneDAO extends DAO {
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+  class_alias('\PKP\i18n\TimeZoneDAO', '\TimeZoneDAO');
+}

@@ -13,11 +13,12 @@
  *  the data object.
  */
 
+namespace PKP\db;
+
 use Illuminate\Support\Facades\DB;
 
+use \PKP\db\DAO;
 use \APP\core\Services;
-
-import('lib.pkp.classes.db.DAO');
 
 abstract class SchemaDAO extends DAO {
 	/** @var string One of the SCHEMA_... constants */
@@ -302,4 +303,8 @@ abstract class SchemaDAO extends DAO {
 
 		return $primaryDbProps;
 	}
+}
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\db\SchemaDAO', '\SchemaDAO');
 }

@@ -14,6 +14,7 @@
  * Used for storing/accessing single instance objects and values.
  */
 
+namespace PKP\core;
 
 class Registry {
 	/**
@@ -39,7 +40,7 @@ class Registry {
 		if (isset($registry[$key])) $result =& $registry[$key];
 		elseif ($createIfEmpty) {
 			$result = $createWithDefault;
-			Registry::set($key, $result);
+			self::set($key, $result);
 		}
 		return $result;
 	}
@@ -51,7 +52,7 @@ class Registry {
 	 * @param $value mixed
 	 */
 	static function set($key, &$value) {
-		$registry =& Registry::_getRegistry();
+		$registry =& self::_getRegistry();
 		$registry[$key] =& $value;
 	}
 
@@ -60,18 +61,17 @@ class Registry {
 	 * @param $key string
 	 */
 	static function delete($key) {
-		$registry =& Registry::_getRegistry();
+		$registry =& self::_getRegistry();
 		if (isset($registry[$key])) {
 			unset($registry[$key]);
 		}
 	}
 
 	static function clear() {
-		$registry =& Registry::_getRegistry();
+		$registry =& self::_getRegistry();
 		foreach (array_keys($registry) as $key) {
 			unset($registry[$key]);
 		}
 	}
 }
-
 

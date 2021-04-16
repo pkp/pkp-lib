@@ -16,6 +16,8 @@
 import('classes.handler.Handler');
 import('classes.notification.Notification');
 
+use \PKP\core\JSONMessage;
+
 class NotificationHandler extends Handler {
 
 	/**
@@ -46,7 +48,6 @@ class NotificationHandler extends Handler {
 			$notifications = $notifications->toArray();
 		}
 
-		import('lib.pkp.classes.core.JSONMessage');
 		$json = new JSONMessage();
 
 		if (is_array($notifications) && !empty($notifications)) {

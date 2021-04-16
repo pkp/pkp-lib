@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.plugins.Plugin');
 
+use \PKP\core\JSONMessage;
+
 abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 
 	//

@@ -18,10 +18,14 @@
  * @brief Class containing system-wide functions.
  */
 
+namespace PKP\core;
+
 define('PKP_LIB_PATH', 'lib' . DIRECTORY_SEPARATOR . 'pkp');
 define('COUNTER_USER_AGENTS_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'counterBots' .  DIRECTORY_SEPARATOR . 'generated' . DIRECTORY_SEPARATOR . 'COUNTER_Robots_list.txt');
 
 use \APP\core\Application;
+use \PKP\cache\CacheManager;
+use \PKPString;
 
 class Core {
 
@@ -32,7 +36,7 @@ class Core {
 	 * Get the path to the base installation directory.
 	 * @return string
 	 */
-	static function getBaseDir() {
+	public static function getBaseDir() {
 		static $baseDir;
 
 		if (!isset($baseDir)) {
@@ -49,7 +53,7 @@ class Core {
 	 * @param $var string
 	 * @return string
 	 */
-	static function cleanFileVar($var) {
+	public static function cleanFileVar($var) {
 		return cleanFileVar($var);
 	}
 
@@ -58,7 +62,7 @@ class Core {
 	 * @param $ts int optional, use specified timestamp instead of current time
 	 * @return string
 	 */
-	static function getCurrentDate($ts = null) {
+	public static function getCurrentDate($ts = null) {
 		return date('Y-m-d H:i:s', isset($ts) ? $ts : time());
 	}
 
@@ -66,7 +70,7 @@ class Core {
 	 * Return *nix timestamp with microseconds (in units of seconds).
 	 * @return float
 	 */
-	static function microtime() {
+	public static function microtime() {
 		list($usec, $sec) = explode(' ', microtime());
 		return (float)$sec + (float)$usec;
 	}
@@ -75,7 +79,7 @@ class Core {
 	 * Check if the server platform is Windows.
 	 * @return boolean
 	 */
-	static function isWindows() {
+	public static function isWindows() {
 		return strtolower_codesafe(substr(PHP_OS, 0, 3)) == 'win';
 	}
 
@@ -84,7 +88,7 @@ class Core {
 	 * @param $moduleName string
 	 * @return boolean
 	 */
-	static function checkGeneralPHPModule($moduleName) {
+	public static function checkGeneralPHPModule($moduleName) {
 		if (extension_loaded($moduleName)) {
 			return true;
 		}
@@ -98,7 +102,7 @@ class Core {
 	 * expressions to find bots inside user agent strings.
 	 * @return boolean
 	 */
-	static function isUserAgentBot($userAgent, $botRegexpsFile = COUNTER_USER_AGENTS_FILE) {
+	public static function isUserAgentBot($userAgent, $botRegexpsFile = COUNTER_USER_AGENTS_FILE) {
 		static $botRegexps;
 		Registry::set('currentUserAgentsFile', $botRegexpsFile);
 
@@ -132,7 +136,7 @@ class Core {
 	 * if needed (for testing only).
 	 * @return array
 	 */
-	static function getContextPaths($urlInfo, $isPathInfo, $contextList = null, $contextDepth = null, $userVars = array()) {
+	public static function getContextPaths($urlInfo, $isPathInfo, $contextList = null, $contextDepth = null, $userVars = array()) {
 		$contextPaths = array();
 		$application = Application::get();
 
@@ -183,7 +187,7 @@ class Core {
 	 * if needed (for testing only).
 	 * @return string
 	 */
-	static function getPage($urlInfo, $isPathInfo, $userVars = array()) {
+	public static function getPage($urlInfo, $isPathInfo, $userVars = array()) {
 		$page = Core::_getUrlComponents($urlInfo, $isPathInfo, 0, 'page', $userVars);
 		return Core::cleanFileVar(is_null($page) ? '' : $page);
 	}
@@ -199,7 +203,7 @@ class Core {
 	 * if needed (for testing only).
 	 * @return string
 	 */
-	static function getOp($urlInfo, $isPathInfo, $userVars = array()) {
+	public static function getOp($urlInfo, $isPathInfo, $userVars = array()) {
 		$operation = Core::_getUrlComponents($urlInfo, $isPathInfo, 1, 'op', $userVars);
 		return Core::cleanFileVar(empty($operation) ? 'index' : $operation);
 	}
@@ -216,7 +220,7 @@ class Core {
 	 * if needed (for testing only).
 	 * @return array
 	 */
-	static function getArgs($urlInfo, $isPathInfo, $userVars = array()) {
+	public static function getArgs($urlInfo, $isPathInfo, $userVars = array()) {
 		return Core::_getUrlComponents($urlInfo, $isPathInfo, 2, 'path', $userVars);
 	}
 
@@ -228,7 +232,7 @@ class Core {
 	 * @return string|bool The url without base url,
 	 * false if it was not possible to remove it.
 	 */
-	function removeBaseUrl($url) {
+	public function removeBaseUrl($url) {
 		list($baseUrl, $contextPath) = Core::_getBaseUrlAndPath($url);
 
 		if (!$baseUrl) return false;
@@ -281,7 +285,7 @@ class Core {
 	 * @param $url string
 	 * @return array With two elements, base url and context path.
 	 */
-	function _getBaseUrlAndPath($url) {
+	protected function _getBaseUrlAndPath($url) {
 		$baseUrl = false;
 		$contextPath = false;
 
@@ -352,7 +356,7 @@ class Core {
 	 * path info.
 	 * @return boolean
 	 */
-	function _checkBaseUrl($baseUrl, $url) {
+	protected function _checkBaseUrl($baseUrl, $url) {
 		// Check if both base url and url have host
 		// component or not.
 		$baseUrlHasHost = (boolean) parse_url($baseUrl, PHP_URL_HOST);
@@ -390,10 +394,11 @@ class Core {
 
 	/**
 	 * Bot list file cache miss fallback.
+	 * (WARNING: This function appears to be used externally, hence public despite _ prefix.)
 	 * @param $cache FileCache
-	 * @return array:
+	 * @return array
 	 */
-	static function _botFileListCacheMiss($cache) {
+	public static function _botFileListCacheMiss($cache) {
 		$id = $cache->getCacheId();
 		$filteredBotRegexps = array_filter(file(Registry::get('currentUserAgentsFile')),
 			function ($regexp) {

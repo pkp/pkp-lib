@@ -13,8 +13,9 @@
  * @brief Wrapper around a DAOResultFactory providing a proper PHP Iterator implementation
  */
 
+namespace PKP\db;
 
-class DAOResultIterator implements Iterator, Countable {
+class DAOResultIterator implements \Iterator, \Countable {
 	/** @var DAOResultFactory */
 	var $_resultFactory;
 
@@ -66,7 +67,7 @@ class DAOResultIterator implements Iterator, Countable {
 	 * before the first call to `next()`.
 	 */
 	public function rewind() {
-		if ($this->_i != 0) throw new Exception('DAOResultIterator currently does not support rewind() once iteration has started.');
+		if ($this->_i != 0) throw new \Exception('DAOResultIterator currently does not support rewind() once iteration has started.');
 	}
 
 	/**
@@ -84,3 +85,6 @@ class DAOResultIterator implements Iterator, Countable {
 	}
 }
 
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\db\DAOResultIterator', '\DAOResultIterator');
+}

@@ -331,7 +331,7 @@ abstract class Plugin {
 		$contextId = CONTEXT_SITE;
 		if (Config::getVar('general', 'installed')) {
 			$context = Application::get()->getRequest()->getContext();
-			if (is_a($context, 'Context')) $contextId = $context->getId();
+			if ($context instanceof \PKP\context\Context) $contextId = $context->getId();
 		}
 
 		// Slash characters (/) are not allowed in resource names, so use dashes (-) instead.
@@ -417,7 +417,7 @@ abstract class Plugin {
 		}
 
 		// Recursive check for templates in ancestors of a current theme plugin
-		if (is_a($this, 'ThemePlugin')
+		if ($this instanceof \ThemePlugin
 			&& $this->parent
 			&& $fullPath = $this->parent->_findOverriddenTemplate($path)) {
 			return $fullPath;

@@ -13,6 +13,10 @@
  * @brief Class for linking core functionality with plugins
  */
 
+namespace PKP\plugins;
+
+use \PKP\core\Registry;
+
 define('HOOK_SEQUENCE_CORE', 0x000);
 define('HOOK_SEQUENCE_NORMAL', 0x100);
 define('HOOK_SEQUENCE_LATE', 0x200);
@@ -156,4 +160,6 @@ class HookRegistry {
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\plugins\HookRegistry', '\HookRegistry');
+}

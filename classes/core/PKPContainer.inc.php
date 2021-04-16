@@ -13,11 +13,13 @@
  * @brief Bootstraps Laravel services, application-level parts and creates bindings
  */
 
-import('lib.pkp.classes.core.PKPEventServiceProvider');
+namespace PKP\core;
 
-use Illuminate\Container\Container;
-use Illuminate\Config\Repository;
-use Illuminate\Support\Facades\Facade;
+use \Illuminate\Container\Container;
+use \Illuminate\Config\Repository;
+use \Illuminate\Support\Facades\Facade;
+
+use \PKP\config\Config;
 
 class PKPContainer extends Container {
 
@@ -72,9 +74,9 @@ class PKPContainer extends Container {
 		$this->loadConfiguration();
 
 		$this->register(new PKPEventServiceProvider($this));
-		$this->register(new Illuminate\Database\DatabaseServiceProvider($this));
-		$this->register(new Illuminate\Bus\BusServiceProvider($this));
-		$this->register(new Illuminate\Queue\QueueServiceProvider($this));
+		$this->register(new \Illuminate\Database\DatabaseServiceProvider($this));
+		$this->register(new \Illuminate\Bus\BusServiceProvider($this));
+		$this->register(new \Illuminate\Queue\QueueServiceProvider($this));
 	}
 
 	/**
@@ -152,3 +154,8 @@ class PKPContainer extends Container {
 		$this->instance('config', new Repository($items)); // create instance and bind to use globally
 	}
 }
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\core\PKPContainer', '\PKPContainer');
+}
+

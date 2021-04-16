@@ -14,6 +14,7 @@
  * @brief Operations for retrieving and modifying User Groups and user group assignments
  */
 
+use \PKP\db\DAOResultFactory;
 
 import('lib.pkp.classes.security.UserGroup');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');

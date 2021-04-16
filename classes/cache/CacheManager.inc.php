@@ -14,7 +14,10 @@
  *
  */
 
-import('lib.pkp.classes.cache.FileCache');
+namespace PKP\cache;
+
+use \PKP\core\Registry;
+use \PKP\core\Core;
 
 define('CACHE_TYPE_FILE', 1);
 define('CACHE_TYPE_OBJECT', 2);
@@ -24,7 +27,7 @@ class CacheManager {
 	 * Get the static instance of the cache manager.
 	 * @return object CacheManager
 	 */
-	static function getManager() {
+	public static function getManager() {
 		$manager =& Registry::get('cacheManager', true, null);
 		if ($manager === null) {
 			$manager = new CacheManager();
@@ -39,18 +42,18 @@ class CacheManager {
 	 * @param $fallback callback
 	 * @return object FileCache
 	 */
-	function getFileCache($context, $cacheId, $fallback) {
+	public function getFileCache($context, $cacheId, $fallback) {
 		return new FileCache(
 			$context, $cacheId, $fallback,
 			$this->getFileCachePath()
 		);
 	}
 
-	function getObjectCache($context, $cacheId, $fallback) {
+	public function getObjectCache($context, $cacheId, $fallback) {
 		return $this->getCache($context, $cacheId, $fallback, CACHE_TYPE_OBJECT);
 	}
 
-	function getCacheImplementation($type) {
+	public function getCacheImplementation($type) {
 		switch ($type) {
 			case CACHE_TYPE_FILE: return 'file';
 			case CACHE_TYPE_OBJECT: return Config::getVar('cache', 'object_cache');
@@ -66,7 +69,7 @@ class CacheManager {
 	 * @param $type string Type of cache: CACHE_TYPE_...
 	 * @return object Cache
 	 */
-	function getCache($context, $cacheId, $fallback, $type = CACHE_TYPE_FILE) {
+	public function getCache($context, $cacheId, $fallback, $type = CACHE_TYPE_FILE) {
 		switch ($this->getCacheImplementation($type)) {
 			case 'xcache':
 				import('lib.pkp.classes.cache.XCacheCache');
@@ -109,7 +112,7 @@ class CacheManager {
 	 * Get the path in which file caches will be stored.
 	 * @return string The full path to the file cache directory
 	 */
-	static function getFileCachePath() {
+	public static function getFileCachePath() {
 		return Core::getBaseDir() . DIRECTORY_SEPARATOR . 'cache';
 	}
 
@@ -119,7 +122,7 @@ class CacheManager {
 	 * @param $context string The context to flush, if only one is to be flushed
 	 * @param $type string The type of cache to flush
 	 */
-	function flush($context = null, $type = CACHE_TYPE_FILE) {
+	public function flush($context = null, $type = CACHE_TYPE_FILE) {
 		$cacheImplementation = $this->getCacheImplementation($type);
 		switch ($cacheImplementation) {
 			case 'xcache':
@@ -144,5 +147,4 @@ class CacheManager {
 		}
 	}
 }
-
 

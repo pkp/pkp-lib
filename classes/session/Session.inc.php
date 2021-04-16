@@ -19,6 +19,11 @@
  * @brief Maintains user state information from one request to the next.
  */
 
+namespace PKP\session;
+
+use \PKP\db\DAORegistry;
+use \PKP\config\Config;
+
 class Session extends \PKP\core\DataObject {
 
 	/** The User object associated with this session */
@@ -242,4 +247,6 @@ class Session extends \PKP\core\DataObject {
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\session\Session', '\Session');
+}

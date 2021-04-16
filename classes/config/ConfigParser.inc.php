@@ -13,9 +13,9 @@
  * @brief Class for parsing and modifying php.ini style configuration files.
  */
 
+namespace PKP\config;
 
 class ConfigParser {
-
 	/** Contents of the config file currently being parsed */
 	var $content;
 
@@ -31,7 +31,7 @@ class ConfigParser {
 	 * @param $file string full path to the config file
 	 * @return array the configuration data (same format as http://php.net/parse_ini_file)
 	 */
-	static function &readConfig($file) {
+	public static function &readConfig($file) {
 		$configData = array();
 		$currentSection = false;
 		$falseValue = false;
@@ -128,7 +128,7 @@ class ConfigParser {
 	 * @param $params array an associative array of configuration parameters to update. If the value is an associative array (of variable name/value pairs) instead of a scalar, the key is treated as a section instead of a variable. Parameters not in $params remain unchanged
 	 * @return boolean true if file could be read, false otherwise
 	 */
-	function updateConfig($file, $params) {
+	public function updateConfig($file, $params) {
 		if (!file_exists($file) || !is_readable($file)) {
 			return false;
 		}
@@ -189,7 +189,7 @@ class ConfigParser {
 	 * @param $file string full path to output file
 	 * @return boolean file write is successful
 	 */
-	function writeConfig($file) {
+	public function writeConfig($file) {
 		if (!(file_exists($file) && is_writable($file))
 			&& !(!file_exists($file) && is_dir(dirname($file)) && is_writable(dirname($file)))) {
 			// File location cannot be written to
@@ -214,5 +214,4 @@ class ConfigParser {
 		return $this->content;
 	}
 }
-
 

@@ -22,6 +22,8 @@ import('lib.pkp.classes.context.LibraryFile');
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
+use \PKP\core\JSONMessage;
+
 class LibraryFileGridHandler extends CategoryGridHandler {
 	/** the context for this grid */
 	var $_context;

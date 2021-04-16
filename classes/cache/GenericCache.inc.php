@@ -15,6 +15,7 @@
  * null cache.
  */
 
+namespace PKP\cache;
 
 // Pseudotype to represent a cache miss
 class generic_cache_miss {
@@ -59,7 +60,7 @@ class GenericCache {
 	 */
 	function get($id) {
 		$result = $this->getCache($id);
-		if (is_object($result) && get_class($result) === 'generic_cache_miss') {
+		if (is_object($result) && $result instanceof generic_cache_miss) {
 			$result = call_user_func_array($this->fallback, array($this, $id));
 		}
 		return $result;

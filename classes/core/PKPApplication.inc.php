@@ -16,16 +16,17 @@
 
 namespace PKP\core;
 
-use \Config;
-use \Core;
-use \Registry;
-use \PKPContainer;
-use \Dispatcher;
-use \Request;
-use \DAORegistry;
-use \PluginRegistry;
+use \PKP\config\Config;
+use \PKP\core\Core;
+use \PKP\core\PKPContainer;
+use \PKP\core\Dispatcher;
+use \APP\core\Request;
+use \PKP\db\DAORegistry;
+use \PKP\plugins\PluginRegistry;
+use \PKP\core\PKPString;
+use \APP\i18n\AppLocale;
+use \APP\core\Application;
 use \StatisticsHelper;
-use \PKPString;
 
 interface iPKPApplicationInfoProvider {
 	/**
@@ -129,12 +130,13 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		// Seed random number generator
 		mt_srand(((double) microtime()) * 1000000);
 
-		import('lib.pkp.classes.core.Core');
-		import('lib.pkp.classes.core.PKPString');
-		import('lib.pkp.classes.core.Registry');
-
-		import('lib.pkp.classes.config.Config');
-		if (!defined('PKP_STRICT_MODE')) define('PKP_STRICT_MODE', (boolean) Config::getVar('general', 'strict'));
+		if (!defined('PKP_STRICT_MODE')) {
+			define('PKP_STRICT_MODE', (boolean) Config::getVar('general', 'strict'));
+			class_alias('\PKP\config\Config', '\Config');
+			class_alias('\PKP\core\Registry', '\Registry');
+			class_alias('\PKP\core\Core', '\Core');
+			class_alias('\PKP\cache\CacheManager', '\CacheManager');
+		}
 
 		// If not in strict mode, globally expose constants on this class.
 		if (!PKP_STRICT_MODE) {
@@ -186,22 +188,11 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 
 		Registry::set('application', $this);
 
-		import('lib.pkp.classes.db.DAORegistry');
-		import('lib.pkp.classes.db.XMLDAO');
-
-		import('lib.pkp.classes.cache.CacheManager');
-
 		import('lib.pkp.classes.security.RoleDAO');
 		import('lib.pkp.classes.security.Validation');
-		import('lib.pkp.classes.session.SessionManager');
 		import('classes.template.TemplateManager');
 		import('classes.notification.NotificationManager');
 		import('lib.pkp.classes.statistics.PKPStatisticsHelper');
-
-		import('lib.pkp.classes.plugins.PluginRegistry');
-		import('lib.pkp.classes.plugins.HookRegistry');
-
-		import('classes.i18n.AppLocale');
 
 		PKPString::init();
 
@@ -225,7 +216,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		$containerInitialized = true;
 
 		// Initialize Laravel's container and set it globally
-		import('lib.pkp.classes.core.PKPContainer');
 		$laravelContainer = new PKPContainer();
 		$laravelContainer->registerConfiguredProviders();
 
@@ -284,8 +274,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		$request =& Registry::get('request', true, null); // Ref req'd
 
 		if (is_null($request)) {
-			import('classes.core.Request');
-
 			// Implicitly set request by ref in the registry
 			$request = new Request();
 		}
@@ -300,8 +288,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	public function getDispatcher() {
 		$dispatcher =& Registry::get('dispatcher', true, null); // Ref req'd
 		if (is_null($dispatcher)) {
-			import('lib.pkp.classes.core.Dispatcher');
-
 			// Implicitly set dispatcher by ref in the registry
 			$dispatcher = new Dispatcher();
 

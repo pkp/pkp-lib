@@ -19,6 +19,8 @@ import('lib.pkp.controllers.grid.languages.LanguageGridHandler');
 import('lib.pkp.controllers.grid.languages.LanguageGridRow');
 import('lib.pkp.controllers.grid.languages.form.InstallLanguageForm');
 
+use \PKP\core\JSONMessage;
+
 class AdminLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * Constructor

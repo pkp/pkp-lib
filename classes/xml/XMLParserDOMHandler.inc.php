@@ -16,8 +16,7 @@
  *
  */
 
-
-import('lib.pkp.classes.xml.XMLNode');
+namespace PKP\xml;
 
 class XMLParserDOMHandler extends XMLParserHandler {
 
@@ -93,4 +92,6 @@ class XMLParserDOMHandler extends XMLParserHandler {
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\xml\XMLParserDOMHandler', '\XMLParserDOMHandler');
+}

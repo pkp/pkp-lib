@@ -19,6 +19,8 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.controllers.grid.settings.user.UserGridRow');
 import('lib.pkp.controllers.grid.settings.user.form.UserDetailsForm');
 
+use \PKP\core\JSONMessage;
+
 class UserGridHandler extends GridHandler {
 	/** integer user id for the user to remove */
 	var $_oldUserId;

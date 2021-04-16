@@ -18,12 +18,14 @@
  * @brief Generic class for parsing an XML document into a data structure.
  */
 
+namespace PKP\xml;
+
+use \PKP\config\Config;
+use \APP\core\Application;
 
 // The default character encodings
 define('XML_PARSER_SOURCE_ENCODING', Config::getVar('i18n', 'client_charset'));
 define('XML_PARSER_TARGET_ENCODING', Config::getVar('i18n', 'client_charset'));
-
-import('lib.pkp.classes.xml.XMLParserDOMHandler');
 
 class PKPXMLParser {
 	/** @var object instance of XMLParserHandler */
@@ -111,10 +113,10 @@ class PKPXMLParser {
 			// Remote URL.
 			$client = Application::get()->getHttpClient();
 			$response = $client->request('GET', $filenameOrUrl);
-			return GuzzleHttp\Psr7\stream_for($response->getBody());
+			return \GuzzleHttp\Psr7\stream_for($response->getBody());
 		} elseif (file_exists($filenameOrUrl) && is_readable($filenameOrUrl)) {
 			$resource = fopen($filenameOrUrl, 'r');
-			return GuzzleHttp\Psr7\stream_for($resource);
+			return \GuzzleHttp\Psr7\stream_for($resource);
 		}
 		return null;
 	}
@@ -272,5 +274,9 @@ class XMLParserHandler {
 	}
 }
 
-// For PHP < 8.x, this class used to be called XMLParser. Alias for compatibility when possible.
-if (!class_exists('XMLParser')) class_alias('PKPXMLParser', 'XMLParser');
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\xml\PKPXMLParser', '\PKPXMLParser');
+
+	// For PHP < 8.x, this class used to be called XMLParser. Alias for compatibility when possible.
+	if (!class_exists('XMLParser')) class_alias('\PKPXMLParser', '\XMLParser');
+}

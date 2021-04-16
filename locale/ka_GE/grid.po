@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-15 15:55+0000\n"
+"PO-Revision-Date: 2021-04-16 22:41+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "ka_GE/>\n"
@@ -373,3 +373,322 @@ msgstr ""
 
 msgid "grid.action.addNavigationMenu"
 msgstr "მენიუს დამატება"
+
+msgid "grid.noItems"
+msgstr "ელემენტები არ არის"
+
+msgid "grid.noAuditors"
+msgstr "აუდიტორები არ არის"
+
+msgid "grid.remotelyHostedItem"
+msgstr "ეს ელემენტები დისტანციურად არის განთავსებული."
+
+msgid "grid.action.uninstall"
+msgstr "წაშლა"
+
+msgid "grid.action.updateQuery"
+msgstr "დისკუსიის განახლება"
+
+msgid "grid.action.unassignReviewer"
+msgstr "ამ რეფერენტის გაუქმება"
+
+msgid "grid.action.setApproval"
+msgstr "დამტკიცების დაყენება"
+
+msgid "grid.action.restoreDefaults"
+msgstr "ნაგულისხმევის აღდგენა"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ნაგულისხმევის აღდგენა?"
+
+msgid "grid.action.upgrade"
+msgstr "განახლება"
+
+msgid "grid.action.wizard"
+msgstr "პარამეტრების ოსტატი"
+
+msgid "grid.action.selectFiles"
+msgstr "აირჩიეთ ფაილები სამართავად"
+
+msgid "grid.action.sendToProduction"
+msgstr "გაგზავნეთ ეს წარდგენა დამუშავებაში"
+
+msgid "grid.action.selectCreate"
+msgstr "ახალი რეცენზენტის შექმნა"
+
+msgid "grid.action.viewLibrary"
+msgstr "დოკუმენტების ბიბლიოთეკის ნახვა"
+
+msgid "grid.action.viewMetadata"
+msgstr "იხილეთ ამ გაგზავნის მეტამონაცემები"
+
+msgid "grid.action.sendReminder"
+msgstr "გაუგზავნეთ დავალების შეხსენება ამ მომხმარებელს"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "იხილეთ მიმოხილვის სახელმძღვანელო პრინციპები"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "იხილეთ ინტერესთა კონფლიქტის სახელმძღვანელო პრინციპები"
+
+msgid "grid.action.thankReviewer"
+msgstr "გაუგზავნეთ მადლობის წერილი ამ რეცენზენტს"
+
+msgid "grid.action.unassignUser"
+msgstr "მომხმარებლის გაუქმება"
+
+msgid "grid.action.unconsiderReview"
+msgstr "ეს მიმოხილვა დასრულებულია, მაგრამ თქვენ არ შეგიძლიათ განიხილოთ იგი"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ყველა მომხმარებლის ექსპორტი?"
+
+msgid "grid.action.users"
+msgstr "მომხმარებლების ნახვა/არჩევა"
+
+msgid "grid.task.status.completed"
+msgstr "ეს ამოცანა შესრულებულია"
+
+msgid "grid.task.status.new"
+msgstr "შემოწმებულია, როდესაც განიხილება"
+
+msgid "grid.task.status.uploaded"
+msgstr "სვეტის სათაური მიუთითებს, თუ ვინ ატვირთა ეს ფაილი"
+
+msgid "grid.task.status.unfinished"
+msgstr "დაუსრულებელი დავალება"
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+"ეს მიმოხილვა მზად არის. დააწკაპუნეთ ჩანიშვნის ხატულაზე მარცხნივ, რომ "
+"წაიკითხოთ."
+
+msgid "grid.columns.auditor"
+msgstr "აუდიტორი"
+
+msgid "grid.sponsor.title"
+msgstr "სპონსორი ორგანიზაციები"
+
+msgid "grid.contributor.title"
+msgstr "დახმარების წყაროები"
+
+msgid "grid.reviewForm.title"
+msgstr "მიმოხილვის ფორმები"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "პასუხის პარამეტრები"
+
+msgid "grid.noFiles"
+msgstr "ფაილები არ არის"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "წარდგენის ბიბლიოთეკა"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "სარედაქციო ბიბლიოთეკა"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "მიმოხილვის ბიბლიოთეკა"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "წარმოების ბიბლიოთეკა"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "წარმოების შაბლონების ბიბლიოთეკა"
+
+msgid "grid.submissionChecklist.title"
+msgstr "წარდგენის ჩამონათვალი"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "საკონტროლო სიის ელემენტები"
+
+msgid "grid.roles.currentRoles"
+msgstr "მიმდინარე როლები"
+
+msgid "grid.roles.add"
+msgstr "ახალი როლის შექმნა"
+
+msgid "grid.roles.stageAssignment"
+msgstr "სცენის დავალება"
+
+msgid "grid.user.currentUsers"
+msgstr "მიმდინარე მომხმარებლები"
+
+msgid "grid.user.currentEnrollment"
+msgstr "მიმდინარე ჩარიცხვა"
+
+msgid "grid.user.allRoles"
+msgstr "ყველა როლი"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "ყველა ნებართვის დონე"
+
+msgid "grid.user.enroll"
+msgstr "მომხმარებლის ჩარიცხვა"
+
+msgid "grid.user.disableReason"
+msgstr "მომხმარებლის გამორთვის მიზეზი"
+
+msgid "grid.user.enableReason"
+msgstr "მომხმარებლის ჩართვის მიზეზი"
+
+msgid "grid.user.error"
+msgstr ""
+"ამ მომხმარებლის ადმინისტრირებისას წარმოიშვა შეცდომა. გთხოვთ კიდევ სცადოთ."
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"ამ ელფოსტის გაგზავნისას მოხდა შეცდომა. გთხოვთ, დარწმუნდეთ, რომ თქვენი "
+"ელფოსტის სერვერის კონფიგურაცია მუშაობს და/ან დაუკავშირდით თქვენი სისტემის "
+"ადმინისტრატორს."
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"თქვენ არ გაქვთ საკმარისი უფლებები ამ მომხმარებლის ადმინისტრირებისთვის. "
+"მომხმარებლის ადმინისტრაციის მიზნით, თქვენ უნდა იყოთ საიტის ადმინისტრატორი, "
+"ან უნდა მართოთ ყველა ის კონტექსტი, რომელშიც ეს მომხმარებელი "
+"დარეგისტრირებულია."
+
+msgid "grid.user.authSource"
+msgstr "ავთენტიფიკაციის წყაროს შექმნა"
+
+msgid "grid.user.mustProvideName"
+msgstr "გთხოვთ პირველ რიგში მიუთითოთ მომხმარებლის გვარი."
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "შექმენით შემთხვევითი პაროლი ამ მომხმარებლისთვის."
+
+msgid "grid.user.notifyUser"
+msgstr "შეტყობინება მომხმარებელს"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "გაუგზავნეთ მომხმარებელს მისასალმებელი ელწერილი."
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "მომხმარებელმა უნდა შეცვალოს პაროლი შემდეგი შესვლისას."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr ""
+"მოსთხოვეთ მომხმარებელს, შეცვალოს პაროლი შემდეგში, როდესაც შევა სისტემაში."
+
+msgid "grid.user.moreDetails"
+msgstr "მომხმარებელი მეტი დეტალი"
+
+msgid "grid.user.lessDetails"
+msgstr "მომხმარებელი ნაკლები დეტალები"
+
+msgid "grid.user.userNoRoles"
+msgstr "ამ მომხმარებელს არ აქვს არანაირი როლი."
+
+msgid "grid.user.step1"
+msgstr "ბიჯი #1: შეავსეთ მომხმარებლის დეტალები"
+
+msgid "grid.user.step2"
+msgstr "ბიჯი #2: დაამატეთ მომხმარებლის როლები {$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "როლების დამატება"
+
+msgid "grid.user.addRole"
+msgstr "როლის დამატება"
+
+msgid "grid.user.selectUser"
+msgstr "მომხმარებლის არჩევა"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "გთხოვთ, აირჩიოთ მომხმარებელი"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"შედიხართ, როგორც ეს მომხმარებელი? თქვენს მიერ შესრულებული ყველა მოქმედება "
+"მიეკუთვნება ამ მომხმარებელს."
+
+msgid "grid.user.mergeUsers"
+msgstr "მომხმარებლების გაერთიანება"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "მომხმარებლის გაერთიანება"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "ამ მომხმარებელთან შეერთება"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "ყველა დარეგისტრირებული მომხმარებელი"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ ანგარიშის შერწყმა მომხმარებლის სახელით \""
+"{$oldUsername}\" ანგარიშში მომხმარებლის სახელით \"{$newUsername}\"? ანგარიში "
+"მომხმარებლის სახელით \"{$oldUsername}\" აღარ იარსებებს. ეს მოქმედება არ არის "
+"შექცევადი."
+
+msgid "grid.preparedEmails.title"
+msgstr "მზა ელფოსტის შაბლონები"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "მიმდინარე სია"
+
+msgid "grid.plugin.disable"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ პლაგინის გამორთვა?"
+
+msgid "grid.artworkFile.credit"
+msgstr "ავტორი"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "საავტორო უფლებების მფლობელი"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "საკონტაქტო ინფორმაცია (თუ არ არის ავტორი/გამომცემელი)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "წვდომის წესები"
+
+msgid "grid.artworkFile.placement"
+msgstr "განთავსება წარდგენაში"
+
+msgid "grid.userGroup.assignStage"
+msgstr "სცენის დანიშვნა"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "სცენის გაუქმება"
+
+msgid "grid.userGroup.allStages"
+msgstr "სამუშაო პროცესის ყველა ეტაპი"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "ჩამოთვალეთ როლები"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "დაყენებული ნებართვის დონით"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "{$userGroupName} როლი ნაგულისხმევია და მისი წაშლა შეუძლებელია."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"{$userGroupName} როლის წაშლა შეუძლებელია. ამჟამად მას {$usersCount} "
+"მომხმარებელი ენიჭება."
+
+msgid "grid.userGroup.removed"
+msgstr "{$userGroupName} როლი წაიშალა."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "{$userGroupName} როლი მიენიჭა ეტაპს {$stageName}."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "{$userGroupName} როლი არ არის მინიჭებული {$stageName} ეტაპიდან."
+
+msgid "grid.submission.itemTitle"
+msgstr "ავტორი; სათაური"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "ჩართეთ არასრული წარდგინება, რომელიც არ არის წარმოდგენილი ავტორის მიერ."
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "ნავიგაციის მენიუს ელემენტები არ არის"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "ნავიგაციის მენიუები არ არის"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "ტიპის არჩევა..."

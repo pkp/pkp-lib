@@ -14,9 +14,10 @@
  * @brief Operations for retrieving and modifying Server objects.
  */
 
-import('lib.pkp.classes.context.ContextDAO');
-import('classes.server.Server');
-import('lib.pkp.classes.metadata.MetadataTypeDescription');
+namespace APP\server;
+
+use \PKP\context\ContextDAO;
+use \APP\server\Server;
 
 define('SERVER_FIELD_TITLE', 1);
 define('SERVER_FIELD_SEQUENCE', 2);
@@ -118,4 +119,8 @@ class ServerDAO extends ContextDAO {
 		}
 		return false;
 	}
+}
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\APP\server\ServerDAO', '\ServerDAO');
 }

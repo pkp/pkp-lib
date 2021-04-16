@@ -18,6 +18,7 @@ namespace PKP\cache;
 
 use \PKP\core\Registry;
 use \PKP\core\Core;
+use \PKP\config\Config;
 
 define('CACHE_TYPE_FILE', 1);
 define('CACHE_TYPE_OBJECT', 2);

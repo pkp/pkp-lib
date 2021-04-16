@@ -13,6 +13,7 @@
  *
  * @brief Operations for retrieving and modifying Submission objects.
  */
+
 use Illuminate\Support\Facades\DB;
 
 import('lib.pkp.classes.submission.PKPSubmission');
@@ -21,6 +22,7 @@ import('lib.pkp.classes.db.SchemaDAO');
 define('ORDERBY_DATE_PUBLISHED', 'datePublished');
 define('ORDERBY_TITLE', 'title');
 
+use \PKP\db\DAORegistry;
 use \PKP\services\PKPSchemaService;
 
 abstract class PKPSubmissionDAO extends SchemaDAO {

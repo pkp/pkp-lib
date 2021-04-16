@@ -14,7 +14,9 @@
  * See dbscripts/xml/dtd/xmldata.dtd for the XML schema used.
  */
 
-import('lib.pkp.classes.xml.PKPXMLParser');
+namespace PKP\db;
+
+use \PKP\db\PKPXMLParser;
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
@@ -218,4 +220,6 @@ class DBDataXMLParser {
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\db\DBDataXMLParser', '\DBDataXMLParser');
+}

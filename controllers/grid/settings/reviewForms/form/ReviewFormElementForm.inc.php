@@ -15,7 +15,6 @@
  *
  */
 
-import('lib.pkp.classes.db.DBDataXMLParser');
 import('lib.pkp.classes.form.Form');
 
 class ReviewFormElementForm extends Form {

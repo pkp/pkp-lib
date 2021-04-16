@@ -12,7 +12,6 @@
  * @brief Form for manager to preview review form.
  */
 
-import('lib.pkp.classes.db.DBDataXMLParser');
 import('lib.pkp.classes.form.Form');
 
 use \PKP\core\JSONMessage;

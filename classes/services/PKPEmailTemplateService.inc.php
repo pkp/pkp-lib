@@ -29,8 +29,6 @@ use \APP\core\Services;
 
 define('EMAIL_TEMPLATE_STAGE_DEFAULT', 0);
 
-import('lib.pkp.classes.db.DBResultRange');
-
 class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
 
 	/**

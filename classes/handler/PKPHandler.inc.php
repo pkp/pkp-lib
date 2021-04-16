@@ -14,6 +14,8 @@
  *
  */
 
+use \PKP\db\DBResultRange;
+
 class PKPHandler {
 	/** @var string|null API token */
 	protected $_apiToken = null;
@@ -423,8 +425,6 @@ class PKPHandler {
 
 		if ($context) $count = $context->getData('itemsPerPage');
 		if (!isset($count)) $count = Config::getVar('interface', 'items_per_page');
-
-		import('lib.pkp.classes.db.DBResultRange');
 
 		if (isset($count)) return new DBResultRange($count, $pageNum);
 		else return new DBResultRange(-1, -1);

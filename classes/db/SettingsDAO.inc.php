@@ -13,6 +13,11 @@
  * @brief Operations for retrieving and modifying settings.
  */
 
+namespace PKP\db;
+
+use \PKP\db\DAO;
+use \PKP\db\PKPXMLParser;
+
 abstract class SettingsDAO extends DAO {
 	/**
 	 * Retrieve (and newly cache) all settings.
@@ -292,4 +297,7 @@ abstract class SettingsDAO extends DAO {
 	}
 }
 
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\db\SettingsDAO', '\SettingsDAO');
+}
 

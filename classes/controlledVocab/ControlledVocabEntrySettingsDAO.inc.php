@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying controlled vocabulary entry settings.
  */
 
-import('lib.pkp.classes.db.SettingsDAO');
+use \PKP\db\SettingsDAO;
 
 class ControlledVocabEntrySettingsDAO extends SettingsDAO {
 

@@ -19,6 +19,7 @@
 import('classes.statistics.StatisticsHelper'); //STATISTICS_DIMENSION_
 
 use \PKP\core\PKPApplication;
+use \PKP\db\DBResultRange;
 
 class PKPMetricsDAO extends DAO {
 
@@ -197,7 +198,7 @@ class PKPMetricsDAO extends DAO {
 
 		// Build the report.
 		$sql = "$selectClause FROM metrics $whereClause $groupByClause $havingClause $orderByClause";
-		if (is_a($range, 'DBResultRange')) $result = $this->retrieveRange($sql, $params, $range);
+		if ($range instanceof DBResultRange) $result = $this->retrieveRange($sql, $params, $range);
 		else $result = $this->retrieve($sql, $params);
 
 		// Return the report.

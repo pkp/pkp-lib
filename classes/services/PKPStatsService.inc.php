@@ -15,6 +15,8 @@
 
 namespace PKP\Services;
 
+use \PKP\db\DBResultRange;
+
 class PKPStatsService {
 
 	/**
@@ -180,8 +182,7 @@ class PKPStatsService {
 
 		$range = null;
 		if (isset($args['count'])) {
-			import('lib.pkp.classes.db.DBResultRange');
-			$range = new \DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
+			$range = new DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
 		}
 
 		$result = \DAORegistry::getDAO('MetricsDAO')

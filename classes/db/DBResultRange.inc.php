@@ -13,6 +13,7 @@
  * @brief Container class for range information when retrieving a result set.
  */
 
+namespace PKP\db;
 
 class DBResultRange {
 	/** The number of items to display */
@@ -92,4 +93,7 @@ class DBResultRange {
 	}
 }
 
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\db\DBResultRange', '\DBResultRange');
+}
 

@@ -564,8 +564,6 @@ class PKPLocale {
 	 */
 	static function installLocale($locale) {
 		// Install default locale-specific data
-		import('lib.pkp.classes.db.DBDataXMLParser');
-
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
 		$emailTemplateDao->installEmailTemplateLocaleData($emailTemplateDao->getMainEmailTemplatesFilename(), array($locale));

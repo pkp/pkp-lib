@@ -15,6 +15,8 @@
 
 import('classes.handler.Handler');
 
+use \PKP\db\DBResultRange;
+
 class AnnouncementHandler extends Handler {
 
 	//
@@ -56,7 +58,6 @@ class AnnouncementHandler extends Handler {
 
 		$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
 		// TODO the announcements list should support pagination
-		import('lib.pkp.classes.db.DBResultRange');
 		$rangeInfo = new DBResultRange(50, -1);
 		$announcements = $announcementDao->getAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $rangeInfo);
 		$templateMgr->assign('announcements', $announcements->toArray());

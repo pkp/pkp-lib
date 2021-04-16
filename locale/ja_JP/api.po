@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-15 15:55+0000\n"
+"PO-Revision-Date: 2021-04-16 05:46+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ja_JP/>\n"
@@ -57,22 +57,22 @@ msgid "api.submissionsFiles.400.noParams"
 msgstr "このファイルを編集するリクエストに変更が見つかりませんでした。"
 
 msgid "api.submissionFiles.400.noFileStageId"
-msgstr "ファイルステージを指定する必要があります。"
+msgstr "ファイル段階を指定する必要があります。"
 
 msgid "api.submissionFiles.400.missingReviewRoundAssocType"
 msgstr "査読段階のファイルを要求する場合は、査読ラウンドを指定する必要があります。"
 
 msgid "api.submissionFiles.400.badReviewRoundAssocType"
-msgstr "このファイルステージのファイルを査読ラウンドに関連付けることはできません。"
+msgstr "このファイル段階のファイルを査読ラウンドに関連付けることはできません。"
 
 msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
-msgstr "このファイルステージのファイルを査読割り当てに関連付けることはできません。"
+msgstr "このファイル段階のファイルを査読割り当てに関連付けることはできません。"
 
 msgid "api.submissionFiles.400.badNoteAssocType"
-msgstr "このファイルステージのファイルをディスカッションメモに関連付けることはできません。"
+msgstr "このファイル段階のファイルをディスカッションメモに関連付けることはできません。"
 
 msgid "api.submissionFiles.400.badDependentFileAssocType"
-msgstr "このファイルステージのファイルを別の投稿ファイルに関連付けることはできません。"
+msgstr "このファイル段階のファイルを別の投稿ファイルに関連付けることはできません。"
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr "assocType と assocID を渡さないと、ファイルの関連付けを変更できません。"

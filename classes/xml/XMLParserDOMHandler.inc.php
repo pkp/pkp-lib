@@ -18,6 +18,8 @@
 
 namespace PKP\xml;
 
+use \PKP\xml\XMLParserHandler;
+
 class XMLParserDOMHandler extends XMLParserHandler {
 
 	/** @var XMLNode reference to the root node */

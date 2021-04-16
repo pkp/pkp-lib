@@ -17,6 +17,8 @@
 import('lib.pkp.classes.handler.APIHandler');
 import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_ constants
 
+use \PKP\services\PKPSchemaService;
+
 class PKPSubmissionFileHandler extends APIHandler {
 
 	/**
@@ -264,7 +266,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 			$submissionDir . '/' . uniqid() . '.' . $extension
 		);
 
-		$params = $this->convertStringsToSchema(SCHEMA_SUBMISSION_FILE, $slimRequest->getParsedBody());
+		$params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $slimRequest->getParsedBody());
 		$params['fileId'] = $fileId;
 		$params['submissionId'] = $submission->getId();
 		$params['uploaderUserId'] = (int) $request->getUser()->getId();
@@ -352,7 +354,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 
-		$params = $this->convertStringsToSchema(SCHEMA_SUBMISSION_FILE, $slimRequest->getParsedBody());
+		$params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $slimRequest->getParsedBody());
 
 		// Don't allow these properties to be modified
 		unset($params['submissionId'], $params['fileId'], $params['uploaderUserId']);

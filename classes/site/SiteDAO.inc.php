@@ -15,6 +15,8 @@
  */
 import('lib.pkp.classes.site.Site');
 
+use \PKP\services\PKPSchemaService;
+
 use \APP\core\Services;
 
 class SiteDAO extends DAO {
@@ -58,7 +60,7 @@ class SiteDAO extends DAO {
 	 */
 	function _fromRow($primaryRow, $callHook = true) {
 		$schemaService = Services::get('schema');
-		$schema = $schemaService->get(SCHEMA_SITE);
+		$schema = $schemaService->get(PKPSchemaService::SCHEMA_SITE);
 
 		$site = $this->newDataObject();
 
@@ -131,8 +133,8 @@ class SiteDAO extends DAO {
 	 */
 	public function updateObject($site) {
 		$schemaService = Services::get('schema');
-		$schema = $schemaService->get(SCHEMA_SITE);
-		$sanitizedProps = $schemaService->sanitize(SCHEMA_SITE, $site->_data);
+		$schema = $schemaService->get(PKPSchemaService::SCHEMA_SITE);
+		$sanitizedProps = $schemaService->sanitize(PKPSchemaService::SCHEMA_SITE, $site->_data);
 
 		$set = $params = [];
 		foreach ($this->primaryTableColumns as $propName => $column) {

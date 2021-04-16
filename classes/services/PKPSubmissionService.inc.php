@@ -15,17 +15,20 @@
 
 namespace PKP\Services;
 
-use \Core;
-use \DBResultRange;
-use \Application;
-use \DAOResultFactory;
-use \DAORegistry;
 use \Illuminate\Database\Capsule\Manager as Capsule;
-use \Services;
+
+use \PKP\core\Core;
+use \PKP\db\DBResultRange;
+use \PKP\db\DAOResultFactory;
+use \PKP\plugins\DAORegistry;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
+use \PKP\services\PKPSchemaService;
+
+use \APP\core\Services;
 use \APP\Services\QueryBuilders\SubmissionQueryBuilder;
+use \APP\core\Application;
 
 define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
 
@@ -249,7 +252,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			}
 		}
 
-		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_SUBMISSION, $values, $request->getContext()->getSupportedSubmissionLocales());
+		$values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_SUBMISSION, $values, $request->getContext()->getSupportedSubmissionLocales());
 
 		\HookRegistry::call('Submission::getProperties::values', array(&$values, $submission, $props, $args));
 
@@ -262,7 +265,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
 	 */
 	public function getSummaryProperties($submission, $args = null) {
-		$props = Services::get('schema')->getSummaryProps(SCHEMA_SUBMISSION);
+		$props = Services::get('schema')->getSummaryProps(PKPSchemaService::SCHEMA_SUBMISSION);
 
 		return $this->getProperties($submission, $props, $args);
 	}
@@ -271,7 +274,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
 	 */
 	public function getFullProperties($submission, $args = null) {
-		$props = Services::get('schema')->getFullProps(SCHEMA_SUBMISSION);
+		$props = Services::get('schema')->getFullProps(PKPSchemaService::SCHEMA_SUBMISSION);
 
 		return $this->getProperties($submission, $props, $args);
 	}
@@ -701,21 +704,21 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		import('lib.pkp.classes.validation.ValidatorFactory');
 		$validator = \ValidatorFactory::make(
 			$props,
-			$schemaService->getValidationRules(SCHEMA_SUBMISSION, $allowedLocales)
+			$schemaService->getValidationRules(PKPSchemaService::SCHEMA_SUBMISSION, $allowedLocales)
 		);
 
 		// Check required fields
 		\ValidatorFactory::required(
 			$validator,
 			$action,
-			$schemaService->getRequiredProps(SCHEMA_SUBMISSION),
-			$schemaService->getMultilingualProps(SCHEMA_SUBMISSION),
+			$schemaService->getRequiredProps(PKPSchemaService::SCHEMA_SUBMISSION),
+			$schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_SUBMISSION),
 			$primaryLocale,
 			$allowedLocales
 		);
 
 		// Check for input from disallowed locales
-		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_SUBMISSION), $allowedLocales);
+		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_SUBMISSION), $allowedLocales);
 
 		// The contextId must match an existing context
 		$validator->after(function($validator) use ($props) {
@@ -728,7 +731,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		});
 
 		if ($validator->fails()) {
-			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_SUBMISSION), $allowedLocales);
+			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_SUBMISSION), $allowedLocales);
 		}
 
 		\HookRegistry::call('Submission::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);

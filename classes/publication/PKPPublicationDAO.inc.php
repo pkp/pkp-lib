@@ -18,11 +18,12 @@ use Illuminate\Support\Facades\DB;
 import('lib.pkp.classes.db.SchemaDAO');
 import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
 import('classes.publication.Publication');
-import('lib.pkp.classes.services.PKPSchemaService'); // SCHEMA_ constants
+
+use \PKP\services\PKPSchemaService;
 
 class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	/** @copydoc SchemaDAO::$schemaName */
-	public $schemaName = SCHEMA_PUBLICATION;
+	public $schemaName = PKPSchemaService::SCHEMA_PUBLICATION;
 
 	/** @copydoc SchemaDAO::$tableName */
 	public $tableName = 'publications';

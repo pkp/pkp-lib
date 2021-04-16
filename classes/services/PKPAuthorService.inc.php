@@ -15,14 +15,15 @@
 
 namespace PKP\Services;
 
-use \DBResultRange;
-use \DAOResultFactory;
-use \DAORegistry;
-use \Services;
+use \PKP\db\DBResultRange;
+use \PKP\db\DAOResultFactory;
+use \PKP\db\DAORegistry;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
 use \PKP\Services\QueryBuilders\PKPAuthorQueryBuilder;
+
+use \APP\core\Services;
 
 class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, EntityPropertyInterface {
 
@@ -130,7 +131,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 		}
 
 		$locales = $request->getContext()->getSupportedFormLocales();
-		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_AUTHOR, $values, $locales);
+		$values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_AUTHOR, $values, $locales);
 
 		\HookRegistry::call('Author::getProperties::values', array(&$values, $author, $props, $args));
 
@@ -143,7 +144,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
 	 */
 	public function getSummaryProperties($author, $args = null) {
-		$props = Services::get('schema')->getSummaryProps(SCHEMA_AUTHOR);
+		$props = Services::get('schema')->getSummaryProps(PKPSchemaService::SCHEMA_AUTHOR);
 
 		return $this->getProperties($author, $props, $args);
 	}
@@ -152,7 +153,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
 	 */
 	public function getFullProperties($author, $args = null) {
-		$props = Services::get('schema')->getFullProps(SCHEMA_AUTHOR);
+		$props = Services::get('schema')->getFullProps(PKPSchemaService::SCHEMA_AUTHOR);
 
 		return $this->getProperties($author, $props, $args);
 	}
@@ -166,21 +167,21 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 		import('lib.pkp.classes.validation.ValidatorFactory');
 		$validator = \ValidatorFactory::make(
 			$props,
-			$schemaService->getValidationRules(SCHEMA_AUTHOR, $allowedLocales)
+			$schemaService->getValidationRules(PKPSchemaService::SCHEMA_AUTHOR, $allowedLocales)
 		);
 
 		// Check required fields
 		\ValidatorFactory::required(
 			$validator,
 			$action,
-			$schemaService->getRequiredProps(SCHEMA_AUTHOR),
-			$schemaService->getMultilingualProps(SCHEMA_AUTHOR),
+			$schemaService->getRequiredProps(PKPSchemaService::SCHEMA_AUTHOR),
+			$schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR),
 			$allowedLocales,
 			$primaryLocale
 		);
 
 		// Check for input from disallowed locales
-		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_AUTHOR), $allowedLocales);
+		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
 
 		// The publicationId must match an existing publication that is not yet published
 		$validator->after(function($validator) use ($props) {
@@ -195,7 +196,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 		});
 
 		if ($validator->fails()) {
-			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_AUTHOR), $allowedLocales);
+			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
 		}
 
 		\HookRegistry::call('Author::validate', array(&$errors, $action, $props, $allowedLocales, $primaryLocale));

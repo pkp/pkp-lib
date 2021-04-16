@@ -17,17 +17,18 @@ use Illuminate\Support\Facades\DB;
 
 import('lib.pkp.classes.submission.PKPSubmission');
 import('lib.pkp.classes.db.SchemaDAO');
-import('lib.pkp.classes.services.PKPSchemaService'); // SCHEMA_ constants
 
 define('ORDERBY_DATE_PUBLISHED', 'datePublished');
 define('ORDERBY_TITLE', 'title');
+
+use \PKP\services\PKPSchemaService;
 
 abstract class PKPSubmissionDAO extends SchemaDAO {
 	var $cache;
 	var $authorDao;
 
 	/** @copydoc SchemaDAO::$schemaName */
-	public $schemaName = SCHEMA_SUBMISSION;
+	public $schemaName = PKPSchemaService::SCHEMA_SUBMISSION;
 
 	/** @copydoc SchemaDAO::$tableName */
 	public $tableName = 'submissions';

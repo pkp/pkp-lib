@@ -17,9 +17,11 @@
 import('lib.pkp.classes.db.SchemaDAO');
 import('lib.pkp.classes.submission.PKPAuthor');
 
+use \PKP\services\PKPSchemaService;
+
 abstract class PKPAuthorDAO extends SchemaDAO {
 	/** @copydoc SchemaDAO::$schemaName */
-	public $schemaName = SCHEMA_AUTHOR;
+	public $schemaName = PKPSchemaService::SCHEMA_AUTHOR;
 
 	/** @copydoc SchemaDAO::$tableName */
 	public $tableName = 'authors';

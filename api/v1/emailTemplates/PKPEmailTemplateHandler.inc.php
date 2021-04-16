@@ -14,6 +14,8 @@
 
 import('lib.pkp.classes.handler.APIHandler');
 
+use \PKP\services\PKPSchemaService;
+
 class PKPEmailTemplateHandler extends APIHandler {
 	/**
 	 * @copydoc APIHandler::__construct()
@@ -184,7 +186,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$request = $this->getRequest();
 		$requestContext = $request->getContext();
 
-		$params = $this->convertStringsToSchema(SCHEMA_EMAIL_TEMPLATE, $slimRequest->getParsedBody());
+		$params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE, $slimRequest->getParsedBody());
 
 		if (!isset($params['contexId'])) {
 			$params['contextId'] = $requestContext->getId();
@@ -230,7 +232,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 			return $response->withStatus(404)->withJsonError('api.emailTemplates.404.templateNotFound');
 		}
 
-		$params = $this->convertStringsToSchema(SCHEMA_EMAIL_TEMPLATE, $slimRequest->getParsedBody());
+		$params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE, $slimRequest->getParsedBody());
 		$params['key'] = $args['key'];
 
 		// Only allow admins to change the context an email template is attached to.

@@ -14,15 +14,17 @@
 
 namespace PKP\Services;
 
-use \Application;
-use \DBResultRange;
-use \DAOResultFactory;
-use \DAORegistry;
-use \Services;
+use \PKP\db\DBResultRange;
+use \PKP\db\DAOResultFactory;
+use \PKP\db\DAORegistry;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\QueryBuilders\PKPUserQueryBuilder;
 use \PKP\User\Report;
+use \PKP\services\PKPSchemaService;
+
+use \APP\core\Application;
+use \APP\core\Services;
 
 class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
@@ -393,7 +395,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 					break;
 			}
 
-			$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_USER, $values, $context->getSupportedFormLocales());
+			$values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_USER, $values, $context->getSupportedFormLocales());
 
 			\HookRegistry::call('User::getProperties::values', [&$values, $user, $props, $args]);
 

@@ -14,23 +14,23 @@
  */
 namespace PKP\Services;
 
-define('SCHEMA_ANNOUNCEMENT', 'announcement');
-define('SCHEMA_AUTHOR', 'author');
-define('SCHEMA_CONTEXT', 'context');
-define('SCHEMA_EMAIL_TEMPLATE', 'emailTemplate');
-define('SCHEMA_GALLEY', 'galley');
-define('SCHEMA_ISSUE', 'issue');
-define('SCHEMA_PUBLICATION', 'publication');
-define('SCHEMA_REVIEW_ASSIGNMENT', 'reviewAssignment');
-define('SCHEMA_REVIEW_ROUND', 'reviewRound');
-define('SCHEMA_SECTION', 'section');
-define('SCHEMA_SITE', 'site');
-define('SCHEMA_SUBMISSION', 'submission');
-define('SCHEMA_SUBMISSION_FILE', 'submissionFile');
-define('SCHEMA_USER', 'user');
-define('SCHEMA_USER_GROUP', 'userGroup');
-
 class PKPSchemaService {
+	public const SCHEMA_ANNOUNCEMENT = 'announcement';
+	public const SCHEMA_AUTHOR = 'author';
+	public const SCHEMA_CONTEXT = 'context';
+	public const SCHEMA_EMAIL_TEMPLATE = 'emailTemplate';
+	public const SCHEMA_GALLEY = 'galley';
+	public const SCHEMA_ISSUE = 'issue';
+	public const SCHEMA_PUBLICATION = 'publication';
+	public const SCHEMA_REVIEW_ASSIGNMENT = 'reviewAssignment';
+	public const SCHEMA_REVIEW_ROUND = 'reviewRound';
+	public const SCHEMA_SECTION = 'section';
+	public const SCHEMA_SITE = 'site';
+	public const SCHEMA_SUBMISSION = 'submission';
+	public const SCHEMA_SUBMISSION_FILE = 'submissionFile';
+	public const SCHEMA_USER = 'user';
+	public const SCHEMA_USER_GROUP = 'userGroup';
+
 	/** @var array cache of schemas that have been loaded */
 	private $_schemas = [];
 
@@ -590,3 +590,27 @@ class PKPSchemaService {
 		return $values;
 	}
 }
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\services\PKPSchemaService', '\PKPSchemaService');
+	foreach ([
+		'SCHEMA_ANNOUNCEMENT',
+		'SCHEMA_AUTHOR',
+		'SCHEMA_CONTEXT',
+		'SCHEMA_EMAIL_TEMPLATE',
+		'SCHEMA_GALLEY',
+		'SCHEMA_ISSUE',
+		'SCHEMA_PUBLICATION',
+		'SCHEMA_REVIEW_ASSIGNMENT',
+		'SCHEMA_REVIEW_ROUND',
+		'SCHEMA_SECTION',
+		'SCHEMA_SITE',
+		'SCHEMA_SUBMISSION',
+		'SCHEMA_SUBMISSION_FILE',
+		'SCHEMA_USER',
+		'SCHEMA_USER_GROUP',
+	] as $constantName) {
+		if (!defined($constantName)) define($constantName, constant('PKPSchemaService::' . $constantName));
+	}
+}
+

@@ -17,6 +17,8 @@
 import('classes.handler.Handler');
 import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_REVIEW_...
 
+use \PKP\services\PKPSchemaService;
+
 abstract class PKPAuthorDashboardHandler extends Handler {
 
 	/** @copydoc PKPHandler::_isBackendPage */
@@ -235,7 +237,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		// Get the submission props without the full publication details. We'll
 		// retrieve just the publication information that we need separately to
 		// reduce the amount of data passed to the browser
-		$propNames = Services::get('schema')->getSummaryProps(SCHEMA_SUBMISSION);
+		$propNames = Services::get('schema')->getSummaryProps(PKPSchemaService::SCHEMA_SUBMISSION);
 		$propNames = array_filter($propNames, function($propName) { return $propName !== 'publications'; });
 		$submissionProps = Services::get('submission')->getProperties(
 			$submission,

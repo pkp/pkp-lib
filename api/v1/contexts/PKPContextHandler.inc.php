@@ -14,9 +14,11 @@
 
 import('lib.pkp.classes.handler.APIHandler');
 
+use \PKP\services\PKPSchemaService;
+
 class PKPContextHandler extends APIHandler {
 	/** @var string One of the SCHEMA_... constants */
-	public $schemaName = SCHEMA_CONTEXT;
+	public $schemaName = PKPSchemaService::SCHEMA_CONTEXT;
 
 	/**
 	 * @copydoc APIHandler::__construct()
@@ -279,7 +281,7 @@ class PKPContextHandler extends APIHandler {
 		}
 
 		$site = $request->getSite();
-		$params = $this->convertStringsToSchema(SCHEMA_CONTEXT, $slimRequest->getParsedBody());
+		$params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CONTEXT, $slimRequest->getParsedBody());
 
 		$primaryLocale = $site->getPrimaryLocale();
 		$allowedLocales = $site->getSupportedLocales();
@@ -338,7 +340,7 @@ class PKPContextHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedEdit');
 		}
 
-		$params = $this->convertStringsToSchema(SCHEMA_CONTEXT, $slimRequest->getParsedBody());
+		$params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CONTEXT, $slimRequest->getParsedBody());
 		$params['id'] = $contextId;
 
 		$site = $request->getSite();

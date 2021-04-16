@@ -20,10 +20,12 @@ import('lib.pkp.classes.submission.Genre'); // GENRE_CATEGORY_... constants
 import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
 import('lib.pkp.classes.submission.SubmissionFile');
 
+use \PKP\services\PKPSchemaService;
+
 abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 
 	/** @copydoc SchemaDAO::$schemaName */
-	public $schemaName = SCHEMA_SUBMISSION_FILE;
+	public $schemaName = PKPSchemaService::SCHEMA_SUBMISSION_FILE;
 
 	/** @copydoc SchemaDAO::$tableName */
 	public $tableName = 'submission_files';

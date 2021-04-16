@@ -17,6 +17,7 @@
 import('lib.pkp.classes.handler.APIHandler');
 
 use \APP\core\Services;
+use \PKP\services\PKPSchemaService;
 
 class PKPSubmissionHandler extends APIHandler {
 
@@ -334,7 +335,7 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('author.submit.notAccepting');
 		}
 
-		$params = $this->convertStringsToSchema(SCHEMA_SUBMISSION, $slimRequest->getParsedBody());
+		$params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $slimRequest->getParsedBody());
 		$params['contextId'] = $request->getContext()->getId();
 
 		$primaryLocale = $request->getContext()->getPrimaryLocale();
@@ -382,7 +383,7 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.contextRequired');
 		}
 
-		$params = $this->convertStringsToSchema(SCHEMA_SUBMISSION, $slimRequest->getParsedBody());
+		$params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $slimRequest->getParsedBody());
 		$params['id'] = $submission->getId();
 		$params['contextId'] = $request->getContext()->getId();
 
@@ -577,7 +578,7 @@ class PKPSubmissionHandler extends APIHandler {
 		$request = $this->getRequest();
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
-		$params = $this->convertStringsToSchema(SCHEMA_PUBLICATION, $slimRequest->getParsedBody());
+		$params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $slimRequest->getParsedBody());
 		$params['submissionId'] = $submission->getId();
 
 		$submissionContext = $request->getContext();
@@ -702,7 +703,7 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.userCantEdit');
 		}
 
-		$params = $this->convertStringsToSchema(SCHEMA_PUBLICATION, $slimRequest->getParsedBody());
+		$params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $slimRequest->getParsedBody());
 		$params['id'] = $publication->getId();
 
 		// Don't allow the status to be modified through the API. The `/publish` and /unpublish endpoints

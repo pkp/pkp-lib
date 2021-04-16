@@ -14,11 +14,13 @@
 
 namespace PKP\Services;
 
-use \Application;
-use \DAORegistry;
-use \Services;
+use \PKP\db\DAORegistry;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
+use \PKP\services\PKPSchemaService;
+
+use \APP\core\Application;
+use \APP\core\Services;
 
 class PKPSiteService implements EntityPropertyInterface {
 
@@ -35,7 +37,7 @@ class PKPSiteService implements EntityPropertyInterface {
 			$values[$prop] = $site->getData($prop);
 		}
 
-		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_SITE, $values, $site->getSupportedLocales());
+		$values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_SITE, $values, $site->getSupportedLocales());
 
 		\HookRegistry::call('Site::getProperties', array(&$values, $site, $props, $args));
 
@@ -55,7 +57,7 @@ class PKPSiteService implements EntityPropertyInterface {
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
 	 */
 	public function getFullProperties($site, $args = null) {
-		$props = Services::get('schema')->getFullProps(SCHEMA_SITE);
+		$props = Services::get('schema')->getFullProps(PKPSchemaService::SCHEMA_SITE);
 
 		return $this->getProperties($site, $props, $args);
 	}
@@ -85,7 +87,7 @@ class PKPSiteService implements EntityPropertyInterface {
 		import('lib.pkp.classes.validation.ValidatorFactory');
 		$validator = \ValidatorFactory::make(
 			$props,
-			$schemaService->getValidationRules(SCHEMA_SITE, $allowedLocales),
+			$schemaService->getValidationRules(PKPSchemaService::SCHEMA_SITE, $allowedLocales),
 			[
 				'primaryLocale.regex' => __('validator.localeKey'),
 				'supportedLocales.regex' => __('validator.localeKey'),
@@ -96,8 +98,8 @@ class PKPSiteService implements EntityPropertyInterface {
 		\ValidatorFactory::required(
 			$validator,
 			VALIDATE_ACTION_EDIT,
-			$schemaService->getRequiredProps(SCHEMA_PUBLICATION),
-			$schemaService->getMultilingualProps(SCHEMA_PUBLICATION),
+			$schemaService->getRequiredProps(PKPSchemaService::SCHEMA_PUBLICATION),
+			$schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_PUBLICATION),
 			$allowedLocales,
 			$primaryLocale
 		);
@@ -105,7 +107,7 @@ class PKPSiteService implements EntityPropertyInterface {
 		// Check for input from disallowed locales
 		\ValidatorFactory::allowedLocales(
 			$validator,
-			$schemaService->getMultilingualProps(SCHEMA_SITE),
+			$schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_SITE),
 			$allowedLocales
 		);
 
@@ -152,7 +154,7 @@ class PKPSiteService implements EntityPropertyInterface {
 		});
 
 		if ($validator->fails()) {
-			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_SITE), $allowedLocales);
+			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_SITE), $allowedLocales);
 		}
 
 		\HookRegistry::call('Site::validate', array(&$errors, $props, $allowedLocales, $primaryLocale));

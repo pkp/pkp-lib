@@ -15,17 +15,17 @@
 
 namespace PKP\Services;
 
-use \DBResultRange;
-use \Application;
-use \DAOResultFactory;
-use \DAORegistry;
-use \Services;
+use \PKP\db\DBResultRange;
+use \PKP\db\DAOResultFactory;
+use \PKP\db\DAORegistry;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
-use \APP\Services\QueryBuilders\ContextQueryBuilder;
+use \PKP\services\PKPSchemaService;
 
-import('lib.pkp.classes.db.DBResultRange');
+use \APP\core\Application;
+use \APP\core\Services;
+use \APP\Services\QueryBuilders\ContextQueryBuilder;
 
 abstract class PKPContextService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
 
@@ -182,7 +182,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		}
 
 		$supportedLocales = empty($args['supportedLocales']) ? $context->getSupportedFormLocales() : $args['supportedLocales'];
-		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_CONTEXT, $values, $supportedLocales);
+		$values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_CONTEXT, $values, $supportedLocales);
 
 		\HookRegistry::call('Context::getProperties', array(&$values, $context, $props, $args));
 
@@ -195,7 +195,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
 	 */
 	public function getSummaryProperties($context, $args = null) {
-		$props = Services::get('schema')->getSummaryProps(SCHEMA_CONTEXT);
+		$props = Services::get('schema')->getSummaryProps(PKPSchemaService::SCHEMA_CONTEXT);
 
 		return $this->getProperties($context, $props, $args);
 	}
@@ -204,7 +204,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
 	 */
 	public function getFullProperties($context, $args = null) {
-		$props = Services::get('schema')->getFullProps(SCHEMA_CONTEXT);
+		$props = Services::get('schema')->getFullProps(PKPSchemaService::SCHEMA_CONTEXT);
 
 		return $this->getProperties($context, $props, $args);
 	}
@@ -224,7 +224,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		import('lib.pkp.classes.validation.ValidatorFactory');
 		$validator = \ValidatorFactory::make(
 			$props,
-			$schemaService->getValidationRules(SCHEMA_CONTEXT, $allowedLocales),
+			$schemaService->getValidationRules(PKPSchemaService::SCHEMA_CONTEXT, $allowedLocales),
 			[
 				'urlPath.regex' => __('admin.contexts.form.pathAlphaNumeric'),
 				'primaryLocale.regex' => __('validator.localeKey'),
@@ -238,14 +238,14 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		\ValidatorFactory::required(
 			$validator,
 			$action,
-			$schemaService->getRequiredProps(SCHEMA_CONTEXT),
-			$schemaService->getMultilingualProps(SCHEMA_CONTEXT),
+			$schemaService->getRequiredProps(PKPSchemaService::SCHEMA_CONTEXT),
+			$schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_CONTEXT),
 			$allowedLocales,
 			$primaryLocale
 		);
 
 		// Check for input from disallowed locales
-		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_CONTEXT), $allowedLocales);
+		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_CONTEXT), $allowedLocales);
 
 		// Ensure that a urlPath, if provided, does not already exist
 		$validator->after(function($validator) use ($action, $props) {
@@ -353,7 +353,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		}
 
 		if ($validator->fails()) {
-			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_CONTEXT), $allowedLocales);
+			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_CONTEXT), $allowedLocales);
 		}
 
 		\HookRegistry::call('Context::validate', array(&$errors, $action, $props, $allowedLocales, $primaryLocale));
@@ -393,7 +393,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		\HookRegistry::call('Context::defaults::localeParams', array(&$localeParams, $context, $request));
 
 		$context = Services::get('schema')->setDefaults(
-			SCHEMA_CONTEXT,
+			PKPSchemaService::SCHEMA_CONTEXT,
 			$context,
 			$context->getData('supportedLocales'),
 			$context->getData('primaryLocale'),
@@ -574,7 +574,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		// Allow plugins to extend the $localeParams for new property defaults
 		\HookRegistry::call('Context::restoreLocaleDefaults::localeParams', array(&$localeParams, $context, $request, $locale));
 
-		$localeDefaults = Services::get('schema')->getLocaleDefaults(SCHEMA_CONTEXT, $locale, $localeParams);
+		$localeDefaults = Services::get('schema')->getLocaleDefaults(PKPSchemaService::SCHEMA_CONTEXT, $locale, $localeParams);
 
 		$params = [];
 		foreach ($localeDefaults as $paramName => $value) {

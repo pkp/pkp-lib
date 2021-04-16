@@ -17,6 +17,7 @@
 import('lib.pkp.classes.handler.APIHandler');
 
 use \APP\core\Services;
+use \PKP\services\PKPSchemaService;
 
 class PKPAnnouncementHandler extends APIHandler {
 
@@ -186,7 +187,7 @@ class PKPAnnouncementHandler extends APIHandler {
 			throw new Exception('You can not add an announcement without sending a request to the API endpoint of a particular context.');
 		}
 
-		$params = $this->convertStringsToSchema(SCHEMA_ANNOUNCEMENT, $slimRequest->getParsedBody());
+		$params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $slimRequest->getParsedBody());
 		$params['assocType'] = Application::get()->getContextAssocType();
 		$params['assocId'] = $request->getContext()->getId();
 
@@ -235,7 +236,7 @@ class PKPAnnouncementHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.announcements.400.contextsNotMatched');
 		}
 
-		$params = $this->convertStringsToSchema(SCHEMA_ANNOUNCEMENT, $slimRequest->getParsedBody());
+		$params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $slimRequest->getParsedBody());
 		$params['id'] = $announcement->getId();
 
 		$context = $request->getContext();

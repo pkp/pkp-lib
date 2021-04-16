@@ -17,7 +17,8 @@
 
 namespace APP\core;
 
-use PKP\core\PKPApplication;
+use \PKP\core\PKPApplication;
+use \PKP\db\DAORegistry;
 
 define('REQUIRES_XSL', false);
 
@@ -34,7 +35,7 @@ class Application extends PKPApplication {
 	 */
 	function __construct() {
 		parent::__construct();
-		if (!PKP_STRICT_MODE) {
+		if (!PKP_STRICT_MODE && !class_exists('\Application')) {
 			class_alias('\APP\core\Application', '\Application');
 		}
 	}
@@ -132,7 +133,7 @@ class Application extends PKPApplication {
 	 * @return ContextDAO
 	 */
 	public static function getContextDAO() {
-		return \DAORegistry::getDAO('ServerDAO');
+		return DAORegistry::getDAO('ServerDAO');
 	}
 
 	/**
@@ -140,7 +141,7 @@ class Application extends PKPApplication {
 	 * @return SectionDAO
 	 */
 	public static function getSectionDAO() {
-		return \DAORegistry::getDAO('SectionDAO');
+		return DAORegistry::getDAO('SectionDAO');
 	}
 
 	/**
@@ -148,7 +149,7 @@ class Application extends PKPApplication {
 	 * @return RepresentationDAO
 	 */
 	public static function getRepresentationDAO() {
-		return \DAORegistry::getDAO('PreprintGalleyDAO');
+		return DAORegistry::getDAO('PreprintGalleyDAO');
 	}
 
 	/**
@@ -163,7 +164,7 @@ class Application extends PKPApplication {
 	 * Get a SubmissionSearchDAO instance.
 	 */
 	public static function getSubmissionSearchDAO() {
-		return \DAORegistry::getDAO('PreprintSearchDAO');
+		return DAORegistry::getDAO('PreprintSearchDAO');
 	}
 
 	/**

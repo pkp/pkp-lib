@@ -17,12 +17,14 @@
 require_mock_env('env1');
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.core.ArrayItemIterator');
 import('classes.search.PreprintSearch');
 import('lib.pkp.classes.core.PKPRouter');
 
 define('SUBMISSION_SEARCH_TEST_DEFAULT_PREPRINT', 1);
 define('SUBMISSION_SEARCH_TEST_PREPRINT_FROM_PLUGIN', 2);
+
+use \PKP\core\ArrayItemIterator;
+use \APP\server\Server;
 
 class PreprintSearchTest extends PKPTestCase {
 	/** @var array */

@@ -16,6 +16,7 @@ namespace PKP\Services;
 
 use \PKP\core\Core;
 use \PKP\db\DAOResultFactory;
+use \PKP\db\DBResultRange;
 use \PKP\db\DAORegistry;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;

@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Schema\Blueprint;
 
 use \PKP\db\DBDataXMLParser;
+use \PKP\xml\PKPXMLParser;
 
 class Installer {
 

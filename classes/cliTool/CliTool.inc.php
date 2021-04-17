@@ -31,6 +31,10 @@ if (!defined('STDIN')) {
 define('SESSION_DISABLE_INIT', 1);
 require('./lib/pkp/includes/bootstrap.inc.php');
 
+use \PKP\plugins\PluginRegistry;
+
+use \APP\i18n\AppLocale;
+
 if (!isset($argc)) {
 	// In PHP < 4.3.0 $argc/$argv are not automatically registered
 	if (isset($_SERVER['argc'])) {

@@ -17,39 +17,58 @@
  * application's specifics.
  */
 
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+import('lib.pkp.classes.plugins.importexport.PKPImportExportFilter');
+
 class PKPImportExportDeployment {
+	/** @var array Array of possible validation errors */
+	private $xmlValidationErrors = array();
+
+	/** @var bool Indicator that the import/export process has failed */
+	private $processFailed = false;
+
+	/** @var mixed The import/export process result */
+	public $processResult = null;
+
 	/** @var Context The current import/export context */
-	var $_context;
+	private $_context;
 
 	/** @var User The current import/export user */
-	var $_user;
+	private $_user;
 
 	/** @var Submission The current import/export submission */
-	var $_submission;
+	private $_submission;
 
 	/** @var PKPPublication The current import/export publication */
-	var $_publication;
+	private $_publication;
 
 	/** @var array The processed import objects IDs */
-	var $_processedObjectsIds = array();
+	private $_processedObjectsIds = array();
 
 	/** @var array Warnings keyed by object IDs */
-	var $_processedObjectsErrors = array();
+	private $_processedObjectsErrors = array();
 
 	/** @var array Errors keyed by object IDs */
-	var $_processedObjectsWarnings = array();
+	private $_processedObjectsWarnings = array();
 
 	/** @var array Connection between the file from the XML import file and the new IDs after they are imported */
-	var $_fileDBIds;
+	private $_fileDBIds;
 
 	/** @var array Connection between the submission file IDs from the XML import file and the new IDs after they are imported */
-	var $_submissionFileDBIds;
+	private $_submissionFileDBIds;
 
 	/** @var array Connection between the author id from the XML import file and the DB file IDs */
-	var $_authorDBIds;
+	private $_authorDBIds;
 
 	/** @var string Base path for the import source */
-	var $_baseImportPath = '';
+	private $_baseImportPath = '';
+
+	/** @var array A list of imported root elements to display to the user after the import is complete */
+	private $_importedRootEntities;
+
+	/** @var array A list of exported root elements to display to the user after the export is complete */
+	private $_exportRootEntities;
 
 	/**
 	 * Constructor
@@ -64,6 +83,7 @@ class PKPImportExportDeployment {
 		$this->setFileDBIds(array());
 		$this->setSubmissionFileDBIds(array());
 		$this->_processedObjectsIds = array();
+		$this->_importedRootEntities = array();
 	}
 
 	//
@@ -252,6 +272,15 @@ class PKPImportExportDeployment {
 	 * @param $user User
 	 */
 	function setUser($user) {
+		$registeredUser = Registry::get('user', true, null);
+		if (!isset($registeredUser)) {
+			/**
+			 * This is used in order to reconcile with possible $request->getUser()
+			 * used inside import processes, when the import is done by CLI tool.
+			 */
+			Registry::set('user', $user);
+		}
+
 		$this->_user = $user;
 	}
 
@@ -389,6 +418,203 @@ class PKPImportExportDeployment {
 	 */
 	function getImportPath() {
 		return $this->_baseImportPath;
+	}
+
+	/**
+	 * Add the imported root entities.
+	 * @param $assocType integer ASSOC_TYPE_...
+	 * @param $assocId integer
+	 */
+	function addImportedRootEntity($assocType, $entity) {
+		$this->_importedRootEntities[$assocType][] = $entity;
+	}
+
+	/**
+	 * Get the imported root entities.
+	 * @param $assocType integer ASSOC_TYPE_...
+	 */
+	function getImportedRootEntities($assocType) {
+		if (array_key_exists($assocType, $this->_importedRootEntities)) {
+			return $this->_importedRootEntities[$assocType];
+		}
+
+		return null;
+	}
+
+	/**
+	 * Set export root entities
+	 * @param $exportRootEntities array
+	 */
+	function setExportRootEntities($exportRootEntities) {
+		$this->_exportRootEntities = $exportRootEntities;
+	}
+
+	/**
+	 * Get export root entities
+	 * @return array
+	 */
+	function getExportRootEntities() {
+		return $this->_exportRootEntities;
+	}
+
+	/**
+	 * Wraps the import process
+	 * @param $rootFilter string
+	 * @param $importXml string
+	 */
+	function import($rootFilter, $importXml) {
+		$dbConnection = Capsule::connection();
+		try {
+			$currentFilter = PKPImportExportFilter::getFilter($rootFilter, $this);
+
+			$dbConnection->beginTransaction();
+
+			libxml_use_internal_errors(true);
+
+			$result = $currentFilter->execute($importXml);
+
+			$this->xmlValidationErrors = array_filter(libxml_get_errors(), function($a) {
+				return $a->level == LIBXML_ERR_ERROR || $a->level == LIBXML_ERR_FATAL;
+			});
+
+			libxml_clear_errors();
+
+			$dbConnection->commit();
+
+			$this->processResult = $result;
+		} catch (Error | Exception $e) {
+			$this->addError(ASSOC_TYPE_NONE, 0, $e->getMessage());
+			$dbConnection->rollBack();
+
+			$this->processFailed = true;
+		}
+	}
+
+	/**
+	 * Wraps the export process
+	 * @param $rootFilter string
+	 * @param $exportObjects array
+	 * @param $opts array
+	 */
+	function export($rootFilter, $exportObjects, $opts = array()) {
+		try {
+			$this->setExportRootEntities($exportObjects);
+
+			$currentFilter = PKPImportExportFilter::getFilter($rootFilter, $this, $opts);
+
+			libxml_use_internal_errors(true);
+			$result = $currentFilter->execute($exportObjects, true);
+
+			$this->xmlValidationErrors = array_filter(libxml_get_errors(), function($a) {
+				return $a->level == LIBXML_ERR_ERROR || $a->level == LIBXML_ERR_FATAL;
+			});
+
+			libxml_clear_errors();
+
+			if (!$result) {
+				$this->addError(ASSOC_TYPE_NONE, 0, 'Export result is empty.');
+				$this->processFailed = true;
+			}
+
+			$this->processResult = $result;
+		} catch (Error | Exception $e) {
+			$this->addError(ASSOC_TYPE_NONE, 0, $e->getMessage());
+
+			$this->processFailed = true;
+		}
+	}
+
+	/**
+	 * Getter method for XMLValidation Errors
+	 * @return array
+	 */
+	function getXMLValidationErrors() {
+		return $this->xmlValidationErrors;
+	}
+
+	/**
+	 * Get all public objects, with their
+	 * respective names as array values.
+	 * @return array
+	 */
+	protected function getObjectTypes() {
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
+		$objectTypes = array(
+			ASSOC_TYPE_NONE => __('plugins.importexport.native.common.any'),
+			ASSOC_TYPE_SUBMISSION => __('submission.submission'),
+		);
+
+		return $objectTypes;
+	}
+
+	/**
+	* Get object type string.
+	* @param $assocType mixed int or null (optional)
+	* @return mixed string or array
+	*/
+	function getObjectTypeString($assocType = null) {
+		$objectTypes = $this->getObjectTypes();
+
+		if (is_null($assocType)) {
+			return $objectTypes;
+		} else {
+			if (isset($objectTypes[$assocType])) {
+				return $objectTypes[$assocType];
+			} else {
+				assert(false);
+			}
+		}
+	}
+
+	/**
+	 * Get possible Warnings and Errors from the import/export process
+	 * @return array
+	 */
+	function getWarningsAndErrors() {
+		$problems = array();
+		$objectTypes = $this->getObjectTypes();
+		foreach ($objectTypes as $assocType => $name) {
+			$foundWarnings = $this->getProcessedObjectsWarnings($assocType);
+			if (!empty($foundWarnings)) {
+				$problems['warnings'][$name][] = $foundWarnings;
+			}
+
+			$foundErrors = $this->getProcessedObjectsErrors($assocType);
+			if (!empty($foundErrors)) {
+				$problems['errors'][$name][] = $foundErrors;
+			}
+		}
+
+		return $problems;
+	}
+
+	/**
+	 * Get import entities with their names
+	 * @return array
+	 */
+	function getImportedRootEntitiesWithNames() {
+		$rootEntities = array();
+		$objectTypes = $this->getObjectTypes();
+		foreach ($objectTypes as $assocType => $name) {
+			$entities = $this->getImportedRootEntities($assocType);
+			if (!empty($entities)) {
+				$rootEntities[$name][] = $entities;
+			}
+		}
+
+		return $rootEntities;
+	}
+
+	/**
+	 * Returns an indication that the import/export process has failed
+	 * @return bool
+	 */
+	function isProcessFailed() {
+		if ($this->processFailed || count($this->xmlValidationErrors) > 0) {
+			return true;
+		}
+
+		return false;
 	}
 }
 

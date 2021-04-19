@@ -1649,6 +1649,9 @@ msgstr "Warnings encountered:"
 msgid "plugins.importexport.common.errorsOccured"
 msgstr "Errors occured:"
 
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
 msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Unknown element {$param}"
 
@@ -2045,3 +2048,39 @@ msgstr "Desk Reject Rate"
 
 msgid "stats.name.declinedReviewRate"
 msgstr "After Review Reject Rate"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "The process failed. Check bellow for errors/warnings."
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Export Submissions Results"
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Download Exported File"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "The export completed successfully."
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Download the exported file from the button bellow."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Generic Items"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr "Wrong filter configuration [{$filterName}]: {$filterCount} occurrences. Should be only one."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERROR:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "The specified journal path, \"{$contextPath}\", does not exist."
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Process failed to parse authors"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Process failed to parse publications"

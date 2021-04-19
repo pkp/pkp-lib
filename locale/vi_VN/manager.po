@@ -2242,3 +2242,9 @@ msgstr ""
 
 msgid "stats.name.declinedReviewRate"
 msgstr "Tỷ lệ Từ chối sau khi Phản biện"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "LỖI:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Đường dẫn tạp chí được chỉ định, \"{$contextPath}\", không tồn tại."

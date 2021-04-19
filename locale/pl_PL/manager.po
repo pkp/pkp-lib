@@ -2230,3 +2230,9 @@ msgstr "Wybierz użytkowników do eksportu w formacie Excel/CSV."
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Wyeksportuj do Exela/CSV"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "BŁĄD:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Określona ścieżka \"{$contextPath}\" nie istnieje."

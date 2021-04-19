@@ -17,15 +17,6 @@
 import('lib.pkp.classes.filter.PersistableFilter');
 
 class TemplateBasedFilter extends PersistableFilter {
-	/**
-	 * Constructor
-	 * @param $filterGroup FilterGroup
-	 */
-	function __construct($filterGroup) {
-		parent::__construct($filterGroup);
-	}
-
-
 	//
 	// Abstract template methods
 	//

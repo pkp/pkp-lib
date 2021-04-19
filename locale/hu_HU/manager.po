@@ -2326,3 +2326,9 @@ msgstr "Ne kérje a jogok nyilvánosságra hozatalát benyújtás során a szerz
 
 msgid "manager.setup.metadata.rights.enable"
 msgstr "Jogi metaadatok engedélyezése"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "HIBA:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "A megadott folyóirat , \"{$contextPath}\", nem létezik."

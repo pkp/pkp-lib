@@ -2298,3 +2298,9 @@ msgstr "Template surel bawaan telah dipulihkan."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Hapus Pengumuman"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERROR:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Path jurnal yang Anda cari, \"{$contextPath}\", tidak ada."

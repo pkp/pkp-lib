@@ -2156,3 +2156,9 @@ msgstr ""
 
 msgid "manager.emails.otherTemplates"
 msgstr "Muut pohjat"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "VIRHE:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Annettua lehden polkua, \"{$contextPath}\", ei löydy."

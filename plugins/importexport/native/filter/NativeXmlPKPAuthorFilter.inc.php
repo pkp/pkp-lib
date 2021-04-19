@@ -119,8 +119,8 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 					$author->setBiography($n->textContent, $locale);
 					break;
 			}
-		} 
-		
+		}
+
 
 		if (empty($author->getGivenName($publication->getData('locale')))) {
 			$allLocales = AppLocale::getAllLocales();

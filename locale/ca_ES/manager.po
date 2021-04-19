@@ -2417,3 +2417,8 @@ msgstr "Exportar a Excel/CSV"
 
 msgid "manager.emails.otherTemplates"
 msgstr "Altres plantilles"
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "La ruta de revista especificada, \"{$contextPath}\", no existeix."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERROR:"

@@ -1550,3 +1550,9 @@ msgstr "提交元数据已成功更新。"
 
 msgid "manager.setup.metadata.submission"
 msgstr "提交表单"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "指定的期刊路径 \"{$contextPath}\"不存在。"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "错误："

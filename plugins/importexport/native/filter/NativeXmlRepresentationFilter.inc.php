@@ -39,7 +39,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter {
 	/**
 	 * Handle a Representation element
 	 * @param $node DOMElement
-	 * @return Representation 
+	 * @return Representation
 	 */
 	function handleElement($node) {
 		$deployment = $this->getDeployment();

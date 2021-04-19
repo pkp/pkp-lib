@@ -2065,3 +2065,9 @@ msgstr ""
 
 msgid "manager.emails.otherTemplates"
 msgstr "Другие шаблоны"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ОШИБКА:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Указанный путь журнала «{$contextPath}» не существует."

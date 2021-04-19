@@ -132,6 +132,10 @@ abstract class PKPOAIDAO extends DAO {
 			$total++;
 			$result->next();
 		}
+		while ($result->current()) {
+			$total++;
+			$result->next();
+		}
 		return $records;
 	}
 
@@ -157,6 +161,10 @@ abstract class PKPOAIDAO extends DAO {
 		$records = [];
 		for ($count = 0; ($row = $result->current()) && $count < $limit; $count++) {
 			$records[] = $this->_returnIdentifierFromRow((array) $row);
+			$total++;
+			$result->next();
+		}
+		while ($result->current()) {
 			$total++;
 			$result->next();
 		}

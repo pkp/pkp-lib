@@ -17,7 +17,7 @@
 
 import('lib.pkp.classes.announcement.AnnouncementType');
 
-class AnnouncementTypeDAO extends DAO {
+class AnnouncementTypeDAO extends \PKP\db\DAO {
 
 	/**
 	 * Generate a new data object.

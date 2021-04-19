@@ -13,7 +13,7 @@
  * @brief Class for keeping track of item views.
  */
 
-class ViewsDAO extends DAO {
+class ViewsDAO extends \PKP\db\DAO {
 
 	/**
 	 * Mark an item as viewed.

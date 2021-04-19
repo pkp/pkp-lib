@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.submission.SubmissionComment');
 
-class SubmissionCommentDAO extends DAO {
+class SubmissionCommentDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve SubmissionComments by submission id

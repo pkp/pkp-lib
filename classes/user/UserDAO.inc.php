@@ -25,7 +25,7 @@ define('USER_FIELD_INTERESTS', 'interests');
 define('USER_FIELD_AFFILIATION', 'affiliation');
 define('USER_FIELD_NONE', null);
 
-class UserDAO extends DAO {
+class UserDAO extends \PKP\db\DAO {
 
 	/**
 	 * Construct a new User object.

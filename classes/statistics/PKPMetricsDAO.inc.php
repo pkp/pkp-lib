@@ -21,7 +21,7 @@ import('classes.statistics.StatisticsHelper'); //STATISTICS_DIMENSION_
 use \PKP\core\PKPApplication;
 use \PKP\db\DBResultRange;
 
-class PKPMetricsDAO extends DAO {
+class PKPMetricsDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve a range of aggregate, filtered, ordered metric values, i.e.

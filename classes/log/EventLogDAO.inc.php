@@ -17,7 +17,7 @@
 
 import ('lib.pkp.classes.log.EventLogEntry');
 
-class EventLogDAO extends DAO {
+class EventLogDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve a log entry by ID.

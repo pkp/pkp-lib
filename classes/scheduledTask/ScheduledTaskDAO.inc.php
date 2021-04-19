@@ -23,7 +23,7 @@
 
 import('lib.pkp.classes.scheduledTask.ScheduledTask');
 
-class ScheduledTaskDAO extends DAO {
+class ScheduledTaskDAO extends \PKP\db\DAO {
 
 	/**
 	 * Get the last time a scheduled task was executed.

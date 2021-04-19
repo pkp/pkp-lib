@@ -17,7 +17,7 @@
 // FIXME: These should be standardized into lib-pkp.
 import('classes.workflow.EditorDecisionActionsManager');
 
-class EditDecisionDAO extends DAO {
+class EditDecisionDAO extends \PKP\db\DAO {
 
 	/**
 	 * Update the editor decision table.

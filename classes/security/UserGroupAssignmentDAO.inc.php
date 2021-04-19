@@ -19,7 +19,7 @@
 
 import('lib.pkp.classes.security.UserGroupAssignment');
 
-class UserGroupAssignmentDAO extends DAO {
+class UserGroupAssignmentDAO extends \PKP\db\DAO {
 
 	/**
 	 * Create a new UserGroupAssignment object

@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.stageAssignment.StageAssignment');
 
-class StageAssignmentDAO extends DAO {
+class StageAssignmentDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve an assignment by  its ID

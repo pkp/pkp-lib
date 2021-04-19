@@ -17,7 +17,7 @@
 
 import('classes.notification.Notification');
 
-class NotificationSettingsDAO extends DAO {
+class NotificationSettingsDAO extends \PKP\db\DAO {
 
 	/**
 	 * Update a notification's metadata

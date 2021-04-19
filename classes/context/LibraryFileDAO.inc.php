@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.context.LibraryFile');
 
-class LibraryFileDAO extends DAO {
+class LibraryFileDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve a library file by ID.

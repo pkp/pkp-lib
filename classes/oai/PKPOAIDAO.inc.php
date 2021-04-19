@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.oai.OAI');
 
-abstract class PKPOAIDAO extends DAO {
+abstract class PKPOAIDAO extends \PKP\db\DAO {
 
  	/** @var OAI parent OAI object */
  	var $oai;

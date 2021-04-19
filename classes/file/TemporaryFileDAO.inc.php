@@ -17,7 +17,7 @@
 
 import('lib.pkp.classes.file.TemporaryFile');
 
-class TemporaryFileDAO extends DAO {
+class TemporaryFileDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve a temporary file by ID.

@@ -19,7 +19,7 @@ import('lib.pkp.classes.navigationMenu.NavigationMenu');
 import('lib.pkp.classes.navigationMenu.NavigationMenuItem');
 import('lib.pkp.classes.navigationMenu.NavigationMenuItemAssignment');
 
-class NavigationMenuItemAssignmentDAO extends DAO {
+class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve a navigation menu item assignment by ID.

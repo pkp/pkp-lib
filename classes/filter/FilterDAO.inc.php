@@ -41,7 +41,7 @@
 
 import('lib.pkp.classes.filter.Filter');
 
-class FilterDAO extends DAO {
+class FilterDAO extends \PKP\db\DAO {
 	/** @var array names of additional settings for the currently persisted/retrieved filter */
 	var $additionalFieldNames;
 

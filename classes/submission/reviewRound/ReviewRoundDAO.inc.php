@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 
-class ReviewRoundDAO extends DAO {
+class ReviewRoundDAO extends \PKP\db\DAO {
 
 	//
 	// Public methods

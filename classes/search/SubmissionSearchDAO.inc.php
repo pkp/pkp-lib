@@ -14,7 +14,7 @@
  * @brief DAO class for submission search index.
  */
 
-class SubmissionSearchDAO extends DAO {
+class SubmissionSearchDAO extends \PKP\db\DAO {
 
 	/**
 	 * Add a word to the keyword list (if it doesn't already exist).

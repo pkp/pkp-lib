@@ -16,7 +16,7 @@
  *  delivered to them.
  */
 
-class NotificationSubscriptionSettingsDAO extends DAO {
+class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO {
 	/** @var string The setting which holds the notification status */
 	public const BLOCKED_NOTIFICATION_KEY = 'blocked_notification';
 

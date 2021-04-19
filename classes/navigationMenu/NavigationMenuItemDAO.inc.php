@@ -17,7 +17,7 @@
 import('lib.pkp.classes.navigationMenu.NavigationMenu');
 import('lib.pkp.classes.navigationMenu.NavigationMenuItem');
 
-class NavigationMenuItemDAO extends DAO {
+class NavigationMenuItemDAO extends \PKP\db\DAO {
 	/**
 	 * Retrieve a navigation menu item by ID.
 	 * @param $navigationMenuItemId int

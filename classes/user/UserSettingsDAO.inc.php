@@ -15,7 +15,7 @@
  */
 
 
-class UserSettingsDAO extends DAO {
+class UserSettingsDAO extends \PKP\db\DAO {
 	/**
 	 * Retrieve a user setting value.
 	 * @param $userId int

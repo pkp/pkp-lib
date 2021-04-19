@@ -13,7 +13,7 @@
  * @brief Abstract DAO for fetching/working with DB storage of Representation objects
  */
 
-abstract class RepresentationDAO extends DAO {
+abstract class RepresentationDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieves a representation by ID.

@@ -19,7 +19,7 @@ use \PKP\services\PKPSchemaService;
 
 use \APP\core\Services;
 
-class SiteDAO extends DAO {
+class SiteDAO extends \PKP\db\DAO {
 
 	/** @var array Maps schema properties for the primary table to their column names */
 	var $primaryTableColumns = [

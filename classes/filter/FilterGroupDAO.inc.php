@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.filter.FilterGroup');
 
-class FilterGroupDAO extends DAO {
+class FilterGroupDAO extends \PKP\db\DAO {
 
 	/**
 	 * Insert a new filter group.

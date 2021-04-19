@@ -15,7 +15,7 @@
  */
 use Illuminate\Support\Facades\DB;
 
-class ReviewFilesDAO extends DAO {
+class ReviewFilesDAO extends \PKP\db\DAO {
 
 	/**
 	 * Grant a review file to a review.

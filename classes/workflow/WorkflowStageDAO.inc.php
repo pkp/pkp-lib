@@ -14,7 +14,7 @@
  *
  */
 
-class WorkflowStageDAO extends DAO {
+class WorkflowStageDAO extends \PKP\db\DAO {
 	public const WORKFLOW_STAGE_PATH_SUBMISSION = 'submission';
 	public const WORKFLOW_STAGE_PATH_INTERNAL_REVIEW = 'internalReview';
 	public const WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW = 'externalReview';

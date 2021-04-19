@@ -14,7 +14,7 @@
  * @brief Operations for retrieving and modifying Section objects.
  */
 
-abstract class PKPSectionDAO extends DAO {
+abstract class PKPSectionDAO extends \PKP\db\DAO {
 
 	/**
 	 * Create a new data object.

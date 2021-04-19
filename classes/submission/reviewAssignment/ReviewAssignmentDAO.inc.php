@@ -16,7 +16,7 @@
 
 use \PKP\submission\reviewAssignment\ReviewAssignment;
 
-class ReviewAssignmentDAO extends DAO {
+class ReviewAssignmentDAO extends \PKP\db\DAO {
 	var $userDao;
 
 	/**

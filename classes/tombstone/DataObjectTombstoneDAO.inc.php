@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.tombstone.DataObjectTombstone');
 
-class DataObjectTombstoneDAO extends DAO {
+class DataObjectTombstoneDAO extends \PKP\db\DAO {
 
 	/**
 	 * Return an instance of the DataObjectTombstone class.

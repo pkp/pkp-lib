@@ -17,7 +17,7 @@
 
 import ('lib.pkp.classes.reviewForm.ReviewFormElement');
 
-class ReviewFormElementDAO extends DAO {
+class ReviewFormElementDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve a review form element by ID.

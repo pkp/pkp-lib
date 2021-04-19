@@ -14,7 +14,7 @@
  */
 
 
-class DataObjectTombstoneSettingsDAO extends DAO {
+class DataObjectTombstoneSettingsDAO extends \PKP\db\DAO {
 	/**
 	 * Retrieve an submission tombstone setting value.
 	 * @param $tombstoneId int

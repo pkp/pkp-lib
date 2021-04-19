@@ -16,7 +16,7 @@
 
 import ('lib.pkp.classes.context.Category');
 
-class CategoryDAO extends DAO {
+class CategoryDAO extends \PKP\db\DAO {
 	/**
 	 * Retrieve an category by ID.
 	 * @param $categoryId int

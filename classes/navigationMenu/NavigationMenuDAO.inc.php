@@ -15,9 +15,10 @@
  */
 
 import('lib.pkp.classes.navigationMenu.NavigationMenu');
+
 use \APP\core\Services;
 
-class NavigationMenuDAO extends DAO {
+class NavigationMenuDAO extends \PKP\db\DAO {
 	/**
 	 * Generate a new data object.
 	 * @return NavigationMenu

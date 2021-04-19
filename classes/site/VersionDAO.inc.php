@@ -17,7 +17,7 @@
 
 import('lib.pkp.classes.site.Version');
 
-class VersionDAO extends DAO {
+class VersionDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve the current version.

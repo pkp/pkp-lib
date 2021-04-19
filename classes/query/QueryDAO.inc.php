@@ -17,7 +17,7 @@
 
 import('lib.pkp.classes.query.Query');
 
-class QueryDAO extends DAO {
+class QueryDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve a submission query by ID.

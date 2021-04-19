@@ -20,7 +20,7 @@ use \PKP\db\XMLDAO;
 use \PKP\xml\PKPXMLParser;
 use \APP\i18n\AppLocale;
 
-class ControlledVocabDAO extends DAO {
+class ControlledVocabDAO extends \PKP\db\DAO {
 
 	/**
 	 * Return the Controlled Vocab Entry DAO for this Controlled Vocab.

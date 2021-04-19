@@ -16,7 +16,7 @@
 
 use \PKP\controlledVocab\ControlledVocabEntry;
 
-class ControlledVocabEntryDAO extends DAO {
+class ControlledVocabEntryDAO extends \PKP\db\DAO {
 
 	/**
 	 * Return the entry settings DAO.

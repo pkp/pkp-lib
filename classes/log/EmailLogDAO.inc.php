@@ -17,7 +17,7 @@
 
 import ('lib.pkp.classes.log.EmailLogEntry');
 
-class EmailLogDAO extends DAO {
+class EmailLogDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve a log entry by ID.

@@ -13,7 +13,7 @@
  * @brief Base class associating sections, series and categories to sub editors.
  */
 
-class SubEditorsDAO extends DAO {
+class SubEditorsDAO extends \PKP\db\DAO {
 
 	/**
 	 * Insert a new sub editor.

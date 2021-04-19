@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.citation.Citation');
 
-class CitationDAO extends DAO {
+class CitationDAO extends \PKP\db\DAO {
 
 	/**
 	 * Insert a new citation.

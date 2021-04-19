@@ -17,7 +17,7 @@
 
 import ('lib.pkp.classes.reviewForm.ReviewFormResponse');
 
-class ReviewFormResponseDAO extends DAO {
+class ReviewFormResponseDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve a review form response.

@@ -17,7 +17,7 @@
 
 import('lib.pkp.classes.payment.QueuedPayment');
 
-class QueuedPaymentDAO extends DAO {
+class QueuedPaymentDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve a queued payment by ID.

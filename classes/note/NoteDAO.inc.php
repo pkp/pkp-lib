@@ -19,7 +19,7 @@ import('lib.pkp.classes.note.Note');
 define('NOTE_ORDER_DATE_CREATED',	0x0001);
 define('NOTE_ORDER_ID',			0x0002);
 
-class NoteDAO extends DAO {
+class NoteDAO extends \PKP\db\DAO {
 
 	/**
 	 * Create a new data object

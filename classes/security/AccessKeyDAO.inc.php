@@ -17,7 +17,7 @@
 
 import('lib.pkp.classes.security.AccessKey');
 
-class AccessKeyDAO extends DAO {
+class AccessKeyDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve an accessKey by ID.

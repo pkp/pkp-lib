@@ -14,7 +14,7 @@
  * @brief Operations for retrieving and modifying plugin settings.
  */
 
-class PluginSettingsDAO extends DAO {
+class PluginSettingsDAO extends \PKP\db\DAO {
 
 	/**
 	 * Get the cache for plugin settings.

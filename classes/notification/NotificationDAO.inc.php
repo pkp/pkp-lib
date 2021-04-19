@@ -18,7 +18,7 @@ import('classes.notification.Notification');
 
 use Illuminate\Support\Facades\DB;
 
-class NotificationDAO extends DAO {
+class NotificationDAO extends \PKP\db\DAO {
 
 	/**
 	 * Retrieve Notification by notification id

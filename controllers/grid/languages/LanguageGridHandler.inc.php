@@ -142,7 +142,7 @@ class LanguageGridHandler extends GridHandler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $context->getData('supportedFormLocales'));
 
-		$json = DAO::getDataChangedEvent($locale);
+		$json = \PKP\db\DAO::getDataChangedEvent($locale);
 		$json->setGlobalEvent('set-form-languages', $newFormLocales);
 		return $json;
 	}
@@ -178,7 +178,7 @@ class LanguageGridHandler extends GridHandler {
 				$user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.localeSettingsSaved')));
 		}
 
-		return DAO::getDataChangedEvent();
+		return \PKP\db\DAO::getDataChangedEvent();
 	}
 
 	//

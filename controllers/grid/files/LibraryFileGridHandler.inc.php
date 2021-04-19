@@ -208,7 +208,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 			$fileId = $fileForm->execute();
 
 			// Let the calling grid reload itself
-			return DAO::getDataChangedEvent();
+			return \PKP\db\DAO::getDataChangedEvent();
 		}
 
 		return new JSONMessage(false);
@@ -254,7 +254,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 			$fileForm->execute();
 
 			// Let the calling grid reload itself
-			return DAO::getDataChangedEvent();
+			return \PKP\db\DAO::getDataChangedEvent();
 		}
 
 		return new JSONMessage(false);
@@ -275,7 +275,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 			$libraryFileManager = new LibraryFileManager($context->getId());
 			$libraryFileManager->deleteById($fileId);
 
-			return DAO::getDataChangedEvent();
+			return \PKP\db\DAO::getDataChangedEvent();
 		}
 
 		return new JSONMessage(false);

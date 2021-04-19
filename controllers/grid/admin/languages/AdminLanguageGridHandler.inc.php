@@ -204,7 +204,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 				array('contents' => __('notification.localeInstalled'))
 			);
 		}
-		return DAO::getDataChangedEvent();
+		return \PKP\db\DAO::getDataChangedEvent();
 	}
 
 	/**
@@ -242,7 +242,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 					array('contents' => __('notification.localeUninstalled', array('locale' => $localeData['name'])))
 				);
 			}
-			return DAO::getDataChangedEvent($locale);
+			return \PKP\db\DAO::getDataChangedEvent($locale);
 		}
 
 		return new JSONMessage(false);
@@ -269,7 +269,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 			);
 		}
 
-		return DAO::getDataChangedEvent($rowId);
+		return \PKP\db\DAO::getDataChangedEvent($rowId);
 	}
 
 	/**
@@ -298,7 +298,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 					array('contents' => __('notification.localeDisabled'))
 				);
 			}
-			return DAO::getDataChangedEvent($locale);
+			return \PKP\db\DAO::getDataChangedEvent($locale);
 		}
 
 		return new JSONMessage(false);
@@ -337,7 +337,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 
 		// Need to refresh whole grid to remove the check in others
 		// primary locale radio buttons.
-		return DAO::getDataChangedEvent();
+		return \PKP\db\DAO::getDataChangedEvent();
 	}
 
 

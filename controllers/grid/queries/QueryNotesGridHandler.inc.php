@@ -181,7 +181,7 @@ class QueryNotesGridHandler extends GridHandler {
 		$queryNoteForm->readInputData();
 		if ($queryNoteForm->validate()) {
 			$note = $queryNoteForm->execute();
-			return DAO::getDataChangedEvent($this->getQuery()->getId());
+			return \PKP\db\DAO::getDataChangedEvent($this->getQuery()->getId());
 		} else {
 			return new JSONMessage(true, $queryNoteForm->fetch($request));
 		}
@@ -228,7 +228,7 @@ class QueryNotesGridHandler extends GridHandler {
 		}
 
 		$noteDao->deleteObject($note);
-		return DAO::getDataChangedEvent($note->getId());
+		return \PKP\db\DAO::getDataChangedEvent($note->getId());
 	}
 
 }

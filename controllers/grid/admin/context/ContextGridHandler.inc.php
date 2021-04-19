@@ -265,7 +265,7 @@ class ContextGridHandler extends GridHandler {
 
 		$contextService->delete($context);
 
-		return DAO::getDataChangedEvent($context->getId());
+		return \PKP\db\DAO::getDataChangedEvent($context->getId());
 	}
 
 	/**

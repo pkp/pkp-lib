@@ -253,7 +253,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 				$notificationManager = new NotificationManager();
 				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_PLUGIN_ENABLED, array('pluginName' => $plugin->getDisplayName()));
 			}
-			return DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
+			return \PKP\db\DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
 		}
 		return new JSONMessage(false);
 	}
@@ -273,7 +273,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 				$notificationManager = new NotificationManager();
 				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_PLUGIN_DISABLED, array('pluginName' => $plugin->getDisplayName()));
 			}
-			return DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
+			return \PKP\db\DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
 		}
 		return new JSONMessage(false);
 	}
@@ -334,7 +334,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 
 		if($uploadPluginForm->validate()) {
 			if($uploadPluginForm->execute()) {
-				return DAO::getDataChangedEvent();
+				return \PKP\db\DAO::getDataChangedEvent();
 			}
 		}
 
@@ -383,7 +383,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('manager.plugins.doesNotExist', $pluginName)));
 		}
 
-		return DAO::getDataChangedEvent($plugin->getName());
+		return \PKP\db\DAO::getDataChangedEvent($plugin->getName());
 	}
 
 	/**

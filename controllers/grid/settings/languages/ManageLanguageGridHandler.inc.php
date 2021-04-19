@@ -105,6 +105,6 @@ class ManageLanguageGridHandler extends LanguageGridHandler {
 			array('contents' => __('notification.localeReloaded', array('locale' => $gridData[$locale]['name'], 'contextName' => $context->getLocalizedName())))
 		);
 
-		return DAO::getDataChangedEvent($locale);
+		return \PKP\db\DAO::getDataChangedEvent($locale);
 	}
 }

@@ -116,7 +116,7 @@ class PKPReviewerHandler extends Handler {
 			$notificationMgr = new NotificationManager();
 			$user = $request->getUser();
 			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('common.changesSaved')));
-			return DAO::getDataChangedEvent();			
+			return \PKP\db\DAO::getDataChangedEvent();
 		}
 		// Submit the form data and move forward
 		else {

@@ -147,7 +147,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 
 		if ($submissionChecklistForm->validate()) {
 			$submissionChecklistForm->execute();
-			return DAO::getDataChangedEvent($submissionChecklistForm->submissionChecklistId);
+			return \PKP\db\DAO::getDataChangedEvent($submissionChecklistForm->submissionChecklistId);
 		} else {
 			return new JSONMessage(false);
 		}
@@ -183,7 +183,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 		}
 
 		$context->updateSetting('submissionChecklist', $submissionChecklistAll, 'object', true);
-		return DAO::getDataChangedEvent($rowId);
+		return \PKP\db\DAO::getDataChangedEvent($rowId);
 	}
 
 	/**

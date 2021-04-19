@@ -184,7 +184,7 @@ class FileApiHandler extends Handler {
 	 * @return JSONMessage JSON object
 	 */
 	function enableLinkAction($args, $request) {
-		return DAO::getDataChangedEvent();
+		return \PKP\db\DAO::getDataChangedEvent();
 	}
 }
 

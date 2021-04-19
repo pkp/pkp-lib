@@ -216,7 +216,7 @@ class NavigationMenusGridHandler extends GridHandler {
 			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __($notificationLocaleKey)));
 
 			// Prepare the grid row data.
-			return DAO::getDataChangedEvent($navigationMenuId);
+			return \PKP\db\DAO::getDataChangedEvent($navigationMenuId);
 		} else {
 			return new JSONMessage(false);
 		}
@@ -242,7 +242,7 @@ class NavigationMenusGridHandler extends GridHandler {
 			$user = $request->getUser();
 			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedNavigationMenu')));
 
-			return DAO::getDataChangedEvent($navigationMenuId);
+			return \PKP\db\DAO::getDataChangedEvent($navigationMenuId);
 		}
 
 		return new JSONMessage(false);

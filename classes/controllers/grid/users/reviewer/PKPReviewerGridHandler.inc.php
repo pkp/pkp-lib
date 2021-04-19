@@ -351,7 +351,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$reviewerForm->readInputData();
 		if ($reviewerForm->validate()) {
 			$reviewAssignment = $reviewerForm->execute();
-			return DAO::getDataChangedEvent($reviewAssignment->getId());
+			return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
 		} else {
 			// There was an error, redisplay the form
 			return new JSONMessage(true, $reviewerForm->fetch($request));
@@ -385,7 +385,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$editReviewForm->readInputData();
 		if ($editReviewForm->validate()) {
 			$editReviewForm->execute();
-			return DAO::getDataChangedEvent($reviewAssignment->getId());
+			return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
 		} else {
 			return new JSONMessage(false);
 		}
@@ -474,7 +474,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		}
 
 		$reinstateReviewerForm->execute();
-		return DAO::getDataChangedEvent($reviewAssignment->getId());
+		return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
 	}
 
 	/**
@@ -499,7 +499,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		}
 
 		$unassignReviewerForm->execute();
-		return DAO::getDataChangedEvent($reviewAssignment->getId());
+		return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
 	}
 
 	/**
@@ -542,7 +542,7 @@ class PKPReviewerGridHandler extends GridHandler {
 			)
 		);
 
-		return DAO::getDataChangedEvent($reviewAssignment->getId());
+		return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
 	}
 
 	/**
@@ -615,7 +615,7 @@ class PKPReviewerGridHandler extends GridHandler {
 			NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
 		);
 
-		return DAO::getDataChangedEvent($reviewAssignment->getId());
+		return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
 	}
 
 	/**
@@ -708,7 +708,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$thankReviewerForm->readInputData();
 		if ($thankReviewerForm->validate()) {
 			$thankReviewerForm->execute();
-			$json = DAO::getDataChangedEvent($reviewAssignment->getId());
+			$json = \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
 			// Insert a trivial notification to indicate the reviewer was reminded successfully.
 			$currentUser = $request->getUser();
 			$notificationMgr = new NotificationManager();

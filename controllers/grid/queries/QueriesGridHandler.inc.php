@@ -344,7 +344,7 @@ class QueriesGridHandler extends GridHandler {
 			);
 		}
 
-		return DAO::getDataChangedEvent($query->getId());
+		return \PKP\db\DAO::getDataChangedEvent($query->getId());
 	}
 
 	/**
@@ -360,7 +360,7 @@ class QueriesGridHandler extends GridHandler {
 		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		$query->setIsClosed(false);
 		$queryDao->updateObject($query);
-		return DAO::getDataChangedEvent($query->getId());
+		return \PKP\db\DAO::getDataChangedEvent($query->getId());
 	}
 
 	/**
@@ -376,7 +376,7 @@ class QueriesGridHandler extends GridHandler {
 		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		$query->setIsClosed(true);
 		$queryDao->updateObject($query);
-		return DAO::getDataChangedEvent($query->getId());
+		return \PKP\db\DAO::getDataChangedEvent($query->getId());
 	}
 
 	/**
@@ -548,7 +548,7 @@ class QueriesGridHandler extends GridHandler {
 					$this->getAssocId()
 				);
 			}
-			return DAO::getDataChangedEvent($query->getId());
+			return \PKP\db\DAO::getDataChangedEvent($query->getId());
 		}
 		return new JSONMessage(
 			true,

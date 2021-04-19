@@ -200,7 +200,7 @@ class GenreGridHandler extends SetupGridHandler {
 
 		if ($genreForm->validate()) {
 			$genreForm->execute();
-			return DAO::getDataChangedEvent($genreForm->getGenreId());
+			return \PKP\db\DAO::getDataChangedEvent($genreForm->getGenreId());
 		} else {
 			return new JSONMessage(false);
 		}
@@ -219,7 +219,7 @@ class GenreGridHandler extends SetupGridHandler {
 		$genre = $genreDao->getById($genreId, $context->getId());
 		if ($genre && $request->checkCSRF()) {
 			$genreDao->deleteObject($genre);
-			return DAO::getDataChangedEvent($genre->getId());
+			return \PKP\db\DAO::getDataChangedEvent($genre->getId());
 		}
 		return new JSONMessage(false, __('manager.setup.errorDeletingItem'));
 	}
@@ -238,7 +238,7 @@ class GenreGridHandler extends SetupGridHandler {
 		$context = $request->getContext();
 		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$genreDao->installDefaults($context->getId(), $context->getSupportedFormLocales());
-		return DAO::getDataChangedEvent();
+		return \PKP\db\DAO::getDataChangedEvent();
 	}
 }
 

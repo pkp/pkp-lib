@@ -188,7 +188,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __($notificationLocaleKey)));
 
 			// Prepare the grid row data.
-			return DAO::getDataChangedEvent($announcementTypeId);
+			return \PKP\db\DAO::getDataChangedEvent($announcementTypeId);
 		} else {
 			return new JSONMessage(false);
 		}
@@ -214,7 +214,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 			$user = $request->getUser();
 			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedAnnouncementType')));
 
-			return DAO::getDataChangedEvent();
+			return \PKP\db\DAO::getDataChangedEvent();
 		}
 
 		return new JSONMessage(false);

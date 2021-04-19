@@ -234,7 +234,7 @@ class ReviewFormElementsGridHandler extends GridHandler {
 			$user = $request->getUser();
 			$notificationMgr->createTrivialNotification($user->getId());
 
-			return DAO::getDataChangedEvent($reviewFormElementId);
+			return \PKP\db\DAO::getDataChangedEvent($reviewFormElementId);
 		}
 
 		return new JSONMessage(false);
@@ -255,7 +255,7 @@ class ReviewFormElementsGridHandler extends GridHandler {
 		if ($request->checkCSRF() && $reviewFormDao->unusedReviewFormExists($this->reviewFormId, Application::getContextAssocType(), $context->getId())) {
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 			$reviewFormElementDao->deleteById($reviewFormElementId);
-			return DAO::getDataChangedEvent($reviewFormElementId);
+			return \PKP\db\DAO::getDataChangedEvent($reviewFormElementId);
 		}
 
 		return new JSONMessage(false);

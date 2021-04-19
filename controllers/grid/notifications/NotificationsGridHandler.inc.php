@@ -175,7 +175,7 @@ class NotificationsGridHandler extends GridHandler {
 			}
 		}
 
-		$json = DAO::getDataChangedEvent(null, null, $selectedElements);
+		$json = \PKP\db\DAO::getDataChangedEvent(null, null, $selectedElements);
 		$json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
 		return $json;
 	}
@@ -204,7 +204,7 @@ class NotificationsGridHandler extends GridHandler {
 		} else {
 			// The notification has been marked read explicitly.
 			// Update its status in the grid.
-			$json = DAO::getDataChangedEvent(null, null, $selectedElements);
+			$json = \PKP\db\DAO::getDataChangedEvent(null, null, $selectedElements);
 			$json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
 			return $json;
 		}
@@ -226,7 +226,7 @@ class NotificationsGridHandler extends GridHandler {
 				$notificationDao->deleteObject($notification);
 			}
 		}
-		$json = DAO::getDataChangedEvent(null, null, $selectedElements);
+		$json = \PKP\db\DAO::getDataChangedEvent(null, null, $selectedElements);
 		$json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
 		return $json;
 	}

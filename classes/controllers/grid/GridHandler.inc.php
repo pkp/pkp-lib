@@ -750,7 +750,7 @@ class GridHandler extends PKPHandler {
 	function saveSequence($args, $request) {
 		$this->callFeaturesHook('saveSequence', array('request' => &$request, 'grid' => &$this));
 
-		return DAO::getDataChangedEvent();
+		return \PKP\db\DAO::getDataChangedEvent();
 	}
 
 	/**

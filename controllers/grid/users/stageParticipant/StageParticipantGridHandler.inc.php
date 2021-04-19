@@ -351,7 +351,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			import('lib.pkp.classes.log.SubmissionLog');
 			SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_ADD_PARTICIPANT, 'submission.event.participantAdded', array('name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()));
 
-			return DAO::getDataChangedEvent($userGroupId);
+			return \PKP\db\DAO::getDataChangedEvent($userGroupId);
 		} else {
 			return new JSONMessage(true, $form->fetch($request));
 		}
@@ -416,7 +416,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_REMOVE_PARTICIPANT, 'submission.event.participantRemoved', array('name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()));
 
 		// Redraw the category
-		return DAO::getDataChangedEvent($stageAssignment->getUserGroupId());
+		return \PKP\db\DAO::getDataChangedEvent($stageAssignment->getUserGroupId());
 	}
 
 	/**

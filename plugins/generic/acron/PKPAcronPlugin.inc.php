@@ -117,7 +117,7 @@ class PKPAcronPlugin extends GenericPlugin {
 					$user->getId(), NOTIFICATION_TYPE_SUCCESS,
 					array('contents' => __('plugins.generic.acron.tasksReloaded'))
 				);
-				return DAO::getDataChangedEvent();
+				return \PKP\db\DAO::getDataChangedEvent();
 		}
 		return parent::manage($args, $request);
 	}

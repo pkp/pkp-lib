@@ -521,7 +521,7 @@ class PKPEditorDecisionHandler extends Handler {
 
 				} else {
 					// Needed to update review round status notifications.
-					return DAO::getDataChangedEvent();
+					return \PKP\db\DAO::getDataChangedEvent();
 				}
 			}
 		} else {

@@ -283,7 +283,7 @@ class UserGroupGridHandler extends GridHandler {
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			$userGroupForm->execute();
-			$json = DAO::getDataChangedEvent();
+			$json = \PKP\db\DAO::getDataChangedEvent();
 			$json->setGlobalEvent('userGroupUpdated');
 			return $json;
 		} else {
@@ -332,7 +332,7 @@ class UserGroupGridHandler extends GridHandler {
 
 		}
 
-		$json = DAO::getDataChangedEvent($userGroup->getId());
+		$json = \PKP\db\DAO::getDataChangedEvent($userGroup->getId());
 		$json->setGlobalEvent('userGroupUpdated');
 		return $json;
 	}
@@ -394,7 +394,7 @@ class UserGroupGridHandler extends GridHandler {
 				array('userGroupName' => $userGroup->getLocalizedName(), 'stageName' => __($stageLocaleKeys[$stageId]))
 		)));
 
-		return DAO::getDataChangedEvent($userGroup->getId());
+		return \PKP\db\DAO::getDataChangedEvent($userGroup->getId());
 	}
 
 	/**

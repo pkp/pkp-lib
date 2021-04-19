@@ -320,7 +320,7 @@ class ReviewFormGridHandler extends GridHandler {
 			$user = $request->getUser();
 			$notificationMgr->createTrivialNotification($user->getId());
 
-			return DAO::getDataChangedEvent($reviewFormId);
+			return \PKP\db\DAO::getDataChangedEvent($reviewFormId);
 
 		}
 
@@ -364,7 +364,7 @@ class ReviewFormGridHandler extends GridHandler {
 			$user = $request->getUser();
 			$notificationMgr->createTrivialNotification($user->getId());
 
-			return DAO::getDataChangedEvent($newReviewFormId);
+			return \PKP\db\DAO::getDataChangedEvent($newReviewFormId);
 		}
 
 		return new JSONMessage(false);
@@ -396,7 +396,7 @@ class ReviewFormGridHandler extends GridHandler {
 			$user = $request->getUser();
 			$notificationMgr->createTrivialNotification($user->getId());
 
-			return DAO::getDataChangedEvent($reviewFormId);
+			return \PKP\db\DAO::getDataChangedEvent($reviewFormId);
 		}
 
 		return new JSONMessage(false);
@@ -430,7 +430,7 @@ class ReviewFormGridHandler extends GridHandler {
 			$user = $request->getUser();
 			$notificationMgr->createTrivialNotification($user->getId());
 
-			return DAO::getDataChangedEvent($reviewFormId);
+			return \PKP\db\DAO::getDataChangedEvent($reviewFormId);
 		}
 
 		return new JSONMessage(false);
@@ -469,7 +469,7 @@ class ReviewFormGridHandler extends GridHandler {
 			$user = $request->getUser();
 			$notificationMgr->createTrivialNotification($user->getId());
 
-			return DAO::getDataChangedEvent($reviewFormId);
+			return \PKP\db\DAO::getDataChangedEvent($reviewFormId);
 		}
 
 		return new JSONMessage(false);

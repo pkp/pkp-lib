@@ -328,7 +328,7 @@ class UserGridHandler extends GridHandler {
 				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.editedUser')]);
 
 				// Prepare the grid row data.
-				return DAO::getDataChangedEvent($userId);
+				return \PKP\db\DAO::getDataChangedEvent($userId);
 			}
 		} else {
 			return new JSONMessage(false);
@@ -361,7 +361,7 @@ class UserGridHandler extends GridHandler {
 			$userRoleForm->execute();
 
 			// Successfully managed newly created user's roles.
-			return DAO::getDataChangedEvent();
+			return \PKP\db\DAO::getDataChangedEvent();
 		} else {
 			return new JSONMessage(false);
 		}
@@ -428,7 +428,7 @@ class UserGridHandler extends GridHandler {
 
 			// Successful enable/disable of an existing user.
 			// Update grid data.
-			return DAO::getDataChangedEvent($userId);
+			return \PKP\db\DAO::getDataChangedEvent($userId);
 
 		} else {
 			return new JSONMessage(false, $userForm->display($request));
@@ -463,7 +463,7 @@ class UserGridHandler extends GridHandler {
 			return new JSONMessage(false, __('grid.user.userNoRoles'));
 		} else {
 			$userGroupDao->deleteAssignmentsByContextId($context->getId(), $userId);
-			return DAO::getDataChangedEvent($userId);
+			return \PKP\db\DAO::getDataChangedEvent($userId);
 		}
 	}
 

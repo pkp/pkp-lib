@@ -65,7 +65,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedFile')));
 		}
 
-		return DAO::getDataChangedEvent();
+		return \PKP\db\DAO::getDataChangedEvent();
 	}
 
 	/**
@@ -156,7 +156,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 			$articleSearchIndex->submissionFilesChanged($submission);
 			$articleSearchIndex->submissionChangesFinished();
 
-			return DAO::getDataChangedEvent();
+			return \PKP\db\DAO::getDataChangedEvent();
 		} else {
 			return new JSONMessage(true, $form->fetch($request));
 		}

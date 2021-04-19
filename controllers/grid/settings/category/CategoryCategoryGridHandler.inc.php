@@ -227,7 +227,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler {
 		$categoryForm->readInputData();
 		if($categoryForm->validate()) {
 			$categoryForm->execute();
-			return DAO::getDataChangedEvent();
+			return \PKP\db\DAO::getDataChangedEvent();
 		} else {
 			return new JSONMessage(true, $categoryForm->fetch($request));
 		}
@@ -252,7 +252,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler {
 
 		// Delete the category
 		$categoryDao->deleteObject($category);
-		return DAO::getDataChangedEvent();
+		return \PKP\db\DAO::getDataChangedEvent();
 	}
 
 	/**

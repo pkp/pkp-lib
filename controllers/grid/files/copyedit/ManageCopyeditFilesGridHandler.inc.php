@@ -87,7 +87,7 @@ class ManageCopyeditFilesGridHandler extends SelectableSubmissionFileListCategor
 			}
 
 			// Let the calling grid reload itself
-			return DAO::getDataChangedEvent();
+			return \PKP\db\DAO::getDataChangedEvent();
 		} else {
 			return new JSONMessage(false);
 		}

@@ -475,7 +475,7 @@ class PKPImportExportDeployment {
 
 			$this->processResult = $result;
 		} catch (Error | Exception $e) {
-			$this->addError(ASSOC_TYPE_NONE, 0, $e->getMessage());
+			$this->addError(PKPApplication::ASSOC_TYPE_NONE, 0, $e->getMessage());
 			$dbConnection->rollBack();
 
 			$this->processFailed = true;
@@ -504,13 +504,13 @@ class PKPImportExportDeployment {
 			libxml_clear_errors();
 
 			if (!$result) {
-				$this->addError(ASSOC_TYPE_NONE, 0, 'Export result is empty.');
+				$this->addError(PKPApplication::ASSOC_TYPE_NONE, 0, 'Export result is empty.');
 				$this->processFailed = true;
 			}
 
 			$this->processResult = $result;
 		} catch (Error | Exception $e) {
-			$this->addError(ASSOC_TYPE_NONE, 0, $e->getMessage());
+			$this->addError(PKPApplication::ASSOC_TYPE_NONE, 0, $e->getMessage());
 
 			$this->processFailed = true;
 		}
@@ -532,10 +532,10 @@ class PKPImportExportDeployment {
 	protected function getObjectTypes() {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
 		$objectTypes = array(
-			ASSOC_TYPE_NONE => __('plugins.importexport.native.common.any'),
-			ASSOC_TYPE_SUBMISSION => __('submission.submission'),
-			ASSOC_TYPE_AUTHOR => __('user.role.author'),
-			ASSOC_TYPE_PUBLICATION => __('submission.publication'),
+			PKPApplication::ASSOC_TYPE_NONE => __('plugins.importexport.native.common.any'),
+			PKPApplication::ASSOC_TYPE_SUBMISSION => __('submission.submission'),
+			PKPApplication::ASSOC_TYPE_AUTHOR => __('user.role.author'),
+			PKPApplication::ASSOC_TYPE_PUBLICATION => __('submission.publication'),
 		);
 
 		return $objectTypes;

@@ -276,13 +276,10 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 
 		switch ($cliDeployment->command) {
 			case 'import':
-				$userName = $cliDeployment->userName;
-				$user = $userDao->getByUsername($userName);
+				$user = Application::get()->getRequest()->getUser();
 
 				if (!$user) {
-					if ($userName != '') {
-						$this->cliToolkit->echoCLIError(__('plugins.importexport.native.error.unknownUser', array('userName' => $userName)));
-					}
+					$this->cliToolkit->echoCLIError(__('plugins.importexport.native.error.unknownUser'));
 					$this->usage($scriptName);
 					return true;
 				}

@@ -431,3 +431,8 @@ msgstr "{$count} of {$total} preprints"
 msgid "stats.publications.abstracts"
 msgstr "Abstracts"
 
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.description"
+msgstr "Send a copy of the submission acknowledgement email to this preprint server's primary contact."
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled.description"
+msgstr "No primary contact has been defined for this preprint server. You can enter a primary contact in the <a href="{$url}">preprint server settings</a>"

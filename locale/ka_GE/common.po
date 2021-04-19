@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"PO-Revision-Date: 2021-04-19 12:40+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ka_GE/>\n"
@@ -598,3 +598,791 @@ msgstr "კონტაქტი"
 
 msgid "about.description"
 msgstr "აღწერა"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.remoteURL"
+msgstr "RemoteURL"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"of a the and an or nor but is if then else when at from by on off for in out "
+"over to into with"
+
+msgid "list.viewLess"
+msgstr "გაფართოებული დეტალების დამალვა {$name}"
+
+msgid "list.viewMore"
+msgstr "მეტი ინფორმაციის ჩვენება {$name}"
+
+msgid "dashboard.myQueue"
+msgstr "ჩემი რიგი"
+
+msgid "dashboard.tasks"
+msgstr "ამოცანები"
+
+msgid "grid.action.markRead"
+msgstr "წაკითხულად მონიშვნა"
+
+msgid "grid.action.markNew"
+msgstr "მონიშნე ახალი"
+
+msgid "grid.action.deleteNotification"
+msgstr "ამოცანის წაშლა"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "წაიკითხეთ განხილვის მიმდინარე პოლიტიკა"
+
+msgid "grid.action.downloadFile"
+msgstr "ამ ფაილის ჩამოტვირთვა"
+
+msgid "navigation.backTo"
+msgstr "⟵ დაბრუნება {$page}"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "თქვენ იმყოფებით აქ:"
+
+msgid "navigation.access"
+msgstr "მომხმარებლები და როლები"
+
+msgid "locale.supported"
+msgstr "მხარდაჭერილი ენები"
+
+msgid "locale.primary"
+msgstr "ძირითადი ენა"
+
+msgid "informationCenter.history.messageSent"
+msgstr "შეტყობინება გაგზავნილია მომხმარებლებისთვის."
+
+msgid "informationCenter.history.notePosted"
+msgstr "გამოქვეყნდა ახალი შენიშვნა."
+
+msgid "informationCenter.history.noItems"
+msgstr "არანაირი მოვლენა არ არის რეგისტრირებული."
+
+msgid "informationCenter.pastHistory"
+msgstr "ადრინდელი ვერსიები"
+
+msgid "informationCenter.currentHistory"
+msgstr "მიმდინარე ვერსია"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "დარწმუნებული ხართ, რომ გსურთ წაშალოთ ეს შენიშვნა?"
+
+msgid "informationCenter.pastNotes"
+msgstr "ადრინდელი ვერსიების შენიშვნები"
+
+msgid "informationCenter.noNotes"
+msgstr "არ არის შენიშვნები საჩვენებლად."
+
+msgid "informationCenter.addNote"
+msgstr "შენიშვნის დამატება"
+
+msgid "informationCenter.editorialHistory"
+msgstr "ჩასწორების ისტორია"
+
+msgid "informationCenter.informationCenter"
+msgstr "საინფორმაციო ცენტრი"
+
+msgid "icon.mail.alt"
+msgstr "ფოსტა"
+
+msgid "icon.folder.alt"
+msgstr "საქაღალდე"
+
+msgid "icon.checked.alt"
+msgstr "შემოწმებული"
+
+msgid "help.upALevel"
+msgstr "დონის ამაღლება"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} ენები დასრულებულია"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} — {$localeName}"
+
+msgid "form.invalidImage"
+msgstr "აიტვირთა არასწორი სურათი. მიღებული ფორმატებია .png, .gif ან .jpg."
+
+msgid "form.saveToUpload"
+msgstr "გამოიყენეთ შენახვა ფაილის ასატვირთად."
+
+msgid "form.resubmit"
+msgstr "ხელახლა გაგზავნა"
+
+msgid "form.requireId"
+msgstr "თქვენ უნდა მიუთითოთ მოქმედი იდენტიფიკატორი."
+
+msgid "form.requirePrimaryLocale"
+msgstr "თქვენ უნდა შეავსოთ ეს ველი: {$language}."
+
+msgid "form.required"
+msgstr "(* მოთხოვნილი)"
+
+msgid "form.fileRequired"
+msgstr "ფაილის ატვირთვა აუცილებელია."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"ფორმის წარდგენა ვერ მოხერხდა. თქვენ შეიძლება გამოსული ხართ. გთხოვთ, "
+"გადატვირთოთ გვერდი და ისევ სცადოთ."
+
+msgid "form.postRequired"
+msgstr "ფორმა სათანადოდ არ იქნა წარდგენილი."
+
+msgid "form.startsWith"
+msgstr "იწყება"
+
+msgid "form.is"
+msgstr "არის"
+
+msgid "form.contains"
+msgstr "შეიცავს"
+
+msgid "form.formLanguage"
+msgstr "ფორმის ენა"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"ქვემოთ მოცემული ინფორმაციის დამატებით ენებზე შესაყვანად, ჯერ აირჩიეთ ენა."
+
+msgid "form.errorsOccurred"
+msgstr "ამ ფორმის დამუშავებისას მოხდა შეცდომები"
+
+msgid "form.errors"
+msgstr ""
+"ფორმა არ იქნა შენახული, რადგან მოხდა {$count} შეცდომა. გთხოვთ, შეასწოროთ ეს "
+"შეცდომები და ისევ სცადოთ."
+
+msgid "form.errorMany"
+msgstr "გთხოვთ, შეასწოროთ {$count} შეცდომა."
+
+msgid "form.errorOne"
+msgstr "გთხოვთ, გამოასწოროთ ერთი შეცდომა."
+
+msgid "form.errorGoTo"
+msgstr "შემდეგ შეცდომაზე გადასვლა"
+
+msgid "form.errorA11y"
+msgstr "გადასვლა {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "თქვენ აღარ შეგიძლიათ ფაილების ატვირთვა."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "ფაილის წაშლა"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ ატვირთვის გაუქმება?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "ატვირთვა გაუქმებულია"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "ატვირთვის გაუქმება"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"სერვერმა უპასუხა {{statusCode}} კოდით. თუ ეს პრობლემა გამეორდება, გთხოვთ, "
+"დაუკავშირდეთ სისტემის ადმინისტრატორს."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "ამ ტიპის ფაილების ატვირთვა შეუძლებელია."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"ფაილი ძალიან დიდია ({{filesize}}mb). {{maxFilesize}} მბაიტზე მეტი ფაილების "
+"ატვირთვა შეუძლებელია."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"თქვენი ფაილების ატვირთვისთვის გთხოვთ გამოიყენოთ ქვემოთ მოცემული მითითებული "
+"ფორმა."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"თქვენს ბრაუზერს არ აქვს ფაილის ატვირთვის გადათრევის და დაგდების მხარდაჭერა."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "დაყარეთ ფაილები აქ ასატვირთად"
+
+msgid "form.disallowedProp"
+msgstr "ეს საგანი დაუშვებელია."
+
+msgid "form.disallowedLocales"
+msgstr "დასაშვებია მხოლოდ შემდეგი ენები: {$languages}."
+
+msgid "form.dataHasChanged"
+msgstr "ამ ფორმის მონაცემები შეიცვალა. გსურთ გააგრძელოთ დაზოგვის გარეშე?"
+
+msgid "form.emailRequired"
+msgstr "აუცილებელია ელფოსტის სწორი მისამართი."
+
+msgid "form.confirmSubmit"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ ფორმის წარდგენა?"
+
+msgid "form.url.invalid"
+msgstr "მითითებული URL არასწორია. გთხოვთ, შეამოწმოთ ის და ისევ სცადოთ."
+
+msgid "email.bodyRequired"
+msgstr "გთხოვთ, მიუთითოთ ელფოსტის ტექსტი."
+
+msgid "email.subjectRequired"
+msgstr "გთხოვთ მიუთითოთ ელფოსტის თემა."
+
+msgid "email.skip"
+msgstr "ელფოსტის გამოტოვება"
+
+msgid "email.senderEmail"
+msgstr "გამგზავნის ელფოსტა"
+
+msgid "email.senderName"
+msgstr "გამგზავნის სახელი"
+
+msgid "email.sender"
+msgstr "გამგზავნი"
+
+msgid "email.recipients"
+msgstr "მიმღები"
+
+msgid "email.recipient"
+msgstr "მიმღები"
+
+msgid "email.multipart"
+msgstr "ეს არის მრავალმხრივი შეტყობინება MIME ფორმატში."
+
+msgid "email.invalid"
+msgstr "ელფოსტის მისამართი {$email} არასწორია."
+
+msgid "email.compose.error"
+msgstr ""
+"ელფოსტის გაგზავნისას პრობლემა წარმოიშვა. გთხოვთ, სცადოთ მოგვიანებით, ან "
+"დაუკავშირდეთ თქვენი სისტემის ადმინისტრატორს."
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"თქვენი წერილის გაგზავნის შემდეგ თქვენ ცდილობთ ძალიან მალე გაგზავნოთ "
+"შეტყობინება. გთხოვთ, დაელოდოთ სხვა შეტყობინების გაგზავნამდე."
+
+msgid "email.compose.tooManyRecipients"
+msgstr "შეტყობინებას, რომლის გაგზავნაცსაც ცდილობთ, ძალიან ბევრი ადრესატია."
+
+msgid "email.cc"
+msgstr "ასლი"
+
+msgid "email.bccSender"
+msgstr "გაგზავნეთ ამ წერილის ასლი ჩემს მისამართზე ({$address})"
+
+msgid "email.bcc"
+msgstr "უხილავი ასლი"
+
+msgid "email.addToRecipient"
+msgstr "ადრესატის დამატება"
+
+msgid "email.addCcRecipient"
+msgstr "ასლის დამატება"
+
+msgid "email.addBccRecipient"
+msgstr "უხილავი ასლის დამატება"
+
+msgid "email.addAttachment"
+msgstr "დანართის დამატება"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "განხილვის ფაილის ატვირთვა"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "ხელმისაწვდომი მეტრიკები"
+
+msgid "defaultMetric.title"
+msgstr "ნაგულისხმევი მეტრიკა"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "ენის გასაღები არ არის \"{$key}\"."
+
+msgid "debug.notes.localeLoad"
+msgstr "ჩატვირთულია ენების ფაილი \"{$localeFile}\" XML-ფაილიდან"
+
+msgid "debug.notes.localeListLoad"
+msgstr "ჩატვირთულია ენების სია \"{$localeList}\" XML-ფაილიდან"
+
+msgid "debug.memoryUsage"
+msgstr "მეხსიერების გამოყენება"
+
+msgid "debug.executionTime"
+msgstr "გვერდი დაგენერირებულია"
+
+msgid "debug.databaseQueries"
+msgstr "მონაცემთა ბაზის მოთხოვნების რაოდენობა"
+
+msgid "common.publicAccess"
+msgstr "საჯარო წვდომა"
+
+msgid "common.metric"
+msgstr "მეტრული"
+
+msgid "common.viewWithName"
+msgstr "ნახვა {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[არარსებული მომხმარებელი]"
+
+msgid "common.upload.dragFile"
+msgstr "გადათრიეთ და დააგდეთ ფაილი აქ ატვირთვის დასაწყებად"
+
+msgid "common.upload.changeFile"
+msgstr "ფაილის შეცვლა"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "ამჟამად შერჩეული სურათის გადახედვა."
+
+msgid "common.upload.restore"
+msgstr "ორიგინალის აღდგენა"
+
+msgid "common.addFile"
+msgstr "ფაილის დამატება"
+
+msgid "common.uploadFailed"
+msgstr "ფაილის ატვირთვა, ან გადასინჯვა ვერ მოხერხდა."
+
+msgid "common.uploadedDate"
+msgstr "ატვირთვის თარიღი"
+
+msgid "common.unknownError"
+msgstr "მოხდა მოულოდნელი შეცდომა. გთხოვთ, გადატვირთოთ გვერდი და ისევ სცადოთ."
+
+msgid "common.uninitiated"
+msgstr "გაუცნობიერებელი"
+
+msgid "common.toWithValue"
+msgstr "მიმღები: {$value}"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.suggest"
+msgstr "შემოთავაზება"
+
+msgid "common.subtitle"
+msgstr "ქვესათაური"
+
+msgid "common.subjects"
+msgstr "თემები"
+
+msgid "common.selectWithName"
+msgstr "მონიშნული {$name}"
+
+msgid "common.selectNone"
+msgstr "არცერთია მონიშნული"
+
+msgid "common.selectedPrefix"
+msgstr "მონიშნული:"
+
+msgid "common.second"
+msgstr "წამ(ებ)ი"
+
+msgid "common.clearSearch"
+msgstr "საძიებო ფრაზის გასუფთავება"
+
+msgid "common.searchQuery"
+msgstr "ძებნის მოთხოვნა"
+
+msgid "common.saveAndEmail"
+msgstr "შენახვა და ელფოსტით გაგზავნა"
+
+msgid "common.saveAndContinue"
+msgstr "შენახვა და გაგრძელება"
+
+msgid "common.requiredField"
+msgstr "* აღნიშნავს სავალდებულო ველს"
+
+msgid "common.replaceFile"
+msgstr "ფაილის ჩანაცვლება"
+
+msgid "common.replaced"
+msgstr "ჩანაცვლებული"
+
+msgid "common.removeSelection"
+msgstr "მონიშვნულის ამოღება"
+
+msgid "common.removeItem"
+msgstr "ამოღება: {$item}"
+
+msgid "common.remote"
+msgstr "დისტანციური"
+
+msgid "common.reminded.date"
+msgstr "შეხსენებული: {$dateReminded}"
+
+msgid "common.reminder"
+msgstr "შემხსენებელი"
+
+msgid "common.record"
+msgstr "ჩაწერა"
+
+msgid "common.readMoreWithTitle"
+msgstr "წაიკითხეთ მეტი {$title}"
+
+msgid "common.re"
+msgstr "გამოხმაურება:"
+
+msgid "common.queue.long.active"
+msgstr "ყველა აქტიური"
+
+msgid "common.quality"
+msgstr "ხარისხი"
+
+msgid "common.publisher"
+msgstr "გამომცემელი"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "მაგალითები: A, The"
+
+msgid "common.pluginDisabled"
+msgstr "პლაგინი \"{$pluginName}\" გამორთულია."
+
+msgid "common.pluginEnabled"
+msgstr "პლაგინი “{$pluginName}” ჩართულია."
+
+msgid "common.pageNumber"
+msgstr "გვერდი {$pageNumber}"
+
+msgid "common.pagination.goToPage"
+msgstr "გადასვლა {$page}"
+
+msgid "common.pagination.label"
+msgstr "დამატებითი გვერდების ნახვა"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} — {$total}"
+
+msgid "common.override"
+msgstr "გადაწერილი"
+
+msgid "common.overdue"
+msgstr "ვადაგადაცილებული"
+
+msgid "common.originalFileName"
+msgstr "ფაილის საწყისი სახელი"
+
+msgid "common.orderDown"
+msgstr "{$itemTitle} პოზიციის შემცირება"
+
+msgid "common.orderUp"
+msgstr "{$itemTitle} პოზიციის გაზრდა"
+
+msgid "common.on"
+msgstr "ჩართული"
+
+msgid "common.noMatches"
+msgstr "დამხთვევა არ არის"
+
+msgid "common.notified.date"
+msgstr "შეატყობინებული: {$dateNotified}"
+
+msgid "common.notified"
+msgstr "შეატყობინებული"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"შენიშვნები (ყვითელი: აქვს ახალი შენიშვნები; ლურჯი: ნანახი აქვს შენიშვნები; "
+"ნაცრისფერი: შენიშვნები არ არის)"
+
+msgid "common.noTemporaryFile"
+msgstr "თქვენ ატვირთული ფაილი ვერ მოიძებნა. გთხოვთ, ხელახლა ატვირთოთ იგი."
+
+msgid "common.notApplicable"
+msgstr "არ არის შესაბამისი"
+
+msgid "common.noneAssigned"
+msgstr "არცერთი არ არის მინიჭებული"
+
+msgid "common.moreThanOnly"
+msgstr "Მეტი ვიდრე"
+
+msgid "common.moreThan"
+msgstr "{$value}, ან მეტი"
+
+msgid "common.modify"
+msgstr "შეცვლა"
+
+msgid "common.minute"
+msgstr "წუთ(ებ)ი"
+
+msgid "common.billingAddress"
+msgstr "გადახდის მისამართი (თუ განსხვავებულია)"
+
+msgid "common.mailingAddress"
+msgstr "Საფოსტო მისამართი"
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.lessThanOnly"
+msgstr "ნაკლები, ვიდრე"
+
+msgid "common.lessThan"
+msgstr "{$value}, ან უფრო ნაკლები"
+
+msgid "common.lastActivity"
+msgstr "ბოლო აქტივობა ჩაწერილია {$date}."
+
+msgid "common.itemsPerPage"
+msgstr "ელემენტი ყოველ გვერდზე"
+
+msgid "common.inProgress"
+msgstr "მიმდინარეობს"
+
+msgid "common.initiate"
+msgstr "წამოწყება"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "მთავარი გვერდის სათაური"
+
+msgid "common.go"
+msgstr "გადასვლა"
+
+msgid "common.until"
+msgstr "სანამ"
+
+msgid "common.fromWithValue"
+msgstr "გამგზავნი: {$value}"
+
+msgid "common.from"
+msgstr "გამგზავნი"
+
+msgid "common.filterRemove"
+msgstr "ფილტრის გასუფთავება: {$filterTitle}"
+
+msgid "common.filterAdd"
+msgstr "ფილტრის დამატება: {$filterTitle}"
+
+msgid "common.filter"
+msgstr "ფილტრები"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"იტვირთება სისტემის ფაილების ამტვირთავი. თუ ის არ გამოჩნდება, სავარაუდოდ "
+"არცერთი მისი შესრულების დრო არ არის მხარდაჭერილი ამ ბრაუზერის მიერ. "
+"დახმარების მისაღებად დაუკავშირდით ადმინისტრაციას."
+
+msgid "common.fileSize"
+msgstr "ფაილი ზომა"
+
+msgid "common.fileName"
+msgstr "ფაილის სახელი"
+
+msgid "common.file.namingPattern"
+msgstr "დადასტურებულია"
+
+msgid "common.fullscreenOff"
+msgstr "მთლიანი ეკრანი გამორთულია"
+
+msgid "common.error.framesRequired"
+msgstr ""
+"ამ გვერდზე საჭიროა ჩარჩოები. არა-ჩარჩოების ვერსიისთვის <a href=\"{$url}\">"
+"დააჭირეთ აქ</a>."
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "მოხდა მონაცემთა ბაზასთან კავშირის უცნობი შეცდომა."
+
+msgid "common.error.databaseError"
+msgstr "მოხდა მონაცემთა ბაზის შეცდომა: {$error}"
+
+msgid "common.editItem"
+msgstr "ჩასწორება {$name}"
+
+msgid "common.downloadPdf"
+msgstr "PDF-ფაილის ჩამოტვირთვა"
+
+msgid "common.discipline"
+msgstr "დისციპლინა"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} პიქსელი"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; — {$dpi} DPI/PPI"
+
+msgid "common.designation"
+msgstr "დანიშნულება"
+
+msgid "common.deleteSelection"
+msgstr "მონშნულის წაშლა"
+
+msgid "common.deleting"
+msgstr "წაშლა"
+
+msgid "common.dateHijri"
+msgstr "ჰიჯრის კალენდარი"
+
+msgid "common.dateUploaded"
+msgstr "ატვირთვის თარიღი"
+
+msgid "common.dateSubmitted"
+msgstr "გაგზავნის თარიღი"
+
+msgid "common.dateRequested"
+msgstr "მოთხოვნის თარიღი"
+
+msgid "common.dateModified"
+msgstr "ცვლილების თარიღი"
+
+msgid "common.dateDecided"
+msgstr "გადაწყვეტის თარიღი"
+
+msgid "common.dateCompleted"
+msgstr "დასრულების თარიღი"
+
+msgid "common.contents"
+msgstr "შინაარსი"
+
+msgid "common.confirmed.date"
+msgstr "დადასტურებულია: {$dateConfirmed}"
+
+msgid "common.completed.date"
+msgstr "დასრულებული: {$dateCompleted}"
+
+msgid "common.closeWindow"
+msgstr "ფანჯრის დახურვა"
+
+msgid "common.closePanel"
+msgstr "პანელის დახურვა"
+
+msgid "common.chooseOne"
+msgstr "აირჩიეთ ერთი"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tეს ნამუშევარი ვრცელდება <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative "
+"Commons Attribution 3.0 ლიცენზიით</a>.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tეს სამუშაო ვრცელდება <a rel=\"license\" target=\"_blank\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
+"3.0  ლიცენზიით</a>.\n"
+"\t"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"თქვენ უნდა დაასრულოთ ვალიდაციის შემოწმება, რომელიც გამოიყენება სპამის "
+"გაგზავნის თავიდან ასაცილებლად."
+
+msgid "common.between"
+msgstr "შორის"
+
+msgid "common.assigned.date"
+msgstr "მინიჭებული: {$dateAssigned}"
+
+msgid "common.assigned"
+msgstr "მინიჭებული"
+
+msgid "common.assign"
+msgstr "მინიჭება"
+
+msgid "common.applyAction"
+msgstr "მოქმედების მისადაგება"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"აღწერეთ ეს სურათი სტუმრებისთვის, რომლებიც ნახულობენ საიტს მხოლოდ ტექსტური "
+"ბრაუზერით ან დამხმარე მოწყობილობებით. მაგალითი: \"ჩვენი რედაქტორი, რომელიც "
+"PKP კონფერენციაზე საუბრობს.\""
+
+msgid "common.altText"
+msgstr "ალტერნატიული ტექსტი"
+
+msgid "common.alreadyAssigned"
+msgstr "მინიჭებული"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+msgid "common.addSelf"
+msgstr "თვითდამატება"
+
+msgid "common.acknowledged"
+msgstr "აღიარებული"
+
+msgid "common.abstract"
+msgstr "აბსტრაქტი"
+
+msgid "common.confirmDelete"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ ამ ერთეულის წაშლა? ამ მოქმედების გაუქმება "
+"შეუძლებელია."
+
+msgid "common.tasks"
+msgstr "ამოცანები"
+
+msgid "common.navigation.user"
+msgstr "მომხმარებლის ნავიგაცია"
+
+msgid "common.navigation.siteContext"
+msgstr "საიტის კონტექსტში ნავიგაცია"
+
+msgid "common.navigation.site"
+msgstr "საიტის ნავიგაცია"
+
+msgid "common.allDownloads"
+msgstr "ყველა გადმოტვირთვა"
+
+msgid "announcement.view"
+msgstr "განცხადების ნახვა"
+
+msgid "announcement.postedOn"
+msgstr "გამოქვეყნებულია: {$postDate}"
+
+msgid "announcement.noneExist"
+msgstr "განცხადებები ჯერ არ არის გამოქვეყნებული."
+
+msgid "announcement.moreAnnouncements"
+msgstr "მეტი განცხადება…"
+
+msgid "about.siteMap"
+msgstr "საიტის რუკა"
+
+msgid "about.contact.supportContact"
+msgstr "ტექნიკური მხარდაჭერის კონტაქტი"
+
+msgid "about.contact.principalContact"
+msgstr "ძირითადი კონტაქტი"
+
+msgid "about.aboutSite"
+msgstr "საიტის შესახებ"
+
+msgid "about.guidelines"
+msgstr "სახელმძღვანელოები"
+
+msgid "common.currentStyleSheet"
+msgstr "ამჟამინდელი სტილის ფაილი"
+
+msgid "common.publicKnowledgeProject"
+msgstr "საზოგადოებრივი ცოდნის პროექტი"

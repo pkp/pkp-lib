@@ -53,6 +53,12 @@ class CommandLineTool {
 	/** @vary array Command-line arguments */
 	var $argv;
 
+	/** @var string the username provided */
+	var $username;
+
+	/** @var User the user provided */
+	var $user;
+
 	function __construct($argv = array()) {
 		// Initialize the request object with a page router
 		$application = Application::get();
@@ -76,13 +82,84 @@ class CommandLineTool {
 
 		$this->scriptName = isset($this->argv[0]) ? array_shift($this->argv) : '';
 
+		$this->checkArgsForUsername();
+
 		if (isset($this->argv[0]) && $this->argv[0] == '-h') {
-			$this->usage();
-			exit(0);
+			$this->exitWithUsageMessage();
 		}
 	}
 
 	function usage() {
+	}
+
+	private function checkArgsForUsername() {
+		$usernameKeyPos = array_search('--user_name', $this->argv);
+		if (!$usernameKeyPos) {
+			$usernameKeyPos = array_search('-u', $this->argv);
+		}
+
+		if ($usernameKeyPos) {
+			$usernamePos = $usernameKeyPos + 1;
+			if (count($this->argv) >= $usernamePos + 1) {
+				$this->username = $this->argv[$usernamePos];
+
+				unset($this->argv[$usernamePos]);
+			}
+
+			unset($this->argv[$usernameKeyPos]);
+		}
+
+		$userDao = DAORegistry::getDAO('UserDAO'); /** @var $userDao UserDAO */
+
+		if ($this->username) {
+
+			$user = $userDao->getByUsername($this->username);
+
+			$this->setUser($user);
+		}
+
+		if (!$this->user) {
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var $userGroupDao UserGroupDAO */
+			$adminGroups = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_SITE_ADMIN);
+
+			if (count($adminGroups)) {
+				$groupUsers = $userGroupDao->getUsersById($adminGroups[0])->toArray();
+
+				if (count($groupUsers) > 0) {
+					$this->setUser($groupUsers[0]);
+				} else {
+					$this->exitWithUsageMessage();
+				}
+			}
+		}
+	}
+
+	/**
+	 * Sets the user for the CLI Tool
+	 * @param $user User The user to set as the execution user of this CLI command
+	 */
+	function setUser($user) {
+		$registeredUser = Registry::get('user', true, null);
+		if (!isset($registeredUser)) {
+			/**
+			 * This is used in order to reconcile with possible $request->getUser()
+			 * used inside import processes, when the import is done by CLI tool.
+			 */
+			if ($user) {
+				Registry::set('user', $user);
+				$this->user = $user;
+			}
+		} else {
+			$this->user = $registeredUser;
+		}
+	}
+
+	/**
+	 * Exit the CLI tool if an error occurs
+	 */
+	function exitWithUsageMessage() {
+		$this->usage();
+		exit(0);
 	}
 
 }

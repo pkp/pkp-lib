@@ -59,6 +59,36 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	}
 
 	/**
+	 * @see Filter::process()
+	 * @param $document DOMDocument|string
+	 * @return array Array of imported documents
+	 */
+	function &process(&$document) {
+		$importedObjects =& parent::process($document);
+
+		$deployment = $this->getDeployment();
+
+		$hasErrors = false;
+		$currentErrors = $deployment->getProcessedObjectsErrors(ASSOC_TYPE_SUBMISSION);
+		if (!empty($currentErrors)) {
+			$hasErrors = true;
+		}
+
+		// Index imported content
+		if (!$hasErrors) {
+			$articleSearchIndex = Application::getSubmissionSearchIndex();
+			foreach ($importedObjects as $submission) {
+				$articleSearchIndex->submissionMetadataChanged($submission);
+				$articleSearchIndex->submissionFilesChanged($submission);
+			}
+
+			$articleSearchIndex->submissionChangesFinished();
+		}
+
+		return $importedObjects;
+	}
+
+	/**
 	 * Handle a singular element import.
 	 * @param $node DOMElement
 	 */
@@ -77,13 +107,15 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 
 		import('lib.pkp.classes.workflow.WorkflowStageDAO');
 		$submission->setData('stageId', WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
-		$submission->setData('currentPublicationId', $node->getAttribute('current_publication_id'));
+		$submission->setData('currentPublicationId', 0);
 
 		// Handle any additional attributes etc.
 		$submission = $this->populateObject($submission, $node);
 
 		$submission = Services::get('submission')->add($submission, Application::get()->getRequest());
+
 		$deployment->setSubmission($submission);
+		$deployment->addSubmissionCurrentPublication($submission->getId(), $node->getAttribute('current_publication_id'));
 
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
 			if (is_a($n, 'DOMElement')) {
@@ -92,6 +124,11 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		}
 
 		$submission = Services::get('submission')->get($submission->getId());
+
+		$publication = $submission->getCurrentPublication();
+		if (!isset($publication)) {
+			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(),  __('plugins.importexport.common.error.currentPublicationNullOrMissing'));
+		}
 
 		return $submission;
 	}
@@ -124,10 +161,10 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 				$this->parseIdentifier($n, $submission);
 				break;
 			case 'submission_file':
-				$this->parseSubmissionFile($n, $submission);
+				$this->parseChild($n, $submission);
 				break;
 			case 'publication':
-				$this->parsePublication($n, $submission);
+				$this->parseChild($n, $submission);
 				break;
 			default:
 				$deployment = $this->getDeployment();
@@ -159,29 +196,20 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	 * @param $n DOMElement
 	 * @param $submission Submission
 	 */
-	function parseSubmissionFile($n, $submission) {
+	function parseChild($n, $submission) {
 		$importFilter = $this->getImportFilter($n->tagName);
 		assert(isset($importFilter)); // There should be a filter
 
 		$importFilter->setDeployment($this->getDeployment());
 		$submissionFileDoc = new DOMDocument();
 		$submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
-		return $importFilter->execute($submissionFileDoc);
-	}
+		$ret = $importFilter->execute($submissionFileDoc);
 
-	/**
-	 * Parse a submission publication and add it to the submission.
-	 * @param $n DOMElement
-	 * @param $submission Submission
-	 */
-	function parsePublication($n, $submission) {
-		$importFilter = $this->getImportFilter($n->tagName);
-		assert(isset($importFilter)); // There should be a filter
+		if ($ret == null) {
+			$deployment = $this->getDeployment();
 
-		$importFilter->setDeployment($this->getDeployment());
-		$submissionFileDoc = new DOMDocument();
-		$submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
-		return $importFilter->execute($submissionFileDoc);
+			$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.submissionChildFailed', ['child' => $n->tagName]));
+		}
 	}
 
 	//

@@ -116,6 +116,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	public const ASSOC_TYPE_QUEUED_PAYMENT = 0x010000b;
 	public const ASSOC_TYPE_PUBLICATION = 0x010000c;
 	public const ASSOC_TYPE_ACCESSIBLE_FILE_STAGES = 0x010000d;
+	public const ASSOC_TYPE_NONE = 0x010000e;
 
 	// Constant used in UsageStats for submission files that are not full texts
 	public const ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER = 0x0000213;

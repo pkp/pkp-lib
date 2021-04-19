@@ -340,6 +340,33 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			}
 		});
 
+		// Transforming copySubmissionAckAddress from CSV to array
+		$validator->after(function ($validator) use ($props) {
+			if (!isset($props['copySubmissionAckAddress'])) {
+				return;
+			}
+
+			$emails = explode(',', $props['copySubmissionAckAddress']);
+
+			if ($emails === []) {
+				return;
+			}
+
+			foreach ($emails as $currentEmail) {
+				$value = trim($currentEmail);
+
+				$emailValidator = \ValidatorFactory::make(
+					['value' => $value],
+					['value' => ['email_or_localhost']]
+				);
+
+				if ($emailValidator->fails()) {
+					$validator->errors()->add('copySubmissionAckAddress', __('manager.setup.notifications.copySubmissionAckAddress.invalid'));
+					break;
+				}
+			}
+		});
+
 		// Only allow admins to modify which user groups are disabled for bulk emails
 		if (!empty($props['disableBulkEmailUserGroups'])) {
 			$user = Application::get()->getRequest()->getUser();

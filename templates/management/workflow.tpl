@@ -50,6 +50,11 @@
 						@set="set"
 					/>
 				</tab>
+				<tab id="notifications" label="{translate key="manager.setup.submissionsNotifications"}">
+					<pkp-form
+						v-bind="components.{$smarty.const.FORM_SUBMISSIONS_NOTIFICATIONS}" @set="set"
+					/>
+				</tab>
 				{call_hook name="Template::Settings::workflow::submission"}
 			</tabs>
 		</tab>

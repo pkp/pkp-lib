@@ -235,6 +235,7 @@ class ManagementHandler extends Handler {
 		$emailSetupForm = new \PKP\components\forms\context\PKPEmailSetupForm($contextApiUrl, $locales, $context);
 		$reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
 		$reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($contextApiUrl, $locales, $context);
+		$submissionsNotificationsForm = new \PKP\components\forms\context\PKPSubmissionsNotificationsForm($contextApiUrl, $locales, $context);
 
 		$emailTemplatesListPanel = new \APP\components\listPanels\EmailTemplatesListPanel(
 			'emailTemplates',
@@ -257,6 +258,7 @@ class ManagementHandler extends Handler {
 				FORM_EMAIL_SETUP => $emailSetupForm->getConfig(),
 				FORM_REVIEW_GUIDANCE => $reviewGuidanceForm->getConfig(),
 				FORM_REVIEW_SETUP => $reviewSetupForm->getConfig(),
+				FORM_SUBMISSIONS_NOTIFICATIONS => $submissionsNotificationsForm->getConfig(),
 				'emailTemplates' => $emailTemplatesListPanel->getConfig(),
 			],
 		]);

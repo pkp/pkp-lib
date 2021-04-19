@@ -2212,3 +2212,9 @@ msgstr ""
 
 msgid "manager.emails.otherTemplates"
 msgstr "Diğer Şablonlar"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "HATA:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Belirtilen günlük yolu \"{$contextPath}\" mevcut değil."

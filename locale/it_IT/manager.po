@@ -2092,3 +2092,9 @@ msgstr "Le configurazione della mail sono state aggiornate."
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/anno)"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERRORE:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Il path specificato, \"{$contextPath}\", non esiste."

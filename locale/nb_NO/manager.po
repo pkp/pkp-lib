@@ -2351,3 +2351,8 @@ msgstr "Standard-e-postene har blitt gjenopprettet."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Slett oppslag"
+msgid "plugins.importexport.common.cliError"
+msgstr "FEIL:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Den spesifiserte tidsskriftsstien \"{$contextPath}\" eksisterer ikke."

@@ -1712,3 +1712,9 @@ msgstr "Vul een naam voor de categorie in."
 
 msgid "grid.category.categoryDetails"
 msgstr "Categorie informatie"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "FOUT:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Het opgegeven pad \"{$contextPath}\" bestaat niet."

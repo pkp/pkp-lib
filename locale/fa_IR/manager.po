@@ -1490,3 +1490,9 @@ msgstr "این لینک تنها زمانی نمایش داده می‌شود ک
 
 msgid "manager.navigationMenus.loggedIn.conditionalWarning"
 msgstr "این لینک تنها زمانی نمایش داده می‌شود که کاربر وارد سیستم نشده است."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "خطا:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "مسیر مجله وارد شده (\"{$contextPath}\") یافت شند."

@@ -2123,3 +2123,9 @@ msgstr ""
 
 msgid "manager.emails.otherTemplates"
 msgstr "Andra mallar"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "FEL:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Sökvägen för tidskriften, \"{$contextPath}\", existerar inte."

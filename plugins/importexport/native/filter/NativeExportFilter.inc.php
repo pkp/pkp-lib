@@ -13,21 +13,13 @@
  * @brief Base class that converts a DataObject to a Native XML document
  */
 
-import('lib.pkp.plugins.importexport.native.filter.NativeImportExportFilter');
+import('lib.pkp.classes.plugins.importexport.PKPImportExportFilter');
 
-class NativeExportFilter extends NativeImportExportFilter {
+class NativeExportFilter extends PKPImportExportFilter {
 
 	/** @var boolean If set to true no validation (e.g. XML validation) will be done */
 	var $_noValidation = null;
 	var $opts = array();
-
-	/**
-	 * Constructor
-	 * @param $filterGroup FilterGroup
-	 */
-	function __construct($filterGroup) {
-		parent::__construct($filterGroup);
-	}
 
 	/**
 	 * Set no validation option

@@ -2049,3 +2049,8 @@ msgstr "تعذر حفظ إعداد اللغة. لا بد من تمكين لغة 
 
 msgid "manager.emails.otherTemplates"
 msgstr "القوالب الأخرى"
+msgid "plugins.importexport.common.cliError"
+msgstr "خطأ:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "المسار المخصص للمجلة، \"{$contextPath}\"، غير موجود."

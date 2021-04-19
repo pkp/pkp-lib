@@ -1219,6 +1219,14 @@ abstract class PKPSubmission extends \PKP\core\DataObject {
 		$application = Application::getApplication();
 		return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION, $this->getId());
 	}
+
+	/**
+	 * Display the object in Import/Export results
+	 * @return string A string that Identifies the object
+	 */
+	function getUIDisplayString() {
+		return __('plugins.importexport.submission.cli.display', ['submissionId' => $this->getId(), 'submissionTitle' => $this->getLocalizedTitle()]);
+	}
 }
 
 // Expose global constants unless operating in strict mode.

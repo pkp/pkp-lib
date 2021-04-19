@@ -2170,3 +2170,9 @@ msgstr ""
 
 msgid "manager.emails.otherTemplates"
 msgstr "Ostale predloge"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "NAPAKA:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Podana pot revije, \"{$contextPath}\", ne obstaja."

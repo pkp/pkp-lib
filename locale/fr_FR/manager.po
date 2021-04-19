@@ -2314,3 +2314,9 @@ msgstr "Les modèles de courriels par défaut ont été réinitialisés."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Supprimer l'annonce"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERREUR :"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Le chemin pour la revue, \"{$contextPath}\", n'existe pas."

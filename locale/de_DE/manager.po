@@ -2173,3 +2173,8 @@ msgstr "Die Standard-E-Mail-Vorlagen wurden wiederhergestellt."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Mitteilung löschen"
+msgid "plugins.importexport.common.cliError"
+msgstr "FEHLER:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Der angegebene Zeitschriftenpfad, \"{$contextPath}\", existiert nicht."

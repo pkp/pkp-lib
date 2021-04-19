@@ -2150,3 +2150,9 @@ msgstr ""
 
 msgid "manager.emails.otherTemplates"
 msgstr "Autres modèles"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERREUR :"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Le chemin « {$contextPath} » de la revue n'existe pas."

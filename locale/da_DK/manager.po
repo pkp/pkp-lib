@@ -2242,3 +2242,9 @@ msgstr ""
 
 msgid "manager.emails.otherTemplates"
 msgstr "Andre skabeloner"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "FEJL:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Den angivne tidsskriftssti, \"{$contextPath}\", findes ikke."

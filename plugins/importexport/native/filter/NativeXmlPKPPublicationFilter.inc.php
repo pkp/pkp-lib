@@ -228,14 +228,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 	 * @param $publication Publication
 	 */
 	function parseAuthor($n, $publication) {
-		$filterDao = DAORegistry::getDAO('FilterDAO'); /** @var $filterDao FilterDAO */
-		$importFilters = $filterDao->getObjectsByGroup('native-xml=>author');
-		assert(count($importFilters)==1); // Assert only a single unserialization filter
-		$importFilter = array_shift($importFilters);
-		$importFilter->setDeployment($this->getDeployment());
-		$authorDoc = new DOMDocument();
-		$authorDoc->appendChild($authorDoc->importNode($n, true));
-		return $importFilter->execute($authorDoc);
+		return $this->importWithXMLNode($n, 'native-xml=>author');
 	}
 
 	/**

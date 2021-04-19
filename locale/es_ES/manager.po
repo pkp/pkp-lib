@@ -2247,3 +2247,9 @@ msgstr "Se han restaurado las plantillas de correo electrónico predeterminadas.
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Eliminar aviso"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERROR:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "La ruta de la revista especificada, \"{$contextPath}\", no existe."

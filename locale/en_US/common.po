@@ -1969,3 +1969,12 @@ msgstr "The {$attribute} has already been taken."
 
 msgid "validator.url"
 msgstr "This is not a valid URL."
+
+msgid "filter.input.error.notSupported"
+msgstr "Filter ({$displayName}) supports input {$inputTypeName} - {$typeofInput} given"
+
+msgid "filter.error.missingRequirements"
+msgstr "Trying to run a transformation that is not supported in your installation environment."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Could not import XML Node"

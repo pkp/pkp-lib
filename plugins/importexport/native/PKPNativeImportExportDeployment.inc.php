@@ -1,7 +1,4 @@
 <?php
-/**
- * @defgroup plugins_importexport_native Native import/export plugin
- */
 
 /**
  * @file plugins/importexport/native/PKPNativeImportExportDeployment.inc.php
@@ -20,6 +17,7 @@
 import('lib.pkp.classes.plugins.importexport.PKPImportExportDeployment');
 
 class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
+
 	/**
 	 * Constructor
 	 * @param $context Context

@@ -2174,3 +2174,9 @@ msgstr ""
 
 msgid "manager.emails.otherTemplates"
 msgstr "Další šablony"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "CHYBA:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Vybraná adresa časopisu  \"{$contextPath}\" neexistuje."

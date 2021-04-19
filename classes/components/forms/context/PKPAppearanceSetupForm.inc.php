@@ -50,7 +50,7 @@ class PKPAppearanceSetupForm extends FormComponent {
 		$plugins = \PluginRegistry::loadCategory('blocks', true);
 
 		foreach ($currentBlocks as $plugin) {
-			if ($plugins[$plugin]) {
+			if (isset($plugins[$plugin])) {
 				$enabledOptions[] = [
 					'value' => $plugin,
 					'label' => $plugins[$plugin]->getDisplayName(),

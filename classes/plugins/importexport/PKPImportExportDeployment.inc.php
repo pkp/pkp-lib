@@ -18,6 +18,7 @@
  */
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use \Illuminate\Support\Facades\DB;
 
 import('lib.pkp.classes.plugins.importexport.PKPImportExportFilter');
 
@@ -463,7 +464,7 @@ class PKPImportExportDeployment {
 	 * @param $importXml string
 	 */
 	function import($rootFilter, $importXml) {
-		$dbConnection = Capsule::connection();
+		$dbConnection = DB::connection();
 		try {
 			$currentFilter = PKPImportExportFilter::getFilter($rootFilter, $this);
 
@@ -542,6 +543,8 @@ class PKPImportExportDeployment {
 		$objectTypes = array(
 			ASSOC_TYPE_NONE => __('plugins.importexport.native.common.any'),
 			ASSOC_TYPE_SUBMISSION => __('submission.submission'),
+			ASSOC_TYPE_AUTHOR => __('user.role.author'),
+			ASSOC_TYPE_PUBLICATION => __('submission.publication'),
 		);
 
 		return $objectTypes;

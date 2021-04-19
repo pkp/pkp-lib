@@ -86,6 +86,12 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroup = $userGroupDao->getById($author->getUserGroupId());
 		assert(isset($userGroup));
+
+		if (!$userGroup) {
+			$deployment->addError(ASSOC_TYPE_AUTHOR, $author->getId(), __('plugins.importexport.common.error.userGroupMissing', array('param' => $author->getFullName())));
+			throw new Exception(__('plugins.importexport.author.exportFailed'));
+		}
+
 		$authorNode->setAttribute('user_group_ref', $userGroup->getName($context->getPrimaryLocale()));
 		$authorNode->setAttribute('seq', $author->getSequence());
 

@@ -19,6 +19,8 @@ import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIToolKit');
 
 define('ASSOC_TYPE_NONE', -1000);
 
+use \PKP\core\JSONMessage;
+
 abstract class PKPNativeImportExportPlugin extends ImportExportPlugin {
 	/** @var PKPNativeImportExportCLIDeployment CLI Deployment for import/export operations */
 	protected $cliDeployment = null;

@@ -1667,6 +1667,9 @@ msgstr "The content is not encoded as {$param}"
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr "Unknown user group {$param}"
 
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "UserGroup Missing for author name {$param}"
+
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr "The author {$authorName} does not have a given name in the submission's language, {$localeName}. The submission can not be imported without this information."
 

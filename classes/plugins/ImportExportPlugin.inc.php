@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.plugins.Plugin');
 
+use \PKP\core\JSONMessage;
+
 abstract class ImportExportPlugin extends Plugin {
 	/** @var PKPImportExportDeployment The deployment that processes import/export operations */
 	var $_childDeployment = null;
@@ -213,7 +215,7 @@ abstract class ImportExportPlugin extends Plugin {
 			$submissionService = Services::get('submission');
 			$submission = $submissionService->get($submissionId);
 
-			if ($submission && $submission->getData('contextId') !== $deployment->getContext()->getId()) {
+			if ($submission && $submission->getData('contextId') == $deployment->getContext()->getId()) {
 				$submissions[] = $submission;
 			}
 		}

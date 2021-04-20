@@ -42,13 +42,32 @@ class PKPAppearanceSetupForm extends FormComponent {
 		$this->locales = $locales;
 
 		$sidebarOptions = [];
+		$enabledOptions = [];
+		$disabledOptions = [];
+
+		$currentBlocks = (array) $context->getData('sidebar');
+
 		$plugins = \PluginRegistry::loadCategory('blocks', true);
-		foreach ($plugins as $pluginName => $plugin) {
-			$sidebarOptions[] = [
-				'value' => $pluginName,
-				'label' => $plugin->getDisplayName(),
-			];
+
+		foreach ($currentBlocks as $plugin) {
+			if (isset($plugins[$plugin])) {
+				$enabledOptions[] = [
+					'value' => $plugin,
+					'label' => $plugins[$plugin]->getDisplayName(),
+				];
+			}
 		}
+
+		foreach ($plugins as $pluginName => $plugin) {
+			if (!in_array($pluginName, $currentBlocks)) {
+				$disabledOptions[] = [
+					'value' => $pluginName,
+					'label' => $plugin->getDisplayName(),
+				];
+			}
+		}
+
+		$sidebarOptions = array_merge($enabledOptions, $disabledOptions);
 
 		$this->addField(new FieldUploadImage('pageHeaderLogoImage', [
 				'label' => __('manager.setup.logo'),
@@ -81,7 +100,7 @@ class PKPAppearanceSetupForm extends FormComponent {
 			->addField(new FieldOptions('sidebar', [
 				'label' => __('manager.setup.layout.sidebar'),
 				'isOrderable' => true,
-				'value' => (array) $context->getData('sidebar'),
+				'value' => $currentBlocks,
 				'options' => $sidebarOptions,
 			]));
 

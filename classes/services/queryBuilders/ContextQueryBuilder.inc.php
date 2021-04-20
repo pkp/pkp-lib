@@ -11,17 +11,17 @@
  *
  * @brief Server list query builder
  */
+
 namespace APP\Services\QueryBuilders;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+class ContextQueryBuilder extends \PKP\Services\QueryBuilders\PKPContextQueryBuilder
+{
+    /** @copydoc \PKP\Services\QueryBuilders\PKPContextQueryBuilder::$db */
+    protected $db = 'servers';
 
-class ContextQueryBuilder extends \PKP\Services\QueryBuilders\PKPContextQueryBuilder {
-	/** @copydoc \PKP\Services\QueryBuilders\PKPContextQueryBuilder::$db */
-	protected $db = 'servers';
+    /** @copydoc \PKP\Services\QueryBuilders\PKPContextQueryBuilder::$dbSettings */
+    protected $dbSettings = 'server_settings';
 
-	/** @copydoc \PKP\Services\QueryBuilders\PKPContextQueryBuilder::$dbSettings */
-	protected $dbSettings = 'server_settings';
-
-	/** @copydoc \PKP\Services\QueryBuilders\PKPContextQueryBuilder::$dbIdColumn */
-	protected $dbIdColumn = 'server_id';
+    /** @copydoc \PKP\Services\QueryBuilders\PKPContextQueryBuilder::$dbIdColumn */
+    protected $dbIdColumn = 'server_id';
 }

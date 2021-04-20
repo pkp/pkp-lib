@@ -15,29 +15,33 @@
 
 import('lib.pkp.pages.user.PKPUserHandler');
 
-class UserHandler extends PKPUserHandler {
+class UserHandler extends PKPUserHandler
+{
+    /**
+     * Determine if the server's setup has been sufficiently completed.
+     *
+     * @param $server Object
+     *
+     * @return boolean True iff setup is incomplete
+     */
+    public function _checkIncompleteSetup($server)
+    {
+        if ($server->getLocalizedAcronym() == '' || $server->getData('contactEmail') == '' ||
+           $server->getData('contactName') == '' || $server->getLocalizedData('abbreviation') == '') {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	/**
-	 * Determine if the server's setup has been sufficiently completed.
-	 * @param $server Object
-	 * @return boolean True iff setup is incomplete
-	 */
-	function _checkIncompleteSetup($server) {
-		if($server->getLocalizedAcronym() == '' || $server->getData('contactEmail') == '' ||
-		   $server->getData('contactName') == '' || $server->getLocalizedData('abbreviation') == '') {
-			return true;
-		} else return false;
-	}
-
-	/**
-	 * Setup common template variables.
-	 * @param $request PKPRequest
-	 */
-	function setupTemplate($request = null) {
-		parent::setupTemplate($request);
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_AUTHOR, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_GRID);
-	}
-
+    /**
+     * Setup common template variables.
+     *
+     * @param $request PKPRequest
+     */
+    public function setupTemplate($request = null)
+    {
+        parent::setupTemplate($request);
+        AppLocale::requireComponents(LOCALE_COMPONENT_APP_AUTHOR, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_GRID);
+    }
 }
-
-

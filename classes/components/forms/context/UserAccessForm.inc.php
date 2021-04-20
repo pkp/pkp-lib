@@ -11,24 +11,27 @@
  *
  * @brief Add OPS-specific fields to the users and roles access settings form.
  */
+
 namespace APP\components\forms\context;
-use \PKP\components\forms\context\PKPUserAccessForm;
-use \PKP\components\forms\FieldOptions;
 
-class UserAccessForm extends PKPUserAccessForm {
+use PKP\components\forms\context\PKPUserAccessForm;
+use PKP\components\forms\FieldOptions;
 
-	/**
-	 * @copydoc PKPUserAccessForm::__construct()
-	 */
-	public function __construct($action, $context) {
-		parent::__construct($action, $context);
+class UserAccessForm extends PKPUserAccessForm
+{
+    /**
+     * @copydoc PKPUserAccessForm::__construct()
+     */
+    public function __construct($action, $context)
+    {
+        parent::__construct($action, $context);
 
-		$this->addField(new FieldOptions('restrictPreprintAccess', [
-				'label' => __('manager.setup.siteAccess.viewContent'),
-				'value' => (bool) $context->getData('restrictPreprintAccess'),
-				'options' => [
-					['value' => true, 'label' => __('manager.setup.restrictPreprintAccess')],
-				],
-			]), [FIELD_POSITION_AFTER, 'restrictSiteAccess']);
-	}
+        $this->addField(new FieldOptions('restrictPreprintAccess', [
+            'label' => __('manager.setup.siteAccess.viewContent'),
+            'value' => (bool) $context->getData('restrictPreprintAccess'),
+            'options' => [
+                ['value' => true, 'label' => __('manager.setup.restrictPreprintAccess')],
+            ],
+        ]), [FIELD_POSITION_AFTER, 'restrictSiteAccess']);
+    }
 }

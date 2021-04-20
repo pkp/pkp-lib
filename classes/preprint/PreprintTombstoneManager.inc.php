@@ -14,38 +14,41 @@
  */
 
 
-class PreprintTombstoneManager {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-	}
+class PreprintTombstoneManager
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+    }
 
-	function insertPreprintTombstone(&$preprint, &$server) {
-		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
-		$tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO'); /* @var $tombstoneDao DataObjectTombstoneDAO */
-		// delete preprint tombstone -- to ensure that there aren't more than one tombstone for this preprint
-		$tombstoneDao->deleteByDataObjectId($preprint->getId());
-		// insert preprint tombstone
-		$section = $sectionDao->getById($preprint->getSectionId());
-		$setSpec = urlencode($server->getPath()) . ':' . urlencode($section->getLocalizedAbbrev());
-		$oaiIdentifier = 'oai:' . Config::getVar('oai', 'repository_id') . ':' . 'preprint/' . $preprint->getId();
-		$OAISetObjectsIds = array(
-			ASSOC_TYPE_SERVER => $server->getId(),
-			ASSOC_TYPE_SECTION => $section->getId(),
-		);
+    public function insertPreprintTombstone(&$preprint, &$server)
+    {
+        $sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
+        $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO'); /* @var $tombstoneDao DataObjectTombstoneDAO */
+        // delete preprint tombstone -- to ensure that there aren't more than one tombstone for this preprint
+        $tombstoneDao->deleteByDataObjectId($preprint->getId());
+        // insert preprint tombstone
+        $section = $sectionDao->getById($preprint->getSectionId());
+        $setSpec = urlencode($server->getPath()) . ':' . urlencode($section->getLocalizedAbbrev());
+        $oaiIdentifier = 'oai:' . Config::getVar('oai', 'repository_id') . ':' . 'preprint/' . $preprint->getId();
+        $OAISetObjectsIds = [
+            ASSOC_TYPE_SERVER => $server->getId(),
+            ASSOC_TYPE_SECTION => $section->getId(),
+        ];
 
-		$preprintTombstone = $tombstoneDao->newDataObject();
-		$preprintTombstone->setDataObjectId($preprint->getId());
-		$preprintTombstone->stampDateDeleted();
-		$preprintTombstone->setSetSpec($setSpec);
-		$preprintTombstone->setSetName($section->getLocalizedTitle());
-		$preprintTombstone->setOAIIdentifier($oaiIdentifier);
-		$preprintTombstone->setOAISetObjectsIds($OAISetObjectsIds);
-		$tombstoneDao->insertObject($preprintTombstone);
+        $preprintTombstone = $tombstoneDao->newDataObject();
+        $preprintTombstone->setDataObjectId($preprint->getId());
+        $preprintTombstone->stampDateDeleted();
+        $preprintTombstone->setSetSpec($setSpec);
+        $preprintTombstone->setSetName($section->getLocalizedTitle());
+        $preprintTombstone->setOAIIdentifier($oaiIdentifier);
+        $preprintTombstone->setOAISetObjectsIds($OAISetObjectsIds);
+        $tombstoneDao->insertObject($preprintTombstone);
 
-		if (HookRegistry::call('PreprintTombstoneManager::insertPreprintTombstone', array(&$preprintTombstone, &$preprint, &$server))) return;
-	}
+        if (HookRegistry::call('PreprintTombstoneManager::insertPreprintTombstone', [&$preprintTombstone, &$preprint, &$server])) {
+            return;
+        }
+    }
 }
-
-

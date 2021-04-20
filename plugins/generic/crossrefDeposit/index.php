@@ -18,5 +18,3 @@
 require_once('CrossrefDepositPlugin.inc.php');
 
 return new CrossrefDepositPlugin();
-
-?>

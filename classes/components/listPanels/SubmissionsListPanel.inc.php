@@ -13,66 +13,70 @@
  */
 
 namespace APP\components\listPanels;
-use \PKP\components\listPanels\PKPSubmissionsListPanel;
 
-class SubmissionsListPanel extends PKPSubmissionsListPanel {
+use PKP\components\listPanels\PKPSubmissionsListPanel;
 
-	/** @var boolean Whether to show inactive section filters */
-	public $includeActiveSectionFiltersOnly = false;
+class SubmissionsListPanel extends PKPSubmissionsListPanel
+{
+    /** @var boolean Whether to show inactive section filters */
+    public $includeActiveSectionFiltersOnly = false;
 
-	/**
-	 * @copydoc PKPSubmissionsListPanel::getConfig()
-	 */
-	public function getConfig() {
-		$config = parent::getConfig();
+    /**
+     * @copydoc PKPSubmissionsListPanel::getConfig()
+     */
+    public function getConfig()
+    {
+        $config = parent::getConfig();
 
-		$request = \Application::get()->getRequest();
-		if ($request->getContext()) {
-			$config['filters'][] = [
-				'heading' => __('section.sections'),
-				'filters' => self::getSectionFilters($this->includeActiveSectionFiltersOnly),
-			];
-		}
+        $request = \Application::get()->getRequest();
+        if ($request->getContext()) {
+            $config['filters'][] = [
+                'heading' => __('section.sections'),
+                'filters' => self::getSectionFilters($this->includeActiveSectionFiltersOnly),
+            ];
+        }
 
-		return $config;
-	}
+        return $config;
+    }
 
-	/**
-	 * Get an array of workflow stages supported by the current app
-	 *
-	 * @return array
-	 */
-	public function getWorkflowStages() {
-		return array(
-			array(
-				'param' => 'stageIds',
-				'value' => WORKFLOW_STAGE_ID_PRODUCTION,
-				'title' => __('manager.publication.productionStage'),
-			),
-		);
-	}
+    /**
+     * Get an array of workflow stages supported by the current app
+     *
+     * @return array
+     */
+    public function getWorkflowStages()
+    {
+        return [
+            [
+                'param' => 'stageIds',
+                'value' => WORKFLOW_STAGE_ID_PRODUCTION,
+                'title' => __('manager.publication.productionStage'),
+            ],
+        ];
+    }
 
-	/**
-	 * Compile the sections for passing as filters
-	 *
-	 * @return array
-	 */
-	static function getSectionFilters($activeOnly = false) {
-		$request = \Application::get()->getRequest();
-		$context = $request->getContext();
+    /**
+     * Compile the sections for passing as filters
+     *
+     * @return array
+     */
+    public static function getSectionFilters($activeOnly = false)
+    {
+        $request = \Application::get()->getRequest();
+        $context = $request->getContext();
 
-		if (!$context) {
-			return [];
-		}
+        if (!$context) {
+            return [];
+        }
 
-		$sections = \Services::get('section')->getSectionList($context->getId(), $activeOnly);
+        $sections = \Services::get('section')->getSectionList($context->getId(), $activeOnly);
 
-		return array_map(function($section) {
-			return [
-				'param' => 'sectionIds',
-				'value' => (int) $section['id'],
-				'title' => $section['title'],
-			];
-		}, $sections);
-	}
+        return array_map(function ($section) {
+            return [
+                'param' => 'sectionIds',
+                'value' => (int) $section['id'],
+                'title' => $section['title'],
+            ];
+        }, $sections);
+    }
 }

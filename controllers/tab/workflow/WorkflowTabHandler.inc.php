@@ -16,54 +16,56 @@
 // Import the base Handler.
 import('lib.pkp.controllers.tab.workflow.PKPWorkflowTabHandler');
 
-class WorkflowTabHandler extends PKPWorkflowTabHandler {
+class WorkflowTabHandler extends PKPWorkflowTabHandler
+{
+    /**
+     * @copydoc PKPWorkflowTabHandler::fetchTab
+     */
+    public function fetchTab($args, $request)
+    {
+        $this->setupTemplate($request);
+        $templateMgr = TemplateManager::getManager($request);
+        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        switch ($stageId) {
+            case WORKFLOW_STAGE_ID_PRODUCTION:
+                $errors = [];
+                $context = $request->getContext();
 
-	/**
-	 * @copydoc PKPWorkflowTabHandler::fetchTab
-	 */
-	function fetchTab($args, $request) {
-		$this->setupTemplate($request);
-		$templateMgr = TemplateManager::getManager($request);
-		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		switch ($stageId) {
-			case WORKFLOW_STAGE_ID_PRODUCTION:
-				$errors = [];
-				$context = $request->getContext();
+                $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+                $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
 
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-				$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
+                while ($assignment = $submitterAssignments->next()) {
+                    \HookRegistry::call('Publication::testAuthorValidatePublish', [&$errors, $assignment->getUserId(), $context->getId(), $submission->getId()]);
+                }
 
-				while ($assignment = $submitterAssignments->next()) {
-					\HookRegistry::call('Publication::testAuthorValidatePublish', array(&$errors, $assignment->getUserId(), $context->getId(), $submission->getId()));
-				}
+                if (!empty($errors)) {
+                    $authorPublishRequirements = '';
+                    foreach ($errors as $error) {
+                        $authorPublishRequirements .= $error . "<br />\n";
+                    }
+                    $templateMgr->assign('authorPublishRequirements', $authorPublishRequirements);
+                }
+                break;
+        }
+        return parent::fetchTab($args, $request);
+    }
 
-				if (!empty($errors)){
-					$authorPublishRequirements = "";
-					foreach ($errors as $error) {
-						$authorPublishRequirements .= $error . "<br />\n";
-					}
-					$templateMgr->assign('authorPublishRequirements', $authorPublishRequirements);
-				}
-				break;
-		}
-		return parent::fetchTab($args, $request);
-	}
-
-	/**
-	 * Get all production notification options to be used in the production stage tab.
-	 * @param $submissionId int
-	 * @return array
-	 */
-	protected function getProductionNotificationOptions($submissionId) {
-		return array(
-			NOTIFICATION_LEVEL_NORMAL => array(
-				NOTIFICATION_TYPE_VISIT_CATALOG => array(ASSOC_TYPE_SUBMISSION, $submissionId),
-				NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS => array(ASSOC_TYPE_SUBMISSION, $submissionId),
-			),
-			NOTIFICATION_LEVEL_TRIVIAL => array()
-		);
-	}
+    /**
+     * Get all production notification options to be used in the production stage tab.
+     *
+     * @param $submissionId int
+     *
+     * @return array
+     */
+    protected function getProductionNotificationOptions($submissionId)
+    {
+        return [
+            NOTIFICATION_LEVEL_NORMAL => [
+                NOTIFICATION_TYPE_VISIT_CATALOG => [ASSOC_TYPE_SUBMISSION, $submissionId],
+                NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS => [ASSOC_TYPE_SUBMISSION, $submissionId],
+            ],
+            NOTIFICATION_LEVEL_TRIVIAL => []
+        ];
+    }
 }
-
-

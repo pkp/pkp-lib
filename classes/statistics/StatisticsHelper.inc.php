@@ -16,40 +16,39 @@
 
 import('lib.pkp.classes.statistics.PKPStatisticsHelper');
 
-class StatisticsHelper extends PKPStatisticsHelper {
+class StatisticsHelper extends PKPStatisticsHelper
+{
+    /**
+     * @see PKPStatisticsHelper::getAppColumnTitle()
+     */
+    protected function getAppColumnTitle($column)
+    {
+        switch ($column) {
+            case STATISTICS_DIMENSION_SUBMISSION_ID:
+                return __('common.publication');
+            case STATISTICS_DIMENSION_PKP_SECTION_ID:
+                return __('section.section');
+            case STATISTICS_DIMENSION_CONTEXT_ID:
+                return __('context.context');
+            default:
+                assert(false);
+        }
+    }
 
-	/**
-	 * @see PKPStatisticsHelper::getAppColumnTitle()
-	 */
-	protected function getAppColumnTitle($column) {
-		switch ($column) {
-			case STATISTICS_DIMENSION_SUBMISSION_ID:
-				return __('common.publication');
-			case STATISTICS_DIMENSION_PKP_SECTION_ID:
-				return __('section.section');
-			case STATISTICS_DIMENSION_CONTEXT_ID:
-				return __('context.context');
-			default:
-				assert(false);
-		}
-	}
+    /**
+     * @see PKPStatisticsHelper::getReportObjectTypesArray()
+     */
+    protected function getReportObjectTypesArray()
+    {
+        $objectTypes = parent::getReportObjectTypesArray();
+        AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
+        $objectTypes = $objectTypes + [
+            ASSOC_TYPE_SERVER => __('context.context'),
+            ASSOC_TYPE_SECTION => __('section.section'),
+            ASSOC_TYPE_SUBMISSION => __('common.publication'),
+            ASSOC_TYPE_SUBMISSION_FILE => __('submission.galleyFiles')
+        ];
 
-	/**
-	 * @see PKPStatisticsHelper::getReportObjectTypesArray()
-	 */
-	protected function getReportObjectTypesArray() {
-		$objectTypes = parent::getReportObjectTypesArray();
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
-		$objectTypes = $objectTypes + array(
-				ASSOC_TYPE_SERVER => __('context.context'),
-				ASSOC_TYPE_SECTION => __('section.section'),
-				ASSOC_TYPE_SUBMISSION => __('common.publication'),
-				ASSOC_TYPE_SUBMISSION_FILE => __('submission.galleyFiles')
-		);
-
-		return $objectTypes;
-	}
-
+        return $objectTypes;
+    }
 }
-
-

@@ -13,30 +13,33 @@
  * @brief Operations for retrieving and modifying server settings.
  */
 
-use \PKP\db\SettingsDAO;
+use PKP\db\SettingsDAO;
 
-class ServerSettingsDAO extends SettingsDAO {
-	/**
-	 * Get the settings table name.
-	 * @return string
-	 */
-	protected function _getTableName() {
-		return 'server_settings';
-	}
+class ServerSettingsDAO extends SettingsDAO
+{
+    /**
+     * Get the settings table name.
+     *
+     * @return string
+     */
+    protected function _getTableName()
+    {
+        return 'server_settings';
+    }
 
-	/**
-	 * Get the primary key column name.
-	 */
-	protected function _getPrimaryKeyColumn() {
-		return 'server_id';
-	}
+    /**
+     * Get the primary key column name.
+     */
+    protected function _getPrimaryKeyColumn()
+    {
+        return 'server_id';
+    }
 
-	/**
-	 * Get the cache name.
-	 */
-	protected function _getCacheName() {
-		return 'serverSettings';
-	}
+    /**
+     * Get the cache name.
+     */
+    protected function _getCacheName()
+    {
+        return 'serverSettings';
+    }
 }
-
-

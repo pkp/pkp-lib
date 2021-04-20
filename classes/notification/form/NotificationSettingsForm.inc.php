@@ -16,5 +16,6 @@
 
 import('lib.pkp.classes.notification.form.PKPNotificationSettingsForm');
 
-class NotificationSettingsForm extends PKPNotificationSettingsForm { }
-
+class NotificationSettingsForm extends PKPNotificationSettingsForm
+{
+}

@@ -11,7 +11,11 @@
  *
  * @brief Add OPS-specific details to the license settings forms
  */
-namespace APP\components\forms\context;
-use \PKP\components\forms\context\PKPLicenseForm;
 
-class LicenseForm extends PKPLicenseForm { }
+namespace APP\components\forms\context;
+
+use PKP\components\forms\context\PKPLicenseForm;
+
+class LicenseForm extends PKPLicenseForm
+{
+}

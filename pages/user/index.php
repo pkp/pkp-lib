@@ -17,19 +17,17 @@
  */
 
 switch ($op) {
-	//
-	// Misc.
-	//
-	case 'index':
-	case 'setLocale':
-	case 'authorizationDenied':
-	case 'toggleHelp':
-	case 'getInterests':
-		define('HANDLER_CLASS', 'UserHandler');
-		import('pages.user.UserHandler');
-		break;
-	default:
-		require_once('lib/pkp/pages/user/index.php');
+    //
+    // Misc.
+    //
+    case 'index':
+    case 'setLocale':
+    case 'authorizationDenied':
+    case 'toggleHelp':
+    case 'getInterests':
+        define('HANDLER_CLASS', 'UserHandler');
+        import('pages.user.UserHandler');
+        break;
+    default:
+        require_once('lib/pkp/pages/user/index.php');
 }
-
-

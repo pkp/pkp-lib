@@ -11,28 +11,31 @@
  *
  * @brief Add OPS-specific fields to the masthead form.
  */
+
 namespace APP\components\forms\context;
-use \PKP\components\forms\context\PKPMastheadForm;
-use \PKP\components\forms\FieldText;
 
-class MastheadForm extends PKPMastheadForm {
+use PKP\components\forms\context\PKPMastheadForm;
+use PKP\components\forms\FieldText;
 
-	/**
-	 * @copydoc PKPMastheadForm::__construct()
-	 */
-	public function __construct($action, $locales, $context, $imageUploadUrl) {
-		parent::__construct($action, $locales, $context, $imageUploadUrl);
+class MastheadForm extends PKPMastheadForm
+{
+    /**
+     * @copydoc PKPMastheadForm::__construct()
+     */
+    public function __construct($action, $locales, $context, $imageUploadUrl)
+    {
+        parent::__construct($action, $locales, $context, $imageUploadUrl);
 
-		$this->addField(new FieldText('abbreviation', [
-				'label' => __('manager.setup.serverAbbreviation'),
-				'isMultilingual' => true,
-				'groupId' => 'identity',
-				'value' => $context->getData('abbreviation'),
-			]))
-			->addField(new FieldText('sponsoringOrganization', [
-				'label' => __('manager.setup.sponsoringOrganization'),
-				'groupId' => 'identity',
-				'value' => $context->getData('sponsoringOrganization'),
-			]));
-	}
+        $this->addField(new FieldText('abbreviation', [
+            'label' => __('manager.setup.serverAbbreviation'),
+            'isMultilingual' => true,
+            'groupId' => 'identity',
+            'value' => $context->getData('abbreviation'),
+        ]))
+            ->addField(new FieldText('sponsoringOrganization', [
+                'label' => __('manager.setup.sponsoringOrganization'),
+                'groupId' => 'identity',
+                'value' => $context->getData('sponsoringOrganization'),
+            ]));
+    }
 }

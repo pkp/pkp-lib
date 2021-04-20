@@ -24,75 +24,79 @@ define('SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION', 7);
 
 import('lib.pkp.classes.workflow.PKPEditorDecisionActionsManager');
 
-class EditorDecisionActionsManager extends PKPEditorDecisionActionsManager {
+class EditorDecisionActionsManager extends PKPEditorDecisionActionsManager
+{
+    /**
+     * Get decision actions labels.
+     *
+     * @param $request PKPRequest
+     * @param $stageId int
+     * @param $decisions array
+     *
+     * @return array
+     */
+    public function getActionLabels($request, $submission, $stageId, $decisions)
+    {
+        $allDecisionsData = $this->_productionStageDecisions($submission);
+        $actionLabels = [];
 
-	/**
-	 * Get decision actions labels.
-	 * @param $request PKPRequest
-	 * @param $stageId int
-	 * @param $decisions array
-	 * @return array
-	 */
-	function getActionLabels($request, $submission, $stageId, $decisions) {
-		$allDecisionsData = $this->_productionStageDecisions($submission);
-		$actionLabels = array();
+        foreach ($decisions as $decision) {
+            if (isset($allDecisionsData[$decision]['title'])) {
+                $actionLabels[$decision] = $allDecisionsData[$decision]['title'];
+            }
+        }
 
-		foreach($decisions as $decision) {
-			if (isset($allDecisionsData[$decision]['title'])) {
-				$actionLabels[$decision] = $allDecisionsData[$decision]['title'];
-			}
-		}
+        return $actionLabels;
+    }
 
-		return $actionLabels;
-	}
+    /**
+     * @copydoc PKPEditorDecisionActionsManager::getStageDecisions()
+     */
+    public function getStageDecisions($request, $submission, $stageId, $makeDecision = true)
+    {
+        switch ($stageId) {
+            case WORKFLOW_STAGE_ID_PRODUCTION:
+                return $this->_productionStageDecisions($submission, $makeDecision);
+        }
+        return parent::getStageDecisions($request, $submission, $stageId, $makeDecision);
+    }
 
-	/**
-	 * @copydoc PKPEditorDecisionActionsManager::getStageDecisions()
-	 */
-	public  function getStageDecisions($request, $submission, $stageId, $makeDecision = true) {
-		switch ($stageId) {
-			case WORKFLOW_STAGE_ID_PRODUCTION:
-				return $this->_productionStageDecisions($submission, $makeDecision);
-		}
-		return parent::getStageDecisions($request, $submission, $stageId, $makeDecision);
-	}
-
-	//
-	// Private helper methods.
-	//
-	/**
-	 * Define and return editor decisions for the production stage.
-	 * If the user cannot make decisions i.e. if it is a recommendOnly user,
-	 * there will be no decisions options in the production stage.
-	 * @param $submission Submission	 
-	 * @param $makeDecision boolean If the user can make decisions
-	 * @return array
-	 */
-	protected function _productionStageDecisions($submission, $makeDecision = true) {
-		$decisions = array();
-		if ($makeDecision) {
-			if ($submission->getStatus() == STATUS_QUEUED){
-				$decisions = $decisions + array(
-					SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => array(
-						'name' => 'decline',
-						'operation' => 'sendReviews',
-						'title' => 'editor.submission.decision.decline',
-					),
-				);
-			}
-			if ($submission->getStatus() == STATUS_DECLINED){
-				$decisions = $decisions + array(
-					SUBMISSION_EDITOR_DECISION_REVERT_DECLINE => array(
-						'name' => 'revert',
-						'operation' => 'revertDecline',
-						'title' => 'editor.submission.decision.revertDecline',
-					),
-				);
-			}
-		}
-		return $decisions;
-	}
-
+    //
+    // Private helper methods.
+    //
+    /**
+     * Define and return editor decisions for the production stage.
+     * If the user cannot make decisions i.e. if it is a recommendOnly user,
+     * there will be no decisions options in the production stage.
+     *
+     * @param $submission Submission
+     * @param $makeDecision boolean If the user can make decisions
+     *
+     * @return array
+     */
+    protected function _productionStageDecisions($submission, $makeDecision = true)
+    {
+        $decisions = [];
+        if ($makeDecision) {
+            if ($submission->getStatus() == STATUS_QUEUED) {
+                $decisions = $decisions + [
+                    SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => [
+                        'name' => 'decline',
+                        'operation' => 'sendReviews',
+                        'title' => 'editor.submission.decision.decline',
+                    ],
+                ];
+            }
+            if ($submission->getStatus() == STATUS_DECLINED) {
+                $decisions = $decisions + [
+                    SUBMISSION_EDITOR_DECISION_REVERT_DECLINE => [
+                        'name' => 'revert',
+                        'operation' => 'revertDecline',
+                        'title' => 'editor.submission.decision.revertDecline',
+                    ],
+                ];
+            }
+        }
+        return $decisions;
+    }
 }
-
-

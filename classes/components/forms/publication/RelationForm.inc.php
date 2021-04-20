@@ -11,44 +11,48 @@
  *
  * @brief A preset form for setting a publication's relation
  */
+
 namespace APP\components\forms\publication;
-use \PKP\components\forms\FormComponent;
-use \PKP\components\forms\FieldOptions;
-use \PKP\components\forms\FieldText;
+
+use PKP\components\forms\FieldOptions;
+use PKP\components\forms\FieldText;
+use PKP\components\forms\FormComponent;
 
 define('FORM_ID_RELATION', 'relation');
 
-class RelationForm extends FormComponent {
-	/** @copydoc FormComponent::$id */
-	public $id = FORM_ID_RELATION;
+class RelationForm extends FormComponent
+{
+    /** @copydoc FormComponent::$id */
+    public $id = FORM_ID_RELATION;
 
-	/** @copydoc FormComponent::$method */
-	public $method = 'PUT';
+    /** @copydoc FormComponent::$method */
+    public $method = 'PUT';
 
-	/**
-	 * Constructor
-	 *
-	 * @param $action string URL to submit the form to
-	 * @param $locales array Supported locales
-	 * @param $publication Publication The publication to change settings for
-	 */
-	public function __construct($action, $locales, $publication) {
-		$this->action = $action;
-		$this->locales = $locales;
+    /**
+     * Constructor
+     *
+     * @param $action string URL to submit the form to
+     * @param $locales array Supported locales
+     * @param $publication Publication The publication to change settings for
+     */
+    public function __construct($action, $locales, $publication)
+    {
+        $this->action = $action;
+        $this->locales = $locales;
 
-		// Relation options
-		$relationOptions = \Services::get('publication')->getRelationOptions();
-		$this->addField(new FieldOptions('relationStatus', [
-					'label' => __('publication.relation.label'),
-					'type' => 'radio',
-					'value' => (int) $publication->getData('relationStatus'),
-					'options' => $relationOptions,
-				]))
-				->addField(new FieldText('vorDoi', [
-					'label' => __('publication.relation.vorDoi'),
-					'value' => $publication->getData('vorDoi'),
-					'size' => 'large',
-					'showWhen' => ['relationStatus', PUBLICATION_RELATION_PUBLISHED],
-				]));
-	}
+        // Relation options
+        $relationOptions = \Services::get('publication')->getRelationOptions();
+        $this->addField(new FieldOptions('relationStatus', [
+            'label' => __('publication.relation.label'),
+            'type' => 'radio',
+            'value' => (int) $publication->getData('relationStatus'),
+            'options' => $relationOptions,
+        ]))
+            ->addField(new FieldText('vorDoi', [
+                'label' => __('publication.relation.vorDoi'),
+                'value' => $publication->getData('vorDoi'),
+                'size' => 'large',
+                'showWhen' => ['relationStatus', PUBLICATION_RELATION_PUBLISHED],
+            ]));
+    }
 }

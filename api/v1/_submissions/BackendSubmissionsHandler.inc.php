@@ -16,39 +16,41 @@
 
 import('lib.pkp.api.v1._submissions.PKPBackendSubmissionsHandler');
 
-class BackendSubmissionsHandler extends PKPBackendSubmissionsHandler {
+class BackendSubmissionsHandler extends PKPBackendSubmissionsHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        \HookRegistry::register('API::_submissions::params', [$this, 'addAppSubmissionsParams']);
+        parent::__construct();
+    }
 
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		\HookRegistry::register('API::_submissions::params', array($this, 'addAppSubmissionsParams'));
-		parent::__construct();
-	}
+    /**
+     * Add ops-specific parameters to the getMany request
+     *
+     * @param $hookName string
+     * @param $args array [
+     * 		@option $params array
+     * 		@option $slimRequest Request Slim request object
+     * 		@option $response Response object
+     * ]
+     */
+    public function addAppSubmissionsParams($hookName, $args)
+    {
+        $params = & $args[0];
+        $slimRequest = $args[1];
+        $response = $args[2];
 
-	/**
-	 * Add ops-specific parameters to the getMany request
-	 *
-	 * @param $hookName string
-	 * @param $args array [
-	 * 		@option $params array
-	 * 		@option $slimRequest Request Slim request object
-	 * 		@option $response Response object
-	 * ]
-	 */
-	public function addAppSubmissionsParams($hookName, $args) {
-		$params =& $args[0];
-		$slimRequest = $args[1];
-		$response = $args[2];
+        $originalParams = $slimRequest->getQueryParams();
 
-		$originalParams = $slimRequest->getQueryParams();
-
-		if (!empty($originalParams['sectionIds'])) {
-			if (is_array($originalParams['sectionIds'])) {
-				$params['sectionIds'] = array_map('intval', $originalParams['sectionIds']);
-			} else {
-				$params['sectionIds'] = array((int) $originalParams['sectionIds']);
-			}
-		}
-	}
+        if (!empty($originalParams['sectionIds'])) {
+            if (is_array($originalParams['sectionIds'])) {
+                $params['sectionIds'] = array_map('intval', $originalParams['sectionIds']);
+            } else {
+                $params['sectionIds'] = [(int) $originalParams['sectionIds']];
+            }
+        }
+    }
 }

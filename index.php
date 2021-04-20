@@ -6,8 +6,8 @@
  * Welcome to the OPS API Reference. This resource contains documentation
  * generated automatically from the OPS source code.
  *
- * The design of Open %Preprint Systems, which is based on 
- * Open Journal Systems (OJS), is heavily structured for maintainability, 
+ * The design of Open %Preprint Systems, which is based on
+ * Open Journal Systems (OJS), is heavily structured for maintainability,
  * flexibility and robustness. Those familiar with Sun's Enterprise Java Beans
  * technology or the Model-View-Controller (MVC) pattern will note similarities.
  *
@@ -66,5 +66,3 @@ $application = require('./lib/pkp/includes/bootstrap.inc.php');
 
 // Serve the request
 $application->execute();
-
-

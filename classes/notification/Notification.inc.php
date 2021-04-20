@@ -9,6 +9,7 @@
  *
  * @class OPSNotification
  * @ingroup notification
+ *
  * @see NotificationDAO
  * @brief OPS subclass for Notifications (defines OPS-specific types).
  */
@@ -19,5 +20,6 @@
 import('lib.pkp.classes.notification.PKPNotification');
 import('lib.pkp.classes.notification.NotificationDAO');
 
-class Notification extends PKPNotification { }
-
+class Notification extends PKPNotification
+{
+}

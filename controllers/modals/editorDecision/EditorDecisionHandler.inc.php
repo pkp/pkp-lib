@@ -18,71 +18,77 @@ import('lib.pkp.classes.controllers.modals.editorDecision.PKPEditorDecisionHandl
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
 
-class EditorDecisionHandler extends PKPEditorDecisionHandler {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
+class EditorDecisionHandler extends PKPEditorDecisionHandler
+{
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
 
-		$this->addRoleAssignment(
-			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER),
-			array_merge(array(
-				'sendReviews', 'saveSendReviews',
-				'revertDecline', 'saveRevertDecline',
-			), $this->_getReviewRoundOps())
-		);
-	}
+        $this->addRoleAssignment(
+            [ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER],
+            array_merge([
+                'sendReviews', 'saveSendReviews',
+                'revertDecline', 'saveRevertDecline',
+            ], $this->_getReviewRoundOps())
+        );
+    }
 
 
-	//
-	// Implement template methods from PKPHandler
-	//
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		$stageId = (int) $request->getUserVar('stageId');
-		import('lib.pkp.classes.security.authorization.EditorDecisionAccessPolicy');
-		$this->addPolicy(new EditorDecisionAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+    //
+    // Implement template methods from PKPHandler
+    //
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        $stageId = (int) $request->getUserVar('stageId');
+        import('lib.pkp.classes.security.authorization.EditorDecisionAccessPolicy');
+        $this->addPolicy(new EditorDecisionAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-	//
-	// Private helper methods
-	//
-	/**
-	 * Get editor decision notification type and level by decision.
-	 * @param $decision int
-	 * @return array
-	 */
-	protected function _getNotificationTypeByEditorDecision($decision) {
-		switch ($decision) {
-			case SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE:
-				return NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE;
-			case SUBMISSION_EDITOR_DECISION_REVERT_DECLINE:
-				return NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE;
-			default:
-				assert(false);
-				return null;
-		}
-	}
+    //
+    // Private helper methods
+    //
+    /**
+     * Get editor decision notification type and level by decision.
+     *
+     * @param $decision int
+     *
+     * @return array
+     */
+    protected function _getNotificationTypeByEditorDecision($decision)
+    {
+        switch ($decision) {
+            case SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE:
+                return NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE;
+            case SUBMISSION_EDITOR_DECISION_REVERT_DECLINE:
+                return NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE;
+            default:
+                assert(false);
+                return null;
+        }
+    }
 
-	/**
-	 * Get review-related stage IDs.
-	 * @return array
-	 */
-	protected function _getReviewStages() {
-		return array();
-	}
+    /**
+     * Get review-related stage IDs.
+     *
+     * @return array
+     */
+    protected function _getReviewStages()
+    {
+        return [];
+    }
 
-	/**
-	 * Get review-related decision notifications.
-	 */
-	protected function _getReviewNotificationTypes() {
-		return array();
-	}
-
+    /**
+     * Get review-related decision notifications.
+     */
+    protected function _getReviewNotificationTypes()
+    {
+        return [];
+    }
 }
-
-

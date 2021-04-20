@@ -16,36 +16,38 @@
 import('controllers.grid.submissions.ExportPublishedSubmissionsListGridCellProvider');
 
 
-class PubIdExportSubmissionsListGridCellProvider extends ExportPublishedSubmissionsListGridCellProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct($plugin, $authorizedRoles = null) {
-		parent::__construct($plugin, $authorizedRoles);
-	}
+class PubIdExportSubmissionsListGridCellProvider extends ExportPublishedSubmissionsListGridCellProvider
+{
+    /**
+     * Constructor
+     *
+     * @param null|mixed $authorizedRoles
+     */
+    public function __construct($plugin, $authorizedRoles = null)
+    {
+        parent::__construct($plugin, $authorizedRoles);
+    }
 
-	/**
-	 * @copydoc ExportPublishedSubmissionsListGridCellProvider::getTemplateVarsFromRowColumn()
-	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
-		$submission = $row->getData();
-		$columnId = $column->getId();
-		assert(is_a($submission, 'Submission') && !empty($columnId));
+    /**
+     * @copydoc ExportPublishedSubmissionsListGridCellProvider::getTemplateVarsFromRowColumn()
+     */
+    public function getTemplateVarsFromRowColumn($row, $column)
+    {
+        $submission = $row->getData();
+        $columnId = $column->getId();
+        assert(is_a($submission, 'Submission') && !empty($columnId));
 
-		switch ($columnId) {
-			case 'pubId':
-				$storedPubIds = [];
-				foreach ($submission->getData('publications') as $publication) {
-					if ($publication->getStoredPubId($this->_plugin->getPubIdType())) {
-						$storedPubIds[] = $publication->getStoredPubId($this->_plugin->getPubIdType());
-					}
-				}
-				$storedPubIds = array_unique($storedPubIds);
-				return array('label' => implode(" ", $storedPubIds));
-		}
-		return parent::getTemplateVarsFromRowColumn($row, $column);
-	}
-
+        switch ($columnId) {
+            case 'pubId':
+                $storedPubIds = [];
+                foreach ($submission->getData('publications') as $publication) {
+                    if ($publication->getStoredPubId($this->_plugin->getPubIdType())) {
+                        $storedPubIds[] = $publication->getStoredPubId($this->_plugin->getPubIdType());
+                    }
+                }
+                $storedPubIds = array_unique($storedPubIds);
+                return ['label' => implode(' ', $storedPubIds)];
+        }
+        return parent::getTemplateVarsFromRowColumn($row, $column);
+    }
 }
-
-

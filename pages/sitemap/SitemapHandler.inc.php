@@ -15,39 +15,37 @@
 
 import('lib.pkp.pages.sitemap.PKPSitemapHandler');
 
-class SitemapHandler extends PKPSitemapHandler {
+class SitemapHandler extends PKPSitemapHandler
+{
+    /**
+     * @copydoc PKPSitemapHandler_createContextSitemap()
+     */
+    public function _createContextSitemap($request)
+    {
+        $doc = parent::_createContextSitemap($request);
+        $root = $doc->documentElement;
 
-	/**
-	 * @copydoc PKPSitemapHandler_createContextSitemap()
-	 */
-	function _createContextSitemap($request) {
-		$doc = parent::_createContextSitemap($request);
-		$root = $doc->documentElement;
+        $server = $request->getServer();
+        $serverId = $server->getId();
 
-		$server = $request->getServer();
-		$serverId = $server->getId();
+        // Search
+        $root->appendChild($this->_createUrlTree($doc, $request->url($server->getPath(), 'search')));
 
-		// Search
-		$root->appendChild($this->_createUrlTree($doc, $request->url($server->getPath(), 'search')));
+        // Preprints
+        import('classes.submission.Submission'); // Import status constants
+        $submissionIds = Services::get('submission')->getIds([
+            'status' => STATUS_PUBLISHED,
+            'contextId' => $server->getId(),
+        ]);
+        foreach ($submissionIds as $submissionId) {
+            $root->appendChild($this->_createUrlTree($doc, $request->url($server->getPath(), 'preprint', 'view', [$submissionId])));
+        }
 
-		// Preprints
-		import('classes.submission.Submission'); // Import status constants
-		$submissionIds = Services::get('submission')->getIds([
-			'status' => STATUS_PUBLISHED,
-			'contextId' => $server->getId(),
-		]);
-		foreach ($submissionIds as $submissionId) {
-			$root->appendChild($this->_createUrlTree($doc, $request->url($server->getPath(), 'preprint', 'view', array($submissionId))));
-		}
+        $doc->appendChild($root);
 
-		$doc->appendChild($root);
+        // Enable plugins to change the sitemap
+        HookRegistry::call('SitemapHandler::createServerSitemap', [&$doc]);
 
-		// Enable plugins to change the sitemap
-		HookRegistry::call('SitemapHandler::createServerSitemap', array(&$doc));
-
-		return $doc;
-	}
-
+        return $doc;
+    }
 }
-
-

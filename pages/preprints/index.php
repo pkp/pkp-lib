@@ -17,20 +17,18 @@
  */
 
 switch ($op) {
-	case 'index':
-		define('HANDLER_CLASS', 'PreprintsHandler');
-		import('pages.preprints.PreprintsHandler');
-		break;
-	case 'category':
-	case 'fullSize':
-	case 'thumbnail':
-		define('HANDLER_CLASS', 'PKPCatalogHandler');
-		import('lib.pkp.pages.catalog.PKPCatalogHandler');
-		break;
-	case 'section':
-		define('HANDLER_CLASS', 'SectionsHandler');
-		import('pages.preprints.SectionsHandler');
-		break;
+    case 'index':
+        define('HANDLER_CLASS', 'PreprintsHandler');
+        import('pages.preprints.PreprintsHandler');
+        break;
+    case 'category':
+    case 'fullSize':
+    case 'thumbnail':
+        define('HANDLER_CLASS', 'PKPCatalogHandler');
+        import('lib.pkp.pages.catalog.PKPCatalogHandler');
+        break;
+    case 'section':
+        define('HANDLER_CLASS', 'SectionsHandler');
+        import('pages.preprints.SectionsHandler');
+        break;
 }
-
-

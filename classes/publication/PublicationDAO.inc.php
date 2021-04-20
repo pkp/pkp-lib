@@ -9,36 +9,38 @@
  *
  * @class PublicationDAO
  * @ingroup core
+ *
  * @see DAO
  *
  * @brief Add OPS-specific functions for PKPPublicationDAO
  */
 import('lib.pkp.classes.publication.PKPPublicationDAO');
 
-class PublicationDAO extends PKPPublicationDAO {
+class PublicationDAO extends PKPPublicationDAO
+{
+    /** @copydoc SchemaDAO::$primaryTableColumns */
+    public $primaryTableColumns = [
+        'id' => 'publication_id',
+        'accessStatus' => 'access_status',
+        'datePublished' => 'date_published',
+        'lastModified' => 'last_modified',
+        'primaryContactId' => 'primary_contact_id',
+        'sectionId' => 'section_id',
+        'submissionId' => 'submission_id',
+        'status' => 'status',
+        'urlPath' => 'url_path',
+        'version' => 'version',
+    ];
 
-	/** @copydoc SchemaDAO::$primaryTableColumns */
-	public $primaryTableColumns = [
-		'id' => 'publication_id',
-		'accessStatus' => 'access_status',
-		'datePublished' => 'date_published',
-		'lastModified' => 'last_modified',
-		'primaryContactId' => 'primary_contact_id',
-		'sectionId' => 'section_id',
-		'submissionId' => 'submission_id',
-		'status' => 'status',
-		'urlPath' => 'url_path',
-		'version' => 'version',
-	];
-
-	/**
-	 * @copydoc SchemaDAO::_fromRow()
-	 */
-	public function _fromRow($primaryRow) {
-		$publication = parent::_fromRow($primaryRow);
-		$publication->setData('galleys', iterator_to_array(
-			Services::get('galley')->getMany(['publicationIds' => $publication->getId()])
-		));
-		return $publication;
-	}
+    /**
+     * @copydoc SchemaDAO::_fromRow()
+     */
+    public function _fromRow($primaryRow)
+    {
+        $publication = parent::_fromRow($primaryRow);
+        $publication->setData('galleys', iterator_to_array(
+            Services::get('galley')->getMany(['publicationIds' => $publication->getId()])
+        ));
+        return $publication;
+    }
 }

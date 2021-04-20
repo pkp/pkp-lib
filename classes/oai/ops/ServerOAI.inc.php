@@ -9,6 +9,7 @@
  *
  * @class ServerOAI
  * @ingroup oai
+ *
  * @see OAIDAO
  *
  * @brief ops-specific OAI interface.
@@ -19,215 +20,235 @@
 import('lib.pkp.classes.oai.OAI');
 import('classes.oai.ops.OAIDAO');
 
-class ServerOAI extends OAI {
-	/** @var Site associated site object */
-	var $site;
+class ServerOAI extends OAI
+{
+    /** @var Site associated site object */
+    public $site;
 
-	/** @var Server associated server object */
-	var $server;
+    /** @var Server associated server object */
+    public $server;
 
-	/** @var int|null Server ID; null if no server */
-	var $serverId;
+    /** @var int|null Server ID; null if no server */
+    public $serverId;
 
-	/** @var OAIDAO DAO for retrieving OAI records/tokens from database */
-	var $dao;
-
-
-	/**
-	 * @copydoc OAI::OAI()
-	 */
-	function __construct($config) {
-		parent::__construct($config);
-
-		$request = Application::get()->getRequest();
-		$this->site = $request->getSite();
-		$this->server = $request->getServer();
-		$this->serverId = isset($this->server) ? $this->server->getId() : null;
-		$this->dao = DAORegistry::getDAO('OAIDAO');
-		$this->dao->setOAI($this);
-	}
-
-	/**
-	 * Return a list of ignorable GET parameters.
-	 * @return array
-	 */
-	function getNonPathInfoParams() {
-		return array('server', 'page');
-	}
-
-	/**
-	 * Convert preprint ID to OAI identifier.
-	 * @param $preprintId int
-	 * @return string
-	 */
-	function preprintIdToIdentifier($preprintId) {
-		return 'oai:' . $this->config->repositoryId . ':' . 'preprint/' . $preprintId;
-	}
-
-	/**
-	 * Convert OAI identifier to preprint ID.
-	 * @param $identifier string
-	 * @return int
-	 */
-	function identifierToPreprintId($identifier) {
-		$prefix = 'oai:' . $this->config->repositoryId . ':' . 'preprint/';
-		if (strstr($identifier, $prefix)) {
-			return (int) str_replace($prefix, '', $identifier);
-		} else {
-			return false;
-		}
-	}
-
-	/**
-	 * Get the server ID and section ID corresponding to a set specifier.
-	 * @return int
-	 */
-	function setSpecToSectionId($setSpec, $serverId = null) {
-		$tmpArray = preg_split('/:/', $setSpec);
-		if (count($tmpArray) == 1) {
-			list($serverSpec) = $tmpArray;
-			$serverSpec = urldecode($serverSpec);
-			$sectionSpec = null;
-		} else if (count($tmpArray) == 2) {
-			list($serverSpec, $sectionSpec) = $tmpArray;
-			$serverSpec = urldecode($serverSpec);
-			$sectionSpec = urldecode($sectionSpec);
-		} else {
-			return array(0, 0);
-		}
-		return $this->dao->getSetServerSectionId($serverSpec, $sectionSpec, $this->serverId);
-	}
+    /** @var OAIDAO DAO for retrieving OAI records/tokens from database */
+    public $dao;
 
 
-	//
-	// OAI interface functions
-	//
+    /**
+     * @copydoc OAI::OAI()
+     */
+    public function __construct($config)
+    {
+        parent::__construct($config);
 
-	/**
-	 * @copydoc OAI::repositoryInfo()
-	 */
-	function repositoryInfo() {
-		$info = new OAIRepository();
+        $request = Application::get()->getRequest();
+        $this->site = $request->getSite();
+        $this->server = $request->getServer();
+        $this->serverId = isset($this->server) ? $this->server->getId() : null;
+        $this->dao = DAORegistry::getDAO('OAIDAO');
+        $this->dao->setOAI($this);
+    }
 
-		if (isset($this->server)) {
-			$info->repositoryName = $this->server->getLocalizedName();
-			$info->adminEmail = $this->server->getData('contactEmail');
+    /**
+     * Return a list of ignorable GET parameters.
+     *
+     * @return array
+     */
+    public function getNonPathInfoParams()
+    {
+        return ['server', 'page'];
+    }
 
-		} else {
-			$info->repositoryName = $this->site->getLocalizedTitle();
-			$info->adminEmail = $this->site->getLocalizedContactEmail();
-		}
+    /**
+     * Convert preprint ID to OAI identifier.
+     *
+     * @param $preprintId int
+     *
+     * @return string
+     */
+    public function preprintIdToIdentifier($preprintId)
+    {
+        return 'oai:' . $this->config->repositoryId . ':' . 'preprint/' . $preprintId;
+    }
 
-		$info->sampleIdentifier = $this->preprintIdToIdentifier(1);
-		$info->earliestDatestamp = $this->dao->getEarliestDatestamp(array($this->serverId));
+    /**
+     * Convert OAI identifier to preprint ID.
+     *
+     * @param $identifier string
+     *
+     * @return int
+     */
+    public function identifierToPreprintId($identifier)
+    {
+        $prefix = 'oai:' . $this->config->repositoryId . ':' . 'preprint/';
+        if (strstr($identifier, $prefix)) {
+            return (int) str_replace($prefix, '', $identifier);
+        } else {
+            return false;
+        }
+    }
 
-		$info->toolkitTitle = 'Open Preprint Systems';
-		$versionDao = DAORegistry::getDAO('VersionDAO');
-		$currentVersion = $versionDao->getCurrentVersion();
-		$info->toolkitVersion = $currentVersion->getVersionString();
-		$info->toolkitURL = 'http://pkp.sfu.ca/ops/';
+    /**
+     * Get the server ID and section ID corresponding to a set specifier.
+     *
+     * @param null|mixed $serverId
+     *
+     * @return int
+     */
+    public function setSpecToSectionId($setSpec, $serverId = null)
+    {
+        $tmpArray = preg_split('/:/', $setSpec);
+        if (count($tmpArray) == 1) {
+            [$serverSpec] = $tmpArray;
+            $serverSpec = urldecode($serverSpec);
+            $sectionSpec = null;
+        } elseif (count($tmpArray) == 2) {
+            [$serverSpec, $sectionSpec] = $tmpArray;
+            $serverSpec = urldecode($serverSpec);
+            $sectionSpec = urldecode($sectionSpec);
+        } else {
+            return [0, 0];
+        }
+        return $this->dao->getSetServerSectionId($serverSpec, $sectionSpec, $this->serverId);
+    }
 
-		return $info;
-	}
 
-	/**
-	 * @copydoc OAI::validIdentifier()
-	 */
-	function validIdentifier($identifier) {
-		return $this->identifierToPreprintId($identifier) !== false;
-	}
+    //
+    // OAI interface functions
+    //
 
-	/**
-	 * @copydoc OAI::identifierExists()
-	 */
-	function identifierExists($identifier) {
-		$recordExists = false;
-		$preprintId = $this->identifierToPreprintId($identifier);
-		if ($preprintId) {
-			$recordExists = $this->dao->recordExists($preprintId, array($this->serverId));
-		}
-		return $recordExists;
-	}
+    /**
+     * @copydoc OAI::repositoryInfo()
+     */
+    public function repositoryInfo()
+    {
+        $info = new OAIRepository();
 
-	/**
-	 * @copydoc OAI::record()
-	 */
-	function record($identifier) {
-		$preprintId = $this->identifierToPreprintId($identifier);
-		if ($preprintId) {
-			$record = $this->dao->getRecord($preprintId, array($this->serverId));
-		}
-		if (!isset($record)) {
-			$record = false;
-		}
-		return $record;
-	}
+        if (isset($this->server)) {
+            $info->repositoryName = $this->server->getLocalizedName();
+            $info->adminEmail = $this->server->getData('contactEmail');
+        } else {
+            $info->repositoryName = $this->site->getLocalizedTitle();
+            $info->adminEmail = $this->site->getLocalizedContactEmail();
+        }
 
-	/**
-	 * @copydoc OAI::records()
-	 */
-	function records($metadataPrefix, $from, $until, $set, $offset, $limit, &$total) {
-		$records = null;
-		if (!HookRegistry::call('ServerOAI::records', array($this, $from, $until, $set, $offset, $limit, &$total, &$records))) {
-			$sectionId = null;
-			if (isset($set)) {
-				list($serverId, $sectionId) = $this->setSpecToSectionId($set);
-			} else {
-				$serverId = $this->serverId;
-			}
-			$records = $this->dao->getRecords(array($serverId, $sectionId), $from, $until, $set, $offset, $limit, $total);
-		}
-		return $records;
-	}
+        $info->sampleIdentifier = $this->preprintIdToIdentifier(1);
+        $info->earliestDatestamp = $this->dao->getEarliestDatestamp([$this->serverId]);
 
-	/**
-	 * @copydoc OAI::identifiers()
-	 */
-	function identifiers($metadataPrefix, $from, $until, $set, $offset, $limit, &$total) {
-		$records = null;
-		if (!HookRegistry::call('ServerOAI::identifiers', array($this, $from, $until, $set, $offset, $limit, &$total, &$records))) {
-			$sectionId = null;
-			if (isset($set)) {
-				list($serverId, $sectionId) = $this->setSpecToSectionId($set);
-			} else {
-				$serverId = $this->serverId;
-			}
-			$records = $this->dao->getIdentifiers(array($serverId, $sectionId), $from, $until, $set, $offset, $limit, $total);
-		}
-		return $records;
-	}
+        $info->toolkitTitle = 'Open Preprint Systems';
+        $versionDao = DAORegistry::getDAO('VersionDAO');
+        $currentVersion = $versionDao->getCurrentVersion();
+        $info->toolkitVersion = $currentVersion->getVersionString();
+        $info->toolkitURL = 'http://pkp.sfu.ca/ops/';
 
-	/**
-	 * @copydoc OAI::sets()
-	 */
-	function sets($offset, $limit, &$total) {
-		$sets = null;
-		if (!HookRegistry::call('ServerOAI::sets', array($this, $offset, $limit, &$total, &$sets))) {
-			$sets = $this->dao->getServerSets($this->serverId, $offset, $limit, $total);
-		}
-		return $sets;
-	}
+        return $info;
+    }
 
-	/**
-	 * @copydoc OAI::resumptionToken()
-	 */
-	function resumptionToken($tokenId) {
-		$this->dao->clearTokens();
-		$token = $this->dao->getToken($tokenId);
-		if (!isset($token)) {
-			$token = false;
-		}
-		return $token;
-	}
+    /**
+     * @copydoc OAI::validIdentifier()
+     */
+    public function validIdentifier($identifier)
+    {
+        return $this->identifierToPreprintId($identifier) !== false;
+    }
 
-	/**
-	 * @copydoc OAI::saveResumptionToken()
-	 */
-	function saveResumptionToken($offset, $params) {
-		$token = new OAIResumptionToken(null, $offset, $params, time() + $this->config->tokenLifetime);
-		$this->dao->insertToken($token);
-		return $token;
-	}
+    /**
+     * @copydoc OAI::identifierExists()
+     */
+    public function identifierExists($identifier)
+    {
+        $recordExists = false;
+        $preprintId = $this->identifierToPreprintId($identifier);
+        if ($preprintId) {
+            $recordExists = $this->dao->recordExists($preprintId, [$this->serverId]);
+        }
+        return $recordExists;
+    }
+
+    /**
+     * @copydoc OAI::record()
+     */
+    public function record($identifier)
+    {
+        $preprintId = $this->identifierToPreprintId($identifier);
+        if ($preprintId) {
+            $record = $this->dao->getRecord($preprintId, [$this->serverId]);
+        }
+        if (!isset($record)) {
+            $record = false;
+        }
+        return $record;
+    }
+
+    /**
+     * @copydoc OAI::records()
+     */
+    public function records($metadataPrefix, $from, $until, $set, $offset, $limit, &$total)
+    {
+        $records = null;
+        if (!HookRegistry::call('ServerOAI::records', [$this, $from, $until, $set, $offset, $limit, &$total, &$records])) {
+            $sectionId = null;
+            if (isset($set)) {
+                [$serverId, $sectionId] = $this->setSpecToSectionId($set);
+            } else {
+                $serverId = $this->serverId;
+            }
+            $records = $this->dao->getRecords([$serverId, $sectionId], $from, $until, $set, $offset, $limit, $total);
+        }
+        return $records;
+    }
+
+    /**
+     * @copydoc OAI::identifiers()
+     */
+    public function identifiers($metadataPrefix, $from, $until, $set, $offset, $limit, &$total)
+    {
+        $records = null;
+        if (!HookRegistry::call('ServerOAI::identifiers', [$this, $from, $until, $set, $offset, $limit, &$total, &$records])) {
+            $sectionId = null;
+            if (isset($set)) {
+                [$serverId, $sectionId] = $this->setSpecToSectionId($set);
+            } else {
+                $serverId = $this->serverId;
+            }
+            $records = $this->dao->getIdentifiers([$serverId, $sectionId], $from, $until, $set, $offset, $limit, $total);
+        }
+        return $records;
+    }
+
+    /**
+     * @copydoc OAI::sets()
+     */
+    public function sets($offset, $limit, &$total)
+    {
+        $sets = null;
+        if (!HookRegistry::call('ServerOAI::sets', [$this, $offset, $limit, &$total, &$sets])) {
+            $sets = $this->dao->getServerSets($this->serverId, $offset, $limit, $total);
+        }
+        return $sets;
+    }
+
+    /**
+     * @copydoc OAI::resumptionToken()
+     */
+    public function resumptionToken($tokenId)
+    {
+        $this->dao->clearTokens();
+        $token = $this->dao->getToken($tokenId);
+        if (!isset($token)) {
+            $token = false;
+        }
+        return $token;
+    }
+
+    /**
+     * @copydoc OAI::saveResumptionToken()
+     */
+    public function saveResumptionToken($offset, $params)
+    {
+        $token = new OAIResumptionToken(null, $offset, $params, time() + $this->config->tokenLifetime);
+        $this->dao->insertToken($token);
+        return $token;
+    }
 }
-
-

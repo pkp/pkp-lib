@@ -19,95 +19,95 @@ import('classes.search.PreprintSearch');
 import('classes.file.PublicFileManager');
 import('lib.pkp.classes.template.PKPTemplateManager');
 
-class TemplateManager extends PKPTemplateManager {
-	/**
-	 * Initialize template engine and assign basic template variables.
-	 * @param $request PKPRequest
-	 */
-	function initialize($request) {
-		parent::initialize($request);
+class TemplateManager extends PKPTemplateManager
+{
+    /**
+     * Initialize template engine and assign basic template variables.
+     *
+     * @param $request PKPRequest
+     */
+    public function initialize($request)
+    {
+        parent::initialize($request);
 
-		if (!defined('SESSION_DISABLE_INIT')) {
-			/**
-			 * Kludge to make sure no code that tries to connect to
-			 * the database is executed (e.g., when loading
-			 * installer pages).
-			 */
+        if (!defined('SESSION_DISABLE_INIT')) {
+            /**
+             * Kludge to make sure no code that tries to connect to
+             * the database is executed (e.g., when loading
+             * installer pages).
+             */
 
-			$context = $request->getContext();
-			$site = $request->getSite();
+            $context = $request->getContext();
+            $site = $request->getSite();
 
-			$publicFileManager = new PublicFileManager();
-			$siteFilesDir = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();
-			$this->assign('sitePublicFilesDir', $siteFilesDir);
-			$this->assign('publicFilesDir', $siteFilesDir); // May be overridden by server
+            $publicFileManager = new PublicFileManager();
+            $siteFilesDir = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();
+            $this->assign('sitePublicFilesDir', $siteFilesDir);
+            $this->assign('publicFilesDir', $siteFilesDir); // May be overridden by server
 
-			if ($site->getData('styleSheet')) {
-				$this->addStyleSheet(
-					'siteStylesheet',
-					$request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath() . '/' . $site->getData('styleSheet')['uploadName'],
-					['priority' => STYLE_SEQUENCE_LATE]
-				);
-			}
+            if ($site->getData('styleSheet')) {
+                $this->addStyleSheet(
+                    'siteStylesheet',
+                    $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath() . '/' . $site->getData('styleSheet')['uploadName'],
+                    ['priority' => STYLE_SEQUENCE_LATE]
+                );
+            }
 
-			// Pass app-specific details to template
-			$this->assign([
-				'brandImage' => 'templates/images/ops_brand.png',
-				'packageKey' => 'common.software',
-			]);
+            // Pass app-specific details to template
+            $this->assign([
+                'brandImage' => 'templates/images/ops_brand.png',
+                'packageKey' => 'common.software',
+            ]);
 
-			// Get a count of unread tasks.
-			if ($user = $request->getUser()) {
-				$notificationDao = DAORegistry::getDAO('NotificationDAO');
-				// Exclude certain tasks, defined in the notifications grid handler
-				import('lib.pkp.controllers.grid.notifications.TaskNotificationsGridHandler');
-				$this->assign('unreadNotificationCount', $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK));
-			}
-			if (isset($context)) {
+            // Get a count of unread tasks.
+            if ($user = $request->getUser()) {
+                $notificationDao = DAORegistry::getDAO('NotificationDAO');
+                // Exclude certain tasks, defined in the notifications grid handler
+                import('lib.pkp.controllers.grid.notifications.TaskNotificationsGridHandler');
+                $this->assign('unreadNotificationCount', $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK));
+            }
+            if (isset($context)) {
+                $this->assign([
+                    'currentServer' => $context,
+                    'siteTitle' => $context->getLocalizedName(),
+                    'publicFilesDir' => $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId()),
+                    'primaryLocale' => $context->getPrimaryLocale(),
+                    'supportedLocales' => $context->getSupportedLocaleNames(),
+                    'numPageLinks' => $context->getData('numPageLinks'),
+                    'itemsPerPage' => $context->getData('itemsPerPage'),
+                    'enableAnnouncements' => $context->getData('enableAnnouncements'),
+                    'disableUserReg' => $context->getData('disableUserReg'),
+                ]);
 
-				$this->assign([
-					'currentServer' => $context,
-					'siteTitle' => $context->getLocalizedName(),
-					'publicFilesDir' => $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId()),
-					'primaryLocale' => $context->getPrimaryLocale(),
-					'supportedLocales' => $context->getSupportedLocaleNames(),
-					'numPageLinks' => $context->getData('numPageLinks'),
-					'itemsPerPage' => $context->getData('itemsPerPage'),
-					'enableAnnouncements' => $context->getData('enableAnnouncements'),
-					'disableUserReg' => $context->getData('disableUserReg'),
-				]);
+                // Get a link to the settings page for the current context.
+                // This allows us to reduce template duplication by using this
+                // variable in templates/common/header.tpl, instead of
+                // reproducing a lot of OMP/OPS-specific logic there.
+                $dispatcher = $request->getDispatcher();
+                $this->assign([
+                    'contextSettingsUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'management', 'settings', 'context'),
+                    'pageFooter' => $context->getLocalizedData('pageFooter')
+                ]);
+            } else {
+                // Check if registration is open for any contexts
+                $contextDao = Application::getContextDAO();
+                $contexts = $contextDao->getAll(true)->toArray();
+                $contextsForRegistration = [];
+                foreach ($contexts as $context) {
+                    if (!$context->getData('disableUserReg')) {
+                        $contextsForRegistration[] = $context;
+                    }
+                }
 
-				// Get a link to the settings page for the current context.
-				// This allows us to reduce template duplication by using this
-				// variable in templates/common/header.tpl, instead of
-				// reproducing a lot of OMP/OPS-specific logic there.
-				$dispatcher = $request->getDispatcher();
-				$this->assign([
-					'contextSettingsUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'management', 'settings', 'context'),
-					'pageFooter' => $context->getLocalizedData('pageFooter')
-				]);
-			} else {
-				// Check if registration is open for any contexts
-				$contextDao = Application::getContextDAO();
-				$contexts = $contextDao->getAll(true)->toArray();
-				$contextsForRegistration = [];
-				foreach($contexts as $context) {
-					if (!$context->getData('disableUserReg')) {
-						$contextsForRegistration[] = $context;
-					}
-				}
-
-				$this->assign([
-					'contexts' => $contextsForRegistration,
-					'disableUserReg' => empty($contextsForRegistration),
-					'siteTitle' => $site->getLocalizedTitle(),
-					'primaryLocale' => $site->getPrimaryLocale(),
-					'supportedLocales' => $site->getSupportedLocaleNames(),
-					'pageFooter' => $site->getLocalizedData('pageFooter'),
-				]);
-			}
-		}
-	}
+                $this->assign([
+                    'contexts' => $contextsForRegistration,
+                    'disableUserReg' => empty($contextsForRegistration),
+                    'siteTitle' => $site->getLocalizedTitle(),
+                    'primaryLocale' => $site->getPrimaryLocale(),
+                    'supportedLocales' => $site->getSupportedLocaleNames(),
+                    'pageFooter' => $site->getLocalizedData('pageFooter'),
+                ]);
+            }
+        }
+    }
 }
-
-

@@ -13,6 +13,9 @@
  */
 
 namespace APP\components\listPanels;
-use \PKP\components\listPanels\PKPEmailTemplatesListPanel;
 
-class EmailTemplatesListPanel extends PKPEmailTemplatesListPanel { }
+use PKP\components\listPanels\PKPEmailTemplatesListPanel;
+
+class EmailTemplatesListPanel extends PKPEmailTemplatesListPanel
+{
+}

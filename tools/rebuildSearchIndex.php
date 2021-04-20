@@ -15,62 +15,66 @@
 
 require(dirname(__FILE__) . '/bootstrap.inc.php');
 
-class rebuildSearchIndex extends CommandLineTool {
-	/**
-	 * Print command usage information.
-	 */
-	public function usage() {
-		echo "Script to rebuild preprint search index\n"
-			. "Usage: {$this->scriptName} [options] [server_path]\n\n"
-			. "options: The standard index implementation does\n"
-			. "         not support any options. For other\n"
-			. "         implementations please see the corresponding\n"
-			. "         plugin documentation (e.g. 'plugins/generic/\n"
-			. "         lucene/README').\n";
-	}
+class rebuildSearchIndex extends CommandLineTool
+{
+    /**
+     * Print command usage information.
+     */
+    public function usage()
+    {
+        echo "Script to rebuild preprint search index\n"
+            . "Usage: {$this->scriptName} [options] [server_path]\n\n"
+            . "options: The standard index implementation does\n"
+            . "         not support any options. For other\n"
+            . "         implementations please see the corresponding\n"
+            . "         plugin documentation (e.g. 'plugins/generic/\n"
+            . "         lucene/README').\n";
+    }
 
-	/**
-	 * Rebuild the search index for all preprints in all servers.
-	 */
-	public function execute() {
-		// Check whether we have (optional) switches.
-		$switches = array();
-		while (count($this->argv) && substr($this->argv[0], 0, 1) == '-') {
-			$switches[] = array_shift($this->argv);
-		}
+    /**
+     * Rebuild the search index for all preprints in all servers.
+     */
+    public function execute()
+    {
+        // Check whether we have (optional) switches.
+        $switches = [];
+        while (count($this->argv) && substr($this->argv[0], 0, 1) == '-') {
+            $switches[] = array_shift($this->argv);
+        }
 
-		// If we have another argument that this must be a server path.
-		$server = null;
-		if (count($this->argv)) {
-			$serverPath = array_shift($this->argv);
-			$serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
-			$server = $serverDao->getByPath($serverPath);
-			if (!$server) {
-				die (__('search.cli.rebuildIndex.unknownServer', array('serverPath' => $serverPath)). "\n");
-			}
-		}
+        // If we have another argument that this must be a server path.
+        $server = null;
+        if (count($this->argv)) {
+            $serverPath = array_shift($this->argv);
+            $serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
+            $server = $serverDao->getByPath($serverPath);
+            if (!$server) {
+                die(__('search.cli.rebuildIndex.unknownServer', ['serverPath' => $serverPath]) . "\n");
+            }
+        }
 
-		// Register a router hook so that we can construct
-		// useful URLs to server content.
-		HookRegistry::register('Request::getBaseUrl', array($this, 'callbackBaseUrl'));
+        // Register a router hook so that we can construct
+        // useful URLs to server content.
+        HookRegistry::register('Request::getBaseUrl', [$this, 'callbackBaseUrl']);
 
-		// Let the search implementation re-build the index.
-		$preprintSearchIndex = Application::getSubmissionSearchIndex();
-		$preprintSearchIndex->rebuildIndex(true, $server, $switches);
-	}
+        // Let the search implementation re-build the index.
+        $preprintSearchIndex = Application::getSubmissionSearchIndex();
+        $preprintSearchIndex->rebuildIndex(true, $server, $switches);
+    }
 
-	/**
-	 * Callback to patch the base URL which will be required
-	 * when constructing galley/supp file download URLs.
-	 * @see PKPRequest::getBaseUrl()
-	 */
-	public function callbackBaseUrl($hookName, $params) {
-		$baseUrl =& $params[0];
-		$baseUrl = Config::getVar('general', 'base_url');
-		return true;
-	}
+    /**
+     * Callback to patch the base URL which will be required
+     * when constructing galley/supp file download URLs.
+     *
+     * @see PKPRequest::getBaseUrl()
+     */
+    public function callbackBaseUrl($hookName, $params)
+    {
+        $baseUrl = & $params[0];
+        $baseUrl = Config::getVar('general', 'base_url');
+        return true;
+    }
 }
 
-$tool = new rebuildSearchIndex(isset($argv) ? $argv : array());
+$tool = new rebuildSearchIndex($argv ?? []);
 $tool->execute();
-

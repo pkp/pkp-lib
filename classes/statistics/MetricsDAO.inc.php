@@ -15,7 +15,6 @@
 
 import('lib.pkp.classes.statistics.PKPMetricsDAO');
 
-class MetricsDAO extends PKPMetricsDAO {
-
+class MetricsDAO extends PKPMetricsDAO
+{
 }
-

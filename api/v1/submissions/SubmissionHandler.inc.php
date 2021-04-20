@@ -18,79 +18,82 @@ import('lib.pkp.api.v1.submissions.PKPSubmissionHandler');
 import('lib.pkp.classes.handler.APIHandler');
 import('classes.core.Services');
 
-class SubmissionHandler extends PKPSubmissionHandler {
+class SubmissionHandler extends PKPSubmissionHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->requiresSubmissionAccess[] = 'relatePublication';
+        $this->requiresProductionStageAccess[] = 'relatePublication';
+        $this->productionStageAccessRoles[] = ROLE_ID_AUTHOR;
+        parent::__construct();
+    }
 
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		$this->requiresSubmissionAccess[] = 'relatePublication';
-		$this->requiresProductionStageAccess[] = 'relatePublication';
-		$this->productionStageAccessRoles[] = ROLE_ID_AUTHOR;
-		parent::__construct();
-	}
+    /**
+     * Modify submission endpoints
+     */
+    public function setupEndpoints()
+    {
 
-	/**
-	 * Modify submission endpoints
-	 */
-	public function setupEndpoints() {
+        // Add endpoints
+        $this->_endpoints['PUT'][] = [
+            'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/relate',
+            'handler' => [$this, 'relatePublication'],
+            'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
+        ];
 
-		// Add endpoints
-		$this->_endpoints['PUT'][] = [
-			'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/relate',
-			'handler' => [$this, 'relatePublication'],
-			'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
-		];
+        // Allow authors to create and publish versions
+        $this->_endpoints['POST'] = array_map(function ($endpoint) {
+            if (in_array($endpoint['handler'][1], ['addPublication', 'versionPublication'])) {
+                $endpoint['roles'][] = ROLE_ID_AUTHOR;
+            }
+            return $endpoint;
+        }, $this->_endpoints['POST']);
+        $this->_endpoints['PUT'] = array_map(function ($endpoint) {
+            if (in_array($endpoint['handler'][1], ['publishPublication', 'unpublishPublication'])) {
+                $endpoint['roles'][] = ROLE_ID_AUTHOR;
+            }
+            return $endpoint;
+        }, $this->_endpoints['PUT']);
 
-		// Allow authors to create and publish versions
-		$this->_endpoints['POST'] = array_map(function($endpoint) {
-			if (in_array($endpoint['handler'][1], ['addPublication', 'versionPublication'])) {
-				$endpoint['roles'][] = ROLE_ID_AUTHOR;
-			}
-			return $endpoint;
-		}, $this->_endpoints['POST']);
-		$this->_endpoints['PUT'] = array_map(function($endpoint) {
-			if (in_array($endpoint['handler'][1], ['publishPublication', 'unpublishPublication'])) {
-				$endpoint['roles'][] = ROLE_ID_AUTHOR;
-			}
-			return $endpoint;
-		}, $this->_endpoints['PUT']);
+        parent::setupEndpoints();
+    }
 
-		parent::setupEndpoints();
-	}
+    /**
+     * Create relations for publications
+     *
+     * @param $slimRequest Request Slim request object
+     * @param $response Response object
+     * @param array $args arguments
+     *
+     * @return Response
+     */
+    public function relatePublication($slimRequest, $response, $args)
+    {
+        $request = $this->getRequest();
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $publication = Services::get('publication')->get((int) $args['publicationId']);
 
-	/**
-	 * Create relations for publications
-	 *
-	 * @param $slimRequest Request Slim request object
-	 * @param $response Response object
-	 * @param array $args arguments
-	 * @return Response
-	 */
-	public function relatePublication($slimRequest, $response, $args) {
-		$request = $this->getRequest();
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$publication = Services::get('publication')->get((int) $args['publicationId']);
+        if (!$publication) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
 
-		if (!$publication) {
-			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-		}
+        if ($submission->getId() !== $publication->getData('submissionId')) {
+            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+        }
 
-		if ($submission->getId() !== $publication->getData('submissionId')) {
-			return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
-		}
+        $publication = Services::get('publication')->relate($publication, $slimRequest->getParams());
 
-		$publication = Services::get('publication')->relate($publication, $slimRequest->getParams());
+        $publicationProps = Services::get('publication')->getFullProperties(
+            $publication,
+            [
+                'request' => $request,
+                'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray(),
+            ]
+        );
 
-		$publicationProps = Services::get('publication')->getFullProperties(
-			$publication,
-			[
-				'request' => $request,
-				'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray(),
-			]
-		);
-
-		return $response->withJson($publicationProps, 200);
-	}
-
+        return $response->withJson($publicationProps, 200);
+    }
 }

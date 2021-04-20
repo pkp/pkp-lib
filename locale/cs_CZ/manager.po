@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2021-04-19 18:22+0000\n"
+"PO-Revision-Date: 2021-04-22 01:44+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -2210,3 +2210,41 @@ msgstr "Upozornit primární kontakt"
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Oznámení"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Stáhněte exportovaný soubor z tlačítkem níže."
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Procesu se nepodařilo analyzovat publikace"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Proces se nepodařilo analyzovat autory"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" – \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Chybná konfigurace filtru [{$filterName}]: Existuje {$filterCount} výskytů "
+"filtru. Měl by být jen jeden."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Obecné položky"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Export byl úspěšně dokončen."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Stáhnout exportovaný soubor"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Exportovat výsledky podání příspěvku"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Proces selhal. Zkontrolujte níže chyby a varování."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Chybí zařazení do uživatelské skupiny pro autora jménem {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"

@@ -74,6 +74,8 @@
 
 import('lib.pkp.classes.filter.TypeDescriptionFactory');
 
+use PKP\plugins\HookRegistry;
+
 class Filter extends \PKP\core\DataObject
 {
     /** @var TypeDescription */

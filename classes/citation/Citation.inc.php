@@ -17,6 +17,8 @@
  * @brief Class representing a citation (bibliographic reference)
  */
 
+namespace PKP\citation;
+
 class Citation extends \PKP\core\DataObject
 {
     /**
@@ -117,4 +119,8 @@ class Citation extends \PKP\core\DataObject
 
         return $citationString;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\citation\Citation', '\Citation');
 }

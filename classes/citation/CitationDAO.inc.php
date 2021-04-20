@@ -15,7 +15,9 @@
  * @brief Operations for retrieving and modifying Citation objects
  */
 
-import('lib.pkp.classes.citation.Citation');
+namespace PKP\citation;
+
+use PKP\plugins\HookRegistry;
 
 class CitationDAO extends \PKP\db\DAO
 {
@@ -89,7 +91,6 @@ class CitationDAO extends \PKP\db\DAO
         $this->deleteByPublicationId($publicationId);
 
         // Tokenize raw citations
-        import('lib.pkp.classes.citation.CitationListTokenizerFilter');
         $citationTokenizer = new CitationListTokenizerFilter();
         $citationStrings = $citationTokenizer->execute($rawCitationList);
 
@@ -256,4 +257,8 @@ class CitationDAO extends \PKP\db\DAO
     {
         $this->updateDataObjectSettings('citation_settings', $citation, ['citation_id' => $citation->getId()]);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\citation\CitationDAO', '\CitationDAO');
 }

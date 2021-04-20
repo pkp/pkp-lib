@@ -14,9 +14,13 @@
  *  and returns an array of raw citation strings.
  */
 
+namespace PKP\citation;
+
+use PKP\core\PKPString;
+
 import('lib.pkp.classes.filter.Filter');
 
-class CitationListTokenizerFilter extends Filter
+class CitationListTokenizerFilter extends \Filter
 {
     /**
      * Constructor
@@ -59,4 +63,8 @@ class CitationListTokenizerFilter extends Filter
 
         return $citations;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\citation\CitationListTokenizerFilter', '\CitationListTokenizerFilter');
 }

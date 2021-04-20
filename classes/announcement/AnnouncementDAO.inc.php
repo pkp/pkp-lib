@@ -15,11 +15,11 @@
  * @brief Operations for retrieving and modifying Announcement objects.
  */
 
-import('lib.pkp.classes.announcement.Announcement');
-import('lib.pkp.classes.db.SchemaDAO');
+namespace PKP\announcement;
 
 use Illuminate\Support\Facades\DB;
 
+use PKP\db\SchemaDAO;
 use PKP\services\PKPSchemaService;
 
 class AnnouncementDAO extends SchemaDAO
@@ -256,4 +256,8 @@ class AnnouncementDAO extends SchemaDAO
     {
         return $this->_getInsertId('announcements', 'announcement_id');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\announcement\AnnouncementDAO', '\AnnouncementDAO');
 }

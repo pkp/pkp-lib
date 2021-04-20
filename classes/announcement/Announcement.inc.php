@@ -20,6 +20,10 @@
  * @brief Basic class describing a announcement.
  */
 
+namespace PKP\announcement;
+
+use PKP\db\DAORegistry;
+
 class Announcement extends \PKP\core\DataObject
 {
     //
@@ -270,4 +274,8 @@ class Announcement extends \PKP\core\DataObject
     {
         $this->setData('datePosted', $datetimePosted);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\announcement\Announcement', '\Announcement');
 }

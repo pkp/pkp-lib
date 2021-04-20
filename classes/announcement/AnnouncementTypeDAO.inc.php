@@ -15,8 +15,9 @@
  * @brief Operations for retrieving and modifying AnnouncementType objects.
  */
 
+namespace PKP\announcement;
 
-import('lib.pkp.classes.announcement.AnnouncementType');
+use PKP\db\DAORegistry;
 
 class AnnouncementTypeDAO extends \PKP\db\DAO
 {
@@ -215,4 +216,8 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     {
         return $this->_getInsertId('announcement_types', 'type_id');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\announcement\AnnouncementTypeDAO', '\AnnouncementTypeDAO');
 }

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-19 12:40+0000\n"
+"PO-Revision-Date: 2021-04-20 15:27+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ka_GE/>\n"
@@ -1386,3 +1386,680 @@ msgstr "ამჟამინდელი სტილის ფაილი"
 
 msgid "common.publicKnowledgeProject"
 msgstr "საზოგადოებრივი ცოდნის პროექტი"
+
+msgid "validator.required_with"
+msgstr "ეს ველი საჭიროა, როდესაც არსებობს {$values}."
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.type.editorialReport"
+msgstr "სტატისტიკის ანგარიშის შეჯამება."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "რაუნდის {$ round} სტატუსი"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "ლიტერატურული რედაქტირების მოლოდინში."
+
+msgid "notification.type.assignCopyeditors"
+msgstr "დანიშნეთ კოპირება, მონაწილეთა სიაში მიკუთვნებული ბმულის გამოყენებით."
+
+msgid "notification.type.queryAdded"
+msgstr "დისკუსია დაემატა."
+
+msgid "notification.type.queryActivity"
+msgstr "სადისკუსიო აქტივობა."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"ამჟამინდელი მომხმარებელი არ არის მოთხოვნილი წარდგენის ავტორი. გთხოვთ, "
+"გადაამოწმოთ, რომ სისტემაში შესული ხართ მომხმარებლის სწორი ანგარიშით."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"ამჟამად არ გაქვთ საკმარისი პრივილეგიები წარდგენის სანახავად. გთხოვთ, "
+"შეცვალოთ თქვენი პროფილი, რათა დარწმუნდეთ, რომ მიენიჭათ შესაბამისი როლები \""
+"რეგისტრაცია როგორც\"."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "თქვენ არ გაქვთ წვდომა ამ მიმოხილვის დავალებაზე."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "თქვენ არ გაქვთ წვდომა ამ სადისკუსიო შეტყობინებაზე."
+
+msgid "user.authorization.invalidQuery"
+msgstr "არასწორი დისკუსია."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "განხილვის არასწორი რაუნდი."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "არასწორი წარმომადგენლობა."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "არასწორი წარდგენა."
+
+msgid "user.authorization.invalidPublication"
+msgstr "არასწორი გამოცემა."
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"ამჟამინდელ მომხმარებელს არა აქვს უფლებამოსილება წვდომის მითითებულ წარსადგენ "
+"ფაილზე."
+
+msgid "notification.signedFile"
+msgstr "ფაილი განიხილება."
+
+msgid "notification.type.reviewerComment"
+msgstr "რეცენზენტმა კომენტარი გააკეთა \"{$title}\"-ზე."
+
+msgid "notification.type.metadataModified"
+msgstr "\"{$title}\" მეტამონაცემები შეიცვალა."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "შესწორებები შეტანილია {$stage}-ზე."
+
+msgid "notification.type.pendingRevisions"
+msgstr "შესწორებები, რომელთა განხილვაც შესაძლებელია {$stage}-ზე."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "შესწორებული ფაილი აიტვირთა თქვენი სარედაქციო განხილვისთვის {$stage}-ზე."
+
+msgid "notification.type.allReviewsIn"
+msgstr "ყველა მიმომხილველმა უპასუხა და გადაწყვეტილება საჭიროა {$stage}-ზე."
+
+msgid "notification.type.auditorRequest"
+msgstr "აუდიტის მოთხოვნა \"{$file}\"-ისთვის"
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "მიმოხილვის დავალება განახლდა."
+
+msgid "notification.type.reviewAssignment"
+msgstr "განხილვა მოლოდინის რეჟიმში."
+
+msgid "notification.type.newAnnouncement"
+msgstr "ახალი განცხადება."
+
+msgid "notification.editStageParticipant"
+msgstr "შეიცვალა სასცენო დავალება."
+
+msgid "notification.addedStageParticipant"
+msgstr "მომხმარებელმა დაამატა, როგორც სცენის მონაწილე."
+
+msgid "notification.reinstatedReviewer"
+msgstr "მიმომხილველი აღდგა."
+
+msgid "notification.cancelledReviewer"
+msgstr "რეცენზენტი გაუქმდა."
+
+msgid "notification.removedReviewer"
+msgstr "რეფერენტი წაიშალა."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName}-ს დაევალა ამ წარდგინების განსახილველად და მას არ გაუგზავნეს "
+"ელ.ფოსტის შეტყობინება."
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName}-ს დაევალა ამ წარდგინების განსახილველად და გაგზავნა "
+"შეტყობინება ელფოსტით."
+
+msgid "submission.task.responseDueDate"
+msgstr "პასუხის ვადის თარიღი"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "განხილვის ვადის თარიღი"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "პასუხის ვადის თარიღი"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "რედაქტორის მოთხოვნა"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "რეცენზირების გრაფიკი"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>ანონიმური რეფერირების მთლიანობის უზრუნველსაყოფად, ყველაფერი უნდა "
+"გაკეთდეს, რომ ავტორებისა და რეცენზენტების ვინაობა არ იყოს ცნობილი "
+"ერთმანეთისთვის. ეს მოიცავს ავტორებს, რედაქტორებსა და რეცენზენტებს (რომლებიც "
+"ატვირთავენ დოკუმენტებს მათი მიმოხილვის ფარგლებში), რათა შეამოწმონ, "
+"გადადგმულია თუ არა შემდეგი ნაბიჯები ტექსტისა და ფაილის მახასიათებლებთან "
+"დაკავშირებით: </ p>\n"
+"<ul><li>დოკუმენტის ავტორებმა წაშალეს თავიანთი სახელები ტექსტიდან, ავტორების "
+"სახელით, სტატიის სათაურისა და სხვათა ნაცვლად, მითითებებში და სქოლიოებში "
+"გამოიყენეს “ავტორი” და წელი. </li>\n"
+"<li>დოკუმენტის ავტორებმა ფაილის თვისებებიდან წაშალეს პირადი ინფორმაცია "
+"შემდეგი ნაბიჯებით:\n"
+"<ul> <li> Microsoft Word Windows- ისთვის:\n"
+"<ul> <li> გადადით ფაილზე </ li>\n"
+"<li> აირჩიეთ ინფორმაცია </ li>\n"
+"<li> დააჭირეთ საკითხის შემოწმებას </ li>\n"
+"<li> დააჭირეთ დოკუმენტის შემოწმებას </ li>\n"
+"<li> დოკუმენტის ინსპექტორის დიალოგურ ფანჯარაში მონიშნეთ მონიშნეთ ველები, რომ "
+"აირჩიოთ თქვენთვის სასურველი გადასაფარებელი შინაარსის ტიპი.\n"
+"<li> დააჭირეთ ყველას წაშლა </ li>\n"
+"<li> დააჭირეთ დახურვას </ li>\n"
+"<li> შეინახეთ დოკუმენტი </ li> </ul>\n"
+"<li> Microsoft Word for MacOS:\n"
+"<ul> <li> გადადით ინსტრუმენტებზე </ li>\n"
+"<li> დააჭირეთ დოკუმენტის დაცვას </ li>\n"
+"<li> შეარჩიეთ ამ ფაილის პირადი ინფორმაციის ამოღება </ li>\n"
+"<li> დააჭირეთ ღილაკს OK და შეინახეთ ფაილი </ li> </ul> </li>\n"
+"<li> PDF:\n"
+"<ul> <li> გადადით ფაილზე </ li>\n"
+"<li> აირჩიეთ თვისებები </ li>\n"
+"<li> წაშალეთ ნებისმიერი სახელი ავტორის ველში </ li>\n"
+"<li> დააჭირეთ ღილაკს “კარგი”\n"
+"<li> შეინახეთ დოკუმენტი </li> </ul> </li> </ul>\n"
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"ელფოსტის მისამართი {$email} წარმატებით გაიხსნა. ამ ელწერილებს აღარ "
+"გამოგიგზავნით. <a href=\"{$profileNotificationUrl}\">თქვენი მომხმარებლის</a> "
+"პროფილიდან შეგიძლიათ ნებისმიერ დროს ხელახლა გამოიწეროთ ელფოსტის "
+"შეტყობინებები."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"<a href=\"{$profileNotificationUrl}\">თქვენი მომხმარებლის</a> პროფილიდან "
+"შეგიძლიათ ნებისმიერ დროს ხელახლა გამოიწეროთ ელფოსტის შეტყობინებები."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"აირჩიეთ ელფოსტა, რომლის მიღება აღარ გსურთ {$email}-ზე, {$contextName}-დან."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "თქვენი გამოწერის გაუქმება ვერ მოხერხდა"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "თქვენ გააუქმეთ გამოწერა"
+
+msgid "notification.removedNavigationMenu"
+msgstr "ნავიგაციის მენიუ წარმატებით წაიშალა"
+
+msgid "notification.editedNavigationMenu"
+msgstr "ნავიგაციის მენიუ წარმატებით განახლდა"
+
+msgid "notification.addedNavigationMenu"
+msgstr "ნავიგაციის მენიუ წარმატებით დაემატა"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "ნავიგაციის მენიუს ელემენტი წარმატებით დაემატა"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "ნავიგაციის მენიუს ელემენტი წარმატებით წაიშალა"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "ნავიგაციის მენიუს ელემენტი წარმატებით განახლდა"
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"ეს არის ერთგვარი შეხსენება, რომ შეამოწმოთ თქვენი ჟურნალის ჯანმრთელობა "
+"სარედაქციო ანგარიშის საშუალებით."
+
+msgid "validator.url"
+msgstr "მოწოდებულია უვარგისი ბმული."
+
+msgid "validator.unique"
+msgstr "{$attribute} უკვე აღებულია."
+
+msgid "validator.timezone"
+msgstr "ეს არ არის მართებული დროის სარტყელი."
+
+msgid "validator.string"
+msgstr "ეს არ არის სწორი მწკრივი."
+
+msgid "validator.size.array"
+msgstr "ეს უნდა შეიცავდეს {$size} ელემენტს."
+
+msgid "validator.size.string"
+msgstr "ეს უნდა იყოს {$size} სიმბოლო."
+
+msgid "validator.size.file"
+msgstr "ეს უნდა იყოს {$size} კილობაიტი."
+
+msgid "validator.size.numeric"
+msgstr "ეს უნდა იყოს {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} და {$other} უნდა ემთხვეოდეს."
+
+msgid "validator.required_without_all"
+msgstr "ეს ველი საჭიროა, როდესაც არცერთი {$values} არ არის წარმოდგენილი."
+
+msgid "validator.required_without"
+msgstr "ეს ველი საჭიროა, როდესაც {$values} არ არის."
+
+msgid "validator.required_with_all"
+msgstr "ეს ველი საჭიროა, როდესაც არსებობს {$values}."
+
+msgid "validator.required_unless"
+msgstr "ეს ველი აუცილებელია, თუ {$other} არ არის {$values}."
+
+msgid "validator.required_if"
+msgstr "ეს ველი საჭიროა, როდესაც {$other} არის {$value}."
+
+msgid "validator.regex"
+msgstr "ეს არ არის ფორმატირებული სწორად."
+
+msgid "validator.present"
+msgstr "{$attribute} ველი უნდა იყოს წარმოდგენილი."
+
+msgid "validator.orcid"
+msgstr "ეს არ არის სწორი ORCID."
+
+msgid "validator.numeric"
+msgstr "ეს არ არის სწორი ნომერი."
+
+msgid "validator.not_in"
+msgstr "არჩეული {$attribute} არასწორია."
+
+msgid "validator.min.array"
+msgstr "ამას უნდა ჰქონდეს მინიმუმ {$min} ერთეული."
+
+msgid "validator.min.string"
+msgstr "ეს უნდა იყოს მინიმუმ {$min} სიმბოლო."
+
+msgid "validator.min.file"
+msgstr "ეს უნდა იყოს მინიმუმ {$min} კილობაიტი."
+
+msgid "validator.min.numeric"
+msgstr "ამას უნდა ჰქონდეს მინიმუმ {$min} ერთეული."
+
+msgid "validator.mimes"
+msgstr "ეს უნდა იყოს ფაილის ტიპი {$values}."
+
+msgid "validator.max.array"
+msgstr "ამას შეიძლება არ ჰქონდეს {$max} ერთზე მეტი."
+
+msgid "validator.max.string"
+msgstr "ეს შეიძლება არ აღემატებოდეს {$max} სიმბოლოს."
+
+msgid "validator.max.file"
+msgstr "ეს შეიძლება არ აღემატებოდეს {$max} კილობაიტს."
+
+msgid "validator.max.numeric"
+msgstr "ეს შეიძლება არ აღემატებოდეს {$max}-ს."
+
+msgid "validator.localeKey"
+msgstr ""
+"ენები უნდა იყოს მითითებული ლოკალურ კოდის გამოყენებით. მაგალითები: en_US, "
+"fr_CA, sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"ეს ველი არის მრავალენოვანი. ცალკეული მნიშვნელობები უნდა იყოს მითითებული "
+"თითოეული მხარდაჭერილი ენისთვის."
+
+msgid "validator.locale"
+msgstr "ეს ენა არ არის მიღებული."
+
+msgid "validator.json"
+msgstr "ეს არ არის სწორი JSON მწკრივი."
+
+msgid "validator.issn"
+msgstr "ეს არ არის სწორი ISSN."
+
+msgid "validator.ip"
+msgstr "ეს არ არის მართებული IP-მისამართი."
+
+msgid "validator.integer"
+msgstr "ეს არ არის სწორი მთელი რიცხვი."
+
+msgid "validator.in"
+msgstr "არჩეული {$attribute} არასწორია."
+
+msgid "validator.image"
+msgstr "ეს უნდა იყოს გამოსახულება."
+
+msgid "validator.exists"
+msgstr "არჩეული {$attribute} არასწორია."
+
+msgid "validator.email"
+msgstr "აუცილებელია ელფოსტის სწორი მისამართი."
+
+msgid "validator.digits_between"
+msgstr "ეს უნდა იყოს {$min} და {$max} შორის."
+
+msgid "validator.digits"
+msgstr "ეს უნდა იყოს {$digits} ციფრის სიგრძე."
+
+msgid "validator.different"
+msgstr "{$attribute} და {$other} უნდა იყოს სხვადასხვა."
+
+msgid "validator.date_format"
+msgstr "ეს არ ემთხვევა ფორმატს {$format}."
+
+msgid "validator.date"
+msgstr "ეს არ არის სწორი თარიღი."
+
+msgid "validator.currency"
+msgstr "გთხოვთ, აირჩიოთ სწორი ვალუტა."
+
+msgid "validator.confirmed"
+msgstr "ამ ველის დადასტურება არ ემთხვევა."
+
+msgid "validator.boolean"
+msgstr "ეს ველი უნდა იყოს ჭეშმარიტი ან მცდარი."
+
+msgid "validator.between.array"
+msgstr "ამას უნდა ჰქონდეს {$min} და {$max} ელემენტს შორის."
+
+msgid "validator.between.string"
+msgstr "ეს უნდა იყოს {$min} და {$max} სიმბოლოს შორის."
+
+msgid "validator.between.file"
+msgstr "ეს უნდა იყოს {$min} და {$max} კილობაიტს შორის."
+
+msgid "validator.between.numeric"
+msgstr "ეს უნდა იყოს {$min} და {$max} შორის."
+
+msgid "validator.before"
+msgstr "ეს თარიღი უნდა იყოს {$date}-მდე."
+
+msgid "validator.array"
+msgstr "ეს არ არის მართებული მასივი."
+
+msgid "validator.alpha_num"
+msgstr "ეს შეიძლება შეიცავდეს მხოლოდ ასოებსა და ციფრებს."
+
+msgid "validator.alpha_dash"
+msgstr "ეს შეიძლება შეიცავდეს მხოლოდ ასოებს, ციფრებს, ტირეებს და ქვედა ხაზებს."
+
+msgid "validator.alpha"
+msgstr "ეს შეიძლება მხოლოდ ასოებს შეიცავდეს."
+
+msgid "validator.after"
+msgstr "ეს თარიღი უნდა იყოს {$date}-ის შემდეგ."
+
+msgid "validator.active_url"
+msgstr "მოწოდებულია უვარგისი ბმული."
+
+msgid "validator.accepted"
+msgstr "გთხოვთ, დაეთანხმოთ ამ ელემენტს.."
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"მოხდა მოულოდნელი შეცდომა და ვერ გამოვწერეთ ელექტრონული ფოსტის მისამართი "
+"{$email}. <a href=\"{$profileNotificationUrl}\">შეგიძლიათ გააუქმოთ თქვენი "
+"მომხმარებლის პროფილში</a> გაგზავნილი ყველა ელფოსტის შეტყობინებიდან ან "
+"პირდაპირ დაგვიკავშირდეთ დახმარებისთვის."
+
+msgid "review.anonymousPeerReview.title"
+msgstr "როგორ უზრუნველვყოთ, რომ ყველა ფაილი იყოს ანონიმური"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "როგორ უზრუნველვყოთ, რომ ყველა ფაილი იყოს ანონიმური"
+
+msgid "search.typeMethodApproach"
+msgstr "ტიპი (მეთოდი/მიდგომა)"
+
+msgid "search.titleIndex"
+msgstr "სათაურის ინდექსის დათვალიერება"
+
+msgid "search.subject"
+msgstr "საკვანძო სიტყვ(ებ)ი"
+
+msgid "search.searchResults.foundPlural"
+msgstr "ნაპოვნია {$count} ერთეული."
+
+msgid "search.searchResults.foundSingle"
+msgstr "ნაპოვნია ერთი ერთეული."
+
+msgid "search.operator.not"
+msgstr "not"
+
+msgid "search.matchAll"
+msgstr "ემთხვევა ყველა კატეგორიას"
+
+msgid "search.indexTermsLong"
+msgstr "ინდექსის ტერმინების ყველა ველი"
+
+msgid "search.indexTerms"
+msgstr "ინდექსის ტერმინები"
+
+msgid "search.fullText"
+msgstr "სრული ტექსტი"
+
+msgid "search.discipline"
+msgstr "დისციპლინები"
+
+msgid "search.dateTo"
+msgstr "გამოქვეყნებულია მანამდე"
+
+msgid "search.dateFrom"
+msgstr "გამოქვეყნდა"
+
+msgid "search.date"
+msgstr "გამოქვეყნების თარიღი"
+
+msgid "search.coverage"
+msgstr "დაფარვა"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "ინდექსირებულია {$numIndexed} სტატია"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "შეცდომა"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "დასრულებულია"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "გაწმენდის ინდექსი"
+
+msgid "search.searchAgain"
+msgstr "ხელახალი ძიება"
+
+msgid "search.advancedSearchLess"
+msgstr "ძიების მეტი ვარიანტის დამალვა"
+
+msgid "search.advancedSearchMore"
+msgstr "ძიების პარამეტრები"
+
+msgid "search.advancedFilters"
+msgstr "გაფართოებული ფილტრები"
+
+msgid "search.abstract"
+msgstr "აბსტრაქტი"
+
+msgid "search.author"
+msgstr "ავტორის მიხედვით"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "გაუგზავნეთ ელწერილი ამის შესახებ ყველა რეგისტრირებულ მომხმარებელს."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "გაგზავნის მეტამონაცემები შენახულია."
+
+msgid "notification.reminderSent"
+msgstr "თქვენი ახალი პაროლი გაიგზავნა მითითებულ ელფოსტაზე."
+
+msgid "notification.reminderError"
+msgstr ""
+"თქვენი პაროლის გაგზავნისას მოხდა შეცდომა. დარწმუნდით, რომ სწორად შეიყვანეთ "
+"თქვენი ელფოსტის მისამართი."
+
+msgid "notification.settingsDescription"
+msgstr ""
+"აირჩიეთ სისტემის მოვლენები, რომელთა შესახებაც გსურთ გეცნობოთ. ელემენტის "
+"მონიშვნის მოხსნა ხელს შეუშლის ღონისძიების შესახებ შეტყობინებების სისტემაში "
+"ჩვენებას და ასევე ელფოსტით გაგზავნას. შემოწმებული მოვლენები გამოჩნდება "
+"სისტემაში და თქვენ გაქვთ დამატებითი ვარიანტი ელფოსტით მიიღოთ თუ არა იგივე "
+"შეტყობინება."
+
+msgid "notification.settings"
+msgstr "შეტყობინების პარამეტრები"
+
+msgid "notification.sentNotification"
+msgstr "შეტყობინება გაგზავნილია."
+
+msgid "notification.removedSubmission"
+msgstr "წარდგენა წაიშალა."
+
+msgid "notification.removedFile"
+msgstr "ფაილი წაიშალა."
+
+msgid "notification.removedNote"
+msgstr "შენიშვნა წაიშალა."
+
+msgid "notification.addedNote"
+msgstr "შენიშვნა განთავსებულია."
+
+msgid "notification.noneExist"
+msgstr "ამ დროისთვის შეტყობინებები არ გაქვთ."
+
+msgid "notification.email"
+msgstr "არ გამომიგზავნოთ ელწერილი ამ ტიპის შეტყობინებებისთვის."
+
+msgid "notification.confirmSuccess"
+msgstr "თქვენ წარმატებით გამოიწერეთ."
+
+msgid "notification.confirmError"
+msgstr "თქვენი გამოწერის დადასტურებისას მოხდა შეცდომა."
+
+msgid "notification.editedAuthor"
+msgstr "ავტორი ჩასწორებულია."
+
+msgid "notification.addedAuthor"
+msgstr "ავტორი დამატებულია."
+
+msgid "notification.removedAnnouncement"
+msgstr "განცხადება წაიშალა."
+
+msgid "notification.removedAnnouncementType"
+msgstr "განცხადების ტიპი წაიშალა."
+
+msgid "notification.editedAnnouncementType"
+msgstr "განცხადების ტიპი შესწორებულია."
+
+msgid "notification.addedAnnouncementType"
+msgstr "განცხადების ტიპი დამატებულია."
+
+msgid "notification.allow"
+msgstr "ჩართეთ ამ ტიპის შეტყობინებები."
+
+msgid "notification.updatedReviewFiles"
+msgstr "ფაილების გადახედვა განახლდა."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "მადლობის ელწერილი, რომელიც გაგზავნილია მიმომხილველისთვის."
+
+msgid "notification.reviewAcknowledged"
+msgstr "მიმოხილვა აღინიშნა, როგორც აღიარებული. ელფოსტა არ გაიგზავნა."
+
+msgid "notification.addedQuery"
+msgstr "დაემატა დისკუსია"
+
+msgid "notification.removedAuditor"
+msgstr "აუდიტორი ამოღებულია."
+
+msgid "notification.addedAuditor"
+msgstr "აუდიტორმა დამატებულია."
+
+msgid "navigation.userHome"
+msgstr "მომხმარებლის მთავარი გვერდი"
+
+msgid "navigation.system"
+msgstr "სისტემა"
+
+msgid "navigation.stepNumber"
+msgstr "ბიჯი {$step}"
+
+msgid "navigation.skip.footer"
+msgstr "საიტის სარდაფზე გადასვლა"
+
+msgid "navigation.skip.nav"
+msgstr "მთვარ მენიუზე გადასვლა"
+
+msgid "navigation.skip.announcements"
+msgstr "განცხადებებზე გადასვლა"
+
+msgid "navigation.skip.description"
+msgstr "შინაარსის ბმულებზე გადასვლა"
+
+msgid "navigation.sitemap"
+msgstr "საიტის რუკა"
+
+msgid "navigation.publicMenu"
+msgstr "საჯარო მენიუ"
+
+msgid "navigation.previousStep"
+msgstr "წინა ბიჯი"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown}, სულ {$total} ელემენტი"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to}, სულ {$total} ელემენტი"
+
+msgid "navigation.infoForReaders.long"
+msgstr "ინფორმაცია მკითხველებისთვის"
+
+msgid "navigation.infoForReaders"
+msgstr "მკითხველებისთვის"
+
+msgid "navigation.browseByTitle"
+msgstr "სათაურის მიხედვით"
+
+msgid "navigation.browseByAuthor"
+msgstr "ავტორის მიხედვით"
+
+msgid "navigation.tools.statistics"
+msgstr "სტატისტიკა"
+
+msgid "navigation.tools.importExport"
+msgstr "იმპორტი/ექსპორტი"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "ამ მონაწილისთვის ცვლილებების შეტანა არ შეიძლება"
+
+msgid "stageParticipants.selectedUser"
+msgstr "მონაწილე"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"ამ პირს მიეცით საშუალება შეიტანოს ცვლილებები პუბლიკაციაში, როგორიცაა "
+"სათაური, რეზიუმე, მეტამონაცემები და პუბლიკაციის სხვა დეტალები. თქვენ "
+"შეიძლება მოისურვოთ ამ პრივილეგიის გაუქმება, თუ წარდგენამ მიიღო საბოლოო "
+"შემოწმება და მზადაა გამოსაქვეყნებლად."
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"ამ მონაწილეს მხოლოდ სარედაქციო გადაწყვეტილების რეკომენდაცია აქვს და "
+"საჭიროებს უფლებამოსილ რედაქტორს სარედაქციო გადაწყვეტილებების ჩაწერაში."
+
+msgid "stageParticipants.options"
+msgstr "დანიშვნის პრივილეგიები"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"გთხოვთ, დარწმუნდეთ, რომ შეავსეთ შეტყობინებების ველი და დისკუსიაში შეიყვანეთ "
+"სხვისი გარდა."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+"აირჩიეთ წინასწარ განსაზღვრული შეტყობინება გამოსაყენებლად, ან შეავსეთ ქვემოთ "
+"მოცემული ფორმა."
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "დაიწყეთ დისკუსია თქვენსსა და {$userFullName}-ს შორის."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "დისკუსიის დაწყება"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "შეტყობინება გაგზავნილია მომხმარებლებისთვის."

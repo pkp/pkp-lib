@@ -9,6 +9,7 @@
  *
  * @class TemporaryFile
  * @ingroup file
+ *
  * @see TemporaryFileDAO
  *
  * @brief Temporary file class.
@@ -16,37 +17,41 @@
 
 import('lib.pkp.classes.file.PKPFile');
 
-class TemporaryFile extends PKPFile {
+class TemporaryFile extends PKPFile
+{
+    /**
+     * Return absolute path to the file on the host filesystem.
+     *
+     * @return string
+     */
+    public function getFilePath()
+    {
+        import('lib.pkp.classes.file.TemporaryFileManager');
+        $temporaryFileManager = new TemporaryFileManager();
+        return $temporaryFileManager->getBasePath() . $this->getServerFileName();
+    }
 
-	/**
-	 * Return absolute path to the file on the host filesystem.
-	 * @return string
-	 */
-	function getFilePath() {
-		import('lib.pkp.classes.file.TemporaryFileManager');
-		$temporaryFileManager = new TemporaryFileManager();
-		return $temporaryFileManager->getBasePath() . $this->getServerFileName();
-	}
+    //
+    // Get/set methods
+    //
 
-	//
-	// Get/set methods
-	//
+    /**
+     * Get ID of associated user.
+     *
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->getData('userId');
+    }
 
-	/**
-	 * Get ID of associated user.
-	 * @return int
-	 */
-	function getUserId() {
-		return $this->getData('userId');
-	}
-
-	/**
-	 * Set ID of associated user.
-	 * @param $userId int
-	 */
-	function setUserId($userId) {
-		$this->setData('userId', $userId);
-	}
+    /**
+     * Set ID of associated user.
+     *
+     * @param $userId int
+     */
+    public function setUserId($userId)
+    {
+        $this->setData('userId', $userId);
+    }
 }
-
-

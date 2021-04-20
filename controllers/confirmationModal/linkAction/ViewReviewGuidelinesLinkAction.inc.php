@@ -18,43 +18,47 @@
 
 import('lib.pkp.classes.linkAction.LinkAction');
 
-class ViewReviewGuidelinesLinkAction extends LinkAction {
-	/** @var Context */
-	var $_context;
+class ViewReviewGuidelinesLinkAction extends LinkAction
+{
+    /** @var Context */
+    public $_context;
 
-	/** @var int WORKFLOW_STAGE_ID_... */
-	var $_stageId;
+    /** @var int WORKFLOW_STAGE_ID_... */
+    public $_stageId;
 
-	/**
-	 * Constructor
-	 * @param $request Request
-	 * @param $stageId int Stage ID of review assignment
-	 */
-	function __construct($request, $stageId) {
-		$this->_context = $request->getContext();
-		$this->_stageId = $stageId;
+    /**
+     * Constructor
+     *
+     * @param $request Request
+     * @param $stageId int Stage ID of review assignment
+     */
+    public function __construct($request, $stageId)
+    {
+        $this->_context = $request->getContext();
+        $this->_stageId = $stageId;
 
-		import('lib.pkp.classes.linkAction.request.ConfirmationModal');
-		$viewGuidelinesModal = new ConfirmationModal(
-			$this->getGuidelines(),
-			__('reviewer.submission.guidelines'),
-			null, null,
-			false
-		);
+        import('lib.pkp.classes.linkAction.request.ConfirmationModal');
+        $viewGuidelinesModal = new ConfirmationModal(
+            $this->getGuidelines(),
+            __('reviewer.submission.guidelines'),
+            null,
+            null,
+            false
+        );
 
-		// Configure the link action.
-		parent::__construct('viewReviewGuidelines', $viewGuidelinesModal, __('reviewer.submission.guidelines'));
-	}
+        // Configure the link action.
+        parent::__construct('viewReviewGuidelines', $viewGuidelinesModal, __('reviewer.submission.guidelines'));
+    }
 
-	/**
-	 * Get the guidelines for the specified stage.
-	 * @return string?
-	 */
-	function getGuidelines() {
-		return $this->_context->getLocalizedData(
-			$this->_stageId==WORKFLOW_STAGE_ID_EXTERNAL_REVIEW?'reviewGuidelines':'internalReviewGuidelines'
-		);
-	}
+    /**
+     * Get the guidelines for the specified stage.
+     *
+     * @return string?
+     */
+    public function getGuidelines()
+    {
+        return $this->_context->getLocalizedData(
+            $this->_stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW ? 'reviewGuidelines' : 'internalReviewGuidelines'
+        );
+    }
 }
-
-

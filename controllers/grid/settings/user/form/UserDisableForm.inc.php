@@ -15,83 +15,89 @@
 
 import('lib.pkp.classes.form.Form');
 
-class UserDisableForm extends Form {
+class UserDisableForm extends Form
+{
+    /** @var the user id of user to enable/disable */
+    public $_userId;
 
-	/* @var the user id of user to enable/disable */
-	var $_userId;
+    /** @var whether to enable or disable the user */
+    public $_enable;
 
-	/* @var whether to enable or disable the user */
-	var $_enable;
+    /**
+     * Constructor.
+     */
+    public function __construct($userId, $enable = false)
+    {
+        parent::__construct('controllers/grid/settings/user/form/userDisableForm.tpl');
 
-	/**
-	 * Constructor.
-	 */
-	function __construct($userId, $enable = false) {
-		parent::__construct('controllers/grid/settings/user/form/userDisableForm.tpl');
+        $this->_userId = (int) $userId;
+        $this->_enable = (bool) $enable;
 
-		$this->_userId = (int) $userId;
-		$this->_enable = (bool) $enable;
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
+    }
 
-		$this->addCheck(new FormValidatorPost($this));
-		$this->addCheck(new FormValidatorCSRF($this));
-	}
+    /**
+     * Initialize form data.
+     */
+    public function initData()
+    {
+        if ($this->_userId) {
+            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+            $user = $userDao->getById($this->_userId);
 
-	/**
-	 * Initialize form data.
-	 */
-	function initData() {
-		if ($this->_userId) {
-			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-			$user = $userDao->getById($this->_userId);
+            if ($user) {
+                $this->_data = [
+                    'disableReason' => $user->getDisabledReason()
+                ];
+            }
+        }
+    }
 
-			if ($user) {
-				$this->_data = array(
-					'disableReason' => $user->getDisabledReason()
-				);
-			}
-		}
-	}
+    /**
+     * Assign form data to user-submitted data.
+     *
+     * @see Form::readInputData()
+     */
+    public function readInputData()
+    {
+        $this->readUserVars(
+            [
+                'disableReason',
+            ]
+        );
+    }
 
-	/**
-	 * Assign form data to user-submitted data.
-	 * @see Form::readInputData()
-	 */
-	function readInputData() {
-		$this->readUserVars(
-			array(
-				'disableReason',
-			)
-		);
+    /**
+     * @copydoc Form::display
+     *
+     * @param null|mixed $request
+     * @param null|mixed $template
+     */
+    public function display($request = null, $template = null)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'userId' => $this->_userId,
+            'enable' => $this->_enable,
+        ]);
+        return $this->fetch($request);
+    }
 
-	}
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionArgs)
+    {
+        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+        $user = $userDao->getById($this->_userId);
 
-	/**
-	 * @copydoc Form::display
-	 */
-	function display($request = null, $template = null) {
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign(array(
-			'userId' => $this->_userId,
-			'enable' => $this->_enable,
-		));
-		return $this->fetch($request);
-	}
-
-	/**
-	 * @copydoc Form::execute()
-	 */
-	function execute(...$functionArgs) {
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-		$user = $userDao->getById($this->_userId);
-
-		if ($user) {
-			$user->setDisabled($this->_enable ? false : true);
-			$user->setDisabledReason($this->getData('disableReason'));
-			$userDao->updateObject($user);
-		}
-		parent::execute(...$functionArgs);
-		return $user;
-	}
+        if ($user) {
+            $user->setDisabled($this->_enable ? false : true);
+            $user->setDisabledReason($this->getData('disableReason'));
+            $userDao->updateObject($user);
+        }
+        parent::execute(...$functionArgs);
+        return $user;
+    }
 }
-
-

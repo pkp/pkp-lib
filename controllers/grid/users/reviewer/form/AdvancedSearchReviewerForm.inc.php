@@ -15,138 +15,144 @@
 
 import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerForm');
 
-class AdvancedSearchReviewerForm extends ReviewerForm {
-	/**
-	 * Constructor.
-	 * @param $submission Submission
-	 * @param $reviewRound ReviewRound
-	 */
-	function __construct($submission, $reviewRound) {
-		parent::__construct($submission, $reviewRound);
-		$this->setTemplate('controllers/grid/users/reviewer/form/advancedSearchReviewerForm.tpl');
+class AdvancedSearchReviewerForm extends ReviewerForm
+{
+    /**
+     * Constructor.
+     *
+     * @param $submission Submission
+     * @param $reviewRound ReviewRound
+     */
+    public function __construct($submission, $reviewRound)
+    {
+        parent::__construct($submission, $reviewRound);
+        $this->setTemplate('controllers/grid/users/reviewer/form/advancedSearchReviewerForm.tpl');
 
-		$this->addCheck(new FormValidator($this, 'reviewerId', 'required', 'editor.review.mustSelect'));
-	}
+        $this->addCheck(new FormValidator($this, 'reviewerId', 'required', 'editor.review.mustSelect'));
+    }
 
-	/**
-	 * Assign form data to user-submitted data.
-	 * @see Form::readInputData()
-	 */
-	function readInputData() {
-		parent::readInputData();
+    /**
+     * Assign form data to user-submitted data.
+     *
+     * @see Form::readInputData()
+     */
+    public function readInputData()
+    {
+        parent::readInputData();
 
-		$this->readUserVars(array('reviewerId'));
-	}
+        $this->readUserVars(['reviewerId']);
+    }
 
-	/**
-	 * @copydoc Form::fetch()
-	 */
-	function fetch($request, $template = null, $display = false) {
-		// Get submission context
-		$submissionContext = Services::get('context')->get($this->getSubmission()->getContextId());
+    /**
+     * @copydoc Form::fetch()
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        // Get submission context
+        $submissionContext = Services::get('context')->get($this->getSubmission()->getContextId());
 
-		// Pass along the request vars
-		$actionArgs = $request->getUserVars();
-		$reviewRound = $this->getReviewRound();
-		$actionArgs['reviewRoundId'] = $reviewRound->getId();
-		$actionArgs['selectionType'] = REVIEWER_SELECT_ADVANCED_SEARCH;
-		// but change the selectionType for each action
-		$advancedSearchAction = new LinkAction(
-			'advancedSearch',
-			new AjaxAction($request->url(null, null, 'reloadReviewerForm', null, $actionArgs)),
-			__('manager.reviewerSearch.change'),
-			'user_search'
-		);
+        // Pass along the request vars
+        $actionArgs = $request->getUserVars();
+        $reviewRound = $this->getReviewRound();
+        $actionArgs['reviewRoundId'] = $reviewRound->getId();
+        $actionArgs['selectionType'] = REVIEWER_SELECT_ADVANCED_SEARCH;
+        // but change the selectionType for each action
+        $advancedSearchAction = new LinkAction(
+            'advancedSearch',
+            new AjaxAction($request->url(null, null, 'reloadReviewerForm', null, $actionArgs)),
+            __('manager.reviewerSearch.change'),
+            'user_search'
+        );
 
-		$this->setReviewerFormAction($advancedSearchAction);
+        $this->setReviewerFormAction($advancedSearchAction);
 
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-		$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getSubmissionId(), $this->getReviewRound()->getId());
-		$currentlyAssigned = array();
-		if (!empty($reviewAssignments)) {
-			foreach ($reviewAssignments as $reviewAssignment) {
-				$currentlyAssigned[] = (int) $reviewAssignment->getReviewerId();
-			}
-		}
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getSubmissionId(), $this->getReviewRound()->getId());
+        $currentlyAssigned = [];
+        if (!empty($reviewAssignments)) {
+            foreach ($reviewAssignments as $reviewAssignment) {
+                $currentlyAssigned[] = (int) $reviewAssignment->getReviewerId();
+            }
+        }
 
-		// Get user IDs already assigned to this submission, and admins and
-		// managers who may have access to author identities and can not guarantee
-		// anonymous reviews
-		$warnOnAssignment = array();
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-		$stageAssignmentResults = $stageAssignmentDao->getBySubmissionAndStageId($this->getSubmissionId());
-		while ($stageAssignment = $stageAssignmentResults->next()) {
-			$warnOnAssignment[] = $stageAssignment->getUserId();
-		}
-		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
-		$managerUsersResults = $roleDao->getUsersByRoleId(ROLE_ID_MANAGER, $submissionContext->getId());
-		while ($manager = $managerUsersResults->next()) {
-			$warnOnAssignment[] = $manager->getId();
-		}
-		$adminUsersResults = $roleDao->getUsersByRoleId(ROLE_ID_SITE_ADMIN, $submissionContext->getId());
-		while ($admin = $adminUsersResults->next()) {
-			$warnOnAssignment[] = $admin->getId();
-		}
-		$warnOnAssignment = array_map('intval', array_values(array_unique($warnOnAssignment)));
+        // Get user IDs already assigned to this submission, and admins and
+        // managers who may have access to author identities and can not guarantee
+        // anonymous reviews
+        $warnOnAssignment = [];
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+        $stageAssignmentResults = $stageAssignmentDao->getBySubmissionAndStageId($this->getSubmissionId());
+        while ($stageAssignment = $stageAssignmentResults->next()) {
+            $warnOnAssignment[] = $stageAssignment->getUserId();
+        }
+        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+        $managerUsersResults = $roleDao->getUsersByRoleId(ROLE_ID_MANAGER, $submissionContext->getId());
+        while ($manager = $managerUsersResults->next()) {
+            $warnOnAssignment[] = $manager->getId();
+        }
+        $adminUsersResults = $roleDao->getUsersByRoleId(ROLE_ID_SITE_ADMIN, $submissionContext->getId());
+        while ($admin = $adminUsersResults->next()) {
+            $warnOnAssignment[] = $admin->getId();
+        }
+        $warnOnAssignment = array_map('intval', array_values(array_unique($warnOnAssignment)));
 
-		// Get reviewers list
-		$selectReviewerListPanel = new \PKP\components\listPanels\PKPSelectReviewerListPanel(
-			'selectReviewer',
-			__('editor.submission.findAndSelectReviewer'),
-			[
-				'apiUrl' => $request->getDispatcher()->url(
-					$request,
-					PKPApplication::ROUTE_API,
-					$submissionContext->getPath(),
-					'users/reviewers'
-				),
-				'currentlyAssigned' => $currentlyAssigned,
-				'getParams' => [
-					'contextId' => $submissionContext->getId(),
-					'reviewStage' => $reviewRound->getStageId(),
-				],
-				'selectorName' => 'reviewerId',
-				'warnOnAssignment' => $warnOnAssignment,
-			]
-		);
-		$selectReviewerListPanel->set([
-			'items' => $selectReviewerListPanel->getItems($request),
-			'itemsMax' => $selectReviewerListPanel->getItemsMax(),
-		]);
+        // Get reviewers list
+        $selectReviewerListPanel = new \PKP\components\listPanels\PKPSelectReviewerListPanel(
+            'selectReviewer',
+            __('editor.submission.findAndSelectReviewer'),
+            [
+                'apiUrl' => $request->getDispatcher()->url(
+                    $request,
+                    PKPApplication::ROUTE_API,
+                    $submissionContext->getPath(),
+                    'users/reviewers'
+                ),
+                'currentlyAssigned' => $currentlyAssigned,
+                'getParams' => [
+                    'contextId' => $submissionContext->getId(),
+                    'reviewStage' => $reviewRound->getStageId(),
+                ],
+                'selectorName' => 'reviewerId',
+                'warnOnAssignment' => $warnOnAssignment,
+            ]
+        );
+        $selectReviewerListPanel->set([
+            'items' => $selectReviewerListPanel->getItems($request),
+            'itemsMax' => $selectReviewerListPanel->getItemsMax(),
+        ]);
 
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('selectReviewerListData', [
-			'components' => [
-				'selectReviewer' => $selectReviewerListPanel->getConfig(),
-			]
-		]);
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('selectReviewerListData', [
+            'components' => [
+                'selectReviewer' => $selectReviewerListPanel->getConfig(),
+            ]
+        ]);
 
-		// Only add actions to forms where user can operate.
-		if (array_intersect($this->getUserRoles(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) {
-			$actionArgs['selectionType'] = REVIEWER_SELECT_CREATE;
-			// but change the selectionType for each action
-			$advancedSearchAction = new LinkAction(
-				'selectCreate',
-				new AjaxAction($request->url(null, null, 'reloadReviewerForm', null, $actionArgs)),
-				__('editor.review.createReviewer'),
-				'add_user'
-			);
+        // Only add actions to forms where user can operate.
+        if (array_intersect($this->getUserRoles(), [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR])) {
+            $actionArgs['selectionType'] = REVIEWER_SELECT_CREATE;
+            // but change the selectionType for each action
+            $advancedSearchAction = new LinkAction(
+                'selectCreate',
+                new AjaxAction($request->url(null, null, 'reloadReviewerForm', null, $actionArgs)),
+                __('editor.review.createReviewer'),
+                'add_user'
+            );
 
-			$this->setReviewerFormAction($advancedSearchAction);
-			$actionArgs['selectionType'] = REVIEWER_SELECT_ENROLL_EXISTING;
-			// but change the selectionType for each action
-			$advancedSearchAction = new LinkAction(
-				'enrolExisting',
-				new AjaxAction($request->url(null, null, 'reloadReviewerForm', null, $actionArgs)),
-				__('editor.review.enrollReviewer.short'),
-				'enroll_user'
-			);
+            $this->setReviewerFormAction($advancedSearchAction);
+            $actionArgs['selectionType'] = REVIEWER_SELECT_ENROLL_EXISTING;
+            // but change the selectionType for each action
+            $advancedSearchAction = new LinkAction(
+                'enrolExisting',
+                new AjaxAction($request->url(null, null, 'reloadReviewerForm', null, $actionArgs)),
+                __('editor.review.enrollReviewer.short'),
+                'enroll_user'
+            );
 
-			$this->setReviewerFormAction($advancedSearchAction);
-		}
+            $this->setReviewerFormAction($advancedSearchAction);
+        }
 
-		return parent::fetch($request, $template, $display);
-	}
+        return parent::fetch($request, $template, $display);
+    }
 }
-
-

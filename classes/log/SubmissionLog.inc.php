@@ -20,54 +20,59 @@
 
 import('lib.pkp.classes.log.PKPSubmissionEventLogEntry');
 
-class SubmissionLog {
+class SubmissionLog
+{
+    /**
+     * Add a new event log entry with the specified parameters
+     *
+     * @param $request object
+     * @param $submission object
+     * @param $eventType int
+     * @param $messageKey string
+     * @param $params array optional
+     *
+     * @return object SubmissionLogEntry iff the event was logged
+     */
+    public static function logEvent($request, $submission, $eventType, $messageKey, $params = [])
+    {
+        // Create a new entry object
+        $submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO'); /** @var SubmissionEventLogDAO $submissionEventLogDao */
+        $entry = $submissionEventLogDao->newDataObject();
 
-	/**
-	 * Add a new event log entry with the specified parameters
-	 * @param $request object
-	 * @param $submission object
-	 * @param $eventType int
-	 * @param $messageKey string
-	 * @param $params array optional
-	 * @return object SubmissionLogEntry iff the event was logged
-	 */
-	static function logEvent($request, $submission, $eventType, $messageKey, $params = array()) {
-		// Create a new entry object
-		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO'); /* @var $submissionEventLogDao SubmissionEventLogDAO */
-		$entry = $submissionEventLogDao->newDataObject();
+        // Set implicit parts of the log entry
+        $entry->setDateLogged(Core::getCurrentDate());
 
-		// Set implicit parts of the log entry
-		$entry->setDateLogged(Core::getCurrentDate());
+        if (Validation::isLoggedInAs()) {
+            // If user is logged in as another user log with real userid
+            $sessionManager = SessionManager::getManager();
+            $session = $sessionManager->getUserSession();
+            $userId = $session->getSessionVar('signedInAs');
+            if ($userId) {
+                $entry->setUserId($userId);
+            }
+        } else {
+            $user = $request->getUser();
+            if ($user) {
+                $entry->setUserId($user->getId());
+            }
+        }
 
-		if (Validation::isLoggedInAs()) {
-			// If user is logged in as another user log with real userid
-			$sessionManager = SessionManager::getManager();
-			$session = $sessionManager->getUserSession();
-			$userId = $session->getSessionVar('signedInAs');
-			if ($userId) $entry->setUserId($userId);
-		} else {
-			$user = $request->getUser();
-			if ($user) $entry->setUserId($user->getId());
-		}
+        $entry->setSubmissionId($submission->getId());
 
-		$entry->setSubmissionId($submission->getId());
+        // Set explicit parts of the log entry
+        $entry->setEventType($eventType);
+        $entry->setMessage($messageKey);
+        $entry->setParams($params);
+        $entry->setIsTranslated(0); // Legacy for old entries. All messages now use locale keys.
 
-		// Set explicit parts of the log entry
-		$entry->setEventType($eventType);
-		$entry->setMessage($messageKey);
-		$entry->setParams($params);
-		$entry->setIsTranslated(0); // Legacy for old entries. All messages now use locale keys.
+        // Insert the resulting object
+        $submissionEventLogDao->insertObject($entry);
 
-		// Insert the resulting object
-		$submissionEventLogDao->insertObject($entry);
+        // Stamp the submission status modification date.
+        $submission->stampLastActivity();
+        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
+        $submissionDao->updateObject($submission);
 
-		// Stamp the submission status modification date.
-		$submission->stampLastActivity();
-		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$submissionDao->updateObject($submission);
-
-		return $entry;
-	}
+        return $entry;
+    }
 }
-
-

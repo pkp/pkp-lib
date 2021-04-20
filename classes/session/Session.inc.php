@@ -14,6 +14,7 @@
  *
  * @class Session
  * @ingroup session
+ *
  * @see SessionDAO
  *
  * @brief Maintains user state information from one request to the next.
@@ -21,232 +22,277 @@
 
 namespace PKP\session;
 
-use \PKP\db\DAORegistry;
-use \PKP\config\Config;
+use PKP\config\Config;
+use PKP\db\DAORegistry;
 
-class Session extends \PKP\core\DataObject {
+class Session extends \PKP\core\DataObject
+{
+    /** The User object associated with this session */
+    public $user;
 
-	/** The User object associated with this session */
-	var $user;
 
+    /**
+     * Get a session variable's value.
+     *
+     * @param $key string
+     */
+    public function getSessionVar($key)
+    {
+        return $_SESSION[$key] ?? null;
+    }
 
-	/**
-	 * Get a session variable's value.
-	 * @param $key string
-	 * @return mixed
-	 */
-	function getSessionVar($key) {
-		return isset($_SESSION[$key]) ? $_SESSION[$key] : null;
-	}
+    /**
+     * Get a session variable's value.
+     *
+     * @param $key string
+     * @param $value mixed
+     */
+    public function setSessionVar($key, $value)
+    {
+        $_SESSION[$key] = $value;
+        return $value;
+    }
 
-	/**
-	 * Get a session variable's value.
-	 * @param $key string
-	 * @param $value mixed
-	 * @return mixed
-	 */
-	function setSessionVar($key, $value) {
-		$_SESSION[$key] = $value;
-		return $value;
-	}
+    /**
+     * Unset (delete) a session variable.
+     *
+     * @param $key string
+     */
+    public function unsetSessionVar($key)
+    {
+        if (isset($_SESSION[$key])) {
+            unset($_SESSION[$key]);
+        }
+    }
 
-	/**
-	 * Unset (delete) a session variable.
-	 * @param $key string
-	 */
-	function unsetSessionVar($key) {
-		if (isset($_SESSION[$key])) {
-			unset($_SESSION[$key]);
-		}
-	}
+    //
+    // Get/set methods
+    //
 
-	//
-	// Get/set methods
-	//
+    /**
+     * Get user ID (0 if anonymous user).
+     *
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->getData('userId');
+    }
 
-	/**
-	 * Get user ID (0 if anonymous user).
-	 * @return int
-	 */
-	function getUserId() {
-		return $this->getData('userId');
-	}
+    /**
+     * Set user ID.
+     *
+     * @param $userId int
+     */
+    public function setUserId($userId)
+    {
+        if (!isset($userId) || empty($userId)) {
+            $this->user = null;
+            $userId = null;
+        } elseif ($userId != $this->getData('userId')) {
+            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+            $this->user = $userDao->getById($userId);
+            if (!isset($this->user)) {
+                $userId = null;
+            }
+        }
+        $this->setData('userId', $userId);
+    }
 
-	/**
-	 * Set user ID.
-	 * @param $userId int
-	 */
-	function setUserId($userId) {
-		if (!isset($userId) || empty($userId)) {
-			$this->user = null;
-			$userId = null;
+    /**
+     * Get IP address.
+     *
+     * @return string
+     */
+    public function getIpAddress()
+    {
+        return $this->getData('ipAddress');
+    }
 
-		} else if ($userId != $this->getData('userId')) {
-			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-			$this->user = $userDao->getById($userId);
-			if (!isset($this->user)) {
-				$userId = null;
-			}
-		}
-		$this->setData('userId', $userId);
-	}
+    /**
+     * Set IP address.
+     *
+     * @param $ipAddress string
+     */
+    public function setIpAddress($ipAddress)
+    {
+        $this->setData('ipAddress', $ipAddress);
+    }
 
-	/**
-	 * Get IP address.
-	 * @return string
-	 */
-	function getIpAddress() {
-		return $this->getData('ipAddress');
-	}
+    /**
+     * Get user agent.
+     *
+     * @return string
+     */
+    public function getUserAgent()
+    {
+        return $this->getData('userAgent');
+    }
 
-	/**
-	 * Set IP address.
-	 * @param $ipAddress string
-	 */
-	function setIpAddress($ipAddress) {
-		$this->setData('ipAddress', $ipAddress);
-	}
+    /**
+     * Set user agent.
+     *
+     * @param $userAgent string
+     */
+    public function setUserAgent($userAgent)
+    {
+        $this->setData('userAgent', $userAgent);
+    }
 
-	/**
-	 * Get user agent.
-	 * @return string
-	 */
-	function getUserAgent() {
-		return $this->getData('userAgent');
-	}
+    /**
+     * Get time (in seconds) since session was created.
+     *
+     * @return int
+     */
+    public function getSecondsCreated()
+    {
+        return $this->getData('created');
+    }
 
-	/**
-	 * Set user agent.
-	 * @param $userAgent string
-	 */
-	function setUserAgent($userAgent) {
-		$this->setData('userAgent', $userAgent);
-	}
+    /**
+     * Set time (in seconds) since session was created.
+     *
+     * @param $created int
+     */
+    public function setSecondsCreated($created)
+    {
+        $this->setData('created', $created);
+    }
 
-	/**
-	 * Get time (in seconds) since session was created.
-	 * @return int
-	 */
-	function getSecondsCreated() {
-		return $this->getData('created');
-	}
+    /**
+     * Get time (in seconds) since session was last used.
+     *
+     * @return int
+     */
+    public function getSecondsLastUsed()
+    {
+        return $this->getData('lastUsed');
+    }
 
-	/**
-	 * Set time (in seconds) since session was created.
-	 * @param $created int
-	 */
-	function setSecondsCreated($created) {
-		$this->setData('created', $created);
-	}
+    /**
+     * Set time (in seconds) since session was last used.
+     *
+     * @param $lastUsed int
+     */
+    public function setSecondsLastUsed($lastUsed)
+    {
+        $this->setData('lastUsed', $lastUsed);
+    }
 
-	/**
-	 * Get time (in seconds) since session was last used.
-	 * @return int
-	 */
-	function getSecondsLastUsed() {
-		return $this->getData('lastUsed');
-	}
+    /**
+     * Check if session is to be saved across browser sessions.
+     *
+     * @return boolean
+     */
+    public function getRemember()
+    {
+        return $this->getData('remember');
+    }
 
-	/**
-	 * Set time (in seconds) since session was last used.
-	 * @param $lastUsed int
-	 */
-	function setSecondsLastUsed($lastUsed) {
-		$this->setData('lastUsed', $lastUsed);
-	}
+    /**
+     * Set whether session is to be saved across browser sessions.
+     *
+     * @param $remember boolean
+     */
+    public function setRemember($remember)
+    {
+        $this->setData('remember', $remember);
+    }
 
-	/**
-	 * Check if session is to be saved across browser sessions.
-	 * @return boolean
-	 */
-	function getRemember() {
-		return $this->getData('remember');
-	}
+    /**
+     * Get all session parameters.
+     *
+     * @return array
+     */
+    public function getSessionData()
+    {
+        return $this->getData('data');
+    }
 
-	/**
-	 * Set whether session is to be saved across browser sessions.
-	 * @param $remember boolean
-	 */
-	function setRemember($remember) {
-		$this->setData('remember', $remember);
-	}
+    /**
+     * Set session parameters.
+     *
+     * @param $data array
+     */
+    public function setSessionData($data)
+    {
+        $this->setData('data', $data);
+    }
 
-	/**
-	 * Get all session parameters.
-	 * @return array
-	 */
-	function getSessionData() {
-		return $this->getData('data');
-	}
+    /**
+     * Get the domain with which the session is registered
+     *
+     * @return array
+     */
+    public function getDomain()
+    {
+        return $this->getData('domain');
+    }
 
-	/**
-	 * Set session parameters.
-	 * @param $data array
-	 */
-	function setSessionData($data) {
-		$this->setData('data', $data);
-	}
+    /**
+     * Set the domain with which the session is registered
+     *
+     * @param $data array
+     */
+    public function setDomain($data)
+    {
+        $this->setData('domain', $data);
+    }
 
-	/**
-	 * Get the domain with which the session is registered
-	 * @return array
-	 */
-	function getDomain() {
-		return $this->getData('domain');
-	}
+    /**
+     * Get user associated with this session (null if anonymous user).
+     *
+     * @return User
+     */
+    public function &getUser()
+    {
+        return $this->user;
+    }
 
-	/**
-	 * Set the domain with which the session is registered
-	 * @param $data array
-	 */
-	function setDomain($data) {
-		$this->setData('domain', $data);
-	}
+    /**
+     * Get a usable CSRF token (generating if necessary).
+     *
+     * @return string
+     */
+    public function getCSRFToken()
+    {
+        $csrf = $this->getSessionVar('csrf');
+        if (!is_array($csrf) || time() > $csrf['timestamp'] + (60 * 60)) { // 1 hour token expiry
+            // Generate random data
+            if (function_exists('openssl_random_pseudo_bytes')) {
+                $data = openssl_random_pseudo_bytes(128);
+            } elseif (function_exists('random_bytes')) {
+                $data = random_bytes(128);
+            } else {
+                $data = sha1(mt_rand());
+            }
 
-	/**
-	 * Get user associated with this session (null if anonymous user).
-	 * @return User
-	 */
-	function &getUser() {
-		return $this->user;
-	}
+            // Hash the data
+            $token = null;
+            $salt = Config::getVar('security', 'salt');
+            $algos = hash_algos();
+            foreach (['sha256', 'sha1', 'md5'] as $algo) {
+                if (in_array($algo, $algos)) {
+                    $token = hash_hmac($algo, $data, $salt);
+                }
+            }
+            if (!$token) {
+                $token = md5($data . $salt);
+            }
 
-	/**
-	 * Get a usable CSRF token (generating if necessary).
-	 * @return string
-	 */
-	function getCSRFToken() {
-		$csrf = $this->getSessionVar('csrf');
-		if (!is_array($csrf) || time() > $csrf['timestamp'] + (60*60)) { // 1 hour token expiry
-			// Generate random data
-			if (function_exists('openssl_random_pseudo_bytes')) $data = openssl_random_pseudo_bytes(128);
-			elseif (function_exists('random_bytes')) $data = random_bytes(128);
-			else $data = sha1(mt_rand());
-
-			// Hash the data
-			$token = null;
-			$salt = Config::getVar('security', 'salt');
-			$algos = hash_algos();
-			foreach (array('sha256', 'sha1', 'md5') as $algo) {
-				if (in_array($algo, $algos)) {
-					$token = hash_hmac($algo, $data, $salt);
-				}
-			}
-			if (!$token) $token = md5($data . $salt);
-
-			$csrf = $this->setSessionVar('csrf', array(
-				'timestamp' => time(),
-				'token' => $token,
-			));
-		} else {
-			// Extend timeout of CSRF token
-			$csrf['timestamp'] = time();
-			$this->setSessionVar('csrf', $csrf);
-		}
-		return $csrf['token'];
-	}
+            $csrf = $this->setSessionVar('csrf', [
+                'timestamp' => time(),
+                'token' => $token,
+            ]);
+        } else {
+            // Extend timeout of CSRF token
+            $csrf['timestamp'] = time();
+            $this->setSessionVar('csrf', $csrf);
+        }
+        return $csrf['token'];
+    }
 }
 
 if (!PKP_STRICT_MODE) {
-	class_alias('\PKP\session\Session', '\Session');
+    class_alias('\PKP\session\Session', '\Session');
 }

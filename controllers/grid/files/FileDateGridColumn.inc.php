@@ -16,72 +16,87 @@
 
 import('lib.pkp.classes.controllers.grid.GridColumn');
 
-class FileDateGridColumn extends GridColumn {
-	/** @var boolean */
-	var $_includeNotes;
+class FileDateGridColumn extends GridColumn
+{
+    /** @var boolean */
+    public $_includeNotes;
 
-	/**
-	 * Constructor
-	 * @param $includeNotes boolean
-	 * without the history tab.
-	 */
-	function __construct($includeNotes = true) {
-		$this->_includeNotes = $includeNotes;
+    /**
+     * Constructor
+     *
+     * @param $includeNotes boolean
+     * without the history tab.
+     */
+    public function __construct($includeNotes = true)
+    {
+        $this->_includeNotes = $includeNotes;
 
-		import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
-		$cellProvider = new ColumnBasedGridCellProvider();
+        import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
+        $cellProvider = new ColumnBasedGridCellProvider();
 
-		parent::__construct('date', 'common.date', null, null, $cellProvider,
-			array('width' => 10, 'alignment' => COLUMN_ALIGNMENT_LEFT, 'anyhtml' => true));
-	}
+        parent::__construct(
+            'date',
+            'common.date',
+            null,
+            null,
+            $cellProvider,
+            ['width' => 10, 'alignment' => COLUMN_ALIGNMENT_LEFT, 'anyhtml' => true]
+        );
+    }
 
 
-	//
-	// Public methods
-	//
-	/**
-	 * Method expected by ColumnBasedGridCellProvider
-	 * to render a cell in this column.
-	 *
-	 * @copydoc ColumnBasedGridCellProvider::getTemplateVarsFromRowColumn()
-	 */
-	function getTemplateVarsFromRow($row) {
-		$submissionFileData = $row->getData();
-		$submissionFile = $submissionFileData['submissionFile'];
-		assert(is_a($submissionFile, 'SubmissionFile'));
-		$mtimestamp = strtotime($submissionFile->getData('updatedAt'));
-		$dateFormatLong = \Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong();
-		$date = strftime($dateFormatLong, $mtimestamp);
-		// File age
-		$age = (int)floor((date('U') - $mtimestamp) / 86400);
-		switch( true ) {
-			case $age <= 7:
-				$cls = " pkp_helpers_text_warn"; break;
-			case $age <= 28:
-				$cls = " pkp_helpers_text_primary"; break;
-			default:
-				$cls = ""; break;
-		}
-		return array('label' => sprintf("<span class='label%s'>%s</span>",
-										$cls, htmlspecialchars($date)));
-	}
+    //
+    // Public methods
+    //
+    /**
+     * Method expected by ColumnBasedGridCellProvider
+     * to render a cell in this column.
+     *
+     * @copydoc ColumnBasedGridCellProvider::getTemplateVarsFromRowColumn()
+     */
+    public function getTemplateVarsFromRow($row)
+    {
+        $submissionFileData = $row->getData();
+        $submissionFile = $submissionFileData['submissionFile'];
+        assert(is_a($submissionFile, 'SubmissionFile'));
+        $mtimestamp = strtotime($submissionFile->getData('updatedAt'));
+        $dateFormatLong = \Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong();
+        $date = strftime($dateFormatLong, $mtimestamp);
+        // File age
+        $age = (int)floor((date('U') - $mtimestamp) / 86400);
+        switch (true) {
+            case $age <= 7:
+                $cls = ' pkp_helpers_text_warn'; break;
+            case $age <= 28:
+                $cls = ' pkp_helpers_text_primary'; break;
+            default:
+                $cls = ''; break;
+        }
+        return ['label' => sprintf(
+            "<span class='label%s'>%s</span>",
+            $cls,
+            htmlspecialchars($date)
+        )];
+    }
 
-	//
-	// Private methods
-	//
-	/**
-	 * Determine whether or not submission note status should be included.
-	 */
-	function _getIncludeNotes() {
-		return $this->_includeNotes;
-	}
+    //
+    // Private methods
+    //
+    /**
+     * Determine whether or not submission note status should be included.
+     */
+    public function _getIncludeNotes()
+    {
+        return $this->_includeNotes;
+    }
 
-	/**
-	 * Get stage id, if any.
-	 * @return mixed int or null
-	 */
-	function _getStageId() {
-		return $this->_stageId;
-	}
+    /**
+     * Get stage id, if any.
+     *
+     * @return mixed int or null
+     */
+    public function _getStageId()
+    {
+        return $this->_stageId;
+    }
 }
-

@@ -9,6 +9,7 @@
  *
  * @class SessionDAO
  * @ingroup session
+ *
  * @see Session
  *
  * @brief Operations for retrieving and modifying Session objects.
@@ -16,73 +17,82 @@
 
 namespace PKP\session;
 
-use \PKP\db\DAO;
+use PKP\db\DAO;
 
-class SessionDAO extends DAO {
+class SessionDAO extends DAO
+{
+    /**
+     * Instantiate and return a new data object.
+     */
+    public function newDataObject()
+    {
+        return new Session();
+    }
 
-	/**
-	 * Instantiate and return a new data object.
-	 */
-	function newDataObject() {
-		return new Session();
-	}
+    /**
+     * Retrieve a session by ID.
+     *
+     * @param $sessionId string
+     *
+     * @return Session
+     */
+    public function getSession($sessionId)
+    {
+        $result = $this->retrieve('SELECT * FROM sessions WHERE session_id = ?', [$sessionId]);
 
-	/**
-	 * Retrieve a session by ID.
-	 * @param $sessionId string
-	 * @return Session
-	 */
-	function getSession($sessionId) {
-		$result = $this->retrieve('SELECT * FROM sessions WHERE session_id = ?', [$sessionId]);
+        if ($row = (array) $result->current()) {
+            $session = $this->newDataObject();
+            $session->setId($row['session_id']);
+            $session->setUserId($row['user_id']);
+            $session->setIpAddress($row['ip_address']);
+            $session->setUserAgent($row['user_agent']);
+            $session->setSecondsCreated($row['created']);
+            $session->setSecondsLastUsed($row['last_used']);
+            $session->setRemember($row['remember']);
+            $session->setSessionData($row['data']);
+            $session->setDomain($row['domain']);
+            return $session;
+        }
 
-		if ($row = (array) $result->current()) {
-			$session = $this->newDataObject();
-			$session->setId($row['session_id']);
-			$session->setUserId($row['user_id']);
-			$session->setIpAddress($row['ip_address']);
-			$session->setUserAgent($row['user_agent']);
-			$session->setSecondsCreated($row['created']);
-			$session->setSecondsLastUsed($row['last_used']);
-			$session->setRemember($row['remember']);
-			$session->setSessionData($row['data']);
-			$session->setDomain($row['domain']);
-			return $session;
-		}
+        return null;
+    }
 
-		return null;
-	}
-
-	/**
-	 * Insert a new session.
-	 * @param $session Session
-	 */
-	function insertObject($session) {
-		$this->update(
-			'INSERT INTO sessions
+    /**
+     * Insert a new session.
+     *
+     * @param $session Session
+     */
+    public function insertObject($session)
+    {
+        $this->update(
+            'INSERT INTO sessions
 				(session_id, ip_address, user_agent, created, last_used, remember, data, domain)
 				VALUES
 				(?, ?, ?, ?, ?, ?, ?, ?)',
-			[
-				$session->getId(),
-				$session->getIpAddress(),
-				substr($session->getUserAgent(), 0, 255),
-				(int) $session->getSecondsCreated(),
-				(int) $session->getSecondsLastUsed(),
-				$session->getRemember() ? 1 : 0,
-				$session->getSessionData(),
-				$session->getDomain()
-			]
-		);
-	}
+            [
+                $session->getId(),
+                $session->getIpAddress(),
+                substr($session->getUserAgent(), 0, 255),
+                (int) $session->getSecondsCreated(),
+                (int) $session->getSecondsLastUsed(),
+                $session->getRemember() ? 1 : 0,
+                $session->getSessionData(),
+                $session->getDomain()
+            ]
+        );
+    }
 
-	/**
-	 * Update an existing session.
-	 * @param $session Session
-	 * @return int Number of affected rows
-	 */
-	function updateObject($session) {
-		return $this->update(
-			'UPDATE sessions
+    /**
+     * Update an existing session.
+     *
+     * @param $session Session
+     *
+     * @return int Number of affected rows
+     */
+    public function updateObject($session)
+    {
+        return $this->update(
+            'UPDATE sessions
 				SET
 					user_id = ?,
 					ip_address = ?,
@@ -93,85 +103,97 @@ class SessionDAO extends DAO {
 					data = ?,
 					domain = ?
 				WHERE session_id = ?',
-			[
-				$session->getUserId()==''?null:(int) $session->getUserId(),
-				$session->getIpAddress(),
-				substr($session->getUserAgent(), 0, 255),
-				(int) $session->getSecondsCreated(),
-				(int) $session->getSecondsLastUsed(),
-				$session->getRemember() ? 1 : 0,
-				$session->getSessionData(),
-				$session->getDomain(),
-				$session->getId()
-			]
-		);
-	}
+            [
+                $session->getUserId() == '' ? null : (int) $session->getUserId(),
+                $session->getIpAddress(),
+                substr($session->getUserAgent(), 0, 255),
+                (int) $session->getSecondsCreated(),
+                (int) $session->getSecondsLastUsed(),
+                $session->getRemember() ? 1 : 0,
+                $session->getSessionData(),
+                $session->getDomain(),
+                $session->getId()
+            ]
+        );
+    }
 
-	/**
-	 * Delete a session.
-	 * @param $session Session
-	 */
-	function deleteObject($session) {
-		$this->deleteById($session->getId());
-	}
+    /**
+     * Delete a session.
+     *
+     * @param $session Session
+     */
+    public function deleteObject($session)
+    {
+        $this->deleteById($session->getId());
+    }
 
-	/**
-	 * Delete a session by ID.
-	 * @param $sessionId string
-	 */
-	function deleteById($sessionId) {
-		$this->update('DELETE FROM sessions WHERE session_id = ?', [$sessionId]);
-	}
+    /**
+     * Delete a session by ID.
+     *
+     * @param $sessionId string
+     */
+    public function deleteById($sessionId)
+    {
+        $this->update('DELETE FROM sessions WHERE session_id = ?', [$sessionId]);
+    }
 
-	/**
-	 * Delete sessions by user ID.
-	 * @param $userId string
-	 */
-	function deleteByUserId($userId) {
-		$this->update(
-			'DELETE FROM sessions WHERE user_id = ?',
-			[(int) $userId]
-		);
-	}
+    /**
+     * Delete sessions by user ID.
+     *
+     * @param $userId string
+     */
+    public function deleteByUserId($userId)
+    {
+        $this->update(
+            'DELETE FROM sessions WHERE user_id = ?',
+            [(int) $userId]
+        );
+    }
 
-	/**
-	 * Delete all sessions older than the specified time.
-	 * @param $lastUsed int cut-off time in seconds for not-remembered sessions
-	 * @param $lastUsedRemember int optional, cut-off time in seconds for remembered sessions
-	 */
-	function deleteByLastUsed($lastUsed, $lastUsedRemember = 0) {
-		if ($lastUsedRemember == 0) {
-			$this->update(
-				'DELETE FROM sessions WHERE (last_used < ? AND remember = 0)',
-				[(int) $lastUsed]
-			);
-		} else {
-			$this->update(
-				'DELETE FROM sessions WHERE (last_used < ? AND remember = 0) OR (last_used < ? AND remember = 1)',
-				[(int) $lastUsed, (int) $lastUsedRemember]
-			);
-		}
-	}
+    /**
+     * Delete all sessions older than the specified time.
+     *
+     * @param $lastUsed int cut-off time in seconds for not-remembered sessions
+     * @param $lastUsedRemember int optional, cut-off time in seconds for remembered sessions
+     */
+    public function deleteByLastUsed($lastUsed, $lastUsedRemember = 0)
+    {
+        if ($lastUsedRemember == 0) {
+            $this->update(
+                'DELETE FROM sessions WHERE (last_used < ? AND remember = 0)',
+                [(int) $lastUsed]
+            );
+        } else {
+            $this->update(
+                'DELETE FROM sessions WHERE (last_used < ? AND remember = 0) OR (last_used < ? AND remember = 1)',
+                [(int) $lastUsed, (int) $lastUsedRemember]
+            );
+        }
+    }
 
-	/**
-	 * Delete all sessions.
-	 */
-	function deleteAllSessions() {
-		$this->update('DELETE FROM sessions');
-	}
+    /**
+     * Delete all sessions.
+     */
+    public function deleteAllSessions()
+    {
+        $this->update('DELETE FROM sessions');
+    }
 
-	/**
-	 * Check if a session exists with the specified ID.
-	 * @param $sessionId string
-	 * @return boolean
-	 */
-	function sessionExistsById($sessionId) {
-		$result = $this->retrieve('SELECT COUNT(*) AS row_count FROM sessions WHERE session_id = ?', [$sessionId]);
-		$row = $result->current();
-		return $row ? (boolean) $row->row_count : false;
-	}
+    /**
+     * Check if a session exists with the specified ID.
+     *
+     * @param $sessionId string
+     *
+     * @return boolean
+     */
+    public function sessionExistsById($sessionId)
+    {
+        $result = $this->retrieve('SELECT COUNT(*) AS row_count FROM sessions WHERE session_id = ?', [$sessionId]);
+        $row = $result->current();
+        return $row ? (bool) $row->row_count : false;
+    }
 }
 
 if (!PKP_STRICT_MODE) {
-	class_alias('\PKP\session\SessionDAO', '\SessionDAO');
+    class_alias('\PKP\session\SessionDAO', '\SessionDAO');
 }

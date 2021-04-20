@@ -13,7 +13,7 @@
  * @brief Test class to be used/instantiated by ClassTypeDescriptionTest.
  */
 
-class TestClass1 {
-	// Just an empty class to test instantiation.
+class TestClass1
+{
+    // Just an empty class to test instantiation.
 }
-

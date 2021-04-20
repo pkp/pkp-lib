@@ -20,16 +20,18 @@
  *  re-use of complex validation code.
  */
 
-class Validator {
-	/**
-	 * Check whether the given value is valid.
-	 * @param $value mixed the value to be checked
-	 * @return boolean
-	 */
-	function isValid($value) {
-		// To be implemented by sub-classes
-		assert(false);
-	}
+class Validator
+{
+    /**
+     * Check whether the given value is valid.
+     *
+     * @param $value mixed the value to be checked
+     *
+     * @return boolean
+     */
+    public function isValid($value)
+    {
+        // To be implemented by sub-classes
+        assert(false);
+    }
 }
-
-

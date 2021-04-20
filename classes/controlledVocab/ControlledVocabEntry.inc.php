@@ -9,6 +9,7 @@
  *
  * @class ControlledVocabEntry
  * @ingroup controlled_vocabs
+ *
  * @see ControlledVocabEntryDAO
  *
  * @brief Basic class describing a controlled vocab.
@@ -16,71 +17,86 @@
 
 namespace PKP\controlledVocab;
 
-class ControlledVocabEntry extends \PKP\core\DataObject {
+class ControlledVocabEntry extends \PKP\core\DataObject
+{
+    //
+    // Get/set methods
+    //
 
-	//
-	// Get/set methods
-	//
+    /**
+     * Get the ID of the controlled vocab.
+     *
+     * @return int
+     */
+    public function getControlledVocabId()
+    {
+        return $this->getData('controlledVocabId');
+    }
 
-	/**
-	 * Get the ID of the controlled vocab.
-	 * @return int
-	 */
-	public function getControlledVocabId() {
-		return $this->getData('controlledVocabId');
-	}
+    /**
+     * Set the ID of the controlled vocab.
+     *
+     * @param $controlledVocabId int
+     */
+    public function setControlledVocabId($controlledVocabId)
+    {
+        $this->setData('controlledVocabId', $controlledVocabId);
+    }
 
-	/**
-	 * Set the ID of the controlled vocab.
-	 * @param $controlledVocabId int
-	 */
-	public function setControlledVocabId($controlledVocabId) {
-		$this->setData('controlledVocabId', $controlledVocabId);
-	}
+    /**
+     * Get sequence number.
+     *
+     * @return float
+     */
+    public function getSequence()
+    {
+        return $this->getData('sequence');
+    }
 
-	/**
-	 * Get sequence number.
-	 * @return float
-	 */
-	public function getSequence() {
-		return $this->getData('sequence');
-	}
+    /**
+     * Set sequence number.
+     *
+     * @param $sequence float
+     */
+    public function setSequence($sequence)
+    {
+        $this->setData('sequence', $sequence);
+    }
 
-	/**
-	 * Set sequence number.
-	 * @param $sequence float
-	 */
-	public function setSequence($sequence) {
-		$this->setData('sequence', $sequence);
-	}
+    /**
+     * Get the localized name.
+     *
+     * @return string
+     */
+    public function getLocalizedName()
+    {
+        return $this->getLocalizedData('name');
+    }
 
-	/**
-	 * Get the localized name.
-	 * @return string
-	 */
-	public function getLocalizedName() {
-		return $this->getLocalizedData('name');
-	}
+    /**
+     * Get the name of the controlled vocabulary entry.
+     *
+     * @param $locale string
+     *
+     * @return string
+     */
+    public function getName($locale)
+    {
+        return $this->getData('name', $locale);
+    }
 
-	/**
-	 * Get the name of the controlled vocabulary entry.
-	 * @param $locale string
-	 * @return string
-	 */
-	public function getName($locale) {
-		return $this->getData('name', $locale);
-	}
-
-	/**
-	 * Set the name of the controlled vocabulary entry.
-	 * @param $name string
-	 * @param $locale string
-	 */
-	public function setName($name, $locale) {
-		$this->setData('name', $name, $locale);
-	}
+    /**
+     * Set the name of the controlled vocabulary entry.
+     *
+     * @param $name string
+     * @param $locale string
+     */
+    public function setName($name, $locale)
+    {
+        $this->setData('name', $name, $locale);
+    }
 }
 
 if (!PKP_STRICT_MODE) {
-	class_alias('\PKP\controlledVocab\ControlledVocabEntry', '\ControlledVocabEntry');
+    class_alias('\PKP\controlledVocab\ControlledVocabEntry', '\ControlledVocabEntry');
 }

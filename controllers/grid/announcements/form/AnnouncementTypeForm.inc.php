@@ -9,6 +9,7 @@
  *
  * @class AnnouncementTypeForm
  * @ingroup controllers_grid_announcements_form
+ *
  * @see AnnouncementType
  *
  * @brief Form for manager to create/edit announcement types.
@@ -17,102 +18,107 @@
 
 import('lib.pkp.classes.form.Form');
 
-class AnnouncementTypeForm extends Form {
-	/** @var int Context ID */
-	var $contextId;
+class AnnouncementTypeForm extends Form
+{
+    /** @var int Context ID */
+    public $contextId;
 
-	/** @var typeId int the ID of the announcement type being edited */
-	var $typeId;
+    /** @var typeId int the ID of the announcement type being edited */
+    public $typeId;
 
-	/**
-	 * Constructor
-	 * @param $contextId int Context ID
-	 * @param $typeId int leave as default for new announcement type
-	 */
-	function __construct($contextId, $typeId = null) {
-		$this->typeId = isset($typeId) ? (int) $typeId : null;
-		$this->contextId = $contextId;
+    /**
+     * Constructor
+     *
+     * @param $contextId int Context ID
+     * @param $typeId int leave as default for new announcement type
+     */
+    public function __construct($contextId, $typeId = null)
+    {
+        $this->typeId = isset($typeId) ? (int) $typeId : null;
+        $this->contextId = $contextId;
 
-		parent::__construct('manager/announcement/announcementTypeForm.tpl');
+        parent::__construct('manager/announcement/announcementTypeForm.tpl');
 
-		// Type name is provided
-		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'manager.announcementTypes.form.typeNameRequired'));
+        // Type name is provided
+        $this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'manager.announcementTypes.form.typeNameRequired'));
 
-		$this->addCheck(new FormValidatorPost($this));
-		$this->addCheck(new FormValidatorCSRF($this));
-	}
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
+    }
 
-	/**
-	 * Get a list of localized field names for this form
-	 * @return array
-	 */
-	function getLocaleFieldNames() {
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
-		return $announcementTypeDao->getLocaleFieldNames();
-	}
+    /**
+     * Get a list of localized field names for this form
+     *
+     * @return array
+     */
+    public function getLocaleFieldNames()
+    {
+        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
+        return $announcementTypeDao->getLocaleFieldNames();
+    }
 
-	/**
-	 * @copydoc Form::fetch()
-	 */
-	function fetch($request, $template = 'controllers/grid/announcements/form/announcementTypeForm.tpl', $display = false) {
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('typeId', $this->typeId);
-		return parent::fetch($request, $template, $display);
-	}
+    /**
+     * @copydoc Form::fetch()
+     */
+    public function fetch($request, $template = 'controllers/grid/announcements/form/announcementTypeForm.tpl', $display = false)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('typeId', $this->typeId);
+        return parent::fetch($request, $template, $display);
+    }
 
-	/**
-	 * Initialize form data from current announcement type.
-	 */
-	function initData() {
-		if (isset($this->typeId)) {
-			$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
-			$announcementType = $announcementTypeDao->getById($this->typeId);
+    /**
+     * Initialize form data from current announcement type.
+     */
+    public function initData()
+    {
+        if (isset($this->typeId)) {
+            $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
+            $announcementType = $announcementTypeDao->getById($this->typeId);
 
-			if ($announcementType != null) {
-				$this->_data = array(
-					'name' => $announcementType->getName(null) // Localized
-				);
+            if ($announcementType != null) {
+                $this->_data = [
+                    'name' => $announcementType->getName(null) // Localized
+                ];
+            } else {
+                $this->typeId = null;
+            }
+        }
+    }
 
-			} else {
-				$this->typeId = null;
-			}
-		}
-	}
+    /**
+     * Assign form data to user-submitted data.
+     */
+    public function readInputData()
+    {
+        $this->readUserVars(['name']);
+    }
 
-	/**
-	 * Assign form data to user-submitted data.
-	 */
-	function readInputData() {
-		$this->readUserVars(array('name'));
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionArgs)
+    {
+        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
 
-	}
+        if (isset($this->typeId)) {
+            $announcementType = $announcementTypeDao->getById($this->typeId);
+        }
 
-	/**
-	 * @copydoc Form::execute()
-	 */
-	function execute(...$functionArgs) {
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
+        if (!isset($announcementType)) {
+            $announcementType = $announcementTypeDao->newDataObject();
+        }
 
-		if (isset($this->typeId)) {
-			$announcementType = $announcementTypeDao->getById($this->typeId);
-		}
+        $announcementType->setAssocType(Application::getContextAssocType());
+        $announcementType->setAssocId($this->contextId);
+        $announcementType->setName($this->getData('name'), null); // Localized
 
-		if (!isset($announcementType)) {
-			$announcementType = $announcementTypeDao->newDataObject();
-		}
-
-		$announcementType->setAssocType(Application::getContextAssocType());
-		$announcementType->setAssocId($this->contextId);
-		$announcementType->setName($this->getData('name'), null); // Localized
-
-		// Update or insert announcement type
-		if ($announcementType->getId() != null) {
-			$announcementTypeDao->updateObject($announcementType);
-		} else {
-			$announcementTypeDao->insertObject($announcementType);
-		}
-		parent::execute(...$functionArgs);
-	}
+        // Update or insert announcement type
+        if ($announcementType->getId() != null) {
+            $announcementTypeDao->updateObject($announcementType);
+        } else {
+            $announcementTypeDao->insertObject($announcementType);
+        }
+        parent::execute(...$functionArgs);
+    }
 }
-
-

@@ -15,19 +15,20 @@
 
 import('lib.pkp.classes.form.validation.FormValidator');
 
-class FormValidatorORCID extends FormValidator {
-	/**
-	 * Constructor.
-	 * @param $form Form the associated form
-	 * @param $field string the name of the associated field
-	 * @param $type string the type of check, either "required" or "optional"
-	 * @param $message string the error message for validation failures (i18n key)
-	 */
-	function __construct($form, $field, $type, $message) {
-		import('lib.pkp.classes.validation.ValidatorORCID');
-		$validator = new ValidatorORCID();
-		parent::__construct($form, $field, $type, $message, $validator);
-	}
+class FormValidatorORCID extends FormValidator
+{
+    /**
+     * Constructor.
+     *
+     * @param $form Form the associated form
+     * @param $field string the name of the associated field
+     * @param $type string the type of check, either "required" or "optional"
+     * @param $message string the error message for validation failures (i18n key)
+     */
+    public function __construct($form, $field, $type, $message)
+    {
+        import('lib.pkp.classes.validation.ValidatorORCID');
+        $validator = new ValidatorORCID();
+        parent::__construct($form, $field, $type, $message, $validator);
+    }
 }
-
-

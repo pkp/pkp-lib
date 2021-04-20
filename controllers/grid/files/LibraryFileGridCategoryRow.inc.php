@@ -16,45 +16,52 @@
 import('lib.pkp.classes.controllers.grid.GridCategoryRow');
 import('classes.file.LibraryFileManager');
 
-class LibraryFileGridCategoryRow extends GridCategoryRow {
-	/** the context for our Library file manager */
-	var $_context;
+class LibraryFileGridCategoryRow extends GridCategoryRow
+{
+    /** the context for our Library file manager */
+    public $_context;
 
-	/**
-	 * Constructor
-	 */
-	function __construct($context) {
-		$this->_context =& $context;
-		parent::__construct();
-	}
+    /**
+     * Constructor
+     */
+    public function __construct($context)
+    {
+        $this->_context = & $context;
+        parent::__construct();
+    }
 
-	//
-	// Overridden methods from GridCategoryRow
-	//
-	/**
-	 * Category rows only have one cell and one label.  This is it.
-	 * return string
-	 */
-	function getCategoryLabel() {
-		$context = $this->getContext();
-		$libraryFileManager = new LibraryFileManager($context->getId());
-		return __($libraryFileManager->getTitleKeyFromType($this->getData()));
-	}
+    //
+    // Overridden methods from GridCategoryRow
+    //
+    /**
+     * Category rows only have one cell and one label.  This is it.
+     * return string
+     */
+    public function getCategoryLabel()
+    {
+        $context = $this->getContext();
+        $libraryFileManager = new LibraryFileManager($context->getId());
+        return __($libraryFileManager->getTitleKeyFromType($this->getData()));
+    }
 
-	/**
-	 * Get the context
-	 * @return object context
-	 */
-	function getContext() {
-		return $this->_context;
-	}
+    /**
+     * Get the context
+     *
+     * @return object context
+     */
+    public function getContext()
+    {
+        return $this->_context;
+    }
 
-	/**
-	 * @copydoc GridCategoryRow::initialize()
-	 */
-	function initialize($request, $template = null) {
-		parent::initialize($request, $template);
-		$this->setId($this->getData());
-	}
+    /**
+     * @copydoc GridCategoryRow::initialize()
+     *
+     * @param null|mixed $template
+     */
+    public function initialize($request, $template = null)
+    {
+        parent::initialize($request, $template);
+        $this->setId($this->getData());
+    }
 }
-

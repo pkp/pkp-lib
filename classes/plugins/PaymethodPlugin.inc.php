@@ -15,35 +15,41 @@
 
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
-abstract class PaymethodPlugin extends LazyLoadPlugin {
-	/**
-	 * Get the payment form for this plugin.
-	 * @param $context Context
-	 * @param $queuedPayment QueuedPayment
-	 * @return Form
-	 */
-	abstract function getPaymentForm($context, $queuedPayment);
+abstract class PaymethodPlugin extends LazyLoadPlugin
+{
+    /**
+     * Get the payment form for this plugin.
+     *
+     * @param $context Context
+     * @param $queuedPayment QueuedPayment
+     *
+     * @return Form
+     */
+    abstract public function getPaymentForm($context, $queuedPayment);
 
-	/**
-	 * Check whether this plugin is fully configured and ready for use.
-	 * @param $context Context
-	 * @return boolean
-	 */
-	function isConfigured($context) {
-		return true;
-	}
+    /**
+     * Check whether this plugin is fully configured and ready for use.
+     *
+     * @param $context Context
+     *
+     * @return boolean
+     */
+    public function isConfigured($context)
+    {
+        return true;
+    }
 
-	/**
-	 * Save settings for this payment method
-	 *
-	 * @param $params array Params that have already been
-	 * @param $slimRequest Request Slim request object
-	 * @param $request Request
-	 * @return array List of errors
-	 */
-	public function saveSettings($params, $slimRequest, $request) {
-		assert(false); // implement in child classes
-	}
+    /**
+     * Save settings for this payment method
+     *
+     * @param $params array Params that have already been
+     * @param $slimRequest Request Slim request object
+     * @param $request Request
+     *
+     * @return array List of errors
+     */
+    public function saveSettings($params, $slimRequest, $request)
+    {
+        assert(false); // implement in child classes
+    }
 }
-
-

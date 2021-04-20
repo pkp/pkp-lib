@@ -16,34 +16,40 @@
 
 import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
 
-class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy {
-	/**
-	 * @copydoc AuthorizationPolicy::effect()
-	 */
-	public function effect() {
-		$request = $this->getRequest();
+class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy
+{
+    /**
+     * @copydoc AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        $request = $this->getRequest();
 
-		// Get the submission file.
-		$submissionFile = $this->getSubmissionFile($request);
-		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
+        // Get the submission file.
+        $submissionFile = $this->getSubmissionFile($request);
+        if (!is_a($submissionFile, 'SubmissionFile')) {
+            return AUTHORIZATION_DENY;
+        }
 
-		// Allow if this is not a file submitted with a review
-		if ($submissionFile->getFileStage() != SUBMISSION_FILE_REVIEW_ATTACHMENT) return AUTHORIZATION_PERMIT;
+        // Allow if this is not a file submitted with a review
+        if ($submissionFile->getFileStage() != SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+            return AUTHORIZATION_PERMIT;
+        }
 
-		// Deny if the user is assigned as an author to any stage, and this file is
-		// attached to an anonymous review
-		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
-		foreach ($userRoles as $stageRoles) {
-			if (in_array(ROLE_ID_AUTHOR, $stageRoles)) {
-				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-				$reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getData('assocId'));
-				if ($reviewAssignment && $reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN){
-					return AUTHORIZATION_DENY;
-				}
-				break;
-			}
-		}
+        // Deny if the user is assigned as an author to any stage, and this file is
+        // attached to an anonymous review
+        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        foreach ($userRoles as $stageRoles) {
+            if (in_array(ROLE_ID_AUTHOR, $stageRoles)) {
+                $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+                $reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getData('assocId'));
+                if ($reviewAssignment && $reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN) {
+                    return AUTHORIZATION_DENY;
+                }
+                break;
+            }
+        }
 
-		return AUTHORIZATION_PERMIT;
-	}
+        return AUTHORIZATION_PERMIT;
+    }
 }

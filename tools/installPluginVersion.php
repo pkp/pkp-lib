@@ -20,82 +20,85 @@ require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php
 import('lib.pkp.classes.site.Version');
 import('lib.pkp.classes.site.VersionCheck');
 
-class InstallPluginVersionTool extends CommandLineTool {
-	/** @var string Path to descriptor file to install */
-	private $_descriptor;
+class InstallPluginVersionTool extends CommandLineTool
+{
+    /** @var string Path to descriptor file to install */
+    private $_descriptor;
 
-	/**
-	 * Constructor.
-	 * @param $argv array command-line arguments
-	 */
-	function __construct($argv = array()) {
-		parent::__construct($argv);
+    /**
+     * Constructor.
+     *
+     * @param $argv array command-line arguments
+     */
+    public function __construct($argv = [])
+    {
+        parent::__construct($argv);
 
-		if (!isset($this->argv[0]) || !file_exists($this->argv[0])) {
-			$this->usage();
-			exit(1);
-		}
+        if (!isset($this->argv[0]) || !file_exists($this->argv[0])) {
+            $this->usage();
+            exit(1);
+        }
 
-		$this->_descriptor = $this->argv[0];
-	}
+        $this->_descriptor = $this->argv[0];
+    }
 
-	/**
-	 * Print command usage information.
-	 */
-	function usage() {
-		echo "Install plugin version tool\n"
-			. "Usage: {$this->scriptName} path/to/version.xml\n";
-	}
+    /**
+     * Print command usage information.
+     */
+    public function usage()
+    {
+        echo "Install plugin version tool\n"
+            . "Usage: {$this->scriptName} path/to/version.xml\n";
+    }
 
-	/**
-	 * Execute the specified command.
-	 */
-	function execute() {
-		$versionInfo = VersionCheck::parseVersionXML($this->_descriptor);
-		$pluginVersion = $versionInfo['version'];
+    /**
+     * Execute the specified command.
+     */
+    public function execute()
+    {
+        $versionInfo = VersionCheck::parseVersionXML($this->_descriptor);
+        $pluginVersion = $versionInfo['version'];
 
-		$productType = $pluginVersion->getProductType();
-		if (!preg_match('/^plugins\.(.+)$/', $productType, $matches) || !in_array($matches[1], Application::getPluginCategories())) {
-			error_log("Invalid type \"$productType\".");
-			return false;
-		}
+        $productType = $pluginVersion->getProductType();
+        if (!preg_match('/^plugins\.(.+)$/', $productType, $matches) || !in_array($matches[1], Application::getPluginCategories())) {
+            error_log("Invalid type \"${productType}\".");
+            return false;
+        }
 
-		$versionDao = DAORegistry::getDAO('VersionDAO');
-		$versionDao->insertVersion($pluginVersion, true);
+        $versionDao = DAORegistry::getDAO('VersionDAO');
+        $versionDao->insertVersion($pluginVersion, true);
 
-		$pluginPath = dirname($this->_descriptor);
-		$plugin = @include("$pluginPath/index.php");
-		if ($plugin && is_object($plugin)) {
-			PluginRegistry::register($matches[1], $plugin, $pluginPath);
-		}
-		$plugin = PluginRegistry::getPlugin($matches[1], $plugin->getName());
+        $pluginPath = dirname($this->_descriptor);
+        $plugin = @include("${pluginPath}/index.php");
+        if ($plugin && is_object($plugin)) {
+            PluginRegistry::register($matches[1], $plugin, $pluginPath);
+        }
+        $plugin = PluginRegistry::getPlugin($matches[1], $plugin->getName());
 
-		import('classes.install.Upgrade');
-		$installer = new Upgrade(array());
-		$result = true;
-		$param = [&$installer, &$result];
+        import('classes.install.Upgrade');
+        $installer = new Upgrade([]);
+        $result = true;
+        $param = [&$installer, &$result];
 
-		if ($plugin->getInstallMigration()) {
-			$plugin->updateSchema('Installer::postInstall', $param);
-		}
-		if ($plugin->getInstallSitePluginSettingsFile()) {
-			$plugin->installSiteSettings('Installer::postInstall', $param);
-		}
-		if ($plugin->getInstallControlledVocabFiles()) {
-			$plugin->installControlledVocabs('Installer::postInstall', $param);
-		}
-		if ($plugin->getInstallEmailTemplatesFile()) {
-			$plugin->installEmailTemplates('Installer::postInstall', $param);
-		}
-		if ($plugin->getInstallEmailTemplateDataFile()) {
-			$plugin->installEmailTemplateData('Installer::postInstall', $param);
-		}
-		$plugin->installFilters('Installer::postInstall', $param);
-		return $result;
-	}
+        if ($plugin->getInstallMigration()) {
+            $plugin->updateSchema('Installer::postInstall', $param);
+        }
+        if ($plugin->getInstallSitePluginSettingsFile()) {
+            $plugin->installSiteSettings('Installer::postInstall', $param);
+        }
+        if ($plugin->getInstallControlledVocabFiles()) {
+            $plugin->installControlledVocabs('Installer::postInstall', $param);
+        }
+        if ($plugin->getInstallEmailTemplatesFile()) {
+            $plugin->installEmailTemplates('Installer::postInstall', $param);
+        }
+        if ($plugin->getInstallEmailTemplateDataFile()) {
+            $plugin->installEmailTemplateData('Installer::postInstall', $param);
+        }
+        $plugin->installFilters('Installer::postInstall', $param);
+        return $result;
+    }
 }
 
-$tool = new InstallPluginVersionTool(isset($argv) ? $argv : array());
+$tool = new InstallPluginVersionTool($argv ?? []);
 $tool->execute();
-
-

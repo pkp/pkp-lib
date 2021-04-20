@@ -12,73 +12,73 @@
  */
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class NavigationMenusMigration extends Migration {
-        /**
-         * Run the migrations.
-         * @return void
-         */
-        public function up() {
-		// NavigationMenus
-		Schema::create('navigation_menus', function (Blueprint $table) {
-			$table->bigInteger('navigation_menu_id')->autoIncrement();
-			$table->bigInteger('context_id');
-			$table->string('area_name', 255)->default('')->nullable();
-			$table->string('title', 255);
-		});
+class NavigationMenusMigration extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        // NavigationMenus
+        Schema::create('navigation_menus', function (Blueprint $table) {
+            $table->bigInteger('navigation_menu_id')->autoIncrement();
+            $table->bigInteger('context_id');
+            $table->string('area_name', 255)->default('')->nullable();
+            $table->string('title', 255);
+        });
 
-		// NavigationMenuItems
-		Schema::create('navigation_menu_items', function (Blueprint $table) {
-			$table->bigInteger('navigation_menu_item_id')->autoIncrement();
-			$table->bigInteger('context_id');
-			$table->string('path', 255)->default('')->nullable();
-			$table->string('type', 255)->default('')->nullable();
-		});
+        // NavigationMenuItems
+        Schema::create('navigation_menu_items', function (Blueprint $table) {
+            $table->bigInteger('navigation_menu_item_id')->autoIncrement();
+            $table->bigInteger('context_id');
+            $table->string('path', 255)->default('')->nullable();
+            $table->string('type', 255)->default('')->nullable();
+        });
 
-		// Locale-specific navigation menu item data
-		Schema::create('navigation_menu_item_settings', function (Blueprint $table) {
-			$table->bigInteger('navigation_menu_item_id');
-			$table->string('locale', 14)->default('');
-			$table->string('setting_name', 255);
-			$table->longText('setting_value')->nullable();
-			$table->string('setting_type', 6);
-			$table->index(['navigation_menu_item_id'], 'navigation_menu_item_settings_navigation_menu_id');
-			$table->unique(['navigation_menu_item_id', 'locale', 'setting_name'], 'navigation_menu_item_settings_pkey');
-		});
+        // Locale-specific navigation menu item data
+        Schema::create('navigation_menu_item_settings', function (Blueprint $table) {
+            $table->bigInteger('navigation_menu_item_id');
+            $table->string('locale', 14)->default('');
+            $table->string('setting_name', 255);
+            $table->longText('setting_value')->nullable();
+            $table->string('setting_type', 6);
+            $table->index(['navigation_menu_item_id'], 'navigation_menu_item_settings_navigation_menu_id');
+            $table->unique(['navigation_menu_item_id', 'locale', 'setting_name'], 'navigation_menu_item_settings_pkey');
+        });
 
-		// NavigationMenuItemAssignments which assign menu items to a menu and describe nested menu structure.
-		Schema::create('navigation_menu_item_assignments', function (Blueprint $table) {
-			$table->bigInteger('navigation_menu_item_assignment_id')->autoIncrement();
-			$table->bigInteger('navigation_menu_id');
-			$table->bigInteger('navigation_menu_item_id');
-			$table->bigInteger('parent_id')->nullable();
-			$table->bigInteger('seq')->default(0)->nullable();
-		});
+        // NavigationMenuItemAssignments which assign menu items to a menu and describe nested menu structure.
+        Schema::create('navigation_menu_item_assignments', function (Blueprint $table) {
+            $table->bigInteger('navigation_menu_item_assignment_id')->autoIncrement();
+            $table->bigInteger('navigation_menu_id');
+            $table->bigInteger('navigation_menu_item_id');
+            $table->bigInteger('parent_id')->nullable();
+            $table->bigInteger('seq')->default(0)->nullable();
+        });
 
-		// Locale-specific navigation menu item assignments data
-		Schema::create('navigation_menu_item_assignment_settings', function (Blueprint $table) {
-			$table->bigInteger('navigation_menu_item_assignment_id');
-			$table->string('locale', 14)->default('');
-			$table->string('setting_name', 255);
-			$table->text('setting_value')->nullable();
-			$table->string('setting_type', 6);
-			$table->index(['navigation_menu_item_assignment_id'], 'assignment_settings_navigation_menu_item_assignment_id');
-			$table->unique(['navigation_menu_item_assignment_id', 'locale', 'setting_name'], 'navigation_menu_item_assignment_settings_pkey');
-		});
-	}
+        // Locale-specific navigation menu item assignments data
+        Schema::create('navigation_menu_item_assignment_settings', function (Blueprint $table) {
+            $table->bigInteger('navigation_menu_item_assignment_id');
+            $table->string('locale', 14)->default('');
+            $table->string('setting_name', 255);
+            $table->text('setting_value')->nullable();
+            $table->string('setting_type', 6);
+            $table->index(['navigation_menu_item_assignment_id'], 'assignment_settings_navigation_menu_item_assignment_id');
+            $table->unique(['navigation_menu_item_assignment_id', 'locale', 'setting_name'], 'navigation_menu_item_assignment_settings_pkey');
+        });
+    }
 
-	/**
-	 * Reverse the migration.
-	 * @return void
-	 */
-	public function down() {
-		Schema::drop('navigation_menu_item_assignment_settings');
-		Schema::drop('navigation_menu_item_assignments');
-		Schema::drop('navigation_menu_item_settings');
-		Schema::drop('navigation_menu_items');
-		Schema::drop('navigation_menus');
-	}
+    /**
+     * Reverse the migration.
+     */
+    public function down()
+    {
+        Schema::drop('navigation_menu_item_assignment_settings');
+        Schema::drop('navigation_menu_item_assignments');
+        Schema::drop('navigation_menu_item_settings');
+        Schema::drop('navigation_menu_items');
+        Schema::drop('navigation_menus');
+    }
 }

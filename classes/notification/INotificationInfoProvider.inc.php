@@ -20,65 +20,77 @@ define('NOTIFICATION_STYLE_CLASS_FORM_ERROR', 'notifyFormError');
 define('NOTIFICATION_STYLE_CLASS_FORBIDDEN', 'notifyForbidden');
 define('NOTIFICATION_STYLE_CLASS_HELP', 'notifyHelp');
 
-interface INotificationInfoProvider {
+interface INotificationInfoProvider
+{
+    /**
+     * Get a URL for the notification.
+     *
+     * @param $request PKPRequest
+     * @param $notification Notification
+     *
+     * @return string
+     */
+    public function getNotificationUrl($request, $notification);
 
-	/**
-	 * Get a URL for the notification.
-	 * @param $request PKPRequest
-	 * @param $notification Notification
-	 * @return string
-	 */
-	public function getNotificationUrl($request, $notification);
+    /**
+     * Get the notification message. Only return translated locale
+     * key strings.
+     *
+     * @param $request PKPRequest
+     * @param $notification Notification
+     *
+     * @return string
+     */
+    public function getNotificationMessage($request, $notification);
 
-	/**
-	 * Get the notification message. Only return translated locale
-	 * key strings.
-	 * @param $request PKPRequest
-	 * @param $notification Notification
-	 * @return string
-	 */
-	public function getNotificationMessage($request, $notification);
+    /**
+     * Get the notification contents. Content is anything that's
+     * more than text, like presenting link actions inside fetched
+     * template files.
+     *
+     * @param $request PKPRequest
+     * @param $notification Notification
+     *
+     * @return string
+     */
+    public function getNotificationContents($request, $notification);
 
-	/**
-	 * Get the notification contents. Content is anything that's
-	 * more than text, like presenting link actions inside fetched
-	 * template files.
-	 * @param $request PKPRequest
-	 * @param $notification Notification
-	 * @return string
-	 */
-	public function getNotificationContents($request, $notification);
+    /**
+     * Get the notification title.
+     *
+     * @param $notification Notification
+     *
+     * @return string
+     */
+    public function getNotificationTitle($notification);
 
-	/**
-	 * Get the notification title.
-	 * @param $notification Notification
-	 * @return string
-	 */
-	public function getNotificationTitle($notification);
+    /**
+     * Get the notification style class.
+     *
+     * @param $notification Notification
+     *
+     * @return string
+     */
+    public function getStyleClass($notification);
 
-	/**
-	 * Get the notification style class.
-	 * @param $notification Notification
-	 * @return string
-	 */
-	public function getStyleClass($notification);
+    /**
+     * Get the notification icon class.
+     *
+     * @param $notification Notification
+     *
+     * @return string
+     */
+    public function getIconClass($notification);
 
-	/**
-	 * Get the notification icon class.
-	 * @param $notification Notification
-	 * @return string
-	 */
-	public function getIconClass($notification);
-
-	/**
-	 * Whether any notification with the passed notification type
-	 * is visible to all users or not.
-	 * @param $notificationType int
-	 * @param $assocType int ASSOC_TYPE_...
-	 * @param $assocId int
-	 * @return boolean
-	 */
-	public function isVisibleToAllUsers($notificationType, $assocType, $assocId);
+    /**
+     * Whether any notification with the passed notification type
+     * is visible to all users or not.
+     *
+     * @param $notificationType int
+     * @param $assocType int ASSOC_TYPE_...
+     * @param $assocId int
+     *
+     * @return boolean
+     */
+    public function isVisibleToAllUsers($notificationType, $assocType, $assocId);
 }
-
-

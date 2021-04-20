@@ -17,23 +17,34 @@
 
 import('lib.pkp.classes.linkAction.LinkAction');
 
-class ReviewerViewMetadataLinkAction extends LinkAction {
-	/**
-	 * Constructor
-	 * @param $request Request
-	 * @param $submissionId integer
-	 * @param $reviewAssignmentId integer
-	 */
-	function __construct($request, $submissionId, $reviewAssignmentId) {
-		// Instantiate the meta-data modal.
-		$dispatcher = $request->getDispatcher();
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		$modal = new AjaxModal(
-				$dispatcher->url($request, PKPApplication::ROUTE_COMPONENT, null,
-						'modals.submission.ViewSubmissionMetadataHandler',
-						'display', null, array('submissionId' => $submissionId, 'reviewAssignmentId' => $reviewAssignmentId)),
-				__('reviewer.step1.viewAllDetails'), 'modal_information');
-		// Configure the link action.
-		parent::__construct('viewMetadata', $modal, __('reviewer.step1.viewAllDetails'));
-	}
+class ReviewerViewMetadataLinkAction extends LinkAction
+{
+    /**
+     * Constructor
+     *
+     * @param $request Request
+     * @param $submissionId integer
+     * @param $reviewAssignmentId integer
+     */
+    public function __construct($request, $submissionId, $reviewAssignmentId)
+    {
+        // Instantiate the meta-data modal.
+        $dispatcher = $request->getDispatcher();
+        import('lib.pkp.classes.linkAction.request.AjaxModal');
+        $modal = new AjaxModal(
+            $dispatcher->url(
+                $request,
+                PKPApplication::ROUTE_COMPONENT,
+                null,
+                'modals.submission.ViewSubmissionMetadataHandler',
+                'display',
+                null,
+                ['submissionId' => $submissionId, 'reviewAssignmentId' => $reviewAssignmentId]
+            ),
+            __('reviewer.step1.viewAllDetails'),
+            'modal_information'
+        );
+        // Configure the link action.
+        parent::__construct('viewMetadata', $modal, __('reviewer.step1.viewAllDetails'));
+    }
 }

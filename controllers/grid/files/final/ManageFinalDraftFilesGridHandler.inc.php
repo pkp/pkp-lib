@@ -15,67 +15,70 @@
 
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
 
-use \PKP\core\JSONMessage;
+use PKP\core\JSONMessage;
 
-class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
-		parent::__construct(
-			new SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_FINAL),
-			WORKFLOW_STAGE_ID_EDITING,
-			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
-		);
+class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
+        parent::__construct(
+            new SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_FINAL),
+            WORKFLOW_STAGE_ID_EDITING,
+            FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_VIEW_NOTES | FILE_GRID_EDIT
+        );
 
-		$this->addRoleAssignment(
-			array(
-				ROLE_ID_SUB_EDITOR,
-				ROLE_ID_MANAGER,
-				ROLE_ID_ASSISTANT
-			),
-			array(
-				'fetchGrid', 'fetchCategory', 'fetchRow',
-				'addFile',
-				'downloadFile',
-				'deleteFile',
-				'updateFinalDraftFiles'
-			)
-		);
+        $this->addRoleAssignment(
+            [
+                ROLE_ID_SUB_EDITOR,
+                ROLE_ID_MANAGER,
+                ROLE_ID_ASSISTANT
+            ],
+            [
+                'fetchGrid', 'fetchCategory', 'fetchRow',
+                'addFile',
+                'downloadFile',
+                'deleteFile',
+                'updateFinalDraftFiles'
+            ]
+        );
 
-		// Set the grid title.
-		$this->setTitle('submission.finalDraft');
-	}
+        // Set the grid title.
+        $this->setTitle('submission.finalDraft');
+    }
 
 
-	//
-	// Public handler methods
-	//
-	/**
-	 * Save 'manage final draft files' form
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function updateFinalDraftFiles($args, $request) {
-		$submission = $this->getSubmission();
+    //
+    // Public handler methods
+    //
+    /**
+     * Save 'manage final draft files' form
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function updateFinalDraftFiles($args, $request)
+    {
+        $submission = $this->getSubmission();
 
-		import('lib.pkp.controllers.grid.files.final.form.ManageFinalDraftFilesForm');
-		$manageFinalDraftFilesForm = new ManageFinalDraftFilesForm($submission->getId());
-		$manageFinalDraftFilesForm->readInputData();
+        import('lib.pkp.controllers.grid.files.final.form.ManageFinalDraftFilesForm');
+        $manageFinalDraftFilesForm = new ManageFinalDraftFilesForm($submission->getId());
+        $manageFinalDraftFilesForm->readInputData();
 
-		if ($manageFinalDraftFilesForm->validate()) {
-			$manageFinalDraftFilesForm->execute(
-				$this->getGridCategoryDataElements($request, $this->getStageId())
-			);
+        if ($manageFinalDraftFilesForm->validate()) {
+            $manageFinalDraftFilesForm->execute(
+                $this->getGridCategoryDataElements($request, $this->getStageId())
+            );
 
-			// Let the calling grid reload itself
-			return \PKP\db\DAO::getDataChangedEvent();
-		} else {
-			return new JSONMessage(false);
-		}
-	}
+            // Let the calling grid reload itself
+            return \PKP\db\DAO::getDataChangedEvent();
+        } else {
+            return new JSONMessage(false);
+        }
+    }
 }
-
-

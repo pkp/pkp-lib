@@ -16,142 +16,147 @@
 
 import('lib.pkp.classes.handler.APIHandler');
 
-use \APP\core\Services;
+use APP\core\Services;
 
-abstract class PKPStatsEditorialHandler extends APIHandler {
+abstract class PKPStatsEditorialHandler extends APIHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->_handlerPath = 'stats/editorial';
+        $this->_endpoints = [
+            'GET' => [
+                [
+                    'pattern' => $this->getEndpointPattern(),
+                    'handler' => [$this, 'get'],
+                    'roles' => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/averages',
+                    'handler' => [$this, 'getAverages'],
+                    'roles' => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+                ],
+            ],
+        ];
+        parent::__construct();
+    }
 
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		$this->_handlerPath = 'stats/editorial';
-		$this->_endpoints = [
-			'GET' => [
-				[
-					'pattern' => $this->getEndpointPattern(),
-					'handler' => [$this, 'get'],
-					'roles' => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
-				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/averages',
-					'handler' => [$this, 'getAverages'],
-					'roles' => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
-				],
-			],
-		];
-		parent::__construct();
-	}
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
+        import('lib.pkp.classes.security.authorization.PolicySet');
+        $rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+        import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+        foreach ($roleAssignments as $role => $operations) {
+            $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
+        }
+        $this->addPolicy($rolePolicy);
 
-		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-		import('lib.pkp.classes.security.authorization.PolicySet');
-		$rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
-		import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
-		foreach ($roleAssignments as $role => $operations) {
-			$rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
-		}
-		$this->addPolicy($rolePolicy);
+    /**
+     * Get editorial stats
+     *
+     * Returns information on submissions received, accepted, declined,
+     * average response times and more.
+     *
+     * @param $slimRequest Request Slim request object
+     * @param $response object Response
+     * @param $args array
+     *
+     * @return object Response
+     */
+    public function get($slimRequest, $response, $args)
+    {
+        $request = $this->getRequest();
 
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+        if (!$request->getContext()) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
 
-	/**
-	 * Get editorial stats
-	 *
-	 * Returns information on submissions received, accepted, declined,
-	 * average response times and more.
-	 *
-	 * @param $slimRequest Request Slim request object
-	 * @param $response object Response
-	 * @param $args array
-	 * @return object Response
-	 */
-	public function get($slimRequest, $response, $args) {
-		$request = $this->getRequest();
+        $params = [];
+        foreach ($slimRequest->getQueryParams() as $param => $value) {
+            switch ($param) {
+                case 'dateStart':
+                case 'dateEnd':
+                    $params[$param] = $value;
+                    break;
 
-		if (!$request->getContext()) {
-			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-		}
+                case $this->sectionIdsQueryParam:
+                    if (is_string($value) && strpos($value, ',') > -1) {
+                        $value = explode(',', $value);
+                    } elseif (!is_array($value)) {
+                        $value = [$value];
+                    }
+                    $params[$param] = array_map('intval', $value);
+                    break;
+            }
+        }
 
-		$params = [];
-		foreach ($slimRequest->getQueryParams() as $param => $value) {
-			switch ($param) {
-				case 'dateStart':
-				case 'dateEnd':
-					$params[$param] = $value;
-					break;
+        \HookRegistry::call('API::stats::editorial::params', [&$params, $slimRequest]);
 
-				case $this->sectionIdsQueryParam:
-					if (is_string($value) && strpos($value, ',') > -1) {
-						$value = explode(',', $value);
-					} elseif (!is_array($value)) {
-						$value = [$value];
-					}
-					$params[$param] = array_map('intval', $value);
-					break;
-			}
-		}
+        $params['contextIds'] = [$request->getContext()->getId()];
 
-		\HookRegistry::call('API::stats::editorial::params', array(&$params, $slimRequest));
+        $result = $this->_validateStatDates($params);
+        if ($result !== true) {
+            return $response->withStatus(400)->withJsonError($result);
+        }
 
-		$params['contextIds'] = [$request->getContext()->getId()];
+        return $response->withJson(array_map(
+            function ($item) {
+                $item['name'] = __($item['name']);
+                return $item;
+            },
+            Services::get('editorialStats')->getOverview($params)
+        ));
+    }
 
-		$result = $this->_validateStatDates($params);
-		if ($result !== true) {
-			return $response->withStatus(400)->withJsonError($result);
-		}
+    /**
+     * Get yearly averages of editorial stats
+     *
+     * Returns information on average submissions received, accepted
+     * and declined per year.
+     *
+     * @param $slimRequest Request Slim request object
+     * @param $response object Response
+     * @param $args array
+     *
+     * @return object Response
+     */
+    public function getAverages($slimRequest, $response, $args)
+    {
+        $request = $this->getRequest();
 
-		return $response->withJson(array_map(
-			function ($item) {
-				$item['name'] = __($item['name']);
-				return $item;
-			},
-			Services::get('editorialStats')->getOverview($params)
-		));
-	}
+        if (!$request->getContext()) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
 
-	/**
-	 * Get yearly averages of editorial stats
-	 *
-	 * Returns information on average submissions received, accepted
-	 * and declined per year.
-	 *
-	 * @param $slimRequest Request Slim request object
-	 * @param $response object Response
-	 * @param $args array
-	 * @return object Response
-	 */
-	public function getAverages($slimRequest, $response, $args) {
-		$request = $this->getRequest();
+        $params = [];
+        foreach ($slimRequest->getQueryParams() as $param => $value) {
+            switch ($param) {
+                case $this->sectionIdsQueryParam:
+                    if (is_string($value) && strpos($value, ',') > -1) {
+                        $value = explode(',', $value);
+                    } elseif (!is_array($value)) {
+                        $value = [$value];
+                    }
+                    $params[$param] = array_map('intval', $value);
+                    break;
+            }
+        }
 
-		if (!$request->getContext()) {
-			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-		}
+        \HookRegistry::call('API::stats::editorial::averages::params', [&$params, $slimRequest]);
 
-		$params = [];
-		foreach ($slimRequest->getQueryParams() as $param => $value) {
-			switch ($param) {
-				case $this->sectionIdsQueryParam:
-					if (is_string($value) && strpos($value, ',') > -1) {
-						$value = explode(',', $value);
-					} elseif (!is_array($value)) {
-						$value = [$value];
-					}
-					$params[$param] = array_map('intval', $value);
-					break;
-			}
-		}
+        $params['contextIds'] = [$request->getContext()->getId()];
 
-		\HookRegistry::call('API::stats::editorial::averages::params', array(&$params, $slimRequest));
-
-		$params['contextIds'] = [$request->getContext()->getId()];
-
-		return $response->withJson(Services::get('editorialStats')->getAverages($params));
-	}
+        return $response->withJson(Services::get('editorialStats')->getAverages($params));
+    }
 }

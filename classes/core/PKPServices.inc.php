@@ -9,6 +9,7 @@
  *
  * @class PKPServices
  * @ingroup core
+ *
  * @see Core
  *
  * @brief Pimple Dependency Injection Container.
@@ -16,63 +17,70 @@
 
 namespace PKP\core;
 
-abstract class PKPServices {
+abstract class PKPServices
+{
+    /** @var Pimple\Container Pimple Dependency Injection Container */
+    private static $instance = null;
 
-	/** @var Pimple\Container Pimple Dependency Injection Container */
-	private static $instance = null;
+    protected $container = null;
 
-	protected $container = null;
+    /**
+     * private constructor
+     */
+    private function __construct()
+    {
+        $this->container = new \Pimple\Container();
+        $this->init();
+    }
 
-	/**
-	 * private constructor
-	 */
-	private function __construct() {
-		$this->container = new \Pimple\Container();
-		$this->init();
-	}
+    /**
+     * container initialization
+     */
+    abstract protected function init();
 
-	/**
-	 * container initialization
-	 */
-	abstract protected function init();
+    /**
+     * A static method to register a service
+     *
+     * @param string $service
+     */
+    public static function register(\Pimple\ServiceProviderInterface $service)
+    {
+        self::_instance()->container->register($service);
+    }
 
-	/**
-	 * A static method to register a service
-	 * @param string $service
-	 */
-	public static function register(\Pimple\ServiceProviderInterface $service) {
-		self::_instance()->container->register($service);
-	}
+    /**
+     * A static method to get a service
+     *
+     * @param string $service
+     */
+    public static function get($service)
+    {
+        return self::_instance()->_getFromContainer($service);
+    }
 
-	/**
-	 * A static method to get a service
-	 * @param string $service
-	 */
-	public static function get($service) {
-		return self::_instance()->_getFromContainer($service);
-	}
+    /**
+     * Returns the instance of the container
+     */
+    private static function _instance()
+    {
+        if (is_null(self::$instance)) {
+            self::$instance = new \app\core\Services();
+        }
 
-	/**
-	 * Returns the instance of the container
-	 */
-	private static function _instance() {
-		if (is_null(self::$instance)) {
-			self::$instance = new \app\core\Services();
-		}
+        return self::$instance;
+    }
 
-		return self::$instance;
-	}
-
-	/**
-	 * Gets the service from an instanced container.
-	 * @param string $service
-	 */
-	private function _getFromContainer($service) {
-		return $this->container[$service];
-	}
+    /**
+     * Gets the service from an instanced container.
+     *
+     * @param string $service
+     */
+    private function _getFromContainer($service)
+    {
+        return $this->container[$service];
+    }
 }
 
 if (!PKP_STRICT_MODE) {
-	class_alias('\PKP\core\PKPServices', '\PKPServices');
+    class_alias('\PKP\core\PKPServices', '\PKPServices');
 }
-

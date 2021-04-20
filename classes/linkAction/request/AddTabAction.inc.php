@@ -14,17 +14,18 @@
 
 import('lib.pkp.classes.linkAction.request.EventAction');
 
-class AddTabAction extends EventAction {
-	/**
-	 * Constructor
-	 * @param $targetSelector string Selector for target to receive event.
-	 */
-	function __construct($targetSelector, $url, $title) {
-		parent::__construct($targetSelector, 'addTab', array(
-			'url' => $url,
-			'title' => $title,
-		));
-	}
+class AddTabAction extends EventAction
+{
+    /**
+     * Constructor
+     *
+     * @param $targetSelector string Selector for target to receive event.
+     */
+    public function __construct($targetSelector, $url, $title)
+    {
+        parent::__construct($targetSelector, 'addTab', [
+            'url' => $url,
+            'title' => $title,
+        ]);
+    }
 }
-
-

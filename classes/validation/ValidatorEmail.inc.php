@@ -9,6 +9,7 @@
  *
  * @class ValidatorEmail
  * @ingroup validation
+ *
  * @see Validator
  *
  * @brief Validation check for email addresses.
@@ -17,16 +18,18 @@
 import('lib.pkp.classes.validation.Validator');
 import('lib.pkp.classes.validation.ValidatorFactory');
 
-class ValidatorEmail extends Validator {
-	/**
-	 * @copydoc Validator::isValid()
-	 */
-	function isValid($value) {
-		$validator = \ValidatorFactory::make(
-			['value' => $value],
-			['value' => ['required', 'email_or_localhost']]
-		);
+class ValidatorEmail extends Validator
+{
+    /**
+     * @copydoc Validator::isValid()
+     */
+    public function isValid($value)
+    {
+        $validator = \ValidatorFactory::make(
+            ['value' => $value],
+            ['value' => ['required', 'email_or_localhost']]
+        );
 
-		return $validator->passes();
-	}
+        return $validator->passes();
+    }
 }

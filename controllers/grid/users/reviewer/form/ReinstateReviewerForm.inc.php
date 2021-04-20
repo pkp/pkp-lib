@@ -14,63 +14,73 @@
 
 import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerNotifyActionForm');
 
-class ReinstateReviewerForm extends ReviewerNotifyActionForm {
-	/**
-	 * Constructor
-	 * @param $reviewAssignment ReviewAssignment
-	 * @param $reviewRound ReviewRound
-	 * @param $submission Submission
-	 */
-	public function __construct($reviewAssignment, $reviewRound, $submission) {
-		parent::__construct($reviewAssignment, $reviewRound, $submission, 'controllers/grid/users/reviewer/form/reinstateReviewerForm.tpl');
-	}
+class ReinstateReviewerForm extends ReviewerNotifyActionForm
+{
+    /**
+     * Constructor
+     *
+     * @param $reviewAssignment ReviewAssignment
+     * @param $reviewRound ReviewRound
+     * @param $submission Submission
+     */
+    public function __construct($reviewAssignment, $reviewRound, $submission)
+    {
+        parent::__construct($reviewAssignment, $reviewRound, $submission, 'controllers/grid/users/reviewer/form/reinstateReviewerForm.tpl');
+    }
 
-	/**
-	 * @copydoc ReviewerNotifyActionForm::getEmailKey()
-	 */
-	protected function getEmailKey() {
-		return 'REVIEW_REINSTATE';
-	}
+    /**
+     * @copydoc ReviewerNotifyActionForm::getEmailKey()
+     */
+    protected function getEmailKey()
+    {
+        return 'REVIEW_REINSTATE';
+    }
 
-	/**
-	 * @copydoc Form::execute()
-	 * @return bool whether or not the review assignment was deleted successfully
-	 */
-	public function execute(...$functionArgs) {
-		if (!parent::execute(...$functionArgs)) return false;
+    /**
+     * @copydoc Form::execute()
+     *
+     * @return bool whether or not the review assignment was deleted successfully
+     */
+    public function execute(...$functionArgs)
+    {
+        if (!parent::execute(...$functionArgs)) {
+            return false;
+        }
 
-		$request = Application::get()->getRequest();
-		$submission = $this->getSubmission();
-		$reviewAssignment = $this->getReviewAssignment();
+        $request = Application::get()->getRequest();
+        $submission = $this->getSubmission();
+        $reviewAssignment = $this->getReviewAssignment();
 
-		// Reinstate the review assignment.
-		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+        // Reinstate the review assignment.
+        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 
-		if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId() && !HookRegistry::call('EditorAction::reinstateReview', array(&$submission, $reviewAssignment))) {
-			$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
-			if (!isset($reviewer)) return false;
+        if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId() && !HookRegistry::call('EditorAction::reinstateReview', [&$submission, $reviewAssignment])) {
+            $reviewer = $userDao->getById($reviewAssignment->getReviewerId());
+            if (!isset($reviewer)) {
+                return false;
+            }
 
-			$reviewAssignment->setCancelled(false);
-			$reviewAssignmentDao->updateObject($reviewAssignment);
+            $reviewAssignment->setCancelled(false);
+            $reviewAssignmentDao->updateObject($reviewAssignment);
 
-			// Stamp the modification date
-			$submission->stampModified();
-			$submissionDao->updateObject($submission);
+            // Stamp the modification date
+            $submission->stampModified();
+            $submissionDao->updateObject($submission);
 
-			// Insert a trivial notification to indicate the reviewer was reinstated successfully.
-			$currentUser = $request->getUser();
-			$notificationMgr = new NotificationManager();
-			$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.reinstatedReviewer')));
+            // Insert a trivial notification to indicate the reviewer was reinstated successfully.
+            $currentUser = $request->getUser();
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.reinstatedReviewer')]);
 
-			// Add log
-			import('lib.pkp.classes.log.SubmissionLog');
-			import('classes.log.SubmissionEventLogEntry');
-			SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_REVIEW_REINSTATED, 'log.review.reviewReinstated', array('reviewAssignmentId' => $reviewAssignment->getId(), 'reviewerName' => $reviewer->getFullName(), 'submissionId' => $submission->getId(), 'stageId' => $reviewAssignment->getStageId(), 'round' => $reviewAssignment->getRound()));
+            // Add log
+            import('lib.pkp.classes.log.SubmissionLog');
+            import('classes.log.SubmissionEventLogEntry');
+            SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_REVIEW_REINSTATED, 'log.review.reviewReinstated', ['reviewAssignmentId' => $reviewAssignment->getId(), 'reviewerName' => $reviewer->getFullName(), 'submissionId' => $submission->getId(), 'stageId' => $reviewAssignment->getStageId(), 'round' => $reviewAssignment->getRound()]);
 
-			return true;
-		}
-		return false;
-	}
+            return true;
+        }
+        return false;
+    }
 }

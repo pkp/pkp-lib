@@ -16,157 +16,169 @@
 import('lib.pkp.classes.notification.NotificationManagerDelegate');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
-use \APP\core\Services;
+use APP\core\Services;
 
-class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
+class PendingRevisionsNotificationManager extends NotificationManagerDelegate
+{
+    /**
+     * Constructor.
+     *
+     * @param $notificationType int NOTIFICATION_TYPE_...
+     */
+    public function __construct($notificationType)
+    {
+        parent::__construct($notificationType);
+    }
 
-	/**
-	 * Constructor.
-	 * @param $notificationType int NOTIFICATION_TYPE_...
-	 */
-	function __construct($notificationType) {
-		parent::__construct($notificationType);
-	}
+    /**
+     * @copydoc PKPNotificationOperationManager::getStyleClass()
+     */
+    public function getStyleClass($notification)
+    {
+        return NOTIFICATION_STYLE_CLASS_WARNING;
+    }
 
-	/**
-	 * @copydoc PKPNotificationOperationManager::getStyleClass()
-	 */
-	public function getStyleClass($notification) {
-		return NOTIFICATION_STYLE_CLASS_WARNING;
-	}
+    /**
+     * @copydoc PKPNotificationOperationManager::getNotificationUrl()
+     */
+    public function getNotificationUrl($request, $notification)
+    {
+        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
+        $submission = $submissionDao->getById($notification->getAssocId());
 
-	/**
-	 * @copydoc PKPNotificationOperationManager::getNotificationUrl()
-	 */
-	public function getNotificationUrl($request, $notification) {
-		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$submission = $submissionDao->getById($notification->getAssocId());
+        $stageData = $this->_getStageDataByType();
+        $operation = $stageData['path'];
 
-		$stageData = $this->_getStageDataByType();
-		$operation = $stageData['path'];
+        return Services::get('submission')->getWorkflowUrlByUserRoles($submission, $notification->getUserId(), $stageData['path']);
+    }
 
-		return Services::get('submission')->getWorkflowUrlByUserRoles($submission, $notification->getUserId(), $stageData['path']);
-	}
+    /**
+     * @copydoc PKPNotificationOperationManager::getNotificationMessage()
+     */
+    public function getNotificationMessage($request, $notification)
+    {
+        $stageData = $this->_getStageDataByType();
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION); // For stage constants
+        $stageKey = $stageData['translationKey'];
 
-	/**
-	 * @copydoc PKPNotificationOperationManager::getNotificationMessage()
-	 */
-	public function getNotificationMessage($request, $notification) {
-		$stageData = $this->_getStageDataByType();
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION); // For stage constants
-		$stageKey = $stageData['translationKey'];
+        return __('notification.type.pendingRevisions', ['stage' => __($stageKey)]);
+    }
 
-		return __('notification.type.pendingRevisions', array('stage' => __($stageKey)));
-	}
+    /**
+     * @copydoc PKPNotificationOperationManager::getNotificationContents()
+     */
+    public function getNotificationContents($request, $notification)
+    {
+        $stageData = $this->_getStageDataByType();
+        $stageId = $stageData['id'];
+        $submissionId = $notification->getAssocId();
 
-	/**
-	 * @copydoc PKPNotificationOperationManager::getNotificationContents()
-	 */
-	public function getNotificationContents($request, $notification) {
-		$stageData = $this->_getStageDataByType();
-		$stageId = $stageData['id'];
-		$submissionId = $notification->getAssocId();
+        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
+        $submission = $submissionDao->getById($submissionId);
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+        $lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 
-		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$submission = $submissionDao->getById($submissionId);
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
-		$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
+        import('lib.pkp.controllers.api.file.linkAction.AddRevisionLinkAction');
+        AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR); // editor.review.uploadRevision
 
-		import('lib.pkp.controllers.api.file.linkAction.AddRevisionLinkAction');
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR); // editor.review.uploadRevision
+        $uploadFileAction = new AddRevisionLinkAction(
+            $request,
+            $lastReviewRound,
+            [ROLE_ID_AUTHOR]
+        );
 
-		$uploadFileAction = new AddRevisionLinkAction(
-			$request, $lastReviewRound, array(ROLE_ID_AUTHOR)
-		);
+        return $this->fetchLinkActionNotificationContent($uploadFileAction, $request);
+    }
 
-		return $this->fetchLinkActionNotificationContent($uploadFileAction, $request);
-	}
+    /**
+     * @copydoc PKPNotificationOperationManager::getNotificationTitle()
+     */
+    public function getNotificationTitle($notification)
+    {
+        $stageData = $this->_getStageDataByType();
+        $stageKey = $stageData['translationKey'];
+        return __('notification.type.pendingRevisions.title', ['stage' => __($stageKey)]);
+    }
 
-	/**
-	 * @copydoc PKPNotificationOperationManager::getNotificationTitle()
-	 */
-	public function getNotificationTitle($notification) {
-		$stageData = $this->_getStageDataByType();
-		$stageKey = $stageData['translationKey'];
-		return __('notification.type.pendingRevisions.title', array('stage' => __($stageKey)));
-	}
+    /**
+     * @copydoc NotificationManagerDelegate::updateNotification()
+     */
+    public function updateNotification($request, $userIds, $assocType, $assocId)
+    {
+        $userId = current($userIds);
+        $submissionId = $assocId;
+        $stageData = $this->_getStageDataByType();
+        if ($stageData == null) {
+            return;
+        }
+        $expectedStageId = $stageData['id'];
 
-	/**
-	 * @copydoc NotificationManagerDelegate::updateNotification()
-	 */
-	public function updateNotification($request, $userIds, $assocType, $assocId) {
-		$userId = current($userIds);
-		$submissionId = $assocId;
-		$stageData = $this->_getStageDataByType();
-		if ($stageData == null) return;
-		$expectedStageId = $stageData['id'];
+        $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
+        $pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($submissionId, $expectedStageId, SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS);
+        $removeNotifications = false;
 
-		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
-		$pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($submissionId, $expectedStageId, SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS);
-		$removeNotifications = false;
+        if ($pendingRevisionDecision) {
+            if ($editDecisionDao->responseExists($pendingRevisionDecision, $submissionId)) {
+                // Some user already uploaded a revision. Flag to delete any existing notification.
+                $removeNotifications = true;
+            } else {
+                $context = $request->getContext();
+                $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
+                $notificationFactory = $notificationDao->getByAssoc(
+                    ASSOC_TYPE_SUBMISSION,
+                    $submissionId,
+                    $userId,
+                    NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS,
+                    $context->getId()
+                );
+                if (!$notificationFactory->next()) {
+                    // Create or update a pending revision task notification.
+                    $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
+                    $notificationDao->build(
+                        $context->getId(),
+                        NOTIFICATION_LEVEL_TASK,
+                        $this->getNotificationType(),
+                        ASSOC_TYPE_SUBMISSION,
+                        $submissionId,
+                        $userId
+                    );
+                }
+            }
+        } else {
+            // No pending revision decision or other later decision overriden it.
+            // Flag to delete any existing notification.
+            $removeNotifications = true;
+        }
 
-		if ($pendingRevisionDecision) {
-			if ($editDecisionDao->responseExists($pendingRevisionDecision, $submissionId)) {
-				// Some user already uploaded a revision. Flag to delete any existing notification.
-				$removeNotifications = true;
-			} else {
-				$context = $request->getContext();
-				$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-				$notificationFactory = $notificationDao->getByAssoc(
-					ASSOC_TYPE_SUBMISSION,
-					$submissionId,
-					$userId,
-					NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS,
-					$context->getId()
-				);
-				if (!$notificationFactory->next()) {
-					// Create or update a pending revision task notification.
-					$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-					$notificationDao->build(
-						$context->getId(),
-						NOTIFICATION_LEVEL_TASK,
-						$this->getNotificationType(),
-						ASSOC_TYPE_SUBMISSION,
-						$submissionId,
-						$userId
-					);
-				}
-			}
-		} else {
-			// No pending revision decision or other later decision overriden it.
-			// Flag to delete any existing notification.
-			$removeNotifications = true;
-		}
-
-		if ($removeNotifications) {
-			$context = $request->getContext();
-			$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-			$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, $userId, $this->getNotificationType(), $context->getId());
-			$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, $userId, NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
-		}
-	}
+        if ($removeNotifications) {
+            $context = $request->getContext();
+            $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
+            $notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, $userId, $this->getNotificationType(), $context->getId());
+            $notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, $userId, NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
+        }
+    }
 
 
-	//
-	// Private helper methods.
-	//
-	/**
-	 * Get the data for an workflow stage by
-	 * pending revisions notification type.
-	 * @return string
-	 */
-	private function _getStageDataByType() {
-		$stagesData = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
+    //
+    // Private helper methods.
+    //
+    /**
+     * Get the data for an workflow stage by
+     * pending revisions notification type.
+     *
+     * @return string
+     */
+    private function _getStageDataByType()
+    {
+        $stagesData = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
 
-		switch ($this->getNotificationType()) {
-			case NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS:
-				return $stagesData[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] ?? null;
-			case NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS:
-				return $stagesData[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] ?? null;
-			default:
-				assert(false);
-		}
-	}
+        switch ($this->getNotificationType()) {
+            case NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS:
+                return $stagesData[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] ?? null;
+            case NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS:
+                return $stagesData[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] ?? null;
+            default:
+                assert(false);
+        }
+    }
 }
-
-

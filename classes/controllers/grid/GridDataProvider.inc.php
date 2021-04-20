@@ -16,90 +16,106 @@
  * For general information about grids, see GridHandler.
  */
 
-class GridDataProvider {
-	/** @var array */
-	var $_authorizedContext;
+class GridDataProvider
+{
+    /** @var array */
+    public $_authorizedContext;
 
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-	}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+    }
 
 
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Set the authorized context once it
-	 * is established.
-	 * @param $authorizedContext array
-	 */
-	function setAuthorizedContext(&$authorizedContext) {
-		$this->_authorizedContext =& $authorizedContext;
-	}
+    //
+    // Getters and Setters
+    //
+    /**
+     * Set the authorized context once it
+     * is established.
+     *
+     * @param $authorizedContext array
+     */
+    public function setAuthorizedContext(&$authorizedContext)
+    {
+        $this->_authorizedContext = & $authorizedContext;
+    }
 
-	/**
-	 * Retrieve an object from the authorized context
-	 * @param $assocType integer
-	 * @return mixed will return null if the context
-	 *  for the given assoc type does not exist.
-	 */
-	function &getAuthorizedContextObject($assocType) {
-		if ($this->hasAuthorizedContextObject($assocType)) {
-			return $this->_authorizedContext[$assocType];
-		} else {
-			$nullVar = null;
-			return $nullVar;
-		}
-	}
+    /**
+     * Retrieve an object from the authorized context
+     *
+     * @param $assocType integer
+     *
+     * @return mixed will return null if the context
+     *  for the given assoc type does not exist.
+     */
+    public function &getAuthorizedContextObject($assocType)
+    {
+        if ($this->hasAuthorizedContextObject($assocType)) {
+            return $this->_authorizedContext[$assocType];
+        } else {
+            $nullVar = null;
+            return $nullVar;
+        }
+    }
 
-	/**
-	 * Check whether an object already exists in the
-	 * authorized context.
-	 * @param $assocType integer
-	 * @return boolean
-	 */
-	function hasAuthorizedContextObject($assocType) {
-		return isset($this->_authorizedContext[$assocType]);
-	}
+    /**
+     * Check whether an object already exists in the
+     * authorized context.
+     *
+     * @param $assocType integer
+     *
+     * @return boolean
+     */
+    public function hasAuthorizedContextObject($assocType)
+    {
+        return isset($this->_authorizedContext[$assocType]);
+    }
 
 
-	//
-	// Template methods to be implemented by subclasses
-	//
-	/**
-	 * Get the authorization policy.
-	 * @param $request PKPRequest
-	 * @param $args array
-	 * @param $roleAssignments array
-	 * @return PolicySet
-	 */
-	function getAuthorizationPolicy($request, $args, $roleAssignments) {
-		throw new Exception('getRequestArgs called but not implemented!');
-	}
+    //
+    // Template methods to be implemented by subclasses
+    //
+    /**
+     * Get the authorization policy.
+     *
+     * @param $request PKPRequest
+     * @param $args array
+     * @param $roleAssignments array
+     *
+     * @return PolicySet
+     */
+    public function getAuthorizationPolicy($request, $args, $roleAssignments)
+    {
+        throw new Exception('getRequestArgs called but not implemented!');
+    }
 
-	/**
-	 * Get an array with all request parameters
-	 * necessary to uniquely identify the data
-	 * selection of this data provider.
-	 * @return array
-	 */
-	function getRequestArgs() {
-		throw new Exception('getRequestArgs called but not implemented!');
-	}
+    /**
+     * Get an array with all request parameters
+     * necessary to uniquely identify the data
+     * selection of this data provider.
+     *
+     * @return array
+     */
+    public function getRequestArgs()
+    {
+        throw new Exception('getRequestArgs called but not implemented!');
+    }
 
-	/**
-	 * Retrieve the data to load into the grid.
-	 * @param $filter array An optional associative array with filter data
-	 *  as returned by GridHandler::getFilterSelectionData(). If no filter
-	 *  has been selected by the user then the array will be empty.
-	 * @return array
-	 */
-	function loadData($filter = []) {
-		throw new Exception('getRequestArgs called but not implemented!');
-	}
+    /**
+     * Retrieve the data to load into the grid.
+     *
+     * @param $filter array An optional associative array with filter data
+     *  as returned by GridHandler::getFilterSelectionData(). If no filter
+     *  has been selected by the user then the array will be empty.
+     *
+     * @return array
+     */
+    public function loadData($filter = [])
+    {
+        throw new Exception('getRequestArgs called but not implemented!');
+    }
 }
-
-

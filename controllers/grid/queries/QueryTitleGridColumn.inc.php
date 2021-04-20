@@ -15,78 +15,86 @@
 
 import('lib.pkp.classes.controllers.grid.GridColumn');
 
-class QueryTitleGridColumn extends GridColumn {
+class QueryTitleGridColumn extends GridColumn
+{
+    /** @var array Action args for link actions */
+    public $_actionArgs;
 
-	/** @var array Action args for link actions */
-	var $_actionArgs;
+    /**
+     * Constructor
+     *
+     * @param $actionArgs array Action args for link actions
+     */
+    public function __construct($actionArgs)
+    {
+        $this->_actionArgs = $actionArgs;
 
-	/**
-	 * Constructor
-	 * @param $actionArgs array Action args for link actions
-	 */
-	function __construct($actionArgs) {
-		$this->_actionArgs = $actionArgs;
+        import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
+        $cellProvider = new ColumnBasedGridCellProvider();
 
-		import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
-		$cellProvider = new ColumnBasedGridCellProvider();
-
-		parent::__construct('name', 'common.name', null, null, $cellProvider,
-			array('width' => 60, 'alignment' => COLUMN_ALIGNMENT_LEFT));
-	}
-
-
-	//
-	// Public methods
-	//
-	/**
-	 * Method expected by ColumnBasedGridCellProvider
-	 * to render a cell in this column.
-	 *
-	 * @copydoc ColumnBasedGridCellProvider::getTemplateVarsFromRowColumn()
-	 */
-	function getTemplateVarsFromRow($row) {
-		// We do not need any template variables because
-		// the only content of this column's cell will be
-		// an action. See QueryTitleGridColumn::getCellActions().
-		return array('label' => '');
-	}
+        parent::__construct(
+            'name',
+            'common.name',
+            null,
+            null,
+            $cellProvider,
+            ['width' => 60, 'alignment' => COLUMN_ALIGNMENT_LEFT]
+        );
+    }
 
 
-	//
-	// Override methods from GridColumn
-	//
-	/**
-	 * @copydoc GridColumn::getCellActions()
-	 */
-	function getCellActions($request, $row, $position = GRID_ACTION_POSITION_DEFAULT) {
-		// Retrieve the submission file.
-		$query = $row->getData();
-		$headNote = $query->getHeadNote();
+    //
+    // Public methods
+    //
+    /**
+     * Method expected by ColumnBasedGridCellProvider
+     * to render a cell in this column.
+     *
+     * @copydoc ColumnBasedGridCellProvider::getTemplateVarsFromRowColumn()
+     */
+    public function getTemplateVarsFromRow($row)
+    {
+        // We do not need any template variables because
+        // the only content of this column's cell will be
+        // an action. See QueryTitleGridColumn::getCellActions().
+        return ['label' => ''];
+    }
 
-		// Create the cell action to download a file.
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		$router = $request->getRouter();
-		$actionArgs = array_merge(
-			$this->_actionArgs,
-			array('queryId' => $query->getId())
-		);
 
-		return array_merge(
-			parent::getCellActions($request, $row, $position),
-			array(
-				new LinkAction(
-					'readQuery',
-					new AjaxModal(
-						$router->url($request, null, null, 'readQuery', null, $actionArgs),
-						$headNote?$headNote->getTitle():'&mdash;',
-						'modal_edit'
-					),
-					($headNote && $headNote->getTitle()!='')?htmlspecialchars($headNote->getTitle()):'&mdash;',
-					null
-				)
-			)
-		);
-	}
+    //
+    // Override methods from GridColumn
+    //
+    /**
+     * @copydoc GridColumn::getCellActions()
+     */
+    public function getCellActions($request, $row, $position = GRID_ACTION_POSITION_DEFAULT)
+    {
+        // Retrieve the submission file.
+        $query = $row->getData();
+        $headNote = $query->getHeadNote();
+
+        // Create the cell action to download a file.
+        import('lib.pkp.classes.linkAction.request.AjaxModal');
+        $router = $request->getRouter();
+        $actionArgs = array_merge(
+            $this->_actionArgs,
+            ['queryId' => $query->getId()]
+        );
+
+        return array_merge(
+            parent::getCellActions($request, $row, $position),
+            [
+                new LinkAction(
+                    'readQuery',
+                    new AjaxModal(
+                        $router->url($request, null, null, 'readQuery', null, $actionArgs),
+                        $headNote ? $headNote->getTitle() : '&mdash;',
+                        'modal_edit'
+                    ),
+                    ($headNote && $headNote->getTitle() != '') ? htmlspecialchars($headNote->getTitle()) : '&mdash;',
+                    null
+                )
+            ]
+        );
+    }
 }
-
-

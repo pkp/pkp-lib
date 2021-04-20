@@ -15,80 +15,89 @@
 
 import('lib.pkp.classes.linkAction.request.LinkActionRequest');
 
-class RedirectAction extends LinkActionRequest {
-	/** @var string The URL this action will invoke */
-	var $_url;
+class RedirectAction extends LinkActionRequest
+{
+    /** @var string The URL this action will invoke */
+    public $_url;
 
-	/** @var string The name of the window */
-	var $_name;
+    /** @var string The name of the window */
+    public $_name;
 
-	/** @var string The specifications of the window */
-	var $_specs;
+    /** @var string The specifications of the window */
+    public $_specs;
 
-	/**
-	 * Constructor
-	 * @param $url string Target URL
-	 * @param $name string Name of window to direct (defaults to current window)
-	 * @param $specs string Optional set of window specs (see window.open JS reference)
-	 */
-	function __construct($url, $name = '_self', $specs = '') {
-		parent::__construct();
-		$this->_url = $url;
-		$this->_name = $name;
-		$this->_specs = $specs;
-	}
-
-
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Get the target URL.
-	 * @return string
-	 */
-	function getUrl() {
-		return $this->_url;
-	}
-
-	/**
-	 * Get the target name.
-	 * See JS reference for the name parameter to "window.open".
-	 * @return string
-	 */
-	function getName() {
-		return $this->_name;
-	}
-
-	/**
-	 * Get the target specifications.
-	 * See JS reference for the specs parameter to "window.open".
-	 * @return string
-	 */
-	function getSpecs() {
-		return $this->_specs;
-	}
+    /**
+     * Constructor
+     *
+     * @param $url string Target URL
+     * @param $name string Name of window to direct (defaults to current window)
+     * @param $specs string Optional set of window specs (see window.open JS reference)
+     */
+    public function __construct($url, $name = '_self', $specs = '')
+    {
+        parent::__construct();
+        $this->_url = $url;
+        $this->_name = $name;
+        $this->_specs = $specs;
+    }
 
 
-	//
-	// Overridden protected methods from LinkActionRequest
-	//
-	/**
-	 * @see LinkActionRequest::getJSLinkActionRequest()
-	 */
-	function getJSLinkActionRequest() {
-		return '$.pkp.classes.linkAction.RedirectRequest';
-	}
+    //
+    // Getters and Setters
+    //
+    /**
+     * Get the target URL.
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->_url;
+    }
 
-	/**
-	 * @see LinkActionRequest::getLocalizedOptions()
-	 */
-	function getLocalizedOptions() {
-		return array(
-			'url' => $this->getUrl(),
-			'name' => $this->getName(),
-			'specs' => $this->getSpecs()
-		);
-	}
+    /**
+     * Get the target name.
+     * See JS reference for the name parameter to "window.open".
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->_name;
+    }
+
+    /**
+     * Get the target specifications.
+     * See JS reference for the specs parameter to "window.open".
+     *
+     * @return string
+     */
+    public function getSpecs()
+    {
+        return $this->_specs;
+    }
+
+
+    //
+    // Overridden protected methods from LinkActionRequest
+    //
+    /**
+     * @see LinkActionRequest::getJSLinkActionRequest()
+     */
+    public function getJSLinkActionRequest()
+    {
+        return '$.pkp.classes.linkAction.RedirectRequest';
+    }
+
+    /**
+     * @see LinkActionRequest::getLocalizedOptions()
+     */
+    public function getLocalizedOptions()
+    {
+        return [
+            'url' => $this->getUrl(),
+            'name' => $this->getName(),
+            'specs' => $this->getSpecs()
+        ];
+    }
 }
-
-

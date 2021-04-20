@@ -15,82 +15,85 @@
 // import grid base classes
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
 
-use \PKP\core\JSONMessage;
+use PKP\core\JSONMessage;
 
-class ManageReviewFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler {
-
-	/** @var array */
-	var $_selectionArgs;
-
-
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		$stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
-		$fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE;
-		import('lib.pkp.controllers.grid.files.review.ReviewCategoryGridDataProvider');
-		// Pass in null stageId to be set in initialize from request var.
-		parent::__construct(
-			new ReviewCategoryGridDataProvider($fileStage),
-			null,
-			FILE_GRID_ADD|FILE_GRID_VIEW_NOTES
-		);
-
-		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
-			array('fetchGrid', 'fetchCategory', 'fetchRow', 'updateReviewFiles')
-		);
-
-		// Set the grid title.
-		$this->setTitle('reviewer.submission.reviewFiles');
-	}
+class ManageReviewFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
+{
+    /** @var array */
+    public $_selectionArgs;
 
 
-	//
-	// Public handler methods
-	//
-	/**
-	 * Save 'manage review files' form.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function updateReviewFiles($args, $request) {
-		$submission = $this->getSubmission();
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
+        $fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE;
+        import('lib.pkp.controllers.grid.files.review.ReviewCategoryGridDataProvider');
+        // Pass in null stageId to be set in initialize from request var.
+        parent::__construct(
+            new ReviewCategoryGridDataProvider($fileStage),
+            null,
+            FILE_GRID_ADD | FILE_GRID_VIEW_NOTES
+        );
 
-		import('lib.pkp.controllers.grid.files.review.form.ManageReviewFilesForm');
-		$manageReviewFilesForm = new ManageReviewFilesForm($submission->getId(), $this->getRequestArg('stageId'), $this->getRequestArg('reviewRoundId'));
-		$manageReviewFilesForm->readInputData();
+        $this->addRoleAssignment(
+            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+            ['fetchGrid', 'fetchCategory', 'fetchRow', 'updateReviewFiles']
+        );
 
-		if ($manageReviewFilesForm->validate()) {
-			$dataProvider = $this->getDataProvider();
-			$manageReviewFilesForm->execute(
-				$this->getGridCategoryDataElements($request, $this->getStageId())
-			);
-
-			$this->setupTemplate($request);
-			$user = $request->getUser();
-			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.updatedReviewFiles')));
-
-			// Let the calling grid reload itself
-			return \PKP\db\DAO::getDataChangedEvent();
-		} else {
-			return new JSONMessage(false);
-		}
-	}
+        // Set the grid title.
+        $this->setTitle('reviewer.submission.reviewFiles');
+    }
 
 
-	//
-	// Extended methods from CategoryGridHandler.
-	//
-	/**
-	 * @copydoc CategoryGridHandler::getRequestArgs()
-	 */
-	function getRequestArgs() {
-		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		return array_merge(array('stageId' => $stageId), parent::getRequestArgs());
-	}
+    //
+    // Public handler methods
+    //
+    /**
+     * Save 'manage review files' form.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function updateReviewFiles($args, $request)
+    {
+        $submission = $this->getSubmission();
+
+        import('lib.pkp.controllers.grid.files.review.form.ManageReviewFilesForm');
+        $manageReviewFilesForm = new ManageReviewFilesForm($submission->getId(), $this->getRequestArg('stageId'), $this->getRequestArg('reviewRoundId'));
+        $manageReviewFilesForm->readInputData();
+
+        if ($manageReviewFilesForm->validate()) {
+            $dataProvider = $this->getDataProvider();
+            $manageReviewFilesForm->execute(
+                $this->getGridCategoryDataElements($request, $this->getStageId())
+            );
+
+            $this->setupTemplate($request);
+            $user = $request->getUser();
+            NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.updatedReviewFiles')]);
+
+            // Let the calling grid reload itself
+            return \PKP\db\DAO::getDataChangedEvent();
+        } else {
+            return new JSONMessage(false);
+        }
+    }
+
+
+    //
+    // Extended methods from CategoryGridHandler.
+    //
+    /**
+     * @copydoc CategoryGridHandler::getRequestArgs()
+     */
+    public function getRequestArgs()
+    {
+        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        return array_merge(['stageId' => $stageId], parent::getRequestArgs());
+    }
 }
-
-

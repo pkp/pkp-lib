@@ -14,21 +14,20 @@
 
 import('lib.pkp.classes.controllers.grid.GridCategoryRow');
 
-class SelectableSubmissionFileListCategoryGridRow extends GridCategoryRow {
+class SelectableSubmissionFileListCategoryGridRow extends GridCategoryRow
+{
+    //
+    // Overridden methods from GridCategoryRow
+    //
+    /**
+     * @copydoc GridCategoryRow::getCategoryLabel()
+     */
+    public function getCategoryLabel()
+    {
+        $stageId = $this->getData();
+        import('lib.pkp.classes.workflow.WorkflowStageDAO');
+        $stageTranslationKey = WorkflowStageDAO::getTranslationKeyFromId($stageId);
 
-	//
-	// Overridden methods from GridCategoryRow
-	//
-	/**
-	 * @copydoc GridCategoryRow::getCategoryLabel()
-	 */
-	function getCategoryLabel() {
-		$stageId = $this->getData();
-		import('lib.pkp.classes.workflow.WorkflowStageDAO');
-		$stageTranslationKey = WorkflowStageDAO::getTranslationKeyFromId($stageId);
-
-		return __($stageTranslationKey);
-	}
+        return __($stageTranslationKey);
+    }
 }
-
-

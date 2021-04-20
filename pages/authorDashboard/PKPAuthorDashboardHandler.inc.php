@@ -17,356 +17,367 @@
 import('classes.handler.Handler');
 import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_REVIEW_...
 
-use \PKP\services\PKPSchemaService;
+use PKP\services\PKPSchemaService;
 
-abstract class PKPAuthorDashboardHandler extends Handler {
+abstract class PKPAuthorDashboardHandler extends Handler
+{
+    /** @copydoc PKPHandler::_isBackendPage */
+    public $_isBackendPage = true;
 
-	/** @copydoc PKPHandler::_isBackendPage */
-	var $_isBackendPage = true;
-
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-		$this->addRoleAssignment(
-			array(ROLE_ID_AUTHOR),
-			array(
-				'submission',
-				'readSubmissionEmail',
-			)
-		);
-	}
-
-
-	//
-	// Implement template methods from PKPHandler
-	//
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-
-		import('lib.pkp.classes.security.authorization.AuthorDashboardAccessPolicy');
-		$this->addPolicy(new AuthorDashboardAccessPolicy($request, $args, $roleAssignments), true);
-
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRoleAssignment(
+            [ROLE_ID_AUTHOR],
+            [
+                'submission',
+                'readSubmissionEmail',
+            ]
+        );
+    }
 
 
-	//
-	// Public handler operations
-	//
-	/**
-	 * Displays the author dashboard.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function submission($args, $request) {
-		// Pass the authorized submission on to the template.
-		$this->setupTemplate($request);
+    //
+    // Implement template methods from PKPHandler
+    //
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        import('lib.pkp.classes.security.authorization.AuthorDashboardAccessPolicy');
+        $this->addPolicy(new AuthorDashboardAccessPolicy($request, $args, $roleAssignments), true);
 
-		$templateMgr = TemplateManager::getManager($request);
-		return $templateMgr->display('authorDashboard/authorDashboard.tpl');
-	}
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
 
-	/**
-	 * Fetches information about a specific email and returns it.
-	 * @param $args array
-	 * @param $request Request
-	 * @return JSONMessage JSON object
-	 */
-	function readSubmissionEmail($args, $request) {
-		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
-		$user = $request->getUser();
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$submissionEmailId = $request->getUserVar('submissionEmailId');
+    //
+    // Public handler operations
+    //
+    /**
+     * Displays the author dashboard.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     */
+    public function submission($args, $request)
+    {
+        // Pass the authorized submission on to the template.
+        $this->setupTemplate($request);
 
-		$submissionEmailFactory = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId());
-		while ($email = $submissionEmailFactory->next()) { // validate the email id for this user.
-			if ($email->getId() == $submissionEmailId) {
-				$templateMgr = TemplateManager::getManager($request);
-				$templateMgr->assign('submissionEmail', $email);
-				return $templateMgr->fetchJson('authorDashboard/submissionEmail.tpl');
-			}
-		}
-	}
-
-	/**
-	 * Get the SUBMISSION_FILE_... file stage based on the current
-	 * WORKFLOW_STAGE_... workflow stage.
-	 * @param $currentStage int WORKFLOW_STAGE_...
-	 * @return int SUBMISSION_FILE_...
-	 */
-	protected function _fileStageFromWorkflowStage($currentStage) {
-		switch ($currentStage) {
-			case WORKFLOW_STAGE_ID_SUBMISSION:
-				return SUBMISSION_FILE_SUBMISSION;
-			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-				return SUBMISSION_FILE_REVIEW_REVISION;
-			case WORKFLOW_STAGE_ID_EDITING:
-				return SUBMISSION_FILE_FINAL;
-			default:
-				return null;
-		}
-	}
+        $templateMgr = TemplateManager::getManager($request);
+        return $templateMgr->display('authorDashboard/authorDashboard.tpl');
+    }
 
 
-	//
-	// Protected helper methods
-	//
-	/**
-	 * Setup common template variables.
-	 */
-	function setupTemplate($request) {
-		parent::setupTemplate($request);
-		AppLocale::requireComponents(
-			LOCALE_COMPONENT_PKP_ADMIN,
-			LOCALE_COMPONENT_PKP_MANAGER,
-			LOCALE_COMPONENT_PKP_SUBMISSION,
-			LOCALE_COMPONENT_APP_SUBMISSION,
-			LOCALE_COMPONENT_PKP_EDITOR,
-			LOCALE_COMPONENT_APP_EDITOR,
-			LOCALE_COMPONENT_PKP_GRID
-		);
+    /**
+     * Fetches information about a specific email and returns it.
+     *
+     * @param $args array
+     * @param $request Request
+     *
+     * @return JSONMessage JSON object
+     */
+    public function readSubmissionEmail($args, $request)
+    {
+        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+        $user = $request->getUser();
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submissionEmailId = $request->getUserVar('submissionEmailId');
 
-		$templateMgr = TemplateManager::getManager($request);
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$user = $request->getUser();
-		$submissionContext = $request->getContext();
-		if ($submission->getContextId() !== $submissionContext->getId()) {
-			$submissionContext = Services::get('context')->get($submission->getContextId());
-		}
+        $submissionEmailFactory = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId());
+        while ($email = $submissionEmailFactory->next()) { // validate the email id for this user.
+            if ($email->getId() == $submissionEmailId) {
+                $templateMgr = TemplateManager::getManager($request);
+                $templateMgr->assign('submissionEmail', $email);
+                return $templateMgr->fetchJson('authorDashboard/submissionEmail.tpl');
+            }
+        }
+    }
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$contextUserGroups = $userGroupDao->getByRoleId($submission->getData('contextId'), ROLE_ID_AUTHOR)->toArray();
-		$workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
+    /**
+     * Get the SUBMISSION_FILE_... file stage based on the current
+     * WORKFLOW_STAGE_... workflow stage.
+     *
+     * @param $currentStage int WORKFLOW_STAGE_...
+     *
+     * @return int SUBMISSION_FILE_...
+     */
+    protected function _fileStageFromWorkflowStage($currentStage)
+    {
+        switch ($currentStage) {
+            case WORKFLOW_STAGE_ID_SUBMISSION:
+                return SUBMISSION_FILE_SUBMISSION;
+            case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+                return SUBMISSION_FILE_REVIEW_REVISION;
+            case WORKFLOW_STAGE_ID_EDITING:
+                return SUBMISSION_FILE_FINAL;
+            default:
+                return null;
+        }
+    }
 
-		$stageNotifications = array();
-		foreach (array_keys($workflowStages) as $stageId) {
-			$stageNotifications[$stageId] = false;
-		}
 
-		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
-		$stageDecisions = $editDecisionDao->getEditorDecisions($submission->getId());
+    //
+    // Protected helper methods
+    //
+    /**
+     * Setup common template variables.
+     */
+    public function setupTemplate($request)
+    {
+        parent::setupTemplate($request);
+        AppLocale::requireComponents(
+            LOCALE_COMPONENT_PKP_ADMIN,
+            LOCALE_COMPONENT_PKP_MANAGER,
+            LOCALE_COMPONENT_PKP_SUBMISSION,
+            LOCALE_COMPONENT_APP_SUBMISSION,
+            LOCALE_COMPONENT_PKP_EDITOR,
+            LOCALE_COMPONENT_APP_EDITOR,
+            LOCALE_COMPONENT_PKP_GRID
+        );
 
-		// Add an upload revisions button when in the review stage
-		// and the last decision is to request revisions
-		$uploadFileUrl = '';
-		if (in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
-			$fileStage = $this->_fileStageFromWorkflowStage($submission->getData('stageId'));
-			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
-			$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
-			if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
-				$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
-				$editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getRound());
-				if (!empty($editorDecisions)) {
-					$lastDecision = end($editorDecisions)['decision'];
-					$revisionDecisions = [SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, SUBMISSION_EDITOR_DECISION_RESUBMIT];
-					if (in_array($lastDecision, $revisionDecisions)) {
-						$actionArgs['submissionId'] = $submission->getId();
-						$actionArgs['stageId'] = $submission->getData('stageId');
-						$actionArgs['uploaderRoles'] = ROLE_ID_AUTHOR;
-						$actionArgs['fileStage'] = $fileStage;
-						$actionArgs['reviewRoundId'] = $lastReviewRound->getId();
-						$uploadFileUrl = $request->getDispatcher()->url(
-							$request,
-							PKPApplication::ROUTE_COMPONENT,
-							null,
-							'wizard.fileUpload.FileUploadWizardHandler',
-							'startWizard',
-							null,
-							$actionArgs
-						);
-					}
-				}
-			}
-		}
+        $templateMgr = TemplateManager::getManager($request);
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $user = $request->getUser();
+        $submissionContext = $request->getContext();
+        if ($submission->getContextId() !== $submissionContext->getId()) {
+            $submissionContext = Services::get('context')->get($submission->getContextId());
+        }
 
-		$supportedSubmissionLocales = $submissionContext->getSupportedSubmissionLocales();
-		$localeNames = AppLocale::getAllLocales();
-		$locales = array_map(function($localeKey) use ($localeNames) {
-			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-		}, $supportedSubmissionLocales);
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $contextUserGroups = $userGroupDao->getByRoleId($submission->getData('contextId'), ROLE_ID_AUTHOR)->toArray();
+        $workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
 
-		$latestPublication = $submission->getLatestPublication();
+        $stageNotifications = [];
+        foreach (array_keys($workflowStages) as $stageId) {
+            $stageNotifications[$stageId] = false;
+        }
 
-		$submissionApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId());
-		$latestPublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
+        $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
+        $stageDecisions = $editDecisionDao->getEditorDecisions($submission->getId());
 
-		$contributorsGridUrl = $request->getDispatcher()->url(
-			$request,
-			PKPApplication::ROUTE_COMPONENT,
-			null,
-			'grid.users.author.AuthorGridHandler',
-			'fetchGrid',
-			null,
-			[
-				'submissionId' => $submission->getId(),
-				'publicationId' => '__publicationId__',
-			]
-		);
+        // Add an upload revisions button when in the review stage
+        // and the last decision is to request revisions
+        $uploadFileUrl = '';
+        if (in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
+            $fileStage = $this->_fileStageFromWorkflowStage($submission->getData('stageId'));
+            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+            $lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
+            if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
+                $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
+                $editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getRound());
+                if (!empty($editorDecisions)) {
+                    $lastDecision = end($editorDecisions)['decision'];
+                    $revisionDecisions = [SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, SUBMISSION_EDITOR_DECISION_RESUBMIT];
+                    if (in_array($lastDecision, $revisionDecisions)) {
+                        $actionArgs['submissionId'] = $submission->getId();
+                        $actionArgs['stageId'] = $submission->getData('stageId');
+                        $actionArgs['uploaderRoles'] = ROLE_ID_AUTHOR;
+                        $actionArgs['fileStage'] = $fileStage;
+                        $actionArgs['reviewRoundId'] = $lastReviewRound->getId();
+                        $uploadFileUrl = $request->getDispatcher()->url(
+                            $request,
+                            PKPApplication::ROUTE_COMPONENT,
+                            null,
+                            'wizard.fileUpload.FileUploadWizardHandler',
+                            'startWizard',
+                            null,
+                            $actionArgs
+                        );
+                    }
+                }
+            }
+        }
 
-		$submissionLibraryUrl = $request->getDispatcher()->url(
-			$request,
-			PKPApplication::ROUTE_COMPONENT,
-			null,
-			'modals.documentLibrary.DocumentLibraryHandler',
-			'documentLibrary',
-			null,
-			array('submissionId' => $submission->getId())
-		);
+        $supportedSubmissionLocales = $submissionContext->getSupportedSubmissionLocales();
+        $localeNames = AppLocale::getAllLocales();
+        $locales = array_map(function ($localeKey) use ($localeNames) {
+            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+        }, $supportedSubmissionLocales);
 
-		$titleAbstractForm = new PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
-		$citationsForm = new PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
+        $latestPublication = $submission->getLatestPublication();
 
-		// Import constants
-		import('classes.submission.Submission');
-		import('classes.components.forms.publication.PublishForm');
+        $submissionApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId());
+        $latestPublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
 
-		$templateMgr->setConstants([
-			'STATUS_QUEUED',
-			'STATUS_PUBLISHED',
-			'STATUS_DECLINED',
-			'STATUS_SCHEDULED',
-			'FORM_TITLE_ABSTRACT',
-			'FORM_CITATIONS',
-		]);
+        $contributorsGridUrl = $request->getDispatcher()->url(
+            $request,
+            PKPApplication::ROUTE_COMPONENT,
+            null,
+            'grid.users.author.AuthorGridHandler',
+            'fetchGrid',
+            null,
+            [
+                'submissionId' => $submission->getId(),
+                'publicationId' => '__publicationId__',
+            ]
+        );
 
-		// Get the submission props without the full publication details. We'll
-		// retrieve just the publication information that we need separately to
-		// reduce the amount of data passed to the browser
-		$propNames = Services::get('schema')->getSummaryProps(PKPSchemaService::SCHEMA_SUBMISSION);
-		$propNames = array_filter($propNames, function($propName) { return $propName !== 'publications'; });
-		$submissionProps = Services::get('submission')->getProperties(
-			$submission,
-			$propNames,
-			[
-				'request' => $request,
-				'userGroups' => $contextUserGroups,
-			]
-		);
+        $submissionLibraryUrl = $request->getDispatcher()->url(
+            $request,
+            PKPApplication::ROUTE_COMPONENT,
+            null,
+            'modals.documentLibrary.DocumentLibraryHandler',
+            'documentLibrary',
+            null,
+            ['submissionId' => $submission->getId()]
+        );
 
-		// Get an array of publication identifiers
-		$publicationList = [];
-		foreach ($submission->getData('publications') as $publication) {
-			$publicationList[] = Services::get('publication')->getProperties(
-				$publication,
-				['id', 'datePublished', 'status', 'version'],
-				[
-					'context' => $submissionContext,
-					'submission' => $submission,
-					'request' => $request,
-				]
-			);
-		}
+        $titleAbstractForm = new PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
+        $citationsForm = new PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
 
-		// Get full details of the working publication and the currently published publication
-		$workingPublicationProps = Services::get('publication')->getFullProperties(
-			$submission->getLatestPublication(),
-			[
-				'context' => $submissionContext,
-				'submission' => $submission,
-				'request' => $request,
-				'userGroups' => $contextUserGroups,
-			]
-		);
-		if ($submission->getLatestPublication()->getId() === $submission->getCurrentPublication()->getId()) {
-			$currentPublicationProps = $workingPublicationProps;
-		} else {
-			$currentPublicationProps = Services::get('publication')->getFullProperties(
-				$submission->getCurrentPublication(),
-				[
-					'context' => $submissionContext,
-					'submission' => $submission,
-					'request' => $request,
-					'userGroups' => $contextUserGroups,
-				]
-			);
-		}
+        // Import constants
+        import('classes.submission.Submission');
+        import('classes.components.forms.publication.PublishForm');
 
-		// Check if current author can edit metadata
-		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		$canEditPublication = true;
-		if (!in_array(ROLE_ID_SITE_ADMIN, $userRoles) && !Services::get('submission')->canEditPublication($submission->getId(), $user->getId())) {
-			$canEditPublication =  false;
-		}
+        $templateMgr->setConstants([
+            'STATUS_QUEUED',
+            'STATUS_PUBLISHED',
+            'STATUS_DECLINED',
+            'STATUS_SCHEDULED',
+            'FORM_TITLE_ABSTRACT',
+            'FORM_CITATIONS',
+        ]);
 
-		// Check if current author can access ArticleGalleyGrid within production stage
-		$canAccessProductionStage = true;
-		$userAllowedStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
-		if(!array_key_exists(WORKFLOW_STAGE_ID_PRODUCTION, $userAllowedStages)) {
-			$canAccessProductionStage = false;
-		}
+        // Get the submission props without the full publication details. We'll
+        // retrieve just the publication information that we need separately to
+        // reduce the amount of data passed to the browser
+        $propNames = Services::get('schema')->getSummaryProps(PKPSchemaService::SCHEMA_SUBMISSION);
+        $propNames = array_filter($propNames, function ($propName) {
+            return $propName !== 'publications';
+        });
+        $submissionProps = Services::get('submission')->getProperties(
+            $submission,
+            $propNames,
+            [
+                'request' => $request,
+                'userGroups' => $contextUserGroups,
+            ]
+        );
 
-		$state = [
-			'canEditPublication' => $canEditPublication,
-			'components' => [
-				FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
-				FORM_CITATIONS => $citationsForm->getConfig(),
-			],
-			'contributorsGridUrl' => $contributorsGridUrl,
-			'currentPublication' => $currentPublicationProps,
-			'publicationFormIds' => [
-				FORM_TITLE_ABSTRACT,
-				FORM_CITATIONS,
-			],
-			'representationsGridUrl' => $canAccessProductionStage ? $this->_getRepresentationsGridUrl($request, $submission) : '',
-			'submission' => $submissionProps,
-			'publicationList' => $publicationList,
-			'workingPublication' => $workingPublicationProps,
-			'submissionApiUrl' => $submissionApiUrl,
-			'submissionLibraryLabel' => __('grid.libraryFiles.submission.title'),
-			'submissionLibraryUrl' => $submissionLibraryUrl,
-			'supportsReferences' => !!$submissionContext->getData('citations'),
-			'statusLabel' => __('semicolon', ['label' => __('common.status')]),
-			'uploadFileModalLabel' => __('editor.submissionReview.uploadFile'),
-			'uploadFileUrl' => $uploadFileUrl,
-			'versionLabel' => __('semicolon', ['label' => __('admin.version')]),
-		];
+        // Get an array of publication identifiers
+        $publicationList = [];
+        foreach ($submission->getData('publications') as $publication) {
+            $publicationList[] = Services::get('publication')->getProperties(
+                $publication,
+                ['id', 'datePublished', 'status', 'version'],
+                [
+                    'context' => $submissionContext,
+                    'submission' => $submission,
+                    'request' => $request,
+                ]
+            );
+        }
 
-		// Add the metadata form if one or more metadata fields are enabled
-		$metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'agencies', 'type'];
-		$metadataEnabled = false;
-		foreach ($metadataFields as $metadataField) {
-			if ($submissionContext->getData($metadataField)) {
-				$metadataEnabled = true;
-				break;
-			}
-		}
-		if ($metadataEnabled) {
-			$vocabSuggestionUrlBase =$request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
-			$metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
-			$templateMgr->setConstants(['FORM_METADATA']);
-			$state['components'][FORM_METADATA] = $metadataForm->getConfig();
-			$state['publicationFormIds'][] = FORM_METADATA;
-		}
+        // Get full details of the working publication and the currently published publication
+        $workingPublicationProps = Services::get('publication')->getFullProperties(
+            $submission->getLatestPublication(),
+            [
+                'context' => $submissionContext,
+                'submission' => $submission,
+                'request' => $request,
+                'userGroups' => $contextUserGroups,
+            ]
+        );
+        if ($submission->getLatestPublication()->getId() === $submission->getCurrentPublication()->getId()) {
+            $currentPublicationProps = $workingPublicationProps;
+        } else {
+            $currentPublicationProps = Services::get('publication')->getFullProperties(
+                $submission->getCurrentPublication(),
+                [
+                    'context' => $submissionContext,
+                    'submission' => $submission,
+                    'request' => $request,
+                    'userGroups' => $contextUserGroups,
+                ]
+            );
+        }
 
-		$templateMgr->setState($state);
+        // Check if current author can edit metadata
+        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $canEditPublication = true;
+        if (!in_array(ROLE_ID_SITE_ADMIN, $userRoles) && !Services::get('submission')->canEditPublication($submission->getId(), $user->getId())) {
+            $canEditPublication = false;
+        }
 
-		$templateMgr->assign([
-			'metadataEnabled' => $metadataEnabled,
-			'pageComponent' => 'WorkflowPage',
-			'pageTitle' => join(__('common.titleSeparator'), [
-				$submission->getShortAuthorString(),
-				$submission->getLocalizedTitle()
-			]),
-			'submission' => $submission,
-			'workflowStages' => $workflowStages,
-			'canAccessProductionStage' => $canAccessProductionStage,
-		]);
-	}
+        // Check if current author can access ArticleGalleyGrid within production stage
+        $canAccessProductionStage = true;
+        $userAllowedStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        if (!array_key_exists(WORKFLOW_STAGE_ID_PRODUCTION, $userAllowedStages)) {
+            $canAccessProductionStage = false;
+        }
 
-	/**
-	 * Get the URL for the galley/publication formats grid with a placeholder for
-	 * the publicationId value
-	 *
-	 * @param Request $request
-	 * @param Submission $submission
-	 * @return string
-	 */
-	abstract protected function _getRepresentationsGridUrl($request, $submission);
+        $state = [
+            'canEditPublication' => $canEditPublication,
+            'components' => [
+                FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
+                FORM_CITATIONS => $citationsForm->getConfig(),
+            ],
+            'contributorsGridUrl' => $contributorsGridUrl,
+            'currentPublication' => $currentPublicationProps,
+            'publicationFormIds' => [
+                FORM_TITLE_ABSTRACT,
+                FORM_CITATIONS,
+            ],
+            'representationsGridUrl' => $canAccessProductionStage ? $this->_getRepresentationsGridUrl($request, $submission) : '',
+            'submission' => $submissionProps,
+            'publicationList' => $publicationList,
+            'workingPublication' => $workingPublicationProps,
+            'submissionApiUrl' => $submissionApiUrl,
+            'submissionLibraryLabel' => __('grid.libraryFiles.submission.title'),
+            'submissionLibraryUrl' => $submissionLibraryUrl,
+            'supportsReferences' => !!$submissionContext->getData('citations'),
+            'statusLabel' => __('semicolon', ['label' => __('common.status')]),
+            'uploadFileModalLabel' => __('editor.submissionReview.uploadFile'),
+            'uploadFileUrl' => $uploadFileUrl,
+            'versionLabel' => __('semicolon', ['label' => __('admin.version')]),
+        ];
+
+        // Add the metadata form if one or more metadata fields are enabled
+        $metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'agencies', 'type'];
+        $metadataEnabled = false;
+        foreach ($metadataFields as $metadataField) {
+            if ($submissionContext->getData($metadataField)) {
+                $metadataEnabled = true;
+                break;
+            }
+        }
+        if ($metadataEnabled) {
+            $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
+            $metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
+            $templateMgr->setConstants(['FORM_METADATA']);
+            $state['components'][FORM_METADATA] = $metadataForm->getConfig();
+            $state['publicationFormIds'][] = FORM_METADATA;
+        }
+
+        $templateMgr->setState($state);
+
+        $templateMgr->assign([
+            'metadataEnabled' => $metadataEnabled,
+            'pageComponent' => 'WorkflowPage',
+            'pageTitle' => join(__('common.titleSeparator'), [
+                $submission->getShortAuthorString(),
+                $submission->getLocalizedTitle()
+            ]),
+            'submission' => $submission,
+            'workflowStages' => $workflowStages,
+            'canAccessProductionStage' => $canAccessProductionStage,
+        ]);
+    }
+
+    /**
+     * Get the URL for the galley/publication formats grid with a placeholder for
+     * the publicationId value
+     *
+     * @param Request $request
+     * @param Submission $submission
+     *
+     * @return string
+     */
+    abstract protected function _getRepresentationsGridUrl($request, $submission);
 }
-
-

@@ -16,64 +16,65 @@
 
 import('pages.user.UserHandler');
 
-class ProfileHandler extends UserHandler {
+class ProfileHandler extends UserHandler
+{
+    /** @copydoc PKPHandler::_isBackendPage */
+    public $_isBackendPage = true;
 
-	/** @copydoc PKPHandler::_isBackendPage */
-	var $_isBackendPage = true;
+    //
+    // Implement template methods from PKPHandler
+    //
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        $operations = [
+            'profile',
+        ];
 
-	//
-	// Implement template methods from PKPHandler
-	//
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		$operations = array(
-			'profile',
-		);
+        // Site access policy
+        import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
+        $this->addPolicy(new PKPSiteAccessPolicy($request, $operations, SITE_ACCESS_ALL_ROLES));
 
-		// Site access policy
-		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
-		$this->addPolicy(new PKPSiteAccessPolicy($request, $operations, SITE_ACCESS_ALL_ROLES));
+        // User must be logged in
+        import('lib.pkp.classes.security.authorization.UserRequiredPolicy');
+        $this->addPolicy(new UserRequiredPolicy($request));
 
-		// User must be logged in
-		import('lib.pkp.classes.security.authorization.UserRequiredPolicy');
-		$this->addPolicy(new UserRequiredPolicy($request));
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+    /**
+     * Display user profile tabset.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     */
+    public function profile($args, $request)
+    {
+        $context = $request->getContext();
+        if (!$context) {
+            $user = $request->getUser();
+            $contextDao = Application::getContextDAO();
+            $workingContexts = $contextDao->getAvailable($user ? $user->getId() : null);
+            [$firstContext, $secondContext] = [$workingContexts->next(), $workingContexts->next()];
+            if ($firstContext && !$secondContext) {
+                $request->redirect($firstContext->getPath(), 'user', 'profile', null, $args);
+            }
+        }
 
-	/**
-	 * Display user profile tabset.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function profile($args, $request) {
-		$context = $request->getContext();
-		if (!$context) {
-			$user = $request->getUser();
-			$contextDao = Application::getContextDAO();
-			$workingContexts = $contextDao->getAvailable($user?$user->getId():null);
-			list($firstContext, $secondContext) = [$workingContexts->next(), $workingContexts->next()];
-			if ($firstContext && !$secondContext) {
-				$request->redirect($firstContext->getPath(), 'user', 'profile', null, $args);
-			}
-		}
+        if ($anchor = array_shift($args)) {
+            // Some requests will try to specify a tab name in the args. Redirect
+            // to use this as an anchor name instead.
+            $request->redirect(null, null, null, null, null, $anchor);
+        }
 
-		if ($anchor = array_shift($args)) {
-			// Some requests will try to specify a tab name in the args. Redirect
-			// to use this as an anchor name instead.
-			$request->redirect(null, null, null, null, null, $anchor);
-		}
+        $this->setupTemplate($request);
 
-		$this->setupTemplate($request);
-
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign([
-			'pageTitle' => __('user.profile'),
-		]);
-		$templateMgr->display('user/profile.tpl');
-	}
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'pageTitle' => __('user.profile'),
+        ]);
+        $templateMgr->display('user/profile.tpl');
+    }
 }
-
-

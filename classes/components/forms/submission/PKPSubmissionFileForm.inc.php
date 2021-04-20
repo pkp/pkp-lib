@@ -11,39 +11,43 @@
  *
  * @brief A preset form for editing a submission file
  */
+
 namespace PKP\components\forms\submission;
-use \PKP\components\forms\FormComponent;
-use \PKP\components\forms\FieldOptions;
+
+use PKP\components\forms\FieldOptions;
+use PKP\components\forms\FormComponent;
 
 define('FORM_SUBMISSION_FILE', 'submissionFile');
 
-class PKPSubmissionFileForm extends FormComponent {
-	/** @copydoc FormComponent::$id */
-	public $id = FORM_SUBMISSION_FILE;
+class PKPSubmissionFileForm extends FormComponent
+{
+    /** @copydoc FormComponent::$id */
+    public $id = FORM_SUBMISSION_FILE;
 
-	/** @copydoc FormComponent::$method */
-	public $method = 'PUT';
+    /** @copydoc FormComponent::$method */
+    public $method = 'PUT';
 
-	/**
-	 * Constructor
-	 *
-	 * @param $action string URL to submit the form to
-	 * @param $genres array List of genres to use as options
-	 */
-	public function __construct($action, $genres) {
-		$this->action = $action;
+    /**
+     * Constructor
+     *
+     * @param $action string URL to submit the form to
+     * @param $genres array List of genres to use as options
+     */
+    public function __construct($action, $genres)
+    {
+        $this->action = $action;
 
-		$this->addField(new FieldOptions('genreId', [
-			'label' => __('submission.submit.genre.label'),
-			'description' => __('submission.submit.genre.description'),
-			'type' => 'radio',
-			'options' => array_map(function($genre) {
-				return [
-					'value' => (int) $genre->getId(),
-					'label' => $genre->getLocalizedName(),
-				];
-			}, $genres),
-			'value' => 0,
-		]));
-	}
+        $this->addField(new FieldOptions('genreId', [
+            'label' => __('submission.submit.genre.label'),
+            'description' => __('submission.submit.genre.description'),
+            'type' => 'radio',
+            'options' => array_map(function ($genre) {
+                return [
+                    'value' => (int) $genre->getId(),
+                    'label' => $genre->getLocalizedName(),
+                ];
+            }, $genres),
+            'value' => 0,
+        ]));
+    }
 }

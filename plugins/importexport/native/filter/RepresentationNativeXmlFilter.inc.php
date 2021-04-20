@@ -15,153 +15,169 @@
 
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
-class RepresentationNativeXmlFilter extends NativeExportFilter {
-	/**
-	 * Constructor
-	 * @param $filterGroup FilterGroup
-	 */
-	function __construct($filterGroup) {
-		$this->setDisplayName('Native XML representation export');
-		parent::__construct($filterGroup);
-	}
+class RepresentationNativeXmlFilter extends NativeExportFilter
+{
+    /**
+     * Constructor
+     *
+     * @param $filterGroup FilterGroup
+     */
+    public function __construct($filterGroup)
+    {
+        $this->setDisplayName('Native XML representation export');
+        parent::__construct($filterGroup);
+    }
 
 
-	//
-	// Implement template methods from PersistableFilter
-	//
-	/**
-	 * @copydoc PersistableFilter::getClassName()
-	 */
-	function getClassName() {
-		return 'lib.pkp.plugins.importexport.native.filter.RepresentationNativeXmlFilter';
-	}
+    //
+    // Implement template methods from PersistableFilter
+    //
+    /**
+     * @copydoc PersistableFilter::getClassName()
+     */
+    public function getClassName()
+    {
+        return 'lib.pkp.plugins.importexport.native.filter.RepresentationNativeXmlFilter';
+    }
 
 
-	//
-	// Implement template methods from Filter
-	//
-	/**
-	 * @see Filter::process()
-	 * @param $representation Representation
-	 * @return DOMDocument
-	 */
-	function &process(&$representation) {
-		// Create the XML document
-		$doc = new DOMDocument('1.0');
-		$doc->preserveWhiteSpace = false;
-		$doc->formatOutput = true;
-		$deployment = $this->getDeployment();
-		$rootNode = $this->createRepresentationNode($doc, $representation);
-		$doc->appendChild($rootNode);
-		$rootNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
-		$rootNode->setAttribute('xsi:schemaLocation', $deployment->getNamespace() . ' ' . $deployment->getSchemaFilename());
+    //
+    // Implement template methods from Filter
+    //
+    /**
+     * @see Filter::process()
+     *
+     * @param $representation Representation
+     *
+     * @return DOMDocument
+     */
+    public function &process(&$representation)
+    {
+        // Create the XML document
+        $doc = new DOMDocument('1.0');
+        $doc->preserveWhiteSpace = false;
+        $doc->formatOutput = true;
+        $deployment = $this->getDeployment();
+        $rootNode = $this->createRepresentationNode($doc, $representation);
+        $doc->appendChild($rootNode);
+        $rootNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+        $rootNode->setAttribute('xsi:schemaLocation', $deployment->getNamespace() . ' ' . $deployment->getSchemaFilename());
 
-		return $doc;
-	}
+        return $doc;
+    }
 
-	//
-	// Representation conversion functions
-	//
-	/**
-	 * Create and return a representation node.
-	 * @param $doc DOMDocument
-	 * @param $representation Representation
-	 * @return DOMElement
-	 */
-	function createRepresentationNode($doc, $representation) {
-		$deployment = $this->getDeployment();
-		$context = $deployment->getContext();
+    //
+    // Representation conversion functions
+    //
+    /**
+     * Create and return a representation node.
+     *
+     * @param $doc DOMDocument
+     * @param $representation Representation
+     *
+     * @return DOMElement
+     */
+    public function createRepresentationNode($doc, $representation)
+    {
+        $deployment = $this->getDeployment();
+        $context = $deployment->getContext();
 
-		// Create the representation node
-		$representationNode = $doc->createElementNS($deployment->getNamespace(), $deployment->getRepresentationNodeName());
+        // Create the representation node
+        $representationNode = $doc->createElementNS($deployment->getNamespace(), $deployment->getRepresentationNodeName());
 
-		$representationNode->setAttribute('locale', $representation->getData('locale'));
-		$representationNode->setAttribute('url_path', $representation->getData('urlPath'));
-		
-		$this->addIdentifiers($doc, $representationNode, $representation);
+        $representationNode->setAttribute('locale', $representation->getData('locale'));
+        $representationNode->setAttribute('url_path', $representation->getData('urlPath'));
 
-		// Add metadata
-		$this->createLocalizedNodes($doc, $representationNode, 'name', $representation->getName(null));
-		$sequenceNode = $doc->createElementNS($deployment->getNamespace(), 'seq');
-		$sequenceNode->appendChild($doc->createTextNode((int) $representation->getSequence()));
-		$representationNode->appendChild($sequenceNode);
+        $this->addIdentifiers($doc, $representationNode, $representation);
 
-		$urlRemote = $representation->getData('urlRemote');
-		if ($urlRemote) {
-			$remoteNode = $doc->createElementNS($deployment->getNamespace(), 'remote');
-			$remoteNode->setAttribute('src', $urlRemote);
-			$representationNode->appendChild($remoteNode);
-		} else {
-			// Add files
-			foreach ($this->getFiles($representation) as $submissionFile) {
-				$fileRefNode = $doc->createElementNS($deployment->getNamespace(), 'submission_file_ref');
-				$fileRefNode->setAttribute('id', $submissionFile->getId());
-				$representationNode->appendChild($fileRefNode);
-			}
-		}
+        // Add metadata
+        $this->createLocalizedNodes($doc, $representationNode, 'name', $representation->getName(null));
+        $sequenceNode = $doc->createElementNS($deployment->getNamespace(), 'seq');
+        $sequenceNode->appendChild($doc->createTextNode((int) $representation->getSequence()));
+        $representationNode->appendChild($sequenceNode);
 
-		return $representationNode;
-	}
+        $urlRemote = $representation->getData('urlRemote');
+        if ($urlRemote) {
+            $remoteNode = $doc->createElementNS($deployment->getNamespace(), 'remote');
+            $remoteNode->setAttribute('src', $urlRemote);
+            $representationNode->appendChild($remoteNode);
+        } else {
+            // Add files
+            foreach ($this->getFiles($representation) as $submissionFile) {
+                $fileRefNode = $doc->createElementNS($deployment->getNamespace(), 'submission_file_ref');
+                $fileRefNode->setAttribute('id', $submissionFile->getId());
+                $representationNode->appendChild($fileRefNode);
+            }
+        }
 
-	/**
-	 * Create and add identifier nodes to a representation node.
-	 * @param $doc DOMDocument
-	 * @param $representationNode DOMElement
-	 * @param $representation Representation
-	 */
-	function addIdentifiers($doc, $representationNode, $representation) {
-		$deployment = $this->getDeployment();
+        return $representationNode;
+    }
 
-		// Add internal ID
-		$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $representation->getId()));
-		$node->setAttribute('type', 'internal');
-		$node->setAttribute('advice', 'ignore');
+    /**
+     * Create and add identifier nodes to a representation node.
+     *
+     * @param $doc DOMDocument
+     * @param $representationNode DOMElement
+     * @param $representation Representation
+     */
+    public function addIdentifiers($doc, $representationNode, $representation)
+    {
+        $deployment = $this->getDeployment();
 
-		// Add public ID
-		if ($pubId = $representation->getStoredPubId('publisher-id')) {
-			$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
-			$node->setAttribute('type', 'public');
-			$node->setAttribute('advice', 'update');
-		}
+        // Add internal ID
+        $representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $representation->getId()));
+        $node->setAttribute('type', 'internal');
+        $node->setAttribute('advice', 'ignore');
 
-		// Add pub IDs by plugin
-		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
-		foreach ($pubIdPlugins as $pubIdPlugin) {
-			$this->addPubIdentifier($doc, $representationNode, $representation, $pubIdPlugin);
-		}
-	}
+        // Add public ID
+        if ($pubId = $representation->getStoredPubId('publisher-id')) {
+            $representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
+            $node->setAttribute('type', 'public');
+            $node->setAttribute('advice', 'update');
+        }
 
-	/**
-	 * Add a single pub ID element for a given plugin to the representation.
-	 * @param $doc DOMDocument
-	 * @param $representationNode DOMElement
-	 * @param $representation Representation
-	 * @param $pubIdPlugin PubIdPlugin
-	 * @return DOMElement|null
-	 */
-	function addPubIdentifier($doc, $representationNode, $representation, $pubIdPlugin) {
-		$pubId = $representation->getStoredPubId($pubIdPlugin->getPubIdType());
-		if ($pubId) {
-			$deployment = $this->getDeployment();
-			$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
-			$node->setAttribute('type', $pubIdPlugin->getPubIdType());
-			$node->setAttribute('advice', 'update');
-			return $node;
-		}
-		return null;
-	}
+        // Add pub IDs by plugin
+        $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
+        foreach ($pubIdPlugins as $pubIdPlugin) {
+            $this->addPubIdentifier($doc, $representationNode, $representation, $pubIdPlugin);
+        }
+    }
 
-	//
-	// Abstract methods to be implemented by subclasses
-	//
-	/**
-	 * Get the submission files associated with this representation
-	 * @param $representation Representation
-	 * @return array
-	 */
-	function getFiles($representation) {
-		assert(false); // To be overridden by subclasses
-	}
+    /**
+     * Add a single pub ID element for a given plugin to the representation.
+     *
+     * @param $doc DOMDocument
+     * @param $representationNode DOMElement
+     * @param $representation Representation
+     * @param $pubIdPlugin PubIdPlugin
+     *
+     * @return DOMElement|null
+     */
+    public function addPubIdentifier($doc, $representationNode, $representation, $pubIdPlugin)
+    {
+        $pubId = $representation->getStoredPubId($pubIdPlugin->getPubIdType());
+        if ($pubId) {
+            $deployment = $this->getDeployment();
+            $representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
+            $node->setAttribute('type', $pubIdPlugin->getPubIdType());
+            $node->setAttribute('advice', 'update');
+            return $node;
+        }
+        return null;
+    }
+
+    //
+    // Abstract methods to be implemented by subclasses
+    //
+    /**
+     * Get the submission files associated with this representation
+     *
+     * @param $representation Representation
+     *
+     * @return array
+     */
+    public function getFiles($representation)
+    {
+        assert(false); // To be overridden by subclasses
+    }
 }
-
-

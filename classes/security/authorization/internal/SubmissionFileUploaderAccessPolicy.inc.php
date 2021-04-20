@@ -16,40 +16,47 @@
 
 import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
 
-class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy {
-	/**
-	 * Constructor
-	 * @param $request PKPRequest
-	 */
-	function __construct($request, $submissionFileId = null) {
-		parent::__construct($request, $submissionFileId);
-	}
+class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy
+{
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     * @param null|mixed $submissionFileId
+     */
+    public function __construct($request, $submissionFileId = null)
+    {
+        parent::__construct($request, $submissionFileId);
+    }
 
 
-	//
-	// Implement template methods from AuthorizationPolicy
-	//
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		$request = $this->getRequest();
+    //
+    // Implement template methods from AuthorizationPolicy
+    //
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        $request = $this->getRequest();
 
-		// Get the user
-		$user = $request->getUser();
-		if (!is_a($user, 'User')) return AUTHORIZATION_DENY;
+        // Get the user
+        $user = $request->getUser();
+        if (!is_a($user, 'User')) {
+            return AUTHORIZATION_DENY;
+        }
 
-		// Get the submission file
-		$submissionFile = $this->getSubmissionFile($request);
-		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
+        // Get the submission file
+        $submissionFile = $this->getSubmissionFile($request);
+        if (!is_a($submissionFile, 'SubmissionFile')) {
+            return AUTHORIZATION_DENY;
+        }
 
-		// Check if the uploader is the current user.
-		if ($submissionFile->getUploaderUserId() == $user->getId()) {
-			return AUTHORIZATION_PERMIT;
-		} else {
-			return AUTHORIZATION_DENY;
-		}
-	}
+        // Check if the uploader is the current user.
+        if ($submissionFile->getUploaderUserId() == $user->getId()) {
+            return AUTHORIZATION_PERMIT;
+        } else {
+            return AUTHORIZATION_DENY;
+        }
+    }
 }
-
-

@@ -16,6 +16,7 @@
  *
  * @class MetadataSchema
  * @ingroup metadata
+ *
  * @see MetadataProperty
  * @see MetadataRecord
  *
@@ -65,196 +66,231 @@
 
 import('lib.pkp.classes.metadata.MetadataProperty');
 
-class MetadataSchema {
-	/** @var array */
-	var $_assocTypes;
+class MetadataSchema
+{
+    /** @var array */
+    public $_assocTypes;
 
-	/** @var string */
-	var $_name;
+    /** @var string */
+    public $_name;
 
-	/** @var string */
-	var $_namespace;
+    /** @var string */
+    public $_namespace;
 
-	/** @var string */
-	var $_classname;
+    /** @var string */
+    public $_classname;
 
-	/**
-	 * @var array meta-data properties (predicates)
-	 *  supported for this meta-data schema.
-	 */
-	var $_properties = array();
+    /**
+     * @var array meta-data properties (predicates)
+     *  supported for this meta-data schema.
+     */
+    public $_properties = [];
 
-	/**
-	 * Constructor
-	 * @param $name string the meta-data schema name
-	 * @param $namespace string a globally unique namespace for
-	 *  the schema. Property names must be unique within this
-	 *  namespace.
-	 * @param $classname the fully qualified class name of
-	 *  this schema
-	 * @param $assocTypes array|integer the association types of
-	 *  PKP application objects that can be described using
-	 *  this schema. A single association type can be given as
-	 *  a scalar.
-	 */
-	function __construct($name, $namespace, $classname, $assocTypes) {
-		assert(is_string($name) && is_string($namespace) && is_string($classname));
-		assert(is_array($assocTypes) || is_integer($assocTypes));
+    /**
+     * Constructor
+     *
+     * @param $name string the meta-data schema name
+     * @param $namespace string a globally unique namespace for
+     *  the schema. Property names must be unique within this
+     *  namespace.
+     * @param $classname the fully qualified class name of
+     *  this schema
+     * @param $assocTypes array|integer the association types of
+     *  PKP application objects that can be described using
+     *  this schema. A single association type can be given as
+     *  a scalar.
+     */
+    public function __construct($name, $namespace, $classname, $assocTypes)
+    {
+        assert(is_string($name) && is_string($namespace) && is_string($classname));
+        assert(is_array($assocTypes) || is_integer($assocTypes));
 
-		// Set name and namespace.
-		$this->_name = $name;
-		$this->_namespace = $namespace;
-		$this->_classname = $classname;
+        // Set name and namespace.
+        $this->_name = $name;
+        $this->_namespace = $namespace;
+        $this->_classname = $classname;
 
-		// Normalize and set the association types.
-		if (!is_array($assocTypes)) {
-			$assocTypes = array($assocTypes);
-		}
-		$this->_assocTypes = $assocTypes;
-	}
+        // Normalize and set the association types.
+        if (!is_array($assocTypes)) {
+            $assocTypes = [$assocTypes];
+        }
+        $this->_assocTypes = $assocTypes;
+    }
 
 
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Get the name of the schema
-	 * @return string
-	 */
-	function getName() {
-		return $this->_name;
-	}
+    //
+    // Getters and Setters
+    //
+    /**
+     * Get the name of the schema
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->_name;
+    }
 
-	/**
-	 * Get the internal namespace qualifier of the schema
-	 * @return string
-	 */
-	function getNamespace() {
-		return $this->_namespace;
-	}
+    /**
+     * Get the internal namespace qualifier of the schema
+     *
+     * @return string
+     */
+    public function getNamespace()
+    {
+        return $this->_namespace;
+    }
 
-	/**
-	 * Get the fully qualified class name of this schema.
-	 * @return string
-	 */
-	function getClassName() {
-		return $this->_classname;
-	}
+    /**
+     * Get the fully qualified class name of this schema.
+     *
+     * @return string
+     */
+    public function getClassName()
+    {
+        return $this->_classname;
+    }
 
-	/**
-	 * Get the association types for PKP application objects
-	 * that can be described with this schema.
-	 * @return array
-	 */
-	function getAssocTypes() {
-		return $this->_assocTypes;
-	}
+    /**
+     * Get the association types for PKP application objects
+     * that can be described with this schema.
+     *
+     * @return array
+     */
+    public function getAssocTypes()
+    {
+        return $this->_assocTypes;
+    }
 
-	/**
-	 * Get the properties of the meta-data schema.
-	 * @return array an array of MetadataProperties
-	 */
-	function &getProperties() {
-		return $this->_properties;
-	}
+    /**
+     * Get the properties of the meta-data schema.
+     *
+     * @return array an array of MetadataProperties
+     */
+    public function &getProperties()
+    {
+        return $this->_properties;
+    }
 
-	/**
-	 * Get a property. Returns null if the property
-	 * doesn't exist.
-	 * @return MetadataProperty
-	 */
-	function &getProperty($propertyName) {
-		assert(is_string($propertyName));
-		if ($this->hasProperty($propertyName)) {
-			$property =& $this->_properties[$propertyName];
-		} else {
-			$property = null;
-		}
-		return $property;
-	}
+    /**
+     * Get a property. Returns null if the property
+     * doesn't exist.
+     *
+     * @return MetadataProperty
+     */
+    public function &getProperty($propertyName)
+    {
+        assert(is_string($propertyName));
+        if ($this->hasProperty($propertyName)) {
+            $property = & $this->_properties[$propertyName];
+        } else {
+            $property = null;
+        }
+        return $property;
+    }
 
-	/**
-	 * Returns the property id with prefixed name space
-	 * for use in an external context (e.g. Forms, Templates).
-	 * @param $propertyName string
-	 * @return string
-	 */
-	function getNamespacedPropertyId($propertyName) {
-		$property =& $this->getProperty($propertyName);
-		assert(is_a($property, 'MetadataProperty'));
-		return $this->getNamespace().ucfirst($property->getId());
-	}
+    /**
+     * Returns the property id with prefixed name space
+     * for use in an external context (e.g. Forms, Templates).
+     *
+     * @param $propertyName string
+     *
+     * @return string
+     */
+    public function getNamespacedPropertyId($propertyName)
+    {
+        $property = & $this->getProperty($propertyName);
+        assert(is_a($property, 'MetadataProperty'));
+        return $this->getNamespace() . ucfirst($property->getId());
+    }
 
-	/**
-	 * (Re-)set all properties of this meta-data schema.
-	 * @param $properties array an array of MetadataProperties
-	 */
-	function setProperties(&$properties) {
-		// Remove the existing properties
-		$this->_properties = array();
+    /**
+     * (Re-)set all properties of this meta-data schema.
+     *
+     * @param $properties array an array of MetadataProperties
+     */
+    public function setProperties(&$properties)
+    {
+        // Remove the existing properties
+        $this->_properties = [];
 
-		// Insert the new properties
-		foreach($properties as $property) {
-			$this->addProperty($property);
-		}
-	}
+        // Insert the new properties
+        foreach ($properties as $property) {
+            $this->addProperty($property);
+        }
+    }
 
-	/**
-	 * Add a property to this meta-data schema.
-	 * @param $name string the unique name of the property within a meta-data schema (can be a property URI)
-	 * @param $allowedTypes mixed must be a scalar or an array with the supported types, default: METADATA_PROPERTY_TYPE_STRING
-	 * @param $translated boolean whether the property may have various language versions, default: false
-	 * @param $cardinality integer must be on of the supported cardinalities, default: METADATA_PROPERTY_CARDINALITY_ONE
-	 * @param $displayName string
-	 * @param $validationMessage string A string that can be displayed in case a user tries to set an invalid value for this property.
-	 * @param $mandatory boolean Is this a mandatory property within the schema?
-	 */
-	function addProperty($name, $allowedTypes = METADATA_PROPERTY_TYPE_STRING,
-			$translated = false, $cardinality = METADATA_PROPERTY_CARDINALITY_ONE, $displayName = null, $validationMessage = null, $mandatory = false) {
-		// Make sure that this property has not been added before
-		assert(!is_null($name) && !isset($this->_properties[$name]));
+    /**
+     * Add a property to this meta-data schema.
+     *
+     * @param $name string the unique name of the property within a meta-data schema (can be a property URI)
+     * @param $allowedTypes mixed must be a scalar or an array with the supported types, default: METADATA_PROPERTY_TYPE_STRING
+     * @param $translated boolean whether the property may have various language versions, default: false
+     * @param $cardinality integer must be on of the supported cardinalities, default: METADATA_PROPERTY_CARDINALITY_ONE
+     * @param $displayName string
+     * @param $validationMessage string A string that can be displayed in case a user tries to set an invalid value for this property.
+     * @param $mandatory boolean Is this a mandatory property within the schema?
+     */
+    public function addProperty(
+        $name,
+        $allowedTypes = METADATA_PROPERTY_TYPE_STRING,
+        $translated = false,
+        $cardinality = METADATA_PROPERTY_CARDINALITY_ONE,
+        $displayName = null,
+        $validationMessage = null,
+        $mandatory = false
+    ) {
+        // Make sure that this property has not been added before
+        assert(!is_null($name) && !isset($this->_properties[$name]));
 
-		// Instantiate the property.
-		$property = new MetadataProperty($name, $this->_assocTypes, $allowedTypes, $translated, $cardinality, $displayName, $validationMessage, $mandatory);
+        // Instantiate the property.
+        $property = new MetadataProperty($name, $this->_assocTypes, $allowedTypes, $translated, $cardinality, $displayName, $validationMessage, $mandatory);
 
-		// Add the property
-		$this->_properties[$name] =& $property;
-	}
+        // Add the property
+        $this->_properties[$name] = & $property;
+    }
 
-	/**
-	 * Get the property names defined for this meta-data schema
-	 * @return array an array of string values representing valid property names
-	 */
-	function getPropertyNames() {
-		return array_keys($this->_properties);
-	}
+    /**
+     * Get the property names defined for this meta-data schema
+     *
+     * @return array an array of string values representing valid property names
+     */
+    public function getPropertyNames()
+    {
+        return array_keys($this->_properties);
+    }
 
-	/**
-	 * Get the names of properties with a given data type.
-	 * @param $propertyType mixed a valid property type description
-	 * @return array an array of string values representing valid property names
-	 */
-	function getPropertyNamesByType($propertyType) {
-		assert(in_array($propertyType, MetadataProperty::getSupportedTypes()));
+    /**
+     * Get the names of properties with a given data type.
+     *
+     * @param $propertyType mixed a valid property type description
+     *
+     * @return array an array of string values representing valid property names
+     */
+    public function getPropertyNamesByType($propertyType)
+    {
+        assert(in_array($propertyType, MetadataProperty::getSupportedTypes()));
 
-		$propertyNames = array();
-		foreach($this->_properties as $property) {
-			$allowedPropertyTypes = $property->getAllowedTypes();
-			if (isset($allowedPropertyTypes[$propertyType])) {
-				$propertyNames[] = $property->getName();
-			}
-		}
+        $propertyNames = [];
+        foreach ($this->_properties as $property) {
+            $allowedPropertyTypes = $property->getAllowedTypes();
+            if (isset($allowedPropertyTypes[$propertyType])) {
+                $propertyNames[] = $property->getName();
+            }
+        }
 
-		return $propertyNames;
-	}
+        return $propertyNames;
+    }
 
-	/**
-	 * Checks whether a property exists in the meta-data schema
-	 * @param $propertyName string
-	 * @return boolean
-	 */
-	function hasProperty($propertyName) {
-		return isset($this->_properties[$propertyName]);
-	}
+    /**
+     * Checks whether a property exists in the meta-data schema
+     *
+     * @param $propertyName string
+     *
+     * @return boolean
+     */
+    public function hasProperty($propertyName)
+    {
+        return isset($this->_properties[$propertyName]);
+    }
 }
-

@@ -9,6 +9,7 @@
  *
  * @class ControlledVocabTest
  * @ingroup tests_classes_db
+ *
  * @see ControlledVocab
  *
  * @brief Tests for the ControlledVocab class.
@@ -16,38 +17,39 @@
 
 import('lib.pkp.tests.DatabaseTestCase');
 
-use \PKP\db\DAORegistry;
+use PKP\db\DAORegistry;
 
-class ControlledVocabTest extends DatabaseTestCase {
-	/**
-	 * Test parsing controlled vocab data from an XML descriptor.
-	 * @covers ControlledVocabDAO::installXML
-	 */
-	public function testParseXML() {
-		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
+class ControlledVocabTest extends DatabaseTestCase
+{
+    /**
+     * Test parsing controlled vocab data from an XML descriptor.
+     *
+     * @covers ControlledVocabDAO::installXML
+     */
+    public function testParseXML()
+    {
+        $controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
 
-		// Parse a controlled vocabulary
-		$controlledVocabs = $controlledVocabDao->installXML(dirname(__FILE__) . '/controlledVocab.xml');
-		$controlledVocab = array_shift($controlledVocabs);
-		$this->assertEquals($controlledVocabs, array()); // Should just have been one CV
-		$this->assertTrue(is_a($controlledVocab, 'ControlledVocab'));
-		$this->assertEquals('TEST_CV', $controlledVocab->getSymbolic());
-		$this->assertEquals(
-			array_values($controlledVocab->enumerate()),
-			array(
-				'name_one',
-				'name_two',
-			)
-		);
+        // Parse a controlled vocabulary
+        $controlledVocabs = $controlledVocabDao->installXML(dirname(__FILE__) . '/controlledVocab.xml');
+        $controlledVocab = array_shift($controlledVocabs);
+        $this->assertEquals($controlledVocabs, []); // Should just have been one CV
+        $this->assertTrue(is_a($controlledVocab, 'ControlledVocab'));
+        $this->assertEquals('TEST_CV', $controlledVocab->getSymbolic());
+        $this->assertEquals(
+            array_values($controlledVocab->enumerate()),
+            [
+                'name_one',
+                'name_two',
+            ]
+        );
 
-		// Re-parse the controlled vocabulary
-		$controlledVocabsReparsed = $controlledVocabDao->installXML(dirname(__FILE__) . '/controlledVocab.xml');
-		$controlledVocabReparsed = array_shift($controlledVocabsReparsed);
-		$this->assertEquals($controlledVocabsReparsed, array()); // Should just have been one CV
-		$this->assertTrue(is_a($controlledVocabReparsed, 'ControlledVocab'));
-		// Ensure that the existing controlled vocabulary was re-used
-		$this->assertEquals($controlledVocab->getId(), $controlledVocabReparsed->getId());
-	}
+        // Re-parse the controlled vocabulary
+        $controlledVocabsReparsed = $controlledVocabDao->installXML(dirname(__FILE__) . '/controlledVocab.xml');
+        $controlledVocabReparsed = array_shift($controlledVocabsReparsed);
+        $this->assertEquals($controlledVocabsReparsed, []); // Should just have been one CV
+        $this->assertTrue(is_a($controlledVocabReparsed, 'ControlledVocab'));
+        // Ensure that the existing controlled vocabulary was re-used
+        $this->assertEquals($controlledVocab->getId(), $controlledVocabReparsed->getId());
+    }
 }
-
-

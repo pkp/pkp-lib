@@ -11,24 +11,25 @@
  *
  * @brief A type of autosuggest field that preloads all of its options.
  */
+
 namespace PKP\components\forms;
 
-use PKP\components\forms\FieldBaseAutosuggest;
+class FieldAutosuggestPreset extends FieldBaseAutosuggest
+{
+    /** @copydoc Field::$component */
+    public $component = 'field-autosuggest-preset';
 
-class FieldAutosuggestPreset extends FieldBaseAutosuggest {
-	/** @copydoc Field::$component */
-	public $component = 'field-autosuggest-preset';
+    /** @param array Key/value list of suggestions for this field */
+    public $options = [];
 
-	/** @param array Key/value list of suggestions for this field */
-	public $options = [];
+    /**
+     * @copydoc Field::getConfig()
+     */
+    public function getConfig()
+    {
+        $config = parent::getConfig();
+        $config['options'] = $this->options;
 
-	/**
-	 * @copydoc Field::getConfig()
-	 */
-	public function getConfig() {
-		$config = parent::getConfig();
-		$config['options'] = $this->options;
-
-		return $config;
-	}
+        return $config;
+    }
 }

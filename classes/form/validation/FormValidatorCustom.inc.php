@@ -15,70 +15,69 @@
 
 import('lib.pkp.classes.form.validation.FormValidator');
 
-class FormValidatorCustom extends FormValidator {
+class FormValidatorCustom extends FormValidator
+{
+    /** @var callable Custom validation function */
+    public $_userFunction;
 
-	/** @var callable Custom validation function */
-	var $_userFunction;
+    /** @var array Additional arguments to pass to $userFunction */
+    public $_additionalArguments;
 
-	/** @var array Additional arguments to pass to $userFunction */
-	var $_additionalArguments;
+    /** @var boolean If true, field is considered valid if user function returns false instead of true */
+    public $_complementReturn;
 
-	/** @var boolean If true, field is considered valid if user function returns false instead of true */
-	var $_complementReturn;
-
-	/** @var array If present, additional arguments to pass to the getMessage translation function
-	var $_messageArgs;
-
-	/**
-	 * Constructor.
-	 * The user function is passed the form data as its first argument and $additionalArguments, if set, as the remaining arguments. This function must return a boolean value.
-	 * @param $form Form the associated form
-	 * @param $field string the name of the associated field
-	 * @param $type string the type of check, either "required" or "optional"
-	 * @param $message string the error message for validation failures (i18n key)
-	 * @param $userFunction callable function the user function to use for validation
-	 * @param $additionalArguments array optional, a list of additional arguments to pass to $userFunction
-	 * @param $complementReturn boolean optional, complement the value returned by $userFunction
-	 * @param $messageArgs array optional, arguments to pass to getMessage()
-	 */
-	function __construct(&$form, $field, $type, $message, $userFunction, $additionalArguments = array(), $complementReturn = false, $messageArgs = array()) {
-		parent::__construct($form, $field, $type, $message);
-		$this->_userFunction = $userFunction;
-		$this->_additionalArguments = $additionalArguments;
-		$this->_complementReturn = $complementReturn;
-		$this->_messageArgs = $messageArgs;
-	}
+    /** @var array If present, additional arguments to pass to the getMessage translation function
+     * The user function is passed the form data as its first argument and $additionalArguments, if set, as the remaining arguments. This function must return a boolean value.
+     *
+     * @param $form Form the associated form
+     * @param $field string the name of the associated field
+     * @param $type string the type of check, either "required" or "optional"
+     * @param $message string the error message for validation failures (i18n key)
+     * @param $userFunction callable function the user function to use for validation
+     * @param $additionalArguments array optional, a list of additional arguments to pass to $userFunction
+     * @param $complementReturn boolean optional, complement the value returned by $userFunction
+     * @param $messageArgs array optional, arguments to pass to getMessage()
+     */
+    public function __construct(&$form, $field, $type, $message, $userFunction, $additionalArguments = [], $complementReturn = false, $messageArgs = [])
+    {
+        parent::__construct($form, $field, $type, $message);
+        $this->_userFunction = $userFunction;
+        $this->_additionalArguments = $additionalArguments;
+        $this->_complementReturn = $complementReturn;
+        $this->_messageArgs = $messageArgs;
+    }
 
 
-	//
-	// Setters and Getters
-	//
-	/**
-	 * @see FormValidator::getMessage()
-	 * @return string
-	 */
-	function getMessage() {
-		return __($this->_message, $this->_messageArgs);
-	}
+    //
+    // Setters and Getters
+    //
+    /**
+     * @see FormValidator::getMessage()
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return __($this->_message, $this->_messageArgs);
+    }
 
 
-	//
-	// Public methods
-	//
-	/**
-	 * @see FormValidator::isValid()
-	 * Value is valid if it is empty and optional or validated by user-supplied function.
-	 * @return boolean
-	 */
-	function isValid() {
-		if ($this->isEmptyAndOptional()) {
-			return true;
-
-		} else {
-			$ret = call_user_func_array($this->_userFunction, array_merge(array($this->getFieldValue()), $this->_additionalArguments));
-			return $this->_complementReturn ? !$ret : $ret;
-		}
-	}
+    //
+    // Public methods
+    //
+    /**
+     * @see FormValidator::isValid()
+     * Value is valid if it is empty and optional or validated by user-supplied function.
+     *
+     * @return boolean
+     */
+    public function isValid()
+    {
+        if ($this->isEmptyAndOptional()) {
+            return true;
+        } else {
+            $ret = call_user_func_array($this->_userFunction, array_merge([$this->getFieldValue()], $this->_additionalArguments));
+            return $this->_complementReturn ? !$ret : $ret;
+        }
+    }
 }
-
-

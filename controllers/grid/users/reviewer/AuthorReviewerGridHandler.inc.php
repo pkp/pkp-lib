@@ -20,179 +20,186 @@ import('lib.pkp.classes.controllers.grid.users.reviewer.PKPReviewerGridHandler')
 import('lib.pkp.controllers.grid.users.reviewer.AuthorReviewerGridCellProvider');
 import('lib.pkp.controllers.grid.users.reviewer.AuthorReviewerGridRow');
 
-use \PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
-class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
+class AuthorReviewerGridHandler extends PKPReviewerGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
+        $this->addRoleAssignment(
+            [ROLE_ID_AUTHOR],
+            ['fetchGrid', 'fetchRow', 'readReview', 'reviewRead']
+        );
+    }
 
-		$this->addRoleAssignment(
-			array(ROLE_ID_AUTHOR),
-			array('fetchGrid', 'fetchRow', 'readReview', 'reviewRead')
-		);
+    //
+    // Overridden methods from PKPHandler
+    //
+    /**
+     * @see GridHandler::getRowInstance()
+     *
+     * @return ReviewerGridRow
+     */
+    protected function getRowInstance()
+    {
+        return new AuthorReviewerGridRow();
+    }
 
-	}
+    /**
+     * @copydoc GridHandler::initialize()
+     *
+     * @param null|mixed $args
+     */
+    public function initialize($request, $args = null)
+    {
+        parent::initialize($request, $args);
 
-	//
-	// Overridden methods from PKPHandler
-	//
-	/**
-	 * @see GridHandler::getRowInstance()
-	 * @return ReviewerGridRow
-	 */
-	protected function getRowInstance() {
-		return new AuthorReviewerGridRow();
-	}
+        // Reset actions
+        unset($this->_actions[GRID_ACTION_POSITION_ABOVE]);
 
-	/**
-	 * @copydoc GridHandler::initialize()
-	 */	
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+        // Columns
+        $cellProvider = new AuthorReviewerGridCellProvider();
+        $this->addColumn(
+            new GridColumn(
+                'name',
+                'user.name',
+                null,
+                null,
+                $cellProvider
+            )
+        );
 
-		// Reset actions
-		unset($this->_actions[GRID_ACTION_POSITION_ABOVE]);
+        // Add a column for the status of the review.
+        $this->addColumn(
+            new GridColumn(
+                'considered',
+                'common.status',
+                null,
+                null,
+                $cellProvider,
+                ['anyhtml' => true]
+            )
+        );
 
-		// Columns
-		$cellProvider = new AuthorReviewerGridCellProvider();
-		$this->addColumn(
-			new GridColumn(
-				'name',
-				'user.name',
-				null,
-				null,
-				$cellProvider
-			)
-		);
+        // Add a column for the review method
+        $this->addColumn(
+            new GridColumn(
+                'method',
+                'common.type',
+                null,
+                null,
+                $cellProvider
+            )
+        );
 
-		// Add a column for the status of the review.
-		$this->addColumn(
-			new GridColumn(
-				'considered',
-				'common.status',
-				null,
-				null,
-				$cellProvider,
-				array('anyhtml' => true)
-			)
-		);
+        // Add a column for the status of the review.
+        $this->addColumn(
+            new GridColumn(
+                'actions',
+                'grid.columns.actions',
+                null,
+                null,
+                $cellProvider
+            )
+        );
+    }
 
-		// Add a column for the review method
-		$this->addColumn(
-			new GridColumn(
-				'method',
-				'common.type',
-				null,
-				null,
-				$cellProvider
-			)
-		);		
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
 
-		// Add a column for the status of the review.
-		$this->addColumn(
-			new GridColumn(
-				'actions',
-				'grid.columns.actions',
-				null,
-				null,
-				$cellProvider
-			)
-		);
-	}
+        // Bypass the parent authorization checks
+        $this->isAuthorGrid = true;
 
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
+        $stageId = $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy
 
-		// Bypass the parent authorization checks
-		$this->isAuthorGrid = true;
+        // Not all actions need a stageId. Some work off the reviewAssignment which has the type and round.
+        $this->_stageId = (int)$stageId;
 
-		$stageId = $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy
+        // Get the stage access policy
+        import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
+        $workflowStageAccessPolicy = new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId);
 
-		// Not all actions need a stageId. Some work off the reviewAssignment which has the type and round.
-		$this->_stageId = (int)$stageId;
+        // Add policy to ensure there is a review round id.
+        import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
+        $workflowStageAccessPolicy->addPolicy(new ReviewRoundRequiredPolicy($request, $args, 'reviewRoundId', ['fetchGrid', 'fetchRow']));
 
-		// Get the stage access policy
-		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-		$workflowStageAccessPolicy = new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId);
+        // Add policy to ensure there is a review assignment for certain operations.
+        import('lib.pkp.classes.security.authorization.internal.ReviewAssignmentRequiredPolicy');
+        $workflowStageAccessPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', ['readReview', 'reviewRead'], [SUBMISSION_REVIEW_METHOD_OPEN]));
+        $this->addPolicy($workflowStageAccessPolicy);
 
-		// Add policy to ensure there is a review round id.
-		import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
-		$workflowStageAccessPolicy->addPolicy(new ReviewRoundRequiredPolicy($request, $args, 'reviewRoundId', array('fetchGrid', 'fetchRow')));
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-		// Add policy to ensure there is a review assignment for certain operations.
-		import('lib.pkp.classes.security.authorization.internal.ReviewAssignmentRequiredPolicy');
-		$workflowStageAccessPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', array('readReview', 'reviewRead'), array(SUBMISSION_REVIEW_METHOD_OPEN)));
-		$this->addPolicy($workflowStageAccessPolicy);
+    //
+    // Overridden methods from GridHandler
+    //
+    /**
+     * @see GridHandler::loadData()
+     */
+    protected function loadData($request, $filter)
+    {
+        // Get the existing review assignments for this submission
+        // Only show open requests that have been accepted
+        $reviewRound = $this->getReviewRound();
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        return $reviewAssignmentDao->getOpenReviewsByReviewRoundId($reviewRound->getId());
+    }
 
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+    /**
+     * Open a modal to read the reviewer's review and
+     * download any files they may have uploaded
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function readReview($args, $request)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
-	//
-	// Overridden methods from GridHandler
-	//
-	/**
-	 * @see GridHandler::loadData()
-	 */
-	protected function loadData($request, $filter) {
-		// Get the existing review assignments for this submission
-		// Only show open requests that have been accepted
-		$reviewRound = $this->getReviewRound();
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-		return $reviewAssignmentDao->getOpenReviewsByReviewRoundId($reviewRound->getId());
-	}
+        $templateMgr->assign([
+            'submission' => $this->getSubmission(),
+            'reviewAssignment' => $reviewAssignment,
+            'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
+        ]);
 
-	/**
-	 * Open a modal to read the reviewer's review and
-	 * download any files they may have uploaded
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function readReview($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        if ($reviewAssignment->getReviewFormId()) {
+            // Retrieve review form
+            $context = $request->getContext();
+            $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
+            // Get review form elements visible for authors
+            $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId(), null, true);
+            $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /** @var ReviewFormResponseDAO $reviewFormResponseDao */
+            $reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
+            $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /** @var ReviewFormDAO $reviewFormDao */
+            $reviewformid = $reviewAssignment->getReviewFormId();
+            $reviewForm = $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId());
+            $templateMgr->assign([
+                'reviewForm' => $reviewForm,
+                'reviewFormElements' => $reviewFormElements,
+                'reviewFormResponses' => $reviewFormResponses,
+                'disabled' => true,
+            ]);
+        } else {
+            // Retrieve reviewer comments. Skip private comments.
+            $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /** @var SubmissionCommentDAO $submissionCommentDao */
+            $templateMgr->assign([
+                'comments' => $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), null, $reviewAssignment->getId(), true),
+            ]);
+        }
 
-		$templateMgr->assign(array(
-			'submission' => $this->getSubmission(),
-			'reviewAssignment' => $reviewAssignment,
-			'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
-		));
-
-		if ($reviewAssignment->getReviewFormId()) {
-			// Retrieve review form
-			$context = $request->getContext();
-			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
-			// Get review form elements visible for authors
-			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId(), null, true);
-			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /* @var $reviewFormResponseDao ReviewFormResponseDAO */
-			$reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
-			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
-			$reviewformid = $reviewAssignment->getReviewFormId();
-			$reviewForm = $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId());
-			$templateMgr->assign(array(
-				'reviewForm' => $reviewForm,
-				'reviewFormElements' => $reviewFormElements,
-				'reviewFormResponses' => $reviewFormResponses,
-				'disabled' => true,
-			));
-		} else {
-			// Retrieve reviewer comments. Skip private comments.
-			$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
-			$templateMgr->assign(array(
-				'comments' => $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), null, $reviewAssignment->getId(), true),
-			));
-		}
-
-		// Render the response.
-		return $templateMgr->fetchJson('controllers/grid/users/reviewer/authorReadReview.tpl');
-	}	
-
+        // Render the response.
+        return $templateMgr->fetchJson('controllers/grid/users/reviewer/authorReadReview.tpl');
+    }
 }
-
-

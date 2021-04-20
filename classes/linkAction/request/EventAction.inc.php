@@ -15,51 +15,54 @@
 
 import('lib.pkp.classes.linkAction.request.LinkActionRequest');
 
-class EventAction extends LinkActionRequest {
-	/** @var string Target selector */
-	var $targetSelector;
+class EventAction extends LinkActionRequest
+{
+    /** @var string Target selector */
+    public $targetSelector;
 
-	/** @var string Event name */
-	var $eventName;
+    /** @var string Event name */
+    public $eventName;
 
-	/** @var array Event options */
-	var $options;
+    /** @var array Event options */
+    public $options;
 
-	/**
-	 * Constructor
-	 * @param $targetSelector string Selector for target to receive event.
-	 * @param $eventName string Name of Javascript event to trigger.
-	 */
-	function __construct($targetSelector, $eventName, $options = array()) {
-		parent::__construct();
-		$this->targetSelector = $targetSelector;
-		$this->eventName = $eventName;
-		$this->options = $options;
-	}
+    /**
+     * Constructor
+     *
+     * @param $targetSelector string Selector for target to receive event.
+     * @param $eventName string Name of Javascript event to trigger.
+     */
+    public function __construct($targetSelector, $eventName, $options = [])
+    {
+        parent::__construct();
+        $this->targetSelector = $targetSelector;
+        $this->eventName = $eventName;
+        $this->options = $options;
+    }
 
 
-	//
-	// Overridden protected methods from LinkActionRequest
-	//
-	/**
-	 * @see LinkActionRequest::getJSLinkActionRequest()
-	 */
-	function getJSLinkActionRequest() {
-		return '$.pkp.classes.linkAction.EventAction';
-	}
+    //
+    // Overridden protected methods from LinkActionRequest
+    //
+    /**
+     * @see LinkActionRequest::getJSLinkActionRequest()
+     */
+    public function getJSLinkActionRequest()
+    {
+        return '$.pkp.classes.linkAction.EventAction';
+    }
 
-	/**
-	 * @see LinkActionRequest::getLocalizedOptions()
-	 */
-	function getLocalizedOptions() {
-		return array_merge(
-			$this->options,
-			array(
-				'target' => $this->targetSelector,
-				'event' => $this->eventName,
-			)
-		);
-	}
+    /**
+     * @see LinkActionRequest::getLocalizedOptions()
+     */
+    public function getLocalizedOptions()
+    {
+        return array_merge(
+            $this->options,
+            [
+                'target' => $this->targetSelector,
+                'event' => $this->eventName,
+            ]
+        );
+    }
 }
-
-

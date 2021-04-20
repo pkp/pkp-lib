@@ -14,78 +14,83 @@
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
-class ReviewFormGridCellProvider extends GridCellProvider {
+class ReviewFormGridCellProvider extends GridCellProvider
+{
+    /**
+     * Extracts variables for a given column from a data element
+     * so that they may be assigned to template before rendering.
+     *
+     * @param $row GridRow
+     * @param $column GridColumn
+     *
+     * @return array
+     */
+    public function getTemplateVarsFromRowColumn($row, $column)
+    {
+        $element = $row->getData();
+        $columnId = $column->getId();
+        assert(is_a($element, 'ReviewForm') && !empty($columnId));
+        switch ($columnId) {
+            case 'name':
+                return ['label' => $element->getLocalizedTitle()];
+            case 'inReview':
+                return ['label' => $element->getIncompleteCount()];
+            case 'completed':
+                return ['label' => $element->getCompleteCount()];
+            case 'active':
+                return ['selected' => $element->getActive()];
+        }
+        return parent::getTemplateVarsFromRowColumn($row, $column);
+    }
 
-	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
-	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
-		$element = $row->getData();
-		$columnId = $column->getId();
-		assert(is_a($element, 'ReviewForm') && !empty($columnId));
-		switch ($columnId) {
-			case 'name':
-				return array('label' => $element->getLocalizedTitle());
-			case 'inReview':
-				return array('label' => $element->getIncompleteCount());
-			case 'completed':
-				return array('label' => $element->getCompleteCount());
-			case 'active':
-				return array('selected' => $element->getActive());
-		}
-		return parent::getTemplateVarsFromRowColumn($row, $column);
-	}
+    /**
+     * @see GridCellProvider::getCellActions()
+     */
+    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    {
+        switch ($column->getId()) {
+            case 'active':
+                $element = $row->getData(); /** @var \PKP\core\DataObject $element */
 
-	/**
-	 * @see GridCellProvider::getCellActions()
-	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		switch ($column->getId()) {
-			case 'active':
-				$element = $row->getData(); /* @var $element \PKP\core\DataObject */
+                $router = $request->getRouter();
+                import('lib.pkp.classes.linkAction.LinkAction');
 
-				$router = $request->getRouter();
-				import('lib.pkp.classes.linkAction.LinkAction');
-
-				if ($element->getActive()) return array(new LinkAction(
-					'deactivateReviewForm',
-					new RemoteActionConfirmationModal(
-						$request->getSession(),
-						__('manager.reviewForms.confirmDeactivate'),
-						null,
-						$router->url(
-							$request,
-							null,
-							'grid.settings.reviewForms.ReviewFormGridHandler',
-							'deactivateReviewForm',
-							null,
-							array('reviewFormKey' => $element->getId())
-						)
-					)
-				));
-				else return array(new LinkAction(
-					'activateReviewForm',
-					new RemoteActionConfirmationModal(
-						$request->getSession(),
-						__('manager.reviewForms.confirmActivate'),
-						null,
-						$router->url(
-							$request,
-							null,
-							'grid.settings.reviewForms.ReviewFormGridHandler',
-							'activateReviewForm',
-							null,
-							array('reviewFormKey' => $element->getId())
-						)
-					)
-				));
-		}
-		return parent::getCellActions($request, $row, $column, $position);
-	}
+                if ($element->getActive()) {
+                    return [new LinkAction(
+                        'deactivateReviewForm',
+                        new RemoteActionConfirmationModal(
+                            $request->getSession(),
+                            __('manager.reviewForms.confirmDeactivate'),
+                            null,
+                            $router->url(
+                                $request,
+                                null,
+                                'grid.settings.reviewForms.ReviewFormGridHandler',
+                                'deactivateReviewForm',
+                                null,
+                                ['reviewFormKey' => $element->getId()]
+                            )
+                        )
+                    )];
+                } else {
+                    return [new LinkAction(
+                        'activateReviewForm',
+                        new RemoteActionConfirmationModal(
+                            $request->getSession(),
+                            __('manager.reviewForms.confirmActivate'),
+                            null,
+                            $router->url(
+                                $request,
+                                null,
+                                'grid.settings.reviewForms.ReviewFormGridHandler',
+                                'activateReviewForm',
+                                null,
+                                ['reviewFormKey' => $element->getId()]
+                            )
+                        )
+                    )];
+                }
+        }
+        return parent::getCellActions($request, $row, $column, $position);
+    }
 }
-
-

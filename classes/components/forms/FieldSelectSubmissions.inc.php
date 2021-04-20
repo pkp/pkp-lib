@@ -11,9 +11,11 @@
  *
  * @brief A text field to search for and select submissions.
  */
+
 namespace PKP\components\forms;
 
-class FieldSelectSubmissions extends FieldBaseAutosuggest {
-	/** @copydoc Field::$component */
-	public $component = 'field-select-submissions';
+class FieldSelectSubmissions extends FieldBaseAutosuggest
+{
+    /** @copydoc Field::$component */
+    public $component = 'field-select-submissions';
 }

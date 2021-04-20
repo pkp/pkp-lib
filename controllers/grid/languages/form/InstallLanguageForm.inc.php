@@ -16,85 +16,94 @@
 // Import the base Form.
 import('lib.pkp.classes.form.Form');
 
-class InstallLanguageForm extends Form {
+class InstallLanguageForm extends Form
+{
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct('controllers/grid/languages/installLanguageForm.tpl');
+    }
 
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct('controllers/grid/languages/installLanguageForm.tpl');
-	}
+    //
+    // Overridden methods from Form.
+    //
+    /**
+     * @copydoc Form::initData()
+     */
+    public function initData()
+    {
+        parent::initData();
 
-	//
-	// Overridden methods from Form.
-	//
-	/**
-	 * @copydoc Form::initData()
-	 */
-	function initData() {
-		parent::initData();
+        $request = Application::get()->getRequest();
+        $site = $request->getSite();
+        $this->setData('installedLocales', $site->getInstalledLocales());
+    }
 
-		$request = Application::get()->getRequest();
-		$site = $request->getSite();
-		$this->setData('installedLocales', $site->getInstalledLocales());
-	}
+    /**
+     * @copydoc Form::fetch()
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        $site = $request->getSite();
+        $allLocales = AppLocale::getAllLocales();
+        $installedLocales = $this->getData('installedLocales');
+        $notInstalledLocales = array_diff(array_keys($allLocales), $installedLocales);
 
-	/**
-	 * @copydoc Form::fetch()
-	 */
-	function fetch($request, $template = null, $display = false) {
-		$site = $request->getSite();
-		$allLocales = AppLocale::getAllLocales();
-		$installedLocales = $this->getData('installedLocales');
-		$notInstalledLocales = array_diff(array_keys($allLocales), $installedLocales);
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'allLocales' => $allLocales,
+            'notInstalledLocales' => $notInstalledLocales,
+        ]);
 
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign(array(
-			'allLocales' => $allLocales,
-			'notInstalledLocales' => $notInstalledLocales,
-		));
+        return parent::fetch($request, $template, $display);
+    }
 
-		return parent::fetch($request, $template, $display);
-	}
+    /**
+     * @copydoc Form::readInputData()
+     */
+    public function readInputData()
+    {
+        parent::readInputData();
 
-	/**
-	 * @copydoc Form::readInputData()
-	 */
-	function readInputData() {
-		parent::readInputData();
+        $request = Application::get()->getRequest();
+        $localesToInstall = $request->getUserVar('localesToInstall');
+        $this->setData('localesToInstall', $localesToInstall);
+    }
 
-		$request = Application::get()->getRequest();
-		$localesToInstall = $request->getUserVar('localesToInstall');
-		$this->setData('localesToInstall', $localesToInstall);
-	}
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionArgs)
+    {
+        $request = Application::get()->getRequest();
+        $site = $request->getSite();
+        $localesToInstall = $this->getData('localesToInstall');
 
-	/**
-	 * @copydoc Form::execute()
-	 */
-	function execute(...$functionArgs) {
-		$request = Application::get()->getRequest();
-		$site = $request->getSite();
-		$localesToInstall = $this->getData('localesToInstall');
+        parent::execute(...$functionArgs);
 
-		parent::execute(...$functionArgs);
+        if (isset($localesToInstall) && is_array($localesToInstall)) {
+            $installedLocales = $site->getInstalledLocales();
+            $supportedLocales = $site->getSupportedLocales();
 
-		if (isset($localesToInstall) && is_array($localesToInstall)) {
-			$installedLocales = $site->getInstalledLocales();
-			$supportedLocales = $site->getSupportedLocales();
+            foreach ($localesToInstall as $locale) {
+                if (AppLocale::isLocaleValid($locale) && !in_array($locale, $installedLocales)) {
+                    array_push($installedLocales, $locale);
+                    // Activate/support by default.
+                    if (!in_array($locale, $supportedLocales)) {
+                        array_push($supportedLocales, $locale);
+                    }
+                    AppLocale::installLocale($locale);
+                }
+            }
 
-			foreach ($localesToInstall as $locale) {
-				if (AppLocale::isLocaleValid($locale) && !in_array($locale, $installedLocales)) {
-					array_push($installedLocales, $locale);
-					// Activate/support by default.
-					if (!in_array($locale, $supportedLocales)) array_push($supportedLocales, $locale);
-					AppLocale::installLocale($locale);
-				}
-			}
-
-			$site->setInstalledLocales($installedLocales);
-			$site->setSupportedLocales($supportedLocales);
-			$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
-			$siteDao->updateObject($site);
-		}
-	}
+            $site->setInstalledLocales($installedLocales);
+            $site->setSupportedLocales($supportedLocales);
+            $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
+            $siteDao->updateObject($site);
+        }
+    }
 }

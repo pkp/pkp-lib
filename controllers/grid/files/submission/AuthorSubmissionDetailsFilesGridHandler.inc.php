@@ -16,23 +16,23 @@
 // Import the grid layout.
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
-class AuthorSubmissionDetailsFilesGridHandler extends FileListGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
-		$dataProvider = new SubmissionFilesGridDataProvider(SUBMISSION_FILE_SUBMISSION);
-		parent::__construct($dataProvider, WORKFLOW_STAGE_ID_SUBMISSION, FILE_GRID_DOWNLOAD_ALL|FILE_GRID_EDIT);
+class AuthorSubmissionDetailsFilesGridHandler extends FileListGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
+        $dataProvider = new SubmissionFilesGridDataProvider(SUBMISSION_FILE_SUBMISSION);
+        parent::__construct($dataProvider, WORKFLOW_STAGE_ID_SUBMISSION, FILE_GRID_DOWNLOAD_ALL | FILE_GRID_EDIT);
 
-		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
-			array('fetchGrid', 'fetchRow')
-		);
+        $this->addRoleAssignment(
+            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
+            ['fetchGrid', 'fetchRow']
+        );
 
-		// Grid title.
-		$this->setTitle('submission.submit.submissionFiles');
-	}
+        // Grid title.
+        $this->setTitle('submission.submit.submissionFiles');
+    }
 }
-
-

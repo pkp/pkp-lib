@@ -15,232 +15,251 @@
 
 namespace PKP\Services;
 
-use \PKP\db\DBResultRange;
-use \PKP\db\DAOResultFactory;
-use \PKP\db\DAORegistry;
-use \PKP\Services\interfaces\EntityPropertyInterface;
-use \PKP\Services\interfaces\EntityReadInterface;
-use \PKP\Services\interfaces\EntityWriteInterface;
-use \PKP\Services\QueryBuilders\PKPAuthorQueryBuilder;
+use APP\core\Services;
+use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
+use PKP\Services\interfaces\EntityPropertyInterface;
+use PKP\Services\interfaces\EntityReadInterface;
+use PKP\Services\interfaces\EntityWriteInterface;
 
-use \APP\core\Services;
+use PKP\Services\QueryBuilders\PKPAuthorQueryBuilder;
 
-class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, EntityPropertyInterface {
+class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, EntityPropertyInterface
+{
+    /**
+     * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
+     */
+    public function get($authorId)
+    {
+        $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
+        return $authorDao->getById($authorId);
+    }
 
-	/**
-	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
-	 */
-	public function get($authorId) {
-		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
-		return $authorDao->getById($authorId);
-	}
+    /**
+     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getCount()
+     */
+    public function getCount($args = [])
+    {
+        return $this->getQueryBuilder($args)->getCount();
+    }
 
-	/**
-	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getCount()
-	 */
-	public function getCount($args = []) {
-		return $this->getQueryBuilder($args)->getCount();
-	}
+    /**
+     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getIds()
+     */
+    public function getIds($args = [])
+    {
+        return $this->getQueryBuilder($args)->getIds();
+    }
 
-	/**
-	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getIds()
-	 */
-	public function getIds($args = []) {
-		return $this->getQueryBuilder($args)->getIds();
-	}
+    /**
+     * Get a collection of Author objects limited, filtered
+     * and sorted by $args
+     *
+     * @param array $args {
+     * 		@option int|array contextIds
+     * 		@option string familyName
+     * 		@option string givenName
+     * 		@option int|array publicationIds
+     * }
+     *
+     * @return Iterator
+     */
+    public function getMany($args = [])
+    {
+        $authorQO = $this->getQueryBuilder($args)->getQuery();
+        $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
+        $result = $authorDao->retrieveRange($authorQO->toSql(), $authorQO->getBindings());
+        $queryResults = new DAOResultFactory($result, $authorDao, '_fromRow');
 
-	/**
-	 * Get a collection of Author objects limited, filtered
-	 * and sorted by $args
-	 *
-	 * @param array $args {
-	 * 		@option int|array contextIds
-	 * 		@option string familyName
-	 * 		@option string givenName
-	 * 		@option int|array publicationIds
-	 * }
-	 * @return Iterator
-	 */
-	public function getMany($args = array()) {
-		$authorQO = $this->getQueryBuilder($args)->getQuery();
-		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
-		$result = $authorDao->retrieveRange($authorQO->toSql(), $authorQO->getBindings());
-		$queryResults = new DAOResultFactory($result, $authorDao, '_fromRow');
+        return $queryResults->toIterator();
+    }
 
-		return $queryResults->toIterator();
-	}
+    /**
+     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
+     */
+    public function getMax($args = [])
+    {
+        // Count/offset is not supported so getMax is always
+        // the same as getCount
+        return $this->getCount();
+    }
 
-	/**
-	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
-	 */
-	public function getMax($args = []) {
-		// Count/offset is not supported so getMax is always
-		// the same as getCount
-		return $this->getCount();
-	}
+    /**
+     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
+     *
+     * @return PKPAuthorQueryBuilder
+     */
+    public function getQueryBuilder($args = [])
+    {
+        $defaultArgs = [
+            'contextIds' => [],
+            'familyName' => '',
+            'givenName' => '',
+            'publicationIds' => null,
+        ];
 
-	/**
-	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
-	 * @return PKPAuthorQueryBuilder
-	 */
-	public function getQueryBuilder($args = []) {
+        $args = array_merge($defaultArgs, $args);
 
-		$defaultArgs = [
-			'contextIds' => [],
-			'familyName' => '',
-			'givenName' => '',
-			'publicationIds' => null,
-		];
+        $authorQB = new PKPAuthorQueryBuilder();
+        $authorQB->filterByName($args['givenName'], $args['familyName']);
+        if (!empty($args['publicationIds'])) {
+            $authorQB->filterByPublicationIds($args['publicationIds']);
+        }
+        if (!empty($args['contextIds'])) {
+            $authorQB->filterByContextIds($args['contextIds']);
+        }
+        if (!empty($args['country'])) {
+            $authorQB->filterByCountry($args['country']);
+        }
+        if (!empty($args['affiliation'])) {
+            $authorQB->filterByAffiliation($args['affiliation']);
+        }
 
-		$args = array_merge($defaultArgs, $args);
+        \HookRegistry::call('Author::getMany::queryBuilder', [&$authorQB, $args]);
 
-		$authorQB = new PKPAuthorQueryBuilder();
-		$authorQB->filterByName($args['givenName'], $args['familyName']);
-		if (!empty($args['publicationIds'])) {
-			$authorQB->filterByPublicationIds($args['publicationIds']);
-		}
-		if (!empty($args['contextIds'])) {
-			$authorQB->filterByContextIds($args['contextIds']);
-		}
-		if (!empty($args['country'])) {
-			$authorQB->filterByCountry($args['country']);
-		}
-		if (!empty($args['affiliation'])) {
-			$authorQB->filterByAffiliation($args['affiliation']);
-		}
+        return $authorQB;
+    }
 
-		\HookRegistry::call('Author::getMany::queryBuilder', array(&$authorQB, $args));
+    /**
+     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getProperties()
+     *
+     * @param null|mixed $args
+     */
+    public function getProperties($author, $props, $args = null)
+    {
+        $request = $args['request'];
 
-		return $authorQB;
-	}
+        $values = [];
 
-	/**
-	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getProperties()
-	 */
-	public function getProperties($author, $props, $args = null) {
-		$request = $args['request'];
+        foreach ($props as $prop) {
+            switch ($prop) {
+                default:
+                    $values[$prop] = $author->getData($prop);
+                    break;
+            }
+        }
 
-		$values = [];
+        $locales = $request->getContext()->getSupportedFormLocales();
+        $values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_AUTHOR, $values, $locales);
 
-		foreach ($props as $prop) {
-			switch ($prop) {
-				default:
-					$values[$prop] = $author->getData($prop);
-					break;
-			}
-		}
+        \HookRegistry::call('Author::getProperties::values', [&$values, $author, $props, $args]);
 
-		$locales = $request->getContext()->getSupportedFormLocales();
-		$values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_AUTHOR, $values, $locales);
+        ksort($values);
 
-		\HookRegistry::call('Author::getProperties::values', array(&$values, $author, $props, $args));
+        return $values;
+    }
 
-		ksort($values);
+    /**
+     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
+     *
+     * @param null|mixed $args
+     */
+    public function getSummaryProperties($author, $args = null)
+    {
+        $props = Services::get('schema')->getSummaryProps(PKPSchemaService::SCHEMA_AUTHOR);
 
-		return $values;
-	}
+        return $this->getProperties($author, $props, $args);
+    }
 
-	/**
-	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
-	 */
-	public function getSummaryProperties($author, $args = null) {
-		$props = Services::get('schema')->getSummaryProps(PKPSchemaService::SCHEMA_AUTHOR);
+    /**
+     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
+     *
+     * @param null|mixed $args
+     */
+    public function getFullProperties($author, $args = null)
+    {
+        $props = Services::get('schema')->getFullProps(PKPSchemaService::SCHEMA_AUTHOR);
 
-		return $this->getProperties($author, $props, $args);
-	}
+        return $this->getProperties($author, $props, $args);
+    }
 
-	/**
-	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
-	 */
-	public function getFullProperties($author, $args = null) {
-		$props = Services::get('schema')->getFullProps(PKPSchemaService::SCHEMA_AUTHOR);
+    /**
+     * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::validate()
+     */
+    public function validate($action, $props, $allowedLocales, $primaryLocale)
+    {
+        $schemaService = Services::get('schema');
 
-		return $this->getProperties($author, $props, $args);
-	}
+        import('lib.pkp.classes.validation.ValidatorFactory');
+        $validator = \ValidatorFactory::make(
+            $props,
+            $schemaService->getValidationRules(PKPSchemaService::SCHEMA_AUTHOR, $allowedLocales)
+        );
 
-	/**
-	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::validate()
-	 */
-	public function validate($action, $props, $allowedLocales, $primaryLocale) {
-		$schemaService = Services::get('schema');
+        // Check required fields
+        \ValidatorFactory::required(
+            $validator,
+            $action,
+            $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_AUTHOR),
+            $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR),
+            $allowedLocales,
+            $primaryLocale
+        );
 
-		import('lib.pkp.classes.validation.ValidatorFactory');
-		$validator = \ValidatorFactory::make(
-			$props,
-			$schemaService->getValidationRules(PKPSchemaService::SCHEMA_AUTHOR, $allowedLocales)
-		);
+        // Check for input from disallowed locales
+        \ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
 
-		// Check required fields
-		\ValidatorFactory::required(
-			$validator,
-			$action,
-			$schemaService->getRequiredProps(PKPSchemaService::SCHEMA_AUTHOR),
-			$schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR),
-			$allowedLocales,
-			$primaryLocale
-		);
+        // The publicationId must match an existing publication that is not yet published
+        $validator->after(function ($validator) use ($props) {
+            if (isset($props['publicationId']) && !$validator->errors()->get('publicationId')) {
+                $publication = Services::get('publication')->get($props['publicationId']);
+                if (!$publication) {
+                    $validator->errors()->add('publicationId', __('author.publicationNotFound'));
+                } elseif ($publication->getData('status') === STATUS_PUBLISHED) {
+                    $validator->errors()->add('publicationId', __('author.editPublishedDisabled'));
+                }
+            }
+        });
 
-		// Check for input from disallowed locales
-		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
+        if ($validator->fails()) {
+            $errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
+        }
 
-		// The publicationId must match an existing publication that is not yet published
-		$validator->after(function($validator) use ($props) {
-			if (isset($props['publicationId']) && !$validator->errors()->get('publicationId')) {
-				$publication = Services::get('publication')->get($props['publicationId']);
-				if (!$publication) {
-					$validator->errors()->add('publicationId', __('author.publicationNotFound'));
-				} else if ($publication->getData('status') === STATUS_PUBLISHED) {
-					$validator->errors()->add('publicationId', __('author.editPublishedDisabled'));
-				}
-			}
-		});
+        \HookRegistry::call('Author::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);
 
-		if ($validator->fails()) {
-			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
-		}
+        return $errors;
+    }
 
-		\HookRegistry::call('Author::validate', array(&$errors, $action, $props, $allowedLocales, $primaryLocale));
+    /**
+     * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::add()
+     */
+    public function add($author, $request)
+    {
+        $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
+        $authorId = $authorDao->insertObject($author);
+        $author = $this->get($authorId);
 
-		return $errors;
-	}
+        \HookRegistry::call('Author::add', [&$author, $request]);
 
-	/**
-	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::add()
-	 */
-	public function add($author, $request) {
-		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
-		$authorId = $authorDao->insertObject($author);
-		$author = $this->get($authorId);
+        return $author;
+    }
 
-		\HookRegistry::call('Author::add', array(&$author, $request));
+    /**
+     * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::edit()
+     */
+    public function edit($author, $params, $request)
+    {
+        $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
 
-		return $author;
-	}
+        $newAuthor = $authorDao->newDataObject();
+        $newAuthor->_data = array_merge($author->_data, $params);
 
-	/**
-	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::edit()
-	 */
-	public function edit($author, $params, $request) {
-		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+        \HookRegistry::call('Author::edit', [&$newAuthor, $author, $params, $request]);
 
-		$newAuthor = $authorDao->newDataObject();
-		$newAuthor->_data = array_merge($author->_data, $params);
+        $authorDao->updateObject($newAuthor);
+        $newAuthor = $this->get($newAuthor->getId());
 
-		\HookRegistry::call('Author::edit', array(&$newAuthor, $author, $params, $request));
+        return $newAuthor;
+    }
 
-		$authorDao->updateObject($newAuthor);
-		$newAuthor = $this->get($newAuthor->getId());
-
-		return $newAuthor;
-	}
-
-	/**
-	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
-	 */
-	public function delete($author) {
-		\HookRegistry::call('Author::delete::before', [&$author]);
-		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
-		$authorDao->deleteObject($author);
-		\HookRegistry::call('Author::delete', [&$author]);
-	}
+    /**
+     * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
+     */
+    public function delete($author)
+    {
+        \HookRegistry::call('Author::delete::before', [&$author]);
+        $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
+        $authorDao->deleteObject($author);
+        \HookRegistry::call('Author::delete', [&$author]);
+    }
 }

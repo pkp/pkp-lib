@@ -17,184 +17,207 @@
 
 import('lib.pkp.classes.mail.MailTemplate');
 
-class SubmissionMailTemplate extends MailTemplate {
+class SubmissionMailTemplate extends MailTemplate
+{
+    /** @var object the associated submission */
+    public $submission;
 
-	/** @var object the associated submission */
-	var $submission;
+    /** @var object the associated context */
+    public $context;
 
-	/** @var object the associated context */
-	var $context;
+    /** @var int Event type of this email for logging purposes */
+    public $logEventType;
 
-	/** @var int Event type of this email for logging purposes */
-	var $logEventType;
+    /**
+     * Constructor.
+     *
+     * @param $submission Submission
+     * @param $emailKey string optional
+     * @param $locale string optional
+     * @param $context object optional
+     * @param $includeSignature boolean optional
+     *
+     * @see MailTemplate::MailTemplate()
+     */
+    public function __construct($submission, $emailKey = null, $locale = null, $context = null, $includeSignature = true)
+    {
+        parent::__construct($emailKey, $locale, $context, $includeSignature);
+        $this->submission = $submission;
+    }
 
-	/**
-	 * Constructor.
-	 * @param $submission Submission
-	 * @param $emailKey string optional
-	 * @param $locale string optional
-	 * @param $context object optional
-	 * @param $includeSignature boolean optional
-	 * @see MailTemplate::MailTemplate()
-	 */
-	function __construct($submission, $emailKey = null, $locale = null, $context = null, $includeSignature = true) {
-		parent::__construct($emailKey, $locale, $context, $includeSignature);
-		$this->submission = $submission;
-	}
+    /**
+     * Assign parameters to template
+     *
+     * @param $paramArray array
+     */
+    public function assignParams($paramArray = [])
+    {
+        $submission = $this->submission;
+        $request = Application::get()->getRequest();
+        parent::assignParams(array_merge(
+            [
+                'submissionTitle' => strip_tags($submission->getLocalizedFullTitle()),
+                'submissionId' => $submission->getId(),
+                'submissionAbstract' => PKPString::stripUnsafeHtml($submission->getLocalizedAbstract()),
+                'authorString' => strip_tags($submission->getAuthorString()),
+            ],
+            $paramArray
+        ));
+    }
 
-	/**
-	 * Assign parameters to template
-	 * @param $paramArray array
-	 */
-	function assignParams($paramArray = array()) {
-		$submission = $this->submission;
-		$request = Application::get()->getRequest();
-		parent::assignParams(array_merge(
-			array(
-				'submissionTitle' => strip_tags($submission->getLocalizedFullTitle()),
-				'submissionId' => $submission->getId(),
-				'submissionAbstract' => PKPString::stripUnsafeHtml($submission->getLocalizedAbstract()),
-				'authorString' => strip_tags($submission->getAuthorString()),
-			),
-			$paramArray
-		));
-	}
+    /**
+     * @see parent::send()
+     *
+     * @param $request PKPRequest optional (used for logging purposes)
+     */
+    public function send($request = null)
+    {
+        if (parent::send()) {
+            $this->log($request);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	/**
-	 * @see parent::send()
-	 * @param $request PKPRequest optional (used for logging purposes)
-	 */
-	function send($request = null) {
-		if (parent::send()) {
-			$this->log($request);
-			return true;
-		} else {
-			return false;
-		}
-	}
+    /**
+     * @copydoc parent::sendWithParams()
+     */
+    public function sendWithParams($paramArray)
+    {
+        $savedSubject = $this->getSubject();
+        $savedBody = $this->getBody();
 
-	/**
-	 * @copydoc parent::sendWithParams()
-	 */
-	function sendWithParams($paramArray) {
-		$savedSubject = $this->getSubject();
-		$savedBody = $this->getBody();
+        $this->assignParams($paramArray);
 
-		$this->assignParams($paramArray);
+        $ret = $this->send();
 
-		$ret = $this->send();
+        $this->setSubject($savedSubject);
+        $this->setBody($savedBody);
 
-		$this->setSubject($savedSubject);
-		$this->setBody($savedBody);
+        return $ret;
+    }
 
-		return $ret;
-	}
+    /**
+     * Add logging properties to this email.
+     *
+     * @param $eventType int
+     */
+    public function setEventType($eventType)
+    {
+        $this->logEventType = $eventType;
+    }
 
-	/**
-	 * Add logging properties to this email.
-	 * @param $eventType int
-	 */
-	function setEventType($eventType) {
-		$this->logEventType = $eventType;
-	}
+    /**
+     * Set the context this message is associated with.
+     *
+     * @param $context object
+     */
+    public function setContext($context)
+    {
+        $this->context = $context;
+    }
 
-	/**
-	 * Set the context this message is associated with.
-	 * @param $context object
-	 */
-	function setContext($context) {
-		$this->context = $context;
-	}
+    /**
+     * Save the email in the submission email log.
+     *
+     * @param null|mixed $request
+     */
+    public function log($request = null)
+    {
+        $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $logDao */
+        $entry = $logDao->newDataObject();
+        $submission = $this->submission;
 
-	/**
-	 * Save the email in the submission email log.
-	 */
-	function log($request = null) {
-		$logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $logDao SubmissionEmailLogDAO */
-		$entry = $logDao->newDataObject();
-		$submission = $this->submission;
+        // Event data
+        $entry->setEventType($this->logEventType);
+        $entry->setAssocId($submission->getId());
+        $entry->setDateSent(Core::getCurrentDate());
 
-		// Event data
-		$entry->setEventType($this->logEventType);
-		$entry->setAssocId($submission->getId());
-		$entry->setDateSent(Core::getCurrentDate());
+        // User data
+        if ($request) {
+            $user = $request->getUser();
+            $entry->setSenderId($user == null ? 0 : $user->getId());
+        } else {
+            // No user supplied -- this is e.g. a cron-automated email
+            $entry->setSenderId(0);
+        }
 
-		// User data
-		if ($request) {
-			$user = $request->getUser();
-			$entry->setSenderId($user == null ? 0 : $user->getId());
-		} else {
-			// No user supplied -- this is e.g. a cron-automated email
-			$entry->setSenderId(0);
-		}
+        // Email data
+        $entry->setSubject($this->getSubject());
+        $entry->setBody($this->getBody());
+        $entry->setFrom($this->getFromString(false));
+        $entry->setRecipients($this->getRecipientString());
+        $entry->setCcs($this->getCcString());
+        $entry->setBccs($this->getBccString());
 
-		// Email data
-		$entry->setSubject($this->getSubject());
-		$entry->setBody($this->getBody());
-		$entry->setFrom($this->getFromString(false));
-		$entry->setRecipients($this->getRecipientString());
-		$entry->setCcs($this->getCcString());
-		$entry->setBccs($this->getBccString());
+        // Add log entry
+        $logEntryId = $logDao->insertObject($entry);
+    }
 
-		// Add log entry
-		$logEntryId = $logDao->insertObject($entry);
-	}
+    /**
+     *  Send this email to all assigned sub editors in the given stage
+     *
+     * @param $submissionId int
+     * @param $stageId int
+     */
+    public function toAssignedSubEditors($submissionId, $stageId)
+    {
+        return $this->_addUsers($submissionId, ROLE_ID_SUB_EDITOR, $stageId, 'addRecipient');
+    }
 
-	/**
-	 *  Send this email to all assigned sub editors in the given stage
-	 * @param $submissionId int
-	 * @param $stageId int
-	 */
-	function toAssignedSubEditors($submissionId, $stageId) {
-		return $this->_addUsers($submissionId, ROLE_ID_SUB_EDITOR, $stageId, 'addRecipient');
-	}
+    /**
+     *  CC this email to all assigned sub editors in the given stage
+     *
+     * @param $submissionId int
+     * @param $stageId int
+     *
+     * @return array of Users
+     */
+    public function ccAssignedSubEditors($submissionId, $stageId)
+    {
+        return $this->_addUsers($submissionId, ROLE_ID_SUB_EDITOR, $stageId, 'addCc');
+    }
 
-	/**
-	 *  CC this email to all assigned sub editors in the given stage
-	 * @param $submissionId int
-	 * @param $stageId int
-	 * @return array of Users
-	 */
-	function ccAssignedSubEditors($submissionId, $stageId) {
-		return $this->_addUsers($submissionId, ROLE_ID_SUB_EDITOR, $stageId, 'addCc');
-	}
+    /**
+     *  BCC this email to all assigned sub editors in the given stage
+     *
+     * @param $submissionId int
+     * @param $stageId int
+     */
+    public function bccAssignedSubEditors($submissionId, $stageId)
+    {
+        return $this->_addUsers($submissionId, ROLE_ID_SUB_EDITOR, $stageId, 'addBcc');
+    }
 
-	/**
-	 *  BCC this email to all assigned sub editors in the given stage
-	 * @param $submissionId int
-	 * @param $stageId int
-	 */
-	function bccAssignedSubEditors($submissionId, $stageId) {
-		return $this->_addUsers($submissionId, ROLE_ID_SUB_EDITOR, $stageId, 'addBcc');
-	}
+    /**
+     * Fetch the requested users and add to the email
+     *
+     * @param $submissionId int
+     * @param $roleId int
+     * @param $stageId int
+     * @param $method string one of addRecipient, addCC, or addBCC
+     *
+     * @return array of Users
+     */
+    protected function _addUsers($submissionId, $roleId, $stageId, $method)
+    {
+        assert(in_array($method, ['addRecipient', 'addCc', 'addBcc']));
 
-	/**
-	 * Fetch the requested users and add to the email
-	 * @param $submissionId int
-	 * @param $roleId int
-	 * @param $stageId int
-	 * @param $method string one of addRecipient, addCC, or addBCC
-	 * @return array of Users
-	 */
-	protected function _addUsers($submissionId, $roleId, $stageId, $method) {
-		assert(in_array($method, array('addRecipient', 'addCc', 'addBcc')));
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByRoleId($this->context->getId(), $roleId);
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$userGroups = $userGroupDao->getByRoleId($this->context->getId(), $roleId);
-
-		$returner = array();
-		// Cycle through all the userGroups for this role
-		while ($userGroup = $userGroups->next()) {
-			$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /* @var $userStageAssignmentDao UserStageAssignmentDAO */
-			// FIXME: #6692# Should this be getting users just for a specific user group?
-			$users = $userStageAssignmentDao->getUsersBySubmissionAndStageId($submissionId, $stageId, $userGroup->getId());
-			while ($user = $users->next()) {
-				$this->$method($user->getEmail(), $user->getFullName());
-				$returner[] = $user;
-			}
-		}
-		return $returner;
-	}
+        $returner = [];
+        // Cycle through all the userGroups for this role
+        while ($userGroup = $userGroups->next()) {
+            $userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /** @var UserStageAssignmentDAO $userStageAssignmentDao */
+            // FIXME: #6692# Should this be getting users just for a specific user group?
+            $users = $userStageAssignmentDao->getUsersBySubmissionAndStageId($submissionId, $stageId, $userGroup->getId());
+            while ($user = $users->next()) {
+                $this->$method($user->getEmail(), $user->getFullName());
+                $returner[] = $user;
+            }
+        }
+        return $returner;
+    }
 }
-
-

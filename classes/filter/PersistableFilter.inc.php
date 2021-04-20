@@ -41,250 +41,278 @@ import('lib.pkp.classes.filter.FilterGroup');
 
 define('FILTER_GROUP_TEMPORARY_ONLY', '$$$temporary$$$');
 
-class PersistableFilter extends Filter {
-	/** @var FilterGroup */
-	var $_filterGroup;
+class PersistableFilter extends Filter
+{
+    /** @var FilterGroup */
+    public $_filterGroup;
 
-	/** @var array a list of FilterSetting objects */
-	var $_settings = array();
+    /** @var array a list of FilterSetting objects */
+    public $_settings = [];
 
-	/**
-	 * Constructor
-	 *
-	 * NB: Sub-classes of this class must not add additional
-	 * mandatory constructor arguments. Sub-classes that implement
-	 * additional optional constructor arguments must make these
-	 * also accessible via setters if they are required to fully
-	 * parameterize the transformation. Filter parameters must be
-	 * stored as data in the underlying \PKP\core\DataObject.
-	 *
-	 * This is necessary as the FilterDAO does not support
-	 * constructor configuration. Filter parameters will be
-	 * configured via DataObject::setData(). Only parameters
-	 * that are available in the DataObject will be persisted.
-	 *
-	 * @param $filterGroup FilterGroup
-	 */
-	function __construct($filterGroup) {
-		// Check and set the filter group.
-		assert(is_a($filterGroup, 'FilterGroup'));
-		$this->_filterGroup = $filterGroup;
+    /**
+     * Constructor
+     *
+     * NB: Sub-classes of this class must not add additional
+     * mandatory constructor arguments. Sub-classes that implement
+     * additional optional constructor arguments must make these
+     * also accessible via setters if they are required to fully
+     * parameterize the transformation. Filter parameters must be
+     * stored as data in the underlying \PKP\core\DataObject.
+     *
+     * This is necessary as the FilterDAO does not support
+     * constructor configuration. Filter parameters will be
+     * configured via DataObject::setData(). Only parameters
+     * that are available in the DataObject will be persisted.
+     *
+     * @param $filterGroup FilterGroup
+     */
+    public function __construct($filterGroup)
+    {
+        // Check and set the filter group.
+        assert(is_a($filterGroup, 'FilterGroup'));
+        $this->_filterGroup = $filterGroup;
 
-		// Initialize the filter.
-		$this->setParentFilterId(0);
-		$this->setIsTemplate(false);
-		parent::__construct($filterGroup->getInputType(), $filterGroup->getOutputType());
-	}
-
-
-	//
-	// Setters and Getters
-	//
-	/**
-	 * Get the filter group
-	 * @return FilterGroup
-	 */
-	function getFilterGroup() {
-		return $this->_filterGroup;
-	}
-
-	/**
-	 * Set whether this is a transformation template
-	 * rather than an actual transformation.
-	 *
-	 * Transformation templates are saved to the database
-	 * when the filter is first registered. They are
-	 * configured with default settings and will be used
-	 * to let users identify available transformation
-	 * types.
-	 *
-	 * There must be exactly one transformation template
-	 * for each supported filter group.
-	 *
-	 * @param $isTemplate boolean
-	 */
-	function setIsTemplate($isTemplate) {
-		$this->setData('isTemplate', (boolean)$isTemplate);
-	}
-
-	/**
-	 * Is this a transformation template rather than
-	 * an actual transformation?
-	 * @return boolean
-	 */
-	function getIsTemplate() {
-		return $this->getData('isTemplate');
-	}
-
-	/**
-	 * Set the parent filter id
-	 * @param $parentFilterId integer
-	 */
-	function setParentFilterId($parentFilterId) {
-		$this->setData('parentFilterId', $parentFilterId);
-	}
-
-	/**
-	 * Get the parent filter id
-	 * @return integer
-	 */
-	function getParentFilterId() {
-		return $this->getData('parentFilterId');
-	}
-
-	/**
-	 * Add a filter setting
-	 * @param $setting FilterSetting
-	 */
-	function addSetting($setting) {
-		assert(is_a($setting, 'FilterSetting'));
-		$settingName = $setting->getName();
-
-		// Check that the setting name does not
-		// collide with one of the internal settings.
-		if (in_array($settingName, $this->getInternalSettings())) fatalError('Trying to override an internal filter setting!');
-
-		assert(!isset($this->_settings[$settingName]));
-		$this->_settings[$settingName] = $setting;
-	}
-
-	/**
-	 * Get a filter setting
-	 * @param $settingName string
-	 * @return FilterSetting
-	 */
-	function getSetting($settingName) {
-		assert(isset($this->_settings[$settingName]));
-		return $this->_settings[$settingName];
-	}
-
-	/**
-	 * Get all filter settings
-	 * @return array a list of FilterSetting objects
-	 */
-	function &getSettings() {
-		return $this->_settings;
-	}
-
-	/**
-	 * Check whether a given setting
-	 * is present in this filter.
-	 */
-	function hasSetting($settingName) {
-		return isset($this->_settings[$settingName]);
-	}
-
-	/**
-	 * Can this filter be parameterized?
-	 * @return boolean
-	 */
-	function hasSettings() {
-		return (is_array($this->_settings) && count($this->_settings));
-	}
-
-	//
-	// Abstract template methods to be implemented by subclasses
-	//
-	/**
-	 * Return the fully qualified class name of the filter class. This
-	 * information must be persisted when saving a filter so that the
-	 * filter can later be reconstructed from the information in the
-	 * database.
-	 *
-	 * (This must be hard coded by sub-classes for PHP4 compatibility.
-	 * PHP4 always returns class names lowercase which we cannot
-	 * tolerate as we need this path to find the class on case sensitive
-	 * file systems.)
-	 */
-	function getClassName() {
-		assert(false);
-	}
-
-	//
-	// Public methods
-	//
-	/**
-	 * Return an array with the names of non-localized
-	 * filter settings.
-	 *
-	 * This will be used by the FilterDAO for filter
-	 * setting persistence.
-	 *
-	 * @return array
-	 */
-	function getSettingNames() {
-		$settingNames = array();
-		foreach($this->getSettings() as $setting) { /* @var $setting FilterSetting */
-			if (!$setting->getIsLocalized()) {
-				$settingNames[] = $setting->getName();
-			}
-		}
-		return $settingNames;
-	}
-
-	/**
-	 * Return an array with the names of localized
-	 * filter settings.
-	 *
-	 * This will be used by the FilterDAO for filter
-	 * setting persistence.
-	 *
-	 * @return array
-	 */
-	function getLocalizedSettingNames() { /* @var $setting FilterSetting */
-		$localizedSettingNames = array();
-		foreach($this->getSettings() as $setting) {
-			if ($setting->getIsLocalized()) {
-				$localizedSettingNames[] = $setting->getName();
-			}
-		}
-		return $localizedSettingNames;
-	}
+        // Initialize the filter.
+        $this->setParentFilterId(0);
+        $this->setIsTemplate(false);
+        parent::__construct($filterGroup->getInputType(), $filterGroup->getOutputType());
+    }
 
 
-	//
-	// Public static helper methods
-	//
-	/**
-	 * There are certain generic filters (e.g. CompositeFilters)
-	 * that sometimes need to be persisted and sometimes are
-	 * instantiated and used in code only.
-	 *
-	 * As we don't have multiple inheritance in PHP we'll have
-	 * to use the more general filter type (PersistableFilter) as
-	 * the base class of these "hybrid" filters.
-	 *
-	 * This means that we carry around some structure (e.g. filter
-	 * groups) that do only make sense when a filter is actually
-	 * being persisted and otherwise create unnecessary code.
-	 *
-	 * We provide this helper function to instantiate a temporary
-	 * filter group on the fly with only an input and an output type
-	 * which takes away at least some of the cruft.
-	 *
-	 * @param $inputType string
-	 * @param $outputType string
-	 */
-	static function tempGroup($inputType, $outputType) {
-		$temporaryGroup = new FilterGroup();
-		$temporaryGroup->setSymbolic(FILTER_GROUP_TEMPORARY_ONLY);
-		$temporaryGroup->setInputType($inputType);
-		$temporaryGroup->setOutputType($outputType);
-		return $temporaryGroup;
-	}
+    //
+    // Setters and Getters
+    //
+    /**
+     * Get the filter group
+     *
+     * @return FilterGroup
+     */
+    public function getFilterGroup()
+    {
+        return $this->_filterGroup;
+    }
+
+    /**
+     * Set whether this is a transformation template
+     * rather than an actual transformation.
+     *
+     * Transformation templates are saved to the database
+     * when the filter is first registered. They are
+     * configured with default settings and will be used
+     * to let users identify available transformation
+     * types.
+     *
+     * There must be exactly one transformation template
+     * for each supported filter group.
+     *
+     * @param $isTemplate boolean
+     */
+    public function setIsTemplate($isTemplate)
+    {
+        $this->setData('isTemplate', (bool)$isTemplate);
+    }
+
+    /**
+     * Is this a transformation template rather than
+     * an actual transformation?
+     *
+     * @return boolean
+     */
+    public function getIsTemplate()
+    {
+        return $this->getData('isTemplate');
+    }
+
+    /**
+     * Set the parent filter id
+     *
+     * @param $parentFilterId integer
+     */
+    public function setParentFilterId($parentFilterId)
+    {
+        $this->setData('parentFilterId', $parentFilterId);
+    }
+
+    /**
+     * Get the parent filter id
+     *
+     * @return integer
+     */
+    public function getParentFilterId()
+    {
+        return $this->getData('parentFilterId');
+    }
+
+    /**
+     * Add a filter setting
+     *
+     * @param $setting FilterSetting
+     */
+    public function addSetting($setting)
+    {
+        assert(is_a($setting, 'FilterSetting'));
+        $settingName = $setting->getName();
+
+        // Check that the setting name does not
+        // collide with one of the internal settings.
+        if (in_array($settingName, $this->getInternalSettings())) {
+            fatalError('Trying to override an internal filter setting!');
+        }
+
+        assert(!isset($this->_settings[$settingName]));
+        $this->_settings[$settingName] = $setting;
+    }
+
+    /**
+     * Get a filter setting
+     *
+     * @param $settingName string
+     *
+     * @return FilterSetting
+     */
+    public function getSetting($settingName)
+    {
+        assert(isset($this->_settings[$settingName]));
+        return $this->_settings[$settingName];
+    }
+
+    /**
+     * Get all filter settings
+     *
+     * @return array a list of FilterSetting objects
+     */
+    public function &getSettings()
+    {
+        return $this->_settings;
+    }
+
+    /**
+     * Check whether a given setting
+     * is present in this filter.
+     */
+    public function hasSetting($settingName)
+    {
+        return isset($this->_settings[$settingName]);
+    }
+
+    /**
+     * Can this filter be parameterized?
+     *
+     * @return boolean
+     */
+    public function hasSettings()
+    {
+        return (is_array($this->_settings) && count($this->_settings));
+    }
+
+    //
+    // Abstract template methods to be implemented by subclasses
+    //
+    /**
+     * Return the fully qualified class name of the filter class. This
+     * information must be persisted when saving a filter so that the
+     * filter can later be reconstructed from the information in the
+     * database.
+     *
+     * (This must be hard coded by sub-classes for PHP4 compatibility.
+     * PHP4 always returns class names lowercase which we cannot
+     * tolerate as we need this path to find the class on case sensitive
+     * file systems.)
+     */
+    public function getClassName()
+    {
+        assert(false);
+    }
+
+    //
+    // Public methods
+    //
+    /**
+     * Return an array with the names of non-localized
+     * filter settings.
+     *
+     * This will be used by the FilterDAO for filter
+     * setting persistence.
+     *
+     * @return array
+     */
+    public function getSettingNames()
+    {
+        $settingNames = [];
+        foreach ($this->getSettings() as $setting) { /** @var FilterSetting $setting */
+            if (!$setting->getIsLocalized()) {
+                $settingNames[] = $setting->getName();
+            }
+        }
+        return $settingNames;
+    }
+
+    /**
+     * Return an array with the names of localized
+     * filter settings.
+     *
+     * This will be used by the FilterDAO for filter
+     * setting persistence.
+     *
+     * @return array
+     */
+    public function getLocalizedSettingNames()
+    { /** @var FilterSetting $setting */
+        $localizedSettingNames = [];
+        foreach ($this->getSettings() as $setting) {
+            if ($setting->getIsLocalized()) {
+                $localizedSettingNames[] = $setting->getName();
+            }
+        }
+        return $localizedSettingNames;
+    }
 
 
-	//
-	// Protected helper methods
-	//
-	/**
-	 * Returns names of settings which are in use by the
-	 * filter class and therefore cannot be set as filter
-	 * settings.
-	 * @return array
-	 */
-	function getInternalSettings() {
-		return array('id', 'displayName', 'isTemplate', 'parentFilterId', 'seq');
-	}
+    //
+    // Public static helper methods
+    //
+    /**
+     * There are certain generic filters (e.g. CompositeFilters)
+     * that sometimes need to be persisted and sometimes are
+     * instantiated and used in code only.
+     *
+     * As we don't have multiple inheritance in PHP we'll have
+     * to use the more general filter type (PersistableFilter) as
+     * the base class of these "hybrid" filters.
+     *
+     * This means that we carry around some structure (e.g. filter
+     * groups) that do only make sense when a filter is actually
+     * being persisted and otherwise create unnecessary code.
+     *
+     * We provide this helper function to instantiate a temporary
+     * filter group on the fly with only an input and an output type
+     * which takes away at least some of the cruft.
+     *
+     * @param $inputType string
+     * @param $outputType string
+     */
+    public static function tempGroup($inputType, $outputType)
+    {
+        $temporaryGroup = new FilterGroup();
+        $temporaryGroup->setSymbolic(FILTER_GROUP_TEMPORARY_ONLY);
+        $temporaryGroup->setInputType($inputType);
+        $temporaryGroup->setOutputType($outputType);
+        return $temporaryGroup;
+    }
+
+
+    //
+    // Protected helper methods
+    //
+    /**
+     * Returns names of settings which are in use by the
+     * filter class and therefore cannot be set as filter
+     * settings.
+     *
+     * @return array
+     */
+    public function getInternalSettings()
+    {
+        return ['id', 'displayName', 'isTemplate', 'parentFilterId', 'seq'];
+    }
 }
-

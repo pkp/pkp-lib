@@ -15,30 +15,32 @@
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
-class ArrayGridCellProvider extends GridCellProvider {
-
-	//
-	// Template methods from GridCellProvider
-	//
-	/**
-	 * This implementation assumes a simple data element array that
-	 * has column ids as keys.
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
-	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
-		$element =& $row->getData();
-		$columnId = $column->getId();
-		switch ($columnId) {
-			case 'id':
-				return array('label' => $row->getId());
-			default:
-				assert(is_array($element) && in_array($columnId, array_keys($element)));
-				return array('label' => $element[$columnId]);
-		};
-	}
+class ArrayGridCellProvider extends GridCellProvider
+{
+    //
+    // Template methods from GridCellProvider
+    //
+    /**
+     * This implementation assumes a simple data element array that
+     * has column ids as keys.
+     *
+     * @see GridCellProvider::getTemplateVarsFromRowColumn()
+     *
+     * @param $row GridRow
+     * @param $column GridColumn
+     *
+     * @return array
+     */
+    public function getTemplateVarsFromRowColumn($row, $column)
+    {
+        $element = & $row->getData();
+        $columnId = $column->getId();
+        switch ($columnId) {
+            case 'id':
+                return ['label' => $row->getId()];
+            default:
+                assert(is_array($element) && in_array($columnId, array_keys($element)));
+                return ['label' => $element[$columnId]];
+        };
+    }
 }
-
-

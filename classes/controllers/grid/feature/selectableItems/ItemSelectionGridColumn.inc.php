@@ -14,56 +14,65 @@
 
 import('lib.pkp.classes.controllers.grid.GridColumn');
 
-class ItemSelectionGridColumn extends GridColumn {
-
-	/** @var string */
-	var $_selectName;
-
-
-	/**
-	 * Constructor
-	 * @param $selectName string The name of the form parameter
-	 *  to which the selected files will be posted.
-	 */
-	function __construct($selectName) {
-		assert(is_string($selectName) && !empty($selectName));
-		$this->_selectName = $selectName;
-
-		import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
-		$cellProvider = new ColumnBasedGridCellProvider();
-		parent::__construct('select', 'common.select', null, 'controllers/grid/gridRowSelectInput.tpl', $cellProvider,
-				array('width' => 3));
-	}
+class ItemSelectionGridColumn extends GridColumn
+{
+    /** @var string */
+    public $_selectName;
 
 
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Get the select name.
-	 * @return string
-	 */
-	function getSelectName() {
-		return $this->_selectName;
-	}
+    /**
+     * Constructor
+     *
+     * @param $selectName string The name of the form parameter
+     *  to which the selected files will be posted.
+     */
+    public function __construct($selectName)
+    {
+        assert(is_string($selectName) && !empty($selectName));
+        $this->_selectName = $selectName;
+
+        import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
+        $cellProvider = new ColumnBasedGridCellProvider();
+        parent::__construct(
+            'select',
+            'common.select',
+            null,
+            'controllers/grid/gridRowSelectInput.tpl',
+            $cellProvider,
+            ['width' => 3]
+        );
+    }
 
 
-	//
-	// Public methods
-	//
-	/**
-	 * Method expected by ColumnBasedGridCellProvider
-	 * to render a cell in this column.
-	 *
-	 * @see ColumnBasedGridCellProvider::getTemplateVarsFromRowColumn()
-	 */
-	function getTemplateVarsFromRow($row) {
-		// Return the data expected by the column's cell template.
-		return array(
-			'elementId' => $row->getId(),
-			'selectName' => $this->getSelectName(),
-			'selected' => $row->getFlag('selected'));
-	}
+    //
+    // Getters and Setters
+    //
+    /**
+     * Get the select name.
+     *
+     * @return string
+     */
+    public function getSelectName()
+    {
+        return $this->_selectName;
+    }
+
+
+    //
+    // Public methods
+    //
+    /**
+     * Method expected by ColumnBasedGridCellProvider
+     * to render a cell in this column.
+     *
+     * @see ColumnBasedGridCellProvider::getTemplateVarsFromRowColumn()
+     */
+    public function getTemplateVarsFromRow($row)
+    {
+        // Return the data expected by the column's cell template.
+        return [
+            'elementId' => $row->getId(),
+            'selectName' => $this->getSelectName(),
+            'selected' => $row->getFlag('selected')];
+    }
 }
-
-

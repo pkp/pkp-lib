@@ -14,34 +14,35 @@
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
-class UserRequiredPolicy extends AuthorizationPolicy {
-	/** @var PKPRouter */
-	var $_request;
+class UserRequiredPolicy extends AuthorizationPolicy
+{
+    /** @var PKPRouter */
+    public $_request;
 
-	/**
-	 * Constructor
-	 *
-	 * @param $request PKPRequest
-	 */
-	function __construct($request, $message = 'user.authorization.userRequired') {
-		parent::__construct($message);
-		$this->_request = $request;
-	}
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     */
+    public function __construct($request, $message = 'user.authorization.userRequired')
+    {
+        parent::__construct($message);
+        $this->_request = $request;
+    }
 
 
-	//
-	// Implement template methods from AuthorizationPolicy
-	//
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		if ($this->_request->getUser()) {
-			return AUTHORIZATION_PERMIT;
-		} else {
-			return AUTHORIZATION_DENY;
-		}
-	}
+    //
+    // Implement template methods from AuthorizationPolicy
+    //
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        if ($this->_request->getUser()) {
+            return AUTHORIZATION_PERMIT;
+        } else {
+            return AUTHORIZATION_DENY;
+        }
+    }
 }
-
-

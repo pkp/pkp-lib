@@ -17,54 +17,60 @@ require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php
 
 import('lib.pkp.classes.cliTool.CliTool');
 
-class installEmailTemplates extends CommandLineTool {
-	/** @var string The email key of the email template to install. */
-	var $_emailKey;
+class installEmailTemplates extends CommandLineTool
+{
+    /** @var string The email key of the email template to install. */
+    public $_emailKey;
 
-	/** @var string The list of locales in which to install the template. */
-	var $_locales;
+    /** @var string The list of locales in which to install the template. */
+    public $_locales;
 
-	/**
-	 * Constructor.
-	 * @param $argv array command-line arguments
-	 */
-	function __construct($argv = array()) {
-		parent::__construct($argv);
+    /**
+     * Constructor.
+     *
+     * @param $argv array command-line arguments
+     */
+    public function __construct($argv = [])
+    {
+        parent::__construct($argv);
 
-		$this->_emailKey = array_shift($this->argv);
-		$this->_locales = array_shift($this->argv);
+        $this->_emailKey = array_shift($this->argv);
+        $this->_locales = array_shift($this->argv);
 
-		if ($this->_emailKey === null || $this->_locales === null) {
-			$this->usage();
-			exit();
-		}
-	}
+        if ($this->_emailKey === null || $this->_locales === null) {
+            $this->usage();
+            exit();
+        }
+    }
 
-	/**
-	 * Print command usage information.
-	 */
-	function usage() {
-		echo "Command-line tool for installing email templates.\n"
-			. "Usage:\n"
-			. "\t{$this->scriptName} emailKey aa_BB[,cc_DD,...] [path/to/emails.po]\n"
-			. "\t\temailKey: The email key of the email to install, e.g. ANNOUNCEMENT\n"
-			. "\t\taa_BB[,cc_DD,...]: The comma-separated list of locales to install\n";
-	}
+    /**
+     * Print command usage information.
+     */
+    public function usage()
+    {
+        echo "Command-line tool for installing email templates.\n"
+            . "Usage:\n"
+            . "\t{$this->scriptName} emailKey aa_BB[,cc_DD,...] [path/to/emails.po]\n"
+            . "\t\temailKey: The email key of the email to install, e.g. ANNOUNCEMENT\n"
+            . "\t\taa_BB[,cc_DD,...]: The comma-separated list of locales to install\n";
+    }
 
-	/**
-	 * Execute upgrade task
-	 */
-	function execute() {
-		// Load the necessary locale data
-		$locales = explode(',', $this->_locales);
-		foreach ($locales as $locale) AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
+    /**
+     * Execute upgrade task
+     */
+    public function execute()
+    {
+        // Load the necessary locale data
+        $locales = explode(',', $this->_locales);
+        foreach ($locales as $locale) {
+            AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
+        }
 
-		// Install to the database
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), $locales, false, $this->_emailKey);
-	}
+        // Install to the database
+        $emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /** @var EmailTemplateDAO $emailTemplateDao */
+        $emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), $locales, false, $this->_emailKey);
+    }
 }
 
-$tool = new installEmailTemplates(isset($argv) ? $argv : array());
+$tool = new installEmailTemplates($argv ?? []);
 $tool->execute();
-

@@ -17,68 +17,75 @@
 import('lib.pkp.classes.filter.FilterSetting');
 import('lib.pkp.classes.form.validation.FormValidatorInSet');
 
-class SetFilterSetting extends FilterSetting {
-	/** @var array */
-	var $_acceptedValues;
+class SetFilterSetting extends FilterSetting
+{
+    /** @var array */
+    public $_acceptedValues;
 
-	/**
-	 * Constructor
-	 *
-	 * @param $name string
-	 * @param $displayName string
-	 * @param $validationMessage string
-	 * @param $acceptedValues array
-	 * @param $required boolean
-	 */
-	function __construct($name, $displayName, $validationMessage, $acceptedValues, $required = FORM_VALIDATOR_REQUIRED_VALUE) {
-		$this->_acceptedValues = $acceptedValues;
-		parent::__construct($name, $displayName, $validationMessage, $required);
-	}
+    /**
+     * Constructor
+     *
+     * @param $name string
+     * @param $displayName string
+     * @param $validationMessage string
+     * @param $acceptedValues array
+     * @param $required boolean
+     */
+    public function __construct($name, $displayName, $validationMessage, $acceptedValues, $required = FORM_VALIDATOR_REQUIRED_VALUE)
+    {
+        $this->_acceptedValues = $acceptedValues;
+        parent::__construct($name, $displayName, $validationMessage, $required);
+    }
 
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Set the accepted values
-	 * @param $acceptedValues array
-	 */
-	function setAcceptedValues($acceptedValues) {
-		$this->_acceptedValues = $acceptedValues;
-	}
+    //
+    // Getters and Setters
+    //
+    /**
+     * Set the accepted values
+     *
+     * @param $acceptedValues array
+     */
+    public function setAcceptedValues($acceptedValues)
+    {
+        $this->_acceptedValues = $acceptedValues;
+    }
 
-	/**
-	 * Get the accepted values
-	 * @return array
-	 */
-	function getAcceptedValues() {
-		return $this->_acceptedValues;
-	}
+    /**
+     * Get the accepted values
+     *
+     * @return array
+     */
+    public function getAcceptedValues()
+    {
+        return $this->_acceptedValues;
+    }
 
-	/**
-	 * Get a localized array of the accepted
-	 * values with the key being the accepted value
-	 * and the value being a localized display name.
-	 *
-	 * NB: The standard implementation displays the
-	 * accepted values.
-	 *
-	 * Can be overridden by sub-classes.
-	 *
-	 * @return array
-	 */
-	function getLocalizedAcceptedValues() {
-		return array_combine($this->getAcceptedValues(), $this->getAcceptedValues());
-	}
+    /**
+     * Get a localized array of the accepted
+     * values with the key being the accepted value
+     * and the value being a localized display name.
+     *
+     * NB: The standard implementation displays the
+     * accepted values.
+     *
+     * Can be overridden by sub-classes.
+     *
+     * @return array
+     */
+    public function getLocalizedAcceptedValues()
+    {
+        return array_combine($this->getAcceptedValues(), $this->getAcceptedValues());
+    }
 
-	//
-	// Implement abstract template methods from FilterSetting
-	//
-	/**
-	 * @see FilterSetting::getCheck()
-	 */
-	function &getCheck(&$form) {
-		$check = new FormValidatorInSet($form, $this->getName(), $this->getRequired(), $this->getValidationMessage(), $this->getAcceptedValues());
-		return $check;
-	}
+    //
+    // Implement abstract template methods from FilterSetting
+    //
+    /**
+     * @see FilterSetting::getCheck()
+     */
+    public function &getCheck(&$form)
+    {
+        $check = new FormValidatorInSet($form, $this->getName(), $this->getRequired(), $this->getValidationMessage(), $this->getAcceptedValues());
+        return $check;
+    }
 }
-

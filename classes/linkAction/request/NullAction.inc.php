@@ -15,17 +15,16 @@
 
 import('lib.pkp.classes.linkAction.request.LinkActionRequest');
 
-class NullAction extends LinkActionRequest {
-
-	//
-	// Overridden protected methods from LinkActionRequest
-	//
-	/**
-	 * @see LinkActionRequest::getJSLinkActionRequest()
-	 */
-	function getJSLinkActionRequest() {
-		return '$.pkp.classes.linkAction.NullAction';
-	}
+class NullAction extends LinkActionRequest
+{
+    //
+    // Overridden protected methods from LinkActionRequest
+    //
+    /**
+     * @see LinkActionRequest::getJSLinkActionRequest()
+     */
+    public function getJSLinkActionRequest()
+    {
+        return '$.pkp.classes.linkAction.NullAction';
+    }
 }
-
-

@@ -17,18 +17,16 @@
  */
 
 switch ($op) {
-	case 'index':
-	case 'editorialTeam':
-	case 'submissions':
-	case 'contact':
-		define('HANDLER_CLASS', 'AboutContextHandler');
-		import('lib.pkp.pages.about.AboutContextHandler');
-		break;
-	case 'privacy':
-	case 'aboutThisPublishingSystem':
-		define('HANDLER_CLASS', 'AboutSiteHandler');
-		import('lib.pkp.pages.about.AboutSiteHandler');
-		break;
+    case 'index':
+    case 'editorialTeam':
+    case 'submissions':
+    case 'contact':
+        define('HANDLER_CLASS', 'AboutContextHandler');
+        import('lib.pkp.pages.about.AboutContextHandler');
+        break;
+    case 'privacy':
+    case 'aboutThisPublishingSystem':
+        define('HANDLER_CLASS', 'AboutSiteHandler');
+        import('lib.pkp.pages.about.AboutSiteHandler');
+        break;
 }
-
-

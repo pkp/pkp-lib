@@ -12,21 +12,25 @@
  * @brief A field to select one of a set of options, and one option is a text
  *  field for entering a custom value.
  */
+
 namespace PKP\components\forms;
-class FieldRadioInput extends Field {
-	/** @copydoc Field::$component */
-	public $component = 'field-radio-input';
 
-	/** @var array The options which can be selected */
-	public $options = [];
+class FieldRadioInput extends Field
+{
+    /** @copydoc Field::$component */
+    public $component = 'field-radio-input';
 
-	/**
-	 * @copydoc Field::getConfig()
-	 */
-	public function getConfig() {
-		$config = parent::getConfig();
-		$config['options'] = $this->options;
+    /** @var array The options which can be selected */
+    public $options = [];
 
-		return $config;
-	}
+    /**
+     * @copydoc Field::getConfig()
+     */
+    public function getConfig()
+    {
+        $config = parent::getConfig();
+        $config['options'] = $this->options;
+
+        return $config;
+    }
 }

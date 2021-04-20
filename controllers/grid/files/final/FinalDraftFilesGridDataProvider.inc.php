@@ -16,31 +16,32 @@
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
-class FinalDraftFilesGridDataProvider extends SubmissionFilesGridDataProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct(SUBMISSION_FILE_FINAL);
-	}
+class FinalDraftFilesGridDataProvider extends SubmissionFilesGridDataProvider
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct(SUBMISSION_FILE_FINAL);
+    }
 
-	//
-	// Overridden public methods from FilesGridDataProvider
-	//
-	/**
-	 * @copydoc FilesGridDataProvider::getSelectAction()
-	 */
-	function getSelectAction($request) {
-		import('lib.pkp.controllers.grid.files.fileList.linkAction.SelectFilesLinkAction');
-		return new SelectFilesLinkAction(
-			$request,
-			array(
-				'submissionId' => $this->getSubmission()->getId(),
-				'stageId' => $this->getStageId()
-			),
-			__('editor.submission.uploadSelectFiles')
-		);
-	}
+    //
+    // Overridden public methods from FilesGridDataProvider
+    //
+    /**
+     * @copydoc FilesGridDataProvider::getSelectAction()
+     */
+    public function getSelectAction($request)
+    {
+        import('lib.pkp.controllers.grid.files.fileList.linkAction.SelectFilesLinkAction');
+        return new SelectFilesLinkAction(
+            $request,
+            [
+                'submissionId' => $this->getSubmission()->getId(),
+                'stageId' => $this->getStageId()
+            ],
+            __('editor.submission.uploadSelectFiles')
+        );
+    }
 }
-
-

@@ -15,60 +15,66 @@
 
 import('lib.pkp.controllers.grid.files.form.LibraryFileForm');
 
-class EditLibraryFileForm extends LibraryFileForm {
-	/** the file being edited, or null for new */
-	var $libraryFile;
+class EditLibraryFileForm extends LibraryFileForm
+{
+    /** the file being edited, or null for new */
+    public $libraryFile;
 
-	/** the id of the submission for this library file */
-	var $submissionId;
+    /** the id of the submission for this library file */
+    public $submissionId;
 
-	/**
-	 * Constructor.
-	 * @param $contextId int
-	 * @param $fileType int LIBRARY_FILE_TYPE_...
-	 * @param $fileId int optional
-	 */
-	function __construct($contextId, $fileId, $submissionId) {
-		parent::__construct('controllers/grid/files/submissionDocuments/form/editFileForm.tpl', $contextId);
+    /**
+     * Constructor.
+     *
+     * @param $contextId int
+     * @param $fileId int optional
+     */
+    public function __construct($contextId, $fileId, $submissionId)
+    {
+        parent::__construct('controllers/grid/files/submissionDocuments/form/editFileForm.tpl', $contextId);
 
-		$this->submissionId = $submissionId;
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
-		$this->libraryFile = $libraryFileDao->getById($fileId);
+        $this->submissionId = $submissionId;
+        $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
+        $this->libraryFile = $libraryFileDao->getById($fileId);
 
-		if (!$this->libraryFile || $this->libraryFile->getContextId() != $this->contextId || $this->libraryFile->getSubmissionId() != $this->getSubmissionId()) {
-			fatalError('Invalid library file!');
-		}
-	}
+        if (!$this->libraryFile || $this->libraryFile->getContextId() != $this->contextId || $this->libraryFile->getSubmissionId() != $this->getSubmissionId()) {
+            fatalError('Invalid library file!');
+        }
+    }
 
-	/**
-	 * Initialize form data from current settings.
-	 */
-	function initData() {
-		$this->_data = array(
-			'submissionId' => $this->libraryFile->getSubmissionId(),
-			'libraryFileName' => $this->libraryFile->getName(null), // Localized
-			'libraryFile' => $this->libraryFile // For read-only info
-		);
-	}
+    /**
+     * Initialize form data from current settings.
+     */
+    public function initData()
+    {
+        $this->_data = [
+            'submissionId' => $this->libraryFile->getSubmissionId(),
+            'libraryFileName' => $this->libraryFile->getName(null), // Localized
+            'libraryFile' => $this->libraryFile // For read-only info
+        ];
+    }
 
-	/**
-	 * @copydoc Form::execute()
-	 */
-	function execute(...$functionArgs) {
-		$this->libraryFile->setName($this->getData('libraryFileName'), null); // Localized
-		$this->libraryFile->setType($this->getData('fileType'));
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionArgs)
+    {
+        $this->libraryFile->setName($this->getData('libraryFileName'), null); // Localized
+        $this->libraryFile->setType($this->getData('fileType'));
 
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
-		$libraryFileDao->updateObject($this->libraryFile);
+        $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
+        $libraryFileDao->updateObject($this->libraryFile);
 
-		parent::execute(...$functionArgs);
-	}
+        parent::execute(...$functionArgs);
+    }
 
-	/**
-	 * return the submission ID for this library file.
-	 * @return int
-	 */
-	function getSubmissionId() {
-		return $this->submissionId;
-	}
+    /**
+     * return the submission ID for this library file.
+     *
+     * @return int
+     */
+    public function getSubmissionId()
+    {
+        return $this->submissionId;
+    }
 }

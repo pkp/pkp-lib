@@ -9,6 +9,7 @@
  *
  * @class CrosswalkFilter
  * @ingroup metadata
+ *
  * @see MetadataDescription
  *
  * @brief Class that provides methods to convert one type of
@@ -19,14 +20,16 @@
 
 import('lib.pkp.classes.filter.Filter');
 
-class CrosswalkFilter extends Filter {
-	/**
-	 * Constructor
-	 * @param $fromSchema string fully qualified class name of supported input meta-data schema
-	 * @param $toSchema string fully qualified class name of supported output meta-data schema
-	 */
-	function __construct($fromSchema, $toSchema) {
-		parent::__construct('metadata::'.$fromSchema.'(*)', 'metadata::'.$toSchema.'(*)');
-	}
+class CrosswalkFilter extends Filter
+{
+    /**
+     * Constructor
+     *
+     * @param $fromSchema string fully qualified class name of supported input meta-data schema
+     * @param $toSchema string fully qualified class name of supported output meta-data schema
+     */
+    public function __construct($fromSchema, $toSchema)
+    {
+        parent::__construct('metadata::' . $fromSchema . '(*)', 'metadata::' . $toSchema . '(*)');
+    }
 }
-

@@ -15,87 +15,91 @@
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
-class PluginGridCellProvider extends GridCellProvider {
+class PluginGridCellProvider extends GridCellProvider
+{
+    /**
+     * Extracts variables for a given column from a data element
+     * so that they may be assigned to template before rendering.
+     *
+     * @param $row GridRow
+     * @param $column GridColumn
+     *
+     * @return array
+     */
+    public function getTemplateVarsFromRowColumn($row, $column)
+    {
+        $plugin = & $row->getData();
+        $columnId = $column->getId();
+        assert(is_a($plugin, 'Plugin') && !empty($columnId));
 
-	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
-	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
-		$plugin =& $row->getData();
-		$columnId = $column->getId();
-		assert(is_a($plugin, 'Plugin') && !empty($columnId));
+        switch ($columnId) {
+            case 'name':
+                return ['label' => $plugin->getDisplayName()];
+                break;
+            case 'category':
+                return ['label' => $plugin->getCategory()];
+                break;
+            case 'description':
+                return ['label' => $plugin->getDescription()];
+                break;
+            case 'enabled':
+                $isEnabled = $plugin->getEnabled();
+                return [
+                    'selected' => $isEnabled,
+                    'disabled' => $isEnabled ? !$plugin->getCanDisable() : !$plugin->getCanEnable(),
+                ];
+            default:
+                break;
+        }
 
-		switch ($columnId) {
-			case 'name':
-				return array('label' => $plugin->getDisplayName());
-				break;
-			case 'category':
-				return array('label' => $plugin->getCategory());
-				break;
-			case 'description':
-				return array('label' => $plugin->getDescription());
-				break;
-			case 'enabled':
-				$isEnabled = $plugin->getEnabled();
-				return array(
-					'selected' => $isEnabled,
-					'disabled' => $isEnabled?!$plugin->getCanDisable():!$plugin->getCanEnable(),
-				);
-			default:
-				break;
-		}
+        return parent::getTemplateVarsFromRowColumn($row, $column);
+    }
 
-		return parent::getTemplateVarsFromRowColumn($row, $column);
-	}
-
-	/**
-	 * @copydoc GridCellProvider::getCellActions()
-	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		switch ($column->getId()) {
-			case 'enabled':
-				$plugin = $row->getData(); /* @var $plugin Plugin */
-				$requestArgs = array_merge(
-					array('plugin' => $plugin->getName()),
-					$row->getRequestArgs()
-				);
-				switch (true) {
-					case $plugin->getEnabled() && $plugin->getCanDisable():
-						// Create an action to disable the plugin
-						import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-						return array(new LinkAction(
-							'disable',
-							new RemoteActionConfirmationModal(
-								$request->getSession(),
-								__('grid.plugin.disable'),
-								__('common.disable'),
-								$request->url(null, null, 'disable', null, $requestArgs)
-							),
-							__('manager.plugins.disable'),
-							null
-						));
-						break;
-					case !$plugin->getEnabled() && $plugin->getCanEnable():
-						// Create an action to enable the plugin
-						import('lib.pkp.classes.linkAction.request.AjaxAction');
-						return array(new LinkAction(
-							'enable',
-							new AjaxAction(
-								$request->url(null, null, 'enable', null, array_merge(
-									['csrfToken' => $request->getSession()->getCSRFToken()],
-									$requestArgs
-								))
-							),
-							__('manager.plugins.enable'),
-							null
-						));
-					break;
-				}
-		}
-		return parent::getCellActions($request, $row, $column, $position);
-	}
+    /**
+     * @copydoc GridCellProvider::getCellActions()
+     */
+    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    {
+        switch ($column->getId()) {
+            case 'enabled':
+                $plugin = $row->getData(); /** @var Plugin $plugin */
+                $requestArgs = array_merge(
+                    ['plugin' => $plugin->getName()],
+                    $row->getRequestArgs()
+                );
+                switch (true) {
+                    case $plugin->getEnabled() && $plugin->getCanDisable():
+                        // Create an action to disable the plugin
+                        import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+                        return [new LinkAction(
+                            'disable',
+                            new RemoteActionConfirmationModal(
+                                $request->getSession(),
+                                __('grid.plugin.disable'),
+                                __('common.disable'),
+                                $request->url(null, null, 'disable', null, $requestArgs)
+                            ),
+                            __('manager.plugins.disable'),
+                            null
+                        )];
+                        break;
+                    case !$plugin->getEnabled() && $plugin->getCanEnable():
+                        // Create an action to enable the plugin
+                        import('lib.pkp.classes.linkAction.request.AjaxAction');
+                        return [new LinkAction(
+                            'enable',
+                            new AjaxAction(
+                                $request->url(null, null, 'enable', null, array_merge(
+                                    ['csrfToken' => $request->getSession()->getCSRFToken()],
+                                    $requestArgs
+                                ))
+                            ),
+                            __('manager.plugins.enable'),
+                            null
+                        )];
+                    break;
+                }
+        }
+        return parent::getCellActions($request, $row, $column, $position);
+    }
 }

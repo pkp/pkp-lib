@@ -16,70 +16,77 @@
 import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');
 import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 
-class NewReviewRoundForm extends EditorDecisionForm {
+class NewReviewRoundForm extends EditorDecisionForm
+{
+    /**
+     * Constructor.
+     *
+     * @param $submission Submission
+     * @param $decision int
+     * @param stageid int
+     * @param null|mixed $stageId
+     */
+    public function __construct($submission, $decision = SUBMISSION_EDITOR_DECISION_NEW_ROUND, $stageId = null, $reviewRound)
+    {
+        parent::__construct($submission, $decision, $stageId, 'controllers/modals/editorDecision/form/newReviewRoundForm.tpl', $reviewRound);
+        // WARNING: this constructor may be invoked dynamically by
+        // EditorDecisionHandler::_instantiateEditorDecision.
+    }
 
-	/**
-	 * Constructor.
-	 * @param $submission Submission
-	 * @param $decision int
-	 * @param stageid int
-	 */
-	function __construct($submission, $decision = SUBMISSION_EDITOR_DECISION_NEW_ROUND, $stageId = null, $reviewRound) {
-		parent::__construct($submission, $decision, $stageId, 'controllers/modals/editorDecision/form/newReviewRoundForm.tpl', $reviewRound);
-		// WARNING: this constructor may be invoked dynamically by
-		// EditorDecisionHandler::_instantiateEditorDecision.
-	}
 
+    //
+    // Implement protected template methods from Form
+    //
+    /**
+     * @copydoc Form::execute()
+     *
+     * @return integer The new review round number
+     */
+    public function execute(...$functionArgs)
+    {
+        $request = Application::get()->getRequest();
 
-	//
-	// Implement protected template methods from Form
-	//
-	/**
-	 * @copydoc Form::execute()
-	 * @return integer The new review round number
-	 */
-	function execute(...$functionArgs) {
-		$request = Application::get()->getRequest();
+        // Retrieve the submission.
+        $submission = $this->getSubmission();
 
-		// Retrieve the submission.
-		$submission = $this->getSubmission();
+        // Get this form decision actions labels.
+        $actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), $this->_getDecisions());
 
-		// Get this form decision actions labels.
-		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), $this->_getDecisions());
+        // Record the decision.
+        $reviewRound = $this->getReviewRound();
+        import('lib.pkp.classes.submission.action.EditorAction');
+        $editorAction = new EditorAction();
+        $editorAction->recordDecision($request, $submission, SUBMISSION_EDITOR_DECISION_NEW_ROUND, $actionLabels, $reviewRound);
 
-		// Record the decision.
-		$reviewRound = $this->getReviewRound();
-		import('lib.pkp.classes.submission.action.EditorAction');
-		$editorAction = new EditorAction();
-		$editorAction->recordDecision($request, $submission, SUBMISSION_EDITOR_DECISION_NEW_ROUND, $actionLabels, $reviewRound);
+        // Update the review round status.
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao->updateStatus($reviewRound, REVIEW_ROUND_STATUS_PENDING_REVIEWERS);
 
-		// Update the review round status.
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
-		$reviewRoundDao->updateStatus($reviewRound, REVIEW_ROUND_STATUS_PENDING_REVIEWERS);
+        // Create a new review round.
+        $newRound = $this->_initiateReviewRound(
+            $submission,
+            $submission->getStageId(),
+            $request,
+            REVIEW_ROUND_STATUS_PENDING_REVIEWERS
+        );
 
-		// Create a new review round.
-		$newRound = $this->_initiateReviewRound(
-			$submission, $submission->getStageId(),
-			$request, REVIEW_ROUND_STATUS_PENDING_REVIEWERS
-		);
+        parent::execute(...$functionArgs);
 
-		parent::execute(...$functionArgs);
+        return $newRound;
+    }
 
-		return $newRound;
-	}
-
-	//
-	// Private functions
-	//
-	/**
-	 * Get this form decisions.
-	 * @return array
-	 */
-	function _getDecisions() {
-		return array(
-			SUBMISSION_EDITOR_DECISION_NEW_ROUND
-		);
-	}
+    //
+    // Private functions
+    //
+    /**
+     * Get this form decisions.
+     *
+     * @return array
+     */
+    public function _getDecisions()
+    {
+        return [
+            SUBMISSION_EDITOR_DECISION_NEW_ROUND
+        ];
+    }
 }
-
-

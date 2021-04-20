@@ -22,137 +22,161 @@
  * This of course doesn't mean that we are "XACML compliant" in any way.
  */
 
-define ('AUTHORIZATION_PERMIT', 0x01);
-define ('AUTHORIZATION_DENY', 0x02);
+define('AUTHORIZATION_PERMIT', 0x01);
+define('AUTHORIZATION_DENY', 0x02);
 
-define ('AUTHORIZATION_ADVICE_DENY_MESSAGE', 0x01);
-define ('AUTHORIZATION_ADVICE_CALL_ON_DENY', 0x02);
+define('AUTHORIZATION_ADVICE_DENY_MESSAGE', 0x01);
+define('AUTHORIZATION_ADVICE_CALL_ON_DENY', 0x02);
 
-class AuthorizationPolicy {
-	/** @var array advice to be returned to the decision point */
-	var $_advice = array();
+class AuthorizationPolicy
+{
+    /** @var array advice to be returned to the decision point */
+    public $_advice = [];
 
-	/**
-	 * @var array a list of authorized context objects that should be
-	 *  returned to the caller
-	 */
-	var $_authorizedContext = array();
+    /**
+     * @var array a list of authorized context objects that should be
+     *  returned to the caller
+     */
+    public $_authorizedContext = [];
 
 
-	/**
-	 * Constructor
-	 * @param $message string
-	 */
-	function __construct($message = null) {
-		if (!is_null($message)) $this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, $message);
-	}
+    /**
+     * Constructor
+     *
+     * @param $message string
+     */
+    public function __construct($message = null)
+    {
+        if (!is_null($message)) {
+            $this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, $message);
+        }
+    }
 
-	//
-	// Setters and Getters
-	//
-	/**
-	 * Set an advice
-	 * @param $adviceType integer
-	 * @param $adviceContent mixed
-	 */
-	function setAdvice($adviceType, $adviceContent) {
-		$this->_advice[$adviceType] = $adviceContent;
-	}
+    //
+    // Setters and Getters
+    //
+    /**
+     * Set an advice
+     *
+     * @param $adviceType integer
+     * @param $adviceContent mixed
+     */
+    public function setAdvice($adviceType, $adviceContent)
+    {
+        $this->_advice[$adviceType] = $adviceContent;
+    }
 
-	/**
-	 * Whether this policy implements
-	 * the given advice type.
-	 * @param $adviceType integer
-	 * @return boolean
-	 */
-	function hasAdvice($adviceType) {
-		return isset($this->_advice[$adviceType]);
-	}
+    /**
+     * Whether this policy implements
+     * the given advice type.
+     *
+     * @param $adviceType integer
+     *
+     * @return boolean
+     */
+    public function hasAdvice($adviceType)
+    {
+        return isset($this->_advice[$adviceType]);
+    }
 
-	/**
-	 * Get advice for the given advice type.
-	 * @param $adviceType integer
-	 * @return mixed
-	 */
-	function &getAdvice($adviceType) {
-		if ($this->hasAdvice($adviceType)) {
-			return $this->_advice[$adviceType];
-		} else {
-			$nullVar = null;
-			return $nullVar;
-		}
-	}
+    /**
+     * Get advice for the given advice type.
+     *
+     * @param $adviceType integer
+     */
+    public function &getAdvice($adviceType)
+    {
+        if ($this->hasAdvice($adviceType)) {
+            return $this->_advice[$adviceType];
+        } else {
+            $nullVar = null;
+            return $nullVar;
+        }
+    }
 
-	/**
-	 * Add an object to the authorized context
-	 * @param $assocType integer
-	 * @param $authorizedObject mixed
-	 */
-	function addAuthorizedContextObject($assocType, &$authorizedObject) {
-		$this->_authorizedContext[$assocType] =& $authorizedObject;
-	}
+    /**
+     * Add an object to the authorized context
+     *
+     * @param $assocType integer
+     * @param $authorizedObject mixed
+     */
+    public function addAuthorizedContextObject($assocType, &$authorizedObject)
+    {
+        $this->_authorizedContext[$assocType] = & $authorizedObject;
+    }
 
-	/**
-	 * Check whether an object already exists in the
-	 * authorized context.
-	 * @param $assocType integer
-	 * @return boolean
-	 */
-	function hasAuthorizedContextObject($assocType) {
-		return isset($this->_authorizedContext[$assocType]);
-	}
+    /**
+     * Check whether an object already exists in the
+     * authorized context.
+     *
+     * @param $assocType integer
+     *
+     * @return boolean
+     */
+    public function hasAuthorizedContextObject($assocType)
+    {
+        return isset($this->_authorizedContext[$assocType]);
+    }
 
-	/**
-	 * Retrieve an object from the authorized context
-	 * @param $assocType integer
-	 * @return mixed will return null if the context
-	 *  for the given assoc type does not exist.
-	 */
-	function &getAuthorizedContextObject($assocType) {
-		if ($this->hasAuthorizedContextObject($assocType)) {
-			return $this->_authorizedContext[$assocType];
-		} else {
-			$nullVar = null;
-			return $nullVar;
-		}
-	}
+    /**
+     * Retrieve an object from the authorized context
+     *
+     * @param $assocType integer
+     *
+     * @return mixed will return null if the context
+     *  for the given assoc type does not exist.
+     */
+    public function &getAuthorizedContextObject($assocType)
+    {
+        if ($this->hasAuthorizedContextObject($assocType)) {
+            return $this->_authorizedContext[$assocType];
+        } else {
+            $nullVar = null;
+            return $nullVar;
+        }
+    }
 
-	/**
-	 * Set the authorized context
-	 * @return array
-	 */
-	function setAuthorizedContext(&$authorizedContext) {
-		$this->_authorizedContext =& $authorizedContext;
-	}
+    /**
+     * Set the authorized context
+     *
+     * @return array
+     */
+    public function setAuthorizedContext(&$authorizedContext)
+    {
+        $this->_authorizedContext = & $authorizedContext;
+    }
 
-	/**
-	 * Get the authorized context
-	 * @return array
-	 */
-	function &getAuthorizedContext() {
-		return $this->_authorizedContext;
-	}
+    /**
+     * Get the authorized context
+     *
+     * @return array
+     */
+    public function &getAuthorizedContext()
+    {
+        return $this->_authorizedContext;
+    }
 
-	//
-	// Protected template methods to be implemented by sub-classes
-	//
-	/**
-	 * Whether this policy applies.
-	 * @return boolean
-	 */
-	function applies() {
-		// Policies apply by default
-		return true;
-	}
+    //
+    // Protected template methods to be implemented by sub-classes
+    //
+    /**
+     * Whether this policy applies.
+     *
+     * @return boolean
+     */
+    public function applies()
+    {
+        // Policies apply by default
+        return true;
+    }
 
-	/**
-	 * This method must return a value of either
-	 * AUTHORIZATION_DENY or AUTHORIZATION_PERMIT.
-	 */
-	function effect() {
-		// Deny by default.
-		return AUTHORIZATION_DENY;
-	}
+    /**
+     * This method must return a value of either
+     * AUTHORIZATION_DENY or AUTHORIZATION_PERMIT.
+     */
+    public function effect()
+    {
+        // Deny by default.
+        return AUTHORIZATION_DENY;
+    }
 }
-
-

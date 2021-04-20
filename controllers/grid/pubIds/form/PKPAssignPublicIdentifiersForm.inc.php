@@ -16,126 +16,139 @@
 import('lib.pkp.classes.form.Form');
 import('lib.pkp.classes.plugins.PKPPubIdPluginHelper');
 
-class PKPAssignPublicIdentifiersForm extends Form {
+class PKPAssignPublicIdentifiersForm extends Form
+{
+    /** @var int The context id */
+    public $_contextId;
 
-	/** @var int The context id */
-	var $_contextId;
+    /** @var object The pub object, that are beeing approved,
+     * the pub ids can be considered for assignement there
+     * OJS Issue, Representation or SubmissionFile
+     */
+    public $_pubObject;
 
-	/** @var object The pub object, that are beeing approved,
-	 * the pub ids can be considered for assignement there
-	 * OJS Issue, Representation or SubmissionFile
-	 */
-	var $_pubObject;
+    /** @var boolean */
+    public $_approval;
 
-	/** @var boolean */
-	var $_approval;
+    /**
+     * @var string Confirmation to display.
+     */
+    public $_confirmationText;
 
-	/**
-	 * @var string Confirmation to display.
-	 */
-	var $_confirmationText;
+    /**
+     * Constructor.
+     *
+     * @param $template string Form template
+     * @param $pubObject object
+     * @param $approval boolean
+     * @param $confirmationText string
+     */
+    public function __construct($template, $pubObject, $approval, $confirmationText)
+    {
+        parent::__construct($template);
 
-	/**
-	 * Constructor.
-	 * @param $template string Form template
-	 * @param $pubObject object
-	 * @param $approval boolean
-	 * @param $confirmationText string
-	 */
-	function __construct($template, $pubObject, $approval, $confirmationText) {
-		parent::__construct($template);
+        $this->_pubObject = $pubObject;
+        $this->_approval = $approval;
+        $this->_confirmationText = $confirmationText;
 
-		$this->_pubObject = $pubObject;
-		$this->_approval = $approval;
-		$this->_confirmationText = $confirmationText;
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $this->_contextId = $context->getId();
 
-		$request = Application::get()->getRequest();
-		$context = $request->getContext();
-		$this->_contextId = $context->getId();
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
+    }
 
-		$this->addCheck(new FormValidatorPost($this));
-		$this->addCheck(new FormValidatorCSRF($this));
-	}
-
-	/**
-	 * @copydoc Form::fetch()
-	 */
-	function fetch($request, $template = null, $display = false) {
-		$templateMgr = TemplateManager::getManager($request);
-		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $this->getContextId());
-		$templateMgr->assign(array(
-			'pubIdPlugins' => $pubIdPlugins,
-			'pubObject' => $this->getPubObject(),
-			'approval' => $this->getApproval(),
-			'confirmationText' => $this->getConfirmationText(),
-		));
-		if ($request->getUserVar('submissionId')) {
-			$templateMgr->assign('submissionId', $request->getUserVar('submissionId'));
-		}
-		if ($request->getUserVar('publicationId')) {
-			$templateMgr->assign('publicationId', $request->getUserVar('publicationId'));
-		}
-		return parent::fetch($request, $template, $display);
-	}
+    /**
+     * @copydoc Form::fetch()
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $this->getContextId());
+        $templateMgr->assign([
+            'pubIdPlugins' => $pubIdPlugins,
+            'pubObject' => $this->getPubObject(),
+            'approval' => $this->getApproval(),
+            'confirmationText' => $this->getConfirmationText(),
+        ]);
+        if ($request->getUserVar('submissionId')) {
+            $templateMgr->assign('submissionId', $request->getUserVar('submissionId'));
+        }
+        if ($request->getUserVar('publicationId')) {
+            $templateMgr->assign('publicationId', $request->getUserVar('publicationId'));
+        }
+        return parent::fetch($request, $template, $display);
+    }
 
 
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Get the pub object
-	 * @return object
-	 */
-	function getPubObject() {
-		return $this->_pubObject;
-	}
+    //
+    // Getters and Setters
+    //
+    /**
+     * Get the pub object
+     *
+     * @return object
+     */
+    public function getPubObject()
+    {
+        return $this->_pubObject;
+    }
 
-	/**
-	 * Get weather it is an approval
-	 * @return boolean
-	 */
-	function getApproval() {
-		return $this->_approval;
-	}
+    /**
+     * Get weather it is an approval
+     *
+     * @return boolean
+     */
+    public function getApproval()
+    {
+        return $this->_approval;
+    }
 
-	/**
-	 * Get the context id
-	 * @return integer
-	 */
-	function getContextId() {
-		return $this->_contextId;
-	}
+    /**
+     * Get the context id
+     *
+     * @return integer
+     */
+    public function getContextId()
+    {
+        return $this->_contextId;
+    }
 
-	/**
-	 * Get the confirmation text.
-	 * @return string
-	 */
-	function getConfirmationText() {
-		return $this->_confirmationText;
-	}
+    /**
+     * Get the confirmation text.
+     *
+     * @return string
+     */
+    public function getConfirmationText()
+    {
+        return $this->_confirmationText;
+    }
 
-	/**
-	 * @copydoc Form::readInputData()
-	 */
-	function readInputData() {
-		$pubIdPluginHelper = new PKPPubIdPluginHelper();
-		$pubIdPluginHelper->readAssignInputData($this);
-	}
+    /**
+     * @copydoc Form::readInputData()
+     */
+    public function readInputData()
+    {
+        $pubIdPluginHelper = new PKPPubIdPluginHelper();
+        $pubIdPluginHelper->readAssignInputData($this);
+    }
 
-	/**
-	 * Assign pub ids.
-	 * @param $save boolean
-	 *  true if the pub id shall be saved here
-	 *  false if this form is integrated somewhere else, where the pub object will be updated.
-	 */
-	function execute($save = false, ...$functionArgs) {
-		parent::execute($save, ...$functionArgs);
+    /**
+     * Assign pub ids.
+     *
+     * @param $save boolean
+     *  true if the pub id shall be saved here
+     *  false if this form is integrated somewhere else, where the pub object will be updated.
+     */
+    public function execute($save = false, ...$functionArgs)
+    {
+        parent::execute($save, ...$functionArgs);
 
-		$pubObject = $this->getPubObject();
-		$pubIdPluginHelper = new PKPPubIdPluginHelper();
-		$pubIdPluginHelper->assignPubId($this->getContextId(), $this, $pubObject, $save);
-	}
-
+        $pubObject = $this->getPubObject();
+        $pubIdPluginHelper = new PKPPubIdPluginHelper();
+        $pubIdPluginHelper->assignPubId($this->getContextId(), $this, $pubObject, $save);
+    }
 }
-
-

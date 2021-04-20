@@ -15,92 +15,101 @@
 
 import('lib.pkp.controllers.grid.files.form.ManageSubmissionFilesForm');
 
-class ManageReviewFilesForm extends ManageSubmissionFilesForm {
+class ManageReviewFilesForm extends ManageSubmissionFilesForm
+{
+    /** @var int **/
+    public $_stageId;
 
-	/** @var int **/
-	var $_stageId;
-
-	/** @var int **/
-	var $_reviewRoundId;
-
-
-	/**
-	 * Constructor.
-	 */
-	function __construct($submissionId, $stageId, $reviewRoundId) {
-		parent::__construct($submissionId, 'controllers/grid/files/review/manageReviewFiles.tpl');
-		$this->_stageId = (int)$stageId;
-		$this->_reviewRoundId = (int)$reviewRoundId;
-	}
+    /** @var int **/
+    public $_reviewRoundId;
 
 
-	//
-	// Getters / Setters
-	//
-	/**
-	 * Get the review stage id
-	 * @return int
-	 */
-	function getStageId() {
-		return $this->_stageId;
-	}
-
-	/**
-	 * Get the round
-	 * @return int
-	 */
-	function getReviewRoundId() {
-		return $this->_reviewRoundId;
-	}
-
-	/**
-	 * @return ReviewRound
-	 */
-	function getReviewRound() {
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
-		return $reviewRoundDao->getById($this->getReviewRoundId());
-	}
+    /**
+     * Constructor.
+     */
+    public function __construct($submissionId, $stageId, $reviewRoundId)
+    {
+        parent::__construct($submissionId, 'controllers/grid/files/review/manageReviewFiles.tpl');
+        $this->_stageId = (int)$stageId;
+        $this->_reviewRoundId = (int)$reviewRoundId;
+    }
 
 
-	//
-	// Overridden template methods
-	//
-	/**
-	 * @copydoc ManageSubmissionFilesForm::initData
-	 */
-	function initData() {
-		$this->setData('stageId', $this->getStageId());
-		$this->setData('reviewRoundId', $this->getReviewRoundId());
+    //
+    // Getters / Setters
+    //
+    /**
+     * Get the review stage id
+     *
+     * @return int
+     */
+    public function getStageId()
+    {
+        return $this->_stageId;
+    }
 
-		$reviewRound = $this->getReviewRound();
-		$this->setData('round', $reviewRound->getRound());
+    /**
+     * Get the round
+     *
+     * @return int
+     */
+    public function getReviewRoundId()
+    {
+        return $this->_reviewRoundId;
+    }
 
-		parent::initData();
-	}
+    /**
+     * @return ReviewRound
+     */
+    public function getReviewRound()
+    {
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+        return $reviewRoundDao->getById($this->getReviewRoundId());
+    }
 
-	/**
-	 * Save review round files
-	 * @stageSubmissionFiles array The files that belongs to a file stage
-	 * that is currently being used by a grid inside this form.
-	 * @param $fileStage int SUBMISSION_FILE_...
-	 */
-	function execute($stageSubmissionFiles, $fileStage = null) {
-		parent::execute(
-			$stageSubmissionFiles,
-			$this->getReviewRound()->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE
-		);
-	}
 
-	/**
-	 * @copydoc ManageSubmissionFilesForm::importFile()
-	 */
-	protected function importFile($submissionFile, $fileStage) {
-		$newSubmissionFile = parent::importFile($submissionFile, $fileStage);
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFileDao->assignRevisionToReviewRound($newSubmissionFile->getId(), $this->getReviewRound());
+    //
+    // Overridden template methods
+    //
+    /**
+     * @copydoc ManageSubmissionFilesForm::initData
+     */
+    public function initData()
+    {
+        $this->setData('stageId', $this->getStageId());
+        $this->setData('reviewRoundId', $this->getReviewRoundId());
 
-		return $newSubmissionFile;
-	}
+        $reviewRound = $this->getReviewRound();
+        $this->setData('round', $reviewRound->getRound());
+
+        parent::initData();
+    }
+
+    /**
+     * Save review round files
+     *
+     * @stageSubmissionFiles array The files that belongs to a file stage
+     * that is currently being used by a grid inside this form.
+     *
+     * @param $fileStage int SUBMISSION_FILE_...
+     */
+    public function execute($stageSubmissionFiles, $fileStage = null)
+    {
+        parent::execute(
+            $stageSubmissionFiles,
+            $this->getReviewRound()->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE
+        );
+    }
+
+    /**
+     * @copydoc ManageSubmissionFilesForm::importFile()
+     */
+    protected function importFile($submissionFile, $fileStage)
+    {
+        $newSubmissionFile = parent::importFile($submissionFile, $fileStage);
+        $submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var SubmissionFileDAO $submissionFileDao */
+        $submissionFileDao->assignRevisionToReviewRound($newSubmissionFile->getId(), $this->getReviewRound());
+
+        return $newSubmissionFile;
+    }
 }
-
-

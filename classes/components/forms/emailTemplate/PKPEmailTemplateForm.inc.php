@@ -11,59 +11,63 @@
  *
  * @brief A preset form for adding and editing email templates.
  */
+
 namespace PKP\components\forms\emailTemplate;
-use \PKP\components\forms\FormComponent;
-use \PKP\components\forms\FieldHTML;
-use \PKP\components\forms\FieldRichTextarea;
-use \PKP\components\forms\FieldText;
+
+use PKP\components\forms\FieldHTML;
+use PKP\components\forms\FieldRichTextarea;
+use PKP\components\forms\FieldText;
+use PKP\components\forms\FormComponent;
 
 define('FORM_EMAIL_TEMPLATE', 'editEmailTemplate');
 
-class PKPEmailTemplateForm extends FormComponent {
-	/** @copydoc FormComponent::$id */
-	public $id = FORM_EMAIL_TEMPLATE;
+class PKPEmailTemplateForm extends FormComponent
+{
+    /** @copydoc FormComponent::$id */
+    public $id = FORM_EMAIL_TEMPLATE;
 
-	/**
-	 * Constructor
-	 *
-	 * @param $action string URL to submit the form to
-	 * @param $locales array Supported locales
-	 * @param $emailTemplate EmailTemplate
-	 */
-	public function __construct($action, $locales, $emailTemplate = null) {
-		$this->action = $action;
-		$this->method = is_null($emailTemplate) ? 'POST' : 'PUT';
-		$this->locales = $locales;
+    /**
+     * Constructor
+     *
+     * @param $action string URL to submit the form to
+     * @param $locales array Supported locales
+     * @param $emailTemplate EmailTemplate
+     */
+    public function __construct($action, $locales, $emailTemplate = null)
+    {
+        $this->action = $action;
+        $this->method = is_null($emailTemplate) ? 'POST' : 'PUT';
+        $this->locales = $locales;
 
-		if (is_null($emailTemplate)) {
-			$this->addField(new FieldText('key', [
-				'label' => __('manager.emails.emailKey'),
-				'description' => __('manager.emails.emailKey.description'),
-			]));
-		} elseif ($emailTemplate->getLocalizedData('description')) {
-			$this->addField(new FieldHTML('emailTemplateDescription', [
-				'label' => __('about.description'),
-				'description' => $emailTemplate->getLocalizedData('description'),
-			]));
-		}
+        if (is_null($emailTemplate)) {
+            $this->addField(new FieldText('key', [
+                'label' => __('manager.emails.emailKey'),
+                'description' => __('manager.emails.emailKey.description'),
+            ]));
+        } elseif ($emailTemplate->getLocalizedData('description')) {
+            $this->addField(new FieldHTML('emailTemplateDescription', [
+                'label' => __('about.description'),
+                'description' => $emailTemplate->getLocalizedData('description'),
+            ]));
+        }
 
-		$subjectArgs = [
-			'label' => __('email.subject'),
-			'isMultilingual' => true,
-		];
-		$bodyArgs = [
-			'label' => __('email.body'),
-			'size' => 'large',
-			'isMultilingual' => true,
-			'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-			'plugins' => 'paste,link,lists',
-		];
-		if (!is_null($emailTemplate)) {
-			$subjectArgs['value'] = $emailTemplate->getData('subject');
-			$bodyArgs['value'] = $emailTemplate->getData('body');
-		}
+        $subjectArgs = [
+            'label' => __('email.subject'),
+            'isMultilingual' => true,
+        ];
+        $bodyArgs = [
+            'label' => __('email.body'),
+            'size' => 'large',
+            'isMultilingual' => true,
+            'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
+            'plugins' => 'paste,link,lists',
+        ];
+        if (!is_null($emailTemplate)) {
+            $subjectArgs['value'] = $emailTemplate->getData('subject');
+            $bodyArgs['value'] = $emailTemplate->getData('body');
+        }
 
-		$this->addField(new FieldText('subject', $subjectArgs))
-			->addField(new FieldRichTextarea('body', $bodyArgs));
-	}
+        $this->addField(new FieldText('subject', $subjectArgs))
+            ->addField(new FieldRichTextarea('body', $bodyArgs));
+    }
 }

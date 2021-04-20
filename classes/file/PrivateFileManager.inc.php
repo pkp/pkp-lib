@@ -15,26 +15,27 @@
 
 import('lib.pkp.classes.file.FileManager');
 
-class PrivateFileManager extends FileManager {
+class PrivateFileManager extends FileManager
+{
+    /** var $filesDir */
+    public $filesDir;
 
-	/** var $filesDir */
-	var $filesDir;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->filesDir = $this->getBasePath();
+    }
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-		$this->filesDir = $this->getBasePath();
-	}
-
-	/**
-	 * Get the base path for file storage.
-	 * @return string
-	 */
-	function getBasePath() {
-		return Config::getVar('files', 'files_dir');
-	}
+    /**
+     * Get the base path for file storage.
+     *
+     * @return string
+     */
+    public function getBasePath()
+    {
+        return Config::getVar('files', 'files_dir');
+    }
 }
-
-

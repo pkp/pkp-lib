@@ -9,6 +9,7 @@
  *
  * @class CompletedPayment
  * @ingroup classes_payment
+ *
  * @see CompletedPaymentDAO
  *
  * @brief Class describing a completed payment.
@@ -16,44 +17,51 @@
 
 import('lib.pkp.classes.payment.Payment');
 
-class CompletedPayment extends Payment {
-	/** @var string Payment completion timestamp */
-	var $_timestamp;
+class CompletedPayment extends Payment
+{
+    /** @var string Payment completion timestamp */
+    public $_timestamp;
 
-	/** @var string Payment plugin name */
-	var $_paymentPluginName;
+    /** @var string Payment plugin name */
+    public $_paymentPluginName;
 
-	/**
-	 * Get the payment completion timestamp.
-	 * @return string
-	 */
-	function getTimestamp() {
-		return $this->_timestamp;
-	}
+    /**
+     * Get the payment completion timestamp.
+     *
+     * @return string
+     */
+    public function getTimestamp()
+    {
+        return $this->_timestamp;
+    }
 
-	/**
-	 * Set the payment completion timestamp.
-	 * @param $timestamp string Timestamp
-	 */
-	function setTimestamp($timestamp) {
-		$this->_timestamp = $timestamp;
-	}
+    /**
+     * Set the payment completion timestamp.
+     *
+     * @param $timestamp string Timestamp
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->_timestamp = $timestamp;
+    }
 
-	/**
-	 * Get the payment plugin name.
-	 * @return string
-	 */
-	function getPayMethodPluginName() {
-		return $this->_paymentPluginName;
-	}
+    /**
+     * Get the payment plugin name.
+     *
+     * @return string
+     */
+    public function getPayMethodPluginName()
+    {
+        return $this->_paymentPluginName;
+    }
 
-	/**
-	 * Set the payment plugin name.
-	 * @param $paymentPluginName string
-	 */
-	function setPayMethodPluginName($paymentPluginName) {
-		$this->_paymentPluginName = $paymentPluginName;
-	}
+    /**
+     * Set the payment plugin name.
+     *
+     * @param $paymentPluginName string
+     */
+    public function setPayMethodPluginName($paymentPluginName)
+    {
+        $this->_paymentPluginName = $paymentPluginName;
+    }
 }
-
-

@@ -16,180 +16,182 @@
 define('APP_ROOT', dirname(dirname(dirname(dirname(__FILE__)))));
 require(APP_ROOT . '/tools/bootstrap.inc.php');
 
-class buildSwagger extends CommandLineTool {
+class buildSwagger extends CommandLineTool
+{
+    public $outputFile;
+    public $parameters;
 
-	var $outputFile;
-	var $parameters;
+    /**
+     * Constructor.
+     *
+     * @param $argv array command-line arguments (see usage)
+     */
+    public function __construct($argv = [])
+    {
+        parent::__construct($argv);
+        $this->outputFile = array_shift($this->argv);
+    }
 
-	/**
-	 * Constructor.
-	 * @param $argv array command-line arguments (see usage)
-	 */
-	function __construct($argv = array()) {
-		parent::__construct($argv);
-		$this->outputFile = array_shift($this->argv);
-	}
+    /**
+     * Print command usage information.
+     */
+    public function usage()
+    {
+        echo "Command-line tool to compile swagger.json API definitions\n"
+            . "Usage:\n"
+            . "\t{$this->scriptName} [outputFile]: Compile swagger file and save to [outputFile]\n"
+            . "\t{$this->scriptName} usage: Display usage information this tool\n";
+    }
 
-	/**
-	 * Print command usage information.
-	 */
-	function usage() {
-		echo "Command-line tool to compile swagger.json API definitions\n"
-			. "Usage:\n"
-			. "\t{$this->scriptName} [outputFile]: Compile swagger file and save to [outputFile]\n"
-			. "\t{$this->scriptName} usage: Display usage information this tool\n";
-	}
+    /**
+     * Parse and execute the import/export task.
+     */
+    public function execute()
+    {
+        if (empty($this->outputFile)) {
+            $this->usage();
+            exit();
+        } elseif ((file_exists($this->outputFile) && !is_writable($this->outputFile)) ||
+                (!is_writeable(dirname($this->outputFile)))) {
+            echo "You do not have permission to write to this file.\n";
+            exit;
+        } else {
+            $source = file_get_contents(APP_ROOT . '/docs/dev/swagger-source.json');
+            if (!$source) {
+                $this->usage();
+                exit;
+            }
 
-	/**
-	 * Parse and execute the import/export task.
-	 */
-	function execute() {
-		if (empty($this->outputFile)) {
-			$this->usage();
-			exit();
-		} elseif ((file_exists($this->outputFile) && !is_writable($this->outputFile)) ||
-				(!is_writeable(dirname($this->outputFile)))) {
-			echo "You do not have permission to write to this file.\n";
-			exit;
-		} else {
-			$source = file_get_contents(APP_ROOT . '/docs/dev/swagger-source.json');
-			if (!$source) {
-				$this->usage();
-				exit;
-			}
+            import('classes.core.Services');
+            $locales = ['en_US', 'fr_CA'];
 
-			import('classes.core.Services');
-			$locales = ['en_US', 'fr_CA'];
+            $apiSchema = json_decode($source);
+            foreach ($apiSchema->definitions as $definitionName => $definition) {
+                // We assume a definition that is not a string does not need to be compiled
+                // from the schema files. It has already been defined.
+                if (!is_string($definition)) {
+                    continue;
+                }
 
-			$apiSchema = json_decode($source);
-			foreach ($apiSchema->definitions as $definitionName => $definition) {
-				// We assume a definition that is not a string does not need to be compiled
-				// from the schema files. It has already been defined.
-				if (!is_string($definition)) {
-					continue;
-				}
+                $editDefinition = $summaryDefinition = $readDefinition = ['type' => 'object', 'properties' => []];
+                $entitySchema = \Services::get('schema')->get($definition, true);
+                foreach ($entitySchema->properties as $propName => $propSchema) {
+                    $editPropSchema = clone $propSchema;
+                    $readPropSchema = clone $propSchema;
+                    $summaryPropSchema = clone $propSchema;
 
-				$editDefinition = $summaryDefinition = $readDefinition = ['type' => 'object', 'properties' => []];
-				$entitySchema = \Services::get('schema')->get($definition, true);
-				foreach ($entitySchema->properties as $propName => $propSchema) {
-					$editPropSchema = clone $propSchema;
-					$readPropSchema = clone $propSchema;
-					$summaryPropSchema = clone $propSchema;
+                    // Special handling to catch readOnly, writeOnly and apiSummary props in objects
+                    if (!empty($propSchema->{'$ref'})) {
+                        if (empty($propSchema->readOnly)) {
+                            $editPropSchema->properties = $propSchema;
+                        }
+                        if (empty($propSchema->writeOnly)) {
+                            $readPropSchema->properties = $propSchema;
+                        }
+                        if (!empty($propSchema->apiSummary)) {
+                            $summaryPropSchema->properties = $propSchema;
+                        }
+                    } elseif ($propSchema->type === 'object') {
+                        $subPropsEdit = $subPropsRead = $subPropsSummary = [];
+                        foreach ($propSchema->properties as $subPropName => $subPropSchema) {
+                            if (empty($subPropSchema->readOnly)) {
+                                $subPropsEdit[$subPropName] = $subPropSchema;
+                            }
+                            if (empty($subPropSchema->writeOnly)) {
+                                $subPropsRead[$subPropName] = $subPropSchema;
+                            }
+                            if (!empty($subPropSchema->apiSummary)) {
+                                $subPropsSummary[$subPropName] = $subPropSchema;
+                            }
+                        }
+                        if (!empty($propSchema->multilingual)) {
+                            $subPropsSchemaEdit = $subPropsSchemaRead = $subPropsSchemaSummary = [
+                                'type' => 'object',
+                                'properties' => [],
+                            ];
+                            foreach ($locales as $localeKey) {
+                                $subPropsSchemaEdit[$localeKey]['properties'] = $subPropsEdit;
+                                $subPropsSchemaRead[$localeKey]['properties'] = $subPropsRead;
+                                $subPropsSchemaSummary[$localeKey]['properties'] = $subPropsSummary;
+                            }
+                        } else {
+                            $subPropsSchemaEdit = $subPropsEdit;
+                            $subPropsSchemaRead = $subPropsRead;
+                            $subPropsSchemaSummary = $subPropsSummary;
+                        }
+                        if (empty($propSchema->readOnly)) {
+                            $editPropSchema->properties = $subPropsSchemaEdit;
+                        }
+                        if (empty($propSchema->writeOnly)) {
+                            $readPropSchema->properties = $subPropsSchemaRead;
+                        }
+                        if (!empty($propSchema->apiSummary)) {
+                            $summaryPropSchema->properties = $subPropsSchemaSummary;
+                        }
 
-					// Special handling to catch readOnly, writeOnly and apiSummary props in objects
-					if (!empty($propSchema->{'$ref'})) {
-						if (empty($propSchema->readOnly)) {
-							$editPropSchema->properties = $propSchema;
-						}
-						if (empty($propSchema->writeOnly)) {
-							$readPropSchema->properties = $propSchema;
-						}
-						if (!empty($propSchema->apiSummary)) {
-							$summaryPropSchema->properties = $propSchema;
-						}
-					} elseif ($propSchema->type === 'object') {
-						$subPropsEdit = $subPropsRead = $subPropsSummary = [];
-						foreach ($propSchema->properties as $subPropName => $subPropSchema) {
-							if (empty($subPropSchema->readOnly)) {
-								$subPropsEdit[$subPropName] = $subPropSchema;
-							}
-							if (empty($subPropSchema->writeOnly)) {
-								$subPropsRead[$subPropName] = $subPropSchema;
-							}
-							if (!empty($subPropSchema->apiSummary)) {
-								$subPropsSummary[$subPropName] = $subPropSchema;
-							}
-						}
-						if (!empty($propSchema->multilingual)) {
-							$subPropsSchemaEdit = $subPropsSchemaRead = $subPropsSchemaSummary = [
-								'type' => 'object',
-								'properties' => [],
-							];
-							foreach ($locales as $localeKey) {
-								$subPropsSchemaEdit[$localeKey]['properties'] = $subPropsEdit;
-								$subPropsSchemaRead[$localeKey]['properties'] = $subPropsRead;
-								$subPropsSchemaSummary[$localeKey]['properties'] = $subPropsSummary;
-							}
-						} else {
-							$subPropsSchemaEdit = $subPropsEdit;
-							$subPropsSchemaRead = $subPropsRead;
-							$subPropsSchemaSummary = $subPropsSummary;
-						}
-						if (empty($propSchema->readOnly)) {
-							$editPropSchema->properties = $subPropsSchemaEdit;
-						}
-						if (empty($propSchema->writeOnly)) {
-							$readPropSchema->properties = $subPropsSchemaRead;
-						}
-						if (!empty($propSchema->apiSummary)) {
-							$summaryPropSchema->properties = $subPropsSchemaSummary;
-						}
+                        // All non-object props
+                    } else {
+                        if (!empty($propSchema->multilingual)) {
+                            if ($propSchema->type === 'array') {
+                                $subProperties = [];
+                                foreach ($locales as $localeKey) {
+                                    $subProperties[$localeKey] = $propSchema->items;
+                                }
+                                if (empty($propSchema->readOnly)) {
+                                    $editPropSchema->properties = $subProperties;
+                                }
+                                if (empty($propSchema->writeOnly)) {
+                                    $readPropSchema->properties = $subProperties;
+                                }
+                                if (!empty($propSchema->apiSummary)) {
+                                    $summaryPropSchema->properties = $subProperties;
+                                }
+                            } else {
+                                if (empty($propSchema->readOnly)) {
+                                    $editPropSchema = ['$ref' => '#/definitions/LocaleObject'];
+                                }
+                                if (empty($propSchema->writeOnly)) {
+                                    $readPropSchema = ['$ref' => '#/definitions/LocaleObject'];
+                                }
+                                if (!empty($propSchema->apiSummary)) {
+                                    $summaryPropSchema = ['$ref' => '#/definitions/LocaleObject'];
+                                }
+                            }
+                        }
+                    }
 
-					// All non-object props
-					} else {
-						if (!empty($propSchema->multilingual)) {
-							if ($propSchema->type === 'array') {
-								$subProperties = [];
-								foreach ($locales as $localeKey) {
-									$subProperties[$localeKey] = $propSchema->items;
-								}
-								if (empty($propSchema->readOnly)) {
-									$editPropSchema->properties = $subProperties;
-								}
-								if (empty($propSchema->writeOnly)) {
-									$readPropSchema->properties = $subProperties;
-								}
-								if (!empty($propSchema->apiSummary)) {
-									$summaryPropSchema->properties = $subProperties;
-								}
-							} else {
-								if (empty($propSchema->readOnly)) {
-									$editPropSchema = ['$ref' => '#/definitions/LocaleObject'];
-								}
-								if (empty($propSchema->writeOnly)) {
-									$readPropSchema = ['$ref' => '#/definitions/LocaleObject'];
-								}
-								if (!empty($propSchema->apiSummary)) {
-									$summaryPropSchema = ['$ref' => '#/definitions/LocaleObject'];
-								}
-							}
-						}
-					}
+                    if (empty($propSchema->readOnly)) {
+                        $editDefinition['properties'][$propName] = $editPropSchema;
+                    }
+                    if (empty($propSchema->writeOnly)) {
+                        $readDefinition['properties'][$propName] = $readPropSchema;
+                    }
+                    if (!empty($propSchema->apiSummary)) {
+                        $summaryDefinition['properties'][$propName] = $summaryPropSchema;
+                    }
+                }
+                if (!empty($editDefinition['properties'])) {
+                    $definitionEditableName = $definitionName . 'Editable';
+                    ksort($editDefinition['properties']);
+                    $apiSchema->definitions->{$definitionEditableName} = $editDefinition;
+                }
+                if (!empty($readDefinition['properties'])) {
+                    ksort($readDefinition['properties']);
+                    $apiSchema->definitions->{$definitionName} = $readDefinition;
+                }
+                if (!empty($summaryDefinition['properties'])) {
+                    $definitionSummaryName = $definitionName . 'Summary';
+                    ksort($summaryDefinition['properties']);
+                    $apiSchema->definitions->{$definitionSummaryName} = $summaryDefinition;
+                }
+            }
 
-					if (empty($propSchema->readOnly)) {
-						$editDefinition['properties'][$propName] = $editPropSchema;
-					}
-					if (empty($propSchema->writeOnly)) {
-						$readDefinition['properties'][$propName] = $readPropSchema;
-					}
-					if (!empty($propSchema->apiSummary)) {
-						$summaryDefinition['properties'][$propName] = $summaryPropSchema;
-					}
-				}
-				if (!empty($editDefinition['properties'])) {
-					$definitionEditableName = $definitionName . 'Editable';
-					ksort($editDefinition['properties']);
-					$apiSchema->definitions->{$definitionEditableName} = $editDefinition;
-				}
-				if (!empty($readDefinition['properties'])) {
-					ksort($readDefinition['properties']);
-					$apiSchema->definitions->{$definitionName} = $readDefinition;
-				}
-				if (!empty($summaryDefinition['properties'])) {
-					$definitionSummaryName = $definitionName . 'Summary';
-					ksort($summaryDefinition['properties']);
-					$apiSchema->definitions->{$definitionSummaryName} = $summaryDefinition;
-				}
-			}
+            file_put_contents($this->outputFile, json_encode($apiSchema, JSON_PRETTY_PRINT));
 
-			file_put_contents($this->outputFile, json_encode($apiSchema, JSON_PRETTY_PRINT));
-
-			echo "Done\n";
-		}
-	}
-
+            echo "Done\n";
+        }
+    }
 }
 
-$tool = new buildSwagger(isset($argv) ? $argv : array());
+$tool = new buildSwagger($argv ?? []);
 $tool->execute();
-?>

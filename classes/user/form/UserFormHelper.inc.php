@@ -13,92 +13,102 @@
  * @brief Helper functions for shared user form concerns.
  */
 
-class UserFormHelper {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-	}
+class UserFormHelper
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+    }
 
-	/**
-	 * Assign role selection content to the template manager.
-	 * @param $templateMgr PKPTemplateManager
-	 * @param $request PKPRequest
-	 */
-	function assignRoleContent($templateMgr, $request) {
-		// Need the count in order to determine whether to display
-		// extras-on-demand for role selection in other contexts.
-		$contextDao = Application::getContextDAO();
-		$contexts = $contextDao->getAll(true)->toArray();
-		$contextsWithUserRegistration = array();
-		foreach ($contexts as $context) {
-			if (!$context->getData('disableUserReg')) {
-				$contextsWithUserRegistration[] = $context;
-			}
-		}
-		$templateMgr->assign(array(
-			'contexts' => $contexts,
-			'showOtherContexts' => !$request->getContext() || count($contextsWithUserRegistration)>1,
-		));
+    /**
+     * Assign role selection content to the template manager.
+     *
+     * @param $templateMgr PKPTemplateManager
+     * @param $request PKPRequest
+     */
+    public function assignRoleContent($templateMgr, $request)
+    {
+        // Need the count in order to determine whether to display
+        // extras-on-demand for role selection in other contexts.
+        $contextDao = Application::getContextDAO();
+        $contexts = $contextDao->getAll(true)->toArray();
+        $contextsWithUserRegistration = [];
+        foreach ($contexts as $context) {
+            if (!$context->getData('disableUserReg')) {
+                $contextsWithUserRegistration[] = $context;
+            }
+        }
+        $templateMgr->assign([
+            'contexts' => $contexts,
+            'showOtherContexts' => !$request->getContext() || count($contextsWithUserRegistration) > 1,
+        ]);
 
-		// Expose potential self-registration user groups to template
-		$authorUserGroups = $reviewerUserGroups = $readerUserGroups = array();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		foreach ($contexts as $context) {
-			if ($context->getData('disableUserReg')) continue;
-			$reviewerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_REVIEWER)->toArray();
-			$authorUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR)->toArray();
-			$readerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_READER)->toArray();
-		}
-		$templateMgr->assign(array(
-			'reviewerUserGroups' => $reviewerUserGroups,
-			'authorUserGroups' => $authorUserGroups,
-			'readerUserGroups' => $readerUserGroups,
-		));
-	}
+        // Expose potential self-registration user groups to template
+        $authorUserGroups = $reviewerUserGroups = $readerUserGroups = [];
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        foreach ($contexts as $context) {
+            if ($context->getData('disableUserReg')) {
+                continue;
+            }
+            $reviewerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_REVIEWER)->toArray();
+            $authorUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR)->toArray();
+            $readerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_READER)->toArray();
+        }
+        $templateMgr->assign([
+            'reviewerUserGroups' => $reviewerUserGroups,
+            'authorUserGroups' => $authorUserGroups,
+            'readerUserGroups' => $readerUserGroups,
+        ]);
+    }
 
-	/**
-	 * Save role elements of an executed user form.
-	 * @param $form Form The form from which to fetch elements
-	 * @param $user User The current user
-	 */
-	function saveRoleContent($form, $user) {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$contextDao = Application::getContextDAO();
-		$contexts = $contextDao->getAll(true);
-		while ($context = $contexts->next()) {
-			if ($context->getData('disableUserReg')) continue;
+    /**
+     * Save role elements of an executed user form.
+     *
+     * @param $form Form The form from which to fetch elements
+     * @param $user User The current user
+     */
+    public function saveRoleContent($form, $user)
+    {
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $contextDao = Application::getContextDAO();
+        $contexts = $contextDao->getAll(true);
+        while ($context = $contexts->next()) {
+            if ($context->getData('disableUserReg')) {
+                continue;
+            }
 
-			foreach (array(
-				array(
-					'roleId' => ROLE_ID_REVIEWER,
-					'formElement' => 'reviewerGroup'
-				),
-				array(
-					'roleId' => ROLE_ID_AUTHOR,
-					'formElement' => 'authorGroup'
-				),
-				array(
-					'roleId' => ROLE_ID_READER,
-					'formElement' => 'readerGroup'
-				),
-			) as $groupData) {
-				$groupFormData = (array) $form->getData($groupData['formElement']);
-				$userGroups = $userGroupDao->getByRoleId($context->getId(), $groupData['roleId']);
-				while ($userGroup = $userGroups->next()) {
-					if (!$userGroup->getPermitSelfRegistration()) continue;
+            foreach ([
+                [
+                    'roleId' => ROLE_ID_REVIEWER,
+                    'formElement' => 'reviewerGroup'
+                ],
+                [
+                    'roleId' => ROLE_ID_AUTHOR,
+                    'formElement' => 'authorGroup'
+                ],
+                [
+                    'roleId' => ROLE_ID_READER,
+                    'formElement' => 'readerGroup'
+                ],
+            ] as $groupData) {
+                $groupFormData = (array) $form->getData($groupData['formElement']);
+                $userGroups = $userGroupDao->getByRoleId($context->getId(), $groupData['roleId']);
+                while ($userGroup = $userGroups->next()) {
+                    if (!$userGroup->getPermitSelfRegistration()) {
+                        continue;
+                    }
 
-					$groupId = $userGroup->getId();
-					$inGroup = $userGroupDao->userInGroup($user->getId(), $groupId);
-					if (!$inGroup && array_key_exists($groupId, $groupFormData)) {
-						$userGroupDao->assignUserToGroup($user->getId(), $groupId, $context->getId());
-					} elseif ($inGroup && !array_key_exists($groupId, $groupFormData)) {
-						$userGroupDao->removeUserFromGroup($user->getId(), $groupId, $context->getId());
-					}
-				}
-			}
-		}
-	}
+                    $groupId = $userGroup->getId();
+                    $inGroup = $userGroupDao->userInGroup($user->getId(), $groupId);
+                    if (!$inGroup && array_key_exists($groupId, $groupFormData)) {
+                        $userGroupDao->assignUserToGroup($user->getId(), $groupId, $context->getId());
+                    } elseif ($inGroup && !array_key_exists($groupId, $groupFormData)) {
+                        $userGroupDao->removeUserFromGroup($user->getId(), $groupId, $context->getId());
+                    }
+                }
+            }
+        }
+    }
 }
-
-

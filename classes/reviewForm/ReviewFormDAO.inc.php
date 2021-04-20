@@ -9,6 +9,7 @@
  *
  * @class ReviewFormDAO
  * @ingroup reviewForm
+ *
  * @see ReviewerForm
  *
  * @brief Operations for retrieving and modifying ReviewForm objects.
@@ -17,194 +18,222 @@
 
 import('lib.pkp.classes.reviewForm.ReviewForm');
 
-class ReviewFormDAO extends \PKP\db\DAO {
+class ReviewFormDAO extends \PKP\db\DAO
+{
+    /**
+     * Retrieve a review form by ID.
+     *
+     * @param $reviewFormId int
+     * @param $assocType int optional
+     * @param $assocId int optional
+     *
+     * @return ReviewForm
+     */
+    public function getById($reviewFormId, $assocType = null, $assocId = null)
+    {
+        $params = [(int) $reviewFormId];
+        if ($assocType) {
+            $params[] = (int) $assocType;
+            $params[] = (int) $assocId;
+        }
 
-	/**
-	 * Retrieve a review form by ID.
-	 * @param $reviewFormId int
-	 * @param $assocType int optional
-	 * @param $assocId int optional
-	 * @return ReviewForm
-	 */
-	function getById($reviewFormId, $assocType = null, $assocId = null) {
-		$params = [(int) $reviewFormId];
-		if ($assocType) {
-			$params[] = (int) $assocType;
-			$params[] = (int) $assocId;
-		}
-
-		$result = $this->retrieve (
-			'SELECT	rf.*,
+        $result = $this->retrieve(
+            'SELECT	rf.*,
 				SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) AS complete_count,
 				SUM(CASE WHEN ra.review_id IS NOT NULL AND ra.date_completed IS NULL THEN 1 ELSE 0 END) AS incomplete_count
 			FROM	review_forms rf
 				LEFT JOIN review_assignments ra ON (ra.review_form_id = rf.review_form_id AND ra.declined<>1)
 			WHERE	rf.review_form_id = ? AND rf.assoc_type = ? AND rf.assoc_id = ?
 			GROUP BY rf.review_form_id',
-			$params
-		);
-		$row = $result->current();
-		return $row ? $this->_fromRow((array) $row) : null;
-	}
+            $params
+        );
+        $row = $result->current();
+        return $row ? $this->_fromRow((array) $row) : null;
+    }
 
-	/**
-	 * Construct a new data object corresponding to this DAO.
-	 * @return ReviewForm
-	 */
-	function newDataObject() {
-		return new ReviewForm();
-	}
+    /**
+     * Construct a new data object corresponding to this DAO.
+     *
+     * @return ReviewForm
+     */
+    public function newDataObject()
+    {
+        return new ReviewForm();
+    }
 
-	/**
-	 * Internal function to return a ReviewForm object from a row.
-	 * @param $row array
-	 * @return ReviewForm
-	 */
-	function _fromRow($row) {
-		$reviewForm = $this->newDataObject();
-		$reviewForm->setId($row['review_form_id']);
-		$reviewForm->setAssocType($row['assoc_type']);
-		$reviewForm->setAssocId($row['assoc_id']);
-		$reviewForm->setSequence($row['seq']);
-		$reviewForm->setActive($row['is_active']);
-		$reviewForm->setCompleteCount($row['complete_count']);
-		$reviewForm->setIncompleteCount($row['incomplete_count']);
+    /**
+     * Internal function to return a ReviewForm object from a row.
+     *
+     * @param $row array
+     *
+     * @return ReviewForm
+     */
+    public function _fromRow($row)
+    {
+        $reviewForm = $this->newDataObject();
+        $reviewForm->setId($row['review_form_id']);
+        $reviewForm->setAssocType($row['assoc_type']);
+        $reviewForm->setAssocId($row['assoc_id']);
+        $reviewForm->setSequence($row['seq']);
+        $reviewForm->setActive($row['is_active']);
+        $reviewForm->setCompleteCount($row['complete_count']);
+        $reviewForm->setIncompleteCount($row['incomplete_count']);
 
-		$this->getDataObjectSettings('review_form_settings', 'review_form_id', $row['review_form_id'], $reviewForm);
+        $this->getDataObjectSettings('review_form_settings', 'review_form_id', $row['review_form_id'], $reviewForm);
 
-		HookRegistry::call('ReviewFormDAO::_fromRow', array(&$reviewForm, &$row));
+        HookRegistry::call('ReviewFormDAO::_fromRow', [&$reviewForm, &$row]);
 
-		return $reviewForm;
-	}
+        return $reviewForm;
+    }
 
-	/**
-	 * Check if a review form exists with the specified ID.
-	 * @param $reviewFormId int
-	 * @param $assocType int
-	 * @param $assocId int
-	 * @return boolean
-	 */
-	function reviewFormExists($reviewFormId, $assocType, $assocId) {
-		$result = $this->retrieve(
-			'SELECT COUNT(*) AS row_count FROM review_forms WHERE review_form_id = ? AND assoc_type = ? AND assoc_id = ?',
-			[(int) $reviewFormId, (int) $assocType, (int) $assocId]
-		);
-		$row = $result->current();
-		return $row ? $row->row_count == 1 : false;
-	}
+    /**
+     * Check if a review form exists with the specified ID.
+     *
+     * @param $reviewFormId int
+     * @param $assocType int
+     * @param $assocId int
+     *
+     * @return boolean
+     */
+    public function reviewFormExists($reviewFormId, $assocType, $assocId)
+    {
+        $result = $this->retrieve(
+            'SELECT COUNT(*) AS row_count FROM review_forms WHERE review_form_id = ? AND assoc_type = ? AND assoc_id = ?',
+            [(int) $reviewFormId, (int) $assocType, (int) $assocId]
+        );
+        $row = $result->current();
+        return $row ? $row->row_count == 1 : false;
+    }
 
-	/**
-	 * Get the list of fields for which data can be localized.
-	 * @return array
-	 */
-	function getLocaleFieldNames() {
-		return array('title', 'description');
-	}
+    /**
+     * Get the list of fields for which data can be localized.
+     *
+     * @return array
+     */
+    public function getLocaleFieldNames()
+    {
+        return ['title', 'description'];
+    }
 
-	/**
-	 * Update the localized fields for this table
-	 * @param $reviewForm object
-	 */
-	function updateLocaleFields(&$reviewForm) {
-		$this->updateDataObjectSettings('review_form_settings', $reviewForm, array(
-			'review_form_id' => $reviewForm->getId()
-		));
-	}
+    /**
+     * Update the localized fields for this table
+     *
+     * @param $reviewForm object
+     */
+    public function updateLocaleFields(&$reviewForm)
+    {
+        $this->updateDataObjectSettings('review_form_settings', $reviewForm, [
+            'review_form_id' => $reviewForm->getId()
+        ]);
+    }
 
-	/**
-	 * Insert a new review form.
-	 * @param $reviewForm ReviewForm
-	 */
-	function insertObject($reviewForm) {
-		$this->update(
-			'INSERT INTO review_forms
+    /**
+     * Insert a new review form.
+     *
+     * @param $reviewForm ReviewForm
+     */
+    public function insertObject($reviewForm)
+    {
+        $this->update(
+            'INSERT INTO review_forms
 				(assoc_type, assoc_id, seq, is_active)
 				VALUES
 				(?, ?, ?, ?)',
-			[
-				(int) $reviewForm->getAssocType(),
-				(int) $reviewForm->getAssocId(),
-				$reviewForm->getSequence() == null ? 0 : (float) $reviewForm->getSequence(),
-				$reviewForm->getActive()?1:0
-			]
-		);
+            [
+                (int) $reviewForm->getAssocType(),
+                (int) $reviewForm->getAssocId(),
+                $reviewForm->getSequence() == null ? 0 : (float) $reviewForm->getSequence(),
+                $reviewForm->getActive() ? 1 : 0
+            ]
+        );
 
-		$reviewForm->setId($this->getInsertId());
-		$this->updateLocaleFields($reviewForm);
+        $reviewForm->setId($this->getInsertId());
+        $this->updateLocaleFields($reviewForm);
 
-		return $reviewForm->getId();
-	}
+        return $reviewForm->getId();
+    }
 
-	/**
-	 * Update an existing review form.
-	 * @param $reviewForm ReviewForm
-	 */
-	function updateObject($reviewForm) {
-		$returner = $this->update(
-			'UPDATE review_forms
+    /**
+     * Update an existing review form.
+     *
+     * @param $reviewForm ReviewForm
+     */
+    public function updateObject($reviewForm)
+    {
+        $returner = $this->update(
+            'UPDATE review_forms
 				SET
 					assoc_type = ?,
 					assoc_id = ?,
 					seq = ?,
 					is_active = ?
 				WHERE review_form_id = ?',
-			[
-				(int) $reviewForm->getAssocType(),
-				(int) $reviewForm->getAssocId(),
-				(float) $reviewForm->getSequence(),
-				$reviewForm->getActive()?1:0,
-				(int) $reviewForm->getId()
-			]
-		);
+            [
+                (int) $reviewForm->getAssocType(),
+                (int) $reviewForm->getAssocId(),
+                (float) $reviewForm->getSequence(),
+                $reviewForm->getActive() ? 1 : 0,
+                (int) $reviewForm->getId()
+            ]
+        );
 
-		$this->updateLocaleFields($reviewForm);
+        $this->updateLocaleFields($reviewForm);
 
-		return $returner;
-	}
+        return $returner;
+    }
 
-	/**
-	 * Delete a review form.
-	 * @param $reviewForm ReviewForm
-	 */
-	function deleteObject($reviewForm) {
-		return $this->deleteById($reviewForm->getId());
-	}
+    /**
+     * Delete a review form.
+     *
+     * @param $reviewForm ReviewForm
+     */
+    public function deleteObject($reviewForm)
+    {
+        return $this->deleteById($reviewForm->getId());
+    }
 
-	/**
-	 * Delete a review form by Id.
-	 * @param $reviewFormId int
-	 */
-	function deleteById($reviewFormId) {
-		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
-		$reviewFormElementDao->deleteByReviewFormId($reviewFormId);
+    /**
+     * Delete a review form by Id.
+     *
+     * @param $reviewFormId int
+     */
+    public function deleteById($reviewFormId)
+    {
+        $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
+        $reviewFormElementDao->deleteByReviewFormId($reviewFormId);
 
-		$this->update('DELETE FROM review_form_settings WHERE review_form_id = ?', [(int) $reviewFormId]);
-		$this->update('DELETE FROM review_forms WHERE review_form_id = ?', [(int) $reviewFormId]);
-	}
+        $this->update('DELETE FROM review_form_settings WHERE review_form_id = ?', [(int) $reviewFormId]);
+        $this->update('DELETE FROM review_forms WHERE review_form_id = ?', [(int) $reviewFormId]);
+    }
 
-	/**
-	 * Delete all review forms by assoc Id.
-	 * @param $assocType int
-	 * @param $assocId int
-	 */
-	function deleteByAssoc($assocType, $assocId) {
-		$reviewForms = $this->getByAssocId($assocType, $assocId);
+    /**
+     * Delete all review forms by assoc Id.
+     *
+     * @param $assocType int
+     * @param $assocId int
+     */
+    public function deleteByAssoc($assocType, $assocId)
+    {
+        $reviewForms = $this->getByAssocId($assocType, $assocId);
 
-		while ($reviewForm = $reviewForms->next()) {
-			$this->deleteById($reviewForm->getId());
-		}
-	}
+        while ($reviewForm = $reviewForms->next()) {
+            $this->deleteById($reviewForm->getId());
+        }
+    }
 
-	/**
-	 * Get all review forms by assoc id.
-	 * @param $assocType int
-	 * @param $assocId int
-	 * @param $rangeInfo RangeInfo (optional)
-	 * @return DAOResultFactory containing matching ReviewForms
-	 */
-	function getByAssocId($assocType, $assocId, $rangeInfo = null) {
-		$result = $this->retrieveRange(
-			'SELECT rf.*,
+    /**
+     * Get all review forms by assoc id.
+     *
+     * @param $assocType int
+     * @param $assocId int
+     * @param $rangeInfo RangeInfo (optional)
+     *
+     * @return DAOResultFactory containing matching ReviewForms
+     */
+    public function getByAssocId($assocType, $assocId, $rangeInfo = null)
+    {
+        $result = $this->retrieveRange(
+            'SELECT rf.*,
 				SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) AS complete_count,
 				SUM(CASE WHEN ra.review_id IS NOT NULL AND ra.date_completed IS NULL THEN 1 ELSE 0 END) AS incomplete_count
 			FROM	review_forms rf
@@ -212,23 +241,26 @@ class ReviewFormDAO extends \PKP\db\DAO {
 			WHERE   rf.assoc_type = ? AND rf.assoc_id = ?
 			GROUP BY rf.review_form_id
 			ORDER BY rf.seq',
-			[(int) $assocType, (int) $assocId],
-			$rangeInfo
-		);
+            [(int) $assocType, (int) $assocId],
+            $rangeInfo
+        );
 
-		return new DAOResultFactory($result, $this, '_fromRow');
-	}
+        return new DAOResultFactory($result, $this, '_fromRow');
+    }
 
-	/**
-	 * Get active review forms for an associated object.
-	 * @param $assocType int
-	 * @param $assocId int
-	 * @param $rangeInfo object RangeInfo object (optional)
-	 * @return DAOResultFactory containing matching ReviewForms
-	 */
-	function getActiveByAssocId($assocType, $assocId, $rangeInfo = null) {
-		$result = $this->retrieveRange(
-			'SELECT	rf.*,
+    /**
+     * Get active review forms for an associated object.
+     *
+     * @param $assocType int
+     * @param $assocId int
+     * @param $rangeInfo object RangeInfo object (optional)
+     *
+     * @return DAOResultFactory containing matching ReviewForms
+     */
+    public function getActiveByAssocId($assocType, $assocId, $rangeInfo = null)
+    {
+        $result = $this->retrieveRange(
+            'SELECT	rf.*,
 				SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) AS complete_count,
 				SUM(CASE WHEN ra.review_id IS NOT NULL AND ra.date_completed IS NULL THEN 1 ELSE 0 END) AS incomplete_count
 			FROM	review_forms rf
@@ -236,48 +268,57 @@ class ReviewFormDAO extends \PKP\db\DAO {
 			WHERE	rf.assoc_type = ? AND rf.assoc_id = ? AND rf.is_active = 1
 			GROUP BY rf.review_form_id
 			ORDER BY rf.seq',
-			[(int) $assocType, (int) $assocId],
-			$rangeInfo
-		);
+            [(int) $assocType, (int) $assocId],
+            $rangeInfo
+        );
 
-		return new DAOResultFactory($result, $this, '_fromRow');
-	}
+        return new DAOResultFactory($result, $this, '_fromRow');
+    }
 
-	/**
-	 * Check if a review form exists with the specified ID.
-	 * @param $reviewFormId int
-	 * @param $assocType int optional
-	 * @param $assocId int optional
-	 * @return boolean
-	 */
-	function unusedReviewFormExists($reviewFormId, $assocType = null, $assocId = null) {
-		$reviewForm = $this->getById($reviewFormId, $assocType, $assocId);
-		if (!$reviewForm) return false;
-		if ($reviewForm->getCompleteCount()!=0 || $reviewForm->getIncompleteCount()!=0) return false;
-		return true;
-	}
+    /**
+     * Check if a review form exists with the specified ID.
+     *
+     * @param $reviewFormId int
+     * @param $assocType int optional
+     * @param $assocId int optional
+     *
+     * @return boolean
+     */
+    public function unusedReviewFormExists($reviewFormId, $assocType = null, $assocId = null)
+    {
+        $reviewForm = $this->getById($reviewFormId, $assocType, $assocId);
+        if (!$reviewForm) {
+            return false;
+        }
+        if ($reviewForm->getCompleteCount() != 0 || $reviewForm->getIncompleteCount() != 0) {
+            return false;
+        }
+        return true;
+    }
 
-	/**
-	 * Sequentially renumber review form in their sequence order.
-	 * @param $assocType int
-	 * @param $assocId int
-	 */
-	function resequenceReviewForms($assocType, $assocId) {
-		$result = $this->retrieve('SELECT review_form_id FROM review_forms WHERE assoc_type = ? AND assoc_id = ? ORDER BY seq', [(int) $assocType, (int) $assocId]);
+    /**
+     * Sequentially renumber review form in their sequence order.
+     *
+     * @param $assocType int
+     * @param $assocId int
+     */
+    public function resequenceReviewForms($assocType, $assocId)
+    {
+        $result = $this->retrieve('SELECT review_form_id FROM review_forms WHERE assoc_type = ? AND assoc_id = ? ORDER BY seq', [(int) $assocType, (int) $assocId]);
 
-		for ($i=1; $row = $result->current(); $i++) {
-			$this->update('UPDATE review_forms SET seq = ? WHERE review_form_id = ?', [$i, $row->review_form_id]);
-			$result->next();
-		}
-	}
+        for ($i = 1; $row = $result->current(); $i++) {
+            $this->update('UPDATE review_forms SET seq = ? WHERE review_form_id = ?', [$i, $row->review_form_id]);
+            $result->next();
+        }
+    }
 
-	/**
-	 * Get the ID of the last inserted review form.
-	 * @return int
-	 */
-	function getInsertId() {
-		return $this->_getInsertId('review_forms', 'review_form_id');
-	}
+    /**
+     * Get the ID of the last inserted review form.
+     *
+     * @return int
+     */
+    public function getInsertId()
+    {
+        return $this->_getInsertId('review_forms', 'review_form_id');
+    }
 }
-
-

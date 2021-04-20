@@ -15,209 +15,234 @@
 
 import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
-class NativeXmlSubmissionFilter extends NativeImportFilter {
-	/**
-	 * Constructor
-	 * @param $filterGroup FilterGroup
-	 */
-	function __construct($filterGroup) {
-		$this->setDisplayName('Native XML submission import');
-		parent::__construct($filterGroup);
-	}
+class NativeXmlSubmissionFilter extends NativeImportFilter
+{
+    /**
+     * Constructor
+     *
+     * @param $filterGroup FilterGroup
+     */
+    public function __construct($filterGroup)
+    {
+        $this->setDisplayName('Native XML submission import');
+        parent::__construct($filterGroup);
+    }
 
 
-	//
-	// Implement template methods from PersistableFilter
-	//
-	/**
-	 * @copydoc PersistableFilter::getClassName()
-	 */
-	function getClassName() {
-		return 'lib.pkp.plugins.importexport.native.filter.NativeXmlSubmissionFilter';
-	}
+    //
+    // Implement template methods from PersistableFilter
+    //
+    /**
+     * @copydoc PersistableFilter::getClassName()
+     */
+    public function getClassName()
+    {
+        return 'lib.pkp.plugins.importexport.native.filter.NativeXmlSubmissionFilter';
+    }
 
 
-	//
-	// Implement template methods from NativeImportFilter
-	//
-	/**
-	 * Return the plural element name
-	 * @return string
-	 */
-	function getPluralElementName() {
-		$deployment = $this->getDeployment();
-		return $deployment->getSubmissionsNodeName();
-	}
+    //
+    // Implement template methods from NativeImportFilter
+    //
+    /**
+     * Return the plural element name
+     *
+     * @return string
+     */
+    public function getPluralElementName()
+    {
+        $deployment = $this->getDeployment();
+        return $deployment->getSubmissionsNodeName();
+    }
 
-	/**
-	 * Get the singular element name
-	 * @return string
-	 */
-	function getSingularElementName() {
-		$deployment = $this->getDeployment();
-		return $deployment->getSubmissionNodeName();
-	}
+    /**
+     * Get the singular element name
+     *
+     * @return string
+     */
+    public function getSingularElementName()
+    {
+        $deployment = $this->getDeployment();
+        return $deployment->getSubmissionNodeName();
+    }
 
-	/**
-	 * Handle a singular element import.
-	 * @param $node DOMElement
-	 */
-	function handleElement($node) {
-		$deployment = $this->getDeployment();
-		$context = $deployment->getContext();
+    /**
+     * Handle a singular element import.
+     *
+     * @param $node DOMElement
+     */
+    public function handleElement($node)
+    {
+        $deployment = $this->getDeployment();
+        $context = $deployment->getContext();
 
-		// Create and insert the submission (ID needed for other entities)
-		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$submission = $submissionDao->newDataObject();
+        // Create and insert the submission (ID needed for other entities)
+        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
+        $submission = $submissionDao->newDataObject();
 
-		$submission->setData('contextId', $context->getId());
-		$submission->stampLastActivity();
-		$submission->setData('status', $node->getAttribute('status'));
-		$submission->setData('submissionProgress', 0);
+        $submission->setData('contextId', $context->getId());
+        $submission->stampLastActivity();
+        $submission->setData('status', $node->getAttribute('status'));
+        $submission->setData('submissionProgress', 0);
 
-		import('lib.pkp.classes.workflow.WorkflowStageDAO');
-		$submission->setData('stageId', WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
-		$submission->setData('currentPublicationId', $node->getAttribute('current_publication_id'));
+        import('lib.pkp.classes.workflow.WorkflowStageDAO');
+        $submission->setData('stageId', WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
+        $submission->setData('currentPublicationId', $node->getAttribute('current_publication_id'));
 
-		// Handle any additional attributes etc.
-		$submission = $this->populateObject($submission, $node);
+        // Handle any additional attributes etc.
+        $submission = $this->populateObject($submission, $node);
 
-		$submission = Services::get('submission')->add($submission, Application::get()->getRequest());
-		$deployment->setSubmission($submission);
-		$deployment->addProcessedObjectId(ASSOC_TYPE_SUBMISSION, $submission->getId());
+        $submission = Services::get('submission')->add($submission, Application::get()->getRequest());
+        $deployment->setSubmission($submission);
+        $deployment->addProcessedObjectId(ASSOC_TYPE_SUBMISSION, $submission->getId());
 
-		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
-			if (is_a($n, 'DOMElement')) {
-				$this->handleChildElement($n, $submission);
-			}
-		}
+        for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
+            if (is_a($n, 'DOMElement')) {
+                $this->handleChildElement($n, $submission);
+            }
+        }
 
-		$submission = Services::get('submission')->get($submission->getId());
+        $submission = Services::get('submission')->get($submission->getId());
 
-		$deployment->addImportedRootEntity(ASSOC_TYPE_SUBMISSION, $submission);
+        $deployment->addImportedRootEntity(ASSOC_TYPE_SUBMISSION, $submission);
 
-		return $submission;
-	}
+        return $submission;
+    }
 
-	/**
-	 * Populate the submission object from the node
-	 * @param $submission Submission
-	 * @param $node DOMElement
-	 * @return Submission
-	 */
-	function populateObject($submission, $node) {
-		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		if ($dateSubmitted = $node->getAttribute('date_submitted')) {
-			$submission->setData('dateSubmitted', Core::getCurrentDate(strtotime($dateSubmitted)));
-		} else {
-			$submission->setData('dateSubmitted', Core::getCurrentDate());
-		}
+    /**
+     * Populate the submission object from the node
+     *
+     * @param $submission Submission
+     * @param $node DOMElement
+     *
+     * @return Submission
+     */
+    public function populateObject($submission, $node)
+    {
+        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
+        if ($dateSubmitted = $node->getAttribute('date_submitted')) {
+            $submission->setData('dateSubmitted', Core::getCurrentDate(strtotime($dateSubmitted)));
+        } else {
+            $submission->setData('dateSubmitted', Core::getCurrentDate());
+        }
 
-		return $submission;
-	}
+        return $submission;
+    }
 
-	/**
-	 * Handle an element whose parent is the submission element.
-	 * @param $n DOMElement
-	 * @param $submission Submission
-	 */
-	function handleChildElement($n, $submission) {
-		switch ($n->tagName) {
-			case 'id':
-				$this->parseIdentifier($n, $submission);
-				break;
-			case 'submission_file':
-				$this->parseSubmissionFile($n, $submission);
-				break;
-			case 'publication':
-				$this->parsePublication($n, $submission);
-				break;
-			default:
-				$deployment = $this->getDeployment();
-				$deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));
-		}
-	}
+    /**
+     * Handle an element whose parent is the submission element.
+     *
+     * @param $n DOMElement
+     * @param $submission Submission
+     */
+    public function handleChildElement($n, $submission)
+    {
+        switch ($n->tagName) {
+            case 'id':
+                $this->parseIdentifier($n, $submission);
+                break;
+            case 'submission_file':
+                $this->parseSubmissionFile($n, $submission);
+                break;
+            case 'publication':
+                $this->parsePublication($n, $submission);
+                break;
+            default:
+                $deployment = $this->getDeployment();
+                $deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
+        }
+    }
 
-	//
-	// Element parsing
-	//
-	/**
-	 * Parse an identifier node and set up the submission object accordingly
-	 * @param $element DOMElement
-	 * @param $submission Submission
-	 */
-	function parseIdentifier($element, $submission) {
-		$deployment = $this->getDeployment();
-		$advice = $element->getAttribute('advice');
-		switch ($element->getAttribute('type')) {
-			case 'internal':
-				// "update" advice not supported yet.
-				assert(!$advice || $advice == 'ignore');
-				break;
-		}
-	}
+    //
+    // Element parsing
+    //
+    /**
+     * Parse an identifier node and set up the submission object accordingly
+     *
+     * @param $element DOMElement
+     * @param $submission Submission
+     */
+    public function parseIdentifier($element, $submission)
+    {
+        $deployment = $this->getDeployment();
+        $advice = $element->getAttribute('advice');
+        switch ($element->getAttribute('type')) {
+            case 'internal':
+                // "update" advice not supported yet.
+                assert(!$advice || $advice == 'ignore');
+                break;
+        }
+    }
 
-	/**
-	 * Parse a submission file and add it to the submission.
-	 * @param $n DOMElement
-	 * @param $submission Submission
-	 */
-	function parseSubmissionFile($n, $submission) {
-		$importFilter = $this->getImportFilter($n->tagName);
-		assert(isset($importFilter)); // There should be a filter
+    /**
+     * Parse a submission file and add it to the submission.
+     *
+     * @param $n DOMElement
+     * @param $submission Submission
+     */
+    public function parseSubmissionFile($n, $submission)
+    {
+        $importFilter = $this->getImportFilter($n->tagName);
+        assert(isset($importFilter)); // There should be a filter
 
-		$submissionFileDoc = new DOMDocument();
-		$submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
-		return $importFilter->execute($submissionFileDoc);
-	}
+        $submissionFileDoc = new DOMDocument();
+        $submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
+        return $importFilter->execute($submissionFileDoc);
+    }
 
-	/**
-	 * @see Filter::process()
-	 * @param $document DOMDocument|string
-	 * @return array Array of imported documents
-	 */
-	function &process(&$document) {
-		$importedObjects =& parent::process($document);
+    /**
+     * @see Filter::process()
+     *
+     * @param $document DOMDocument|string
+     *
+     * @return array Array of imported documents
+     */
+    public function &process(&$document)
+    {
+        $importedObjects = & parent::process($document);
 
-		// Index imported content
-		$submissionSearchIndex = Application::getSubmissionSearchIndex();
-		foreach ($importedObjects as $submission) {
-			assert(is_a($submission, 'Submission'));
-			$submissionSearchIndex->submissionMetadataChanged($submission);
-			$submissionSearchIndex->submissionFilesChanged($submission);
-		}
+        // Index imported content
+        $submissionSearchIndex = Application::getSubmissionSearchIndex();
+        foreach ($importedObjects as $submission) {
+            assert(is_a($submission, 'Submission'));
+            $submissionSearchIndex->submissionMetadataChanged($submission);
+            $submissionSearchIndex->submissionFilesChanged($submission);
+        }
 
-		$submissionSearchIndex->submissionChangesFinished();
+        $submissionSearchIndex->submissionChangesFinished();
 
-		return $importedObjects;
-	}
+        return $importedObjects;
+    }
 
-	/**
-	 * Parse a submission publication and add it to the submission.
-	 * @param $n DOMElement
-	 * @param $submission Submission
-	 */
-	function parsePublication($n, $submission) {
-		$importFilter = $this->getImportFilter($n->tagName);
-		assert(isset($importFilter)); // There should be a filter
+    /**
+     * Parse a submission publication and add it to the submission.
+     *
+     * @param $n DOMElement
+     * @param $submission Submission
+     */
+    public function parsePublication($n, $submission)
+    {
+        $importFilter = $this->getImportFilter($n->tagName);
+        assert(isset($importFilter)); // There should be a filter
 
-		$submissionFileDoc = new DOMDocument();
-		$submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
-		return $importFilter->execute($submissionFileDoc);
-	}
+        $submissionFileDoc = new DOMDocument();
+        $submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
+        return $importFilter->execute($submissionFileDoc);
+    }
 
-	//
-	// Helper functions
-	//
+    //
+    // Helper functions
+    //
 
-	/**
-	 * Get the import filter for a given element.
-	 * @param $elementName string Name of XML element
-	 * @return Filter
-	 */
-	function getImportFilter($elementName) {
-		assert(false); // Subclasses should override
-	}
+    /**
+     * Get the import filter for a given element.
+     *
+     * @param $elementName string Name of XML element
+     *
+     * @return Filter
+     */
+    public function getImportFilter($elementName)
+    {
+        assert(false); // Subclasses should override
+    }
 }
-
-

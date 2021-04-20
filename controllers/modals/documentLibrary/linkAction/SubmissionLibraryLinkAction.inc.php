@@ -15,34 +15,37 @@
 
 import('lib.pkp.classes.linkAction.LinkAction');
 
-class SubmissionLibraryLinkAction extends LinkAction {
-
-	/**
-	 * Constructor
-	 * @param $request Request
-	 * @param $submissionId int the ID of the submission to present link for
-	 * to show information about.
-	 */
-	function __construct($request, $submissionId) {
-		$dispatcher = $request->getDispatcher();
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		parent::__construct(
-			'editorialHistory',
-			new AjaxModal(
-				$dispatcher->url(
-					$request, PKPApplication::ROUTE_COMPONENT, null,
-					'modals.documentLibrary.DocumentLibraryHandler',
-					'documentLibrary',
-					null,
-					array('submissionId' => $submissionId)
-				),
-				__('editor.submissionLibrary'),
-				'modal_information'
-			),
-			__('editor.submissionLibrary'), 'more_info'
-		);
-	}
+class SubmissionLibraryLinkAction extends LinkAction
+{
+    /**
+     * Constructor
+     *
+     * @param $request Request
+     * @param $submissionId int the ID of the submission to present link for
+     * to show information about.
+     */
+    public function __construct($request, $submissionId)
+    {
+        $dispatcher = $request->getDispatcher();
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
+        import('lib.pkp.classes.linkAction.request.AjaxModal');
+        parent::__construct(
+            'editorialHistory',
+            new AjaxModal(
+                $dispatcher->url(
+                    $request,
+                    PKPApplication::ROUTE_COMPONENT,
+                    null,
+                    'modals.documentLibrary.DocumentLibraryHandler',
+                    'documentLibrary',
+                    null,
+                    ['submissionId' => $submissionId]
+                ),
+                __('editor.submissionLibrary'),
+                'modal_information'
+            ),
+            __('editor.submissionLibrary'),
+            'more_info'
+        );
+    }
 }
-
-

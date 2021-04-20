@@ -16,18 +16,19 @@
 
 import('lib.pkp.classes.security.authorization.PolicySet');
 
-class ContextPolicy extends PolicySet {
-	/**
-	 * Constructor
-	 * @param $request PKPRequest
-	 */
-	function __construct($request) {
-		parent::__construct();
+class ContextPolicy extends PolicySet
+{
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     */
+    public function __construct($request)
+    {
+        parent::__construct();
 
-		// Ensure we're in a context
-		import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
-		$this->addPolicy(new ContextRequiredPolicy($request, 'user.authorization.noContext'));
-	}
+        // Ensure we're in a context
+        import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
+        $this->addPolicy(new ContextRequiredPolicy($request, 'user.authorization.noContext'));
+    }
 }
-
-

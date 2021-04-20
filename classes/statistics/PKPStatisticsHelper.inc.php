@@ -58,294 +58,325 @@ define('STATISTICS_CURRENT_MONTH', 'currentMonth');
 // Set the earliest date used
 define('STATISTICS_EARLIEST_DATE', '20010101');
 
-abstract class PKPStatisticsHelper {
+abstract class PKPStatisticsHelper
+{
+    public function __construct()
+    {
+    }
 
-	function __construct() {
-	}
+    /**
+    * Check whether the filter filters on a context
+    * and if so: retrieve it.
+    *
+    * NB: We do not check filters below the context level as this would
+    * be unnecessarily complex. We'd have to check whether the given
+    * publication objects are actually from the same context. This again
+    * would require us to retrieve all context objects for the filtered
+    * objects, etc.
+    *
+    * @param $filter array
+    *
+    * @return null|Context
+    */
+    public function &getContext($filter)
+    {
+        // Check whether the report is on context level.
+        $context = null;
+        if (isset($filter[STATISTICS_DIMENSION_CONTEXT_ID])) {
+            $contextFilter = $filter[STATISTICS_DIMENSION_CONTEXT_ID];
+            if (is_scalar($contextFilter)) {
+                // Retrieve the context object.
+                $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
+                $context = $contextDao->getById($contextFilter);
+            }
+        }
+        return $context;
+    }
 
-	/**
-	* Check whether the filter filters on a context
-	* and if so: retrieve it.
-	*
-	* NB: We do not check filters below the context level as this would
-	* be unnecessarily complex. We'd have to check whether the given
-	* publication objects are actually from the same context. This again
-	* would require us to retrieve all context objects for the filtered
-	* objects, etc.
-	*
-	* @param $filter array
-	* @return null|Context
-	*/
-	function &getContext($filter) {
-		// Check whether the report is on context level.
-		$context = null;
-		if (isset($filter[STATISTICS_DIMENSION_CONTEXT_ID])) {
-			$contextFilter = $filter[STATISTICS_DIMENSION_CONTEXT_ID];
-			if (is_scalar($contextFilter)) {
-				// Retrieve the context object.
-				$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
-				$context = $contextDao->getById($contextFilter);
-			}
-		}
-		return $context;
-	}
+    /**
+    * Identify and canonicalize the filtered metric type.
+    *
+    * @param $metricType string|array A wildcard can be used to
+    * identify all metric types.
+    * @param $context null|Context
+    * @param $defaultSiteMetricType string
+    * @param $siteMetricTypes array
+    *
+    * @return null|array The canonicalized metric type array. Null if an error
+    *  occurred.
+    */
+    public function canonicalizeMetricTypes($metricType, $context, $defaultSiteMetricType, $siteMetricTypes)
+    {
+        // Metric type is null: Return the default metric for
+        // the filtered context.
+        if (is_null($metricType)) {
+            if (is_a($context, 'Context')) {
+                $metricType = $context->getDefaultMetricType();
+            } else {
+                $metricType = $defaultSiteMetricType;
+            }
+        }
 
-	/**
-	* Identify and canonicalize the filtered metric type.
-	* @param $metricType string|array A wildcard can be used to
-	* identify all metric types.
-	* @param $context null|Context
-	* @param $defaultSiteMetricType string
-	* @param $siteMetricTypes array
-	* @return null|array The canonicalized metric type array. Null if an error
-	*  occurred.
-	*/
-	function canonicalizeMetricTypes($metricType, $context, $defaultSiteMetricType, $siteMetricTypes) {
-		// Metric type is null: Return the default metric for
-		// the filtered context.
-		if (is_null($metricType)) {
-			if (is_a($context, 'Context')) {
-				$metricType = $context->getDefaultMetricType();
-			} else {
-				$metricType = $defaultSiteMetricType;
-			}
-		}
+        // Canonicalize the metric type to an array of metric types.
+        if (!is_null($metricType)) {
+            if (is_scalar($metricType) && $metricType !== '*') {
+                // Metric type is a scalar value: Select a single metric.
+                $metricType = [$metricType];
+            } elseif ($metricType === '*') {
+                // Metric type is '*': Select all available metrics.
+                if (is_a($context, 'Context')) {
+                    $metricType = $context->getMetricTypes();
+                } else {
+                    $metricType = $siteMetricTypes;
+                }
+            } else {
+                // Only arrays are otherwise supported as metric type
+                // specification.
+                if (!is_array($metricType)) {
+                    $metricType = null;
+                }
 
-		// Canonicalize the metric type to an array of metric types.
-		if (!is_null($metricType)) {
-			if (is_scalar($metricType) && $metricType !== '*') {
-				// Metric type is a scalar value: Select a single metric.
-				$metricType = array($metricType);
+                // Metric type is an array: Select multiple metrics. This is the
+                // canonical format so no change is required.
+            }
+        }
 
-			} elseif ($metricType === '*') {
-				// Metric type is '*': Select all available metrics.
-				if (is_a($context, 'Context')) {
-					$metricType = $context->getMetricTypes();
-				} else {
-					$metricType = $siteMetricTypes;
-				}
+        return $metricType;
+    }
 
-			} else {
-				// Only arrays are otherwise supported as metric type
-				// specification.
-				if (!is_array($metricType)) $metricType = null;
+    /**
+     * Get the report plugin that implements
+     * the passed metric type.
+     *
+     * @param $metricType string
+     *
+     * @return mixed ReportPlugin or null
+     */
+    public function &getReportPluginByMetricType($metricType)
+    {
+        $returner = null;
 
-				// Metric type is an array: Select multiple metrics. This is the
-				// canonical format so no change is required.
-			}
-		}
+        // Retrieve site-level report plugins.
+        $reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
+        if (empty($reportPlugins) || empty($metricType)) {
+            return $returner;
+        }
 
-		return $metricType;
-	}
+        if (is_scalar($metricType)) {
+            $metricType = [$metricType];
+        }
 
-	/**
-	 * Get the report plugin that implements
-	 * the passed metric type.
-	 * @param $metricType string
-	 * @return mixed ReportPlugin or null
-	 */
-	function &getReportPluginByMetricType($metricType) {
-		$returner = null;
+        foreach ($reportPlugins as $reportPlugin) {
+            /** @var ReportPlugin $reportPlugin */
+            $pluginMetricTypes = $reportPlugin->getMetricTypes();
+            $metricTypeMatches = array_intersect($pluginMetricTypes, $metricType);
+            if (!empty($metricTypeMatches)) {
+                $returner = $reportPlugin;
+                break;
+            }
+        }
 
-		// Retrieve site-level report plugins.
-		$reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
-		if (empty($reportPlugins) || empty($metricType)) {
-			return $returner;
-		}
+        return $returner;
+    }
 
-		if (is_scalar($metricType)) {
-			$metricType = array($metricType);
-		}
+    /**
+     * Get metric type display strings implemented by all
+     * available report plugins.
+     *
+     * @return array Metric type as index and the display string
+     * as values.
+     */
+    public function getAllMetricTypeStrings()
+    {
+        $allMetricTypes = [];
+        $reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
+        if (!empty($reportPlugins)) {
+            foreach ($reportPlugins as $reportPlugin) {
+                /** @var ReportPlugin $reportPlugin */
+                $reportMetricTypes = $reportPlugin->getMetricTypes();
+                foreach ($reportMetricTypes as $metricType) {
+                    $allMetricTypes[$metricType] = $reportPlugin->getMetricDisplayType($metricType);
+                }
+            }
+        }
 
-		foreach ($reportPlugins as $reportPlugin) {
-			/* @var $reportPlugin ReportPlugin */
-			$pluginMetricTypes = $reportPlugin->getMetricTypes();
-			$metricTypeMatches = array_intersect($pluginMetricTypes, $metricType);
-			if (!empty($metricTypeMatches)) {
-				$returner = $reportPlugin;
-				break;
-			}
-		}
+        return $allMetricTypes;
+    }
 
-		return $returner;
-	}
+    /**
+    * Get report column name.
+    *
+    * @param $column string (optional)
+    *
+    * @return array|string|null
+    */
+    public function getColumnNames($column = null)
+    {
+        $columns = $this->getReportColumnsArray();
 
-	/**
-	 * Get metric type display strings implemented by all
-	 * available report plugins.
-	 * @return array Metric type as index and the display string
-	 * as values.
-	 */
-	function getAllMetricTypeStrings() {
-		$allMetricTypes = array();
-		$reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
-		if (!empty($reportPlugins)) {
-			foreach ($reportPlugins as $reportPlugin) {
-				/* @var $reportPlugin ReportPlugin */
-				$reportMetricTypes = $reportPlugin->getMetricTypes();
-				foreach ($reportMetricTypes as $metricType) {
-					$allMetricTypes[$metricType] = $reportPlugin->getMetricDisplayType($metricType);
-				}
-			}
-		}
+        if ($column) {
+            if (isset($columns[$column])) {
+                return $columns[$column];
+            } else {
+                return null;
+            }
+        } else {
+            return $columns;
+        }
+    }
 
-		return $allMetricTypes;
-	}
+    /**
+    * Get object type string.
+    *
+    * @param $assocType mixed int or null (optional)
+    *
+    * @return mixed string or array
+    */
+    public function getObjectTypeString($assocType = null)
+    {
+        $objectTypes = $this->getReportObjectTypesArray();
 
-	/**
-	* Get report column name.
-	* @param $column string (optional)
-	* @return array|string|null
-	*/
-	function getColumnNames($column = null) {
-		$columns = $this->getReportColumnsArray();
+        if (is_null($assocType)) {
+            return $objectTypes;
+        } else {
+            if (isset($objectTypes[$assocType])) {
+                return $objectTypes[$assocType];
+            } else {
+                assert(false);
+            }
+        }
+    }
 
-		if ($column) {
-			if (isset($columns[$column])) {
-				return $columns[$column];
-			} else {
-				return null;
-			}
-		} else {
-			return $columns;
-		}
-	}
+    /**
+     * Get file type string.
+     *
+     * @param $fileType mixed int or null (optional)
+     *
+     * @return mixed string or array
+     */
+    public function getFileTypeString($fileType = null)
+    {
+        $fileTypeArray = $this->getFileTypesArray();
 
-	/**
-	* Get object type string.
-	* @param $assocType mixed int or null (optional)
-	* @return mixed string or array
-	*/
-	function getObjectTypeString($assocType = null) {
-		$objectTypes = $this->getReportObjectTypesArray();
+        if (is_null($fileType)) {
+            return $fileTypeArray;
+        } else {
+            if (isset($fileTypeArray[$fileType])) {
+                return $fileTypeArray[$fileType];
+            } else {
+                assert(false);
+            }
+        }
+    }
 
-		if (is_null($assocType)) {
-			return $objectTypes;
-		} else {
-			if (isset($objectTypes[$assocType])) {
-				return $objectTypes[$assocType];
-			} else {
-				assert(false);
-			}
-		}
-	}
+    /**
+     * Get an url that requests a statiscs report,
+     * using the passed parameters as request arguments.
+     *
+     * @param $request PKPRequest
+     * @param $metricType string Report metric type.
+     * @param $columns array Report columns
+     * @param $filter array Report filters.
+     * @param $orderBy array (optional) Report order by values.
+     *
+     * @return string
+     */
+    public function getReportUrl($request, $metricType, $columns, $filter, $orderBy = [])
+    {
+        $dispatcher = $request->getDispatcher(); /** @var Dispatcher $dispatcher */
+        $args = [
+            'metricType' => $metricType,
+            'columns' => $columns,
+            'filters' => json_encode($filter)
+        ];
 
-	/**
-	 * Get file type string.
-	 * @param $fileType mixed int or null (optional)
-	 * @return mixed string or array
-	 */
-	function getFileTypeString($fileType = null) {
-		$fileTypeArray = $this->getFileTypesArray();
+        if (!empty($orderBy)) {
+            $args['orderBy'] = json_encode($orderBy);
+        }
 
-		if (is_null($fileType)) {
-			return $fileTypeArray;
-		} else {
-			if (isset($fileTypeArray[$fileType])) {
-				return $fileTypeArray[$fileType];
-			} else {
-				assert(false);
-			}
-		}
-	}
-
-	/**
-	 * Get an url that requests a statiscs report,
-	 * using the passed parameters as request arguments.
-	 * @param $request PKPRequest
-	 * @param $metricType string Report metric type.
-	 * @param $columns array Report columns
-	 * @param $filter array Report filters.
-	 * @param $orderBy array (optional) Report order by values.
-	 * @return string
-	 */
-	function getReportUrl($request, $metricType, $columns, $filter, $orderBy = array()) {
-		$dispatcher = $request->getDispatcher(); /* @var $dispatcher Dispatcher */
-		$args = array(
-			'metricType' => $metricType,
-			'columns' => $columns,
-			'filters' => json_encode($filter)
-		);
-
-		if (!empty($orderBy)) {
-			$args['orderBy'] = json_encode($orderBy);
-		}
-
-		return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'stats', 'reports', 'generateReport', $args);
-	}
+        return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'stats', 'reports', 'generateReport', $args);
+    }
 
 
-	/**
-	* Get the geo location tool.
-	* @return mixed GeoLocationTool object or null
-	*/
-	function &getGeoLocationTool() {
-		$geoLocationTool = null;
-		$plugin = PluginRegistry::getPlugin('generic', 'usagestatsplugin'); /* @var $plugin UsageStatsPlugin */
-		if (is_a($plugin, 'UsageStatsPlugin')) {
-			$geoLocationTool = $plugin->getGeoLocationTool();
-		}
-		return $geoLocationTool;
-	}
+    /**
+    * Get the geo location tool.
+    *
+    * @return mixed GeoLocationTool object or null
+    */
+    public function &getGeoLocationTool()
+    {
+        $geoLocationTool = null;
+        $plugin = PluginRegistry::getPlugin('generic', 'usagestatsplugin'); /** @var UsageStatsPlugin $plugin */
+        if (is_a($plugin, 'UsageStatsPlugin')) {
+            $geoLocationTool = $plugin->getGeoLocationTool();
+        }
+        return $geoLocationTool;
+    }
 
 
-	//
-	// Protected methods.
-	//
-	/**
-	 * Get all statistics report columns, with their respective
-	 * names as array values.
-	 * @return array
-	 */
-	protected function getReportColumnsArray() {
-		return array(
-			STATISTICS_DIMENSION_ASSOC_ID => __('common.id'),
-			STATISTICS_DIMENSION_ASSOC_TYPE => __('common.type'),
-			STATISTICS_DIMENSION_FILE_TYPE => __('common.fileType'),
-			STATISTICS_DIMENSION_SUBMISSION_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_SUBMISSION_ID),
-			STATISTICS_DIMENSION_CONTEXT_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_CONTEXT_ID),
-			STATISTICS_DIMENSION_PKP_SECTION_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_PKP_SECTION_ID),
-			STATISTICS_DIMENSION_CITY => __('manager.statistics.city'),
-			STATISTICS_DIMENSION_REGION => __('manager.statistics.region'),
-			STATISTICS_DIMENSION_COUNTRY => __('common.country'),
-			STATISTICS_DIMENSION_DAY => __('common.day'),
-			STATISTICS_DIMENSION_MONTH => __('common.month'),
-			STATISTICS_DIMENSION_METRIC_TYPE => __('common.metric'),
-			STATISTICS_METRIC => __('common.count')
-		);
-	}
+    //
+    // Protected methods.
+    //
+    /**
+     * Get all statistics report columns, with their respective
+     * names as array values.
+     *
+     * @return array
+     */
+    protected function getReportColumnsArray()
+    {
+        return [
+            STATISTICS_DIMENSION_ASSOC_ID => __('common.id'),
+            STATISTICS_DIMENSION_ASSOC_TYPE => __('common.type'),
+            STATISTICS_DIMENSION_FILE_TYPE => __('common.fileType'),
+            STATISTICS_DIMENSION_SUBMISSION_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_SUBMISSION_ID),
+            STATISTICS_DIMENSION_CONTEXT_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_CONTEXT_ID),
+            STATISTICS_DIMENSION_PKP_SECTION_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_PKP_SECTION_ID),
+            STATISTICS_DIMENSION_CITY => __('manager.statistics.city'),
+            STATISTICS_DIMENSION_REGION => __('manager.statistics.region'),
+            STATISTICS_DIMENSION_COUNTRY => __('common.country'),
+            STATISTICS_DIMENSION_DAY => __('common.day'),
+            STATISTICS_DIMENSION_MONTH => __('common.month'),
+            STATISTICS_DIMENSION_METRIC_TYPE => __('common.metric'),
+            STATISTICS_METRIC => __('common.count')
+        ];
+    }
 
-	/**
-	 * Get all statistics report public objects, with their
-	 * respective names as array values.
-	 * @return array
-	 */
-	protected function getReportObjectTypesArray() {
-		return array(
-			ASSOC_TYPE_SUBMISSION_FILE => __('submission.submit.submissionFiles')
-		);
-	}
+    /**
+     * Get all statistics report public objects, with their
+     * respective names as array values.
+     *
+     * @return array
+     */
+    protected function getReportObjectTypesArray()
+    {
+        return [
+            ASSOC_TYPE_SUBMISSION_FILE => __('submission.submit.submissionFiles')
+        ];
+    }
 
-	/**
-	 * Get all file types that have statistics, with
-	 * their respective names as array values.
-	 * @return array
-	 */
-	public function getFileTypesArray() {
-		return array(
-			STATISTICS_FILE_TYPE_PDF => 'PDF',
-			STATISTICS_FILE_TYPE_HTML => 'HTML',
-			STATISTICS_FILE_TYPE_OTHER => __('common.other'),
-			STATISTICS_FILE_TYPE_DOC => 'DOC',
-		);
-	}
+    /**
+     * Get all file types that have statistics, with
+     * their respective names as array values.
+     *
+     * @return array
+     */
+    public function getFileTypesArray()
+    {
+        return [
+            STATISTICS_FILE_TYPE_PDF => 'PDF',
+            STATISTICS_FILE_TYPE_HTML => 'HTML',
+            STATISTICS_FILE_TYPE_OTHER => __('common.other'),
+            STATISTICS_FILE_TYPE_DOC => 'DOC',
+        ];
+    }
 
-	/**
-	 * Get an application specific column name.
-	 * @param $column string One of the statistics column constant.
-	 * @return string A localized text.
-	 */
-	abstract protected function getAppColumnTitle($column);
+    /**
+     * Get an application specific column name.
+     *
+     * @param $column string One of the statistics column constant.
+     *
+     * @return string A localized text.
+     */
+    abstract protected function getAppColumnTitle($column);
 }
-
-

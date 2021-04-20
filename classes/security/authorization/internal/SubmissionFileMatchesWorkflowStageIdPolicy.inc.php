@@ -14,39 +14,47 @@
 
 import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
 
-class SubmissionFileMatchesWorkflowStageIdPolicy extends SubmissionFileBaseAccessPolicy {
-	/** @var int|null Workflow stage ID (WORKFLOW_STAGE_ID_...) */
-	protected $_stageId = null;
+class SubmissionFileMatchesWorkflowStageIdPolicy extends SubmissionFileBaseAccessPolicy
+{
+    /** @var int|null Workflow stage ID (WORKFLOW_STAGE_ID_...) */
+    protected $_stageId = null;
 
-	/**
-	 * Constructor
-	 * @param $request PKPRequest
-	 * @param $stageId int Workflow stage ID (WORKFLOW_STAGE_ID_...)
-	 */
-	function __construct($request, $submissionFileId = null, $stageId = null) {
-		parent::__construct($request, $submissionFileId);
-		$this->_stageId = (int) $stageId;
-	}
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     * @param $stageId int Workflow stage ID (WORKFLOW_STAGE_ID_...)
+     * @param null|mixed $submissionFileId
+     */
+    public function __construct($request, $submissionFileId = null, $stageId = null)
+    {
+        parent::__construct($request, $submissionFileId);
+        $this->_stageId = (int) $stageId;
+    }
 
 
-	//
-	// Implement template methods from AuthorizationPolicy
-	//
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		// Get the submission file
-		$request = $this->getRequest();
-		$submissionFile = $this->getSubmissionFile($request);
-		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
+    //
+    // Implement template methods from AuthorizationPolicy
+    //
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        // Get the submission file
+        $request = $this->getRequest();
+        $submissionFile = $this->getSubmissionFile($request);
+        if (!is_a($submissionFile, 'SubmissionFile')) {
+            return AUTHORIZATION_DENY;
+        }
 
-		$workflowStageId = Services::get('submissionFile')->getWorkflowStageId($submissionFile);
+        $workflowStageId = Services::get('submissionFile')->getWorkflowStageId($submissionFile);
 
-		// Check if the submission file belongs to the specified workflow stage.
-		if ($workflowStageId != $this->_stageId) return AUTHORIZATION_DENY;
+        // Check if the submission file belongs to the specified workflow stage.
+        if ($workflowStageId != $this->_stageId) {
+            return AUTHORIZATION_DENY;
+        }
 
-		return AUTHORIZATION_PERMIT;
-	}
+        return AUTHORIZATION_PERMIT;
+    }
 }
-

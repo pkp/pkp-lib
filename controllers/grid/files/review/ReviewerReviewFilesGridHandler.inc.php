@@ -15,26 +15,26 @@
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
-class ReviewerReviewFilesGridHandler extends FileListGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		// Pass in null stageId to be set in initialize from request var.
-		import('lib.pkp.controllers.grid.files.review.ReviewerReviewFilesGridDataProvider');
-		parent::__construct(
-			new ReviewerReviewFilesGridDataProvider(),
-			null
-		);
+class ReviewerReviewFilesGridHandler extends FileListGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        // Pass in null stageId to be set in initialize from request var.
+        import('lib.pkp.controllers.grid.files.review.ReviewerReviewFilesGridDataProvider');
+        parent::__construct(
+            new ReviewerReviewFilesGridDataProvider(),
+            null
+        );
 
-		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER),
-			array('fetchGrid', 'fetchRow')
-		);
+        $this->addRoleAssignment(
+            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER],
+            ['fetchGrid', 'fetchRow']
+        );
 
-		// Set the grid title.
-		$this->setTitle('reviewer.submission.reviewFiles');
-	}
+        // Set the grid title.
+        $this->setTitle('reviewer.submission.reviewFiles');
+    }
 }
-
-

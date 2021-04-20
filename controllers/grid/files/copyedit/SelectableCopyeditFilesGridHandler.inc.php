@@ -15,37 +15,38 @@
 
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
 
-class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
-		// Pass in null stageId to be set in initialize from request var.
-		parent::__construct(
-			new SubmissionFilesGridDataProvider(SUBMISSION_FILE_COPYEDIT),
-			null,
-			FILE_GRID_VIEW_NOTES
-		);
+class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
+        // Pass in null stageId to be set in initialize from request var.
+        parent::__construct(
+            new SubmissionFilesGridDataProvider(SUBMISSION_FILE_COPYEDIT),
+            null,
+            FILE_GRID_VIEW_NOTES
+        );
 
-		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
-			array('fetchGrid', 'fetchRow')
-		);
+        $this->addRoleAssignment(
+            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+            ['fetchGrid', 'fetchRow']
+        );
 
-		// Set the grid title.
-		$this->setTitle('submission.copyedited');
-	}
+        // Set the grid title.
+        $this->setTitle('submission.copyedited');
+    }
 
-	//
-	// Implemented methods from GridHandler.
-	//
-	/**
-	 * @copydoc GridHandler::isDataElementSelected()
-	 */
-	function isDataElementSelected($gridDataElement) {
-		return true;
-	}
+    //
+    // Implemented methods from GridHandler.
+    //
+    /**
+     * @copydoc GridHandler::isDataElementSelected()
+     */
+    public function isDataElementSelected($gridDataElement)
+    {
+        return true;
+    }
 }
-
-

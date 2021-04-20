@@ -15,47 +15,51 @@
 
 import('lib.pkp.classes.submission.reviewer.form.ReviewerReviewForm');
 
-class PKPReviewerReviewStep2Form extends ReviewerReviewForm {
-	/**
-	 * Constructor.
-	 * @param $reviewerSubmission ReviewerSubmission
-	 */
-	function __construct($request, $reviewerSubmission, $reviewAssignment) {
-		parent::__construct($request, $reviewerSubmission, $reviewAssignment, 2);
-	}
+class PKPReviewerReviewStep2Form extends ReviewerReviewForm
+{
+    /**
+     * Constructor.
+     *
+     * @param $reviewerSubmission ReviewerSubmission
+     */
+    public function __construct($request, $reviewerSubmission, $reviewAssignment)
+    {
+        parent::__construct($request, $reviewerSubmission, $reviewAssignment, 2);
+    }
 
 
-	//
-	// Implement protected template methods from Form
-	//
-	/**
-	 * @copydoc ReviewerReviewForm::fetch()
-	 */
-	function fetch($request, $template = null, $display = false) {
-		$templateMgr = TemplateManager::getManager($request);
-		$context = $this->request->getContext();
+    //
+    // Implement protected template methods from Form
+    //
+    /**
+     * @copydoc ReviewerReviewForm::fetch()
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $context = $this->request->getContext();
 
-		$reviewAssignment = $this->getReviewAssignment();
-		$reviewerGuidelines = $context->getLocalizedData($reviewAssignment->getStageId()==WORKFLOW_STAGE_ID_INTERNAL_REVIEW?'internalReviewGuidelines':'reviewGuidelines');
-		if (empty($reviewerGuidelines)) {
-			$reviewerGuidelines = __('reviewer.submission.noGuidelines');
-		}
-		$templateMgr->assign('reviewerGuidelines', $reviewerGuidelines);
+        $reviewAssignment = $this->getReviewAssignment();
+        $reviewerGuidelines = $context->getLocalizedData($reviewAssignment->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? 'internalReviewGuidelines' : 'reviewGuidelines');
+        if (empty($reviewerGuidelines)) {
+            $reviewerGuidelines = __('reviewer.submission.noGuidelines');
+        }
+        $templateMgr->assign('reviewerGuidelines', $reviewerGuidelines);
 
-		return parent::fetch($request, $template, $display);
-	}
+        return parent::fetch($request, $template, $display);
+    }
 
 
-	/**
-	 * @see Form::execute()
-	 */
-	function execute(...$functionParams) {
-		// Set review to next step.
-		$this->updateReviewStepAndSaveSubmission($this->getReviewerSubmission());
+    /**
+     * @see Form::execute()
+     */
+    public function execute(...$functionParams)
+    {
+        // Set review to next step.
+        $this->updateReviewStepAndSaveSubmission($this->getReviewerSubmission());
 
-		parent::execute(...$functionParams);
-	}
-
+        parent::execute(...$functionParams);
+    }
 }
-
-

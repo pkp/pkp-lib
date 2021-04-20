@@ -15,128 +15,149 @@
 
 namespace APP\i18n;
 
-use \PKP\i18n\PKPLocale;
+use PKP\i18n\PKPLocale;
 
 define('LOCALE_ENCODING', 'utf-8');
 
-class AppLocale extends PKPLocale {
-	public const LOCALE_REGISTRY_FILE =  'lib/pkp/tests/registry/locales.xml';
+class AppLocale extends PKPLocale
+{
+    public const LOCALE_REGISTRY_FILE = 'lib/pkp/tests/registry/locales.xml';
 
-	static
-		$primaryLocale = 'en_US',
-		$supportedLocales = array('en_US' => 'English/America'),
-		$translations = array();
+    public static $primaryLocale = 'en_US';
+    public static $supportedLocales = ['en_US' => 'English/America'];
+    public static $translations = [];
 
-	/*
-	 * method required during setup of
-	 * the PKP application framework
-	 */
-	static function initialize($request) {
-		// do nothing
-	}
+    /*
+     * method required during setup of
+     * the PKP application framework
+     */
+    public static function initialize($request)
+    {
+        // do nothing
+    }
 
-	/*
-	 * method required during setup of
-	 * the PKP application framework
-	 * @return string test locale
-	 */
-	static function getLocale() {
-		return 'en_US';
-	}
+    /*
+     * method required during setup of
+     * the PKP application framework
+     * @return string test locale
+     */
+    public static function getLocale()
+    {
+        return 'en_US';
+    }
 
-	/*
-	 * method required during setup of
-	 * the PKP application framework
-	 */
-	static function registerLocaleFile($locale, $filename, $addToTop = false) {
-		// do nothing
-	}
+    /*
+     * method required during setup of
+     * the PKP application framework
+     */
+    public static function registerLocaleFile($locale, $filename, $addToTop = false)
+    {
+        // do nothing
+    }
 
-	/**
-	 * method required during setup of
-	 * the PKP templating engine and application framework
-	 */
-	static function requireComponents() {
-		// do nothing
-	}
+    /**
+     * method required during setup of
+     * the PKP templating engine and application framework
+     */
+    public static function requireComponents()
+    {
+        // do nothing
+    }
 
-	/**
-	 * Mocked method
-	 * @return array a test array of locales
-	 */
-	static function getLocalePrecedence() {
-		return array('en_US', 'fr_FR');
-	}
+    /**
+     * Mocked method
+     *
+     * @return array a test array of locales
+     */
+    public static function getLocalePrecedence()
+    {
+        return ['en_US', 'fr_FR'];
+    }
 
-	/**
-	 * Mocked method
-	 * @param $key string
-	 * @param $params array named substitution parameters
-	 * @param $locale string the locale to use
-	 * @return string
-	 */
-	static function translate($key, $params = array(), $locale = null, $missingKeyHandler = array()) {
-		if (isset(self::$translations[$key])) {
-			return self::$translations[$key];
-		}
-		return "##$key##";
-	}
+    /**
+     * Mocked method
+     *
+     * @param $key string
+     * @param $params array named substitution parameters
+     * @param $locale string the locale to use
+     *
+     * @return string
+     */
+    public static function translate($key, $params = [], $locale = null, $missingKeyHandler = [])
+    {
+        if (isset(self::$translations[$key])) {
+            return self::$translations[$key];
+        }
+        return "##${key}##";
+    }
 
-	/**
-	 * Setter to configure a custom
-	 * primary locale for testing.
-	 * @param $primaryLocale string
-	 */
-	static function setPrimaryLocale($primaryLocale) {
-		self::$primaryLocale = $primaryLocale;
-	}
+    /**
+     * Setter to configure a custom
+     * primary locale for testing.
+     *
+     * @param $primaryLocale string
+     */
+    public static function setPrimaryLocale($primaryLocale)
+    {
+        self::$primaryLocale = $primaryLocale;
+    }
 
-	/**
-	 * Mocked method
-	 * @return string
-	 */
-	static function getPrimaryLocale() {
-		return self::$primaryLocale;
-	}
+    /**
+     * Mocked method
+     *
+     * @return string
+     */
+    public static function getPrimaryLocale()
+    {
+        return self::$primaryLocale;
+    }
 
-	/**
-	 * Setter to configure a custom
-	 * primary locale for testing.
-	 * @param $supportedLocales array
-	 *  example array(
-	 *   'en_US' => 'English',
-	 *   'de_DE' => 'German'
-	 *  )
-	 */
-	static function setSupportedLocales($supportedLocales) {
-		self::$supportedLocales = $supportedLocales;
-	}
+    /**
+     * Setter to configure a custom
+     * primary locale for testing.
+     *
+     * @param $supportedLocales array
+     *  example array(
+     *   'en_US' => 'English',
+     *   'de_DE' => 'German'
+     *  )
+     */
+    public static function setSupportedLocales($supportedLocales)
+    {
+        self::$supportedLocales = $supportedLocales;
+    }
 
-	/**
-	 * Mocked method
-	 * @return array
-	 */
-	static function getSupportedLocales() {
-		return self::$supportedLocales;
-	}
+    /**
+     * Mocked method
+     *
+     * @return array
+     */
+    public static function getSupportedLocales()
+    {
+        return self::$supportedLocales;
+    }
 
-	/**
-	 * Mocked method
-	 * @return array
-	 */
-	static function getSupportedFormLocales() {
-		return array('en_US');
-	}
+    /**
+     * Mocked method
+     *
+     * @return array
+     */
+    public static function getSupportedFormLocales()
+    {
+        return ['en_US'];
+    }
 
-	/**
-	 * Set translation keys to be faked.
-	 * @param $translations array
-	 */
-	static function setTranslations($translations) {
-		self::$translations = $translations;
-	}
+    /**
+     * Set translation keys to be faked.
+     *
+     * @param $translations array
+     */
+    public static function setTranslations($translations)
+    {
+        self::$translations = $translations;
+    }
 }
 
 if (!PKP_STRICT_MODE) {
-	class_alias('\APP\i18n\AppLocale', '\AppLocale');
+    class_alias('\APP\i18n\AppLocale', '\AppLocale');
 }

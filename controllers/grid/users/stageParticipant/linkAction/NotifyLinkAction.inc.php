@@ -14,41 +14,48 @@
 
 import('lib.pkp.classes.linkAction.LinkAction');
 
-class NotifyLinkAction extends LinkAction {
+class NotifyLinkAction extends LinkAction
+{
+    /**
+     * Constructor
+     *
+     * @param $request Request
+     * @param $submission Submission The submission
+     * @param $stageId int
+     * @param $userId optional
+     *  to show information about.
+     */
+    public function __construct($request, &$submission, $stageId, $userId = null)
+    {
+        AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
+        // Prepare request arguments
+        $requestArgs['submissionId'] = $submission->getId();
+        $requestArgs['stageId'] = $stageId;
+        if ($userId) {
+            $requestArgs['userId'] = $userId;
+        }
 
-	/**
-	 * Constructor
-	 * @param $request Request
-	 * @param $submission Submission The submission
-	 * @param $stageId int
-	 * @param $userId optional
-	 *  to show information about.
-	 */
-	function __construct($request, &$submission, $stageId, $userId = null) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
-		// Prepare request arguments
-		$requestArgs['submissionId'] = $submission->getId();
-		$requestArgs['stageId'] = $stageId;
-		if ($userId) $requestArgs['userId'] = $userId;
+        import('lib.pkp.classes.linkAction.request.AjaxModal');
+        $router = $request->getRouter();
+        $ajaxModal = new AjaxModal(
+            $router->url(
+                $request,
+                null,
+                'grid.users.stageParticipant.StageParticipantGridHandler',
+                'viewNotify',
+                null,
+                $requestArgs
+            ),
+            __('submission.stageParticipants.notify'),
+            'modal_email'
+        );
 
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		$router = $request->getRouter();
-		$ajaxModal = new AjaxModal(
-			$router->url(
-				$request, null,
-				'grid.users.stageParticipant.StageParticipantGridHandler', 'viewNotify',
-				null, $requestArgs
-			),
-			__('submission.stageParticipants.notify'),
-			'modal_email'
-		);
-
-		// Configure the file link action.
-		parent::__construct(
-			'notify', $ajaxModal,
-			__('submission.stageParticipants.notify'), 'notify'
-		);
-	}
+        // Configure the file link action.
+        parent::__construct(
+            'notify',
+            $ajaxModal,
+            __('submission.stageParticipants.notify'),
+            'notify'
+        );
+    }
 }
-
-

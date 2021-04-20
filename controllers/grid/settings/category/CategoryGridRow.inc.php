@@ -15,53 +15,55 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-class CategoryGridRow extends GridRow {
-	//
-	// Overridden methods from GridRow
-	//
-	/**
-	 * @copydoc GridRow::initialize()
-	 */
-	function initialize($request, $template = null) {
-		parent::initialize($request, $template);
+class CategoryGridRow extends GridRow
+{
+    //
+    // Overridden methods from GridRow
+    //
+    /**
+     * @copydoc GridRow::initialize()
+     *
+     * @param null|mixed $template
+     */
+    public function initialize($request, $template = null)
+    {
+        parent::initialize($request, $template);
 
-		$rowData = $this->getData(); // a Category object
-		assert($rowData != null);
+        $rowData = $this->getData(); // a Category object
+        assert($rowData != null);
 
-		$rowId = $this->getId();
+        $rowId = $this->getId();
 
-		// Only add row actions if this is an existing row.
-		if (!empty($rowId) && is_numeric($rowId)) {
-			$actionArgs = array_merge(
-				$this->getRequestArgs(),
-				array('categoryId' => $rowData->getId())
-			);
-			$router = $request->getRouter();
+        // Only add row actions if this is an existing row.
+        if (!empty($rowId) && is_numeric($rowId)) {
+            $actionArgs = array_merge(
+                $this->getRequestArgs(),
+                ['categoryId' => $rowData->getId()]
+            );
+            $router = $request->getRouter();
 
-			$this->addAction(new LinkAction(
-				'editCategory',
-				new AjaxModal(
-					$router->url($request, null, null, 'editCategory', null, $actionArgs),
-					__('grid.category.edit')
-				),
-				__('grid.action.edit'),
-				'edit'
-			));
+            $this->addAction(new LinkAction(
+                'editCategory',
+                new AjaxModal(
+                    $router->url($request, null, null, 'editCategory', null, $actionArgs),
+                    __('grid.category.edit')
+                ),
+                __('grid.action.edit'),
+                'edit'
+            ));
 
-			import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-			$this->addAction(new LinkAction(
-				'removeCategory',
-				new RemoteActionConfirmationModal(
-					$request->getSession(),
-					__('grid.category.removeText'),
-					null,
-					$router->url($request, null, null, 'deleteCategory', null, $actionArgs)
-				),
-				__('grid.action.remove'),
-				'delete'
-			));
-		}
-	}
+            import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+            $this->addAction(new LinkAction(
+                'removeCategory',
+                new RemoteActionConfirmationModal(
+                    $request->getSession(),
+                    __('grid.category.removeText'),
+                    null,
+                    $router->url($request, null, null, 'deleteCategory', null, $actionArgs)
+                ),
+                __('grid.action.remove'),
+                'delete'
+            ));
+        }
+    }
 }
-
-

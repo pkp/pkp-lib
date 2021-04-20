@@ -17,28 +17,30 @@
 import('lib.pkp.classes.filter.FilterSetting');
 import('lib.pkp.classes.form.validation.FormValidatorEmail');
 
-class EmailFilterSetting extends FilterSetting {
-	/**
-	 * Constructor
-	 *
-	 * @param $name string
-	 * @param $displayName string
-	 * @param $validationMessage string
-	 * @param $required boolean
-	 */
-	function __construct($name, $displayName, $validationMessage, $required = FORM_VALIDATOR_REQUIRED_VALUE) {
-		parent::__construct($name, $displayName, $validationMessage, $required);
-	}
+class EmailFilterSetting extends FilterSetting
+{
+    /**
+     * Constructor
+     *
+     * @param $name string
+     * @param $displayName string
+     * @param $validationMessage string
+     * @param $required boolean
+     */
+    public function __construct($name, $displayName, $validationMessage, $required = FORM_VALIDATOR_REQUIRED_VALUE)
+    {
+        parent::__construct($name, $displayName, $validationMessage, $required);
+    }
 
-	//
-	// Implement abstract template methods from FilterSetting
-	//
-	/**
-	 * @see FilterSetting::getCheck()
-	 */
-	function &getCheck(&$form) {
-		$check = new FormValidatorEmail($form, $this->getName(), $this->getRequired(), $this->getValidationMessage());
-		return $check;
-	}
+    //
+    // Implement abstract template methods from FilterSetting
+    //
+    /**
+     * @see FilterSetting::getCheck()
+     */
+    public function &getCheck(&$form)
+    {
+        $check = new FormValidatorEmail($form, $this->getName(), $this->getRequired(), $this->getValidationMessage());
+        return $check;
+    }
 }
-

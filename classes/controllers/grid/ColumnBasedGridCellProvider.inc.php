@@ -21,18 +21,17 @@
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
-class ColumnBasedGridCellProvider extends GridCellProvider {
-
-	//
-	// Implement protected template methods from GridCellProvider
-	//
-	/**
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
-	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
-		// Delegate to the column to provide template variables.
-		return $column->getTemplateVarsFromRow($row);
-	}
+class ColumnBasedGridCellProvider extends GridCellProvider
+{
+    //
+    // Implement protected template methods from GridCellProvider
+    //
+    /**
+     * @see GridCellProvider::getTemplateVarsFromRowColumn()
+     */
+    public function getTemplateVarsFromRowColumn($row, $column)
+    {
+        // Delegate to the column to provide template variables.
+        return $column->getTemplateVarsFromRow($row);
+    }
 }
-
-

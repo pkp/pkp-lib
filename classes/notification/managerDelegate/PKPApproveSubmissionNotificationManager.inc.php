@@ -15,91 +15,96 @@
 
 import('lib.pkp.classes.notification.NotificationManagerDelegate');
 
-class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegate {
+class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegate
+{
+    /**
+     * Constructor.
+     *
+     * @param $notificationType int NOTIFICATION_TYPE_...
+     */
+    public function __construct($notificationType)
+    {
+        parent::__construct($notificationType);
+    }
 
-	/**
-	 * Constructor.
-	 * @param $notificationType int NOTIFICATION_TYPE_...
-	 */
-	function __construct($notificationType) {
-		parent::__construct($notificationType);
-	}
+    /**
+     * @copydoc PKPNotificationOperationManager::getNotificationUrl()
+     */
+    public function getNotificationUrl($request, $notification)
+    {
+        $dispatcher = Application::get()->getDispatcher();
+        $context = $request->getContext();
+        return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
+    }
 
-	/**
-	 * @copydoc PKPNotificationOperationManager::getNotificationUrl()
-	 */
-	function getNotificationUrl($request, $notification) {
-		$dispatcher = Application::get()->getDispatcher();
-		$context = $request->getContext();
-		return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
-	}
+    /**
+     * @copydoc PKPNotificationOperationManager::getStyleClass()
+     */
+    public function getStyleClass($notification)
+    {
+        return NOTIFICATION_STYLE_CLASS_INFORMATION;
+    }
 
-	/**
-	 * @copydoc PKPNotificationOperationManager::getStyleClass()
-	 */
-	function getStyleClass($notification) {
-		return NOTIFICATION_STYLE_CLASS_INFORMATION;
-	}
+    /**
+     * @copydoc PKPNotificationOperationManager::isVisibleToAllUsers()
+     */
+    public function isVisibleToAllUsers($notificationType, $assocType, $assocId)
+    {
+        return true;
+    }
 
-	/**
-	 * @copydoc PKPNotificationOperationManager::isVisibleToAllUsers()
-	 */
-	function isVisibleToAllUsers($notificationType, $assocType, $assocId) {
-		return true;
-	}
+    /**
+     * @copydoc NotificationManagerDelegate::updateNotification()
+     */
+    public function updateNotification($request, $userIds, $assocType, $assocId)
+    {
+        $submissionId = $assocId;
+        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
+        $submission = $submissionDao->getById($submissionId);
 
-	/**
-	 * @copydoc NotificationManagerDelegate::updateNotification()
-	 */
-	function updateNotification($request, $userIds, $assocType, $assocId) {
-		$submissionId = $assocId;
-		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$submission = $submissionDao->getById($submissionId);
+        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
 
-		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
+        $notificationTypes = [
+            NOTIFICATION_TYPE_APPROVE_SUBMISSION => false,
+            NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION => false,
+            NOTIFICATION_TYPE_VISIT_CATALOG => true,
+        ];
 
-		$notificationTypes = array(
-			NOTIFICATION_TYPE_APPROVE_SUBMISSION => false,
-			NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION => false,
-			NOTIFICATION_TYPE_VISIT_CATALOG => true,
-		);
+        $isPublished = (bool) $submission->getDatePublished();
 
-		$isPublished = (boolean) $submission->getDatePublished();
+        foreach ($notificationTypes as $type => $forPublicationState) {
+            $notificationFactory = $notificationDao->getByAssoc(
+                ASSOC_TYPE_SUBMISSION,
+                $submissionId,
+                null,
+                $type,
+                $submission->getData('contextId')
+            );
+            $notification = $notificationFactory->next();
 
-		foreach ($notificationTypes as $type => $forPublicationState) {
-			$notificationFactory = $notificationDao->getByAssoc(
-				ASSOC_TYPE_SUBMISSION,
-				$submissionId,
-				null,
-				$type,
-				$submission->getData('contextId')
-			);
-			$notification = $notificationFactory->next();
+            if (!$notification && $isPublished == $forPublicationState) {
+                // Create notification.
+                $this->createNotification(
+                    $request,
+                    null,
+                    $type,
+                    $submission->getData('contextId'),
+                    ASSOC_TYPE_SUBMISSION,
+                    $submissionId,
+                    NOTIFICATION_LEVEL_NORMAL
+                );
+            } elseif ($notification && $isPublished != $forPublicationState) {
+                // Delete existing notification.
+                $notificationDao->deleteObject($notification);
+            }
+        }
+    }
 
-			if (!$notification && $isPublished == $forPublicationState) {
-				// Create notification.
-				$this->createNotification(
-					$request,
-					null,
-					$type,
-					$submission->getData('contextId'),
-					ASSOC_TYPE_SUBMISSION,
-					$submissionId,
-					NOTIFICATION_LEVEL_NORMAL
-				);
-			} elseif ($notification && $isPublished != $forPublicationState) {
-				// Delete existing notification.
-				$notificationDao->deleteObject($notification);
-			}
-		}
-	}
-
-	/**
-	 * @copydoc NotificationManagerDelegate.inc.php
-	 */
-	protected function multipleTypesUpdate() {
-		return true;
-	}
+    /**
+     * @copydoc NotificationManagerDelegate.inc.php
+     */
+    protected function multipleTypesUpdate()
+    {
+        return true;
+    }
 }
-
-

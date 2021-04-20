@@ -21,133 +21,148 @@ define('SUBMISSION_EDITOR_RECOMMEND_RESUBMIT', 13);
 define('SUBMISSION_EDITOR_RECOMMEND_DECLINE', 14);
 define('SUBMISSION_EDITOR_DECISION_REVERT_DECLINE', 17);
 
-abstract class PKPEditorDecisionActionsManager {
-	/**
-	 * Get the available decisions by stage ID and user making decision permissions,
-	 * if the user can make decisions or if it is recommendOnly user.
-	 * @param $context Context
-	 * @param $submission Submission
-	 * @param $stageId int WORKFLOW_STAGE_ID_...
-	 * @param $makeDecision boolean If the user can make decisions
-	 */
-	public function getStageDecisions($context, $submission, $stageId, $makeDecision = true) {
-		$result = null;
-		switch ($stageId) {
-			case WORKFLOW_STAGE_ID_SUBMISSION:
-				$result = $this->_submissionStageDecisions($submission, $stageId, $makeDecision);
-				break;
-			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-				$result = $this->_externalReviewStageDecisions($context, $submission, $makeDecision);
-				break;
-			case WORKFLOW_STAGE_ID_EDITING:
-				$result = $this->_editorialStageDecisions($makeDecision);
-				break;
-			default:
-				assert(false);
-		}
-		HookRegistry::call('EditorAction::modifyDecisionOptions',
-			array($context, $submission, $stageId, &$makeDecision, &$result));
-		return $result;
-	}
+abstract class PKPEditorDecisionActionsManager
+{
+    /**
+     * Get the available decisions by stage ID and user making decision permissions,
+     * if the user can make decisions or if it is recommendOnly user.
+     *
+     * @param $context Context
+     * @param $submission Submission
+     * @param $stageId int WORKFLOW_STAGE_ID_...
+     * @param $makeDecision boolean If the user can make decisions
+     */
+    public function getStageDecisions($context, $submission, $stageId, $makeDecision = true)
+    {
+        $result = null;
+        switch ($stageId) {
+            case WORKFLOW_STAGE_ID_SUBMISSION:
+                $result = $this->_submissionStageDecisions($submission, $stageId, $makeDecision);
+                break;
+            case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+                $result = $this->_externalReviewStageDecisions($context, $submission, $makeDecision);
+                break;
+            case WORKFLOW_STAGE_ID_EDITING:
+                $result = $this->_editorialStageDecisions($makeDecision);
+                break;
+            default:
+                assert(false);
+        }
+        HookRegistry::call(
+            'EditorAction::modifyDecisionOptions',
+            [$context, $submission, $stageId, &$makeDecision, &$result]
+        );
+        return $result;
+    }
 
-	/**
-	 * Get an associative array matching editor recommendation codes with locale strings.
-	 * (Includes default '' => "Choose One" string.)
-	 * @param $stageId integer
-	 * @return array recommendation => localeString
-	 */
-	public function getRecommendationOptions($stageId) {
-		return array(
-			'' => 'common.chooseOne',
-			SUBMISSION_EDITOR_RECOMMEND_PENDING_REVISIONS => 'editor.submission.decision.requestRevisions',
-			SUBMISSION_EDITOR_RECOMMEND_RESUBMIT => 'editor.submission.decision.resubmit',
-			SUBMISSION_EDITOR_RECOMMEND_ACCEPT => 'editor.submission.decision.accept',
-			SUBMISSION_EDITOR_RECOMMEND_DECLINE => 'editor.submission.decision.decline',
-		);
-	}
+    /**
+     * Get an associative array matching editor recommendation codes with locale strings.
+     * (Includes default '' => "Choose One" string.)
+     *
+     * @param $stageId integer
+     *
+     * @return array recommendation => localeString
+     */
+    public function getRecommendationOptions($stageId)
+    {
+        return [
+            '' => 'common.chooseOne',
+            SUBMISSION_EDITOR_RECOMMEND_PENDING_REVISIONS => 'editor.submission.decision.requestRevisions',
+            SUBMISSION_EDITOR_RECOMMEND_RESUBMIT => 'editor.submission.decision.resubmit',
+            SUBMISSION_EDITOR_RECOMMEND_ACCEPT => 'editor.submission.decision.accept',
+            SUBMISSION_EDITOR_RECOMMEND_DECLINE => 'editor.submission.decision.decline',
+        ];
+    }
 
-	/**
-	 * Define and return editor decisions for the submission stage.
-	 * If the user cannot make decisions i.e. if it is a recommendOnly user,
-	 * the user can only send the submission to the review stage, and neither
-	 * acept nor decline the submission.
-	 * @param $submission Submission
-	 * @param $stageId int WORKFLOW_STAGE_ID_...
-	 * @param $makeDecision boolean If the user can make decisions
-	 * @return array
-	 */
-	protected function _submissionStageDecisions($submission, $stageId, $makeDecision = true) {
-		$decisions = array(
-			SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW => array(
-				'operation' => 'externalReview',
-				'name' => 'externalReview',
-				'title' => 'editor.submission.decision.sendExternalReview',
-				'toStage' => 'editor.review',
-			)
-		);
-		if ($makeDecision) {
-			if ($stageId == WORKFLOW_STAGE_ID_SUBMISSION) {
-				$decisions = $decisions + array(
-					SUBMISSION_EDITOR_DECISION_ACCEPT => array(
-						'name' => 'accept',
-						'operation' => 'promote',
-						'title' => 'editor.submission.decision.skipReview',
-						'toStage' => 'submission.copyediting',
-					),
-				);
-			}
+    /**
+     * Define and return editor decisions for the submission stage.
+     * If the user cannot make decisions i.e. if it is a recommendOnly user,
+     * the user can only send the submission to the review stage, and neither
+     * acept nor decline the submission.
+     *
+     * @param $submission Submission
+     * @param $stageId int WORKFLOW_STAGE_ID_...
+     * @param $makeDecision boolean If the user can make decisions
+     *
+     * @return array
+     */
+    protected function _submissionStageDecisions($submission, $stageId, $makeDecision = true)
+    {
+        $decisions = [
+            SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW => [
+                'operation' => 'externalReview',
+                'name' => 'externalReview',
+                'title' => 'editor.submission.decision.sendExternalReview',
+                'toStage' => 'editor.review',
+            ]
+        ];
+        if ($makeDecision) {
+            if ($stageId == WORKFLOW_STAGE_ID_SUBMISSION) {
+                $decisions = $decisions + [
+                    SUBMISSION_EDITOR_DECISION_ACCEPT => [
+                        'name' => 'accept',
+                        'operation' => 'promote',
+                        'title' => 'editor.submission.decision.skipReview',
+                        'toStage' => 'submission.copyediting',
+                    ],
+                ];
+            }
 
-			if ($submission->getStatus() == STATUS_QUEUED){
-				$decisions = $decisions + array(
-					SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => array(
-						'name' => 'decline',
-						'operation' => 'sendReviews',
-						'title' => 'editor.submission.decision.decline',
-					),
-				);
-			}
-			if ($submission->getStatus() == STATUS_DECLINED){
-				$decisions = $decisions + array(
-					SUBMISSION_EDITOR_DECISION_REVERT_DECLINE => array(
-						'name' => 'revert',
-						'operation' => 'revertDecline',
-						'title' => 'editor.submission.decision.revertDecline',
-					),
-				);
-			}
-		}
-		return $decisions;
-	}
+            if ($submission->getStatus() == STATUS_QUEUED) {
+                $decisions = $decisions + [
+                    SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => [
+                        'name' => 'decline',
+                        'operation' => 'sendReviews',
+                        'title' => 'editor.submission.decision.decline',
+                    ],
+                ];
+            }
+            if ($submission->getStatus() == STATUS_DECLINED) {
+                $decisions = $decisions + [
+                    SUBMISSION_EDITOR_DECISION_REVERT_DECLINE => [
+                        'name' => 'revert',
+                        'operation' => 'revertDecline',
+                        'title' => 'editor.submission.decision.revertDecline',
+                    ],
+                ];
+            }
+        }
+        return $decisions;
+    }
 
-	/**
-	 * Define and return editor decisions for the editorial stage.
-	 * Currently it does not matter if the user cannot make decisions
-	 * i.e. if it is a recommendOnly user for this stage.
-	 * @param $makeDecision boolean If the user cannot make decisions
-	 * @return array
-	 */
-	protected function _editorialStageDecisions($makeDecision = true) {
-		return array(
-			SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION => array(
-				'operation' => 'promote',
-				'name' => 'sendToProduction',
-				'title' => 'editor.submission.decision.sendToProduction',
-				'toStage' => 'submission.production',
-			),
-		);
-	}
+    /**
+     * Define and return editor decisions for the editorial stage.
+     * Currently it does not matter if the user cannot make decisions
+     * i.e. if it is a recommendOnly user for this stage.
+     *
+     * @param $makeDecision boolean If the user cannot make decisions
+     *
+     * @return array
+     */
+    protected function _editorialStageDecisions($makeDecision = true)
+    {
+        return [
+            SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION => [
+                'operation' => 'promote',
+                'name' => 'sendToProduction',
+                'title' => 'editor.submission.decision.sendToProduction',
+                'toStage' => 'submission.production',
+            ],
+        ];
+    }
 
-	/**
-	 * Get the stage-level notification type constants.
-	 * @return array
-	 */
-	public function getStageNotifications() {
-		return array(
-			NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION,
-			NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW,
-			NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING,
-			NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION
-		);
-	}
+    /**
+     * Get the stage-level notification type constants.
+     *
+     * @return array
+     */
+    public function getStageNotifications()
+    {
+        return [
+            NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION,
+            NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW,
+            NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING,
+            NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION
+        ];
+    }
 }
-

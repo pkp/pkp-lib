@@ -15,53 +15,55 @@
 
 import('lib.pkp.classes.form.Form');
 
-abstract class BaseProfileForm extends Form {
+abstract class BaseProfileForm extends Form
+{
+    /** @var User */
+    public $_user;
 
-	/** @var User */
-	var $_user;
+    /**
+     * Constructor.
+     *
+     * @param $template string
+     * @param $user User
+     */
+    public function __construct($template, $user)
+    {
+        parent::__construct($template);
 
-	/**
-	 * Constructor.
-	 * @param $template string
-	 * @param $user User
-	 */
-	function __construct($template, $user) {
-		parent::__construct($template);
+        $this->_user = $user;
+        assert(isset($user));
 
-		$this->_user = $user;
-		assert(isset($user));
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
+    }
 
-		$this->addCheck(new FormValidatorPost($this));
-		$this->addCheck(new FormValidatorCSRF($this));
-	}
+    /**
+     * Get the user associated with this profile
+     */
+    public function getUser()
+    {
+        return $this->_user;
+    }
 
-	/**
-	 * Get the user associated with this profile
-	 */
-	function getUser() {
-		return $this->_user;
-	}
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionArgs)
+    {
+        parent::execute(...$functionArgs);
 
-	/**
-	 * @copydoc Form::execute()
-	 */
-	function execute(...$functionArgs) {
-		parent::execute(...$functionArgs);
+        $request = Application::get()->getRequest();
+        $user = $request->getUser();
+        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+        $userDao->updateObject($user);
 
-		$request = Application::get()->getRequest();
-		$user = $request->getUser();
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-		$userDao->updateObject($user);
+        if ($user->getAuthId()) {
+            $authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
+            $auth = $authDao->getPlugin($user->getAuthId());
+        }
 
-		if ($user->getAuthId()) {
-			$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
-			$auth = $authDao->getPlugin($user->getAuthId());
-		}
-
-		if (isset($auth)) {
-			$auth->doSetUserInfo($user);
-		}
-	}
+        if (isset($auth)) {
+            $auth->doSetUserInfo($user);
+        }
+    }
 }
-
-

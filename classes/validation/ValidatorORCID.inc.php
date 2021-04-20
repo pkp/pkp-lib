@@ -9,6 +9,7 @@
  *
  * @class ValidatorORCID
  * @ingroup validation
+ *
  * @see Validator
  *
  * @brief Validation check for ORCID iDs.
@@ -17,16 +18,18 @@
 import('lib.pkp.classes.validation.Validator');
 import('lib.pkp.classes.validation.ValidatorFactory');
 
-class ValidatorORCID extends Validator {
-	/**
-	 * @copydoc Validator::isValid()
-	 */
-	function isValid($value) {
-		$validator = \ValidatorFactory::make(
-			['value' => $value],
-			['value' => ['required', 'orcid']]
-		);
+class ValidatorORCID extends Validator
+{
+    /**
+     * @copydoc Validator::isValid()
+     */
+    public function isValid($value)
+    {
+        $validator = \ValidatorFactory::make(
+            ['value' => $value],
+            ['value' => ['required', 'orcid']]
+        );
 
-		return $validator->passes();
-	}
+        return $validator->passes();
+    }
 }

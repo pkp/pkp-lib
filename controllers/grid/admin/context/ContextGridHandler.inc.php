@@ -16,268 +16,295 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.admin.context.ContextGridRow');
 
-use \APP\core\Services;
-use \PKP\core\JSONMessage;
+use APP\core\Services;
+use PKP\core\JSONMessage;
 
-class ContextGridHandler extends GridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-		$this->addRoleAssignment(array(
-			ROLE_ID_SITE_ADMIN),
-			array('fetchGrid', 'fetchRow', 'createContext', 'editContext', 'updateContext', 'users',
-				'deleteContext', 'saveSequence')
-		);
-	}
-
-
-	//
-	// Implement template methods from PKPHandler.
-	//
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.PolicySet');
-		$rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
-
-		import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
-		foreach($roleAssignments as $role => $operations) {
-			$rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
-		}
-		$this->addPolicy($rolePolicy);
-
-		return parent::authorize($request, $args, $roleAssignments);
-	}
-
-	/**
-	 * @copydoc GridHandler::initialize()
-	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
-
-		// Load user-related translations.
-		AppLocale::requireComponents(
-			LOCALE_COMPONENT_PKP_USER,
-			LOCALE_COMPONENT_APP_MANAGER,
-			LOCALE_COMPONENT_PKP_MANAGER,
-			LOCALE_COMPONENT_PKP_ADMIN,
-			LOCALE_COMPONENT_APP_ADMIN
-		);
-
-		$this->setTitle('context.contexts');
-
-		// Grid actions.
-		$router = $request->getRouter();
-
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		$this->addAction(
-			new LinkAction(
-				'createContext',
-				new AjaxModal(
-					$router->url($request, null, null, 'createContext', null, null),
-					__('admin.contexts.create'),
-					'modal_add_item',
-					true,
-					'context',
-					['editContext']
-				),
-				__('admin.contexts.create'),
-				'add_item'
-			)
-		);
-
-		//
-		// Grid columns.
-		//
-		import('lib.pkp.controllers.grid.admin.context.ContextGridCellProvider');
-		$contextGridCellProvider = new ContextGridCellProvider();
-
-		// Context name.
-		$this->addColumn(
-			new GridColumn(
-				'name',
-				'common.name',
-				null,
-				null,
-				$contextGridCellProvider
-			)
-		);
-
-		// Context path.
-		$this->addColumn(
-			new GridColumn(
-				'urlPath',
-				'context.path',
-				null,
-				null,
-				$contextGridCellProvider
-			)
-		);
-	}
+class ContextGridHandler extends GridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRoleAssignment(
+            [
+                ROLE_ID_SITE_ADMIN],
+            ['fetchGrid', 'fetchRow', 'createContext', 'editContext', 'updateContext', 'users',
+                'deleteContext', 'saveSequence']
+        );
+    }
 
 
-	//
-	// Implement methods from GridHandler.
-	//
-	/**
-	 * @copydoc GridHandler::getRowInstance()
-	 * @return UserGridRow
-	 */
-	protected function getRowInstance() {
-		return new ContextGridRow();
-	}
+    //
+    // Implement template methods from PKPHandler.
+    //
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        import('lib.pkp.classes.security.authorization.PolicySet');
+        $rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
 
-	/**
-	 * @copydoc GridHandler::loadData()
-	 */
-	protected function loadData($request, $filter = null) {
-		// Get all contexts.
-		$contextDao = Application::getContextDAO();
-		$contexts = $contextDao->getAll();
+        import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+        foreach ($roleAssignments as $role => $operations) {
+            $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
+        }
+        $this->addPolicy($rolePolicy);
 
-		return $contexts->toAssociativeArray();
-	}
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-	/**
-	 * @copydoc GridHandler::setDataElementSequence()
-	 */
-	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
-		$contextDao = Application::getContextDAO();
-		$gridDataElement->setSequence($newSequence);
-		$contextDao->updateObject($gridDataElement);
-	}
+    /**
+     * @copydoc GridHandler::initialize()
+     *
+     * @param null|mixed $args
+     */
+    public function initialize($request, $args = null)
+    {
+        parent::initialize($request, $args);
 
-	/**
-	 * @copydoc GridHandler::getDataElementSequence()
-	 */
-	function getDataElementSequence($gridDataElement) {
-		return $gridDataElement->getSequence();
-	}
+        // Load user-related translations.
+        AppLocale::requireComponents(
+            LOCALE_COMPONENT_PKP_USER,
+            LOCALE_COMPONENT_APP_MANAGER,
+            LOCALE_COMPONENT_PKP_MANAGER,
+            LOCALE_COMPONENT_PKP_ADMIN,
+            LOCALE_COMPONENT_APP_ADMIN
+        );
 
-	/**
-	 * @copydoc GridHandler::addFeatures()
-	 */
-	function initFeatures($request, $args) {
-		import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
-		return array(new OrderGridItemsFeature());
-	}
+        $this->setTitle('context.contexts');
 
-	/**
-	 * Get the list of "publish data changed" events.
-	 * Used to update the site context switcher upon create/delete.
-	 * @return array
-	 */
-	function getPublishChangeEvents() {
-		return array('updateHeader');
-	}
+        // Grid actions.
+        $router = $request->getRouter();
+
+        import('lib.pkp.classes.linkAction.request.AjaxModal');
+        $this->addAction(
+            new LinkAction(
+                'createContext',
+                new AjaxModal(
+                    $router->url($request, null, null, 'createContext', null, null),
+                    __('admin.contexts.create'),
+                    'modal_add_item',
+                    true,
+                    'context',
+                    ['editContext']
+                ),
+                __('admin.contexts.create'),
+                'add_item'
+            )
+        );
+
+        //
+        // Grid columns.
+        //
+        import('lib.pkp.controllers.grid.admin.context.ContextGridCellProvider');
+        $contextGridCellProvider = new ContextGridCellProvider();
+
+        // Context name.
+        $this->addColumn(
+            new GridColumn(
+                'name',
+                'common.name',
+                null,
+                null,
+                $contextGridCellProvider
+            )
+        );
+
+        // Context path.
+        $this->addColumn(
+            new GridColumn(
+                'urlPath',
+                'context.path',
+                null,
+                null,
+                $contextGridCellProvider
+            )
+        );
+    }
 
 
-	//
-	// Public grid actions.
-	//
-	/**
-	 * Add a new context.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function createContext($args, $request) {
-		// Calling editContext with an empty row id will add a new context.
-		return $this->editContext($args, $request);
-	}
+    //
+    // Implement methods from GridHandler.
+    //
+    /**
+     * @copydoc GridHandler::getRowInstance()
+     *
+     * @return UserGridRow
+     */
+    protected function getRowInstance()
+    {
+        return new ContextGridRow();
+    }
 
-	/**
-	 * Edit an existing context.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function editContext($args, $request) {
-		$contextService = Services::get('context');
-		$context = null;
+    /**
+     * @copydoc GridHandler::loadData()
+     *
+     * @param null|mixed $filter
+     */
+    protected function loadData($request, $filter = null)
+    {
+        // Get all contexts.
+        $contextDao = Application::getContextDAO();
+        $contexts = $contextDao->getAll();
 
-		if ($request->getUserVar('rowId')) {
-			$context = $contextService->get((int) $request->getUserVar('rowId'));
-			if (!$context) {
-				return new JSONMessage(false);
-			}
-		}
+        return $contexts->toAssociativeArray();
+    }
 
-		$dispatcher = $request->getDispatcher();
-		if ($context) {
-			$apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
-			$supportedLocales = $context->getSupportedFormLocales();
-		} else {
-			$apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, CONTEXT_ID_ALL, 'contexts');
-			$supportedLocales = $request->getSite()->getSupportedLocales();
-		}
+    /**
+     * @copydoc GridHandler::setDataElementSequence()
+     */
+    public function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence)
+    {
+        $contextDao = Application::getContextDAO();
+        $gridDataElement->setSequence($newSequence);
+        $contextDao->updateObject($gridDataElement);
+    }
 
-		$localeNames = AppLocale::getAllLocales();
-		$locales = array_map(function($localeKey) use ($localeNames) {
-			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-		}, $supportedLocales);
+    /**
+     * @copydoc GridHandler::getDataElementSequence()
+     */
+    public function getDataElementSequence($gridDataElement)
+    {
+        return $gridDataElement->getSequence();
+    }
 
-		$contextForm = new \APP\components\forms\context\ContextForm($apiUrl, $locales, $request->getBaseUrl(), $context);
-		$contextFormConfig = $contextForm->getConfig();
+    /**
+     * @copydoc GridHandler::addFeatures()
+     */
+    public function initFeatures($request, $args)
+    {
+        import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
+        return [new OrderGridItemsFeature()];
+    }
 
-		// Pass the URL to the context settings wizard so that the AddContextForm
-		// component can redirect to it when a new context is added.
-		if (!$context) {
-			$contextFormConfig['editContextUrl'] = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, 'index', 'admin', 'wizard', '__id__');
-		}
+    /**
+     * Get the list of "publish data changed" events.
+     * Used to update the site context switcher upon create/delete.
+     *
+     * @return array
+     */
+    public function getPublishChangeEvents()
+    {
+        return ['updateHeader'];
+    }
 
-		$containerData = [
-			'components' => [
-				FORM_CONTEXT => $contextFormConfig,
-			],
-		];
 
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign([
-			'containerData' => $containerData,
-			'isAddingNewContext' => !$context,
-		]);
+    //
+    // Public grid actions.
+    //
+    /**
+     * Add a new context.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     */
+    public function createContext($args, $request)
+    {
+        // Calling editContext with an empty row id will add a new context.
+        return $this->editContext($args, $request);
+    }
 
-		return new JSONMessage(true, $templateMgr->fetch('admin/editContext.tpl'));
-	}
+    /**
+     * Edit an existing context.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function editContext($args, $request)
+    {
+        $contextService = Services::get('context');
+        $context = null;
 
-	/**
-	 * Delete a context.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function deleteContext($args, $request) {
+        if ($request->getUserVar('rowId')) {
+            $context = $contextService->get((int) $request->getUserVar('rowId'));
+            if (!$context) {
+                return new JSONMessage(false);
+            }
+        }
 
-		if (!$request->checkCSRF()) {
-			return new JSONMessage(false);
-		}
+        $dispatcher = $request->getDispatcher();
+        if ($context) {
+            $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+            $supportedLocales = $context->getSupportedFormLocales();
+        } else {
+            $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, CONTEXT_ID_ALL, 'contexts');
+            $supportedLocales = $request->getSite()->getSupportedLocales();
+        }
 
-		$contextService = Services::get('context');
+        $localeNames = AppLocale::getAllLocales();
+        $locales = array_map(function ($localeKey) use ($localeNames) {
+            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+        }, $supportedLocales);
 
-		$context = $contextService->get((int) $request->getUserVar('rowId'));
+        $contextForm = new \APP\components\forms\context\ContextForm($apiUrl, $locales, $request->getBaseUrl(), $context);
+        $contextFormConfig = $contextForm->getConfig();
 
-		if (!$context) {
-			return new JSONMessage(false);
-		}
+        // Pass the URL to the context settings wizard so that the AddContextForm
+        // component can redirect to it when a new context is added.
+        if (!$context) {
+            $contextFormConfig['editContextUrl'] = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, 'index', 'admin', 'wizard', '__id__');
+        }
 
-		$contextService->delete($context);
+        $containerData = [
+            'components' => [
+                FORM_CONTEXT => $contextFormConfig,
+            ],
+        ];
 
-		return \PKP\db\DAO::getDataChangedEvent($context->getId());
-	}
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'containerData' => $containerData,
+            'isAddingNewContext' => !$context,
+        ]);
 
-	/**
-	 * Display users management grid for the given context.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function users($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('oldUserId', (int) $request->getUserVar('oldUserId')); // for merging users.
-		parent::setupTemplate($request);
-		return $templateMgr->fetchJson('management/accessUsers.tpl');
-	}
+        return new JSONMessage(true, $templateMgr->fetch('admin/editContext.tpl'));
+    }
+
+    /**
+     * Delete a context.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function deleteContext($args, $request)
+    {
+        if (!$request->checkCSRF()) {
+            return new JSONMessage(false);
+        }
+
+        $contextService = Services::get('context');
+
+        $context = $contextService->get((int) $request->getUserVar('rowId'));
+
+        if (!$context) {
+            return new JSONMessage(false);
+        }
+
+        $contextService->delete($context);
+
+        return \PKP\db\DAO::getDataChangedEvent($context->getId());
+    }
+
+    /**
+     * Display users management grid for the given context.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function users($args, $request)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('oldUserId', (int) $request->getUserVar('oldUserId')); // for merging users.
+        parent::setupTemplate($request);
+        return $templateMgr->fetchJson('management/accessUsers.tpl');
+    }
 }

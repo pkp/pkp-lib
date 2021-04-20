@@ -17,19 +17,19 @@
  */
 
 switch ($op) {
-	case 'index':
-	case 'contexts':
-	case 'settings':
-	case 'saveSettings':
-	case 'wizard':
-	case 'systemInfo':
-	case 'phpinfo':
-	case 'expireSessions':
-	case 'clearTemplateCache':
-	case 'clearDataCache':
-	case 'downloadScheduledTaskLogFile':
-	case 'clearScheduledTaskLogFiles':
-		define('HANDLER_CLASS', 'AdminHandler');
-		import('lib.pkp.pages.admin.AdminHandler');
-		break;
+    case 'index':
+    case 'contexts':
+    case 'settings':
+    case 'saveSettings':
+    case 'wizard':
+    case 'systemInfo':
+    case 'phpinfo':
+    case 'expireSessions':
+    case 'clearTemplateCache':
+    case 'clearDataCache':
+    case 'downloadScheduledTaskLogFile':
+    case 'clearScheduledTaskLogFiles':
+        define('HANDLER_CLASS', 'AdminHandler');
+        import('lib.pkp.pages.admin.AdminHandler');
+        break;
 }

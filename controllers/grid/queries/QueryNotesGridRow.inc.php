@@ -15,84 +15,95 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-class QueryNotesGridRow extends GridRow {
-	/** @var array **/
-	var $_actionArgs;
+class QueryNotesGridRow extends GridRow
+{
+    /** @var array **/
+    public $_actionArgs;
 
-	/** @var Query */
-	var $_query;
+    /** @var Query */
+    public $_query;
 
-	/** @var QueryNotesGridHandler */
-	var $_queryNotesGrid;
+    /** @var QueryNotesGridHandler */
+    public $_queryNotesGrid;
 
-	/**
-	 * Constructor
-	 * @param $actionArgs array Action arguments
-	 * @param $query Query
-	 * @param $queryNotesGrid The notes grid containing this row
-	 */
-	function __construct($actionArgs, $query, $queryNotesGrid) {
-		$this->_actionArgs = $actionArgs;
-		$this->_query = $query;
-		$this->_queryNotesGrid = $queryNotesGrid;
+    /**
+     * Constructor
+     *
+     * @param $actionArgs array Action arguments
+     * @param $query Query
+     * @param $queryNotesGrid The notes grid containing this row
+     */
+    public function __construct($actionArgs, $query, $queryNotesGrid)
+    {
+        $this->_actionArgs = $actionArgs;
+        $this->_query = $query;
+        $this->_queryNotesGrid = $queryNotesGrid;
 
-		parent::__construct();
-	}
+        parent::__construct();
+    }
 
-	//
-	// Overridden methods from GridRow
-	//
-	/**
-	 * @copydoc GridRow::initialize()
-	 */
-	function initialize($request, $template = null) {
-		// Do the default initialization
-		parent::initialize($request, $template);
+    //
+    // Overridden methods from GridRow
+    //
+    /**
+     * @copydoc GridRow::initialize()
+     *
+     * @param null|mixed $template
+     */
+    public function initialize($request, $template = null)
+    {
+        // Do the default initialization
+        parent::initialize($request, $template);
 
-		// Is this a new row or an existing row?
-		$rowId = $this->getId();
-		$headNote = $this->getQuery()->getHeadNote();
-		if (!empty($rowId) && is_numeric($rowId) && (!$headNote || $headNote->getId() != $rowId)) {
-			// Only add row actions if this is an existing row
-			$router = $request->getRouter();
-			$actionArgs = array_merge(
-				$this->_actionArgs,
-				array('noteId' => $rowId)
-			);
+        // Is this a new row or an existing row?
+        $rowId = $this->getId();
+        $headNote = $this->getQuery()->getHeadNote();
+        if (!empty($rowId) && is_numeric($rowId) && (!$headNote || $headNote->getId() != $rowId)) {
+            // Only add row actions if this is an existing row
+            $router = $request->getRouter();
+            $actionArgs = array_merge(
+                $this->_actionArgs,
+                ['noteId' => $rowId]
+            );
 
-			// Add row-level actions
-			if ($this->_queryNotesGrid->getCanManage($this->getData())) {
-				import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-				$this->addAction(
-					new LinkAction(
-						'deleteNote',
-						new RemoteActionConfirmationModal(
-							$request->getSession(),
-							__('common.confirmDelete'),
-							__('grid.action.delete'),
-							$router->url($request, null, null, 'deleteNote', null, $actionArgs), 'modal_delete'),
-						__('grid.action.delete'),
-						'delete')
-				);
-			}
-		}
-	}
+            // Add row-level actions
+            if ($this->_queryNotesGrid->getCanManage($this->getData())) {
+                import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+                $this->addAction(
+                    new LinkAction(
+                        'deleteNote',
+                        new RemoteActionConfirmationModal(
+                            $request->getSession(),
+                            __('common.confirmDelete'),
+                            __('grid.action.delete'),
+                            $router->url($request, null, null, 'deleteNote', null, $actionArgs),
+                            'modal_delete'
+                        ),
+                        __('grid.action.delete'),
+                        'delete'
+                    )
+                );
+            }
+        }
+    }
 
-	/**
-	 * Get the query
-	 * @return Query
-	 */
-	function getQuery() {
-		return $this->_query;
-	}
+    /**
+     * Get the query
+     *
+     * @return Query
+     */
+    public function getQuery()
+    {
+        return $this->_query;
+    }
 
-	/**
-	 * Get the base arguments that will identify the data in the grid.
-	 * @return array
-	 */
-	function getRequestArgs() {
-		return $this->_actionArgs;
-	}
+    /**
+     * Get the base arguments that will identify the data in the grid.
+     *
+     * @return array
+     */
+    public function getRequestArgs()
+    {
+        return $this->_actionArgs;
+    }
 }
-
-

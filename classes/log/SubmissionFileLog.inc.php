@@ -15,40 +15,44 @@
 
 import('lib.pkp.classes.log.SubmissionLog');
 
-class SubmissionFileLog extends SubmissionLog {
-	/**
-	 * Add a new file event log entry with the specified parameters
-	 * @param $request object
-	 * @param $submissionFile object
-	 * @param $eventType int
-	 * @param $messageKey string
-	 * @param $params array optional
-	 * @return object SubmissionLogEntry iff the event was logged
-	 */
-	static function logEvent($request, $submissionFile, $eventType, $messageKey, $params = array()) {
-		// Create a new entry object
-		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /* @var $submissionFileEventLogDao SubmissionFileEventLogDAO */
-		$entry = $submissionFileEventLogDao->newDataObject();
+class SubmissionFileLog extends SubmissionLog
+{
+    /**
+     * Add a new file event log entry with the specified parameters
+     *
+     * @param $request object
+     * @param $submissionFile object
+     * @param $eventType int
+     * @param $messageKey string
+     * @param $params array optional
+     *
+     * @return object SubmissionLogEntry iff the event was logged
+     */
+    public static function logEvent($request, $submissionFile, $eventType, $messageKey, $params = [])
+    {
+        // Create a new entry object
+        $submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /** @var SubmissionFileEventLogDAO $submissionFileEventLogDao */
+        $entry = $submissionFileEventLogDao->newDataObject();
 
-		// Set implicit parts of the log entry
-		$entry->setDateLogged(Core::getCurrentDate());
+        // Set implicit parts of the log entry
+        $entry->setDateLogged(Core::getCurrentDate());
 
-		$user = $request->getUser();
-		if ($user) $entry->setUserId($user->getId());
+        $user = $request->getUser();
+        if ($user) {
+            $entry->setUserId($user->getId());
+        }
 
-		$entry->setAssocType(ASSOC_TYPE_SUBMISSION_FILE);
-		$entry->setAssocId($submissionFile->getId());
+        $entry->setAssocType(ASSOC_TYPE_SUBMISSION_FILE);
+        $entry->setAssocId($submissionFile->getId());
 
-		// Set explicit parts of the log entry
-		$entry->setEventType($eventType);
-		$entry->setMessage($messageKey);
-		$entry->setParams($params);
-		$entry->setIsTranslated(0); // Legacy for other apps. All messages use locale keys.
+        // Set explicit parts of the log entry
+        $entry->setEventType($eventType);
+        $entry->setMessage($messageKey);
+        $entry->setParams($params);
+        $entry->setIsTranslated(0); // Legacy for other apps. All messages use locale keys.
 
-		// Insert the resulting object
-		$submissionFileEventLogDao->insertObject($entry);
-		return $entry;
-	}
+        // Insert the resulting object
+        $submissionFileEventLogDao->insertObject($entry);
+        return $entry;
+    }
 }
-
-

@@ -15,51 +15,54 @@
 
 import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');
 
-class InitiateReviewForm extends EditorDecisionForm {
+class InitiateReviewForm extends EditorDecisionForm
+{
+    /**
+     * Constructor.
+     *
+     * @param $submission Submission
+     */
+    public function __construct($submission, $decision, $stageId, $template)
+    {
+        parent::__construct($submission, $decision, $stageId, $template);
+    }
 
-	/**
-	 * Constructor.
-	 * @param $submission Submission
-	 */
-	function __construct($submission, $decision, $stageId, $template) {
-		parent::__construct($submission, $decision, $stageId, $template);
-	}
+    /**
+     * Get the stage ID constant for the submission to be moved to.
+     *
+     * @return int WORKFLOW_STAGE_ID_...
+     */
+    public function _getStageId()
+    {
+        assert(false); // Subclasses should override.
+    }
 
-	/**
-	 * Get the stage ID constant for the submission to be moved to.
-	 * @return int WORKFLOW_STAGE_ID_...
-	 */
-	function _getStageId() {
-		assert(false); // Subclasses should override.
-	}
+    //
+    // Implement protected template methods from Form
+    //
+    /**
+     * Execute the form.
+     */
+    public function execute(...$functionParams)
+    {
+        parent::execute(...$functionParams);
 
-	//
-	// Implement protected template methods from Form
-	//
-	/**
-	 * Execute the form.
-	 */
-	function execute(...$functionParams) {
-		parent::execute(...$functionParams);
+        $request = Application::get()->getRequest();
 
-		$request = Application::get()->getRequest();
+        // Retrieve the submission.
+        $submission = $this->getSubmission();
 
-		// Retrieve the submission.
-		$submission = $this->getSubmission();
+        // Record the decision.
+        import('classes.workflow.EditorDecisionActionsManager');
+        $actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), [$this->_decision]);
+        import('lib.pkp.classes.submission.action.EditorAction');
+        $editorAction = new EditorAction();
+        $editorAction->recordDecision($request, $submission, $this->_decision, $actionLabels);
 
-		// Record the decision.
-		import('classes.workflow.EditorDecisionActionsManager');
-		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), array($this->_decision));
-		import('lib.pkp.classes.submission.action.EditorAction');
-		$editorAction = new EditorAction();
-		$editorAction->recordDecision($request, $submission, $this->_decision, $actionLabels);
+        // Move to the internal review stage.
+        $editorAction->incrementWorkflowStage($submission, $this->_getStageId(), $request);
 
-		// Move to the internal review stage.
-		$editorAction->incrementWorkflowStage($submission, $this->_getStageId(), $request);
-
-		// Create an initial internal review round.
-		$this->_initiateReviewRound($submission, $this->_getStageId(), $request, REVIEW_ROUND_STATUS_PENDING_REVIEWERS);
-	}
+        // Create an initial internal review round.
+        $this->_initiateReviewRound($submission, $this->_getStageId(), $request, REVIEW_ROUND_STATUS_PENDING_REVIEWERS);
+    }
 }
-
-

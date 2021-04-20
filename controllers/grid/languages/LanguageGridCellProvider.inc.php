@@ -15,124 +15,124 @@
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
-class LanguageGridCellProvider extends GridCellProvider {
+class LanguageGridCellProvider extends GridCellProvider
+{
+    /**
+     * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
+     */
+    public function getTemplateVarsFromRowColumn($row, $column)
+    {
+        $element = $row->getData();
+        $columnId = $column->getId();
+        switch ($columnId) {
+            case 'enable':
+                return ['selected' => $element['supported'],
+                    'disabled' => false];
+            case 'locale':
+                $label = $element['name'];
+                $returnArray = ['label' => $label];
 
-	/**
-	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
-	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
-		$element = $row->getData();
-		$columnId = $column->getId();
-		switch ($columnId) {
-			case 'enable':
-				return array('selected' => $element['supported'],
-					'disabled' => false);
-			case 'locale':
-				$label = $element['name'];
-				$returnArray = array('label' => $label);
+                if (isset($element['incomplete'])) {
+                    $returnArray['incomplete'] = $element['incomplete'];
+                }
+                return $returnArray;
+            case 'sitePrimary':
+                return ['selected' => $element['primary'],
+                    'disabled' => !$element['supported']];
+            case 'contextPrimary':
+                return ['selected' => $element['primary'],
+                    'disabled' => !$element['supported']];
+            case 'uiLocale':
+                return ['selected' => $element['supportedLocales'],
+                    'disabled' => !$element['supported']];
+            case 'formLocale':
+                return ['selected' => $element['supportedFormLocales'],
+                    'disabled' => !$element['supported']];
+            case 'submissionLocale':
+                return ['selected' => $element['supportedSubmissionLocales'],
+                    'disabled' => !$element['supported']];
+            default:
+                assert(false);
+                break;
+        }
+    }
 
-				if (isset($element['incomplete'])) {
-					$returnArray['incomplete'] = $element['incomplete'];
-				}
-				return $returnArray;
-			case 'sitePrimary':
-				return array('selected' => $element['primary'],
-					'disabled' => !$element['supported']);
-			case 'contextPrimary':
-				return array('selected' => $element['primary'],
-					'disabled' => !$element['supported']);
-			case 'uiLocale';
-				return array('selected' => $element['supportedLocales'],
-					'disabled' => !$element['supported']);
-			case 'formLocale';
-				return array('selected' => $element['supportedFormLocales'],
-					'disabled' => !$element['supported']);
-			case 'submissionLocale';
-				return array('selected' => $element['supportedSubmissionLocales'],
-					'disabled' => !$element['supported']);
-			default:
-				assert(false);
-				break;
-		}
-	}
+    /**
+     * @copydoc GridCellProvider::getCellActions()
+     */
+    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    {
+        import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+        import('lib.pkp.classes.linkAction.request.AjaxAction');
 
-	/**
-	 * @copydoc GridCellProvider::getCellActions()
-	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-		import('lib.pkp.classes.linkAction.request.AjaxAction');
+        $element = $row->getData();
+        $router = $request->getRouter();
+        $actions = [];
+        $actionArgs = ['rowId' => $row->getId()];
 
-		$element = $row->getData();
-		$router = $request->getRouter();
-		$actions = array();
-		$actionArgs = array('rowId' => $row->getId());
+        $action = null;
+        $actionRequest = null;
 
-		$action = null;
-		$actionRequest = null;
+        switch ($column->getId()) {
+            case 'enable':
+                $enabled = $element['supported'];
+                if ($enabled) {
+                    $action = 'disable-' . $row->getId();
+                    $actionRequest = new RemoteActionConfirmationModal(
+                        $request->getSession(),
+                        __('admin.languages.confirmDisable'),
+                        __('common.disable'),
+                        $router->url($request, null, null, 'disableLocale', null, $actionArgs)
+                    );
+                } else {
+                    $action = 'enable-' . $row->getId();
+                    $actionRequest = new AjaxAction($router->url($request, null, null, 'enableLocale', null, $actionArgs));
+                }
+                break;
+            case 'sitePrimary':
+                $primary = $element['primary'];
+                if (!$primary) {
+                    $action = 'setPrimary-' . $row->getId();
+                    $actionRequest = new RemoteActionConfirmationModal(
+                        $request->getSession(),
+                        __('admin.languages.confirmSitePrimaryLocaleChange'),
+                        __('locale.primary'),
+                        $router->url($request, null, null, 'setPrimaryLocale', null, $actionArgs)
+                    );
+                }
+                break;
+            case 'contextPrimary':
+                $primary = $element['primary'];
+                if (!$primary) {
+                    $action = 'setPrimary-' . $row->getId();
+                    $actionRequest = new AjaxAction($router->url($request, null, null, 'setContextPrimaryLocale', null, $actionArgs));
+                }
+                break;
+            case 'uiLocale':
+                $action = 'setUiLocale-' . $row->getId();
+                $actionArgs['setting'] = 'supportedLocales';
+                $actionArgs['value'] = !$element['supportedLocales'];
+                $actionRequest = new AjaxAction($router->url($request, null, null, 'saveLanguageSetting', null, $actionArgs));
+                break;
+            case 'formLocale':
+                $action = 'setFormLocale-' . $row->getId();
+                $actionArgs['setting'] = 'supportedFormLocales';
+                $actionArgs['value'] = !$element['supportedFormLocales'];
+                $actionRequest = new AjaxAction($router->url($request, null, null, 'saveLanguageSetting', null, $actionArgs));
+                break;
+            case 'submissionLocale':
+                $action = 'setSubmissionLocale-' . $row->getId();
+                $actionArgs['setting'] = 'supportedSubmissionLocales';
+                $actionArgs['value'] = !$element['supportedSubmissionLocales'];
+                $actionRequest = new AjaxAction($router->url($request, null, null, 'saveLanguageSetting', null, $actionArgs));
+                break;
+        }
 
-		switch ($column->getId()) {
-			case 'enable':
-				$enabled = $element['supported'];
-				if ($enabled) {
-					$action = 'disable-' . $row->getId();
-					$actionRequest = new RemoteActionConfirmationModal(
-						$request->getSession(),
-						__('admin.languages.confirmDisable'),
-						__('common.disable'),
-						$router->url($request, null, null, 'disableLocale', null, $actionArgs)
-					);
-				} else {
-					$action = 'enable-' . $row->getId();
-					$actionRequest = new AjaxAction($router->url($request, null, null, 'enableLocale', null, $actionArgs));
-				}
-				break;
-			case 'sitePrimary':
-				$primary = $element['primary'];
-				if (!$primary) {
-					$action = 'setPrimary-' . $row->getId();
-					$actionRequest = new RemoteActionConfirmationModal(
-						$request->getSession(),
-						__('admin.languages.confirmSitePrimaryLocaleChange'),
-						__('locale.primary'),
-						$router->url($request, null, null, 'setPrimaryLocale', null, $actionArgs)
-					);
-				}
-				break;
-			case 'contextPrimary':
-				$primary = $element['primary'];
-				if (!$primary) {
-					$action = 'setPrimary-' . $row->getId();
-					$actionRequest = new AjaxAction($router->url($request, null, null, 'setContextPrimaryLocale', null, $actionArgs));
-				}
-				break;
-			case 'uiLocale':
-				$action = 'setUiLocale-' . $row->getId();
-				$actionArgs['setting'] = 'supportedLocales';
-				$actionArgs['value'] = !$element['supportedLocales'];
-				$actionRequest = new AjaxAction($router->url($request, null, null, 'saveLanguageSetting', null, $actionArgs));
-				break;
-			case 'formLocale':
-				$action = 'setFormLocale-' . $row->getId();
-				$actionArgs['setting'] = 'supportedFormLocales';
-				$actionArgs['value'] = !$element['supportedFormLocales'];
-				$actionRequest = new AjaxAction($router->url($request, null, null, 'saveLanguageSetting', null, $actionArgs));
-				break;
-			case 'submissionLocale':
-				$action = 'setSubmissionLocale-' . $row->getId();
-				$actionArgs['setting'] = 'supportedSubmissionLocales';
-				$actionArgs['value'] = !$element['supportedSubmissionLocales'];
-				$actionRequest = new AjaxAction($router->url($request, null, null, 'saveLanguageSetting', null, $actionArgs));
-				break;
-		}
+        if ($action && $actionRequest) {
+            $linkAction = new LinkAction($action, $actionRequest, null, null);
+            $actions = [$linkAction];
+        }
 
-		if ($action && $actionRequest) {
-			$linkAction = new LinkAction($action, $actionRequest, null, null);
-			$actions = array($linkAction);
-		}
-
-		return $actions;
-	}
+        return $actions;
+    }
 }
-
-

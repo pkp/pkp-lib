@@ -15,291 +15,326 @@
 
 import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
-class NativeXmlPKPPublicationFilter extends NativeImportFilter {
-	/**
-	 * Constructor
-	 * @param $filterGroup FilterGroup
-	 */
-	function __construct($filterGroup) {
-		$this->setDisplayName('Native XML publication import');
-		parent::__construct($filterGroup);
-	}
+class NativeXmlPKPPublicationFilter extends NativeImportFilter
+{
+    /**
+     * Constructor
+     *
+     * @param $filterGroup FilterGroup
+     */
+    public function __construct($filterGroup)
+    {
+        $this->setDisplayName('Native XML publication import');
+        parent::__construct($filterGroup);
+    }
 
 
-	//
-	// Implement template methods from PersistableFilter
-	//
-	/**
-	 * @copydoc PersistableFilter::getClassName()
-	 */
-	function getClassName() {
-		return 'lib.pkp.plugins.importexport.native.filter.NativeXmlPKPPublicationFilter';
-	}
+    //
+    // Implement template methods from PersistableFilter
+    //
+    /**
+     * @copydoc PersistableFilter::getClassName()
+     */
+    public function getClassName()
+    {
+        return 'lib.pkp.plugins.importexport.native.filter.NativeXmlPKPPublicationFilter';
+    }
 
 
-	//
-	// Implement template methods from NativeImportFilter
-	//
-	/**
-	 * Return the plural element name
-	 * @return string
-	 */
-	function getPluralElementName() {
-		return 'publications';
-	}
+    //
+    // Implement template methods from NativeImportFilter
+    //
+    /**
+     * Return the plural element name
+     *
+     * @return string
+     */
+    public function getPluralElementName()
+    {
+        return 'publications';
+    }
 
-	/**
-	 * Get the singular element name
-	 * @return string
-	 */
-	function getSingularElementName() {
-		return 'publication';
-	}
+    /**
+     * Get the singular element name
+     *
+     * @return string
+     */
+    public function getSingularElementName()
+    {
+        return 'publication';
+    }
 
-	/**
-	 * Handle a singular element import.
-	 * @param $node DOMElement
-	 */
-	function handleElement($node) {
-		$deployment = $this->getDeployment();
-		$context = $deployment->getContext();
+    /**
+     * Handle a singular element import.
+     *
+     * @param $node DOMElement
+     */
+    public function handleElement($node)
+    {
+        $deployment = $this->getDeployment();
+        $context = $deployment->getContext();
 
-		$submission = $deployment->getSubmission();
+        $submission = $deployment->getSubmission();
 
-		/** @var $publicationDao PublicationDAO */
-		$publicationDao = DAORegistry::getDAO('PublicationDAO');
-		$publication = $publicationDao->newDataObject(); /** @var $publication PKPPublication */
+        /** @var PublicationDAO $publicationDao */
+        $publicationDao = DAORegistry::getDAO('PublicationDAO');
+        $publication = $publicationDao->newDataObject(); /** @var PKPPublication $publication */
 
-		$publication->setData('submissionId', $submission->getId());
+        $publication->setData('submissionId', $submission->getId());
 
-		$publication->stampModified();
-		$publication = $this->populateObject($publication, $node);
+        $publication->stampModified();
+        $publication = $this->populateObject($publication, $node);
 
-		$publicationLocale = $node->getAttribute('locale');
-		if (empty($publicationLocale)) {
-			$publicationLocale = $context->getPrimaryLocale();
-		}
+        $publicationLocale = $node->getAttribute('locale');
+        if (empty($publicationLocale)) {
+            $publicationLocale = $context->getPrimaryLocale();
+        }
 
-		$publication->setData('locale', $publicationLocale);
-		$publication->setData('version', $node->getAttribute('version'));
-		$publication->setData('seq', $node->getAttribute('seq'));
-		$publication->setData('accessStatus', $node->getAttribute('access_status'));
-		$publication->setData('status', $node->getAttribute('status'));
-		$publication->setData('primaryContactId', $node->getAttribute('primary_contact_id'));
-		$publication->setData('urlPath', $node->getAttribute('url_path'));
+        $publication->setData('locale', $publicationLocale);
+        $publication->setData('version', $node->getAttribute('version'));
+        $publication->setData('seq', $node->getAttribute('seq'));
+        $publication->setData('accessStatus', $node->getAttribute('access_status'));
+        $publication->setData('status', $node->getAttribute('status'));
+        $publication->setData('primaryContactId', $node->getAttribute('primary_contact_id'));
+        $publication->setData('urlPath', $node->getAttribute('url_path'));
 
-		$publication = Services::get('publication')->add($publication, Application::get()->getRequest());
-		$deployment->setPublication($publication);
+        $publication = Services::get('publication')->add($publication, Application::get()->getRequest());
+        $deployment->setPublication($publication);
 
-		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
-			if (is_a($n, 'DOMElement')) {
-				$this->handleChildElement($n, $publication);
-			}
-		}
+        for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
+            if (is_a($n, 'DOMElement')) {
+                $this->handleChildElement($n, $publication);
+            }
+        }
 
-		$publication = Services::get('publication')->edit($publication, array(), Application::get()->getRequest());
+        $publication = Services::get('publication')->edit($publication, [], Application::get()->getRequest());
 
-		return $publication;
-	}
+        return $publication;
+    }
 
-	/**
-	 * Populate the entity object from the node
-	 * @param $publication PKPPublication
-	 * @param $node DOMElement
-	 * @return PKPPublication
-	 */
-	function populateObject($publication, $node) {
+    /**
+     * Populate the entity object from the node
+     *
+     * @param $publication PKPPublication
+     * @param $node DOMElement
+     *
+     * @return PKPPublication
+     */
+    public function populateObject($publication, $node)
+    {
+        if ($datePublished = $node->getAttribute('date_published')) {
+            $publication->setData('datePublished', $datePublished);
+        }
 
-		if ($datePublished = $node->getAttribute('date_published')) {
-			$publication->setData('datePublished', $datePublished);
-		}
+        return $publication;
+    }
 
-		return $publication;
-	}
+    /**
+     * Handle an element whose parent is the publication element.
+     *
+     * @param $n DOMElement
+     * @param $publication PKPPublication
+     */
+    public function handleChildElement($n, $publication)
+    {
+        $setterMappings = $this->_getLocalizedPublicationFields();
+        $controlledVocabulariesMappings = $this->_getControlledVocabulariesMappings();
 
-	/**
-	 * Handle an element whose parent is the publication element.
-	 * @param $n DOMElement
-	 * @param $publication PKPPublication
-	 */
-	function handleChildElement($n, $publication) {
-		$setterMappings = $this->_getLocalizedPublicationFields();
-		$controlledVocabulariesMappings = $this->_getControlledVocabulariesMappings();
+        [$locale, $value] = $this->parseLocalizedContent($n);
+        if (empty($locale)) {
+            $locale = $publication->getData('locale');
+        }
 
-		list($locale, $value) = $this->parseLocalizedContent($n);
-		if (empty($locale)) $locale = $publication->getData('locale');
+        if (in_array($n->tagName, $setterMappings)) {
+            $publication->setData($n->tagName, $value, $locale);
+        } elseif (isset($controlledVocabulariesMappings[$n->tagName])) {
+            $controlledVocabulariesDao = $submissionKeywordDao = DAORegistry::getDAO($controlledVocabulariesMappings[$n->tagName][0]);
+            $insertFunction = $controlledVocabulariesMappings[$n->tagName][1];
 
-		if (in_array($n->tagName, $setterMappings)) {
-			$publication->setData($n->tagName, $value, $locale);
-		} elseif (isset($controlledVocabulariesMappings[$n->tagName])) {
-			$controlledVocabulariesDao = $submissionKeywordDao = DAORegistry::getDAO($controlledVocabulariesMappings[$n->tagName][0]);
-			$insertFunction = $controlledVocabulariesMappings[$n->tagName][1];
+            $controlledVocabulary = [];
+            for ($nc = $n->firstChild; $nc !== null; $nc = $nc->nextSibling) {
+                if (is_a($nc, 'DOMElement')) {
+                    $controlledVocabulary[] = $nc->textContent;
+                }
+            }
 
-			$controlledVocabulary = array();
-			for ($nc = $n->firstChild; $nc !== null; $nc=$nc->nextSibling) {
-				if (is_a($nc, 'DOMElement')) {
-					$controlledVocabulary[] = $nc->textContent;
-				}
-			}
+            $controlledVocabulariesValues = [];
+            $controlledVocabulariesValues[$locale] = $controlledVocabulary;
 
-			$controlledVocabulariesValues = array();
-			$controlledVocabulariesValues[$locale] = $controlledVocabulary;
+            $controlledVocabulariesDao->$insertFunction($controlledVocabulariesValues, $publication->getId(), false);
 
-			$controlledVocabulariesDao->$insertFunction($controlledVocabulariesValues, $publication->getId(), false);
+            $publicationNew = Services::get('publication')->get($publication->getId());
+            $publication->setData($n->tagName, $publicationNew->getData($n->tagName));
+        } else {
+            switch ($n->tagName) {
+            // Otherwise, delegate to specific parsing code
+            case 'id':
+                $this->parseIdentifier($n, $publication);
+                break;
+            case 'authors':
+                $this->parseAuthors($n, $publication);
+                break;
+            case 'citations':
+                $this->parseCitations($n, $publication);
+                break;
+            case 'copyrightYear':
+                $publication->setData('copyrightYear', $n->textContent);
+                break;
+            case 'licenseUrl':
+                $publication->setData('licenseUrl', $n->textContent);
+                break;
+            default:
+                $deployment = $this->getDeployment();
+                $deployment->addWarning(ASSOC_TYPE_PUBLICATION, $publication->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
+        }
+        }
+    }
 
-			$publicationNew = Services::get('publication')->get($publication->getId());
-			$publication->setData($n->tagName, $publicationNew->getData($n->tagName));
-		} else switch ($n->tagName) {
-			// Otherwise, delegate to specific parsing code
-			case 'id':
-				$this->parseIdentifier($n, $publication);
-				break;
-			case 'authors':
-				$this->parseAuthors($n, $publication);
-				break;
-			case 'citations':
-				$this->parseCitations($n, $publication);
-				break;
-			case 'copyrightYear':
-				$publication->setData('copyrightYear', $n->textContent);
-				break;
-			case 'licenseUrl':
-				$publication->setData('licenseUrl', $n->textContent);
-				break;
-			default:
-				$deployment = $this->getDeployment();
-				$deployment->addWarning(ASSOC_TYPE_PUBLICATION, $publication->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));
-		}
-	}
+    //
+    // Element parsing
+    //
+    /**
+     * Parse an identifier node and set up the publication object accordingly
+     *
+     * @param $element DOMElement
+     * @param $publication PKPPublication
+     */
+    public function parseIdentifier($element, $publication)
+    {
+        $deployment = $this->getDeployment();
+        $submission = $deployment->getSubmission();
 
-	//
-	// Element parsing
-	//
-	/**
-	 * Parse an identifier node and set up the publication object accordingly
-	 * @param $element DOMElement
-	 * @param $publication PKPPublication
-	 */
-	function parseIdentifier($element, $publication) {
-		$deployment = $this->getDeployment();
-		$submission = $deployment->getSubmission();
+        $advice = $element->getAttribute('advice');
+        switch ($element->getAttribute('type')) {
+            case 'internal':
+                // "update" advice not supported yet.
+                assert(!$advice || $advice == 'ignore');
 
-		$advice = $element->getAttribute('advice');
-		switch ($element->getAttribute('type')) {
-			case 'internal':
-				// "update" advice not supported yet.
-				assert(!$advice || $advice == 'ignore');
+                if ($element->textContent == $submission->getData('currentPublicationId')) {
+                    $submission->setData('currentPublicationId', $publication->getId());
+                }
 
-				if ($element->textContent == $submission->getData('currentPublicationId')) {
-					$submission->setData('currentPublicationId', $publication->getId());
-				}
+                break;
+            case 'public':
+                if ($advice == 'update') {
+                    $publication->setData('pub-id::publisher-id', $element->textContent);
+                }
+                break;
+            default:
+                if ($advice == 'update') {
+                    $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
+                    $publication->setData('pub-id::' . $element->getAttribute('type'), $element->textContent);
+                }
+        }
+    }
 
-				break;
-			case 'public':
-				if ($advice == 'update') {
-					$publication->setData('pub-id::publisher-id', $element->textContent);
-				}
-				break;
-			default:
-				if ($advice == 'update') {
-					$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
-					$publication->setData('pub-id::'.$element->getAttribute('type'), $element->textContent);
-				}
-		}
-	}
+    /**
+     * Parse an authors element
+     *
+     * @param $node DOMElement
+     * @param $publication PKPPublication
+     */
+    public function parseAuthors($node, $publication)
+    {
+        for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
+            if (is_a($n, 'DOMElement')) {
+                assert($n->tagName == 'author');
+                $this->parseAuthor($n, $publication);
+            }
+        }
+    }
 
-	/**
-	 * Parse an authors element
-	 * @param $node DOMElement
-	 * @param $publication PKPPublication
-	 */
-	function parseAuthors($node, $publication) {
-		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
-			if (is_a($n, 'DOMElement')) {
-				assert($n->tagName == 'author');
-				$this->parseAuthor($n, $publication);
-			}
-		}
-	}
+    /**
+     * Parse an author and add it to the submission.
+     *
+     * @param $n DOMElement
+     * @param $publication Publication
+     */
+    public function parseAuthor($n, $publication)
+    {
+        return $this->importWithXMLNode($n, 'native-xml=>author');
+    }
 
-	/**
-	 * Parse an author and add it to the submission.
-	 * @param $n DOMElement
-	 * @param $publication Publication
-	 */
-	function parseAuthor($n, $publication) {
-		return $this->importWithXMLNode($n, 'native-xml=>author');
-	}
+    /**
+     * Parse a publication citation and add it to the publication.
+     *
+     * @param $n DOMElement
+     * @param $publication PKPPublication
+     */
+    public function parseCitations($n, $publication)
+    {
+        $publicationId = $publication->getId();
+        $citationsString = '';
+        foreach ($n->childNodes as $citNode) {
+            $nodeText = trim($citNode->textContent);
+            if (empty($nodeText)) {
+                continue;
+            }
+            $citationsString .= $nodeText . "\n";
+        }
+        $publication->setData('citationsRaw', $citationsString);
+        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
+        $citationDao->importCitations($publicationId, $citationsString);
+    }
 
-	/**
-	 * Parse a publication citation and add it to the publication.
-	 * @param $n DOMElement
-	 * @param $publication PKPPublication
-	 */
-	function parseCitations($n, $publication) {
-		$publicationId = $publication->getId();
-		$citationsString = '';
-		foreach ($n->childNodes as $citNode) {
-			$nodeText = trim($citNode->textContent);
-			if (empty($nodeText)) continue;
-			$citationsString .= $nodeText ."\n";
-		}
-		$publication->setData('citationsRaw', $citationsString);
-		$citationDao = DAORegistry::getDAO('CitationDAO'); /** @var $citationDao CitationDAO */
-		$citationDao->importCitations($publicationId, $citationsString);
-	}
+    //
+    // Helper functions
+    //
+    /**
+     * Get node name to setter function mapping for localized data.
+     *
+     * @return array
+     */
+    public function _getLocalizedPublicationFields()
+    {
+        return [
+            'title',
+            'prefix',
+            'subtitle',
+            'abstract',
+            'coverage',
+            'type',
+            'source',
+            'rights',
+            'copyrightHolder',
+        ];
+    }
 
-	//
-	// Helper functions
-	//
-	/**
-	 * Get node name to setter function mapping for localized data.
-	 * @return array
-	 */
-	function _getLocalizedPublicationFields() {
-		return array(
-			'title',
-			'prefix',
-			'subtitle',
-			'abstract',
-			'coverage',
-			'type',
-			'source',
-			'rights',
-			'copyrightHolder',
-		);
-	}
+    /**
+     * Get node name to DAO and insert function mapping.
+     *
+     * @return array
+     */
+    public function _getControlledVocabulariesMappings()
+    {
+        return [
+            'keywords' => ['SubmissionKeywordDAO', 'insertKeywords'],
+            'agencies' => ['SubmissionAgencyDAO', 'insertAgencies'],
+            'languages' => ['SubmissionLanguageDAO', 'insertLanguages'],
+            'disciplines' => ['SubmissionDisciplineDAO', 'insertDisciplines'],
+            'subjects' => ['SubmissionSubjectDAO', 'insertSubjects'],
+        ];
+    }
 
-	/**
-	 * Get node name to DAO and insert function mapping.
-	 * @return array
-	 */
-	function _getControlledVocabulariesMappings() {
-		return array(
-			'keywords' => array('SubmissionKeywordDAO', 'insertKeywords'),
-			'agencies' => array('SubmissionAgencyDAO', 'insertAgencies'),
-			'languages' => array('SubmissionLanguageDAO', 'insertLanguages'),
-			'disciplines' => array('SubmissionDisciplineDAO', 'insertDisciplines'),
-			'subjects' => array('SubmissionSubjectDAO', 'insertSubjects'),
-		);
-	}
+    /**
+     * Get the representation export filter group name
+     *
+     * @return string
+     */
+    public function getRepresentationExportFilterGroupName()
+    {
+        assert(false); // Subclasses must override
+    }
 
-	/**
-	 * Get the representation export filter group name
-	 * @return string
-	 */
-	function getRepresentationExportFilterGroupName() {
-		assert(false); // Subclasses must override
-	}
-
-	/**
-	 * Get the import filter for a given element.
-	 * @param $elementName string Name of XML element
-	 * @return Filter
-	 */
-	function getImportFilter($elementName) {
-		assert(false); // Subclasses should override
-	}
+    /**
+     * Get the import filter for a given element.
+     *
+     * @param $elementName string Name of XML element
+     *
+     * @return Filter
+     */
+    public function getImportFilter($elementName)
+    {
+        assert(false); // Subclasses should override
+    }
 }
-
-

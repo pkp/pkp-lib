@@ -14,35 +14,36 @@
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
-class ContextRequiredPolicy extends AuthorizationPolicy {
-	/** @var PKPRouter */
-	var $_request;
+class ContextRequiredPolicy extends AuthorizationPolicy
+{
+    /** @var PKPRouter */
+    public $_request;
 
-	/**
-	 * Constructor
-	 *
-	 * @param $request PKPRequest
-	 */
-	function __construct($request, $message = 'user.authorization.contextRequired') {
-		parent::__construct($message);
-		$this->_request = $request;
-	}
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     */
+    public function __construct($request, $message = 'user.authorization.contextRequired')
+    {
+        parent::__construct($message);
+        $this->_request = $request;
+    }
 
 
-	//
-	// Implement template methods from AuthorizationPolicy
-	//
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		$router = $this->_request->getRouter();
-		if (is_object($router->getContext($this->_request))) {
-			return AUTHORIZATION_PERMIT;
-		} else {
-			return AUTHORIZATION_DENY;
-		}
-	}
+    //
+    // Implement template methods from AuthorizationPolicy
+    //
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        $router = $this->_request->getRouter();
+        if (is_object($router->getContext($this->_request))) {
+            return AUTHORIZATION_PERMIT;
+        } else {
+            return AUTHORIZATION_DENY;
+        }
+    }
 }
-
-

@@ -17,13 +17,11 @@
  */
 
 switch ($op) {
-	//
-	// PKP Submission
-	//
-	case 'fetchChoices':
-		import('lib.pkp.pages.submission.PKPSubmissionHandler');
-		define('HANDLER_CLASS', 'PKPSubmissionHandler');
-		break;
+    //
+    // PKP Submission
+    //
+    case 'fetchChoices':
+        import('lib.pkp.pages.submission.PKPSubmissionHandler');
+        define('HANDLER_CLASS', 'PKPSubmissionHandler');
+        break;
 }
-
-

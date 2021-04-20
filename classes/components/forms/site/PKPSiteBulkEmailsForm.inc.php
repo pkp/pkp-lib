@@ -11,45 +11,49 @@
  *
  * @brief A form for enabling the bulk email features.
  */
+
 namespace PKP\components\forms\site;
-use \PKP\components\forms\FormComponent;
-use \PKP\components\forms\FieldOptions;
+
+use PKP\components\forms\FieldOptions;
+use PKP\components\forms\FormComponent;
 
 define('FORM_SITE_BULK_EMAILS', 'bulkEmails');
 
-class PKPSiteBulkEmailsForm extends FormComponent {
-	/** @copydoc FormComponent::$id */
-	public $id = FORM_SITE_BULK_EMAILS;
+class PKPSiteBulkEmailsForm extends FormComponent
+{
+    /** @copydoc FormComponent::$id */
+    public $id = FORM_SITE_BULK_EMAILS;
 
-	/** @copydoc FormComponent::$method */
-	public $method = 'PUT';
+    /** @copydoc FormComponent::$method */
+    public $method = 'PUT';
 
-	/**
-	 * Constructor
-	 *
-	 * @param string $action URL to submit the form to
-	 * @param Site $site
-	 * @param Array $contexts List of context summary objects. See PKPContextQueryBuilder::getManySummary()
-	 */
-	public function __construct($action, $site, $contexts) {
-		$this->action = $action;
+    /**
+     * Constructor
+     *
+     * @param string $action URL to submit the form to
+     * @param Site $site
+     * @param Array $contexts List of context summary objects. See PKPContextQueryBuilder::getManySummary()
+     */
+    public function __construct($action, $site, $contexts)
+    {
+        $this->action = $action;
 
-		$request = \Application::get()->getRequest();
-		$hostedContextsUrl = $request->getDispatcher()->url($request, \PKPApplication::ROUTE_PAGE, null, 'admin', 'contexts');
+        $request = \Application::get()->getRequest();
+        $hostedContextsUrl = $request->getDispatcher()->url($request, \PKPApplication::ROUTE_PAGE, null, 'admin', 'contexts');
 
-		$options = [];
-		foreach ($contexts as $context) {
-			$options[] = [
-				'value' => $context->id,
-				'label' => $context->name,
-			];
-		}
+        $options = [];
+        foreach ($contexts as $context) {
+            $options[] = [
+                'value' => $context->id,
+                'label' => $context->name,
+            ];
+        }
 
-		$this->addField(new FieldOptions('enableBulkEmails', [
-			'label' => __('admin.settings.enableBulkEmails.label'),
-			'description' => __('admin.settings.enableBulkEmails.description', ['hostedContextsUrl' => $hostedContextsUrl]),
-			'value' => (array) $site->getData('enableBulkEmails'),
-			'options' => $options,
-		]));
-	}
+        $this->addField(new FieldOptions('enableBulkEmails', [
+            'label' => __('admin.settings.enableBulkEmails.label'),
+            'description' => __('admin.settings.enableBulkEmails.description', ['hostedContextsUrl' => $hostedContextsUrl]),
+            'value' => (array) $site->getData('enableBulkEmails'),
+            'options' => $options,
+        ]));
+    }
 }

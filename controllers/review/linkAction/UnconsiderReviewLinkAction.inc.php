@@ -18,39 +18,42 @@
 
 import('lib.pkp.classes.linkAction.LinkAction');
 
-class UnconsiderReviewLinkAction extends LinkAction {
-
-	/**
-	 * Constructor
-	 * @param $request Request
-	 * @param $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment The review assignment
-	 * to show information about.
-	 * @param $submission Submission The reviewed submission.
-	 */
-	function __construct($request, $reviewAssignment, $submission) {
-		$router = $request->getRouter();
-		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-		parent::__construct(
-			'unconsiderReview',
-			new RemoteActionConfirmationModal(
-				$request->getSession(),
-				__('editor.review.unconsiderReviewText'), __('editor.review.unconsiderReview'),
-				$router->url(
-					$request, null,
-					'grid.users.reviewer.ReviewerGridHandler', 'unconsiderReview',
-					null,
-					array(
-						'submissionId' => $reviewAssignment->getSubmissionId(),
-						'reviewAssignmentId' => $reviewAssignment->getId(),
-						'stageId' => $reviewAssignment->getStageId()
-					)
-				),
-				'modal_information'
-			),
-			__('editor.review.revertDecision'),
-			'unconsider'
-		);
-	}
+class UnconsiderReviewLinkAction extends LinkAction
+{
+    /**
+     * Constructor
+     *
+     * @param $request Request
+     * @param $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment The review assignment
+     * to show information about.
+     * @param $submission Submission The reviewed submission.
+     */
+    public function __construct($request, $reviewAssignment, $submission)
+    {
+        $router = $request->getRouter();
+        import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+        parent::__construct(
+            'unconsiderReview',
+            new RemoteActionConfirmationModal(
+                $request->getSession(),
+                __('editor.review.unconsiderReviewText'),
+                __('editor.review.unconsiderReview'),
+                $router->url(
+                    $request,
+                    null,
+                    'grid.users.reviewer.ReviewerGridHandler',
+                    'unconsiderReview',
+                    null,
+                    [
+                        'submissionId' => $reviewAssignment->getSubmissionId(),
+                        'reviewAssignmentId' => $reviewAssignment->getId(),
+                        'stageId' => $reviewAssignment->getStageId()
+                    ]
+                ),
+                'modal_information'
+            ),
+            __('editor.review.revertDecision'),
+            'unconsider'
+        );
+    }
 }
-
-

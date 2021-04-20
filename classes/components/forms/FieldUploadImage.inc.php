@@ -11,51 +11,57 @@
  *
  * @brief A field for uploading a file.
  */
+
 namespace PKP\components\forms;
-class FieldUploadImage extends FieldUpload {
-	/** @copydoc Field::$component */
-	public $component = 'field-upload-image';
 
-	/** @var string Base url for displaying the image */
-	public $baseUrl = '';
+class FieldUploadImage extends FieldUpload
+{
+    /** @copydoc Field::$component */
+    public $component = 'field-upload-image';
 
-	/** @var string Label for the alt text field */
-	public $altTextLabel = '';
+    /** @var string Base url for displaying the image */
+    public $baseUrl = '';
 
-	/** @var string Description for the alt text field */
-	public $altTextDescription = '';
+    /** @var string Label for the alt text field */
+    public $altTextLabel = '';
 
-	/** @var string Description for the image thumbnail */
-	public $thumbnailDescription = '';
+    /** @var string Description for the alt text field */
+    public $altTextDescription = '';
 
-	/**
-	 * @copydoc Field::__construct()
-	 */
-	public function __construct($name, $args = []) {
-		parent::__construct($name, $args);
-	}
+    /** @var string Description for the image thumbnail */
+    public $thumbnailDescription = '';
 
-	/**
-	 * @copydoc Field::getConfig()
-	 */
-	public function getConfig() {
-		if (!array_key_exists('acceptedFiles', $this->options)) {
-			$this->options['acceptedFiles'] = 'image/*';
-		}
-		$config = parent::getConfig();
-		$config['baseUrl'] = $this->baseUrl;
+    /**
+     * @copydoc Field::__construct()
+     */
+    public function __construct($name, $args = [])
+    {
+        parent::__construct($name, $args);
+    }
 
-		$config['thumbnailDescription'] = __('common.upload.thumbnailPreview');
-		$config['altTextLabel'] = __('common.altText');
-		$config['altTextDescription'] = __('common.altTextInstructions');
+    /**
+     * @copydoc Field::getConfig()
+     */
+    public function getConfig()
+    {
+        if (!array_key_exists('acceptedFiles', $this->options)) {
+            $this->options['acceptedFiles'] = 'image/*';
+        }
+        $config = parent::getConfig();
+        $config['baseUrl'] = $this->baseUrl;
 
-		return $config;
-	}
+        $config['thumbnailDescription'] = __('common.upload.thumbnailPreview');
+        $config['altTextLabel'] = __('common.altText');
+        $config['altTextDescription'] = __('common.altTextInstructions');
 
-	/**
-	 * @copydoc Field::getEmptyValue()
-	 */
-	public function getEmptyValue() {
-		return null;
-	}
+        return $config;
+    }
+
+    /**
+     * @copydoc Field::getEmptyValue()
+     */
+    public function getEmptyValue()
+    {
+        return null;
+    }
 }

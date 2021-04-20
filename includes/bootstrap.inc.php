@@ -26,8 +26,8 @@
 
 define('ENV_SEPARATOR', strtolower(substr(PHP_OS, 0, 3)) == 'win' ? ';' : ':');
 if (!defined('DIRECTORY_SEPARATOR')) {
-	// Older versions of PHP do not define this
-	define('DIRECTORY_SEPARATOR', strtolower(substr(PHP_OS, 0, 3)) == 'win' ? '\\' : '/');
+    // Older versions of PHP do not define this
+    define('DIRECTORY_SEPARATOR', strtolower(substr(PHP_OS, 0, 3)) == 'win' ? '\\' : '/');
 }
 define('BASE_SYS_DIR', dirname(INDEX_FILE_LOCATION));
 chdir(BASE_SYS_DIR);
@@ -36,15 +36,15 @@ chdir(BASE_SYS_DIR);
 require('./lib/pkp/includes/functions.inc.php');
 
 // Register custom autoloader functions for namespaces
-spl_autoload_register(function($class) {
-	$prefix = 'PKP\\';
-	$rootPath = BASE_SYS_DIR . "/lib/pkp/classes";
-	customAutoload($rootPath, $prefix, $class);
+spl_autoload_register(function ($class) {
+    $prefix = 'PKP\\';
+    $rootPath = BASE_SYS_DIR . '/lib/pkp/classes';
+    customAutoload($rootPath, $prefix, $class);
 });
-spl_autoload_register(function($class) {
-	$prefix = 'APP\\';
-	$rootPath = BASE_SYS_DIR . "/classes";
-	customAutoload($rootPath, $prefix, $class);
+spl_autoload_register(function ($class) {
+    $prefix = 'APP\\';
+    $rootPath = BASE_SYS_DIR . '/classes';
+    customAutoload($rootPath, $prefix, $class);
 });
 
 // Initialize the application environment

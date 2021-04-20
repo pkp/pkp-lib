@@ -16,191 +16,221 @@
 import('classes.handler.Handler');
 import('classes.statistics.StatisticsHelper');
 
-use \PKP\core\JSONMessage;
+use PKP\core\JSONMessage;
 
-class ReportGeneratorHandler extends Handler {
-	/**
-	 * Constructor
-	 **/
-	function __construct() {
-		parent::__construct();
-		$this->addRoleAssignment(
-			ROLE_ID_MANAGER,
-			array('fetchReportGenerator', 'saveReportGenerator', 'fetchArticlesInfo', 'fetchRegions'));
-	}
+class ReportGeneratorHandler extends Handler
+{
+    /**
+     * Constructor
+     **/
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRoleAssignment(
+            ROLE_ID_MANAGER,
+            ['fetchReportGenerator', 'saveReportGenerator', 'fetchArticlesInfo', 'fetchRegions']
+        );
+    }
 
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-	/**
-	* Fetch form to generate custom reports.
-	* @param $args array
-	* @param $request Request
-	 * @return JSONMessage JSON object
-	*/
-	function fetchReportGenerator($args, $request) {
-		$this->setupTemplate($request);
-		$reportGeneratorForm = $this->_getReportGeneratorForm($request);
-		$reportGeneratorForm->initData();
+    /**
+    * Fetch form to generate custom reports.
+    *
+    * @param $args array
+    * @param $request Request
+    *
+     * @return JSONMessage JSON object
+    */
+    public function fetchReportGenerator($args, $request)
+    {
+        $this->setupTemplate($request);
+        $reportGeneratorForm = $this->_getReportGeneratorForm($request);
+        $reportGeneratorForm->initData();
 
-		$formContent = $reportGeneratorForm->fetch($request);
+        $formContent = $reportGeneratorForm->fetch($request);
 
-		$json = new JSONMessage(true);
-		if ($request->getUserVar('refreshForm')) {
-			$json->setEvent('refreshForm', $formContent);
-		} else {
-			$json->setContent($formContent);
-		}
+        $json = new JSONMessage(true);
+        if ($request->getUserVar('refreshForm')) {
+            $json->setEvent('refreshForm', $formContent);
+        } else {
+            $json->setContent($formContent);
+        }
 
-		return $json;
-	}
+        return $json;
+    }
 
-	/**
-	 * Save form to generate custom reports.
-	 * @param $args array
-	 * @param $request Request
-	 * @return JSONMessage JSON object
-	 */
-	function saveReportGenerator($args, $request) {
-		$this->setupTemplate($request);
+    /**
+     * Save form to generate custom reports.
+     *
+     * @param $args array
+     * @param $request Request
+     *
+     * @return JSONMessage JSON object
+     */
+    public function saveReportGenerator($args, $request)
+    {
+        $this->setupTemplate($request);
 
-		$reportGeneratorForm = $this->_getReportGeneratorForm($request);
-		$reportGeneratorForm->readInputData();
-		$json = new JSONMessage(true);
-		if ($reportGeneratorForm->validate()) {
-			$reportUrl = $reportGeneratorForm->execute();
-			$json->setAdditionalAttributes(array('reportUrl' => $reportUrl));
-		} else {
-			$json->setStatus(false);
-		}
+        $reportGeneratorForm = $this->_getReportGeneratorForm($request);
+        $reportGeneratorForm->readInputData();
+        $json = new JSONMessage(true);
+        if ($reportGeneratorForm->validate()) {
+            $reportUrl = $reportGeneratorForm->execute();
+            $json->setAdditionalAttributes(['reportUrl' => $reportUrl]);
+        } else {
+            $json->setStatus(false);
+        }
 
-		return $json;
-	}
+        return $json;
+    }
 
-	/**
-	 * Fetch articles title and id from
-	 * the passed request variable issue id.
-	 * @param $args array
-	 * @param $request Request
-	 * @return JSONMessage JSON object
-	 */
-	function fetchArticlesInfo($args, $request) {
-		$this->validate();
+    /**
+     * Fetch articles title and id from
+     * the passed request variable issue id.
+     *
+     * @param $args array
+     * @param $request Request
+     *
+     * @return JSONMessage JSON object
+     */
+    public function fetchArticlesInfo($args, $request)
+    {
+        $this->validate();
 
-		$issueId = (int) $request->getUserVar('issueId');
-		if (!$issueId) {
-			return new JSONMessage(false);
-		} else {
-			$submissionsIterator = Services::get('submission')->getMany([
-				'contextId' => $request->getContext()->getId(),
-				'issueIds' => $issueId,
-			]);
-			$articlesInfo = array();
-			foreach ($submissionsIterator as $submission) {
-				$articlesInfo[] = array('id' => $submission->getId(), 'title' => $submission->getLocalizedTitle());
-			}
+        $issueId = (int) $request->getUserVar('issueId');
+        if (!$issueId) {
+            return new JSONMessage(false);
+        } else {
+            $submissionsIterator = Services::get('submission')->getMany([
+                'contextId' => $request->getContext()->getId(),
+                'issueIds' => $issueId,
+            ]);
+            $articlesInfo = [];
+            foreach ($submissionsIterator as $submission) {
+                $articlesInfo[] = ['id' => $submission->getId(), 'title' => $submission->getLocalizedTitle()];
+            }
 
-			return new JSONMessage(true, $articlesInfo);
-		}
-	}
+            return new JSONMessage(true, $articlesInfo);
+        }
+    }
 
-	/**
-	 * Fetch regions from the passed request
-	 * variable country id.
-	 * @param $args array
-	 * @param $request Request
-	 * @return JSONMessage JSON object
-	 */
-	function fetchRegions($args, $request) {
-		$this->validate();
+    /**
+     * Fetch regions from the passed request
+     * variable country id.
+     *
+     * @param $args array
+     * @param $request Request
+     *
+     * @return JSONMessage JSON object
+     */
+    public function fetchRegions($args, $request)
+    {
+        $this->validate();
 
-		$countryId = (string) $request->getUserVar('countryId');
-		if ($countryId) {
-			$statsHelper = new StatisticsHelper();
-			$geoLocationTool = $statsHelper->getGeoLocationTool();
-			if ($geoLocationTool) {
-				$regions = $geoLocationTool->getRegions($countryId);
-				if (!empty($regions)) {
-					$regionsData = array();
-					foreach ($regions as $id => $name) {
-						$regionsData[] = array('id' => $id, 'name' => $name);
-					}
-					return new JSONMessage(true, $regionsData);
-				}
-			}
-		}
+        $countryId = (string) $request->getUserVar('countryId');
+        if ($countryId) {
+            $statsHelper = new StatisticsHelper();
+            $geoLocationTool = $statsHelper->getGeoLocationTool();
+            if ($geoLocationTool) {
+                $regions = $geoLocationTool->getRegions($countryId);
+                if (!empty($regions)) {
+                    $regionsData = [];
+                    foreach ($regions as $id => $name) {
+                        $regionsData[] = ['id' => $id, 'name' => $name];
+                    }
+                    return new JSONMessage(true, $regionsData);
+                }
+            }
+        }
 
-		return new JSONMessage(false);
-	}
+        return new JSONMessage(false);
+    }
 
-	/**
-	 * @see PKPHandler::setupTemplate()
-	 */
-	function setupTemplate($request) {
-		parent::setupTemplate($request);
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION,
-			LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_APP_SUBMISSION);
-	}
+    /**
+     * @see PKPHandler::setupTemplate()
+     */
+    public function setupTemplate($request)
+    {
+        parent::setupTemplate($request);
+        AppLocale::requireComponents(
+            LOCALE_COMPONENT_PKP_MANAGER,
+            LOCALE_COMPONENT_PKP_SUBMISSION,
+            LOCALE_COMPONENT_APP_MANAGER,
+            LOCALE_COMPONENT_APP_SUBMISSION
+        );
+    }
 
 
-	//
-	// Private helper methods.
-	//
-	/**
-	 * Get report generator form object.
-	 * @return ReportGeneratorForm
-	 */
-	function &_getReportGeneratorForm($request) {
-		$router = $request->getRouter();
-		$context = $router->getContext($request);
+    //
+    // Private helper methods.
+    //
+    /**
+     * Get report generator form object.
+     *
+     * @return ReportGeneratorForm
+     */
+    public function &_getReportGeneratorForm($request)
+    {
+        $router = $request->getRouter();
+        $context = $router->getContext($request);
 
-		$metricType = $request->getUserVar('metricType');
-		if (!$metricType) {
-			$metricType = $context->getDefaultMetricType();
-		}
+        $metricType = $request->getUserVar('metricType');
+        if (!$metricType) {
+            $metricType = $context->getDefaultMetricType();
+        }
 
-		$statsHelper = new StatisticsHelper();
-		$reportPlugin = $statsHelper->getReportPluginByMetricType($metricType);
-		if (!is_scalar($metricType) || !$reportPlugin) {
-			fatalError('Invalid metric type.');
-		}
+        $statsHelper = new StatisticsHelper();
+        $reportPlugin = $statsHelper->getReportPluginByMetricType($metricType);
+        if (!is_scalar($metricType) || !$reportPlugin) {
+            fatalError('Invalid metric type.');
+        }
 
-		$columns = $reportPlugin->getColumns($metricType);
-		$columns = array_flip(array_intersect(array_flip($statsHelper->getColumnNames()), $columns));
+        $columns = $reportPlugin->getColumns($metricType);
+        $columns = array_flip(array_intersect(array_flip($statsHelper->getColumnNames()), $columns));
 
-		$optionalColumns = $reportPlugin->getOptionalColumns($metricType);
-		$optionalColumns = array_flip(array_intersect(array_flip($statsHelper->getColumnNames()), $optionalColumns));
+        $optionalColumns = $reportPlugin->getOptionalColumns($metricType);
+        $optionalColumns = array_flip(array_intersect(array_flip($statsHelper->getColumnNames()), $optionalColumns));
 
-		$objects = $reportPlugin->getObjectTypes($metricType);
-		$objects = array_flip(array_intersect(array_flip($statsHelper->getObjectTypeString()), $objects));
+        $objects = $reportPlugin->getObjectTypes($metricType);
+        $objects = array_flip(array_intersect(array_flip($statsHelper->getObjectTypeString()), $objects));
 
-		$defaultReportTemplates = $reportPlugin->getDefaultReportTemplates($metricType);
+        $defaultReportTemplates = $reportPlugin->getDefaultReportTemplates($metricType);
 
-		// If the report plugin doesn't works with the file type column,
-		// don't load file types.
-		if (isset($columns[STATISTICS_DIMENSION_FILE_TYPE])) {
-			$fileTypes = $statsHelper->getFileTypeString();
-		} else {
-			$fileTypes = null;
-		}
+        // If the report plugin doesn't works with the file type column,
+        // don't load file types.
+        if (isset($columns[STATISTICS_DIMENSION_FILE_TYPE])) {
+            $fileTypes = $statsHelper->getFileTypeString();
+        } else {
+            $fileTypes = null;
+        }
 
-		// Metric type will be presented in header, remove if any.
-		if (isset($columns[STATISTICS_DIMENSION_METRIC_TYPE])) unset($columns[STATISTICS_DIMENSION_METRIC_TYPE]);
+        // Metric type will be presented in header, remove if any.
+        if (isset($columns[STATISTICS_DIMENSION_METRIC_TYPE])) {
+            unset($columns[STATISTICS_DIMENSION_METRIC_TYPE]);
+        }
 
-		$reportTemplate = $request->getUserVar('reportTemplate');
+        $reportTemplate = $request->getUserVar('reportTemplate');
 
-		import('controllers.statistics.form.ReportGeneratorForm');
-		$reportGeneratorForm = new ReportGeneratorForm($columns, $optionalColumns,
-			$objects, $fileTypes, $metricType, $defaultReportTemplates, $reportTemplate);
+        import('controllers.statistics.form.ReportGeneratorForm');
+        $reportGeneratorForm = new ReportGeneratorForm(
+            $columns,
+            $optionalColumns,
+            $objects,
+            $fileTypes,
+            $metricType,
+            $defaultReportTemplates,
+            $reportTemplate
+        );
 
-		return $reportGeneratorForm;
-	}
+        return $reportGeneratorForm;
+    }
 }
-
-

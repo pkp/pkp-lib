@@ -15,46 +15,44 @@
 
 import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
 
-class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkflowStageRequiredPolicy {
+class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkflowStageRequiredPolicy
+{
+    //
+    // Private helper methods.
+    //
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        $result = parent::effect();
+        if ($result === AUTHORIZATION_PERMIT) {
+            return $result;
+        }
 
-	//
-	// Private helper methods.
-	//
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
+        if (!in_array(ROLE_ID_REVIEWER, $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES) ?? [])) {
+            return $result;
+        }
 
-		$result = parent::effect();
-		if ($result === AUTHORIZATION_PERMIT) {
-			return $result;
-		}
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
+        foreach ($reviewAssignments as $reviewAssignment) {
+            if ($reviewAssignment->getReviewerId() == $this->_request->getUser()->getId()) {
+                $accessibleWorkflowStages = (array) $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+                $accessibleWorkflowStages[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] = array_merge(
+                    $accessibleWorkflowStages[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] ?? [],
+                    [ROLE_ID_REVIEWER]
+                );
+                $accessibleWorkflowStages[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] = array_merge(
+                    $accessibleWorkflowStages[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] ?? [],
+                    [ROLE_ID_REVIEWER]
+                );
+                $this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
+                return AUTHORIZATION_PERMIT;
+            }
+        }
 
-		if (!in_array(ROLE_ID_REVIEWER, $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES) ?? [])) {
-			return $result;
-		}
-
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-		$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
-		foreach ($reviewAssignments as $reviewAssignment) {
-			if ($reviewAssignment->getReviewerId() == $this->_request->getUser()->getId()) {
-				$accessibleWorkflowStages = (array) $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
-				$accessibleWorkflowStages[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] = array_merge(
-					$accessibleWorkflowStages[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] ?? [],
-					[ROLE_ID_REVIEWER]
-				);
-				$accessibleWorkflowStages[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] = array_merge(
-					$accessibleWorkflowStages[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] ?? [],
-					[ROLE_ID_REVIEWER]
-				);
-				$this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
-				return AUTHORIZATION_PERMIT;
-			}
-		}
-
-		return $result;
-	}
+        return $result;
+    }
 }
-
-

@@ -31,122 +31,140 @@ define('XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA', 'schema');
 define('XML_TYPE_DESCRIPTION_VALIDATE_DTD', 'dtd');
 define('XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG', 'relax-ng');
 
-class XMLTypeDescription extends TypeDescription {
-	/** @var string a validation strategy, see the XML_TYPE_DESCRIPTION_VALIDATE_* constants */
-	var $_validationStrategy = XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA;
+class XMLTypeDescription extends TypeDescription
+{
+    /** @var string a validation strategy, see the XML_TYPE_DESCRIPTION_VALIDATE_* constants */
+    public $_validationStrategy = XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA;
 
-	/** @var string a validation document as string or filename pointer (xsd or rng only) */
-	var $_validationSource;
-
-
-	/**
-	 * Constructor
-	 *
-	 * @param $typeName string Allowed primitive types are
-	 *  'integer', 'string', 'float' and 'boolean'.
-	 */
-	function __construct($typeName) {
-		parent::__construct($typeName);
-	}
+    /** @var string a validation document as string or filename pointer (xsd or rng only) */
+    public $_validationSource;
 
 
-	//
-	// Setters and Getters
-	//
-	/**
-	 * @see TypeDescription::getNamespace()
-	 */
-	function getNamespace() {
-		return TYPE_DESCRIPTION_NAMESPACE_XML;
-	}
+    /**
+     * Constructor
+     *
+     * @param $typeName string Allowed primitive types are
+     *  'integer', 'string', 'float' and 'boolean'.
+     */
+    public function __construct($typeName)
+    {
+        parent::__construct($typeName);
+    }
 
-	/**
-	 * Set the validation strategy
-	 * @param $validationStrategy string XML_TYPE_DESCRIPTION_VALIDATE_...
-	 */
-	function setValidationStrategy($validationStrategy) {
-		$this->_validationStrategy = $validationStrategy;
-	}
 
-	//
-	// Implement abstract template methods from TypeDescription
-	//
-	/**
-	 * @copydoc TypeDescription::parseTypeName()
-	 */
-	function parseTypeName($typeName) {
-		// We expect a validation strategy and an optional validation argument
-		$typeNameParts = explode('(', $typeName);
-		switch (count($typeNameParts)) {
-			case 1:
-				// No argument present (only dtd or no validation)
-				$validationStrategy = $typeName;
-				if ($validationStrategy != XML_TYPE_DESCRIPTION_VALIDATE_NONE
-						&& $validationStrategy != XML_TYPE_DESCRIPTION_VALIDATE_DTD) return false;
-				$validationSource = null;
-				break;
+    //
+    // Setters and Getters
+    //
+    /**
+     * @see TypeDescription::getNamespace()
+     */
+    public function getNamespace()
+    {
+        return TYPE_DESCRIPTION_NAMESPACE_XML;
+    }
 
-			case 2:
-				// We have an argument (only available for schema and relax-ng)
-				$validationStrategy = $typeNameParts[0];
-				if ($validationStrategy != XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA
-						&& $validationStrategy != XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG) return false;
-				$validationSource = trim($typeNameParts[1], ')');
-				break;
+    /**
+     * Set the validation strategy
+     *
+     * @param $validationStrategy string XML_TYPE_DESCRIPTION_VALIDATE_...
+     */
+    public function setValidationStrategy($validationStrategy)
+    {
+        $this->_validationStrategy = $validationStrategy;
+    }
 
-			default:
-				return false;
-		}
+    //
+    // Implement abstract template methods from TypeDescription
+    //
+    /**
+     * @copydoc TypeDescription::parseTypeName()
+     */
+    public function parseTypeName($typeName)
+    {
+        // We expect a validation strategy and an optional validation argument
+        $typeNameParts = explode('(', $typeName);
+        switch (count($typeNameParts)) {
+            case 1:
+                // No argument present (only dtd or no validation)
+                $validationStrategy = $typeName;
+                if ($validationStrategy != XML_TYPE_DESCRIPTION_VALIDATE_NONE
+                        && $validationStrategy != XML_TYPE_DESCRIPTION_VALIDATE_DTD) {
+                    return false;
+                }
+                $validationSource = null;
+                break;
 
-		$this->_validationStrategy = $validationStrategy;
-		$this->_validationSource = $validationSource;
+            case 2:
+                // We have an argument (only available for schema and relax-ng)
+                $validationStrategy = $typeNameParts[0];
+                if ($validationStrategy != XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA
+                        && $validationStrategy != XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG) {
+                    return false;
+                }
+                $validationSource = trim($typeNameParts[1], ')');
+                break;
 
-		return true;
-	}
+            default:
+                return false;
+        }
 
-	/**
-	 * @copydoc TypeDescription::checkType()
-	 */
-	function checkType(&$object) {
-		// We only accept DOMDocument objects and source strings.
-		if (!is_a($object, 'DOMDocument') && !is_string($object)) return false;
+        $this->_validationStrategy = $validationStrategy;
+        $this->_validationSource = $validationSource;
 
-		// No validation...
-		if ($this->_validationStrategy == XML_TYPE_DESCRIPTION_VALIDATE_NONE) return true;
+        return true;
+    }
 
-		// Validation - requires DOMDocument
-		if (is_string($object)) {
-			$xmlDom = new DOMDocument();
-			$xmlDom->loadXML($object);
-		} else {
-			$xmlDom =& $object;
-		}
+    /**
+     * @copydoc TypeDescription::checkType()
+     */
+    public function checkType(&$object)
+    {
+        // We only accept DOMDocument objects and source strings.
+        if (!is_a($object, 'DOMDocument') && !is_string($object)) {
+            return false;
+        }
 
-		switch($this->_validationStrategy) {
-			// We have to suppress validation errors, otherwise the script
-			// will stop when validation errors occur.
-			case XML_TYPE_DESCRIPTION_VALIDATE_DTD:
-				if (!$xmlDom->validate()) return false;
-				break;
+        // No validation...
+        if ($this->_validationStrategy == XML_TYPE_DESCRIPTION_VALIDATE_NONE) {
+            return true;
+        }
 
-			case XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA:
-				libxml_use_internal_errors(true);
-				if (!$xmlDom->schemaValidate($this->_validationSource)) {
-					$errors = libxml_get_errors();
-					return false;
-				}
-				
-				break;
+        // Validation - requires DOMDocument
+        if (is_string($object)) {
+            $xmlDom = new DOMDocument();
+            $xmlDom->loadXML($object);
+        } else {
+            $xmlDom = & $object;
+        }
 
-			case XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG:
-				if (!$xmlDom->relaxNGValidate($this->_validationSource)) return false;
-				break;
+        switch ($this->_validationStrategy) {
+            // We have to suppress validation errors, otherwise the script
+            // will stop when validation errors occur.
+            case XML_TYPE_DESCRIPTION_VALIDATE_DTD:
+                if (!$xmlDom->validate()) {
+                    return false;
+                }
+                break;
 
-			default:
-				assert(false);
-		}
+            case XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA:
+                libxml_use_internal_errors(true);
+                if (!$xmlDom->schemaValidate($this->_validationSource)) {
+                    $errors = libxml_get_errors();
+                    return false;
+                }
 
-		return true;
-	}
+                break;
+
+            case XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG:
+                if (!$xmlDom->relaxNGValidate($this->_validationSource)) {
+                    return false;
+                }
+                break;
+
+            default:
+                assert(false);
+        }
+
+        return true;
+    }
 }
-

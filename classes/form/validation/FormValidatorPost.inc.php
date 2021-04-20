@@ -13,31 +13,34 @@
  * @brief Form validation check to make sure the form is POSTed.
  */
 
-import ('lib.pkp.classes.form.validation.FormValidator');
+import('lib.pkp.classes.form.validation.FormValidator');
 
-class FormValidatorPost extends FormValidator {
-	/**
-	 * Constructor.
-	 * @param $form Form
-	 * @param $message string the locale key to use (optional)
-	 */
-	function __construct(&$form, $message = 'form.postRequired') {
-		parent::__construct($form, 'dummy', FORM_VALIDATOR_REQUIRED_VALUE, $message);
-	}
+class FormValidatorPost extends FormValidator
+{
+    /**
+     * Constructor.
+     *
+     * @param $form Form
+     * @param $message string the locale key to use (optional)
+     */
+    public function __construct(&$form, $message = 'form.postRequired')
+    {
+        parent::__construct($form, 'dummy', FORM_VALIDATOR_REQUIRED_VALUE, $message);
+    }
 
 
-	//
-	// Public methods
-	//
-	/**
-	 * Check if form was posted.
-	 * overrides FormValidator::isValid()
-	 * @return boolean
-	 */
-	function isValid() {
-		$request = Application::get()->getRequest();
-		return $request->isPost();
-	}
+    //
+    // Public methods
+    //
+    /**
+     * Check if form was posted.
+     * overrides FormValidator::isValid()
+     *
+     * @return boolean
+     */
+    public function isValid()
+    {
+        $request = Application::get()->getRequest();
+        return $request->isPost();
+    }
 }
-
-

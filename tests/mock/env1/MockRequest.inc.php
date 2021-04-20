@@ -15,20 +15,23 @@
 
 namespace APP\core;
 
-use \PKP\core\PKPRequest;
+use PKP\core\PKPRequest;
 
-class Request extends PKPRequest {
-	private static $_requestMethod;
+class Request extends PKPRequest
+{
+    private static $_requestMethod;
 
-	public function setRequestMethod($requestMethod) {
-		self::$_requestMethod = $requestMethod;
-	}
+    public function setRequestMethod($requestMethod)
+    {
+        self::$_requestMethod = $requestMethod;
+    }
 
-	public function isPost() {
-		return (self::$_requestMethod == 'POST');
-	}
+    public function isPost()
+    {
+        return (self::$_requestMethod == 'POST');
+    }
 }
 
 if (!PKP_STRICT_MODE) {
-	class_alias('\APP\core\Request', '\Request');
+    class_alias('\APP\core\Request', '\Request');
 }

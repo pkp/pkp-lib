@@ -15,30 +15,31 @@
 
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
-class StageParticipantGridCellProvider extends DataObjectGridCellProvider {
-
-	//
-	// Template methods from GridCellProvider
-	//
-	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
-	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
-		switch ($column->getId()) {
-			case 'participants':
-				$stageAssignment = $row->getData();
-				$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-				$user = $userDao->getById($stageAssignment->getUserId());
-				assert($user);
-				return array('label' => $user?$user->getFullName():'');
-			default:
-				assert(false);
-		}
-	}
+class StageParticipantGridCellProvider extends DataObjectGridCellProvider
+{
+    //
+    // Template methods from GridCellProvider
+    //
+    /**
+     * Extracts variables for a given column from a data element
+     * so that they may be assigned to template before rendering.
+     *
+     * @param $row GridRow
+     * @param $column GridColumn
+     *
+     * @return array
+     */
+    public function getTemplateVarsFromRowColumn($row, $column)
+    {
+        switch ($column->getId()) {
+            case 'participants':
+                $stageAssignment = $row->getData();
+                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+                $user = $userDao->getById($stageAssignment->getUserId());
+                assert($user);
+                return ['label' => $user ? $user->getFullName() : ''];
+            default:
+                assert(false);
+        }
+    }
 }
-
-

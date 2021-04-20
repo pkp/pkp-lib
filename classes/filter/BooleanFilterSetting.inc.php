@@ -17,28 +17,30 @@
 import('lib.pkp.classes.filter.FilterSetting');
 import('lib.pkp.classes.form.validation.FormValidatorBoolean');
 
-class BooleanFilterSetting extends FilterSetting {
-	/**
-	 * Constructor
-	 *
-	 * @param $name string
-	 * @param $displayName string
-	 * @param $validationMessage string
-	 */
-	function __construct($name, $displayName, $validationMessage) {
-		parent::__construct($name, $displayName, $validationMessage, FORM_VALIDATOR_OPTIONAL_VALUE);
-	}
+class BooleanFilterSetting extends FilterSetting
+{
+    /**
+     * Constructor
+     *
+     * @param $name string
+     * @param $displayName string
+     * @param $validationMessage string
+     */
+    public function __construct($name, $displayName, $validationMessage)
+    {
+        parent::__construct($name, $displayName, $validationMessage, FORM_VALIDATOR_OPTIONAL_VALUE);
+    }
 
 
-	//
-	// Implement abstract template methods from FilterSetting
-	//
-	/**
-	 * @see FilterSetting::getCheck()
-	 */
-	function &getCheck(&$form) {
-		$check = new FormValidatorBoolean($form, $this->getName(), $this->getValidationMessage());
-		return $check;
-	}
+    //
+    // Implement abstract template methods from FilterSetting
+    //
+    /**
+     * @see FilterSetting::getCheck()
+     */
+    public function &getCheck(&$form)
+    {
+        $check = new FormValidatorBoolean($form, $this->getName(), $this->getValidationMessage());
+        return $check;
+    }
 }
-

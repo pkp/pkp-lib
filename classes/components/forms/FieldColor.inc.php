@@ -11,8 +11,11 @@
  *
  * @brief A color picker field in a form.
  */
+
 namespace PKP\components\forms;
-class FieldColor extends Field {
-	/** @copydoc Field::$component */
-	public $component = 'field-color';
+
+class FieldColor extends Field
+{
+    /** @copydoc Field::$component */
+    public $component = 'field-color';
 }

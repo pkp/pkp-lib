@@ -16,25 +16,24 @@
 import('lib.pkp.classes.controllers.grid.GridRow');
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
-class AuthorOpenReviewAttachmentsGridHandler extends FileListGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		import('lib.pkp.controllers.grid.files.attachment.ReviewerReviewAttachmentGridDataProvider');
-		// Pass in null stageId to be set in initialize from request var.
-		// Show also files that are not viewable by default
-		parent::__construct(
-			new ReviewerReviewAttachmentGridDataProvider(SUBMISSION_FILE_REVIEW_ATTACHMENT, false),
-			null
-		);
+class AuthorOpenReviewAttachmentsGridHandler extends FileListGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        import('lib.pkp.controllers.grid.files.attachment.ReviewerReviewAttachmentGridDataProvider');
+        // Pass in null stageId to be set in initialize from request var.
+        // Show also files that are not viewable by default
+        parent::__construct(
+            new ReviewerReviewAttachmentGridDataProvider(SUBMISSION_FILE_REVIEW_ATTACHMENT, false),
+            null
+        );
 
-		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
-			array('fetchGrid', 'fetchRow')
-		);
-
-	}
+        $this->addRoleAssignment(
+            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
+            ['fetchGrid', 'fetchRow']
+        );
+    }
 }
-
-

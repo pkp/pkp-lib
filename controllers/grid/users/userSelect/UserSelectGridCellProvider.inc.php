@@ -15,40 +15,44 @@
 
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
-class UserSelectGridCellProvider extends DataObjectGridCellProvider {
-	/** @var int User ID of already-selected user */
-	var $_userId;
+class UserSelectGridCellProvider extends DataObjectGridCellProvider
+{
+    /** @var int User ID of already-selected user */
+    public $_userId;
 
-	/**
-	 * Constructor
-	 * @param $userId int ID of preselected user.
-	 */
-	function __construct($userId = null) {
-		$this->_userId = $userId;
-	}
+    /**
+     * Constructor
+     *
+     * @param $userId int ID of preselected user.
+     */
+    public function __construct($userId = null)
+    {
+        $this->_userId = $userId;
+    }
 
-	//
-	// Template methods from GridCellProvider
-	//
-	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
-	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
-		$element = $row->getData();
-		assert(is_a($element, 'User'));
-		switch ($column->getId()) {
-			case 'select': // Displays the radio option
-				return array('rowId' => $row->getId(), 'userId' => $this->_userId);
+    //
+    // Template methods from GridCellProvider
+    //
+    /**
+     * Extracts variables for a given column from a data element
+     * so that they may be assigned to template before rendering.
+     *
+     * @param $row GridRow
+     * @param $column GridColumn
+     *
+     * @return array
+     */
+    public function getTemplateVarsFromRowColumn($row, $column)
+    {
+        $element = $row->getData();
+        assert(is_a($element, 'User'));
+        switch ($column->getId()) {
+            case 'select': // Displays the radio option
+                return ['rowId' => $row->getId(), 'userId' => $this->_userId];
 
-			case 'name': // User's name
-				return array('label' => $element->getFullName());
-		}
-		assert(false);
-	}
+            case 'name': // User's name
+                return ['label' => $element->getFullName()];
+        }
+        assert(false);
+    }
 }
-
-

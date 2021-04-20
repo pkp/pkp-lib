@@ -13,95 +13,99 @@
  * @brief CLI Deployment for Import/Export operations
  */
 
-class PKPNativeImportExportCLIDeployment {
+class PKPNativeImportExportCLIDeployment
+{
+    /** @var string The import/export script name */
+    private $scriptName;
 
-	/** @var string The import/export script name */
-	private $scriptName;
+    /** @var array The import/export arguments */
+    public $args;
 
-	/** @var array The import/export arguments */
-	public $args;
+    /** @var array The import/export additional directives */
+    public $opts;
 
-	/** @var array The import/export additional directives */
-	public $opts;
+    /** @var string The import/export command */
+    public $command;
 
-	/** @var string The import/export command */
-	public $command;
+    /** @var string The import/export xml file name */
+    public $xmlFile;
 
-	/** @var string The import/export xml file name */
-	public $xmlFile;
+    /** @var string The import/export operation context path */
+    public $contextPath;
 
-	/** @var string The import/export operation context path */
-	public $contextPath;
+    /** @var string The import/export operation user name */
+    public $userName;
 
-	/** @var string The import/export operation user name */
-	public $userName;
+    /** @var string The export entity */
+    public $exportEntity;
 
-	/** @var string The export entity */
-	public $exportEntity;
+    /**
+     * Constructor
+     */
+    public function __construct($scriptName, $args)
+    {
+        $this->scriptName = $scriptName;
+        $this->args = $args;
 
-	/**
-	 * Constructor
-	 */
-	function __construct($scriptName, $args) {
-		$this->scriptName = $scriptName;
-		$this->args = $args;
+        $this->parseCLI();
+    }
 
-		$this->parseCLI();
-	}
+    /**
+     * Parse CLI Command to populate the Deployment's variables
+     */
+    public function parseCLI()
+    {
+        $this->opts = $this->parseOpts($this->args, ['no-embed', 'use-file-urls']);
+        $this->command = array_shift($this->args);
+        $this->xmlFile = array_shift($this->args);
+        $this->contextPath = array_shift($this->args);
 
-	/**
-	 * Parse CLI Command to populate the Deployment's variables
-	 */
-	function parseCLI() {
-		$this->opts = $this->parseOpts($this->args, ['no-embed', 'use-file-urls']);
-		$this->command = array_shift($this->args);
-		$this->xmlFile = array_shift($this->args);
-		$this->contextPath = array_shift($this->args);
+        switch ($this->command) {
+            case 'import':
+                $this->userName = array_shift($this->args);
+                break;
+            case 'export':
+                $this->exportEntity = array_shift($this->args);
+                break;
+            default:
+                throw new BadMethodCallException('Unknown command ' . $this->command);
+        }
+    }
 
-		switch ($this->command) {
-			case 'import':
-				$this->userName = array_shift($this->args);
-				break;
-			case 'export':
-				$this->exportEntity = array_shift($this->args);
-				break;
-			default:
-				throw new BadMethodCallException('Unknown command ' . $this->command);
-		}
-	}
-
-	/**
-	 * Pull out getopt style long options.
-	 * WARNING: This method is checked for by name in DepositPackage in the PLN plugin
-	 * to determine if options are supported!
-	 * @param &$args array
-	 * #param $optCodes array
-	 */
-	function parseOpts(&$args, $optCodes) {
-		$newArgs = [];
-		$opts = [];
-		$sticky = null;
-		foreach ($args as $arg) {
-			if ($sticky) {
-				$opts[$sticky] = $arg;
-				$sticky = null;
-				continue;
-			}
-			if (substr($arg, 0, 2) != '--') {
-				$newArgs[] = $arg;
-				continue;
-			}
-			$opt = substr($arg, 2);
-			if (in_array($opt, $optCodes)) {
-				$opts[$opt] = true;
-				continue;
-			}
-			if (in_array($opt . ":", $optCodes)) {
-				$sticky = $opt;
-				continue;
-			}
-		}
-		$args = $newArgs;
-		return $opts;
-	}
+    /**
+     * Pull out getopt style long options.
+     * WARNING: This method is checked for by name in DepositPackage in the PLN plugin
+     * to determine if options are supported!
+     *
+     * @param &$args array
+     * #param $optCodes array
+     */
+    public function parseOpts(&$args, $optCodes)
+    {
+        $newArgs = [];
+        $opts = [];
+        $sticky = null;
+        foreach ($args as $arg) {
+            if ($sticky) {
+                $opts[$sticky] = $arg;
+                $sticky = null;
+                continue;
+            }
+            if (substr($arg, 0, 2) != '--') {
+                $newArgs[] = $arg;
+                continue;
+            }
+            $opt = substr($arg, 2);
+            if (in_array($opt, $optCodes)) {
+                $opts[$opt] = true;
+                continue;
+            }
+            if (in_array($opt . ':', $optCodes)) {
+                $sticky = $opt;
+                continue;
+            }
+        }
+        $args = $newArgs;
+        return $opts;
+    }
 }

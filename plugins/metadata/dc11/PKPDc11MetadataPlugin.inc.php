@@ -19,47 +19,50 @@
 
 import('lib.pkp.classes.plugins.MetadataPlugin');
 
-class PKPDc11MetadataPlugin extends MetadataPlugin {
+class PKPDc11MetadataPlugin extends MetadataPlugin
+{
+    //
+    // Override protected template methods from Plugin
+    //
+    /**
+     * @copydoc Plugin::getName()
+     */
+    public function getName()
+    {
+        return 'Dc11MetadataPlugin';
+    }
 
-	//
-	// Override protected template methods from Plugin
-	//
-	/**
-	 * @copydoc Plugin::getName()
-	 */
-	function getName() {
-		return 'Dc11MetadataPlugin';
-	}
+    /**
+     * @copydoc Plugin::getDisplayName()
+     */
+    public function getDisplayName()
+    {
+        return __('plugins.metadata.dc11.displayName');
+    }
 
-	/**
-	 * @copydoc Plugin::getDisplayName()
-	 */
-	function getDisplayName() {
-		return __('plugins.metadata.dc11.displayName');
-	}
+    /**
+     * @copydoc Plugin::getDescription()
+     */
+    public function getDescription()
+    {
+        return __('plugins.metadata.dc11.description');
+    }
 
-	/**
-	 * @copydoc Plugin::getDescription()
-	 */
-	function getDescription() {
-		return __('plugins.metadata.dc11.description');
-	}
+    /**
+     * @copydoc MetadataPlugin::supportsFormat()
+     */
+    public function supportsFormat($format)
+    {
+        return $format === 'dc11';
+    }
 
-	/**
-	 * @copydoc MetadataPlugin::supportsFormat()
-	 */
-	public function supportsFormat($format) {
-		return $format === 'dc11';
-	}
-
-	/**
-	 * @copydoc MetadataPlugin::getSchemaObject()
-	 */
-	public function getSchemaObject($format) {
-		assert($this->supportsFormat($format));
-		import('plugins.metadata.dc11.schema.Dc11Schema');
-		return new Dc11Schema();
-	}
+    /**
+     * @copydoc MetadataPlugin::getSchemaObject()
+     */
+    public function getSchemaObject($format)
+    {
+        assert($this->supportsFormat($format));
+        import('plugins.metadata.dc11.schema.Dc11Schema');
+        return new Dc11Schema();
+    }
 }
-
-

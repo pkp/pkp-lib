@@ -9,6 +9,7 @@
  *
  * @class FormValidatorInSetTest
  * @ingroup tests_classes_form_validation
+ *
  * @see FormValidatorInSet
  *
  * @brief Test class for FormValidatorInSet.
@@ -17,23 +18,24 @@
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.form.Form');
 
-class FormValidatorInSetTest extends PKPTestCase {
-	/**
-	 * @covers FormValidatorInSet
-	 * @covers FormValidator
-	 */
-	public function testIsValid() {
-		$form = new Form('some template');
+class FormValidatorInSetTest extends PKPTestCase
+{
+    /**
+     * @covers FormValidatorInSet
+     * @covers FormValidator
+     */
+    public function testIsValid()
+    {
+        $form = new Form('some template');
 
-		// Instantiate test validator
-		$acceptedValues = array('val1', 'val2');
-		$validator = new FormValidatorInSet($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $acceptedValues);
+        // Instantiate test validator
+        $acceptedValues = ['val1', 'val2'];
+        $validator = new FormValidatorInSet($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $acceptedValues);
 
-		$form->setData('testData', 'val1');
-		self::assertTrue($validator->isValid());
+        $form->setData('testData', 'val1');
+        self::assertTrue($validator->isValid());
 
-		$form->setData('testData', 'anything else');
-		self::assertFalse($validator->isValid());
-	}
+        $form->setData('testData', 'anything else');
+        self::assertFalse($validator->isValid());
+    }
 }
-

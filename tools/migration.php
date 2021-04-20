@@ -13,62 +13,67 @@
 
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
-class migrationTool extends CommandLineTool {
-	/** @var string Name (fully qualified) of migration class */
-	protected $class;
+class migrationTool extends CommandLineTool
+{
+    /** @var string Name (fully qualified) of migration class */
+    protected $class;
 
-	/** @var string "up" or "down" */
-	protected $direction;
+    /** @var string "up" or "down" */
+    protected $direction;
 
-	/**
-	 * Constructor
-	 */
-	public function __construct($argv = []) {
-		parent::__construct($argv);
+    /**
+     * Constructor
+     */
+    public function __construct($argv = [])
+    {
+        parent::__construct($argv);
 
-		array_shift($argv); // Shift the tool name off the top
+        array_shift($argv); // Shift the tool name off the top
 
-		$this->class = array_shift($argv);
-		$this->direction = array_shift($argv);
+        $this->class = array_shift($argv);
+        $this->direction = array_shift($argv);
 
-		// The source file/directory must be specified and exist.
-		if (empty($this->class)) {
-			$this->usage();
-			exit(2);
-		}
+        // The source file/directory must be specified and exist.
+        if (empty($this->class)) {
+            $this->usage();
+            exit(2);
+        }
 
-		// The migration direction.
-		if (!in_array($this->direction, ['up', 'down'])) {
-			$this->usage();
-			exit(3);
-		}
-	}
+        // The migration direction.
+        if (!in_array($this->direction, ['up', 'down'])) {
+            $this->usage();
+            exit(3);
+        }
+    }
 
-	/**
-	 * Print command usage information.
-	 */
-	public function usage() {
-		echo "Run a migration.\n\n"
-			. "Usage: {$this->scriptName} qualified.migration.name [up|down]\n\n";
-	}
+    /**
+     * Print command usage information.
+     */
+    public function usage()
+    {
+        echo "Run a migration.\n\n"
+            . "Usage: {$this->scriptName} qualified.migration.name [up|down]\n\n";
+    }
 
-	/**
-	 * Execute the specified migration.
-	 */
-	public function execute() {
-		try {
-			$migration = instantiate($this->class, ['Illuminate\Database\Migrations\Migration']);
-			if (!$migration) throw new Exception('Could not instantiate "' . $this->class . "\"!");
+    /**
+     * Execute the specified migration.
+     */
+    public function execute()
+    {
+        try {
+            $migration = instantiate($this->class, ['Illuminate\Database\Migrations\Migration']);
+            if (!$migration) {
+                throw new Exception('Could not instantiate "' . $this->class . '"!');
+            }
 
-			$direction = $this->direction;
-			$migration->$direction();
-		} catch (Exception $e) {
-			echo 'ERROR: ' . $e->getMessage() . "\n\n";
-			exit(2);
-		}
-	}
+            $direction = $this->direction;
+            $migration->$direction();
+        } catch (Exception $e) {
+            echo 'ERROR: ' . $e->getMessage() . "\n\n";
+            exit(2);
+        }
+    }
 }
 
-$tool = new migrationTool(isset($argv) ? $argv : []);
+$tool = new migrationTool($argv ?? []);
 $tool->execute();
-

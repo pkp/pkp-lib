@@ -13,39 +13,43 @@
  * @brief Class to represent a form validation error.
  */
 
-class FormError {
+class FormError
+{
+    /** The name of the field */
+    public $field;
 
-	/** The name of the field */
-	var $field;
+    /** The error message */
+    public $message;
 
-	/** The error message */
-	var $message;
+    /**
+     * Constructor.
+     *
+     * @param $field string the name of the field
+     * @param $message string the error message (i18n key)
+     */
+    public function __construct($field, $message)
+    {
+        $this->field = $field;
+        $this->message = $message;
+    }
 
-	/**
-	 * Constructor.
-	 * @param $field string the name of the field
-	 * @param $message string the error message (i18n key)
-	 */
-	function __construct($field, $message) {
-		$this->field = $field;
-		$this->message = $message;
-	}
+    /**
+     * Get the field associated with the error.
+     *
+     * @return string
+     */
+    public function getField()
+    {
+        return $this->field;
+    }
 
-	/**
-	 * Get the field associated with the error.
-	 * @return string
-	 */
-	function getField() {
-		return $this->field;
-	}
-
-	/**
-	 * Get the error message (i18n key).
-	 * @return string
-	 */
-	function getMessage() {
-		return $this->message;
-	}
+    /**
+     * Get the error message (i18n key).
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
 }
-
-

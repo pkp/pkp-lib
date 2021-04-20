@@ -15,18 +15,17 @@
 
 import('lib.pkp.classes.controllers.grid.GridCategoryRow');
 
-class PluginCategoryGridRow extends GridCategoryRow {
-
-	//
-	// Overridden methods from GridCategoryRow
-	//
-	/**
-	 * @copydoc GridCategoryRow::getCategoryLabel()
-	 */
-	function getCategoryLabel() {
-		$pluginCategory = $this->getData();
-		return __("plugins.categories.$pluginCategory");
-	}
+class PluginCategoryGridRow extends GridCategoryRow
+{
+    //
+    // Overridden methods from GridCategoryRow
+    //
+    /**
+     * @copydoc GridCategoryRow::getCategoryLabel()
+     */
+    public function getCategoryLabel()
+    {
+        $pluginCategory = $this->getData();
+        return __("plugins.categories.${pluginCategory}");
+    }
 }
-
-

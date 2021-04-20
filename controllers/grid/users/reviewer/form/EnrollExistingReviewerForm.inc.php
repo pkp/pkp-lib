@@ -15,54 +15,60 @@
 
 import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerForm');
 
-class EnrollExistingReviewerForm extends ReviewerForm {
-	/**
-	 * Constructor.
-	 */
-	function __construct($submission, $reviewRound) {
-		parent::__construct($submission, $reviewRound);
-		$this->setTemplate('controllers/grid/users/reviewer/form/enrollExistingReviewerForm.tpl');
+class EnrollExistingReviewerForm extends ReviewerForm
+{
+    /**
+     * Constructor.
+     */
+    public function __construct($submission, $reviewRound)
+    {
+        parent::__construct($submission, $reviewRound);
+        $this->setTemplate('controllers/grid/users/reviewer/form/enrollExistingReviewerForm.tpl');
 
-		$this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
-		$this->addCheck(new FormValidator($this, 'userId', 'required', 'manager.people.existingUserRequired'));
-	}
+        $this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
+        $this->addCheck(new FormValidator($this, 'userId', 'required', 'manager.people.existingUserRequired'));
+    }
 
-	/**
-	 * @copydoc Form::fetch()
-	 */
-	function fetch($request, $template = null, $display = false) {
-		$advancedSearchAction = $this->getAdvancedSearchAction($request);
+    /**
+     * @copydoc Form::fetch()
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        $advancedSearchAction = $this->getAdvancedSearchAction($request);
 
-		$this->setReviewerFormAction($advancedSearchAction);
-		return parent::fetch($request, $template, $display);
-	}
+        $this->setReviewerFormAction($advancedSearchAction);
+        return parent::fetch($request, $template, $display);
+    }
 
-	/**
-	 * Assign form data to user-submitted data.
-	 * @see Form::readInputData()
-	 */
-	function readInputData() {
-		parent::readInputData();
+    /**
+     * Assign form data to user-submitted data.
+     *
+     * @see Form::readInputData()
+     */
+    public function readInputData()
+    {
+        parent::readInputData();
 
-		$this->readUserVars(array('userId', 'userGroupId'));
-	}
+        $this->readUserVars(['userId', 'userGroupId']);
+    }
 
-	/**
-	 * @copydoc Form::execute()
-	 */
-	function execute(...$functionArgs) {
-		// Assign a reviewer user group to an existing non-reviewer
-		$userId = (int) $this->getData('userId');
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionArgs)
+    {
+        // Assign a reviewer user group to an existing non-reviewer
+        $userId = (int) $this->getData('userId');
 
-		$userGroupId = (int) $this->getData('userGroupId');
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$userGroupDao->assignUserToGroup($userId, $userGroupId);
+        $userGroupId = (int) $this->getData('userGroupId');
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroupDao->assignUserToGroup($userId, $userGroupId);
 
-		// Set the reviewerId in the Form for the parent class to use
-		$this->setData('reviewerId', $userId);
+        // Set the reviewerId in the Form for the parent class to use
+        $this->setData('reviewerId', $userId);
 
-		return parent::execute(...$functionArgs);
-	}
+        return parent::execute(...$functionArgs);
+    }
 }
-
-

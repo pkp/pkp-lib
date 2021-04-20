@@ -13,51 +13,51 @@
  * @brief Interface that DAOs would need to implement in order for pub ID support to be added.
  */
 
-interface PKPPubIdPluginDAO {
+interface PKPPubIdPluginDAO
+{
+    /**
+     * Checks if public identifier exists (other than for the specified
+     * submission ID, which is treated as an exception).
+     *
+     * @param $pubIdType string One of the NLM pub-id-type values or
+     * 'other::something' if not part of the official NLM list
+     * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+     * @param $pubId string
+     * @param $excludePubObjectId int ID of the pub object to be excluded from the search.
+     * @param $contextId int
+     *
+     * @return boolean
+     */
+    public function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId);
 
-	/**
-	 * Checks if public identifier exists (other than for the specified
-	 * submission ID, which is treated as an exception).
-	 *
-	 * @param $pubIdType string One of the NLM pub-id-type values or
-	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-	 * @param $pubId string
-	 * @param $excludePubObjectId int ID of the pub object to be excluded from the search.
-	 * @param $contextId int
-	 * @return boolean
-	 */
-	function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId);
+    /**
+     * Change the public ID of a submission.
+     *
+     * @param $pubObjectId int ID of the pub object
+     * @param $pubIdType string One of the NLM pub-id-type values or
+     * 'other::something' if not part of the official NLM list
+     * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+     * @param $pubId string
+     */
+    public function changePubId($pubObjectId, $pubIdType, $pubId);
 
-	/**
-	 * Change the public ID of a submission.
-	 * @param $pubObjectId int ID of the pub object
-	 * @param $pubIdType string One of the NLM pub-id-type values or
-	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-	 * @param $pubId string
-	 */
-	function changePubId($pubObjectId, $pubIdType, $pubId);
+    /**
+     * Delete the public ID of a submission.
+     *
+     * @param $pubObjectId int ID of the pub object
+     * @param $pubIdType string One of the NLM pub-id-type values or
+     * 'other::something' if not part of the official NLM list
+     * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+     */
+    public function deletePubId($pubObjectId, $pubIdType);
 
-	/**
-	 * Delete the public ID of a submission.
-	 * @param $pubObjectId int ID of the pub object
-	 * @param $pubIdType string One of the NLM pub-id-type values or
-	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-	 */
-	function deletePubId($pubObjectId, $pubIdType);
-
-	/**
-	 * Delete the public IDs of all submissions in this context.
-	 * @param $contextId int
-	 * @param $pubIdType string One of the NLM pub-id-type values or
-	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-	 */
-	function deleteAllPubIds($contextId, $pubIdType);
-
-
+    /**
+     * Delete the public IDs of all submissions in this context.
+     *
+     * @param $contextId int
+     * @param $pubIdType string One of the NLM pub-id-type values or
+     * 'other::something' if not part of the official NLM list
+     * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+     */
+    public function deleteAllPubIds($contextId, $pubIdType);
 }
-
-

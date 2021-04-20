@@ -14,26 +14,29 @@
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
 
-class QueryNoteFilesCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProvider {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct(SUBMISSION_FILE_QUERY);
-	}
+class QueryNoteFilesCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProvider
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct(SUBMISSION_FILE_QUERY);
+    }
 
 
-	//
-	// Overriden public methods from SubmissionFilesCategoryGridDataProvider
-	//
-	/**
-	 * @copydoc SubmissionFilesCategoryGridDataProvider::initGridDataProvider()
-	 */
-	function initGridDataProvider($fileStage, $initParams = null) {
-		$request = Application::get()->getRequest();
-		import('lib.pkp.controllers.grid.files.query.QueryNoteFilesGridDataProvider');
-		return new QueryNoteFilesGridDataProvider($request->getUserVar('noteId'));
-	}
+    //
+    // Overriden public methods from SubmissionFilesCategoryGridDataProvider
+    //
+    /**
+     * @copydoc SubmissionFilesCategoryGridDataProvider::initGridDataProvider()
+     *
+     * @param null|mixed $initParams
+     */
+    public function initGridDataProvider($fileStage, $initParams = null)
+    {
+        $request = Application::get()->getRequest();
+        import('lib.pkp.controllers.grid.files.query.QueryNoteFilesGridDataProvider');
+        return new QueryNoteFilesGridDataProvider($request->getUserVar('noteId'));
+    }
 }
-
-

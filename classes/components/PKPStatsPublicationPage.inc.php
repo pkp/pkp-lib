@@ -12,68 +12,68 @@
  * @brief A class to prepare the data object for the publication statistics
  *   UI component
  */
-namespace PKP\components;
 
-use PKP\components\PKPStatsComponent;
+namespace PKP\components;
 
 import('classes.statistics.StatisticsHelper');
 
-class PKPStatsPublicationPage extends PKPStatsComponent {
-	/** @var array A timeline of stats (eg - monthly) for a graph */
-	public $timeline = [];
+class PKPStatsPublicationPage extends PKPStatsComponent
+{
+    /** @var array A timeline of stats (eg - monthly) for a graph */
+    public $timeline = [];
 
-	/** @var string Which time segment (eg - month) is displayed in the graph */
-	public $timelineInterval = STATISTICS_DIMENSION_MONTH;
+    /** @var string Which time segment (eg - month) is displayed in the graph */
+    public $timelineInterval = STATISTICS_DIMENSION_MONTH;
 
-	/** @var string Which views to show in the graph. Supports `abstract` or `galley`. */
-	public $timelineType = '';
+    /** @var string Which views to show in the graph. Supports `abstract` or `galley`. */
+    public $timelineType = '';
 
-	/** @var array List of items to display stats for */
-	public $items = [];
+    /** @var array List of items to display stats for */
+    public $items = [];
 
-	/** @var integer The maximum number of items that stats can be shown for */
-	public $itemsMax = 0;
+    /** @var integer The maximum number of items that stats can be shown for */
+    public $itemsMax = 0;
 
-	/** @var integer How many items to show per page */
-	public $count = 30;
+    /** @var integer How many items to show per page */
+    public $count = 30;
 
-	/** @var string Order items by this property */
-	public $orderBy = '';
+    /** @var string Order items by this property */
+    public $orderBy = '';
 
-	/** @var string Order items in this direction: ASC or DESC*/
-	public $orderDirection = 'DESC';
+    /** @var string Order items in this direction: ASC or DESC*/
+    public $orderDirection = 'DESC';
 
-	/** @var string A search phrase to filter the list of items */
-	public $searchPhrase = '';
+    /** @var string A search phrase to filter the list of items */
+    public $searchPhrase = '';
 
-	/**
-	 * Retrieve the configuration data to be used when initializing this
-	 * handler on the frontend
-	 *
-	 * @return array Configuration data
-	 */
-	public function getConfig() {
+    /**
+     * Retrieve the configuration data to be used when initializing this
+     * handler on the frontend
+     *
+     * @return array Configuration data
+     */
+    public function getConfig()
+    {
+        $config = parent::getConfig();
 
-		$config = parent::getConfig();
+        $config = array_merge(
+            $config,
+            [
+                'timeline' => $this->timeline,
+                'timelineInterval' => $this->timelineInterval,
+                'timelineType' => $this->timelineType,
+                'items' => $this->items,
+                'itemsOfTotalLabel' => __('stats.publications.countOfTotal'),
+                'itemsMax' => $this->itemsMax,
+                'count' => $this->count,
+                'offset' => 0,
+                'searchPhrase' => '',
+                'orderBy' => $this->orderBy,
+                'orderDirection' => $this->orderDirection,
+                'isLoadingTimeline' => false,
+            ]
+        );
 
-		$config = array_merge(
-			$config,
-			[
-				'timeline' => $this->timeline,
-				'timelineInterval' => $this->timelineInterval,
-				'timelineType' => $this->timelineType,
-				'items' => $this->items,
-				'itemsOfTotalLabel' => __('stats.publications.countOfTotal'),
-				'itemsMax' => $this->itemsMax,
-				'count' => $this->count,
-				'offset' => 0,
-				'searchPhrase' => '',
-				'orderBy' => $this->orderBy,
-				'orderDirection' => $this->orderDirection,
-				'isLoadingTimeline' => false,
-			]
-		);
-
-		return $config;
-	}
+        return $config;
+    }
 }

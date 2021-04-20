@@ -16,23 +16,25 @@
 
 import('lib.pkp.classes.controllers.grid.feature.OrderItemsFeature');
 
-class OrderListbuilderItemsFeature extends OrderItemsFeature {
+class OrderListbuilderItemsFeature extends OrderItemsFeature
+{
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct(false);
+    }
 
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct(false);
-	}
 
-
-	//
-	// Extended methods from GridFeature.
-	//
-	/**
-	 * @see GridFeature::getJSClass()
-	 */
-	function getJSClass() {
-		return '$.pkp.classes.features.OrderListbuilderItemsFeature';
-	}
+    //
+    // Extended methods from GridFeature.
+    //
+    /**
+     * @see GridFeature::getJSClass()
+     */
+    public function getJSClass()
+    {
+        return '$.pkp.classes.features.OrderListbuilderItemsFeature';
+    }
 }

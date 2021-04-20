@@ -15,92 +15,104 @@
 
 import('lib.pkp.classes.controllers.grid.GridColumn');
 
-class FileNameGridColumn extends GridColumn {
-	/** @var boolean */
-	var $_includeNotes;
+class FileNameGridColumn extends GridColumn
+{
+    /** @var boolean */
+    public $_includeNotes;
 
-	/** @var int */
-	var $_stageId;
+    /** @var int */
+    public $_stageId;
 
-	/** @var boolean */
-	var $_removeHistoryTab;
+    /** @var boolean */
+    public $_removeHistoryTab;
 
-	/**
-	 * Constructor
-	 * @param $includeNotes boolean
-	 * @param $stageId int (optional)
-	 * @param $removeHistoryTab boolean (optional) Open the information center
-	 * without the history tab.
-	 */
-	function __construct($includeNotes = true, $stageId = null, $removeHistoryTab = false) {
-		$this->_includeNotes = $includeNotes;
-		$this->_stageId = $stageId;
-		$this->_removeHistoryTab = $removeHistoryTab;
+    /**
+     * Constructor
+     *
+     * @param $includeNotes boolean
+     * @param $stageId int (optional)
+     * @param $removeHistoryTab boolean (optional) Open the information center
+     * without the history tab.
+     */
+    public function __construct($includeNotes = true, $stageId = null, $removeHistoryTab = false)
+    {
+        $this->_includeNotes = $includeNotes;
+        $this->_stageId = $stageId;
+        $this->_removeHistoryTab = $removeHistoryTab;
 
-		import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
-		$cellProvider = new ColumnBasedGridCellProvider();
+        import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
+        $cellProvider = new ColumnBasedGridCellProvider();
 
-		parent::__construct('name', 'common.name', null, null, $cellProvider,
-			array('width' => 70, 'alignment' => COLUMN_ALIGNMENT_LEFT, 'anyhtml' => true));
-	}
-
-
-	//
-	// Public methods
-	//
-	/**
-	 * Method expected by ColumnBasedGridCellProvider
-	 * to render a cell in this column.
-	 *
-	 * @copydoc ColumnBasedGridCellProvider::getTemplateVarsFromRowColumn()
-	 */
-	function getTemplateVarsFromRow($row) {
-		$submissionFileData = $row->getData();
-		$submissionFile = $submissionFileData['submissionFile'];
-		assert(is_a($submissionFile, 'SubmissionFile'));
-		$fileExtension = pathinfo($submissionFile->getData('path'), PATHINFO_EXTENSION);
-		return array('label' => '<span class="file_extension ' . $fileExtension . '">' . $submissionFile->getId() . '</span>');
-	}
+        parent::__construct(
+            'name',
+            'common.name',
+            null,
+            null,
+            $cellProvider,
+            ['width' => 70, 'alignment' => COLUMN_ALIGNMENT_LEFT, 'anyhtml' => true]
+        );
+    }
 
 
-	//
-	// Override methods from GridColumn
-	//
-	/**
-	 * @copydoc GridColumn::getCellActions()
-	 */
-	function getCellActions($request, $row, $position = GRID_ACTION_POSITION_DEFAULT) {
-		$cellActions = parent::getCellActions($request, $row, $position);
+    //
+    // Public methods
+    //
+    /**
+     * Method expected by ColumnBasedGridCellProvider
+     * to render a cell in this column.
+     *
+     * @copydoc ColumnBasedGridCellProvider::getTemplateVarsFromRowColumn()
+     */
+    public function getTemplateVarsFromRow($row)
+    {
+        $submissionFileData = $row->getData();
+        $submissionFile = $submissionFileData['submissionFile'];
+        assert(is_a($submissionFile, 'SubmissionFile'));
+        $fileExtension = pathinfo($submissionFile->getData('path'), PATHINFO_EXTENSION);
+        return ['label' => '<span class="file_extension ' . $fileExtension . '">' . $submissionFile->getId() . '</span>'];
+    }
 
-		// Retrieve the submission file.
-		$submissionFileData =& $row->getData();
-		assert(isset($submissionFileData['submissionFile']));
-		$submissionFile = $submissionFileData['submissionFile']; /* @var $submissionFile SubmissionFile */
 
-		// Create the cell action to download a file.
-		import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
-		$cellActions[] = new DownloadFileLinkAction($request, $submissionFile, $this->_getStageId());
+    //
+    // Override methods from GridColumn
+    //
+    /**
+     * @copydoc GridColumn::getCellActions()
+     */
+    public function getCellActions($request, $row, $position = GRID_ACTION_POSITION_DEFAULT)
+    {
+        $cellActions = parent::getCellActions($request, $row, $position);
 
-		return $cellActions;
-	}
+        // Retrieve the submission file.
+        $submissionFileData = & $row->getData();
+        assert(isset($submissionFileData['submissionFile']));
+        $submissionFile = $submissionFileData['submissionFile']; /** @var SubmissionFile $submissionFile */
 
-	//
-	// Private methods
-	//
-	/**
-	 * Determine whether or not submission note status should be included.
-	 */
-	function _getIncludeNotes() {
-		return $this->_includeNotes;
-	}
+        // Create the cell action to download a file.
+        import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
+        $cellActions[] = new DownloadFileLinkAction($request, $submissionFile, $this->_getStageId());
 
-	/**
-	 * Get stage id, if any.
-	 * @return mixed int or null
-	 */
-	function _getStageId() {
-		return $this->_stageId;
-	}
+        return $cellActions;
+    }
+
+    //
+    // Private methods
+    //
+    /**
+     * Determine whether or not submission note status should be included.
+     */
+    public function _getIncludeNotes()
+    {
+        return $this->_includeNotes;
+    }
+
+    /**
+     * Get stage id, if any.
+     *
+     * @return mixed int or null
+     */
+    public function _getStageId()
+    {
+        return $this->_stageId;
+    }
 }
-
-

@@ -38,7 +38,6 @@
  *
  * @see TypeDescriptionFactory for more details about the type description
  * string representation.
- *
  * @see FilterDAO for more details about how type descriptions are used
  * to choose compatible filters for a given input/output type.
  */
@@ -46,182 +45,211 @@
 define('TYPE_DESCRIPTION_CARDINALITY_SCALAR', '-1');
 define('TYPE_DESCRIPTION_CARDINALITY_UNKNOWN', '0');
 
-class TypeDescription {
-	/** @var string the unparsed type name */
-	var $_typeName;
+class TypeDescription
+{
+    /** @var string the unparsed type name */
+    public $_typeName;
 
-	/** @var integer the cardinality of the type */
-	var $_cardinality;
+    /** @var integer the cardinality of the type */
+    public $_cardinality;
 
-	/**
-	 * Constructor
-	 *
-	 * @param $typeName string A plain text type name to be parsed
-	 *  by this type description class.
-	 *
-	 *  Type names can be any string. This base class provides a basic
-	 *  implementation for type cardinality (array-types) which can
-	 *  be re-used by all subclasses.
-	 *
-	 *  We currently do not support heterogeneous or multi-dimensional arrays
-	 *  because we don't have corresponding use cases. We may, however, expand
-	 *  our syntax later to accommodate that.
-	 *
-	 *  If you do not know the exact count of an array then you can leave the
-	 *  parentheses empty ([]).
-	 */
-	function __construct($typeName) {
-		$this->_typeName = $typeName;
-		if (!$this->_parseTypeNameInternally($typeName)) {
-			// Invalid type
-			fatalError('Trying to instantiate a "'.$this->getNamespace().'" type description with an invalid type name "'.$typeName.'".');
-		}
-	}
-
-
-	//
-	// Setters and Getters
-	//
-	/**
-	 * Get the type description's namespace string
-	 * @return string
-	 */
-	function getNamespace() {
-		// Must be implemented by subclasses.
-		assert(false);
-	}
-
-	/**
-	 * Get the unparsed type name
-	 * @return string
-	 */
-	function getTypeName() {
-		return $this->_typeName;
-	}
-
-	/**
-	 * Get the full unparsed type description
-	 * @return string
-	 */
-	function getTypeDescription() {
-		return $this->getNamespace().'::'.$this->getTypeName();
-	}
+    /**
+     * Constructor
+     *
+     * @param $typeName string A plain text type name to be parsed
+     *  by this type description class.
+     *
+     *  Type names can be any string. This base class provides a basic
+     *  implementation for type cardinality (array-types) which can
+     *  be re-used by all subclasses.
+     *
+     *  We currently do not support heterogeneous or multi-dimensional arrays
+     *  because we don't have corresponding use cases. We may, however, expand
+     *  our syntax later to accommodate that.
+     *
+     *  If you do not know the exact count of an array then you can leave the
+     *  parentheses empty ([]).
+     */
+    public function __construct($typeName)
+    {
+        $this->_typeName = $typeName;
+        if (!$this->_parseTypeNameInternally($typeName)) {
+            // Invalid type
+            fatalError('Trying to instantiate a "' . $this->getNamespace() . '" type description with an invalid type name "' . $typeName . '".');
+        }
+    }
 
 
-	//
-	// Public methods
-	//
-	/**
-	 * Checks whether the given object complies
-	 * with the type description.
-	 * @param $object mixed
-	 * @return boolean
-	 */
-	function isCompatible($object) {
-		// Null is never compatible
-		if (is_null($object)) return false;
+    //
+    // Setters and Getters
+    //
+    /**
+     * Get the type description's namespace string
+     *
+     * @return string
+     */
+    public function getNamespace()
+    {
+        // Must be implemented by subclasses.
+        assert(false);
+    }
 
-		// Check cardinality
-		if ($this->_cardinality == TYPE_DESCRIPTION_CARDINALITY_SCALAR) {
-			// Should be a scalar
-			if (!is_scalar($object) && !is_object($object)) return false;
+    /**
+     * Get the unparsed type name
+     *
+     * @return string
+     */
+    public function getTypeName()
+    {
+        return $this->_typeName;
+    }
 
-			// Delegate to subclass for type checking
-			if (!$this->checkType($object)) return false;
-		} else {
-			// Should be an array
-			if (!is_array($object)) return false;
-
-			if ($this->_cardinality !=  TYPE_DESCRIPTION_CARDINALITY_UNKNOWN) {
-				// We know an exact cardinality - so check it
-				if (count($object) != $this->_cardinality) return false;
-			}
-
-			// We currently only support homogeneous one-dimensional arrays.
-			foreach($object as $scalar) {
-				// Should be a scalar
-				if (!is_scalar($scalar) && !is_object($scalar)) return false;
-
-				// Delegate to subclass for type checking
-				if (!$this->checkType($scalar)) return false;
-			}
-		}
-
-		// All checks passed so the object complies to the type spec.
-		return true;
-	}
+    /**
+     * Get the full unparsed type description
+     *
+     * @return string
+     */
+    public function getTypeDescription()
+    {
+        return $this->getNamespace() . '::' . $this->getTypeName();
+    }
 
 
-	//
-	// Abstract template methods
-	//
-	/**
-	 * Parse a type name
-	 *
-	 * @param $typeName string
-	 * @return boolean true if success, otherwise false
-	 */
-	function parseTypeName($typeName) {
-		// Must be implemented by subclasses
-		assert(false);
-	}
+    //
+    // Public methods
+    //
+    /**
+     * Checks whether the given object complies
+     * with the type description.
+     *
+     * @param $object mixed
+     *
+     * @return boolean
+     */
+    public function isCompatible($object)
+    {
+        // Null is never compatible
+        if (is_null($object)) {
+            return false;
+        }
 
-	/**
-	 * Validates an object against the internal type description.
-	 *
-	 * @param $object mixed
-	 * @return boolean
-	 */
-	function checkType(&$object) {
-		// Must be implemented by subclasses
-		assert(false);
-	}
+        // Check cardinality
+        if ($this->_cardinality == TYPE_DESCRIPTION_CARDINALITY_SCALAR) {
+            // Should be a scalar
+            if (!is_scalar($object) && !is_object($object)) {
+                return false;
+            }
+
+            // Delegate to subclass for type checking
+            if (!$this->checkType($object)) {
+                return false;
+            }
+        } else {
+            // Should be an array
+            if (!is_array($object)) {
+                return false;
+            }
+
+            if ($this->_cardinality != TYPE_DESCRIPTION_CARDINALITY_UNKNOWN) {
+                // We know an exact cardinality - so check it
+                if (count($object) != $this->_cardinality) {
+                    return false;
+                }
+            }
+
+            // We currently only support homogeneous one-dimensional arrays.
+            foreach ($object as $scalar) {
+                // Should be a scalar
+                if (!is_scalar($scalar) && !is_object($scalar)) {
+                    return false;
+                }
+
+                // Delegate to subclass for type checking
+                if (!$this->checkType($scalar)) {
+                    return false;
+                }
+            }
+        }
+
+        // All checks passed so the object complies to the type spec.
+        return true;
+    }
 
 
-	//
-	// Private helper methods
-	//
-	/**
-	 * Takes a type name and parses the cardinality part of it
-	 * then delegate to the subclass to do the type-specific
-	 * parsing.
-	 *
-	 * @param $typeName string
-	 */
-	function _parseTypeNameInternally($typeName) {
-		// Identify cardinality
-		$typeNameParts = explode('[', $typeName);
-		switch(count($typeNameParts)) {
-			case 1:
-				// This is not an array
-				$this->_cardinality = TYPE_DESCRIPTION_CARDINALITY_SCALAR;
-				break;
+    //
+    // Abstract template methods
+    //
+    /**
+     * Parse a type name
+     *
+     * @param $typeName string
+     *
+     * @return boolean true if success, otherwise false
+     */
+    public function parseTypeName($typeName)
+    {
+        // Must be implemented by subclasses
+        assert(false);
+    }
 
-			case 2:
-				// This is an array, identify its cardinality
-				$typeName = $typeNameParts[0];
-				$cardinality = trim($typeNameParts[1], ']');
-				if($cardinality === '') {
-					// A variable length array
-					$this->_cardinality = TYPE_DESCRIPTION_CARDINALITY_UNKNOWN;
-				} elseif (is_numeric($cardinality)) {
-					// A fixed-length array
-					$cardinality = (int)$cardinality;
-					assert($cardinality > 0);
-					$this->_cardinality = $cardinality;
-				} else {
-					// Invalid type description
-					return false;
-				}
-				break;
+    /**
+     * Validates an object against the internal type description.
+     *
+     * @param $object mixed
+     *
+     * @return boolean
+     */
+    public function checkType(&$object)
+    {
+        // Must be implemented by subclasses
+        assert(false);
+    }
 
-			default:
-				// Invalid type description
-				return false;
-		}
 
-		// Delegate to the subclass to parse the actual type name.
-		return $this->parseTypeName($typeName);
-	}
+    //
+    // Private helper methods
+    //
+    /**
+     * Takes a type name and parses the cardinality part of it
+     * then delegate to the subclass to do the type-specific
+     * parsing.
+     *
+     * @param $typeName string
+     */
+    public function _parseTypeNameInternally($typeName)
+    {
+        // Identify cardinality
+        $typeNameParts = explode('[', $typeName);
+        switch (count($typeNameParts)) {
+            case 1:
+                // This is not an array
+                $this->_cardinality = TYPE_DESCRIPTION_CARDINALITY_SCALAR;
+                break;
+
+            case 2:
+                // This is an array, identify its cardinality
+                $typeName = $typeNameParts[0];
+                $cardinality = trim($typeNameParts[1], ']');
+                if ($cardinality === '') {
+                    // A variable length array
+                    $this->_cardinality = TYPE_DESCRIPTION_CARDINALITY_UNKNOWN;
+                } elseif (is_numeric($cardinality)) {
+                    // A fixed-length array
+                    $cardinality = (int)$cardinality;
+                    assert($cardinality > 0);
+                    $this->_cardinality = $cardinality;
+                } else {
+                    // Invalid type description
+                    return false;
+                }
+                break;
+
+            default:
+                // Invalid type description
+                return false;
+        }
+
+        // Delegate to the subclass to parse the actual type name.
+        return $this->parseTypeName($typeName);
+    }
 }
-

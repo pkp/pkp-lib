@@ -16,31 +16,32 @@
 import('lib.pkp.classes.linkAction.LinkAction');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
-class EmailLinkAction extends LinkAction {
-	/**
-	 * Constructor
-	 * @param $request Request
-	 * @param $modalTitle string Title of the modal
-	 * @param $actionArgs array The action arguments.
-	 */
-	function __construct($request, $modalTitle, $actionArgs) {
-		$router = $request->getRouter();
+class EmailLinkAction extends LinkAction
+{
+    /**
+     * Constructor
+     *
+     * @param $request Request
+     * @param $modalTitle string Title of the modal
+     * @param $actionArgs array The action arguments.
+     */
+    public function __construct($request, $modalTitle, $actionArgs)
+    {
+        $router = $request->getRouter();
 
-		// Instantiate the view email modal.
-		$ajaxModal = new AjaxModal(
-			$router->url($request, null, null, 'viewEmail', null, $actionArgs),
-			$modalTitle,
-			'modal_email'
-		);
+        // Instantiate the view email modal.
+        $ajaxModal = new AjaxModal(
+            $router->url($request, null, null, 'viewEmail', null, $actionArgs),
+            $modalTitle,
+            'modal_email'
+        );
 
-		// Configure the link action.
-		parent::__construct(
-			'viewEmail',
-			$ajaxModal,
-			$modalTitle,
-			'notify'
-		);
-	}
+        // Configure the link action.
+        parent::__construct(
+            'viewEmail',
+            $ajaxModal,
+            $modalTitle,
+            'notify'
+        );
+    }
 }
-
-

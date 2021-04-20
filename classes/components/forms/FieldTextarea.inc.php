@@ -11,23 +11,27 @@
  *
  * @brief A multiline textarea field in a form.
  */
+
 namespace PKP\components\forms;
-class FieldTextarea extends Field {
-	/** @copydoc Field::$component */
-	public $component = 'field-textarea';
 
-	/** @var string Optional. A preset size option. */
-	public $size;
+class FieldTextarea extends Field
+{
+    /** @copydoc Field::$component */
+    public $component = 'field-textarea';
 
-	/**
-	 * @copydoc Field::getConfig()
-	 */
-	public function getConfig() {
-		$config = parent::getConfig();
-		if (isset($this->size)) {
-			$config['size'] = $this->size;
-		}
+    /** @var string Optional. A preset size option. */
+    public $size;
 
-		return $config;
-	}
+    /**
+     * @copydoc Field::getConfig()
+     */
+    public function getConfig()
+    {
+        $config = parent::getConfig();
+        if (isset($this->size)) {
+            $config['size'] = $this->size;
+        }
+
+        return $config;
+    }
 }

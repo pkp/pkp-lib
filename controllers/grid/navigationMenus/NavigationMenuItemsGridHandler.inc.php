@@ -17,249 +17,266 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
 
-use \PKP\core\JSONMessage;
+use PKP\core\JSONMessage;
 
-class NavigationMenuItemsGridHandler extends GridHandler {
+class NavigationMenuItemsGridHandler extends GridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRoleAssignment(
+            ROLE_ID_MANAGER,
+            $ops = [
+                'fetchGrid', 'fetchRow',
+                'addNavigationMenuItem', 'editNavigationMenuItem',
+                'updateNavigationMenuItem',
+                'deleteNavigationMenuItem', 'saveSequence',
+            ]
+        );
+        $this->addRoleAssignment(ROLE_ID_SITE_ADMIN, $ops);
+    }
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-		$this->addRoleAssignment(
-			ROLE_ID_MANAGER,
-			$ops = array(
-				'fetchGrid', 'fetchRow',
-				'addNavigationMenuItem', 'editNavigationMenuItem',
-				'updateNavigationMenuItem',
-				'deleteNavigationMenuItem', 'saveSequence',
-			)
-		);
-		$this->addRoleAssignment(ROLE_ID_SITE_ADMIN, $ops);
-	}
+    //
+    // Overridden template methods
+    //
+    /**
+     * @copydoc GridHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        $context = $request->getContext();
+        $contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
-	//
-	// Overridden template methods
-	//
-	/**
-	 * @copydoc GridHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		$context = $request->getContext();
-		$contextId = $context?$context->getId():CONTEXT_ID_NONE;
+        import('lib.pkp.classes.security.authorization.PolicySet');
+        $rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
 
-		import('lib.pkp.classes.security.authorization.PolicySet');
-		$rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+        import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+        foreach ($roleAssignments as $role => $operations) {
+            $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
+        }
+        $this->addPolicy($rolePolicy);
 
-		import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
-		foreach($roleAssignments as $role => $operations) {
-			$rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
-		}
-		$this->addPolicy($rolePolicy);
+        $navigationMenuItemId = $request->getUserVar('navigationMenuItemId');
+        if ($navigationMenuItemId) {
+            $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
+            $navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId);
+            if (!$navigationMenuItem || $navigationMenuItem->getContextId() != $contextId) {
+                return false;
+            }
+        }
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-		$navigationMenuItemId = $request->getUserVar('navigationMenuItemId');
-		if ($navigationMenuItemId) {
-			$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
-			$navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId);
-			if (!$navigationMenuItem ||  $navigationMenuItem->getContextId() != $contextId) {
-				return false;
-			}
-		}
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+    /**
+     * @copydoc GridHandler::initialize()
+     *
+     * @param null|mixed $args
+     */
+    public function initialize($request, $args = null)
+    {
+        parent::initialize($request, $args);
 
-	/**
-	 * @copydoc GridHandler::initialize()
-	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+        // Basic grid configuration
+        $this->setTitle('manager.navigationMenuItems');
 
-		// Basic grid configuration
-		$this->setTitle('manager.navigationMenuItems');
+        // Set the no items row text
+        $this->setEmptyRowText('grid.navigationMenus.navigationMenuItems.noneExist');
 
-		// Set the no items row text
-		$this->setEmptyRowText('grid.navigationMenus.navigationMenuItems.noneExist');
+        // Columns
+        import('lib.pkp.controllers.grid.navigationMenus.NavigationMenuItemsGridCellProvider');
+        $navigationMenuItemsCellProvider = new NavigationMenuItemsGridCellProvider();
+        $this->addColumn(
+            new GridColumn(
+                'title',
+                'common.title',
+                null,
+                null,
+                $navigationMenuItemsCellProvider
+            )
+        );
 
-		// Columns
-		import('lib.pkp.controllers.grid.navigationMenus.NavigationMenuItemsGridCellProvider');
-		$navigationMenuItemsCellProvider = new NavigationMenuItemsGridCellProvider();
-		$this->addColumn(
-			new GridColumn('title',
-				'common.title',
-				null,
-				null,
-				$navigationMenuItemsCellProvider
-			)
-		);
+        // Load language components
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 
-		// Load language components
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
+        // Add grid action.
+        $router = $request->getRouter();
 
-		// Add grid action.
-		$router = $request->getRouter();
+        import('lib.pkp.classes.linkAction.request.AjaxModal');
 
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
+        $this->addAction(
+            new LinkAction(
+                'addNavigationMenuItem',
+                new AjaxModal(
+                    $router->url($request, null, null, 'addNavigationMenuItem', null, null),
+                    __('grid.action.addNavigationMenuItem'),
+                    'modal_add_item',
+                    true
+                ),
+                __('grid.action.addNavigationMenuItem'),
+                'add_item'
+            )
+        );
+    }
 
-		$this->addAction(
-			new LinkAction(
-				'addNavigationMenuItem',
-				new AjaxModal(
-					$router->url($request, null, null, 'addNavigationMenuItem', null, null),
-					__('grid.action.addNavigationMenuItem'),
-					'modal_add_item',
-					true
-				),
-				__('grid.action.addNavigationMenuItem'),
-				'add_item'
-			)
-		);
-	}
+    /**
+     * @copydoc GridHandler::loadData()
+     */
+    protected function loadData($request, $filter)
+    {
+        $context = $request->getContext();
 
-	/**
-	 * @copydoc GridHandler::loadData()
-	 */
-	protected function loadData($request, $filter) {
-		$context = $request->getContext();
+        $contextId = CONTEXT_ID_NONE;
+        if ($context) {
+            $contextId = $context->getId();
+        }
 
-		$contextId = CONTEXT_ID_NONE;
-		if ($context) {
-			$contextId = $context->getId();
-		}
+        $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
+        return $navigationMenuItemDao->getByContextId($contextId);
+    }
 
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
-		return $navigationMenuItemDao->getByContextId($contextId);
-	}
+    /**
+     * @copydoc GridHandler::getRowInstance()
+     */
+    protected function getRowInstance()
+    {
+        import('lib.pkp.controllers.grid.navigationMenus.NavigationMenuItemsGridRow');
+        return new NavigationMenuItemsGridRow();
+    }
 
-	/**
-	 * @copydoc GridHandler::getRowInstance()
-	 */
-	protected function getRowInstance() {
-		import('lib.pkp.controllers.grid.navigationMenus.NavigationMenuItemsGridRow');
-		return new NavigationMenuItemsGridRow();
+    //
+    // Public grid actions.
+    //
+    /**
+     * Update NavigationMenuItem
+     *
+     * @param $args array
+     * @param $request Request
+     *
+     * @return JSONMessage JSON object
+     */
+    public function updateNavigationMenuItem($args, $request)
+    {
+        $navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
+        $navigationMenuId = (int)$request->getUserVar('navigationMenuId');
+        $navigationMenuIdParent = (int)$request->getUserVar('navigationMenuIdParent');
+        $context = $request->getContext();
+        $contextId = CONTEXT_ID_NONE;
+        if ($context) {
+            $contextId = $context->getId();
+        }
 
-	}
+        import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
+        $navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
 
-	//
-	// Public grid actions.
-	//
-	/**
-	 * Update NavigationMenuItem
-	 * @param $args array
-	 * @param $request Request
-	 * @return JSONMessage JSON object
-	 */
-	function updateNavigationMenuItem($args, $request) {
-		$navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
-		$navigationMenuId = (int)$request->getUserVar('navigationMenuId');
-		$navigationMenuIdParent = (int)$request->getUserVar('navigationMenuIdParent');
-		$context = $request->getContext();
-		$contextId = CONTEXT_ID_NONE;
-		if ($context) {
-			$contextId = $context->getId();
-		}
+        $navigationMenuItemForm->readInputData();
 
-		import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
-		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
+        if ($navigationMenuItemForm->validate()) {
+            $navigationMenuItemForm->execute();
 
-		$navigationMenuItemForm->readInputData();
+            if ($navigationMenuItemId) {
+                // Successful edit of an existing $navigationMenuItem.
+                $notificationLocaleKey = 'notification.editedNavigationMenuItem';
+            } else {
+                // Successful added a new $navigationMenuItemForm.
+                $notificationLocaleKey = 'notification.addedNavigationMenuItem';
+            }
 
-		if ($navigationMenuItemForm->validate()) {
-			$navigationMenuItemForm->execute();
+            // Record the notification to user.
+            $notificationManager = new NotificationManager();
+            $user = $request->getUser();
+            $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __($notificationLocaleKey)]);
 
-			if ($navigationMenuItemId) {
-				// Successful edit of an existing $navigationMenuItem.
-				$notificationLocaleKey = 'notification.editedNavigationMenuItem';
-			} else {
-				// Successful added a new $navigationMenuItemForm.
-				$notificationLocaleKey = 'notification.addedNavigationMenuItem';
-			}
+            // Prepare the grid row data.
+            return \PKP\db\DAO::getDataChangedEvent($navigationMenuItemId);
+        } else {
+            return new JSONMessage(false);
+        }
+    }
 
-			// Record the notification to user.
-			$notificationManager = new NotificationManager();
-			$user = $request->getUser();
-			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __($notificationLocaleKey)));
+    /**
+     * Display form to edit a navigation menu item object.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function editNavigationMenuItem($args, $request)
+    {
+        $navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
+        $navigationMenuIdParent = (int) $request->getUserVar('navigationMenuIdParent');
+        $context = $request->getContext();
+        $contextId = CONTEXT_ID_NONE;
+        if ($context) {
+            $contextId = $context->getId();
+        }
 
-			// Prepare the grid row data.
-			return \PKP\db\DAO::getDataChangedEvent($navigationMenuItemId);
-		} else {
-			return new JSONMessage(false);
-		}
-	}
+        $navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
+        $navigationMenuItemForm->initData();
 
-	/**
-	 * Display form to edit a navigation menu item object.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function editNavigationMenuItem($args, $request) {
-		$navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
-		$navigationMenuIdParent = (int) $request->getUserVar('navigationMenuIdParent');
-		$context = $request->getContext();
-		$contextId = CONTEXT_ID_NONE;
-		if ($context) {
-			$contextId = $context->getId();
-		}
+        return new JSONMessage(true, $navigationMenuItemForm->fetch($request));
+    }
 
-		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
-		$navigationMenuItemForm->initData();
+    /**
+     * Add NavigationMenuItem
+     *
+     * @param $args array
+     * @param $request Request
+     *
+     * @return JSONMessage JSON object
+     */
+    public function addNavigationMenuItem($args, $request)
+    {
+        $navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
+        $navigationMenuIdParent = (int)$request->getUserVar('navigationMenuIdParent');
+        $context = $request->getContext();
+        $contextId = CONTEXT_ID_NONE;
+        if ($context) {
+            $contextId = $context->getId();
+        }
 
-		return new JSONMessage(true, $navigationMenuItemForm->fetch($request));
-	}
+        import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
+        $navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
 
-	/**
-	 * Add NavigationMenuItem
-	 * @param $args array
-	 * @param $request Request
-	 * @return JSONMessage JSON object
-	 */
-	function addNavigationMenuItem($args, $request) {
-		$navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
-		$navigationMenuIdParent = (int)$request->getUserVar('navigationMenuIdParent');
-		$context = $request->getContext();
-		$contextId = CONTEXT_ID_NONE;
-		if ($context) {
-			$contextId = $context->getId();
-		}
+        $navigationMenuItemForm->initData();
 
-		import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
-		$navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
+        return new JSONMessage(true, $navigationMenuItemForm->fetch($request));
+    }
 
-		$navigationMenuItemForm->initData();
+    /**
+     * Delete a navigation Menu item.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function deleteNavigationMenuItem($args, $request)
+    {
+        $navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
 
-		return new JSONMessage(true, $navigationMenuItemForm->fetch($request));
-	}
+        $context = $request->getContext();
+        $contextId = CONTEXT_ID_NONE;
+        if ($context) {
+            $contextId = $context->getId();
+        }
 
-	/**
-	 * Delete a navigation Menu item.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function deleteNavigationMenuItem($args, $request) {
-		$navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
+        $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
+        $navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId, $contextId);
+        if ($navigationMenuItem) {
+            $navigationMenuItemDao->deleteObject($navigationMenuItem);
 
-		$context = $request->getContext();
-		$contextId = CONTEXT_ID_NONE;
-		if ($context) {
-			$contextId = $context->getId();
-		}
+            // Create notification.
+            $notificationManager = new NotificationManager();
+            $user = $request->getUser();
+            $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedNavigationMenuItem')]);
 
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
-		$navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId, $contextId);
-		if ($navigationMenuItem) {
-			$navigationMenuItemDao->deleteObject($navigationMenuItem);
+            return \PKP\db\DAO::getDataChangedEvent($navigationMenuItemId);
+        }
 
-			// Create notification.
-			$notificationManager = new NotificationManager();
-			$user = $request->getUser();
-			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedNavigationMenuItem')));
-
-			return \PKP\db\DAO::getDataChangedEvent($navigationMenuItemId);
-		}
-
-		return new JSONMessage(false);
-	}
+        return new JSONMessage(false);
+    }
 }
-
-

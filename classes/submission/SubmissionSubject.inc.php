@@ -9,38 +9,44 @@
  *
  * @class SubmissionSubject
  * @ingroup submission
+ *
  * @see SubmissionSubjectEntryDAO
  *
  * @brief Basic class describing a submission subject
  */
 
-class SubmissionSubject extends \PKP\controlledVocab\ControlledVocabEntry {
-	//
-	// Get/set methods
-	//
+class SubmissionSubject extends \PKP\controlledVocab\ControlledVocabEntry
+{
+    //
+    // Get/set methods
+    //
 
-	/**
-	 * Get the subject
-	 * @return string
-	 */
-	function getSubject() {
-		return $this->getData('submissionSubject');
-	}
+    /**
+     * Get the subject
+     *
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->getData('submissionSubject');
+    }
 
-	/**
-	 * Set the subject text
-	 * @param subject string
-	 * @param locale string
-	 */
-	function setSubject($subject, $locale) {
-		$this->setData('submissionSubject', $subject, $locale);
-	}
+    /**
+     * Set the subject text
+     *
+     * @param subject string
+     * @param locale string
+     */
+    public function setSubject($subject, $locale)
+    {
+        $this->setData('submissionSubject', $subject, $locale);
+    }
 
-	/**
-	 * @copydoc \PKP\controlledVocab\ControlledVocabEntry::getLocaleMetadataFieldNames()
-	 */
-	function getLocaleMetadataFieldNames() {
-		return array('submissionSubject');
-	}
+    /**
+     * @copydoc \PKP\controlledVocab\ControlledVocabEntry::getLocaleMetadataFieldNames()
+     */
+    public function getLocaleMetadataFieldNames()
+    {
+        return ['submissionSubject'];
+    }
 }
-

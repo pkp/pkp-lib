@@ -16,73 +16,81 @@
 
 import('lib.pkp.classes.controllers.grid.CategoryGridDataProvider');
 
-class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider {
+class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider
+{
+    /** the context for this library **/
+    public $_context;
 
-	/** the context for this library **/
-	var $_context;
+    /** whether or not this grid is editable **/
+    public $_canEdit;
 
-	/** whether or not this grid is editable **/
-	var $_canEdit;
-
-	/**
-	 * Constructor
-	 */
-	function __construct($canEdit) {
-		$this->_canEdit = $canEdit;
-		parent::__construct();
-	}
-
-
-	//
-	// Getters and Setters
-	//
-
-	/**
-	 * @copydoc GridDataProvider::getAuthorizationPolicy()
-	 */
-	function getAuthorizationPolicy($request, $args, $roleAssignments) {
-		$this->_context = $request->getContext();
-		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		return new ContextAccessPolicy($request, $roleAssignments);
-	}
-
-	/**
-	 * @copydoc GridDataProvider::getRequestArgs()
-	 */
-	function getRequestArgs() {
-		return array('canEdit' => $this->canEdit());
-	}
-
-	/**
-	 * get the current context
-	 * @return $context Context
-	 */
-	function &getContext() {
-		return $this->_context;
-	}
+    /**
+     * Constructor
+     */
+    public function __construct($canEdit)
+    {
+        $this->_canEdit = $canEdit;
+        parent::__construct();
+    }
 
 
-	/**
-	 * get whether or not this grid is editable (has actions).
-	 * @return boolean $canEdit
-	 */
-	function canEdit() {
-		return $this->_canEdit;
-	}
+    //
+    // Getters and Setters
+    //
+
+    /**
+     * @copydoc GridDataProvider::getAuthorizationPolicy()
+     */
+    public function getAuthorizationPolicy($request, $args, $roleAssignments)
+    {
+        $this->_context = $request->getContext();
+        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+        return new ContextAccessPolicy($request, $roleAssignments);
+    }
+
+    /**
+     * @copydoc GridDataProvider::getRequestArgs()
+     */
+    public function getRequestArgs()
+    {
+        return ['canEdit' => $this->canEdit()];
+    }
+
+    /**
+     * get the current context
+     *
+     * @return $context Context
+     */
+    public function &getContext()
+    {
+        return $this->_context;
+    }
 
 
-	/**
-	 * @copydoc CategoryGridHandler::loadCategoryData()
-	 */
-	function loadCategoryData($request, $fileType, $filter = null) {
+    /**
+     * get whether or not this grid is editable (has actions).
+     *
+     * @return boolean $canEdit
+     */
+    public function canEdit()
+    {
+        return $this->_canEdit;
+    }
 
-		// Elements to be displayed in the grid
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
-		$context = $this->getContext();
-		$libraryFiles = $libraryFileDao->getByContextId($context->getId(), $fileType);
 
-		return $libraryFiles->toAssociativeArray();
-	}
+    /**
+     * @copydoc CategoryGridHandler::loadCategoryData()
+     *
+     * @param null|mixed $filter
+     */
+    public function loadCategoryData($request, $fileType, $filter = null)
+    {
+
+        // Elements to be displayed in the grid
+        $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
+        $context = $this->getContext();
+        $libraryFiles = $libraryFileDao->getByContextId($context->getId(), $fileType);
+
+        return $libraryFiles->toAssociativeArray();
+    }
 }
-
-

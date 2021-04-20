@@ -13,6 +13,7 @@
  *
  * @class PKPDc11MetadataPluginTest
  * @ingroup plugins_metadata_dc11_tests
+ *
  * @see PKPDc11MetadataPlugin
  *
  * @brief Test class for PKPDc11MetadataPlugin.
@@ -21,18 +22,19 @@
 
 import('lib.pkp.tests.plugins.metadata.MetadataPluginTestCase');
 
-class PKPDc11MetadataPluginTest extends MetadataPluginTestCase {
-	/**
-	 * @covers Dc11MetadataPlugin
-	 * @covers PKPDc11MetadataPlugin
-	 */
-	public function testDc11MetadataPlugin($appSpecificFilters) {
-		$this->executeMetadataPluginTest(
-			'dc11',
-			'Dc11MetadataPlugin',
-			$appSpecificFilters,
-			array()
-		);
-	}
+class PKPDc11MetadataPluginTest extends MetadataPluginTestCase
+{
+    /**
+     * @covers Dc11MetadataPlugin
+     * @covers PKPDc11MetadataPlugin
+     */
+    public function testDc11MetadataPlugin($appSpecificFilters)
+    {
+        $this->executeMetadataPluginTest(
+            'dc11',
+            'Dc11MetadataPlugin',
+            $appSpecificFilters,
+            []
+        );
+    }
 }
-

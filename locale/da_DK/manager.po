@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2021-03-19 21:54+0000\n"
+"PO-Revision-Date: 2021-04-20 15:27+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -2242,3 +2242,27 @@ msgstr ""
 
 msgid "manager.emails.otherTemplates"
 msgstr "Andre skabeloner"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "En eller flere af disse e-mail-adresser er ikke gyldige."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"En kopi af indsendelsesbekræftelses-e-mailen vil blive sendt til enhver af "
+"de e-mail-adresser, der er angivet her. Adskil flere e-mail-adresser med et "
+"komma. Eksempel: et@eksempel.com,andet@eksempel.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Underret alle"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Nej"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Ja, send en kopi til {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Informér primær kontakt"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Meddelelser"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2021-03-19 21:55+0000\n"
+"PO-Revision-Date: 2021-04-20 15:27+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
@@ -2150,3 +2150,27 @@ msgstr ""
 
 msgid "manager.emails.otherTemplates"
 msgstr "Outros Modelos"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Um ou mais destes endereços de e-mail não é válido."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Uma cópia do e-mail de confirmação de submissão será enviada para qualquer "
+"um dos endereços de e-mail inseridos aqui. Separe os vários endereços de e-"
+"mail com vírgula. Exemplo: um@exemplo.pt,dois@exemplo.pt"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Notificar Qualquer Pessoa"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Não"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Sim, enviar cópia para {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Notificar Contacto Principal"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Notificações"
